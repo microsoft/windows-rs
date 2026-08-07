@@ -529,6 +529,7 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Error-boundary ownership | Boundary identity and fallback state are node-owned |
 | Custom-element ownership | Handles and teardown are sparse native-node auxiliary state |
 | Templated-list ownership | Realized rows and callbacks are sparse templated-node state |
+| Native lifecycle ownership | Pre-unmount callbacks are sparse native-node state |
 | Path-scoped dirty traversal | Native parent walks replace the global flag and root-wide scan |
 | Reconciler state consolidation review | Complete; mounted ownership model planned |
 | Host/window state consolidation | `HostContext` introduced; six `Reconciler` fields removed |
@@ -537,7 +538,7 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Native ownership checks | Debug builds verify unique ownership and matching parent links |
 | Private-memory and peak-memory benchmark output | Added to text, JSON, and CSV output |
 | Typed element API and fragments | Not started |
-| Full mounted ownership evaluation | In progress |
+| Full mounted ownership evaluation | Complete |
 
 ### Invariants
 
@@ -597,9 +598,8 @@ performance risk.
 Evaluate the logical graph before expanding it. Move more state into mounted-node ownership only
 where the smaller graph cannot provide reliable replacement and teardown.
 
-Header and pane subtrees, templated rows, custom handles, selection/reorder callbacks, and error
-fallback state now live under mounted ownership. Pre-unmount callbacks remain the last lifecycle
-side map on `Reconciler`.
+Header and pane subtrees, templated rows, custom handles, selection/reorder callbacks, pre-unmount
+callbacks, and error fallback state now live under mounted ownership.
 
 If these move into a full mounted graph, migrate one category at a time. Positional, keyed, and
 templated algorithms should decide correspondence and order, but share the same identity, dirty,
@@ -623,7 +623,7 @@ This is more than a file-layout problem. Independent maps require every mount, r
 unmount path to remember the same set of cleanup operations. Header, pane, templated, custom, and
 error-boundary paths have already demonstrated how easily one map can be omitted.
 
-The target shape is:
+`Reconciler` now has the target ownership shape:
 
 ```rust,ignore
 struct Reconciler<B> {
@@ -703,6 +703,15 @@ unrealized 64-item list used about 54 KB per mount because every empty slot had 
 allocations, and the 4,096-item case has the same mount cost. Realized-row storage grows with the
 visible window rather than the item count.
 
+Pre-unmount callbacks now live in sparse native lifecycle storage under `MountedTree`. Registration,
+replacement, removal, and teardown all go through the tree, so a callback cannot outlive its
+native node. The last lifecycle side map has left `Reconciler`. The release `lifecycle_mount`
+benchmark reports 52 bytes and two allocations, matching a callback-free custom native mount.
+
+The three debug counters now live in `ReconcileStats`, available through `Reconciler::stats()`.
+`Reconciler` itself now contains only `backend`, `tree`, `pass`, `host`, and `stats`, matching the
+planned responsibility split.
+
 The existing side state should move as follows:
 
 | Current state | Intended owner |
@@ -712,7 +721,7 @@ The existing side state should move as follows:
 | error fallback state | Error-boundary node |
 | custom handles | Custom node |
 | templated state, selection, reorder, and deferred rows | Templated-list node (complete) |
-| pre-unmount callback | Node lifecycle state |
+| pre-unmount callback | Node lifecycle state (complete) |
 | forced nodes, forced controls, traversal scratch | `ReconcilePass` |
 | marshaller, host ID, size, DPI, rerender request | `HostContext` |
 
@@ -760,11 +769,10 @@ Rust should copy the small node invariants, not its hidden controls or accumulat
 Every consolidation step must state which fields and special-case branches it deletes. A new
 abstraction that only wraps the old maps without enabling their removal is not sufficient.
 
-Steps 1-6 are complete. Child, slot, custom, and templated storage remains sparse inside
-`MountedTree` rather than adding optional fields to every native or logical node. The next
-ownership work moves pre-unmount callbacks into native-node lifecycle state and then reassesses
-the remaining `Reconciler` fields. The resource, item-key, and exit-transition bugs can then be
-resolved against the final ownership model before typed public wrappers begin.
+Steps 1-7 are complete. Child, slot, custom, templated, and lifecycle storage remains sparse inside
+`MountedTree` rather than adding optional fields to every native or logical node. The remaining
+resource, item-key, and exit-transition bugs can now be resolved against the consolidated
+ownership model before typed public wrappers begin.
 
 ### Typed element API
 

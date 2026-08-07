@@ -95,7 +95,7 @@ fn reconcile_positional_live<B: Backend + 'static>(
             let child_id = reconciler.child_at(parent, i);
             let forced = child_id.is_some_and(|cid| reconciler.is_control_forced(cid));
             if !forced {
-                reconciler.debug_elements_skipped += 1;
+                reconciler.stats.elements_skipped += 1;
                 continue;
             }
         }
@@ -170,7 +170,7 @@ fn reconcile_keyed_live<B: Backend + 'static>(
                 if forced {
                     update_child_tracked(reconciler, parent, prefix, old_el, new_el);
                 } else {
-                    reconciler.debug_elements_skipped += 1;
+                    reconciler.stats.elements_skipped += 1;
                 }
             } else {
                 update_child_tracked(reconciler, parent, prefix, old_el, new_el);
@@ -207,7 +207,7 @@ fn reconcile_keyed_live<B: Backend + 'static>(
                 if forced {
                     update_child_tracked(reconciler, parent, panel_idx, old_el, new_el);
                 } else {
-                    reconciler.debug_elements_skipped += 1;
+                    reconciler.stats.elements_skipped += 1;
                 }
             } else {
                 update_child_tracked(reconciler, parent, panel_idx, old_el, new_el);

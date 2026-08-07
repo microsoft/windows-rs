@@ -35,7 +35,7 @@ use test_reactor::RecordingBackend;
 use windows_reactor::{
     Backend, Component, Context, ControlId, ControlKind, CustomElement, CustomElementHandle,
     Element, ElementExt, Reconciler, RenderCx, SetState, component, error_boundary, grid,
-    list_view, memo, text_block, vstack,
+    list_view, memo, swap_chain_panel, text_block, vstack,
 };
 
 static BYTES: AtomicU64 = AtomicU64::new(0);
@@ -248,10 +248,11 @@ fn bench_update(name: &str, n: usize, a: Element, b: Element, iters: u64, reps: 
         let id = r.reconcile(None, &a, None, Rc::clone(&rr)).unwrap();
         r.reset_stats();
         r.reconcile(Some(&a), &b, Some(id), Rc::clone(&rr));
+        let stats = r.stats();
         (
-            r.debug_elements_skipped,
-            r.debug_elements_diffed,
-            r.debug_ui_elements_created,
+            stats.elements_skipped,
+            stats.elements_diffed,
+            stats.ui_elements_created,
         )
     };
 
@@ -287,10 +288,11 @@ fn bench_mount_unmount(name: &str, n: usize, tree: Element, iters: u64, reps: u3
         let mut r = Reconciler::new(RecordingBackend::new());
         r.reset_stats();
         let id = r.reconcile(None, &tree, None, Rc::clone(&rr)).unwrap();
+        let stats = r.stats();
         let counts = (
-            r.debug_elements_skipped,
-            r.debug_elements_diffed,
-            r.debug_ui_elements_created,
+            stats.elements_skipped,
+            stats.elements_diffed,
+            stats.ui_elements_created,
         );
         r.unmount(id);
         counts
@@ -327,10 +329,11 @@ fn bench_dirty_component(
 
     setter.borrow().as_ref().unwrap().call(1);
     r.reconcile(Some(&tree), &tree, Some(id), Rc::clone(&rr));
+    let stats = r.stats();
     let counts = (
-        r.debug_elements_skipped,
-        r.debug_elements_diffed,
-        r.debug_ui_elements_created,
+        stats.elements_skipped,
+        stats.elements_diffed,
+        stats.ui_elements_created,
     );
     r.reset_stats();
 
@@ -402,6 +405,13 @@ fn main() {
         "custom_mount",
         1,
         Element::Custom(CustomElementHandle::new(BenchCustom)),
+        iters,
+        reps,
+    ));
+    rows.push(bench_mount_unmount(
+        "lifecycle_mount",
+        1,
+        swap_chain_panel().on_unmounted(|_| {}).into(),
         iters,
         reps,
     ));

@@ -22,9 +22,8 @@ impl<B: Backend + 'static> Reconciler<B> {
         if let Some(cb) = w.on_mounted_callback() {
             cb.invoke(self.backend.get_native_element(id));
         }
-        if let Some(cb) = w.on_unmounted_callback() {
-            self.unmount_callbacks.insert(id, cb.clone());
-        }
+        self.tree
+            .set_before_unmount(id, w.on_unmounted_callback().cloned());
         id
     }
 
@@ -35,11 +34,8 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.update_widget_children(id, old.children(), new.children());
         self.update_header_element(id, old.header_element(), new.header_element());
         self.update_pane_element(id, old.pane_element(), new.pane_element());
-        if let Some(cb) = new.on_unmounted_callback() {
-            self.unmount_callbacks.insert(id, cb.clone());
-        } else {
-            self.unmount_callbacks.remove(&id);
-        }
+        self.tree
+            .set_before_unmount(id, new.on_unmounted_callback().cloned());
     }
 
     fn mount_widget_children(&mut self, id: ControlId, children: Children<'_>) {

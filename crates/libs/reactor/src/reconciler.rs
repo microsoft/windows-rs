@@ -136,6 +136,7 @@ struct MountedTree {
     headers: FxHashMap<ControlId, ControlId>,
     panes: FxHashMap<ControlId, ControlId>,
     custom: FxHashMap<ControlId, Box<dyn CustomElement>>,
+    before_unmount: FxHashMap<ControlId, Callback<Option<windows_core::IInspectable>>>,
     templated: MountedTemplatedTree,
     logical: MountedLogicalTree,
 }
@@ -433,6 +434,7 @@ impl MountedTree {
             self.clear_parent(pane, id);
         }
         self.custom.remove(&id);
+        self.before_unmount.remove(&id);
         self.nodes
             .insert(id, MountedNativeNode { kind, parent: None });
     }
@@ -501,6 +503,26 @@ impl MountedTree {
 
     fn take_custom(&mut self, id: ControlId) -> Option<Box<dyn CustomElement>> {
         self.custom.remove(&id)
+    }
+
+    fn set_before_unmount(
+        &mut self,
+        id: ControlId,
+        callback: Option<Callback<Option<windows_core::IInspectable>>>,
+    ) {
+        debug_assert!(self.nodes.contains_key(&id));
+        if let Some(callback) = callback {
+            self.before_unmount.insert(id, callback);
+        } else {
+            self.before_unmount.remove(&id);
+        }
+    }
+
+    fn take_before_unmount(
+        &mut self,
+        id: ControlId,
+    ) -> Option<Callback<Option<windows_core::IInspectable>>> {
+        self.before_unmount.remove(&id)
     }
 
     fn children(&self, parent: ControlId) -> &[ControlId] {
@@ -585,6 +607,7 @@ impl MountedTree {
             self.clear_parent(pane, id);
         }
         self.custom.remove(&id);
+        self.before_unmount.remove(&id);
         self.nodes.remove(&id);
     }
 }
@@ -592,14 +615,17 @@ impl MountedTree {
 /// Diff/apply engine that drives a [`Backend`] from successive [`Element`] trees.
 pub struct Reconciler<B: Backend> {
     pub backend: B,
-    pub debug_elements_skipped: u64,
-    pub debug_elements_diffed: u64,
-    pub debug_ui_elements_created: u64,
     tree: MountedTree,
     pass: ReconcilePass,
-    /// Pre-unmount callbacks keyed by control id.
-    pub unmount_callbacks: FxHashMap<ControlId, Callback<Option<windows_core::IInspectable>>>,
     host: HostContext,
+    stats: ReconcileStats,
+}
+
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub struct ReconcileStats {
+    pub elements_skipped: u64,
+    pub elements_diffed: u64,
+    pub ui_elements_created: u64,
 }
 
 pub struct ComponentInstance {
@@ -616,13 +642,10 @@ impl<B: Backend + 'static> Reconciler<B> {
     pub fn new(backend: B) -> Self {
         Self {
             backend,
-            debug_elements_skipped: 0,
-            debug_elements_diffed: 0,
-            debug_ui_elements_created: 0,
             tree: MountedTree::default(),
             pass: ReconcilePass::default(),
-            unmount_callbacks: FxHashMap::default(),
             host: HostContext::new(),
+            stats: ReconcileStats::default(),
         }
     }
 
@@ -663,9 +686,11 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn reset_stats(&mut self) {
-        self.debug_elements_skipped = 0;
-        self.debug_elements_diffed = 0;
-        self.debug_ui_elements_created = 0;
+        self.stats = ReconcileStats::default();
+    }
+
+    pub fn stats(&self) -> ReconcileStats {
+        self.stats
     }
 
     #[cfg(feature = "test")]
@@ -733,7 +758,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn acquire_control(&mut self, kind: ControlKind) -> ControlId {
-        self.debug_ui_elements_created += 1;
+        self.stats.ui_elements_created += 1;
         let id = self.backend.create(kind);
 
         if let Some(stale) = self.tree.logical.take_projection(id) {
@@ -897,6 +922,12 @@ impl<B: Backend + 'static> Reconciler<B> {
                 "custom handle {id:?} has no mounted native node"
             );
         }
+        for id in self.tree.before_unmount.keys() {
+            debug_assert!(
+                self.tree.nodes.contains_key(id),
+                "pre-unmount callback {id:?} has no mounted native node"
+            );
+        }
     }
 
     /// Forces dirty components to render even when unchanged parents can be skipped.
@@ -945,10 +976,10 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     pub fn update(&mut self, old: &Element, new: &Element, id: ControlId) -> Option<ControlId> {
         if can_skip_update(old, new) && !self.is_control_forced(id) {
-            self.debug_elements_skipped += 1;
+            self.stats.elements_skipped += 1;
             return Some(id);
         }
-        self.debug_elements_diffed += 1;
+        self.stats.elements_diffed += 1;
 
         if !old.kind_matches(new) {
             self.unmount(id);
@@ -1026,7 +1057,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.tree.templated.lists.remove(&node);
 
             // Give external resources a chance to detach before native destroy.
-            if let Some(cb) = self.unmount_callbacks.remove(&node) {
+            if let Some(cb) = self.tree.take_before_unmount(node) {
                 cb.invoke(self.backend.get_native_element(node));
             }
 

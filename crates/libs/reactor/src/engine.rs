@@ -1516,9 +1516,9 @@ fn render_once_inner<B: Backend + 'static, D: Dispatcher + 'static>(
         reconciler.clear_forced_components();
         (
             id,
-            reconciler.debug_elements_diffed,
-            reconciler.debug_elements_skipped,
-            reconciler.debug_ui_elements_created,
+            reconciler.stats().elements_diffed,
+            reconciler.stats().elements_skipped,
+            reconciler.stats().ui_elements_created,
         )
     };
     let reconcile_ms = reconcile_started.elapsed().as_secs_f64() * 1000.0;
