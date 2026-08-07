@@ -77,4 +77,5 @@ In nor Out because an omitted direction is inferred. Attributes on a void return
 written because there is no return type to carry them. `#[len_param(N)]` and `#[size_param(N)]`
 store raw parameter positions, so reordering parameters also requires updating `N`. Pointer chains
 must use one constness throughout, such as `*mut *mut T` or `*const *const T`; mixed chains are
-rejected.
+rejected. Explicit-layout types can be written as RDL unions only when every instance field has
+offset zero.

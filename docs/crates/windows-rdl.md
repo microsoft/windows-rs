@@ -415,6 +415,17 @@ path to the same type collide. `RDL0005` rejects missing or extra generic argume
 remaining checks to a resolved model and preventing every validation failure from reaching the
 encoder remain part of the work below.
 
+The winmd writer now preflights Property and Event rows before reconstructing shorthand. Custom
+attributes, nonzero flags, property constants, unsupported or duplicate semantics, missing
+accessors, mismatched accessor names, non-special accessors, and accessor custom attributes are
+rejected instead of dropping the row or synthesizing a different one. This keeps MethodSemantics
+authoritative while RDL lacks syntax for attributes on property/event rows or their accessors.
+The writer also scans every custom-attribute row before writing output and rejects attributes on
+TypeRef, MemberRef, and TypeSpec parents, which are not represented by RDL declarations.
+FieldLayout rows are preserved by metadata merge and remap. RDL unions represent only explicit
+layouts where every instance field has offset zero; missing or nonzero offsets are rejected rather
+than normalized to overlapping fields.
+
 The same pre-emission pass now rejects accepted syntax that the encoder cannot represent.
 `RDL0002` covers attributes on event shorthand, generic functions/callbacks/interface methods,
 variadic callbacks/delegates/interface methods, generic bounds/defaults/attributes, attribute
@@ -459,10 +470,13 @@ Initial losslessness work:
 1. Done: add reader row types and traversal APIs for Property, PropertyMap, Event, EventMap, and
    MethodSemantics.
 2. Done: preserve those tables and WinRT class methods through `windows-metadata` merge and remap.
+   FieldLayout rows are also read and preserved through both paths.
 3. Done: add focused winmd -> winmd tests that compare methods, property and event rows, flags,
    signatures, constants, custom attributes, and accessor semantics before and after conversion.
 4. Add winmd -> RDL -> winmd tests for properties, events, class methods, return rows, and custom
-   attributes on every supported parent.
+   attributes on every supported parent. Property/Event row states without a lossless shorthand are
+   now rejected and covered by negative tests. TypeRef, MemberRef, and TypeSpec attributes are also
+   rejected before output because RDL has no declaration site for them.
 5. Inventory every ECMA-335 table that the reader skips and classify it as preserved, irrelevant
    to Windows metadata, or unsupported with an error.
 6. Replace known silent losses with errors until a lossless spelling or copy path exists.

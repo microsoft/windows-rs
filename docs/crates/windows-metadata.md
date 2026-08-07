@@ -102,6 +102,11 @@ preserve property and event flags, custom attributes, property constants, and th
 each accessor to its property or event. Namespace remapping applies to event types and every type
 in a property signature.
 
+### Field layout
+
+`Field::layout()` exposes the optional ECMA-335 FieldLayout row and its byte offset. Merge and
+namespace remapping preserve these rows so explicit layouts do not collapse to declaration order.
+
 ### Determinism and the winmd writer
 
 The writer is the foundation of the pipeline's reproducible builds. It stages `Constant` /
@@ -131,5 +136,6 @@ absent, return, sparse, out-of-order, duplicate, and out-of-range parameter rows
 four raw directions and verifies that optional, reserved, retval, and count attributes remain
 independent facts. `semantic_roundtrip.rs` authors runtime-class methods, an indexed property, an
 event, constants, flags, custom attributes, and accessor semantics directly with `writer::File`,
-then verifies merge and namespace remapping preserve them. `remap.rs` covers explicit and fallback
-namespace routing, singular/plural builder methods, missing outputs, and invalid inputs.
+then verifies merge and namespace remapping preserve them. It also verifies nonzero FieldLayout
+offsets. `remap.rs` covers explicit and fallback namespace routing, singular/plural builder methods,
+missing outputs, and invalid inputs.

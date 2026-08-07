@@ -27,4 +27,8 @@ impl<'a> Field<'a> {
         self.equal_range(1, HasConstant::Field(*self).encode())
             .next()
     }
+
+    pub fn layout(&self) -> Option<FieldLayout<'a>> {
+        self.equal_range(1, self.pos() + 1).next()
+    }
 }

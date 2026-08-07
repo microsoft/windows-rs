@@ -7,6 +7,7 @@ mod constant;
 mod event;
 mod event_map;
 mod field;
+mod field_layout;
 mod generic_param;
 mod impl_map;
 mod interface_impl;
@@ -68,4 +69,5 @@ tables! {
     (TypeDef, 20)
     (TypeRef, 21)
     (TypeSpec, 22)
+    (FieldLayout, 23)
 }

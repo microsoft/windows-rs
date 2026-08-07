@@ -54,6 +54,8 @@ fn write_members(
     generics: &[metadata::Type],
     is_winrt: bool,
 ) -> Result<Vec<TokenStream>, Error> {
+    validate_property_event_rows(item)?;
+
     let methods: Vec<_> = item.methods().collect();
     for method in &methods {
         reject_method_generics(method)?;
@@ -150,6 +152,168 @@ fn write_members(
     }
 
     Ok(tokens)
+}
+
+fn validate_property_event_rows(item: &metadata::reader::TypeDef) -> Result<(), Error> {
+    for property in item.properties() {
+        if property.attributes().next().is_some() {
+            return Err(writer_err!(
+                "property `{}` has unrepresentable custom attributes",
+                property.name()
+            ));
+        }
+        if property.flags() != 0 {
+            return Err(writer_err!(
+                "property `{}` has unsupported flags {}",
+                property.name(),
+                property.flags()
+            ));
+        }
+        if property.constant().is_some() {
+            return Err(writer_err!(
+                "property `{}` has an unrepresentable constant",
+                property.name()
+            ));
+        }
+        let mut getter = false;
+        let mut setter = false;
+        for semantics in property.semantics() {
+            let method = semantics.method();
+            let expected_name = match semantics.semantics() {
+                0x0001 if !setter => {
+                    setter = true;
+                    format!("put_{}", property.name())
+                }
+                0x0002 if !getter => {
+                    getter = true;
+                    format!("get_{}", property.name())
+                }
+                0x0001 | 0x0002 => {
+                    return Err(writer_err!(
+                        "property `{}` has duplicate accessor semantics {:#x}",
+                        property.name(),
+                        semantics.semantics()
+                    ));
+                }
+                _ => {
+                    return Err(writer_err!(
+                        "property `{}` has unsupported method semantics {:#x}",
+                        property.name(),
+                        semantics.semantics()
+                    ));
+                }
+            };
+            if method.name() != expected_name {
+                return Err(writer_err!(
+                    "property `{}` accessor `{}` does not match `{}`",
+                    property.name(),
+                    method.name(),
+                    expected_name
+                ));
+            }
+            if !method
+                .flags()
+                .contains(metadata::MethodAttributes::SpecialName)
+            {
+                return Err(writer_err!(
+                    "property `{}` accessor `{}` is not marked special",
+                    property.name(),
+                    method.name()
+                ));
+            }
+            if method.attributes().next().is_some() {
+                return Err(writer_err!(
+                    "property `{}` accessor `{}` has custom attributes that cannot be represented with property shorthand",
+                    property.name(),
+                    method.name()
+                ));
+            }
+        }
+        if !getter && !setter {
+            return Err(writer_err!(
+                "property `{}` has no accessor semantics",
+                property.name()
+            ));
+        }
+    }
+
+    for event in item.events() {
+        if event.attributes().next().is_some() {
+            return Err(writer_err!(
+                "event `{}` has unrepresentable custom attributes",
+                event.name()
+            ));
+        }
+        if event.flags() != 0 {
+            return Err(writer_err!(
+                "event `{}` has unsupported flags {}",
+                event.name(),
+                event.flags()
+            ));
+        }
+        let mut add = false;
+        let mut remove = false;
+        for semantics in event.semantics() {
+            let method = semantics.method();
+            let expected_name = match semantics.semantics() {
+                0x0008 if !add => {
+                    add = true;
+                    format!("add_{}", event.name())
+                }
+                0x0010 if !remove => {
+                    remove = true;
+                    format!("remove_{}", event.name())
+                }
+                0x0008 | 0x0010 => {
+                    return Err(writer_err!(
+                        "event `{}` has duplicate accessor semantics {:#x}",
+                        event.name(),
+                        semantics.semantics()
+                    ));
+                }
+                _ => {
+                    return Err(writer_err!(
+                        "event `{}` has unsupported method semantics {:#x}",
+                        event.name(),
+                        semantics.semantics()
+                    ));
+                }
+            };
+            if method.name() != expected_name {
+                return Err(writer_err!(
+                    "event `{}` accessor `{}` does not match `{}`",
+                    event.name(),
+                    method.name(),
+                    expected_name
+                ));
+            }
+            if !method
+                .flags()
+                .contains(metadata::MethodAttributes::SpecialName)
+            {
+                return Err(writer_err!(
+                    "event `{}` accessor `{}` is not marked special",
+                    event.name(),
+                    method.name()
+                ));
+            }
+            if method.attributes().next().is_some() {
+                return Err(writer_err!(
+                    "event `{}` accessor `{}` has custom attributes that cannot be represented with event shorthand",
+                    event.name(),
+                    method.name()
+                ));
+            }
+        }
+        if !add || !remove {
+            return Err(writer_err!(
+                "event `{}` requires add and remove semantics",
+                event.name()
+            ));
+        }
+    }
+
+    Ok(())
 }
 
 fn find_unconsumed(

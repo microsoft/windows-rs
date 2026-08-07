@@ -263,6 +263,18 @@ impl Index {
         self.items.keys().map(String::as_str)
     }
 
+    /// Iterates over every custom attribute row in the indexed files.
+    pub fn attributes(&self) -> impl Iterator<Item = Attribute<'_>> + '_ {
+        self.files
+            .iter()
+            .enumerate()
+            .flat_map(move |(file, metadata)| {
+                metadata
+                    .Attribute()
+                    .map(move |pos| Attribute::from_row(Row::new(self, file, pos)))
+            })
+    }
+
     /// Iterates `(namespace, name, Item)` triples over every item in the index.
     pub fn iter_items(&self) -> impl Iterator<Item = (&str, &str, Item<'_>)> + '_ {
         self.items

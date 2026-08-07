@@ -220,6 +220,52 @@ fn property_count_widens_has_constant() {
 }
 
 #[test]
+fn merge_and_remap_preserve_field_layout() {
+    let dir = std::env::temp_dir().join("windows_metadata_field_layout");
+    std::fs::create_dir_all(&dir).unwrap();
+    let input_path = dir.join("input.winmd");
+    let merged_path = dir.join("merged.winmd");
+    let remapped_path = dir.join("remapped.winmd");
+
+    let mut file = writer::File::new("layout");
+    let value_type = file.TypeRef("System", "ValueType");
+    file.TypeDef(
+        "Test",
+        "Explicit",
+        writer::TypeDefOrRef::TypeRef(value_type),
+        TypeAttributes::Public | TypeAttributes::ExplicitLayout,
+    );
+    let first = file.Field("First", &Type::I32, FieldAttributes::Public);
+    let second = file.Field("Second", &Type::I32, FieldAttributes::Public);
+    file.FieldLayout(first, 0);
+    file.FieldLayout(second, 4);
+    std::fs::write(&input_path, file.into_stream()).unwrap();
+
+    merge()
+        .input(&input_path)
+        .output(&merged_path)
+        .merge()
+        .unwrap();
+    remap()
+        .input(&input_path)
+        .source("Test")
+        .fallback("Remapped")
+        .output(&remapped_path)
+        .remap()
+        .unwrap();
+
+    for (path, namespace) in [(&merged_path, "Test"), (&remapped_path, "Remapped")] {
+        let index = reader::Index::read(path).unwrap();
+        let offsets: Vec<_> = index
+            .expect(namespace, "Explicit")
+            .fields()
+            .map(|field| field.layout().unwrap().offset())
+            .collect();
+        assert_eq!(offsets, [0, 4]);
+    }
+}
+
+#[test]
 fn event_count_widens_has_attribute() {
     let mut file = writer::File::new("event_width");
     let ty = file.TypeDef(

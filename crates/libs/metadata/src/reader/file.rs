@@ -4,7 +4,7 @@ pub struct File {
     bytes: Vec<u8>,
     strings: usize,
     blobs: usize,
-    tables: [Table; 23],
+    tables: [Table; 24],
 }
 
 impl File {
@@ -124,7 +124,6 @@ impl File {
         let mut unused_assembly_ref_processor = Table::default();
         let mut unused_decl_security = Table::default();
         let mut unused_exported_type = Table::default();
-        let mut unused_field_layout = Table::default();
         let mut unused_field_marshal = Table::default();
         let mut unused_field_rva = Table::default();
         let mut unused_file = Table::default();
@@ -157,7 +156,7 @@ impl File {
                 0x0d => unused_field_marshal.len = len,
                 0x0e => unused_decl_security.len = len,
                 0x0f => result.tables[ClassLayout::TABLE].len = len,
-                0x10 => unused_field_layout.len = len,
+                0x10 => result.tables[FieldLayout::TABLE].len = len,
                 0x11 => unused_standalone_sig.len = len,
                 0x12 => result.tables[EventMap::TABLE].len = len,
                 0x14 => result.tables[Event::TABLE].len = len,
@@ -319,7 +318,14 @@ impl File {
             0,
         );
         result.tables[Field::TABLE].set_columns(2, string_index_size, blob_index_size, 0, 0, 0);
-        unused_field_layout.set_columns(4, result.tables[Field::TABLE].index_width(), 0, 0, 0, 0);
+        result.tables[FieldLayout::TABLE].set_columns(
+            4,
+            result.tables[Field::TABLE].index_width(),
+            0,
+            0,
+            0,
+            0,
+        );
         unused_field_marshal.set_columns(has_field_marshal, blob_index_size, 0, 0, 0, 0);
         unused_field_rva.set_columns(4, result.tables[Field::TABLE].index_width(), 0, 0, 0, 0);
         unused_file.set_columns(4, string_index_size, blob_index_size, 0, 0, 0);
@@ -448,7 +454,7 @@ impl File {
         unused_field_marshal.set_data(&mut view);
         unused_decl_security.set_data(&mut view);
         result.tables[ClassLayout::TABLE].set_data(&mut view);
-        unused_field_layout.set_data(&mut view);
+        result.tables[FieldLayout::TABLE].set_data(&mut view);
         unused_standalone_sig.set_data(&mut view);
         result.tables[EventMap::TABLE].set_data(&mut view);
         result.tables[Event::TABLE].set_data(&mut view);
@@ -632,6 +638,10 @@ impl File {
 
     pub(crate) fn TypeDef(&self) -> std::ops::Range<usize> {
         0..self.tables[TypeDef::TABLE].len
+    }
+
+    pub(crate) fn Attribute(&self) -> std::ops::Range<usize> {
+        0..self.tables[Attribute::TABLE].len
     }
 
     pub(crate) fn NestedClass(&self) -> std::ops::Range<usize> {

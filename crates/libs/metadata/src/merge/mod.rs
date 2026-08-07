@@ -427,6 +427,9 @@ fn write_type_with_signature(
 
 fn write_field(file: &mut writer::File, field: reader::Field, arch_override: Option<i32>) {
     let field_def = file.Field(field.name(), &field.ty(), field.flags());
+    if let Some(layout) = field.layout() {
+        file.FieldLayout(field_def, layout.offset());
+    }
     if let Some(constant) = field.constant() {
         file.Constant(writer::HasConstant::Field(field_def), &constant.value());
     }

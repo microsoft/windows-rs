@@ -150,6 +150,7 @@ impl Writer {
         }
 
         let index = metadata::reader::Index::new(files);
+        reject_unrepresentable_attribute_parents(&index)?;
         let rules = resolve_filter(&self.filter, &index);
 
         if let Some(map) = &self.partition {
@@ -261,6 +262,36 @@ impl Writer {
 
         Ok(())
     }
+}
+
+fn reject_unrepresentable_attribute_parents(index: &metadata::reader::Index) -> Result<(), Error> {
+    for attribute in index.attributes() {
+        let attribute_name = format!("{}.{}", attribute.namespace(), attribute.name());
+        match attribute.parent() {
+            metadata::reader::HasAttribute::TypeRef(parent) => {
+                return Err(writer_err!(
+                    "custom attribute `{attribute_name}` on type reference `{}.{}` has no RDL spelling",
+                    parent.namespace(),
+                    parent.name()
+                ));
+            }
+            metadata::reader::HasAttribute::MemberRef(parent) => {
+                return Err(writer_err!(
+                    "custom attribute `{attribute_name}` on member reference `{}.{}` has no RDL spelling",
+                    parent.parent().name(),
+                    parent.name()
+                ));
+            }
+            metadata::reader::HasAttribute::TypeSpec(_) => {
+                return Err(writer_err!(
+                    "custom attribute `{attribute_name}` on a type specification has no RDL spelling"
+                ));
+            }
+            _ => {}
+        }
+    }
+
+    Ok(())
 }
 
 fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {

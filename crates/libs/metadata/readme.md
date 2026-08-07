@@ -37,6 +37,8 @@ assert_eq!(fields[0].ty(), Type::F32);
 assert_eq!(fields[1].ty(), Type::F32);
 ```
 
+`Field::layout()` returns the optional ECMA-335 `FieldLayout` row and its byte offset.
+
 ECMA-335 associates a method's `Param` rows with signature positions through the one-based
 `Param.Sequence` column. Use `MethodDef::params_by_sequence(signature.types.len())` for semantic
 association. The result keeps a separate Sequence 0 return row and one `Option<MethodParam>` per

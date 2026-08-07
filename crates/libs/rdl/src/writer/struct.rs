@@ -34,6 +34,7 @@ fn write_record(
     parent_packing: Option<u16>,
     hoisted: &mut Vec<(String, TokenStream)>,
 ) -> Result<TokenStream, Error> {
+    validate_field_layouts(item)?;
     let nested: Vec<metadata::reader::TypeDef> = item.index().nested(*item).collect();
 
     let bare: HashSet<String> = item
@@ -133,6 +134,45 @@ fn write_record(
             }
         })
     }
+}
+
+fn validate_field_layouts(item: &metadata::reader::TypeDef) -> Result<(), Error> {
+    let explicit = item
+        .flags()
+        .contains(metadata::TypeAttributes::ExplicitLayout);
+
+    for field in item.fields() {
+        let is_static = field.flags().contains(metadata::FieldAttributes::Static);
+        match (explicit, is_static, field.layout()) {
+            (true, false, Some(layout)) if layout.offset() == 0 => {}
+            (true, false, Some(layout)) => {
+                return Err(writer_err!(
+                    "field `{}` on explicit-layout type `{}` has unrepresentable offset {}",
+                    field.name(),
+                    item.name(),
+                    layout.offset()
+                ));
+            }
+            (true, false, None) => {
+                return Err(writer_err!(
+                    "field `{}` on explicit-layout type `{}` has no FieldLayout row",
+                    field.name(),
+                    item.name()
+                ));
+            }
+            (_, _, Some(layout)) => {
+                return Err(writer_err!(
+                    "field `{}` on type `{}` has unexpected layout offset {}",
+                    field.name(),
+                    item.name(),
+                    layout.offset()
+                ));
+            }
+            _ => {}
+        }
+    }
+
+    Ok(())
 }
 
 fn hoist_subtree(
