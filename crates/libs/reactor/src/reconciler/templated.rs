@@ -386,7 +386,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             };
             let new_el = new.build_item_view(row_idx);
 
-            if !self.force_component_rerender && can_skip_update(&old_el, &new_el) {
+            if can_skip_update(&old_el, &new_el) && !self.is_control_forced(content_id) {
                 self.debug_elements_skipped += 1;
                 if let Some(state) = self.templated_lists.get_mut(&id)
                     && let Some(Some(row)) = state.rows.get_mut(row_idx)

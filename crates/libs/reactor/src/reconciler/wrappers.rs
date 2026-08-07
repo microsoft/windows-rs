@@ -53,12 +53,12 @@ impl<B: Backend + 'static> Reconciler<B> {
         let Some(node_id) = self.current_component_node(id) else {
             return self.mount_component(new);
         };
-        let forced_by_context = self.forced_components.contains(&id);
+        let forced = self.forced_nodes.contains(&node_id);
         let state_dirty = self
             .component_instances
             .get(&node_id)
             .is_some_and(|inst| inst.render_cx.take_state_dirty());
-        let needs_update = if forced_by_context || state_dirty {
+        let needs_update = if forced || state_dirty {
             true
         } else if new.memoised {
             !old.obj.is_equivalent(&*new.obj)
@@ -203,13 +203,13 @@ impl<B: Backend + 'static> Reconciler<B> {
             changed_ids.insert(old_id);
         }
 
-        let prev_flag = self.force_component_rerender;
-        let saved_forced = self.forced_components.clone();
+        let saved_nodes = self.forced_nodes.clone();
+        let saved_controls = self.forced_controls.clone();
         if !changed_ids.is_empty() {
             let affected = self.collect_affected_components(id, &changed_ids);
             if !affected.is_empty() {
-                self.force_component_rerender = true;
-                self.forced_components.extend(affected);
+                self.add_forced_node_paths(affected);
+                self.expand_forced_control_paths(id);
             }
         }
 
@@ -218,8 +218,8 @@ impl<B: Backend + 'static> Reconciler<B> {
             std::panic::catch_unwind(AssertUnwindSafe(|| self.update(&old.child, &new.child, id)));
         self.pop_provisions(pushed);
 
-        self.forced_components = saved_forced;
-        self.force_component_rerender = prev_flag;
+        self.forced_nodes = saved_nodes;
+        self.forced_controls = saved_controls;
 
         match result {
             Ok(nid) => nid,

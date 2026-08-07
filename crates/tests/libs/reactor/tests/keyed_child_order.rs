@@ -418,8 +418,7 @@ fn forced_rerender_reaches_reordered_middle_component() {
 
         let target_id = r.backend.children_of(root)[0];
         renders.set(0);
-        r.force_component_rerender = true;
-        r.forced_components.insert(target_id);
+        r.force_components_at_control_for_test(target_id);
 
         let new = count_stack(&renders, &["x", "y", "t"]);
         r.reconcile(Some(&old), &new, Some(root), Rc::new(|| {}));

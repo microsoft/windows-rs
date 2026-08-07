@@ -100,11 +100,10 @@ fn reconcile_positional_live<B: Backend + 'static>(
         let old_el = old_live.get(i).unwrap();
         let new_el = new_live.get(i).unwrap();
 
-        if !reconciler.force_component_rerender && can_skip_update(old_el, new_el) {
-            // Dirty child state must pierce structural equality.
+        if can_skip_update(old_el, new_el) {
             let child_id = reconciler.child_at(parent, i);
-            let state_dirty = child_id.is_some_and(|cid| reconciler.is_component_state_dirty(cid));
-            if !state_dirty {
+            let forced = child_id.is_some_and(|cid| reconciler.is_control_forced(cid));
+            if !forced {
                 reconciler.debug_elements_skipped += 1;
                 continue;
             }
@@ -174,11 +173,10 @@ fn reconcile_keyed_live<B: Backend + 'static>(
         let old_el = old.get(prefix).unwrap();
         let new_el = new.get(prefix).unwrap();
         if reconciler.child_at(parent, prefix).is_some() {
-            if !reconciler.force_component_rerender && can_skip_update(old_el, new_el) {
+            if can_skip_update(old_el, new_el) {
                 let child_id = reconciler.child_at(parent, prefix);
-                let state_dirty =
-                    child_id.is_some_and(|cid| reconciler.is_component_state_dirty(cid));
-                if state_dirty {
+                let forced = child_id.is_some_and(|cid| reconciler.is_control_forced(cid));
+                if forced {
                     update_child_tracked(reconciler, parent, prefix, old_el, new_el);
                 } else {
                     reconciler.debug_elements_skipped += 1;
@@ -210,11 +208,10 @@ fn reconcile_keyed_live<B: Backend + 'static>(
         let old_el = old.get(old_idx).unwrap();
         let new_el = new.get(new_len - 1 - suffix).unwrap();
         if reconciler.child_at(parent, panel_idx).is_some() {
-            if !reconciler.force_component_rerender && can_skip_update(old_el, new_el) {
+            if can_skip_update(old_el, new_el) {
                 let child_id = reconciler.child_at(parent, panel_idx);
-                let state_dirty =
-                    child_id.is_some_and(|cid| reconciler.is_component_state_dirty(cid));
-                if state_dirty {
+                let forced = child_id.is_some_and(|cid| reconciler.is_control_forced(cid));
+                if forced {
                     update_child_tracked(reconciler, parent, panel_idx, old_el, new_el);
                 } else {
                     reconciler.debug_elements_skipped += 1;

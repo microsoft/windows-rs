@@ -1513,7 +1513,7 @@ fn render_once_inner<B: Backend + 'static, D: Dispatcher + 'static>(
             request_rerender,
         );
         reconciler.drain_realizations();
-        reconciler.clear_forced_component_rerender();
+        reconciler.clear_forced_components();
         (
             id,
             reconciler.debug_elements_diffed,

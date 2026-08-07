@@ -118,8 +118,8 @@ pub struct Reconciler<B: Backend> {
     next_logical_node_id: u64,
     pub appeared_listener_count: usize,
     pub disappeared_listener_count: usize,
-    pub force_component_rerender: bool,
-    pub forced_components: rustc_hash::FxHashSet<ControlId>,
+    forced_nodes: rustc_hash::FxHashSet<LogicalNodeId>,
+    forced_controls: rustc_hash::FxHashSet<ControlId>,
     pub error_boundary_fallbacks: rustc_hash::FxHashSet<ControlId>,
     pub templated_lists: FxHashMap<ControlId, TemplatedListState>,
     pub custom_handles: FxHashMap<ControlId, Box<dyn CustomElement>>,
@@ -165,8 +165,8 @@ impl<B: Backend + 'static> Reconciler<B> {
             next_logical_node_id: 0,
             appeared_listener_count: 0,
             disappeared_listener_count: 0,
-            force_component_rerender: false,
-            forced_components: rustc_hash::FxHashSet::default(),
+            forced_nodes: rustc_hash::FxHashSet::default(),
+            forced_controls: rustc_hash::FxHashSet::default(),
             error_boundary_fallbacks: rustc_hash::FxHashSet::default(),
             templated_lists: FxHashMap::default(),
             custom_handles: FxHashMap::default(),
@@ -206,15 +206,14 @@ impl<B: Backend + 'static> Reconciler<B> {
         Rc::clone(&self.context_stack)
     }
 
-    /// Checks whether `id` has pending hook-state changes without clearing them.
-    pub fn is_component_state_dirty(&self, id: ControlId) -> bool {
-        self.components_by_control.get(&id).is_some_and(|node_ids| {
-            node_ids.as_slice().iter().any(|node_id| {
-                self.component_instances
-                    .get(node_id)
-                    .is_some_and(|inst| inst.render_cx.peek_state_dirty())
-            })
-        })
+    fn is_node_state_dirty(&self, node_id: LogicalNodeId) -> bool {
+        self.component_instances
+            .get(&node_id)
+            .is_some_and(|inst| inst.render_cx.peek_state_dirty())
+    }
+
+    fn is_control_forced(&self, id: ControlId) -> bool {
+        self.forced_controls.contains(&id)
     }
 
     pub fn reset_stats(&mut self) {
@@ -225,7 +224,7 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     #[cfg(feature = "test")]
     pub fn debug_forced_components_len(&self) -> usize {
-        self.forced_components.len()
+        self.forced_nodes.len()
     }
 
     #[cfg(feature = "test")]
@@ -254,33 +253,89 @@ impl<B: Backend + 'static> Reconciler<B> {
             .and_then(ProjectedComponents::last)
     }
 
-    fn add_forced_control_path(&mut self, node_id: LogicalNodeId) {
+    fn add_forced_node_path(&mut self, node_id: LogicalNodeId) {
         let mut current = Some(node_id);
         while let Some(id) = current {
             let Some(node) = self.component_instances.get(&id) else {
                 break;
             };
-            self.forced_components.insert(node.native_root);
+            self.forced_nodes.insert(id);
+            self.forced_controls.insert(node.native_root);
             current = node.parent;
         }
     }
 
-    fn forced_control_path(
-        &self,
-        node_ids: impl IntoIterator<Item = LogicalNodeId>,
-    ) -> rustc_hash::FxHashSet<ControlId> {
-        let mut result = rustc_hash::FxHashSet::default();
+    fn add_forced_node_paths(&mut self, node_ids: impl IntoIterator<Item = LogicalNodeId>) {
         for node_id in node_ids {
-            let mut current = Some(node_id);
-            while let Some(id) = current {
-                let Some(node) = self.component_instances.get(&id) else {
-                    break;
-                };
-                result.insert(node.native_root);
-                current = node.parent;
+            self.add_forced_node_path(node_id);
+        }
+    }
+
+    fn expand_forced_control_paths(&mut self, root_id: ControlId) {
+        if self.forced_controls.is_empty() {
+            return;
+        }
+
+        let mut paths = rustc_hash::FxHashSet::default();
+        let mut stack = vec![(root_id, false)];
+        while let Some((id, visited)) = stack.pop() {
+            if !visited {
+                stack.push((id, true));
+                if let Some(children) = self.children_mirror.get(&id) {
+                    stack.extend(children.iter().rev().map(|child| (*child, false)));
+                }
+                if let Some(header) = self.header_elements.get(&id) {
+                    stack.push((*header, false));
+                }
+                if let Some(pane) = self.pane_elements.get(&id) {
+                    stack.push((*pane, false));
+                }
+                if let Some(state) = self.templated_lists.get(&id) {
+                    stack.extend(
+                        state
+                            .rows
+                            .iter()
+                            .rev()
+                            .filter_map(|row| row.as_ref().map(|row| (row.content_id, false))),
+                    );
+                }
+                continue;
+            }
+
+            let child_forced = self
+                .children_mirror
+                .get(&id)
+                .is_some_and(|children| children.iter().any(|child| paths.contains(child)))
+                || self
+                    .header_elements
+                    .get(&id)
+                    .is_some_and(|header| paths.contains(header))
+                || self
+                    .pane_elements
+                    .get(&id)
+                    .is_some_and(|pane| paths.contains(pane))
+                || self.templated_lists.get(&id).is_some_and(|state| {
+                    state
+                        .rows
+                        .iter()
+                        .flatten()
+                        .any(|row| paths.contains(&row.content_id))
+                });
+            if self.forced_controls.contains(&id) || child_forced {
+                paths.insert(id);
             }
         }
-        result
+        self.forced_controls.extend(paths);
+    }
+
+    #[cfg(feature = "test")]
+    pub fn force_components_at_control_for_test(&mut self, id: ControlId) {
+        let node_ids = self
+            .components_by_control
+            .get(&id)
+            .map(|nodes| nodes.as_slice().to_vec())
+            .unwrap_or_default();
+        self.add_forced_node_paths(node_ids);
     }
 
     pub fn acquire_control(&mut self, kind: ControlKind) -> ControlId {
@@ -391,11 +446,12 @@ impl<B: Backend + 'static> Reconciler<B> {
             (None, _) => self.mount(new),
             (Some(id), Some(old_el)) => {
                 let seeded = self.force_state_dirty_components();
+                self.expand_forced_control_paths(id);
                 let result = self.update(old_el, new, id);
                 debug_assert!(
                     seeded
                         .iter()
-                        .all(|cid| !self.is_component_state_dirty(*cid)),
+                        .all(|node_id| !self.is_node_state_dirty(*node_id)),
                     "a state-dirty component was not re-rendered by the pass"
                 );
                 result
@@ -446,23 +502,16 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     /// Forces dirty components to render even when unchanged parents can be skipped.
-    fn force_state_dirty_components(&mut self) -> Vec<ControlId> {
-        let dirty: Vec<(ControlId, LogicalNodeId)> = self
+    fn force_state_dirty_components(&mut self) -> Vec<LogicalNodeId> {
+        let dirty: Vec<LogicalNodeId> = self
             .component_instances
             .iter()
-            .filter_map(|(node_id, inst)| {
-                inst.render_cx
-                    .peek_state_dirty()
-                    .then_some((inst.native_root, *node_id))
-            })
+            .filter_map(|(node_id, inst)| inst.render_cx.peek_state_dirty().then_some(*node_id))
             .collect();
         if !dirty.is_empty() {
-            self.force_component_rerender = true;
-            for (_, node_id) in &dirty {
-                self.add_forced_control_path(*node_id);
-            }
+            self.add_forced_node_paths(dirty.iter().copied());
         }
-        dirty.into_iter().map(|(id, _)| id).collect()
+        dirty
     }
 
     pub fn mount(&mut self, el: &Element) -> Option<ControlId> {
@@ -495,12 +544,9 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn update(&mut self, old: &Element, new: &Element, id: ControlId) -> Option<ControlId> {
-        if !self.force_component_rerender && can_skip_update(old, new) {
-            // Dirty internal state must pierce structural equality.
-            if !self.is_component_state_dirty(id) {
-                self.debug_elements_skipped += 1;
-                return Some(id);
-            }
+        if can_skip_update(old, new) && !self.is_control_forced(id) {
+            self.debug_elements_skipped += 1;
+            return Some(id);
         }
         self.debug_elements_diffed += 1;
 
@@ -1016,11 +1062,11 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub fn collect_affected_components(
+    fn collect_affected_components(
         &self,
         root_id: ControlId,
         changed: &rustc_hash::FxHashSet<ContextId>,
-    ) -> Vec<ControlId> {
+    ) -> Vec<LogicalNodeId> {
         let mut affected = Vec::new();
         let mut stack = vec![root_id];
         while let Some(id) = stack.pop() {
@@ -1043,7 +1089,7 @@ impl<B: Backend + 'static> Reconciler<B> {
                 }
             }
         }
-        self.forced_control_path(affected).into_iter().collect()
+        affected
     }
 
     pub fn notify_theme_changed(&mut self) {
@@ -1082,14 +1128,14 @@ impl<B: Backend + 'static> Reconciler<B> {
     ) {
         let affected = self.collect_affected_components(root_id, context_ids);
         if !affected.is_empty() {
-            self.force_component_rerender = true;
-            self.forced_components.extend(affected);
+            self.add_forced_node_paths(affected);
+            self.expand_forced_control_paths(root_id);
         }
     }
 
-    pub fn clear_forced_component_rerender(&mut self) {
-        self.force_component_rerender = false;
-        self.forced_components.clear();
+    pub fn clear_forced_components(&mut self) {
+        self.forced_nodes.clear();
+        self.forced_controls.clear();
     }
 }
 
