@@ -130,9 +130,10 @@ the WinUI `Tag` instead of retaining stale callback identity. See the `tab_view_
 Framework layout modifiers are available on concrete widget builders through `LayoutExt`:
 `.margin(..)`, `.width(..)`, `.height(..)`, minimum/maximum dimensions, and horizontal/vertical
 alignment. Pointer, keyboard, capture, and drag/drop modifiers are available through `InputExt`.
-Appearance, animation, accessibility, and attached-property modifiers remain on `ElementExt` or
-`Element` while those capability families are classified. Apply modifiers before converting the
-builder into `Element`. Spacing values use `Thickness` (with `Thickness::uniform(..)`).
+UI Automation properties use `AccessibilityExt`, and tooltips use `TooltipExt`. Appearance,
+animation, and attached-property modifiers remain on `ElementExt` while those capability families
+are classified. Apply modifiers before converting the builder into `Element`. Spacing values use
+`Thickness` (with `Thickness::uniform(..)`).
 
 `transition(enter, exit)` runs lifecycle animations when an element enters or leaves the WinUI
 visual tree. The logical Reactor element is removed synchronously; WinUI Composition retains its
@@ -538,7 +539,7 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Recursive teardown | One child-first traversal covers children, rows, headers, and panes |
 | Native ownership checks | Debug builds verify unique ownership and matching parent links |
 | Private-memory and peak-memory benchmark output | Added to text, JSON, and CSV output |
-| Typed element API | Resource, layout, and input capabilities require concrete widgets |
+| Typed element API | Resource, layout, input, accessibility, and tooltip capabilities are typed |
 | Full mounted ownership evaluation | Complete |
 
 ### Invariants
@@ -780,8 +781,10 @@ visual samples. Typed public wrappers are now the active phase.
 
 The erased `ElementExt` surface allows some modifier calls that compile but cannot affect a native
 element. Resource dictionaries now use sealed `ResourceExt`, and framework layout uses sealed
-`LayoutExt`. Pointer, keyboard, capture, and drag/drop modifiers use sealed `InputExt`. These traits
-are implemented by concrete native widget builders but not by erased `Element` or logical wrappers:
+`LayoutExt`. Pointer, keyboard, capture, and drag/drop modifiers use sealed `InputExt`. UI
+Automation properties use sealed `AccessibilityExt`, and tooltips use sealed `TooltipExt`. These
+traits are implemented by concrete native widget builders but not by erased `Element` or logical
+wrappers:
 
 ```rust,compile_fail
 # use windows_reactor::*;
@@ -805,6 +808,14 @@ let element: Element = button("Save").into();
 element.on_tapped(|| {});
 ```
 
+Accessibility and tooltip modifiers also require a concrete widget:
+
+```rust,compile_fail
+# use windows_reactor::*;
+let element: Element = button("Save").into();
+element.automation_name("Save document");
+```
+
 Apply capabilities before erasure:
 
 ```rust
@@ -813,24 +824,26 @@ let element: Element = button("Delete")
     .resources([("ButtonBackground", "Red")])
     .width(100.0)
     .on_tapped(|| {})
+    .automation_name("Delete item")
+    .tooltip("Delete the selected item")
     .into();
 # let _ = element;
 ```
 
-The widget enum declaration now emits `ElementExt`, `ResourceExt`, `LayoutExt`, and `InputExt`
-implementations from one widget list. This removed a duplicated list that had omitted 13 newer
-widgets, including `AutoSuggestBox`, date/time pickers, split buttons, and menu/list controls.
-Future capability traits must use the same declaration rather than maintaining parallel coverage
-tables.
+The widget enum declaration now emits `ElementExt`, `ResourceExt`, `LayoutExt`, `InputExt`,
+`AccessibilityExt`, and `TooltipExt` implementations from one widget list. This removed a
+duplicated list that had omitted 13 newer widgets, including `AutoSuggestBox`, date/time pickers,
+split buttons, and menu/list controls. Future capability traits must use the same declaration
+rather than maintaining parallel coverage tables.
 
-The input migration also updated samples to retain concrete widgets while adding accelerators,
-pointer handlers, and layout, then erase them only at insertion. This is the intended usage rather
-than restoring modifiers on `Element`.
+The input, accessibility, and tooltip migrations updated tests and samples to retain concrete
+widgets while adding modifiers, then erase them only at insertion. The ineffective inherent
+accessibility setters on erased `Element` were removed. This is the intended usage rather than
+restoring modifiers on `Element`.
 
-The remaining modifier families are visual/animation behavior, control styling,
-accessibility/tooltips, and attached layout. They still use `ElementExt` or inherent `Element`
-methods while they are classified. The target is for logical constructors to retain a concrete
-wrapper until insertion:
+The remaining modifier families are visual/animation behavior, control styling, and attached
+layout. They still use `ElementExt` while they are classified. The target is for logical
+constructors to retain a concrete wrapper until insertion:
 
 ```rust,ignore
 component(app, ()) -> ComponentElement<App>

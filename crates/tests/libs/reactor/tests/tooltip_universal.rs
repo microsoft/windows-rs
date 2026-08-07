@@ -13,9 +13,9 @@
 use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
-use windows_reactor::ElementExt;
 use windows_reactor::Reconciler;
 use windows_reactor::RichTextBlock;
+use windows_reactor::TooltipExt;
 use windows_reactor::{
     Border, Button, CheckBox, Color, Element, Grid, GridLength, ScrollViewer, StackPanel,
     TextBlock, TextBox, Tooltip, TooltipContent, TooltipPlacement,
@@ -27,70 +27,75 @@ use windows_reactor::{
     TitleBar, ToggleSwitch,
 };
 
+fn tipped<T: TooltipExt + Into<Element>>(widget: T) -> Element {
+    widget.tooltip("the tip").into()
+}
+
 fn one_of_every_widget() -> Vec<(&'static str, Element)> {
     vec![
-        ("TextBlock", TextBlock::new("t").into()),
-        ("Button", Button::new("b").into()),
-        ("StackPanel", StackPanel::vertical().into()),
-        ("Border", Border::new(Element::Empty).into()),
-        ("CheckBox", CheckBox::new(false).into()),
-        ("TextBox", TextBox::new("tf").into()),
+        ("TextBlock", tipped(TextBlock::new("t"))),
+        ("Button", tipped(Button::new("b"))),
+        ("StackPanel", tipped(StackPanel::vertical())),
+        ("Border", tipped(Border::new(Element::Empty))),
+        ("CheckBox", tipped(CheckBox::new(false))),
+        ("TextBox", tipped(TextBox::new("tf"))),
         (
             "Grid",
-            Grid {
+            tipped(Grid {
                 rows: vec![GridLength::STAR],
                 columns: vec![GridLength::STAR],
                 ..Grid::default()
-            }
-            .into(),
+            }),
         ),
-        ("ScrollViewer", ScrollViewer::new(Element::Empty).into()),
-        ("ToggleSwitch", ToggleSwitch::new(false).into()),
-        ("Slider", Slider::new(0.0).into()),
-        ("RadioButton", RadioButton::new("r").into()),
-        ("NumberBox", NumberBox::new(0.0).into()),
-        ("ProgressBar", ProgressBar::new(50.0).into()),
-        ("ProgressRing", ProgressRing::indeterminate().into()),
-        ("Expander", Expander::new(Element::Empty).into()),
-        ("HyperlinkButton", HyperlinkButton::new("h").into()),
-        ("InfoBar", InfoBar::new("i").into()),
-        ("InfoBadge", InfoBadge::dot().into()),
-        ("PersonPicture", PersonPicture::new().into()),
+        ("ScrollViewer", tipped(ScrollViewer::new(Element::Empty))),
+        ("ToggleSwitch", tipped(ToggleSwitch::new(false))),
+        ("Slider", tipped(Slider::new(0.0))),
+        ("RadioButton", tipped(RadioButton::new("r"))),
+        ("NumberBox", tipped(NumberBox::new(0.0))),
+        ("ProgressBar", tipped(ProgressBar::new(50.0))),
+        ("ProgressRing", tipped(ProgressRing::indeterminate())),
+        ("Expander", tipped(Expander::new(Element::Empty))),
+        ("HyperlinkButton", tipped(HyperlinkButton::new("h"))),
+        ("InfoBar", tipped(InfoBar::new("i"))),
+        ("InfoBadge", tipped(InfoBadge::dot())),
+        ("PersonPicture", tipped(PersonPicture::new())),
         (
             "Shape",
-            Shape::rectangle().fill(Color::rgb(255, 0, 0)).into(),
+            tipped(Shape::rectangle().fill(Color::rgb(255, 0, 0))),
         ),
-        ("Image", Image::new_with_uri("ms-appx:///x.png").into()),
+        ("Image", tipped(Image::new_with_uri("ms-appx:///x.png"))),
         (
             "TabView",
-            TabView::new([TabItem::new("a", TextBlock::new("x"))]).into(),
+            tipped(TabView::new([TabItem::new("a", TextBlock::new("x"))])),
         ),
         (
             "NavigationView",
-            NavigationView::new([NavViewItem::new("home")], Element::Empty).into(),
+            tipped(NavigationView::new(
+                [NavViewItem::new("home")],
+                Element::Empty,
+            )),
         ),
-        ("TitleBar", TitleBar::new("title").into()),
+        ("TitleBar", tipped(TitleBar::new("title"))),
         (
             "Pivot",
-            Pivot::new([PivotItem::new("a", TextBlock::new("x"))]).into(),
+            tipped(Pivot::new([PivotItem::new("a", TextBlock::new("x"))])),
         ),
-        ("BreadcrumbBar", BreadcrumbBar::new(["root"]).into()),
-        ("PasswordBox", PasswordBox::new().into()),
-        ("RadioButtons", RadioButtons::new(["A", "B"]).into()),
-        ("ComboBox", ComboBox::new(["A", "B"]).into()),
-        ("Canvas", Canvas::new(std::iter::empty::<Element>()).into()),
+        ("BreadcrumbBar", tipped(BreadcrumbBar::new(["root"]))),
+        ("PasswordBox", tipped(PasswordBox::new())),
+        ("RadioButtons", tipped(RadioButtons::new(["A", "B"]))),
+        ("ComboBox", tipped(ComboBox::new(["A", "B"]))),
+        ("Canvas", tipped(Canvas::new(std::iter::empty::<Element>()))),
         (
             "RichText",
-            RichTextBlock::single_paragraph(Vec::new()).into(),
+            tipped(RichTextBlock::single_paragraph(Vec::new())),
         ),
     ]
 }
 
 #[test]
 fn every_widget_variant_round_trips_tooltip_text() {
-    for (name, el) in one_of_every_widget() {
-        let labelled = el.tooltip("the tip");
-        let tt = labelled
+    for (name, element) in one_of_every_widget() {
+        let tt = element
             .modifiers()
             .and_then(|m| m.tooltip.as_deref())
             .unwrap_or_else(|| panic!("{name}: .tooltip(..) did not record a tooltip"));
@@ -104,9 +109,10 @@ fn every_widget_variant_round_trips_tooltip_text() {
 
 #[test]
 fn tooltip_with_placement_round_trips() {
-    let el: Element = Button::new("b").into();
-    let labelled = el.tooltip_with(Tooltip::text("rich").placement(TooltipPlacement::Right));
-    let tt = labelled.modifiers().unwrap().tooltip.as_deref().unwrap();
+    let element: Element = Button::new("b")
+        .tooltip_with(Tooltip::text("rich").placement(TooltipPlacement::Right))
+        .into();
+    let tt = element.modifiers().unwrap().tooltip.as_deref().unwrap();
     assert_eq!(tt.placement, Some(TooltipPlacement::Right));
     match &tt.content {
         TooltipContent::Text(s) => assert_eq!(s, "rich"),
@@ -116,11 +122,10 @@ fn tooltip_with_placement_round_trips() {
 
 #[test]
 fn every_widget_variant_emits_set_tooltip_on_mount() {
-    for (name, el) in one_of_every_widget() {
-        let labelled = el.tooltip("hi");
+    for (name, element) in one_of_every_widget() {
         let mut r = Reconciler::new(RecordingBackend::new());
         let id = r
-            .reconcile(None, &labelled, None, Rc::new(|| {}))
+            .reconcile(None, &element, None, Rc::new(|| {}))
             .unwrap_or_else(|| panic!("{name}: mount produced no control id"));
 
         let mut found = false;
@@ -133,7 +138,7 @@ fn every_widget_variant_emits_set_tooltip_on_mount() {
                     .as_ref()
                     .unwrap_or_else(|| panic!("{name}: mount SetTooltip was None"));
                 match &tt.content {
-                    TooltipContent::Text(s) => assert_eq!(s, "hi", "{name}: payload mismatch"),
+                    TooltipContent::Text(s) => assert_eq!(s, "the tip", "{name}: payload mismatch"),
                     _ => panic!("{name}: expected Text payload"),
                 }
                 found = true;

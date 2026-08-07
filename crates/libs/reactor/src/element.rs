@@ -237,6 +237,18 @@ macro_rules! define_element {
                     &mut self.modifiers
                 }
             }
+
+            impl capability::Accessibility for $variant {
+                fn accessibility_modifiers_mut(&mut self) -> &mut Modifiers {
+                    &mut self.modifiers
+                }
+            }
+
+            impl capability::Tooltip for $variant {
+                fn tooltip_modifiers_mut(&mut self) -> &mut Modifiers {
+                    &mut self.modifiers
+                }
+            }
         )*
 
         impl Element {
@@ -519,45 +531,8 @@ impl Element {
         }
         self
     }
-    fn accessibility_mut(&mut self) -> Option<&mut AccessibilityModifiers> {
-        let m = self.modifiers_mut()?;
-        Some(
-            m.accessibility
-                .get_or_insert_with(|| Box::new(AccessibilityModifiers::default())),
-        )
-    }
     pub fn accessibility(&self) -> Option<&AccessibilityModifiers> {
         self.modifiers().and_then(|m| m.accessibility.as_deref())
-    }
-    pub fn automation_name(mut self, name: impl Into<String>) -> Self {
-        if let Some(a) = self.accessibility_mut() {
-            a.automation_name = Some(name.into());
-        }
-        self
-    }
-    pub fn automation_id(mut self, id: impl Into<String>) -> Self {
-        if let Some(a) = self.accessibility_mut() {
-            a.automation_id = Some(id.into());
-        }
-        self
-    }
-    pub fn help_text(mut self, text: impl Into<String>) -> Self {
-        if let Some(a) = self.accessibility_mut() {
-            a.help_text = Some(text.into());
-        }
-        self
-    }
-    pub fn accessibility_live_setting(mut self, ls: AutomationLiveSetting) -> Self {
-        if let Some(a) = self.accessibility_mut() {
-            a.live_setting = Some(ls);
-        }
-        self
-    }
-    pub fn heading_level(mut self, level: AutomationHeadingLevel) -> Self {
-        if let Some(a) = self.accessibility_mut() {
-            a.heading_level = Some(level);
-        }
-        self
     }
     /// `true` when both elements are the same variant (and same shape /
     /// custom type id), so an update can be considered.
@@ -622,9 +597,10 @@ macro_rules! simple_setter {
     };
 }
 
-/// Builder-style visual, input, animation, and attached-property modifiers.
+/// Builder-style visual, animation, and attached-property modifiers.
 ///
-/// Framework layout and resource dictionary methods use separate sealed capability traits.
+/// Accessibility, input, layout, resource dictionary, and tooltip methods use separate sealed
+/// capability traits.
 pub trait ElementExt: Sized {
     fn modifiers_mut(&mut self) -> Option<&mut Modifiers>;
 
@@ -785,61 +761,6 @@ pub trait ElementExt: Sized {
         }
     }
 
-    /// Plain-text tooltip applied via WinUI `ToolTipService`. For rich
-    /// content or custom placement, use [`tooltip_with`](Self::tooltip_with).
-    fn tooltip(mut self, text: impl Into<String>) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            m.tooltip = Some(Box::new(Tooltip::text(text)));
-        }
-        self
-    }
-
-    /// Tooltip setter accepting anything convertible into
-    /// [`Tooltip`].
-    fn tooltip_with(mut self, t: impl Into<Tooltip>) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            m.tooltip = Some(Box::new(t.into()));
-        }
-        self
-    }
-
-    // Accessibility modifiers
-
-    fn automation_name(mut self, name: impl Into<String>) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_accessibility(m).automation_name = Some(name.into());
-        }
-        self
-    }
-
-    fn automation_id(mut self, id: impl Into<String>) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_accessibility(m).automation_id = Some(id.into());
-        }
-        self
-    }
-
-    fn help_text(mut self, text: impl Into<String>) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_accessibility(m).help_text = Some(text.into());
-        }
-        self
-    }
-
-    fn heading_level(mut self, level: AutomationHeadingLevel) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_accessibility(m).heading_level = Some(level);
-        }
-        self
-    }
-
-    fn accessibility_live_setting(mut self, ls: AutomationLiveSetting) -> Self {
-        if let Some(m) = self.modifiers_mut() {
-            ensure_accessibility(m).live_setting = Some(ls);
-        }
-        self
-    }
-
     // RelativePanel attached property helpers
 
     fn relative_align_left(mut self) -> Self {
@@ -924,6 +845,10 @@ pub trait ElementExt: Sized {
 mod capability {
     use super::Modifiers;
 
+    pub trait Accessibility {
+        fn accessibility_modifiers_mut(&mut self) -> &mut Modifiers;
+    }
+
     pub trait Input {
         fn input_modifiers_mut(&mut self) -> &mut Modifiers;
     }
@@ -935,7 +860,48 @@ mod capability {
     pub trait Resources {
         fn resource_modifiers_mut(&mut self) -> &mut Modifiers;
     }
+
+    pub trait Tooltip {
+        fn tooltip_modifiers_mut(&mut self) -> &mut Modifiers;
+    }
 }
+
+/// UI Automation modifiers for concrete native widgets.
+///
+/// ```compile_fail
+/// use windows_reactor::{AccessibilityExt, Element, button};
+///
+/// let element: Element = button("Save").into();
+/// let _ = element.automation_name("Save document");
+/// ```
+pub trait AccessibilityExt: capability::Accessibility + Sized {
+    fn automation_name(mut self, name: impl Into<String>) -> Self {
+        accessibility_modifiers_mut(&mut self).automation_name = Some(name.into());
+        self
+    }
+
+    fn automation_id(mut self, id: impl Into<String>) -> Self {
+        accessibility_modifiers_mut(&mut self).automation_id = Some(id.into());
+        self
+    }
+
+    fn help_text(mut self, text: impl Into<String>) -> Self {
+        accessibility_modifiers_mut(&mut self).help_text = Some(text.into());
+        self
+    }
+
+    fn heading_level(mut self, level: AutomationHeadingLevel) -> Self {
+        accessibility_modifiers_mut(&mut self).heading_level = Some(level);
+        self
+    }
+
+    fn accessibility_live_setting(mut self, setting: AutomationLiveSetting) -> Self {
+        accessibility_modifiers_mut(&mut self).live_setting = Some(setting);
+        self
+    }
+}
+
+impl<T: capability::Accessibility> AccessibilityExt for T {}
 
 /// Pointer, keyboard, capture, and drag/drop modifiers for concrete native widgets.
 ///
@@ -1061,6 +1027,33 @@ pub trait InputExt: capability::Input + Sized {
 
 impl<T: capability::Input> InputExt for T {}
 
+/// Tooltip modifiers for concrete native widgets.
+///
+/// ```compile_fail
+/// use windows_reactor::{Element, TooltipExt, button};
+///
+/// let element: Element = button("Save").into();
+/// let _ = element.tooltip("Save the document");
+/// ```
+pub trait TooltipExt: capability::Tooltip + Sized {
+    /// Plain-text tooltip applied via WinUI `ToolTipService`. For rich content or custom
+    /// placement, use [`tooltip_with`](Self::tooltip_with).
+    fn tooltip(mut self, text: impl Into<String>) -> Self {
+        capability::Tooltip::tooltip_modifiers_mut(&mut self).tooltip =
+            Some(Box::new(Tooltip::text(text)));
+        self
+    }
+
+    /// Tooltip setter accepting anything convertible into [`Tooltip`].
+    fn tooltip_with(mut self, tooltip: impl Into<Tooltip>) -> Self {
+        capability::Tooltip::tooltip_modifiers_mut(&mut self).tooltip =
+            Some(Box::new(tooltip.into()));
+        self
+    }
+}
+
+impl<T: capability::Tooltip> TooltipExt for T {}
+
 /// Framework layout modifiers for concrete native widget builders.
 ///
 /// ```compile_fail
@@ -1171,6 +1164,14 @@ fn ensure_pointer_handlers(m: &mut Modifiers) -> &mut PointerHandlers {
 fn ensure_accessibility(m: &mut Modifiers) -> &mut AccessibilityModifiers {
     m.accessibility
         .get_or_insert_with(|| Box::new(AccessibilityModifiers::default()))
+}
+
+fn accessibility_modifiers_mut<T: capability::Accessibility>(
+    value: &mut T,
+) -> &mut AccessibilityModifiers {
+    ensure_accessibility(capability::Accessibility::accessibility_modifiers_mut(
+        value,
+    ))
 }
 
 fn apply_brush_binding(m: &mut Modifiers, prop: Prop, binding: BrushBinding, is_background: bool) {
