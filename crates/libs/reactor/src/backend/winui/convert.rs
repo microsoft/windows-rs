@@ -83,6 +83,8 @@ fn escape_xml_attribute(value: &str) -> String {
     escaped
 }
 
+const IMAGE_ICON_MAX_SIZE: f64 = 20.0;
+
 /// Builds the WinUI `IconElement` for an [`Icon`], dispatching to the matching
 /// concrete type.
 pub(super) fn build_icon_element(icon: &Icon) -> Result<bindings::IconElement> {
@@ -90,6 +92,9 @@ pub(super) fn build_icon_element(icon: &Icon) -> Result<bindings::IconElement> {
         Icon::Symbol(sym) => bindings::SymbolIcon::CreateInstanceWithSymbol(*sym)?.cast(),
         Icon::Image(source) => {
             let icon = bindings::ImageIcon::new()?;
+            let element = icon.cast::<bindings::IFrameworkElement>()?;
+            element.SetMaxWidth(IMAGE_ICON_MAX_SIZE)?;
+            element.SetMaxHeight(IMAGE_ICON_MAX_SIZE)?;
             if let Some(source) = build_image_source(source)? {
                 icon.SetSource(&source)?;
             }

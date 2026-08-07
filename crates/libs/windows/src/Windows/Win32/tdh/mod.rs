@@ -88,9 +88,9 @@ pub unsafe fn TdhGetManifestEventInformation(providerguid: *const windows_core::
 }
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace"))]
 #[inline]
-pub unsafe fn TdhGetProperty(pevent: *const super::EVENT_RECORD, ptdhcontext: Option<&[TDH_CONTEXT]>, ppropertydata: &[PROPERTY_DATA_DESCRIPTOR], pbuffer: &mut [u8]) -> TDHSTATUS {
+pub unsafe fn TdhGetProperty(pevent: *const super::EVENT_RECORD, ptdhcontext: Option<&[TDH_CONTEXT]>, ppropertydata: &[PROPERTY_DATA_DESCRIPTOR], buffersize: u32, pbuffer: *mut u8) -> TDHSTATUS {
     windows_core::link!("tdh.dll" "system" fn TdhGetProperty(pevent : *const super::EVENT_RECORD, tdhcontextcount : u32, ptdhcontext : *const TDH_CONTEXT, propertydatacount : u32, ppropertydata : *const PROPERTY_DATA_DESCRIPTOR, buffersize : u32, pbuffer : *mut u8) -> TDHSTATUS);
-    unsafe { TdhGetProperty(pevent, ptdhcontext.map_or(0, |slice| slice.len().try_into().unwrap()), ptdhcontext.map_or(core::ptr::null(), |slice| slice.as_ptr()), ppropertydata.len().try_into().unwrap(), ppropertydata.as_ptr(), pbuffer.len().try_into().unwrap(), pbuffer.as_mut_ptr()) }
+    unsafe { TdhGetProperty(pevent, ptdhcontext.map_or(0, |slice| slice.len().try_into().unwrap()), ptdhcontext.map_or(core::ptr::null(), |slice| slice.as_ptr()), ppropertydata.len().try_into().unwrap(), ppropertydata.as_ptr(), buffersize, pbuffer as _) }
 }
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "evntrace"))]
 #[inline]

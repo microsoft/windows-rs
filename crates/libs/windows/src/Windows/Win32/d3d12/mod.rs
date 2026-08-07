@@ -12361,8 +12361,8 @@ impl ID3D12DeviceConfiguration {
             result__
         }
     }
-    pub unsafe fn GetEnabledExperimentalFeatures(&self, pguids: &mut [windows_core::GUID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEnabledExperimentalFeatures)(windows_core::Interface::as_raw(self), pguids.as_mut_ptr(), pguids.len().try_into().unwrap()) }
+    pub unsafe fn GetEnabledExperimentalFeatures(&self, pguids: *mut windows_core::GUID, numguids: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetEnabledExperimentalFeatures)(windows_core::Interface::as_raw(self), pguids as _, numguids) }
     }
     #[cfg(feature = "d3dcommon")]
     pub unsafe fn SerializeVersionedRootSignature(&self, pdesc: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppresult: *mut Option<super::ID3D10Blob>, pperror: *mut Option<super::ID3D10Blob>) -> windows_core::HRESULT {
@@ -16009,8 +16009,8 @@ impl ID3D12PipelineLibrary {
     pub unsafe fn GetSerializedSize(&self) -> usize {
         unsafe { (windows_core::Interface::vtable(self).GetSerializedSize)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Serialize(&self, pdata: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_mut_ptr()), pdata.len().try_into().unwrap()) }
+    pub unsafe fn Serialize(&self, pdata: *mut core::ffi::c_void, datasizeinbytes: usize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), pdata as _, datasizeinbytes) }
     }
 }
 #[repr(C)]
@@ -19750,8 +19750,8 @@ impl ID3D12VideoEncoderHeap {
     pub unsafe fn GetResolutionListCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetResolutionListCount)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetResolutionList(&self, presolutionlist: &mut [D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetResolutionList)(windows_core::Interface::as_raw(self), presolutionlist.len().try_into().unwrap(), presolutionlist.as_mut_ptr()) }
+    pub unsafe fn GetResolutionList(&self, resolutionslistcount: u32, presolutionlist: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetResolutionList)(windows_core::Interface::as_raw(self), resolutionslistcount, presolutionlist as _) }
     }
 }
 #[repr(C)]
@@ -20505,8 +20505,8 @@ impl ID3D12VideoProcessor {
         unsafe { (windows_core::Interface::vtable(self).GetNumInputStreamDescs)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "dxgi")]
-    pub unsafe fn GetInputStreamDescs(&self, pinputstreamdescs: &mut [D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetInputStreamDescs)(windows_core::Interface::as_raw(self), pinputstreamdescs.len().try_into().unwrap(), pinputstreamdescs.as_mut_ptr()) }
+    pub unsafe fn GetInputStreamDescs(&self, numinputstreamdescs: u32, pinputstreamdescs: *mut D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInputStreamDescs)(windows_core::Interface::as_raw(self), numinputstreamdescs, pinputstreamdescs as _) }
     }
     #[cfg(feature = "dxgi")]
     pub unsafe fn GetOutputStreamDesc(&self) -> D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {

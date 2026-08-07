@@ -4,7 +4,11 @@ fn main() -> windows::core::Result<()> {
     extern "system" fn enum_window(window: HWND, _: LPARAM) -> BOOL {
         unsafe {
             let mut text: [u16; 512] = [0; 512];
-            let len = GetWindowTextW(window, &mut text);
+            let len = GetWindowTextW(
+                window,
+                PWSTR(text.as_mut_ptr()),
+                text.len().try_into().unwrap(),
+            );
             let text = String::from_utf16_lossy(&text[..len as usize]);
 
             let mut info = WINDOWINFO {

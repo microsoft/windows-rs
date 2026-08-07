@@ -428,9 +428,9 @@ pub unsafe fn CertGetEnhancedKeyUsage(pcertcontext: *const CERT_CONTEXT, dwflags
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn CertGetIntendedKeyUsage(dwcertencodingtype: u32, pcertinfo: *const CERT_INFO, pbkeyusage: &mut [u8]) -> windows_core::BOOL {
+pub unsafe fn CertGetIntendedKeyUsage(dwcertencodingtype: u32, pcertinfo: *const CERT_INFO, pbkeyusage: *mut u8, cbkeyusage: u32) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CertGetIntendedKeyUsage(dwcertencodingtype : u32, pcertinfo : *const CERT_INFO, pbkeyusage : *mut u8, cbkeyusage : u32) -> windows_core::BOOL);
-    unsafe { CertGetIntendedKeyUsage(dwcertencodingtype, pcertinfo, pbkeyusage.as_mut_ptr(), pbkeyusage.len().try_into().unwrap()) }
+    unsafe { CertGetIntendedKeyUsage(dwcertencodingtype, pcertinfo, pbkeyusage as _, cbkeyusage) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -440,15 +440,15 @@ pub unsafe fn CertGetIssuerCertificateFromStore(hcertstore: HCERTSTORE, psubject
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn CertGetNameStringA(pcertcontext: *const CERT_CONTEXT, dwtype: u32, dwflags: u32, pvtypepara: Option<*const core::ffi::c_void>, psznamestring: Option<&mut [u8]>) -> u32 {
+pub unsafe fn CertGetNameStringA(pcertcontext: *const CERT_CONTEXT, dwtype: u32, dwflags: u32, pvtypepara: Option<*const core::ffi::c_void>, psznamestring: Option<windows_core::PSTR>, cchnamestring: u32) -> u32 {
     windows_core::link!("crypt32.dll" "system" fn CertGetNameStringA(pcertcontext : *const CERT_CONTEXT, dwtype : u32, dwflags : u32, pvtypepara : *const core::ffi::c_void, psznamestring : windows_core::PSTR, cchnamestring : u32) -> u32);
-    unsafe { CertGetNameStringA(pcertcontext, dwtype, dwflags, pvtypepara.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psznamestring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), psznamestring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { CertGetNameStringA(pcertcontext, dwtype, dwflags, pvtypepara.unwrap_or(core::mem::zeroed()) as _, psznamestring.unwrap_or(core::mem::zeroed()) as _, cchnamestring) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn CertGetNameStringW(pcertcontext: *const CERT_CONTEXT, dwtype: u32, dwflags: u32, pvtypepara: Option<*const core::ffi::c_void>, psznamestring: Option<&mut [u16]>) -> u32 {
+pub unsafe fn CertGetNameStringW(pcertcontext: *const CERT_CONTEXT, dwtype: u32, dwflags: u32, pvtypepara: Option<*const core::ffi::c_void>, psznamestring: Option<windows_core::PWSTR>, cchnamestring: u32) -> u32 {
     windows_core::link!("crypt32.dll" "system" fn CertGetNameStringW(pcertcontext : *const CERT_CONTEXT, dwtype : u32, dwflags : u32, pvtypepara : *const core::ffi::c_void, psznamestring : windows_core::PWSTR, cchnamestring : u32) -> u32);
-    unsafe { CertGetNameStringW(pcertcontext, dwtype, dwflags, pvtypepara.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psznamestring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), psznamestring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { CertGetNameStringW(pcertcontext, dwtype, dwflags, pvtypepara.unwrap_or(core::mem::zeroed()) as _, psznamestring.unwrap_or(core::mem::zeroed()) as _, cchnamestring) }
 }
 #[inline]
 pub unsafe fn CertGetPublicKeyLength(dwcertencodingtype: u32, ppublickey: *const CERT_PUBLIC_KEY_INFO) -> u32 {
@@ -508,14 +508,14 @@ where
     unsafe { CertIsWeakHash(dwhashusetype, pwszcnghashalgid.param().abi(), dwchainflags, psignerchaincontext.unwrap_or(core::mem::zeroed()) as _, ptimestamp.unwrap_or(core::mem::zeroed()) as _, pwszfilename.param().abi()) }
 }
 #[inline]
-pub unsafe fn CertNameToStrA(dwcertencodingtype: u32, pname: *const CRYPT_INTEGER_BLOB, dwstrtype: u32, psz: Option<&mut [u8]>) -> u32 {
+pub unsafe fn CertNameToStrA(dwcertencodingtype: u32, pname: *const CRYPT_INTEGER_BLOB, dwstrtype: u32, psz: Option<windows_core::PSTR>, csz: u32) -> u32 {
     windows_core::link!("crypt32.dll" "system" fn CertNameToStrA(dwcertencodingtype : u32, pname : *const CRYPT_INTEGER_BLOB, dwstrtype : u32, psz : windows_core::PSTR, csz : u32) -> u32);
-    unsafe { CertNameToStrA(dwcertencodingtype, pname, dwstrtype, core::mem::transmute(psz.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { CertNameToStrA(dwcertencodingtype, pname, dwstrtype, psz.unwrap_or(core::mem::zeroed()) as _, csz) }
 }
 #[inline]
-pub unsafe fn CertNameToStrW(dwcertencodingtype: u32, pname: *const CRYPT_INTEGER_BLOB, dwstrtype: u32, psz: Option<&mut [u16]>) -> u32 {
+pub unsafe fn CertNameToStrW(dwcertencodingtype: u32, pname: *const CRYPT_INTEGER_BLOB, dwstrtype: u32, psz: Option<windows_core::PWSTR>, csz: u32) -> u32 {
     windows_core::link!("crypt32.dll" "system" fn CertNameToStrW(dwcertencodingtype : u32, pname : *const CRYPT_INTEGER_BLOB, dwstrtype : u32, psz : windows_core::PWSTR, csz : u32) -> u32);
-    unsafe { CertNameToStrW(dwcertencodingtype, pname, dwstrtype, core::mem::transmute(psz.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { CertNameToStrW(dwcertencodingtype, pname, dwstrtype, psz.unwrap_or(core::mem::zeroed()) as _, csz) }
 }
 #[inline]
 pub unsafe fn CertOIDToAlgId<P0>(pszobjid: P0) -> u32
@@ -556,14 +556,14 @@ where
     unsafe { CertOpenSystemStoreW(hprov.unwrap_or(core::mem::zeroed()) as _, szsubsystemprotocol.param().abi()) }
 }
 #[inline]
-pub unsafe fn CertRDNValueToStrA(dwvaluetype: u32, pvalue: *const CRYPT_INTEGER_BLOB, psz: Option<&mut [u8]>) -> u32 {
+pub unsafe fn CertRDNValueToStrA(dwvaluetype: u32, pvalue: *const CRYPT_INTEGER_BLOB, psz: Option<windows_core::PSTR>, csz: u32) -> u32 {
     windows_core::link!("crypt32.dll" "system" fn CertRDNValueToStrA(dwvaluetype : u32, pvalue : *const CRYPT_INTEGER_BLOB, psz : windows_core::PSTR, csz : u32) -> u32);
-    unsafe { CertRDNValueToStrA(dwvaluetype, pvalue, core::mem::transmute(psz.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { CertRDNValueToStrA(dwvaluetype, pvalue, psz.unwrap_or(core::mem::zeroed()) as _, csz) }
 }
 #[inline]
-pub unsafe fn CertRDNValueToStrW(dwvaluetype: u32, pvalue: *const CRYPT_INTEGER_BLOB, psz: Option<&mut [u16]>) -> u32 {
+pub unsafe fn CertRDNValueToStrW(dwvaluetype: u32, pvalue: *const CRYPT_INTEGER_BLOB, psz: Option<windows_core::PWSTR>, csz: u32) -> u32 {
     windows_core::link!("crypt32.dll" "system" fn CertRDNValueToStrW(dwvaluetype : u32, pvalue : *const CRYPT_INTEGER_BLOB, psz : windows_core::PWSTR, csz : u32) -> u32);
-    unsafe { CertRDNValueToStrW(dwvaluetype, pvalue, core::mem::transmute(psz.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { CertRDNValueToStrW(dwvaluetype, pvalue, psz.unwrap_or(core::mem::zeroed()) as _, csz) }
 }
 #[inline]
 pub unsafe fn CertRegisterPhysicalStore<P2>(pvsystemstore: *const core::ffi::c_void, dwflags: u32, pwszstorename: P2, pstoreinfo: *const CERT_PHYSICAL_STORE_INFO, pvreserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL

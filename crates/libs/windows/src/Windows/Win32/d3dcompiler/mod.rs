@@ -155,9 +155,9 @@ pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: *const core::ffi::c_void, srcd
     }
 }
 #[inline]
-pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const core::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, poffsets: Option<&mut [usize]>, ptotalinsts: Option<*mut usize>) -> windows_core::HRESULT {
+pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const core::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, numinsts: usize, poffsets: Option<*mut usize>, ptotalinsts: Option<*mut usize>) -> windows_core::HRESULT {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DGetTraceInstructionOffsets(psrcdata : *const core::ffi::c_void, srcdatasize : usize, flags : u32, startinstindex : usize, numinsts : usize, poffsets : *mut usize, ptotalinsts : *mut usize) -> windows_core::HRESULT);
-    unsafe { D3DGetTraceInstructionOffsets(psrcdata, srcdatasize, flags, startinstindex, poffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), poffsets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), ptotalinsts.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { D3DGetTraceInstructionOffsets(psrcdata, srcdatasize, flags, startinstindex, numinsts, poffsets.unwrap_or(core::mem::zeroed()) as _, ptotalinsts.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "d3d11")]
 #[inline]

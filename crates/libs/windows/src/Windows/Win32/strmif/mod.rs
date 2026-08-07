@@ -5578,8 +5578,8 @@ impl IAsyncReader {
     {
         unsafe { (windows_core::Interface::vtable(self).SyncReadAligned)(windows_core::Interface::as_raw(self), psample.param().abi()) }
     }
-    pub unsafe fn SyncRead(&self, llposition: i64, pbuffer: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SyncRead)(windows_core::Interface::as_raw(self), llposition, pbuffer.len().try_into().unwrap(), pbuffer.as_mut_ptr()) }
+    pub unsafe fn SyncRead(&self, llposition: i64, llength: i32, pbuffer: *mut u8) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SyncRead)(windows_core::Interface::as_raw(self), llposition, llength, pbuffer as _) }
     }
     pub unsafe fn Length(&self, ptotal: *mut i64, pavailable: *mut i64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Length)(windows_core::Interface::as_raw(self), ptotal as _, pavailable as _) }
@@ -8654,8 +8654,8 @@ impl IDvdInfo {
     pub unsafe fn GetCurrentVolumeInfo(&self, pulnumofvol: *mut u32, pulthisvolnum: *mut u32, pside: *mut DVD_DISC_SIDE, pulnumoftitles: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCurrentVolumeInfo)(windows_core::Interface::as_raw(self), pulnumofvol as _, pulthisvolnum as _, pside as _, pulnumoftitles as _) }
     }
-    pub unsafe fn GetDVDTextInfo(&self, ptextmanager: &mut [u8], pulactualsize: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDVDTextInfo)(windows_core::Interface::as_raw(self), ptextmanager.as_mut_ptr(), ptextmanager.len().try_into().unwrap(), pulactualsize as _) }
+    pub unsafe fn GetDVDTextInfo(&self, ptextmanager: *mut u8, ulbufsize: u32, pulactualsize: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDVDTextInfo)(windows_core::Interface::as_raw(self), ptextmanager as _, ulbufsize, pulactualsize as _) }
     }
     pub unsafe fn GetPlayerParentalLevel(&self, pulparentallevel: *mut u32, pulcountrycode: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPlayerParentalLevel)(windows_core::Interface::as_raw(self), pulparentallevel as _, pulcountrycode as _) }
@@ -8672,8 +8672,8 @@ impl IDvdInfo {
             (windows_core::Interface::vtable(self).GetTitleParentalLevels)(windows_core::Interface::as_raw(self), ultitle, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRoot(&self, proot: &mut [u8], pulactualsize: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRoot)(windows_core::Interface::as_raw(self), core::mem::transmute(proot.as_mut_ptr()), proot.len().try_into().unwrap(), pulactualsize as _) }
+    pub unsafe fn GetRoot(&self, proot: windows_core::PSTR, ulbufsize: u32, pulactualsize: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetRoot)(windows_core::Interface::as_raw(self), proot, ulbufsize, pulactualsize as _) }
     }
 }
 #[repr(C)]
@@ -9076,8 +9076,8 @@ impl IDvdInfo2 {
     pub unsafe fn GetDVDTextStringAsUnicode(&self, ullangindex: u32, ulstringindex: u32, pchwbuffer: *mut u16, ulmaxbuffersize: u32, pulactualsize: *mut u32, ptype: *mut DVD_TextStringType) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDVDTextStringAsUnicode)(windows_core::Interface::as_raw(self), ullangindex, ulstringindex, pchwbuffer as _, ulmaxbuffersize, pulactualsize as _, ptype as _) }
     }
-    pub unsafe fn GetPlayerParentalLevel(&self, pulparentallevel: *mut u32, pbcountrycode: &mut [u8; 2]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPlayerParentalLevel)(windows_core::Interface::as_raw(self), pulparentallevel as _, pbcountrycode.as_mut_ptr()) }
+    pub unsafe fn GetPlayerParentalLevel(&self, pulparentallevel: *mut u32, pbcountrycode: *mut u8) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPlayerParentalLevel)(windows_core::Interface::as_raw(self), pulparentallevel as _, pbcountrycode as _) }
     }
     pub unsafe fn GetNumberOfChapters(&self, ultitle: u32) -> windows_core::Result<u32> {
         unsafe {
@@ -9091,8 +9091,8 @@ impl IDvdInfo2 {
             (windows_core::Interface::vtable(self).GetTitleParentalLevels)(windows_core::Interface::as_raw(self), ultitle, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDVDDirectory(&self, pszwpath: &mut [u16], pulactualsize: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDVDDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute(pszwpath.as_mut_ptr()), pszwpath.len().try_into().unwrap(), pulactualsize as _) }
+    pub unsafe fn GetDVDDirectory(&self, pszwpath: windows_core::PWSTR, ulmaxsize: u32, pulactualsize: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDVDDirectory)(windows_core::Interface::as_raw(self), pszwpath, ulmaxsize, pulactualsize as _) }
     }
     pub unsafe fn IsAudioStreamEnabled(&self, ulstreamnum: u32) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -9892,8 +9892,8 @@ windows_core::imp::define_interface!(IEnumFilters, IEnumFilters_Vtbl, 0x56a86893
 windows_core::imp::interface_hierarchy!(IEnumFilters, windows_core::IUnknown);
 impl IEnumFilters {
     #[cfg(feature = "objidl")]
-    pub unsafe fn Next(&self, ppfilter: &mut [Option<IBaseFilter>], pcfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppfilter.len().try_into().unwrap(), core::mem::transmute(ppfilter.as_mut_ptr()), pcfetched.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, cfilters: u32, ppfilter: *mut Option<IBaseFilter>, pcfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cfilters, core::mem::transmute(ppfilter), pcfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, cfilters: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cfilters) }
@@ -9977,8 +9977,8 @@ impl windows_core::RuntimeName for IEnumFilters {}
 windows_core::imp::define_interface!(IEnumMediaTypes, IEnumMediaTypes_Vtbl, 0x89c31040_846b_11ce_97d3_00aa0055595a);
 windows_core::imp::interface_hierarchy!(IEnumMediaTypes, windows_core::IUnknown);
 impl IEnumMediaTypes {
-    pub unsafe fn Next(&self, ppmediatypes: &mut [*mut AM_MEDIA_TYPE], pcfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppmediatypes.len().try_into().unwrap(), ppmediatypes.as_mut_ptr(), pcfetched.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, cmediatypes: u32, ppmediatypes: *mut *mut AM_MEDIA_TYPE, pcfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cmediatypes, ppmediatypes as _, pcfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, cmediatypes: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cmediatypes) }
@@ -10056,8 +10056,8 @@ impl windows_core::RuntimeName for IEnumMediaTypes {}
 windows_core::imp::define_interface!(IEnumPins, IEnumPins_Vtbl, 0x56a86892_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IEnumPins, windows_core::IUnknown);
 impl IEnumPins {
-    pub unsafe fn Next(&self, pppins: &mut [Option<IPin>], pcfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pppins.len().try_into().unwrap(), core::mem::transmute(pppins.as_mut_ptr()), pcfetched.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, cpins: u32, pppins: *mut Option<IPin>, pcfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cpins, core::mem::transmute(pppins), pcfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, cpins: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cpins) }
@@ -10135,8 +10135,8 @@ impl windows_core::RuntimeName for IEnumPins {}
 windows_core::imp::define_interface!(IEnumRegFilters, IEnumRegFilters_Vtbl, 0x56a868a4_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IEnumRegFilters, windows_core::IUnknown);
 impl IEnumRegFilters {
-    pub unsafe fn Next(&self, apregfilter: &mut [*mut REGFILTER], pcfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), apregfilter.len().try_into().unwrap(), apregfilter.as_mut_ptr(), pcfetched.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, cfilters: u32, apregfilter: *mut *mut REGFILTER, pcfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cfilters, apregfilter as _, pcfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, cfilters: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cfilters) }
@@ -10214,8 +10214,8 @@ impl windows_core::RuntimeName for IEnumRegFilters {}
 windows_core::imp::define_interface!(IEnumStreamIdMap, IEnumStreamIdMap_Vtbl, 0x945c1566_6202_46fc_96c7_d87f289c6534);
 windows_core::imp::interface_hierarchy!(IEnumStreamIdMap, windows_core::IUnknown);
 impl IEnumStreamIdMap {
-    pub unsafe fn Next(&self, pstreamidmap: &mut [STREAM_ID_MAP], pcreceived: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pstreamidmap.len().try_into().unwrap(), pstreamidmap.as_mut_ptr(), pcreceived.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn Next(&self, crequest: u32, pstreamidmap: *mut STREAM_ID_MAP, pcreceived: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), crequest, pstreamidmap as _, pcreceived.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, crecords: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), crecords) }
@@ -12268,8 +12268,8 @@ impl core::ops::Deref for IMediaSample2 {
 }
 windows_core::imp::interface_hierarchy!(IMediaSample2, windows_core::IUnknown, IMediaSample);
 impl IMediaSample2 {
-    pub unsafe fn GetProperties(&self, pbproperties: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pbproperties.len().try_into().unwrap(), pbproperties.as_mut_ptr()) }
+    pub unsafe fn GetProperties(&self, cbproperties: u32, pbproperties: *mut u8) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), cbproperties, pbproperties as _) }
     }
     pub unsafe fn SetProperties(&self, pbproperties: &[u8]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), pbproperties.len().try_into().unwrap(), pbproperties.as_ptr()) }

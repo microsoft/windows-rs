@@ -241,14 +241,14 @@ where
     unsafe { PathIsExe(pszpath.param().abi()) }
 }
 #[inline]
-pub unsafe fn PathMakeUniqueName<P2, P3, P4>(pszuniquename: &mut [u16], psztemplate: P2, pszlongplate: P3, pszdir: P4) -> windows_core::BOOL
+pub unsafe fn PathMakeUniqueName<P2, P3, P4>(pszuniquename: windows_core::PWSTR, cchmax: u32, psztemplate: P2, pszlongplate: P3, pszdir: P4) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn PathMakeUniqueName(pszuniquename : windows_core::PWSTR, cchmax : u32, psztemplate : windows_core::PCWSTR, pszlongplate : windows_core::PCWSTR, pszdir : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { PathMakeUniqueName(core::mem::transmute(pszuniquename.as_mut_ptr()), pszuniquename.len().try_into().unwrap(), psztemplate.param().abi(), pszlongplate.param().abi(), pszdir.param().abi()) }
+    unsafe { PathMakeUniqueName(pszuniquename, cchmax, psztemplate.param().abi(), pszlongplate.param().abi(), pszdir.param().abi()) }
 }
 #[inline]
 pub unsafe fn PathResolve(pszpath: windows_core::PWSTR, dirs: Option<*const windows_core::PCWSTR>, fflags: u32) -> i32 {
@@ -767,9 +767,9 @@ pub unsafe fn SHGetPathFromIDListA(pidl: *const super::ITEMIDLIST, pszpath: wind
 }
 #[cfg(feature = "shtypes")]
 #[inline]
-pub unsafe fn SHGetPathFromIDListEx(pidl: *const super::ITEMIDLIST, pszpath: &mut [u16], uopts: GPFIDL_FLAGS) -> windows_core::BOOL {
+pub unsafe fn SHGetPathFromIDListEx(pidl: *const super::ITEMIDLIST, pszpath: windows_core::PWSTR, cchpath: u32, uopts: GPFIDL_FLAGS) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn SHGetPathFromIDListEx(pidl : *const super::ITEMIDLIST, pszpath : windows_core::PWSTR, cchpath : u32, uopts : GPFIDL_FLAGS) -> windows_core::BOOL);
-    unsafe { SHGetPathFromIDListEx(pidl, core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len().try_into().unwrap(), uopts) }
+    unsafe { SHGetPathFromIDListEx(pidl, pszpath, cchpath, uopts) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -1770,8 +1770,8 @@ impl IActiveDesktop {
     pub unsafe fn ApplyChanges(&self, dwflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ApplyChanges)(windows_core::Interface::as_raw(self), dwflags) }
     }
-    pub unsafe fn GetWallpaper(&self, pwszwallpaper: &mut [u16], dwflags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetWallpaper)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszwallpaper.as_mut_ptr()), pwszwallpaper.len().try_into().unwrap(), dwflags) }
+    pub unsafe fn GetWallpaper(&self, pwszwallpaper: windows_core::PWSTR, cchwallpaper: u32, dwflags: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetWallpaper)(windows_core::Interface::as_raw(self), pwszwallpaper, cchwallpaper, dwflags) }
     }
     pub unsafe fn SetWallpaper<P0>(&self, pwszwallpaper: P0, dwreserved: u32) -> windows_core::HRESULT
     where
@@ -1785,8 +1785,8 @@ impl IActiveDesktop {
     pub unsafe fn SetWallpaperOptions(&self, pwpo: *const WALLPAPEROPT, dwreserved: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetWallpaperOptions)(windows_core::Interface::as_raw(self), pwpo, dwreserved) }
     }
-    pub unsafe fn GetPattern(&self, pwszpattern: &mut [u16], dwreserved: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPattern)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszpattern.as_mut_ptr()), pwszpattern.len().try_into().unwrap(), dwreserved) }
+    pub unsafe fn GetPattern(&self, pwszpattern: windows_core::PWSTR, cchpattern: u32, dwreserved: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPattern)(windows_core::Interface::as_raw(self), pwszpattern, cchpattern, dwreserved) }
     }
     pub unsafe fn SetPattern<P0>(&self, pwszpattern: P0, dwreserved: u32) -> windows_core::HRESULT
     where
@@ -2173,8 +2173,8 @@ pub const IESHORTCUT_OPENNEWTAB: IESHORTCUTFLAGS = 2;
 windows_core::imp::define_interface!(IExtractIconA, IExtractIconA_Vtbl, 0x000214eb_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IExtractIconA, windows_core::IUnknown);
 impl IExtractIconA {
-    pub unsafe fn GetIconLocation(&self, uflags: u32, psziconfile: &mut [u8], piindex: *mut i32, pwflags: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIconLocation)(windows_core::Interface::as_raw(self), uflags, core::mem::transmute(psziconfile.as_mut_ptr()), psziconfile.len().try_into().unwrap(), piindex as _, pwflags as _) }
+    pub unsafe fn GetIconLocation(&self, uflags: u32, psziconfile: windows_core::PSTR, cchmax: u32, piindex: *mut i32, pwflags: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetIconLocation)(windows_core::Interface::as_raw(self), uflags, psziconfile, cchmax, piindex as _, pwflags as _) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn Extract<P0>(&self, pszfile: P0, niconindex: u32, phiconlarge: Option<*mut super::HICON>, phiconsmall: Option<*mut super::HICON>, niconsize: u32) -> windows_core::HRESULT
@@ -2229,8 +2229,8 @@ impl windows_core::RuntimeName for IExtractIconA {}
 windows_core::imp::define_interface!(IExtractIconW, IExtractIconW_Vtbl, 0x000214fa_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IExtractIconW, windows_core::IUnknown);
 impl IExtractIconW {
-    pub unsafe fn GetIconLocation(&self, uflags: u32, psziconfile: &mut [u16], piindex: *mut i32, pwflags: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIconLocation)(windows_core::Interface::as_raw(self), uflags, core::mem::transmute(psziconfile.as_mut_ptr()), psziconfile.len().try_into().unwrap(), piindex as _, pwflags as _) }
+    pub unsafe fn GetIconLocation(&self, uflags: u32, psziconfile: windows_core::PWSTR, cchmax: u32, piindex: *mut i32, pwflags: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetIconLocation)(windows_core::Interface::as_raw(self), uflags, psziconfile, cchmax, piindex as _, pwflags as _) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn Extract<P0>(&self, pszfile: P0, niconindex: u32, phiconlarge: Option<*mut super::HICON>, phiconsmall: Option<*mut super::HICON>, niconsize: u32) -> windows_core::HRESULT
@@ -3637,8 +3637,8 @@ pub struct ITEMSPACING {
 windows_core::imp::define_interface!(IURLSearchHook, IURLSearchHook_Vtbl, 0xac60f6a0_0fd9_11d0_99cb_00c04fd64497);
 windows_core::imp::interface_hierarchy!(IURLSearchHook, windows_core::IUnknown);
 impl IURLSearchHook {
-    pub unsafe fn Translate(&self, pwszsearchurl: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Translate)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszsearchurl.as_mut_ptr()), pwszsearchurl.len().try_into().unwrap()) }
+    pub unsafe fn Translate(&self, pwszsearchurl: windows_core::PWSTR, cchbuffersize: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Translate)(windows_core::Interface::as_raw(self), pwszsearchurl, cchbuffersize) }
     }
 }
 #[repr(C)]
@@ -3674,11 +3674,11 @@ impl core::ops::Deref for IURLSearchHook2 {
 }
 windows_core::imp::interface_hierarchy!(IURLSearchHook2, windows_core::IUnknown, IURLSearchHook);
 impl IURLSearchHook2 {
-    pub unsafe fn TranslateWithSearchContext<P2>(&self, pwszsearchurl: &mut [u16], psearchcontext: P2) -> windows_core::HRESULT
+    pub unsafe fn TranslateWithSearchContext<P2>(&self, pwszsearchurl: windows_core::PWSTR, cchbuffersize: u32, psearchcontext: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<ISearchContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).TranslateWithSearchContext)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszsearchurl.as_mut_ptr()), pwszsearchurl.len().try_into().unwrap(), psearchcontext.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).TranslateWithSearchContext)(windows_core::Interface::as_raw(self), pwszsearchurl, cchbuffersize, psearchcontext.param().abi()) }
     }
 }
 #[repr(C)]

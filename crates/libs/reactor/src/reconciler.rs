@@ -25,6 +25,8 @@ pub struct Reconciler<B: Backend> {
     pub id_kinds: FxHashMap<ControlId, ControlKind>,
     pub context_stack: Rc<ContextStack>,
     pub component_instances: FxHashMap<ControlId, ComponentInstance>,
+    // Additional logical components sharing a native root, innermost first.
+    component_instance_overflow: FxHashMap<ControlId, Vec<ComponentInstance>>,
     pub appeared_listener_count: usize,
     pub disappeared_listener_count: usize,
     pub force_component_rerender: bool,
@@ -66,6 +68,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             id_kinds: FxHashMap::default(),
             context_stack: Rc::new(ContextStack::new()),
             component_instances: FxHashMap::default(),
+            component_instance_overflow: FxHashMap::default(),
             appeared_listener_count: 0,
             disappeared_listener_count: 0,
             force_component_rerender: false,
@@ -114,6 +117,15 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.component_instances
             .get(&id)
             .is_some_and(|inst| inst.render_cx.peek_state_dirty())
+            || (!self.component_instance_overflow.is_empty()
+                && self
+                    .component_instance_overflow
+                    .get(&id)
+                    .is_some_and(|instances| {
+                        instances
+                            .iter()
+                            .any(|inst| inst.render_cx.peek_state_dirty())
+                    }))
     }
 
     pub fn reset_stats(&mut self) {
@@ -133,6 +145,11 @@ impl<B: Backend + 'static> Reconciler<B> {
 
         if let Some(stale) = self.component_instances.remove(&id) {
             self.unregister_component_listeners(&stale);
+        }
+        if let Some(stale) = self.component_instance_overflow.remove(&id) {
+            for inst in &stale {
+                self.unregister_component_listeners(inst);
+            }
         }
         self.templated_lists.remove(&id);
         self.selection_callbacks.remove(&id);
@@ -155,15 +172,33 @@ impl<B: Backend + 'static> Reconciler<B> {
         if inst.last_obj.has_on_disappeared() {
             self.disappeared_listener_count += 1;
         }
-        let displaced = self.component_instances.insert(id, inst);
-        if let Some(prev) = &displaced {
-            self.unregister_component_listeners(prev);
+        if let Some(previous) = self.component_instances.insert(id, inst) {
+            self.component_instance_overflow
+                .entry(id)
+                .or_insert_with(|| Vec::with_capacity(1))
+                .push(previous);
         }
-        displaced
+        None
     }
 
     pub fn take_component_instance(&mut self, id: ControlId) -> Option<ComponentInstance> {
         let inst = self.component_instances.remove(&id)?;
+        let (previous, remove_overflow) = if self.component_instance_overflow.is_empty() {
+            (None, false)
+        } else {
+            self.component_instance_overflow
+                .get_mut(&id)
+                .map_or((None, false), |instances| {
+                    let previous = instances.pop();
+                    (previous, instances.is_empty())
+                })
+        };
+        if let Some(previous) = previous {
+            self.component_instances.insert(id, previous);
+        }
+        if remove_overflow {
+            self.component_instance_overflow.remove(&id);
+        }
         self.unregister_component_listeners(&inst);
         Some(inst)
     }
@@ -222,10 +257,22 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     /// Forces dirty components to render even when unchanged parents can be skipped.
     fn force_state_dirty_components(&mut self) -> Vec<ControlId> {
+        let has_overflow = !self.component_instance_overflow.is_empty();
         let dirty: Vec<ControlId> = self
             .component_instances
             .iter()
-            .filter(|(_, inst)| inst.render_cx.peek_state_dirty())
+            .filter(|(id, inst)| {
+                inst.render_cx.peek_state_dirty()
+                    || (has_overflow
+                        && self
+                            .component_instance_overflow
+                            .get(id)
+                            .is_some_and(|instances| {
+                                instances
+                                    .iter()
+                                    .any(|inst| inst.render_cx.peek_state_dirty())
+                            }))
+            })
             .map(|(id, _)| *id)
             .collect();
         if !dirty.is_empty() {
@@ -322,7 +369,14 @@ impl<B: Backend + 'static> Reconciler<B> {
         let mut to_release = Vec::new();
         self.collect_subtree(id, &mut to_release);
         for node in to_release.into_iter().rev() {
-            if let Some(mut inst) = self.take_component_instance(node) {
+            if let Some(instances) = self.component_instance_overflow.remove(&node) {
+                for mut inst in instances {
+                    self.unregister_component_listeners(&inst);
+                    inst.render_cx.run_cleanups();
+                }
+            }
+            if let Some(mut inst) = self.component_instances.remove(&node) {
+                self.unregister_component_listeners(&inst);
                 inst.render_cx.run_cleanups();
             }
 
@@ -789,8 +843,19 @@ impl<B: Backend + 'static> Reconciler<B> {
         let mut result = Vec::new();
         let mut stack = vec![root_id];
         while let Some(id) = stack.pop() {
-            if let Some(inst) = self.component_instances.get(&id)
-                && inst.read_contexts.iter().any(|c| changed.contains(c))
+            if self
+                .component_instances
+                .get(&id)
+                .is_some_and(|inst| inst.read_contexts.iter().any(|c| changed.contains(c)))
+                || (!self.component_instance_overflow.is_empty()
+                    && self
+                        .component_instance_overflow
+                        .get(&id)
+                        .is_some_and(|instances| {
+                            instances
+                                .iter()
+                                .any(|inst| inst.read_contexts.iter().any(|c| changed.contains(c)))
+                        }))
             {
                 result.push(id);
             }

@@ -56,9 +56,9 @@ pub unsafe fn CredFree(buffer: *const core::ffi::c_void) {
     unsafe { CredFree(buffer) }
 }
 #[inline]
-pub unsafe fn CredGetSessionTypes(maximumpersist: &mut [u32]) -> windows_core::BOOL {
+pub unsafe fn CredGetSessionTypes(maximumpersistcount: u32, maximumpersist: *mut u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CredGetSessionTypes(maximumpersistcount : u32, maximumpersist : *mut u32) -> windows_core::BOOL);
-    unsafe { CredGetSessionTypes(maximumpersist.len().try_into().unwrap(), maximumpersist.as_mut_ptr()) }
+    unsafe { CredGetSessionTypes(maximumpersistcount, maximumpersist as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -231,20 +231,20 @@ where
     unsafe { CredUIConfirmCredentialsW(psztargetname.param().abi(), bconfirm.into()) }
 }
 #[inline]
-pub unsafe fn CredUIParseUserNameA<P0>(username: P0, user: &mut [i8], domain: &mut [i8]) -> u32
+pub unsafe fn CredUIParseUserNameA<P0>(username: P0, user: *mut i8, userbuffersize: u32, domain: *mut i8, domainbuffersize: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUIParseUserNameA(username : windows_core::PCSTR, user : *mut i8, userbuffersize : u32, domain : *mut i8, domainbuffersize : u32) -> u32);
-    unsafe { CredUIParseUserNameA(username.param().abi(), user.as_mut_ptr(), user.len().try_into().unwrap(), domain.as_mut_ptr(), domain.len().try_into().unwrap()) }
+    unsafe { CredUIParseUserNameA(username.param().abi(), user as _, userbuffersize, domain as _, domainbuffersize) }
 }
 #[inline]
-pub unsafe fn CredUIParseUserNameW<P0>(username: P0, user: &mut [u16], domain: &mut [u16]) -> u32
+pub unsafe fn CredUIParseUserNameW<P0>(username: P0, user: *mut u16, userbuffersize: u32, domain: *mut u16, domainbuffersize: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUIParseUserNameW(username : windows_core::PCWSTR, user : *mut u16, userbuffersize : u32, domain : *mut u16, domainbuffersize : u32) -> u32);
-    unsafe { CredUIParseUserNameW(username.param().abi(), user.as_mut_ptr(), user.len().try_into().unwrap(), domain.as_mut_ptr(), domain.len().try_into().unwrap()) }
+    unsafe { CredUIParseUserNameW(username.param().abi(), user as _, userbuffersize, domain as _, domainbuffersize) }
 }
 #[cfg(all(feature = "sspi", feature = "windef"))]
 #[inline]

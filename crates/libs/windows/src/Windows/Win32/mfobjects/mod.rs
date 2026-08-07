@@ -42,8 +42,8 @@ impl IMF2DBuffer {
             (windows_core::Interface::vtable(self).GetContiguousLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ContiguousCopyTo(&self, pbdestbuffer: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ContiguousCopyTo)(windows_core::Interface::as_raw(self), pbdestbuffer.as_mut_ptr(), pbdestbuffer.len().try_into().unwrap()) }
+    pub unsafe fn ContiguousCopyTo(&self, pbdestbuffer: *mut u8, cbdestbuffer: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ContiguousCopyTo)(windows_core::Interface::as_raw(self), pbdestbuffer as _, cbdestbuffer) }
     }
     pub unsafe fn ContiguousCopyFrom(&self, pbsrcbuffer: &[u8]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ContiguousCopyFrom)(windows_core::Interface::as_raw(self), pbsrcbuffer.as_ptr(), pbsrcbuffer.len().try_into().unwrap()) }
@@ -1052,12 +1052,12 @@ impl IMFByteStream {
     pub unsafe fn Read(&self, pb: *mut u8, cb: u32, pcbread: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), pb as _, cb, pcbread as _) }
     }
-    pub unsafe fn BeginRead<P2, P3>(&self, pb: &mut [u8], pcallback: P2, punkstate: P3) -> windows_core::HRESULT
+    pub unsafe fn BeginRead<P2, P3>(&self, pb: *mut u8, cb: u32, pcallback: P2, punkstate: P3) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IMFAsyncCallback>,
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BeginRead)(windows_core::Interface::as_raw(self), pb.as_mut_ptr(), pb.len().try_into().unwrap(), pcallback.param().abi(), punkstate.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).BeginRead)(windows_core::Interface::as_raw(self), pb as _, cb, pcallback.param().abi(), punkstate.param().abi()) }
     }
     pub unsafe fn EndRead<P0>(&self, presult: P0) -> windows_core::Result<u32>
     where

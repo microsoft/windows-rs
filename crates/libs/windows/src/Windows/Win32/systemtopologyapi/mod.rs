@@ -5,9 +5,9 @@ pub unsafe fn GetNumaHighestNodeNumber(highestnodenumber: *mut u32) -> windows_c
 }
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetNumaNodeProcessorMask2(nodenumber: u16, processormasks: Option<&mut [super::GROUP_AFFINITY]>, requiredmaskcount: *mut u16) -> windows_core::BOOL {
+pub unsafe fn GetNumaNodeProcessorMask2(nodenumber: u16, processormasks: Option<*mut super::GROUP_AFFINITY>, processormaskcount: u16, requiredmaskcount: *mut u16) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetNumaNodeProcessorMask2(nodenumber : u16, processormasks : *mut super::GROUP_AFFINITY, processormaskcount : u16, requiredmaskcount : *mut u16) -> windows_core::BOOL);
-    unsafe { GetNumaNodeProcessorMask2(nodenumber, processormasks.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), processormasks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredmaskcount as _) }
+    unsafe { GetNumaNodeProcessorMask2(nodenumber, processormasks.unwrap_or(core::mem::zeroed()) as _, processormaskcount, requiredmaskcount as _) }
 }
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[inline]

@@ -325,8 +325,8 @@ impl windows_core::RuntimeName for IMFDesiredSample {}
 windows_core::imp::define_interface!(IMFTopologyServiceLookup, IMFTopologyServiceLookup_Vtbl, 0xfa993889_4383_415a_a930_dd472a8cf6f7);
 windows_core::imp::interface_hierarchy!(IMFTopologyServiceLookup, windows_core::IUnknown);
 impl IMFTopologyServiceLookup {
-    pub unsafe fn LookupService(&self, r#type: MF_SERVICE_LOOKUP_TYPE, dwindex: u32, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobjects: &mut [*mut core::ffi::c_void; 1], pnobjects: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).LookupService)(windows_core::Interface::as_raw(self), r#type, dwindex, guidservice, riid, ppvobjects.as_mut_ptr(), pnobjects as _) }
+    pub unsafe fn LookupService(&self, r#type: MF_SERVICE_LOOKUP_TYPE, dwindex: u32, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobjects: *mut *mut core::ffi::c_void, pnobjects: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).LookupService)(windows_core::Interface::as_raw(self), r#type, dwindex, guidservice, riid, ppvobjects as _, pnobjects as _) }
     }
 }
 #[repr(C)]

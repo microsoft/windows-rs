@@ -57,9 +57,9 @@ where
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn EvtFormatMessage(publishermetadata: Option<EVT_HANDLE>, event: Option<EVT_HANDLE>, messageid: u32, values: Option<&[EVT_VARIANT]>, flags: u32, buffer: Option<&mut [u16]>, bufferused: *mut u32) -> windows_core::BOOL {
+pub unsafe fn EvtFormatMessage(publishermetadata: Option<EVT_HANDLE>, event: Option<EVT_HANDLE>, messageid: u32, values: Option<&[EVT_VARIANT]>, flags: u32, buffersize: u32, buffer: Option<windows_core::PWSTR>, bufferused: *mut u32) -> windows_core::BOOL {
     windows_core::link!("wevtapi.dll" "system" fn EvtFormatMessage(publishermetadata : EVT_HANDLE, event : EVT_HANDLE, messageid : u32, valuecount : u32, values : *const EVT_VARIANT, flags : u32, buffersize : u32, buffer : windows_core::PWSTR, bufferused : *mut u32) -> windows_core::BOOL);
-    unsafe { EvtFormatMessage(publishermetadata.unwrap_or(core::mem::zeroed()) as _, event.unwrap_or(core::mem::zeroed()) as _, messageid, values.map_or(0, |slice| slice.len().try_into().unwrap()), values.map_or(core::ptr::null(), |slice| slice.as_ptr()), flags, buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), bufferused as _) }
+    unsafe { EvtFormatMessage(publishermetadata.unwrap_or(core::mem::zeroed()) as _, event.unwrap_or(core::mem::zeroed()) as _, messageid, values.map_or(0, |slice| slice.len().try_into().unwrap()), values.map_or(core::ptr::null(), |slice| slice.as_ptr()), flags, buffersize, buffer.unwrap_or(core::mem::zeroed()) as _, bufferused as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
@@ -80,9 +80,9 @@ pub unsafe fn EvtGetEventMetadataProperty(eventmetadata: EVT_HANDLE, propertyid:
     unsafe { EvtGetEventMetadataProperty(eventmetadata, propertyid, flags, eventmetadatapropertybuffersize, eventmetadatapropertybuffer.unwrap_or(core::mem::zeroed()) as _, eventmetadatapropertybufferused as _) }
 }
 #[inline]
-pub unsafe fn EvtGetExtendedStatus(buffer: Option<&mut [u16]>, bufferused: *mut u32) -> u32 {
+pub unsafe fn EvtGetExtendedStatus(buffersize: u32, buffer: Option<windows_core::PWSTR>, bufferused: *mut u32) -> u32 {
     windows_core::link!("wevtapi.dll" "system" fn EvtGetExtendedStatus(buffersize : u32, buffer : windows_core::PWSTR, bufferused : *mut u32) -> u32);
-    unsafe { EvtGetExtendedStatus(buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), bufferused as _) }
+    unsafe { EvtGetExtendedStatus(buffersize, buffer.unwrap_or(core::mem::zeroed()) as _, bufferused as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
@@ -116,15 +116,15 @@ pub unsafe fn EvtGetQueryInfo(queryorsubscription: EVT_HANDLE, propertyid: EVT_Q
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn EvtNext(resultset: EVT_HANDLE, events: &mut [super::HANDLE], timeout: u32, flags: u32, returned: *mut u32) -> windows_core::BOOL {
+pub unsafe fn EvtNext(resultset: EVT_HANDLE, eventssize: u32, events: *mut super::HANDLE, timeout: u32, flags: u32, returned: *mut u32) -> windows_core::BOOL {
     windows_core::link!("wevtapi.dll" "system" fn EvtNext(resultset : EVT_HANDLE, eventssize : u32, events : *mut super::HANDLE, timeout : u32, flags : u32, returned : *mut u32) -> windows_core::BOOL);
-    unsafe { EvtNext(resultset, events.len().try_into().unwrap(), events.as_mut_ptr(), timeout, flags, returned as _) }
+    unsafe { EvtNext(resultset, eventssize, events as _, timeout, flags, returned as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn EvtNextChannelPath(channelenum: EVT_HANDLE, channelpathbuffer: Option<&mut [u16]>, channelpathbufferused: *mut u32) -> windows_core::BOOL {
+pub unsafe fn EvtNextChannelPath(channelenum: EVT_HANDLE, channelpathbuffersize: u32, channelpathbuffer: Option<windows_core::PWSTR>, channelpathbufferused: *mut u32) -> windows_core::BOOL {
     windows_core::link!("wevtapi.dll" "system" fn EvtNextChannelPath(channelenum : EVT_HANDLE, channelpathbuffersize : u32, channelpathbuffer : windows_core::PWSTR, channelpathbufferused : *mut u32) -> windows_core::BOOL);
-    unsafe { EvtNextChannelPath(channelenum, channelpathbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(channelpathbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), channelpathbufferused as _) }
+    unsafe { EvtNextChannelPath(channelenum, channelpathbuffersize, channelpathbuffer.unwrap_or(core::mem::zeroed()) as _, channelpathbufferused as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -134,9 +134,9 @@ pub unsafe fn EvtNextEventMetadata(eventmetadataenum: EVT_HANDLE, flags: u32) ->
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn EvtNextPublisherId(publisherenum: EVT_HANDLE, publisheridbuffer: Option<&mut [u16]>, publisheridbufferused: *mut u32) -> windows_core::BOOL {
+pub unsafe fn EvtNextPublisherId(publisherenum: EVT_HANDLE, publisheridbuffersize: u32, publisheridbuffer: Option<windows_core::PWSTR>, publisheridbufferused: *mut u32) -> windows_core::BOOL {
     windows_core::link!("wevtapi.dll" "system" fn EvtNextPublisherId(publisherenum : EVT_HANDLE, publisheridbuffersize : u32, publisheridbuffer : windows_core::PWSTR, publisheridbufferused : *mut u32) -> windows_core::BOOL);
-    unsafe { EvtNextPublisherId(publisherenum, publisheridbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(publisheridbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), publisheridbufferused as _) }
+    unsafe { EvtNextPublisherId(publisherenum, publisheridbuffersize, publisheridbuffer.unwrap_or(core::mem::zeroed()) as _, publisheridbufferused as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

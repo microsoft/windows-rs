@@ -51,7 +51,13 @@ fn main() -> Result<()> {
                     loop {
                         let mut suggestion = [PWSTR::null()];
                         // This enumerator returns HRESULT and signals completion with a null slot.
-                        suggestions.Next(&mut suggestion, None).ok()?;
+                        suggestions
+                            .Next(
+                                suggestion.len().try_into().unwrap(),
+                                suggestion.as_mut_ptr(),
+                                None,
+                            )
+                            .ok()?;
 
                         if suggestion[0].is_null() {
                             break;

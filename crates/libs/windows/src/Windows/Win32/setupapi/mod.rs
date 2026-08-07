@@ -168,7 +168,7 @@ where
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn SetupCopyErrorA<P1, P2, P3, P4, P5>(hwndparent: super::HWND, dialogtitle: P1, diskname: P2, pathtosource: P3, sourcefile: P4, targetpathfile: P5, win32errorcode: u32, style: u32, pathbuffer: Option<&mut [u8]>, pathrequiredsize: Option<*mut u32>) -> u32
+pub unsafe fn SetupCopyErrorA<P1, P2, P3, P4, P5>(hwndparent: super::HWND, dialogtitle: P1, diskname: P2, pathtosource: P3, sourcefile: P4, targetpathfile: P5, win32errorcode: u32, style: u32, pathbuffer: Option<windows_core::PSTR>, pathbuffersize: u32, pathrequiredsize: Option<*mut u32>) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
@@ -177,11 +177,11 @@ where
     P5: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupCopyErrorA(hwndparent : super::HWND, dialogtitle : windows_core::PCSTR, diskname : windows_core::PCSTR, pathtosource : windows_core::PCSTR, sourcefile : windows_core::PCSTR, targetpathfile : windows_core::PCSTR, win32errorcode : u32, style : u32, pathbuffer : windows_core::PSTR, pathbuffersize : u32, pathrequiredsize : *mut u32) -> u32);
-    unsafe { SetupCopyErrorA(hwndparent, dialogtitle.param().abi(), diskname.param().abi(), pathtosource.param().abi(), sourcefile.param().abi(), targetpathfile.param().abi(), win32errorcode, style, core::mem::transmute(pathbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pathbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathrequiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupCopyErrorA(hwndparent, dialogtitle.param().abi(), diskname.param().abi(), pathtosource.param().abi(), sourcefile.param().abi(), targetpathfile.param().abi(), win32errorcode, style, pathbuffer.unwrap_or(core::mem::zeroed()) as _, pathbuffersize, pathrequiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn SetupCopyErrorW<P1, P2, P3, P4, P5>(hwndparent: super::HWND, dialogtitle: P1, diskname: P2, pathtosource: P3, sourcefile: P4, targetpathfile: P5, win32errorcode: u32, style: u32, pathbuffer: Option<&mut [u16]>, pathrequiredsize: Option<*mut u32>) -> u32
+pub unsafe fn SetupCopyErrorW<P1, P2, P3, P4, P5>(hwndparent: super::HWND, dialogtitle: P1, diskname: P2, pathtosource: P3, sourcefile: P4, targetpathfile: P5, win32errorcode: u32, style: u32, pathbuffer: Option<windows_core::PWSTR>, pathbuffersize: u32, pathrequiredsize: Option<*mut u32>) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
@@ -190,25 +190,25 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupCopyErrorW(hwndparent : super::HWND, dialogtitle : windows_core::PCWSTR, diskname : windows_core::PCWSTR, pathtosource : windows_core::PCWSTR, sourcefile : windows_core::PCWSTR, targetpathfile : windows_core::PCWSTR, win32errorcode : u32, style : u32, pathbuffer : windows_core::PWSTR, pathbuffersize : u32, pathrequiredsize : *mut u32) -> u32);
-    unsafe { SetupCopyErrorW(hwndparent, dialogtitle.param().abi(), diskname.param().abi(), pathtosource.param().abi(), sourcefile.param().abi(), targetpathfile.param().abi(), win32errorcode, style, core::mem::transmute(pathbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pathbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathrequiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupCopyErrorW(hwndparent, dialogtitle.param().abi(), diskname.param().abi(), pathtosource.param().abi(), sourcefile.param().abi(), targetpathfile.param().abi(), win32errorcode, style, pathbuffer.unwrap_or(core::mem::zeroed()) as _, pathbuffersize, pathrequiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupCopyOEMInfA<P0, P1>(sourceinffilename: P0, oemsourcemedialocation: P1, oemsourcemediatype: u32, copystyle: u32, destinationinffilename: Option<&mut [u8]>, requiredsize: Option<*mut u32>, destinationinffilenamecomponent: Option<*mut windows_core::PSTR>) -> windows_core::BOOL
+pub unsafe fn SetupCopyOEMInfA<P0, P1>(sourceinffilename: P0, oemsourcemedialocation: P1, oemsourcemediatype: u32, copystyle: u32, destinationinffilename: Option<windows_core::PSTR>, destinationinffilenamesize: u32, requiredsize: Option<*mut u32>, destinationinffilenamecomponent: Option<*mut windows_core::PSTR>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupCopyOEMInfA(sourceinffilename : windows_core::PCSTR, oemsourcemedialocation : windows_core::PCSTR, oemsourcemediatype : u32, copystyle : u32, destinationinffilename : windows_core::PSTR, destinationinffilenamesize : u32, requiredsize : *mut u32, destinationinffilenamecomponent : *mut windows_core::PSTR) -> windows_core::BOOL);
-    unsafe { SetupCopyOEMInfA(sourceinffilename.param().abi(), oemsourcemedialocation.param().abi(), oemsourcemediatype, copystyle, core::mem::transmute(destinationinffilename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), destinationinffilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _, destinationinffilenamecomponent.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupCopyOEMInfA(sourceinffilename.param().abi(), oemsourcemedialocation.param().abi(), oemsourcemediatype, copystyle, destinationinffilename.unwrap_or(core::mem::zeroed()) as _, destinationinffilenamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _, destinationinffilenamecomponent.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupCopyOEMInfW<P0, P1>(sourceinffilename: P0, oemsourcemedialocation: P1, oemsourcemediatype: u32, copystyle: u32, destinationinffilename: Option<&mut [u16]>, requiredsize: Option<*mut u32>, destinationinffilenamecomponent: Option<*mut windows_core::PWSTR>) -> windows_core::BOOL
+pub unsafe fn SetupCopyOEMInfW<P0, P1>(sourceinffilename: P0, oemsourcemedialocation: P1, oemsourcemediatype: u32, copystyle: u32, destinationinffilename: Option<windows_core::PWSTR>, destinationinffilenamesize: u32, requiredsize: Option<*mut u32>, destinationinffilenamecomponent: Option<*mut windows_core::PWSTR>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupCopyOEMInfW(sourceinffilename : windows_core::PCWSTR, oemsourcemedialocation : windows_core::PCWSTR, oemsourcemediatype : u32, copystyle : u32, destinationinffilename : windows_core::PWSTR, destinationinffilenamesize : u32, requiredsize : *mut u32, destinationinffilenamecomponent : *mut windows_core::PWSTR) -> windows_core::BOOL);
-    unsafe { SetupCopyOEMInfW(sourceinffilename.param().abi(), oemsourcemedialocation.param().abi(), oemsourcemediatype, copystyle, core::mem::transmute(destinationinffilename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), destinationinffilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _, destinationinffilenamecomponent.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupCopyOEMInfW(sourceinffilename.param().abi(), oemsourcemedialocation.param().abi(), oemsourcemediatype, copystyle, destinationinffilename.unwrap_or(core::mem::zeroed()) as _, destinationinffilenamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _, destinationinffilenamecomponent.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SetupCreateDiskSpaceListA(reserved1: Option<*const core::ffi::c_void>, reserved2: Option<u32>, flags: u32) -> HDSKSPC {
@@ -279,25 +279,25 @@ pub unsafe fn SetupDiAskForOEMDisk(deviceinfoset: HDEVINFO, deviceinfodata: Opti
     unsafe { SetupDiAskForOEMDisk(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiBuildClassInfoList(flags: u32, classguidlist: Option<&mut [windows_core::GUID]>, requiredsize: *mut u32) -> windows_core::BOOL {
+pub unsafe fn SetupDiBuildClassInfoList(flags: u32, classguidlist: Option<*mut windows_core::GUID>, classguidlistsize: u32, requiredsize: *mut u32) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoList(flags : u32, classguidlist : *mut windows_core::GUID, classguidlistsize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiBuildClassInfoList(flags, classguidlist.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), classguidlist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize as _) }
+    unsafe { SetupDiBuildClassInfoList(flags, classguidlist.unwrap_or(core::mem::zeroed()) as _, classguidlistsize, requiredsize as _) }
 }
 #[inline]
-pub unsafe fn SetupDiBuildClassInfoListExA<P4>(flags: u32, classguidlist: Option<&mut [windows_core::GUID]>, requiredsize: *mut u32, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiBuildClassInfoListExA<P4>(flags: u32, classguidlist: Option<*mut windows_core::GUID>, classguidlistsize: u32, requiredsize: *mut u32, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoListExA(flags : u32, classguidlist : *mut windows_core::GUID, classguidlistsize : u32, requiredsize : *mut u32, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiBuildClassInfoListExA(flags, classguidlist.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), classguidlist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiBuildClassInfoListExA(flags, classguidlist.unwrap_or(core::mem::zeroed()) as _, classguidlistsize, requiredsize as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiBuildClassInfoListExW<P4>(flags: u32, classguidlist: Option<&mut [windows_core::GUID]>, requiredsize: *mut u32, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiBuildClassInfoListExW<P4>(flags: u32, classguidlist: Option<*mut windows_core::GUID>, classguidlistsize: u32, requiredsize: *mut u32, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoListExW(flags : u32, classguidlist : *mut windows_core::GUID, classguidlistsize : u32, requiredsize : *mut u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiBuildClassInfoListExW(flags, classguidlist.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), classguidlist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiBuildClassInfoListExW(flags, classguidlist.unwrap_or(core::mem::zeroed()) as _, classguidlistsize, requiredsize as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SetupDiBuildDriverInfoList(deviceinfoset: HDEVINFO, deviceinfodata: Option<*mut SP_DEVINFO_DATA>, drivertype: u32) -> windows_core::BOOL {
@@ -320,64 +320,64 @@ pub unsafe fn SetupDiChangeState(deviceinfoset: HDEVINFO, deviceinfodata: *mut S
     unsafe { SetupDiChangeState(deviceinfoset, deviceinfodata as _) }
 }
 #[inline]
-pub unsafe fn SetupDiClassGuidsFromNameA<P0>(classname: P0, classguidlist: &mut [windows_core::GUID], requiredsize: *mut u32) -> windows_core::BOOL
+pub unsafe fn SetupDiClassGuidsFromNameA<P0>(classname: P0, classguidlist: *mut windows_core::GUID, classguidlistsize: u32, requiredsize: *mut u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameA(classname : windows_core::PCSTR, classguidlist : *mut windows_core::GUID, classguidlistsize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiClassGuidsFromNameA(classname.param().abi(), classguidlist.as_mut_ptr(), classguidlist.len().try_into().unwrap(), requiredsize as _) }
+    unsafe { SetupDiClassGuidsFromNameA(classname.param().abi(), classguidlist as _, classguidlistsize, requiredsize as _) }
 }
 #[inline]
-pub unsafe fn SetupDiClassGuidsFromNameExA<P0, P4>(classname: P0, classguidlist: &mut [windows_core::GUID], requiredsize: *mut u32, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiClassGuidsFromNameExA<P0, P4>(classname: P0, classguidlist: *mut windows_core::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameExA(classname : windows_core::PCSTR, classguidlist : *mut windows_core::GUID, classguidlistsize : u32, requiredsize : *mut u32, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiClassGuidsFromNameExA(classname.param().abi(), classguidlist.as_mut_ptr(), classguidlist.len().try_into().unwrap(), requiredsize as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiClassGuidsFromNameExA(classname.param().abi(), classguidlist as _, classguidlistsize, requiredsize as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiClassGuidsFromNameExW<P0, P4>(classname: P0, classguidlist: &mut [windows_core::GUID], requiredsize: *mut u32, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiClassGuidsFromNameExW<P0, P4>(classname: P0, classguidlist: *mut windows_core::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameExW(classname : windows_core::PCWSTR, classguidlist : *mut windows_core::GUID, classguidlistsize : u32, requiredsize : *mut u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiClassGuidsFromNameExW(classname.param().abi(), classguidlist.as_mut_ptr(), classguidlist.len().try_into().unwrap(), requiredsize as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiClassGuidsFromNameExW(classname.param().abi(), classguidlist as _, classguidlistsize, requiredsize as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiClassGuidsFromNameW<P0>(classname: P0, classguidlist: &mut [windows_core::GUID], requiredsize: *mut u32) -> windows_core::BOOL
+pub unsafe fn SetupDiClassGuidsFromNameW<P0>(classname: P0, classguidlist: *mut windows_core::GUID, classguidlistsize: u32, requiredsize: *mut u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameW(classname : windows_core::PCWSTR, classguidlist : *mut windows_core::GUID, classguidlistsize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiClassGuidsFromNameW(classname.param().abi(), classguidlist.as_mut_ptr(), classguidlist.len().try_into().unwrap(), requiredsize as _) }
+    unsafe { SetupDiClassGuidsFromNameW(classname.param().abi(), classguidlist as _, classguidlistsize, requiredsize as _) }
 }
 #[inline]
-pub unsafe fn SetupDiClassNameFromGuidA(classguid: *const windows_core::GUID, classname: &mut [u8], requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupDiClassNameFromGuidA(classguid: *const windows_core::GUID, classname: windows_core::PSTR, classnamesize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidA(classguid : *const windows_core::GUID, classname : windows_core::PSTR, classnamesize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiClassNameFromGuidA(classguid, core::mem::transmute(classname.as_mut_ptr()), classname.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiClassNameFromGuidA(classguid, classname, classnamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiClassNameFromGuidExA<P4>(classguid: *const windows_core::GUID, classname: &mut [u8], requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiClassNameFromGuidExA<P4>(classguid: *const windows_core::GUID, classname: windows_core::PSTR, classnamesize: u32, requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidExA(classguid : *const windows_core::GUID, classname : windows_core::PSTR, classnamesize : u32, requiredsize : *mut u32, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiClassNameFromGuidExA(classguid, core::mem::transmute(classname.as_mut_ptr()), classname.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiClassNameFromGuidExA(classguid, classname, classnamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiClassNameFromGuidExW<P4>(classguid: *const windows_core::GUID, classname: &mut [u16], requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiClassNameFromGuidExW<P4>(classguid: *const windows_core::GUID, classname: windows_core::PWSTR, classnamesize: u32, requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidExW(classguid : *const windows_core::GUID, classname : windows_core::PWSTR, classnamesize : u32, requiredsize : *mut u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiClassNameFromGuidExW(classguid, core::mem::transmute(classname.as_mut_ptr()), classname.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiClassNameFromGuidExW(classguid, classname, classnamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiClassNameFromGuidW(classguid: *const windows_core::GUID, classname: &mut [u16], requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupDiClassNameFromGuidW(classguid: *const windows_core::GUID, classname: windows_core::PWSTR, classnamesize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidW(classguid : *const windows_core::GUID, classname : windows_core::PWSTR, classnamesize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiClassNameFromGuidW(classguid, core::mem::transmute(classname.as_mut_ptr()), classname.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiClassNameFromGuidW(classguid, classname, classnamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -540,46 +540,46 @@ pub unsafe fn SetupDiEnumDriverInfoW(deviceinfoset: HDEVINFO, deviceinfodata: Op
     unsafe { SetupDiEnumDriverInfoW(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, drivertype, memberindex, driverinfodata as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetActualModelsSectionA(context: *const INFCONTEXT, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsectionwithext: Option<&mut [u8]>, requiredsize: Option<*mut u32>, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
+pub unsafe fn SetupDiGetActualModelsSectionA(context: *const INFCONTEXT, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsectionwithext: Option<windows_core::PSTR>, infsectionwithextsize: u32, requiredsize: Option<*mut u32>, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualModelsSectionA(context : *const INFCONTEXT, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_core::PSTR, infsectionwithextsize : u32, requiredsize : *mut u32, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetActualModelsSectionA(context, alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(infsectionwithext.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), infsectionwithext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetActualModelsSectionA(context, alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, infsectionwithext.unwrap_or(core::mem::zeroed()) as _, infsectionwithextsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetActualModelsSectionW(context: *const INFCONTEXT, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsectionwithext: Option<&mut [u16]>, requiredsize: Option<*mut u32>, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
+pub unsafe fn SetupDiGetActualModelsSectionW(context: *const INFCONTEXT, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsectionwithext: Option<windows_core::PWSTR>, infsectionwithextsize: u32, requiredsize: Option<*mut u32>, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualModelsSectionW(context : *const INFCONTEXT, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_core::PWSTR, infsectionwithextsize : u32, requiredsize : *mut u32, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetActualModelsSectionW(context, alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(infsectionwithext.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), infsectionwithext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetActualModelsSectionW(context, alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, infsectionwithext.unwrap_or(core::mem::zeroed()) as _, infsectionwithextsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetActualSectionToInstallA<P1>(infhandle: HINF, infsectionname: P1, infsectionwithext: Option<&mut [u8]>, requiredsize: Option<*mut u32>, extension: Option<*mut windows_core::PSTR>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetActualSectionToInstallA<P1>(infhandle: HINF, infsectionname: P1, infsectionwithext: Option<windows_core::PSTR>, infsectionwithextsize: u32, requiredsize: Option<*mut u32>, extension: Option<*mut windows_core::PSTR>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallA(infhandle : HINF, infsectionname : windows_core::PCSTR, infsectionwithext : windows_core::PSTR, infsectionwithextsize : u32, requiredsize : *mut u32, extension : *mut windows_core::PSTR) -> windows_core::BOOL);
-    unsafe { SetupDiGetActualSectionToInstallA(infhandle, infsectionname.param().abi(), core::mem::transmute(infsectionwithext.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), infsectionwithext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _, extension.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetActualSectionToInstallA(infhandle, infsectionname.param().abi(), infsectionwithext.unwrap_or(core::mem::zeroed()) as _, infsectionwithextsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, extension.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetActualSectionToInstallExA<P1>(infhandle: HINF, infsectionname: P1, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsectionwithext: Option<&mut [u8]>, requiredsize: Option<*mut u32>, extension: Option<*mut windows_core::PSTR>, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetActualSectionToInstallExA<P1>(infhandle: HINF, infsectionname: P1, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsectionwithext: Option<windows_core::PSTR>, infsectionwithextsize: u32, requiredsize: Option<*mut u32>, extension: Option<*mut windows_core::PSTR>, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallExA(infhandle : HINF, infsectionname : windows_core::PCSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_core::PSTR, infsectionwithextsize : u32, requiredsize : *mut u32, extension : *mut windows_core::PSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetActualSectionToInstallExA(infhandle, infsectionname.param().abi(), alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(infsectionwithext.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), infsectionwithext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _, extension.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetActualSectionToInstallExA(infhandle, infsectionname.param().abi(), alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, infsectionwithext.unwrap_or(core::mem::zeroed()) as _, infsectionwithextsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, extension.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetActualSectionToInstallExW<P1>(infhandle: HINF, infsectionname: P1, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsectionwithext: Option<&mut [u16]>, requiredsize: Option<*mut u32>, extension: Option<*mut windows_core::PWSTR>, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetActualSectionToInstallExW<P1>(infhandle: HINF, infsectionname: P1, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsectionwithext: Option<windows_core::PWSTR>, infsectionwithextsize: u32, requiredsize: Option<*mut u32>, extension: Option<*mut windows_core::PWSTR>, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallExW(infhandle : HINF, infsectionname : windows_core::PCWSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_core::PWSTR, infsectionwithextsize : u32, requiredsize : *mut u32, extension : *mut windows_core::PWSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetActualSectionToInstallExW(infhandle, infsectionname.param().abi(), alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(infsectionwithext.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), infsectionwithext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _, extension.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetActualSectionToInstallExW(infhandle, infsectionname.param().abi(), alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, infsectionwithext.unwrap_or(core::mem::zeroed()) as _, infsectionwithextsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, extension.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetActualSectionToInstallW<P1>(infhandle: HINF, infsectionname: P1, infsectionwithext: Option<&mut [u16]>, requiredsize: Option<*mut u32>, extension: Option<*mut windows_core::PWSTR>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetActualSectionToInstallW<P1>(infhandle: HINF, infsectionname: P1, infsectionwithext: Option<windows_core::PWSTR>, infsectionwithextsize: u32, requiredsize: Option<*mut u32>, extension: Option<*mut windows_core::PWSTR>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallW(infhandle : HINF, infsectionname : windows_core::PCWSTR, infsectionwithext : windows_core::PWSTR, infsectionwithextsize : u32, requiredsize : *mut u32, extension : *mut windows_core::PWSTR) -> windows_core::BOOL);
-    unsafe { SetupDiGetActualSectionToInstallW(infhandle, infsectionname.param().abi(), core::mem::transmute(infsectionwithext.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), infsectionwithext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _, extension.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetActualSectionToInstallW(infhandle, infsectionname.param().abi(), infsectionwithext.unwrap_or(core::mem::zeroed()) as _, infsectionwithextsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, extension.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SetupDiGetClassBitmapIndex(classguid: Option<*const windows_core::GUID>, miniiconindex: *mut i32) -> windows_core::BOOL {
@@ -587,30 +587,30 @@ pub unsafe fn SetupDiGetClassBitmapIndex(classguid: Option<*const windows_core::
     unsafe { SetupDiGetClassBitmapIndex(classguid.unwrap_or(core::mem::zeroed()) as _, miniiconindex as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetClassDescriptionA(classguid: *const windows_core::GUID, classdescription: &mut [u8], requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupDiGetClassDescriptionA(classguid: *const windows_core::GUID, classdescription: windows_core::PSTR, classdescriptionsize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionA(classguid : *const windows_core::GUID, classdescription : windows_core::PSTR, classdescriptionsize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassDescriptionA(classguid, core::mem::transmute(classdescription.as_mut_ptr()), classdescription.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetClassDescriptionA(classguid, classdescription, classdescriptionsize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetClassDescriptionExA<P4>(classguid: *const windows_core::GUID, classdescription: &mut [u8], requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetClassDescriptionExA<P4>(classguid: *const windows_core::GUID, classdescription: windows_core::PSTR, classdescriptionsize: u32, requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionExA(classguid : *const windows_core::GUID, classdescription : windows_core::PSTR, classdescriptionsize : u32, requiredsize : *mut u32, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassDescriptionExA(classguid, core::mem::transmute(classdescription.as_mut_ptr()), classdescription.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetClassDescriptionExA(classguid, classdescription, classdescriptionsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetClassDescriptionExW<P4>(classguid: *const windows_core::GUID, classdescription: &mut [u16], requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetClassDescriptionExW<P4>(classguid: *const windows_core::GUID, classdescription: windows_core::PWSTR, classdescriptionsize: u32, requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionExW(classguid : *const windows_core::GUID, classdescription : windows_core::PWSTR, classdescriptionsize : u32, requiredsize : *mut u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassDescriptionExW(classguid, core::mem::transmute(classdescription.as_mut_ptr()), classdescription.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetClassDescriptionExW(classguid, classdescription, classdescriptionsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetClassDescriptionW(classguid: *const windows_core::GUID, classdescription: &mut [u16], requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupDiGetClassDescriptionW(classguid: *const windows_core::GUID, classdescription: windows_core::PWSTR, classdescriptionsize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionW(classguid : *const windows_core::GUID, classdescription : windows_core::PWSTR, classdescriptionsize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassDescriptionW(classguid, core::mem::transmute(classdescription.as_mut_ptr()), classdescription.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetClassDescriptionW(classguid, classdescription, classdescriptionsize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[inline]
@@ -704,65 +704,65 @@ pub unsafe fn SetupDiGetClassInstallParamsW(deviceinfoset: HDEVINFO, deviceinfod
 }
 #[cfg(feature = "devpropdef")]
 #[inline]
-pub unsafe fn SetupDiGetClassPropertyExW<P7>(classguid: *const windows_core::GUID, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>, flags: u32, machinename: P7, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetClassPropertyExW<P7>(classguid: *const windows_core::GUID, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<*mut u8>, propertybuffersize: u32, requiredsize: Option<*mut u32>, flags: u32, machinename: P7, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyExW(classguid : *const windows_core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32, flags : u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassPropertyExW(classguid, propertykey, propertytype as _, propertybuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _, flags, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetClassPropertyExW(classguid, propertykey, propertytype as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _, flags, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "devpropdef")]
 #[inline]
-pub unsafe fn SetupDiGetClassPropertyKeys(classguid: *const windows_core::GUID, propertykeyarray: Option<&mut [super::DEVPROPKEY]>, requiredpropertykeycount: Option<*mut u32>, flags: u32) -> windows_core::BOOL {
+pub unsafe fn SetupDiGetClassPropertyKeys(classguid: *const windows_core::GUID, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: u32, requiredpropertykeycount: Option<*mut u32>, flags: u32) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyKeys(classguid : *const windows_core::GUID, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : u32, requiredpropertykeycount : *mut u32, flags : u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassPropertyKeys(classguid, propertykeyarray.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), propertykeyarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredpropertykeycount.unwrap_or(core::mem::zeroed()) as _, flags) }
+    unsafe { SetupDiGetClassPropertyKeys(classguid, propertykeyarray.unwrap_or(core::mem::zeroed()) as _, propertykeycount, requiredpropertykeycount.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
 #[cfg(feature = "devpropdef")]
 #[inline]
-pub unsafe fn SetupDiGetClassPropertyKeysExW<P5>(classguid: *const windows_core::GUID, propertykeyarray: Option<&mut [super::DEVPROPKEY]>, requiredpropertykeycount: Option<*mut u32>, flags: u32, machinename: P5, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetClassPropertyKeysExW<P5>(classguid: *const windows_core::GUID, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: u32, requiredpropertykeycount: Option<*mut u32>, flags: u32, machinename: P5, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyKeysExW(classguid : *const windows_core::GUID, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : u32, requiredpropertykeycount : *mut u32, flags : u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassPropertyKeysExW(classguid, propertykeyarray.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), propertykeyarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredpropertykeycount.unwrap_or(core::mem::zeroed()) as _, flags, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetClassPropertyKeysExW(classguid, propertykeyarray.unwrap_or(core::mem::zeroed()) as _, propertykeycount, requiredpropertykeycount.unwrap_or(core::mem::zeroed()) as _, flags, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "devpropdef")]
 #[inline]
-pub unsafe fn SetupDiGetClassPropertyW(classguid: *const windows_core::GUID, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>, flags: u32) -> windows_core::BOOL {
+pub unsafe fn SetupDiGetClassPropertyW(classguid: *const windows_core::GUID, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<*mut u8>, propertybuffersize: u32, requiredsize: Option<*mut u32>, flags: u32) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyW(classguid : *const windows_core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32, flags : u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassPropertyW(classguid, propertykey, propertytype as _, propertybuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _, flags) }
+    unsafe { SetupDiGetClassPropertyW(classguid, propertykey, propertytype as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
 #[inline]
-pub unsafe fn SetupDiGetClassRegistryPropertyA<P6>(classguid: *const windows_core::GUID, property: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: &mut [u8], requiredsize: Option<*mut u32>, machinename: P6, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetClassRegistryPropertyA<P6>(classguid: *const windows_core::GUID, property: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: Option<*mut u32>, machinename: P6, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P6: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassRegistryPropertyA(classguid : *const windows_core::GUID, property : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassRegistryPropertyA(classguid, property, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer.as_mut_ptr(), propertybuffer.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetClassRegistryPropertyA(classguid, property, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetClassRegistryPropertyW<P6>(classguid: *const windows_core::GUID, property: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: &mut [u8], requiredsize: Option<*mut u32>, machinename: P6, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetClassRegistryPropertyW<P6>(classguid: *const windows_core::GUID, property: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: Option<*mut u32>, machinename: P6, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassRegistryPropertyW(classguid : *const windows_core::GUID, property : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassRegistryPropertyW(classguid, property, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer.as_mut_ptr(), propertybuffer.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetClassRegistryPropertyW(classguid, property, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetCustomDevicePropertyA<P2>(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: P2, flags: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: &mut [u8], requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetCustomDevicePropertyA<P2>(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: P2, flags: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetCustomDevicePropertyA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, custompropertyname : windows_core::PCSTR, flags : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetCustomDevicePropertyA(deviceinfoset, deviceinfodata, custompropertyname.param().abi(), flags, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer.as_mut_ptr(), propertybuffer.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetCustomDevicePropertyA(deviceinfoset, deviceinfodata, custompropertyname.param().abi(), flags, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetCustomDevicePropertyW<P2>(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: P2, flags: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: &mut [u8], requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetCustomDevicePropertyW<P2>(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: P2, flags: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetCustomDevicePropertyW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, custompropertyname : windows_core::PCWSTR, flags : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetCustomDevicePropertyW(deviceinfoset, deviceinfodata, custompropertyname.param().abi(), flags, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer.as_mut_ptr(), propertybuffer.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetCustomDevicePropertyW(deviceinfoset, deviceinfodata, custompropertyname.param().abi(), flags, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SetupDiGetDeviceInfoListClass(deviceinfoset: HDEVINFO, classguid: *mut windows_core::GUID) -> windows_core::BOOL {
@@ -794,14 +794,14 @@ pub unsafe fn SetupDiGetDeviceInstallParamsW(deviceinfoset: HDEVINFO, deviceinfo
     unsafe { SetupDiGetDeviceInstallParamsW(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, deviceinstallparams as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetDeviceInstanceIdA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstanceid: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupDiGetDeviceInstanceIdA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstanceid: Option<windows_core::PSTR>, deviceinstanceidsize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInstanceIdA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, deviceinstanceid : windows_core::PSTR, deviceinstanceidsize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetDeviceInstanceIdA(deviceinfoset, deviceinfodata, core::mem::transmute(deviceinstanceid.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), deviceinstanceid.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetDeviceInstanceIdA(deviceinfoset, deviceinfodata, deviceinstanceid.unwrap_or(core::mem::zeroed()) as _, deviceinstanceidsize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetDeviceInstanceIdW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstanceid: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupDiGetDeviceInstanceIdW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstanceid: Option<windows_core::PWSTR>, deviceinstanceidsize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInstanceIdW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, deviceinstanceid : windows_core::PWSTR, deviceinstanceidsize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetDeviceInstanceIdW(deviceinfoset, deviceinfodata, core::mem::transmute(deviceinstanceid.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), deviceinstanceid.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetDeviceInstanceIdW(deviceinfoset, deviceinfodata, deviceinstanceid.unwrap_or(core::mem::zeroed()) as _, deviceinstanceidsize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SetupDiGetDeviceInterfaceAlias(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, aliasinterfaceclassguid: *const windows_core::GUID, aliasdeviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL {
@@ -820,37 +820,37 @@ pub unsafe fn SetupDiGetDeviceInterfaceDetailW(deviceinfoset: HDEVINFO, devicein
 }
 #[cfg(feature = "devpropdef")]
 #[inline]
-pub unsafe fn SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykeyarray: Option<&mut [super::DEVPROPKEY]>, requiredpropertykeycount: Option<*mut u32>, flags: u32) -> windows_core::BOOL {
+pub unsafe fn SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: u32, requiredpropertykeycount: Option<*mut u32>, flags: u32) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : u32, requiredpropertykeycount : *mut u32, flags : u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset, deviceinterfacedata, propertykeyarray.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), propertykeyarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredpropertykeycount.unwrap_or(core::mem::zeroed()) as _, flags) }
+    unsafe { SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset, deviceinterfacedata, propertykeyarray.unwrap_or(core::mem::zeroed()) as _, propertykeycount, requiredpropertykeycount.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
 #[cfg(feature = "devpropdef")]
 #[inline]
-pub unsafe fn SetupDiGetDeviceInterfacePropertyW(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>, flags: u32) -> windows_core::BOOL {
+pub unsafe fn SetupDiGetDeviceInterfacePropertyW(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<*mut u8>, propertybuffersize: u32, requiredsize: Option<*mut u32>, flags: u32) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfacePropertyW(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32, flags : u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetDeviceInterfacePropertyW(deviceinfoset, deviceinterfacedata, propertykey, propertytype as _, propertybuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _, flags) }
+    unsafe { SetupDiGetDeviceInterfacePropertyW(deviceinfoset, deviceinterfacedata, propertykey, propertytype as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
 #[cfg(feature = "devpropdef")]
 #[inline]
-pub unsafe fn SetupDiGetDevicePropertyKeys(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, propertykeyarray: Option<&mut [super::DEVPROPKEY]>, requiredpropertykeycount: Option<*mut u32>, flags: u32) -> windows_core::BOOL {
+pub unsafe fn SetupDiGetDevicePropertyKeys(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: u32, requiredpropertykeycount: Option<*mut u32>, flags: u32) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetDevicePropertyKeys(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : u32, requiredpropertykeycount : *mut u32, flags : u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetDevicePropertyKeys(deviceinfoset, deviceinfodata, propertykeyarray.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), propertykeyarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredpropertykeycount.unwrap_or(core::mem::zeroed()) as _, flags) }
+    unsafe { SetupDiGetDevicePropertyKeys(deviceinfoset, deviceinfodata, propertykeyarray.unwrap_or(core::mem::zeroed()) as _, propertykeycount, requiredpropertykeycount.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
 #[cfg(feature = "devpropdef")]
 #[inline]
-pub unsafe fn SetupDiGetDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>, flags: u32) -> windows_core::BOOL {
+pub unsafe fn SetupDiGetDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<*mut u8>, propertybuffersize: u32, requiredsize: Option<*mut u32>, flags: u32) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetDevicePropertyW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32, flags : u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetDevicePropertyW(deviceinfoset, deviceinfodata, propertykey, propertytype as _, propertybuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _, flags) }
+    unsafe { SetupDiGetDevicePropertyW(deviceinfoset, deviceinfodata, propertykey, propertytype as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
 #[inline]
-pub unsafe fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, property: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, property: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: Option<*mut u8>, propertybuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, property : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetDeviceRegistryPropertyA(deviceinfoset, deviceinfodata, property, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetDeviceRegistryPropertyA(deviceinfoset, deviceinfodata, property, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, property: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, property: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: Option<*mut u8>, propertybuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, property : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetDeviceRegistryPropertyW(deviceinfoset, deviceinfodata, property, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetDeviceRegistryPropertyW(deviceinfoset, deviceinfodata, property, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
@@ -877,67 +877,67 @@ pub unsafe fn SetupDiGetDriverInstallParamsW(deviceinfoset: HDEVINFO, deviceinfo
     unsafe { SetupDiGetDriverInstallParamsW(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, driverinfodata, driverinstallparams as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetHwProfileFriendlyNameA(hwprofile: u32, friendlyname: &mut [u8], requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupDiGetHwProfileFriendlyNameA(hwprofile: u32, friendlyname: windows_core::PSTR, friendlynamesize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameA(hwprofile : u32, friendlyname : windows_core::PSTR, friendlynamesize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetHwProfileFriendlyNameA(hwprofile, core::mem::transmute(friendlyname.as_mut_ptr()), friendlyname.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetHwProfileFriendlyNameA(hwprofile, friendlyname, friendlynamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetHwProfileFriendlyNameExA<P4>(hwprofile: u32, friendlyname: &mut [u8], requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetHwProfileFriendlyNameExA<P4>(hwprofile: u32, friendlyname: windows_core::PSTR, friendlynamesize: u32, requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameExA(hwprofile : u32, friendlyname : windows_core::PSTR, friendlynamesize : u32, requiredsize : *mut u32, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetHwProfileFriendlyNameExA(hwprofile, core::mem::transmute(friendlyname.as_mut_ptr()), friendlyname.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetHwProfileFriendlyNameExA(hwprofile, friendlyname, friendlynamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetHwProfileFriendlyNameExW<P4>(hwprofile: u32, friendlyname: &mut [u16], requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetHwProfileFriendlyNameExW<P4>(hwprofile: u32, friendlyname: windows_core::PWSTR, friendlynamesize: u32, requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameExW(hwprofile : u32, friendlyname : windows_core::PWSTR, friendlynamesize : u32, requiredsize : *mut u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetHwProfileFriendlyNameExW(hwprofile, core::mem::transmute(friendlyname.as_mut_ptr()), friendlyname.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetHwProfileFriendlyNameExW(hwprofile, friendlyname, friendlynamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetHwProfileFriendlyNameW(hwprofile: u32, friendlyname: &mut [u16], requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupDiGetHwProfileFriendlyNameW(hwprofile: u32, friendlyname: windows_core::PWSTR, friendlynamesize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameW(hwprofile : u32, friendlyname : windows_core::PWSTR, friendlynamesize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetHwProfileFriendlyNameW(hwprofile, core::mem::transmute(friendlyname.as_mut_ptr()), friendlyname.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetHwProfileFriendlyNameW(hwprofile, friendlyname, friendlynamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetHwProfileList(hwprofilelist: &mut [u32], requiredsize: *mut u32, currentlyactiveindex: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupDiGetHwProfileList(hwprofilelist: *mut u32, hwprofilelistsize: u32, requiredsize: *mut u32, currentlyactiveindex: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileList(hwprofilelist : *mut u32, hwprofilelistsize : u32, requiredsize : *mut u32, currentlyactiveindex : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetHwProfileList(hwprofilelist.as_mut_ptr(), hwprofilelist.len().try_into().unwrap(), requiredsize as _, currentlyactiveindex.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetHwProfileList(hwprofilelist as _, hwprofilelistsize, requiredsize as _, currentlyactiveindex.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetHwProfileListExA<P4>(hwprofilelist: &mut [u32], requiredsize: *mut u32, currentlyactiveindex: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetHwProfileListExA<P4>(hwprofilelist: *mut u32, hwprofilelistsize: u32, requiredsize: *mut u32, currentlyactiveindex: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileListExA(hwprofilelist : *mut u32, hwprofilelistsize : u32, requiredsize : *mut u32, currentlyactiveindex : *mut u32, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetHwProfileListExA(hwprofilelist.as_mut_ptr(), hwprofilelist.len().try_into().unwrap(), requiredsize as _, currentlyactiveindex.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetHwProfileListExA(hwprofilelist as _, hwprofilelistsize, requiredsize as _, currentlyactiveindex.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetHwProfileListExW<P4>(hwprofilelist: &mut [u32], requiredsize: *mut u32, currentlyactiveindex: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetHwProfileListExW<P4>(hwprofilelist: *mut u32, hwprofilelistsize: u32, requiredsize: *mut u32, currentlyactiveindex: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileListExW(hwprofilelist : *mut u32, hwprofilelistsize : u32, requiredsize : *mut u32, currentlyactiveindex : *mut u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetHwProfileListExW(hwprofilelist.as_mut_ptr(), hwprofilelist.len().try_into().unwrap(), requiredsize as _, currentlyactiveindex.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetHwProfileListExW(hwprofilelist as _, hwprofilelistsize, requiredsize as _, currentlyactiveindex.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetINFClassA<P0>(infname: P0, classguid: *mut windows_core::GUID, classname: &mut [u8], requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetINFClassA<P0>(infname: P0, classguid: *mut windows_core::GUID, classname: windows_core::PSTR, classnamesize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetINFClassA(infname : windows_core::PCSTR, classguid : *mut windows_core::GUID, classname : windows_core::PSTR, classnamesize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetINFClassA(infname.param().abi(), classguid as _, core::mem::transmute(classname.as_mut_ptr()), classname.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetINFClassA(infname.param().abi(), classguid as _, classname, classnamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupDiGetINFClassW<P0>(infname: P0, classguid: *mut windows_core::GUID, classname: &mut [u16], requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetINFClassW<P0>(infname: P0, classguid: *mut windows_core::GUID, classname: windows_core::PWSTR, classnamesize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetINFClassW(infname : windows_core::PCWSTR, classguid : *mut windows_core::GUID, classname : windows_core::PWSTR, classnamesize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupDiGetINFClassW(infname.param().abi(), classguid as _, core::mem::transmute(classname.as_mut_ptr()), classname.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupDiGetINFClassW(infname.param().abi(), classguid as _, classname, classnamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SetupDiGetSelectedDevice(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA) -> windows_core::BOOL {
@@ -1261,14 +1261,14 @@ pub unsafe fn SetupDuplicateDiskSpaceListW(diskspace: HDSKSPC, reserved1: Option
     unsafe { SetupDuplicateDiskSpaceListW(diskspace, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
 #[inline]
-pub unsafe fn SetupEnumInfSectionsA(infhandle: HINF, index: u32, buffer: Option<&mut [u8]>, sizeneeded: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupEnumInfSectionsA(infhandle: HINF, index: u32, buffer: Option<windows_core::PSTR>, size: u32, sizeneeded: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupEnumInfSectionsA(infhandle : HINF, index : u32, buffer : windows_core::PSTR, size : u32, sizeneeded : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupEnumInfSectionsA(infhandle, index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), sizeneeded.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupEnumInfSectionsA(infhandle, index, buffer.unwrap_or(core::mem::zeroed()) as _, size, sizeneeded.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupEnumInfSectionsW(infhandle: HINF, index: u32, buffer: Option<&mut [u16]>, sizeneeded: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupEnumInfSectionsW(infhandle: HINF, index: u32, buffer: Option<windows_core::PWSTR>, size: u32, sizeneeded: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupEnumInfSectionsW(infhandle : HINF, index : u32, buffer : windows_core::PWSTR, size : u32, sizeneeded : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupEnumInfSectionsW(infhandle, index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), sizeneeded.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupEnumInfSectionsW(infhandle, index, buffer.unwrap_or(core::mem::zeroed()) as _, size, sizeneeded.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SetupFindFirstLineA<P1, P2>(infhandle: HINF, section: P1, key: P2, context: *mut INFCONTEXT) -> windows_core::BOOL
@@ -1330,9 +1330,9 @@ pub unsafe fn SetupGetBackupInformationW(queuehandle: HSPFILEQ, backupparams: PS
     unsafe { SetupGetBackupInformationW(queuehandle, backupparams as _) }
 }
 #[inline]
-pub unsafe fn SetupGetBinaryField(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupGetBinaryField(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: Option<*mut u8>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupGetBinaryField(context : *const INFCONTEXT, fieldindex : u32, returnbuffer : *mut u8, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetBinaryField(context, fieldindex, returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetBinaryField(context, fieldindex, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SetupGetFieldCount(context: *const INFCONTEXT) -> u32 {
@@ -1382,38 +1382,38 @@ pub unsafe fn SetupGetFileQueueFlags(filequeue: HSPFILEQ, flags: *mut u32) -> wi
     unsafe { SetupGetFileQueueFlags(filequeue, flags as _) }
 }
 #[inline]
-pub unsafe fn SetupGetInfDriverStoreLocationA<P0, P2>(filename: P0, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, localename: P2, returnbuffer: &mut [u8], requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupGetInfDriverStoreLocationA<P0, P2>(filename: P0, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, localename: P2, returnbuffer: windows_core::PSTR, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupGetInfDriverStoreLocationA(filename : windows_core::PCSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, localename : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetInfDriverStoreLocationA(filename.param().abi(), alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, localename.param().abi(), core::mem::transmute(returnbuffer.as_mut_ptr()), returnbuffer.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetInfDriverStoreLocationA(filename.param().abi(), alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, localename.param().abi(), returnbuffer, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupGetInfDriverStoreLocationW<P0, P2>(filename: P0, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, localename: P2, returnbuffer: &mut [u16], requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupGetInfDriverStoreLocationW<P0, P2>(filename: P0, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, localename: P2, returnbuffer: windows_core::PWSTR, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupGetInfDriverStoreLocationW(filename : windows_core::PCWSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, localename : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetInfDriverStoreLocationW(filename.param().abi(), alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, localename.param().abi(), core::mem::transmute(returnbuffer.as_mut_ptr()), returnbuffer.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetInfDriverStoreLocationW(filename.param().abi(), alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, localename.param().abi(), returnbuffer, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupGetInfFileListA<P0>(directorypath: P0, infstyle: u32, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupGetInfFileListA<P0>(directorypath: P0, infstyle: u32, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupGetInfFileListA(directorypath : windows_core::PCSTR, infstyle : u32, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetInfFileListA(directorypath.param().abi(), infstyle, core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetInfFileListA(directorypath.param().abi(), infstyle, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupGetInfFileListW<P0>(directorypath: P0, infstyle: u32, returnbuffer: &mut [u16], requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupGetInfFileListW<P0>(directorypath: P0, infstyle: u32, returnbuffer: windows_core::PWSTR, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupGetInfFileListW(directorypath : windows_core::PCWSTR, infstyle : u32, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetInfFileListW(directorypath.param().abi(), infstyle, core::mem::transmute(returnbuffer.as_mut_ptr()), returnbuffer.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetInfFileListW(directorypath.param().abi(), infstyle, returnbuffer, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SetupGetInfInformationA(infspec: *const core::ffi::c_void, searchcontrol: u32, returnbuffer: Option<*mut SP_INF_INFORMATION>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
@@ -1426,20 +1426,20 @@ pub unsafe fn SetupGetInfInformationW(infspec: *const core::ffi::c_void, searchc
     unsafe { SetupGetInfInformationW(infspec, searchcontrol, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupGetInfPublishedNameA<P0>(driverstorelocation: P0, returnbuffer: &mut [u8], requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupGetInfPublishedNameA<P0>(driverstorelocation: P0, returnbuffer: windows_core::PSTR, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupGetInfPublishedNameA(driverstorelocation : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetInfPublishedNameA(driverstorelocation.param().abi(), core::mem::transmute(returnbuffer.as_mut_ptr()), returnbuffer.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetInfPublishedNameA(driverstorelocation.param().abi(), returnbuffer, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupGetInfPublishedNameW<P0>(driverstorelocation: P0, returnbuffer: &mut [u16], requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupGetInfPublishedNameW<P0>(driverstorelocation: P0, returnbuffer: windows_core::PWSTR, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupGetInfPublishedNameW(driverstorelocation : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetInfPublishedNameW(driverstorelocation.param().abi(), core::mem::transmute(returnbuffer.as_mut_ptr()), returnbuffer.len().try_into().unwrap(), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetInfPublishedNameW(driverstorelocation.param().abi(), returnbuffer, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SetupGetIntField(context: *const INFCONTEXT, fieldindex: u32, integervalue: *mut i32) -> windows_core::BOOL {
@@ -1479,32 +1479,32 @@ where
     unsafe { SetupGetLineCountW(infhandle, section.param().abi()) }
 }
 #[inline]
-pub unsafe fn SetupGetLineTextA<P2, P3>(context: Option<*const INFCONTEXT>, infhandle: Option<HINF>, section: P2, key: P3, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupGetLineTextA<P2, P3>(context: Option<*const INFCONTEXT>, infhandle: Option<HINF>, section: P2, key: P3, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupGetLineTextA(context : *const INFCONTEXT, infhandle : HINF, section : windows_core::PCSTR, key : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetLineTextA(context.unwrap_or(core::mem::zeroed()) as _, infhandle.unwrap_or(core::mem::zeroed()) as _, section.param().abi(), key.param().abi(), core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetLineTextA(context.unwrap_or(core::mem::zeroed()) as _, infhandle.unwrap_or(core::mem::zeroed()) as _, section.param().abi(), key.param().abi(), returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupGetLineTextW<P2, P3>(context: Option<*const INFCONTEXT>, infhandle: Option<HINF>, section: P2, key: P3, returnbuffer: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupGetLineTextW<P2, P3>(context: Option<*const INFCONTEXT>, infhandle: Option<HINF>, section: P2, key: P3, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupGetLineTextW(context : *const INFCONTEXT, infhandle : HINF, section : windows_core::PCWSTR, key : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetLineTextW(context.unwrap_or(core::mem::zeroed()) as _, infhandle.unwrap_or(core::mem::zeroed()) as _, section.param().abi(), key.param().abi(), core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetLineTextW(context.unwrap_or(core::mem::zeroed()) as _, infhandle.unwrap_or(core::mem::zeroed()) as _, section.param().abi(), key.param().abi(), returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupGetMultiSzFieldA(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupGetMultiSzFieldA(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupGetMultiSzFieldA(context : *const INFCONTEXT, fieldindex : u32, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetMultiSzFieldA(context, fieldindex, core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetMultiSzFieldA(context, fieldindex, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupGetMultiSzFieldW(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupGetMultiSzFieldW(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupGetMultiSzFieldW(context : *const INFCONTEXT, fieldindex : u32, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetMultiSzFieldW(context, fieldindex, core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetMultiSzFieldW(context, fieldindex, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SetupGetNonInteractiveMode() -> windows_core::BOOL {
@@ -1512,20 +1512,20 @@ pub unsafe fn SetupGetNonInteractiveMode() -> windows_core::BOOL {
     unsafe { SetupGetNonInteractiveMode() }
 }
 #[inline]
-pub unsafe fn SetupGetSourceFileLocationA<P2>(infhandle: HINF, infcontext: Option<*const INFCONTEXT>, filename: P2, sourceid: *mut u32, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupGetSourceFileLocationA<P2>(infhandle: HINF, infcontext: Option<*const INFCONTEXT>, filename: P2, sourceid: *mut u32, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupGetSourceFileLocationA(infhandle : HINF, infcontext : *const INFCONTEXT, filename : windows_core::PCSTR, sourceid : *mut u32, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetSourceFileLocationA(infhandle, infcontext.unwrap_or(core::mem::zeroed()) as _, filename.param().abi(), sourceid as _, core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetSourceFileLocationA(infhandle, infcontext.unwrap_or(core::mem::zeroed()) as _, filename.param().abi(), sourceid as _, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupGetSourceFileLocationW<P2>(infhandle: HINF, infcontext: Option<*const INFCONTEXT>, filename: P2, sourceid: *mut u32, returnbuffer: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupGetSourceFileLocationW<P2>(infhandle: HINF, infcontext: Option<*const INFCONTEXT>, filename: P2, sourceid: *mut u32, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupGetSourceFileLocationW(infhandle : HINF, infcontext : *const INFCONTEXT, filename : windows_core::PCWSTR, sourceid : *mut u32, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetSourceFileLocationW(infhandle, infcontext.unwrap_or(core::mem::zeroed()) as _, filename.param().abi(), sourceid as _, core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetSourceFileLocationW(infhandle, infcontext.unwrap_or(core::mem::zeroed()) as _, filename.param().abi(), sourceid as _, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SetupGetSourceFileSizeA<P2, P3>(infhandle: HINF, infcontext: Option<*const INFCONTEXT>, filename: P2, section: P3, filesize: *mut u32, roundingfactor: u32) -> windows_core::BOOL
@@ -1546,40 +1546,40 @@ where
     unsafe { SetupGetSourceFileSizeW(infhandle, infcontext.unwrap_or(core::mem::zeroed()) as _, filename.param().abi(), section.param().abi(), filesize as _, roundingfactor) }
 }
 #[inline]
-pub unsafe fn SetupGetSourceInfoA(infhandle: HINF, sourceid: u32, infodesired: u32, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupGetSourceInfoA(infhandle: HINF, sourceid: u32, infodesired: u32, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupGetSourceInfoA(infhandle : HINF, sourceid : u32, infodesired : u32, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetSourceInfoA(infhandle, sourceid, infodesired, core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetSourceInfoA(infhandle, sourceid, infodesired, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupGetSourceInfoW(infhandle: HINF, sourceid: u32, infodesired: u32, returnbuffer: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupGetSourceInfoW(infhandle: HINF, sourceid: u32, infodesired: u32, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupGetSourceInfoW(infhandle : HINF, sourceid : u32, infodesired : u32, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetSourceInfoW(infhandle, sourceid, infodesired, core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetSourceInfoW(infhandle, sourceid, infodesired, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupGetStringFieldA(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupGetStringFieldA(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupGetStringFieldA(context : *const INFCONTEXT, fieldindex : u32, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetStringFieldA(context, fieldindex, core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetStringFieldA(context, fieldindex, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupGetStringFieldW(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupGetStringFieldW(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupGetStringFieldW(context : *const INFCONTEXT, fieldindex : u32, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetStringFieldW(context, fieldindex, core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetStringFieldW(context, fieldindex, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupGetTargetPathA<P2>(infhandle: HINF, infcontext: Option<*const INFCONTEXT>, section: P2, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupGetTargetPathA<P2>(infhandle: HINF, infcontext: Option<*const INFCONTEXT>, section: P2, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupGetTargetPathA(infhandle : HINF, infcontext : *const INFCONTEXT, section : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetTargetPathA(infhandle, infcontext.unwrap_or(core::mem::zeroed()) as _, section.param().abi(), core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetTargetPathA(infhandle, infcontext.unwrap_or(core::mem::zeroed()) as _, section.param().abi(), returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupGetTargetPathW<P2>(infhandle: HINF, infcontext: Option<*const INFCONTEXT>, section: P2, returnbuffer: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupGetTargetPathW<P2>(infhandle: HINF, infcontext: Option<*const INFCONTEXT>, section: P2, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupGetTargetPathW(infhandle : HINF, infcontext : *const INFCONTEXT, section : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupGetTargetPathW(infhandle, infcontext.unwrap_or(core::mem::zeroed()) as _, section.param().abi(), core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupGetTargetPathW(infhandle, infcontext.unwrap_or(core::mem::zeroed()) as _, section.param().abi(), returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "spapidef", feature = "winnt"))]
 #[inline]
@@ -1850,7 +1850,7 @@ where
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn SetupPromptForDiskA<P1, P2, P3, P4, P5>(hwndparent: super::HWND, dialogtitle: P1, diskname: P2, pathtosource: P3, filesought: P4, tagfile: P5, diskpromptstyle: u32, pathbuffer: Option<&mut [u8]>, pathrequiredsize: Option<*mut u32>) -> u32
+pub unsafe fn SetupPromptForDiskA<P1, P2, P3, P4, P5>(hwndparent: super::HWND, dialogtitle: P1, diskname: P2, pathtosource: P3, filesought: P4, tagfile: P5, diskpromptstyle: u32, pathbuffer: Option<windows_core::PSTR>, pathbuffersize: u32, pathrequiredsize: Option<*mut u32>) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
@@ -1859,11 +1859,11 @@ where
     P5: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupPromptForDiskA(hwndparent : super::HWND, dialogtitle : windows_core::PCSTR, diskname : windows_core::PCSTR, pathtosource : windows_core::PCSTR, filesought : windows_core::PCSTR, tagfile : windows_core::PCSTR, diskpromptstyle : u32, pathbuffer : windows_core::PSTR, pathbuffersize : u32, pathrequiredsize : *mut u32) -> u32);
-    unsafe { SetupPromptForDiskA(hwndparent, dialogtitle.param().abi(), diskname.param().abi(), pathtosource.param().abi(), filesought.param().abi(), tagfile.param().abi(), diskpromptstyle, core::mem::transmute(pathbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pathbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathrequiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupPromptForDiskA(hwndparent, dialogtitle.param().abi(), diskname.param().abi(), pathtosource.param().abi(), filesought.param().abi(), tagfile.param().abi(), diskpromptstyle, pathbuffer.unwrap_or(core::mem::zeroed()) as _, pathbuffersize, pathrequiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn SetupPromptForDiskW<P1, P2, P3, P4, P5>(hwndparent: super::HWND, dialogtitle: P1, diskname: P2, pathtosource: P3, filesought: P4, tagfile: P5, diskpromptstyle: u32, pathbuffer: Option<&mut [u16]>, pathrequiredsize: Option<*mut u32>) -> u32
+pub unsafe fn SetupPromptForDiskW<P1, P2, P3, P4, P5>(hwndparent: super::HWND, dialogtitle: P1, diskname: P2, pathtosource: P3, filesought: P4, tagfile: P5, diskpromptstyle: u32, pathbuffer: Option<windows_core::PWSTR>, pathbuffersize: u32, pathrequiredsize: Option<*mut u32>) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
@@ -1872,7 +1872,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupPromptForDiskW(hwndparent : super::HWND, dialogtitle : windows_core::PCWSTR, diskname : windows_core::PCWSTR, pathtosource : windows_core::PCWSTR, filesought : windows_core::PCWSTR, tagfile : windows_core::PCWSTR, diskpromptstyle : u32, pathbuffer : windows_core::PWSTR, pathbuffersize : u32, pathrequiredsize : *mut u32) -> u32);
-    unsafe { SetupPromptForDiskW(hwndparent, dialogtitle.param().abi(), diskname.param().abi(), pathtosource.param().abi(), filesought.param().abi(), tagfile.param().abi(), diskpromptstyle, core::mem::transmute(pathbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pathbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathrequiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupPromptForDiskW(hwndparent, dialogtitle.param().abi(), diskname.param().abi(), pathtosource.param().abi(), filesought.param().abi(), tagfile.param().abi(), diskpromptstyle, pathbuffer.unwrap_or(core::mem::zeroed()) as _, pathbuffersize, pathrequiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1881,42 +1881,42 @@ pub unsafe fn SetupPromptReboot(filequeue: Option<HSPFILEQ>, owner: Option<super
     unsafe { SetupPromptReboot(filequeue.unwrap_or(core::mem::zeroed()) as _, owner.unwrap_or(core::mem::zeroed()) as _, scanonly.into()) }
 }
 #[inline]
-pub unsafe fn SetupQueryDrivesInDiskSpaceListA(diskspace: HDSKSPC, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupQueryDrivesInDiskSpaceListA(diskspace: HDSKSPC, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupQueryDrivesInDiskSpaceListA(diskspace : HDSKSPC, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupQueryDrivesInDiskSpaceListA(diskspace, core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupQueryDrivesInDiskSpaceListA(diskspace, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupQueryDrivesInDiskSpaceListW(diskspace: HDSKSPC, returnbuffer: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupQueryDrivesInDiskSpaceListW(diskspace: HDSKSPC, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupQueryDrivesInDiskSpaceListW(diskspace : HDSKSPC, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupQueryDrivesInDiskSpaceListW(diskspace, core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupQueryDrivesInDiskSpaceListW(diskspace, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupQueryFileLogA<P1, P2>(fileloghandle: HSPFILELOG, logsectionname: P1, targetfilename: P2, desiredinfo: SetupFileLogInfo, dataout: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupQueryFileLogA<P1, P2>(fileloghandle: HSPFILELOG, logsectionname: P1, targetfilename: P2, desiredinfo: SetupFileLogInfo, dataout: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupQueryFileLogA(fileloghandle : HSPFILELOG, logsectionname : windows_core::PCSTR, targetfilename : windows_core::PCSTR, desiredinfo : SetupFileLogInfo, dataout : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupQueryFileLogA(fileloghandle, logsectionname.param().abi(), targetfilename.param().abi(), desiredinfo, core::mem::transmute(dataout.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), dataout.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupQueryFileLogA(fileloghandle, logsectionname.param().abi(), targetfilename.param().abi(), desiredinfo, dataout.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupQueryFileLogW<P1, P2>(fileloghandle: HSPFILELOG, logsectionname: P1, targetfilename: P2, desiredinfo: SetupFileLogInfo, dataout: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupQueryFileLogW<P1, P2>(fileloghandle: HSPFILELOG, logsectionname: P1, targetfilename: P2, desiredinfo: SetupFileLogInfo, dataout: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupQueryFileLogW(fileloghandle : HSPFILELOG, logsectionname : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR, desiredinfo : SetupFileLogInfo, dataout : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupQueryFileLogW(fileloghandle, logsectionname.param().abi(), targetfilename.param().abi(), desiredinfo, core::mem::transmute(dataout.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), dataout.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupQueryFileLogW(fileloghandle, logsectionname.param().abi(), targetfilename.param().abi(), desiredinfo, dataout.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupQueryInfFileInformationA(infinformation: *const SP_INF_INFORMATION, infindex: u32, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupQueryInfFileInformationA(infinformation: *const SP_INF_INFORMATION, infindex: u32, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupQueryInfFileInformationA(infinformation : *const SP_INF_INFORMATION, infindex : u32, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupQueryInfFileInformationA(infinformation, infindex, core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupQueryInfFileInformationA(infinformation, infindex, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupQueryInfFileInformationW(infinformation: *const SP_INF_INFORMATION, infindex: u32, returnbuffer: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
+pub unsafe fn SetupQueryInfFileInformationW(infinformation: *const SP_INF_INFORMATION, infindex: u32, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupQueryInfFileInformationW(infinformation : *const SP_INF_INFORMATION, infindex : u32, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupQueryInfFileInformationW(infinformation, infindex, core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupQueryInfFileInformationW(infinformation, infindex, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SetupQueryInfOriginalFileInformationA(infinformation: *const SP_INF_INFORMATION, infindex: u32, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, originalfileinfo: *mut SP_ORIGINAL_FILE_INFO_A) -> windows_core::BOOL {
@@ -1929,20 +1929,20 @@ pub unsafe fn SetupQueryInfOriginalFileInformationW(infinformation: *const SP_IN
     unsafe { SetupQueryInfOriginalFileInformationW(infinformation, infindex, alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, originalfileinfo as _) }
 }
 #[inline]
-pub unsafe fn SetupQueryInfVersionInformationA<P2>(infinformation: *const SP_INF_INFORMATION, infindex: u32, key: P2, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupQueryInfVersionInformationA<P2>(infinformation: *const SP_INF_INFORMATION, infindex: u32, key: P2, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupQueryInfVersionInformationA(infinformation : *const SP_INF_INFORMATION, infindex : u32, key : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupQueryInfVersionInformationA(infinformation, infindex, key.param().abi(), core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupQueryInfVersionInformationA(infinformation, infindex, key.param().abi(), returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetupQueryInfVersionInformationW<P2>(infinformation: *const SP_INF_INFORMATION, infindex: u32, key: P2, returnbuffer: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::BOOL
+pub unsafe fn SetupQueryInfVersionInformationW<P2>(infinformation: *const SP_INF_INFORMATION, infindex: u32, key: P2, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<*mut u32>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn SetupQueryInfVersionInformationW(infinformation : *const SP_INF_INFORMATION, infindex : u32, key : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> windows_core::BOOL);
-    unsafe { SetupQueryInfVersionInformationW(infinformation, infindex, key.param().abi(), core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetupQueryInfVersionInformationW(infinformation, infindex, key.param().abi(), returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SetupQuerySourceListA(flags: u32, list: *mut *mut windows_core::PCSTR, count: *mut u32) -> windows_core::BOOL {

@@ -1,7 +1,7 @@
 #[inline]
-pub unsafe fn ScriptApplyDigitSubstitution(psds: &[SCRIPT_DIGITSUBSTITUTE; 1], psc: &mut [SCRIPT_CONTROL; 1], pss: &mut [SCRIPT_STATE; 1]) -> windows_core::HRESULT {
+pub unsafe fn ScriptApplyDigitSubstitution(psds: &[SCRIPT_DIGITSUBSTITUTE; 1], psc: *mut SCRIPT_CONTROL, pss: *mut SCRIPT_STATE) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptApplyDigitSubstitution(psds : *const SCRIPT_DIGITSUBSTITUTE, psc : *mut SCRIPT_CONTROL, pss : *mut SCRIPT_STATE) -> windows_core::HRESULT);
-    unsafe { ScriptApplyDigitSubstitution(psds.as_ptr(), psc.as_mut_ptr(), pss.as_mut_ptr()) }
+    unsafe { ScriptApplyDigitSubstitution(psds.as_ptr(), psc as _, pss as _) }
 }
 #[cfg(feature = "wingdi")]
 #[inline]
@@ -24,9 +24,9 @@ pub unsafe fn ScriptCPtoX(icp: i32, ftrailing: bool, cglyphs: i32, pwlogclust: &
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ScriptCacheGetHeight(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], tmheight: &mut [i32; 1]) -> windows_core::HRESULT {
+pub unsafe fn ScriptCacheGetHeight(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], tmheight: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptCacheGetHeight(hdc : super::HDC, psc : *mut SCRIPT_CACHE, tmheight : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptCacheGetHeight(hdc, psc.as_mut_ptr(), tmheight.as_mut_ptr()) }
+    unsafe { ScriptCacheGetHeight(hdc, psc.as_mut_ptr(), tmheight as _) }
 }
 #[inline]
 pub unsafe fn ScriptFreeCache(psc: &mut [SCRIPT_CACHE; 1]) -> windows_core::HRESULT {
@@ -41,39 +41,39 @@ pub unsafe fn ScriptGetCMap(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], pwcinc
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ScriptGetFontAlternateGlyphs(hdc: Option<super::HDC>, psc: *mut SCRIPT_CACHE, psa: Option<*const SCRIPT_ANALYSIS>, tagscript: OPENTYPE_TAG, taglangsys: OPENTYPE_TAG, tagfeature: OPENTYPE_TAG, wglyphid: u16, palternateglyphs: &mut [u16], pcalternates: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptGetFontAlternateGlyphs(hdc: Option<super::HDC>, psc: *mut SCRIPT_CACHE, psa: Option<*const SCRIPT_ANALYSIS>, tagscript: OPENTYPE_TAG, taglangsys: OPENTYPE_TAG, tagfeature: OPENTYPE_TAG, wglyphid: u16, cmaxalternates: i32, palternateglyphs: *mut u16, pcalternates: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptGetFontAlternateGlyphs(hdc : super::HDC, psc : *mut SCRIPT_CACHE, psa : *const SCRIPT_ANALYSIS, tagscript : OPENTYPE_TAG, taglangsys : OPENTYPE_TAG, tagfeature : OPENTYPE_TAG, wglyphid : u16, cmaxalternates : i32, palternateglyphs : *mut u16, pcalternates : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptGetFontAlternateGlyphs(hdc.unwrap_or(core::mem::zeroed()) as _, psc as _, psa.unwrap_or(core::mem::zeroed()) as _, tagscript, taglangsys, tagfeature, wglyphid, palternateglyphs.len().try_into().unwrap(), palternateglyphs.as_mut_ptr(), pcalternates as _) }
+    unsafe { ScriptGetFontAlternateGlyphs(hdc.unwrap_or(core::mem::zeroed()) as _, psc as _, psa.unwrap_or(core::mem::zeroed()) as _, tagscript, taglangsys, tagfeature, wglyphid, cmaxalternates, palternateglyphs as _, pcalternates as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ScriptGetFontFeatureTags(hdc: Option<super::HDC>, psc: *mut SCRIPT_CACHE, psa: Option<*const SCRIPT_ANALYSIS>, tagscript: OPENTYPE_TAG, taglangsys: OPENTYPE_TAG, pfeaturetags: &mut [OPENTYPE_TAG], pctags: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptGetFontFeatureTags(hdc: Option<super::HDC>, psc: *mut SCRIPT_CACHE, psa: Option<*const SCRIPT_ANALYSIS>, tagscript: OPENTYPE_TAG, taglangsys: OPENTYPE_TAG, cmaxtags: i32, pfeaturetags: *mut OPENTYPE_TAG, pctags: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptGetFontFeatureTags(hdc : super::HDC, psc : *mut SCRIPT_CACHE, psa : *const SCRIPT_ANALYSIS, tagscript : OPENTYPE_TAG, taglangsys : OPENTYPE_TAG, cmaxtags : i32, pfeaturetags : *mut OPENTYPE_TAG, pctags : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptGetFontFeatureTags(hdc.unwrap_or(core::mem::zeroed()) as _, psc as _, psa.unwrap_or(core::mem::zeroed()) as _, tagscript, taglangsys, pfeaturetags.len().try_into().unwrap(), pfeaturetags.as_mut_ptr(), pctags as _) }
+    unsafe { ScriptGetFontFeatureTags(hdc.unwrap_or(core::mem::zeroed()) as _, psc as _, psa.unwrap_or(core::mem::zeroed()) as _, tagscript, taglangsys, cmaxtags, pfeaturetags as _, pctags as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ScriptGetFontLanguageTags(hdc: Option<super::HDC>, psc: *mut SCRIPT_CACHE, psa: Option<*const SCRIPT_ANALYSIS>, tagscript: OPENTYPE_TAG, plangsystags: &mut [OPENTYPE_TAG], pctags: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptGetFontLanguageTags(hdc: Option<super::HDC>, psc: *mut SCRIPT_CACHE, psa: Option<*const SCRIPT_ANALYSIS>, tagscript: OPENTYPE_TAG, cmaxtags: i32, plangsystags: *mut OPENTYPE_TAG, pctags: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptGetFontLanguageTags(hdc : super::HDC, psc : *mut SCRIPT_CACHE, psa : *const SCRIPT_ANALYSIS, tagscript : OPENTYPE_TAG, cmaxtags : i32, plangsystags : *mut OPENTYPE_TAG, pctags : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptGetFontLanguageTags(hdc.unwrap_or(core::mem::zeroed()) as _, psc as _, psa.unwrap_or(core::mem::zeroed()) as _, tagscript, plangsystags.len().try_into().unwrap(), plangsystags.as_mut_ptr(), pctags as _) }
+    unsafe { ScriptGetFontLanguageTags(hdc.unwrap_or(core::mem::zeroed()) as _, psc as _, psa.unwrap_or(core::mem::zeroed()) as _, tagscript, cmaxtags, plangsystags as _, pctags as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ScriptGetFontProperties(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], sfp: &mut [SCRIPT_FONTPROPERTIES; 1]) -> windows_core::HRESULT {
+pub unsafe fn ScriptGetFontProperties(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], sfp: *mut SCRIPT_FONTPROPERTIES) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptGetFontProperties(hdc : super::HDC, psc : *mut SCRIPT_CACHE, sfp : *mut SCRIPT_FONTPROPERTIES) -> windows_core::HRESULT);
-    unsafe { ScriptGetFontProperties(hdc, psc.as_mut_ptr(), sfp.as_mut_ptr()) }
+    unsafe { ScriptGetFontProperties(hdc, psc.as_mut_ptr(), sfp as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ScriptGetFontScriptTags(hdc: Option<super::HDC>, psc: *mut SCRIPT_CACHE, psa: Option<*const SCRIPT_ANALYSIS>, pscripttags: &mut [OPENTYPE_TAG], pctags: *mut i32) -> windows_core::HRESULT {
+pub unsafe fn ScriptGetFontScriptTags(hdc: Option<super::HDC>, psc: *mut SCRIPT_CACHE, psa: Option<*const SCRIPT_ANALYSIS>, cmaxtags: i32, pscripttags: *mut OPENTYPE_TAG, pctags: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptGetFontScriptTags(hdc : super::HDC, psc : *mut SCRIPT_CACHE, psa : *const SCRIPT_ANALYSIS, cmaxtags : i32, pscripttags : *mut OPENTYPE_TAG, pctags : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptGetFontScriptTags(hdc.unwrap_or(core::mem::zeroed()) as _, psc as _, psa.unwrap_or(core::mem::zeroed()) as _, pscripttags.len().try_into().unwrap(), pscripttags.as_mut_ptr(), pctags as _) }
+    unsafe { ScriptGetFontScriptTags(hdc.unwrap_or(core::mem::zeroed()) as _, psc as _, psa.unwrap_or(core::mem::zeroed()) as _, cmaxtags, pscripttags as _, pctags as _) }
 }
 #[cfg(all(feature = "windef", feature = "wingdi"))]
 #[inline]
-pub unsafe fn ScriptGetGlyphABCWidth(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], wglyph: u16, pabc: &mut [super::ABC; 1]) -> windows_core::HRESULT {
+pub unsafe fn ScriptGetGlyphABCWidth(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], wglyph: u16, pabc: *mut super::ABC) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptGetGlyphABCWidth(hdc : super::HDC, psc : *mut SCRIPT_CACHE, wglyph : u16, pabc : *mut super::ABC) -> windows_core::HRESULT);
-    unsafe { ScriptGetGlyphABCWidth(hdc, psc.as_mut_ptr(), wglyph, pabc.as_mut_ptr()) }
+    unsafe { ScriptGetGlyphABCWidth(hdc, psc.as_mut_ptr(), wglyph, pabc as _) }
 }
 #[inline]
 pub unsafe fn ScriptGetLogicalWidths(psa: &[SCRIPT_ANALYSIS; 1], cchars: i32, cglyphs: i32, piglyphwidth: *const i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, pidx: *const i32) -> windows_core::HRESULT {
@@ -91,9 +91,9 @@ pub unsafe fn ScriptIsComplex(pwcinchars: &[u16], dwflags: u32) -> windows_core:
     unsafe { ScriptIsComplex(pwcinchars.as_ptr(), pwcinchars.len().try_into().unwrap(), dwflags) }
 }
 #[inline]
-pub unsafe fn ScriptItemize(pwcinchars: &[u16], pscontrol: Option<&[SCRIPT_CONTROL; 1]>, psstate: Option<&[SCRIPT_STATE; 1]>, pitems: &mut [SCRIPT_ITEM], pcitems: &mut [i32; 1]) -> windows_core::HRESULT {
+pub unsafe fn ScriptItemize(pwcinchars: &[u16], cmaxitems: i32, pscontrol: Option<&[SCRIPT_CONTROL; 1]>, psstate: Option<&[SCRIPT_STATE; 1]>, pitems: *mut SCRIPT_ITEM, pcitems: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptItemize(pwcinchars : *const u16, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pcitems : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptItemize(pwcinchars.as_ptr(), pwcinchars.len().try_into().unwrap(), pitems.len().try_into().unwrap(), pscontrol.map_or(core::ptr::null(), |slice| slice.as_ptr()), psstate.map_or(core::ptr::null(), |slice| slice.as_ptr()), pitems.as_mut_ptr(), pcitems.as_mut_ptr()) }
+    unsafe { ScriptItemize(pwcinchars.as_ptr(), pwcinchars.len().try_into().unwrap(), cmaxitems, pscontrol.map_or(core::ptr::null(), |slice| slice.as_ptr()), psstate.map_or(core::ptr::null(), |slice| slice.as_ptr()), pitems as _, pcitems as _) }
 }
 #[inline]
 pub unsafe fn ScriptItemizeOpenType(pwcinchars: &[u16], cmaxitems: i32, pscontrol: Option<*const SCRIPT_CONTROL>, psstate: Option<*const SCRIPT_STATE>, pitems: *mut SCRIPT_ITEM, pscripttags: *mut OPENTYPE_TAG, pcitems: *mut i32) -> windows_core::HRESULT {
@@ -112,9 +112,9 @@ pub unsafe fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: Op
 }
 #[cfg(all(feature = "windef", feature = "wingdi"))]
 #[inline]
-pub unsafe fn ScriptPlace(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], pwglyphs: *const u16, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: &mut [SCRIPT_ANALYSIS; 1], piadvance: *mut i32, pgoffset: Option<*mut GOFFSET>, pabc: &mut [super::ABC; 1]) -> windows_core::HRESULT {
+pub unsafe fn ScriptPlace(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], pwglyphs: *const u16, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: &mut [SCRIPT_ANALYSIS; 1], piadvance: *mut i32, pgoffset: Option<*mut GOFFSET>, pabc: *mut super::ABC) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptPlace(hdc : super::HDC, psc : *mut SCRIPT_CACHE, pwglyphs : *const u16, cglyphs : i32, psva : *const SCRIPT_VISATTR, psa : *mut SCRIPT_ANALYSIS, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::ABC) -> windows_core::HRESULT);
-    unsafe { ScriptPlace(hdc, psc.as_mut_ptr(), pwglyphs, cglyphs, psva, psa.as_mut_ptr(), piadvance as _, pgoffset.unwrap_or(core::mem::zeroed()) as _, pabc.as_mut_ptr()) }
+    unsafe { ScriptPlace(hdc, psc.as_mut_ptr(), pwglyphs, cglyphs, psva, psa.as_mut_ptr(), piadvance as _, pgoffset.unwrap_or(core::mem::zeroed()) as _, pabc as _) }
 }
 #[cfg(all(feature = "windef", feature = "wingdi"))]
 #[inline]
@@ -130,15 +130,15 @@ pub unsafe fn ScriptPositionSingleGlyph(hdc: Option<super::HDC>, psc: *mut SCRIP
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ScriptRecordDigitSubstitution(locale: super::LCID, psds: &mut [SCRIPT_DIGITSUBSTITUTE; 1]) -> windows_core::HRESULT {
+pub unsafe fn ScriptRecordDigitSubstitution(locale: super::LCID, psds: *mut SCRIPT_DIGITSUBSTITUTE) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptRecordDigitSubstitution(locale : super::LCID, psds : *mut SCRIPT_DIGITSUBSTITUTE) -> windows_core::HRESULT);
-    unsafe { ScriptRecordDigitSubstitution(locale, psds.as_mut_ptr()) }
+    unsafe { ScriptRecordDigitSubstitution(locale, psds as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn ScriptShape(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], pwcchars: *const u16, cchars: i32, cmaxglyphs: i32, psa: &mut [SCRIPT_ANALYSIS; 1], pwoutglyphs: *mut u16, pwlogclust: *mut u16, psva: *mut SCRIPT_VISATTR, pcglyphs: &mut [i32; 1]) -> windows_core::HRESULT {
+pub unsafe fn ScriptShape(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], pwcchars: *const u16, cchars: i32, cmaxglyphs: i32, psa: &mut [SCRIPT_ANALYSIS; 1], pwoutglyphs: *mut u16, pwlogclust: *mut u16, psva: *mut SCRIPT_VISATTR, pcglyphs: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptShape(hdc : super::HDC, psc : *mut SCRIPT_CACHE, pwcchars : *const u16, cchars : i32, cmaxglyphs : i32, psa : *mut SCRIPT_ANALYSIS, pwoutglyphs : *mut u16, pwlogclust : *mut u16, psva : *mut SCRIPT_VISATTR, pcglyphs : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptShape(hdc, psc.as_mut_ptr(), pwcchars, cchars, cmaxglyphs, psa.as_mut_ptr(), pwoutglyphs as _, pwlogclust as _, psva as _, pcglyphs.as_mut_ptr()) }
+    unsafe { ScriptShape(hdc, psc.as_mut_ptr(), pwcchars, cchars, cmaxglyphs, psa.as_mut_ptr(), pwoutglyphs as _, pwlogclust as _, psva as _, pcglyphs as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -156,9 +156,9 @@ pub unsafe fn ScriptStringAnalyse(hdc: super::HDC, pstring: *const core::ffi::c_
     }
 }
 #[inline]
-pub unsafe fn ScriptStringCPtoX(ssa: &[SCRIPT_STRING_ANALYSIS; 1], icp: i32, ftrailing: bool, px: &mut [i32; 1]) -> windows_core::HRESULT {
+pub unsafe fn ScriptStringCPtoX(ssa: &[SCRIPT_STRING_ANALYSIS; 1], icp: i32, ftrailing: bool, px: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptStringCPtoX(ssa : SCRIPT_STRING_ANALYSIS, icp : i32, ftrailing : windows_core::BOOL, px : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptStringCPtoX(core::mem::transmute(ssa.as_ptr()), icp, ftrailing.into(), px.as_mut_ptr()) }
+    unsafe { ScriptStringCPtoX(core::mem::transmute(ssa.as_ptr()), icp, ftrailing.into(), px as _) }
 }
 #[inline]
 pub unsafe fn ScriptStringFree(pssa: &mut [SCRIPT_STRING_ANALYSIS; 1]) -> windows_core::HRESULT {
@@ -193,9 +193,9 @@ pub unsafe fn ScriptStringValidate(ssa: &[SCRIPT_STRING_ANALYSIS; 1]) -> windows
     unsafe { ScriptStringValidate(core::mem::transmute(ssa.as_ptr())) }
 }
 #[inline]
-pub unsafe fn ScriptStringXtoCP(ssa: &[SCRIPT_STRING_ANALYSIS; 1], ix: i32, pich: &mut [i32; 1], pitrailing: &mut [i32; 1]) -> windows_core::HRESULT {
+pub unsafe fn ScriptStringXtoCP(ssa: &[SCRIPT_STRING_ANALYSIS; 1], ix: i32, pich: *mut i32, pitrailing: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptStringXtoCP(ssa : SCRIPT_STRING_ANALYSIS, ix : i32, pich : *mut i32, pitrailing : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptStringXtoCP(core::mem::transmute(ssa.as_ptr()), ix, pich.as_mut_ptr(), pitrailing.as_mut_ptr()) }
+    unsafe { ScriptStringXtoCP(core::mem::transmute(ssa.as_ptr()), ix, pich as _, pitrailing as _) }
 }
 #[inline]
 pub unsafe fn ScriptString_pLogAttr(ssa: &[SCRIPT_STRING_ANALYSIS; 1]) -> *const SCRIPT_LOGATTR {
@@ -226,9 +226,9 @@ pub unsafe fn ScriptTextOut(hdc: super::HDC, psc: &mut [SCRIPT_CACHE; 1], x: i32
     unsafe { ScriptTextOut(hdc, psc.as_mut_ptr(), x, y, fuoptions, lprc.map_or(core::ptr::null(), |slice| slice.as_ptr()), psa.as_ptr(), pwcreserved.unwrap_or(core::mem::zeroed()) as _, ireserved.unwrap_or(core::mem::zeroed()) as _, pwglyphs, cglyphs, piadvance, pijustify.unwrap_or(core::mem::zeroed()) as _, pgoffset) }
 }
 #[inline]
-pub unsafe fn ScriptXtoCP(ix: i32, cglyphs: i32, pwlogclust: &[u16], psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: &[SCRIPT_ANALYSIS; 1], picp: &mut [i32; 1], pitrailing: &mut [i32; 1]) -> windows_core::HRESULT {
+pub unsafe fn ScriptXtoCP(ix: i32, cglyphs: i32, pwlogclust: &[u16], psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: &[SCRIPT_ANALYSIS; 1], picp: *mut i32, pitrailing: *mut i32) -> windows_core::HRESULT {
     windows_core::link!("usp10.dll" "system" fn ScriptXtoCP(ix : i32, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, picp : *mut i32, pitrailing : *mut i32) -> windows_core::HRESULT);
-    unsafe { ScriptXtoCP(ix, pwlogclust.len().try_into().unwrap(), cglyphs, pwlogclust.as_ptr(), psva, piadvance, psa.as_ptr(), picp.as_mut_ptr(), pitrailing.as_mut_ptr()) }
+    unsafe { ScriptXtoCP(ix, pwlogclust.len().try_into().unwrap(), cglyphs, pwlogclust.as_ptr(), psva, piadvance, psa.as_ptr(), picp as _, pitrailing as _) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

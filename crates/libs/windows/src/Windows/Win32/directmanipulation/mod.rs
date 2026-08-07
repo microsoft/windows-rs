@@ -299,11 +299,11 @@ impl IDirectManipulationContent {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), object.param().abi(), id) }
     }
-    pub unsafe fn GetOutputTransform(&self, matrix: &mut [f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputTransform)(windows_core::Interface::as_raw(self), matrix.as_mut_ptr(), matrix.len().try_into().unwrap()) }
+    pub unsafe fn GetOutputTransform(&self, matrix: *mut f32, pointcount: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOutputTransform)(windows_core::Interface::as_raw(self), matrix as _, pointcount) }
     }
-    pub unsafe fn GetContentTransform(&self, matrix: &mut [f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetContentTransform)(windows_core::Interface::as_raw(self), matrix.as_mut_ptr(), matrix.len().try_into().unwrap()) }
+    pub unsafe fn GetContentTransform(&self, matrix: *mut f32, pointcount: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetContentTransform)(windows_core::Interface::as_raw(self), matrix as _, pointcount) }
     }
     pub unsafe fn SyncContentTransform(&self, matrix: &[f32]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SyncContentTransform)(windows_core::Interface::as_raw(self), matrix.as_ptr(), matrix.len().try_into().unwrap()) }
@@ -908,8 +908,8 @@ impl IDirectManipulationPrimaryContent {
     pub unsafe fn SetVerticalAlignment(&self, alignment: DIRECTMANIPULATION_VERTICALALIGNMENT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVerticalAlignment)(windows_core::Interface::as_raw(self), alignment) }
     }
-    pub unsafe fn GetInertiaEndTransform(&self, matrix: &mut [f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetInertiaEndTransform)(windows_core::Interface::as_raw(self), matrix.as_mut_ptr(), matrix.len().try_into().unwrap()) }
+    pub unsafe fn GetInertiaEndTransform(&self, matrix: *mut f32, pointcount: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInertiaEndTransform)(windows_core::Interface::as_raw(self), matrix as _, pointcount) }
     }
     pub unsafe fn GetCenterPoint(&self, centerx: *mut f32, centery: *mut f32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCenterPoint)(windows_core::Interface::as_raw(self), centerx as _, centery as _) }

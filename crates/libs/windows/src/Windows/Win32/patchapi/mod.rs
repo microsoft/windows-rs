@@ -131,36 +131,23 @@ where
     unsafe { ExtractPatchHeaderToFileW(patchfilename.param().abi(), patchheaderfilename.param().abi()) }
 }
 #[inline]
-pub unsafe fn GetFilePatchSignatureA<P0>(filename: P0, optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffer: &mut [u8]) -> windows_core::BOOL
+pub unsafe fn GetFilePatchSignatureA<P0>(filename: P0, optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: u32, signaturebuffer: windows_core::PSTR) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureA(filename : windows_core::PCSTR, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
-    unsafe { GetFilePatchSignatureA(filename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), signaturebuffer.len().try_into().unwrap(), core::mem::transmute(signaturebuffer.as_mut_ptr())) }
+    unsafe { GetFilePatchSignatureA(filename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), signaturebuffersize, signaturebuffer) }
 }
 #[inline]
-pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: &mut [u8], optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffer: &mut [u8]) -> windows_core::BOOL {
+pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: &mut [u8], optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: u32, signaturebuffer: windows_core::PSTR) -> windows_core::BOOL {
     windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureByBuffer(filebufferwritable : *mut u8, filesize : u32, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
-    unsafe {
-        GetFilePatchSignatureByBuffer(
-            filebufferwritable.as_mut_ptr(),
-            filebufferwritable.len().try_into().unwrap(),
-            optionflags,
-            optiondata.unwrap_or(core::mem::zeroed()) as _,
-            ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()),
-            ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()),
-            retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()),
-            signaturebuffer.len().try_into().unwrap(),
-            core::mem::transmute(signaturebuffer.as_mut_ptr()),
-        )
-    }
+    unsafe { GetFilePatchSignatureByBuffer(filebufferwritable.as_mut_ptr(), filebufferwritable.len().try_into().unwrap(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), signaturebuffersize, signaturebuffer) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn GetFilePatchSignatureByHandle(filehandle: super::HANDLE, optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffer: &mut [u8]) -> windows_core::BOOL {
+pub unsafe fn GetFilePatchSignatureByHandle(filehandle: super::HANDLE, optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: u32, signaturebuffer: windows_core::PSTR) -> windows_core::BOOL {
     windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureByHandle(filehandle : super::HANDLE, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
-    unsafe { GetFilePatchSignatureByHandle(filehandle, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), signaturebuffer.len().try_into().unwrap(), core::mem::transmute(signaturebuffer.as_mut_ptr())) }
+    unsafe { GetFilePatchSignatureByHandle(filehandle, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), signaturebuffersize, signaturebuffer) }
 }
 #[inline]
 pub unsafe fn GetFilePatchSignatureW<P0>(filename: P0, optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: u32, signaturebuffer: windows_core::PWSTR) -> windows_core::BOOL

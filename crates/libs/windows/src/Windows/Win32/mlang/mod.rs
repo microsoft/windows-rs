@@ -855,8 +855,8 @@ impl IMLangStringAStr {
     {
         unsafe { (windows_core::Interface::vtable(self).SetStrBufA)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, ucodepage, psrcbuf.param().abi(), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: Option<*const u32>, pszdest: Option<&mut [u8]>, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, ucodepagein, pucodepageout.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszdest.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszdest.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: Option<*const u32>, pszdest: Option<windows_core::PSTR>, cchdest: i32, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetAStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, ucodepagein, pucodepageout.unwrap_or(core::mem::zeroed()) as _, pszdest.unwrap_or(core::mem::zeroed()) as _, cchdest, pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetStrBufA(&self, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: Option<*mut u32>, ppdestbuf: *mut Option<IMLangStringBufA>, pldestlen: Option<*mut i32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStrBufA)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, pudestcodepage.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppdestbuf), pldestlen.unwrap_or(core::mem::zeroed()) as _) }
@@ -1157,8 +1157,8 @@ impl IMLangStringWStr {
     {
         unsafe { (windows_core::Interface::vtable(self).SetStrBufW)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, psrcbuf.param().abi(), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn GetWStr(&self, lsrcpos: i32, lsrclen: i32, pszdest: Option<&mut [u16]>, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetWStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, core::mem::transmute(pszdest.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszdest.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
+    pub unsafe fn GetWStr(&self, lsrcpos: i32, lsrclen: i32, pszdest: Option<windows_core::PWSTR>, cchdest: i32, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetWStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, pszdest.unwrap_or(core::mem::zeroed()) as _, cchdest, pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetStrBufW(&self, lsrcpos: i32, lsrcmaxlen: i32, ppdestbuf: *mut Option<IMLangStringBufW>, pldestlen: Option<*mut i32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStrBufW)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, core::mem::transmute(ppdestbuf), pldestlen.unwrap_or(core::mem::zeroed()) as _) }
@@ -1649,8 +1649,8 @@ impl IMultiLanguage2 {
         unsafe { (windows_core::Interface::vtable(self).ValidateCodePage)(windows_core::Interface::as_raw(self), uicodepage, hwnd) }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn GetCodePageDescription(&self, uicodepage: u32, lcid: super::LCID, lpwidecharstr: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCodePageDescription)(windows_core::Interface::as_raw(self), uicodepage, lcid, core::mem::transmute(lpwidecharstr.as_mut_ptr()), lpwidecharstr.len().try_into().unwrap()) }
+    pub unsafe fn GetCodePageDescription(&self, uicodepage: u32, lcid: super::LCID, lpwidecharstr: windows_core::PWSTR, cchwidechar: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCodePageDescription)(windows_core::Interface::as_raw(self), uicodepage, lcid, lpwidecharstr, cchwidechar) }
     }
     pub unsafe fn IsCodePageInstallable(&self, uicodepage: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsCodePageInstallable)(windows_core::Interface::as_raw(self), uicodepage) }

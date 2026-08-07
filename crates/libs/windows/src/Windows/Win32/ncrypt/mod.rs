@@ -1,8 +1,8 @@
 #[cfg(feature = "bcrypt")]
 #[inline]
-pub unsafe fn NCryptCreateClaim(hsubjectkey: Option<NCRYPT_KEY_HANDLE>, hauthoritykey: Option<NCRYPT_KEY_HANDLE>, dwclaimtype: u32, pparameterlist: Option<*const NCryptBufferDesc>, pbclaimblob: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS {
+pub unsafe fn NCryptCreateClaim(hsubjectkey: Option<NCRYPT_KEY_HANDLE>, hauthoritykey: Option<NCRYPT_KEY_HANDLE>, dwclaimtype: u32, pparameterlist: Option<*const NCryptBufferDesc>, pbclaimblob: Option<*mut u8>, cbclaimblob: u32, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptCreateClaim(hsubjectkey : NCRYPT_KEY_HANDLE, hauthoritykey : NCRYPT_KEY_HANDLE, dwclaimtype : u32, pparameterlist : *const NCryptBufferDesc, pbclaimblob : *mut u8, cbclaimblob : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptCreateClaim(hsubjectkey.unwrap_or(core::mem::zeroed()) as _, hauthoritykey.unwrap_or(core::mem::zeroed()) as _, dwclaimtype, pparameterlist.unwrap_or(core::mem::zeroed()) as _, pbclaimblob.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbclaimblob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { NCryptCreateClaim(hsubjectkey.unwrap_or(core::mem::zeroed()) as _, hauthoritykey.unwrap_or(core::mem::zeroed()) as _, dwclaimtype, pparameterlist.unwrap_or(core::mem::zeroed()) as _, pbclaimblob.unwrap_or(core::mem::zeroed()) as _, cbclaimblob, pcbresult as _, dwflags) }
 }
 #[inline]
 pub unsafe fn NCryptCreatePersistedKey<P2, P3>(hprovider: NCRYPT_PROV_HANDLE, phkey: *mut NCRYPT_KEY_HANDLE, pszalgid: P2, pszkeyname: P3, dwlegacykeyspec: u32, dwflags: u32) -> SECURITY_STATUS
@@ -14,14 +14,14 @@ where
     unsafe { NCryptCreatePersistedKey(hprovider, phkey as _, pszalgid.param().abi(), pszkeyname.param().abi(), dwlegacykeyspec, dwflags) }
 }
 #[inline]
-pub unsafe fn NCryptDecapsulate(hkey: NCRYPT_KEY_HANDLE, pbciphertext: &[u8], pbsecretkey: Option<&mut [u8]>, pcbsecretkey: *mut u32, dwflags: u32) -> SECURITY_STATUS {
+pub unsafe fn NCryptDecapsulate(hkey: NCRYPT_KEY_HANDLE, pbciphertext: &[u8], pbsecretkey: Option<*mut u8>, cbsecretkey: u32, pcbsecretkey: *mut u32, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptDecapsulate(hkey : NCRYPT_KEY_HANDLE, pbciphertext : *const u8, cbciphertext : u32, pbsecretkey : *mut u8, cbsecretkey : u32, pcbsecretkey : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptDecapsulate(hkey, pbciphertext.as_ptr(), pbciphertext.len().try_into().unwrap(), pbsecretkey.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbsecretkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbsecretkey as _, dwflags) }
+    unsafe { NCryptDecapsulate(hkey, pbciphertext.as_ptr(), pbciphertext.len().try_into().unwrap(), pbsecretkey.unwrap_or(core::mem::zeroed()) as _, cbsecretkey, pcbsecretkey as _, dwflags) }
 }
 #[inline]
-pub unsafe fn NCryptDecrypt(hkey: NCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS {
+pub unsafe fn NCryptDecrypt(hkey: NCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, pboutput: Option<*mut u8>, cboutput: u32, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptDecrypt(hkey : NCRYPT_KEY_HANDLE, pbinput : *const u8, cbinput : u32, ppaddinginfo : *const core::ffi::c_void, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptDecrypt(hkey, pbinput.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbinput.map_or(0, |slice| slice.len().try_into().unwrap()), ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, pboutput.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { NCryptDecrypt(hkey, pbinput.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbinput.map_or(0, |slice| slice.len().try_into().unwrap()), ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, pboutput.unwrap_or(core::mem::zeroed()) as _, cboutput, pcbresult as _, dwflags) }
 }
 #[inline]
 pub unsafe fn NCryptDeleteKey(hkey: NCRYPT_KEY_HANDLE, dwflags: u32) -> SECURITY_STATUS {
@@ -30,22 +30,22 @@ pub unsafe fn NCryptDeleteKey(hkey: NCRYPT_KEY_HANDLE, dwflags: u32) -> SECURITY
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
-pub unsafe fn NCryptDeriveKey<P1>(hsharedsecret: NCRYPT_SECRET_HANDLE, pwszkdf: P1, pparameterlist: Option<*const NCryptBufferDesc>, pbderivedkey: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS
+pub unsafe fn NCryptDeriveKey<P1>(hsharedsecret: NCRYPT_SECRET_HANDLE, pwszkdf: P1, pparameterlist: Option<*const NCryptBufferDesc>, pbderivedkey: Option<*mut u8>, cbderivedkey: u32, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ncrypt.dll" "system" fn NCryptDeriveKey(hsharedsecret : NCRYPT_SECRET_HANDLE, pwszkdf : windows_core::PCWSTR, pparameterlist : *const NCryptBufferDesc, pbderivedkey : *mut u8, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptDeriveKey(hsharedsecret, pwszkdf.param().abi(), pparameterlist.unwrap_or(core::mem::zeroed()) as _, pbderivedkey.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbderivedkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { NCryptDeriveKey(hsharedsecret, pwszkdf.param().abi(), pparameterlist.unwrap_or(core::mem::zeroed()) as _, pbderivedkey.unwrap_or(core::mem::zeroed()) as _, cbderivedkey, pcbresult as _, dwflags) }
 }
 #[inline]
-pub unsafe fn NCryptEncapsulate(hkey: NCRYPT_KEY_HANDLE, pbsecretkey: Option<&mut [u8]>, pcbsecretkey: *mut u32, pbciphertext: Option<&mut [u8]>, pcbciphertext: *mut u32, dwflags: u32) -> SECURITY_STATUS {
+pub unsafe fn NCryptEncapsulate(hkey: NCRYPT_KEY_HANDLE, pbsecretkey: Option<*mut u8>, cbsecretkey: u32, pcbsecretkey: *mut u32, pbciphertext: Option<*mut u8>, cbciphertext: u32, pcbciphertext: *mut u32, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptEncapsulate(hkey : NCRYPT_KEY_HANDLE, pbsecretkey : *mut u8, cbsecretkey : u32, pcbsecretkey : *mut u32, pbciphertext : *mut u8, cbciphertext : u32, pcbciphertext : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptEncapsulate(hkey, pbsecretkey.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbsecretkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbsecretkey as _, pbciphertext.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbciphertext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbciphertext as _, dwflags) }
+    unsafe { NCryptEncapsulate(hkey, pbsecretkey.unwrap_or(core::mem::zeroed()) as _, cbsecretkey, pcbsecretkey as _, pbciphertext.unwrap_or(core::mem::zeroed()) as _, cbciphertext, pcbciphertext as _, dwflags) }
 }
 #[inline]
-pub unsafe fn NCryptEncrypt(hkey: NCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS {
+pub unsafe fn NCryptEncrypt(hkey: NCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, pboutput: Option<*mut u8>, cboutput: u32, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptEncrypt(hkey : NCRYPT_KEY_HANDLE, pbinput : *const u8, cbinput : u32, ppaddinginfo : *const core::ffi::c_void, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptEncrypt(hkey, pbinput.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbinput.map_or(0, |slice| slice.len().try_into().unwrap()), ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, pboutput.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { NCryptEncrypt(hkey, pbinput.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbinput.map_or(0, |slice| slice.len().try_into().unwrap()), ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, pboutput.unwrap_or(core::mem::zeroed()) as _, cboutput, pcbresult as _, dwflags) }
 }
 #[inline]
 pub unsafe fn NCryptEnumAlgorithms(hprovider: NCRYPT_PROV_HANDLE, dwalgoperations: u32, pdwalgcount: *mut u32, ppalglist: *mut *mut NCryptAlgorithmName, dwflags: u32) -> SECURITY_STATUS {
@@ -67,12 +67,12 @@ pub unsafe fn NCryptEnumStorageProviders(pdwprovidercount: *mut u32, ppproviderl
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
-pub unsafe fn NCryptExportKey<P2>(hkey: NCRYPT_KEY_HANDLE, hexportkey: Option<NCRYPT_KEY_HANDLE>, pszblobtype: P2, pparameterlist: Option<*const NCryptBufferDesc>, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS
+pub unsafe fn NCryptExportKey<P2>(hkey: NCRYPT_KEY_HANDLE, hexportkey: Option<NCRYPT_KEY_HANDLE>, pszblobtype: P2, pparameterlist: Option<*const NCryptBufferDesc>, pboutput: Option<*mut u8>, cboutput: u32, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ncrypt.dll" "system" fn NCryptExportKey(hkey : NCRYPT_KEY_HANDLE, hexportkey : NCRYPT_KEY_HANDLE, pszblobtype : windows_core::PCWSTR, pparameterlist : *const NCryptBufferDesc, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptExportKey(hkey, hexportkey.unwrap_or(core::mem::zeroed()) as _, pszblobtype.param().abi(), pparameterlist.unwrap_or(core::mem::zeroed()) as _, pboutput.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { NCryptExportKey(hkey, hexportkey.unwrap_or(core::mem::zeroed()) as _, pszblobtype.param().abi(), pparameterlist.unwrap_or(core::mem::zeroed()) as _, pboutput.unwrap_or(core::mem::zeroed()) as _, cboutput, pcbresult as _, dwflags) }
 }
 #[inline]
 pub unsafe fn NCryptFinalizeKey(hkey: NCRYPT_KEY_HANDLE, dwflags: u32) -> SECURITY_STATUS {
@@ -90,12 +90,12 @@ pub unsafe fn NCryptFreeObject(hobject: NCRYPT_HANDLE) -> SECURITY_STATUS {
     unsafe { NCryptFreeObject(hobject) }
 }
 #[inline]
-pub unsafe fn NCryptGetProperty<P1>(hobject: NCRYPT_HANDLE, pszproperty: P1, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS
+pub unsafe fn NCryptGetProperty<P1>(hobject: NCRYPT_HANDLE, pszproperty: P1, pboutput: Option<*mut u8>, cboutput: u32, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ncrypt.dll" "system" fn NCryptGetProperty(hobject : NCRYPT_HANDLE, pszproperty : windows_core::PCWSTR, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptGetProperty(hobject, pszproperty.param().abi(), pboutput.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { NCryptGetProperty(hobject, pszproperty.param().abi(), pboutput.unwrap_or(core::mem::zeroed()) as _, cboutput, pcbresult as _, dwflags) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
@@ -121,9 +121,9 @@ pub unsafe fn NCryptIsKeyHandle(hkey: NCRYPT_KEY_HANDLE) -> windows_core::BOOL {
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
-pub unsafe fn NCryptKeyDerivation(hkey: NCRYPT_KEY_HANDLE, pparameterlist: Option<*const NCryptBufferDesc>, pbderivedkey: &mut [u8], pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS {
+pub unsafe fn NCryptKeyDerivation(hkey: NCRYPT_KEY_HANDLE, pparameterlist: Option<*const NCryptBufferDesc>, pbderivedkey: *mut u8, cbderivedkey: u32, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptKeyDerivation(hkey : NCRYPT_KEY_HANDLE, pparameterlist : *const NCryptBufferDesc, pbderivedkey : *mut u8, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptKeyDerivation(hkey, pparameterlist.unwrap_or(core::mem::zeroed()) as _, pbderivedkey.as_mut_ptr(), pbderivedkey.len().try_into().unwrap(), pcbresult as _, dwflags) }
+    unsafe { NCryptKeyDerivation(hkey, pparameterlist.unwrap_or(core::mem::zeroed()) as _, pbderivedkey as _, cbderivedkey, pcbresult as _, dwflags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -161,9 +161,9 @@ where
     unsafe { NCryptSetProperty(hobject, pszproperty.param().abi(), pbinput.as_ptr(), pbinput.len().try_into().unwrap(), dwflags) }
 }
 #[inline]
-pub unsafe fn NCryptSignHash(hkey: NCRYPT_KEY_HANDLE, ppaddinginfo: Option<*const core::ffi::c_void>, pbhashvalue: &[u8], pbsignature: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS {
+pub unsafe fn NCryptSignHash(hkey: NCRYPT_KEY_HANDLE, ppaddinginfo: Option<*const core::ffi::c_void>, pbhashvalue: &[u8], pbsignature: Option<*mut u8>, cbsignature: u32, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptSignHash(hkey : NCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhashvalue : *const u8, cbhashvalue : u32, pbsignature : *mut u8, cbsignature : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptSignHash(hkey, ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, pbhashvalue.as_ptr(), pbhashvalue.len().try_into().unwrap(), pbsignature.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbsignature.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { NCryptSignHash(hkey, ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, pbhashvalue.as_ptr(), pbhashvalue.len().try_into().unwrap(), pbsignature.unwrap_or(core::mem::zeroed()) as _, cbsignature, pcbresult as _, dwflags) }
 }
 #[cfg(feature = "wincrypt")]
 #[inline]

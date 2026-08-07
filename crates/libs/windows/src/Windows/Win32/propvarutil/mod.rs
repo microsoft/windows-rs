@@ -453,9 +453,9 @@ pub unsafe fn PropVariantToBoolean(propvarin: *const super::PROPVARIANT) -> wind
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PropVariantToBooleanVector(propvar: *const super::PROPVARIANT, prgf: &mut [windows_core::BOOL], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn PropVariantToBooleanVector(propvar: *const super::PROPVARIANT, prgf: *mut windows_core::BOOL, crgf: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToBooleanVector(propvar : *const super::PROPVARIANT, prgf : *mut windows_core::BOOL, crgf : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { PropVariantToBooleanVector(propvar, prgf.as_mut_ptr(), prgf.len().try_into().unwrap(), pcelem as _) }
+    unsafe { PropVariantToBooleanVector(propvar, prgf as _, crgf, pcelem as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -486,9 +486,9 @@ pub unsafe fn PropVariantToDouble(propvarin: *const super::PROPVARIANT) -> windo
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PropVariantToDoubleVector(propvar: *const super::PROPVARIANT, prgn: &mut [f64], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn PropVariantToDoubleVector(propvar: *const super::PROPVARIANT, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToDoubleVector(propvar : *const super::PROPVARIANT, prgn : *mut f64, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { PropVariantToDoubleVector(propvar, prgn.as_mut_ptr(), prgn.len().try_into().unwrap(), pcelem as _) }
+    unsafe { PropVariantToDoubleVector(propvar, prgn as _, crgn, pcelem as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -513,9 +513,9 @@ pub unsafe fn PropVariantToFileTime(propvar: *const super::PROPVARIANT, pstfout:
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PropVariantToFileTimeVector(propvar: *const super::PROPVARIANT, prgft: &mut [super::FILETIME], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn PropVariantToFileTimeVector(propvar: *const super::PROPVARIANT, prgft: *mut super::FILETIME, crgft: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToFileTimeVector(propvar : *const super::PROPVARIANT, prgft : *mut super::FILETIME, crgft : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { PropVariantToFileTimeVector(propvar, prgft.as_mut_ptr(), prgft.len().try_into().unwrap(), pcelem as _) }
+    unsafe { PropVariantToFileTimeVector(propvar, prgft as _, crgft, pcelem as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -543,9 +543,9 @@ pub unsafe fn PropVariantToInt16(propvarin: *const super::PROPVARIANT) -> window
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PropVariantToInt16Vector(propvar: *const super::PROPVARIANT, prgn: &mut [i16], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn PropVariantToInt16Vector(propvar: *const super::PROPVARIANT, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToInt16Vector(propvar : *const super::PROPVARIANT, prgn : *mut i16, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { PropVariantToInt16Vector(propvar, prgn.as_mut_ptr(), prgn.len().try_into().unwrap(), pcelem as _) }
+    unsafe { PropVariantToInt16Vector(propvar, prgn as _, crgn, pcelem as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -570,9 +570,9 @@ pub unsafe fn PropVariantToInt32(propvarin: *const super::PROPVARIANT) -> window
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PropVariantToInt32Vector(propvar: *const super::PROPVARIANT, prgn: &mut [i32], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn PropVariantToInt32Vector(propvar: *const super::PROPVARIANT, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToInt32Vector(propvar : *const super::PROPVARIANT, prgn : *mut i32, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { PropVariantToInt32Vector(propvar, prgn.as_mut_ptr(), prgn.len().try_into().unwrap(), pcelem as _) }
+    unsafe { PropVariantToInt32Vector(propvar, prgn as _, crgn, pcelem as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -597,9 +597,9 @@ pub unsafe fn PropVariantToInt64(propvarin: *const super::PROPVARIANT) -> window
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PropVariantToInt64Vector(propvar: *const super::PROPVARIANT, prgn: &mut [i64], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn PropVariantToInt64Vector(propvar: *const super::PROPVARIANT, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToInt64Vector(propvar : *const super::PROPVARIANT, prgn : *mut i64, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { PropVariantToInt64Vector(propvar, prgn.as_mut_ptr(), prgn.len().try_into().unwrap(), pcelem as _) }
+    unsafe { PropVariantToInt64Vector(propvar, prgn as _, crgn, pcelem as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -621,9 +621,9 @@ pub unsafe fn PropVariantToStrRet(propvar: *const super::PROPVARIANT, pstrret: *
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PropVariantToString(propvar: *const super::PROPVARIANT, psz: &mut [u16]) -> windows_core::HRESULT {
+pub unsafe fn PropVariantToString(propvar: *const super::PROPVARIANT, psz: windows_core::PWSTR, cch: u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToString(propvar : *const super::PROPVARIANT, psz : windows_core::PWSTR, cch : u32) -> windows_core::HRESULT);
-    unsafe { PropVariantToString(propvar, core::mem::transmute(psz.as_mut_ptr()), psz.len().try_into().unwrap()) }
+    unsafe { PropVariantToString(propvar, psz, cch) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -636,9 +636,9 @@ pub unsafe fn PropVariantToStringAlloc(propvar: *const super::PROPVARIANT) -> wi
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PropVariantToStringVector(propvar: *const super::PROPVARIANT, prgsz: &mut [windows_core::PWSTR], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn PropVariantToStringVector(propvar: *const super::PROPVARIANT, prgsz: *mut windows_core::PWSTR, crgsz: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToStringVector(propvar : *const super::PROPVARIANT, prgsz : *mut windows_core::PWSTR, crgsz : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { PropVariantToStringVector(propvar, prgsz.as_mut_ptr(), prgsz.len().try_into().unwrap(), pcelem as _) }
+    unsafe { PropVariantToStringVector(propvar, prgsz as _, crgsz, pcelem as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -666,9 +666,9 @@ pub unsafe fn PropVariantToUInt16(propvarin: *const super::PROPVARIANT) -> windo
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PropVariantToUInt16Vector(propvar: *const super::PROPVARIANT, prgn: &mut [u16], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn PropVariantToUInt16Vector(propvar: *const super::PROPVARIANT, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToUInt16Vector(propvar : *const super::PROPVARIANT, prgn : *mut u16, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { PropVariantToUInt16Vector(propvar, prgn.as_mut_ptr(), prgn.len().try_into().unwrap(), pcelem as _) }
+    unsafe { PropVariantToUInt16Vector(propvar, prgn as _, crgn, pcelem as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -693,9 +693,9 @@ pub unsafe fn PropVariantToUInt32(propvarin: *const super::PROPVARIANT) -> windo
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PropVariantToUInt32Vector(propvar: *const super::PROPVARIANT, prgn: &mut [u32], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn PropVariantToUInt32Vector(propvar: *const super::PROPVARIANT, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToUInt32Vector(propvar : *const super::PROPVARIANT, prgn : *mut u32, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { PropVariantToUInt32Vector(propvar, prgn.as_mut_ptr(), prgn.len().try_into().unwrap(), pcelem as _) }
+    unsafe { PropVariantToUInt32Vector(propvar, prgn as _, crgn, pcelem as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -720,9 +720,9 @@ pub unsafe fn PropVariantToUInt64(propvarin: *const super::PROPVARIANT) -> windo
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn PropVariantToUInt64Vector(propvar: *const super::PROPVARIANT, prgn: &mut [u64], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn PropVariantToUInt64Vector(propvar: *const super::PROPVARIANT, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PropVariantToUInt64Vector(propvar : *const super::PROPVARIANT, prgn : *mut u64, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { PropVariantToUInt64Vector(propvar, prgn.as_mut_ptr(), prgn.len().try_into().unwrap(), pcelem as _) }
+    unsafe { PropVariantToUInt64Vector(propvar, prgn as _, crgn, pcelem as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -864,9 +864,9 @@ pub unsafe fn VariantToBoolean(varin: *const super::VARIANT) -> windows_core::Re
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn VariantToBooleanArray(var: *const super::VARIANT, prgf: &mut [windows_core::BOOL], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn VariantToBooleanArray(var: *const super::VARIANT, prgf: *mut windows_core::BOOL, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn VariantToBooleanArray(var : *const super::VARIANT, prgf : *mut windows_core::BOOL, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { VariantToBooleanArray(var, prgf.as_mut_ptr(), prgf.len().try_into().unwrap(), pcelem as _) }
+    unsafe { VariantToBooleanArray(var, prgf as _, crgn, pcelem as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -903,9 +903,9 @@ pub unsafe fn VariantToDouble(varin: *const super::VARIANT) -> windows_core::Res
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn VariantToDoubleArray(var: *const super::VARIANT, prgn: &mut [f64], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn VariantToDoubleArray(var: *const super::VARIANT, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn VariantToDoubleArray(var : *const super::VARIANT, prgn : *mut f64, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { VariantToDoubleArray(var, prgn.as_mut_ptr(), prgn.len().try_into().unwrap(), pcelem as _) }
+    unsafe { VariantToDoubleArray(var, prgn as _, crgn, pcelem as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -948,9 +948,9 @@ pub unsafe fn VariantToInt16(varin: *const super::VARIANT) -> windows_core::Resu
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn VariantToInt16Array(var: *const super::VARIANT, prgn: &mut [i16], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn VariantToInt16Array(var: *const super::VARIANT, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn VariantToInt16Array(var : *const super::VARIANT, prgn : *mut i16, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { VariantToInt16Array(var, prgn.as_mut_ptr(), prgn.len().try_into().unwrap(), pcelem as _) }
+    unsafe { VariantToInt16Array(var, prgn as _, crgn, pcelem as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -975,9 +975,9 @@ pub unsafe fn VariantToInt32(varin: *const super::VARIANT) -> windows_core::Resu
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn VariantToInt32Array(var: *const super::VARIANT, prgn: &mut [i32], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn VariantToInt32Array(var: *const super::VARIANT, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn VariantToInt32Array(var : *const super::VARIANT, prgn : *mut i32, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { VariantToInt32Array(var, prgn.as_mut_ptr(), prgn.len().try_into().unwrap(), pcelem as _) }
+    unsafe { VariantToInt32Array(var, prgn as _, crgn, pcelem as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -1002,9 +1002,9 @@ pub unsafe fn VariantToInt64(varin: *const super::VARIANT) -> windows_core::Resu
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn VariantToInt64Array(var: *const super::VARIANT, prgn: &mut [i64], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn VariantToInt64Array(var: *const super::VARIANT, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn VariantToInt64Array(var : *const super::VARIANT, prgn : *mut i64, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { VariantToInt64Array(var, prgn.as_mut_ptr(), prgn.len().try_into().unwrap(), pcelem as _) }
+    unsafe { VariantToInt64Array(var, prgn as _, crgn, pcelem as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -1035,9 +1035,9 @@ pub unsafe fn VariantToStrRet(varin: *const super::VARIANT, pstrret: *mut super:
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn VariantToString(varin: *const super::VARIANT, pszbuf: &mut [u16]) -> windows_core::HRESULT {
+pub unsafe fn VariantToString(varin: *const super::VARIANT, pszbuf: windows_core::PWSTR, cchbuf: u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn VariantToString(varin : *const super::VARIANT, pszbuf : windows_core::PWSTR, cchbuf : u32) -> windows_core::HRESULT);
-    unsafe { VariantToString(varin, core::mem::transmute(pszbuf.as_mut_ptr()), pszbuf.len().try_into().unwrap()) }
+    unsafe { VariantToString(varin, pszbuf, cchbuf) }
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -1050,9 +1050,9 @@ pub unsafe fn VariantToStringAlloc(varin: *const super::VARIANT) -> windows_core
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn VariantToStringArray(var: *const super::VARIANT, prgsz: &mut [windows_core::PWSTR], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn VariantToStringArray(var: *const super::VARIANT, prgsz: *mut windows_core::PWSTR, crgsz: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn VariantToStringArray(var : *const super::VARIANT, prgsz : *mut windows_core::PWSTR, crgsz : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { VariantToStringArray(var, prgsz.as_mut_ptr(), prgsz.len().try_into().unwrap(), pcelem as _) }
+    unsafe { VariantToStringArray(var, prgsz as _, crgsz, pcelem as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -1080,9 +1080,9 @@ pub unsafe fn VariantToUInt16(varin: *const super::VARIANT) -> windows_core::Res
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn VariantToUInt16Array(var: *const super::VARIANT, prgn: &mut [u16], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn VariantToUInt16Array(var: *const super::VARIANT, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn VariantToUInt16Array(var : *const super::VARIANT, prgn : *mut u16, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { VariantToUInt16Array(var, prgn.as_mut_ptr(), prgn.len().try_into().unwrap(), pcelem as _) }
+    unsafe { VariantToUInt16Array(var, prgn as _, crgn, pcelem as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -1107,9 +1107,9 @@ pub unsafe fn VariantToUInt32(varin: *const super::VARIANT) -> windows_core::Res
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn VariantToUInt32Array(var: *const super::VARIANT, prgn: &mut [u32], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn VariantToUInt32Array(var: *const super::VARIANT, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn VariantToUInt32Array(var : *const super::VARIANT, prgn : *mut u32, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { VariantToUInt32Array(var, prgn.as_mut_ptr(), prgn.len().try_into().unwrap(), pcelem as _) }
+    unsafe { VariantToUInt32Array(var, prgn as _, crgn, pcelem as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -1134,9 +1134,9 @@ pub unsafe fn VariantToUInt64(varin: *const super::VARIANT) -> windows_core::Res
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn VariantToUInt64Array(var: *const super::VARIANT, prgn: &mut [u64], pcelem: *mut u32) -> windows_core::HRESULT {
+pub unsafe fn VariantToUInt64Array(var: *const super::VARIANT, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn VariantToUInt64Array(var : *const super::VARIANT, prgn : *mut u64, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
-    unsafe { VariantToUInt64Array(var, prgn.as_mut_ptr(), prgn.len().try_into().unwrap(), pcelem as _) }
+    unsafe { VariantToUInt64Array(var, prgn as _, crgn, pcelem as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]

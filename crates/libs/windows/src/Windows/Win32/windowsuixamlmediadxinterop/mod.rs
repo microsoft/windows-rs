@@ -347,8 +347,8 @@ impl IVirtualSurfaceImageSourceNative {
         }
     }
     #[cfg(feature = "windef")]
-    pub unsafe fn GetUpdateRects(&self, updates: &mut [super::RECT]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetUpdateRects)(windows_core::Interface::as_raw(self), updates.as_mut_ptr(), updates.len().try_into().unwrap()) }
+    pub unsafe fn GetUpdateRects(&self, updates: *mut super::RECT, count: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetUpdateRects)(windows_core::Interface::as_raw(self), updates as _, count) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn GetVisibleBounds(&self) -> windows_core::Result<super::RECT> {

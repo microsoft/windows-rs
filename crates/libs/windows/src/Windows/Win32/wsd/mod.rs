@@ -309,8 +309,8 @@ pub const ElementType: i32 = 0;
 windows_core::imp::define_interface!(IWSDAddress, IWSDAddress_Vtbl, 0xb9574c6c_12a6_4f74_93a1_3318ff605759);
 windows_core::imp::interface_hierarchy!(IWSDAddress, windows_core::IUnknown);
 impl IWSDAddress {
-    pub unsafe fn Serialize(&self, pszbuffer: &mut [u16], fsafe: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pszbuffer.as_mut_ptr()), pszbuffer.len().try_into().unwrap(), fsafe.into()) }
+    pub unsafe fn Serialize(&self, pszbuffer: windows_core::PWSTR, cchlength: u32, fsafe: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), pszbuffer, cchlength, fsafe.into()) }
     }
     pub unsafe fn Deserialize<P0>(&self, pszbuffer: P0) -> windows_core::HRESULT
     where
@@ -1578,8 +1578,8 @@ impl core::ops::Deref for IWSDInboundAttachment {
 }
 windows_core::imp::interface_hierarchy!(IWSDInboundAttachment, windows_core::IUnknown, IWSDAttachment);
 impl IWSDInboundAttachment {
-    pub unsafe fn Read(&self, pbuffer: &mut [u8], pdwnumberofbytesread: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), pbuffer.as_mut_ptr(), pbuffer.len().try_into().unwrap(), pdwnumberofbytesread as _) }
+    pub unsafe fn Read(&self, pbuffer: *mut u8, dwbytestoread: u32, pdwnumberofbytesread: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), pbuffer as _, dwbytestoread, pdwnumberofbytesread as _) }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }

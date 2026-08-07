@@ -90,9 +90,9 @@ pub unsafe fn DeleteWpadCacheForNetworks(param0: WPAD_CACHE_DELETE) -> windows_c
     unsafe { DeleteWpadCacheForNetworks(param0) }
 }
 #[inline]
-pub unsafe fn DetectAutoProxyUrl(pszautoproxyurl: &mut [u8], dwdetectflags: u32) -> windows_core::BOOL {
+pub unsafe fn DetectAutoProxyUrl(pszautoproxyurl: windows_core::PSTR, cchautoproxyurl: u32, dwdetectflags: u32) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn DetectAutoProxyUrl(pszautoproxyurl : windows_core::PSTR, cchautoproxyurl : u32, dwdetectflags : u32) -> windows_core::BOOL);
-    unsafe { DetectAutoProxyUrl(core::mem::transmute(pszautoproxyurl.as_mut_ptr()), pszautoproxyurl.len().try_into().unwrap(), dwdetectflags) }
+    unsafe { DetectAutoProxyUrl(pszautoproxyurl, cchautoproxyurl, dwdetectflags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -860,19 +860,19 @@ pub unsafe fn InternetGetConnectedState(lpdwflags: *mut u32, dwreserved: Option<
     unsafe { InternetGetConnectedState(lpdwflags as _, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn InternetGetConnectedStateEx(lpdwflags: *mut u32, lpszconnectionname: Option<&mut [u8]>, dwreserved: u32) -> windows_core::BOOL {
+pub unsafe fn InternetGetConnectedStateEx(lpdwflags: *mut u32, lpszconnectionname: Option<windows_core::PSTR>, dwnamelen: u32, dwreserved: u32) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn InternetGetConnectedStateEx(lpdwflags : *mut u32, lpszconnectionname : windows_core::PSTR, dwnamelen : u32, dwreserved : u32) -> windows_core::BOOL);
-    unsafe { InternetGetConnectedStateEx(lpdwflags as _, core::mem::transmute(lpszconnectionname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszconnectionname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwreserved) }
+    unsafe { InternetGetConnectedStateEx(lpdwflags as _, lpszconnectionname.unwrap_or(core::mem::zeroed()) as _, dwnamelen, dwreserved) }
 }
 #[inline]
-pub unsafe fn InternetGetConnectedStateExA(lpdwflags: Option<*mut u32>, lpszconnectionname: Option<&mut [u8]>, dwreserved: Option<u32>) -> windows_core::BOOL {
+pub unsafe fn InternetGetConnectedStateExA(lpdwflags: Option<*mut u32>, lpszconnectionname: Option<windows_core::PSTR>, cchnamelen: u32, dwreserved: Option<u32>) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn InternetGetConnectedStateExA(lpdwflags : *mut u32, lpszconnectionname : windows_core::PSTR, cchnamelen : u32, dwreserved : u32) -> windows_core::BOOL);
-    unsafe { InternetGetConnectedStateExA(lpdwflags.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpszconnectionname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszconnectionname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { InternetGetConnectedStateExA(lpdwflags.unwrap_or(core::mem::zeroed()) as _, lpszconnectionname.unwrap_or(core::mem::zeroed()) as _, cchnamelen, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn InternetGetConnectedStateExW(lpdwflags: Option<*mut u32>, lpszconnectionname: Option<&mut [u16]>, dwreserved: Option<u32>) -> windows_core::BOOL {
+pub unsafe fn InternetGetConnectedStateExW(lpdwflags: Option<*mut u32>, lpszconnectionname: Option<windows_core::PWSTR>, cchnamelen: u32, dwreserved: Option<u32>) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn InternetGetConnectedStateExW(lpdwflags : *mut u32, lpszconnectionname : windows_core::PWSTR, cchnamelen : u32, dwreserved : u32) -> windows_core::BOOL);
-    unsafe { InternetGetConnectedStateExW(lpdwflags.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpszconnectionname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszconnectionname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { InternetGetConnectedStateExW(lpdwflags.unwrap_or(core::mem::zeroed()) as _, lpszconnectionname.unwrap_or(core::mem::zeroed()) as _, cchnamelen, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn InternetGetCookieA<P0, P1>(lpszurl: P0, lpszcookiename: P1, lpszcookiedata: Option<windows_core::PSTR>, lpdwsize: *mut u32) -> windows_core::BOOL
@@ -1207,15 +1207,15 @@ pub unsafe fn InternetSetStatusCallbackW(hinternet: super::HINTERNET, lpfnintern
 }
 #[cfg(feature = "minwinbase")]
 #[inline]
-pub unsafe fn InternetTimeFromSystemTime(pst: *const super::SYSTEMTIME, dwrfc: u32, lpsztime: &mut [u8]) -> windows_core::BOOL {
+pub unsafe fn InternetTimeFromSystemTime(pst: *const super::SYSTEMTIME, dwrfc: u32, lpsztime: windows_core::PSTR, cbtime: u32) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn InternetTimeFromSystemTime(pst : *const super::SYSTEMTIME, dwrfc : u32, lpsztime : windows_core::PSTR, cbtime : u32) -> windows_core::BOOL);
-    unsafe { InternetTimeFromSystemTime(pst, dwrfc, core::mem::transmute(lpsztime.as_mut_ptr()), lpsztime.len().try_into().unwrap()) }
+    unsafe { InternetTimeFromSystemTime(pst, dwrfc, lpsztime, cbtime) }
 }
 #[cfg(feature = "minwinbase")]
 #[inline]
-pub unsafe fn InternetTimeFromSystemTimeA(pst: *const super::SYSTEMTIME, dwrfc: u32, lpsztime: &mut [u8]) -> windows_core::BOOL {
+pub unsafe fn InternetTimeFromSystemTimeA(pst: *const super::SYSTEMTIME, dwrfc: u32, lpsztime: windows_core::PSTR, cbtime: u32) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn InternetTimeFromSystemTimeA(pst : *const super::SYSTEMTIME, dwrfc : u32, lpsztime : windows_core::PSTR, cbtime : u32) -> windows_core::BOOL);
-    unsafe { InternetTimeFromSystemTimeA(pst, dwrfc, core::mem::transmute(lpsztime.as_mut_ptr()), lpsztime.len().try_into().unwrap()) }
+    unsafe { InternetTimeFromSystemTimeA(pst, dwrfc, lpsztime, cbtime) }
 }
 #[cfg(feature = "minwinbase")]
 #[inline]

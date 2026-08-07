@@ -463,12 +463,12 @@ impl IWbemHiPerfProvider {
         }
     }
     #[cfg(feature = "wbemcli")]
-    pub unsafe fn GetObjects<P0, P4>(&self, pnamespace: P0, apobj: &mut [Option<super::IWbemObjectAccess>], lflags: i32, pcontext: P4) -> windows_core::HRESULT
+    pub unsafe fn GetObjects<P0, P4>(&self, pnamespace: P0, lnumobjects: i32, apobj: *mut Option<super::IWbemObjectAccess>, lflags: i32, pcontext: P4) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IWbemServices>,
         P4: windows_core::Param<super::IWbemContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetObjects)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), apobj.len().try_into().unwrap(), core::mem::transmute(apobj.as_mut_ptr()), lflags, pcontext.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetObjects)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), lnumobjects, core::mem::transmute(apobj), lflags, pcontext.param().abi()) }
     }
 }
 #[repr(C)]

@@ -155,15 +155,15 @@ pub unsafe fn ProcessTraceBufferIncrementReference(tracehandle: PROCESSTRACE_HAN
 }
 #[cfg(all(feature = "winnt", feature = "wmistr"))]
 #[inline]
-pub unsafe fn QueryAllTracesA(propertyarray: &mut [PEVENT_TRACE_PROPERTIES], loggercount: *mut u32) -> u32 {
+pub unsafe fn QueryAllTracesA(propertyarray: *mut PEVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn QueryAllTracesA(propertyarray : *mut PEVENT_TRACE_PROPERTIES, propertyarraycount : u32, loggercount : *mut u32) -> u32);
-    unsafe { QueryAllTracesA(propertyarray.as_mut_ptr(), propertyarray.len().try_into().unwrap(), loggercount as _) }
+    unsafe { QueryAllTracesA(propertyarray as _, propertyarraycount, loggercount as _) }
 }
 #[cfg(all(feature = "winnt", feature = "wmistr"))]
 #[inline]
-pub unsafe fn QueryAllTracesW(propertyarray: &mut [PEVENT_TRACE_PROPERTIES], loggercount: *mut u32) -> u32 {
+pub unsafe fn QueryAllTracesW(propertyarray: *mut PEVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn QueryAllTracesW(propertyarray : *mut PEVENT_TRACE_PROPERTIES, propertyarraycount : u32, loggercount : *mut u32) -> u32);
-    unsafe { QueryAllTracesW(propertyarray.as_mut_ptr(), propertyarray.len().try_into().unwrap(), loggercount as _) }
+    unsafe { QueryAllTracesW(propertyarray as _, propertyarraycount, loggercount as _) }
 }
 #[cfg(all(feature = "winnt", feature = "wmistr"))]
 #[inline]

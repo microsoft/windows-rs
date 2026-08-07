@@ -428,9 +428,9 @@ pub unsafe fn RtlFindClearBitsAndSet(bitmapheader: *const RTL_BITMAP, numbertofi
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RtlFindClearRuns(bitmapheader: *const RTL_BITMAP, runarray: &mut [RTL_BITMAP_RUN], locatelongestruns: bool) -> u32 {
+pub unsafe fn RtlFindClearRuns(bitmapheader: *const RTL_BITMAP, runarray: *mut RTL_BITMAP_RUN, sizeofrunarray: u32, locatelongestruns: bool) -> u32 {
     windows_core::link!("ntdll.dll" "system" fn RtlFindClearRuns(bitmapheader : *const RTL_BITMAP, runarray : *mut RTL_BITMAP_RUN, sizeofrunarray : u32, locatelongestruns : bool) -> u32);
-    unsafe { RtlFindClearRuns(bitmapheader, runarray.as_mut_ptr(), runarray.len().try_into().unwrap(), locatelongestruns) }
+    unsafe { RtlFindClearRuns(bitmapheader, runarray as _, sizeofrunarray, locatelongestruns) }
 }
 #[inline]
 pub unsafe fn RtlFindClosestEncodableLength(sourcelength: u64, targetlength: *mut u64) -> windows_core::NTSTATUS {
@@ -682,9 +682,9 @@ pub unsafe fn RtlUnicodeStringToUTF8String(destinationstring: super::PUTF8_STRIN
     unsafe { RtlUnicodeStringToUTF8String(destinationstring, sourcestring, allocatedestinationstring) }
 }
 #[inline]
-pub unsafe fn RtlUnicodeToUTF8N(utf8stringdestination: &mut [u8], utf8stringactualbytecount: *mut u32, unicodestringsource: *const u16, unicodestringbytecount: u32) -> windows_core::NTSTATUS {
+pub unsafe fn RtlUnicodeToUTF8N(utf8stringdestination: *mut i8, utf8stringmaxbytecount: u32, utf8stringactualbytecount: *mut u32, unicodestringsource: *const u16, unicodestringbytecount: u32) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUnicodeToUTF8N(utf8stringdestination : *mut i8, utf8stringmaxbytecount : u32, utf8stringactualbytecount : *mut u32, unicodestringsource : *const u16, unicodestringbytecount : u32) -> windows_core::NTSTATUS);
-    unsafe { RtlUnicodeToUTF8N(core::mem::transmute(utf8stringdestination.as_mut_ptr()), utf8stringdestination.len().try_into().unwrap(), utf8stringactualbytecount as _, unicodestringsource, unicodestringbytecount) }
+    unsafe { RtlUnicodeToUTF8N(utf8stringdestination as _, utf8stringmaxbytecount, utf8stringactualbytecount as _, unicodestringsource, unicodestringbytecount) }
 }
 #[inline]
 pub unsafe fn RtlUpcaseUnicodeChar(sourcecharacter: u16) -> u16 {

@@ -3271,12 +3271,12 @@ impl IMFHttpDownloadRequest {
         unsafe { (windows_core::Interface::vtable(self).EndReceiveResponse)(windows_core::Interface::as_raw(self), presult.param().abi()) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn BeginReadPayload<P2, P3>(&self, pb: &mut [u8], pcallback: P2, punkstate: P3) -> windows_core::HRESULT
+    pub unsafe fn BeginReadPayload<P2, P3>(&self, pb: *mut u8, cb: u32, pcallback: P2, punkstate: P3) -> windows_core::HRESULT
     where
         P2: windows_core::Param<super::IMFAsyncCallback>,
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BeginReadPayload)(windows_core::Interface::as_raw(self), pb.as_mut_ptr(), pb.len().try_into().unwrap(), pcallback.param().abi(), punkstate.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).BeginReadPayload)(windows_core::Interface::as_raw(self), pb as _, cb, pcallback.param().abi(), punkstate.param().abi()) }
     }
     #[cfg(feature = "mfobjects")]
     pub unsafe fn EndReadPayload<P0>(&self, presult: P0, pqwoffset: *mut u64, pcbread: *mut u32) -> windows_core::HRESULT
@@ -6741,8 +6741,8 @@ impl windows_core::RuntimeName for IMFPresentationTimeSource {}
 windows_core::imp::define_interface!(IMFProtectedEnvironmentAccess, IMFProtectedEnvironmentAccess_Vtbl, 0xef5dc845_f0d9_4ec9_b00c_cb5183d38434);
 windows_core::imp::interface_hierarchy!(IMFProtectedEnvironmentAccess, windows_core::IUnknown);
 impl IMFProtectedEnvironmentAccess {
-    pub unsafe fn Call(&self, input: &[u8], output: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Call)(windows_core::Interface::as_raw(self), input.len().try_into().unwrap(), input.as_ptr(), output.len().try_into().unwrap(), output.as_mut_ptr()) }
+    pub unsafe fn Call(&self, input: &[u8], outputlength: u32, output: *mut u8) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Call)(windows_core::Interface::as_raw(self), input.len().try_into().unwrap(), input.as_ptr(), outputlength, output as _) }
     }
     pub unsafe fn ReadGRL(&self, outputlength: *mut u32, output: *mut *mut u8) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadGRL)(windows_core::Interface::as_raw(self), outputlength as _, output as _) }
@@ -8522,11 +8522,11 @@ impl windows_core::RuntimeName for IMFSensorActivityMonitor {}
 windows_core::imp::define_interface!(IMFSensorActivityReport, IMFSensorActivityReport_Vtbl, 0x3e8c4be1_a8c2_4528_90de_2851bde5fead);
 windows_core::imp::interface_hierarchy!(IMFSensorActivityReport, windows_core::IUnknown);
 impl IMFSensorActivityReport {
-    pub unsafe fn GetFriendlyName(&self, friendlyname: &mut [u16], pcchwritten: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFriendlyName)(windows_core::Interface::as_raw(self), core::mem::transmute(friendlyname.as_mut_ptr()), friendlyname.len().try_into().unwrap(), pcchwritten as _) }
+    pub unsafe fn GetFriendlyName(&self, friendlyname: windows_core::PWSTR, cchfriendlyname: u32, pcchwritten: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFriendlyName)(windows_core::Interface::as_raw(self), friendlyname, cchfriendlyname, pcchwritten as _) }
     }
-    pub unsafe fn GetSymbolicLink(&self, symboliclink: &mut [u16], pcchwritten: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolicLink)(windows_core::Interface::as_raw(self), core::mem::transmute(symboliclink.as_mut_ptr()), symboliclink.len().try_into().unwrap(), pcchwritten as _) }
+    pub unsafe fn GetSymbolicLink(&self, symboliclink: windows_core::PWSTR, cchsymboliclink: u32, pcchwritten: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolicLink)(windows_core::Interface::as_raw(self), symboliclink, cchsymboliclink, pcchwritten as _) }
     }
     pub unsafe fn GetProcessCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -8628,8 +8628,8 @@ impl IMFSensorDevice {
             (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetSymbolicLink(&self, symboliclink: &mut [u16], pcchwritten: *mut i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolicLink)(windows_core::Interface::as_raw(self), core::mem::transmute(symboliclink.as_mut_ptr()), symboliclink.len().try_into().unwrap(), pcchwritten as _) }
+    pub unsafe fn GetSymbolicLink(&self, symboliclink: windows_core::PWSTR, cchsymboliclink: i32, pcchwritten: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolicLink)(windows_core::Interface::as_raw(self), symboliclink, cchsymboliclink, pcchwritten as _) }
     }
     #[cfg(feature = "mfobjects")]
     pub unsafe fn GetDeviceAttributes(&self) -> windows_core::Result<super::IMFAttributes> {
@@ -8814,8 +8814,8 @@ impl windows_core::RuntimeName for IMFSensorDevice {}
 windows_core::imp::define_interface!(IMFSensorGroup, IMFSensorGroup_Vtbl, 0x4110243a_9757_461f_89f1_f22345bcab4e);
 windows_core::imp::interface_hierarchy!(IMFSensorGroup, windows_core::IUnknown);
 impl IMFSensorGroup {
-    pub unsafe fn GetSymbolicLink(&self, symboliclink: &mut [u16], pcchwritten: *mut i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolicLink)(windows_core::Interface::as_raw(self), core::mem::transmute(symboliclink.as_mut_ptr()), symboliclink.len().try_into().unwrap(), pcchwritten as _) }
+    pub unsafe fn GetSymbolicLink(&self, symboliclink: windows_core::PWSTR, cchsymboliclink: i32, pcchwritten: *mut i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolicLink)(windows_core::Interface::as_raw(self), symboliclink, cchsymboliclink, pcchwritten as _) }
     }
     pub unsafe fn GetFlags(&self) -> windows_core::Result<u64> {
         unsafe {

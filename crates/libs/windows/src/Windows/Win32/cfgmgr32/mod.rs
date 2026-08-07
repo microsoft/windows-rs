@@ -492,60 +492,60 @@ pub unsafe fn CM_Get_DevNode_Status_Ex(pulstatus: *mut u32, pulproblemnumber: *m
     unsafe { CM_Get_DevNode_Status_Ex(pulstatus as _, pulproblemnumber as _, dndevinst, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn CM_Get_Device_IDA(dndevinst: DEVINST, buffer: &mut [u8], ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Get_Device_IDA(dndevinst: DEVINST, buffer: windows_core::PSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_IDA(dndevinst : DEVINST, buffer : windows_core::PSTR, bufferlen : u32, ulflags : u32) -> CONFIGRET);
-    unsafe { CM_Get_Device_IDA(dndevinst, core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap(), ulflags) }
+    unsafe { CM_Get_Device_IDA(dndevinst, buffer, bufferlen, ulflags) }
 }
 #[inline]
-pub unsafe fn CM_Get_Device_IDW(dndevinst: DEVINST, buffer: &mut [u16], ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Get_Device_IDW(dndevinst: DEVINST, buffer: windows_core::PWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_IDW(dndevinst : DEVINST, buffer : windows_core::PWSTR, bufferlen : u32, ulflags : u32) -> CONFIGRET);
-    unsafe { CM_Get_Device_IDW(dndevinst, core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap(), ulflags) }
+    unsafe { CM_Get_Device_IDW(dndevinst, buffer, bufferlen, ulflags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn CM_Get_Device_ID_ExA(dndevinst: DEVINST, buffer: &mut [u8], ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
+pub unsafe fn CM_Get_Device_ID_ExA(dndevinst: DEVINST, buffer: windows_core::PSTR, bufferlen: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_ExA(dndevinst : DEVINST, buffer : windows_core::PSTR, bufferlen : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Get_Device_ID_ExA(dndevinst, core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap(), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Get_Device_ID_ExA(dndevinst, buffer, bufferlen, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn CM_Get_Device_ID_ExW(dndevinst: DEVINST, buffer: &mut [u16], ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
+pub unsafe fn CM_Get_Device_ID_ExW(dndevinst: DEVINST, buffer: windows_core::PWSTR, bufferlen: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_ExW(dndevinst : DEVINST, buffer : windows_core::PWSTR, bufferlen : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Get_Device_ID_ExW(dndevinst, core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap(), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Get_Device_ID_ExW(dndevinst, buffer, bufferlen, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn CM_Get_Device_ID_ListA<P0>(pszfilter: P0, buffer: &mut [i8], ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_Device_ID_ListA<P0>(pszfilter: P0, buffer: *mut i8, bufferlen: u32, ulflags: u32) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_ListA(pszfilter : windows_core::PCSTR, buffer : *mut i8, bufferlen : u32, ulflags : u32) -> CONFIGRET);
-    unsafe { CM_Get_Device_ID_ListA(pszfilter.param().abi(), buffer.as_mut_ptr(), buffer.len().try_into().unwrap(), ulflags) }
+    unsafe { CM_Get_Device_ID_ListA(pszfilter.param().abi(), buffer as _, bufferlen, ulflags) }
 }
 #[inline]
-pub unsafe fn CM_Get_Device_ID_ListW<P0>(pszfilter: P0, buffer: &mut [u16], ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_Device_ID_ListW<P0>(pszfilter: P0, buffer: *mut u16, bufferlen: u32, ulflags: u32) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_ListW(pszfilter : windows_core::PCWSTR, buffer : *mut u16, bufferlen : u32, ulflags : u32) -> CONFIGRET);
-    unsafe { CM_Get_Device_ID_ListW(pszfilter.param().abi(), buffer.as_mut_ptr(), buffer.len().try_into().unwrap(), ulflags) }
+    unsafe { CM_Get_Device_ID_ListW(pszfilter.param().abi(), buffer as _, bufferlen, ulflags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn CM_Get_Device_ID_List_ExA<P0>(pszfilter: P0, buffer: &mut [i8], ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Get_Device_ID_List_ExA<P0>(pszfilter: P0, buffer: *mut i8, bufferlen: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_List_ExA(pszfilter : windows_core::PCSTR, buffer : *mut i8, bufferlen : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Get_Device_ID_List_ExA(pszfilter.param().abi(), buffer.as_mut_ptr(), buffer.len().try_into().unwrap(), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Get_Device_ID_List_ExA(pszfilter.param().abi(), buffer as _, bufferlen, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn CM_Get_Device_ID_List_ExW<P0>(pszfilter: P0, buffer: &mut [u16], ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
+pub unsafe fn CM_Get_Device_ID_List_ExW<P0>(pszfilter: P0, buffer: *mut u16, bufferlen: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_ID_List_ExW(pszfilter : windows_core::PCWSTR, buffer : *mut u16, bufferlen : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Get_Device_ID_List_ExW(pszfilter.param().abi(), buffer.as_mut_ptr(), buffer.len().try_into().unwrap(), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Get_Device_ID_List_ExW(pszfilter.param().abi(), buffer as _, bufferlen, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CM_Get_Device_ID_List_SizeA<P1>(pullen: *mut u32, pszfilter: P1, ulflags: u32) -> CONFIGRET
@@ -627,26 +627,26 @@ where
     unsafe { CM_Get_Device_Interface_Alias_ExW(pszdeviceinterface.param().abi(), aliasinterfaceguid, pszaliasdeviceinterface, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_ListA(interfaceclassguid: *const windows_core::GUID, pdeviceid: Option<*const i8>, buffer: &mut [i8], ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Get_Device_Interface_ListA(interfaceclassguid: *const windows_core::GUID, pdeviceid: Option<*const i8>, buffer: *mut i8, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_ListA(interfaceclassguid : *const windows_core::GUID, pdeviceid : *const i8, buffer : *mut i8, bufferlen : u32, ulflags : u32) -> CONFIGRET);
-    unsafe { CM_Get_Device_Interface_ListA(interfaceclassguid, pdeviceid.unwrap_or(core::mem::zeroed()) as _, buffer.as_mut_ptr(), buffer.len().try_into().unwrap(), ulflags) }
+    unsafe { CM_Get_Device_Interface_ListA(interfaceclassguid, pdeviceid.unwrap_or(core::mem::zeroed()) as _, buffer as _, bufferlen, ulflags) }
 }
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_ListW(interfaceclassguid: *const windows_core::GUID, pdeviceid: Option<*const u16>, buffer: &mut [u16], ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Get_Device_Interface_ListW(interfaceclassguid: *const windows_core::GUID, pdeviceid: Option<*const u16>, buffer: *mut u16, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_ListW(interfaceclassguid : *const windows_core::GUID, pdeviceid : *const u16, buffer : *mut u16, bufferlen : u32, ulflags : u32) -> CONFIGRET);
-    unsafe { CM_Get_Device_Interface_ListW(interfaceclassguid, pdeviceid.unwrap_or(core::mem::zeroed()) as _, buffer.as_mut_ptr(), buffer.len().try_into().unwrap(), ulflags) }
+    unsafe { CM_Get_Device_Interface_ListW(interfaceclassguid, pdeviceid.unwrap_or(core::mem::zeroed()) as _, buffer as _, bufferlen, ulflags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_ExA(interfaceclassguid: *const windows_core::GUID, pdeviceid: Option<*const i8>, buffer: &mut [i8], ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
+pub unsafe fn CM_Get_Device_Interface_List_ExA(interfaceclassguid: *const windows_core::GUID, pdeviceid: Option<*const i8>, buffer: *mut i8, bufferlen: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_List_ExA(interfaceclassguid : *const windows_core::GUID, pdeviceid : *const i8, buffer : *mut i8, bufferlen : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Get_Device_Interface_List_ExA(interfaceclassguid, pdeviceid.unwrap_or(core::mem::zeroed()) as _, buffer.as_mut_ptr(), buffer.len().try_into().unwrap(), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Get_Device_Interface_List_ExA(interfaceclassguid, pdeviceid.unwrap_or(core::mem::zeroed()) as _, buffer as _, bufferlen, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_ExW(interfaceclassguid: *const windows_core::GUID, pdeviceid: Option<*const u16>, buffer: &mut [u16], ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
+pub unsafe fn CM_Get_Device_Interface_List_ExW(interfaceclassguid: *const windows_core::GUID, pdeviceid: Option<*const u16>, buffer: *mut u16, bufferlen: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_List_ExW(interfaceclassguid : *const windows_core::GUID, pdeviceid : *const u16, buffer : *mut u16, bufferlen : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Get_Device_Interface_List_ExW(interfaceclassguid, pdeviceid.unwrap_or(core::mem::zeroed()) as _, buffer.as_mut_ptr(), buffer.len().try_into().unwrap(), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Get_Device_Interface_List_ExW(interfaceclassguid, pdeviceid.unwrap_or(core::mem::zeroed()) as _, buffer as _, bufferlen, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CM_Get_Device_Interface_List_SizeA(pullen: *mut u32, interfaceclassguid: *const windows_core::GUID, pdeviceid: Option<*const i8>, ulflags: u32) -> CONFIGRET {
@@ -1054,27 +1054,27 @@ where
 }
 #[cfg(feature = "cfg")]
 #[inline]
-pub unsafe fn CM_Query_And_Remove_SubTreeA(dnancestor: DEVINST, pvetotype: Option<*mut super::PNP_VETO_TYPE>, pszvetoname: Option<&mut [u8]>, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Query_And_Remove_SubTreeA(dnancestor: DEVINST, pvetotype: Option<*mut super::PNP_VETO_TYPE>, pszvetoname: Option<windows_core::PSTR>, ulnamelength: u32, ulflags: u32) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Query_And_Remove_SubTreeA(dnancestor : DEVINST, pvetotype : *mut super::PNP_VETO_TYPE, pszvetoname : windows_core::PSTR, ulnamelength : u32, ulflags : u32) -> CONFIGRET);
-    unsafe { CM_Query_And_Remove_SubTreeA(dnancestor, pvetotype.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszvetoname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszvetoname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ulflags) }
+    unsafe { CM_Query_And_Remove_SubTreeA(dnancestor, pvetotype.unwrap_or(core::mem::zeroed()) as _, pszvetoname.unwrap_or(core::mem::zeroed()) as _, ulnamelength, ulflags) }
 }
 #[cfg(feature = "cfg")]
 #[inline]
-pub unsafe fn CM_Query_And_Remove_SubTreeW(dnancestor: DEVINST, pvetotype: Option<*mut super::PNP_VETO_TYPE>, pszvetoname: Option<&mut [u16]>, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Query_And_Remove_SubTreeW(dnancestor: DEVINST, pvetotype: Option<*mut super::PNP_VETO_TYPE>, pszvetoname: Option<windows_core::PWSTR>, ulnamelength: u32, ulflags: u32) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Query_And_Remove_SubTreeW(dnancestor : DEVINST, pvetotype : *mut super::PNP_VETO_TYPE, pszvetoname : windows_core::PWSTR, ulnamelength : u32, ulflags : u32) -> CONFIGRET);
-    unsafe { CM_Query_And_Remove_SubTreeW(dnancestor, pvetotype.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszvetoname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszvetoname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ulflags) }
+    unsafe { CM_Query_And_Remove_SubTreeW(dnancestor, pvetotype.unwrap_or(core::mem::zeroed()) as _, pszvetoname.unwrap_or(core::mem::zeroed()) as _, ulnamelength, ulflags) }
 }
 #[cfg(all(feature = "cfg", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Query_And_Remove_SubTree_ExA(dnancestor: DEVINST, pvetotype: Option<*mut super::PNP_VETO_TYPE>, pszvetoname: Option<&mut [u8]>, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
+pub unsafe fn CM_Query_And_Remove_SubTree_ExA(dnancestor: DEVINST, pvetotype: Option<*mut super::PNP_VETO_TYPE>, pszvetoname: Option<windows_core::PSTR>, ulnamelength: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Query_And_Remove_SubTree_ExA(dnancestor : DEVINST, pvetotype : *mut super::PNP_VETO_TYPE, pszvetoname : windows_core::PSTR, ulnamelength : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Query_And_Remove_SubTree_ExA(dnancestor, pvetotype.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszvetoname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszvetoname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Query_And_Remove_SubTree_ExA(dnancestor, pvetotype.unwrap_or(core::mem::zeroed()) as _, pszvetoname.unwrap_or(core::mem::zeroed()) as _, ulnamelength, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "cfg", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Query_And_Remove_SubTree_ExW(dnancestor: DEVINST, pvetotype: Option<*mut super::PNP_VETO_TYPE>, pszvetoname: Option<&mut [u16]>, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
+pub unsafe fn CM_Query_And_Remove_SubTree_ExW(dnancestor: DEVINST, pvetotype: Option<*mut super::PNP_VETO_TYPE>, pszvetoname: Option<windows_core::PWSTR>, ulnamelength: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Query_And_Remove_SubTree_ExW(dnancestor : DEVINST, pvetotype : *mut super::PNP_VETO_TYPE, pszvetoname : windows_core::PWSTR, ulnamelength : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Query_And_Remove_SubTree_ExW(dnancestor, pvetotype.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszvetoname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszvetoname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Query_And_Remove_SubTree_ExW(dnancestor, pvetotype.unwrap_or(core::mem::zeroed()) as _, pszvetoname.unwrap_or(core::mem::zeroed()) as _, ulnamelength, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CM_Query_Arbitrator_Free_Data(pdata: *mut core::ffi::c_void, datalen: u32, dndevinst: DEVINST, resourceid: RESOURCEID, ulflags: u32) -> CONFIGRET {
@@ -1190,27 +1190,27 @@ pub unsafe fn CM_Remove_SubTree_Ex(dnancestor: DEVINST, ulflags: u32, hmachine: 
 }
 #[cfg(feature = "cfg")]
 #[inline]
-pub unsafe fn CM_Request_Device_EjectA(dndevinst: DEVINST, pvetotype: Option<*mut super::PNP_VETO_TYPE>, pszvetoname: Option<&mut [u8]>, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Request_Device_EjectA(dndevinst: DEVINST, pvetotype: Option<*mut super::PNP_VETO_TYPE>, pszvetoname: Option<windows_core::PSTR>, ulnamelength: u32, ulflags: u32) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Request_Device_EjectA(dndevinst : DEVINST, pvetotype : *mut super::PNP_VETO_TYPE, pszvetoname : windows_core::PSTR, ulnamelength : u32, ulflags : u32) -> CONFIGRET);
-    unsafe { CM_Request_Device_EjectA(dndevinst, pvetotype.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszvetoname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszvetoname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ulflags) }
+    unsafe { CM_Request_Device_EjectA(dndevinst, pvetotype.unwrap_or(core::mem::zeroed()) as _, pszvetoname.unwrap_or(core::mem::zeroed()) as _, ulnamelength, ulflags) }
 }
 #[cfg(feature = "cfg")]
 #[inline]
-pub unsafe fn CM_Request_Device_EjectW(dndevinst: DEVINST, pvetotype: Option<*mut super::PNP_VETO_TYPE>, pszvetoname: Option<&mut [u16]>, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Request_Device_EjectW(dndevinst: DEVINST, pvetotype: Option<*mut super::PNP_VETO_TYPE>, pszvetoname: Option<windows_core::PWSTR>, ulnamelength: u32, ulflags: u32) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Request_Device_EjectW(dndevinst : DEVINST, pvetotype : *mut super::PNP_VETO_TYPE, pszvetoname : windows_core::PWSTR, ulnamelength : u32, ulflags : u32) -> CONFIGRET);
-    unsafe { CM_Request_Device_EjectW(dndevinst, pvetotype.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszvetoname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszvetoname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ulflags) }
+    unsafe { CM_Request_Device_EjectW(dndevinst, pvetotype.unwrap_or(core::mem::zeroed()) as _, pszvetoname.unwrap_or(core::mem::zeroed()) as _, ulnamelength, ulflags) }
 }
 #[cfg(all(feature = "cfg", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Request_Device_Eject_ExA(dndevinst: DEVINST, pvetotype: Option<*mut super::PNP_VETO_TYPE>, pszvetoname: Option<&mut [u8]>, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
+pub unsafe fn CM_Request_Device_Eject_ExA(dndevinst: DEVINST, pvetotype: Option<*mut super::PNP_VETO_TYPE>, pszvetoname: Option<windows_core::PSTR>, ulnamelength: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Request_Device_Eject_ExA(dndevinst : DEVINST, pvetotype : *mut super::PNP_VETO_TYPE, pszvetoname : windows_core::PSTR, ulnamelength : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Request_Device_Eject_ExA(dndevinst, pvetotype.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszvetoname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszvetoname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Request_Device_Eject_ExA(dndevinst, pvetotype.unwrap_or(core::mem::zeroed()) as _, pszvetoname.unwrap_or(core::mem::zeroed()) as _, ulnamelength, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "cfg", feature = "winnt"))]
 #[inline]
-pub unsafe fn CM_Request_Device_Eject_ExW(dndevinst: DEVINST, pvetotype: Option<*mut super::PNP_VETO_TYPE>, pszvetoname: Option<&mut [u16]>, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
+pub unsafe fn CM_Request_Device_Eject_ExW(dndevinst: DEVINST, pvetotype: Option<*mut super::PNP_VETO_TYPE>, pszvetoname: Option<windows_core::PWSTR>, ulnamelength: u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Request_Device_Eject_ExW(dndevinst : DEVINST, pvetotype : *mut super::PNP_VETO_TYPE, pszvetoname : windows_core::PWSTR, ulnamelength : u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Request_Device_Eject_ExW(dndevinst, pvetotype.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszvetoname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszvetoname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Request_Device_Eject_ExW(dndevinst, pvetotype.unwrap_or(core::mem::zeroed()) as _, pszvetoname.unwrap_or(core::mem::zeroed()) as _, ulnamelength, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CM_Request_Eject_PC() -> CONFIGRET {

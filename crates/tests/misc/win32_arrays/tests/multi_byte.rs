@@ -1,5 +1,6 @@
 #![cfg(windows)]
 use windows::Win32::*;
+use windows::core::{PSTR, PWSTR};
 
 #[test]
 fn test() {
@@ -11,7 +12,8 @@ fn test() {
             0,
             a.as_ptr() as _,
             a.len() as i32,
-            Some(&mut b),
+            Some(PWSTR(b.as_mut_ptr())),
+            b.len() as i32,
         );
         assert_eq!(len, 5);
 
@@ -21,7 +23,8 @@ fn test() {
             0,
             b.as_ptr(),
             b.len() as i32,
-            Some(&mut c),
+            Some(PSTR(c.as_mut_ptr())),
+            c.len() as i32,
             None,
             None,
         );
