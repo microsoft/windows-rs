@@ -136,6 +136,10 @@ fn verify(path: &std::path::Path, namespace: &str) {
     assert_eq!(property.constant().unwrap().value(), Value::I32(42));
     let attribute = property.find_attribute("MarkerAttribute").unwrap();
     assert_eq!(attribute.value_blob(), MARKER_VALUE);
+    assert_eq!(
+        attribute.try_value().unwrap(),
+        [("Value".to_string(), Value::I32(42))]
+    );
     let mut property_semantics: Vec<_> = property
         .semantics()
         .map(|row| (row.semantics(), row.method().name()))

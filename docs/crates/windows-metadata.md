@@ -98,7 +98,10 @@ rules reject overlapping duplicate type, field, method, property, and event iden
 property/event ownership, invalid or duplicate layout rows, and duplicate custom attributes whose
 local definitions explicitly declare `AttributeUsageAttribute` without `AllowMultipleAttribute`.
 Custom-attribute constructors must be default-convention instance methods named `.ctor` that
-return `void`, and their value blobs must begin with the required `0x0001` prolog.
+return `void`. `Attribute::try_value` checks the value blob without panicking and reports malformed
+prologs, truncation, Boolean values, compressed integers, UTF-8, named-argument tags and types, and
+trailing bytes with byte offsets. Valid serialization forms not yet represented by `Value` return
+an unsupported result rather than a metadata validity error.
 Definitions without an explicit usage contract and referenced definitions outside the validated
 index have unknown multiplicity. `Validator::references` accepts a separate reference index for
 definition lookup without treating referenced types as authored output or reporting false
@@ -132,11 +135,10 @@ reference context without copying or merging the reference files.
 metadata-to-metadata transformations. Merge and namespace remapping use this path so named
 custom-attribute arguments retain their field/property tag and exact serialized form.
 
-`Attribute::value` remains a convenience for metadata that has already passed structural checks;
-its underlying blob reader assumes valid input. The next custom-attribute step is a shared checked
-decoder that returns an error with a blob offset. It should validate fixed arguments, named
-field/property tags, serialized types, names, counts, and trailing bytes. `value` and the validator
-should then share that implementation, while merge and remap continue using the raw copy path.
+`Attribute::value` is the trusted convenience wrapper over `try_value`, and the validator uses the
+same checked decoder. Merge and remap continue using the raw copy path. The remaining value-model
+work is to represent valid null strings, `Char`, boxed values, and arrays, and to resolve enum
+backing types instead of assuming `i32`.
 
 ### Property and event association
 

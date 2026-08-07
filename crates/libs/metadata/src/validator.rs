@@ -216,13 +216,17 @@ fn validate_attribute_constructor(
         });
     }
 
-    if !attribute.value_blob().starts_with(&[1, 0]) {
+    if let Err(error) = attribute.try_value()
+        && !error.is_unsupported()
+    {
         errors.push(ValidationError {
             category: ValidationCategory::Invalid,
             message: format!(
-                "attribute `{}.{}` value has an invalid prolog",
+                "attribute `{}.{}` value is invalid at byte {}: {}",
                 attribute.namespace(),
-                attribute.name()
+                attribute.name(),
+                error.offset(),
+                error.message()
             ),
             row: attribute.row_id(),
             related: parent,

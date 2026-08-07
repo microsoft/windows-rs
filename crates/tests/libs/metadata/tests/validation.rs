@@ -5,6 +5,11 @@ fn index(file: writer::File) -> reader::Index {
     file.into_index()
 }
 
+fn attribute_ctor(file: &mut writer::File, name: &str, signature: &Signature) -> writer::MemberRef {
+    let ty = file.TypeRef("Test", name);
+    file.MemberRef(".ctor", signature, writer::MemberRefParent::TypeRef(ty))
+}
+
 #[test]
 fn writer_handles_match_finalized_row_ids() {
     let mut file = writer::File::new("test");
@@ -432,7 +437,92 @@ fn invalid_attribute_constructors_are_rejected() {
     );
     assert_eq!(
         errors[4].message(),
-        "attribute `Test.MarkerAttribute` value has an invalid prolog"
+        "attribute `Test.MarkerAttribute` value is invalid at byte 0: invalid custom-attribute prolog"
+    );
+    assert!(errors.iter().all(|error| {
+        error.category() == validator::ValidationCategory::Invalid
+            && error.related() == Some(expected_parent)
+    }));
+}
+
+#[test]
+fn invalid_attribute_values_are_rejected() {
+    let mut file = writer::File::new("test");
+    file.TypeDef(
+        "Test",
+        "Value",
+        writer::TypeDefOrRef::default(),
+        TypeAttributes::Public,
+    );
+    let field = file.Field("Value", &Type::I32, FieldAttributes::Public);
+    let expected_parent = field.row_id(0);
+
+    let truncated = attribute_ctor(&mut file, "TruncatedAttribute", &Signature::default());
+    file.AttributeBlob(
+        writer::HasAttribute::Field(field),
+        writer::AttributeType::MemberRef(truncated),
+        &[1, 0],
+    );
+
+    let boolean = attribute_ctor(
+        &mut file,
+        "BooleanAttribute",
+        &Signature {
+            types: vec![Type::Bool],
+            ..Default::default()
+        },
+    );
+    file.AttributeBlob(
+        writer::HasAttribute::Field(field),
+        writer::AttributeType::MemberRef(boolean),
+        &[1, 0, 2],
+    );
+
+    let tag = attribute_ctor(&mut file, "TagAttribute", &Signature::default());
+    file.AttributeBlob(
+        writer::HasAttribute::Field(field),
+        writer::AttributeType::MemberRef(tag),
+        &[1, 0, 1, 0, 0x52],
+    );
+
+    let trailing = attribute_ctor(&mut file, "TrailingAttribute", &Signature::default());
+    file.AttributeBlob(
+        writer::HasAttribute::Field(field),
+        writer::AttributeType::MemberRef(trailing),
+        &[1, 0, 0, 0, 0],
+    );
+
+    let character = attribute_ctor(
+        &mut file,
+        "CharacterAttribute",
+        &Signature {
+            types: vec![Type::Char],
+            ..Default::default()
+        },
+    );
+    file.AttributeBlob(
+        writer::HasAttribute::Field(field),
+        writer::AttributeType::MemberRef(character),
+        &[1, 0, 65, 0, 0, 0],
+    );
+
+    let errors = validator::validate(&index(file));
+    assert_eq!(errors.len(), 4);
+    assert_eq!(
+        errors[0].message(),
+        "attribute `Test.TruncatedAttribute` value is invalid at byte 2: truncated custom-attribute value"
+    );
+    assert_eq!(
+        errors[1].message(),
+        "attribute `Test.BooleanAttribute` value is invalid at byte 2: invalid Boolean value"
+    );
+    assert_eq!(
+        errors[2].message(),
+        "attribute `Test.TagAttribute` value is invalid at byte 4: invalid named-argument tag"
+    );
+    assert_eq!(
+        errors[3].message(),
+        "attribute `Test.TrailingAttribute` value is invalid at byte 4: trailing custom-attribute data"
     );
     assert!(errors.iter().all(|error| {
         error.category() == validator::ValidationCategory::Invalid
