@@ -440,6 +440,8 @@ impl<B: Backend + 'static> Reconciler<B> {
                     self.recycle_row_inner(list_id, row_idx);
                 }
             }
+            #[cfg(debug_assertions)]
+            self.debug_assert_native_ownership();
         }
     }
 
@@ -553,10 +555,8 @@ impl<B: Backend + 'static> Reconciler<B> {
         let mut stack = vec![id];
         while let Some(node) = stack.pop() {
             out.push(node);
-            if let Some(children) = self.tree.children.get(&node) {
-                for child in children.iter().rev() {
-                    stack.push(*child);
-                }
+            for child in self.tree.children(node).iter().rev() {
+                stack.push(*child);
             }
         }
         out

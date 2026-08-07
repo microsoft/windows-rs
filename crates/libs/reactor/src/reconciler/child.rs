@@ -31,15 +31,11 @@ fn live_index<B: Backend + 'static>(
     parent: ControlId,
     ctrl: ControlId,
 ) -> Option<usize> {
-    reconciler
-        .tree
-        .children
-        .get(&parent)
-        .and_then(|v| v.iter().position(|&c| c == ctrl))
+    reconciler.tree.child_position(parent, ctrl)
 }
 
 fn live_len<B: Backend + 'static>(reconciler: &Reconciler<B>, parent: ControlId) -> usize {
-    reconciler.tree.children.get(&parent).map_or(0, |v| v.len())
+    reconciler.tree.children(parent).len()
 }
 
 pub fn reconcile<B: Backend + 'static>(
@@ -85,7 +81,7 @@ fn reconcile_positional_live<B: Backend + 'static>(
                  (mirror_len={mirror_len}, old_live.len={old_len}, \
                   new_live.len={new_len}). Likely a child-tracking miss \
                  in a recent edit to the reconciler.",
-                mirror_len = reconciler.tree.children.get(&parent).map_or(0, |v| v.len()),
+                mirror_len = reconciler.tree.children(parent).len(),
                 old_len = old_len,
                 new_len = new_len,
             );
@@ -198,9 +194,10 @@ fn reconcile_keyed_live<B: Backend + 'static>(
         let old_idx = old_len - 1 - suffix;
         let panel_idx = reconciler
             .tree
-            .children
-            .get(&parent)
-            .map_or(0, |v| v.len().saturating_sub(1).saturating_sub(suffix));
+            .children(parent)
+            .len()
+            .saturating_sub(1)
+            .saturating_sub(suffix);
         let old_el = old.get(old_idx).unwrap();
         let new_el = new.get(new_len - 1 - suffix).unwrap();
         if reconciler.child_at(parent, panel_idx).is_some() {

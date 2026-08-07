@@ -216,6 +216,90 @@ impl MountedTree {
     fn pane(&self, parent: ControlId) -> Option<ControlId> {
         self.panes.get(&parent).copied()
     }
+
+    fn children(&self, parent: ControlId) -> &[ControlId] {
+        self.children.get(&parent).map_or(&[], Vec::as_slice)
+    }
+
+    fn child(&self, parent: ControlId, index: usize) -> Option<ControlId> {
+        self.children(parent).get(index).copied()
+    }
+
+    fn child_position(&self, parent: ControlId, child: ControlId) -> Option<usize> {
+        self.children(parent).iter().position(|id| *id == child)
+    }
+
+    fn append_child(&mut self, parent: ControlId, child: ControlId) {
+        self.set_parent(child, parent);
+        self.children.entry(parent).or_default().push(child);
+    }
+
+    fn remove_child(&mut self, parent: ControlId, index: usize) -> Option<ControlId> {
+        let removed = self
+            .children
+            .get_mut(&parent)
+            .and_then(|list| (index < list.len()).then(|| list.remove(index)));
+        if let Some(child) = removed {
+            self.clear_parent(child, parent);
+        }
+        removed
+    }
+
+    fn replace_child(
+        &mut self,
+        parent: ControlId,
+        index: usize,
+        new: ControlId,
+    ) -> Option<ControlId> {
+        let replaced = self.children.get_mut(&parent).and_then(|list| {
+            (index < list.len()).then(|| {
+                let old = list[index];
+                list[index] = new;
+                old
+            })
+        });
+        if let Some(old) = replaced {
+            self.clear_parent(old, parent);
+            self.set_parent(new, parent);
+        }
+        replaced
+    }
+
+    fn move_child(&mut self, parent: ControlId, from: usize, to: usize) {
+        if from == to {
+            return;
+        }
+        if let Some(list) = self.children.get_mut(&parent)
+            && from < list.len()
+            && to < list.len()
+        {
+            let item = list.remove(from);
+            list.insert(to, item);
+        }
+    }
+
+    fn insert_child(&mut self, parent: ControlId, index: usize, child: ControlId) -> usize {
+        self.set_parent(child, parent);
+        let list = self.children.entry(parent).or_default();
+        let index = index.min(list.len());
+        list.insert(index, child);
+        index
+    }
+
+    fn remove_node(&mut self, id: ControlId) {
+        if let Some(children) = self.children.remove(&id) {
+            for child in children {
+                self.clear_parent(child, id);
+            }
+        }
+        if let Some(header) = self.headers.remove(&id) {
+            self.clear_parent(header, id);
+        }
+        if let Some(pane) = self.panes.remove(&id) {
+            self.clear_parent(pane, id);
+        }
+        self.nodes.remove(&id);
+    }
 }
 
 /// Diff/apply engine that drives a [`Backend`] from successive [`Element`] trees.
@@ -504,7 +588,10 @@ impl<B: Backend + 'static> Reconciler<B> {
             (Some(_id), None) => self.mount(new),
         };
         #[cfg(debug_assertions)]
-        self.debug_assert_component_index();
+        {
+            self.debug_assert_component_index();
+            self.debug_assert_native_ownership();
+        }
         result
     }
 
@@ -531,6 +618,7 @@ impl<B: Backend + 'static> Reconciler<B> {
                 );
             }
         }
+
         debug_assert_eq!(
             indexed.len(),
             self.component_instances.len(),
@@ -541,6 +629,48 @@ impl<B: Backend + 'static> Reconciler<B> {
                 debug_assert!(
                     self.component_instances.contains_key(&parent),
                     "logical component parent is not mounted"
+                );
+            }
+        }
+    }
+
+    #[cfg(debug_assertions)]
+    fn debug_assert_native_ownership(&self) {
+        let mut owned = rustc_hash::FxHashSet::default();
+        let mut record = |parent: ControlId, child: ControlId| {
+            debug_assert!(
+                owned.insert(child),
+                "native control {child:?} has more than one owner"
+            );
+            debug_assert_eq!(
+                self.tree.parent(child),
+                Some(parent),
+                "native control {child:?} disagrees with its owner"
+            );
+        };
+
+        for (parent, children) in &self.tree.children {
+            for child in children {
+                record(*parent, *child);
+            }
+        }
+        for (parent, header) in &self.tree.headers {
+            record(*parent, *header);
+        }
+        for (parent, pane) in &self.tree.panes {
+            record(*parent, *pane);
+        }
+        for (parent, state) in &self.templated_lists {
+            for row in state.rows.iter().flatten() {
+                record(*parent, row.content_id);
+            }
+        }
+
+        for (id, node) in &self.tree.nodes {
+            if node.parent.is_some() {
+                debug_assert!(
+                    owned.contains(id),
+                    "native control {id:?} has a parent but is absent from its owner's children"
                 );
             }
         }
@@ -640,9 +770,24 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn unmount(&mut self, id: ControlId) {
-        let mut to_release = Vec::new();
-        self.collect_subtree(id, &mut to_release);
-        for node in to_release.into_iter().rev() {
+        let mut nodes = vec![id];
+        let mut next = 0;
+        while next < nodes.len() {
+            let node = nodes[next];
+            next += 1;
+            if let Some(pane) = self.tree.pane(node) {
+                nodes.push(pane);
+            }
+            if let Some(header) = self.tree.header(node) {
+                nodes.push(header);
+            }
+            if let Some(state) = self.templated_lists.get(&node) {
+                nodes.extend(state.rows.iter().flatten().map(|row| row.content_id));
+            }
+            nodes.extend_from_slice(self.tree.children(node));
+        }
+
+        for node in nodes.into_iter().rev() {
             if let Some(node_ids) = self.components_by_control.remove(&node) {
                 node_ids.drain(|node_id| {
                     if let Some(mut inst) = self.component_instances.remove(&node_id) {
@@ -652,22 +797,7 @@ impl<B: Backend + 'static> Reconciler<B> {
                 });
             }
 
-            if let Some(state) = self.templated_lists.remove(&node) {
-                for row in state.rows.into_iter().flatten() {
-                    self.tree.clear_parent(row.content_id, node);
-                    self.unmount(row.content_id);
-                }
-            }
-
-            if let Some(hdr_id) = self.tree.header(node) {
-                self.tree.set_header(node, None);
-                self.unmount(hdr_id);
-            }
-            if let Some(pane_id) = self.tree.pane(node) {
-                self.tree.set_pane(node, None);
-                self.unmount(pane_id);
-            }
-
+            self.templated_lists.remove(&node);
             self.selection_callbacks.remove(&node);
             self.reorder_callbacks.remove(&node);
 
@@ -682,84 +812,38 @@ impl<B: Backend + 'static> Reconciler<B> {
                 handle.before_destroy(node, &mut self.backend);
             }
 
-            self.tree.children.remove(&node);
-            self.tree.nodes.remove(&node);
+            self.tree.remove_node(node);
             self.backend.destroy(node);
         }
     }
 
-    fn collect_subtree(&self, id: ControlId, out: &mut Vec<ControlId>) {
-        let mut stack = vec![id];
-        while let Some(node) = stack.pop() {
-            out.push(node);
-            if let Some(children) = self.tree.children.get(&node) {
-                for child in children.iter().rev() {
-                    stack.push(*child);
-                }
-            }
-        }
-    }
-
     pub fn append_child_tracked(&mut self, parent: ControlId, child: ControlId) {
-        self.tree.set_parent(child, parent);
-        self.tree.children.entry(parent).or_default().push(child);
+        self.tree.append_child(parent, child);
         self.backend.append_child(parent, child);
     }
 
     pub fn remove_child_tracked(&mut self, parent: ControlId, index: usize) {
-        let removed = self
-            .tree
-            .children
-            .get_mut(&parent)
-            .and_then(|list| (index < list.len()).then(|| list.remove(index)));
-        if let Some(child) = removed {
-            self.tree.clear_parent(child, parent);
-        }
+        self.tree.remove_child(parent, index);
         self.backend.remove_child(parent, index);
     }
 
     pub fn replace_child_tracked(&mut self, parent: ControlId, index: usize, new: ControlId) {
-        let replaced = self.tree.children.get_mut(&parent).and_then(|list| {
-            (index < list.len()).then(|| {
-                let old = list[index];
-                list[index] = new;
-                old
-            })
-        });
-        if let Some(old) = replaced {
-            self.tree.clear_parent(old, parent);
-            self.tree.set_parent(new, parent);
-        }
+        self.tree.replace_child(parent, index, new);
         self.backend.replace_child(parent, index, new);
     }
 
     pub fn move_child_tracked(&mut self, parent: ControlId, from: usize, to: usize) {
-        if from == to {
-            return;
-        }
-        if let Some(list) = self.tree.children.get_mut(&parent)
-            && from < list.len()
-            && to < list.len()
-        {
-            let item = list.remove(from);
-            list.insert(to, item);
-        }
+        self.tree.move_child(parent, from, to);
         self.backend.move_child(parent, from, to);
     }
 
     pub fn insert_child_tracked(&mut self, parent: ControlId, index: usize, child: ControlId) {
-        self.tree.set_parent(child, parent);
-        let list = self.tree.children.entry(parent).or_default();
-        let clamped = index.min(list.len());
-        list.insert(clamped, child);
-        self.backend.insert_child(parent, clamped, child);
+        let index = self.tree.insert_child(parent, index, child);
+        self.backend.insert_child(parent, index, child);
     }
 
     pub fn child_at(&self, parent: ControlId, i: usize) -> Option<ControlId> {
-        self.tree
-            .children
-            .get(&parent)
-            .and_then(|v| v.get(i).copied())
+        self.tree.child(parent, i)
     }
 
     pub fn apply_modifiers(&mut self, id: ControlId, mods: &Modifiers) {
@@ -1141,10 +1225,8 @@ impl<B: Backend + 'static> Reconciler<B> {
                         .copied(),
                 );
             }
-            if let Some(kids) = self.tree.children.get(&id) {
-                for k in kids {
-                    stack.push(*k);
-                }
+            for k in self.tree.children(id) {
+                stack.push(*k);
             }
         }
         affected

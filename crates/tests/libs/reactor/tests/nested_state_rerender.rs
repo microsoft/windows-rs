@@ -546,3 +546,68 @@ fn realized_row_component_state_reaches_templated_owner() {
         Some("header-state-1".to_string())
     );
 }
+
+struct CleanupHeader {
+    order: Rc<RefCell<Vec<&'static str>>>,
+}
+
+impl Component for CleanupHeader {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+        let order = Rc::clone(&self.order);
+        cx.use_effect_with_cleanup((), move || Some(move || order.borrow_mut().push("header")));
+        text_block("header").into()
+    }
+}
+
+struct CleanupOwner {
+    order: Rc<RefCell<Vec<&'static str>>>,
+}
+
+impl Component for CleanupOwner {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+        let order = Rc::clone(&self.order);
+        cx.use_effect_with_cleanup((), move || Some(move || order.borrow_mut().push("owner")));
+        Expander::new(text_block("body"))
+            .header_content(component(
+                CleanupHeader {
+                    order: Rc::clone(&self.order),
+                },
+                (),
+            ))
+            .into()
+    }
+}
+
+struct CleanupApp {
+    order: Rc<RefCell<Vec<&'static str>>>,
+}
+
+impl Component for CleanupApp {
+    fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
+        component(
+            CleanupOwner {
+                order: Rc::clone(&self.order),
+            },
+            (),
+        )
+    }
+}
+
+#[test]
+fn secondary_owned_subtree_cleans_up_before_owner() {
+    let order = Rc::new(RefCell::new(Vec::new()));
+    let dispatcher = TestDispatcher::default();
+    let host = RenderHost::new(
+        RecordingBackend::new(),
+        Box::new(CleanupApp {
+            order: Rc::clone(&order),
+        }),
+        dispatcher.clone(),
+    );
+    host.kick();
+    dispatcher.drain();
+
+    host.with_reconciler_mut(|r| r.unmount(host.root_id().unwrap()));
+
+    assert_eq!(&*order.borrow(), &["header", "owner"]);
+}

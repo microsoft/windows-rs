@@ -528,6 +528,8 @@ large reconciler rewrite. Each phase must remain independently reviewable and me
 | Reconciler state consolidation review | Complete; mounted ownership model planned |
 | Host/window state consolidation | `HostContext` introduced; six `Reconciler` fields removed |
 | Native ownership consolidation | `MountedTree` owns kind, parent, children, header, and pane state |
+| Recursive teardown | One child-first traversal covers children, rows, headers, and panes |
+| Native ownership checks | Debug builds verify unique ownership and matching parent links |
 | Private-memory and peak-memory benchmark output | Added to text, JSON, and CSV output |
 | Typed element API and fragments | Not started |
 | Full mounted ownership evaluation | In progress |
@@ -646,6 +648,19 @@ forced ancestor. This makes dirty propagation proportional to path depth and rem
 root-wide ownership scan and its traversal stack. The additional parent field does not add a map
 or allocation; the headless allocation counts remain unchanged.
 
+Child and slot mutation now goes through `MountedTree`, so parent links and sparse ownership
+storage cannot be updated independently. Unmount collects the complete native ownership list once
+and releases it in reverse order. Primary children, realized rows, headers, and panes therefore
+finish cleanup before their owner without recursive `unmount` calls or separate subtree
+algorithms. Debug builds verify that each owned native control appears once and that both sides of
+every parent relationship agree.
+
+The compact teardown list also reduces headless allocation cost. Single component, pass-through,
+and deep pass-through mount cycles each use one fewer allocation and 16 fewer bytes. The 64-node
+mount/unmount case dropped from 18,076 bytes and 281 allocations to 17,568 bytes and 271
+allocations; the 512-node case dropped from 144,340 bytes and 2,085 allocations to 140,248 bytes
+and 2,069 allocations.
+
 The existing side state should move as follows:
 
 | Current state | Intended owner |
@@ -703,10 +718,10 @@ Rust should copy the small node invariants, not its hidden controls or accumulat
 Every consolidation step must state which fields and special-case branches it deletes. A new
 abstraction that only wraps the old maps without enabling their removal is not sufficient.
 
-Steps 1-2 are complete. Step 3 now has native node records and direct parent paths; child and slot
-storage remains sparse inside `MountedTree`. The next slice moves the remaining native ownership
-mutations and recursive teardown behind `MountedTree` operations before logical lifecycle state
-moves into node kinds.
+Steps 1-3 and 6 are complete. Child and slot storage remains sparse inside `MountedTree` rather
+than adding optional fields to every native node. The next slice begins step 4 by moving component
+projection and lifecycle access behind mounted logical-node operations. Provider, error-boundary,
+and custom state follow only after component ownership has one measured path.
 
 ### Typed element API
 
