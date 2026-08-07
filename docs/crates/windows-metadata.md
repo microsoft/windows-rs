@@ -118,6 +118,20 @@ Architecture-specific copies are allowed when their
 `SupportedArchitectureAttribute` masks do not overlap. Split property and event rows with
 complementary accessors are also valid WinMD.
 
+The public entry points delegate to one private validation context that owns the authored index,
+optional references, and collected errors. Rules are grouped by the metadata fact they inspect:
+
+| Module | Responsibility |
+| --- | --- |
+| `attributes` | Constructors, value blobs, named arguments, and multiplicity |
+| `members` | Field and implemented-interface identities |
+| `associations` | Properties, events, maps, ownership, and method semantics |
+| `methods` | Method identities, signatures, parameters, and overload groups |
+| `layouts` | Class and field layout rows |
+
+This keeps references and diagnostic collection shared without introducing a second metadata model
+or exposing rule modules through the public API.
+
 Field, method, and property signatures reject `void` values outside a method return or pointer
 target. Static methods must omit `HASTHIS`. Canonical WinRT metadata omits `HASTHIS` on many
 instance MethodDef signatures, so its absence is not a base validity error. A
@@ -155,13 +169,14 @@ reference context without copying or merging the reference files.
 metadata-to-metadata transformations. Merge and namespace remapping use this path so named
 custom-attribute arguments retain their field/property tag and exact serialized form.
 
-`Attribute::value` is the trusted convenience wrapper over the same decoder, and the validator uses
-the strict argument form. Merge and remap continue using the raw copy path. The remaining value-model
-work is to represent valid null strings, boxed values, and arrays. ECMA `Char` values are preserved
-as UTF-16 `u16` code units rather than converted to Rust Unicode scalars. Enum values resolve their
-backing type from the authored index or `Validator` reference index; unresolved definitions are
-classified as unsupported by `try_value` rather than assumed to be `i32`. The trusted `value`
-convenience retains its historical `i32` fallback for callers that do not carry reference
+`Attribute::value` is the trusted convenience wrapper over the same decoder, and the validator
+uses the strict argument form. Merge and remap continue using the raw copy path. The remaining
+value-model work is to represent valid null strings, boxed values, and arrays. ECMA `Char` values
+are preserved as UTF-16 `u16` code units rather than converted to Rust Unicode scalars. Enum values
+resolve their backing type from the authored index or `Validator` reference index; unresolved
+definitions are classified as unsupported by `try_value` rather than assumed to be `i32`. The
+trusted `value` convenience retains its historical `i32` fallback for callers that do not carry
+reference
 metadata.
 
 ### Property and event association

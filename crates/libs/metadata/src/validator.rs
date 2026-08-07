@@ -1,5 +1,11 @@
+mod associations;
+mod attributes;
+mod layouts;
+mod members;
+mod methods;
+
 use crate::reader::{self, AsRow, HasAttributes, RowId};
-use std::collections::{HashMap, HashSet};
+use std::collections::HashMap;
 
 /// A metadata validation failure associated with one row and, when applicable, a related row.
 #[derive(Clone, Debug, PartialEq, Eq)]
@@ -62,7 +68,7 @@ impl<'a> Validator<'a> {
     }
 
     pub fn validate(self) -> Vec<ValidationError> {
-        validate_impl(self.index, self.references)
+        Context::new(self.index, self.references).validate()
     }
 }
 
@@ -71,995 +77,85 @@ pub fn validate(index: &reader::Index) -> Vec<ValidationError> {
     Validator::new(index).validate()
 }
 
-fn validate_impl(
-    index: &reader::Index,
-    references: Option<&reader::Index>,
-) -> Vec<ValidationError> {
-    let mut errors = vec![];
-    validate_attributes(index, references, &mut errors);
-    validate_property_maps(index, &mut errors);
-    validate_event_maps(index, &mut errors);
-    validate_layouts(index, &mut errors);
-
-    let mut types: Vec<_> = index.types().collect();
-    types.sort_by(|a, b| {
-        (a.namespace(), a.name(), a.row_id()).cmp(&(b.namespace(), b.name(), b.row_id()))
-    });
-
-    let mut names = HashMap::<(&str, &str), Vec<reader::TypeDef<'_>>>::new();
-    for ty in types {
-        let previous = names
-            .entry((ty.namespace(), ty.name()))
-            .or_default()
-            .iter()
-            .find(|previous| arches_overlap(previous.arches(), ty.arches()));
-        if let Some(previous) = previous {
-            errors.push(duplicate(
-                ty.row_id(),
-                previous.row_id(),
-                format!("duplicate type `{}.{}`", ty.namespace(), ty.name()),
-            ));
-        }
-        names
-            .entry((ty.namespace(), ty.name()))
-            .or_default()
-            .push(ty);
-
-        validate_type_members(ty, &mut errors);
-        for nested in index.nested_recursive(ty) {
-            validate_type_members(nested, &mut errors);
-        }
-    }
-
-    errors
-}
-
-fn validate_attributes(
-    index: &reader::Index,
-    references: Option<&reader::Index>,
-    errors: &mut Vec<ValidationError>,
-) {
-    let mut applied = HashSet::new();
-
-    for attribute in index.attributes() {
-        let args = validate_attribute_constructor(attribute, references, errors);
-
-        let Some(definition) = attribute_definition(index, references, attribute) else {
-            continue;
-        };
-        let parent = attribute_parent(attribute.parent());
-
-        if let Some(args) = args {
-            validate_attribute_named_args(attribute, definition, parent, &args, errors);
-        }
-
-        if definition.has_attribute("AttributeUsageAttribute")
-            && let Some(parent) = parent
-        {
-            let key = (
-                parent,
-                definition.namespace().to_string(),
-                definition.name().to_string(),
-            );
-            if !applied.insert(key) && !definition.has_attribute("AllowMultipleAttribute") {
-                errors.push(ValidationError {
-                    category: ValidationCategory::Duplicate,
-                    message: format!(
-                        "duplicate attribute `{}.{}`",
-                        definition.namespace(),
-                        definition.name()
-                    ),
-                    row: attribute.row_id(),
-                    related: Some(parent),
-                });
-            }
-        }
-    }
-}
-
-fn validate_attribute_constructor(
-    attribute: reader::Attribute<'_>,
-    references: Option<&reader::Index>,
-    errors: &mut Vec<ValidationError>,
-) -> Option<Vec<reader::AttributeArg>> {
-    let ctor = attribute.ctor();
-    let signature = ctor.signature(&[]);
-    let parent = attribute_parent(attribute.parent());
-
-    if ctor.name() != ".ctor" {
-        errors.push(ValidationError {
-            category: ValidationCategory::Invalid,
-            message: format!(
-                "attribute `{}.{}` constructor is named `{}` instead of `.ctor`",
-                attribute.namespace(),
-                attribute.name(),
-                ctor.name()
-            ),
-            row: attribute.row_id(),
-            related: parent,
-        });
-    }
-
-    if !signature
-        .flags
-        .contains(crate::MethodCallAttributes::HASTHIS)
-    {
-        errors.push(ValidationError {
-            category: ValidationCategory::Invalid,
-            message: format!(
-                "attribute `{}.{}` constructor must be an instance method",
-                attribute.namespace(),
-                attribute.name()
-            ),
-            row: attribute.row_id(),
-            related: parent,
-        });
-    } else if signature.flags != crate::MethodCallAttributes::HASTHIS {
-        errors.push(ValidationError {
-            category: ValidationCategory::Invalid,
-            message: format!(
-                "attribute `{}.{}` constructor must use the default calling convention",
-                attribute.namespace(),
-                attribute.name()
-            ),
-            row: attribute.row_id(),
-            related: parent,
-        });
-    }
-
-    if signature.return_type != crate::Type::Void {
-        errors.push(ValidationError {
-            category: ValidationCategory::Invalid,
-            message: format!(
-                "attribute `{}.{}` constructor must return void",
-                attribute.namespace(),
-                attribute.name()
-            ),
-            row: attribute.row_id(),
-            related: parent,
-        });
-    }
-
-    let mut valid_parameters = true;
-    for (position, ty) in signature.types.iter().enumerate() {
-        if !valid_attribute_parameter_type(ty) {
-            valid_parameters = false;
-            errors.push(ValidationError {
-                category: ValidationCategory::Invalid,
-                message: format!(
-                    "attribute `{}.{}` constructor parameter {} has invalid type `{}`",
-                    attribute.namespace(),
-                    attribute.name(),
-                    position + 1,
-                    attribute_parameter_type_name(ty)
-                ),
-                row: attribute.row_id(),
-                related: parent,
-            });
-        }
-    }
-
-    if !valid_parameters {
-        return None;
-    }
-
-    let args = match references {
-        Some(references) => attribute.try_args_with_references(references),
-        None => attribute.try_args(),
-    };
-
-    match args {
-        Ok(args) => Some(args),
-        Err(error) if error.is_unsupported() => None,
-        Err(error) => {
-            errors.push(ValidationError {
-                category: ValidationCategory::Invalid,
-                message: format!(
-                    "attribute `{}.{}` value is invalid at byte {}: {}",
-                    attribute.namespace(),
-                    attribute.name(),
-                    error.offset(),
-                    error.message()
-                ),
-                row: attribute.row_id(),
-                related: parent,
-            });
-            None
-        }
-    }
-}
-
-fn validate_attribute_named_args(
-    attribute: reader::Attribute<'_>,
-    definition: reader::TypeDef<'_>,
-    parent: Option<RowId>,
-    args: &[reader::AttributeArg],
-    errors: &mut Vec<ValidationError>,
-) {
-    let mut names = HashSet::new();
-
-    for arg in args {
-        let reader::AttributeArg::Named { kind, name, value } = arg else {
-            continue;
-        };
-
-        if !names.insert((*kind, name.as_str())) {
-            errors.push(ValidationError {
-                category: ValidationCategory::Duplicate,
-                message: format!(
-                    "attribute `{}.{}` has duplicate named {} argument `{name}`",
-                    attribute.namespace(),
-                    attribute.name(),
-                    attribute_arg_kind(*kind)
-                ),
-                row: attribute.row_id(),
-                related: parent,
-            });
-        }
-
-        let member = match kind {
-            reader::AttributeArgKind::Field => definition
-                .fields()
-                .find(|field| field.name() == name)
-                .map(|field| {
-                    let flags = field.flags();
-                    (
-                        field.ty(),
-                        flags.0 & 0x7 == crate::FieldAttributes::Public.0
-                            && !flags.contains(crate::FieldAttributes::Static)
-                            && !flags.contains(crate::FieldAttributes::InitOnly)
-                            && !flags.contains(crate::FieldAttributes::Literal),
-                    )
-                }),
-            reader::AttributeArgKind::Property => definition
-                .properties()
-                .find(|property| property.name() == name)
-                .map(|property| {
-                    let signature = property.signature(&[]);
-                    let usable = signature.types.is_empty()
-                        && property.semantics().any(|semantics| {
-                            if semantics.semantics() != 0x0001 {
-                                return false;
-                            }
-                            let method = semantics.method();
-                            let flags = method.flags();
-                            let setter = method.signature(&[]);
-                            flags.0 & 0x7 == crate::MethodAttributes::Public.0
-                                && !flags.contains(crate::MethodAttributes::Static)
-                                && setter.flags.contains(crate::MethodCallAttributes::HASTHIS)
-                                && setter.return_type == crate::Type::Void
-                                && setter.types == [signature.return_type.clone()]
-                        });
-                    (signature.return_type, usable)
-                }),
-        };
-
-        let Some((expected, usable)) = member else {
-            errors.push(ValidationError {
-                category: ValidationCategory::Invalid,
-                message: format!(
-                    "attribute `{}.{}` has no named {} `{name}`",
-                    attribute.namespace(),
-                    attribute.name(),
-                    attribute_arg_kind(*kind)
-                ),
-                row: attribute.row_id(),
-                related: parent,
-            });
-            continue;
-        };
-
-        if !usable {
-            errors.push(ValidationError {
-                category: ValidationCategory::Invalid,
-                message: format!(
-                    "attribute `{}.{}` named {} `{name}` is not a public writable instance member",
-                    attribute.namespace(),
-                    attribute.name(),
-                    attribute_arg_kind(*kind)
-                ),
-                row: attribute.row_id(),
-                related: parent,
-            });
-        }
-
-        let actual = value.ty();
-        if actual != expected {
-            errors.push(ValidationError {
-                category: ValidationCategory::Invalid,
-                message: format!(
-                    "attribute `{}.{}` named {} `{name}` expects `{}` but found `{}`",
-                    attribute.namespace(),
-                    attribute.name(),
-                    attribute_arg_kind(*kind),
-                    attribute_parameter_type_name(&expected),
-                    attribute_parameter_type_name(&actual)
-                ),
-                row: attribute.row_id(),
-                related: parent,
-            });
-        }
-    }
-}
-
-fn attribute_arg_kind(kind: reader::AttributeArgKind) -> &'static str {
-    match kind {
-        reader::AttributeArgKind::Field => "field",
-        reader::AttributeArgKind::Property => "property",
-    }
-}
-
-fn valid_attribute_parameter_type(ty: &crate::Type) -> bool {
-    match ty {
-        crate::Type::Bool
-        | crate::Type::Char
-        | crate::Type::I8
-        | crate::Type::U8
-        | crate::Type::I16
-        | crate::Type::U16
-        | crate::Type::I32
-        | crate::Type::U32
-        | crate::Type::I64
-        | crate::Type::U64
-        | crate::Type::F32
-        | crate::Type::F64
-        | crate::Type::String
-        | crate::Type::Object
-        | crate::Type::ValueName(_) => true,
-        crate::Type::ClassName(name) => name == ("System", "Type"),
-        crate::Type::Array(element) => valid_attribute_parameter_type(element),
-        _ => false,
-    }
-}
-
-fn attribute_parameter_type_name(ty: &crate::Type) -> String {
-    match ty {
-        crate::Type::ClassName(name) | crate::Type::ValueName(name) => {
-            format!("{}.{}", name.namespace, name.name)
-        }
-        crate::Type::Array(element) => {
-            format!("{}[]", attribute_parameter_type_name(element))
-        }
-        _ => format!("{ty:?}"),
-    }
-}
-
-fn attribute_definition<'a>(
+struct Context<'a> {
     index: &'a reader::Index,
     references: Option<&'a reader::Index>,
-    attribute: reader::Attribute<'a>,
-) -> Option<reader::TypeDef<'a>> {
-    let parent = attribute.ctor().parent();
-    let mut definitions = index.get(parent.namespace(), parent.name());
-    if let Some(definition) = definitions.next() {
-        return definitions.next().is_none().then_some(definition);
-    }
-
-    let mut definitions = references?.get(parent.namespace(), parent.name());
-    let definition = definitions.next()?;
-    definitions.next().is_none().then_some(definition)
+    errors: Vec<ValidationError>,
 }
 
-fn attribute_parent(parent: reader::HasAttribute<'_>) -> Option<RowId> {
-    Some(match parent {
-        reader::HasAttribute::TypeDef(row) => row.row_id(),
-        reader::HasAttribute::Event(row) => row.row_id(),
-        reader::HasAttribute::Field(row) => row.row_id(),
-        reader::HasAttribute::MethodDef(row) => row.row_id(),
-        reader::HasAttribute::MethodParam(row) => row.row_id(),
-        reader::HasAttribute::Property(row) => row.row_id(),
-        reader::HasAttribute::InterfaceImpl(row) => row.row_id(),
-        reader::HasAttribute::TypeRef(_)
-        | reader::HasAttribute::MemberRef(_)
-        | reader::HasAttribute::TypeSpec(_)
-        | reader::HasAttribute::GenericParam(_) => return None,
-    })
-}
-
-fn validate_type_members(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
-    validate_fields(ty, errors);
-    validate_interfaces(ty, errors);
-    validate_properties(ty, errors);
-    validate_events(ty, errors);
-    validate_methods(ty, errors);
-}
-
-fn validate_interfaces(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
-    let generics = generics(ty);
-    let mut interfaces = Vec::<(reader::InterfaceImpl<'_>, crate::Type)>::new();
-    for implementation in ty.interface_impls() {
-        let interface = implementation.interface(&generics);
-        if let Some((previous, _)) = interfaces.iter().find(|(previous, previous_type)| {
-            previous_type == &interface
-                && arches_overlap(previous.arches(), implementation.arches())
-        }) {
-            errors.push(duplicate(
-                implementation.row_id(),
-                previous.row_id(),
-                format!(
-                    "duplicate interface `{}` on `{}.{}`",
-                    display_type(&interface),
-                    ty.namespace(),
-                    ty.name()
-                ),
-            ));
-        }
-
-        fn display_type(ty: &crate::Type) -> String {
-            let (crate::Type::ClassName(name) | crate::Type::ValueName(name)) = ty else {
-                return format!("{ty:?}");
-            };
-            let mut result = if name.namespace.is_empty() {
-                name.name.clone()
-            } else {
-                format!("{}.{}", name.namespace, name.name)
-            };
-            if !name.generics.is_empty() {
-                result.push('<');
-                for (index, generic) in name.generics.iter().enumerate() {
-                    if index != 0 {
-                        result.push_str(", ");
-                    }
-                    result.push_str(&display_type(generic));
-                }
-                result.push('>');
-            }
-            result
-        }
-        interfaces.push((implementation, interface));
-    }
-}
-
-fn validate_layouts(index: &reader::Index, errors: &mut Vec<ValidationError>) {
-    let mut classes = HashMap::new();
-    for layout in index.class_layouts() {
-        let parent = layout.parent();
-        if let Some(previous) = classes.insert(parent.row_id(), layout) {
-            errors.push(duplicate(
-                layout.row_id(),
-                previous.row_id(),
-                format!(
-                    "duplicate class layout for `{}.{}`",
-                    parent.namespace(),
-                    parent.name()
-                ),
-            ));
-        }
-
-        let packing = layout.packing_size();
-        if packing != 0 && (packing > 128 || !packing.is_power_of_two()) {
-            errors.push(ValidationError {
-                category: ValidationCategory::Invalid,
-                message: format!(
-                    "class layout for `{}.{}` has invalid packing size {packing}",
-                    parent.namespace(),
-                    parent.name()
-                ),
-                row: layout.row_id(),
-                related: Some(parent.row_id()),
-            });
-        }
-
-        let flags = parent.flags();
-        if !flags.contains(crate::TypeAttributes::SequentialLayout)
-            && !flags.contains(crate::TypeAttributes::ExplicitLayout)
-        {
-            errors.push(ValidationError {
-                category: ValidationCategory::Invalid,
-                message: format!(
-                    "class layout for `{}.{}` requires sequential or explicit layout",
-                    parent.namespace(),
-                    parent.name()
-                ),
-                row: layout.row_id(),
-                related: Some(parent.row_id()),
-            });
+impl<'a> Context<'a> {
+    fn new(index: &'a reader::Index, references: Option<&'a reader::Index>) -> Self {
+        Self {
+            index,
+            references,
+            errors: vec![],
         }
     }
 
-    let mut fields = HashMap::new();
-    for layout in index.field_layouts() {
-        let field = layout.field();
-        if let Some(previous) = fields.insert(field.row_id(), layout) {
-            errors.push(duplicate(
-                layout.row_id(),
-                previous.row_id(),
-                format!("duplicate field layout for `{}`", field.name()),
-            ));
-        }
+    fn validate(mut self) -> Vec<ValidationError> {
+        attributes::validate(&mut self);
+        associations::validate_maps(&mut self);
+        layouts::validate(&mut self);
 
-        let parent = field.parent();
-        if !parent
-            .flags()
-            .contains(crate::TypeAttributes::ExplicitLayout)
-        {
-            errors.push(ValidationError {
-                category: ValidationCategory::Invalid,
-                message: format!(
-                    "field layout for `{}.{}.{}` requires explicit layout",
-                    parent.namespace(),
-                    parent.name(),
-                    field.name()
-                ),
-                row: layout.row_id(),
-                related: Some(field.row_id()),
-            });
-        }
-    }
-}
+        let mut types: Vec<_> = self.index.types().collect();
+        types.sort_by(|a, b| {
+            (a.namespace(), a.name(), a.row_id()).cmp(&(b.namespace(), b.name(), b.row_id()))
+        });
 
-fn validate_property_maps(index: &reader::Index, errors: &mut Vec<ValidationError>) {
-    validate_maps(
-        index.property_maps(),
-        index.properties(),
-        "property",
-        |map| map.parent(),
-        |map| map.properties(),
-        |property| property.name(),
-        errors,
-    );
-}
-
-fn validate_event_maps(index: &reader::Index, errors: &mut Vec<ValidationError>) {
-    validate_maps(
-        index.event_maps(),
-        index.events(),
-        "event",
-        |map| map.parent(),
-        |map| map.events(),
-        |event| event.name(),
-        errors,
-    );
-}
-
-fn validate_maps<'a, M, R, I>(
-    maps: impl Iterator<Item = M>,
-    rows: impl Iterator<Item = R>,
-    kind: &str,
-    parent: impl Fn(M) -> reader::TypeDef<'a>,
-    members: impl Fn(M) -> I,
-    name: impl Fn(R) -> &'a str,
-    errors: &mut Vec<ValidationError>,
-) where
-    M: AsRow<'a>,
-    R: AsRow<'a>,
-    I: Iterator<Item = R>,
-{
-    let mut parents = HashMap::new();
-    let mut owners = HashMap::new();
-
-    for map in maps {
-        let parent = parent(map);
-        if let Some(previous) = parents.insert(parent.row_id(), map) {
-            errors.push(duplicate(
-                map.row_id(),
-                previous.row_id(),
-                format!(
-                    "duplicate {kind} map for `{}.{}`",
-                    parent.namespace(),
-                    parent.name()
-                ),
-            ));
-        }
-        for row in members(map) {
-            if let Some(previous) = owners.insert(row.row_id(), map) {
-                errors.push(duplicate(
-                    map.row_id(),
-                    previous.row_id(),
-                    format!("{kind} `{}` has multiple owners", name(row)),
-                ));
-            }
-        }
-    }
-
-    for row in rows {
-        if !owners.contains_key(&row.row_id()) {
-            errors.push(ValidationError {
-                category: ValidationCategory::Invalid,
-                message: format!("{kind} `{}` has no owner", name(row)),
-                row: row.row_id(),
-                related: None,
-            });
-        }
-    }
-}
-
-fn validate_fields(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
-    let mut names = HashMap::<&str, Vec<reader::Field<'_>>>::new();
-    for field in ty.fields() {
-        let field_type = field.ty();
-        let void_typedef = field_type == crate::Type::Void
-            && field.name() == "Value"
-            && ty.has_attribute("NativeTypedefAttribute");
-        if invalid_signature_type(&field_type) && !void_typedef {
-            errors.push(ValidationError {
-                category: ValidationCategory::Invalid,
-                message: format!(
-                    "field `{}.{}.{}` has invalid type `{}`",
-                    ty.namespace(),
-                    ty.name(),
-                    field.name(),
-                    attribute_parameter_type_name(&field_type)
-                ),
-                row: field.row_id(),
-                related: Some(ty.row_id()),
-            });
-        }
-
-        let previous = names
-            .entry(field.name())
-            .or_default()
-            .iter()
-            .find(|previous| arches_overlap(previous.arches(), field.arches()));
-        if let Some(previous) = previous {
-            errors.push(duplicate(
-                field.row_id(),
-                previous.row_id(),
-                format!("duplicate field `{}`", field.name()),
-            ));
-        }
-        names.entry(field.name()).or_default().push(field);
-    }
-}
-
-fn validate_properties(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
-    let generics = generics(ty);
-    let mut properties = HashMap::<&str, Vec<(reader::Property<'_>, crate::Signature)>>::new();
-    for property in ty.properties() {
-        let signature = property.signature(&generics);
-        if invalid_signature_type(&signature.return_type) {
-            errors.push(ValidationError {
-                category: ValidationCategory::Invalid,
-                message: format!(
-                    "property `{}.{}.{}` has invalid value type `{}`",
-                    ty.namespace(),
-                    ty.name(),
-                    property.name(),
-                    attribute_parameter_type_name(&signature.return_type)
-                ),
-                row: property.row_id(),
-                related: Some(ty.row_id()),
-            });
-        }
-        for (position, parameter) in signature.types.iter().enumerate() {
-            if invalid_signature_type(parameter) {
-                errors.push(ValidationError {
-                    category: ValidationCategory::Invalid,
-                    message: format!(
-                        "property `{}.{}.{}` index parameter {} has invalid type `{}`",
-                        ty.namespace(),
-                        ty.name(),
-                        property.name(),
-                        position + 1,
-                        attribute_parameter_type_name(parameter)
-                    ),
-                    row: property.row_id(),
-                    related: Some(ty.row_id()),
-                });
-            }
-        }
-        let arches = association_arches(property.arches(), property.semantics());
-        let previous = properties.entry(property.name()).or_default().iter().find(
-            |(previous, previous_signature)| {
-                same_property_identity(previous_signature, &signature)
-                    && arches_overlap(
-                        association_arches(previous.arches(), previous.semantics()),
-                        arches,
-                    )
-                    && (previous_signature.return_type != signature.return_type
-                        || semantics_conflict(previous.semantics(), property.semantics(), 0x0003))
-            },
-        );
-        if let Some((previous, _)) = previous {
-            errors.push(duplicate(
-                property.row_id(),
-                previous.row_id(),
-                format!(
-                    "duplicate property `{}` on `{}.{}`",
-                    property.name(),
-                    ty.namespace(),
-                    ty.name()
-                ),
-            ));
-        }
-        properties
-            .entry(property.name())
-            .or_default()
-            .push((property, signature));
-        validate_semantics(
-            property.row_id(),
-            property.name(),
-            "property",
-            property.semantics(),
-            &[0x0001, 0x0002, 0x0004],
-            errors,
-        );
-    }
-}
-
-fn validate_events(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
-    let generics = generics(ty);
-    let mut events = HashMap::<&str, Vec<(reader::Event<'_>, crate::Type)>>::new();
-    for event in ty.events() {
-        let event_type = event.ty(&generics);
-        let arches = association_arches(event.arches(), event.semantics());
-        let previous =
-            events
-                .entry(event.name())
+        let mut names = HashMap::<(&str, &str), Vec<reader::TypeDef<'_>>>::new();
+        for ty in types {
+            let previous = names
+                .entry((ty.namespace(), ty.name()))
                 .or_default()
                 .iter()
-                .find(|(previous, previous_type)| {
-                    arches_overlap(
-                        association_arches(previous.arches(), previous.semantics()),
-                        arches,
-                    ) && (previous_type != &event_type
-                        || semantics_conflict(previous.semantics(), event.semantics(), 0x0038))
-                });
-        if let Some((previous, _)) = previous {
-            errors.push(duplicate(
-                event.row_id(),
-                previous.row_id(),
-                format!(
-                    "duplicate event `{}` on `{}.{}`",
-                    event.name(),
-                    ty.namespace(),
-                    ty.name()
-                ),
-            ));
-        }
-        events
-            .entry(event.name())
-            .or_default()
-            .push((event, event_type));
-        validate_semantics(
-            event.row_id(),
-            event.name(),
-            "event",
-            event.semantics(),
-            &[0x0004, 0x0008, 0x0010, 0x0020],
-            errors,
-        );
-    }
-}
-
-fn validate_semantics<'a>(
-    association: RowId,
-    name: &str,
-    kind: &str,
-    semantics: impl Iterator<Item = reader::MethodSemantics<'a>>,
-    allowed: &[u16],
-    errors: &mut Vec<ValidationError>,
-) {
-    let mut seen = HashMap::<u16, Vec<(reader::MethodSemantics<'_>, i32)>>::new();
-    for semantics in semantics {
-        let value = semantics.semantics();
-        if !allowed.contains(&value) {
-            errors.push(ValidationError {
-                category: ValidationCategory::Invalid,
-                message: format!("{kind} `{name}` has invalid method semantics {value:#06x}"),
-                row: semantics.row_id(),
-                related: Some(association),
-            });
-        } else if value != 0x0004 {
-            let arches = semantics.method().arches();
-            let previous = seen
-                .entry(value)
-                .or_default()
-                .iter()
-                .find(|(_, previous_arches)| arches_overlap(*previous_arches, arches));
-            if let Some((previous, _)) = previous {
-                errors.push(duplicate(
-                    semantics.row_id(),
+                .find(|previous| arches_overlap(previous.arches(), ty.arches()));
+            if let Some(previous) = previous {
+                self.duplicate(
+                    ty.row_id(),
                     previous.row_id(),
-                    format!("{kind} `{name}` has duplicate method semantics {value:#06x}"),
-                ));
+                    format!("duplicate type `{}.{}`", ty.namespace(), ty.name()),
+                );
             }
-            seen.entry(value).or_default().push((semantics, arches));
-        }
-    }
-}
+            names
+                .entry((ty.namespace(), ty.name()))
+                .or_default()
+                .push(ty);
 
-fn association_arches<'a>(
-    association: i32,
-    semantics: impl Iterator<Item = reader::MethodSemantics<'a>>,
-) -> i32 {
-    let mut methods = None;
-    for semantics in semantics {
-        let arches = semantics.method().arches();
-        methods = Some(match methods {
-            None => arches,
-            Some(0) => 0,
-            Some(_) if arches == 0 => 0,
-            Some(current) => current | arches,
+            self.validate_type(ty);
+            for nested in self.index.nested_recursive(ty) {
+                self.validate_type(nested);
+            }
+        }
+
+        self.errors
+    }
+
+    fn validate_type(&mut self, ty: reader::TypeDef<'a>) {
+        members::validate(self, ty);
+        associations::validate_type(self, ty);
+        methods::validate(self, ty);
+    }
+
+    fn invalid(&mut self, row: RowId, related: Option<RowId>, message: String) {
+        self.errors.push(ValidationError {
+            category: ValidationCategory::Invalid,
+            message,
+            row,
+            related,
         });
     }
 
-    match (association, methods) {
-        (0, Some(methods)) => methods,
-        (association, None | Some(0)) => association,
-        (association, Some(methods)) => {
-            let intersection = association & methods;
-            if intersection == 0 {
-                association
-            } else {
-                intersection
-            }
-        }
+    fn duplicate(&mut self, row: RowId, related: RowId, message: String) {
+        self.duplicate_optional(row, Some(related), message);
     }
-}
 
-fn semantics_conflict<'a>(
-    left: impl Iterator<Item = reader::MethodSemantics<'a>>,
-    right: impl Iterator<Item = reader::MethodSemantics<'a>>,
-    singleton: u16,
-) -> bool {
-    let left = left.fold(0, |mask, semantics| mask | semantics.semantics()) & singleton;
-    let right = right.fold(0, |mask, semantics| mask | semantics.semantics()) & singleton;
-    left == 0 || right == 0 || left & right != 0
-}
-
-fn validate_methods(ty: reader::TypeDef, errors: &mut Vec<ValidationError>) {
-    let mut methods = HashMap::<&str, Vec<(reader::MethodDef<'_>, crate::Signature)>>::new();
-    let mut overloads = HashMap::<String, Vec<(reader::MethodDef<'_>, crate::Signature)>>::new();
-    let mut default_overloads = HashMap::<String, Vec<reader::MethodDef<'_>>>::new();
-    let generics = generics(ty);
-    for method in ty.methods() {
-        let signature = method.signature(&generics);
-        let is_static = method.flags().contains(crate::MethodAttributes::Static);
-        let has_this = signature
-            .flags
-            .contains(crate::MethodCallAttributes::HASTHIS);
-        if is_static && has_this {
-            errors.push(ValidationError {
-                category: ValidationCategory::Invalid,
-                message: format!(
-                    "static method `{}.{}.{}` has an instance calling convention",
-                    ty.namespace(),
-                    ty.name(),
-                    method.name()
-                ),
-                row: method.row_id(),
-                related: Some(ty.row_id()),
-            });
-        }
-        for (position, parameter) in signature.types.iter().enumerate() {
-            if invalid_signature_type(parameter) {
-                errors.push(ValidationError {
-                    category: ValidationCategory::Invalid,
-                    message: format!(
-                        "method `{}.{}.{}` parameter {} has invalid type `{}`",
-                        ty.namespace(),
-                        ty.name(),
-                        method.name(),
-                        position + 1,
-                        attribute_parameter_type_name(parameter)
-                    ),
-                    row: method.row_id(),
-                    related: Some(ty.row_id()),
-                });
-            }
-        }
-        let previous = methods.entry(method.name()).or_default().iter().find(
-            |(previous, previous_signature)| {
-                same_method_identity(previous_signature, &signature)
-                    && arches_overlap(previous.arches(), method.arches())
-            },
-        );
-        if let Some((previous, _)) = previous {
-            errors.push(duplicate(
-                method.row_id(),
-                previous.row_id(),
-                format!(
-                    "duplicate method `{}` on `{}.{}`",
-                    method.name(),
-                    ty.namespace(),
-                    ty.name()
-                ),
-            ));
-        }
-
-        methods
-            .entry(method.name())
-            .or_default()
-            .push((method, signature.clone()));
-
-        let overload_name = method
-            .attributes()
-            .find(|attribute| {
-                attribute.namespace() == "Windows.Foundation.Metadata"
-                    && attribute.name() == "OverloadAttribute"
-            })
-            .and_then(|attribute| {
-                attribute
-                    .value()
-                    .into_iter()
-                    .find_map(|(_, value)| match value {
-                        crate::Value::Utf8(name) => Some(name),
-                        _ => None,
-                    })
-            });
-        let is_default_overload = method.attributes().any(|attribute| {
-            attribute.namespace() == "Windows.Foundation.Metadata"
-                && attribute.name() == "DefaultOverloadAttribute"
+    fn duplicate_optional(&mut self, row: RowId, related: Option<RowId>, message: String) {
+        self.errors.push(ValidationError {
+            category: ValidationCategory::Duplicate,
+            message,
+            row,
+            related,
         });
-
-        if is_default_overload && overload_name.is_none() {
-            errors.push(ValidationError {
-                category: ValidationCategory::Invalid,
-                message: format!(
-                    "method `{}.{}.{}` has `DefaultOverloadAttribute` without \
-                     `OverloadAttribute`",
-                    ty.namespace(),
-                    ty.name(),
-                    method.name()
-                ),
-                row: method.row_id(),
-                related: Some(ty.row_id()),
-            });
-        }
-
-        if let Some(overload_name) = overload_name {
-            let previous = overloads
-                .entry(overload_name.clone())
-                .or_default()
-                .iter()
-                .find(|(previous, previous_signature)| {
-                    same_method_identity(previous_signature, &signature)
-                        && arches_overlap(previous.arches(), method.arches())
-                });
-            if let Some((previous, _)) = previous {
-                errors.push(duplicate(
-                    method.row_id(),
-                    previous.row_id(),
-                    format!(
-                        "duplicate overload signature `{overload_name}` on `{}.{}`",
-                        ty.namespace(),
-                        ty.name()
-                    ),
-                ));
-            }
-            overloads
-                .entry(overload_name.clone())
-                .or_default()
-                .push((method, signature.clone()));
-
-            if is_default_overload {
-                let previous = default_overloads
-                    .entry(overload_name.clone())
-                    .or_default()
-                    .iter()
-                    .find(|previous| arches_overlap(previous.arches(), method.arches()));
-                if let Some(previous) = previous {
-                    errors.push(duplicate(
-                        method.row_id(),
-                        previous.row_id(),
-                        format!(
-                            "duplicate default overload `{overload_name}` on `{}.{}`",
-                            ty.namespace(),
-                            ty.name()
-                        ),
-                    ));
-                }
-                default_overloads
-                    .entry(overload_name)
-                    .or_default()
-                    .push(method);
-            }
-        }
-
-        if let Err(error) = method.params_by_sequence(signature.types.len()) {
-            errors.push(ValidationError {
-                category: ValidationCategory::Invalid,
-                message: format!(
-                    "invalid parameters for `{}.{}` method `{}`: {error}",
-                    ty.namespace(),
-                    ty.name(),
-                    method.name()
-                ),
-                row: method.row_id(),
-                related: None,
-            });
-        }
     }
 }
 
@@ -1075,26 +171,23 @@ fn invalid_signature_type(ty: &crate::Type) -> bool {
     }
 }
 
+fn type_name(ty: &crate::Type) -> String {
+    match ty {
+        crate::Type::ClassName(name) | crate::Type::ValueName(name) => {
+            format!("{}.{}", name.namespace, name.name)
+        }
+        crate::Type::Array(element) => format!("{}[]", type_name(element)),
+        _ => format!("{ty:?}"),
+    }
+}
+
 fn generics(ty: reader::TypeDef) -> Vec<crate::Type> {
     ty.generic_params()
         .map(|param| crate::Type::Generic(param.name().to_string(), param.sequence()))
         .collect()
 }
 
-fn duplicate(row: RowId, related: RowId, message: String) -> ValidationError {
-    ValidationError {
-        category: ValidationCategory::Duplicate,
-        message,
-        row,
-        related: Some(related),
-    }
-}
-
-fn same_method_identity(left: &crate::Signature, right: &crate::Signature) -> bool {
-    left.flags == right.flags && left.types == right.types
-}
-
-fn same_property_identity(left: &crate::Signature, right: &crate::Signature) -> bool {
+fn same_identity(left: &crate::Signature, right: &crate::Signature) -> bool {
     left.flags == right.flags && left.types == right.types
 }
 
