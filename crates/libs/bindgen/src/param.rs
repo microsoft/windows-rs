@@ -57,8 +57,8 @@ impl Param {
         )
     }
 
-    /// Returns whether metadata marks this parameter as strictly output-only.
-    pub fn is_output_only(&self) -> bool {
+    /// Returns whether metadata marks this parameter as `Output` without `Input`.
+    pub fn is_metadata_output_only(&self) -> bool {
         self.def
             .is_some_and(|def| def.direction() == windows_metadata::reader::ParamDirection::Output)
     }

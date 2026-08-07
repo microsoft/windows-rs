@@ -23,6 +23,7 @@ pub enum ReturnHint {
 #[derive(Copy, Clone, PartialEq, Debug)]
 pub enum ParamHint {
     None,
+    ArrayRaw,
     ArrayFixed(usize),
     ArrayRelativeLen(usize),
     ArrayRelativeByteLen(usize),
@@ -67,7 +68,8 @@ impl ParamHint {
     fn is_array(&self) -> bool {
         matches!(
             self,
-            Self::ArrayFixed(_)
+            Self::ArrayRaw
+                | Self::ArrayFixed(_)
                 | Self::ArrayRelativeLen(_)
                 | Self::ArrayRelativeByteLen(_)
                 | Self::ArrayRelativePtr(_)
@@ -118,26 +120,30 @@ impl CppMethod {
             }
         }
 
-        // Remove shared-count sets and sets containing output-only buffers.
+        // Remove shared-count sets and sets containing buffers marked output-only in metadata.
         for (len, ptrs) in sets {
             if ptrs.len() > 1
                 || ptrs
                     .iter()
-                    .any(|position| signature.params[*position].is_output_only())
+                    .any(|position| signature.params[*position].is_metadata_output_only())
             {
                 param_hints[len] = ParamHint::None;
                 for ptr in ptrs {
-                    param_hints[ptr] = ParamHint::None;
+                    param_hints[ptr] = if signature.params[ptr].is_input_only() {
+                        ParamHint::None
+                    } else {
+                        ParamHint::ArrayRaw
+                    };
                 }
             }
         }
 
-        // Fixed-size output buffers likewise retain their raw pointer shape.
+        // Fixed-size buffers marked output-only likewise retain their raw pointer shape.
         for (position, hint) in param_hints.iter_mut().enumerate() {
-            if signature.params[position].is_output_only()
+            if signature.params[position].is_metadata_output_only()
                 && matches!(hint, ParamHint::ArrayFixed(_))
             {
-                *hint = ParamHint::None;
+                *hint = ParamHint::ArrayRaw;
             }
         }
 
@@ -558,6 +564,14 @@ impl CppMethod {
             let name = param.write_ident();
 
             match self.param_hints[position] {
+                ParamHint::ArrayRaw => {
+                    let kind = param.write_default(config);
+                    if param.is_optional_or_reserved() {
+                        tokens.combine(&quote! { #name: Option<#kind>, });
+                    } else {
+                        tokens.combine(&quote! { #name: #kind, });
+                    }
+                }
                 ParamHint::ArrayFixed(fixed) => {
                     let ty = param.deref();
                     let ty = ty.write_default(config);
@@ -654,6 +668,25 @@ impl CppMethod {
                 _ => {
                     let name = param.write_ident();
                     match self.param_hints[position] {
+                        ParamHint::ArrayRaw => {
+                            if param.is_optional_or_reserved() {
+                                quote! { #name.unwrap_or(core::mem::zeroed()) as _, }
+                            } else if param.is_primitive(config.reader)
+                                && param.deref().is_copyable(config.reader)
+                            {
+                                if param.is_input_only() {
+                                    quote! { #name, }
+                                } else {
+                                    quote! { #name as _, }
+                                }
+                            } else if param.write_default(config).to_string()
+                                == param.write_abi(config).to_string()
+                            {
+                                quote! { #name, }
+                            } else {
+                                quote! { core::mem::transmute(#name), }
+                            }
+                        }
                         ParamHint::ArrayFixed(_)
                         | ParamHint::ArrayRelativeLen(_)
                         | ParamHint::ArrayRelativeByteLen(_) => {

@@ -396,13 +396,13 @@ The metadata reader checks property names and value types. Invalid or conflictin
 return `None`, which keeps the raw ABI shape. It does not interpret parameter positions, pointer
 shapes, or public projection policy.
 
-Strictly output-only buffers keep their pointer and count parameters so callers may supply
-uninitialized storage. For other buffers, before `CppMethod` indexes a related parameter, it
-rejects negative, out-of-range, and self-relative indexes and verifies that the count is one input
-scalar used by one buffer. Byte counts still require byte-sized elements. A fixed `CountConst` must
-be nonnegative and fit the maximum Rust object size on 32-bit Windows. If any check fails,
-generation keeps the pointer and count parameters exactly as the ABI declares them and adds no
-slice or array sugar.
+Buffers marked `Output` without `Input` keep their pointer and count parameters so callers may
+supply uninitialized storage. For other buffers, before `CppMethod` indexes a related parameter,
+it rejects negative, out-of-range, and self-relative indexes and verifies that the count is one
+input scalar used by one buffer. Byte counts still require byte-sized elements. A fixed
+`CountConst` must be nonnegative and fit the maximum Rust object size on 32-bit Windows. If any
+check fails, generation keeps the pointer and count parameters exactly as the ABI declares them
+and adds no slice or array sugar.
 
 ### Parameter direction and retval policy
 

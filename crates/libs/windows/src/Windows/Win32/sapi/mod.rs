@@ -4052,7 +4052,7 @@ pub struct ISpRecoResult_Vtbl {
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "oaidl", feature = "objidlbase", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISpRecoResult_Impl: ISpPhrase_Impl {
     fn GetResultTimes(&self, ptimes: *mut SPRECORESULTTIMES) -> windows_core::Result<()>;
-    fn GetAlternates(&self, ulstartelement: u32, celements: u32, ulrequestcount: u32, ppphrases: windows_core::OutRef<ISpPhraseAlt>, pcphrasesreturned: *mut u32) -> windows_core::Result<()>;
+    fn GetAlternates(&self, ulstartelement: u32, celements: u32, ulrequestcount: u32, ppphrases: *mut Option<ISpPhraseAlt>, pcphrasesreturned: *mut u32) -> windows_core::Result<()>;
     fn GetAudio(&self, ulstartelement: u32, celements: u32) -> windows_core::Result<ISpStreamFormat>;
     fn SpeakAudio(&self, ulstartelement: u32, celements: u32, dwflags: u32) -> windows_core::Result<u32>;
     fn Serialize(&self) -> windows_core::Result<*mut SPSERIALIZEDRESULT>;
