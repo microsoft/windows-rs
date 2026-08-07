@@ -12,6 +12,7 @@ identifiers! {
     ClassLayout
     Constant
     Field
+    FieldLayout
     GenericParam
     ImplMap
     InterfaceImpl
@@ -70,4 +71,6 @@ row_handles! {
     (PropertyMap, PropertyMap)
     (Event, Event)
     (EventMap, EventMap)
+    (ClassLayout, ClassLayout)
+    (FieldLayout, FieldLayout)
 }

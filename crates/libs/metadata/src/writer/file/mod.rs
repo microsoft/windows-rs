@@ -424,19 +424,24 @@ impl File {
             });
     }
 
-    pub fn ClassLayout(&mut self, parent: TypeDef, packing_size: u16, class_size: u32) {
-        self.records.ClassLayout.push(rec::ClassLayout {
+    pub fn ClassLayout(
+        &mut self,
+        parent: TypeDef,
+        packing_size: u16,
+        class_size: u32,
+    ) -> ClassLayout {
+        ClassLayout(self.records.ClassLayout.push_pos(rec::ClassLayout {
             PackingSize: packing_size,
             ClassSize: class_size,
             Parent: parent.0,
-        });
+        }))
     }
 
-    pub fn FieldLayout(&mut self, field: Field, offset: u32) {
-        self.records.FieldLayout.push(rec::FieldLayout {
+    pub fn FieldLayout(&mut self, field: Field, offset: u32) -> FieldLayout {
+        FieldLayout(self.records.FieldLayout.push_pos(rec::FieldLayout {
             Offset: offset,
             Field: field.0,
-        });
+        }))
     }
 
     pub fn NestedClass(&mut self, inner: TypeDef, outer: TypeDef) {

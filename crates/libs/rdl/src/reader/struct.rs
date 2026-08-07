@@ -121,7 +121,8 @@ impl Encoder<'_> {
                 .Field(&field_name, &mt, metadata::FieldAttributes::Public);
             self.origin(field_id, &field.name);
             if is_union {
-                self.output.FieldLayout(field_id, 0);
+                let layout = self.output.FieldLayout(field_id, 0);
+                self.origin(layout, &field.name);
             }
             self.encode_attrs(
                 metadata::writer::HasAttribute::Field(field_id),
@@ -168,7 +169,12 @@ impl Encoder<'_> {
         arch_bits: Option<i32>,
     ) -> Result<(), Error> {
         if let Some(packing_size) = self.read_packed(attrs)? {
-            self.output.ClassLayout(type_def, packing_size, 0);
+            let layout = self.output.ClassLayout(type_def, packing_size, 0);
+            let attribute = attrs
+                .iter()
+                .find(|attribute| attribute.path().is_ident("packed"))
+                .unwrap();
+            self.origin(layout, attribute);
         }
 
         if let Some(alignment) = self.read_align(attrs)? {

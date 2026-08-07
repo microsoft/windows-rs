@@ -732,8 +732,9 @@ The next phase should proceed in this order:
 2. Done: add row identities and a standalone validator to `windows-metadata`.
 3. Done: add an in-memory writer-to-reader handoff and validate merge/remap output.
 4. In progress: lower RDL directly into metadata while recording row-to-source origins. Declaration,
-   field, method, property, event, and generated accessor rows are mapped and shared validation runs
-   after encoding.
+   field, method, property, event, map, layout, and generated accessor rows are mapped and shared
+   validation runs after encoding. Sorted rows use their mapped association as the diagnostic
+   location because their row positions are assigned during finalization.
 5. Move duplicate, attribute-target, profile, signature, layout, and association checks onto the
    shared metadata validator where ECMA-335 represents the fact.
 6. Implement explicit overload authoring as transparent metadata lowering after this boundary is

@@ -453,9 +453,19 @@ impl OriginMap {
 
     fn error(&self, error: metadata::validator::ValidationError) -> Error {
         let mut diagnostic = Diagnostic::new(error.message(), "", 0, 0);
+        let related = error.related();
+        let mut promoted_related = false;
 
         if let Some(primary) = self.rows.get(&error.row()) {
             diagnostic = diagnostic.with_primary_label(self.label(*primary, LabelStyle::Primary));
+        } else if let Some(primary) = related.and_then(|row| self.rows.get(&row)) {
+            diagnostic = diagnostic.with_primary_label(self.label(*primary, LabelStyle::Primary));
+            promoted_related = true;
+            diagnostic = diagnostic.with_note(&format!(
+                "metadata row {:?}[{}]",
+                error.row().table(),
+                error.row().row() + 1
+            ));
         } else {
             diagnostic = diagnostic.with_note(&format!(
                 "metadata row {:?}[{}]",
@@ -464,7 +474,8 @@ impl OriginMap {
             ));
         }
 
-        if let Some(related) = error.related()
+        if !promoted_related
+            && let Some(related) = related
             && let Some(label) = self.rows.get(&related)
         {
             let mut label = self.label(*label, LabelStyle::Secondary);

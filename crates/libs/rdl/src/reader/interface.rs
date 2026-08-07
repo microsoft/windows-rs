@@ -363,7 +363,8 @@ impl Encoder<'_> {
                     self.origin(property, &prop.name);
 
                     if !property_map_started {
-                        self.output.PropertyMap(interface, property);
+                        let map = self.output.PropertyMap(interface, property);
+                        self.origin(map, &prop.name);
                         property_map_started = true;
                     }
 
@@ -438,7 +439,8 @@ impl Encoder<'_> {
                     self.origin(event, &evt.name);
 
                     if !event_map_started {
-                        self.output.EventMap(interface, event);
+                        let map = self.output.EventMap(interface, event);
+                        self.origin(map, &evt.name);
                         event_map_started = true;
                     }
 

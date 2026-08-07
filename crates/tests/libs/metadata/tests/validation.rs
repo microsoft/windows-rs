@@ -12,13 +12,33 @@ fn writer_handles_match_finalized_row_ids() {
         "Test",
         "Value",
         writer::TypeDefOrRef::default(),
-        TypeAttributes::Public,
+        TypeAttributes::Public | TypeAttributes::ExplicitLayout,
     );
+    let field = file.Field("Value", &Type::I32, FieldAttributes::Public);
+    let class_layout = file.ClassLayout(handle, 4, 4);
+    let field_layout = file.FieldLayout(field, 0);
     let expected = handle.row_id(0);
+    let expected_class_layout = class_layout.row_id(0);
+    let expected_field_layout = field_layout.row_id(0);
     let index = index(file);
     let actual = index.expect("Test", "Value").row_id();
+    let actual_class_layout = index
+        .expect("Test", "Value")
+        .class_layout()
+        .unwrap()
+        .row_id();
+    let actual_field_layout = index
+        .expect("Test", "Value")
+        .fields()
+        .next()
+        .unwrap()
+        .layout()
+        .unwrap()
+        .row_id();
 
     assert_eq!(actual, expected);
+    assert_eq!(actual_class_layout, expected_class_layout);
+    assert_eq!(actual_field_layout, expected_field_layout);
     assert_eq!(actual.table(), reader::TableId::TypeDef);
     assert_eq!(actual.table() as u8, 0x02);
 }
