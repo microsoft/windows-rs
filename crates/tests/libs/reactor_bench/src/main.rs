@@ -24,17 +24,50 @@
 //! controls.
 
 use std::alloc::{GlobalAlloc, Layout, System};
+use std::any::Any;
+use std::cell::RefCell;
 use std::rc::Rc;
+use std::sync::LazyLock;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::Instant;
 
 use test_reactor::RecordingBackend;
 use windows_reactor::{
-    Element, ElementExt, Reconciler, RenderCx, component, memo, text_block, vstack,
+    Backend, Component, Context, ControlId, ControlKind, CustomElement, CustomElementHandle,
+    Element, KeyExt, ProvideExt, Reconciler, RenderCx, SetState, component, error_boundary, grid,
+    list_view, memo, swap_chain_panel, text_block, vstack,
 };
 
 static BYTES: AtomicU64 = AtomicU64::new(0);
 static ALLOCS: AtomicU64 = AtomicU64::new(0);
+static BENCH_CONTEXT: LazyLock<Context<u8>> = LazyLock::new(|| Context::new(0));
+
+#[derive(Clone)]
+struct BenchCustom;
+
+impl CustomElement for BenchCustom {
+    fn as_any(&self) -> &dyn Any {
+        self
+    }
+
+    fn kind_name(&self) -> &'static str {
+        "BenchCustom"
+    }
+
+    fn eq_dyn(&self, other: &dyn CustomElement) -> bool {
+        other.as_any().is::<Self>()
+    }
+
+    fn clone_dyn(&self) -> Box<dyn CustomElement> {
+        Box::new(self.clone())
+    }
+
+    fn mount(&self, backend: &mut dyn Backend) -> ControlId {
+        backend.create(ControlKind::TextBlock)
+    }
+
+    fn update(&self, _prev: &dyn CustomElement, _id: ControlId, _backend: &mut dyn Backend) {}
+}
 
 /// Global allocator that counts bytes and allocation calls. Wraps `System`;
 /// tracks only growth (alloc plus grow-realloc), which is enough for a
@@ -148,6 +181,63 @@ fn pass_through_component(_props: &(), _cx: &mut RenderCx) -> Element {
     component(component_leaf, ())
 }
 
+struct DirtyLeaf {
+    setter: Rc<RefCell<Option<SetState<u64>>>>,
+}
+
+impl Component for DirtyLeaf {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+        let (value, setter) = cx.use_state(0_u64);
+        *self.setter.borrow_mut() = Some(setter);
+        text_block(format!("dirty-{value}")).into()
+    }
+}
+
+struct DirtyWidgetRoot {
+    setter: Rc<RefCell<Option<SetState<u64>>>>,
+}
+
+impl Component for DirtyWidgetRoot {
+    fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
+        grid(vec![component(
+            DirtyLeaf {
+                setter: Rc::clone(&self.setter),
+            },
+            (),
+        )])
+        .into()
+    }
+}
+
+fn dirty_widget_tree(setter: Rc<RefCell<Option<SetState<u64>>>>) -> Element {
+    memo(DirtyWidgetRoot { setter }, ())
+}
+
+struct DirtyPassThrough {
+    setter: Rc<RefCell<Option<SetState<u64>>>>,
+}
+
+impl Component<u8> for DirtyPassThrough {
+    fn render(&self, depth: &u8, cx: &mut RenderCx) -> Element {
+        if *depth == 0 {
+            let (value, setter) = cx.use_state(0_u64);
+            *self.setter.borrow_mut() = Some(setter);
+            text_block(format!("deep-dirty-{value}")).into()
+        } else {
+            component(
+                Self {
+                    setter: Rc::clone(&self.setter),
+                },
+                depth - 1,
+            )
+        }
+    }
+}
+
+fn deep_dirty_tree(setter: Rc<RefCell<Option<SetState<u64>>>>) -> Element {
+    memo(DirtyPassThrough { setter }, 3)
+}
+
 /// One reconcile A -> B per op, alternating direction so the live tree stays
 /// consistent and each op is a real diff in one direction or the other.
 fn bench_update(name: &str, n: usize, a: Element, b: Element, iters: u64, reps: u32) -> Row {
@@ -158,10 +248,11 @@ fn bench_update(name: &str, n: usize, a: Element, b: Element, iters: u64, reps: 
         let id = r.reconcile(None, &a, None, Rc::clone(&rr)).unwrap();
         r.reset_stats();
         r.reconcile(Some(&a), &b, Some(id), Rc::clone(&rr));
+        let stats = r.stats();
         (
-            r.debug_elements_skipped,
-            r.debug_elements_diffed,
-            r.debug_ui_elements_created,
+            stats.elements_skipped,
+            stats.elements_diffed,
+            stats.ui_elements_created,
         )
     };
 
@@ -197,10 +288,11 @@ fn bench_mount_unmount(name: &str, n: usize, tree: Element, iters: u64, reps: u3
         let mut r = Reconciler::new(RecordingBackend::new());
         r.reset_stats();
         let id = r.reconcile(None, &tree, None, Rc::clone(&rr)).unwrap();
+        let stats = r.stats();
         let counts = (
-            r.debug_elements_skipped,
-            r.debug_elements_diffed,
-            r.debug_ui_elements_created,
+            stats.elements_skipped,
+            stats.elements_diffed,
+            stats.ui_elements_created,
         );
         r.unmount(id);
         counts
@@ -219,6 +311,46 @@ fn bench_mount_unmount(name: &str, n: usize, tree: Element, iters: u64, reps: u3
         skipped,
         diffed,
         created,
+    }
+}
+
+fn bench_dirty_component(
+    name: &str,
+    n: usize,
+    tree: Element,
+    setter: Rc<RefCell<Option<SetState<u64>>>>,
+    iters: u64,
+    reps: u32,
+) -> Row {
+    let rr = no_rerender();
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let id = r.reconcile(None, &tree, None, Rc::clone(&rr)).unwrap();
+    r.reset_stats();
+
+    setter.borrow().as_ref().unwrap().call(1);
+    r.reconcile(Some(&tree), &tree, Some(id), Rc::clone(&rr));
+    let stats = r.stats();
+    let counts = (
+        stats.elements_skipped,
+        stats.elements_diffed,
+        stats.ui_elements_created,
+    );
+    r.reset_stats();
+
+    let mut value = 1_u64;
+    let perf = measure(iters, reps, 2, || {
+        value ^= 1;
+        setter.borrow().as_ref().unwrap().call(value);
+        r.reconcile(Some(&tree), &tree, Some(id), Rc::clone(&rr));
+    });
+
+    Row {
+        name: name.to_string(),
+        n,
+        perf,
+        skipped: counts.0,
+        diffed: counts.1,
+        created: counts.2,
     }
 }
 
@@ -253,6 +385,95 @@ fn main() {
         iters,
         reps,
     ));
+    rows.push(bench_mount_unmount(
+        "provider_mount",
+        2,
+        component(component_leaf, ()).provide(&BENCH_CONTEXT, 1),
+        iters,
+        reps,
+    ));
+    rows.push(bench_mount_unmount(
+        "error_boundary_mount",
+        2,
+        error_boundary(component(component_leaf, ()), |_| {
+            text_block("fallback").into()
+        }),
+        iters,
+        reps,
+    ));
+    rows.push(bench_mount_unmount(
+        "custom_mount",
+        1,
+        Element::Custom(CustomElementHandle::new(BenchCustom)),
+        iters,
+        reps,
+    ));
+    rows.push(bench_mount_unmount(
+        "lifecycle_mount",
+        1,
+        swap_chain_panel().on_unmounted(|_| {}).into(),
+        iters,
+        reps,
+    ));
+    for n in [64, 4096] {
+        rows.push(bench_mount_unmount(
+            "templated_mount",
+            n,
+            list_view((0..n).map(|n| n as i32).collect::<Vec<_>>(), |n, _| {
+                text_block(n.to_string())
+            })
+            .on_selection_changed(|_| {})
+            .on_reorder(|_| {})
+            .build(),
+            iters,
+            reps,
+        ));
+    }
+    rows.push(bench_mount_unmount(
+        "deep_pass_mount",
+        4,
+        deep_dirty_tree(Rc::new(RefCell::new(None))),
+        iters,
+        reps,
+    ));
+    {
+        let setter = Rc::new(RefCell::new(None));
+        rows.push(bench_dirty_component(
+            "dirty_component",
+            1,
+            component(
+                DirtyLeaf {
+                    setter: Rc::clone(&setter),
+                },
+                (),
+            ),
+            setter,
+            iters,
+            reps,
+        ));
+    }
+    {
+        let setter = Rc::new(RefCell::new(None));
+        rows.push(bench_dirty_component(
+            "dirty_deep_pass",
+            4,
+            deep_dirty_tree(Rc::clone(&setter)),
+            setter,
+            iters,
+            reps,
+        ));
+    }
+    {
+        let setter = Rc::new(RefCell::new(None));
+        rows.push(bench_dirty_component(
+            "dirty_memo_widget",
+            3,
+            dirty_widget_tree(Rc::clone(&setter)),
+            setter,
+            iters,
+            reps,
+        ));
+    }
     for &n in &[64usize, 512] {
         let tree = plain_stack(&labels(n, "cell"));
         rows.push(bench_mount_unmount(

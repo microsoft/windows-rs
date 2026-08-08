@@ -258,6 +258,9 @@ struct ContextEntry {
     value: Rc<dyn Any>,
 }
 
+#[derive(Clone, Default)]
+pub(crate) struct ContextSnapshot(Vec<(ContextId, TypeId, Rc<dyn Any>)>);
+
 #[derive(Default)]
 pub struct ContextStack {
     entries: std::cell::RefCell<FxHashMap<ContextId, Vec<ContextEntry>>>,
@@ -314,6 +317,27 @@ impl ContextStack {
             TypeId::of::<T>()
         );
         entry.value.downcast_ref::<T>().cloned()
+    }
+
+    pub(crate) fn snapshot(&self) -> ContextSnapshot {
+        let entries = self.entries.borrow();
+        ContextSnapshot(
+            entries
+                .iter()
+                .filter_map(|(id, values)| {
+                    values
+                        .last()
+                        .map(|entry| (*id, entry.value_type_id, Rc::clone(&entry.value)))
+                })
+                .collect(),
+        )
+    }
+
+    pub(crate) fn push_snapshot(&self, snapshot: &ContextSnapshot) -> usize {
+        for (id, value_type_id, value) in &snapshot.0 {
+            self.push_raw_retain(*id, *value_type_id, Rc::clone(value));
+        }
+        snapshot.0.len()
     }
 
     fn pop(&self) {

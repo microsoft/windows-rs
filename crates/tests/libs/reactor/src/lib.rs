@@ -419,7 +419,12 @@ impl Backend for RecordingBackend {
     fn destroy(&mut self, id: ControlId) {
         self.children.remove(&id);
         self.native_elements.remove(&id);
-
+        self.row_contents.remove(&id);
+        self.item_counts.remove(&id);
+        self.realization_handlers.remove(&id);
+        self.selection_handlers.remove(&id);
+        self.reorder_handlers.remove(&id);
+        self.theme_bindings_live.remove(&id);
         self.handlers.retain(|(hid, _), _| *hid != id);
         self.ops.push(Op::Destroy { id });
     }

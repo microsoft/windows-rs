@@ -22,13 +22,9 @@ pub struct RelativePanel {
 }
 
 impl RelativePanel {
-    pub fn new<I>(children: I) -> Self
-    where
-        I: IntoIterator,
-        I::Item: Into<Element>,
-    {
+    pub fn new(children: impl IntoChildren) -> Self {
         Self {
-            children: children.into_iter().map(Into::into).collect(),
+            children: children.into_children(),
             ..Default::default()
         }
     }
@@ -44,10 +40,6 @@ impl Widget for RelativePanel {
     }
 }
 
-pub fn relative_panel<I>(children: I) -> RelativePanel
-where
-    I: IntoIterator,
-    I::Item: Into<Element>,
-{
+pub fn relative_panel(children: impl IntoChildren) -> RelativePanel {
     RelativePanel::new(children)
 }

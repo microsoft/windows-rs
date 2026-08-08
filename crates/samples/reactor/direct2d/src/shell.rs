@@ -54,10 +54,11 @@ pub fn shell(cx: &mut RenderCx) -> Element {
                 set_selected_tag.call(tag);
             }
         })
+        .grid_row(0)
         .provide(&gpu_context(), Some(gpu));
 
     grid((
-        nav_view.grid_row(0),
+        nav_view,
         button("Recreate Device")
             .icon(Symbol::Refresh)
             .on_click(recreate_device)

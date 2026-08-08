@@ -1,7 +1,7 @@
 use windows_reactor::*;
 
 fn app(_cx: &mut RenderCx) -> Element {
-    let card = |title: &str, body: &str, radius: f64, stroke: f64| -> Element {
+    let card = |title: &str, body: &str, radius: f64, stroke: f64| -> Border {
         border(
             vstack((
                 text_block(title).font_size(16.0).bold(),
@@ -16,7 +16,6 @@ fn app(_cx: &mut RenderCx) -> Element {
         .padding(Thickness::uniform(16.0))
         .min_width(160.0)
         .max_width(240.0)
-        .into()
     };
 
     grid((

@@ -1214,8 +1214,26 @@ impl StatsAccumulator {
 
 /// Owns a [`Reconciler`] and a root [`Component`], coalescing render
 /// requests onto the supplied [`Dispatcher`] (typically the UI thread).
-pub struct RenderHost<B: Backend, D: Dispatcher> {
+pub struct RenderHost<B: Backend + 'static, D: Dispatcher> {
     inner: Rc<RenderHostInner<B, D>>,
+}
+
+pub struct WeakRenderHost<B: Backend + 'static, D: Dispatcher> {
+    inner: std::rc::Weak<RenderHostInner<B, D>>,
+}
+
+impl<B: Backend + 'static, D: Dispatcher> Clone for WeakRenderHost<B, D> {
+    fn clone(&self) -> Self {
+        Self {
+            inner: self.inner.clone(),
+        }
+    }
+}
+
+impl<B: Backend + 'static, D: Dispatcher> WeakRenderHost<B, D> {
+    pub fn upgrade(&self) -> Option<RenderHost<B, D>> {
+        self.inner.upgrade().map(|inner| RenderHost { inner })
+    }
 }
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
@@ -1226,7 +1244,7 @@ enum RenderState {
     RenderingDirty,
 }
 
-struct RenderHostInner<B: Backend, D: Dispatcher> {
+struct RenderHostInner<B: Backend + 'static, D: Dispatcher> {
     reconciler: RefCell<Reconciler<B>>,
     root: RefCell<Box<dyn Component>>,
     render_cx: RefCell<RenderCx>,
@@ -1246,9 +1264,12 @@ struct RenderHostInner<B: Backend, D: Dispatcher> {
     host_id: HostId,
 }
 
-impl<B: Backend, D: Dispatcher> Drop for RenderHostInner<B, D> {
+impl<B: Backend + 'static, D: Dispatcher> Drop for RenderHostInner<B, D> {
     fn drop(&mut self) {
         set_ui_rerender(self.host_id, None);
+        self.root_id.take();
+        self.reconciler.get_mut().unmount_root();
+        self.render_cx.get_mut().run_cleanups();
     }
 }
 
@@ -1382,6 +1403,12 @@ impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
         }
     }
 
+    pub fn downgrade(&self) -> WeakRenderHost<B, D> {
+        WeakRenderHost {
+            inner: Rc::downgrade(&self.inner),
+        }
+    }
+
     pub fn set_post_render<F>(&self, f: F)
     where
         F: Fn(Option<ControlId>) + 'static,
@@ -1405,14 +1432,12 @@ impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
             return;
         }
         self.inner.inner_size.set(size);
-        if let Some(root_id) = self.inner.root_id.get() {
-            let mut changed = FxHashSet::default();
-            changed.insert(inner_size_context_id());
-            self.inner
-                .reconciler
-                .borrow_mut()
-                .force_context_subscribers(root_id, &changed);
-        }
+        let mut changed = FxHashSet::default();
+        changed.insert(inner_size_context_id());
+        self.inner
+            .reconciler
+            .borrow_mut()
+            .force_context_subscribers_root(&changed);
         self.request_render();
     }
 
@@ -1425,14 +1450,12 @@ impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
             return;
         }
         self.inner.dpi.set(dpi);
-        if let Some(root_id) = self.inner.root_id.get() {
-            let mut changed = FxHashSet::default();
-            changed.insert(dpi_context_id());
-            self.inner
-                .reconciler
-                .borrow_mut()
-                .force_context_subscribers(root_id, &changed);
-        }
+        let mut changed = FxHashSet::default();
+        changed.insert(dpi_context_id());
+        self.inner
+            .reconciler
+            .borrow_mut()
+            .force_context_subscribers_root(&changed);
         self.request_render();
     }
 }
@@ -1513,12 +1536,12 @@ fn render_once_inner<B: Backend + 'static, D: Dispatcher + 'static>(
             request_rerender,
         );
         reconciler.drain_realizations();
-        reconciler.clear_forced_component_rerender();
+        reconciler.clear_forced_components();
         (
             id,
-            reconciler.debug_elements_diffed,
-            reconciler.debug_elements_skipped,
-            reconciler.debug_ui_elements_created,
+            reconciler.stats().elements_diffed,
+            reconciler.stats().elements_skipped,
+            reconciler.stats().ui_elements_created,
         )
     };
     let reconcile_ms = reconcile_started.elapsed().as_secs_f64() * 1000.0;

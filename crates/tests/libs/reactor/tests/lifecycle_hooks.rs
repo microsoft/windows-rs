@@ -44,6 +44,53 @@ impl Component<Hooked> for HookView {
     }
 }
 
+#[derive(Clone)]
+struct Recycled {
+    appeared: Rc<Cell<i32>>,
+    disappeared: Rc<Cell<i32>>,
+    setups: Rc<Cell<i32>>,
+    cleanups: Rc<Cell<i32>>,
+}
+
+impl PartialEq for Recycled {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.appeared, &other.appeared)
+            && Rc::ptr_eq(&self.disappeared, &other.disappeared)
+            && Rc::ptr_eq(&self.setups, &other.setups)
+            && Rc::ptr_eq(&self.cleanups, &other.cleanups)
+    }
+}
+
+struct RecycledView;
+
+impl Component<Recycled> for RecycledView {
+    fn render(&self, props: &Recycled, cx: &mut RenderCx) -> Element {
+        let setups = Rc::clone(&props.setups);
+        let cleanups = Rc::clone(&props.cleanups);
+        cx.use_effect_with_cleanup((), move || {
+            setups.set(setups.get() + 1);
+            Some(move || cleanups.set(cleanups.get() + 1))
+        });
+        TextBlock::new("recycled").into()
+    }
+
+    fn has_on_appeared(&self) -> bool {
+        true
+    }
+
+    fn has_on_disappeared(&self) -> bool {
+        true
+    }
+
+    fn on_appeared(&self, props: &Recycled, _cx: &mut RenderCx) {
+        props.appeared.set(props.appeared.get() + 1);
+    }
+
+    fn on_disappeared(&self, props: &Recycled, _cx: &mut RenderCx) {
+        props.disappeared.set(props.disappeared.get() + 1);
+    }
+}
+
 fn noop() -> Rc<dyn Fn()> {
     Rc::new(|| {})
 }
@@ -176,6 +223,47 @@ fn multiple_realize_recycle_cycles_are_counted_independently() {
     r.drain_realizations();
     assert_eq!(appeared.get(), 4);
     assert_eq!(disappeared.get(), 1);
+}
+
+#[test]
+fn repeated_recycle_cycles_balance_lifecycle_and_effect_ownership() {
+    const CYCLES: i32 = 64;
+
+    let appeared = Rc::new(Cell::new(0));
+    let disappeared = Rc::new(Cell::new(0));
+    let setups = Rc::new(Cell::new(0));
+    let cleanups = Rc::new(Cell::new(0));
+    let props = Recycled {
+        appeared: Rc::clone(&appeared),
+        disappeared: Rc::clone(&disappeared),
+        setups: Rc::clone(&setups),
+        cleanups: Rc::clone(&cleanups),
+    };
+    let el = list_view(vec![0u32], move |_, _| {
+        component(RecycledView, props.clone())
+    })
+    .build();
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let list_id = r.reconcile(None, &el, None, noop()).unwrap();
+    r.drain_realizations();
+
+    for cycle in 1..=CYCLES {
+        r.backend.simulate_prepare_row(list_id, 0);
+        r.drain_realizations();
+        assert_eq!(appeared.get(), cycle);
+        assert_eq!(setups.get(), cycle);
+        assert_eq!(r.debug_appeared_listener_count(), 1);
+        assert_eq!(r.debug_disappeared_listener_count(), 1);
+
+        r.backend.simulate_clear_row(list_id, 0);
+        r.drain_realizations();
+        assert_eq!(disappeared.get(), cycle);
+        assert_eq!(cleanups.get(), cycle);
+        assert_eq!(r.debug_appeared_listener_count(), 0);
+        assert_eq!(r.debug_disappeared_listener_count(), 0);
+        assert!(r.backend.row_contents_of(list_id).is_empty());
+    }
 }
 
 #[test]

@@ -13,7 +13,7 @@ use std::cell::Cell;
 use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
-use windows_reactor::ElementExt;
+use windows_reactor::CanvasChildExt;
 use windows_reactor::Reconciler;
 use windows_reactor::list_view;
 use windows_reactor::{Backend, ControlKind, Event, Prop, PropValue};

@@ -1,4 +1,4 @@
-use std::cell::Cell;
+use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
@@ -7,7 +7,8 @@ use windows_reactor::ControlKind;
 use windows_reactor::Element;
 use windows_reactor::Reconciler;
 use windows_reactor::RenderCx;
-use windows_reactor::{ElementExt, text_block};
+use windows_reactor::{KeyExt, text_block};
+use windows_reactor::{Orientation, StackPanel};
 use windows_reactor::{component, memo};
 
 #[derive(Clone, PartialEq, Debug)]
@@ -349,6 +350,213 @@ fn component_render_to_empty_does_not_double_unmount() {
         "audit §7.1.4: render→Empty must unmount the old root exactly once; \
          id {id_a:?} ops in swap window: {window:#?}"
     );
+}
+
+struct EmptyToggle {
+    renders: Rc<Cell<u32>>,
+    cleaned: Rc<Cell<u32>>,
+    setter: Rc<RefCell<Option<windows_reactor::SetState<bool>>>>,
+}
+
+impl Component for EmptyToggle {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+        let (show, set_show) = cx.use_state(false);
+        *self.setter.borrow_mut() = Some(set_show);
+        let cleaned = Rc::clone(&self.cleaned);
+        cx.use_effect_with_cleanup((), move || {
+            Some(Box::new(move || cleaned.set(cleaned.get() + 1)))
+        });
+        self.renders.set(self.renders.get() + 1);
+        if show {
+            text_block("visible").into()
+        } else {
+            Element::Empty
+        }
+    }
+}
+
+#[test]
+fn initially_empty_component_keeps_hooks_and_rerenders_when_dirty() {
+    let renders = Rc::new(Cell::new(0));
+    let cleaned = Rc::new(Cell::new(0));
+    let setter = Rc::new(RefCell::new(None));
+    let element = component(
+        EmptyToggle {
+            renders: Rc::clone(&renders),
+            cleaned: Rc::clone(&cleaned),
+            setter: Rc::clone(&setter),
+        },
+        (),
+    );
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    assert!(reconcile(&mut r, None, &element, None).is_none());
+    assert_eq!(renders.get(), 1);
+    assert_eq!(r.debug_logical_component_count(), 1);
+
+    setter.borrow().as_ref().unwrap().call(true);
+    let id = reconcile(&mut r, Some(&element), &element, None);
+    assert!(
+        id.is_some(),
+        "dirty empty component must produce native output"
+    );
+    assert_eq!(renders.get(), 2);
+    assert_eq!(cleaned.get(), 0, "output transitions must not run cleanup");
+
+    setter.borrow().as_ref().unwrap().call(false);
+    let id = reconcile(&mut r, Some(&element), &element, Some(id.unwrap()));
+    assert!(
+        id.is_none(),
+        "dirty component must be able to become empty again"
+    );
+    assert_eq!(renders.get(), 3);
+    assert_eq!(
+        cleaned.get(),
+        0,
+        "logical component cleanup must be deferred"
+    );
+
+    setter.borrow().as_ref().unwrap().call(true);
+    let id = reconcile(&mut r, Some(&element), &element, None);
+    assert!(
+        id.is_some(),
+        "empty component must be able to become native again"
+    );
+    assert_eq!(renders.get(), 4);
+    assert_eq!(cleaned.get(), 0, "logical component must remain mounted");
+
+    r.unmount_root();
+    assert_eq!(
+        cleaned.get(),
+        1,
+        "cleanup runs when the logical component unmounts"
+    );
+}
+
+#[test]
+fn nested_empty_component_state_reaches_unchanged_native_parent() {
+    let renders = Rc::new(Cell::new(0));
+    let cleaned = Rc::new(Cell::new(0));
+    let setter = Rc::new(RefCell::new(None));
+    let tree = Element::StackPanel(StackPanel {
+        orientation: Orientation::Vertical,
+        children: vec![component(
+            EmptyToggle {
+                renders: Rc::clone(&renders),
+                cleaned: Rc::clone(&cleaned),
+                setter: Rc::clone(&setter),
+            },
+            (),
+        )],
+        ..StackPanel::default()
+    });
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let root = reconcile(&mut r, None, &tree, None).unwrap();
+    assert_eq!(r.backend.children_of(root).len(), 0);
+
+    setter.borrow().as_ref().unwrap().call(true);
+    reconcile(&mut r, Some(&tree), &tree, Some(root));
+    assert_eq!(r.backend.children_of(root).len(), 1);
+
+    setter.borrow().as_ref().unwrap().call(false);
+    reconcile(&mut r, Some(&tree), &tree, Some(root));
+    assert_eq!(r.backend.children_of(root).len(), 0);
+    assert_eq!(renders.get(), 3);
+    assert_eq!(cleaned.get(), 0);
+}
+
+struct EmptyByProp {
+    renders: Rc<Cell<u32>>,
+}
+
+#[derive(Clone, PartialEq, Debug)]
+struct Show {
+    value: bool,
+}
+
+impl Component<Show> for EmptyByProp {
+    fn render(&self, props: &Show, _cx: &mut RenderCx) -> Element {
+        self.renders.set(self.renders.get() + 1);
+        if props.value {
+            text_block("shown").into()
+        } else {
+            Element::Empty
+        }
+    }
+}
+
+fn keyed_empty_stack(show: bool, renders: &Rc<Cell<u32>>) -> Element {
+    Element::StackPanel(StackPanel {
+        orientation: Orientation::Vertical,
+        children: vec![
+            text_block("a").with_key("a").into(),
+            component(
+                EmptyByProp {
+                    renders: Rc::clone(renders),
+                },
+                Show { value: show },
+            )
+            .with_key("empty"),
+            text_block("b").with_key("b").into(),
+        ],
+        ..StackPanel::default()
+    })
+}
+
+#[test]
+fn empty_component_siblings_do_not_shift_native_indices() {
+    let renders = Rc::new(Cell::new(0));
+    let old = keyed_empty_stack(false, &renders);
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let root = reconcile(&mut r, None, &old, None).unwrap();
+    assert_eq!(r.backend.children_of(root).len(), 2);
+
+    let shown = keyed_empty_stack(true, &renders);
+    reconcile(&mut r, Some(&old), &shown, Some(root));
+    let children = r.backend.children_of(root);
+    assert_eq!(children.len(), 3);
+    assert_eq!(renders.get(), 2);
+
+    let hidden = keyed_empty_stack(false, &renders);
+    reconcile(&mut r, Some(&shown), &hidden, Some(root));
+    assert_eq!(r.backend.children_of(root).len(), 2);
+    assert_eq!(renders.get(), 3);
+}
+
+fn positional_empty_stack(show: bool, renders: &Rc<Cell<u32>>) -> Element {
+    Element::StackPanel(StackPanel {
+        orientation: Orientation::Vertical,
+        children: vec![
+            text_block("a").into(),
+            component(
+                EmptyByProp {
+                    renders: Rc::clone(renders),
+                },
+                Show { value: show },
+            ),
+            text_block("b").into(),
+        ],
+        ..StackPanel::default()
+    })
+}
+
+#[test]
+fn empty_component_siblings_do_not_shift_positional_native_indices() {
+    let renders = Rc::new(Cell::new(0));
+    let old = positional_empty_stack(false, &renders);
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let root = reconcile(&mut r, None, &old, None).unwrap();
+    assert_eq!(r.backend.children_of(root).len(), 2);
+
+    let shown = positional_empty_stack(true, &renders);
+    reconcile(&mut r, Some(&old), &shown, Some(root));
+    assert_eq!(r.backend.children_of(root).len(), 3);
+
+    let hidden = positional_empty_stack(false, &renders);
+    reconcile(&mut r, Some(&shown), &hidden, Some(root));
+    assert_eq!(r.backend.children_of(root).len(), 2);
+    assert_eq!(renders.get(), 3);
 }
 
 #[test]

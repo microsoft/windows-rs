@@ -778,6 +778,11 @@ fn run_property_animation_inner(ui: &bindings::UIElement, cfg: AnimationConfig) 
         visual.start_animation("Opacity", &a);
     }
     if let Some(scale) = cfg.scale {
+        let current = visual.scale();
+        let s = scale as f32;
+        if current.x == s && current.y == s {
+            return Ok(());
+        }
         // Before first layout, ActualWidth/Height are 0 and CenterPoint is reused.
         if let Ok(fe) = ui.cast::<bindings::IFrameworkElement>() {
             let w = fe.ActualWidth().unwrap_or(0.0) as f32;
@@ -794,17 +799,15 @@ fn run_property_animation_inner(ui: &bindings::UIElement, cfg: AnimationConfig) 
                 ));
             }
         }
-        let current_z = visual.scale().z;
         let a = compositor.create_vector3_key_frame_animation();
         a.set_duration(cfg.duration);
         let easing = easing_for(&compositor, cfg.easing);
-        let s = scale as f32;
         a.insert_key_frame_with_easing(
             1.0,
             windows_numerics::Vector3 {
                 x: s,
                 y: s,
-                z: current_z,
+                z: current.z,
             },
             &easing,
         );
@@ -1113,6 +1116,7 @@ fn set_padding(handle: &Handle, thickness: Thickness) -> Result<bool> {
         // `Grid` is a `Panel`, not a `Control`, so it has no `IControl::SetPadding`;
         // its padding lives on the `IGrid` interface instead.
         Handle::Grid(h) => h.cast::<bindings::IGrid>()?.SetPadding(thickness)?,
+        Handle::SwapChainPanel(h) => h.cast::<bindings::IGrid>()?.SetPadding(thickness)?,
         _ => {
             if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
                 ctl.SetPadding(thickness)?;
@@ -1833,7 +1837,18 @@ impl Backend for WinUIBackend {
                     if current == s.as_str() {
                         return Ok(());
                     }
-                    doc.SetText(bindings::TextSetOptions::None, s.as_str())
+                    let read_only = reb.IsReadOnly()?;
+                    if read_only {
+                        reb.SetIsReadOnly(false)?;
+                    }
+                    let set_result = doc.SetText(bindings::TextSetOptions::None, s.as_str());
+                    let restore_result = if read_only {
+                        reb.SetIsReadOnly(true)
+                    } else {
+                        Ok(())
+                    };
+                    set_result?;
+                    restore_result
                 }
                 (Prop::Header, PropValue::Str(s), Handle::RichEditBox(reb)) => {
                     let tb = string_as_textblock(s)?;
@@ -2580,10 +2595,10 @@ impl Backend for WinUIBackend {
                 }
             }
             (Event::SelectionChanged, Handle::Pivot(p)) => {
-                let selector: bindings::ISelector = p.cast().unwrap();
+                let control = p.clone();
                 revokers.push(
                     p.SelectionChanged(move |_sender, _args| {
-                        let idx = selector.SelectedIndex().unwrap_or(-1);
+                        let idx = control.SelectedIndex().unwrap_or(-1);
                         if idx >= 0 {
                             handler.invoke_i32(idx);
                         }

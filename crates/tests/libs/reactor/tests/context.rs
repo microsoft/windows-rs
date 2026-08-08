@@ -9,7 +9,9 @@ use windows_reactor::Element;
 use windows_reactor::Reconciler;
 use windows_reactor::RenderCx;
 use windows_reactor::component;
-use windows_reactor::{ElementExt, border, text_block};
+use windows_reactor::{
+    Expander, ProvideExt, border, grid, list_view, memo, split_view, text_block,
+};
 
 use windows_reactor::vstack;
 static THEME: LazyLock<Context<String>> =
@@ -24,6 +26,17 @@ impl Component for Leaf {
         let t = cx.use_context(&THEME);
         self.seen.set(t.clone());
         text_block(t).into()
+    }
+}
+
+struct EmptyLeaf {
+    seen: Rc<Cell<String>>,
+}
+
+impl Component for EmptyLeaf {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+        self.seen.set(cx.use_context(&THEME));
+        Element::Empty
     }
 }
 
@@ -65,6 +78,35 @@ fn provide_at_root_reaches_grandchild() {
     let mut r = Reconciler::new(RecordingBackend::new());
     let _ = reconcile(&mut r, None, &tree, None);
     assert_eq!(seen.take(), "dark");
+}
+
+#[test]
+fn provider_owns_stable_logical_node() {
+    let seen = Rc::new(Cell::new(String::new()));
+    let build = |value: &str| {
+        component(
+            Leaf {
+                seen: Rc::clone(&seen),
+            },
+            (),
+        )
+        .provide(&THEME, value.to_string())
+    };
+    let old = build("old");
+    let new = build("new");
+    let mut r = Reconciler::new(RecordingBackend::new());
+
+    let id = reconcile(&mut r, None, &old, None).unwrap();
+    assert_eq!(r.debug_logical_component_count(), 1);
+    assert_eq!(r.debug_logical_node_count(), 2);
+
+    let id = reconcile(&mut r, Some(&old), &new, Some(id)).unwrap();
+    assert_eq!(seen.take(), "new");
+    assert_eq!(r.debug_logical_component_count(), 1);
+    assert_eq!(r.debug_logical_node_count(), 2);
+
+    r.unmount(id);
+    assert_eq!(r.debug_logical_node_count(), 0);
 }
 
 #[test]
@@ -161,6 +203,175 @@ fn changing_provided_value_triggers_subscriber_rerender() {
     assert!(
         renders.get() >= 2,
         "observer must re-render on provision change"
+    );
+    assert_eq!(seen.take(), "v2");
+}
+
+#[test]
+fn changing_provided_value_reaches_header_subtree() {
+    let seen = Rc::new(Cell::new(String::new()));
+    let build = |value: &str| {
+        Expander::new(text_block("body"))
+            .header_content(component(
+                Leaf {
+                    seen: Rc::clone(&seen),
+                },
+                (),
+            ))
+            .provide(&THEME, value.to_string())
+    };
+    let old = build("old");
+    let new = build("new");
+    let mut r = Reconciler::new(RecordingBackend::new());
+
+    let id = reconcile(&mut r, None, &old, None).unwrap();
+    assert_eq!(seen.take(), "old");
+
+    reconcile(&mut r, Some(&old), &new, Some(id));
+    assert_eq!(seen.take(), "new");
+}
+
+#[test]
+fn changing_provided_value_reaches_pane_subtree() {
+    let seen = Rc::new(Cell::new(String::new()));
+    let build = |value: &str| {
+        split_view(text_block("body"))
+            .pane(component(
+                Leaf {
+                    seen: Rc::clone(&seen),
+                },
+                (),
+            ))
+            .provide(&THEME, value.to_string())
+    };
+    let old = build("old");
+    let new = build("new");
+    let mut r = Reconciler::new(RecordingBackend::new());
+
+    let id = reconcile(&mut r, None, &old, None).unwrap();
+    assert_eq!(seen.take(), "old");
+
+    reconcile(&mut r, Some(&old), &new, Some(id));
+    assert_eq!(seen.take(), "new");
+}
+
+#[test]
+fn changing_provided_value_reaches_realized_templated_row() {
+    let seen = Rc::new(Cell::new(String::new()));
+    let build = |value: &str| {
+        let seen = Rc::clone(&seen);
+        list_view(vec![0_u8], move |_, _| {
+            component(
+                Leaf {
+                    seen: Rc::clone(&seen),
+                },
+                (),
+            )
+        })
+        .build()
+        .provide(&THEME, value.to_string())
+    };
+    let old = build("old");
+    let new = build("new");
+    let mut r = Reconciler::new(RecordingBackend::new());
+
+    let id = reconcile(&mut r, None, &old, None).unwrap();
+    r.backend.simulate_prepare_row(id, 0);
+    r.drain_realizations();
+    assert_eq!(seen.take(), "old");
+
+    reconcile(&mut r, Some(&old), &new, Some(id));
+    assert_eq!(seen.take(), "new");
+}
+
+#[test]
+fn changing_provided_value_reaches_empty_realized_templated_row() {
+    let seen = Rc::new(Cell::new(String::new()));
+    let build = |value: &str| {
+        let seen = Rc::clone(&seen);
+        list_view(vec![0_u8], move |_, _| {
+            component(
+                EmptyLeaf {
+                    seen: Rc::clone(&seen),
+                },
+                (),
+            )
+        })
+        .build()
+        .provide(&THEME, value.to_string())
+    };
+    let old = build("old");
+    let new = build("new");
+    let mut r = Reconciler::new(RecordingBackend::new());
+
+    let id = reconcile(&mut r, None, &old, None).unwrap();
+    r.backend.simulate_prepare_row(id, 0);
+    r.drain_realizations();
+    assert_eq!(seen.take(), "old");
+
+    reconcile(&mut r, Some(&old), &new, Some(id));
+    assert_eq!(seen.take(), "new");
+}
+
+struct MemoWidgetObserver {
+    renders: Rc<Cell<u32>>,
+    seen: Rc<Cell<String>>,
+}
+
+impl Component for MemoWidgetObserver {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+        self.renders.set(self.renders.get() + 1);
+        let value = cx.use_context(&THEME);
+        self.seen.set(value.clone());
+        text_block(value).into()
+    }
+}
+
+struct MemoWidgetProviderChild {
+    renders: Rc<Cell<u32>>,
+    seen: Rc<Cell<String>>,
+}
+
+impl Component for MemoWidgetProviderChild {
+    fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
+        grid(vec![component(
+            MemoWidgetObserver {
+                renders: Rc::clone(&self.renders),
+                seen: Rc::clone(&self.seen),
+            },
+            (),
+        )])
+        .into()
+    }
+}
+
+#[test]
+fn context_change_rerenders_through_memoized_widget_root() {
+    let renders = Rc::new(Cell::new(0));
+    let seen = Rc::new(Cell::new(String::new()));
+    let build = |value: &'static str| {
+        memo(
+            MemoWidgetProviderChild {
+                renders: Rc::clone(&renders),
+                seen: Rc::clone(&seen),
+            },
+            (),
+        )
+        .provide(&THEME, value.to_string())
+    };
+
+    let tree_a = build("v1");
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let id = reconcile(&mut r, None, &tree_a, None).unwrap();
+    assert_eq!(renders.get(), 1);
+    assert_eq!(seen.take(), "v1");
+
+    let tree_b = build("v2");
+    let _ = reconcile(&mut r, Some(&tree_a), &tree_b, Some(id));
+    assert_eq!(
+        renders.get(),
+        2,
+        "a context subscriber must pierce a memoized component with a widget root"
     );
     assert_eq!(seen.take(), "v2");
 }

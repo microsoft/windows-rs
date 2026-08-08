@@ -26,62 +26,58 @@ fn app(cx: &mut RenderCx) -> Element {
     let margin = 16.0;
 
     grid((
-        Element::from(
-            animated_canvas({
-                move |ctx| {
-                    *frame.borrow_mut() += 1;
-                    let t = *frame.borrow() as f32 * 0.02;
-                    let count = *circle_count.borrow();
-                    let cx = ctx.width / 2.0;
-                    let cy = ctx.height / 2.0;
-                    let orbit = cx.min(cy) * 0.5;
+        animated_canvas({
+            move |ctx| {
+                *frame.borrow_mut() += 1;
+                let t = *frame.borrow() as f32 * 0.02;
+                let count = *circle_count.borrow();
+                let cx = ctx.width / 2.0;
+                let cy = ctx.height / 2.0;
+                let orbit = cx.min(cy) * 0.5;
 
-                    ctx.clear(ColorF::TRANSPARENT);
+                ctx.clear(ColorF::TRANSPARENT);
 
-                    let brush = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
+                let brush = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
 
-                    for i in 0..count {
-                        let phase = t + i as f32 * 1.2;
-                        let x = cx + phase.cos() * orbit;
-                        let y = cy + phase.sin() * (orbit * 0.7);
-                        let radius = 20.0 + (phase * 0.7).sin().abs() * 30.0;
+                for i in 0..count {
+                    let phase = t + i as f32 * 1.2;
+                    let x = cx + phase.cos() * orbit;
+                    let y = cy + phase.sin() * (orbit * 0.7);
+                    let radius = 20.0 + (phase * 0.7).sin().abs() * 30.0;
 
-                        brush.set_color(ColorF::new(
-                            0.3 + (phase * 0.3).sin().abs() * 0.7,
-                            0.4 + (phase * 0.5).cos().abs() * 0.5,
-                            0.8,
-                            0.85,
-                        ));
+                    brush.set_color(ColorF::new(
+                        0.3 + (phase * 0.3).sin().abs() * 0.7,
+                        0.4 + (phase * 0.5).cos().abs() * 0.5,
+                        0.8,
+                        0.85,
+                    ));
 
-                        ctx.fill_ellipse(&Ellipse::circle(Vector2::new(x, y), radius), &brush);
-                    }
-
-                    let format = TextFormat::with_weight("Segoe UI", 20.0, FontWeight::BOLD)?
-                        .with_alignment(TextAlignment::Center);
-
-                    let label = format!("{count} circles");
-                    brush.set_color(ColorF::WHITE);
-                    let rect = Rect::new(0.0, ctx.height - 40.0, ctx.width, ctx.height);
-                    ctx.draw_text(&label, &format, &rect, &brush);
-                    Ok(())
+                    ctx.fill_ellipse(&Ellipse::circle(Vector2::new(x, y), radius), &brush);
                 }
-            })
-            .margin(Thickness {
-                left: margin,
-                top: margin,
-                right: margin,
-                bottom: 0.0,
-            }),
-        )
+
+                let format = TextFormat::with_weight("Segoe UI", 20.0, FontWeight::BOLD)?
+                    .with_alignment(TextAlignment::Center);
+
+                let label = format!("{count} circles");
+                brush.set_color(ColorF::WHITE);
+                let rect = Rect::new(0.0, ctx.height - 40.0, ctx.width, ctx.height);
+                ctx.draw_text(&label, &format, &rect, &brush);
+                Ok(())
+            }
+        })
+        .margin(Thickness {
+            left: margin,
+            top: margin,
+            right: margin,
+            bottom: 0.0,
+        })
         .grid_row(0),
-        Element::from(
-            hstack((
-                button("Add circle").on_click(add),
-                button("Remove circle").on_click(remove),
-            ))
-            .spacing(8.0)
-            .margin(Thickness::uniform(margin)),
-        )
+        hstack((
+            button("Add circle").on_click(add),
+            button("Remove circle").on_click(remove),
+        ))
+        .spacing(8.0)
+        .margin(Thickness::uniform(margin))
         .grid_row(1),
     ))
     .rows([GridLength::STAR, GridLength::Auto])

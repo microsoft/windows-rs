@@ -67,7 +67,7 @@ pub fn gallery_shell(cx: &mut RenderCx) -> Element {
         router::route(&selected_tag)
     };
 
-    let search_box: Element = auto_suggest_box(&*search_text)
+    let search_box = auto_suggest_box(&*search_text)
         .placeholder_text("Search controls and samples...")
         .items(suggestions)
         .on_text_changed(set_search_text)
@@ -97,8 +97,7 @@ pub fn gallery_shell(cx: &mut RenderCx) -> Element {
                 }
             }
         })
-        .into();
-    let search_box = search_box.width(320.0);
+        .width(320.0);
 
     let title_bar = TitleBar::new("Reactor WinUI Gallery")
         .pane_toggle_button_visible(true)

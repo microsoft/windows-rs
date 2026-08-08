@@ -23,7 +23,10 @@ use crate::bindings::{
     SetForegroundWindow,
 };
 
-use windows_reactor::{Color, ElementExt, PointerEventInfo, Thickness, text_block, vstack};
+use windows_reactor::{
+    BackgroundExt, Color, InputExt, LayoutExt, PaddingExt, PointerEventInfo, Thickness, text_block,
+    vstack,
+};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;

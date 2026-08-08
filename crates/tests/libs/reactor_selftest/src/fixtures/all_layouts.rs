@@ -1,5 +1,5 @@
 use windows_reactor::{Element, GridLength};
-use windows_reactor::{button, grid, text_block};
+use windows_reactor::{GridChildExt, button, grid, text_block};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
@@ -22,8 +22,10 @@ pub fn all_layouts_dynamic_child_count(h: Harness) -> FixtureFuture {
                 .collect();
             let grid_kids: Vec<Element> = (0..count)
                 .map(|i| {
-                    let e: Element = text_block(format!("G{i}")).into();
-                    e.grid_row(0).grid_column(i)
+                    text_block(format!("G{i}"))
+                        .grid_row(0)
+                        .grid_column(i)
+                        .into()
                 })
                 .collect();
             let cols: Vec<GridLength> = (0..count.max(1)).map(|_| GridLength::Star(1.0)).collect();

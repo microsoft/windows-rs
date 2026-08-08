@@ -520,6 +520,7 @@ fn stock_view(game: &Game, click: impl Fn(Click) + 'static) -> Element {
         .canvas_left(x)
         .canvas_top(TOP_ROW_Y)
         .canvas_z_index(TOP_ROW_Z)
+        .into()
     } else if game.stock.is_empty() {
         let label = text_block("↻")
             .font_size(22.0)
@@ -544,6 +545,7 @@ fn stock_view(game: &Game, click: impl Fn(Click) + 'static) -> Element {
             .canvas_left(x)
             .canvas_top(TOP_ROW_Y)
             .canvas_z_index(TOP_ROW_Z)
+            .into()
     }
 }
 
@@ -551,7 +553,7 @@ fn waste_view(game: &Game, click: impl Fn(Click) + 'static) -> Element {
     let top = game.waste.last().copied();
     let x = pile_x(1);
     let failed = matches!(game.failed_move, Some(FailedMove::Waste));
-    match top {
+    (match top {
         Some(card) => card_face(card, false, failed, "waste".to_string(), move || {
             click(Click::Waste);
         })
@@ -567,7 +569,8 @@ fn waste_view(game: &Game, click: impl Fn(Click) + 'static) -> Element {
         .canvas_left(x)
         .canvas_top(TOP_ROW_Y)
         .canvas_z_index(TOP_ROW_Z),
-    }
+    })
+    .into()
 }
 
 fn foundation_view(game: &Game, f: usize, click: impl Fn(Click) + 'static) -> Element {
@@ -583,6 +586,7 @@ fn foundation_view(game: &Game, f: usize, click: impl Fn(Click) + 'static) -> El
         .canvas_left(x)
         .canvas_top(TOP_ROW_Y)
         .canvas_z_index(TOP_ROW_Z)
+        .into()
     } else {
         let fg = if suit.is_red() {
             Color::rgb(180, 120, 120)
@@ -593,6 +597,7 @@ fn foundation_view(game: &Game, f: usize, click: impl Fn(Click) + 'static) -> El
             .canvas_left(x)
             .canvas_top(TOP_ROW_Y)
             .canvas_z_index(TOP_ROW_Z)
+            .into()
     }
 }
 
@@ -604,12 +609,12 @@ fn tableau_pile_view(game: &Game, p: usize, click: impl Fn(Click) + Clone + 'sta
 
     if pile.is_empty() {
         let cb = click;
-        cards.push(empty_slot(
-            "K",
-            "0".to_string(),
-            Color::rgb(180, 200, 180),
-            move || cb(Click::Tableau(p, 0)),
-        ));
+        cards.push(
+            empty_slot("K", "0".to_string(), Color::rgb(180, 200, 180), move || {
+                cb(Click::Tableau(p, 0));
+            })
+            .into(),
+        );
     } else {
         let mut y = 0.0_f64;
         for (i, card) in pile.iter().enumerate() {
@@ -632,7 +637,7 @@ fn tableau_pile_view(game: &Game, p: usize, click: impl Fn(Click) + Clone + 'sta
                     .canvas_top(y)
                     .canvas_z_index(z)
             };
-            cards.push(element);
+            cards.push(element.into());
             y += if is_face_up {
                 FACE_UP_OFFSET
             } else {
@@ -656,7 +661,7 @@ fn card_face(
     failed: bool,
     key: String,
     on_click: impl Fn() + 'static,
-) -> Element {
+) -> Border {
     let fg = if card.is_red() {
         Color::rgb(192, 0, 32)
     } else {
@@ -699,10 +704,9 @@ fn card_face(
         })
         .with_key(key)
         .on_pointer_released(move |_| on_click())
-        .into()
 }
 
-fn card_back(key: String, on_click: impl Fn() + 'static) -> Element {
+fn card_back(key: String, on_click: impl Fn() + 'static) -> Border {
     let label = text_block("🂠")
         .font_size(18.0)
         .foreground(Color::rgb(240, 240, 255))
@@ -717,10 +721,9 @@ fn card_back(key: String, on_click: impl Fn() + 'static) -> Element {
         .height(CARD_H)
         .with_key(key)
         .on_pointer_released(move |_| on_click())
-        .into()
 }
 
-fn empty_slot(label: &str, key: String, fg: Color, on_click: impl Fn() + 'static) -> Element {
+fn empty_slot(label: &str, key: String, fg: Color, on_click: impl Fn() + 'static) -> Border {
     let tb = text_block(label)
         .font_size(16.0)
         .foreground(fg)
@@ -736,7 +739,6 @@ fn empty_slot(label: &str, key: String, fg: Color, on_click: impl Fn() + 'static
         .opacity(0.7)
         .with_key(key)
         .on_pointer_released(move |_| on_click())
-        .into()
 }
 
 fn main() -> Result<()> {

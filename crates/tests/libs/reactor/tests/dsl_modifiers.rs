@@ -1,21 +1,13 @@
-use windows_reactor::ElementExt;
-use windows_reactor::{Element, HorizontalAlignment, Thickness};
-use windows_reactor::{button, text_block, vstack};
+use windows_reactor::{BackgroundExt, KeyExt, LayoutExt, PaddingExt, TextStyleExt, VisualExt};
+use windows_reactor::{Canvas, Color, Element, HorizontalAlignment, Thickness};
+use windows_reactor::{
+    border, button, composition_host, swap_chain_panel, text_block, vstack, web_view2,
+};
 
 #[test]
 fn margin_chains_on_concrete_builder() {
     let t = text_block("hi").margin(Thickness::uniform(10.0));
     assert_eq!(t.modifiers.margin, Some(Thickness::uniform(10.0)));
-}
-
-#[test]
-fn margin_chains_after_into() {
-    let e: Element = text_block("hi").into();
-    let e = e.margin(12.0);
-    assert_eq!(
-        e.modifiers().unwrap().margin,
-        Some(Thickness::uniform(12.0))
-    );
 }
 
 #[test]
@@ -58,7 +50,46 @@ fn with_key_sets_on_element_blanket() {
 }
 
 #[test]
-fn modifiers_on_empty_is_a_noop() {
-    let e = Element::Empty.margin(10.0);
-    assert_eq!(e, Element::Empty);
+fn erased_widget_keys_follow_the_authoritative_declaration() {
+    let elements: [Element; 3] = [
+        swap_chain_panel().into(),
+        composition_host().into(),
+        web_view2().into(),
+    ];
+
+    for element in elements {
+        assert_eq!(element.with_key("native").key(), Some("native"));
+    }
+}
+
+#[test]
+fn styling_capabilities_match_native_support() {
+    let control = button("go")
+        .padding(4.0)
+        .background(Color::rgb(1, 2, 3))
+        .foreground(Color::rgb(4, 5, 6))
+        .font_family("Segoe UI")
+        .font_size(16.0);
+    assert_eq!(control.modifiers.padding, Some(Thickness::uniform(4.0)));
+    assert_eq!(control.modifiers.font_size, Some(16.0));
+
+    let panel = vstack(()).padding(8.0).background(Color::rgb(7, 8, 9));
+    assert_eq!(panel.modifiers.padding, Some(Thickness::uniform(8.0)));
+    assert!(panel.modifiers.background.is_some());
+
+    let text = text_block("label")
+        .padding(2.0)
+        .foreground(Color::rgb(10, 11, 12))
+        .font_family("Consolas");
+    assert_eq!(text.modifiers.padding, Some(Thickness::uniform(2.0)));
+    assert_eq!(text.modifiers.font_family.as_deref(), Some("Consolas"));
+
+    let border = border(text_block("content"))
+        .padding(6.0)
+        .background(Color::rgb(13, 14, 15));
+    assert_eq!(border.modifiers.padding, Some(Thickness::uniform(6.0)));
+    assert!(border.modifiers.background.is_some());
+
+    let canvas = Canvas::new(()).background(Color::rgb(16, 17, 18));
+    assert!(canvas.modifiers.background.is_some());
 }

@@ -6,7 +6,7 @@ use windows_core::Interface;
 use windows_reactor::Component;
 use windows_reactor::RenderCx;
 use windows_reactor::{Element, GridLength};
-use windows_reactor::{ElementExt, button, grid, text_block};
+use windows_reactor::{GridChildExt, KeyExt, button, grid, text_block};
 
 use crate::bindings::{Grid as XamlGrid, TextBlock};
 
@@ -254,8 +254,10 @@ pub fn grid_dynamic_children(h: Harness) -> FixtureFuture {
             let cols: Vec<GridLength> = (0..panes.max(1)).map(|_| GridLength::Star(1.0)).collect();
             let cells: Vec<Element> = (0..panes)
                 .map(|i| {
-                    let e: Element = text_block(format!("Pane {i}")).into();
-                    e.grid_row(0).grid_column(i)
+                    text_block(format!("Pane {i}"))
+                        .grid_row(0)
+                        .grid_column(i)
+                        .into()
                 })
                 .collect();
             let g: Element = grid(cells)

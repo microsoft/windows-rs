@@ -64,5 +64,5 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    App::new().title("TabView Add Button").render(app)
+    reactor_samples::run("TabView Add Button", app)
 }

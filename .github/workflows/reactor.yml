@@ -40,3 +40,34 @@ jobs:
       - name: cargo run -p test_reactor_selftest -- --headless
         run: cargo run -p test_reactor_selftest -- --headless
         shell: pwsh
+
+  reconciler-quality:
+    name: reconciler coverage and performance
+    runs-on: windows-2025-vs2026
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+
+      - uses: Swatinem/rust-cache@v2
+      - uses: taiki-e/install-action@cargo-llvm-cov
+
+      - name: Reconciler branch coverage
+        shell: pwsh
+        run: |
+          cargo llvm-cov clean --workspace
+          cargo llvm-cov -p test_reactor --branch --no-report
+          cargo llvm-cov report -p windows-reactor --branch --json `
+            --output-path target\reactor-coverage.json
+          crates\tests\libs\reactor\coverage.ps1
+
+      - name: Compare reconciler performance with merge base
+        if: github.event_name == 'pull_request'
+        shell: pwsh
+        run: |
+          crates\tests\libs\reactor_bench\compare.ps1 `
+            -BaseRef "${{ github.event.pull_request.base.sha }}"

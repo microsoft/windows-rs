@@ -1,6 +1,7 @@
-use std::cell::{Cell, RefCell};
+use std::cell::Cell;
 use std::rc::Rc;
 
+use crate::reference::NativeElementRef;
 use rustc_hash::FxHashMap;
 
 pub use super::*;
@@ -12,78 +13,138 @@ mod widget_dispatch;
 mod wrappers;
 
 pub use self::child::compute_lis;
-pub use self::templated::TemplatedListState;
-pub use self::templated::{RealizationQueue, RealizationRequest, new_realization_queue};
+use self::templated::MountedTemplatedTree;
 
-/// Diff/apply engine that drives a [`Backend`] from successive [`Element`] trees.
-pub struct Reconciler<B: Backend> {
-    pub backend: B,
-    pub debug_elements_skipped: u64,
-    pub debug_elements_diffed: u64,
-    pub debug_ui_elements_created: u64,
-    pub children_mirror: FxHashMap<ControlId, Vec<ControlId>>,
-    pub id_kinds: FxHashMap<ControlId, ControlKind>,
-    pub context_stack: Rc<ContextStack>,
-    pub component_instances: FxHashMap<ControlId, ComponentInstance>,
-    // Additional logical components sharing a native root, innermost first.
-    component_instance_overflow: FxHashMap<ControlId, Vec<ComponentInstance>>,
-    pub appeared_listener_count: usize,
-    pub disappeared_listener_count: usize,
-    pub force_component_rerender: bool,
-    pub forced_components: rustc_hash::FxHashSet<ControlId>,
-    pub error_boundary_fallbacks: rustc_hash::FxHashSet<ControlId>,
-    pub templated_lists: FxHashMap<ControlId, TemplatedListState>,
-    pub custom_handles: FxHashMap<ControlId, Box<dyn CustomElement>>,
-    pub defer_templated_unmounts: bool,
-    pub deferred_unmounts: Vec<ControlId>,
-    pub realization_queue: RealizationQueue,
-    pub selection_callbacks: FxHashMap<ControlId, Rc<RefCell<Option<Callback<i32>>>>>,
-    pub reorder_callbacks: FxHashMap<ControlId, Rc<RefCell<Option<Callback<Vec<usize>>>>>>,
-    /// Pre-unmount callbacks keyed by control id.
-    pub unmount_callbacks: FxHashMap<ControlId, Callback<Option<windows_core::IInspectable>>>,
-    pub header_elements: FxHashMap<ControlId, ControlId>,
-    pub pane_elements: FxHashMap<ControlId, ControlId>,
-    pub marshaller: Option<UiMarshaller>,
-    pub host_id: HostId,
-    pub inner_size: Rc<Cell<WindowSize>>,
-    pub dpi: Rc<Cell<u32>>,
-    pub request_rerender: Rc<dyn Fn()>,
+fn output_is_empty(output: MountedOutput) -> bool {
+    output.native.is_none() && output.logical.is_none()
 }
 
-pub struct ComponentInstance {
-    pub render_cx: RenderCx,
-    pub last_rendered: Element,
-    pub last_obj: Rc<dyn ComponentObject>,
-    pub read_contexts: rustc_hash::FxHashSet<ContextId>,
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
+struct LogicalNodeId(u64);
+
+enum ProjectedNodes {
+    Inline { nodes: [LogicalNodeId; 2], len: u8 },
+    Heap(Vec<LogicalNodeId>),
 }
 
-impl<B: Backend + 'static> Reconciler<B> {
-    pub fn new(backend: B) -> Self {
+impl Default for ProjectedNodes {
+    fn default() -> Self {
+        Self::Inline {
+            nodes: [LogicalNodeId(0); 2],
+            len: 0,
+        }
+    }
+}
+
+impl ProjectedNodes {
+    fn as_slice(&self) -> &[LogicalNodeId] {
+        match self {
+            Self::Inline { nodes, len } => &nodes[..*len as usize],
+            Self::Heap(nodes) => nodes,
+        }
+    }
+
+    fn is_empty(&self) -> bool {
+        self.as_slice().is_empty()
+    }
+
+    fn last(&self) -> Option<LogicalNodeId> {
+        self.as_slice().last().copied()
+    }
+
+    fn push(&mut self, node_id: LogicalNodeId) {
+        match self {
+            Self::Inline { nodes, len } if *len < 2 => {
+                nodes[*len as usize] = node_id;
+                *len += 1;
+            }
+            Self::Inline { nodes, .. } => {
+                *self = Self::Heap(vec![nodes[0], nodes[1], node_id]);
+            }
+            Self::Heap(nodes) => nodes.push(node_id),
+        }
+    }
+
+    fn pop(&mut self) -> Option<LogicalNodeId> {
+        match self {
+            Self::Inline { nodes, len } => {
+                if *len == 0 {
+                    None
+                } else {
+                    *len -= 1;
+                    Some(nodes[*len as usize])
+                }
+            }
+            Self::Heap(nodes) => nodes.pop(),
+        }
+    }
+
+    fn drain(self, mut f: impl FnMut(LogicalNodeId)) {
+        match self {
+            Self::Inline { nodes, len } => {
+                for node_id in nodes.into_iter().take(len as usize) {
+                    f(node_id);
+                }
+            }
+            Self::Heap(nodes) => {
+                for node_id in nodes {
+                    f(node_id);
+                }
+            }
+        }
+    }
+}
+
+struct LogicalParentGuard {
+    active: Rc<Cell<Option<LogicalNodeId>>>,
+    previous: Option<LogicalNodeId>,
+}
+
+impl Drop for LogicalParentGuard {
+    fn drop(&mut self) {
+        self.active.set(self.previous);
+    }
+}
+
+#[derive(Default)]
+struct ReconcilePass {
+    forced_nodes: rustc_hash::FxHashSet<LogicalNodeId>,
+    forced_controls: rustc_hash::FxHashSet<ControlId>,
+}
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
+pub(crate) struct LogicalSlotId(u64);
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub(crate) struct MountedOutput {
+    slot: LogicalSlotId,
+    native: Option<ControlId>,
+    logical: Option<LogicalNodeId>,
+}
+
+impl MountedOutput {
+    const fn empty(slot: LogicalSlotId) -> Self {
         Self {
-            backend,
-            debug_elements_skipped: 0,
-            debug_elements_diffed: 0,
-            debug_ui_elements_created: 0,
-            children_mirror: FxHashMap::default(),
-            id_kinds: FxHashMap::default(),
+            slot,
+            native: None,
+            logical: None,
+        }
+    }
+}
+
+struct HostContext {
+    context_stack: Rc<ContextStack>,
+    marshaller: Option<UiMarshaller>,
+    host_id: HostId,
+    inner_size: Rc<Cell<WindowSize>>,
+    dpi: Rc<Cell<u32>>,
+    request_rerender: Rc<dyn Fn()>,
+}
+
+impl HostContext {
+    fn new() -> Self {
+        Self {
             context_stack: Rc::new(ContextStack::new()),
-            component_instances: FxHashMap::default(),
-            component_instance_overflow: FxHashMap::default(),
-            appeared_listener_count: 0,
-            disappeared_listener_count: 0,
-            force_component_rerender: false,
-            forced_components: rustc_hash::FxHashSet::default(),
-            error_boundary_fallbacks: rustc_hash::FxHashSet::default(),
-            templated_lists: FxHashMap::default(),
-            custom_handles: FxHashMap::default(),
-            realization_queue: new_realization_queue(),
-            selection_callbacks: FxHashMap::default(),
-            reorder_callbacks: FxHashMap::default(),
-            unmount_callbacks: FxHashMap::default(),
-            header_elements: FxHashMap::default(),
-            pane_elements: FxHashMap::default(),
-            defer_templated_unmounts: false,
-            deferred_unmounts: Vec::new(),
             marshaller: None,
             host_id: HostId::next(),
             inner_size: Rc::new(Cell::new(WindowSize::default())),
@@ -91,119 +152,259 @@ impl<B: Backend + 'static> Reconciler<B> {
             request_rerender: Rc::new(|| {}),
         }
     }
+}
 
-    pub fn set_marshaller(&mut self, marshaller: Option<UiMarshaller>) {
-        self.marshaller = marshaller;
-    }
+#[derive(Default)]
+struct MountedTree {
+    children: FxHashMap<ControlId, Vec<ControlId>>,
+    logical_children: FxHashMap<ControlId, Vec<MountedOutput>>,
+    nodes: FxHashMap<ControlId, MountedNativeNode>,
+    headers: FxHashMap<ControlId, MountedOutput>,
+    panes: FxHashMap<ControlId, MountedOutput>,
+    custom: FxHashMap<ControlId, Box<dyn CustomElement>>,
+    before_unmount: FxHashMap<ControlId, BeforeUnmount>,
+    templated: MountedTemplatedTree,
+    logical: MountedLogicalTree,
+}
 
-    pub fn set_host_id(&mut self, host_id: HostId) {
-        self.host_id = host_id;
-    }
+struct MountedNativeNode {
+    kind: Option<ControlKind>,
+    parent: Option<ControlId>,
+}
 
-    #[cfg(feature = "test")]
-    pub fn flush_deferred_unmounts(&mut self) {
-        let drained = std::mem::take(&mut self.deferred_unmounts);
-        for cid in drained {
-            self.unmount(cid);
-        }
-    }
+struct BeforeUnmount {
+    reference: Option<NativeElementRef>,
+    callback: Option<Callback<Option<windows_core::IInspectable>>>,
+}
 
-    pub fn context_stack_handle(&self) -> Rc<ContextStack> {
-        Rc::clone(&self.context_stack)
-    }
+#[derive(Default)]
+struct MountedLogicalTree {
+    components: FxHashMap<LogicalNodeId, ComponentInstance>,
+    wrappers: FxHashMap<LogicalNodeId, LogicalWrapperNode>,
+    // Logical nodes projecting to a native root, innermost first.
+    projections: FxHashMap<ControlId, ProjectedNodes>,
+    active_parent: Rc<Cell<Option<LogicalNodeId>>>,
+    next_id: u64,
+    appeared_listener_count: usize,
+    disappeared_listener_count: usize,
+}
 
-    /// Checks whether `id` has pending hook-state changes without clearing them.
-    pub fn is_component_state_dirty(&self, id: ControlId) -> bool {
-        self.component_instances
-            .get(&id)
-            .is_some_and(|inst| inst.render_cx.peek_state_dirty())
-            || (!self.component_instance_overflow.is_empty()
-                && self
-                    .component_instance_overflow
-                    .get(&id)
-                    .is_some_and(|instances| {
-                        instances
-                            .iter()
-                            .any(|inst| inst.render_cx.peek_state_dirty())
-                    }))
-    }
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+enum LogicalNodeKind {
+    Component,
+    Provider,
+    ErrorBoundary,
+}
 
-    pub fn reset_stats(&mut self) {
-        self.debug_elements_skipped = 0;
-        self.debug_elements_diffed = 0;
-        self.debug_ui_elements_created = 0;
-    }
+struct LogicalWrapperNode {
+    kind: LogicalNodeKind,
+    node_id: LogicalNodeId,
+    parent: Option<LogicalNodeId>,
+    native_root: Option<ControlId>,
+    child_output: MountedOutput,
+    rendered: Element,
+    fallback: bool,
+}
 
-    #[cfg(feature = "test")]
-    pub fn debug_forced_components_len(&self) -> usize {
-        self.forced_components.len()
-    }
-
-    pub fn acquire_control(&mut self, kind: ControlKind) -> ControlId {
-        self.debug_ui_elements_created += 1;
-        let id = self.backend.create(kind);
-
-        if let Some(stale) = self.component_instances.remove(&id) {
-            self.unregister_component_listeners(&stale);
-        }
-        if let Some(stale) = self.component_instance_overflow.remove(&id) {
-            for inst in &stale {
-                self.unregister_component_listeners(inst);
-            }
-        }
-        self.templated_lists.remove(&id);
-        self.selection_callbacks.remove(&id);
-        self.reorder_callbacks.remove(&id);
-        self.error_boundary_fallbacks.remove(&id);
-        self.children_mirror.remove(&id);
-        self.custom_handles.remove(&id);
-        self.id_kinds.insert(id, kind);
+impl MountedLogicalTree {
+    fn allocate_id(&mut self) -> LogicalNodeId {
+        let id = LogicalNodeId(self.next_id);
+        self.next_id = self
+            .next_id
+            .checked_add(1)
+            .expect("logical component id overflow");
         id
     }
 
-    pub fn register_component_instance(
-        &mut self,
-        id: ControlId,
-        inst: ComponentInstance,
-    ) -> Option<ComponentInstance> {
+    fn enter_parent(&self, node_id: LogicalNodeId) -> LogicalParentGuard {
+        let active = Rc::clone(&self.active_parent);
+        let previous = active.replace(Some(node_id));
+        LogicalParentGuard { active, previous }
+    }
+
+    fn active_parent(&self) -> Option<LogicalNodeId> {
+        self.active_parent.get()
+    }
+
+    fn instance(&self, node_id: LogicalNodeId) -> Option<&ComponentInstance> {
+        self.components.get(&node_id)
+    }
+
+    fn node_kind(&self, node_id: LogicalNodeId) -> Option<LogicalNodeKind> {
+        if self.components.contains_key(&node_id) {
+            Some(LogicalNodeKind::Component)
+        } else {
+            self.wrappers.get(&node_id).map(|node| node.kind)
+        }
+    }
+
+    fn node_parent(&self, node_id: LogicalNodeId) -> Option<LogicalNodeId> {
+        self.components
+            .get(&node_id)
+            .and_then(|node| node.parent)
+            .or_else(|| self.wrappers.get(&node_id).and_then(|node| node.parent))
+    }
+
+    fn node_native_root(&self, node_id: LogicalNodeId) -> Option<ControlId> {
+        self.components
+            .get(&node_id)
+            .and_then(|node| node.native_root)
+            .or_else(|| {
+                self.wrappers
+                    .get(&node_id)
+                    .and_then(|node| node.native_root)
+            })
+    }
+
+    fn contains_node(&self, node_id: LogicalNodeId) -> bool {
+        self.components.contains_key(&node_id) || self.wrappers.contains_key(&node_id)
+    }
+
+    #[cfg(any(debug_assertions, feature = "test"))]
+    fn node_count(&self) -> usize {
+        self.components.len() + self.wrappers.len()
+    }
+
+    fn current_node(&self, id: ControlId, kind: LogicalNodeKind) -> Option<LogicalNodeId> {
+        let node_id = self.projections.get(&id).and_then(ProjectedNodes::last)?;
+        (self.node_kind(node_id) == Some(kind)).then_some(node_id)
+    }
+
+    fn register_component(&mut self, inst: ComponentInstance) {
         if inst.last_obj.has_on_appeared() {
             self.appeared_listener_count += 1;
         }
         if inst.last_obj.has_on_disappeared() {
             self.disappeared_listener_count += 1;
         }
-        if let Some(previous) = self.component_instances.insert(id, inst) {
-            self.component_instance_overflow
-                .entry(id)
-                .or_insert_with(|| Vec::with_capacity(1))
-                .push(previous);
+        let node_id = inst.node_id;
+        let native_root = inst.native_root;
+        let previous = self.components.insert(node_id, inst);
+        debug_assert!(previous.is_none(), "logical component registered twice");
+        if let Some(id) = native_root {
+            self.register_projection(id, node_id);
         }
-        None
     }
 
-    pub fn take_component_instance(&mut self, id: ControlId) -> Option<ComponentInstance> {
-        let inst = self.component_instances.remove(&id)?;
-        let (previous, remove_overflow) = if self.component_instance_overflow.is_empty() {
-            (None, false)
-        } else {
-            self.component_instance_overflow
-                .get_mut(&id)
-                .map_or((None, false), |instances| {
-                    let previous = instances.pop();
-                    (previous, instances.is_empty())
-                })
+    fn register_wrapper(&mut self, node: LogicalWrapperNode) {
+        let native_root = node.native_root;
+        let node_id = node.node_id;
+        let previous = self.wrappers.insert(node_id, node);
+        debug_assert!(previous.is_none(), "logical wrapper registered twice");
+        if let Some(id) = native_root {
+            self.register_projection(id, node_id);
+        }
+    }
+
+    fn take_component(&mut self, node_id: LogicalNodeId) -> Option<ComponentInstance> {
+        let inst = self.components.get(&node_id)?;
+        if let Some(id) = inst.native_root {
+            self.remove_projection(id, node_id);
+        }
+        self.remove_component(node_id)
+    }
+
+    fn take_provider(&mut self, node_id: LogicalNodeId) -> Option<LogicalWrapperNode> {
+        self.take_wrapper(node_id, LogicalNodeKind::Provider)
+    }
+
+    fn take_error_boundary(&mut self, node_id: LogicalNodeId) -> Option<LogicalWrapperNode> {
+        self.take_wrapper(node_id, LogicalNodeKind::ErrorBoundary)
+    }
+
+    fn take_wrapper(
+        &mut self,
+        node_id: LogicalNodeId,
+        kind: LogicalNodeKind,
+    ) -> Option<LogicalWrapperNode> {
+        debug_assert_eq!(
+            self.node_kind(node_id),
+            Some(kind),
+            "logical wrapper update order disagrees with element nesting"
+        );
+        let node = self.wrappers.get(&node_id)?;
+        if let Some(id) = node.native_root {
+            self.remove_projection(id, node_id);
+        }
+        self.wrappers.remove(&node_id)
+    }
+
+    fn remove_projection(&mut self, id: ControlId, node_id: LogicalNodeId) {
+        if let Some(nodes) = self.projections.get_mut(&id) {
+            debug_assert_eq!(
+                nodes.last(),
+                Some(node_id),
+                "logical projection update order disagrees with element nesting"
+            );
+            if nodes.last() == Some(node_id) {
+                nodes.pop();
+            } else if let Some(index) = nodes.as_slice().iter().position(|n| *n == node_id) {
+                match nodes {
+                    ProjectedNodes::Inline { nodes, len } => {
+                        for i in index..(*len as usize - 1) {
+                            nodes[i] = nodes[i + 1];
+                        }
+                        *len -= 1;
+                    }
+                    ProjectedNodes::Heap(nodes) => {
+                        nodes.remove(index);
+                    }
+                }
+            }
+            self.remove_empty_projection(id);
+        }
+    }
+
+    fn take_projection(&mut self, id: ControlId) -> Option<ProjectedNodes> {
+        self.projections.remove(&id)
+    }
+
+    #[cfg(feature = "test")]
+    fn projected_nodes(&self, id: ControlId) -> Option<&ProjectedNodes> {
+        self.projections.get(&id)
+    }
+
+    fn refresh_instance(
+        &mut self,
+        node_id: LogicalNodeId,
+        obj: Rc<dyn ComponentObject>,
+        parent: Option<LogicalNodeId>,
+        native_root: Option<ControlId>,
+    ) {
+        let Some(inst) = self.components.get_mut(&node_id) else {
+            return;
         };
-        if let Some(previous) = previous {
-            self.component_instances.insert(id, previous);
-        }
-        if remove_overflow {
-            self.component_instance_overflow.remove(&id);
-        }
-        self.unregister_component_listeners(&inst);
-        Some(inst)
+        inst.last_obj = obj;
+        inst.parent = parent;
+        inst.native_root = native_root;
     }
 
-    fn unregister_component_listeners(&mut self, inst: &ComponentInstance) {
+    fn extend_context_subscribers(
+        &self,
+        id: ControlId,
+        changed: &rustc_hash::FxHashSet<ContextId>,
+        affected: &mut Vec<LogicalNodeId>,
+    ) {
+        let Some(node_ids) = self.projections.get(&id) else {
+            return;
+        };
+        affected.extend(
+            node_ids
+                .as_slice()
+                .iter()
+                .filter(|node_id| {
+                    self.instance(**node_id).is_some_and(|inst| {
+                        inst.read_contexts
+                            .iter()
+                            .any(|context| changed.contains(context))
+                    })
+                })
+                .copied(),
+        );
+    }
+
+    fn remove_component(&mut self, node_id: LogicalNodeId) -> Option<ComponentInstance> {
+        let inst = self.components.remove(&node_id)?;
         if inst.last_obj.has_on_appeared() {
             debug_assert!(
                 self.appeared_listener_count > 0,
@@ -218,16 +419,640 @@ impl<B: Backend + 'static> Reconciler<B> {
             );
             self.disappeared_listener_count -= 1;
         }
+        Some(inst)
+    }
+
+    fn remove_wrapper(&mut self, node_id: LogicalNodeId) {
+        self.wrappers.remove(&node_id);
+    }
+
+    fn register_projection(&mut self, id: ControlId, node_id: LogicalNodeId) {
+        self.projections.entry(id).or_default().push(node_id);
+    }
+
+    fn remove_empty_projection(&mut self, id: ControlId) {
+        if self
+            .projections
+            .get(&id)
+            .is_some_and(ProjectedNodes::is_empty)
+        {
+            self.projections.remove(&id);
+        }
+    }
+
+    fn dispatch_appeared(&mut self, id: ControlId, context_stack: &Rc<ContextStack>) {
+        if self.appeared_listener_count == 0 {
+            return;
+        }
+        let Some(node_ids) = self.projections.get(&id) else {
+            return;
+        };
+        for node_id in node_ids.as_slice().iter().rev() {
+            if let Some(inst) = self.components.get_mut(node_id)
+                && inst.last_obj.has_on_appeared()
+            {
+                inst.render_cx.set_context_stack(Rc::clone(context_stack));
+                inst.last_obj.invoke_appeared(&mut inst.render_cx);
+            }
+        }
+    }
+
+    fn dispatch_node_appeared(&mut self, node_id: LogicalNodeId, context_stack: &Rc<ContextStack>) {
+        if let Some(inst) = self.components.get_mut(&node_id)
+            && inst.last_obj.has_on_appeared()
+        {
+            inst.render_cx.set_context_stack(Rc::clone(context_stack));
+            inst.last_obj.invoke_appeared(&mut inst.render_cx);
+        }
+    }
+
+    fn dispatch_disappeared(&mut self, id: ControlId, context_stack: &Rc<ContextStack>) {
+        if self.disappeared_listener_count == 0 {
+            return;
+        }
+        let Some(node_ids) = self.projections.get(&id) else {
+            return;
+        };
+        for node_id in node_ids.as_slice() {
+            if let Some(inst) = self.components.get_mut(node_id)
+                && inst.last_obj.has_on_disappeared()
+            {
+                inst.render_cx.set_context_stack(Rc::clone(context_stack));
+                inst.last_obj.invoke_disappeared(&mut inst.render_cx);
+            }
+        }
+    }
+
+    fn dispatch_node_disappeared(
+        &mut self,
+        node_id: LogicalNodeId,
+        context_stack: &Rc<ContextStack>,
+    ) {
+        if let Some(inst) = self.components.get_mut(&node_id)
+            && inst.last_obj.has_on_disappeared()
+        {
+            inst.render_cx.set_context_stack(Rc::clone(context_stack));
+            inst.last_obj.invoke_disappeared(&mut inst.render_cx);
+        }
+    }
+}
+
+impl MountedTree {
+    fn register(&mut self, id: ControlId, kind: Option<ControlKind>) {
+        if let Some(children) = self.children.remove(&id) {
+            for child in children {
+                self.clear_parent(child, id);
+            }
+        }
+        self.logical_children.remove(&id);
+        if let Some(header) = self.headers.remove(&id)
+            && let Some(header) = header.native
+        {
+            self.clear_parent(header, id);
+        }
+        if let Some(pane) = self.panes.remove(&id)
+            && let Some(pane) = pane.native
+        {
+            self.clear_parent(pane, id);
+        }
+        self.custom.remove(&id);
+        self.before_unmount.remove(&id);
+        self.nodes
+            .insert(id, MountedNativeNode { kind, parent: None });
+    }
+
+    fn kind(&self, id: ControlId) -> Option<ControlKind> {
+        self.nodes.get(&id).and_then(|node| node.kind)
+    }
+
+    fn parent(&self, id: ControlId) -> Option<ControlId> {
+        self.nodes.get(&id).and_then(|node| node.parent)
+    }
+
+    fn set_parent(&mut self, child: ControlId, parent: ControlId) {
+        let node = self
+            .nodes
+            .get_mut(&child)
+            .expect("mounted child missing native node");
+        debug_assert!(
+            node.parent.is_none() || node.parent == Some(parent),
+            "native control {child:?} already owned by {:?}",
+            node.parent
+        );
+        node.parent = Some(parent);
+    }
+
+    fn clear_parent(&mut self, child: ControlId, parent: ControlId) {
+        if let Some(node) = self.nodes.get_mut(&child)
+            && node.parent == Some(parent)
+        {
+            node.parent = None;
+        }
+    }
+
+    fn set_header(&mut self, parent: ControlId, header: Option<MountedOutput>) {
+        if let Some(old) = self.headers.remove(&parent)
+            && let Some(old) = old.native
+        {
+            self.clear_parent(old, parent);
+        }
+        if let Some(header) = header
+            && let Some(native) = header.native
+        {
+            self.set_parent(native, parent);
+            self.headers.insert(parent, header);
+        } else if let Some(header) = header {
+            self.headers.insert(parent, header);
+        }
+    }
+
+    fn header(&self, parent: ControlId) -> Option<MountedOutput> {
+        self.headers.get(&parent).copied()
+    }
+
+    fn set_pane(&mut self, parent: ControlId, pane: Option<MountedOutput>) {
+        if let Some(old) = self.panes.remove(&parent)
+            && let Some(old) = old.native
+        {
+            self.clear_parent(old, parent);
+        }
+        if let Some(pane) = pane
+            && let Some(native) = pane.native
+        {
+            self.set_parent(native, parent);
+            self.panes.insert(parent, pane);
+        } else if let Some(pane) = pane {
+            self.panes.insert(parent, pane);
+        }
+    }
+
+    fn pane(&self, parent: ControlId) -> Option<MountedOutput> {
+        self.panes.get(&parent).copied()
+    }
+
+    fn set_custom(&mut self, id: ControlId, handle: Box<dyn CustomElement>) {
+        debug_assert!(self.nodes.contains_key(&id));
+        self.custom.insert(id, handle);
+    }
+
+    fn take_custom(&mut self, id: ControlId) -> Option<Box<dyn CustomElement>> {
+        self.custom.remove(&id)
+    }
+
+    fn set_before_unmount(
+        &mut self,
+        id: ControlId,
+        reference: Option<NativeElementRef>,
+        callback: Option<Callback<Option<windows_core::IInspectable>>>,
+    ) {
+        debug_assert!(self.nodes.contains_key(&id));
+        if reference.is_some() || callback.is_some() {
+            self.before_unmount.insert(
+                id,
+                BeforeUnmount {
+                    reference,
+                    callback,
+                },
+            );
+        } else {
+            self.before_unmount.remove(&id);
+        }
+    }
+
+    fn take_before_unmount(&mut self, id: ControlId) -> Option<BeforeUnmount> {
+        self.before_unmount.remove(&id)
+    }
+
+    fn children(&self, parent: ControlId) -> &[ControlId] {
+        self.children.get(&parent).map_or(&[], Vec::as_slice)
+    }
+
+    fn logical_children(&self, parent: ControlId) -> &[MountedOutput] {
+        self.logical_children
+            .get(&parent)
+            .map_or(&[], Vec::as_slice)
+    }
+
+    fn logical_child(&self, parent: ControlId, index: usize) -> Option<MountedOutput> {
+        self.logical_children(parent).get(index).copied()
+    }
+
+    fn logical_owner(&self, node_id: LogicalNodeId) -> Option<ControlId> {
+        self.logical_children
+            .iter()
+            .find_map(|(parent, children)| {
+                children
+                    .iter()
+                    .any(|output| output.logical == Some(node_id))
+                    .then_some(*parent)
+            })
+            .or_else(|| {
+                self.headers.iter().find_map(|(parent, output)| {
+                    (output.logical == Some(node_id)).then_some(*parent)
+                })
+            })
+            .or_else(|| {
+                self.panes.iter().find_map(|(parent, output)| {
+                    (output.logical == Some(node_id)).then_some(*parent)
+                })
+            })
+            .or_else(|| {
+                self.templated.lists.iter().find_map(|(parent, state)| {
+                    state
+                        .rows
+                        .values()
+                        .any(|row| row.output.logical == Some(node_id))
+                        .then_some(*parent)
+                })
+            })
+    }
+
+    fn native_index(&self, parent: ControlId, logical_index: usize) -> usize {
+        self.logical_children(parent)[..logical_index]
+            .iter()
+            .filter(|output| output.native.is_some())
+            .count()
+    }
+
+    fn append_logical_child(&mut self, parent: ControlId, output: MountedOutput) {
+        self.logical_children
+            .entry(parent)
+            .or_default()
+            .push(output);
+    }
+
+    fn insert_logical_child(
+        &mut self,
+        parent: ControlId,
+        index: usize,
+        output: MountedOutput,
+    ) -> usize {
+        let list = self.logical_children.entry(parent).or_default();
+        let index = index.min(list.len());
+        list.insert(index, output);
+        index
+    }
+
+    fn remove_logical_child(&mut self, parent: ControlId, index: usize) -> Option<MountedOutput> {
+        self.logical_children
+            .get_mut(&parent)
+            .and_then(|list| (index < list.len()).then(|| list.remove(index)))
+    }
+
+    fn replace_logical_child(
+        &mut self,
+        parent: ControlId,
+        index: usize,
+        output: MountedOutput,
+    ) -> Option<MountedOutput> {
+        self.logical_children.get_mut(&parent).and_then(|list| {
+            (index < list.len()).then(|| std::mem::replace(&mut list[index], output))
+        })
+    }
+
+    fn move_logical_child(&mut self, parent: ControlId, from: usize, to: usize) {
+        if from == to {
+            return;
+        }
+        if let Some(list) = self.logical_children.get_mut(&parent)
+            && from < list.len()
+            && to < list.len()
+        {
+            let item = list.remove(from);
+            list.insert(to, item);
+        }
+    }
+
+    fn extend_owned_children(&self, parent: ControlId, children: &mut Vec<ControlId>) {
+        children.extend_from_slice(self.children(parent));
+        if let Some(header) = self.header(parent).and_then(|output| output.native) {
+            children.push(header);
+        }
+        if let Some(pane) = self.pane(parent).and_then(|output| output.native) {
+            children.push(pane);
+        }
+        if let Some(state) = self.templated.lists.get(&parent) {
+            children.extend(state.rows.values().filter_map(|row| row.output.native));
+        }
+    }
+
+    fn extend_owned_logical_roots(
+        &self,
+        parent: ControlId,
+        logical_roots: &mut Vec<LogicalNodeId>,
+    ) {
+        logical_roots.extend(
+            self.logical_children(parent)
+                .iter()
+                .filter_map(|output| output.native.is_none().then_some(output.logical))
+                .flatten(),
+        );
+        if let Some(output) = self.header(parent)
+            && output.native.is_none()
+            && let Some(logical) = output.logical
+        {
+            logical_roots.push(logical);
+        }
+        if let Some(output) = self.pane(parent)
+            && output.native.is_none()
+            && let Some(logical) = output.logical
+        {
+            logical_roots.push(logical);
+        }
+        if let Some(state) = self.templated.lists.get(&parent) {
+            logical_roots.extend(
+                state
+                    .rows
+                    .values()
+                    .filter_map(|row| row.output.native.is_none().then_some(row.output.logical))
+                    .flatten(),
+            );
+        }
+    }
+
+    fn child(&self, parent: ControlId, index: usize) -> Option<ControlId> {
+        self.children(parent).get(index).copied()
+    }
+
+    fn child_position(&self, parent: ControlId, child: ControlId) -> Option<usize> {
+        self.children(parent).iter().position(|id| *id == child)
+    }
+
+    fn append_child(&mut self, parent: ControlId, child: ControlId) {
+        self.set_parent(child, parent);
+        self.children.entry(parent).or_default().push(child);
+    }
+
+    fn remove_child(&mut self, parent: ControlId, index: usize) -> Option<ControlId> {
+        let removed = self
+            .children
+            .get_mut(&parent)
+            .and_then(|list| (index < list.len()).then(|| list.remove(index)));
+        if let Some(child) = removed {
+            self.clear_parent(child, parent);
+        }
+        removed
+    }
+
+    fn replace_child(
+        &mut self,
+        parent: ControlId,
+        index: usize,
+        new: ControlId,
+    ) -> Option<ControlId> {
+        let replaced = self.children.get_mut(&parent).and_then(|list| {
+            (index < list.len()).then(|| {
+                let old = list[index];
+                list[index] = new;
+                old
+            })
+        });
+        if let Some(old) = replaced {
+            self.clear_parent(old, parent);
+            self.set_parent(new, parent);
+        }
+        replaced
+    }
+
+    fn move_child(&mut self, parent: ControlId, from: usize, to: usize) {
+        if from == to {
+            return;
+        }
+        if let Some(list) = self.children.get_mut(&parent)
+            && from < list.len()
+            && to < list.len()
+        {
+            let item = list.remove(from);
+            list.insert(to, item);
+        }
+    }
+
+    fn insert_child(&mut self, parent: ControlId, index: usize, child: ControlId) -> usize {
+        self.set_parent(child, parent);
+        let list = self.children.entry(parent).or_default();
+        let index = index.min(list.len());
+        list.insert(index, child);
+        index
+    }
+
+    fn remove_node(&mut self, id: ControlId) {
+        if let Some(children) = self.children.remove(&id) {
+            for child in children {
+                self.clear_parent(child, id);
+            }
+        }
+        self.logical_children.remove(&id);
+        if let Some(header) = self.headers.remove(&id)
+            && let Some(header) = header.native
+        {
+            self.clear_parent(header, id);
+        }
+        if let Some(pane) = self.panes.remove(&id)
+            && let Some(pane) = pane.native
+        {
+            self.clear_parent(pane, id);
+        }
+        self.custom.remove(&id);
+        self.before_unmount.remove(&id);
+        self.nodes.remove(&id);
+    }
+}
+
+/// Diff/apply engine that drives a [`Backend`] from successive [`Element`] trees.
+pub struct Reconciler<B: Backend> {
+    pub backend: B,
+    tree: MountedTree,
+    pass: ReconcilePass,
+    host: HostContext,
+    stats: ReconcileStats,
+    root_output: Option<MountedOutput>,
+    next_slot_id: u64,
+}
+
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub struct ReconcileStats {
+    pub elements_skipped: u64,
+    pub elements_diffed: u64,
+    pub ui_elements_created: u64,
+}
+
+pub struct ComponentInstance {
+    node_id: LogicalNodeId,
+    parent: Option<LogicalNodeId>,
+    native_root: Option<ControlId>,
+    rendered_output: MountedOutput,
+    pub render_cx: RenderCx,
+    pub last_rendered: Element,
+    pub last_obj: Rc<dyn ComponentObject>,
+    pub read_contexts: rustc_hash::FxHashSet<ContextId>,
+}
+
+impl<B: Backend + 'static> Reconciler<B> {
+    pub fn new(backend: B) -> Self {
+        Self {
+            backend,
+            tree: MountedTree::default(),
+            pass: ReconcilePass::default(),
+            host: HostContext::new(),
+            stats: ReconcileStats::default(),
+            root_output: None,
+            next_slot_id: 0,
+        }
+    }
+
+    pub fn set_marshaller(&mut self, marshaller: Option<UiMarshaller>) {
+        self.host.marshaller = marshaller;
+    }
+
+    pub fn set_host_id(&mut self, host_id: HostId) {
+        self.host.host_id = host_id;
+    }
+
+    #[cfg(feature = "test")]
+    pub fn flush_deferred_unmounts(&mut self) {
+        let outputs = std::mem::take(&mut self.tree.templated.deferred_unmounts);
+        for output in outputs {
+            self.unmount_output(output);
+        }
+    }
+
+    #[cfg(feature = "test")]
+    pub fn defer_templated_unmounts_for_test(&mut self, defer: bool) {
+        self.tree.templated.defer_unmounts = defer;
+    }
+
+    pub fn context_stack_handle(&self) -> Rc<ContextStack> {
+        Rc::clone(&self.host.context_stack)
+    }
+
+    fn is_node_state_dirty(&self, node_id: LogicalNodeId) -> bool {
+        self.tree
+            .logical
+            .instance(node_id)
+            .is_some_and(|inst| inst.render_cx.peek_state_dirty())
+    }
+
+    fn is_control_forced(&self, id: ControlId) -> bool {
+        self.pass.forced_controls.contains(&id)
+    }
+
+    fn is_output_forced(&self, output: MountedOutput) -> bool {
+        output.native.is_some_and(|id| self.is_control_forced(id))
+            || output
+                .logical
+                .is_some_and(|id| self.pass.forced_nodes.contains(&id))
+    }
+
+    pub fn reset_stats(&mut self) {
+        self.stats = ReconcileStats::default();
+    }
+
+    pub fn stats(&self) -> ReconcileStats {
+        self.stats
+    }
+
+    #[cfg(feature = "test")]
+    pub fn debug_forced_components_len(&self) -> usize {
+        self.pass.forced_nodes.len()
+    }
+
+    #[cfg(feature = "test")]
+    pub fn debug_logical_component_count(&self) -> usize {
+        self.tree.logical.components.len()
+    }
+
+    #[cfg(feature = "test")]
+    pub fn debug_logical_node_count(&self) -> usize {
+        self.tree.logical.node_count()
+    }
+
+    fn allocate_logical_node_id(&mut self) -> LogicalNodeId {
+        self.tree.logical.allocate_id()
+    }
+
+    fn allocate_slot_id(&mut self) -> LogicalSlotId {
+        let id = LogicalSlotId(self.next_slot_id);
+        self.next_slot_id = self
+            .next_slot_id
+            .checked_add(1)
+            .expect("logical slot id overflow");
+        id
+    }
+
+    fn enter_logical_parent(&self, node_id: LogicalNodeId) -> LogicalParentGuard {
+        self.tree.logical.enter_parent(node_id)
+    }
+
+    fn add_forced_node_path(&mut self, node_id: LogicalNodeId) {
+        let mut current = Some(node_id);
+        while let Some(id) = current {
+            self.pass.forced_nodes.insert(id);
+            if let Some(native_root) = self.tree.logical.node_native_root(id) {
+                let mut control = Some(native_root);
+                while let Some(id) = control {
+                    if !self.pass.forced_controls.insert(id) {
+                        break;
+                    }
+                    control = self.tree.parent(id);
+                }
+            } else if let Some(owner) = self.tree.logical_owner(id) {
+                let mut control = Some(owner);
+                while let Some(id) = control {
+                    if !self.pass.forced_controls.insert(id) {
+                        break;
+                    }
+                    control = self.tree.parent(id);
+                }
+            }
+            current = self.tree.logical.node_parent(id);
+        }
+    }
+
+    fn add_forced_node_paths(&mut self, node_ids: impl IntoIterator<Item = LogicalNodeId>) {
+        for node_id in node_ids {
+            self.add_forced_node_path(node_id);
+        }
+    }
+
+    #[cfg(feature = "test")]
+    pub fn force_components_at_control_for_test(&mut self, id: ControlId) {
+        let node_ids = self
+            .tree
+            .logical
+            .projected_nodes(id)
+            .map(|nodes| nodes.as_slice().to_vec())
+            .unwrap_or_default();
+        self.add_forced_node_paths(node_ids);
+    }
+
+    pub fn acquire_control(&mut self, kind: ControlKind) -> ControlId {
+        self.stats.ui_elements_created += 1;
+        let id = self.backend.create(kind);
+
+        if let Some(stale) = self.tree.logical.take_projection(id) {
+            stale.drain(|node_id| {
+                if self.tree.logical.remove_component(node_id).is_none() {
+                    self.tree.logical.remove_wrapper(node_id);
+                }
+            });
+        }
+        self.tree.templated.lists.remove(&id);
+        self.tree.register(id, Some(kind));
+        id
+    }
+
+    fn take_component_instance(&mut self, node_id: LogicalNodeId) -> Option<ComponentInstance> {
+        self.tree.logical.take_component(node_id)
     }
 
     #[cfg(feature = "test")]
     pub fn debug_appeared_listener_count(&self) -> usize {
-        self.appeared_listener_count
+        self.tree.logical.appeared_listener_count
     }
 
     #[cfg(feature = "test")]
     pub fn debug_disappeared_listener_count(&self) -> usize {
-        self.disappeared_listener_count
+        self.tree.logical.disappeared_listener_count
     }
 
     pub fn reconcile(
@@ -237,68 +1062,240 @@ impl<B: Backend + 'static> Reconciler<B> {
         existing: Option<ControlId>,
         request_rerender: Rc<dyn Fn()>,
     ) -> Option<ControlId> {
-        self.request_rerender = request_rerender;
-        match (existing, old) {
-            (None, _) => self.mount(new),
-            (Some(id), Some(old_el)) => {
+        self.host.request_rerender = request_rerender;
+        let output = match (old, self.root_output, existing) {
+            (Some(old_el), Some(output), _) => {
                 let seeded = self.force_state_dirty_components();
-                let result = self.update(old_el, new, id);
+                let result = self.update_output(old_el, new, output);
                 debug_assert!(
                     seeded
                         .iter()
-                        .all(|cid| !self.is_component_state_dirty(*cid)),
+                        .all(|node_id| !self.is_node_state_dirty(*node_id)),
                     "a state-dirty component was not re-rendered by the pass"
                 );
                 result
             }
-            (Some(_id), None) => self.mount(new),
+            (Some(old_el), None, Some(id)) => {
+                let seeded = self.force_state_dirty_components();
+                let logical = self
+                    .tree
+                    .logical
+                    .current_node(id, LogicalNodeKind::Component);
+                let slot = self.allocate_slot_id();
+                let result = self.update_output(
+                    old_el,
+                    new,
+                    MountedOutput {
+                        slot,
+                        native: Some(id),
+                        logical,
+                    },
+                );
+                debug_assert!(
+                    seeded
+                        .iter()
+                        .all(|node_id| !self.is_node_state_dirty(*node_id)),
+                    "a state-dirty component was not re-rendered by the pass"
+                );
+                result
+            }
+            _ => self.mount_output(new),
+        };
+        self.root_output = (!output_is_empty(output)).then_some(output);
+        #[cfg(debug_assertions)]
+        {
+            self.debug_assert_component_index();
+            self.debug_assert_native_ownership();
+        }
+        output.native
+    }
+
+    #[cfg(debug_assertions)]
+    fn debug_assert_component_index(&self) {
+        let mut indexed = rustc_hash::FxHashSet::default();
+        for (control_id, nodes) in &self.tree.logical.projections {
+            debug_assert!(
+                !nodes.is_empty(),
+                "empty logical projection for {control_id:?}"
+            );
+            for node_id in nodes.as_slice() {
+                debug_assert!(
+                    indexed.insert(*node_id),
+                    "logical node {node_id:?} is indexed more than once"
+                );
+                debug_assert!(
+                    self.tree.logical.contains_node(*node_id),
+                    "projected logical node has no instance"
+                );
+                debug_assert_eq!(
+                    self.tree.logical.node_native_root(*node_id),
+                    Some(*control_id),
+                    "logical node native root disagrees with projection"
+                );
+            }
+        }
+
+        let unprojected = self
+            .tree
+            .logical
+            .components
+            .values()
+            .filter(|node| node.native_root.is_none())
+            .count()
+            + self
+                .tree
+                .logical
+                .wrappers
+                .values()
+                .filter(|node| node.native_root.is_none())
+                .count();
+        debug_assert_eq!(
+            indexed.len() + unprojected,
+            self.tree.logical.node_count(),
+            "logical projection index does not cover every node"
+        );
+        for (node_id, node) in &self.tree.logical.components {
+            if let Some(parent) = node.parent {
+                debug_assert!(
+                    self.tree.logical.contains_node(parent),
+                    "logical node parent is not mounted"
+                );
+            }
+            debug_assert_eq!(*node_id, node.node_id);
+        }
+        for (node_id, node) in &self.tree.logical.wrappers {
+            if let Some(parent) = node.parent {
+                debug_assert!(
+                    self.tree.logical.contains_node(parent),
+                    "logical node parent is not mounted"
+                );
+            }
+            debug_assert_eq!(*node_id, node.node_id);
+        }
+    }
+
+    #[cfg(debug_assertions)]
+    fn debug_assert_native_ownership(&self) {
+        let mut owned = rustc_hash::FxHashSet::default();
+        let mut record = |parent: ControlId, child: ControlId| {
+            debug_assert!(
+                owned.insert(child),
+                "native control {child:?} has more than one owner"
+            );
+            debug_assert_eq!(
+                self.tree.parent(child),
+                Some(parent),
+                "native control {child:?} disagrees with its owner"
+            );
+        };
+
+        for (parent, outputs) in &self.tree.logical_children {
+            let native: Vec<_> = outputs.iter().filter_map(|output| output.native).collect();
+            debug_assert_eq!(
+                self.tree.children(*parent),
+                native.as_slice(),
+                "logical child mirror disagrees with native children"
+            );
+            for output in outputs {
+                if let Some(node_id) = output.logical {
+                    debug_assert!(
+                        self.tree.logical.contains_node(node_id),
+                        "logical child output has no mounted node"
+                    );
+                    debug_assert_eq!(
+                        self.tree.logical.node_native_root(node_id),
+                        output.native,
+                        "logical child output native root disagrees with node"
+                    );
+                }
+            }
+        }
+
+        for (parent, children) in &self.tree.children {
+            for child in children {
+                record(*parent, *child);
+            }
+        }
+        for (parent, header) in &self.tree.headers {
+            if let Some(header) = header.native {
+                record(*parent, header);
+            }
+        }
+        for (parent, pane) in &self.tree.panes {
+            if let Some(pane) = pane.native {
+                record(*parent, pane);
+            }
+        }
+        for (parent, state) in &self.tree.templated.lists {
+            for row in state.rows.values() {
+                if let Some(content_id) = row.output.native {
+                    record(*parent, content_id);
+                }
+            }
+        }
+
+        for (id, node) in &self.tree.nodes {
+            if node.parent.is_some() {
+                debug_assert!(
+                    owned.contains(id),
+                    "native control {id:?} has a parent but is absent from its owner's children"
+                );
+            }
+        }
+        for id in self.tree.custom.keys() {
+            debug_assert!(
+                self.tree.nodes.contains_key(id),
+                "custom handle {id:?} has no mounted native node"
+            );
+        }
+        for id in self.tree.before_unmount.keys() {
+            debug_assert!(
+                self.tree.nodes.contains_key(id),
+                "pre-unmount callback {id:?} has no mounted native node"
+            );
         }
     }
 
     /// Forces dirty components to render even when unchanged parents can be skipped.
-    fn force_state_dirty_components(&mut self) -> Vec<ControlId> {
-        let has_overflow = !self.component_instance_overflow.is_empty();
-        let dirty: Vec<ControlId> = self
-            .component_instances
+    fn force_state_dirty_components(&mut self) -> Vec<LogicalNodeId> {
+        let dirty: Vec<LogicalNodeId> = self
+            .tree
+            .logical
+            .components
             .iter()
-            .filter(|(id, inst)| {
-                inst.render_cx.peek_state_dirty()
-                    || (has_overflow
-                        && self
-                            .component_instance_overflow
-                            .get(id)
-                            .is_some_and(|instances| {
-                                instances
-                                    .iter()
-                                    .any(|inst| inst.render_cx.peek_state_dirty())
-                            }))
-            })
-            .map(|(id, _)| *id)
+            .filter_map(|(node_id, inst)| inst.render_cx.peek_state_dirty().then_some(*node_id))
             .collect();
         if !dirty.is_empty() {
-            self.force_component_rerender = true;
-            self.forced_components.extend(dirty.iter().copied());
+            self.add_forced_node_paths(dirty.iter().copied());
         }
         dirty
     }
 
-    pub fn mount(&mut self, el: &Element) -> Option<ControlId> {
+    fn mount_output(&mut self, el: &Element) -> MountedOutput {
+        let slot = self.allocate_slot_id();
         match el {
-            Element::Component(ce) => return self.mount_component(ce),
-            Element::ErrorBoundary(eb) => return self.mount_error_boundary(eb),
-            Element::Provider(pe) => return self.mount_provider(pe),
-            Element::TemplatedList(tl) => return Some(self.mount_templated_list(tl)),
-            Element::Custom(c) => return Some(self.mount_custom(c)),
-            Element::Group(_) => {
-                panic!(
-                    "Element::Group can only appear inside a multi-child container's child list. \
-                     A Group at a single-child position (e.g. as a Component's render output, \
-                     or as the sole child of Border / ScrollViewer) is not supported. \
-                     Wrap the Group in a StackPanel, return its single non-empty child, or place it \
-                     directly inside a StackPanel/Grid that owns it as one of many children."
-                );
+            Element::Component(ce) => {
+                return self.mount_component_output(ce, slot);
             }
-            Element::Empty => return None,
+            Element::ErrorBoundary(eb) => {
+                return self.mount_error_boundary_output_node(eb, slot);
+            }
+            Element::Provider(pe) => return self.mount_provider_output(pe, slot),
+            Element::TemplatedList(tl) => {
+                return MountedOutput {
+                    slot,
+                    native: Some(self.mount_templated_list(tl)),
+                    logical: None,
+                };
+            }
+            Element::Custom(c) => {
+                return MountedOutput {
+                    slot,
+                    native: Some(self.mount_custom(c)),
+                    logical: None,
+                };
+            }
+            Element::Empty => return MountedOutput::empty(slot),
             _ => {}
         }
         let widget = el.as_widget().unwrap();
@@ -308,51 +1305,69 @@ impl<B: Backend + 'static> Reconciler<B> {
         {
             self.backend.set_rich_text_paragraphs(id, &rt.paragraphs);
         }
-        Some(id)
+        MountedOutput {
+            slot,
+            native: Some(id),
+            logical: None,
+        }
     }
 
-    pub fn update(&mut self, old: &Element, new: &Element, id: ControlId) -> Option<ControlId> {
-        if !self.force_component_rerender && can_skip_update(old, new) {
-            // Dirty internal state must pierce structural equality.
-            if !self.is_component_state_dirty(id) {
-                self.debug_elements_skipped += 1;
-                return Some(id);
-            }
+    pub fn mount(&mut self, el: &Element) -> Option<ControlId> {
+        self.mount_output(el).native
+    }
+
+    fn update_output(
+        &mut self,
+        old: &Element,
+        new: &Element,
+        old_output: MountedOutput,
+    ) -> MountedOutput {
+        let forced = old_output
+            .native
+            .is_some_and(|id| self.is_control_forced(id))
+            || old_output
+                .logical
+                .is_some_and(|id| self.pass.forced_nodes.contains(&id));
+        if can_skip_update(old, new) && !forced {
+            self.stats.elements_skipped += 1;
+            return old_output;
         }
-        self.debug_elements_diffed += 1;
+        self.stats.elements_diffed += 1;
 
         if !old.kind_matches(new) {
-            self.unmount(id);
-            return self.mount(new);
+            self.unmount_output(old_output);
+            return self.mount_output(new);
         }
 
         match (old, new) {
             (Element::Component(o), Element::Component(n)) => {
-                return self.update_component(o, n, id);
+                return self.update_component_output(o, n, old_output);
             }
             (Element::ErrorBoundary(o), Element::ErrorBoundary(n)) => {
-                return self.update_error_boundary(o, n, id);
+                return self.update_error_boundary_output(o, n, old_output);
             }
-            (Element::Provider(o), Element::Provider(n)) => return self.update_provider(o, n, id),
+            (Element::Provider(o), Element::Provider(n)) => {
+                return self.update_provider_output(o, n, old_output);
+            }
             (Element::TemplatedList(o), Element::TemplatedList(n)) => {
+                let id = old_output.native.unwrap();
                 self.update_templated_list(o, n, id);
-                return Some(id);
+                return old_output;
             }
             (Element::Custom(o), Element::Custom(n)) => {
-                return Some(self.update_custom(o, n, id));
+                let id = old_output.native.unwrap();
+                return MountedOutput {
+                    native: Some(self.update_custom(o, n, id)),
+                    ..old_output
+                };
             }
-            (Element::Group(_), Element::Group(_)) => {
-                panic!(
-                    "Element::Group reached update() with a ControlId. \
-                     Group is a fragment and cannot own a control. \
-                     This usually means a Group was placed at a single-child \
-                     position; see Element::Group docs."
-                );
-            }
-            (Element::Empty, Element::Empty) => return None,
+            (Element::Empty, Element::Empty) => return old_output,
             _ => {}
         }
 
+        let id = old_output
+            .native
+            .expect("widget update requires a native output");
         let (Some(ow), Some(nw)) = (old.as_widget(), new.as_widget()) else {
             unreachable!("kind_matches guarantees same variant; non-widget variants handled above");
         };
@@ -362,118 +1377,272 @@ impl<B: Backend + 'static> Reconciler<B> {
         {
             self.backend.set_rich_text_paragraphs(id, &n.paragraphs);
         }
-        Some(id)
+        old_output
+    }
+
+    pub fn update(&mut self, old: &Element, new: &Element, id: ControlId) -> Option<ControlId> {
+        let output = MountedOutput {
+            slot: self.allocate_slot_id(),
+            native: Some(id),
+            logical: self
+                .tree
+                .logical
+                .projections
+                .get(&id)
+                .and_then(|nodes| nodes.last()),
+        };
+        self.update_output(old, new, output).native
+    }
+
+    fn remove_logical_subtree(&mut self, root: LogicalNodeId) {
+        if !self.tree.logical.contains_node(root) {
+            return;
+        }
+        self.remove_logical_subtrees([root]);
+    }
+
+    fn remove_logical_subtrees(&mut self, roots: impl IntoIterator<Item = LogicalNodeId>) {
+        let mut seen = rustc_hash::FxHashSet::default();
+        let mut nodes: Vec<_> = roots
+            .into_iter()
+            .filter(|root| self.tree.logical.contains_node(*root))
+            .filter(|root| seen.insert(*root))
+            .collect();
+        if nodes.is_empty() {
+            return;
+        }
+
+        let mut children: FxHashMap<LogicalNodeId, Vec<LogicalNodeId>> = FxHashMap::default();
+        for node in self.tree.logical.components.values() {
+            if let Some(parent) = node.parent {
+                children.entry(parent).or_default().push(node.node_id);
+            }
+        }
+        for node in self.tree.logical.wrappers.values() {
+            if let Some(parent) = node.parent {
+                children.entry(parent).or_default().push(node.node_id);
+            }
+        }
+
+        let mut index = 0;
+        while index < nodes.len() {
+            let parent = nodes[index];
+            index += 1;
+            if let Some(logical_children) = children.get(&parent) {
+                nodes.extend(
+                    logical_children
+                        .iter()
+                        .copied()
+                        .filter(|child| seen.insert(*child)),
+                );
+            }
+        }
+
+        for node_id in &nodes {
+            if let Some(inst) = self.tree.logical.components.get(node_id)
+                && let Some(native) = inst.native_root
+            {
+                self.tree.logical.remove_projection(native, *node_id);
+            }
+            if let Some(node) = self.tree.logical.wrappers.get(node_id)
+                && let Some(native) = node.native_root
+            {
+                self.tree.logical.remove_projection(native, *node_id);
+            }
+        }
+
+        for node_id in nodes.into_iter().rev() {
+            if let Some(mut inst) = self.tree.logical.remove_component(node_id) {
+                inst.render_cx.run_cleanups();
+            } else {
+                self.tree.logical.remove_wrapper(node_id);
+            }
+        }
+    }
+
+    fn unmount_output(&mut self, output: MountedOutput) {
+        if let Some(native) = output.native {
+            self.unmount(native);
+        }
+        if let Some(logical) = output.logical {
+            self.remove_logical_subtree(logical);
+        }
+    }
+
+    pub fn unmount_root(&mut self) {
+        if let Some(output) = self.root_output.take() {
+            self.unmount_output(output);
+        }
     }
 
     pub fn unmount(&mut self, id: ControlId) {
-        let mut to_release = Vec::new();
-        self.collect_subtree(id, &mut to_release);
-        for node in to_release.into_iter().rev() {
-            if let Some(instances) = self.component_instance_overflow.remove(&node) {
-                for mut inst in instances {
-                    self.unregister_component_listeners(&inst);
-                    inst.render_cx.run_cleanups();
-                }
-            }
-            if let Some(mut inst) = self.component_instances.remove(&node) {
-                self.unregister_component_listeners(&inst);
-                inst.render_cx.run_cleanups();
+        let mut nodes = vec![id];
+        let mut next = 0;
+        while next < nodes.len() {
+            let node = nodes[next];
+            next += 1;
+            self.tree.extend_owned_children(node, &mut nodes);
+        }
+
+        let mut logical_roots = Vec::new();
+        for node in &nodes {
+            self.tree
+                .extend_owned_logical_roots(*node, &mut logical_roots);
+        }
+        logical_roots.sort_unstable_by_key(|node| node.0);
+        logical_roots.dedup();
+        self.remove_logical_subtrees(logical_roots);
+
+        for node in nodes.into_iter().rev() {
+            if let Some(node_ids) = self.tree.logical.take_projection(node) {
+                node_ids.drain(|node_id| {
+                    if let Some(mut inst) = self.tree.logical.remove_component(node_id) {
+                        inst.render_cx.run_cleanups();
+                    } else {
+                        self.tree.logical.remove_wrapper(node_id);
+                    }
+                });
             }
 
-            if let Some(state) = self.templated_lists.remove(&node) {
-                for row in state.rows.into_iter().flatten() {
-                    self.unmount(row.content_id);
-                }
-            }
-
-            // Header/pane element subtrees are tracked outside children_mirror.
-            if let Some(hdr_id) = self.header_elements.remove(&node) {
-                self.unmount(hdr_id);
-            }
-            if let Some(pane_id) = self.pane_elements.remove(&node) {
-                self.unmount(pane_id);
-            }
-
-            self.selection_callbacks.remove(&node);
-            self.reorder_callbacks.remove(&node);
+            self.tree.templated.lists.remove(&node);
 
             // Give external resources a chance to detach before native destroy.
-            if let Some(cb) = self.unmount_callbacks.remove(&node) {
-                cb.invoke(self.backend.get_native_element(node));
+            if let Some(lifecycle) = self.tree.take_before_unmount(node) {
+                if let Some(reference) = lifecycle.reference {
+                    reference.set_native(None);
+                }
+                if let Some(callback) = lifecycle.callback {
+                    callback.invoke(self.backend.get_native_element(node));
+                }
             }
 
-            self.error_boundary_fallbacks.remove(&node);
-
-            if let Some(handle) = self.custom_handles.remove(&node) {
+            if let Some(handle) = self.tree.take_custom(node) {
                 handle.before_destroy(node, &mut self.backend);
             }
 
-            self.children_mirror.remove(&node);
-            self.id_kinds.remove(&node);
+            self.tree.remove_node(node);
             self.backend.destroy(node);
         }
     }
 
-    fn collect_subtree(&self, id: ControlId, out: &mut Vec<ControlId>) {
-        let mut stack = vec![id];
-        while let Some(node) = stack.pop() {
-            out.push(node);
-            if let Some(children) = self.children_mirror.get(&node) {
-                for child in children.iter().rev() {
-                    stack.push(*child);
-                }
+    fn append_output_tracked(&mut self, parent: ControlId, output: MountedOutput) {
+        self.tree.append_logical_child(parent, output);
+        if let Some(native) = output.native {
+            self.tree.append_child(parent, native);
+            self.backend.append_child(parent, native);
+        }
+    }
+
+    fn insert_output_tracked(&mut self, parent: ControlId, index: usize, output: MountedOutput) {
+        let index = self.tree.insert_logical_child(parent, index, output);
+        if let Some(native) = output.native {
+            let native_index = self.tree.native_index(parent, index);
+            self.tree.insert_child(parent, native_index, native);
+            self.backend.insert_child(parent, native_index, native);
+        }
+    }
+
+    fn replace_output_tracked(
+        &mut self,
+        parent: ControlId,
+        index: usize,
+        output: MountedOutput,
+    ) -> MountedOutput {
+        let old = self
+            .tree
+            .logical_child(parent, index)
+            .expect("logical child slot missing");
+        let native_index = self.tree.native_index(parent, index);
+        self.tree.replace_logical_child(parent, index, output);
+        match (old.native, output.native) {
+            (Some(old), Some(new)) if old != new => {
+                self.tree.replace_child(parent, native_index, new);
+                self.backend.replace_child(parent, native_index, new);
+            }
+            (Some(_), Some(_)) => {}
+            (Some(_), None) => {
+                self.tree.remove_child(parent, native_index);
+                self.backend.remove_child(parent, native_index);
+            }
+            (None, Some(new)) => {
+                self.tree.insert_child(parent, native_index, new);
+                self.backend.insert_child(parent, native_index, new);
+            }
+            (None, None) => {}
+        }
+        old
+    }
+
+    fn remove_output_tracked(&mut self, parent: ControlId, index: usize) -> MountedOutput {
+        let output = self
+            .tree
+            .logical_child(parent, index)
+            .expect("logical child slot missing");
+        let native_index = self.tree.native_index(parent, index);
+        self.tree.remove_logical_child(parent, index);
+        if output.native.is_some() {
+            self.tree.remove_child(parent, native_index);
+            self.backend.remove_child(parent, native_index);
+        }
+        output
+    }
+
+    fn move_output_tracked(&mut self, parent: ControlId, from: usize, to: usize) {
+        if self
+            .tree
+            .logical_children(parent)
+            .iter()
+            .all(|output| output.native.is_some())
+        {
+            self.tree.move_logical_child(parent, from, to);
+            if from != to {
+                self.tree.move_child(parent, from, to);
+                self.backend.move_child(parent, from, to);
+            }
+            return;
+        }
+        let output = self
+            .tree
+            .logical_child(parent, from)
+            .expect("logical child slot missing");
+        let from_native = output.native.map(|_| self.tree.native_index(parent, from));
+        self.tree.move_logical_child(parent, from, to);
+        if let Some(native) = from_native {
+            let to_native = self.tree.native_index(parent, to);
+            if native != to_native {
+                self.tree.move_child(parent, native, to_native);
+                self.backend.move_child(parent, native, to_native);
             }
         }
     }
 
     pub fn append_child_tracked(&mut self, parent: ControlId, child: ControlId) {
-        self.children_mirror.entry(parent).or_default().push(child);
+        self.tree.append_child(parent, child);
         self.backend.append_child(parent, child);
     }
 
     pub fn remove_child_tracked(&mut self, parent: ControlId, index: usize) {
-        if let Some(list) = self.children_mirror.get_mut(&parent)
-            && index < list.len()
-        {
-            list.remove(index);
-        }
+        self.tree.remove_child(parent, index);
         self.backend.remove_child(parent, index);
     }
 
     pub fn replace_child_tracked(&mut self, parent: ControlId, index: usize, new: ControlId) {
-        if let Some(list) = self.children_mirror.get_mut(&parent)
-            && index < list.len()
-        {
-            list[index] = new;
-        }
+        self.tree.replace_child(parent, index, new);
         self.backend.replace_child(parent, index, new);
     }
 
     pub fn move_child_tracked(&mut self, parent: ControlId, from: usize, to: usize) {
-        if from == to {
-            return;
-        }
-        if let Some(list) = self.children_mirror.get_mut(&parent)
-            && from < list.len()
-            && to < list.len()
-        {
-            let item = list.remove(from);
-            list.insert(to, item);
-        }
+        self.tree.move_child(parent, from, to);
         self.backend.move_child(parent, from, to);
     }
 
     pub fn insert_child_tracked(&mut self, parent: ControlId, index: usize, child: ControlId) {
-        let list = self.children_mirror.entry(parent).or_default();
-        let clamped = index.min(list.len());
-        list.insert(clamped, child);
-        self.backend.insert_child(parent, clamped, child);
+        let index = self.tree.insert_child(parent, index, child);
+        self.backend.insert_child(parent, index, child);
     }
 
     pub fn child_at(&self, parent: ControlId, i: usize) -> Option<ControlId> {
-        self.children_mirror
-            .get(&parent)
-            .and_then(|v| v.get(i).copied())
+        self.tree.child(parent, i)
     }
 
     pub fn apply_modifiers(&mut self, id: ControlId, mods: &Modifiers) {
@@ -686,9 +1855,8 @@ impl<B: Backend + 'static> Reconciler<B> {
         if map.is_empty() {
             return;
         }
-        let kind = match self.id_kinds.get(&id) {
-            Some(k) => *k,
-            None => return,
+        let Some(kind) = self.tree.kind(id) else {
+            return;
         };
         let bindings: Vec<(Prop, ThemeRef)> = map.iter().map(|(p, t)| (*p, t.clone())).collect();
         self.backend.set_theme_bindings(id, kind, &bindings);
@@ -754,7 +1922,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.diff_opt_f64(id, Prop::FontSize, old.font_size, new.font_size);
 
         if old.theme_bindings != new.theme_bindings {
-            let kind = self.id_kinds.get(&id).copied();
+            let kind = self.tree.kind(id);
             if let Some(kind) = kind {
                 let bindings: Vec<(Prop, ThemeRef)> = new
                     .theme_bindings
@@ -835,37 +2003,100 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub fn collect_affected_components(
+    fn collect_affected_components(
         &self,
         root_id: ControlId,
         changed: &rustc_hash::FxHashSet<ContextId>,
-    ) -> Vec<ControlId> {
-        let mut result = Vec::new();
+    ) -> Vec<LogicalNodeId> {
+        let mut affected = Vec::new();
         let mut stack = vec![root_id];
+        let mut logical = Vec::new();
         while let Some(id) = stack.pop() {
-            if self
-                .component_instances
-                .get(&id)
-                .is_some_and(|inst| inst.read_contexts.iter().any(|c| changed.contains(c)))
-                || (!self.component_instance_overflow.is_empty()
-                    && self
-                        .component_instance_overflow
-                        .get(&id)
-                        .is_some_and(|instances| {
-                            instances
-                                .iter()
-                                .any(|inst| inst.read_contexts.iter().any(|c| changed.contains(c)))
-                        }))
-            {
-                result.push(id);
+            self.tree
+                .logical
+                .extend_context_subscribers(id, changed, &mut affected);
+            self.tree.extend_owned_children(id, &mut stack);
+            self.tree.extend_owned_logical_roots(id, &mut logical);
+        }
+        while let Some(node_id) = logical.pop() {
+            if self.tree.logical.instance(node_id).is_some_and(|inst| {
+                inst.read_contexts
+                    .iter()
+                    .any(|context| changed.contains(context))
+            }) {
+                affected.push(node_id);
             }
-            if let Some(kids) = self.children_mirror.get(&id) {
-                for k in kids {
-                    stack.push(*k);
+            logical.extend(
+                self.tree
+                    .logical
+                    .components
+                    .values()
+                    .filter(|node| node.parent == Some(node_id))
+                    .map(|node| node.node_id),
+            );
+            logical.extend(
+                self.tree
+                    .logical
+                    .wrappers
+                    .values()
+                    .filter(|node| node.parent == Some(node_id))
+                    .map(|node| node.node_id),
+            );
+        }
+        affected
+    }
+
+    fn collect_affected_components_for_node(
+        &self,
+        root: LogicalNodeId,
+        changed: &rustc_hash::FxHashSet<ContextId>,
+    ) -> Vec<LogicalNodeId> {
+        let mut affected: Vec<_> = self
+            .tree
+            .logical
+            .components
+            .values()
+            .filter(|inst| {
+                inst.read_contexts
+                    .iter()
+                    .any(|context| changed.contains(context))
+                    && self.logical_is_descendant(inst.node_id, root)
+            })
+            .map(|inst| inst.node_id)
+            .collect();
+
+        if let Some(native_root) = self.tree.logical.node_native_root(root) {
+            for node_id in self.collect_affected_components(native_root, changed) {
+                if !affected.contains(&node_id) {
+                    affected.push(node_id);
                 }
             }
         }
-        result
+
+        affected
+    }
+
+    fn logical_is_descendant(&self, node_id: LogicalNodeId, root: LogicalNodeId) -> bool {
+        let mut current = Some(node_id);
+        while let Some(node) = current {
+            if node == root {
+                return true;
+            }
+            current = self.tree.logical.node_parent(node);
+        }
+        false
+    }
+
+    fn force_all_context_subscribers(&mut self, changed: &rustc_hash::FxHashSet<ContextId>) {
+        let affected: Vec<_> = self
+            .tree
+            .logical
+            .components
+            .values()
+            .filter(|inst| inst.read_contexts.iter().any(|id| changed.contains(id)))
+            .map(|inst| inst.node_id)
+            .collect();
+        self.add_forced_node_paths(affected);
     }
 
     pub fn notify_theme_changed(&mut self) {
@@ -890,11 +2121,11 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn set_inner_size_cell(&mut self, cell: Rc<Cell<WindowSize>>) {
-        self.inner_size = cell;
+        self.host.inner_size = cell;
     }
 
     pub fn set_dpi_cell(&mut self, cell: Rc<Cell<u32>>) {
-        self.dpi = cell;
+        self.host.dpi = cell;
     }
 
     pub fn force_context_subscribers(
@@ -904,53 +2135,48 @@ impl<B: Backend + 'static> Reconciler<B> {
     ) {
         let affected = self.collect_affected_components(root_id, context_ids);
         if !affected.is_empty() {
-            self.force_component_rerender = true;
-            self.forced_components.extend(affected);
+            self.add_forced_node_paths(affected);
         }
     }
 
-    pub fn clear_forced_component_rerender(&mut self) {
-        self.force_component_rerender = false;
-        self.forced_components.clear();
+    pub fn force_context_subscribers_root(
+        &mut self,
+        context_ids: &rustc_hash::FxHashSet<ContextId>,
+    ) {
+        self.force_all_context_subscribers(context_ids);
+    }
+
+    pub fn clear_forced_components(&mut self) {
+        self.pass.forced_nodes.clear();
+        self.pass.forced_controls.clear();
     }
 }
 
-/// Borrowed or filtered child slice.
+/// Borrowed child slice retained so logical empty slots stay addressable.
 enum LiveChildren<'a> {
     Flat(&'a [Element]),
-    Filtered(Vec<&'a Element>),
 }
 
 impl<'a> LiveChildren<'a> {
     fn from_slice(slice: &'a [Element]) -> Self {
-        let needs_filter = slice
-            .iter()
-            .any(|e| matches!(e, Element::Empty | Element::Group(_)));
-        if needs_filter {
-            LiveChildren::Filtered(collect_live(slice))
-        } else {
-            LiveChildren::Flat(slice)
-        }
+        LiveChildren::Flat(slice)
     }
 
     fn as_ref(&self) -> LiveChildrenRef<'_> {
         match self {
             LiveChildren::Flat(s) => LiveChildrenRef::Flat(s),
-            LiveChildren::Filtered(v) => LiveChildrenRef::Filtered(v),
         }
     }
 }
 
 pub enum LiveChildrenRef<'a> {
     Flat(&'a [Element]),
-    Filtered(&'a [&'a Element]),
 }
 
 impl<'a> LiveChildrenRef<'a> {
     pub fn len(&self) -> usize {
         match self {
             LiveChildrenRef::Flat(s) => s.len(),
-            LiveChildrenRef::Filtered(v) => v.len(),
         }
     }
 
@@ -961,35 +2187,17 @@ impl<'a> LiveChildrenRef<'a> {
     pub fn get(&self, i: usize) -> Option<&'a Element> {
         match self {
             LiveChildrenRef::Flat(s) => s.get(i),
-            LiveChildrenRef::Filtered(v) => v.get(i).copied(),
         }
     }
 
     pub fn any_has_key(&self) -> bool {
         match self {
             LiveChildrenRef::Flat(s) => s.iter().any(|e| e.key().is_some()),
-            LiveChildrenRef::Filtered(v) => v.iter().any(|e| e.key().is_some()),
         }
     }
 }
 
-/// Flatten children for reconciliation by dropping `Empty` and splicing `Group`.
+/// Retains all logical child positions, including empty output.
 pub fn collect_live(slice: &[Element]) -> Vec<&Element> {
-    let mut out = Vec::with_capacity(slice.len());
-    for el in slice {
-        push_live(el, &mut out);
-    }
-    out
-}
-
-fn push_live<'a>(el: &'a Element, out: &mut Vec<&'a Element>) {
-    match el {
-        Element::Empty => {}
-        Element::Group(g) => {
-            for child in &g.children {
-                push_live(child, out);
-            }
-        }
-        other => out.push(other),
-    }
+    slice.iter().collect()
 }

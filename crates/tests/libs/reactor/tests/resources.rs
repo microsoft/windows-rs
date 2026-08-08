@@ -3,7 +3,7 @@ use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::{
-    Color, CornerRadius, Element, ElementExt, Prop, PropValue, Reconciler, ResourceValue,
+    Color, CornerRadius, Element, Prop, PropValue, Reconciler, ResourceExt, ResourceValue,
     Thickness, button,
 };
 

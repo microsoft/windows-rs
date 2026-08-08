@@ -15,7 +15,7 @@ fn deferred_unmount_flag_batches_into_queue() {
     let el = list_view(items, |n, _| TextBlock::new(format!("row-{n}"))).build();
 
     let mut r = Reconciler::new(RecordingBackend::new());
-    r.defer_templated_unmounts = true;
+    r.defer_templated_unmounts_for_test(true);
     let list_id = r.reconcile(None, &el, None, noop()).unwrap();
     r.drain_realizations();
     for i in 0..5 {
@@ -57,6 +57,6 @@ fn deferred_unmount_flag_batches_into_queue() {
 #[test]
 fn flushing_empty_deferred_queue_is_a_noop() {
     let mut r = Reconciler::new(RecordingBackend::new());
-    r.defer_templated_unmounts = true;
+    r.defer_templated_unmounts_for_test(true);
     r.flush_deferred_unmounts();
 }

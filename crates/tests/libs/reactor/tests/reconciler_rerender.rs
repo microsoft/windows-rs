@@ -51,7 +51,7 @@ fn identical_text_update_records_nothing_via_skip_path() {
     let (r, ops) = update_ops(old, new);
 
     assert!(ops.is_empty(), "expected skip path; got {ops:?}");
-    assert_eq!(r.debug_elements_skipped, 1);
+    assert_eq!(r.stats().elements_skipped, 1);
 }
 
 #[test]

@@ -5,48 +5,68 @@ use super::*;
 use rustc_hash::{FxHashMap, FxHashSet};
 
 impl<B: Backend + 'static> Reconciler<B> {
-    pub fn mount_component(&mut self, ce: &ComponentElement) -> Option<ControlId> {
-        let mut cx = RenderCx::new(Rc::clone(&self.request_rerender));
+    pub(crate) fn mount_component_output(
+        &mut self,
+        ce: &ComponentElement,
+        slot: LogicalSlotId,
+    ) -> MountedOutput {
+        let node_id = self.allocate_logical_node_id();
+        let parent = self.tree.logical.active_parent();
+        let mut cx = RenderCx::new(Rc::clone(&self.host.request_rerender));
         cx.set_context_stack(self.context_stack_handle());
-        cx.set_marshaller(self.marshaller.clone());
-        cx.set_host_id(self.host_id);
-        cx.set_inner_size_cell(Rc::clone(&self.inner_size));
-        cx.set_dpi_cell(Rc::clone(&self.dpi));
+        cx.set_marshaller(self.host.marshaller.clone());
+        cx.set_host_id(self.host.host_id);
+        cx.set_inner_size_cell(Rc::clone(&self.host.inner_size));
+        cx.set_dpi_cell(Rc::clone(&self.host.dpi));
         cx.begin_render();
         let rendered = ce.obj.render(&mut cx);
         cx.flush_effects();
         let read_contexts = cx.take_read_contexts();
 
-        let rendered_id = self.mount(&rendered)?;
-        self.register_component_instance(
-            rendered_id,
-            ComponentInstance {
-                render_cx: cx,
-                last_rendered: rendered,
-                last_obj: Rc::clone(&ce.obj),
-                read_contexts,
-            },
-        );
-        Some(rendered_id)
+        let rendered_output = {
+            let _parent = self.enter_logical_parent(node_id);
+            self.mount_output(&rendered)
+        };
+        self.tree.logical.register_component(ComponentInstance {
+            node_id,
+            parent,
+            native_root: rendered_output.native,
+            rendered_output,
+            render_cx: cx,
+            last_rendered: rendered,
+            last_obj: Rc::clone(&ce.obj),
+            read_contexts,
+        });
+        MountedOutput {
+            slot,
+            native: rendered_output.native,
+            logical: Some(node_id),
+        }
     }
 
-    pub fn update_component(
+    pub(crate) fn update_component_output(
         &mut self,
         old: &ComponentElement,
         new: &ComponentElement,
-        id: ControlId,
-    ) -> Option<ControlId> {
+        old_output: MountedOutput,
+    ) -> MountedOutput {
         if old.obj.component_type_id() != new.obj.component_type_id() {
-            self.unmount(id);
-            return self.mount_component(new);
+            self.unmount_output(old_output);
+            return self.mount_output(&Element::Component(new.clone()));
         }
 
-        let forced_by_context = self.forced_components.contains(&id);
+        let parent = self.tree.logical.active_parent();
+        let Some(node_id) = old_output.logical else {
+            self.unmount_output(old_output);
+            return self.mount_output(&Element::Component(new.clone()));
+        };
+        let forced = self.pass.forced_nodes.contains(&node_id);
         let state_dirty = self
-            .component_instances
-            .get(&id)
+            .tree
+            .logical
+            .instance(node_id)
             .is_some_and(|inst| inst.render_cx.take_state_dirty());
-        let needs_update = if forced_by_context || state_dirty {
+        let needs_update = if forced || state_dirty {
             true
         } else if new.memoised {
             !old.obj.is_equivalent(&*new.obj)
@@ -55,112 +75,224 @@ impl<B: Backend + 'static> Reconciler<B> {
         };
 
         if !needs_update {
-            if let Some(inst) = self.component_instances.get_mut(&id) {
-                inst.last_obj = Rc::clone(&new.obj);
-            }
-            return Some(id);
+            self.tree.logical.refresh_instance(
+                node_id,
+                Rc::clone(&new.obj),
+                parent,
+                old_output.native,
+            );
+            return old_output;
         }
 
-        let Some(mut inst) = self.take_component_instance(id) else {
-            return self.mount_component(new);
+        let Some(mut inst) = self.take_component_instance(node_id) else {
+            self.unmount_output(old_output);
+            return self.mount_output(&Element::Component(new.clone()));
         };
 
         inst.render_cx
             .set_context_stack(self.context_stack_handle());
         inst.render_cx
-            .set_inner_size_cell(Rc::clone(&self.inner_size));
-        inst.render_cx.set_dpi_cell(Rc::clone(&self.dpi));
+            .set_inner_size_cell(Rc::clone(&self.host.inner_size));
+        inst.render_cx.set_dpi_cell(Rc::clone(&self.host.dpi));
         inst.render_cx.begin_render();
         let rendered = new.obj.render(&mut inst.render_cx);
         inst.render_cx.flush_effects();
         inst.read_contexts = inst.render_cx.take_read_contexts();
+        inst.parent = parent;
 
-        let new_id = self.update(&inst.last_rendered, &rendered, id);
+        let rendered_output = {
+            let _parent = self.enter_logical_parent(node_id);
+            self.update_output(&inst.last_rendered, &rendered, inst.rendered_output)
+        };
 
         inst.last_rendered = rendered;
         inst.last_obj = Rc::clone(&new.obj);
+        inst.native_root = rendered_output.native;
+        inst.rendered_output = rendered_output;
 
-        if let Some(nid) = new_id {
-            self.register_component_instance(nid, inst);
-            Some(nid)
-        } else {
-            inst.render_cx.run_cleanups();
-            None
+        self.tree.logical.register_component(inst);
+        MountedOutput {
+            slot: old_output.slot,
+            native: rendered_output.native,
+            logical: Some(node_id),
         }
     }
 
-    pub fn mount_error_boundary(&mut self, eb: &ErrorBoundaryElement) -> Option<ControlId> {
-        let result = std::panic::catch_unwind(AssertUnwindSafe(|| self.mount(&eb.child)));
-        match result {
-            Ok(id) => id,
+    pub(crate) fn mount_error_boundary_output_node(
+        &mut self,
+        boundary: &ErrorBoundaryElement,
+        slot: LogicalSlotId,
+    ) -> MountedOutput {
+        let node_id = self.allocate_logical_node_id();
+        let parent = self.tree.logical.active_parent();
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            let _parent = self.enter_logical_parent(node_id);
+            self.mount_output(&boundary.child)
+        }));
+
+        let (output, rendered, fallback) = match result {
+            Ok(output) => (output, (*boundary.child).clone(), false),
             Err(payload) => {
                 let msg = panic_message(payload);
-                let fallback = eb.fallback.invoke(&msg);
-                let id = self.mount(&fallback);
-                if let Some(id) = id {
-                    self.error_boundary_fallbacks.insert(id);
-                }
-                id
+                let rendered = boundary.fallback.invoke(&msg);
+                let output = {
+                    let _parent = self.enter_logical_parent(node_id);
+                    self.mount_output(&rendered)
+                };
+                (output, rendered, true)
             }
+        };
+        self.tree.logical.register_wrapper(LogicalWrapperNode {
+            kind: LogicalNodeKind::ErrorBoundary,
+            node_id,
+            parent,
+            native_root: output.native,
+            child_output: output,
+            rendered,
+            fallback,
+        });
+        MountedOutput {
+            slot,
+            native: output.native,
+            logical: Some(node_id),
         }
     }
 
-    pub fn update_error_boundary(
+    pub(crate) fn update_error_boundary_output(
         &mut self,
         old: &ErrorBoundaryElement,
         new: &ErrorBoundaryElement,
-        id: ControlId,
-    ) -> Option<ControlId> {
-        if self.error_boundary_fallbacks.remove(&id) {
-            self.unmount(id);
-            let result = std::panic::catch_unwind(AssertUnwindSafe(|| self.mount(&new.child)));
-            return match result {
-                Ok(nid) => nid,
+        old_output: MountedOutput,
+    ) -> MountedOutput {
+        let Some(node_id) = old_output.logical else {
+            self.unmount_output(old_output);
+            return self.mount_error_boundary_output_node(new, old_output.slot);
+        };
+        let Some(mut boundary) = self.tree.logical.take_error_boundary(node_id) else {
+            self.unmount_output(old_output);
+            return self.mount_error_boundary_output_node(new, old_output.slot);
+        };
+        boundary.parent = self.tree.logical.active_parent();
+
+        if boundary.fallback {
+            self.unmount_output(boundary.child_output);
+            let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+                let _parent = self.enter_logical_parent(node_id);
+                self.mount_output(&new.child)
+            }));
+            match result {
+                Ok(output) => {
+                    boundary.child_output = output;
+                    boundary.rendered = (*new.child).clone();
+                    boundary.native_root = output.native;
+                    boundary.fallback = false;
+                    self.tree.logical.register_wrapper(boundary);
+                    return MountedOutput {
+                        slot: old_output.slot,
+                        native: output.native,
+                        logical: Some(node_id),
+                    };
+                }
                 Err(payload) => {
                     let msg = panic_message(payload);
-                    let fallback = new.fallback.invoke(&msg);
-                    let nid = self.mount(&fallback);
-                    if let Some(nid) = nid {
-                        self.error_boundary_fallbacks.insert(nid);
-                    }
-                    nid
+                    let rendered = new.fallback.invoke(&msg);
+                    let output = {
+                        let _parent = self.enter_logical_parent(node_id);
+                        self.mount_output(&rendered)
+                    };
+                    boundary.child_output = output;
+                    boundary.rendered = rendered;
+                    boundary.native_root = output.native;
+                    boundary.fallback = true;
+                    self.tree.logical.register_wrapper(boundary);
+                    return MountedOutput {
+                        slot: old_output.slot,
+                        native: output.native,
+                        logical: Some(node_id),
+                    };
                 }
-            };
+            }
         }
 
-        let result =
-            std::panic::catch_unwind(AssertUnwindSafe(|| self.update(&old.child, &new.child, id)));
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            let _parent = self.enter_logical_parent(node_id);
+            self.update_output(&old.child, &new.child, boundary.child_output)
+        }));
         match result {
-            Ok(nid) => nid,
+            Ok(output) => {
+                boundary.fallback = false;
+                boundary.child_output = output;
+                boundary.rendered = (*new.child).clone();
+                boundary.native_root = output.native;
+                self.tree.logical.register_wrapper(boundary);
+                MountedOutput {
+                    slot: old_output.slot,
+                    native: output.native,
+                    logical: Some(node_id),
+                }
+            }
             Err(payload) => {
                 let msg = panic_message(payload);
                 let fallback = new.fallback.invoke(&msg);
-                self.unmount(id);
-                let nid = self.mount(&fallback);
-                if let Some(nid) = nid {
-                    self.error_boundary_fallbacks.insert(nid);
+                self.unmount_output(boundary.child_output);
+                let output = {
+                    let _parent = self.enter_logical_parent(node_id);
+                    self.mount_output(&fallback)
+                };
+                boundary.fallback = true;
+                boundary.child_output = output;
+                boundary.rendered = fallback;
+                boundary.native_root = output.native;
+                self.tree.logical.register_wrapper(boundary);
+                MountedOutput {
+                    slot: old_output.slot,
+                    native: output.native,
+                    logical: Some(node_id),
                 }
-                nid
             }
         }
     }
 
-    pub fn mount_provider(&mut self, p: &ProviderElement) -> Option<ControlId> {
-        let pushed = self.push_provisions(&p.provisions);
-        let result = std::panic::catch_unwind(AssertUnwindSafe(|| self.mount(&p.child)));
+    pub(crate) fn mount_provider_output(
+        &mut self,
+        provider: &ProviderElement,
+        slot: LogicalSlotId,
+    ) -> MountedOutput {
+        let node_id = self.allocate_logical_node_id();
+        let parent = self.tree.logical.active_parent();
+        let pushed = self.push_provisions(&provider.provisions);
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            let _parent = self.enter_logical_parent(node_id);
+            self.mount_output(&provider.child)
+        }));
         self.pop_provisions(pushed);
         match result {
-            Ok(id) => id,
+            Ok(output) => {
+                self.tree.logical.register_wrapper(LogicalWrapperNode {
+                    kind: LogicalNodeKind::Provider,
+                    node_id,
+                    parent,
+                    native_root: output.native,
+                    child_output: output,
+                    rendered: (*provider.child).clone(),
+                    fallback: false,
+                });
+                MountedOutput {
+                    slot,
+                    native: output.native,
+                    logical: Some(node_id),
+                }
+            }
             Err(payload) => std::panic::resume_unwind(payload),
         }
     }
 
-    pub fn update_provider(
+    pub(crate) fn update_provider_output(
         &mut self,
         old: &ProviderElement,
         new: &ProviderElement,
-        id: ControlId,
-    ) -> Option<ControlId> {
+        old_output: MountedOutput,
+    ) -> MountedOutput {
         let mut changed_ids: FxHashSet<ContextId> = FxHashSet::default();
 
         let mut old_by_id: FxHashMap<ContextId, &ContextProvision> = FxHashMap::default();
@@ -172,60 +304,78 @@ impl<B: Backend + 'static> Reconciler<B> {
                 None => {
                     changed_ids.insert(new_p.context_id);
                 }
-                Some(old_p) => {
-                    if old_p != new_p {
-                        changed_ids.insert(new_p.context_id);
-                    }
+                Some(old_p) if old_p != new_p => {
+                    changed_ids.insert(new_p.context_id);
                 }
+                Some(_) => {}
             }
         }
+        changed_ids.extend(old_by_id.into_keys());
 
-        for old_id in old_by_id.into_keys() {
-            changed_ids.insert(old_id);
-        }
-
-        let prev_flag = self.force_component_rerender;
-        let saved_forced = self.forced_components.clone();
+        let Some(node_id) = old_output.logical else {
+            self.unmount_output(old_output);
+            return self.mount_provider_output(new, old_output.slot);
+        };
+        let saved_nodes = self.pass.forced_nodes.clone();
+        let saved_controls = self.pass.forced_controls.clone();
         if !changed_ids.is_empty() {
-            let affected = self.collect_affected_components(id, &changed_ids);
-            if !affected.is_empty() {
-                self.force_component_rerender = true;
-                self.forced_components.extend(affected);
-            }
+            let affected = self.collect_affected_components_for_node(node_id, &changed_ids);
+            self.add_forced_node_paths(affected);
         }
+
+        let Some(mut provider) = self.tree.logical.take_provider(node_id) else {
+            self.unmount_output(old_output);
+            return self.mount_provider_output(new, old_output.slot);
+        };
+        provider.parent = self.tree.logical.active_parent();
 
         let pushed = self.push_provisions(&new.provisions);
-        let result =
-            std::panic::catch_unwind(AssertUnwindSafe(|| self.update(&old.child, &new.child, id)));
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            let _parent = self.enter_logical_parent(node_id);
+            self.update_output(&old.child, &new.child, provider.child_output)
+        }));
         self.pop_provisions(pushed);
-
-        self.forced_components = saved_forced;
-        self.force_component_rerender = prev_flag;
+        self.pass.forced_nodes = saved_nodes;
+        self.pass.forced_controls = saved_controls;
 
         match result {
-            Ok(nid) => nid,
+            Ok(output) => {
+                provider.child_output = output;
+                provider.rendered = (*new.child).clone();
+                provider.native_root = output.native;
+                self.tree.logical.register_wrapper(provider);
+                MountedOutput {
+                    slot: old_output.slot,
+                    native: output.native,
+                    logical: Some(node_id),
+                }
+            }
             Err(payload) => std::panic::resume_unwind(payload),
         }
     }
 
     fn push_provisions(&self, provisions: &[ContextProvision]) -> usize {
         for p in provisions {
-            self.context_stack
-                .push_raw_retain(p.context_id, p.value_type_id, Rc::clone(&p.value));
+            self.host.context_stack.push_raw_retain(
+                p.context_id,
+                p.value_type_id,
+                Rc::clone(&p.value),
+            );
         }
         provisions.len()
     }
 
-    fn pop_provisions(&self, count: usize) {
+    pub(crate) fn pop_provisions(&self, count: usize) {
         for _ in 0..count {
-            self.context_stack.pop_raw();
+            self.host.context_stack.pop_raw();
         }
     }
 
     pub fn mount_custom(&mut self, c: &CustomElementHandle) -> ControlId {
-        self.debug_ui_elements_created += 1;
+        self.stats.ui_elements_created += 1;
         let id = c.0.mount(&mut self.backend);
-        self.custom_handles.insert(id, c.0.clone_dyn());
+        self.tree.register(id, None);
+        self.tree.set_custom(id, c.0.clone_dyn());
         id
     }
 
@@ -243,7 +393,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         );
         if !old.0.eq_dyn(&*new.0) {
             new.0.update(&*old.0, id, &mut self.backend);
-            self.custom_handles.insert(id, new.0.clone_dyn());
+            self.tree.set_custom(id, new.0.clone_dyn());
         }
         id
     }

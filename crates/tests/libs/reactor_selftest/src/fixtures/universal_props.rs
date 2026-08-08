@@ -8,8 +8,11 @@
 //! 2. Prop transitions (set -> clear -> set) succeed without errors.
 //! 3. No `windows-reactor:` diagnostic warnings are emitted.
 
-use windows_reactor::{Canvas, Color, Element, RelativePanel};
-use windows_reactor::{ElementExt, button, text_block};
+use windows_reactor::{
+    BackgroundExt, CanvasChildExt, LayoutExt, PaddingExt, RelativePanelChildExt, TextStyleExt,
+    VisualExt, button, swap_chain_panel, text_block,
+};
+use windows_reactor::{Canvas, Color, RelativePanel};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
@@ -95,19 +98,13 @@ pub fn relative_panel_alignment(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         let cap = h.capture_stderr();
         h.mount(cc(|_| {
-            let left: Element = text_block("L").into();
-            let right: Element = text_block("R").into();
-            let top: Element = text_block("T").into();
-            let bottom: Element = text_block("B").into();
-            let hc: Element = text_block("HC").into();
-            let vc: Element = text_block("VC").into();
             RelativePanel::new([
-                left.relative_align_left(),
-                right.relative_align_right(),
-                top.relative_align_top(),
-                bottom.relative_align_bottom(),
-                hc.relative_align_h_center(),
-                vc.relative_align_v_center(),
+                text_block("L").relative_align_left(),
+                text_block("R").relative_align_right(),
+                text_block("T").relative_align_top(),
+                text_block("B").relative_align_bottom(),
+                text_block("HC").relative_align_h_center(),
+                text_block("VC").relative_align_v_center(),
             ])
             .into()
         }));
@@ -122,9 +119,9 @@ pub fn relative_panel_alignment(h: Harness) -> FixtureFuture {
 }
 
 /// Mount with background/foreground/padding set, then clear them, then
-/// restore them. Verifies the set/unset COM calls on IControl/IPanel/IBorder
-/// don't fail. Uses a Button since it implements IControl (which supports
-/// Background, Foreground, and Padding).
+/// restore them. Verifies the set/unset COM calls on IControl and IGrid don't
+/// fail. The Button covers Background, Foreground, and Padding through
+/// IControl. SwapChainPanel covers inherited Grid padding through IGrid.
 pub fn background_foreground_padding_transition(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         let cap = h.capture_stderr();
@@ -148,7 +145,17 @@ pub fn background_foreground_padding_transition(h: Harness) -> FixtureFuture {
             } else {
                 button("plain")
             };
-            vstack((btn, button("Toggle").on_click(move || set.call(!styled)))).into()
+            let panel = if styled {
+                swap_chain_panel().height(1.0).padding(10.0)
+            } else {
+                swap_chain_panel().height(1.0)
+            };
+            vstack((
+                btn,
+                panel,
+                button("Toggle").on_click(move || set.call(!styled)),
+            ))
+            .into()
         }));
         h.render().await;
 

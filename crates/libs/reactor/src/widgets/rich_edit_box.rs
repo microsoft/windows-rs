@@ -46,7 +46,19 @@ impl Widget for RichEditBox {
     widget_header!(ControlKind::RichEditBox);
     fn bindings(&self) -> PropBindings {
         let mut out = generated::rich_edit_box_bindings(self);
-        out.push(Binding::Prop(Prop::Text, PropValue::Str(self.text.clone())));
+        let read_only = out
+            .iter()
+            .position(|binding| {
+                matches!(
+                    binding,
+                    Binding::Prop(Prop::IsReadOnly, PropValue::Bool(_))
+                )
+            })
+            .unwrap();
+        out.insert(
+            read_only,
+            Binding::Prop(Prop::Text, PropValue::Str(self.text.clone())),
+        );
         out
     }
 }

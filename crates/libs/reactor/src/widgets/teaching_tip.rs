@@ -70,16 +70,10 @@ impl Widget for TeachingTip {
     fn bindings(&self) -> PropBindings {
         let mut out = generated::teaching_tip_bindings(self);
         if let Some(v) = &self.action_button_text {
-            out.push(Binding::Prop(
-                Prop::ActionButtonText,
-                PropValue::Str(v.clone()),
-            ));
+            out.push(Binding::Prop(Prop::ActionButton, PropValue::Str(v.clone())));
         }
         if let Some(v) = &self.close_button_text {
-            out.push(Binding::Prop(
-                Prop::CloseButtonText,
-                PropValue::Str(v.clone()),
-            ));
+            out.push(Binding::Prop(Prop::CloseButton, PropValue::Str(v.clone())));
         }
         out
     }

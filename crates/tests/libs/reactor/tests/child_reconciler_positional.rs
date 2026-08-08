@@ -60,7 +60,7 @@ fn same_children_record_no_ops() {
 
     assert!(r.backend.ops.is_empty(), "ops: {:?}", r.backend.ops);
 
-    assert!(r.debug_elements_skipped >= 1);
+    assert!(r.stats().elements_skipped >= 1);
 }
 
 #[test]
@@ -100,9 +100,9 @@ fn same_children_but_stack_spacing_changed_still_skips_children() {
         }
     ));
     assert!(
-        r.debug_elements_skipped >= 2,
+        r.stats().elements_skipped >= 2,
         "expected each child to skip; got {}",
-        r.debug_elements_skipped
+        r.stats().elements_skipped
     );
 }
 

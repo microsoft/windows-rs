@@ -531,6 +531,26 @@ impl<T: 'static> From<TemplatedListBuilder<T>> for Element {
     }
 }
 
+impl<T: 'static> capability::Native for TemplatedListBuilder<T> {
+    fn native_modifiers_mut(&mut self) -> &mut Modifiers {
+        &mut self.modifiers
+    }
+}
+
+impl<T: 'static> capability::GridChild for TemplatedListBuilder<T> {}
+
+impl<T: 'static> capability::CanvasChild for TemplatedListBuilder<T> {}
+
+impl<T: 'static> capability::RelativePanelChild for TemplatedListBuilder<T> {}
+
+impl<T: 'static> capability::Visual for TemplatedListBuilder<T> {}
+
+impl<T: 'static> capability::Padding for TemplatedListBuilder<T> {}
+
+impl<T: 'static> capability::Background for TemplatedListBuilder<T> {}
+
+impl<T: 'static> capability::TextStyle for TemplatedListBuilder<T> {}
+
 pub fn list_view<T: 'static, R: Into<Element>>(
     items: Vec<T>,
     view: impl Fn(&T, usize) -> R + 'static,

@@ -127,11 +127,15 @@ catalog](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor
 changing, or removing that key updates the existing native `TabViewItem`; removing it also clears
 the WinUI `Tag` instead of retaining stale callback identity. See the `tab_view_item_key` sample.
 
-Layout and appearance modifiers are available on any `Element` through the `ElementExt` trait:
-`.margin(..)`, `.padding(..)`, `.width(..)`, `.height(..)`, `.horizontal_alignment(..)`,
-`.vertical_alignment(..)` (with `HorizontalAlignment` and `VerticalAlignment`), `.background(..)`,
-`.foreground(..)`, `.opacity(..)`, and transition helpers such as `.with_opacity_transition(..)`.
-Spacing values use `Thickness` (with `Thickness::uniform(..)`).
+Framework layout modifiers are available on concrete widget builders through `LayoutExt`:
+`.margin(..)`, `.width(..)`, `.height(..)`, minimum/maximum dimensions, and horizontal/vertical
+alignment. Pointer, keyboard, capture, and drag/drop modifiers are available through `InputExt`.
+UI Automation properties use `AccessibilityExt`, tooltips use `TooltipExt`, and opacity and
+composition animations use `VisualExt`. Styling uses `PaddingExt`, `BackgroundExt`, and
+`TextStyleExt`, implemented only for widgets whose WinUI type supports the property. Grid, Canvas,
+and RelativePanel child placement use `GridChildExt`, `CanvasChildExt`, and
+`RelativePanelChildExt`. Apply modifiers before converting the builder into `Element`. Spacing
+values use `Thickness` (with `Thickness::uniform(..)`).
 
 `transition(enter, exit)` runs lifecycle animations when an element enters or leaves the WinUI
 visual tree. The logical Reactor element is removed synchronously; WinUI Composition retains its
@@ -156,7 +160,7 @@ both target the initial property animation. The exit transition remains register
 ## Handling events
 
 Event handlers take closures. `button(..).on_click(move || ...)` is the most common. Pointer and
-keyboard handlers live on `ElementExt`: `.on_tapped(..)`, `.on_pointer_pressed(..)`,
+keyboard handlers live on `InputExt`: `.on_tapped(..)`, `.on_pointer_pressed(..)`,
 `.on_pointer_released(..)`, `.on_pointer_moved(..)`, `.on_pointer_entered(..)`,
 `.on_pointer_exited(..)`, `.keyboard_accelerator(..)`. You can pass a `SetState` or `Dispatch`
 directly wherever a handler is expected (through `IntoCallback`).
@@ -371,20 +375,15 @@ These bite anyone editing the backend by hand. The generated code already follow
 
 ### Padding, background, and foreground dispatch
 
-`Padding` has no single owning interface. `Control`, `Border`, `StackPanel`, `TextBlock`, and
-`RichTextBlock` each declare their own. `set_padding` (`backend/winui/mod.rs`) dispatches on the
-`Handle` variant: it calls the setter directly on `Border`, `StackPanel`, `TextBlock`, and
-`RichTextBlock` through their default interface, and falls back to a single `IControl` cast for
-everything else. Containers that lack a `Padding` property (for example a bare `Panel` or `Grid`)
-fall through to `diag::unhandled_modifier`, which warns in debug builds. Use `.margin(...)` there
-instead.
+`Padding` has no single owning interface. `set_padding` (`backend/winui/mod.rs`) calls the default
+interface directly for `Border`, `StackPanel`, `TextBlock`, and `RichTextBlock`; uses `IGrid` for
+`Grid` and `SwapChainPanel`; and uses `IControl` for control descendants. `PaddingExt` is generated
+only for those categories.
 
-`Background` and `Foreground` follow the same pattern and are exposed as the `ElementExt` modifiers
-`.background(...)` and `.foreground(...)`. `Border` handles them through its default interface;
-every other handle falls back to a single `IControl` cast (`set_background` and `set_foreground`).
-`BorderBrush` and `BorderThickness` use the same `IControl` fallback (`set_border_brush` and
-`set_border_thickness`) but are not `ElementExt` modifiers. They are opt-in per-widget builders,
-currently exposed by `Border` and `TextBox`.
+`BackgroundExt` is generated for `Border`, panel descendants, and control descendants.
+`TextStyleExt` provides foreground and font modifiers for text blocks and control descendants.
+The backend uses the matching default interfaces, `IPanel`, and `IControl`. `BorderBrush` and
+`BorderThickness` remain opt-in per-widget builders, currently exposed by `Border` and `TextBox`.
 
 ### Threading
 
@@ -474,6 +473,15 @@ WinUI stress app (a 70x70 stock grid) whose `--churn` flag additionally forces n
 create/destroy. Its [`readme`](../../crates/tests/libs/reactor_perf/readme.md) describes the matched
 Microsoft.UI.Reactor comparison.
 
+`reconciler_model.rs` runs deterministic generated update sequences against an independent model.
+It checks keyed order, native control counts, typed-reference lifetime, and exact component cleanup
+counts after every transition. CI also enforces branch and line coverage floors for the hand-written
+reconciler files. The coverage gate excludes generated bindings and live WinUI backend code.
+
+For pull requests, `reactor_bench/compare.ps1` builds the merge base and branch in separate
+worktrees on the same runner. It rejects allocation-count increases, byte growth above 10%, and
+Rust-side timing regressions above 25% in the stable benchmark set.
+
 ### Reactor and canvas naming
 
 `windows-reactor` and `windows-canvas` define some of the same short names for different domains.
@@ -482,7 +490,7 @@ domain-prefixed alternative.
 
 ### Resource ownership and typed values
 
-`ElementExt::resources` accepts an iterator when every entry has the same Rust value type.
+`ResourceExt::resources` accepts an iterator when every entry has the same Rust value type.
 `resource_overrides` uses a consuming builder when one resource dictionary contains different
 WinUI value types:
 
@@ -505,3 +513,601 @@ resources such as `ButtonBackground` expect brushes. Use strings only for resour
 expect strings. `ThemeRef` is not accepted here: looking up a theme key and storing its current
 value would lose WinUI's element-aware `{ThemeResource}` resolution. Theme-aware control
 properties continue to use the existing theme-binding APIs.
+
+## Reconciler architecture
+
+Reactor separates logical identity, native identity, mounted output slots, and dirty propagation.
+This section records the resulting implementation contract and the measurements used to guard it.
+
+### Progress
+
+| Work | Status |
+| --- | --- |
+| Architecture contract and topology matrix | Complete |
+| Dirty descendant behind memoized widget root | Regression, fix, benchmark, and sample added |
+| Context subscriber behind memoized widget root | Regression and fix added |
+| Logical component IDs and parent paths | State keyed by logical ID; overflow map removed |
+| Logical component ownership | State and lifecycle share one owner |
+| Provider logical ownership | Providers have stable IDs, parent links, projection, and teardown |
+| Error-boundary ownership | Boundary identity and fallback state are node-owned |
+| Custom-element ownership | Handles and teardown are sparse native-node auxiliary state |
+| Templated-list ownership | Realized rows and callbacks are sparse templated-node state |
+| Native lifecycle ownership | Pre-unmount callbacks are sparse native-node state |
+| Path-scoped dirty traversal | Native parent walks replace the global flag and root-wide scan |
+| Reconciler state consolidation review | Complete |
+| Host/window state consolidation | `HostContext` introduced; six `Reconciler` fields removed |
+| Native ownership consolidation | `MountedTree` owns native topology |
+| Recursive teardown | One child-first traversal covers children, rows, headers, and panes |
+| Native ownership checks | Debug builds verify unique ownership and matching parent links |
+| Private-memory and peak-memory benchmark output | Added to text, JSON, and CSV output |
+| Typed element API | Universal, visual, attached-layout, and styling capabilities are typed |
+| Element cardinality | `Fragment` is child-only; `Element::Group` removed |
+| Full mounted ownership evaluation | Complete |
+
+### Invariants
+
+| Area | Required invariant |
+| --- | --- |
+| Logical identity | Every mounted component, provider, and error boundary has a unique stable ID. |
+| Native identity | A `ControlId` identifies one native object and is not logical identity. |
+| Parentage | Every logical node has one logical parent, except the root. |
+| Native parentage | Every owned native node has one parent across all ownership forms. |
+| Dirty state | A state write marks its owner and the logical ancestor path. |
+| Skipping | A node is skipped only when it and all logical descendants are clean. |
+| Ownership | Hooks, effects, contexts, output, and cleanup belong to their logical node. |
+| Replacement | Replacement unmounts the complete old logical subtree before identity reuse. |
+| Cleanup | Every mounted node is cleaned exactly once, with children cleaned before parents. |
+| Keys | Keys identify siblings in one child collection and must affect reconciliation. |
+| Projection | Transparent wrappers add no hidden native control. |
+| Fragments | Multi-child values are accepted only by APIs that support multiple children. |
+| Virtualization | Only realized rows own mounted logical nodes and lifecycle state. |
+
+Debug and test builds should check these invariants after reconciliation. They must not remain
+assumptions repeated across root, positional, keyed, and templated update paths.
+
+### Logical wrapper identity
+
+Components, memoized components, providers, and error boundaries receive a logical ID before
+their child output mounts, so hook setters retain the exact owner.
+
+The logical record separates optional native projection from the logical node:
+
+```rust,ignore
+struct LogicalNode {
+    parent: Option<NodeId>,
+    native_root: Option<ControlId>,
+    kind: LogicalNodeKind,
+}
+```
+
+Component state holds its `RenderCx`, previous object, previous mounted output, and context
+subscriptions, indexed by `NodeId`. The parent relationship crosses intervening native widgets, so
+a stateful child remains reachable through a memoized component that renders a stable widget root.
+
+The logical path is authoritative:
+
+- `component_instance_overflow` is removed;
+- component lookup and identity transfer no longer depend on `ControlId`;
+- global force-dirty behavior is removed;
+- one update decision handles dirty-descendant traversal;
+- an output slot remains mounted when its logical node temporarily produces no native control.
+
+### Ownership consolidation
+
+Header and pane subtrees, templated rows, custom handles, selection/reorder callbacks, pre-unmount
+callbacks, and error fallback state live under mounted ownership. Positional, keyed, and templated
+algorithms decide correspondence and order while sharing identity, dirty, lifecycle, and cleanup
+rules.
+
+Each native child collection also has an ordered logical output mirror. A slot may contain a native
+control, a logical node with no native output, or both. Native insertion and movement derive their
+indices from this mirror, so empty components do not shift their native siblings and can later
+produce output without remounting their hooks or effects.
+
+### Reconciler simplification
+
+The current `Reconciler` mixes five responsibilities in one struct:
+
+1. mounted tree identity and ownership;
+2. transient state for one reconciliation pass;
+3. host/window environment;
+4. widget-specific auxiliary state;
+5. diagnostics.
+
+This is more than a file-layout problem. Independent maps require every mount, replacement, and
+unmount path to remember the same set of cleanup operations. Header, pane, templated, custom, and
+error-boundary paths have already demonstrated how easily one map can be omitted.
+
+`Reconciler` now has the target ownership shape:
+
+```rust,ignore
+struct Reconciler<B> {
+    backend: B,
+    tree: MountedTree,
+    pass: ReconcilePass,
+    host: HostContext,
+    stats: ReconcileStats,
+    root_output: Option<MountedOutput>,
+    next_slot_id: u64,
+}
+```
+
+`MountedTree` owns node identity, parentage, native projection, children, secondary slots, and
+teardown. `ReconcilePass` owns reusable transient scratch such as forced paths and keyed-diff
+buffers. `HostContext` contains the dispatcher-facing rerender request, marshaller, host ID, size,
+DPI, and context environment. `ReconcileStats` contains counters only.
+
+`MountedTree` now records the native parent on the existing per-control node entry. Normal
+children, headers, panes, custom controls, and realized templated rows use the same parent
+invariant. Dirty components walk these links to the root, stopping when they reach an already
+forced ancestor. This makes dirty propagation proportional to path depth and removes the
+root-wide ownership scan and its traversal stack. The additional parent field does not add a map
+or allocation; the headless allocation counts remain unchanged.
+
+Child and slot mutation now goes through `MountedTree`, so parent links and sparse ownership
+storage cannot be updated independently. Unmount collects the complete native ownership list once
+and releases it in reverse order. Primary children, realized rows, headers, and panes therefore
+finish cleanup before their owner without recursive `unmount` calls or separate subtree
+algorithms. Debug builds verify that each owned native control appears once and that both sides of
+every parent relationship agree.
+
+The compact teardown list also reduces headless allocation cost. Single component, pass-through,
+and deep pass-through mount cycles each use one fewer allocation and 16 fewer bytes. The 64-node
+mount/unmount case dropped from 18,076 bytes and 281 allocations to 17,568 bytes and 271
+allocations; the 512-node case dropped from 144,340 bytes and 2,085 allocations to 140,248 bytes
+and 2,069 allocations.
+
+Component ownership is now grouped in `MountedLogicalTree` under `MountedTree`. It owns component
+instances, native projections, logical ID allocation, the active logical parent scope, lifecycle
+listener counts, projection transfer, and appeared/disappeared dispatch. `Reconciler` no longer
+contains four component identity fields plus two listener counters, and component registration or
+removal cannot update a projection without updating listener accounting through the same owner.
+This grouping is output-neutral: the headless allocation counts remain unchanged from the compact
+teardown baseline.
+
+Providers now allocate compact logical wrapper nodes and enter the logical parent scope while
+mounting or updating their child. A component below a provider therefore reaches component
+ancestors through the provider rather than stopping at an unrepresented transparent wrapper.
+Provider nodes share the projection and teardown APIs with components but use sparse wrapper
+storage, so they do not inflate every logical node to the roughly 968-byte component-state size.
+The `provider_mount` benchmark reports 527 bytes and 11 allocations for one provider plus one
+component, while component-only allocation counts remain unchanged.
+
+Error boundaries use the same compact wrapper storage. The boundary node remains stable while
+recovery replaces its projected fallback or child subtree, and nested boundaries retain distinct
+logical parents. Fallback state is stored on the boundary node, so `Reconciler` no longer has an
+`error_boundary_fallbacks` map keyed by a borrowed native identity. Normal
+`error_boundary_mount` cycles report 399 bytes and 10 allocations, matching the component-only
+mount baseline after warmup.
+
+Custom element handles now live in sparse `MountedTree` auxiliary storage keyed by their native
+node. Mount, update, stale-ID cleanup, and `before_destroy` teardown all go through the tree, so
+`Reconciler` no longer owns a separate `custom_handles` map. Ordinary native nodes do not gain an
+optional boxed field. The headless `custom_mount` case reports 52 bytes and two allocations per
+mount/unmount cycle.
+
+Templated lists now use sparse auxiliary state beneath `MountedTree`. The list registry owns each
+list's current element, realized rows, and selection/reorder callback trampolines; the templated
+owner also holds the shared realization queue and deferred row teardown queue. This removes six
+templated fields and maps from `Reconciler`. Adding a selection or reorder handler during an update
+now attaches the missing backend trampoline instead of silently ignoring the new handler.
+
+The list state captures its active context values. Deferred row realization restores that snapshot
+while mounting the row, and context invalidation traverses realized rows, headers, panes, and
+primary children through the same owned-child operation used by teardown.
+
+Realized rows are stored by row index rather than in a dense `Vec<Option<RealizedRow>>`. An
+unrealized item therefore does not reserve space the size of an `Element`. Before this change, an
+unrealized 64-item list used about 54 KB per mount because every empty slot had the full
+`RealizedRow` size. The release `templated_mount` benchmark now reports 276 bytes and eight
+allocations, and the 4,096-item case has the same mount cost. Realized-row storage grows with the
+visible window rather than the item count.
+
+Pre-unmount callbacks now live in sparse native lifecycle storage under `MountedTree`. Registration,
+replacement, removal, and teardown all go through the tree, so a callback cannot outlive its
+native node. The last lifecycle side map has left `Reconciler`. The release `lifecycle_mount`
+benchmark reports 52 bytes and two allocations, matching a callback-free custom native mount.
+
+The three debug counters now live in `ReconcileStats`, available through `Reconciler::stats()`.
+`Reconciler` also retains the root mounted output and the monotonic logical-slot allocator. All
+other mounted state is grouped under `tree`, `pass`, `host`, and `stats`.
+
+The existing side state should move as follows:
+
+| Current state | Intended owner |
+| --- | --- |
+| `children_mirror`, `id_kinds`, header, and pane maps | Mounted native node |
+| component instances and native projections | Mounted logical component node |
+| error fallback state | Error-boundary node |
+| custom handles | Custom node |
+| templated state, selection, reorder, and deferred rows | Templated-list node (complete) |
+| pre-unmount callback | Node lifecycle state (complete) |
+| forced nodes, forced controls, traversal scratch | `ReconcilePass` |
+| marshaller, host ID, size, DPI, rerender request | `HostContext` |
+
+Do not replace the maps with one large per-control struct containing every optional field. Most
+controls do not use headers, panes, templating, or custom lifecycle state. Use node-kind enums and
+allocate auxiliary state only for node kinds that need it.
+
+The WinUI backend also has a `parent_children` mirror because it converts Reactor's logical child
+indices to native visual indices while accounting for phantom controls. Do not merge that backend
+detail into `MountedTree` without first changing the backend contract. Two structures with
+different purposes are acceptable; two structures claiming to own the same lifecycle are not.
+
+#### C# Reactor comparison
+
+C# Reactor stores one `ComponentNode` per hidden native `Border`. The state setter captures that
+node directly, marks it `SelfTriggered`, and invokes the parent component's rerender callback.
+Dirty native ancestors are then found through WinUI's visual-parent relationship.
+
+This gives C# a simpler component identity lookup, but at the cost of one native XAML control per
+component. It also makes transparent components affect the native tree. Rust must not copy that
+tradeoff: it would increase allocation, measure/layout work, visual depth, and memory.
+
+The useful C# rules are:
+
+- a state setter marks its exact component node directly;
+- component render state is owned by that node;
+- dirty propagation follows one parent relationship;
+- teardown starts from the mounted ownership tree.
+
+The C# `Reconciler` as a whole is not simpler. It spans thousands of lines and contains component,
+error-boundary, navigation, pooling, hot-reload, animation, gesture, style, and registration state.
+Rust should copy the small node invariants, not its hidden controls or accumulated registries.
+
+#### Consolidation sequence
+
+1. Finish logical dirty-path behavior without a global force mode.
+2. Introduce `MountedTree` and `HostContext` wrappers around existing state without behavior
+   changes.
+3. Move native kind, children, header, and pane ownership into mounted native nodes.
+4. Move component, provider, error-boundary, and custom lifecycle into logical node kinds.
+5. Move templated rows and their callbacks into a templated node kind.
+6. Make recursive node teardown the only unmount path.
+7. Delete the replaced side maps after each migration rather than keeping compatibility mirrors.
+
+Every consolidation step must state which fields and special-case branches it deletes. A new
+abstraction that only wraps the old maps without enabling their removal is not sufficient.
+
+Steps 1-7 are complete. Child, slot, custom, templated, and lifecycle storage remains sparse inside
+`MountedTree` rather than adding optional fields to every native or logical node. The resource,
+item-key, and exit-transition entries in the earlier audit were stale: PR #4782 already added
+resource replacement, `ItemKey` clearing, and WinUI implicit hide transitions, with regressions and
+visual samples. Structural typing and element cardinality are also complete.
+
+### Typed element API
+
+Native modifiers use sealed capability traits so calls that cannot affect a native element do not
+compile. Resource dictionaries use `ResourceExt`, framework layout uses `LayoutExt`, and pointer,
+keyboard, capture, and drag/drop modifiers use `InputExt`. UI Automation properties use
+`AccessibilityExt`, and tooltips use `TooltipExt`. These traits, `VisualExt`, and the attached
+layout traits `GridChildExt`, `CanvasChildExt`, and `RelativePanelChildExt` are implemented by
+concrete native widget builders but not by erased `Element` or logical wrappers:
+
+```rust,compile_fail
+# use windows_reactor::*;
+let element: Element = button("Delete").into();
+element.resources([("ButtonBackground", "Red")]);
+```
+
+The same boundary applies to layout:
+
+```rust,compile_fail
+# use windows_reactor::*;
+let element: Element = button("Save").into();
+element.width(100.0);
+```
+
+Input modifiers have the same boundary:
+
+```rust,compile_fail
+# use windows_reactor::*;
+let element: Element = button("Save").into();
+element.on_tapped(|| {});
+```
+
+Accessibility and tooltip modifiers also require a concrete widget:
+
+```rust,compile_fail
+# use windows_reactor::*;
+let element: Element = button("Save").into();
+element.automation_name("Save document");
+```
+
+Attached layout also requires a concrete native child:
+
+```rust,compile_fail
+# use windows_reactor::*;
+let element: Element = text_block("Cell").into();
+element.grid_row(1);
+```
+
+Opacity and animations have the same native-element boundary:
+
+```rust,compile_fail
+# use windows_reactor::*;
+let element: Element = text_block("Faded").into();
+element.opacity(0.5);
+```
+
+Styling is also limited to native types that expose each property:
+
+```rust,compile_fail
+# use windows_reactor::*;
+Image::new("asset.png").padding(8.0);
+```
+
+```rust,compile_fail
+# use windows_reactor::*;
+border(text_block("Panel")).font_size(16.0);
+```
+
+Apply capabilities before erasure:
+
+```rust
+# use windows_reactor::*;
+let element: Element = button("Delete")
+    .resources([("ButtonBackground", "Red")])
+    .width(100.0)
+    .on_tapped(|| {})
+    .automation_name("Delete item")
+    .tooltip("Delete the selected item")
+    .padding(8.0)
+    .background(ThemeRef::Accent)
+    .foreground(ThemeRef::AccentText)
+    .opacity(0.8)
+    .grid_row(1)
+    .into();
+# let _ = element;
+```
+
+The widget enum declaration now emits `KeyExt`, one sealed native-modifier accessor,
+`ResourceExt`, `LayoutExt`, `InputExt`, `AccessibilityExt`, `TooltipExt`, `VisualExt`,
+`PaddingExt`, `BackgroundExt`, `TextStyleExt`, and the three attached-layout trait implementations
+from one widget list. This removed duplicated widget matches that omitted newer controls.
+`SwapChainPanel`, `CompositionHost`, and `WebView2` were missing from the erased `with_key` match;
+key dispatch now comes from the authoritative declaration.
+
+The migrations updated tests and samples to retain concrete widgets while adding modifiers, then
+erase them only at insertion. The attached-layout migration found calls made after provider
+wrapping and helper functions that returned `Element` too early. Applying placement before
+`provide`, and returning concrete widget builders from helpers, makes those mistakes visible in the
+types. `TemplatedListBuilder` implements the attached-layout, visual, and styling traits directly
+because it represents a native `Control` outside the widget enum.
+
+The attached-layout traits prove that the target is a concrete native element. They cannot prove
+that the element will later be inserted under the matching Grid, Canvas, or RelativePanel parent.
+
+Styling uses reviewed categories on each authoritative widget declaration:
+
+| Category | Capabilities | Widgets |
+| --- | --- | --- |
+| `Control` | Padding, background, foreground, and fonts | WinUI `Control` descendants |
+| `PaddedPanel` | Padding and background | `Grid`, `StackPanel`, `SwapChainPanel` |
+| `Panel` | Background | `Canvas`, `RelativePanel` |
+| `Text` | Padding, foreground, and fonts | `TextBlock`, `RichTextBlock` |
+| `Border` | Padding and background | `Border` |
+| `Visual` | None | Shapes, images, composition hosts, `WebView2` |
+
+The categories follow both WinUI inheritance and the interfaces used by the backend. They generate
+selective trait implementations without a second widget list. The `SwapChainPanel` category also
+exposed a dispatch gap: it inherits `Grid` padding, but the backend handled only the exact `Grid`
+variant. Padding now dispatches through its `IGrid` interface.
+
+Unsupported calls now fail to compile instead of reaching `diag::unhandled_modifier`. Styling
+methods also leave erased `Element` unavailable, so a modifier cannot silently target a component,
+provider, error boundary, group, or empty element.
+
+`with_key` and `provide` are structural operations rather than native visual modifiers. `KeyExt`
+provides reconciliation identity, while `ProvideExt` wraps anything convertible into `Element` in
+a context provider. The former `ElementExt` trait and its public modifier accessor have been
+removed.
+
+Widget constructors return concrete builders that implement native capabilities and
+`Into<Element>`. Logical constructors such as `component`, `memo`, and `error_boundary` return
+`Element`, so only structural operations remain available on them. Child builders accept
+`impl Into<Element>`, and invalid native modifier calls fail to compile:
+
+```rust,compile_fail
+# use windows_reactor::*;
+# fn app(_props: &(), _cx: &mut RenderCx) -> Element { Element::Empty }
+component(app, ()).width(100.0);
+```
+
+Styling a component boundary requires an explicit native wrapper:
+
+```rust,ignore
+border(component(app, ())).width(100.0)
+```
+
+Use sealed capability traits for supported property families, including framework-element layout,
+UI-element input, control properties, text styling, panels, shapes, and attached layout
+properties. Generate implementations from explicit capability classifications in the curated
+Reactor configuration plus WinUI inheritance. Raw metadata alone does not encode every useful or
+meaningful property relationship, so generation must support reviewed semantic overrides and emit
+a coverage report.
+
+Attached properties can reject invalid element targets, but cannot always prove that the element
+will later be inserted under the matching parent. Do not claim a stronger compile-time guarantee
+than the builder types can provide.
+
+### Element cardinality
+
+`Fragment` is a child-only collection accepted by `vstack`, `hstack`, `grid`, `Canvas`, and
+`RelativePanel`. It does not implement `Into<Element>`, so components, providers, error boundaries,
+application roots, and single-child controls continue to accept or return zero or one mountable
+element:
+
+```rust
+# use windows_reactor::*;
+let row = fragment((text_block("Name"), text_block("Value")));
+let panel = vstack((text_block("Header"), row));
+# let _ = panel;
+```
+
+```rust,compile_fail
+# use windows_reactor::*;
+let _ = border(fragment((text_block("a"), text_block("b"))));
+```
+
+`IntoChildren` flattens nested fragments and removes `Element::Empty` while constructing the
+parent's child vector. The reconciler therefore receives a flat slice and does not allocate a
+temporary fragment view. It retains an empty-element filter only for callers that populate public
+widget child vectors directly.
+
+Removing the mount-time child-reference vector saves one allocation per multi-child mount and eight
+bytes per child in the headless benchmark: 64-node mount/unmount fell from 17,568 to 17,056 bytes
+and 271 to 270 allocations; 512 nodes fell from 140,248 to 136,152 bytes and 2,069 to 2,068
+allocations.
+
+Removing `Element::Group` makes the former runtime-invalid cases unrepresentable:
+
+- a fragment as the application root;
+- a fragment returned from a component;
+- a fragment inserted into a single-child control;
+- a keyed fragment whose key would be discarded when flattened.
+
+### Typed element references
+
+`ElementRef<T>` provides identity-stable access to a mounted native element without retaining it
+after unmount. `RenderCx::use_element_ref` creates the reference once for a hook slot, and
+`ElementRefExt::element_ref` attaches it to a compatible concrete widget:
+
+```rust,ignore
+let input = cx.use_element_ref::<TextBoxHandle>();
+let focus_target = input.clone();
+
+vstack((
+    text_box("").element_ref(&input),
+    button("Focus").on_click(move || {
+        let _ = focus_target.focus();
+    }),
+))
+```
+
+The reconciler populates the shared reference after native creation, moves it when the attached
+reference changes during an in-place update, and clears it before native destruction. The public
+reference stores a typed handle only while mounted; it does not expose a permanent raw
+`IInspectable`.
+
+The attachment trait has an associated handle type and is sealed by the existing native capability
+boundary. A `TextBox` accepts `ElementRef<TextBoxHandle>`, while `Image`, `SwapChainPanel`, and
+`CompositionHost` accept their existing handle types. Attaching an incompatible reference does not
+compile.
+
+`ElementRef<TextBoxHandle>::focus` calls WinUI `UIElement.Focus` with
+`FocusState::Programmatic`. It returns `Ok(false)` when the element is not mounted or WinUI rejects
+the request, and preserves COM errors as `Err`. This follows the useful lifecycle behavior of the
+C# Reactor reference API without copying its untyped reference layer, runtime type checks, or
+event-dispatch machinery.
+
+Headless tests cover stable hook identity, mount, in-place reference replacement, removal, and
+pre-destroy clearing. The `ElementRef_TextBoxFocusAndClear` WinUI fixture verifies real focus and
+clearing after host replacement. The `element_ref` sample provides a direct visual focus check.
+
+The host-replacement fixture exposed an existing teardown leak: production and test post-render
+callbacks strongly captured their own `RenderHost`, forming an `Rc` cycle. Post-render and native
+theme/size callbacks now hold `WeakRenderHost`, and dropping the final strong host unmounts the
+native root and runs root hook cleanups. This is required for references, effects, controls, and
+backend state to be released when a window host is replaced or destroyed.
+
+### Reconciliation proof
+
+One authoritative node-update path must own:
+
+1. kind and key compatibility;
+2. replacement;
+3. state and context dirtiness;
+4. memo eligibility;
+5. lifecycle dispatch;
+6. cleanup responsibility.
+
+The topology test matrix must combine:
+
+| Dimension | Cases |
+| --- | --- |
+| Root | Widget, pass-through component, empty, changed widget kind |
+| Wrappers | Component, memo, provider, error boundary |
+| Dirtiness | Parent only, child only, both, context-driven |
+| Children | Positional, keyed movement, insertion, removal |
+| Lifecycle | Mount, rerender, replacement, unmount, error recovery |
+| Effects | Dependency change, cleanup order, unmount cleanup |
+| Virtualization | Realize, recycle, key change, disappear, reappear |
+| Secondary slots | Header, pane, and custom child ownership |
+
+Debug and test checks should prove that every logical ID is reachable once, parent links agree,
+setters cannot target reused identities, native child order matches logical projection, and every
+effect and callback is cleaned exactly once.
+
+Compile-fail tests should cover modifiers on logical wrappers, modifiers on unsupported widget
+types, and fragments in single-child positions. Start with rustdoc `compile_fail` contracts where
+the exact diagnostic is not important. Add a dedicated compile-test dependency only if richer
+coverage justifies it.
+
+### Performance and memory gates
+
+Architecture work must preserve Reactor's advantage over Microsoft.UI.Reactor and should reduce
+Rust-side time and memory where possible.
+
+Before each behavior-changing phase:
+
+1. Run `cargo run -p test_reactor_bench --release` and save the full table.
+2. Run `test_reactor_perf` at 0%, 10%, 50%, and 100% updates with JSON output.
+3. Run the matched `StressPerf.ReactorOptimized` C# cases when the comparison environment changes.
+4. Record toolchain, Windows App SDK versions, hardware, and source revisions with the results.
+
+The headless suite must include component-heavy steady-state and update cases, pass-through
+nesting, dirty descendants behind memoized widget roots, keyed changes, mount/unmount, and
+virtualized row recycling. It reports `ns/op`, `bytes/op`, and `allocs/op`.
+
+The live suite remains responsible for native XAML creation, destruction, composition throughput,
+working set, and end-to-end rendering. Add process private bytes and peak working set to its JSON
+output so arena or ownership changes cannot hide retained-memory regressions behind zero Rust
+garbage collections.
+
+Performance requirements:
+
+- no hidden native controls for component identity;
+- no mounted-node allocation for unrealized virtualized rows;
+- dirty updates visit the logical dirty path rather than the whole native tree;
+- steady-state hooks retain their current zero-allocation behavior;
+- investigate any repeatable regression above 5%;
+- do not accept a regression above 10% without a measured and documented reason;
+- compare memory per mounted node and memory after repeated mount/unmount cycles.
+
+Use matched release builds, fixed update streams, warmup passes, and multiple repetitions.
+Wall-clock results are evidence only when the allocation counts and reconciler operation counts
+agree with the expected algorithmic change.
+
+### Samples
+
+Every user-visible fix or feature addition should include the smallest runnable sample that makes
+the behavior visually clear. Reconciler changes need a sample when a user can trigger the topology
+interactively, even when the same case has a headless regression test.
+
+Samples should:
+
+- isolate one behavior;
+- display the expected state in the window;
+- provide one direct interaction that would expose the old bug;
+- avoid unrelated styling or application structure;
+- name the invariant being demonstrated in the introductory text.
+
+Headless tests remain the correctness gate. Samples are the manual WinUI and visual validation
+surface.
+
+### Implemented change sequence
+
+1. Added the architecture contract, missing topology regressions, benchmark cases, and minimal
+   samples.
+2. Introduced logical IDs and parent paths without changing the public API.
+3. Routed state and context dirtiness through logical identity.
+4. Removed component collision and global force-dirty mechanisms.
+5. Consolidated transparent-wrapper lifecycle and teardown ownership.
+6. Introduced concrete public wrappers and compile-time modifier capabilities.
+7. Separated multi-child collections from mountable elements.
+8. Generated and audited capability implementations.
+9. Consolidated mounted ownership where measurements and invariants required it.
+
+Each stage passed formatting, clippy, headless tests, the relevant WinUI selftests, benchmark
+comparison, and its visual sample before the next stage began.

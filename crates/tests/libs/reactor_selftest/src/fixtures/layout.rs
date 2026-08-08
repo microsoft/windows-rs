@@ -1,7 +1,7 @@
 use windows_core::Interface as _;
 
 use windows_reactor::{Element, GridLength};
-use windows_reactor::{grid, text_block};
+use windows_reactor::{GridChildExt, grid, text_block};
 
 use crate::bindings::Grid as XamlGrid;
 
@@ -12,8 +12,7 @@ pub fn grid_row_column_layout(h: Harness) -> FixtureFuture {
     Box::pin(async move {
         h.mount(cc(|_cx| {
             let mk = |label: &'static str, r: i32, c: i32| -> Element {
-                let e: Element = text_block(label).into();
-                e.grid_row(r).grid_column(c)
+                text_block(label).grid_row(r).grid_column(c).into()
             };
             let cells: Vec<Element> = vec![
                 mk("TopLeft", 0, 0),

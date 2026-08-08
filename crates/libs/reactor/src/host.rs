@@ -237,7 +237,7 @@ impl ReactorHost {
         render_host.set_dpi(initial_dpi);
         render_host.with_reconciler_mut(configure);
 
-        let render_host_for_post = render_host.clone_inner();
+        let render_host_for_post = render_host.downgrade();
         let state_for_post = Rc::clone(&state);
         let last_attached: Rc<Cell<Option<ControlId>>> = Rc::new(Cell::new(None));
         let last_attached_for_hook = Rc::clone(&last_attached);
@@ -248,7 +248,10 @@ impl ReactorHost {
             }
             match new_id {
                 Some(rid) => {
-                    if let Some(ui) = render_host_for_post.with_backend(|b| b.get_ui_element(rid)) {
+                    let Some(render_host) = render_host_for_post.upgrade() else {
+                        return;
+                    };
+                    if let Some(ui) = render_host.with_backend(|b| b.get_ui_element(rid)) {
                         let ui_element: UIElement = ui.cast().unwrap();
                         let _ = state_for_post.window().SetContent(&ui_element);
                         last_attached_for_hook.set(Some(rid));
@@ -258,12 +261,12 @@ impl ReactorHost {
                             if let Ok(fe) = ui_element.cast::<FrameworkElement>() {
                                 subscribe_actual_theme_changed(
                                     &fe,
-                                    render_host_for_post.clone_inner(),
+                                    render_host.downgrade(),
                                     Rc::clone(&state_for_post),
                                 );
                                 subscribe_size_and_dpi(
                                     &fe,
-                                    render_host_for_post.clone_inner(),
+                                    render_host.downgrade(),
                                     state_for_post.window().clone(),
                                     constraints,
                                 );
@@ -275,7 +278,7 @@ impl ReactorHost {
                         }
 
                         // Wire TitleBar to window on every root change (mirrors C# mount behavior).
-                        if let Some(tb) = render_host_for_post.with_backend(|b| b.find_titlebar()) {
+                        if let Some(tb) = render_host.with_backend(|b| b.find_titlebar()) {
                             let _ = state_for_post.window().SetExtendsContentIntoTitleBar(true);
                             if let Ok(tb_ui) = tb.cast::<UIElement>() {
                                 let _ = state_for_post.window().SetTitleBar(&tb_ui);
@@ -468,7 +471,7 @@ fn center_window_on_display(
 
 fn subscribe_size_and_dpi(
     fe: &FrameworkElement,
-    render_host: RenderHost<WinUIBackend, WinUIDispatcher>,
+    render_host: WeakRenderHost<WinUIBackend, WinUIDispatcher>,
     window: Window,
     constraints: InnerConstraints,
 ) {
@@ -479,6 +482,9 @@ fn subscribe_size_and_dpi(
 
     let _ = fe
         .SizeChanged(move |_sender, args| {
+            let Some(render_host) = render_host.upgrade() else {
+                return;
+            };
             let size = args.unwrap().NewSize().unwrap();
             let new_dpi = unsafe { GetDpiForWindow(hwnd) };
             if new_dpi > 0 {
@@ -611,13 +617,16 @@ impl<B: Backend + 'static, D: Dispatcher + 'static> RenderHost<B, D> {
 
 fn subscribe_actual_theme_changed(
     fe: &FrameworkElement,
-    render_host: RenderHost<WinUIBackend, WinUIDispatcher>,
+    render_host: WeakRenderHost<WinUIBackend, WinUIDispatcher>,
     state: Rc<HostWindowState>,
 ) {
     update_color_scheme_from(fe);
 
     let _ = fe
         .ActualThemeChanged(move |sender, _| {
+            let Some(render_host) = render_host.upgrade() else {
+                return;
+            };
             if let Some(fe) = sender.as_ref() {
                 update_color_scheme_from(fe);
                 state.update_titlebar_theme();

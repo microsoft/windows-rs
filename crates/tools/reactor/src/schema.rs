@@ -87,6 +87,9 @@ pub struct PropDecl {
     /// Whether this property transports a `#[repr(i32)]` enum as `I32`.
     /// When true, generated bindings emit `PropValue::I32(w.field as i32)`.
     pub enum_as_i32: bool,
+
+    /// Whether the generated bindings must include the property's getter.
+    pub getter: bool,
 }
 
 /// Enum-typed setter: maps a `#[repr(i32)]` reactor enum to a WinRT enum.

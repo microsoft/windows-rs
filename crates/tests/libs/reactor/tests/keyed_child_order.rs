@@ -5,7 +5,7 @@ use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::{
-    Component, ControlId, Element, ElementExt, Prop, PropValue, Reconciler, RenderCx, component,
+    Component, ControlId, Element, KeyExt, Prop, PropValue, Reconciler, RenderCx, component,
     rich_edit_box, text_block, vstack,
 };
 
@@ -17,6 +17,24 @@ fn keyed(items: &[&str]) -> Element {
     let mut s = vstack(children);
     s.key = Some("root".to_string());
     s.into()
+}
+
+struct Empty;
+
+impl Component for Empty {
+    fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
+        Element::Empty
+    }
+}
+
+fn keyed_with_empty_prefix(items: &[&str]) -> Element {
+    let mut children = vec![component(Empty, ()).with_key("empty")];
+    children.extend(
+        items
+            .iter()
+            .map(|key| text_block(*key).with_key(*key).into()),
+    );
+    vstack(children).into()
 }
 
 struct Outcome {
@@ -70,6 +88,84 @@ fn run(old_keys: &[&str], new_keys: &[&str]) -> Outcome {
         destroys: count(|o| matches!(o, Op::Destroy { .. })),
         inserts: count(|o| matches!(o, Op::InsertChild { .. })),
     }
+}
+
+#[test]
+fn native_reorder_after_empty_prefix_preserves_suffix_anchor() {
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let old = keyed_with_empty_prefix(&["a", "b", "c", "s"]);
+    let root = r
+        .reconcile(None, &old, None, Rc::new(|| {}))
+        .expect("mount");
+    let new = keyed_with_empty_prefix(&["b", "c", "a", "s"]);
+
+    r.reconcile(Some(&old), &new, Some(root), Rc::new(|| {}));
+
+    let text_of = |id: ControlId| -> String {
+        r.backend
+            .ops
+            .iter()
+            .rev()
+            .find_map(|op| match op {
+                Op::SetProp {
+                    id: current,
+                    prop: Prop::Text,
+                    value: PropValue::Str(text),
+                } if *current == id => Some(text.clone()),
+                _ => None,
+            })
+            .unwrap()
+    };
+    let order: Vec<_> = r
+        .backend
+        .children_of(root)
+        .iter()
+        .map(|id| text_of(*id))
+        .collect();
+    assert_eq!(order, ["b", "c", "a", "s"]);
+}
+
+#[test]
+fn duplicate_new_keys_do_not_reuse_a_survivor_twice() {
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let old = keyed(&["a", "b", "c"]);
+    let root = r
+        .reconcile(None, &old, None, Rc::new(|| {}))
+        .expect("mount");
+    let old_children = r.backend.children_of(root).to_vec();
+    let new = keyed(&["b", "b", "a"]);
+
+    r.reconcile(Some(&old), &new, Some(root), Rc::new(|| {}));
+
+    let children = r.backend.children_of(root);
+    assert_eq!(live_labels(&r, root), ["b", "b", "a"]);
+    assert_eq!(children.len(), 3);
+    assert!(children.contains(&old_children[0]));
+    assert!(children.contains(&old_children[1]));
+    assert!(!children.contains(&old_children[2]));
+    assert_ne!(children[0], children[1], "each native child must be unique");
+    assert_ne!(children[0], children[2], "each native child must be unique");
+    assert_ne!(children[1], children[2], "each native child must be unique");
+}
+
+#[test]
+fn duplicate_old_keys_remove_one_survivor_without_corruption() {
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let old = keyed(&["a", "a", "b"]);
+    let root = r
+        .reconcile(None, &old, None, Rc::new(|| {}))
+        .expect("mount");
+    let old_children = r.backend.children_of(root).to_vec();
+    let new = keyed(&["b", "a"]);
+
+    r.reconcile(Some(&old), &new, Some(root), Rc::new(|| {}));
+
+    assert_eq!(live_labels(&r, root), ["b", "a"]);
+    assert_eq!(
+        r.backend.children_of(root),
+        &[old_children[2], old_children[1]],
+        "the last old duplicate is the key-map survivor"
+    );
 }
 
 // Independent reference implementation prevents testing the reconciler against itself.
@@ -418,8 +514,7 @@ fn forced_rerender_reaches_reordered_middle_component() {
 
         let target_id = r.backend.children_of(root)[0];
         renders.set(0);
-        r.force_component_rerender = true;
-        r.forced_components.insert(target_id);
+        r.force_components_at_control_for_test(target_id);
 
         let new = count_stack(&renders, &["x", "y", "t"]);
         r.reconcile(Some(&old), &new, Some(root), Rc::new(|| {}));
