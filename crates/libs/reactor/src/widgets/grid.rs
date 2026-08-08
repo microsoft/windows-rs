@@ -56,9 +56,9 @@ impl Grid {
     }
 }
 
-pub fn grid(children: impl IntoElements) -> Grid {
+pub fn grid(children: impl IntoChildren) -> Grid {
     Grid {
-        children: children.into_elements(),
+        children: children.into_children(),
         ..Grid::default()
     }
 }

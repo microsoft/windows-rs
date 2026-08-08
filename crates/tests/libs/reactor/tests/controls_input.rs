@@ -420,18 +420,30 @@ fn rich_edit_box_mounts_with_text_placeholder_header_and_read_only() {
     let mut saw_placeholder = false;
     let mut saw_header = false;
     let mut saw_read_only = false;
-    for op in &r.backend.ops {
+    let mut text_index = None;
+    let mut read_only_index = None;
+    for (index, op) in r.backend.ops.iter().enumerate() {
         if let Op::SetProp { prop, value, .. } = op {
             match (prop, value) {
-                (Prop::Text, PropValue::Str(s)) if s == "text" => saw_text = true,
+                (Prop::Text, PropValue::Str(s)) if s == "text" => {
+                    saw_text = true;
+                    text_index = Some(index);
+                }
                 (Prop::PlaceholderText, PropValue::Str(s)) if s == "Enter..." => {
                     saw_placeholder = true;
                 }
                 (Prop::Header, PropValue::Str(s)) if s == "Doc" => saw_header = true,
-                (Prop::IsReadOnly, PropValue::Bool(true)) => saw_read_only = true,
+                (Prop::IsReadOnly, PropValue::Bool(true)) => {
+                    saw_read_only = true;
+                    read_only_index = Some(index);
+                }
                 _ => {}
             }
         }
     }
     assert!(saw_text && saw_placeholder && saw_header && saw_read_only);
+    assert!(
+        text_index < read_only_index,
+        "initial text must be applied before the control becomes read-only"
+    );
 }

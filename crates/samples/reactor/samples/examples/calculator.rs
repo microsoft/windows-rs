@@ -42,30 +42,27 @@ fn app(cx: &mut RenderCx) -> Element {
         }
     };
 
-    let make_num = |digit: &'static str| -> Element {
+    let make_num = |digit: &'static str| -> Button {
         let pd = press_digit.clone();
         button(digit)
             .on_click(move || pd(digit))
             .horizontal_alignment(HorizontalAlignment::Stretch)
             .vertical_alignment(VerticalAlignment::Stretch)
-            .into()
     };
 
-    let make_op_btn = |label: &'static str, op_code: &'static str| -> Element {
+    let make_op_btn = |label: &'static str, op_code: &'static str| -> Button {
         let po = press_op.clone();
         button(label)
             .on_click(move || po(op_code))
             .horizontal_alignment(HorizontalAlignment::Stretch)
             .vertical_alignment(VerticalAlignment::Stretch)
-            .into()
     };
 
-    fn make_fn_btn(label: &'static str, handler: impl Fn() + 'static) -> Element {
+    fn make_fn_btn(label: &'static str, handler: impl Fn() + 'static) -> Button {
         button(label)
             .on_click(handler)
             .horizontal_alignment(HorizontalAlignment::Stretch)
             .vertical_alignment(VerticalAlignment::Stretch)
-            .into()
     }
 
     let display_text = text_block(format_display(&display))
@@ -203,41 +200,43 @@ fn app(cx: &mut RenderCx) -> Element {
         })
     };
 
-    let equals_button: Element = button("=")
+    let equals_button = button("=")
         .on_click({
             let h = equals_handler.clone();
             move || h()
         })
         .horizontal_alignment(HorizontalAlignment::Stretch)
         .vertical_alignment(VerticalAlignment::Stretch)
-        .accent()
-        .into();
+        .accent();
 
+    let place = |button: Button, row, column| -> Element {
+        button.grid_row(row).grid_column(column).into()
+    };
     let button_grid = grid(vec![
-        percent_button.grid_row(0).grid_column(0),
-        ce_button.grid_row(0).grid_column(1),
-        clear_button.grid_row(0).grid_column(2),
-        backspace_button.grid_row(0).grid_column(3),
-        reciprocal_button.grid_row(1).grid_column(0),
-        square_button.grid_row(1).grid_column(1),
-        sqrt_button.grid_row(1).grid_column(2),
-        make_op_btn("\u{00F7}", "/").grid_row(1).grid_column(3),
-        make_num("7").grid_row(2).grid_column(0),
-        make_num("8").grid_row(2).grid_column(1),
-        make_num("9").grid_row(2).grid_column(2),
-        make_op_btn("\u{00D7}", "*").grid_row(2).grid_column(3),
-        make_num("4").grid_row(3).grid_column(0),
-        make_num("5").grid_row(3).grid_column(1),
-        make_num("6").grid_row(3).grid_column(2),
-        make_op_btn("\u{2212}", "-").grid_row(3).grid_column(3),
-        make_num("1").grid_row(4).grid_column(0),
-        make_num("2").grid_row(4).grid_column(1),
-        make_num("3").grid_row(4).grid_column(2),
-        make_op_btn("+", "+").grid_row(4).grid_column(3),
-        negate_button.grid_row(5).grid_column(0),
-        make_num("0").grid_row(5).grid_column(1),
-        decimal_button.grid_row(5).grid_column(2),
-        equals_button.grid_row(5).grid_column(3),
+        place(percent_button, 0, 0),
+        place(ce_button, 0, 1),
+        place(clear_button, 0, 2),
+        place(backspace_button, 0, 3),
+        place(reciprocal_button, 1, 0),
+        place(square_button, 1, 1),
+        place(sqrt_button, 1, 2),
+        place(make_op_btn("\u{00F7}", "/"), 1, 3),
+        place(make_num("7"), 2, 0),
+        place(make_num("8"), 2, 1),
+        place(make_num("9"), 2, 2),
+        place(make_op_btn("\u{00D7}", "*"), 2, 3),
+        place(make_num("4"), 3, 0),
+        place(make_num("5"), 3, 1),
+        place(make_num("6"), 3, 2),
+        place(make_op_btn("\u{2212}", "-"), 3, 3),
+        place(make_num("1"), 4, 0),
+        place(make_num("2"), 4, 1),
+        place(make_num("3"), 4, 2),
+        place(make_op_btn("+", "+"), 4, 3),
+        place(negate_button, 5, 0),
+        place(make_num("0"), 5, 1),
+        place(decimal_button, 5, 2),
+        place(equals_button, 5, 3),
     ])
     .rows([GridLength::Star(1.0); 6])
     .columns([GridLength::Star(1.0); 4])
@@ -265,7 +264,7 @@ fn app(cx: &mut RenderCx) -> Element {
         (VirtualKey::NumberPad9, "9"),
     ];
 
-    let mut root: Element = grid((
+    let mut root = grid((
         TitleBar::new("Calculator")
             .tall(true)
             .grid_row(0)
@@ -276,8 +275,7 @@ fn app(cx: &mut RenderCx) -> Element {
     .rows([GridLength::Auto, GridLength::Auto, GridLength::Star(1.0)])
     .columns([GridLength::Star(1.0)])
     .horizontal_alignment(HorizontalAlignment::Stretch)
-    .vertical_alignment(VerticalAlignment::Stretch)
-    .into();
+    .vertical_alignment(VerticalAlignment::Stretch);
 
     for (key, digit) in numpad_digits {
         let pd = press_digit.clone();
@@ -339,7 +337,7 @@ fn app(cx: &mut RenderCx) -> Element {
             move || equals_handler(),
         ));
 
-    root
+    root.into()
 }
 
 fn format_display(s: &str) -> String {

@@ -9,7 +9,7 @@
 use crate::bindings;
 use windows_reactor::vstack;
 use windows_reactor::{Element, Tooltip, TooltipPlacement};
-use windows_reactor::{ElementExt, button};
+use windows_reactor::{TooltipExt, button};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;

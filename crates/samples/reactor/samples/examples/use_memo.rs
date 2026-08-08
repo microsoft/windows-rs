@@ -44,7 +44,7 @@ fn app(cx: &mut RenderCx) -> Element {
             .opacity(0.7)
             .into()
         } else {
-            group(vec![])
+            Element::Empty
         },
     ))
     .spacing(8.0)

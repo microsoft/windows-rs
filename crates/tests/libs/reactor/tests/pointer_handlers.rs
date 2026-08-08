@@ -15,7 +15,7 @@ use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::{
-    Border, Callback, ControlId, Element, ElementExt, IntoCallback, PointerEventInfo,
+    Border, Callback, ControlId, Element, InputExt, IntoCallback, PointerEventInfo,
     PointerHandlers, Reconciler,
 };
 

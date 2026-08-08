@@ -66,7 +66,10 @@ pub struct CardItem {
     pub key: String,
 }
 
-pub fn card_grid(items: &[CardItem], on_click: impl Fn(String) + 'static) -> Element {
+pub fn card_grid(
+    items: &[CardItem],
+    on_click: impl Fn(String) + 'static,
+) -> TemplatedListBuilder<CardItem> {
     let items_owned = items.to_vec();
     let items_for_handler = items_owned.clone();
 
@@ -121,7 +124,6 @@ pub fn card_grid(items: &[CardItem], on_click: impl Fn(String) + 'static) -> Ele
         }
     })
     .with_key_selector(|item| item.key.clone())
-    .build()
 }
 
 pub fn page_content(title: &str, description: &str, cards: Vec<Element>) -> Element {

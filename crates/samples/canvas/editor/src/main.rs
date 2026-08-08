@@ -138,42 +138,38 @@ fn app(cx: &mut RenderCx) -> Element {
     let margin = 16.0;
 
     grid((
-        Element::from(
-            canvas_invalidated(&inv, {
-                let model = model.clone();
-                move |ctx| draw(ctx, &model)
-            })
-            .on_pointer_pressed(on_pressed)
-            .on_pointer_moved(on_moved)
-            .on_pointer_released(on_released)
-            .margin(Thickness {
-                left: margin,
-                top: margin,
-                right: margin,
-                bottom: 0.0,
-            }),
-        )
+        canvas_invalidated(&inv, {
+            let model = model.clone();
+            move |ctx| draw(ctx, &model)
+        })
+        .on_pointer_pressed(on_pressed)
+        .on_pointer_moved(on_moved)
+        .on_pointer_released(on_released)
+        .margin(Thickness {
+            left: margin,
+            top: margin,
+            right: margin,
+            bottom: 0.0,
+        })
         .grid_row(0),
-        Element::from(
-            hstack((
-                tool_button(&model, &inv, Kind::Rectangle),
-                tool_button(&model, &inv, Kind::Triangle),
-                tool_button(&model, &inv, Kind::Star),
-                button("Clear").on_click({
-                    let (model, inv) = (model.clone(), inv.clone());
-                    move || {
-                        let mut m = model.borrow_mut();
-                        m.shapes.clear();
-                        m.selected = None;
-                        m.drag_offset = None;
-                        drop(m);
-                        inv.invalidate();
-                    }
-                }),
-            ))
-            .spacing(8.0)
-            .margin(Thickness::uniform(margin)),
-        )
+        hstack((
+            tool_button(&model, &inv, Kind::Rectangle),
+            tool_button(&model, &inv, Kind::Triangle),
+            tool_button(&model, &inv, Kind::Star),
+            button("Clear").on_click({
+                let (model, inv) = (model.clone(), inv.clone());
+                move || {
+                    let mut m = model.borrow_mut();
+                    m.shapes.clear();
+                    m.selected = None;
+                    m.drag_offset = None;
+                    drop(m);
+                    inv.invalidate();
+                }
+            }),
+        ))
+        .spacing(8.0)
+        .margin(Thickness::uniform(margin))
         .grid_row(1),
     ))
     .rows([GridLength::STAR, GridLength::Auto])

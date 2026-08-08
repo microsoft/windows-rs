@@ -2,7 +2,7 @@ use super::*;
 
 /// W5 - `Microsoft.UI.Xaml.Controls.Canvas`. Free-positioning panel
 /// where each child is placed via the [`CanvasPosition`] attached
-/// property (`canvas_left` / `canvas_top` on [`Element`]).
+/// property through [`CanvasChildExt`].
 #[derive(Clone, Default, Debug, PartialEq)]
 pub struct Canvas {
     pub key: Option<String>,
@@ -10,19 +10,16 @@ pub struct Canvas {
     pub children: Vec<Element>,
 }
 impl Canvas {
-    pub fn new<I>(children: I) -> Self
-    where
-        I: IntoIterator,
-        I::Item: Into<Element>,
-    {
+    pub fn new(children: impl IntoChildren) -> Self {
         Self {
-            children: children.into_iter().map(Into::into).collect(),
+            children: children.into_children(),
             ..Default::default()
         }
     }
 }
 /// Attached property for children of [`Canvas`]. Set via
-/// [`Element::canvas_left`] / [`Element::canvas_top`] / [`Element::canvas_z_index`].
+/// [`CanvasChildExt::canvas_left`], [`CanvasChildExt::canvas_top`], and
+/// [`CanvasChildExt::canvas_z_index`].
 #[derive(Copy, Clone, Debug, PartialEq, Default)]
 pub struct CanvasPosition {
     pub left: f64,

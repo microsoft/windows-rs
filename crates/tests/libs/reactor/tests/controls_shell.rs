@@ -886,6 +886,8 @@ fn teaching_tip_mounts_with_subtitle_open_state_and_placement() {
         .is_open(true)
         .light_dismiss()
         .preferred_placement(TeachingTipPlacementMode::Top)
+        .action_button("Accept")
+        .close_button("Dismiss")
         .into();
     let r = mount(&el);
     let (kind, _) = first_create(&r);
@@ -896,6 +898,8 @@ fn teaching_tip_mounts_with_subtitle_open_state_and_placement() {
     let mut saw_open = false;
     let mut saw_dismiss = false;
     let mut saw_placement = false;
+    let mut saw_action_button = false;
+    let mut saw_close_button = false;
     for op in &r.backend.ops {
         if let Op::SetProp { prop, value, .. } = op {
             match (prop, value) {
@@ -908,11 +912,25 @@ fn teaching_tip_mounts_with_subtitle_open_state_and_placement() {
                 {
                     saw_placement = true;
                 }
+                (Prop::ActionButton, PropValue::Str(s)) if s == "Accept" => {
+                    saw_action_button = true;
+                }
+                (Prop::CloseButton, PropValue::Str(s)) if s == "Dismiss" => {
+                    saw_close_button = true;
+                }
                 _ => {}
             }
         }
     }
-    assert!(saw_title && saw_subtitle && saw_open && saw_dismiss && saw_placement);
+    assert!(
+        saw_title
+            && saw_subtitle
+            && saw_open
+            && saw_dismiss
+            && saw_placement
+            && saw_action_button
+            && saw_close_button
+    );
 }
 
 #[test]

@@ -4,13 +4,11 @@ use std::any::Any;
 
 use windows_reactor::*;
 
-fn labeled_row(label: &str, value: Element) -> Element {
-    group(vec![
-        text_block(label)
-            .foreground(Color::rgb(120, 120, 120))
-            .into(),
+fn labeled_row(label: &str, value: Element) -> Fragment {
+    fragment((
+        text_block(label).foreground(Color::rgb(120, 120, 120)),
         value,
-    ])
+    ))
 }
 
 #[derive(Clone)]
@@ -78,8 +76,8 @@ fn app(cx: &mut RenderCx) -> Element {
     let drafts_for_inc = drafts_count;
 
     vstack((
-        TitleBar::new("windows_reactor — composition sample").subtitle("Group + CustomElement"),
-        text_block("Settings (LabeledRow uses Element::Group)")
+        TitleBar::new("windows_reactor — composition sample").subtitle("Fragment + CustomElement"),
+        text_block("Settings (labeled_row uses a child-only Fragment)")
             .bold()
             .font_size(20.0),
         vstack((

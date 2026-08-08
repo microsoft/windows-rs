@@ -1,10 +1,9 @@
-use std::cell::Cell;
+use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
-use windows_reactor::ControlKind;
-use windows_reactor::Reconciler;
-use windows_reactor::{Element, TextBlock};
+use windows_reactor::component;
+use windows_reactor::{Component, ControlKind, Element, Reconciler, RenderCx, SetState, TextBlock};
 use windows_reactor::{TemplatedKind, grid_view, list_view};
 
 fn noop_request_rerender() -> Rc<dyn Fn()> {
@@ -18,6 +17,107 @@ fn mount_and_drain(el: Element) -> (Reconciler<RecordingBackend>, windows_reacto
         .expect("mount produced an id");
     r.drain_realizations();
     (r, id)
+}
+
+struct StatefulRow {
+    setter: Rc<RefCell<Option<SetState<u32>>>>,
+    renders: Rc<Cell<u32>>,
+}
+
+struct EmptyStatefulRow {
+    setter: Rc<RefCell<Option<SetState<bool>>>>,
+    cleaned: Rc<Cell<u32>>,
+}
+
+impl Component for EmptyStatefulRow {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+        let (visible, setter) = cx.use_state(false);
+        *self.setter.borrow_mut() = Some(setter);
+        let cleaned = Rc::clone(&self.cleaned);
+        cx.use_effect_with_cleanup((), move || {
+            Some(Box::new(move || cleaned.set(cleaned.get() + 1)))
+        });
+        if visible {
+            TextBlock::new("visible").into()
+        } else {
+            Element::Empty
+        }
+    }
+}
+
+impl Component for StatefulRow {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+        let (value, setter) = cx.use_state(0_u32);
+        *self.setter.borrow_mut() = Some(setter);
+        self.renders.set(self.renders.get() + 1);
+        TextBlock::new(value.to_string()).into()
+    }
+}
+
+#[test]
+fn unchanged_items_still_reconcile_forced_realized_rows() {
+    let setter = Rc::new(RefCell::new(None));
+    let renders = Rc::new(Cell::new(0));
+    let row_setter = Rc::clone(&setter);
+    let row_renders = Rc::clone(&renders);
+    let el = list_view(vec![0_u8], move |_, _| {
+        component(
+            StatefulRow {
+                setter: Rc::clone(&row_setter),
+                renders: Rc::clone(&row_renders),
+            },
+            (),
+        )
+    })
+    .build();
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let list_id = r
+        .reconcile(None, &el, None, noop_request_rerender())
+        .unwrap();
+    r.backend.simulate_prepare_row(list_id, 0);
+    r.drain_realizations();
+    assert_eq!(renders.get(), 1);
+
+    setter.borrow().as_ref().unwrap().call(1);
+    r.reconcile(Some(&el), &el, Some(list_id), noop_request_rerender());
+
+    assert_eq!(renders.get(), 2);
+}
+
+#[test]
+fn realized_empty_row_keeps_state_and_cleanup_ownership() {
+    let setter = Rc::new(RefCell::new(None));
+    let cleaned = Rc::new(Cell::new(0));
+    let row_setter = Rc::clone(&setter);
+    let row_cleaned = Rc::clone(&cleaned);
+    let el = list_view(vec![0_u8], move |_, _| {
+        component(
+            EmptyStatefulRow {
+                setter: Rc::clone(&row_setter),
+                cleaned: Rc::clone(&row_cleaned),
+            },
+            (),
+        )
+    })
+    .build();
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let list_id = r
+        .reconcile(None, &el, None, noop_request_rerender())
+        .unwrap();
+    r.backend.simulate_prepare_row(list_id, 0);
+    r.drain_realizations();
+    assert!(r.backend.row_contents_of(list_id).is_empty());
+    assert_eq!(r.debug_logical_component_count(), 1);
+
+    setter.borrow().as_ref().unwrap().call(true);
+    r.reconcile(Some(&el), &el, Some(list_id), noop_request_rerender());
+    assert_eq!(r.backend.row_contents_of(list_id).len(), 1);
+    assert_eq!(cleaned.get(), 0);
+
+    r.backend.simulate_clear_row(list_id, 0);
+    r.drain_realizations();
+    assert_eq!(cleaned.get(), 1);
+    assert_eq!(r.debug_logical_component_count(), 0);
 }
 
 #[test]
@@ -187,6 +287,30 @@ fn selection_changed_invokes_user_callback() {
 
     r.backend.fire_templated_selection_changed(list_id, 2);
     assert_eq!(sink.get(), 2);
+}
+
+#[test]
+fn selection_handler_can_be_added_on_update() {
+    let old_el = list_view(vec![10i32, 20], |n, _| TextBlock::new(n.to_string())).build();
+    let sink = Rc::new(Cell::new(-1_i32));
+    let sink_c = Rc::clone(&sink);
+    let new_el = list_view(vec![10i32, 20], |n, _| TextBlock::new(n.to_string()))
+        .on_selection_changed(move |i| sink_c.set(i))
+        .build();
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let list_id = r
+        .reconcile(None, &old_el, None, noop_request_rerender())
+        .unwrap();
+    r.reconcile(
+        Some(&old_el),
+        &new_el,
+        Some(list_id),
+        noop_request_rerender(),
+    );
+
+    r.backend.fire_templated_selection_changed(list_id, 1);
+    assert_eq!(sink.get(), 1);
 }
 
 #[test]
@@ -486,6 +610,30 @@ fn reorder_callback_refreshes_on_update() {
     r.backend.simulate_reorder(list_id, vec![1, 0]);
     assert!(!first.get(), "stale reorder closure must not fire");
     assert_eq!(second.take(), Some(vec![1, 0]));
+}
+
+#[test]
+fn reorder_handler_can_be_added_on_update() {
+    let old_el = list_view(vec![1i32, 2], |n, _| TextBlock::new(n.to_string())).build();
+    let sink: Rc<Cell<Option<Vec<usize>>>> = Rc::new(Cell::new(None));
+    let sink_c = Rc::clone(&sink);
+    let new_el = list_view(vec![1i32, 2], |n, _| TextBlock::new(n.to_string()))
+        .on_reorder(move |order| sink_c.set(Some(order)))
+        .build();
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let list_id = r
+        .reconcile(None, &old_el, None, noop_request_rerender())
+        .unwrap();
+    r.reconcile(
+        Some(&old_el),
+        &new_el,
+        Some(list_id),
+        noop_request_rerender(),
+    );
+
+    r.backend.simulate_reorder(list_id, vec![1, 0]);
+    assert_eq!(sink.take(), Some(vec![1, 0]));
 }
 
 #[test]

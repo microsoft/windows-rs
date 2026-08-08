@@ -7,6 +7,7 @@ use windows_reactor::RenderHost;
 use windows_reactor::{Dispatcher, DispatcherQueuePriority};
 use windows_reactor::{Element, TextBlock};
 use windows_reactor::{RenderCx, SetState};
+use windows_reactor::{component, text_block};
 
 type QueuedJob = (DispatcherQueuePriority, Box<dyn FnOnce()>);
 
@@ -137,4 +138,55 @@ fn effect_deps_on_use_state_reruns_on_setter_change() {
     dispatcher.drain();
 
     assert_eq!(*log.borrow(), vec![0, 5], "effect re-ran with new deps");
+}
+
+struct HostDropChild {
+    cleanups: Rc<RefCell<Vec<&'static str>>>,
+}
+
+impl Component for HostDropChild {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+        let cleanups = Rc::clone(&self.cleanups);
+        cx.use_effect_with_cleanup((), move || {
+            Some(move || cleanups.borrow_mut().push("child"))
+        });
+        text_block("child").into()
+    }
+}
+
+struct HostDropRoot {
+    cleanups: Rc<RefCell<Vec<&'static str>>>,
+}
+
+impl Component for HostDropRoot {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+        let cleanups = Rc::clone(&self.cleanups);
+        cx.use_effect_with_cleanup((), move || Some(move || cleanups.borrow_mut().push("root")));
+        component(
+            HostDropChild {
+                cleanups: Rc::clone(&self.cleanups),
+            },
+            (),
+        )
+    }
+}
+
+#[test]
+fn host_drop_runs_nested_then_root_cleanup_once() {
+    let dispatcher = TestDispatcher::default();
+    let cleanups = Rc::new(RefCell::new(Vec::new()));
+    let host = RenderHost::new(
+        RecordingBackend::new(),
+        Box::new(HostDropRoot {
+            cleanups: Rc::clone(&cleanups),
+        }),
+        dispatcher.clone(),
+    );
+    host.kick();
+    dispatcher.drain();
+    assert!(cleanups.borrow().is_empty());
+
+    drop(host);
+
+    assert_eq!(&*cleanups.borrow(), &["child", "root"]);
 }

@@ -9,6 +9,7 @@
 #   type = "Type"        Explicit PropValue variant (Str/F64/Bool/I32/etc).
 #                        For Object (IInspectable) params, selects IReference<T>
 #                        wrapping instead of the default TextBlock wrapping.
+#   getter = true        Include the property getter in generated WinUI bindings.
 #
 # Textblock and IReference setters use a trait-based binding that works
 # with both T and Option<T> widget struct fields. The struct author
@@ -176,7 +177,7 @@ Initials = {}
 ["Microsoft.UI.Xaml.Controls.Pivot"]
 SelectedIndex = {}
 Title = {}
-SelectionChanged = { manual = true, type = "I32" }
+SelectionChanged = { manual = true, type = "I32", property = "SelectedIndex" }
 
 ["Microsoft.UI.Xaml.Controls.ProgressBar"]
 Value = {}
@@ -224,7 +225,7 @@ Click = {}
 ["Microsoft.UI.Xaml.Controls.RichEditBox"]
 PlaceholderText = {}
 Header = {}
-IsReadOnly = {}
+IsReadOnly = { getter = true }
 TextChanged = { manual = true, type = "Str" }
 
 ["Microsoft.UI.Xaml.Controls.ScrollView"]

@@ -1,7 +1,7 @@
-//! Tests for the `IntoElements` tuple trait used by `vstack`/`hstack`/`grid`.
+//! Tests for `IntoChildren` conversion used by multi-child builders.
 
-use windows_reactor::{Element, Orientation};
-use windows_reactor::{button, text_block};
+use windows_reactor::{Canvas, Element, Orientation, RelativePanel};
+use windows_reactor::{button, fragment, text_block};
 use windows_reactor::{grid, hstack, vstack};
 
 #[test]
@@ -68,6 +68,31 @@ fn macros_nest_without_element_from() {
         }
         other => panic!("expected stack, got {other:?}"),
     }
+}
+
+#[test]
+fn fragments_flatten_inside_heterogeneous_tuples() {
+    let tree = vstack((
+        text_block("a"),
+        fragment((button("b"), text_block("c"))),
+        text_block("d"),
+    ));
+    assert_eq!(tree.children.len(), 4);
+}
+
+#[test]
+fn fragments_work_in_every_multi_child_builder() {
+    let canvas = Canvas::new((
+        fragment((text_block("a"), text_block("b"))),
+        text_block("c"),
+    ));
+    let panel = RelativePanel::new((
+        text_block("a"),
+        fragment((text_block("b"), text_block("c"))),
+    ));
+
+    assert_eq!(canvas.children.len(), 3);
+    assert_eq!(panel.children.len(), 3);
 }
 
 #[test]

@@ -83,6 +83,11 @@ fn recovery_after_fix_mounts_healthy_child() {
 
     let mut r = Reconciler::new(RecordingBackend::new());
     let id = reconcile(&mut r, None, &tree_a, None).unwrap();
+    assert_eq!(
+        r.debug_logical_node_count(),
+        1,
+        "fallback state belongs to the mounted boundary node"
+    );
 
     boom.set(false);
     let child_b = component(
@@ -92,7 +97,12 @@ fn recovery_after_fix_mounts_healthy_child() {
         (),
     );
     let tree_b = error_boundary(child_b, |_| text_block("fallback").into());
-    let _ = reconcile(&mut r, Some(&tree_a), &tree_b, Some(id));
+    let id = reconcile(&mut r, Some(&tree_a), &tree_b, Some(id)).unwrap();
+    assert_eq!(
+        r.debug_logical_node_count(),
+        2,
+        "recovery mounts the healthy component beneath the existing boundary"
+    );
 
     let saw_healthy = r.backend.ops.iter().any(|op| {
         matches!(
@@ -105,6 +115,9 @@ fn recovery_after_fix_mounts_healthy_child() {
         )
     });
     assert!(saw_healthy, "expected healthy mount after recovery");
+
+    r.unmount(id);
+    assert_eq!(r.debug_logical_node_count(), 0);
 }
 
 #[test]
@@ -122,6 +135,11 @@ fn nested_boundaries_catch_at_the_nearest_one() {
 
     let mut r = Reconciler::new(RecordingBackend::new());
     let _ = reconcile(&mut r, None, &outer, None);
+    assert_eq!(
+        r.debug_logical_node_count(),
+        2,
+        "both nested boundaries retain independent logical identity"
+    );
 
     let saw_inner = r.backend.ops.iter().any(|op| {
         matches!(

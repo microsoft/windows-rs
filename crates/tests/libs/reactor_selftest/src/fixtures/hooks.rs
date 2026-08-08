@@ -10,7 +10,7 @@ use windows_reactor::Context;
 use windows_reactor::Element;
 use windows_reactor::RenderCx;
 use windows_reactor::vstack;
-use windows_reactor::{ElementExt, button, text_block};
+use windows_reactor::{ProvideExt, button, text_block};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;

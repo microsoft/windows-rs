@@ -52,6 +52,9 @@ struct MemberOverride {
     /// Explicit Rust field name (overrides snake_case of key).
     #[serde(default)]
     field: Option<String>,
+    /// Include the property getter in the generated WinUI bindings.
+    #[serde(default)]
+    getter: Option<bool>,
 
     // ── Event-specific ──
     /// Skip codegen; hand-written attach_event in backend.
@@ -252,6 +255,7 @@ fn build_prop(
         method_enum_map,
         copy_value,
         enum_as_i32,
+        getter: overrides.getter.unwrap_or(false),
     }
 }
 

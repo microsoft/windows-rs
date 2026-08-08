@@ -36,6 +36,35 @@ whose `call` schedules a rerender. `ReactorWindow` opens more top-level windows.
 guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md) for
 components, hooks, layout, styling, and widgets.
 
+Multi-child builders accept tuples, arrays, vectors, and child-only fragments:
+
+```rust,ignore
+vstack((
+    text_block("Header"),
+    fragment((text_block("Name"), text_block("Value"))),
+))
+```
+
+`Fragment` cannot be converted into `Element`, so it cannot be returned as an application root or
+inserted into a single-child control.
+
+Use a typed element reference for imperative native operations that must happen after mount:
+
+```rust,ignore
+let input = cx.use_element_ref::<TextBoxHandle>();
+let input_for_focus = input.clone();
+
+vstack((
+    text_box("").element_ref(&input),
+    button("Focus").on_click(move || {
+        let _ = input_for_focus.focus();
+    }),
+))
+```
+
+The reference is populated after mount and cleared before native destruction. Its handle type
+prevents attachment to an incompatible widget.
+
 `App::on_exit` registers synchronous cleanup or instrumentation that runs once on the UI thread
 immediately before Reactor exits the process after the final window closes.
 

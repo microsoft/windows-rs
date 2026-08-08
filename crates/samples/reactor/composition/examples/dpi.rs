@@ -18,37 +18,32 @@ fn app(cx: &mut RenderCx) -> Element {
     let revoker = cx.use_ref::<Option<EventRevoker>>(None);
 
     grid((
-        Element::from(
-            text_block(format!("rasterization scale: {scale:.2}×"))
-                .font_size(20.0)
-                .bold()
-                .margin(Thickness::uniform(16.0)),
-        )
-        .grid_row(0),
-        Element::from(
-            composition_host()
-                .on_mounted({
-                    let visual = visual.clone();
-                    move |host| {
-                        match build(&host) {
-                            Ok(built) => visual.set(Some(built)),
-                            Err(e) => eprintln!("composition init failed: {e}"),
-                        }
-                        let set_scale = set_scale.clone();
-                        if let Ok(rev) =
-                            host.on_rasterization_scale_changed(move |s| set_scale.call(s))
-                        {
-                            revoker.set(Some(rev));
-                        }
+        text_block(format!("rasterization scale: {scale:.2}×"))
+            .font_size(20.0)
+            .bold()
+            .margin(Thickness::uniform(16.0))
+            .grid_row(0),
+        composition_host()
+            .on_mounted({
+                let visual = visual.clone();
+                move |host| {
+                    match build(&host) {
+                        Ok(built) => visual.set(Some(built)),
+                        Err(e) => eprintln!("composition init failed: {e}"),
                     }
-                })
-                .on_resize(move |w, h| {
-                    if let Some(visual) = visual.borrow().as_ref() {
-                        visual.set_size(w as f32, h as f32);
+                    let set_scale = set_scale.clone();
+                    if let Ok(rev) = host.on_rasterization_scale_changed(move |s| set_scale.call(s))
+                    {
+                        revoker.set(Some(rev));
                     }
-                }),
-        )
-        .grid_row(1),
+                }
+            })
+            .on_resize(move |w, h| {
+                if let Some(visual) = visual.borrow().as_ref() {
+                    visual.set_size(w as f32, h as f32);
+                }
+            })
+            .grid_row(1),
     ))
     .rows([GridLength::Auto, GridLength::STAR])
     .into()

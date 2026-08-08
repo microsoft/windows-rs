@@ -7,7 +7,9 @@ use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Reconciler;
-use windows_reactor::{Button, Element, Modifiers, StackPanel, TextBlock};
+use windows_reactor::{
+    Button, CanvasChildExt, Element, Modifiers, RelativePanelChildExt, StackPanel, TextBlock,
+};
 use windows_reactor::{Prop, PropValue};
 
 fn rr() -> Rc<dyn Fn()> {
@@ -122,8 +124,7 @@ fn min_max_unset_on_diff() {
 fn canvas_z_index_emits_set_prop() {
     use windows_reactor::Canvas;
 
-    let child: Element = TextBlock::new("hi").into();
-    let child = child.canvas_z_index(5);
+    let child: Element = TextBlock::new("hi").canvas_z_index(5).into();
     let el: Element = Canvas::new([child]).into();
     let r = mount(&el);
     let vals = props_for(&r, Prop::AttachedCanvasZIndex);
@@ -135,8 +136,7 @@ fn canvas_z_index_emits_set_prop() {
 
 #[test]
 fn relative_panel_align_left_emits_set_prop() {
-    let child: Element = TextBlock::new("hi").into();
-    let child = child.relative_align_left();
+    let child: Element = TextBlock::new("hi").relative_align_left().into();
     let el: Element = StackPanel {
         children: vec![child],
         ..StackPanel::vertical()
@@ -149,8 +149,7 @@ fn relative_panel_align_left_emits_set_prop() {
 
 #[test]
 fn relative_panel_align_right_emits_set_prop() {
-    let child: Element = TextBlock::new("hi").into();
-    let child = child.relative_align_right();
+    let child: Element = TextBlock::new("hi").relative_align_right().into();
     let el: Element = StackPanel {
         children: vec![child],
         ..StackPanel::vertical()
@@ -163,8 +162,7 @@ fn relative_panel_align_right_emits_set_prop() {
 
 #[test]
 fn relative_panel_align_top_emits_set_prop() {
-    let child: Element = TextBlock::new("hi").into();
-    let child = child.relative_align_top();
+    let child: Element = TextBlock::new("hi").relative_align_top().into();
     let el: Element = StackPanel {
         children: vec![child],
         ..StackPanel::vertical()
@@ -177,8 +175,7 @@ fn relative_panel_align_top_emits_set_prop() {
 
 #[test]
 fn relative_panel_align_bottom_emits_set_prop() {
-    let child: Element = TextBlock::new("hi").into();
-    let child = child.relative_align_bottom();
+    let child: Element = TextBlock::new("hi").relative_align_bottom().into();
     let el: Element = StackPanel {
         children: vec![child],
         ..StackPanel::vertical()
@@ -191,8 +188,7 @@ fn relative_panel_align_bottom_emits_set_prop() {
 
 #[test]
 fn relative_panel_align_h_center_emits_set_prop() {
-    let child: Element = TextBlock::new("hi").into();
-    let child = child.relative_align_h_center();
+    let child: Element = TextBlock::new("hi").relative_align_h_center().into();
     let el: Element = StackPanel {
         children: vec![child],
         ..StackPanel::vertical()
@@ -205,8 +201,7 @@ fn relative_panel_align_h_center_emits_set_prop() {
 
 #[test]
 fn relative_panel_align_v_center_emits_set_prop() {
-    let child: Element = TextBlock::new("hi").into();
-    let child = child.relative_align_v_center();
+    let child: Element = TextBlock::new("hi").relative_align_v_center().into();
     let el: Element = StackPanel {
         children: vec![child],
         ..StackPanel::vertical()

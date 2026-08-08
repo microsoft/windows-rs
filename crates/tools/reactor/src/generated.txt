@@ -34,13 +34,13 @@ Microsoft::UI::Xaml::Controls::INavigationView2::{put_IsBackEnabled, put_PaneDis
 Microsoft::UI::Xaml::Controls::INumberBox::{put_Header, put_Maximum, put_Minimum, put_Value}
 Microsoft::UI::Xaml::Controls::IPasswordBox::{put_Header, put_IsPasswordRevealButtonEnabled, put_PasswordRevealMode, put_PlaceholderText}
 Microsoft::UI::Xaml::Controls::IPersonPicture::{put_DisplayName, put_Initials}
-Microsoft::UI::Xaml::Controls::IPivot::{put_SelectedIndex, put_Title}
+Microsoft::UI::Xaml::Controls::IPivot::{get_SelectedIndex, put_SelectedIndex, put_Title}
 Microsoft::UI::Xaml::Controls::IProgressBar::put_IsIndeterminate
 Microsoft::UI::Xaml::Controls::IProgressRing::{put_IsActive, put_IsIndeterminate, put_Maximum, put_Minimum, put_Value}
 Microsoft::UI::Xaml::Controls::IRadioButton::put_GroupName
 Microsoft::UI::Xaml::Controls::IRadioButtons::{put_Header, put_MaxColumns, put_SelectedIndex}
 Microsoft::UI::Xaml::Controls::IRatingControl::{put_Caption, put_IsReadOnly, put_MaxRating, put_PlaceholderValue, put_Value}
-Microsoft::UI::Xaml::Controls::IRichEditBox::{put_Header, put_IsReadOnly, put_PlaceholderText}
+Microsoft::UI::Xaml::Controls::IRichEditBox::{get_IsReadOnly, put_Header, put_IsReadOnly, put_PlaceholderText}
 Microsoft::UI::Xaml::Controls::IScrollView::{put_HorizontalScrollBarVisibility, put_VerticalScrollBarVisibility}
 Microsoft::UI::Xaml::Controls::IScrollViewer::{put_HorizontalScrollBarVisibility, put_VerticalScrollBarVisibility}
 Microsoft::UI::Xaml::Controls::ISlider::{put_Header, put_Orientation}

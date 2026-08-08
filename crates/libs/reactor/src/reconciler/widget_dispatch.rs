@@ -1,4 +1,5 @@
 use super::*;
+use crate::reference::NativeElementRef;
 
 impl<B: Backend + 'static> Reconciler<B> {
     pub fn mount_widget(&mut self, w: &dyn Widget) -> ControlId {
@@ -7,24 +8,32 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.apply_modifiers(id, w.modifiers());
         self.apply_attached(id, w.attached());
         self.mount_widget_children(id, w.children());
-        if let Some(hdr) = w.header_element()
-            && let Some(hdr_id) = self.mount(hdr)
-        {
-            self.backend.set_header_element(id, Some(hdr_id));
-            self.header_elements.insert(id, hdr_id);
+        if let Some(hdr) = w.header_element() {
+            let output = self.mount_output(hdr);
+            if let Some(hdr_id) = output.native {
+                self.backend.set_header_element(id, Some(hdr_id));
+            }
+            self.tree.set_header(id, Some(output));
         }
-        if let Some(pane) = w.pane_element()
-            && let Some(pane_id) = self.mount(pane)
-        {
-            self.backend.set_pane_element(id, Some(pane_id));
-            self.pane_elements.insert(id, pane_id);
+        if let Some(pane) = w.pane_element() {
+            let output = self.mount_output(pane);
+            if let Some(pane_id) = output.native {
+                self.backend.set_pane_element(id, Some(pane_id));
+            }
+            self.tree.set_pane(id, Some(output));
+        }
+        let native = self.backend.get_native_element(id);
+        if let Some(reference) = element_ref(w.modifiers()) {
+            reference.set_native(native.clone());
         }
         if let Some(cb) = w.on_mounted_callback() {
-            cb.invoke(self.backend.get_native_element(id));
+            cb.invoke(native);
         }
-        if let Some(cb) = w.on_unmounted_callback() {
-            self.unmount_callbacks.insert(id, cb.clone());
-        }
+        self.tree.set_before_unmount(
+            id,
+            element_ref(w.modifiers()).cloned(),
+            w.on_unmounted_callback().cloned(),
+        );
         id
     }
 
@@ -35,26 +44,35 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.update_widget_children(id, old.children(), new.children());
         self.update_header_element(id, old.header_element(), new.header_element());
         self.update_pane_element(id, old.pane_element(), new.pane_element());
-        if let Some(cb) = new.on_unmounted_callback() {
-            self.unmount_callbacks.insert(id, cb.clone());
-        } else {
-            self.unmount_callbacks.remove(&id);
+        let old_reference = element_ref(old.modifiers());
+        let new_reference = element_ref(new.modifiers());
+        if old_reference != new_reference {
+            if let Some(reference) = old_reference {
+                reference.set_native(None);
+            }
+            if let Some(reference) = new_reference {
+                reference.set_native(self.backend.get_native_element(id));
+            }
         }
+        self.tree.set_before_unmount(
+            id,
+            new_reference.cloned(),
+            new.on_unmounted_callback().cloned(),
+        );
     }
 
     fn mount_widget_children(&mut self, id: ControlId, children: Children<'_>) {
         match children {
             Children::None => {}
             Children::PositionalSingle(child) => {
-                if let Some(child_id) = self.mount(child) {
-                    self.append_child_tracked(id, child_id);
-                }
+                let output = self.mount_output(child);
+                self.append_output_tracked(id, output);
             }
+
             Children::Keyed(list) => {
-                for child in collect_live(list) {
-                    if let Some(child_id) = self.mount(child) {
-                        self.append_child_tracked(id, child_id);
-                    }
+                for child in list {
+                    let output = self.mount_output(child);
+                    self.append_output_tracked(id, output);
                 }
             }
             Children::Tabs(tabs) => {
@@ -105,44 +123,35 @@ impl<B: Backend + 'static> Reconciler<B> {
         match (old, new) {
             (None, None) => {}
             (None, Some(hdr)) => {
-                if let Some(hdr_id) = self.mount(hdr) {
+                let output = self.mount_output(hdr);
+                if let Some(hdr_id) = output.native {
                     self.backend.set_header_element(id, Some(hdr_id));
-                    self.header_elements.insert(id, hdr_id);
                 }
+                self.tree.set_header(id, Some(output));
             }
             (Some(_), None) => {
-                if let Some(hdr_id) = self.header_elements.remove(&id) {
+                if let Some(output) = self.tree.header(id) {
+                    self.tree.set_header(id, None);
                     self.backend
                         .set_header_element(id, Option::<ControlId>::None);
-                    self.unmount(hdr_id);
+                    self.unmount_output(output);
                 }
             }
             (Some(old_el), Some(new_el)) => {
                 // Reconcile in-place when possible to preserve focus/state.
-                if let Some(hdr_id) = self.header_elements.get(&id).copied() {
-                    if old_el.kind_matches(new_el) {
-                        let new_id = self.update(old_el, new_el, hdr_id);
-                        match new_id {
-                            Some(nid) if nid != hdr_id => {
-                                self.backend.set_header_element(id, Some(nid));
-                                self.header_elements.insert(id, nid);
-                            }
-                            None => {
-                                self.backend
-                                    .set_header_element(id, Option::<ControlId>::None);
-                                self.header_elements.remove(&id);
-                            }
-                            _ => {}
-                        }
-                        return;
+                if let Some(old_output) = self.tree.header(id) {
+                    let new_output = self.update_output(old_el, new_el, old_output);
+                    if old_output.native != new_output.native {
+                        self.backend.set_header_element(id, new_output.native);
                     }
-                    self.header_elements.remove(&id);
-                    self.unmount(hdr_id);
+                    self.tree.set_header(id, Some(new_output));
+                    return;
                 }
-                if let Some(hdr_id) = self.mount(new_el) {
+                let output = self.mount_output(new_el);
+                if let Some(hdr_id) = output.native {
                     self.backend.set_header_element(id, Some(hdr_id));
-                    self.header_elements.insert(id, hdr_id);
                 }
+                self.tree.set_header(id, Some(output));
             }
         }
     }
@@ -151,42 +160,34 @@ impl<B: Backend + 'static> Reconciler<B> {
         match (old, new) {
             (None, None) => {}
             (None, Some(pane)) => {
-                if let Some(pane_id) = self.mount(pane) {
+                let output = self.mount_output(pane);
+                if let Some(pane_id) = output.native {
                     self.backend.set_pane_element(id, Some(pane_id));
-                    self.pane_elements.insert(id, pane_id);
                 }
+                self.tree.set_pane(id, Some(output));
             }
             (Some(_), None) => {
-                if let Some(pane_id) = self.pane_elements.remove(&id) {
+                if let Some(output) = self.tree.pane(id) {
+                    self.tree.set_pane(id, None);
                     self.backend.set_pane_element(id, Option::<ControlId>::None);
-                    self.unmount(pane_id);
+                    self.unmount_output(output);
                 }
             }
             (Some(old_el), Some(new_el)) => {
                 // Reconcile in-place when possible to preserve focus/state.
-                if let Some(pane_id) = self.pane_elements.get(&id).copied() {
-                    if old_el.kind_matches(new_el) {
-                        let new_id = self.update(old_el, new_el, pane_id);
-                        match new_id {
-                            Some(nid) if nid != pane_id => {
-                                self.backend.set_pane_element(id, Some(nid));
-                                self.pane_elements.insert(id, nid);
-                            }
-                            None => {
-                                self.backend.set_pane_element(id, Option::<ControlId>::None);
-                                self.pane_elements.remove(&id);
-                            }
-                            _ => {}
-                        }
-                        return;
+                if let Some(old_output) = self.tree.pane(id) {
+                    let new_output = self.update_output(old_el, new_el, old_output);
+                    if old_output.native != new_output.native {
+                        self.backend.set_pane_element(id, new_output.native);
                     }
-                    self.pane_elements.remove(&id);
-                    self.unmount(pane_id);
+                    self.tree.set_pane(id, Some(new_output));
+                    return;
                 }
-                if let Some(pane_id) = self.mount(new_el) {
+                let output = self.mount_output(new_el);
+                if let Some(pane_id) = output.native {
                     self.backend.set_pane_element(id, Some(pane_id));
-                    self.pane_elements.insert(id, pane_id);
                 }
+                self.tree.set_pane(id, Some(output));
             }
         }
     }
@@ -203,9 +204,8 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.backend
                 .set_prop(tab_id, Prop::IsClosable, &PropValue::Bool(closable));
         }
-        if let Some(content_id) = self.mount(&tab.content) {
-            self.append_child_tracked(tab_id, content_id);
-        }
+        let output = self.mount_output(&tab.content);
+        self.append_output_tracked(tab_id, output);
         self.append_child_tracked(parent, tab_id);
     }
 
@@ -216,9 +216,8 @@ impl<B: Backend + 'static> Reconciler<B> {
             Prop::ItemHeader,
             &PropValue::Str(item.header.clone()),
         );
-        if let Some(content_id) = self.mount(&item.content) {
-            self.append_child_tracked(item_id, content_id);
-        }
+        let output = self.mount_output(&item.content);
+        self.append_output_tracked(item_id, output);
         self.append_child_tracked(parent, item_id);
     }
 
@@ -455,4 +454,11 @@ impl<B: Backend + 'static> Reconciler<B> {
             &PropValue::Bool(p.align_v_center_with_panel),
         );
     }
+}
+
+fn element_ref(modifiers: &Modifiers) -> Option<&NativeElementRef> {
+    modifiers
+        .attached
+        .as_ref()
+        .and_then(|attached| attached.get())
 }

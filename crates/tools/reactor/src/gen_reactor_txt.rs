@@ -78,6 +78,36 @@ pub fn generate(controls: &[Control], resolver: &MetadataResolver, base_path: &P
                     .or_default()
                     .insert(method.to_string());
             }
+            if p.getter {
+                let method = format!("get_{}", p.meta_name);
+                let iface_ref = resolver.resolve(ctrl.handle(), &method).unwrap_or_else(|| {
+                    panic!(
+                        "{}.{} getter not found in metadata",
+                        ctrl.handle(),
+                        p.meta_name
+                    )
+                });
+                needed
+                    .entry(iface_ref.full_path().replace('.', "::"))
+                    .or_default()
+                    .insert(method);
+            }
+        }
+
+        for e in &ctrl.event {
+            if !e.invoke().ends_with("_getter") {
+                continue;
+            }
+            let Some(property) = &e.property else {
+                continue;
+            };
+            let method = format!("get_{property}");
+            if let Some(iface_ref) = resolver.resolve(ctrl.handle(), &method) {
+                needed
+                    .entry(iface_ref.full_path().replace('.', "::"))
+                    .or_default()
+                    .insert(method);
+            }
         }
     }
 

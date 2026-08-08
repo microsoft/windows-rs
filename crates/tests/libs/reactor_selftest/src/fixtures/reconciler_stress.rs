@@ -2,15 +2,111 @@
 //! diffing algorithm. These test scenarios that are more complex than the
 //! basic "reverse a list" covered in reconciler::keyed_list.
 
+use std::cell::Cell;
+use std::rc::Rc;
+
 use windows_core::Interface;
 
-use windows_reactor::Element;
-use windows_reactor::{ElementExt, button, text_block};
+use windows_reactor::{Component, Element, RenderCx};
+use windows_reactor::{KeyExt, button, component, text_block};
 
 use crate::fixtures::reconciler::{FixtureFuture, cc};
 use crate::harness::Harness;
 
 use windows_reactor::vstack;
+
+#[derive(Clone)]
+struct LifecycleCounts {
+    setups: Rc<Cell<u32>>,
+    cleanups: Rc<Cell<u32>>,
+}
+
+impl PartialEq for LifecycleCounts {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.setups, &other.setups) && Rc::ptr_eq(&self.cleanups, &other.cleanups)
+    }
+}
+
+struct LifecycleLeaf;
+
+impl Component<LifecycleCounts> for LifecycleLeaf {
+    fn render(&self, props: &LifecycleCounts, cx: &mut RenderCx) -> Element {
+        track_lifecycle(props, cx);
+        text_block("Lifecycle leaf").into()
+    }
+}
+
+struct LifecycleBranch;
+
+impl Component<LifecycleCounts> for LifecycleBranch {
+    fn render(&self, props: &LifecycleCounts, cx: &mut RenderCx) -> Element {
+        track_lifecycle(props, cx);
+        vstack((
+            text_block("Lifecycle branch"),
+            component(LifecycleLeaf, props.clone()),
+        ))
+        .into()
+    }
+}
+
+fn track_lifecycle(counts: &LifecycleCounts, cx: &mut RenderCx) {
+    let setups = Rc::clone(&counts.setups);
+    let cleanups = Rc::clone(&counts.cleanups);
+    cx.use_effect_with_cleanup((), move || {
+        setups.set(setups.get() + 1);
+        Some(move || cleanups.set(cleanups.get() + 1))
+    });
+}
+
+pub fn lifecycle_torture(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        const CYCLES: u32 = 40;
+        const COMPONENTS_PER_BRANCH: u32 = 2;
+
+        let setups = Rc::new(Cell::new(0));
+        let cleanups = Rc::new(Cell::new(0));
+        let counts = LifecycleCounts {
+            setups: Rc::clone(&setups),
+            cleanups: Rc::clone(&cleanups),
+        };
+
+        h.mount(cc(move |cx| {
+            let (generation, set_generation) = cx.use_state(0u32);
+            let next = move || set_generation.call(generation + 1);
+            vstack((
+                button("Lifecycle_Next").on_click(next),
+                component(LifecycleBranch, counts.clone()).with_key(format!("branch-{generation}")),
+            ))
+            .into()
+        }));
+        h.render().await;
+
+        for _ in 0..CYCLES {
+            let _ = h.click_button("Lifecycle_Next");
+            h.render().await;
+        }
+
+        h.check(
+            "LifecycleTorture_SetupsBeforeHostReplacement",
+            setups.get() == (CYCLES + 1) * COMPONENTS_PER_BRANCH,
+        );
+        h.check(
+            "LifecycleTorture_CleanupsBeforeHostReplacement",
+            cleanups.get() == CYCLES * COMPONENTS_PER_BRANCH,
+        );
+        h.check(
+            "LifecycleTorture_FinalBranchPresent",
+            h.find_text("Lifecycle leaf").is_some(),
+        );
+
+        h.mount(cc(|_| text_block("Lifecycle torture complete").into()));
+        h.render().await;
+        h.check(
+            "LifecycleTorture_CleanupConservation",
+            cleanups.get() == setups.get(),
+        );
+    })
+}
 
 /// Remove an item from the middle of a keyed list and verify surrounding
 /// items remain in correct order and identity-preserved.
