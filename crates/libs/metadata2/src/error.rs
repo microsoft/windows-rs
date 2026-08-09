@@ -44,6 +44,18 @@ pub enum Error {
         /// Metadata type name.
         name: String,
     },
+    /// Two Param rows use the same sequence within one method.
+    DuplicateParameterSequence {
+        /// The duplicated sequence.
+        sequence: u16,
+    },
+    /// A Param row names a signature position that does not exist.
+    ParameterSequenceOutOfRange {
+        /// The encoded one-based sequence.
+        sequence: u16,
+        /// Number of parameters in the method signature.
+        parameter_count: usize,
+    },
 }
 
 impl Error {
@@ -80,6 +92,17 @@ impl Display for Error {
             Self::UnresolvedType { namespace, name } => {
                 write!(formatter, "unresolved metadata type `{namespace}.{name}`")
             }
+            Self::DuplicateParameterSequence { sequence } => {
+                write!(formatter, "duplicate Param.Sequence {sequence}")
+            }
+            Self::ParameterSequenceOutOfRange {
+                sequence,
+                parameter_count,
+            } => write!(
+                formatter,
+                "Param.Sequence {sequence} is out of range for {parameter_count} signature \
+                 parameters"
+            ),
         }
     }
 }

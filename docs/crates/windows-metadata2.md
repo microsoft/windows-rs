@@ -249,5 +249,30 @@ callable prerequisite and required no new index.
 
 Method parameter rows now use the same generic list-range primitive as type fields and methods.
 Flags, sequence numbers, and names match the current reader across the committed corpus. Sequence
-association with signature positions remains a separate checked semantic step; physical row access
-does not silently assume dense or ordered `Param.Sequence` values.
+association is a separate checked semantic step: sequence zero is the optional return row, missing
+parameter rows remain `None`, and duplicate or out-of-range sequences return structured errors.
+The complete committed corpus matches the current reader's association.
+
+`GuidAttribute` folding stays in the bindgen adapter rather than becoming ECMA metadata policy.
+The adapter validates the 11 fixed argument types and reproduces every type GUID from the current
+reader. Generic parameters, checked parameter association, and GUID projection are now sufficient
+to inventory a per-item delegate model before adding rendering.
+
+The delegate inventory must come before extending `ModelType`. Method signatures contain more
+shapes than value fields, and copying every existing bindgen `Type` variant would defeat this
+exercise. The next checkpoint should list the shapes used by projected WinRT delegates, then add
+only the metadata-neutral projection operations required by that corpus.
+
+The committed WinRT delegate inventory is narrow: primitives, `void`, strings, objects, named
+classes and values, generic type parameters, generic instances, and vectors. It contains no
+pointers, by-reference types, multidimensional arrays, generic method parameters, function
+pointers, typed references, or pinned types. The old and new readers produce the same shape set and
+delegate count. A delegate model can therefore start with this subset and reject any newly observed
+shape until its projection behavior is designed.
+
+The first per-item delegate model now owns only the data required by one delegate: namespace, name,
+generic parameters, GUID, call flags, return metadata, and sequence-aligned parameter metadata.
+Models populated by both readers match for every committed WinRT delegate. Delegate signatures
+reuse the existing metadata-neutral `ModelType`; review rejected a separate callable type enum as
+immediate duplication. Nested generic and vector elements retain the same modifier checks rather
+than bypassing them during recursion.

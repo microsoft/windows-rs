@@ -429,6 +429,24 @@ pub struct ParameterDefinition<'a> {
     entity: Entity<tables::Param>,
 }
 
+/// Param rows associated with a method signature by Param.Sequence.
+pub struct MethodParameterMap<'a> {
+    return_parameter: Option<ParameterDefinition<'a>>,
+    parameters: Vec<Option<ParameterDefinition<'a>>>,
+}
+
+impl<'a> MethodParameterMap<'a> {
+    /// Returns the Sequence == 0 return row, when present.
+    pub fn return_parameter(&self) -> Option<ParameterDefinition<'a>> {
+        self.return_parameter
+    }
+
+    /// Returns one optional row for each signature parameter.
+    pub fn parameters(&self) -> &[Option<ParameterDefinition<'a>>] {
+        &self.parameters
+    }
+}
+
 /// A database-backed semantic view of a CustomAttribute row.
 #[derive(Clone, Copy)]
 pub struct AttributeDefinition<'a> {
@@ -545,6 +563,38 @@ impl<'a> MethodDefinition<'a> {
                 database: self.database,
                 entity: Entity::new(file, row),
             }))
+    }
+
+    /// Associates Param rows with method-signature positions.
+    pub fn parameters_by_sequence(self) -> Result<MethodParameterMap<'a>, Error> {
+        let parameter_count = self.signature()?.parameters.len();
+        let mut return_parameter = None;
+        let mut parameters = vec![None; parameter_count];
+
+        for parameter in self.parameters()? {
+            let sequence = parameter.sequence()?;
+            if sequence == 0 {
+                if return_parameter.replace(parameter).is_some() {
+                    return Err(Error::DuplicateParameterSequence { sequence });
+                }
+                continue;
+            }
+
+            let Some(slot) = parameters.get_mut(sequence as usize - 1) else {
+                return Err(Error::ParameterSequenceOutOfRange {
+                    sequence,
+                    parameter_count,
+                });
+            };
+            if slot.replace(parameter).is_some() {
+                return Err(Error::DuplicateParameterSequence { sequence });
+            }
+        }
+
+        Ok(MethodParameterMap {
+            return_parameter,
+            parameters,
+        })
     }
 
     fn row(self) -> Result<Row<'a, tables::MethodDef>, Error> {
@@ -775,6 +825,74 @@ mod tests {
                                 parameter.name().to_string(),
                             )
                         })
+                        .collect::<Vec<_>>(),
+                ));
+            }
+        }
+
+        actual.sort();
+        expected.sort();
+        assert_eq!(actual, expected);
+    }
+
+    #[test]
+    fn method_parameter_sequences_match_existing_reader() {
+        let database = Database::new([
+            Image::new(windows_default::WINRT).unwrap(),
+            Image::new(windows_default::WIN32).unwrap(),
+        ])
+        .unwrap();
+        let mut actual = Vec::new();
+        for definition in database.definitions() {
+            for method in definition.methods().unwrap() {
+                let parameters = method.parameters_by_sequence().unwrap();
+                actual.push((
+                    definition.namespace().unwrap().to_string(),
+                    definition.name().unwrap().to_string(),
+                    method.name().unwrap().to_string(),
+                    parameters
+                        .return_parameter()
+                        .map(|parameter| parameter.name().unwrap().to_string()),
+                    parameters
+                        .parameters()
+                        .iter()
+                        .map(|parameter| {
+                            parameter.map(|parameter| parameter.name().unwrap().to_string())
+                        })
+                        .collect::<Vec<_>>(),
+                ));
+            }
+        }
+
+        let old = windows_metadata::reader::Index::new(vec![
+            windows_metadata::reader::File::new(windows_default::WINRT.to_vec()).unwrap(),
+            windows_metadata::reader::File::new(windows_default::WIN32.to_vec()).unwrap(),
+        ]);
+        let mut expected = Vec::new();
+        for (_, _, definition) in old.iter() {
+            let generics: Vec<_> = definition
+                .generic_params()
+                .map(|parameter| {
+                    windows_metadata::Type::Generic(
+                        parameter.name().to_string(),
+                        parameter.sequence(),
+                    )
+                })
+                .collect();
+            for method in definition.methods() {
+                let signature = method.signature(&generics);
+                let parameters = method.params_by_sequence(signature.types.len()).unwrap();
+                expected.push((
+                    definition.namespace().to_string(),
+                    definition.name().to_string(),
+                    method.name().to_string(),
+                    parameters
+                        .return_param()
+                        .map(|parameter| parameter.name().to_string()),
+                    parameters
+                        .params()
+                        .iter()
+                        .map(|parameter| parameter.map(|parameter| parameter.name().to_string()))
                         .collect::<Vec<_>>(),
                 ));
             }

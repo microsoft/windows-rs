@@ -1,6 +1,7 @@
 use super::*;
 use windows_metadata2 as new;
 
+mod delegate_model;
 mod value_model;
 
 #[derive(Clone, Copy)]
@@ -176,6 +177,124 @@ fn insert_item(
         .push(item);
 }
 
+fn guid_attribute(definition: new::TypeDefinition<'_>) -> Option<GUID> {
+    fn u32_value(value: &new::AttributeValue) -> u32 {
+        let new::AttributeValue::U32(value) = value else {
+            panic!("GuidAttribute data1 is not u32");
+        };
+        *value
+    }
+
+    fn u16_value(value: &new::AttributeValue) -> u16 {
+        let new::AttributeValue::U16(value) = value else {
+            panic!("GuidAttribute value is not u16");
+        };
+        *value
+    }
+
+    fn u8_value(value: &new::AttributeValue) -> u8 {
+        let new::AttributeValue::U8(value) = value else {
+            panic!("GuidAttribute value is not u8");
+        };
+        *value
+    }
+
+    let attribute = definition.find_attribute("GuidAttribute").unwrap()?;
+    let arguments = attribute.arguments(&()).unwrap();
+    let values: Vec<_> = arguments
+        .iter()
+        .map(|argument| {
+            let new::AttributeArgument::Fixed { value, .. } = argument else {
+                panic!("GuidAttribute has a named argument");
+            };
+            value
+        })
+        .collect();
+    let [
+        data1,
+        data2,
+        data3,
+        data4,
+        data5,
+        data6,
+        data7,
+        data8,
+        data9,
+        data10,
+        data11,
+    ] = values.as_slice()
+    else {
+        panic!("GuidAttribute does not have 11 arguments");
+    };
+    Some(GUID(
+        u32_value(data1),
+        u16_value(data2),
+        u16_value(data3),
+        u8_value(data4),
+        u8_value(data5),
+        u8_value(data6),
+        u8_value(data7),
+        u8_value(data8),
+        u8_value(data9),
+        u8_value(data10),
+        u8_value(data11),
+    ))
+}
+
+fn old_guid_attribute(definition: windows_metadata::reader::TypeDef<'_>) -> Option<GUID> {
+    fn u32_value(value: &Value) -> u32 {
+        let Value::U32(value) = value else {
+            panic!("GuidAttribute data1 is not u32");
+        };
+        *value
+    }
+
+    fn u16_value(value: &Value) -> u16 {
+        let Value::U16(value) = value else {
+            panic!("GuidAttribute value is not u16");
+        };
+        *value
+    }
+
+    fn u8_value(value: &Value) -> u8 {
+        let Value::U8(value) = value else {
+            panic!("GuidAttribute value is not u8");
+        };
+        *value
+    }
+
+    let arguments = definition.find_attribute("GuidAttribute")?.value();
+    let [
+        data1,
+        data2,
+        data3,
+        data4,
+        data5,
+        data6,
+        data7,
+        data8,
+        data9,
+        data10,
+        data11,
+    ] = arguments.as_slice()
+    else {
+        panic!("GuidAttribute does not have 11 arguments");
+    };
+    Some(GUID(
+        u32_value(&data1.1),
+        u16_value(&data2.1),
+        u16_value(&data3.1),
+        u8_value(&data4.1),
+        u8_value(&data5.1),
+        u8_value(&data6.1),
+        u8_value(&data7.1),
+        u8_value(&data8.1),
+        u8_value(&data9.1),
+        u8_value(&data10.1),
+        u8_value(&data11.1),
+    ))
+}
+
 #[test]
 fn reader_selection_multiplicities_match() {
     let reader2 = Reader2::new(
@@ -249,4 +368,42 @@ fn reader2_owns_entity_storage() {
             name
         );
     }
+}
+
+#[test]
+fn guid_attributes_match() {
+    let database = new::Database::new([
+        new::Image::new(windows_default::WINRT).unwrap(),
+        new::Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let mut actual: Vec<_> = database
+        .definitions()
+        .filter_map(|definition| {
+            Some((
+                definition.namespace().unwrap().to_string(),
+                definition.name().unwrap().to_string(),
+                guid_attribute(definition)?.to_string(),
+            ))
+        })
+        .collect();
+
+    let old = windows_metadata::reader::Index::new(vec![
+        File::new(windows_default::WINRT.to_vec()).unwrap(),
+        File::new(windows_default::WIN32.to_vec()).unwrap(),
+    ]);
+    let mut expected: Vec<_> = old
+        .iter()
+        .filter_map(|(_, _, definition)| {
+            Some((
+                definition.namespace().to_string(),
+                definition.name().to_string(),
+                old_guid_attribute(definition)?.to_string(),
+            ))
+        })
+        .collect();
+
+    actual.sort();
+    expected.sort();
+    assert_eq!(actual, expected);
 }

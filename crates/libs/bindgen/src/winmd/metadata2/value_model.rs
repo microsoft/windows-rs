@@ -49,8 +49,9 @@ enum IntegerValue {
     USize(u64),
 }
 
-#[derive(Clone, Debug, Eq, PartialEq)]
-enum ModelType {
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub(super) enum ModelType {
+    Void,
     Boolean,
     Char,
     I8,
@@ -64,6 +65,9 @@ enum ModelType {
     F32,
     F64,
     String,
+    Object,
+    Generic(u32),
+    Vector(Box<Self>),
     Named {
         value_type: bool,
         namespace: String,
@@ -312,8 +316,9 @@ impl IntegerValue {
 }
 
 impl ModelType {
-    fn from_old(ty: windows_metadata::Type) -> Option<Self> {
+    pub(super) fn from_old(ty: windows_metadata::Type) -> Option<Self> {
         Some(match ty {
+            windows_metadata::Type::Void => Self::Void,
             windows_metadata::Type::Bool => Self::Boolean,
             windows_metadata::Type::Char => Self::Char,
             windows_metadata::Type::I8 => Self::I8,
@@ -327,6 +332,11 @@ impl ModelType {
             windows_metadata::Type::F32 => Self::F32,
             windows_metadata::Type::F64 => Self::F64,
             windows_metadata::Type::String => Self::String,
+            windows_metadata::Type::Object => Self::Object,
+            windows_metadata::Type::Generic(_, index) => Self::Generic(index.into()),
+            windows_metadata::Type::Array(element) => {
+                Self::Vector(Box::new(Self::from_old(*element)?))
+            }
             windows_metadata::Type::ValueName(name) => Self::Named {
                 value_type: true,
                 namespace: name.namespace,
@@ -351,8 +361,13 @@ impl ModelType {
         })
     }
 
-    fn from_new(database: &new::Database, file: new::FileId, ty: new::TypeKind) -> Option<Self> {
+    pub(super) fn from_new(
+        database: &new::Database,
+        file: new::FileId,
+        ty: new::TypeKind,
+    ) -> Option<Self> {
         Some(match ty {
+            new::TypeKind::Void => Self::Void,
             new::TypeKind::Boolean => Self::Boolean,
             new::TypeKind::Char => Self::Char,
             new::TypeKind::I8 => Self::I8,
@@ -366,6 +381,11 @@ impl ModelType {
             new::TypeKind::F32 => Self::F32,
             new::TypeKind::F64 => Self::F64,
             new::TypeKind::String => Self::String,
+            new::TypeKind::Object => Self::Object,
+            new::TypeKind::GenericType(index) => Self::Generic(index),
+            new::TypeKind::Vector(element) => {
+                Self::Vector(Box::new(Self::from_new_type(database, file, &element)?))
+            }
             new::TypeKind::Value(ty) => {
                 let (namespace, name) = database.type_name(file, ty).ok()??;
                 Self::Named {
@@ -396,7 +416,7 @@ impl ModelType {
                     name: trim_generic_arity(name).to_string(),
                     arguments: arguments
                         .into_iter()
-                        .map(|argument| Self::from_new(database, file, argument.kind))
+                        .map(|argument| Self::from_new_type(database, file, &argument))
                         .collect::<Option<_>>()?,
                 }
             }
@@ -404,8 +424,20 @@ impl ModelType {
         })
     }
 
+    pub(super) fn from_new_type(
+        database: &new::Database,
+        file: new::FileId,
+        ty: &new::Type,
+    ) -> Option<Self> {
+        ty.modifiers
+            .is_empty()
+            .then(|| Self::from_new(database, file, ty.kind.clone()))
+            .flatten()
+    }
+
     fn write(&self, current_namespace: &str) -> Option<TokenStream> {
         Some(match self {
+            Self::Void | Self::Object | Self::Generic(_) | Self::Vector(_) => return None,
             Self::Boolean => quote! { bool },
             Self::Char => quote! { u16 },
             Self::I8 => quote! { i8 },
@@ -452,6 +484,7 @@ impl ModelType {
     fn runtime_signature(&self, values: &ValueModels) -> Option<String> {
         Some(
             match self {
+                Self::Void | Self::Generic(_) | Self::Vector(_) => return None,
                 Self::Boolean => "b1",
                 Self::Char => "c2",
                 Self::I8 => "i1",
@@ -465,6 +498,7 @@ impl ModelType {
                 Self::F32 => "f4",
                 Self::F64 => "f8",
                 Self::String => "string",
+                Self::Object => "cinterface(IInspectable)",
                 Self::Named {
                     value_type: true,
                     namespace,
@@ -493,7 +527,8 @@ impl ModelType {
 
     fn is_copyable(&self, values: &ValueModels) -> Option<bool> {
         match self {
-            Self::String => Some(false),
+            Self::Void | Self::Generic(_) | Self::Vector(_) => None,
+            Self::String | Self::Object => Some(false),
             Self::Named {
                 value_type: true,
                 namespace,
@@ -521,6 +556,7 @@ impl ModelType {
 
     fn is_eq(&self, values: &ValueModels) -> Option<bool> {
         match self {
+            Self::Void | Self::Generic(_) | Self::Vector(_) => None,
             Self::F32 | Self::F64 => Some(false),
             Self::Named {
                 value_type: true,
