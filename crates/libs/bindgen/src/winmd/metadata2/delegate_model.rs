@@ -38,6 +38,12 @@ struct ParameterModel {
     name: String,
 }
 
+#[derive(Clone, Debug, Eq, PartialEq)]
+struct ProjectedParameter {
+    name: String,
+    input_only: bool,
+}
+
 impl DelegateModel {
     fn from_old(definition: windows_metadata::reader::TypeDef<'_>) -> Option<Self> {
         let generics: Vec<_> = definition
@@ -138,6 +144,55 @@ impl DelegateModel {
             },
         })
     }
+
+    fn write_definition(&self, config: &Config) -> TokenStream {
+        let generic_names: Vec<_> = self
+            .generics
+            .iter()
+            .map(|generic| to_ident(&generic.name))
+            .collect();
+        let name = to_ident(&self.name);
+        let name = if generic_names.is_empty() {
+            quote! { #name }
+        } else {
+            quote! { #name < #(#generic_names),* > }
+        };
+        let vtbl_name: TokenStream = format!("{}_Vtbl", self.name).parse().unwrap();
+        let generic_list = quote! { #(#generic_names,)* };
+        let constraints = quote! {
+            #(#generic_names: windows_core::RuntimeType + 'static,)*
+        };
+        let phantoms = if generic_names.is_empty() {
+            quote! {}
+        } else {
+            quote! { #(core::marker::PhantomData::<#generic_names>),* }
+        };
+        let guid = GUID(
+            self.guid.data1,
+            self.guid.data2,
+            self.guid.data3,
+            self.guid.data4[0],
+            self.guid.data4[1],
+            self.guid.data4[2],
+            self.guid.data4[3],
+            self.guid.data4[4],
+            self.guid.data4[5],
+            self.guid.data4[6],
+            self.guid.data4[7],
+        );
+
+        write_delegate_definition(DelegateDefinition {
+            cfg: quote! {},
+            name,
+            vtbl_name,
+            generic_names: generic_list,
+            constraints,
+            phantoms,
+            guid_value: config.write_guid_u128(&guid),
+            guid,
+            generic_signatures: generic_names,
+        })
+    }
 }
 
 impl From<GUID> for GuidModel {
@@ -161,11 +216,31 @@ impl ParameterModel {
         }
     }
 
+    fn input_only(&self) -> bool {
+        self.flags & 0x2 == 0
+    }
+
     fn from_new(parameter: new::ParameterDefinition<'_>) -> Option<Self> {
         Some(Self {
             flags: parameter.flags().ok()?,
             name: parameter.name().ok()?.to_string(),
         })
+    }
+}
+
+impl MethodModel {
+    fn projected_parameters(&self) -> Vec<ProjectedParameter> {
+        self.parameters
+            .iter()
+            .enumerate()
+            .map(|(position, (_, parameter))| ProjectedParameter {
+                name: parameter.as_ref().map_or_else(
+                    || format!("p{position}"),
+                    |parameter| parameter.name.clone(),
+                ),
+                input_only: parameter.as_ref().is_none_or(ParameterModel::input_only),
+            })
+            .collect()
     }
 }
 
@@ -412,4 +487,111 @@ fn delegate_models_match() {
     expected.sort();
     assert_eq!(actual, expected);
     assert!(actual.len() > 100);
+}
+
+#[test]
+fn delegate_parameter_projection_matches() {
+    let database = new::Database::new([new::Image::new(windows_default::WINRT).unwrap()]).unwrap();
+    let models: BTreeMap<_, _> = database
+        .definitions()
+        .filter(|definition| definition.category().unwrap() == new::TypeCategory::Delegate)
+        .map(|definition| {
+            let model = DelegateModel::from_new(&database, definition).unwrap();
+            ((model.namespace.clone(), model.name.clone()), model)
+        })
+        .collect();
+
+    let reader = Reader::new(vec![File::new(windows_default::WINRT.to_vec()).unwrap()]);
+    let mut matched = 0;
+    for (namespace, types) in reader.iter() {
+        for items in types.values() {
+            for item in items {
+                let Type::Delegate(delegate) = item else {
+                    continue;
+                };
+                let method = delegate.method(&reader);
+                let actual: Vec<_> = method
+                    .signature
+                    .params
+                    .iter()
+                    .map(|parameter| ProjectedParameter {
+                        name: parameter.name.clone(),
+                        input_only: parameter.is_input_only(),
+                    })
+                    .collect();
+                let model = &models[&(
+                    namespace.to_string(),
+                    windows_metadata::trim_tick(delegate.def.name()).to_string(),
+                )];
+                assert_eq!(
+                    model.invoke.projected_parameters(),
+                    actual,
+                    "{}.{}",
+                    namespace,
+                    delegate.def.name()
+                );
+                matched += 1;
+            }
+        }
+    }
+    assert_eq!(matched, models.len());
+}
+
+#[test]
+fn delegate_definitions_match() {
+    let database = new::Database::new([new::Image::new(windows_default::WINRT).unwrap()]).unwrap();
+    let models: BTreeMap<_, _> = database
+        .definitions()
+        .filter(|definition| definition.category().unwrap() == new::TypeCategory::Delegate)
+        .map(|definition| {
+            let model = DelegateModel::from_new(&database, definition).unwrap();
+            ((model.namespace.clone(), model.name.clone()), model)
+        })
+        .collect();
+
+    let reader = Reader::new(vec![File::new(windows_default::WINRT.to_vec()).unwrap()]);
+    let bindgen = Bindgen::default();
+    let types = TypeMap::new();
+    let references = References::default();
+    let filter = Filter::default();
+    let derive = Derive::new(&reader, &types, &[]);
+    let event_only_delegates = HashSet::new();
+    let mut matched = 0;
+    for (namespace, namespace_types) in reader.iter() {
+        for items in namespace_types.values() {
+            for item in items {
+                let Type::Delegate(delegate) = item else {
+                    continue;
+                };
+                let config = Config {
+                    bindgen: &bindgen,
+                    reader: &reader,
+                    types: &types,
+                    references: &references,
+                    filter: &filter,
+                    implement: None,
+                    derive: &derive,
+                    link: "windows_core",
+                    namespace,
+                    event_only_delegates: &event_only_delegates,
+                    self_ty: None,
+                    self_generics: Vec::new(),
+                    prunable: std::sync::Arc::new(BTreeSet::new()),
+                };
+                let model = &models[&(
+                    namespace.to_string(),
+                    windows_metadata::trim_tick(delegate.def.name()).to_string(),
+                )];
+                assert_eq!(
+                    model.write_definition(&config).to_string(),
+                    delegate.write_definition(&config).to_string(),
+                    "{}.{}",
+                    namespace,
+                    delegate.def.name()
+                );
+                matched += 1;
+            }
+        }
+    }
+    assert_eq!(matched, models.len());
 }

@@ -6,6 +6,66 @@ pub struct Delegate {
     pub generics: Vec<Type>,
 }
 
+pub(crate) struct DelegateDefinition {
+    pub cfg: TokenStream,
+    pub name: TokenStream,
+    pub vtbl_name: TokenStream,
+    pub generic_names: TokenStream,
+    pub constraints: TokenStream,
+    pub phantoms: TokenStream,
+    pub guid: GUID,
+    pub guid_value: TokenStream,
+    pub generic_signatures: Vec<TokenStream>,
+}
+
+pub(crate) fn write_delegate_definition(input: DelegateDefinition) -> TokenStream {
+    let DelegateDefinition {
+        cfg,
+        name,
+        vtbl_name,
+        generic_names,
+        constraints,
+        phantoms,
+        guid,
+        guid_value,
+        generic_signatures,
+    } = input;
+
+    if generic_signatures.is_empty() {
+        quote! {
+            #cfg
+            windows_core::imp::define_interface!(#name, #vtbl_name, #guid_value);
+            #cfg
+            impl windows_core::RuntimeType for #name {
+                const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+            }
+        }
+    } else {
+        let pinterface = Literal::byte_string(format!("pinterface({{{guid}}}").as_bytes());
+        let signatures = generic_signatures.iter().map(|name| {
+            quote! {
+                .push_slice(b";").push_other(#name::SIGNATURE)
+            }
+        });
+
+        quote! {
+            #cfg
+            #[repr(transparent)]
+            #[derive(Clone, Debug, Eq, PartialEq)]
+            pub struct #name(windows_core::IUnknown, #phantoms) where #constraints;
+            #cfg
+            unsafe impl<#constraints> windows_core::Interface for #name {
+                type Vtable = #vtbl_name<#generic_names>;
+                const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+            }
+            #cfg
+            impl<#constraints> windows_core::RuntimeType for #name {
+                const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#pinterface)#(#signatures)*.push_slice(b")");
+            }
+        }
+    }
+}
+
 impl Delegate {
     pub fn type_name(&self) -> TypeName {
         self.def.type_name()
@@ -13,6 +73,33 @@ impl Delegate {
 
     pub fn write_cfg(&self, config: &Config) -> TokenStream {
         write_simple_cfg(self, config)
+    }
+
+    pub(crate) fn write_definition(&self, config: &Config) -> TokenStream {
+        let name = self.write_name(config);
+        let vtbl_name: TokenStream = format!("{}_Vtbl", trim_tick(self.def.name()))
+            .parse()
+            .unwrap();
+        let generic_names = self.generics.iter().map(|ty| ty.write_name(config));
+        let generic_names = quote! { #(#generic_names,)* };
+        let constraints = config.write_generic_constraints(&self.generics);
+        let guid = self.def.guid_attribute().unwrap();
+
+        write_delegate_definition(DelegateDefinition {
+            cfg: self.write_cfg(config),
+            name,
+            vtbl_name,
+            generic_names,
+            constraints,
+            phantoms: config.write_generic_phantoms(&self.generics),
+            guid_value: config.write_guid_u128(&guid),
+            guid,
+            generic_signatures: self
+                .generics
+                .iter()
+                .map(|generic| generic.write_name(config))
+                .collect(),
+        })
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
@@ -60,46 +147,7 @@ impl Delegate {
 
         let invoke_vtbl = method.write_abi(config, true);
 
-        let definition = if self.generics.is_empty() {
-            let guid = config.write_guid_u128(&self.def.guid_attribute().unwrap());
-
-            quote! {
-                #cfg
-                windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
-                #cfg
-                impl windows_core::RuntimeType for #name {
-                    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-                }
-            }
-        } else {
-            let phantoms = config.write_generic_phantoms(&self.generics);
-
-            let guid = self.def.guid_attribute().unwrap();
-            let pinterface = Literal::byte_string(format!("pinterface({{{guid}}}").as_bytes());
-
-            let generics = self.generics.iter().map(|generic| {
-                let name = generic.write_name(config);
-                quote! {
-                    .push_slice(b";").push_other(#name::SIGNATURE)
-                }
-            });
-
-            quote! {
-                #cfg
-                #[repr(transparent)]
-                #[derive(Clone, Debug, Eq, PartialEq)]
-                pub struct #name(windows_core::IUnknown, #phantoms) where #constraints;
-                #cfg
-                unsafe impl<#constraints> windows_core::Interface for #name {
-                    type Vtable = #vtbl_name<#generic_names>;
-                    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-                }
-                #cfg
-                impl<#constraints> windows_core::RuntimeType for #name {
-                    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#pinterface)#(#generics)*.push_slice(b")");
-                }
-            }
-        };
+        let definition = self.write_definition(config);
 
         // Minimal delegate constructors accept void closures and return `S_OK` from `Invoke`.
         let fn_constraint = {

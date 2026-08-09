@@ -276,3 +276,18 @@ Models populated by both readers match for every committed WinRT delegate. Deleg
 reuse the existing metadata-neutral `ModelType`; review rejected a separate callable type enum as
 immediate duplication. Nested generic and vector elements retain the same modifier checks rather
 than bypassing them during recursion.
+
+Default parameter names and input-only direction behavior also match the current bindgen
+projection for every delegate. This is tested separately from raw metadata-model parity so a
+projection-policy change cannot hide inside equal reader models.
+
+Delegate identity rendering is now a shared metadata-neutral helper. Production and metadata2
+provide tokenized names, generic constraints, phantom fields, and GUID values to the same renderer;
+every generic and non-generic WinRT delegate definition matches exactly. This extraction covers
+only the interface identity and runtime-signature declaration. Constructor, public `Invoke`, ABI
+vtable, and upcall generation still use the existing `Method` renderer.
+
+The helper intentionally accepts rendering inputs rather than metadata rows or `ModelType`. This
+keeps it reusable without turning the production renderer into a metadata2 adapter. The next slice
+is the callable signature used by the vtable and public `Invoke`. Stop and split it further if
+matching that slice requires copying `Method::write`, `write_abi`, or upcall generation.
