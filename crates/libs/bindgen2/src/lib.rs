@@ -13,6 +13,7 @@ mod model;
 mod native;
 mod native_constant;
 mod native_function;
+mod native_type;
 mod struct_model;
 mod tokens;
 mod ty;
@@ -23,6 +24,7 @@ pub use error::Error;
 pub use model::{Value, Values};
 pub use native_constant::Constant;
 pub use native_function::Function;
+pub use native_type::{NativeType, NativeTypeKind};
 pub use struct_model::Struct;
 pub use win32::Win32Items;
 
@@ -123,6 +125,7 @@ impl<'a> ValueItem<'a> {
 mod tests {
     use super::*;
     use proc_macro2::TokenStream;
+    use quote::quote;
     use std::sync::atomic::{AtomicUsize, Ordering};
     use windows_metadata2::Image;
 
@@ -295,12 +298,71 @@ mod tests {
     }
 
     #[test]
+    fn focused_native_type_output_matches_existing_golden_tokens() {
+        let generator = fixture(
+            r#"
+                #[win32]
+                mod Test {
+                    type NativePtr = *const u8;
+                    type NativePtrAlias = NativePtr;
+                    struct Struct {
+                        field: NativePtrAlias,
+                        other: i32,
+                    }
+                    #[repr(i32)]
+                    enum Enum {
+                        First = 1,
+                        Second = 2,
+                        Third = 3,
+                    }
+                    union Value {
+                        i: i32,
+                        f: f32,
+                        p: *mut u8,
+                    }
+                }
+            "#,
+        );
+        let items = generator.win32_items().unwrap();
+
+        let native_ptr = items.native_type("Test", "NativePtr").unwrap().write_sys();
+        let native_ptr_alias = items
+            .native_type("Test", "NativePtrAlias")
+            .unwrap()
+            .write_sys();
+        let structure = items.native_type("Test", "Struct").unwrap().write_sys();
+        let actual = quote! { #native_ptr #native_ptr_alias #structure };
+        let expected: TokenStream =
+            include_str!("../../../tests/libs/bindgen/expected/struct_typedef_pointer_sys.rs")
+                .parse()
+                .unwrap();
+        assert_eq!(actual.to_string(), expected.to_string());
+
+        let actual = items.native_type("Test", "Enum").unwrap().write_sys();
+        let expected: TokenStream =
+            include_str!("../../../tests/libs/bindgen/expected/enum_sys.rs")
+                .parse()
+                .unwrap();
+        assert_eq!(actual.to_string(), expected.to_string());
+
+        let actual = items.native_type("Test", "Value").unwrap().write_sys();
+        let expected: TokenStream = include_str!("../../../tests/libs/bindgen/expected/union.rs")
+            .parse()
+            .unwrap();
+        assert_eq!(actual.to_string(), expected.to_string());
+    }
+
+    #[test]
     fn win32_apis_selection_has_exact_corpus_counts() {
         let generator = generator();
         let items = generator.win32_items().unwrap();
         assert_eq!(
-            [items.constant_count(), items.function_count()],
-            [83_641, 14_559]
+            [
+                items.type_count(),
+                items.constant_count(),
+                items.function_count()
+            ],
+            [30_109, 83_641, 14_559]
         );
     }
 

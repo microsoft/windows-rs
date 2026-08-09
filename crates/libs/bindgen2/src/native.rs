@@ -1,4 +1,5 @@
 use super::*;
+use proc_macro2::{Literal, TokenStream};
 use quote::quote;
 use std::collections::BTreeSet;
 
@@ -20,6 +21,7 @@ pub(super) enum Type {
     String,
     ISize,
     USize,
+    Array { element: Box<Self>, len: usize },
     Pointer { mutable: bool, element: Box<Self> },
     Named { namespace: String, name: String },
 }
@@ -71,6 +73,25 @@ impl Type {
             TypeKind::String => Self::String,
             TypeKind::ISize => Self::ISize,
             TypeKind::USize => Self::USize,
+            TypeKind::Array {
+                element,
+                rank,
+                sizes,
+                lower_bounds,
+            } => {
+                if rank != 1 || sizes.len() != 1 || lower_bounds.iter().any(|bound| *bound != 0) {
+                    return Err(Error::UnsupportedType {
+                        name: owner.to_string(),
+                        shape: format!(
+                            "array rank {rank}, sizes {sizes:?}, lower bounds {lower_bounds:?}"
+                        ),
+                    });
+                }
+                Self::Array {
+                    element: Box::new(Self::lower(database, file, owner, *element)?),
+                    len: sizes[0] as usize,
+                }
+            }
             TypeKind::Pointer(element) => Self::Pointer {
                 mutable: !is_const,
                 element: Box::new(Self::lower(database, file, owner, *element)?),
@@ -97,7 +118,7 @@ impl Type {
         })
     }
 
-    pub(super) fn write(&self, namespace: &str) -> proc_macro2::TokenStream {
+    pub(super) fn write(&self, namespace: &str) -> TokenStream {
         match self {
             Self::Void => quote! { core::ffi::c_void },
             Self::Boolean => quote! { bool },
@@ -115,6 +136,11 @@ impl Type {
             Self::String => quote! { PCWSTR },
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
+            Self::Array { element, len } => {
+                let element = element.write(namespace);
+                let len = Literal::usize_unsuffixed(*len);
+                quote! { [#element; #len] }
+            }
             Self::Pointer { mutable, element } => {
                 let element = element.write(namespace);
                 if *mutable {
@@ -256,6 +282,58 @@ impl Type {
     pub(super) fn signed_i32(&self) -> bool {
         matches!(self, Self::I32)
     }
+
+    pub(super) fn from_constant(value: &ConstantValue) -> Self {
+        match value {
+            ConstantValue::Boolean(_) => Self::Boolean,
+            ConstantValue::Char(_) => Self::Char,
+            ConstantValue::I8(_) => Self::I8,
+            ConstantValue::U8(_) => Self::U8,
+            ConstantValue::I16(_) => Self::I16,
+            ConstantValue::U16(_) => Self::U16,
+            ConstantValue::I32(_) => Self::I32,
+            ConstantValue::U32(_) => Self::U32,
+            ConstantValue::I64(_) => Self::I64,
+            ConstantValue::U64(_) => Self::U64,
+            ConstantValue::ISize(_) => Self::ISize,
+            ConstantValue::USize(_) => Self::USize,
+            ConstantValue::F32(_) => Self::F32,
+            ConstantValue::F64(_) => Self::F64,
+            ConstantValue::String(_) => Self::String,
+            ConstantValue::Null => unreachable!(),
+        }
+    }
+}
+
+pub(super) fn write_value(ty: &Type, value: &ConstantValue) -> TokenStream {
+    match (ty, value) {
+        (Type::USize, ConstantValue::USize(value)) if *value > u32::MAX as u64 => {
+            let value = Literal::u64_suffixed(*value);
+            return quote! { #value as usize };
+        }
+        (Type::ISize, ConstantValue::ISize(value))
+            if !(i32::MIN as i64..=i32::MAX as i64).contains(value) =>
+        {
+            let value = Literal::i64_suffixed(*value);
+            return quote! { #value as isize };
+        }
+        _ => {}
+    }
+    let literal = match value {
+        ConstantValue::Boolean(value) => return quote! { #value },
+        ConstantValue::Char(value) | ConstantValue::U16(value) => Literal::u16_unsuffixed(*value),
+        ConstantValue::I8(value) => Literal::i8_unsuffixed(*value),
+        ConstantValue::U8(value) => Literal::u8_unsuffixed(*value),
+        ConstantValue::I16(value) => Literal::i16_unsuffixed(*value),
+        ConstantValue::I32(value) => Literal::i32_unsuffixed(*value),
+        ConstantValue::U32(value) => Literal::u32_unsuffixed(*value),
+        ConstantValue::I64(value) | ConstantValue::ISize(value) => Literal::i64_unsuffixed(*value),
+        ConstantValue::U64(value) | ConstantValue::USize(value) => Literal::u64_unsuffixed(*value),
+        ConstantValue::F32(value) => Literal::f32_unsuffixed(*value),
+        ConstantValue::F64(value) => Literal::f64_unsuffixed(*value),
+        ConstantValue::String(_) | ConstantValue::Null => unreachable!(),
+    };
+    quote! { #literal }
 }
 
 fn integer(value: &ConstantValue) -> bool {

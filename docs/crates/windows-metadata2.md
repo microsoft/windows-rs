@@ -384,6 +384,18 @@ committed Win32 metadata. Bindgen2 now lowers and renders every selected Win32 f
 constant. Native typedef chains are resolved per constant rather than stored in a global graph, and
 GUID-backed constants use the same checked attribute decoding as parameterized WinRT signatures.
 
+Native type output required class packing without adding more unrelated code to `semantic.rs`.
+`semantic_layout.rs` now owns the checked `TypeDef -> ClassLayout` relationship and its differential
+corpus test. Bindgen2 retains 30,109 top-level native type entities and lowers each definition only
+while rendering. The corpus contains 12,666 aliases, 4,728 enums, and 12,715 structs or unions.
+This proves that fixed arrays, explicit unions, alignment, and packing do not require a global
+native type graph.
+
+The count does not establish full output equivalence. Architecture variants, nested native types,
+bitfield accessors, handles, native delegates, and interfaces still need independent policy and
+golden comparisons. They should not be folded into a broad replacement for the old `CppStruct`
+graph.
+
 Raw source size needs continued review. Metadata2 is already near the old metadata crate's line
 count even though it does not have writing or merging. Much of that difference is checked parsing
 and in-crate differential testing, and the implementation uses fewer concepts and files, but line

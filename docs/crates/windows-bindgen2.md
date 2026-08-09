@@ -52,17 +52,37 @@ and GUID-backed property keys. Only 75 named types account for the typed constan
 chains are resolved while lowering one constant and then discarded. There is no global native type
 graph.
 
+Native type selection now retains 30,109 top-level typed entities:
+
+| Category | Count |
+| --- | ---: |
+| Native typedef aliases | 12,666 |
+| Native enums | 4,728 |
+| Native structs and unions | 12,715 |
+
+Each definition lowers and renders independently. The native model supports primitive and named
+fields, pointers, fixed arrays, typedef aliases, enum values, explicit-layout unions, forced
+alignment, packing, and empty definitions. Class layout is exposed by a new focused metadata2
+semantic module rather than decoded directly in bindgen2. Streaming iterators lower native types,
+constants, and functions without retaining projected models or adding a name index.
+
 Selection, native types, constants, and functions are separate modules. The corpus test lowers and
-renders every selected constant and function, so an unsupported shape cannot disappear from
-output. Focused primitive, string, typedef, GUID, no-parameter, and const-pointer fixtures match
-the corresponding flat sys tokens.
+renders every selected top-level type, constant, and function, so an unsupported signature shape
+cannot disappear from output. Focused aliases, enum, struct, union, primitive, string, GUID,
+no-parameter, and const-pointer fixtures match the corresponding flat sys tokens.
+
+This is structural coverage, not complete native output equivalence. Architecture variants still
+need selection attributes, nested types are not yet attached to their enclosing definitions, and
+bitfield accessors, handle policy, native delegates, and interfaces are absent. Derive policy also
+needs full generated-output comparison. These are separate policies rather than reasons to build a
+global native type graph.
 
 ## Critical assessment
 
 The direction remains better than the current generator, but it is not yet a replacement:
 
-- bindgen2 is about 2,000 source lines versus about 12,800 in bindgen, but it does not yet include
-  interfaces, classes, native type definitions, filters, closure, module output, or packages;
+- bindgen2 remains much smaller than bindgen, but it does not yet include interfaces, classes,
+  complete native type policy, filters, closure, module output, or packages;
 - metadata2 owns data, uses checked typed identities, and avoids the leaked reader, but its source
   is already close to the old metadata crate's raw line count because parsing and differential
   tests are extensive;
@@ -80,6 +100,7 @@ standard required before claiming the replacement is objectively better overall.
 
 ## Next checkpoint
 
-Add native type definition output and a streaming iterator over selected Win32 items. Do not add a
-second name index: use metadata2 lookup for closure and retain only the selected entities required
-by output. Split metadata2 semantic views by concern before adding many more relationships.
+Inventory architecture variants and nested native definitions before designing dependency closure.
+Add only the relationships needed to preserve deterministic flat output. Do not add a second name
+index or a global native graph. Continue splitting metadata2 semantic views by concern as new
+relationships are required.

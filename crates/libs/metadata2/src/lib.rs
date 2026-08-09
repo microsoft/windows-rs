@@ -12,6 +12,7 @@ mod image;
 mod row;
 mod schema;
 mod semantic;
+mod semantic_layout;
 mod signature;
 
 pub use attribute::*;
@@ -23,4 +24,5 @@ pub use image::*;
 pub use row::*;
 pub use schema::*;
 pub use semantic::*;
+pub use semantic_layout::*;
 pub use signature::*;

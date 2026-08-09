@@ -14,8 +14,8 @@ pub enum TypeCategory {
 /// A database-backed semantic view of a TypeDef row.
 #[derive(Clone, Copy)]
 pub struct TypeDefinition<'a> {
-    database: &'a Database,
-    entity: Entity<tables::TypeDef>,
+    pub(crate) database: &'a Database,
+    pub(crate) entity: Entity<tables::TypeDef>,
 }
 
 impl Database {

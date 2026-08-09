@@ -3,6 +3,7 @@ use std::collections::BTreeMap;
 
 struct Namespace {
     name: String,
+    types: Vec<Entity<TypeDef>>,
     constants: Vec<Entity<Field>>,
     functions: Vec<Entity<MethodDef>>,
 }
@@ -11,6 +12,7 @@ struct Namespace {
 pub struct Win32Items<'a> {
     database: &'a Database,
     namespaces: Vec<Namespace>,
+    type_count: usize,
     constant_count: usize,
     function_count: usize,
 }
@@ -27,44 +29,57 @@ impl<'a> Win32Items<'a> {
         let mut namespaces = BTreeMap::<
             String,
             (
+                Vec<(String, Entity<TypeDef>)>,
                 Vec<(String, Entity<Field>)>,
                 Vec<(String, Entity<MethodDef>)>,
             ),
         >::new();
         for definition in database.definitions() {
-            if definition.is_windows_runtime()?
-                || definition.category()? != TypeCategory::Class
-                || definition.name()? != "Apis"
-            {
+            if definition.is_windows_runtime()? {
                 continue;
             }
             let namespace = definition.namespace()?.to_string();
-            let entries = namespaces.entry(namespace).or_default();
-            for field in definition.fields()? {
-                entries.0.push((field.name()?.to_string(), field.entity()));
-            }
-            for method in definition.methods()? {
-                if let Some(import) = method.import()?
-                    && (import.module() == "FORCEINLINE" || import.name().starts_with('#'))
-                {
-                    continue;
+            let category = definition.category()?;
+            match category {
+                TypeCategory::Enum | TypeCategory::Struct => namespaces
+                    .entry(namespace)
+                    .or_default()
+                    .0
+                    .push((definition.name()?.to_string(), definition.entity())),
+                TypeCategory::Class if definition.name()? == "Apis" => {
+                    let entries = namespaces.entry(namespace).or_default();
+                    for field in definition.fields()? {
+                        entries.1.push((field.name()?.to_string(), field.entity()));
+                    }
+                    for method in definition.methods()? {
+                        if let Some(import) = method.import()?
+                            && (import.module() == "FORCEINLINE" || import.name().starts_with('#'))
+                        {
+                            continue;
+                        }
+                        entries
+                            .2
+                            .push((method.name()?.to_string(), method.entity()));
+                    }
                 }
-                entries
-                    .1
-                    .push((method.name()?.to_string(), method.entity()));
+                _ => continue,
             }
         }
+        let mut type_count = 0;
         let mut constant_count = 0;
         let mut function_count = 0;
         let namespaces = namespaces
             .into_iter()
-            .map(|(name, (mut constants, mut functions))| {
+            .map(|(name, (mut types, mut constants, mut functions))| {
+                types.sort();
                 constants.sort();
                 functions.sort();
+                type_count += types.len();
                 constant_count += constants.len();
                 function_count += functions.len();
                 Namespace {
                     name,
+                    types: types.into_iter().map(|(_, entity)| entity).collect(),
                     constants: constants.into_iter().map(|(_, entity)| entity).collect(),
                     functions: functions.into_iter().map(|(_, entity)| entity).collect(),
                 }
@@ -73,9 +88,15 @@ impl<'a> Win32Items<'a> {
         Ok(Self {
             database,
             namespaces,
+            type_count,
             constant_count,
             function_count,
         })
+    }
+
+    /// Returns the number of selected native type definitions.
+    pub fn type_count(&self) -> usize {
+        self.type_count
     }
 
     /// Returns the number of selected constants.
@@ -86,6 +107,40 @@ impl<'a> Win32Items<'a> {
     /// Returns the number of selected functions.
     pub fn function_count(&self) -> usize {
         self.function_count
+    }
+
+    /// Lowers native type definitions in deterministic namespace and name order.
+    pub fn native_types(&self) -> impl Iterator<Item = Result<NativeType, Error>> + '_ {
+        self.namespaces.iter().flat_map(|namespace| {
+            namespace.types.iter().map(|entity| {
+                NativeType::lower(self.database, self.database.definition(*entity).unwrap())
+            })
+        })
+    }
+
+    /// Lowers constants in deterministic namespace and name order.
+    pub fn constants(&self) -> impl Iterator<Item = Result<Constant, Error>> + '_ {
+        self.namespaces.iter().flat_map(|namespace| {
+            namespace.constants.iter().map(|entity| {
+                let field = self.database.field(*entity).unwrap();
+                Constant::lower(self.database, field, &namespace.name, field.name().unwrap())
+            })
+        })
+    }
+
+    /// Lowers functions in deterministic namespace and name order.
+    pub fn functions(&self) -> impl Iterator<Item = Result<Function, Error>> + '_ {
+        self.namespaces.iter().flat_map(|namespace| {
+            namespace.functions.iter().map(|entity| {
+                let method = self.database.method(*entity).unwrap();
+                Function::lower(
+                    self.database,
+                    method,
+                    &namespace.name,
+                    method.name().unwrap(),
+                )
+            })
+        })
     }
 
     /// Lowers a uniquely named constant.
@@ -106,6 +161,25 @@ impl<'a> Win32Items<'a> {
             self.database,
             self.database.method(entity).unwrap(),
             namespace,
+            name,
+        )
+    }
+
+    /// Lowers a uniquely named native type definition.
+    pub fn native_type(&self, namespace: &str, name: &str) -> Result<NativeType, Error> {
+        let entity = self.type_entity(namespace, name)?;
+        NativeType::lower(self.database, self.database.definition(entity).unwrap())
+    }
+
+    fn type_entity(&self, namespace: &str, name: &str) -> Result<Entity<TypeDef>, Error> {
+        let Some(namespace) = self.namespaces.iter().find(|item| item.name == namespace) else {
+            return Err(missing(namespace, name));
+        };
+        unique_entity(
+            namespace.types.iter().copied().filter(|entity| {
+                self.database.definition(*entity).unwrap().name().unwrap() == name
+            }),
+            &namespace.name,
             name,
         )
     }
@@ -175,16 +249,30 @@ mod tests {
     fn inventory_current_win32_lowering() {
         let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
         let items = Win32Items::new(&database).unwrap();
-        let mut supported = [0; 2];
+        let mut supported = [0; 5];
         let mut unsupported = BTreeMap::<String, usize>::new();
 
         for namespace in &items.namespaces {
+            for entity in &namespace.types {
+                let definition = database.definition(*entity).unwrap();
+                match NativeType::lower(&database, definition) {
+                    Ok(ty) => {
+                        ty.write_sys();
+                        supported[match ty.kind() {
+                            NativeTypeKind::Alias => 0,
+                            NativeTypeKind::Enum => 1,
+                            NativeTypeKind::Struct => 2,
+                        }] += 1;
+                    }
+                    Err(error) => *unsupported.entry(classify(error)).or_default() += 1,
+                }
+            }
             for entity in &namespace.constants {
                 let field = database.field(*entity).unwrap();
                 match Constant::lower(&database, field, &namespace.name, field.name().unwrap()) {
                     Ok(constant) => {
                         constant.write_sys();
-                        supported[0] += 1;
+                        supported[3] += 1;
                     }
                     Err(error) => *unsupported.entry(classify(error)).or_default() += 1,
                 }
@@ -194,14 +282,16 @@ mod tests {
                 match Function::lower(&database, method, &namespace.name, method.name().unwrap()) {
                     Ok(function) => {
                         function.write_sys();
-                        supported[1] += 1;
+                        supported[4] += 1;
                     }
                     Err(error) => *unsupported.entry(classify(error)).or_default() += 1,
                 }
             }
         }
 
-        assert_eq!(supported, [83_641, 14_559]);
+        assert_eq!(supported[..3], [12_666, 4_728, 12_715]);
+        assert_eq!(supported[3..], [83_641, 14_559]);
+        assert_eq!(items.type_count, 30_109);
         assert!(unsupported.is_empty(), "{unsupported:#?}");
     }
 

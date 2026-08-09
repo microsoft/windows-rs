@@ -6,6 +6,7 @@ The crate is developed beside the existing generator and uses `windows-metadata2
 first layer owns the metadata database and selects deterministic WinRT value items while retaining
 only typed metadata entities. A separate owned value graph now renders the complete committed
 WinRT enum and struct corpus. The first flat Win32 layer selects constants and functions without
-copying per-item namespaces and renders the complete committed constant and function corpus.
-Filters, dependency closure, native type definitions, and output layouts will be added as
-independent layers with differential output tests.
+copying per-item namespaces and renders the complete committed constant and function corpus. It
+also lowers the 30,109 top-level native aliases, enums, structs, and unions through a separate
+per-item model. Filters, dependency closure, nested native types, interfaces, delegates, and output
+layouts remain independent future layers.
