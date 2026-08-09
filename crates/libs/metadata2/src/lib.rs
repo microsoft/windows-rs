@@ -11,6 +11,7 @@ mod heap;
 mod image;
 mod row;
 mod schema;
+mod semantic;
 mod signature;
 
 pub use attribute::*;
@@ -21,4 +22,5 @@ pub use heap::*;
 pub use image::*;
 pub use row::*;
 pub use schema::*;
+pub use semantic::*;
 pub use signature::*;

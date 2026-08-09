@@ -241,17 +241,18 @@ impl Database {
         Ok(name)
     }
 
-    pub(crate) fn fields(
+    pub(crate) fn type_members<T: Table>(
         &self,
         definition: Entity<tables::TypeDef>,
-    ) -> Result<Rows<tables::Field>, Error> {
+        column: usize,
+    ) -> Result<Rows<T>, Error> {
         let image = self
             .image(definition.file())
             .ok_or_else(|| Error::invalid(definition.file().index(), "invalid file identity"))?;
         let row = image.view(definition.row()).ok_or_else(|| {
             Error::invalid(definition.row().number() as usize, "invalid type row")
         })?;
-        let start = row.list::<tables::Field>(4)?;
+        let start = row.list::<T>(column)?;
         let end = definition
             .row()
             .number()
@@ -260,17 +261,59 @@ impl Database {
             .map_or_else(
                 || {
                     image
-                        .table(TableId::Field)
+                        .table(T::ID)
                         .rows()
                         .checked_add(1)
                         .and_then(ListIndex::new)
                 },
-                |next| image.view(next).unwrap().list::<tables::Field>(4).ok(),
+                |next| image.view(next).unwrap().list::<T>(column).ok(),
             )
             .ok_or_else(|| Error::invalid(row.id().number() as usize, "invalid field list"))?;
         image
             .list_range(start, end)
-            .ok_or_else(|| Error::invalid(row.id().number() as usize, "invalid field range"))
+            .ok_or_else(|| Error::invalid(row.id().number() as usize, "invalid member range"))
+    }
+
+    pub(crate) fn fields(
+        &self,
+        definition: Entity<tables::TypeDef>,
+    ) -> Result<Rows<tables::Field>, Error> {
+        self.type_members(definition, 4)
+    }
+
+    pub(crate) fn method_owner(
+        &self,
+        file: FileId,
+        method: RowId<tables::MethodDef>,
+    ) -> Result<Entity<tables::TypeDef>, Error> {
+        let image = self
+            .image(file)
+            .ok_or_else(|| Error::invalid_metadata("invalid file identity"))?;
+        let mut low = 1;
+        let mut high = image
+            .table(TableId::TypeDef)
+            .rows()
+            .checked_add(1)
+            .ok_or_else(|| Error::invalid_metadata("type definition range overflow"))?;
+        while low < high {
+            let middle = low + (high - low) / 2;
+            let definition = image.row::<tables::TypeDef>(middle).unwrap();
+            let start = image
+                .view(definition)
+                .unwrap()
+                .list::<tables::MethodDef>(5)?
+                .number();
+            if start <= method.number() {
+                low = middle + 1;
+            } else {
+                high = middle;
+            }
+        }
+        let owner = low
+            .checked_sub(1)
+            .and_then(|number| image.row::<tables::TypeDef>(number))
+            .ok_or_else(|| Error::invalid_metadata("method has no declaring type"))?;
+        Ok(Entity::new(file, owner))
     }
 }
 

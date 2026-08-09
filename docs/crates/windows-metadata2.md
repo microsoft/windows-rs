@@ -139,7 +139,43 @@ The initial bindgen inventory separates metadata relationships from its output p
 | Trim generic arity for generated names | Bindgen adapter policy. |
 
 This is materially smaller than reproducing the old `Index`: the database needs type identity and
-resolution, while the bindgen adapter owns its one-time map of generated items. Before adding the
-nested relationship map, measure image parsing, database construction, adapter construction,
-retained memory, exact-name lookup, and complete namespace enumeration on the committed WinRT and
-Win32 images.
+resolution, while the bindgen adapter owns its one-time map of generated items.
+
+One local optimized run over the committed WinRT and Win32 images measured 56.9 ms for image
+parsing and 14.6 ms for database construction. The old reader and index took 82.4 ms together.
+One hundred complete lookup passes over 50,943 distinct names took 232.8 ms. Separate optimized
+processes for the new database and old index both used about 22 MB of working set; that process-wide
+measurement is too coarse to claim an allocation improvement, but it found no memory regression.
+These numbers are a development baseline, not performance thresholds.
+
+The existing exact-name index is therefore retained. There is no evidence for replacing it with a
+more complicated hashed-offset or interning design.
+
+The first bindgen-facing semantic views expose type names, flags, categories, field and method list
+ranges, and decoded member signatures without borrowed self-references. Their complete type shapes
+match the existing reader. A test in `windows-bindgen` independently projects top-level types and
+Win32 `Apis` functions and constants; namespace, name, and item-kind multiplicities match the old
+index across both committed images.
+
+Relationship queries use sort keys declared beside each table schema. The committed Windows images
+leave the ECMA sorted-mask bits clear even though these tables are physically ordered. Image
+construction now validates actual ordering once, uses binary range searches for proven ordered
+tables, and falls back to a checked linear scan for unsorted input. This avoids reverse indexes
+without trusting incorrect header hints.
+
+Type attributes and field constants now use that range primitive. Attribute constructor ownership
+is resolved through TypeDef method-list ordering rather than a method-to-type map. Attribute names,
+field constant counts, type categories, flags, and member counts all match the existing reader
+across the committed images.
+
+`SupportedArchitectureAttribute` decoding now matches the existing reader for every indexed type.
+The bindgen-side comparison also reproduces the complete `Reader` selection policy: remapped types,
+WinRT categories, API contracts, Win32 `Apis`, scoped enums, and projected enum constants all have
+the same namespace, name, kind, and multiplicity.
+
+The output adapter must not recreate the old leaked row API merely to fit the current bindgen type
+structures. The preferred next prototype is a bindgen-owned reader that owns `Database` and stores
+`Entity<T>` identities in its projected type map. Semantic views stay borrowed and short-lived.
+This will require some bindgen call sites to resolve entities through the reader, but it preserves
+the metadata foundation instead of adding `Arc` ownership to every row handle or leaking the
+database.

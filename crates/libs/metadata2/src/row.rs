@@ -304,3 +304,29 @@ impl<T: Table> Iterator for Rows<T> {
 }
 
 impl<T: Table> ExactSizeIterator for Rows<T> {}
+
+/// Iterates matching rows from a sorted range or an unsorted table scan.
+pub enum RowMatches<T: Table> {
+    Range(Rows<T>),
+    Sparse(std::vec::IntoIter<RowId<T>>),
+}
+
+impl<T: Table> Iterator for RowMatches<T> {
+    type Item = RowId<T>;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        match self {
+            Self::Range(rows) => rows.next(),
+            Self::Sparse(rows) => rows.next(),
+        }
+    }
+
+    fn size_hint(&self) -> (usize, Option<usize>) {
+        match self {
+            Self::Range(rows) => rows.size_hint(),
+            Self::Sparse(rows) => rows.size_hint(),
+        }
+    }
+}
+
+impl<T: Table> ExactSizeIterator for RowMatches<T> {}

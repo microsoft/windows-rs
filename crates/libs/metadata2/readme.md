@@ -10,5 +10,7 @@ coded-index columns, and the signature layer decodes all signature-bearing rows 
 Windows metadata. An owned multi-image database adds stable file/entity identities and preserves
 duplicate type definitions during name lookup. Constructor-directed custom-attribute decoding
 preserves fixed and named values and resolves enum storage from local definitions or an explicit
-dependency resolver. The crate does not yet provide higher-level semantic table wrappers,
-metadata writing, validation policy, merging, or namespace remapping.
+dependency resolver. Initial semantic views expose type categories and field and method list ranges
+for a read-only `windows-bindgen` projection. Sorted relationship tables are validated once and
+queried without reverse indexes. The crate does not yet provide the remaining semantic table
+relationships, metadata writing, validation policy, merging, or namespace remapping.

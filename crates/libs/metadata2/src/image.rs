@@ -64,6 +64,7 @@ pub struct Image {
     bytes: Arc<[u8]>,
     streams: Vec<Stream>,
     tables: [TableLayout; TableId::COUNT],
+    sorted: u64,
 }
 
 impl Image {
@@ -76,13 +77,15 @@ impl Image {
     pub fn new(bytes: impl Into<Arc<[u8]>>) -> Result<Self, Error> {
         let bytes = bytes.into();
         let parsed = Parser::new(&bytes).parse()?;
-        let image = Self {
+        let mut image = Self {
             bytes,
             streams: parsed.streams,
             tables: parsed.tables,
+            sorted: 0,
         };
         image.validate_columns()?;
         image.validate_signatures()?;
+        image.sorted = image.validated_sorted_tables(parsed.sorted)?;
         Ok(image)
     }
 
@@ -121,6 +124,35 @@ impl Image {
     /// Iterates every row in a typed metadata table.
     pub fn rows<T: Table>(&self) -> Rows<T> {
         Rows::new(self.table(T::ID).rows)
+    }
+
+    /// Returns rows whose encoded column equals `value`.
+    pub fn matching_rows<T: Table>(
+        &self,
+        column: usize,
+        value: u32,
+    ) -> Result<RowMatches<T>, Error> {
+        if T::ID.schema().columns().get(column).is_none() {
+            return Err(Error::invalid(
+                self.table(T::ID).offset,
+                "column is out of bounds",
+            ));
+        }
+        if T::ID.schema().sorted_column() == Some(column)
+            && self.sorted & (1u64 << T::ID.as_u8()) != 0
+        {
+            let start = self.lower_bound::<T>(column, value, false)?;
+            let end = self.lower_bound::<T>(column, value, true)?;
+            return Ok(RowMatches::Range(Rows::range(start, end)));
+        }
+
+        let mut rows = Vec::new();
+        for row in self.rows::<T>() {
+            if self.column_data(row, column)?.0 == value {
+                rows.push(row);
+            }
+        }
+        Ok(RowMatches::Sparse(rows.into_iter()))
     }
 
     /// Resolves a typed row identity against this image.
@@ -339,11 +371,64 @@ impl Image {
             .checked_add(offset)
             .ok_or_else(|| Error::invalid(stream.range.start, "heap offset overflow"))
     }
+
+    fn lower_bound<T: Table>(
+        &self,
+        column: usize,
+        value: u32,
+        after_equal: bool,
+    ) -> Result<u32, Error> {
+        let mut low = 1;
+        let mut high = self
+            .table(T::ID)
+            .rows
+            .checked_add(1)
+            .ok_or_else(|| Error::invalid(self.table(T::ID).offset, "row range overflow"))?;
+        while low < high {
+            let middle = low + (high - low) / 2;
+            let row = RowId::<T>::new(middle).unwrap();
+            let current = self.column_data(row, column)?.0;
+            if current < value || (after_equal && current == value) {
+                low = middle + 1;
+            } else {
+                high = middle;
+            }
+        }
+        Ok(low)
+    }
+
+    fn validated_sorted_tables(&self, declared: u64) -> Result<u64, Error> {
+        let mut sorted = 0;
+        for schema in TABLES
+            .iter()
+            .filter(|schema| schema.sorted_column().is_some())
+        {
+            let column = schema.sorted_column().unwrap();
+            let mut previous = 0;
+            let mut ordered = true;
+            for row in 1..=self.table(schema.id()).rows {
+                let (value, _, offset) = self.raw_column_data(schema.id(), row, column)?;
+                if value < previous {
+                    ordered = false;
+                    if declared & (1u64 << schema.id().as_u8()) != 0 {
+                        return Err(Error::invalid(offset, "table violates declared sort order"));
+                    }
+                    break;
+                }
+                previous = value;
+            }
+            if ordered {
+                sorted |= 1u64 << schema.id().as_u8();
+            }
+        }
+        Ok(sorted)
+    }
 }
 
 struct Parsed {
     streams: Vec<Stream>,
     tables: [TableLayout; TableId::COUNT],
+    sorted: u64,
 }
 
 struct Parser<'a> {
@@ -530,8 +615,12 @@ impl<'a> Parser<'a> {
             .find(|stream| stream.name == "#~")
             .or_else(|| streams.iter().find(|stream| stream.name == "#-"))
             .ok_or(Error::MissingStream("#~"))?;
-        let tables = self.parse_tables(table_stream.range.clone())?;
-        Ok(Parsed { streams, tables })
+        let (tables, sorted) = self.parse_tables(table_stream.range.clone())?;
+        Ok(Parsed {
+            streams,
+            tables,
+            sorted,
+        })
     }
 
     fn stream_name(&self, offset: usize, limit: usize) -> Result<(String, usize), Error> {
@@ -555,7 +644,10 @@ impl<'a> Parser<'a> {
         Ok((name, length))
     }
 
-    fn parse_tables(&self, range: Range<usize>) -> Result<[TableLayout; TableId::COUNT], Error> {
+    fn parse_tables(
+        &self,
+        range: Range<usize>,
+    ) -> Result<([TableLayout; TableId::COUNT], u64), Error> {
         self.slice(range.start, range.len())?;
         if range.len() < 24 {
             return Err(Error::invalid(
@@ -566,10 +658,17 @@ impl<'a> Parser<'a> {
 
         let heap_sizes = self.u8(self.add(range.start, 6)?)?;
         let valid = self.u64(self.add(range.start, 8)?)?;
+        let sorted = self.u64(self.add(range.start, 16)?)?;
         if valid >> TableId::COUNT != 0 {
             return Err(Error::invalid(
                 self.add(range.start, 8)?,
                 "unknown metadata table is present",
+            ));
+        }
+        if sorted >> TableId::COUNT != 0 {
+            return Err(Error::invalid(
+                range.start + 16,
+                "sorted mask contains unknown tables",
             ));
         }
 
@@ -630,7 +729,7 @@ impl<'a> Parser<'a> {
                 "table stream has unexpected trailing data",
             ));
         }
-        Ok(tables)
+        Ok((tables, sorted))
     }
 
     fn u8(&self, offset: usize) -> Result<u8, Error> {
@@ -810,6 +909,61 @@ mod tests {
             assert!(image.stream("#Blob").is_some());
             assert!(image.table(TableId::TypeDef).rows() > 0);
             assert!(image.table(TableId::MethodDef).row_size() > 0);
+        }
+    }
+
+    #[test]
+    fn sorted_table_ranges_match_linear_scans() {
+        for bytes in [windows_default::WINRT, windows_default::WIN32] {
+            let image = Image::new(bytes).unwrap();
+            let mut sorted_tables = 0;
+            for schema in TABLES.iter().filter(|schema| {
+                schema.sorted_column().is_some() && image.table(schema.id()).rows() > 1
+            }) {
+                if image.sorted & (1u64 << schema.id().as_u8()) == 0 {
+                    continue;
+                }
+                sorted_tables += 1;
+                let column = schema.sorted_column().unwrap();
+                let mut previous = 0;
+                for row in 1..=image.table(schema.id()).rows() {
+                    let value = image.raw_column_data(schema.id(), row, column).unwrap().0;
+                    assert!(
+                        value >= previous,
+                        "{} is not ordered by column {column}",
+                        schema.name()
+                    );
+                    previous = value;
+                }
+            }
+            assert!(sorted_tables > 0);
+
+            let attributes: Vec<_> = image.rows::<tables::CustomAttribute>().collect();
+            if let Some(row) = attributes.get(attributes.len() / 2) {
+                let value = image.column(*row, 0).unwrap();
+                let expected: Vec<_> = attributes
+                    .iter()
+                    .copied()
+                    .filter(|row| image.column(*row, 0).unwrap() == value)
+                    .collect();
+                let actual: Vec<_> = image
+                    .matching_rows::<tables::CustomAttribute>(0, value)
+                    .unwrap()
+                    .collect();
+                assert_eq!(actual, expected);
+            }
+
+            let first = image.rows::<tables::TypeDef>().next().unwrap();
+            let value = image.column(first, 1).unwrap();
+            let expected: Vec<_> = image
+                .rows::<tables::TypeDef>()
+                .filter(|row| image.column(*row, 1).unwrap() == value)
+                .collect();
+            let actual: Vec<_> = image
+                .matching_rows::<tables::TypeDef>(1, value)
+                .unwrap()
+                .collect();
+            assert_eq!(actual, expected);
         }
     }
 

@@ -3,6 +3,9 @@ use super::*;
 mod reader;
 pub use reader::*;
 
+#[cfg(test)]
+mod metadata2;
+
 // Type aliases using 'static lifetime.
 // Safety: the Index is leaked in Reader::new (Index::leak), so TypeDef<'static>, etc.
 // truly live forever.

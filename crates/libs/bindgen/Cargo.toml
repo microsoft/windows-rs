@@ -17,6 +17,7 @@ quote = { workspace = true }
 
 [dev-dependencies]
 windows-link = { workspace = true }
+windows-metadata2 = { path = "../metadata2" }
 
 [lints]
 workspace = true

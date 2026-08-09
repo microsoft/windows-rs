@@ -14,6 +14,7 @@ pub struct TableSchema {
     id: TableId,
     name: &'static str,
     columns: &'static [Column],
+    sorted_column: Option<usize>,
 }
 
 impl TableSchema {
@@ -29,6 +30,10 @@ impl TableSchema {
 
     pub(crate) const fn columns(&self) -> &'static [Column] {
         self.columns
+    }
+
+    pub(crate) const fn sorted_column(&self) -> Option<usize> {
+        self.sorted_column
     }
 }
 
@@ -337,6 +342,11 @@ impl CodedIndex {
         }
     }
 
+    pub(crate) fn encode(self, table: TableId, row: u32) -> Option<u32> {
+        let target = self.targets().iter().find(|target| target.table == table)?;
+        row.checked_shl(self.tag_bits())?.checked_add(target.tag)
+    }
+
     pub(crate) fn target(self, tag: u32) -> Option<TableId> {
         self.targets()
             .iter()
@@ -346,8 +356,15 @@ impl CodedIndex {
 }
 
 macro_rules! tables {
+    (@sorted) => {
+        None
+    };
+    (@sorted $column:literal) => {
+        Some($column)
+    };
     ($(
-        $number:literal => $id:ident, $name:literal, [$($column:expr),* $(,)?];
+        $number:literal => $id:ident, $name:literal, [$($column:expr),* $(,)?]
+        $(, sorted $sorted:literal)?;
     )+) => {
         /// Identifies one of the 45 standard ECMA-335 metadata tables.
         #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
@@ -400,6 +417,7 @@ macro_rules! tables {
                 id: TableId::$id,
                 name: $name,
                 columns: &[$($column),*],
+                sorted_column: tables!(@sorted $($sorted)?),
             },)+
         ];
     };
@@ -425,37 +443,37 @@ tables! {
     0x08 => Param, "Param", [U16, U16, String];
     0x09 => InterfaceImpl, "InterfaceImpl", [
         Ref(TableId::TypeDef), Coded(Code::TypeDefOrRef)
-    ];
+    ], sorted 0;
     0x0a => MemberRef, "MemberRef", [Coded(Code::MemberRefParent), String, Blob];
-    0x0b => Constant, "Constant", [U16, Coded(Code::HasConstant), Blob];
+    0x0b => Constant, "Constant", [U16, Coded(Code::HasConstant), Blob], sorted 1;
     0x0c => CustomAttribute, "CustomAttribute", [
         Coded(Code::HasCustomAttribute), Coded(Code::CustomAttributeType), Blob
-    ];
-    0x0d => FieldMarshal, "FieldMarshal", [Coded(Code::HasFieldMarshal), Blob];
-    0x0e => DeclSecurity, "DeclSecurity", [U16, Coded(Code::HasDeclSecurity), Blob];
-    0x0f => ClassLayout, "ClassLayout", [U16, U32, Ref(TableId::TypeDef)];
-    0x10 => FieldLayout, "FieldLayout", [U32, Ref(TableId::Field)];
+    ], sorted 0;
+    0x0d => FieldMarshal, "FieldMarshal", [Coded(Code::HasFieldMarshal), Blob], sorted 0;
+    0x0e => DeclSecurity, "DeclSecurity", [U16, Coded(Code::HasDeclSecurity), Blob], sorted 1;
+    0x0f => ClassLayout, "ClassLayout", [U16, U32, Ref(TableId::TypeDef)], sorted 2;
+    0x10 => FieldLayout, "FieldLayout", [U32, Ref(TableId::Field)], sorted 1;
     0x11 => StandAloneSig, "StandAloneSig", [Blob];
-    0x12 => EventMap, "EventMap", [Ref(TableId::TypeDef), List(TableId::Event)];
+    0x12 => EventMap, "EventMap", [Ref(TableId::TypeDef), List(TableId::Event)], sorted 0;
     0x13 => EventPtr, "EventPtr", [Ref(TableId::Event)];
     0x14 => Event, "Event", [U16, String, Coded(Code::TypeDefOrRef)];
     0x15 => PropertyMap, "PropertyMap", [
         Ref(TableId::TypeDef), List(TableId::Property)
-    ];
+    ], sorted 0;
     0x16 => PropertyPtr, "PropertyPtr", [Ref(TableId::Property)];
     0x17 => Property, "Property", [U16, String, Blob];
     0x18 => MethodSemantics, "MethodSemantics", [
         U16, Ref(TableId::MethodDef), Coded(Code::HasSemantics)
-    ];
+    ], sorted 2;
     0x19 => MethodImpl, "MethodImpl", [
         Ref(TableId::TypeDef), Coded(Code::MethodDefOrRef), Coded(Code::MethodDefOrRef)
-    ];
+    ], sorted 0;
     0x1a => ModuleRef, "ModuleRef", [String];
     0x1b => TypeSpec, "TypeSpec", [Blob];
     0x1c => ImplMap, "ImplMap", [
         U16, Coded(Code::MemberForwarded), String, Ref(TableId::ModuleRef)
-    ];
-    0x1d => FieldRva, "FieldRVA", [U32, Ref(TableId::Field)];
+    ], sorted 1;
+    0x1d => FieldRva, "FieldRVA", [U32, Ref(TableId::Field)], sorted 1;
     0x1e => EncLog, "ENCLog", [U32, U32];
     0x1f => EncMap, "ENCMap", [U32];
     0x20 => Assembly, "Assembly", [
@@ -481,14 +499,14 @@ tables! {
     ];
     0x29 => NestedClass, "NestedClass", [
         Ref(TableId::TypeDef), Ref(TableId::TypeDef)
-    ];
+    ], sorted 0;
     0x2a => GenericParam, "GenericParam", [
         U16, U16, Coded(Code::TypeOrMethodDef), String
-    ];
+    ], sorted 2;
     0x2b => MethodSpec, "MethodSpec", [Coded(Code::MethodDefOrRef), Blob];
     0x2c => GenericParamConstraint, "GenericParamConstraint", [
         Ref(TableId::GenericParam), Coded(Code::TypeDefOrRef)
-    ];
+    ], sorted 0;
 }
 
 #[cfg(test)]
