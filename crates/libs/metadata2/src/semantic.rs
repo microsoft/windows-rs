@@ -72,7 +72,9 @@ impl<'a> TypeDefinition<'a> {
 
     /// Returns whether the WindowsRuntime flag is set.
     pub fn is_windows_runtime(self) -> Result<bool, Error> {
-        Ok(self.flags()? & 0x4000 != 0)
+        Ok(self
+            .type_attributes()?
+            .contains(TypeAttributes::WINDOWS_RUNTIME))
     }
 
     /// Returns the metadata type name.
@@ -242,7 +244,7 @@ impl<'a> FieldDefinition<'a> {
 
     /// Returns whether the Literal flag is set.
     pub fn is_literal(self) -> Result<bool, Error> {
-        Ok(self.flags()? & 0x40 != 0)
+        Ok(self.field_attributes()?.contains(FieldAttributes::LITERAL))
     }
 
     /// Returns the metadata field name.

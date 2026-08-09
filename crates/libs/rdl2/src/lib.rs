@@ -6,6 +6,10 @@ use windows_metadata2::{
     TypeAttributes, TypeDefinitionId,
 };
 
+mod error;
+
+pub use error::Error;
+
 /// A primitive type supported by the first authoring checkpoint.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Primitive {
@@ -111,7 +115,7 @@ impl Document {
     }
 
     /// Emits a PE/CLI metadata image.
-    pub fn compile(&self) -> Result<Vec<u8>, BuildError> {
+    pub fn compile(&self) -> Result<Vec<u8>, Error> {
         let mut output = MetadataBuilder::new(&self.assembly);
         let mut identities = BTreeMap::<String, BTreeMap<String, TypeDefinitionId>>::new();
         let mut declared = Vec::new();
@@ -125,7 +129,10 @@ impl Document {
                     .insert(definition.name().to_string(), id)
                     .is_some()
                 {
-                    return Err(BuildError::new("duplicate source type definition"));
+                    return Err(Error::DuplicateType {
+                        namespace: module.namespace.clone(),
+                        name: definition.name().to_string(),
+                    });
                 }
                 module_ids.push(id);
             }
@@ -136,7 +143,7 @@ impl Document {
                 module.compile(definition, id, &identities, &mut output)?;
             }
         }
-        output.finish()
+        Ok(output.finish()?)
     }
 }
 
@@ -209,18 +216,19 @@ impl Module {
         id: TypeDefinitionId,
         identities: &BTreeMap<String, BTreeMap<String, TypeDefinitionId>>,
         output: &mut MetadataBuilder,
-    ) -> Result<(), BuildError> {
-        output.define_type(id, |fields| {
+    ) -> Result<(), Error> {
+        output.try_define_type(id, |fields| -> Result<(), Error> {
             match definition {
                 Definition::Enum {
+                    name,
                     underlying,
                     variants,
-                    ..
                 } => {
                     if !underlying.is_enum_integer() {
-                        return Err(BuildError::new(
-                            "enum underlying type is not an ECMA integer",
-                        ));
+                        return Err(Error::InvalidEnumUnderlying {
+                            namespace: self.namespace.clone(),
+                            name: name.clone(),
+                        });
                     }
                     fields.field(
                         "value__",
@@ -232,9 +240,11 @@ impl Module {
                     let ty = BuildType::Value(BuildTypeIdentity::Definition(id));
                     for variant in variants {
                         if !underlying.matches(variant.value) {
-                            return Err(BuildError::new(
-                                "enum value does not match its underlying type",
-                            ));
+                            return Err(Error::EnumValueMismatch {
+                                namespace: self.namespace.clone(),
+                                name: name.clone(),
+                                variant: variant.name.clone(),
+                            });
                         }
                         let field = fields.field(
                             &variant.name,
@@ -247,19 +257,28 @@ impl Module {
                     }
                 }
                 Definition::Struct {
+                    name,
                     fields: source_fields,
-                    ..
                 } => {
                     for field in source_fields {
                         let ty = match &field.ty {
                             Type::Primitive(ty) => (*ty).into(),
-                            Type::Named { namespace, name } => {
+                            Type::Named {
+                                namespace: target_namespace,
+                                name: target_name,
+                            } => {
                                 let Some(id) = identities
-                                    .get(namespace)
-                                    .and_then(|types| types.get(name))
+                                    .get(target_namespace)
+                                    .and_then(|types| types.get(target_name))
                                     .copied()
                                 else {
-                                    return Err(BuildError::new("named field type is not defined"));
+                                    return Err(Error::UndefinedType {
+                                        namespace: self.namespace.clone(),
+                                        name: name.clone(),
+                                        field: field.name.clone(),
+                                        target_namespace: target_namespace.clone(),
+                                        target_name: target_name.clone(),
+                                    });
                                 };
                                 BuildType::Value(BuildTypeIdentity::Definition(id))
                             }
@@ -352,6 +371,45 @@ impl From<Primitive> for BuildType {
 mod tests {
     use super::*;
     use windows_metadata2::{Database, Image, TypeCategory};
+
+    #[test]
+    fn source_errors_preserve_definition_context() {
+        let mut duplicate = Document::new("duplicate");
+        let mut module = Module::new("Test");
+        module.struct_type("Value", Vec::new());
+        module.struct_type("Value", Vec::new());
+        duplicate.module(module);
+        assert!(matches!(
+            duplicate.compile(),
+            Err(Error::DuplicateType { namespace, name })
+                if namespace == "Test" && name == "Value"
+        ));
+
+        let mut unresolved = Document::new("unresolved");
+        let mut module = Module::new("Test");
+        module.struct_type(
+            "Container",
+            vec![Field {
+                name: "value".to_string(),
+                ty: Type::named("Other", "Missing"),
+            }],
+        );
+        unresolved.module(module);
+        assert!(matches!(
+            unresolved.compile(),
+            Err(Error::UndefinedType {
+                namespace,
+                name,
+                field,
+                target_namespace,
+                target_name,
+            }) if namespace == "Test"
+                && name == "Container"
+                && field == "value"
+                && target_namespace == "Other"
+                && target_name == "Missing"
+        ));
+    }
 
     #[test]
     fn primitive_enum_and_struct_are_readable_by_both_readers() {

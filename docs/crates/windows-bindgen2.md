@@ -100,7 +100,8 @@ standard required before claiming the replacement is objectively better overall.
 
 ## Next checkpoint
 
-Inventory architecture variants and nested native definitions before designing dependency closure.
-Add only the relationships needed to preserve deterministic flat output. Do not add a second name
-index or a global native graph. Continue splitting metadata2 semantic views by concern as new
-relationships are required.
+Build one small end-to-end output path before expanding item coverage. It should select, lower, and
+render a deterministic module containing the already-supported WinRT values and flat Win32 items.
+This will test output grouping and naming boundaries without adding filters, dependency closure,
+interfaces, architecture policy, or packages. Do not add a second name index or a global native
+graph.

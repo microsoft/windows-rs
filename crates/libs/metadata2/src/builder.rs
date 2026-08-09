@@ -1,24 +1,5 @@
 use super::*;
 
-/// An error encountered while building a metadata image.
-#[derive(Debug)]
-pub struct BuildError(&'static str);
-
-impl BuildError {
-    /// Creates a build error with a static diagnostic.
-    pub const fn new(message: &'static str) -> Self {
-        Self(message)
-    }
-}
-
-impl std::fmt::Display for BuildError {
-    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        formatter.write_str(self.0)
-    }
-}
-
-impl std::error::Error for BuildError {}
-
 /// A typed identity for a TypeDef row being built.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TypeDefinitionId(u32);
@@ -168,7 +149,7 @@ impl MetadataBuilder {
         if let Some(extends) = extends
             && !self.valid_identity(extends)
         {
-            return Err(BuildError("base type identity is not declared"));
+            return Err(BuildError::invalid("base type identity is not declared"));
         }
         let definition = TypeDefinitionId(self.type_defs.len() as u32 + 1);
         self.type_defs.push(TypeDefRow {
@@ -187,13 +168,26 @@ impl MetadataBuilder {
         definition: TypeDefinitionId,
         add_fields: impl FnOnce(&mut TypeFields<'_>) -> Result<(), BuildError>,
     ) -> Result<TypeDefinitionId, BuildError> {
+        self.try_define_type(definition, add_fields)
+    }
+
+    /// Defines the fields of the next declared type while preserving a consumer error.
+    pub fn try_define_type<E>(
+        &mut self,
+        definition: TypeDefinitionId,
+        add_fields: impl FnOnce(&mut TypeFields<'_>) -> Result<(), E>,
+    ) -> Result<TypeDefinitionId, E>
+    where
+        E: From<BuildError>,
+    {
         if definition.0 != self.next_definition {
-            return Err(BuildError(
+            return Err(BuildError::invalid(
                 "type definitions must be completed in declaration order",
-            ));
+            )
+            .into());
         }
         let Some(row) = self.type_defs.get_mut(definition.0 as usize - 1) else {
-            return Err(BuildError("type definition identity is not declared"));
+            return Err(BuildError::invalid("type definition identity is not declared").into());
         };
         row.field_list = self.fields.len() as u32 + 1;
         let field_count = self.fields.len();
@@ -232,14 +226,16 @@ impl MetadataBuilder {
     /// Serializes the metadata tables, heaps, and PE/CLI container.
     pub fn finish(mut self) -> Result<Vec<u8>, BuildError> {
         if self.next_definition != self.type_defs.len() as u32 + 1 {
-            return Err(BuildError("not all declared types have been defined"));
+            return Err(BuildError::invalid(
+                "not all declared types have been defined",
+            ));
         }
         self.constants.sort_by_key(|row| row.parent);
         let tables = self.tables()?;
         if self.strings.bytes.len() > u16::MAX as usize
             || self.blobs.bytes.len() > u16::MAX as usize
         {
-            return Err(BuildError("initial metadata builder heap limit exceeded"));
+            return Err(BuildError::limit("heap"));
         }
         builder_image::metadata_image(&tables, &self.strings.bytes, &[0; 16], &self.blobs.bytes)
     }
@@ -266,7 +262,7 @@ impl MetadataBuilder {
             (0x23, 1),
         ];
         if counts.iter().any(|(_, count)| *count > u16::MAX as usize) {
-            return Err(BuildError("initial metadata builder table limit exceeded"));
+            return Err(BuildError::limit("table"));
         }
         let valid = counts
             .iter()
@@ -355,7 +351,7 @@ impl TypeFields<'_> {
         if let BuildType::Value(identity) | BuildType::Class(identity) = ty
             && !self.builder.valid_identity(identity)
         {
-            return Err(BuildError("field type identity is not declared"));
+            return Err(BuildError::invalid("field type identity is not declared"));
         }
         let mut signature = vec![CALL_CONVENTION_FIELD];
         write_type(&mut signature, ty);
@@ -371,7 +367,9 @@ impl TypeFields<'_> {
     /// Adds a constant to a field.
     pub fn constant(&mut self, field: u32, value: ConstantValue) -> Result<(), BuildError> {
         if field < self.first_field || field > self.builder.fields.len() as u32 {
-            return Err(BuildError("constant field identity is out of bounds"));
+            return Err(BuildError::invalid(
+                "constant field identity is out of bounds",
+            ));
         }
         let (ty, bytes) = write_value(value);
         self.builder.constants.push(ConstantRow {
@@ -518,11 +516,7 @@ impl WriteBytes for Vec<u8> {
     }
 
     fn index(&mut self, value: u32) -> Result<(), BuildError> {
-        self.u16(
-            value
-                .try_into()
-                .map_err(|_| BuildError("initial metadata builder index limit exceeded"))?,
-        );
+        self.u16(value.try_into().map_err(|_| BuildError::limit("index"))?);
         Ok(())
     }
 }

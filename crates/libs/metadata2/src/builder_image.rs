@@ -28,14 +28,14 @@ pub(super) fn metadata_image(
             &mut metadata,
             offset
                 .try_into()
-                .map_err(|_| BuildError::new("metadata stream offset overflow"))?,
+                .map_err(|_| BuildError::overflow("metadata stream offset"))?,
         );
         push_u32(
             &mut metadata,
             stream
                 .len()
                 .try_into()
-                .map_err(|_| BuildError::new("metadata stream size overflow"))?,
+                .map_err(|_| BuildError::overflow("metadata stream size"))?,
         );
         metadata.extend(name);
         metadata.push(0);
@@ -54,15 +54,15 @@ fn pe_image(metadata: &[u8]) -> Result<Vec<u8>, BuildError> {
     const CLI_SIZE: usize = 72;
     let virtual_size = CLI_SIZE
         .checked_add(metadata.len())
-        .ok_or(BuildError::new("metadata image size overflow"))?;
+        .ok_or(BuildError::overflow("metadata image size"))?;
     let raw_size = align(virtual_size, FILE_ALIGNMENT);
     let size_of_image = SECTION_ALIGNMENT
         .checked_add(
             align(raw_size, SECTION_ALIGNMENT as usize)
                 .try_into()
-                .map_err(|_| BuildError::new("metadata image size overflow"))?,
+                .map_err(|_| BuildError::overflow("metadata image size"))?,
         )
-        .ok_or(BuildError::new("metadata image size overflow"))?;
+        .ok_or(BuildError::overflow("metadata image size"))?;
 
     let mut bytes = vec![0; FILE_ALIGNMENT + raw_size];
     put_u16(&mut bytes, 0, 0x5a4d);

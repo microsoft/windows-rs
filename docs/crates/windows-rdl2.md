@@ -14,6 +14,7 @@ The first checkpoint intentionally uses a programmatic model rather than a text 
 - primitive integer enums have checked backing values;
 - simple structs contain primitive or named value-type fields;
 - definitions may reference types declared later in the document;
+- source validation errors retain definition, variant, and field identities;
 - compilation emits a PE/CLI image through `windows-metadata2`.
 
 The resulting image is read by both metadata2 and the existing metadata reader. The focused test
@@ -26,7 +27,8 @@ The initial metadata builder supports only the tables required by this proof: `M
 `TypeDef`, `Field`, `Constant`, `Assembly`, and `AssemblyRef`. It has typed definition/reference
 identities, deduplicated string and blob heaps, checked compressed signatures, sorted constants,
 and separate declaration and ordered-definition phases. Failed field callbacks roll back their
-rows.
+rows. The callback error is consumer-defined, so RDL2 validation failures are not represented as
+metadata construction errors.
 
 Table/heaps and PE/CLI container serialization are separate modules. The writer currently uses
 16-bit heap and table indexes and returns an explicit error when the bounded proof exceeds them.
@@ -34,9 +36,10 @@ This is preferable to adding untested large-image machinery before another consu
 
 ## Critical assessment
 
-The proof establishes that metadata2 is not limited to reading and that a second consumer can use a
-small API without leaked rows or the old writer's broad mutable file object. It does not yet prove
-that the authoring design scales:
+The proof establishes that metadata2 is not limited to reading and that a second consumer can use
+a small API without leaked rows or the old writer's broad mutable file object. RDL2 now owns source
+diagnostics, while metadata2 reports only construction failures. It does not yet prove that the
+authoring design scales:
 
 - the builder is already about 650 lines for seven tables and the PE/CLI container;
 - text parsing, attributes, methods, interfaces, and external references are absent;
@@ -57,6 +60,5 @@ The larger shared issue was definition identity. Metadata2 now declares all Type
 emitting fields and requires field bodies in declaration order. RDL2 keeps only its source-name
 index and maps those names directly to stable metadata IDs; it has no metadata patch table.
 
-Do not expand the parser next. Review the builder's size and error model, then choose one narrow
-next surface. External named references would exercise resolution scope without adding methods;
-attributes would exercise more tables and blobs but carry greater complexity.
+Do not expand the parser next. External named references are the next bounded authoring surface:
+they exercise resolution scopes without adding methods, interfaces, or attribute blob formats.

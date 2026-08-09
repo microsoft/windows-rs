@@ -43,10 +43,10 @@ existing implementation. The crate remains unpublished until both `windows-bindg
 | Multi-image database and indexes | Done | Owned file IDs and row IDs replace leaked indexes and borrowed identities. |
 | Custom-attribute values | Done | Constructor-directed fixed and named arguments decode without losing serialized types. |
 | `windows-bindgen` proof | Done | Owned selection and representative output proved the metadata2 boundary. |
-| `windows-bindgen2` foundation | Recommended next | A new engine matches old output without old row lifetimes. |
+| `windows-bindgen2` foundation | Started | Value and flat Win32 slices use owned metadata entities. |
 | Deterministic metadata builder | Started | Bounded enum/struct images are accepted by both readers. |
 | `windows-rdl2` authoring proof | Started | A separate source model emits through metadata2. |
-| `windows-rdl` builder adapter | Planned | WinRT, Win32, and WDK output remains equivalent. |
+| Consumer diagnostics boundary | Done | Builder rollback preserves consumer-defined errors. |
 | Common and Windows validation | Planned | Existing validation corpus passes through explicit profiles. |
 | Merge and namespace remap | Planned | Transformations use one lossless copier outside the core image. |
 | Replace `windows-metadata` | Planned | Both consumers and generation pipelines have migrated. |
@@ -125,8 +125,8 @@ to the same type identity.
 This is not yet evidence that the complete writer will be smaller. The table/heaps builder is about
 500 lines and the PE/CLI container is about 135 lines while supporting only seven tables and
 16-bit indexes. That cost is acceptable for the proof but must be reviewed before adding methods,
-attributes, or parser compatibility. The next slice should add named value-type fields and a
-cross-definition fixture, not begin a general parser.
+attributes, or parser compatibility. Named value fields and forward references are complete. The
+next bounded authoring slice is external references; a general parser remains deferred.
 
 ## Consumer overlap review
 
@@ -148,7 +148,9 @@ build identities are the shared metadata mechanisms and now live in metadata2.
 The builder declares TypeDefs first and defines their fields later in declaration order. This gives
 named and forward-referenced fields stable typed IDs without sacrificing ECMA field-list ranges.
 Failed definitions roll back their fields and constants and can be retried. RDL2 uses a nested
-source-name map only to resolve its language names to those IDs.
+source-name map only to resolve its language names to those IDs. Builder callbacks preserve the
+consumer's error type, so RDL2 can report source context without turning validation failures into
+metadata errors.
 
 The second differential fixture declares `Pixel` before its `Color` enum dependency. Metadata2
 emits a direct TypeDef signature reference, and the old RDL writer emits a TypeRef. Both normalize
@@ -376,9 +378,9 @@ Validation favors a clean replacement:
 - committed `windows` and `windows-sys` package output provides the full-corpus oracle;
 - the metadata2 differential tests already validate the source facts independently.
 
-The recommended next step is an unpublished `windows-bindgen2` crate beside the existing
-generator. The old generator remains the oracle and production implementation until the new crate
-matches all required output. It should not begin as an adapter for the old bindgen types.
+This review led to the unpublished `windows-bindgen2` crate beside the existing generator. The old
+generator remains the oracle and production implementation until the new crate matches all
+required output. Bindgen2 does not adapt the old bindgen types.
 
 The initial architecture should have these boundaries:
 
