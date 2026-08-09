@@ -207,11 +207,10 @@ impl Database {
         }
     }
 
-    pub(crate) fn type_name(
-        &self,
-        file: FileId,
-        ty: AnyRowId,
-    ) -> Result<Option<(&str, &str)>, Error> {
+    /// Returns the namespace and name encoded by a TypeDef or TypeRef identity.
+    ///
+    /// TypeSpec identities return `None`; callers must inspect their signature instead.
+    pub fn type_name(&self, file: FileId, ty: AnyRowId) -> Result<Option<(&str, &str)>, Error> {
         let image = self
             .image(file)
             .ok_or_else(|| Error::invalid(file.index(), "file identity is outside the database"))?;

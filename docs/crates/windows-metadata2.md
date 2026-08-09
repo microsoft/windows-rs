@@ -42,7 +42,7 @@ existing implementation. The crate remains unpublished until both `windows-bindg
 | ECMA signatures | Done | One fallible decoder handles every signature-bearing row and reports byte offsets. |
 | Multi-image database and indexes | Done | Owned file IDs and row IDs replace leaked indexes and borrowed identities. |
 | Custom-attribute values | Done | Constructor-directed fixed and named arguments decode without losing serialized types. |
-| `windows-bindgen` reader adapter | Next | Full generated Rust output matches the existing reader. |
+| `windows-bindgen` reader adapter | In progress | Owned entity selection and WinRT struct output match the existing reader. |
 | Deterministic metadata builder | Planned | Finalization returns a queryable image and stable row remapping. |
 | `windows-rdl` builder adapter | Planned | WinRT, Win32, and WDK output remains equivalent. |
 | Common and Windows validation | Planned | Existing validation corpus passes through explicit profiles. |
@@ -196,3 +196,17 @@ Adapting metadata2 to those types would reintroduce the leak or spread ownership
 handle. Instead, extract one metadata-neutral output model - starting with WinRT structs - that
 both readers can populate and the existing renderer can consume. Continue only if that boundary
 stays small; do not build a compatibility copy of the old reader API.
+
+The first struct-model prototype remains test-side while its boundary is evaluated. It owns type
+and field names and represents primitive, string, named value, named class, and generic-instance
+field identities without metadata row lifetimes. Both readers produce equal models for every
+supported struct definition; more than 3,000 committed definitions are covered.
+
+A flat owned map of WinRT enum and struct models now supplies recursive copyability, equality,
+runtime signatures, and relative namespace paths. It is not a general type index: classes and
+interfaces are retained only as field identities, and their runtime signatures are not modeled.
+Both readers produce the same value map, including enum backing types and generic-name trimming.
+Models populated from metadata2 exactly render more than 120 of the 123 WinRT structs selected by
+the existing bindgen reader. The remaining gap is the generic `IReference<u64>` class field. Do not
+add the interface graph merely to close that gap; first decide whether production rendering should
+consume this owned value map.

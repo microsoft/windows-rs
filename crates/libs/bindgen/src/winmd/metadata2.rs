@@ -1,6 +1,8 @@
 use super::*;
 use windows_metadata2 as new;
 
+mod struct_model;
+
 #[derive(Clone, Copy)]
 enum ProjectedItem {
     CppFn(new::Entity<new::tables::MethodDef>),
