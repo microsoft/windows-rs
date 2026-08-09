@@ -1,124 +1,11 @@
-/// Identifies one of the 45 standard ECMA-335 metadata tables.
-#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-#[repr(u8)]
-pub enum TableId {
-    Module,
-    TypeRef,
-    TypeDef,
-    FieldPtr,
-    Field,
-    MethodPtr,
-    MethodDef,
-    ParamPtr,
-    Param,
-    InterfaceImpl,
-    MemberRef,
-    Constant,
-    CustomAttribute,
-    FieldMarshal,
-    DeclSecurity,
-    ClassLayout,
-    FieldLayout,
-    StandAloneSig,
-    EventMap,
-    EventPtr,
-    Event,
-    PropertyMap,
-    PropertyPtr,
-    Property,
-    MethodSemantics,
-    MethodImpl,
-    ModuleRef,
-    TypeSpec,
-    ImplMap,
-    FieldRva,
-    EncLog,
-    EncMap,
-    Assembly,
-    AssemblyProcessor,
-    AssemblyOs,
-    AssemblyRef,
-    AssemblyRefProcessor,
-    AssemblyRefOs,
-    File,
-    ExportedType,
-    ManifestResource,
-    NestedClass,
-    GenericParam,
-    MethodSpec,
-    GenericParamConstraint,
+mod private {
+    pub trait Sealed {}
 }
 
-impl TableId {
-    /// The number of standard tables.
-    pub const COUNT: usize = 45;
-
-    const ALL: [Self; Self::COUNT] = [
-        Self::Module,
-        Self::TypeRef,
-        Self::TypeDef,
-        Self::FieldPtr,
-        Self::Field,
-        Self::MethodPtr,
-        Self::MethodDef,
-        Self::ParamPtr,
-        Self::Param,
-        Self::InterfaceImpl,
-        Self::MemberRef,
-        Self::Constant,
-        Self::CustomAttribute,
-        Self::FieldMarshal,
-        Self::DeclSecurity,
-        Self::ClassLayout,
-        Self::FieldLayout,
-        Self::StandAloneSig,
-        Self::EventMap,
-        Self::EventPtr,
-        Self::Event,
-        Self::PropertyMap,
-        Self::PropertyPtr,
-        Self::Property,
-        Self::MethodSemantics,
-        Self::MethodImpl,
-        Self::ModuleRef,
-        Self::TypeSpec,
-        Self::ImplMap,
-        Self::FieldRva,
-        Self::EncLog,
-        Self::EncMap,
-        Self::Assembly,
-        Self::AssemblyProcessor,
-        Self::AssemblyOs,
-        Self::AssemblyRef,
-        Self::AssemblyRefProcessor,
-        Self::AssemblyRefOs,
-        Self::File,
-        Self::ExportedType,
-        Self::ManifestResource,
-        Self::NestedClass,
-        Self::GenericParam,
-        Self::MethodSpec,
-        Self::GenericParamConstraint,
-    ];
-
-    /// Returns the table identifier for an ECMA table number.
-    pub const fn from_u8(value: u8) -> Option<Self> {
-        if value < Self::COUNT as u8 {
-            Some(Self::ALL[value as usize])
-        } else {
-            None
-        }
-    }
-
-    /// Returns the ECMA table number.
-    pub const fn as_u8(self) -> u8 {
-        self as u8
-    }
-
-    /// Returns this table's schema.
-    pub const fn schema(self) -> &'static TableSchema {
-        &TABLES[self as usize]
-    }
+/// A typed ECMA-335 table marker.
+pub trait Table: private::Sealed {
+    /// The table identifier represented by this marker.
+    const ID: TableId;
 }
 
 /// Describes one ECMA-335 table.
@@ -153,7 +40,14 @@ pub(crate) enum Column {
     Guid,
     Blob,
     Table(TableId),
+    List(TableId),
     Coded(CodedIndex),
+}
+
+#[derive(Clone, Copy, Debug)]
+pub(crate) struct CodedTarget {
+    pub(crate) tag: u32,
+    pub(crate) table: TableId,
 }
 
 #[derive(Clone, Copy, Debug)]
@@ -191,222 +85,411 @@ impl CodedIndex {
         }
     }
 
-    pub(crate) const fn tables(self) -> &'static [TableId] {
+    pub(crate) const fn targets(self) -> &'static [CodedTarget] {
         use TableId::*;
         match self {
-            Self::TypeDefOrRef => &[TypeDef, TypeRef, TypeSpec],
-            Self::HasConstant => &[Field, Param, Property],
-            Self::HasCustomAttribute => &[
-                MethodDef,
-                Field,
-                TypeRef,
-                TypeDef,
-                Param,
-                InterfaceImpl,
-                MemberRef,
-                Module,
-                DeclSecurity,
-                Property,
-                Event,
-                StandAloneSig,
-                ModuleRef,
-                TypeSpec,
-                Assembly,
-                AssemblyRef,
-                File,
-                ExportedType,
-                ManifestResource,
-                GenericParam,
-                GenericParamConstraint,
-                MethodSpec,
+            Self::TypeDefOrRef => &[
+                CodedTarget {
+                    tag: 0,
+                    table: TypeDef,
+                },
+                CodedTarget {
+                    tag: 1,
+                    table: TypeRef,
+                },
+                CodedTarget {
+                    tag: 2,
+                    table: TypeSpec,
+                },
             ],
-            Self::HasFieldMarshal => &[Field, Param],
-            Self::HasDeclSecurity => &[TypeDef, MethodDef, Assembly],
-            Self::MemberRefParent => &[TypeDef, TypeRef, ModuleRef, MethodDef, TypeSpec],
-            Self::HasSemantics => &[Event, Property],
-            Self::MethodDefOrRef => &[MethodDef, MemberRef],
-            Self::MemberForwarded => &[Field, MethodDef],
-            Self::Implementation => &[File, AssemblyRef, ExportedType],
-            Self::CustomAttributeType => &[MethodDef, MemberRef],
-            Self::ResolutionScope => &[Module, ModuleRef, AssemblyRef, TypeRef],
-            Self::TypeOrMethodDef => &[TypeDef, MethodDef],
+            Self::HasConstant => &[
+                CodedTarget {
+                    tag: 0,
+                    table: Field,
+                },
+                CodedTarget {
+                    tag: 1,
+                    table: Param,
+                },
+                CodedTarget {
+                    tag: 2,
+                    table: Property,
+                },
+            ],
+            Self::HasCustomAttribute => &[
+                CodedTarget {
+                    tag: 0,
+                    table: MethodDef,
+                },
+                CodedTarget {
+                    tag: 1,
+                    table: Field,
+                },
+                CodedTarget {
+                    tag: 2,
+                    table: TypeRef,
+                },
+                CodedTarget {
+                    tag: 3,
+                    table: TypeDef,
+                },
+                CodedTarget {
+                    tag: 4,
+                    table: Param,
+                },
+                CodedTarget {
+                    tag: 5,
+                    table: InterfaceImpl,
+                },
+                CodedTarget {
+                    tag: 6,
+                    table: MemberRef,
+                },
+                CodedTarget {
+                    tag: 7,
+                    table: Module,
+                },
+                CodedTarget {
+                    tag: 8,
+                    table: DeclSecurity,
+                },
+                CodedTarget {
+                    tag: 9,
+                    table: Property,
+                },
+                CodedTarget {
+                    tag: 10,
+                    table: Event,
+                },
+                CodedTarget {
+                    tag: 11,
+                    table: StandAloneSig,
+                },
+                CodedTarget {
+                    tag: 12,
+                    table: ModuleRef,
+                },
+                CodedTarget {
+                    tag: 13,
+                    table: TypeSpec,
+                },
+                CodedTarget {
+                    tag: 14,
+                    table: Assembly,
+                },
+                CodedTarget {
+                    tag: 15,
+                    table: AssemblyRef,
+                },
+                CodedTarget {
+                    tag: 16,
+                    table: File,
+                },
+                CodedTarget {
+                    tag: 17,
+                    table: ExportedType,
+                },
+                CodedTarget {
+                    tag: 18,
+                    table: ManifestResource,
+                },
+                CodedTarget {
+                    tag: 19,
+                    table: GenericParam,
+                },
+                CodedTarget {
+                    tag: 20,
+                    table: GenericParamConstraint,
+                },
+                CodedTarget {
+                    tag: 21,
+                    table: MethodSpec,
+                },
+            ],
+            Self::HasFieldMarshal => &[
+                CodedTarget {
+                    tag: 0,
+                    table: Field,
+                },
+                CodedTarget {
+                    tag: 1,
+                    table: Param,
+                },
+            ],
+            Self::HasDeclSecurity => &[
+                CodedTarget {
+                    tag: 0,
+                    table: TypeDef,
+                },
+                CodedTarget {
+                    tag: 1,
+                    table: MethodDef,
+                },
+                CodedTarget {
+                    tag: 2,
+                    table: Assembly,
+                },
+            ],
+            Self::MemberRefParent => &[
+                CodedTarget {
+                    tag: 0,
+                    table: TypeDef,
+                },
+                CodedTarget {
+                    tag: 1,
+                    table: TypeRef,
+                },
+                CodedTarget {
+                    tag: 2,
+                    table: ModuleRef,
+                },
+                CodedTarget {
+                    tag: 3,
+                    table: MethodDef,
+                },
+                CodedTarget {
+                    tag: 4,
+                    table: TypeSpec,
+                },
+            ],
+            Self::HasSemantics => &[
+                CodedTarget {
+                    tag: 0,
+                    table: Event,
+                },
+                CodedTarget {
+                    tag: 1,
+                    table: Property,
+                },
+            ],
+            Self::MethodDefOrRef => &[
+                CodedTarget {
+                    tag: 0,
+                    table: MethodDef,
+                },
+                CodedTarget {
+                    tag: 1,
+                    table: MemberRef,
+                },
+            ],
+            Self::MemberForwarded => &[
+                CodedTarget {
+                    tag: 0,
+                    table: Field,
+                },
+                CodedTarget {
+                    tag: 1,
+                    table: MethodDef,
+                },
+            ],
+            Self::Implementation => &[
+                CodedTarget {
+                    tag: 0,
+                    table: File,
+                },
+                CodedTarget {
+                    tag: 1,
+                    table: AssemblyRef,
+                },
+                CodedTarget {
+                    tag: 2,
+                    table: ExportedType,
+                },
+            ],
+            Self::CustomAttributeType => &[
+                CodedTarget {
+                    tag: 2,
+                    table: MethodDef,
+                },
+                CodedTarget {
+                    tag: 3,
+                    table: MemberRef,
+                },
+            ],
+            Self::ResolutionScope => &[
+                CodedTarget {
+                    tag: 0,
+                    table: Module,
+                },
+                CodedTarget {
+                    tag: 1,
+                    table: ModuleRef,
+                },
+                CodedTarget {
+                    tag: 2,
+                    table: AssemblyRef,
+                },
+                CodedTarget {
+                    tag: 3,
+                    table: TypeRef,
+                },
+            ],
+            Self::TypeOrMethodDef => &[
+                CodedTarget {
+                    tag: 0,
+                    table: TypeDef,
+                },
+                CodedTarget {
+                    tag: 1,
+                    table: MethodDef,
+                },
+            ],
         }
+    }
+
+    pub(crate) fn target(self, tag: u32) -> Option<TableId> {
+        self.targets()
+            .iter()
+            .find(|target| target.tag == tag)
+            .map(|target| target.table)
     }
 }
 
-use Column::*;
-use TableId::*;
-
-macro_rules! table {
-    ($id:ident, $name:literal, [$($column:expr),* $(,)?]) => {
-        TableSchema {
-            id: $id,
-            name: $name,
-            columns: &[$($column),*],
+macro_rules! tables {
+    ($(
+        $number:literal => $id:ident, $name:literal, [$($column:expr),* $(,)?];
+    )+) => {
+        /// Identifies one of the 45 standard ECMA-335 metadata tables.
+        #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+        #[repr(u8)]
+        pub enum TableId {
+            $($id = $number,)+
         }
+
+        impl TableId {
+            /// The number of standard tables.
+            pub const COUNT: usize = [$(Self::$id),+].len();
+
+            /// Returns the table identifier for an ECMA table number.
+            pub const fn from_u8(value: u8) -> Option<Self> {
+                match value {
+                    $($number => Some(Self::$id),)+
+                    _ => None,
+                }
+            }
+
+            /// Returns the ECMA table number.
+            pub const fn as_u8(self) -> u8 {
+                self as u8
+            }
+
+            /// Returns this table's schema.
+            pub const fn schema(self) -> &'static TableSchema {
+                &TABLES[self as usize]
+            }
+        }
+
+        /// Typed markers for the standard ECMA-335 metadata tables.
+        pub mod tables {
+            $(
+                #[doc = concat!("Marks the `", $name, "` metadata table.")]
+                #[derive(Debug)]
+                pub enum $id {}
+
+                impl super::private::Sealed for $id {}
+
+                impl super::Table for $id {
+                    const ID: super::TableId = super::TableId::$id;
+                }
+            )+
+        }
+
+        /// The complete standard ECMA-335 table schema.
+        pub static TABLES: [TableSchema; TableId::COUNT] = [
+            $(TableSchema {
+                id: TableId::$id,
+                name: $name,
+                columns: &[$($column),*],
+            },)+
+        ];
     };
 }
 
-/// The complete standard ECMA-335 table schema.
-pub static TABLES: [TableSchema; TableId::COUNT] = [
-    table!(Module, "Module", [U16, String, Guid, Guid, Guid]),
-    table!(
-        TypeRef,
-        "TypeRef",
-        [Coded(CodedIndex::ResolutionScope), String, String]
-    ),
-    table!(
-        TypeDef,
-        "TypeDef",
-        [
-            U32,
-            String,
-            String,
-            Coded(CodedIndex::TypeDefOrRef),
-            Table(Field),
-            Table(MethodDef),
-        ]
-    ),
-    table!(FieldPtr, "FieldPtr", [Table(Field)]),
-    table!(Field, "Field", [U16, String, Blob]),
-    table!(MethodPtr, "MethodPtr", [Table(MethodDef)]),
-    table!(
-        MethodDef,
-        "MethodDef",
-        [U32, U16, U16, String, Blob, Table(Param)]
-    ),
-    table!(ParamPtr, "ParamPtr", [Table(Param)]),
-    table!(Param, "Param", [U16, U16, String]),
-    table!(
-        InterfaceImpl,
-        "InterfaceImpl",
-        [Table(TypeDef), Coded(CodedIndex::TypeDefOrRef)]
-    ),
-    table!(
-        MemberRef,
-        "MemberRef",
-        [Coded(CodedIndex::MemberRefParent), String, Blob]
-    ),
-    table!(
-        Constant,
-        "Constant",
-        [U16, Coded(CodedIndex::HasConstant), Blob]
-    ),
-    table!(
-        CustomAttribute,
-        "CustomAttribute",
-        [
-            Coded(CodedIndex::HasCustomAttribute),
-            Coded(CodedIndex::CustomAttributeType),
-            Blob,
-        ]
-    ),
-    table!(
-        FieldMarshal,
-        "FieldMarshal",
-        [Coded(CodedIndex::HasFieldMarshal), Blob]
-    ),
-    table!(
-        DeclSecurity,
-        "DeclSecurity",
-        [U16, Coded(CodedIndex::HasDeclSecurity), Blob]
-    ),
-    table!(ClassLayout, "ClassLayout", [U16, U32, Table(TypeDef)]),
-    table!(FieldLayout, "FieldLayout", [U32, Table(Field)]),
-    table!(StandAloneSig, "StandAloneSig", [Blob]),
-    table!(EventMap, "EventMap", [Table(TypeDef), Table(Event)]),
-    table!(EventPtr, "EventPtr", [Table(Event)]),
-    table!(
-        Event,
-        "Event",
-        [U16, String, Coded(CodedIndex::TypeDefOrRef)]
-    ),
-    table!(
-        PropertyMap,
-        "PropertyMap",
-        [Table(TypeDef), Table(Property)]
-    ),
-    table!(PropertyPtr, "PropertyPtr", [Table(Property)]),
-    table!(Property, "Property", [U16, String, Blob]),
-    table!(
-        MethodSemantics,
-        "MethodSemantics",
-        [U16, Table(MethodDef), Coded(CodedIndex::HasSemantics),]
-    ),
-    table!(
-        MethodImpl,
-        "MethodImpl",
-        [
-            Table(TypeDef),
-            Coded(CodedIndex::MethodDefOrRef),
-            Coded(CodedIndex::MethodDefOrRef),
-        ]
-    ),
-    table!(ModuleRef, "ModuleRef", [String]),
-    table!(TypeSpec, "TypeSpec", [Blob]),
-    table!(
-        ImplMap,
-        "ImplMap",
-        [
-            U16,
-            Coded(CodedIndex::MemberForwarded),
-            String,
-            Table(ModuleRef),
-        ]
-    ),
-    table!(FieldRva, "FieldRVA", [U32, Table(Field)]),
-    table!(EncLog, "ENCLog", [U32, U32]),
-    table!(EncMap, "ENCMap", [U32]),
-    table!(
-        Assembly,
-        "Assembly",
-        [U32, U16, U16, U16, U16, U32, Blob, String, String]
-    ),
-    table!(AssemblyProcessor, "AssemblyProcessor", [U32]),
-    table!(AssemblyOs, "AssemblyOS", [U32, U32, U32]),
-    table!(
-        AssemblyRef,
-        "AssemblyRef",
-        [U16, U16, U16, U16, U32, Blob, String, String, Blob,]
-    ),
-    table!(
-        AssemblyRefProcessor,
-        "AssemblyRefProcessor",
-        [U32, Table(AssemblyRef)]
-    ),
-    table!(
-        AssemblyRefOs,
-        "AssemblyRefOS",
-        [U32, U32, U32, Table(AssemblyRef)]
-    ),
-    table!(File, "File", [U32, String, Blob]),
-    table!(
-        ExportedType,
-        "ExportedType",
-        [U32, U32, String, String, Coded(CodedIndex::Implementation),]
-    ),
-    table!(
-        ManifestResource,
-        "ManifestResource",
-        [U32, U32, String, Coded(CodedIndex::Implementation),]
-    ),
-    table!(NestedClass, "NestedClass", [Table(TypeDef), Table(TypeDef)]),
-    table!(
-        GenericParam,
-        "GenericParam",
-        [U16, U16, Coded(CodedIndex::TypeOrMethodDef), String,]
-    ),
-    table!(
-        MethodSpec,
-        "MethodSpec",
-        [Coded(CodedIndex::MethodDefOrRef), Blob]
-    ),
-    table!(
-        GenericParamConstraint,
-        "GenericParamConstraint",
-        [Table(GenericParam), Coded(CodedIndex::TypeDefOrRef),]
-    ),
-];
+use CodedIndex as Code;
+use Column::{Blob, Coded, Guid, List, String, Table as Ref, U16, U32};
+
+tables! {
+    0x00 => Module, "Module", [U16, String, Guid, Guid, Guid];
+    0x01 => TypeRef, "TypeRef", [Coded(Code::ResolutionScope), String, String];
+    0x02 => TypeDef, "TypeDef", [
+        U32, String, String, Coded(Code::TypeDefOrRef), List(TableId::Field),
+        List(TableId::MethodDef)
+    ];
+    0x03 => FieldPtr, "FieldPtr", [Ref(TableId::Field)];
+    0x04 => Field, "Field", [U16, String, Blob];
+    0x05 => MethodPtr, "MethodPtr", [Ref(TableId::MethodDef)];
+    0x06 => MethodDef, "MethodDef", [
+        U32, U16, U16, String, Blob, List(TableId::Param)
+    ];
+    0x07 => ParamPtr, "ParamPtr", [Ref(TableId::Param)];
+    0x08 => Param, "Param", [U16, U16, String];
+    0x09 => InterfaceImpl, "InterfaceImpl", [
+        Ref(TableId::TypeDef), Coded(Code::TypeDefOrRef)
+    ];
+    0x0a => MemberRef, "MemberRef", [Coded(Code::MemberRefParent), String, Blob];
+    0x0b => Constant, "Constant", [U16, Coded(Code::HasConstant), Blob];
+    0x0c => CustomAttribute, "CustomAttribute", [
+        Coded(Code::HasCustomAttribute), Coded(Code::CustomAttributeType), Blob
+    ];
+    0x0d => FieldMarshal, "FieldMarshal", [Coded(Code::HasFieldMarshal), Blob];
+    0x0e => DeclSecurity, "DeclSecurity", [U16, Coded(Code::HasDeclSecurity), Blob];
+    0x0f => ClassLayout, "ClassLayout", [U16, U32, Ref(TableId::TypeDef)];
+    0x10 => FieldLayout, "FieldLayout", [U32, Ref(TableId::Field)];
+    0x11 => StandAloneSig, "StandAloneSig", [Blob];
+    0x12 => EventMap, "EventMap", [Ref(TableId::TypeDef), List(TableId::Event)];
+    0x13 => EventPtr, "EventPtr", [Ref(TableId::Event)];
+    0x14 => Event, "Event", [U16, String, Coded(Code::TypeDefOrRef)];
+    0x15 => PropertyMap, "PropertyMap", [
+        Ref(TableId::TypeDef), List(TableId::Property)
+    ];
+    0x16 => PropertyPtr, "PropertyPtr", [Ref(TableId::Property)];
+    0x17 => Property, "Property", [U16, String, Blob];
+    0x18 => MethodSemantics, "MethodSemantics", [
+        U16, Ref(TableId::MethodDef), Coded(Code::HasSemantics)
+    ];
+    0x19 => MethodImpl, "MethodImpl", [
+        Ref(TableId::TypeDef), Coded(Code::MethodDefOrRef), Coded(Code::MethodDefOrRef)
+    ];
+    0x1a => ModuleRef, "ModuleRef", [String];
+    0x1b => TypeSpec, "TypeSpec", [Blob];
+    0x1c => ImplMap, "ImplMap", [
+        U16, Coded(Code::MemberForwarded), String, Ref(TableId::ModuleRef)
+    ];
+    0x1d => FieldRva, "FieldRVA", [U32, Ref(TableId::Field)];
+    0x1e => EncLog, "ENCLog", [U32, U32];
+    0x1f => EncMap, "ENCMap", [U32];
+    0x20 => Assembly, "Assembly", [
+        U32, U16, U16, U16, U16, U32, Blob, String, String
+    ];
+    0x21 => AssemblyProcessor, "AssemblyProcessor", [U32];
+    0x22 => AssemblyOs, "AssemblyOS", [U32, U32, U32];
+    0x23 => AssemblyRef, "AssemblyRef", [
+        U16, U16, U16, U16, U32, Blob, String, String, Blob
+    ];
+    0x24 => AssemblyRefProcessor, "AssemblyRefProcessor", [
+        U32, Ref(TableId::AssemblyRef)
+    ];
+    0x25 => AssemblyRefOs, "AssemblyRefOS", [
+        U32, U32, U32, Ref(TableId::AssemblyRef)
+    ];
+    0x26 => File, "File", [U32, String, Blob];
+    0x27 => ExportedType, "ExportedType", [
+        U32, U32, String, String, Coded(Code::Implementation)
+    ];
+    0x28 => ManifestResource, "ManifestResource", [
+        U32, U32, String, Coded(Code::Implementation)
+    ];
+    0x29 => NestedClass, "NestedClass", [
+        Ref(TableId::TypeDef), Ref(TableId::TypeDef)
+    ];
+    0x2a => GenericParam, "GenericParam", [
+        U16, U16, Coded(Code::TypeOrMethodDef), String
+    ];
+    0x2b => MethodSpec, "MethodSpec", [Coded(Code::MethodDefOrRef), Blob];
+    0x2c => GenericParamConstraint, "GenericParamConstraint", [
+        Ref(TableId::GenericParam), Coded(Code::TypeDefOrRef)
+    ];
+}
 
 #[cfg(test)]
 mod tests {
@@ -422,5 +505,14 @@ mod tests {
             assert!(!schema.columns().is_empty());
         }
         assert_eq!(TableId::from_u8(TableId::COUNT as u8), None);
+    }
+
+    #[test]
+    fn custom_attribute_type_preserves_sparse_tags() {
+        let code = CodedIndex::CustomAttributeType;
+        assert_eq!(code.target(0), None);
+        assert_eq!(code.target(1), None);
+        assert_eq!(code.target(2), Some(TableId::MethodDef));
+        assert_eq!(code.target(3), Some(TableId::MemberRef));
     }
 }

@@ -16,6 +16,13 @@ pub enum Error {
     MissingStream(&'static str),
     /// A metadata stream name appears more than once.
     DuplicateStream(String),
+    /// A structurally known table is not supported by the current reader layer.
+    UnsupportedTable {
+        /// The ECMA table name.
+        table: &'static str,
+        /// The number of rows present.
+        rows: u32,
+    },
 }
 
 impl Error {
@@ -34,6 +41,12 @@ impl Display for Error {
             Self::MissingStream(name) => write!(formatter, "missing metadata stream `{name}`"),
             Self::DuplicateStream(name) => {
                 write!(formatter, "duplicate metadata stream `{name}`")
+            }
+            Self::UnsupportedTable { table, rows } => {
+                write!(
+                    formatter,
+                    "unsupported metadata table `{table}` has {rows} rows"
+                )
             }
         }
     }
