@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
-struct StructModel {
+pub(super) struct StructModel {
     namespace: String,
     name: String,
     fields: Vec<StructFieldModel>,
@@ -14,15 +14,15 @@ struct StructFieldModel {
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
-enum ValueModel {
+pub(super) enum ValueModel {
     Enum(EnumModel),
     Struct(StructModel),
 }
 
-type ValueModels = BTreeMap<(String, String), ValueModel>;
+pub(super) type ValueModels = BTreeMap<(String, String), ValueModel>;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
-struct EnumModel {
+pub(super) struct EnumModel {
     namespace: String,
     name: String,
     underlying: ModelType,
@@ -435,6 +435,88 @@ impl ModelType {
             .flatten()
     }
 
+    pub(super) fn write_abi(
+        &self,
+        current_namespace: &str,
+        generics: &[String],
+        values: &ValueModels,
+    ) -> Option<TokenStream> {
+        Some(match self {
+            Self::Void => quote! { core::ffi::c_void },
+            Self::Boolean => quote! { bool },
+            Self::Char => quote! { u16 },
+            Self::I8 => quote! { i8 },
+            Self::U8 => quote! { u8 },
+            Self::I16 => quote! { i16 },
+            Self::U16 => quote! { u16 },
+            Self::I32 => quote! { i32 },
+            Self::U32 => quote! { u32 },
+            Self::I64 => quote! { i64 },
+            Self::U64 => quote! { u64 },
+            Self::F32 => quote! { f32 },
+            Self::F64 => quote! { f64 },
+            Self::String | Self::Object => quote! { *mut core::ffi::c_void },
+            Self::Generic(index) => {
+                let name = to_ident(generics.get(*index as usize)?);
+                quote! { windows_core::AbiType<#name> }
+            }
+            Self::Vector(element) => {
+                return element.write_abi(current_namespace, generics, values);
+            }
+            Self::Named {
+                value_type: false, ..
+            } => quote! { *mut core::ffi::c_void },
+            Self::Named {
+                value_type: true,
+                namespace,
+                name,
+                arguments,
+            } if namespace == "System" && name == "Guid" && arguments.is_empty() => {
+                quote! { windows_core::GUID }
+            }
+            Self::Named {
+                value_type: true,
+                namespace,
+                name,
+                arguments,
+            } if namespace == "Windows.Foundation" && name == "HResult" && arguments.is_empty() => {
+                quote! { windows_core::HRESULT }
+            }
+            Self::Named {
+                value_type: true,
+                namespace,
+                name,
+                arguments,
+            } if namespace == "Windows.Foundation"
+                && name == "EventRegistrationToken"
+                && arguments.is_empty() =>
+            {
+                quote! { i64 }
+            }
+            Self::Named {
+                value_type: true,
+                namespace,
+                name,
+                arguments,
+            } if arguments.is_empty() => {
+                let ty = self.write(current_namespace)?;
+                match values.get(&(namespace.clone(), name.clone()))? {
+                    ValueModel::Enum(_) => ty,
+                    ValueModel::Struct(model)
+                        if model
+                            .fields
+                            .iter()
+                            .all(|field| field.ty.is_copyable(values) == Some(true)) =>
+                    {
+                        ty
+                    }
+                    ValueModel::Struct(_) => quote! { core::mem::MaybeUninit<#ty> },
+                }
+            }
+            Self::Named { .. } => return None,
+        })
+    }
+
     fn write(&self, current_namespace: &str) -> Option<TokenStream> {
         Some(match self {
             Self::Void | Self::Object | Self::Generic(_) | Self::Vector(_) => return None,
@@ -631,7 +713,7 @@ fn value_models_from_old(index: &windows_metadata::reader::Index) -> ValueModels
     result
 }
 
-fn value_models_from_new(database: &new::Database) -> ValueModels {
+pub(super) fn value_models_from_new(database: &new::Database) -> ValueModels {
     let mut result = ValueModels::new();
     for definition in database
         .definitions()

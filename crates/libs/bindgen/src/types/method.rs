@@ -8,6 +8,97 @@ pub struct Method {
     pub dependencies: TypeMap,
 }
 
+pub(crate) struct AbiParameter {
+    pub name: TokenStream,
+    pub abi: TokenStream,
+    pub input_only: bool,
+    pub array: bool,
+    pub array_ref: bool,
+    pub const_ref: bool,
+}
+
+pub(crate) enum AbiReturn {
+    Void,
+    Value(TokenStream),
+    Array(TokenStream),
+}
+
+pub(crate) fn write_abi_signature(
+    parameters: &[AbiParameter],
+    return_type: AbiReturn,
+    named: bool,
+) -> TokenStream {
+    let args = parameters.iter().map(|parameter| {
+        let name = &parameter.name;
+        let abi = &parameter.abi;
+        let size_name: TokenStream = format!("{name}_array_size").parse().unwrap();
+
+        if parameter.input_only {
+            if parameter.array {
+                if named {
+                    quote! { #size_name: u32, #name: *const #abi }
+                } else {
+                    quote! { u32, *const #abi }
+                }
+            } else if parameter.const_ref {
+                if named {
+                    quote! { #name: &#abi }
+                } else {
+                    quote! { &#abi }
+                }
+            } else if named {
+                quote! { #name: #abi }
+            } else {
+                quote! { #abi }
+            }
+        } else if parameter.array {
+            if named {
+                quote! { #size_name: u32, #name: *mut #abi }
+            } else {
+                quote! { u32, *mut #abi }
+            }
+        } else if parameter.array_ref {
+            if named {
+                quote! { #size_name: *mut u32, #name: *mut *mut #abi }
+            } else {
+                quote! { *mut u32, *mut *mut #abi }
+            }
+        } else if named {
+            quote! { #name: *mut #abi }
+        } else {
+            quote! { *mut #abi }
+        }
+    });
+
+    let return_arg = match return_type {
+        AbiReturn::Void => quote! {},
+        AbiReturn::Array(abi) => {
+            if named {
+                quote! { result_size__: *mut u32, result__: *mut *mut #abi }
+            } else {
+                quote! { *mut u32, *mut *mut #abi }
+            }
+        }
+        AbiReturn::Value(abi) => {
+            if named {
+                quote! { result__: *mut #abi }
+            } else {
+                quote! { *mut #abi }
+            }
+        }
+    };
+
+    if named {
+        quote! {
+            this: *mut core::ffi::c_void, #(#args,)* #return_arg
+        }
+    } else {
+        quote! {
+            *mut core::ffi::c_void, #(#args,)* #return_arg
+        }
+    }
+}
+
 // Package output gates methods independently from their parent interface.
 pub fn write_method_cfg(
     dependencies: &TypeMap,
@@ -271,77 +362,25 @@ impl Method {
     }
 
     pub fn write_abi(&self, config: &Config, named_params: bool) -> TokenStream {
-        let args = self.signature.params.iter().map(|param| {
-            let name = param.write_ident();
-            let abi = param.write_abi(config);
-            let abi_size_name: TokenStream = format!("{name}_array_size").parse().unwrap();
-
-            if param.is_input_only() {
-                if param.is_winrt_array() {
-                    if named_params {
-                        quote! { #abi_size_name: u32, #name: *const #abi }
-                    } else {
-                        quote! { u32, *const #abi }
-                    }
-                } else if param.is_const_ref() {
-                    if named_params {
-                        quote! { #name: &#abi }
-                    } else {
-                        quote! { &#abi }
-                    }
-                } else if named_params {
-                    quote! { #name: #abi }
-                } else {
-                    quote! { #abi }
-                }
-            } else if param.is_winrt_array() {
-                if named_params {
-                    quote! { #abi_size_name: u32, #name: *mut #abi }
-                } else {
-                    quote! { u32, *mut #abi }
-                }
-            } else if param.is_winrt_array_ref() {
-                if named_params {
-                    quote! { #abi_size_name: *mut u32, #name: *mut *mut #abi }
-                } else {
-                    quote! { *mut u32, *mut *mut #abi }
-                }
-            } else if named_params {
-                quote! { #name: *mut #abi }
-            } else {
-                quote! { *mut #abi }
-            }
-        });
-
-        let return_arg = match &self.signature.return_type {
-            Type::Void => quote! {},
-            Type::Array(ty) => {
-                let ty = ty.write_abi(config);
-                if named_params {
-                    quote! { result_size__: *mut u32, result__: *mut *mut #ty }
-                } else {
-                    quote! { *mut u32, *mut *mut #ty }
-                }
-            }
-            ty => {
-                let ty = ty.write_abi(config);
-                if named_params {
-                    quote! { result__: *mut #ty }
-                } else {
-                    quote! { *mut #ty }
-                }
-            }
+        let parameters: Vec<_> = self
+            .signature
+            .params
+            .iter()
+            .map(|param| AbiParameter {
+                name: param.write_ident(),
+                abi: param.write_abi(config),
+                input_only: param.is_input_only(),
+                array: param.is_winrt_array(),
+                array_ref: param.is_winrt_array_ref(),
+                const_ref: param.is_const_ref(),
+            })
+            .collect();
+        let return_type = match &self.signature.return_type {
+            Type::Void => AbiReturn::Void,
+            Type::Array(ty) => AbiReturn::Array(ty.write_abi(config)),
+            ty => AbiReturn::Value(ty.write_abi(config)),
         };
-
-        if named_params {
-            quote! {
-                this: *mut core::ffi::c_void, #(#args,)* #return_arg
-            }
-        } else {
-            quote! {
-                *mut core::ffi::c_void, #(#args,)* #return_arg
-            }
-        }
+        write_abi_signature(&parameters, return_type, named_params)
     }
 
     pub fn write(

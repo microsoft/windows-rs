@@ -242,6 +242,56 @@ impl MethodModel {
             })
             .collect()
     }
+
+    fn write_abi(
+        &self,
+        namespace: &str,
+        generics: &[GenericParameterModel],
+        values: &value_model::ValueModels,
+    ) -> Option<TokenStream> {
+        let generic_names: Vec<_> = generics
+            .iter()
+            .map(|generic| generic.name.clone())
+            .collect();
+        let parameters = self
+            .parameters
+            .iter()
+            .enumerate()
+            .map(|(position, (ty, parameter))| {
+                let parameter = ProjectedParameter {
+                    name: parameter.as_ref().map_or_else(
+                        || format!("p{position}"),
+                        |parameter| parameter.name.clone(),
+                    ),
+                    input_only: parameter.as_ref().is_none_or(ParameterModel::input_only),
+                };
+                let name = to_ident(&parameter.name.to_lowercase());
+                let abi = ty.write_abi(namespace, &generic_names, values)?;
+                Some(AbiParameter {
+                    name,
+                    abi,
+                    input_only: parameter.input_only,
+                    array: matches!(ty, value_model::ModelType::Vector(_)),
+                    array_ref: false,
+                    const_ref: false,
+                })
+            })
+            .collect::<Option<Vec<_>>>()?;
+
+        let return_type = match &self.return_type {
+            value_model::ModelType::Void => AbiReturn::Void,
+            value_model::ModelType::Vector(element) => {
+                let abi = element.write_abi(namespace, &generic_names, values)?;
+                AbiReturn::Array(abi)
+            }
+            ty => {
+                let abi = ty.write_abi(namespace, &generic_names, values)?;
+                AbiReturn::Value(abi)
+            }
+        };
+
+        Some(write_abi_signature(&parameters, return_type, true))
+    }
 }
 
 fn old_shapes(ty: &windows_metadata::Type, shapes: &mut BTreeSet<&'static str>) {
@@ -585,6 +635,73 @@ fn delegate_definitions_match() {
                 assert_eq!(
                     model.write_definition(&config).to_string(),
                     delegate.write_definition(&config).to_string(),
+                    "{}.{}",
+                    namespace,
+                    delegate.def.name()
+                );
+                matched += 1;
+            }
+        }
+    }
+    assert_eq!(matched, models.len());
+}
+
+#[test]
+fn delegate_abi_signatures_match() {
+    let database = new::Database::new([new::Image::new(windows_default::WINRT).unwrap()]).unwrap();
+    let values = value_model::value_models_from_new(&database);
+    let models: BTreeMap<_, _> = database
+        .definitions()
+        .filter(|definition| definition.category().unwrap() == new::TypeCategory::Delegate)
+        .map(|definition| {
+            let model = DelegateModel::from_new(&database, definition).unwrap();
+            ((model.namespace.clone(), model.name.clone()), model)
+        })
+        .collect();
+
+    let reader = Reader::new(vec![File::new(windows_default::WINRT.to_vec()).unwrap()]);
+    let bindgen = Bindgen::default();
+    let types = TypeMap::new();
+    let references = References::default();
+    let filter = Filter::default();
+    let derive = Derive::new(&reader, &types, &[]);
+    let event_only_delegates = HashSet::new();
+    let mut matched = 0;
+    for (namespace, namespace_types) in reader.iter() {
+        for items in namespace_types.values() {
+            for item in items {
+                let Type::Delegate(delegate) = item else {
+                    continue;
+                };
+                let config = Config {
+                    bindgen: &bindgen,
+                    reader: &reader,
+                    types: &types,
+                    references: &references,
+                    filter: &filter,
+                    implement: None,
+                    derive: &derive,
+                    link: "windows_core",
+                    namespace,
+                    event_only_delegates: &event_only_delegates,
+                    self_ty: None,
+                    self_generics: Vec::new(),
+                    prunable: std::sync::Arc::new(BTreeSet::new()),
+                };
+                let model = &models[&(
+                    namespace.to_string(),
+                    windows_metadata::trim_tick(delegate.def.name()).to_string(),
+                )];
+                assert_eq!(
+                    model
+                        .invoke
+                        .write_abi(namespace, &model.generics, &values)
+                        .unwrap()
+                        .to_string(),
+                    delegate
+                        .method(&reader)
+                        .write_abi(&config, true)
+                        .to_string(),
                     "{}.{}",
                     namespace,
                     delegate.def.name()

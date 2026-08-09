@@ -291,3 +291,14 @@ The helper intentionally accepts rendering inputs rather than metadata rows or `
 keeps it reusable without turning the production renderer into a metadata2 adapter. The next slice
 is the callable signature used by the vtable and public `Invoke`. Stop and split it further if
 matching that slice requires copying `Method::write`, `write_abi`, or upcall generation.
+
+The ABI vtable signature now matches for every WinRT delegate. Its first prototype copied the
+array, direction, and return-parameter branches from `Method::write_abi`; review rejected that
+duplication. Those branches now live in one metadata-neutral `write_abi_signature` helper.
+Production supplies ABI tokens from the existing `Type` model, while metadata2 supplies equivalent
+tokens from `ModelType` and the value map.
+
+`ModelType` gained only the ABI operations required by the delegate corpus: primitive values,
+strings and object references, generic ABI types, vectors, projected system value types, named
+interfaces, enums, and copyable/non-copyable structs. The next slice is the public callable
+signature. Upcall bodies and method execution policy remain outside the migration model.
