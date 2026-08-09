@@ -46,20 +46,40 @@ includes primitive and named types, const and mutable pointers, symbol aliases, 
 calling conventions, and variadic declarations. Focused no-parameter and const-pointer functions
 match existing flat sys tokens.
 
-Of the constants, 65,345 lower directly, including primitive, pointer-sized, UTF-16, and ANSI
-string values. Focused primitive and string constants match existing flat sys tokens. The remaining
-constant inventory is exact:
+All 83,641 constants now lower and render. The implementation supports primitive and pointer-sized
+values, UTF-16 and ANSI strings, boolean coercion, native typedef and enum chains, direct GUIDs,
+and GUID-backed property keys. Only 75 named types account for the typed constant corpus, so alias
+chains are resolved while lowering one constant and then discarded. There is no global native type
+graph.
 
-| Shape | Count |
-| --- | ---: |
-| Native typedef conversion | 15,040 |
-| Special field without a Constant row | 3,256 |
+Selection, native types, constants, and functions are separate modules. The corpus test lowers and
+renders every selected constant and function, so an unsupported shape cannot disappear from
+output. Focused primitive, string, typedef, GUID, no-parameter, and const-pointer fixtures match
+the corresponding flat sys tokens.
 
-Selection, native types, constants, and functions are separate modules. Unsupported constant
-shapes return errors and are counted by a corpus test rather than disappearing from output.
+## Critical assessment
+
+The direction remains better than the current generator, but it is not yet a replacement:
+
+- bindgen2 is about 2,000 source lines versus about 12,800 in bindgen, but it does not yet include
+  interfaces, classes, native type definitions, filters, closure, module output, or packages;
+- metadata2 owns data, uses checked typed identities, and avoids the leaked reader, but its source
+  is already close to the old metadata crate's raw line count because parsing and differential
+  tests are extensive;
+- the measured retained indexes remain small: metadata2 has exact type-name lookup, the WinRT value
+  graph exists only for recursive value semantics, and Win32 selection stores typed entities
+  grouped by one namespace string;
+- WinRT and native type models intentionally remain separate because their projection and ABI
+  rules differ. Unifying them now would recreate the broad old `Type` enum;
+- `image.rs` and `semantic.rs` are the main metadata2 growth risks. New relationships should be
+  split by concern rather than extending one semantic module indefinitely.
+
+The current advantage is clearer ownership and policy boundaries, explicit unsupported-shape
+accounting, and complete corpus tests for implemented slices. Full output equivalence is still the
+standard required before claiming the replacement is objectively better overall.
 
 ## Next checkpoint
 
-Model native typedef identity and underlying types so typed constants can be rendered without
-pulling in the old `CppStruct` graph. Inventory the 3,256 special constants before deciding whether
-GUID/property-key constants belong in the same layer.
+Add native type definition output and a streaming iterator over selected Win32 items. Do not add a
+second name index: use metadata2 lookup for closure and retain only the selected entities required
+by output. Split metadata2 semantic views by concern before adding many more relationships.

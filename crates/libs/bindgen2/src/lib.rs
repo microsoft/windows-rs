@@ -320,7 +320,11 @@ mod tests {
 
         let constant_expected: TokenStream = "pub const A_U8: u8 = 255;".parse().unwrap();
         assert_eq!(
-            items.constant("Test", "A_U8").unwrap().write().to_string(),
+            items
+                .constant("Test", "A_U8")
+                .unwrap()
+                .write_sys()
+                .to_string(),
             constant_expected.to_string()
         );
 
@@ -332,7 +336,7 @@ mod tests {
             items
                 .function("Test", "SysFunction")
                 .unwrap()
-                .write()
+                .write_sys()
                 .to_string(),
             function_expected.to_string()
         );
@@ -360,7 +364,7 @@ mod tests {
             pointer_items
                 .function("Test", "SysFlatFunction")
                 .unwrap()
-                .write()
+                .write_sys()
                 .to_string(),
             pointer_expected.to_string()
         );
@@ -372,9 +376,65 @@ mod tests {
             pointer_items
                 .constant("Test", "GREETING")
                 .unwrap()
-                .write()
+                .write_sys()
                 .to_string(),
             string_expected.to_string()
+        );
+
+        let alias_generator = fixture(
+            r#"
+                #[win32]
+                mod Test {
+                    type MyI32 = i32;
+                    type MyU64 = u64;
+                    const I_TYPED: MyI32 = 42;
+                    const J_TYPED: MyU64 = 999;
+                }
+            "#,
+        );
+        let alias_items = alias_generator.win32_items().unwrap();
+        let signed_expected: TokenStream =
+            "pub const I_TYPED: MyI32 = 0x2A_u32 as _;".parse().unwrap();
+        assert_eq!(
+            alias_items
+                .constant("Test", "I_TYPED")
+                .unwrap()
+                .write_sys()
+                .to_string(),
+            signed_expected.to_string()
+        );
+        let unsigned_expected: TokenStream = "pub const J_TYPED: MyU64 = 999;".parse().unwrap();
+        assert_eq!(
+            alias_items
+                .constant("Test", "J_TYPED")
+                .unwrap()
+                .write_sys()
+                .to_string(),
+            unsigned_expected.to_string()
+        );
+
+        let guid_generator = fixture(
+            r#"
+                #[win32]
+                mod Test {
+                    const IID_INTERFACE: GUID =
+                        0x00000000_0000_0000_c000_000000000046;
+                }
+            "#,
+        );
+        let guid_items = guid_generator.win32_items().unwrap();
+        let guid_expected: TokenStream = "pub const IID_INTERFACE: windows_sys::core::GUID = \
+             windows_sys::core::GUID::from_u128(\
+             0x00000000_0000_0000_c000_000000000046);"
+            .parse()
+            .unwrap();
+        assert_eq!(
+            guid_items
+                .constant("Test", "IID_INTERFACE")
+                .unwrap()
+                .write_sys()
+                .to_string(),
+            guid_expected.to_string()
         );
     }
 }

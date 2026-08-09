@@ -70,7 +70,7 @@ impl Function {
     }
 
     /// Renders a flat Win32 `windows_link::link!` declaration.
-    pub fn write(&self) -> TokenStream {
+    pub fn write_sys(&self) -> TokenStream {
         let module = &self.module;
         let abi = self.abi;
         let symbol = self.import_name.as_ref().map(|name| quote! { #name });

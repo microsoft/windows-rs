@@ -36,6 +36,23 @@ impl Guid {
         let Some(attribute) = definition.find_attribute("GuidAttribute")? else {
             return Ok(None);
         };
+        Self::from_attribute(attribute, owner).map(Some)
+    }
+
+    pub(super) fn from_field(
+        field: windows_metadata2::FieldDefinition<'_>,
+        owner: &str,
+    ) -> Result<Option<Self>, Error> {
+        let Some(attribute) = field.find_attribute("GuidAttribute")? else {
+            return Ok(None);
+        };
+        Self::from_attribute(attribute, owner).map(Some)
+    }
+
+    fn from_attribute(
+        attribute: windows_metadata2::AttributeDefinition<'_>,
+        owner: &str,
+    ) -> Result<Self, Error> {
         let arguments = attribute.arguments(&())?;
         let values = arguments
             .iter()
@@ -66,7 +83,7 @@ impl Guid {
                 message: "GuidAttribute does not have 11 arguments",
             });
         };
-        Ok(Some(Self {
+        Ok(Self {
             data1: u32_value(data1, owner)?,
             data2: u16_value(data2, owner)?,
             data3: u16_value(data3, owner)?,
@@ -80,7 +97,26 @@ impl Guid {
                 u8_value(data10, owner)?,
                 u8_value(data11, owner)?,
             ],
-        }))
+        })
+    }
+
+    pub(super) fn write_u128(self) -> proc_macro2::TokenStream {
+        format!(
+            "0x{:08x}_{:04x}_{:04x}_{:02x}{:02x}_{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}",
+            self.data1,
+            self.data2,
+            self.data3,
+            self.data4[0],
+            self.data4[1],
+            self.data4[2],
+            self.data4[3],
+            self.data4[4],
+            self.data4[5],
+            self.data4[6],
+            self.data4[7],
+        )
+        .parse()
+        .unwrap()
     }
 }
 

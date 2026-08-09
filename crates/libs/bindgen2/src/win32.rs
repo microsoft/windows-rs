@@ -182,27 +182,27 @@ mod tests {
             for entity in &namespace.constants {
                 let field = database.field(*entity).unwrap();
                 match Constant::lower(&database, field, &namespace.name, field.name().unwrap()) {
-                    Ok(_) => supported[0] += 1,
+                    Ok(constant) => {
+                        constant.write_sys();
+                        supported[0] += 1;
+                    }
                     Err(error) => *unsupported.entry(classify(error)).or_default() += 1,
                 }
             }
             for entity in &namespace.functions {
                 let method = database.method(*entity).unwrap();
                 match Function::lower(&database, method, &namespace.name, method.name().unwrap()) {
-                    Ok(_) => supported[1] += 1,
+                    Ok(function) => {
+                        function.write_sys();
+                        supported[1] += 1;
+                    }
                     Err(error) => *unsupported.entry(classify(error)).or_default() += 1,
                 }
             }
         }
 
-        assert_eq!(supported, [65_345, 14_559]);
-        assert_eq!(
-            unsupported,
-            BTreeMap::from([
-                ("constant field has no Constant row".to_string(), 3_256),
-                ("typed constant".to_string(), 15_040),
-            ])
-        );
+        assert_eq!(supported, [83_641, 14_559]);
+        assert!(unsupported.is_empty(), "{unsupported:#?}");
     }
 
     fn classify(error: Error) -> String {

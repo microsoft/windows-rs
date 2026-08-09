@@ -380,6 +380,12 @@ match existing golden tokens.
 
 The first Win32 checkpoint added checked `MethodDef -> ImplMap -> ModuleRef` semantic views and
 field custom-attribute views. Import names, modules, and flags match the existing reader across the
-committed Win32 metadata. Bindgen2 now lowers every selected Win32 function and 65,345 directly
-typed constants. The remaining constant work is native typedef conversion and special constants
-without Constant rows.
+committed Win32 metadata. Bindgen2 now lowers and renders every selected Win32 function and
+constant. Native typedef chains are resolved per constant rather than stored in a global graph, and
+GUID-backed constants use the same checked attribute decoding as parameterized WinRT signatures.
+
+Raw source size needs continued review. Metadata2 is already near the old metadata crate's line
+count even though it does not have writing or merging. Much of that difference is checked parsing
+and in-crate differential testing, and the implementation uses fewer concepts and files, but line
+count is no longer evidence of simplicity by itself. `image.rs` and `semantic.rs` should be split
+by concern before they accumulate more unrelated behavior.

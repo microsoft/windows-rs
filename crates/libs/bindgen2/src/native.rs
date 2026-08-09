@@ -1,5 +1,6 @@
 use super::*;
 use quote::quote;
+use std::collections::BTreeSet;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(super) enum Type {
@@ -153,4 +154,122 @@ impl Type {
                 | (Self::String, ConstantValue::String(_))
         )
     }
+
+    pub(super) fn constant_underlying(
+        database: &Database,
+        file: FileId,
+        owner: &str,
+        ty: &windows_metadata2::Type,
+    ) -> Result<Option<Self>, Error> {
+        let mut stack = BTreeSet::new();
+        Self::constant_underlying_inner(database, file, owner, ty, &mut stack)
+    }
+
+    fn constant_underlying_inner(
+        database: &Database,
+        file: FileId,
+        owner: &str,
+        ty: &windows_metadata2::Type,
+        stack: &mut BTreeSet<Entity<TypeDef>>,
+    ) -> Result<Option<Self>, Error> {
+        let (TypeKind::Value(id) | TypeKind::Class(id)) = &ty.kind else {
+            return Ok(Some(Self::lower(database, file, owner, ty.clone())?));
+        };
+        let Some((namespace, name)) = database.type_name(file, *id)? else {
+            return Err(Error::InvalidValue {
+                name: owner.to_string(),
+                message: "constant type has no name",
+            });
+        };
+        let definitions = database.type_definitions(namespace, name);
+        if definitions.len() != 1 {
+            return Err(Error::InvalidValue {
+                name: owner.to_string(),
+                message: "constant type does not have one definition",
+            });
+        }
+        let entity = definitions[0];
+        if !stack.insert(entity) {
+            return Err(Error::RecursiveValue(format!("{namespace}.{name}")));
+        }
+        let definition = database.definition(entity).unwrap();
+        let result = match definition.category()? {
+            TypeCategory::Enum => {
+                let mut underlying = None;
+                for field in definition.fields()? {
+                    if !field.is_literal()? && underlying.replace(field.signature()?).is_some() {
+                        return Err(Error::InvalidValue {
+                            name: owner.to_string(),
+                            message: "native enum has more than one backing field",
+                        });
+                    }
+                }
+                let underlying = underlying.ok_or_else(|| Error::InvalidValue {
+                    name: owner.to_string(),
+                    message: "native enum has no backing field",
+                })?;
+                Self::constant_underlying_inner(database, entity.file(), owner, &underlying, stack)
+            }
+            TypeCategory::Struct if definition.has_attribute("NativeTypedefAttribute")? => {
+                let fields = definition.fields()?.collect::<Vec<_>>();
+                if fields.len() != 1 {
+                    return Err(Error::InvalidValue {
+                        name: owner.to_string(),
+                        message: "native typedef does not have one field",
+                    });
+                }
+                Self::constant_underlying_inner(
+                    database,
+                    entity.file(),
+                    owner,
+                    &fields[0].signature()?,
+                    stack,
+                )
+            }
+            _ => Ok(None),
+        };
+        stack.remove(&entity);
+        result
+    }
+
+    pub(super) fn accepts_converted(&self, value: &ConstantValue) -> bool {
+        if self.matches(value) {
+            return true;
+        }
+        match self {
+            Self::Boolean => matches!(value, ConstantValue::U8(0 | 1)),
+            Self::Pointer { .. } => integer(value),
+            Self::I8
+            | Self::U8
+            | Self::I16
+            | Self::U16
+            | Self::I32
+            | Self::U32
+            | Self::I64
+            | Self::U64
+            | Self::ISize
+            | Self::USize => integer(value),
+            _ => false,
+        }
+    }
+
+    pub(super) fn signed_i32(&self) -> bool {
+        matches!(self, Self::I32)
+    }
+}
+
+fn integer(value: &ConstantValue) -> bool {
+    matches!(
+        value,
+        ConstantValue::I8(_)
+            | ConstantValue::U8(_)
+            | ConstantValue::I16(_)
+            | ConstantValue::U16(_)
+            | ConstantValue::I32(_)
+            | ConstantValue::U32(_)
+            | ConstantValue::I64(_)
+            | ConstantValue::U64(_)
+            | ConstantValue::ISize(_)
+            | ConstantValue::USize(_)
+    )
 }
