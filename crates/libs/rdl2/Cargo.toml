@@ -1,0 +1,20 @@
+[package]
+name = "windows-rdl2"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.95"
+publish = false
+license = "MIT OR Apache-2.0"
+description = "Incubating RDL metadata authoring frontend"
+repository = "https://github.com/microsoft/windows-rs"
+readme = "readme.md"
+
+[dependencies]
+windows-metadata2 = { path = "../metadata2" }
+
+[dev-dependencies]
+windows-metadata = { workspace = true }
+windows-rdl = { workspace = true }
+
+[lints]
+workspace = true

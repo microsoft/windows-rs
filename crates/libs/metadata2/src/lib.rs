@@ -5,6 +5,8 @@ use std::collections::*;
 
 mod attribute;
 mod blob;
+mod builder;
+mod builder_image;
 mod database;
 mod error;
 mod heap;
@@ -17,6 +19,7 @@ mod signature;
 
 pub use attribute::*;
 pub use blob::*;
+pub use builder::*;
 pub use database::*;
 pub use error::*;
 pub use heap::*;

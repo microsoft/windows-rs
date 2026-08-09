@@ -1,7 +1,7 @@
 use super::*;
 
 const CALL_CONVENTION_MASK: u8 = 0x0f;
-const CALL_CONVENTION_FIELD: u8 = 0x06;
+pub(crate) const CALL_CONVENTION_FIELD: u8 = 0x06;
 const CALL_CONVENTION_LOCAL: u8 = 0x07;
 const CALL_CONVENTION_PROPERTY: u8 = 0x08;
 const CALL_CONVENTION_GENERIC_INSTANCE: u8 = 0x0a;
@@ -23,7 +23,7 @@ pub(crate) const TYPE_F64: u8 = 0x0d;
 pub(crate) const TYPE_STRING: u8 = 0x0e;
 const TYPE_POINTER: u8 = 0x0f;
 const TYPE_BY_REF: u8 = 0x10;
-const TYPE_VALUE: u8 = 0x11;
+pub(crate) const TYPE_VALUE: u8 = 0x11;
 pub(crate) const TYPE_CLASS: u8 = 0x12;
 const TYPE_GENERIC_TYPE: u8 = 0x13;
 const TYPE_ARRAY: u8 = 0x14;

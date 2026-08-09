@@ -12,7 +12,7 @@ row-width calculation.
 Current exclusions are intentional:
 
 - higher-level semantic table wrappers;
-- metadata construction and serialization;
+- general metadata construction and serialization beyond the bounded authoring proof;
 - common, Win32, and WinRT validation;
 - architecture merging and namespace remapping;
 - `windows-bindgen` and `windows-rdl` integration.
@@ -44,7 +44,8 @@ existing implementation. The crate remains unpublished until both `windows-bindg
 | Custom-attribute values | Done | Constructor-directed fixed and named arguments decode without losing serialized types. |
 | `windows-bindgen` proof | Done | Owned selection and representative output proved the metadata2 boundary. |
 | `windows-bindgen2` foundation | Recommended next | A new engine matches old output without old row lifetimes. |
-| Deterministic metadata builder | Planned | Finalization returns a queryable image and stable row remapping. |
+| Deterministic metadata builder | Started | Bounded enum/struct images are accepted by both readers. |
+| `windows-rdl2` authoring proof | Started | A separate source model emits through metadata2. |
 | `windows-rdl` builder adapter | Planned | WinRT, Win32, and WDK output remains equivalent. |
 | Common and Windows validation | Planned | Existing validation corpus passes through explicit profiles. |
 | Merge and namespace remap | Planned | Transformations use one lossless copier outside the core image. |
@@ -107,6 +108,46 @@ including architecture variants. Exact raw TypeDef name multiplicities match the
 across WinRT and Win32. TypeRef resolution returns all candidates rather than selecting the first.
 Assembly-scope narrowing and nested TypeRef resolution remain future resolution layers; callers
 can see ambiguity explicitly in the meantime.
+
+The first authoring checkpoint adds a bounded writer rather than porting the old mutable metadata
+file object. Typed build identities distinguish definitions and references. A type-definition
+callback owns field creation as one ordered operation, so callers cannot interleave field lists.
+Failed callbacks roll back type, field, and constant rows. String and blob heaps are deduplicated,
+constants are sorted by parent, and PE/CLI container emission is isolated from table construction.
+
+`windows-rdl2` provides the second consumer. Its programmatic `Document` and `Module` model emits a
+primitive enum and struct through metadata2. Both metadata2 and the existing reader accept the
+image. The existing RDL compiler builds the same fixture, and the test compares normalized type
+categories, flags, field lists, signatures, and enum values. The only raw encoding difference is a
+direct `TypeDef` enum self-reference instead of the old writer's same-module `TypeRef`; both resolve
+to the same type identity.
+
+This is not yet evidence that the complete writer will be smaller. The table/heaps builder is about
+500 lines and the PE/CLI container is about 135 lines while supporting only seven tables and
+16-bit indexes. That cost is acceptable for the proof but must be reviewed before adding methods,
+attributes, or parser compatibility. The next slice should add named value-type fields and a
+cross-definition fixture, not begin a general parser.
+
+## Consumer overlap review
+
+The first bindgen2/RDL2 comparison separates missing metadata support from valid consumer policy:
+
+| Overlap | Decision |
+| --- | --- |
+| Constant encoding | Share in metadata2. Done. |
+| Type and field flags | Add typed metadata2 flags. |
+| Primitive type lists | Review after named fields. |
+| Definition identities | Strengthen metadata2 authoring. |
+| Name indexes | Keep consumer-specific. |
+| Errors and rendering | Keep consumer-specific. |
+
+The stable-definition issue is the next design checkpoint. The current callback preserves field
+ordering but cannot naturally express forward references. Fix that in metadata2 before adding named
+RDL2 fields, rather than hiding it behind RDL2 strings or a consumer-side patch table.
+
+Primitive overlap alone does not justify merging bindgen2's ABI/output types with RDL2's source
+types. Name lookup also serves different policies in each consumer. Typed ECMA flags and stable
+build identities are the shared metadata mechanisms worth adding next.
 
 The custom-attribute decoder preserves fixed and named argument types, field/property tags, null
 strings, boxed values, arrays, `System.Type` names, and enum identities. Enum values use the
