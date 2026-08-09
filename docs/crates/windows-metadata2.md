@@ -210,3 +210,10 @@ Models populated from metadata2 exactly render more than 120 of the 123 WinRT st
 the existing bindgen reader. The remaining gap is the generic `IReference<u64>` class field. Do not
 add the interface graph merely to close that gap; first decide whether production rendering should
 consume this owned value map.
+
+The same owned map now carries enum backing types and literal constants. Metadata2 models render
+more than 1,000 projected WinRT enums exactly, including runtime signatures and the `u32` flag
+operators. The test prototype is named `value_model` rather than `struct_model` because enums and
+recursive struct semantics share the same small boundary. Constants remain integer-only in this
+model because ECMA enums cannot use the other constant forms. Stable bindgen policy such as the
+flag-operator renderer is reused rather than copied into the metadata migration layer.

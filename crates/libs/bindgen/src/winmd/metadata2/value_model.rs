@@ -15,11 +15,39 @@ struct StructFieldModel {
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 enum ValueModel {
-    Enum(StructFieldType),
+    Enum(EnumModel),
     Struct(StructModel),
 }
 
 type ValueModels = BTreeMap<(String, String), ValueModel>;
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+struct EnumModel {
+    namespace: String,
+    name: String,
+    underlying: StructFieldType,
+    fields: Vec<EnumFieldModel>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+struct EnumFieldModel {
+    name: String,
+    value: IntegerValue,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum IntegerValue {
+    I8(i8),
+    U8(u8),
+    I16(i16),
+    U16(u16),
+    I32(i32),
+    U32(u32),
+    I64(i64),
+    U64(u64),
+    ISize(i64),
+    USize(u64),
+}
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 enum StructFieldType {
@@ -146,6 +174,145 @@ impl StructModel {
         }
         signature.push(')');
         Some(signature)
+    }
+}
+
+impl EnumModel {
+    fn from_old(definition: windows_metadata::reader::TypeDef<'_>) -> Option<Self> {
+        Some(Self {
+            namespace: definition.namespace().to_string(),
+            name: definition.name().to_string(),
+            underlying: StructFieldType::from_old(definition.underlying_type()?)?,
+            fields: definition
+                .fields()
+                .filter(|field| field.flags().contains(FieldAttributes::Literal))
+                .map(|field| {
+                    Some(EnumFieldModel {
+                        name: field.name().to_string(),
+                        value: IntegerValue::from_old(field.constant()?.value())?,
+                    })
+                })
+                .collect::<Option<_>>()?,
+        })
+    }
+
+    fn from_new(database: &new::Database, definition: new::TypeDefinition<'_>) -> Option<Self> {
+        let file = definition.entity().file();
+        let mut underlying = None;
+        let mut fields = Vec::new();
+        for field in definition.fields().ok()? {
+            if field.flags().ok()? & 0x40 != 0 {
+                fields.push(EnumFieldModel {
+                    name: field.name().ok()?.to_string(),
+                    value: IntegerValue::from_new(field.constant().ok()??.value().ok()?)?,
+                });
+            } else if field.constant().ok()?.is_none() {
+                underlying =
+                    StructFieldType::from_new(database, file, field.signature().ok()?.kind);
+            }
+        }
+        Some(Self {
+            namespace: definition.namespace().ok()?.to_string(),
+            name: definition.name().ok()?.to_string(),
+            underlying: underlying?,
+            fields,
+        })
+    }
+
+    fn write(&self, values: &ValueModels) -> Option<TokenStream> {
+        let name = to_ident(&self.name);
+        let underlying = self.underlying.write(&self.namespace)?;
+        let fields = self.fields.iter().map(|field| {
+            let field_name = to_ident(&field.name);
+            let value = field.value.write();
+            quote! { pub const #field_name: Self = Self(#value); }
+        });
+        let fields = if self.fields.is_empty() {
+            quote! {}
+        } else {
+            quote! { impl #name { #(#fields)* } }
+        };
+        let flags = if self.underlying == StructFieldType::U32 {
+            write_enum_flags(&name)
+        } else {
+            quote! {}
+        };
+        let signature = Literal::byte_string(
+            format!(
+                "enum({}.{};{})",
+                self.namespace,
+                self.name,
+                self.underlying.runtime_signature(values)?
+            )
+            .as_bytes(),
+        );
+        let runtime_name =
+            Literal::byte_string(format!("{}.{}", self.namespace, self.name).as_bytes());
+
+        Some(quote! {
+            #[repr(transparent)]
+            #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+            pub struct #name(pub #underlying);
+            #fields
+            impl windows_core::TypeKind for #name {
+                type TypeKind = windows_core::CopyType;
+            }
+            impl windows_core::RuntimeType for #name {
+                const SIGNATURE: windows_core::imp::ConstBuffer =
+                    windows_core::imp::ConstBuffer::from_slice(#signature);
+                const NAME: windows_core::imp::ConstBuffer =
+                    windows_core::imp::ConstBuffer::from_slice(#runtime_name);
+            }
+            #flags
+        })
+    }
+}
+
+impl IntegerValue {
+    fn from_old(value: Value) -> Option<Self> {
+        Some(match value {
+            Value::I8(value) => Self::I8(value),
+            Value::U8(value) => Self::U8(value),
+            Value::I16(value) => Self::I16(value),
+            Value::U16(value) => Self::U16(value),
+            Value::I32(value) => Self::I32(value),
+            Value::U32(value) => Self::U32(value),
+            Value::I64(value) => Self::I64(value),
+            Value::U64(value) => Self::U64(value),
+            Value::ISize(value) => Self::ISize(value),
+            Value::USize(value) => Self::USize(value),
+            _ => return None,
+        })
+    }
+
+    fn from_new(value: new::ConstantValue) -> Option<Self> {
+        Some(match value {
+            new::ConstantValue::I8(value) => Self::I8(value),
+            new::ConstantValue::U8(value) => Self::U8(value),
+            new::ConstantValue::I16(value) => Self::I16(value),
+            new::ConstantValue::U16(value) => Self::U16(value),
+            new::ConstantValue::I32(value) => Self::I32(value),
+            new::ConstantValue::U32(value) => Self::U32(value),
+            new::ConstantValue::I64(value) => Self::I64(value),
+            new::ConstantValue::U64(value) => Self::U64(value),
+            new::ConstantValue::ISize(value) => Self::ISize(value),
+            new::ConstantValue::USize(value) => Self::USize(value),
+            _ => return None,
+        })
+    }
+
+    fn write(self) -> TokenStream {
+        let value = match self {
+            Self::I8(value) => Literal::i8_unsuffixed(value),
+            Self::U8(value) => Literal::u8_unsuffixed(value),
+            Self::I16(value) => Literal::i16_unsuffixed(value),
+            Self::U16(value) => Literal::u16_unsuffixed(value),
+            Self::I32(value) => Literal::i32_unsuffixed(value),
+            Self::U32(value) => Literal::u32_unsuffixed(value),
+            Self::I64(value) | Self::ISize(value) => Literal::i64_unsuffixed(value),
+            Self::U64(value) | Self::USize(value) => Literal::u64_unsuffixed(value),
+        };
+        quote! { #value }
     }
 }
 
@@ -316,9 +483,9 @@ impl StructFieldType {
                     arguments,
                 } if arguments.is_empty() => {
                     return match values.get(&(namespace.clone(), name.clone()))? {
-                        ValueModel::Enum(underlying) => Some(format!(
+                        ValueModel::Enum(model) => Some(format!(
                             "enum({namespace}.{name};{})",
-                            underlying.runtime_signature(values)?
+                            model.underlying.runtime_signature(values)?
                         )),
                         ValueModel::Struct(model) => model.runtime_signature(values),
                     };
@@ -415,7 +582,7 @@ fn value_models_from_old(index: &windows_metadata::reader::Index) -> ValueModels
         .filter_map(|(namespace, name, definition)| {
             let model = match definition.category() {
                 windows_metadata::reader::TypeCategory::Enum => {
-                    ValueModel::Enum(StructFieldType::from_old(definition.underlying_type()?)?)
+                    ValueModel::Enum(EnumModel::from_old(definition)?)
                 }
                 windows_metadata::reader::TypeCategory::Struct => {
                     ValueModel::Struct(StructModel::from_old(definition)?)
@@ -435,21 +602,9 @@ fn value_models_from_new(database: &new::Database) -> ValueModels {
             let namespace = definition.namespace().ok()?.to_string();
             let name = definition.name().ok()?.to_string();
             let model = match definition.category().ok()? {
-                new::TypeCategory::Enum => ValueModel::Enum(
-                    definition
-                        .fields()
-                        .ok()?
-                        .find_map(|field| {
-                            if field.constant().ok()?.is_none() {
-                                Some(field.signature().ok()?.kind)
-                            } else {
-                                None
-                            }
-                        })
-                        .and_then(|ty| {
-                            StructFieldType::from_new(database, definition.entity().file(), ty)
-                        })?,
-                ),
+                new::TypeCategory::Enum => {
+                    ValueModel::Enum(EnumModel::from_new(database, definition)?)
+                }
                 new::TypeCategory::Struct => {
                     ValueModel::Struct(StructModel::from_new(database, definition)?)
                 }
@@ -461,7 +616,7 @@ fn value_models_from_new(database: &new::Database) -> ValueModels {
 }
 
 #[test]
-fn struct_value_models_and_output_match() {
+fn value_models_and_output_match() {
     let old = windows_metadata::reader::Index::new(vec![
         File::new(windows_default::WINRT.to_vec()).unwrap(),
         File::new(windows_default::WIN32.to_vec()).unwrap(),
@@ -574,4 +729,44 @@ fn struct_value_models_and_output_match() {
         rendered > 120 && total > 100,
         "only rendered {rendered} of {total} WinRT structs"
     );
+
+    let mut rendered = 0;
+    for (namespace, namespace_types) in reader.iter() {
+        for items in namespace_types.values() {
+            for item in items {
+                let Type::Enum(item) = item else {
+                    continue;
+                };
+                let Some(ValueModel::Enum(model)) =
+                    new_values.get(&(namespace.to_string(), item.def.name().to_string()))
+                else {
+                    continue;
+                };
+                let config = Config {
+                    bindgen: &bindgen,
+                    reader: &reader,
+                    types: &types,
+                    references: &references,
+                    filter: &filter,
+                    implement: None,
+                    derive: &derive,
+                    link: "windows_core",
+                    namespace,
+                    event_only_delegates: &event_only_delegates,
+                    self_ty: None,
+                    self_generics: Vec::new(),
+                    prunable: std::sync::Arc::new(BTreeSet::new()),
+                };
+                assert_eq!(
+                    model.write(&new_values).unwrap().to_string(),
+                    item.write(&config).to_string(),
+                    "{}.{}",
+                    namespace,
+                    item.def.name()
+                );
+                rendered += 1;
+            }
+        }
+    }
+    assert!(rendered > 1_000, "only rendered {rendered} WinRT enums");
 }
