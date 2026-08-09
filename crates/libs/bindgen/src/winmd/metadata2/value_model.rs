@@ -10,7 +10,7 @@ struct StructModel {
 #[derive(Clone, Debug, Eq, PartialEq)]
 struct StructFieldModel {
     name: String,
-    ty: StructFieldType,
+    ty: ModelType,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -25,7 +25,7 @@ type ValueModels = BTreeMap<(String, String), ValueModel>;
 struct EnumModel {
     namespace: String,
     name: String,
-    underlying: StructFieldType,
+    underlying: ModelType,
     fields: Vec<EnumFieldModel>,
 }
 
@@ -50,7 +50,7 @@ enum IntegerValue {
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
-enum StructFieldType {
+enum ModelType {
     Boolean,
     Char,
     I8,
@@ -82,7 +82,7 @@ impl StructModel {
                 .map(|field| {
                     Some(StructFieldModel {
                         name: field.name().to_string(),
-                        ty: StructFieldType::from_old(field.ty())?,
+                        ty: ModelType::from_old(field.ty())?,
                     })
                 })
                 .collect::<Option<_>>()?,
@@ -100,11 +100,7 @@ impl StructModel {
                 .map(|field| {
                     Some(StructFieldModel {
                         name: field.name().ok()?.to_string(),
-                        ty: StructFieldType::from_new(
-                            database,
-                            file,
-                            field.signature().ok()?.kind,
-                        )?,
+                        ty: ModelType::from_new(database, file, field.signature().ok()?.kind)?,
                     })
                 })
                 .collect::<Option<_>>()?,
@@ -182,7 +178,7 @@ impl EnumModel {
         Some(Self {
             namespace: definition.namespace().to_string(),
             name: definition.name().to_string(),
-            underlying: StructFieldType::from_old(definition.underlying_type()?)?,
+            underlying: ModelType::from_old(definition.underlying_type()?)?,
             fields: definition
                 .fields()
                 .filter(|field| field.flags().contains(FieldAttributes::Literal))
@@ -201,14 +197,13 @@ impl EnumModel {
         let mut underlying = None;
         let mut fields = Vec::new();
         for field in definition.fields().ok()? {
-            if field.flags().ok()? & 0x40 != 0 {
+            if field.is_literal().ok()? {
                 fields.push(EnumFieldModel {
                     name: field.name().ok()?.to_string(),
                     value: IntegerValue::from_new(field.constant().ok()??.value().ok()?)?,
                 });
             } else if field.constant().ok()?.is_none() {
-                underlying =
-                    StructFieldType::from_new(database, file, field.signature().ok()?.kind);
+                underlying = ModelType::from_new(database, file, field.signature().ok()?.kind);
             }
         }
         Some(Self {
@@ -232,7 +227,7 @@ impl EnumModel {
         } else {
             quote! { impl #name { #(#fields)* } }
         };
-        let flags = if self.underlying == StructFieldType::U32 {
+        let flags = if self.underlying == ModelType::U32 {
             write_enum_flags(&name)
         } else {
             quote! {}
@@ -316,7 +311,7 @@ impl IntegerValue {
     }
 }
 
-impl StructFieldType {
+impl ModelType {
     fn from_old(ty: windows_metadata::Type) -> Option<Self> {
         Some(match ty {
             windows_metadata::Type::Bool => Self::Boolean,
@@ -576,43 +571,55 @@ fn write_namespace(current: &str, target: &str) -> TokenStream {
 }
 
 fn value_models_from_old(index: &windows_metadata::reader::Index) -> ValueModels {
-    index
+    let mut result = ValueModels::new();
+    for (namespace, name, definition) in index
         .iter()
         .filter(|(_, _, definition)| definition.flags().contains(TypeAttributes::WindowsRuntime))
-        .filter_map(|(namespace, name, definition)| {
-            let model = match definition.category() {
-                windows_metadata::reader::TypeCategory::Enum => {
-                    ValueModel::Enum(EnumModel::from_old(definition)?)
-                }
-                windows_metadata::reader::TypeCategory::Struct => {
-                    ValueModel::Struct(StructModel::from_old(definition)?)
-                }
-                _ => return None,
-            };
-            Some(((namespace.to_string(), name.to_string()), model))
-        })
-        .collect()
+    {
+        let model = match definition.category() {
+            windows_metadata::reader::TypeCategory::Enum => {
+                ValueModel::Enum(EnumModel::from_old(definition).unwrap())
+            }
+            windows_metadata::reader::TypeCategory::Struct => {
+                ValueModel::Struct(StructModel::from_old(definition).unwrap())
+            }
+            _ => continue,
+        };
+        assert!(
+            result
+                .insert((namespace.to_string(), name.to_string()), model)
+                .is_none(),
+            "duplicate WinRT value type {namespace}.{name}"
+        );
+    }
+    result
 }
 
 fn value_models_from_new(database: &new::Database) -> ValueModels {
-    database
+    let mut result = ValueModels::new();
+    for definition in database
         .definitions()
-        .filter(|definition| matches!(definition.is_windows_runtime(), Ok(true)))
-        .filter_map(|definition| {
-            let namespace = definition.namespace().ok()?.to_string();
-            let name = definition.name().ok()?.to_string();
-            let model = match definition.category().ok()? {
-                new::TypeCategory::Enum => {
-                    ValueModel::Enum(EnumModel::from_new(database, definition)?)
-                }
-                new::TypeCategory::Struct => {
-                    ValueModel::Struct(StructModel::from_new(database, definition)?)
-                }
-                _ => return None,
-            };
-            Some(((namespace, name), model))
-        })
-        .collect()
+        .filter(|definition| definition.is_windows_runtime().unwrap())
+    {
+        let namespace = definition.namespace().unwrap().to_string();
+        let name = definition.name().unwrap().to_string();
+        let model = match definition.category().unwrap() {
+            new::TypeCategory::Enum => {
+                ValueModel::Enum(EnumModel::from_new(database, definition).unwrap())
+            }
+            new::TypeCategory::Struct => {
+                ValueModel::Struct(StructModel::from_new(database, definition).unwrap())
+            }
+            _ => continue,
+        };
+        assert!(
+            result
+                .insert((namespace.clone(), name.clone()), model)
+                .is_none(),
+            "duplicate WinRT value type {namespace}.{name}"
+        );
+    }
+    result
 }
 
 #[test]
@@ -662,7 +669,7 @@ fn value_models_and_output_match() {
         assert_eq!(new_model, old_model);
         matched += 1;
     }
-    assert!(matched > 3_000, "only matched {matched} scalar structs");
+    assert!(matched > 3_000, "only matched {matched} supported structs");
 
     let reader = Reader::new(vec![
         File::new(windows_default::WINRT.to_vec()).unwrap(),
@@ -676,6 +683,7 @@ fn value_models_and_output_match() {
     let event_only_delegates = HashSet::new();
     let mut rendered = 0;
     let mut total = 0;
+    let mut skipped = Vec::new();
     for (namespace, namespace_types) in reader.iter() {
         for items in namespace_types.values() {
             for item in items {
@@ -684,6 +692,7 @@ fn value_models_and_output_match() {
                 };
                 total += 1;
                 let Some(old_model) = StructModel::from_old(item.def) else {
+                    skipped.push(format!("{namespace}.{}", item.def.name()));
                     continue;
                 };
                 let Some(new_model) = new
@@ -694,9 +703,13 @@ fn value_models_and_output_match() {
                             .filter(|model| model == &old_model)
                     })
                 else {
-                    continue;
+                    panic!(
+                        "metadata2 model not found for {namespace}.{}",
+                        item.def.name()
+                    );
                 };
                 let Some(model_output) = new_model.write(&new_values) else {
+                    skipped.push(format!("{namespace}.{}", item.def.name()));
                     continue;
                 };
                 let config = Config {
@@ -725,22 +738,25 @@ fn value_models_and_output_match() {
             }
         }
     }
-    assert!(
-        rendered > 120 && total > 100,
-        "only rendered {rendered} of {total} WinRT structs"
-    );
+    assert_eq!(skipped, ["Windows.Web.Http.HttpProgress"]);
+    assert_eq!(rendered + skipped.len(), total);
 
     let mut rendered = 0;
+    let mut total = 0;
     for (namespace, namespace_types) in reader.iter() {
         for items in namespace_types.values() {
             for item in items {
                 let Type::Enum(item) = item else {
                     continue;
                 };
+                total += 1;
                 let Some(ValueModel::Enum(model)) =
                     new_values.get(&(namespace.to_string(), item.def.name().to_string()))
                 else {
-                    continue;
+                    panic!(
+                        "metadata2 enum model not found for {namespace}.{}",
+                        item.def.name()
+                    );
                 };
                 let config = Config {
                     bindgen: &bindgen,
@@ -768,5 +784,5 @@ fn value_models_and_output_match() {
             }
         }
     }
-    assert!(rendered > 1_000, "only rendered {rendered} WinRT enums");
+    assert_eq!(rendered, total);
 }

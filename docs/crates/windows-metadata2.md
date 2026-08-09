@@ -42,7 +42,7 @@ existing implementation. The crate remains unpublished until both `windows-bindg
 | ECMA signatures | Done | One fallible decoder handles every signature-bearing row and reports byte offsets. |
 | Multi-image database and indexes | Done | Owned file IDs and row IDs replace leaked indexes and borrowed identities. |
 | Custom-attribute values | Done | Constructor-directed fixed and named arguments decode without losing serialized types. |
-| `windows-bindgen` reader adapter | In progress | Owned entity selection and WinRT struct output match the existing reader. |
+| `windows-bindgen` reader adapter | In progress | Owned selection and WinRT value output match the existing reader exactly. |
 | Deterministic metadata builder | Planned | Finalization returns a queryable image and stable row remapping. |
 | `windows-rdl` builder adapter | Planned | WinRT, Win32, and WDK output remains equivalent. |
 | Common and Windows validation | Planned | Existing validation corpus passes through explicit profiles. |
@@ -217,3 +217,37 @@ operators. The test prototype is named `value_model` rather than `struct_model` 
 recursive struct semantics share the same small boundary. Constants remain integer-only in this
 model because ECMA enums cannot use the other constant forms. Stable bindgen policy such as the
 flag-operator renderer is reused rather than copied into the metadata migration layer.
+
+A critical review replaced coverage thresholds and silent skips with exact accounting. Every
+projected WinRT enum renders, and the only projected struct that does not render is
+`Windows.Web.Http.HttpProgress`, whose generic `IReference<u64>` fields need parameterized
+interface runtime signatures. Value-map construction rejects duplicate full names rather than
+allowing `BTreeMap::collect` to overwrite them. The shared field/signature type is named
+`ModelType`; it is not struct-specific.
+
+The owned value map should remain small and global because recursive struct traits and signatures
+need cross-type queries. This does not justify a global owned model for classes, interfaces,
+delegates, and every method. Those items should be resolved from their stored `Entity<T>` and
+materialized one at a time for rendering. This keeps database ownership in `Reader2`, avoids both
+leaked rows and duplicated metadata strings, and prevents the migration layer from becoming a
+second bindgen type graph.
+
+The revised bindgen sequence is:
+
+| Step | Scope | Stop condition |
+| --- | --- | --- |
+| Value output | Small global enum/struct map. | Done except `HttpProgress`. |
+| Callable prerequisites | Generics, parameters, and GUIDs. | No new indexes. |
+| Delegate output | Materialize one delegate at a time. | Do not copy interface/class policy. |
+| Interface output | Add inheritance after delegates. | No second global type graph. |
+| Class output | Compose proven interface identities. | No leaked-row adapter. |
+| Production extraction | Replace one source path at a time. | Full output must match. |
+
+Type-owned generic parameters are now exposed through the existing sorted `GenericParam` table.
+Sequence, flags, and names match the current reader across the committed corpus. This is the first
+callable prerequisite and required no new index.
+
+Method parameter rows now use the same generic list-range primitive as type fields and methods.
+Flags, sequence numbers, and names match the current reader across the committed corpus. Sequence
+association with signature positions remains a separate checked semantic step; physical row access
+does not silently assume dense or ordered `Param.Sequence` values.

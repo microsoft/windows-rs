@@ -245,18 +245,33 @@ impl Database {
         definition: Entity<tables::TypeDef>,
         column: usize,
     ) -> Result<Rows<T>, Error> {
+        self.list_members(definition, column)
+    }
+
+    pub(crate) fn method_parameters(
+        &self,
+        method: Entity<tables::MethodDef>,
+    ) -> Result<Rows<tables::Param>, Error> {
+        self.list_members(method, 5)
+    }
+
+    fn list_members<O: Table, T: Table>(
+        &self,
+        owner: Entity<O>,
+        column: usize,
+    ) -> Result<Rows<T>, Error> {
         let image = self
-            .image(definition.file())
-            .ok_or_else(|| Error::invalid(definition.file().index(), "invalid file identity"))?;
-        let row = image.view(definition.row()).ok_or_else(|| {
-            Error::invalid(definition.row().number() as usize, "invalid type row")
-        })?;
+            .image(owner.file())
+            .ok_or_else(|| Error::invalid(owner.file().index(), "invalid file identity"))?;
+        let row = image
+            .view(owner.row())
+            .ok_or_else(|| Error::invalid(owner.row().number() as usize, "invalid owner row"))?;
         let start = row.list::<T>(column)?;
-        let end = definition
+        let end = owner
             .row()
             .number()
             .checked_add(1)
-            .and_then(|number| image.row::<tables::TypeDef>(number))
+            .and_then(|number| image.row::<O>(number))
             .map_or_else(
                 || {
                     image
@@ -267,7 +282,7 @@ impl Database {
                 },
                 |next| image.view(next).unwrap().list::<T>(column).ok(),
             )
-            .ok_or_else(|| Error::invalid(row.id().number() as usize, "invalid field list"))?;
+            .ok_or_else(|| Error::invalid(row.id().number() as usize, "invalid member list"))?;
         image
             .list_range(start, end)
             .ok_or_else(|| Error::invalid(row.id().number() as usize, "invalid member range"))

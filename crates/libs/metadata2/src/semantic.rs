@@ -125,6 +125,26 @@ impl<'a> TypeDefinition<'a> {
             }))
     }
 
+    /// Iterates the generic parameters owned by this type.
+    pub fn generic_parameters(
+        self,
+    ) -> Result<impl ExactSizeIterator<Item = GenericParameterDefinition<'a>>, Error> {
+        let encoded = CodedIndex::TypeOrMethodDef
+            .encode(TableId::TypeDef, self.entity.row().number())
+            .ok_or_else(|| Error::invalid_metadata("TypeDef cannot own generic parameters"))?;
+        let file = self.entity.file();
+        let image = self
+            .database
+            .image(file)
+            .ok_or_else(|| Error::invalid_metadata("invalid file identity"))?;
+        Ok(image
+            .matching_rows::<tables::GenericParam>(2, encoded)?
+            .map(move |row| GenericParameterDefinition {
+                database: self.database,
+                entity: Entity::new(file, row),
+            }))
+    }
+
     /// Iterates the custom attributes attached to this type.
     pub fn attributes(
         self,
@@ -257,6 +277,41 @@ impl<'a> FieldDefinition<'a> {
     }
 }
 
+/// A database-backed semantic view of a GenericParam row.
+#[derive(Clone, Copy)]
+pub struct GenericParameterDefinition<'a> {
+    database: &'a Database,
+    entity: Entity<tables::GenericParam>,
+}
+
+impl<'a> GenericParameterDefinition<'a> {
+    /// Returns the database identity.
+    pub const fn entity(self) -> Entity<tables::GenericParam> {
+        self.entity
+    }
+
+    /// Returns the zero-based generic parameter position.
+    pub fn sequence(self) -> Result<u16, Error> {
+        self.row()?.u16(0)
+    }
+
+    /// Returns the encoded GenericParamAttributes flags.
+    pub fn flags(self) -> Result<u16, Error> {
+        self.row()?.u16(1)
+    }
+
+    /// Returns the metadata generic parameter name.
+    pub fn name(self) -> Result<&'a str, Error> {
+        self.row()?.string(3)
+    }
+
+    fn row(self) -> Result<Row<'a, tables::GenericParam>, Error> {
+        self.database
+            .view(self.entity)
+            .ok_or_else(|| Error::invalid_metadata("invalid generic parameter identity"))
+    }
+}
+
 /// A database-backed semantic view of a Constant row.
 #[derive(Clone, Copy)]
 pub struct ConstantDefinition<'a> {
@@ -367,6 +422,13 @@ pub struct MethodDefinition<'a> {
     entity: Entity<tables::MethodDef>,
 }
 
+/// A database-backed semantic view of a Param row.
+#[derive(Clone, Copy)]
+pub struct ParameterDefinition<'a> {
+    database: &'a Database,
+    entity: Entity<tables::Param>,
+}
+
 /// A database-backed semantic view of a CustomAttribute row.
 #[derive(Clone, Copy)]
 pub struct AttributeDefinition<'a> {
@@ -471,10 +533,52 @@ impl<'a> MethodDefinition<'a> {
             .method_signature(row.blob_id(4)?)
     }
 
+    /// Iterates the method's parameter rows in physical table order.
+    pub fn parameters(
+        self,
+    ) -> Result<impl ExactSizeIterator<Item = ParameterDefinition<'a>>, Error> {
+        let file = self.entity.file();
+        Ok(self
+            .database
+            .method_parameters(self.entity)?
+            .map(move |row| ParameterDefinition {
+                database: self.database,
+                entity: Entity::new(file, row),
+            }))
+    }
+
     fn row(self) -> Result<Row<'a, tables::MethodDef>, Error> {
         self.database
             .view(self.entity)
             .ok_or_else(|| Error::invalid_metadata("invalid method identity"))
+    }
+}
+
+impl<'a> ParameterDefinition<'a> {
+    /// Returns the database identity.
+    pub const fn entity(self) -> Entity<tables::Param> {
+        self.entity
+    }
+
+    /// Returns the encoded ParamAttributes flags.
+    pub fn flags(self) -> Result<u16, Error> {
+        self.row()?.u16(0)
+    }
+
+    /// Returns the encoded parameter sequence.
+    pub fn sequence(self) -> Result<u16, Error> {
+        self.row()?.u16(1)
+    }
+
+    /// Returns the metadata parameter name.
+    pub fn name(self) -> Result<&'a str, Error> {
+        self.row()?.string(2)
+    }
+
+    fn row(self) -> Result<Row<'a, tables::Param>, Error> {
+        self.database
+            .view(self.entity)
+            .ok_or_else(|| Error::invalid_metadata("invalid parameter identity"))
     }
 }
 
@@ -512,6 +616,17 @@ mod tests {
                     definition.flags().unwrap(),
                     definition.fields().unwrap().len(),
                     definition.methods().unwrap().len(),
+                    definition
+                        .generic_parameters()
+                        .unwrap()
+                        .map(|parameter| {
+                            (
+                                parameter.sequence().unwrap(),
+                                parameter.flags().unwrap(),
+                                parameter.name().unwrap().to_string(),
+                            )
+                        })
+                        .collect::<Vec<_>>(),
                     definition.architectures().unwrap(),
                     definition
                         .fields()
@@ -542,6 +657,16 @@ mod tests {
                     definition.flags().0,
                     definition.fields().len(),
                     definition.methods().len(),
+                    definition
+                        .generic_params()
+                        .map(|parameter| {
+                            (
+                                parameter.sequence(),
+                                parameter.flags().0,
+                                parameter.name().to_string(),
+                            )
+                        })
+                        .collect::<Vec<_>>(),
                     definition.arches(),
                     definition
                         .fields()
@@ -593,6 +718,65 @@ mod tests {
                         old_constant_text(&constant.value()),
                     ));
                 }
+            }
+        }
+
+        actual.sort();
+        expected.sort();
+        assert_eq!(actual, expected);
+    }
+
+    #[test]
+    fn method_parameter_rows_match_existing_reader() {
+        let database = Database::new([
+            Image::new(windows_default::WINRT).unwrap(),
+            Image::new(windows_default::WIN32).unwrap(),
+        ])
+        .unwrap();
+        let mut actual = Vec::new();
+        for definition in database.definitions() {
+            for method in definition.methods().unwrap() {
+                actual.push((
+                    definition.namespace().unwrap().to_string(),
+                    definition.name().unwrap().to_string(),
+                    method.name().unwrap().to_string(),
+                    method
+                        .parameters()
+                        .unwrap()
+                        .map(|parameter| {
+                            (
+                                parameter.sequence().unwrap(),
+                                parameter.flags().unwrap(),
+                                parameter.name().unwrap().to_string(),
+                            )
+                        })
+                        .collect::<Vec<_>>(),
+                ));
+            }
+        }
+
+        let old = windows_metadata::reader::Index::new(vec![
+            windows_metadata::reader::File::new(windows_default::WINRT.to_vec()).unwrap(),
+            windows_metadata::reader::File::new(windows_default::WIN32.to_vec()).unwrap(),
+        ]);
+        let mut expected = Vec::new();
+        for (_, _, definition) in old.iter() {
+            for method in definition.methods() {
+                expected.push((
+                    definition.namespace().to_string(),
+                    definition.name().to_string(),
+                    method.name().to_string(),
+                    method
+                        .params()
+                        .map(|parameter| {
+                            (
+                                parameter.sequence(),
+                                parameter.flags().0,
+                                parameter.name().to_string(),
+                            )
+                        })
+                        .collect::<Vec<_>>(),
+                ));
             }
         }
 
