@@ -65,6 +65,11 @@ impl<'a> TypeDefinition<'a> {
         self.row()?.u32(0)
     }
 
+    /// Returns the decoded TypeAttributes bits.
+    pub fn type_attributes(self) -> Result<TypeAttributes, Error> {
+        Ok(TypeAttributes::from_bits(self.flags()?))
+    }
+
     /// Returns whether the WindowsRuntime flag is set.
     pub fn is_windows_runtime(self) -> Result<bool, Error> {
         Ok(self.flags()? & 0x4000 != 0)
@@ -228,6 +233,11 @@ impl<'a> FieldDefinition<'a> {
     /// Returns the encoded FieldAttributes flags.
     pub fn flags(self) -> Result<u16, Error> {
         self.row()?.u16(0)
+    }
+
+    /// Returns the decoded FieldAttributes bits.
+    pub fn field_attributes(self) -> Result<FieldAttributes, Error> {
+        Ok(FieldAttributes::from_bits(self.flags()?))
     }
 
     /// Returns whether the Literal flag is set.

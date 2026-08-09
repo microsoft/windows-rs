@@ -2,7 +2,7 @@
 
 use windows_metadata2::{
     AnyRowId, AttributeArgument, AttributeValue, ConstantValue, Database, Entity, FileId,
-    MethodSignature, TypeCategory, TypeDefinition, TypeKind,
+    MethodSignature, TypeAttributes, TypeCategory, TypeDefinition, TypeKind,
     tables::{Field, MethodDef, TypeDef},
 };
 

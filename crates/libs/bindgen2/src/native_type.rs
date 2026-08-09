@@ -144,7 +144,9 @@ impl NativeType {
                         namespace,
                         name,
                         fields,
-                        union: definition.flags()? & 0x10 != 0,
+                        union: definition
+                            .type_attributes()?
+                            .contains(TypeAttributes::EXPLICIT_LAYOUT),
                         align,
                         packing,
                     }),

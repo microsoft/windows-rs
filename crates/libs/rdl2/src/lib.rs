@@ -1,17 +1,10 @@
 #![doc = include_str!("../readme.md")]
 
-use windows_metadata2::{BuildError, BuildType, BuildTypeIdentity, ConstantValue, MetadataBuilder};
-
-const TYPE_PUBLIC: u32 = 0x0000_0001;
-const TYPE_SEQUENTIAL: u32 = 0x0000_0008;
-const TYPE_SEALED: u32 = 0x0000_0100;
-const TYPE_WINDOWS_RUNTIME: u32 = 0x0000_4000;
-const FIELD_PRIVATE: u16 = 0x0001;
-const FIELD_PUBLIC: u16 = 0x0006;
-const FIELD_STATIC: u16 = 0x0010;
-const FIELD_LITERAL: u16 = 0x0040;
-const FIELD_SPECIAL_NAME: u16 = 0x0200;
-const FIELD_RT_SPECIAL_NAME: u16 = 0x0400;
+use std::collections::BTreeMap;
+use windows_metadata2::{
+    BuildError, BuildType, BuildTypeIdentity, ConstantValue, FieldAttributes, MetadataBuilder,
+    TypeAttributes, TypeDefinitionId,
+};
 
 /// A primitive type supported by the first authoring checkpoint.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -41,7 +34,29 @@ pub struct Variant {
 /// One struct field.
 pub struct Field {
     pub name: String,
-    pub ty: Primitive,
+    pub ty: Type,
+}
+
+/// A source type supported by the first authoring checkpoints.
+pub enum Type {
+    Primitive(Primitive),
+    Named { namespace: String, name: String },
+}
+
+impl Type {
+    /// Creates a named value type reference.
+    pub fn named(namespace: impl Into<String>, name: impl Into<String>) -> Self {
+        Self::Named {
+            namespace: namespace.into(),
+            name: name.into(),
+        }
+    }
+}
+
+impl From<Primitive> for Type {
+    fn from(value: Primitive) -> Self {
+        Self::Primitive(value)
+    }
 }
 
 /// An integer enum value.
@@ -98,9 +113,27 @@ impl Document {
     /// Emits a PE/CLI metadata image.
     pub fn compile(&self) -> Result<Vec<u8>, BuildError> {
         let mut output = MetadataBuilder::new(&self.assembly);
+        let mut identities = BTreeMap::<String, BTreeMap<String, TypeDefinitionId>>::new();
+        let mut declared = Vec::new();
         for module in &self.modules {
+            let mut module_ids = Vec::new();
             for definition in &module.definitions {
-                module.compile(definition, &mut output)?;
+                let id = module.declare(definition, &mut output)?;
+                if identities
+                    .entry(module.namespace.clone())
+                    .or_default()
+                    .insert(definition.name().to_string(), id)
+                    .is_some()
+                {
+                    return Err(BuildError::new("duplicate source type definition"));
+                }
+                module_ids.push(id);
+            }
+            declared.push(module_ids);
+        }
+        for (module, module_ids) in self.modules.iter().zip(declared) {
+            for (definition, id) in module.definitions.iter().zip(module_ids) {
+                module.compile(definition, id, &identities, &mut output)?;
             }
         }
         output.finish()
@@ -138,70 +171,114 @@ impl Module {
         });
     }
 
-    fn compile(
+    fn declare(
         &self,
         definition: &Definition,
         output: &mut MetadataBuilder,
-    ) -> Result<(), BuildError> {
+    ) -> Result<TypeDefinitionId, BuildError> {
         match definition {
-            Definition::Enum {
-                name,
-                underlying,
-                variants,
-            } => {
-                if !underlying.is_enum_integer() {
-                    return Err(BuildError::new(
-                        "enum underlying type is not an ECMA integer",
-                    ));
-                }
+            Definition::Enum { name, .. } => {
                 let extends = output.type_reference("System", "Enum");
-                output.type_definition(
+                output.declare_type(
                     &self.namespace,
                     name,
                     Some(BuildTypeIdentity::Reference(extends)),
-                    TYPE_PUBLIC | TYPE_SEALED | TYPE_WINDOWS_RUNTIME,
-                    |fields| {
-                        fields.field(
-                            "value__",
-                            (*underlying).into(),
-                            FIELD_PRIVATE | FIELD_SPECIAL_NAME | FIELD_RT_SPECIAL_NAME,
-                        )?;
-                        let ty =
-                            BuildType::Value(BuildTypeIdentity::Definition(fields.definition()));
-                        for variant in variants {
-                            if !underlying.matches(variant.value) {
-                                return Err(BuildError::new(
-                                    "enum value does not match its underlying type",
-                                ));
-                            }
-                            let field = fields.field(
-                                &variant.name,
-                                ty,
-                                FIELD_PUBLIC | FIELD_STATIC | FIELD_LITERAL,
-                            )?;
-                            fields.constant(field, variant.value.into())?;
-                        }
-                        Ok(())
-                    },
-                )?;
+                    TypeAttributes::PUBLIC
+                        | TypeAttributes::SEALED
+                        | TypeAttributes::WINDOWS_RUNTIME,
+                )
             }
-            Definition::Struct { name, fields } => {
+            Definition::Struct { name, .. } => {
                 let extends = output.type_reference("System", "ValueType");
-                output.type_definition(
+                output.declare_type(
                     &self.namespace,
                     name,
                     Some(BuildTypeIdentity::Reference(extends)),
-                    TYPE_PUBLIC | TYPE_SEQUENTIAL | TYPE_SEALED | TYPE_WINDOWS_RUNTIME,
-                    |output| {
-                        for field in fields {
-                            output.field(&field.name, field.ty.into(), FIELD_PUBLIC)?;
-                        }
-                        Ok(())
-                    },
-                )?;
+                    TypeAttributes::PUBLIC
+                        | TypeAttributes::SEQUENTIAL_LAYOUT
+                        | TypeAttributes::SEALED
+                        | TypeAttributes::WINDOWS_RUNTIME,
+                )
             }
         }
+    }
+
+    fn compile(
+        &self,
+        definition: &Definition,
+        id: TypeDefinitionId,
+        identities: &BTreeMap<String, BTreeMap<String, TypeDefinitionId>>,
+        output: &mut MetadataBuilder,
+    ) -> Result<(), BuildError> {
+        output.define_type(id, |fields| {
+            match definition {
+                Definition::Enum {
+                    underlying,
+                    variants,
+                    ..
+                } => {
+                    if !underlying.is_enum_integer() {
+                        return Err(BuildError::new(
+                            "enum underlying type is not an ECMA integer",
+                        ));
+                    }
+                    fields.field(
+                        "value__",
+                        (*underlying).into(),
+                        FieldAttributes::PRIVATE
+                            | FieldAttributes::SPECIAL_NAME
+                            | FieldAttributes::RT_SPECIAL_NAME,
+                    )?;
+                    let ty = BuildType::Value(BuildTypeIdentity::Definition(id));
+                    for variant in variants {
+                        if !underlying.matches(variant.value) {
+                            return Err(BuildError::new(
+                                "enum value does not match its underlying type",
+                            ));
+                        }
+                        let field = fields.field(
+                            &variant.name,
+                            ty,
+                            FieldAttributes::PUBLIC
+                                | FieldAttributes::STATIC
+                                | FieldAttributes::LITERAL,
+                        )?;
+                        fields.constant(field, variant.value.into())?;
+                    }
+                }
+                Definition::Struct {
+                    fields: source_fields,
+                    ..
+                } => {
+                    for field in source_fields {
+                        let ty = match &field.ty {
+                            Type::Primitive(ty) => (*ty).into(),
+                            Type::Named { namespace, name } => {
+                                let Some(id) = identities
+                                    .get(namespace)
+                                    .and_then(|types| types.get(name))
+                                    .copied()
+                                else {
+                                    return Err(BuildError::new("named field type is not defined"));
+                                };
+                                BuildType::Value(BuildTypeIdentity::Definition(id))
+                            }
+                        };
+                        fields.field(&field.name, ty, FieldAttributes::PUBLIC)?;
+                    }
+                }
+            }
+            Ok(())
+        })?;
         Ok(())
+    }
+}
+
+impl Definition {
+    fn name(&self) -> &str {
+        match self {
+            Self::Enum { name, .. } | Self::Struct { name, .. } => name,
+        }
     }
 }
 
@@ -280,6 +357,19 @@ mod tests {
     fn primitive_enum_and_struct_are_readable_by_both_readers() {
         let mut document = Document::new("authoring");
         let mut module = Module::new("Test");
+        module.struct_type(
+            "Pixel",
+            vec![
+                Field {
+                    name: "color".to_string(),
+                    ty: Type::named("Test", "Color"),
+                },
+                Field {
+                    name: "alpha".to_string(),
+                    ty: Primitive::U8.into(),
+                },
+            ],
+        );
         module.enum_type(
             "Color",
             Primitive::I32,
@@ -294,19 +384,6 @@ mod tests {
                 },
             ],
         );
-        module.struct_type(
-            "Point",
-            vec![
-                Field {
-                    name: "x".to_string(),
-                    ty: Primitive::I32,
-                },
-                Field {
-                    name: "y".to_string(),
-                    ty: Primitive::I32,
-                },
-            ],
-        );
         document.module(module);
 
         let bytes = document.compile().unwrap();
@@ -316,14 +393,14 @@ mod tests {
                 r#"
                     #[winrt]
                     mod Test {
+                        struct Pixel {
+                            color: Color,
+                            alpha: u8,
+                        }
                         #[repr(i32)]
                         enum Color {
                             Red = 1,
                             Blue = 2,
-                        }
-                        struct Point {
-                            x: i32,
-                            y: i32,
                         }
                     }
                 "#,
@@ -358,11 +435,11 @@ mod tests {
                 ("Blue".to_string(), ConstantValue::I32(2)),
             ]
         );
-        let point = database.type_definitions("Test", "Point");
-        assert_eq!(point.len(), 1);
-        let point = database.definition(point[0]).unwrap();
-        assert_eq!(point.category().unwrap(), TypeCategory::Struct);
-        assert_eq!(point.fields().unwrap().len(), 2);
+        let pixel = database.type_definitions("Test", "Pixel");
+        assert_eq!(pixel.len(), 1);
+        let pixel = database.definition(pixel[0]).unwrap();
+        assert_eq!(pixel.category().unwrap(), TypeCategory::Struct);
+        assert_eq!(pixel.fields().unwrap().len(), 2);
 
         let old = windows_metadata::reader::Index::new(vec![
             windows_metadata::reader::File::new(bytes).unwrap(),
@@ -382,7 +459,7 @@ mod tests {
             definitions,
             [
                 ("Test".to_string(), "Color".to_string(), 3),
-                ("Test".to_string(), "Point".to_string(), 2),
+                ("Test".to_string(), "Pixel".to_string(), 2),
             ]
         );
     }

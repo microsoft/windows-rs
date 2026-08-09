@@ -63,6 +63,7 @@ pub struct MetadataBuilder {
     type_defs: Vec<TypeDefRow>,
     fields: Vec<FieldRow>,
     constants: Vec<ConstantRow>,
+    next_definition: u32,
     assembly_name: u32,
     module_name: u32,
     mscorlib_name: u32,
@@ -105,6 +106,7 @@ struct ConstantRow {
 pub struct TypeFields<'a> {
     builder: &'a mut MetadataBuilder,
     definition: TypeDefinitionId,
+    first_field: u32,
 }
 
 impl MetadataBuilder {
@@ -123,6 +125,7 @@ impl MetadataBuilder {
             type_defs: Vec::new(),
             fields: Vec::new(),
             constants: Vec::new(),
+            next_definition: 2,
             assembly_name,
             module_name,
             mscorlib_name,
@@ -154,33 +157,73 @@ impl MetadataBuilder {
         TypeReferenceId(self.type_refs.len() as u32)
     }
 
-    /// Adds one type definition and all of its fields as one ordered unit.
+    /// Declares a type and returns its stable TypeDef identity.
+    pub fn declare_type(
+        &mut self,
+        namespace: &str,
+        name: &str,
+        extends: Option<BuildTypeIdentity>,
+        flags: TypeAttributes,
+    ) -> Result<TypeDefinitionId, BuildError> {
+        if let Some(extends) = extends
+            && !self.valid_identity(extends)
+        {
+            return Err(BuildError("base type identity is not declared"));
+        }
+        let definition = TypeDefinitionId(self.type_defs.len() as u32 + 1);
+        self.type_defs.push(TypeDefRow {
+            flags: flags.bits(),
+            name: self.strings.insert(name.as_bytes()),
+            namespace: self.strings.insert(namespace.as_bytes()),
+            extends: extends.map_or(0, encode_type_identity),
+            field_list: 0,
+        });
+        Ok(definition)
+    }
+
+    /// Defines the fields of the next declared type.
+    pub fn define_type(
+        &mut self,
+        definition: TypeDefinitionId,
+        add_fields: impl FnOnce(&mut TypeFields<'_>) -> Result<(), BuildError>,
+    ) -> Result<TypeDefinitionId, BuildError> {
+        if definition.0 != self.next_definition {
+            return Err(BuildError(
+                "type definitions must be completed in declaration order",
+            ));
+        }
+        let Some(row) = self.type_defs.get_mut(definition.0 as usize - 1) else {
+            return Err(BuildError("type definition identity is not declared"));
+        };
+        row.field_list = self.fields.len() as u32 + 1;
+        let field_count = self.fields.len();
+        let constant_count = self.constants.len();
+        if let Err(error) = add_fields(&mut TypeFields {
+            builder: self,
+            definition,
+            first_field: field_count as u32 + 1,
+        }) {
+            self.fields.truncate(field_count);
+            self.constants.truncate(constant_count);
+            self.type_defs[definition.0 as usize - 1].field_list = 0;
+            return Err(error);
+        }
+        self.next_definition += 1;
+        Ok(definition)
+    }
+
+    /// Declares and defines one type for callers that do not need forward references.
     pub fn type_definition(
         &mut self,
         namespace: &str,
         name: &str,
         extends: Option<BuildTypeIdentity>,
-        flags: u32,
+        flags: TypeAttributes,
         add_fields: impl FnOnce(&mut TypeFields<'_>) -> Result<(), BuildError>,
     ) -> Result<TypeDefinitionId, BuildError> {
-        let type_count = self.type_defs.len();
-        let field_count = self.fields.len();
-        let constant_count = self.constants.len();
-        let definition = TypeDefinitionId(self.type_defs.len() as u32 + 1);
-        self.type_defs.push(TypeDefRow {
-            flags,
-            name: self.strings.insert(name.as_bytes()),
-            namespace: self.strings.insert(namespace.as_bytes()),
-            extends: extends.map_or(0, encode_type_identity),
-            field_list: self.fields.len() as u32 + 1,
-        });
-        if let Err(error) = add_fields(&mut TypeFields {
-            builder: self,
-            definition,
-        }) {
-            self.type_defs.truncate(type_count);
-            self.fields.truncate(field_count);
-            self.constants.truncate(constant_count);
+        let definition = self.declare_type(namespace, name, extends, flags)?;
+        if let Err(error) = self.define_type(definition, add_fields) {
+            self.type_defs.pop();
             return Err(error);
         }
         Ok(definition)
@@ -188,6 +231,9 @@ impl MetadataBuilder {
 
     /// Serializes the metadata tables, heaps, and PE/CLI container.
     pub fn finish(mut self) -> Result<Vec<u8>, BuildError> {
+        if self.next_definition != self.type_defs.len() as u32 + 1 {
+            return Err(BuildError("not all declared types have been defined"));
+        }
         self.constants.sort_by_key(|row| row.parent);
         let tables = self.tables()?;
         if self.strings.bytes.len() > u16::MAX as usize
@@ -196,6 +242,17 @@ impl MetadataBuilder {
             return Err(BuildError("initial metadata builder heap limit exceeded"));
         }
         builder_image::metadata_image(&tables, &self.strings.bytes, &[0; 16], &self.blobs.bytes)
+    }
+
+    fn valid_identity(&self, identity: BuildTypeIdentity) -> bool {
+        match identity {
+            BuildTypeIdentity::Definition(value) => {
+                value.0 != 0 && value.0 <= self.type_defs.len() as u32
+            }
+            BuildTypeIdentity::Reference(value) => {
+                value.0 != 0 && value.0 <= self.type_refs.len() as u32
+            }
+        }
     }
 
     fn tables(&self) -> Result<Vec<u8>, BuildError> {
@@ -289,12 +346,22 @@ impl TypeFields<'_> {
     }
 
     /// Adds a field and returns its one-based row number.
-    pub fn field(&mut self, name: &str, ty: BuildType, flags: u16) -> Result<u32, BuildError> {
+    pub fn field(
+        &mut self,
+        name: &str,
+        ty: BuildType,
+        flags: FieldAttributes,
+    ) -> Result<u32, BuildError> {
+        if let BuildType::Value(identity) | BuildType::Class(identity) = ty
+            && !self.builder.valid_identity(identity)
+        {
+            return Err(BuildError("field type identity is not declared"));
+        }
         let mut signature = vec![CALL_CONVENTION_FIELD];
         write_type(&mut signature, ty);
         let signature = self.builder.blobs.insert(&signature);
         self.builder.fields.push(FieldRow {
-            flags,
+            flags: flags.bits(),
             name: self.builder.strings.insert(name.as_bytes()),
             signature,
         });
@@ -303,7 +370,7 @@ impl TypeFields<'_> {
 
     /// Adds a constant to a field.
     pub fn constant(&mut self, field: u32, value: ConstantValue) -> Result<(), BuildError> {
-        if field == 0 || field > self.builder.fields.len() as u32 {
+        if field < self.first_field || field > self.builder.fields.len() as u32 {
             return Err(BuildError("constant field identity is out of bounds"));
         }
         let (ty, bytes) = write_value(value);
@@ -473,10 +540,13 @@ mod tests {
                 "Test",
                 "Point",
                 Some(BuildTypeIdentity::Reference(extends)),
-                0x0000_4109,
+                TypeAttributes::PUBLIC
+                    | TypeAttributes::SEQUENTIAL_LAYOUT
+                    | TypeAttributes::SEALED
+                    | TypeAttributes::WINDOWS_RUNTIME,
                 |fields| {
-                    fields.field("x", BuildType::I32, 6)?;
-                    fields.field("y", BuildType::I32, 6)?;
+                    fields.field("x", BuildType::I32, FieldAttributes::PUBLIC)?;
+                    fields.field("y", BuildType::I32, FieldAttributes::PUBLIC)?;
                     Ok(())
                 },
             )
@@ -484,5 +554,48 @@ mod tests {
         let image = Image::new(builder.finish().unwrap()).unwrap();
         assert_eq!(image.table(TableId::TypeDef).rows(), 2);
         assert_eq!(image.table(TableId::Field).rows(), 2);
+    }
+
+    #[test]
+    fn declarations_support_forward_field_references() {
+        let mut builder = MetadataBuilder::new("builder");
+        let extends = builder.type_reference("System", "ValueType");
+        let first = builder
+            .declare_type(
+                "Test",
+                "First",
+                Some(BuildTypeIdentity::Reference(extends)),
+                TypeAttributes::PUBLIC | TypeAttributes::SEQUENTIAL_LAYOUT,
+            )
+            .unwrap();
+        let second = builder
+            .declare_type(
+                "Test",
+                "Second",
+                Some(BuildTypeIdentity::Reference(extends)),
+                TypeAttributes::PUBLIC | TypeAttributes::SEQUENTIAL_LAYOUT,
+            )
+            .unwrap();
+        builder
+            .define_type(first, |fields| {
+                fields.field(
+                    "value",
+                    BuildType::Value(BuildTypeIdentity::Definition(second)),
+                    FieldAttributes::PUBLIC,
+                )?;
+                Ok(())
+            })
+            .unwrap();
+        builder.define_type(second, |_| Ok(())).unwrap();
+        let database = Database::new([Image::new(builder.finish().unwrap()).unwrap()]).unwrap();
+        let first = database.definition(database.type_definitions("Test", "First")[0]);
+        let field = first.unwrap().fields().unwrap().next().unwrap();
+        let TypeKind::Value(id) = field.signature().unwrap().kind else {
+            panic!("expected named value field");
+        };
+        assert_eq!(
+            database.type_name(field.entity().file(), id).unwrap(),
+            Some(("Test", "Second"))
+        );
     }
 }

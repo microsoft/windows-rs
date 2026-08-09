@@ -135,19 +135,24 @@ The first bindgen2/RDL2 comparison separates missing metadata support from valid
 | Overlap | Decision |
 | --- | --- |
 | Constant encoding | Share in metadata2. Done. |
-| Type and field flags | Add typed metadata2 flags. |
+| Type and field flags | Shared typed wrappers. Done. |
 | Primitive type lists | Review after named fields. |
-| Definition identities | Strengthen metadata2 authoring. |
+| Definition identities | Stable declaration phase. Done. |
 | Name indexes | Keep consumer-specific. |
 | Errors and rendering | Keep consumer-specific. |
 
-The stable-definition issue is the next design checkpoint. The current callback preserves field
-ordering but cannot naturally express forward references. Fix that in metadata2 before adding named
-RDL2 fields, rather than hiding it behind RDL2 strings or a consumer-side patch table.
-
 Primitive overlap alone does not justify merging bindgen2's ABI/output types with RDL2's source
 types. Name lookup also serves different policies in each consumer. Typed ECMA flags and stable
-build identities are the shared metadata mechanisms worth adding next.
+build identities are the shared metadata mechanisms and now live in metadata2.
+
+The builder declares TypeDefs first and defines their fields later in declaration order. This gives
+named and forward-referenced fields stable typed IDs without sacrificing ECMA field-list ranges.
+Failed definitions roll back their fields and constants and can be retried. RDL2 uses a nested
+source-name map only to resolve its language names to those IDs.
+
+The second differential fixture declares `Pixel` before its `Color` enum dependency. Metadata2
+emits a direct TypeDef signature reference, and the old RDL writer emits a TypeRef. Both normalize
+to the same named value field, with matching flags and constants.
 
 The custom-attribute decoder preserves fixed and named argument types, field/property tags, null
 strings, boxed values, arrays, `System.Type` names, and enum identities. Enum values use the

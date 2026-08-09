@@ -18,5 +18,6 @@ namespace remapping.
 
 The first bounded writer emits modules, assemblies, type references, type definitions, fields, and
 constants with primitive and named field signatures. It uses typed build identities and a scoped
-type-definition callback so field-list ranges cannot be interleaved accidentally. The writer is a
-proof for `windows-rdl2`, not yet a general metadata construction API.
+declaration/definition sequence so forward references are stable while field-list ranges remain
+ordered. Shared type and field attribute wrappers remove raw ECMA flag masks from consumers. The
+writer is a proof for `windows-rdl2`, not yet a general metadata construction API.
