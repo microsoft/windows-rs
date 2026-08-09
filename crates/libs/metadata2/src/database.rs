@@ -5,6 +5,10 @@ use super::*;
 pub struct FileId(usize);
 
 impl FileId {
+    pub(crate) const fn new(index: usize) -> Self {
+        Self(index)
+    }
+
     /// Returns the zero-based image position.
     pub const fn index(self) -> usize {
         self.0
@@ -18,7 +22,7 @@ pub struct Entity<T: Table> {
 }
 
 impl<T: Table> Entity<T> {
-    const fn new(file: FileId, row: RowId<T>) -> Self {
+    pub(crate) const fn new(file: FileId, row: RowId<T>) -> Self {
         Self { file, row }
     }
 
@@ -101,14 +105,28 @@ impl Database {
         let mut types: HashMap<String, HashMap<String, Vec<_>>> = HashMap::new();
 
         for (file, image) in images.iter().enumerate() {
-            let file = FileId(file);
+            let file = FileId::new(file);
+            let nested: HashSet<_> = image
+                .rows::<tables::NestedClass>()
+                .map(|row| {
+                    image
+                        .view(row)
+                        .unwrap()
+                        .index::<tables::TypeDef>(0)?
+                        .map(RowId::number)
+                        .ok_or_else(|| Error::invalid(row.number() as usize, "null nested type"))
+                })
+                .collect::<Result<_, _>>()?;
             for row in image.rows::<tables::TypeDef>() {
-                let view = image.view(row).unwrap();
-                let namespace = view.string(2)?;
-                if namespace.is_empty() {
+                if nested.contains(&row.number()) {
                     continue;
                 }
+                let view = image.view(row).unwrap();
+                let namespace = view.string(2)?;
                 let name = view.string(1)?;
+                if namespace.is_empty() && name == "<Module>" {
+                    continue;
+                }
                 types
                     .entry(namespace.to_string())
                     .or_default()
@@ -187,6 +205,72 @@ impl Database {
                 "row is not a signature type reference",
             )),
         }
+    }
+
+    pub(crate) fn type_name(
+        &self,
+        file: FileId,
+        ty: AnyRowId,
+    ) -> Result<Option<(&str, &str)>, Error> {
+        let image = self
+            .image(file)
+            .ok_or_else(|| Error::invalid(file.index(), "file identity is outside the database"))?;
+        let name = match ty.table() {
+            TableId::TypeDef => {
+                let row = image
+                    .row::<tables::TypeDef>(ty.number())
+                    .and_then(|row| image.view(row))
+                    .ok_or_else(|| Error::invalid(ty.number() as usize, "type row is invalid"))?;
+                Some((row.string(2)?, row.string(1)?))
+            }
+            TableId::TypeRef => {
+                let row = image
+                    .row::<tables::TypeRef>(ty.number())
+                    .and_then(|row| image.view(row))
+                    .ok_or_else(|| Error::invalid(ty.number() as usize, "type row is invalid"))?;
+                Some((row.string(2)?, row.string(1)?))
+            }
+            TableId::TypeSpec => None,
+            _ => {
+                return Err(Error::invalid(
+                    ty.number() as usize,
+                    "row is not a signature type reference",
+                ));
+            }
+        };
+        Ok(name)
+    }
+
+    pub(crate) fn fields(
+        &self,
+        definition: Entity<tables::TypeDef>,
+    ) -> Result<Rows<tables::Field>, Error> {
+        let image = self
+            .image(definition.file())
+            .ok_or_else(|| Error::invalid(definition.file().index(), "invalid file identity"))?;
+        let row = image.view(definition.row()).ok_or_else(|| {
+            Error::invalid(definition.row().number() as usize, "invalid type row")
+        })?;
+        let start = row.list::<tables::Field>(4)?;
+        let end = definition
+            .row()
+            .number()
+            .checked_add(1)
+            .and_then(|number| image.row::<tables::TypeDef>(number))
+            .map_or_else(
+                || {
+                    image
+                        .table(TableId::Field)
+                        .rows()
+                        .checked_add(1)
+                        .and_then(ListIndex::new)
+                },
+                |next| image.view(next).unwrap().list::<tables::Field>(4).ok(),
+            )
+            .ok_or_else(|| Error::invalid(row.id().number() as usize, "invalid field list"))?;
+        image
+            .list_range(start, end)
+            .ok_or_else(|| Error::invalid(row.id().number() as usize, "invalid field range"))
     }
 }
 

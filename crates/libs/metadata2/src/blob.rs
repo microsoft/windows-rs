@@ -41,9 +41,19 @@ impl<'a> BlobReader<'a> {
         Ok(value)
     }
 
+    /// Reads one signed byte.
+    pub fn read_i8(&mut self) -> Result<i8, Error> {
+        Ok(self.read_u8()? as i8)
+    }
+
     /// Reads a little-endian 16-bit integer.
     pub fn read_u16(&mut self) -> Result<u16, Error> {
         Ok(u16::from_le_bytes(self.read_array()?))
+    }
+
+    /// Reads a little-endian signed 16-bit integer.
+    pub fn read_i16(&mut self) -> Result<i16, Error> {
+        Ok(i16::from_le_bytes(self.read_array()?))
     }
 
     /// Reads a little-endian 32-bit integer.
@@ -51,9 +61,29 @@ impl<'a> BlobReader<'a> {
         Ok(u32::from_le_bytes(self.read_array()?))
     }
 
+    /// Reads a little-endian signed 32-bit integer.
+    pub fn read_i32(&mut self) -> Result<i32, Error> {
+        Ok(i32::from_le_bytes(self.read_array()?))
+    }
+
+    /// Reads a little-endian 32-bit floating-point value.
+    pub fn read_f32(&mut self) -> Result<f32, Error> {
+        Ok(f32::from_le_bytes(self.read_array()?))
+    }
+
     /// Reads a little-endian 64-bit integer.
     pub fn read_u64(&mut self) -> Result<u64, Error> {
         Ok(u64::from_le_bytes(self.read_array()?))
+    }
+
+    /// Reads a little-endian signed 64-bit integer.
+    pub fn read_i64(&mut self) -> Result<i64, Error> {
+        Ok(i64::from_le_bytes(self.read_array()?))
+    }
+
+    /// Reads a little-endian 64-bit floating-point value.
+    pub fn read_f64(&mut self) -> Result<f64, Error> {
+        Ok(f64::from_le_bytes(self.read_array()?))
     }
 
     /// Reads a canonical ECMA-335 compressed unsigned integer.

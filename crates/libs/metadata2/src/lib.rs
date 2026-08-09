@@ -3,6 +3,7 @@
 
 use std::collections::*;
 
+mod attribute;
 mod blob;
 mod database;
 mod error;
@@ -12,6 +13,7 @@ mod row;
 mod schema;
 mod signature;
 
+pub use attribute::*;
 pub use blob::*;
 pub use database::*;
 pub use error::*;

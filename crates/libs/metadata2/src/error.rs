@@ -12,6 +12,11 @@ pub enum Error {
         /// A short description of the violated structural rule.
         message: &'static str,
     },
+    /// The metadata violates a rule that is not tied to one encoded byte.
+    InvalidMetadata {
+        /// A short description of the violated rule.
+        message: &'static str,
+    },
     /// A required metadata stream is absent.
     MissingStream(&'static str),
     /// A metadata stream name appears more than once.
@@ -32,11 +37,22 @@ pub enum Error {
         /// The underlying decoding error.
         source: Box<Self>,
     },
+    /// A referenced type definition is not present in the database.
+    UnresolvedType {
+        /// Type namespace.
+        namespace: String,
+        /// Metadata type name.
+        name: String,
+    },
 }
 
 impl Error {
     pub(crate) fn invalid(offset: usize, message: &'static str) -> Self {
         Self::Invalid { offset, message }
+    }
+
+    pub(crate) fn invalid_metadata(message: &'static str) -> Self {
+        Self::InvalidMetadata { message }
     }
 }
 
@@ -47,6 +63,7 @@ impl Display for Error {
             Self::Invalid { offset, message } => {
                 write!(formatter, "invalid metadata at byte {offset}: {message}")
             }
+            Self::InvalidMetadata { message } => write!(formatter, "invalid metadata: {message}"),
             Self::MissingStream(name) => write!(formatter, "missing metadata stream `{name}`"),
             Self::DuplicateStream(name) => {
                 write!(formatter, "duplicate metadata stream `{name}`")
@@ -59,6 +76,9 @@ impl Display for Error {
             }
             Self::Row { table, row, source } => {
                 write!(formatter, "{table} row {row}: {source}")
+            }
+            Self::UnresolvedType { namespace, name } => {
+                write!(formatter, "unresolved metadata type `{namespace}.{name}`")
             }
         }
     }

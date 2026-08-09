@@ -11,8 +11,7 @@ row-width calculation.
 
 Current exclusions are intentional:
 
-- semantic row and heap access;
-- signature and custom-attribute decoding;
+- higher-level semantic table wrappers;
 - metadata construction and serialization;
 - common, Win32, and WinRT validation;
 - architecture merging and namespace remapping;
@@ -42,8 +41,8 @@ existing implementation. The crate remains unpublished until both `windows-bindg
 | Raw row and coded-index access | Done | Every column kind decodes through checked table metadata. |
 | ECMA signatures | Done | One fallible decoder handles every signature-bearing row and reports byte offsets. |
 | Multi-image database and indexes | Done | Owned file IDs and row IDs replace leaked indexes and borrowed identities. |
-| Custom-attribute values | Next | Constructor-directed fixed and named arguments decode without losing serialized types. |
-| `windows-bindgen` reader adapter | Planned | Full generated Rust output matches the existing reader. |
+| Custom-attribute values | Done | Constructor-directed fixed and named arguments decode without losing serialized types. |
+| `windows-bindgen` reader adapter | Next | Full generated Rust output matches the existing reader. |
 | Deterministic metadata builder | Planned | Finalization returns a queryable image and stable row remapping. |
 | `windows-rdl` builder adapter | Planned | WinRT, Win32, and WDK output remains equivalent. |
 | Common and Windows validation | Planned | Existing validation corpus passes through explicit profiles. |
@@ -107,3 +106,40 @@ including architecture variants. Exact raw TypeDef name multiplicities match the
 across WinRT and Win32. TypeRef resolution returns all candidates rather than selecting the first.
 Assembly-scope narrowing and nested TypeRef resolution remain future resolution layers; callers
 can see ambiguity explicitly in the meantime.
+
+The custom-attribute decoder preserves fixed and named argument types, field/property tags, null
+strings, boxed values, arrays, `System.Type` names, and enum identities. Enum values use the
+definition's `value__` field rather than assuming an `i32` backing type. A generated test covers a
+local `u8`-backed enum, and every attribute in the committed WinRT and Win32 images decodes.
+
+The corpus exposed one necessary dependency boundary: Win32 metadata references
+`System.Runtime.InteropServices.CallingConvention` from the framework rather than defining it.
+`EnumResolver` supplies backing types for enum dependencies outside the database; unresolved types
+remain errors. This keeps dependency policy out of the ECMA decoder and avoids the old reader's
+blanket `i32` assumption.
+
+Top-level type indexing now uses the `NestedClass` table rather than treating an empty namespace as
+nested. This preserves valid global-namespace definitions while excluding actual nested types and
+the synthetic `<Module>` definition.
+
+The next checkpoint is an inventory and benchmark of `windows-bindgen` lookups. New indexes should
+be added only when a measured consumer operation cannot use table ordering, list ranges, or the
+existing exact-name index.
+
+The initial bindgen inventory separates metadata relationships from its output projection:
+
+| Bindgen operation | Proposed source |
+| --- | --- |
+| Resolve namespace and type name | Existing exact-name index. |
+| Enumerate fields, methods, and parameters | ECMA list ranges. |
+| Attributes, constants, interfaces, and implementation maps | Binary search sorted tables. |
+| Walk nested C structs | Derive from `NestedClass`; measure before storing a map. |
+| Expand Win32 `Apis` and unscoped enum constants | Bindgen adapter projection. |
+| Filter architecture variants | Decode attributes while projecting. |
+| Trim generic arity for generated names | Bindgen adapter policy. |
+
+This is materially smaller than reproducing the old `Index`: the database needs type identity and
+resolution, while the bindgen adapter owns its one-time map of generated items. Before adding the
+nested relationship map, measure image parsing, database construction, adapter construction,
+retained memory, exact-name lookup, and complete namespace enumeration on the committed WinRT and
+Win32 images.
