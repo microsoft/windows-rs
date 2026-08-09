@@ -1,0 +1,16 @@
+[package]
+name = "windows-metadata2"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.95"
+publish = false
+license = "MIT OR Apache-2.0"
+description = "Incubating ECMA-335 metadata foundation"
+repository = "https://github.com/microsoft/windows-rs"
+readme = "readme.md"
+
+[dev-dependencies]
+windows-default = { workspace = true }
+
+[lints]
+workspace = true
