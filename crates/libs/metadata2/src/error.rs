@@ -23,6 +23,15 @@ pub enum Error {
         /// The number of rows present.
         rows: u32,
     },
+    /// A row-owned value failed structural decoding.
+    Row {
+        /// The ECMA table name.
+        table: &'static str,
+        /// The one-based row number.
+        row: u32,
+        /// The underlying decoding error.
+        source: Box<Self>,
+    },
 }
 
 impl Error {
@@ -48,6 +57,9 @@ impl Display for Error {
                     "unsupported metadata table `{table}` has {rows} rows"
                 )
             }
+            Self::Row { table, row, source } => {
+                write!(formatter, "{table} row {row}: {source}")
+            }
         }
     }
 }
@@ -56,6 +68,7 @@ impl std::error::Error for Error {
     fn source(&self) -> Option<&(dyn std::error::Error + 'static)> {
         match self {
             Self::Io(error) => Some(error),
+            Self::Row { source, .. } => Some(source),
             _ => None,
         }
     }

@@ -195,11 +195,16 @@ impl<'a, T: Table> Row<'a, T> {
 
     /// Reads a blob heap column.
     pub fn blob(&self, column: usize) -> Result<&'a [u8], Error> {
+        self.image.blob(self.blob_id(column)?)
+    }
+
+    /// Reads the identifier stored in a blob heap column.
+    pub fn blob_id(&self, column: usize) -> Result<BlobId, Error> {
         let (value, kind, offset) = self.image.column_data(self.id, column)?;
         if !matches!(kind, Column::Blob) {
             return Err(Error::invalid(offset, "column is not a blob index"));
         }
-        self.image.blob(BlobId::new(value))
+        Ok(BlobId::new(value))
     }
 
     /// Reads a GUID heap column.

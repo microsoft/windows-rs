@@ -1,5 +1,6 @@
 use crate::{
-    AnyRowId, BlobId, CodedIndex, Column, Error, GuidId, Row, RowId, Rows, StringId, Table, TableId,
+    AnyRowId, BlobId, BlobReader, CodedIndex, Column, Error, GuidId, Row, RowId, Rows, StringId,
+    Table, TableId,
 };
 use std::collections::HashSet;
 use std::ops::Range;
@@ -84,6 +85,7 @@ impl Image {
             tables: parsed.tables,
         };
         image.validate_columns()?;
+        image.validate_signatures()?;
         Ok(image)
     }
 
@@ -158,6 +160,16 @@ impl Image {
 
     /// Reads a length-prefixed value from the `#Blob` heap.
     pub fn blob(&self, id: BlobId) -> Result<&[u8], Error> {
+        self.blob_data(id).map(|(bytes, _)| bytes)
+    }
+
+    /// Opens a checked cursor over a value in the `#Blob` heap.
+    pub fn blob_reader(&self, id: BlobId) -> Result<BlobReader<'_>, Error> {
+        let (bytes, offset) = self.blob_data(id)?;
+        Ok(BlobReader::new(bytes, offset))
+    }
+
+    fn blob_data(&self, id: BlobId) -> Result<(&[u8], usize), Error> {
         let stream = self.heap("#Blob")?;
         let offset = id.value() as usize;
         let absolute = self.heap_offset("#Blob", offset)?;
@@ -170,9 +182,10 @@ impl Image {
         let end = start
             .checked_add(length as usize)
             .ok_or_else(|| Error::invalid(absolute, "blob length overflow"))?;
-        bytes
+        let value = bytes
             .get(start..end)
-            .ok_or_else(|| Error::invalid(absolute, "blob is truncated"))
+            .ok_or_else(|| Error::invalid(absolute, "blob is truncated"))?;
+        Ok((value, absolute + prefix))
     }
 
     /// Reads a GUID from the `#GUID` heap.
@@ -964,6 +977,56 @@ mod tests {
         assert!(image.string(StringId::new(u32::MAX)).is_err());
         assert!(image.blob(BlobId::new(u32::MAX)).is_err());
         assert!(image.guid(GuidId::new(u32::MAX)).is_err());
+    }
+
+    #[test]
+    fn representative_signatures_match_existing_reader() {
+        let image = Image::new(windows_default::WINRT).unwrap();
+        let point = image
+            .rows::<tables::TypeDef>()
+            .find(|id| {
+                let row = image.view(*id).unwrap();
+                row.string(2).unwrap() == "Windows.Foundation" && row.string(1).unwrap() == "Point"
+            })
+            .unwrap();
+        let point = image.view(point).unwrap();
+        let field_start = point.list::<tables::Field>(4).unwrap().number();
+        let x = image
+            .view(image.row::<tables::Field>(field_start).unwrap())
+            .unwrap();
+        let x_type = image.field_signature(x.blob_id(2).unwrap()).unwrap();
+        assert_eq!(x_type.kind, crate::TypeKind::F32);
+
+        let old = windows_metadata::reader::Index::new(vec![
+            windows_metadata::reader::File::new(windows_default::WINRT.to_vec()).unwrap(),
+        ]);
+        let old_point = old.expect("Windows.Foundation", "Point");
+        assert_eq!(
+            old_point.fields().next().unwrap().ty(),
+            windows_metadata::Type::F32
+        );
+
+        let stringable = image
+            .rows::<tables::TypeDef>()
+            .find(|id| {
+                let row = image.view(*id).unwrap();
+                row.string(2).unwrap() == "Windows.Foundation"
+                    && row.string(1).unwrap() == "IStringable"
+            })
+            .unwrap();
+        let stringable = image.view(stringable).unwrap();
+        let method_start = stringable.list::<tables::MethodDef>(5).unwrap().number();
+        let method = image
+            .view(image.row::<tables::MethodDef>(method_start).unwrap())
+            .unwrap();
+        let signature = image.method_signature(method.blob_id(4).unwrap()).unwrap();
+        assert_eq!(signature.return_type.kind, crate::TypeKind::String);
+        assert!(signature.parameters.is_empty());
+
+        let old_stringable = old.expect("Windows.Foundation", "IStringable");
+        let old_signature = old_stringable.methods().next().unwrap().signature(&[]);
+        assert_eq!(old_signature.return_type, windows_metadata::Type::String);
+        assert!(old_signature.types.is_empty());
     }
 
     #[test]

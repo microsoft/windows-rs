@@ -40,7 +40,8 @@ existing implementation. The crate remains unpublished until both `windows-bindg
 | PE/CLI image and table layout | Done | WinRT and Win32 images parse; malformed ranges fail without panics. |
 | Typed row IDs and checked heaps | Done | One table declaration generates IDs and layout; string/blob/GUID access is bounded. |
 | Raw row and coded-index access | Done | Every column kind decodes through checked table metadata. |
-| Signatures and attribute blobs | Next | One fallible decoder handles valid encodings and reports byte offsets. |
+| ECMA signatures | Done | One fallible decoder handles every signature-bearing row and reports byte offsets. |
+| Custom-attribute values | Next | Constructor-directed fixed and named arguments decode without losing serialized types. |
 | Multi-image database and indexes | Planned | Owned file IDs and row IDs replace leaked indexes and borrowed identities. |
 | `windows-bindgen` reader adapter | Planned | Full generated Rust output matches the existing reader. |
 | Deterministic metadata builder | Planned | Finalization returns a queryable image and stable row remapping. |
@@ -83,3 +84,15 @@ The comparison includes duplicate architecture variants, field and method lists,
 coded indexes. Nonempty pointer tables and edit-and-continue tables are rejected explicitly.
 Pointer tables change list interpretation and will remain unsupported until that indirection has a
 tested model.
+
+The signature layer uses one bounded `BlobReader` for primitive reads and canonical compressed
+integers. Method, field, property, local, member-reference, type-specification, and method-spec
+signatures share one recursive type decoder with a nesting limit. Every signature-bearing row in
+the committed WinRT and Win32 images is decoded during image construction. Representative
+`Point` fields and `IStringable::ToString` signatures also match the existing reader.
+
+The first corpus failure was the Win32 `NativeTypedefAttribute` value field encoded as `void`.
+Rejecting it in the decoder repeated the old mistake of mixing semantic policy into structural
+reading. The decoder now preserves `void` in any encoded position; common and Windows validators
+will decide where it is accepted. Signature errors retain the owning table and row as well as the
+absolute blob byte offset.
