@@ -36,6 +36,22 @@ impl Database {
             entity,
         })
     }
+
+    /// Returns a semantic view of one field.
+    pub fn field(&self, entity: Entity<tables::Field>) -> Option<FieldDefinition<'_>> {
+        self.view(entity).map(|_| FieldDefinition {
+            database: self,
+            entity,
+        })
+    }
+
+    /// Returns a semantic view of one method.
+    pub fn method(&self, entity: Entity<tables::MethodDef>) -> Option<MethodDefinition<'_>> {
+        self.view(entity).map(|_| MethodDefinition {
+            database: self,
+            entity,
+        })
+    }
 }
 
 impl<'a> TypeDefinition<'a> {
@@ -248,6 +264,27 @@ pub struct ConstantDefinition<'a> {
     entity: Entity<tables::Constant>,
 }
 
+/// A decoded Constant table value.
+#[derive(Clone, Debug, PartialEq)]
+pub enum ConstantValue {
+    Boolean(bool),
+    Char(u16),
+    I8(i8),
+    U8(u8),
+    I16(i16),
+    U16(u16),
+    I32(i32),
+    U32(u32),
+    I64(i64),
+    U64(u64),
+    ISize(i64),
+    USize(u64),
+    F32(f32),
+    F64(f64),
+    String(String),
+    Null,
+}
+
 impl ConstantDefinition<'_> {
     /// Returns the database identity.
     pub const fn entity(self) -> Entity<tables::Constant> {
@@ -260,6 +297,66 @@ impl ConstantDefinition<'_> {
             .view(self.entity)
             .ok_or_else(|| Error::invalid_metadata("invalid constant identity"))?
             .u16(0)
+    }
+
+    /// Decodes the constant value.
+    pub fn value(self) -> Result<ConstantValue, Error> {
+        let row = self
+            .database
+            .view(self.entity)
+            .ok_or_else(|| Error::invalid_metadata("invalid constant identity"))?;
+        let image = self.database.image(self.entity.file()).unwrap();
+        let mut reader = image.blob_reader(row.blob_id(2)?)?;
+        let value = match self.element_type()? as u8 {
+            TYPE_BOOLEAN => match reader.read_u8()? {
+                0 => ConstantValue::Boolean(false),
+                1 => ConstantValue::Boolean(true),
+                _ => return Err(Error::invalid(reader.offset() - 1, "invalid Boolean value")),
+            },
+            TYPE_CHAR => ConstantValue::Char(reader.read_u16()?),
+            TYPE_I8 => ConstantValue::I8(reader.read_i8()?),
+            TYPE_U8 => ConstantValue::U8(reader.read_u8()?),
+            TYPE_I16 => ConstantValue::I16(reader.read_i16()?),
+            TYPE_U16 => ConstantValue::U16(reader.read_u16()?),
+            TYPE_I32 => ConstantValue::I32(reader.read_i32()?),
+            TYPE_U32 => ConstantValue::U32(reader.read_u32()?),
+            TYPE_I64 => ConstantValue::I64(reader.read_i64()?),
+            TYPE_U64 => ConstantValue::U64(reader.read_u64()?),
+            TYPE_ISIZE => ConstantValue::ISize(reader.read_i64()?),
+            TYPE_USIZE => ConstantValue::USize(reader.read_u64()?),
+            TYPE_F32 => ConstantValue::F32(reader.read_f32()?),
+            TYPE_F64 => ConstantValue::F64(reader.read_f64()?),
+            TYPE_STRING => {
+                let offset = reader.offset();
+                let length = reader.remaining();
+                if length % 2 != 0 {
+                    return Err(Error::invalid(offset, "UTF-16 constant has odd length"));
+                }
+                let bytes = reader.read_bytes(length)?;
+                let units: Vec<_> = bytes
+                    .as_chunks::<2>()
+                    .0
+                    .iter()
+                    .map(|unit| u16::from_le_bytes(*unit))
+                    .collect();
+                ConstantValue::String(
+                    String::from_utf16(&units)
+                        .map_err(|_| Error::invalid(offset, "invalid UTF-16 constant"))?,
+                )
+            }
+            TYPE_CLASS => {
+                if reader.read_u32()? != 0 {
+                    return Err(Error::invalid(
+                        reader.offset() - 4,
+                        "class constant is not null",
+                    ));
+                }
+                ConstantValue::Null
+            }
+            _ => return Err(Error::invalid_metadata("unsupported constant element type")),
+        };
+        reader.finish()?;
+        Ok(value)
     }
 }
 
@@ -460,6 +557,50 @@ mod tests {
         assert_eq!(actual, expected);
     }
 
+    #[test]
+    fn constant_values_match_existing_reader() {
+        let database = Database::new([
+            Image::new(windows_default::WINRT).unwrap(),
+            Image::new(windows_default::WIN32).unwrap(),
+        ])
+        .unwrap();
+        let mut actual = Vec::new();
+        for definition in database.definitions() {
+            for field in definition.fields().unwrap() {
+                if let Some(constant) = field.constant().unwrap() {
+                    actual.push((
+                        definition.namespace().unwrap().to_string(),
+                        definition.name().unwrap().to_string(),
+                        field.name().unwrap().to_string(),
+                        constant_text(&constant.value().unwrap()),
+                    ));
+                }
+            }
+        }
+
+        let old = windows_metadata::reader::Index::new(vec![
+            windows_metadata::reader::File::new(windows_default::WINRT.to_vec()).unwrap(),
+            windows_metadata::reader::File::new(windows_default::WIN32.to_vec()).unwrap(),
+        ]);
+        let mut expected = Vec::new();
+        for (_, _, definition) in old.iter() {
+            for field in definition.fields() {
+                if let Some(constant) = field.constant() {
+                    expected.push((
+                        definition.namespace().to_string(),
+                        definition.name().to_string(),
+                        field.name().to_string(),
+                        old_constant_text(&constant.value()),
+                    ));
+                }
+            }
+        }
+
+        actual.sort();
+        expected.sort();
+        assert_eq!(actual, expected);
+    }
+
     fn category(value: TypeCategory) -> u8 {
         match value {
             TypeCategory::Interface => 0,
@@ -479,6 +620,30 @@ mod tests {
             windows_metadata::reader::TypeCategory::Delegate => 3,
             windows_metadata::reader::TypeCategory::Struct => 4,
             windows_metadata::reader::TypeCategory::Attribute => 5,
+        }
+    }
+
+    fn constant_text(value: &ConstantValue) -> String {
+        format!("{value:?}")
+    }
+
+    fn old_constant_text(value: &windows_metadata::Value) -> String {
+        match value {
+            windows_metadata::Value::Bool(value) => format!("Boolean({value:?})"),
+            windows_metadata::Value::U8(value) => format!("U8({value:?})"),
+            windows_metadata::Value::I8(value) => format!("I8({value:?})"),
+            windows_metadata::Value::U16(value) => format!("U16({value:?})"),
+            windows_metadata::Value::I16(value) => format!("I16({value:?})"),
+            windows_metadata::Value::U32(value) => format!("U32({value:?})"),
+            windows_metadata::Value::I32(value) => format!("I32({value:?})"),
+            windows_metadata::Value::U64(value) => format!("U64({value:?})"),
+            windows_metadata::Value::I64(value) => format!("I64({value:?})"),
+            windows_metadata::Value::USize(value) => format!("USize({value:?})"),
+            windows_metadata::Value::ISize(value) => format!("ISize({value:?})"),
+            windows_metadata::Value::F32(value) => format!("F32({value:?})"),
+            windows_metadata::Value::F64(value) => format!("F64({value:?})"),
+            windows_metadata::Value::Utf16(value) => format!("String({value:?})"),
+            rest => panic!("unexpected constant value {rest:?}"),
         }
     }
 }

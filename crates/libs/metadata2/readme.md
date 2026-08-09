@@ -12,5 +12,6 @@ duplicate type definitions during name lookup. Constructor-directed custom-attri
 preserves fixed and named values and resolves enum storage from local definitions or an explicit
 dependency resolver. Initial semantic views expose type categories and field and method list ranges
 for a read-only `windows-bindgen` projection. Sorted relationship tables are validated once and
-queried without reverse indexes. The crate does not yet provide the remaining semantic table
-relationships, metadata writing, validation policy, merging, or namespace remapping.
+queried without reverse indexes, and Constant table values are decoded losslessly. The crate does
+not yet provide the remaining semantic table relationships, metadata writing, validation policy,
+merging, or namespace remapping.

@@ -179,3 +179,20 @@ structures. The preferred next prototype is a bindgen-owned reader that owns `Da
 This will require some bindgen call sites to resolve entities through the reader, but it preserves
 the metadata foundation instead of adding `Arc` ownership to every row handle or leaking the
 database.
+
+That reader prototype now exists beside the current bindgen reader in tests. It owns the database,
+stores typed entities for every projected type, function, and constant, supports exact full-name
+lookup, and resolves every stored identity back to its metadata name. A local optimized run built
+the entity reader in 148 ms and the current leaked reader in 158 ms. These are development
+measurements rather than performance thresholds.
+
+Constant table values now decode booleans, characters, signed and unsigned integers, native-sized
+integers, floating-point values, UTF-16 strings, and null class constants. Every constant in the
+committed WinRT and Win32 images matches the existing reader.
+
+The next output step is a bindgen design change rather than another metadata index. Existing
+bindgen types embed `'static` row aliases and `TypeName` string references from the leaked index.
+Adapting metadata2 to those types would reintroduce the leak or spread ownership into every row
+handle. Instead, extract one metadata-neutral output model - starting with WinRT structs - that
+both readers can populate and the existing renderer can consume. Continue only if that boundary
+stays small; do not build a compatibility copy of the old reader API.
