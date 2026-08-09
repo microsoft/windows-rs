@@ -1,4 +1,4 @@
-use crate::Error;
+use super::*;
 
 /// A checked cursor over one metadata blob.
 pub struct BlobReader<'a> {

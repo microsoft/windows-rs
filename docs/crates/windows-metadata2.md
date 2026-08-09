@@ -41,8 +41,8 @@ existing implementation. The crate remains unpublished until both `windows-bindg
 | Typed row IDs and checked heaps | Done | One table declaration generates IDs and layout; string/blob/GUID access is bounded. |
 | Raw row and coded-index access | Done | Every column kind decodes through checked table metadata. |
 | ECMA signatures | Done | One fallible decoder handles every signature-bearing row and reports byte offsets. |
+| Multi-image database and indexes | Done | Owned file IDs and row IDs replace leaked indexes and borrowed identities. |
 | Custom-attribute values | Next | Constructor-directed fixed and named arguments decode without losing serialized types. |
-| Multi-image database and indexes | Planned | Owned file IDs and row IDs replace leaked indexes and borrowed identities. |
 | `windows-bindgen` reader adapter | Planned | Full generated Rust output matches the existing reader. |
 | Deterministic metadata builder | Planned | Finalization returns a queryable image and stable row remapping. |
 | `windows-rdl` builder adapter | Planned | WinRT, Win32, and WDK output remains equivalent. |
@@ -96,3 +96,14 @@ Rejecting it in the decoder repeated the old mistake of mixing semantic policy i
 reading. The decoder now preserves `void` in any encoded position; common and Windows validators
 will decide where it is accepted. Signature errors retain the owning table and row as well as the
 absolute blob byte offset.
+
+Custom-attribute planning showed that fixed enum values cannot be decoded correctly until a
+constructor parameter's TypeRef can be resolved to its enum definition. Assuming an `i32` backing
+type would repeat known debt, so the multi-image database was moved ahead of attribute decoding.
+
+`Database` owns its images and combines `FileId` with typed row IDs as `Entity<T>`. Its nested
+namespace/name index does not allocate on lookup and preserves every matching definition,
+including architecture variants. Exact raw TypeDef name multiplicities match the existing index
+across WinRT and Win32. TypeRef resolution returns all candidates rather than selecting the first.
+Assembly-scope narrowing and nested TypeRef resolution remain future resolution layers; callers
+can see ambiguity explicitly in the meantime.

@@ -1,7 +1,10 @@
 #![doc = include_str!("../readme.md")]
 #![deny(unsafe_code)]
 
+use std::collections::*;
+
 mod blob;
+mod database;
 mod error;
 mod heap;
 mod image;
@@ -10,6 +13,7 @@ mod schema;
 mod signature;
 
 pub use blob::*;
+pub use database::*;
 pub use error::*;
 pub use heap::*;
 pub use image::*;

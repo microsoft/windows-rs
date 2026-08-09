@@ -1,7 +1,4 @@
-use crate::{
-    AnyRowId, BlobId, BlobReader, CodedIndex, Column, Error, GuidId, Row, RowId, Rows, StringId,
-    Table, TableId,
-};
+use super::*;
 use std::collections::HashSet;
 use std::ops::Range;
 use std::path::Path;
@@ -132,11 +129,7 @@ impl Image {
     }
 
     /// Iterates the half-open range between two list-start indexes.
-    pub fn list_range<T: Table>(
-        &self,
-        start: crate::ListIndex<T>,
-        end: crate::ListIndex<T>,
-    ) -> Option<Rows<T>> {
+    pub fn list_range<T: Table>(&self, start: ListIndex<T>, end: ListIndex<T>) -> Option<Rows<T>> {
         let limit = self.table(T::ID).rows.checked_add(1)?;
         (start.number() <= end.number() && end.number() <= limit)
             .then(|| Rows::range(start.number(), end.number()))
@@ -288,7 +281,7 @@ impl Image {
             ));
         }
 
-        for schema in &crate::TABLES {
+        for schema in &TABLES {
             let layout = self.table(schema.id());
             for row in 1..=layout.rows {
                 for (column, kind) in schema.columns().iter().enumerate() {
@@ -808,7 +801,6 @@ fn compressed_u32(bytes: &[u8]) -> Option<(u32, usize)> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::{ListIndex, tables};
 
     #[test]
     fn reads_committed_windows_metadata() {
@@ -995,7 +987,7 @@ mod tests {
             .view(image.row::<tables::Field>(field_start).unwrap())
             .unwrap();
         let x_type = image.field_signature(x.blob_id(2).unwrap()).unwrap();
-        assert_eq!(x_type.kind, crate::TypeKind::F32);
+        assert_eq!(x_type.kind, TypeKind::F32);
 
         let old = windows_metadata::reader::Index::new(vec![
             windows_metadata::reader::File::new(windows_default::WINRT.to_vec()).unwrap(),
@@ -1020,7 +1012,7 @@ mod tests {
             .view(image.row::<tables::MethodDef>(method_start).unwrap())
             .unwrap();
         let signature = image.method_signature(method.blob_id(4).unwrap()).unwrap();
-        assert_eq!(signature.return_type.kind, crate::TypeKind::String);
+        assert_eq!(signature.return_type.kind, TypeKind::String);
         assert!(signature.parameters.is_empty());
 
         let old_stringable = old.expect("Windows.Foundation", "IStringable");
