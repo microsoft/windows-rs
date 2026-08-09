@@ -1,0 +1,22 @@
+[package]
+name = "windows-bindgen2"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.95"
+publish = false
+license = "MIT OR Apache-2.0"
+description = "Incubating Windows metadata binding generator"
+repository = "https://github.com/microsoft/windows-rs"
+readme = "readme.md"
+
+[dependencies]
+proc-macro2 = { workspace = true }
+quote = { workspace = true }
+windows-metadata2 = { path = "../metadata2" }
+
+[dev-dependencies]
+windows-default = { workspace = true }
+windows-rdl = { workspace = true }
+
+[lints]
+workspace = true

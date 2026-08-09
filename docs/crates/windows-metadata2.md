@@ -42,7 +42,8 @@ existing implementation. The crate remains unpublished until both `windows-bindg
 | ECMA signatures | Done | One fallible decoder handles every signature-bearing row and reports byte offsets. |
 | Multi-image database and indexes | Done | Owned file IDs and row IDs replace leaked indexes and borrowed identities. |
 | Custom-attribute values | Done | Constructor-directed fixed and named arguments decode without losing serialized types. |
-| `windows-bindgen` reader adapter | In progress | Owned selection and WinRT value output match the existing reader exactly. |
+| `windows-bindgen` proof | Done | Owned selection and representative output proved the metadata2 boundary. |
+| `windows-bindgen2` foundation | Recommended next | A new engine matches old output without old row lifetimes. |
 | Deterministic metadata builder | Planned | Finalization returns a queryable image and stable row remapping. |
 | `windows-rdl` builder adapter | Planned | WinRT, Win32, and WDK output remains equivalent. |
 | Common and Windows validation | Planned | Existing validation corpus passes through explicit profiles. |
@@ -302,3 +303,83 @@ tokens from `ModelType` and the value map.
 strings and object references, generic ABI types, vectors, projected system value types, named
 interfaces, enums, and copyable/non-copyable structs. The next slice is the public callable
 signature. Upcall bodies and method execution policy remain outside the migration model.
+
+## Bindgen migration review
+
+The side-by-side proof has reached its useful limit. Continuing to adapt the existing generator is
+not the recommended path.
+
+The existing bindgen source is about 12,800 lines across 49 Rust files. The metadata2 proof already
+adds about 1,900 test-side lines, before class, interface, package, filtering, dependency closure,
+or full method rendering has migrated. Each new output slice now requires both a metadata2 model
+and extraction of policy from production types whose identities still contain leaked rows and
+static strings. Although the extracted delegate identity and ABI helpers are clean and
+output-neutral, repeating this process across the generator would spend substantial effort
+untangling an architecture that would then be replaced.
+
+The public package boundary is much smaller than the implementation. Consumers use the `bindgen`
+function or `Bindgen` builder. A new engine can preserve that surface later without preserving the
+current internal `Reader`, `Type`, `TypeName`, `Config`, and leaked-index design.
+
+Validation favors a clean replacement:
+
+- committed `bindings.rs` files provide roughly 80,000 lines of immediate output comparison;
+- `tool_bindings`, `tool_package`, `tool_webview`, and `tool_reactor` cover the main generation
+  modes;
+- bindgen golden tests cover small focused WinRT and Win32 cases;
+- committed `windows` and `windows-sys` package output provides the full-corpus oracle;
+- the metadata2 differential tests already validate the source facts independently.
+
+The recommended next step is an unpublished `windows-bindgen2` crate beside the existing
+generator. The old generator remains the oracle and production implementation until the new crate
+matches all required output. It should not begin as an adapter for the old bindgen types.
+
+The initial architecture should have these boundaries:
+
+| Layer | Responsibility |
+| --- | --- |
+| Metadata | `windows-metadata2::Database` and typed entities. |
+| Selection | Bindgen policy for filters, remaps, `Apis`, contracts, and architecture. |
+| Closure | Required type and namespace dependencies, stored by owned entity or owned name. |
+| Projection | Per-item lowering into small metadata-neutral models. |
+| Rendering | Deterministic tokens with no metadata row access. |
+| Output | Flat, module, and package layout plus formatting and file writes. |
+
+Only the value graph should remain global because recursive value semantics require it. Methods,
+delegates, interfaces, and classes should be lowered one item at a time. No database leak, static
+metadata strings, compatibility clone of the old reader, or global second type graph should be
+introduced.
+
+Suggested checkpoints:
+
+1. Create `windows-bindgen2` with a `Database`-owning generator and deterministic item selection.
+2. Move the proven enum and struct models into it and match focused golden output.
+3. Add Win32 constants and functions, then prove flat sys output.
+4. Add delegates using the proven per-item model and shared rendering rules.
+5. Add interfaces and classes only after callable output is stable.
+6. Add filter closure, module layout, and package layout independently.
+7. Run every generation tool and require no tracked output differences.
+8. Replace the implementation behind the existing `windows-bindgen` API, then retire the old
+   engine and temporary crate name.
+
+The current bindgen proof should now be treated as design evidence. Do not continue extracting the
+public callable signature or additional production renderers unless a finding is needed to design
+the new engine.
+
+The first two checkpoints are complete. `windows-bindgen2::Generator` owns the database and selects
+1,731 WinRT enums and 125 projected structs from the committed metadata. It stores only typed
+entities and value categories. Temporary namespace/name strings make construction sorting cheap
+and are discarded afterward; adding another metadata index would not improve retained state or a
+measured lookup path.
+
+The separate owned value graph renders the full selected corpus, including the parameterized
+`IReference<u64>` fields that blocked `HttpProgress` in the earlier proof. Nested ordered maps avoid
+allocating lookup keys, recursive value cycles are checked, and GUID folding occurs only when a
+generic named type needs a parameterized-interface signature. Focused enum and struct fixtures
+match existing golden tokens.
+
+The first Win32 checkpoint added checked `MethodDef -> ImplMap -> ModuleRef` semantic views and
+field custom-attribute views. Import names, modules, and flags match the existing reader across the
+committed Win32 metadata. Bindgen2 now lowers every selected Win32 function and 65,345 directly
+typed constants. The remaining constant work is native typedef conversion and special constants
+without Constant rows.

@@ -84,5 +84,6 @@ Use these crates when the focused crates above do not cover the APIs you need.
 | Crate | Description |
 | --- | --- |
 | [windows-bindgen](crates/windows-bindgen.md) | Generates Rust bindings from Windows metadata. |
+| [windows-bindgen2](crates/windows-bindgen2.md) | Incubates a replacement binding generator. |
 | [windows](crates/windows.md) | Typed bindings for C-style, COM, and WinRT APIs. |
 | [windows-sys](crates/windows-sys.md) | Raw bindings for C-style Windows APIs. |

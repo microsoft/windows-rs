@@ -270,6 +270,36 @@ impl<'a> FieldDefinition<'a> {
         Ok(constant)
     }
 
+    /// Iterates the custom attributes attached to this field.
+    pub fn attributes(
+        self,
+    ) -> Result<impl ExactSizeIterator<Item = AttributeDefinition<'a>>, Error> {
+        let encoded = CodedIndex::HasCustomAttribute
+            .encode(TableId::Field, self.entity.row().number())
+            .ok_or_else(|| Error::invalid_metadata("Field cannot own custom attributes"))?;
+        let file = self.entity.file();
+        let image = self
+            .database
+            .image(file)
+            .ok_or_else(|| Error::invalid_metadata("invalid file identity"))?;
+        Ok(image
+            .matching_rows::<tables::CustomAttribute>(0, encoded)?
+            .map(move |row| AttributeDefinition {
+                database: self.database,
+                entity: Entity::new(file, row),
+            }))
+    }
+
+    /// Returns the first custom attribute with the given type name.
+    pub fn find_attribute(self, name: &str) -> Result<Option<AttributeDefinition<'a>>, Error> {
+        for attribute in self.attributes()? {
+            if attribute.name()? == Some(name) {
+                return Ok(Some(attribute));
+            }
+        }
+        Ok(None)
+    }
+
     fn row(self) -> Result<Row<'a, tables::Field>, Error> {
         self.database
             .view(self.entity)
@@ -435,6 +465,31 @@ pub struct MethodParameterMap<'a> {
     parameters: Vec<Option<ParameterDefinition<'a>>>,
 }
 
+/// A checked P/Invoke import associated with a method.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct MethodImport<'a> {
+    flags: u16,
+    name: &'a str,
+    module: &'a str,
+}
+
+impl<'a> MethodImport<'a> {
+    /// Returns the encoded PInvokeAttributes flags.
+    pub const fn flags(self) -> u16 {
+        self.flags
+    }
+
+    /// Returns the imported symbol name.
+    pub const fn name(self) -> &'a str {
+        self.name
+    }
+
+    /// Returns the imported module name.
+    pub const fn module(self) -> &'a str {
+        self.module
+    }
+}
+
 impl<'a> MethodParameterMap<'a> {
     /// Returns the Sequence == 0 return row, when present.
     pub fn return_parameter(&self) -> Option<ParameterDefinition<'a>> {
@@ -597,6 +652,36 @@ impl<'a> MethodDefinition<'a> {
         })
     }
 
+    /// Returns the method's P/Invoke import, when present.
+    pub fn import(self) -> Result<Option<MethodImport<'a>>, Error> {
+        let encoded = CodedIndex::MemberForwarded
+            .encode(TableId::MethodDef, self.entity.row().number())
+            .ok_or_else(|| Error::invalid_metadata("MethodDef cannot own an ImplMap"))?;
+        let image = self
+            .database
+            .image(self.entity.file())
+            .ok_or_else(|| Error::invalid_metadata("invalid file identity"))?;
+        let mut rows = image.matching_rows::<tables::ImplMap>(1, encoded)?;
+        let Some(row) = rows.next() else {
+            return Ok(None);
+        };
+        if rows.next().is_some() {
+            return Err(Error::invalid_metadata("method has more than one ImplMap"));
+        }
+        let row = image
+            .view(row)
+            .ok_or_else(|| Error::invalid_metadata("invalid ImplMap identity"))?;
+        let module = row
+            .index::<tables::ModuleRef>(3)?
+            .and_then(|module| image.view(module))
+            .ok_or_else(|| Error::invalid_metadata("invalid ImplMap module"))?;
+        Ok(Some(MethodImport {
+            flags: row.u16(0)?,
+            name: row.string(2)?,
+            module: module.string(0)?,
+        }))
+    }
+
     fn row(self) -> Result<Row<'a, tables::MethodDef>, Error> {
         self.database
             .view(self.entity)
@@ -723,6 +808,53 @@ mod tests {
                         .filter(|field| field.constant().is_some())
                         .count(),
                     attributes,
+                )
+            })
+            .collect();
+
+        actual.sort();
+        expected.sort();
+        assert_eq!(actual, expected);
+    }
+
+    #[test]
+    fn method_imports_match_existing_reader() {
+        let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
+        let mut actual: Vec<_> = database
+            .definitions()
+            .filter(|definition| definition.name().unwrap() == "Apis")
+            .flat_map(|definition| definition.methods().unwrap())
+            .map(|method| {
+                (
+                    method.name().unwrap().to_string(),
+                    method.import().unwrap().map(|import| {
+                        (
+                            import.flags(),
+                            import.name().to_string(),
+                            import.module().to_string(),
+                        )
+                    }),
+                )
+            })
+            .collect();
+
+        let old = windows_metadata::reader::Index::new(vec![
+            windows_metadata::reader::File::new(windows_default::WIN32.to_vec()).unwrap(),
+        ]);
+        let mut expected: Vec<_> = old
+            .iter()
+            .filter(|(_, name, _)| *name == "Apis")
+            .flat_map(|(_, _, definition)| definition.methods())
+            .map(|method| {
+                (
+                    method.name().to_string(),
+                    method.impl_map().map(|import| {
+                        (
+                            import.flags().0,
+                            import.import_name().to_string(),
+                            import.import_scope().name().to_string(),
+                        )
+                    }),
                 )
             })
             .collect();

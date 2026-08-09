@@ -1,0 +1,68 @@
+/// An error encountered while selecting, lowering, or rendering metadata.
+#[derive(Debug)]
+pub enum Error {
+    /// The metadata could not be read.
+    Metadata(windows_metadata2::Error),
+    /// Two projected value types have the same full name.
+    DuplicateValue(String),
+    /// A value definition is structurally invalid.
+    InvalidValue {
+        /// The full metadata type name.
+        name: String,
+        /// The violated requirement.
+        message: &'static str,
+    },
+    /// A type shape does not yet have projection policy.
+    UnsupportedType {
+        /// The value type containing the unsupported shape.
+        name: String,
+        /// The unsupported projected shape.
+        shape: String,
+    },
+    /// Value types form an invalid recursive value cycle.
+    RecursiveValue(String),
+    /// A requested Win32 item does not exist.
+    MissingWin32Item {
+        /// The metadata namespace.
+        namespace: String,
+        /// The item name.
+        name: String,
+    },
+}
+
+impl std::fmt::Display for Error {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Metadata(error) => error.fmt(formatter),
+            Self::DuplicateValue(name) => write!(formatter, "duplicate value type `{name}`"),
+            Self::InvalidValue { name, message } => {
+                write!(formatter, "invalid value type `{name}`: {message}")
+            }
+            Self::UnsupportedType { name, shape } => {
+                write!(formatter, "unsupported type in `{name}`: {shape}")
+            }
+            Self::RecursiveValue(name) => write!(formatter, "recursive value type `{name}`"),
+            Self::MissingWin32Item { namespace, name } => {
+                write!(
+                    formatter,
+                    "Win32 item `{namespace}.{name}` was not selected"
+                )
+            }
+        }
+    }
+}
+
+impl std::error::Error for Error {
+    fn source(&self) -> Option<&(dyn std::error::Error + 'static)> {
+        match self {
+            Self::Metadata(error) => Some(error),
+            _ => None,
+        }
+    }
+}
+
+impl From<windows_metadata2::Error> for Error {
+    fn from(value: windows_metadata2::Error) -> Self {
+        Self::Metadata(value)
+    }
+}
