@@ -426,7 +426,10 @@ fn render_selects_flat_output() {
             .unwrap();
 
     assert_eq!(
-        generator.render(Layout::Flat).unwrap().to_string(),
+        generator
+            .render_projection(Layout::Flat, Projection::Sys)
+            .unwrap()
+            .to_string(),
         expected.to_string()
     );
 }
@@ -1389,7 +1392,10 @@ fn flat_output_uses_unqualified_cross_namespace_references() {
     assert!(output.contains("pub value : ManagedValue"));
     assert!(!output.contains("super :: ManagedFirst :: ManagedValue"));
 
-    let output = generator.render(Layout::Modules).unwrap().to_string();
+    let output = generator
+        .render_projection(Layout::Modules, Projection::Sys)
+        .unwrap()
+        .to_string();
     assert!(output.contains("super :: First :: Value"));
     assert!(output.contains("super :: ManagedFirst :: ManagedValue"));
 }
@@ -1599,7 +1605,10 @@ fn native_interfaces_render_vtables_and_close_base_dependencies() {
 
     assert_eq!(items.interfaces().count(), 2);
     assert_eq!(items.native_types().count(), 1);
-    let output = generator.render(Layout::Modules).unwrap().to_string();
+    let output = generator
+        .render_projection(Layout::Modules, Projection::Sys)
+        .unwrap()
+        .to_string();
     let expected: TokenStream = r#"
         pub mod Test {
             #[repr(C)]
@@ -1751,7 +1760,10 @@ fn true_nested_native_types_match_existing_golden_tokens() {
     assert_eq!(actual.to_string(), expected.to_string());
     let expected = quote! { pub mod Test { #expected } };
     assert_eq!(
-        generator.render(Layout::Modules).unwrap().to_string(),
+        generator
+            .render_projection(Layout::Modules, Projection::Sys)
+            .unwrap()
+            .to_string(),
         expected.to_string()
     );
 }
@@ -2137,7 +2149,7 @@ fn tool_bindings_sys_requests_match_committed_output() {
         let actual = metadata
             .generator(Request::filtered(parsed.filter))
             .unwrap()
-            .render(Layout::Flat)
+            .render_projection(Layout::Flat, Projection::Sys)
             .unwrap();
         let expected: TokenStream = std::fs::read_to_string(root.join(parsed.output))
             .unwrap()

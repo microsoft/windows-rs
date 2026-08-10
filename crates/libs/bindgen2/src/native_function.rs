@@ -44,7 +44,7 @@ impl Function {
     /// Renders a flat Win32 `windows_link::link!` declaration.
     #[cfg(test)]
     pub fn write_sys(&self) -> TokenStream {
-        self.write_context(Layout::Flat, Projection::Default)
+        self.write_context(Layout::Flat, Projection::Sys)
     }
 
     pub(super) fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
@@ -60,7 +60,7 @@ impl Function {
         let result = self
             .signature
             .write_result_projection(&self.namespace, layout, projection);
-        if projection.is_minimal() {
+        if !projection.is_sys() {
             quote! {
                 #architectures
                 windows_core::link!(#module #abi #symbol fn #name(#parameters #variadic) #result);

@@ -42,10 +42,10 @@ WinRT value, delegate, interface, and class projection.
 | Tool requests | Four real proofs | Numerics, time, future, and collections requests match. |
 | Package output | Not started | Requires stable filtering, layout, and formatting first. |
 
-Approximate hand-written Rust source size is 7,580 lines for bindgen2 versus 12,829 for the
-existing bindgen crate. The public boundary and ownership logic occupy about 235 lines in
-`lib.rs`; tests are isolated in `tests.rs`. Output coverage and concept count matter more than
-line count.
+Approximate hand-written production source size is 8,000 lines for bindgen2 versus 12,829 for the
+existing bindgen crate, about 38% less. Bindgen2 also has about 2,160 lines of tests. This is a
+useful maintenance signal, not a complete comparison: bindgen2 still lacks several output
+policies and package generation.
 
 ## Stabilization gate
 
@@ -258,7 +258,7 @@ functions, enum members, and union `Default` implementations are each independen
 The direction remains better than the current generator, but it is not yet a replacement:
 
 - bindgen2 remains smaller than bindgen, but minimal native and implementation policy are
-  incomplete, and it does not include rich native policy, file writing, or packages;
+  incomplete, and it does not include complete rich native policy, file writing, or packages;
 - metadata2 owns data, uses checked typed identities, and avoids the leaked reader, but its source
   is already close to the old metadata crate's raw line count because parsing and differential
   tests are extensive;
@@ -269,6 +269,12 @@ The direction remains better than the current generator, but it is not yet a rep
   rules differ. Unifying them now would recreate the broad old `Type` enum;
 - `image.rs` and `semantic.rs` are the main metadata2 growth risks. New relationships should be
   split by concern rather than extending one semantic module indefinitely.
+- bindgen2 has no comparable end-to-end performance benchmark yet. Shared metadata and request
+  catalogs remove repeated work by construction, but "faster" remains unproven until equivalent
+  tool requests are measured with parsing, closure, rendering, formatting, and writing included;
+- callable and interface projection are the main bindgen2 growth risks. Collection conveniences
+  now live in `winrt_collection.rs`; future named policies should get similarly narrow modules
+  rather than accumulating in `winrt_interface.rs` or `winrt_delegate.rs`.
 
 The current advantage is clearer ownership and policy boundaries, explicit unsupported-shape
 accounting, and complete corpus tests for implemented slices. Full output equivalence is still the
@@ -416,9 +422,10 @@ step is to parse real request syntax and compare complete minimal tool requests;
 
 ## Projection style boundary
 
-Projection style is one internal enum with `Default` and `Minimal` variants. It is passed through
-rendering and the shared callable context rather than copied into each projected model or expanded
-into independent booleans. Selection and dependency closure use the same roles in both styles.
+Projection style is one internal enum with `Sys`, `Default`, and `Minimal` variants. These are the
+three request-wide styles used by current consumers, not independent rendering flags. The profile
+is passed through rendering and the shared callable context rather than copied into each projected
+model. Selection and dependency closure use the same roles in all three styles.
 
 The focused minimal enum, struct, delegate, interface, and class fixtures match existing output
 apart from the delegate safety correction below. Default event output matches the existing

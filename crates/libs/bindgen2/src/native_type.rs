@@ -275,7 +275,7 @@ impl NativeType {
     /// Renders a flat Win32 sys type definition.
     #[cfg(test)]
     pub fn write_sys(&self) -> TokenStream {
-        self.write_context(Layout::Flat, Projection::Default)
+        self.write_context(Layout::Flat, Projection::Sys)
     }
 
     fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
@@ -298,7 +298,7 @@ impl NativeType {
                 vec![(
                     &value.name,
                     1,
-                    value.write(&architectures, layout, Projection::Default),
+                    value.write(&architectures, layout, Projection::Sys),
                 )]
             }
         }
@@ -309,7 +309,7 @@ impl NativeType {
         layout: Layout,
         projection: Projection,
     ) -> Vec<(&str, u8, TokenStream)> {
-        if projection.is_minimal() {
+        if !projection.is_sys() {
             let (namespace, name) = match &self.kind {
                 Kind::Alias(value) => (&value.namespace, &value.name),
                 Kind::Enum(value) => (&value.namespace, &value.name),
@@ -490,7 +490,7 @@ impl Struct {
         architectures: &TokenStream,
         projection: Projection,
     ) -> (TokenStream, TokenStream) {
-        if projection.is_minimal() && self.align.is_none() && self.packing.is_none() {
+        if !projection.is_sys() && self.align.is_none() && self.packing.is_none() {
             let debug = self
                 .fields
                 .iter()

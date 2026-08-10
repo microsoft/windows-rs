@@ -65,7 +65,7 @@ impl Signature {
     }
 
     pub(super) fn write_parameters(&self, namespace: &str, layout: Layout) -> TokenStream {
-        self.write_parameters_projection(namespace, layout, Projection::Default)
+        self.write_parameters_projection(namespace, layout, Projection::Sys)
     }
 
     pub(super) fn write_parameters_projection(
@@ -91,7 +91,7 @@ impl Signature {
     }
 
     pub(super) fn write_result(&self, namespace: &str, layout: Layout) -> TokenStream {
-        self.write_result_projection(namespace, layout, Projection::Default)
+        self.write_result_projection(namespace, layout, Projection::Sys)
     }
 
     pub(super) fn write_result_projection(

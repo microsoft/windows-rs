@@ -4,14 +4,14 @@ use quote::quote;
 use std::collections::{BTreeMap, BTreeSet};
 
 pub(super) struct Interface {
-    name: String,
-    namespace: String,
-    generics: Vec<String>,
+    pub(super) name: String,
+    pub(super) namespace: String,
+    pub(super) generics: Vec<String>,
     guid: guid::Guid,
     exclusive: bool,
     agile: bool,
-    methods: Vec<NamedMethod>,
-    required: Vec<RequiredInterface>,
+    pub(super) methods: Vec<NamedMethod>,
+    pub(super) required: Vec<RequiredInterface>,
 }
 
 pub(super) struct NamedMethod {
@@ -89,11 +89,11 @@ impl NamedMethod {
     }
 }
 
-struct RequiredInterface {
-    namespace: String,
-    name: String,
-    arguments: Vec<ty::Type>,
-    methods: Vec<NamedMethod>,
+pub(super) struct RequiredInterface {
+    pub(super) namespace: String,
+    pub(super) name: String,
+    pub(super) arguments: Vec<ty::Type>,
+    pub(super) methods: Vec<NamedMethod>,
 }
 
 impl Interface {
@@ -536,108 +536,20 @@ impl Interface {
                 }
             }
         });
-        let iterable = (!projection.is_minimal()
-            && self.namespace == "Windows.Foundation.Collections"
-            && self.name == "IIterable"
-            && generic_names.len() == 1
-            && self
-                .methods
-                .iter()
-                .any(|method| method.name == "First" && method.selected(members)))
-        .then(|| {
-            let item = &generic_names[0];
-            quote! {
-                impl<#item: windows_core::RuntimeType> IntoIterator for #name<#item> {
-                    type Item = #item;
-                    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
-                    fn into_iter(self) -> Self::IntoIter {
-                        IntoIterator::into_iter(&self)
-                    }
-                }
-                impl<#item: windows_core::RuntimeType> IntoIterator for &#name<#item> {
-                    type Item = #item;
-                    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
-                    fn into_iter(self) -> Self::IntoIter {
-                        windows_collections::BufferedIterator::new(self.First().unwrap())
-                    }
-                }
-            }
-        });
-        let iterator = (!projection.is_minimal()
-            && self.namespace == "Windows.Foundation.Collections"
-            && self.name == "IIterator"
-            && generic_names.len() == 1
-            && ["Current", "HasCurrent", "MoveNext"].iter().all(|name| {
-                self.methods
-                    .iter()
-                    .any(|method| method.name == *name && method.selected(members))
-            }))
-        .then(|| {
-            let item = &generic_names[0];
-            quote! {
-                impl<#item: windows_core::RuntimeType> Iterator for #name<#item> {
-                    type Item = #item;
-                    fn next(&mut self) -> Option<Self::Item> {
-                        let result = if self.HasCurrent().unwrap_or(false) {
-                            self.Current().ok()
-                        } else {
-                            None
-                        };
-                        if result.is_some() {
-                            let _ = self.MoveNext();
-                        }
-                        result
-                    }
-                }
-            }
-        });
-        let required_iterable = if projection.is_minimal() {
-            None
-        } else {
-            self.required
-                .iter()
-                .find(|required| {
-                    required.namespace == "Windows.Foundation.Collections"
-                        && required.name == "IIterable"
-                        && required.arguments.len() == 1
-                        && required
-                            .methods
-                            .iter()
-                            .any(|method| method.name == "First" && method.selected(members))
-                })
-                .map(|required| {
-                    let item =
-                        required.arguments[0].write_name(namespace, layout, &self.generics)?;
-                    Ok::<_, Error>(quote! {
-                        impl #constrained_generics IntoIterator for #name #type_arguments {
-                            type Item = #item;
-                            type IntoIter = windows_collections::BufferedIterator<Self::Item>;
-                            fn into_iter(self) -> Self::IntoIter {
-                                IntoIterator::into_iter(&self)
-                            }
-                        }
-                        impl #constrained_generics IntoIterator for &#name #type_arguments {
-                            type Item = #item;
-                            type IntoIter = windows_collections::BufferedIterator<Self::Item>;
-                            fn into_iter(self) -> Self::IntoIter {
-                                windows_collections::BufferedIterator::new(self.First().unwrap())
-                            }
-                        }
-                    })
-                })
-                .transpose()?
-        };
+        let winrt_collection::Conveniences {
+            before_runtime_name,
+            after_implementation,
+        } = winrt_collection::write(self, namespace, layout, projection, members)?;
         Ok(quote! {
             #definition
             #hierarchy
             #required_hierarchy
             #methods_impl
             #agile
-            #required_iterable
+            #before_runtime_name
             #runtime_name_impl
             #implementation
-            #iterable
-            #iterator
+            #after_implementation
         })
     }
 

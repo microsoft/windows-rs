@@ -184,7 +184,7 @@ impl Type {
     }
 
     pub(super) fn write(&self, namespace: &str, layout: Layout) -> TokenStream {
-        self.write_projection(namespace, layout, Projection::Default)
+        self.write_projection(namespace, layout, Projection::Sys)
     }
 
     pub(super) fn write_projection(
@@ -207,7 +207,7 @@ impl Type {
             Self::U64 => quote! { u64 },
             Self::F32 => quote! { f32 },
             Self::F64 => quote! { f64 },
-            Self::String if projection.is_minimal() => quote! { windows_core::PCWSTR },
+            Self::String if !projection.is_sys() => quote! { windows_core::PCWSTR },
             Self::String => quote! { PCWSTR },
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
@@ -229,7 +229,7 @@ impl Type {
                 namespace: target,
                 name,
             } => {
-                if projection.is_minimal()
+                if !projection.is_sys()
                     && let Some(core) = core_projection(target, name)
                 {
                     return core;

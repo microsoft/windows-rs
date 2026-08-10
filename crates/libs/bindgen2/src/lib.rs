@@ -31,6 +31,7 @@ mod tokens;
 mod ty;
 mod win32;
 mod winrt_class;
+mod winrt_collection;
 mod winrt_delegate;
 mod winrt_interface;
 
@@ -69,6 +70,7 @@ pub enum Layout {
 
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 enum Projection {
+    Sys,
     #[default]
     Default,
     #[cfg_attr(
@@ -79,6 +81,10 @@ enum Projection {
 }
 
 impl Projection {
+    const fn is_sys(self) -> bool {
+        matches!(self, Self::Sys)
+    }
+
     const fn is_minimal(self) -> bool {
         matches!(self, Self::Minimal)
     }
