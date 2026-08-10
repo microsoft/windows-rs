@@ -37,7 +37,7 @@ WinRT value, delegate, interface, and class projection.
 | Request reuse | Complete for current catalogs | The database, nested map, and interface-base map are shared across requests. |
 | Formatting and file writing | Tool policy | Kept outside the projection core. |
 | Sys request differential | Complete | A test-local parser proves nine real request files. |
-| Projection styles | Not started | Minimal and implementation output require separate request policy. |
+| Projection styles | Internal WinRT proof | Minimal WinRT output is proven internally; no public style option exists yet. |
 | Package output | Not started | Requires stable filtering, layout, and formatting first. |
 
 Approximate hand-written Rust source size is 7,580 lines for bindgen2 versus 12,829 for the
@@ -383,6 +383,46 @@ agile and receive `Send` and `Sync`. The ten classes whose default interface is 
 async interfaces render as aliases to the corresponding `windows_future` type.
 
 Composable non-aggregating constructors use the ordinary factory path. The additional subclassing
-`*_compose` helpers belong with implementation-style policy and remain deferred with minimal
-output. Rich `IIterable` convenience implementations are also deferred until projection style is
-an explicit request option.
+`*_compose` helpers belong with implementation selection and remain deferred. Rich `IIterable`
+convenience implementations are also deferred until projection style is an explicit request
+option.
+
+## Projection style boundary
+
+Projection style is one internal enum with `Default` and `Minimal` variants. It is passed through
+rendering and the shared callable context rather than copied into each projected model or expanded
+into independent booleans. Selection and dependency closure remain style-independent until a
+measured request proves that they must differ.
+
+The focused minimal enum, struct, delegate, interface, and class fixtures match existing output
+apart from the delegate safety correction below. Default event output matches the existing
+fixture, and focused minimal event tests cover the intentional constructor difference. The full
+delegate, interface, and class corpora also lower and render in both modes. The minimal differences
+currently stay at the rendering boundary:
+
+| Area | Minimal policy |
+| --- | --- |
+| Values and interfaces | Omit runtime type names when implementation support does not need them. |
+| Strings | Use `String` and `&str` in public wrappers while preserving `HSTRING` ABI types. |
+| Delegates | Use infallible `Send` closures, preserve non-void returns, and omit public `Invoke`. |
+| Interfaces | Do not emit inherited forwarders; expose exclusive interfaces for class `Deref`. |
+| Classes | Keep wrappers and identity, move instance calls to interfaces, and add `Deref`. |
+| Events | Use the same add/remove pairing and revoker model with mode-specific delegate closures. |
+
+This mode remains private. Exposing it before member filters, native non-sys output, dead-code
+visibility, and real tool request comparisons would create another compatibility surface before
+its semantics are complete. Implementation selection remains a separate concern rather than a
+third projection style.
+
+Event projection is shared by default and minimal output. Lowering pairs special-name `add_` and
+`remove_` methods, resolves the handler delegate, validates the registration-token shape, and
+stores only the handler callable needed by the public wrapper. ABI methods and implementation
+traits still retain both metadata methods; public output emits one closure-based
+`EventRevoker` method.
+
+The existing minimal generator accepts non-`Send` closures even though `DelegateBox` advertises an
+agile COM object, and it returns success from non-void delegate upcalls without writing the result.
+Bindgen2 does not reproduce those behaviors. Minimal delegates retain `Send`, non-void closures
+return the projected value, and the upcall writes it to the ABI result. Minimal event wrappers call
+the public delegate constructor instead of reaching across namespaces into private delegate-box
+implementation types.

@@ -195,6 +195,9 @@ impl Class {
         {
             let interface_type = interface.write_name(namespace, layout)?;
             for method in &interface.methods {
+                if !method.is_public() {
+                    continue;
+                }
                 let count = names.entry(method.name.clone()).or_default();
                 *count += 1;
                 let public_name = if *count == 1 {
@@ -203,16 +206,11 @@ impl Class {
                     format!("{}{}", method.name, count)
                 };
                 methods.push(if interface.default {
-                    method
-                        .method
-                        .write_public_method(&context, &public_name, quote! { self })?
+                    method.write_public(&context, &public_name, None)?.unwrap()
                 } else {
-                    method.method.write_forwarded_public_method(
-                        &context,
-                        &public_name,
-                        &method.name,
-                        interface_type.clone(),
-                    )?
+                    method
+                        .write_public(&context, &public_name, Some(interface_type.clone()))?
+                        .unwrap()
                 });
             }
         }
@@ -503,7 +501,7 @@ fn lower_interface(
     let mut methods =
         winrt_interface::lower_methods(context.database, definition, context.owner_name)?;
     for method in &mut methods {
-        method.method.substitute(&arguments);
+        method.substitute(&arguments);
     }
     result.push(ClassInterface {
         entity: interface.entity,

@@ -322,6 +322,22 @@ impl Type {
         )
     }
 
+    pub(super) fn is_event_token(&self) -> bool {
+        matches!(self, Self::I64)
+            || matches!(
+                self,
+                Self::Named {
+                    value_type: true,
+                    namespace,
+                    name,
+                    arguments,
+                    ..
+                } if namespace == "Windows.Foundation"
+                    && name == "EventRegistrationToken"
+                    && arguments.is_empty()
+            )
+    }
+
     pub(super) fn properties(
         &self,
         values: &Values,

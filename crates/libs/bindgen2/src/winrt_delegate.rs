@@ -16,6 +16,11 @@ pub(super) struct Method {
     generic_return_default: bool,
 }
 
+pub(super) struct EventHandler {
+    ty: ty::Type,
+    invoke: Method,
+}
+
 pub(super) struct MethodContext<'a> {
     values: &'a Values,
     namespace: &'a str,
@@ -185,16 +190,12 @@ impl Delegate {
 
         let closure_signature = if projection.is_minimal() {
             self.invoke
-                .write_impl_signature_no_return(values, namespace, layout, &self.generics)?
+                .write_infallible_signature(values, namespace, layout, &self.generics)?
         } else {
             self.invoke
                 .write_impl_signature(values, namespace, layout, &self.generics, false)?
         };
-        let closure_bound = if projection.is_minimal() {
-            quote! { Fn #closure_signature + 'static }
-        } else {
-            quote! { Fn #closure_signature + Send + 'static }
-        };
+        let closure_bound = quote! { Fn #closure_signature + Send + 'static };
         let method_context =
             MethodContext::new(values, namespace, layout, projection, &self.generics);
         let public_signature = self.invoke.write_public_signature(&method_context)?;
@@ -206,7 +207,7 @@ impl Delegate {
                 .write_abi_signature(values, namespace, layout, &self.generics)?;
         let upcall = if projection.is_minimal() {
             self.invoke
-                .write_upcall_no_return(values, quote! { (this.invoke) }, false)?
+                .write_upcall_infallible(values, quote! { (this.invoke) }, false)?
         } else {
             self.invoke
                 .write_upcall(values, quote! { (this.invoke) }, false)?
@@ -313,6 +314,63 @@ impl<'a> MethodContext<'a> {
 }
 
 impl Method {
+    pub(super) fn lower_event_handler(
+        &self,
+        database: &Database,
+        owner: &str,
+    ) -> Result<EventHandler, Error> {
+        let [parameter] = self.parameters.as_slice() else {
+            return Err(Error::InvalidType {
+                name: owner.to_string(),
+                message: "event add method does not have one parameter",
+            });
+        };
+        if !parameter.input_only || !self.return_type.is_event_token() {
+            return Err(Error::InvalidType {
+                name: owner.to_string(),
+                message: "event add method has an invalid signature",
+            });
+        }
+        let ty::Type::Named {
+            namespace,
+            name,
+            arguments,
+            ..
+        } = &parameter.ty
+        else {
+            return Err(Error::InvalidType {
+                name: owner.to_string(),
+                message: "event handler is not a named delegate",
+            });
+        };
+        let metadata_name = if arguments.is_empty() {
+            name.clone()
+        } else {
+            format!("{name}`{}", arguments.len())
+        };
+        let entity = database
+            .type_definitions(namespace, &metadata_name)
+            .first()
+            .copied()
+            .ok_or_else(|| Error::InvalidType {
+                name: owner.to_string(),
+                message: "event handler delegate cannot be resolved",
+            })?;
+        let definition = database.definition(entity).unwrap();
+        if definition.category()? != TypeCategory::Delegate {
+            return Err(Error::InvalidType {
+                name: owner.to_string(),
+                message: "event handler is not a delegate",
+            });
+        }
+        let mut delegate = Delegate::lower(database, definition, owner)?;
+        delegate.invoke.substitute(arguments);
+        Ok(EventHandler {
+            ty: parameter.ty.clone(),
+            invoke: delegate.invoke,
+        })
+    }
+
     pub(super) fn substitute(&mut self, arguments: &[ty::Type]) {
         self.return_type = self.return_type.substitute(arguments);
         for parameter in &mut self.parameters {
@@ -408,6 +466,67 @@ impl Method {
                 let this = &windows_core::Interface::cast::<#interface>(self)?;
             },
         )
+    }
+
+    pub(super) fn write_event_method(
+        &self,
+        context: &MethodContext<'_>,
+        name: &str,
+        remove_name: &str,
+        handler: &EventHandler,
+        receiver: TokenStream,
+        prelude: TokenStream,
+    ) -> Result<TokenStream, Error> {
+        let name = tokens::ident(name);
+        let remove_name = tokens::ident(remove_name);
+        let handler_type =
+            handler
+                .ty
+                .write_name(context.namespace, context.layout, context.generics)?;
+        let signature = handler.invoke.write_infallible_signature(
+            context.values,
+            context.namespace,
+            context.layout,
+            context.generics,
+        )?;
+        let send = quote! { + Send };
+        let arguments = (0..handler.invoke.parameters.len())
+            .map(|position| tokens::ident(&format!("a{position}")))
+            .collect::<Vec<_>>();
+        let handler = if context.projection.is_minimal() {
+            quote! {
+                let handler = <#handler_type>::new(handler);
+            }
+        } else {
+            quote! {
+                let handler = <#handler_type>::new(move |#(#arguments),*| {
+                    handler(#(#arguments),*);
+                    Ok(())
+                });
+            }
+        };
+        Ok(quote! {
+            pub fn #name<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+            where
+                F: Fn #signature #send + 'static,
+            {
+                #prelude
+                #handler
+                unsafe {
+                    let mut result__ = core::mem::zeroed();
+                    let token__ = (windows_core::Interface::vtable(#receiver).#name)(
+                        windows_core::Interface::as_raw(#receiver),
+                        windows_core::Interface::as_raw(&handler),
+                        &mut result__
+                    ).map(|| result__)?;
+                    Ok(windows_core::EventRevoker::new(
+                        #receiver.clone(),
+                        token__,
+                        windows_core::Interface::vtable(#receiver).#remove_name
+                    ))
+                }
+            }
+        })
     }
 
     fn write_public_method_with(
@@ -529,7 +648,7 @@ impl Method {
         Ok(quote! { (#(#parameters),*) -> windows_core::Result<#return_type> })
     }
 
-    fn write_impl_signature_no_return(
+    fn write_infallible_signature(
         &self,
         values: &Values,
         namespace: &str,
@@ -541,7 +660,12 @@ impl Method {
             .iter()
             .map(|parameter| parameter.write_impl_type(values, namespace, layout, generics))
             .collect::<Result<Vec<_>, Error>>()?;
-        Ok(quote! { (#(#parameters),*) })
+        let return_type = self.write_return_type(namespace, layout, generics)?;
+        Ok(if matches!(self.return_type, ty::Type::Void) {
+            quote! { (#(#parameters),*) }
+        } else {
+            quote! { (#(#parameters),*) -> #return_type }
+        })
     }
 
     fn write_public_signature(
@@ -761,7 +885,7 @@ impl Method {
         })
     }
 
-    fn write_upcall_no_return(
+    fn write_upcall_infallible(
         &self,
         values: &Values,
         inner: TokenStream,
@@ -773,9 +897,35 @@ impl Method {
             .map(|parameter| parameter.write_upcall_argument(values))
             .collect::<Result<Vec<_>, Error>>()?;
         let this = has_this.then(|| quote! { this, });
-        Ok(quote! {
-            #inner(#this #(#arguments),*);
-            windows_core::HRESULT(0)
+        Ok(match &self.return_type {
+            ty::Type::Void => quote! {
+                #inner(#this #(#arguments),*);
+                windows_core::HRESULT(0)
+            },
+            ty::Type::Vector(element) => {
+                let write = if element.is_copyable(values, "delegate return")? {
+                    quote! { result__.write(ok_data__); }
+                } else {
+                    quote! { result__.write(core::mem::transmute(ok_data__)); }
+                };
+                quote! {
+                    let (ok_data__, ok_data_len__) =
+                        #inner(#this #(#arguments),*).into_abi();
+                    #write
+                    result_size__.write(ok_data_len__);
+                    windows_core::HRESULT(0)
+                }
+            }
+            ty if ty.is_copyable(values, "delegate return")? => quote! {
+                result__.write(#inner(#this #(#arguments),*));
+                windows_core::HRESULT(0)
+            },
+            _ => quote! {
+                let ok__ = #inner(#this #(#arguments),*);
+                result__.write(core::mem::transmute_copy(&ok__));
+                core::mem::forget(ok__);
+                windows_core::HRESULT(0)
+            },
         })
     }
 
@@ -796,6 +946,13 @@ impl Method {
             }
             ty => ty.write_default(namespace, layout, generics)?,
         })
+    }
+}
+
+impl EventHandler {
+    pub(super) fn substitute(&mut self, arguments: &[ty::Type]) {
+        self.ty = self.ty.substitute(arguments);
+        self.invoke.substitute(arguments);
     }
 }
 

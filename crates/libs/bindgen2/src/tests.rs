@@ -378,6 +378,11 @@ fn winrt_interfaces_match_existing_golden_tokens() {
             include_str!("../../../tests/libs/bindgen/input/interface_hierarchy.rdl"),
             include_str!("../../../tests/libs/bindgen/expected/interface_hierarchy.rs"),
         ),
+        (
+            "event",
+            include_str!("../../../tests/libs/bindgen/input/event.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/event.rs"),
+        ),
     ] {
         let expected: TokenStream = expected.parse().unwrap();
         let normalize = |tokens| {
@@ -426,7 +431,12 @@ fn winrt_interface_corpus_lowers_and_renders() {
             &generator.shared.interface_relationships,
             &format!("{namespace}.{name}"),
         )
-        .and_then(|model| model.write(values, namespace, Layout::Modules, Projection::Default));
+        .and_then(|model| {
+            for projection in [Projection::Default, Projection::Minimal] {
+                model.write(values, namespace, Layout::Modules, projection)?;
+            }
+            Ok(())
+        });
         if let Err(error) = result {
             unsupported.push((format!("{namespace}.{name}"), error.to_string()));
         }
@@ -593,8 +603,66 @@ fn focused_minimal_winrt_output_matches_existing_tokens() {
             .render_projection(Layout::Flat, Projection::Minimal)
             .unwrap();
         let expected = expected.parse().unwrap();
-        assert_eq!(normalize(actual), normalize(expected), "{name}");
+        let actual = normalize(actual);
+        if name == "delegate" {
+            assert!(actual.contains(" + Send + 'static"));
+        }
+        assert_eq!(
+            actual.replace(" + Send + 'static", " + 'static"),
+            normalize(expected),
+            "{name}"
+        );
     }
+}
+
+#[test]
+fn minimal_delegate_and_event_wrappers_preserve_abi_safety() {
+    let output = fixture(include_str!(
+        "../../../tests/libs/bindgen/input/event_minimal.rdl"
+    ))
+    .render_projection(Layout::Flat, Projection::Minimal)
+    .unwrap()
+    .to_string();
+    assert!(output.contains("F : Fn (i32) + Send + 'static"));
+    assert!(output.contains("let handler = < Delegate > :: new (handler)"));
+    assert!(output.contains("windows_core :: EventRevoker :: new"));
+
+    let output = fixture(
+        r#"
+            #[winrt]
+            mod Test {
+                delegate fn Transform(value: i32) -> i32;
+            }
+        "#,
+    )
+    .render_projection(Layout::Flat, Projection::Minimal)
+    .unwrap()
+    .to_string();
+    assert!(output.contains("F : Fn (i32) -> i32 + Send + 'static"));
+    assert!(output.contains("result__ . write ((this . invoke) (value))"));
+}
+
+#[test]
+fn forwarded_event_revokers_retain_the_cast_interface() {
+    let output = fixture(
+        r#"
+            #[winrt]
+            mod Test {
+                interface IBase {
+                    #[special]
+                    fn add_Changed(&self, handler: Handler) -> i64;
+                    #[special]
+                    fn remove_Changed(&self, token: i64);
+                }
+                interface IDerived: IBase {}
+                delegate fn Handler(value: i32);
+            }
+        "#,
+    )
+    .render(Layout::Flat)
+    .unwrap()
+    .to_string();
+    assert!(output.contains("EventRevoker :: new (this . clone ()"));
 }
 
 #[test]
@@ -688,7 +756,12 @@ fn winrt_class_corpus_lowers_and_renders() {
             &generator.shared.interface_relationships,
             &format!("{namespace}.{name}"),
         )
-        .and_then(|model| model.write(values, namespace, Layout::Modules, Projection::Default));
+        .and_then(|model| {
+            for projection in [Projection::Default, Projection::Minimal] {
+                model.write(values, namespace, Layout::Modules, projection)?;
+            }
+            Ok(())
+        });
         if let Err(error) = result {
             unsupported.push((format!("{namespace}.{name}"), error.to_string()));
         }
@@ -874,19 +947,22 @@ fn winrt_delegate_corpus_lowers_and_renders() {
         if matches!(signature.return_type.kind, TypeKind::Vector(_)) {
             return_vectors += 1;
         }
-        winrt_delegate::Delegate::lower(
+        let model = winrt_delegate::Delegate::lower(
             &generator.shared.database,
             definition,
             &format!("{namespace}.{name}"),
         )
-        .unwrap()
-        .write(
-            generator.lower_values(),
-            namespace,
-            Layout::Modules,
-            Projection::Default,
-        )
         .unwrap();
+        for projection in [Projection::Default, Projection::Minimal] {
+            model
+                .write(
+                    generator.lower_values(),
+                    namespace,
+                    Layout::Modules,
+                    projection,
+                )
+                .unwrap();
+        }
         count += 1;
     }
     assert_eq!(

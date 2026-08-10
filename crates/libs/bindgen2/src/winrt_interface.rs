@@ -16,6 +16,63 @@ pub(super) struct Interface {
 pub(super) struct NamedMethod {
     pub(super) name: String,
     pub(super) method: winrt_delegate::Method,
+    event: Option<winrt_delegate::EventHandler>,
+    public: bool,
+}
+
+impl NamedMethod {
+    pub(super) fn substitute(&mut self, arguments: &[ty::Type]) {
+        self.method.substitute(arguments);
+        if let Some(event) = &mut self.event {
+            event.substitute(arguments);
+        }
+    }
+
+    pub(super) const fn is_public(&self) -> bool {
+        self.public
+    }
+
+    pub(super) fn write_public(
+        &self,
+        context: &winrt_delegate::MethodContext<'_>,
+        public_name: &str,
+        interface: Option<TokenStream>,
+    ) -> Result<Option<TokenStream>, Error> {
+        if !self.public {
+            return Ok(None);
+        }
+        let (receiver, prelude) = if let Some(interface) = &interface {
+            (
+                quote! { this },
+                quote! {
+                    let this = &windows_core::Interface::cast::<#interface>(self)?;
+                },
+            )
+        } else {
+            (quote! { self }, quote! {})
+        };
+        if let Some(event) = &self.event {
+            return Ok(Some(self.method.write_event_method(
+                context,
+                public_name,
+                &format!("Remove{}", self.name),
+                event,
+                receiver,
+                prelude,
+            )?));
+        }
+        Ok(Some(if let Some(interface) = interface {
+            self.method.write_forwarded_public_method(
+                context,
+                public_name,
+                &self.name,
+                interface,
+            )?
+        } else {
+            self.method
+                .write_public_method(context, public_name, receiver)?
+        }))
+    }
 }
 
 struct RequiredInterface {
@@ -120,7 +177,7 @@ impl Interface {
                 &format!("{}.{}", definition.namespace()?, metadata_name),
             )?;
             for method in &mut methods {
-                method.method.substitute(&arguments);
+                method.substitute(&arguments);
             }
             result.push(RequiredInterface {
                 namespace,
@@ -264,10 +321,10 @@ impl Interface {
         let methods = self
             .methods
             .iter()
-            .map(|method| {
+            .filter_map(|method| {
                 method
-                    .method
-                    .write_public_method(&method_context, &method.name, quote! { self })
+                    .write_public(&method_context, &method.name, None)
+                    .transpose()
             })
             .collect::<Result<Vec<_>, Error>>()?;
         if self.exclusive {
@@ -299,17 +356,20 @@ impl Interface {
             quote! { windows_core::imp::required_hierarchy!(#name #type_arguments, #(#required_types),*); }
         });
         let mut inherited_methods = Vec::new();
-        let mut public_names =
-            self.methods
-                .iter()
-                .fold(BTreeMap::<String, u32>::new(), |mut names, method| {
-                    *names.entry(method.name.clone()).or_default() += 1;
-                    names
-                });
+        let mut public_names = self.methods.iter().filter(|method| method.public).fold(
+            BTreeMap::<String, u32>::new(),
+            |mut names, method| {
+                *names.entry(method.name.clone()).or_default() += 1;
+                names
+            },
+        );
         if !projection.is_minimal() {
             for required in &self.required {
                 let receiver = required.write_name(namespace, layout, &self.generics)?;
                 for method in &required.methods {
+                    if !method.public {
+                        continue;
+                    }
                     let count = public_names.entry(method.name.clone()).or_default();
                     *count += 1;
                     let public_name = if *count == 1 {
@@ -317,12 +377,11 @@ impl Interface {
                     } else {
                         format!("{}{}", method.name, count)
                     };
-                    inherited_methods.push(method.method.write_forwarded_public_method(
-                        &method_context,
-                        &public_name,
-                        &method.name,
-                        receiver.clone(),
-                    )?);
+                    inherited_methods.push(
+                        method
+                            .write_public(&method_context, &public_name, Some(receiver.clone()))?
+                            .unwrap(),
+                    );
                 }
             }
         }
@@ -574,10 +633,23 @@ pub(super) fn lower_methods(
     owner: &str,
 ) -> Result<Vec<NamedMethod>, Error> {
     let mut names = BTreeMap::<String, u32>::new();
+    let metadata_names = definition
+        .methods()?
+        .map(|method| Ok(method.name()?.to_string()))
+        .collect::<Result<BTreeSet<_>, Error>>()?;
     definition
         .methods()?
         .map(|method| {
             let metadata_name = method.name()?;
+            let event_name = metadata_name.strip_prefix("add_");
+            if let Some(event_name) = event_name
+                && !metadata_names.contains(&format!("remove_{event_name}"))
+            {
+                return Err(Error::InvalidType {
+                    name: owner.to_string(),
+                    message: "event add method has no matching remove method",
+                });
+            }
             let mut name = if method.flags()? & 0x800 != 0 {
                 if let Some(name) = metadata_name.strip_prefix("get_") {
                     name.to_string()
@@ -618,15 +690,23 @@ pub(super) fn lower_methods(
             if *count > 1 {
                 name.push_str(&count.to_string());
             }
+            let method = winrt_delegate::Method::lower(
+                database,
+                definition.entity().file(),
+                method,
+                owner,
+                false,
+            )?;
+            let event = if event_name.is_some() {
+                Some(method.lower_event_handler(database, owner)?)
+            } else {
+                None
+            };
             Ok(NamedMethod {
                 name,
-                method: winrt_delegate::Method::lower(
-                    database,
-                    definition.entity().file(),
-                    method,
-                    owner,
-                    false,
-                )?,
+                method,
+                event,
+                public: !metadata_name.starts_with("remove_"),
             })
         })
         .collect()
