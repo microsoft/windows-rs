@@ -43,7 +43,7 @@ existing implementation. The crate remains unpublished until both `windows-bindg
 | Multi-image database and indexes | Done | Owned file IDs and row IDs replace leaked indexes and borrowed identities. |
 | Custom-attribute values | Done | Constructor-directed fixed and named arguments decode without losing serialized types. |
 | `windows-bindgen` proof | Done | Owned selection and representative output proved the metadata2 boundary. |
-| `windows-bindgen2` foundation | Started | Value and flat Win32 slices use owned metadata entities. |
+| `windows-bindgen2` foundation | Started | Existing projections render through deterministic modules. |
 | Deterministic metadata builder | Started | Bounded enum/struct images are accepted by both readers. |
 | `windows-rdl2` authoring proof | Started | A separate source model emits through metadata2. |
 | Consumer diagnostics boundary | Done | Builder rollback preserves consumer-defined errors. |

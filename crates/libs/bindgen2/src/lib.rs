@@ -14,6 +14,7 @@ mod native;
 mod native_constant;
 mod native_function;
 mod native_type;
+mod output;
 mod struct_model;
 mod tokens;
 mod ty;
@@ -295,6 +296,61 @@ mod tests {
             struct_values.write("Test", "Struct").unwrap().to_string(),
             struct_expected.to_string()
         );
+    }
+
+    #[test]
+    fn module_output_matches_existing_nested_golden_tokens() {
+        let generator = fixture(
+            r#"
+                #[win32]
+                mod Test {
+                    #[repr(i32)]
+                    enum Enum {
+                        First = 0,
+                        Second = 1,
+                        Third = 2,
+                    }
+                    mod Inner {
+                        #[repr(i32)]
+                        enum Enum {
+                            First = 0,
+                            Second = 1,
+                        }
+                    }
+                }
+            "#,
+        );
+        let expected: TokenStream = include_str!("../../../tests/libs/bindgen/expected/modules.rs")
+            .parse()
+            .unwrap();
+        assert_eq!(
+            generator.write_modules().unwrap().to_string(),
+            expected.to_string()
+        );
+    }
+
+    #[test]
+    fn module_output_combines_supported_winrt_and_win32_items() {
+        let generator = fixture(
+            r#"
+                #[winrt]
+                mod Managed {
+                    #[repr(i32)]
+                    enum Kind {
+                        First = 0,
+                    }
+                }
+                #[win32]
+                mod Native {
+                    const VALUE: u32 = 42;
+                }
+            "#,
+        );
+        let output = generator.write_modules().unwrap().to_string();
+        assert!(output.contains("pub mod Managed"));
+        assert!(output.contains("pub struct Kind"));
+        assert!(output.contains("pub mod Native"));
+        assert!(output.contains("pub const VALUE : u32 = 42"));
     }
 
     #[test]

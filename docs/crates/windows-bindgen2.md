@@ -71,6 +71,12 @@ renders every selected top-level type, constant, and function, so an unsupported
 cannot disappear from output. Focused aliases, enum, struct, union, primitive, string, GUID,
 no-parameter, and const-pointer fixtures match the corresponding flat sys tokens.
 
+The first output layer consumes only those existing projections. It groups rendered items by
+metadata namespace, sorts by item name and category, builds nested Rust modules, and emits one
+token stream. A focused nested Win32 fixture matches the existing module golden output, and a
+mixed fixture proves that WinRT values and Win32 items pass through the same output path. It does
+not add filtering, dependency closure, formatting, file writing, or package policy.
+
 This is structural coverage, not complete native output equivalence. Architecture variants still
 need selection attributes, nested types are not yet attached to their enclosing definitions, and
 bitfield accessors, handle policy, native delegates, and interfaces are absent. Derive policy also
@@ -100,8 +106,7 @@ standard required before claiming the replacement is objectively better overall.
 
 ## Next checkpoint
 
-Build one small end-to-end output path before expanding item coverage. It should select, lower, and
-render a deterministic module containing the already-supported WinRT values and flat Win32 items.
-This will test output grouping and naming boundaries without adding filters, dependency closure,
-interfaces, architecture policy, or packages. Do not add a second name index or a global native
-graph.
+The bounded module-output proof is complete. Pause bindgen2 feature expansion while RDL2 exercises
+external references through metadata2. When bindgen2 resumes, inventory architecture variants and
+nested native definitions before designing dependency closure. Do not add a second name index or a
+global native graph.

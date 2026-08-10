@@ -171,6 +171,45 @@ impl<'a> Win32Items<'a> {
         NativeType::lower(self.database, self.database.definition(entity).unwrap())
     }
 
+    pub(super) fn render(
+        &self,
+        mut add: impl FnMut(&str, &str, u8, proc_macro2::TokenStream),
+    ) -> Result<(), Error> {
+        for namespace in &self.namespaces {
+            for entity in &namespace.types {
+                let definition = self.database.definition(*entity).unwrap();
+                let name = definition.name()?;
+                add(
+                    &namespace.name,
+                    name,
+                    1,
+                    NativeType::lower(self.database, definition)?.write_sys(),
+                );
+            }
+            for entity in &namespace.constants {
+                let field = self.database.field(*entity).unwrap();
+                let name = field.name()?;
+                add(
+                    &namespace.name,
+                    name,
+                    2,
+                    Constant::lower(self.database, field, &namespace.name, name)?.write_sys(),
+                );
+            }
+            for entity in &namespace.functions {
+                let method = self.database.method(*entity).unwrap();
+                let name = method.name()?;
+                add(
+                    &namespace.name,
+                    name,
+                    3,
+                    Function::lower(self.database, method, &namespace.name, name)?.write_sys(),
+                );
+            }
+        }
+        Ok(())
+    }
+
     fn type_entity(&self, namespace: &str, name: &str) -> Result<Entity<TypeDef>, Error> {
         let Some(namespace) = self.namespaces.iter().find(|item| item.name == namespace) else {
             return Err(missing(namespace, name));
