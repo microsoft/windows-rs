@@ -465,12 +465,12 @@ adds no weight to normal builds. Do not put `#[cfg(test)]` modules inside the pu
 crates. Put the test in the matching `test_*` crate. If it needs an internal item, expose that item
 behind the existing `test` feature that the test crates enable and published builds leave off.
 
-`RecordingBackend::fail_next` and `fail_on` inject a panic immediately before a selected backend
-operation mutates the backend model. Ordinary widget mounts catch failures after native creation,
-remove the partially mounted native and logical subtree, run pending component cleanups, and then
-resume the panic. Error boundaries can therefore mount a fallback without retaining controls,
-handlers, headers, panes, or effects from the failed subtree. This contract does not yet cover
-updates, custom elements, templated lists, or failures during rollback.
+`RecordingBackend::fail_next` and `RecordingBackend::fail_on` inject a panic immediately before a
+selected backend operation mutates the backend model. Ordinary widget mounts catch failures after
+native creation, remove the partially mounted native and logical subtree, run pending component
+cleanups, and then resume the panic. Error boundaries can therefore mount a fallback without
+retaining controls, handlers, headers, panes, or effects from the failed subtree. This contract does
+not yet cover updates, custom elements, templated lists, or failures during rollback.
 
 Two crates measure reconciler performance. `test_reactor_bench` is a headless micro-suite (run with
 `cargo run -p test_reactor_bench --release`) that brackets only the reconcile body against
