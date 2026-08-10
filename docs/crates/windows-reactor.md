@@ -1137,8 +1137,10 @@ time.
 - [x] Unify logical and native consistency validation, add root and logical-cycle checks, and run
   the validator after stable reconcile, public unmount, root unmount, templated realization, and
   every generated model transition.
-- [ ] Split `MountedTree`, logical ownership, host state, and wrapper reconciliation into focused
-  modules without changing behavior.
+- [x] Move logical IDs, projections, wrapper records, lifecycle accounting, and their consistency
+  proof into `reconciler/logical_tree.rs` without changing behavior or weakening coverage floors.
+- [ ] Split `MountedTree`, host state, and wrapper reconciliation into focused modules without
+  changing behavior.
 - [ ] Replace WinUI's hard-coded phantom-child cases with explicit container projection
   capabilities and test mixed logical/visual indexing.
 - [ ] Add backend fault injection for create, property update, attach, move, detach, and destroy;
