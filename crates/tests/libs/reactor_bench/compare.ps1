@@ -51,6 +51,8 @@ try {
     $current = Invoke-Benchmark $root
     $required = @(
         "component_mount/1",
+        "templated_mount/64",
+        "templated_mount/4096",
         "mount_unmount/64",
         "mount_unmount/512",
         "update_1_changed/512",
