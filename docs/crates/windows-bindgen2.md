@@ -83,6 +83,29 @@ bitfield accessors, handle policy, native delegates, and interfaces are absent. 
 needs full generated-output comparison. These are separate policies rather than reasons to build a
 global native type graph.
 
+## Native shape inventory
+
+The committed Win32 metadata contains:
+
+| Shape | Count |
+| --- | ---: |
+| Top-level rows with `SupportedArchitectureAttribute` | 1,054 |
+| Distinct architecture-specific names | 671 |
+| Names with multiple architecture rows | 374 |
+| Selected native type rows with architecture gates | 997 |
+| `NestedClass` rows | 2,633 |
+| Direct parents with nested structs | 1,925 |
+
+All 2,633 nested rows are native struct-to-struct relationships. Metadata2 exposes them as a
+streaming semantic pair iterator. Bindgen2 builds one ordered parent-to-children map because
+enclosing-aware field lowering will need repeated lookup. It does not add nested types to the
+top-level name index or create a second native type graph.
+
+Architecture gating should be implemented before nested rendering. It is local item policy and is
+already required to prevent same-name variants from colliding. Nested rendering is the larger
+slice: it needs enclosing-aware type resolution, deterministic generated names, recursive output,
+and focused comparison with true `NestedClass` metadata rather than sibling RDL structs.
+
 ## Critical assessment
 
 The direction remains better than the current generator, but it is not yet a replacement:
@@ -106,7 +129,7 @@ standard required before claiming the replacement is objectively better overall.
 
 ## Next checkpoint
 
-The bounded module-output proof is complete. Pause bindgen2 feature expansion while RDL2 exercises
-external references through metadata2. When bindgen2 resumes, inventory architecture variants and
-nested native definitions before designing dependency closure. Do not add a second name index or a
-global native graph.
+The bounded module-output, RDL2 external-reference, and native-shape inventory checkpoints are
+complete. Next, add architecture gates to every selected item category that carries the attribute,
+with focused duplicate-name fixtures and complete corpus accounting. Do not begin nested rendering,
+dependency closure, a second name index, or a global native graph in that slice.

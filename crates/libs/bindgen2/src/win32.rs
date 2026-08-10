@@ -12,7 +12,9 @@ struct Namespace {
 pub struct Win32Items<'a> {
     database: &'a Database,
     namespaces: Vec<Namespace>,
+    nested: BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
     type_count: usize,
+    architecture_type_count: usize,
     constant_count: usize,
     function_count: usize,
 }
@@ -66,9 +68,10 @@ impl<'a> Win32Items<'a> {
             }
         }
         let mut type_count = 0;
+        let mut architecture_type_count = 0;
         let mut constant_count = 0;
         let mut function_count = 0;
-        let namespaces = namespaces
+        let namespaces: Vec<Namespace> = namespaces
             .into_iter()
             .map(|(name, (mut types, mut constants, mut functions))| {
                 types.sort();
@@ -85,10 +88,39 @@ impl<'a> Win32Items<'a> {
                 }
             })
             .collect();
+        for namespace in &namespaces {
+            for entity in &namespace.types {
+                let definition = database.definition(*entity).unwrap();
+                if definition.architectures()? != 0 {
+                    architecture_type_count += 1;
+                }
+            }
+        }
+        let mut nested = BTreeMap::<Entity<TypeDef>, Vec<Entity<TypeDef>>>::new();
+        for (child, parent) in database.nested_types() {
+            if !child.is_windows_runtime()?
+                && child.category()? == TypeCategory::Struct
+                && parent.category()? == TypeCategory::Struct
+            {
+                nested
+                    .entry(parent.entity())
+                    .or_default()
+                    .push(child.entity());
+            }
+        }
+        for children in nested.values_mut() {
+            children.sort_by(|left, right| {
+                let left_name = database.definition(*left).unwrap().name().unwrap();
+                let right_name = database.definition(*right).unwrap().name().unwrap();
+                (left_name, *left).cmp(&(right_name, *right))
+            });
+        }
         Ok(Self {
             database,
             namespaces,
+            nested,
             type_count,
+            architecture_type_count,
             constant_count,
             function_count,
         })
@@ -97,6 +129,16 @@ impl<'a> Win32Items<'a> {
     /// Returns the number of selected native type definitions.
     pub fn type_count(&self) -> usize {
         self.type_count
+    }
+
+    /// Returns the number of selected native definitions with architecture gates.
+    pub fn architecture_type_count(&self) -> usize {
+        self.architecture_type_count
+    }
+
+    /// Returns the number of nested native structs retained for future attachment.
+    pub fn nested_type_count(&self) -> usize {
+        self.nested.values().map(Vec::len).sum()
     }
 
     /// Returns the number of selected constants.
@@ -332,6 +374,52 @@ mod tests {
         assert_eq!(supported[3..], [83_641, 14_559]);
         assert_eq!(items.type_count, 30_109);
         assert!(unsupported.is_empty(), "{unsupported:#?}");
+    }
+
+    #[test]
+    fn inventory_architecture_variants_and_nested_types() {
+        let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
+        let items = Win32Items::new(&database).unwrap();
+        let image = &database.images()[0];
+        let mut architecture_rows = 0;
+        let mut architecture_groups = BTreeMap::<(String, String), Vec<i32>>::new();
+        for definition in database.definitions() {
+            if definition.is_windows_runtime().unwrap() {
+                continue;
+            }
+            let architectures = definition.architectures().unwrap();
+            if architectures != 0 {
+                architecture_rows += 1;
+                architecture_groups
+                    .entry((
+                        definition.namespace().unwrap().to_string(),
+                        definition.name().unwrap().to_string(),
+                    ))
+                    .or_default()
+                    .push(architectures);
+            }
+        }
+        let variant_groups = architecture_groups
+            .values()
+            .filter(|architectures| architectures.len() > 1)
+            .count();
+        let nested_rows = image.rows::<windows_metadata2::tables::NestedClass>().len();
+        assert_eq!(
+            (
+                architecture_rows,
+                architecture_groups.len(),
+                variant_groups,
+                nested_rows,
+                items.architecture_type_count(),
+                items.nested_type_count(),
+            ),
+            (1_054, 671, 374, 2_633, 997, 2_633)
+        );
+        assert_eq!(
+            items.nested.values().map(Vec::len).sum::<usize>(),
+            nested_rows
+        );
+        assert_eq!(items.nested.len(), 1_925);
     }
 
     fn classify(error: Error) -> String {

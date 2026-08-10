@@ -25,3 +25,6 @@ from consumers. Deduplicated assembly references and scope-aware type references
 value fields. Database resolution filters candidates by file or assembly scope without another
 type-name index. The writer is a proof for `windows-rdl2`, not yet a general metadata construction
 API.
+
+The reader exposes `NestedClass` as a streaming sequence of nested/enclosing semantic type pairs.
+It retains no reverse nested-type index; consumers that need repeated parent lookup own that map.

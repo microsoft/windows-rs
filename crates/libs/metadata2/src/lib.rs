@@ -17,6 +17,7 @@ mod row;
 mod schema;
 mod semantic;
 mod semantic_layout;
+mod semantic_nested;
 mod signature;
 
 pub use attribute::*;

@@ -140,6 +140,10 @@ with a general table-building framework would add indirection before a second ta
 the required abstraction. Keep the bounded writer explicit until a concrete authoring feature
 cannot be added without duplicated row-width, index, or ordering logic.
 
+The native bindgen inventory added one read-only relationship: `Database::nested_types` streams
+direct nested/enclosing TypeDef pairs from `NestedClass`. Metadata2 retains no reverse map.
+Bindgen2 owns the ordered parent map because repeated enclosing lookup is projection policy.
+
 ## Consumer overlap review
 
 The first bindgen2/RDL2 comparison separates missing metadata support from valid consumer policy:

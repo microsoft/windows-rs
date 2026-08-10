@@ -12,3 +12,8 @@ per-item model. A bounded output layer groups these supported items into determi
 modules and matches the existing nested-module golden output. Filters, dependency closure, nested
 native types, interfaces, delegates, flat output, and package output remain independent future
 layers.
+
+Corpus inventory found 1,054 architecture-specific top-level rows, of which 997 are selected
+native enum/struct definitions, and 2,633 nested native structs under 1,925 direct parents.
+Bindgen2 retains one parent-to-children map for those nested rows; metadata2 keeps only a streaming
+relationship view.
