@@ -45,6 +45,12 @@ match index. An empty filter selects nothing, while requests without a filter re
 all-items behavior. This is enough to prove selective request cost and output before adding
 dependency closure.
 
+`Generator` retains the resulting WinRT and Win32 typed-entity selections. `Win32Items` is a
+borrowed lowering view over the shared database and the request-owned selection, so repeated
+rendering does not scan metadata again. The retained native state is limited to namespace groups,
+typed entities, the nested parent-to-children map required by recursive structs, and inventory
+counts. Native projected models remain streaming values.
+
 The value layer lowers all 1,731 selected enums and 125 structs into owned models. Enum, struct,
 type, GUID, and graph policy live in separate modules. The graph uses nested ordered maps so
 namespace and type lookups borrow existing strings rather than allocating lookup keys. It detects

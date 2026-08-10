@@ -63,3 +63,7 @@ projection policy exists.
 exact namespace/name pairs, or namespace trees. An empty filter selects nothing; an unfiltered
 request selects the complete implemented surface. Member filters, exclusions, string grammar, and
 dependency closure remain separate future layers.
+
+Each request stores its selected WinRT and Win32 typed entities. Repeated writes borrow that
+selection instead of scanning the metadata database again. Native projected models are still
+lowered one item at a time and discarded after rendering.

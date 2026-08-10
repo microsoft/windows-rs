@@ -9,9 +9,7 @@ struct Namespace {
     functions: Vec<Entity<MethodDef>>,
 }
 
-/// Typed-entity selection for Win32 `Apis` constants and functions.
-pub struct Win32Items<'a> {
-    database: &'a Database,
+pub(crate) struct Win32Selection {
     namespaces: Vec<Namespace>,
     nested: BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
     type_count: usize,
@@ -23,23 +21,24 @@ pub struct Win32Items<'a> {
     delegate_count: usize,
 }
 
+/// A borrowed lowering view over the request's selected Win32 items.
+pub struct Win32Items<'a> {
+    database: &'a Database,
+    selection: &'a Win32Selection,
+}
+
 impl Generator {
-    /// Selects Win32 constants and functions from non-WinRT `Apis` containers.
-    pub fn win32_items(&self) -> Result<Win32Items<'_>, Error> {
-        if let Some(filter) = &self.filter {
-            Win32Items::new_filtered(&self.database, Some(filter))
-        } else {
-            Win32Items::new(&self.database)
+    /// Returns the selected Win32 items.
+    pub fn win32_items(&self) -> Win32Items<'_> {
+        Win32Items {
+            database: &self.database,
+            selection: &self.win32,
         }
     }
 }
 
-impl<'a> Win32Items<'a> {
-    fn new(database: &'a Database) -> Result<Self, Error> {
-        Self::new_filtered(database, None)
-    }
-
-    fn new_filtered(database: &'a Database, filter: Option<&Filter>) -> Result<Self, Error> {
+impl Win32Selection {
+    pub(crate) fn new(database: &Database, filter: Option<&Filter>) -> Result<Self, Error> {
         let mut namespaces = BTreeMap::<
             String,
             (
@@ -154,7 +153,6 @@ impl<'a> Win32Items<'a> {
             }
         }
         Ok(Self {
-            database,
             namespaces,
             nested,
             type_count,
@@ -166,55 +164,57 @@ impl<'a> Win32Items<'a> {
             delegate_count,
         })
     }
+}
 
+impl<'a> Win32Items<'a> {
     /// Returns the number of selected native type definitions.
     pub fn type_count(&self) -> usize {
-        self.type_count
+        self.selection.type_count
     }
 
     /// Returns the number of selected native definitions with architecture gates.
     pub fn architecture_type_count(&self) -> usize {
-        self.architecture_type_count
+        self.selection.architecture_type_count
     }
 
     /// Returns the number of selected constants with architecture gates.
     pub fn architecture_constant_count(&self) -> usize {
-        self.architecture_constant_count
+        self.selection.architecture_constant_count
     }
 
     /// Returns the number of selected functions with architecture gates.
     pub fn architecture_function_count(&self) -> usize {
-        self.architecture_function_count
+        self.selection.architecture_function_count
     }
 
     /// Returns the number of nested native structs retained for future attachment.
     pub fn nested_type_count(&self) -> usize {
-        self.nested.values().map(Vec::len).sum()
+        self.selection.nested.values().map(Vec::len).sum()
     }
 
     /// Returns the number of selected constants.
     pub fn constant_count(&self) -> usize {
-        self.constant_count
+        self.selection.constant_count
     }
 
     /// Returns the number of selected functions.
     pub fn function_count(&self) -> usize {
-        self.function_count
+        self.selection.function_count
     }
 
     /// Returns the number of selected native delegates.
     pub fn delegate_count(&self) -> usize {
-        self.delegate_count
+        self.selection.delegate_count
     }
 
     /// Lowers native type definitions in deterministic namespace and name order.
     pub fn native_types(&self) -> impl Iterator<Item = Result<NativeType, Error>> + '_ {
-        self.namespaces.iter().flat_map(|namespace| {
+        self.selection.namespaces.iter().flat_map(|namespace| {
             namespace.types.iter().map(|entity| {
                 NativeType::lower(
                     self.database,
                     self.database.definition(*entity).unwrap(),
-                    &self.nested,
+                    &self.selection.nested,
                 )
             })
         })
@@ -222,7 +222,7 @@ impl<'a> Win32Items<'a> {
 
     /// Lowers constants in deterministic namespace and name order.
     pub fn constants(&self) -> impl Iterator<Item = Result<Constant, Error>> + '_ {
-        self.namespaces.iter().flat_map(|namespace| {
+        self.selection.namespaces.iter().flat_map(|namespace| {
             namespace.constants.iter().map(|entity| {
                 let field = self.database.field(*entity).unwrap();
                 Constant::lower(self.database, field, &namespace.name, field.name().unwrap())
@@ -232,7 +232,7 @@ impl<'a> Win32Items<'a> {
 
     /// Lowers functions in deterministic namespace and name order.
     pub fn functions(&self) -> impl Iterator<Item = Result<Function, Error>> + '_ {
-        self.namespaces.iter().flat_map(|namespace| {
+        self.selection.namespaces.iter().flat_map(|namespace| {
             namespace.functions.iter().map(|entity| {
                 let method = self.database.method(*entity).unwrap();
                 Function::lower(
@@ -247,7 +247,7 @@ impl<'a> Win32Items<'a> {
 
     /// Lowers native delegates in deterministic namespace and name order.
     pub fn delegates(&self) -> impl Iterator<Item = Result<Delegate, Error>> + '_ {
-        self.namespaces.iter().flat_map(|namespace| {
+        self.selection.namespaces.iter().flat_map(|namespace| {
             namespace.delegates.iter().map(|entity| {
                 Delegate::lower(self.database, self.database.definition(*entity).unwrap())
             })
@@ -282,7 +282,7 @@ impl<'a> Win32Items<'a> {
         NativeType::lower(
             self.database,
             self.database.definition(entity).unwrap(),
-            &self.nested,
+            &self.selection.nested,
         )
     }
 
@@ -290,22 +290,22 @@ impl<'a> Win32Items<'a> {
         &self,
         mut add: impl FnMut(&str, &str, u8, proc_macro2::TokenStream),
     ) -> Result<(), Error> {
-        for namespace in &self.namespaces {
+        for namespace in &self.selection.namespaces {
             for entity in &namespace.types {
                 let definition = self.database.definition(*entity).unwrap();
-                let ty = NativeType::lower(self.database, definition, &self.nested)?;
+                let ty = NativeType::lower(self.database, definition, &self.selection.nested)?;
                 for (name, kind, tokens) in ty.write_sys_items() {
                     add(&namespace.name, name, kind, tokens);
                 }
-                for entity in &namespace.delegates {
-                    let definition = self.database.definition(*entity).unwrap();
-                    add(
-                        &namespace.name,
-                        definition.name()?,
-                        1,
-                        Delegate::lower(self.database, definition)?.write_sys(),
-                    );
-                }
+            }
+            for entity in &namespace.delegates {
+                let definition = self.database.definition(*entity).unwrap();
+                add(
+                    &namespace.name,
+                    definition.name()?,
+                    1,
+                    Delegate::lower(self.database, definition)?.write_sys(),
+                );
             }
             for entity in &namespace.constants {
                 let field = self.database.field(*entity).unwrap();
@@ -332,7 +332,12 @@ impl<'a> Win32Items<'a> {
     }
 
     fn type_entity(&self, namespace: &str, name: &str) -> Result<Entity<TypeDef>, Error> {
-        let Some(namespace) = self.namespaces.iter().find(|item| item.name == namespace) else {
+        let Some(namespace) = self
+            .selection
+            .namespaces
+            .iter()
+            .find(|item| item.name == namespace)
+        else {
             return Err(missing(namespace, name));
         };
         unique_entity(
@@ -345,7 +350,12 @@ impl<'a> Win32Items<'a> {
     }
 
     fn constant_entity(&self, namespace: &str, name: &str) -> Result<Entity<Field>, Error> {
-        let Some(namespace) = self.namespaces.iter().find(|item| item.name == namespace) else {
+        let Some(namespace) = self
+            .selection
+            .namespaces
+            .iter()
+            .find(|item| item.name == namespace)
+        else {
             return Err(missing(namespace, name));
         };
         unique_entity(
@@ -360,7 +370,12 @@ impl<'a> Win32Items<'a> {
     }
 
     fn function_entity(&self, namespace: &str, name: &str) -> Result<Entity<MethodDef>, Error> {
-        let Some(namespace) = self.namespaces.iter().find(|item| item.name == namespace) else {
+        let Some(namespace) = self
+            .selection
+            .namespaces
+            .iter()
+            .find(|item| item.name == namespace)
+        else {
             return Err(missing(namespace, name));
         };
         unique_entity(
@@ -408,7 +423,11 @@ mod tests {
     #[test]
     fn inventory_current_win32_lowering() {
         let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
-        let items = Win32Items::new(&database).unwrap();
+        let selection = Win32Selection::new(&database, None).unwrap();
+        let items = Win32Items {
+            database: &database,
+            selection: &selection,
+        };
         let mut supported = [0; 5];
         let mut delegate_supported = 0;
         let mut defaults = [0; 5];
@@ -416,7 +435,7 @@ mod tests {
         let mut gated_scoped_enums = 0;
         let mut unsupported = BTreeMap::<String, usize>::new();
 
-        for namespace in &items.namespaces {
+        for namespace in &items.selection.namespaces {
             for entity in &namespace.types {
                 let definition = database.definition(*entity).unwrap();
                 if definition.category().unwrap() == TypeCategory::Enum
@@ -427,7 +446,7 @@ mod tests {
                         gated_scoped_enums += 1;
                     }
                 }
-                match NativeType::lower(&database, definition, &items.nested) {
+                match NativeType::lower(&database, definition, &items.selection.nested) {
                     Ok(ty) => {
                         ty.write_sys();
                         if let Some(policy) = ty.default_policy() {
@@ -483,7 +502,7 @@ mod tests {
         assert_eq!(supported[..3], [12_667, 4_728, 12_714]);
         assert_eq!(supported[3..], [83_641, 14_559]);
         assert_eq!(delegate_supported, 2_159);
-        assert_eq!(items.type_count, 30_109);
+        assert_eq!(items.type_count(), 30_109);
         assert_eq!(items.delegate_count(), 2_159);
         assert_eq!(defaults, [8_583, 2_164, 1_890, 74, 3]);
         assert_eq!((scoped_enums, gated_scoped_enums), (10, 0));
@@ -493,7 +512,11 @@ mod tests {
     #[test]
     fn inventory_architecture_variants_and_nested_types() {
         let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
-        let items = Win32Items::new(&database).unwrap();
+        let selection = Win32Selection::new(&database, None).unwrap();
+        let items = Win32Items {
+            database: &database,
+            selection: &selection,
+        };
         let image = &database.images()[0];
         let mut architecture_rows = 0;
         let mut architecture_groups = BTreeMap::<(String, String), Vec<i32>>::new();
@@ -532,10 +555,10 @@ mod tests {
             (1_054, 671, 374, 2_633, 997, 512, 261, 2_633)
         );
         assert_eq!(
-            items.nested.values().map(Vec::len).sum::<usize>(),
+            items.selection.nested.values().map(Vec::len).sum::<usize>(),
             nested_rows
         );
-        assert_eq!(items.nested.len(), 1_925);
+        assert_eq!(items.selection.nested.len(), 1_925);
     }
 
     #[test]

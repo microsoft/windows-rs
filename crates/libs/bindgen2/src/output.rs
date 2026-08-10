@@ -45,17 +45,16 @@ impl Generator {
                 });
         }
 
-        self.win32_items()?
-            .render(|namespace, name, kind, tokens| {
-                modules
-                    .entry(namespace.to_string())
-                    .or_default()
-                    .push(Item {
-                        name: name.to_string(),
-                        kind,
-                        tokens,
-                    });
-            })?;
+        self.win32_items().render(|namespace, name, kind, tokens| {
+            modules
+                .entry(namespace.to_string())
+                .or_default()
+                .push(Item {
+                    name: name.to_string(),
+                    kind,
+                    tokens,
+                });
+        })?;
 
         let mut root = Module::default();
         match layout {

@@ -75,7 +75,7 @@ pub struct Metadata {
 pub struct Generator {
     database: Arc<Database>,
     values: Vec<ValueEntry>,
-    filter: Option<Filter>,
+    win32: win32::Win32Selection,
     options: Options,
 }
 
@@ -180,11 +180,12 @@ impl Generator {
         values.sort_by(|left, right| {
             (&left.0, &left.1, left.2.entity).cmp(&(&right.0, &right.1, right.2.entity))
         });
+        let win32 = win32::Win32Selection::new(&database, filter.as_ref())?;
 
         Ok(Self {
             database,
             values: values.into_iter().map(|(_, _, entry)| entry).collect(),
-            filter,
+            win32,
             options,
         })
     }
@@ -317,8 +318,8 @@ mod tests {
 
         assert!(std::ptr::eq(first.database(), second.database()));
         assert_eq!(first.values().len(), second.values().len());
-        let first = first.win32_items().unwrap();
-        let second = second.win32_items().unwrap();
+        let first = first.win32_items();
+        let second = second.win32_items();
         assert_eq!(first.type_count(), second.type_count());
         assert_eq!(first.delegate_count(), second.delegate_count());
         assert_eq!(first.constant_count(), second.constant_count());
@@ -536,7 +537,7 @@ mod tests {
             .include_item("First", "ONLY_FIRST")
             .include_namespace("Managed");
         let generator = metadata.generator_filtered(filter).unwrap();
-        let items = generator.win32_items().unwrap();
+        let items = generator.win32_items();
 
         assert_eq!(generator.values().len(), 1);
         assert_eq!(items.type_count(), 2);
@@ -602,7 +603,7 @@ mod tests {
                 }
             "#,
         );
-        let items = generator.win32_items().unwrap();
+        let items = generator.win32_items();
 
         let native_ptr = items.native_type("Test", "NativePtr").unwrap().write_sys();
         let native_ptr_alias = items
@@ -636,7 +637,7 @@ mod tests {
         let generator = fixture(include_str!(
             "../../../tests/libs/bindgen/input/struct_nested_anon_sys.rdl"
         ));
-        let items = generator.win32_items().unwrap();
+        let items = generator.win32_items();
         assert_eq!(items.nested_type_count(), 10);
         let types = items.native_types().collect::<Result<Vec<_>, _>>().unwrap();
         let types = types.iter().map(NativeType::write_sys);
@@ -658,7 +659,7 @@ mod tests {
         let generator = fixture(include_str!(
             "../../../tests/libs/bindgen/input/struct_default_sys.rdl"
         ));
-        let items = generator.win32_items().unwrap();
+        let items = generator.win32_items();
         let types = items.native_types().collect::<Result<Vec<_>, _>>().unwrap();
         let expected: TokenStream =
             include_str!("../../../tests/libs/bindgen/expected/struct_default_sys.rs")
@@ -674,7 +675,7 @@ mod tests {
         let generator = fixture(include_str!(
             "../../../tests/libs/bindgen/input/callback.rdl"
         ));
-        let items = generator.win32_items().unwrap();
+        let items = generator.win32_items();
         let delegates = items.delegates().collect::<Result<Vec<_>, _>>().unwrap();
         let delegates = delegates.iter().map(Delegate::write_sys);
         let actual = quote! { #(#delegates)* };
@@ -685,6 +686,35 @@ mod tests {
         assert_eq!(
             actual.to_string().replace("> ;", ">;"),
             expected.to_string()
+        );
+        let expected = quote! { pub mod Test { #expected } };
+        assert_eq!(
+            generator
+                .write_modules()
+                .unwrap()
+                .to_string()
+                .replace("> ;", ">;"),
+            expected.to_string()
+        );
+
+        let generator = fixture(
+            r#"
+                #[win32]
+                mod Test {
+                    type First = u32;
+                    type Second = u64;
+                    extern fn Callback(value: u32) -> u32;
+                }
+            "#,
+        );
+        assert_eq!(
+            generator
+                .write_modules()
+                .unwrap()
+                .to_string()
+                .matches("pub type Callback")
+                .count(),
+            1
         );
 
         let generator = fixture(include_str!(
@@ -718,7 +748,7 @@ mod tests {
                 }
             "#,
         );
-        let items = generator.win32_items().unwrap();
+        let items = generator.win32_items();
         let types = items.native_types().collect::<Result<Vec<_>, _>>().unwrap();
         let types = types.iter().map(NativeType::write_sys);
         let actual = quote! { #(#types)* };
@@ -745,7 +775,7 @@ mod tests {
                 }
             "#,
         );
-        let items = generator.win32_items().unwrap();
+        let items = generator.win32_items();
         let types = items.native_types().collect::<Result<Vec<_>, _>>().unwrap();
         let types = types.iter().map(NativeType::write_sys);
         let output = quote! { #(#types)* }.to_string();
@@ -799,7 +829,7 @@ mod tests {
                 }
             "#,
         );
-        let items = generator.win32_items().unwrap();
+        let items = generator.win32_items();
         let constants = items.constants().collect::<Result<Vec<_>, _>>().unwrap();
         let functions = items.functions().collect::<Result<Vec<_>, _>>().unwrap();
         let constants = constants.iter().map(Constant::write_sys);
@@ -831,7 +861,7 @@ mod tests {
     #[test]
     fn win32_apis_selection_has_exact_corpus_counts() {
         let generator = generator();
-        let items = generator.win32_items().unwrap();
+        let items = generator.win32_items();
         assert_eq!(
             [
                 items.type_count(),
@@ -854,7 +884,7 @@ mod tests {
                 }
             "#,
         );
-        let items = generator.win32_items().unwrap();
+        let items = generator.win32_items();
 
         let constant_expected: TokenStream = "pub const A_U8: u8 = 255;".parse().unwrap();
         assert_eq!(
@@ -893,7 +923,7 @@ mod tests {
                 }
             "#,
         );
-        let pointer_items = pointer_generator.win32_items().unwrap();
+        let pointer_items = pointer_generator.win32_items();
         let pointer_expected: TokenStream =
             r#"windows_link::link!("test.dll" "system" fn SysFlatFunction(s: *const Struct) -> i32);"#
                 .parse()
@@ -930,7 +960,7 @@ mod tests {
                 }
             "#,
         );
-        let alias_items = alias_generator.win32_items().unwrap();
+        let alias_items = alias_generator.win32_items();
         let signed_expected: TokenStream =
             "pub const I_TYPED: MyI32 = 0x2A_u32 as _;".parse().unwrap();
         assert_eq!(
@@ -960,7 +990,7 @@ mod tests {
                 }
             "#,
         );
-        let guid_items = guid_generator.win32_items().unwrap();
+        let guid_items = guid_generator.win32_items();
         let guid_expected: TokenStream = "pub const IID_INTERFACE: windows_sys::core::GUID = \
              windows_sys::core::GUID::from_u128(\
              0x00000000_0000_0000_c000_000000000046);"
