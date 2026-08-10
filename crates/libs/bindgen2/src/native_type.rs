@@ -1,7 +1,7 @@
 use super::*;
 use proc_macro2::{Literal, TokenStream};
 use quote::quote;
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, BTreeSet};
 
 /// An owned Win32 native type projection.
 pub struct NativeType {
@@ -49,14 +49,22 @@ struct Struct {
 }
 
 impl NativeType {
-    pub(super) fn lower(
+    pub(super) fn lower_filtered(
         database: &Database,
         definition: TypeDefinition<'_>,
         relationships: &BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
+        enum_variants: Option<&BTreeSet<String>>,
     ) -> Result<Self, Error> {
         let namespace = definition.namespace()?.to_string();
         let name = definition.name()?.to_string();
-        Self::lower_named(database, definition, relationships, &namespace, name)
+        Self::lower_named(
+            database,
+            definition,
+            relationships,
+            &namespace,
+            name,
+            enum_variants,
+        )
     }
 
     fn lower_named(
@@ -65,6 +73,7 @@ impl NativeType {
         relationships: &BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
         namespace: &str,
         name: String,
+        enum_variants: Option<&BTreeSet<String>>,
     ) -> Result<Self, Error> {
         let full_name = format!("{namespace}.{name}");
         let architectures = definition.architectures()?;
@@ -74,6 +83,10 @@ impl NativeType {
                 let mut values = Vec::new();
                 for field in definition.fields()? {
                     if field.is_literal()? {
+                        let field_name = field.name()?;
+                        if enum_variants.is_some_and(|variants| !variants.contains(field_name)) {
+                            continue;
+                        }
                         let value = field
                             .constant()?
                             .ok_or_else(|| Error::InvalidValue {
@@ -81,7 +94,7 @@ impl NativeType {
                                 message: "native enum member has no constant",
                             })?
                             .value()?;
-                        values.push((field.name()?.to_string(), value));
+                        values.push((field_name.to_string(), value));
                     } else if ty
                         .replace(native::Type::lower(
                             database,
@@ -153,6 +166,7 @@ impl NativeType {
                             relationships,
                             namespace,
                             projected,
+                            None,
                         )
                     })
                     .collect::<Result<Vec<_>, Error>>()?;
@@ -160,12 +174,13 @@ impl NativeType {
                     && field == "Value"
                     && ty.is_handle_primitive()
                 {
+                    let ty = ty.clone().normalize_alias(&name);
                     return Ok(Self {
                         architectures,
                         kind: Kind::Alias(Alias {
                             namespace: namespace.to_string(),
                             name,
-                            ty: ty.clone(),
+                            ty,
                         }),
                     });
                 }
@@ -180,6 +195,7 @@ impl NativeType {
                         name: full_name,
                         message: "native typedef does not have one field",
                     })?;
+                    let ty = ty.normalize_alias(&name);
                     return Ok(Self {
                         architectures,
                         kind: Kind::Alias(Alias {
@@ -189,8 +205,13 @@ impl NativeType {
                         }),
                     });
                 }
+                let guid = normalize_guid(&mut fields);
                 let align = alignment(definition, &full_name)?;
-                let default = native_default::classify(database, definition, relationships)?;
+                let default = if guid {
+                    native_default::Policy::Derive
+                } else {
+                    native_default::classify(database, definition, relationships)?
+                };
                 let packing = definition
                     .layout()?
                     .map(|layout| layout.packing_size())
@@ -429,6 +450,31 @@ impl Struct {
             (quote! { #[derive(Clone, Copy, Default)] }, quote! {})
         }
     }
+}
+
+fn normalize_guid(fields: &mut [(String, native::Type)]) -> bool {
+    let [
+        (data1, native::Type::U32),
+        (data2, native::Type::U16),
+        (data3, native::Type::U16),
+        (data4, native::Type::Array { element, len: 8 }),
+    ] = fields
+    else {
+        return false;
+    };
+    if **element != native::Type::U8
+        || data1 != "Data1"
+        || data2 != "Data2"
+        || data3 != "Data3"
+        || data4 != "Data4"
+    {
+        return false;
+    }
+    data1.make_ascii_lowercase();
+    data2.make_ascii_lowercase();
+    data3.make_ascii_lowercase();
+    data4.make_ascii_lowercase();
+    true
 }
 
 fn alignment(definition: TypeDefinition<'_>, full_name: &str) -> Result<Option<u32>, Error> {

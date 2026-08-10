@@ -103,23 +103,22 @@ impl Guid {
         })
     }
 
-    pub(super) fn write_u128(self) -> proc_macro2::TokenStream {
-        format!(
-            "0x{:08x}_{:04x}_{:04x}_{:02x}{:02x}_{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}",
-            self.data1,
-            self.data2,
-            self.data3,
-            self.data4[0],
-            self.data4[1],
-            self.data4[2],
-            self.data4[3],
-            self.data4[4],
-            self.data4[5],
-            self.data4[6],
-            self.data4[7],
-        )
-        .parse()
-        .unwrap()
+    pub(super) fn write_value(self) -> proc_macro2::TokenStream {
+        use proc_macro2::Literal;
+        use quote::quote;
+
+        let data1: proc_macro2::TokenStream = format!("0x{:08x}", self.data1).parse().unwrap();
+        let data2: proc_macro2::TokenStream = format!("0x{:04x}", self.data2).parse().unwrap();
+        let data3: proc_macro2::TokenStream = format!("0x{:04x}", self.data3).parse().unwrap();
+        let data4 = self.data4.into_iter().map(Literal::u8_unsuffixed);
+        quote! {
+            GUID {
+                data1: #data1,
+                data2: #data2,
+                data3: #data3,
+                data4: [#(#data4),*],
+            }
+        }
     }
 
     pub(super) fn is_iunknown(self) -> bool {

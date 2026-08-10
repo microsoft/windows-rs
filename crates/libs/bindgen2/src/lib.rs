@@ -265,6 +265,65 @@ mod tests {
         fixture_metadata(source).generator().unwrap()
     }
 
+    fn normalize_fn_parameters(stream: TokenStream) -> String {
+        fn normalize(stream: TokenStream) -> TokenStream {
+            use proc_macro2::{Delimiter, Group, TokenTree};
+
+            let mut result = Vec::<TokenTree>::new();
+            for token in stream {
+                let TokenTree::Group(group) = token else {
+                    result.push(token);
+                    continue;
+                };
+                let mut tokens = normalize(group.stream()).into_iter().collect::<Vec<_>>();
+                if group.delimiter() == Delimiter::Parenthesis {
+                    let mut normalized = Vec::new();
+                    let mut position = 0;
+                    let mut parameter_start = true;
+                    while position < tokens.len() {
+                        let parameter_name = parameter_start
+                            && matches!(tokens.get(position), Some(TokenTree::Ident(_)))
+                            && matches!(
+                                tokens.get(position + 1),
+                                Some(TokenTree::Punct(colon)) if colon.as_char() == ':'
+                            )
+                            && !matches!(
+                                tokens.get(position + 2),
+                                Some(TokenTree::Punct(colon)) if colon.as_char() == ':'
+                            );
+                        if parameter_name {
+                            position += 2;
+                            continue;
+                        }
+                        parameter_start = matches!(
+                            tokens.get(position),
+                            Some(TokenTree::Punct(comma)) if comma.as_char() == ','
+                        );
+                        normalized.push(tokens[position].clone());
+                        position += 1;
+                    }
+                    if matches!(
+                        normalized.last(),
+                        Some(TokenTree::Punct(comma)) if comma.as_char() == ','
+                    ) {
+                        normalized.pop();
+                    }
+                    tokens = normalized;
+                }
+                result.push(TokenTree::Group(Group::new(
+                    group.delimiter(),
+                    tokens.into_iter().collect(),
+                )));
+            }
+            result.into_iter().collect()
+        }
+
+        normalize(stream)
+            .to_string()
+            .replace(" , >", " >")
+            .replace("> ;", ">;")
+    }
+
     #[test]
     fn values_are_deterministic_and_borrow_database_names() {
         let generator = generator();
@@ -1124,9 +1183,9 @@ mod tests {
             "#,
         );
         let guid_items = guid_generator.win32_items();
-        let guid_expected: TokenStream = "pub const IID_INTERFACE: windows_sys::core::GUID = \
-             windows_sys::core::GUID::from_u128(\
-             0x00000000_0000_0000_c000_000000000046);"
+        let guid_expected: TokenStream = "pub const IID_INTERFACE: GUID = GUID { \
+             data1: 0x00000000, data2: 0x0000, data3: 0x0000, \
+             data4: [192, 0, 0, 0, 0, 0, 0, 70], };"
             .parse()
             .unwrap();
         assert_eq!(
@@ -1137,5 +1196,69 @@ mod tests {
                 .to_string(),
             guid_expected.to_string()
         );
+    }
+
+    #[test]
+    fn tool_bindings_sys_requests_match_committed_output() {
+        let metadata = Metadata::from_images([
+            Image::new(windows_default::WINRT).unwrap(),
+            Image::new(windows_default::WIN32).unwrap(),
+        ])
+        .unwrap();
+        let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../..");
+
+        for request in [
+            "cppwinrt.txt",
+            "future_impl.txt",
+            "metadata.txt",
+            "registry.txt",
+            "result.txt",
+            "services.txt",
+            "strings.txt",
+            "threading.txt",
+            "version.txt",
+        ] {
+            let request_path = root.join("crates/tools/bindings/src").join(request);
+            let request_text = std::fs::read_to_string(&request_path).unwrap();
+            let mut output = None;
+            let mut filters = Vec::new();
+            let mut reading_filters = false;
+            for line in request_text.lines().map(str::trim) {
+                if let Some(path) = line.strip_prefix("--out ") {
+                    output = Some(path.to_string());
+                    reading_filters = false;
+                } else if line == "--filter" {
+                    reading_filters = true;
+                } else if line.starts_with("--") {
+                    reading_filters = false;
+                } else if reading_filters && !line.is_empty() && !line.starts_with('#') {
+                    assert!(
+                        line.bytes()
+                            .all(|byte| byte == b'_' || byte.is_ascii_alphanumeric()),
+                        "{request} requires unsupported filter syntax: {line}"
+                    );
+                    filters.push(line.to_string());
+                }
+            }
+            let actual = metadata
+                .generator_with_filter(
+                    Options {
+                        layout: Layout::Flat,
+                    },
+                    Filter::names(filters),
+                )
+                .unwrap()
+                .write()
+                .unwrap();
+            let expected: TokenStream = std::fs::read_to_string(root.join(output.unwrap()))
+                .unwrap()
+                .parse()
+                .unwrap();
+            assert_eq!(
+                normalize_fn_parameters(actual),
+                normalize_fn_parameters(expected),
+                "{request} differs"
+            );
+        }
     }
 }

@@ -27,6 +27,17 @@ pub(super) enum Type {
 }
 
 impl Type {
+    pub(super) fn lower_parameter(
+        database: &Database,
+        file: FileId,
+        owner: &str,
+        ty: windows_metadata2::Type,
+        input_only: bool,
+    ) -> Result<Self, Error> {
+        let ty = Self::lower(database, file, owner, ty)?;
+        Ok(if input_only { ty.into_input() } else { ty })
+    }
+
     pub(super) fn lower(
         database: &Database,
         file: FileId,
@@ -110,7 +121,7 @@ impl Type {
                     database, file, owner, *element, nested,
                 )?),
             },
-            TypeKind::Value(id) | TypeKind::Class(id) => {
+            TypeKind::Value(id) => {
                 let (namespace, name) =
                     database
                         .type_name(file, id)?
@@ -129,6 +140,32 @@ impl Type {
                 Self::Named {
                     namespace: namespace.to_string(),
                     name: name.to_string(),
+                }
+            }
+            TypeKind::Class(id) => {
+                let Some((namespace, name)) = database.type_name(file, id)? else {
+                    return Err(Error::InvalidValue {
+                        name: owner.to_string(),
+                        message: "native class type has no name",
+                    });
+                };
+                let mut delegate = false;
+                for entity in database.type_definitions(namespace, name) {
+                    if database.definition(*entity).unwrap().category()? == TypeCategory::Delegate {
+                        delegate = true;
+                        break;
+                    }
+                }
+                if delegate {
+                    Self::Named {
+                        namespace: namespace.to_string(),
+                        name: name.to_string(),
+                    }
+                } else {
+                    Self::Pointer {
+                        mutable: true,
+                        element: Box::new(Self::Void),
+                    }
                 }
             }
             TypeKind::GenericInstance {
@@ -169,6 +206,7 @@ impl Type {
                 let len = Literal::usize_unsuffixed(*len);
                 quote! { [#element; #len] }
             }
+
             Self::Pointer { mutable, element } => {
                 let element = element.write(namespace);
                 if *mutable {
@@ -185,6 +223,56 @@ impl Type {
                 let name = tokens::ident(name);
                 quote! { #path #name }
             }
+        }
+    }
+
+    pub(super) fn normalize_alias(self, name: &str) -> Self {
+        match name {
+            "BSTR" | "PCWSTR" => Self::Pointer {
+                mutable: false,
+                element: Box::new(Self::U16),
+            },
+            "PWSTR" => Self::Pointer {
+                mutable: true,
+                element: Box::new(Self::U16),
+            },
+            "PCSTR" => Self::Pointer {
+                mutable: false,
+                element: Box::new(Self::U8),
+            },
+            "PSTR" => Self::Pointer {
+                mutable: true,
+                element: Box::new(Self::U8),
+            },
+            _ => self,
+        }
+    }
+
+    pub(super) fn named_types(&self, mut add: impl FnMut(&str, &str)) {
+        self.visit_named(&mut add);
+    }
+
+    fn visit_named(&self, add: &mut impl FnMut(&str, &str)) {
+        match self {
+            Self::Array { element, .. } | Self::Pointer { element, .. } => {
+                element.visit_named(add);
+            }
+            Self::Named { namespace, name } => add(namespace, name),
+            _ => {}
+        }
+    }
+
+    fn into_input(self) -> Self {
+        match self {
+            Self::Named { namespace, name } if name == "PWSTR" => Self::Named {
+                namespace,
+                name: "PCWSTR".to_string(),
+            },
+            Self::Named { namespace, name } if name == "PSTR" => Self::Named {
+                namespace,
+                name: "PCSTR".to_string(),
+            },
+            _ => self,
         }
     }
 

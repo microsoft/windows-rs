@@ -113,21 +113,20 @@ impl Constant {
         let name = tokens::ident(&self.name);
         let value = match &self.value {
             Value::Guid(guid) => {
-                let guid = guid.write_u128();
+                let guid = guid.write_value();
                 quote! {
-                    pub const #name: windows_sys::core::GUID =
-                        windows_sys::core::GUID::from_u128(#guid);
+                    pub const #name: GUID = #guid;
                 }
             }
             Value::PropertyKey { guid, fields, pid } => {
                 let ty = self.ty.write(&self.namespace);
-                let guid = guid.write_u128();
+                let guid = guid.write_value();
                 let guid_field = tokens::ident(&fields[0]);
                 let pid_field = tokens::ident(&fields[1]);
                 let pid = native::write_value(&native::Type::from_constant(pid), pid);
                 quote! {
                     pub const #name: #ty = #ty {
-                        #guid_field: windows_sys::core::GUID::from_u128(#guid),
+                        #guid_field: #guid,
                         #pid_field: #pid,
                     };
                 }

@@ -1,5 +1,5 @@
 use super::*;
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, BTreeSet};
 
 struct Namespace {
     name: String,
@@ -23,10 +23,16 @@ struct NamespaceSelection {
 
 type NamespaceSelections = BTreeMap<String, NamespaceSelection>;
 
+enum EnumVariants {
+    All,
+    Names(BTreeSet<String>),
+}
+
 pub(crate) struct Win32Selection {
     namespaces: Vec<Namespace>,
     nested: BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
     interface_bases: BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
+    enum_variants: BTreeMap<Entity<TypeDef>, EnumVariants>,
     type_count: usize,
     architecture_type_count: usize,
     architecture_constant_count: usize,
@@ -59,6 +65,7 @@ impl Win32Selection {
         let interface_bases = interface_bases(database)?;
         let mut closure = filter.map(|_| native_closure::Closure::new(database, &interface_bases));
         let mut namespaces = NamespaceSelections::new();
+        let mut enum_variants = BTreeMap::<Entity<TypeDef>, EnumVariants>::new();
         for definition in database.definitions() {
             if definition.is_windows_runtime()? {
                 continue;
@@ -66,10 +73,32 @@ impl Win32Selection {
             let namespace = definition.namespace()?.to_string();
             let category = definition.category()?;
             match category {
-                TypeCategory::Enum
-                | TypeCategory::Struct
-                | TypeCategory::Delegate
-                | TypeCategory::Interface => {
+                TypeCategory::Enum => {
+                    let name = definition.name()?;
+                    if filter.is_none_or(|filter| filter.includes(&namespace, name)) {
+                        if let Some(closure) = &mut closure {
+                            closure.include_definition(definition.entity())?;
+                        } else {
+                            add_definition(&mut namespaces, definition)?;
+                        }
+                        enum_variants.insert(definition.entity(), EnumVariants::All);
+                    } else if let Some(filter) = filter {
+                        let mut names = BTreeSet::new();
+                        for field in definition.fields()? {
+                            if field.is_literal()? && filter.includes(&namespace, field.name()?) {
+                                names.insert(field.name()?.to_string());
+                            }
+                        }
+                        if !names.is_empty() {
+                            closure
+                                .as_mut()
+                                .unwrap()
+                                .include_definition(definition.entity())?;
+                            enum_variants.insert(definition.entity(), EnumVariants::Names(names));
+                        }
+                    }
+                }
+                TypeCategory::Struct | TypeCategory::Delegate | TypeCategory::Interface => {
                     let name = definition.name()?;
                     if filter.is_none_or(|filter| filter.includes(&namespace, name)) {
                         if let Some(closure) = &mut closure {
@@ -118,6 +147,11 @@ impl Win32Selection {
         if let Some(closure) = closure {
             for entity in closure.finish()? {
                 let definition = database.definition(entity).unwrap();
+                if definition.category()? == TypeCategory::Enum {
+                    enum_variants
+                        .entry(entity)
+                        .or_insert_with(|| EnumVariants::Names(BTreeSet::new()));
+                }
                 add_definition(&mut namespaces, definition)?;
             }
         }
@@ -184,6 +218,7 @@ impl Win32Selection {
             namespaces,
             nested,
             interface_bases,
+            enum_variants,
             type_count,
             architecture_type_count,
             architecture_constant_count,
@@ -296,10 +331,11 @@ impl<'a> Win32Items<'a> {
     pub fn native_types(&self) -> impl Iterator<Item = Result<NativeType, Error>> + '_ {
         self.selection.namespaces.iter().flat_map(|namespace| {
             namespace.types.iter().map(|entity| {
-                NativeType::lower(
+                NativeType::lower_filtered(
                     self.database,
                     self.database.definition(*entity).unwrap(),
                     &self.selection.nested,
+                    self.enum_variants(*entity),
                 )
             })
         })
@@ -377,10 +413,11 @@ impl<'a> Win32Items<'a> {
     /// Lowers a uniquely named native type definition.
     pub fn native_type(&self, namespace: &str, name: &str) -> Result<NativeType, Error> {
         let entity = self.type_entity(namespace, name)?;
-        NativeType::lower(
+        NativeType::lower_filtered(
             self.database,
             self.database.definition(entity).unwrap(),
             &self.selection.nested,
+            self.enum_variants(entity),
         )
     }
 
@@ -391,7 +428,12 @@ impl<'a> Win32Items<'a> {
         for namespace in &self.selection.namespaces {
             for entity in &namespace.types {
                 let definition = self.database.definition(*entity).unwrap();
-                let ty = NativeType::lower(self.database, definition, &self.selection.nested)?;
+                let ty = NativeType::lower_filtered(
+                    self.database,
+                    definition,
+                    &self.selection.nested,
+                    self.enum_variants(*entity),
+                )?;
                 for (name, kind, tokens) in ty.write_sys_items() {
                     add(&namespace.name, name, kind, tokens);
                 }
@@ -459,6 +501,13 @@ impl<'a> Win32Items<'a> {
             &namespace.name,
             name,
         )
+    }
+
+    fn enum_variants(&self, entity: Entity<TypeDef>) -> Option<&BTreeSet<String>> {
+        match self.selection.enum_variants.get(&entity) {
+            Some(EnumVariants::Names(names)) => Some(names),
+            Some(EnumVariants::All) | None => None,
+        }
     }
 
     fn constant_entity(&self, namespace: &str, name: &str) -> Result<Entity<Field>, Error> {
@@ -559,7 +608,12 @@ mod tests {
                         gated_scoped_enums += 1;
                     }
                 }
-                match NativeType::lower(&database, definition, &items.selection.nested) {
+                match NativeType::lower_filtered(
+                    &database,
+                    definition,
+                    &items.selection.nested,
+                    None,
+                ) {
                     Ok(ty) => {
                         ty.write_sys();
                         if let Some(policy) = ty.default_policy() {
@@ -633,7 +687,7 @@ mod tests {
         assert_eq!(interface_supported, 4_290);
         assert_eq!(items.type_count(), 30_109);
         assert_eq!(items.delegate_count(), 2_159);
-        assert_eq!(defaults, [8_583, 2_164, 1_890, 74, 3]);
+        assert_eq!(defaults, [8_584, 2_164, 1_889, 74, 3]);
         assert_eq!((scoped_enums, gated_scoped_enums), (10, 0));
     }
 

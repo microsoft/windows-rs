@@ -91,11 +91,10 @@ impl NativeInterface {
         let name = tokens::ident(&format!("{}_Vtbl", self.name));
         let iid = self.guid.map(|guid| {
             let name = tokens::ident(&format!("IID_{}", self.name));
-            let guid = guid.write_u128();
+            let guid = guid.write_value();
             quote! {
                 #architectures
-                pub const #name: windows_sys::core::GUID =
-                    windows_sys::core::GUID::from_u128(#guid);
+                pub const #name: GUID = #guid;
             }
         });
         let base = self.base.as_ref().map(|(namespace, name)| {

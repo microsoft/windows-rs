@@ -126,6 +126,21 @@ erased to its raw ABI pointer rather than introducing a generic native type mode
 `InterfaceImpl` map supports inheritance and filtered closure; individual interface projections
 are not retained.
 
+The first `tool_bindings` integration probe runs all nine `--sys` request files against one shared
+`Metadata` value and compares each in-memory result with its committed binding file. The outputs
+match after ignoring function-pointer parameter names and rustfmt-only trailing commas. This probe
+found policy gaps that corpus lowering alone did not reveal:
+
+| Area | Required sys policy |
+| --- | --- |
+| Output order | Imported functions precede the alphabetically sorted remaining items. |
+| `GUID` | Lowercase fields, derived `Default`, and local struct-literal IID constants. |
+| Class signatures | Interfaces erase to raw ABI pointers; native delegates stay named aliases. |
+| String aliases | `BSTR`/`PCSTR` canonicalize to their projected pointer element types. |
+| SAL input strings | Input-only `PWSTR`/`PSTR` parameters become `PCWSTR`/`PCSTR`. |
+| Closure | Follow projected ABI types so erased or canonicalized metadata types do not leak in. |
+| Scoped enums | Dependency enums retain only explicitly requested variant constants. |
+
 ## Native shape inventory
 
 The committed Win32 metadata contains:
@@ -158,9 +173,9 @@ Native `Default` policy is also complete for the selected sys surface:
 
 | Policy | Structs |
 | --- | ---: |
-| Derive `Default` | 8,583 |
+| Derive `Default` | 8,584 |
 | Manual - explicit layout | 2,164 |
-| Manual - direct fixed array | 1,890 |
+| Manual - direct fixed array | 1,889 |
 | Manual - fixed-array typedef chain | 74 |
 | Manual - scoped-enum field | 3 |
 
@@ -212,6 +227,7 @@ The bounded module-output, RDL2 external-reference, native-shape inventory, arch
 nested-rendering, native-default, scoped-enum, and remaining-surface inventory checkpoints are
 complete. Native delegates and interfaces are also complete for sys output. The reusable
 metadata/request boundary includes explicit module/flat layout, exact programmatic filters, and
-transitive supported-native closure. The next checkpoint should exercise real `tool_bindings` sys
-filter sets in memory before adding member-level syntax, file writing, or a compatibility CLI. Do
-not add a second name index or a global native graph without a measured requirement.
+transitive supported-native closure. All nine real `tool_bindings` sys requests now match in
+memory. The next checkpoint should decide whether to expose a thin request-file adapter or first
+add output formatting and file writing. Do not add general member-filter syntax, a second name
+index, or a global native graph without a measured requirement.

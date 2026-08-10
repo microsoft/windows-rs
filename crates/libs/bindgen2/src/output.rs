@@ -94,8 +94,9 @@ impl Generator {
 
 impl Module {
     fn write(mut self) -> TokenStream {
-        self.items
-            .sort_by(|left, right| (&left.name, left.kind).cmp(&(&right.name, right.kind)));
+        self.items.sort_by(|left, right| {
+            (left.kind != 3, &left.name, left.kind).cmp(&(right.kind != 3, &right.name, right.kind))
+        });
         let items = self.items.into_iter().map(|item| item.tokens);
         let nested = self.nested.into_iter().map(|(name, module)| {
             let name = tokens::ident(&name);

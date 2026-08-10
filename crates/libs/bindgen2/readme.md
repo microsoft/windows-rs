@@ -32,8 +32,9 @@ implementations through their enclosing subtree, matching the existing layout po
 
 Native `Default` policy now matches the existing sys generator for explicit layout propagated
 through by-value fields, direct fixed arrays, fixed-array typedef chains, and scoped-enum fields.
-The corpus contains 8,583 deriving structs and 4,131 manual implementations. Resolution is an
-ephemeral per-root traversal rather than another retained native graph.
+The validated `GUID` shape is the one fixed-array exception and derives `Default`. The corpus
+contains 8,584 deriving structs and 4,130 manual implementations. Resolution is an ephemeral
+per-root traversal rather than another retained native graph.
 
 All 10 scoped native enums now use the existing transparent-newtype sys projection with associated
 constants. Ordinary C enums remain integer aliases with module-level constants. The distinction is
@@ -66,8 +67,9 @@ projection policy exists.
 
 `Filter` is a programmatic selection model, not a command-line parser. It includes bare item names,
 exact namespace/name pairs, or namespace trees. An empty filter selects nothing; an unfiltered
-request selects the complete implemented surface. Member filters, exclusions, string grammar, and
-dependency closure remain separate future layers.
+request selects the complete implemented surface. Bare scoped-enum variant names retain only the
+requested variants when the enum is otherwise a dependency. General member filters, exclusions,
+and string grammar remain separate future layers.
 
 Each request stores its selected WinRT and Win32 typed entities. Repeated writes borrow that
 selection instead of scanning the metadata database again. Native projected models are still
@@ -77,3 +79,8 @@ Filtered Win32 requests close transitively over supported native definitions ref
 and method signatures. This includes aliases, enums, structs, delegates, interfaces, base
 interfaces, and every architecture variant of a referenced metadata name. Closure uses an
 ephemeral entity set and work queue; it does not retain a dependency graph.
+
+The nine `tool_bindings` `--sys` requests run against one shared metadata database and match their
+committed generated output. The comparison ignores only function-pointer parameter names and
+rustfmt-added trailing commas. This covers filtered functions, constants, structs, aliases,
+delegates, interfaces, IIDs, string aliases, SAL input constness, enum variants, and closure.

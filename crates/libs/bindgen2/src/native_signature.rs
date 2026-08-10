@@ -30,12 +30,23 @@ impl Signature {
             .into_iter()
             .enumerate()
             .map(|(position, ty)| {
+                let parameter = parameter_rows.parameters()[position];
+                let flags = parameter
+                    .map(|parameter| parameter.flags())
+                    .transpose()?
+                    .unwrap_or(0);
                 Ok(Parameter {
-                    name: parameter_rows.parameters()[position]
+                    name: parameter
                         .map(|parameter| parameter.name())
                         .transpose()?
                         .map_or_else(|| format!("p{position}"), str::to_lowercase),
-                    ty: native::Type::lower(database, method.entity().file(), owner, ty)?,
+                    ty: native::Type::lower_parameter(
+                        database,
+                        method.entity().file(),
+                        owner,
+                        ty,
+                        flags & 0x0001 != 0 && flags & 0x0002 == 0,
+                    )?,
                 })
             })
             .collect::<Result<_, Error>>()?;

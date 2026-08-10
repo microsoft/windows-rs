@@ -44,7 +44,13 @@ impl<'a> Closure<'a> {
         &mut self,
         field: windows_metadata2::FieldDefinition<'_>,
     ) -> Result<(), Error> {
-        self.include_type(field.entity().file(), &field.signature()?)
+        let ty = native::Type::lower(
+            self.database,
+            field.entity().file(),
+            field.name()?,
+            field.signature()?,
+        )?;
+        self.include_native_type(&ty)
     }
 
     pub(super) fn include_method(
@@ -52,9 +58,28 @@ impl<'a> Closure<'a> {
         method: windows_metadata2::MethodDefinition<'_>,
     ) -> Result<(), Error> {
         let signature = method.signature()?;
-        self.include_type(method.entity().file(), &signature.return_type)?;
-        for ty in &signature.parameters {
-            self.include_type(method.entity().file(), ty)?;
+        let owner = method.name()?;
+        let return_type = native::Type::lower(
+            self.database,
+            method.entity().file(),
+            owner,
+            signature.return_type,
+        )?;
+        self.include_native_type(&return_type)?;
+        let parameters = method.parameters_by_sequence()?;
+        for (position, ty) in signature.parameters.into_iter().enumerate() {
+            let flags = parameters.parameters()[position]
+                .map(|parameter| parameter.flags())
+                .transpose()?
+                .unwrap_or(0);
+            let ty = native::Type::lower_parameter(
+                self.database,
+                method.entity().file(),
+                owner,
+                ty,
+                flags & 0x0001 != 0 && flags & 0x0002 == 0,
+            )?;
+            self.include_native_type(&ty)?;
         }
         Ok(())
     }
@@ -64,9 +89,21 @@ impl<'a> Closure<'a> {
             let definition = self.database.definition(entity).unwrap();
             match definition.category()? {
                 TypeCategory::Enum | TypeCategory::Struct => {
+                    let typedef = definition.has_attribute("NativeTypedefAttribute")?;
                     for field in definition.fields()? {
                         if !field.is_literal()? {
-                            self.include_field(field)?;
+                            let ty = native::Type::lower(
+                                self.database,
+                                field.entity().file(),
+                                definition.name()?,
+                                field.signature()?,
+                            )?;
+                            let ty = if typedef {
+                                ty.normalize_alias(definition.name()?)
+                            } else {
+                                ty
+                            };
+                            self.include_native_type(&ty)?;
                         }
                     }
                 }
@@ -91,39 +128,17 @@ impl<'a> Closure<'a> {
         Ok(self.selected)
     }
 
-    fn include_type(&mut self, file: FileId, ty: &windows_metadata2::Type) -> Result<(), Error> {
-        match &ty.kind {
-            TypeKind::Pointer(element)
-            | TypeKind::ByRef(element)
-            | TypeKind::Vector(element)
-            | TypeKind::Pinned(element) => self.include_type(file, element)?,
-            TypeKind::Array { element, .. } => self.include_type(file, element)?,
-            TypeKind::Value(id) | TypeKind::Class(id) => self.include_named(file, *id)?,
-            TypeKind::GenericInstance { ty, arguments, .. } => {
-                self.include_named(file, *ty)?;
-                for argument in arguments {
-                    self.include_type(file, argument)?;
-                }
+    fn include_native_type(&mut self, ty: &native::Type) -> Result<(), Error> {
+        let mut names = Vec::new();
+        ty.named_types(|namespace, name| {
+            if !namespace.is_empty() {
+                names.push((namespace.to_string(), name.to_string()));
             }
-            TypeKind::FunctionPointer(signature) => {
-                self.include_type(file, &signature.return_type)?;
-                for parameter in &signature.parameters {
-                    self.include_type(file, parameter)?;
-                }
-            }
-            _ => {}
+        });
+        for (namespace, name) in names {
+            self.include_name(&namespace, &name)?;
         }
         Ok(())
-    }
-
-    fn include_named(&mut self, file: FileId, id: AnyRowId) -> Result<(), Error> {
-        let Some((namespace, name)) = self.database.type_name(file, id)? else {
-            return Ok(());
-        };
-        if namespace.is_empty() {
-            return Ok(());
-        }
-        self.include_name(namespace, name)
     }
 
     fn include_name(&mut self, namespace: &str, name: &str) -> Result<(), Error> {
