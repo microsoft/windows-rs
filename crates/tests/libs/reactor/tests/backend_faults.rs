@@ -310,6 +310,9 @@ fn error_boundary_discards_failed_component_updates_and_runs_cleanup() {
         assert_eq!(reconciler.debug_logical_node_count(), 1);
         reconciler.assert_consistent();
         reconciler.backend.assert_consistent();
+        reconciler.unmount_root();
+        reconciler.backend.assert_consistent();
+        assert_eq!(reconciler.backend.live_control_count(), 0);
 
         reconciler.unmount_root();
         assert_eq!(cleanups.get(), 1);
@@ -375,6 +378,133 @@ fn failed_provider_update_retains_ownership_for_teardown() {
     reconciler.assert_consistent();
     reconciler.backend.assert_consistent();
     reconciler.unmount_root();
+    reconciler.backend.assert_consistent();
+    assert_eq!(reconciler.backend.live_control_count(), 0);
+}
+
+#[test]
+fn error_boundary_discards_failed_root_replacement() {
+    let old = error_boundary(text_block("old"), |_| text_block("fallback").into());
+    let new = error_boundary(Button::new("new"), |_| text_block("fallback").into());
+    let mut reconciler = Reconciler::new(RecordingBackend::new());
+    reconciler.reconcile(None, &old, None, rerender());
+    reconciler.backend.fail_next(BackendOperation::Create);
+
+    assert!(
+        reconciler
+            .reconcile(Some(&old), &new, None, rerender())
+            .is_some()
+    );
+
+    assert_eq!(reconciler.backend.live_control_count(), 1);
+    assert_eq!(reconciler.debug_logical_node_count(), 1);
+    reconciler.assert_consistent();
+    reconciler.backend.assert_consistent();
+    reconciler.unmount_root();
+    reconciler.backend.assert_consistent();
+    assert_eq!(reconciler.backend.live_control_count(), 0);
+}
+
+#[test]
+fn error_boundary_discards_failed_nested_child_replacement() {
+    let old = error_boundary(vstack((text_block("old"),)), |_| {
+        text_block("fallback").into()
+    });
+    let new = error_boundary(vstack((Button::new("new"),)), |_| {
+        text_block("fallback").into()
+    });
+    let mut reconciler = Reconciler::new(RecordingBackend::new());
+    reconciler.reconcile(None, &old, None, rerender());
+    reconciler.backend.fail_next(BackendOperation::Create);
+
+    assert!(
+        reconciler
+            .reconcile(Some(&old), &new, None, rerender())
+            .is_some()
+    );
+
+    assert_eq!(reconciler.backend.live_control_count(), 1);
+    assert_eq!(reconciler.debug_logical_node_count(), 1);
+    reconciler.assert_consistent();
+    reconciler.backend.assert_consistent();
+    reconciler.unmount_root();
+    reconciler.backend.assert_consistent();
+    assert_eq!(reconciler.backend.live_control_count(), 0);
+}
+
+#[derive(Clone, PartialEq)]
+struct ReplacementProps(bool);
+
+struct ReplacementEffect {
+    cleanups: Rc<Cell<u32>>,
+}
+
+impl Component<ReplacementProps> for ReplacementEffect {
+    fn render(&self, props: &ReplacementProps, cx: &mut RenderCx) -> Element {
+        let cleanups = Rc::clone(&self.cleanups);
+        cx.use_effect_with_cleanup((), move || Some(move || cleanups.set(cleanups.get() + 1)));
+        if props.0 {
+            Button::new("new").into()
+        } else {
+            text_block("old").into()
+        }
+    }
+}
+
+#[test]
+fn error_boundary_cleans_component_after_failed_output_replacement() {
+    let cleanups = Rc::new(Cell::new(0));
+    let old = error_boundary(
+        component(
+            ReplacementEffect {
+                cleanups: Rc::clone(&cleanups),
+            },
+            ReplacementProps(false),
+        ),
+        |_| text_block("fallback").into(),
+    );
+    let new = error_boundary(
+        component(
+            ReplacementEffect {
+                cleanups: Rc::clone(&cleanups),
+            },
+            ReplacementProps(true),
+        ),
+        |_| text_block("fallback").into(),
+    );
+    let mut reconciler = Reconciler::new(RecordingBackend::new());
+    reconciler.reconcile(None, &old, None, rerender());
+    reconciler.backend.fail_next(BackendOperation::Create);
+
+    assert!(
+        reconciler
+            .reconcile(Some(&old), &new, None, rerender())
+            .is_some()
+    );
+
+    assert_eq!(cleanups.get(), 1);
+    assert_eq!(reconciler.backend.live_control_count(), 1);
+    assert_eq!(reconciler.debug_logical_node_count(), 1);
+    reconciler.assert_consistent();
+    reconciler.backend.assert_consistent();
+    reconciler.unmount_root();
+    assert_eq!(cleanups.get(), 1);
+    reconciler.backend.assert_consistent();
+    assert_eq!(reconciler.backend.live_control_count(), 0);
+}
+
+#[test]
+fn strict_unmount_still_rejects_an_already_removed_control() {
+    let element: Element = text_block("strict").into();
+    let mut reconciler = Reconciler::new(RecordingBackend::new());
+    let id = reconciler
+        .reconcile(None, &element, None, rerender())
+        .unwrap();
+    reconciler.unmount(id);
+
+    let result = std::panic::catch_unwind(AssertUnwindSafe(|| reconciler.unmount(id)));
+
+    assert!(result.is_err());
     reconciler.backend.assert_consistent();
     assert_eq!(reconciler.backend.live_control_count(), 0);
 }
