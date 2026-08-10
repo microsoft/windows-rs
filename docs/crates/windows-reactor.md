@@ -475,7 +475,12 @@ not yet cover custom elements, templated lists, or failures during rollback.
 Component and provider updates retain their logical ownership records while a panic propagates.
 This lets an error boundary discard a failed non-structural update, run component cleanups, and
 mount its fallback. It also keeps ownership reachable for explicit root teardown when a property or
-event update panics before mutating the backend. Structural update rollback is not yet defined.
+event update panics before mutating the backend.
+
+If structural replacement fails after removing old native output, an error boundary discards only
+the ownership that remains live before mounting its fallback. It does not restore the old subtree.
+The strict teardown path still treats a missing control as an invariant violation. Structural
+recovery without an error boundary and rollback of child collection mutations are not yet defined.
 
 Two crates measure reconciler performance. `test_reactor_bench` is a headless micro-suite (run with
 `cargo run -p test_reactor_bench --release`) that brackets only the reconcile body against
@@ -1167,8 +1172,10 @@ time.
   and pane operations; roll failed mounts back before propagating the panic.
 - [x] Retain component and provider ownership across failed non-structural updates so error
   boundaries can discard the subtree, run cleanups, and mount a fallback.
+- [x] Let error boundaries discard failed structural replacements without destroying removed
+  controls twice, including replacements nested under native and component output.
 - [ ] Extend backend fault injection to updates, custom and templated mounts, move, detach, destroy,
-  structural replacement, and rollback itself; define the valid state after each failure.
+  child collection rollback, and rollback itself; define the valid state after each failure.
 - [ ] Define and test render, commit, effect, cleanup, error-boundary, and reentrant-event ordering.
 - [ ] Enforce the UI-thread boundary in release builds and reject stale asynchronous updates after
   unmount or host replacement.

@@ -253,7 +253,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             Err(payload) => {
                 let msg = panic_message(payload);
                 let fallback = new.fallback.invoke(&msg);
-                self.unmount_output(boundary.child_output);
+                self.discard_output(boundary.child_output);
                 let output = {
                     let _parent = self.enter_logical_parent(node_id);
                     self.mount_output(&fallback)

@@ -564,6 +564,15 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
+    fn discard_output(&mut self, output: MountedOutput) {
+        if let Some(native) = output.native {
+            self.discard_inner(native);
+        }
+        if let Some(logical) = output.logical {
+            self.remove_logical_subtree(logical);
+        }
+    }
+
     pub fn unmount_root(&mut self) {
         if let Some(output) = self.root_output.take() {
             self.unmount_output(output);
@@ -586,16 +595,30 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     fn unmount_inner(&mut self, id: ControlId) {
+        self.teardown_inner(id, false);
+    }
+
+    fn discard_inner(&mut self, id: ControlId) {
+        self.teardown_inner(id, true);
+    }
+
+    fn teardown_inner(&mut self, id: ControlId, skip_missing: bool) {
         let mut nodes = vec![id];
         let mut next = 0;
         while next < nodes.len() {
             let node = nodes[next];
             next += 1;
+            if skip_missing && !self.tree.contains_native(node) {
+                continue;
+            }
             self.tree.extend_owned_children(node, &mut nodes);
         }
 
         let mut logical_roots = Vec::new();
         for node in &nodes {
+            if skip_missing && !self.tree.contains_native(*node) {
+                continue;
+            }
             self.tree
                 .extend_owned_logical_roots(*node, &mut logical_roots);
         }
@@ -604,6 +627,9 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.remove_logical_subtrees(logical_roots);
 
         for node in nodes.into_iter().rev() {
+            if skip_missing && !self.tree.contains_native(node) {
+                continue;
+            }
             if let Some(node_ids) = self.tree.logical.take_projection(node) {
                 node_ids.drain(|node_id| {
                     if let Some(mut inst) = self.tree.logical.remove_component(node_id) {
