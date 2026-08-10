@@ -15,6 +15,7 @@ pub struct NativeInterface {
 
 struct Method {
     architectures: i32,
+    metadata_name: String,
     name: String,
     signature: native_signature::Signature,
 }
@@ -42,13 +43,13 @@ impl NativeInterface {
         let methods = definition
             .methods()?
             .map(|method| {
-                let name = method_name(method)?;
-                let count = names.entry(name.clone()).or_default();
+                let metadata_name = method_name(method)?;
+                let count = names.entry(metadata_name.clone()).or_default();
                 *count += 1;
                 let name = if *count == 1 {
-                    name
+                    metadata_name.clone()
                 } else {
-                    format!("{name}{count}")
+                    format!("{metadata_name}{count}")
                 };
                 let signature = native_signature::Signature::lower(database, method, &full_name)?;
                 if signature.flags & 0x20 == 0 {
@@ -65,6 +66,7 @@ impl NativeInterface {
                 }
                 Ok(Method {
                     architectures: method.architectures()?,
+                    metadata_name,
                     name,
                     signature,
                 })
@@ -88,10 +90,19 @@ impl NativeInterface {
     /// Renders a flat Win32 sys vtable and optional IID.
     #[cfg(test)]
     pub fn write_sys(&self) -> TokenStream {
-        self.write_sys_context(Layout::Flat)
+        self.write_context(Layout::Flat, Projection::Sys, &MemberSelection::All)
+            .unwrap()
     }
 
-    pub(super) fn write_sys_context(&self, layout: Layout) -> TokenStream {
+    pub(super) fn write_context(
+        &self,
+        layout: Layout,
+        projection: Projection,
+        members: &MemberSelection,
+    ) -> Result<TokenStream, Error> {
+        if !projection.is_sys() {
+            return self.write_rich(layout, projection, members);
+        }
         let architectures = tokens::architectures(self.architectures);
         let name = tokens::ident(&format!("{}_Vtbl", self.name));
         let iid = self.guid.map(|guid| {
@@ -119,7 +130,7 @@ impl NativeInterface {
                 pub #name: unsafe extern "system" fn(#parameters) #result,
             }
         });
-        quote! {
+        Ok(quote! {
             #iid
             #architectures
             #[repr(C)]
@@ -127,7 +138,101 @@ impl NativeInterface {
                 #base
                 #(#methods)*
             }
-        }
+        })
+    }
+
+    fn write_rich(
+        &self,
+        layout: Layout,
+        projection: Projection,
+        members: &MemberSelection,
+    ) -> Result<TokenStream, Error> {
+        let architectures = tokens::architectures(self.architectures);
+        let name = tokens::ident(&self.name);
+        let vtbl_name = tokens::ident(&format!("{}_Vtbl", self.name));
+        let identity = self.guid.map(|guid| {
+            let guid = guid.write_u128();
+            quote! {
+                #architectures
+                windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
+            }
+        });
+        let (base, base_vtbl) = self.base.as_ref().map_or_else(
+            || {
+                (
+                    quote! { windows_core::IUnknown },
+                    quote! { windows_core::IUnknown_Vtbl },
+                )
+            },
+            |(namespace, base)| {
+                if base == "IUnknown" {
+                    (
+                        quote! { windows_core::IUnknown },
+                        quote! { windows_core::IUnknown_Vtbl },
+                    )
+                } else {
+                    let path = tokens::namespace(&self.namespace, namespace, layout);
+                    let base = tokens::ident(base);
+                    let base_vtbl = tokens::ident(&format!("{base}_Vtbl"));
+                    (quote! { #path #base }, quote! { #path #base_vtbl })
+                }
+            },
+        );
+        let methods = self.methods.iter().map(|method| {
+            let name = tokens::ident(&method.name);
+            if !method.selected(members) {
+                return quote! { #name: usize, };
+            }
+            let architectures = tokens::architectures(method.architectures);
+            let parameters = method.signature.write_vtable_parameters_projection(
+                &self.namespace,
+                layout,
+                projection,
+            );
+            let result =
+                method
+                    .signature
+                    .write_result_projection(&self.namespace, layout, projection);
+            quote! {
+                #architectures
+                pub #name: unsafe extern "system" fn(#parameters) #result,
+            }
+        });
+        let wrappers = self
+            .methods
+            .iter()
+            .filter(|method| method.selected(members))
+            .map(|method| {
+                method
+                    .signature
+                    .write_com_method(&self.namespace, layout, &method.name)
+            })
+            .collect::<Result<Vec<_>, Error>>()?;
+        let wrappers = if wrappers.is_empty() {
+            quote! {}
+        } else {
+            quote! { impl #name { #(#wrappers)* } }
+        };
+        Ok(quote! {
+            #identity
+            #architectures
+            windows_core::imp::interface_hierarchy!(#name, #base);
+            #wrappers
+            #architectures
+            #[repr(C)]
+            pub struct #vtbl_name {
+                pub base__: #base_vtbl,
+                #(#methods)*
+            }
+
+            impl windows_core::RuntimeName for #name {}
+        })
+    }
+}
+
+impl Method {
+    fn selected(&self, members: &MemberSelection) -> bool {
+        members.includes(&self.metadata_name, &self.name)
     }
 }
 

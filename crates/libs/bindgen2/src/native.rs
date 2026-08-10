@@ -23,6 +23,7 @@ pub(super) enum Type {
     USize,
     Array { element: Box<Self>, len: usize },
     Pointer { mutable: bool, element: Box<Self> },
+    Interface { namespace: String, name: String },
     Named { namespace: String, name: String },
 }
 
@@ -189,9 +190,9 @@ impl Type {
                         name: name.to_string(),
                     }
                 } else {
-                    Self::Pointer {
-                        mutable: true,
-                        element: Box::new(Self::Void),
+                    Self::Interface {
+                        namespace: namespace.to_string(),
+                        name: name.to_string(),
                     }
                 }
             }
@@ -208,10 +209,6 @@ impl Type {
                 });
             }
         })
-    }
-
-    pub(super) fn write(&self, namespace: &str, layout: Layout) -> TokenStream {
-        self.write_projection(namespace, layout, Projection::Sys)
     }
 
     pub(super) fn write_projection(
@@ -252,6 +249,7 @@ impl Type {
                     quote! { *const #element }
                 }
             }
+            Self::Interface { .. } => quote! { *mut core::ffi::c_void },
             Self::Named {
                 namespace: target,
                 name,
@@ -298,6 +296,45 @@ impl Type {
                 name,
             } if (namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32."))
                 && (name == "PSTR" || name == "PWSTR")
+        )
+    }
+
+    pub(super) fn write_public(&self, namespace: &str, layout: Layout) -> TokenStream {
+        match self {
+            Self::Interface {
+                namespace: target,
+                name,
+            } => {
+                if let Some(core) = core_projection(target, name) {
+                    core
+                } else {
+                    let path = tokens::namespace(namespace, target, layout);
+                    let name = tokens::ident(name);
+                    quote! { #path #name }
+                }
+            }
+            _ => self.write_projection(namespace, layout, Projection::Minimal),
+        }
+    }
+
+    pub(super) fn pointee(&self) -> Option<&Self> {
+        match self {
+            Self::Pointer { element, .. } => Some(element),
+            _ => None,
+        }
+    }
+
+    pub(super) fn is_interface(&self) -> bool {
+        matches!(self, Self::Interface { .. })
+    }
+
+    pub(super) fn is_hresult(&self) -> bool {
+        matches!(
+            self,
+            Self::Named { namespace, name }
+                if name == "HRESULT"
+                    && (namespace == "Windows.Win32"
+                        || namespace == "Windows.Win32.Foundation")
         )
     }
 }
@@ -429,7 +466,7 @@ impl Type {
                 eq: false,
             },
             Self::Array { element, .. } => element.projected_traits(database, stack)?,
-            Self::Pointer { .. } | Self::String => TraitSupport::ALL,
+            Self::Pointer { .. } | Self::Interface { .. } | Self::String => TraitSupport::ALL,
             Self::Named { namespace, name } => {
                 if is_core_projection(namespace, name) {
                     TraitSupport::ALL
@@ -446,7 +483,9 @@ impl Type {
             Self::Array { element, .. } | Self::Pointer { element, .. } => {
                 element.visit_named(add);
             }
-            Self::Named { namespace, name } => add(namespace, name),
+            Self::Interface { namespace, name } | Self::Named { namespace, name } => {
+                add(namespace, name);
+            }
             _ => {}
         }
     }

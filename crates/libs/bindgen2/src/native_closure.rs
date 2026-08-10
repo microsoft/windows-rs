@@ -5,6 +5,7 @@ pub(super) struct Closure<'a> {
     database: &'a Database,
     interface_bases: &'a BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
     selected: BTreeSet<Entity<TypeDef>>,
+    interface_members: BTreeMap<Entity<TypeDef>, MemberSelection>,
     pending: Vec<Entity<TypeDef>>,
 }
 
@@ -17,6 +18,7 @@ impl<'a> Closure<'a> {
             database,
             interface_bases,
             selected: BTreeSet::new(),
+            interface_members: BTreeMap::new(),
             pending: Vec::new(),
         }
     }
@@ -34,10 +36,24 @@ impl<'a> Closure<'a> {
         {
             return Ok(());
         }
-        if self.selected.insert(entity) {
+        if definition.category()? == TypeCategory::Interface {
+            self.include_interface(entity, MemberSelection::All);
+        } else if self.selected.insert(entity) {
             self.pending.push(entity);
         }
         Ok(())
+    }
+
+    pub(super) fn include_interface(&mut self, entity: Entity<TypeDef>, members: MemberSelection) {
+        self.selected.insert(entity);
+        if let Some(current) = self.interface_members.get_mut(&entity) {
+            if current.merge(members) {
+                self.pending.push(entity);
+            }
+        } else {
+            self.interface_members.insert(entity, members);
+            self.pending.push(entity);
+        }
     }
 
     pub(super) fn include_field(
@@ -70,7 +86,15 @@ impl<'a> Closure<'a> {
         Ok(())
     }
 
-    pub(super) fn finish(mut self) -> Result<BTreeSet<Entity<TypeDef>>, Error> {
+    pub(super) fn finish(
+        mut self,
+    ) -> Result<
+        (
+            BTreeSet<Entity<TypeDef>>,
+            BTreeMap<Entity<TypeDef>, MemberSelection>,
+        ),
+        Error,
+    > {
         while let Some(entity) = self.pending.pop() {
             let definition = self.database.definition(entity).unwrap();
             match definition.category()? {
@@ -104,14 +128,18 @@ impl<'a> Closure<'a> {
                             self.include_name(namespace, name)?;
                         }
                     }
+                    let members = self.interface_members.get(&entity).unwrap().clone();
                     for method in definition.methods()? {
-                        self.include_method(method)?;
+                        let name = method.name()?;
+                        if members.includes(name, name) {
+                            self.include_method(method)?;
+                        }
                     }
                 }
                 _ => unreachable!(),
             }
         }
-        Ok(self.selected)
+        Ok((self.selected, self.interface_members))
     }
 
     fn include_native_type(&mut self, ty: &native::Type) -> Result<(), Error> {
@@ -129,7 +157,14 @@ impl<'a> Closure<'a> {
 
     fn include_name(&mut self, namespace: &str, name: &str) -> Result<(), Error> {
         for entity in self.database.type_definitions(namespace, name) {
-            self.include_definition(*entity)?;
+            let definition = self.database.definition(*entity).unwrap();
+            if !definition.is_windows_runtime()?
+                && definition.category()? == TypeCategory::Interface
+            {
+                self.include_interface(*entity, MemberSelection::Shell);
+            } else {
+                self.include_definition(*entity)?;
+            }
         }
         Ok(())
     }

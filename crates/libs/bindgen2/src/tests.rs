@@ -101,6 +101,21 @@ fn include_tool_filter(metadata: &Metadata, filter: &mut Filter, path: &str) {
     {
         let parts = tool_path(prefix);
         let (parent, ty) = parts.split_at(parts.len() - 1);
+        if parent.is_empty() {
+            let namespaces = metadata
+                .shared
+                .database
+                .type_names()
+                .filter_map(|(namespace, name, _)| (name == ty[0]).then_some(namespace))
+                .collect::<Vec<_>>();
+            assert!(!namespaces.is_empty(), "unresolved tool filter: {path}");
+            for namespace in namespaces {
+                for method in names.split(',').map(str::trim) {
+                    filter.include_method(namespace, ty[0], method);
+                }
+            }
+            return;
+        }
         if tool_type_exists(metadata, &parent.join("."), ty[0]) {
             for method in names.split(',').map(str::trim) {
                 filter.include_method(parent.join("."), ty[0], method);
@@ -224,6 +239,7 @@ fn normalize_existing_output(tokens: TokenStream) -> String {
         .replace("& 'static", "&'static")
         .replace("& *", "&*")
         .replace("& <", "&<")
+        .replace("< *", "<*")
         .replace("'static , {", "'static {")
         .replace("? ;", "?;")
         .replace(
@@ -1777,6 +1793,72 @@ fn native_interfaces_render_vtables_and_close_base_dependencies() {
 }
 
 #[test]
+fn native_interface_member_filter_keeps_placeholders_and_shell_dependencies() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let mut filter = Filter::new();
+    include_tool_filter(
+        &metadata,
+        &mut filter,
+        "IUIAnimationManager2::{CreateAnimationVariable}",
+    );
+    let output = normalize_existing_output(
+        metadata
+            .generator(Request::filtered(filter).projection(Projection::Minimal))
+            .unwrap()
+            .render_projection(Layout::Flat, Projection::Minimal)
+            .unwrap(),
+    );
+
+    assert!(
+        output.contains(
+            "CreateAnimationVariable (& self , f64) -> windows_core :: Result < \
+         IUIAnimationVariable2 >"
+        ),
+        "{output}"
+    );
+    assert!(output.contains("CreateAnimationVectorVariable : usize"));
+    assert!(output.contains("define_interface ! (IUIAnimationVariable2"));
+    assert!(!output.contains("impl IUIAnimationVariable2 {"));
+}
+
+#[test]
+fn native_com_methods_project_scalar_retvals_and_optional_pointers() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let mut filter = Filter::new();
+    include_tool_filter(
+        &metadata,
+        &mut filter,
+        "IUIAnimationStoryboard2::{AddKeyframeAfterTransition, Schedule}",
+    );
+    let output = normalize_existing_output(
+        metadata
+            .generator(Request::filtered(filter).projection(Projection::Minimal))
+            .unwrap()
+            .render_projection(Layout::Flat, Projection::Minimal)
+            .unwrap(),
+    );
+
+    assert!(
+        output.contains(
+            "AddKeyframeAfterTransition < P0 > (& self , P0) -> windows_core :: Result < \
+         UI_ANIMATION_KEYFRAME >"
+        ),
+        "{output}"
+    );
+    assert!(
+        output.contains("Schedule (& self , f64 , Option <* mut UI_ANIMATION_SCHEDULING_RESULT")
+    );
+}
+
+#[test]
 fn module_output_combines_supported_winrt_and_win32_items() {
     let generator = fixture(
         r#"
@@ -2346,6 +2428,36 @@ fn tool_bindings_window_request_matches_committed_output() {
     let actual = metadata
         .generator(Request::filtered(request.filter))
         .unwrap()
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap();
+    let expected: TokenStream = std::fs::read_to_string(root.join(request.output))
+        .unwrap()
+        .parse()
+        .unwrap();
+    assert_eq!(
+        normalize_existing_output(actual),
+        normalize_existing_output(expected)
+    );
+}
+
+#[test]
+fn tool_bindings_animation_request_matches_committed_output() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../..");
+    let request = parse_tool_request(
+        &metadata,
+        &std::fs::read_to_string(root.join("crates/tools/bindings/src/animation.txt")).unwrap(),
+    );
+    assert!(request.minimal);
+    assert!(request.dead_code);
+    let generator = metadata
+        .generator(Request::filtered(request.filter).projection(Projection::Minimal))
+        .unwrap();
+    let actual = generator
         .render_projection(Layout::Flat, Projection::Minimal)
         .unwrap();
     let expected: TokenStream = std::fs::read_to_string(root.join(request.output))

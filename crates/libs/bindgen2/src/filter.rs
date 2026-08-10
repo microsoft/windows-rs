@@ -57,7 +57,7 @@ impl Filter {
         not(test),
         expect(
             dead_code,
-            reason = "kept private until native method filtering exists"
+            reason = "kept private until a tool migration needs member filters"
         )
     )]
     pub(crate) fn include_method(

@@ -18,8 +18,8 @@ so every output layer can be compared before migration.
 
 ## Milestone status
 
-The current milestone proves the native sys path, reusable request boundary, both layouts, and
-WinRT value, delegate, interface, and class projection.
+The current milestone proves the native sys path, a bounded native COM path, the reusable request
+boundary, both layouts, and WinRT value, delegate, interface, and class projection.
 
 | Area | Status | Evidence or blocker |
 | --- | --- | --- |
@@ -33,13 +33,13 @@ WinRT value, delegate, interface, and class projection.
 | WinRT delegates | Full corpus | All 137 definitions lower and render; focused default-style output matches. |
 | WinRT interfaces | Full structural corpus | All 8,105 definitions lower and render; focused ordinary, generic, and required-interface output matches. |
 | WinRT classes | Full structural corpus | All 4,516 definitions lower and render; focused activation, hierarchy, static, async, and agile policy is covered. |
-| Member filtering | Focused proof | Methods, closure, class routing, events, and ABI prefixes. |
+| Member filtering | Real request proof | WinRT routing and native COM slot selection preserve ABI prefixes. |
 | ABI canonicalization | Consolidated for native sys | Namespace-qualified aliases and one callable lowering path match all nine requests. |
 | Request reuse | Complete for current catalogs | The database, nested map, and interface-base map are shared across requests. |
 | Formatting and file writing | Tool policy | Kept outside the projection core. |
 | Sys request differential | Complete | A test-local parser proves nine real request files. |
-| Projection styles | Internal WinRT proof | Minimal WinRT output is proven internally; no public style option exists yet. |
-| Tool requests | Six real proofs | Numerics, time, future, collections, window, and the webview reactor request match. |
+| Projection styles | Internal WinRT and native proof | Minimal output is proven internally; no public style option exists yet. |
+| Tool requests | Seven real proofs | Numerics, time, future, collections, window, reactor, and animation match. |
 | Package output | Not started | Requires stable filtering, layout, and formatting first. |
 
 Approximate hand-written production source size is 8,000 lines for bindgen2 versus 12,829 for the
@@ -464,9 +464,7 @@ paths and brace groups. `numerics.txt` proves a pure minimal WinRT value request
 a mixed request with WinRT values, a native struct, a linked native function, and a
 `windows_core::BOOL` remap. `future.txt` proves default generic delegates and interfaces, async
 agility, required generic interfaces, multiple generic parameters, and special WinRT value
-remaps. Native sys rendering remains unchanged. The minimal native branch is still intentionally
-narrow: native COM interfaces and their implementation policy need request-driven coverage before
-the remaining mixed tools can be compared.
+remaps. Native sys rendering remains unchanged.
 
 `collections.txt` proves the rich collection adapters without introducing a general convenience
 registry. `IIterable<T>` emits owned and borrowed `IntoIterator` adapters, `IIterator<T>` emits
@@ -487,3 +485,10 @@ selecting their signature dependencies. Implemented interfaces retain typed slot
 method dependencies. The comparison preserves bindgen2's intentional delegate differences:
 closures remain `Send`, delegates retain public constructors, and event wrappers call those
 constructors instead of duplicating private `DelegateBox` code.
+
+`animation.txt` is the first bounded native COM proof. Selected interfaces retain their full
+vtable layout, selected methods receive typed slots and callable wrappers, unselected slots remain
+private `usize` placeholders, and signature-only interface dependencies are emitted as shells.
+HRESULT methods project trailing output pointers as `Result<T>`, interface inputs use
+`windows_core::Param<T>`, and optional output pointers remain optional raw pointers. This policy is
+limited to the shapes required by the animation request; broader COM policy remains request-driven.

@@ -118,9 +118,17 @@ impl Constant {
         let name = tokens::ident(&self.name);
         let value = match &self.value {
             Value::Guid(guid) => {
-                let guid = guid.write_value();
-                quote! {
-                    pub const #name: GUID = #guid;
+                if projection.is_sys() {
+                    let guid = guid.write_value();
+                    quote! {
+                        pub const #name: GUID = #guid;
+                    }
+                } else {
+                    let guid = guid.write_u128();
+                    quote! {
+                        pub const #name: windows_core::GUID =
+                            windows_core::GUID::from_u128(#guid);
+                    }
                 }
             }
             Value::PropertyKey { guid, fields, pid } => {

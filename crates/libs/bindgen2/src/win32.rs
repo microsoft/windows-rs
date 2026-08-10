@@ -6,7 +6,7 @@ struct Namespace {
     name: String,
     types: Vec<Entity<TypeDef>>,
     delegates: Vec<Entity<TypeDef>>,
-    interfaces: Vec<Entity<TypeDef>>,
+    interfaces: Vec<(Entity<TypeDef>, MemberSelection)>,
     constants: Vec<Entity<Field>>,
     functions: Vec<Entity<MethodDef>>,
 }
@@ -17,7 +17,7 @@ type NamedEntity<T> = (String, i32, Entity<T>);
 struct NamespaceSelection {
     types: Vec<NamedEntity<TypeDef>>,
     delegates: Vec<NamedEntity<TypeDef>>,
-    interfaces: Vec<NamedEntity<TypeDef>>,
+    interfaces: Vec<(String, i32, Entity<TypeDef>, MemberSelection)>,
     constants: Vec<NamedEntity<Field>>,
     functions: Vec<NamedEntity<MethodDef>>,
 }
@@ -105,6 +105,14 @@ impl Win32Selection {
                         } else {
                             add_definition(&mut namespaces, definition)?;
                         }
+                    } else if category == TypeCategory::Interface
+                        && let Some(methods) =
+                            filter.and_then(|filter| filter.methods(&namespace, name))
+                    {
+                        closure.as_mut().unwrap().include_interface(
+                            definition.entity(),
+                            MemberSelection::Names(methods.clone()),
+                        );
                     }
                 }
                 TypeCategory::Class if definition.name()? == "Apis" => {
@@ -148,14 +156,23 @@ impl Win32Selection {
             }
         }
         if let Some(closure) = closure {
-            for entity in closure.finish()? {
+            let (entities, interface_members) = closure.finish()?;
+            for entity in entities {
                 let definition = database.definition(entity).unwrap();
                 if definition.category()? == TypeCategory::Enum {
                     enum_variants
                         .entry(entity)
                         .or_insert_with(|| EnumVariants::Names(BTreeSet::new()));
                 }
-                add_definition(&mut namespaces, definition)?;
+                if definition.category()? == TypeCategory::Interface {
+                    add_interface(
+                        &mut namespaces,
+                        definition,
+                        interface_members.get(&entity).unwrap().clone(),
+                    )?;
+                } else {
+                    add_definition(&mut namespaces, definition)?;
+                }
             }
         }
         let namespaces: Vec<Namespace> = namespaces
@@ -163,7 +180,9 @@ impl Win32Selection {
             .map(|(name, mut selection)| {
                 selection.types.sort();
                 selection.delegates.sort();
-                selection.interfaces.sort();
+                selection.interfaces.sort_by(|left, right| {
+                    (&left.0, left.1, left.2).cmp(&(&right.0, right.1, right.2))
+                });
                 selection.constants.sort();
                 selection.functions.sort();
                 let types = selection.types;
@@ -177,7 +196,7 @@ impl Win32Selection {
                     delegates: delegates.into_iter().map(|(_, _, entity)| entity).collect(),
                     interfaces: interfaces
                         .into_iter()
-                        .map(|(_, _, entity)| entity)
+                        .map(|(_, _, entity, members)| (entity, members))
                         .collect(),
                     constants: constants.into_iter().map(|(_, _, entity)| entity).collect(),
                     functions: functions.into_iter().map(|(_, _, entity)| entity).collect(),
@@ -232,9 +251,32 @@ fn add_definition(
     match definition.category()? {
         TypeCategory::Enum | TypeCategory::Struct => namespace.types.push(item),
         TypeCategory::Delegate => namespace.delegates.push(item),
-        TypeCategory::Interface => namespace.interfaces.push(item),
+        TypeCategory::Interface => {
+            namespace
+                .interfaces
+                .push((item.0, item.1, item.2, MemberSelection::All));
+        }
         _ => unreachable!(),
     }
+
+    Ok(())
+}
+
+fn add_interface(
+    namespaces: &mut NamespaceSelections,
+    definition: TypeDefinition<'_>,
+    members: MemberSelection,
+) -> Result<(), Error> {
+    namespaces
+        .entry(definition.namespace()?.to_string())
+        .or_default()
+        .interfaces
+        .push((
+            definition.name()?.to_string(),
+            definition.architectures()?,
+            definition.entity(),
+            members,
+        ));
     Ok(())
 }
 
@@ -317,7 +359,7 @@ impl<'a> Win32Items<'a> {
     #[cfg(test)]
     pub(crate) fn interfaces(&self) -> impl Iterator<Item = Result<NativeInterface, Error>> + '_ {
         self.selection.namespaces.iter().flat_map(|namespace| {
-            namespace.interfaces.iter().map(|entity| {
+            namespace.interfaces.iter().map(|(entity, _)| {
                 NativeInterface::lower(
                     self.database,
                     self.database.definition(*entity).unwrap(),
@@ -391,8 +433,13 @@ impl<'a> Win32Items<'a> {
                     Delegate::lower(self.database, definition)?.write_context(layout, projection),
                 );
             }
-            for entity in &namespace.interfaces {
+            for (entity, members) in &namespace.interfaces {
                 let definition = self.database.definition(*entity).unwrap();
+                if !projection.is_sys()
+                    && native::is_core_projection(&namespace.name, definition.name()?)
+                {
+                    continue;
+                }
                 add(
                     &namespace.name,
                     definition.name()?,
@@ -402,7 +449,7 @@ impl<'a> Win32Items<'a> {
                         definition,
                         &self.catalogs.interface_bases,
                     )?
-                    .write_sys_context(layout),
+                    .write_context(layout, projection, members)?,
                 );
             }
             for entity in &namespace.constants {
@@ -598,7 +645,7 @@ mod tests {
                     Err(error) => *unsupported.entry(classify(error)).or_default() += 1,
                 }
             }
-            for entity in &namespace.interfaces {
+            for (entity, _) in &namespace.interfaces {
                 let definition = database.definition(*entity).unwrap();
                 match NativeInterface::lower(&database, definition, &items.catalogs.interface_bases)
                 {
@@ -705,7 +752,7 @@ mod tests {
         let architecture_interface_count = selection
             .namespaces
             .iter()
-            .flat_map(|namespace| &namespace.interfaces)
+            .flat_map(|namespace| namespace.interfaces.iter().map(|(entity, _)| entity))
             .filter(|entity| {
                 database
                     .definition(**entity)

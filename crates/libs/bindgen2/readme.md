@@ -23,8 +23,9 @@ The current implementation covers WinRT enums, structs, delegates, interfaces, a
 native sys types, constants, functions, delegates, and interfaces. Filtered dependency closure,
 nested and flat layouts, architecture gates, and deterministic ordering are implemented.
 Member filtering and explicit interface implementation selection are implemented. Minimal
-projection remains private while native COM policy is incomplete. Package output remains future
-work.
+projection remains private. A bounded native COM path now covers filtered interface identity,
+vtable placeholders, callable HRESULT wrappers, and shell dependencies for the animation request.
+Package output and broader COM policy remain future work.
 
 The design and differential evidence are tracked in
 [`docs/crates/windows-bindgen2.md`](../../../docs/crates/windows-bindgen2.md).

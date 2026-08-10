@@ -73,10 +73,6 @@ enum Projection {
     Sys,
     #[default]
     Default,
-    #[cfg_attr(
-        not(test),
-        expect(dead_code, reason = "kept private until complete tool requests match")
-    )]
     Minimal,
 }
 
