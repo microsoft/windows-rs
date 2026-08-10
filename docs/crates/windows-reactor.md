@@ -1139,6 +1139,8 @@ time.
   every generated model transition.
 - [x] Move logical IDs, projections, wrapper records, lifecycle accounting, and their consistency
   proof into `reconciler/logical_tree.rs` without changing behavior or weakening coverage floors.
+- [x] Make `MountedTree` own native consistency validation and logical-child permutation so
+  reconciliation code no longer mutates native ownership maps directly.
 - [ ] Split `MountedTree`, host state, and wrapper reconciliation into focused modules without
   changing behavior.
 - [ ] Replace WinUI's hard-coded phantom-child cases with explicit container projection
