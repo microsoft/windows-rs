@@ -2,9 +2,10 @@
 
 An unpublished replacement candidate for `windows-bindgen`.
 
-The crate is developed beside the existing generator and uses `windows-metadata2` directly. Its
-first layer owns the metadata database and selects deterministic WinRT value items while retaining
-only typed metadata entities. A separate owned value graph now renders the complete committed
+The crate is developed beside the existing generator and uses `windows-metadata2` directly.
+`Metadata` owns one validated database, and each `Generator` request shares it through one
+root-level reference count while retaining only typed metadata entities. A separate owned value
+graph now renders the complete committed
 WinRT enum and struct corpus. The first flat Win32 layer selects constants and functions without
 copying per-item namespaces and renders the complete committed constant and function corpus. It
 also lowers the 30,109 top-level native aliases, enums, structs, and unions through a separate
@@ -47,3 +48,8 @@ All 2,159 native delegates now lower and render as optional unsafe function-poin
 43 architecture-gated rows sort and gate independently. Functions and delegates share one owned
 native signature model for parameter naming and type rendering; import policy and delegate
 calling-convention attributes remain separate.
+
+This request boundary allows tools with many filter files to parse and index metadata once. It
+does not add per-row reference counting or change metadata identities. The compatibility CLI and
+file-writing API remain deferred until filtering and dependency closure can make each request
+selective.

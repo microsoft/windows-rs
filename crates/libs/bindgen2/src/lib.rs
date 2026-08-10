@@ -1,7 +1,8 @@
 #![doc = include_str!("../readme.md")]
 
+use std::sync::Arc;
 use windows_metadata2::{
-    AnyRowId, AttributeArgument, AttributeValue, ConstantValue, Database, Entity, FileId,
+    AnyRowId, AttributeArgument, AttributeValue, ConstantValue, Database, Entity, FileId, Image,
     MethodSignature, TypeAttributes, TypeCategory, TypeDefinition, TypeKind,
     tables::{Field, MethodDef, TypeDef},
 };
@@ -46,9 +47,14 @@ struct ValueEntry {
     kind: ValueKind,
 }
 
-/// Owns metadata and the deterministic set of projected items.
+/// Owns a reusable validated metadata database.
+pub struct Metadata {
+    database: Arc<Database>,
+}
+
+/// Owns one deterministic generation request over shared metadata.
 pub struct Generator {
-    database: Database,
+    database: Arc<Database>,
     values: Vec<ValueEntry>,
 }
 
@@ -59,9 +65,37 @@ pub struct ValueItem<'a> {
     kind: ValueKind,
 }
 
+impl Metadata {
+    /// Wraps an owned validated metadata database for reuse.
+    pub fn new(database: Database) -> Self {
+        Self {
+            database: Arc::new(database),
+        }
+    }
+
+    /// Builds a reusable database from owned metadata images.
+    pub fn from_images(images: impl IntoIterator<Item = Image>) -> Result<Self, Error> {
+        Ok(Self::new(Database::new(images)?))
+    }
+
+    /// Returns the validated metadata database.
+    pub fn database(&self) -> &Database {
+        &self.database
+    }
+
+    /// Creates an independent generation request sharing this database.
+    pub fn generator(&self) -> Result<Generator, Error> {
+        Generator::from_shared(self.database.clone())
+    }
+}
+
 impl Generator {
     /// Selects projected items from an owned metadata database.
     pub fn new(database: Database) -> Result<Self, Error> {
+        Metadata::new(database).generator()
+    }
+
+    fn from_shared(database: Arc<Database>) -> Result<Self, Error> {
         let mut values = Vec::new();
 
         for definition in database.definitions() {
@@ -100,8 +134,8 @@ impl Generator {
         })
     }
 
-    /// Returns the owned metadata database.
-    pub const fn database(&self) -> &Database {
+    /// Returns the shared metadata database.
+    pub fn database(&self) -> &Database {
         &self.database
     }
 
@@ -205,6 +239,26 @@ mod tests {
                 })
                 .collect::<Vec<_>>()
         );
+    }
+
+    #[test]
+    fn metadata_database_is_reused_across_requests() {
+        let metadata = Metadata::from_images([
+            Image::new(windows_default::WINRT).unwrap(),
+            Image::new(windows_default::WIN32).unwrap(),
+        ])
+        .unwrap();
+        let first = metadata.generator().unwrap();
+        let second = metadata.generator().unwrap();
+
+        assert!(std::ptr::eq(first.database(), second.database()));
+        assert_eq!(first.values().len(), second.values().len());
+        let first = first.win32_items().unwrap();
+        let second = second.win32_items().unwrap();
+        assert_eq!(first.type_count(), second.type_count());
+        assert_eq!(first.delegate_count(), second.delegate_count());
+        assert_eq!(first.constant_count(), second.constant_count());
+        assert_eq!(first.function_count(), second.function_count());
     }
 
     #[test]

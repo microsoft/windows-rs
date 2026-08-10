@@ -26,6 +26,12 @@ semantic views through the owned database and is deterministic by namespace, nam
 This intentionally does not reproduce the old reader map. Exact-name lookup already belongs to
 `windows-metadata2::Database`; bindgen2 has no measured need for another permanent name index.
 
+The ownership boundary now separates reusable metadata from generation requests. `Metadata` owns
+one `Arc<Database>`, and each `Generator` clones that root reference while storing request-local
+typed entities. This is one reference count per request, not per row. It lets `tool_bindings`
+eventually share one parse/index pass across its 17 filter files without leaking the database or
+adding lifetimes to every public projected model.
+
 The value layer lowers all 1,731 selected enums and 125 structs into owned models. Enum, struct,
 type, GUID, and graph policy live in separate modules. The graph uses nested ordered maps so
 namespace and type lookups borrow existing strings rather than allocating lookup keys. It detects
@@ -187,6 +193,6 @@ standard required before claiming the replacement is objectively better overall.
 The bounded module-output, RDL2 external-reference, native-shape inventory, architecture-gating,
 nested-rendering, native-default, scoped-enum, and remaining-surface inventory checkpoints are
 complete. Native delegates are also complete. Interfaces are the remaining major sys type surface
-and are an order of magnitude larger by method count; review their inheritance and vtable policy
-before implementation. Do not add dependency closure, a second name index, or a global native
-graph without a measured requirement.
+and are an order of magnitude larger by method count. The reusable metadata/request boundary is
+complete; add request options, filters, and dependency closure before a compatibility CLI or file
+writer. Do not add a second name index or a global native graph without a measured requirement.
