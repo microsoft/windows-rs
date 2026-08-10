@@ -16,6 +16,53 @@ so every output layer can be compared before migration.
 - Return structured errors rather than using malformed-input panics.
 - Require deterministic output and differential tests at every checkpoint.
 
+## Milestone status
+
+The current milestone proves the native sys path and the reusable request boundary. It does not
+yet prove that every layout and filtered WinRT request is safe.
+
+| Area | Status | Evidence or blocker |
+| --- | --- | --- |
+| Metadata ownership | Complete | One shared `Metadata` database; typed row identities per request. |
+| WinRT enums and structs | Full unfiltered corpus | 1,731 enums and 125 structs render. |
+| Native sys projection | Full corpus | Types, constants, functions, delegates, and interfaces render. |
+| Native filtering and closure | Proven on real requests | All nine `tool_bindings` sys files match committed output. |
+| Module layout | Focused differential coverage | Nested WinRT/Win32 fixtures match. |
+| Flat layout | Blocked | Cross-namespace references are rendered before flattening and may use invalid module paths. |
+| Filtered WinRT values | Blocked | Referenced value types are not added to the filtered selection. |
+| ABI canonicalization | Needs consolidation | Rendering and closure share most policy, but namespace identity and default parameter direction need review. |
+| Request reuse | Functionally complete | Invariant native relationship maps are still rebuilt for each request. |
+| Formatting and file writing | Deferred | Add only after the stabilization gate below. |
+| Rich/minimal projection | Not started | Native sys is the only complete production-style surface. |
+| WinRT interfaces and classes | Not started | Required before default-style `tool_bindings` requests. |
+| Package output | Not started | Requires stable filtering, layout, and formatting first. |
+
+Approximate hand-written Rust source size at this milestone is 5,293 lines for bindgen2 versus
+12,829 for the existing bindgen crate. The smaller code is encouraging given the native sys
+coverage, but output coverage and concept count matter more than line count.
+
+## Stabilization gate
+
+Pause feature expansion and complete this gate before adding formatting, file writing, or a
+request-file compatibility API:
+
+1. Render flat output in a flat name-resolution context and add a cross-namespace reference test.
+2. Add filtered WinRT value dependency closure with cycle and missing-dependency tests.
+3. Centralize native ABI canonicalization:
+   - qualify string-alias rewrites by namespace;
+   - treat unspecified parameters consistently with input parameters;
+   - keep closure and rendering on the same lowered signature path.
+4. Harden metadata2 facts used by bindgen2:
+   - validate both `NestedClass` columns;
+   - classify interfaces from the ECMA interface flag rather than only from the base type.
+5. Move immutable native catalogs needed by every request - nested relationships, interface bases,
+   and stable classification - behind the shared `Metadata` boundary.
+6. Re-run the nine sys requests, focused layout tests, corpus inventories, and performance
+   measurements, then do another milestone review.
+
+This is a bounded cleanup pass, not a redesign. The current separation between metadata,
+selection, closure, projection, rendering, and output should remain.
+
 ## Progress
 
 The first layer selects WinRT enums and structs from an owned database. API-contract marker structs
@@ -105,8 +152,8 @@ no-parameter, and const-pointer fixtures match the corresponding flat sys tokens
 The first output layer consumes only those existing projections. It groups rendered items by
 metadata namespace, sorts by item name and category, builds nested Rust modules, and emits one
 token stream. A focused nested Win32 fixture matches the existing module golden output, and a
-mixed fixture proves that WinRT values and Win32 items pass through the same output path. It does
-not add filtering, dependency closure, formatting, file writing, or package policy.
+mixed fixture proves that WinRT values and Win32 items pass through the same output path.
+Formatting, file writing, and package policy remain deferred.
 
 Bitfield accessors are not a sys-output gap: the existing sys generator emits only their coalesced
 backing fields. Of 11,264 direct primitive handle shapes, all but
@@ -223,11 +270,7 @@ standard required before claiming the replacement is objectively better overall.
 
 ## Next checkpoint
 
-The bounded module-output, RDL2 external-reference, native-shape inventory, architecture-gating,
-nested-rendering, native-default, scoped-enum, and remaining-surface inventory checkpoints are
-complete. Native delegates and interfaces are also complete for sys output. The reusable
-metadata/request boundary includes explicit module/flat layout, exact programmatic filters, and
-transitive supported-native closure. All nine real `tool_bindings` sys requests now match in
-memory. The next checkpoint should decide whether to expose a thin request-file adapter or first
-add output formatting and file writing. Do not add general member-filter syntax, a second name
-index, or a global native graph without a measured requirement.
+Complete the stabilization gate above. If it remains small and the nine sys requests still match,
+the next milestone is formatting plus file writing behind the structured request API. A thin
+adapter for the simple sys request files can follow. General member-filter grammar, default/rich
+style, WinRT interfaces/classes, and package generation remain later independent milestones.

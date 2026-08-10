@@ -2,6 +2,39 @@
 
 `windows-metadata2` is an unpublished replacement candidate for
 [`windows-metadata`](windows-metadata.md). It is developed beside the existing implementation so
+
+## Current role
+
+Metadata2 is complete enough to serve as bindgen2's owned, validated reader foundation. It is not
+yet a full replacement for metadata writing, merging, remapping, or every ECMA table family.
+
+| Area | Status |
+| --- | --- |
+| Owned images and checked row identities | Complete for current consumers. |
+| Exact top-level TypeDef index | Complete; nested definitions remain relationship-driven. |
+| Signature and custom-attribute decoding | Complete for current bindgen2 and RDL2 paths. |
+| Layout, import, nested-type, and interface relationships | Complete for current bindgen2 paths. |
+| Writer | Limited to the current seven tables and 16-bit indexes. |
+| Merge/remap and validation profiles | Not implemented. |
+| Pointer tables and broader table families | Not implemented. |
+
+Approximate hand-written Rust source size is 5,994 lines versus 5,548 for the existing metadata
+crate. Metadata2 has clearer ownership and checked boundaries, but it is not smaller by raw line
+count. New semantic relationships should continue moving into focused modules rather than growing
+`semantic.rs`.
+
+## Stabilization work
+
+Before metadata2 is treated as a stable base for the next bindgen milestone:
+
+1. Validate both `NestedClass` indexes during `Database::new`; the streaming semantic view must not
+   be able to unwrap a null enclosing type.
+2. Add the ECMA interface bit to `TypeAttributes` and use it when classifying root definitions.
+3. Review `image.rs` and `semantic.rs` for the next natural module split, but do not refactor them
+   without a concrete duplicated concern.
+4. Keep immutable bindgen selection catalogs in bindgen2's shared metadata context rather than
+   adding consumer-specific indexes to metadata2.
+5. Re-run metadata differential tests after the bindgen2 stabilization gate. It is developed beside the existing implementation so
 each layer can be compared against the current Windows metadata corpus before consumers migrate.
 
 The first layer owns and structurally validates a PE/CLI metadata image. Successful construction
