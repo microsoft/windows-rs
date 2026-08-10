@@ -54,7 +54,11 @@ jobs:
         run: rustup update --no-self-update stable && rustup default stable
 
       - uses: Swatinem/rust-cache@v2
-      - uses: taiki-e/install-action@cargo-llvm-cov
+
+      - name: Install cargo-llvm-cov
+        run: |
+          rustup component add llvm-tools-preview
+          cargo install cargo-llvm-cov --locked --version 0.8.7
 
       - name: Reconciler branch coverage
         shell: pwsh
