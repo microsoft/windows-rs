@@ -17,3 +17,8 @@ Corpus inventory found 1,054 architecture-specific top-level rows, of which 997 
 native enum/struct definitions, and 2,633 nested native structs under 1,925 direct parents.
 Bindgen2 retains one parent-to-children map for those nested rows; metadata2 keeps only a streaming
 relationship view.
+
+Architecture gates are emitted for all 997 selected native types, 512 constants, and 261 functions
+that carry the attribute. Duplicate variants sort by name and architecture bits. Native enum
+members are flattened at the module-output boundary so their ordering matches the existing
+generator without adding a global enum graph.

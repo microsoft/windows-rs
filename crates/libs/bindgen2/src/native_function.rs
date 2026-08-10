@@ -4,6 +4,7 @@ use quote::quote;
 
 /// An owned Win32 function projection.
 pub struct Function {
+    architectures: i32,
     namespace: String,
     name: String,
     import_name: Option<String>,
@@ -27,6 +28,7 @@ impl Function {
         name: &str,
     ) -> Result<Self, Error> {
         let full_name = format!("{namespace}.{name}");
+        let architectures = method.architectures()?;
         let import = method.import()?.ok_or_else(|| Error::InvalidValue {
             name: full_name.clone(),
             message: "Win32 function has no ImplMap",
@@ -53,6 +55,7 @@ impl Function {
             .collect::<Result<_, Error>>()?;
         let import_name = (import.name() != name).then(|| import.name().to_string());
         Ok(Self {
+            architectures,
             namespace: namespace.to_string(),
             name: name.to_string(),
             import_name,
@@ -71,6 +74,7 @@ impl Function {
 
     /// Renders a flat Win32 `windows_link::link!` declaration.
     pub fn write_sys(&self) -> TokenStream {
+        let architectures = tokens::architectures(self.architectures);
         let module = &self.module;
         let abi = self.abi;
         let symbol = self.import_name.as_ref().map(|name| quote! { #name });
@@ -88,6 +92,7 @@ impl Function {
             quote! { -> #ty }
         };
         quote! {
+            #architectures
             windows_link::link!(#module #abi #symbol fn #name(#(#parameters),* #variadic) #result);
         }
     }

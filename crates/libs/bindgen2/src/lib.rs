@@ -409,6 +409,129 @@ mod tests {
     }
 
     #[test]
+    fn architecture_gates_match_existing_flat_sys_tokens() {
+        let generator = fixture(
+            r#"
+                #[win32]
+                mod Test {
+                    #[arch(X64 | Arm64)]
+                    type ArchScalar = i32;
+                    #[arch(X86)]
+                    type ArchScalar = i16;
+                }
+            "#,
+        );
+        let items = generator.win32_items().unwrap();
+        let types = items.native_types().collect::<Result<Vec<_>, _>>().unwrap();
+        let types = types.iter().map(NativeType::write_sys);
+        let actual = quote! { #(#types)* };
+        let expected: TokenStream =
+            include_str!("../../../tests/libs/bindgen/expected/arch_typedef_sys.rs")
+                .parse()
+                .unwrap();
+        assert_eq!(actual.to_string(), expected.to_string());
+
+        let generator = fixture(
+            r#"
+                #[win32]
+                mod Test {
+                    #[repr(i32)]
+                    #[arch(X64)]
+                    enum ArchEnum {
+                        First = 1,
+                        X64Only = 2,
+                    }
+                    #[arch(Arm64)]
+                    union ArchUnion {
+                        value: i32,
+                    }
+                }
+            "#,
+        );
+        let items = generator.win32_items().unwrap();
+        let types = items.native_types().collect::<Result<Vec<_>, _>>().unwrap();
+        let types = types.iter().map(NativeType::write_sys);
+        let output = quote! { #(#types)* }.to_string();
+        assert_eq!(output.matches("target_arch = \"x86_64\"").count(), 3);
+        assert_eq!(output.matches("target_arch = \"arm64ec\"").count(), 3);
+        assert_eq!(output.matches("target_arch = \"aarch64\"").count(), 2);
+
+        let generator = fixture(
+            r#"
+                #[win32]
+                mod Test {
+                    #[repr(i32)]
+                    #[arch(Arm64)]
+                    enum ArchEnum {
+                        First = 1,
+                        Arm64Only = 3,
+                    }
+                    #[repr(i32)]
+                    #[arch(X64)]
+                    enum ArchEnum {
+                        First = 1,
+                        X64Only = 4,
+                    }
+                }
+            "#,
+        );
+        let expected: TokenStream =
+            include_str!("../../../tests/libs/bindgen/expected/arch_enum_sys.rs")
+                .parse()
+                .unwrap();
+        let expected = quote! { pub mod Test { #expected } };
+        assert_eq!(
+            generator.write_modules().unwrap().to_string(),
+            expected.to_string()
+        );
+
+        let generator = fixture(
+            r#"
+                #[win32]
+                mod Test {
+                    #[arch(X64 | Arm64)]
+                    const VALUE: u32 = 64;
+                    #[arch(X86)]
+                    const VALUE: u32 = 32;
+                    #[arch(X64 | Arm64)]
+                    #[library("test.dll")]
+                    extern fn ArchFunction(value: i64) -> i64;
+                    #[arch(X86)]
+                    #[library("test.dll")]
+                    extern fn ArchFunction(value: i32) -> i32;
+                }
+            "#,
+        );
+        let items = generator.win32_items().unwrap();
+        let constants = items.constants().collect::<Result<Vec<_>, _>>().unwrap();
+        let functions = items.functions().collect::<Result<Vec<_>, _>>().unwrap();
+        let constants = constants.iter().map(Constant::write_sys);
+        let functions = functions.iter().map(Function::write_sys);
+        let actual = quote! { #(#constants)* #(#functions)* };
+        let expected: TokenStream = r#"
+            #[cfg(target_arch = "x86")]
+            pub const VALUE: u32 = 32;
+            #[cfg(any(
+                target_arch = "aarch64",
+                target_arch = "arm64ec",
+                target_arch = "x86_64"
+            ))]
+            pub const VALUE: u32 = 64;
+            #[cfg(target_arch = "x86")]
+            windows_link::link!("test.dll" "system" fn ArchFunction(value: i32) -> i32);
+            #[cfg(any(
+                target_arch = "aarch64",
+                target_arch = "arm64ec",
+                target_arch = "x86_64"
+            ))]
+            windows_link::link!("test.dll" "system" fn ArchFunction(value: i64) -> i64);
+        "#
+        .parse()
+        .unwrap();
+        assert_eq!(actual.to_string(), expected.to_string());
+    }
+
+    #[test]
     fn win32_apis_selection_has_exact_corpus_counts() {
         let generator = generator();
         let items = generator.win32_items().unwrap();

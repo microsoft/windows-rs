@@ -4,6 +4,7 @@ use quote::quote;
 
 /// An owned Win32 constant projection.
 pub struct Constant {
+    architectures: i32,
     namespace: String,
     name: String,
     ty: native::Type,
@@ -32,6 +33,7 @@ impl Constant {
         name: &str,
     ) -> Result<Self, Error> {
         let full_name = format!("{namespace}.{name}");
+        let architectures = field.architectures()?;
         let signature = field.signature()?;
         let ty = native::Type::lower(
             database,
@@ -58,6 +60,7 @@ impl Constant {
                 Value::Guid(guid)
             };
             return Ok(Self {
+                architectures,
                 namespace: namespace.to_string(),
                 name: name.to_string(),
                 ty,
@@ -92,6 +95,7 @@ impl Constant {
             });
         }
         Ok(Self {
+            architectures,
             namespace: namespace.to_string(),
             name: name.to_string(),
             ty,
@@ -105,8 +109,9 @@ impl Constant {
 
     /// Renders a flat Win32 sys constant.
     pub fn write_sys(&self) -> TokenStream {
+        let architectures = tokens::architectures(self.architectures);
         let name = tokens::ident(&self.name);
-        match &self.value {
+        let value = match &self.value {
             Value::Guid(guid) => {
                 let guid = guid.write_u128();
                 quote! {
@@ -163,7 +168,8 @@ impl Constant {
                 };
                 quote! { pub const #name: #ty = #value; }
             }
-        }
+        };
+        quote! { #architectures #value }
     }
 
     fn write_converted(underlying: &native::Type, value: &ConstantValue) -> TokenStream {

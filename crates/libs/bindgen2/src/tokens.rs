@@ -1,5 +1,34 @@
 use quote::{ToTokens, quote};
 
+pub(super) fn architectures(value: i32) -> proc_macro2::TokenStream {
+    match value & 7 {
+        0 => quote! {},
+        1 => quote! { #[cfg(target_arch = "x86")] },
+        2 => quote! { #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))] },
+        3 => quote! {
+            #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+        },
+        4 => quote! { #[cfg(target_arch = "aarch64")] },
+        5 => quote! { #[cfg(any(target_arch = "aarch64", target_arch = "x86"))] },
+        6 => quote! {
+            #[cfg(any(
+                target_arch = "aarch64",
+                target_arch = "arm64ec",
+                target_arch = "x86_64"
+            ))]
+        },
+        7 => quote! {
+            #[cfg(any(
+                target_arch = "aarch64",
+                target_arch = "arm64ec",
+                target_arch = "x86",
+                target_arch = "x86_64"
+            ))]
+        },
+        _ => unreachable!(),
+    }
+}
+
 pub(super) fn ident(name: &str) -> proc_macro2::TokenStream {
     match name {
         "Self" | "self" => {

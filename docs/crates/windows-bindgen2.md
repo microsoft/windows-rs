@@ -106,6 +106,21 @@ already required to prevent same-name variants from colliding. Nested rendering 
 slice: it needs enclosing-aware type resolution, deterministic generated names, recursive output,
 and focused comparison with true `NestedClass` metadata rather than sibling RDL structs.
 
+Architecture gating is now complete for the selected surface:
+
+| Selected item | Gated rows |
+| --- | ---: |
+| Native types | 997 |
+| Constants | 512 |
+| Functions | 261 |
+
+Metadata2 uses one checked decoder for TypeDef, Field, and MethodDef owners. Bindgen2 stores only
+the decoded bits and emits the existing `x86`, `x86_64`/`arm64ec`, and `aarch64` mappings. Sorting
+uses name, architecture bits, and entity identity so duplicate definitions are deterministic.
+Enum members are flattened only while building output modules; standalone native models remain
+per definition. Focused aliases and duplicate enums match existing golden tokens, while constants,
+functions, enum members, and union `Default` implementations are each independently gated.
+
 ## Critical assessment
 
 The direction remains better than the current generator, but it is not yet a replacement:
@@ -129,7 +144,7 @@ standard required before claiming the replacement is objectively better overall.
 
 ## Next checkpoint
 
-The bounded module-output, RDL2 external-reference, and native-shape inventory checkpoints are
-complete. Next, add architecture gates to every selected item category that carries the attribute,
-with focused duplicate-name fixtures and complete corpus accounting. Do not begin nested rendering,
-dependency closure, a second name index, or a global native graph in that slice.
+The bounded module-output, RDL2 external-reference, native-shape inventory, and architecture-gating
+checkpoints are complete. Next, design nested native rendering around the retained parent map and
+enclosing-aware field lowering. Do not add dependency closure, a second name index, or a global
+native graph in that slice.

@@ -28,3 +28,4 @@ API.
 
 The reader exposes `NestedClass` as a streaming sequence of nested/enclosing semantic type pairs.
 It retains no reverse nested-type index; consumers that need repeated parent lookup own that map.
+Type, field, and method semantic views share one checked `SupportedArchitectureAttribute` decoder.

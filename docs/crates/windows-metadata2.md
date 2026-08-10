@@ -144,6 +144,10 @@ The native bindgen inventory added one read-only relationship: `Database::nested
 direct nested/enclosing TypeDef pairs from `NestedClass`. Metadata2 retains no reverse map.
 Bindgen2 owns the ordered parent map because repeated enclosing lookup is projection policy.
 
+Architecture projection added no new index or owner abstraction. TypeDef, Field, and MethodDef
+views expose their existing custom-attribute relationship and call one shared decoder for
+`SupportedArchitectureAttribute`.
+
 ## Consumer overlap review
 
 The first bindgen2/RDL2 comparison separates missing metadata support from valid consumer policy:

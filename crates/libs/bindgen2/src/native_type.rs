@@ -4,6 +4,7 @@ use quote::quote;
 
 /// An owned Win32 native type projection.
 pub struct NativeType {
+    architectures: i32,
     kind: Kind,
 }
 
@@ -51,6 +52,7 @@ impl NativeType {
         let namespace = definition.namespace()?.to_string();
         let name = definition.name()?.to_string();
         let full_name = format!("{namespace}.{name}");
+        let architectures = definition.architectures()?;
         match definition.category()? {
             TypeCategory::Enum => {
                 let mut ty = None;
@@ -81,6 +83,7 @@ impl NativeType {
                     }
                 }
                 Ok(Self {
+                    architectures,
                     kind: Kind::Enum(Enum {
                         namespace,
                         name,
@@ -113,6 +116,7 @@ impl NativeType {
                         message: "native typedef does not have one field",
                     })?;
                     return Ok(Self {
+                        architectures,
                         kind: Kind::Alias(Alias {
                             namespace,
                             name,
@@ -140,6 +144,7 @@ impl NativeType {
                     });
                 }
                 Ok(Self {
+                    architectures,
                     kind: Kind::Struct(Struct {
                         namespace,
                         name,
@@ -170,10 +175,24 @@ impl NativeType {
 
     /// Renders a flat Win32 sys type definition.
     pub fn write_sys(&self) -> TokenStream {
+        let items = self
+            .write_sys_items()
+            .into_iter()
+            .map(|(_, _, tokens)| tokens);
+        quote! { #(#items)* }
+    }
+
+    pub(super) fn write_sys_items(&self) -> Vec<(&str, u8, TokenStream)> {
+        let architectures = tokens::architectures(self.architectures);
         match &self.kind {
-            Kind::Alias(value) => value.write_sys(),
-            Kind::Enum(value) => value.write_sys(),
-            Kind::Struct(value) => value.write_sys(),
+            Kind::Alias(value) => {
+                let tokens = value.write_sys();
+                vec![(&value.name, 1, quote! { #architectures #tokens })]
+            }
+            Kind::Enum(value) => value.write_sys_items(&architectures),
+            Kind::Struct(value) => {
+                vec![(&value.name, 1, value.write_sys(&architectures))]
+            }
         }
     }
 }
@@ -187,33 +206,41 @@ impl Alias {
 }
 
 impl Enum {
-    fn write_sys(&self) -> TokenStream {
+    fn write_sys_items(&self, architectures: &TokenStream) -> Vec<(&str, u8, TokenStream)> {
         let name = tokens::ident(&self.name);
         let ty = self.ty.write(&self.namespace);
-        let values = self.values.iter().map(|(value_name, value)| {
-            let value_name = tokens::ident(value_name);
+        let mut result = vec![(
+            self.name.as_str(),
+            1,
+            quote! { #architectures pub type #name = #ty; },
+        )];
+        result.extend(self.values.iter().map(|(value_name, value)| {
+            let ident = tokens::ident(value_name);
             let value = native::write_value(&native::Type::from_constant(value), value);
-            quote! { pub const #value_name: #name = #value; }
-        });
-        quote! {
-            pub type #name = #ty;
-            #(#values)*
-        }
+            (
+                value_name.as_str(),
+                2,
+                quote! { #architectures pub const #ident: #name = #value; },
+            )
+        }));
+        result
     }
 }
 
 impl Struct {
-    fn write_sys(&self) -> TokenStream {
+    fn write_sys(&self, architectures: &TokenStream) -> TokenStream {
         let name = tokens::ident(&self.name);
         if self.fields.is_empty() {
             let repr = self.repr();
             if self.union {
                 return quote! {
+                    #architectures
                     #repr
                     #[derive(Clone, Copy)]
                     pub union #name {
                         pub value: u8,
                     }
+                    #architectures
                     impl Default for #name {
                         fn default() -> Self {
                             unsafe { core::mem::zeroed() }
@@ -222,6 +249,7 @@ impl Struct {
                 };
             }
             return quote! {
+                #architectures
                 #repr
                 #[derive(Clone, Copy, Default)]
                 pub struct #name(pub u8);
@@ -235,11 +263,13 @@ impl Struct {
         let repr = self.repr();
         if self.union {
             quote! {
+                #architectures
                 #repr
                 #[derive(Clone, Copy)]
                 pub union #name {
                     #(#fields)*
                 }
+                #architectures
                 impl Default for #name {
                     fn default() -> Self {
                         unsafe { core::mem::zeroed() }
@@ -248,6 +278,7 @@ impl Struct {
             }
         } else {
             quote! {
+                #architectures
                 #repr
                 #[derive(Clone, Copy, Default)]
                 pub struct #name {

@@ -189,27 +189,7 @@ impl<'a> TypeDefinition<'a> {
 
     /// Returns the SupportedArchitectureAttribute bit mask, or zero when absent.
     pub fn architectures(self) -> Result<i32, Error> {
-        let Some(attribute) = self.find_attribute("SupportedArchitectureAttribute")? else {
-            return Ok(0);
-        };
-        let arguments = attribute.arguments(&())?;
-        let Some(AttributeArgument::Fixed { value, .. }) = arguments.first() else {
-            return Err(Error::invalid_metadata(
-                "SupportedArchitectureAttribute has no fixed argument",
-            ));
-        };
-        match value {
-            AttributeValue::I32(value) => Ok(*value),
-            AttributeValue::Enum { value, .. } => match value.as_ref() {
-                AttributeValue::I32(value) => Ok(*value),
-                _ => Err(Error::invalid_metadata(
-                    "SupportedArchitectureAttribute enum is not i32-backed",
-                )),
-            },
-            _ => Err(Error::invalid_metadata(
-                "SupportedArchitectureAttribute argument is not i32",
-            )),
-        }
+        architecture_bits(self.find_attribute("SupportedArchitectureAttribute")?)
     }
 
     fn row(self) -> Result<Row<'a, tables::TypeDef>, Error> {
@@ -310,6 +290,11 @@ impl<'a> FieldDefinition<'a> {
             }
         }
         Ok(None)
+    }
+
+    /// Returns the SupportedArchitectureAttribute bit mask, or zero when absent.
+    pub fn architectures(self) -> Result<i32, Error> {
+        architecture_bits(self.find_attribute("SupportedArchitectureAttribute")?)
     }
 
     fn row(self) -> Result<Row<'a, tables::Field>, Error> {
@@ -618,6 +603,41 @@ impl<'a> MethodDefinition<'a> {
             .method_signature(row.blob_id(4)?)
     }
 
+    /// Iterates the custom attributes attached to this method.
+    pub fn attributes(
+        self,
+    ) -> Result<impl ExactSizeIterator<Item = AttributeDefinition<'a>>, Error> {
+        let encoded = CodedIndex::HasCustomAttribute
+            .encode(TableId::MethodDef, self.entity.row().number())
+            .ok_or_else(|| Error::invalid_metadata("MethodDef cannot own custom attributes"))?;
+        let file = self.entity.file();
+        let image = self
+            .database
+            .image(file)
+            .ok_or_else(|| Error::invalid_metadata("invalid file identity"))?;
+        Ok(image
+            .matching_rows::<tables::CustomAttribute>(0, encoded)?
+            .map(move |row| AttributeDefinition {
+                database: self.database,
+                entity: Entity::new(file, row),
+            }))
+    }
+
+    /// Returns the first custom attribute with the given type name.
+    pub fn find_attribute(self, name: &str) -> Result<Option<AttributeDefinition<'a>>, Error> {
+        for attribute in self.attributes()? {
+            if attribute.name()? == Some(name) {
+                return Ok(Some(attribute));
+            }
+        }
+        Ok(None)
+    }
+
+    /// Returns the SupportedArchitectureAttribute bit mask, or zero when absent.
+    pub fn architectures(self) -> Result<i32, Error> {
+        architecture_bits(self.find_attribute("SupportedArchitectureAttribute")?)
+    }
+
     /// Iterates the method's parameter rows in physical table order.
     pub fn parameters(
         self,
@@ -698,6 +718,30 @@ impl<'a> MethodDefinition<'a> {
         self.database
             .view(self.entity)
             .ok_or_else(|| Error::invalid_metadata("invalid method identity"))
+    }
+}
+
+fn architecture_bits(attribute: Option<AttributeDefinition<'_>>) -> Result<i32, Error> {
+    let Some(attribute) = attribute else {
+        return Ok(0);
+    };
+    let arguments = attribute.arguments(&())?;
+    let Some(AttributeArgument::Fixed { value, .. }) = arguments.first() else {
+        return Err(Error::invalid_metadata(
+            "SupportedArchitectureAttribute has no fixed argument",
+        ));
+    };
+    match value {
+        AttributeValue::I32(value) => Ok(*value),
+        AttributeValue::Enum { value, .. } => match value.as_ref() {
+            AttributeValue::I32(value) => Ok(*value),
+            _ => Err(Error::invalid_metadata(
+                "SupportedArchitectureAttribute enum is not i32-backed",
+            )),
+        },
+        _ => Err(Error::invalid_metadata(
+            "SupportedArchitectureAttribute argument is not i32",
+        )),
     }
 }
 
@@ -870,6 +914,63 @@ mod tests {
                 )
             })
             .collect();
+
+        actual.sort();
+        expected.sort();
+        assert_eq!(actual, expected);
+    }
+
+    #[test]
+    fn member_architectures_match_existing_reader() {
+        let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
+        let mut actual = Vec::new();
+        for definition in database.definitions() {
+            let namespace = definition.namespace().unwrap();
+            let name = definition.name().unwrap();
+            for field in definition.fields().unwrap() {
+                actual.push((
+                    namespace.to_string(),
+                    name.to_string(),
+                    0,
+                    field.name().unwrap().to_string(),
+                    field.architectures().unwrap(),
+                ));
+            }
+            for method in definition.methods().unwrap() {
+                actual.push((
+                    namespace.to_string(),
+                    name.to_string(),
+                    1,
+                    method.name().unwrap().to_string(),
+                    method.architectures().unwrap(),
+                ));
+            }
+        }
+
+        let old = windows_metadata::reader::Index::new(vec![
+            windows_metadata::reader::File::new(windows_default::WIN32.to_vec()).unwrap(),
+        ]);
+        let mut expected = Vec::new();
+        for (namespace, name, definition) in old.iter() {
+            for field in definition.fields() {
+                expected.push((
+                    namespace.to_string(),
+                    name.to_string(),
+                    0,
+                    field.name().to_string(),
+                    field.arches(),
+                ));
+            }
+            for method in definition.methods() {
+                expected.push((
+                    namespace.to_string(),
+                    name.to_string(),
+                    1,
+                    method.name().to_string(),
+                    method.arches(),
+                ));
+            }
+        }
 
         actual.sort();
         expected.sort();

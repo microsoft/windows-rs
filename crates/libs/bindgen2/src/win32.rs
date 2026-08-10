@@ -15,6 +15,8 @@ pub struct Win32Items<'a> {
     nested: BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
     type_count: usize,
     architecture_type_count: usize,
+    architecture_constant_count: usize,
+    architecture_function_count: usize,
     constant_count: usize,
     function_count: usize,
 }
@@ -31,9 +33,9 @@ impl<'a> Win32Items<'a> {
         let mut namespaces = BTreeMap::<
             String,
             (
-                Vec<(String, Entity<TypeDef>)>,
-                Vec<(String, Entity<Field>)>,
-                Vec<(String, Entity<MethodDef>)>,
+                Vec<(String, i32, Entity<TypeDef>)>,
+                Vec<(String, i32, Entity<Field>)>,
+                Vec<(String, i32, Entity<MethodDef>)>,
             ),
         >::new();
         for definition in database.definitions() {
@@ -43,15 +45,21 @@ impl<'a> Win32Items<'a> {
             let namespace = definition.namespace()?.to_string();
             let category = definition.category()?;
             match category {
-                TypeCategory::Enum | TypeCategory::Struct => namespaces
-                    .entry(namespace)
-                    .or_default()
-                    .0
-                    .push((definition.name()?.to_string(), definition.entity())),
+                TypeCategory::Enum | TypeCategory::Struct => {
+                    namespaces.entry(namespace).or_default().0.push((
+                        definition.name()?.to_string(),
+                        definition.architectures()?,
+                        definition.entity(),
+                    ));
+                }
                 TypeCategory::Class if definition.name()? == "Apis" => {
                     let entries = namespaces.entry(namespace).or_default();
                     for field in definition.fields()? {
-                        entries.1.push((field.name()?.to_string(), field.entity()));
+                        entries.1.push((
+                            field.name()?.to_string(),
+                            field.architectures()?,
+                            field.entity(),
+                        ));
                     }
                     for method in definition.methods()? {
                         if let Some(import) = method.import()?
@@ -59,9 +67,11 @@ impl<'a> Win32Items<'a> {
                         {
                             continue;
                         }
-                        entries
-                            .2
-                            .push((method.name()?.to_string(), method.entity()));
+                        entries.2.push((
+                            method.name()?.to_string(),
+                            method.architectures()?,
+                            method.entity(),
+                        ));
                     }
                 }
                 _ => continue,
@@ -69,6 +79,8 @@ impl<'a> Win32Items<'a> {
         }
         let mut type_count = 0;
         let mut architecture_type_count = 0;
+        let mut architecture_constant_count = 0;
+        let mut architecture_function_count = 0;
         let mut constant_count = 0;
         let mut function_count = 0;
         let namespaces: Vec<Namespace> = namespaces
@@ -77,25 +89,22 @@ impl<'a> Win32Items<'a> {
                 types.sort();
                 constants.sort();
                 functions.sort();
+                architecture_type_count += types.iter().filter(|(_, bits, _)| *bits != 0).count();
+                architecture_constant_count +=
+                    constants.iter().filter(|(_, bits, _)| *bits != 0).count();
+                architecture_function_count +=
+                    functions.iter().filter(|(_, bits, _)| *bits != 0).count();
                 type_count += types.len();
                 constant_count += constants.len();
                 function_count += functions.len();
                 Namespace {
                     name,
-                    types: types.into_iter().map(|(_, entity)| entity).collect(),
-                    constants: constants.into_iter().map(|(_, entity)| entity).collect(),
-                    functions: functions.into_iter().map(|(_, entity)| entity).collect(),
+                    types: types.into_iter().map(|(_, _, entity)| entity).collect(),
+                    constants: constants.into_iter().map(|(_, _, entity)| entity).collect(),
+                    functions: functions.into_iter().map(|(_, _, entity)| entity).collect(),
                 }
             })
             .collect();
-        for namespace in &namespaces {
-            for entity in &namespace.types {
-                let definition = database.definition(*entity).unwrap();
-                if definition.architectures()? != 0 {
-                    architecture_type_count += 1;
-                }
-            }
-        }
         let mut nested = BTreeMap::<Entity<TypeDef>, Vec<Entity<TypeDef>>>::new();
         for (child, parent) in database.nested_types() {
             if !child.is_windows_runtime()?
@@ -121,6 +130,8 @@ impl<'a> Win32Items<'a> {
             nested,
             type_count,
             architecture_type_count,
+            architecture_constant_count,
+            architecture_function_count,
             constant_count,
             function_count,
         })
@@ -134,6 +145,16 @@ impl<'a> Win32Items<'a> {
     /// Returns the number of selected native definitions with architecture gates.
     pub fn architecture_type_count(&self) -> usize {
         self.architecture_type_count
+    }
+
+    /// Returns the number of selected constants with architecture gates.
+    pub fn architecture_constant_count(&self) -> usize {
+        self.architecture_constant_count
+    }
+
+    /// Returns the number of selected functions with architecture gates.
+    pub fn architecture_function_count(&self) -> usize {
+        self.architecture_function_count
     }
 
     /// Returns the number of nested native structs retained for future attachment.
@@ -220,13 +241,10 @@ impl<'a> Win32Items<'a> {
         for namespace in &self.namespaces {
             for entity in &namespace.types {
                 let definition = self.database.definition(*entity).unwrap();
-                let name = definition.name()?;
-                add(
-                    &namespace.name,
-                    name,
-                    1,
-                    NativeType::lower(self.database, definition)?.write_sys(),
-                );
+                let ty = NativeType::lower(self.database, definition)?;
+                for (name, kind, tokens) in ty.write_sys_items() {
+                    add(&namespace.name, name, kind, tokens);
+                }
             }
             for entity in &namespace.constants {
                 let field = self.database.field(*entity).unwrap();
@@ -411,9 +429,11 @@ mod tests {
                 variant_groups,
                 nested_rows,
                 items.architecture_type_count(),
+                items.architecture_constant_count(),
+                items.architecture_function_count(),
                 items.nested_type_count(),
             ),
-            (1_054, 671, 374, 2_633, 997, 2_633)
+            (1_054, 671, 374, 2_633, 997, 512, 261, 2_633)
         );
         assert_eq!(
             items.nested.values().map(Vec::len).sum::<usize>(),
