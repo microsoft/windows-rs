@@ -266,7 +266,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         while self.child_at(parent, new.len()).is_some() {
             let extra_id = self.child_at(parent, new.len()).unwrap();
             self.remove_child_tracked(parent, new.len());
-            self.unmount(extra_id);
+            self.unmount_inner(extra_id);
         }
     }
 
@@ -297,7 +297,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         while self.child_at(parent, new.len()).is_some() {
             let extra_id = self.child_at(parent, new.len()).unwrap();
             self.remove_child_tracked(parent, new.len());
-            self.unmount(extra_id);
+            self.unmount_inner(extra_id);
         }
     }
 

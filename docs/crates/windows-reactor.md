@@ -1134,6 +1134,9 @@ time.
   panes, and realized rows after every generated model transition.
 - [x] Clear root ownership when `Reconciler::unmount` removes the root, preventing host teardown
   from destroying the same native control twice.
+- [x] Unify logical and native consistency validation, add root and logical-cycle checks, and run
+  the validator after stable reconcile, public unmount, root unmount, templated realization, and
+  every generated model transition.
 - [ ] Split `MountedTree`, logical ownership, host state, and wrapper reconciliation into focused
   modules without changing behavior.
 - [ ] Replace WinUI's hard-coded phantom-child cases with explicit container projection
