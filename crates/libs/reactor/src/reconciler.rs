@@ -1103,31 +1103,65 @@ impl<B: Backend + 'static> Reconciler<B> {
         };
         self.root_output = (!output_is_empty(output)).then_some(output);
         #[cfg(debug_assertions)]
-        {
-            self.debug_assert_component_index();
-            self.debug_assert_native_ownership();
-        }
+        self.assert_consistent_inner();
         output.native
     }
 
-    #[cfg(debug_assertions)]
-    fn debug_assert_component_index(&self) {
+    /// Verifies the mounted logical and native ownership graphs.
+    #[doc(hidden)]
+    #[cfg(feature = "test")]
+    pub fn assert_consistent(&self) {
+        self.assert_consistent_inner();
+    }
+
+    #[cfg(any(debug_assertions, feature = "test"))]
+    fn assert_consistent_inner(&self) {
+        self.assert_component_index();
+        self.assert_native_ownership();
+
+        if let Some(output) = self.root_output {
+            assert!(
+                output.native.is_some() || output.logical.is_some(),
+                "mounted root output is empty"
+            );
+            if let Some(native) = output.native {
+                assert!(
+                    self.tree.nodes.contains_key(&native),
+                    "mounted root references missing native control {native:?}"
+                );
+            }
+            if let Some(logical) = output.logical {
+                assert!(
+                    self.tree.logical.contains_node(logical),
+                    "mounted root references missing logical node {logical:?}"
+                );
+                assert_eq!(
+                    self.tree.logical.node_native_root(logical),
+                    output.native,
+                    "mounted root projection disagrees with its logical node"
+                );
+            }
+        }
+    }
+
+    #[cfg(any(debug_assertions, feature = "test"))]
+    fn assert_component_index(&self) {
         let mut indexed = rustc_hash::FxHashSet::default();
         for (control_id, nodes) in &self.tree.logical.projections {
-            debug_assert!(
+            assert!(
                 !nodes.is_empty(),
                 "empty logical projection for {control_id:?}"
             );
             for node_id in nodes.as_slice() {
-                debug_assert!(
+                assert!(
                     indexed.insert(*node_id),
                     "logical node {node_id:?} is indexed more than once"
                 );
-                debug_assert!(
+                assert!(
                     self.tree.logical.contains_node(*node_id),
                     "projected logical node has no instance"
                 );
-                debug_assert_eq!(
+                assert_eq!(
                     self.tree.logical.node_native_root(*node_id),
                     Some(*control_id),
                     "logical node native root disagrees with projection"
@@ -1149,40 +1183,58 @@ impl<B: Backend + 'static> Reconciler<B> {
                 .values()
                 .filter(|node| node.native_root.is_none())
                 .count();
-        debug_assert_eq!(
+        assert_eq!(
             indexed.len() + unprojected,
             self.tree.logical.node_count(),
             "logical projection index does not cover every node"
         );
         for (node_id, node) in &self.tree.logical.components {
             if let Some(parent) = node.parent {
-                debug_assert!(
+                assert!(
                     self.tree.logical.contains_node(parent),
                     "logical node parent is not mounted"
                 );
             }
-            debug_assert_eq!(*node_id, node.node_id);
+            assert_eq!(*node_id, node.node_id);
         }
         for (node_id, node) in &self.tree.logical.wrappers {
             if let Some(parent) = node.parent {
-                debug_assert!(
+                assert!(
                     self.tree.logical.contains_node(parent),
                     "logical node parent is not mounted"
                 );
             }
-            debug_assert_eq!(*node_id, node.node_id);
+            assert_eq!(*node_id, node.node_id);
+        }
+
+        for node_id in self
+            .tree
+            .logical
+            .components
+            .keys()
+            .chain(self.tree.logical.wrappers.keys())
+        {
+            let mut path = rustc_hash::FxHashSet::default();
+            let mut current = Some(*node_id);
+            while let Some(node) = current {
+                assert!(
+                    path.insert(node),
+                    "logical parent cycle contains node {node:?}"
+                );
+                current = self.tree.logical.node_parent(node);
+            }
         }
     }
 
-    #[cfg(debug_assertions)]
-    fn debug_assert_native_ownership(&self) {
+    #[cfg(any(debug_assertions, feature = "test"))]
+    fn assert_native_ownership(&self) {
         let mut owned = rustc_hash::FxHashSet::default();
         let mut record = |parent: ControlId, child: ControlId| {
-            debug_assert!(
+            assert!(
                 owned.insert(child),
                 "native control {child:?} has more than one owner"
             );
-            debug_assert_eq!(
+            assert_eq!(
                 self.tree.parent(child),
                 Some(parent),
                 "native control {child:?} disagrees with its owner"
@@ -1191,18 +1243,18 @@ impl<B: Backend + 'static> Reconciler<B> {
 
         for (parent, outputs) in &self.tree.logical_children {
             let native: Vec<_> = outputs.iter().filter_map(|output| output.native).collect();
-            debug_assert_eq!(
+            assert_eq!(
                 self.tree.children(*parent),
                 native.as_slice(),
                 "logical child mirror disagrees with native children"
             );
             for output in outputs {
                 if let Some(node_id) = output.logical {
-                    debug_assert!(
+                    assert!(
                         self.tree.logical.contains_node(node_id),
                         "logical child output has no mounted node"
                     );
-                    debug_assert_eq!(
+                    assert_eq!(
                         self.tree.logical.node_native_root(node_id),
                         output.native,
                         "logical child output native root disagrees with node"
@@ -1236,20 +1288,20 @@ impl<B: Backend + 'static> Reconciler<B> {
 
         for (id, node) in &self.tree.nodes {
             if node.parent.is_some() {
-                debug_assert!(
+                assert!(
                     owned.contains(id),
                     "native control {id:?} has a parent but is absent from its owner's children"
                 );
             }
         }
         for id in self.tree.custom.keys() {
-            debug_assert!(
+            assert!(
                 self.tree.nodes.contains_key(id),
                 "custom handle {id:?} has no mounted native node"
             );
         }
         for id in self.tree.before_unmount.keys() {
-            debug_assert!(
+            assert!(
                 self.tree.nodes.contains_key(id),
                 "pre-unmount callback {id:?} has no mounted native node"
             );
@@ -1462,7 +1514,7 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     fn unmount_output(&mut self, output: MountedOutput) {
         if let Some(native) = output.native {
-            self.unmount(native);
+            self.unmount_inner(native);
         }
         if let Some(logical) = output.logical {
             self.remove_logical_subtree(logical);
@@ -1473,6 +1525,8 @@ impl<B: Backend + 'static> Reconciler<B> {
         if let Some(output) = self.root_output.take() {
             self.unmount_output(output);
         }
+        #[cfg(debug_assertions)]
+        self.assert_consistent_inner();
     }
 
     pub fn unmount(&mut self, id: ControlId) {
@@ -1483,6 +1537,12 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.root_output = None;
         }
 
+        self.unmount_inner(id);
+        #[cfg(debug_assertions)]
+        self.assert_consistent_inner();
+    }
+
+    fn unmount_inner(&mut self, id: ControlId) {
         let mut nodes = vec![id];
         let mut next = 0;
         while next < nodes.len() {

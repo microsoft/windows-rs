@@ -519,7 +519,7 @@ impl<B: Backend + 'static> Reconciler<B> {
                 }
             }
             #[cfg(debug_assertions)]
-            self.debug_assert_native_ownership();
+            self.assert_consistent_inner();
         }
     }
 

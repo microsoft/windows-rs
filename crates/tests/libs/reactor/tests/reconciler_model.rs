@@ -221,6 +221,7 @@ impl Harness {
         seed: u64,
         step: usize,
     ) {
+        reconciler.assert_consistent();
         reconciler.backend.assert_consistent();
 
         let actual: Vec<String> = reconciler
