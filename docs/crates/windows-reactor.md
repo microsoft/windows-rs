@@ -488,6 +488,13 @@ mounts its fallback. Without a boundary, explicit root teardown still reaches ev
 runs component cleanup exactly once. Retrying reconciliation or restoring the prior collection after
 such a failure is not supported.
 
+Native destruction is the teardown commit point. Logical cleanup, lifecycle callbacks, and custom
+pre-destroy hooks run first, but mounted ownership is retained until `Backend::destroy` succeeds. If
+a fail-before destroy panic reaches an error boundary, discard retries the still-owned control
+without repeating cleanup. This also covers a failure after earlier descendants were destroyed.
+Retrying a failed `unmount_root` remains undefined because root ownership is consumed before
+teardown begins.
+
 Two crates measure reconciler performance. `test_reactor_bench` is a headless micro-suite (run with
 `cargo run -p test_reactor_bench --release`) that brackets only the reconcile body against
 `RecordingBackend` and reports ns/op plus bytes/op and allocs/op - the right instrument for
@@ -1182,8 +1189,10 @@ time.
   controls twice, including replacements nested under native and component output.
 - [x] Characterize fail-before append, insert, replace, move, and remove updates: error boundaries
   discard the subtree, while uncaught failures remain reachable for explicit teardown.
-- [ ] Extend backend fault injection to custom and templated mounts, destroy, collection retry or
-  rollback, and rollback itself; define the valid state after each failure.
+- [x] Retain mounted ownership until native destroy succeeds so error boundaries can retry
+  fail-before destroy without repeating component or lifecycle cleanup.
+- [ ] Extend backend fault injection to custom and templated mounts, root destroy retry, collection
+  retry or rollback, and rollback itself; define the valid state after each failure.
 - [ ] Define and test render, commit, effect, cleanup, error-boundary, and reentrant-event ordering.
 - [ ] Enforce the UI-thread boundary in release builds and reject stale asynchronous updates after
   unmount or host replacement.

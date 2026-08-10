@@ -656,8 +656,9 @@ impl<B: Backend + 'static> Reconciler<B> {
                 handle.before_destroy(node, &mut self.backend);
             }
 
-            self.tree.remove_node(node);
+            // Keep native ownership discoverable if fail-before destruction panics.
             self.backend.destroy(node);
+            self.tree.remove_node(node);
         }
     }
 
