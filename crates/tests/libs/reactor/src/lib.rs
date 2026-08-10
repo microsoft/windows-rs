@@ -2,6 +2,28 @@ use std::rc::Rc;
 
 use windows_reactor::*;
 
+/// Backend call that can be selected for deterministic fail-before-operation testing.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum BackendOperation {
+    Create,
+    SetProp,
+    AppendChild,
+    RemoveChild,
+    ReplaceChild,
+    MoveChild,
+    InsertChild,
+    Destroy,
+    AttachEvent,
+    DetachEvent,
+    SetHeaderElement,
+    SetPaneElement,
+}
+
+struct BackendFailure {
+    operation: BackendOperation,
+    remaining: usize,
+}
+
 /// Recorded backend operation, used by [`RecordingBackend`] for tests.
 #[derive(Clone, Debug)]
 pub enum Op {
@@ -168,6 +190,7 @@ pub struct RecordingBackend {
     reorder_handlers: rustc_hash::FxHashMap<ControlId, Callback<Vec<usize>>>,
     theme_style_cache: rustc_hash::FxHashSet<(ControlKind, Vec<(Prop, ThemeRef)>)>,
     theme_bindings_live: rustc_hash::FxHashMap<ControlId, Vec<(Prop, ThemeRef)>>,
+    failure: Option<BackendFailure>,
     /// A stand-in [`IInspectable`] fabricated for every control so that
     /// [`get_native_element`](Backend::get_native_element) returns `Some`,
     /// mirroring the real WinUI backend (which returns the live XAML element).
@@ -196,6 +219,37 @@ impl RecordingBackend {
 
     pub fn clear_ops(&mut self) {
         self.ops.clear();
+    }
+
+    /// Panics immediately before the next matching backend operation mutates state.
+    pub fn fail_next(&mut self, operation: BackendOperation) {
+        self.fail_on(operation, 1);
+    }
+
+    /// Panics immediately before the `occurrence`th matching backend operation mutates state.
+    pub fn fail_on(&mut self, operation: BackendOperation, occurrence: usize) {
+        assert!(
+            occurrence != 0,
+            "backend failure occurrence must be non-zero"
+        );
+        self.failure = Some(BackendFailure {
+            operation,
+            remaining: occurrence,
+        });
+    }
+
+    fn maybe_fail(&mut self, operation: BackendOperation) {
+        let Some(failure) = &mut self.failure else {
+            return;
+        };
+        if failure.operation != operation {
+            return;
+        }
+        failure.remaining -= 1;
+        if failure.remaining == 0 {
+            self.failure = None;
+            panic!("injected backend failure before {operation:?}");
+        }
     }
 
     pub fn children_of(&self, parent: ControlId) -> &[ControlId] {
@@ -409,6 +463,7 @@ impl RecordingBackend {
 
 impl Backend for RecordingBackend {
     fn create(&mut self, kind: ControlKind) -> ControlId {
+        self.maybe_fail(BackendOperation::Create);
         self.next_id += 1;
         let id = ControlId::new(self.next_id);
         self.ops.push(Op::Create { id, kind });
@@ -418,6 +473,7 @@ impl Backend for RecordingBackend {
     }
 
     fn set_prop(&mut self, id: ControlId, prop: Prop, value: &PropValue) {
+        self.maybe_fail(BackendOperation::SetProp);
         self.ops.push(Op::SetProp {
             id,
             prop,
@@ -426,11 +482,13 @@ impl Backend for RecordingBackend {
     }
 
     fn append_child(&mut self, parent: ControlId, child: ControlId) {
+        self.maybe_fail(BackendOperation::AppendChild);
         self.children.entry(parent).or_default().push(child);
         self.ops.push(Op::AppendChild { parent, child });
     }
 
     fn remove_child(&mut self, parent: ControlId, index: usize) {
+        self.maybe_fail(BackendOperation::RemoveChild);
         let list = self.children.entry(parent).or_default();
         assert!(
             index < list.len(),
@@ -442,6 +500,7 @@ impl Backend for RecordingBackend {
     }
 
     fn replace_child(&mut self, parent: ControlId, index: usize, new: ControlId) {
+        self.maybe_fail(BackendOperation::ReplaceChild);
         let list = self.children.entry(parent).or_default();
         assert!(
             index < list.len(),
@@ -453,6 +512,7 @@ impl Backend for RecordingBackend {
     }
 
     fn move_child(&mut self, parent: ControlId, from: usize, to: usize) {
+        self.maybe_fail(BackendOperation::MoveChild);
         let list = self.children.entry(parent).or_default();
         assert!(
             from < list.len(),
@@ -472,6 +532,7 @@ impl Backend for RecordingBackend {
     }
 
     fn insert_child(&mut self, parent: ControlId, index: usize, child: ControlId) {
+        self.maybe_fail(BackendOperation::InsertChild);
         let list = self.children.entry(parent).or_default();
         assert!(
             index <= list.len(),
@@ -487,6 +548,7 @@ impl Backend for RecordingBackend {
     }
 
     fn destroy(&mut self, id: ControlId) {
+        self.maybe_fail(BackendOperation::Destroy);
         assert!(
             self.live_controls.remove(&id),
             "destroy: unknown or already destroyed control {id}"
@@ -506,11 +568,13 @@ impl Backend for RecordingBackend {
     }
 
     fn attach_event(&mut self, id: ControlId, event: Event, handler: EventHandler) {
+        self.maybe_fail(BackendOperation::AttachEvent);
         self.handlers.insert((id, event), handler.clone());
         self.ops.push(Op::AttachEvent { id, event, handler });
     }
 
     fn detach_event(&mut self, id: ControlId, event: Event) {
+        self.maybe_fail(BackendOperation::DetachEvent);
         self.handlers.remove(&(id, event));
         self.ops.push(Op::DetachEvent { id, event });
     }
@@ -562,6 +626,7 @@ impl Backend for RecordingBackend {
     }
 
     fn set_header_element(&mut self, id: ControlId, header_id: Option<ControlId>) {
+        self.maybe_fail(BackendOperation::SetHeaderElement);
         if let Some(header_id) = header_id {
             self.headers.insert(id, header_id);
         } else {
@@ -571,6 +636,7 @@ impl Backend for RecordingBackend {
     }
 
     fn set_pane_element(&mut self, id: ControlId, pane_id: Option<ControlId>) {
+        self.maybe_fail(BackendOperation::SetPaneElement);
         if let Some(pane_id) = pane_id {
             self.panes.insert(id, pane_id);
         } else {

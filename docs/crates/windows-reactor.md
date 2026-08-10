@@ -465,6 +465,13 @@ adds no weight to normal builds. Do not put `#[cfg(test)]` modules inside the pu
 crates. Put the test in the matching `test_*` crate. If it needs an internal item, expose that item
 behind the existing `test` feature that the test crates enable and published builds leave off.
 
+`RecordingBackend::fail_next` and `RecordingBackend::fail_on` inject a panic immediately before a
+selected backend operation mutates the backend model. Ordinary widget mounts catch failures after
+native creation, remove the partially mounted native and logical subtree, run pending component
+cleanups, and then resume the panic. Error boundaries can therefore mount a fallback without
+retaining controls, handlers, headers, panes, or effects from the failed subtree. This contract does
+not yet cover updates, custom elements, templated lists, or failures during rollback.
+
 Two crates measure reconciler performance. `test_reactor_bench` is a headless micro-suite (run with
 `cargo run -p test_reactor_bench --release`) that brackets only the reconcile body against
 `RecordingBackend` and reports ns/op plus bytes/op and allocs/op - the right instrument for
@@ -1151,8 +1158,10 @@ time.
   reconciliation into `reconciler/wrappers.rs` without changing behavior.
 - [x] Store sparse visual versus owned-only child projection in `MountedTree`, test mixed indexing
   across insert, move, replace, and remove, and delete WinUI's child-order mirror.
-- [ ] Add backend fault injection for create, property update, attach, move, detach, and destroy;
-  define the valid state after each failure.
+- [x] Add fail-before backend injection for ordinary widget create, property, event, child, header,
+  and pane operations; roll failed mounts back before propagating the panic.
+- [ ] Extend backend fault injection to updates, custom and templated mounts, move, detach, destroy,
+  and rollback itself; define the valid state after each failure.
 - [ ] Define and test render, commit, effect, cleanup, error-boundary, and reentrant-event ordering.
 - [ ] Enforce the UI-thread boundary in release builds and reject stale asynchronous updates after
   unmount or host replacement.

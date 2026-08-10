@@ -1,26 +1,34 @@
+use std::panic::AssertUnwindSafe;
+
 use super::*;
 use crate::reference::NativeElementRef;
 
 impl<B: Backend + 'static> Reconciler<B> {
     pub fn mount_widget(&mut self, w: &dyn Widget) -> ControlId {
         let id = self.acquire_control(w.kind());
-        self.apply_props(id, &w.bindings());
-        self.apply_modifiers(id, w.modifiers());
-        self.apply_attached(id, w.attached());
-        self.mount_widget_children(id, w.children());
-        if let Some(hdr) = w.header_element() {
-            let output = self.mount_output(hdr);
-            if let Some(hdr_id) = output.native {
-                self.backend.set_header_element(id, Some(hdr_id));
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            self.apply_props(id, &w.bindings());
+            self.apply_modifiers(id, w.modifiers());
+            self.apply_attached(id, w.attached());
+            self.mount_widget_children(id, w.children());
+            if let Some(hdr) = w.header_element() {
+                let output = self.mount_output(hdr);
+                self.tree.set_header(id, Some(output));
+                if let Some(hdr_id) = output.native {
+                    self.backend.set_header_element(id, Some(hdr_id));
+                }
             }
-            self.tree.set_header(id, Some(output));
-        }
-        if let Some(pane) = w.pane_element() {
-            let output = self.mount_output(pane);
-            if let Some(pane_id) = output.native {
-                self.backend.set_pane_element(id, Some(pane_id));
+            if let Some(pane) = w.pane_element() {
+                let output = self.mount_output(pane);
+                self.tree.set_pane(id, Some(output));
+                if let Some(pane_id) = output.native {
+                    self.backend.set_pane_element(id, Some(pane_id));
+                }
             }
-            self.tree.set_pane(id, Some(output));
+        }));
+        if let Err(payload) = result {
+            self.unmount_inner(id);
+            std::panic::resume_unwind(payload);
         }
         let native = self.backend.get_native_element(id);
         if let Some(reference) = element_ref(w.modifiers()) {
@@ -194,30 +202,42 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     fn mount_tab_item(&mut self, parent: ControlId, tab: &TabItem) {
         let tab_id = self.acquire_control(ControlKind::TabViewItem);
-        self.backend
-            .set_prop(tab_id, Prop::Header, &PropValue::Str(tab.header.clone()));
-        if let Some(key) = &tab.key {
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
             self.backend
-                .set_prop(tab_id, Prop::ItemKey, &PropValue::Str(key.clone()));
+                .set_prop(tab_id, Prop::Header, &PropValue::Str(tab.header.clone()));
+            if let Some(key) = &tab.key {
+                self.backend
+                    .set_prop(tab_id, Prop::ItemKey, &PropValue::Str(key.clone()));
+            }
+            if let Some(closable) = tab.is_closable {
+                self.backend
+                    .set_prop(tab_id, Prop::IsClosable, &PropValue::Bool(closable));
+            }
+            let output = self.mount_output(&tab.content);
+            self.append_output_tracked(tab_id, output);
+        }));
+        if let Err(payload) = result {
+            self.unmount_inner(tab_id);
+            std::panic::resume_unwind(payload);
         }
-        if let Some(closable) = tab.is_closable {
-            self.backend
-                .set_prop(tab_id, Prop::IsClosable, &PropValue::Bool(closable));
-        }
-        let output = self.mount_output(&tab.content);
-        self.append_output_tracked(tab_id, output);
         self.append_child_tracked(parent, tab_id);
     }
 
     fn mount_pivot_item(&mut self, parent: ControlId, item: &PivotItem) {
         let item_id = self.acquire_control(ControlKind::PivotItem);
-        self.backend.set_prop(
-            item_id,
-            Prop::ItemHeader,
-            &PropValue::Str(item.header.clone()),
-        );
-        let output = self.mount_output(&item.content);
-        self.append_output_tracked(item_id, output);
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            self.backend.set_prop(
+                item_id,
+                Prop::ItemHeader,
+                &PropValue::Str(item.header.clone()),
+            );
+            let output = self.mount_output(&item.content);
+            self.append_output_tracked(item_id, output);
+        }));
+        if let Err(payload) = result {
+            self.unmount_inner(item_id);
+            std::panic::resume_unwind(payload);
+        }
         self.append_child_tracked(parent, item_id);
     }
 

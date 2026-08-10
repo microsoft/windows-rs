@@ -19,13 +19,22 @@ impl<B: Backend + 'static> Reconciler<B> {
         cx.set_inner_size_cell(Rc::clone(&self.host.inner_size));
         cx.set_dpi_cell(Rc::clone(&self.host.dpi));
         cx.begin_render();
-        let rendered = ce.obj.render(&mut cx);
-        cx.flush_effects();
-        let read_contexts = cx.take_read_contexts();
-
-        let rendered_output = {
-            let _parent = self.enter_logical_parent(node_id);
-            self.mount_output(&rendered)
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            let rendered = ce.obj.render(&mut cx);
+            cx.flush_effects();
+            let read_contexts = cx.take_read_contexts();
+            let rendered_output = {
+                let _parent = self.enter_logical_parent(node_id);
+                self.mount_output(&rendered)
+            };
+            (rendered, read_contexts, rendered_output)
+        }));
+        let (rendered, read_contexts, rendered_output) = match result {
+            Ok(mounted) => mounted,
+            Err(payload) => {
+                cx.run_cleanups();
+                std::panic::resume_unwind(payload);
+            }
         };
         self.tree.logical.register_component(ComponentInstance {
             node_id,
