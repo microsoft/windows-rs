@@ -39,7 +39,7 @@ WinRT value, delegate, interface, and class projection.
 | Formatting and file writing | Tool policy | Kept outside the projection core. |
 | Sys request differential | Complete | A test-local parser proves nine real request files. |
 | Projection styles | Internal WinRT proof | Minimal WinRT output is proven internally; no public style option exists yet. |
-| Tool requests | Four real proofs | Numerics, time, future, and collections requests match. |
+| Tool requests | Five real proofs | Numerics, time, future, collections, and window requests match. |
 | Package output | Not started | Requires stable filtering, layout, and formatting first. |
 
 Approximate hand-written production source size is 8,000 lines for bindgen2 versus 12,829 for the
@@ -466,10 +466,15 @@ a mixed request with WinRT values, a native struct, a linked native function, an
 `windows_core::BOOL` remap. `future.txt` proves default generic delegates and interfaces, async
 agility, required generic interfaces, multiple generic parameters, and special WinRT value
 remaps. Native sys rendering remains unchanged. The minimal native branch is still intentionally
-narrow: constants, delegates, COM interfaces, handles, strings, and broader derive policy need
-request-driven coverage before other mixed tools can be compared.
+narrow: COM interfaces and implementation selection need request-driven coverage before the
+remaining mixed tools can be compared.
 
 `collections.txt` proves the rich collection adapters without introducing a general convenience
 registry. `IIterable<T>` emits owned and borrowed `IntoIterator` adapters, `IIterator<T>` emits
 `Iterator`, and interfaces requiring `IIterable<T>` receive the same adapters with the substituted
 item type. The request also proves self-referential output parameters and event sender types.
+
+`window.txt` proves a complete minimal native request with constants, string and handle aliases,
+structs, delegates, linked functions, and pointer-width aliases. Rich native derives use recursive
+type properties: aliases inherit their target, structs inherit their fields, delegates block
+equality, and floats block `Eq`. Explicit-layout, packed, and aligned structs remain conservative.

@@ -64,10 +64,6 @@ impl Signature {
         self.return_type.named_types(add);
     }
 
-    pub(super) fn write_parameters(&self, namespace: &str, layout: Layout) -> TokenStream {
-        self.write_parameters_projection(namespace, layout, Projection::Sys)
-    }
-
     pub(super) fn write_parameters_projection(
         &self,
         namespace: &str,

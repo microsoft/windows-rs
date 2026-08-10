@@ -47,6 +47,7 @@ struct Struct {
     align: Option<u32>,
     packing: Option<u16>,
     default: native_default::Policy,
+    traits: native::TraitSupport,
 }
 
 impl NativeType {
@@ -231,6 +232,21 @@ impl NativeType {
                         message: "native type has both alignment and packing",
                     });
                 }
+                let traits = if definition
+                    .type_attributes()?
+                    .contains(TypeAttributes::EXPLICIT_LAYOUT)
+                    || align.is_some()
+                    || packing.is_some()
+                {
+                    native::TraitSupport::NONE
+                } else {
+                    let mut traits = native::TraitSupport::ALL;
+                    let mut stack = BTreeSet::new();
+                    for (_, ty) in &fields {
+                        traits.combine(ty.projected_traits(database, &mut stack)?);
+                    }
+                    traits
+                };
                 Ok(Self {
                     architectures,
                     kind: Kind::Struct(Struct {
@@ -244,6 +260,7 @@ impl NativeType {
                         align,
                         packing,
                         default,
+                        traits,
                     }),
                 })
             }
@@ -290,10 +307,10 @@ impl NativeType {
         let architectures = tokens::architectures(self.architectures);
         match &self.kind {
             Kind::Alias(value) => {
-                let tokens = value.write_sys(layout);
+                let tokens = value.write(layout, Projection::Sys);
                 vec![(&value.name, 1, quote! { #architectures #tokens })]
             }
-            Kind::Enum(value) => value.write_sys_items(&architectures, layout),
+            Kind::Enum(value) => value.write_items(&architectures, layout, Projection::Sys),
             Kind::Struct(value) => {
                 vec![(
                     &value.name,
@@ -326,27 +343,39 @@ impl NativeType {
                     value.write(&architectures, layout, projection),
                 )];
             }
+            if let Kind::Alias(value) = &self.kind {
+                let tokens = value.write(layout, projection);
+                return vec![(&value.name, 1, quote! { #architectures #tokens })];
+            }
+            if let Kind::Enum(value) = &self.kind {
+                return value.write_items(&architectures, layout, projection);
+            }
         }
         self.write_sys_items_context(layout)
     }
 }
 
 impl Alias {
-    fn write_sys(&self, layout: Layout) -> TokenStream {
+    fn write(&self, layout: Layout, projection: Projection) -> TokenStream {
         let name = tokens::ident(&self.name);
-        let ty = self.ty.write(&self.namespace, layout);
+        let ty = self
+            .ty
+            .write_projection(&self.namespace, layout, projection);
         quote! { pub type #name = #ty; }
     }
 }
 
 impl Enum {
-    fn write_sys_items(
+    fn write_items(
         &self,
         architectures: &TokenStream,
         layout: Layout,
+        projection: Projection,
     ) -> Vec<(&str, u8, TokenStream)> {
         let name = tokens::ident(&self.name);
-        let ty = self.ty.write(&self.namespace, layout);
+        let ty = self
+            .ty
+            .write_projection(&self.namespace, layout, projection);
         if self.scoped {
             let values = self.values.iter().map(|(value_name, value)| {
                 let value_name = tokens::ident(value_name);
@@ -433,7 +462,7 @@ impl Struct {
         }
         let fields = self.fields.iter().map(|(field_name, ty)| {
             let field_name = tokens::ident(field_name);
-            let ty = ty.write(&self.namespace, layout);
+            let ty = ty.write_projection(&self.namespace, layout, projection);
             quote! { pub #field_name: #ty, }
         });
         let repr = self.repr();
@@ -491,21 +520,9 @@ impl Struct {
         projection: Projection,
     ) -> (TokenStream, TokenStream) {
         if !projection.is_sys() && self.align.is_none() && self.packing.is_none() {
-            let debug = self
-                .fields
-                .iter()
-                .all(|(_, ty)| ty.supports_debug())
-                .then(|| quote! { , Debug });
-            let partial_eq = self
-                .fields
-                .iter()
-                .all(|(_, ty)| ty.supports_partial_eq())
-                .then(|| quote! { , PartialEq });
-            let eq = self
-                .fields
-                .iter()
-                .all(|(_, ty)| ty.supports_eq())
-                .then(|| quote! { , Eq });
+            let debug = self.traits.debug.then(|| quote! { , Debug });
+            let partial_eq = self.traits.partial_eq.then(|| quote! { , PartialEq });
+            let eq = self.traits.eq.then(|| quote! { , Eq });
             let derive_default =
                 (self.default == native_default::Policy::Derive).then(|| quote! { , Default });
             let default = (self.default != native_default::Policy::Derive).then(|| {

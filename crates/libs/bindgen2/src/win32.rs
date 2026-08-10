@@ -128,7 +128,11 @@ impl Win32Selection {
                             continue;
                         }
                         let name = method.name()?;
-                        if filter.is_none_or(|filter| filter.includes(&namespace, name)) {
+                        if filter.is_none_or(|filter| {
+                            filter.includes(&namespace, name)
+                                || native_function::window_long_alias(name)
+                                    .is_some_and(|alias| filter.includes(&namespace, alias))
+                        }) {
                             if let Some(closure) = &mut closure {
                                 closure.include_method(method)?;
                             }
@@ -384,7 +388,7 @@ impl<'a> Win32Items<'a> {
                     &namespace.name,
                     definition.name()?,
                     1,
-                    Delegate::lower(self.database, definition)?.write_sys_context(layout),
+                    Delegate::lower(self.database, definition)?.write_context(layout, projection),
                 );
             }
             for entity in &namespace.interfaces {
@@ -409,7 +413,7 @@ impl<'a> Win32Items<'a> {
                     name,
                     2,
                     Constant::lower(self.database, field, &namespace.name, name)?
-                        .write_sys_context(layout),
+                        .write_context(layout, projection),
                 );
             }
             for entity in &namespace.functions {

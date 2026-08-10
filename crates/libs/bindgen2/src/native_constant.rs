@@ -110,10 +110,10 @@ impl Constant {
     /// Renders a flat Win32 sys constant.
     #[cfg(test)]
     pub fn write_sys(&self) -> TokenStream {
-        self.write_sys_context(Layout::Flat)
+        self.write_context(Layout::Flat, Projection::Sys)
     }
 
-    pub(super) fn write_sys_context(&self, layout: Layout) -> TokenStream {
+    pub(super) fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
         let architectures = tokens::architectures(self.architectures);
         let name = tokens::ident(&self.name);
         let value = match &self.value {
@@ -124,7 +124,9 @@ impl Constant {
                 }
             }
             Value::PropertyKey { guid, fields, pid } => {
-                let ty = self.ty.write(&self.namespace, layout);
+                let ty = self
+                    .ty
+                    .write_constant_projection(&self.namespace, layout, projection);
                 let guid = guid.write_value();
                 let guid_field = tokens::ident(&fields[0]);
                 let pid_field = tokens::ident(&fields[1]);
@@ -164,13 +166,19 @@ impl Constant {
             Value::Fixed {
                 underlying, value, ..
             } => {
-                let ty = self.ty.write(&self.namespace, layout);
+                let ty = self
+                    .ty
+                    .write_constant_projection(&self.namespace, layout, projection);
                 let value = if self.ty == *underlying {
                     native::write_value(underlying, value)
                 } else {
                     Self::write_converted(underlying, value)
                 };
-                quote! { pub const #name: #ty = #value; }
+                if !projection.is_sys() && self.ty.mutable_string_pointer() {
+                    quote! { pub const #name: #ty = #ty(#value); }
+                } else {
+                    quote! { pub const #name: #ty = #value; }
+                }
             }
         };
         quote! { #architectures #value }

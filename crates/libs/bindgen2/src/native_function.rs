@@ -60,17 +60,46 @@ impl Function {
         let result = self
             .signature
             .write_result_projection(&self.namespace, layout, projection);
+        let pointer_alias = window_long_dependency(&self.name).map(|dependency| {
+            let dependency = tokens::ident(dependency);
+            quote! {
+                #[cfg(target_pointer_width = "32")]
+                pub use #dependency as #name;
+            }
+        });
         if !projection.is_sys() {
             quote! {
                 #architectures
                 windows_core::link!(#module #abi #symbol fn #name(#parameters #variadic) #result);
+                #pointer_alias
             }
         } else {
             quote! {
                 #architectures
                 windows_link::link!(#module #abi #symbol fn #name(#parameters #variadic) #result);
+                #pointer_alias
             }
         }
+    }
+}
+
+pub(super) fn window_long_dependency(name: &str) -> Option<&'static str> {
+    match name {
+        "GetWindowLongPtrA" => Some("GetWindowLongA"),
+        "GetWindowLongPtrW" => Some("GetWindowLongW"),
+        "SetWindowLongPtrA" => Some("SetWindowLongA"),
+        "SetWindowLongPtrW" => Some("SetWindowLongW"),
+        _ => None,
+    }
+}
+
+pub(super) fn window_long_alias(name: &str) -> Option<&'static str> {
+    match name {
+        "GetWindowLongA" => Some("GetWindowLongPtrA"),
+        "GetWindowLongW" => Some("GetWindowLongPtrW"),
+        "SetWindowLongA" => Some("SetWindowLongPtrA"),
+        "SetWindowLongW" => Some("SetWindowLongPtrW"),
+        _ => None,
     }
 }
 

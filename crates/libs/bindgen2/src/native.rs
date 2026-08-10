@@ -26,6 +26,33 @@ pub(super) enum Type {
     Named { namespace: String, name: String },
 }
 
+#[derive(Clone, Copy)]
+pub(super) struct TraitSupport {
+    pub(super) debug: bool,
+    pub(super) partial_eq: bool,
+    pub(super) eq: bool,
+}
+
+impl TraitSupport {
+    pub(super) const NONE: Self = Self {
+        debug: false,
+        partial_eq: false,
+        eq: false,
+    };
+
+    pub(super) const ALL: Self = Self {
+        debug: true,
+        partial_eq: true,
+        eq: true,
+    };
+
+    pub(super) fn combine(&mut self, other: Self) {
+        self.debug &= other.debug;
+        self.partial_eq &= other.partial_eq;
+        self.eq &= other.eq;
+    }
+}
+
 impl Type {
     pub(super) fn lower_parameter(
         database: &Database,
@@ -240,10 +267,103 @@ impl Type {
             }
         }
     }
+
+    pub(super) fn write_constant_projection(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        projection: Projection,
+    ) -> TokenStream {
+        if !projection.is_sys()
+            && let Self::Named {
+                namespace: target,
+                name,
+            } = self
+            && (target == "Windows.Win32" || target.starts_with("Windows.Win32."))
+        {
+            return match name.as_str() {
+                "PSTR" => quote! { windows_core::PCSTR },
+                "PWSTR" => quote! { windows_core::PCWSTR },
+                _ => self.write_projection(namespace, layout, projection),
+            };
+        }
+        self.write_projection(namespace, layout, projection)
+    }
+
+    pub(super) fn mutable_string_pointer(&self) -> bool {
+        matches!(
+            self,
+            Self::Named {
+                namespace,
+                name,
+            } if (namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32."))
+                && (name == "PSTR" || name == "PWSTR")
+        )
+    }
 }
 
 pub(super) fn is_core_projection(namespace: &str, name: &str) -> bool {
     core_projection(namespace, name).is_some()
+}
+
+fn named_traits(
+    database: &Database,
+    namespace: &str,
+    name: &str,
+    stack: &mut BTreeSet<(String, String)>,
+) -> Result<TraitSupport, Error> {
+    let key = (namespace.to_string(), name.to_string());
+    if !stack.insert(key.clone()) {
+        return Ok(TraitSupport::NONE);
+    }
+    let mut result = TraitSupport::ALL;
+    let definitions = database.type_definitions(namespace, name);
+    if definitions.is_empty() {
+        result = TraitSupport::NONE;
+    }
+    for entity in definitions {
+        let definition = database.definition(*entity).unwrap();
+        let traits = match definition.category()? {
+            TypeCategory::Enum => TraitSupport::ALL,
+            TypeCategory::Delegate => TraitSupport {
+                debug: true,
+                partial_eq: false,
+                eq: false,
+            },
+            TypeCategory::Struct => {
+                if definition
+                    .type_attributes()?
+                    .contains(TypeAttributes::EXPLICIT_LAYOUT)
+                    || definition.has_attribute("AlignmentAttribute")?
+                    || definition
+                        .layout()?
+                        .map(|layout| layout.packing_size())
+                        .transpose()?
+                        .is_some()
+                {
+                    TraitSupport::NONE
+                } else {
+                    let mut fields = TraitSupport::ALL;
+                    for field in definition.fields()? {
+                        if !field.is_literal()? {
+                            let ty = Type::lower(
+                                database,
+                                field.entity().file(),
+                                name,
+                                field.signature()?,
+                            )?;
+                            fields.combine(ty.projected_traits(database, stack)?);
+                        }
+                    }
+                    fields
+                }
+            }
+            _ => TraitSupport::NONE,
+        };
+        result.combine(traits);
+    }
+    stack.remove(&key);
+    Ok(result)
 }
 
 fn core_projection(namespace: &str, name: &str) -> Option<TokenStream> {
@@ -296,31 +416,29 @@ impl Type {
         self.visit_named(&mut add);
     }
 
-    pub(super) fn supports_debug(&self) -> bool {
-        match self {
-            Self::Void | Self::Named { .. } => false,
-            Self::Array { element, .. } => element.supports_debug(),
-            Self::Pointer { .. } => true,
-            _ => true,
-        }
-    }
-
-    pub(super) fn supports_partial_eq(&self) -> bool {
-        match self {
-            Self::Void | Self::Named { .. } => false,
-            Self::Array { element, .. } => element.supports_partial_eq(),
-            Self::Pointer { .. } => true,
-            _ => true,
-        }
-    }
-
-    pub(super) fn supports_eq(&self) -> bool {
-        match self {
-            Self::F32 | Self::F64 | Self::Void | Self::Named { .. } => false,
-            Self::Array { element, .. } => element.supports_eq(),
-            Self::Pointer { .. } => true,
-            _ => true,
-        }
+    pub(super) fn projected_traits(
+        &self,
+        database: &Database,
+        stack: &mut BTreeSet<(String, String)>,
+    ) -> Result<TraitSupport, Error> {
+        Ok(match self {
+            Self::Void => TraitSupport::NONE,
+            Self::F32 | Self::F64 => TraitSupport {
+                debug: true,
+                partial_eq: true,
+                eq: false,
+            },
+            Self::Array { element, .. } => element.projected_traits(database, stack)?,
+            Self::Pointer { .. } | Self::String => TraitSupport::ALL,
+            Self::Named { namespace, name } => {
+                if is_core_projection(namespace, name) {
+                    TraitSupport::ALL
+                } else {
+                    named_traits(database, namespace, name, stack)?
+                }
+            }
+            _ => TraitSupport::ALL,
+        })
     }
 
     fn visit_named(&self, add: &mut impl FnMut(&str, &str)) {

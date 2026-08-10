@@ -43,12 +43,14 @@ struct ToolRequest {
     output: String,
     filter: Filter,
     minimal: bool,
+    dead_code: bool,
 }
 
 fn parse_tool_request(metadata: &Metadata, source: &str) -> ToolRequest {
     let mut output = None;
     let mut filter = Filter::new();
     let mut minimal = false;
+    let mut dead_code = false;
     let mut reading_filters = false;
 
     for line in source.lines().map(str::trim) {
@@ -58,6 +60,7 @@ fn parse_tool_request(metadata: &Metadata, source: &str) -> ToolRequest {
         if line.starts_with("--") {
             reading_filters = line == "--filter";
             minimal |= line.split_whitespace().any(|part| part == "--minimal");
+            dead_code |= line.split_whitespace().any(|part| part == "--dead-code");
             if let Some(path) = line.strip_prefix("--out ") {
                 output = Some(path.to_string());
             }
@@ -72,6 +75,7 @@ fn parse_tool_request(metadata: &Metadata, source: &str) -> ToolRequest {
         output: output.unwrap(),
         filter,
         minimal,
+        dead_code,
     }
 }
 
@@ -1803,7 +1807,7 @@ fn native_delegates_match_existing_golden_tokens() {
     let expected = quote! { pub mod Test { #expected } };
     assert_eq!(
         generator
-            .render(Layout::Modules)
+            .render_projection(Layout::Modules, Projection::Sys)
             .unwrap()
             .to_string()
             .replace("> ;", ">;"),
@@ -1843,7 +1847,7 @@ fn native_delegates_match_existing_golden_tokens() {
     let expected = quote! { pub mod Test { #expected } };
     assert_eq!(
         generator
-            .render(Layout::Modules)
+            .render_projection(Layout::Modules, Projection::Sys)
             .unwrap()
             .to_string()
             .replace("> ;", ">;"),
@@ -2176,6 +2180,35 @@ fn tool_bindings_time_request_matches_committed_output() {
         &std::fs::read_to_string(root.join("crates/tools/bindings/src/time.txt")).unwrap(),
     );
     assert!(request.minimal);
+    let actual = metadata
+        .generator(Request::filtered(request.filter))
+        .unwrap()
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap();
+    let expected: TokenStream = std::fs::read_to_string(root.join(request.output))
+        .unwrap()
+        .parse()
+        .unwrap();
+    assert_eq!(
+        normalize_existing_output(actual),
+        normalize_existing_output(expected)
+    );
+}
+
+#[test]
+fn tool_bindings_window_request_matches_committed_output() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../..");
+    let request = parse_tool_request(
+        &metadata,
+        &std::fs::read_to_string(root.join("crates/tools/bindings/src/window.txt")).unwrap(),
+    );
+    assert!(request.minimal);
+    assert!(request.dead_code);
     let actual = metadata
         .generator(Request::filtered(request.filter))
         .unwrap()
