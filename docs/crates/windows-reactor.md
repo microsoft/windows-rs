@@ -469,8 +469,8 @@ behind the existing `test` feature that the test crates enable and published bui
 selected backend operation mutates the backend model. Ordinary widget mounts catch failures after
 native creation, remove the partially mounted native and logical subtree, run pending component
 cleanups, and then resume the panic. Error boundaries can therefore mount a fallback without
-retaining controls, handlers, headers, panes, or effects from the failed subtree. This contract does
-not yet cover custom elements or failures during rollback.
+retaining controls, handlers, headers, panes, or effects from the failed subtree. Failures during
+rollback remain a separate contract.
 
 Templated-list mounting uses the same transaction boundary. The native list is registered first,
 then modifiers, selection and reorder callbacks, realization callbacks, list state, and backend
@@ -494,10 +494,10 @@ mounts its fallback. Without a boundary, explicit root teardown still reaches ev
 runs component cleanup exactly once. Retrying reconciliation or restoring the prior collection after
 such a failure is not supported.
 
-Native destruction is the teardown commit point. Logical cleanup, lifecycle callbacks, and custom
-pre-destroy hooks run first, but mounted ownership is retained until `Backend::destroy` succeeds. If
-a fail-before destroy panic reaches an error boundary, discard retries the still-owned control
-without repeating cleanup. This also covers a failure after earlier descendants were destroyed.
+Native destruction is the teardown commit point. Logical cleanup and lifecycle callbacks run first,
+but mounted ownership is retained until `Backend::destroy` succeeds. If a fail-before destroy panic
+reaches an error boundary, discard retries the still-owned control without repeating cleanup. This
+also covers a failure after earlier descendants were destroyed.
 Root teardown retains `root_output` until the full traversal succeeds. A failed `unmount_root` or
 root `unmount` must be retried through either root teardown API; the retry skips descendants already
 destroyed and completes each remaining cleanup at most once. Reconciliation and unrelated unmounts
@@ -568,7 +568,6 @@ This section records the resulting implementation contract and the measurements 
 | Logical component ownership | State and lifecycle share one owner |
 | Provider logical ownership | Providers have stable IDs, parent links, projection, and teardown |
 | Error-boundary ownership | Boundary identity and fallback state are node-owned |
-| Custom-element ownership | Handles and teardown are sparse native-node auxiliary state |
 | Templated-list ownership | Realized rows and callbacks are sparse templated-node state |
 | Native lifecycle ownership | Pre-unmount callbacks are sparse native-node state |
 | Path-scoped dirty traversal | Native parent walks replace the global flag and root-wide scan |
@@ -632,10 +631,9 @@ The logical path is authoritative:
 
 ### Ownership consolidation
 
-Header and pane subtrees, templated rows, custom handles, selection/reorder callbacks, pre-unmount
-callbacks, and error fallback state live under mounted ownership. Positional, keyed, and templated
-algorithms decide correspondence and order while sharing identity, dirty, lifecycle, and cleanup
-rules.
+Header and pane subtrees, templated rows, selection/reorder callbacks, pre-unmount callbacks, and
+error fallback state live under mounted ownership. Positional, keyed, and templated algorithms
+decide correspondence and order while sharing identity, dirty, lifecycle, and cleanup rules.
 
 Each native child collection also has an ordered logical output mirror. A slot may contain a native
 control, a logical node with no native output, or both. Native insertion and movement derive their
@@ -653,7 +651,7 @@ The current `Reconciler` mixes five responsibilities in one struct:
 5. diagnostics.
 
 This is more than a file-layout problem. Independent maps require every mount, replacement, and
-unmount path to remember the same set of cleanup operations. Header, pane, templated, custom, and
+unmount path to remember the same set of cleanup operations. Header, pane, templated, and
 error-boundary paths have already demonstrated how easily one map can be omitted.
 
 `Reconciler` now has the target ownership shape:
@@ -676,11 +674,11 @@ buffers. `HostContext` contains the dispatcher-facing rerender request, marshall
 DPI, and context environment. `ReconcileStats` contains counters only.
 
 `MountedTree` now records the native parent on the existing per-control node entry. Normal
-children, headers, panes, custom controls, and realized templated rows use the same parent
-invariant. Dirty components walk these links to the root, stopping when they reach an already
-forced ancestor. This makes dirty propagation proportional to path depth and removes the
-root-wide ownership scan and its traversal stack. The additional parent field does not add a map
-or allocation; the headless allocation counts remain unchanged.
+children, headers, panes, and realized templated rows use the same parent invariant. Dirty
+components walk these links to the root, stopping when they reach an already forced ancestor. This
+makes dirty propagation proportional to path depth and removes the root-wide ownership scan and its
+traversal stack. The additional parent field does not add a map or allocation; the headless
+allocation counts remain unchanged.
 
 Child and slot mutation now goes through `MountedTree`, so parent links and sparse ownership
 storage cannot be updated independently. Unmount collects the complete native ownership list once
@@ -718,11 +716,10 @@ logical parents. Fallback state is stored on the boundary node, so `Reconciler` 
 `error_boundary_mount` cycles report 399 bytes and 10 allocations, matching the component-only
 mount baseline after warmup.
 
-Custom element handles now live in sparse `MountedTree` auxiliary storage keyed by their native
-node. Mount, update, stale-ID cleanup, and `before_destroy` teardown all go through the tree, so
-`Reconciler` no longer owns a separate `custom_handles` map. Ordinary native nodes do not gain an
-optional boxed field. The headless `custom_mount` case reports 52 bytes and two allocations per
-mount/unmount cycle.
+`Element` has no arbitrary backend extension variant because a
+`mount(&mut Backend) -> ControlId` contract could create native state and panic before returning the
+ID to the reconciler. Reusable UI is expressed with helper functions or components, while native
+integrations use typed controls such as `CompositionHost`, `SwapChainPanel`, and `WebView2`.
 
 Templated lists now use sparse auxiliary state beneath `MountedTree`. The list registry owns each
 list's current element, realized rows, and selection/reorder callback trampolines; the templated
@@ -744,7 +741,7 @@ visible window rather than the item count.
 Pre-unmount callbacks now live in sparse native lifecycle storage under `MountedTree`. Registration,
 replacement, removal, and teardown all go through the tree, so a callback cannot outlive its
 native node. The last lifecycle side map has left `Reconciler`. The release `lifecycle_mount`
-benchmark reports 52 bytes and two allocations, matching a callback-free custom native mount.
+benchmark reports 52 bytes and two allocations.
 
 The three debug counters now live in `ReconcileStats`, available through `Reconciler::stats()`.
 `Reconciler` also retains the root mounted output and the monotonic logical-slot allocator. All
@@ -757,14 +754,13 @@ The existing side state should move as follows:
 | `children_mirror`, `id_kinds`, header, and pane maps | Mounted native node |
 | component instances and native projections | Mounted logical component node |
 | error fallback state | Error-boundary node |
-| custom handles | Custom node |
 | templated state, selection, reorder, and deferred rows | Templated-list node (complete) |
 | pre-unmount callback | Node lifecycle state (complete) |
 | forced nodes, forced controls, traversal scratch | `ReconcilePass` |
 | marshaller, host ID, size, DPI, rerender request | `HostContext` |
 
 Do not replace the maps with one large per-control struct containing every optional field. Most
-controls do not use headers, panes, templating, or custom lifecycle state. Use node-kind enums and
+controls do not use headers, panes, templating, or special lifecycle state. Use node-kind enums and
 allocate auxiliary state only for node kinds that need it.
 
 `MountedTree` owns child projection through sparse owned-only classification. Most children project
@@ -801,7 +797,7 @@ Rust should copy the small node invariants, not its hidden controls or accumulat
 2. Introduce `MountedTree` and `HostContext` wrappers around existing state without behavior
    changes.
 3. Move native kind, children, header, and pane ownership into mounted native nodes.
-4. Move component, provider, error-boundary, and custom lifecycle into logical node kinds.
+4. Move component, provider, and error-boundary lifecycle into logical node kinds.
 5. Move templated rows and their callbacks into a templated node kind.
 6. Make recursive node teardown the only unmount path.
 7. Delete the replaced side maps after each migration rather than keeping compatibility mirrors.
@@ -809,7 +805,7 @@ Rust should copy the small node invariants, not its hidden controls or accumulat
 Every consolidation step must state which fields and special-case branches it deletes. A new
 abstraction that only wraps the old maps without enabling their removal is not sufficient.
 
-Steps 1-7 are complete. Child, slot, custom, templated, and lifecycle storage remains sparse inside
+Steps 1-7 are complete. Child, slot, templated, and lifecycle storage remains sparse inside
 `MountedTree` rather than adding optional fields to every native or logical node. The resource,
 item-key, and exit-transition entries in the earlier audit were stale: PR #4782 already added
 resource replacement, `ItemKey` clearing, and WinUI implicit hide transitions, with regressions and
@@ -1073,7 +1069,7 @@ The topology test matrix must combine:
 | Lifecycle | Mount, rerender, replacement, unmount, error recovery |
 | Effects | Dependency change, cleanup order, unmount cleanup |
 | Virtualization | Realize, recycle, key change, disappear, reappear |
-| Secondary slots | Header, pane, and custom child ownership |
+| Secondary slots | Header and pane ownership |
 
 Debug and test checks should prove that every logical ID is reachable once, parent links agree,
 setters cannot target reused identities, native child order matches logical projection, and every
@@ -1203,8 +1199,10 @@ time.
   teardown is incomplete, and let either root teardown API retry without repeating cleanup.
 - [x] Roll failed templated-list mounts back across modifiers, callbacks, list-state registration,
   and backend configuration so error boundaries can mount a fallback.
-- [ ] Extend backend fault injection to custom mounts, collection retry or rollback, and rollback
-  itself; define the valid state after each failure.
+- [x] Remove `CustomElement`, whose arbitrary backend mount could panic before reporting native
+  ownership, and use normal widgets, helper functions, components, or typed host controls instead.
+- [ ] Extend backend fault injection to collection retry or rollback and rollback itself; define the
+  valid state after each failure.
 - [ ] Define and test render, commit, effect, cleanup, error-boundary, and reentrant-event ordering.
 - [ ] Enforce the UI-thread boundary in release builds and reject stale asynchronous updates after
   unmount or host replacement.

@@ -1,73 +1,6 @@
 use super::*;
-use std::any::{Any, TypeId};
+use std::any::Any;
 use std::time::Duration;
-
-/// Out-of-tree widget definition managed by the reconciler via
-/// [`Element::Custom`].
-pub trait CustomElement: 'static {
-    fn as_any(&self) -> &dyn Any;
-
-    /// Stable type identity used for mount-vs-update decisions.
-    fn type_id(&self) -> TypeId {
-        self.as_any().type_id()
-    }
-
-    fn kind_name(&self) -> &'static str;
-
-    fn key(&self) -> Option<&str> {
-        None
-    }
-
-    fn eq_dyn(&self, other: &dyn CustomElement) -> bool;
-
-    fn clone_dyn(&self) -> Box<dyn CustomElement>;
-
-    fn mount(&self, backend: &mut dyn Backend) -> ControlId;
-
-    fn update(&self, prev: &dyn CustomElement, id: ControlId, backend: &mut dyn Backend);
-
-    fn before_destroy(&self, _id: ControlId, _backend: &mut dyn Backend) {}
-}
-
-/// Boxed [`CustomElement`] stored in [`Element`].
-pub struct CustomElementHandle(pub Box<dyn CustomElement>);
-
-impl CustomElementHandle {
-    pub fn new<C: CustomElement>(c: C) -> Self {
-        Self(Box::new(c))
-    }
-    pub fn get(&self) -> &dyn CustomElement {
-        &*self.0
-    }
-}
-
-impl Clone for CustomElementHandle {
-    fn clone(&self) -> Self {
-        Self(self.0.clone_dyn())
-    }
-}
-
-impl std::fmt::Debug for CustomElementHandle {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("CustomElement")
-            .field("kind", &self.0.kind_name())
-            .field("type_id", &CustomElement::type_id(&*self.0))
-            .field("key", &self.0.key())
-            .finish()
-    }
-}
-
-impl PartialEq for CustomElementHandle {
-    fn eq(&self, other: &Self) -> bool {
-        if CustomElement::type_id(&*self.0) != CustomElement::type_id(&*other.0) {
-            return false;
-        }
-        if self.0.key() != other.0.key() {
-            return false;
-        }
-        self.0.eq_dyn(&*other.0)
-    }
-}
 
 impl_rc_fn_wrapper! {
     /// Renders a fallback subtree given a panic message string.
@@ -277,7 +210,6 @@ macro_rules! define_element {
             ErrorBoundary(ErrorBoundaryElement),
             Provider(ProviderElement),
             TemplatedList(TemplatedListElement),
-            Custom(CustomElementHandle),
             #[default]
             Empty,
         }
@@ -331,7 +263,6 @@ macro_rules! define_element {
                     | Element::ErrorBoundary(_)
                     | Element::Provider(_)
                     | Element::TemplatedList(_)
-                    | Element::Custom(_)
                     | Element::Empty => return None,
                 })
             }
@@ -342,7 +273,6 @@ macro_rules! define_element {
                     Element::ErrorBoundary(_) => "ErrorBoundary",
                     Element::Provider(_) => "Provider",
                     Element::TemplatedList(_) => "TemplatedList",
-                    Element::Custom(c) => c.0.kind_name(),
                     Element::Empty => "Empty",
                 }
             }
@@ -357,7 +287,7 @@ macro_rules! define_element {
                     Element::ErrorBoundary(eb) => eb.key = Some(key),
                     Element::Provider(pe) => pe.key = Some(key),
                     Element::TemplatedList(tl) => tl.key = Some(key),
-                    Element::Custom(_) | Element::Empty => {}
+                    Element::Empty => {}
                 }
                 self
             }
@@ -440,7 +370,6 @@ non_widget_from_table! {
     ErrorBoundary: ErrorBoundaryElement,
     Provider:      ProviderElement,
     TemplatedList: TemplatedListElement,
-    Custom:        CustomElementHandle,
 }
 
 impl Element {
@@ -453,7 +382,6 @@ impl Element {
             Self::ErrorBoundary(eb) => eb.key.as_deref(),
             Self::Provider(p) => p.key.as_deref(),
             Self::TemplatedList(tl) => tl.key.as_deref(),
-            Self::Custom(c) => c.0.key(),
             Self::Empty => None,
             _ => unreachable!("covered by as_widget"),
         }
@@ -464,11 +392,7 @@ impl Element {
         }
         match self {
             Self::TemplatedList(tl) => Some(&tl.modifiers),
-            Self::Component(_)
-            | Self::ErrorBoundary(_)
-            | Self::Provider(_)
-            | Self::Custom(_)
-            | Self::Empty => None,
+            Self::Component(_) | Self::ErrorBoundary(_) | Self::Provider(_) | Self::Empty => None,
             _ => unreachable!("covered by as_widget"),
         }
     }
@@ -478,17 +402,13 @@ impl Element {
     pub fn accessibility(&self) -> Option<&AccessibilityModifiers> {
         self.modifiers().and_then(|m| m.accessibility.as_deref())
     }
-    /// `true` when both elements are the same variant (and same shape /
-    /// custom type id), so an update can be considered.
+    /// `true` when both elements are the same variant and shape, so an update can be considered.
     pub fn kind_matches(&self, other: &Self) -> bool {
         if std::mem::discriminant(self) != std::mem::discriminant(other) {
             return false;
         }
         if let (Self::Shape(a), Self::Shape(b)) = (self, other) {
             return a.kind == b.kind;
-        }
-        if let (Self::Custom(a), Self::Custom(b)) = (self, other) {
-            return CustomElement::type_id(&*a.0) == CustomElement::type_id(&*b.0);
         }
         true
     }
@@ -501,9 +421,6 @@ impl Element {
         match (self, other) {
             (Self::Component(a), Self::Component(b)) => {
                 a.obj.component_type_id() == b.obj.component_type_id()
-            }
-            (Self::Custom(a), Self::Custom(b)) => {
-                CustomElement::type_id(&*a.0) == CustomElement::type_id(&*b.0)
             }
             _ => true,
         }
