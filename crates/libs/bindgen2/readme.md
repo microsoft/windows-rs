@@ -14,14 +14,17 @@ let generator = metadata.generator(windows_bindgen2::Request::filtered(filter))?
 let tokens = generator.render(windows_bindgen2::Layout::Flat)?;
 ```
 
-`Metadata` eagerly validates and lowers immutable catalogs once. Each `Generator` retains only the
+`Metadata` validates images and lowers immutable catalogs once. Relationship errors that do not
+affect a request are deferred until that request traverses them. Each `Generator` retains only the
 typed entities and selection policy for one request. Formatting, file writing, package staging,
 and legacy command parsing remain the responsibility of callers or a later tool-facing facade.
 
 The current implementation covers WinRT enums, structs, delegates, interfaces, and classes plus
 native sys types, constants, functions, delegates, and interfaces. Filtered dependency closure,
 nested and flat layouts, architecture gates, and deterministic ordering are implemented.
-Minimal/implementation styles, member filters, and package output remain future work.
+Member filtering and explicit interface implementation selection are implemented. Minimal
+projection remains private while native COM policy is incomplete. Package output remains future
+work.
 
 The design and differential evidence are tracked in
 [`docs/crates/windows-bindgen2.md`](../../../docs/crates/windows-bindgen2.md).

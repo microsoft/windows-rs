@@ -34,7 +34,7 @@ impl Class {
     pub(super) fn lower(
         database: &Database,
         definition: TypeDefinition<'_>,
-        relationships: &BTreeMap<Entity<TypeDef>, Vec<InterfaceBase>>,
+        relationships: &BTreeMap<Entity<TypeDef>, Vec<InterfaceRelationship>>,
         owner: &str,
     ) -> Result<Self, Error> {
         let name = definition.name()?.to_string();
@@ -455,7 +455,7 @@ impl ClassName {
 
 fn lower_interfaces(
     database: &Database,
-    relationships: &BTreeMap<Entity<TypeDef>, Vec<InterfaceBase>>,
+    relationships: &BTreeMap<Entity<TypeDef>, Vec<InterfaceRelationship>>,
     owner: Entity<TypeDef>,
     inherited: bool,
     owner_name: &str,
@@ -470,7 +470,8 @@ fn lower_interfaces(
         relationships,
         owner_name,
     };
-    for interface in interfaces {
+    for relationship in interfaces {
+        let interface = relationship.resolve()?;
         lower_interface(&context, interface, &[], inherited, seen, result)?;
     }
     Ok(())
@@ -534,7 +535,7 @@ fn lower_factories(
 
 struct InterfaceLowering<'a> {
     database: &'a Database,
-    relationships: &'a BTreeMap<Entity<TypeDef>, Vec<InterfaceBase>>,
+    relationships: &'a BTreeMap<Entity<TypeDef>, Vec<InterfaceRelationship>>,
     owner_name: &'a str,
 }
 
@@ -563,7 +564,8 @@ fn lower_interface(
         .map(|argument| argument.substitute(owner_arguments))
         .collect::<Vec<_>>();
     if let Some(required) = context.relationships.get(&interface.entity) {
-        for base in required {
+        for relationship in required {
+            let base = relationship.resolve()?;
             lower_interface(context, base, &arguments, inherited, seen, result)?;
         }
     }
@@ -600,7 +602,7 @@ fn lower_interface(
 fn lower_bases(
     database: &Database,
     definition: TypeDefinition<'_>,
-    relationships: &BTreeMap<Entity<TypeDef>, Vec<InterfaceBase>>,
+    relationships: &BTreeMap<Entity<TypeDef>, Vec<InterfaceRelationship>>,
     owner: &str,
     interfaces: &mut Vec<ClassInterface>,
 ) -> Result<Vec<ClassName>, Error> {

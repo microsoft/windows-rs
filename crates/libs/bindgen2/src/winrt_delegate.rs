@@ -47,17 +47,18 @@ impl Delegate {
             .generic_parameters()?
             .map(|parameter| Ok(parameter.name()?.to_string()))
             .collect::<Result<Vec<_>, Error>>()?;
-        let methods = definition.methods()?.collect::<Vec<_>>();
-        let [invoke] = methods.as_slice() else {
+        let mut methods = definition.methods()?;
+        let invoke = methods.find(|method| method.name().is_ok_and(|name| name == "Invoke"));
+        let Some(invoke) = invoke else {
             return Err(Error::InvalidType {
                 name: owner.to_string(),
-                message: "delegate does not have one method",
+                message: "delegate has no Invoke method",
             });
         };
-        if invoke.name()? != "Invoke" {
+        if methods.any(|method| method.name().is_ok_and(|name| name == "Invoke")) {
             return Err(Error::InvalidType {
                 name: owner.to_string(),
-                message: "delegate method is not Invoke",
+                message: "delegate has multiple Invoke methods",
             });
         }
         let guid =
@@ -70,7 +71,7 @@ impl Delegate {
             name,
             generics,
             guid,
-            invoke: Method::lower(database, definition.entity().file(), *invoke, owner, true)?,
+            invoke: Method::lower(database, definition.entity().file(), invoke, owner, true)?,
         })
     }
 
@@ -713,12 +714,21 @@ impl Method {
         } else {
             quote! { where #(#constraints)* }
         };
-        let return_name =
-            if context.projection.is_minimal() && matches!(self.return_type, ty::Type::String) {
+        let return_name = if context.projection.is_minimal() {
+            if matches!(self.return_type, ty::Type::String) {
                 quote! { String }
+            } else if self.return_type.is_external_minimal() {
+                self.return_type.write_minimal_name(
+                    context.namespace,
+                    context.layout,
+                    context.generics,
+                )?
             } else {
                 self.write_return_type(context.namespace, context.layout, context.generics)?
-            };
+            }
+        } else {
+            self.write_return_type(context.namespace, context.layout, context.generics)?
+        };
         Ok(PublicSignature {
             generic_params: quote! { #(#generic_params),* },
             parameters,

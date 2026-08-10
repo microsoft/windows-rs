@@ -723,7 +723,7 @@ impl<'a> Parser<'a> {
             cursor = end;
         }
         let trailing = &self.bytes[cursor..range.end];
-        if trailing.len() > 3 || trailing.iter().any(|byte| *byte != 0) {
+        if trailing.len() > 4 || trailing.iter().any(|byte| *byte != 0) {
             return Err(Error::invalid(
                 cursor,
                 "table stream has unexpected trailing data",
@@ -910,6 +910,15 @@ mod tests {
             assert!(image.table(TableId::TypeDef).rows() > 0);
             assert!(image.table(TableId::MethodDef).row_size() > 0);
         }
+    }
+
+    #[test]
+    fn reads_windows_app_sdk_metadata() {
+        let image = Image::new(
+            include_bytes!("../../../tools/reactor/winmd/Microsoft.Foundation.winmd").to_vec(),
+        )
+        .unwrap();
+        assert!(image.table(TableId::TypeDef).rows() > 0);
     }
 
     #[test]

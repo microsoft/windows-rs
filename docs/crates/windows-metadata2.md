@@ -90,8 +90,9 @@ existing implementation. The crate remains unpublished until both `windows-bindg
 The initial parser revealed two assumptions during review. Optional-header data directories must be
 bounded by the declared optional-header size, and table row counts must be bounded by the declared
 table stream rather than adjacent stream bytes. Both checks are now explicit. Table stream
-finalization also rejects more than three bytes of zero padding or any nonzero trailing data, which
-checks the declared ECMA schema against real WinRT and Win32 images.
+finalization also rejects more than four bytes of zero padding or any nonzero trailing data. The
+four-byte case is emitted by Windows App SDK metadata even when the table data already ends on a
+four-byte boundary.
 
 The next review found that the first schema implementation still repeated table identities in the
 enum, conversion array, and schema list. One table declaration now generates the table identifiers,
@@ -140,9 +141,12 @@ type would repeat known debt, so the multi-image database was moved ahead of att
 namespace/name index does not allocate on lookup and preserves every matching definition,
 including architecture variants. Exact raw TypeDef name multiplicities match the existing index
 across WinRT and Win32. TypeRef resolution returns all candidates rather than selecting the first.
-AssemblyRef and local module scopes now filter those candidates through a borrowed iterator, so
-resolution adds no second type-name index or per-query allocation. Nested TypeRef resolution
-remains a future layer.
+AssemblyRef and local module scopes now filter those candidates through a borrowed iterator. When
+an AssemblyRef contributes no same-named definition, resolution falls back to the existing
+unscoped candidates. This supports contract references whose definitions are supplied by merged
+default metadata under another assembly identity. File-local resolution remains strict. Resolution
+adds no second type-name index or per-query allocation. Nested TypeRef resolution remains a future
+layer.
 
 The first authoring checkpoint adds a bounded writer rather than porting the old mutable metadata
 file object. Typed build identities distinguish definitions and references. A type-definition

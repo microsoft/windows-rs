@@ -122,6 +122,7 @@ impl Generator {
                         layout,
                         projection,
                         self.members(entry.entity),
+                        self.implements(entry.entity),
                     )?,
                 });
         }

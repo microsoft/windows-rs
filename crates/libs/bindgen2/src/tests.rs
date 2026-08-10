@@ -42,23 +42,35 @@ fn fixture(source: &str) -> Generator {
 struct ToolRequest {
     output: String,
     filter: Filter,
+    implementations: Vec<String>,
     minimal: bool,
     dead_code: bool,
 }
 
 fn parse_tool_request(metadata: &Metadata, source: &str) -> ToolRequest {
+    enum Section {
+        None,
+        Implement,
+        Filter,
+    }
+
     let mut output = None;
     let mut filter = Filter::new();
+    let mut implementations = Vec::new();
     let mut minimal = false;
     let mut dead_code = false;
-    let mut reading_filters = false;
+    let mut section = Section::None;
 
     for line in source.lines().map(str::trim) {
         if line.is_empty() || line.starts_with('#') || line.starts_with("//") {
             continue;
         }
         if line.starts_with("--") {
-            reading_filters = line == "--filter";
+            section = match line {
+                "--implement" => Section::Implement,
+                "--filter" => Section::Filter,
+                _ => Section::None,
+            };
             minimal |= line.split_whitespace().any(|part| part == "--minimal");
             dead_code |= line.split_whitespace().any(|part| part == "--dead-code");
             if let Some(path) = line.strip_prefix("--out ") {
@@ -66,14 +78,17 @@ fn parse_tool_request(metadata: &Metadata, source: &str) -> ToolRequest {
             }
             continue;
         }
-        if reading_filters {
-            include_tool_filter(metadata, &mut filter, line);
+        match section {
+            Section::None => {}
+            Section::Implement => implementations.push(line.to_string()),
+            Section::Filter => include_tool_filter(metadata, &mut filter, line),
         }
     }
 
     ToolRequest {
         output: output.unwrap(),
         filter,
+        implementations,
         minimal,
         dead_code,
     }
@@ -216,6 +231,68 @@ fn normalize_existing_output(tokens: TokenStream) -> String {
             "Err (err) => err . into () , }",
         )
         .replace(" + Send + 'static", " + 'static")
+}
+
+fn normalize_minimal_delegate_constructors(tokens: TokenStream) -> String {
+    let mut output = normalize_existing_output(tokens);
+    let mut search = 0;
+    while let Some(relative) = output[search..].find("let handler") {
+        let start = search + relative;
+        let mut depth = 0;
+        let mut end = None;
+        for (offset, character) in output[start..].char_indices() {
+            match character {
+                '{' => depth += 1,
+                '}' => depth -= 1,
+                ';' if depth == 0 => {
+                    end = Some(start + offset + 1);
+                    break;
+                }
+                _ => {}
+            }
+        }
+        let end = end.unwrap();
+        output.replace_range(start..end, "let handler = HANDLER;");
+        search = start + "let handler = HANDLER;".len();
+    }
+
+    let mut search = 0;
+    while let Some(relative) = output[search..].find("pub fn new") {
+        let method = search + relative;
+        let Some(open) = output[..method].rfind('{') else {
+            break;
+        };
+        let Some(start) = output[..open].rfind("impl ") else {
+            break;
+        };
+        let mut depth = 0;
+        let mut end = None;
+        for (offset, character) in output[open..].char_indices() {
+            match character {
+                '{' => depth += 1,
+                '}' => {
+                    depth -= 1;
+                    if depth == 0 {
+                        end = Some(open + offset + 1);
+                        break;
+                    }
+                }
+                _ => {}
+            }
+        }
+        let end = end.unwrap();
+        if output[start..end].contains("DelegateBox") {
+            output.replace_range(start..end, "");
+            search = start;
+        } else {
+            search = method + "pub fn new".len();
+        }
+    }
+    output
+        .replace(">, } ;", "> } ;")
+        .split_whitespace()
+        .collect::<Vec<_>>()
+        .join(" ")
 }
 
 #[test]
@@ -562,6 +639,7 @@ fn winrt_interface_corpus_lowers_and_renders() {
                     Layout::Modules,
                     projection,
                     &MemberSelection::All,
+                    None,
                 )?;
             }
             Ok(())
@@ -919,6 +997,57 @@ fn member_filters_retain_the_vtable_prefix() {
 }
 
 #[test]
+fn explicit_implementations_control_minimal_vtables() {
+    let metadata = fixture_metadata(
+        r#"
+            #[winrt]
+            mod Test {
+                struct Value {
+                    value: i32,
+                }
+                interface Interface {
+                    fn First(&self) -> Value;
+                    fn Second(&self) -> i32;
+                }
+            }
+        "#,
+    );
+    let mut filter = Filter::new();
+    filter.include_method("Test", "Interface", "Second");
+    let output = metadata
+        .generator(
+            Request::filtered(filter)
+                .implementations(Filter::new())
+                .projection(Projection::Minimal),
+        )
+        .unwrap()
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap()
+        .to_string();
+    assert!(!output.contains("pub struct Value"));
+    assert!(!output.contains("Interface_Impl"));
+    assert!(output.contains("First : usize"));
+    assert!(output.contains("pub Second : unsafe extern \"system\" fn"));
+
+    let mut filter = Filter::new();
+    filter.include_item("Test", "Interface");
+    let mut implementations = Filter::new();
+    implementations.include_item("Test", "Interface");
+    let output = metadata
+        .generator(
+            Request::filtered(filter)
+                .implementations(implementations)
+                .projection(Projection::Minimal),
+        )
+        .unwrap()
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap()
+        .to_string();
+    assert!(output.contains("pub trait Interface_Impl"));
+    assert!(output.contains("pub struct Value"));
+}
+
+#[test]
 fn class_member_filters_route_static_methods() {
     let metadata = fixture_metadata(include_str!(
         "../../../tests/libs/bindgen/input/class_static.rdl"
@@ -995,7 +1124,12 @@ fn winrt_class_corpus_lowers_and_renders() {
             .shared
             .interface_relationships
             .get(&entry.entity)
-            .and_then(|relationships| relationships.iter().find(|item| item.default));
+            .and_then(|relationships| {
+                relationships
+                    .iter()
+                    .filter_map(|relationship| relationship.resolve().ok())
+                    .find(|item| item.default)
+            });
         no_default += usize::from(default.is_none());
         if let Some(default) = default {
             let name = generator
@@ -2306,5 +2440,69 @@ fn tool_bindings_collections_request_matches_committed_output() {
     assert_eq!(
         normalize_existing_output(actual),
         normalize_existing_output(expected)
+    );
+}
+
+#[test]
+fn tool_webview_reactor_request_matches_committed_output() {
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../..");
+    let mut paths = std::fs::read_dir(root.join("crates/tools/reactor/winmd"))
+        .unwrap()
+        .map(|entry| entry.unwrap().path())
+        .filter(|path| {
+            path.extension()
+                .is_some_and(|extension| extension == "winmd")
+        })
+        .collect::<Vec<_>>();
+    paths.sort();
+    let bytes = paths
+        .iter()
+        .map(|path| std::fs::read(path).unwrap())
+        .collect::<Vec<_>>();
+    let images = paths
+        .iter()
+        .zip(bytes)
+        .map(|(path, bytes)| {
+            Image::new(bytes).unwrap_or_else(|error| panic!("{}: {error}", path.display()))
+        })
+        .chain([
+            Image::new(windows_default::WINRT).unwrap(),
+            Image::new(windows_default::WIN32).unwrap(),
+        ]);
+    let metadata = Metadata::from_images(images).unwrap();
+    let request = parse_tool_request(
+        &metadata,
+        &std::fs::read_to_string(root.join("crates/tools/webview/src/reactor.txt")).unwrap(),
+    );
+    assert!(request.minimal);
+    assert!(!request.dead_code);
+    assert_eq!(
+        request.implementations,
+        [
+            "Windows.Foundation.TypedEventHandler",
+            "Microsoft.UI.Xaml.RoutedEventHandler",
+        ]
+    );
+    let mut implementations = Filter::new();
+    for name in &request.implementations {
+        let (namespace, name) = name.rsplit_once('.').unwrap();
+        implementations.include_item(namespace, name);
+    }
+    let actual = metadata
+        .generator(
+            Request::filtered(request.filter)
+                .implementations(implementations)
+                .projection(Projection::Minimal),
+        )
+        .unwrap()
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap();
+    let expected: TokenStream = std::fs::read_to_string(root.join(request.output))
+        .unwrap()
+        .parse()
+        .unwrap();
+    assert_eq!(
+        normalize_minimal_delegate_constructors(actual),
+        normalize_minimal_delegate_constructors(expected)
     );
 }

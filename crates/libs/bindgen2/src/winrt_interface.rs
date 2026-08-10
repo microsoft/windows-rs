@@ -100,7 +100,7 @@ impl Interface {
     pub(super) fn lower(
         database: &Database,
         definition: TypeDefinition<'_>,
-        interface_bases: &BTreeMap<Entity<TypeDef>, Vec<InterfaceBase>>,
+        interface_bases: &BTreeMap<Entity<TypeDef>, Vec<InterfaceRelationship>>,
         owner: &str,
     ) -> Result<Self, Error> {
         let name = trim_generic_arity(definition.name()?).to_string();
@@ -152,7 +152,7 @@ impl Interface {
 
     fn lower_required(
         database: &Database,
-        interface_bases: &BTreeMap<Entity<TypeDef>, Vec<InterfaceBase>>,
+        interface_bases: &BTreeMap<Entity<TypeDef>, Vec<InterfaceRelationship>>,
         entity: Entity<TypeDef>,
         owner_arguments: &[ty::Type],
         owner: &str,
@@ -162,7 +162,8 @@ impl Interface {
         let Some(bases) = interface_bases.get(&entity) else {
             return Ok(());
         };
-        for base in bases {
+        for relationship in bases {
+            let base = relationship.resolve()?;
             let arguments = base
                 .arguments
                 .iter()
@@ -205,9 +206,21 @@ impl Interface {
         Ok(())
     }
 
-    pub(super) fn dependencies(&self, members: &MemberSelection) -> BTreeSet<(String, String)> {
+    pub(super) fn dependencies(
+        &self,
+        members: &MemberSelection,
+        retain_abi_prefix: bool,
+    ) -> BTreeSet<(String, String)> {
         let mut dependencies = BTreeSet::new();
-        for method in self.abi_methods(members) {
+        let methods = if retain_abi_prefix {
+            self.abi_methods(members).collect::<Vec<_>>()
+        } else {
+            self.methods
+                .iter()
+                .filter(|method| method.selected(members))
+                .collect()
+        };
+        for method in methods {
             dependencies.extend(method.method.dependencies());
         }
         dependencies.extend(
@@ -279,6 +292,7 @@ impl Interface {
         layout: Layout,
         projection: Projection,
         members: &MemberSelection,
+        implementation: Option<bool>,
     ) -> Result<TokenStream, Error> {
         let name = tokens::ident(&self.name);
         let vtbl_name = tokens::ident(&format!("{}_Vtbl", self.name));
@@ -403,8 +417,14 @@ impl Interface {
             }
         });
         if self.exclusive {
-            let vtable =
-                self.write_vtable_struct(values, namespace, layout, &vtbl_name, members)?;
+            let vtable = self.write_vtable_struct(
+                values,
+                namespace,
+                layout,
+                &vtbl_name,
+                members,
+                projection.is_minimal() && implementation == Some(false),
+            )?;
             let methods = (projection.is_minimal() && !methods.is_empty()).then(
                 || quote! { impl #constrained_generics #name #type_arguments { #(#methods)* } },
             );
@@ -517,17 +537,25 @@ impl Interface {
                 )
             })
             .collect::<Result<Vec<_>, Error>>()?;
-        let implementation = if members.emits_implementation(projection) {
-            let vtable = self.write_vtable(values, namespace, layout, members)?;
-            quote! {
-                pub trait #impl_name #type_arguments: #trait_bases #generic_where {
-                    #(#impl_methods)*
+        let implementation =
+            if implementation.unwrap_or_else(|| members.emits_implementation(projection)) {
+                let vtable = self.write_vtable(values, namespace, layout, members)?;
+                quote! {
+                    pub trait #impl_name #type_arguments: #trait_bases #generic_where {
+                        #(#impl_methods)*
+                    }
+                    #vtable
                 }
-                #vtable
-            }
-        } else {
-            self.write_vtable_struct(values, namespace, layout, &vtbl_name, members)?
-        };
+            } else {
+                self.write_vtable_struct(
+                    values,
+                    namespace,
+                    layout,
+                    &vtbl_name,
+                    members,
+                    projection.is_minimal() && implementation == Some(false),
+                )?
+            };
         let methods_impl = (!methods.is_empty() || !inherited_methods.is_empty()).then(|| {
             quote! {
                 impl #constrained_generics #name #type_arguments {
@@ -617,7 +645,8 @@ impl Interface {
         let phantom_values = generic_names
             .iter()
             .map(|name| quote! { #name: core::marker::PhantomData::<#name>, });
-        let vtable = self.write_vtable_struct(values, namespace, layout, &vtbl_name, members)?;
+        let vtable =
+            self.write_vtable_struct(values, namespace, layout, &vtbl_name, members, false)?;
         Ok(quote! {
             impl #constrained_generics #vtbl_name #type_arguments {
                 pub const fn new<
@@ -650,6 +679,7 @@ impl Interface {
         layout: Layout,
         vtbl_name: &TokenStream,
         members: &MemberSelection,
+        placeholder_prefix: bool,
     ) -> Result<TokenStream, Error> {
         let generic_names = self
             .generics
@@ -674,6 +704,9 @@ impl Interface {
             .abi_methods(members)
             .map(|method| {
                 let name = tokens::ident(&method.name);
+                if placeholder_prefix && !method.selected(members) {
+                    return Ok(quote! { #name: usize, });
+                }
                 let signature =
                     method
                         .method

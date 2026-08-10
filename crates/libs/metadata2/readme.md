@@ -22,9 +22,10 @@ declaration/definition sequence so forward references are stable while field-lis
 ordered. Builder callbacks may return consumer-defined errors while metadata2 still rolls back
 partial fields and constants. Shared type and field attribute wrappers remove raw ECMA flag masks
 from consumers. Deduplicated assembly references and scope-aware type references support external
-value fields. Database resolution filters candidates by file or assembly scope without another
-type-name index. The writer is a proof for `windows-rdl2`, not yet a general metadata construction
-API.
+value fields. Database resolution prefers file or assembly scope without another type-name index.
+Assembly references fall back to exact-name candidates when the requested assembly contributes no
+definition, which supports merged contract metadata. The writer is a proof for `windows-rdl2`,
+not yet a general metadata construction API.
 
 The reader exposes `NestedClass` as a streaming sequence of nested/enclosing semantic type pairs.
 It retains no reverse nested-type index; consumers that need repeated parent lookup own that map.

@@ -94,6 +94,8 @@ impl Projection {
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct Request {
     filter: Option<Filter>,
+    implementations: Option<Filter>,
+    projection: Projection,
 }
 
 impl Request {
@@ -106,7 +108,21 @@ impl Request {
     pub fn filtered(filter: Filter) -> Self {
         Self {
             filter: Some(filter),
+            implementations: None,
+            projection: Projection::Default,
         }
+    }
+
+    /// Selects interfaces that require implementation traits and typed ABI vtables.
+    pub fn implementations(mut self, filter: Filter) -> Self {
+        self.implementations = Some(filter);
+        self
+    }
+
+    #[cfg(test)]
+    fn projection(mut self, projection: Projection) -> Self {
+        self.projection = projection;
+        self
     }
 }
 
@@ -163,7 +179,60 @@ struct InterfaceBase {
     default: bool,
 }
 
-/// Owns a reusable validated metadata database.
+enum InterfaceRelationship {
+    Resolved(InterfaceBase),
+    Invalid {
+        owner: String,
+        message: &'static str,
+    },
+}
+
+impl InterfaceRelationship {
+    fn from_resolution(
+        resolution: TypeResolution<'_>,
+        file: FileId,
+        arguments: Vec<windows_metadata2::Type>,
+        default: bool,
+        owner: String,
+    ) -> Self {
+        let entity = match resolution {
+            TypeResolution::Definition(entity) => Some(entity),
+            TypeResolution::Candidates(candidates) => candidates.first(),
+            TypeResolution::Specification(_) => {
+                return Self::Invalid {
+                    owner,
+                    message: "required interface has a nested type specification",
+                };
+            }
+        };
+        entity.map_or(
+            Self::Invalid {
+                owner,
+                message: "required interface cannot be resolved",
+            },
+            |entity| {
+                Self::Resolved(InterfaceBase {
+                    file,
+                    entity,
+                    arguments,
+                    default,
+                })
+            },
+        )
+    }
+
+    fn resolve(&self) -> Result<&InterfaceBase, Error> {
+        match self {
+            Self::Resolved(base) => Ok(base),
+            Self::Invalid { owner, message } => Err(Error::InvalidType {
+                name: owner.clone(),
+                message,
+            }),
+        }
+    }
+}
+
+/// Owns reusable checked metadata and shared projection catalogs.
 pub struct Metadata {
     shared: Arc<Shared>,
 }
@@ -173,6 +242,7 @@ pub struct Generator {
     shared: Arc<Shared>,
     winrt: Vec<WinrtEntry>,
     winrt_members: BTreeMap<Entity<TypeDef>, MemberSelection>,
+    winrt_implementations: Option<BTreeSet<Entity<TypeDef>>>,
     win32: win32::Win32Selection,
 }
 
@@ -180,7 +250,7 @@ struct Shared {
     database: Database,
     winrt_entries: Vec<(String, String, WinrtEntry)>,
     values: Values,
-    interface_relationships: BTreeMap<Entity<TypeDef>, Vec<InterfaceBase>>,
+    interface_relationships: BTreeMap<Entity<TypeDef>, Vec<InterfaceRelationship>>,
     win32_catalogs: Arc<win32::Win32Catalogs>,
 }
 
@@ -217,14 +287,20 @@ impl Metadata {
 
     /// Creates an independent generation request sharing this metadata.
     pub fn generator(&self, request: Request) -> Result<Generator, Error> {
-        Generator::from_shared(self.shared.clone(), request.filter.as_ref())
+        Generator::from_shared(self.shared.clone(), &request)
     }
 }
 
 impl Generator {
-    fn from_shared(shared: Arc<Shared>, filter: Option<&Filter>) -> Result<Self, Error> {
+    fn from_shared(shared: Arc<Shared>, request: &Request) -> Result<Self, Error> {
+        let filter = request.filter.as_ref();
         let (winrt, winrt_members) = if let Some(filter) = filter {
-            Self::close_winrt(&shared, filter)?
+            Self::close_winrt(
+                &shared,
+                filter,
+                request.implementations.as_ref(),
+                request.projection,
+            )?
         } else {
             (
                 shared
@@ -240,11 +316,26 @@ impl Generator {
             shared.win32_catalogs.clone(),
             filter,
         )?;
+        let winrt_implementations = request.implementations.as_ref().map(|implementations| {
+            winrt
+                .iter()
+                .filter_map(|entry| {
+                    let definition = shared.database.definition(entry.entity).unwrap();
+                    implementations
+                        .includes(
+                            definition.namespace().unwrap(),
+                            trim_generic_arity(definition.name().unwrap()),
+                        )
+                        .then_some(entry.entity)
+                })
+                .collect()
+        });
 
         Ok(Self {
             shared,
             winrt,
             winrt_members,
+            winrt_implementations,
             win32,
         })
     }
@@ -252,6 +343,8 @@ impl Generator {
     fn close_winrt(
         shared: &Shared,
         filter: &Filter,
+        implementations: Option<&Filter>,
+        projection: Projection,
     ) -> Result<(Vec<WinrtEntry>, BTreeMap<Entity<TypeDef>, MemberSelection>), Error> {
         let mut catalog = BTreeMap::<(&str, &str), Vec<WinrtEntry>>::new();
         let mut selected = BTreeMap::<Entity<TypeDef>, MemberSelection>::new();
@@ -277,7 +370,25 @@ impl Generator {
             let definition = shared.database.definition(entry.entity).unwrap();
             let namespace = definition.namespace()?;
             let name = definition.name()?;
-            let members = selected.get(&entry.entity).unwrap().clone();
+            let mut members = selected.get(&entry.entity).unwrap().clone();
+            let implemented = implementations.is_some_and(|implementations| {
+                implementations.includes(namespace, trim_generic_arity(name))
+            });
+            if implemented {
+                match members {
+                    MemberSelection::Names(_) => {
+                        return Err(Error::InvalidType {
+                            name: format!("{namespace}.{name}"),
+                            message: "implemented interface has a member filter",
+                        });
+                    }
+                    MemberSelection::Shell => {
+                        members = MemberSelection::All;
+                        selected.insert(entry.entity, members.clone());
+                    }
+                    MemberSelection::All => {}
+                }
+            }
             let (dependencies, relationship_members) = match entry.kind {
                 WinrtKind::Struct => {
                     let Some(Value::Struct(model)) = shared.values.get(namespace, name) else {
@@ -301,7 +412,7 @@ impl Generator {
                         &format!("{namespace}.{name}"),
                     )?;
                     (
-                        model.dependencies(&members),
+                        model.dependencies(&members, implementations.is_none() || implemented),
                         model.relationship_members(&members),
                     )
                 }
@@ -320,6 +431,9 @@ impl Generator {
                 WinrtKind::Enum => continue,
             };
             for (namespace, name) in dependencies {
+                if projection.is_minimal() && is_external_minimal_type(&namespace, &name) {
+                    continue;
+                }
                 if let Some(entries) = catalog.get(&(namespace.as_str(), name.as_str())) {
                     for entry in entries {
                         let members = match entry.kind {
@@ -358,6 +472,12 @@ impl Generator {
             .unwrap_or(&MemberSelection::All)
     }
 
+    fn implements(&self, entity: Entity<TypeDef>) -> Option<bool> {
+        self.winrt_implementations
+            .as_ref()
+            .map(|implementations| implementations.contains(&entity))
+    }
+
     /// Iterates projected values in deterministic namespace/name/entity order.
     fn values(&self) -> impl Iterator<Item = ValueItem<'_>> {
         self.winrt
@@ -371,8 +491,20 @@ impl Generator {
     }
 }
 
+fn is_external_minimal_type(namespace: &str, name: &str) -> bool {
+    namespace == "Windows.Foundation"
+        && matches!(
+            name,
+            "IAsyncAction"
+                | "IAsyncActionWithProgress"
+                | "IAsyncOperation"
+                | "IAsyncOperationWithProgress"
+        )
+}
+
 fn winrt_entries(database: &Database) -> Result<Vec<(String, String, WinrtEntry)>, Error> {
     let mut entries = Vec::new();
+    let mut selected = BTreeSet::new();
     for definition in database.definitions() {
         if !definition.is_windows_runtime()? {
             continue;
@@ -390,7 +522,11 @@ fn winrt_entries(database: &Database) -> Result<Vec<(String, String, WinrtEntry)
             TypeCategory::Class => WinrtKind::Class,
             _ => continue,
         };
+        let namespace = definition.namespace()?;
         let name = definition.name()?;
+        if !selected.insert((namespace.to_string(), name.to_string())) {
+            continue;
+        }
         let name = if matches!(
             kind,
             WinrtKind::Delegate | WinrtKind::Interface | WinrtKind::Class
@@ -400,7 +536,7 @@ fn winrt_entries(database: &Database) -> Result<Vec<(String, String, WinrtEntry)
             name
         };
         entries.push((
-            definition.namespace()?.to_string(),
+            namespace.to_string(),
             name.to_string(),
             WinrtEntry {
                 entity: definition.entity(),
@@ -417,63 +553,45 @@ fn winrt_entries(database: &Database) -> Result<Vec<(String, String, WinrtEntry)
 
 fn interface_relationships(
     database: &Database,
-) -> Result<BTreeMap<Entity<TypeDef>, Vec<InterfaceBase>>, Error> {
-    let mut result = BTreeMap::<Entity<TypeDef>, Vec<InterfaceBase>>::new();
+) -> Result<BTreeMap<Entity<TypeDef>, Vec<InterfaceRelationship>>, Error> {
+    let mut result = BTreeMap::<Entity<TypeDef>, Vec<InterfaceRelationship>>::new();
     for relationship in database.interface_relationships() {
         let owner = relationship.owner()?;
         let identity = relationship.interface()?;
         let default = relationship.has_attribute("DefaultAttribute")?;
         let owner_name = format!("{}.{}", owner.namespace()?, owner.name()?);
-        let base = match database.resolve_type(identity.file, identity.ty)? {
-            TypeResolution::Definition(entity) => Some(InterfaceBase {
-                file: identity.file,
-                entity,
-                arguments: Vec::new(),
-                default,
-            }),
-            TypeResolution::Candidates(candidates) => {
-                candidates.first().map(|entity| InterfaceBase {
-                    file: identity.file,
-                    entity,
-                    arguments: Vec::new(),
-                    default,
-                })
-            }
+        let relationship = match database.resolve_type(identity.file, identity.ty)? {
             TypeResolution::Specification(entity) => {
                 let row = database.view(entity).unwrap();
                 let signature = database
                     .image(entity.file())
                     .unwrap()
                     .type_signature(row.blob_id(0)?)?;
-                let TypeKind::GenericInstance { ty, arguments, .. } = signature.kind else {
-                    return Err(Error::InvalidType {
-                        name: owner_name,
-                        message: "required interface specification is not generic",
-                    });
-                };
-                let entity = match database.resolve_type(identity.file, ty)? {
-                    TypeResolution::Definition(entity) => Some(entity),
-                    TypeResolution::Candidates(candidates) => candidates.first(),
-                    TypeResolution::Specification(_) => {
-                        return Err(Error::InvalidType {
-                            name: owner_name,
-                            message: "required interface has a nested type specification",
-                        });
+                match signature.kind {
+                    TypeKind::GenericInstance { ty, arguments, .. } => {
+                        InterfaceRelationship::from_resolution(
+                            database.resolve_type(identity.file, ty)?,
+                            identity.file,
+                            arguments,
+                            default,
+                            owner_name,
+                        )
                     }
-                };
-                entity.map(|entity| InterfaceBase {
-                    file: identity.file,
-                    entity,
-                    arguments,
-                    default,
-                })
+                    _ => InterfaceRelationship::Invalid {
+                        owner: owner_name,
+                        message: "required interface specification is not generic",
+                    },
+                }
             }
+            resolution => InterfaceRelationship::from_resolution(
+                resolution,
+                identity.file,
+                Vec::new(),
+                default,
+                owner_name,
+            ),
         };
-        let base = base.ok_or(Error::InvalidType {
-            name: owner_name,
-            message: "required interface cannot be resolved",
-        })?;
-        result.entry(owner.entity()).or_default().push(base);
+        result.entry(owner.entity()).or_default().push(relationship);
     }
     Ok(result)
 }

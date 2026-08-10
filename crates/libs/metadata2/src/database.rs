@@ -125,6 +125,13 @@ impl<'a> TypeCandidates<'a> {
 
     /// Iterates definitions matching the resolution scope.
     pub fn iter(self) -> impl Iterator<Item = Entity<tables::TypeDef>> + 'a {
+        let assembly_match = match self.scope {
+            CandidateScope::Assembly(name) => self
+                .definitions
+                .iter()
+                .any(|definition| self.database.assembly_name(definition.file()) == Some(name)),
+            _ => false,
+        };
         self.definitions
             .iter()
             .copied()
@@ -132,7 +139,7 @@ impl<'a> TypeCandidates<'a> {
                 CandidateScope::Any => true,
                 CandidateScope::File(file) => definition.file() == file,
                 CandidateScope::Assembly(name) => {
-                    self.database.assembly_name(definition.file()) == Some(name)
+                    !assembly_match || self.database.assembly_name(definition.file()) == Some(name)
                 }
             })
     }

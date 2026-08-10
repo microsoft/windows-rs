@@ -72,8 +72,7 @@ impl Type {
                 arguments,
                 ..
             } => {
-                if arguments.is_empty()
-                    && !(namespace == "System" && name == "Guid")
+                if !(namespace == "System" && name == "Guid")
                     && !(namespace == "Windows.Foundation"
                         && (name == "HResult" || name == "EventRegistrationToken"))
                 {
@@ -455,6 +454,7 @@ impl Type {
                 let name = tokens::ident(name);
                 quote! { #name }
             }
+
             Self::Vector(element) => element.write_name(namespace, layout, generics)?,
             Self::Named {
                 value_type: true,
@@ -506,6 +506,47 @@ impl Type {
             }
             _ => self.write(namespace, layout)?,
         })
+    }
+
+    pub(super) fn write_minimal_name(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        generics: &[String],
+    ) -> Result<proc_macro2::TokenStream, Error> {
+        use quote::quote;
+
+        if let Self::Named {
+            namespace: target,
+            name,
+            arguments,
+            ..
+        } = self
+            && is_external_minimal_type(target, name)
+        {
+            let name = tokens::ident(name);
+            let arguments = arguments
+                .iter()
+                .map(|argument| argument.write_name(namespace, layout, generics))
+                .collect::<Result<Vec<_>, _>>()?;
+            return Ok(if arguments.is_empty() {
+                quote! { windows_future::#name }
+            } else {
+                quote! { windows_future::#name<#(#arguments),*> }
+            });
+        }
+        self.write_name(namespace, layout, generics)
+    }
+
+    pub(super) fn is_external_minimal(&self) -> bool {
+        matches!(
+            self,
+            Self::Named {
+                namespace,
+                name,
+                ..
+            } if is_external_minimal_type(namespace, name)
+        )
     }
 
     pub(super) fn write_default(
