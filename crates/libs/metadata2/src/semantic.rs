@@ -156,30 +156,12 @@ impl<'a> TypeDefinition<'a> {
     pub fn attributes(
         self,
     ) -> Result<impl ExactSizeIterator<Item = AttributeDefinition<'a>>, Error> {
-        let encoded = CodedIndex::HasCustomAttribute
-            .encode(TableId::TypeDef, self.entity.row().number())
-            .ok_or_else(|| Error::invalid_metadata("TypeDef cannot own custom attributes"))?;
-        let file = self.entity.file();
-        let image = self
-            .database
-            .image(file)
-            .ok_or_else(|| Error::invalid_metadata("invalid file identity"))?;
-        Ok(image
-            .matching_rows::<tables::CustomAttribute>(0, encoded)?
-            .map(move |row| AttributeDefinition {
-                database: self.database,
-                entity: Entity::new(file, row),
-            }))
+        custom_attributes(self.database, self.entity)
     }
 
     /// Returns the first custom attribute with the given type name.
     pub fn find_attribute(self, name: &str) -> Result<Option<AttributeDefinition<'a>>, Error> {
-        for attribute in self.attributes()? {
-            if attribute.name()? == Some(name) {
-                return Ok(Some(attribute));
-            }
-        }
-        Ok(None)
+        find_custom_attribute(self.attributes()?, name)
     }
 
     /// Returns whether a custom attribute with the given type name is present.
@@ -266,30 +248,12 @@ impl<'a> FieldDefinition<'a> {
     pub fn attributes(
         self,
     ) -> Result<impl ExactSizeIterator<Item = AttributeDefinition<'a>>, Error> {
-        let encoded = CodedIndex::HasCustomAttribute
-            .encode(TableId::Field, self.entity.row().number())
-            .ok_or_else(|| Error::invalid_metadata("Field cannot own custom attributes"))?;
-        let file = self.entity.file();
-        let image = self
-            .database
-            .image(file)
-            .ok_or_else(|| Error::invalid_metadata("invalid file identity"))?;
-        Ok(image
-            .matching_rows::<tables::CustomAttribute>(0, encoded)?
-            .map(move |row| AttributeDefinition {
-                database: self.database,
-                entity: Entity::new(file, row),
-            }))
+        custom_attributes(self.database, self.entity)
     }
 
     /// Returns the first custom attribute with the given type name.
     pub fn find_attribute(self, name: &str) -> Result<Option<AttributeDefinition<'a>>, Error> {
-        for attribute in self.attributes()? {
-            if attribute.name()? == Some(name) {
-                return Ok(Some(attribute));
-            }
-        }
-        Ok(None)
+        find_custom_attribute(self.attributes()?, name)
     }
 
     /// Returns the SupportedArchitectureAttribute bit mask, or zero when absent.
@@ -607,30 +571,12 @@ impl<'a> MethodDefinition<'a> {
     pub fn attributes(
         self,
     ) -> Result<impl ExactSizeIterator<Item = AttributeDefinition<'a>>, Error> {
-        let encoded = CodedIndex::HasCustomAttribute
-            .encode(TableId::MethodDef, self.entity.row().number())
-            .ok_or_else(|| Error::invalid_metadata("MethodDef cannot own custom attributes"))?;
-        let file = self.entity.file();
-        let image = self
-            .database
-            .image(file)
-            .ok_or_else(|| Error::invalid_metadata("invalid file identity"))?;
-        Ok(image
-            .matching_rows::<tables::CustomAttribute>(0, encoded)?
-            .map(move |row| AttributeDefinition {
-                database: self.database,
-                entity: Entity::new(file, row),
-            }))
+        custom_attributes(self.database, self.entity)
     }
 
     /// Returns the first custom attribute with the given type name.
     pub fn find_attribute(self, name: &str) -> Result<Option<AttributeDefinition<'a>>, Error> {
-        for attribute in self.attributes()? {
-            if attribute.name()? == Some(name) {
-                return Ok(Some(attribute));
-            }
-        }
-        Ok(None)
+        find_custom_attribute(self.attributes()?, name)
     }
 
     /// Returns the SupportedArchitectureAttribute bit mask, or zero when absent.
@@ -719,6 +665,37 @@ impl<'a> MethodDefinition<'a> {
             .view(self.entity)
             .ok_or_else(|| Error::invalid_metadata("invalid method identity"))
     }
+}
+
+fn custom_attributes<'a, T: Table>(
+    database: &'a Database,
+    entity: Entity<T>,
+) -> Result<impl ExactSizeIterator<Item = AttributeDefinition<'a>>, Error> {
+    let encoded = CodedIndex::HasCustomAttribute
+        .encode(T::ID, entity.row().number())
+        .ok_or_else(|| Error::invalid_metadata("row cannot own custom attributes"))?;
+    let file = entity.file();
+    let image = database
+        .image(file)
+        .ok_or_else(|| Error::invalid_metadata("invalid file identity"))?;
+    Ok(image
+        .matching_rows::<tables::CustomAttribute>(0, encoded)?
+        .map(move |row| AttributeDefinition {
+            database,
+            entity: Entity::new(file, row),
+        }))
+}
+
+fn find_custom_attribute<'a>(
+    attributes: impl IntoIterator<Item = AttributeDefinition<'a>>,
+    name: &str,
+) -> Result<Option<AttributeDefinition<'a>>, Error> {
+    for attribute in attributes {
+        if attribute.name()? == Some(name) {
+            return Ok(Some(attribute));
+        }
+    }
+    Ok(None)
 }
 
 fn architecture_bits(attribute: Option<AttributeDefinition<'_>>) -> Result<i32, Error> {

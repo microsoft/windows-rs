@@ -148,6 +148,9 @@ Architecture projection added no new index or owner abstraction. TypeDef, Field,
 views expose their existing custom-attribute relationship and call one shared decoder for
 `SupportedArchitectureAttribute`.
 
+Those three owners also share one private typed custom-attribute row scan. This removes duplicated
+coded-index logic without adding a public owner trait or retaining another relationship index.
+
 ## Consumer overlap review
 
 The first bindgen2/RDL2 comparison separates missing metadata support from valid consumer policy:

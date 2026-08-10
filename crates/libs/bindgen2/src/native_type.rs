@@ -52,17 +52,18 @@ impl NativeType {
         definition: TypeDefinition<'_>,
         nested: &BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
     ) -> Result<Self, Error> {
+        let namespace = definition.namespace()?.to_string();
         let name = definition.name()?.to_string();
-        Self::lower_named(database, definition, nested, name)
+        Self::lower_named(database, definition, nested, &namespace, name)
     }
 
     fn lower_named(
         database: &Database,
         definition: TypeDefinition<'_>,
         nested: &BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
+        namespace: &str,
         name: String,
     ) -> Result<Self, Error> {
-        let namespace = definition.namespace()?.to_string();
         let full_name = format!("{namespace}.{name}");
         let architectures = definition.architectures()?;
         match definition.category()? {
@@ -97,7 +98,7 @@ impl NativeType {
                 Ok(Self {
                     architectures,
                     kind: Kind::Enum(Enum {
-                        namespace,
+                        namespace: namespace.to_string(),
                         name,
                         ty: ty.ok_or(Error::InvalidValue {
                             name: full_name,
@@ -147,6 +148,7 @@ impl NativeType {
                             database,
                             database.definition(entity).unwrap(),
                             nested,
+                            namespace,
                             projected,
                         )
                     })
@@ -165,7 +167,7 @@ impl NativeType {
                     return Ok(Self {
                         architectures,
                         kind: Kind::Alias(Alias {
-                            namespace,
+                            namespace: namespace.to_string(),
                             name,
                             ty,
                         }),
@@ -193,7 +195,7 @@ impl NativeType {
                 Ok(Self {
                     architectures,
                     kind: Kind::Struct(Struct {
-                        namespace,
+                        namespace: namespace.to_string(),
                         name,
                         fields,
                         nested,

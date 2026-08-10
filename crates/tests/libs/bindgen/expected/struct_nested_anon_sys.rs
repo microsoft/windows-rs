@@ -72,6 +72,16 @@ impl Default for DeepNest_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
+pub struct NamedNest {
+    pub Anonymous: NamedNest_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct NamedNest_0 {
+    pub point: Point,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
 pub struct OrderNest {
     pub Zed: OrderNest_0,
     pub Alpha: OrderNest_1,
@@ -110,6 +120,12 @@ pub struct PackedNest {
 pub struct PackedNest_0 {
     pub b: i32,
     pub c: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct Point {
+    pub x: i32,
+    pub y: i32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

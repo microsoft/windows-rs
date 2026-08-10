@@ -1,6 +1,10 @@
 //! --filter Test --flat --sys
 #[win32]
 mod Test {
+    struct Point {
+        x: i32,
+        y: i32,
+    }
     #[arch(X64)]
     struct ArchNest {
         flags: u32,
@@ -40,6 +44,11 @@ mod Test {
         },
         Alpha: struct {
             value: u16,
+        },
+    }
+    struct NamedNest {
+        Anonymous: struct {
+            point: Point,
         },
     }
     #[packed(1)]

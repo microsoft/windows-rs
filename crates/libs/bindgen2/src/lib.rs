@@ -414,7 +414,7 @@ mod tests {
             "../../../tests/libs/bindgen/input/struct_nested_anon_sys.rdl"
         ));
         let items = generator.win32_items().unwrap();
-        assert_eq!(items.nested_type_count(), 9);
+        assert_eq!(items.nested_type_count(), 10);
         let types = items.native_types().collect::<Result<Vec<_>, _>>().unwrap();
         let types = types.iter().map(NativeType::write_sys);
         let actual = quote! { #(#types)* };
@@ -423,6 +423,11 @@ mod tests {
                 .parse()
                 .unwrap();
         assert_eq!(actual.to_string(), expected.to_string());
+        let expected = quote! { pub mod Test { #expected } };
+        assert_eq!(
+            generator.write_modules().unwrap().to_string(),
+            expected.to_string()
+        );
     }
 
     #[test]

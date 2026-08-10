@@ -99,13 +99,16 @@ All 2,633 nested rows are native struct-to-struct relationships. Metadata2 expos
 streaming semantic pair iterator. Bindgen2 builds one parent-to-children map because recursive
 lowering needs repeated lookup. It preserves relationship-table order, recursively assigns
 positional names such as `Outer_0_0`, and substitutes empty-namespace field references only from a
-borrowed list for the current enclosing definition. Nested types are not added to the top-level
-name index and there is no second native type graph.
+borrowed list for the current enclosing definition. Nested rows inherit the enclosing projection
+namespace rather than their empty metadata namespace, so references to sibling top-level types
+remain local to the emitted module. Nested types are not added to the top-level name index and
+there is no second native type graph.
 
 Nested rendering is complete for the selected native struct surface. A true `NestedClass` fixture
 matches the existing generator for multiple direct children, deep struct/union nesting, packing,
-and inherited architecture gates. Explicit layout propagates through the owned nested subtree for
-`Default` policy, so structs containing nested unions use gated manual implementations.
+named types in the enclosing namespace, and inherited architecture gates. Explicit layout
+propagates through the owned nested subtree for `Default` policy, so structs containing nested
+unions use gated manual implementations.
 
 Architecture gating is now complete for the selected surface:
 
