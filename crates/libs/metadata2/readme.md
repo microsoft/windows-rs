@@ -21,5 +21,7 @@ constants with primitive and named field signatures. It uses typed build identit
 declaration/definition sequence so forward references are stable while field-list ranges remain
 ordered. Builder callbacks may return consumer-defined errors while metadata2 still rolls back
 partial fields and constants. Shared type and field attribute wrappers remove raw ECMA flag masks
-from consumers. The writer is a proof for `windows-rdl2`, not yet a general metadata construction
+from consumers. Deduplicated assembly references and scope-aware type references support external
+value fields. Database resolution filters candidates by file or assembly scope without another
+type-name index. The writer is a proof for `windows-rdl2`, not yet a general metadata construction
 API.

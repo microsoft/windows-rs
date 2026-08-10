@@ -3,7 +3,7 @@
 use std::collections::BTreeMap;
 use windows_metadata2::{
     BuildError, BuildType, BuildTypeIdentity, ConstantValue, FieldAttributes, MetadataBuilder,
-    TypeAttributes, TypeDefinitionId,
+    TypeAttributes, TypeDefinitionId, TypeReferenceId,
 };
 
 mod error;
@@ -44,13 +44,34 @@ pub struct Field {
 /// A source type supported by the first authoring checkpoints.
 pub enum Type {
     Primitive(Primitive),
-    Named { namespace: String, name: String },
+    Named {
+        namespace: String,
+        name: String,
+    },
+    External {
+        assembly: String,
+        namespace: String,
+        name: String,
+    },
 }
 
 impl Type {
     /// Creates a named value type reference.
     pub fn named(namespace: impl Into<String>, name: impl Into<String>) -> Self {
         Self::Named {
+            namespace: namespace.into(),
+            name: name.into(),
+        }
+    }
+
+    /// Creates a named value type reference in another assembly.
+    pub fn external(
+        assembly: impl Into<String>,
+        namespace: impl Into<String>,
+        name: impl Into<String>,
+    ) -> Self {
+        Self::External {
+            assembly: assembly.into(),
             namespace: namespace.into(),
             name: name.into(),
         }
@@ -117,16 +138,16 @@ impl Document {
     /// Emits a PE/CLI metadata image.
     pub fn compile(&self) -> Result<Vec<u8>, Error> {
         let mut output = MetadataBuilder::new(&self.assembly);
-        let mut identities = BTreeMap::<String, BTreeMap<String, TypeDefinitionId>>::new();
+        let mut identities = BTreeMap::<&str, BTreeMap<&str, TypeDefinitionId>>::new();
         let mut declared = Vec::new();
         for module in &self.modules {
             let mut module_ids = Vec::new();
             for definition in &module.definitions {
                 let id = module.declare(definition, &mut output)?;
                 if identities
-                    .entry(module.namespace.clone())
+                    .entry(&module.namespace)
                     .or_default()
-                    .insert(definition.name().to_string(), id)
+                    .insert(definition.name(), id)
                     .is_some()
                 {
                     return Err(Error::DuplicateType {
@@ -138,9 +159,30 @@ impl Document {
             }
             declared.push(module_ids);
         }
+        let mut references = BTreeMap::<(&str, &str, &str), TypeReferenceId>::new();
+        for module in &self.modules {
+            for definition in &module.definitions {
+                if let Definition::Struct { fields, .. } = definition {
+                    for field in fields {
+                        if let Type::External {
+                            assembly,
+                            namespace,
+                            name,
+                        } = &field.ty
+                        {
+                            let assembly_id = output.assembly_reference(assembly);
+                            let type_id = output.type_reference_in(assembly_id, namespace, name);
+                            references
+                                .entry((assembly, namespace, name))
+                                .or_insert(type_id);
+                        }
+                    }
+                }
+            }
+        }
         for (module, module_ids) in self.modules.iter().zip(declared) {
             for (definition, id) in module.definitions.iter().zip(module_ids) {
-                module.compile(definition, id, &identities, &mut output)?;
+                module.compile(definition, id, &identities, &references, &mut output)?;
             }
         }
         Ok(output.finish()?)
@@ -214,7 +256,8 @@ impl Module {
         &self,
         definition: &Definition,
         id: TypeDefinitionId,
-        identities: &BTreeMap<String, BTreeMap<String, TypeDefinitionId>>,
+        identities: &BTreeMap<&str, BTreeMap<&str, TypeDefinitionId>>,
+        references: &BTreeMap<(&str, &str, &str), TypeReferenceId>,
         output: &mut MetadataBuilder,
     ) -> Result<(), Error> {
         output.try_define_type(id, |fields| -> Result<(), Error> {
@@ -268,8 +311,8 @@ impl Module {
                                 name: target_name,
                             } => {
                                 let Some(id) = identities
-                                    .get(target_namespace)
-                                    .and_then(|types| types.get(target_name))
+                                    .get(target_namespace.as_str())
+                                    .and_then(|types| types.get(target_name.as_str()))
                                     .copied()
                                 else {
                                     return Err(Error::UndefinedType {
@@ -282,6 +325,13 @@ impl Module {
                                 };
                                 BuildType::Value(BuildTypeIdentity::Definition(id))
                             }
+                            Type::External {
+                                assembly,
+                                namespace,
+                                name,
+                            } => BuildType::Value(BuildTypeIdentity::Reference(
+                                references[&(assembly.as_str(), namespace.as_str(), name.as_str())],
+                            )),
                         };
                         fields.field(&field.name, ty, FieldAttributes::PUBLIC)?;
                     }
@@ -370,7 +420,9 @@ impl From<Primitive> for BuildType {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use windows_metadata2::{Database, Image, TypeCategory};
+    use windows_metadata2::{
+        Database, Image, TableId, TypeCategory, TypeKind, TypeResolution, tables,
+    };
 
     #[test]
     fn source_errors_preserve_definition_context() {
@@ -409,6 +461,96 @@ mod tests {
                 && target_namespace == "Other"
                 && target_name == "Missing"
         ));
+    }
+
+    #[test]
+    fn external_value_fields_preserve_assembly_scope() {
+        let mut dependency = Document::new("Dependency");
+        let mut module = Module::new("External");
+        module.enum_type(
+            "Color",
+            Primitive::I32,
+            vec![Variant {
+                name: "Red".to_string(),
+                value: Value::I32(1),
+            }],
+        );
+        dependency.module(module);
+        let dependency = dependency.compile().unwrap();
+
+        let mut unrelated = Document::new("Unrelated");
+        let mut module = Module::new("External");
+        module.enum_type(
+            "Color",
+            Primitive::I32,
+            vec![Variant {
+                name: "Blue".to_string(),
+                value: Value::I32(2),
+            }],
+        );
+        unrelated.module(module);
+        let unrelated = unrelated.compile().unwrap();
+
+        let mut consumer = Document::new("Consumer");
+        let mut module = Module::new("Test");
+        module.struct_type(
+            "Pixel",
+            vec![Field {
+                name: "color".to_string(),
+                ty: Type::external("Dependency", "External", "Color"),
+            }],
+        );
+        consumer.module(module);
+        let consumer = consumer.compile().unwrap();
+
+        let image = Image::new(consumer.clone()).unwrap();
+        let reference = image
+            .rows::<tables::TypeRef>()
+            .find(|id| {
+                let row = image.view(*id).unwrap();
+                row.string(2).unwrap() == "External" && row.string(1).unwrap() == "Color"
+            })
+            .unwrap();
+        let scope = image.view(reference).unwrap().coded(0).unwrap().unwrap();
+        assert_eq!(scope.table(), TableId::AssemblyRef);
+        let assembly = image
+            .view(image.row::<tables::AssemblyRef>(scope.number()).unwrap())
+            .unwrap();
+        assert_eq!(assembly.string(6).unwrap(), "Dependency");
+
+        let database = Database::new([
+            Image::new(unrelated.clone()).unwrap(),
+            Image::new(dependency.clone()).unwrap(),
+            Image::new(consumer.clone()).unwrap(),
+        ])
+        .unwrap();
+        let pixel = database
+            .definition(database.type_definitions("Test", "Pixel")[0])
+            .unwrap();
+        let field = pixel.fields().unwrap().next().unwrap();
+        let TypeKind::Value(ty) = field.signature().unwrap().kind else {
+            panic!("expected external value field");
+        };
+        assert!(matches!(
+            database.resolve_type(field.entity().file(), ty).unwrap(),
+            TypeResolution::Candidates(candidates)
+                if candidates.len() == 1
+                    && database
+                        .definition(candidates.first().unwrap())
+                        .unwrap()
+                        .namespace()
+                        .unwrap()
+                        == "External"
+        ));
+
+        let old = windows_metadata::reader::Index::new(vec![
+            windows_metadata::reader::File::new(unrelated).unwrap(),
+            windows_metadata::reader::File::new(dependency).unwrap(),
+            windows_metadata::reader::File::new(consumer).unwrap(),
+        ]);
+        assert!(old.iter().any(|(namespace, name, definition)| {
+            namespace == "Test" && name == "Pixel" && definition.fields().len() == 1
+        }));
     }
 
     #[test]
@@ -566,14 +708,14 @@ mod tests {
         let ty = field.signature().unwrap();
         assert!(ty.modifiers.is_empty());
         match ty.kind {
-            windows_metadata2::TypeKind::Value(id) => {
+            TypeKind::Value(id) => {
                 let (namespace, name) = database
                     .type_name(field.entity().file(), id)
                     .unwrap()
                     .unwrap();
                 format!("value {namespace}.{name}")
             }
-            windows_metadata2::TypeKind::Class(id) => {
+            TypeKind::Class(id) => {
                 let (namespace, name) = database
                     .type_name(field.entity().file(), id)
                     .unwrap()

@@ -8,6 +8,10 @@ pub struct TypeDefinitionId(u32);
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TypeReferenceId(u32);
 
+/// A typed identity for an AssemblyRef row being built.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct AssemblyReferenceId(u32);
+
 /// A type identity accepted by signatures and base-type references.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum BuildTypeIdentity {
@@ -40,6 +44,7 @@ pub enum BuildType {
 pub struct MetadataBuilder {
     strings: Heap,
     blobs: Heap,
+    assembly_refs: Vec<AssemblyRefRow>,
     type_refs: Vec<TypeRefRow>,
     type_defs: Vec<TypeDefRow>,
     fields: Vec<FieldRow>,
@@ -47,8 +52,7 @@ pub struct MetadataBuilder {
     next_definition: u32,
     assembly_name: u32,
     module_name: u32,
-    mscorlib_name: u32,
-    mscorlib_key: u32,
+    core_library: AssemblyReferenceId,
 }
 
 struct Heap {
@@ -61,6 +65,16 @@ struct TypeRefRow {
     scope: u32,
     name: u32,
     namespace: u32,
+}
+
+struct AssemblyRefRow {
+    major: u16,
+    minor: u16,
+    build: u16,
+    revision: u16,
+    flags: u32,
+    key: u32,
+    name: u32,
 }
 
 struct TypeDefRow {
@@ -102,6 +116,15 @@ impl MetadataBuilder {
         let mut result = Self {
             strings,
             blobs,
+            assembly_refs: vec![AssemblyRefRow {
+                major: 4,
+                minor: 0,
+                build: 0,
+                revision: 0,
+                flags: 0,
+                key: mscorlib_key,
+                name: mscorlib_name,
+            }],
             type_refs: Vec::new(),
             type_defs: Vec::new(),
             fields: Vec::new(),
@@ -109,8 +132,7 @@ impl MetadataBuilder {
             next_definition: 2,
             assembly_name,
             module_name,
-            mscorlib_name,
-            mscorlib_key,
+            core_library: AssemblyReferenceId(1),
         };
         result.type_defs.push(TypeDefRow {
             flags: 0,
@@ -122,16 +144,50 @@ impl MetadataBuilder {
         result
     }
 
+    /// Adds a Windows Runtime assembly reference.
+    pub fn assembly_reference(&mut self, name: &str) -> AssemblyReferenceId {
+        if let Some((index, _)) = self
+            .assembly_refs
+            .iter()
+            .enumerate()
+            .find(|(_, row)| self.strings.value(row.name) == name.as_bytes())
+        {
+            return AssemblyReferenceId(index as u32 + 1);
+        }
+        self.assembly_refs.push(AssemblyRefRow {
+            major: 0xff,
+            minor: 0xff,
+            build: 0xff,
+            revision: 0xff,
+            flags: 0x0200,
+            key: 0,
+            name: self.strings.insert(name.as_bytes()),
+        });
+        AssemblyReferenceId(self.assembly_refs.len() as u32)
+    }
+
     /// Adds a type reference scoped to mscorlib.
     pub fn type_reference(&mut self, namespace: &str, name: &str) -> TypeReferenceId {
+        self.type_reference_in(self.core_library, namespace, name)
+    }
+
+    /// Adds a type reference scoped to an assembly reference.
+    pub fn type_reference_in(
+        &mut self,
+        assembly: AssemblyReferenceId,
+        namespace: &str,
+        name: &str,
+    ) -> TypeReferenceId {
+        let scope = (assembly.0 << 2) | 2;
         if let Some((index, _)) = self.type_refs.iter().enumerate().find(|(_, row)| {
-            self.strings.value(row.namespace) == namespace.as_bytes()
+            row.scope == scope
+                && self.strings.value(row.namespace) == namespace.as_bytes()
                 && self.strings.value(row.name) == name.as_bytes()
         }) {
             return TypeReferenceId(index as u32 + 1);
         }
         self.type_refs.push(TypeRefRow {
-            scope: (1 << 2) | 2,
+            scope,
             name: self.strings.insert(name.as_bytes()),
             namespace: self.strings.insert(namespace.as_bytes()),
         });
@@ -259,7 +315,7 @@ impl MetadataBuilder {
             (0x04, self.fields.len()),
             (0x0b, self.constants.len()),
             (0x20, 1),
-            (0x23, 1),
+            (0x23, self.assembly_refs.len()),
         ];
         if counts.iter().any(|(_, count)| *count > u16::MAX as usize) {
             return Err(BuildError::limit("table"));
@@ -322,15 +378,17 @@ impl MetadataBuilder {
         bytes.index(self.assembly_name)?;
         bytes.u16(0);
 
-        bytes.u16(4);
-        bytes.u16(0);
-        bytes.u16(0);
-        bytes.u16(0);
-        bytes.u32(0);
-        bytes.index(self.mscorlib_key)?;
-        bytes.index(self.mscorlib_name)?;
-        bytes.u16(0);
-        bytes.u16(0);
+        for row in &self.assembly_refs {
+            bytes.u16(row.major);
+            bytes.u16(row.minor);
+            bytes.u16(row.build);
+            bytes.u16(row.revision);
+            bytes.u32(row.flags);
+            bytes.index(row.key)?;
+            bytes.index(row.name)?;
+            bytes.u16(0);
+            bytes.u16(0);
+        }
         Ok(bytes)
     }
 }
@@ -591,5 +649,33 @@ mod tests {
             database.type_name(field.entity().file(), id).unwrap(),
             Some(("Test", "Second"))
         );
+    }
+
+    #[test]
+    fn type_references_preserve_external_assembly_scopes() {
+        let mut builder = MetadataBuilder::new("builder");
+        let first = builder.assembly_reference("First");
+        let second = builder.assembly_reference("Second");
+        assert_ne!(
+            builder.type_reference_in(first, "Test", "Value"),
+            builder.type_reference_in(second, "Test", "Value")
+        );
+
+        let bytes = builder.finish().unwrap();
+        windows_metadata::reader::File::new(bytes.clone()).unwrap();
+        let image = Image::new(bytes).unwrap();
+        let scopes: Vec<_> = image
+            .rows::<tables::TypeRef>()
+            .map(|id| {
+                let scope = image.view(id).unwrap().coded(0).unwrap().unwrap();
+                assert_eq!(scope.table(), TableId::AssemblyRef);
+                image
+                    .view(image.row::<tables::AssemblyRef>(scope.number()).unwrap())
+                    .unwrap()
+                    .string(6)
+                    .unwrap()
+            })
+            .collect();
+        assert_eq!(scopes, ["First", "Second"]);
     }
 }

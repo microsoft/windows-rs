@@ -14,6 +14,7 @@ The first checkpoint intentionally uses a programmatic model rather than a text 
 - primitive integer enums have checked backing values;
 - simple structs contain primitive or named value-type fields;
 - definitions may reference types declared later in the document;
+- fields may reference a value type in a named external assembly;
 - source validation errors retain definition, variant, and field identities;
 - compilation emits a PE/CLI image through `windows-metadata2`.
 
@@ -41,8 +42,8 @@ a small API without leaked rows or the old writer's broad mutable file object. R
 diagnostics, while metadata2 reports only construction failures. It does not yet prove that the
 authoring design scales:
 
-- the builder is already about 650 lines for seven tables and the PE/CLI container;
-- text parsing, attributes, methods, interfaces, and external references are absent;
+- metadata2 authoring is already about 715 lines for seven tables and the PE/CLI container;
+- text parsing, attributes, methods, and interfaces are absent;
 - deterministic row remapping and 4-byte indexes are not implemented;
 - generated output is semantically equivalent for the first fixture but is not byte-for-byte equal.
 
@@ -60,5 +61,14 @@ The larger shared issue was definition identity. Metadata2 now declares all Type
 emitting fields and requires field bodies in declaration order. RDL2 keeps only its source-name
 index and maps those names directly to stable metadata IDs; it has no metadata patch table.
 
-Do not expand the parser next. External named references are the next bounded authoring surface:
-they exercise resolution scopes without adding methods, interfaces, or attribute blob formats.
+External fields add one source form carrying assembly, namespace, and type name. RDL2 collects
+those references before field emission. Metadata2 deduplicates AssemblyRef and TypeRef rows, and
+database resolution filters same-named definitions by the encoded assembly scope. A fixture
+includes a same-named type in an unrelated assembly to prove the scope is honored.
+
+The complexity review kept local definitions and external references as separate maps because
+their failure policy differs, but both maps now borrow names from the document instead of copying
+them. No shared source/projection type model or general metadata row builder is justified.
+
+Do not expand the parser or authoring table set next. Return to bindgen2's architecture and nested
+native definition inventory before choosing another implementation slice.

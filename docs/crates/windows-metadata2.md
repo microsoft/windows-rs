@@ -106,8 +106,9 @@ type would repeat known debt, so the multi-image database was moved ahead of att
 namespace/name index does not allocate on lookup and preserves every matching definition,
 including architecture variants. Exact raw TypeDef name multiplicities match the existing index
 across WinRT and Win32. TypeRef resolution returns all candidates rather than selecting the first.
-Assembly-scope narrowing and nested TypeRef resolution remain future resolution layers; callers
-can see ambiguity explicitly in the meantime.
+AssemblyRef and local module scopes now filter those candidates through a borrowed iterator, so
+resolution adds no second type-name index or per-query allocation. Nested TypeRef resolution
+remains a future layer.
 
 The first authoring checkpoint adds a bounded writer rather than porting the old mutable metadata
 file object. Typed build identities distinguish definitions and references. A type-definition
@@ -123,10 +124,21 @@ direct `TypeDef` enum self-reference instead of the old writer's same-module `Ty
 to the same type identity.
 
 This is not yet evidence that the complete writer will be smaller. The table/heaps builder is about
-500 lines and the PE/CLI container is about 135 lines while supporting only seven tables and
+580 lines and the PE/CLI container is about 135 lines while supporting only seven tables and
 16-bit indexes. That cost is acceptable for the proof but must be reviewed before adding methods,
 attributes, or parser compatibility. Named value fields and forward references are complete. The
-next bounded authoring slice is external references; a general parser remains deferred.
+external-reference slice is also complete: AssemblyRef rows are deduplicated, TypeRef identity
+includes its scope, and RDL2 emits external value fields. A general parser remains deferred.
+
+The follow-up complexity review removed a retained assembly-name string per image. Scoped
+resolution now reads the already-owned Assembly row only when a same-named candidate must be
+filtered. `TypeCandidates` remains a borrowed iterator over the existing exact-name index, so the
+feature adds no second type map and no per-query allocation.
+
+The writer still lists its seven row shapes and serialization order explicitly. Replacing that
+with a general table-building framework would add indirection before a second table family proves
+the required abstraction. Keep the bounded writer explicit until a concrete authoring feature
+cannot be added without duplicated row-width, index, or ordering logic.
 
 ## Consumer overlap review
 
@@ -138,6 +150,7 @@ The first bindgen2/RDL2 comparison separates missing metadata support from valid
 | Type and field flags | Shared typed wrappers. Done. |
 | Primitive type lists | Review after named fields. |
 | Definition identities | Stable declaration phase. Done. |
+| External type scope | Shared AssemblyRef and TypeRef identities. Done. |
 | Name indexes | Keep consumer-specific. |
 | Errors and rendering | Keep consumer-specific. |
 

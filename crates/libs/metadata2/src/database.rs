@@ -87,9 +87,55 @@ pub enum TypeResolution<'a> {
     /// The signature directly names a TypeDef row.
     Definition(Entity<tables::TypeDef>),
     /// The signature names a TypeRef resolved by namespace and name.
-    Candidates(&'a [Entity<tables::TypeDef>]),
+    Candidates(TypeCandidates<'a>),
     /// The signature names a TypeSpec row.
     Specification(Entity<tables::TypeSpec>),
+}
+
+/// Type definitions matching a TypeRef name and resolution scope.
+#[derive(Clone, Copy)]
+pub struct TypeCandidates<'a> {
+    database: &'a Database,
+    definitions: &'a [Entity<tables::TypeDef>],
+    scope: CandidateScope<'a>,
+}
+
+#[derive(Clone, Copy)]
+enum CandidateScope<'a> {
+    Any,
+    File(FileId),
+    Assembly(&'a str),
+}
+
+impl<'a> TypeCandidates<'a> {
+    /// Returns the number of matching definitions.
+    pub fn len(self) -> usize {
+        self.iter().count()
+    }
+
+    /// Returns whether no definition matches the resolution scope.
+    pub fn is_empty(self) -> bool {
+        self.iter().next().is_none()
+    }
+
+    /// Returns the first matching definition.
+    pub fn first(self) -> Option<Entity<tables::TypeDef>> {
+        self.iter().next()
+    }
+
+    /// Iterates definitions matching the resolution scope.
+    pub fn iter(self) -> impl Iterator<Item = Entity<tables::TypeDef>> + 'a {
+        self.definitions
+            .iter()
+            .copied()
+            .filter(move |definition| match self.scope {
+                CandidateScope::Any => true,
+                CandidateScope::File(file) => definition.file() == file,
+                CandidateScope::Assembly(name) => {
+                    self.database.assembly_name(definition.file()) == Some(name)
+                }
+            })
+    }
 }
 
 /// Owns metadata images and indexes cross-image identities.
@@ -106,6 +152,15 @@ impl Database {
 
         for (file, image) in images.iter().enumerate() {
             let file = FileId::new(file);
+            let mut assembly_rows = image.rows::<tables::Assembly>();
+            if let Some(row) = assembly_rows.next() {
+                image.view(row).unwrap().string(7)?;
+            }
+            if assembly_rows.next().is_some() {
+                return Err(Error::invalid_metadata(
+                    "image has more than one Assembly row",
+                ));
+            }
             let nested: HashSet<_> = image
                 .rows::<tables::NestedClass>()
                 .map(|row| {
@@ -149,6 +204,12 @@ impl Database {
         self.images.get(file.index())
     }
 
+    fn assembly_name(&self, file: FileId) -> Option<&str> {
+        let image = self.image(file)?;
+        let row = image.rows::<tables::Assembly>().next()?;
+        Some(image.view(row).unwrap().string(7).unwrap())
+    }
+
     /// Resolves a typed entity to a row view.
     pub fn view<T: Table>(&self, entity: Entity<T>) -> Option<Row<'_, T>> {
         self.image(entity.file())?.view(entity.row())
@@ -190,9 +251,33 @@ impl Database {
                     .ok_or_else(|| Error::invalid(ty.number() as usize, "type row is invalid"))?;
                 let namespace = row.string(2)?;
                 let name = row.string(1)?;
-                Ok(TypeResolution::Candidates(
-                    self.type_definitions(namespace, name),
-                ))
+                let scope = match row.coded(0)? {
+                    Some(scope) if scope.table() == TableId::AssemblyRef => {
+                        let assembly = image
+                            .row::<tables::AssemblyRef>(scope.number())
+                            .and_then(|row| image.view(row))
+                            .ok_or_else(|| {
+                                Error::invalid_metadata("invalid TypeRef assembly scope")
+                            })?;
+                        CandidateScope::Assembly(assembly.string(6)?)
+                    }
+                    Some(scope)
+                        if scope.table() == TableId::Module
+                            || scope.table() == TableId::ModuleRef =>
+                    {
+                        CandidateScope::File(file)
+                    }
+                    Some(scope) if scope.table() == TableId::TypeRef => CandidateScope::Any,
+                    Some(_) => {
+                        return Err(Error::invalid_metadata("invalid TypeRef resolution scope"));
+                    }
+                    None => CandidateScope::File(file),
+                };
+                Ok(TypeResolution::Candidates(TypeCandidates {
+                    database: self,
+                    definitions: self.type_definitions(namespace, name),
+                    scope,
+                }))
             }
             TableId::TypeSpec => {
                 let row = image

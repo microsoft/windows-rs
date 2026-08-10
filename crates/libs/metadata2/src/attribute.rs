@@ -355,7 +355,8 @@ impl Database {
     ) -> Result<AttributeType, Error> {
         enum Definitions<'a> {
             One(Entity<tables::TypeDef>),
-            Many(&'a [Entity<tables::TypeDef>]),
+            Many(TypeCandidates<'a>),
+            Unscoped(&'a [Entity<tables::TypeDef>]),
         }
 
         let definitions = match ty {
@@ -371,7 +372,7 @@ impl Database {
                 let (namespace, name) = name
                     .rsplit_once('.')
                     .ok_or_else(|| Error::invalid_metadata("enum name has no namespace"))?;
-                Definitions::Many(self.type_definitions(namespace, name))
+                Definitions::Unscoped(self.type_definitions(namespace, name))
             }
         };
 
@@ -398,6 +399,11 @@ impl Database {
         match definitions {
             Definitions::One(definition) => visit(definition)?,
             Definitions::Many(definitions) => {
+                for definition in definitions.iter() {
+                    visit(definition)?;
+                }
+            }
+            Definitions::Unscoped(definitions) => {
                 for definition in definitions {
                     visit(*definition)?;
                 }
