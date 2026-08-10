@@ -95,6 +95,92 @@ struct BeforeUnmount {
 }
 
 impl MountedTree {
+    #[cfg(any(debug_assertions, feature = "test"))]
+    fn assert_consistent(&self) {
+        let mut owned = rustc_hash::FxHashSet::default();
+        let mut record = |parent: ControlId, child: ControlId| {
+            assert!(
+                owned.insert(child),
+                "native control {child:?} has more than one owner"
+            );
+            assert_eq!(
+                self.parent(child),
+                Some(parent),
+                "native control {child:?} disagrees with its owner"
+            );
+        };
+
+        for (parent, outputs) in &self.logical_children {
+            let native: Vec<_> = outputs.iter().filter_map(|output| output.native).collect();
+            assert_eq!(
+                self.children(*parent),
+                native.as_slice(),
+                "logical child mirror disagrees with native children"
+            );
+            for output in outputs {
+                if let Some(node_id) = output.logical {
+                    assert!(
+                        self.logical.contains_node(node_id),
+                        "logical child output has no mounted node"
+                    );
+                    assert_eq!(
+                        self.logical.node_native_root(node_id),
+                        output.native,
+                        "logical child output native root disagrees with node"
+                    );
+                }
+            }
+        }
+
+        for (parent, children) in &self.children {
+            for child in children {
+                record(*parent, *child);
+            }
+        }
+        for (parent, header) in &self.headers {
+            if let Some(header) = header.native {
+                record(*parent, header);
+            }
+        }
+        for (parent, pane) in &self.panes {
+            if let Some(pane) = pane.native {
+                record(*parent, pane);
+            }
+        }
+        for (parent, state) in &self.templated.lists {
+            for row in state.rows.values() {
+                if let Some(content_id) = row.output.native {
+                    record(*parent, content_id);
+                }
+            }
+        }
+
+        for (id, node) in &self.nodes {
+            if node.parent.is_some() {
+                assert!(
+                    owned.contains(id),
+                    "native control {id:?} has a parent but is absent from its owner's children"
+                );
+            }
+        }
+        for id in self.custom.keys() {
+            assert!(
+                self.nodes.contains_key(id),
+                "custom handle {id:?} has no mounted native node"
+            );
+        }
+        for id in self.before_unmount.keys() {
+            assert!(
+                self.nodes.contains_key(id),
+                "pre-unmount callback {id:?} has no mounted native node"
+            );
+        }
+    }
+
+    fn contains_native(&self, id: ControlId) -> bool {
+        self.nodes.contains_key(&id)
+    }
+
     fn register(&mut self, id: ControlId, kind: Option<ControlKind>) {
         if let Some(children) = self.children.remove(&id) {
             for child in children {
@@ -317,6 +403,34 @@ impl MountedTree {
         {
             let item = list.remove(from);
             list.insert(to, item);
+        }
+    }
+
+    fn permute_logical_children(
+        &mut self,
+        parent: ControlId,
+        start: usize,
+        new_to_old: &[i32],
+        visited: &mut [bool],
+    ) {
+        let children = self.logical_children.get_mut(&parent).unwrap();
+        visited.fill(false);
+        for cycle_start in 0..new_to_old.len() {
+            if visited[cycle_start] {
+                continue;
+            }
+            let saved = children[start + cycle_start];
+            let mut current = cycle_start;
+            loop {
+                visited[current] = true;
+                let next = new_to_old[current] as usize;
+                if next == cycle_start {
+                    children[start + current] = saved;
+                    break;
+                }
+                children[start + current] = children[start + next];
+                current = next;
+            }
         }
     }
 
@@ -714,7 +828,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     #[cfg(any(debug_assertions, feature = "test"))]
     fn assert_consistent_inner(&self) {
         self.tree.logical.assert_consistent();
-        self.assert_native_ownership();
+        self.tree.assert_consistent();
 
         if let Some(output) = self.root_output {
             assert!(
@@ -723,7 +837,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             );
             if let Some(native) = output.native {
                 assert!(
-                    self.tree.nodes.contains_key(&native),
+                    self.tree.contains_native(native),
                     "mounted root references missing native control {native:?}"
                 );
             }
@@ -738,88 +852,6 @@ impl<B: Backend + 'static> Reconciler<B> {
                     "mounted root projection disagrees with its logical node"
                 );
             }
-        }
-    }
-
-    #[cfg(any(debug_assertions, feature = "test"))]
-    fn assert_native_ownership(&self) {
-        let mut owned = rustc_hash::FxHashSet::default();
-        let mut record = |parent: ControlId, child: ControlId| {
-            assert!(
-                owned.insert(child),
-                "native control {child:?} has more than one owner"
-            );
-            assert_eq!(
-                self.tree.parent(child),
-                Some(parent),
-                "native control {child:?} disagrees with its owner"
-            );
-        };
-
-        for (parent, outputs) in &self.tree.logical_children {
-            let native: Vec<_> = outputs.iter().filter_map(|output| output.native).collect();
-            assert_eq!(
-                self.tree.children(*parent),
-                native.as_slice(),
-                "logical child mirror disagrees with native children"
-            );
-            for output in outputs {
-                if let Some(node_id) = output.logical {
-                    assert!(
-                        self.tree.logical.contains_node(node_id),
-                        "logical child output has no mounted node"
-                    );
-                    assert_eq!(
-                        self.tree.logical.node_native_root(node_id),
-                        output.native,
-                        "logical child output native root disagrees with node"
-                    );
-                }
-            }
-        }
-
-        for (parent, children) in &self.tree.children {
-            for child in children {
-                record(*parent, *child);
-            }
-        }
-        for (parent, header) in &self.tree.headers {
-            if let Some(header) = header.native {
-                record(*parent, header);
-            }
-        }
-        for (parent, pane) in &self.tree.panes {
-            if let Some(pane) = pane.native {
-                record(*parent, pane);
-            }
-        }
-        for (parent, state) in &self.tree.templated.lists {
-            for row in state.rows.values() {
-                if let Some(content_id) = row.output.native {
-                    record(*parent, content_id);
-                }
-            }
-        }
-
-        for (id, node) in &self.tree.nodes {
-            if node.parent.is_some() {
-                assert!(
-                    owned.contains(id),
-                    "native control {id:?} has a parent but is absent from its owner's children"
-                );
-            }
-        }
-        for id in self.tree.custom.keys() {
-            assert!(
-                self.tree.nodes.contains_key(id),
-                "custom handle {id:?} has no mounted native node"
-            );
-        }
-        for id in self.tree.before_unmount.keys() {
-            assert!(
-                self.tree.nodes.contains_key(id),
-                "pre-unmount callback {id:?} has no mounted native node"
-            );
         }
     }
 

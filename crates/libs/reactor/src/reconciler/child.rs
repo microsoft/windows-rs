@@ -312,36 +312,10 @@ fn reconcile_keyed_native_middle<B: Backend + 'static>(
         placed[i] = Some(control);
     }
 
-    permute_logical_children(reconciler, parent, prefix, &new_to_old, &mut matched);
+    reconciler
+        .tree
+        .permute_logical_children(parent, prefix, &new_to_old, &mut matched);
     true
-}
-
-fn permute_logical_children<B: Backend + 'static>(
-    reconciler: &mut Reconciler<B>,
-    parent: ControlId,
-    start: usize,
-    new_to_old: &[i32],
-    visited: &mut [bool],
-) {
-    let children = reconciler.tree.logical_children.get_mut(&parent).unwrap();
-    visited.fill(false);
-    for cycle_start in 0..new_to_old.len() {
-        if visited[cycle_start] {
-            continue;
-        }
-        let saved = children[start + cycle_start];
-        let mut current = cycle_start;
-        loop {
-            visited[current] = true;
-            let next = new_to_old[current] as usize;
-            if next == cycle_start {
-                children[start + current] = saved;
-                break;
-            }
-            children[start + current] = children[start + next];
-            current = next;
-        }
-    }
 }
 
 fn update_keyed_output<B: Backend + 'static>(
