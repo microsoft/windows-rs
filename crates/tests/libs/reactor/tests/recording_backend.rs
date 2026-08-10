@@ -90,6 +90,52 @@ fn live_control_count_reflects_create_destroy() {
 }
 
 #[test]
+fn consistency_check_accepts_each_ownership_form() {
+    let mut b = RecordingBackend::new();
+    let root = b.create(ControlKind::StackPanel);
+    let child = b.create(ControlKind::TextBlock);
+    let header = b.create(ControlKind::TextBlock);
+    let pane = b.create(ControlKind::TextBlock);
+    let list = b.create(ControlKind::ListView);
+    let row = b.create(ControlKind::TextBlock);
+
+    b.append_child(root, child);
+    b.set_header_element(root, Some(header));
+    b.set_pane_element(root, Some(pane));
+    b.append_child(root, list);
+    b.set_templated_row_content(list, 0, Some(row));
+
+    b.assert_consistent();
+}
+
+#[test]
+#[should_panic(expected = "has multiple owners")]
+fn consistency_check_rejects_duplicate_ownership() {
+    let mut b = RecordingBackend::new();
+    let first = b.create(ControlKind::StackPanel);
+    let second = b.create(ControlKind::StackPanel);
+    let child = b.create(ControlKind::TextBlock);
+
+    b.append_child(first, child);
+    b.append_child(second, child);
+
+    b.assert_consistent();
+}
+
+#[test]
+#[should_panic(expected = "owns destroyed or unknown control")]
+fn consistency_check_rejects_stale_ownership() {
+    let mut b = RecordingBackend::new();
+    let parent = b.create(ControlKind::StackPanel);
+    let child = b.create(ControlKind::TextBlock);
+
+    b.append_child(parent, child);
+    b.destroy(child);
+
+    b.assert_consistent();
+}
+
+#[test]
 fn control_id_display_includes_hash_prefix() {
     let id = ControlId::new(7);
     assert_eq!(format!("{id}"), "#7");

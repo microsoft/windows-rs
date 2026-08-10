@@ -1111,3 +1111,73 @@ surface.
 
 Each stage passed formatting, clippy, headless tests, the relevant WinUI selftests, benchmark
 comparison, and its visual sample before the next stage began.
+
+## Core stabilization program
+
+Feature work is frozen while this checklist is active. Bug fixes and changes needed to prove or
+simplify the core remain in scope. Each item should land as a small PR that leaves the crate
+working, updates this checklist, and states which invariant it proves or which complexity it
+removes.
+
+A major rewrite is not the starting point. The current logical IDs, `MountedTree`, sparse auxiliary
+state, recursive teardown, model tests, and performance gates provide a usable migration base.
+Larger internal changes should follow characterization tests and move one ownership boundary at a
+time.
+
+### Stabilization checklist
+
+- [x] Separate logical identity from native `ControlId`.
+- [x] Consolidate mounted ownership and child-first teardown under `MountedTree`.
+- [x] Add deterministic model tests, lifecycle stress tests, coverage floors, and performance
+      comparisons.
+- [x] Make the recording backend check live IDs and unique ownership across children, headers,
+      panes, and realized rows after every generated model transition.
+- [x] Clear root ownership when `Reconciler::unmount` removes the root, preventing host teardown
+      from destroying the same native control twice.
+- [ ] Split `MountedTree`, logical ownership, host state, and wrapper reconciliation into focused
+      modules without changing behavior.
+- [ ] Replace WinUI's hard-coded phantom-child cases with explicit container projection
+      capabilities and test mixed logical/visual indexing.
+- [ ] Add backend fault injection for create, property update, attach, move, detach, and destroy;
+      define the valid state after each failure.
+- [ ] Define and test render, commit, effect, cleanup, error-boundary, and reentrant-event ordering.
+- [ ] Enforce the UI-thread boundary in release builds and reject stale asynchronous updates after
+      unmount or host replacement.
+- [ ] Move templated realization and recycling through the same ownership checks as ordinary,
+      header, and pane content.
+- [ ] Mechanically verify every callable WinUI vtable entry and prevent placeholder slots from
+      becoming callable.
+- [ ] Replace final-window `process::exit` teardown with an orderly, testable host shutdown.
+- [ ] Classify every open Reactor issue as a core defect, required platform contract, deferred
+      feature, or unsupported behavior.
+- [ ] Complete a final architecture review and remove the feature freeze only after the exit
+      criteria below pass.
+
+### PR discipline
+
+Each stabilization PR must:
+
+1. Add or strengthen a deterministic test before changing behavior.
+2. Change one ownership, lifecycle, scheduler, or backend boundary.
+3. Delete superseded state or special-case branches in the same PR.
+4. Run the smallest headless suite that proves the invariant, plus relevant WinUI selftests.
+5. Compare reconciler performance when a hot path or mounted-node representation changes.
+6. Update this checklist and record any newly discovered follow-up work.
+
+Do not introduce compatibility mirrors that leave two structures responsible for the same
+identity, parent relationship, subscription, or cleanup. A temporary adapter is acceptable only
+when one side is read-only and its removal is assigned to the next PR.
+
+### Exit criteria
+
+The feature freeze ends when:
+
+- debug and test builds validate logical and native ownership after every reconciliation boundary;
+- injected backend failures and panics cannot leave partially owned native or logical nodes;
+- cleanup and event revocation run exactly once under update, replacement, rollback, and shutdown;
+- ordinary and templated children use the same identity and teardown rules;
+- off-thread and stale asynchronous updates have deterministic behavior;
+- every regression fixed by Reactor PRs 4782, 4795, and 4807 has a narrow permanent test;
+- the headless model, WinUI selftests, coverage floors, and performance gates pass; and
+- the remaining architecture is small enough that each mounted-state field has one documented
+  owner.
