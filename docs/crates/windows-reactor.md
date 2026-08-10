@@ -474,8 +474,8 @@ not yet cover custom elements, templated lists, or failures during rollback.
 
 Component and provider updates retain their logical ownership records while a panic propagates.
 This lets an error boundary discard a failed non-structural update, run component cleanups, and
-mount its fallback. It also leaves fail-before property and event updates reachable for explicit
-root teardown when there is no boundary. Structural update rollback is not yet defined.
+mount its fallback. It also keeps ownership reachable for explicit root teardown when a property or
+event update panics before mutating the backend. Structural update rollback is not yet defined.
 
 Two crates measure reconciler performance. `test_reactor_bench` is a headless micro-suite (run with
 `cargo run -p test_reactor_bench --release`) that brackets only the reconcile body against

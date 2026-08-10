@@ -305,7 +305,7 @@ fn error_boundary_discards_failed_component_updates_and_runs_cleanup() {
         assert_eq!(
             cleanups.get(),
             1,
-            "{operation:?} did not clean the discarded component"
+            "{operation:?} did not run cleanup for the discarded component"
         );
         assert_eq!(reconciler.debug_logical_node_count(), 1);
         reconciler.assert_consistent();
