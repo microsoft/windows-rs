@@ -12,6 +12,7 @@ mod guid;
 mod model;
 mod native;
 mod native_constant;
+mod native_default;
 mod native_function;
 mod native_type;
 mod output;
@@ -428,6 +429,26 @@ mod tests {
             generator.write_modules().unwrap().to_string(),
             expected.to_string()
         );
+    }
+
+    #[test]
+    fn native_default_policy_matches_existing_golden_tokens() {
+        let generator = fixture(include_str!(
+            "../../../tests/libs/bindgen/input/struct_default_sys.rdl"
+        ));
+        let items = generator.win32_items().unwrap();
+        let types = items.native_types().collect::<Result<Vec<_>, _>>().unwrap();
+        let expected: TokenStream =
+            include_str!("../../../tests/libs/bindgen/expected/struct_default_sys.rs")
+                .parse()
+                .unwrap();
+        let expected = expected.to_string();
+        for ty in &types {
+            if ty.kind() != NativeTypeKind::Enum {
+                let actual = ty.write_sys().to_string();
+                assert!(expected.contains(&actual), "missing old output: {actual}");
+            }
+        }
     }
 
     #[test]

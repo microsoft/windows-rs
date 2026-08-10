@@ -44,23 +44,24 @@ struct Struct {
     union: bool,
     align: Option<u32>,
     packing: Option<u16>,
+    default: native_default::Policy,
 }
 
 impl NativeType {
     pub(super) fn lower(
         database: &Database,
         definition: TypeDefinition<'_>,
-        nested: &BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
+        relationships: &BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
     ) -> Result<Self, Error> {
         let namespace = definition.namespace()?.to_string();
         let name = definition.name()?.to_string();
-        Self::lower_named(database, definition, nested, &namespace, name)
+        Self::lower_named(database, definition, relationships, &namespace, name)
     }
 
     fn lower_named(
         database: &Database,
         definition: TypeDefinition<'_>,
-        nested: &BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
+        relationships: &BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
         namespace: &str,
         name: String,
     ) -> Result<Self, Error> {
@@ -109,7 +110,7 @@ impl NativeType {
                 })
             }
             TypeCategory::Struct => {
-                let nested_names = nested
+                let nested_names = relationships
                     .get(&definition.entity())
                     .into_iter()
                     .flatten()
@@ -147,7 +148,7 @@ impl NativeType {
                         Self::lower_named(
                             database,
                             database.definition(entity).unwrap(),
-                            nested,
+                            relationships,
                             namespace,
                             projected,
                         )
@@ -174,6 +175,7 @@ impl NativeType {
                     });
                 }
                 let align = alignment(definition, &full_name)?;
+                let default = native_default::classify(database, definition, relationships)?;
                 let packing = definition
                     .layout()?
                     .map(|layout| layout.packing_size())
@@ -204,6 +206,7 @@ impl NativeType {
                             .contains(TypeAttributes::EXPLICIT_LAYOUT),
                         align,
                         packing,
+                        default,
                     }),
                 })
             }
@@ -220,6 +223,14 @@ impl NativeType {
             Kind::Alias(_) => NativeTypeKind::Alias,
             Kind::Enum(_) => NativeTypeKind::Enum,
             Kind::Struct(_) => NativeTypeKind::Struct,
+        }
+    }
+
+    #[cfg(test)]
+    pub(super) const fn default_policy(&self) -> Option<native_default::Policy> {
+        match &self.kind {
+            Kind::Struct(value) => Some(value.default),
+            Kind::Alias(_) | Kind::Enum(_) => None,
         }
     }
 
@@ -366,7 +377,7 @@ impl Struct {
         name: &TokenStream,
         architectures: &TokenStream,
     ) -> (TokenStream, TokenStream) {
-        if self.has_explicit_layout() {
+        if self.default != native_default::Policy::Derive {
             (
                 quote! { #[derive(Clone, Copy)] },
                 quote! {
@@ -381,14 +392,6 @@ impl Struct {
         } else {
             (quote! { #[derive(Clone, Copy, Default)] }, quote! {})
         }
-    }
-
-    fn has_explicit_layout(&self) -> bool {
-        self.union
-            || self.nested.iter().any(|nested| match &nested.kind {
-                Kind::Struct(value) => value.has_explicit_layout(),
-                Kind::Alias(_) | Kind::Enum(_) => false,
-            })
     }
 }
 

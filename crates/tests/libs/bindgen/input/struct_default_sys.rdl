@@ -1,0 +1,32 @@
+//! --filter Test --flat --sys
+#[win32]
+mod Test {
+    attribute ScopedEnumAttribute {
+        fn();
+    }
+    type BigArray = [u16; 64];
+    type BigArrayAlias = BigArray;
+    #[ScopedEnum]
+    #[repr(i32)]
+    enum Color {
+        Red = 1,
+    }
+    union Value {
+        number: u32,
+    }
+    struct Plain {
+        value: u32,
+    }
+    struct DirectArray {
+        values: [u32; 4],
+    }
+    struct AliasArray {
+        values: BigArrayAlias,
+    }
+    struct Scoped {
+        color: Color,
+    }
+    struct UnionField {
+        value: Value,
+    }
+}

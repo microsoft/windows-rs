@@ -77,10 +77,9 @@ token stream. A focused nested Win32 fixture matches the existing module golden 
 mixed fixture proves that WinRT values and Win32 items pass through the same output path. It does
 not add filtering, dependency closure, formatting, file writing, or package policy.
 
-This is structural coverage, not complete native output equivalence. Bitfield accessors, handle
-policy, native delegates, and interfaces are absent. Derive policy outside the proven nested-layout
-cases also needs full generated-output comparison. These are separate policies rather than reasons
-to build a global native type graph.
+This is structural coverage, not complete native output equivalence. Scoped-enum projection,
+bitfield accessors, handle policy, native delegates, and interfaces are absent. These are separate
+policies rather than reasons to build a global native type graph.
 
 ## Native shape inventory
 
@@ -109,6 +108,21 @@ matches the existing generator for multiple direct children, deep struct/union n
 named types in the enclosing namespace, and inherited architecture gates. Explicit layout
 propagates through the owned nested subtree for `Default` policy, so structs containing nested
 unions use gated manual implementations.
+
+Native `Default` policy is also complete for the selected sys surface:
+
+| Policy | Structs |
+| --- | ---: |
+| Derive `Default` | 8,584 |
+| Manual - explicit layout | 2,164 |
+| Manual - direct fixed array | 1,890 |
+| Manual - fixed-array typedef chain | 74 |
+| Manual - scoped-enum field | 3 |
+
+The check resolves by-value definitions during lowering with an ephemeral cycle guard. It does not
+retain a native dependency graph. A focused old-generator fixture covers each suppression reason.
+That fixture also exposed a separate gap: scoped native enums themselves still render as aliases
+in bindgen2 rather than the existing transparent newtype projection.
 
 Architecture gating is now complete for the selected surface:
 
@@ -149,7 +163,6 @@ standard required before claiming the replacement is objectively better overall.
 ## Next checkpoint
 
 The bounded module-output, RDL2 external-reference, native-shape inventory, architecture-gating,
-and nested-rendering checkpoints are complete. Before adding another item category, compare the
-remaining native output gaps and choose the smallest policy slice with a focused differential
-proof. Do not add dependency closure, a second name index, or a global native graph without a
-measured requirement.
+nested-rendering, and native-default checkpoints are complete. Scoped enums are the smallest
+measured native gap and already have a focused fixture. Do not add dependency closure, a second
+name index, or a global native graph without a measured requirement.

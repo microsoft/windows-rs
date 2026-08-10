@@ -28,3 +28,8 @@ generator without adding a global enum graph.
 A true `NestedClass` fixture matches the existing generator for multiple children, deep nesting,
 packing, unions, and inherited architecture gates. Nested unions also force manual `Default`
 implementations through their enclosing subtree, matching the existing layout policy.
+
+Native `Default` policy now matches the existing sys generator for explicit layout propagated
+through by-value fields, direct fixed arrays, fixed-array typedef chains, and scoped-enum fields.
+The corpus contains 8,584 deriving structs and 4,131 manual implementations. Resolution is an
+ephemeral per-root traversal rather than another retained native graph.

@@ -350,6 +350,7 @@ mod tests {
         let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
         let items = Win32Items::new(&database).unwrap();
         let mut supported = [0; 5];
+        let mut defaults = [0; 5];
         let mut unsupported = BTreeMap::<String, usize>::new();
 
         for namespace in &items.namespaces {
@@ -358,6 +359,15 @@ mod tests {
                 match NativeType::lower(&database, definition, &items.nested) {
                     Ok(ty) => {
                         ty.write_sys();
+                        if let Some(policy) = ty.default_policy() {
+                            defaults[match policy {
+                                native_default::Policy::Derive => 0,
+                                native_default::Policy::ExplicitLayout => 1,
+                                native_default::Policy::FixedArray => 2,
+                                native_default::Policy::TypedefArray => 3,
+                                native_default::Policy::ScopedEnum => 4,
+                            }] += 1;
+                        }
                         supported[match ty.kind() {
                             NativeTypeKind::Alias => 0,
                             NativeTypeKind::Enum => 1,
@@ -392,6 +402,7 @@ mod tests {
         assert_eq!(supported[..3], [12_666, 4_728, 12_715]);
         assert_eq!(supported[3..], [83_641, 14_559]);
         assert_eq!(items.type_count, 30_109);
+        assert_eq!(defaults, [8_584, 2_164, 1_890, 74, 3]);
         assert!(unsupported.is_empty(), "{unsupported:#?}");
     }
 
