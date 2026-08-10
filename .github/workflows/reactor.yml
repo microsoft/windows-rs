@@ -54,14 +54,23 @@ jobs:
         run: rustup update --no-self-update stable && rustup default stable
 
       - uses: Swatinem/rust-cache@v2
-      - uses: taiki-e/install-action@cargo-llvm-cov
+
+      - name: Install coverage tools
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          rustup toolchain install nightly --profile minimal --component llvm-tools-preview
+          cargo install cargo-llvm-cov --locked --version 0.8.7
 
       - name: Reconciler branch coverage
         shell: pwsh
         run: |
-          cargo llvm-cov clean --workspace
-          cargo llvm-cov -p test_reactor --branch --no-report
-          cargo llvm-cov report -p windows-reactor --branch --json `
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          cargo +nightly llvm-cov clean --workspace
+          cargo +nightly llvm-cov -p test_reactor --branch --no-report
+          cargo +nightly llvm-cov report -p windows-reactor --branch --json `
             --output-path target\reactor-coverage.json
           crates\tests\libs\reactor\coverage.ps1
 

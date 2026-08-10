@@ -480,7 +480,13 @@ event update panics before mutating the backend.
 If structural replacement fails after removing old native output, an error boundary discards only
 the ownership that remains live before mounting its fallback. It does not restore the old subtree.
 The strict teardown path still treats a missing control as an invariant violation. Structural
-recovery without an error boundary and rollback of child collection mutations are not yet defined.
+retry without an error boundary and rollback of child collection mutations are not yet defined.
+
+Fail-before append, insert, replace, move, and remove errors may leave the mounted tree and backend
+collection in different intermediate orders. An error boundary discards the containing subtree and
+mounts its fallback. Without a boundary, explicit root teardown still reaches every live control and
+runs component cleanup exactly once. Retrying reconciliation or restoring the prior collection after
+such a failure is not supported.
 
 Two crates measure reconciler performance. `test_reactor_bench` is a headless micro-suite (run with
 `cargo run -p test_reactor_bench --release`) that brackets only the reconcile body against
@@ -1174,8 +1180,10 @@ time.
   boundaries can discard the subtree, run cleanups, and mount a fallback.
 - [x] Let error boundaries discard failed structural replacements without destroying removed
   controls twice, including replacements nested under native and component output.
-- [ ] Extend backend fault injection to updates, custom and templated mounts, move, detach, destroy,
-  child collection rollback, and rollback itself; define the valid state after each failure.
+- [x] Characterize fail-before append, insert, replace, move, and remove updates: error boundaries
+  discard the subtree, while uncaught failures remain reachable for explicit teardown.
+- [ ] Extend backend fault injection to custom and templated mounts, destroy, collection retry or
+  rollback, and rollback itself; define the valid state after each failure.
 - [ ] Define and test render, commit, effect, cleanup, error-boundary, and reentrant-event ordering.
 - [ ] Enforce the UI-thread boundary in release builds and reject stale asynchronous updates after
   unmount or host replacement.

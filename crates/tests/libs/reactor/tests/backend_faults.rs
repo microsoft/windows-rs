@@ -4,9 +4,9 @@ use std::rc::Rc;
 
 use test_reactor::{BackendOperation, Op, RecordingBackend};
 use windows_reactor::{
-    Button, Component, Context, ControlKind, Element, Expander, Pivot, PivotItem, ProvideExt,
-    Reconciler, RenderCx, SplitView, TabItem, TabView, component, error_boundary, text_block,
-    vstack,
+    Button, Component, Context, ControlKind, Element, Expander, KeyExt, Pivot, PivotItem,
+    ProvideExt, Reconciler, RenderCx, SplitView, TabItem, TabView, component, error_boundary,
+    text_block, vstack,
 };
 
 fn rerender() -> Rc<dyn Fn()> {
@@ -504,4 +504,165 @@ fn strict_unmount_still_rejects_an_already_removed_control() {
     assert!(result.is_err());
     reconciler.backend.assert_consistent();
     assert_eq!(reconciler.backend.live_control_count(), 0);
+}
+
+#[derive(Clone, Copy, Debug, PartialEq)]
+enum CollectionChange {
+    Append,
+    Insert,
+    Replace,
+    Move,
+    Remove,
+}
+
+impl CollectionChange {
+    fn backend_operation(self) -> BackendOperation {
+        match self {
+            Self::Append => BackendOperation::AppendChild,
+            Self::Insert => BackendOperation::InsertChild,
+            Self::Replace => BackendOperation::ReplaceChild,
+            Self::Move => BackendOperation::MoveChild,
+            Self::Remove => BackendOperation::RemoveChild,
+        }
+    }
+}
+
+#[derive(Clone, PartialEq)]
+struct CollectionProps {
+    change: CollectionChange,
+    updated: bool,
+}
+
+struct CollectionEffect {
+    cleanups: Rc<Cell<u32>>,
+}
+
+impl Component<CollectionProps> for CollectionEffect {
+    fn render(&self, props: &CollectionProps, cx: &mut RenderCx) -> Element {
+        let cleanups = Rc::clone(&self.cleanups);
+        cx.use_effect_with_cleanup((), move || Some(move || cleanups.set(cleanups.get() + 1)));
+
+        let children: Vec<Element> = match (props.change, props.updated) {
+            (CollectionChange::Append, false) => vec![text_block("a").into()],
+            (CollectionChange::Append, true) => {
+                vec![text_block("a").into(), text_block("b").into()]
+            }
+            (CollectionChange::Insert, false) => {
+                vec![
+                    text_block("a").with_key("a").into(),
+                    text_block("c").with_key("c").into(),
+                ]
+            }
+            (CollectionChange::Insert, true) => vec![
+                text_block("a").with_key("a").into(),
+                text_block("b").with_key("b").into(),
+                text_block("c").with_key("c").into(),
+            ],
+            (CollectionChange::Replace, false) => vec![text_block("old").into()],
+            (CollectionChange::Replace, true) => vec![Button::new("new").into()],
+            (CollectionChange::Move, false) => vec![
+                text_block("a").with_key("a").into(),
+                text_block("b").with_key("b").into(),
+                text_block("c").with_key("c").into(),
+            ],
+            (CollectionChange::Move, true) => vec![
+                text_block("c").with_key("c").into(),
+                text_block("a").with_key("a").into(),
+                text_block("b").with_key("b").into(),
+            ],
+            (CollectionChange::Remove, false) => {
+                vec![text_block("a").into(), text_block("b").into()]
+            }
+            (CollectionChange::Remove, true) => vec![text_block("a").into()],
+        };
+        vstack(children).into()
+    }
+}
+
+fn collection_component(
+    change: CollectionChange,
+    updated: bool,
+    cleanups: &Rc<Cell<u32>>,
+) -> Element {
+    component(
+        CollectionEffect {
+            cleanups: Rc::clone(cleanups),
+        },
+        CollectionProps { change, updated },
+    )
+}
+
+fn collection_changes() -> [CollectionChange; 5] {
+    [
+        CollectionChange::Append,
+        CollectionChange::Insert,
+        CollectionChange::Replace,
+        CollectionChange::Move,
+        CollectionChange::Remove,
+    ]
+}
+
+#[test]
+fn error_boundaries_discard_failed_child_collection_updates() {
+    for change in collection_changes() {
+        let cleanups = Rc::new(Cell::new(0));
+        let old = error_boundary(collection_component(change, false, &cleanups), |_| {
+            text_block("fallback").into()
+        });
+        let new = error_boundary(collection_component(change, true, &cleanups), |_| {
+            text_block("fallback").into()
+        });
+        let mut reconciler = Reconciler::new(RecordingBackend::new());
+        reconciler.reconcile(None, &old, None, rerender());
+        reconciler.backend.fail_next(change.backend_operation());
+
+        assert!(
+            reconciler
+                .reconcile(Some(&old), &new, None, rerender())
+                .is_some(),
+            "{change:?} did not mount the fallback"
+        );
+
+        assert_eq!(
+            cleanups.get(),
+            1,
+            "{change:?} did not run cleanup for the discarded component"
+        );
+        assert_eq!(reconciler.backend.live_control_count(), 1);
+        assert_eq!(reconciler.debug_logical_node_count(), 1);
+        reconciler.assert_consistent();
+        reconciler.backend.assert_consistent();
+
+        reconciler.unmount_root();
+        assert_eq!(cleanups.get(), 1);
+        reconciler.backend.assert_consistent();
+        assert_eq!(reconciler.backend.live_control_count(), 0);
+    }
+}
+
+#[test]
+fn failed_child_collection_updates_remain_reachable_for_teardown() {
+    for change in collection_changes() {
+        let cleanups = Rc::new(Cell::new(0));
+        let old = collection_component(change, false, &cleanups);
+        let new = collection_component(change, true, &cleanups);
+        let mut reconciler = Reconciler::new(RecordingBackend::new());
+        reconciler.reconcile(None, &old, None, rerender());
+        reconciler.backend.fail_next(change.backend_operation());
+
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            reconciler.reconcile(Some(&old), &new, None, rerender())
+        }));
+
+        assert!(result.is_err(), "{change:?} did not fail");
+        reconciler.unmount_root();
+        assert_eq!(
+            cleanups.get(),
+            1,
+            "{change:?} did not run cleanup for the retained component"
+        );
+        reconciler.assert_consistent();
+        reconciler.backend.assert_consistent();
+        assert_eq!(reconciler.backend.live_control_count(), 0);
+    }
 }
