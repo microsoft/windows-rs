@@ -608,7 +608,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     fn dispatch_logical_appeared(&mut self, root: LogicalNodeId) {
-        for node in self.collect_logical_subtree(root) {
+        for node in self.tree.logical.collect_subtree(root) {
             self.tree
                 .logical
                 .dispatch_node_appeared(node, &self.host.context_stack);
@@ -616,37 +616,11 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     fn dispatch_logical_disappeared(&mut self, root: LogicalNodeId) {
-        for node in self.collect_logical_subtree(root) {
+        for node in self.tree.logical.collect_subtree(root) {
             self.tree
                 .logical
                 .dispatch_node_disappeared(node, &self.host.context_stack);
         }
-    }
-
-    fn collect_logical_subtree(&self, root: LogicalNodeId) -> Vec<LogicalNodeId> {
-        let mut nodes = vec![root];
-        let mut index = 0;
-        while index < nodes.len() {
-            let parent = nodes[index];
-            index += 1;
-            nodes.extend(
-                self.tree
-                    .logical
-                    .components
-                    .values()
-                    .filter(|node| node.parent == Some(parent))
-                    .map(|node| node.node_id),
-            );
-            nodes.extend(
-                self.tree
-                    .logical
-                    .wrappers
-                    .values()
-                    .filter(|node| node.parent == Some(parent))
-                    .map(|node| node.node_id),
-            );
-        }
-        nodes
     }
 
     fn dispatch_appeared(&mut self, id: ControlId) {

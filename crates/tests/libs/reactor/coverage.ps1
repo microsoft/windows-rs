@@ -7,6 +7,7 @@ $report = Get-Content $Path -Raw | ConvertFrom-Json
 $files = $report.data[0].files
 $requirements = @(
     @{ Suffix = "reconciler.rs"; Branches = 62; Lines = 82 },
+    @{ Suffix = "reconciler\logical_tree.rs"; Branches = 67; Lines = 85 },
     @{ Suffix = "reconciler\child.rs"; Branches = 75; Lines = 90 },
     @{ Suffix = "reconciler\templated.rs"; Branches = 65; Lines = 90 },
     @{ Suffix = "reconciler\widget_dispatch.rs"; Branches = 55; Lines = 65 },
