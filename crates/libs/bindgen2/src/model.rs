@@ -26,17 +26,18 @@ impl Generator {
 impl Values {
     pub(crate) fn lower(
         database: &Database,
-        entries: &[(String, String, ValueEntry)],
+        entries: &[(String, String, WinrtEntry)],
     ) -> Result<Self, Error> {
         let mut namespaces = BTreeMap::<String, BTreeMap<String, Value>>::new();
         for (namespace, name, entry) in entries {
             let definition = database.definition(entry.entity).unwrap();
             let full_name = format!("{namespace}.{name}");
             let value = match entry.kind {
-                ValueKind::Enum => Value::Enum(Enum::lower(database, definition, &full_name)?),
-                ValueKind::Struct => {
+                WinrtKind::Enum => Value::Enum(Enum::lower(database, definition, &full_name)?),
+                WinrtKind::Struct => {
                     Value::Struct(Struct::lower(database, definition, &full_name)?)
                 }
+                WinrtKind::Delegate => continue,
             };
             if namespaces
                 .entry(namespace.clone())
@@ -84,7 +85,7 @@ impl Values {
     ) -> Result<TokenStream, Error> {
         let value = self
             .get(namespace, name)
-            .ok_or_else(|| Error::InvalidValue {
+            .ok_or_else(|| Error::InvalidType {
                 name: format!("{namespace}.{name}"),
                 message: "value was not selected",
             })?;
@@ -112,7 +113,7 @@ impl Values {
             Some(Value::Struct(model)) => {
                 model.properties(self, stack, &format!("{namespace}.{name}"))
             }
-            None => Err(Error::InvalidValue {
+            None => Err(Error::InvalidType {
                 name: format!("{namespace}.{name}"),
                 message: "referenced value was not selected",
             }),
@@ -134,7 +135,7 @@ impl Values {
         let result = match self.get(namespace, name) {
             Some(Value::Enum(model)) => model.signature(self, namespace, name, stack),
             Some(Value::Struct(model)) => model.runtime_signature(self, namespace, name, stack),
-            None => Err(Error::InvalidValue {
+            None => Err(Error::InvalidType {
                 name: format!("{namespace}.{name}"),
                 message: "referenced value was not selected",
             }),

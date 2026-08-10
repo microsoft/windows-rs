@@ -69,7 +69,7 @@ impl Constant {
         }
 
         let value = constant
-            .ok_or_else(|| Error::InvalidValue {
+            .ok_or_else(|| Error::InvalidType {
                 name: full_name.clone(),
                 message: "constant field has no Constant row",
             })?
@@ -204,20 +204,20 @@ fn property_fields(
     owner: &str,
 ) -> Result<[String; 2], Error> {
     let (TypeKind::Value(id) | TypeKind::Class(id)) = &ty.kind else {
-        return Err(Error::InvalidValue {
+        return Err(Error::InvalidType {
             name: owner.to_string(),
             message: "GUID-backed constant is not a named struct",
         });
     };
     let Some((namespace, name)) = database.type_name(file, *id)? else {
-        return Err(Error::InvalidValue {
+        return Err(Error::InvalidType {
             name: owner.to_string(),
             message: "GUID-backed constant type has no name",
         });
     };
     let definitions = database.type_definitions(namespace, name);
     if definitions.len() != 1 {
-        return Err(Error::InvalidValue {
+        return Err(Error::InvalidType {
             name: owner.to_string(),
             message: "GUID-backed constant type does not have one definition",
         });
@@ -228,7 +228,7 @@ fn property_fields(
         .fields()?
         .map(|field| field.name().map(str::to_string))
         .collect::<Result<Vec<_>, _>>()?;
-    let [first, second] = fields.try_into().map_err(|_| Error::InvalidValue {
+    let [first, second] = fields.try_into().map_err(|_| Error::InvalidType {
         name: owner.to_string(),
         message: "GUID-backed constant struct does not have two fields",
     })?;

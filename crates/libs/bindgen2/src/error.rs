@@ -5,8 +5,8 @@ pub enum Error {
     Metadata(windows_metadata2::Error),
     /// Two projected value types have the same full name.
     DuplicateValue(String),
-    /// A value definition is structurally invalid.
-    InvalidValue {
+    /// A projected type definition is structurally invalid.
+    InvalidType {
         /// The full metadata type name.
         name: String,
         /// The violated requirement.
@@ -46,8 +46,8 @@ impl std::fmt::Display for Error {
         match self {
             Self::Metadata(error) => error.fmt(formatter),
             Self::DuplicateValue(name) => write!(formatter, "duplicate value type `{name}`"),
-            Self::InvalidValue { name, message } => {
-                write!(formatter, "invalid value type `{name}`: {message}")
+            Self::InvalidType { name, message } => {
+                write!(formatter, "invalid type `{name}`: {message}")
             }
             Self::UnsupportedType { name, shape } => {
                 write!(formatter, "unsupported type in `{name}`: {shape}")

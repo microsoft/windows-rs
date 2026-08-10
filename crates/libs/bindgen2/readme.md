@@ -18,11 +18,10 @@ let tokens = generator.render(windows_bindgen2::Layout::Flat)?;
 typed entities and selection policy for one request. Formatting, file writing, package staging,
 and legacy command parsing remain the responsibility of callers or a later tool-facing facade.
 
-The current implementation covers WinRT enums and structs plus native sys types, constants,
-functions, delegates, and interfaces. Filtered native and WinRT value dependency closure, nested
-and flat layouts, architecture gates, and deterministic ordering are implemented. Rich/minimal
-projection, WinRT delegates, interfaces, and classes, member filters, and package output remain
-future work.
+The current implementation covers WinRT enums, structs, and delegates plus native sys types,
+constants, functions, delegates, and interfaces. Filtered dependency closure, nested and flat
+layouts, architecture gates, and deterministic ordering are implemented. Rich/minimal projection,
+WinRT interfaces and classes, member filters, and package output remain future work.
 
 The design and differential evidence are tracked in
 [`docs/crates/windows-bindgen2.md`](../../../docs/crates/windows-bindgen2.md).

@@ -90,7 +90,7 @@ impl NativeType {
                         }
                         let value = field
                             .constant()?
-                            .ok_or_else(|| Error::InvalidValue {
+                            .ok_or_else(|| Error::InvalidType {
                                 name: full_name.clone(),
                                 message: "native enum member has no constant",
                             })?
@@ -105,7 +105,7 @@ impl NativeType {
                         )?)
                         .is_some()
                     {
-                        return Err(Error::InvalidValue {
+                        return Err(Error::InvalidType {
                             name: full_name,
                             message: "native enum has more than one backing field",
                         });
@@ -116,7 +116,7 @@ impl NativeType {
                     kind: Kind::Enum(Enum {
                         namespace: namespace.to_string(),
                         name,
-                        ty: ty.ok_or(Error::InvalidValue {
+                        ty: ty.ok_or(Error::InvalidType {
                             name: full_name,
                             message: "native enum has no backing field",
                         })?,
@@ -187,12 +187,12 @@ impl NativeType {
                 }
                 if definition.has_attribute("NativeTypedefAttribute")? {
                     if !nested.is_empty() {
-                        return Err(Error::InvalidValue {
+                        return Err(Error::InvalidType {
                             name: full_name,
                             message: "native typedef has nested definitions",
                         });
                     }
-                    let [(_, ty)] = fields.try_into().map_err(|_| Error::InvalidValue {
+                    let [(_, ty)] = fields.try_into().map_err(|_| Error::InvalidType {
                         name: full_name,
                         message: "native typedef does not have one field",
                     })?;
@@ -220,13 +220,13 @@ impl NativeType {
                 if let Some(packing) = packing
                     && (!packing.is_power_of_two() || packing > 16)
                 {
-                    return Err(Error::InvalidValue {
+                    return Err(Error::InvalidType {
                         name: full_name,
                         message: "native packing is not a supported power of two",
                     });
                 }
                 if align.is_some() && packing.is_some() {
-                    return Err(Error::InvalidValue {
+                    return Err(Error::InvalidType {
                         name: full_name,
                         message: "native type has both alignment and packing",
                     });
@@ -503,7 +503,7 @@ fn alignment(definition: TypeDefinition<'_>, full_name: &str) -> Result<Option<u
     };
     let arguments = attribute.arguments(&())?;
     let Some(AttributeArgument::Fixed { value, .. }) = arguments.first() else {
-        return Err(Error::InvalidValue {
+        return Err(Error::InvalidType {
             name: full_name.to_string(),
             message: "alignment attribute has no fixed argument",
         });
@@ -517,12 +517,12 @@ fn alignment(definition: TypeDefinition<'_>, full_name: &str) -> Result<Option<u
         AttributeValue::I32(value) => u32::try_from(*value).ok(),
         _ => None,
     }
-    .ok_or_else(|| Error::InvalidValue {
+    .ok_or_else(|| Error::InvalidType {
         name: full_name.to_string(),
         message: "alignment attribute is not a positive integer",
     })?;
     if !value.is_power_of_two() {
-        return Err(Error::InvalidValue {
+        return Err(Error::InvalidType {
             name: full_name.to_string(),
             message: "alignment attribute is not a power of two",
         });

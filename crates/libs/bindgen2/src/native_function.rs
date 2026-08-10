@@ -23,7 +23,7 @@ impl Function {
     ) -> Result<Self, Error> {
         let full_name = format!("{namespace}.{name}");
         let architectures = method.architectures()?;
-        let import = method.import()?.ok_or_else(|| Error::InvalidValue {
+        let import = method.import()?.ok_or_else(|| Error::InvalidType {
             name: full_name.clone(),
             message: "Win32 function has no ImplMap",
         })?;
@@ -71,7 +71,7 @@ fn calling_convention(flags: u16, name: &str) -> Result<&'static str, Error> {
             name: name.to_string(),
             shape: "unsupported calling convention".to_string(),
         }),
-        _ => Err(Error::InvalidValue {
+        _ => Err(Error::InvalidType {
             name: name.to_string(),
             message: "invalid P/Invoke calling convention",
         }),

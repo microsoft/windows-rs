@@ -22,7 +22,7 @@ impl Guid {
                 continue;
             };
             if result.is_some_and(|existing| existing != guid) {
-                return Err(Error::InvalidValue {
+                return Err(Error::InvalidType {
                     name: owner.to_string(),
                     message: "referenced type has conflicting GUIDs",
                 });
@@ -61,7 +61,7 @@ impl Guid {
             .iter()
             .map(|argument| match argument {
                 AttributeArgument::Fixed { value, .. } => Ok(value),
-                _ => Err(Error::InvalidValue {
+                _ => Err(Error::InvalidType {
                     name: owner.to_string(),
                     message: "GuidAttribute has a named argument",
                 }),
@@ -81,7 +81,7 @@ impl Guid {
             data11,
         ] = values.as_slice()
         else {
-            return Err(Error::InvalidValue {
+            return Err(Error::InvalidType {
                 name: owner.to_string(),
                 message: "GuidAttribute does not have 11 arguments",
             });
@@ -119,6 +119,25 @@ impl Guid {
                 data4: [#(#data4),*],
             }
         }
+    }
+
+    pub(super) fn write_u128(self) -> proc_macro2::TokenStream {
+        format!(
+            "0x{:08x}_{:04x}_{:04x}_{:02x}{:02x}_{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}",
+            self.data1,
+            self.data2,
+            self.data3,
+            self.data4[0],
+            self.data4[1],
+            self.data4[2],
+            self.data4[3],
+            self.data4[4],
+            self.data4[5],
+            self.data4[6],
+            self.data4[7],
+        )
+        .parse()
+        .unwrap()
     }
 
     pub(super) fn is_iunknown(self) -> bool {
@@ -171,7 +190,7 @@ fn u8_value(value: &AttributeValue, owner: &str) -> Result<u8, Error> {
 }
 
 fn invalid_guid(owner: &str) -> Error {
-    Error::InvalidValue {
+    Error::InvalidType {
         name: owner.to_string(),
         message: "GuidAttribute argument has the wrong type",
     }

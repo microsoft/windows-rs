@@ -42,21 +42,21 @@ impl Enum {
             if field.is_literal()? {
                 let value = field
                     .constant()?
-                    .ok_or_else(|| Error::InvalidValue {
+                    .ok_or_else(|| Error::InvalidType {
                         name: full_name.to_string(),
                         message: "literal enum field has no constant",
                     })?
                     .value()?;
                 fields.push(Field {
                     name: field.name()?.to_string(),
-                    value: Integer::lower(value).ok_or_else(|| Error::InvalidValue {
+                    value: Integer::lower(value).ok_or_else(|| Error::InvalidType {
                         name: full_name.to_string(),
                         message: "enum constant is not an integer",
                     })?,
                 });
             } else {
                 if underlying.is_some() {
-                    return Err(Error::InvalidValue {
+                    return Err(Error::InvalidType {
                         name: full_name.to_string(),
                         message: "enum has more than one backing field",
                     });
@@ -69,18 +69,18 @@ impl Enum {
                 )?);
             }
         }
-        let underlying = underlying.ok_or_else(|| Error::InvalidValue {
+        let underlying = underlying.ok_or_else(|| Error::InvalidType {
             name: full_name.to_string(),
             message: "enum has no backing field",
         })?;
         if !underlying.is_integer() {
-            return Err(Error::InvalidValue {
+            return Err(Error::InvalidType {
                 name: full_name.to_string(),
                 message: "enum backing field is not an integer",
             });
         }
         if fields.iter().any(|field| !field.value.matches(&underlying)) {
-            return Err(Error::InvalidValue {
+            return Err(Error::InvalidType {
                 name: full_name.to_string(),
                 message: "enum constant does not match its backing field",
             });

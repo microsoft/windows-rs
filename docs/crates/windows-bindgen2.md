@@ -30,12 +30,13 @@ filtered WinRT value closure.
 | Module layout | Focused differential coverage | Nested WinRT/Win32 fixtures match. |
 | Flat layout | Complete for current projections | Explicit layout context covers cross-namespace WinRT and Win32 references. |
 | Filtered WinRT values | Complete for enums and structs | Transitive value dependencies are selected; recursive values remain errors. |
+| WinRT delegates | Full corpus | All 137 definitions lower and render; focused default-style output matches. |
 | ABI canonicalization | Consolidated for native sys | Namespace-qualified aliases and one callable lowering path match all nine requests. |
 | Request reuse | Complete for current catalogs | The database, nested map, and interface-base map are shared across requests. |
 | Formatting and file writing | Tool policy | Kept outside the projection core. |
 | Sys request differential | Complete | A test-local parser proves nine real request files. |
 | Rich/minimal projection | Not started | Native sys is the only complete production-style surface. |
-| WinRT interfaces and classes | Not started | Required before default-style `tool_bindings` requests. |
+| WinRT interfaces and classes | Not started | Interfaces are the next bounded milestone. |
 | Package output | Not started | Requires stable filtering, layout, and formatting first. |
 
 Approximate hand-written Rust source size is 5,500 lines for bindgen2 versus 12,829 for the
@@ -320,6 +321,23 @@ This gate is complete:
 7. [x] Rewrite the crate readme as a short user-facing API and scope page. Keep design status and
    milestone evidence here.
 
-After this gate, WinRT delegates are the next bounded projection milestone. Interfaces and classes
-follow independently. Package output remains a separate artifact-planning problem rather than a
-larger `Layout` variant.
+## WinRT delegate milestone
+
+WinRT delegates are projected one definition at a time from typed metadata identities. The model
+owns only generic parameter names, the delegate GUID, and the `Invoke` signature. It reuses the
+shared WinRT value graph for struct copyability and ABI decisions rather than adding another type
+registry.
+
+The committed metadata contains 137 delegates. Their signatures use primitives, strings, objects,
+named classes and values, generic type parameters, generic instances, and one input vector. There
+are no output vectors, vector returns, architecture-gated delegates, or no-exception delegate
+methods. The corpus test rejects any new unsupported shape or policy assumption.
+
+Generic and non-generic identity, public `Invoke`, ABI vtables, constructor closures, and upcall
+bodies match focused output from the existing generator. A broader fixture covers strings,
+objects, enums, copyable and non-copyable structs, vectors, and non-copyable returns. Filtered
+requests use projected generic names without metadata arity suffixes and close over referenced
+WinRT values and delegates.
+
+WinRT interfaces are the next bounded projection milestone. Classes follow independently. Package
+output remains a separate artifact-planning problem rather than a larger `Layout` variant.

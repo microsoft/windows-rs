@@ -3,6 +3,7 @@ use std::collections::BTreeSet;
 
 #[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
 pub(super) enum Type {
+    Void,
     Boolean,
     Char,
     I8,
@@ -39,7 +40,6 @@ impl Type {
         match self {
             Self::Vector(element) => element.collect_value_dependencies(dependencies),
             Self::Named {
-                value_type: true,
                 namespace,
                 name,
                 arguments,
@@ -48,11 +48,6 @@ impl Type {
                 if arguments.is_empty() && !(namespace == "System" && name == "Guid") {
                     dependencies.insert((namespace.clone(), name.clone()));
                 }
-                for argument in arguments {
-                    argument.collect_value_dependencies(dependencies);
-                }
-            }
-            Self::Named { arguments, .. } => {
                 for argument in arguments {
                     argument.collect_value_dependencies(dependencies);
                 }
@@ -84,6 +79,7 @@ impl Type {
     ) -> Result<Self, Error> {
         Ok(match ty {
             TypeKind::Boolean => Self::Boolean,
+            TypeKind::Void => Self::Void,
             TypeKind::Char => Self::Char,
             TypeKind::I8 => Self::I8,
             TypeKind::U8 => Self::U8,
@@ -138,7 +134,7 @@ impl Type {
         let (namespace, metadata_name) =
             database
                 .type_name(file, id)?
-                .ok_or_else(|| Error::InvalidValue {
+                .ok_or_else(|| Error::InvalidType {
                     name: owner.to_string(),
                     message: "field type has no name",
                 })?;
@@ -164,6 +160,8 @@ impl Type {
         use quote::quote;
 
         Ok(match self {
+            Self::Void => quote! { core::ffi::c_void },
+            Self::Object => quote! { Option<windows_core::IInspectable> },
             Self::Boolean => quote! { bool },
             Self::Char => quote! { u16 },
             Self::I8 => quote! { i8 },
@@ -221,6 +219,7 @@ impl Type {
 
     pub(super) fn shape(&self) -> String {
         match self {
+            Self::Void => "void".to_string(),
             Self::Boolean => "bool".to_string(),
             Self::Char => "char".to_string(),
             Self::I8 => "i8".to_string(),
@@ -256,6 +255,7 @@ impl Type {
 
     pub(super) fn primitive_signature(&self) -> Option<&'static str> {
         Some(match self {
+            Self::Void => return None,
             Self::Boolean => "b1",
             Self::Char => "c2",
             Self::I8 => "i1",
@@ -302,6 +302,12 @@ impl Type {
         owner: &str,
     ) -> Result<Properties, Error> {
         Ok(match self {
+            Self::Void => {
+                return Err(Error::UnsupportedType {
+                    name: owner.to_string(),
+                    shape: self.shape(),
+                });
+            }
             Self::String | Self::Object => Properties {
                 copyable: false,
                 eq: true,
@@ -379,6 +385,255 @@ impl Type {
                 shape: self.shape(),
             }),
         }
+    }
+
+    pub(super) fn write_name(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        generics: &[String],
+    ) -> Result<proc_macro2::TokenStream, Error> {
+        use quote::quote;
+
+        Ok(match self {
+            Self::Void => quote! { core::ffi::c_void },
+            Self::Object => quote! { windows_core::IInspectable },
+            Self::Generic(index) => {
+                let Some(name) = generics.get(*index as usize) else {
+                    return Err(Error::UnsupportedType {
+                        name: namespace.to_string(),
+                        shape: format!("generic parameter {index}"),
+                    });
+                };
+                let name = tokens::ident(name);
+                quote! { #name }
+            }
+            Self::Vector(element) => element.write_name(namespace, layout, generics)?,
+            Self::Named {
+                value_type: true,
+                namespace: target,
+                name,
+                arguments,
+                ..
+            } if target == "System" && name == "Guid" && arguments.is_empty() => {
+                quote! { windows_core::GUID }
+            }
+            Self::Named {
+                value_type: true,
+                namespace: target,
+                name,
+                arguments,
+                ..
+            } if target == "Windows.Foundation" && name == "HResult" && arguments.is_empty() => {
+                quote! { windows_core::HRESULT }
+            }
+            Self::Named {
+                value_type: true,
+                namespace: target,
+                name,
+                arguments,
+                ..
+            } if target == "Windows.Foundation"
+                && name == "EventRegistrationToken"
+                && arguments.is_empty() =>
+            {
+                quote! { i64 }
+            }
+            Self::Named {
+                namespace: target,
+                name,
+                arguments,
+                ..
+            } => {
+                let path = tokens::namespace(namespace, target, layout);
+                let name = tokens::ident(name);
+                let arguments = arguments
+                    .iter()
+                    .map(|argument| argument.write_name(namespace, layout, generics))
+                    .collect::<Result<Vec<_>, _>>()?;
+                if arguments.is_empty() {
+                    quote! { #path #name }
+                } else {
+                    quote! { #path #name<#(#arguments),*> }
+                }
+            }
+            _ => self.write(namespace, layout)?,
+        })
+    }
+
+    pub(super) fn write_default(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        generics: &[String],
+    ) -> Result<proc_macro2::TokenStream, Error> {
+        use quote::quote;
+
+        let name = self.write_name(namespace, layout, generics)?;
+        Ok(match self {
+            Self::Generic(_) => quote! { <#name as windows_core::Type<#name>>::Default },
+            Self::Object
+            | Self::Named {
+                value_type: false, ..
+            } => quote! { Option<#name> },
+            _ => name,
+        })
+    }
+
+    pub(super) fn write_abi(
+        &self,
+        values: &Values,
+        namespace: &str,
+        layout: Layout,
+        generics: &[String],
+    ) -> Result<proc_macro2::TokenStream, Error> {
+        use quote::quote;
+
+        Ok(match self {
+            Self::Void => quote! { core::ffi::c_void },
+            Self::String
+            | Self::Object
+            | Self::Named {
+                value_type: false, ..
+            } => {
+                quote! { *mut core::ffi::c_void }
+            }
+            Self::Generic(index) => {
+                let Some(name) = generics.get(*index as usize) else {
+                    return Err(Error::UnsupportedType {
+                        name: namespace.to_string(),
+                        shape: format!("generic parameter {index}"),
+                    });
+                };
+                let name = tokens::ident(name);
+                quote! { windows_core::AbiType<#name> }
+            }
+            Self::Vector(element) => element.write_abi(values, namespace, layout, generics)?,
+            Self::Named {
+                value_type: true,
+                namespace: target,
+                name,
+                arguments,
+                ..
+            } if target == "Windows.Foundation" && name == "HResult" && arguments.is_empty() => {
+                quote! { windows_core::HRESULT }
+            }
+            Self::Named {
+                value_type: true,
+                namespace: target,
+                name,
+                arguments,
+                ..
+            } if target == "Windows.Foundation"
+                && name == "EventRegistrationToken"
+                && arguments.is_empty() =>
+            {
+                quote! { i64 }
+            }
+            Self::Named {
+                value_type: true,
+                namespace: target,
+                name,
+                arguments,
+                ..
+            } if arguments.is_empty() => {
+                let written = self.write_name(namespace, layout, generics)?;
+                match values.get(target, name) {
+                    _ if target == "System" && name == "Guid" => written,
+                    Some(Value::Enum(_)) => written,
+                    Some(Value::Struct(_))
+                        if values
+                            .properties(target, name, &mut BTreeSet::new())?
+                            .copyable =>
+                    {
+                        written
+                    }
+                    Some(Value::Struct(_)) => quote! { core::mem::MaybeUninit<#written> },
+                    None => {
+                        return Err(Error::InvalidType {
+                            name: format!("{target}.{name}"),
+                            message: "referenced value was not selected",
+                        });
+                    }
+                }
+            }
+            Self::Named { .. } => {
+                return Err(Error::UnsupportedType {
+                    name: namespace.to_string(),
+                    shape: self.shape(),
+                });
+            }
+            _ => self.write_name(namespace, layout, generics)?,
+        })
+    }
+
+    pub(super) fn is_interface(&self) -> bool {
+        matches!(
+            self,
+            Self::Object
+                | Self::Generic(_)
+                | Self::Named {
+                    value_type: false,
+                    ..
+                }
+        )
+    }
+
+    pub(super) fn is_primitive(&self, values: &Values) -> bool {
+        match self {
+            Self::Boolean
+            | Self::Char
+            | Self::I8
+            | Self::U8
+            | Self::I16
+            | Self::U16
+            | Self::I32
+            | Self::U32
+            | Self::I64
+            | Self::U64
+            | Self::F32
+            | Self::F64 => true,
+            Self::Named {
+                value_type: true,
+                namespace,
+                name,
+                arguments,
+                ..
+            } if arguments.is_empty() => {
+                (namespace == "System" && name == "Guid")
+                    || (namespace == "Windows.Foundation"
+                        && (name == "HResult" || name == "EventRegistrationToken"))
+                    || matches!(values.get(namespace, name), Some(Value::Enum(_)))
+            }
+            _ => false,
+        }
+    }
+
+    pub(super) fn is_copyable(&self, values: &Values, _owner: &str) -> Result<bool, Error> {
+        Ok(match self {
+            Self::Void | Self::Generic(_) | Self::Vector(_) => false,
+            Self::String
+            | Self::Object
+            | Self::Named {
+                value_type: false, ..
+            } => false,
+            Self::Named {
+                value_type: true,
+                namespace,
+                name,
+                arguments,
+                ..
+            } if arguments.is_empty()
+                && !(namespace == "System" && name == "Guid")
+                && !(namespace == "Windows.Foundation"
+                    && (name == "HResult" || name == "EventRegistrationToken")) =>
+            {
+                values
+                    .properties(namespace, name, &mut BTreeSet::new())?
+                    .copyable
+            }
+            _ => true,
+        })
     }
 }
 

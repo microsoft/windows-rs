@@ -116,8 +116,9 @@ fn values_are_deterministic_and_borrow_database_names() {
 
     let counts = actual.iter().fold([0; 2], |mut counts, item| {
         counts[match item.2 {
-            ValueKind::Enum => 0,
-            ValueKind::Struct => 1,
+            WinrtKind::Enum => 0,
+            WinrtKind::Struct => 1,
+            WinrtKind::Delegate => unreachable!(),
         }] += 1;
         counts
     });
@@ -162,7 +163,7 @@ fn metadata_database_is_reused_across_requests() {
         &first.shared.win32_catalogs,
         &second.shared.win32_catalogs
     ));
-    assert_eq!(first.values().len(), second.values().len());
+    assert_eq!(first.values().count(), second.values().count());
     let first = first.win32_items();
     let second = second.win32_items();
     assert_eq!(first.native_types().count(), second.native_types().count());
@@ -181,8 +182,8 @@ fn values_apply_only_current_projection_policy() {
         assert_eq!(
             item.kind(),
             match definition.category().unwrap() {
-                TypeCategory::Enum => ValueKind::Enum,
-                TypeCategory::Struct => ValueKind::Struct,
+                TypeCategory::Enum => WinrtKind::Enum,
+                TypeCategory::Struct => WinrtKind::Struct,
                 rest => panic!("unexpected value category {rest:?}"),
             }
         );
@@ -315,6 +316,149 @@ fn render_selects_flat_output() {
 }
 
 #[test]
+fn winrt_delegates_match_existing_golden_tokens() {
+    for (name, source, expected) in [
+        (
+            "delegate",
+            include_str!("../../../tests/libs/bindgen/input/delegate.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/delegate.rs"),
+        ),
+        (
+            "delegate_generic",
+            include_str!("../../../tests/libs/bindgen/input/delegate_generic.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/delegate_generic.rs"),
+        ),
+        (
+            "delegate_types",
+            include_str!("../../../tests/libs/bindgen/input/delegate_types.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/delegate_types.rs"),
+        ),
+    ] {
+        let generator = fixture(source);
+        let expected: TokenStream = expected.parse().unwrap();
+        assert_eq!(
+            normalize_fn_parameters(generator.render(Layout::Flat).unwrap())
+                .replace(":: <", "::<")
+                .replace("> ::", ">::")
+                .replace("> ,", ">,")
+                .replace(" , {", " {")
+                .replace(" , }", " }"),
+            normalize_fn_parameters(expected)
+                .replace(":: <", "::<")
+                .replace("> ::", ">::")
+                .replace("> ,", ">,")
+                .replace(" , {", " {")
+                .replace(" , }", " }"),
+            "{name}"
+        );
+    }
+}
+
+#[test]
+fn winrt_delegate_corpus_lowers_and_renders() {
+    let generator = generator();
+    let mut count = 0;
+    let mut input_vectors = 0;
+    let mut output_vectors = 0;
+    let mut return_vectors = 0;
+    let mut architecture_delegates = 0;
+    let mut noexcept_delegates = 0;
+    for entry in generator
+        .winrt
+        .iter()
+        .filter(|entry| entry.kind == WinrtKind::Delegate)
+    {
+        let definition = generator.shared.database.definition(entry.entity).unwrap();
+        let namespace = definition.namespace().unwrap();
+        let name = definition.name().unwrap();
+        let invoke = definition.methods().unwrap().next().unwrap();
+        architecture_delegates += usize::from(definition.architectures().unwrap() != 0);
+        noexcept_delegates += usize::from(
+            invoke
+                .find_attribute("NoExceptionAttribute")
+                .unwrap()
+                .is_some(),
+        );
+        let signature = invoke.signature().unwrap();
+        let parameters = invoke.parameters_by_sequence().unwrap();
+        for (ty, parameter) in signature.parameters.iter().zip(parameters.parameters()) {
+            if matches!(ty.kind, TypeKind::Vector(_)) {
+                if parameter.is_none_or(|parameter| parameter.flags().unwrap() & 0x2 == 0) {
+                    input_vectors += 1;
+                } else {
+                    output_vectors += 1;
+                }
+            }
+        }
+        if matches!(signature.return_type.kind, TypeKind::Vector(_)) {
+            return_vectors += 1;
+        }
+        winrt_delegate::Delegate::lower(
+            &generator.shared.database,
+            definition,
+            &format!("{namespace}.{name}"),
+        )
+        .unwrap()
+        .write(generator.lower_values(), namespace, Layout::Modules)
+        .unwrap();
+        count += 1;
+    }
+    assert_eq!(
+        (
+            count,
+            input_vectors,
+            output_vectors,
+            return_vectors,
+            architecture_delegates,
+            noexcept_delegates,
+        ),
+        (137, 1, 0, 0, 0, 0)
+    );
+}
+
+#[test]
+fn filtered_winrt_delegates_close_value_dependencies() {
+    let metadata = fixture_metadata(
+        r#"
+                #[winrt]
+                mod Test {
+                    #[repr(i32)]
+                    enum Kind {
+                        First = 0,
+                    }
+
+                    delegate fn Handler(value: Kind);
+                    delegate fn Outer(handler: Handler);
+                }
+            "#,
+    );
+    let generator = metadata
+        .generator(Request::filtered(Filter::names(["Outer"])))
+        .unwrap();
+    let output = generator.render(Layout::Flat).unwrap().to_string();
+    assert!(output.contains("pub struct Kind"));
+    assert!(output.contains("define_interface ! (Handler"));
+    assert!(output.contains("define_interface ! (Outer"));
+}
+
+#[test]
+fn filtered_generic_delegate_uses_projected_name() {
+    let metadata = fixture_metadata(include_str!(
+        "../../../tests/libs/bindgen/input/delegate_generic.rdl"
+    ));
+    let generator = metadata
+        .generator(Request::filtered(Filter::names(["Handler"])))
+        .unwrap();
+    assert!(
+        generator
+            .render(Layout::Flat)
+            .unwrap()
+            .to_string()
+            .contains("Handler_Vtbl")
+    );
+}
+
+#[test]
 fn flat_output_rejects_cross_namespace_name_collisions() {
     let metadata = fixture_metadata(
         r#"
@@ -416,7 +560,7 @@ fn exact_filters_limit_winrt_and_win32_selection() {
     let generator = metadata.generator(Request::filtered(filter)).unwrap();
     let items = generator.win32_items();
 
-    assert_eq!(generator.values().len(), 1);
+    assert_eq!(generator.values().count(), 1);
     assert_eq!(items.native_types().count(), 2);
     assert_eq!(items.constants().count(), 1);
     assert_eq!(items.functions().count(), 0);
@@ -459,7 +603,7 @@ fn winrt_filters_include_transitive_value_dependencies() {
         .generator(Request::filtered(Filter::names(["Root"])))
         .unwrap();
 
-    assert_eq!(generator.values().len(), 3);
+    assert_eq!(generator.values().count(), 3);
     let output = generator.render(Layout::Modules).unwrap().to_string();
     assert!(output.contains("pub struct Leaf"));
     assert!(output.contains("pub struct Middle"));
@@ -486,7 +630,7 @@ fn winrt_value_closure_terminates_on_cycles() {
         .generator(Request::filtered(Filter::names(["First"])))
         .unwrap();
 
-    assert_eq!(generator.values().len(), 2);
+    assert_eq!(generator.values().count(), 2);
     assert!(matches!(
         generator.render(Layout::Modules),
         Err(Error::RecursiveValue(name)) if name.starts_with("Test.")

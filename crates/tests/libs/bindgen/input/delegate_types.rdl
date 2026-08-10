@@ -1,0 +1,25 @@
+//! --filter Test --flat
+#[winrt]
+mod Test {
+    #[repr(i32)]
+    enum Kind {
+        First = 0,
+    }
+
+    struct CopyValue {
+        value: i32,
+    }
+
+    struct OwnedValue {
+        value: String,
+    }
+
+    delegate fn Handler(
+        text: String,
+        object: Object,
+        kind: Kind,
+        copy: CopyValue,
+        owned: OwnedValue,
+        values: [i32],
+    ) -> OwnedValue;
+}

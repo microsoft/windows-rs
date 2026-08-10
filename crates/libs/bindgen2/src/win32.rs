@@ -505,7 +505,7 @@ fn unique_entity<T: windows_metadata2::Table>(
         return Err(missing(namespace, name));
     };
     if matches.next().is_some() {
-        return Err(Error::InvalidValue {
+        return Err(Error::InvalidType {
             name: format!("{namespace}.{name}"),
             message: "Win32 item is not unique",
         });
@@ -843,7 +843,7 @@ mod tests {
             Error::UnsupportedType { shape, .. } => {
                 shape.split(['(', ' ', '<']).next().unwrap().to_string()
             }
-            Error::InvalidValue { message, .. } => message.to_string(),
+            Error::InvalidType { message, .. } => message.to_string(),
             Error::Metadata(error) => format!("metadata: {error}"),
             other => other.to_string(),
         }

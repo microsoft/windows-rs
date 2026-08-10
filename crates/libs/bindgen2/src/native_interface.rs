@@ -32,7 +32,7 @@ impl NativeInterface {
             None | Some([]) => None,
             Some([base]) => Some(base.clone()),
             Some(_) => {
-                return Err(Error::InvalidValue {
+                return Err(Error::InvalidType {
                     name: full_name,
                     message: "native interface has more than one base",
                 });
@@ -52,7 +52,7 @@ impl NativeInterface {
                 };
                 let signature = native_signature::Signature::lower(database, method, &full_name)?;
                 if signature.flags & 0x20 == 0 {
-                    return Err(Error::InvalidValue {
+                    return Err(Error::InvalidType {
                         name: full_name.clone(),
                         message: "native interface method has no instance receiver",
                     });

@@ -21,13 +21,13 @@ impl Delegate {
         let full_name = format!("{namespace}.{name}");
         let methods = definition.methods()?.collect::<Vec<_>>();
         let [method] = methods.as_slice() else {
-            return Err(Error::InvalidValue {
+            return Err(Error::InvalidType {
                 name: full_name,
                 message: "native delegate does not have one method",
             });
         };
         if method.name()? != "Invoke" {
-            return Err(Error::InvalidValue {
+            return Err(Error::InvalidType {
                 name: full_name,
                 message: "native delegate method is not Invoke",
             });
@@ -70,7 +70,7 @@ fn calling_convention(
     };
     let arguments = attribute.arguments(&FrameworkEnums)?;
     let Some(AttributeArgument::Fixed { value, .. }) = arguments.first() else {
-        return Err(Error::InvalidValue {
+        return Err(Error::InvalidType {
             name: full_name.to_string(),
             message: "delegate calling convention has no argument",
         });
@@ -83,7 +83,7 @@ fn calling_convention(
         },
         _ => None,
     }
-    .ok_or_else(|| Error::InvalidValue {
+    .ok_or_else(|| Error::InvalidType {
         name: full_name.to_string(),
         message: "delegate calling convention is not i32",
     })?;

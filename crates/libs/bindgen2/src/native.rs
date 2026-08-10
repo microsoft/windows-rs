@@ -57,7 +57,7 @@ impl Type {
         let mut is_const = false;
         for modifier in ty.modifiers {
             let Some((namespace, name)) = database.type_name(file, modifier.ty)? else {
-                return Err(Error::InvalidValue {
+                return Err(Error::InvalidType {
                     name: owner.to_string(),
                     message: "native type modifier has no name",
                 });
@@ -125,7 +125,7 @@ impl Type {
                 let (namespace, name) =
                     database
                         .type_name(file, id)?
-                        .ok_or_else(|| Error::InvalidValue {
+                        .ok_or_else(|| Error::InvalidType {
                             name: owner.to_string(),
                             message: "native type has no name",
                         })?;
@@ -144,7 +144,7 @@ impl Type {
             }
             TypeKind::Class(id) => {
                 let Some((namespace, name)) = database.type_name(file, id)? else {
-                    return Err(Error::InvalidValue {
+                    return Err(Error::InvalidType {
                         name: owner.to_string(),
                         message: "native class type has no name",
                     });
@@ -322,14 +322,14 @@ impl Type {
             return Ok(Some(Self::lower(database, file, owner, ty.clone())?));
         };
         let Some((namespace, name)) = database.type_name(file, *id)? else {
-            return Err(Error::InvalidValue {
+            return Err(Error::InvalidType {
                 name: owner.to_string(),
                 message: "constant type has no name",
             });
         };
         let definitions = database.type_definitions(namespace, name);
         if definitions.len() != 1 {
-            return Err(Error::InvalidValue {
+            return Err(Error::InvalidType {
                 name: owner.to_string(),
                 message: "constant type does not have one definition",
             });
@@ -344,13 +344,13 @@ impl Type {
                 let mut underlying = None;
                 for field in definition.fields()? {
                     if !field.is_literal()? && underlying.replace(field.signature()?).is_some() {
-                        return Err(Error::InvalidValue {
+                        return Err(Error::InvalidType {
                             name: owner.to_string(),
                             message: "native enum has more than one backing field",
                         });
                     }
                 }
-                let underlying = underlying.ok_or_else(|| Error::InvalidValue {
+                let underlying = underlying.ok_or_else(|| Error::InvalidType {
                     name: owner.to_string(),
                     message: "native enum has no backing field",
                 })?;
@@ -359,7 +359,7 @@ impl Type {
             TypeCategory::Struct if definition.has_attribute("NativeTypedefAttribute")? => {
                 let fields = definition.fields()?.collect::<Vec<_>>();
                 if fields.len() != 1 {
-                    return Err(Error::InvalidValue {
+                    return Err(Error::InvalidType {
                         name: owner.to_string(),
                         message: "native typedef does not have one field",
                     });
