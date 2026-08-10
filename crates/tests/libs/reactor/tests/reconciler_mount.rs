@@ -98,6 +98,24 @@ fn mounting_empty_returns_none_and_records_nothing() {
 }
 
 #[test]
+fn unmounting_root_prevents_later_root_teardown() {
+    let (mut r, id) = mount(Element::TextBlock(TextBlock::new("root")));
+    let id = id.unwrap();
+
+    r.unmount(id);
+    r.unmount_root();
+
+    assert_eq!(
+        r.backend
+            .ops
+            .iter()
+            .filter(|op| matches!(op, Op::Destroy { id: destroyed } if *destroyed == id))
+            .count(),
+        1
+    );
+}
+
+#[test]
 fn mounting_border_appends_single_child() {
     let border = windows_reactor::Border::new(Element::TextBlock(TextBlock::new("inside")));
     let (r, id) = mount(Element::Border(border));

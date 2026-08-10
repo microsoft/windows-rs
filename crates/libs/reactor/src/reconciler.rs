@@ -1476,6 +1476,13 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn unmount(&mut self, id: ControlId) {
+        if self
+            .root_output
+            .is_some_and(|output| output.native == Some(id))
+        {
+            self.root_output = None;
+        }
+
         let mut nodes = vec![id];
         let mut next = 0;
         while next < nodes.len() {

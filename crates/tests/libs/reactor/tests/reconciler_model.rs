@@ -221,6 +221,8 @@ impl Harness {
         seed: u64,
         step: usize,
     ) {
+        reconciler.backend.assert_consistent();
+
         let actual: Vec<String> = reconciler
             .backend
             .children_of(root)
@@ -363,6 +365,7 @@ fn generated_transitions_match_model() {
             }
         }
         reconciler.unmount(root);
+        reconciler.backend.assert_consistent();
         assert_eq!(reconciler.backend.live_control_count(), 0);
         assert!(
             harness
