@@ -11,13 +11,7 @@ pub struct Function {
     module: String,
     abi: &'static str,
     variadic: bool,
-    parameters: Vec<Parameter>,
-    return_type: native::Type,
-}
-
-struct Parameter {
-    name: String,
-    ty: native::Type,
+    signature: native_signature::Signature,
 }
 
 impl Function {
@@ -33,26 +27,7 @@ impl Function {
             name: full_name.clone(),
             message: "Win32 function has no ImplMap",
         })?;
-        let MethodSignature {
-            flags,
-            return_type,
-            parameters,
-            ..
-        } = method.signature()?;
-        let parameter_rows = method.parameters_by_sequence()?;
-        let parameters = parameters
-            .into_iter()
-            .enumerate()
-            .map(|(position, ty)| {
-                Ok(Parameter {
-                    name: parameter_rows.parameters()[position]
-                        .map(|parameter| parameter.name())
-                        .transpose()?
-                        .map_or_else(|| format!("p{position}"), str::to_lowercase),
-                    ty: native::Type::lower(database, method.entity().file(), &full_name, ty)?,
-                })
-            })
-            .collect::<Result<_, Error>>()?;
+        let signature = native_signature::Signature::lower(database, method, &full_name)?;
         let import_name = (import.name() != name).then(|| import.name().to_string());
         Ok(Self {
             architectures,
@@ -61,14 +36,8 @@ impl Function {
             import_name,
             module: import.module().to_lowercase(),
             abi: calling_convention(import.flags(), &full_name)?,
-            variadic: flags & 0x0f == 0x05,
-            parameters,
-            return_type: native::Type::lower(
-                database,
-                method.entity().file(),
-                &full_name,
-                return_type,
-            )?,
+            variadic: signature.flags & 0x0f == 0x05,
+            signature,
         })
     }
 
@@ -79,21 +48,12 @@ impl Function {
         let abi = self.abi;
         let symbol = self.import_name.as_ref().map(|name| quote! { #name });
         let name = tokens::ident(&self.name);
-        let parameters = self.parameters.iter().map(|parameter| {
-            let name = tokens::ident(&parameter.name);
-            let ty = parameter.ty.write(&self.namespace);
-            quote! { #name: #ty }
-        });
+        let parameters = self.signature.write_parameters(&self.namespace);
         let variadic = self.variadic.then(|| quote! { , ... });
-        let result = if self.return_type == native::Type::Void {
-            quote! {}
-        } else {
-            let ty = self.return_type.write(&self.namespace);
-            quote! { -> #ty }
-        };
+        let result = self.signature.write_result(&self.namespace);
         quote! {
             #architectures
-            windows_link::link!(#module #abi #symbol fn #name(#(#parameters),* #variadic) #result);
+            windows_link::link!(#module #abi #symbol fn #name(#parameters #variadic) #result);
         }
     }
 }

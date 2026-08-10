@@ -6,6 +6,9 @@ mod Test {
     }
     type BigArray = [u16; 64];
     type BigArrayAlias = BigArray;
+    struct BareHandle {
+        Value: u32,
+    }
     #[ScopedEnum]
     #[repr(i32)]
     enum Color {

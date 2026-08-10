@@ -4,6 +4,7 @@ use std::collections::BTreeMap;
 struct Namespace {
     name: String,
     types: Vec<Entity<TypeDef>>,
+    delegates: Vec<Entity<TypeDef>>,
     constants: Vec<Entity<Field>>,
     functions: Vec<Entity<MethodDef>>,
 }
@@ -19,6 +20,7 @@ pub struct Win32Items<'a> {
     architecture_function_count: usize,
     constant_count: usize,
     function_count: usize,
+    delegate_count: usize,
 }
 
 impl Generator {
@@ -33,6 +35,7 @@ impl<'a> Win32Items<'a> {
         let mut namespaces = BTreeMap::<
             String,
             (
+                Vec<(String, i32, Entity<TypeDef>)>,
                 Vec<(String, i32, Entity<TypeDef>)>,
                 Vec<(String, i32, Entity<Field>)>,
                 Vec<(String, i32, Entity<MethodDef>)>,
@@ -52,10 +55,17 @@ impl<'a> Win32Items<'a> {
                         definition.entity(),
                     ));
                 }
+                TypeCategory::Delegate => {
+                    namespaces.entry(namespace).or_default().1.push((
+                        definition.name()?.to_string(),
+                        definition.architectures()?,
+                        definition.entity(),
+                    ));
+                }
                 TypeCategory::Class if definition.name()? == "Apis" => {
                     let entries = namespaces.entry(namespace).or_default();
                     for field in definition.fields()? {
-                        entries.1.push((
+                        entries.2.push((
                             field.name()?.to_string(),
                             field.architectures()?,
                             field.entity(),
@@ -67,7 +77,7 @@ impl<'a> Win32Items<'a> {
                         {
                             continue;
                         }
-                        entries.2.push((
+                        entries.3.push((
                             method.name()?.to_string(),
                             method.architectures()?,
                             method.entity(),
@@ -83,27 +93,34 @@ impl<'a> Win32Items<'a> {
         let mut architecture_function_count = 0;
         let mut constant_count = 0;
         let mut function_count = 0;
+        let mut delegate_count = 0;
         let namespaces: Vec<Namespace> = namespaces
             .into_iter()
-            .map(|(name, (mut types, mut constants, mut functions))| {
-                types.sort();
-                constants.sort();
-                functions.sort();
-                architecture_type_count += types.iter().filter(|(_, bits, _)| *bits != 0).count();
-                architecture_constant_count +=
-                    constants.iter().filter(|(_, bits, _)| *bits != 0).count();
-                architecture_function_count +=
-                    functions.iter().filter(|(_, bits, _)| *bits != 0).count();
-                type_count += types.len();
-                constant_count += constants.len();
-                function_count += functions.len();
-                Namespace {
-                    name,
-                    types: types.into_iter().map(|(_, _, entity)| entity).collect(),
-                    constants: constants.into_iter().map(|(_, _, entity)| entity).collect(),
-                    functions: functions.into_iter().map(|(_, _, entity)| entity).collect(),
-                }
-            })
+            .map(
+                |(name, (mut types, mut delegates, mut constants, mut functions))| {
+                    types.sort();
+                    delegates.sort();
+                    constants.sort();
+                    functions.sort();
+                    architecture_type_count +=
+                        types.iter().filter(|(_, bits, _)| *bits != 0).count();
+                    architecture_constant_count +=
+                        constants.iter().filter(|(_, bits, _)| *bits != 0).count();
+                    architecture_function_count +=
+                        functions.iter().filter(|(_, bits, _)| *bits != 0).count();
+                    type_count += types.len();
+                    delegate_count += delegates.len();
+                    constant_count += constants.len();
+                    function_count += functions.len();
+                    Namespace {
+                        name,
+                        types: types.into_iter().map(|(_, _, entity)| entity).collect(),
+                        delegates: delegates.into_iter().map(|(_, _, entity)| entity).collect(),
+                        constants: constants.into_iter().map(|(_, _, entity)| entity).collect(),
+                        functions: functions.into_iter().map(|(_, _, entity)| entity).collect(),
+                    }
+                },
+            )
             .collect();
         let mut nested = BTreeMap::<Entity<TypeDef>, Vec<Entity<TypeDef>>>::new();
         for (child, parent) in database.nested_types() {
@@ -127,6 +144,7 @@ impl<'a> Win32Items<'a> {
             architecture_function_count,
             constant_count,
             function_count,
+            delegate_count,
         })
     }
 
@@ -165,6 +183,11 @@ impl<'a> Win32Items<'a> {
         self.function_count
     }
 
+    /// Returns the number of selected native delegates.
+    pub fn delegate_count(&self) -> usize {
+        self.delegate_count
+    }
+
     /// Lowers native type definitions in deterministic namespace and name order.
     pub fn native_types(&self) -> impl Iterator<Item = Result<NativeType, Error>> + '_ {
         self.namespaces.iter().flat_map(|namespace| {
@@ -199,6 +222,15 @@ impl<'a> Win32Items<'a> {
                     &namespace.name,
                     method.name().unwrap(),
                 )
+            })
+        })
+    }
+
+    /// Lowers native delegates in deterministic namespace and name order.
+    pub fn delegates(&self) -> impl Iterator<Item = Result<Delegate, Error>> + '_ {
+        self.namespaces.iter().flat_map(|namespace| {
+            namespace.delegates.iter().map(|entity| {
+                Delegate::lower(self.database, self.database.definition(*entity).unwrap())
             })
         })
     }
@@ -245,6 +277,15 @@ impl<'a> Win32Items<'a> {
                 let ty = NativeType::lower(self.database, definition, &self.nested)?;
                 for (name, kind, tokens) in ty.write_sys_items() {
                     add(&namespace.name, name, kind, tokens);
+                }
+                for entity in &namespace.delegates {
+                    let definition = self.database.definition(*entity).unwrap();
+                    add(
+                        &namespace.name,
+                        definition.name()?,
+                        1,
+                        Delegate::lower(self.database, definition)?.write_sys(),
+                    );
                 }
             }
             for entity in &namespace.constants {
@@ -350,6 +391,7 @@ mod tests {
         let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
         let items = Win32Items::new(&database).unwrap();
         let mut supported = [0; 5];
+        let mut delegate_supported = 0;
         let mut defaults = [0; 5];
         let mut scoped_enums = 0;
         let mut gated_scoped_enums = 0;
@@ -387,6 +429,16 @@ mod tests {
                     Err(error) => *unsupported.entry(classify(error)).or_default() += 1,
                 }
             }
+            for entity in &namespace.delegates {
+                let definition = database.definition(*entity).unwrap();
+                match Delegate::lower(&database, definition) {
+                    Ok(delegate) => {
+                        delegate.write_sys();
+                        delegate_supported += 1;
+                    }
+                    Err(error) => *unsupported.entry(classify(error)).or_default() += 1,
+                }
+            }
             for entity in &namespace.constants {
                 let field = database.field(*entity).unwrap();
                 match Constant::lower(&database, field, &namespace.name, field.name().unwrap()) {
@@ -409,10 +461,12 @@ mod tests {
             }
         }
 
-        assert_eq!(supported[..3], [12_666, 4_728, 12_715]);
+        assert_eq!(supported[..3], [12_667, 4_728, 12_714]);
         assert_eq!(supported[3..], [83_641, 14_559]);
+        assert_eq!(delegate_supported, 2_159);
         assert_eq!(items.type_count, 30_109);
-        assert_eq!(defaults, [8_584, 2_164, 1_890, 74, 3]);
+        assert_eq!(items.delegate_count(), 2_159);
+        assert_eq!(defaults, [8_583, 2_164, 1_890, 74, 3]);
         assert_eq!((scoped_enums, gated_scoped_enums), (10, 0));
         assert!(unsupported.is_empty(), "{unsupported:#?}");
     }
@@ -463,6 +517,110 @@ mod tests {
             nested_rows
         );
         assert_eq!(items.nested.len(), 1_925);
+    }
+
+    #[test]
+    fn inventory_remaining_native_surfaces() {
+        let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
+        let mut delegates = 0;
+        let mut gated_delegates = 0;
+        let mut interfaces = 0;
+        let mut gated_interfaces = 0;
+        let mut interface_methods = 0;
+        let mut bitfield_structs = 0;
+        let mut bitfield_members = 0;
+        let mut direct_handle_shapes = 0;
+        let mut direct_handle_shapes_without_typedef = 0;
+        let mut void_typedef_shapes = 0;
+
+        for definition in database.definitions() {
+            if definition.is_windows_runtime().unwrap() {
+                continue;
+            }
+            match definition.category().unwrap() {
+                TypeCategory::Delegate => {
+                    delegates += 1;
+                    if definition.architectures().unwrap() != 0 {
+                        gated_delegates += 1;
+                    }
+                }
+                TypeCategory::Interface => {
+                    interfaces += 1;
+                    interface_methods += definition.methods().unwrap().count();
+                    if definition.architectures().unwrap() != 0 {
+                        gated_interfaces += 1;
+                    }
+                }
+                TypeCategory::Struct => {
+                    let mut definition_bitfields = 0;
+                    let fields = definition
+                        .fields()
+                        .unwrap()
+                        .filter(|field| !field.is_literal().unwrap())
+                        .collect::<Vec<_>>();
+                    for field in &fields {
+                        definition_bitfields += field
+                            .attributes()
+                            .unwrap()
+                            .filter(|attribute| {
+                                attribute.name().unwrap() == Some("NativeBitfieldAttribute")
+                            })
+                            .count();
+                    }
+                    if definition_bitfields != 0 {
+                        bitfield_structs += 1;
+                        bitfield_members += definition_bitfields;
+                    }
+                    if let [field] = fields.as_slice()
+                        && field.name().unwrap() == "Value"
+                    {
+                        match field.signature().unwrap().kind {
+                            TypeKind::Void => {
+                                void_typedef_shapes += 1;
+                            }
+                            TypeKind::Boolean
+                            | TypeKind::Char
+                            | TypeKind::I8
+                            | TypeKind::U8
+                            | TypeKind::I16
+                            | TypeKind::U16
+                            | TypeKind::I32
+                            | TypeKind::U32
+                            | TypeKind::I64
+                            | TypeKind::U64
+                            | TypeKind::F32
+                            | TypeKind::F64
+                            | TypeKind::ISize
+                            | TypeKind::USize
+                            | TypeKind::Pointer(_) => {
+                                direct_handle_shapes += 1;
+                                if !definition.has_attribute("NativeTypedefAttribute").unwrap() {
+                                    direct_handle_shapes_without_typedef += 1;
+                                }
+                            }
+                            _ => {}
+                        }
+                    }
+                }
+                _ => {}
+            }
+        }
+
+        assert_eq!(
+            (
+                delegates,
+                gated_delegates,
+                interfaces,
+                gated_interfaces,
+                interface_methods,
+                bitfield_structs,
+                bitfield_members,
+                direct_handle_shapes,
+                direct_handle_shapes_without_typedef,
+                void_typedef_shapes,
+            ),
+            (2_159, 43, 4_290, 14, 25_868, 218, 1_228, 11_264, 1, 6)
+        );
     }
 
     fn classify(error: Error) -> String {

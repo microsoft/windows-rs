@@ -13,7 +13,9 @@ mod model;
 mod native;
 mod native_constant;
 mod native_default;
+mod native_delegate;
 mod native_function;
+mod native_signature;
 mod native_type;
 mod output;
 mod struct_model;
@@ -25,6 +27,7 @@ pub use enum_model::Enum;
 pub use error::Error;
 pub use model::{Value, Values};
 pub use native_constant::Constant;
+pub use native_delegate::Delegate;
 pub use native_function::Function;
 pub use native_type::{NativeType, NativeTypeKind};
 pub use struct_model::Struct;
@@ -445,6 +448,42 @@ mod tests {
         let types = types.iter().map(NativeType::write_sys);
         let actual = quote! { #(#types)* };
         assert_eq!(actual.to_string(), expected.to_string());
+    }
+
+    #[test]
+    fn native_delegates_match_existing_golden_tokens() {
+        let generator = fixture(include_str!(
+            "../../../tests/libs/bindgen/input/callback.rdl"
+        ));
+        let items = generator.win32_items().unwrap();
+        let delegates = items.delegates().collect::<Result<Vec<_>, _>>().unwrap();
+        let delegates = delegates.iter().map(Delegate::write_sys);
+        let actual = quote! { #(#delegates)* };
+        let expected: TokenStream =
+            include_str!("../../../tests/libs/bindgen/expected/callback.rs")
+                .parse()
+                .unwrap();
+        assert_eq!(
+            actual.to_string().replace("> ;", ">;"),
+            expected.to_string()
+        );
+
+        let generator = fixture(include_str!(
+            "../../../tests/libs/bindgen/input/arch_delegate_dependency_sys.rdl"
+        ));
+        let expected: TokenStream =
+            include_str!("../../../tests/libs/bindgen/expected/arch_delegate_dependency_sys.rs")
+                .parse()
+                .unwrap();
+        let expected = quote! { pub mod Test { #expected } };
+        assert_eq!(
+            generator
+                .write_modules()
+                .unwrap()
+                .to_string()
+                .replace("> ;", ">;"),
+            expected.to_string()
+        );
     }
 
     #[test]

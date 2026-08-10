@@ -156,6 +156,19 @@ impl NativeType {
                         )
                     })
                     .collect::<Result<Vec<_>, Error>>()?;
+                if let [(field, ty)] = fields.as_slice()
+                    && field == "Value"
+                    && ty.is_handle_primitive()
+                {
+                    return Ok(Self {
+                        architectures,
+                        kind: Kind::Alias(Alias {
+                            namespace: namespace.to_string(),
+                            name,
+                            ty: ty.clone(),
+                        }),
+                    });
+                }
                 if definition.has_attribute("NativeTypedefAttribute")? {
                     if !nested.is_empty() {
                         return Err(Error::InvalidValue {

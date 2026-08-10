@@ -8,6 +8,7 @@ impl Default for AliasArray {
         unsafe { core::mem::zeroed() }
     }
 }
+pub type BareHandle = u32;
 pub type BigArray = [u16; 64];
 pub type BigArrayAlias = BigArray;
 #[repr(transparent)]

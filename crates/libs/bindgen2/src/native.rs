@@ -305,6 +305,27 @@ impl Type {
         matches!(self, Self::I32)
     }
 
+    pub(super) fn is_handle_primitive(&self) -> bool {
+        matches!(
+            self,
+            Self::Boolean
+                | Self::Char
+                | Self::I8
+                | Self::U8
+                | Self::I16
+                | Self::U16
+                | Self::I32
+                | Self::U32
+                | Self::I64
+                | Self::U64
+                | Self::F32
+                | Self::F64
+                | Self::ISize
+                | Self::USize
+                | Self::Pointer { .. }
+        )
+    }
+
     pub(super) fn from_constant(value: &ConstantValue) -> Self {
         match value {
             ConstantValue::Boolean(_) => Self::Boolean,

@@ -31,9 +31,19 @@ implementations through their enclosing subtree, matching the existing layout po
 
 Native `Default` policy now matches the existing sys generator for explicit layout propagated
 through by-value fields, direct fixed arrays, fixed-array typedef chains, and scoped-enum fields.
-The corpus contains 8,584 deriving structs and 4,131 manual implementations. Resolution is an
+The corpus contains 8,583 deriving structs and 4,131 manual implementations. Resolution is an
 ephemeral per-root traversal rather than another retained native graph.
 
 All 10 scoped native enums now use the existing transparent-newtype sys projection with associated
 constants. Ordinary C enums remain integer aliases with module-level constants. The distinction is
 stored on each independently lowered enum and requires no enum registry.
+
+The remaining native inventory contains 2,159 delegates and 4,290 interfaces with 25,868 methods.
+The 1,228 bitfield members belong only to rich bindings; the existing sys generator emits their
+coalesced backing fields without accessors. Sys handle aliases already follow native-typedef
+policy, including the one primitive `Value` shape lacking `NativeTypedefAttribute`.
+
+All 2,159 native delegates now lower and render as optional unsafe function-pointer aliases. The
+43 architecture-gated rows sort and gate independently. Functions and delegates share one owned
+native signature model for parameter naming and type rendering; import policy and delegate
+calling-convention attributes remain separate.

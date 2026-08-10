@@ -56,9 +56,9 @@ Native type selection now retains 30,109 top-level typed entities:
 
 | Category | Count |
 | --- | ---: |
-| Native typedef aliases | 12,666 |
+| Native typedef aliases | 12,667 |
 | Native enums | 4,728 |
-| Native structs and unions | 12,715 |
+| Native structs and unions | 12,714 |
 
 Each definition lowers and renders independently. The native model supports primitive and named
 fields, pointers, fixed arrays, typedef aliases, enum values, explicit-layout unions, forced
@@ -77,9 +77,30 @@ token stream. A focused nested Win32 fixture matches the existing module golden 
 mixed fixture proves that WinRT values and Win32 items pass through the same output path. It does
 not add filtering, dependency closure, formatting, file writing, or package policy.
 
-This is structural coverage, not complete native output equivalence. Bitfield accessors, handle
-policy, native delegates, and interfaces are absent. These are separate policies rather than
-reasons to build a global native type graph.
+This is structural coverage, not complete native output equivalence. Bitfield accessors and handle
+policy for rich bindings, native delegates, and interfaces are absent. The current sys inventory
+is:
+
+| Remaining surface | Count |
+| --- | ---: |
+| Native delegates | 2,159 |
+| Architecture-gated delegates | 43 |
+| Native interfaces | 4,290 |
+| Interface methods | 25,868 |
+| Architecture-gated interfaces | 14 |
+| Structs with bitfields | 218 |
+| Bitfield members | 1,228 |
+
+Bitfield accessors are not a sys-output gap: the existing sys generator emits only their coalesced
+backing fields. Of 11,264 direct primitive handle shapes, all but
+`OVERRIDE_PREFETCH_PARAMETER` carry `NativeTypedefAttribute`; the unannotated exception now follows
+the same alias policy. All six `Value: void` shapes are native typedefs and were already aliases.
+
+Native delegate projection is complete for all 2,159 rows, including 43 architecture-gated
+variants and system/C calling conventions. A focused callback fixture and an architecture
+dependency fixture match the existing sys output. Delegates and imported functions share one
+owned native signature model; delegate attribute decoding uses a narrow resolver for the framework
+`CallingConvention` enum rather than moving framework policy into metadata2.
 
 ## Native shape inventory
 
@@ -113,7 +134,7 @@ Native `Default` policy is also complete for the selected sys surface:
 
 | Policy | Structs |
 | --- | ---: |
-| Derive `Default` | 8,584 |
+| Derive `Default` | 8,583 |
 | Manual - explicit layout | 2,164 |
 | Manual - direct fixed array | 1,890 |
 | Manual - fixed-array typedef chain | 74 |
@@ -164,7 +185,8 @@ standard required before claiming the replacement is objectively better overall.
 ## Next checkpoint
 
 The bounded module-output, RDL2 external-reference, native-shape inventory, architecture-gating,
-nested-rendering, and native-default checkpoints are complete. Scoped enums are the smallest
-measured native gap and are now complete. Inventory the remaining bitfield, handle, delegate, and
-interface surfaces before choosing the next slice. Do not add dependency closure, a second name
-index, or a global native graph without a measured requirement.
+nested-rendering, native-default, scoped-enum, and remaining-surface inventory checkpoints are
+complete. Native delegates are also complete. Interfaces are the remaining major sys type surface
+and are an order of magnitude larger by method count; review their inheritance and vtable policy
+before implementation. Do not add dependency closure, a second name index, or a global native
+graph without a measured requirement.
