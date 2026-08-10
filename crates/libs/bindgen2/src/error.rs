@@ -28,6 +28,15 @@ pub enum Error {
         /// The item name.
         name: String,
     },
+    /// Flat output contains the same generated name from different namespaces.
+    FlatNameCollision {
+        /// Colliding generated item name.
+        name: String,
+        /// Namespace that first contributed the name.
+        first_namespace: String,
+        /// Namespace that later contributed the name.
+        second_namespace: String,
+    },
 }
 
 impl std::fmt::Display for Error {
@@ -48,6 +57,15 @@ impl std::fmt::Display for Error {
                     "Win32 item `{namespace}.{name}` was not selected"
                 )
             }
+            Self::FlatNameCollision {
+                name,
+                first_namespace,
+                second_namespace,
+            } => write!(
+                formatter,
+                "flat item `{name}` is defined by both `{first_namespace}` and \
+                 `{second_namespace}`"
+            ),
         }
     }
 }

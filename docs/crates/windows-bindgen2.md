@@ -32,6 +32,19 @@ typed entities. This is one reference count per request, not per row. It lets `t
 eventually share one parse/index pass across its 17 filter files without leaking the database or
 adding lifetimes to every public projected model.
 
+Generation options currently contain only `Layout::Modules` and `Layout::Flat`. Both consume the
+same collected output items and deterministic sort. Flat output checks cross-namespace generated
+name collisions and returns a structured error. Style options are not exposed yet because current
+rich/minimal projection coverage is incomplete; accepting ignored flags would create a false
+compatibility API.
+
+The first filter layer is also intentionally programmatic. `Filter` stores bare names, exact
+namespace/name pairs, and namespace roots in ordered sets. Selection performs borrowed lookups and
+does not parse Rust paths, combine member policy with name resolution, or retain a metadata-sized
+match index. An empty filter selects nothing, while requests without a filter retain the existing
+all-items behavior. This is enough to prove selective request cost and output before adding
+dependency closure.
+
 The value layer lowers all 1,731 selected enums and 125 structs into owned models. Enum, struct,
 type, GUID, and graph policy live in separate modules. The graph uses nested ordered maps so
 namespace and type lookups borrow existing strings rather than allocating lookup keys. It detects
@@ -194,5 +207,6 @@ The bounded module-output, RDL2 external-reference, native-shape inventory, arch
 nested-rendering, native-default, scoped-enum, and remaining-surface inventory checkpoints are
 complete. Native delegates are also complete. Interfaces are the remaining major sys type surface
 and are an order of magnitude larger by method count. The reusable metadata/request boundary is
-complete; add request options, filters, and dependency closure before a compatibility CLI or file
-writer. Do not add a second name index or a global native graph without a measured requirement.
+complete, including explicit module/flat layout and exact programmatic filters. Add dependency
+closure before a compatibility CLI or file writer, and only then define member-level filter
+syntax. Do not add a second name index or a global native graph without a measured requirement.

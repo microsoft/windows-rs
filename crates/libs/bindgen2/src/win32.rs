@@ -26,12 +26,20 @@ pub struct Win32Items<'a> {
 impl Generator {
     /// Selects Win32 constants and functions from non-WinRT `Apis` containers.
     pub fn win32_items(&self) -> Result<Win32Items<'_>, Error> {
-        Win32Items::new(&self.database)
+        if let Some(filter) = &self.filter {
+            Win32Items::new_filtered(&self.database, Some(filter))
+        } else {
+            Win32Items::new(&self.database)
+        }
     }
 }
 
 impl<'a> Win32Items<'a> {
     fn new(database: &'a Database) -> Result<Self, Error> {
+        Self::new_filtered(database, None)
+    }
+
+    fn new_filtered(database: &'a Database, filter: Option<&Filter>) -> Result<Self, Error> {
         let mut namespaces = BTreeMap::<
             String,
             (
@@ -49,27 +57,35 @@ impl<'a> Win32Items<'a> {
             let category = definition.category()?;
             match category {
                 TypeCategory::Enum | TypeCategory::Struct => {
-                    namespaces.entry(namespace).or_default().0.push((
-                        definition.name()?.to_string(),
-                        definition.architectures()?,
-                        definition.entity(),
-                    ));
+                    let name = definition.name()?;
+                    if filter.is_none_or(|filter| filter.includes(&namespace, name)) {
+                        namespaces.entry(namespace).or_default().0.push((
+                            name.to_string(),
+                            definition.architectures()?,
+                            definition.entity(),
+                        ));
+                    }
                 }
                 TypeCategory::Delegate => {
-                    namespaces.entry(namespace).or_default().1.push((
-                        definition.name()?.to_string(),
-                        definition.architectures()?,
-                        definition.entity(),
-                    ));
+                    let name = definition.name()?;
+                    if filter.is_none_or(|filter| filter.includes(&namespace, name)) {
+                        namespaces.entry(namespace).or_default().1.push((
+                            name.to_string(),
+                            definition.architectures()?,
+                            definition.entity(),
+                        ));
+                    }
                 }
                 TypeCategory::Class if definition.name()? == "Apis" => {
-                    let entries = namespaces.entry(namespace).or_default();
                     for field in definition.fields()? {
-                        entries.2.push((
-                            field.name()?.to_string(),
-                            field.architectures()?,
-                            field.entity(),
-                        ));
+                        let name = field.name()?;
+                        if filter.is_none_or(|filter| filter.includes(&namespace, name)) {
+                            namespaces.entry(namespace.clone()).or_default().2.push((
+                                name.to_string(),
+                                field.architectures()?,
+                                field.entity(),
+                            ));
+                        }
                     }
                     for method in definition.methods()? {
                         if let Some(import) = method.import()?
@@ -77,11 +93,14 @@ impl<'a> Win32Items<'a> {
                         {
                             continue;
                         }
-                        entries.3.push((
-                            method.name()?.to_string(),
-                            method.architectures()?,
-                            method.entity(),
-                        ));
+                        let name = method.name()?;
+                        if filter.is_none_or(|filter| filter.includes(&namespace, name)) {
+                            namespaces.entry(namespace.clone()).or_default().3.push((
+                                name.to_string(),
+                                method.architectures()?,
+                                method.entity(),
+                            ));
+                        }
                     }
                 }
                 _ => continue,

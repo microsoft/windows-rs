@@ -53,3 +53,13 @@ This request boundary allows tools with many filter files to parse and index met
 does not add per-row reference counting or change metadata identities. The compatibility CLI and
 file-writing API remain deferred until filtering and dependency closure can make each request
 selective.
+
+`Options` currently exposes only the implemented layout choice: nested namespace modules or flat
+output. Flat generation rejects names contributed by different namespaces rather than emitting
+invalid duplicate Rust items. Style flags are intentionally absent until rich and minimal
+projection policy exists.
+
+`Filter` is a programmatic selection model, not a command-line parser. It includes bare item names,
+exact namespace/name pairs, or namespace trees. An empty filter selects nothing; an unfiltered
+request selects the complete implemented surface. Member filters, exclusions, string grammar, and
+dependency closure remain separate future layers.

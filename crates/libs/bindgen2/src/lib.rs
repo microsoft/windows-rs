@@ -9,6 +9,7 @@ use windows_metadata2::{
 
 mod enum_model;
 mod error;
+mod filter;
 mod guid;
 mod model;
 mod native;
@@ -26,6 +27,7 @@ mod win32;
 
 pub use enum_model::Enum;
 pub use error::Error;
+pub use filter::Filter;
 pub use model::{Value, Values};
 pub use native_constant::Constant;
 pub use native_delegate::Delegate;
@@ -39,6 +41,23 @@ pub use win32::Win32Items;
 pub enum ValueKind {
     Enum,
     Struct,
+}
+
+/// Generated Rust output layout.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum Layout {
+    /// Emit nested Rust modules for metadata namespaces.
+    #[default]
+    Modules,
+    /// Emit one flat list of items.
+    Flat,
+}
+
+/// Options for one generation request.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct Options {
+    /// Generated Rust output layout.
+    pub layout: Layout,
 }
 
 #[derive(Clone, Copy)]
@@ -56,6 +75,8 @@ pub struct Metadata {
 pub struct Generator {
     database: Arc<Database>,
     values: Vec<ValueEntry>,
+    filter: Option<Filter>,
+    options: Options,
 }
 
 /// A borrowed projected WinRT value item.
@@ -85,7 +106,26 @@ impl Metadata {
 
     /// Creates an independent generation request sharing this database.
     pub fn generator(&self) -> Result<Generator, Error> {
-        Generator::from_shared(self.database.clone())
+        self.generator_with(Options::default())
+    }
+
+    /// Creates a generation request with explicit options.
+    pub fn generator_with(&self, options: Options) -> Result<Generator, Error> {
+        Generator::from_shared(self.database.clone(), options, None)
+    }
+
+    /// Creates a filtered generation request with default options.
+    pub fn generator_filtered(&self, filter: Filter) -> Result<Generator, Error> {
+        self.generator_with_filter(Options::default(), filter)
+    }
+
+    /// Creates a filtered generation request with explicit options.
+    pub fn generator_with_filter(
+        &self,
+        options: Options,
+        filter: Filter,
+    ) -> Result<Generator, Error> {
+        Generator::from_shared(self.database.clone(), options, Some(filter))
     }
 }
 
@@ -95,7 +135,11 @@ impl Generator {
         Metadata::new(database).generator()
     }
 
-    fn from_shared(database: Arc<Database>) -> Result<Self, Error> {
+    fn from_shared(
+        database: Arc<Database>,
+        options: Options,
+        filter: Option<Filter>,
+    ) -> Result<Self, Error> {
         let mut values = Vec::new();
 
         for definition in database.definitions() {
@@ -114,9 +158,18 @@ impl Generator {
                 _ => continue,
             };
 
+            let namespace = definition.namespace()?;
+            let name = definition.name()?;
+            if filter
+                .as_ref()
+                .is_some_and(|filter| !filter.includes(namespace, name))
+            {
+                continue;
+            }
+
             values.push((
-                definition.namespace()?.to_string(),
-                definition.name()?.to_string(),
+                namespace.to_string(),
+                name.to_string(),
                 ValueEntry {
                     entity: definition.entity(),
                     kind,
@@ -131,12 +184,19 @@ impl Generator {
         Ok(Self {
             database,
             values: values.into_iter().map(|(_, _, entry)| entry).collect(),
+            filter,
+            options,
         })
     }
 
     /// Returns the shared metadata database.
     pub fn database(&self) -> &Database {
         &self.database
+    }
+
+    /// Returns this request's generation options.
+    pub const fn options(&self) -> Options {
+        self.options
     }
 
     /// Iterates projected values in deterministic namespace/name/entity order.
@@ -181,7 +241,7 @@ mod tests {
         .unwrap()
     }
 
-    fn fixture(source: &str) -> Generator {
+    fn fixture_metadata(source: &str) -> Metadata {
         let path = std::env::temp_dir().join(format!(
             "windows_bindgen2_{}_{}.winmd",
             std::process::id(),
@@ -194,7 +254,11 @@ mod tests {
             .unwrap();
         let image = Image::read(&path).unwrap();
         std::fs::remove_file(path).unwrap();
-        Generator::new(Database::new([image]).unwrap()).unwrap()
+        Metadata::from_images([image]).unwrap()
+    }
+
+    fn fixture(source: &str) -> Generator {
+        fixture_metadata(source).generator().unwrap()
     }
 
     #[test]
@@ -368,6 +432,7 @@ mod tests {
                         Second = 1,
                         Third = 2,
                     }
+
                     mod Inner {
                         #[repr(i32)]
                         enum Enum {
@@ -385,6 +450,106 @@ mod tests {
             generator.write_modules().unwrap().to_string(),
             expected.to_string()
         );
+    }
+
+    #[test]
+    fn request_options_select_flat_output() {
+        let metadata = fixture_metadata(include_str!(
+            "../../../tests/libs/bindgen/input/struct_default_sys.rdl"
+        ));
+        let generator = metadata
+            .generator_with(Options {
+                layout: Layout::Flat,
+            })
+            .unwrap();
+        let expected: TokenStream =
+            include_str!("../../../tests/libs/bindgen/expected/struct_default_sys.rs")
+                .parse()
+                .unwrap();
+
+        assert_eq!(generator.options().layout, Layout::Flat);
+        assert_eq!(generator.write().unwrap().to_string(), expected.to_string());
+        assert_eq!(
+            generator.write().unwrap().to_string(),
+            generator.write_flat().unwrap().to_string()
+        );
+    }
+
+    #[test]
+    fn flat_output_rejects_cross_namespace_name_collisions() {
+        let metadata = fixture_metadata(
+            r#"
+                #[win32]
+                mod First {
+                    type Shared = u32;
+                }
+                #[win32]
+                mod Second {
+                    type Shared = u16;
+                }
+            "#,
+        );
+        let generator = metadata
+            .generator_with(Options {
+                layout: Layout::Flat,
+            })
+            .unwrap();
+
+        assert!(matches!(
+            generator.write(),
+            Err(Error::FlatNameCollision {
+                name,
+                first_namespace,
+                second_namespace,
+            }) if name == "Shared"
+                && first_namespace == "First"
+                && second_namespace == "Second"
+        ));
+    }
+
+    #[test]
+    fn exact_filters_limit_winrt_and_win32_selection() {
+        let metadata = fixture_metadata(
+            r#"
+                #[win32]
+                mod First {
+                    type Shared = u32;
+                    const ONLY_FIRST: u32 = 1;
+                }
+                #[win32]
+                mod Second {
+                    type Shared = u16;
+                    const ONLY_SECOND: u32 = 2;
+                }
+                #[winrt]
+                mod Managed {
+                    #[repr(i32)]
+                    enum Kind {
+                        First = 0,
+                    }
+                }
+            "#,
+        );
+        let mut filter = Filter::new();
+        filter
+            .include_name("Shared")
+            .include_item("First", "ONLY_FIRST")
+            .include_namespace("Managed");
+        let generator = metadata.generator_filtered(filter).unwrap();
+        let items = generator.win32_items().unwrap();
+
+        assert_eq!(generator.values().len(), 1);
+        assert_eq!(items.type_count(), 2);
+        assert_eq!(items.constant_count(), 1);
+        assert_eq!(items.function_count(), 0);
+
+        let output = generator.write_modules().unwrap().to_string();
+        assert!(output.contains("pub mod First"));
+        assert!(output.contains("pub const ONLY_FIRST"));
+        assert!(output.contains("pub mod Second"));
+        assert!(!output.contains("ONLY_SECOND"));
+        assert!(output.contains("pub mod Managed"));
+        assert!(output.contains("pub struct Kind"));
     }
 
     #[test]

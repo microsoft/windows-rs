@@ -16,8 +16,22 @@ struct Module {
 }
 
 impl Generator {
+    /// Renders all currently supported items using this request's layout.
+    pub fn write(&self) -> Result<TokenStream, Error> {
+        self.write_layout(self.options().layout)
+    }
+
     /// Renders all currently supported items as deterministic namespace modules.
     pub fn write_modules(&self) -> Result<TokenStream, Error> {
+        self.write_layout(Layout::Modules)
+    }
+
+    /// Renders all currently supported items as one deterministic flat list.
+    pub fn write_flat(&self) -> Result<TokenStream, Error> {
+        self.write_layout(Layout::Flat)
+    }
+
+    fn write_layout(&self, layout: Layout) -> Result<TokenStream, Error> {
         let mut modules = BTreeMap::<String, Vec<Item>>::new();
         let values = self.lower_values()?;
         for (namespace, name, _) in values.iter() {
@@ -44,14 +58,36 @@ impl Generator {
             })?;
 
         let mut root = Module::default();
-        for (namespace, items) in modules {
-            let mut module = &mut root;
-            if !namespace.is_empty() {
-                for name in namespace.split('.') {
-                    module = module.nested.entry(name.to_string()).or_default();
+        match layout {
+            Layout::Modules => {
+                for (namespace, items) in modules {
+                    let mut module = &mut root;
+                    if !namespace.is_empty() {
+                        for name in namespace.split('.') {
+                            module = module.nested.entry(name.to_string()).or_default();
+                        }
+                    }
+                    module.items.extend(items);
                 }
             }
-            module.items.extend(items);
+            Layout::Flat => {
+                let mut names = BTreeMap::<String, String>::new();
+                for (namespace, items) in modules {
+                    for item in items {
+                        if let Some(first_namespace) = names.get(&item.name)
+                            && first_namespace != &namespace
+                        {
+                            return Err(Error::FlatNameCollision {
+                                name: item.name,
+                                first_namespace: first_namespace.clone(),
+                                second_namespace: namespace,
+                            });
+                        }
+                        names.insert(item.name.clone(), namespace.clone());
+                        root.items.push(item);
+                    }
+                }
+            }
         }
         Ok(root.write())
     }
