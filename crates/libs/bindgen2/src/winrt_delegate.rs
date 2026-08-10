@@ -20,6 +20,7 @@ pub(super) struct MethodContext<'a> {
     values: &'a Values,
     namespace: &'a str,
     layout: Layout,
+    projection: Projection,
     generics: &'a [String],
 }
 
@@ -94,6 +95,7 @@ impl Delegate {
         values: &Values,
         namespace: &str,
         layout: Layout,
+        projection: Projection,
     ) -> Result<TokenStream, Error> {
         let name = tokens::ident(&self.name);
         let vtbl_name = tokens::ident(&format!("{}_Vtbl", self.name));
@@ -181,26 +183,34 @@ impl Delegate {
             }
         };
 
-        let closure_signature =
+        let closure_signature = if projection.is_minimal() {
             self.invoke
-                .write_impl_signature(values, namespace, layout, &self.generics, false)?;
-        let public_signature =
+                .write_impl_signature_no_return(values, namespace, layout, &self.generics)?
+        } else {
             self.invoke
-                .write_public_signature(values, namespace, layout, &self.generics)?;
-        let public_call = self.invoke.write_public_call(
-            values,
-            namespace,
-            layout,
-            &self.generics,
-            &quote! { Invoke },
-            &quote! { self },
-        )?;
+                .write_impl_signature(values, namespace, layout, &self.generics, false)?
+        };
+        let closure_bound = if projection.is_minimal() {
+            quote! { Fn #closure_signature + 'static }
+        } else {
+            quote! { Fn #closure_signature + Send + 'static }
+        };
+        let method_context =
+            MethodContext::new(values, namespace, layout, projection, &self.generics);
+        let public_signature = self.invoke.write_public_signature(&method_context)?;
+        let public_call =
+            self.invoke
+                .write_public_call(&method_context, &quote! { Invoke }, &quote! { self })?;
         let abi_signature =
             self.invoke
                 .write_abi_signature(values, namespace, layout, &self.generics)?;
-        let upcall = self
-            .invoke
-            .write_upcall(values, quote! { (this.invoke) }, false)?;
+        let upcall = if projection.is_minimal() {
+            self.invoke
+                .write_upcall_no_return(values, quote! { (this.invoke) }, false)?
+        } else {
+            self.invoke
+                .write_upcall(values, quote! { (this.invoke) }, false)?
+        };
         let generic_params = public_signature.generic_params;
         let method_generics = if generic_params.is_empty() {
             quote! {}
@@ -210,17 +220,8 @@ impl Delegate {
         let public_parameters = public_signature.parameters;
         let where_clause = public_signature.where_clause;
         let return_type = public_signature.return_type;
-
-        Ok(quote! {
-            #definition
-            impl #impl_generics #type_name {
-                pub fn new<F: Fn #closure_signature + Send + 'static>(invoke: F) -> Self {
-                    let com = windows_core::imp::DelegateBox::<Self, F>::new(
-                        &#box_name::<#generic_list F>::VTABLE,
-                        invoke
-                    );
-                    unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
-                }
+        let invoke_method = (!projection.is_minimal()).then(|| {
+            quote! {
                 pub fn Invoke #method_generics(
                     &self,
                     #(#public_parameters)*
@@ -230,6 +231,20 @@ impl Delegate {
                     #public_call
                 }
             }
+        });
+
+        Ok(quote! {
+            #definition
+            impl #impl_generics #type_name {
+                pub fn new<F: #closure_bound>(invoke: F) -> Self {
+                    let com = windows_core::imp::DelegateBox::<Self, F>::new(
+                        &#box_name::<#generic_list F>::VTABLE,
+                        invoke
+                    );
+                    unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+                }
+                #invoke_method
+            }
             #[repr(C)]
             pub struct #vtbl_name #type_arguments #generic_where {
                 base__: windows_core::IUnknown_Vtbl,
@@ -238,13 +253,13 @@ impl Delegate {
             }
             struct #box_name<
                 #generic_list
-                F: Fn #closure_signature + Send + 'static
+                F: #closure_bound
             >(
                 core::marker::PhantomData<(#generic_list fn() -> F,)>,
             ) #generic_where;
             impl<
                 #(#constraints,)*
-                F: Fn #closure_signature + Send + 'static
+                F: #closure_bound
             > #box_name<#generic_list F> {
                 const VTABLE: #vtbl_name #type_arguments = #vtbl_name #turbofish {
                     base__: windows_core::IUnknown_Vtbl {
@@ -284,12 +299,14 @@ impl<'a> MethodContext<'a> {
         values: &'a Values,
         namespace: &'a str,
         layout: Layout,
+        projection: Projection,
         generics: &'a [String],
     ) -> Self {
         Self {
             values,
             namespace,
             layout,
+            projection,
             generics,
         }
     }
@@ -403,20 +420,8 @@ impl Method {
     ) -> Result<TokenStream, Error> {
         let public_name = tokens::ident(public_name);
         let abi_name = tokens::ident(abi_name);
-        let signature = self.write_public_signature(
-            context.values,
-            context.namespace,
-            context.layout,
-            context.generics,
-        )?;
-        let call = self.write_public_call(
-            context.values,
-            context.namespace,
-            context.layout,
-            context.generics,
-            &abi_name,
-            &receiver,
-        )?;
+        let signature = self.write_public_signature(context)?;
+        let call = self.write_public_call(context, &abi_name, &receiver)?;
         let method_generics = if signature.generic_params.is_empty() {
             quote! {}
         } else {
@@ -472,20 +477,8 @@ impl Method {
         let public_name = tokens::ident(public_name);
         let abi_name = tokens::ident(abi_name);
         let factory_name = tokens::ident(factory_name);
-        let signature = self.write_public_signature(
-            context.values,
-            context.namespace,
-            context.layout,
-            context.generics,
-        )?;
-        let call = self.write_public_call(
-            context.values,
-            context.namespace,
-            context.layout,
-            context.generics,
-            &abi_name,
-            &quote! { this },
-        )?;
+        let signature = self.write_public_signature(context)?;
+        let call = self.write_public_call(context, &abi_name, &quote! { this })?;
         let method_generics = if signature.generic_params.is_empty() {
             quote! {}
         } else {
@@ -536,12 +529,24 @@ impl Method {
         Ok(quote! { (#(#parameters),*) -> windows_core::Result<#return_type> })
     }
 
-    fn write_public_signature(
+    fn write_impl_signature_no_return(
         &self,
         values: &Values,
         namespace: &str,
         layout: Layout,
         generics: &[String],
+    ) -> Result<TokenStream, Error> {
+        let parameters = self
+            .parameters
+            .iter()
+            .map(|parameter| parameter.write_impl_type(values, namespace, layout, generics))
+            .collect::<Result<Vec<_>, Error>>()?;
+        Ok(quote! { (#(#parameters),*) })
+    }
+
+    fn write_public_signature(
+        &self,
+        context: &MethodContext<'_>,
     ) -> Result<PublicSignature, Error> {
         let mut generic_params = Vec::new();
         let mut constraints = Vec::new();
@@ -553,12 +558,16 @@ impl Method {
                 let name = tokens::ident(&parameter.name);
                 if parameter.input_only && parameter.ty.is_interface() {
                     let generic = tokens::ident(&format!("P{position}"));
-                    let ty = parameter.ty.write_name(namespace, layout, generics)?;
+                    let ty = parameter.ty.write_name(
+                        context.namespace,
+                        context.layout,
+                        context.generics,
+                    )?;
                     generic_params.push(generic.clone());
                     constraints.push(quote! { #generic: windows_core::Param<#ty>, });
                     Ok(quote! { #name: #generic, })
                 } else {
-                    let ty = parameter.write_public_type(values, namespace, layout, generics)?;
+                    let ty = parameter.write_public_type(context)?;
                     Ok(quote! { #name: #ty, })
                 }
             })
@@ -568,7 +577,12 @@ impl Method {
         } else {
             quote! { where #(#constraints)* }
         };
-        let return_name = self.write_return_type(namespace, layout, generics)?;
+        let return_name =
+            if context.projection.is_minimal() && matches!(self.return_type, ty::Type::String) {
+                quote! { String }
+            } else {
+                self.write_return_type(context.namespace, context.layout, context.generics)?
+            };
         Ok(PublicSignature {
             generic_params: quote! { #(#generic_params),* },
             parameters,
@@ -579,22 +593,20 @@ impl Method {
 
     pub(super) fn write_public_call(
         &self,
-        values: &Values,
-        namespace: &str,
-        layout: Layout,
-        generics: &[String],
+        context: &MethodContext<'_>,
         method: &TokenStream,
         receiver: &TokenStream,
     ) -> Result<TokenStream, Error> {
         let arguments = self
             .parameters
             .iter()
-            .map(|parameter| parameter.write_call_argument(values))
+            .map(|parameter| parameter.write_call_argument(context))
             .collect::<Result<Vec<_>, Error>>()?;
         let return_arguments = match &self.return_type {
             ty::Type::Void => quote! {},
             ty::Type::Vector(element) => {
-                let element = element.write_name(namespace, layout, generics)?;
+                let element =
+                    element.write_name(context.namespace, context.layout, context.generics)?;
                 quote! {
                     windows_core::Array::<#element>::set_abi_len(
                         core::mem::transmute(&mut result__)
@@ -619,10 +631,19 @@ impl Method {
                     #call.map(|| result__.assume_init())
                 }
             },
-            ty if ty.is_copyable(values, namespace)? => quote! {
+            ty if ty.is_copyable(context.values, context.namespace)? => quote! {
                 unsafe {
                     let mut result__ = core::mem::zeroed();
                     #call.map(|| result__)
+                }
+            },
+            ty::Type::String if context.projection.is_minimal() => quote! {
+                unsafe {
+                    let mut result__ = core::mem::zeroed();
+                    #call.map(|| {
+                        let hstring: windows_core::HSTRING = core::mem::transmute(result__);
+                        hstring.to_string_lossy()
+                    })
                 }
             },
             ty if ty.is_interface() => quote! {
@@ -740,6 +761,24 @@ impl Method {
         })
     }
 
+    fn write_upcall_no_return(
+        &self,
+        values: &Values,
+        inner: TokenStream,
+        has_this: bool,
+    ) -> Result<TokenStream, Error> {
+        let arguments = self
+            .parameters
+            .iter()
+            .map(|parameter| parameter.write_upcall_argument(values))
+            .collect::<Result<Vec<_>, Error>>()?;
+        let this = has_this.then(|| quote! { this, });
+        Ok(quote! {
+            #inner(#this #(#arguments),*);
+            windows_core::HRESULT(0)
+        })
+    }
+
     fn write_return_type(
         &self,
         namespace: &str,
@@ -797,26 +836,31 @@ impl Parameter {
         })
     }
 
-    fn write_public_type(
-        &self,
-        values: &Values,
-        namespace: &str,
-        layout: Layout,
-        generics: &[String],
-    ) -> Result<TokenStream, Error> {
-        let default = self.ty.write_default(namespace, layout, generics)?;
+    fn write_public_type(&self, context: &MethodContext<'_>) -> Result<TokenStream, Error> {
+        if self.input_only && context.projection.is_minimal() && matches!(self.ty, ty::Type::String)
+        {
+            return Ok(quote! { &str });
+        }
+        let default = self
+            .ty
+            .write_default(context.namespace, context.layout, context.generics)?;
         Ok(if self.input_only {
             match &self.ty {
                 ty::Type::Vector(element) => {
-                    let element = element.write_default(namespace, layout, generics)?;
+                    let element = element.write_default(
+                        context.namespace,
+                        context.layout,
+                        context.generics,
+                    )?;
                     quote! { &[#element] }
                 }
-                ty if ty.is_copyable(values, namespace)? => default,
+                ty if ty.is_copyable(context.values, context.namespace)? => default,
                 _ => quote! { &#default },
             }
         } else {
             if let ty::Type::Vector(element) = &self.ty {
-                let element = element.write_default(namespace, layout, generics)?;
+                let element =
+                    element.write_default(context.namespace, context.layout, context.generics)?;
                 quote! { &mut [#element] }
             } else {
                 quote! { &mut #default }
@@ -824,11 +868,16 @@ impl Parameter {
         })
     }
 
-    fn write_call_argument(&self, values: &Values) -> Result<TokenStream, Error> {
+    fn write_call_argument(&self, context: &MethodContext<'_>) -> Result<TokenStream, Error> {
         let name = tokens::ident(&self.name);
         Ok(if self.input_only {
             match &self.ty {
-                ty::Type::Vector(element) if element.is_copyable(values, &self.name)? => {
+                ty::Type::String if context.projection.is_minimal() => {
+                    quote! {
+                        core::mem::transmute_copy(&windows_core::HSTRING::from(#name))
+                    }
+                }
+                ty::Type::Vector(element) if element.is_copyable(context.values, &self.name)? => {
                     quote! { #name.len().try_into().unwrap(), #name.as_ptr() }
                 }
                 ty::Type::Vector(_) => quote! {
@@ -836,19 +885,19 @@ impl Parameter {
                     core::mem::transmute(#name.as_ptr())
                 },
                 ty if ty.is_interface() => quote! { #name.param().abi() },
-                ty if ty.is_copyable(values, &self.name)? => quote! { #name },
+                ty if ty.is_copyable(context.values, &self.name)? => quote! { #name },
                 _ => quote! { core::mem::transmute_copy(#name) },
             }
         } else {
             match &self.ty {
-                ty::Type::Vector(element) if element.is_copyable(values, &self.name)? => {
+                ty::Type::Vector(element) if element.is_copyable(context.values, &self.name)? => {
                     quote! { #name.len().try_into().unwrap(), #name.as_mut_ptr() }
                 }
                 ty::Type::Vector(_) => quote! {
                     #name.len().try_into().unwrap(),
                     core::mem::transmute_copy(&#name)
                 },
-                ty if ty.is_copyable(values, &self.name)? => quote! { #name },
+                ty if ty.is_copyable(context.values, &self.name)? => quote! { #name },
                 _ => quote! { #name as *mut _ as _ },
             }
         })

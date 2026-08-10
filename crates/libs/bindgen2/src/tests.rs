@@ -426,7 +426,7 @@ fn winrt_interface_corpus_lowers_and_renders() {
             &generator.shared.interface_relationships,
             &format!("{namespace}.{name}"),
         )
-        .and_then(|model| model.write(values, namespace, Layout::Modules));
+        .and_then(|model| model.write(values, namespace, Layout::Modules, Projection::Default));
         if let Err(error) = result {
             unsupported.push((format!("{namespace}.{name}"), error.to_string()));
         }
@@ -545,6 +545,59 @@ fn winrt_classes_match_existing_golden_tokens() {
 }
 
 #[test]
+fn focused_minimal_winrt_output_matches_existing_tokens() {
+    let normalize = |tokens| {
+        normalize_fn_parameters(tokens)
+            .replace(":: <", "::<")
+            .replace("> ::", ">::")
+            .replace("> ,", ">,")
+            .replace(">, >", "> >")
+            .replace("> >", ">>")
+            .replace("& 'static", "&'static")
+            .replace("& *", "&*")
+            .replace("& <", "&<")
+            .replace("? ;", "?;")
+            .replace(
+                "Err (err) => err . into () }",
+                "Err (err) => err . into () , }",
+            )
+    };
+    for (name, source, expected) in [
+        (
+            "enum",
+            include_str!("../../../tests/libs/bindgen/input/winrt_enum_minimal.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/winrt_enum_minimal.rs"),
+        ),
+        (
+            "struct",
+            include_str!("../../../tests/libs/bindgen/input/winrt_struct_minimal.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/winrt_struct_minimal.rs"),
+        ),
+        (
+            "delegate",
+            include_str!("../../../tests/libs/bindgen/input/delegate_minimal.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/delegate_minimal.rs"),
+        ),
+        (
+            "interface",
+            include_str!("../../../tests/libs/bindgen/input/interface_minimal.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/interface_minimal.rs"),
+        ),
+        (
+            "class",
+            include_str!("../../../tests/libs/bindgen/input/class_minimal.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/class_minimal.rs"),
+        ),
+    ] {
+        let actual = fixture(source)
+            .render_projection(Layout::Flat, Projection::Minimal)
+            .unwrap();
+        let expected = expected.parse().unwrap();
+        assert_eq!(normalize(actual), normalize(expected), "{name}");
+    }
+}
+
+#[test]
 fn winrt_class_corpus_lowers_and_renders() {
     let generator = generator();
     let values = generator.lower_values();
@@ -635,7 +688,7 @@ fn winrt_class_corpus_lowers_and_renders() {
             &generator.shared.interface_relationships,
             &format!("{namespace}.{name}"),
         )
-        .and_then(|model| model.write(values, namespace, Layout::Modules));
+        .and_then(|model| model.write(values, namespace, Layout::Modules, Projection::Default));
         if let Err(error) = result {
             unsupported.push((format!("{namespace}.{name}"), error.to_string()));
         }
@@ -827,7 +880,12 @@ fn winrt_delegate_corpus_lowers_and_renders() {
             &format!("{namespace}.{name}"),
         )
         .unwrap()
-        .write(generator.lower_values(), namespace, Layout::Modules)
+        .write(
+            generator.lower_values(),
+            namespace,
+            Layout::Modules,
+            Projection::Default,
+        )
         .unwrap();
         count += 1;
     }

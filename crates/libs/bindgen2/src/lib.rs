@@ -67,6 +67,19 @@ pub enum Layout {
     Flat,
 }
 
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+enum Projection {
+    #[default]
+    Default,
+    Minimal,
+}
+
+impl Projection {
+    const fn is_minimal(self) -> bool {
+        matches!(self, Self::Minimal)
+    }
+}
+
 /// Selection policy for one generation request.
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct Request {

@@ -52,6 +52,7 @@ impl Struct {
         namespace: &str,
         name: &str,
         layout: Layout,
+        projection: Projection,
     ) -> Result<TokenStream, Error> {
         let ident = tokens::ident(name);
         let fields = self
@@ -82,6 +83,12 @@ impl Struct {
                 .as_bytes(),
         );
         let runtime_name = Literal::byte_string(full_name.as_bytes());
+        let runtime_name = (!projection.is_minimal()).then(|| {
+            quote! {
+                const NAME: windows_core::imp::ConstBuffer =
+                    windows_core::imp::ConstBuffer::from_slice(#runtime_name);
+            }
+        });
 
         Ok(quote! {
             #[repr(C)]
@@ -95,8 +102,7 @@ impl Struct {
             impl windows_core::RuntimeType for #ident {
                 const SIGNATURE: windows_core::imp::ConstBuffer =
                     windows_core::imp::ConstBuffer::from_slice(#signature);
-                const NAME: windows_core::imp::ConstBuffer =
-                    windows_core::imp::ConstBuffer::from_slice(#runtime_name);
+                #runtime_name
             }
         })
     }

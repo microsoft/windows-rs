@@ -155,6 +155,7 @@ impl Interface {
         values: &Values,
         namespace: &str,
         layout: Layout,
+        projection: Projection,
     ) -> Result<TokenStream, Error> {
         let name = tokens::ident(&self.name);
         let vtbl_name = tokens::ident(&format!("{}_Vtbl", self.name));
@@ -185,15 +186,22 @@ impl Interface {
         };
         let guid = self.guid.write_u128();
         let full_name = format!("{}.{}", self.namespace, self.name);
+        let emit_type_name =
+            !projection.is_minimal() || (!self.exclusive && !generic_names.is_empty());
         let definition = if generic_names.is_empty() {
             let metadata_name = Literal::byte_string(full_name.as_bytes());
+            let metadata_name = emit_type_name.then(|| {
+                quote! {
+                    const NAME: windows_core::imp::ConstBuffer =
+                        windows_core::imp::ConstBuffer::from_slice(#metadata_name);
+                }
+            });
             quote! {
                 windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
                 impl windows_core::RuntimeType for #name {
                     const SIGNATURE: windows_core::imp::ConstBuffer =
                         windows_core::imp::ConstBuffer::for_interface::<Self>();
-                    const NAME: windows_core::imp::ConstBuffer =
-                        windows_core::imp::ConstBuffer::from_slice(#metadata_name);
+                    #metadata_name
                 }
             }
         } else {
@@ -207,6 +215,15 @@ impl Interface {
             let names = generic_names
                 .iter()
                 .map(|name| quote! { .push_other(#name::NAME) });
+            let metadata_name = emit_type_name.then(|| {
+                quote! {
+                    const NAME: windows_core::imp::ConstBuffer =
+                        windows_core::imp::ConstBuffer::new()
+                            .push_slice(#metadata_name)
+                            #(#names)*
+                            .push_slice(b">");
+                }
+            });
             quote! {
                 #[repr(transparent)]
                 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -233,18 +250,34 @@ impl Interface {
                             .push_slice(#signature)
                             #(#signatures)*
                             .push_slice(b")");
-                    const NAME: windows_core::imp::ConstBuffer =
-                        windows_core::imp::ConstBuffer::new()
-                            .push_slice(#metadata_name)
-                            #(#names)*
-                            .push_slice(b">");
+                    #metadata_name
                 }
             }
         };
+        let method_context = winrt_delegate::MethodContext::new(
+            values,
+            namespace,
+            layout,
+            projection,
+            &self.generics,
+        );
+        let methods = self
+            .methods
+            .iter()
+            .map(|method| {
+                method
+                    .method
+                    .write_public_method(&method_context, &method.name, quote! { self })
+            })
+            .collect::<Result<Vec<_>, Error>>()?;
         if self.exclusive {
             let vtable = self.write_vtable_struct(values, namespace, layout, &vtbl_name)?;
+            let methods = projection.is_minimal().then(
+                || quote! { impl #constrained_generics #name #type_arguments { #(#methods)* } },
+            );
             return Ok(quote! {
                 #definition
+                #methods
                 #vtable
             });
         }
@@ -265,17 +298,6 @@ impl Interface {
         let required_hierarchy = (!required_types.is_empty()).then(|| {
             quote! { windows_core::imp::required_hierarchy!(#name #type_arguments, #(#required_types),*); }
         });
-        let method_context =
-            winrt_delegate::MethodContext::new(values, namespace, layout, &self.generics);
-        let methods = self
-            .methods
-            .iter()
-            .map(|method| {
-                method
-                    .method
-                    .write_public_method(&method_context, &method.name, quote! { self })
-            })
-            .collect::<Result<Vec<_>, Error>>()?;
         let mut inherited_methods = Vec::new();
         let mut public_names =
             self.methods
@@ -284,22 +306,24 @@ impl Interface {
                     *names.entry(method.name.clone()).or_default() += 1;
                     names
                 });
-        for required in &self.required {
-            let receiver = required.write_name(namespace, layout, &self.generics)?;
-            for method in &required.methods {
-                let count = public_names.entry(method.name.clone()).or_default();
-                *count += 1;
-                let public_name = if *count == 1 {
-                    method.name.clone()
-                } else {
-                    format!("{}{}", method.name, count)
-                };
-                inherited_methods.push(method.method.write_forwarded_public_method(
-                    &method_context,
-                    &public_name,
-                    &method.name,
-                    receiver.clone(),
-                )?);
+        if !projection.is_minimal() {
+            for required in &self.required {
+                let receiver = required.write_name(namespace, layout, &self.generics)?;
+                for method in &required.methods {
+                    let count = public_names.entry(method.name.clone()).or_default();
+                    *count += 1;
+                    let public_name = if *count == 1 {
+                        method.name.clone()
+                    } else {
+                        format!("{}{}", method.name, count)
+                    };
+                    inherited_methods.push(method.method.write_forwarded_public_method(
+                        &method_context,
+                        &public_name,
+                        &method.name,
+                        receiver.clone(),
+                    )?);
+                }
             }
         }
         let runtime_name = Literal::string(&full_name);

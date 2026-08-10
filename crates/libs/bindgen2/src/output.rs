@@ -18,6 +18,14 @@ struct Module {
 impl Generator {
     /// Renders all currently supported items in the requested layout.
     pub fn render(&self, layout: Layout) -> Result<TokenStream, Error> {
+        self.render_projection(layout, Projection::Default)
+    }
+
+    pub(super) fn render_projection(
+        &self,
+        layout: Layout,
+        projection: Projection,
+    ) -> Result<TokenStream, Error> {
         let mut modules = BTreeMap::<String, Vec<Item>>::new();
         let values = self.lower_values();
         for item in self.values() {
@@ -30,7 +38,7 @@ impl Generator {
                 .push(Item {
                     name: name.to_string(),
                     kind: 0,
-                    tokens: values.write_context(namespace, name, layout)?,
+                    tokens: values.write_context(namespace, name, layout, projection)?,
                 });
         }
         for entry in self
@@ -55,7 +63,7 @@ impl Generator {
                 .push(Item {
                     name: name.to_string(),
                     kind: 0,
-                    tokens: model.write(values, namespace, layout)?,
+                    tokens: model.write(values, namespace, layout, projection)?,
                 });
         }
         for entry in self
@@ -78,7 +86,7 @@ impl Generator {
                 .push(Item {
                     name: name.to_string(),
                     kind: 0,
-                    tokens: model.write(values, namespace, layout)?,
+                    tokens: model.write(values, namespace, layout, projection)?,
                 });
         }
         for entry in self
@@ -102,7 +110,7 @@ impl Generator {
                 .push(Item {
                     name: name.to_string(),
                     kind: 0,
-                    tokens: model.write(values, namespace, layout)?,
+                    tokens: model.write(values, namespace, layout, projection)?,
                 });
         }
 

@@ -94,6 +94,7 @@ impl Enum {
         namespace: &str,
         name: &str,
         layout: Layout,
+        projection: Projection,
     ) -> Result<TokenStream, Error> {
         let ident = tokens::ident(name);
         let underlying = self.underlying.write(namespace, layout)?;
@@ -118,6 +119,12 @@ impl Enum {
                 .as_bytes(),
         );
         let runtime_name = Literal::byte_string(format!("{namespace}.{name}").as_bytes());
+        let runtime_name = (!projection.is_minimal()).then(|| {
+            quote! {
+                const NAME: windows_core::imp::ConstBuffer =
+                    windows_core::imp::ConstBuffer::from_slice(#runtime_name);
+            }
+        });
 
         Ok(quote! {
             #[repr(transparent)]
@@ -130,8 +137,7 @@ impl Enum {
             impl windows_core::RuntimeType for #ident {
                 const SIGNATURE: windows_core::imp::ConstBuffer =
                     windows_core::imp::ConstBuffer::from_slice(#signature);
-                const NAME: windows_core::imp::ConstBuffer =
-                    windows_core::imp::ConstBuffer::from_slice(#runtime_name);
+                #runtime_name
             }
             #flags
         })

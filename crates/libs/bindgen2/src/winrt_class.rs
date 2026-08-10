@@ -110,6 +110,7 @@ impl Class {
         values: &Values,
         namespace: &str,
         layout: Layout,
+        projection: Projection,
     ) -> Result<TokenStream, Error> {
         let name = tokens::ident(&self.name);
         let runtime_name = Literal::string(&format!("{}.{}", self.namespace, self.name));
@@ -128,7 +129,8 @@ impl Class {
             }
         });
         let Some(default_interface) = &self.default_interface else {
-            let context = winrt_delegate::MethodContext::new(values, namespace, layout, &[]);
+            let context =
+                winrt_delegate::MethodContext::new(values, namespace, layout, projection, &[]);
             let mut names = BTreeMap::new();
             let factories = self.write_factories(namespace, layout, &name, &context, &mut names)?;
             let impl_block = (!factories.is_empty()).then(|| {
@@ -165,7 +167,7 @@ impl Class {
                 windows_core::imp::required_hierarchy!(#name, #(#required),*);
             }
         });
-        let constructor = self.default_constructor.then(|| {
+        let constructor = (self.default_constructor && !projection.is_minimal()).then(|| {
             quote! {
                 pub fn new() -> windows_core::Result<Self> {
                     Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -182,13 +184,14 @@ impl Class {
                 }
             }
         });
-        let context = winrt_delegate::MethodContext::new(values, namespace, layout, &[]);
+        let context =
+            winrt_delegate::MethodContext::new(values, namespace, layout, projection, &[]);
         let mut methods = Vec::new();
         let mut names = BTreeMap::<String, u32>::new();
         for interface in self
             .interfaces
             .iter()
-            .filter(|interface| !interface.factory)
+            .filter(|interface| !interface.factory && !projection.is_minimal())
         {
             let interface_type = interface.write_name(namespace, layout)?;
             for method in &interface.methods {
@@ -214,6 +217,16 @@ impl Class {
             }
         }
         let factories = self.write_factories(namespace, layout, &name, &context, &mut names)?;
+        let deref = projection.is_minimal().then(|| {
+            quote! {
+                impl core::ops::Deref for #name {
+                    type Target = #default_type;
+                    fn deref(&self) -> &Self::Target {
+                        unsafe { core::mem::transmute(self) }
+                    }
+                }
+            }
+        });
         let impl_block = if constructor.is_none() && methods.is_empty() && factories.is_empty() {
             quote! {}
         } else {
@@ -246,6 +259,7 @@ impl Class {
                 const IID: windows_core::GUID =
                     <#default_type as windows_core::Interface>::IID;
             }
+            #deref
             impl windows_core::RuntimeName for #name {
                 const NAME: &'static str = #runtime_name;
             }
