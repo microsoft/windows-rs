@@ -98,26 +98,36 @@ impl<B: Backend + 'static> Reconciler<B> {
             return self.mount_output(&Element::Component(new.clone()));
         };
 
-        inst.render_cx
-            .set_context_stack(self.context_stack_handle());
-        inst.render_cx
-            .set_inner_size_cell(Rc::clone(&self.host.inner_size));
-        inst.render_cx.set_dpi_cell(Rc::clone(&self.host.dpi));
-        inst.render_cx.begin_render();
-        let rendered = new.obj.render(&mut inst.render_cx);
-        inst.render_cx.flush_effects();
-        inst.read_contexts = inst.render_cx.take_read_contexts();
-        inst.parent = parent;
-
-        let rendered_output = {
-            let _parent = self.enter_logical_parent(node_id);
-            self.update_output(&inst.last_rendered, &rendered, inst.rendered_output)
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            inst.render_cx
+                .set_context_stack(self.context_stack_handle());
+            inst.render_cx
+                .set_inner_size_cell(Rc::clone(&self.host.inner_size));
+            inst.render_cx.set_dpi_cell(Rc::clone(&self.host.dpi));
+            inst.render_cx.begin_render();
+            let rendered = new.obj.render(&mut inst.render_cx);
+            inst.render_cx.flush_effects();
+            let read_contexts = inst.render_cx.take_read_contexts();
+            let rendered_output = {
+                let _parent = self.enter_logical_parent(node_id);
+                self.update_output(&inst.last_rendered, &rendered, inst.rendered_output)
+            };
+            (rendered, read_contexts, rendered_output)
+        }));
+        let (rendered, read_contexts, rendered_output) = match result {
+            Ok(updated) => updated,
+            Err(payload) => {
+                self.tree.logical.register_component(inst);
+                std::panic::resume_unwind(payload);
+            }
         };
 
         inst.last_rendered = rendered;
         inst.last_obj = Rc::clone(&new.obj);
         inst.native_root = rendered_output.native;
         inst.rendered_output = rendered_output;
+        inst.read_contexts = read_contexts;
+        inst.parent = parent;
 
         self.tree.logical.register_component(inst);
         MountedOutput {
@@ -359,7 +369,10 @@ impl<B: Backend + 'static> Reconciler<B> {
                     logical: Some(node_id),
                 }
             }
-            Err(payload) => std::panic::resume_unwind(payload),
+            Err(payload) => {
+                self.tree.logical.register_wrapper(provider);
+                std::panic::resume_unwind(payload);
+            }
         }
     }
 

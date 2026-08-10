@@ -470,7 +470,12 @@ selected backend operation mutates the backend model. Ordinary widget mounts cat
 native creation, remove the partially mounted native and logical subtree, run pending component
 cleanups, and then resume the panic. Error boundaries can therefore mount a fallback without
 retaining controls, handlers, headers, panes, or effects from the failed subtree. This contract does
-not yet cover updates, custom elements, templated lists, or failures during rollback.
+not yet cover custom elements, templated lists, or failures during rollback.
+
+Component and provider updates retain their logical ownership records while a panic propagates.
+This lets an error boundary discard a failed non-structural update, run component cleanups, and
+mount its fallback. It also leaves fail-before property and event updates reachable for explicit
+root teardown when there is no boundary. Structural update rollback is not yet defined.
 
 Two crates measure reconciler performance. `test_reactor_bench` is a headless micro-suite (run with
 `cargo run -p test_reactor_bench --release`) that brackets only the reconcile body against
@@ -1160,8 +1165,10 @@ time.
   across insert, move, replace, and remove, and delete WinUI's child-order mirror.
 - [x] Add fail-before backend injection for ordinary widget create, property, event, child, header,
   and pane operations; roll failed mounts back before propagating the panic.
+- [x] Retain component and provider ownership across failed non-structural updates so error
+  boundaries can discard the subtree, run cleanups, and mount a fallback.
 - [ ] Extend backend fault injection to updates, custom and templated mounts, move, detach, destroy,
-  and rollback itself; define the valid state after each failure.
+  structural replacement, and rollback itself; define the valid state after each failure.
 - [ ] Define and test render, commit, effect, cleanup, error-boundary, and reentrant-event ordering.
 - [ ] Enforce the UI-thread boundary in release builds and reject stale asynchronous updates after
   unmount or host replacement.

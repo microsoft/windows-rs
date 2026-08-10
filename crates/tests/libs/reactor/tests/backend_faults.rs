@@ -4,8 +4,9 @@ use std::rc::Rc;
 
 use test_reactor::{BackendOperation, Op, RecordingBackend};
 use windows_reactor::{
-    Button, Component, ControlKind, Element, Expander, Pivot, PivotItem, Reconciler, RenderCx,
-    SplitView, TabItem, TabView, component, error_boundary, text_block, vstack,
+    Button, Component, Context, ControlKind, Element, Expander, Pivot, PivotItem, ProvideExt,
+    Reconciler, RenderCx, SplitView, TabItem, TabView, component, error_boundary, text_block,
+    vstack,
 };
 
 fn rerender() -> Rc<dyn Fn()> {
@@ -191,4 +192,189 @@ fn failed_component_mount_cleans_up_effects_before_fallback() {
     reconciler.assert_consistent();
     reconciler.backend.assert_consistent();
     assert_eq!(reconciler.backend.live_control_count(), 1);
+}
+
+#[derive(Clone, PartialEq)]
+struct UpdateProps {
+    text: &'static str,
+    handler: bool,
+    revision: u8,
+}
+
+struct UpdateEffect {
+    setups: Rc<Cell<u32>>,
+    cleanups: Rc<Cell<u32>>,
+}
+
+impl Component<UpdateProps> for UpdateEffect {
+    fn render(&self, props: &UpdateProps, cx: &mut RenderCx) -> Element {
+        let setups = Rc::clone(&self.setups);
+        let cleanups = Rc::clone(&self.cleanups);
+        cx.use_effect_with_cleanup((), move || {
+            setups.set(setups.get() + 1);
+            Some(move || cleanups.set(cleanups.get() + 1))
+        });
+        let button = Button::new(props.text);
+        if props.handler {
+            button.on_click(|| {}).into()
+        } else {
+            button.into()
+        }
+    }
+}
+
+fn update_component(
+    props: UpdateProps,
+    setups: &Rc<Cell<u32>>,
+    cleanups: &Rc<Cell<u32>>,
+) -> Element {
+    component(
+        UpdateEffect {
+            setups: Rc::clone(setups),
+            cleanups: Rc::clone(cleanups),
+        },
+        props,
+    )
+}
+
+#[test]
+fn error_boundary_discards_failed_component_updates_and_runs_cleanup() {
+    let cases = [
+        (
+            BackendOperation::SetProp,
+            UpdateProps {
+                text: "old",
+                handler: false,
+                revision: 0,
+            },
+            UpdateProps {
+                text: "new",
+                handler: false,
+                revision: 1,
+            },
+        ),
+        (
+            BackendOperation::AttachEvent,
+            UpdateProps {
+                text: "button",
+                handler: true,
+                revision: 0,
+            },
+            UpdateProps {
+                text: "button",
+                handler: true,
+                revision: 1,
+            },
+        ),
+        (
+            BackendOperation::DetachEvent,
+            UpdateProps {
+                text: "button",
+                handler: true,
+                revision: 0,
+            },
+            UpdateProps {
+                text: "button",
+                handler: false,
+                revision: 1,
+            },
+        ),
+    ];
+
+    for (operation, old_props, new_props) in cases {
+        let setups = Rc::new(Cell::new(0));
+        let cleanups = Rc::new(Cell::new(0));
+        let old = error_boundary(update_component(old_props, &setups, &cleanups), |_| {
+            text_block("fallback").into()
+        });
+        let new = error_boundary(update_component(new_props, &setups, &cleanups), |_| {
+            text_block("fallback").into()
+        });
+        let mut reconciler = Reconciler::new(RecordingBackend::new());
+        reconciler.reconcile(None, &old, None, rerender());
+        reconciler.backend.fail_next(operation);
+
+        assert!(
+            reconciler
+                .reconcile(Some(&old), &new, None, rerender())
+                .is_some(),
+            "{operation:?} did not mount the fallback"
+        );
+
+        assert_eq!(setups.get(), 1, "{operation:?} reran the stable effect");
+        assert_eq!(
+            cleanups.get(),
+            1,
+            "{operation:?} did not clean the discarded component"
+        );
+        assert_eq!(reconciler.debug_logical_node_count(), 1);
+        reconciler.assert_consistent();
+        reconciler.backend.assert_consistent();
+
+        reconciler.unmount_root();
+        assert_eq!(cleanups.get(), 1);
+        reconciler.backend.assert_consistent();
+        assert_eq!(reconciler.backend.live_control_count(), 0);
+    }
+}
+
+#[test]
+fn failed_component_update_retains_ownership_for_teardown() {
+    let setups = Rc::new(Cell::new(0));
+    let cleanups = Rc::new(Cell::new(0));
+    let old = update_component(
+        UpdateProps {
+            text: "old",
+            handler: false,
+            revision: 0,
+        },
+        &setups,
+        &cleanups,
+    );
+    let new = update_component(
+        UpdateProps {
+            text: "new",
+            handler: false,
+            revision: 1,
+        },
+        &setups,
+        &cleanups,
+    );
+    let mut reconciler = Reconciler::new(RecordingBackend::new());
+    reconciler.reconcile(None, &old, None, rerender());
+    reconciler.backend.fail_next(BackendOperation::SetProp);
+
+    let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+        reconciler.reconcile(Some(&old), &new, None, rerender())
+    }));
+
+    assert!(result.is_err());
+    reconciler.assert_consistent();
+    reconciler.backend.assert_consistent();
+    reconciler.unmount_root();
+    assert_eq!(setups.get(), 1);
+    assert_eq!(cleanups.get(), 1);
+    reconciler.backend.assert_consistent();
+    assert_eq!(reconciler.backend.live_control_count(), 0);
+}
+
+#[test]
+fn failed_provider_update_retains_ownership_for_teardown() {
+    let context = Context::new(0_u32);
+    let old = text_block("old").provide(&context, 1);
+    let new = text_block("new").provide(&context, 2);
+    let mut reconciler = Reconciler::new(RecordingBackend::new());
+    reconciler.reconcile(None, &old, None, rerender());
+    reconciler.backend.fail_next(BackendOperation::SetProp);
+
+    let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+        reconciler.reconcile(Some(&old), &new, None, rerender())
+    }));
+
+    assert!(result.is_err());
+    reconciler.assert_consistent();
+    reconciler.backend.assert_consistent();
+    reconciler.unmount_root();
+    reconciler.backend.assert_consistent();
+    assert_eq!(reconciler.backend.live_control_count(), 0);
 }
