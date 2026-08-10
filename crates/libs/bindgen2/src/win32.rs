@@ -31,17 +31,7 @@ enum EnumVariants {
 
 pub(crate) struct Win32Selection {
     namespaces: Vec<Namespace>,
-    catalogs: Arc<Win32Catalogs>,
     enum_variants: BTreeMap<Entity<TypeDef>, EnumVariants>,
-    type_count: usize,
-    architecture_type_count: usize,
-    architecture_constant_count: usize,
-    architecture_function_count: usize,
-    architecture_interface_count: usize,
-    constant_count: usize,
-    function_count: usize,
-    delegate_count: usize,
-    interface_count: usize,
 }
 
 pub(crate) struct Win32Catalogs {
@@ -49,28 +39,23 @@ pub(crate) struct Win32Catalogs {
     interface_bases: BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
 }
 
-/// A borrowed lowering view over the request's selected Win32 items.
-pub struct Win32Items<'a> {
+pub(crate) struct Win32Items<'a> {
     database: &'a Database,
+    catalogs: &'a Win32Catalogs,
     selection: &'a Win32Selection,
 }
 
 impl Generator {
-    /// Returns the selected Win32 items.
-    pub fn win32_items(&self) -> Win32Items<'_> {
+    pub(crate) fn win32_items(&self) -> Win32Items<'_> {
         Win32Items {
-            database: &self.database,
+            database: &self.shared.database,
+            catalogs: &self.shared.win32_catalogs,
             selection: &self.win32,
         }
     }
 }
 
 impl Win32Selection {
-    #[cfg(test)]
-    pub(crate) fn shares_catalogs(&self, other: &Self) -> bool {
-        Arc::ptr_eq(&self.catalogs, &other.catalogs)
-    }
-
     pub(crate) fn new_with_catalogs(
         database: &Database,
         catalogs: Arc<Win32Catalogs>,
@@ -169,15 +154,6 @@ impl Win32Selection {
                 add_definition(&mut namespaces, definition)?;
             }
         }
-        let mut type_count = 0;
-        let mut architecture_type_count = 0;
-        let mut architecture_constant_count = 0;
-        let mut architecture_function_count = 0;
-        let mut architecture_interface_count = 0;
-        let mut constant_count = 0;
-        let mut function_count = 0;
-        let mut delegate_count = 0;
-        let mut interface_count = 0;
         let namespaces: Vec<Namespace> = namespaces
             .into_iter()
             .map(|(name, mut selection)| {
@@ -191,18 +167,6 @@ impl Win32Selection {
                 let interfaces = selection.interfaces;
                 let constants = selection.constants;
                 let functions = selection.functions;
-                architecture_type_count += types.iter().filter(|(_, bits, _)| *bits != 0).count();
-                architecture_constant_count +=
-                    constants.iter().filter(|(_, bits, _)| *bits != 0).count();
-                architecture_function_count +=
-                    functions.iter().filter(|(_, bits, _)| *bits != 0).count();
-                architecture_interface_count +=
-                    interfaces.iter().filter(|(_, bits, _)| *bits != 0).count();
-                type_count += types.len();
-                delegate_count += delegates.len();
-                interface_count += interfaces.len();
-                constant_count += constants.len();
-                function_count += functions.len();
                 Namespace {
                     name,
                     types: types.into_iter().map(|(_, _, entity)| entity).collect(),
@@ -218,17 +182,7 @@ impl Win32Selection {
             .collect();
         Ok(Self {
             namespaces,
-            catalogs,
             enum_variants,
-            type_count,
-            architecture_type_count,
-            architecture_constant_count,
-            architecture_function_count,
-            architecture_interface_count,
-            constant_count,
-            function_count,
-            delegate_count,
-            interface_count,
         })
     }
 }
@@ -251,6 +205,11 @@ impl Win32Catalogs {
             nested,
             interface_bases: interface_bases(database)?,
         })
+    }
+
+    #[cfg(test)]
+    pub(crate) fn nested_type_count(&self) -> usize {
+        self.nested.values().map(Vec::len).sum()
     }
 }
 
@@ -299,64 +258,14 @@ fn interface_bases(
 }
 
 impl<'a> Win32Items<'a> {
-    /// Returns the number of selected native type definitions.
-    pub fn type_count(&self) -> usize {
-        self.selection.type_count
-    }
-
-    /// Returns the number of selected native definitions with architecture gates.
-    pub fn architecture_type_count(&self) -> usize {
-        self.selection.architecture_type_count
-    }
-
-    /// Returns the number of selected constants with architecture gates.
-    pub fn architecture_constant_count(&self) -> usize {
-        self.selection.architecture_constant_count
-    }
-
-    /// Returns the number of selected functions with architecture gates.
-    pub fn architecture_function_count(&self) -> usize {
-        self.selection.architecture_function_count
-    }
-
-    /// Returns the number of selected native interfaces with architecture gates.
-    pub fn architecture_interface_count(&self) -> usize {
-        self.selection.architecture_interface_count
-    }
-
-    /// Returns the number of nested native structs retained for future attachment.
-    pub fn nested_type_count(&self) -> usize {
-        self.selection.catalogs.nested.values().map(Vec::len).sum()
-    }
-
-    /// Returns the number of selected constants.
-    pub fn constant_count(&self) -> usize {
-        self.selection.constant_count
-    }
-
-    /// Returns the number of selected functions.
-    pub fn function_count(&self) -> usize {
-        self.selection.function_count
-    }
-
-    /// Returns the number of selected native delegates.
-    pub fn delegate_count(&self) -> usize {
-        self.selection.delegate_count
-    }
-
-    /// Returns the number of selected native interfaces.
-    pub fn interface_count(&self) -> usize {
-        self.selection.interface_count
-    }
-
-    /// Lowers native type definitions in deterministic namespace and name order.
-    pub fn native_types(&self) -> impl Iterator<Item = Result<NativeType, Error>> + '_ {
+    #[cfg(test)]
+    pub(crate) fn native_types(&self) -> impl Iterator<Item = Result<NativeType, Error>> + '_ {
         self.selection.namespaces.iter().flat_map(|namespace| {
             namespace.types.iter().map(|entity| {
                 NativeType::lower_filtered(
                     self.database,
                     self.database.definition(*entity).unwrap(),
-                    &self.selection.catalogs.nested,
+                    &self.catalogs.nested,
                     self.enum_variants(*entity),
                 )
             })
@@ -364,7 +273,8 @@ impl<'a> Win32Items<'a> {
     }
 
     /// Lowers constants in deterministic namespace and name order.
-    pub fn constants(&self) -> impl Iterator<Item = Result<Constant, Error>> + '_ {
+    #[cfg(test)]
+    pub(crate) fn constants(&self) -> impl Iterator<Item = Result<Constant, Error>> + '_ {
         self.selection.namespaces.iter().flat_map(|namespace| {
             namespace.constants.iter().map(|entity| {
                 let field = self.database.field(*entity).unwrap();
@@ -374,7 +284,8 @@ impl<'a> Win32Items<'a> {
     }
 
     /// Lowers functions in deterministic namespace and name order.
-    pub fn functions(&self) -> impl Iterator<Item = Result<Function, Error>> + '_ {
+    #[cfg(test)]
+    pub(crate) fn functions(&self) -> impl Iterator<Item = Result<Function, Error>> + '_ {
         self.selection.namespaces.iter().flat_map(|namespace| {
             namespace.functions.iter().map(|entity| {
                 let method = self.database.method(*entity).unwrap();
@@ -389,7 +300,8 @@ impl<'a> Win32Items<'a> {
     }
 
     /// Lowers native delegates in deterministic namespace and name order.
-    pub fn delegates(&self) -> impl Iterator<Item = Result<Delegate, Error>> + '_ {
+    #[cfg(test)]
+    pub(crate) fn delegates(&self) -> impl Iterator<Item = Result<Delegate, Error>> + '_ {
         self.selection.namespaces.iter().flat_map(|namespace| {
             namespace.delegates.iter().map(|entity| {
                 Delegate::lower(self.database, self.database.definition(*entity).unwrap())
@@ -398,20 +310,22 @@ impl<'a> Win32Items<'a> {
     }
 
     /// Lowers native interfaces in deterministic namespace and name order.
-    pub fn interfaces(&self) -> impl Iterator<Item = Result<NativeInterface, Error>> + '_ {
+    #[cfg(test)]
+    pub(crate) fn interfaces(&self) -> impl Iterator<Item = Result<NativeInterface, Error>> + '_ {
         self.selection.namespaces.iter().flat_map(|namespace| {
             namespace.interfaces.iter().map(|entity| {
                 NativeInterface::lower(
                     self.database,
                     self.database.definition(*entity).unwrap(),
-                    &self.selection.catalogs.interface_bases,
+                    &self.catalogs.interface_bases,
                 )
             })
         })
     }
 
     /// Lowers a uniquely named constant.
-    pub fn constant(&self, namespace: &str, name: &str) -> Result<Constant, Error> {
+    #[cfg(test)]
+    pub(crate) fn constant(&self, namespace: &str, name: &str) -> Result<Constant, Error> {
         let entity = self.constant_entity(namespace, name)?;
         Constant::lower(
             self.database,
@@ -422,7 +336,8 @@ impl<'a> Win32Items<'a> {
     }
 
     /// Lowers a uniquely named function.
-    pub fn function(&self, namespace: &str, name: &str) -> Result<Function, Error> {
+    #[cfg(test)]
+    pub(crate) fn function(&self, namespace: &str, name: &str) -> Result<Function, Error> {
         let entity = self.function_entity(namespace, name)?;
         Function::lower(
             self.database,
@@ -433,12 +348,13 @@ impl<'a> Win32Items<'a> {
     }
 
     /// Lowers a uniquely named native type definition.
-    pub fn native_type(&self, namespace: &str, name: &str) -> Result<NativeType, Error> {
+    #[cfg(test)]
+    pub(crate) fn native_type(&self, namespace: &str, name: &str) -> Result<NativeType, Error> {
         let entity = self.type_entity(namespace, name)?;
         NativeType::lower_filtered(
             self.database,
             self.database.definition(entity).unwrap(),
-            &self.selection.catalogs.nested,
+            &self.catalogs.nested,
             self.enum_variants(entity),
         )
     }
@@ -454,7 +370,7 @@ impl<'a> Win32Items<'a> {
                 let ty = NativeType::lower_filtered(
                     self.database,
                     definition,
-                    &self.selection.catalogs.nested,
+                    &self.catalogs.nested,
                     self.enum_variants(*entity),
                 )?;
                 for (name, kind, tokens) in ty.write_sys_items_context(layout) {
@@ -479,7 +395,7 @@ impl<'a> Win32Items<'a> {
                     NativeInterface::lower(
                         self.database,
                         definition,
-                        &self.selection.catalogs.interface_bases,
+                        &self.catalogs.interface_bases,
                     )?
                     .write_sys_context(layout),
                 );
@@ -510,6 +426,7 @@ impl<'a> Win32Items<'a> {
         Ok(())
     }
 
+    #[cfg(test)]
     fn type_entity(&self, namespace: &str, name: &str) -> Result<Entity<TypeDef>, Error> {
         let Some(namespace) = self
             .selection
@@ -535,6 +452,7 @@ impl<'a> Win32Items<'a> {
         }
     }
 
+    #[cfg(test)]
     fn constant_entity(&self, namespace: &str, name: &str) -> Result<Entity<Field>, Error> {
         let Some(namespace) = self
             .selection
@@ -555,6 +473,7 @@ impl<'a> Win32Items<'a> {
         )
     }
 
+    #[cfg(test)]
     fn function_entity(&self, namespace: &str, name: &str) -> Result<Entity<MethodDef>, Error> {
         let Some(namespace) = self
             .selection
@@ -576,6 +495,7 @@ impl<'a> Win32Items<'a> {
     }
 }
 
+#[cfg(test)]
 fn unique_entity<T: windows_metadata2::Table>(
     mut matches: impl Iterator<Item = Entity<T>>,
     namespace: &str,
@@ -593,6 +513,7 @@ fn unique_entity<T: windows_metadata2::Table>(
     Ok(result)
 }
 
+#[cfg(test)]
 fn missing(namespace: &str, name: &str) -> Error {
     Error::MissingWin32Item {
         namespace: namespace.to_string(),
@@ -609,14 +530,12 @@ mod tests {
     #[test]
     fn inventory_current_win32_lowering() {
         let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
-        let selection = Win32Selection::new_with_catalogs(
-            &database,
-            Arc::new(Win32Catalogs::new(&database).unwrap()),
-            None,
-        )
-        .unwrap();
+        let catalogs = Arc::new(Win32Catalogs::new(&database).unwrap());
+        let selection =
+            Win32Selection::new_with_catalogs(&database, catalogs.clone(), None).unwrap();
         let items = Win32Items {
             database: &database,
+            catalogs: &catalogs,
             selection: &selection,
         };
         let mut supported = [0; 5];
@@ -641,7 +560,7 @@ mod tests {
                 match NativeType::lower_filtered(
                     &database,
                     definition,
-                    &items.selection.catalogs.nested,
+                    &items.catalogs.nested,
                     None,
                 ) {
                     Ok(ty) => {
@@ -676,11 +595,8 @@ mod tests {
             }
             for entity in &namespace.interfaces {
                 let definition = database.definition(*entity).unwrap();
-                match NativeInterface::lower(
-                    &database,
-                    definition,
-                    &items.selection.catalogs.interface_bases,
-                ) {
+                match NativeInterface::lower(&database, definition, &items.catalogs.interface_bases)
+                {
                     Ok(interface) => {
                         interface.write_sys();
                         interface_supported += 1;
@@ -715,8 +631,8 @@ mod tests {
         assert_eq!(supported[3..], [83_641, 14_559]);
         assert_eq!(delegate_supported, 2_159);
         assert_eq!(interface_supported, 4_290);
-        assert_eq!(items.type_count(), 30_109);
-        assert_eq!(items.delegate_count(), 2_159);
+        assert_eq!(items.native_types().count(), 30_109);
+        assert_eq!(items.delegates().count(), 2_159);
         assert_eq!(defaults, [8_584, 2_164, 1_889, 74, 3]);
         assert_eq!((scoped_enums, gated_scoped_enums), (10, 0));
     }
@@ -724,14 +640,12 @@ mod tests {
     #[test]
     fn inventory_architecture_variants_and_nested_types() {
         let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
-        let selection = Win32Selection::new_with_catalogs(
-            &database,
-            Arc::new(Win32Catalogs::new(&database).unwrap()),
-            None,
-        )
-        .unwrap();
+        let catalogs = Arc::new(Win32Catalogs::new(&database).unwrap());
+        let selection =
+            Win32Selection::new_with_catalogs(&database, catalogs.clone(), None).unwrap();
         let items = Win32Items {
             database: &database,
+            catalogs: &catalogs,
             selection: &selection,
         };
         let image = &database.images()[0];
@@ -758,31 +672,63 @@ mod tests {
             .filter(|architectures| architectures.len() > 1)
             .count();
         let nested_rows = image.rows::<windows_metadata2::tables::NestedClass>().len();
+        let architecture_type_count = selection
+            .namespaces
+            .iter()
+            .flat_map(|namespace| &namespace.types)
+            .filter(|entity| {
+                database
+                    .definition(**entity)
+                    .unwrap()
+                    .architectures()
+                    .unwrap()
+                    != 0
+            })
+            .count();
+        let architecture_constant_count = selection
+            .namespaces
+            .iter()
+            .flat_map(|namespace| &namespace.constants)
+            .filter(|entity| database.field(**entity).unwrap().architectures().unwrap() != 0)
+            .count();
+        let architecture_function_count = selection
+            .namespaces
+            .iter()
+            .flat_map(|namespace| &namespace.functions)
+            .filter(|entity| database.method(**entity).unwrap().architectures().unwrap() != 0)
+            .count();
+        let architecture_interface_count = selection
+            .namespaces
+            .iter()
+            .flat_map(|namespace| &namespace.interfaces)
+            .filter(|entity| {
+                database
+                    .definition(**entity)
+                    .unwrap()
+                    .architectures()
+                    .unwrap()
+                    != 0
+            })
+            .count();
         assert_eq!(
             (
                 architecture_rows,
                 architecture_groups.len(),
                 variant_groups,
                 nested_rows,
-                items.architecture_type_count(),
-                items.architecture_constant_count(),
-                items.architecture_function_count(),
-                items.architecture_interface_count(),
-                items.nested_type_count(),
+                architecture_type_count,
+                architecture_constant_count,
+                architecture_function_count,
+                architecture_interface_count,
+                items.catalogs.nested_type_count(),
             ),
             (1_054, 671, 374, 2_633, 997, 512, 261, 14, 2_633)
         );
         assert_eq!(
-            items
-                .selection
-                .catalogs
-                .nested
-                .values()
-                .map(Vec::len)
-                .sum::<usize>(),
+            items.catalogs.nested.values().map(Vec::len).sum::<usize>(),
             nested_rows
         );
-        assert_eq!(items.selection.catalogs.nested.len(), 1_925);
+        assert_eq!(items.catalogs.nested.len(), 1_925);
     }
 
     #[test]

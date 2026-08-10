@@ -108,6 +108,7 @@ impl Constant {
     }
 
     /// Renders a flat Win32 sys constant.
+    #[cfg(test)]
     pub fn write_sys(&self) -> TokenStream {
         self.write_sys_context(Layout::Flat)
     }

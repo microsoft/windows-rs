@@ -16,6 +16,7 @@ enum Kind {
 }
 
 /// A projected Win32 native type category.
+#[cfg(test)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum NativeTypeKind {
     Alias,
@@ -254,6 +255,7 @@ impl NativeType {
     }
 
     /// Returns the projected native type category.
+    #[cfg(test)]
     pub const fn kind(&self) -> NativeTypeKind {
         match self.kind {
             Kind::Alias(_) => NativeTypeKind::Alias,
@@ -271,6 +273,7 @@ impl NativeType {
     }
 
     /// Renders a flat Win32 sys type definition.
+    #[cfg(test)]
     pub fn write_sys(&self) -> TokenStream {
         self.write_sys_context(Layout::Flat)
     }

@@ -32,15 +32,16 @@ filtered WinRT value closure.
 | Filtered WinRT values | Complete for enums and structs | Transitive value dependencies are selected; recursive values remain errors. |
 | ABI canonicalization | Consolidated for native sys | Namespace-qualified aliases and one callable lowering path match all nine requests. |
 | Request reuse | Complete for current catalogs | The database, nested map, and interface-base map are shared across requests. |
-| Formatting and file writing | Complete | Rustfmt errors are surfaced; unchanged files are not rewritten. |
-| Simple sys request adapter | Complete | Nine real request files parse strictly and match committed tokens. |
+| Formatting and file writing | Tool policy | Kept outside the projection core. |
+| Sys request differential | Complete | A test-local parser proves nine real request files. |
 | Rich/minimal projection | Not started | Native sys is the only complete production-style surface. |
 | WinRT interfaces and classes | Not started | Required before default-style `tool_bindings` requests. |
 | Package output | Not started | Requires stable filtering, layout, and formatting first. |
 
-Approximate hand-written Rust source size at this milestone is 5,591 lines for bindgen2 versus
-12,829 for the existing bindgen crate. The smaller code is encouraging given the native sys
-coverage, but output coverage and concept count matter more than line count.
+Approximate hand-written Rust source size is 5,500 lines for bindgen2 versus 12,829 for the
+existing bindgen crate. The public boundary and ownership logic occupy about 235 lines in
+`lib.rs`; tests are isolated in `tests.rs`. Output coverage and concept count matter more than
+line count.
 
 ## Stabilization gate
 
@@ -73,23 +74,18 @@ semantic views through the owned database and is deterministic by namespace, nam
 This intentionally does not reproduce the old reader map. Exact-name lookup already belongs to
 `windows-metadata2::Database`; bindgen2 has no measured need for another permanent name index.
 
-The ownership boundary now separates reusable metadata from generation requests. `Metadata` owns
-one `Arc<Database>` and lazily builds the immutable nested and interface-base catalogs once. Each
-`Generator` shares those roots while storing request-local typed entities. It lets `tool_bindings`
-share one parse/index/catalog pass across its 17 filter files without leaking the database or
-adding lifetimes to every public projected model.
+The ownership boundary separates reusable metadata from generation requests. `Metadata`
+eagerly builds one shared database, WinRT value graph, nested-type map, and interface-base map.
+Each `Generator` shares that immutable root while storing request-local typed entities. This lets
+`tool_bindings` share one parse, index, and lowering pass across its 17 filter files without
+exposing projected models or adding public lifetimes.
 
-A release-mode sample on the full default metadata measured about 77 ms to parse and index, 90 ms
-for the first unfiltered request, and 88 ms for the second. The remaining request cost is the
-selection scan, not catalog construction. Do not add another index until the request-file adapter
-shows that this scan matters.
-
-Generation options currently contain only `Layout::Modules` and `Layout::Flat`. Both consume the
-same collected output items and deterministic sort. The layout is also the explicit
-name-resolution context: module output emits relative namespace paths, while flat output emits
-unqualified names. Flat output checks cross-namespace generated name collisions and returns a
-structured error. Style options are not exposed yet because current rich/minimal projection
-coverage is incomplete; accepting ignored flags would create a false compatibility API.
+Rendering accepts only `Layout::Modules` and `Layout::Flat`. Both consume the same collected output
+items and deterministic sort. The layout is also the explicit name-resolution context: module
+output emits relative namespace paths, while flat output emits unqualified names. Flat output
+checks cross-namespace generated name collisions and returns a structured error. Style options
+are not exposed yet because current rich/minimal projection coverage is incomplete; accepting
+ignored flags would create a false compatibility API.
 
 The first filter layer is also intentionally programmatic. `Filter` stores bare names, exact
 namespace/name pairs, and namespace roots in ordered sets. Selection performs borrowed lookups and
@@ -98,11 +94,10 @@ match index. An empty filter selects nothing, while requests without a filter re
 all-items behavior. Filtered WinRT structs add referenced value types transitively with a temporary
 entity set and queue; no permanent value dependency graph is retained.
 
-`Generator` retains the resulting WinRT and Win32 typed-entity selections. `Win32Items` is a
-borrowed lowering view over the shared database and the request-owned selection, so repeated
+`Generator` retains the resulting WinRT and Win32 typed-entity selections. An internal lowering
+view combines the shared database and catalogs with the request-owned selection, so repeated
 rendering does not scan metadata again. Request-local native state is limited to namespace groups,
-typed entities, enum variant policy, and inventory counts. The nested parent map and interface-base
-map are immutable catalogs shared by all requests. Native projected models remain streaming values.
+typed entities, and enum variant policy. Native projected models remain streaming values.
 
 Filtered native selection now closes over decoded field and method signatures. A temporary ordered
 entity set and work queue pull in referenced aliases, enums, structs, delegates, interfaces, and
@@ -274,11 +269,57 @@ The current advantage is clearer ownership and policy boundaries, explicit unsup
 accounting, and complete corpus tests for implemented slices. Full output equivalence is still the
 standard required before claiming the replacement is objectively better overall.
 
-## Next checkpoint
+## Deep review
 
-Pilot `SysRequest` in `tool_bindings` only after deciding whether byte-identical macro whitespace
-is required. The old formatter has a separate macro-body whitespace scanner, and current output
-also differs in non-semantic function-pointer parameter names and rustfmt-added trailing commas.
-Bindgen2 normalizes those differences in the nine-request proof rather than copying formatter
-complexity or causing generated-file churn. General member-filter grammar, default/rich style,
-WinRT interfaces/classes, and package generation remain later independent milestones.
+The current consumers do not share one orchestration shape:
+
+| Consumer | Required policy |
+| --- | --- |
+| `tool_bindings` | Seventeen independent flat requests spanning sys, minimal, and default output. |
+| `tool_reactor` and `tool_composition` | Custom metadata inputs, minimal output, dead-code policy, member filters, and implementation scaffolding. |
+| `tool_webview` | Header-authored metadata, minimal COM and WinRT output, implementation scaffolding, and member filters. |
+| `tool_package` | Multi-file package layout, feature generation, exclusions, sys and rich styles, and custom rustfmt settings. |
+| Build scripts and samples | A stable builder facade over path and in-memory metadata inputs. |
+
+Tool orchestration should remain in each tool. Bindgen2 core should own metadata, typed selection,
+dependency closure, projection, and deterministic rendering. Legacy command-file parsing,
+rustfmt process policy, filesystem writes, package staging, and compatibility diagnostics belong
+in a later facade or in the consuming tool.
+
+The review found several signs that test scaffolding was shaping the production API:
+
+- `SysRequest` recognized only nine simple sys files but was public as though it were a general
+  request model.
+- `Generator` stored `Options::layout` while also exposing methods that rendered either layout,
+  creating two ways to choose the same policy.
+- Public value and native model types, inventory counters, and per-item lookup methods had no
+  repository consumer outside bindgen2 tests.
+- `Metadata` lazily initialized native catalogs with `OnceLock`, while request construction rebuilt
+  the WinRT candidate catalog and lowered selected structs once for closure and again for
+  rendering.
+- `lib.rs` contained about 290 production lines and 1,230 test lines. The test module obscured the
+  public boundary and encourages making internals public for test access.
+- The crate readme repeated milestone history and corpus inventories that belong on this page.
+
+## Cleanup gate
+
+This gate is complete:
+
+1. [x] Remove `SysRequest`, formatter process management, and file writing from the projection core.
+   Preserve the nine-request proof with a test-local parser until a real tool migration needs a
+   facade.
+2. [x] Replace `Options` plus four generator constructors with one typed request/selection entry
+   point. Make layout an explicit render argument rather than stored request state.
+3. [x] Make `Metadata` construction fallible and eager. Share native catalogs and the immutable
+   WinRT value catalog directly, removing `OnceLock` and duplicate value lowering.
+4. [x] Reduce the public API to consumer-facing generation types. Keep projected models,
+   inventories, and lookup helpers crate-private until an external consumer requires them.
+5. [x] Remove stored diagnostic counts from `Win32Selection`; derive inventory data in tests.
+6. [x] Move the 1,230-line test module out of `lib.rs` and remove redundant inventory-only
+   production helpers.
+7. [x] Rewrite the crate readme as a short user-facing API and scope page. Keep design status and
+   milestone evidence here.
+
+After this gate, WinRT delegates are the next bounded projection milestone. Interfaces and classes
+follow independently. Package output remains a separate artifact-planning problem rather than a
+larger `Layout` variant.

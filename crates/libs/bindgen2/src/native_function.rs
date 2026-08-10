@@ -42,6 +42,7 @@ impl Function {
     }
 
     /// Renders a flat Win32 `windows_link::link!` declaration.
+    #[cfg(test)]
     pub fn write_sys(&self) -> TokenStream {
         self.write_sys_context(Layout::Flat)
     }

@@ -42,6 +42,7 @@ impl Delegate {
     }
 
     /// Renders a flat Win32 function-pointer alias.
+    #[cfg(test)]
     pub fn write_sys(&self) -> TokenStream {
         self.write_sys_context(Layout::Flat)
     }

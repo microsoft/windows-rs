@@ -86,6 +86,7 @@ impl NativeInterface {
     }
 
     /// Renders a flat Win32 sys vtable and optional IID.
+    #[cfg(test)]
     pub fn write_sys(&self) -> TokenStream {
         self.write_sys_context(Layout::Flat)
     }

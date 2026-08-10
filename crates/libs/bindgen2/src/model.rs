@@ -4,7 +4,7 @@ use std::collections::{BTreeMap, BTreeSet};
 
 /// An owned projected WinRT value type.
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub enum Value {
+pub(crate) enum Value {
     /// A WinRT enum.
     Enum(Enum),
     /// A WinRT struct.
@@ -12,67 +12,58 @@ pub enum Value {
 }
 
 /// The global value graph required by recursive struct semantics.
-pub struct Values {
+pub(crate) struct Values {
     namespaces: BTreeMap<String, BTreeMap<String, Value>>,
-    len: usize,
 }
 
 impl Generator {
-    /// Lowers all selected enum and struct definitions into owned models.
-    pub fn lower_values(&self) -> Result<Values, Error> {
-        Values::lower(self)
+    /// Returns the shared lowered WinRT value catalog.
+    pub(crate) fn lower_values(&self) -> &Values {
+        &self.shared.values
     }
 }
 
 impl Values {
-    fn lower(generator: &Generator) -> Result<Self, Error> {
+    pub(crate) fn lower(
+        database: &Database,
+        entries: &[(String, String, ValueEntry)],
+    ) -> Result<Self, Error> {
         let mut namespaces = BTreeMap::<String, BTreeMap<String, Value>>::new();
-        let mut len = 0;
-        for item in generator.values() {
-            let definition = item.definition();
-            let namespace = definition.namespace()?.to_string();
-            let name = definition.name()?.to_string();
+        for (namespace, name, entry) in entries {
+            let definition = database.definition(entry.entity).unwrap();
             let full_name = format!("{namespace}.{name}");
-            let value = match item.kind() {
-                ValueKind::Enum => {
-                    Value::Enum(Enum::lower(generator.database(), definition, &full_name)?)
-                }
+            let value = match entry.kind {
+                ValueKind::Enum => Value::Enum(Enum::lower(database, definition, &full_name)?),
                 ValueKind::Struct => {
-                    Value::Struct(Struct::lower(generator.database(), definition, &full_name)?)
+                    Value::Struct(Struct::lower(database, definition, &full_name)?)
                 }
             };
             if namespaces
-                .entry(namespace)
+                .entry(namespace.clone())
                 .or_default()
-                .insert(name, value)
+                .insert(name.clone(), value)
                 .is_some()
             {
                 return Err(Error::DuplicateValue(full_name));
             }
-            len += 1;
         }
-        Ok(Self { namespaces, len })
+        Ok(Self { namespaces })
     }
 
-    /// Returns the number of lowered value types.
-    pub fn len(&self) -> usize {
-        self.len
-    }
-
-    /// Returns whether no value types were lowered.
-    pub fn is_empty(&self) -> bool {
-        self.len == 0
+    #[cfg(test)]
+    pub(crate) fn len(&self) -> usize {
+        self.namespaces.values().map(BTreeMap::len).sum()
     }
 
     /// Returns a lowered value by metadata namespace and name.
-    pub fn get(&self, namespace: &str, name: &str) -> Option<&Value> {
+    pub(crate) fn get(&self, namespace: &str, name: &str) -> Option<&Value> {
         self.namespaces
             .get(namespace)
             .and_then(|types| types.get(name))
     }
 
-    /// Iterates values in namespace/name order.
-    pub fn iter(&self) -> impl Iterator<Item = (&str, &str, &Value)> {
+    #[cfg(test)]
+    pub(crate) fn iter(&self) -> impl Iterator<Item = (&str, &str, &Value)> {
         self.namespaces.iter().flat_map(|(namespace, types)| {
             types
                 .iter()
@@ -80,8 +71,8 @@ impl Values {
         })
     }
 
-    /// Renders a lowered value with rich WinRT projection policy.
-    pub fn write(&self, namespace: &str, name: &str) -> Result<TokenStream, Error> {
+    #[cfg(test)]
+    pub(crate) fn write(&self, namespace: &str, name: &str) -> Result<TokenStream, Error> {
         self.write_context(namespace, name, Layout::Modules)
     }
 

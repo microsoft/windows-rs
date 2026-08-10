@@ -39,33 +39,6 @@ pub enum Error {
         /// Namespace that later contributed the name.
         second_namespace: String,
     },
-    /// Formatting could not start or communicate with rustfmt.
-    FormatterIo(std::io::Error),
-    /// Rustfmt rejected the generated source.
-    FormatterFailed(String),
-    /// A generated file could not be read, created, or written.
-    FileIo {
-        /// Output file path.
-        path: std::path::PathBuf,
-        /// Underlying filesystem error.
-        source: std::io::Error,
-    },
-    /// A request file could not be read.
-    RequestIo {
-        /// Request file path.
-        path: std::path::PathBuf,
-        /// Underlying filesystem error.
-        source: std::io::Error,
-    },
-    /// A request file uses syntax outside the simple sys subset.
-    InvalidRequest {
-        /// Request file path.
-        path: std::path::PathBuf,
-        /// One-based source line, or zero for a missing required option.
-        line: usize,
-        /// Invalid or missing request detail.
-        message: String,
-    },
 }
 
 impl std::fmt::Display for Error {
@@ -98,33 +71,6 @@ impl std::fmt::Display for Error {
                 "flat item `{name}` is defined by both `{first_namespace}` and \
                  `{second_namespace}`"
             ),
-            Self::FormatterIo(error) => write!(formatter, "failed to run rustfmt: {error}"),
-            Self::FormatterFailed(message) => write!(formatter, "rustfmt failed: {message}"),
-            Self::FileIo { path, source } => {
-                write!(formatter, "failed to access `{}`: {source}", path.display())
-            }
-            Self::RequestIo { path, source } => {
-                write!(
-                    formatter,
-                    "failed to read request `{}`: {source}",
-                    path.display()
-                )
-            }
-            Self::InvalidRequest {
-                path,
-                line,
-                message,
-            } => {
-                if *line == 0 {
-                    write!(formatter, "invalid request `{}`: {message}", path.display())
-                } else {
-                    write!(
-                        formatter,
-                        "invalid request `{}` at line {line}: {message}",
-                        path.display()
-                    )
-                }
-            }
         }
     }
 }
@@ -133,9 +79,6 @@ impl std::error::Error for Error {
     fn source(&self) -> Option<&(dyn std::error::Error + 'static)> {
         match self {
             Self::Metadata(error) => Some(error),
-            Self::FormatterIo(error) => Some(error),
-            Self::FileIo { source, .. } => Some(source),
-            Self::RequestIo { source, .. } => Some(source),
             _ => None,
         }
     }

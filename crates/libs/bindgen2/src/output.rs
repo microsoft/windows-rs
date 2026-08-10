@@ -16,25 +16,14 @@ struct Module {
 }
 
 impl Generator {
-    /// Renders all currently supported items using this request's layout.
-    pub fn write(&self) -> Result<TokenStream, Error> {
-        self.write_layout(self.options().layout)
-    }
-
-    /// Renders all currently supported items as deterministic namespace modules.
-    pub fn write_modules(&self) -> Result<TokenStream, Error> {
-        self.write_layout(Layout::Modules)
-    }
-
-    /// Renders all currently supported items as one deterministic flat list.
-    pub fn write_flat(&self) -> Result<TokenStream, Error> {
-        self.write_layout(Layout::Flat)
-    }
-
-    fn write_layout(&self, layout: Layout) -> Result<TokenStream, Error> {
+    /// Renders all currently supported items in the requested layout.
+    pub fn render(&self, layout: Layout) -> Result<TokenStream, Error> {
         let mut modules = BTreeMap::<String, Vec<Item>>::new();
-        let values = self.lower_values()?;
-        for (namespace, name, _) in values.iter() {
+        let values = self.lower_values();
+        for item in self.values() {
+            let definition = item.definition();
+            let namespace = definition.namespace()?;
+            let name = definition.name()?;
             modules
                 .entry(namespace.to_string())
                 .or_default()
