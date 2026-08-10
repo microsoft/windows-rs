@@ -102,12 +102,7 @@ fn include_tool_filter(metadata: &Metadata, filter: &mut Filter, path: &str) {
         let parts = tool_path(prefix);
         let (parent, ty) = parts.split_at(parts.len() - 1);
         if parent.is_empty() {
-            let namespaces = metadata
-                .shared
-                .database
-                .type_names()
-                .filter_map(|(namespace, name, _)| (name == ty[0]).then_some(namespace))
-                .collect::<Vec<_>>();
+            let namespaces = tool_type_namespaces(metadata, ty[0]);
             assert!(!namespaces.is_empty(), "unresolved tool filter: {path}");
             for namespace in namespaces {
                 for method in names.split(',').map(str::trim) {
@@ -140,11 +135,28 @@ fn include_tool_filter(metadata: &Metadata, filter: &mut Filter, path: &str) {
         return;
     }
     let (namespace, ty) = namespace.split_at(namespace.len() - 1);
+    if namespace.is_empty() {
+        let namespaces = tool_type_namespaces(metadata, ty[0]);
+        assert!(!namespaces.is_empty(), "unresolved tool filter: {path}");
+        for namespace in namespaces {
+            filter.include_method(namespace, ty[0], name[0]);
+        }
+        return;
+    }
     assert!(
         tool_type_exists(metadata, &namespace.join("."), ty[0]),
         "unresolved tool filter: {path}"
     );
     filter.include_method(namespace.join("."), ty[0], name[0]);
+}
+
+fn tool_type_namespaces<'a>(metadata: &'a Metadata, ty: &str) -> Vec<&'a str> {
+    metadata
+        .shared
+        .database
+        .type_names()
+        .filter_map(|(namespace, name, _)| (name == ty).then_some(namespace))
+        .collect()
 }
 
 fn tool_path(path: &str) -> Vec<&str> {
@@ -1823,6 +1835,7 @@ fn native_interface_member_filter_keeps_placeholders_and_shell_dependencies() {
     assert!(output.contains("CreateAnimationVectorVariable : usize"));
     assert!(output.contains("define_interface ! (IUIAnimationVariable2"));
     assert!(!output.contains("impl IUIAnimationVariable2 {"));
+    assert!(!output.contains("IUIAnimationManager2_Impl"));
 }
 
 #[test]
@@ -1856,6 +1869,34 @@ fn native_com_methods_project_scalar_retvals_and_optional_pointers() {
     assert!(
         output.contains("Schedule (& self , f64 , Option <* mut UI_ANIMATION_SCHEDULING_RESULT")
     );
+}
+
+#[test]
+fn complete_native_com_query_emits_consumer_and_producer_projection() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let mut filter = Filter::new();
+    include_tool_filter(&metadata, &mut filter, "IAgileReference.Resolve");
+    let output = normalize_existing_output(
+        metadata
+            .generator(Request::filtered(filter).projection(Projection::Minimal))
+            .unwrap()
+            .render_projection(Layout::Flat, Projection::Minimal)
+            .unwrap(),
+    );
+
+    assert!(output.contains(
+        "unsafe fn Resolve < T > (& self) -> windows_core :: Result < T > where T : \
+         windows_core :: Interface"
+    ));
+    assert!(
+        output
+            .contains("pub trait IAgileReference_Impl : windows_core :: IUnknownImpl { fn Resolve")
+    );
+    assert!(output.contains("pub const fn new < Identity : IAgileReference_Impl"));
 }
 
 #[test]
@@ -2458,6 +2499,35 @@ fn tool_bindings_animation_request_matches_committed_output() {
         .generator(Request::filtered(request.filter).projection(Projection::Minimal))
         .unwrap();
     let actual = generator
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap();
+    let expected: TokenStream = std::fs::read_to_string(root.join(request.output))
+        .unwrap()
+        .parse()
+        .unwrap();
+    assert_eq!(
+        normalize_existing_output(actual),
+        normalize_existing_output(expected)
+    );
+}
+
+#[test]
+fn tool_bindings_core_request_matches_committed_output() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../..");
+    let request = parse_tool_request(
+        &metadata,
+        &std::fs::read_to_string(root.join("crates/tools/bindings/src/core.txt")).unwrap(),
+    );
+    assert!(request.minimal);
+    assert!(request.dead_code);
+    let actual = metadata
+        .generator(Request::filtered(request.filter).projection(Projection::Minimal))
+        .unwrap()
         .render_projection(Layout::Flat, Projection::Minimal)
         .unwrap();
     let expected: TokenStream = std::fs::read_to_string(root.join(request.output))

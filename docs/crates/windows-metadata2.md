@@ -371,6 +371,10 @@ association is a separate checked semantic step: sequence zero is the optional r
 parameter rows remain `None`, and duplicate or out-of-range sequences return structured errors.
 The complete committed corpus matches the current reader's association.
 
+Parameter definitions also expose checked custom-attribute enumeration and lookup. Bindgen2 uses
+this narrow semantic surface to recognize `ComOutPtrAttribute` without reading raw relationship
+tables or adding a parameter-attribute index.
+
 `GuidAttribute` folding stays in the bindgen adapter rather than becoming ECMA metadata policy.
 The adapter validates the 11 fixed argument types and reproduces every type GUID from the current
 reader. Generic parameters, checked parameter association, and GUID projection are now sufficient

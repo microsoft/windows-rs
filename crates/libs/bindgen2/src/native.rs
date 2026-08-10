@@ -266,6 +266,39 @@ impl Type {
         }
     }
 
+    pub(super) fn write_abi_projection(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        projection: Projection,
+    ) -> TokenStream {
+        match self {
+            Self::Array { element, len } => {
+                let element = element.write_abi_projection(namespace, layout, projection);
+                let len = Literal::usize_unsuffixed(*len);
+                quote! { [#element; #len] }
+            }
+            Self::Pointer { mutable, element } => {
+                let element = element.write_abi_projection(namespace, layout, projection);
+                if *mutable {
+                    quote! { *mut #element }
+                } else {
+                    quote! { *const #element }
+                }
+            }
+            Self::Interface { .. } => quote! { *mut core::ffi::c_void },
+            Self::Named { namespace, name }
+                if !projection.is_sys()
+                    && name == "HSTRING"
+                    && (namespace == "Windows.Win32"
+                        || namespace.starts_with("Windows.Win32.")) =>
+            {
+                quote! { *mut core::ffi::c_void }
+            }
+            _ => self.write_projection(namespace, layout, projection),
+        }
+    }
+
     pub(super) fn write_constant_projection(
         &self,
         namespace: &str,
@@ -421,6 +454,7 @@ fn core_projection(namespace: &str, name: &str) -> Option<TokenStream> {
         "IUnknown" => quote! { windows_core::IUnknown },
         "IInspectable" => quote! { windows_core::IInspectable },
         "NTSTATUS" => quote! { windows_core::NTSTATUS },
+        "RPC_STATUS" => quote! { windows_core::RPC_STATUS },
         "EventRegistrationToken" => quote! { i64 },
         _ => return None,
     })

@@ -755,6 +755,23 @@ impl<'a> ParameterDefinition<'a> {
         self.row()?.string(2)
     }
 
+    /// Iterates the custom attributes attached to this parameter.
+    pub fn attributes(
+        self,
+    ) -> Result<impl ExactSizeIterator<Item = AttributeDefinition<'a>>, Error> {
+        custom_attributes(self.database, self.entity)
+    }
+
+    /// Returns the first custom attribute with the given type name.
+    pub fn find_attribute(self, name: &str) -> Result<Option<AttributeDefinition<'a>>, Error> {
+        find_custom_attribute(self.attributes()?, name)
+    }
+
+    /// Returns whether this parameter has the given custom attribute.
+    pub fn has_attribute(self, name: &str) -> Result<bool, Error> {
+        Ok(self.find_attribute(name)?.is_some())
+    }
+
     fn row(self) -> Result<Row<'a, tables::Param>, Error> {
         self.database
             .view(self.entity)

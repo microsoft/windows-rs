@@ -18,6 +18,7 @@ mod guid;
 mod model;
 mod native;
 mod native_closure;
+mod native_com;
 mod native_constant;
 mod native_default;
 mod native_delegate;

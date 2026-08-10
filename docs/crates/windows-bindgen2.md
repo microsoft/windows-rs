@@ -39,7 +39,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Formatting and file writing | Tool policy | Kept outside the projection core. |
 | Sys request differential | Complete | A test-local parser proves nine real request files. |
 | Projection styles | Internal WinRT and native proof | Minimal output is proven internally; no public style option exists yet. |
-| Tool requests | Seven real proofs | Numerics, time, future, collections, window, reactor, and animation match. |
+| Tool requests | Eight real proofs | Numerics, time, future, collections, window, reactor, animation, and core match. |
 | Package output | Not started | Requires stable filtering, layout, and formatting first. |
 
 Approximate hand-written production source size is 8,000 lines for bindgen2 versus 12,829 for the
@@ -396,8 +396,8 @@ Composable non-aggregating constructors use the ordinary factory path. The addit
 
 ## WinRT member filtering
 
-Member filtering is request-local and remains private until complete tool requests can be compared.
-Each selected WinRT entity has one role:
+Member filtering is request-local and remains private until a tool migration needs the builder
+surface. Each selected WinRT entity has one role:
 
 | Role | Meaning |
 | --- | --- |
@@ -415,9 +415,9 @@ or overload names. ABI vtables retain every slot through the last selected metho
 is required because removing an earlier slot would change every later slot number. Event selection
 also retains the paired remove method in the ABI while exposing only the add-side revoker wrapper.
 
-Focused differential tests cover interface methods, class routing, properties, value, delegate, and
-class dependencies, minimal output, static factories, event pairs, and later vtable slots. The next
-step is to parse real request syntax and compare complete minimal tool requests; the internal
+Focused differential tests cover interface methods, class routing, properties, value, delegate,
+and class dependencies, minimal output, static factories, event pairs, and later vtable slots.
+Complete minimal requests now cover both WinRT and native COM member filters; the internal
 `Filter::include_method` entry point is not yet public.
 
 ## Projection style boundary
@@ -492,3 +492,10 @@ private `usize` placeholders, and signature-only interface dependencies are emit
 HRESULT methods project trailing output pointers as `Result<T>`, interface inputs use
 `windows_core::Param<T>`, and optional output pointers remain optional raw pointers. This policy is
 limited to the shapes required by the animation request; broader COM policy remains request-driven.
+
+`core.txt` proves the matching native COM producer path without adding request-specific names.
+Complete selected interfaces emit `_Impl` traits, vtable constructors, ABI upcalls, and IID
+matching; interfaces with skipped slots still omit producer machinery. `ComOutPtrAttribute`
+identifies generic `Resolve<T>` query methods, while ordinary trailing output pointers retain the
+animation retval policy. Native callable ABI spelling also keeps core-owned `HSTRING` values raw,
+maps `RPC_STATUS` back to `windows_core`, and constructs projected HRESULT constants.

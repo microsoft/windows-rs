@@ -213,6 +213,11 @@ impl NativeInterface {
         } else {
             quote! { impl #name { #(#wrappers)* } }
         };
+        let implementation = if self.can_implement(members) {
+            self.write_implementation(layout, projection)?
+        } else {
+            quote! {}
+        };
         Ok(quote! {
             #identity
             #architectures
@@ -225,7 +230,93 @@ impl NativeInterface {
                 #(#methods)*
             }
 
+            #implementation
             impl windows_core::RuntimeName for #name {}
+        })
+    }
+
+    fn can_implement(&self, members: &MemberSelection) -> bool {
+        self.guid.is_some()
+            && self
+                .base
+                .as_ref()
+                .is_some_and(|(_, name)| name == "IUnknown")
+            && self.methods.iter().all(|method| method.selected(members))
+    }
+
+    fn write_implementation(
+        &self,
+        layout: Layout,
+        projection: Projection,
+    ) -> Result<TokenStream, Error> {
+        let name = tokens::ident(&self.name);
+        let vtbl_name = tokens::ident(&format!("{}_Vtbl", self.name));
+        let impl_name = tokens::ident(&format!("{}_Impl", self.name));
+        let trait_methods = self
+            .methods
+            .iter()
+            .map(|method| {
+                let method_tokens = method.signature.write_impl_method(
+                    &self.namespace,
+                    layout,
+                    projection,
+                    &method.name,
+                )?;
+                let architectures = tokens::architectures(method.architectures);
+                Ok(quote! { #architectures #method_tokens })
+            })
+            .collect::<Result<Vec<_>, Error>>()?;
+        let functions = self
+            .methods
+            .iter()
+            .map(|method| {
+                let architectures = tokens::architectures(method.architectures);
+                let method_name = tokens::ident(&method.name);
+                let signature = method.signature.write_vtable_parameters_named(
+                    &self.namespace,
+                    layout,
+                    projection,
+                );
+                let upcall = method.signature.write_impl_upcall(&impl_name, &method.name);
+                Ok(quote! {
+                    #architectures
+                    unsafe extern "system" fn #method_name<
+                        Identity: #impl_name,
+                        const OFFSET: isize
+                    >(#signature) -> windows_core::HRESULT {
+                        unsafe {
+                            let this: &Identity =
+                                &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                            #upcall
+                        }
+                    }
+                })
+            })
+            .collect::<Result<Vec<_>, Error>>()?;
+        let initializers = self.methods.iter().map(|method| {
+            let architectures = tokens::architectures(method.architectures);
+            let method_name = tokens::ident(&method.name);
+            quote! {
+                #architectures
+                #method_name: #method_name::<Identity, OFFSET>,
+            }
+        });
+        Ok(quote! {
+            pub trait #impl_name: windows_core::IUnknownImpl {
+                #(#trait_methods)*
+            }
+            impl #vtbl_name {
+                pub const fn new<Identity: #impl_name, const OFFSET: isize>() -> Self {
+                    #(#functions)*
+                    Self {
+                        base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+                        #(#initializers)*
+                    }
+                }
+                pub fn matches(iid: &windows_core::GUID) -> bool {
+                    iid == &<#name as windows_core::Interface>::IID
+                }
+            }
         })
     }
 }

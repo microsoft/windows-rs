@@ -182,7 +182,9 @@ impl Constant {
                 } else {
                     Self::write_converted(underlying, value)
                 };
-                if !projection.is_sys() && self.ty.mutable_string_pointer() {
+                if !projection.is_sys()
+                    && (self.ty.is_hresult() || self.ty.mutable_string_pointer())
+                {
                     quote! { pub const #name: #ty = #ty(#value); }
                 } else {
                     quote! { pub const #name: #ty = #value; }

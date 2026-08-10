@@ -24,8 +24,9 @@ native sys types, constants, functions, delegates, and interfaces. Filtered depe
 nested and flat layouts, architecture gates, and deterministic ordering are implemented.
 Member filtering and explicit interface implementation selection are implemented. Minimal
 projection remains private. A bounded native COM path now covers filtered interface identity,
-vtable placeholders, callable HRESULT wrappers, and shell dependencies for the animation request.
-Package output and broader COM policy remain future work.
+vtable placeholders, callable HRESULT wrappers, shell dependencies, complete-interface producer
+vtables, and generic query methods for the animation and core requests. Package output and broader
+COM policy remain future work.
 
 The design and differential evidence are tracked in
 [`docs/crates/windows-bindgen2.md`](../../../docs/crates/windows-bindgen2.md).
