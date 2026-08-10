@@ -15,12 +15,25 @@ pub(super) struct Interface {
 
 pub(super) struct NamedMethod {
     pub(super) name: String,
+    metadata_name: String,
     pub(super) method: winrt_delegate::Method,
     event: Option<winrt_delegate::EventHandler>,
     public: bool,
 }
 
 impl NamedMethod {
+    pub(super) fn selected(&self, members: &MemberSelection) -> bool {
+        if members.includes(&self.metadata_name, &self.name) {
+            return true;
+        }
+        let MemberSelection::Names(names) = members else {
+            return false;
+        };
+        self.metadata_name
+            .strip_prefix("remove_")
+            .is_some_and(|name| names.contains(&format!("add_{name}")) || names.contains(name))
+    }
+
     pub(super) fn substitute(&mut self, arguments: &[ty::Type]) {
         self.method.substitute(arguments);
         if let Some(event) = &mut self.event {
@@ -189,9 +202,9 @@ impl Interface {
         Ok(())
     }
 
-    pub(super) fn dependencies(&self) -> BTreeSet<(String, String)> {
+    pub(super) fn dependencies(&self, members: &MemberSelection) -> BTreeSet<(String, String)> {
         let mut dependencies = BTreeSet::new();
-        for method in &self.methods {
+        for method in self.abi_methods(members) {
             dependencies.extend(method.method.dependencies());
         }
         dependencies.extend(
@@ -203,8 +216,57 @@ impl Interface {
             for argument in &required.arguments {
                 argument.collect_value_dependencies(&mut dependencies);
             }
+            for method in required
+                .methods
+                .iter()
+                .filter(|method| method.selected(members))
+            {
+                dependencies.extend(method.method.dependencies());
+            }
         }
         dependencies
+    }
+
+    pub(super) fn relationship_members(
+        &self,
+        members: &MemberSelection,
+    ) -> BTreeMap<(String, String), MemberSelection> {
+        let mut result = BTreeMap::new();
+        for required in &self.required {
+            let selection = match members {
+                MemberSelection::All => MemberSelection::All,
+                MemberSelection::Names(names)
+                    if required
+                        .methods
+                        .iter()
+                        .any(|method| method.selected(members)) =>
+                {
+                    MemberSelection::Names(names.clone())
+                }
+                MemberSelection::Names(_) | MemberSelection::Shell => MemberSelection::Shell,
+            };
+            result.insert(
+                (required.namespace.clone(), required.name.clone()),
+                selection,
+            );
+        }
+        result
+    }
+
+    fn abi_methods<'a>(
+        &'a self,
+        members: &'a MemberSelection,
+    ) -> impl Iterator<Item = &'a NamedMethod> {
+        let count = match members {
+            MemberSelection::All => self.methods.len(),
+            MemberSelection::Names(_) => self
+                .methods
+                .iter()
+                .rposition(|method| method.selected(members))
+                .map_or(0, |index| index + 1),
+            MemberSelection::Shell => 0,
+        };
+        self.methods[..count].iter()
     }
 
     pub(super) fn write(
@@ -213,6 +275,7 @@ impl Interface {
         namespace: &str,
         layout: Layout,
         projection: Projection,
+        members: &MemberSelection,
     ) -> Result<TokenStream, Error> {
         let name = tokens::ident(&self.name);
         let vtbl_name = tokens::ident(&format!("{}_Vtbl", self.name));
@@ -321,6 +384,7 @@ impl Interface {
         let methods = self
             .methods
             .iter()
+            .filter(|method| method.selected(members))
             .filter_map(|method| {
                 method
                     .write_public(&method_context, &method.name, None)
@@ -328,8 +392,9 @@ impl Interface {
             })
             .collect::<Result<Vec<_>, Error>>()?;
         if self.exclusive {
-            let vtable = self.write_vtable_struct(values, namespace, layout, &vtbl_name)?;
-            let methods = projection.is_minimal().then(
+            let vtable =
+                self.write_vtable_struct(values, namespace, layout, &vtbl_name, members)?;
+            let methods = (projection.is_minimal() && !methods.is_empty()).then(
                 || quote! { impl #constrained_generics #name #type_arguments { #(#methods)* } },
             );
             return Ok(quote! {
@@ -356,18 +421,19 @@ impl Interface {
             quote! { windows_core::imp::required_hierarchy!(#name #type_arguments, #(#required_types),*); }
         });
         let mut inherited_methods = Vec::new();
-        let mut public_names = self.methods.iter().filter(|method| method.public).fold(
-            BTreeMap::<String, u32>::new(),
-            |mut names, method| {
+        let mut public_names = self
+            .methods
+            .iter()
+            .filter(|method| method.public && method.selected(members))
+            .fold(BTreeMap::<String, u32>::new(), |mut names, method| {
                 *names.entry(method.name.clone()).or_default() += 1;
                 names
-            },
-        );
+            });
         if !projection.is_minimal() {
             for required in &self.required {
                 let receiver = required.write_name(namespace, layout, &self.generics)?;
                 for method in &required.methods {
-                    if !method.public {
+                    if !method.public || !method.selected(members) {
                         continue;
                     }
                     let count = public_names.entry(method.name.clone()).or_default();
@@ -392,6 +458,14 @@ impl Interface {
                     <Self as windows_core::RuntimeType>::NAME;
             }
         });
+        let runtime_name_impl = (!matches!(members, MemberSelection::Shell)).then(|| {
+            quote! {
+                impl #constrained_generics windows_core::RuntimeName for #name #type_arguments {
+                    const NAME: &'static str = #runtime_name;
+                    #runtime_class_name
+                }
+            }
+        });
         let trait_bases = if required_types.is_empty() {
             quote! { windows_core::IUnknownImpl }
         } else {
@@ -403,8 +477,7 @@ impl Interface {
             quote! { #(#bases)+* }
         };
         let impl_methods = self
-            .methods
-            .iter()
+            .abi_methods(members)
             .map(|method| {
                 method.method.write_impl_method(
                     values,
@@ -412,10 +485,21 @@ impl Interface {
                     layout,
                     &self.generics,
                     &method.name,
+                    projection,
                 )
             })
             .collect::<Result<Vec<_>, Error>>()?;
-        let vtable = self.write_vtable(values, namespace, layout, &name, &vtbl_name, &impl_name)?;
+        let implementation = if members.emits_implementation(projection) {
+            let vtable = self.write_vtable(values, namespace, layout, members)?;
+            quote! {
+                pub trait #impl_name #type_arguments: #trait_bases #generic_where {
+                    #(#impl_methods)*
+                }
+                #vtable
+            }
+        } else {
+            self.write_vtable_struct(values, namespace, layout, &vtbl_name, members)?
+        };
         let methods_impl = (!methods.is_empty() || !inherited_methods.is_empty()).then(|| {
             quote! {
                 impl #constrained_generics #name #type_arguments {
@@ -430,14 +514,8 @@ impl Interface {
             #hierarchy
             #required_hierarchy
             #methods_impl
-            impl #constrained_generics windows_core::RuntimeName for #name #type_arguments {
-                const NAME: &'static str = #runtime_name;
-                #runtime_class_name
-            }
-            pub trait #impl_name #type_arguments: #trait_bases #generic_where {
-                #(#impl_methods)*
-            }
-            #vtable
+            #runtime_name_impl
+            #implementation
         })
     }
 
@@ -446,10 +524,11 @@ impl Interface {
         values: &Values,
         namespace: &str,
         layout: Layout,
-        name: &TokenStream,
-        vtbl_name: &TokenStream,
-        impl_name: &TokenStream,
+        members: &MemberSelection,
     ) -> Result<TokenStream, Error> {
+        let name = tokens::ident(&self.name);
+        let vtbl_name = tokens::ident(&format!("{}_Vtbl", self.name));
+        let impl_name = tokens::ident(&format!("{}_Impl", self.name));
         let generic_names = self
             .generics
             .iter()
@@ -470,8 +549,7 @@ impl Interface {
             quote! { <#(#constraints),*> }
         };
         let functions = self
-            .methods
-            .iter()
+            .abi_methods(members)
             .map(|method| {
                 let method_name = tokens::ident(&method.name);
                 let signature =
@@ -498,14 +576,14 @@ impl Interface {
                 })
             })
             .collect::<Result<Vec<_>, Error>>()?;
-        let initializers = self.methods.iter().map(|method| {
+        let initializers = self.abi_methods(members).map(|method| {
             let name = tokens::ident(&method.name);
             quote! { #name: #name::<#(#generic_names,)* Identity, OFFSET>, }
         });
         let phantom_values = generic_names
             .iter()
             .map(|name| quote! { #name: core::marker::PhantomData::<#name>, });
-        let vtable = self.write_vtable_struct(values, namespace, layout, vtbl_name)?;
+        let vtable = self.write_vtable_struct(values, namespace, layout, &vtbl_name, members)?;
         Ok(quote! {
             impl #constrained_generics #vtbl_name #type_arguments {
                 pub const fn new<
@@ -537,6 +615,7 @@ impl Interface {
         namespace: &str,
         layout: Layout,
         vtbl_name: &TokenStream,
+        members: &MemberSelection,
     ) -> Result<TokenStream, Error> {
         let generic_names = self
             .generics
@@ -558,8 +637,7 @@ impl Interface {
             quote! { where #(#constraints),* }
         };
         let fields = self
-            .methods
-            .iter()
+            .abi_methods(members)
             .map(|method| {
                 let name = tokens::ident(&method.name);
                 let signature =
@@ -704,6 +782,7 @@ pub(super) fn lower_methods(
             };
             Ok(NamedMethod {
                 name,
+                metadata_name: metadata_name.to_string(),
                 method,
                 event,
                 public: !metadata_name.starts_with("remove_"),

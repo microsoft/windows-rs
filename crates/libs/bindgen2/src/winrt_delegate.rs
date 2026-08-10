@@ -192,8 +192,14 @@ impl Delegate {
             self.invoke
                 .write_infallible_signature(values, namespace, layout, &self.generics)?
         } else {
-            self.invoke
-                .write_impl_signature(values, namespace, layout, &self.generics, false)?
+            self.invoke.write_impl_signature(
+                values,
+                namespace,
+                layout,
+                &self.generics,
+                false,
+                projection,
+            )?
         };
         let closure_bound = quote! { Fn #closure_signature + Send + 'static };
         let method_context =
@@ -567,6 +573,7 @@ impl Method {
         layout: Layout,
         generics: &[String],
         name: &str,
+        projection: Projection,
     ) -> Result<TokenStream, Error> {
         let name = tokens::ident(name);
         let parameters = self
@@ -578,7 +585,7 @@ impl Method {
                 Ok(quote! { #name: #ty })
             })
             .collect::<Result<Vec<_>, Error>>()?;
-        let return_type = self.write_return_type(namespace, layout, generics)?;
+        let return_type = self.write_return_type(namespace, layout, generics, projection)?;
         Ok(quote! {
             fn #name(&self, #(#parameters),*) -> windows_core::Result<#return_type>;
         })
@@ -630,6 +637,7 @@ impl Method {
         layout: Layout,
         generics: &[String],
         named: bool,
+        projection: Projection,
     ) -> Result<TokenStream, Error> {
         let parameters = self
             .parameters
@@ -644,7 +652,7 @@ impl Method {
                 })
             })
             .collect::<Result<Vec<_>, Error>>()?;
-        let return_type = self.write_return_type(namespace, layout, generics)?;
+        let return_type = self.write_return_type(namespace, layout, generics, projection)?;
         Ok(quote! { (#(#parameters),*) -> windows_core::Result<#return_type> })
     }
 
@@ -660,7 +668,8 @@ impl Method {
             .iter()
             .map(|parameter| parameter.write_impl_type(values, namespace, layout, generics))
             .collect::<Result<Vec<_>, Error>>()?;
-        let return_type = self.write_return_type(namespace, layout, generics)?;
+        let return_type =
+            self.write_return_type(namespace, layout, generics, Projection::Minimal)?;
         Ok(if matches!(self.return_type, ty::Type::Void) {
             quote! { (#(#parameters),*) }
         } else {
@@ -705,7 +714,12 @@ impl Method {
             if context.projection.is_minimal() && matches!(self.return_type, ty::Type::String) {
                 quote! { String }
             } else {
-                self.write_return_type(context.namespace, context.layout, context.generics)?
+                self.write_return_type(
+                    context.namespace,
+                    context.layout,
+                    context.generics,
+                    context.projection,
+                )?
             };
         Ok(PublicSignature {
             generic_params: quote! { #(#generic_params),* },
@@ -934,6 +948,7 @@ impl Method {
         namespace: &str,
         layout: Layout,
         generics: &[String],
+        projection: Projection,
     ) -> Result<TokenStream, Error> {
         Ok(match &self.return_type {
             ty::Type::Void => quote! { () },
@@ -942,6 +957,11 @@ impl Method {
                 quote! { windows_core::Array<#element> }
             }
             ty::Type::Generic(_) if !self.generic_return_default => {
+                self.return_type.write_name(namespace, layout, generics)?
+            }
+            ty::Type::Named {
+                value_type: false, ..
+            } if projection.is_minimal() => {
                 self.return_type.write_name(namespace, layout, generics)?
             }
             ty => ty.write_default(namespace, layout, generics)?,

@@ -80,7 +80,7 @@ impl Class {
         })
     }
 
-    pub(super) fn dependencies(&self) -> BTreeSet<(String, String)> {
+    pub(super) fn dependencies(&self, members: &MemberSelection) -> BTreeSet<(String, String)> {
         let mut dependencies = BTreeSet::new();
         if self.async_default {
             for argument in &self.default_interface.as_ref().unwrap().arguments {
@@ -89,11 +89,22 @@ impl Class {
             return dependencies;
         }
         for interface in &self.interfaces {
+            let selected_methods = interface
+                .methods
+                .iter()
+                .filter(|method| method.selected(members))
+                .collect::<Vec<_>>();
+            if !interface.default
+                && !matches!(members, MemberSelection::All)
+                && selected_methods.is_empty()
+            {
+                continue;
+            }
             dependencies.insert((interface.namespace.clone(), interface.name.clone()));
             for argument in &interface.arguments {
                 argument.collect_value_dependencies(&mut dependencies);
             }
-            for method in &interface.methods {
+            for method in selected_methods {
                 dependencies.extend(method.method.dependencies());
             }
         }
@@ -105,12 +116,47 @@ impl Class {
         dependencies
     }
 
+    pub(super) fn relationship_members(
+        &self,
+        members: &MemberSelection,
+    ) -> BTreeMap<(String, String), MemberSelection> {
+        let mut result = BTreeMap::new();
+        for interface in &self.interfaces {
+            let selection = match members {
+                MemberSelection::All => MemberSelection::All,
+                MemberSelection::Names(names)
+                    if interface
+                        .methods
+                        .iter()
+                        .any(|method| method.selected(members)) =>
+                {
+                    MemberSelection::Names(names.clone())
+                }
+                MemberSelection::Names(_) | MemberSelection::Shell if interface.default => {
+                    MemberSelection::Shell
+                }
+                MemberSelection::Names(_) | MemberSelection::Shell => continue,
+            };
+            result.insert(
+                (interface.namespace.clone(), interface.name.clone()),
+                selection,
+            );
+        }
+        for base in &self.bases {
+            result
+                .entry((base.namespace.clone(), base.name.clone()))
+                .or_insert(MemberSelection::Shell);
+        }
+        result
+    }
+
     pub(super) fn write(
         &self,
         values: &Values,
         namespace: &str,
         layout: Layout,
         projection: Projection,
+        members: &MemberSelection,
     ) -> Result<TokenStream, Error> {
         let name = tokens::ident(&self.name);
         let runtime_name = Literal::string(&format!("{}.{}", self.namespace, self.name));
@@ -132,7 +178,8 @@ impl Class {
             let context =
                 winrt_delegate::MethodContext::new(values, namespace, layout, projection, &[]);
             let mut names = BTreeMap::new();
-            let factories = self.write_factories(namespace, layout, &name, &context, &mut names)?;
+            let factories =
+                self.write_factories(namespace, layout, &name, &context, &mut names, members)?;
             let impl_block = (!factories.is_empty()).then(|| {
                 quote! {
                     impl #name {
@@ -155,6 +202,13 @@ impl Class {
             .iter()
             .filter(|interface| !interface.default)
             .filter(|interface| !interface.exclusive && !interface.factory)
+            .filter(|interface| {
+                matches!(members, MemberSelection::All)
+                    || interface
+                        .methods
+                        .iter()
+                        .any(|method| method.selected(members))
+            })
             .map(|interface| interface.write_name(namespace, layout))
             .chain(
                 self.bases
@@ -167,7 +221,10 @@ impl Class {
                 windows_core::imp::required_hierarchy!(#name, #(#required),*);
             }
         });
-        let constructor = (self.default_constructor && !projection.is_minimal()).then(|| {
+        let constructor = (self.default_constructor
+            && !projection.is_minimal()
+            && !matches!(members, MemberSelection::Shell))
+        .then(|| {
             quote! {
                 pub fn new() -> windows_core::Result<Self> {
                     Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -195,7 +252,7 @@ impl Class {
         {
             let interface_type = interface.write_name(namespace, layout)?;
             for method in &interface.methods {
-                if !method.is_public() {
+                if !method.is_public() || !method.selected(members) {
                     continue;
                 }
                 let count = names.entry(method.name.clone()).or_default();
@@ -214,7 +271,8 @@ impl Class {
                 });
             }
         }
-        let factories = self.write_factories(namespace, layout, &name, &context, &mut names)?;
+        let factories =
+            self.write_factories(namespace, layout, &name, &context, &mut names, members)?;
         let deref = projection.is_minimal().then(|| {
             quote! {
                 impl core::ops::Deref for #name {
@@ -272,12 +330,23 @@ impl Class {
         name: &TokenStream,
         context: &winrt_delegate::MethodContext<'_>,
         names: &mut BTreeMap<String, u32>,
+        members: &MemberSelection,
     ) -> Result<Vec<TokenStream>, Error> {
         let mut factories = Vec::new();
-        for interface in self.interfaces.iter().filter(|interface| interface.factory) {
+        for interface in self.interfaces.iter().filter(|interface| {
+            interface.factory
+                && (matches!(members, MemberSelection::All)
+                    || interface
+                        .methods
+                        .iter()
+                        .any(|method| method.selected(members)))
+        }) {
             let interface_type = interface.write_name(namespace, layout)?;
             let factory_name = tokens::ident(&interface.name);
             for method in &interface.methods {
+                if !method.selected(members) {
+                    continue;
+                }
                 let count = names.entry(method.name.clone()).or_default();
                 *count += 1;
                 let public_name = if *count == 1 {

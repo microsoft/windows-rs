@@ -5,6 +5,7 @@ use std::collections::{BTreeMap, BTreeSet};
 pub struct Filter {
     names: BTreeSet<String>,
     items: BTreeMap<String, BTreeSet<String>>,
+    methods: BTreeMap<String, BTreeMap<String, BTreeSet<String>>>,
     namespaces: BTreeSet<String>,
 }
 
@@ -50,6 +51,34 @@ impl Filter {
     pub fn include_namespace(&mut self, namespace: impl Into<String>) -> &mut Self {
         self.namespaces.insert(namespace.into());
         self
+    }
+
+    #[cfg_attr(
+        not(test),
+        expect(
+            dead_code,
+            reason = "kept private until native method filtering exists"
+        )
+    )]
+    pub(crate) fn include_method(
+        &mut self,
+        namespace: impl Into<String>,
+        ty: impl Into<String>,
+        method: impl Into<String>,
+    ) -> &mut Self {
+        self.methods
+            .entry(namespace.into())
+            .or_default()
+            .entry(ty.into())
+            .or_default()
+            .insert(method.into());
+        self
+    }
+
+    pub(crate) fn methods(&self, namespace: &str, name: &str) -> Option<&BTreeSet<String>> {
+        self.methods
+            .get(namespace)
+            .and_then(|types| types.get(name))
     }
 
     pub(crate) fn includes(&self, namespace: &str, name: &str) -> bool {

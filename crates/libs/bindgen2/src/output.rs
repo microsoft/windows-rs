@@ -86,7 +86,13 @@ impl Generator {
                 .push(Item {
                     name: name.to_string(),
                     kind: 0,
-                    tokens: model.write(values, namespace, layout, projection)?,
+                    tokens: model.write(
+                        values,
+                        namespace,
+                        layout,
+                        projection,
+                        self.members(entry.entity),
+                    )?,
                 });
         }
         for entry in self
@@ -110,7 +116,13 @@ impl Generator {
                 .push(Item {
                     name: name.to_string(),
                     kind: 0,
-                    tokens: model.write(values, namespace, layout, projection)?,
+                    tokens: model.write(
+                        values,
+                        namespace,
+                        layout,
+                        projection,
+                        self.members(entry.entity),
+                    )?,
                 });
         }
 

@@ -433,7 +433,13 @@ fn winrt_interface_corpus_lowers_and_renders() {
         )
         .and_then(|model| {
             for projection in [Projection::Default, Projection::Minimal] {
-                model.write(values, namespace, Layout::Modules, projection)?;
+                model.write(
+                    values,
+                    namespace,
+                    Layout::Modules,
+                    projection,
+                    &MemberSelection::All,
+                )?;
             }
             Ok(())
         });
@@ -666,6 +672,194 @@ fn forwarded_event_revokers_retain_the_cast_interface() {
 }
 
 #[test]
+fn focused_winrt_member_filters_match_existing_tokens() {
+    for (name, source, expected, ty, methods, projection) in [
+        (
+            "interface",
+            include_str!("../../../tests/libs/bindgen/input/method_filter_allow.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/method_filter_allow.rs"),
+            "Interface",
+            &["First"][..],
+            Projection::Default,
+        ),
+        (
+            "class",
+            include_str!("../../../tests/libs/bindgen/input/method_filter_class.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/method_filter_class.rs"),
+            "Widget",
+            &["Act"][..],
+            Projection::Default,
+        ),
+        (
+            "property",
+            include_str!("../../../tests/libs/bindgen/input/method_filter_property.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/method_filter_property.rs"),
+            "Interface",
+            &["get_Value", "put_Value"][..],
+            Projection::Default,
+        ),
+        (
+            "minimal values",
+            include_str!("../../../tests/libs/bindgen/input/minimal_deps.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/minimal_deps.rs"),
+            "Interface",
+            &["Method"][..],
+            Projection::Minimal,
+        ),
+        (
+            "minimal delegate",
+            include_str!("../../../tests/libs/bindgen/input/minimal_delegate_dep.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/minimal_delegate_dep.rs"),
+            "Sink",
+            &["Subscribe"][..],
+            Projection::Minimal,
+        ),
+        (
+            "minimal class",
+            include_str!("../../../tests/libs/bindgen/input/minimal_class_dep.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/minimal_class_dep.rs"),
+            "Factory",
+            &["Create"][..],
+            Projection::Minimal,
+        ),
+    ] {
+        let metadata = fixture_metadata(source);
+        let mut filter = Filter::new();
+        for method in methods {
+            filter.include_method("Test", ty, *method);
+        }
+        let actual = metadata
+            .generator(Request::filtered(filter))
+            .unwrap()
+            .render_projection(Layout::Flat, projection)
+            .unwrap();
+        let expected = expected.parse().unwrap();
+        let normalize = |tokens| {
+            normalize_fn_parameters(tokens)
+                .replace(":: <", "::<")
+                .replace("> ::", ">::")
+                .replace("> ,", ">,")
+                .replace(">, >", "> >")
+                .replace("> >", ">>")
+                .replace("& 'static", "&'static")
+                .replace("& *", "&*")
+                .replace("& <", "&<")
+                .replace("? ;", "?;")
+                .replace(
+                    "Err (err) => err . into () }",
+                    "Err (err) => err . into () , }",
+                )
+                .replace(" + Send + 'static", " + 'static")
+        };
+        assert_eq!(normalize(actual), normalize(expected), "{name}");
+    }
+}
+
+#[test]
+fn member_filtered_events_retain_the_remove_abi() {
+    let metadata = fixture_metadata(include_str!(
+        "../../../tests/libs/bindgen/input/event_minimal.rdl"
+    ));
+    let mut filter = Filter::new();
+    filter.include_method("Test", "Interface", "add_Changed");
+    let output = metadata
+        .generator(Request::filtered(filter))
+        .unwrap()
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap()
+        .to_string();
+
+    assert!(output.contains("pub fn Changed"));
+    assert!(output.contains("pub Changed : unsafe extern \"system\" fn"));
+    assert!(output.contains("pub RemoveChanged : unsafe extern \"system\" fn"));
+    assert!(!output.contains("pub fn Method"));
+    assert!(output.contains("pub Method : unsafe extern \"system\" fn"));
+}
+
+#[test]
+fn member_filters_retain_the_vtable_prefix() {
+    let metadata = fixture_metadata(
+        r#"
+            #[winrt]
+            mod Test {
+                struct Value {
+                    value: i32,
+                }
+                interface Interface {
+                    fn First(&self) -> Value;
+                    fn Second(&self) -> i32;
+                }
+            }
+        "#,
+    );
+    let mut filter = Filter::new();
+    filter.include_method("Test", "Interface", "Second");
+    let output = metadata
+        .generator(Request::filtered(filter))
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+
+    assert!(output.contains("pub struct Value"));
+    assert!(!output.contains("pub fn First"));
+    assert!(output.contains("pub fn Second"));
+    assert!(output.contains("pub First : unsafe extern \"system\" fn"));
+    assert!(output.contains("pub Second : unsafe extern \"system\" fn"));
+}
+
+#[test]
+fn class_member_filters_route_static_methods() {
+    let metadata = fixture_metadata(include_str!(
+        "../../../tests/libs/bindgen/input/class_static.rdl"
+    ));
+    let mut filter = Filter::new();
+    filter.include_method("Test", "Class", "Create");
+    let output = metadata
+        .generator(Request::filtered(filter))
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+
+    assert!(output.contains("pub fn Create"));
+    assert!(!output.contains("pub fn Method"));
+    assert!(output.contains("pub fn new"));
+}
+
+#[test]
+fn interface_member_filters_follow_required_interfaces() {
+    let metadata = fixture_metadata(
+        r#"
+            #[winrt]
+            mod Test {
+                interface IBase {
+                    fn BaseMethod(&self) -> i32;
+                    fn Unused(&self) -> i32;
+                }
+                interface IDerived: IBase {
+                    fn DerivedMethod(&self) -> i32;
+                }
+            }
+        "#,
+    );
+    let mut filter = Filter::new();
+    filter.include_method("Test", "IDerived", "BaseMethod");
+    let output = metadata
+        .generator(Request::filtered(filter))
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+
+    assert!(output.contains("impl IDerived"));
+    assert!(output.contains("pub fn BaseMethod"));
+    assert!(!output.contains("pub fn Unused"));
+    assert!(!output.contains("pub fn DerivedMethod"));
+    assert!(output.contains("pub BaseMethod : unsafe extern \"system\" fn"));
+}
+
+#[test]
 fn winrt_class_corpus_lowers_and_renders() {
     let generator = generator();
     let values = generator.lower_values();
@@ -758,7 +952,13 @@ fn winrt_class_corpus_lowers_and_renders() {
         )
         .and_then(|model| {
             for projection in [Projection::Default, Projection::Minimal] {
-                model.write(values, namespace, Layout::Modules, projection)?;
+                model.write(
+                    values,
+                    namespace,
+                    Layout::Modules,
+                    projection,
+                    &MemberSelection::All,
+                )?;
             }
             Ok(())
         });

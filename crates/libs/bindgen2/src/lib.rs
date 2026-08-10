@@ -71,10 +71,6 @@ pub enum Layout {
 enum Projection {
     #[default]
     Default,
-    #[cfg_attr(
-        not(test),
-        expect(dead_code, reason = "kept private until complete tool requests match")
-    )]
     Minimal,
 }
 
@@ -110,6 +106,46 @@ struct WinrtEntry {
     kind: WinrtKind,
 }
 
+#[derive(Clone, Debug, Eq, PartialEq)]
+enum MemberSelection {
+    All,
+    Names(BTreeSet<String>),
+    Shell,
+}
+
+impl MemberSelection {
+    fn includes(&self, metadata_name: &str, projected_name: &str) -> bool {
+        match self {
+            Self::All => true,
+            Self::Names(names) => names.contains(metadata_name) || names.contains(projected_name),
+            Self::Shell => false,
+        }
+    }
+
+    const fn emits_implementation(&self, projection: Projection) -> bool {
+        matches!(self, Self::All) || (projection.is_minimal() && matches!(self, Self::Names(_)))
+    }
+
+    fn merge(&mut self, other: Self) -> bool {
+        match (&mut *self, other) {
+            (Self::All, _) | (Self::Names(_), Self::Shell) | (Self::Shell, Self::Shell) => false,
+            (selection, Self::All) => {
+                *selection = Self::All;
+                true
+            }
+            (Self::Names(names), Self::Names(other)) => {
+                let length = names.len();
+                names.extend(other);
+                names.len() != length
+            }
+            (selection @ Self::Shell, Self::Names(names)) => {
+                *selection = Self::Names(names);
+                true
+            }
+        }
+    }
+}
+
 struct InterfaceBase {
     file: FileId,
     entity: Entity<TypeDef>,
@@ -126,6 +162,7 @@ pub struct Metadata {
 pub struct Generator {
     shared: Arc<Shared>,
     winrt: Vec<WinrtEntry>,
+    winrt_members: BTreeMap<Entity<TypeDef>, MemberSelection>,
     win32: win32::Win32Selection,
 }
 
@@ -176,14 +213,17 @@ impl Metadata {
 
 impl Generator {
     fn from_shared(shared: Arc<Shared>, filter: Option<&Filter>) -> Result<Self, Error> {
-        let winrt = if let Some(filter) = filter {
+        let (winrt, winrt_members) = if let Some(filter) = filter {
             Self::close_winrt(&shared, filter)?
         } else {
-            shared
-                .winrt_entries
-                .iter()
-                .map(|(_, _, entry)| *entry)
-                .collect()
+            (
+                shared
+                    .winrt_entries
+                    .iter()
+                    .map(|(_, _, entry)| *entry)
+                    .collect(),
+                BTreeMap::new(),
+            )
         };
         let win32 = win32::Win32Selection::new_with_catalogs(
             &shared.database,
@@ -194,18 +234,31 @@ impl Generator {
         Ok(Self {
             shared,
             winrt,
+            winrt_members,
             win32,
         })
     }
 
-    fn close_winrt(shared: &Shared, filter: &Filter) -> Result<Vec<WinrtEntry>, Error> {
+    fn close_winrt(
+        shared: &Shared,
+        filter: &Filter,
+    ) -> Result<(Vec<WinrtEntry>, BTreeMap<Entity<TypeDef>, MemberSelection>), Error> {
         let mut catalog = BTreeMap::<(&str, &str), Vec<WinrtEntry>>::new();
-        let mut selected = BTreeSet::new();
+        let mut selected = BTreeMap::<Entity<TypeDef>, MemberSelection>::new();
         let mut pending = VecDeque::new();
 
         for (namespace, name, entry) in &shared.winrt_entries {
             catalog.entry((namespace, name)).or_default().push(*entry);
-            if filter.includes(namespace, name) && selected.insert(entry.entity) {
+            let members = if filter.includes(namespace, name) {
+                Some(MemberSelection::All)
+            } else {
+                filter
+                    .methods(namespace, name)
+                    .cloned()
+                    .map(MemberSelection::Names)
+            };
+            if let Some(members) = members {
+                selected.insert(entry.entity, members);
                 pending.push_back(*entry);
             }
         }
@@ -214,38 +267,66 @@ impl Generator {
             let definition = shared.database.definition(entry.entity).unwrap();
             let namespace = definition.namespace()?;
             let name = definition.name()?;
-            let dependencies = match entry.kind {
+            let members = selected.get(&entry.entity).unwrap().clone();
+            let (dependencies, relationship_members) = match entry.kind {
                 WinrtKind::Struct => {
                     let Some(Value::Struct(model)) = shared.values.get(namespace, name) else {
                         continue;
                     };
-                    model.dependencies()
+                    (model.dependencies(), BTreeMap::new())
                 }
-                WinrtKind::Delegate => winrt_delegate::Delegate::dependencies(
-                    &shared.database,
-                    definition,
-                    &format!("{namespace}.{name}"),
-                )?,
-                WinrtKind::Interface => winrt_interface::Interface::lower(
-                    &shared.database,
-                    definition,
-                    &shared.interface_relationships,
-                    &format!("{namespace}.{name}"),
-                )?
-                .dependencies(),
-                WinrtKind::Class => winrt_class::Class::lower(
-                    &shared.database,
-                    definition,
-                    &shared.interface_relationships,
-                    &format!("{namespace}.{name}"),
-                )?
-                .dependencies(),
+                WinrtKind::Delegate => (
+                    winrt_delegate::Delegate::dependencies(
+                        &shared.database,
+                        definition,
+                        &format!("{namespace}.{name}"),
+                    )?,
+                    BTreeMap::new(),
+                ),
+                WinrtKind::Interface => {
+                    let model = winrt_interface::Interface::lower(
+                        &shared.database,
+                        definition,
+                        &shared.interface_relationships,
+                        &format!("{namespace}.{name}"),
+                    )?;
+                    (
+                        model.dependencies(&members),
+                        model.relationship_members(&members),
+                    )
+                }
+                WinrtKind::Class => {
+                    let model = winrt_class::Class::lower(
+                        &shared.database,
+                        definition,
+                        &shared.interface_relationships,
+                        &format!("{namespace}.{name}"),
+                    )?;
+                    (
+                        model.dependencies(&members),
+                        model.relationship_members(&members),
+                    )
+                }
                 WinrtKind::Enum => continue,
             };
             for (namespace, name) in dependencies {
                 if let Some(entries) = catalog.get(&(namespace.as_str(), name.as_str())) {
                     for entry in entries {
-                        if selected.insert(entry.entity) {
+                        let members = match entry.kind {
+                            WinrtKind::Enum | WinrtKind::Struct | WinrtKind::Delegate => {
+                                MemberSelection::All
+                            }
+                            WinrtKind::Interface | WinrtKind::Class => relationship_members
+                                .get(&(namespace.clone(), name.clone()))
+                                .cloned()
+                                .unwrap_or(MemberSelection::Shell),
+                        };
+                        if let Some(current) = selected.get_mut(&entry.entity) {
+                            if current.merge(members) {
+                                pending.push_back(*entry);
+                            }
+                        } else {
+                            selected.insert(entry.entity, members);
                             pending.push_back(*entry);
                         }
                     }
@@ -253,11 +334,18 @@ impl Generator {
             }
         }
 
-        Ok(shared
+        let entries = shared
             .winrt_entries
             .iter()
-            .filter_map(|(_, _, entry)| selected.contains(&entry.entity).then_some(*entry))
-            .collect())
+            .filter_map(|(_, _, entry)| selected.contains_key(&entry.entity).then_some(*entry))
+            .collect();
+        Ok((entries, selected))
+    }
+
+    fn members(&self, entity: Entity<TypeDef>) -> &MemberSelection {
+        self.winrt_members
+            .get(&entity)
+            .unwrap_or(&MemberSelection::All)
     }
 
     /// Iterates projected values in deterministic namespace/name/entity order.

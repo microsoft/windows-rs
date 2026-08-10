@@ -33,6 +33,7 @@ WinRT value, delegate, interface, and class projection.
 | WinRT delegates | Full corpus | All 137 definitions lower and render; focused default-style output matches. |
 | WinRT interfaces | Full structural corpus | All 8,105 definitions lower and render; focused ordinary, generic, and required-interface output matches. |
 | WinRT classes | Full structural corpus | All 4,516 definitions lower and render; focused activation, hierarchy, static, async, and agile policy is covered. |
+| Member filtering | Focused proof | Methods, closure, class routing, events, and ABI prefixes. |
 | ABI canonicalization | Consolidated for native sys | Namespace-qualified aliases and one callable lowering path match all nine requests. |
 | Request reuse | Complete for current catalogs | The database, nested map, and interface-base map are shared across requests. |
 | Formatting and file writing | Tool policy | Kept outside the projection core. |
@@ -90,11 +91,12 @@ are not exposed yet because current rich/minimal projection coverage is incomple
 ignored flags would create a false compatibility API.
 
 The first filter layer is also intentionally programmatic. `Filter` stores bare names, exact
-namespace/name pairs, and namespace roots in ordered sets. Selection performs borrowed lookups and
-does not parse Rust paths, combine member policy with name resolution, or retain a metadata-sized
-match index. An empty filter selects nothing, while requests without a filter retain the existing
-all-items behavior. Filtered WinRT structs add referenced value types transitively with a temporary
-entity set and queue; no permanent value dependency graph is retained.
+namespace/name pairs, namespace roots, and private method selections in ordered maps and sets.
+Selection performs borrowed lookups and does not parse Rust paths, combine member policy with name
+resolution, or retain a metadata-sized match index. An empty filter selects nothing, while requests
+without a filter retain the existing all-items behavior. Filtered WinRT structs add referenced
+value types transitively with a temporary entity set and queue; no permanent value dependency graph
+is retained.
 
 `Generator` retains the resulting WinRT and Win32 typed-entity selections. An internal lowering
 view combines the shared database and catalogs with the request-owned selection, so repeated
@@ -387,12 +389,37 @@ Composable non-aggregating constructors use the ordinary factory path. The addit
 convenience implementations are also deferred until projection style is an explicit request
 option.
 
+## WinRT member filtering
+
+Member filtering is request-local and remains private until complete tool requests can be compared.
+Each selected WinRT entity has one role:
+
+| Role | Meaning |
+| --- | --- |
+| `All` | The type was selected directly; emit its full projection. |
+| `Names` | Emit the selected public methods and the metadata required to call them. |
+| `Shell` | Emit only the identity needed to name or cast the dependency. |
+
+Values and delegates reached by callable signatures are complete projections. Classes and
+interfaces reached only as reference types are shells. Class method selections are routed to the
+instance or factory interface that owns the metadata method. Roles can only grow from `Shell` to
+`Names` to `All`, so closure order cannot discard a stronger direct selection.
+
+Public methods follow the requested names, including metadata accessor names and projected property
+or overload names. ABI vtables retain every slot through the last selected method. This prefix rule
+is required because removing an earlier slot would change every later slot number. Event selection
+also retains the paired remove method in the ABI while exposing only the add-side revoker wrapper.
+
+Focused differential tests cover interface methods, class routing, properties, value, delegate, and
+class dependencies, minimal output, static factories, event pairs, and later vtable slots. The next
+step is to parse real request syntax and compare complete minimal tool requests; the internal
+`Filter::include_method` entry point is not yet public.
+
 ## Projection style boundary
 
 Projection style is one internal enum with `Default` and `Minimal` variants. It is passed through
 rendering and the shared callable context rather than copied into each projected model or expanded
-into independent booleans. Selection and dependency closure remain style-independent until a
-measured request proves that they must differ.
+into independent booleans. Selection and dependency closure use the same roles in both styles.
 
 The focused minimal enum, struct, delegate, interface, and class fixtures match existing output
 apart from the delegate safety correction below. Default event output matches the existing
@@ -406,7 +433,7 @@ currently stay at the rendering boundary:
 | Strings | Use `String` and `&str` in public wrappers while preserving `HSTRING` ABI types. |
 | Delegates | Use infallible `Send` closures, preserve non-void returns, and omit public `Invoke`. |
 | Interfaces | Do not emit inherited forwarders; expose exclusive interfaces for class `Deref`. |
-| Classes | Keep wrappers and identity, move instance calls to interfaces, and add `Deref`. |
+| Classes | Keep identity and interface calls, add `Deref`, and return classes directly. |
 | Events | Use the same add/remove pairing and revoker model with mode-specific delegate closures. |
 
 This mode remains private. Exposing it before member filters, native non-sys output, dead-code
