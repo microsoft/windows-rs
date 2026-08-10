@@ -729,10 +729,12 @@ Do not replace the maps with one large per-control struct containing every optio
 controls do not use headers, panes, templating, or custom lifecycle state. Use node-kind enums and
 allocate auxiliary state only for node kinds that need it.
 
-The WinUI backend also has a `parent_children` mirror because it converts Reactor's logical child
-indices to native visual indices while accounting for phantom controls. Do not merge that backend
-detail into `MountedTree` without first changing the backend contract. Two structures with
-different purposes are acceptable; two structures claiming to own the same lifecycle are not.
+`MountedTree` owns child projection through sparse owned-only classification. Most children project
+into the parent's visual collection; `ContentDialog` is owned-only because WinUI presents it
+outside that collection. Insert, move, replace, and remove operations derive visual indices from
+the ownership order before calling the backend. The classification stays available when teardown
+destroys a child before its parent edge is removed. `WinUIBackend` therefore needs no child-order
+mirror and receives only visual children and visual indices.
 
 #### C# Reactor comparison
 
@@ -1145,9 +1147,10 @@ time.
   into `reconciler/mounted_tree.rs` without changing behavior, and validate keyed permutation
   preconditions at that boundary. Move the reconciler module root to `reconciler/mod.rs` to match
   other multi-file modules.
-- [ ] Split host state and wrapper reconciliation into focused modules without changing behavior.
-- [ ] Replace WinUI's hard-coded phantom-child cases with explicit container projection
-  capabilities and test mixed logical/visual indexing.
+- [x] Group host state under `HostContext` and move component, provider, and error-boundary
+  reconciliation into `reconciler/wrappers.rs` without changing behavior.
+- [x] Store sparse visual versus owned-only child projection in `MountedTree`, test mixed indexing
+  across insert, move, replace, and remove, and delete WinUI's child-order mirror.
 - [ ] Add backend fault injection for create, property update, attach, move, detach, and destroy;
   define the valid state after each failure.
 - [ ] Define and test render, commit, effect, cleanup, error-boundary, and reentrant-event ordering.

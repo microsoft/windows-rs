@@ -638,8 +638,7 @@ impl<B: Backend + 'static> Reconciler<B> {
     fn append_output_tracked(&mut self, parent: ControlId, output: MountedOutput) {
         self.tree.append_logical_child(parent, output);
         if let Some(native) = output.native {
-            self.tree.append_child(parent, native);
-            self.backend.append_child(parent, native);
+            self.append_child_tracked(parent, native);
         }
     }
 
@@ -647,8 +646,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         let index = self.tree.insert_logical_child(parent, index, output);
         if let Some(native) = output.native {
             let native_index = self.tree.native_index(parent, index);
-            self.tree.insert_child(parent, native_index, native);
-            self.backend.insert_child(parent, native_index, native);
+            self.insert_child_tracked(parent, native_index, native);
         }
     }
 
@@ -666,17 +664,14 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.tree.replace_logical_child(parent, index, output);
         match (old.native, output.native) {
             (Some(old), Some(new)) if old != new => {
-                self.tree.replace_child(parent, native_index, new);
-                self.backend.replace_child(parent, native_index, new);
+                self.replace_child_tracked(parent, native_index, new);
             }
             (Some(_), Some(_)) => {}
             (Some(_), None) => {
-                self.tree.remove_child(parent, native_index);
-                self.backend.remove_child(parent, native_index);
+                self.remove_child_tracked(parent, native_index);
             }
             (None, Some(new)) => {
-                self.tree.insert_child(parent, native_index, new);
-                self.backend.insert_child(parent, native_index, new);
+                self.insert_child_tracked(parent, native_index, new);
             }
             (None, None) => {}
         }
@@ -691,8 +686,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         let native_index = self.tree.native_index(parent, index);
         self.tree.remove_logical_child(parent, index);
         if output.native.is_some() {
-            self.tree.remove_child(parent, native_index);
-            self.backend.remove_child(parent, native_index);
+            self.remove_child_tracked(parent, native_index);
         }
         output
     }
@@ -706,8 +700,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         {
             self.tree.move_logical_child(parent, from, to);
             if from != to {
-                self.tree.move_child(parent, from, to);
-                self.backend.move_child(parent, from, to);
+                self.move_child_tracked(parent, from, to);
             }
             return;
         }
@@ -720,35 +713,72 @@ impl<B: Backend + 'static> Reconciler<B> {
         if let Some(native) = from_native {
             let to_native = self.tree.native_index(parent, to);
             if native != to_native {
-                self.tree.move_child(parent, native, to_native);
-                self.backend.move_child(parent, native, to_native);
+                self.move_child_tracked(parent, native, to_native);
             }
         }
     }
 
     pub fn append_child_tracked(&mut self, parent: ControlId, child: ControlId) {
+        let projected = self.tree.projects_as_child(child);
         self.tree.append_child(parent, child);
-        self.backend.append_child(parent, child);
+        if projected {
+            self.backend.append_child(parent, child);
+        }
     }
 
     pub fn remove_child_tracked(&mut self, parent: ControlId, index: usize) {
+        self.tree
+            .child(parent, index)
+            .expect("mounted child index out of bounds");
+        let projected = self.tree.child_is_projected(parent, index);
+        let projected_index = self.tree.projected_index(parent, index);
         self.tree.remove_child(parent, index);
-        self.backend.remove_child(parent, index);
+        if projected {
+            self.backend.remove_child(parent, projected_index);
+        }
     }
 
     pub fn replace_child_tracked(&mut self, parent: ControlId, index: usize, new: ControlId) {
+        self.tree
+            .child(parent, index)
+            .expect("mounted child index out of bounds");
+        let old_projected = self.tree.child_is_projected(parent, index);
+        let new_projected = self.tree.projects_as_child(new);
+        let projected_index = self.tree.projected_index(parent, index);
         self.tree.replace_child(parent, index, new);
-        self.backend.replace_child(parent, index, new);
+        match (old_projected, new_projected) {
+            (true, true) => self.backend.replace_child(parent, projected_index, new),
+            (true, false) => self.backend.remove_child(parent, projected_index),
+            (false, true) => self.backend.insert_child(parent, projected_index, new),
+            (false, false) => {}
+        }
     }
 
     pub fn move_child_tracked(&mut self, parent: ControlId, from: usize, to: usize) {
+        self.tree
+            .child(parent, from)
+            .expect("mounted child index out of bounds");
+        self.tree
+            .child(parent, to)
+            .expect("mounted child destination index out of bounds");
+        let projected = self.tree.child_is_projected(parent, from);
+        let projected_from = self.tree.projected_index(parent, from);
         self.tree.move_child(parent, from, to);
-        self.backend.move_child(parent, from, to);
+        let projected_to = self.tree.projected_index(parent, to);
+        if projected && projected_from != projected_to {
+            self.backend
+                .move_child(parent, projected_from, projected_to);
+        }
     }
 
     pub fn insert_child_tracked(&mut self, parent: ControlId, index: usize, child: ControlId) {
-        let index = self.tree.insert_child(parent, index, child);
-        self.backend.insert_child(parent, index, child);
+        let index = index.min(self.tree.children(parent).len());
+        let projected = self.tree.projects_as_child(child);
+        let projected_index = self.tree.projected_index(parent, index);
+        self.tree.insert_child(parent, index, child);
+        if projected {
+            self.backend.insert_child(parent, projected_index, child);
+        }
     }
 
     pub fn child_at(&self, parent: ControlId, i: usize) -> Option<ControlId> {
