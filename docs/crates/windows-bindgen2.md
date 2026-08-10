@@ -19,7 +19,7 @@ so every output layer can be compared before migration.
 ## Milestone status
 
 The current milestone proves the native sys path, reusable request boundary, both layouts, and
-filtered WinRT value closure.
+WinRT value, delegate, and interface projection.
 
 | Area | Status | Evidence or blocker |
 | --- | --- | --- |
@@ -31,15 +31,16 @@ filtered WinRT value closure.
 | Flat layout | Complete for current projections | Explicit layout context covers cross-namespace WinRT and Win32 references. |
 | Filtered WinRT values | Complete for enums and structs | Transitive value dependencies are selected; recursive values remain errors. |
 | WinRT delegates | Full corpus | All 137 definitions lower and render; focused default-style output matches. |
+| WinRT interfaces | Full structural corpus | All 8,105 definitions lower and render; focused ordinary, generic, and required-interface output matches. |
 | ABI canonicalization | Consolidated for native sys | Namespace-qualified aliases and one callable lowering path match all nine requests. |
 | Request reuse | Complete for current catalogs | The database, nested map, and interface-base map are shared across requests. |
 | Formatting and file writing | Tool policy | Kept outside the projection core. |
 | Sys request differential | Complete | A test-local parser proves nine real request files. |
 | Rich/minimal projection | Not started | Native sys is the only complete production-style surface. |
-| WinRT interfaces and classes | Not started | Interfaces are the next bounded milestone. |
+| WinRT classes | Not started | Classes are the next bounded projection milestone. |
 | Package output | Not started | Requires stable filtering, layout, and formatting first. |
 
-Approximate hand-written Rust source size is 5,500 lines for bindgen2 versus 12,829 for the
+Approximate hand-written Rust source size is 7,580 lines for bindgen2 versus 12,829 for the
 existing bindgen crate. The public boundary and ownership logic occupy about 235 lines in
 `lib.rs`; tests are isolated in `tests.rs`. Output coverage and concept count matter more than
 line count.
@@ -339,5 +340,23 @@ objects, enums, copyable and non-copyable structs, vectors, and non-copyable ret
 requests use projected generic names without metadata arity suffixes and close over referenced
 WinRT values and delegates.
 
-WinRT interfaces are the next bounded projection milestone. Classes follow independently. Package
-output remains a separate artifact-planning problem rather than a larger `Layout` variant.
+## WinRT interface milestone
+
+WinRT interfaces reuse the delegate callable model for parameter lowering, public calls, ABI
+signatures, implementation signatures, and upcalls. Interface-specific code owns identity,
+runtime names, required-interface inheritance, method naming, and vtable construction. This keeps
+callable ABI policy in one place without introducing a larger universal COM model.
+
+The committed metadata contains 8,105 WinRT interfaces. Every definition lowers and renders,
+including generic parameters, input and output arrays, by-reference output parameters, property
+and event accessors, overload names, and referenced value and interface types. Focused fixtures
+match existing output for ordinary, generic, void-return, and required-interface cases.
+
+Interface relationships are decoded once into the shared metadata root. Filtered requests close
+over direct methods, required interfaces, and their transitive value dependencies. Each interface
+is otherwise materialized only while closing or rendering; no second global projected interface
+graph is retained.
+
+Exclusive interface suppression and class-owned factory policy belong to class projection rather
+than the interface model. WinRT classes are the next bounded projection milestone. Package output
+remains a separate artifact-planning problem rather than a larger `Layout` variant.

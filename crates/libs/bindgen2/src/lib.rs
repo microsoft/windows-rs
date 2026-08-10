@@ -6,7 +6,7 @@ use std::{
 };
 use windows_metadata2::{
     AnyRowId, AttributeArgument, AttributeValue, ConstantValue, Database, Entity, FileId, Image,
-    MethodSignature, TypeAttributes, TypeCategory, TypeDefinition, TypeKind,
+    MethodSignature, TypeAttributes, TypeCategory, TypeDefinition, TypeKind, TypeResolution,
     tables::{Field, MethodDef, TypeDef},
 };
 
@@ -30,6 +30,7 @@ mod tokens;
 mod ty;
 mod win32;
 mod winrt_delegate;
+mod winrt_interface;
 
 use enum_model::Enum;
 pub use error::Error;
@@ -50,6 +51,7 @@ enum WinrtKind {
     Enum,
     Struct,
     Delegate,
+    Interface,
 }
 
 /// Generated Rust output layout.
@@ -88,6 +90,12 @@ struct WinrtEntry {
     kind: WinrtKind,
 }
 
+struct InterfaceBase {
+    file: FileId,
+    entity: Entity<TypeDef>,
+    arguments: Vec<windows_metadata2::Type>,
+}
+
 /// Owns a reusable validated metadata database.
 pub struct Metadata {
     shared: Arc<Shared>,
@@ -104,6 +112,7 @@ struct Shared {
     database: Database,
     winrt_entries: Vec<(String, String, WinrtEntry)>,
     values: Values,
+    interface_bases: BTreeMap<Entity<TypeDef>, Vec<InterfaceBase>>,
     win32_catalogs: Arc<win32::Win32Catalogs>,
 }
 
@@ -120,12 +129,14 @@ impl Metadata {
     pub fn new(database: Database) -> Result<Self, Error> {
         let winrt_entries = winrt_entries(&database)?;
         let values = Values::lower(&database, &winrt_entries)?;
+        let interface_bases = interface_bases(&database)?;
         let win32_catalogs = Arc::new(win32::Win32Catalogs::new(&database)?);
         Ok(Self {
             shared: Arc::new(Shared {
                 database,
                 winrt_entries,
                 values,
+                interface_bases,
                 win32_catalogs,
             }),
         })
@@ -194,6 +205,13 @@ impl Generator {
                     definition,
                     &format!("{namespace}.{name}"),
                 )?,
+                WinrtKind::Interface => winrt_interface::Interface::lower(
+                    &shared.database,
+                    definition,
+                    &shared.interface_bases,
+                    &format!("{namespace}.{name}"),
+                )?
+                .dependencies(),
                 WinrtKind::Enum => continue,
             };
             for (namespace, name) in dependencies {
@@ -218,7 +236,7 @@ impl Generator {
     fn values(&self) -> impl Iterator<Item = ValueItem<'_>> {
         self.winrt
             .iter()
-            .filter(|entry| entry.kind != WinrtKind::Delegate)
+            .filter(|entry| matches!(entry.kind, WinrtKind::Enum | WinrtKind::Struct))
             .map(|entry| ValueItem {
                 definition: self.shared.database.definition(entry.entity).unwrap(),
                 #[cfg(test)]
@@ -242,10 +260,11 @@ fn winrt_entries(database: &Database) -> Result<Vec<(String, String, WinrtEntry)
                 WinrtKind::Struct
             }
             TypeCategory::Delegate => WinrtKind::Delegate,
+            TypeCategory::Interface => WinrtKind::Interface,
             _ => continue,
         };
         let name = definition.name()?;
-        let name = if kind == WinrtKind::Delegate {
+        let name = if matches!(kind, WinrtKind::Delegate | WinrtKind::Interface) {
             name.split_once('`').map_or(name, |(name, _)| name)
         } else {
             name
@@ -259,10 +278,76 @@ fn winrt_entries(database: &Database) -> Result<Vec<(String, String, WinrtEntry)
             },
         ));
     }
+
     entries.sort_by(|left, right| {
         (&left.0, &left.1, left.2.entity).cmp(&(&right.0, &right.1, right.2.entity))
     });
     Ok(entries)
+}
+
+fn interface_bases(
+    database: &Database,
+) -> Result<BTreeMap<Entity<TypeDef>, Vec<InterfaceBase>>, Error> {
+    let mut result = BTreeMap::<Entity<TypeDef>, Vec<InterfaceBase>>::new();
+    for relationship in database.interface_implementations() {
+        let (owner, identity) = relationship?;
+        if owner.category()? != TypeCategory::Interface {
+            continue;
+        }
+        let owner_name = format!("{}.{}", owner.namespace()?, owner.name()?);
+        let base = match database.resolve_type(identity.file, identity.ty)? {
+            TypeResolution::Definition(entity) => Some(InterfaceBase {
+                file: identity.file,
+                entity,
+                arguments: Vec::new(),
+            }),
+            TypeResolution::Candidates(candidates) => {
+                candidates.first().map(|entity| InterfaceBase {
+                    file: identity.file,
+                    entity,
+                    arguments: Vec::new(),
+                })
+            }
+            TypeResolution::Specification(entity) => {
+                let row = database.view(entity).unwrap();
+                let signature = database
+                    .image(entity.file())
+                    .unwrap()
+                    .type_signature(row.blob_id(0)?)?;
+                let TypeKind::GenericInstance { ty, arguments, .. } = signature.kind else {
+                    return Err(Error::InvalidType {
+                        name: owner_name,
+                        message: "required interface specification is not generic",
+                    });
+                };
+                let entity = match database.resolve_type(identity.file, ty)? {
+                    TypeResolution::Definition(entity) => Some(entity),
+                    TypeResolution::Candidates(candidates) => candidates.first(),
+                    TypeResolution::Specification(_) => {
+                        return Err(Error::InvalidType {
+                            name: owner_name,
+                            message: "required interface has a nested type specification",
+                        });
+                    }
+                };
+                entity.map(|entity| InterfaceBase {
+                    file: identity.file,
+                    entity,
+                    arguments,
+                })
+            }
+        };
+        let base = base.ok_or(Error::InvalidType {
+            name: owner_name,
+            message: "required interface cannot be resolved",
+        })?;
+        result.entry(owner.entity()).or_default().push(base);
+    }
+    Ok(result)
+}
+
+fn trim_generic_arity(name: &str) -> &str {
+    name.split_once('`').map_or(name, |(name, _)| name)
 }
 
 impl<'a> ValueItem<'a> {

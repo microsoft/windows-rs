@@ -36,6 +36,33 @@ pub(super) struct Properties {
 }
 
 impl Type {
+    pub(super) fn substitute(&self, arguments: &[Self]) -> Self {
+        match self {
+            Self::Generic(index) => arguments
+                .get(*index as usize)
+                .cloned()
+                .unwrap_or_else(|| self.clone()),
+            Self::Vector(element) => Self::Vector(Box::new(element.substitute(arguments))),
+            Self::Named {
+                value_type,
+                namespace,
+                name,
+                arguments: nested,
+                guid,
+            } => Self::Named {
+                value_type: *value_type,
+                namespace: namespace.clone(),
+                name: name.clone(),
+                arguments: nested
+                    .iter()
+                    .map(|argument| argument.substitute(arguments))
+                    .collect(),
+                guid: *guid,
+            },
+            _ => self.clone(),
+        }
+    }
+
     pub(super) fn collect_value_dependencies(&self, dependencies: &mut BTreeSet<(String, String)>) {
         match self {
             Self::Vector(element) => element.collect_value_dependencies(dependencies),

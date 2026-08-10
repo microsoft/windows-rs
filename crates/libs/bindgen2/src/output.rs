@@ -58,6 +58,30 @@ impl Generator {
                     tokens: model.write(values, namespace, layout)?,
                 });
         }
+        for entry in self
+            .winrt
+            .iter()
+            .filter(|entry| entry.kind == WinrtKind::Interface)
+        {
+            let definition = self.shared.database.definition(entry.entity).unwrap();
+            let namespace = definition.namespace()?;
+            let metadata_name = definition.name()?;
+            let name = trim_generic_arity(metadata_name);
+            let model = winrt_interface::Interface::lower(
+                &self.shared.database,
+                definition,
+                &self.shared.interface_bases,
+                &format!("{namespace}.{metadata_name}"),
+            )?;
+            modules
+                .entry(namespace.to_string())
+                .or_default()
+                .push(Item {
+                    name: name.to_string(),
+                    kind: 0,
+                    tokens: model.write(values, namespace, layout)?,
+                });
+        }
 
         self.win32_items()
             .render(layout, |namespace, name, kind, tokens| {

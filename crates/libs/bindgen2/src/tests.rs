@@ -118,7 +118,7 @@ fn values_are_deterministic_and_borrow_database_names() {
         counts[match item.2 {
             WinrtKind::Enum => 0,
             WinrtKind::Struct => 1,
-            WinrtKind::Delegate => unreachable!(),
+            WinrtKind::Delegate | WinrtKind::Interface => unreachable!(),
         }] += 1;
         counts
     });
@@ -352,6 +352,147 @@ fn winrt_delegates_match_existing_golden_tokens() {
             "{name}"
         );
     }
+}
+
+#[test]
+fn winrt_interfaces_match_existing_golden_tokens() {
+    for (name, source, expected) in [
+        (
+            "interface_void",
+            include_str!("../../../tests/libs/bindgen/input/interface_void.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/interface_void.rs"),
+        ),
+        (
+            "interface",
+            include_str!("../../../tests/libs/bindgen/input/interface.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/interface.rs"),
+        ),
+        (
+            "interface_generic",
+            include_str!("../../../tests/libs/bindgen/input/interface_generic.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/interface_generic.rs"),
+        ),
+        (
+            "interface_hierarchy",
+            include_str!("../../../tests/libs/bindgen/input/interface_hierarchy.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/interface_hierarchy.rs"),
+        ),
+    ] {
+        let expected: TokenStream = expected.parse().unwrap();
+        let normalize = |tokens| {
+            normalize_fn_parameters(tokens)
+                .replace(":: <", "::<")
+                .replace("> ::", ">::")
+                .replace("> ,", ">,")
+                .replace("& 'static", "&'static")
+                .replace("& *", "&*")
+                .replace("& <", "&<")
+                .replace("> :", ">:")
+                .replace("+ 'static ,", "+ 'static")
+                .replace("? ;", "?;")
+                .replace(
+                    "Err (err) => err . into () }",
+                    "Err (err) => err . into () , }",
+                )
+        };
+        assert_eq!(
+            normalize(fixture(source).render(Layout::Flat).unwrap()),
+            normalize(expected),
+            "{name}"
+        );
+    }
+}
+
+#[test]
+fn winrt_interface_corpus_lowers_and_renders() {
+    let generator = generator();
+    let values = generator.lower_values();
+    let mut count = 0;
+    let mut unsupported = Vec::new();
+    for entry in generator
+        .winrt
+        .iter()
+        .filter(|entry| entry.kind == WinrtKind::Interface)
+    {
+        let definition = generator.shared.database.definition(entry.entity).unwrap();
+        let namespace = definition.namespace().unwrap();
+        let name = definition.name().unwrap();
+        let result = winrt_interface::Interface::lower(
+            &generator.shared.database,
+            definition,
+            &generator.shared.interface_bases,
+            &format!("{namespace}.{name}"),
+        )
+        .and_then(|model| model.write(values, namespace, Layout::Modules));
+        if let Err(error) = result {
+            unsupported.push((format!("{namespace}.{name}"), error.to_string()));
+        }
+
+        count += 1;
+    }
+
+    assert_eq!(count, 8_105);
+    assert!(unsupported.is_empty(), "{unsupported:#?}");
+}
+
+#[test]
+fn filtered_winrt_interfaces_close_required_and_method_dependencies() {
+    let metadata = fixture_metadata(
+        r#"
+            #[winrt]
+            mod Test {
+                #[repr(i32)]
+                enum Kind {
+                    First = 0,
+                }
+
+                interface IBase {
+                    fn Get(&self) -> Kind;
+                }
+
+                interface IDerived: IBase {
+                    fn Set(&self, value: Kind);
+                }
+            }
+        "#,
+    );
+    let generator = metadata
+        .generator(Request::filtered(Filter::names(["IDerived"])))
+        .unwrap();
+    let output = generator.render(Layout::Flat).unwrap().to_string();
+    assert!(output.contains("pub struct Kind"), "{output}");
+    assert!(output.contains("define_interface ! (IBase"));
+    assert!(output.contains("define_interface ! (IDerived"));
+    assert!(output.contains("required_hierarchy ! (IDerived , IBase"));
+}
+
+#[test]
+fn generic_required_interface_substitutes_method_types() {
+    let output = fixture(
+        r#"
+            #[winrt]
+            mod Test {
+                interface IBase<T> {
+                    fn Get(&self) -> T;
+                }
+
+                interface IMiddle<T>: IBase<T> {
+                    fn Put(&self, value: T);
+                }
+
+                interface IDerived: IMiddle<i32> {
+                    fn Set(&self, value: i32);
+                }
+            }
+        "#,
+    )
+    .render(Layout::Flat)
+    .unwrap()
+    .to_string();
+    assert!(output.contains("required_hierarchy ! (IDerived , IBase < i32 > , IMiddle < i32 >"));
+    assert!(output.contains("pub trait IDerived_Impl : IBase_Impl < i32 > + IMiddle_Impl < i32 >"));
+    let normalized = normalize_fn_parameters(output.parse().unwrap());
+    assert!(normalized.contains("pub fn Get (& self) -> windows_core :: Result < i32 >"));
 }
 
 #[test]

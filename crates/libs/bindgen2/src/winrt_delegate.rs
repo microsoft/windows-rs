@@ -10,9 +10,17 @@ pub(super) struct Delegate {
     invoke: Method,
 }
 
-struct Method {
+pub(super) struct Method {
     parameters: Vec<Parameter>,
     return_type: ty::Type,
+    generic_return_default: bool,
+}
+
+pub(super) struct MethodContext<'a> {
+    values: &'a Values,
+    namespace: &'a str,
+    layout: Layout,
+    generics: &'a [String],
 }
 
 struct Parameter {
@@ -45,28 +53,6 @@ impl Delegate {
                 message: "delegate method is not Invoke",
             });
         }
-        let signature = invoke.signature()?;
-        let parameter_rows = invoke.parameters_by_sequence()?;
-        let parameters = signature
-            .parameters
-            .into_iter()
-            .zip(parameter_rows.parameters())
-            .enumerate()
-            .map(|(position, (ty, parameter))| {
-                let (name, input_only) = match parameter {
-                    Some(parameter) => (
-                        parameter.name()?.to_lowercase(),
-                        parameter.flags()? & 0x2 == 0,
-                    ),
-                    None => (format!("p{position}"), true),
-                };
-                Ok(Parameter {
-                    name,
-                    input_only,
-                    ty: ty::Type::lower(database, definition.entity().file(), owner, ty)?,
-                })
-            })
-            .collect::<Result<_, Error>>()?;
         let guid =
             guid::Guid::from_definition(definition, owner)?.ok_or_else(|| Error::InvalidType {
                 name: owner.to_string(),
@@ -77,15 +63,7 @@ impl Delegate {
             name,
             generics,
             guid,
-            invoke: Method {
-                parameters,
-                return_type: ty::Type::lower(
-                    database,
-                    definition.entity().file(),
-                    owner,
-                    signature.return_type,
-                )?,
-            },
+            invoke: Method::lower(database, definition.entity().file(), *invoke, owner, true)?,
         })
     }
 
@@ -209,15 +187,20 @@ impl Delegate {
         let public_signature =
             self.invoke
                 .write_public_signature(values, namespace, layout, &self.generics)?;
-        let public_call =
-            self.invoke
-                .write_public_call(values, namespace, layout, &self.generics)?;
+        let public_call = self.invoke.write_public_call(
+            values,
+            namespace,
+            layout,
+            &self.generics,
+            &quote! { Invoke },
+            &quote! { self },
+        )?;
         let abi_signature =
             self.invoke
                 .write_abi_signature(values, namespace, layout, &self.generics)?;
         let upcall = self
             .invoke
-            .write_upcall(values, namespace, layout, &self.generics)?;
+            .write_upcall(values, quote! { (this.invoke) }, false)?;
         let generic_params = public_signature.generic_params;
         let method_generics = if generic_params.is_empty() {
             quote! {}
@@ -296,8 +279,188 @@ struct PublicSignature {
     return_type: TokenStream,
 }
 
+impl<'a> MethodContext<'a> {
+    pub(super) const fn new(
+        values: &'a Values,
+        namespace: &'a str,
+        layout: Layout,
+        generics: &'a [String],
+    ) -> Self {
+        Self {
+            values,
+            namespace,
+            layout,
+            generics,
+        }
+    }
+}
+
 impl Method {
-    fn write_impl_signature(
+    pub(super) fn substitute(&mut self, arguments: &[ty::Type]) {
+        self.return_type = self.return_type.substitute(arguments);
+        for parameter in &mut self.parameters {
+            parameter.ty = parameter.ty.substitute(arguments);
+        }
+    }
+
+    pub(super) fn lower(
+        database: &Database,
+        file: FileId,
+        method: windows_metadata2::MethodDefinition<'_>,
+        owner: &str,
+        generic_return_default: bool,
+    ) -> Result<Self, Error> {
+        let signature = method.signature()?;
+        let parameter_rows = method.parameters_by_sequence()?;
+        let parameters = signature
+            .parameters
+            .into_iter()
+            .zip(parameter_rows.parameters())
+            .enumerate()
+            .map(|(position, (ty, parameter))| {
+                let (name, input_only) = match parameter {
+                    Some(parameter) => (
+                        parameter.name()?.to_lowercase(),
+                        parameter.flags()? & 0x2 == 0,
+                    ),
+                    None => (format!("p{position}"), true),
+                };
+                if !ty.modifiers.is_empty() && !matches!(&ty.kind, TypeKind::ByRef(_)) {
+                    return Err(Error::UnsupportedType {
+                        name: owner.to_string(),
+                        shape: format!("modified callable parameter {:?}", ty.kind),
+                    });
+                }
+                let ty = match ty.kind {
+                    TypeKind::ByRef(inner) => windows_metadata2::Type {
+                        modifiers: Vec::new(),
+                        kind: inner.kind,
+                    },
+                    kind => windows_metadata2::Type {
+                        modifiers: Vec::new(),
+                        kind,
+                    },
+                };
+                Ok(Parameter {
+                    name,
+                    input_only,
+                    ty: ty::Type::lower(database, file, owner, ty)?,
+                })
+            })
+            .collect::<Result<_, Error>>()?;
+        Ok(Self {
+            parameters,
+            return_type: ty::Type::lower(database, file, owner, signature.return_type)?,
+            generic_return_default,
+        })
+    }
+
+    pub(super) fn dependencies(&self) -> BTreeSet<(String, String)> {
+        let mut dependencies = BTreeSet::new();
+        self.return_type
+            .collect_value_dependencies(&mut dependencies);
+        for parameter in &self.parameters {
+            parameter.ty.collect_value_dependencies(&mut dependencies);
+        }
+        dependencies
+    }
+
+    pub(super) fn write_public_method(
+        &self,
+        context: &MethodContext<'_>,
+        name: &str,
+        receiver: TokenStream,
+    ) -> Result<TokenStream, Error> {
+        self.write_public_method_with(context, name, name, receiver, quote! {})
+    }
+
+    pub(super) fn write_forwarded_public_method(
+        &self,
+        context: &MethodContext<'_>,
+        public_name: &str,
+        abi_name: &str,
+        interface: TokenStream,
+    ) -> Result<TokenStream, Error> {
+        let receiver = quote! { this };
+        self.write_public_method_with(
+            context,
+            public_name,
+            abi_name,
+            receiver,
+            quote! {
+                let this = &windows_core::Interface::cast::<#interface>(self)?;
+            },
+        )
+    }
+
+    fn write_public_method_with(
+        &self,
+        context: &MethodContext<'_>,
+        public_name: &str,
+        abi_name: &str,
+        receiver: TokenStream,
+        prelude: TokenStream,
+    ) -> Result<TokenStream, Error> {
+        let public_name = tokens::ident(public_name);
+        let abi_name = tokens::ident(abi_name);
+        let signature = self.write_public_signature(
+            context.values,
+            context.namespace,
+            context.layout,
+            context.generics,
+        )?;
+        let call = self.write_public_call(
+            context.values,
+            context.namespace,
+            context.layout,
+            context.generics,
+            &abi_name,
+            &receiver,
+        )?;
+        let method_generics = if signature.generic_params.is_empty() {
+            quote! {}
+        } else {
+            let generics = signature.generic_params;
+            quote! { <#generics> }
+        };
+        let parameters = signature.parameters;
+        let return_type = signature.return_type;
+        let where_clause = signature.where_clause;
+        Ok(quote! {
+            pub fn #public_name #method_generics(&self, #(#parameters)*) #return_type
+            #where_clause
+            {
+                #prelude
+                #call
+            }
+        })
+    }
+
+    pub(super) fn write_impl_method(
+        &self,
+        values: &Values,
+        namespace: &str,
+        layout: Layout,
+        generics: &[String],
+        name: &str,
+    ) -> Result<TokenStream, Error> {
+        let name = tokens::ident(name);
+        let parameters = self
+            .parameters
+            .iter()
+            .map(|parameter| {
+                let name = tokens::ident(&parameter.name);
+                let ty = parameter.write_impl_type(values, namespace, layout, generics)?;
+                Ok(quote! { #name: #ty })
+            })
+            .collect::<Result<Vec<_>, Error>>()?;
+        let return_type = self.write_return_type(namespace, layout, generics)?;
+        Ok(quote! {
+            fn #name(&self, #(#parameters),*) -> windows_core::Result<#return_type>;
+        })
+    }
+
+    pub(super) fn write_impl_signature(
         &self,
         values: &Values,
         namespace: &str,
@@ -363,12 +526,14 @@ impl Method {
         })
     }
 
-    fn write_public_call(
+    pub(super) fn write_public_call(
         &self,
         values: &Values,
         namespace: &str,
         layout: Layout,
         generics: &[String],
+        method: &TokenStream,
+        receiver: &TokenStream,
     ) -> Result<TokenStream, Error> {
         let arguments = self
             .parameters
@@ -389,8 +554,8 @@ impl Method {
             _ => quote! { &mut result__ },
         };
         let call = quote! {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(#receiver).#method)(
+                windows_core::Interface::as_raw(#receiver),
                 #(#arguments,)*
                 #return_arguments
             )
@@ -424,7 +589,7 @@ impl Method {
         })
     }
 
-    fn write_abi_signature(
+    pub(super) fn write_abi_signature(
         &self,
         values: &Values,
         namespace: &str,
@@ -470,20 +635,20 @@ impl Method {
         })
     }
 
-    fn write_upcall(
+    pub(super) fn write_upcall(
         &self,
         values: &Values,
-        _namespace: &str,
-        _layout: Layout,
-        _generics: &[String],
+        inner: TokenStream,
+        has_this: bool,
     ) -> Result<TokenStream, Error> {
         let arguments = self
             .parameters
             .iter()
             .map(|parameter| parameter.write_upcall_argument(values))
             .collect::<Result<Vec<_>, Error>>()?;
+        let this = has_this.then(|| quote! { this, });
         Ok(match &self.return_type {
-            ty::Type::Void => quote! { (this.invoke)(#(#arguments),*).into() },
+            ty::Type::Void => quote! { #inner(#this #(#arguments),*).into() },
             ty::Type::Vector(element) => {
                 let write = if element.is_copyable(values, "delegate return")? {
                     quote! { result__.write(ok_data__); }
@@ -491,7 +656,7 @@ impl Method {
                     quote! { result__.write(core::mem::transmute(ok_data__)); }
                 };
                 quote! {
-                    match (this.invoke)(#(#arguments),*) {
+                    match #inner(#this #(#arguments),*) {
                         Ok(ok__) => {
                             let (ok_data__, ok_data_len__) = ok__.into_abi();
                             #write
@@ -503,7 +668,7 @@ impl Method {
                 }
             }
             ty if ty.is_copyable(values, "delegate return")? => quote! {
-                match (this.invoke)(#(#arguments),*) {
+                match #inner(#this #(#arguments),*) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
@@ -512,7 +677,7 @@ impl Method {
                 }
             },
             _ => quote! {
-                match (this.invoke)(#(#arguments),*) {
+                match #inner(#this #(#arguments),*) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -535,6 +700,9 @@ impl Method {
             ty::Type::Vector(element) => {
                 let element = element.write_name(namespace, layout, generics)?;
                 quote! { windows_core::Array<#element> }
+            }
+            ty::Type::Generic(_) if !self.generic_return_default => {
+                self.return_type.write_name(namespace, layout, generics)?
             }
             ty => ty.write_default(namespace, layout, generics)?,
         })
@@ -663,8 +831,4 @@ impl Parameter {
             }
         })
     }
-}
-
-fn trim_generic_arity(name: &str) -> &str {
-    name.split_once('`').map_or(name, |(name, _)| name)
 }
