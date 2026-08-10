@@ -32,7 +32,8 @@ filtered WinRT value closure.
 | Filtered WinRT values | Complete for enums and structs | Transitive value dependencies are selected; recursive values remain errors. |
 | ABI canonicalization | Consolidated for native sys | Namespace-qualified aliases and one callable lowering path match all nine requests. |
 | Request reuse | Complete for current catalogs | The database, nested map, and interface-base map are shared across requests. |
-| Formatting and file writing | Next milestone | Add behind the structured request API. |
+| Formatting and file writing | Complete | Rustfmt errors are surfaced; unchanged files are not rewritten. |
+| Simple sys request adapter | Complete | Nine real request files parse strictly and match committed tokens. |
 | Rich/minimal projection | Not started | Native sys is the only complete production-style surface. |
 | WinRT interfaces and classes | Not started | Required before default-style `tool_bindings` requests. |
 | Package output | Not started | Requires stable filtering, layout, and formatting first. |
@@ -275,6 +276,9 @@ standard required before claiming the replacement is objectively better overall.
 
 ## Next checkpoint
 
-Add formatting plus file writing behind the structured request API. A thin adapter for the simple
-sys request files can follow. General member-filter grammar, default/rich style, WinRT
-interfaces/classes, and package generation remain later independent milestones.
+Pilot `SysRequest` in `tool_bindings` only after deciding whether byte-identical macro whitespace
+is required. The old formatter has a separate macro-body whitespace scanner, and current output
+also differs in non-semantic function-pointer parameter names and rustfmt-added trailing commas.
+Bindgen2 normalizes those differences in the nine-request proof rather than copying formatter
+complexity or causing generated-file churn. General member-filter grammar, default/rich style,
+WinRT interfaces/classes, and package generation remain later independent milestones.

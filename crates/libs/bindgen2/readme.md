@@ -3,16 +3,17 @@
 An unpublished replacement candidate for `windows-bindgen`.
 
 The crate is developed beside the existing generator and uses `windows-metadata2` directly.
-`Metadata` owns one validated database, and each `Generator` request shares it through one
-root-level reference count while retaining only typed metadata entities. A separate owned value
+`Metadata` owns one validated database, and each `Generator` request shares it and the immutable
+native relationship catalogs while retaining only typed metadata entities. A separate owned value
 graph now renders the complete committed
 WinRT enum and struct corpus. The first flat Win32 layer selects constants and functions without
 copying per-item namespaces and renders the complete committed constant and function corpus. It
 also lowers the 30,109 top-level native aliases, enums, structs, and unions through a separate
 per-item model. A bounded output layer groups these supported items into deterministic namespace
 modules and matches the existing nested-module golden output. Filters, dependency closure, nested
-native types, native delegates, native interfaces, and flat output are implemented. Rich
-projection, member-level filters, file writing, and package output remain future layers.
+native types, native delegates, native interfaces, flat output, rustfmt formatting, and
+change-aware file writing are implemented. Rich projection, member-level filters, and package
+output remain future layers.
 
 Corpus inventory found 1,054 architecture-specific top-level rows, of which 997 are selected
 native enum/struct definitions, and 2,633 nested native structs under 1,925 direct parents.
@@ -56,9 +57,10 @@ coalesced backing fields without accessors. Sys handle aliases already follow na
 policy, including the one primitive `Value` shape lacking `NativeTypedefAttribute`.
 
 This request boundary allows tools with many filter files to parse and index metadata once. It
-does not add per-row reference counting or change metadata identities. The compatibility CLI and
-file-writing API remain deferred until filtering and dependency closure can make each request
-selective.
+does not add per-row reference counting or change metadata identities. `SysRequest` reads the
+strict `--out`/`--flat`/`--sys`/bare-filter subset used by nine current `tool_bindings` requests.
+Other legacy request syntax is rejected rather than approximated. A general compatibility CLI
+remains deferred.
 
 `Options` currently exposes only the implemented layout choice: nested namespace modules or flat
 output. Flat generation rejects names contributed by different namespaces rather than emitting
@@ -74,6 +76,13 @@ and string grammar remain separate future layers.
 Each request stores its selected WinRT and Win32 typed entities. Repeated writes borrow that
 selection instead of scanning the metadata database again. Native projected models are still
 lowered one item at a time and discarded after rendering.
+
+`Generator::format` runs rustfmt with Rust 2024 and Unix newlines. `Generator::write_file` creates
+parent directories, avoids rewriting unchanged files, and reports formatter and filesystem errors.
+The old generator performs additional cosmetic tightening inside macro bodies; bindgen2 does not
+copy that scanner yet. Function-pointer parameter names and rustfmt-added trailing commas also
+differ without changing ABI. Adapter comparisons normalize those three textual differences rather
+than claiming byte-identical files.
 
 Filtered Win32 requests close transitively over supported native definitions referenced by field
 and method signatures. This includes aliases, enums, structs, delegates, interfaces, base

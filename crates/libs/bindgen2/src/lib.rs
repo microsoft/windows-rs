@@ -13,6 +13,7 @@ use windows_metadata2::{
 mod enum_model;
 mod error;
 mod filter;
+mod format;
 mod guid;
 mod model;
 mod native;
@@ -25,6 +26,7 @@ mod native_interface;
 mod native_signature;
 mod native_type;
 mod output;
+mod request;
 mod struct_model;
 mod tokens;
 mod ty;
@@ -39,6 +41,7 @@ pub use native_delegate::Delegate;
 pub use native_function::Function;
 pub use native_interface::NativeInterface;
 pub use native_type::{NativeType, NativeTypeKind};
+pub use request::SysRequest;
 pub use struct_model::Struct;
 pub use win32::Win32Items;
 
@@ -598,6 +601,84 @@ mod tests {
             generator.write().unwrap().to_string(),
             generator.write_flat().unwrap().to_string()
         );
+    }
+
+    #[test]
+    fn formatted_output_is_valid_and_unchanged_files_are_not_rewritten() {
+        let metadata = fixture_metadata(
+            r#"
+                #[win32]
+                mod Test {
+                    const VALUE: u32 = 42;
+                }
+            "#,
+        );
+        let generator = metadata.generator().unwrap();
+        let formatted = generator.format().unwrap();
+        let parsed: TokenStream = formatted.parse().unwrap();
+        assert_eq!(parsed.to_string(), generator.write().unwrap().to_string());
+        assert!(formatted.ends_with('\n'));
+
+        let path = std::env::temp_dir().join(format!(
+            "windows-bindgen2-{}-{}.rs",
+            std::process::id(),
+            NEXT_FIXTURE.fetch_add(1, Ordering::Relaxed)
+        ));
+        assert!(generator.write_file(&path).unwrap());
+        assert!(!generator.write_file(&path).unwrap());
+        assert_eq!(std::fs::read_to_string(&path).unwrap(), formatted);
+        std::fs::remove_file(path).unwrap();
+    }
+
+    #[test]
+    fn simple_sys_requests_write_relative_outputs_and_reject_other_options() {
+        let root = std::env::temp_dir().join(format!(
+            "windows-bindgen2-request-{}-{}",
+            std::process::id(),
+            NEXT_FIXTURE.fetch_add(1, Ordering::Relaxed)
+        ));
+        std::fs::create_dir(&root).unwrap();
+        let request_path = root.join("request.txt");
+        std::fs::write(
+            &request_path,
+            "--out bindings.rs\n--flat --sys\n--filter\nVALUE\n",
+        )
+        .unwrap();
+        let metadata = fixture_metadata(
+            r#"
+                #[win32]
+                mod Test {
+                    const VALUE: u32 = 42;
+                }
+            "#,
+        );
+        let request = SysRequest::read(&request_path).unwrap();
+        assert_eq!(request.output(), std::path::Path::new("bindings.rs"));
+        assert!(request.write(&metadata, &root).unwrap());
+        assert!(!request.write(&metadata, &root).unwrap());
+
+        std::fs::write(
+            &request_path,
+            "--out bindings.rs\n--flat --sys --derive Debug\n",
+        )
+        .unwrap();
+        assert!(matches!(
+            SysRequest::read(&request_path),
+            Err(Error::InvalidRequest { line: 2, .. })
+        ));
+        std::fs::write(
+            &request_path,
+            "--out ../bindings.rs\n--flat --sys\n--filter\nVALUE\n",
+        )
+        .unwrap();
+        assert!(matches!(
+            SysRequest::read(&request_path),
+            Err(Error::InvalidRequest { line: 1, .. })
+        ));
+
+        std::fs::remove_file(root.join("bindings.rs")).unwrap();
+        std::fs::remove_file(request_path).unwrap();
+        std::fs::remove_dir(root).unwrap();
     }
 
     #[test]
@@ -1418,45 +1499,23 @@ mod tests {
             "version.txt",
         ] {
             let request_path = root.join("crates/tools/bindings/src").join(request);
-            let request_text = std::fs::read_to_string(&request_path).unwrap();
-            let mut output = None;
-            let mut filters = Vec::new();
-            let mut reading_filters = false;
-            for line in request_text.lines().map(str::trim) {
-                if let Some(path) = line.strip_prefix("--out ") {
-                    output = Some(path.to_string());
-                    reading_filters = false;
-                } else if line == "--filter" {
-                    reading_filters = true;
-                } else if line.starts_with("--") {
-                    reading_filters = false;
-                } else if reading_filters && !line.is_empty() && !line.starts_with('#') {
-                    assert!(
-                        line.bytes()
-                            .all(|byte| byte == b'_' || byte.is_ascii_alphanumeric()),
-                        "{request} requires unsupported filter syntax: {line}"
-                    );
-                    filters.push(line.to_string());
-                }
-            }
-            let actual = metadata
-                .generator_with_filter(
-                    Options {
-                        layout: Layout::Flat,
-                    },
-                    Filter::names(filters),
-                )
-                .unwrap()
-                .write()
-                .unwrap();
-            let expected: TokenStream = std::fs::read_to_string(root.join(output.unwrap()))
+            let sys_request = SysRequest::read(request_path).unwrap();
+            let generator = sys_request.generator(&metadata).unwrap();
+            let actual = generator.write().unwrap();
+            let formatted: TokenStream = generator.format().unwrap().parse().unwrap();
+            let expected: TokenStream = std::fs::read_to_string(root.join(sys_request.output()))
                 .unwrap()
                 .parse()
                 .unwrap();
             assert_eq!(
-                normalize_fn_parameters(actual),
-                normalize_fn_parameters(expected),
+                normalize_fn_parameters(actual.clone()),
+                normalize_fn_parameters(expected.clone()),
                 "{request} differs"
+            );
+            assert_eq!(
+                normalize_fn_parameters(formatted),
+                normalize_fn_parameters(expected),
+                "{request} formatted output differs"
             );
         }
     }
