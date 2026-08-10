@@ -6,7 +6,8 @@ use std::{
 };
 use windows_metadata2::{
     AnyRowId, AttributeArgument, AttributeValue, ConstantValue, Database, Entity, FileId, Image,
-    MethodSignature, TypeAttributes, TypeCategory, TypeDefinition, TypeKind, TypeResolution,
+    MethodSignature, TypeAttributes, TypeCategory, TypeDefinition, TypeIdentity, TypeKind,
+    TypeResolution,
     tables::{Field, MethodDef, TypeDef},
 };
 
@@ -29,6 +30,7 @@ mod struct_model;
 mod tokens;
 mod ty;
 mod win32;
+mod winrt_class;
 mod winrt_delegate;
 mod winrt_interface;
 
@@ -52,6 +54,7 @@ enum WinrtKind {
     Struct,
     Delegate,
     Interface,
+    Class,
 }
 
 /// Generated Rust output layout.
@@ -94,6 +97,7 @@ struct InterfaceBase {
     file: FileId,
     entity: Entity<TypeDef>,
     arguments: Vec<windows_metadata2::Type>,
+    default: bool,
 }
 
 /// Owns a reusable validated metadata database.
@@ -112,7 +116,7 @@ struct Shared {
     database: Database,
     winrt_entries: Vec<(String, String, WinrtEntry)>,
     values: Values,
-    interface_bases: BTreeMap<Entity<TypeDef>, Vec<InterfaceBase>>,
+    interface_relationships: BTreeMap<Entity<TypeDef>, Vec<InterfaceBase>>,
     win32_catalogs: Arc<win32::Win32Catalogs>,
 }
 
@@ -129,14 +133,14 @@ impl Metadata {
     pub fn new(database: Database) -> Result<Self, Error> {
         let winrt_entries = winrt_entries(&database)?;
         let values = Values::lower(&database, &winrt_entries)?;
-        let interface_bases = interface_bases(&database)?;
+        let interface_relationships = interface_relationships(&database)?;
         let win32_catalogs = Arc::new(win32::Win32Catalogs::new(&database)?);
         Ok(Self {
             shared: Arc::new(Shared {
                 database,
                 winrt_entries,
                 values,
-                interface_bases,
+                interface_relationships,
                 win32_catalogs,
             }),
         })
@@ -208,7 +212,14 @@ impl Generator {
                 WinrtKind::Interface => winrt_interface::Interface::lower(
                     &shared.database,
                     definition,
-                    &shared.interface_bases,
+                    &shared.interface_relationships,
+                    &format!("{namespace}.{name}"),
+                )?
+                .dependencies(),
+                WinrtKind::Class => winrt_class::Class::lower(
+                    &shared.database,
+                    definition,
+                    &shared.interface_relationships,
                     &format!("{namespace}.{name}"),
                 )?
                 .dependencies(),
@@ -261,10 +272,14 @@ fn winrt_entries(database: &Database) -> Result<Vec<(String, String, WinrtEntry)
             }
             TypeCategory::Delegate => WinrtKind::Delegate,
             TypeCategory::Interface => WinrtKind::Interface,
+            TypeCategory::Class => WinrtKind::Class,
             _ => continue,
         };
         let name = definition.name()?;
-        let name = if matches!(kind, WinrtKind::Delegate | WinrtKind::Interface) {
+        let name = if matches!(
+            kind,
+            WinrtKind::Delegate | WinrtKind::Interface | WinrtKind::Class
+        ) {
             name.split_once('`').map_or(name, |(name, _)| name)
         } else {
             name
@@ -285,27 +300,28 @@ fn winrt_entries(database: &Database) -> Result<Vec<(String, String, WinrtEntry)
     Ok(entries)
 }
 
-fn interface_bases(
+fn interface_relationships(
     database: &Database,
 ) -> Result<BTreeMap<Entity<TypeDef>, Vec<InterfaceBase>>, Error> {
     let mut result = BTreeMap::<Entity<TypeDef>, Vec<InterfaceBase>>::new();
-    for relationship in database.interface_implementations() {
-        let (owner, identity) = relationship?;
-        if owner.category()? != TypeCategory::Interface {
-            continue;
-        }
+    for relationship in database.interface_relationships() {
+        let owner = relationship.owner()?;
+        let identity = relationship.interface()?;
+        let default = relationship.has_attribute("DefaultAttribute")?;
         let owner_name = format!("{}.{}", owner.namespace()?, owner.name()?);
         let base = match database.resolve_type(identity.file, identity.ty)? {
             TypeResolution::Definition(entity) => Some(InterfaceBase {
                 file: identity.file,
                 entity,
                 arguments: Vec::new(),
+                default,
             }),
             TypeResolution::Candidates(candidates) => {
                 candidates.first().map(|entity| InterfaceBase {
                     file: identity.file,
                     entity,
                     arguments: Vec::new(),
+                    default,
                 })
             }
             TypeResolution::Specification(entity) => {
@@ -334,6 +350,7 @@ fn interface_bases(
                     file: identity.file,
                     entity,
                     arguments,
+                    default,
                 })
             }
         };

@@ -92,6 +92,7 @@ impl<'a> TypeDefinition<'a> {
         if self.type_attributes()?.contains(TypeAttributes::INTERFACE) {
             return Ok(TypeCategory::Interface);
         }
+
         let Some(extends) = self.row()?.coded(3)? else {
             return Ok(TypeCategory::Class);
         };
@@ -109,6 +110,14 @@ impl<'a> TypeDefinition<'a> {
         } else {
             TypeCategory::Class
         })
+    }
+
+    /// Returns the base type identity, when present.
+    pub fn base_type(self) -> Result<Option<TypeIdentity>, Error> {
+        Ok(self.row()?.coded(3)?.map(|ty| TypeIdentity {
+            file: self.entity.file(),
+            ty,
+        }))
     }
 
     /// Iterates the fields declared by this type.
@@ -670,7 +679,7 @@ impl<'a> MethodDefinition<'a> {
     }
 }
 
-fn custom_attributes<'a, T: Table>(
+pub(super) fn custom_attributes<'a, T: Table>(
     database: &'a Database,
     entity: Entity<T>,
 ) -> Result<impl ExactSizeIterator<Item = AttributeDefinition<'a>>, Error> {
@@ -689,7 +698,7 @@ fn custom_attributes<'a, T: Table>(
         }))
 }
 
-fn find_custom_attribute<'a>(
+pub(super) fn find_custom_attribute<'a>(
     attributes: impl IntoIterator<Item = AttributeDefinition<'a>>,
     name: &str,
 ) -> Result<Option<AttributeDefinition<'a>>, Error> {

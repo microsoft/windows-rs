@@ -118,7 +118,7 @@ fn values_are_deterministic_and_borrow_database_names() {
         counts[match item.2 {
             WinrtKind::Enum => 0,
             WinrtKind::Struct => 1,
-            WinrtKind::Delegate | WinrtKind::Interface => unreachable!(),
+            WinrtKind::Delegate | WinrtKind::Interface | WinrtKind::Class => unreachable!(),
         }] += 1;
         counts
     });
@@ -341,6 +341,7 @@ fn winrt_delegates_match_existing_golden_tokens() {
                 .replace(":: <", "::<")
                 .replace("> ::", ">::")
                 .replace("> ,", ">,")
+                .replace(">, >", "> >")
                 .replace(" , {", " {")
                 .replace(" , }", " }"),
             normalize_fn_parameters(expected)
@@ -384,6 +385,8 @@ fn winrt_interfaces_match_existing_golden_tokens() {
                 .replace(":: <", "::<")
                 .replace("> ::", ">::")
                 .replace("> ,", ">,")
+                .replace(">, >", "> >")
+                .replace("> >", ">>")
                 .replace("& 'static", "&'static")
                 .replace("& *", "&*")
                 .replace("& <", "&<")
@@ -420,7 +423,7 @@ fn winrt_interface_corpus_lowers_and_renders() {
         let result = winrt_interface::Interface::lower(
             &generator.shared.database,
             definition,
-            &generator.shared.interface_bases,
+            &generator.shared.interface_relationships,
             &format!("{namespace}.{name}"),
         )
         .and_then(|model| model.write(values, namespace, Layout::Modules));
@@ -493,6 +496,290 @@ fn generic_required_interface_substitutes_method_types() {
     assert!(output.contains("pub trait IDerived_Impl : IBase_Impl < i32 > + IMiddle_Impl < i32 >"));
     let normalized = normalize_fn_parameters(output.parse().unwrap());
     assert!(normalized.contains("pub fn Get (& self) -> windows_core :: Result < i32 >"));
+}
+
+#[test]
+fn winrt_classes_match_existing_golden_tokens() {
+    for (name, source, expected, layout) in [
+        (
+            "class",
+            include_str!("../../../tests/libs/bindgen/input/class.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/class.rs"),
+            Layout::Flat,
+        ),
+        (
+            "class_hierarchy",
+            include_str!("../../../tests/libs/bindgen/input/class_hierarchy.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/class_hierarchy.rs"),
+            Layout::Modules,
+        ),
+        (
+            "class_static",
+            include_str!("../../../tests/libs/bindgen/input/class_static.rdl"),
+            include_str!("../../../tests/libs/bindgen/expected/class_static.rs"),
+            Layout::Flat,
+        ),
+    ] {
+        let normalize = |tokens| {
+            normalize_fn_parameters(tokens)
+                .replace(":: <", "::<")
+                .replace("> ::", ">::")
+                .replace("> ,", ">,")
+                .replace(">, >", "> >")
+                .replace("> >", ">>")
+                .replace("& 'static", "&'static")
+                .replace("& *", "&*")
+                .replace("& <", "&<")
+                .replace("? ;", "?;")
+                .replace(
+                    "Err (err) => err . into () }",
+                    "Err (err) => err . into () , }",
+                )
+        };
+        assert_eq!(
+            normalize(fixture(source).render(layout).unwrap()),
+            normalize(expected.parse().unwrap()),
+            "{name}"
+        );
+    }
+}
+
+#[test]
+fn winrt_class_corpus_lowers_and_renders() {
+    let generator = generator();
+    let values = generator.lower_values();
+    let mut count = 0;
+    let mut no_default = 0;
+    let mut default_activatable = 0;
+    let mut factory_activatable = 0;
+    let mut static_factories = 0;
+    let mut composable_factories = 0;
+    let mut derived = 0;
+    let mut agile = 0;
+    let mut async_defaults = 0;
+    let mut unsupported = Vec::new();
+    for entry in generator
+        .winrt
+        .iter()
+        .filter(|entry| entry.kind == WinrtKind::Class)
+    {
+        let definition = generator.shared.database.definition(entry.entity).unwrap();
+        let namespace = definition.namespace().unwrap();
+        let name = definition.name().unwrap();
+        let default = generator
+            .shared
+            .interface_relationships
+            .get(&entry.entity)
+            .and_then(|relationships| relationships.iter().find(|item| item.default));
+        no_default += usize::from(default.is_none());
+        if let Some(default) = default {
+            let name = generator
+                .shared
+                .database
+                .definition(default.entity)
+                .unwrap()
+                .name()
+                .unwrap();
+            async_defaults += usize::from(matches!(
+                trim_generic_arity(name),
+                "IAsyncAction"
+                    | "IAsyncActionWithProgress"
+                    | "IAsyncOperation"
+                    | "IAsyncOperationWithProgress"
+            ));
+        }
+        if let Some(base) = definition.base_type().unwrap()
+            && let Some((base_namespace, base_name)) = generator
+                .shared
+                .database
+                .type_name(base.file, base.ty)
+                .unwrap()
+        {
+            derived += usize::from(!(base_namespace == "System" && base_name == "Object"));
+        }
+        for attribute in definition.attributes().unwrap() {
+            match attribute.name().unwrap() {
+                Some("ActivatableAttribute") => {
+                    let has_factory = attribute.arguments(&()).unwrap().iter().any(|argument| {
+                        matches!(
+                            argument,
+                            AttributeArgument::Fixed {
+                                value: AttributeValue::TypeName(_),
+                                ..
+                            }
+                        )
+                    });
+                    factory_activatable += usize::from(has_factory);
+                    default_activatable += usize::from(!has_factory);
+                }
+                Some("StaticAttribute") => static_factories += 1,
+                Some("ComposableAttribute") => composable_factories += 1,
+                Some("MarshalingBehaviorAttribute") => {
+                    agile +=
+                        usize::from(attribute.arguments(&()).unwrap().iter().any(|argument| {
+                            matches!(
+                                argument,
+                                AttributeArgument::Fixed {
+                                    value: AttributeValue::Enum { value, .. },
+                                    ..
+                                } if matches!(value.as_ref(), AttributeValue::I32(2))
+                            )
+                        }));
+                }
+                _ => {}
+            }
+        }
+        let result = winrt_class::Class::lower(
+            &generator.shared.database,
+            definition,
+            &generator.shared.interface_relationships,
+            &format!("{namespace}.{name}"),
+        )
+        .and_then(|model| model.write(values, namespace, Layout::Modules));
+        if let Err(error) = result {
+            unsupported.push((format!("{namespace}.{name}"), error.to_string()));
+        }
+        count += 1;
+    }
+    assert_eq!(count, 4_516);
+    assert_eq!(
+        (
+            no_default,
+            default_activatable,
+            factory_activatable,
+            static_factories,
+            composable_factories,
+            derived,
+            agile,
+            async_defaults,
+        ),
+        (257, 719, 415, 1564, 374, 718, 4116, 10)
+    );
+    assert!(unsupported.is_empty(), "{unsupported:#?}");
+}
+
+#[test]
+fn filtered_winrt_classes_close_hierarchy_and_factory_dependencies() {
+    for (source, filter, required) in [
+        (
+            include_str!("../../../tests/libs/bindgen/input/class_hierarchy.rdl"),
+            "Leaf",
+            &["Base", "Middle", "Leaf", "IBase", "IMiddle", "ILeaf"][..],
+        ),
+        (
+            include_str!("../../../tests/libs/bindgen/input/class_static.rdl"),
+            "Class",
+            &["Class", "IClass", "IClassStatics"][..],
+        ),
+    ] {
+        let metadata = fixture_metadata(source);
+        let generator = metadata
+            .generator(Request::filtered(Filter::names([filter])))
+            .unwrap();
+        let output = generator.render(Layout::Flat).unwrap().to_string();
+        for name in required {
+            assert!(output.contains(name), "{name}");
+        }
+    }
+}
+
+#[test]
+fn winrt_class_special_policies_render() {
+    let metadata = Metadata::new(
+        Database::new([
+            Image::new(windows_default::WINRT).unwrap(),
+            Image::new(windows_default::WIN32).unwrap(),
+        ])
+        .unwrap(),
+    )
+    .unwrap();
+
+    let output = metadata
+        .generator(Request::filtered(Filter::names([
+            "DeleteSmsMessageOperation",
+        ])))
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+    assert!(
+        output.contains("pub type DeleteSmsMessageOperation = windows_future :: IAsyncAction"),
+        "{output}"
+    );
+
+    let output = metadata
+        .generator(Request::filtered(Filter::names(["HtmlUtilities"])))
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+    assert!(output.contains("pub struct HtmlUtilities ;"), "{output}");
+    assert!(output.contains("pub fn ConvertToText"), "{output}");
+
+    let output = metadata
+        .generator(Request::filtered(Filter::names(["SmsAppMessage"])))
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+    assert!(
+        output.contains("unsafe impl Send for SmsAppMessage"),
+        "{output}"
+    );
+    assert!(
+        output.contains("unsafe impl Sync for SmsAppMessage"),
+        "{output}"
+    );
+
+    let output = fixture(
+        r#"
+            #[winrt]
+            mod Test {
+                class FakeAsync {
+                    IAsyncAction,
+                }
+                interface IAsyncAction {}
+            }
+        "#,
+    )
+    .render(Layout::Flat)
+    .unwrap()
+    .to_string();
+    assert!(output.contains("pub struct FakeAsync"), "{output}");
+    assert!(!output.contains("pub type FakeAsync"), "{output}");
+}
+
+#[test]
+fn winrt_class_preserves_closed_generic_interfaces() {
+    let output = fixture(
+        r#"
+            #[winrt]
+            mod Test {
+                class Class {
+                    IClass,
+                    IValue<i32>,
+                    IValue<u32>,
+                }
+                interface IClass {}
+                interface IValue<T> {
+                    fn Value(&self) -> T;
+                }
+            }
+        "#,
+    )
+    .render(Layout::Flat)
+    .unwrap()
+    .to_string();
+
+    assert!(output.contains("required_hierarchy ! (Class , IValue < i32 > , IValue < u32 >)"));
+    assert!(
+        output.contains("pub fn Value (& self ,) -> windows_core :: Result < i32 >"),
+        "{output}"
+    );
+    assert!(
+        output.contains("pub fn Value2 (& self ,) -> windows_core :: Result < u32 >"),
+        "{output}"
+    );
 }
 
 #[test]

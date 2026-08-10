@@ -8,13 +8,14 @@ pub(super) struct Interface {
     namespace: String,
     generics: Vec<String>,
     guid: guid::Guid,
+    exclusive: bool,
     methods: Vec<NamedMethod>,
     required: Vec<RequiredInterface>,
 }
 
-struct NamedMethod {
-    name: String,
-    method: winrt_delegate::Method,
+pub(super) struct NamedMethod {
+    pub(super) name: String,
+    pub(super) method: winrt_delegate::Method,
 }
 
 struct RequiredInterface {
@@ -64,11 +65,13 @@ impl Interface {
                 name: owner.to_string(),
                 message: "interface has no GUID",
             })?;
+        let exclusive = definition.has_attribute("ExclusiveToAttribute")?;
         Ok(Self {
             name,
             namespace,
             generics,
             guid,
+            exclusive,
             methods,
             required,
         })
@@ -238,6 +241,13 @@ impl Interface {
                 }
             }
         };
+        if self.exclusive {
+            let vtable = self.write_vtable_struct(values, namespace, layout, &vtbl_name)?;
+            return Ok(quote! {
+                #definition
+                #vtable
+            });
+        }
         let hierarchy = generic_names.is_empty().then(|| {
             quote! {
                 windows_core::imp::interface_hierarchy!(
@@ -323,15 +333,20 @@ impl Interface {
             })
             .collect::<Result<Vec<_>, Error>>()?;
         let vtable = self.write_vtable(values, namespace, layout, &name, &vtbl_name, &impl_name)?;
+        let methods_impl = (!methods.is_empty() || !inherited_methods.is_empty()).then(|| {
+            quote! {
+                impl #constrained_generics #name #type_arguments {
+                    #(#methods)*
+                    #(#inherited_methods)*
+                }
+            }
+        });
 
         Ok(quote! {
             #definition
             #hierarchy
             #required_hierarchy
-            impl #constrained_generics #name #type_arguments {
-                #(#methods)*
-                #(#inherited_methods)*
-            }
+            #methods_impl
             impl #constrained_generics windows_core::RuntimeName for #name #type_arguments {
                 const NAME: &'static str = #runtime_name;
                 #runtime_class_name
@@ -371,11 +386,6 @@ impl Interface {
         } else {
             quote! { <#(#constraints),*> }
         };
-        let generic_where = if constraints.is_empty() {
-            quote! {}
-        } else {
-            quote! { where #(#constraints),* }
-        };
         let functions = self
             .methods
             .iter()
@@ -409,26 +419,10 @@ impl Interface {
             let name = tokens::ident(&method.name);
             quote! { #name: #name::<#(#generic_names,)* Identity, OFFSET>, }
         });
-        let fields = self
-            .methods
-            .iter()
-            .map(|method| {
-                let name = tokens::ident(&method.name);
-                let signature =
-                    method
-                        .method
-                        .write_abi_signature(values, namespace, layout, &self.generics)?;
-                Ok(quote! {
-                    pub #name: unsafe extern "system" fn(#signature) -> windows_core::HRESULT,
-                })
-            })
-            .collect::<Result<Vec<_>, Error>>()?;
-        let phantom_fields = generic_names
-            .iter()
-            .map(|name| quote! { #name: core::marker::PhantomData<#name>, });
         let phantom_values = generic_names
             .iter()
             .map(|name| quote! { #name: core::marker::PhantomData::<#name>, });
+        let vtable = self.write_vtable_struct(values, namespace, layout, vtbl_name)?;
         Ok(quote! {
             impl #constrained_generics #vtbl_name #type_arguments {
                 pub const fn new<
@@ -450,6 +444,54 @@ impl Interface {
                     iid == &<#name #type_arguments as windows_core::Interface>::IID
                 }
             }
+            #vtable
+        })
+    }
+
+    fn write_vtable_struct(
+        &self,
+        values: &Values,
+        namespace: &str,
+        layout: Layout,
+        vtbl_name: &TokenStream,
+    ) -> Result<TokenStream, Error> {
+        let generic_names = self
+            .generics
+            .iter()
+            .map(|name| tokens::ident(name))
+            .collect::<Vec<_>>();
+        let constraints = generic_names
+            .iter()
+            .map(|name| quote! { #name: windows_core::RuntimeType + 'static })
+            .collect::<Vec<_>>();
+        let type_arguments = if generic_names.is_empty() {
+            quote! {}
+        } else {
+            quote! { <#(#generic_names),*> }
+        };
+        let generic_where = if constraints.is_empty() {
+            quote! {}
+        } else {
+            quote! { where #(#constraints),* }
+        };
+        let fields = self
+            .methods
+            .iter()
+            .map(|method| {
+                let name = tokens::ident(&method.name);
+                let signature =
+                    method
+                        .method
+                        .write_abi_signature(values, namespace, layout, &self.generics)?;
+                Ok(quote! {
+                    pub #name: unsafe extern "system" fn(#signature) -> windows_core::HRESULT,
+                })
+            })
+            .collect::<Result<Vec<_>, Error>>()?;
+        let phantom_fields = generic_names
+            .iter()
+            .map(|name| quote! { #name: core::marker::PhantomData<#name>, });
+        Ok(quote! {
             #[repr(C)]
             pub struct #vtbl_name #type_arguments #generic_where {
                 pub base__: windows_core::IInspectable_Vtbl,
@@ -502,7 +544,7 @@ impl RequiredInterface {
     }
 }
 
-fn lower_methods(
+pub(super) fn lower_methods(
     database: &Database,
     definition: TypeDefinition<'_>,
     owner: &str,

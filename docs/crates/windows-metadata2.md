@@ -15,6 +15,7 @@ yet a full replacement for metadata writing, merging, remapping, or every ECMA t
 | Exact top-level TypeDef index | Complete; nested definitions remain relationship-driven. |
 | Signature and custom-attribute decoding | Complete for current bindgen2 and RDL2 paths. |
 | Layout, import, nested-type, and interface relationships | Complete for current bindgen2 paths. |
+| Base types and attributed interface implementations | Complete for WinRT class projection. |
 | Writer | Limited to the current seven tables and 16-bit indexes. |
 | Merge/remap and validation profiles | Not implemented. |
 | Pointer tables and broader table families | Not implemented. |
@@ -502,6 +503,12 @@ corpus test. Bindgen2 retains 30,109 top-level native type entities and lowers e
 while rendering. The corpus contains 12,666 aliases, 4,728 enums, and 12,715 structs or unions.
 This proves that fixed arrays, explicit unions, alignment, and packing do not require a global
 native type graph.
+
+WinRT class projection added two checked semantic surfaces without exposing raw table joins.
+`TypeDefinition::base_type` resolves the `Extends` identity, and
+`Database::interface_relationships` yields `InterfaceImplementation` values with checked owner,
+implemented type, and custom attributes. Bindgen2 uses the relationship attributes to identify the
+default interface instead of depending on metadata row order.
 
 The count does not establish full output equivalence. Architecture variants, nested native types,
 bitfield accessors, handles, native delegates, and interfaces still need independent policy and

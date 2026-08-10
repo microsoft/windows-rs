@@ -460,6 +460,57 @@ impl Method {
         })
     }
 
+    pub(super) fn write_static_method(
+        &self,
+        context: &MethodContext<'_>,
+        public_name: &str,
+        abi_name: &str,
+        factory_name: &str,
+        class_namespace: &str,
+        class_name: &str,
+    ) -> Result<TokenStream, Error> {
+        let public_name = tokens::ident(public_name);
+        let abi_name = tokens::ident(abi_name);
+        let factory_name = tokens::ident(factory_name);
+        let signature = self.write_public_signature(
+            context.values,
+            context.namespace,
+            context.layout,
+            context.generics,
+        )?;
+        let call = self.write_public_call(
+            context.values,
+            context.namespace,
+            context.layout,
+            context.generics,
+            &abi_name,
+            &quote! { this },
+        )?;
+        let method_generics = if signature.generic_params.is_empty() {
+            quote! {}
+        } else {
+            let generics = signature.generic_params;
+            quote! { <#generics> }
+        };
+        let parameters = signature.parameters;
+        let where_clause = signature.where_clause;
+        let return_type = match &self.return_type {
+            ty::Type::Named {
+                namespace, name, ..
+            } if namespace == class_namespace && name == class_name => {
+                quote! { -> windows_core::Result<Self> }
+            }
+            _ => signature.return_type,
+        };
+        Ok(quote! {
+            pub fn #public_name #method_generics(#(#parameters)*) #return_type
+            #where_clause
+            {
+                Self::#factory_name(|this| #call)
+            }
+        })
+    }
+
     pub(super) fn write_impl_signature(
         &self,
         values: &Values,

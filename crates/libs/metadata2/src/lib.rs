@@ -33,5 +33,6 @@ pub use image::*;
 pub use row::*;
 pub use schema::*;
 pub use semantic::*;
+pub use semantic_interface::*;
 pub use semantic_layout::*;
 pub use signature::*;

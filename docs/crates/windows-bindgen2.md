@@ -19,7 +19,7 @@ so every output layer can be compared before migration.
 ## Milestone status
 
 The current milestone proves the native sys path, reusable request boundary, both layouts, and
-WinRT value, delegate, and interface projection.
+WinRT value, delegate, interface, and class projection.
 
 | Area | Status | Evidence or blocker |
 | --- | --- | --- |
@@ -32,12 +32,12 @@ WinRT value, delegate, and interface projection.
 | Filtered WinRT values | Complete for enums and structs | Transitive value dependencies are selected; recursive values remain errors. |
 | WinRT delegates | Full corpus | All 137 definitions lower and render; focused default-style output matches. |
 | WinRT interfaces | Full structural corpus | All 8,105 definitions lower and render; focused ordinary, generic, and required-interface output matches. |
+| WinRT classes | Full structural corpus | All 4,516 definitions lower and render; focused activation, hierarchy, static, async, and agile policy is covered. |
 | ABI canonicalization | Consolidated for native sys | Namespace-qualified aliases and one callable lowering path match all nine requests. |
 | Request reuse | Complete for current catalogs | The database, nested map, and interface-base map are shared across requests. |
 | Formatting and file writing | Tool policy | Kept outside the projection core. |
 | Sys request differential | Complete | A test-local parser proves nine real request files. |
-| Rich/minimal projection | Not started | Native sys is the only complete production-style surface. |
-| WinRT classes | Not started | Classes are the next bounded projection milestone. |
+| Projection styles | Not started | Minimal and implementation output require separate request policy. |
 | Package output | Not started | Requires stable filtering, layout, and formatting first. |
 
 Approximate hand-written Rust source size is 7,580 lines for bindgen2 versus 12,829 for the
@@ -254,8 +254,8 @@ functions, enum members, and union `Default` implementations are each independen
 
 The direction remains better than the current generator, but it is not yet a replacement:
 
-- bindgen2 remains much smaller than bindgen, but it does not yet include WinRT interfaces and
-  classes, rich native policy, member-level filters, file writing, or packages;
+- bindgen2 remains smaller than bindgen, but it does not yet include minimal/implementation style,
+  rich native policy, member-level filters, file writing, or packages;
 - metadata2 owns data, uses checked typed identities, and avoids the leaked reader, but its source
   is already close to the old metadata crate's raw line count because parsing and differential
   tests are extensive;
@@ -358,5 +358,31 @@ is otherwise materialized only while closing or rendering; no second global proj
 graph is retained.
 
 Exclusive interface suppression and class-owned factory policy belong to class projection rather
-than the interface model. WinRT classes are the next bounded projection milestone. Package output
-remains a separate artifact-planning problem rather than a larger `Layout` variant.
+than the interface model. Package output remains a separate artifact-planning problem rather than
+a larger `Layout` variant.
+
+## WinRT class milestone
+
+WinRT classes reuse the interface relationship catalog and callable model rather than introducing
+a class-wide type graph. The per-class model owns its default and required interfaces, base
+classes, factory interfaces, activation policy, and lowered methods. Filter closure follows those
+same relationships and their callable dependencies.
+
+The committed metadata contains 4,516 classes. Every class lowers and renders, including 257
+classes without default interfaces, 718 derived classes, 719 default activations, 415 factory
+activations, 1,564 static factories, and 374 composable factories. Focused fixtures match existing
+output for ordinary activation, class hierarchy, and static factories.
+
+`DefaultAttribute` is read from the `InterfaceImpl` relationship rather than inferred from row
+order. Classes flatten instance methods, use direct calls for the default interface, cast for
+other instance interfaces, and cache static or activation factories by interface. Classes without
+a default interface remain opaque static types but still expose factory methods.
+
+Marshaling behavior is decoded by enum value rather than by attribute presence: 4,116 classes are
+agile and receive `Send` and `Sync`. The ten classes whose default interface is one of the WinRT
+async interfaces render as aliases to the corresponding `windows_future` type.
+
+Composable non-aggregating constructors use the ordinary factory path. The additional subclassing
+`*_compose` helpers belong with implementation-style policy and remain deferred with minimal
+output. Rich `IIterable` convenience implementations are also deferred until projection style is
+an explicit request option.

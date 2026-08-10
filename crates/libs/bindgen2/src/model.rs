@@ -37,7 +37,7 @@ impl Values {
                 WinrtKind::Struct => {
                     Value::Struct(Struct::lower(database, definition, &full_name)?)
                 }
-                WinrtKind::Delegate | WinrtKind::Interface => continue,
+                WinrtKind::Delegate | WinrtKind::Interface | WinrtKind::Class => continue,
             };
             if namespaces
                 .entry(namespace.clone())
