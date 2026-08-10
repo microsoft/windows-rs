@@ -6,7 +6,7 @@ use test_reactor::{BackendOperation, Op, RecordingBackend};
 use windows_reactor::{
     Button, Component, Context, ControlKind, Element, Expander, KeyExt, Pivot, PivotItem,
     ProvideExt, Reconciler, RenderCx, SplitView, TabItem, TabView, component, error_boundary,
-    text_block, vstack,
+    swap_chain_panel, text_block, vstack,
 };
 
 fn rerender() -> Rc<dyn Fn()> {
@@ -662,6 +662,86 @@ fn failed_child_collection_updates_remain_reachable_for_teardown() {
             "{change:?} did not run cleanup for the retained component"
         );
         reconciler.assert_consistent();
+        reconciler.backend.assert_consistent();
+        assert_eq!(reconciler.backend.live_control_count(), 0);
+    }
+}
+
+#[derive(Clone, PartialEq)]
+struct DestroyProps(bool);
+
+struct DestroyEffect {
+    cleanups: Rc<Cell<u32>>,
+    unmounted: Rc<Cell<u32>>,
+}
+
+impl Component<DestroyProps> for DestroyEffect {
+    fn render(&self, props: &DestroyProps, cx: &mut RenderCx) -> Element {
+        let cleanups = Rc::clone(&self.cleanups);
+        cx.use_effect_with_cleanup((), move || Some(move || cleanups.set(cleanups.get() + 1)));
+
+        if props.0 {
+            return text_block("new").into();
+        }
+
+        let first = Rc::clone(&self.unmounted);
+        let second = Rc::clone(&self.unmounted);
+        vstack((
+            swap_chain_panel().on_unmounted(move |_| first.set(first.get() + 1)),
+            swap_chain_panel().on_unmounted(move |_| second.set(second.get() + 1)),
+        ))
+        .into()
+    }
+}
+
+fn destroy_component(
+    updated: bool,
+    cleanups: &Rc<Cell<u32>>,
+    unmounted: &Rc<Cell<u32>>,
+) -> Element {
+    component(
+        DestroyEffect {
+            cleanups: Rc::clone(cleanups),
+            unmounted: Rc::clone(unmounted),
+        },
+        DestroyProps(updated),
+    )
+}
+
+#[test]
+fn error_boundary_retries_failed_destroy_without_repeating_cleanup() {
+    for occurrence in [1, 2] {
+        let cleanups = Rc::new(Cell::new(0));
+        let unmounted = Rc::new(Cell::new(0));
+        let old = error_boundary(destroy_component(false, &cleanups, &unmounted), |_| {
+            text_block("fallback").into()
+        });
+        let new = error_boundary(destroy_component(true, &cleanups, &unmounted), |_| {
+            text_block("fallback").into()
+        });
+        let mut reconciler = Reconciler::new(RecordingBackend::new());
+        reconciler.reconcile(None, &old, None, rerender());
+        reconciler
+            .backend
+            .fail_on(BackendOperation::Destroy, occurrence);
+
+        assert!(
+            reconciler
+                .reconcile(Some(&old), &new, None, rerender())
+                .is_some(),
+            "destroy occurrence {occurrence} did not mount the fallback"
+        );
+
+        assert_eq!(cleanups.get(), 1);
+        assert_eq!(unmounted.get(), 2);
+        assert_eq!(reconciler.backend.live_control_count(), 1);
+        assert_eq!(reconciler.debug_logical_node_count(), 1);
+        reconciler.assert_consistent();
+        reconciler.backend.assert_consistent();
+
+        reconciler.unmount_root();
+        assert_eq!(cleanups.get(), 1);
+        assert_eq!(unmounted.get(), 2);
         reconciler.backend.assert_consistent();
         assert_eq!(reconciler.backend.live_control_count(), 0);
     }
