@@ -79,6 +79,7 @@ pub struct Reconciler<B: Backend> {
     host: HostContext,
     stats: ReconcileStats,
     root_output: Option<MountedOutput>,
+    root_teardown_failed: bool,
     next_slot_id: u64,
 }
 
@@ -109,6 +110,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             host: HostContext::new(),
             stats: ReconcileStats::default(),
             root_output: None,
+            root_teardown_failed: false,
             next_slot_id: 0,
         }
     }
@@ -275,6 +277,10 @@ impl<B: Backend + 'static> Reconciler<B> {
         existing: Option<ControlId>,
         request_rerender: Rc<dyn Fn()>,
     ) -> Option<ControlId> {
+        assert!(
+            !self.root_teardown_failed,
+            "cannot reconcile while root teardown is incomplete; retry root teardown first"
+        );
         self.host.request_rerender = request_rerender;
         let output = match (old, self.root_output, existing) {
             (Some(old_el), Some(output), _) => {
@@ -574,24 +580,37 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn unmount_root(&mut self) {
-        if let Some(output) = self.root_output.take() {
-            self.unmount_output(output);
+        if let Some(output) = self.root_output {
+            self.teardown_root(output);
+            self.root_output = None;
         }
         #[cfg(debug_assertions)]
         self.assert_consistent_inner();
     }
 
     pub fn unmount(&mut self, id: ControlId) {
-        if self
-            .root_output
-            .is_some_and(|output| output.native == Some(id))
-        {
+        if let Some(output) = self.root_output.filter(|output| output.native == Some(id)) {
+            self.teardown_root(output);
             self.root_output = None;
+        } else {
+            assert!(
+                !self.root_teardown_failed,
+                "cannot unmount another control while root teardown is incomplete"
+            );
+            self.unmount_inner(id);
         }
-
-        self.unmount_inner(id);
         #[cfg(debug_assertions)]
         self.assert_consistent_inner();
+    }
+
+    fn teardown_root(&mut self, output: MountedOutput) {
+        let retry = std::mem::replace(&mut self.root_teardown_failed, true);
+        if retry {
+            self.discard_output(output);
+        } else {
+            self.unmount_output(output);
+        }
+        self.root_teardown_failed = false;
     }
 
     fn unmount_inner(&mut self, id: ControlId) {
