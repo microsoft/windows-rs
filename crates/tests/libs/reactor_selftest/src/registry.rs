@@ -251,6 +251,10 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
         controls_extended::mount_content_dialog,
     ),
     (
+        "Reconciler_ContentDialogChildProjection",
+        controls_extended::content_dialog_child_projection,
+    ),
+    (
         "Reconciler_Mount_DatePicker",
         controls_extended::mount_date_picker,
     ),

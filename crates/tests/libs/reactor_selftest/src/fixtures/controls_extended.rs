@@ -1,12 +1,13 @@
 //! Mount fixtures for widgets not covered in `controls.rs`.
 
-use windows_reactor::text_block;
 use windows_reactor::{
     AutoSuggestBox, CalendarDatePicker, CalendarView, ColorArgb, ColorPicker, CommandBar,
-    ContentDialog, DatePicker, DropDownButton, ListBox, MenuBar, MenuBarItemDef, RatingControl,
-    RelativePanel, RepeatButton, RichEditBox, ScrollView, SelectorBar, SelectorBarItemDef,
-    SplitButton, SplitView, TeachingTip, TimePicker, ToggleButton, TreeNodeDef, TreeView,
+    ContentDialog, DatePicker, DropDownButton, Element, ListBox, MenuBar, MenuBarItemDef,
+    RatingControl, RelativePanel, RepeatButton, RichEditBox, ScrollView, SelectorBar,
+    SelectorBarItemDef, SplitButton, SplitView, TeachingTip, TimePicker, ToggleButton, TreeNodeDef,
+    TreeView,
 };
+use windows_reactor::{button, text_block, vstack};
 
 // Free-function constructors for enum variants
 use windows_reactor::{app_bar_button, menu_item};
@@ -88,6 +89,37 @@ pub fn mount_content_dialog(h: Harness) -> FixtureFuture {
         }));
         h.render().await;
         assert_present!(h, "Reconciler_Mount_ContentDialog", bindings::ContentDialog);
+    })
+}
+
+pub fn content_dialog_child_projection(h: Harness) -> FixtureFuture {
+    Box::pin(async move {
+        h.mount(cc(|cx| {
+            let (show_dialog, set_show_dialog) = cx.use_state(true);
+            let dialog: Element = if show_dialog {
+                ContentDialog::new("Owned-only dialog").into()
+            } else {
+                Element::Empty
+            };
+            vstack((
+                button("Remove dialog").on_click(move || set_show_dialog.call(false)),
+                dialog,
+                text_block("Projected sibling"),
+            ))
+            .into()
+        }));
+        h.render().await;
+        h.check(
+            "Reconciler_ContentDialogChildProjection_InitialSibling",
+            h.find_text("Projected sibling").is_some(),
+        );
+
+        let _ = h.click_button("Remove dialog");
+        h.render().await;
+        h.check(
+            "Reconciler_ContentDialogChildProjection_SiblingPreserved",
+            h.find_text("Projected sibling").is_some(),
+        );
     })
 }
 

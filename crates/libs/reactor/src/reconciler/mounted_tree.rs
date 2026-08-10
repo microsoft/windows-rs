@@ -6,6 +6,8 @@ use crate::reference::NativeElementRef;
 #[derive(Default)]
 pub(super) struct MountedTree {
     children: FxHashMap<ControlId, Vec<ControlId>>,
+    // Sparse because almost every native node projects into its parent's visual collection.
+    owned_only: rustc_hash::FxHashSet<ControlId>,
     logical_children: FxHashMap<ControlId, Vec<MountedOutput>>,
     nodes: FxHashMap<ControlId, MountedNativeNode>,
     headers: FxHashMap<ControlId, MountedOutput>,
@@ -88,12 +90,23 @@ impl MountedTree {
         }
 
         for (id, node) in &self.nodes {
+            assert_eq!(
+                self.owned_only.contains(id),
+                matches!(node.kind, Some(ControlKind::ContentDialog)),
+                "native control {id:?} has the wrong child projection"
+            );
             if node.parent.is_some() {
                 assert!(
                     owned.contains(id),
                     "native control {id:?} has a parent but is absent from its owner's children"
                 );
             }
+        }
+        for id in &self.owned_only {
+            assert!(
+                self.nodes.contains_key(id),
+                "owned-only projection {id:?} has no mounted native node"
+            );
         }
         for id in self.custom.keys() {
             assert!(
@@ -132,12 +145,21 @@ impl MountedTree {
         }
         self.custom.remove(&id);
         self.before_unmount.remove(&id);
+        if matches!(kind, Some(ControlKind::ContentDialog)) {
+            self.owned_only.insert(id);
+        } else {
+            self.owned_only.remove(&id);
+        }
         self.nodes
             .insert(id, MountedNativeNode { kind, parent: None });
     }
 
     pub(super) fn kind(&self, id: ControlId) -> Option<ControlKind> {
         self.nodes.get(&id).and_then(|node| node.kind)
+    }
+
+    pub(super) fn projects_as_child(&self, id: ControlId) -> bool {
+        !self.owned_only.contains(&id)
     }
 
     pub(super) fn parent(&self, id: ControlId) -> Option<ControlId> {
@@ -162,6 +184,8 @@ impl MountedTree {
             && node.parent == Some(parent)
         {
             node.parent = None;
+        } else if !self.nodes.contains_key(&child) {
+            self.owned_only.remove(&child);
         }
     }
 
@@ -287,6 +311,22 @@ impl MountedTree {
             .iter()
             .filter(|output| output.native.is_some())
             .count()
+    }
+
+    pub(super) fn projected_index(&self, parent: ControlId, native_index: usize) -> usize {
+        if self.owned_only.is_empty() {
+            return native_index;
+        }
+        self.children(parent)[..native_index]
+            .iter()
+            .filter(|child| self.projects_as_child(**child))
+            .count()
+    }
+
+    pub(super) fn child_is_projected(&self, parent: ControlId, index: usize) -> bool {
+        self.children(parent)
+            .get(index)
+            .is_some_and(|child| self.projects_as_child(*child))
     }
 
     pub(super) fn append_logical_child(&mut self, parent: ControlId, output: MountedOutput) {
@@ -512,6 +552,10 @@ impl MountedTree {
     }
 
     pub(super) fn remove_node(&mut self, id: ControlId) {
+        let owned = self
+            .nodes
+            .get(&id)
+            .is_some_and(|node| node.parent.is_some());
         if let Some(children) = self.children.remove(&id) {
             for child in children {
                 self.clear_parent(child, id);
@@ -531,5 +575,8 @@ impl MountedTree {
         self.custom.remove(&id);
         self.before_unmount.remove(&id);
         self.nodes.remove(&id);
+        if !owned {
+            self.owned_only.remove(&id);
+        }
     }
 }

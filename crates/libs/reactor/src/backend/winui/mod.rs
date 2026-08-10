@@ -136,8 +136,6 @@ pub struct WinUIBackend {
     content_template: RefCell<Option<bindings::DataTemplate>>,
     pointer_revokers: RefCell<FxHashMap<ControlId, PointerRevokerSet>>,
     drag_revokers: RefCell<FxHashMap<ControlId, DragRevokerSet>>,
-    /// Logical children mirror used to skip phantom children in visual indices.
-    parent_children: RefCell<FxHashMap<ControlId, Vec<ControlId>>>,
     menu_click_handlers: RefCell<FxHashMap<ControlId, EventHandler>>,
     command_bar_flyout_handlers: RefCell<FxHashMap<ControlId, EventHandler>>,
     theme_brush_registry: RefCell<FxHashMap<ControlId, Vec<(Prop, ThemeRef)>>>,
@@ -226,7 +224,6 @@ impl WinUIBackend {
             content_template: RefCell::new(None),
             pointer_revokers: RefCell::new(FxHashMap::default()),
             drag_revokers: RefCell::new(FxHashMap::default()),
-            parent_children: RefCell::new(FxHashMap::default()),
             menu_click_handlers: RefCell::new(FxHashMap::default()),
             command_bar_flyout_handlers: RefCell::new(FxHashMap::default()),
             theme_brush_registry: RefCell::new(FxHashMap::default()),
@@ -372,25 +369,6 @@ impl WinUIBackend {
         }
         Ok(())
     }
-    /// `ContentDialog` is tracked logically but not attached as a visual child.
-    fn is_phantom_child(&self, id: ControlId) -> bool {
-        matches!(
-            self.controls.borrow().get(&id),
-            Some(Handle::ContentDialog(_))
-        )
-    }
-    fn visual_index(&self, parent: ControlId, logical: usize) -> usize {
-        let kids = self.parent_children.borrow();
-        let Some(list) = kids.get(&parent) else {
-            return logical;
-        };
-        let map = self.controls.borrow();
-        list.iter()
-            .take(logical)
-            .filter(|cid| !matches!(map.get(cid), Some(Handle::ContentDialog(_))))
-            .count()
-    }
-
     fn wire_menu_bar_clicks(
         mb: &bindings::MenuBar,
         handler: &EventHandler,
@@ -459,43 +437,6 @@ impl WinUIBackend {
             }
         }
         revokers
-    }
-    fn visual_insert_at(&self, parent: ControlId, v_index: usize, child: ControlId) {
-        let map = self.controls.borrow();
-        let parent_h = map
-            .get(&parent)
-            .unwrap_or_else(|| panic!("WinUIBackend::visual_insert_at: unknown parent {parent}"));
-        let child_h = map
-            .get(&child)
-            .unwrap_or_else(|| panic!("WinUIBackend::visual_insert_at: unknown child {child}"));
-        let child_ui = child_h.as_ui_element();
-        let cc = classify_container(parent_h).unwrap_or_else(|| {
-            panic!("WinUIBackend::visual_insert_at: {parent} is not a container")
-        });
-        container_insert(&cc, v_index, &child_ui);
-    }
-    fn visual_remove_at(&self, parent: ControlId, v_index: usize) {
-        let map = self.controls.borrow();
-        let parent_h = map
-            .get(&parent)
-            .unwrap_or_else(|| panic!("WinUIBackend::visual_remove_at: unknown parent {parent}"));
-        let cc = classify_container(parent_h).unwrap_or_else(|| {
-            panic!("WinUIBackend::visual_remove_at: {parent} is not a container")
-        });
-        container_remove(&cc, v_index);
-    }
-    fn visual_set_at(&self, parent: ControlId, v_index: usize, new: ControlId) {
-        let map = self.controls.borrow();
-        let parent_h = map
-            .get(&parent)
-            .unwrap_or_else(|| panic!("WinUIBackend::visual_set_at: unknown parent {parent}"));
-        let new_h = map
-            .get(&new)
-            .unwrap_or_else(|| panic!("WinUIBackend::visual_set_at: unknown new {new}"));
-        let new_ui = new_h.as_ui_element();
-        let cc = classify_container(parent_h)
-            .unwrap_or_else(|| panic!("WinUIBackend::visual_set_at: {parent} is not a container"));
-        container_set(&cc, v_index, &new_ui);
     }
 }
 
@@ -1883,14 +1824,6 @@ impl Backend for WinUIBackend {
         }
     }
     fn append_child(&mut self, parent: ControlId, child: ControlId) {
-        self.parent_children
-            .borrow_mut()
-            .entry(parent)
-            .or_default()
-            .push(child);
-        if self.is_phantom_child(child) {
-            return;
-        }
         let map = self.controls.borrow();
         let parent_h = map
             .get(&parent)
@@ -1908,73 +1841,29 @@ impl Backend for WinUIBackend {
         container_append(&cc, &child_ui);
     }
     fn remove_child(&mut self, parent: ControlId, index: usize) {
-        // Phantom children (e.g. ContentDialog) are never in the parent's
-        // visual `Children`; skip the collection mutation for them.
-        let phantom = self
-            .parent_children
-            .borrow()
-            .get(&parent)
-            .and_then(|v| v.get(index).copied())
-            .is_some_and(|cid| self.is_phantom_child(cid));
-        let v_index = self.visual_index(parent, index);
-        if let Some(list) = self.parent_children.borrow_mut().get_mut(&parent)
-            && index < list.len()
-        {
-            list.remove(index);
-        }
-        if phantom {
-            return;
-        }
         let map = self.controls.borrow();
         let parent_h = map
             .get(&parent)
             .unwrap_or_else(|| panic!("WinUIBackend::remove_child: unknown parent {parent}"));
         let cc = classify_container(parent_h)
             .unwrap_or_else(|| panic!("WinUIBackend::remove_child: {parent} is not a container"));
-        container_remove(&cc, v_index);
+        container_remove(&cc, index);
     }
     fn replace_child(&mut self, parent: ControlId, index: usize, new: ControlId) {
-        let old = self
-            .parent_children
-            .borrow()
+        let map = self.controls.borrow();
+        let parent_h = map
             .get(&parent)
-            .and_then(|v| v.get(index).copied());
-        let old_phantom = old.is_some_and(|c| self.is_phantom_child(c));
-        let new_phantom = self.is_phantom_child(new);
-        let v_index = self.visual_index(parent, index);
-        if let Some(list) = self.parent_children.borrow_mut().get_mut(&parent)
-            && index < list.len()
-        {
-            list[index] = new;
-        }
-        match (old_phantom, new_phantom) {
-            (true, true) => {}
-            (false, true) => self.visual_remove_at(parent, v_index),
-            (true, false) => self.visual_insert_at(parent, v_index, new),
-            (false, false) => self.visual_set_at(parent, v_index, new),
-        }
+            .unwrap_or_else(|| panic!("WinUIBackend::replace_child: unknown parent {parent}"));
+        let new_h = map
+            .get(&new)
+            .unwrap_or_else(|| panic!("WinUIBackend::replace_child: unknown child {new}"));
+        let new_ui = new_h.as_ui_element();
+        let cc = classify_container(parent_h)
+            .unwrap_or_else(|| panic!("WinUIBackend::replace_child: {parent} is not a container"));
+        container_set(&cc, index, &new_ui);
     }
     fn move_child(&mut self, parent: ControlId, from: usize, to: usize) {
         if from == to {
-            return;
-        }
-        // Compute before mutating the mirror so phantoms use the pre-move state.
-        let v_from = self.visual_index(parent, from);
-        let v_to = self.visual_index(parent, to);
-        let moved_phantom = self
-            .parent_children
-            .borrow()
-            .get(&parent)
-            .and_then(|v| v.get(from).copied())
-            .is_some_and(|cid| self.is_phantom_child(cid));
-        if let Some(list) = self.parent_children.borrow_mut().get_mut(&parent)
-            && from < list.len()
-            && to < list.len()
-        {
-            let item = list.remove(from);
-            list.insert(to, item);
-        }
-        if moved_phantom || v_from == v_to {
             return;
         }
         let map = self.controls.borrow();
@@ -1983,19 +1872,9 @@ impl Backend for WinUIBackend {
             .unwrap_or_else(|| panic!("WinUIBackend::move_child: unknown parent {parent}"));
         let cc = classify_container(parent_h)
             .unwrap_or_else(|| panic!("WinUIBackend::move_child: {parent} is not a container"));
-        container_move(&cc, v_from, v_to);
+        container_move(&cc, from, to);
     }
     fn insert_child(&mut self, parent: ControlId, index: usize, child: ControlId) {
-        let v_index = self.visual_index(parent, index);
-        {
-            let mut kids = self.parent_children.borrow_mut();
-            let list = kids.entry(parent).or_default();
-            let clamped = index.min(list.len());
-            list.insert(clamped, child);
-        }
-        if self.is_phantom_child(child) {
-            return;
-        }
         let map = self.controls.borrow();
         let parent_h = map
             .get(&parent)
@@ -2006,7 +1885,7 @@ impl Backend for WinUIBackend {
         let child_ui = child_h.as_ui_element();
         let cc = classify_container(parent_h)
             .unwrap_or_else(|| panic!("WinUIBackend::insert_child: {parent} is not a container"));
-        container_insert(&cc, v_index, &child_ui);
+        container_insert(&cc, index, &child_ui);
     }
     fn set_templated_item_count(&mut self, id: ControlId, count: usize) {
         let map = self.controls.borrow();
@@ -2429,11 +2308,6 @@ impl Backend for WinUIBackend {
         self.property_observers
             .borrow_mut()
             .retain(|(hid, _), _| *hid != id);
-        let mut kids = self.parent_children.borrow_mut();
-        kids.remove(&id);
-        for list in kids.values_mut() {
-            list.retain(|c| *c != id);
-        }
         self.menu_click_handlers.borrow_mut().remove(&id);
         self.command_bar_flyout_handlers.borrow_mut().remove(&id);
         self.theme_brush_registry.borrow_mut().remove(&id);
