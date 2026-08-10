@@ -33,6 +33,16 @@ impl Type {
         owner: &str,
         ty: windows_metadata2::Type,
     ) -> Result<Self, Error> {
+        Self::lower_with_nested(database, file, owner, ty, &[])
+    }
+
+    pub(super) fn lower_with_nested(
+        database: &Database,
+        file: FileId,
+        owner: &str,
+        ty: windows_metadata2::Type,
+        nested: &[(&str, &str)],
+    ) -> Result<Self, Error> {
         let mut is_const = false;
         for modifier in ty.modifiers {
             let Some((namespace, name)) = database.type_name(file, modifier.ty)? else {
@@ -88,13 +98,17 @@ impl Type {
                     });
                 }
                 Self::Array {
-                    element: Box::new(Self::lower(database, file, owner, *element)?),
+                    element: Box::new(Self::lower_with_nested(
+                        database, file, owner, *element, nested,
+                    )?),
                     len: sizes[0] as usize,
                 }
             }
             TypeKind::Pointer(element) => Self::Pointer {
                 mutable: !is_const,
-                element: Box::new(Self::lower(database, file, owner, *element)?),
+                element: Box::new(Self::lower_with_nested(
+                    database, file, owner, *element, nested,
+                )?),
             },
             TypeKind::Value(id) | TypeKind::Class(id) => {
                 let (namespace, name) =
@@ -104,6 +118,14 @@ impl Type {
                             name: owner.to_string(),
                             message: "native type has no name",
                         })?;
+                let name = if namespace.is_empty() {
+                    nested
+                        .iter()
+                        .find_map(|(metadata, projected)| (*metadata == name).then_some(*projected))
+                        .unwrap_or(name)
+                } else {
+                    name
+                };
                 Self::Named {
                     namespace: namespace.to_string(),
                     name: name.to_string(),

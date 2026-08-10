@@ -77,11 +77,10 @@ token stream. A focused nested Win32 fixture matches the existing module golden 
 mixed fixture proves that WinRT values and Win32 items pass through the same output path. It does
 not add filtering, dependency closure, formatting, file writing, or package policy.
 
-This is structural coverage, not complete native output equivalence. Architecture variants still
-need selection attributes, nested types are not yet attached to their enclosing definitions, and
-bitfield accessors, handle policy, native delegates, and interfaces are absent. Derive policy also
-needs full generated-output comparison. These are separate policies rather than reasons to build a
-global native type graph.
+This is structural coverage, not complete native output equivalence. Bitfield accessors, handle
+policy, native delegates, and interfaces are absent. Derive policy outside the proven nested-layout
+cases also needs full generated-output comparison. These are separate policies rather than reasons
+to build a global native type graph.
 
 ## Native shape inventory
 
@@ -97,14 +96,16 @@ The committed Win32 metadata contains:
 | Direct parents with nested structs | 1,925 |
 
 All 2,633 nested rows are native struct-to-struct relationships. Metadata2 exposes them as a
-streaming semantic pair iterator. Bindgen2 builds one ordered parent-to-children map because
-enclosing-aware field lowering will need repeated lookup. It does not add nested types to the
-top-level name index or create a second native type graph.
+streaming semantic pair iterator. Bindgen2 builds one parent-to-children map because recursive
+lowering needs repeated lookup. It preserves relationship-table order, recursively assigns
+positional names such as `Outer_0_0`, and substitutes empty-namespace field references only from a
+borrowed list for the current enclosing definition. Nested types are not added to the top-level
+name index and there is no second native type graph.
 
-Architecture gating should be implemented before nested rendering. It is local item policy and is
-already required to prevent same-name variants from colliding. Nested rendering is the larger
-slice: it needs enclosing-aware type resolution, deterministic generated names, recursive output,
-and focused comparison with true `NestedClass` metadata rather than sibling RDL structs.
+Nested rendering is complete for the selected native struct surface. A true `NestedClass` fixture
+matches the existing generator for multiple direct children, deep struct/union nesting, packing,
+and inherited architecture gates. Explicit layout propagates through the owned nested subtree for
+`Default` policy, so structs containing nested unions use gated manual implementations.
 
 Architecture gating is now complete for the selected surface:
 
@@ -144,7 +145,8 @@ standard required before claiming the replacement is objectively better overall.
 
 ## Next checkpoint
 
-The bounded module-output, RDL2 external-reference, native-shape inventory, and architecture-gating
-checkpoints are complete. Next, design nested native rendering around the retained parent map and
-enclosing-aware field lowering. Do not add dependency closure, a second name index, or a global
-native graph in that slice.
+The bounded module-output, RDL2 external-reference, native-shape inventory, architecture-gating,
+and nested-rendering checkpoints are complete. Before adding another item category, compare the
+remaining native output gaps and choose the smallest policy slice with a focused differential
+proof. Do not add dependency closure, a second name index, or a global native graph without a
+measured requirement.

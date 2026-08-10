@@ -117,13 +117,6 @@ impl<'a> Win32Items<'a> {
                     .push(child.entity());
             }
         }
-        for children in nested.values_mut() {
-            children.sort_by(|left, right| {
-                let left_name = database.definition(*left).unwrap().name().unwrap();
-                let right_name = database.definition(*right).unwrap().name().unwrap();
-                (left_name, *left).cmp(&(right_name, *right))
-            });
-        }
         Ok(Self {
             database,
             namespaces,
@@ -176,7 +169,11 @@ impl<'a> Win32Items<'a> {
     pub fn native_types(&self) -> impl Iterator<Item = Result<NativeType, Error>> + '_ {
         self.namespaces.iter().flat_map(|namespace| {
             namespace.types.iter().map(|entity| {
-                NativeType::lower(self.database, self.database.definition(*entity).unwrap())
+                NativeType::lower(
+                    self.database,
+                    self.database.definition(*entity).unwrap(),
+                    &self.nested,
+                )
             })
         })
     }
@@ -231,7 +228,11 @@ impl<'a> Win32Items<'a> {
     /// Lowers a uniquely named native type definition.
     pub fn native_type(&self, namespace: &str, name: &str) -> Result<NativeType, Error> {
         let entity = self.type_entity(namespace, name)?;
-        NativeType::lower(self.database, self.database.definition(entity).unwrap())
+        NativeType::lower(
+            self.database,
+            self.database.definition(entity).unwrap(),
+            &self.nested,
+        )
     }
 
     pub(super) fn render(
@@ -241,7 +242,7 @@ impl<'a> Win32Items<'a> {
         for namespace in &self.namespaces {
             for entity in &namespace.types {
                 let definition = self.database.definition(*entity).unwrap();
-                let ty = NativeType::lower(self.database, definition)?;
+                let ty = NativeType::lower(self.database, definition, &self.nested)?;
                 for (name, kind, tokens) in ty.write_sys_items() {
                     add(&namespace.name, name, kind, tokens);
                 }
@@ -354,7 +355,7 @@ mod tests {
         for namespace in &items.namespaces {
             for entity in &namespace.types {
                 let definition = database.definition(*entity).unwrap();
-                match NativeType::lower(&database, definition) {
+                match NativeType::lower(&database, definition, &items.nested) {
                     Ok(ty) => {
                         ty.write_sys();
                         supported[match ty.kind() {

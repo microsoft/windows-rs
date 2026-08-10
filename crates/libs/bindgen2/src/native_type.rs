@@ -1,6 +1,7 @@
 use super::*;
 use proc_macro2::{Literal, TokenStream};
 use quote::quote;
+use std::collections::BTreeMap;
 
 /// An owned Win32 native type projection.
 pub struct NativeType {
@@ -39,6 +40,7 @@ struct Struct {
     namespace: String,
     name: String,
     fields: Vec<(String, native::Type)>,
+    nested: Vec<NativeType>,
     union: bool,
     align: Option<u32>,
     packing: Option<u16>,
@@ -48,9 +50,19 @@ impl NativeType {
     pub(super) fn lower(
         database: &Database,
         definition: TypeDefinition<'_>,
+        nested: &BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
+    ) -> Result<Self, Error> {
+        let name = definition.name()?.to_string();
+        Self::lower_named(database, definition, nested, name)
+    }
+
+    fn lower_named(
+        database: &Database,
+        definition: TypeDefinition<'_>,
+        nested: &BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
+        name: String,
     ) -> Result<Self, Error> {
         let namespace = definition.namespace()?.to_string();
-        let name = definition.name()?.to_string();
         let full_name = format!("{namespace}.{name}");
         let architectures = definition.architectures()?;
         match definition.category()? {
@@ -96,21 +108,56 @@ impl NativeType {
                 })
             }
             TypeCategory::Struct => {
+                let nested_names = nested
+                    .get(&definition.entity())
+                    .into_iter()
+                    .flatten()
+                    .enumerate()
+                    .map(|(index, entity)| {
+                        Ok((
+                            database.definition(*entity).unwrap().name()?.to_string(),
+                            format!("{name}_{index}"),
+                            *entity,
+                        ))
+                    })
+                    .collect::<Result<Vec<_>, Error>>()?;
+                let substitutions = nested_names
+                    .iter()
+                    .map(|(metadata, projected, _)| (metadata.as_str(), projected.as_str()))
+                    .collect::<Vec<_>>();
                 let mut fields = Vec::new();
                 for field in definition.fields()? {
                     if !field.is_literal()? {
                         fields.push((
                             field.name()?.to_string(),
-                            native::Type::lower(
+                            native::Type::lower_with_nested(
                                 database,
                                 field.entity().file(),
                                 &full_name,
                                 field.signature()?,
+                                &substitutions,
                             )?,
                         ));
                     }
                 }
+                let nested = nested_names
+                    .into_iter()
+                    .map(|(_, projected, entity)| {
+                        Self::lower_named(
+                            database,
+                            database.definition(entity).unwrap(),
+                            nested,
+                            projected,
+                        )
+                    })
+                    .collect::<Result<Vec<_>, Error>>()?;
                 if definition.has_attribute("NativeTypedefAttribute")? {
+                    if !nested.is_empty() {
+                        return Err(Error::InvalidValue {
+                            name: full_name,
+                            message: "native typedef has nested definitions",
+                        });
+                    }
                     let [(_, ty)] = fields.try_into().map_err(|_| Error::InvalidValue {
                         name: full_name,
                         message: "native typedef does not have one field",
@@ -149,6 +196,7 @@ impl NativeType {
                         namespace,
                         name,
                         fields,
+                        nested,
                         union: definition
                             .type_attributes()?
                             .contains(TypeAttributes::EXPLICIT_LAYOUT),
@@ -233,9 +281,10 @@ impl Struct {
         if self.fields.is_empty() {
             let repr = self.repr();
             if self.union {
+                let nested = self.nested.iter().map(NativeType::write_sys);
                 return quote! {
-                    #architectures
                     #repr
+                    #architectures
                     #[derive(Clone, Copy)]
                     pub union #name {
                         pub value: u8,
@@ -246,13 +295,18 @@ impl Struct {
                             unsafe { core::mem::zeroed() }
                         }
                     }
+                    #(#nested)*
                 };
             }
+            let nested = self.nested.iter().map(NativeType::write_sys);
+            let (derive, default) = self.default_tokens(&name, architectures);
             return quote! {
-                #architectures
                 #repr
-                #[derive(Clone, Copy, Default)]
+                #architectures
+                #derive
                 pub struct #name(pub u8);
+                #default
+                #(#nested)*
             };
         }
         let fields = self.fields.iter().map(|(field_name, ty)| {
@@ -261,10 +315,11 @@ impl Struct {
             quote! { pub #field_name: #ty, }
         });
         let repr = self.repr();
+        let nested = self.nested.iter().map(NativeType::write_sys);
         if self.union {
             quote! {
-                #architectures
                 #repr
+                #architectures
                 #[derive(Clone, Copy)]
                 pub union #name {
                     #(#fields)*
@@ -275,15 +330,19 @@ impl Struct {
                         unsafe { core::mem::zeroed() }
                     }
                 }
+                #(#nested)*
             }
         } else {
+            let (derive, default) = self.default_tokens(&name, architectures);
             quote! {
-                #architectures
                 #repr
-                #[derive(Clone, Copy, Default)]
+                #architectures
+                #derive
                 pub struct #name {
                     #(#fields)*
                 }
+                #default
+                #(#nested)*
             }
         }
     }
@@ -298,6 +357,36 @@ impl Struct {
         } else {
             quote! { #[repr(C)] }
         }
+    }
+
+    fn default_tokens(
+        &self,
+        name: &TokenStream,
+        architectures: &TokenStream,
+    ) -> (TokenStream, TokenStream) {
+        if self.has_explicit_layout() {
+            (
+                quote! { #[derive(Clone, Copy)] },
+                quote! {
+                    #architectures
+                    impl Default for #name {
+                        fn default() -> Self {
+                            unsafe { core::mem::zeroed() }
+                        }
+                    }
+                },
+            )
+        } else {
+            (quote! { #[derive(Clone, Copy, Default)] }, quote! {})
+        }
+    }
+
+    fn has_explicit_layout(&self) -> bool {
+        self.union
+            || self.nested.iter().any(|nested| match &nested.kind {
+                Kind::Struct(value) => value.has_explicit_layout(),
+                Kind::Alias(_) | Kind::Enum(_) => false,
+            })
     }
 }
 

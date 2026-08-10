@@ -409,6 +409,23 @@ mod tests {
     }
 
     #[test]
+    fn true_nested_native_types_match_existing_golden_tokens() {
+        let generator = fixture(include_str!(
+            "../../../tests/libs/bindgen/input/struct_nested_anon_sys.rdl"
+        ));
+        let items = generator.win32_items().unwrap();
+        assert_eq!(items.nested_type_count(), 9);
+        let types = items.native_types().collect::<Result<Vec<_>, _>>().unwrap();
+        let types = types.iter().map(NativeType::write_sys);
+        let actual = quote! { #(#types)* };
+        let expected: TokenStream =
+            include_str!("../../../tests/libs/bindgen/expected/struct_nested_anon_sys.rs")
+                .parse()
+                .unwrap();
+        assert_eq!(actual.to_string(), expected.to_string());
+    }
+
+    #[test]
     fn architecture_gates_match_existing_flat_sys_tokens() {
         let generator = fixture(
             r#"
