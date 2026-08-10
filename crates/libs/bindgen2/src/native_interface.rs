@@ -87,6 +87,10 @@ impl NativeInterface {
 
     /// Renders a flat Win32 sys vtable and optional IID.
     pub fn write_sys(&self) -> TokenStream {
+        self.write_sys_context(Layout::Flat)
+    }
+
+    pub(super) fn write_sys_context(&self, layout: Layout) -> TokenStream {
         let architectures = tokens::architectures(self.architectures);
         let name = tokens::ident(&format!("{}_Vtbl", self.name));
         let iid = self.guid.map(|guid| {
@@ -98,15 +102,17 @@ impl NativeInterface {
             }
         });
         let base = self.base.as_ref().map(|(namespace, name)| {
-            let path = tokens::namespace(&self.namespace, namespace);
+            let path = tokens::namespace(&self.namespace, namespace, layout);
             let name = tokens::ident(&format!("{name}_Vtbl"));
             quote! { pub base__: #path #name, }
         });
         let methods = self.methods.iter().map(|method| {
             let architectures = tokens::architectures(method.architectures);
             let name = tokens::ident(&method.name);
-            let parameters = method.signature.write_vtable_parameters(&self.namespace);
-            let result = method.signature.write_result(&self.namespace);
+            let parameters = method
+                .signature
+                .write_vtable_parameters(&self.namespace, layout);
+            let result = method.signature.write_result(&self.namespace, layout);
             quote! {
                 #architectures
                 pub #name: unsafe extern "system" fn(#parameters) #result,

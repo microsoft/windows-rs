@@ -93,9 +93,10 @@ impl Enum {
         values: &Values,
         namespace: &str,
         name: &str,
+        layout: Layout,
     ) -> Result<TokenStream, Error> {
         let ident = tokens::ident(name);
-        let underlying = self.underlying.write(namespace)?;
+        let underlying = self.underlying.write(namespace, layout)?;
         let fields = self.fields.iter().map(|field| {
             let name = tokens::ident(&field.name);
             let value = field.value.write();

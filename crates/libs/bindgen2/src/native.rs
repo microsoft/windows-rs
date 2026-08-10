@@ -183,7 +183,7 @@ impl Type {
         })
     }
 
-    pub(super) fn write(&self, namespace: &str) -> TokenStream {
+    pub(super) fn write(&self, namespace: &str, layout: Layout) -> TokenStream {
         match self {
             Self::Void => quote! { core::ffi::c_void },
             Self::Boolean => quote! { bool },
@@ -202,13 +202,13 @@ impl Type {
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
             Self::Array { element, len } => {
-                let element = element.write(namespace);
+                let element = element.write(namespace, layout);
                 let len = Literal::usize_unsuffixed(*len);
                 quote! { [#element; #len] }
             }
 
             Self::Pointer { mutable, element } => {
-                let element = element.write(namespace);
+                let element = element.write(namespace, layout);
                 if *mutable {
                     quote! { *mut #element }
                 } else {
@@ -219,28 +219,28 @@ impl Type {
                 namespace: target,
                 name,
             } => {
-                let path = tokens::namespace(namespace, target);
+                let path = tokens::namespace(namespace, target, layout);
                 let name = tokens::ident(name);
                 quote! { #path #name }
             }
         }
     }
 
-    pub(super) fn normalize_alias(self, name: &str) -> Self {
-        match name {
-            "BSTR" | "PCWSTR" => Self::Pointer {
+    pub(super) fn normalize_alias(self, namespace: &str, name: &str) -> Self {
+        match (namespace, name) {
+            ("Windows.Win32", "BSTR" | "PCWSTR") => Self::Pointer {
                 mutable: false,
                 element: Box::new(Self::U16),
             },
-            "PWSTR" => Self::Pointer {
+            ("Windows.Win32", "PWSTR") => Self::Pointer {
                 mutable: true,
                 element: Box::new(Self::U16),
             },
-            "PCSTR" => Self::Pointer {
+            ("Windows.Win32", "PCSTR") => Self::Pointer {
                 mutable: false,
                 element: Box::new(Self::U8),
             },
-            "PSTR" => Self::Pointer {
+            ("Windows.Win32", "PSTR") => Self::Pointer {
                 mutable: true,
                 element: Box::new(Self::U8),
             },
@@ -264,14 +264,18 @@ impl Type {
 
     fn into_input(self) -> Self {
         match self {
-            Self::Named { namespace, name } if name == "PWSTR" => Self::Named {
-                namespace,
-                name: "PCWSTR".to_string(),
-            },
-            Self::Named { namespace, name } if name == "PSTR" => Self::Named {
-                namespace,
-                name: "PCSTR".to_string(),
-            },
+            Self::Named { namespace, name } if namespace == "Windows.Win32" && name == "PWSTR" => {
+                Self::Named {
+                    namespace,
+                    name: "PCWSTR".to_string(),
+                }
+            }
+            Self::Named { namespace, name } if namespace == "Windows.Win32" && name == "PSTR" => {
+                Self::Named {
+                    namespace,
+                    name: "PCSTR".to_string(),
+                }
+            }
             _ => self,
         }
     }

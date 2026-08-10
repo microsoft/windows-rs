@@ -18,8 +18,8 @@ so every output layer can be compared before migration.
 
 ## Milestone status
 
-The current milestone proves the native sys path and the reusable request boundary. It does not
-yet prove that every layout and filtered WinRT request is safe.
+The current milestone proves the native sys path, reusable request boundary, both layouts, and
+filtered WinRT value closure.
 
 | Area | Status | Evidence or blocker |
 | --- | --- | --- |
@@ -28,36 +28,35 @@ yet prove that every layout and filtered WinRT request is safe.
 | Native sys projection | Full corpus | Types, constants, functions, delegates, and interfaces render. |
 | Native filtering and closure | Proven on real requests | All nine `tool_bindings` sys files match committed output. |
 | Module layout | Focused differential coverage | Nested WinRT/Win32 fixtures match. |
-| Flat layout | Blocked | Cross-namespace references are rendered before flattening and may use invalid module paths. |
-| Filtered WinRT values | Blocked | Referenced value types are not added to the filtered selection. |
-| ABI canonicalization | Needs consolidation | Rendering and closure share most policy, but namespace identity and default parameter direction need review. |
-| Request reuse | Functionally complete | Invariant native relationship maps are still rebuilt for each request. |
-| Formatting and file writing | Deferred | Add only after the stabilization gate below. |
+| Flat layout | Complete for current projections | Explicit layout context covers cross-namespace WinRT and Win32 references. |
+| Filtered WinRT values | Complete for enums and structs | Transitive value dependencies are selected; recursive values remain errors. |
+| ABI canonicalization | Consolidated for native sys | Namespace-qualified aliases and one callable lowering path match all nine requests. |
+| Request reuse | Complete for current catalogs | The database, nested map, and interface-base map are shared across requests. |
+| Formatting and file writing | Next milestone | Add behind the structured request API. |
 | Rich/minimal projection | Not started | Native sys is the only complete production-style surface. |
 | WinRT interfaces and classes | Not started | Required before default-style `tool_bindings` requests. |
 | Package output | Not started | Requires stable filtering, layout, and formatting first. |
 
-Approximate hand-written Rust source size at this milestone is 5,293 lines for bindgen2 versus
+Approximate hand-written Rust source size at this milestone is 5,591 lines for bindgen2 versus
 12,829 for the existing bindgen crate. The smaller code is encouraging given the native sys
 coverage, but output coverage and concept count matter more than line count.
 
 ## Stabilization gate
 
-Pause feature expansion and complete this gate before adding formatting, file writing, or a
-request-file compatibility API:
+This gate is complete:
 
-1. Render flat output in a flat name-resolution context and add a cross-namespace reference test.
-2. Add filtered WinRT value dependency closure with cycle and missing-dependency tests.
-3. Centralize native ABI canonicalization:
+1. [x] Render flat output in a flat name-resolution context and add cross-namespace tests.
+2. [x] Add filtered WinRT value dependency closure with cycle and missing-dependency tests.
+3. [x] Centralize native ABI canonicalization:
    - qualify string-alias rewrites by namespace;
    - treat unspecified parameters consistently with input parameters;
    - keep closure and rendering on the same lowered signature path.
-4. Harden metadata2 facts used by bindgen2:
+4. [x] Harden metadata2 facts used by bindgen2:
    - validate both `NestedClass` columns;
    - classify interfaces from the ECMA interface flag rather than only from the base type.
-5. Move immutable native catalogs needed by every request - nested relationships, interface bases,
-   and stable classification - behind the shared `Metadata` boundary.
-6. Re-run the nine sys requests, focused layout tests, corpus inventories, and performance
+5. [x] Move immutable native catalogs needed by every request - nested relationships and interface
+   bases - behind the shared `Metadata` boundary.
+6. [x] Re-run the nine sys requests, focused layout tests, corpus inventories, and performance
    measurements, then do another milestone review.
 
 This is a bounded cleanup pass, not a redesign. The current separation between metadata,
@@ -74,29 +73,35 @@ This intentionally does not reproduce the old reader map. Exact-name lookup alre
 `windows-metadata2::Database`; bindgen2 has no measured need for another permanent name index.
 
 The ownership boundary now separates reusable metadata from generation requests. `Metadata` owns
-one `Arc<Database>`, and each `Generator` clones that root reference while storing request-local
-typed entities. This is one reference count per request, not per row. It lets `tool_bindings`
-eventually share one parse/index pass across its 17 filter files without leaking the database or
+one `Arc<Database>` and lazily builds the immutable nested and interface-base catalogs once. Each
+`Generator` shares those roots while storing request-local typed entities. It lets `tool_bindings`
+share one parse/index/catalog pass across its 17 filter files without leaking the database or
 adding lifetimes to every public projected model.
 
+A release-mode sample on the full default metadata measured about 77 ms to parse and index, 90 ms
+for the first unfiltered request, and 88 ms for the second. The remaining request cost is the
+selection scan, not catalog construction. Do not add another index until the request-file adapter
+shows that this scan matters.
+
 Generation options currently contain only `Layout::Modules` and `Layout::Flat`. Both consume the
-same collected output items and deterministic sort. Flat output checks cross-namespace generated
-name collisions and returns a structured error. Style options are not exposed yet because current
-rich/minimal projection coverage is incomplete; accepting ignored flags would create a false
-compatibility API.
+same collected output items and deterministic sort. The layout is also the explicit
+name-resolution context: module output emits relative namespace paths, while flat output emits
+unqualified names. Flat output checks cross-namespace generated name collisions and returns a
+structured error. Style options are not exposed yet because current rich/minimal projection
+coverage is incomplete; accepting ignored flags would create a false compatibility API.
 
 The first filter layer is also intentionally programmatic. `Filter` stores bare names, exact
 namespace/name pairs, and namespace roots in ordered sets. Selection performs borrowed lookups and
 does not parse Rust paths, combine member policy with name resolution, or retain a metadata-sized
 match index. An empty filter selects nothing, while requests without a filter retain the existing
-all-items behavior. This is enough to prove selective request cost and output before adding
-dependency closure.
+all-items behavior. Filtered WinRT structs add referenced value types transitively with a temporary
+entity set and queue; no permanent value dependency graph is retained.
 
 `Generator` retains the resulting WinRT and Win32 typed-entity selections. `Win32Items` is a
 borrowed lowering view over the shared database and the request-owned selection, so repeated
-rendering does not scan metadata again. The retained native state is limited to namespace groups,
-typed entities, the nested parent-to-children map required by recursive structs, and inventory
-counts. Native projected models remain streaming values.
+rendering does not scan metadata again. Request-local native state is limited to namespace groups,
+typed entities, enum variant policy, and inventory counts. The nested parent map and interface-base
+map are immutable catalogs shared by all requests. Native projected models remain streaming values.
 
 Filtered native selection now closes over decoded field and method signatures. A temporary ordered
 entity set and work queue pull in referenced aliases, enums, structs, delegates, interfaces, and
@@ -270,7 +275,6 @@ standard required before claiming the replacement is objectively better overall.
 
 ## Next checkpoint
 
-Complete the stabilization gate above. If it remains small and the nine sys requests still match,
-the next milestone is formatting plus file writing behind the structured request API. A thin
-adapter for the simple sys request files can follow. General member-filter grammar, default/rich
-style, WinRT interfaces/classes, and package generation remain later independent milestones.
+Add formatting plus file writing behind the structured request API. A thin adapter for the simple
+sys request files can follow. General member-filter grammar, default/rich style, WinRT
+interfaces/classes, and package generation remain later independent milestones.

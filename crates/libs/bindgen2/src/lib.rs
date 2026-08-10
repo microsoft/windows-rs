@@ -1,6 +1,9 @@
 #![doc = include_str!("../readme.md")]
 
-use std::sync::Arc;
+use std::{
+    collections::{BTreeMap, BTreeSet, VecDeque},
+    sync::{Arc, OnceLock},
+};
 use windows_metadata2::{
     AnyRowId, AttributeArgument, AttributeValue, ConstantValue, Database, Entity, FileId, Image,
     MethodSignature, TypeAttributes, TypeCategory, TypeDefinition, TypeKind,
@@ -72,6 +75,7 @@ struct ValueEntry {
 /// Owns a reusable validated metadata database.
 pub struct Metadata {
     database: Arc<Database>,
+    win32_catalogs: OnceLock<Arc<win32::Win32Catalogs>>,
 }
 
 /// Owns one deterministic generation request over shared metadata.
@@ -94,6 +98,7 @@ impl Metadata {
     pub fn new(database: Database) -> Self {
         Self {
             database: Arc::new(database),
+            win32_catalogs: OnceLock::new(),
         }
     }
 
@@ -114,7 +119,7 @@ impl Metadata {
 
     /// Creates a generation request with explicit options.
     pub fn generator_with(&self, options: Options) -> Result<Generator, Error> {
-        Generator::from_shared(self.database.clone(), options, None)
+        Generator::from_shared(self.database.clone(), self.win32_catalogs()?, options, None)
     }
 
     /// Creates a filtered generation request with default options.
@@ -128,7 +133,21 @@ impl Metadata {
         options: Options,
         filter: Filter,
     ) -> Result<Generator, Error> {
-        Generator::from_shared(self.database.clone(), options, Some(filter))
+        Generator::from_shared(
+            self.database.clone(),
+            self.win32_catalogs()?,
+            options,
+            Some(filter),
+        )
+    }
+
+    fn win32_catalogs(&self) -> Result<Arc<win32::Win32Catalogs>, Error> {
+        if let Some(catalogs) = self.win32_catalogs.get() {
+            return Ok(catalogs.clone());
+        }
+        let catalogs = Arc::new(win32::Win32Catalogs::new(&self.database)?);
+        let _ = self.win32_catalogs.set(catalogs);
+        Ok(self.win32_catalogs.get().unwrap().clone())
     }
 }
 
@@ -140,10 +159,11 @@ impl Generator {
 
     fn from_shared(
         database: Arc<Database>,
+        win32_catalogs: Arc<win32::Win32Catalogs>,
         options: Options,
         filter: Option<Filter>,
     ) -> Result<Self, Error> {
-        let mut values = Vec::new();
+        let mut candidates = Vec::new();
 
         for definition in database.definitions() {
             if !definition.is_windows_runtime()? {
@@ -163,14 +183,7 @@ impl Generator {
 
             let namespace = definition.namespace()?;
             let name = definition.name()?;
-            if filter
-                .as_ref()
-                .is_some_and(|filter| !filter.includes(namespace, name))
-            {
-                continue;
-            }
-
-            values.push((
+            candidates.push((
                 namespace.to_string(),
                 name.to_string(),
                 ValueEntry {
@@ -180,17 +193,65 @@ impl Generator {
             ));
         }
 
-        values.sort_by(|left, right| {
+        candidates.sort_by(|left, right| {
             (&left.0, &left.1, left.2.entity).cmp(&(&right.0, &right.1, right.2.entity))
         });
-        let win32 = win32::Win32Selection::new(&database, filter.as_ref())?;
+        let values = if let Some(filter) = filter.as_ref() {
+            Self::close_values(&database, &candidates, filter)?
+        } else {
+            candidates.iter().map(|(_, _, entry)| *entry).collect()
+        };
+        let win32 =
+            win32::Win32Selection::new_with_catalogs(&database, win32_catalogs, filter.as_ref())?;
 
         Ok(Self {
             database,
-            values: values.into_iter().map(|(_, _, entry)| entry).collect(),
+            values,
             win32,
             options,
         })
+    }
+
+    fn close_values(
+        database: &Database,
+        candidates: &[(String, String, ValueEntry)],
+        filter: &Filter,
+    ) -> Result<Vec<ValueEntry>, Error> {
+        let mut catalog = BTreeMap::<(&str, &str), Vec<ValueEntry>>::new();
+        let mut selected = BTreeSet::new();
+        let mut pending = VecDeque::new();
+
+        for (namespace, name, entry) in candidates {
+            catalog.entry((namespace, name)).or_default().push(*entry);
+            if filter.includes(namespace, name) && selected.insert(entry.entity) {
+                pending.push_back(*entry);
+            }
+        }
+
+        while let Some(entry) = pending.pop_front() {
+            if entry.kind != ValueKind::Struct {
+                continue;
+            }
+            let definition = database.definition(entry.entity).unwrap();
+            let namespace = definition.namespace()?;
+            let name = definition.name()?;
+            let full_name = format!("{namespace}.{name}");
+            let model = Struct::lower(database, definition, &full_name)?;
+            for (namespace, name) in model.dependencies() {
+                if let Some(entries) = catalog.get(&(namespace.as_str(), name.as_str())) {
+                    for entry in entries {
+                        if selected.insert(entry.entity) {
+                            pending.push_back(*entry);
+                        }
+                    }
+                }
+            }
+        }
+
+        Ok(candidates
+            .iter()
+            .filter_map(|(_, _, entry)| selected.contains(&entry.entity).then_some(*entry))
+            .collect())
     }
 
     /// Returns the shared metadata database.
@@ -379,6 +440,7 @@ mod tests {
         let second = metadata.generator().unwrap();
 
         assert!(std::ptr::eq(first.database(), second.database()));
+        assert!(first.win32.shares_catalogs(&second.win32));
         assert_eq!(first.values().len(), second.values().len());
         let first = first.win32_items();
         let second = second.win32_items();
@@ -571,6 +633,53 @@ mod tests {
     }
 
     #[test]
+    fn flat_output_uses_unqualified_cross_namespace_references() {
+        let metadata = fixture_metadata(
+            r#"
+                #[win32]
+                mod First {
+                    struct Value {
+                        inner: i32,
+                    }
+                }
+                #[win32]
+                mod Second {
+                    struct Container {
+                        value: First::Value,
+                    }
+                }
+                #[winrt]
+                mod ManagedFirst {
+                    struct ManagedValue {
+                        inner: i32,
+                    }
+                }
+                #[winrt]
+                mod ManagedSecond {
+                    struct ManagedContainer {
+                        value: ManagedFirst::ManagedValue,
+                    }
+                }
+            "#,
+        );
+        let generator = metadata
+            .generator_with(Options {
+                layout: Layout::Flat,
+            })
+            .unwrap();
+        let output = generator.write().unwrap().to_string();
+
+        assert!(output.contains("pub value : Value"));
+        assert!(!output.contains("super :: First :: Value"));
+        assert!(output.contains("pub value : ManagedValue"));
+        assert!(!output.contains("super :: ManagedFirst :: ManagedValue"));
+
+        let output = generator.write_modules().unwrap().to_string();
+        assert!(output.contains("super :: First :: Value"));
+        assert!(output.contains("super :: ManagedFirst :: ManagedValue"));
+    }
+
+    #[test]
     fn exact_filters_limit_winrt_and_win32_selection() {
         let metadata = fixture_metadata(
             r#"
@@ -613,6 +722,69 @@ mod tests {
         assert!(!output.contains("ONLY_SECOND"));
         assert!(output.contains("pub mod Managed"));
         assert!(output.contains("pub struct Kind"));
+    }
+
+    #[test]
+    fn winrt_filters_include_transitive_value_dependencies() {
+        let metadata = fixture_metadata(
+            r#"
+                #[winrt]
+                mod First {
+                    #[repr(i32)]
+                    enum Leaf {
+                        Value = 0,
+                    }
+                }
+                #[winrt]
+                mod Second {
+                    struct Middle {
+                        leaf: First::Leaf,
+                    }
+                    struct Root {
+                        middle: Middle,
+                    }
+                    struct Unused {
+                        value: i32,
+                    }
+                }
+            "#,
+        );
+        let generator = metadata
+            .generator_filtered(Filter::names(["Root"]))
+            .unwrap();
+
+        assert_eq!(generator.values().len(), 3);
+        let output = generator.write_modules().unwrap().to_string();
+        assert!(output.contains("pub struct Leaf"));
+        assert!(output.contains("pub struct Middle"));
+        assert!(output.contains("pub struct Root"));
+        assert!(!output.contains("pub struct Unused"));
+    }
+
+    #[test]
+    fn winrt_value_closure_terminates_on_cycles() {
+        let metadata = fixture_metadata(
+            r#"
+                #[winrt]
+                mod Test {
+                    struct First {
+                        second: Second,
+                    }
+                    struct Second {
+                        first: First,
+                    }
+                }
+            "#,
+        );
+        let generator = metadata
+            .generator_filtered(Filter::names(["First"]))
+            .unwrap();
+
+        assert_eq!(generator.values().len(), 2);
+        assert!(matches!(
+            generator.write_modules(),
+            Err(Error::RecursiveValue(name)) if name.starts_with("Test.")
+        ));
     }
 
     #[test]
@@ -818,6 +990,33 @@ mod tests {
             .parse()
             .unwrap();
         assert_eq!(actual.to_string(), expected.to_string());
+    }
+
+    #[test]
+    fn native_alias_policy_requires_canonical_namespace() {
+        let metadata = fixture_metadata(
+            r#"
+                #[win32]
+                mod Custom {
+                    type PWSTR = u32;
+                }
+                #[win32]
+                mod Api {
+                    #[library("test.dll")]
+                    extern fn Use(value: Custom::PWSTR);
+                }
+            "#,
+        );
+        let output = metadata
+            .generator()
+            .unwrap()
+            .write_modules()
+            .unwrap()
+            .to_string();
+
+        assert!(output.contains("pub type PWSTR = u32"));
+        assert!(output.contains("value : super :: Custom :: PWSTR"));
+        assert!(!output.contains("value : super :: Custom :: PCWSTR"));
     }
 
     #[test]

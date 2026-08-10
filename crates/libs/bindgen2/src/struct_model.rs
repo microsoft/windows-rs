@@ -16,6 +16,14 @@ struct Field {
 }
 
 impl Struct {
+    pub(super) fn dependencies(&self) -> BTreeSet<(String, String)> {
+        let mut dependencies = BTreeSet::new();
+        for field in &self.fields {
+            field.ty.collect_value_dependencies(&mut dependencies);
+        }
+        dependencies
+    }
+
     pub(super) fn lower(
         database: &Database,
         definition: TypeDefinition<'_>,
@@ -43,6 +51,7 @@ impl Struct {
         values: &Values,
         namespace: &str,
         name: &str,
+        layout: Layout,
     ) -> Result<TokenStream, Error> {
         let ident = tokens::ident(name);
         let fields = self
@@ -50,7 +59,7 @@ impl Struct {
             .iter()
             .map(|field| {
                 let name = tokens::ident(&field.name);
-                let ty = field.ty.write(namespace)?;
+                let ty = field.ty.write(namespace, layout)?;
                 Ok(quote! { pub #name: #ty, })
             })
             .collect::<Result<Vec<_>, Error>>()?;

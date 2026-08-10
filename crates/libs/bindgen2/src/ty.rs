@@ -35,6 +35,32 @@ pub(super) struct Properties {
 }
 
 impl Type {
+    pub(super) fn collect_value_dependencies(&self, dependencies: &mut BTreeSet<(String, String)>) {
+        match self {
+            Self::Vector(element) => element.collect_value_dependencies(dependencies),
+            Self::Named {
+                value_type: true,
+                namespace,
+                name,
+                arguments,
+                ..
+            } => {
+                if arguments.is_empty() && !(namespace == "System" && name == "Guid") {
+                    dependencies.insert((namespace.clone(), name.clone()));
+                }
+                for argument in arguments {
+                    argument.collect_value_dependencies(dependencies);
+                }
+            }
+            Self::Named { arguments, .. } => {
+                for argument in arguments {
+                    argument.collect_value_dependencies(dependencies);
+                }
+            }
+            _ => {}
+        }
+    }
+
     pub(super) fn lower(
         database: &Database,
         file: FileId,
@@ -130,7 +156,11 @@ impl Type {
         })
     }
 
-    pub(super) fn write(&self, namespace: &str) -> Result<proc_macro2::TokenStream, Error> {
+    pub(super) fn write(
+        &self,
+        namespace: &str,
+        layout: Layout,
+    ) -> Result<proc_macro2::TokenStream, Error> {
         use quote::quote;
 
         Ok(match self {
@@ -163,11 +193,11 @@ impl Type {
                 arguments,
                 ..
             } => {
-                let path = tokens::namespace(namespace, target);
+                let path = tokens::namespace(namespace, target, layout);
                 let name = tokens::ident(name);
                 let arguments = arguments
                     .iter()
-                    .map(|argument| argument.write(namespace))
+                    .map(|argument| argument.write(namespace, layout))
                     .collect::<Result<Vec<_>, _>>()?;
                 let name = if arguments.is_empty() {
                     quote! { #path #name }

@@ -174,7 +174,7 @@ impl NativeType {
                     && field == "Value"
                     && ty.is_handle_primitive()
                 {
-                    let ty = ty.clone().normalize_alias(&name);
+                    let ty = ty.clone().normalize_alias(namespace, &name);
                     return Ok(Self {
                         architectures,
                         kind: Kind::Alias(Alias {
@@ -195,7 +195,7 @@ impl NativeType {
                         name: full_name,
                         message: "native typedef does not have one field",
                     })?;
-                    let ty = ty.normalize_alias(&name);
+                    let ty = ty.normalize_alias(namespace, &name);
                     return Ok(Self {
                         architectures,
                         kind: Kind::Alias(Alias {
@@ -272,40 +272,48 @@ impl NativeType {
 
     /// Renders a flat Win32 sys type definition.
     pub fn write_sys(&self) -> TokenStream {
+        self.write_sys_context(Layout::Flat)
+    }
+
+    fn write_sys_context(&self, layout: Layout) -> TokenStream {
         let items = self
-            .write_sys_items()
+            .write_sys_items_context(layout)
             .into_iter()
             .map(|(_, _, tokens)| tokens);
         quote! { #(#items)* }
     }
 
-    pub(super) fn write_sys_items(&self) -> Vec<(&str, u8, TokenStream)> {
+    pub(super) fn write_sys_items_context(&self, layout: Layout) -> Vec<(&str, u8, TokenStream)> {
         let architectures = tokens::architectures(self.architectures);
         match &self.kind {
             Kind::Alias(value) => {
-                let tokens = value.write_sys();
+                let tokens = value.write_sys(layout);
                 vec![(&value.name, 1, quote! { #architectures #tokens })]
             }
-            Kind::Enum(value) => value.write_sys_items(&architectures),
+            Kind::Enum(value) => value.write_sys_items(&architectures, layout),
             Kind::Struct(value) => {
-                vec![(&value.name, 1, value.write_sys(&architectures))]
+                vec![(&value.name, 1, value.write_sys(&architectures, layout))]
             }
         }
     }
 }
 
 impl Alias {
-    fn write_sys(&self) -> TokenStream {
+    fn write_sys(&self, layout: Layout) -> TokenStream {
         let name = tokens::ident(&self.name);
-        let ty = self.ty.write(&self.namespace);
+        let ty = self.ty.write(&self.namespace, layout);
         quote! { pub type #name = #ty; }
     }
 }
 
 impl Enum {
-    fn write_sys_items(&self, architectures: &TokenStream) -> Vec<(&str, u8, TokenStream)> {
+    fn write_sys_items(
+        &self,
+        architectures: &TokenStream,
+        layout: Layout,
+    ) -> Vec<(&str, u8, TokenStream)> {
         let name = tokens::ident(&self.name);
-        let ty = self.ty.write(&self.namespace);
+        let ty = self.ty.write(&self.namespace, layout);
         if self.scoped {
             let values = self.values.iter().map(|(value_name, value)| {
                 let value_name = tokens::ident(value_name);
@@ -346,12 +354,15 @@ impl Enum {
 }
 
 impl Struct {
-    fn write_sys(&self, architectures: &TokenStream) -> TokenStream {
+    fn write_sys(&self, architectures: &TokenStream, layout: Layout) -> TokenStream {
         let name = tokens::ident(&self.name);
         if self.fields.is_empty() {
             let repr = self.repr();
             if self.union {
-                let nested = self.nested.iter().map(NativeType::write_sys);
+                let nested = self
+                    .nested
+                    .iter()
+                    .map(|nested| nested.write_sys_context(layout));
                 return quote! {
                     #repr
                     #architectures
@@ -368,7 +379,10 @@ impl Struct {
                     #(#nested)*
                 };
             }
-            let nested = self.nested.iter().map(NativeType::write_sys);
+            let nested = self
+                .nested
+                .iter()
+                .map(|nested| nested.write_sys_context(layout));
             let (derive, default) = self.default_tokens(&name, architectures);
             return quote! {
                 #repr
@@ -381,11 +395,14 @@ impl Struct {
         }
         let fields = self.fields.iter().map(|(field_name, ty)| {
             let field_name = tokens::ident(field_name);
-            let ty = ty.write(&self.namespace);
+            let ty = ty.write(&self.namespace, layout);
             quote! { pub #field_name: #ty, }
         });
         let repr = self.repr();
-        let nested = self.nested.iter().map(NativeType::write_sys);
+        let nested = self
+            .nested
+            .iter()
+            .map(|nested| nested.write_sys_context(layout));
         if self.union {
             quote! {
                 #repr

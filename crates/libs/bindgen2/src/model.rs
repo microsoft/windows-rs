@@ -82,6 +82,15 @@ impl Values {
 
     /// Renders a lowered value with rich WinRT projection policy.
     pub fn write(&self, namespace: &str, name: &str) -> Result<TokenStream, Error> {
+        self.write_context(namespace, name, Layout::Modules)
+    }
+
+    pub(super) fn write_context(
+        &self,
+        namespace: &str,
+        name: &str,
+        layout: Layout,
+    ) -> Result<TokenStream, Error> {
         let value = self
             .get(namespace, name)
             .ok_or_else(|| Error::InvalidValue {
@@ -89,8 +98,8 @@ impl Values {
                 message: "value was not selected",
             })?;
         match value {
-            Value::Enum(model) => model.write(self, namespace, name),
-            Value::Struct(model) => model.write(self, namespace, name),
+            Value::Enum(model) => model.write(self, namespace, name, layout),
+            Value::Struct(model) => model.write(self, namespace, name, layout),
         }
     }
 

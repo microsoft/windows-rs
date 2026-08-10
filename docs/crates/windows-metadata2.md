@@ -2,6 +2,7 @@
 
 `windows-metadata2` is an unpublished replacement candidate for
 [`windows-metadata`](windows-metadata.md). It is developed beside the existing implementation so
+each layer can be compared against the current Windows metadata corpus before consumers migrate.
 
 ## Current role
 
@@ -18,24 +19,23 @@ yet a full replacement for metadata writing, merging, remapping, or every ECMA t
 | Merge/remap and validation profiles | Not implemented. |
 | Pointer tables and broader table families | Not implemented. |
 
-Approximate hand-written Rust source size is 5,994 lines versus 5,548 for the existing metadata
+Approximate hand-written Rust source size is 6,033 lines versus 5,548 for the existing metadata
 crate. Metadata2 has clearer ownership and checked boundaries, but it is not smaller by raw line
 count. New semantic relationships should continue moving into focused modules rather than growing
 `semantic.rs`.
 
 ## Stabilization work
 
-Before metadata2 is treated as a stable base for the next bindgen milestone:
+The hardening required by the current bindgen2 milestone is complete:
 
-1. Validate both `NestedClass` indexes during `Database::new`; the streaming semantic view must not
-   be able to unwrap a null enclosing type.
-2. Add the ECMA interface bit to `TypeAttributes` and use it when classifying root definitions.
+1. [x] Validate both `NestedClass` indexes during `Database::new`; the streaming semantic view must
+   not be able to unwrap a null enclosing type.
+2. [x] Add the ECMA interface bit to `TypeAttributes` and use it when classifying root definitions.
 3. Review `image.rs` and `semantic.rs` for the next natural module split, but do not refactor them
    without a concrete duplicated concern.
-4. Keep immutable bindgen selection catalogs in bindgen2's shared metadata context rather than
+4. [x] Keep immutable bindgen selection catalogs in bindgen2's shared metadata context rather than
    adding consumer-specific indexes to metadata2.
-5. Re-run metadata differential tests after the bindgen2 stabilization gate. It is developed beside the existing implementation so
-each layer can be compared against the current Windows metadata corpus before consumers migrate.
+5. [x] Re-run metadata differential tests after the bindgen2 stabilization gate.
 
 The first layer owns and structurally validates a PE/CLI metadata image. Successful construction
 guarantees that the metadata root, stream directory, table header, row counts, table widths, and
@@ -175,13 +175,14 @@ cannot be added without duplicated row-width, index, or ordering logic.
 
 The native bindgen inventory added one read-only relationship: `Database::nested_types` streams
 direct nested/enclosing TypeDef pairs from `NestedClass`. Metadata2 retains no reverse map.
-Bindgen2 owns the ordered parent map because repeated enclosing lookup is projection policy.
+Bindgen2 owns and caches the ordered parent map because repeated enclosing lookup is projection
+policy.
 
 Native interface projection added `Database::interface_implementations`, a streaming
 `InterfaceImpl` view returning the implementing TypeDef and the referenced interface identity.
 TypeSpec identities remain intact rather than being forced into a namespace/name pair. Bindgen2
 owns the native base-interface map because inheritance and dependency closure require repeated
-lookup.
+lookup, and caches it with the nested map.
 
 Architecture projection added no new index or owner abstraction. TypeDef, Field, and MethodDef
 views expose their existing custom-attribute relationship and call one shared decoder for

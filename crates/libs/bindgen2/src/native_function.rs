@@ -43,14 +43,18 @@ impl Function {
 
     /// Renders a flat Win32 `windows_link::link!` declaration.
     pub fn write_sys(&self) -> TokenStream {
+        self.write_sys_context(Layout::Flat)
+    }
+
+    pub(super) fn write_sys_context(&self, layout: Layout) -> TokenStream {
         let architectures = tokens::architectures(self.architectures);
         let module = &self.module;
         let abi = self.abi;
         let symbol = self.import_name.as_ref().map(|name| quote! { #name });
         let name = tokens::ident(&self.name);
-        let parameters = self.signature.write_parameters(&self.namespace);
+        let parameters = self.signature.write_parameters(&self.namespace, layout);
         let variadic = self.variadic.then(|| quote! { , ... });
-        let result = self.signature.write_result(&self.namespace);
+        let result = self.signature.write_result(&self.namespace, layout);
         quote! {
             #architectures
             windows_link::link!(#module #abi #symbol fn #name(#parameters #variadic) #result);

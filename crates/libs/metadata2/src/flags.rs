@@ -7,6 +7,7 @@ impl TypeAttributes {
     pub const NESTED_PUBLIC: Self = Self(0x0000_0002);
     pub const SEQUENTIAL_LAYOUT: Self = Self(0x0000_0008);
     pub const EXPLICIT_LAYOUT: Self = Self(0x0000_0010);
+    pub const INTERFACE: Self = Self(0x0000_0020);
     pub const SEALED: Self = Self(0x0000_0100);
     pub const WINDOWS_RUNTIME: Self = Self(0x0000_4000);
 

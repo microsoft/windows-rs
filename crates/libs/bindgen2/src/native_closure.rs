@@ -57,29 +57,15 @@ impl<'a> Closure<'a> {
         &mut self,
         method: windows_metadata2::MethodDefinition<'_>,
     ) -> Result<(), Error> {
-        let signature = method.signature()?;
-        let owner = method.name()?;
-        let return_type = native::Type::lower(
-            self.database,
-            method.entity().file(),
-            owner,
-            signature.return_type,
-        )?;
-        self.include_native_type(&return_type)?;
-        let parameters = method.parameters_by_sequence()?;
-        for (position, ty) in signature.parameters.into_iter().enumerate() {
-            let flags = parameters.parameters()[position]
-                .map(|parameter| parameter.flags())
-                .transpose()?
-                .unwrap_or(0);
-            let ty = native::Type::lower_parameter(
-                self.database,
-                method.entity().file(),
-                owner,
-                ty,
-                flags & 0x0001 != 0 && flags & 0x0002 == 0,
-            )?;
-            self.include_native_type(&ty)?;
+        let signature = native_signature::Signature::lower(self.database, method, method.name()?)?;
+        let mut names = Vec::new();
+        signature.named_types(|namespace, name| {
+            if !namespace.is_empty() {
+                names.push((namespace.to_string(), name.to_string()));
+            }
+        });
+        for (namespace, name) in names {
+            self.include_name(&namespace, &name)?;
         }
         Ok(())
     }
@@ -99,7 +85,7 @@ impl<'a> Closure<'a> {
                                 field.signature()?,
                             )?;
                             let ty = if typedef {
-                                ty.normalize_alias(definition.name()?)
+                                ty.normalize_alias(definition.namespace()?, definition.name()?)
                             } else {
                                 ty
                             };

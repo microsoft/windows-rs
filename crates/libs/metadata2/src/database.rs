@@ -164,12 +164,14 @@ impl Database {
             let nested: HashSet<_> = image
                 .rows::<tables::NestedClass>()
                 .map(|row| {
-                    image
-                        .view(row)
-                        .unwrap()
+                    let relationship = image.view(row).unwrap();
+                    let nested = relationship
                         .index::<tables::TypeDef>(0)?
-                        .map(RowId::number)
-                        .ok_or_else(|| Error::invalid(row.number() as usize, "null nested type"))
+                        .ok_or_else(|| Error::invalid(row.number() as usize, "null nested type"))?;
+                    relationship.index::<tables::TypeDef>(1)?.ok_or_else(|| {
+                        Error::invalid(row.number() as usize, "null enclosing type")
+                    })?;
+                    Ok::<_, Error>(nested.number())
                 })
                 .collect::<Result<_, _>>()?;
             for row in image.rows::<tables::TypeDef>() {

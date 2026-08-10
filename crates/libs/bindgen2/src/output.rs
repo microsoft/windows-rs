@@ -41,20 +41,21 @@ impl Generator {
                 .push(Item {
                     name: name.to_string(),
                     kind: 0,
-                    tokens: values.write(namespace, name)?,
+                    tokens: values.write_context(namespace, name, layout)?,
                 });
         }
 
-        self.win32_items().render(|namespace, name, kind, tokens| {
-            modules
-                .entry(namespace.to_string())
-                .or_default()
-                .push(Item {
-                    name: name.to_string(),
-                    kind,
-                    tokens,
-                });
-        })?;
+        self.win32_items()
+            .render(layout, |namespace, name, kind, tokens| {
+                modules
+                    .entry(namespace.to_string())
+                    .or_default()
+                    .push(Item {
+                        name: name.to_string(),
+                        kind,
+                        tokens,
+                    });
+            })?;
 
         let mut root = Module::default();
         match layout {

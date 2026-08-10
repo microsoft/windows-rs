@@ -1,3 +1,4 @@
+use crate::Layout;
 use quote::{ToTokens, quote};
 
 pub(super) fn architectures(value: i32) -> proc_macro2::TokenStream {
@@ -49,8 +50,8 @@ pub(super) fn ident(name: &str) -> proc_macro2::TokenStream {
     }
 }
 
-pub(super) fn namespace(current: &str, target: &str) -> proc_macro2::TokenStream {
-    if target.is_empty() || target == current {
+pub(super) fn namespace(current: &str, target: &str, layout: Layout) -> proc_macro2::TokenStream {
+    if layout == Layout::Flat || target.is_empty() || target == current {
         return quote! {};
     }
 

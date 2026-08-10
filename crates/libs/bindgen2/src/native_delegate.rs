@@ -43,11 +43,15 @@ impl Delegate {
 
     /// Renders a flat Win32 function-pointer alias.
     pub fn write_sys(&self) -> TokenStream {
+        self.write_sys_context(Layout::Flat)
+    }
+
+    pub(super) fn write_sys_context(&self, layout: Layout) -> TokenStream {
         let architectures = tokens::architectures(self.architectures);
         let name = tokens::ident(&self.name);
         let abi = self.abi;
-        let parameters = self.signature.write_parameters(&self.namespace);
-        let result = self.signature.write_result(&self.namespace);
+        let parameters = self.signature.write_parameters(&self.namespace, layout);
+        let result = self.signature.write_result(&self.namespace, layout);
         let ty = quote! { Option<unsafe extern #abi fn(#parameters) #result> };
         quote! {
             #architectures

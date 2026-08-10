@@ -109,6 +109,10 @@ impl Constant {
 
     /// Renders a flat Win32 sys constant.
     pub fn write_sys(&self) -> TokenStream {
+        self.write_sys_context(Layout::Flat)
+    }
+
+    pub(super) fn write_sys_context(&self, layout: Layout) -> TokenStream {
         let architectures = tokens::architectures(self.architectures);
         let name = tokens::ident(&self.name);
         let value = match &self.value {
@@ -119,7 +123,7 @@ impl Constant {
                 }
             }
             Value::PropertyKey { guid, fields, pid } => {
-                let ty = self.ty.write(&self.namespace);
+                let ty = self.ty.write(&self.namespace, layout);
                 let guid = guid.write_value();
                 let guid_field = tokens::ident(&fields[0]);
                 let pid_field = tokens::ident(&fields[1]);
@@ -159,7 +163,7 @@ impl Constant {
             Value::Fixed {
                 underlying, value, ..
             } => {
-                let ty = self.ty.write(&self.namespace);
+                let ty = self.ty.write(&self.namespace, layout);
                 let value = if self.ty == *underlying {
                     native::write_value(underlying, value)
                 } else {

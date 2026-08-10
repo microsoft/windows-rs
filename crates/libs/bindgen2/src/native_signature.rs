@@ -45,7 +45,7 @@ impl Signature {
                         method.entity().file(),
                         owner,
                         ty,
-                        flags & 0x0001 != 0 && flags & 0x0002 == 0,
+                        flags & 0x0002 == 0,
                     )?,
                 })
             })
@@ -57,28 +57,35 @@ impl Signature {
         })
     }
 
-    pub(super) fn write_parameters(&self, namespace: &str) -> TokenStream {
+    pub(super) fn named_types(&self, mut add: impl FnMut(&str, &str)) {
+        for parameter in &self.parameters {
+            parameter.ty.named_types(&mut add);
+        }
+        self.return_type.named_types(add);
+    }
+
+    pub(super) fn write_parameters(&self, namespace: &str, layout: Layout) -> TokenStream {
         let parameters = self.parameters.iter().map(|parameter| {
             let name = tokens::ident(&parameter.name);
-            let ty = parameter.ty.write(namespace);
+            let ty = parameter.ty.write(namespace, layout);
             quote! { #name: #ty }
         });
         quote! { #(#parameters),* }
     }
 
-    pub(super) fn write_vtable_parameters(&self, namespace: &str) -> TokenStream {
+    pub(super) fn write_vtable_parameters(&self, namespace: &str, layout: Layout) -> TokenStream {
         let parameters = self.parameters.iter().map(|parameter| {
-            let ty = parameter.ty.write(namespace);
+            let ty = parameter.ty.write(namespace, layout);
             quote! { #ty }
         });
         quote! { *mut core::ffi::c_void #(, #parameters)* }
     }
 
-    pub(super) fn write_result(&self, namespace: &str) -> TokenStream {
+    pub(super) fn write_result(&self, namespace: &str, layout: Layout) -> TokenStream {
         if self.return_type == native::Type::Void {
             quote! {}
         } else {
-            let ty = self.return_type.write(namespace);
+            let ty = self.return_type.write(namespace, layout);
             quote! { -> #ty }
         }
     }

@@ -1,5 +1,6 @@
 use super::*;
 use std::collections::{BTreeMap, BTreeSet};
+use std::sync::Arc;
 
 struct Namespace {
     name: String,
@@ -30,8 +31,7 @@ enum EnumVariants {
 
 pub(crate) struct Win32Selection {
     namespaces: Vec<Namespace>,
-    nested: BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
-    interface_bases: BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
+    catalogs: Arc<Win32Catalogs>,
     enum_variants: BTreeMap<Entity<TypeDef>, EnumVariants>,
     type_count: usize,
     architecture_type_count: usize,
@@ -42,6 +42,11 @@ pub(crate) struct Win32Selection {
     function_count: usize,
     delegate_count: usize,
     interface_count: usize,
+}
+
+pub(crate) struct Win32Catalogs {
+    nested: BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
+    interface_bases: BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
 }
 
 /// A borrowed lowering view over the request's selected Win32 items.
@@ -61,9 +66,18 @@ impl Generator {
 }
 
 impl Win32Selection {
-    pub(crate) fn new(database: &Database, filter: Option<&Filter>) -> Result<Self, Error> {
-        let interface_bases = interface_bases(database)?;
-        let mut closure = filter.map(|_| native_closure::Closure::new(database, &interface_bases));
+    #[cfg(test)]
+    pub(crate) fn shares_catalogs(&self, other: &Self) -> bool {
+        Arc::ptr_eq(&self.catalogs, &other.catalogs)
+    }
+
+    pub(crate) fn new_with_catalogs(
+        database: &Database,
+        catalogs: Arc<Win32Catalogs>,
+        filter: Option<&Filter>,
+    ) -> Result<Self, Error> {
+        let mut closure =
+            filter.map(|_| native_closure::Closure::new(database, &catalogs.interface_bases));
         let mut namespaces = NamespaceSelections::new();
         let mut enum_variants = BTreeMap::<Entity<TypeDef>, EnumVariants>::new();
         for definition in database.definitions() {
@@ -202,6 +216,25 @@ impl Win32Selection {
                 }
             })
             .collect();
+        Ok(Self {
+            namespaces,
+            catalogs,
+            enum_variants,
+            type_count,
+            architecture_type_count,
+            architecture_constant_count,
+            architecture_function_count,
+            architecture_interface_count,
+            constant_count,
+            function_count,
+            delegate_count,
+            interface_count,
+        })
+    }
+}
+
+impl Win32Catalogs {
+    pub(crate) fn new(database: &Database) -> Result<Self, Error> {
         let mut nested = BTreeMap::<Entity<TypeDef>, Vec<Entity<TypeDef>>>::new();
         for (child, parent) in database.nested_types() {
             if !child.is_windows_runtime()?
@@ -215,19 +248,8 @@ impl Win32Selection {
             }
         }
         Ok(Self {
-            namespaces,
             nested,
-            interface_bases,
-            enum_variants,
-            type_count,
-            architecture_type_count,
-            architecture_constant_count,
-            architecture_function_count,
-            architecture_interface_count,
-            constant_count,
-            function_count,
-            delegate_count,
-            interface_count,
+            interface_bases: interface_bases(database)?,
         })
     }
 }
@@ -304,7 +326,7 @@ impl<'a> Win32Items<'a> {
 
     /// Returns the number of nested native structs retained for future attachment.
     pub fn nested_type_count(&self) -> usize {
-        self.selection.nested.values().map(Vec::len).sum()
+        self.selection.catalogs.nested.values().map(Vec::len).sum()
     }
 
     /// Returns the number of selected constants.
@@ -334,7 +356,7 @@ impl<'a> Win32Items<'a> {
                 NativeType::lower_filtered(
                     self.database,
                     self.database.definition(*entity).unwrap(),
-                    &self.selection.nested,
+                    &self.selection.catalogs.nested,
                     self.enum_variants(*entity),
                 )
             })
@@ -382,7 +404,7 @@ impl<'a> Win32Items<'a> {
                 NativeInterface::lower(
                     self.database,
                     self.database.definition(*entity).unwrap(),
-                    &self.selection.interface_bases,
+                    &self.selection.catalogs.interface_bases,
                 )
             })
         })
@@ -416,13 +438,14 @@ impl<'a> Win32Items<'a> {
         NativeType::lower_filtered(
             self.database,
             self.database.definition(entity).unwrap(),
-            &self.selection.nested,
+            &self.selection.catalogs.nested,
             self.enum_variants(entity),
         )
     }
 
     pub(super) fn render(
         &self,
+        layout: Layout,
         mut add: impl FnMut(&str, &str, u8, proc_macro2::TokenStream),
     ) -> Result<(), Error> {
         for namespace in &self.selection.namespaces {
@@ -431,10 +454,10 @@ impl<'a> Win32Items<'a> {
                 let ty = NativeType::lower_filtered(
                     self.database,
                     definition,
-                    &self.selection.nested,
+                    &self.selection.catalogs.nested,
                     self.enum_variants(*entity),
                 )?;
-                for (name, kind, tokens) in ty.write_sys_items() {
+                for (name, kind, tokens) in ty.write_sys_items_context(layout) {
                     add(&namespace.name, name, kind, tokens);
                 }
             }
@@ -444,7 +467,7 @@ impl<'a> Win32Items<'a> {
                     &namespace.name,
                     definition.name()?,
                     1,
-                    Delegate::lower(self.database, definition)?.write_sys(),
+                    Delegate::lower(self.database, definition)?.write_sys_context(layout),
                 );
             }
             for entity in &namespace.interfaces {
@@ -456,9 +479,9 @@ impl<'a> Win32Items<'a> {
                     NativeInterface::lower(
                         self.database,
                         definition,
-                        &self.selection.interface_bases,
+                        &self.selection.catalogs.interface_bases,
                     )?
-                    .write_sys(),
+                    .write_sys_context(layout),
                 );
             }
             for entity in &namespace.constants {
@@ -468,7 +491,8 @@ impl<'a> Win32Items<'a> {
                     &namespace.name,
                     name,
                     2,
-                    Constant::lower(self.database, field, &namespace.name, name)?.write_sys(),
+                    Constant::lower(self.database, field, &namespace.name, name)?
+                        .write_sys_context(layout),
                 );
             }
             for entity in &namespace.functions {
@@ -478,7 +502,8 @@ impl<'a> Win32Items<'a> {
                     &namespace.name,
                     name,
                     3,
-                    Function::lower(self.database, method, &namespace.name, name)?.write_sys(),
+                    Function::lower(self.database, method, &namespace.name, name)?
+                        .write_sys_context(layout),
                 );
             }
         }
@@ -584,7 +609,12 @@ mod tests {
     #[test]
     fn inventory_current_win32_lowering() {
         let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
-        let selection = Win32Selection::new(&database, None).unwrap();
+        let selection = Win32Selection::new_with_catalogs(
+            &database,
+            Arc::new(Win32Catalogs::new(&database).unwrap()),
+            None,
+        )
+        .unwrap();
         let items = Win32Items {
             database: &database,
             selection: &selection,
@@ -611,7 +641,7 @@ mod tests {
                 match NativeType::lower_filtered(
                     &database,
                     definition,
-                    &items.selection.nested,
+                    &items.selection.catalogs.nested,
                     None,
                 ) {
                     Ok(ty) => {
@@ -649,7 +679,7 @@ mod tests {
                 match NativeInterface::lower(
                     &database,
                     definition,
-                    &items.selection.interface_bases,
+                    &items.selection.catalogs.interface_bases,
                 ) {
                     Ok(interface) => {
                         interface.write_sys();
@@ -694,7 +724,12 @@ mod tests {
     #[test]
     fn inventory_architecture_variants_and_nested_types() {
         let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
-        let selection = Win32Selection::new(&database, None).unwrap();
+        let selection = Win32Selection::new_with_catalogs(
+            &database,
+            Arc::new(Win32Catalogs::new(&database).unwrap()),
+            None,
+        )
+        .unwrap();
         let items = Win32Items {
             database: &database,
             selection: &selection,
@@ -738,10 +773,16 @@ mod tests {
             (1_054, 671, 374, 2_633, 997, 512, 261, 14, 2_633)
         );
         assert_eq!(
-            items.selection.nested.values().map(Vec::len).sum::<usize>(),
+            items
+                .selection
+                .catalogs
+                .nested
+                .values()
+                .map(Vec::len)
+                .sum::<usize>(),
             nested_rows
         );
-        assert_eq!(items.selection.nested.len(), 1_925);
+        assert_eq!(items.selection.catalogs.nested.len(), 1_925);
     }
 
     #[test]

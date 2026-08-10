@@ -87,10 +87,13 @@ impl<'a> TypeDefinition<'a> {
         self.row()?.string(2)
     }
 
-    /// Returns the type category implied by the base type.
+    /// Returns the type category from its attributes and base type.
     pub fn category(self) -> Result<TypeCategory, Error> {
-        let Some(extends) = self.row()?.coded(3)? else {
+        if self.type_attributes()?.contains(TypeAttributes::INTERFACE) {
             return Ok(TypeCategory::Interface);
+        }
+        let Some(extends) = self.row()?.coded(3)? else {
+            return Ok(TypeCategory::Class);
         };
         let Some((namespace, name)) = self.database.type_name(self.entity.file(), extends)? else {
             return Ok(TypeCategory::Class);
@@ -754,6 +757,41 @@ impl<'a> ParameterDefinition<'a> {
 mod tests {
     use super::*;
     use windows_metadata::HasAttributes as _;
+
+    #[test]
+    fn interface_category_uses_type_attribute() {
+        let mut builder = MetadataBuilder::new("category");
+        builder
+            .type_definition(
+                "Test",
+                "Interface",
+                None,
+                TypeAttributes::PUBLIC | TypeAttributes::INTERFACE,
+                |_| Ok(()),
+            )
+            .unwrap();
+        builder
+            .type_definition("Test", "Class", None, TypeAttributes::PUBLIC, |_| Ok(()))
+            .unwrap();
+        let database = Database::new([Image::new(builder.finish().unwrap()).unwrap()]).unwrap();
+
+        assert_eq!(
+            database
+                .definition(database.type_definitions("Test", "Interface")[0])
+                .unwrap()
+                .category()
+                .unwrap(),
+            TypeCategory::Interface
+        );
+        assert_eq!(
+            database
+                .definition(database.type_definitions("Test", "Class")[0])
+                .unwrap()
+                .category()
+                .unwrap(),
+            TypeCategory::Class
+        );
+    }
 
     #[test]
     fn type_shapes_match_existing_reader() {
