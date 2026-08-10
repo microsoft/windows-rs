@@ -758,6 +758,9 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.tree
             .child(parent, from)
             .expect("mounted child index out of bounds");
+        self.tree
+            .child(parent, to)
+            .expect("mounted child destination index out of bounds");
         let projected = self.tree.child_is_projected(parent, from);
         let projected_from = self.tree.projected_index(parent, from);
         self.tree.move_child(parent, from, to);

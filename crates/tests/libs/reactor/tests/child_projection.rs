@@ -213,3 +213,14 @@ fn forward_moves_use_the_post_move_projection_index() {
     reconciler.assert_consistent();
     reconciler.backend.assert_consistent();
 }
+
+#[test]
+#[should_panic(expected = "mounted child destination index out of bounds")]
+fn moves_reject_an_out_of_bounds_destination() {
+    let mut reconciler = Reconciler::new(RecordingBackend::new());
+    let root = reconciler.acquire_control(windows_reactor::ControlKind::StackPanel);
+    let child = reconciler.acquire_control(windows_reactor::ControlKind::TextBlock);
+    reconciler.append_child_tracked(root, child);
+
+    reconciler.move_child_tracked(root, 0, 1);
+}
