@@ -144,6 +144,12 @@ The native bindgen inventory added one read-only relationship: `Database::nested
 direct nested/enclosing TypeDef pairs from `NestedClass`. Metadata2 retains no reverse map.
 Bindgen2 owns the ordered parent map because repeated enclosing lookup is projection policy.
 
+Native interface projection added `Database::interface_implementations`, a streaming
+`InterfaceImpl` view returning the implementing TypeDef and the referenced interface identity.
+TypeSpec identities remain intact rather than being forced into a namespace/name pair. Bindgen2
+owns the native base-interface map because inheritance and dependency closure require repeated
+lookup.
+
 Architecture projection added no new index or owner abstraction. TypeDef, Field, and MethodDef
 views expose their existing custom-attribute relationship and call one shared decoder for
 `SupportedArchitectureAttribute`.

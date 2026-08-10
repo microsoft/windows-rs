@@ -11,8 +11,8 @@ copying per-item namespaces and renders the complete committed constant and func
 also lowers the 30,109 top-level native aliases, enums, structs, and unions through a separate
 per-item model. A bounded output layer groups these supported items into deterministic namespace
 modules and matches the existing nested-module golden output. Filters, dependency closure, nested
-native types, interfaces, delegates, flat output, and package output remain independent future
-layers.
+native types, native delegates, native interfaces, and flat output are implemented. Rich
+projection, member-level filters, file writing, and package output remain future layers.
 
 Corpus inventory found 1,054 architecture-specific top-level rows, of which 997 are selected
 native enum/struct definitions, and 2,633 nested native structs under 1,925 direct parents.
@@ -39,15 +39,20 @@ All 10 scoped native enums now use the existing transparent-newtype sys projecti
 constants. Ordinary C enums remain integer aliases with module-level constants. The distinction is
 stored on each independently lowered enum and requires no enum registry.
 
-The remaining native inventory contains 2,159 delegates and 4,290 interfaces with 25,868 methods.
-The 1,228 bitfield members belong only to rich bindings; the existing sys generator emits their
-coalesced backing fields without accessors. Sys handle aliases already follow native-typedef
-policy, including the one primitive `Value` shape lacking `NativeTypedefAttribute`.
-
 All 2,159 native delegates now lower and render as optional unsafe function-pointer aliases. The
 43 architecture-gated rows sort and gate independently. Functions and delegates share one owned
 native signature model for parameter naming and type rendering; import policy and delegate
 calling-convention attributes remain separate.
+
+All 4,290 native interfaces and 25,868 methods lower to sys vtables. The model stores one optional
+base name, an optional COM IID, and ordered ABI methods. Bindgen2 retains one `InterfaceImpl`
+relationship map for inheritance and closure; projected interface models remain per-item values.
+The 14 architecture-gated interfaces and independently gated methods use the same target mappings
+as other native items.
+
+The 1,228 bitfield members belong only to rich bindings; the existing sys generator emits their
+coalesced backing fields without accessors. Sys handle aliases already follow native-typedef
+policy, including the one primitive `Value` shape lacking `NativeTypedefAttribute`.
 
 This request boundary allows tools with many filter files to parse and index metadata once. It
 does not add per-row reference counting or change metadata identities. The compatibility CLI and
@@ -69,7 +74,6 @@ selection instead of scanning the metadata database again. Native projected mode
 lowered one item at a time and discarded after rendering.
 
 Filtered Win32 requests close transitively over supported native definitions referenced by field
-and method signatures. This includes aliases, enums, structs, and delegates, with every
-architecture variant of a referenced metadata name. Closure uses an ephemeral entity set and work
-queue; it does not retain a dependency graph. Native interfaces are not included until their
-projection is implemented.
+and method signatures. This includes aliases, enums, structs, delegates, interfaces, base
+interfaces, and every architecture variant of a referenced metadata name. Closure uses an
+ephemeral entity set and work queue; it does not retain a dependency graph.

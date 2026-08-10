@@ -131,6 +131,12 @@ impl Type {
                     name: name.to_string(),
                 }
             }
+            TypeKind::GenericInstance {
+                value_type: false, ..
+            } => Self::Pointer {
+                mutable: true,
+                element: Box::new(Self::Void),
+            },
             unsupported => {
                 return Err(Error::UnsupportedType {
                     name: owner.to_string(),

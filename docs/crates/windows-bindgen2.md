@@ -52,10 +52,10 @@ typed entities, the nested parent-to-children map required by recursive structs,
 counts. Native projected models remain streaming values.
 
 Filtered native selection now closes over decoded field and method signatures. A temporary ordered
-entity set and work queue pull in referenced aliases, enums, structs, and delegates transitively.
-Name resolution reuses metadata2's exact TypeDef index and adds every architecture row for a
-referenced name. The queue is discarded after selection; no dependency graph or per-type role map
-is retained. Interface references remain unresolved until native interface projection exists.
+entity set and work queue pull in referenced aliases, enums, structs, delegates, interfaces, and
+base interfaces transitively. Name resolution reuses metadata2's exact TypeDef index and adds every
+architecture row for a referenced name. The queue is discarded after selection; no dependency
+graph or per-type role map is retained.
 
 The value layer lowers all 1,731 selected enums and 125 structs into owned models. Enum, struct,
 type, GUID, and graph policy live in separate modules. The graph uses nested ordered maps so
@@ -108,20 +108,6 @@ token stream. A focused nested Win32 fixture matches the existing module golden 
 mixed fixture proves that WinRT values and Win32 items pass through the same output path. It does
 not add filtering, dependency closure, formatting, file writing, or package policy.
 
-This is structural coverage, not complete native output equivalence. Bitfield accessors and handle
-policy for rich bindings, native delegates, and interfaces are absent. The current sys inventory
-is:
-
-| Remaining surface | Count |
-| --- | ---: |
-| Native delegates | 2,159 |
-| Architecture-gated delegates | 43 |
-| Native interfaces | 4,290 |
-| Interface methods | 25,868 |
-| Architecture-gated interfaces | 14 |
-| Structs with bitfields | 218 |
-| Bitfield members | 1,228 |
-
 Bitfield accessors are not a sys-output gap: the existing sys generator emits only their coalesced
 backing fields. Of 11,264 direct primitive handle shapes, all but
 `OVERRIDE_PREFETCH_PARAMETER` carry `NativeTypedefAttribute`; the unannotated exception now follows
@@ -132,6 +118,13 @@ variants and system/C calling conventions. A focused callback fixture and an arc
 dependency fixture match the existing sys output. Delegates and imported functions share one
 owned native signature model; delegate attribute decoding uses a narrow resolver for the framework
 `CallingConvention` enum rather than moving framework policy into metadata2.
+
+Native interface projection is complete for all 4,290 rows and 25,868 methods. Sys output contains
+ordered ABI vtables, direct base-vtable fields, COM IIDs for `IUnknown` hierarchies, architecture
+gates, special method names, and overload suffixes. One non-value generic interface signature is
+erased to its raw ABI pointer rather than introducing a generic native type model. The retained
+`InterfaceImpl` map supports inheritance and filtered closure; individual interface projections
+are not retained.
 
 ## Native shape inventory
 
@@ -196,8 +189,8 @@ functions, enum members, and union `Default` implementations are each independen
 
 The direction remains better than the current generator, but it is not yet a replacement:
 
-- bindgen2 remains much smaller than bindgen, but it does not yet include interfaces, classes,
-  complete native type policy, filters, closure, module output, or packages;
+- bindgen2 remains much smaller than bindgen, but it does not yet include WinRT interfaces and
+  classes, rich native policy, member-level filters, file writing, or packages;
 - metadata2 owns data, uses checked typed identities, and avoids the leaked reader, but its source
   is already close to the old metadata crate's raw line count because parsing and differential
   tests are extensive;
@@ -217,10 +210,8 @@ standard required before claiming the replacement is objectively better overall.
 
 The bounded module-output, RDL2 external-reference, native-shape inventory, architecture-gating,
 nested-rendering, native-default, scoped-enum, and remaining-surface inventory checkpoints are
-complete. Native delegates are also complete. Interfaces are the remaining major sys type surface
-and are an order of magnitude larger by method count. The reusable metadata/request boundary is
-complete, including explicit module/flat layout and exact programmatic filters. Add dependency
-closure for native interfaces after their projection is implemented and before a compatibility
-CLI or file writer. Only then define member-level filter syntax. Supported native aliases, enums,
-structs, and delegates already close transitively. Do not add a second name index or a global
-native graph without a measured requirement.
+complete. Native delegates and interfaces are also complete for sys output. The reusable
+metadata/request boundary includes explicit module/flat layout, exact programmatic filters, and
+transitive supported-native closure. The next checkpoint should exercise real `tool_bindings` sys
+filter sets in memory before adding member-level syntax, file writing, or a compatibility CLI. Do
+not add a second name index or a global native graph without a measured requirement.

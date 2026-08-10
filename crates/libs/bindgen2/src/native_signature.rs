@@ -55,6 +55,14 @@ impl Signature {
         quote! { #(#parameters),* }
     }
 
+    pub(super) fn write_vtable_parameters(&self, namespace: &str) -> TokenStream {
+        let parameters = self.parameters.iter().map(|parameter| {
+            let ty = parameter.ty.write(namespace);
+            quote! { #ty }
+        });
+        quote! { *mut core::ffi::c_void #(, #parameters)* }
+    }
+
     pub(super) fn write_result(&self, namespace: &str) -> TokenStream {
         if self.return_type == native::Type::Void {
             quote! {}

@@ -16,6 +16,7 @@ mod image;
 mod row;
 mod schema;
 mod semantic;
+mod semantic_interface;
 mod semantic_layout;
 mod semantic_nested;
 mod signature;

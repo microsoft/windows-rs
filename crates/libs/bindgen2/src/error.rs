@@ -21,6 +21,8 @@ pub enum Error {
     },
     /// Value types form an invalid recursive value cycle.
     RecursiveValue(String),
+    /// Native interfaces form an invalid inheritance cycle.
+    RecursiveInterface(String),
     /// A requested Win32 item does not exist.
     MissingWin32Item {
         /// The metadata namespace.
@@ -51,6 +53,9 @@ impl std::fmt::Display for Error {
                 write!(formatter, "unsupported type in `{name}`: {shape}")
             }
             Self::RecursiveValue(name) => write!(formatter, "recursive value type `{name}`"),
+            Self::RecursiveInterface(name) => {
+                write!(formatter, "recursive native interface `{name}`")
+            }
             Self::MissingWin32Item { namespace, name } => {
                 write!(
                     formatter,

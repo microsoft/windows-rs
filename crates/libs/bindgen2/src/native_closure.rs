@@ -1,16 +1,21 @@
 use super::*;
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 
 pub(super) struct Closure<'a> {
     database: &'a Database,
+    interface_bases: &'a BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
     selected: BTreeSet<Entity<TypeDef>>,
     pending: Vec<Entity<TypeDef>>,
 }
 
 impl<'a> Closure<'a> {
-    pub(super) fn new(database: &'a Database) -> Self {
+    pub(super) fn new(
+        database: &'a Database,
+        interface_bases: &'a BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
+    ) -> Self {
         Self {
             database,
+            interface_bases,
             selected: BTreeSet::new(),
             pending: Vec::new(),
         }
@@ -21,7 +26,10 @@ impl<'a> Closure<'a> {
         if definition.is_windows_runtime()?
             || !matches!(
                 definition.category()?,
-                TypeCategory::Enum | TypeCategory::Struct | TypeCategory::Delegate
+                TypeCategory::Enum
+                    | TypeCategory::Struct
+                    | TypeCategory::Delegate
+                    | TypeCategory::Interface
             )
         {
             return Ok(());
@@ -67,6 +75,16 @@ impl<'a> Closure<'a> {
                         self.include_method(method)?;
                     }
                 }
+                TypeCategory::Interface => {
+                    if let Some(bases) = self.interface_bases.get(&entity) {
+                        for (namespace, name) in bases {
+                            self.include_name(namespace, name)?;
+                        }
+                    }
+                    for method in definition.methods()? {
+                        self.include_method(method)?;
+                    }
+                }
                 _ => unreachable!(),
             }
         }
@@ -105,6 +123,10 @@ impl<'a> Closure<'a> {
         if namespace.is_empty() {
             return Ok(());
         }
+        self.include_name(namespace, name)
+    }
+
+    fn include_name(&mut self, namespace: &str, name: &str) -> Result<(), Error> {
         for entity in self.database.type_definitions(namespace, name) {
             self.include_definition(*entity)?;
         }

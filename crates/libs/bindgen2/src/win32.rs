@@ -5,31 +5,37 @@ struct Namespace {
     name: String,
     types: Vec<Entity<TypeDef>>,
     delegates: Vec<Entity<TypeDef>>,
+    interfaces: Vec<Entity<TypeDef>>,
     constants: Vec<Entity<Field>>,
     functions: Vec<Entity<MethodDef>>,
 }
 
 type NamedEntity<T> = (String, i32, Entity<T>);
-type NamespaceSelections = BTreeMap<
-    String,
-    (
-        Vec<NamedEntity<TypeDef>>,
-        Vec<NamedEntity<TypeDef>>,
-        Vec<NamedEntity<Field>>,
-        Vec<NamedEntity<MethodDef>>,
-    ),
->;
+
+#[derive(Default)]
+struct NamespaceSelection {
+    types: Vec<NamedEntity<TypeDef>>,
+    delegates: Vec<NamedEntity<TypeDef>>,
+    interfaces: Vec<NamedEntity<TypeDef>>,
+    constants: Vec<NamedEntity<Field>>,
+    functions: Vec<NamedEntity<MethodDef>>,
+}
+
+type NamespaceSelections = BTreeMap<String, NamespaceSelection>;
 
 pub(crate) struct Win32Selection {
     namespaces: Vec<Namespace>,
     nested: BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
+    interface_bases: BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
     type_count: usize,
     architecture_type_count: usize,
     architecture_constant_count: usize,
     architecture_function_count: usize,
+    architecture_interface_count: usize,
     constant_count: usize,
     function_count: usize,
     delegate_count: usize,
+    interface_count: usize,
 }
 
 /// A borrowed lowering view over the request's selected Win32 items.
@@ -50,7 +56,8 @@ impl Generator {
 
 impl Win32Selection {
     pub(crate) fn new(database: &Database, filter: Option<&Filter>) -> Result<Self, Error> {
-        let mut closure = filter.map(|_| native_closure::Closure::new(database));
+        let interface_bases = interface_bases(database)?;
+        let mut closure = filter.map(|_| native_closure::Closure::new(database, &interface_bases));
         let mut namespaces = NamespaceSelections::new();
         for definition in database.definitions() {
             if definition.is_windows_runtime()? {
@@ -59,17 +66,10 @@ impl Win32Selection {
             let namespace = definition.namespace()?.to_string();
             let category = definition.category()?;
             match category {
-                TypeCategory::Enum | TypeCategory::Struct => {
-                    let name = definition.name()?;
-                    if filter.is_none_or(|filter| filter.includes(&namespace, name)) {
-                        if let Some(closure) = &mut closure {
-                            closure.include_definition(definition.entity())?;
-                        } else {
-                            add_definition(&mut namespaces, definition)?;
-                        }
-                    }
-                }
-                TypeCategory::Delegate => {
+                TypeCategory::Enum
+                | TypeCategory::Struct
+                | TypeCategory::Delegate
+                | TypeCategory::Interface => {
                     let name = definition.name()?;
                     if filter.is_none_or(|filter| filter.includes(&namespace, name)) {
                         if let Some(closure) = &mut closure {
@@ -86,11 +86,11 @@ impl Win32Selection {
                             if let Some(closure) = &mut closure {
                                 closure.include_field(field)?;
                             }
-                            namespaces.entry(namespace.clone()).or_default().2.push((
-                                name.to_string(),
-                                field.architectures()?,
-                                field.entity(),
-                            ));
+                            namespaces
+                                .entry(namespace.clone())
+                                .or_default()
+                                .constants
+                                .push((name.to_string(), field.architectures()?, field.entity()));
                         }
                     }
                     for method in definition.methods()? {
@@ -104,11 +104,11 @@ impl Win32Selection {
                             if let Some(closure) = &mut closure {
                                 closure.include_method(method)?;
                             }
-                            namespaces.entry(namespace.clone()).or_default().3.push((
-                                name.to_string(),
-                                method.architectures()?,
-                                method.entity(),
-                            ));
+                            namespaces
+                                .entry(namespace.clone())
+                                .or_default()
+                                .functions
+                                .push((name.to_string(), method.architectures()?, method.entity()));
                         }
                     }
                 }
@@ -125,36 +125,48 @@ impl Win32Selection {
         let mut architecture_type_count = 0;
         let mut architecture_constant_count = 0;
         let mut architecture_function_count = 0;
+        let mut architecture_interface_count = 0;
         let mut constant_count = 0;
         let mut function_count = 0;
         let mut delegate_count = 0;
+        let mut interface_count = 0;
         let namespaces: Vec<Namespace> = namespaces
             .into_iter()
-            .map(
-                |(name, (mut types, mut delegates, mut constants, mut functions))| {
-                    types.sort();
-                    delegates.sort();
-                    constants.sort();
-                    functions.sort();
-                    architecture_type_count +=
-                        types.iter().filter(|(_, bits, _)| *bits != 0).count();
-                    architecture_constant_count +=
-                        constants.iter().filter(|(_, bits, _)| *bits != 0).count();
-                    architecture_function_count +=
-                        functions.iter().filter(|(_, bits, _)| *bits != 0).count();
-                    type_count += types.len();
-                    delegate_count += delegates.len();
-                    constant_count += constants.len();
-                    function_count += functions.len();
-                    Namespace {
-                        name,
-                        types: types.into_iter().map(|(_, _, entity)| entity).collect(),
-                        delegates: delegates.into_iter().map(|(_, _, entity)| entity).collect(),
-                        constants: constants.into_iter().map(|(_, _, entity)| entity).collect(),
-                        functions: functions.into_iter().map(|(_, _, entity)| entity).collect(),
-                    }
-                },
-            )
+            .map(|(name, mut selection)| {
+                selection.types.sort();
+                selection.delegates.sort();
+                selection.interfaces.sort();
+                selection.constants.sort();
+                selection.functions.sort();
+                let types = selection.types;
+                let delegates = selection.delegates;
+                let interfaces = selection.interfaces;
+                let constants = selection.constants;
+                let functions = selection.functions;
+                architecture_type_count += types.iter().filter(|(_, bits, _)| *bits != 0).count();
+                architecture_constant_count +=
+                    constants.iter().filter(|(_, bits, _)| *bits != 0).count();
+                architecture_function_count +=
+                    functions.iter().filter(|(_, bits, _)| *bits != 0).count();
+                architecture_interface_count +=
+                    interfaces.iter().filter(|(_, bits, _)| *bits != 0).count();
+                type_count += types.len();
+                delegate_count += delegates.len();
+                interface_count += interfaces.len();
+                constant_count += constants.len();
+                function_count += functions.len();
+                Namespace {
+                    name,
+                    types: types.into_iter().map(|(_, _, entity)| entity).collect(),
+                    delegates: delegates.into_iter().map(|(_, _, entity)| entity).collect(),
+                    interfaces: interfaces
+                        .into_iter()
+                        .map(|(_, _, entity)| entity)
+                        .collect(),
+                    constants: constants.into_iter().map(|(_, _, entity)| entity).collect(),
+                    functions: functions.into_iter().map(|(_, _, entity)| entity).collect(),
+                }
+            })
             .collect();
         let mut nested = BTreeMap::<Entity<TypeDef>, Vec<Entity<TypeDef>>>::new();
         for (child, parent) in database.nested_types() {
@@ -171,13 +183,16 @@ impl Win32Selection {
         Ok(Self {
             namespaces,
             nested,
+            interface_bases,
             type_count,
             architecture_type_count,
             architecture_constant_count,
             architecture_function_count,
+            architecture_interface_count,
             constant_count,
             function_count,
             delegate_count,
+            interface_count,
         })
     }
 }
@@ -195,11 +210,35 @@ fn add_definition(
         .entry(definition.namespace()?.to_string())
         .or_default();
     match definition.category()? {
-        TypeCategory::Enum | TypeCategory::Struct => namespace.0.push(item),
-        TypeCategory::Delegate => namespace.1.push(item),
+        TypeCategory::Enum | TypeCategory::Struct => namespace.types.push(item),
+        TypeCategory::Delegate => namespace.delegates.push(item),
+        TypeCategory::Interface => namespace.interfaces.push(item),
         _ => unreachable!(),
     }
     Ok(())
+}
+
+fn interface_bases(
+    database: &Database,
+) -> Result<BTreeMap<Entity<TypeDef>, Vec<(String, String)>>, Error> {
+    let mut result = BTreeMap::<Entity<TypeDef>, Vec<(String, String)>>::new();
+    for relationship in database.interface_implementations() {
+        let (definition, interface) = relationship?;
+        if definition.is_windows_runtime()? {
+            continue;
+        }
+        let Some((namespace, name)) = database.type_name(interface.file, interface.ty)? else {
+            return Err(Error::UnsupportedType {
+                name: format!("{}.{}", definition.namespace()?, definition.name()?),
+                shape: "generic native interface base".to_string(),
+            });
+        };
+        result
+            .entry(definition.entity())
+            .or_default()
+            .push((namespace.to_string(), name.to_string()));
+    }
+    Ok(result)
 }
 
 impl<'a> Win32Items<'a> {
@@ -223,6 +262,11 @@ impl<'a> Win32Items<'a> {
         self.selection.architecture_function_count
     }
 
+    /// Returns the number of selected native interfaces with architecture gates.
+    pub fn architecture_interface_count(&self) -> usize {
+        self.selection.architecture_interface_count
+    }
+
     /// Returns the number of nested native structs retained for future attachment.
     pub fn nested_type_count(&self) -> usize {
         self.selection.nested.values().map(Vec::len).sum()
@@ -241,6 +285,11 @@ impl<'a> Win32Items<'a> {
     /// Returns the number of selected native delegates.
     pub fn delegate_count(&self) -> usize {
         self.selection.delegate_count
+    }
+
+    /// Returns the number of selected native interfaces.
+    pub fn interface_count(&self) -> usize {
+        self.selection.interface_count
     }
 
     /// Lowers native type definitions in deterministic namespace and name order.
@@ -286,6 +335,19 @@ impl<'a> Win32Items<'a> {
         self.selection.namespaces.iter().flat_map(|namespace| {
             namespace.delegates.iter().map(|entity| {
                 Delegate::lower(self.database, self.database.definition(*entity).unwrap())
+            })
+        })
+    }
+
+    /// Lowers native interfaces in deterministic namespace and name order.
+    pub fn interfaces(&self) -> impl Iterator<Item = Result<NativeInterface, Error>> + '_ {
+        self.selection.namespaces.iter().flat_map(|namespace| {
+            namespace.interfaces.iter().map(|entity| {
+                NativeInterface::lower(
+                    self.database,
+                    self.database.definition(*entity).unwrap(),
+                    &self.selection.interface_bases,
+                )
             })
         })
     }
@@ -341,6 +403,20 @@ impl<'a> Win32Items<'a> {
                     definition.name()?,
                     1,
                     Delegate::lower(self.database, definition)?.write_sys(),
+                );
+            }
+            for entity in &namespace.interfaces {
+                let definition = self.database.definition(*entity).unwrap();
+                add(
+                    &namespace.name,
+                    definition.name()?,
+                    1,
+                    NativeInterface::lower(
+                        self.database,
+                        definition,
+                        &self.selection.interface_bases,
+                    )?
+                    .write_sys(),
                 );
             }
             for entity in &namespace.constants {
@@ -466,6 +542,7 @@ mod tests {
         };
         let mut supported = [0; 5];
         let mut delegate_supported = 0;
+        let mut interface_supported = 0;
         let mut defaults = [0; 5];
         let mut scoped_enums = 0;
         let mut gated_scoped_enums = 0;
@@ -513,6 +590,20 @@ mod tests {
                     Err(error) => *unsupported.entry(classify(error)).or_default() += 1,
                 }
             }
+            for entity in &namespace.interfaces {
+                let definition = database.definition(*entity).unwrap();
+                match NativeInterface::lower(
+                    &database,
+                    definition,
+                    &items.selection.interface_bases,
+                ) {
+                    Ok(interface) => {
+                        interface.write_sys();
+                        interface_supported += 1;
+                    }
+                    Err(error) => *unsupported.entry(classify(error)).or_default() += 1,
+                }
+            }
             for entity in &namespace.constants {
                 let field = database.field(*entity).unwrap();
                 match Constant::lower(&database, field, &namespace.name, field.name().unwrap()) {
@@ -535,14 +626,15 @@ mod tests {
             }
         }
 
+        assert!(unsupported.is_empty(), "{unsupported:#?}");
         assert_eq!(supported[..3], [12_667, 4_728, 12_714]);
         assert_eq!(supported[3..], [83_641, 14_559]);
         assert_eq!(delegate_supported, 2_159);
+        assert_eq!(interface_supported, 4_290);
         assert_eq!(items.type_count(), 30_109);
         assert_eq!(items.delegate_count(), 2_159);
         assert_eq!(defaults, [8_583, 2_164, 1_890, 74, 3]);
         assert_eq!((scoped_enums, gated_scoped_enums), (10, 0));
-        assert!(unsupported.is_empty(), "{unsupported:#?}");
     }
 
     #[test]
@@ -586,9 +678,10 @@ mod tests {
                 items.architecture_type_count(),
                 items.architecture_constant_count(),
                 items.architecture_function_count(),
+                items.architecture_interface_count(),
                 items.nested_type_count(),
             ),
-            (1_054, 671, 374, 2_633, 997, 512, 261, 2_633)
+            (1_054, 671, 374, 2_633, 997, 512, 261, 14, 2_633)
         );
         assert_eq!(
             items.selection.nested.values().map(Vec::len).sum::<usize>(),

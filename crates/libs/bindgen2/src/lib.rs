@@ -18,6 +18,7 @@ mod native_constant;
 mod native_default;
 mod native_delegate;
 mod native_function;
+mod native_interface;
 mod native_signature;
 mod native_type;
 mod output;
@@ -33,6 +34,7 @@ pub use model::{Value, Values};
 pub use native_constant::Constant;
 pub use native_delegate::Delegate;
 pub use native_function::Function;
+pub use native_interface::NativeInterface;
 pub use native_type::{NativeType, NativeTypeKind};
 pub use struct_model::Struct;
 pub use win32::Win32Items;
@@ -626,6 +628,61 @@ mod tests {
     }
 
     #[test]
+    fn native_interfaces_render_vtables_and_close_base_dependencies() {
+        let metadata = fixture_metadata(
+            r#"
+                #[win32]
+                mod Test {
+                    struct Value {
+                        inner: i32,
+                    }
+                    interface IBase {
+                        fn First(&self, value: Value) -> u32;
+                    }
+                    interface IDerived: IBase {
+                        fn Second(&self, value: *mut Value);
+                    }
+                }
+            "#,
+        );
+        let generator = metadata
+            .generator_filtered(Filter::names(["IDerived"]))
+            .unwrap();
+        let items = generator.win32_items();
+
+        assert_eq!(items.interface_count(), 2);
+        assert_eq!(items.type_count(), 1);
+        let output = generator.write_modules().unwrap().to_string();
+        let expected: TokenStream = r#"
+            pub mod Test {
+                #[repr(C)]
+                pub struct IBase_Vtbl {
+                    pub First: unsafe extern "system" fn(
+                        *mut core::ffi::c_void,
+                        Value
+                    ) -> u32,
+                }
+                #[repr(C)]
+                pub struct IDerived_Vtbl {
+                    pub base__: IBase_Vtbl,
+                    pub Second: unsafe extern "system" fn(
+                        *mut core::ffi::c_void,
+                        *mut Value
+                    ),
+                }
+                #[repr(C)]
+                #[derive(Clone, Copy, Default)]
+                pub struct Value {
+                    pub inner: i32,
+                }
+            }
+        "#
+        .parse()
+        .unwrap();
+        assert_eq!(output, expected.to_string());
+    }
+
+    #[test]
     fn module_output_combines_supported_winrt_and_win32_items() {
         let generator = fixture(
             r#"
@@ -941,9 +998,10 @@ mod tests {
             [
                 items.type_count(),
                 items.constant_count(),
-                items.function_count()
+                items.function_count(),
+                items.interface_count(),
             ],
-            [30_109, 83_641, 14_559]
+            [30_109, 83_641, 14_559, 4_290]
         );
     }
 

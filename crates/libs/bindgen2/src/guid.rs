@@ -32,7 +32,10 @@ impl Guid {
         Ok(result)
     }
 
-    fn from_definition(definition: TypeDefinition<'_>, owner: &str) -> Result<Option<Self>, Error> {
+    pub(super) fn from_definition(
+        definition: TypeDefinition<'_>,
+        owner: &str,
+    ) -> Result<Option<Self>, Error> {
         let Some(attribute) = definition.find_attribute("GuidAttribute")? else {
             return Ok(None);
         };
@@ -117,6 +120,13 @@ impl Guid {
         )
         .parse()
         .unwrap()
+    }
+
+    pub(super) fn is_iunknown(self) -> bool {
+        self.data1 == 0
+            && self.data2 == 0
+            && self.data3 == 0
+            && self.data4 == [0xc0, 0, 0, 0, 0, 0, 0, 0x46]
     }
 }
 
