@@ -1141,8 +1141,11 @@ time.
   proof into `reconciler/logical_tree.rs` without changing behavior or weakening coverage floors.
 - [x] Make `MountedTree` own native consistency validation and logical-child permutation so
   reconciliation code no longer mutates native ownership maps directly.
-- [ ] Split `MountedTree`, host state, and wrapper reconciliation into focused modules without
-  changing behavior.
+- [x] Move native topology, secondary slots, sparse lifecycle state, and consistency validation
+  into `reconciler/mounted_tree.rs` without changing behavior, and validate keyed permutation
+  preconditions at that boundary. Move the reconciler module root to `reconciler/mod.rs` to match
+  other multi-file modules.
+- [ ] Split host state and wrapper reconciliation into focused modules without changing behavior.
 - [ ] Replace WinUI's hard-coded phantom-child cases with explicit container projection
   capabilities and test mixed logical/visual indexing.
 - [ ] Add backend fault injection for create, property update, attach, move, detach, and destroy;
