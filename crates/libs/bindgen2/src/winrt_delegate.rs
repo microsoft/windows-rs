@@ -27,6 +27,7 @@ pub(super) struct MethodContext<'a> {
     layout: Layout,
     projection: Projection,
     generics: &'a [String],
+    owner: Option<&'a str>,
 }
 
 struct Parameter {
@@ -189,21 +190,20 @@ impl Delegate {
         };
 
         let closure_signature = if projection.is_minimal() {
-            self.invoke
-                .write_infallible_signature(values, namespace, layout, &self.generics)?
-        } else {
-            self.invoke.write_impl_signature(
+            self.invoke.write_infallible_signature(
                 values,
                 namespace,
                 layout,
                 &self.generics,
-                false,
-                projection,
+                None,
             )?
+        } else {
+            self.invoke
+                .write_impl_signature(values, namespace, layout, &self.generics, false)?
         };
         let closure_bound = quote! { Fn #closure_signature + Send + 'static };
         let method_context =
-            MethodContext::new(values, namespace, layout, projection, &self.generics);
+            MethodContext::new(values, namespace, layout, projection, &self.generics, None);
         let public_signature = self.invoke.write_public_signature(&method_context)?;
         let public_call =
             self.invoke
@@ -308,6 +308,7 @@ impl<'a> MethodContext<'a> {
         layout: Layout,
         projection: Projection,
         generics: &'a [String],
+        owner: Option<&'a str>,
     ) -> Self {
         Self {
             values,
@@ -315,6 +316,7 @@ impl<'a> MethodContext<'a> {
             layout,
             projection,
             generics,
+            owner,
         }
     }
 }
@@ -494,6 +496,7 @@ impl Method {
             context.namespace,
             context.layout,
             context.generics,
+            context.owner,
         )?;
         let send = quote! { + Send };
         let arguments = (0..handler.invoke.parameters.len())
@@ -573,7 +576,6 @@ impl Method {
         layout: Layout,
         generics: &[String],
         name: &str,
-        projection: Projection,
     ) -> Result<TokenStream, Error> {
         let name = tokens::ident(name);
         let parameters = self
@@ -585,7 +587,7 @@ impl Method {
                 Ok(quote! { #name: #ty })
             })
             .collect::<Result<Vec<_>, Error>>()?;
-        let return_type = self.write_return_type(namespace, layout, generics, projection)?;
+        let return_type = self.write_return_type(namespace, layout, generics)?;
         Ok(quote! {
             fn #name(&self, #(#parameters),*) -> windows_core::Result<#return_type>;
         })
@@ -637,7 +639,6 @@ impl Method {
         layout: Layout,
         generics: &[String],
         named: bool,
-        projection: Projection,
     ) -> Result<TokenStream, Error> {
         let parameters = self
             .parameters
@@ -652,7 +653,7 @@ impl Method {
                 })
             })
             .collect::<Result<Vec<_>, Error>>()?;
-        let return_type = self.write_return_type(namespace, layout, generics, projection)?;
+        let return_type = self.write_return_type(namespace, layout, generics)?;
         Ok(quote! { (#(#parameters),*) -> windows_core::Result<#return_type> })
     }
 
@@ -662,14 +663,16 @@ impl Method {
         namespace: &str,
         layout: Layout,
         generics: &[String],
+        owner: Option<&str>,
     ) -> Result<TokenStream, Error> {
         let parameters = self
             .parameters
             .iter()
-            .map(|parameter| parameter.write_impl_type(values, namespace, layout, generics))
+            .map(|parameter| {
+                parameter.write_impl_type_owner(values, namespace, layout, generics, owner)
+            })
             .collect::<Result<Vec<_>, Error>>()?;
-        let return_type =
-            self.write_return_type(namespace, layout, generics, Projection::Minimal)?;
+        let return_type = self.write_return_type(namespace, layout, generics)?;
         Ok(if matches!(self.return_type, ty::Type::Void) {
             quote! { (#(#parameters),*) }
         } else {
@@ -714,12 +717,7 @@ impl Method {
             if context.projection.is_minimal() && matches!(self.return_type, ty::Type::String) {
                 quote! { String }
             } else {
-                self.write_return_type(
-                    context.namespace,
-                    context.layout,
-                    context.generics,
-                    context.projection,
-                )?
+                self.write_return_type(context.namespace, context.layout, context.generics)?
             };
         Ok(PublicSignature {
             generic_params: quote! { #(#generic_params),* },
@@ -948,7 +946,6 @@ impl Method {
         namespace: &str,
         layout: Layout,
         generics: &[String],
-        projection: Projection,
     ) -> Result<TokenStream, Error> {
         Ok(match &self.return_type {
             ty::Type::Void => quote! { () },
@@ -961,9 +958,7 @@ impl Method {
             }
             ty::Type::Named {
                 value_type: false, ..
-            } if projection.is_minimal() => {
-                self.return_type.write_name(namespace, layout, generics)?
-            }
+            } => self.return_type.write_name(namespace, layout, generics)?,
             ty => ty.write_default(namespace, layout, generics)?,
         })
     }
@@ -984,6 +979,17 @@ impl Parameter {
         layout: Layout,
         generics: &[String],
     ) -> Result<TokenStream, Error> {
+        self.write_impl_type_owner(values, namespace, layout, generics, None)
+    }
+
+    fn write_impl_type_owner(
+        &self,
+        values: &Values,
+        namespace: &str,
+        layout: Layout,
+        generics: &[String],
+        owner: Option<&str>,
+    ) -> Result<TokenStream, Error> {
         let default = self.ty.write_default(namespace, layout, generics)?;
         Ok(if self.input_only {
             match &self.ty {
@@ -992,6 +998,14 @@ impl Parameter {
                     quote! { &[#element] }
                 }
                 ty if ty.is_primitive(values) => default,
+                ty::Type::Named {
+                    namespace: target,
+                    name,
+                    value_type: false,
+                    ..
+                } if owner.is_some_and(|owner| target == namespace && name == owner) => {
+                    quote! { windows_core::Ref<Self> }
+                }
                 ty if ty.is_interface() => {
                     let name = ty.write_name(namespace, layout, generics)?;
                     quote! { windows_core::Ref<#name> }
@@ -1018,9 +1032,7 @@ impl Parameter {
         {
             return Ok(quote! { &str });
         }
-        let default = self
-            .ty
-            .write_default(context.namespace, context.layout, context.generics)?;
+        let default = self.write_public_default(context)?;
         Ok(if self.input_only {
             match &self.ty {
                 ty::Type::Vector(element) => {
@@ -1043,6 +1055,29 @@ impl Parameter {
                 quote! { &mut #default }
             }
         })
+    }
+
+    fn write_public_default(&self, context: &MethodContext<'_>) -> Result<TokenStream, Error> {
+        if let (
+            Some(owner),
+            ty::Type::Named {
+                namespace,
+                name,
+                value_type,
+                ..
+            },
+        ) = (context.owner, &self.ty)
+            && namespace == context.namespace
+            && name == owner
+        {
+            return Ok(if *value_type {
+                quote! { Self }
+            } else {
+                quote! { Option<Self> }
+            });
+        }
+        self.ty
+            .write_default(context.namespace, context.layout, context.generics)
     }
 
     fn write_call_argument(&self, context: &MethodContext<'_>) -> Result<TokenStream, Error> {

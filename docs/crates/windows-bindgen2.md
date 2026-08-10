@@ -39,6 +39,7 @@ WinRT value, delegate, interface, and class projection.
 | Formatting and file writing | Tool policy | Kept outside the projection core. |
 | Sys request differential | Complete | A test-local parser proves nine real request files. |
 | Projection styles | Internal WinRT proof | Minimal WinRT output is proven internally; no public style option exists yet. |
+| Tool requests | Four real proofs | Numerics, time, future, and collections requests match. |
 | Package output | Not started | Requires stable filtering, layout, and formatting first. |
 
 Approximate hand-written Rust source size is 7,580 lines for bindgen2 versus 12,829 for the
@@ -256,8 +257,8 @@ functions, enum members, and union `Default` implementations are each independen
 
 The direction remains better than the current generator, but it is not yet a replacement:
 
-- bindgen2 remains smaller than bindgen, but it does not yet include minimal/implementation style,
-  rich native policy, member-level filters, file writing, or packages;
+- bindgen2 remains smaller than bindgen, but minimal native and implementation policy are
+  incomplete, and it does not include rich native policy, file writing, or packages;
 - metadata2 owns data, uses checked typed identities, and avoids the leaked reader, but its source
   is already close to the old metadata crate's raw line count because parsing and differential
   tests are extensive;
@@ -385,9 +386,7 @@ agile and receive `Send` and `Sync`. The ten classes whose default interface is 
 async interfaces render as aliases to the corresponding `windows_future` type.
 
 Composable non-aggregating constructors use the ordinary factory path. The additional subclassing
-`*_compose` helpers belong with implementation selection and remain deferred. Rich `IIterable`
-convenience implementations are also deferred until projection style is an explicit request
-option.
+`*_compose` helpers belong with implementation selection and remain deferred.
 
 ## WinRT member filtering
 
@@ -436,10 +435,10 @@ currently stay at the rendering boundary:
 | Classes | Keep identity and interface calls, add `Deref`, and return classes directly. |
 | Events | Use the same add/remove pairing and revoker model with mode-specific delegate closures. |
 
-This mode remains private. Exposing it before member filters, native non-sys output, dead-code
-visibility, and real tool request comparisons would create another compatibility surface before
-its semantics are complete. Implementation selection remains a separate concern rather than a
-third projection style.
+This mode remains private. Exposing it before native non-sys output, dead-code visibility, and more
+real tool request comparisons would create another compatibility surface before its semantics are
+complete. Implementation selection remains a separate concern rather than a third projection
+style.
 
 Event projection is shared by default and minimal output. Lowering pairs special-name `add_` and
 `remove_` methods, resolves the handler delegate, validates the registration-token shape, and
@@ -453,3 +452,17 @@ Bindgen2 does not reproduce those behaviors. Minimal delegates retain `Send`, no
 return the projected value, and the upcall writes it to the ABI result. Minimal event wrappers call
 the public delegate constructor instead of reaching across namespaces into private delegate-box
 implementation types.
+
+The first complete tool comparisons use a test-local metadata-aware parser for existing filter
+paths and brace groups. `numerics.txt` proves a pure minimal WinRT value request. `time.txt` proves
+a mixed request with WinRT values, a native struct, a linked native function, and a
+`windows_core::BOOL` remap. `future.txt` proves default generic delegates and interfaces, async
+agility, required generic interfaces, multiple generic parameters, and special WinRT value
+remaps. Native sys rendering remains unchanged. The minimal native branch is still intentionally
+narrow: constants, delegates, COM interfaces, handles, strings, and broader derive policy need
+request-driven coverage before other mixed tools can be compared.
+
+`collections.txt` proves the rich collection adapters without introducing a general convenience
+registry. `IIterable<T>` emits owned and borrowed `IntoIterator` adapters, `IIterator<T>` emits
+`Iterator`, and interfaces requiring `IIterable<T>` receive the same adapters with the substituted
+item type. The request also proves self-referential output parameters and event sender types.

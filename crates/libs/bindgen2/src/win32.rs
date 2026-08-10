@@ -362,6 +362,7 @@ impl<'a> Win32Items<'a> {
     pub(super) fn render(
         &self,
         layout: Layout,
+        projection: Projection,
         mut add: impl FnMut(&str, &str, u8, proc_macro2::TokenStream),
     ) -> Result<(), Error> {
         for namespace in &self.selection.namespaces {
@@ -373,7 +374,7 @@ impl<'a> Win32Items<'a> {
                     &self.catalogs.nested,
                     self.enum_variants(*entity),
                 )?;
-                for (name, kind, tokens) in ty.write_sys_items_context(layout) {
+                for (name, kind, tokens) in ty.write_items_context(layout, projection) {
                     add(&namespace.name, name, kind, tokens);
                 }
             }
@@ -419,7 +420,7 @@ impl<'a> Win32Items<'a> {
                     name,
                     3,
                     Function::lower(self.database, method, &namespace.name, name)?
-                        .write_sys_context(layout),
+                        .write_context(layout, projection),
                 );
             }
         }

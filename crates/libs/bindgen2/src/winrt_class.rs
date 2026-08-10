@@ -175,8 +175,14 @@ impl Class {
             }
         });
         let Some(default_interface) = &self.default_interface else {
-            let context =
-                winrt_delegate::MethodContext::new(values, namespace, layout, projection, &[]);
+            let context = winrt_delegate::MethodContext::new(
+                values,
+                namespace,
+                layout,
+                projection,
+                &[],
+                Some(&self.name),
+            );
             let mut names = BTreeMap::new();
             let factories =
                 self.write_factories(namespace, layout, &name, &context, &mut names, members)?;
@@ -241,8 +247,14 @@ impl Class {
                 }
             }
         });
-        let context =
-            winrt_delegate::MethodContext::new(values, namespace, layout, projection, &[]);
+        let context = winrt_delegate::MethodContext::new(
+            values,
+            namespace,
+            layout,
+            projection,
+            &[],
+            Some(&self.name),
+        );
         let mut methods = Vec::new();
         let mut names = BTreeMap::<String, u32>::new();
         for interface in self
@@ -665,19 +677,4 @@ fn has_default_constructor(definition: TypeDefinition<'_>) -> Result<bool, Error
         }
     }
     Ok(false)
-}
-
-fn is_agile(definition: TypeDefinition<'_>) -> Result<bool, Error> {
-    let Some(attribute) = definition.find_attribute("MarshalingBehaviorAttribute")? else {
-        return Ok(false);
-    };
-    Ok(attribute.arguments(&())?.iter().any(|argument| {
-        matches!(
-            argument,
-            AttributeArgument::Fixed {
-                value: AttributeValue::Enum { value, .. },
-                ..
-            } if matches!(value.as_ref(), AttributeValue::I32(2))
-        )
-    }))
 }

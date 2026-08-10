@@ -65,9 +65,18 @@ impl Signature {
     }
 
     pub(super) fn write_parameters(&self, namespace: &str, layout: Layout) -> TokenStream {
+        self.write_parameters_projection(namespace, layout, Projection::Default)
+    }
+
+    pub(super) fn write_parameters_projection(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        projection: Projection,
+    ) -> TokenStream {
         let parameters = self.parameters.iter().map(|parameter| {
             let name = tokens::ident(&parameter.name);
-            let ty = parameter.ty.write(namespace, layout);
+            let ty = parameter.ty.write_projection(namespace, layout, projection);
             quote! { #name: #ty }
         });
         quote! { #(#parameters),* }
@@ -82,10 +91,21 @@ impl Signature {
     }
 
     pub(super) fn write_result(&self, namespace: &str, layout: Layout) -> TokenStream {
+        self.write_result_projection(namespace, layout, Projection::Default)
+    }
+
+    pub(super) fn write_result_projection(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        projection: Projection,
+    ) -> TokenStream {
         if self.return_type == native::Type::Void {
             quote! {}
         } else {
-            let ty = self.return_type.write(namespace, layout);
+            let ty = self
+                .return_type
+                .write_projection(namespace, layout, projection);
             quote! { -> #ty }
         }
     }

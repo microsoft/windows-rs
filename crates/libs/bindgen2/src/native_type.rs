@@ -275,12 +275,12 @@ impl NativeType {
     /// Renders a flat Win32 sys type definition.
     #[cfg(test)]
     pub fn write_sys(&self) -> TokenStream {
-        self.write_sys_context(Layout::Flat)
+        self.write_context(Layout::Flat, Projection::Default)
     }
 
-    fn write_sys_context(&self, layout: Layout) -> TokenStream {
+    fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
         let items = self
-            .write_sys_items_context(layout)
+            .write_items_context(layout, projection)
             .into_iter()
             .map(|(_, _, tokens)| tokens);
         quote! { #(#items)* }
@@ -295,9 +295,39 @@ impl NativeType {
             }
             Kind::Enum(value) => value.write_sys_items(&architectures, layout),
             Kind::Struct(value) => {
-                vec![(&value.name, 1, value.write_sys(&architectures, layout))]
+                vec![(
+                    &value.name,
+                    1,
+                    value.write(&architectures, layout, Projection::Default),
+                )]
             }
         }
+    }
+
+    pub(super) fn write_items_context(
+        &self,
+        layout: Layout,
+        projection: Projection,
+    ) -> Vec<(&str, u8, TokenStream)> {
+        if projection.is_minimal() {
+            let (namespace, name) = match &self.kind {
+                Kind::Alias(value) => (&value.namespace, &value.name),
+                Kind::Enum(value) => (&value.namespace, &value.name),
+                Kind::Struct(value) => (&value.namespace, &value.name),
+            };
+            if native::is_core_projection(namespace, name) {
+                return Vec::new();
+            }
+            let architectures = tokens::architectures(self.architectures);
+            if let Kind::Struct(value) = &self.kind {
+                return vec![(
+                    &value.name,
+                    1,
+                    value.write(&architectures, layout, projection),
+                )];
+            }
+        }
+        self.write_sys_items_context(layout)
     }
 }
 
@@ -357,7 +387,12 @@ impl Enum {
 }
 
 impl Struct {
-    fn write_sys(&self, architectures: &TokenStream, layout: Layout) -> TokenStream {
+    fn write(
+        &self,
+        architectures: &TokenStream,
+        layout: Layout,
+        projection: Projection,
+    ) -> TokenStream {
         let name = tokens::ident(&self.name);
         if self.fields.is_empty() {
             let repr = self.repr();
@@ -365,7 +400,7 @@ impl Struct {
                 let nested = self
                     .nested
                     .iter()
-                    .map(|nested| nested.write_sys_context(layout));
+                    .map(|nested| nested.write_context(layout, projection));
                 return quote! {
                     #repr
                     #architectures
@@ -385,8 +420,8 @@ impl Struct {
             let nested = self
                 .nested
                 .iter()
-                .map(|nested| nested.write_sys_context(layout));
-            let (derive, default) = self.default_tokens(&name, architectures);
+                .map(|nested| nested.write_context(layout, projection));
+            let (derive, default) = self.default_tokens(&name, architectures, projection);
             return quote! {
                 #repr
                 #architectures
@@ -405,7 +440,7 @@ impl Struct {
         let nested = self
             .nested
             .iter()
-            .map(|nested| nested.write_sys_context(layout));
+            .map(|nested| nested.write_context(layout, projection));
         if self.union {
             quote! {
                 #repr
@@ -423,7 +458,7 @@ impl Struct {
                 #(#nested)*
             }
         } else {
-            let (derive, default) = self.default_tokens(&name, architectures);
+            let (derive, default) = self.default_tokens(&name, architectures, projection);
             quote! {
                 #repr
                 #architectures
@@ -453,7 +488,41 @@ impl Struct {
         &self,
         name: &TokenStream,
         architectures: &TokenStream,
+        projection: Projection,
     ) -> (TokenStream, TokenStream) {
+        if projection.is_minimal() && self.align.is_none() && self.packing.is_none() {
+            let debug = self
+                .fields
+                .iter()
+                .all(|(_, ty)| ty.supports_debug())
+                .then(|| quote! { , Debug });
+            let partial_eq = self
+                .fields
+                .iter()
+                .all(|(_, ty)| ty.supports_partial_eq())
+                .then(|| quote! { , PartialEq });
+            let eq = self
+                .fields
+                .iter()
+                .all(|(_, ty)| ty.supports_eq())
+                .then(|| quote! { , Eq });
+            let derive_default =
+                (self.default == native_default::Policy::Derive).then(|| quote! { , Default });
+            let default = (self.default != native_default::Policy::Derive).then(|| {
+                quote! {
+                    #architectures
+                    impl Default for #name {
+                        fn default() -> Self {
+                            unsafe { core::mem::zeroed() }
+                        }
+                    }
+                }
+            });
+            return (
+                quote! { #[derive(Clone, Copy #debug #derive_default #eq #partial_eq)] },
+                default.unwrap_or_default(),
+            );
+        }
         if self.default != native_default::Policy::Derive {
             (
                 quote! { #[derive(Clone, Copy)] },

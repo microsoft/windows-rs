@@ -9,6 +9,7 @@ pub(super) struct Interface {
     generics: Vec<String>,
     guid: guid::Guid,
     exclusive: bool,
+    agile: bool,
     methods: Vec<NamedMethod>,
     required: Vec<RequiredInterface>,
 }
@@ -136,12 +137,14 @@ impl Interface {
                 message: "interface has no GUID",
             })?;
         let exclusive = definition.has_attribute("ExclusiveToAttribute")?;
+        let agile = is_agile(definition)?;
         Ok(Self {
             name,
             namespace,
             generics,
             guid,
             exclusive,
+            agile,
             methods,
             required,
         })
@@ -332,9 +335,10 @@ impl Interface {
             let signatures = generic_names
                 .iter()
                 .map(|name| quote! { .push_slice(b";").push_other(#name::SIGNATURE) });
-            let names = generic_names
-                .iter()
-                .map(|name| quote! { .push_other(#name::NAME) });
+            let names = generic_names.iter().enumerate().map(|(index, name)| {
+                let separator = (index != 0).then(|| quote! { .push_slice(b", ") });
+                quote! { #separator .push_other(#name::NAME) }
+            });
             let metadata_name = emit_type_name.then(|| {
                 quote! {
                     const NAME: windows_core::imp::ConstBuffer =
@@ -348,8 +352,8 @@ impl Interface {
                 #[repr(transparent)]
                 #[derive(Clone, Debug, Eq, PartialEq)]
                 pub struct #name #type_arguments(
-                    windows_core::IUnknown,
-                    core::marker::PhantomData<#(#generic_names),*>
+                    windows_core::IUnknown
+                    #(, core::marker::PhantomData<#generic_names>)*
                 ) #generic_where;
                 impl #constrained_generics windows_core::imp::CanInto<windows_core::IUnknown>
                     for #name #type_arguments {}
@@ -380,6 +384,7 @@ impl Interface {
             layout,
             projection,
             &self.generics,
+            Some(&self.name),
         );
         let methods = self
             .methods
@@ -391,6 +396,12 @@ impl Interface {
                     .transpose()
             })
             .collect::<Result<Vec<_>, Error>>()?;
+        let agile = self.agile.then(|| {
+            quote! {
+                unsafe impl #constrained_generics Send for #name #type_arguments {}
+                unsafe impl #constrained_generics Sync for #name #type_arguments {}
+            }
+        });
         if self.exclusive {
             let vtable =
                 self.write_vtable_struct(values, namespace, layout, &vtbl_name, members)?;
@@ -400,6 +411,7 @@ impl Interface {
             return Ok(quote! {
                 #definition
                 #methods
+                #agile
                 #vtable
             });
         }
@@ -417,9 +429,26 @@ impl Interface {
             .iter()
             .map(|required| required.write_name(namespace, layout, &self.generics))
             .collect::<Result<Vec<_>, Error>>()?;
-        let required_hierarchy = (!required_types.is_empty()).then(|| {
-            quote! { windows_core::imp::required_hierarchy!(#name #type_arguments, #(#required_types),*); }
-        });
+        let required_hierarchy = if required_types.is_empty() {
+            quote! {}
+        } else if generic_names.is_empty() {
+            quote! {
+                windows_core::imp::required_hierarchy!(
+                    #name #type_arguments,
+                    #(#required_types),*
+                );
+            }
+        } else {
+            quote! {
+                #(
+                    impl #constrained_generics windows_core::imp::CanInto<#required_types>
+                        for #name #type_arguments
+                    {
+                        const QUERY: bool = true;
+                    }
+                )*
+            }
+        };
         let mut inherited_methods = Vec::new();
         let mut public_names = self
             .methods
@@ -485,7 +514,6 @@ impl Interface {
                     layout,
                     &self.generics,
                     &method.name,
-                    projection,
                 )
             })
             .collect::<Result<Vec<_>, Error>>()?;
@@ -508,14 +536,108 @@ impl Interface {
                 }
             }
         });
-
+        let iterable = (!projection.is_minimal()
+            && self.namespace == "Windows.Foundation.Collections"
+            && self.name == "IIterable"
+            && generic_names.len() == 1
+            && self
+                .methods
+                .iter()
+                .any(|method| method.name == "First" && method.selected(members)))
+        .then(|| {
+            let item = &generic_names[0];
+            quote! {
+                impl<#item: windows_core::RuntimeType> IntoIterator for #name<#item> {
+                    type Item = #item;
+                    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
+                    fn into_iter(self) -> Self::IntoIter {
+                        IntoIterator::into_iter(&self)
+                    }
+                }
+                impl<#item: windows_core::RuntimeType> IntoIterator for &#name<#item> {
+                    type Item = #item;
+                    type IntoIter = windows_collections::BufferedIterator<Self::Item>;
+                    fn into_iter(self) -> Self::IntoIter {
+                        windows_collections::BufferedIterator::new(self.First().unwrap())
+                    }
+                }
+            }
+        });
+        let iterator = (!projection.is_minimal()
+            && self.namespace == "Windows.Foundation.Collections"
+            && self.name == "IIterator"
+            && generic_names.len() == 1
+            && ["Current", "HasCurrent", "MoveNext"].iter().all(|name| {
+                self.methods
+                    .iter()
+                    .any(|method| method.name == *name && method.selected(members))
+            }))
+        .then(|| {
+            let item = &generic_names[0];
+            quote! {
+                impl<#item: windows_core::RuntimeType> Iterator for #name<#item> {
+                    type Item = #item;
+                    fn next(&mut self) -> Option<Self::Item> {
+                        let result = if self.HasCurrent().unwrap_or(false) {
+                            self.Current().ok()
+                        } else {
+                            None
+                        };
+                        if result.is_some() {
+                            let _ = self.MoveNext();
+                        }
+                        result
+                    }
+                }
+            }
+        });
+        let required_iterable = if projection.is_minimal() {
+            None
+        } else {
+            self.required
+                .iter()
+                .find(|required| {
+                    required.namespace == "Windows.Foundation.Collections"
+                        && required.name == "IIterable"
+                        && required.arguments.len() == 1
+                        && required
+                            .methods
+                            .iter()
+                            .any(|method| method.name == "First" && method.selected(members))
+                })
+                .map(|required| {
+                    let item =
+                        required.arguments[0].write_name(namespace, layout, &self.generics)?;
+                    Ok::<_, Error>(quote! {
+                        impl #constrained_generics IntoIterator for #name #type_arguments {
+                            type Item = #item;
+                            type IntoIter = windows_collections::BufferedIterator<Self::Item>;
+                            fn into_iter(self) -> Self::IntoIter {
+                                IntoIterator::into_iter(&self)
+                            }
+                        }
+                        impl #constrained_generics IntoIterator for &#name #type_arguments {
+                            type Item = #item;
+                            type IntoIter = windows_collections::BufferedIterator<Self::Item>;
+                            fn into_iter(self) -> Self::IntoIter {
+                                windows_collections::BufferedIterator::new(self.First().unwrap())
+                            }
+                        }
+                    })
+                })
+                .transpose()?
+        };
         Ok(quote! {
             #definition
             #hierarchy
             #required_hierarchy
             #methods_impl
+            #agile
+            #required_iterable
             #runtime_name_impl
             #implementation
+            #iterable
+            #iterator
         })
     }
 

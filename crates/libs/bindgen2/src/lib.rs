@@ -71,6 +71,10 @@ pub enum Layout {
 enum Projection {
     #[default]
     Default,
+    #[cfg_attr(
+        not(test),
+        expect(dead_code, reason = "kept private until complete tool requests match")
+    )]
     Minimal,
 }
 
@@ -470,6 +474,32 @@ fn interface_relationships(
 
 fn trim_generic_arity(name: &str) -> &str {
     name.split_once('`').map_or(name, |(name, _)| name)
+}
+
+fn is_agile(definition: TypeDefinition<'_>) -> Result<bool, Error> {
+    if definition.namespace()? == "Windows.Foundation"
+        && matches!(
+            trim_generic_arity(definition.name()?),
+            "IAsyncAction"
+                | "IAsyncActionWithProgress"
+                | "IAsyncOperation"
+                | "IAsyncOperationWithProgress"
+        )
+    {
+        return Ok(true);
+    }
+    let Some(attribute) = definition.find_attribute("MarshalingBehaviorAttribute")? else {
+        return Ok(false);
+    };
+    Ok(attribute.arguments(&())?.iter().any(|argument| {
+        matches!(
+            argument,
+            AttributeArgument::Fixed {
+                value: AttributeValue::Enum { value, .. },
+                ..
+            } if matches!(value.as_ref(), AttributeValue::I32(2))
+        )
+    }))
 }
 
 impl<'a> ValueItem<'a> {

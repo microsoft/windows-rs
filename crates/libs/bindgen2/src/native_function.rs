@@ -44,21 +44,32 @@ impl Function {
     /// Renders a flat Win32 `windows_link::link!` declaration.
     #[cfg(test)]
     pub fn write_sys(&self) -> TokenStream {
-        self.write_sys_context(Layout::Flat)
+        self.write_context(Layout::Flat, Projection::Default)
     }
 
-    pub(super) fn write_sys_context(&self, layout: Layout) -> TokenStream {
+    pub(super) fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
         let architectures = tokens::architectures(self.architectures);
         let module = &self.module;
         let abi = self.abi;
         let symbol = self.import_name.as_ref().map(|name| quote! { #name });
         let name = tokens::ident(&self.name);
-        let parameters = self.signature.write_parameters(&self.namespace, layout);
+        let parameters =
+            self.signature
+                .write_parameters_projection(&self.namespace, layout, projection);
         let variadic = self.variadic.then(|| quote! { , ... });
-        let result = self.signature.write_result(&self.namespace, layout);
-        quote! {
-            #architectures
-            windows_link::link!(#module #abi #symbol fn #name(#parameters #variadic) #result);
+        let result = self
+            .signature
+            .write_result_projection(&self.namespace, layout, projection);
+        if projection.is_minimal() {
+            quote! {
+                #architectures
+                windows_core::link!(#module #abi #symbol fn #name(#parameters #variadic) #result);
+            }
+        } else {
+            quote! {
+                #architectures
+                windows_link::link!(#module #abi #symbol fn #name(#parameters #variadic) #result);
+            }
         }
     }
 }

@@ -39,6 +39,101 @@ fn fixture(source: &str) -> Generator {
     fixture_metadata(source).generator(Request::all()).unwrap()
 }
 
+struct ToolRequest {
+    output: String,
+    filter: Filter,
+    minimal: bool,
+}
+
+fn parse_tool_request(metadata: &Metadata, source: &str) -> ToolRequest {
+    let mut output = None;
+    let mut filter = Filter::new();
+    let mut minimal = false;
+    let mut reading_filters = false;
+
+    for line in source.lines().map(str::trim) {
+        if line.is_empty() || line.starts_with('#') || line.starts_with("//") {
+            continue;
+        }
+        if line.starts_with("--") {
+            reading_filters = line == "--filter";
+            minimal |= line.split_whitespace().any(|part| part == "--minimal");
+            if let Some(path) = line.strip_prefix("--out ") {
+                output = Some(path.to_string());
+            }
+            continue;
+        }
+        if reading_filters {
+            include_tool_filter(metadata, &mut filter, line);
+        }
+    }
+
+    ToolRequest {
+        output: output.unwrap(),
+        filter,
+        minimal,
+    }
+}
+
+fn include_tool_filter(metadata: &Metadata, filter: &mut Filter, path: &str) {
+    if let Some((prefix, names)) = path
+        .strip_suffix('}')
+        .and_then(|path| path.rsplit_once("::{"))
+    {
+        let parts = tool_path(prefix);
+        let (parent, ty) = parts.split_at(parts.len() - 1);
+        if tool_type_exists(metadata, &parent.join("."), ty[0]) {
+            for method in names.split(',').map(str::trim) {
+                filter.include_method(parent.join("."), ty[0], method);
+            }
+        } else {
+            let namespace = parts.join(".");
+            for name in names.split(',').map(str::trim) {
+                filter.include_item(&namespace, name);
+            }
+        }
+        return;
+    }
+
+    let parts = tool_path(path);
+    if parts.len() == 1 {
+        filter.include_name(parts[0]);
+        return;
+    }
+    let (namespace, name) = parts.split_at(parts.len() - 1);
+    if tool_type_exists(metadata, &namespace.join("."), name[0]) {
+        filter.include_item(namespace.join("."), name[0]);
+        return;
+    }
+    let (namespace, ty) = namespace.split_at(namespace.len() - 1);
+    assert!(
+        tool_type_exists(metadata, &namespace.join("."), ty[0]),
+        "unresolved tool filter: {path}"
+    );
+    filter.include_method(namespace.join("."), ty[0], name[0]);
+}
+
+fn tool_path(path: &str) -> Vec<&str> {
+    path.split([':', '.'])
+        .filter(|part| !part.is_empty())
+        .collect()
+}
+
+fn tool_type_exists(metadata: &Metadata, namespace: &str, name: &str) -> bool {
+    metadata
+        .shared
+        .winrt_entries
+        .iter()
+        .any(|(candidate_namespace, candidate_name, _)| {
+            candidate_namespace == namespace && candidate_name == name
+        })
+        || !metadata
+            .shared
+            .database
+            .type_definitions(namespace, name)
+            .is_empty()
+}
+
 fn normalize_fn_parameters(stream: TokenStream) -> String {
     fn normalize(stream: TokenStream) -> TokenStream {
         use proc_macro2::{Delimiter, Group, TokenTree};
@@ -96,6 +191,27 @@ fn normalize_fn_parameters(stream: TokenStream) -> String {
         .to_string()
         .replace(" , >", " >")
         .replace("> ;", ">;")
+}
+
+fn normalize_existing_output(tokens: TokenStream) -> String {
+    normalize_fn_parameters(tokens)
+        .replace(":: <", "::<")
+        .replace("> ::", ">::")
+        .replace("> :", ">:")
+        .replace("> ,", ">,")
+        .replace(">, >", "> >")
+        .replace("> >", ">>")
+        .replace("> >", ">>")
+        .replace("& 'static", "&'static")
+        .replace("& *", "&*")
+        .replace("& <", "&<")
+        .replace("'static , {", "'static {")
+        .replace("? ;", "?;")
+        .replace(
+            "Err (err) => err . into () }",
+            "Err (err) => err . into () , }",
+        )
+        .replace(" + Send + 'static", " + 'static")
 }
 
 #[test]
@@ -734,24 +850,11 @@ fn focused_winrt_member_filters_match_existing_tokens() {
             .render_projection(Layout::Flat, projection)
             .unwrap();
         let expected = expected.parse().unwrap();
-        let normalize = |tokens| {
-            normalize_fn_parameters(tokens)
-                .replace(":: <", "::<")
-                .replace("> ::", ">::")
-                .replace("> ,", ">,")
-                .replace(">, >", "> >")
-                .replace("> >", ">>")
-                .replace("& 'static", "&'static")
-                .replace("& *", "&*")
-                .replace("& <", "&<")
-                .replace("? ;", "?;")
-                .replace(
-                    "Err (err) => err . into () }",
-                    "Err (err) => err . into () , }",
-                )
-                .replace(" + Send + 'static", " + 'static")
-        };
-        assert_eq!(normalize(actual), normalize(expected), "{name}");
+        assert_eq!(
+            normalize_existing_output(actual),
+            normalize_existing_output(expected),
+            "{name}"
+        );
     }
 }
 
@@ -2028,40 +2131,135 @@ fn tool_bindings_sys_requests_match_committed_output() {
         "version.txt",
     ] {
         let request_path = root.join("crates/tools/bindings/src").join(request);
-        let request_text = std::fs::read_to_string(&request_path).unwrap();
-        let mut output = None;
-        let mut filters = Vec::new();
-        let mut reading_filters = false;
-        for line in request_text.lines().map(str::trim) {
-            if let Some(path) = line.strip_prefix("--out ") {
-                output = Some(path.to_string());
-                reading_filters = false;
-            } else if line == "--filter" {
-                reading_filters = true;
-            } else if line.starts_with("--") {
-                reading_filters = false;
-            } else if reading_filters && !line.is_empty() && !line.starts_with('#') {
-                assert!(
-                    line.bytes()
-                        .all(|byte| byte == b'_' || byte.is_ascii_alphanumeric()),
-                    "{request} requires unsupported filter syntax: {line}"
-                );
-                filters.push(line.to_string());
-            }
-        }
+        let parsed =
+            parse_tool_request(&metadata, &std::fs::read_to_string(&request_path).unwrap());
+        assert!(!parsed.minimal);
         let actual = metadata
-            .generator(Request::filtered(Filter::names(filters)))
+            .generator(Request::filtered(parsed.filter))
             .unwrap()
             .render(Layout::Flat)
             .unwrap();
-        let expected: TokenStream = std::fs::read_to_string(root.join(output.unwrap()))
+        let expected: TokenStream = std::fs::read_to_string(root.join(parsed.output))
             .unwrap()
             .parse()
             .unwrap();
         assert_eq!(
-            normalize_fn_parameters(actual),
-            normalize_fn_parameters(expected),
+            normalize_existing_output(actual),
+            normalize_existing_output(expected),
             "{request} differs"
         );
     }
+}
+
+#[test]
+fn tool_bindings_time_request_matches_committed_output() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../..");
+    let request = parse_tool_request(
+        &metadata,
+        &std::fs::read_to_string(root.join("crates/tools/bindings/src/time.txt")).unwrap(),
+    );
+    assert!(request.minimal);
+    let actual = metadata
+        .generator(Request::filtered(request.filter))
+        .unwrap()
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap();
+    let expected: TokenStream = std::fs::read_to_string(root.join(request.output))
+        .unwrap()
+        .parse()
+        .unwrap();
+    assert_eq!(
+        normalize_existing_output(actual),
+        normalize_existing_output(expected)
+    );
+}
+
+#[test]
+fn tool_bindings_numerics_request_matches_committed_output() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../..");
+    let request = parse_tool_request(
+        &metadata,
+        &std::fs::read_to_string(root.join("crates/tools/bindings/src/numerics.txt")).unwrap(),
+    );
+    assert!(request.minimal);
+    let actual = metadata
+        .generator(Request::filtered(request.filter))
+        .unwrap()
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap();
+    let expected: TokenStream = std::fs::read_to_string(root.join(request.output))
+        .unwrap()
+        .parse()
+        .unwrap();
+    assert_eq!(
+        normalize_existing_output(actual),
+        normalize_existing_output(expected)
+    );
+}
+
+#[test]
+fn tool_bindings_future_request_matches_committed_output() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../..");
+
+    let request = parse_tool_request(
+        &metadata,
+        &std::fs::read_to_string(root.join("crates/tools/bindings/src/future.txt")).unwrap(),
+    );
+    assert!(!request.minimal);
+    let actual = metadata
+        .generator(Request::filtered(request.filter))
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap();
+    let expected: TokenStream = std::fs::read_to_string(root.join(request.output))
+        .unwrap()
+        .parse()
+        .unwrap();
+    assert_eq!(
+        normalize_existing_output(actual),
+        normalize_existing_output(expected)
+    );
+}
+
+#[test]
+fn tool_bindings_collections_request_matches_committed_output() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../..");
+    let request = parse_tool_request(
+        &metadata,
+        &std::fs::read_to_string(root.join("crates/tools/bindings/src/collections.txt")).unwrap(),
+    );
+    assert!(!request.minimal);
+    let actual = metadata
+        .generator(Request::filtered(request.filter))
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap();
+    let expected: TokenStream = std::fs::read_to_string(root.join(request.output))
+        .unwrap()
+        .parse()
+        .unwrap();
+    assert_eq!(
+        normalize_existing_output(actual),
+        normalize_existing_output(expected)
+    );
 }

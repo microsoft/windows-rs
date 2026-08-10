@@ -184,6 +184,15 @@ impl Type {
     }
 
     pub(super) fn write(&self, namespace: &str, layout: Layout) -> TokenStream {
+        self.write_projection(namespace, layout, Projection::Default)
+    }
+
+    pub(super) fn write_projection(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        projection: Projection,
+    ) -> TokenStream {
         match self {
             Self::Void => quote! { core::ffi::c_void },
             Self::Boolean => quote! { bool },
@@ -198,17 +207,18 @@ impl Type {
             Self::U64 => quote! { u64 },
             Self::F32 => quote! { f32 },
             Self::F64 => quote! { f64 },
+            Self::String if projection.is_minimal() => quote! { windows_core::PCWSTR },
             Self::String => quote! { PCWSTR },
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
             Self::Array { element, len } => {
-                let element = element.write(namespace, layout);
+                let element = element.write_projection(namespace, layout, projection);
                 let len = Literal::usize_unsuffixed(*len);
                 quote! { [#element; #len] }
             }
 
             Self::Pointer { mutable, element } => {
-                let element = element.write(namespace, layout);
+                let element = element.write_projection(namespace, layout, projection);
                 if *mutable {
                     quote! { *mut #element }
                 } else {
@@ -219,13 +229,47 @@ impl Type {
                 namespace: target,
                 name,
             } => {
+                if projection.is_minimal()
+                    && let Some(core) = core_projection(target, name)
+                {
+                    return core;
+                }
                 let path = tokens::namespace(namespace, target, layout);
                 let name = tokens::ident(name);
                 quote! { #path #name }
             }
         }
     }
+}
 
+pub(super) fn is_core_projection(namespace: &str, name: &str) -> bool {
+    core_projection(namespace, name).is_some()
+}
+
+fn core_projection(namespace: &str, name: &str) -> Option<TokenStream> {
+    let win32 = namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32.");
+    if !win32 {
+        return None;
+    }
+    Some(match name {
+        "GUID" => quote! { windows_core::GUID },
+        "HRESULT" => quote! { windows_core::HRESULT },
+        "BOOL" => quote! { windows_core::BOOL },
+        "PSTR" => quote! { windows_core::PSTR },
+        "PWSTR" => quote! { windows_core::PWSTR },
+        "PCSTR" => quote! { windows_core::PCSTR },
+        "PCWSTR" => quote! { windows_core::PCWSTR },
+        "BSTR" => quote! { windows_core::BSTR },
+        "HSTRING" => quote! { windows_core::HSTRING },
+        "IUnknown" => quote! { windows_core::IUnknown },
+        "IInspectable" => quote! { windows_core::IInspectable },
+        "NTSTATUS" => quote! { windows_core::NTSTATUS },
+        "EventRegistrationToken" => quote! { i64 },
+        _ => return None,
+    })
+}
+
+impl Type {
     pub(super) fn normalize_alias(self, namespace: &str, name: &str) -> Self {
         match (namespace, name) {
             ("Windows.Win32", "BSTR" | "PCWSTR") => Self::Pointer {
@@ -250,6 +294,33 @@ impl Type {
 
     pub(super) fn named_types(&self, mut add: impl FnMut(&str, &str)) {
         self.visit_named(&mut add);
+    }
+
+    pub(super) fn supports_debug(&self) -> bool {
+        match self {
+            Self::Void | Self::Named { .. } => false,
+            Self::Array { element, .. } => element.supports_debug(),
+            Self::Pointer { .. } => true,
+            _ => true,
+        }
+    }
+
+    pub(super) fn supports_partial_eq(&self) -> bool {
+        match self {
+            Self::Void | Self::Named { .. } => false,
+            Self::Array { element, .. } => element.supports_partial_eq(),
+            Self::Pointer { .. } => true,
+            _ => true,
+        }
+    }
+
+    pub(super) fn supports_eq(&self) -> bool {
+        match self {
+            Self::F32 | Self::F64 | Self::Void | Self::Named { .. } => false,
+            Self::Array { element, .. } => element.supports_eq(),
+            Self::Pointer { .. } => true,
+            _ => true,
+        }
     }
 
     fn visit_named(&self, add: &mut impl FnMut(&str, &str)) {

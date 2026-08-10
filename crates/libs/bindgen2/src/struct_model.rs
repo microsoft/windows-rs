@@ -59,7 +59,7 @@ impl Struct {
             .fields
             .iter()
             .map(|field| {
-                let name = tokens::ident(&field.name);
+                let name = tokens::ident(&tokens::to_snake_case(&field.name));
                 let ty = field.ty.write(namespace, layout)?;
                 Ok(quote! { pub #name: #ty, })
             })

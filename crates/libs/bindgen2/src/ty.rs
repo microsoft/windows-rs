@@ -72,7 +72,11 @@ impl Type {
                 arguments,
                 ..
             } => {
-                if arguments.is_empty() && !(namespace == "System" && name == "Guid") {
+                if arguments.is_empty()
+                    && !(namespace == "System" && name == "Guid")
+                    && !(namespace == "Windows.Foundation"
+                        && (name == "HResult" || name == "EventRegistrationToken"))
+                {
                     dependencies.insert((namespace.clone(), name.clone()));
                 }
                 for argument in arguments {

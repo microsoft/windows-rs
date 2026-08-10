@@ -127,7 +127,7 @@ impl Generator {
         }
 
         self.win32_items()
-            .render(layout, |namespace, name, kind, tokens| {
+            .render(layout, projection, |namespace, name, kind, tokens| {
                 modules
                     .entry(namespace.to_string())
                     .or_default()

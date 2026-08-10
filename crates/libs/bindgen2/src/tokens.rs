@@ -50,6 +50,21 @@ pub(super) fn ident(name: &str) -> proc_macro2::TokenStream {
     }
 }
 
+pub(super) fn to_snake_case(name: &str) -> String {
+    let mut result = String::with_capacity(name.len() + 4);
+    for (index, character) in name.chars().enumerate() {
+        if character.is_uppercase() {
+            if index > 0 {
+                result.push('_');
+            }
+            result.extend(character.to_lowercase());
+        } else {
+            result.push(character);
+        }
+    }
+    result
+}
+
 pub(super) fn namespace(current: &str, target: &str, layout: Layout) -> proc_macro2::TokenStream {
     if layout == Layout::Flat || target.is_empty() || target == current {
         return quote! {};
