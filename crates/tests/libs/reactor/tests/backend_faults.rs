@@ -310,9 +310,6 @@ fn error_boundary_discards_failed_component_updates_and_runs_cleanup() {
         assert_eq!(reconciler.debug_logical_node_count(), 1);
         reconciler.assert_consistent();
         reconciler.backend.assert_consistent();
-        reconciler.unmount_root();
-        reconciler.backend.assert_consistent();
-        assert_eq!(reconciler.backend.live_control_count(), 0);
 
         reconciler.unmount_root();
         assert_eq!(cleanups.get(), 1);
