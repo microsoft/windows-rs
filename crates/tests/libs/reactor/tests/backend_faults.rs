@@ -5,8 +5,8 @@ use std::rc::Rc;
 use test_reactor::{BackendOperation, Op, RecordingBackend};
 use windows_reactor::{
     Button, Component, Context, ControlKind, Element, Expander, KeyExt, Pivot, PivotItem,
-    ProvideExt, Reconciler, RenderCx, SplitView, TabItem, TabView, component, error_boundary,
-    swap_chain_panel, text_block, vstack,
+    ProvideExt, Reconciler, RenderCx, SelectionMode, SplitView, TabItem, TabView, component,
+    error_boundary, list_view, swap_chain_panel, text_block, vstack,
 };
 
 fn rerender() -> Rc<dyn Fn()> {
@@ -37,6 +37,35 @@ fn mount_operations() -> [BackendOperation; 6] {
         BackendOperation::AppendChild,
         BackendOperation::SetHeaderElement,
         BackendOperation::SetPaneElement,
+    ]
+}
+
+fn templated_mount_case() -> Element {
+    list_view(vec![1_u32, 2], |item, _| text_block(item.to_string()))
+        .width(100.0)
+        .on_selection_changed(|_| {})
+        .selection_mode(SelectionMode::Multiple)
+        .can_drag_items(true)
+        .can_reorder_items(true)
+        .allow_drop(true)
+        .on_reorder(|_| {})
+        .selected_index(1)
+        .build()
+}
+
+fn templated_mount_operations() -> [BackendOperation; 11] {
+    [
+        BackendOperation::Create,
+        BackendOperation::SetProp,
+        BackendOperation::AttachTemplatedSelectionChanged,
+        BackendOperation::AttachTemplatedReorder,
+        BackendOperation::AttachTemplatedRealization,
+        BackendOperation::SetTemplatedItemCount,
+        BackendOperation::SetTemplatedSelectionMode,
+        BackendOperation::SetTemplatedCanDragItems,
+        BackendOperation::SetTemplatedCanReorderItems,
+        BackendOperation::SetTemplatedAllowDrop,
+        BackendOperation::SetTemplatedSelectedIndex,
     ]
 }
 
@@ -106,6 +135,57 @@ fn error_boundaries_recover_after_failed_widget_mounts() {
             reconciler.backend.live_control_count(),
             1,
             "{operation:?} retained part of the failed subtree"
+        );
+
+        reconciler.unmount_root();
+        reconciler.backend.assert_consistent();
+        assert_eq!(reconciler.backend.live_control_count(), 0);
+    }
+}
+
+#[test]
+fn failed_templated_mounts_roll_back_all_owned_state() {
+    for operation in templated_mount_operations() {
+        let mut backend = RecordingBackend::new();
+        backend.fail_next(operation);
+        let mut reconciler = Reconciler::new(backend);
+        let element = templated_mount_case();
+
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            reconciler.reconcile(None, &element, None, rerender());
+        }));
+
+        assert!(result.is_err(), "{operation:?} did not fail");
+        reconciler.assert_consistent();
+        reconciler.backend.assert_consistent();
+        assert_eq!(
+            reconciler.backend.live_control_count(),
+            0,
+            "{operation:?} leaked a templated control"
+        );
+    }
+}
+
+#[test]
+fn error_boundaries_recover_after_failed_templated_mounts() {
+    for operation in templated_mount_operations() {
+        let mut backend = RecordingBackend::new();
+        backend.fail_next(operation);
+        let mut reconciler = Reconciler::new(backend);
+        let element = error_boundary(templated_mount_case(), |_| text_block("fallback").into());
+
+        assert!(
+            reconciler
+                .reconcile(None, &element, None, rerender())
+                .is_some(),
+            "{operation:?} did not mount the fallback"
+        );
+        reconciler.assert_consistent();
+        reconciler.backend.assert_consistent();
+        assert_eq!(
+            reconciler.backend.live_control_count(),
+            1,
+            "{operation:?} retained part of the failed templated list"
         );
 
         reconciler.unmount_root();

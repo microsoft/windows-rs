@@ -15,6 +15,15 @@ pub enum BackendOperation {
     Destroy,
     AttachEvent,
     DetachEvent,
+    SetTemplatedItemCount,
+    SetTemplatedSelectedIndex,
+    SetTemplatedSelectionMode,
+    SetTemplatedCanDragItems,
+    SetTemplatedCanReorderItems,
+    SetTemplatedAllowDrop,
+    AttachTemplatedSelectionChanged,
+    AttachTemplatedRealization,
+    AttachTemplatedReorder,
     SetHeaderElement,
     SetPaneElement,
 }
@@ -580,6 +589,7 @@ impl Backend for RecordingBackend {
     }
 
     fn set_templated_item_count(&mut self, id: ControlId, count: usize) {
+        self.maybe_fail(BackendOperation::SetTemplatedItemCount);
         self.item_counts.insert(id, count);
         self.ops
             .push(Op::SetTemplatedItemCount { list_id: id, count });
@@ -606,22 +616,27 @@ impl Backend for RecordingBackend {
     }
 
     fn set_templated_selected_index(&mut self, id: ControlId, index: i32) {
+        self.maybe_fail(BackendOperation::SetTemplatedSelectedIndex);
         self.ops.push(Op::SetTemplatedSelectedIndex { id, index });
     }
 
     fn set_templated_selection_mode(&mut self, id: ControlId, mode: SelectionMode) {
+        self.maybe_fail(BackendOperation::SetTemplatedSelectionMode);
         self.ops.push(Op::SetTemplatedSelectionMode { id, mode });
     }
 
     fn set_templated_can_drag_items(&mut self, id: ControlId, value: bool) {
+        self.maybe_fail(BackendOperation::SetTemplatedCanDragItems);
         self.ops.push(Op::SetTemplatedCanDragItems { id, value });
     }
 
     fn set_templated_can_reorder_items(&mut self, id: ControlId, value: bool) {
+        self.maybe_fail(BackendOperation::SetTemplatedCanReorderItems);
         self.ops.push(Op::SetTemplatedCanReorderItems { id, value });
     }
 
     fn set_templated_allow_drop(&mut self, id: ControlId, value: bool) {
+        self.maybe_fail(BackendOperation::SetTemplatedAllowDrop);
         self.ops.push(Op::SetTemplatedAllowDrop { id, value });
     }
 
@@ -650,6 +665,7 @@ impl Backend for RecordingBackend {
     }
 
     fn attach_templated_selection_changed(&mut self, id: ControlId, handler: Callback<i32>) {
+        self.maybe_fail(BackendOperation::AttachTemplatedSelectionChanged);
         self.selection_handlers.insert(id, handler);
         self.ops.push(Op::AttachTemplatedSelectionChanged { id });
     }
@@ -660,11 +676,13 @@ impl Backend for RecordingBackend {
         realize: Rc<dyn Fn(usize)>,
         recycle: Rc<dyn Fn(usize)>,
     ) {
+        self.maybe_fail(BackendOperation::AttachTemplatedRealization);
         self.realization_handlers.insert(id, (realize, recycle));
         self.ops.push(Op::AttachTemplatedRealization { id });
     }
 
     fn attach_templated_reorder(&mut self, id: ControlId, handler: Callback<Vec<usize>>) {
+        self.maybe_fail(BackendOperation::AttachTemplatedReorder);
         self.reorder_handlers.insert(id, handler);
         self.ops.push(Op::AttachTemplatedReorder { id });
     }

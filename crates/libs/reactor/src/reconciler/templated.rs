@@ -1,4 +1,5 @@
 use std::cell::RefCell;
+use std::panic::AssertUnwindSafe;
 use std::rc::Rc;
 
 use super::*;
@@ -50,6 +51,17 @@ impl<B: Backend + 'static> Reconciler<B> {
             TemplatedKind::FlipView => ControlKind::FlipView,
         };
         let id = self.acquire_control(kind);
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            self.configure_templated_list(id, tl);
+        }));
+        if let Err(payload) = result {
+            self.unmount_inner(id);
+            std::panic::resume_unwind(payload);
+        }
+        id
+    }
+
+    fn configure_templated_list(&mut self, id: ControlId, tl: &TemplatedListElement) {
         self.apply_modifiers(id, &tl.modifiers);
 
         let count = tl.item_count();
@@ -140,8 +152,6 @@ impl<B: Backend + 'static> Reconciler<B> {
                 });
             }
         }
-
-        id
     }
 
     fn update_selection_callback(&mut self, id: ControlId, next: Option<Callback<i32>>) {
@@ -542,9 +552,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
 
         let pushed = self.host.context_stack.push_snapshot(&context);
-        let mounted = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-            self.mount_output(&rendered)
-        }));
+        let mounted = std::panic::catch_unwind(AssertUnwindSafe(|| self.mount_output(&rendered)));
         self.pop_provisions(pushed);
         let output = match mounted {
             Ok(output) => output,

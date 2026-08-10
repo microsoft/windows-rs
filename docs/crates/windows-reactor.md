@@ -470,7 +470,13 @@ selected backend operation mutates the backend model. Ordinary widget mounts cat
 native creation, remove the partially mounted native and logical subtree, run pending component
 cleanups, and then resume the panic. Error boundaries can therefore mount a fallback without
 retaining controls, handlers, headers, panes, or effects from the failed subtree. This contract does
-not yet cover custom elements, templated lists, or failures during rollback.
+not yet cover custom elements or failures during rollback.
+
+Templated-list mounting uses the same transaction boundary. The native list is registered first,
+then modifiers, selection and reorder callbacks, realization callbacks, list state, and backend
+configuration are applied. A failure at any stage rolls back the registered list and all callback
+and backend state before propagating the panic. Row realization and templated-list updates have
+separate failure contracts and are not covered by mount rollback.
 
 Component and provider updates retain their logical ownership records while a panic propagates.
 This lets an error boundary discard a failed non-structural update, run component cleanups, and
@@ -1195,8 +1201,10 @@ time.
   fail-before destroy without repeating component or lifecycle cleanup.
 - [x] Retain root ownership across failed child-first destruction, reject reconciliation while
   teardown is incomplete, and let either root teardown API retry without repeating cleanup.
-- [ ] Extend backend fault injection to custom and templated mounts, collection retry or rollback,
-  and rollback itself; define the valid state after each failure.
+- [x] Roll failed templated-list mounts back across modifiers, callbacks, list-state registration,
+  and backend configuration so error boundaries can mount a fallback.
+- [ ] Extend backend fault injection to custom mounts, collection retry or rollback, and rollback
+  itself; define the valid state after each failure.
 - [ ] Define and test render, commit, effect, cleanup, error-boundary, and reentrant-event ordering.
 - [ ] Enforce the UI-thread boundary in release builds and reject stale asynchronous updates after
   unmount or host replacement.
