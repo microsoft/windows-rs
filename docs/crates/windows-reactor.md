@@ -1129,29 +1129,29 @@ time.
 - [x] Separate logical identity from native `ControlId`.
 - [x] Consolidate mounted ownership and child-first teardown under `MountedTree`.
 - [x] Add deterministic model tests, lifecycle stress tests, coverage floors, and performance
-      comparisons.
+  comparisons.
 - [x] Make the recording backend check live IDs and unique ownership across children, headers,
-      panes, and realized rows after every generated model transition.
+  panes, and realized rows after every generated model transition.
 - [x] Clear root ownership when `Reconciler::unmount` removes the root, preventing host teardown
-      from destroying the same native control twice.
+  from destroying the same native control twice.
 - [ ] Split `MountedTree`, logical ownership, host state, and wrapper reconciliation into focused
-      modules without changing behavior.
+  modules without changing behavior.
 - [ ] Replace WinUI's hard-coded phantom-child cases with explicit container projection
-      capabilities and test mixed logical/visual indexing.
+  capabilities and test mixed logical/visual indexing.
 - [ ] Add backend fault injection for create, property update, attach, move, detach, and destroy;
-      define the valid state after each failure.
+  define the valid state after each failure.
 - [ ] Define and test render, commit, effect, cleanup, error-boundary, and reentrant-event ordering.
 - [ ] Enforce the UI-thread boundary in release builds and reject stale asynchronous updates after
-      unmount or host replacement.
+  unmount or host replacement.
 - [ ] Move templated realization and recycling through the same ownership checks as ordinary,
-      header, and pane content.
+  header, and pane content.
 - [ ] Mechanically verify every callable WinUI vtable entry and prevent placeholder slots from
-      becoming callable.
+  becoming callable.
 - [ ] Replace final-window `process::exit` teardown with an orderly, testable host shutdown.
 - [ ] Classify every open Reactor issue as a core defect, required platform contract, deferred
-      feature, or unsupported behavior.
+  feature, or unsupported behavior.
 - [ ] Complete a final architecture review and remove the feature freeze only after the exit
-      criteria below pass.
+  criteria below pass.
 
 ### PR discipline
 
