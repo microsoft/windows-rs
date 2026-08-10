@@ -351,11 +351,21 @@ mod tests {
         let items = Win32Items::new(&database).unwrap();
         let mut supported = [0; 5];
         let mut defaults = [0; 5];
+        let mut scoped_enums = 0;
+        let mut gated_scoped_enums = 0;
         let mut unsupported = BTreeMap::<String, usize>::new();
 
         for namespace in &items.namespaces {
             for entity in &namespace.types {
                 let definition = database.definition(*entity).unwrap();
+                if definition.category().unwrap() == TypeCategory::Enum
+                    && definition.has_attribute("ScopedEnumAttribute").unwrap()
+                {
+                    scoped_enums += 1;
+                    if definition.architectures().unwrap() != 0 {
+                        gated_scoped_enums += 1;
+                    }
+                }
                 match NativeType::lower(&database, definition, &items.nested) {
                     Ok(ty) => {
                         ty.write_sys();
@@ -403,6 +413,7 @@ mod tests {
         assert_eq!(supported[3..], [83_641, 14_559]);
         assert_eq!(items.type_count, 30_109);
         assert_eq!(defaults, [8_584, 2_164, 1_890, 74, 3]);
+        assert_eq!((scoped_enums, gated_scoped_enums), (10, 0));
         assert!(unsupported.is_empty(), "{unsupported:#?}");
     }
 

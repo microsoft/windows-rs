@@ -34,6 +34,7 @@ struct Enum {
     name: String,
     ty: native::Type,
     values: Vec<(String, ConstantValue)>,
+    scoped: bool,
 }
 
 struct Struct {
@@ -106,6 +107,7 @@ impl NativeType {
                             message: "native enum has no backing field",
                         })?,
                         values,
+                        scoped: definition.has_attribute("ScopedEnumAttribute")?,
                     }),
                 })
             }
@@ -270,6 +272,27 @@ impl Enum {
     fn write_sys_items(&self, architectures: &TokenStream) -> Vec<(&str, u8, TokenStream)> {
         let name = tokens::ident(&self.name);
         let ty = self.ty.write(&self.namespace);
+        if self.scoped {
+            let values = self.values.iter().map(|(value_name, value)| {
+                let value_name = tokens::ident(value_name);
+                let value = native::write_value(&native::Type::from_constant(value), value);
+                quote! { pub const #value_name: Self = Self(#value); }
+            });
+            return vec![(
+                self.name.as_str(),
+                1,
+                quote! {
+                    #architectures
+                    #[repr(transparent)]
+                    #[derive(Clone, Copy)]
+                    pub struct #name(pub #ty);
+                    #architectures
+                    impl #name {
+                        #(#values)*
+                    }
+                },
+            )];
+        }
         let mut result = vec![(
             self.name.as_str(),
             1,

@@ -442,13 +442,9 @@ mod tests {
             include_str!("../../../tests/libs/bindgen/expected/struct_default_sys.rs")
                 .parse()
                 .unwrap();
-        let expected = expected.to_string();
-        for ty in &types {
-            if ty.kind() != NativeTypeKind::Enum {
-                let actual = ty.write_sys().to_string();
-                assert!(expected.contains(&actual), "missing old output: {actual}");
-            }
-        }
+        let types = types.iter().map(NativeType::write_sys);
+        let actual = quote! { #(#types)* };
+        assert_eq!(actual.to_string(), expected.to_string());
     }
 
     #[test]

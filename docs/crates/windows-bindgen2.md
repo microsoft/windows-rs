@@ -77,9 +77,9 @@ token stream. A focused nested Win32 fixture matches the existing module golden 
 mixed fixture proves that WinRT values and Win32 items pass through the same output path. It does
 not add filtering, dependency closure, formatting, file writing, or package policy.
 
-This is structural coverage, not complete native output equivalence. Scoped-enum projection,
-bitfield accessors, handle policy, native delegates, and interfaces are absent. These are separate
-policies rather than reasons to build a global native type graph.
+This is structural coverage, not complete native output equivalence. Bitfield accessors, handle
+policy, native delegates, and interfaces are absent. These are separate policies rather than
+reasons to build a global native type graph.
 
 ## Native shape inventory
 
@@ -121,8 +121,9 @@ Native `Default` policy is also complete for the selected sys surface:
 
 The check resolves by-value definitions during lowering with an ephemeral cycle guard. It does not
 retain a native dependency graph. A focused old-generator fixture covers each suppression reason.
-That fixture also exposed a separate gap: scoped native enums themselves still render as aliases
-in bindgen2 rather than the existing transparent newtype projection.
+That fixture also covers the 10 scoped native enums. They now render as transparent newtypes with
+associated constants, while ordinary C enums remain aliases with module-level constants. None of
+the current scoped enums carries an architecture gate.
 
 Architecture gating is now complete for the selected surface:
 
@@ -164,5 +165,6 @@ standard required before claiming the replacement is objectively better overall.
 
 The bounded module-output, RDL2 external-reference, native-shape inventory, architecture-gating,
 nested-rendering, and native-default checkpoints are complete. Scoped enums are the smallest
-measured native gap and already have a focused fixture. Do not add dependency closure, a second
-name index, or a global native graph without a measured requirement.
+measured native gap and are now complete. Inventory the remaining bitfield, handle, delegate, and
+interface surfaces before choosing the next slice. Do not add dependency closure, a second name
+index, or a global native graph without a measured requirement.
