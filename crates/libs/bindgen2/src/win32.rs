@@ -9,6 +9,17 @@ struct Namespace {
     functions: Vec<Entity<MethodDef>>,
 }
 
+type NamedEntity<T> = (String, i32, Entity<T>);
+type NamespaceSelections = BTreeMap<
+    String,
+    (
+        Vec<NamedEntity<TypeDef>>,
+        Vec<NamedEntity<TypeDef>>,
+        Vec<NamedEntity<Field>>,
+        Vec<NamedEntity<MethodDef>>,
+    ),
+>;
+
 pub(crate) struct Win32Selection {
     namespaces: Vec<Namespace>,
     nested: BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
@@ -39,15 +50,8 @@ impl Generator {
 
 impl Win32Selection {
     pub(crate) fn new(database: &Database, filter: Option<&Filter>) -> Result<Self, Error> {
-        let mut namespaces = BTreeMap::<
-            String,
-            (
-                Vec<(String, i32, Entity<TypeDef>)>,
-                Vec<(String, i32, Entity<TypeDef>)>,
-                Vec<(String, i32, Entity<Field>)>,
-                Vec<(String, i32, Entity<MethodDef>)>,
-            ),
-        >::new();
+        let mut closure = filter.map(|_| native_closure::Closure::new(database));
+        let mut namespaces = NamespaceSelections::new();
         for definition in database.definitions() {
             if definition.is_windows_runtime()? {
                 continue;
@@ -58,27 +62,30 @@ impl Win32Selection {
                 TypeCategory::Enum | TypeCategory::Struct => {
                     let name = definition.name()?;
                     if filter.is_none_or(|filter| filter.includes(&namespace, name)) {
-                        namespaces.entry(namespace).or_default().0.push((
-                            name.to_string(),
-                            definition.architectures()?,
-                            definition.entity(),
-                        ));
+                        if let Some(closure) = &mut closure {
+                            closure.include_definition(definition.entity())?;
+                        } else {
+                            add_definition(&mut namespaces, definition)?;
+                        }
                     }
                 }
                 TypeCategory::Delegate => {
                     let name = definition.name()?;
                     if filter.is_none_or(|filter| filter.includes(&namespace, name)) {
-                        namespaces.entry(namespace).or_default().1.push((
-                            name.to_string(),
-                            definition.architectures()?,
-                            definition.entity(),
-                        ));
+                        if let Some(closure) = &mut closure {
+                            closure.include_definition(definition.entity())?;
+                        } else {
+                            add_definition(&mut namespaces, definition)?;
+                        }
                     }
                 }
                 TypeCategory::Class if definition.name()? == "Apis" => {
                     for field in definition.fields()? {
                         let name = field.name()?;
                         if filter.is_none_or(|filter| filter.includes(&namespace, name)) {
+                            if let Some(closure) = &mut closure {
+                                closure.include_field(field)?;
+                            }
                             namespaces.entry(namespace.clone()).or_default().2.push((
                                 name.to_string(),
                                 field.architectures()?,
@@ -94,6 +101,9 @@ impl Win32Selection {
                         }
                         let name = method.name()?;
                         if filter.is_none_or(|filter| filter.includes(&namespace, name)) {
+                            if let Some(closure) = &mut closure {
+                                closure.include_method(method)?;
+                            }
                             namespaces.entry(namespace.clone()).or_default().3.push((
                                 name.to_string(),
                                 method.architectures()?,
@@ -103,6 +113,12 @@ impl Win32Selection {
                     }
                 }
                 _ => continue,
+            }
+        }
+        if let Some(closure) = closure {
+            for entity in closure.finish()? {
+                let definition = database.definition(entity).unwrap();
+                add_definition(&mut namespaces, definition)?;
             }
         }
         let mut type_count = 0;
@@ -164,6 +180,26 @@ impl Win32Selection {
             delegate_count,
         })
     }
+}
+
+fn add_definition(
+    namespaces: &mut NamespaceSelections,
+    definition: TypeDefinition<'_>,
+) -> Result<(), Error> {
+    let item = (
+        definition.name()?.to_string(),
+        definition.architectures()?,
+        definition.entity(),
+    );
+    let namespace = namespaces
+        .entry(definition.namespace()?.to_string())
+        .or_default();
+    match definition.category()? {
+        TypeCategory::Enum | TypeCategory::Struct => namespace.0.push(item),
+        TypeCategory::Delegate => namespace.1.push(item),
+        _ => unreachable!(),
+    }
+    Ok(())
 }
 
 impl<'a> Win32Items<'a> {

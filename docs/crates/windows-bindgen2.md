@@ -51,6 +51,12 @@ rendering does not scan metadata again. The retained native state is limited to 
 typed entities, the nested parent-to-children map required by recursive structs, and inventory
 counts. Native projected models remain streaming values.
 
+Filtered native selection now closes over decoded field and method signatures. A temporary ordered
+entity set and work queue pull in referenced aliases, enums, structs, and delegates transitively.
+Name resolution reuses metadata2's exact TypeDef index and adds every architecture row for a
+referenced name. The queue is discarded after selection; no dependency graph or per-type role map
+is retained. Interface references remain unresolved until native interface projection exists.
+
 The value layer lowers all 1,731 selected enums and 125 structs into owned models. Enum, struct,
 type, GUID, and graph policy live in separate modules. The graph uses nested ordered maps so
 namespace and type lookups borrow existing strings rather than allocating lookup keys. It detects
@@ -214,5 +220,7 @@ nested-rendering, native-default, scoped-enum, and remaining-surface inventory c
 complete. Native delegates are also complete. Interfaces are the remaining major sys type surface
 and are an order of magnitude larger by method count. The reusable metadata/request boundary is
 complete, including explicit module/flat layout and exact programmatic filters. Add dependency
-closure before a compatibility CLI or file writer, and only then define member-level filter
-syntax. Do not add a second name index or a global native graph without a measured requirement.
+closure for native interfaces after their projection is implemented and before a compatibility
+CLI or file writer. Only then define member-level filter syntax. Supported native aliases, enums,
+structs, and delegates already close transitively. Do not add a second name index or a global
+native graph without a measured requirement.

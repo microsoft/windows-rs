@@ -13,6 +13,7 @@ mod filter;
 mod guid;
 mod model;
 mod native;
+mod native_closure;
 mod native_constant;
 mod native_default;
 mod native_delegate;
@@ -554,6 +555,77 @@ mod tests {
     }
 
     #[test]
+    fn native_filters_include_transitive_supported_dependencies() {
+        let metadata = fixture_metadata(
+            r#"
+                #[win32]
+                mod Test {
+                    type Leaf = u32;
+                    struct Middle {
+                        leaf: Leaf,
+                    }
+                    struct Root {
+                        middle: Middle,
+                    }
+                    type ConstantType = u16;
+                    const VALUE: ConstantType = 42;
+                    extern fn Callback(value: Root) -> Leaf;
+                    #[library("test.dll")]
+                    extern fn Use(callback: Callback, value: *const Root) -> Middle;
+                }
+            "#,
+        );
+        let generator = metadata
+            .generator_filtered(Filter::names(["Use", "VALUE"]))
+            .unwrap();
+        let items = generator.win32_items();
+
+        assert_eq!(items.type_count(), 4);
+        assert_eq!(items.delegate_count(), 1);
+        assert_eq!(items.constant_count(), 1);
+        assert_eq!(items.function_count(), 1);
+
+        let output = generator.write_modules().unwrap().to_string();
+        for name in [
+            "Leaf",
+            "Middle",
+            "Root",
+            "ConstantType",
+            "Callback",
+            "VALUE",
+            "Use",
+        ] {
+            assert!(output.contains(name), "{name} missing from {output}");
+        }
+    }
+
+    #[test]
+    fn native_dependency_closure_keeps_architecture_variants() {
+        let metadata = fixture_metadata(
+            r#"
+                #[win32]
+                mod Test {
+                    #[arch(X86)]
+                    type ArchValue = i32;
+                    #[arch(X64 | Arm64)]
+                    type ArchValue = i64;
+                    #[library("test.dll")]
+                    extern fn Use(value: ArchValue);
+                }
+            "#,
+        );
+        let generator = metadata.generator_filtered(Filter::names(["Use"])).unwrap();
+        let items = generator.win32_items();
+
+        assert_eq!(items.type_count(), 2);
+        assert_eq!(items.architecture_type_count(), 2);
+        let output = generator.write_modules().unwrap().to_string();
+        assert_eq!(output.matches("pub type ArchValue").count(), 2);
+        assert!(output.contains("target_arch = \"x86\""));
+        assert!(output.contains("target_arch = \"aarch64\""));
+    }
+
+    #[test]
     fn module_output_combines_supported_winrt_and_win32_items() {
         let generator = fixture(
             r#"
@@ -717,9 +789,12 @@ mod tests {
             1
         );
 
-        let generator = fixture(include_str!(
+        let metadata = fixture_metadata(include_str!(
             "../../../tests/libs/bindgen/input/arch_delegate_dependency_sys.rdl"
         ));
+        let generator = metadata
+            .generator_filtered(Filter::names(["UsesCallback"]))
+            .unwrap();
         let expected: TokenStream =
             include_str!("../../../tests/libs/bindgen/expected/arch_delegate_dependency_sys.rs")
                 .parse()

@@ -67,3 +67,9 @@ dependency closure remain separate future layers.
 Each request stores its selected WinRT and Win32 typed entities. Repeated writes borrow that
 selection instead of scanning the metadata database again. Native projected models are still
 lowered one item at a time and discarded after rendering.
+
+Filtered Win32 requests close transitively over supported native definitions referenced by field
+and method signatures. This includes aliases, enums, structs, and delegates, with every
+architecture variant of a referenced metadata name. Closure uses an ephemeral entity set and work
+queue; it does not retain a dependency graph. Native interfaces are not included until their
+projection is implemented.
