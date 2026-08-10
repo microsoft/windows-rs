@@ -746,3 +746,76 @@ fn error_boundary_retries_failed_destroy_without_repeating_cleanup() {
         assert_eq!(reconciler.backend.live_control_count(), 0);
     }
 }
+
+#[derive(Clone, Copy, Debug)]
+enum RootUnmount {
+    Root,
+    Control,
+}
+
+fn teardown_root(
+    reconciler: &mut Reconciler<RecordingBackend>,
+    mode: RootUnmount,
+    root: windows_reactor::ControlId,
+) {
+    match mode {
+        RootUnmount::Root => reconciler.unmount_root(),
+        RootUnmount::Control => reconciler.unmount(root),
+    }
+}
+
+#[test]
+fn failed_root_teardown_can_be_retried_without_repeating_cleanup() {
+    for mode in [RootUnmount::Root, RootUnmount::Control] {
+        for occurrence in [1, 2, 3] {
+            let cleanups = Rc::new(Cell::new(0));
+            let unmounted = Rc::new(Cell::new(0));
+            let element = destroy_component(false, &cleanups, &unmounted);
+            let mut reconciler = Reconciler::new(RecordingBackend::new());
+            let root = reconciler
+                .reconcile(None, &element, None, rerender())
+                .unwrap();
+            reconciler
+                .backend
+                .fail_on(BackendOperation::Destroy, occurrence);
+
+            let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+                teardown_root(&mut reconciler, mode, root);
+            }));
+
+            assert!(
+                result.is_err(),
+                "{mode:?} destroy occurrence {occurrence} did not fail"
+            );
+            assert!(cleanups.get() <= 1);
+            assert!(unmounted.get() <= 2);
+            assert!(
+                reconciler.backend.live_control_count() > 0,
+                "{mode:?} destroy occurrence {occurrence} lost all live ownership"
+            );
+
+            let reconcile_result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+                reconciler.reconcile(Some(&element), &element, None, rerender());
+            }));
+            assert!(
+                reconcile_result.is_err(),
+                "{mode:?} destroy occurrence {occurrence} allowed reconciliation during teardown"
+            );
+
+            teardown_root(&mut reconciler, mode, root);
+            assert_eq!(
+                cleanups.get(),
+                1,
+                "{mode:?} destroy occurrence {occurrence} repeated or lost component cleanup"
+            );
+            assert_eq!(
+                unmounted.get(),
+                2,
+                "{mode:?} destroy occurrence {occurrence} repeated or lost lifecycle cleanup"
+            );
+            reconciler.assert_consistent();
+            reconciler.backend.assert_consistent();
+            assert_eq!(reconciler.backend.live_control_count(), 0);
+        }
+    }
+}

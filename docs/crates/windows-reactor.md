@@ -492,8 +492,10 @@ Native destruction is the teardown commit point. Logical cleanup, lifecycle call
 pre-destroy hooks run first, but mounted ownership is retained until `Backend::destroy` succeeds. If
 a fail-before destroy panic reaches an error boundary, discard retries the still-owned control
 without repeating cleanup. This also covers a failure after earlier descendants were destroyed.
-Retrying a failed `unmount_root` remains undefined because root ownership is consumed before
-teardown begins.
+Root teardown retains `root_output` until the full traversal succeeds. A failed `unmount_root` or
+root `unmount` must be retried through either root teardown API; the retry skips descendants already
+destroyed and completes each remaining cleanup at most once. Reconciliation and unrelated unmounts
+are rejected while root teardown is incomplete.
 
 Two crates measure reconciler performance. `test_reactor_bench` is a headless micro-suite (run with
 `cargo run -p test_reactor_bench --release`) that brackets only the reconcile body against
@@ -1191,8 +1193,10 @@ time.
   discard the subtree, while uncaught failures remain reachable for explicit teardown.
 - [x] Retain mounted ownership until native destroy succeeds so error boundaries can retry
   fail-before destroy without repeating component or lifecycle cleanup.
-- [ ] Extend backend fault injection to custom and templated mounts, root destroy retry, collection
-  retry or rollback, and rollback itself; define the valid state after each failure.
+- [x] Retain root ownership across failed child-first destruction, reject reconciliation while
+  teardown is incomplete, and let either root teardown API retry without repeating cleanup.
+- [ ] Extend backend fault injection to custom and templated mounts, collection retry or rollback,
+  and rollback itself; define the valid state after each failure.
 - [ ] Define and test render, commit, effect, cleanup, error-boundary, and reentrant-event ordering.
 - [ ] Enforce the UI-thread boundary in release builds and reject stale asynchronous updates after
   unmount or host replacement.
