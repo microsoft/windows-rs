@@ -118,6 +118,37 @@ pointer casts omitted from wrapper calls. The generated consumer crates compile 
 This proves a vertical migration path that removes the leaked-row bindgen engine without
 recreating its ownership model or moving orchestration into bindgen2.
 
+The adapter is a library-backed binary so its production parser and generation loop have direct
+end-to-end tests. Phase timing identified repeated full native metadata scans in every request:
+selection took 2.80 seconds of a 4.75-second run. `Win32Catalogs` now retains native definition,
+enum-variant, constant, and function selection facts once per `Metadata` value. Two warmed runs
+each took 2.90 seconds: 0.56 seconds for the database, 0.59-0.60 for shared catalogs, 0.60 for all
+17 request closures, 0.05 for rendering, and 0.98 for rustfmt. The catalog retains metadata
+identities and lookup names, not projected models.
+
+## Reactor adoption probe
+
+`tool_reactor` was tested as a second production consumer and remains on `windows-bindgen`. Its
+request combines custom WinUI metadata, exact class names, named class members, implementation
+filters, minimal output, and dead-code policy. Treating exact class selection as ordinary member
+selection caused flat name collisions and thousands of lines of output differences. Local fixes
+reduced the diff but mixed selection semantics with incomplete projection policy, so they were
+removed rather than retained as another compatibility layer.
+
+The probe identified the next bounded work, in order:
+
+1. Distinguish a selected class type, selected class members, and a dependency shell.
+2. Match minimal callable visibility without changing public type definitions.
+3. Model composable `new` and `compose` activation.
+4. Route external collection interfaces and required class hierarchies.
+5. Project static events and revokers.
+6. Make native and WinRT producer selection explicit.
+7. Canonicalize custom `HResult` metadata to `windows_core::HRESULT`.
+
+Reactor should not migrate until both complete generated binding files are close enough for direct
+review and compile without consumer changes. These gaps are output policy, not evidence that the
+metadata2 ownership model or bindgen2 selection/rendering split needs another redesign.
+
 Filtered native selection now closes over decoded field and method signatures. A temporary ordered
 entity set and work queue pull in referenced aliases, enums, structs, delegates, interfaces, and
 base interfaces transitively. Name resolution reuses metadata2's exact TypeDef index and adds every
@@ -276,17 +307,16 @@ The direction remains better than the current generator, but it is not yet a rep
 - metadata2 owns data, uses checked typed identities, and avoids the leaked reader, but its source
   is already close to the old metadata crate's raw line count because parsing and differential
   tests are extensive;
-- the measured retained indexes remain small: metadata2 has exact type-name lookup, the WinRT value
-  graph exists only for recursive value semantics, and Win32 selection stores typed entities
-  grouped by one namespace string;
+- the measured retained indexes remain bounded: metadata2 has exact type-name lookup, the WinRT
+  value graph exists only for recursive value semantics, and the shared native catalog stores
+  selection facts needed by repeated requests rather than projected models;
 - WinRT and native type models intentionally remain separate because their projection and ABI
   rules differ. Unifying them now would recreate the broad old `Type` enum;
 - `image.rs` and `semantic.rs` are the main metadata2 growth risks. New relationships should be
   split by concern rather than extending one semantic module indefinitely.
-- bindgen2 production source is currently 9,505 lines versus 12,829 for bindgen, but bindgen2 does
-  not yet implement packages or file writing. Nine warmed `tool_bindings` differential tests take
-  about 2.5 seconds while the legacy tool takes about 2.2 seconds. The bindgen2 tests rebuild
-  metadata per request, so this is encouraging but not an end-to-end speed claim;
+- bindgen2 production source remains smaller than bindgen but does not implement packages or file
+  writing. The production 17-request `tool_bindings` run takes about 2.90 seconds when warm; phase
+  timings keep request closure and shared-catalog costs visible as more consumers migrate;
 - callable and interface projection are the main bindgen2 growth risks. Collection conveniences
   now live in `winrt_collection.rs`; future named policies should get similarly narrow modules
   rather than accumulating in `winrt_interface.rs` or `winrt_delegate.rs`.

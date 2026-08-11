@@ -36,8 +36,31 @@ pub(crate) struct Win32Selection {
 }
 
 pub(crate) struct Win32Catalogs {
+    definitions: Vec<NativeDefinition>,
+    apis: Vec<NativeApis>,
     nested: BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
     interface_bases: BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
+}
+
+struct NativeDefinition {
+    namespace: String,
+    name: String,
+    architectures: i32,
+    entity: Entity<TypeDef>,
+    kind: NativeKind,
+}
+
+enum NativeKind {
+    Enum(Vec<String>),
+    Struct,
+    Delegate,
+    Interface,
+}
+
+struct NativeApis {
+    namespace: String,
+    constants: Vec<NamedEntity<Field>>,
+    functions: Vec<NamedEntity<MethodDef>>,
 }
 
 pub(crate) struct Win32Items<'a> {
@@ -68,105 +91,121 @@ impl Win32Selection {
         let mut namespaces = NamespaceSelections::new();
         let mut enum_variants = BTreeMap::<Entity<TypeDef>, EnumVariants>::new();
         let mut selected_implementations = implementations.map(|_| BTreeSet::new());
-        for definition in database.definitions() {
-            if definition.is_windows_runtime()? {
-                continue;
-            }
-            let namespace = definition.namespace()?.to_string();
-            let category = definition.category()?;
-            match category {
-                TypeCategory::Enum => {
-                    let name = definition.name()?;
-                    if filter.is_none_or(|filter| filter.includes(&namespace, name)) {
+        for definition in &catalogs.definitions {
+            match &definition.kind {
+                NativeKind::Enum(variants) => {
+                    if filter.is_none_or(|filter| {
+                        filter.includes(&definition.namespace, &definition.name)
+                    }) {
                         if let Some(closure) = &mut closure {
-                            closure.include_definition(definition.entity())?;
+                            closure.include_definition(definition.entity)?;
                         } else {
-                            add_definition(&mut namespaces, definition)?;
+                            namespaces
+                                .entry(definition.namespace.clone())
+                                .or_default()
+                                .types
+                                .push((
+                                    definition.name.clone(),
+                                    definition.architectures,
+                                    definition.entity,
+                                ));
                         }
-                        enum_variants.insert(definition.entity(), EnumVariants::All);
+                        enum_variants.insert(definition.entity, EnumVariants::All);
                     } else if let Some(filter) = filter {
-                        let mut names = BTreeSet::new();
-                        for field in definition.fields()? {
-                            if field.is_literal()? && filter.includes(&namespace, field.name()?) {
-                                names.insert(field.name()?.to_string());
-                            }
-                        }
+                        let names = variants
+                            .iter()
+                            .filter(|name| filter.includes(&definition.namespace, name))
+                            .cloned()
+                            .collect::<BTreeSet<_>>();
                         if !names.is_empty() {
                             closure
                                 .as_mut()
                                 .unwrap()
-                                .include_definition(definition.entity())?;
-                            enum_variants.insert(definition.entity(), EnumVariants::Names(names));
+                                .include_definition(definition.entity)?;
+                            enum_variants.insert(definition.entity, EnumVariants::Names(names));
                         }
                     }
                 }
-                TypeCategory::Struct | TypeCategory::Delegate | TypeCategory::Interface => {
-                    let name = definition.name()?;
-                    if category == TypeCategory::Interface
-                        && implementations.is_some_and(|filter| filter.includes(&namespace, name))
+                NativeKind::Struct | NativeKind::Delegate | NativeKind::Interface => {
+                    if matches!(&definition.kind, NativeKind::Interface)
+                        && implementations.is_some_and(|filter| {
+                            filter.includes(&definition.namespace, &definition.name)
+                        })
                     {
                         selected_implementations
                             .as_mut()
                             .unwrap()
-                            .insert(definition.entity());
+                            .insert(definition.entity);
                         if let Some(closure) = &mut closure {
-                            closure.include_implementation(definition.entity());
+                            closure.include_implementation(definition.entity);
                         }
                     }
-                    if filter.is_none_or(|filter| filter.includes(&namespace, name)) {
+                    if filter.is_none_or(|filter| {
+                        filter.includes(&definition.namespace, &definition.name)
+                    }) {
                         if let Some(closure) = &mut closure {
-                            closure.include_definition(definition.entity())?;
+                            closure.include_definition(definition.entity)?;
                         } else {
-                            add_definition(&mut namespaces, definition)?;
+                            let namespace =
+                                namespaces.entry(definition.namespace.clone()).or_default();
+                            let item = (
+                                definition.name.clone(),
+                                definition.architectures,
+                                definition.entity,
+                            );
+                            match &definition.kind {
+                                NativeKind::Struct => namespace.types.push(item),
+                                NativeKind::Delegate => namespace.delegates.push(item),
+                                NativeKind::Interface => namespace.interfaces.push((
+                                    item.0,
+                                    item.1,
+                                    item.2,
+                                    MemberSelection::All,
+                                )),
+                                NativeKind::Enum(_) => unreachable!(),
+                            }
                         }
-                    } else if category == TypeCategory::Interface
-                        && let Some(methods) =
-                            filter.and_then(|filter| filter.methods(&namespace, name))
+                    } else if matches!(&definition.kind, NativeKind::Interface)
+                        && let Some(methods) = filter.and_then(|filter| {
+                            filter.methods(&definition.namespace, &definition.name)
+                        })
                     {
                         closure.as_mut().unwrap().include_interface(
-                            definition.entity(),
+                            definition.entity,
                             MemberSelection::Names(methods.clone()),
                         );
                     }
                 }
-                TypeCategory::Class if definition.name()? == "Apis" => {
-                    for field in definition.fields()? {
-                        let name = field.name()?;
-                        if filter.is_none_or(|filter| filter.includes(&namespace, name)) {
-                            if let Some(closure) = &mut closure {
-                                closure.include_field(field)?;
-                            }
-                            namespaces
-                                .entry(namespace.clone())
-                                .or_default()
-                                .constants
-                                .push((name.to_string(), field.architectures()?, field.entity()));
-                        }
+            }
+        }
+        for apis in &catalogs.apis {
+            for (name, architectures, entity) in &apis.constants {
+                if filter.is_none_or(|filter| filter.includes(&apis.namespace, name)) {
+                    if let Some(closure) = &mut closure {
+                        closure.include_field(database.field(*entity).unwrap())?;
                     }
-                    for method in definition.methods()? {
-                        if let Some(import) = method.import()?
-                            && (import.module() == "FORCEINLINE" || import.name().starts_with('#'))
-                        {
-                            continue;
-                        }
-                        let name = method.name()?;
-                        if filter.is_none_or(|filter| {
-                            filter.includes(&namespace, name)
-                                || native_function::window_long_alias(name)
-                                    .is_some_and(|alias| filter.includes(&namespace, alias))
-                        }) {
-                            if let Some(closure) = &mut closure {
-                                closure.include_method(method)?;
-                            }
-                            namespaces
-                                .entry(namespace.clone())
-                                .or_default()
-                                .functions
-                                .push((name.to_string(), method.architectures()?, method.entity()));
-                        }
-                    }
+                    namespaces
+                        .entry(apis.namespace.clone())
+                        .or_default()
+                        .constants
+                        .push((name.clone(), *architectures, *entity));
                 }
-                _ => continue,
+            }
+            for (name, architectures, entity) in &apis.functions {
+                if filter.is_none_or(|filter| {
+                    filter.includes(&apis.namespace, name)
+                        || native_function::window_long_alias(name)
+                            .is_some_and(|alias| filter.includes(&apis.namespace, alias))
+                }) {
+                    if let Some(closure) = &mut closure {
+                        closure.include_method(database.method(*entity).unwrap())?;
+                    }
+                    namespaces
+                        .entry(apis.namespace.clone())
+                        .or_default()
+                        .functions
+                        .push((name.clone(), *architectures, *entity));
+                }
             }
         }
         if let Some(closure) = closure {
@@ -233,6 +272,70 @@ impl Win32Selection {
 
 impl Win32Catalogs {
     pub(crate) fn new(database: &Database) -> Result<Self, Error> {
+        let mut definitions = Vec::new();
+        let mut apis = Vec::new();
+        for definition in database.definitions() {
+            if definition.is_windows_runtime()? {
+                continue;
+            }
+            let namespace = definition.namespace()?.to_string();
+            let name = definition.name()?.to_string();
+            let entity = definition.entity();
+            let architectures = definition.architectures()?;
+            let kind = match definition.category()? {
+                TypeCategory::Enum => {
+                    let mut variants = Vec::new();
+                    for field in definition.fields()? {
+                        if field.is_literal()? {
+                            variants.push(field.name()?.to_string());
+                        }
+                    }
+                    NativeKind::Enum(variants)
+                }
+                TypeCategory::Struct => NativeKind::Struct,
+                TypeCategory::Delegate => NativeKind::Delegate,
+                TypeCategory::Interface => NativeKind::Interface,
+                TypeCategory::Class if name == "Apis" => {
+                    let constants = definition
+                        .fields()?
+                        .map(|field| {
+                            Ok((
+                                field.name()?.to_string(),
+                                field.architectures()?,
+                                field.entity(),
+                            ))
+                        })
+                        .collect::<Result<_, Error>>()?;
+                    let mut functions = Vec::new();
+                    for method in definition.methods()? {
+                        if let Some(import) = method.import()?
+                            && (import.module() == "FORCEINLINE" || import.name().starts_with('#'))
+                        {
+                            continue;
+                        }
+                        functions.push((
+                            method.name()?.to_string(),
+                            method.architectures()?,
+                            method.entity(),
+                        ));
+                    }
+                    apis.push(NativeApis {
+                        namespace,
+                        constants,
+                        functions,
+                    });
+                    continue;
+                }
+                _ => continue,
+            };
+            definitions.push(NativeDefinition {
+                namespace,
+                name,
+                architectures,
+                entity,
+                kind,
+            });
+        }
         let mut nested = BTreeMap::<Entity<TypeDef>, Vec<Entity<TypeDef>>>::new();
         for (child, parent) in database.nested_types() {
             if !child.is_windows_runtime()?
@@ -246,6 +349,8 @@ impl Win32Catalogs {
             }
         }
         Ok(Self {
+            definitions,
+            apis,
             nested,
             interface_bases: interface_bases(database)?,
         })
