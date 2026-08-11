@@ -6,7 +6,7 @@ use test_reactor::{BackendOperation, Op, RecordingBackend};
 use windows_reactor::{
     Button, Component, Context, ControlKind, Element, Expander, KeyExt, Pivot, PivotItem,
     ProvideExt, Reconciler, RenderCx, SelectionMode, SplitView, TabItem, TabView, component,
-    error_boundary, list_view, swap_chain_panel, text_block, vstack,
+    error_boundary, list_view, panic_message, swap_chain_panel, text_block, vstack,
 };
 
 fn rerender() -> Rc<dyn Fn()> {
@@ -713,6 +713,14 @@ fn error_boundaries_discard_failed_child_collection_updates() {
         reconciler.assert_consistent();
         reconciler.backend.assert_consistent();
 
+        let healthy: Element = text_block("healthy").into();
+        assert!(
+            reconciler
+                .reconcile(Some(&new), &healthy, None, rerender())
+                .is_some(),
+            "{change:?} left the reconciler unusable after error-boundary recovery"
+        );
+
         reconciler.unmount_root();
         assert_eq!(cleanups.get(), 1);
         reconciler.backend.assert_consistent();
@@ -735,6 +743,18 @@ fn failed_child_collection_updates_remain_reachable_for_teardown() {
         }));
 
         assert!(result.is_err(), "{change:?} did not fail");
+
+        let retry = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            reconciler.reconcile(Some(&old), &new, None, rerender())
+        }))
+        .expect_err("reconciliation was allowed after an uncaught failure");
+        assert_eq!(
+            panic_message(retry),
+            "cannot reconcile after an earlier reconciliation failed; tear down and replace the \
+             reconciler",
+            "{change:?} did not reject retry with the failure-state contract"
+        );
+
         reconciler.unmount_root();
         assert_eq!(
             cleanups.get(),

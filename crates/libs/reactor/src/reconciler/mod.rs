@@ -1,6 +1,7 @@
 //! Reconciliation orchestration over the logical and mounted ownership trees.
 
 use std::cell::Cell;
+use std::panic::AssertUnwindSafe;
 use std::rc::Rc;
 
 use rustc_hash::FxHashMap;
@@ -79,6 +80,7 @@ pub struct Reconciler<B: Backend> {
     host: HostContext,
     stats: ReconcileStats,
     root_output: Option<MountedOutput>,
+    reconciliation_failed: bool,
     root_teardown_failed: bool,
     next_slot_id: u64,
 }
@@ -110,6 +112,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             host: HostContext::new(),
             stats: ReconcileStats::default(),
             root_output: None,
+            reconciliation_failed: false,
             root_teardown_failed: false,
             next_slot_id: 0,
         }
@@ -278,9 +281,33 @@ impl<B: Backend + 'static> Reconciler<B> {
         request_rerender: Rc<dyn Fn()>,
     ) -> Option<ControlId> {
         assert!(
+            !self.reconciliation_failed,
+            "cannot reconcile after an earlier reconciliation failed; tear down and replace the \
+             reconciler"
+        );
+        assert!(
             !self.root_teardown_failed,
             "cannot reconcile while root teardown is incomplete; retry root teardown first"
         );
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            self.reconcile_inner(old, new, existing, request_rerender)
+        }));
+        match result {
+            Ok(output) => output,
+            Err(payload) => {
+                self.reconciliation_failed = true;
+                std::panic::resume_unwind(payload);
+            }
+        }
+    }
+
+    fn reconcile_inner(
+        &mut self,
+        old: Option<&Element>,
+        new: &Element,
+        existing: Option<ControlId>,
+        request_rerender: Rc<dyn Fn()>,
+    ) -> Option<ControlId> {
         self.host.request_rerender = request_rerender;
         let output = match (old, self.root_output, existing) {
             (Some(old_el), Some(output), _) => {
