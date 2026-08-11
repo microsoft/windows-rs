@@ -71,12 +71,12 @@ pub const IID_IUnknown: GUID = GUID {
 #[repr(C)]
 pub struct IUnknown_Vtbl {
     pub QueryInterface: unsafe extern "system" fn(
-        this: *mut core::ffi::c_void,
-        iid: *const GUID,
-        interface: *mut *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *const GUID,
+        *mut *mut core::ffi::c_void,
     ) -> HRESULT,
-    pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
+    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
 pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: i32 = 4096;
 pub type PCSTR = *const u8;

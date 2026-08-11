@@ -614,10 +614,13 @@ impl Interface {
             .abi_methods(members)
             .map(|method| {
                 let method_name = tokens::ident(&method.name);
-                let signature =
-                    method
-                        .method
-                        .write_abi_signature(values, namespace, layout, &self.generics)?;
+                let signature = method.method.write_abi_signature(
+                    values,
+                    namespace,
+                    layout,
+                    &self.generics,
+                    true,
+                )?;
                 let upcall = method.method.write_upcall(
                     values,
                     quote! { #impl_name::#method_name },
@@ -707,10 +710,13 @@ impl Interface {
                 if placeholder_prefix && !method.selected(members) {
                     return Ok(quote! { #name: usize, });
                 }
-                let signature =
-                    method
-                        .method
-                        .write_abi_signature(values, namespace, layout, &self.generics)?;
+                let signature = method.method.write_abi_signature(
+                    values,
+                    namespace,
+                    layout,
+                    &self.generics,
+                    false,
+                )?;
                 Ok(quote! {
                     pub #name: unsafe extern "system" fn(#signature) -> windows_core::HRESULT,
                 })

@@ -344,7 +344,7 @@ impl ID2D1Bitmap {
         srcrect: Option<*const D2D_RECT_U>,
     ) -> windows_core::HRESULT
     where
-        P1: windows_core::Param<Self>,
+        P1: windows_core::Param<ID2D1Bitmap>,
     {
         unsafe {
             (windows_core::Interface::vtable(self).CopyFromBitmap)(
@@ -1546,7 +1546,7 @@ impl ID2D1RenderTarget {
         unsafe {
             (windows_core::Interface::vtable(self).GetTransform)(
                 windows_core::Interface::as_raw(self),
-                transform as _,
+                transform,
             );
         }
     }
@@ -1591,8 +1591,8 @@ impl ID2D1RenderTarget {
         unsafe {
             (windows_core::Interface::vtable(self).GetDpi)(
                 windows_core::Interface::as_raw(self),
-                dpix as _,
-                dpiy as _,
+                dpix,
+                dpiy,
             );
         }
     }
@@ -2354,7 +2354,7 @@ impl IDWriteTextLayout {
         unsafe {
             (windows_core::Interface::vtable(self).GetMetrics)(
                 windows_core::Interface::as_raw(self),
-                textmetrics as _,
+                textmetrics,
             )
         }
     }
@@ -2371,9 +2371,9 @@ impl IDWriteTextLayout {
                 windows_core::Interface::as_raw(self),
                 pointx,
                 pointy,
-                istrailinghit as _,
-                isinside as _,
-                hittestmetrics as _,
+                istrailinghit,
+                isinside,
+                hittestmetrics,
             )
         }
     }
@@ -2390,9 +2390,9 @@ impl IDWriteTextLayout {
                 windows_core::Interface::as_raw(self),
                 textposition,
                 istrailinghit.into(),
-                pointx as _,
-                pointy as _,
-                hittestmetrics as _,
+                pointx,
+                pointy,
+                hittestmetrics,
             )
         }
     }

@@ -18,7 +18,7 @@ struct Module {
 impl Generator {
     /// Renders all currently supported items in the requested layout.
     pub fn render(&self, layout: Layout) -> Result<TokenStream, Error> {
-        self.render_projection(layout, Projection::Default)
+        self.render_projection(layout, self.projection)
     }
 
     pub(super) fn render_projection(

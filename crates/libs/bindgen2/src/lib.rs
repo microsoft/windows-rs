@@ -117,6 +117,18 @@ impl Request {
         self
     }
 
+    /// Selects raw ABI-oriented output.
+    pub fn sys(mut self) -> Self {
+        self.projection = Projection::Sys;
+        self
+    }
+
+    /// Selects the minimal projection used by focused library crates.
+    pub fn minimal(mut self) -> Self {
+        self.projection = Projection::Minimal;
+        self
+    }
+
     #[cfg(test)]
     fn projection(mut self, projection: Projection) -> Self {
         self.projection = projection;
@@ -242,6 +254,7 @@ pub struct Generator {
     winrt_members: BTreeMap<Entity<TypeDef>, MemberSelection>,
     winrt_implementations: Option<BTreeSet<Entity<TypeDef>>>,
     win32: win32::Win32Selection,
+    projection: Projection,
 }
 
 struct Shared {
@@ -336,6 +349,7 @@ impl Generator {
             winrt_members,
             winrt_implementations,
             win32,
+            projection: request.projection,
         })
     }
 

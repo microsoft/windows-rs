@@ -36,10 +36,10 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Member filtering | Real request proof | WinRT routing and native COM slot selection preserve ABI prefixes. |
 | ABI canonicalization | Consolidated for native sys | Namespace-qualified aliases and one callable lowering path match all nine requests. |
 | Request reuse | Complete for current catalogs | The database, nested map, and interface-base map are shared across requests. |
-| Formatting and file writing | Tool policy | Kept outside the projection core. |
+| Formatting and file writing | Production tool policy | `tool_bindings` owns rustfmt, macro spacing, and changed-file writes. |
 | Sys request differential | Complete | A test-local parser proves nine real request files. |
-| Projection styles | Internal WinRT and native proof | Minimal output is proven internally; no public style option exists yet. |
-| Tool requests | Eight real proofs | Numerics, time, future, collections, window, reactor, animation, and core match. |
+| Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
+| Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
 | Package output | Not started | Requires stable filtering, layout, and formatting first. |
 
 Approximate hand-written production source size is 8,000 lines for bindgen2 versus 12,829 for the
@@ -103,6 +103,20 @@ is retained.
 view combines the shared database and catalogs with the request-owned selection, so repeated
 rendering does not scan metadata again. Request-local native state is limited to namespace groups,
 typed entities, and enum variant policy. Native projected models remain streaming values.
+
+## Production migration proof
+
+`tool_bindings` now uses `windows-bindgen2` and `windows-metadata2` without a dependency on legacy
+`windows-bindgen`. The tool parses the existing 17 request files, shares one metadata database,
+selects default, sys, or minimal projection per request, renders flat output, runs rustfmt, and
+writes only changed files. Command-file parsing, formatter compatibility, and filesystem policy
+remain tool-owned rather than moving into the projection core.
+
+Sixteen generated files match their committed output exactly. Canvas retains 11 reviewed
+equivalent differences: one `Param<ID2D1Bitmap>` bound instead of `Param<Self>` and redundant
+pointer casts omitted from wrapper calls. The generated consumer crates compile with this output.
+This proves a vertical migration path that removes the leaked-row bindgen engine without
+recreating its ownership model or moving orchestration into bindgen2.
 
 Filtered native selection now closes over decoded field and method signatures. A temporary ordered
 entity set and work queue pull in referenced aliases, enums, structs, delegates, interfaces, and

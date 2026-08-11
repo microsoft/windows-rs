@@ -5,7 +5,9 @@ edition = "2024"
 publish = false
 
 [dependencies]
-windows-bindgen = { workspace = true }
+windows-bindgen2 = { path = "../../libs/bindgen2" }
+windows-default = { workspace = true }
+windows-metadata2 = { path = "../../libs/metadata2" }
 
 [lints]
 workspace = true

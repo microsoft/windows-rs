@@ -32,6 +32,7 @@ pub(super) struct MethodContext<'a> {
 
 struct Parameter {
     name: String,
+    metadata_name: String,
     input_only: bool,
     ty: ty::Type,
 }
@@ -211,7 +212,10 @@ impl Delegate {
                 .write_public_call(&method_context, &quote! { Invoke }, &quote! { self })?;
         let abi_signature =
             self.invoke
-                .write_abi_signature(values, namespace, layout, &self.generics)?;
+                .write_abi_signature(values, namespace, layout, &self.generics, true)?;
+        let abi_signature_named =
+            self.invoke
+                .write_abi_signature(values, namespace, layout, &self.generics, true)?;
         let upcall = if projection.is_minimal() {
             self.invoke
                 .write_upcall_infallible(values, quote! { (this.invoke) }, false)?
@@ -281,7 +285,7 @@ impl Delegate {
                     Invoke: Self::Invoke,
                     #(#named_phantom_values)*
                 };
-                unsafe extern "system" fn Invoke(#abi_signature) -> windows_core::HRESULT {
+                unsafe extern "system" fn Invoke(#abi_signature_named) -> windows_core::HRESULT {
                     unsafe {
                         let this = &mut *(
                             this as *mut *mut core::ffi::c_void
@@ -402,13 +406,13 @@ impl Method {
             .zip(parameter_rows.parameters())
             .enumerate()
             .map(|(position, (ty, parameter))| {
-                let (name, input_only) = match parameter {
-                    Some(parameter) => (
-                        parameter.name()?.to_lowercase(),
-                        parameter.flags()? & 0x2 == 0,
-                    ),
+                let (metadata_name, input_only) = match parameter {
+                    Some(parameter) => {
+                        (parameter.name()?.to_string(), parameter.flags()? & 0x2 == 0)
+                    }
                     None => (format!("p{position}"), true),
                 };
+                let name = metadata_name.to_lowercase();
                 if !ty.modifiers.is_empty() && !matches!(&ty.kind, TypeKind::ByRef(_)) {
                     return Err(Error::UnsupportedType {
                         name: owner.to_string(),
@@ -427,6 +431,7 @@ impl Method {
                 };
                 Ok(Parameter {
                     name,
+                    metadata_name,
                     input_only,
                     ty: ty::Type::lower(database, file, owner, ty)?,
                 })
@@ -583,7 +588,7 @@ impl Method {
             .parameters
             .iter()
             .map(|parameter| {
-                let name = tokens::ident(&parameter.name);
+                let name = tokens::ident(&parameter.metadata_name);
                 let ty = parameter.write_impl_type(values, namespace, layout, generics)?;
                 Ok(quote! { #name: #ty })
             })
@@ -813,6 +818,7 @@ impl Method {
         namespace: &str,
         layout: Layout,
         generics: &[String],
+        named: bool,
     ) -> Result<TokenStream, Error> {
         let parameters = self
             .parameters
@@ -823,34 +829,47 @@ impl Method {
                 let abi = parameter
                     .ty
                     .write_abi(values, namespace, layout, generics)?;
-                Ok(match (&parameter.ty, parameter.input_only) {
-                    (ty::Type::Vector(_), true) => {
+                Ok(match (&parameter.ty, parameter.input_only, named) {
+                    (ty::Type::Vector(_), true, true) => {
                         quote! { #size: u32, #name: *const #abi }
                     }
-                    (ty::Type::Vector(_), false) => {
+                    (ty::Type::Vector(_), false, true) => {
                         quote! { #size: u32, #name: *mut #abi }
                     }
-                    (_, true) => quote! { #name: #abi },
-                    (_, false) => quote! { #name: *mut #abi },
+                    (ty::Type::Vector(_), true, false) => quote! { u32, *const #abi },
+                    (ty::Type::Vector(_), false, false) => quote! { u32, *mut #abi },
+                    (_, true, true) => quote! { #name: #abi },
+                    (_, false, true) => quote! { #name: *mut #abi },
+                    (_, true, false) => quote! { #abi },
+                    (_, false, false) => quote! { *mut #abi },
                 })
             })
             .collect::<Result<Vec<_>, Error>>()?;
-        let result = match &self.return_type {
-            ty::Type::Void => quote! {},
-            ty::Type::Vector(element) => {
+        let result = match (&self.return_type, named) {
+            (ty::Type::Void, _) => quote! {},
+            (ty::Type::Vector(element), true) => {
                 let abi = element.write_abi(values, namespace, layout, generics)?;
                 quote! { result_size__: *mut u32, result__: *mut *mut #abi }
             }
-            ty => {
+            (ty::Type::Vector(element), false) => {
+                let abi = element.write_abi(values, namespace, layout, generics)?;
+                quote! { *mut u32, *mut *mut #abi }
+            }
+            (ty, true) => {
                 let abi = ty.write_abi(values, namespace, layout, generics)?;
                 quote! { result__: *mut #abi }
             }
+            (ty, false) => {
+                let abi = ty.write_abi(values, namespace, layout, generics)?;
+                quote! { *mut #abi }
+            }
         };
-        Ok(quote! {
-            this: *mut core::ffi::c_void,
-            #(#parameters,)*
-            #result
-        })
+        let this = if named {
+            quote! { this: *mut core::ffi::c_void, }
+        } else {
+            quote! { *mut core::ffi::c_void, }
+        };
+        Ok(quote! { #this #(#parameters,)* #result })
     }
 
     pub(super) fn write_upcall(

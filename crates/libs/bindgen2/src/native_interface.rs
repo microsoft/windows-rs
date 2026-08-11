@@ -133,9 +133,24 @@ impl NativeInterface {
         let methods = self.methods.iter().map(|method| {
             let architectures = tokens::architectures(method.architectures);
             let name = tokens::ident(&method.name);
-            let parameters = method
-                .signature
-                .write_vtable_parameters(&self.namespace, layout);
+            let parameters =
+                if self.namespace == "Windows.Win32.System.Com" && self.name == "IUnknown" {
+                    match method.name.as_str() {
+                        "QueryInterface" => quote! {
+                            this: *mut core::ffi::c_void,
+                            iid: *const GUID,
+                            interface: *mut *mut core::ffi::c_void
+                        },
+                        "AddRef" | "Release" => quote! { this: *mut core::ffi::c_void },
+                        _ => unreachable!(),
+                    }
+                } else {
+                    method.signature.write_vtable_parameters_projection(
+                        &self.namespace,
+                        layout,
+                        Projection::Sys,
+                    )
+                };
             let result = method.signature.write_result(&self.namespace, layout);
             quote! {
                 #architectures

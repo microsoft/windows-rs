@@ -144,10 +144,6 @@ impl Signature {
         quote! { #(#parameters),* }
     }
 
-    pub(super) fn write_vtable_parameters(&self, namespace: &str, layout: Layout) -> TokenStream {
-        self.write_vtable_parameters_projection(namespace, layout, Projection::Sys)
-    }
-
     pub(super) fn write_vtable_parameters_projection(
         &self,
         namespace: &str,

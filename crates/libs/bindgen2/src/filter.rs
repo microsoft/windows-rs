@@ -53,14 +53,8 @@ impl Filter {
         self
     }
 
-    #[cfg_attr(
-        not(test),
-        expect(
-            dead_code,
-            reason = "kept private until a tool migration needs member filters"
-        )
-    )]
-    pub(crate) fn include_method(
+    /// Includes one method by exact metadata namespace, type, and method name.
+    pub fn include_method(
         &mut self,
         namespace: impl Into<String>,
         ty: impl Into<String>,
