@@ -27,31 +27,6 @@ impl native_signature::Signature {
     ) -> Result<TokenStream, Error> {
         let method = tokens::ident(name);
         let return_kind = self.return_kind();
-        if let ReturnKind::Query { guid, object } = return_kind {
-            if (guid, object) != (0, 1) || self.parameters.len() != 2 {
-                return Err(Error::UnsupportedType {
-                    name: name.to_string(),
-                    shape: "native COM query method with unsupported parameter layout".to_string(),
-                });
-            }
-            return Ok(quote! {
-                pub(crate) unsafe fn #method<T>(&self) -> windows_core::Result<T>
-                where
-                    T: windows_core::Interface,
-                {
-                    let mut result__ = core::ptr::null_mut();
-                    unsafe {
-                        (windows_core::Interface::vtable(self).#method)(
-                            windows_core::Interface::as_raw(self),
-                            &T::IID,
-                            &mut result__,
-                        )
-                        .and_then(|| windows_core::Type::from_abi(result__))
-                    }
-                }
-            });
-        }
-
         let mut generic_parameters = Vec::new();
         let mut constraints = Vec::new();
         let mut parameters = Vec::new();
@@ -62,10 +37,18 @@ impl native_signature::Signature {
             | ReturnKind::Void
             | ReturnKind::Direct(_)
             | ReturnKind::Indirect(_) => None,
-            ReturnKind::Query { .. } => unreachable!(),
+            ReturnKind::Query { .. } => None,
         };
 
         for (position, parameter) in self.parameters.iter().enumerate() {
+            if matches!(return_kind, ReturnKind::Query { guid, .. } if position == guid) {
+                arguments.push(quote! { &T::IID });
+                continue;
+            }
+            if matches!(return_kind, ReturnKind::Query { object, .. } if position == object) {
+                arguments.push(quote! { &mut result__ });
+                continue;
+            }
             let name = tokens::ident(&parameter.name);
             if retval.is_some_and(|(retval, _)| retval == position) {
                 arguments.push(quote! { &mut result__ });
@@ -87,6 +70,30 @@ impl native_signature::Signature {
                 parameters.push(quote! { #name: #ty, });
                 arguments.push(quote! { #name });
             }
+        }
+
+        if matches!(return_kind, ReturnKind::Query { .. }) {
+            let generics =
+                (!generic_parameters.is_empty()).then(|| quote! { , #(#generic_parameters),* });
+            return Ok(quote! {
+                pub(crate) unsafe fn #method<T #generics>(
+                    &self,
+                    #(#parameters)*
+                ) -> windows_core::Result<T>
+                where
+                    T: windows_core::Interface,
+                    #(#constraints)*
+                {
+                    let mut result__ = core::ptr::null_mut();
+                    unsafe {
+                        (windows_core::Interface::vtable(self).#method)(
+                            windows_core::Interface::as_raw(self),
+                            #(#arguments),*
+                        )
+                        .and_then(|| windows_core::Type::from_abi(result__))
+                    }
+                }
+            });
         }
 
         let generics =

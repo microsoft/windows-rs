@@ -1926,6 +1926,33 @@ fn complete_native_com_query_emits_consumer_and_producer_projection() {
 }
 
 #[test]
+fn native_com_query_preserves_ordinary_parameters() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let mut filter = Filter::new();
+    include_tool_filter(&metadata, &mut filter, "IDXGISwapChain.GetBuffer");
+    let output = normalize_existing_output(
+        metadata
+            .generator(Request::filtered(filter).projection(Projection::Minimal))
+            .unwrap()
+            .render_projection(Layout::Flat, Projection::Minimal)
+            .unwrap(),
+    );
+
+    assert!(output.contains(
+        "unsafe fn GetBuffer < T > (& self , u32) -> windows_core :: Result < T > where T : \
+         windows_core :: Interface"
+    ));
+    assert!(output.contains(
+        "pub GetBuffer : unsafe extern \"system\" fn (* mut core :: ffi :: c_void , u32 , \
+         * const windows_core :: GUID , * mut * mut core :: ffi :: c_void)"
+    ));
+}
+
+#[test]
 fn native_com_projects_void_scalar_and_indirect_struct_returns() {
     let metadata = Metadata::from_images([
         Image::new(windows_default::WINRT).unwrap(),

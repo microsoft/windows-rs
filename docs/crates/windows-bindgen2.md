@@ -513,7 +513,14 @@ Canvas should proceed in this order:
 
 1. [x] Non-HRESULT COM methods: void returns, direct scalar returns, and hidden struct-return ABI.
    `BeginDraw`, `GetMaxWidth`, and `GetSize` provide focused coverage.
-2. [ ] Query methods with ordinary parameters before the IID/output pair. The full differential now
-   reaches `IDXGISwapChain::GetBuffer`.
-3. [ ] Metadata-sized input slices and their pointer/count ABI pairs.
-4. [ ] Input `BOOL` sugar and any remaining callable conversions exposed by the full differential.
+2. [x] Query methods with ordinary parameters before the IID/output pair.
+   `IDXGISwapChain::GetBuffer` provides focused coverage.
+3. [ ] Rich native type remaps and ownership, including `windows_numerics` aliases and
+   interface-valued struct fields.
+4. [ ] Native interface inheritance conveniences: `Deref` and complete hierarchy lists.
+5. [ ] Output-interface projection for non-HRESULT methods.
+6. [ ] Metadata-sized input slices and their pointer/count ABI pairs.
+7. [ ] Input `BOOL` sugar and any remaining callable conversions.
+
+The canvas request now renders fully, so later checkpoints can use the complete token differential
+rather than discovering one structural error at a time.
