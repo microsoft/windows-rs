@@ -483,7 +483,7 @@ fn named_traits(
     Ok(result)
 }
 
-fn core_projection(namespace: &str, name: &str) -> Option<TokenStream> {
+pub(super) fn core_projection(namespace: &str, name: &str) -> Option<TokenStream> {
     let win32 = namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32.");
     if !win32 {
         return None;

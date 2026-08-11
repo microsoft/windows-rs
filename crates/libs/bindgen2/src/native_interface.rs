@@ -9,6 +9,7 @@ pub struct NativeInterface {
     namespace: String,
     name: String,
     base: Option<(String, String)>,
+    hierarchy: Vec<(String, String)>,
     guid: Option<guid::Guid>,
     methods: Vec<Method>,
 }
@@ -29,16 +30,9 @@ impl NativeInterface {
         let namespace = definition.namespace()?.to_string();
         let name = definition.name()?.to_string();
         let full_name = format!("{namespace}.{name}");
-        let base = match bases.get(&definition.entity()).map(Vec::as_slice) {
-            None | Some([]) => None,
-            Some([base]) => Some(base.clone()),
-            Some(_) => {
-                return Err(Error::InvalidType {
-                    name: full_name,
-                    message: "native interface has more than one base",
-                });
-            }
-        };
+        let hierarchy =
+            collect_interface_bases(database, definition.entity(), bases, &mut BTreeSet::new())?;
+        let base = hierarchy.last().cloned();
         let mut names = BTreeMap::<String, u32>::new();
         let methods = definition
             .methods()?
@@ -77,6 +71,7 @@ impl NativeInterface {
             namespace,
             name,
             base,
+            hierarchy,
             guid: if has_iunknown_base(database, definition.entity(), bases, &mut BTreeSet::new())?
             {
                 guid::Guid::from_definition(definition, &full_name)?
@@ -161,27 +156,45 @@ impl NativeInterface {
             #architectures
             windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
         };
-        let (base, base_vtbl) = self.base.as_ref().map_or_else(
-            || {
-                (
-                    quote! { windows_core::IUnknown },
-                    quote! { windows_core::IUnknown_Vtbl },
-                )
-            },
+        let write_base = |namespace: &str, name: &str| {
+            if let Some(core) = native::core_projection(namespace, name) {
+                core
+            } else {
+                let path = tokens::namespace(&self.namespace, namespace, layout);
+                let name = tokens::ident(name);
+                quote! { #path #name }
+            }
+        };
+        let base_vtbl = self.base.as_ref().map_or_else(
+            || quote! { windows_core::IUnknown_Vtbl },
             |(namespace, base)| {
                 if base == "IUnknown" {
-                    (
-                        quote! { windows_core::IUnknown },
-                        quote! { windows_core::IUnknown_Vtbl },
-                    )
+                    quote! { windows_core::IUnknown_Vtbl }
                 } else {
                     let path = tokens::namespace(&self.namespace, namespace, layout);
-                    let base = tokens::ident(base);
                     let base_vtbl = tokens::ident(&format!("{base}_Vtbl"));
-                    (quote! { #path #base }, quote! { #path #base_vtbl })
+                    quote! { #path #base_vtbl }
                 }
             },
         );
+        let hierarchy = self
+            .hierarchy
+            .iter()
+            .map(|(namespace, name)| write_base(namespace, name));
+        let deref = self.base.as_ref().and_then(|(namespace, base)| {
+            (base != "IUnknown").then(|| {
+                let base = write_base(namespace, base);
+                quote! {
+                    #architectures
+                    impl core::ops::Deref for #name {
+                        type Target = #base;
+                        fn deref(&self) -> &Self::Target {
+                            unsafe { core::mem::transmute(self) }
+                        }
+                    }
+                }
+            })
+        });
         let methods = self.methods.iter().map(|method| {
             let name = tokens::ident(&method.name);
             if !method.selected(members) {
@@ -225,8 +238,9 @@ impl NativeInterface {
         };
         Ok(quote! {
             #identity
+            #deref
             #architectures
-            windows_core::imp::interface_hierarchy!(#name, #base);
+            windows_core::imp::interface_hierarchy!(#name, #(#hierarchy),*);
             #wrappers
             #architectures
             #[repr(C)]
@@ -326,6 +340,52 @@ impl NativeInterface {
             }
         })
     }
+}
+
+fn collect_interface_bases(
+    database: &Database,
+    entity: Entity<TypeDef>,
+    bases: &BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
+    stack: &mut BTreeSet<Entity<TypeDef>>,
+) -> Result<Vec<(String, String)>, Error> {
+    if !stack.insert(entity) {
+        return Err(Error::RecursiveInterface(
+            database.definition(entity).unwrap().name()?.to_string(),
+        ));
+    }
+    let result = match bases.get(&entity).map(Vec::as_slice) {
+        None | Some([]) => Vec::new(),
+        Some([(namespace, name)]) => {
+            let mut hierarchy = Vec::new();
+            let mut resolved = None;
+            for base in database.type_definitions(namespace, name) {
+                let candidate = collect_interface_bases(database, *base, bases, stack)?;
+                if let Some(previous) = &resolved {
+                    if previous != &candidate {
+                        return Err(Error::InvalidType {
+                            name: format!("{namespace}.{name}"),
+                            message: "native interface definitions have conflicting bases",
+                        });
+                    }
+                } else {
+                    resolved = Some(candidate);
+                }
+            }
+            if let Some(ancestors) = resolved {
+                hierarchy = ancestors;
+            }
+            hierarchy.push((namespace.clone(), name.clone()));
+            hierarchy
+        }
+        Some(_) => {
+            return Err(Error::InvalidType {
+                name: database.definition(entity).unwrap().name()?.to_string(),
+                message: "native interface has more than one base",
+            });
+        }
+    };
+    stack.remove(&entity);
+    Ok(result)
 }
 
 impl Method {

@@ -1426,6 +1426,41 @@ fn rich_native_struct_fields_own_interfaces() {
 }
 
 #[test]
+fn rich_native_interfaces_project_complete_inheritance() {
+    let metadata = Metadata::new(
+        Database::new([
+            Image::new(windows_default::WINRT).unwrap(),
+            Image::new(windows_default::WIN32).unwrap(),
+        ])
+        .unwrap(),
+    )
+    .unwrap();
+    let output = metadata
+        .generator(
+            Request::filtered(Filter::names(["ID2D1Bitmap1"])).projection(Projection::Minimal),
+        )
+        .unwrap()
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap()
+        .to_string();
+
+    assert!(
+        output.contains("impl core :: ops :: Deref for ID2D1Bitmap1 { type Target = ID2D1Bitmap ;"),
+        "{output}"
+    );
+    assert!(
+        output.contains(
+            "interface_hierarchy ! (ID2D1Bitmap1 , windows_core :: IUnknown , ID2D1Resource , ID2D1Image , ID2D1Bitmap)"
+        ),
+        "{output}"
+    );
+    assert!(
+        output.contains("pub struct ID2D1Bitmap1_Vtbl { pub base__ : ID2D1Bitmap_Vtbl"),
+        "{output}"
+    );
+}
+
+#[test]
 fn winrt_class_preserves_closed_generic_interfaces() {
     let output = fixture(
         r#"
