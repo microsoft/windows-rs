@@ -258,10 +258,6 @@ impl MountedLogicalTree {
         (self.node_kind(node_id) == Some(kind)).then_some(node_id)
     }
 
-    pub(super) fn current_projection(&self, id: ControlId) -> Option<LogicalNodeId> {
-        self.projections.get(&id).and_then(ProjectedNodes::last)
-    }
-
     pub(super) fn register_component(&mut self, inst: ComponentInstance) {
         if inst.last_obj.has_on_appeared() {
             self.appeared_listener_count += 1;

@@ -44,7 +44,7 @@ pub enum RealizationRequest {
 type RealizationQueue = Rc<RefCell<Vec<RealizationRequest>>>;
 
 impl<B: Backend + 'static> Reconciler<B> {
-    pub fn mount_templated_list(&mut self, tl: &TemplatedListElement) -> ControlId {
+    pub(super) fn mount_templated_list(&mut self, tl: &TemplatedListElement) -> ControlId {
         let kind = match tl.kind {
             TemplatedKind::ListView => ControlKind::ListView,
             TemplatedKind::GridView => ControlKind::GridView,
@@ -206,7 +206,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub fn update_templated_list(
+    pub(super) fn update_templated_list(
         &mut self,
         old: &TemplatedListElement,
         new: &TemplatedListElement,
@@ -514,6 +514,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
+    #[cfg(feature = "test")]
     pub fn drain_realizations(&mut self) {
         self.drain_realizations_deferred_effects();
         self.flush_pending_effects();

@@ -4,7 +4,7 @@ use super::*;
 use crate::reference::NativeElementRef;
 
 impl<B: Backend + 'static> Reconciler<B> {
-    pub fn mount_widget(&mut self, w: &dyn Widget) -> ControlId {
+    pub(super) fn mount_widget(&mut self, w: &dyn Widget) -> ControlId {
         let id = self.acquire_control(w.kind());
         let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
             self.apply_props(id, &w.bindings());
@@ -45,7 +45,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         id
     }
 
-    pub fn update_widget(&mut self, old: &dyn Widget, new: &dyn Widget, id: ControlId) {
+    pub(super) fn update_widget(&mut self, old: &dyn Widget, new: &dyn Widget, id: ControlId) {
         self.diff_props(id, &old.bindings(), &new.bindings());
         self.diff_modifiers(id, old.modifiers(), new.modifiers());
         self.diff_attached(id, old.attached(), new.attached());
@@ -332,7 +332,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub fn apply_grid_placement(&mut self, id: ControlId, p: GridPlacement) {
+    pub(super) fn apply_grid_placement(&mut self, id: ControlId, p: GridPlacement) {
         if p.row != 0 {
             self.backend
                 .set_prop(id, Prop::AttachedGridRow, &PropValue::I32(p.row));
@@ -356,7 +356,7 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     /// Unconditionally emits all four grid attached props - used in the diff
     /// path to clear stale values when placement changes or is removed.
-    pub fn apply_grid_placement_full(&mut self, id: ControlId, p: GridPlacement) {
+    pub(super) fn apply_grid_placement_full(&mut self, id: ControlId, p: GridPlacement) {
         self.backend
             .set_prop(id, Prop::AttachedGridRow, &PropValue::I32(p.row));
         self.backend
