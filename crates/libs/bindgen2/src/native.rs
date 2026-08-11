@@ -501,14 +501,12 @@ impl Type {
                 stack.remove(&key);
                 result
             }
-            Self::I32
-            | Self::U32
-            | Self::F32
-            | Self::String
+            Self::I32 | Self::U32 | Self::F32 => (4, 4),
+            Self::String
             | Self::ISize
             | Self::USize
             | Self::Pointer { .. }
-            | Self::Interface { .. } => (4, 4),
+            | Self::Interface { .. } => (8, 8),
         })
     }
 }

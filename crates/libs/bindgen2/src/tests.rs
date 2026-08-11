@@ -1612,6 +1612,19 @@ fn large_native_output_structs_remain_explicit_parameters() {
 }
 
 #[test]
+fn retval_sizing_uses_maximum_pointer_width() {
+    let database = Database::new([]).unwrap();
+    let ty = native::Type::Array {
+        element: Box::new(native::Type::Pointer {
+            mutable: true,
+            element: Box::new(native::Type::Void),
+        }),
+        len: 3,
+    };
+    assert!(ty.exceeds_retval_limit(&database).unwrap());
+}
+
+#[test]
 fn native_com_methods_project_pcwstr_inputs() {
     let metadata = Metadata::new(
         Database::new([

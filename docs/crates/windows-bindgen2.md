@@ -269,9 +269,10 @@ The direction remains better than the current generator, but it is not yet a rep
   rules differ. Unifying them now would recreate the broad old `Type` enum;
 - `image.rs` and `semantic.rs` are the main metadata2 growth risks. New relationships should be
   split by concern rather than extending one semantic module indefinitely.
-- bindgen2 has no comparable end-to-end performance benchmark yet. Shared metadata and request
-  catalogs remove repeated work by construction, but "faster" remains unproven until equivalent
-  tool requests are measured with parsing, closure, rendering, formatting, and writing included;
+- bindgen2 production source is currently 9,505 lines versus 12,829 for bindgen, but bindgen2 does
+  not yet implement packages or file writing. Nine warmed `tool_bindings` differential tests take
+  about 2.5 seconds while the legacy tool takes about 2.2 seconds. The bindgen2 tests rebuild
+  metadata per request, so this is encouraging but not an end-to-end speed claim;
 - callable and interface projection are the main bindgen2 growth risks. Collection conveniences
   now live in `winrt_collection.rs`; future named policies should get similarly narrow modules
   rather than accumulating in `winrt_interface.rs` or `winrt_delegate.rs`.
@@ -533,6 +534,18 @@ rather than discovering one structural error at a time.
 The complete canvas request now passes as a normal semantic-parity test. Its narrow normalization
 removes only the 12 reviewed differences: redundant pointer casts, one equivalent `Param<Self>`
 spelling, and slice token spacing. Bindgen2 does not reproduce those legacy output details.
+
+### Post-canvas review
+
+Native COM projection still has a two-way policy boundary: `sys` emits raw ABI declarations, while
+default and minimal projections share owned fields, wrappers, hierarchy, and callable policy.
+Minimal adds external crate routing and excludes those definitions from local closure. No other
+native COM behavior currently differs between default and minimal.
+
+Interface lowering previously walked every base chain twice. The retained root-to-base hierarchy
+now also determines whether the interface reaches the canonical `IUnknown`, leaving one checked
+traversal. Retval sizing uses metadata layout and the maximum supported pointer width so one
+generated API shape remains safe on 64-bit targets.
 
 ### Native type identity and projection boundary
 

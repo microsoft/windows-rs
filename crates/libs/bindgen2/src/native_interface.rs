@@ -33,6 +33,18 @@ impl NativeInterface {
         let hierarchy =
             collect_interface_bases(database, definition.entity(), bases, &mut BTreeSet::new())?;
         let base = hierarchy.last().cloned();
+        let own_guid = if name == "IUnknown" {
+            guid::Guid::from_definition(definition, &full_name)?
+        } else {
+            None
+        };
+        let com_identity = if own_guid.is_some_and(guid::Guid::is_iunknown) {
+            true
+        } else if let Some((namespace, name)) = hierarchy.first() {
+            is_iunknown(database, namespace, name)?
+        } else {
+            false
+        };
         let mut names = BTreeMap::<String, u32>::new();
         let methods = definition
             .methods()?
@@ -71,13 +83,16 @@ impl NativeInterface {
             namespace,
             name,
             base,
-            hierarchy,
-            guid: if has_iunknown_base(database, definition.entity(), bases, &mut BTreeSet::new())?
-            {
-                guid::Guid::from_definition(definition, &full_name)?
+            guid: if com_identity {
+                if own_guid.is_some() {
+                    own_guid
+                } else {
+                    guid::Guid::from_definition(definition, &full_name)?
+                }
             } else {
                 None
             },
+            hierarchy,
             methods,
         })
     }
@@ -394,40 +409,17 @@ impl Method {
     }
 }
 
-fn has_iunknown_base(
-    database: &Database,
-    entity: Entity<TypeDef>,
-    bases: &BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
-    stack: &mut BTreeSet<Entity<TypeDef>>,
-) -> Result<bool, Error> {
-    let definition = database.definition(entity).unwrap();
-    if definition.name()? == "IUnknown"
-        && guid::Guid::from_definition(definition, definition.name()?)?
-            .is_some_and(guid::Guid::is_iunknown)
-    {
-        return Ok(true);
+fn is_iunknown(database: &Database, namespace: &str, name: &str) -> Result<bool, Error> {
+    if name != "IUnknown" {
+        return Ok(false);
     }
-    if !stack.insert(entity) {
-        return Err(Error::RecursiveInterface(
-            database.definition(entity).unwrap().name()?.to_string(),
-        ));
-    }
-    let mut result = false;
-    if let Some(names) = bases.get(&entity) {
-        for (namespace, name) in names {
-            for base in database.type_definitions(namespace, name) {
-                if has_iunknown_base(database, *base, bases, stack)? {
-                    result = true;
-                    break;
-                }
-            }
-            if result {
-                break;
-            }
+    for entity in database.type_definitions(namespace, name) {
+        let definition = database.definition(*entity).unwrap();
+        if guid::Guid::from_definition(definition, name)?.is_some_and(guid::Guid::is_iunknown) {
+            return Ok(true);
         }
     }
-    stack.remove(&entity);
-    Ok(result)
+    Ok(false)
 }
 
 fn method_name(method: windows_metadata2::MethodDefinition<'_>) -> Result<String, Error> {
