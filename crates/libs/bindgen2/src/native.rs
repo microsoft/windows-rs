@@ -29,6 +29,7 @@ pub(super) enum Type {
 
 #[derive(Clone, Copy)]
 pub(super) struct TraitSupport {
+    pub(super) copy: bool,
     pub(super) debug: bool,
     pub(super) partial_eq: bool,
     pub(super) eq: bool,
@@ -36,18 +37,21 @@ pub(super) struct TraitSupport {
 
 impl TraitSupport {
     pub(super) const NONE: Self = Self {
+        copy: false,
         debug: false,
         partial_eq: false,
         eq: false,
     };
 
     pub(super) const ALL: Self = Self {
+        copy: true,
         debug: true,
         partial_eq: true,
         eq: true,
     };
 
     pub(super) fn combine(&mut self, other: Self) {
+        self.copy &= other.copy;
         self.debug &= other.debug;
         self.partial_eq &= other.partial_eq;
         self.eq &= other.eq;
@@ -306,6 +310,26 @@ impl Type {
         }
     }
 
+    pub(super) fn write_field_projection(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        projection: Projection,
+    ) -> TokenStream {
+        match self {
+            Self::Array { element, len } if !projection.is_sys() => {
+                let element = element.write_field_projection(namespace, layout, projection);
+                let len = Literal::usize_unsuffixed(*len);
+                quote! { [#element; #len] }
+            }
+            Self::Interface { .. } if !projection.is_sys() => {
+                let interface = self.write_public(namespace, layout);
+                quote! { core::mem::ManuallyDrop<Option<#interface>> }
+            }
+            _ => self.write_projection(namespace, layout, projection),
+        }
+    }
+
     pub(super) fn write_constant_projection(
         &self,
         namespace: &str,
@@ -418,6 +442,7 @@ fn named_traits(
         let traits = match definition.category()? {
             TypeCategory::Enum => TraitSupport::ALL,
             TypeCategory::Delegate => TraitSupport {
+                copy: true,
                 debug: true,
                 partial_eq: false,
                 eq: false,
@@ -517,12 +542,19 @@ impl Type {
         Ok(match self {
             Self::Void => TraitSupport::NONE,
             Self::F32 | Self::F64 => TraitSupport {
+                copy: true,
                 debug: true,
                 partial_eq: true,
                 eq: false,
             },
             Self::Array { element, .. } => element.projected_traits(database, stack)?,
-            Self::Pointer { .. } | Self::Interface { .. } | Self::String => TraitSupport::ALL,
+            Self::Interface { .. } => TraitSupport {
+                copy: false,
+                debug: true,
+                partial_eq: true,
+                eq: true,
+            },
+            Self::Pointer { .. } | Self::String => TraitSupport::ALL,
             Self::Named { namespace, name } => {
                 if is_core_projection(namespace, name) {
                     TraitSupport::ALL

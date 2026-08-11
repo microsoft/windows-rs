@@ -516,7 +516,7 @@ Canvas should proceed in this order:
 2. [x] Query methods with ordinary parameters before the IID/output pair.
    `IDXGISwapChain::GetBuffer` provides focused coverage.
 3. [x] External minimal-crate routing for canonical Numerics references.
-4. [ ] Ownership projection for interface-valued struct fields.
+4. [x] Ownership projection for interface-valued struct fields.
 5. [ ] Native interface inheritance conveniences: `Deref` and complete hierarchy lists.
 6. [ ] Output-interface projection for non-HRESULT methods.
 7. [ ] Metadata-sized input slices and their pointer/count ABI pairs.
@@ -542,4 +542,14 @@ Interface-valued native struct fields are a separate projection concern. Their m
 remains the interface and their ABI remains a raw COM pointer, while the public field spelling is
 `core::mem::ManuallyDrop<Option<Interface>>`. This requires a field-specific writer rather than a
 global type remap: method parameters, vtable entries, and public struct fields intentionally use
-different spellings of the same metadata type.
+different spellings of the same metadata type. Rich structs also omit `Copy` when a field owns an
+interface, while the sys projection remains copyable because it contains only the raw pointer.
+
+### Projection-mode review
+
+Parity work should preserve observed `sys`, `minimal`, and default output where the distinction is
+required, but each new mode-specific branch should be treated as a review item. Some differences
+are inherent to ABI exposure, external crate boundaries, and package layout; others may only carry
+forward unnecessary generator complexity. Once parity provides a stable baseline, audit the
+recorded differences and merge policies that do not serve a concrete output or ownership
+requirement.

@@ -1382,6 +1382,50 @@ fn minimal_native_types_route_canonical_external_types() {
 }
 
 #[test]
+fn rich_native_struct_fields_own_interfaces() {
+    let metadata = Metadata::new(
+        Database::new([
+            Image::new(windows_default::WINRT).unwrap(),
+            Image::new(windows_default::WIN32).unwrap(),
+        ])
+        .unwrap(),
+    )
+    .unwrap();
+    let generator = metadata
+        .generator(
+            Request::filtered(Filter::names(["D2D1_BITMAP_PROPERTIES1"]))
+                .projection(Projection::Minimal),
+        )
+        .unwrap();
+
+    let output = generator
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap()
+        .to_string();
+    assert!(
+        output.contains(
+            "pub colorContext : core :: mem :: ManuallyDrop < Option < ID2D1ColorContext >>"
+        ),
+        "{output}"
+    );
+    assert!(
+        output.contains(
+            "# [derive (Clone , Debug , Default , PartialEq)] pub struct D2D1_BITMAP_PROPERTIES1"
+        ),
+        "{output}"
+    );
+
+    let output = generator
+        .render_projection(Layout::Flat, Projection::Sys)
+        .unwrap()
+        .to_string();
+    assert!(
+        output.contains("pub colorContext : * mut core :: ffi :: c_void"),
+        "{output}"
+    );
+}
+
+#[test]
 fn winrt_class_preserves_closed_generic_interfaces() {
     let output = fixture(
         r#"

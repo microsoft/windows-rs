@@ -462,7 +462,7 @@ impl Struct {
         }
         let fields = self.fields.iter().map(|(field_name, ty)| {
             let field_name = tokens::ident(field_name);
-            let ty = ty.write_projection(&self.namespace, layout, projection);
+            let ty = ty.write_field_projection(&self.namespace, layout, projection);
             quote! { pub #field_name: #ty, }
         });
         let repr = self.repr();
@@ -520,6 +520,7 @@ impl Struct {
         projection: Projection,
     ) -> (TokenStream, TokenStream) {
         if !projection.is_sys() && self.align.is_none() && self.packing.is_none() {
+            let copy = self.traits.copy.then(|| quote! { , Copy });
             let debug = self.traits.debug.then(|| quote! { , Debug });
             let partial_eq = self.traits.partial_eq.then(|| quote! { , PartialEq });
             let eq = self.traits.eq.then(|| quote! { , Eq });
@@ -536,7 +537,7 @@ impl Struct {
                 }
             });
             return (
-                quote! { #[derive(Clone, Copy #debug #derive_default #eq #partial_eq)] },
+                quote! { #[derive(Clone #copy #debug #derive_default #eq #partial_eq)] },
                 default.unwrap_or_default(),
             );
         }
