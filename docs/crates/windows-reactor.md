@@ -466,11 +466,12 @@ crates. Put the test in the matching `test_*` crate. If it needs an internal ite
 behind the existing `test` feature that the test crates enable and published builds leave off.
 
 `RecordingBackend::fail_next` and `RecordingBackend::fail_on` inject a panic immediately before a
-selected backend operation mutates the backend model. Ordinary widget mounts catch failures after
-native creation, remove the partially mounted native and logical subtree, run pending component
-cleanups, and then resume the panic. Error boundaries can therefore mount a fallback without
-retaining controls, handlers, headers, panes, or effects from the failed subtree. Failures during
-rollback remain a separate contract.
+selected backend operation mutates the backend model. `fail_sequence` schedules ordered failures so
+tests can reach recovery and rollback paths after the primary failure has fired. Ordinary widget
+mounts catch failures after native creation, remove the partially mounted native and logical
+subtree, run pending component cleanups, and then resume the panic. Error boundaries can therefore
+mount a fallback without retaining controls, handlers, headers, panes, or effects from the failed
+subtree.
 
 Templated-list mounting uses the same transaction boundary. The native list is registered first,
 then modifiers, selection and reorder callbacks, realization callbacks, list state, and backend
@@ -496,6 +497,12 @@ reconciler teardown-only: later reconciliation is rejected, while root teardown 
 The owner must tear down and replace the reconciler or its host before rendering again.
 Error-boundary recovery does not enter this state because the failure does not escape the
 reconciliation boundary.
+
+If error-boundary recovery also fails, the prior `root_output` may refer to native output already
+discarded during recovery. Teardown of a failed reconciler therefore derives every remaining native
+root from `MountedTree` rather than trusting that stale output. It discards each root, removes any
+remaining logical nodes, and can retry if destruction fails during that cleanup. This covers a
+panicking fallback callback, fallback mount failure, and failure while rolling back that mount.
 
 Native destruction is the teardown commit point. Logical cleanup and lifecycle callbacks run first,
 but mounted ownership is retained until `Backend::destroy` succeeds. If a fail-before destroy panic
@@ -1167,6 +1174,32 @@ state, recursive teardown, model tests, and performance gates provide a usable m
 Larger internal changes should follow characterization tests and move one ownership boundary at a
 time.
 
+### Stabilization milestone after PR #4824
+
+The work from PR #4808 through PR #4824 has improved the evidence around the core:
+
+| Measure | Result |
+| --- | --- |
+| Focused stabilization PRs | 15 |
+| Headless Reactor tests | 578 -> 620 |
+| Reconciler coverage | Every tracked file remains above its branch and line floor |
+| Latest matched benchmark | Allocations unchanged; wall-clock changes from -6.7% to +4.8% |
+| Failure contracts | Mount, update, collection, destruction, root teardown, and templated mount covered |
+
+This is measurable progress, but not proof that the implementation is lean enough. Reconciler
+source grew from about 2,562 to 4,230 lines over the same period as implicit state became explicit,
+ownership checks were added, and failure handling was defined. The added code is easier to test and
+assign to an owner, but source size and the number of recovery branches remain concerns.
+
+Issue classification now happens as related work lands rather than waiting until the end. For
+example, the behavior reported by #4802 has permanent memoized-descendant regressions, while the
+invalid component modifiers from #4803 now fail to compile after removal of `ElementExt`. Remaining
+enhancement requests stay frozen unless they expose a core platform contract.
+
+After nested recovery failures and lifecycle ordering are defined, pause for another simplification
+review. That review should identify state and recovery branches that the new contracts make
+unnecessary before moving into scheduler, templated realization, and host shutdown work.
+
 ### Stabilization checklist
 
 - [x] Separate logical identity from native `ControlId`.
@@ -1210,9 +1243,14 @@ time.
   ownership, and use normal widgets, helper functions, components, or typed host controls instead.
 - [x] Make a panic that escapes reconciliation enter a teardown-only state, reject collection retry,
   and preserve error-boundary recovery and explicit teardown.
-- [ ] Extend backend fault injection to failures during recovery and rollback; define the valid state
-  after each nested failure.
+- [x] Extend backend fault injection to ordered failures during error-boundary recovery and mount
+  rollback; discard every remaining mounted root after an escaped failure and make that teardown
+  retryable.
 - [ ] Define and test render, commit, effect, cleanup, error-boundary, and reentrant-event ordering.
+- [ ] Review the resulting recovery and lifecycle state for deletion or consolidation before
+  continuing with scheduler and host work.
+- [ ] Review direct `Reconciler` mutation entry points and either route them through the guarded
+  failure boundary or expose them only to the test harness.
 - [ ] Enforce the UI-thread boundary in release builds and reject stale asynchronous updates after
   unmount or host replacement.
 - [ ] Move templated realization and recycling through the same ownership checks as ordinary,
@@ -1220,8 +1258,8 @@ time.
 - [ ] Mechanically verify every callable WinUI vtable entry and prevent placeholder slots from
   becoming callable.
 - [ ] Replace final-window `process::exit` teardown with an orderly, testable host shutdown.
-- [ ] Classify every open Reactor issue as a core defect, required platform contract, deferred
-  feature, or unsupported behavior.
+- [ ] Finish classifying every open Reactor issue as a core defect, required platform contract,
+  deferred feature, or unsupported behavior.
 - [ ] Complete a final architecture review and remove the feature freeze only after the exit
   criteria below pass.
 
