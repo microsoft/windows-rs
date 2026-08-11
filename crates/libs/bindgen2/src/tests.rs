@@ -1348,6 +1348,40 @@ fn winrt_class_special_policies_render() {
 }
 
 #[test]
+fn minimal_native_types_route_canonical_external_types() {
+    for name in ["Matrix3x2", "Matrix4x4", "Vector2", "Vector3", "Vector4"] {
+        assert_eq!(
+            external::minimal_crate("Windows.Foundation.Numerics", name),
+            Some("windows_numerics")
+        );
+    }
+
+    let metadata = Metadata::new(
+        Database::new([
+            Image::new(windows_default::WINRT).unwrap(),
+            Image::new(windows_default::WIN32).unwrap(),
+        ])
+        .unwrap(),
+    )
+    .unwrap();
+
+    let output = metadata
+        .generator(
+            Request::filtered(Filter::names(["D2D1_BRUSH_PROPERTIES"]))
+                .projection(Projection::Minimal),
+        )
+        .unwrap()
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap()
+        .to_string();
+
+    assert!(
+        output.contains("pub transform : windows_numerics :: Matrix3x2"),
+        "{output}"
+    );
+}
+
+#[test]
 fn winrt_class_preserves_closed_generic_interfaces() {
     let output = fixture(
         r#"

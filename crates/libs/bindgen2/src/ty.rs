@@ -522,17 +522,18 @@ impl Type {
             arguments,
             ..
         } = self
-            && is_external_minimal_type(target, name)
+            && let Some(crate_name) = external::minimal_crate(target, name)
         {
+            let crate_name = tokens::ident(crate_name);
             let name = tokens::ident(name);
             let arguments = arguments
                 .iter()
                 .map(|argument| argument.write_name(namespace, layout, generics))
                 .collect::<Result<Vec<_>, _>>()?;
             return Ok(if arguments.is_empty() {
-                quote! { windows_future::#name }
+                quote! { #crate_name::#name }
             } else {
-                quote! { windows_future::#name<#(#arguments),*> }
+                quote! { #crate_name::#name<#(#arguments),*> }
             });
         }
         self.write_name(namespace, layout, generics)
@@ -545,7 +546,7 @@ impl Type {
                 namespace,
                 name,
                 ..
-            } if is_external_minimal_type(namespace, name)
+            } if external::minimal_crate(namespace, name).is_some()
         )
     }
 

@@ -13,6 +13,7 @@ use windows_metadata2::{
 
 mod enum_model;
 mod error;
+mod external;
 mod filter;
 mod guid;
 mod model;
@@ -428,7 +429,7 @@ impl Generator {
                 WinrtKind::Enum => continue,
             };
             for (namespace, name) in dependencies {
-                if projection.is_minimal() && is_external_minimal_type(&namespace, &name) {
+                if projection.is_minimal() && external::minimal_crate(&namespace, &name).is_some() {
                     continue;
                 }
                 if let Some(entries) = catalog.get(&(namespace.as_str(), name.as_str())) {
@@ -486,17 +487,6 @@ impl Generator {
                 kind: entry.kind,
             })
     }
-}
-
-fn is_external_minimal_type(namespace: &str, name: &str) -> bool {
-    namespace == "Windows.Foundation"
-        && matches!(
-            name,
-            "IAsyncAction"
-                | "IAsyncActionWithProgress"
-                | "IAsyncOperation"
-                | "IAsyncOperationWithProgress"
-        )
 }
 
 fn winrt_entries(database: &Database) -> Result<Vec<(String, String, WinrtEntry)>, Error> {

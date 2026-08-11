@@ -515,12 +515,31 @@ Canvas should proceed in this order:
    `BeginDraw`, `GetMaxWidth`, and `GetSize` provide focused coverage.
 2. [x] Query methods with ordinary parameters before the IID/output pair.
    `IDXGISwapChain::GetBuffer` provides focused coverage.
-3. [ ] Rich native type remaps and ownership, including `windows_numerics` aliases and
-   interface-valued struct fields.
-4. [ ] Native interface inheritance conveniences: `Deref` and complete hierarchy lists.
-5. [ ] Output-interface projection for non-HRESULT methods.
-6. [ ] Metadata-sized input slices and their pointer/count ABI pairs.
-7. [ ] Input `BOOL` sugar and any remaining callable conversions.
+3. [x] External minimal-crate routing for canonical Numerics references.
+4. [ ] Ownership projection for interface-valued struct fields.
+5. [ ] Native interface inheritance conveniences: `Deref` and complete hierarchy lists.
+6. [ ] Output-interface projection for non-HRESULT methods.
+7. [ ] Metadata-sized input slices and their pointer/count ABI pairs.
+8. [ ] Input `BOOL` sugar and any remaining callable conversions.
 
 The canvas request now renders fully, so later checkpoints can use the complete token differential
 rather than discovering one structural error at a time.
+
+### Native type identity and projection boundary
+
+The Win32 scrape already canonicalizes Direct2D aliases such as `D2D_POINT_2F` and
+`D2D_MATRIX_3X2_F` to `Windows.Foundation.Numerics` types. The generated Win32 RDL and winmd carry
+those canonical identities. Bindgen2 must not add a second D2D alias table or reinterpret the
+original header names.
+
+The missing `windows_numerics::` prefix in the canvas output was an external-reference routing
+problem. Flat layout removes namespace paths, so minimal projection now distinguishes locally
+emitted types from types supplied by another crate first. One shared table replaces the
+future-only check and routes the five canonical Numerics types. Dependency closure treats those
+WinRT definitions as external to the native canvas request.
+
+Interface-valued native struct fields are a separate projection concern. Their metadata identity
+remains the interface and their ABI remains a raw COM pointer, while the public field spelling is
+`core::mem::ManuallyDrop<Option<Interface>>`. This requires a field-specific writer rather than a
+global type remap: method parameters, vtable entries, and public struct fields intentionally use
+different spellings of the same metadata type.

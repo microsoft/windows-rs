@@ -254,6 +254,13 @@ impl Type {
                 namespace: target,
                 name,
             } => {
+                if projection.is_minimal()
+                    && let Some(crate_name) = external::minimal_crate(target, name)
+                {
+                    let crate_name = tokens::ident(crate_name);
+                    let name = tokens::ident(name);
+                    return quote! { #crate_name::#name };
+                }
                 if !projection.is_sys()
                     && let Some(core) = core_projection(target, name)
                 {
