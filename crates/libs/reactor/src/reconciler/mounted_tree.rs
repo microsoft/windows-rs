@@ -119,6 +119,16 @@ impl MountedTree {
         self.nodes.contains_key(&id)
     }
 
+    pub(super) fn native_roots(&self) -> Vec<ControlId> {
+        let mut roots: Vec<_> = self
+            .nodes
+            .iter()
+            .filter_map(|(id, node)| node.parent.is_none().then_some(*id))
+            .collect();
+        roots.sort_unstable_by_key(|id| id.0);
+        roots
+    }
+
     pub(super) fn register(&mut self, id: ControlId, kind: Option<ControlKind>) {
         if let Some(children) = self.children.remove(&id) {
             for child in children {

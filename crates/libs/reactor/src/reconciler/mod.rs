@@ -593,7 +593,9 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn unmount_root(&mut self) {
-        if let Some(output) = self.root_output {
+        if self.reconciliation_failed {
+            self.teardown_failed_reconciliation();
+        } else if let Some(output) = self.root_output {
             self.teardown_root(output);
             self.root_output = None;
         }
@@ -602,7 +604,16 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn unmount(&mut self, id: ControlId) {
-        if let Some(output) = self.root_output.filter(|output| output.native == Some(id)) {
+        if self.reconciliation_failed {
+            assert!(
+                self.root_output
+                    .is_some_and(|output| output.native == Some(id))
+                    || (self.tree.contains_native(id) && self.tree.parent(id).is_none()),
+                "cannot unmount another control after reconciliation failed; tear down a mounted \
+                 root"
+            );
+            self.teardown_failed_reconciliation();
+        } else if let Some(output) = self.root_output.filter(|output| output.native == Some(id)) {
             self.teardown_root(output);
             self.root_output = None;
         } else {
@@ -623,6 +634,17 @@ impl<B: Backend + 'static> Reconciler<B> {
         } else {
             self.unmount_output(output);
         }
+        self.root_teardown_failed = false;
+    }
+
+    fn teardown_failed_reconciliation(&mut self) {
+        self.root_teardown_failed = true;
+        for root in self.tree.native_roots() {
+            self.discard_inner(root);
+        }
+        let logical_roots = self.tree.logical.roots();
+        self.remove_logical_subtrees(logical_roots);
+        self.root_output = None;
         self.root_teardown_failed = false;
     }
 

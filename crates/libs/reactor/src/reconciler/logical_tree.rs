@@ -152,6 +152,26 @@ impl MountedLogicalTree {
         self.wrappers.values()
     }
 
+    pub(super) fn roots(&self) -> Vec<LogicalNodeId> {
+        let mut roots: Vec<_> = self
+            .components
+            .values()
+            .map(|node| (node.node_id, node.parent))
+            .chain(
+                self.wrappers
+                    .values()
+                    .map(|node| (node.node_id, node.parent)),
+            )
+            .filter_map(|(node_id, parent)| {
+                parent
+                    .is_none_or(|parent| !self.contains_node(parent))
+                    .then_some(node_id)
+            })
+            .collect();
+        roots.sort_unstable_by_key(|node| node.0);
+        roots
+    }
+
     pub(super) fn collect_subtree(&self, root: LogicalNodeId) -> Vec<LogicalNodeId> {
         let mut nodes = vec![root];
         let mut index = 0;

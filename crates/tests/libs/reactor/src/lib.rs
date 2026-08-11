@@ -1,3 +1,4 @@
+use std::collections::VecDeque;
 use std::rc::Rc;
 
 use windows_reactor::*;
@@ -199,7 +200,7 @@ pub struct RecordingBackend {
     reorder_handlers: rustc_hash::FxHashMap<ControlId, Callback<Vec<usize>>>,
     theme_style_cache: rustc_hash::FxHashSet<(ControlKind, Vec<(Prop, ThemeRef)>)>,
     theme_bindings_live: rustc_hash::FxHashMap<ControlId, Vec<(Prop, ThemeRef)>>,
-    failure: Option<BackendFailure>,
+    failures: VecDeque<BackendFailure>,
     /// A stand-in [`IInspectable`] fabricated for every control so that
     /// [`get_native_element`](Backend::get_native_element) returns `Some`,
     /// mirroring the real WinUI backend (which returns the live XAML element).
@@ -237,18 +238,28 @@ impl RecordingBackend {
 
     /// Panics immediately before the `occurrence`th matching backend operation mutates state.
     pub fn fail_on(&mut self, operation: BackendOperation, occurrence: usize) {
-        assert!(
-            occurrence != 0,
-            "backend failure occurrence must be non-zero"
-        );
-        self.failure = Some(BackendFailure {
-            operation,
-            remaining: occurrence,
-        });
+        self.fail_sequence([(operation, occurrence)]);
+    }
+
+    /// Panics before each requested operation in order.
+    pub fn fail_sequence(&mut self, failures: impl IntoIterator<Item = (BackendOperation, usize)>) {
+        self.failures = failures
+            .into_iter()
+            .map(|(operation, remaining)| {
+                assert!(
+                    remaining != 0,
+                    "backend failure occurrence must be non-zero"
+                );
+                BackendFailure {
+                    operation,
+                    remaining,
+                }
+            })
+            .collect();
     }
 
     fn maybe_fail(&mut self, operation: BackendOperation) {
-        let Some(failure) = &mut self.failure else {
+        let Some(failure) = self.failures.front_mut() else {
             return;
         };
         if failure.operation != operation {
@@ -256,7 +267,7 @@ impl RecordingBackend {
         }
         failure.remaining -= 1;
         if failure.remaining == 0 {
-            self.failure = None;
+            self.failures.pop_front();
             panic!("injected backend failure before {operation:?}");
         }
     }
