@@ -547,6 +547,23 @@ now also determines whether the interface reaches the canonical `IUnknown`, leav
 traversal. Retval sizing uses metadata layout and the maximum supported pointer width so one
 generated API shape remains safe on 64-bit targets.
 
+### WebView2 discovery
+
+The next proof is the native `tool_webview` request generated from the pinned WebView2 headers. It
+produces 6,927 lines and explicitly selects 28 COM interfaces for implementation scaffolding. An
+ignored complete differential consumes `target/webview/WebView2.winmd` after `tool_webview`
+generates it. This request should first prove native implementation filtering; projection policy
+must not be broadened merely because another complete selected interface could be implemented.
+
+The request renders completely, with 103 projected interfaces and 99 selected consumer wrappers,
+but differs in 564 token groups. Native `Request::implementations` is currently ignored: bindgen2
+emits six producer traits based on selected-member completeness, while the request requires 28
+specific traits. Twenty-five requested traits are missing and three unrequested traits are
+present. Implemented native interfaces must also close over all their methods, which accounts for
+most of the missing consumer wrappers and typed vtable slots. This is the first WebView2 policy
+slice; later token differences should not be addressed until explicit implementation selection is
+correct.
+
 ### Native type identity and projection boundary
 
 The Win32 scrape already canonicalizes Direct2D aliases such as `D2D_POINT_2F` and
