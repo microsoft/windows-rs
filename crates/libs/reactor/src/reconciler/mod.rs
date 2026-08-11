@@ -16,7 +16,7 @@ mod templated;
 mod widget_dispatch;
 mod wrappers;
 
-use self::logical_tree::{LogicalNodeId, LogicalNodeKind, LogicalParentGuard, LogicalWrapperNode};
+use self::logical_tree::{LogicalNodeId, LogicalParentGuard, LogicalWrapperNode};
 use self::mounted_tree::MountedTree;
 
 #[cfg(feature = "test")]
@@ -341,10 +341,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             }
             (Some(old_el), None, Some(id)) => {
                 let seeded = self.force_state_dirty_components();
-                let logical = self
-                    .tree
-                    .logical
-                    .current_node(id, LogicalNodeKind::Component);
+                let logical = self.tree.logical.current_component(id);
                 let slot = self.allocate_slot_id();
                 let result = self.update_output(
                     old_el,
@@ -428,9 +425,6 @@ impl<B: Backend + 'static> Reconciler<B> {
             Element::Component(ce) => {
                 return self.mount_component_output(ce, slot);
             }
-            Element::ErrorBoundary(eb) => {
-                return self.mount_error_boundary_output_node(eb, slot);
-            }
             Element::Provider(pe) => return self.mount_provider_output(pe, slot),
             Element::TemplatedList(tl) => {
                 return MountedOutput {
@@ -489,9 +483,6 @@ impl<B: Backend + 'static> Reconciler<B> {
         match (old, new) {
             (Element::Component(o), Element::Component(n)) => {
                 return self.update_component_output(o, n, old_output);
-            }
-            (Element::ErrorBoundary(o), Element::ErrorBoundary(n)) => {
-                return self.update_error_boundary_output(o, n, old_output);
             }
             (Element::Provider(o), Element::Provider(n)) => {
                 return self.update_provider_output(o, n, old_output);

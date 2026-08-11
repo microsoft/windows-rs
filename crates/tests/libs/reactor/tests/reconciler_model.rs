@@ -10,7 +10,7 @@ use rustc_hash::FxHashMap;
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::{
     Component, Context, Element, ElementRef, ElementRefExt, KeyExt, Prop, PropValue, ProvideExt,
-    Reconciler, RenderCx, TextBoxHandle, border, component, error_boundary, memo, text_box, vstack,
+    Reconciler, RenderCx, TextBoxHandle, border, component, memo, text_box, vstack,
 };
 
 const ITEM_COUNT: usize = 12;
@@ -192,17 +192,10 @@ impl Harness {
                         reference: self.references[item.id].clone(),
                         lifecycle: Rc::clone(&self.lifecycle),
                     };
-                    match item.id % 5 {
+                    match item.id % 3 {
                         0 => component(leaf_component, props),
                         1 => memo(leaf_component, props),
-                        2 => component(leaf_component, props).provide(&self.context, item.id as u8),
-                        3 => error_boundary(component(leaf_component, props), |_| {
-                            text_box("fallback").into()
-                        }),
-                        _ => error_boundary(
-                            memo(leaf_component, props).provide(&self.context, item.id as u8),
-                            |_| text_box("fallback").into(),
-                        ),
+                        _ => component(leaf_component, props).provide(&self.context, item.id as u8),
                     }
                 } else {
                     leaf(&props, &self.references[item.id])

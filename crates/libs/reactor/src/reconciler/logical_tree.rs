@@ -99,21 +99,11 @@ pub(super) struct MountedLogicalTree {
     disappeared_listener_count: usize,
 }
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub(super) enum LogicalNodeKind {
-    Component,
-    Provider,
-    ErrorBoundary,
-}
-
 pub(super) struct LogicalWrapperNode {
-    pub(super) kind: LogicalNodeKind,
     pub(super) node_id: LogicalNodeId,
     pub(super) parent: Option<LogicalNodeId>,
     pub(super) native_root: Option<ControlId>,
     pub(super) child_output: MountedOutput,
-    pub(super) rendered: Element,
-    pub(super) fallback: bool,
 }
 
 impl MountedLogicalTree {
@@ -214,14 +204,6 @@ impl MountedLogicalTree {
         self.disappeared_listener_count
     }
 
-    pub(super) fn node_kind(&self, node_id: LogicalNodeId) -> Option<LogicalNodeKind> {
-        if self.components.contains_key(&node_id) {
-            Some(LogicalNodeKind::Component)
-        } else {
-            self.wrappers.get(&node_id).map(|node| node.kind)
-        }
-    }
-
     pub(super) fn node_parent(&self, node_id: LogicalNodeId) -> Option<LogicalNodeId> {
         self.components
             .get(&node_id)
@@ -249,13 +231,9 @@ impl MountedLogicalTree {
         self.components.len() + self.wrappers.len()
     }
 
-    pub(super) fn current_node(
-        &self,
-        id: ControlId,
-        kind: LogicalNodeKind,
-    ) -> Option<LogicalNodeId> {
+    pub(super) fn current_component(&self, id: ControlId) -> Option<LogicalNodeId> {
         let node_id = self.projections.get(&id).and_then(ProjectedNodes::last)?;
-        (self.node_kind(node_id) == Some(kind)).then_some(node_id)
+        self.components.contains_key(&node_id).then_some(node_id)
     }
 
     pub(super) fn register_component(&mut self, inst: ComponentInstance) {
@@ -293,26 +271,6 @@ impl MountedLogicalTree {
     }
 
     pub(super) fn take_provider(&mut self, node_id: LogicalNodeId) -> Option<LogicalWrapperNode> {
-        self.take_wrapper(node_id, LogicalNodeKind::Provider)
-    }
-
-    pub(super) fn take_error_boundary(
-        &mut self,
-        node_id: LogicalNodeId,
-    ) -> Option<LogicalWrapperNode> {
-        self.take_wrapper(node_id, LogicalNodeKind::ErrorBoundary)
-    }
-
-    fn take_wrapper(
-        &mut self,
-        node_id: LogicalNodeId,
-        kind: LogicalNodeKind,
-    ) -> Option<LogicalWrapperNode> {
-        debug_assert_eq!(
-            self.node_kind(node_id),
-            Some(kind),
-            "logical wrapper update order disagrees with element nesting"
-        );
         let node = self.wrappers.get(&node_id)?;
         if let Some(id) = node.native_root {
             self.remove_projection(id, node_id);

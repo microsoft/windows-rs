@@ -1,3 +1,4 @@
+use std::any::Any;
 use std::cell::Cell;
 use std::panic::AssertUnwindSafe;
 use std::rc::Rc;
@@ -6,12 +7,21 @@ use test_reactor::{BackendOperation, Op, RecordingBackend};
 use windows_reactor::{
     Button, Component, Context, ControlKind, Element, Expander, KeyExt, Pivot, PivotItem,
     ProvideExt, Reconciler, ReconcilerTestExt, RenderCx, SelectionMode, SplitView, TabItem,
-    TabView, component, error_boundary, list_view, panic_message, swap_chain_panel, text_block,
-    vstack,
+    TabView, component, list_view, swap_chain_panel, text_block, vstack,
 };
 
 fn rerender() -> Rc<dyn Fn()> {
     Rc::new(|| {})
+}
+
+fn panic_message(payload: Box<dyn Any + Send>) -> String {
+    if let Some(message) = payload.downcast_ref::<&'static str>() {
+        (*message).to_string()
+    } else if let Some(message) = payload.downcast_ref::<String>() {
+        message.clone()
+    } else {
+        "<non-string panic>".to_string()
+    }
 }
 
 fn mount_case(operation: BackendOperation) -> Element {
@@ -190,12 +200,7 @@ impl Component for PanickingCommitEffect {
 
 #[test]
 fn post_commit_effect_panics_leave_the_committed_tree_usable() {
-    let fallback_calls = Rc::new(Cell::new(0));
-    let calls = Rc::clone(&fallback_calls);
-    let element = error_boundary(component(PanickingCommitEffect, ()), move |_| {
-        calls.set(calls.get() + 1);
-        text_block("fallback").into()
-    });
+    let element = component(PanickingCommitEffect, ());
     let mut reconciler = Reconciler::new(RecordingBackend::new());
 
     let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
@@ -203,7 +208,6 @@ fn post_commit_effect_panics_leave_the_committed_tree_usable() {
     }));
 
     assert!(result.is_err());
-    assert_eq!(fallback_calls.get(), 0);
     assert_eq!(reconciler.backend.live_control_count(), 1);
 
     let healthy: Element = text_block("healthy").into();
@@ -217,34 +221,6 @@ fn post_commit_effect_panics_leave_the_committed_tree_usable() {
     reconciler.assert_consistent();
     reconciler.backend.assert_consistent();
     assert_eq!(reconciler.backend.live_control_count(), 0);
-}
-
-#[test]
-fn error_boundaries_recover_after_failed_widget_mounts() {
-    for operation in mount_operations() {
-        let mut backend = RecordingBackend::new();
-        backend.fail_next(operation);
-        let mut reconciler = Reconciler::new(backend);
-        let element = error_boundary(mount_case(operation), |_| text_block("fallback").into());
-
-        assert!(
-            reconciler
-                .reconcile(None, &element, None, rerender())
-                .is_some(),
-            "{operation:?} did not mount the fallback"
-        );
-        reconciler.assert_consistent();
-        reconciler.backend.assert_consistent();
-        assert_eq!(
-            reconciler.backend.live_control_count(),
-            1,
-            "{operation:?} retained part of the failed subtree"
-        );
-
-        reconciler.unmount_root();
-        reconciler.backend.assert_consistent();
-        assert_eq!(reconciler.backend.live_control_count(), 0);
-    }
 }
 
 #[test]
@@ -267,34 +243,6 @@ fn failed_templated_mounts_roll_back_all_owned_state() {
             0,
             "{operation:?} leaked a templated control"
         );
-    }
-}
-
-#[test]
-fn error_boundaries_recover_after_failed_templated_mounts() {
-    for operation in templated_mount_operations() {
-        let mut backend = RecordingBackend::new();
-        backend.fail_next(operation);
-        let mut reconciler = Reconciler::new(backend);
-        let element = error_boundary(templated_mount_case(), |_| text_block("fallback").into());
-
-        assert!(
-            reconciler
-                .reconcile(None, &element, None, rerender())
-                .is_some(),
-            "{operation:?} did not mount the fallback"
-        );
-        reconciler.assert_consistent();
-        reconciler.backend.assert_consistent();
-        assert_eq!(
-            reconciler.backend.live_control_count(),
-            1,
-            "{operation:?} retained part of the failed templated list"
-        );
-
-        reconciler.unmount_root();
-        reconciler.backend.assert_consistent();
-        assert_eq!(reconciler.backend.live_control_count(), 0);
     }
 }
 
@@ -330,52 +278,6 @@ fn failed_tab_and_pivot_item_mounts_roll_back_direct_native_children() {
             "{kind:?} leaked a native control"
         );
     }
-}
-
-struct PendingEffect {
-    setups: Rc<Cell<u32>>,
-    cleanups: Rc<Cell<u32>>,
-}
-
-impl Component for PendingEffect {
-    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
-        let setups = Rc::clone(&self.setups);
-        let cleanups = Rc::clone(&self.cleanups);
-        cx.use_effect_with_cleanup((), move || {
-            setups.set(setups.get() + 1);
-            Some(move || cleanups.set(cleanups.get() + 1))
-        });
-        text_block("pending effect").into()
-    }
-}
-
-#[test]
-fn failed_component_mount_does_not_commit_effects_before_fallback() {
-    let setups = Rc::new(Cell::new(0));
-    let cleanups = Rc::new(Cell::new(0));
-    let component = component(
-        PendingEffect {
-            setups: Rc::clone(&setups),
-            cleanups: Rc::clone(&cleanups),
-        },
-        (),
-    );
-    let element = error_boundary(component, |_| text_block("fallback").into());
-    let mut backend = RecordingBackend::new();
-    backend.fail_next(BackendOperation::SetProp);
-    let mut reconciler = Reconciler::new(backend);
-
-    assert!(
-        reconciler
-            .reconcile(None, &element, None, rerender())
-            .is_some()
-    );
-
-    assert_eq!(setups.get(), 0);
-    assert_eq!(cleanups.get(), 0);
-    reconciler.assert_consistent();
-    reconciler.backend.assert_consistent();
-    assert_eq!(reconciler.backend.live_control_count(), 1);
 }
 
 #[derive(Clone, PartialEq)]
@@ -419,87 +321,6 @@ fn update_component(
         },
         props,
     )
-}
-
-#[test]
-fn error_boundary_discards_failed_component_updates_and_runs_cleanup() {
-    let cases = [
-        (
-            BackendOperation::SetProp,
-            UpdateProps {
-                text: "old",
-                handler: false,
-                revision: 0,
-            },
-            UpdateProps {
-                text: "new",
-                handler: false,
-                revision: 1,
-            },
-        ),
-        (
-            BackendOperation::AttachEvent,
-            UpdateProps {
-                text: "button",
-                handler: true,
-                revision: 0,
-            },
-            UpdateProps {
-                text: "button",
-                handler: true,
-                revision: 1,
-            },
-        ),
-        (
-            BackendOperation::DetachEvent,
-            UpdateProps {
-                text: "button",
-                handler: true,
-                revision: 0,
-            },
-            UpdateProps {
-                text: "button",
-                handler: false,
-                revision: 1,
-            },
-        ),
-    ];
-
-    for (operation, old_props, new_props) in cases {
-        let setups = Rc::new(Cell::new(0));
-        let cleanups = Rc::new(Cell::new(0));
-        let old = error_boundary(update_component(old_props, &setups, &cleanups), |_| {
-            text_block("fallback").into()
-        });
-        let new = error_boundary(update_component(new_props, &setups, &cleanups), |_| {
-            text_block("fallback").into()
-        });
-        let mut reconciler = Reconciler::new(RecordingBackend::new());
-        reconciler.reconcile(None, &old, None, rerender());
-        reconciler.backend.fail_next(operation);
-
-        assert!(
-            reconciler
-                .reconcile(Some(&old), &new, None, rerender())
-                .is_some(),
-            "{operation:?} did not mount the fallback"
-        );
-
-        assert_eq!(setups.get(), 1, "{operation:?} reran the stable effect");
-        assert_eq!(
-            cleanups.get(),
-            1,
-            "{operation:?} did not run cleanup for the discarded component"
-        );
-        assert_eq!(reconciler.debug_logical_node_count(), 1);
-        reconciler.assert_consistent();
-        reconciler.backend.assert_consistent();
-
-        reconciler.unmount_root();
-        assert_eq!(cleanups.get(), 1);
-        reconciler.backend.assert_consistent();
-        assert_eq!(reconciler.backend.live_control_count(), 0);
-    }
 }
 
 #[test]
@@ -559,117 +380,6 @@ fn failed_provider_update_retains_ownership_for_teardown() {
     reconciler.assert_consistent();
     reconciler.backend.assert_consistent();
     reconciler.unmount_root();
-    reconciler.backend.assert_consistent();
-    assert_eq!(reconciler.backend.live_control_count(), 0);
-}
-
-#[test]
-fn error_boundary_discards_failed_root_replacement() {
-    let old = error_boundary(text_block("old"), |_| text_block("fallback").into());
-    let new = error_boundary(Button::new("new"), |_| text_block("fallback").into());
-    let mut reconciler = Reconciler::new(RecordingBackend::new());
-    reconciler.reconcile(None, &old, None, rerender());
-    reconciler.backend.fail_next(BackendOperation::Create);
-
-    assert!(
-        reconciler
-            .reconcile(Some(&old), &new, None, rerender())
-            .is_some()
-    );
-
-    assert_eq!(reconciler.backend.live_control_count(), 1);
-    assert_eq!(reconciler.debug_logical_node_count(), 1);
-    reconciler.assert_consistent();
-    reconciler.backend.assert_consistent();
-    reconciler.unmount_root();
-    reconciler.backend.assert_consistent();
-    assert_eq!(reconciler.backend.live_control_count(), 0);
-}
-
-#[test]
-fn error_boundary_discards_failed_nested_child_replacement() {
-    let old = error_boundary(vstack((text_block("old"),)), |_| {
-        text_block("fallback").into()
-    });
-    let new = error_boundary(vstack((Button::new("new"),)), |_| {
-        text_block("fallback").into()
-    });
-    let mut reconciler = Reconciler::new(RecordingBackend::new());
-    reconciler.reconcile(None, &old, None, rerender());
-    reconciler.backend.fail_next(BackendOperation::Create);
-
-    assert!(
-        reconciler
-            .reconcile(Some(&old), &new, None, rerender())
-            .is_some()
-    );
-
-    assert_eq!(reconciler.backend.live_control_count(), 1);
-    assert_eq!(reconciler.debug_logical_node_count(), 1);
-    reconciler.assert_consistent();
-    reconciler.backend.assert_consistent();
-    reconciler.unmount_root();
-    reconciler.backend.assert_consistent();
-    assert_eq!(reconciler.backend.live_control_count(), 0);
-}
-
-#[derive(Clone, PartialEq)]
-struct ReplacementProps(bool);
-
-struct ReplacementEffect {
-    cleanups: Rc<Cell<u32>>,
-}
-
-impl Component<ReplacementProps> for ReplacementEffect {
-    fn render(&self, props: &ReplacementProps, cx: &mut RenderCx) -> Element {
-        let cleanups = Rc::clone(&self.cleanups);
-        cx.use_effect_with_cleanup((), move || Some(move || cleanups.set(cleanups.get() + 1)));
-        if props.0 {
-            Button::new("new").into()
-        } else {
-            text_block("old").into()
-        }
-    }
-}
-
-#[test]
-fn error_boundary_cleans_component_after_failed_output_replacement() {
-    let cleanups = Rc::new(Cell::new(0));
-    let old = error_boundary(
-        component(
-            ReplacementEffect {
-                cleanups: Rc::clone(&cleanups),
-            },
-            ReplacementProps(false),
-        ),
-        |_| text_block("fallback").into(),
-    );
-    let new = error_boundary(
-        component(
-            ReplacementEffect {
-                cleanups: Rc::clone(&cleanups),
-            },
-            ReplacementProps(true),
-        ),
-        |_| text_block("fallback").into(),
-    );
-    let mut reconciler = Reconciler::new(RecordingBackend::new());
-    reconciler.reconcile(None, &old, None, rerender());
-    reconciler.backend.fail_next(BackendOperation::Create);
-
-    assert!(
-        reconciler
-            .reconcile(Some(&old), &new, None, rerender())
-            .is_some()
-    );
-
-    assert_eq!(cleanups.get(), 1);
-    assert_eq!(reconciler.backend.live_control_count(), 1);
-    assert_eq!(reconciler.debug_logical_node_count(), 1);
-    reconciler.assert_consistent();
-    reconciler.backend.assert_consistent();
-    reconciler.unmount_root();
-    assert_eq!(cleanups.get(), 1);
     reconciler.backend.assert_consistent();
     assert_eq!(reconciler.backend.live_control_count(), 0);
 }
@@ -787,183 +497,6 @@ fn collection_changes() -> [CollectionChange; 5] {
 }
 
 #[test]
-fn error_boundaries_discard_failed_child_collection_updates() {
-    for change in collection_changes() {
-        let cleanups = Rc::new(Cell::new(0));
-        let old = error_boundary(collection_component(change, false, &cleanups), |_| {
-            text_block("fallback").into()
-        });
-        let new = error_boundary(collection_component(change, true, &cleanups), |_| {
-            text_block("fallback").into()
-        });
-        let mut reconciler = Reconciler::new(RecordingBackend::new());
-        reconciler.reconcile(None, &old, None, rerender());
-        reconciler.backend.fail_next(change.backend_operation());
-
-        assert!(
-            reconciler
-                .reconcile(Some(&old), &new, None, rerender())
-                .is_some(),
-            "{change:?} did not mount the fallback"
-        );
-
-        assert_eq!(
-            cleanups.get(),
-            1,
-            "{change:?} did not run cleanup for the discarded component"
-        );
-        assert_eq!(reconciler.backend.live_control_count(), 1);
-        assert_eq!(reconciler.debug_logical_node_count(), 1);
-        reconciler.assert_consistent();
-        reconciler.backend.assert_consistent();
-
-        let healthy: Element = text_block("healthy").into();
-        assert!(
-            reconciler
-                .reconcile(Some(&new), &healthy, None, rerender())
-                .is_some(),
-            "{change:?} left the reconciler unusable after error-boundary recovery"
-        );
-
-        reconciler.unmount_root();
-        assert_eq!(cleanups.get(), 1);
-        reconciler.backend.assert_consistent();
-        assert_eq!(reconciler.backend.live_control_count(), 0);
-    }
-}
-
-#[test]
-fn failed_error_boundary_callback_keeps_original_subtree_reachable() {
-    for change in collection_changes() {
-        let cleanups = Rc::new(Cell::new(0));
-        let old = error_boundary(collection_component(change, false, &cleanups), |_| {
-            text_block("old fallback").into()
-        });
-        let new = error_boundary(
-            collection_component(change, true, &cleanups),
-            |_| -> Element { panic!("fallback callback failed") },
-        );
-        let mut reconciler = Reconciler::new(RecordingBackend::new());
-        reconciler.reconcile(None, &old, None, rerender());
-        reconciler.backend.fail_next(change.backend_operation());
-
-        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
-            reconciler.reconcile(Some(&old), &new, None, rerender())
-        }));
-
-        assert!(result.is_err(), "{change:?} fallback callback did not fail");
-        reconciler.unmount_root();
-        assert_eq!(cleanups.get(), 1, "{change:?} lost component cleanup");
-        reconciler.assert_consistent();
-        reconciler.backend.assert_consistent();
-        assert_eq!(reconciler.backend.live_control_count(), 0);
-    }
-}
-
-#[test]
-fn failed_error_boundary_fallback_mount_allows_teardown() {
-    for change in collection_changes() {
-        let cleanups = Rc::new(Cell::new(0));
-        let old = error_boundary(collection_component(change, false, &cleanups), |_| {
-            text_block("old fallback").into()
-        });
-        let new = error_boundary(collection_component(change, true, &cleanups), |_| {
-            text_block("new fallback").into()
-        });
-        let mut reconciler = Reconciler::new(RecordingBackend::new());
-        reconciler.reconcile(None, &old, None, rerender());
-        reconciler.backend.fail_sequence([
-            (change.backend_operation(), 1),
-            (BackendOperation::Create, 1),
-        ]);
-
-        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
-            reconciler.reconcile(Some(&old), &new, None, rerender())
-        }));
-
-        assert!(result.is_err(), "{change:?} fallback mount did not fail");
-        reconciler.unmount_root();
-        assert_eq!(cleanups.get(), 1, "{change:?} lost component cleanup");
-        reconciler.assert_consistent();
-        reconciler.backend.assert_consistent();
-        assert_eq!(reconciler.backend.live_control_count(), 0);
-    }
-}
-
-#[test]
-fn failed_error_boundary_fallback_rollback_allows_teardown() {
-    for change in collection_changes() {
-        let cleanups = Rc::new(Cell::new(0));
-        let old = error_boundary(collection_component(change, false, &cleanups), |_| {
-            text_block("old fallback").into()
-        });
-        let new = error_boundary(collection_component(change, true, &cleanups), |_| {
-            text_block("new fallback").into()
-        });
-        let mut reconciler = Reconciler::new(RecordingBackend::new());
-        reconciler.reconcile(None, &old, None, rerender());
-        reconciler.backend.fail_sequence([
-            (change.backend_operation(), 1),
-            (BackendOperation::SetProp, 1),
-            (BackendOperation::Destroy, 1),
-        ]);
-
-        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
-            reconciler.reconcile(Some(&old), &new, None, rerender())
-        }));
-
-        assert!(result.is_err(), "{change:?} fallback rollback did not fail");
-        reconciler.unmount_root();
-        assert_eq!(cleanups.get(), 1, "{change:?} lost component cleanup");
-        reconciler.assert_consistent();
-        reconciler.backend.assert_consistent();
-        assert_eq!(reconciler.backend.live_control_count(), 0);
-    }
-}
-
-#[test]
-fn failed_recovery_teardown_can_be_retried_through_either_root_api() {
-    for mode in [RootUnmount::Root, RootUnmount::Control] {
-        let change = CollectionChange::Append;
-        let cleanups = Rc::new(Cell::new(0));
-        let old = error_boundary(collection_component(change, false, &cleanups), |_| {
-            text_block("old fallback").into()
-        });
-        let new = error_boundary(collection_component(change, true, &cleanups), |_| {
-            text_block("new fallback").into()
-        });
-        let mut reconciler = Reconciler::new(RecordingBackend::new());
-        let root = reconciler.reconcile(None, &old, None, rerender()).unwrap();
-        reconciler.backend.fail_sequence([
-            (change.backend_operation(), 1),
-            (BackendOperation::SetProp, 1),
-            (BackendOperation::Destroy, 1),
-            (BackendOperation::Destroy, 1),
-        ]);
-
-        let reconcile_result = std::panic::catch_unwind(AssertUnwindSafe(|| {
-            reconciler.reconcile(Some(&old), &new, None, rerender())
-        }));
-        assert!(reconcile_result.is_err(), "{mode:?} recovery did not fail");
-
-        let teardown_result = std::panic::catch_unwind(AssertUnwindSafe(|| {
-            teardown_root(&mut reconciler, mode, root);
-        }));
-        assert!(
-            teardown_result.is_err(),
-            "{mode:?} recovery teardown did not fail"
-        );
-        assert!(reconciler.backend.live_control_count() > 0);
-
-        teardown_root(&mut reconciler, mode, root);
-        assert_eq!(cleanups.get(), 1, "{mode:?} repeated component cleanup");
-        reconciler.assert_consistent();
-        reconciler.backend.assert_consistent();
-        assert_eq!(reconciler.backend.live_control_count(), 0);
-    }
-}
-
-#[test]
 fn failed_child_collection_updates_remain_reachable_for_teardown() {
     for change in collection_changes() {
         let cleanups = Rc::new(Cell::new(0));
@@ -1063,45 +596,6 @@ fn destroy_component(
         },
         DestroyProps(updated),
     )
-}
-
-#[test]
-fn error_boundary_retries_failed_destroy_without_repeating_cleanup() {
-    for occurrence in [1, 2] {
-        let cleanups = Rc::new(Cell::new(0));
-        let unmounted = Rc::new(Cell::new(0));
-        let old = error_boundary(destroy_component(false, &cleanups, &unmounted), |_| {
-            text_block("fallback").into()
-        });
-        let new = error_boundary(destroy_component(true, &cleanups, &unmounted), |_| {
-            text_block("fallback").into()
-        });
-        let mut reconciler = Reconciler::new(RecordingBackend::new());
-        reconciler.reconcile(None, &old, None, rerender());
-        reconciler
-            .backend
-            .fail_on(BackendOperation::Destroy, occurrence);
-
-        assert!(
-            reconciler
-                .reconcile(Some(&old), &new, None, rerender())
-                .is_some(),
-            "destroy occurrence {occurrence} did not mount the fallback"
-        );
-
-        assert_eq!(cleanups.get(), 1);
-        assert_eq!(unmounted.get(), 2);
-        assert_eq!(reconciler.backend.live_control_count(), 1);
-        assert_eq!(reconciler.debug_logical_node_count(), 1);
-        reconciler.assert_consistent();
-        reconciler.backend.assert_consistent();
-
-        reconciler.unmount_root();
-        assert_eq!(cleanups.get(), 1);
-        assert_eq!(unmounted.get(), 2);
-        reconciler.backend.assert_consistent();
-        assert_eq!(reconciler.backend.live_control_count(), 0);
-    }
 }
 
 #[derive(Clone, Copy, Debug)]
