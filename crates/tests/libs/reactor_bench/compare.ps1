@@ -19,7 +19,7 @@ $baseDirectory = Join-Path $tempRoot "windows-rs-reactor-base-$PID"
 function Invoke-Benchmark([string]$workingDirectory) {
     Push-Location $workingDirectory
     try {
-        $output = & cargo run -p test_reactor_bench --release --quiet -- --iters 1000 --reps 6
+        $output = & cargo run -p test_reactor_bench --release --quiet -- --iters 1000 --reps 12
         if ($LASTEXITCODE -ne 0) {
             throw "Benchmark failed in $workingDirectory"
         }
