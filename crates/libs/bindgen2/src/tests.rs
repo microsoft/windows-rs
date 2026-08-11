@@ -2275,7 +2275,9 @@ fn explicit_implementations_control_native_producers_and_closure() {
     );
     assert!(output.contains("CreateAnimationVariable"));
     assert!(output.contains("CreateAnimationVectorVariable : usize"));
+    assert!(output.contains("impl IUIAnimationManager2 {"));
     assert!(!output.contains("IUIAnimationManager2_Impl"));
+    assert!(!output.contains("RuntimeName for IUIAnimationManager2"));
 
     let mut implementations = Filter::new();
     implementations.include_name("IUIAnimationManager2");
@@ -2292,7 +2294,42 @@ fn explicit_implementations_control_native_producers_and_closure() {
     );
     assert!(output.contains("pub trait IUIAnimationManager2_Impl"));
     assert!(output.contains("pub CreateAnimationVectorVariable : unsafe extern"));
+    assert!(!output.contains("impl IUIAnimationManager2 {"));
     assert!(!output.contains("unsafe fn CreateAnimationVectorVariable"));
+    assert!(output.contains("RuntimeName for IUIAnimationManager2"));
+}
+
+#[test]
+fn native_producer_interface_inputs_are_borrowed() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let filter = Filter::names(["ID2D1CommandSink"]);
+    let implementations = Filter::names(["ID2D1CommandSink"]);
+    let output = normalize_existing_output(
+        metadata
+            .generator(
+                Request::filtered(filter)
+                    .implementations(implementations)
+                    .projection(Projection::Minimal),
+            )
+            .unwrap()
+            .render_projection(Layout::Flat, Projection::Minimal)
+            .unwrap(),
+    );
+
+    assert!(
+        output.contains("fn DrawBitmap (& self , windows_core :: Ref < ID2D1Bitmap >,"),
+        "{output}"
+    );
+    assert!(output.contains(
+        "ID2D1CommandSink_Impl :: DrawBitmap (this , core :: mem :: transmute_copy (& bitmap)"
+    ));
+    assert!(output.contains(
+        "pub DrawBitmap : unsafe extern \"system\" fn (* mut core :: ffi :: c_void , * mut core :: ffi :: c_void"
+    ));
 }
 
 #[test]

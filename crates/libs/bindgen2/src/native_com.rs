@@ -257,7 +257,11 @@ impl native_signature::Signature {
             .map(|(_, parameter)| {
                 let name = tokens::ident(&parameter.name);
                 let ty = parameter.ty.write_public(namespace, layout);
-                quote! { #name: #ty, }
+                if parameter.is_input_only() && parameter.ty.is_interface() {
+                    quote! { #name: windows_core::Ref<#ty>, }
+                } else {
+                    quote! { #name: #ty, }
+                }
             });
         let result = if let Some((_, ty)) = retval {
             let ty = ty.write_public(namespace, layout);

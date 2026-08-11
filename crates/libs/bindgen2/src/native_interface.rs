@@ -49,13 +49,14 @@ impl NativeInterface {
         let methods = definition
             .methods()?
             .map(|method| {
-                let metadata_name = method_name(method)?;
-                let count = names.entry(metadata_name.clone()).or_default();
+                let metadata_name = method.name()?.to_string();
+                let projected_name = method_name(method)?;
+                let count = names.entry(projected_name.clone()).or_default();
                 *count += 1;
                 let name = if *count == 1 {
-                    metadata_name.clone()
+                    projected_name
                 } else {
-                    format!("{metadata_name}{count}")
+                    format!("{projected_name}{count}")
                 };
                 let signature = native_signature::Signature::lower(database, method, &full_name)?;
                 if signature.flags & 0x20 == 0 {
@@ -233,20 +234,24 @@ impl NativeInterface {
                 pub #name: unsafe extern "system" fn(#parameters) #result,
             }
         });
-        let wrappers = self
-            .methods
-            .iter()
-            .filter(|method| method.selected(members))
-            .map(|method| {
-                method
-                    .signature
-                    .write_com_method(&self.namespace, layout, &method.name)
-            })
-            .collect::<Result<Vec<_>, Error>>()?;
-        let wrappers = if wrappers.is_empty() {
+        let wrappers = if projection.is_minimal() && implementation == Some(true) {
             quote! {}
         } else {
-            quote! { impl #name { #(#wrappers)* } }
+            let wrappers = self
+                .methods
+                .iter()
+                .filter(|method| method.selected(members))
+                .map(|method| {
+                    method
+                        .signature
+                        .write_com_method(&self.namespace, layout, &method.name)
+                })
+                .collect::<Result<Vec<_>, Error>>()?;
+            if wrappers.is_empty() {
+                quote! {}
+            } else {
+                quote! { impl #name { #(#wrappers)* } }
+            }
         };
         let implement = match implementation {
             None => self.can_implement(members),
@@ -259,6 +264,9 @@ impl NativeInterface {
                 });
             }
         };
+        let runtime_name = (implementation != Some(false)).then(|| {
+            quote! { impl windows_core::RuntimeName for #name {} }
+        });
         let implementation = if implement {
             self.write_implementation(layout, projection)?
         } else {
@@ -278,7 +286,7 @@ impl NativeInterface {
             }
 
             #implementation
-            impl windows_core::RuntimeName for #name {}
+            #runtime_name
         })
     }
 

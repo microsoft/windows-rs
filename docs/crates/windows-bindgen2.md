@@ -561,11 +561,32 @@ use typed vtable slots for producer upcalls, but consumer wrappers still follow 
 filter. An implementation-only callback therefore does not expose unrelated consumer methods.
 Requests without an implementation filter preserve the earlier complete-interface behavior.
 
-The remaining differential has 534 token groups. Bindgen2 emits 99 consumer wrappers while the
-committed output has 218. The next selection bug is accessor naming: native lowering currently
-strips `get_` and `put_` before member matching, while tool filters use the raw metadata names.
-`EventRegistrationToken` ABI spelling and several callable conversions are later categories; they
-should not be mixed into the member-name fix.
+Native method lowering now retains the raw metadata name for member matching and separately stores
+the projected Rust name used by wrappers and vtables. This restores accessors and events selected
+as `get_*`, `put_*`, `add_*`, and `remove_*` without changing overload naming. The differential
+dropped from 534 to 208 token groups.
+
+Explicitly implemented native interfaces in minimal output now expose producer traits and typed
+vtables without caller wrappers, matching legacy native COM policy. An explicit implementation
+list also limits `RuntimeName` emission to that list; requests without a list retain the earlier
+default. WebView2 now matches all 218 consumer wrappers, 28 producer traits, and 28 runtime-name
+implementations. The differential dropped from 208 to 130 token groups.
+
+`EventRegistrationToken` versus `i64` remains intentionally unresolved. This resembles the alias
+canonicalization already performed by `windows-clang` and `tool_win32`; bindgen2 should not add a
+WebView2-specific remap. Revisit the metadata producer after parity or leave the named alias in the
+new output if it is the better model. The next local projection category is producer callable
+parameters.
+
+Direct input interface parameters in native producer traits now use `windows_core::Ref<T>`.
+Consumer methods retain generic `Param<T>` inputs and ABI vtables retain raw COM pointers. Producer
+upcalls convert the raw pointer into the borrowed reference without taking ownership. WebView2 now
+has the same 39 `Ref<T>` uses as the committed output, reducing the differential from 130 to 91
+token groups.
+
+Excluding the deferred event-token alias, the next producer differences are borrowed non-primitive
+value inputs and their `transmute` conversions. A few callable casts and one `IStream` optional
+interface conversion remain after that.
 
 ### Native type identity and projection boundary
 
