@@ -83,6 +83,11 @@ impl native_signature::Signature {
                 }
                 continue;
             }
+            if parameter.is_input_only() && parameter.ty.is_bool() {
+                parameters.push(quote! { #name: bool, });
+                arguments.push(quote! { #name.into() });
+                continue;
+            }
             if parameter.ty.is_interface() {
                 let generic = tokens::ident(&format!("P{position}"));
                 let ty = parameter.ty.write_public(namespace, layout);

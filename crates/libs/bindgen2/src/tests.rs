@@ -1530,6 +1530,37 @@ fn native_com_methods_project_unique_input_buffers_as_slices() {
 }
 
 #[test]
+fn native_com_methods_project_bool_inputs() {
+    let metadata = Metadata::new(
+        Database::new([
+            Image::new(windows_default::WINRT).unwrap(),
+            Image::new(windows_default::WIN32).unwrap(),
+        ])
+        .unwrap(),
+    )
+    .unwrap();
+    let output = metadata
+        .generator(
+            Request::filtered(Filter::names(["ID2D1Effect", "IDWriteTextLayout"]))
+                .projection(Projection::Minimal),
+        )
+        .unwrap()
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap()
+        .to_string();
+
+    for expected in [
+        "unsafe fn SetInput < P1 > (& self , index : u32 , input : P1 , invalidate : bool ,)",
+        "input . param () . abi () , invalidate . into ()",
+        "unsafe fn HitTestTextPosition (& self , textposition : u32 , istrailinghit : bool ,",
+        "textposition , istrailinghit . into ()",
+        "pub SetInput : unsafe extern \"system\" fn (* mut core :: ffi :: c_void , u32 , * mut core :: ffi :: c_void , windows_core :: BOOL)",
+    ] {
+        assert!(output.contains(expected), "{expected}\n{output}");
+    }
+}
+
+#[test]
 fn winrt_class_preserves_closed_generic_interfaces() {
     let output = fixture(
         r#"
