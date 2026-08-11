@@ -88,7 +88,9 @@ impl native_signature::Signature {
                 arguments.push(quote! { #name.into() });
                 continue;
             }
-            if parameter.ty.is_interface() {
+            if parameter.ty.is_interface()
+                || (parameter.is_input_only() && parameter.ty.is_pcwstr())
+            {
                 let generic = tokens::ident(&format!("P{position}"));
                 let ty = parameter.ty.write_public(namespace, layout);
                 generic_parameters.push(generic.clone());

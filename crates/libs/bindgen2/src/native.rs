@@ -412,6 +412,16 @@ impl Type {
         )
     }
 
+    pub(super) fn is_pcwstr(&self) -> bool {
+        matches!(
+            self,
+            Self::Named { namespace, name }
+                if name == "PCWSTR"
+                    && (namespace == "Windows.Win32"
+                        || namespace.starts_with("Windows.Win32."))
+        )
+    }
+
     pub(super) fn is_indirect_return(&self, database: &Database) -> Result<bool, Error> {
         let Self::Named { namespace, name } = self else {
             return Ok(false);

@@ -502,12 +502,12 @@ maps `RPC_STATUS` back to `windows_core`, and constructs projected HRESULT const
 Native interfaces without COM identity remain sys-only; rich requests return a structured
 unsupported-shape error rather than emitting an undefined interface type.
 
-The remaining `tool_bindings` request is `canvas.txt`. Its committed output contains 49 COM
+The final `tool_bindings` proof is `canvas.txt`. Its committed output contains 49 COM
 interfaces and 75 selected wrappers: 29 return `Result<T>`, 16 return raw HRESULTs, 26 return
 `void`, and four return values directly. Thirty-five vtables derive from another projected
 interface. Four wrappers use metadata-sized slices, two use generic query projection, and one
-query method has an input parameter before the IID/output pair. The complete differential is kept
-as an ignored test while these policies are proved independently.
+query method has an input parameter before the IID/output pair. The complete semantic differential
+runs as a normal test.
 
 Canvas should proceed in this order:
 
@@ -523,18 +523,16 @@ Canvas should proceed in this order:
 8. [x] Input `BOOL` sugar.
 9. [x] Reassess the complete differential and split any remaining callable conversions.
 10. [x] Correct large-struct retval classification.
-11. [ ] Add `PCWSTR` input conversion where the public API accepts `Param<PCWSTR>`.
-12. [ ] Review remaining pointer casts, `Self` spelling, and token normalization before adding
+11. [x] Add `PCWSTR` input conversion where the public API accepts `Param<PCWSTR>`.
+12. [x] Review remaining pointer casts, `Self` spelling, and token normalization before adding
     projection policy for cosmetic parity.
 
 The canvas request now renders fully, so later checkpoints can use the complete token differential
 rather than discovering one structural error at a time.
 
-After large-struct retval classification, the complete differential has 24 remaining token groups.
-The substantive difference is three string inputs that still expose concrete `PCWSTR` values
-instead of `Param<PCWSTR>`. The other groups are pointer `as _` casts, one `Param<Self>` spelling,
-and slice token spacing. Those should be reviewed as possible legacy or normalization noise rather
-than copied into bindgen2 by default.
+The complete canvas request now passes as a normal semantic-parity test. Its narrow normalization
+removes only the 12 reviewed differences: redundant pointer casts, one equivalent `Param<Self>`
+spelling, and slice token spacing. Bindgen2 does not reproduce those legacy output details.
 
 ### Native type identity and projection boundary
 

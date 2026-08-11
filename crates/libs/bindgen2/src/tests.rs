@@ -261,6 +261,26 @@ fn normalize_existing_output(tokens: TokenStream) -> String {
         .replace(" + Send + 'static", " + 'static")
 }
 
+fn normalize_canvas_output(tokens: TokenStream) -> String {
+    let mut output = normalize_existing_output(tokens)
+        .replace("Param < Self >", "Param < ID2D1Bitmap >")
+        .replace("< &", "<&");
+    for name in [
+        "transform",
+        "dpix",
+        "dpiy",
+        "textmetrics",
+        "istrailinghit",
+        "isinside",
+        "hittestmetrics",
+        "pointx",
+        "pointy",
+    ] {
+        output = output.replace(&format!("{name} as _"), name);
+    }
+    output
+}
+
 fn normalize_minimal_delegate_constructors(tokens: TokenStream) -> String {
     let mut output = normalize_existing_output(tokens);
     let mut search = 0;
@@ -1592,6 +1612,40 @@ fn large_native_output_structs_remain_explicit_parameters() {
 }
 
 #[test]
+fn native_com_methods_project_pcwstr_inputs() {
+    let metadata = Metadata::new(
+        Database::new([
+            Image::new(windows_default::WINRT).unwrap(),
+            Image::new(windows_default::WIN32).unwrap(),
+        ])
+        .unwrap(),
+    )
+    .unwrap();
+    let output = metadata
+        .generator(
+            Request::filtered(Filter::names(["IDWriteFactory", "IWICImagingFactory"]))
+                .projection(Projection::Minimal),
+        )
+        .unwrap()
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap()
+        .to_string();
+
+    for expected in [
+        "unsafe fn CreateTextFormat < P0 , P1 , P6 > (& self , fontfamilyname : P0 ,",
+        "localename : P6 ,) -> windows_core :: Result < IDWriteTextFormat > where P0 : windows_core :: Param < windows_core :: PCWSTR > ,",
+        "P6 : windows_core :: Param < windows_core :: PCWSTR > ,",
+        "fontfamilyname . param () . abi ()",
+        "localename . param () . abi ()",
+        "unsafe fn CreateDecoderFromFilename < P0 > (& self , wzfilename : P0 ,",
+        "where P0 : windows_core :: Param < windows_core :: PCWSTR > ,",
+        "wzfilename . param () . abi ()",
+    ] {
+        assert!(output.contains(expected), "{expected}\n{output}");
+    }
+}
+
+#[test]
 fn winrt_class_preserves_closed_generic_interfaces() {
     let output = fixture(
         r#"
@@ -2866,7 +2920,6 @@ fn tool_bindings_core_request_matches_committed_output() {
 }
 
 #[test]
-#[ignore = "canvas COM policy is split into follow-up checkpoints"]
 fn tool_bindings_canvas_request_matches_committed_output() {
     let metadata = Metadata::from_images([
         Image::new(windows_default::WINRT).unwrap(),
@@ -2890,8 +2943,8 @@ fn tool_bindings_canvas_request_matches_committed_output() {
         .parse()
         .unwrap();
     assert_eq!(
-        normalize_existing_output(actual),
-        normalize_existing_output(expected)
+        normalize_canvas_output(actual),
+        normalize_canvas_output(expected)
     );
 }
 
