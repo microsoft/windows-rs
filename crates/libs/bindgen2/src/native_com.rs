@@ -12,6 +12,10 @@ enum ReturnKind<'a> {
         position: usize,
         ty: &'a native::Type,
     },
+    VoidInterface {
+        position: usize,
+        ty: &'a native::Type,
+    },
     Query {
         guid: usize,
         object: usize,
@@ -32,7 +36,9 @@ impl native_signature::Signature {
         let mut parameters = Vec::new();
         let mut arguments = Vec::new();
         let retval = match return_kind {
-            ReturnKind::Retval { position, ty } => Some((position, ty)),
+            ReturnKind::Retval { position, ty } | ReturnKind::VoidInterface { position, ty } => {
+                Some((position, ty))
+            }
             ReturnKind::HResult
             | ReturnKind::Void
             | ReturnKind::Direct(_)
@@ -128,6 +134,19 @@ impl native_signature::Signature {
                 };
                 (quote! { -> windows_core::Result<#public> }, body)
             }
+            ReturnKind::VoidInterface { ty, .. } => {
+                let public = ty.write_public(namespace, layout);
+                (
+                    quote! { -> windows_core::Result<#public> },
+                    quote! {
+                        unsafe {
+                            let mut result__ = core::mem::zeroed();
+                            #call;
+                            windows_core::Type::from_abi(result__)
+                        }
+                    },
+                )
+            }
             ReturnKind::HResult => (
                 quote! { -> windows_core::HRESULT },
                 quote! { unsafe { #call } },
@@ -192,6 +211,7 @@ impl native_signature::Signature {
             ReturnKind::Void
             | ReturnKind::Direct(_)
             | ReturnKind::Indirect(_)
+            | ReturnKind::VoidInterface { .. }
             | ReturnKind::Query { .. } => {
                 return Err(Error::UnsupportedType {
                     name: name.to_string(),
@@ -230,7 +250,10 @@ impl native_signature::Signature {
         let retval_position = match return_kind {
             ReturnKind::Retval { position, .. } => Some(position),
             ReturnKind::HResult | ReturnKind::Query { .. } => None,
-            ReturnKind::Void | ReturnKind::Direct(_) | ReturnKind::Indirect(_) => {
+            ReturnKind::Void
+            | ReturnKind::Direct(_)
+            | ReturnKind::Indirect(_)
+            | ReturnKind::VoidInterface { .. } => {
                 return Err(Error::UnsupportedType {
                     name: name.to_string(),
                     shape: "native COM producer method does not return HRESULT".to_string(),
@@ -275,6 +298,11 @@ impl native_signature::Signature {
     fn return_kind(&self) -> ReturnKind<'_> {
         if !self.return_type.is_hresult() {
             if self.return_type == native::Type::Void {
+                if let Some((position, ty)) = self.retval_parameter()
+                    && ty.is_interface()
+                {
+                    return ReturnKind::VoidInterface { position, ty };
+                }
                 return ReturnKind::Void;
             }
             if self.indirect_return {
@@ -285,20 +313,24 @@ impl native_signature::Signature {
         if let Some((guid, object)) = self.query_parameters() {
             return ReturnKind::Query { guid, object };
         }
-        if let Some((parameter, preceding)) = self.parameters.split_last()
-            && parameter.is_output_only()
+        if let Some((position, ty)) = self.retval_parameter() {
+            ReturnKind::Retval { position, ty }
+        } else {
+            ReturnKind::HResult
+        }
+    }
+
+    fn retval_parameter(&self) -> Option<(usize, &native::Type)> {
+        let (parameter, preceding) = self.parameters.split_last()?;
+        if parameter.is_output_only()
             && !parameter.is_optional()
             && preceding
                 .iter()
                 .all(native_signature::Parameter::is_input_only)
-            && let Some(ty) = parameter.ty.pointee()
         {
-            ReturnKind::Retval {
-                position: preceding.len(),
-                ty,
-            }
+            Some((preceding.len(), parameter.ty.pointee()?))
         } else {
-            ReturnKind::HResult
+            None
         }
     }
 

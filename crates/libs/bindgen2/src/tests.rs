@@ -1461,6 +1461,38 @@ fn rich_native_interfaces_project_complete_inheritance() {
 }
 
 #[test]
+fn void_com_methods_project_interface_outputs() {
+    let metadata = Metadata::new(
+        Database::new([
+            Image::new(windows_default::WINRT).unwrap(),
+            Image::new(windows_default::WIN32).unwrap(),
+        ])
+        .unwrap(),
+    )
+    .unwrap();
+    let output = metadata
+        .generator(
+            Request::filtered(Filter::names(["ID2D1DeviceContext"]))
+                .projection(Projection::Minimal),
+        )
+        .unwrap()
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap()
+        .to_string();
+
+    assert!(
+        output.contains("unsafe fn GetTarget (& self ,) -> windows_core :: Result < ID2D1Image >"),
+        "{output}"
+    );
+    assert!(
+        output.contains(
+            "(windows_core :: Interface :: vtable (self) . GetTarget) (windows_core :: Interface :: as_raw (self) , & mut result__) ; windows_core :: Type :: from_abi (result__)"
+        ),
+        "{output}"
+    );
+}
+
+#[test]
 fn winrt_class_preserves_closed_generic_interfaces() {
     let output = fixture(
         r#"

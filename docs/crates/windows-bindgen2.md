@@ -518,7 +518,7 @@ Canvas should proceed in this order:
 3. [x] External minimal-crate routing for canonical Numerics references.
 4. [x] Ownership projection for interface-valued struct fields.
 5. [x] Native interface inheritance conveniences: `Deref` and complete hierarchy lists.
-6. [ ] Output-interface projection for non-HRESULT methods.
+6. [x] Output-interface projection for non-HRESULT methods.
 7. [ ] Metadata-sized input slices and their pointer/count ABI pairs.
 8. [ ] Input `BOOL` sugar and any remaining callable conversions.
 
