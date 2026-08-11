@@ -13,6 +13,7 @@ pub(super) struct Parameter {
     pub(super) name: String,
     flags: u16,
     pub(super) com_out_ptr: bool,
+    pub(super) array_count: Option<usize>,
     pub(super) ty: native::Type,
 }
 
@@ -43,7 +44,7 @@ impl Signature {
             ..
         } = method.signature()?;
         let parameter_rows = method.parameters_by_sequence()?;
-        let parameters = parameters
+        let parameters: Vec<Parameter> = parameters
             .into_iter()
             .enumerate()
             .map(|(position, ty)| {
@@ -62,6 +63,10 @@ impl Signature {
                         .map(|parameter| parameter.has_attribute("ComOutPtrAttribute"))
                         .transpose()?
                         .unwrap_or(false),
+                    array_count: parameter
+                        .map(|parameter| Self::array_count(parameter, owner))
+                        .transpose()?
+                        .flatten(),
                     ty: native::Type::lower_parameter(
                         database,
                         method.entity().file(),
@@ -72,6 +77,16 @@ impl Signature {
                 })
             })
             .collect::<Result<_, Error>>()?;
+        for (position, parameter) in parameters.iter().enumerate() {
+            if let Some(count) = parameter.array_count
+                && (count >= parameters.len() || count == position)
+            {
+                return Err(Error::InvalidType {
+                    name: owner.to_string(),
+                    message: "native array count parameter index is invalid",
+                });
+            }
+        }
         let return_type =
             native::Type::lower(database, method.entity().file(), owner, return_type)?;
         let indirect_return = return_type.is_indirect_return(database)?;
@@ -146,6 +161,46 @@ impl Signature {
         } else {
             self.write_result_projection(namespace, layout, projection)
         }
+    }
+
+    fn array_count(
+        parameter: windows_metadata2::ParameterDefinition<'_>,
+        owner: &str,
+    ) -> Result<Option<usize>, Error> {
+        let Some(attribute) = parameter.find_attribute("NativeArrayInfoAttribute")? else {
+            return Ok(None);
+        };
+        let mut result = None;
+        let mut other_relationship = false;
+        for argument in attribute.arguments(&())? {
+            let AttributeArgument::Named { name, value, .. } = argument else {
+                continue;
+            };
+            if name == "CountConst" {
+                other_relationship = true;
+                continue;
+            }
+            if name != "CountParamIndex" {
+                continue;
+            }
+            let AttributeValue::I16(value) = value else {
+                return Err(Error::InvalidType {
+                    name: owner.to_string(),
+                    message: "native array count parameter index is not an i16",
+                });
+            };
+            let value = usize::try_from(value).map_err(|_| Error::InvalidType {
+                name: owner.to_string(),
+                message: "native array count parameter index is negative",
+            })?;
+            if result.replace(value).is_some() {
+                return Err(Error::InvalidType {
+                    name: owner.to_string(),
+                    message: "native array has multiple count parameter indexes",
+                });
+            }
+        }
+        Ok((!other_relationship).then_some(result).flatten())
     }
 
     pub(super) fn write_result_projection(

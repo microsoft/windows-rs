@@ -1493,6 +1493,43 @@ fn void_com_methods_project_interface_outputs() {
 }
 
 #[test]
+fn native_com_methods_project_unique_input_buffers_as_slices() {
+    let metadata = Metadata::new(
+        Database::new([
+            Image::new(windows_default::WINRT).unwrap(),
+            Image::new(windows_default::WIN32).unwrap(),
+        ])
+        .unwrap(),
+    )
+    .unwrap();
+    let output = metadata
+        .generator(
+            Request::filtered(Filter::names([
+                "ID2D1Factory1",
+                "ID2D1RenderTarget",
+                "IDWriteFactory",
+            ]))
+            .projection(Projection::Minimal),
+        )
+        .unwrap()
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap()
+        .to_string();
+
+    for expected in [
+        "unsafe fn CreateStrokeStyle (& self , strokestyleproperties : * const D2D1_STROKE_STYLE_PROPERTIES1 , dashes : Option < & [f32] > ,)",
+        "unsafe fn CreateGradientStopCollection (& self , gradientstops : & [D2D1_GRADIENT_STOP] ,",
+        "unsafe fn DrawText < P2 , P4 > (& self , string : & [u16] ,",
+        "unsafe fn CreateTextLayout < P2 > (& self , string : & [u16] ,",
+        "dashes . map_or (core :: ptr :: null () , | slice | slice . as_ptr ()) , dashes . map_or (0 , | slice | slice . len () . try_into () . unwrap ())",
+        "gradientstops . as_ptr () , gradientstops . len () . try_into () . unwrap ()",
+        "string . as_ptr () , string . len () . try_into () . unwrap ()",
+    ] {
+        assert!(output.contains(expected), "{expected}\n{output}");
+    }
+}
+
+#[test]
 fn winrt_class_preserves_closed_generic_interfaces() {
     let output = fixture(
         r#"

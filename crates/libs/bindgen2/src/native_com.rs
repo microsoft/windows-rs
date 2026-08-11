@@ -35,6 +35,7 @@ impl native_signature::Signature {
         let mut constraints = Vec::new();
         let mut parameters = Vec::new();
         let mut arguments = Vec::new();
+        let (slices, slice_counts) = self.slice_parameters();
         let retval = match return_kind {
             ReturnKind::Retval { position, ty } | ReturnKind::VoidInterface { position, ty } => {
                 Some((position, ty))
@@ -58,6 +59,28 @@ impl native_signature::Signature {
             let name = tokens::ident(&parameter.name);
             if retval.is_some_and(|(retval, _)| retval == position) {
                 arguments.push(quote! { &mut result__ });
+                continue;
+            }
+            if let Some(element) = slices[position] {
+                let element = element.write_public(namespace, layout);
+                if parameter.is_optional() {
+                    parameters.push(quote! { #name: Option<&[#element]>, });
+                    arguments
+                        .push(quote! { #name.map_or(core::ptr::null(), |slice| slice.as_ptr()) });
+                } else {
+                    parameters.push(quote! { #name: &[#element], });
+                    arguments.push(quote! { #name.as_ptr() });
+                }
+                continue;
+            }
+            if let Some(slice) = slice_counts[position] {
+                let name = tokens::ident(&self.parameters[slice].name);
+                if self.parameters[slice].is_optional() {
+                    arguments
+                        .push(quote! { #name.map_or(0, |slice| slice.len().try_into().unwrap()) });
+                } else {
+                    arguments.push(quote! { #name.len().try_into().unwrap() });
+                }
                 continue;
             }
             if parameter.ty.is_interface() {
@@ -324,6 +347,7 @@ impl native_signature::Signature {
         let (parameter, preceding) = self.parameters.split_last()?;
         if parameter.is_output_only()
             && !parameter.is_optional()
+            && parameter.array_count.is_none()
             && preceding
                 .iter()
                 .all(native_signature::Parameter::is_input_only)
@@ -332,6 +356,44 @@ impl native_signature::Signature {
         } else {
             None
         }
+    }
+
+    fn slice_parameters(&self) -> (Vec<Option<&native::Type>>, Vec<Option<usize>>) {
+        let mut references = vec![0usize; self.parameters.len()];
+        for parameter in &self.parameters {
+            if let Some(count) = parameter.array_count {
+                references[count] += 1;
+            }
+        }
+
+        let mut slices = vec![None; self.parameters.len()];
+        let mut counts = vec![None; self.parameters.len()];
+        for (position, parameter) in self.parameters.iter().enumerate() {
+            let Some(count) = parameter.array_count else {
+                continue;
+            };
+            if references[count] != 1
+                || !parameter.is_input_only()
+                || !self.parameters[count].is_input_only()
+                || self.parameters[count].is_optional()
+                || self.parameters[count].ty != native::Type::U32
+            {
+                continue;
+            }
+            let native::Type::Pointer {
+                mutable: false,
+                element,
+            } = &parameter.ty
+            else {
+                continue;
+            };
+            if element.is_interface() || element.as_ref() == &native::Type::Void {
+                continue;
+            }
+            slices[position] = Some(element.as_ref());
+            counts[count] = Some(position);
+        }
+        (slices, counts)
     }
 
     fn query_parameters(&self) -> Option<(usize, usize)> {

@@ -519,7 +519,7 @@ Canvas should proceed in this order:
 4. [x] Ownership projection for interface-valued struct fields.
 5. [x] Native interface inheritance conveniences: `Deref` and complete hierarchy lists.
 6. [x] Output-interface projection for non-HRESULT methods.
-7. [ ] Metadata-sized input slices and their pointer/count ABI pairs.
+7. [x] Metadata-sized input slices and their pointer/count ABI pairs.
 8. [ ] Input `BOOL` sugar and any remaining callable conversions.
 
 The canvas request now renders fully, so later checkpoints can use the complete token differential
