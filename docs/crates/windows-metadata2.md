@@ -16,6 +16,7 @@ yet a full replacement for metadata writing, merging, remapping, or every ECMA t
 | Signature and custom-attribute decoding | Complete for current bindgen2 and RDL2 paths. |
 | Layout, import, nested-type, and interface relationships | Complete for current bindgen2 paths. |
 | Base types and attributed interface implementations | Complete for WinRT class projection. |
+| Production reader adoption | Complete for all 17 `tool_bindings` requests through bindgen2. |
 | Writer | Limited to the current seven tables and 16-bit indexes. |
 | Merge/remap and validation profiles | Not implemented. |
 | Pointer tables and broader table families | Not implemented. |
@@ -32,8 +33,8 @@ The hardening required by the current bindgen2 milestone is complete:
 1. [x] Validate both `NestedClass` indexes during `Database::new`; the streaming semantic view must
    not be able to unwrap a null enclosing type.
 2. [x] Add the ECMA interface bit to `TypeAttributes` and use it when classifying root definitions.
-3. Review `image.rs` and `semantic.rs` for the next natural module split, but do not refactor them
-   without a concrete duplicated concern.
+3. [x] Review `image.rs` and `semantic.rs`; keep them unchanged until a concrete duplicated concern
+   justifies another module.
 4. [x] Keep immutable bindgen selection catalogs in bindgen2's shared metadata context rather than
    adding consumer-specific indexes to metadata2.
 5. [x] Re-run metadata differential tests after the bindgen2 stabilization gate.
@@ -49,11 +50,11 @@ Current exclusions are intentional:
 - general metadata construction and serialization beyond the bounded authoring proof;
 - common, Win32, and WinRT validation;
 - architecture merging and namespace remapping;
-- `windows-bindgen` and `windows-rdl` integration.
+- replacement of the legacy `windows-bindgen` and `windows-rdl` production paths.
 
 These capabilities will be added in independent changes with differential tests against the
-existing implementation. The crate remains unpublished until both `windows-bindgen` and
-`windows-rdl` can use it without changing generated output.
+existing implementation. The crate remains unpublished until the remaining generation and
+authoring consumers can migrate without unintended output changes.
 
 ## Design constraints
 
@@ -77,7 +78,7 @@ existing implementation. The crate remains unpublished until both `windows-bindg
 | Multi-image database and indexes | Done | Owned file IDs and row IDs replace leaked indexes and borrowed identities. |
 | Custom-attribute values | Done | Constructor-directed fixed and named arguments decode without losing serialized types. |
 | `windows-bindgen` proof | Done | Owned selection and representative output proved the metadata2 boundary. |
-| `windows-bindgen2` foundation | Started | Existing projections render through deterministic modules. |
+| `windows-bindgen2` foundation | Done | Owned metadata supports the complete `tool_bindings` migration. |
 | Deterministic metadata builder | Started | Bounded enum/struct images are accepted by both readers. |
 | `windows-rdl2` authoring proof | Started | A separate source model emits through metadata2. |
 | Consumer diagnostics boundary | Done | Builder rollback preserves consumer-defined errors. |

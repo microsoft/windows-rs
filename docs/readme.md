@@ -63,7 +63,7 @@ Each crate page covers usage and maintenance. Generated API documentation is ava
 | [windows-clang](crates/windows-clang.md) | Generates RDL from C and C++ headers using libclang. |
 | [windows-default](crates/windows-default.md) | Embedded Windows metadata for build tools. |
 | [windows-metadata](crates/windows-metadata.md) | Reads and writes ECMA-335 metadata. |
-| [windows-metadata2](crates/windows-metadata2.md) | Incubates a replacement metadata foundation. |
+| [windows-metadata2](crates/windows-metadata2.md) | Owned metadata foundation used by bindgen2. |
 | [windows-rdl](crates/windows-rdl.md) | Parses RDL and generates ECMA-335 metadata. |
 | [windows-rdl2](crates/windows-rdl2.md) | Incubates a smaller RDL authoring frontend. |
 | [cppwinrt](crates/cppwinrt.md) | Packages the C++/WinRT compiler. |
@@ -85,6 +85,6 @@ Use these crates when the focused crates above do not cover the APIs you need.
 | Crate | Description |
 | --- | --- |
 | [windows-bindgen](crates/windows-bindgen.md) | Generates Rust bindings from Windows metadata. |
-| [windows-bindgen2](crates/windows-bindgen2.md) | Incubates a replacement binding generator. |
+| [windows-bindgen2](crates/windows-bindgen2.md) | Replacement candidate used by `tool_bindings`. |
 | [windows](crates/windows.md) | Typed bindings for C-style, COM, and WinRT APIs. |
 | [windows-sys](crates/windows-sys.md) | Raw bindings for C-style Windows APIs. |

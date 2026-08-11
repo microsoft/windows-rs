@@ -91,10 +91,9 @@ windows_bindgen::bindgen(["--etc", "bindings.txt"]);
 ```
 
 When only the filter list is large, keep it in a filter-only file and use
-`Bindgen::filter_file`/`filter_files` or the textual `--filter-file` option.
-
-The in-repo crates use both patterns. `tool_bindings` runs
-`bindgen(["--etc", "crates/tools/bindings/src/<crate>.txt"])` for each library.
+`Bindgen::filter_file`/`filter_files` or the textual `--filter-file` option. The repository's
+per-crate files in `crates/tools/bindings/src` retain this command format, but `tool_bindings`
+parses them through [`windows-bindgen2`](windows-bindgen2.md).
 
 ## Choosing the output shape
 
@@ -280,10 +279,13 @@ not needed to use `windows-bindgen`.
 metadata through [`windows-metadata`](windows-metadata.md). The bundled metadata inputs live in
 the [`windows-default`](windows-default.md) crate.
 
-Two tools drive it in this repository:
+Four tools use it in this repository:
 
-- `tool_bindings` reads the per-crate `.txt` filters in `crates/tools/bindings/src`.
-- `tool_package` produces the published `windows` and `windows-sys` crates.
+- `tool_package` produces the published `windows` and `windows-sys` crates;
+- `tool_reactor` and `tool_composition` generate bindings from Windows App SDK metadata;
+- `tool_webview` generates bindings from its header-authored metadata.
+
+`tool_bindings` has migrated to [`windows-bindgen2`](windows-bindgen2.md).
 
 ### Output policies
 

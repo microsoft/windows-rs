@@ -37,10 +37,10 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | ABI canonicalization | Consolidated for native sys | Namespace-qualified aliases and one callable lowering path match all nine requests. |
 | Request reuse | Complete for current catalogs | The database, nested map, and interface-base map are shared across requests. |
 | Formatting and file writing | Production tool policy | `tool_bindings` owns rustfmt, macro spacing, and changed-file writes. |
-| Sys request differential | Complete | A test-local parser proves nine real request files. |
+| Request differential | Complete | The production adapter proves all 17 request files. |
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
-| Package output | Not started | Requires stable filtering, layout, and formatting first. |
+| Package output | Not started | Requires multi-file layout, feature generation, and exclusions. |
 
 Approximate hand-written production source size is 8,000 lines for bindgen2 versus 12,829 for the
 existing bindgen crate, about 38% less. Bindgen2 also has about 2,160 lines of tests. This is a
@@ -338,9 +338,9 @@ The current consumers do not share one orchestration shape:
 | Build scripts and samples | A stable builder facade over path and in-memory metadata inputs. |
 
 Tool orchestration should remain in each tool. Bindgen2 core should own metadata, typed selection,
-dependency closure, projection, and deterministic rendering. Legacy command-file parsing,
-rustfmt process policy, filesystem writes, package staging, and compatibility diagnostics belong
-in a later facade or in the consuming tool.
+dependency closure, projection, and deterministic rendering. Legacy command-file parsing, rustfmt
+process policy, filesystem writes, package staging, and compatibility diagnostics belong in the
+consuming tool.
 
 The review found several signs that test scaffolding was shaping the production API:
 
@@ -362,8 +362,8 @@ The review found several signs that test scaffolding was shaping the production 
 This gate is complete:
 
 1. [x] Remove `SysRequest`, formatter process management, and file writing from the projection core.
-   Preserve the nine-request proof with a test-local parser until a real tool migration needs a
-   facade.
+   Move request parsing and complete output parity coverage into the production `tool_bindings`
+   adapter.
 2. [x] Replace `Options` plus four generator constructors with one typed request/selection entry
    point. Make layout an explicit render argument rather than stored request state.
 3. [x] Make `Metadata` construction fallible and eager. Share native catalogs and the immutable
@@ -593,11 +593,11 @@ generated API shape remains safe on 64-bit targets.
 
 ### WebView2 discovery
 
-The next proof is the native `tool_webview` request generated from the pinned WebView2 headers. It
-produces 6,927 lines and explicitly selects 28 COM interfaces for implementation scaffolding. An
-ignored complete differential consumes `target/webview/WebView2.winmd` after `tool_webview`
-generates it. This request should first prove native implementation filtering; projection policy
-must not be broadened merely because another complete selected interface could be implemented.
+A separate proof uses the native `tool_webview` request generated from the pinned WebView2 headers.
+It produces 6,927 lines and explicitly selects 28 COM interfaces for implementation scaffolding.
+An ignored complete differential consumes `target/webview/WebView2.winmd` after `tool_webview`
+generates it. This request proves native implementation filtering without making `tool_webview` a
+production bindgen2 consumer.
 
 Native `Request::implementations` now controls producer emission. The request emits exactly its 28
 producer traits and no others. Requested implementations close dependencies over every method and

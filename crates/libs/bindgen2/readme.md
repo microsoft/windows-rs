@@ -17,16 +17,21 @@ let tokens = generator.render(windows_bindgen2::Layout::Flat)?;
 `Metadata` validates images and lowers immutable catalogs once. Relationship errors that do not
 affect a request are deferred until that request traverses them. Each `Generator` retains only the
 typed entities and selection policy for one request. Formatting, file writing, package staging,
-and legacy command parsing remain the responsibility of callers or a later tool-facing facade.
+and legacy command parsing remain the responsibility of callers.
 
 The current implementation covers WinRT enums, structs, delegates, interfaces, and classes plus
 native sys types, constants, functions, delegates, and interfaces. Filtered dependency closure,
 nested and flat layouts, architecture gates, and deterministic ordering are implemented.
-Member filtering and explicit interface implementation selection are implemented. Minimal
-projection remains private. A bounded native COM path now covers filtered interface identity,
-vtable placeholders, callable HRESULT wrappers, shell dependencies, complete-interface producer
-vtables, and generic query methods for the animation and core requests. Package output and broader
-COM policy remain future work.
+Member filtering and explicit interface implementation selection are implemented. A bounded native
+COM path covers filtered interface identity, vtable placeholders, callable HRESULT wrappers, shell
+dependencies, complete-interface producer vtables, and generic query methods for the animation and
+core requests.
+
+`tool_bindings` is the first production consumer. Its 17 flat requests share one `Metadata` value
+and select default, sys, or minimal output. The tool owns command parsing, rustfmt compatibility,
+and file writes. `tool_reactor` remains on `windows-bindgen`; its class selection, composable
+activation, hierarchy, event, and producer policies need bounded parity work before migration.
+Package output and broader COM policy remain future work.
 
 The design and differential evidence are tracked in
 [`docs/crates/windows-bindgen2.md`](../../../docs/crates/windows-bindgen2.md).
