@@ -189,40 +189,6 @@ fn failed_component_mounts_do_not_run_effects() {
     }
 }
 
-struct PanickingCommitEffect;
-
-impl Component for PanickingCommitEffect {
-    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
-        cx.use_effect((), || panic!("post-commit effect failed"));
-        text_block("committed").into()
-    }
-}
-
-#[test]
-fn post_commit_effect_panics_leave_the_committed_tree_usable() {
-    let element = component(PanickingCommitEffect, ());
-    let mut reconciler = Reconciler::new(RecordingBackend::new());
-
-    let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
-        reconciler.reconcile(None, &element, None, rerender())
-    }));
-
-    assert!(result.is_err());
-    assert_eq!(reconciler.backend.live_control_count(), 1);
-
-    let healthy: Element = text_block("healthy").into();
-    assert!(
-        reconciler
-            .reconcile(Some(&element), &healthy, None, rerender())
-            .is_some()
-    );
-
-    reconciler.unmount_root();
-    reconciler.assert_consistent();
-    reconciler.backend.assert_consistent();
-    assert_eq!(reconciler.backend.live_control_count(), 0);
-}
-
 #[test]
 fn failed_templated_mounts_roll_back_all_owned_state() {
     for operation in templated_mount_operations() {

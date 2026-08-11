@@ -1,6 +1,5 @@
 use std::cell::RefCell;
 use std::marker::PhantomData;
-use std::panic::AssertUnwindSafe;
 use std::sync::{Arc, Mutex};
 
 use super::*;
@@ -133,7 +132,7 @@ fn set_exit_callback(callback: Option<Box<dyn FnOnce() + Send>>) {
 
 fn run_exit_callback() {
     if let Some(callback) = ON_EXIT.with(|slot| slot.borrow_mut().take()) {
-        fault::catch("app exit", callback);
+        fault::abort_on_panic("app exit", callback);
     }
 }
 
@@ -145,7 +144,6 @@ pub struct App {
     presenter: PresenterKind,
     backdrop: Option<Backdrop>,
     icon: Option<String>,
-    on_fault: Option<Box<dyn Fn(&Fault) + Send>>,
     on_exit: Option<Box<dyn FnOnce() + Send>>,
 }
 
@@ -164,7 +162,6 @@ impl App {
             presenter: PresenterKind::Default,
             backdrop: None,
             icon: None,
-            on_fault: None,
             on_exit: None,
         }
     }
@@ -214,19 +211,6 @@ impl App {
         self
     }
 
-    /// Set a handler invoked when a panic is caught at a reactor callback
-    /// boundary - an event handler, a timer tick, or the render pass. Without a
-    /// handler such panics are logged and execution continues (a panic that
-    /// reaches WinUI's `extern "system"` delegate boundary would otherwise abort
-    /// the process). The handler runs on the UI thread.
-    pub fn on_fault<F>(mut self, f: F) -> Self
-    where
-        F: Fn(&Fault) + Send + 'static,
-    {
-        self.on_fault = Some(Box::new(f));
-        self
-    }
-
     /// Set a callback invoked on the UI thread immediately before the process exits after the
     /// final reactor window closes.
     pub fn on_exit<F>(mut self, f: F) -> Self
@@ -244,7 +228,6 @@ impl App {
     {
         init_app_platform()?;
         let setup = Mutex::new(Some(setup));
-        let on_fault = Mutex::new(self.on_fault);
         let on_exit = Mutex::new(self.on_exit);
         let result_slot: Arc<Mutex<Result<()>>> = Arc::new(Mutex::new(Ok(())));
         let result_slot_cb = Arc::clone(&result_slot);
@@ -252,13 +235,9 @@ impl App {
             Application::Start(&ApplicationInitializationCallback::new(move |_params| {
                 let inner = || -> Result<()> {
                     let setup = setup.lock().unwrap().take().unwrap();
-                    let on_fault = on_fault.lock().unwrap().take();
                     let on_exit = on_exit.lock().unwrap().take();
 
                     let on_launched: Box<dyn FnOnce() -> Result<()>> = Box::new(move || {
-                        if let Some(on_fault) = on_fault {
-                            fault::set_handler(on_fault);
-                        }
                         set_exit_callback(on_exit);
                         let app = APP_SLOT.with(|slot| slot.borrow().clone()).unwrap();
                         install_xaml_controls_resources(&app)?;
@@ -294,7 +273,6 @@ impl App {
         let presenter = self.presenter;
         let backdrop = self.backdrop;
         let icon = self.icon;
-        let on_fault = Mutex::new(self.on_fault);
         let on_exit = Mutex::new(self.on_exit);
         if let Some(icon) = &icon
             && !std::path::Path::new(icon).is_file()
@@ -311,15 +289,11 @@ impl App {
             Application::Start(&ApplicationInitializationCallback::new(move |_params| {
                 let inner = || -> Result<()> {
                     let factory = factory.lock().unwrap().take().unwrap();
-                    let on_fault = on_fault.lock().unwrap().take();
                     let on_exit = on_exit.lock().unwrap().take();
 
                     let title = title.clone();
                     let icon = icon.clone();
                     let on_launched: Box<dyn FnOnce() -> Result<()>> = Box::new(move || {
-                        if let Some(on_fault) = on_fault {
-                            fault::set_handler(on_fault);
-                        }
                         set_exit_callback(on_exit);
                         let app = APP_SLOT.with(|slot| slot.borrow().clone()).unwrap();
                         install_xaml_controls_resources(&app)?;
@@ -558,20 +532,13 @@ fn run_callback<F>(label: &'static str, f: F) -> Result<()>
 where
     F: FnOnce() -> Result<()>,
 {
-    match std::panic::catch_unwind(AssertUnwindSafe(f)) {
-        Ok(Ok(())) => Ok(()),
-        Ok(Err(err)) => {
+    match fault::abort_on_panic(label, f) {
+        Ok(()) => Ok(()),
+        Err(err) => {
             diagnostics::emit(&format!(
                 "windows_reactor: {label} callback returned error: {err:?}"
             ));
             Err(err)
-        }
-        Err(payload) => {
-            let msg = diagnostics::format_panic_payload(&payload);
-            diagnostics::emit(&format!(
-                "windows_reactor: {label} callback panicked: {msg}"
-            ));
-            Err(Error::new(E_FAIL, format!("{label} panicked: {msg}")))
         }
     }
 }
