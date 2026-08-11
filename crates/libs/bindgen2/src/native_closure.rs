@@ -6,6 +6,7 @@ pub(super) struct Closure<'a> {
     interface_bases: &'a BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
     selected: BTreeSet<Entity<TypeDef>>,
     interface_members: BTreeMap<Entity<TypeDef>, MemberSelection>,
+    implementations: BTreeSet<Entity<TypeDef>>,
     pending: Vec<Entity<TypeDef>>,
 }
 
@@ -19,6 +20,7 @@ impl<'a> Closure<'a> {
             interface_bases,
             selected: BTreeSet::new(),
             interface_members: BTreeMap::new(),
+            implementations: BTreeSet::new(),
             pending: Vec::new(),
         }
     }
@@ -54,6 +56,11 @@ impl<'a> Closure<'a> {
             self.interface_members.insert(entity, members);
             self.pending.push(entity);
         }
+    }
+
+    pub(super) fn include_implementation(&mut self, entity: Entity<TypeDef>) {
+        self.implementations.insert(entity);
+        self.include_interface(entity, MemberSelection::Shell);
     }
 
     pub(super) fn include_field(
@@ -128,7 +135,11 @@ impl<'a> Closure<'a> {
                             self.include_name(namespace, name)?;
                         }
                     }
-                    let members = self.interface_members.get(&entity).unwrap().clone();
+                    let members = if self.implementations.contains(&entity) {
+                        MemberSelection::All
+                    } else {
+                        self.interface_members.get(&entity).unwrap().clone()
+                    };
                     for method in definition.methods()? {
                         let name = method.name()?;
                         if members.includes(name, name) {

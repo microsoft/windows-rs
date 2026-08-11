@@ -32,6 +32,7 @@ enum EnumVariants {
 pub(crate) struct Win32Selection {
     namespaces: Vec<Namespace>,
     enum_variants: BTreeMap<Entity<TypeDef>, EnumVariants>,
+    implementations: Option<BTreeSet<Entity<TypeDef>>>,
 }
 
 pub(crate) struct Win32Catalogs {
@@ -60,11 +61,13 @@ impl Win32Selection {
         database: &Database,
         catalogs: Arc<Win32Catalogs>,
         filter: Option<&Filter>,
+        implementations: Option<&Filter>,
     ) -> Result<Self, Error> {
         let mut closure =
             filter.map(|_| native_closure::Closure::new(database, &catalogs.interface_bases));
         let mut namespaces = NamespaceSelections::new();
         let mut enum_variants = BTreeMap::<Entity<TypeDef>, EnumVariants>::new();
+        let mut selected_implementations = implementations.map(|_| BTreeSet::new());
         for definition in database.definitions() {
             if definition.is_windows_runtime()? {
                 continue;
@@ -99,6 +102,17 @@ impl Win32Selection {
                 }
                 TypeCategory::Struct | TypeCategory::Delegate | TypeCategory::Interface => {
                     let name = definition.name()?;
+                    if category == TypeCategory::Interface
+                        && implementations.is_some_and(|filter| filter.includes(&namespace, name))
+                    {
+                        selected_implementations
+                            .as_mut()
+                            .unwrap()
+                            .insert(definition.entity());
+                        if let Some(closure) = &mut closure {
+                            closure.include_implementation(definition.entity());
+                        }
+                    }
                     if filter.is_none_or(|filter| filter.includes(&namespace, name)) {
                         if let Some(closure) = &mut closure {
                             closure.include_definition(definition.entity())?;
@@ -206,7 +220,14 @@ impl Win32Selection {
         Ok(Self {
             namespaces,
             enum_variants,
+            implementations: selected_implementations,
         })
+    }
+
+    fn implements(&self, entity: Entity<TypeDef>) -> Option<bool> {
+        self.implementations
+            .as_ref()
+            .map(|implementations| implementations.contains(&entity))
     }
 }
 
@@ -449,7 +470,12 @@ impl<'a> Win32Items<'a> {
                         definition,
                         &self.catalogs.interface_bases,
                     )?
-                    .write_context(layout, projection, members)?,
+                    .write_context(
+                        layout,
+                        projection,
+                        members,
+                        self.selection.implements(*entity),
+                    )?,
                 );
             }
             for entity in &namespace.constants {
@@ -584,7 +610,7 @@ mod tests {
         let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
         let catalogs = Arc::new(Win32Catalogs::new(&database).unwrap());
         let selection =
-            Win32Selection::new_with_catalogs(&database, catalogs.clone(), None).unwrap();
+            Win32Selection::new_with_catalogs(&database, catalogs.clone(), None, None).unwrap();
         let items = Win32Items {
             database: &database,
             catalogs: &catalogs,
@@ -694,7 +720,7 @@ mod tests {
         let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
         let catalogs = Arc::new(Win32Catalogs::new(&database).unwrap());
         let selection =
-            Win32Selection::new_with_catalogs(&database, catalogs.clone(), None).unwrap();
+            Win32Selection::new_with_catalogs(&database, catalogs.clone(), None, None).unwrap();
         let items = Win32Items {
             database: &database,
             catalogs: &catalogs,

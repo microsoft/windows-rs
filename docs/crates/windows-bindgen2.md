@@ -555,14 +555,17 @@ ignored complete differential consumes `target/webview/WebView2.winmd` after `to
 generates it. This request should first prove native implementation filtering; projection policy
 must not be broadened merely because another complete selected interface could be implemented.
 
-The request renders completely, with 103 projected interfaces and 99 selected consumer wrappers,
-but differs in 564 token groups. Native `Request::implementations` is currently ignored: bindgen2
-emits six producer traits based on selected-member completeness, while the request requires 28
-specific traits. Twenty-five requested traits are missing and three unrequested traits are
-present. Implemented native interfaces must also close over all their methods, which accounts for
-most of the missing consumer wrappers and typed vtable slots. This is the first WebView2 policy
-slice; later token differences should not be addressed until explicit implementation selection is
-correct.
+Native `Request::implementations` now controls producer emission. The request emits exactly its 28
+producer traits and no others. Requested implementations close dependencies over every method and
+use typed vtable slots for producer upcalls, but consumer wrappers still follow the main member
+filter. An implementation-only callback therefore does not expose unrelated consumer methods.
+Requests without an implementation filter preserve the earlier complete-interface behavior.
+
+The remaining differential has 534 token groups. Bindgen2 emits 99 consumer wrappers while the
+committed output has 218. The next selection bug is accessor naming: native lowering currently
+strips `get_` and `put_` before member matching, while tool filters use the raw metadata names.
+`EventRegistrationToken` ABI spelling and several callable conversions are later categories; they
+should not be mixed into the member-name fix.
 
 ### Native type identity and projection boundary
 

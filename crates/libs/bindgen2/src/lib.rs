@@ -313,6 +313,7 @@ impl Generator {
             &shared.database,
             shared.win32_catalogs.clone(),
             filter,
+            request.implementations.as_ref(),
         )?;
         let winrt_implementations = request.implementations.as_ref().map(|implementations| {
             winrt

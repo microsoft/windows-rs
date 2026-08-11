@@ -100,7 +100,7 @@ impl NativeInterface {
     /// Renders a flat Win32 sys vtable and optional IID.
     #[cfg(test)]
     pub fn write_sys(&self) -> TokenStream {
-        self.write_context(Layout::Flat, Projection::Sys, &MemberSelection::All)
+        self.write_context(Layout::Flat, Projection::Sys, &MemberSelection::All, None)
             .unwrap()
     }
 
@@ -109,9 +109,10 @@ impl NativeInterface {
         layout: Layout,
         projection: Projection,
         members: &MemberSelection,
+        implementation: Option<bool>,
     ) -> Result<TokenStream, Error> {
         if !projection.is_sys() {
-            return self.write_rich(layout, projection, members);
+            return self.write_rich(layout, projection, members, implementation);
         }
         let architectures = tokens::architectures(self.architectures);
         let name = tokens::ident(&format!("{}_Vtbl", self.name));
@@ -156,6 +157,7 @@ impl NativeInterface {
         layout: Layout,
         projection: Projection,
         members: &MemberSelection,
+        implementation: Option<bool>,
     ) -> Result<TokenStream, Error> {
         let Some(guid) = self.guid else {
             return Err(Error::UnsupportedType {
@@ -212,7 +214,7 @@ impl NativeInterface {
         });
         let methods = self.methods.iter().map(|method| {
             let name = tokens::ident(&method.name);
-            if !method.selected(members) {
+            if !method.selected(members) && implementation != Some(true) {
                 return quote! { #name: usize, };
             }
             let architectures = tokens::architectures(method.architectures);
@@ -246,7 +248,18 @@ impl NativeInterface {
         } else {
             quote! { impl #name { #(#wrappers)* } }
         };
-        let implementation = if self.can_implement(members) {
+        let implement = match implementation {
+            None => self.can_implement(members),
+            Some(false) => false,
+            Some(true) if self.supports_implementation() => true,
+            Some(true) => {
+                return Err(Error::InvalidType {
+                    name: format!("{}.{}", self.namespace, self.name),
+                    message: "requested native interface cannot be implemented",
+                });
+            }
+        };
+        let implementation = if implement {
             self.write_implementation(layout, projection)?
         } else {
             quote! {}
@@ -270,12 +283,15 @@ impl NativeInterface {
     }
 
     fn can_implement(&self, members: &MemberSelection) -> bool {
+        self.supports_implementation() && self.methods.iter().all(|method| method.selected(members))
+    }
+
+    fn supports_implementation(&self) -> bool {
         self.guid.is_some()
             && self
                 .base
                 .as_ref()
                 .is_some_and(|(_, name)| name == "IUnknown")
-            && self.methods.iter().all(|method| method.selected(members))
     }
 
     fn write_implementation(

@@ -2249,6 +2249,53 @@ fn complete_native_com_query_emits_consumer_and_producer_projection() {
 }
 
 #[test]
+fn explicit_implementations_control_native_producers_and_closure() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let mut filter = Filter::new();
+    include_tool_filter(
+        &metadata,
+        &mut filter,
+        "IUIAnimationManager2::{CreateAnimationVariable}",
+    );
+
+    let output = normalize_existing_output(
+        metadata
+            .generator(
+                Request::filtered(filter.clone())
+                    .implementations(Filter::new())
+                    .projection(Projection::Minimal),
+            )
+            .unwrap()
+            .render_projection(Layout::Flat, Projection::Minimal)
+            .unwrap(),
+    );
+    assert!(output.contains("CreateAnimationVariable"));
+    assert!(output.contains("CreateAnimationVectorVariable : usize"));
+    assert!(!output.contains("IUIAnimationManager2_Impl"));
+
+    let mut implementations = Filter::new();
+    implementations.include_name("IUIAnimationManager2");
+    let output = normalize_existing_output(
+        metadata
+            .generator(
+                Request::filtered(filter)
+                    .implementations(implementations)
+                    .projection(Projection::Minimal),
+            )
+            .unwrap()
+            .render_projection(Layout::Flat, Projection::Minimal)
+            .unwrap(),
+    );
+    assert!(output.contains("pub trait IUIAnimationManager2_Impl"));
+    assert!(output.contains("pub CreateAnimationVectorVariable : unsafe extern"));
+    assert!(!output.contains("unsafe fn CreateAnimationVectorVariable"));
+}
+
+#[test]
 fn native_com_query_preserves_ordinary_parameters() {
     let metadata = Metadata::from_images([
         Image::new(windows_default::WINRT).unwrap(),
