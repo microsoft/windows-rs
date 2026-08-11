@@ -392,31 +392,4 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.host.context_stack.pop_raw();
         }
     }
-
-    pub fn mount_custom(&mut self, c: &CustomElementHandle) -> ControlId {
-        self.stats.ui_elements_created += 1;
-        let id = c.0.mount(&mut self.backend);
-        self.tree.register(id, None);
-        self.tree.set_custom(id, c.0.clone_dyn());
-        id
-    }
-
-    pub fn update_custom(
-        &mut self,
-        old: &CustomElementHandle,
-        new: &CustomElementHandle,
-        id: ControlId,
-    ) -> ControlId {
-        debug_assert_eq!(
-            CustomElement::type_id(&*old.0),
-            CustomElement::type_id(&*new.0),
-            "update_custom invoked across different CustomElement types - \
-             reconciler should have unmount+remount via kind_matches",
-        );
-        if !old.0.eq_dyn(&*new.0) {
-            new.0.update(&*old.0, id, &mut self.backend);
-            self.tree.set_custom(id, new.0.clone_dyn());
-        }
-        id
-    }
 }

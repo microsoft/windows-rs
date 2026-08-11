@@ -12,7 +12,6 @@ pub(super) struct MountedTree {
     nodes: FxHashMap<ControlId, MountedNativeNode>,
     headers: FxHashMap<ControlId, MountedOutput>,
     panes: FxHashMap<ControlId, MountedOutput>,
-    custom: FxHashMap<ControlId, Box<dyn CustomElement>>,
     before_unmount: FxHashMap<ControlId, BeforeUnmount>,
     pub(super) templated: MountedTemplatedTree,
     pub(super) logical: MountedLogicalTree,
@@ -108,12 +107,6 @@ impl MountedTree {
                 "owned-only projection {id:?} has no mounted native node"
             );
         }
-        for id in self.custom.keys() {
-            assert!(
-                self.nodes.contains_key(id),
-                "custom handle {id:?} has no mounted native node"
-            );
-        }
         for id in self.before_unmount.keys() {
             assert!(
                 self.nodes.contains_key(id),
@@ -143,7 +136,6 @@ impl MountedTree {
         {
             self.clear_parent(pane, id);
         }
-        self.custom.remove(&id);
         self.before_unmount.remove(&id);
         if matches!(kind, Some(ControlKind::ContentDialog)) {
             self.owned_only.insert(id);
@@ -227,15 +219,6 @@ impl MountedTree {
 
     pub(super) fn pane(&self, parent: ControlId) -> Option<MountedOutput> {
         self.panes.get(&parent).copied()
-    }
-
-    pub(super) fn set_custom(&mut self, id: ControlId, handle: Box<dyn CustomElement>) {
-        debug_assert!(self.nodes.contains_key(&id));
-        self.custom.insert(id, handle);
-    }
-
-    pub(super) fn take_custom(&mut self, id: ControlId) -> Option<Box<dyn CustomElement>> {
-        self.custom.remove(&id)
     }
 
     pub(super) fn set_before_unmount(
@@ -572,7 +555,6 @@ impl MountedTree {
         {
             self.clear_parent(pane, id);
         }
-        self.custom.remove(&id);
         self.before_unmount.remove(&id);
         self.nodes.remove(&id);
         if !owned {

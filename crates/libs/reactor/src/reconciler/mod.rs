@@ -394,13 +394,6 @@ impl<B: Backend + 'static> Reconciler<B> {
                     logical: None,
                 };
             }
-            Element::Custom(c) => {
-                return MountedOutput {
-                    slot,
-                    native: Some(self.mount_custom(c)),
-                    logical: None,
-                };
-            }
             Element::Empty => return MountedOutput::empty(slot),
             _ => {}
         }
@@ -459,13 +452,6 @@ impl<B: Backend + 'static> Reconciler<B> {
                 let id = old_output.native.unwrap();
                 self.update_templated_list(o, n, id);
                 return old_output;
-            }
-            (Element::Custom(o), Element::Custom(n)) => {
-                let id = old_output.native.unwrap();
-                return MountedOutput {
-                    native: Some(self.update_custom(o, n, id)),
-                    ..old_output
-                };
             }
             (Element::Empty, Element::Empty) => return old_output,
             _ => {}
@@ -669,10 +655,6 @@ impl<B: Backend + 'static> Reconciler<B> {
                 if let Some(callback) = lifecycle.callback {
                     callback.invoke(self.backend.get_native_element(node));
                 }
-            }
-
-            if let Some(handle) = self.tree.take_custom(node) {
-                handle.before_destroy(node, &mut self.backend);
             }
 
             // Keep native ownership discoverable if fail-before destruction panics.

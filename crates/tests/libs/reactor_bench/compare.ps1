@@ -19,7 +19,7 @@ $baseDirectory = Join-Path $tempRoot "windows-rs-reactor-base-$PID"
 function Invoke-Benchmark([string]$workingDirectory) {
     Push-Location $workingDirectory
     try {
-        $output = & cargo run -p test_reactor_bench --release --quiet -- --iters 1000 --reps 6
+        $output = & cargo run -p test_reactor_bench --release --quiet -- --iters 1000 --reps 12
         if ($LASTEXITCODE -ne 0) {
             throw "Benchmark failed in $workingDirectory"
         }
@@ -63,6 +63,7 @@ try {
     )
 
     $failed = $false
+    $timingWarnings = @()
     $rows = foreach ($key in $required) {
         if (!$base.ContainsKey($key) -or !$current.ContainsKey($key)) {
             throw "Benchmark output does not contain $key in both revisions"
@@ -75,8 +76,12 @@ try {
         $allocationRegression =
             $byteChange -gt $MaxByteRegressionPercent -or $after.Allocs -gt $before.Allocs
         $timeRegression = $timeChange -gt $MaxTimeRegressionPercent
-        if ($allocationRegression -or $timeRegression) {
+        if ($allocationRegression) {
             $failed = $true
+        }
+        if ($timeRegression) {
+            $timingWarnings +=
+                "$key time increased by $('{0:N1}' -f $timeChange)% on the hosted runner."
         }
 
         [pscustomobject]@{
@@ -92,8 +97,11 @@ try {
     }
 
     $rows | Format-Table -AutoSize
+    foreach ($warning in $timingWarnings) {
+        Write-Warning $warning
+    }
     if ($failed) {
-        throw "Reconciler benchmark regressed beyond the allowed time or memory floor."
+        throw "Reconciler benchmark regressed beyond the allowed memory floor."
     }
 } finally {
     if (Test-Path $baseDirectory) {

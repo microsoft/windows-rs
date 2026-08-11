@@ -1,7 +1,5 @@
 #![windows_subsystem = "windows"]
 
-use std::any::Any;
-
 use windows_reactor::*;
 
 fn labeled_row(label: &str, value: Element) -> Fragment {
@@ -11,62 +9,8 @@ fn labeled_row(label: &str, value: Element) -> Fragment {
     ))
 }
 
-#[derive(Clone)]
-struct BadgeButton {
-    key: Option<String>,
-    label: String,
-    count: u32,
-}
-
-impl BadgeButton {
-    fn new(label: impl Into<String>, count: u32) -> Self {
-        Self {
-            key: None,
-            label: label.into(),
-            count,
-        }
-    }
-    fn rendered(&self) -> String {
-        format!("{} ({})", self.label, self.count)
-    }
-}
-
-impl CustomElement for BadgeButton {
-    fn as_any(&self) -> &dyn Any {
-        self
-    }
-    fn kind_name(&self) -> &'static str {
-        "BadgeButton"
-    }
-    fn key(&self) -> Option<&str> {
-        self.key.as_deref()
-    }
-    fn eq_dyn(&self, other: &dyn CustomElement) -> bool {
-        other
-            .as_any()
-            .downcast_ref::<Self>()
-            .is_some_and(|o| self.key == o.key && self.label == o.label && self.count == o.count)
-    }
-    fn clone_dyn(&self) -> Box<dyn CustomElement> {
-        Box::new(self.clone())
-    }
-    fn mount(&self, backend: &mut dyn Backend) -> ControlId {
-        let id = backend.create(ControlKind::Button);
-        backend.set_prop(id, Prop::Content, &PropValue::Str(self.rendered()));
-        id
-    }
-    fn update(&self, prev: &dyn CustomElement, id: ControlId, backend: &mut dyn Backend) {
-        let prev = prev.as_any().downcast_ref::<Self>().unwrap();
-        if prev.rendered() != self.rendered() {
-            backend.set_prop(id, Prop::Content, &PropValue::Str(self.rendered()));
-        }
-    }
-}
-
-impl From<BadgeButton> for Element {
-    fn from(b: BadgeButton) -> Self {
-        Self::Custom(CustomElementHandle::new(b))
-    }
+fn badge_button(label: &str, count: u32) -> Button {
+    button(format!("{label} ({count})"))
 }
 
 fn app(cx: &mut RenderCx) -> Element {
@@ -76,7 +20,8 @@ fn app(cx: &mut RenderCx) -> Element {
     let drafts_for_inc = drafts_count;
 
     vstack((
-        TitleBar::new("windows_reactor — composition sample").subtitle("Fragment + CustomElement"),
+        TitleBar::new("windows_reactor - composition sample")
+            .subtitle("Fragment + helper function"),
         text_block("Settings (labeled_row uses a child-only Fragment)")
             .bold()
             .font_size(20.0),
@@ -86,12 +31,12 @@ fn app(cx: &mut RenderCx) -> Element {
             labeled_row("Notifications", text_block("Enabled").into()),
         ))
         .spacing(6.0),
-        text_block("Custom widgets (BadgeButton is a CustomElement)")
+        text_block("Reusable widgets (badge_button composes a Button)")
             .bold()
             .font_size(20.0),
         hstack((
-            BadgeButton::new("Inbox", inbox_count),
-            BadgeButton::new("Drafts", drafts_count),
+            badge_button("Inbox", inbox_count),
+            badge_button("Drafts", drafts_count),
             button("+ Inbox").on_click(move || set_inbox.call(inbox_for_inc + 1)),
             button("+ Drafts").on_click(move || set_drafts.call(drafts_for_inc + 1)),
         ))
