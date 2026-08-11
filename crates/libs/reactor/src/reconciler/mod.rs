@@ -28,6 +28,7 @@ fn output_is_empty(output: MountedOutput) -> bool {
 struct ReconcilePass {
     forced_nodes: rustc_hash::FxHashSet<LogicalNodeId>,
     forced_controls: rustc_hash::FxHashSet<ControlId>,
+    pending_effects: Vec<LogicalNodeId>,
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
@@ -280,6 +281,18 @@ impl<B: Backend + 'static> Reconciler<B> {
         existing: Option<ControlId>,
         request_rerender: Rc<dyn Fn()>,
     ) -> Option<ControlId> {
+        let output = self.reconcile_deferred_effects(old, new, existing, request_rerender);
+        self.flush_pending_effects();
+        output
+    }
+
+    pub(crate) fn reconcile_deferred_effects(
+        &mut self,
+        old: Option<&Element>,
+        new: &Element,
+        existing: Option<ControlId>,
+        request_rerender: Rc<dyn Fn()>,
+    ) -> Option<ControlId> {
         assert!(
             !self.reconciliation_failed,
             "cannot reconcile after an earlier reconciliation failed; tear down and replace the \
@@ -439,7 +452,9 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn mount(&mut self, el: &Element) -> Option<ControlId> {
-        self.mount_output(el).native
+        let native = self.mount_output(el).native;
+        self.flush_pending_effects();
+        native
     }
 
     fn update_output(
@@ -505,7 +520,30 @@ impl<B: Backend + 'static> Reconciler<B> {
             native: Some(id),
             logical: self.tree.logical.current_projection(id),
         };
-        self.update_output(old, new, output).native
+        let native = self.update_output(old, new, output).native;
+        self.flush_pending_effects();
+        native
+    }
+
+    fn queue_pending_effects(&mut self, node_id: LogicalNodeId) {
+        if self
+            .tree
+            .logical
+            .instance(node_id)
+            .is_some_and(|inst| inst.render_cx.has_pending_effects())
+        {
+            self.pass.pending_effects.push(node_id);
+        }
+    }
+
+    pub(crate) fn flush_pending_effects(&mut self) {
+        let mut pending = std::mem::take(&mut self.pass.pending_effects);
+        for node_id in pending.drain(..) {
+            if let Some(inst) = self.tree.logical.instance_mut(node_id) {
+                inst.render_cx.flush_effects();
+            }
+        }
+        self.pass.pending_effects = pending;
     }
 
     fn remove_logical_subtree(&mut self, root: LogicalNodeId) {
@@ -639,6 +677,7 @@ impl<B: Backend + 'static> Reconciler<B> {
 
     fn teardown_failed_reconciliation(&mut self) {
         self.root_teardown_failed = true;
+        self.pass.pending_effects.clear();
         for root in self.tree.native_roots() {
             self.discard_inner(root);
         }

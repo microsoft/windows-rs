@@ -892,6 +892,21 @@ impl RenderCx {
         }
     }
 
+    pub(crate) fn has_pending_effects(&self) -> bool {
+        self.hooks.borrow().iter().any(|slot| {
+            matches!(
+                slot,
+                HookSlot::Effect {
+                    pending: Some(_),
+                    ..
+                } | HookSlot::Effect {
+                    pending_cleanup: Some(_),
+                    ..
+                }
+            )
+        })
+    }
+
     pub fn run_cleanups(&mut self) {
         let hooks = Rc::clone(&self.hooks);
         let mut hooks = hooks.borrow_mut();
@@ -1529,13 +1544,13 @@ fn render_once_inner<B: Backend + 'static, D: Dispatcher + 'static>(
                 request_render(&strong);
             }
         });
-        let id = reconciler.reconcile(
+        let id = reconciler.reconcile_deferred_effects(
             old_tree_owned.as_ref(),
             &new_tree,
             existing,
             request_rerender,
         );
-        reconciler.drain_realizations();
+        reconciler.drain_realizations_deferred_effects();
         reconciler.clear_forced_components();
         (
             id,
@@ -1550,6 +1565,7 @@ fn render_once_inner<B: Backend + 'static, D: Dispatcher + 'static>(
     *inner.last_tree.borrow_mut() = Some(new_tree);
 
     let effects_started = Instant::now();
+    inner.reconciler.borrow_mut().flush_pending_effects();
     inner.render_cx.borrow_mut().flush_effects();
     let effects_ms = effects_started.elapsed().as_secs_f64() * 1000.0;
 

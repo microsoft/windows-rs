@@ -515,6 +515,11 @@ impl<B: Backend + 'static> Reconciler<B> {
     }
 
     pub fn drain_realizations(&mut self) {
+        self.drain_realizations_deferred_effects();
+        self.flush_pending_effects();
+    }
+
+    pub(crate) fn drain_realizations_deferred_effects(&mut self) {
         let drained = {
             let mut q = self.tree.templated.realization_queue.borrow_mut();
             std::mem::take(&mut *q)

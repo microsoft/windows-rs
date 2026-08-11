@@ -40,6 +40,35 @@ fn mount_operations() -> [BackendOperation; 6] {
     ]
 }
 
+#[derive(Clone)]
+struct FailedMountEffectProps {
+    operation: BackendOperation,
+    setups: Rc<Cell<u32>>,
+    cleanups: Rc<Cell<u32>>,
+}
+
+impl PartialEq for FailedMountEffectProps {
+    fn eq(&self, other: &Self) -> bool {
+        self.operation == other.operation
+            && Rc::ptr_eq(&self.setups, &other.setups)
+            && Rc::ptr_eq(&self.cleanups, &other.cleanups)
+    }
+}
+
+struct FailedMountEffect;
+
+impl Component<FailedMountEffectProps> for FailedMountEffect {
+    fn render(&self, props: &FailedMountEffectProps, cx: &mut RenderCx) -> Element {
+        let setups = Rc::clone(&props.setups);
+        let cleanups = Rc::clone(&props.cleanups);
+        cx.use_effect_with_cleanup((), move || {
+            setups.set(setups.get() + 1);
+            Some(move || cleanups.set(cleanups.get() + 1))
+        });
+        mount_case(props.operation)
+    }
+}
+
 fn templated_mount_case() -> Element {
     list_view(vec![1_u32, 2], |item, _| text_block(item.to_string()))
         .width(100.0)
@@ -113,6 +142,80 @@ fn failed_widget_mounts_roll_back_all_owned_state() {
             "{operation:?} leaked a native control"
         );
     }
+}
+
+#[test]
+fn failed_component_mounts_do_not_run_effects() {
+    for operation in mount_operations() {
+        let setups = Rc::new(Cell::new(0));
+        let cleanups = Rc::new(Cell::new(0));
+        let mut backend = RecordingBackend::new();
+        backend.fail_next(operation);
+        let mut reconciler = Reconciler::new(backend);
+        let element = component(
+            FailedMountEffect,
+            FailedMountEffectProps {
+                operation,
+                setups: Rc::clone(&setups),
+                cleanups: Rc::clone(&cleanups),
+            },
+        );
+
+        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+            reconciler.reconcile(None, &element, None, rerender())
+        }));
+
+        assert!(result.is_err(), "{operation:?} did not fail");
+        assert_eq!(setups.get(), 0, "{operation:?} ran an uncommitted effect");
+        assert_eq!(
+            cleanups.get(),
+            0,
+            "{operation:?} cleaned an effect that never committed"
+        );
+        reconciler.unmount_root();
+        reconciler.assert_consistent();
+        reconciler.backend.assert_consistent();
+    }
+}
+
+struct PanickingCommitEffect;
+
+impl Component for PanickingCommitEffect {
+    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
+        cx.use_effect((), || panic!("post-commit effect failed"));
+        text_block("committed").into()
+    }
+}
+
+#[test]
+fn post_commit_effect_panics_leave_the_committed_tree_usable() {
+    let fallback_calls = Rc::new(Cell::new(0));
+    let calls = Rc::clone(&fallback_calls);
+    let element = error_boundary(component(PanickingCommitEffect, ()), move |_| {
+        calls.set(calls.get() + 1);
+        text_block("fallback").into()
+    });
+    let mut reconciler = Reconciler::new(RecordingBackend::new());
+
+    let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+        reconciler.reconcile(None, &element, None, rerender())
+    }));
+
+    assert!(result.is_err());
+    assert_eq!(fallback_calls.get(), 0);
+    assert_eq!(reconciler.backend.live_control_count(), 1);
+
+    let healthy: Element = text_block("healthy").into();
+    assert!(
+        reconciler
+            .reconcile(Some(&element), &healthy, None, rerender())
+            .is_some()
+    );
+
+    reconciler.unmount_root();
+    reconciler.assert_consistent();
+    reconciler.backend.assert_consistent();
+    assert_eq!(reconciler.backend.live_control_count(), 0);
 }
 
 #[test]
@@ -246,7 +349,7 @@ impl Component for PendingEffect {
 }
 
 #[test]
-fn failed_component_mount_cleans_up_effects_before_fallback() {
+fn failed_component_mount_does_not_commit_effects_before_fallback() {
     let setups = Rc::new(Cell::new(0));
     let cleanups = Rc::new(Cell::new(0));
     let component = component(
@@ -267,8 +370,8 @@ fn failed_component_mount_cleans_up_effects_before_fallback() {
             .is_some()
     );
 
-    assert_eq!(setups.get(), 1);
-    assert_eq!(cleanups.get(), 1);
+    assert_eq!(setups.get(), 0);
+    assert_eq!(cleanups.get(), 0);
     reconciler.assert_consistent();
     reconciler.backend.assert_consistent();
     assert_eq!(reconciler.backend.live_control_count(), 1);

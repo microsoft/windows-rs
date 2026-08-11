@@ -21,7 +21,6 @@ impl<B: Backend + 'static> Reconciler<B> {
         cx.begin_render();
         let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
             let rendered = ce.obj.render(&mut cx);
-            cx.flush_effects();
             let read_contexts = cx.take_read_contexts();
             let rendered_output = {
                 let _parent = self.enter_logical_parent(node_id);
@@ -46,6 +45,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             last_obj: Rc::clone(&ce.obj),
             read_contexts,
         });
+        self.queue_pending_effects(node_id);
         MountedOutput {
             slot,
             native: rendered_output.native,
@@ -106,7 +106,6 @@ impl<B: Backend + 'static> Reconciler<B> {
             inst.render_cx.set_dpi_cell(Rc::clone(&self.host.dpi));
             inst.render_cx.begin_render();
             let rendered = new.obj.render(&mut inst.render_cx);
-            inst.render_cx.flush_effects();
             let read_contexts = inst.render_cx.take_read_contexts();
             let rendered_output = {
                 let _parent = self.enter_logical_parent(node_id);
@@ -130,6 +129,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         inst.parent = parent;
 
         self.tree.logical.register_component(inst);
+        self.queue_pending_effects(node_id);
         MountedOutput {
             slot: old_output.slot,
             native: rendered_output.native,

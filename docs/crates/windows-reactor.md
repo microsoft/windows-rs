@@ -83,6 +83,16 @@ Hooks are methods on `RenderCx`. They give a render function persistent state wi
 
 Render functions receive `&mut RenderCx` and return `Element`.
 
+Effects are post-commit work. Component renders queue changed effects, and the reconciler flushes
+them only after the complete native tree and host root state commit. Nested component effects run
+child-first, followed by the root render context's effects. A dependency change commits the native
+update first, then runs the previous cleanup and the new effect setup.
+
+An effect from a render or native update that fails before commit never runs and therefore has no
+cleanup to invoke. Post-commit effect panics are outside error boundaries: the native tree remains
+committed, the host reports the render fault, and later reconciliation or teardown remains valid.
+An error boundary cannot replace an already committed tree as part of the failed effect callback.
+
 Components may return another component directly without adding a native control. The
 `pass_through_component` sample combines this with a memoized wrapper and stateful child:
 `cargo run -p reactor_samples --example pass_through_component`.
@@ -1183,7 +1193,7 @@ The work from PR #4808 through PR #4824 has improved the evidence around the cor
 | Focused stabilization PRs | 15 |
 | Headless Reactor tests | 578 -> 620 |
 | Reconciler coverage | Every tracked file remains above its branch and line floor |
-| Latest matched benchmark | Allocations unchanged; wall-clock changes from -6.7% to +4.8% |
+| Latest matched benchmark | Allocations unchanged; wall-clock changes from -6.1% to +2.5% |
 | Failure contracts | Mount, update, collection, destruction, root teardown, and templated mount covered |
 
 This is measurable progress, but not proof that the implementation is lean enough. Reconciler
@@ -1246,7 +1256,9 @@ unnecessary before moving into scheduler, templated realization, and host shutdo
 - [x] Extend backend fault injection to ordered failures during error-boundary recovery and mount
   rollback; discard every remaining mounted root after an escaped failure and make that teardown
   retryable.
-- [ ] Define and test render, commit, effect, cleanup, error-boundary, and reentrant-event ordering.
+- [x] Queue nested component effects until the complete native tree and host root commit; run
+  child-first effects after commit and never run effects from failed mounts.
+- [ ] Define and test the remaining cleanup, error-boundary recovery, and reentrant-event ordering.
 - [ ] Review the resulting recovery and lifecycle state for deletion or consolidation before
   continuing with scheduler and host work.
 - [ ] Review direct `Reconciler` mutation entry points and either route them through the guarded

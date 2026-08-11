@@ -140,6 +140,13 @@ impl MountedLogicalTree {
         self.components.get(&node_id)
     }
 
+    pub(super) fn instance_mut(
+        &mut self,
+        node_id: LogicalNodeId,
+    ) -> Option<&mut ComponentInstance> {
+        self.components.get_mut(&node_id)
+    }
+
     pub(super) fn wrapper(&self, node_id: LogicalNodeId) -> Option<&LogicalWrapperNode> {
         self.wrappers.get(&node_id)
     }
