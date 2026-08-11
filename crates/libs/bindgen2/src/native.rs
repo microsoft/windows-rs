@@ -370,6 +370,21 @@ impl Type {
                         || namespace == "Windows.Win32.Foundation")
         )
     }
+
+    pub(super) fn is_indirect_return(&self, database: &Database) -> Result<bool, Error> {
+        let Self::Named { namespace, name } = self else {
+            return Ok(false);
+        };
+        for entity in database.type_definitions(namespace, name) {
+            let definition = database.definition(*entity).unwrap();
+            if definition.category()? == TypeCategory::Struct
+                && !definition.has_attribute("NativeTypedefAttribute")?
+            {
+                return Ok(true);
+            }
+        }
+        Ok(false)
+    }
 }
 
 pub(super) fn is_core_projection(namespace: &str, name: &str) -> bool {

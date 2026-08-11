@@ -1926,6 +1926,34 @@ fn complete_native_com_query_emits_consumer_and_producer_projection() {
 }
 
 #[test]
+fn native_com_projects_void_scalar_and_indirect_struct_returns() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let mut filter = Filter::new();
+    include_tool_filter(&metadata, &mut filter, "ID2D1RenderTarget.BeginDraw");
+    include_tool_filter(&metadata, &mut filter, "IDWriteTextLayout.GetMaxWidth");
+    include_tool_filter(&metadata, &mut filter, "ID2D1Bitmap.GetSize");
+    let output = normalize_existing_output(
+        metadata
+            .generator(Request::filtered(filter).projection(Projection::Minimal))
+            .unwrap()
+            .render_projection(Layout::Flat, Projection::Minimal)
+            .unwrap(),
+    );
+
+    assert!(output.contains("unsafe fn BeginDraw (& self) { unsafe"));
+    assert!(output.contains("unsafe fn GetMaxWidth (& self) -> f32"));
+    assert!(output.contains("unsafe fn GetSize (& self) -> D2D_SIZE_F"));
+    assert!(output.contains(
+        "pub GetSize : unsafe extern \"system\" fn (* mut core :: ffi :: c_void , \
+         * mut D2D_SIZE_F)"
+    ));
+}
+
+#[test]
 fn module_output_combines_supported_winrt_and_win32_items() {
     let generator = fixture(
         r#"

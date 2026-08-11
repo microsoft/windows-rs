@@ -6,6 +6,7 @@ pub(super) struct Signature {
     pub(super) flags: u8,
     pub(super) parameters: Vec<Parameter>,
     pub(super) return_type: native::Type,
+    pub(super) indirect_return: bool,
 }
 
 pub(super) struct Parameter {
@@ -71,10 +72,14 @@ impl Signature {
                 })
             })
             .collect::<Result<_, Error>>()?;
+        let return_type =
+            native::Type::lower(database, method.entity().file(), owner, return_type)?;
+        let indirect_return = return_type.is_indirect_return(database)?;
         Ok(Self {
             flags,
             parameters,
-            return_type: native::Type::lower(database, method.entity().file(), owner, return_type)?,
+            return_type,
+            indirect_return,
         })
     }
 
@@ -111,17 +116,36 @@ impl Signature {
         layout: Layout,
         projection: Projection,
     ) -> TokenStream {
+        let indirect_return = self.indirect_return.then(|| {
+            let ty = self
+                .return_type
+                .write_abi_projection(namespace, layout, projection);
+            quote! { , *mut #ty }
+        });
         let parameters = self.parameters.iter().map(|parameter| {
             let ty = parameter
                 .ty
                 .write_abi_projection(namespace, layout, projection);
             quote! { #ty }
         });
-        quote! { *mut core::ffi::c_void #(, #parameters)* }
+        quote! { *mut core::ffi::c_void #indirect_return #(, #parameters)* }
     }
 
     pub(super) fn write_result(&self, namespace: &str, layout: Layout) -> TokenStream {
-        self.write_result_projection(namespace, layout, Projection::Sys)
+        self.write_vtable_result_projection(namespace, layout, Projection::Sys)
+    }
+
+    pub(super) fn write_vtable_result_projection(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        projection: Projection,
+    ) -> TokenStream {
+        if self.indirect_return {
+            quote! {}
+        } else {
+            self.write_result_projection(namespace, layout, projection)
+        }
     }
 
     pub(super) fn write_result_projection(
@@ -146,6 +170,12 @@ impl Signature {
         layout: Layout,
         projection: Projection,
     ) -> TokenStream {
+        let indirect_return = self.indirect_return.then(|| {
+            let ty = self
+                .return_type
+                .write_abi_projection(namespace, layout, projection);
+            quote! { , result__: *mut #ty }
+        });
         let parameters = self.parameters.iter().map(|parameter| {
             let name = tokens::ident(&parameter.name);
             let ty = parameter
@@ -153,6 +183,6 @@ impl Signature {
                 .write_abi_projection(namespace, layout, projection);
             quote! { #name: #ty }
         });
-        quote! { this: *mut core::ffi::c_void #(, #parameters)* }
+        quote! { this: *mut core::ffi::c_void #indirect_return #(, #parameters)* }
     }
 }

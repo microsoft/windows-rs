@@ -193,10 +193,11 @@ impl NativeInterface {
                 layout,
                 projection,
             );
-            let result =
-                method
-                    .signature
-                    .write_result_projection(&self.namespace, layout, projection);
+            let result = method.signature.write_vtable_result_projection(
+                &self.namespace,
+                layout,
+                projection,
+            );
             quote! {
                 #architectures
                 pub #name: unsafe extern "system" fn(#parameters) #result,
@@ -281,7 +282,9 @@ impl NativeInterface {
                     layout,
                     projection,
                 );
-                let upcall = method.signature.write_impl_upcall(&impl_name, &method.name);
+                let upcall = method
+                    .signature
+                    .write_impl_upcall(&impl_name, &method.name)?;
                 Ok(quote! {
                     #architectures
                     unsafe extern "system" fn #method_name<

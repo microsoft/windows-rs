@@ -5,6 +5,9 @@ use quote::quote;
 #[derive(Clone, Copy)]
 enum ReturnKind<'a> {
     HResult,
+    Void,
+    Direct(&'a native::Type),
+    Indirect(&'a native::Type),
     Retval {
         position: usize,
         ty: &'a native::Type,
@@ -22,13 +25,6 @@ impl native_signature::Signature {
         layout: Layout,
         name: &str,
     ) -> Result<TokenStream, Error> {
-        if !self.return_type.is_hresult() {
-            return Err(Error::UnsupportedType {
-                name: name.to_string(),
-                shape: "native COM method does not return HRESULT".to_string(),
-            });
-        }
-
         let method = tokens::ident(name);
         let return_kind = self.return_kind();
         if let ReturnKind::Query { guid, object } = return_kind {
@@ -62,7 +58,10 @@ impl native_signature::Signature {
         let mut arguments = Vec::new();
         let retval = match return_kind {
             ReturnKind::Retval { position, ty } => Some((position, ty)),
-            ReturnKind::HResult => None,
+            ReturnKind::HResult
+            | ReturnKind::Void
+            | ReturnKind::Direct(_)
+            | ReturnKind::Indirect(_) => None,
             ReturnKind::Query { .. } => unreachable!(),
         };
 
@@ -93,35 +92,58 @@ impl native_signature::Signature {
         let generics =
             (!generic_parameters.is_empty()).then(|| quote! { <#(#generic_parameters),*> });
         let where_clause = (!constraints.is_empty()).then(|| quote! { where #(#constraints)* });
+        let indirect =
+            matches!(return_kind, ReturnKind::Indirect(_)).then(|| quote! { &mut result__, });
         let call = quote! {
             (windows_core::Interface::vtable(self).#method)(
                 windows_core::Interface::as_raw(self),
+                #indirect
                 #(#arguments),*
             )
         };
-        let (result, body) = if let Some((_, ty)) = retval {
-            let public = ty.write_public(namespace, layout);
-            let body = if ty.is_interface() {
-                quote! {
-                    unsafe {
-                        let mut result__ = core::mem::zeroed();
-                        #call.and_then(|| windows_core::Type::from_abi(result__))
+        let (result, body) = match return_kind {
+            ReturnKind::Retval { ty, .. } => {
+                let public = ty.write_public(namespace, layout);
+                let body = if ty.is_interface() {
+                    quote! {
+                        unsafe {
+                            let mut result__ = core::mem::zeroed();
+                            #call.and_then(|| windows_core::Type::from_abi(result__))
+                        }
                     }
-                }
-            } else {
-                quote! {
-                    unsafe {
-                        let mut result__ = core::mem::zeroed();
-                        #call.map(|| result__)
+                } else {
+                    quote! {
+                        unsafe {
+                            let mut result__ = core::mem::zeroed();
+                            #call.map(|| result__)
+                        }
                     }
-                }
-            };
-            (quote! { -> windows_core::Result<#public> }, body)
-        } else {
-            (
+                };
+                (quote! { -> windows_core::Result<#public> }, body)
+            }
+            ReturnKind::HResult => (
                 quote! { -> windows_core::HRESULT },
                 quote! { unsafe { #call } },
-            )
+            ),
+            ReturnKind::Void => (quote! {}, quote! { unsafe { #call; } }),
+            ReturnKind::Direct(ty) => {
+                let ty = ty.write_public(namespace, layout);
+                (quote! { -> #ty }, quote! { unsafe { #call } })
+            }
+            ReturnKind::Indirect(ty) => {
+                let ty = ty.write_public(namespace, layout);
+                (
+                    quote! { -> #ty },
+                    quote! {
+                        unsafe {
+                            let mut result__ = core::mem::zeroed();
+                            #call;
+                            result__
+                        }
+                    },
+                )
+            }
+            ReturnKind::Query { .. } => unreachable!(),
         };
 
         Ok(quote! {
@@ -143,12 +165,6 @@ impl native_signature::Signature {
         projection: Projection,
         name: &str,
     ) -> Result<TokenStream, Error> {
-        if !self.return_type.is_hresult() {
-            return Err(Error::UnsupportedType {
-                name: name.to_string(),
-                shape: "native COM implementation method does not return HRESULT".to_string(),
-            });
-        }
         let method = tokens::ident(name);
         let return_kind = self.return_kind();
         if matches!(return_kind, ReturnKind::Query { .. }) {
@@ -166,7 +182,15 @@ impl native_signature::Signature {
         let retval = match return_kind {
             ReturnKind::Retval { position, ty } => Some((position, ty)),
             ReturnKind::HResult => None,
-            ReturnKind::Query { .. } => unreachable!(),
+            ReturnKind::Void
+            | ReturnKind::Direct(_)
+            | ReturnKind::Indirect(_)
+            | ReturnKind::Query { .. } => {
+                return Err(Error::UnsupportedType {
+                    name: name.to_string(),
+                    shape: "native COM producer method does not return HRESULT".to_string(),
+                });
+            }
         };
         let parameters = self
             .parameters
@@ -189,12 +213,22 @@ impl native_signature::Signature {
         })
     }
 
-    pub(super) fn write_impl_upcall(&self, impl_name: &TokenStream, name: &str) -> TokenStream {
+    pub(super) fn write_impl_upcall(
+        &self,
+        impl_name: &TokenStream,
+        name: &str,
+    ) -> Result<TokenStream, Error> {
         let method = tokens::ident(name);
         let return_kind = self.return_kind();
         let retval_position = match return_kind {
             ReturnKind::Retval { position, .. } => Some(position),
             ReturnKind::HResult | ReturnKind::Query { .. } => None,
+            ReturnKind::Void | ReturnKind::Direct(_) | ReturnKind::Indirect(_) => {
+                return Err(Error::UnsupportedType {
+                    name: name.to_string(),
+                    shape: "native COM producer method does not return HRESULT".to_string(),
+                });
+            }
         };
         let arguments = self
             .parameters
@@ -210,9 +244,9 @@ impl native_signature::Signature {
             ty: pointee,
         } = return_kind
         else {
-            return quote! {
+            return Ok(quote! {
                 #impl_name::#method(this, #(#arguments),*).into()
-            };
+            });
         };
         let result = tokens::ident(&self.parameters[position].name);
         let write = if pointee.is_interface() {
@@ -220,7 +254,7 @@ impl native_signature::Signature {
         } else {
             quote! { #result.write(ok__); }
         };
-        quote! {
+        Ok(quote! {
             match #impl_name::#method(this, #(#arguments),*) {
                 Ok(ok__) => {
                     #write
@@ -228,10 +262,19 @@ impl native_signature::Signature {
                 }
                 Err(err) => err.into(),
             }
-        }
+        })
     }
 
     fn return_kind(&self) -> ReturnKind<'_> {
+        if !self.return_type.is_hresult() {
+            if self.return_type == native::Type::Void {
+                return ReturnKind::Void;
+            }
+            if self.indirect_return {
+                return ReturnKind::Indirect(&self.return_type);
+            }
+            return ReturnKind::Direct(&self.return_type);
+        }
         if let Some((guid, object)) = self.query_parameters() {
             return ReturnKind::Query { guid, object };
         }

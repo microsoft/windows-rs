@@ -511,7 +511,9 @@ as an ignored test while these policies are proved independently.
 
 Canvas should proceed in this order:
 
-1. Non-HRESULT COM methods: void returns, direct scalar returns, and hidden struct-return ABI.
-2. Query methods with ordinary parameters before the IID/output pair.
-3. Metadata-sized input slices and their pointer/count ABI pairs.
-4. Input `BOOL` sugar and any remaining callable conversions exposed by the full differential.
+1. [x] Non-HRESULT COM methods: void returns, direct scalar returns, and hidden struct-return ABI.
+   `BeginDraw`, `GetMaxWidth`, and `GetSize` provide focused coverage.
+2. [ ] Query methods with ordinary parameters before the IID/output pair. The full differential now
+   reaches `IDXGISwapChain::GetBuffer`.
+3. [ ] Metadata-sized input slices and their pointer/count ABI pairs.
+4. [ ] Input `BOOL` sugar and any remaining callable conversions exposed by the full differential.
