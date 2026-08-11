@@ -491,8 +491,11 @@ retry without an error boundary and rollback of child collection mutations are n
 Fail-before append, insert, replace, move, and remove errors may leave the mounted tree and backend
 collection in different intermediate orders. An error boundary discards the containing subtree and
 mounts its fallback. Without a boundary, explicit root teardown still reaches every live control and
-runs component cleanup exactly once. Retrying reconciliation or restoring the prior collection after
-such a failure is not supported.
+runs component cleanup exactly once. A panic that escapes `Reconciler::reconcile` makes that
+reconciler teardown-only: later reconciliation is rejected, while root teardown remains available.
+The owner must tear down and replace the reconciler or its host before rendering again.
+Error-boundary recovery does not enter this state because the failure does not escape the
+reconciliation boundary.
 
 Native destruction is the teardown commit point. Logical cleanup and lifecycle callbacks run first,
 but mounted ownership is retained until `Backend::destroy` succeeds. If a fail-before destroy panic
@@ -1205,8 +1208,10 @@ time.
   and backend configuration so error boundaries can mount a fallback.
 - [x] Remove `CustomElement`, whose arbitrary backend mount could panic before reporting native
   ownership, and use normal widgets, helper functions, components, or typed host controls instead.
-- [ ] Extend backend fault injection to collection retry or rollback and rollback itself; define the
-  valid state after each failure.
+- [x] Make a panic that escapes reconciliation enter a teardown-only state, reject collection retry,
+  and preserve error-boundary recovery and explicit teardown.
+- [ ] Extend backend fault injection to failures during recovery and rollback; define the valid state
+  after each nested failure.
 - [ ] Define and test render, commit, effect, cleanup, error-boundary, and reentrant-event ordering.
 - [ ] Enforce the UI-thread boundary in release builds and reject stale asynchronous updates after
   unmount or host replacement.
