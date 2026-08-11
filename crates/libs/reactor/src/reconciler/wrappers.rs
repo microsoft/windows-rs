@@ -137,141 +137,6 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub(crate) fn mount_error_boundary_output_node(
-        &mut self,
-        boundary: &ErrorBoundaryElement,
-        slot: LogicalSlotId,
-    ) -> MountedOutput {
-        let node_id = self.allocate_logical_node_id();
-        let parent = self.tree.logical.active_parent();
-        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
-            let _parent = self.enter_logical_parent(node_id);
-            self.mount_output(&boundary.child)
-        }));
-
-        let (output, rendered, fallback) = match result {
-            Ok(output) => (output, (*boundary.child).clone(), false),
-            Err(payload) => {
-                let msg = panic_message(payload);
-                let rendered = boundary.fallback.invoke(&msg);
-                let output = {
-                    let _parent = self.enter_logical_parent(node_id);
-                    self.mount_output(&rendered)
-                };
-                (output, rendered, true)
-            }
-        };
-        self.tree.logical.register_wrapper(LogicalWrapperNode {
-            kind: LogicalNodeKind::ErrorBoundary,
-            node_id,
-            parent,
-            native_root: output.native,
-            child_output: output,
-            rendered,
-            fallback,
-        });
-        MountedOutput {
-            slot,
-            native: output.native,
-            logical: Some(node_id),
-        }
-    }
-
-    pub(crate) fn update_error_boundary_output(
-        &mut self,
-        old: &ErrorBoundaryElement,
-        new: &ErrorBoundaryElement,
-        old_output: MountedOutput,
-    ) -> MountedOutput {
-        let Some(node_id) = old_output.logical else {
-            self.unmount_output(old_output);
-            return self.mount_error_boundary_output_node(new, old_output.slot);
-        };
-        let Some(mut boundary) = self.tree.logical.take_error_boundary(node_id) else {
-            self.unmount_output(old_output);
-            return self.mount_error_boundary_output_node(new, old_output.slot);
-        };
-        boundary.parent = self.tree.logical.active_parent();
-
-        if boundary.fallback {
-            self.unmount_output(boundary.child_output);
-            let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
-                let _parent = self.enter_logical_parent(node_id);
-                self.mount_output(&new.child)
-            }));
-            match result {
-                Ok(output) => {
-                    boundary.child_output = output;
-                    boundary.rendered = (*new.child).clone();
-                    boundary.native_root = output.native;
-                    boundary.fallback = false;
-                    self.tree.logical.register_wrapper(boundary);
-                    return MountedOutput {
-                        slot: old_output.slot,
-                        native: output.native,
-                        logical: Some(node_id),
-                    };
-                }
-                Err(payload) => {
-                    let msg = panic_message(payload);
-                    let rendered = new.fallback.invoke(&msg);
-                    let output = {
-                        let _parent = self.enter_logical_parent(node_id);
-                        self.mount_output(&rendered)
-                    };
-                    boundary.child_output = output;
-                    boundary.rendered = rendered;
-                    boundary.native_root = output.native;
-                    boundary.fallback = true;
-                    self.tree.logical.register_wrapper(boundary);
-                    return MountedOutput {
-                        slot: old_output.slot,
-                        native: output.native,
-                        logical: Some(node_id),
-                    };
-                }
-            }
-        }
-
-        let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
-            let _parent = self.enter_logical_parent(node_id);
-            self.update_output(&old.child, &new.child, boundary.child_output)
-        }));
-        match result {
-            Ok(output) => {
-                boundary.fallback = false;
-                boundary.child_output = output;
-                boundary.rendered = (*new.child).clone();
-                boundary.native_root = output.native;
-                self.tree.logical.register_wrapper(boundary);
-                MountedOutput {
-                    slot: old_output.slot,
-                    native: output.native,
-                    logical: Some(node_id),
-                }
-            }
-            Err(payload) => {
-                let msg = panic_message(payload);
-                let fallback = new.fallback.invoke(&msg);
-                self.discard_output(boundary.child_output);
-                let output = {
-                    let _parent = self.enter_logical_parent(node_id);
-                    self.mount_output(&fallback)
-                };
-                boundary.fallback = true;
-                boundary.child_output = output;
-                boundary.rendered = fallback;
-                boundary.native_root = output.native;
-                self.tree.logical.register_wrapper(boundary);
-                MountedOutput {
-                    slot: old_output.slot,
-                    native: output.native,
-                    logical: Some(node_id),
-                }
-            }
-        }
-    }
-
     pub(crate) fn mount_provider_output(
         &mut self,
         provider: &ProviderElement,
@@ -288,13 +153,10 @@ impl<B: Backend + 'static> Reconciler<B> {
         match result {
             Ok(output) => {
                 self.tree.logical.register_wrapper(LogicalWrapperNode {
-                    kind: LogicalNodeKind::Provider,
                     node_id,
                     parent,
                     native_root: output.native,
                     child_output: output,
-                    rendered: (*provider.child).clone(),
-                    fallback: false,
                 });
                 MountedOutput {
                     slot,
@@ -360,7 +222,6 @@ impl<B: Backend + 'static> Reconciler<B> {
         match result {
             Ok(output) => {
                 provider.child_output = output;
-                provider.rendered = (*new.child).clone();
                 provider.native_root = output.native;
                 self.tree.logical.register_wrapper(provider);
                 MountedOutput {

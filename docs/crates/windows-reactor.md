@@ -50,9 +50,9 @@ the process.
 
 Panics are programming errors, not recoverable application control flow. The target core reports a
 panic at its outer FFI boundary and aborts rather than continuing with partially mutated WinUI
-state. The current implementation still contains transitional callback catches and
-`ErrorBoundary`; do not build application recovery around them. Add `panic = "abort"` to release
-profiles while that migration is in progress:
+state. The current implementation still contains transitional callback catches; do not build
+application recovery around them. Add `panic = "abort"` to release profiles while that migration
+is in progress:
 
 ```toml
 [profile.release]
@@ -89,9 +89,8 @@ child-first, followed by the root render context's effects. A dependency change 
 update first, then runs the previous cleanup and the new effect setup.
 
 An effect from a render or native update that fails before commit never runs and therefore has no
-cleanup to invoke. Post-commit effect panics are outside error boundaries: the native tree remains
-committed, the host reports the render fault, and later reconciliation or teardown remains valid.
-An error boundary cannot replace an already committed tree as part of the failed effect callback.
+cleanup to invoke. A post-commit effect panic occurs after the native tree commits; the host reports
+the render fault, and later reconciliation or teardown remains valid.
 
 Components may return another component directly without adding a native control. The
 `pass_through_component` sample combines this with a memoized wrapper and stateful child:
@@ -409,10 +408,9 @@ categories exist:
 
 ### Error model
 
-The current implementation catches panics in render and callback entry points, supports
-panic-driven subtree error boundaries, and attempts to preserve or tear down partially mutated
-state. This is transitional behavior and is the main source of reconciliation rollback
-complexity.
+The current implementation catches panics in render and callback entry points and attempts to
+preserve or tear down partially mutated state. This is transitional behavior and remains a source
+of reconciliation rollback complexity.
 
 The replacement contract is:
 
@@ -421,10 +419,10 @@ The replacement contract is:
 - Reactor does not continue with partially mutated WinUI state after a panic;
 - recoverable application failures are represented explicitly as component state or `Result`;
 - a backend failure invalidates the complete host and permits one cold-mount attempt;
-- there is no panic-driven subtree error boundary.
+- Reactor has no panic-driven subtree error boundary.
 
-The architecture checklist below removes `fault.rs` recovery behavior, `ErrorBoundaryElement`, and
-the reconciliation poisoning and rollback paths after their callers use the replacement contract.
+The architecture checklist below removes `fault.rs` recovery behavior and the reconciliation
+poisoning and rollback paths after their callers use the replacement contract.
 
 ### Performance notes
 
@@ -465,59 +463,15 @@ selftest fixtures instead:
 Fixtures that need real OS input or composition frames record a TAP `# SKIP` (never a failure) when
 the host cannot deliver them, so they do not flake CI.
 
-The `RecordingBackend` harness lives in the `test_reactor` crate, not in `windows-reactor`, so it
-adds no weight to normal builds. Do not put `#[cfg(test)]` modules inside the published library
-crates. Put the test in the matching `test_*` crate. If it needs an internal item, expose that item
-behind the existing `test` feature that the test crates enable and published builds leave off.
+The recording backend and most reconciler model tests currently live in `test_reactor` and use the
+feature-gated white-box API. This is transitional. Keep public behavior tests in `test_reactor`,
+move private arena and failure-model tests into `windows-reactor` unit modules, and remove the
+`test` feature as the public boundary is tightened.
 
-`RecordingBackend::fail_next` and `RecordingBackend::fail_on` inject a panic immediately before a
-selected backend operation mutates the backend model. `fail_sequence` schedules ordered failures so
-tests can reach recovery and rollback paths after the primary failure has fired. Ordinary widget
-mounts catch failures after native creation, remove the partially mounted native and logical
-subtree, run pending component cleanups, and then resume the panic. Error boundaries can therefore
-mount a fallback without retaining controls, handlers, headers, panes, or effects from the failed
-subtree.
-
-Templated-list mounting uses the same transaction boundary. The native list is registered first,
-then modifiers, selection and reorder callbacks, realization callbacks, list state, and backend
-configuration are applied. A failure at any stage rolls back the registered list and all callback
-and backend state before propagating the panic. Row realization and templated-list updates have
-separate failure contracts and are not covered by mount rollback.
-
-Component and provider updates retain their logical ownership records while a panic propagates.
-This lets an error boundary discard a failed non-structural update, run component cleanups, and
-mount its fallback. It also keeps ownership reachable for explicit root teardown when a property or
-event update panics before mutating the backend.
-
-If structural replacement fails after removing old native output, an error boundary discards only
-the ownership that remains live before mounting its fallback. It does not restore the old subtree.
-The strict teardown path still treats a missing control as an invariant violation. Structural
-retry without an error boundary and rollback of child collection mutations are not yet defined.
-
-Fail-before append, insert, replace, move, and remove errors may leave the mounted tree and backend
-collection in different intermediate orders. An error boundary discards the containing subtree and
-mounts its fallback. Without a boundary, explicit root teardown still reaches every live control and
-runs component cleanup exactly once. A panic that escapes `Reconciler::reconcile` makes that
-reconciler teardown-only: later reconciliation is rejected, while root teardown remains available.
-The owner must tear down and replace the reconciler or its host before rendering again.
-Error-boundary recovery does not enter this state because the failure does not escape the
-reconciliation boundary.
-
-If error-boundary recovery also fails, the prior `root_output` may refer to native output already
-discarded during recovery. Teardown of a failed reconciler therefore derives every remaining native
-root from `MountedTree` rather than trusting that stale output. It discards each root, removes any
-remaining logical nodes, and can retry if destruction fails during that cleanup. This covers a
-panicking fallback callback, fallback mount failure, and failure while rolling back that mount.
-
-Native destruction is the teardown commit point. Logical cleanup and lifecycle callbacks run first,
-but mounted ownership is retained until `Backend::destroy` succeeds. If a fail-before destroy panic
-reaches an error boundary, discard retries the still-owned control without repeating cleanup. This
-also covers a failure after earlier descendants were destroyed.
-Root teardown retains `root_output` until the full traversal succeeds. A failed `unmount_root` or
-root `unmount` must be retried through either root teardown API; the retry skips descendants already
-destroyed and completes each remaining cleanup at most once. Reconciliation and unrelated unmounts
-are rejected while root teardown is incomplete.
-
+Fault injection remains useful for backend `Result` handling and whole-host invalidation. Tests
+that exist only to prove panic rollback or subtree recovery should be deleted with those features.
+Retain tests for successful ownership, exact-once cleanup, native identity, failed root teardown,
+and the cold-mount contract introduced by the replacement host.
 Two crates measure reconciler performance. `test_reactor_bench` is a headless micro-suite (run with
 `cargo run -p test_reactor_bench --release`) that brackets only the reconcile body against
 `RecordingBackend` and reports ns/op plus bytes/op and allocs/op - the right instrument for
@@ -575,14 +529,14 @@ The current reconciler is harder to stabilize than the supported application mod
 keeps four overlapping representations synchronized during partial mutation:
 
 1. the previous `Element` tree;
-2. logical component, provider, and error-boundary records;
+2. logical component and provider records;
 3. the `MountedTree` native ownership mirror;
 4. WinUI controls and the `WinUIBackend` side tables.
 
-Subtree panic recovery, selective dirty-path rendering, templated realization, and transparent
-logical wrappers all cross these representations. A failure can occur after any WinUI mutation,
-which turns ordinary reconciliation into a transaction over an API that provides no transaction.
-The recent stabilization work made these states explicit and testable, but also demonstrated that
+Panic rollback, selective dirty-path rendering, templated realization, and transparent logical
+wrappers all cross these representations. A failure can occur after any WinUI mutation, which
+turns ordinary reconciliation into a transaction over an API that provides no transaction. The
+recent stabilization work made these states explicit and testable, but also demonstrated that
 preserving this model requires too much recovery code.
 
 The next phase replaces the model rather than adding more rollback or ownership machinery. Feature
@@ -812,7 +766,7 @@ variant. Padding now dispatches through its `IGrid` interface.
 
 Unsupported calls now fail to compile instead of reaching `diag::unhandled_modifier`. Styling
 methods also leave erased `Element` unavailable, so a modifier cannot silently target a component,
-provider, error boundary, group, or empty element.
+provider, group, or empty element.
 
 `with_key` and `provide` are structural operations rather than native visual modifiers. `KeyExt`
 provides reconciliation identity, while `ProvideExt` wraps anything convertible into `Element` in
@@ -820,9 +774,9 @@ a context provider. The former `ElementExt` trait and its public modifier access
 removed.
 
 Widget constructors return concrete builders that implement native capabilities and
-`Into<Element>`. Logical constructors such as `component`, `memo`, and `error_boundary` return
-`Element`, so only structural operations remain available on them. Child builders accept
-`impl Into<Element>`, and invalid native modifier calls fail to compile:
+`Into<Element>`. Logical constructors such as `component` and `memo` return `Element`, so only
+structural operations remain available on them. Child builders accept `impl Into<Element>`, and
+invalid native modifier calls fail to compile:
 
 ```rust,compile_fail
 # use windows_reactor::*;
@@ -850,9 +804,8 @@ than the builder types can provide.
 ### Element cardinality
 
 `Fragment` is a child-only collection accepted by `vstack`, `hstack`, `grid`, `Canvas`, and
-`RelativePanel`. It does not implement `Into<Element>`, so components, providers, error boundaries,
-application roots, and single-child controls continue to accept or return zero or one mountable
-element:
+`RelativePanel`. It does not implement `Into<Element>`, so components, providers, application
+roots, and single-child controls continue to accept or return zero or one mountable element:
 
 ```rust
 # use windows_reactor::*;
@@ -943,7 +896,7 @@ acceptable only when it is read-only and its removal is assigned to the next che
 
 #### 2. Remove recovery complexity
 
-- [ ] Remove `ErrorBoundaryElement`, `error_boundary`, fallback state, and subtree panic recovery.
+- [x] Remove `ErrorBoundaryElement`, `error_boundary`, fallback state, and subtree panic recovery.
 - [ ] Replace log-and-continue render and callback fault handling with report-and-abort handling.
 - [ ] Remove reconciliation poisoning, teardown-retry flags, and rollback-specific state.
 - [ ] Remove `catch_unwind` sites that exist only for subtree recovery or partial rollback.

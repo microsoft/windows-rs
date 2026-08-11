@@ -6,10 +6,9 @@
 //! and routes them to a developer-supplied handler installed via
 //! [`App::on_fault`](crate::App::on_fault), defaulting to log-and-continue.
 //!
-//! The catch is *context-aware*: callbacks invoked during a render pass are left
-//! to propagate so that [`error_boundary`](crate::error_boundary) can recover the
-//! affected subtree, while callbacks invoked outside render (events, timer ticks)
-//! are caught and reported directly.
+//! The catch is context-aware: callbacks invoked during a render pass are left
+//! to propagate to the render boundary, while callbacks invoked outside render
+//! (events, timer ticks) are caught and reported directly.
 
 use std::cell::{Cell, RefCell};
 use std::panic::AssertUnwindSafe;
@@ -38,10 +37,8 @@ pub(crate) fn set_handler<F: Fn(&Fault) + 'static>(handler: F) {
 
 /// Run `f`, catching a panic and routing it to the fault handler.
 ///
-/// During a render pass this is a no-op wrapper: the panic is allowed to
-/// propagate so [`error_boundary`](crate::error_boundary) (or [`render_scope`])
-/// can handle it. Outside render it catches the panic and reports it under
-/// `context`.
+/// During a render pass this is a no-op wrapper so [`render_scope`] handles the
+/// panic. Outside render it catches the panic and reports it under `context`.
 pub(crate) fn catch<F: FnOnce()>(context: &'static str, f: F) {
     if IN_RENDER.with(Cell::get) {
         f();
@@ -53,8 +50,8 @@ pub(crate) fn catch<F: FnOnce()>(context: &'static str, f: F) {
 }
 
 /// Run the render pass `f` with the render guard set, catching any panic that
-/// escapes an [`error_boundary`](crate::error_boundary) and routing it to the
-/// fault handler under the `"render"` context.
+/// escapes the render pass and routes it to the fault handler under the
+/// `"render"` context.
 pub(crate) fn render_scope<F: FnOnce()>(f: F) {
     let previous = IN_RENDER.replace(true);
     let result = std::panic::catch_unwind(AssertUnwindSafe(f));

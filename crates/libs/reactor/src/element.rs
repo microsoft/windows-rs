@@ -1,48 +1,5 @@
 use super::*;
-use std::any::Any;
 use std::time::Duration;
-
-impl_rc_fn_wrapper! {
-    /// Renders a fallback subtree given a panic message string.
-    pub struct Fallback(dyn Fn(&str) -> Element);
-}
-
-impl Fallback {
-    pub fn invoke(&self, message: &str) -> Element {
-        (self.inner)(message)
-    }
-}
-
-/// Subtree wrapper that catches panics from descendants and renders the
-/// `fallback` element instead. Carried by [`Element::ErrorBoundary`].
-#[derive(Clone, Debug, PartialEq)]
-pub struct ErrorBoundaryElement {
-    pub key: Option<String>,
-    pub child: Box<Element>,
-    pub fallback: Fallback,
-}
-
-/// Wrap `child` in an error-boundary element using `fallback` for recovery.
-pub fn error_boundary<F>(child: impl Into<Element>, fallback: F) -> Element
-where
-    F: Fn(&str) -> Element + 'static,
-{
-    Element::ErrorBoundary(ErrorBoundaryElement {
-        key: None,
-        child: Box::new(child.into()),
-        fallback: Fallback::new(fallback),
-    })
-}
-
-pub fn panic_message(payload: Box<dyn Any + Send>) -> String {
-    if let Some(s) = payload.downcast_ref::<&'static str>() {
-        (*s).to_string()
-    } else if let Some(s) = payload.downcast_ref::<String>() {
-        s.clone()
-    } else {
-        "<non-string panic>".to_string()
-    }
-}
 
 /// One item accepted by a multi-child builder.
 #[doc(hidden)]
@@ -207,7 +164,6 @@ macro_rules! define_element {
         pub enum Element {
             $( $variant($variant), )*
             Component(ComponentElement),
-            ErrorBoundary(ErrorBoundaryElement),
             Provider(ProviderElement),
             TemplatedList(TemplatedListElement),
             #[default]
@@ -260,7 +216,6 @@ macro_rules! define_element {
                 Some(match self {
                     $( Element::$variant(v) => v, )*
                     Element::Component(_)
-                    | Element::ErrorBoundary(_)
                     | Element::Provider(_)
                     | Element::TemplatedList(_)
                     | Element::Empty => return None,
@@ -270,7 +225,6 @@ macro_rules! define_element {
                 match self {
                     $( Element::$variant(_) => stringify!($variant), )*
                     Element::Component(_) => "Component",
-                    Element::ErrorBoundary(_) => "ErrorBoundary",
                     Element::Provider(_) => "Provider",
                     Element::TemplatedList(_) => "TemplatedList",
                     Element::Empty => "Empty",
@@ -284,7 +238,6 @@ macro_rules! define_element {
                 match &mut self {
                     $( Element::$variant(v) => v.key = Some(key), )*
                     Element::Component(c) => c.key = Some(key),
-                    Element::ErrorBoundary(eb) => eb.key = Some(key),
                     Element::Provider(pe) => pe.key = Some(key),
                     Element::TemplatedList(tl) => tl.key = Some(key),
                     Element::Empty => {}
@@ -367,7 +320,6 @@ macro_rules! non_widget_from_table {
 
 non_widget_from_table! {
     Component:     ComponentElement,
-    ErrorBoundary: ErrorBoundaryElement,
     Provider:      ProviderElement,
     TemplatedList: TemplatedListElement,
 }
@@ -379,7 +331,6 @@ impl Element {
         }
         match self {
             Self::Component(c) => c.key.as_deref(),
-            Self::ErrorBoundary(eb) => eb.key.as_deref(),
             Self::Provider(p) => p.key.as_deref(),
             Self::TemplatedList(tl) => tl.key.as_deref(),
             Self::Empty => None,
@@ -392,7 +343,7 @@ impl Element {
         }
         match self {
             Self::TemplatedList(tl) => Some(&tl.modifiers),
-            Self::Component(_) | Self::ErrorBoundary(_) | Self::Provider(_) | Self::Empty => None,
+            Self::Component(_) | Self::Provider(_) | Self::Empty => None,
             _ => unreachable!("covered by as_widget"),
         }
     }

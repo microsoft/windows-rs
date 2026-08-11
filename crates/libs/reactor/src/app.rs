@@ -218,9 +218,7 @@ impl App {
     /// boundary - an event handler, a timer tick, or the render pass. Without a
     /// handler such panics are logged and execution continues (a panic that
     /// reaches WinUI's `extern "system"` delegate boundary would otherwise abort
-    /// the process). The handler runs on the UI thread and does not replace
-    /// [`error_boundary`](crate::error_boundary), which still recovers individual
-    /// render subtrees first.
+    /// the process). The handler runs on the UI thread.
     pub fn on_fault<F>(mut self, f: F) -> Self
     where
         F: Fn(&Fault) + Send + 'static,
