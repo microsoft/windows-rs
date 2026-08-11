@@ -179,42 +179,6 @@ fn nested_effects_run_after_the_native_tree_commits() {
     );
 }
 
-struct PanickingNestedEffect;
-
-impl Component for PanickingNestedEffect {
-    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
-        cx.use_effect((), || panic!("nested effect failed"));
-        text_block("committed").into()
-    }
-}
-
-struct PanickingEffectRoot;
-
-impl Component for PanickingEffectRoot {
-    fn render(&self, _props: &(), _cx: &mut RenderCx) -> Element {
-        component(PanickingNestedEffect, ())
-    }
-}
-
-#[test]
-fn nested_effect_panics_leave_the_host_tree_committed() {
-    let dispatcher = TestDispatcher::default();
-    let host = RenderHost::new(
-        RecordingBackend::new(),
-        Box::new(PanickingEffectRoot),
-        dispatcher.clone(),
-    );
-    host.kick();
-
-    dispatcher.drain();
-
-    assert!(host.root_id().is_some());
-    assert_eq!(
-        host.with_reconciler(|reconciler| reconciler.backend.live_control_count()),
-        1
-    );
-}
-
 #[derive(Clone)]
 struct EffectCommitProps {
     updated: bool,

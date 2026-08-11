@@ -68,7 +68,6 @@ pub use canvas_bridge::{
 pub use drag::*;
 pub use element::*;
 pub use engine::*;
-pub use fault::Fault;
 pub use hooks::*;
 pub use host::*;
 pub use interaction::*;

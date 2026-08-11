@@ -121,7 +121,7 @@ impl_rc_fn_wrapper! {
 
 impl<T> Callback<T> {
     pub fn invoke(&self, arg: T) {
-        fault::catch("event handler", || (self.inner)(arg));
+        fault::abort_on_panic("event handler", || (self.inner)(arg));
     }
 
     pub fn from_rc(inner: Rc<dyn Fn(T)>) -> Self {

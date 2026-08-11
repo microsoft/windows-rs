@@ -347,7 +347,7 @@ impl ReactorHost {
         let icon = self.icon.borrow().clone();
         let window = self.state.window().clone();
         let handler = DispatcherQueueHandler::new(move || {
-            fault::catch("activate", || {
+            fault::abort_on_panic("activate", || {
                 let mut hwnd: HWND = HWND::default();
                 if let Ok(native) = window.cast::<IWindowNative>() {
                     let _ = unsafe { native.WindowHandle(&mut hwnd) };

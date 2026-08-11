@@ -48,16 +48,9 @@ final window closes. The callback must finish synchronously. Use it for cleanup 
 instrumentation that cannot run after `App::render`, since the normal final-window path terminates
 the process.
 
-Panics are programming errors, not recoverable application control flow. The target core reports a
-panic at its outer FFI boundary and aborts rather than continuing with partially mutated WinUI
-state. The current implementation still contains transitional callback catches; do not build
-application recovery around them. Add `panic = "abort"` to release profiles while that migration
-is in progress:
-
-```toml
-[profile.release]
-panic = "abort"
-```
+Panics are programming errors, not recoverable application control flow. Reactor reports a panic
+at its outer WinUI callback boundary and aborts rather than continuing with partially mutated
+state.
 
 Set `RUST_BACKTRACE=1` when you want a backtrace.
 
@@ -89,8 +82,8 @@ child-first, followed by the root render context's effects. A dependency change 
 update first, then runs the previous cleanup and the new effect setup.
 
 An effect from a render or native update that fails before commit never runs and therefore has no
-cleanup to invoke. A post-commit effect panic occurs after the native tree commits; the host reports
-the render fault, and later reconciliation or teardown remains valid.
+cleanup to invoke. A post-commit effect panic is fatal even though the native tree has already
+committed.
 
 Components may return another component directly without adding a native control. The
 `pass_through_component` sample combines this with a memoized wrapper and stateful child:
@@ -408,21 +401,18 @@ categories exist:
 
 ### Error model
 
-The current implementation catches panics in render and callback entry points and attempts to
-preserve or tear down partially mutated state. This is transitional behavior and remains a source
-of reconciliation rollback complexity.
+The current panic contract is:
 
-The replacement contract is:
-
-- setup and WinUI operation failures use `Result`;
 - programmer panics are reported at the outer FFI boundary and abort the process;
 - Reactor does not continue with partially mutated WinUI state after a panic;
 - recoverable application failures are represented explicitly as component state or `Result`;
-- a backend failure invalidates the complete host and permits one cold-mount attempt;
 - Reactor has no panic-driven subtree error boundary.
 
-The architecture checklist below removes `fault.rs` recovery behavior and the reconciliation
-poisoning and rollback paths after their callers use the replacement contract.
+Application setup failures already use `Result`. The arena reconciler must also return WinUI and
+backend failures as `Result`, invalidate the complete host, and permit one cold-mount attempt. The
+old reconciler still uses internal unwinding to preserve teardown reachability after its backend
+panics. The architecture checklist deletes that machinery with the old ownership model rather
+than adding another recovery path.
 
 ### Performance notes
 
@@ -550,7 +540,7 @@ work remains frozen until the replacement core meets the exit criteria below.
 | Recoverable failures | WinUI and backend failures use `Result`, not panic recovery. |
 | Failed mutation | Discard the host and attempt one cold mount after a backend failure. |
 | Successful updates | Retain native controls so WinUI-owned state survives. |
-| Error boundaries | Remove panic-driven subtree error boundaries from the core. |
+| Error boundaries | Panic-driven subtree error boundaries are not part of the core. |
 | Rendering | Initially rerender the complete logical tree on state or context changes. |
 | Memoization | Add selective rendering only after the simple model is correct and measured. |
 | Virtualization | Defer templated realization until ordinary ownership is complete. |
@@ -889,7 +879,7 @@ acceptable only when it is read-only and its removal is assigned to the next che
 #### 1. Freeze and define the contract
 
 - [x] Seal undocumented reconciler mutation methods and reduce the normal reconciler surface.
-- [ ] Document panics as fatal programming errors and backend failures as `Result` values.
+- [x] Document panics as fatal programming errors and backend failures as `Result` values.
 - [ ] Define whole-host invalidation and one-attempt cold mounting after a backend failure.
 - [ ] Classify each current feature as core, deferred, or removed before moving its code.
 - [ ] Keep new feature work frozen until this checklist is complete.
@@ -897,11 +887,13 @@ acceptable only when it is read-only and its removal is assigned to the next che
 #### 2. Remove recovery complexity
 
 - [x] Remove `ErrorBoundaryElement`, `error_boundary`, fallback state, and subtree panic recovery.
-- [ ] Replace log-and-continue render and callback fault handling with report-and-abort handling.
-- [ ] Remove reconciliation poisoning, teardown-retry flags, and rollback-specific state.
-- [ ] Remove `catch_unwind` sites that exist only for subtree recovery or partial rollback.
-- [ ] Convert WinUI backend operations that can fail from panic to explicit `Result` propagation.
-- [ ] On a failed update, discard the complete host instead of repairing individual ownership maps.
+- [x] Remove `App::on_fault`, `Fault`, and the recovery sample, then replace outer render and
+  callback log-and-continue handling with report-and-abort handling.
+
+Do not retrofit full `Result` propagation through the reconciler that this plan deletes. Until the
+arena path replaces it, the old reconciler may keep its internal unwind guards, poisoning flags,
+and teardown-retry state. Continuing after a panic is removed first because it is less safe than
+temporary process termination for a backend failure.
 
 #### 3. Tighten the public and test boundaries
 
@@ -931,6 +923,8 @@ acceptable only when it is read-only and its removal is assigned to the next che
 - [ ] Store native handles directly on native nodes and remove backend control-ID lookup.
 - [ ] Store normal children, headers, panes, and other secondary content as explicit node slots.
 - [ ] Store event callback cells and RAII revokers on native nodes.
+- [ ] Make fallible backend operations return `Result` through the arena reconciler.
+- [ ] Stop mutation on the first backend error and mark the complete host invalid.
 - [ ] Make one child-first arena traversal the only teardown path.
 - [ ] Delete `MountedTree`, `MountedLogicalTree`, projection maps, and replaced side tables as their
   responsibilities move.
@@ -943,6 +937,7 @@ acceptable only when it is read-only and its removal is assigned to the next che
 - [ ] Add keyed reconciliation only after positional ownership passes the model tests.
 - [ ] Preserve typed element references across update and clear them before native release.
 - [ ] Preserve focus, text input state, scroll position, and native identity on successful updates.
+- [ ] Drop an invalid host and permit one cold-mount attempt with a fresh arena and backend state.
 - [ ] Reject stale asynchronous updates after host replacement or unmount.
 
 #### 7. Re-evaluate deferred features
@@ -958,7 +953,9 @@ acceptable only when it is read-only and its removal is assigned to the next che
 
 - [ ] Switch the production host to the arena reconciler.
 - [ ] Remove old adapters immediately after cutover.
-- [ ] Delete obsolete recovery tests, fault injectors, maps, flags, and documentation.
+- [ ] Delete old reconciliation poisoning, teardown-retry, unwind-rollback, and recovery-test
+  machinery.
+- [ ] Delete obsolete fault injectors, maps, flags, and documentation.
 - [ ] Recount production source, containers, unwind boundaries, and public API against this
   baseline.
 - [ ] Remove the feature freeze only after the exit criteria pass.

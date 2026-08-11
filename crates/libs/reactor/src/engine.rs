@@ -1515,7 +1515,7 @@ fn render_loop<B: Backend + 'static, D: Dispatcher + 'static>(inner: &Rc<RenderH
 }
 
 fn render_once<B: Backend + 'static, D: Dispatcher + 'static>(inner: &Rc<RenderHostInner<B, D>>) {
-    fault::render_scope(|| render_once_inner(inner));
+    fault::abort_on_panic("render", || render_once_inner(inner));
 }
 
 fn render_once_inner<B: Backend + 'static, D: Dispatcher + 'static>(
