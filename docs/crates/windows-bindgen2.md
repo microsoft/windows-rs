@@ -501,3 +501,17 @@ animation retval policy. Native callable ABI spelling also keeps core-owned `HST
 maps `RPC_STATUS` back to `windows_core`, and constructs projected HRESULT constants.
 Native interfaces without COM identity remain sys-only; rich requests return a structured
 unsupported-shape error rather than emitting an undefined interface type.
+
+The remaining `tool_bindings` request is `canvas.txt`. Its committed output contains 49 COM
+interfaces and 75 selected wrappers: 29 return `Result<T>`, 16 return raw HRESULTs, 26 return
+`void`, and four return values directly. Thirty-five vtables derive from another projected
+interface. Four wrappers use metadata-sized slices, two use generic query projection, and one
+query method has an input parameter before the IID/output pair. The complete differential is kept
+as an ignored test while these policies are proved independently.
+
+Canvas should proceed in this order:
+
+1. Non-HRESULT COM methods: void returns, direct scalar returns, and hidden struct-return ABI.
+2. Query methods with ordinary parameters before the IID/output pair.
+3. Metadata-sized input slices and their pointer/count ABI pairs.
+4. Input `BOOL` sugar and any remaining callable conversions exposed by the full differential.

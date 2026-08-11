@@ -2567,6 +2567,36 @@ fn tool_bindings_core_request_matches_committed_output() {
 }
 
 #[test]
+#[ignore = "canvas COM policy is split into follow-up checkpoints"]
+fn tool_bindings_canvas_request_matches_committed_output() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../..");
+    let request = parse_tool_request(
+        &metadata,
+        &std::fs::read_to_string(root.join("crates/tools/bindings/src/canvas.txt")).unwrap(),
+    );
+    assert!(request.minimal);
+    assert!(request.dead_code);
+    let actual = metadata
+        .generator(Request::filtered(request.filter).projection(Projection::Minimal))
+        .unwrap()
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap();
+    let expected: TokenStream = std::fs::read_to_string(root.join(request.output))
+        .unwrap()
+        .parse()
+        .unwrap();
+    assert_eq!(
+        normalize_existing_output(actual),
+        normalize_existing_output(expected)
+    );
+}
+
+#[test]
 fn tool_bindings_numerics_request_matches_committed_output() {
     let metadata = Metadata::from_images([
         Image::new(windows_default::WINRT).unwrap(),
