@@ -350,9 +350,7 @@ impl native_signature::Signature {
 
     fn retval_parameter(&self) -> Option<(usize, &native::Type)> {
         let (parameter, preceding) = self.parameters.split_last()?;
-        if parameter.is_output_only()
-            && !parameter.is_optional()
-            && parameter.array_count.is_none()
+        if parameter.retval_candidate
             && preceding
                 .iter()
                 .all(native_signature::Parameter::is_input_only)

@@ -14,16 +14,13 @@ pub(super) struct Parameter {
     flags: u16,
     pub(super) com_out_ptr: bool,
     pub(super) array_count: Option<usize>,
+    pub(super) retval_candidate: bool,
     pub(super) ty: native::Type,
 }
 
 impl Parameter {
     pub(super) fn is_input_only(&self) -> bool {
         self.flags & 0x0002 == 0
-    }
-
-    pub(super) fn is_output_only(&self) -> bool {
-        self.flags & 0x0002 != 0 && self.flags & 0x0001 == 0
     }
 
     pub(super) fn is_optional(&self) -> bool {
@@ -53,6 +50,40 @@ impl Signature {
                     .map(|parameter| parameter.flags())
                     .transpose()?
                     .unwrap_or(0);
+                let array_count = parameter
+                    .map(|parameter| Self::array_count(parameter, owner))
+                    .transpose()?
+                    .flatten();
+                let buffer = if let Some(parameter) = parameter {
+                    parameter.has_attribute("NativeArrayInfoAttribute")?
+                        || parameter.has_attribute("MemorySizeAttribute")?
+                } else {
+                    false
+                };
+                let explicit_retval = parameter
+                    .map(|parameter| parameter.has_attribute("RetValAttribute"))
+                    .transpose()?
+                    .unwrap_or(false);
+                let ty = native::Type::lower_parameter(
+                    database,
+                    method.entity().file(),
+                    owner,
+                    ty,
+                    flags & 0x0002 == 0,
+                )?;
+                let retval_candidate =
+                    if flags & 0x0002 != 0 && flags & 0x0001 == 0 && flags & 0x0010 == 0 && !buffer
+                    {
+                        if let Some(pointee) = ty.pointee() {
+                            explicit_retval
+                                || (pointee != &native::Type::Void
+                                    && !pointee.exceeds_retval_limit(database)?)
+                        } else {
+                            false
+                        }
+                    } else {
+                        false
+                    };
                 Ok(Parameter {
                     name: parameter
                         .map(|parameter| parameter.name())
@@ -63,17 +94,9 @@ impl Signature {
                         .map(|parameter| parameter.has_attribute("ComOutPtrAttribute"))
                         .transpose()?
                         .unwrap_or(false),
-                    array_count: parameter
-                        .map(|parameter| Self::array_count(parameter, owner))
-                        .transpose()?
-                        .flatten(),
-                    ty: native::Type::lower_parameter(
-                        database,
-                        method.entity().file(),
-                        owner,
-                        ty,
-                        flags & 0x0002 == 0,
-                    )?,
+                    array_count,
+                    retval_candidate,
+                    ty,
                 })
             })
             .collect::<Result<_, Error>>()?;

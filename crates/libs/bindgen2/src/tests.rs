@@ -1561,6 +1561,37 @@ fn native_com_methods_project_bool_inputs() {
 }
 
 #[test]
+fn large_native_output_structs_remain_explicit_parameters() {
+    let metadata = Metadata::new(
+        Database::new([
+            Image::new(windows_default::WINRT).unwrap(),
+            Image::new(windows_default::WIN32).unwrap(),
+        ])
+        .unwrap(),
+    )
+    .unwrap();
+    let output = metadata
+        .generator(
+            Request::filtered(Filter::names(["IDWriteTextLayout"])).projection(Projection::Minimal),
+        )
+        .unwrap()
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap()
+        .to_string();
+
+    assert!(
+        output.contains(
+            "unsafe fn GetMetrics (& self , textmetrics : * mut DWRITE_TEXT_METRICS ,) -> windows_core :: HRESULT"
+        ),
+        "{output}"
+    );
+    assert!(
+        !output.contains("Result < DWRITE_TEXT_METRICS >"),
+        "{output}"
+    );
+}
+
+#[test]
 fn winrt_class_preserves_closed_generic_interfaces() {
     let output = fixture(
         r#"

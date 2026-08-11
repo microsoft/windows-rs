@@ -522,7 +522,7 @@ Canvas should proceed in this order:
 7. [x] Metadata-sized input slices and their pointer/count ABI pairs.
 8. [x] Input `BOOL` sugar.
 9. [x] Reassess the complete differential and split any remaining callable conversions.
-10. [ ] Correct large-struct retval classification.
+10. [x] Correct large-struct retval classification.
 11. [ ] Add `PCWSTR` input conversion where the public API accepts `Param<PCWSTR>`.
 12. [ ] Review remaining pointer casts, `Self` spelling, and token normalization before adding
     projection policy for cosmetic parity.
@@ -530,11 +530,11 @@ Canvas should proceed in this order:
 The canvas request now renders fully, so later checkpoints can use the complete token differential
 rather than discovering one structural error at a time.
 
-After the focused canvas slices, the complete differential has 27 remaining token groups. The
-substantive differences are one large output struct incorrectly classified as a retval and three
-string inputs that still expose concrete `PCWSTR` values instead of `Param<PCWSTR>`. The other
-groups are pointer `as _` casts, one `Param<Self>` spelling, and slice token spacing. Those should
-be reviewed as possible legacy or normalization noise rather than copied into bindgen2 by default.
+After large-struct retval classification, the complete differential has 24 remaining token groups.
+The substantive difference is three string inputs that still expose concrete `PCWSTR` values
+instead of `Param<PCWSTR>`. The other groups are pointer `as _` casts, one `Param<Self>` spelling,
+and slice token spacing. Those should be reviewed as possible legacy or normalization noise rather
+than copied into bindgen2 by default.
 
 ### Native type identity and projection boundary
 
