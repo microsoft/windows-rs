@@ -2,6 +2,19 @@ use super::*;
 use proc_macro2::TokenStream;
 use quote::quote;
 
+#[derive(Clone, Copy)]
+enum ReturnKind<'a> {
+    HResult,
+    Retval {
+        position: usize,
+        ty: &'a native::Type,
+    },
+    Query {
+        guid: usize,
+        object: usize,
+    },
+}
+
 impl native_signature::Signature {
     pub(super) fn write_com_method(
         &self,
@@ -17,11 +30,12 @@ impl native_signature::Signature {
         }
 
         let method = tokens::ident(name);
-        if let Some(query) = self.query_parameters() {
-            if query != (0, 1) || self.parameters.len() != 2 {
+        let return_kind = self.return_kind();
+        if let ReturnKind::Query { guid, object } = return_kind {
+            if (guid, object) != (0, 1) || self.parameters.len() != 2 {
                 return Err(Error::UnsupportedType {
                     name: name.to_string(),
-                    shape: "native COM query method with additional parameters".to_string(),
+                    shape: "native COM query method with unsupported parameter layout".to_string(),
                 });
             }
             return Ok(quote! {
@@ -46,11 +60,15 @@ impl native_signature::Signature {
         let mut constraints = Vec::new();
         let mut parameters = Vec::new();
         let mut arguments = Vec::new();
-        let retval_position = self.retval_position();
+        let retval = match return_kind {
+            ReturnKind::Retval { position, ty } => Some((position, ty)),
+            ReturnKind::HResult => None,
+            ReturnKind::Query { .. } => unreachable!(),
+        };
 
         for (position, parameter) in self.parameters.iter().enumerate() {
             let name = tokens::ident(&parameter.name);
-            if retval_position == Some(position) {
+            if retval.is_some_and(|(retval, _)| retval == position) {
                 arguments.push(quote! { &mut result__ });
                 continue;
             }
@@ -81,8 +99,7 @@ impl native_signature::Signature {
                 #(#arguments),*
             )
         };
-        let (result, body) = if let Some(position) = retval_position {
-            let ty = self.parameters[position].ty.pointee().unwrap();
+        let (result, body) = if let Some((_, ty)) = retval {
             let public = ty.write_public(namespace, layout);
             let body = if ty.is_interface() {
                 quote! {
@@ -133,7 +150,8 @@ impl native_signature::Signature {
             });
         }
         let method = tokens::ident(name);
-        if self.query_parameters().is_some() {
+        let return_kind = self.return_kind();
+        if matches!(return_kind, ReturnKind::Query { .. }) {
             let parameters = self.parameters.iter().map(|parameter| {
                 let name = tokens::ident(&parameter.name);
                 let ty = parameter
@@ -145,19 +163,22 @@ impl native_signature::Signature {
                 fn #method(&self, #(#parameters)*) -> windows_core::Result<()>;
             });
         }
-        let retval = self.retval_position();
+        let retval = match return_kind {
+            ReturnKind::Retval { position, ty } => Some((position, ty)),
+            ReturnKind::HResult => None,
+            ReturnKind::Query { .. } => unreachable!(),
+        };
         let parameters = self
             .parameters
             .iter()
             .enumerate()
-            .filter(|(position, _)| Some(*position) != retval)
+            .filter(|(position, _)| retval.is_none_or(|(retval, _)| *position != retval))
             .map(|(_, parameter)| {
                 let name = tokens::ident(&parameter.name);
                 let ty = parameter.ty.write_public(namespace, layout);
                 quote! { #name: #ty, }
             });
-        let result = if let Some(position) = retval {
-            let ty = self.parameters[position].ty.pointee().unwrap();
+        let result = if let Some((_, ty)) = retval {
             let ty = ty.write_public(namespace, layout);
             quote! { windows_core::Result<#ty> }
         } else {
@@ -170,26 +191,30 @@ impl native_signature::Signature {
 
     pub(super) fn write_impl_upcall(&self, impl_name: &TokenStream, name: &str) -> TokenStream {
         let method = tokens::ident(name);
-        let query = self.query_parameters().is_some();
-        let retval = if query { None } else { self.retval_position() };
+        let return_kind = self.return_kind();
+        let retval_position = match return_kind {
+            ReturnKind::Retval { position, .. } => Some(position),
+            ReturnKind::HResult | ReturnKind::Query { .. } => None,
+        };
         let arguments = self
             .parameters
             .iter()
             .enumerate()
-            .filter(|(position, _)| Some(*position) != retval)
+            .filter(|(position, _)| retval_position != Some(*position))
             .map(|(_, parameter)| {
                 let name = tokens::ident(&parameter.name);
                 quote! { core::mem::transmute_copy(&#name) }
             });
-        if query || retval.is_none() {
+        let ReturnKind::Retval {
+            position,
+            ty: pointee,
+        } = return_kind
+        else {
             return quote! {
                 #impl_name::#method(this, #(#arguments),*).into()
             };
-        }
-
-        let position = retval.unwrap();
+        };
         let result = tokens::ident(&self.parameters[position].name);
-        let pointee = self.parameters[position].ty.pointee().unwrap();
         let write = if pointee.is_interface() {
             quote! { #result.write(core::mem::transmute(ok__)); }
         } else {
@@ -206,18 +231,25 @@ impl native_signature::Signature {
         }
     }
 
-    fn retval_position(&self) -> Option<usize> {
-        self.parameters
-            .last()
-            .filter(|parameter| {
-                parameter.is_output_only()
-                    && !parameter.is_optional()
-                    && parameter.ty.pointee().is_some()
-                    && self.parameters[..self.parameters.len() - 1]
-                        .iter()
-                        .all(native_signature::Parameter::is_input_only)
-            })
-            .map(|_| self.parameters.len() - 1)
+    fn return_kind(&self) -> ReturnKind<'_> {
+        if let Some((guid, object)) = self.query_parameters() {
+            return ReturnKind::Query { guid, object };
+        }
+        if let Some((parameter, preceding)) = self.parameters.split_last()
+            && parameter.is_output_only()
+            && !parameter.is_optional()
+            && preceding
+                .iter()
+                .all(native_signature::Parameter::is_input_only)
+            && let Some(ty) = parameter.ty.pointee()
+        {
+            ReturnKind::Retval {
+                position: preceding.len(),
+                ty,
+            }
+        } else {
+            ReturnKind::HResult
+        }
     }
 
     fn query_parameters(&self) -> Option<(usize, usize)> {

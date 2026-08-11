@@ -1805,6 +1805,32 @@ fn native_interfaces_render_vtables_and_close_base_dependencies() {
 }
 
 #[test]
+fn rich_native_interface_without_com_identity_is_rejected() {
+    let metadata = fixture_metadata(
+        r#"
+            #[win32]
+            mod Test {
+                interface Interface {
+                    fn Method(&self);
+                }
+            }
+        "#,
+    );
+    let error = metadata
+        .generator(Request::filtered(Filter::names(["Interface"])))
+        .unwrap()
+        .render_projection(Layout::Flat, Projection::Minimal)
+        .unwrap_err();
+
+    assert!(matches!(
+        error,
+        Error::UnsupportedType { name, shape }
+            if name == "Test.Interface"
+                && shape == "rich native interface without COM identity"
+    ));
+}
+
+#[test]
 fn native_interface_member_filter_keeps_placeholders_and_shell_dependencies() {
     let metadata = Metadata::from_images([
         Image::new(windows_default::WINRT).unwrap(),

@@ -499,3 +499,5 @@ matching; interfaces with skipped slots still omit producer machinery. `ComOutPt
 identifies generic `Resolve<T>` query methods, while ordinary trailing output pointers retain the
 animation retval policy. Native callable ABI spelling also keeps core-owned `HSTRING` values raw,
 maps `RPC_STATUS` back to `windows_core`, and constructs projected HRESULT constants.
+Native interfaces without COM identity remain sys-only; rich requests return a structured
+unsupported-shape error rather than emitting an undefined interface type.

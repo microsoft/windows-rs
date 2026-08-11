@@ -147,16 +147,20 @@ impl NativeInterface {
         projection: Projection,
         members: &MemberSelection,
     ) -> Result<TokenStream, Error> {
+        let Some(guid) = self.guid else {
+            return Err(Error::UnsupportedType {
+                name: format!("{}.{}", self.namespace, self.name),
+                shape: "rich native interface without COM identity".to_string(),
+            });
+        };
         let architectures = tokens::architectures(self.architectures);
         let name = tokens::ident(&self.name);
         let vtbl_name = tokens::ident(&format!("{}_Vtbl", self.name));
-        let identity = self.guid.map(|guid| {
-            let guid = guid.write_u128();
-            quote! {
-                #architectures
-                windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
-            }
-        });
+        let guid = guid.write_u128();
+        let identity = quote! {
+            #architectures
+            windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
+        };
         let (base, base_vtbl) = self.base.as_ref().map_or_else(
             || {
                 (
