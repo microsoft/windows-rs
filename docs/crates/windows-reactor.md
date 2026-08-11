@@ -1115,6 +1115,10 @@ Use matched release builds, fixed update streams, warmup passes, and multiple re
 Wall-clock results are evidence only when the allocation counts and reconciler operation counts
 agree with the expected algorithmic change.
 
+The hosted PR benchmark reports wall-clock changes but does not fail on them because shared VM
+timing is unstable. Allocation growth remains a hard gate. Investigate timing changes on a
+controlled machine with repeated matched runs before accepting or rejecting a hot-path change.
+
 ### Samples
 
 Every user-visible fix or feature addition should include the smallest runnable sample that makes
