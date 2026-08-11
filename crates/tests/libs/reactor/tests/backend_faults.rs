@@ -5,8 +5,9 @@ use std::rc::Rc;
 use test_reactor::{BackendOperation, Op, RecordingBackend};
 use windows_reactor::{
     Button, Component, Context, ControlKind, Element, Expander, KeyExt, Pivot, PivotItem,
-    ProvideExt, Reconciler, RenderCx, SelectionMode, SplitView, TabItem, TabView, component,
-    error_boundary, list_view, panic_message, swap_chain_panel, text_block, vstack,
+    ProvideExt, Reconciler, ReconcilerTestExt, RenderCx, SelectionMode, SplitView, TabItem,
+    TabView, component, error_boundary, list_view, panic_message, swap_chain_panel, text_block,
+    vstack,
 };
 
 fn rerender() -> Rc<dyn Fn()> {

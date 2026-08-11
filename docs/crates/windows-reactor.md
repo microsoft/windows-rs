@@ -48,11 +48,11 @@ final window closes. The callback must finish synchronously. Use it for cleanup 
 instrumentation that cannot run after `App::render`, since the normal final-window path terminates
 the process.
 
-Reactor catches panics at the FFI boundaries it owns (render and event callbacks, and
-`ErrorBoundary`) and converts them to errors, so they never unwind across the WinUI ABI. It does not
-install a global panic hook. For panics that escape those boundaries, add `panic = "abort"` to your
-release profile. The process then terminates cleanly instead of unwinding into WinUI's C++ frames,
-which is undefined behavior:
+Panics are programming errors, not recoverable application control flow. The target core reports a
+panic at its outer FFI boundary and aborts rather than continuing with partially mutated WinUI
+state. The current implementation still contains transitional callback catches and
+`ErrorBoundary`; do not build application recovery around them. Add `panic = "abort"` to release
+profiles while that migration is in progress:
 
 ```toml
 [profile.release]
@@ -409,27 +409,22 @@ categories exist:
 
 ### Error model
 
-Reactor sits between the developer's Rust closures and WinUI's COM and `extern "system"` delegates.
-It handles failures by where they happen:
+The current implementation catches panics in render and callback entry points, supports
+panic-driven subtree error boundaries, and attempts to preserve or tear down partially mutated
+state. This is transitional behavior and is the main source of reconciliation rollback
+complexity.
 
-- Synchronous, pre-loop setup (`bootstrap`, icon path validation) returns a `Result` from `run` or
-  `bootstrap`. This is the only place a `Result` reaches the caller, so validate configuration up
-  front.
-- Failures inside UI-thread callbacks (render, event handlers, timers, `on_rendering`) go to one
-  reactor-owned fault boundary, not a `Result`. Reactor catches panics at the entry points it owns
-  (`Callback::invoke`, the `DispatcherTimer` tick, `on_rendering`, and the render pass) and delivers
-  them to a developer-supplied `App::on_fault(|fault| ...)` hook (default: log-and-continue). The
-  catch is context-aware: a callback that panics during a render pass is left to propagate so
-  `error_boundary` can recover the subtree first. Only panics outside render, or escaping every
-  boundary, reach `on_fault`. This lives in `fault.rs`.
-- Best-effort backend property application uses one helper: `diag::warn` (with `diag::dropped`,
-  which reports the dropped `Result`'s call site through `#[track_caller]`). It warns in debug and
-  is a no-op in release.
-- `panic!` is only for programmer errors and invariant violations (rules of hooks, type mismatch,
-  `EventHandler` variant mismatch) in `engine.rs` and `backend/mod.rs`.
+The replacement contract is:
 
-The fault boundary relies on `panic = "unwind"` (the Cargo default). Under a `panic = "abort"`
-profile the whole model is bypassed and every panic aborts.
+- setup and WinUI operation failures use `Result`;
+- programmer panics are reported at the outer FFI boundary and abort the process;
+- Reactor does not continue with partially mutated WinUI state after a panic;
+- recoverable application failures are represented explicitly as component state or `Result`;
+- a backend failure invalidates the complete host and permits one cold-mount attempt;
+- there is no panic-driven subtree error boundary.
+
+The architecture checklist below removes `fault.rs` recovery behavior, `ErrorBoundaryElement`, and
+the reconciliation poisoning and rollback paths after their callers use the replacement contract.
 
 ### Performance notes
 
@@ -574,262 +569,127 @@ properties continue to use the existing theme-binding APIs.
 
 ## Reconciler architecture
 
-Reactor separates logical identity, native identity, mounted output slots, and dirty propagation.
-This section records the resulting implementation contract and the measurements used to guard it.
+### Course correction
 
-### Progress
+The current reconciler is harder to stabilize than the supported application model requires. It
+keeps four overlapping representations synchronized during partial mutation:
 
-| Work | Status |
+1. the previous `Element` tree;
+2. logical component, provider, and error-boundary records;
+3. the `MountedTree` native ownership mirror;
+4. WinUI controls and the `WinUIBackend` side tables.
+
+Subtree panic recovery, selective dirty-path rendering, templated realization, and transparent
+logical wrappers all cross these representations. A failure can occur after any WinUI mutation,
+which turns ordinary reconciliation into a transaction over an API that provides no transaction.
+The recent stabilization work made these states explicit and testable, but also demonstrated that
+preserving this model requires too much recovery code.
+
+The next phase replaces the model rather than adding more rollback or ownership machinery. Feature
+work remains frozen until the replacement core meets the exit criteria below.
+
+### Core decisions
+
+| Area | Decision |
 | --- | --- |
-| Architecture contract and topology matrix | Complete |
-| Dirty descendant behind memoized widget root | Regression, fix, benchmark, and sample added |
-| Context subscriber behind memoized widget root | Regression and fix added |
-| Logical component IDs and parent paths | State keyed by logical ID; overflow map removed |
-| Logical component ownership | State and lifecycle share one owner |
-| Provider logical ownership | Providers have stable IDs, parent links, projection, and teardown |
-| Error-boundary ownership | Boundary identity and fallback state are node-owned |
-| Templated-list ownership | Realized rows and callbacks are sparse templated-node state |
-| Native lifecycle ownership | Pre-unmount callbacks are sparse native-node state |
-| Path-scoped dirty traversal | Native parent walks replace the global flag and root-wide scan |
-| Reconciler state consolidation review | Complete |
-| Host/window state consolidation | `HostContext` introduced; six `Reconciler` fields removed |
-| Native ownership consolidation | `MountedTree` owns native topology |
-| Recursive teardown | One child-first traversal covers children, rows, headers, and panes |
-| Native ownership checks | Debug builds verify unique ownership and matching parent links |
-| Private-memory and peak-memory benchmark output | Added to text, JSON, and CSV output |
-| Typed element API | Universal, visual, attached-layout, and styling capabilities are typed |
-| Element cardinality | `Fragment` is child-only; `Element::Group` removed |
-| Full mounted ownership evaluation | Complete |
+| Panics | Programmer panics are fatal. Reactor reports them at its outer FFI boundary and aborts. |
+| Recoverable failures | WinUI and backend failures use `Result`, not panic recovery. |
+| Failed mutation | Discard the host and attempt one cold mount after a backend failure. |
+| Successful updates | Retain native controls so WinUI-owned state survives. |
+| Error boundaries | Remove panic-driven subtree error boundaries from the core. |
+| Rendering | Initially rerender the complete logical tree on state or context changes. |
+| Memoization | Add selective rendering only after the simple model is correct and measured. |
+| Virtualization | Defer templated realization until ordinary ownership is complete. |
+| Backend | Keep the backend private; it is an implementation and test boundary, not app API. |
+| Testing access | Remove the `test` feature and keep white-box tests inside the crate. |
 
-### Invariants
+Application failures that should render alternate UI must be represented explicitly as component
+state or `Result` values. Panics remain invariant violations and programming errors. Reactor must
+not continue after one while holding partially mutated WinUI state.
 
-| Area | Required invariant |
-| --- | --- |
-| Logical identity | Every mounted component, provider, and error boundary has a unique stable ID. |
-| Native identity | A `ControlId` identifies one native object and is not logical identity. |
-| Parentage | Every logical node has one logical parent, except the root. |
-| Native parentage | Every owned native node has one parent across all ownership forms. |
-| Dirty state | A state write marks its owner and the logical ancestor path. |
-| Skipping | A node is skipped only when it and all logical descendants are clean. |
-| Ownership | Hooks, effects, contexts, output, and cleanup belong to their logical node. |
-| Replacement | Replacement unmounts the complete old logical subtree before identity reuse. |
-| Cleanup | Every mounted node is cleaned exactly once, with children cleaned before parents. |
-| Keys | Keys identify siblings in one child collection and must affect reconciliation. |
-| Projection | Transparent wrappers add no hidden native control. |
-| Fragments | Multi-child values are accepted only by APIs that support multiple children. |
-| Virtualization | Only realized rows own mounted logical nodes and lifecycle state. |
+A cold mount is a failure-recovery mechanism, not the normal render strategy. Rebuilding every
+native control on every render would lose focus, caret position, scroll offsets, WebView state,
+animations, and other WinUI-owned state.
 
-Debug and test builds should check these invariants after reconciliation. They must not remain
-assumptions repeated across root, positional, keyed, and templated update paths.
+### Target mounted model
 
-### Logical wrapper identity
-
-Components, memoized components, providers, and error boundaries receive a logical ID before
-their child output mounts, so hook setters retain the exact owner.
-
-The logical record separates optional native projection from the logical node:
+The replacement core uses one retained arena. Every logical and native node has one `NodeId`, one
+parent, and one owner:
 
 ```rust,ignore
-struct LogicalNode {
+struct MountedNode<H> {
     parent: Option<NodeId>,
-    native_root: Option<ControlId>,
-    kind: LogicalNodeKind,
+    element: Element,
+    kind: MountedNodeKind<H>,
+}
+
+enum MountedNodeKind<H> {
+    Native(NativeNode<H>),
+    Component(ComponentNode),
+    Provider(ProviderNode),
+}
+
+struct NativeNode<H> {
+    handle: H,
+    children: Vec<NodeId>,
+    subscriptions: Subscriptions,
+    slots: NativeSlots,
 }
 ```
 
-Component state holds its `RenderCx`, previous object, previous mounted output, and context
-subscriptions, indexed by `NodeId`. The parent relationship crosses intervening native widgets, so
-a stateful child remains reachable through a memoized component that renders a stable widget root.
+The exact types may change during implementation, but the ownership rules may not:
 
-The logical path is authoritative:
+- the arena is the retained model and mounted ownership tree;
+- a component owns its render context and one mounted child;
+- a provider owns one child and its scoped values;
+- a native node owns its backend handle, children, secondary slots, callbacks, and revokers;
+- the backend does not maintain a second control-identity graph;
+- native handles are passed directly rather than resolved through a public `ControlId` registry;
+- headers, panes, and other secondary content are explicit node slots;
+- dropping a native node revokes its subscriptions before releasing its handle.
 
-- `component_instance_overflow` is removed;
-- component lookup and identity transfer no longer depend on `ControlId`;
-- global force-dirty behavior is removed;
-- one update decision handles dirty-descendant traversal;
-- an output slot remains mounted when its logical node temporarily produces no native control.
+One private backend trait may remain so the arena can run against WinUI and a recording backend.
+Its associated handle is owned by the mounted node. The WinUI implementation should not need a
+`controls: HashMap<ControlId, Handle>` lookup table.
 
-### Ownership consolidation
+Stable event trampolines hold replaceable callback cells. Updating an element replaces the current
+callback in the cell rather than detaching and reattaching the native event. Event revokers live
+with the native node and are released through normal ownership.
 
-Header and pane subtrees, templated rows, selection/reorder callbacks, pre-unmount callbacks, and
-error fallback state live under mounted ownership. Positional, keyed, and templated algorithms
-decide correspondence and order while sharing identity, dirty, lifecycle, and cleanup rules.
+### Public boundary
 
-Each native child collection also has an ordered logical output mirror. A slot may contain a native
-control, a logical node with no native output, or both. Native insertion and movement derive their
-indices from this mirror, so empty components do not shift their native siblings and can later
-produce output without remounting their hooks or effects.
+The supported application API should contain only:
 
-### Reconciler simplification
+- application and window hosting;
+- `Component` and `RenderCx`;
+- hooks;
+- elements, widget builders, and modifiers;
+- callbacks and typed element references;
+- explicit graphics integration points.
 
-The current `Reconciler` mixes five responsibilities in one struct:
+`Backend`, `Reconciler`, `ControlId`, `WinUIBackend`, internal dispatchers, mounted nodes, and
+mutable `RenderHost` access are implementation details. Repository samples do not depend on these
+low-level interfaces, so the pre-release crate should remove them rather than preserve accidental
+compatibility.
 
-1. mounted tree identity and ownership;
-2. transient state for one reconciliation pass;
-3. host/window environment;
-4. widget-specific auxiliary state;
-5. diagnostics.
+The existing typed element, fragment, and typed-reference contracts below remain useful. They
+constrain application code without requiring the current reconciler representation.
 
-This is more than a file-layout problem. Independent maps require every mount, replacement, and
-unmount path to remember the same set of cleanup operations. Header, pane, templated, and
-error-boundary paths have already demonstrated how easily one map can be omitted.
+### Test structure
 
-`Reconciler` now has the target ownership shape:
+Follow the useful part of the C# Reactor strategy - separate tests by the boundary they prove - but
+do not copy its feature-heavy reconciler architecture:
 
-```rust,ignore
-struct Reconciler<B> {
-    backend: B,
-    tree: MountedTree,
-    pass: ReconcilePass,
-    host: HostContext,
-    stats: ReconcileStats,
-    root_output: Option<MountedOutput>,
-    next_slot_id: u64,
-}
-```
+| Tier | Location | Responsibility |
+| --- | --- | --- |
+| Private unit | `windows-reactor` | Arena, child diff, hooks, callbacks, and teardown |
+| Public headless | `test_reactor` | Supported application API and render behavior only |
+| WinUI selftest | `test_reactor_selftest` | Native identity, focus, layout, and shutdown |
 
-`MountedTree` owns node identity, parentage, native projection, children, secondary slots, and
-teardown. `ReconcilePass` owns reusable transient scratch such as forced paths and keyed-diff
-buffers. `HostContext` contains the dispatcher-facing rerender request, marshaller, host ID, size,
-DPI, and context environment. `ReconcileStats` contains counters only.
-
-`MountedTree` now records the native parent on the existing per-control node entry. Normal
-children, headers, panes, and realized templated rows use the same parent invariant. Dirty
-components walk these links to the root, stopping when they reach an already forced ancestor. This
-makes dirty propagation proportional to path depth and removes the root-wide ownership scan and its
-traversal stack. The additional parent field does not add a map or allocation; the headless
-allocation counts remain unchanged.
-
-Child and slot mutation now goes through `MountedTree`, so parent links and sparse ownership
-storage cannot be updated independently. Unmount collects the complete native ownership list once
-and releases it in reverse order. Primary children, realized rows, headers, and panes therefore
-finish cleanup before their owner without recursive `unmount` calls or separate subtree
-algorithms. Debug builds verify that each owned native control appears once and that both sides of
-every parent relationship agree.
-
-The compact teardown list also reduces headless allocation cost. Single component, pass-through,
-and deep pass-through mount cycles each use one fewer allocation and 16 fewer bytes. The 64-node
-mount/unmount case dropped from 18,076 bytes and 281 allocations to 17,568 bytes and 271
-allocations; the 512-node case dropped from 144,340 bytes and 2,085 allocations to 140,248 bytes
-and 2,069 allocations.
-
-Component ownership is now grouped in `MountedLogicalTree` under `MountedTree`. It owns component
-instances, native projections, logical ID allocation, the active logical parent scope, lifecycle
-listener counts, projection transfer, and appeared/disappeared dispatch. `Reconciler` no longer
-contains four component identity fields plus two listener counters, and component registration or
-removal cannot update a projection without updating listener accounting through the same owner.
-This grouping is output-neutral: the headless allocation counts remain unchanged from the compact
-teardown baseline.
-
-Providers now allocate compact logical wrapper nodes and enter the logical parent scope while
-mounting or updating their child. A component below a provider therefore reaches component
-ancestors through the provider rather than stopping at an unrepresented transparent wrapper.
-Provider nodes share the projection and teardown APIs with components but use sparse wrapper
-storage, so they do not inflate every logical node to the roughly 968-byte component-state size.
-The `provider_mount` benchmark reports 527 bytes and 11 allocations for one provider plus one
-component, while component-only allocation counts remain unchanged.
-
-Error boundaries use the same compact wrapper storage. The boundary node remains stable while
-recovery replaces its projected fallback or child subtree, and nested boundaries retain distinct
-logical parents. Fallback state is stored on the boundary node, so `Reconciler` no longer has an
-`error_boundary_fallbacks` map keyed by a borrowed native identity. Normal
-`error_boundary_mount` cycles report 399 bytes and 10 allocations, matching the component-only
-mount baseline after warmup.
-
-`Element` has no arbitrary backend extension variant because a
-`mount(&mut Backend) -> ControlId` contract could create native state and panic before returning the
-ID to the reconciler. Reusable UI is expressed with helper functions or components, while native
-integrations use typed controls such as `CompositionHost`, `SwapChainPanel`, and `WebView2`.
-
-Templated lists now use sparse auxiliary state beneath `MountedTree`. The list registry owns each
-list's current element, realized rows, and selection/reorder callback trampolines; the templated
-owner also holds the shared realization queue and deferred row teardown queue. This removes six
-templated fields and maps from `Reconciler`. Adding a selection or reorder handler during an update
-now attaches the missing backend trampoline instead of silently ignoring the new handler.
-
-The list state captures its active context values. Deferred row realization restores that snapshot
-while mounting the row, and context invalidation traverses realized rows, headers, panes, and
-primary children through the same owned-child operation used by teardown.
-
-Realized rows are stored by row index rather than in a dense `Vec<Option<RealizedRow>>`. An
-unrealized item therefore does not reserve space the size of an `Element`. Before this change, an
-unrealized 64-item list used about 54 KB per mount because every empty slot had the full
-`RealizedRow` size. The release `templated_mount` benchmark now reports 276 bytes and eight
-allocations, and the 4,096-item case has the same mount cost. Realized-row storage grows with the
-visible window rather than the item count.
-
-Pre-unmount callbacks now live in sparse native lifecycle storage under `MountedTree`. Registration,
-replacement, removal, and teardown all go through the tree, so a callback cannot outlive its
-native node. The last lifecycle side map has left `Reconciler`. The release `lifecycle_mount`
-benchmark reports 52 bytes and two allocations.
-
-The three debug counters now live in `ReconcileStats`, available through `Reconciler::stats()`.
-`Reconciler` also retains the root mounted output and the monotonic logical-slot allocator. All
-other mounted state is grouped under `tree`, `pass`, `host`, and `stats`.
-
-The existing side state should move as follows:
-
-| Current state | Intended owner |
-| --- | --- |
-| `children_mirror`, `id_kinds`, header, and pane maps | Mounted native node |
-| component instances and native projections | Mounted logical component node |
-| error fallback state | Error-boundary node |
-| templated state, selection, reorder, and deferred rows | Templated-list node (complete) |
-| pre-unmount callback | Node lifecycle state (complete) |
-| forced nodes, forced controls, traversal scratch | `ReconcilePass` |
-| marshaller, host ID, size, DPI, rerender request | `HostContext` |
-
-Do not replace the maps with one large per-control struct containing every optional field. Most
-controls do not use headers, panes, templating, or special lifecycle state. Use node-kind enums and
-allocate auxiliary state only for node kinds that need it.
-
-`MountedTree` owns child projection through sparse owned-only classification. Most children project
-into the parent's visual collection; `ContentDialog` is owned-only because WinUI presents it
-outside that collection. Insert, move, replace, and remove operations derive visual indices from
-the ownership order before calling the backend. The classification stays available when teardown
-destroys a child before its parent edge is removed. `WinUIBackend` therefore needs no child-order
-mirror and receives only visual children and visual indices.
-
-#### C# Reactor comparison
-
-C# Reactor stores one `ComponentNode` per hidden native `Border`. The state setter captures that
-node directly, marks it `SelfTriggered`, and invokes the parent component's rerender callback.
-Dirty native ancestors are then found through WinUI's visual-parent relationship.
-
-This gives C# a simpler component identity lookup, but at the cost of one native XAML control per
-component. It also makes transparent components affect the native tree. Rust must not copy that
-tradeoff: it would increase allocation, measure/layout work, visual depth, and memory.
-
-The useful C# rules are:
-
-- a state setter marks its exact component node directly;
-- component render state is owned by that node;
-- dirty propagation follows one parent relationship;
-- teardown starts from the mounted ownership tree.
-
-The C# `Reconciler` as a whole is not simpler. It spans thousands of lines and contains component,
-error-boundary, navigation, pooling, hot-reload, animation, gesture, style, and registration state.
-Rust should copy the small node invariants, not its hidden controls or accumulated registries.
-
-#### Consolidation sequence
-
-1. Finish logical dirty-path behavior without a global force mode.
-2. Introduce `MountedTree` and `HostContext` wrappers around existing state without behavior
-   changes.
-3. Move native kind, children, header, and pane ownership into mounted native nodes.
-4. Move component, provider, and error-boundary lifecycle into logical node kinds.
-5. Move templated rows and their callbacks into a templated node kind.
-6. Make recursive node teardown the only unmount path.
-7. Delete the replaced side maps after each migration rather than keeping compatibility mirrors.
-
-Every consolidation step must state which fields and special-case branches it deletes. A new
-abstraction that only wraps the old maps without enabling their removal is not sufficient.
-
-Steps 1-7 are complete. Child, slot, templated, and lifecycle storage remains sparse inside
-`MountedTree` rather than adding optional fields to every native or logical node. The resource,
-item-key, and exit-transition entries in the earlier audit were stale: PR #4782 already added
-resource replacement, `ItemKey` clearing, and WinUI implicit hide transitions, with regressions and
-visual samples. Structural typing and element cardinality are also complete.
+White-box tests must not require public production methods. Move them into crate unit modules and
+remove the `test` Cargo feature. Keep characterization tests from the stabilization work when they
+express behavior retained by the new contract; delete tests whose only purpose is proving removed
+panic-recovery machinery.
 
 ### Typed element API
 
@@ -1067,239 +927,113 @@ theme/size callbacks now hold `WeakRenderHost`, and dropping the final strong ho
 native root and runs root hook cleanups. This is required for references, effects, controls, and
 backend state to be released when a window host is replaced or destroyed.
 
-### Reconciliation proof
+### Architecture migration checklist
 
-One authoritative node-update path must own:
+Each item should land as a reviewable PR that leaves the existing public widget API working. Do not
+build compatibility mirrors between the old and new ownership models. A temporary adapter is
+acceptable only when it is read-only and its removal is assigned to the next checklist item.
 
-1. kind and key compatibility;
-2. replacement;
-3. state and context dirtiness;
-4. memo eligibility;
-5. lifecycle dispatch;
-6. cleanup responsibility.
+#### 1. Freeze and define the contract
 
-The topology test matrix must combine:
+- [x] Seal undocumented reconciler mutation methods and reduce the normal reconciler surface.
+- [ ] Document panics as fatal programming errors and backend failures as `Result` values.
+- [ ] Define whole-host invalidation and one-attempt cold mounting after a backend failure.
+- [ ] Classify each current feature as core, deferred, or removed before moving its code.
+- [ ] Keep new feature work frozen until this checklist is complete.
 
-| Dimension | Cases |
-| --- | --- |
-| Root | Widget, pass-through component, empty, changed widget kind |
-| Wrappers | Component, memo, provider, error boundary |
-| Dirtiness | Parent only, child only, both, context-driven |
-| Children | Positional, keyed movement, insertion, removal |
-| Lifecycle | Mount, rerender, replacement, unmount, error recovery |
-| Effects | Dependency change, cleanup order, unmount cleanup |
-| Virtualization | Realize, recycle, key change, disappear, reappear |
-| Secondary slots | Header and pane ownership |
+#### 2. Remove recovery complexity
 
-Debug and test checks should prove that every logical ID is reachable once, parent links agree,
-setters cannot target reused identities, native child order matches logical projection, and every
-effect and callback is cleaned exactly once.
+- [ ] Remove `ErrorBoundaryElement`, `error_boundary`, fallback state, and subtree panic recovery.
+- [ ] Replace log-and-continue render and callback fault handling with report-and-abort handling.
+- [ ] Remove reconciliation poisoning, teardown-retry flags, and rollback-specific state.
+- [ ] Remove `catch_unwind` sites that exist only for subtree recovery or partial rollback.
+- [ ] Convert WinUI backend operations that can fail from panic to explicit `Result` propagation.
+- [ ] On a failed update, discard the complete host instead of repairing individual ownership maps.
 
-Compile-fail tests should cover modifiers on logical wrappers, modifiers on unsupported widget
-types, and fragments in single-child positions. Start with rustdoc `compile_fail` contracts where
-the exact diagnostic is not important. Add a dedicated compile-test dependency only if richer
-coverage justifies it.
+#### 3. Tighten the public and test boundaries
 
-### Performance and memory gates
+- [ ] Stop glob-reexporting backend, reconciler, and engine implementation details from `lib.rs`.
+- [ ] Make `Backend`, `Reconciler`, `ControlId`, and `WinUIBackend` private, including mutable
+  reconciler access.
+- [ ] Remove the `test` Cargo feature and `ReconcilerTestExt`.
+- [ ] Move white-box reconciler, backend-fault, and model tests into `windows-reactor` unit modules.
+- [ ] Keep `test_reactor` tests limited to supported public behavior.
+- [ ] Record the resulting public API and add a check that prevents accidental expansion.
 
-Architecture work must preserve Reactor's advantage over Microsoft.UI.Reactor and should reduce
-Rust-side time and memory where possible.
+#### 4. Remove selective-render bookkeeping
 
-Before each behavior-changing phase:
+- [ ] Make every state, context, size, and DPI change request a root render.
+- [ ] Render every mounted component during that pass unless ordinary element equality skips native
+  work.
+- [ ] Remove context subscriber sets, forced logical nodes, forced controls, and dirty-ancestor
+  reconstruction.
+- [ ] Remove component memoization paths that require selective descendant traversal.
+- [ ] Measure the simple root-render model before reintroducing any optimization.
 
-1. Run `cargo run -p test_reactor_bench --release` and save the full table.
-2. Run `test_reactor_perf` at 0%, 10%, 50%, and 100% updates with JSON output.
-3. Run the matched `StressPerf.ReactorOptimized` C# cases when the comparison environment changes.
-4. Record toolchain, Windows App SDK versions, hardware, and source revisions with the results.
+#### 5. Introduce one mounted arena
 
-The headless suite must include component-heavy steady-state and update cases, pass-through
-nesting, dirty descendants behind memoized widget roots, keyed changes, mount/unmount, and
-virtualized row recycling. It reports `ns/op`, `bytes/op`, and `allocs/op`.
+- [ ] Add a private generational `NodeId` arena containing native, component, and provider nodes.
+- [ ] Give every node one parent and make child ownership structural.
+- [ ] Store the previous element and component render state on the arena node that owns them.
+- [ ] Store native handles directly on native nodes and remove backend control-ID lookup.
+- [ ] Store normal children, headers, panes, and other secondary content as explicit node slots.
+- [ ] Store event callback cells and RAII revokers on native nodes.
+- [ ] Make one child-first arena traversal the only teardown path.
+- [ ] Delete `MountedTree`, `MountedLogicalTree`, projection maps, and replaced side tables as their
+  responsibilities move.
 
-The live suite remains responsible for native XAML creation, destruction, composition throughput,
-working set, and end-to-end rendering. Add process private bytes and peak working set to its JSON
-output so arena or ownership changes cannot hide retained-memory regressions behind zero Rust
-garbage collections.
+#### 6. Restore the minimum complete reconciler
 
-Performance requirements:
+- [ ] Mount and update ordinary native widgets through the arena.
+- [ ] Support components, hooks, providers, post-commit effects, and exact-once cleanup.
+- [ ] Support positional children before keyed reconciliation.
+- [ ] Add keyed reconciliation only after positional ownership passes the model tests.
+- [ ] Preserve typed element references across update and clear them before native release.
+- [ ] Preserve focus, text input state, scroll position, and native identity on successful updates.
+- [ ] Reject stale asynchronous updates after host replacement or unmount.
 
-- no hidden native controls for component identity;
-- no mounted-node allocation for unrealized virtualized rows;
-- dirty updates visit the logical dirty path rather than the whole native tree;
-- steady-state hooks retain their current zero-allocation behavior;
-- investigate any repeatable regression above 5%;
-- do not accept a regression above 10% without a measured and documented reason;
-- compare memory per mounted node and memory after repeated mount/unmount cycles.
+#### 7. Re-evaluate deferred features
 
-Use matched release builds, fixed update streams, warmup passes, and multiple repetitions.
-Wall-clock results are evidence only when the allocation counts and reconciler operation counts
-agree with the expected algorithmic change.
+- [ ] Decide whether templated realization belongs in the core or a later optional layer.
+- [ ] If retained, implement realized rows as arena-owned subtrees using the same teardown rules.
+- [ ] Reconsider component memoization only with a measured workload that root rendering fails.
+- [ ] Reconsider recoverable UI boundaries only with an explicit `Result`-based design, never panic
+  rollback.
+- [ ] Keep custom backend and arbitrary native-extension APIs out of the public core.
 
-The hosted PR benchmark reports wall-clock changes but does not fail on them because shared VM
-timing is unstable. Allocation growth remains a hard gate. Investigate timing changes on a
-controlled machine with repeated matched runs before accepting or rejecting a hot-path change.
+#### 8. Cut over and delete the old model
 
-### Samples
-
-Every user-visible fix or feature addition should include the smallest runnable sample that makes
-the behavior visually clear. Reconciler changes need a sample when a user can trigger the topology
-interactively, even when the same case has a headless regression test.
-
-Samples should:
-
-- isolate one behavior;
-- display the expected state in the window;
-- provide one direct interaction that would expose the old bug;
-- avoid unrelated styling or application structure;
-- name the invariant being demonstrated in the introductory text.
-
-Headless tests remain the correctness gate. Samples are the manual WinUI and visual validation
-surface.
-
-### Implemented change sequence
-
-1. Added the architecture contract, missing topology regressions, benchmark cases, and minimal
-   samples.
-2. Introduced logical IDs and parent paths without changing the public API.
-3. Routed state and context dirtiness through logical identity.
-4. Removed component collision and global force-dirty mechanisms.
-5. Consolidated transparent-wrapper lifecycle and teardown ownership.
-6. Introduced concrete public wrappers and compile-time modifier capabilities.
-7. Separated multi-child collections from mountable elements.
-8. Generated and audited capability implementations.
-9. Consolidated mounted ownership where measurements and invariants required it.
-
-Each stage passed formatting, clippy, headless tests, the relevant WinUI selftests, benchmark
-comparison, and its visual sample before the next stage began.
-
-## Core stabilization program
-
-Feature work is frozen while this checklist is active. Bug fixes and changes needed to prove or
-simplify the core remain in scope. Each item should land as a small PR that leaves the crate
-working, updates this checklist, and states which invariant it proves or which complexity it
-removes.
-
-A major rewrite is not the starting point. The current logical IDs, `MountedTree`, sparse auxiliary
-state, recursive teardown, model tests, and performance gates provide a usable migration base.
-Larger internal changes should follow characterization tests and move one ownership boundary at a
-time.
-
-### Stabilization milestone after PR #4824
-
-The work from PR #4808 through PR #4824 has improved the evidence around the core:
-
-| Measure | Result |
-| --- | --- |
-| Focused stabilization PRs | 15 |
-| Headless Reactor tests | 578 -> 620 |
-| Reconciler coverage | Every tracked file remains above its branch and line floor |
-| Latest matched benchmark | Allocations unchanged; wall-clock changes from -6.1% to +2.5% |
-| Failure contracts | Mount, update, collection, destruction, root teardown, and templated mount covered |
-
-This is measurable progress, but not proof that the implementation is lean enough. Reconciler
-source grew from about 2,562 to 4,230 lines over the same period as implicit state became explicit,
-ownership checks were added, and failure handling was defined. The added code is easier to test and
-assign to an owner, but source size and the number of recovery branches remain concerns.
-
-Issue classification now happens as related work lands rather than waiting until the end. For
-example, the behavior reported by #4802 has permanent memoized-descendant regressions, while the
-invalid component modifiers from #4803 now fail to compile after removal of `ElementExt`. Remaining
-enhancement requests stay frozen unless they expose a core platform contract.
-
-After nested recovery failures and lifecycle ordering are defined, pause for another simplification
-review. That review should identify state and recovery branches that the new contracts make
-unnecessary before moving into scheduler, templated realization, and host shutdown work.
-
-### Stabilization checklist
-
-- [x] Separate logical identity from native `ControlId`.
-- [x] Consolidate mounted ownership and child-first teardown under `MountedTree`.
-- [x] Add deterministic model tests, lifecycle stress tests, coverage floors, and performance
-  comparisons.
-- [x] Make the recording backend check live IDs and unique ownership across children, headers,
-  panes, and realized rows after every generated model transition.
-- [x] Clear root ownership when `Reconciler::unmount` removes the root, preventing host teardown
-  from destroying the same native control twice.
-- [x] Unify logical and native consistency validation, add root and logical-cycle checks, and run
-  the validator after stable reconcile, public unmount, root unmount, templated realization, and
-  every generated model transition.
-- [x] Move logical IDs, projections, wrapper records, lifecycle accounting, and their consistency
-  proof into `reconciler/logical_tree.rs` without changing behavior or weakening coverage floors.
-- [x] Make `MountedTree` own native consistency validation and logical-child permutation so
-  reconciliation code no longer mutates native ownership maps directly.
-- [x] Move native topology, secondary slots, sparse lifecycle state, and consistency validation
-  into `reconciler/mounted_tree.rs` without changing behavior, and validate keyed permutation
-  preconditions at that boundary. Move the reconciler module root to `reconciler/mod.rs` to match
-  other multi-file modules.
-- [x] Group host state under `HostContext` and move component, provider, and error-boundary
-  reconciliation into `reconciler/wrappers.rs` without changing behavior.
-- [x] Store sparse visual versus owned-only child projection in `MountedTree`, test mixed indexing
-  across insert, move, replace, and remove, and delete WinUI's child-order mirror.
-- [x] Add fail-before backend injection for ordinary widget create, property, event, child, header,
-  and pane operations; roll failed mounts back before propagating the panic.
-- [x] Retain component and provider ownership across failed non-structural updates so error
-  boundaries can discard the subtree, run cleanups, and mount a fallback.
-- [x] Let error boundaries discard failed structural replacements without destroying removed
-  controls twice, including replacements nested under native and component output.
-- [x] Characterize fail-before append, insert, replace, move, and remove updates: error boundaries
-  discard the subtree, while uncaught failures remain reachable for explicit teardown.
-- [x] Retain mounted ownership until native destroy succeeds so error boundaries can retry
-  fail-before destroy without repeating component or lifecycle cleanup.
-- [x] Retain root ownership across failed child-first destruction, reject reconciliation while
-  teardown is incomplete, and let either root teardown API retry without repeating cleanup.
-- [x] Roll failed templated-list mounts back across modifiers, callbacks, list-state registration,
-  and backend configuration so error boundaries can mount a fallback.
-- [x] Remove `CustomElement`, whose arbitrary backend mount could panic before reporting native
-  ownership, and use normal widgets, helper functions, components, or typed host controls instead.
-- [x] Make a panic that escapes reconciliation enter a teardown-only state, reject collection retry,
-  and preserve error-boundary recovery and explicit teardown.
-- [x] Extend backend fault injection to ordered failures during error-boundary recovery and mount
-  rollback; discard every remaining mounted root after an escaped failure and make that teardown
-  retryable.
-- [x] Queue nested component effects until the complete native tree and host root commit; run
-  child-first effects after commit and never run effects from failed mounts.
-- [ ] Define and test the remaining cleanup, error-boundary recovery, and reentrant-event ordering.
-- [ ] Review the resulting recovery and lifecycle state for deletion or consolidation before
-  continuing with scheduler and host work.
-- [ ] Review direct `Reconciler` mutation entry points and either route them through the guarded
-  failure boundary or expose them only to the test harness.
-- [ ] Enforce the UI-thread boundary in release builds and reject stale asynchronous updates after
-  unmount or host replacement.
-- [ ] Move templated realization and recycling through the same ownership checks as ordinary,
-  header, and pane content.
-- [ ] Mechanically verify every callable WinUI vtable entry and prevent placeholder slots from
-  becoming callable.
-- [ ] Replace final-window `process::exit` teardown with an orderly, testable host shutdown.
-- [ ] Finish classifying every open Reactor issue as a core defect, required platform contract,
-  deferred feature, or unsupported behavior.
-- [ ] Complete a final architecture review and remove the feature freeze only after the exit
-  criteria below pass.
+- [ ] Switch the production host to the arena reconciler.
+- [ ] Remove old adapters immediately after cutover.
+- [ ] Delete obsolete recovery tests, fault injectors, maps, flags, and documentation.
+- [ ] Recount production source, containers, unwind boundaries, and public API against this
+  baseline.
+- [ ] Remove the feature freeze only after the exit criteria pass.
 
 ### PR discipline
 
-Each stabilization PR must:
+Each architecture PR must:
 
-1. Add or strengthen a deterministic test before changing behavior.
-2. Change one ownership, lifecycle, scheduler, or backend boundary.
-3. Delete superseded state or special-case branches in the same PR.
-4. Run the smallest headless suite that proves the invariant, plus relevant WinUI selftests.
-5. Compare reconciler performance when a hot path or mounted-node representation changes.
-6. Update this checklist and record any newly discovered follow-up work.
-
-Do not introduce compatibility mirrors that leave two structures responsible for the same
-identity, parent relationship, subscription, or cleanup. A temporary adapter is acceptable only
-when one side is read-only and its removal is assigned to the next PR.
+1. preserve or add a deterministic test for the contract being moved;
+2. move one ownership or failure boundary;
+3. delete the superseded state or path in the same PR;
+4. run the smallest headless suite plus relevant WinUI selftests;
+5. compare allocations when a mounted-node representation or hot path changes;
+6. update this checklist without adding a historical diary.
 
 ### Exit criteria
 
 The feature freeze ends when:
 
-- debug and test builds validate logical and native ownership after every reconciliation boundary;
-- injected backend failures and panics cannot leave partially owned native or logical nodes;
-- cleanup and event revocation run exactly once under update, replacement, rollback, and shutdown;
-- ordinary and templated children use the same identity and teardown rules;
-- off-thread and stale asynchronous updates have deterministic behavior;
-- every regression fixed by Reactor PRs 4782, 4795, and 4807 has a narrow permanent test;
-- the headless model, WinUI selftests, coverage floors, and performance gates pass; and
-- the remaining architecture is small enough that each mounted-state field has one documented
-  owner.
+- the normal public API contains no backend or reconciler mutation surface;
+- the `test` feature and public white-box hooks are gone;
+- one arena is the only retained logical and native ownership model;
+- the backend owns no parallel control-identity graph;
+- successful updates preserve required WinUI-owned state;
+- a backend failure either cold-mounts a fresh host once or terminates without partial reuse;
+- panic recovery and reconciliation rollback machinery are gone;
+- cleanup and event revocation run exactly once through structural ownership;
+- headless model tests, public API tests, WinUI selftests, coverage floors, and allocation gates
+  pass;
+- production source, public surface, and state-container counts are materially below the current
+  baseline.

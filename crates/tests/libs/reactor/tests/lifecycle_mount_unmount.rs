@@ -4,7 +4,7 @@ use std::rc::Rc;
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::{
     Backend, Callback, ControlId, ControlKind, Event, EventHandler, Modifiers, Prop, PropBindings,
-    PropValue, Reconciler, Widget,
+    PropValue, Reconciler, ReconcilerTestExt, Widget,
 };
 
 type Log = Rc<RefCell<Vec<(&'static str, bool)>>>;

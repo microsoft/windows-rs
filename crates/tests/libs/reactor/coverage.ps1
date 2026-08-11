@@ -6,6 +6,7 @@ $ErrorActionPreference = "Stop"
 $report = Get-Content $Path -Raw | ConvertFrom-Json
 $files = $report.data[0].files
 $requirements = @(
+    @{ Suffix = "src\engine.rs"; Branches = 70; Lines = 82 },
     @{ Suffix = "reconciler\mod.rs"; Branches = 62; Lines = 79 },
     @{ Suffix = "reconciler\logical_tree.rs"; Branches = 67; Lines = 85 },
     @{ Suffix = "reconciler\mounted_tree.rs"; Branches = 61; Lines = 93 },
@@ -39,5 +40,5 @@ $rows = foreach ($requirement in $requirements) {
 
 $rows | Format-Table -AutoSize
 if ($failed) {
-    throw "Reconciler coverage fell below its required floor."
+    throw "Reactor coverage fell below its required floor."
 }

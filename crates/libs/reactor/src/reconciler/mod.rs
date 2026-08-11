@@ -16,9 +16,14 @@ mod templated;
 mod widget_dispatch;
 mod wrappers;
 
-pub use self::child::compute_lis;
 use self::logical_tree::{LogicalNodeId, LogicalNodeKind, LogicalParentGuard, LogicalWrapperNode};
 use self::mounted_tree::MountedTree;
+
+#[cfg(feature = "test")]
+#[doc(hidden)]
+pub fn compute_lis(arr: &[i32]) -> rustc_hash::FxHashSet<usize> {
+    child::compute_lis(arr)
+}
 
 fn output_is_empty(output: MountedOutput) -> bool {
     output.native.is_none() && output.logical.is_none()
@@ -123,7 +128,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.host.marshaller = marshaller;
     }
 
-    pub fn set_host_id(&mut self, host_id: HostId) {
+    pub(crate) fn set_host_id(&mut self, host_id: HostId) {
         self.host.host_id = host_id;
     }
 
@@ -140,7 +145,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.tree.templated.defer_unmounts = defer;
     }
 
-    pub fn context_stack_handle(&self) -> Rc<ContextStack> {
+    pub(crate) fn context_stack_handle(&self) -> Rc<ContextStack> {
         Rc::clone(&self.host.context_stack)
     }
 
@@ -244,7 +249,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.add_forced_node_paths(node_ids);
     }
 
-    pub fn acquire_control(&mut self, kind: ControlKind) -> ControlId {
+    pub(super) fn acquire_control(&mut self, kind: ControlKind) -> ControlId {
         self.stats.ui_elements_created += 1;
         let id = self.backend.create(kind);
 
@@ -451,7 +456,8 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub fn mount(&mut self, el: &Element) -> Option<ControlId> {
+    #[cfg(feature = "test")]
+    pub(super) fn mount(&mut self, el: &Element) -> Option<ControlId> {
         let native = self.mount_output(el).native;
         self.flush_pending_effects();
         native
@@ -512,17 +518,6 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.backend.set_rich_text_paragraphs(id, &n.paragraphs);
         }
         old_output
-    }
-
-    pub fn update(&mut self, old: &Element, new: &Element, id: ControlId) -> Option<ControlId> {
-        let output = MountedOutput {
-            slot: self.allocate_slot_id(),
-            native: Some(id),
-            logical: self.tree.logical.current_projection(id),
-        };
-        let native = self.update_output(old, new, output).native;
-        self.flush_pending_effects();
-        native
     }
 
     fn queue_pending_effects(&mut self, node_id: LogicalNodeId) {
@@ -834,7 +829,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub fn append_child_tracked(&mut self, parent: ControlId, child: ControlId) {
+    pub(super) fn append_child_tracked(&mut self, parent: ControlId, child: ControlId) {
         let projected = self.tree.projects_as_child(child);
         self.tree.append_child(parent, child);
         if projected {
@@ -842,7 +837,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub fn remove_child_tracked(&mut self, parent: ControlId, index: usize) {
+    pub(super) fn remove_child_tracked(&mut self, parent: ControlId, index: usize) {
         self.tree
             .child(parent, index)
             .expect("mounted child index out of bounds");
@@ -854,7 +849,12 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub fn replace_child_tracked(&mut self, parent: ControlId, index: usize, new: ControlId) {
+    pub(super) fn replace_child_tracked(
+        &mut self,
+        parent: ControlId,
+        index: usize,
+        new: ControlId,
+    ) {
         self.tree
             .child(parent, index)
             .expect("mounted child index out of bounds");
@@ -870,7 +870,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub fn move_child_tracked(&mut self, parent: ControlId, from: usize, to: usize) {
+    pub(super) fn move_child_tracked(&mut self, parent: ControlId, from: usize, to: usize) {
         self.tree
             .child(parent, from)
             .expect("mounted child index out of bounds");
@@ -887,7 +887,12 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub fn insert_child_tracked(&mut self, parent: ControlId, index: usize, child: ControlId) {
+    pub(super) fn insert_child_tracked(
+        &mut self,
+        parent: ControlId,
+        index: usize,
+        child: ControlId,
+    ) {
         let index = index.min(self.tree.children(parent).len());
         let projected = self.tree.projects_as_child(child);
         let projected_index = self.tree.projected_index(parent, index);
@@ -897,11 +902,11 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
     }
 
-    pub fn child_at(&self, parent: ControlId, i: usize) -> Option<ControlId> {
+    pub(super) fn child_at(&self, parent: ControlId, i: usize) -> Option<ControlId> {
         self.tree.child(parent, i)
     }
 
-    pub fn apply_modifiers(&mut self, id: ControlId, mods: &Modifiers) {
+    pub(super) fn apply_modifiers(&mut self, id: ControlId, mods: &Modifiers) {
         if mods.is_empty() {
             return;
         }
@@ -1118,7 +1123,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.backend.set_theme_bindings(id, kind, &bindings);
     }
 
-    pub fn diff_modifiers(&mut self, id: ControlId, old: &Modifiers, new: &Modifiers) {
+    pub(super) fn diff_modifiers(&mut self, id: ControlId, old: &Modifiers, new: &Modifiers) {
         self.diff_opt_copy(
             id,
             Prop::Margin,
@@ -1355,7 +1360,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         self.backend.on_theme_changed();
     }
 
-    pub fn reconcile_children_positional(
+    pub(super) fn reconcile_children_positional(
         &mut self,
         parent: ControlId,
         old: &[Element],
@@ -1366,41 +1371,78 @@ impl<B: Backend + 'static> Reconciler<B> {
         child::reconcile_positional(self, parent, old_live.as_ref(), new_live.as_ref());
     }
 
-    pub fn reconcile_children(&mut self, parent: ControlId, old: &[Element], new: &[Element]) {
+    pub(super) fn reconcile_children(
+        &mut self,
+        parent: ControlId,
+        old: &[Element],
+        new: &[Element],
+    ) {
         let old_live = LiveChildren::from_slice(old);
         let new_live = LiveChildren::from_slice(new);
         child::reconcile(self, parent, old_live.as_ref(), new_live.as_ref());
     }
 
-    pub fn set_inner_size_cell(&mut self, cell: Rc<Cell<WindowSize>>) {
+    pub(crate) fn set_inner_size_cell(&mut self, cell: Rc<Cell<WindowSize>>) {
         self.host.inner_size = cell;
     }
 
-    pub fn set_dpi_cell(&mut self, cell: Rc<Cell<u32>>) {
+    pub(crate) fn set_dpi_cell(&mut self, cell: Rc<Cell<u32>>) {
         self.host.dpi = cell;
     }
 
-    pub fn force_context_subscribers(
-        &mut self,
-        root_id: ControlId,
-        context_ids: &rustc_hash::FxHashSet<ContextId>,
-    ) {
-        let affected = self.collect_affected_components(root_id, context_ids);
-        if !affected.is_empty() {
-            self.add_forced_node_paths(affected);
-        }
-    }
-
-    pub fn force_context_subscribers_root(
+    pub(crate) fn force_context_subscribers_root(
         &mut self,
         context_ids: &rustc_hash::FxHashSet<ContextId>,
     ) {
         self.force_all_context_subscribers(context_ids);
     }
 
-    pub fn clear_forced_components(&mut self) {
+    pub(crate) fn clear_forced_components(&mut self) {
         self.pass.forced_nodes.clear();
         self.pass.forced_controls.clear();
+    }
+}
+
+#[cfg(feature = "test")]
+#[doc(hidden)]
+pub trait ReconcilerTestExt {
+    fn acquire_control(&mut self, kind: ControlKind) -> ControlId;
+    fn mount(&mut self, element: &Element) -> Option<ControlId>;
+    fn mount_widget(&mut self, widget: &dyn Widget) -> ControlId;
+    fn update_widget(&mut self, old: &dyn Widget, new: &dyn Widget, id: ControlId);
+    fn append_child_tracked(&mut self, parent: ControlId, child: ControlId);
+    fn move_child_tracked(&mut self, parent: ControlId, from: usize, to: usize);
+    fn child_at(&self, parent: ControlId, index: usize) -> Option<ControlId>;
+}
+
+#[cfg(feature = "test")]
+impl<B: Backend + 'static> ReconcilerTestExt for Reconciler<B> {
+    fn acquire_control(&mut self, kind: ControlKind) -> ControlId {
+        Self::acquire_control(self, kind)
+    }
+
+    fn mount(&mut self, element: &Element) -> Option<ControlId> {
+        Self::mount(self, element)
+    }
+
+    fn mount_widget(&mut self, widget: &dyn Widget) -> ControlId {
+        Self::mount_widget(self, widget)
+    }
+
+    fn update_widget(&mut self, old: &dyn Widget, new: &dyn Widget, id: ControlId) {
+        Self::update_widget(self, old, new, id);
+    }
+
+    fn append_child_tracked(&mut self, parent: ControlId, child: ControlId) {
+        Self::append_child_tracked(self, parent, child);
+    }
+
+    fn move_child_tracked(&mut self, parent: ControlId, from: usize, to: usize) {
+        Self::move_child_tracked(self, parent, from, to);
+    }
+
+    fn child_at(&self, parent: ControlId, index: usize) -> Option<ControlId> {
+        Self::child_at(self, parent, index)
     }
 }
 
@@ -1421,35 +1463,26 @@ impl<'a> LiveChildren<'a> {
     }
 }
 
-pub enum LiveChildrenRef<'a> {
+pub(super) enum LiveChildrenRef<'a> {
     Flat(&'a [Element]),
 }
 
 impl<'a> LiveChildrenRef<'a> {
-    pub fn len(&self) -> usize {
+    pub(super) fn len(&self) -> usize {
         match self {
             LiveChildrenRef::Flat(s) => s.len(),
         }
     }
 
-    pub fn is_empty(&self) -> bool {
-        self.len() == 0
-    }
-
-    pub fn get(&self, i: usize) -> Option<&'a Element> {
+    pub(super) fn get(&self, i: usize) -> Option<&'a Element> {
         match self {
             LiveChildrenRef::Flat(s) => s.get(i),
         }
     }
 
-    pub fn any_has_key(&self) -> bool {
+    pub(super) fn any_has_key(&self) -> bool {
         match self {
             LiveChildrenRef::Flat(s) => s.iter().any(|e| e.key().is_some()),
         }
     }
-}
-
-/// Retains all logical child positions, including empty output.
-pub fn collect_live(slice: &[Element]) -> Vec<&Element> {
-    slice.iter().collect()
 }

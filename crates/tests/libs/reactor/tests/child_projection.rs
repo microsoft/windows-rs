@@ -2,7 +2,8 @@ use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::{
-    ContentDialog, ControlId, Element, KeyExt, Orientation, Reconciler, StackPanel, TextBlock,
+    ContentDialog, ControlId, Element, KeyExt, Orientation, Reconciler, ReconcilerTestExt,
+    StackPanel, TextBlock,
 };
 
 fn rerender() -> Rc<dyn Fn()> {
