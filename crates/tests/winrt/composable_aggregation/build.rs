@@ -8,17 +8,15 @@ fn main() {
         .write()
         .unwrap();
 
-    windows_bindgen::bindgen([
-        "--in",
-        "metadata.winmd",
-        "default",
-        "--out",
-        "src/bindings.rs",
-        "--filter",
-        "test_composable_aggregation",
-        "--implement",
-        "--flat",
-    ]);
+    windows_bindgen2::builder()
+        .input("metadata.winmd")
+        .input_default()
+        .output("src/bindings.rs")
+        .filter("test_composable_aggregation")
+        .implement_all()
+        .flat()
+        .write()
+        .unwrap();
 
     // Post-process: bindgen emits `imp::FactoryCache` references for `Foo::new`,
     // `Foo::compose`, and the private `Foo::IFooFactory` helper. `FactoryCache`

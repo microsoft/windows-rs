@@ -34,14 +34,15 @@ core requests.
 
 `tool_bindings` is the first production consumer. Its 17 flat requests share one `Metadata` value
 and select default, sys, or minimal output. The tool owns command parsing, rustfmt compatibility,
-and file writes. Nine standalone build-script consumers now match their committed output exactly.
-They include the activation and overload client/producer pairs, ref-parameter producer, benchmark
-component, robot component, context-alignment sample, and Win32 metadata slice. These requests
-prove class-wide overload naming, exclusive WinRT implementation generation, output-array and
-`IReference<T>` authoring, canonical external crates, and direct-return native COM producers.
-`tool_reactor` remains on `windows-bindgen`; its class selection, composable activation, hierarchy,
-event, and producer policies need bounded parity work before migration. Package output and broader
-COM policy remain future work.
+and file writes. Fifteen standalone build-script consumers now match their committed output exactly.
+They include the activation, overload, constructor, and composable client/producer pairs,
+composable aggregation, ref-parameter and `NoException` producers, benchmark and robot components,
+the context-alignment sample, and the Win32 metadata slice. These requests prove class-wide overload
+naming, exclusive WinRT implementation generation, composable activation and aggregation,
+output-array and `IReference<T>` authoring, canonical external crates, and direct-return native COM
+producers. `tool_reactor` remains on `windows-bindgen`; its class selection, hierarchy, event, and
+producer policies need bounded parity work before migration. Package output and broader COM policy
+remain future work.
 
 The design and differential evidence are tracked in
 [`docs/crates/windows-bindgen2.md`](../../../docs/crates/windows-bindgen2.md).

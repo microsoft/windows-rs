@@ -14,6 +14,7 @@ pub(super) struct Method {
     parameters: Vec<Parameter>,
     return_type: ty::Type,
     generic_return_default: bool,
+    noexcept: bool,
 }
 
 pub(super) struct EventHandler {
@@ -219,7 +220,7 @@ impl Delegate {
                 .write_abi_signature(values, namespace, layout, &self.generics, true)?;
         let upcall = if projection.is_minimal() {
             self.invoke
-                .write_upcall_infallible(values, quote! { (this.invoke) }, false)?
+                .write_upcall_infallible(values, quote! { (this.invoke) }, false, false)?
         } else {
             self.invoke
                 .write_upcall(values, quote! { (this.invoke) }, false)?
@@ -447,6 +448,7 @@ impl Method {
             parameters,
             return_type: ty::Type::lower(database, file, owner, signature.return_type)?,
             generic_return_default,
+            noexcept: method.find_attribute("NoExceptionAttribute")?.is_some(),
         })
     }
 
@@ -477,15 +479,16 @@ impl Method {
         interface: TokenStream,
     ) -> Result<TokenStream, Error> {
         let receiver = quote! { this };
-        self.write_public_method_with(
-            context,
-            public_name,
-            abi_name,
-            receiver,
+        let cast = if self.noexcept {
+            quote! {
+                let this = &windows_core::Interface::cast::<#interface>(self).unwrap();
+            }
+        } else {
             quote! {
                 let this = &windows_core::Interface::cast::<#interface>(self)?;
-            },
-        )
+            }
+        };
+        self.write_public_method_with(context, public_name, abi_name, receiver, cast)
     }
 
     pub(super) fn write_event_method(
@@ -602,8 +605,19 @@ impl Method {
             })
             .collect::<Result<Vec<_>, Error>>()?;
         let return_type = self.write_return_type(namespace, layout, generics)?;
-        Ok(quote! {
-            fn #name(&self, #(#parameters),*) -> windows_core::Result<#return_type>;
+        Ok(if self.noexcept {
+            if matches!(self.return_type, ty::Type::Void) {
+                quote! { fn #name(&self, #(#parameters),*); }
+            } else {
+                let return_type = self
+                    .return_type
+                    .write_default(namespace, layout, generics)?;
+                quote! { fn #name(&self, #(#parameters),*) -> #return_type; }
+            }
+        } else {
+            quote! {
+                fn #name(&self, #(#parameters),*) -> windows_core::Result<#return_type>;
+            }
         })
     }
 
@@ -646,6 +660,84 @@ impl Method {
                 Self::#factory_name(|this| #call)
             }
         })
+    }
+
+    pub(super) fn write_composable_methods(
+        &self,
+        context: &MethodContext<'_>,
+        public_name: &str,
+        abi_name: &str,
+        factory_name: &str,
+    ) -> Result<Vec<TokenStream>, Error> {
+        if self.parameters.len() < 2 {
+            return Err(Error::InvalidType {
+                name: abi_name.to_string(),
+                message: "composable factory method has too few parameters",
+            });
+        }
+        let ordinary = &self.parameters[..self.parameters.len() - 2];
+        let parameters = ordinary
+            .iter()
+            .map(|parameter| {
+                let name = tokens::ident(&parameter.name);
+                let ty = parameter.write_public_type(context)?;
+                Ok(quote! { #name: #ty, })
+            })
+            .collect::<Result<Vec<_>, Error>>()?;
+        let arguments = ordinary
+            .iter()
+            .map(|parameter| parameter.write_call_argument(context))
+            .collect::<Result<Vec<_>, Error>>()?;
+        let abi_name = tokens::ident(abi_name);
+        let factory_name = tokens::ident(factory_name);
+        let regular_name = if public_name == "CreateInstance" {
+            tokens::ident("new")
+        } else {
+            tokens::ident(public_name)
+        };
+        let compose_name = if public_name == "CreateInstance" {
+            tokens::ident("compose")
+        } else {
+            tokens::ident(&format!("{public_name}_compose"))
+        };
+        Ok(vec![
+            quote! {
+                pub fn #regular_name(#(#parameters)*) -> windows_core::Result<Self> {
+                    Self::#factory_name(|this| unsafe {
+                        let mut result__ = core::mem::zeroed();
+                        (windows_core::Interface::vtable(this).#abi_name)(
+                            windows_core::Interface::as_raw(this),
+                            #(#arguments,)*
+                            core::ptr::null_mut(),
+                            core::ptr::null_mut(),
+                            &mut result__,
+                        )
+                        .and_then(|| windows_core::Type::from_abi(result__))
+                    })
+                }
+            },
+            quote! {
+                pub fn #compose_name<T>(#(#parameters)* compose: T) -> windows_core::Result<Self>
+                where
+                    T: windows_core::Compose,
+                {
+                    Self::#factory_name(|this| unsafe {
+                        let (derived__, base__) = windows_core::Compose::compose(compose);
+                        let mut result__ = core::mem::zeroed();
+                        (windows_core::Interface::vtable(this).#abi_name)(
+                            windows_core::Interface::as_raw(this),
+                            #(#arguments,)*
+                            core::mem::transmute_copy(&derived__),
+                            base__ as *mut _ as _,
+                            &mut result__,
+                        )
+                        .ok()?;
+                        let _ = &derived__;
+                        windows_core::Type::from_abi(result__)
+                    })
+                }
+            },
+        ])
     }
 
     pub(super) fn write_impl_signature(
@@ -764,7 +856,20 @@ impl Method {
         } else {
             quote! { where #(#constraints)* }
         };
-        let return_name = if let ty::Type::Named {
+        let return_name = if let (
+            Some(owner),
+            ty::Type::Named {
+                namespace,
+                name,
+                value_type: false,
+                ..
+            },
+        ) = (context.owner, &self.return_type)
+            && namespace == context.namespace
+            && name == owner
+        {
+            quote! { Self }
+        } else if let ty::Type::Named {
             namespace,
             name,
             arguments,
@@ -790,12 +895,41 @@ impl Method {
         } else {
             self.write_return_type(context.namespace, context.layout, context.generics)?
         };
+        let return_type = if self.noexcept {
+            if matches!(self.return_type, ty::Type::Void) {
+                quote! {}
+            } else {
+                let return_name = if let (
+                    Some(owner),
+                    ty::Type::Named {
+                        namespace,
+                        name,
+                        value_type: false,
+                        ..
+                    },
+                ) = (context.owner, &self.return_type)
+                    && namespace == context.namespace
+                    && name == owner
+                {
+                    quote! { Option<Self> }
+                } else {
+                    self.return_type.write_default(
+                        context.namespace,
+                        context.layout,
+                        context.generics,
+                    )?
+                };
+                quote! { -> #return_name }
+            }
+        } else {
+            quote! { -> windows_core::Result<#return_name> }
+        };
         Ok(PublicSignature {
             generic_params: quote! { #(#generic_params),* },
             parameters,
             prelude: quote! { #(#preludes)* },
             where_clause,
-            return_type: quote! { -> windows_core::Result<#return_name> },
+            return_type,
         })
     }
 
@@ -831,6 +965,32 @@ impl Method {
                 #return_arguments
             )
         };
+        if self.noexcept {
+            return Ok(match &self.return_type {
+                ty::Type::Void => quote! {
+                    unsafe {
+                        let hresult__ = #call;
+                        debug_assert!(hresult__.0 == 0);
+                    }
+                },
+                ty if ty.is_copyable(context.values, context.namespace)? => quote! {
+                    unsafe {
+                        let mut result__ = core::mem::zeroed();
+                        let hresult__ = #call;
+                        debug_assert!(hresult__.0 == 0);
+                        result__
+                    }
+                },
+                _ => quote! {
+                    unsafe {
+                        let mut result__ = core::mem::zeroed();
+                        let hresult__ = #call;
+                        debug_assert!(hresult__.0 == 0);
+                        core::mem::transmute(result__)
+                    }
+                },
+            });
+        }
         Ok(match &self.return_type {
             ty::Type::Void => quote! { unsafe { #call.ok() } },
             ty::Type::Vector(_) => quote! {
@@ -1018,11 +1178,25 @@ impl Method {
         })
     }
 
+    pub(super) fn write_method_upcall(
+        &self,
+        values: &Values,
+        inner: TokenStream,
+        has_this: bool,
+    ) -> Result<TokenStream, Error> {
+        if self.noexcept {
+            self.write_upcall_infallible(values, inner, has_this, true)
+        } else {
+            self.write_upcall(values, inner, has_this)
+        }
+    }
+
     fn write_upcall_infallible(
         &self,
         values: &Values,
         inner: TokenStream,
         has_this: bool,
+        bind_copy: bool,
     ) -> Result<TokenStream, Error> {
         let arguments = self
             .parameters
@@ -1049,10 +1223,20 @@ impl Method {
                     windows_core::HRESULT(0)
                 }
             }
-            ty if ty.is_copyable(values, "delegate return")? => quote! {
-                result__.write(#inner(#this #(#arguments),*));
-                windows_core::HRESULT(0)
-            },
+            ty if ty.is_copyable(values, "delegate return")? => {
+                if bind_copy {
+                    quote! {
+                        let ok__ = #inner(#this #(#arguments),*);
+                        result__.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                } else {
+                    quote! {
+                        result__.write(#inner(#this #(#arguments),*));
+                        windows_core::HRESULT(0)
+                    }
+                }
+            }
             _ => quote! {
                 let ok__ = #inner(#this #(#arguments),*);
                 result__.write(core::mem::transmute_copy(&ok__));

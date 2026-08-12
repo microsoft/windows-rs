@@ -11,16 +11,14 @@ fn msvc_main() {
     println!("cargo:rerun-if-changed=src/interop.cpp");
     println!("cargo:rustc-link-lib=onecoreuap");
 
-    windows_bindgen::bindgen([
-        "--in",
-        "../composable/metadata.winmd",
-        "default",
-        "--out",
-        "src/bindings.rs",
-        "--filter",
-        "test_composable",
-        "--flat",
-    ]);
+    windows_bindgen2::builder()
+        .input("../composable/metadata.winmd")
+        .input_default()
+        .output("src/bindings.rs")
+        .filter("test_composable")
+        .flat()
+        .write()
+        .unwrap();
 
     let include = std::env::var("OUT_DIR").unwrap();
 

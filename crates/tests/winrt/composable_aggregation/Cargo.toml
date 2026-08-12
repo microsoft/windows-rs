@@ -9,7 +9,7 @@ name = "test_composable_aggregation"
 path = "src/main.rs"
 
 [build-dependencies]
-windows-bindgen = { workspace = true }
+windows-bindgen2 = { workspace = true }
 windows-rdl = { workspace = true }
 
 [dependencies]

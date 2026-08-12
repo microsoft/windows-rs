@@ -662,7 +662,7 @@ impl Interface {
                     &self.generics,
                     true,
                 )?;
-                let upcall = method.method.write_upcall(
+                let upcall = method.method.write_method_upcall(
                     values,
                     quote! { #impl_name::#method_name },
                     true,

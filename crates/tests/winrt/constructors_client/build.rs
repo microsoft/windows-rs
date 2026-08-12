@@ -11,16 +11,14 @@ fn msvc_main() {
     println!("cargo:rerun-if-changed=src/interop.cpp");
     println!("cargo:rustc-link-lib=onecoreuap");
 
-    windows_bindgen::bindgen([
-        "--in",
-        "../constructors/metadata.winmd",
-        "default",
-        "--out",
-        "src/bindings.rs",
-        "--filter",
-        "test_constructors",
-        "--flat",
-    ]);
+    windows_bindgen2::builder()
+        .input("../constructors/metadata.winmd")
+        .input_default()
+        .output("src/bindings.rs")
+        .filter("test_constructors")
+        .flat()
+        .write()
+        .unwrap();
 
     let include = std::env::var("OUT_DIR").unwrap();
 

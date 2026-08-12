@@ -40,7 +40,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Request differential | Complete | The production adapter proves all 17 request files. |
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
-| Build-script facade | Nine consumers | Activation, overloads, ref parameters, benchmark and robot components, context alignment, and Win32 metadata match. |
+| Build-script facade | Fifteen consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, benchmark and robot components, context alignment, and Win32 metadata match. |
 | Package output | Not started | Requires multi-file layout, feature generation, and exclusions. |
 
 Approximate hand-written production source size is 8,000 lines for bindgen2 versus 12,829 for the
@@ -134,7 +134,7 @@ default or sys projection, WinRT implementation generation, rustfmt, and changed
 Formatting is shared with `tool_bindings`, while package staging and legacy command parsing remain
 outside this boundary.
 
-Nine standalone requests have migrated without generated-file differences:
+Fifteen standalone requests have migrated without generated-file differences:
 
 - `test_activation_client` covers custom plus default WinRT metadata and default projection; its
   generated bindings match and the client compiles.
@@ -148,6 +148,11 @@ Nine standalone requests have migrated without generated-file differences:
   proof. They cover exclusive activation interfaces, self-typed interface parameters, WinRT
   output-array proxies, `IReference<T>` conveniences, canonical future/collection/reference
   crates, rich native function wrappers, and direct-return native COM methods.
+- `test_noexcept` covers infallible WinRT consumer and producer methods.
+- `test_constructors` and `test_constructors_client` cover composable activation. Factory methods
+  expose ordinary `new` or named constructors plus `compose` or named `*_compose` variants.
+- `test_composable`, `test_composable_client`, and `test_composable_aggregation` extend that proof
+  to inherited classes, infallible inherited methods, and a non-exclusive aggregation factory.
 
 The native migrations found that nested definitions were rendered with their parent but not walked
 for dependency closure. Closure now traverses nested fields without selecting nested definitions as
@@ -162,7 +167,6 @@ The initial flat-consumer batch exposed policy gaps before additional migrations
 | `robot_client`, `just_core` | Add rich native function wrappers and preserve public native interface policy. |
 | `test_bench_rust` | Complete collection conveniences, async routing, nullable interface returns, and `IReference<T>` input conversion. |
 | `test_libs_reference` | Preserve WinRT field names and output-array conventions. |
-| composable and constructor clients | Complete `NoException` and composable activation policy. |
 
 These consumers remain on `windows-bindgen` until their complete generated files match. This keeps
 the committed bindings as the oracle rather than accepting compile-only migrations.
@@ -180,11 +184,10 @@ The probe identified the next bounded work, in order:
 
 1. Distinguish a selected class type, selected class members, and a dependency shell.
 2. Match minimal callable visibility without changing public type definitions.
-3. Model composable `new` and `compose` activation.
-4. Route external collection interfaces and required class hierarchies.
-5. Project static events and revokers.
-6. Make native and WinRT producer selection explicit.
-7. Canonicalize custom `HResult` metadata to `windows_core::HRESULT`.
+3. Route external collection interfaces and required class hierarchies.
+4. Project static events and revokers.
+5. Make native and WinRT producer selection explicit.
+6. Canonicalize custom `HResult` metadata to `windows_core::HRESULT`.
 
 Reactor should not migrate until both complete generated binding files are close enough for direct
 review and compile without consumer changes. These gaps are output policy, not evidence that the
@@ -477,8 +480,8 @@ Marshaling behavior is decoded by enum value rather than by attribute presence: 
 agile and receive `Send` and `Sync`. The ten classes whose default interface is one of the WinRT
 async interfaces render as aliases to the corresponding `windows_future` type.
 
-Composable non-aggregating constructors use the ordinary factory path. The additional subclassing
-`*_compose` helpers belong with implementation selection and remain deferred.
+Composable factories emit ordinary constructors by passing null hidden aggregation parameters.
+They also emit `compose` and named `*_compose` helpers that use `windows_core::Compose`.
 
 ## WinRT member filtering
 

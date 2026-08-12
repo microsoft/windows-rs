@@ -10,7 +10,7 @@ doctest = false
 
 [build-dependencies]
 cc = "1.0"
-windows-bindgen = { workspace = true }
+windows-bindgen2 = { workspace = true }
 cppwinrt = { workspace = true }
 
 [dependencies]

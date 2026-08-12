@@ -23,6 +23,7 @@ struct ClassInterface {
     default: bool,
     exclusive: bool,
     factory: bool,
+    composable: bool,
 }
 
 struct ClassName {
@@ -207,7 +208,7 @@ impl Class {
             .interfaces
             .iter()
             .filter(|interface| !interface.default)
-            .filter(|interface| !interface.exclusive && !interface.factory)
+            .filter(|interface| !interface.exclusive)
             .filter(|interface| {
                 matches!(members, MemberSelection::All)
                     || interface
@@ -356,10 +357,12 @@ impl Class {
         }) {
             let interface_type = interface.write_name(namespace, layout)?;
             let factory_name = tokens::ident(&interface.name);
+            let mut emitted = false;
             for method in &interface.methods {
                 if !method.selected(members) {
                     continue;
                 }
+                emitted = true;
                 let context_name = &method.context_name;
                 let count = names.entry(context_name.clone()).or_default();
                 *count += 1;
@@ -368,14 +371,26 @@ impl Class {
                 } else {
                     format!("{context_name}{count}")
                 };
-                factories.push(method.method.write_static_method(
-                    context,
-                    &public_name,
-                    &method.name,
-                    &interface.name,
-                    &self.namespace,
-                    &self.name,
-                )?);
+                if interface.composable {
+                    factories.extend(method.method.write_composable_methods(
+                        context,
+                        &public_name,
+                        &method.name,
+                        &interface.name,
+                    )?);
+                } else {
+                    factories.push(method.method.write_static_method(
+                        context,
+                        &public_name,
+                        &method.name,
+                        &interface.name,
+                        &self.namespace,
+                        &self.name,
+                    )?);
+                }
+            }
+            if !emitted {
+                continue;
             }
             factories.push(quote! {
                 fn #factory_name<
@@ -428,6 +443,7 @@ impl ClassInterface {
             default: self.default,
             exclusive: self.exclusive,
             factory: self.factory,
+            composable: self.composable,
         }
     }
 
@@ -487,8 +503,9 @@ fn lower_factories(
     result: &mut Vec<ClassInterface>,
 ) -> Result<(), Error> {
     for attribute in definition.attributes()? {
+        let attribute_name = attribute.name()?;
         if !matches!(
-            attribute.name()?,
+            attribute_name,
             Some("StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute")
         ) {
             continue;
@@ -528,6 +545,7 @@ fn lower_factories(
                 default: false,
                 exclusive: interface.has_attribute("ExclusiveToAttribute")?,
                 factory: true,
+                composable: attribute_name == Some("ComposableAttribute"),
             });
             break;
         }
@@ -597,6 +615,7 @@ fn lower_interface(
         default: interface.default && !inherited,
         exclusive: definition.has_attribute("ExclusiveToAttribute")?,
         factory: false,
+        composable: false,
     });
     Ok(())
 }

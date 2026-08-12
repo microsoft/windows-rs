@@ -9,7 +9,7 @@ crate-type = ["cdylib"]
 doc = false
 doctest = false
 
-[build-dependencies.windows-bindgen]
+[build-dependencies.windows-bindgen2]
 workspace = true
 
 [dependencies.windows-core]

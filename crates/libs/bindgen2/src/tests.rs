@@ -1251,6 +1251,124 @@ fn winrt_reference_conveniences_use_external_crate() {
 }
 
 #[test]
+fn winrt_noexcept_methods_are_infallible() {
+    let metadata = fixture_metadata(
+        r#"
+            #[winrt]
+            mod Windows {
+                mod Foundation {
+                    mod Metadata {
+                        attribute NoExceptionAttribute {
+                            fn();
+                        }
+                    }
+                }
+            }
+            #[winrt]
+            mod Test {
+                interface Interface {
+                    #[Windows::Foundation::Metadata::NoException]
+                    fn Value(&self) -> i32;
+                    #[Windows::Foundation::Metadata::NoException]
+                    fn SetValue(&self, value: i32);
+                }
+            }
+        "#,
+    );
+    let output = metadata
+        .generator(Request::all().implement_all())
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+
+    assert!(
+        output.contains("pub fn Value (& self ,) -> i32"),
+        "{output}"
+    );
+    assert!(
+        output.contains("pub fn SetValue (& self , value : i32 ,)"),
+        "{output}"
+    );
+    assert!(output.contains("fn Value (& self ,) -> i32"), "{output}");
+    assert!(
+        output.contains("fn SetValue (& self , value : i32)"),
+        "{output}"
+    );
+    assert!(
+        output.contains("debug_assert ! (hresult__ . 0 == 0)"),
+        "{output}"
+    );
+}
+
+#[test]
+fn composable_factories_emit_regular_and_compose_methods() {
+    let output = fixture(
+        r#"
+            #[winrt]
+            mod Windows {
+                mod Foundation {
+                    mod Metadata {
+                        #[repr(i32)]
+                        enum CompositionType {
+                            Protected = 1,
+                            Public = 2,
+                        }
+                        attribute ComposableAttribute {
+                            fn(
+                                r#type: Type,
+                                compositionType: CompositionType,
+                                version: u32,
+                            );
+                        }
+                    }
+                }
+            }
+            #[winrt]
+            mod Test {
+                #[Windows::Foundation::Metadata::Composable(
+                    IComposableFactory,
+                    Public,
+                    65536,
+                )]
+                class Composable {
+                    IComposable,
+                }
+                interface IComposable {}
+                interface IComposableFactory {
+                    fn CreateInstance(
+                        &self,
+                        baseInterface: Object,
+                        innerInterface: &mut Object,
+                    ) -> Composable;
+                    fn WithValue(
+                        &self,
+                        value: i32,
+                        baseInterface: Object,
+                        innerInterface: &mut Object,
+                    ) -> Composable;
+                }
+            }
+        "#,
+    )
+    .render(Layout::Flat)
+    .unwrap()
+    .to_string();
+
+    assert!(output.contains("pub fn new ()"), "{output}");
+    assert!(
+        output.contains("pub fn compose < T > (compose : T)"),
+        "{output}"
+    );
+    assert!(output.contains("pub fn WithValue (value : i32"), "{output}");
+    assert!(
+        output.contains("pub fn WithValue_compose < T > (value : i32 , compose : T)"),
+        "{output}"
+    );
+    assert!(output.contains("T : windows_core :: Compose"), "{output}");
+}
+
+#[test]
 fn class_member_filters_route_static_methods() {
     let metadata = fixture_metadata(include_str!(
         "../../../tests/libs/bindgen/input/class_static.rdl"

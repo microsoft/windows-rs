@@ -22,15 +22,13 @@ fn main() {
 
     assert!(command.status().unwrap().success(), "Failed to run midlrt");
 
-    windows_bindgen::bindgen([
-        "--in",
-        "metadata.winmd",
-        "default",
-        "--out",
-        "src/bindings.rs",
-        "--filter",
-        "test_composable",
-        "--implement",
-        "--flat",
-    ]);
+    windows_bindgen2::builder()
+        .input("metadata.winmd")
+        .input_default()
+        .output("src/bindings.rs")
+        .filter("test_composable")
+        .implement_all()
+        .flat()
+        .write()
+        .unwrap();
 }
