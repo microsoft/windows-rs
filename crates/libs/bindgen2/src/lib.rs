@@ -97,7 +97,8 @@ impl Projection {
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct Request {
     filter: Option<Filter>,
-    implementations: Option<Filter>,
+    winrt_implementations: Option<Filter>,
+    native_implementations: Option<Filter>,
     implement_all: bool,
     projection: Projection,
 }
@@ -112,7 +113,8 @@ impl Request {
     pub fn filtered(filter: Filter) -> Self {
         Self {
             filter: Some(filter),
-            implementations: None,
+            winrt_implementations: None,
+            native_implementations: None,
             implement_all: false,
             projection: Projection::Default,
         }
@@ -120,14 +122,16 @@ impl Request {
 
     /// Selects interfaces that require implementation traits and typed ABI vtables.
     pub fn implementations(mut self, filter: Filter) -> Self {
-        self.implementations = Some(filter);
+        self.winrt_implementations = Some(filter.clone());
+        self.native_implementations = Some(filter);
         self.implement_all = false;
         self
     }
 
     /// Emits implementation traits for every selected interface.
     pub fn implement_all(mut self) -> Self {
-        self.implementations = None;
+        self.winrt_implementations = None;
+        self.native_implementations = None;
         self.implement_all = true;
         self
     }
@@ -324,7 +328,7 @@ impl Generator {
             Self::close_winrt(
                 &shared,
                 filter,
-                request.implementations.as_ref(),
+                request.winrt_implementations.as_ref(),
                 request.projection,
             )?
         } else {
@@ -341,7 +345,7 @@ impl Generator {
             &shared.database,
             shared.win32_catalogs.clone(),
             filter,
-            request.implementations.as_ref(),
+            request.native_implementations.as_ref(),
         )?;
         let winrt_implementations = if request.implement_all {
             Some(
@@ -366,20 +370,23 @@ impl Generator {
                     .collect(),
             )
         } else {
-            request.implementations.as_ref().map(|implementations| {
-                winrt
-                    .iter()
-                    .filter_map(|entry| {
-                        let definition = shared.database.definition(entry.entity).unwrap();
-                        implementations
-                            .includes(
-                                definition.namespace().unwrap(),
-                                trim_generic_arity(definition.name().unwrap()),
-                            )
-                            .then_some(entry.entity)
-                    })
-                    .collect()
-            })
+            request
+                .winrt_implementations
+                .as_ref()
+                .map(|implementations| {
+                    winrt
+                        .iter()
+                        .filter_map(|entry| {
+                            let definition = shared.database.definition(entry.entity).unwrap();
+                            implementations
+                                .includes(
+                                    definition.namespace().unwrap(),
+                                    trim_generic_arity(definition.name().unwrap()),
+                                )
+                                .then_some(entry.entity)
+                        })
+                        .collect()
+                })
         };
 
         Ok(Self {

@@ -1113,6 +1113,14 @@ fn implement_all_emits_exclusive_interface_implementations() {
             }
         "#,
     );
+    let client = metadata
+        .generator(Request::all())
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+    assert!(!client.contains("pub trait IClass_Impl"), "{client}");
+
     let output = metadata
         .generator(Request::all().implement_all())
         .unwrap()
@@ -1122,6 +1130,34 @@ fn implement_all_emits_exclusive_interface_implementations() {
 
     assert!(output.contains("pub trait IClass_Impl"), "{output}");
     assert!(output.contains("pub const fn new < Identity : IClass_Impl"));
+}
+
+#[test]
+fn rich_native_functions_wrap_direct_and_output_returns() {
+    let output = fixture(
+        r#"
+            #[win32]
+            mod Test {
+                #[library("test.dll")]
+                extern fn Direct(value: i32) -> u32;
+                #[library("test.dll")]
+                extern fn Output(#[out] value: *mut u32);
+            }
+        "#,
+    )
+    .render(Layout::Flat)
+    .unwrap()
+    .to_string();
+
+    assert!(
+        output.contains("pub unsafe fn Direct (value : i32) -> u32"),
+        "{output}"
+    );
+    assert!(
+        output.contains("pub unsafe fn Output () -> u32"),
+        "{output}"
+    );
+    assert!(output.contains("Output (& mut result__)"), "{output}");
 }
 
 #[test]

@@ -40,7 +40,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Request differential | Complete | The production adapter proves all 17 request files. |
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
-| Build-script facade | Fifteen consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, benchmark and robot components, context alignment, and Win32 metadata match. |
+| Build-script facade | Seventeen consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, benchmark and robot components and client, context alignment, core-only APIs, and Win32 metadata match. |
 | Package output | Not started | Requires multi-file layout, feature generation, and exclusions. |
 
 Approximate hand-written production source size is 8,000 lines for bindgen2 versus 12,829 for the
@@ -134,7 +134,7 @@ default or sys projection, WinRT implementation generation, rustfmt, and changed
 Formatting is shared with `tool_bindings`, while package staging and legacy command parsing remain
 outside this boundary.
 
-Fifteen standalone requests have migrated without generated-file differences:
+Seventeen standalone requests have migrated without generated-file differences:
 
 - `test_activation_client` covers custom plus default WinRT metadata and default projection; its
   generated bindings match and the client compiles.
@@ -153,6 +153,10 @@ Fifteen standalone requests have migrated without generated-file differences:
   expose ordinary `new` or named constructors plus `compose` or named `*_compose` variants.
 - `test_composable`, `test_composable_client`, and `test_composable_aggregation` extend that proof
   to inherited classes, infallible inherited methods, and a non-exclusive aggregation factory.
+- `test_just_core` covers rich wrappers for direct returns, void output parameters, and ABI-backed
+  core string types without depending on the full `windows` crate.
+- `robot_client` confirms client generation retains native COM implementation support reached
+  through a WinRT class dependency.
 
 The native migrations found that nested definitions were rendered with their parent but not walked
 for dependency closure. Closure now traverses nested fields without selecting nested definitions as
@@ -164,7 +168,6 @@ The initial flat-consumer batch exposed policy gaps before additional migrations
 | Consumer | Required bindgen2 work |
 | --- | --- |
 | `vss_backup` | Project rich native interfaces without a COM identity where the legacy output permits them. |
-| `robot_client`, `just_core` | Add rich native function wrappers and preserve public native interface policy. |
 | `test_bench_rust` | Complete collection conveniences, async routing, nullable interface returns, and `IReference<T>` input conversion. |
 | `test_libs_reference` | Preserve WinRT field names and output-array conventions. |
 

@@ -32,12 +32,16 @@ impl native_signature::Signature {
         abi: &str,
         import_name: Option<&str>,
     ) -> Option<TokenStream> {
+        let return_kind = self.return_kind();
+        if !matches!(return_kind, ReturnKind::Retval { .. }) {
+            return self.write_native_function(namespace, layout, name, module, abi, import_name);
+        }
         let ReturnKind::Retval {
             position: retval,
             ty,
-        } = self.return_kind()
+        } = return_kind
         else {
-            return None;
+            unreachable!()
         };
         let method = tokens::ident(name);
         let symbol = import_name.map(|name| quote! { #name });
@@ -93,6 +97,108 @@ impl native_signature::Signature {
                     let mut result__ = core::mem::zeroed();
                     #body
                 }
+            }
+        })
+    }
+
+    fn write_native_function(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        name: &str,
+        module: &str,
+        abi: &str,
+        import_name: Option<&str>,
+    ) -> Option<TokenStream> {
+        let return_kind = self.return_kind();
+        let output = if matches!(return_kind, ReturnKind::Void) {
+            let outputs = self
+                .parameters
+                .iter()
+                .enumerate()
+                .filter(|(_, parameter)| !parameter.is_input_only())
+                .collect::<Vec<_>>();
+            match outputs.as_slice() {
+                [] => None,
+                [(position, parameter)] => Some((*position, parameter.ty.pointee()?)),
+                _ => return None,
+            }
+        } else {
+            None
+        };
+        let direct = match return_kind {
+            ReturnKind::Direct(ty) => Some(ty),
+            ReturnKind::Void => None,
+            _ => return None,
+        };
+        let method = tokens::ident(name);
+        let symbol = import_name.map(|name| quote! { #name });
+        let raw_parameters = self.parameters.iter().map(|parameter| {
+            let name = tokens::ident(&parameter.name);
+            let ty = parameter
+                .ty
+                .write_abi_projection(namespace, layout, Projection::Default);
+            quote! { #name: #ty }
+        });
+        let parameters = self
+            .parameters
+            .iter()
+            .enumerate()
+            .filter(|(position, _)| output.is_none_or(|(output, _)| output != *position))
+            .map(|(_, parameter)| {
+                let name = tokens::ident(&parameter.name);
+                if parameter.ty.is_bstr() {
+                    quote! { #name: &windows_core::BSTR }
+                } else {
+                    let ty = parameter.ty.write_public_input(namespace, layout);
+                    quote! { #name: #ty }
+                }
+            });
+        let arguments = self
+            .parameters
+            .iter()
+            .enumerate()
+            .map(|(position, parameter)| {
+                if output.is_some_and(|(output, _)| output == position) {
+                    quote! { &mut result__ }
+                } else {
+                    let name = tokens::ident(&parameter.name);
+                    if parameter.ty.is_bstr() {
+                        quote! { core::mem::transmute_copy(#name) }
+                    } else {
+                        quote! { #name }
+                    }
+                }
+            });
+        let result = output.map_or_else(
+            || {
+                direct
+                    .map(|ty| ty.write_public(namespace, layout))
+                    .unwrap_or_default()
+            },
+            |(_, ty)| ty.write_public(namespace, layout),
+        );
+        let return_type = (!result.is_empty()).then(|| quote! { -> #result });
+        let raw_return_type = direct.map(|ty| {
+            let ty = ty.write_abi_projection(namespace, layout, Projection::Default);
+            quote! { -> #ty }
+        });
+        let body = if output.is_some() {
+            quote! {
+                let mut result__ = core::mem::zeroed();
+                #method(#(#arguments),*);
+                result__
+            }
+        } else {
+            quote! { #method(#(#arguments),*) }
+        };
+        Some(quote! {
+            #[inline]
+            pub unsafe fn #method(#(#parameters),*) #return_type {
+                windows_core::link!(
+                    #module #abi #symbol fn #method(#(#raw_parameters),*) #raw_return_type
+                );
+                unsafe { #body }
             }
         })
     }

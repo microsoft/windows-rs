@@ -295,6 +295,7 @@ impl Interface {
         members: &MemberSelection,
         implementation: Option<bool>,
     ) -> Result<TokenStream, Error> {
+        let implementation = implementation.or_else(|| self.exclusive.then_some(false));
         let name = tokens::ident(&self.name);
         let vtbl_name = tokens::ident(&format!("{}_Vtbl", self.name));
         let impl_name = tokens::ident(&format!("{}_Impl", self.name));

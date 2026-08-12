@@ -9,7 +9,7 @@ windows-core = { workspace = true , default-features = true }
 robot = { path = "../component" }
 
 [build-dependencies]
-windows-bindgen = { workspace = true }
+windows-bindgen2 = { workspace = true }
 
 [lints]
 workspace = true

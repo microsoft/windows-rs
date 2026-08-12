@@ -300,7 +300,7 @@ impl Type {
             Self::Interface { .. } => quote! { *mut core::ffi::c_void },
             Self::Named { namespace, name }
                 if !projection.is_sys()
-                    && name == "HSTRING"
+                    && matches!(name.as_str(), "BSTR" | "HSTRING")
                     && (namespace == "Windows.Win32"
                         || namespace.starts_with("Windows.Win32.")) =>
             {
@@ -416,6 +416,16 @@ impl Type {
             self,
             Self::Named { namespace, name }
                 if name == "BOOL"
+                    && (namespace == "Windows.Win32"
+                        || namespace.starts_with("Windows.Win32."))
+        )
+    }
+
+    pub(super) fn is_bstr(&self) -> bool {
+        matches!(
+            self,
+            Self::Named { namespace, name }
+                if name == "BSTR"
                     && (namespace == "Windows.Win32"
                         || namespace.starts_with("Windows.Win32."))
         )

@@ -11,8 +11,8 @@ doctest = false
 [dependencies.windows-core]
 path = "../../../libs/core"
 
-[build-dependencies.windows-bindgen]
-path = "../../../libs/bindgen"
+[build-dependencies.windows-bindgen2]
+path = "../../../libs/bindgen2"
 
 [lints]
 workspace = true

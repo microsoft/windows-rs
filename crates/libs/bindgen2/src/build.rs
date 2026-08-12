@@ -100,7 +100,7 @@ impl Bindgen {
         let mut request = if self.implement_all {
             Request::filtered(filter).implement_all()
         } else {
-            Request::filtered(filter).implementations(Filter::new())
+            Request::filtered(filter)
         };
         if self.sys {
             request = request.sys();
