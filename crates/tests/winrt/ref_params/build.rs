@@ -29,17 +29,15 @@ fn msvc_main() {
 
     assert!(command.status().unwrap().success(), "Failed to run midlrt");
 
-    windows_bindgen::bindgen([
-        "--in",
-        "test.winmd",
-        &metadata_dir,
-        "--out",
-        "src/bindings.rs",
-        "--filter",
-        "Test",
-        "--implement",
-        "--flat",
-    ]);
+    windows_bindgen2::builder()
+        .input("test.winmd")
+        .input(&metadata_dir)
+        .output("src/bindings.rs")
+        .filter("Test")
+        .implement_all()
+        .flat()
+        .write()
+        .unwrap();
 
     let include = std::env::var("OUT_DIR").unwrap();
 

@@ -8,12 +8,13 @@ fn main() {
         .write()
         .unwrap();
 
-    windows_bindgen::builder()
+    windows_bindgen2::builder()
         .input("robot.winmd")
         .input_default()
         .output("src/bindings.rs")
         .filter("Robotics")
         .flat()
         .implement_all()
-        .write();
+        .write()
+        .unwrap();
 }

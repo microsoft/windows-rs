@@ -381,6 +381,15 @@ impl Type {
         }
     }
 
+    pub(super) fn write_public_input(&self, namespace: &str, layout: Layout) -> TokenStream {
+        if let Self::Pointer { element, .. } = self {
+            let element = element.write_public(namespace, layout);
+            quote! { *const #element }
+        } else {
+            self.write_public(namespace, layout)
+        }
+    }
+
     pub(super) fn pointee(&self) -> Option<&Self> {
         match self {
             Self::Pointer { element, .. } => Some(element),

@@ -492,6 +492,21 @@ impl Type {
                 arguments,
                 ..
             } => {
+                if namespace != target
+                    && let Some(crate_name) = external::winrt_crate(target, name)
+                {
+                    let crate_name = tokens::ident(crate_name);
+                    let name = tokens::ident(name);
+                    let arguments = arguments
+                        .iter()
+                        .map(|argument| argument.write_name(namespace, layout, generics))
+                        .collect::<Result<Vec<_>, _>>()?;
+                    return Ok(if arguments.is_empty() {
+                        quote! { #crate_name::#name }
+                    } else {
+                        quote! { #crate_name::#name<#(#arguments),*> }
+                    });
+                }
                 let path = tokens::namespace(namespace, target, layout);
                 let name = tokens::ident(name);
                 let arguments = arguments

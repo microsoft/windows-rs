@@ -34,6 +34,7 @@ struct Parameter {
     name: String,
     metadata_name: String,
     input_only: bool,
+    array_ref: bool,
     ty: ty::Type,
 }
 
@@ -230,6 +231,7 @@ impl Delegate {
             quote! { <#generic_params> }
         };
         let public_parameters = public_signature.parameters;
+        let public_prelude = public_signature.prelude;
         let where_clause = public_signature.where_clause;
         let return_type = public_signature.return_type;
         let invoke_method = (!projection.is_minimal()).then(|| {
@@ -240,6 +242,7 @@ impl Delegate {
                 ) #return_type
                 #where_clause
                 {
+                    #public_prelude
                     #public_call
                 }
             }
@@ -302,6 +305,7 @@ impl Delegate {
 struct PublicSignature {
     generic_params: TokenStream,
     parameters: Vec<TokenStream>,
+    prelude: TokenStream,
     where_clause: TokenStream,
     return_type: TokenStream,
 }
@@ -419,6 +423,7 @@ impl Method {
                         shape: format!("modified callable parameter {:?}", ty.kind),
                     });
                 }
+                let array_ref = matches!(&ty.kind, TypeKind::ByRef(inner) if matches!(inner.kind, TypeKind::Vector(_)));
                 let ty = match ty.kind {
                     TypeKind::ByRef(inner) => windows_metadata2::Type {
                         modifiers: Vec::new(),
@@ -433,6 +438,7 @@ impl Method {
                     name,
                     metadata_name,
                     input_only,
+                    array_ref,
                     ty: ty::Type::lower(database, file, owner, ty)?,
                 })
             })
@@ -563,6 +569,7 @@ impl Method {
             quote! { <#generics> }
         };
         let parameters = signature.parameters;
+        let signature_prelude = signature.prelude;
         let return_type = signature.return_type;
         let where_clause = signature.where_clause;
         Ok(quote! {
@@ -570,6 +577,7 @@ impl Method {
             #where_clause
             {
                 #prelude
+                #signature_prelude
                 #call
             }
         })
@@ -620,6 +628,7 @@ impl Method {
             quote! { <#generics> }
         };
         let parameters = signature.parameters;
+        let signature_prelude = signature.prelude;
         let where_clause = signature.where_clause;
         let return_type = match &self.return_type {
             ty::Type::Named {
@@ -633,6 +642,7 @@ impl Method {
             pub fn #public_name #method_generics(#(#parameters)*) #return_type
             #where_clause
             {
+                #signature_prelude
                 Self::#factory_name(|this| #call)
             }
         })
@@ -692,19 +702,54 @@ impl Method {
     ) -> Result<PublicSignature, Error> {
         let mut generic_params = Vec::new();
         let mut constraints = Vec::new();
+        let mut preludes = Vec::new();
         let parameters = self
             .parameters
             .iter()
             .enumerate()
             .map(|(position, parameter)| {
                 let name = tokens::ident(&parameter.name);
-                if parameter.input_only && parameter.ty.is_interface() {
+                if parameter.input_only
+                    && let ty::Type::Named {
+                        namespace,
+                        name: type_name,
+                        arguments,
+                        ..
+                    } = &parameter.ty
+                    && namespace == "Windows.Foundation"
+                    && type_name == "IReference"
+                    && let [argument] = arguments.as_slice()
+                {
+                    let argument =
+                        argument.write_name(context.namespace, context.layout, context.generics)?;
+                    let value = tokens::ident(&format!("{}__", parameter.name));
+                    preludes.push(quote! {
+                        let #value = #name.map(
+                            <windows_reference::IReference<#argument> as From<_>>::from
+                        );
+                    });
+                    Ok(quote! { #name: Option<#argument>, })
+                } else if parameter.input_only && parameter.ty.is_interface() {
                     let generic = tokens::ident(&format!("P{position}"));
-                    let ty = parameter.ty.write_name(
-                        context.namespace,
-                        context.layout,
-                        context.generics,
-                    )?;
+                    let ty = if matches!(
+                        (&parameter.ty, context.owner),
+                        (
+                            ty::Type::Named {
+                                namespace,
+                                name,
+                                ..
+                            },
+                            Some(owner)
+                        ) if namespace == context.namespace && name == owner
+                    ) {
+                        quote! { Self }
+                    } else {
+                        parameter.ty.write_name(
+                            context.namespace,
+                            context.layout,
+                            context.generics,
+                        )?
+                    };
                     generic_params.push(generic.clone());
                     constraints.push(quote! { #generic: windows_core::Param<#ty>, });
                     Ok(quote! { #name: #generic, })
@@ -719,7 +764,18 @@ impl Method {
         } else {
             quote! { where #(#constraints)* }
         };
-        let return_name = if context.projection.is_minimal() {
+        let return_name = if let ty::Type::Named {
+            namespace,
+            name,
+            arguments,
+            ..
+        } = &self.return_type
+            && namespace == "Windows.Foundation"
+            && name == "IReference"
+            && let [argument] = arguments.as_slice()
+        {
+            argument.write_name(context.namespace, context.layout, context.generics)?
+        } else if context.projection.is_minimal() {
             if matches!(self.return_type, ty::Type::String) {
                 quote! { String }
             } else if self.return_type.is_external_minimal() {
@@ -737,6 +793,7 @@ impl Method {
         Ok(PublicSignature {
             generic_params: quote! { #(#generic_params),* },
             parameters,
+            prelude: quote! { #(#preludes)* },
             where_clause,
             return_type: quote! { -> windows_core::Result<#return_name> },
         })
@@ -797,6 +854,28 @@ impl Method {
                     })
                 }
             },
+            ty::Type::Named {
+                namespace,
+                name,
+                arguments,
+                ..
+            } if namespace == "Windows.Foundation"
+                && name == "IReference"
+                && let [argument] = arguments.as_slice() =>
+            {
+                let argument =
+                    argument.write_name(context.namespace, context.layout, context.generics)?;
+                quote! {
+                    unsafe {
+                        let mut result__ = core::mem::zeroed();
+                        #call
+                            .and_then(|| windows_core::Type::from_abi(result__))
+                            .and_then(
+                                |r__: windows_reference::IReference<#argument>| r__.Value()
+                            )
+                    }
+                }
+            }
             ty if ty.is_interface() => quote! {
                 unsafe {
                     let mut result__ = core::mem::zeroed();
@@ -829,20 +908,33 @@ impl Method {
                 let abi = parameter
                     .ty
                     .write_abi(values, namespace, layout, generics)?;
-                Ok(match (&parameter.ty, parameter.input_only, named) {
-                    (ty::Type::Vector(_), true, true) => {
-                        quote! { #size: u32, #name: *const #abi }
-                    }
-                    (ty::Type::Vector(_), false, true) => {
-                        quote! { #size: u32, #name: *mut #abi }
-                    }
-                    (ty::Type::Vector(_), true, false) => quote! { u32, *const #abi },
-                    (ty::Type::Vector(_), false, false) => quote! { u32, *mut #abi },
-                    (_, true, true) => quote! { #name: #abi },
-                    (_, false, true) => quote! { #name: *mut #abi },
-                    (_, true, false) => quote! { #abi },
-                    (_, false, false) => quote! { *mut #abi },
-                })
+                Ok(
+                    match (
+                        &parameter.ty,
+                        parameter.input_only,
+                        parameter.array_ref,
+                        named,
+                    ) {
+                        (ty::Type::Vector(_), _, true, true) => {
+                            quote! { #size: *mut u32, #name: *mut *mut #abi }
+                        }
+                        (ty::Type::Vector(_), _, true, false) => {
+                            quote! { *mut u32, *mut *mut #abi }
+                        }
+                        (ty::Type::Vector(_), true, false, true) => {
+                            quote! { #size: u32, #name: *const #abi }
+                        }
+                        (ty::Type::Vector(_), false, false, true) => {
+                            quote! { #size: u32, #name: *mut #abi }
+                        }
+                        (ty::Type::Vector(_), true, false, false) => quote! { u32, *const #abi },
+                        (ty::Type::Vector(_), false, false, false) => quote! { u32, *mut #abi },
+                        (_, true, _, true) => quote! { #name: #abi },
+                        (_, false, _, true) => quote! { #name: *mut #abi },
+                        (_, true, _, false) => quote! { #abi },
+                        (_, false, _, false) => quote! { *mut #abi },
+                    },
+                )
             })
             .collect::<Result<Vec<_>, Error>>()?;
         let result = match (&self.return_type, named) {
@@ -978,6 +1070,7 @@ impl Method {
     ) -> Result<TokenStream, Error> {
         Ok(match &self.return_type {
             ty::Type::Void => quote! { () },
+            ty::Type::Object => self.return_type.write_name(namespace, layout, generics)?,
             ty::Type::Vector(element) => {
                 let element = element.write_name(namespace, layout, generics)?;
                 quote! { windows_core::Array<#element> }
@@ -1045,7 +1138,11 @@ impl Parameter {
             match &self.ty {
                 ty::Type::Vector(element) => {
                     let element = element.write_default(namespace, layout, generics)?;
-                    quote! { &mut [#element] }
+                    if self.array_ref {
+                        quote! { &mut windows_core::Array<#element> }
+                    } else {
+                        quote! { &mut [#element] }
+                    }
                 }
                 ty if ty.is_interface() => {
                     let name = ty.write_name(namespace, layout, generics)?;
@@ -1079,7 +1176,11 @@ impl Parameter {
             if let ty::Type::Vector(element) = &self.ty {
                 let element =
                     element.write_default(context.namespace, context.layout, context.generics)?;
-                quote! { &mut [#element] }
+                if self.array_ref {
+                    quote! { &mut windows_core::Array<#element> }
+                } else {
+                    quote! { &mut [#element] }
+                }
             } else {
                 quote! { &mut #default }
             }
@@ -1125,12 +1226,27 @@ impl Parameter {
                     #name.len().try_into().unwrap(),
                     core::mem::transmute(#name.as_ptr())
                 },
+                ty::Type::Named {
+                    namespace,
+                    name,
+                    arguments,
+                    ..
+                } if namespace == "Windows.Foundation"
+                    && name == "IReference"
+                    && arguments.len() == 1 =>
+                {
+                    let value = tokens::ident(&format!("{}__", self.name));
+                    quote! { windows_core::Param::param(#value.as_ref()).abi() }
+                }
                 ty if ty.is_interface() => quote! { #name.param().abi() },
                 ty if ty.is_copyable(context.values, &self.name)? => quote! { #name },
                 _ => quote! { core::mem::transmute_copy(#name) },
             }
         } else {
             match &self.ty {
+                ty::Type::Vector(_) if self.array_ref => {
+                    quote! { #name.set_abi_len(), #name as *mut _ as _ }
+                }
                 ty::Type::Vector(element) if element.is_copyable(context.values, &self.name)? => {
                     quote! { #name.len().try_into().unwrap(), #name.as_mut_ptr() }
                 }
@@ -1160,7 +1276,14 @@ impl Parameter {
                 _ => quote! { core::mem::transmute(&#name) },
             }
         } else {
-            if let ty::Type::Vector(_) = &self.ty {
+            if matches!(self.ty, ty::Type::Vector(_)) && self.array_ref {
+                quote! {
+                    &mut windows_core::imp::array_proxy(
+                        core::mem::transmute_copy(&#name),
+                        #size
+                    )
+                }
+            } else if let ty::Type::Vector(_) = &self.ty {
                 quote! {
                     core::slice::from_raw_parts_mut(
                         core::mem::transmute_copy(&#name),

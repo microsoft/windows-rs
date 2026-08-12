@@ -257,9 +257,12 @@ impl NativeInterface {
                 .iter()
                 .filter(|method| method.selected(members))
                 .map(|method| {
-                    method
-                        .signature
-                        .write_com_method(&self.namespace, layout, &method.name)
+                    method.signature.write_com_method(
+                        &self.namespace,
+                        layout,
+                        projection,
+                        &method.name,
+                    )
                 })
                 .collect::<Result<Vec<_>, Error>>()?;
             if wrappers.is_empty() {
@@ -350,6 +353,11 @@ impl NativeInterface {
                     layout,
                     projection,
                 );
+                let result = method.signature.write_vtable_result_projection(
+                    &self.namespace,
+                    layout,
+                    projection,
+                );
                 let upcall = method
                     .signature
                     .write_impl_upcall(&impl_name, &method.name)?;
@@ -358,7 +366,7 @@ impl NativeInterface {
                     unsafe extern "system" fn #method_name<
                         Identity: #impl_name,
                         const OFFSET: isize
-                    >(#signature) -> windows_core::HRESULT {
+                    >(#signature) #result {
                         unsafe {
                             let this: &Identity =
                                 &*((this as *const *const ()).offset(OFFSET) as *const Identity);

@@ -1188,6 +1188,69 @@ fn class_overloads_are_named_across_exclusive_interfaces() {
 }
 
 #[test]
+fn winrt_producer_output_arrays_use_array_proxy() {
+    let output = fixture(
+        r#"
+            #[winrt]
+            mod Test {
+                interface Interface {
+                    fn GetValues(&self, values: &mut [i32]);
+                }
+            }
+        "#,
+    )
+    .render(Layout::Flat)
+    .unwrap()
+    .to_string();
+
+    assert!(output.contains("values : & mut windows_core :: Array < i32 >"));
+    assert!(output.contains("values_array_size : * mut u32"));
+    assert!(output.contains("windows_core :: imp :: array_proxy"));
+}
+
+#[test]
+fn winrt_reference_conveniences_use_external_crate() {
+    let metadata = fixture_metadata(
+        r#"
+            #[winrt]
+            mod Windows {
+                mod Foundation {
+                    interface IReference<T> {
+                        fn Value(&self) -> T;
+                    }
+                }
+            }
+            #[winrt]
+            mod Test {
+                interface Interface {
+                    fn Reference(&self) -> Windows::Foundation::IReference<i32>;
+                    fn SetReference(
+                        &self,
+                        value: Windows::Foundation::IReference<i32>,
+                    );
+                }
+            }
+        "#,
+    );
+    let mut filter = Filter::new();
+    filter.include_namespace("Test");
+    let output = metadata
+        .generator(Request::filtered(filter).implement_all())
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+
+    assert!(
+        output.contains("pub fn Reference (& self ,) -> windows_core :: Result < i32 >"),
+        "{output}"
+    );
+    assert!(output.contains("value : Option < i32 >"));
+    assert!(output.contains("windows_reference :: IReference < i32 >"));
+    assert!(!output.contains("define_interface ! (IReference"));
+}
+
+#[test]
 fn class_member_filters_route_static_methods() {
     let metadata = fixture_metadata(include_str!(
         "../../../tests/libs/bindgen/input/class_static.rdl"

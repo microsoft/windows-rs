@@ -23,13 +23,93 @@ enum ReturnKind<'a> {
 }
 
 impl native_signature::Signature {
-    pub(super) fn write_com_method(
+    pub(super) fn write_com_function(
         &self,
         namespace: &str,
         layout: Layout,
         name: &str,
+        module: &str,
+        abi: &str,
+        import_name: Option<&str>,
+    ) -> Option<TokenStream> {
+        let ReturnKind::Retval {
+            position: retval,
+            ty,
+        } = self.return_kind()
+        else {
+            return None;
+        };
+        let method = tokens::ident(name);
+        let symbol = import_name.map(|name| quote! { #name });
+        let raw_parameters = self.parameters.iter().map(|parameter| {
+            let name = tokens::ident(&parameter.name);
+            let ty = if parameter.is_input_only() {
+                parameter.ty.write_public_input(namespace, layout)
+            } else {
+                parameter
+                    .ty
+                    .write_abi_projection(namespace, layout, Projection::Default)
+            };
+            quote! { #name: #ty }
+        });
+        let parameters = self
+            .parameters
+            .iter()
+            .enumerate()
+            .filter(|(position, _)| *position != retval)
+            .map(|(_, parameter)| {
+                let name = tokens::ident(&parameter.name);
+                let ty = parameter.ty.write_public_input(namespace, layout);
+                quote! { #name: #ty }
+            });
+        let arguments = self
+            .parameters
+            .iter()
+            .enumerate()
+            .map(|(position, parameter)| {
+                if position == retval {
+                    quote! { &mut result__ }
+                } else {
+                    let name = tokens::ident(&parameter.name);
+                    quote! { #name }
+                }
+            });
+        let result = ty.write_public(namespace, layout);
+        let body = if ty.is_interface() {
+            quote! {
+                #method(#(#arguments),*)
+                    .and_then(|| windows_core::Type::from_abi(result__))
+            }
+        } else {
+            quote! { #method(#(#arguments),*).map(|| result__) }
+        };
+        Some(quote! {
+            #[inline]
+            pub unsafe fn #method(#(#parameters),*) -> windows_core::Result<#result> {
+                windows_core::link!(
+                    #module #abi #symbol fn #method(#(#raw_parameters),*) -> windows_core::HRESULT
+                );
+                unsafe {
+                    let mut result__ = core::mem::zeroed();
+                    #body
+                }
+            }
+        })
+    }
+
+    pub(super) fn write_com_method(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        projection: Projection,
+        name: &str,
     ) -> Result<TokenStream, Error> {
         let method = tokens::ident(name);
+        let visibility = if projection.is_minimal() {
+            quote! { pub(crate) }
+        } else {
+            quote! { pub }
+        };
         let return_kind = self.return_kind();
         let mut generic_parameters = Vec::new();
         let mut constraints = Vec::new();
@@ -112,7 +192,7 @@ impl native_signature::Signature {
             let generics =
                 (!generic_parameters.is_empty()).then(|| quote! { , #(#generic_parameters),* });
             return Ok(quote! {
-                pub(crate) unsafe fn #method<T #generics>(
+                #visibility unsafe fn #method<T #generics>(
                     &self,
                     #(#parameters)*
                 ) -> windows_core::Result<T>
@@ -203,7 +283,7 @@ impl native_signature::Signature {
         };
 
         Ok(quote! {
-            pub(crate) unsafe fn #method #generics(
+            #visibility unsafe fn #method #generics(
                 &self,
                 #(#parameters)*
             ) #result
@@ -237,9 +317,8 @@ impl native_signature::Signature {
         }
         let retval = match return_kind {
             ReturnKind::Retval { position, ty } => Some((position, ty)),
-            ReturnKind::HResult => None,
+            ReturnKind::HResult | ReturnKind::Direct(_) => None,
             ReturnKind::Void
-            | ReturnKind::Direct(_)
             | ReturnKind::Indirect(_)
             | ReturnKind::VoidInterface { .. }
             | ReturnKind::Query { .. } => {
@@ -263,11 +342,14 @@ impl native_signature::Signature {
                     quote! { #name: #ty, }
                 }
             });
-        let result = if let Some((_, ty)) = retval {
-            let ty = ty.write_public(namespace, layout);
-            quote! { windows_core::Result<#ty> }
-        } else {
-            quote! { windows_core::Result<()> }
+        let result = match return_kind {
+            ReturnKind::Retval { ty, .. } => {
+                let ty = ty.write_public(namespace, layout);
+                quote! { windows_core::Result<#ty> }
+            }
+            ReturnKind::HResult => quote! { windows_core::Result<()> },
+            ReturnKind::Direct(ty) => ty.write_public(namespace, layout),
+            _ => unreachable!(),
         };
         Ok(quote! {
             fn #method(&self, #(#parameters)*) -> #result;
@@ -283,11 +365,8 @@ impl native_signature::Signature {
         let return_kind = self.return_kind();
         let retval_position = match return_kind {
             ReturnKind::Retval { position, .. } => Some(position),
-            ReturnKind::HResult | ReturnKind::Query { .. } => None,
-            ReturnKind::Void
-            | ReturnKind::Direct(_)
-            | ReturnKind::Indirect(_)
-            | ReturnKind::VoidInterface { .. } => {
+            ReturnKind::HResult | ReturnKind::Direct(_) | ReturnKind::Query { .. } => None,
+            ReturnKind::Void | ReturnKind::Indirect(_) | ReturnKind::VoidInterface { .. } => {
                 return Err(Error::UnsupportedType {
                     name: name.to_string(),
                     shape: "native COM producer method does not return HRESULT".to_string(),
@@ -303,6 +382,11 @@ impl native_signature::Signature {
                 let name = tokens::ident(&parameter.name);
                 quote! { core::mem::transmute_copy(&#name) }
             });
+        if matches!(return_kind, ReturnKind::Direct(_)) {
+            return Ok(quote! {
+                #impl_name::#method(this, #(#arguments),*)
+            });
+        }
         let ReturnKind::Retval {
             position,
             ty: pointee,

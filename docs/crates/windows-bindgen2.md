@@ -40,7 +40,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Request differential | Complete | The production adapter proves all 17 request files. |
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
-| Build-script facade | Five consumers | Activation, context alignment, Win32 metadata, and the overload client/producer pair match. |
+| Build-script facade | Nine consumers | Activation, overloads, ref parameters, benchmark and robot components, context alignment, and Win32 metadata match. |
 | Package output | Not started | Requires multi-file layout, feature generation, and exclusions. |
 
 Approximate hand-written production source size is 8,000 lines for bindgen2 versus 12,829 for the
@@ -134,7 +134,7 @@ default or sys projection, WinRT implementation generation, rustfmt, and changed
 Formatting is shared with `tool_bindings`, while package staging and legacy command parsing remain
 outside this boundary.
 
-Five standalone requests have migrated without generated-file differences:
+Nine standalone requests have migrated without generated-file differences:
 
 - `test_activation_client` covers custom plus default WinRT metadata and default projection; its
   generated bindings match and the client compiles.
@@ -144,6 +144,10 @@ Five standalone requests have migrated without generated-file differences:
 - `test_overloads_client` and `test_overloads` cover class-wide overload naming and exclusive
   WinRT interface implementation traits. Explicit word overloads retain their names, while
   generated numeric names are counted across every interface projected through the class.
+- `test_activation`, `test_ref_params`, `test_bench_component`, and `robot` extend the producer
+  proof. They cover exclusive activation interfaces, self-typed interface parameters, WinRT
+  output-array proxies, `IReference<T>` conveniences, canonical future/collection/reference
+  crates, rich native function wrappers, and direct-return native COM methods.
 
 The native migrations found that nested definitions were rendered with their parent but not walked
 for dependency closure. Closure now traverses nested fields without selecting nested definitions as

@@ -348,7 +348,20 @@ impl Generator {
                 winrt
                     .iter()
                     .filter_map(|entry| {
-                        matches!(entry.kind, WinrtKind::Interface).then_some(entry.entity)
+                        if !matches!(entry.kind, WinrtKind::Interface) {
+                            return None;
+                        }
+                        let definition = shared.database.definition(entry.entity).unwrap();
+                        request
+                            .filter
+                            .as_ref()
+                            .is_none_or(|filter| {
+                                filter.includes(
+                                    definition.namespace().unwrap(),
+                                    trim_generic_arity(definition.name().unwrap()),
+                                )
+                            })
+                            .then_some(entry.entity)
                     })
                     .collect(),
             )
@@ -470,7 +483,11 @@ impl Generator {
                 WinrtKind::Enum => continue,
             };
             for (namespace, name) in dependencies {
-                if projection.is_minimal() && external::minimal_crate(&namespace, &name).is_some() {
+                if !filter.includes(&namespace, &name)
+                    && (external::winrt_crate(&namespace, &name).is_some()
+                        || (projection.is_minimal()
+                            && external::minimal_crate(&namespace, &name).is_some()))
+                {
                     continue;
                 }
                 if let Some(entries) = catalog.get(&(namespace.as_str(), name.as_str())) {

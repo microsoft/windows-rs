@@ -68,6 +68,22 @@ impl Function {
             }
         });
         if !projection.is_sys() {
+            if matches!(projection, Projection::Default)
+                && let Some(wrapper) = self.signature.write_com_function(
+                    &self.namespace,
+                    layout,
+                    &self.name,
+                    module,
+                    abi,
+                    self.import_name.as_deref(),
+                )
+            {
+                return quote! {
+                    #architectures
+                    #wrapper
+                    #pointer_alias
+                };
+            }
             quote! {
                 #architectures
                 windows_core::link!(#module #abi #symbol fn #name(#parameters #variadic) #result);
