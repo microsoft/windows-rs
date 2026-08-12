@@ -267,12 +267,13 @@ impl Class {
                 if !method.is_public() || !method.selected(members) {
                     continue;
                 }
-                let count = names.entry(method.name.clone()).or_default();
+                let context_name = &method.context_name;
+                let count = names.entry(context_name.clone()).or_default();
                 *count += 1;
                 let public_name = if *count == 1 {
-                    method.name.clone()
+                    context_name.clone()
                 } else {
-                    format!("{}{}", method.name, count)
+                    format!("{context_name}{count}")
                 };
                 methods.push(if interface.default {
                     method.write_public(&context, &public_name, None)?.unwrap()
@@ -359,12 +360,13 @@ impl Class {
                 if !method.selected(members) {
                     continue;
                 }
-                let count = names.entry(method.name.clone()).or_default();
+                let context_name = &method.context_name;
+                let count = names.entry(context_name.clone()).or_default();
                 *count += 1;
                 let public_name = if *count == 1 {
-                    method.name.clone()
+                    context_name.clone()
                 } else {
-                    format!("{}{}", method.name, count)
+                    format!("{context_name}{count}")
                 };
                 factories.push(method.method.write_static_method(
                     context,

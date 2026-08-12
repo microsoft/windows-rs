@@ -40,7 +40,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Request differential | Complete | The production adapter proves all 17 request files. |
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
-| Build-script facade | Three consumers | Activation, context alignment, and the Win32 metadata slice match. |
+| Build-script facade | Five consumers | Activation, context alignment, Win32 metadata, and the overload client/producer pair match. |
 | Package output | Not started | Requires multi-file layout, feature generation, and exclusions. |
 
 Approximate hand-written production source size is 8,000 lines for bindgen2 versus 12,829 for the
@@ -130,16 +130,20 @@ identities and lookup names, not projected models.
 ## Build-script adoption
 
 A narrow `builder` facade now covers path and default metadata inputs, filter resolution, flat
-default or sys projection, rustfmt, and changed-file writes. Formatting is shared with
-`tool_bindings`, while package staging and legacy command parsing remain outside this boundary.
+default or sys projection, WinRT implementation generation, rustfmt, and changed-file writes.
+Formatting is shared with `tool_bindings`, while package staging and legacy command parsing remain
+outside this boundary.
 
-Three standalone requests have migrated without generated-file differences:
+Five standalone requests have migrated without generated-file differences:
 
 - `test_activation_client` covers custom plus default WinRT metadata and default projection; its
   generated bindings match and the client compiles.
 - `sample_context_alignment` covers default Win32 metadata, sys projection, architecture variants,
   aligned structures, and transitive nested dependencies.
 - `test_win32_metadata` covers a generated Win32 image, sys projection, and a committed golden.
+- `test_overloads_client` and `test_overloads` cover class-wide overload naming and exclusive
+  WinRT interface implementation traits. Explicit word overloads retain their names, while
+  generated numeric names are counted across every interface projected through the class.
 
 The native migrations found that nested definitions were rendered with their parent but not walked
 for dependency closure. Closure now traverses nested fields without selecting nested definitions as
@@ -155,7 +159,6 @@ The initial flat-consumer batch exposed policy gaps before additional migrations
 | `test_bench_rust` | Complete collection conveniences, async routing, nullable interface returns, and `IReference<T>` input conversion. |
 | `test_libs_reference` | Preserve WinRT field names and output-array conventions. |
 | composable and constructor clients | Complete `NoException` and composable activation policy. |
-| overload client | Number overloads across all class interfaces rather than per interface. |
 
 These consumers remain on `windows-bindgen` until their complete generated files match. This keeps
 the committed bindings as the oracle rather than accepting compile-only migrations.

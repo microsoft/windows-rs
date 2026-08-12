@@ -1088,6 +1088,106 @@ fn explicit_implementations_control_minimal_vtables() {
 }
 
 #[test]
+fn implement_all_emits_exclusive_interface_implementations() {
+    let metadata = fixture_metadata(
+        r#"
+            #[winrt]
+            mod Windows {
+                mod Foundation {
+                    mod Metadata {
+                        attribute ExclusiveToAttribute {
+                            fn(r#type: Type);
+                        }
+                    }
+                }
+            }
+            #[winrt]
+            mod Test {
+                class Class {
+                    IClass,
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(Class)]
+                interface IClass {
+                    fn Method(&self) -> i32;
+                }
+            }
+        "#,
+    );
+    let output = metadata
+        .generator(Request::all().implement_all())
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+
+    assert!(output.contains("pub trait IClass_Impl"), "{output}");
+    assert!(output.contains("pub const fn new < Identity : IClass_Impl"));
+}
+
+#[test]
+fn class_overloads_are_named_across_exclusive_interfaces() {
+    let output = fixture(
+        r#"
+            #[winrt]
+            mod Windows {
+                mod Foundation {
+                    mod Metadata {
+                        attribute ExclusiveToAttribute {
+                            fn(r#type: Type);
+                        }
+                        attribute OverloadAttribute {
+                            fn(method: String);
+                        }
+                    }
+                }
+            }
+            #[winrt]
+            mod Test {
+                class D {
+                    ID,
+                    ID2,
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(D)]
+                interface ID {
+                    #[Windows::Foundation::Metadata::Overload("Method")]
+                    fn Method(&self);
+                    #[Windows::Foundation::Metadata::Overload("Method2")]
+                    fn Method(&self, value: i32);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(D)]
+                interface ID2 {
+                    #[Windows::Foundation::Metadata::Overload("Method")]
+                    fn Method(&self, value: i32, value2: i32);
+                    #[Windows::Foundation::Metadata::Overload("Method2")]
+                    fn Method(&self, value: i32, value2: i32, value3: i32);
+                }
+                class E {
+                    IE,
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(E)]
+                interface IE {
+                    #[Windows::Foundation::Metadata::Overload("MethodOne")]
+                    fn Method(&self);
+                    #[Windows::Foundation::Metadata::Overload("MethodTwo")]
+                    fn Method(&self, value: i32);
+                }
+            }
+        "#,
+    )
+    .render(Layout::Flat)
+    .unwrap()
+    .to_string();
+
+    assert!(output.contains("pub fn Method (& self"));
+    assert!(output.contains("pub fn Method2 (& self"));
+    assert!(output.contains("pub fn Method3 (& self"));
+    assert!(output.contains("pub fn Method4 (& self"));
+    assert!(output.contains("pub fn MethodOne (& self"));
+    assert!(output.contains("pub fn MethodTwo (& self"));
+    assert!(!output.contains("pub fn Method22 (& self"));
+}
+
+#[test]
 fn class_member_filters_route_static_methods() {
     let metadata = fixture_metadata(include_str!(
         "../../../tests/libs/bindgen/input/class_static.rdl"

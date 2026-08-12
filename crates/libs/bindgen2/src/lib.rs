@@ -98,6 +98,7 @@ impl Projection {
 pub struct Request {
     filter: Option<Filter>,
     implementations: Option<Filter>,
+    implement_all: bool,
     projection: Projection,
 }
 
@@ -112,6 +113,7 @@ impl Request {
         Self {
             filter: Some(filter),
             implementations: None,
+            implement_all: false,
             projection: Projection::Default,
         }
     }
@@ -119,6 +121,14 @@ impl Request {
     /// Selects interfaces that require implementation traits and typed ABI vtables.
     pub fn implementations(mut self, filter: Filter) -> Self {
         self.implementations = Some(filter);
+        self.implement_all = false;
+        self
+    }
+
+    /// Emits implementation traits for every selected interface.
+    pub fn implement_all(mut self) -> Self {
+        self.implementations = None;
+        self.implement_all = true;
         self
     }
 
@@ -333,20 +343,31 @@ impl Generator {
             filter,
             request.implementations.as_ref(),
         )?;
-        let winrt_implementations = request.implementations.as_ref().map(|implementations| {
-            winrt
-                .iter()
-                .filter_map(|entry| {
-                    let definition = shared.database.definition(entry.entity).unwrap();
-                    implementations
-                        .includes(
-                            definition.namespace().unwrap(),
-                            trim_generic_arity(definition.name().unwrap()),
-                        )
-                        .then_some(entry.entity)
-                })
-                .collect()
-        });
+        let winrt_implementations = if request.implement_all {
+            Some(
+                winrt
+                    .iter()
+                    .filter_map(|entry| {
+                        matches!(entry.kind, WinrtKind::Interface).then_some(entry.entity)
+                    })
+                    .collect(),
+            )
+        } else {
+            request.implementations.as_ref().map(|implementations| {
+                winrt
+                    .iter()
+                    .filter_map(|entry| {
+                        let definition = shared.database.definition(entry.entity).unwrap();
+                        implementations
+                            .includes(
+                                definition.namespace().unwrap(),
+                                trim_generic_arity(definition.name().unwrap()),
+                            )
+                            .then_some(entry.entity)
+                    })
+                    .collect()
+            })
+        };
 
         Ok(Self {
             shared,

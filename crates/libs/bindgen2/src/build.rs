@@ -16,6 +16,7 @@ pub struct Bindgen {
     filters: Vec<String>,
     layout: Layout,
     sys: bool,
+    implement_all: bool,
 }
 
 impl Bindgen {
@@ -74,6 +75,12 @@ impl Bindgen {
         self
     }
 
+    /// Emits implementation traits for every selected interface.
+    pub fn implement_all(&mut self) -> &mut Self {
+        self.implement_all = true;
+        self
+    }
+
     /// Generates, formats, and writes the requested bindings.
     pub fn write(&self) -> Result<(), Box<dyn std::error::Error>> {
         if self.output.as_os_str().is_empty() {
@@ -90,7 +97,11 @@ impl Bindgen {
         }
 
         let metadata = Metadata::new(database)?;
-        let mut request = Request::filtered(filter).implementations(Filter::new());
+        let mut request = if self.implement_all {
+            Request::filtered(filter).implement_all()
+        } else {
+            Request::filtered(filter).implementations(Filter::new())
+        };
         if self.sys {
             request = request.sys();
         }

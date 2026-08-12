@@ -16,6 +16,7 @@ pub(super) struct Interface {
 
 pub(super) struct NamedMethod {
     pub(super) name: String,
+    pub(super) context_name: String,
     metadata_name: String,
     pub(super) method: winrt_delegate::Method,
     event: Option<winrt_delegate::EventHandler>,
@@ -417,14 +418,54 @@ impl Interface {
             }
         });
         if self.exclusive {
-            let vtable = self.write_vtable_struct(
-                values,
-                namespace,
-                layout,
-                &vtbl_name,
-                members,
-                projection.is_minimal() && implementation == Some(false),
-            )?;
+            let vtable = if implementation == Some(true) {
+                let impl_methods = self
+                    .abi_methods(members)
+                    .map(|method| {
+                        method.method.write_impl_method(
+                            values,
+                            namespace,
+                            layout,
+                            &self.generics,
+                            &method.name,
+                        )
+                    })
+                    .collect::<Result<Vec<_>, Error>>()?;
+                let vtable = self.write_vtable(values, namespace, layout, members)?;
+                let runtime_name = Literal::string(&full_name);
+                let runtime_class_name = (!generic_names.is_empty()).then(|| {
+                    quote! {
+                        const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+                            <Self as windows_core::RuntimeType>::NAME;
+                    }
+                });
+                let runtime_name_impl = (!matches!(members, MemberSelection::Shell)).then(|| {
+                    quote! {
+                        impl #constrained_generics windows_core::RuntimeName
+                            for #name #type_arguments
+                        {
+                            const NAME: &'static str = #runtime_name;
+                            #runtime_class_name
+                        }
+                    }
+                });
+                quote! {
+                    #runtime_name_impl
+                    pub trait #impl_name #type_arguments: windows_core::IUnknownImpl #generic_where {
+                        #(#impl_methods)*
+                    }
+                    #vtable
+                }
+            } else {
+                self.write_vtable_struct(
+                    values,
+                    namespace,
+                    layout,
+                    &vtbl_name,
+                    members,
+                    projection.is_minimal() && implementation == Some(false),
+                )?
+            };
             let methods = (projection.is_minimal() && !methods.is_empty()).then(
                 || quote! { impl #constrained_generics #name #type_arguments { #(#methods)* } },
             );
@@ -801,17 +842,17 @@ pub(super) fn lower_methods(
                     message: "event add method has no matching remove method",
                 });
             }
-            let mut name = if method.flags()? & 0x800 != 0 {
+            let (mut name, context_name) = if method.flags()? & 0x800 != 0 {
                 if let Some(name) = metadata_name.strip_prefix("get_") {
-                    name.to_string()
+                    (name.to_string(), name.to_string())
                 } else if let Some(name) = metadata_name.strip_prefix("put_") {
-                    format!("Set{name}")
+                    (format!("Set{name}"), format!("Set{name}"))
                 } else if let Some(name) = metadata_name.strip_prefix("add_") {
-                    name.to_string()
+                    (name.to_string(), name.to_string())
                 } else if let Some(name) = metadata_name.strip_prefix("remove_") {
-                    format!("Remove{name}")
+                    (format!("Remove{name}"), format!("Remove{name}"))
                 } else {
-                    metadata_name.to_string()
+                    (metadata_name.to_string(), metadata_name.to_string())
                 }
             } else if let Some(attribute) = method.find_attribute("OverloadAttribute")? {
                 let arguments = attribute.arguments(&())?;
@@ -828,13 +869,13 @@ pub(super) fn lower_methods(
                             .strip_prefix(metadata_name)
                             .is_some_and(|suffix| suffix.parse::<u32>().is_ok()) =>
                     {
-                        metadata_name.to_string()
+                        (metadata_name.to_string(), metadata_name.to_string())
                     }
-                    Some(overload) => overload.to_string(),
-                    None => metadata_name.to_string(),
+                    Some(overload) => (overload.to_string(), overload.to_string()),
+                    None => (metadata_name.to_string(), metadata_name.to_string()),
                 }
             } else {
-                metadata_name.to_string()
+                (metadata_name.to_string(), metadata_name.to_string())
             };
             let count = names.entry(name.clone()).or_default();
             *count += 1;
@@ -855,6 +896,7 @@ pub(super) fn lower_methods(
             };
             Ok(NamedMethod {
                 name,
+                context_name,
                 metadata_name: metadata_name.to_string(),
                 method,
                 event,
