@@ -1,6 +1,7 @@
 use std::io::Write;
 
-pub fn rust(tokens: &str) -> Result<String, Box<dyn std::error::Error>> {
+/// Formats generated Rust tokens with the repository's flat-binding conventions.
+pub fn format(tokens: &str) -> Result<String, Box<dyn std::error::Error>> {
     let mut command = std::process::Command::new("rustfmt");
     command
         .args(["--edition", "2024", "--config", "newline_style=Unix"])

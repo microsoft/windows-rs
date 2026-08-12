@@ -12,10 +12,10 @@ readme = "readme.md"
 [dependencies]
 proc-macro2 = { workspace = true }
 quote = { workspace = true }
+windows-default = { workspace = true }
 windows-metadata2 = { path = "../metadata2" }
 
 [dev-dependencies]
-windows-default = { workspace = true }
 windows-rdl = { workspace = true }
 
 [lints]

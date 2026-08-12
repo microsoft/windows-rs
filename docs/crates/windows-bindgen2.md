@@ -40,6 +40,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Request differential | Complete | The production adapter proves all 17 request files. |
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
+| Build-script facade | Three consumers | Activation, context alignment, and the Win32 metadata slice match. |
 | Package output | Not started | Requires multi-file layout, feature generation, and exclusions. |
 
 Approximate hand-written production source size is 8,000 lines for bindgen2 versus 12,829 for the
@@ -125,6 +126,39 @@ enum-variant, constant, and function selection facts once per `Metadata` value. 
 each took 2.90 seconds: 0.56 seconds for the database, 0.59-0.60 for shared catalogs, 0.60 for all
 17 request closures, 0.05 for rendering, and 0.98 for rustfmt. The catalog retains metadata
 identities and lookup names, not projected models.
+
+## Build-script adoption
+
+A narrow `builder` facade now covers path and default metadata inputs, filter resolution, flat
+default or sys projection, rustfmt, and changed-file writes. Formatting is shared with
+`tool_bindings`, while package staging and legacy command parsing remain outside this boundary.
+
+Three standalone requests have migrated without generated-file differences:
+
+- `test_activation_client` covers custom plus default WinRT metadata and default projection; its
+  generated bindings match and the client compiles.
+- `sample_context_alignment` covers default Win32 metadata, sys projection, architecture variants,
+  aligned structures, and transitive nested dependencies.
+- `test_win32_metadata` covers a generated Win32 image, sys projection, and a committed golden.
+
+The native migrations found that nested definitions were rendered with their parent but not walked
+for dependency closure. Closure now traverses nested fields without selecting nested definitions as
+separate output items. This retains same-namespace aliases such as `PWSTR`, `XMM_SAVE_AREA32`, and
+`XSAVE_FORMAT` without duplicating nested structures.
+
+The initial flat-consumer batch exposed policy gaps before additional migrations were retained:
+
+| Consumer | Required bindgen2 work |
+| --- | --- |
+| `vss_backup` | Project rich native interfaces without a COM identity where the legacy output permits them. |
+| `robot_client`, `just_core` | Add rich native function wrappers and preserve public native interface policy. |
+| `test_bench_rust` | Complete collection conveniences, async routing, nullable interface returns, and `IReference<T>` input conversion. |
+| `test_libs_reference` | Preserve WinRT field names and output-array conventions. |
+| composable and constructor clients | Complete `NoException` and composable activation policy. |
+| overload client | Number overloads across all class interfaces rather than per interface. |
+
+These consumers remain on `windows-bindgen` until their complete generated files match. This keeps
+the committed bindings as the oracle rather than accepting compile-only migrations.
 
 ## Reactor adoption probe
 

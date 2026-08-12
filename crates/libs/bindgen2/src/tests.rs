@@ -2050,6 +2050,25 @@ fn native_dependency_closure_keeps_architecture_variants() {
 }
 
 #[test]
+fn native_dependency_closure_keeps_same_namespace_aliases() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let output = metadata
+        .generator(Request::filtered(Filter::names(["CONTEXT", "STRRET"])).sys())
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+
+    assert!(output.contains("pub type PWSTR"));
+    assert!(output.contains("pub type XMM_SAVE_AREA32"));
+    assert!(output.contains("pub struct XSAVE_FORMAT"));
+}
+
+#[test]
 fn native_interfaces_render_vtables_and_close_base_dependencies() {
     let metadata = fixture_metadata(
         r#"

@@ -49,6 +49,7 @@ cppwinrt = { version = "0.100.0", path = "crates/libs/cppwinrt", default-feature
 windows = { version = "0.100.0", path = "crates/libs/windows", default-features = false }
 windows-animation = { version = "0.100.0", path = "crates/libs/animation", default-features = false }
 windows-bindgen = { version = "0.100.0", path = "crates/libs/bindgen", default-features = false }
+windows-bindgen2 = { path = "crates/libs/bindgen2" }
 windows-canvas = { version = "0.100.0", path = "crates/libs/canvas", default-features = false }
 windows-clang = { version = "0.100.0", path = "crates/libs/clang", default-features = false }
 windows-collections = { version = "0.100.0", path = "crates/libs/collections", default-features = false }

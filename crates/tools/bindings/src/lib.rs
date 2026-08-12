@@ -1,9 +1,7 @@
 use std::path::{Path, PathBuf};
 use std::time::{Duration, Instant};
-use windows_bindgen2::{Filter, Layout, Metadata, Request};
+use windows_bindgen2::{Filter, Layout, Metadata, Request, format};
 use windows_metadata2::{Database, Image};
-
-mod format;
 
 const REQUESTS: [&str; 17] = [
     "collections.txt",
@@ -128,7 +126,7 @@ fn generate() -> Result<(Vec<Generated>, Timings), Box<dyn std::error::Error>> {
         timings.rendering += start.elapsed();
 
         let start = Instant::now();
-        let contents = format::rust(&tokens.to_string())?;
+        let contents = format(&tokens.to_string())?;
         timings.formatting += start.elapsed();
 
         generated.push(Generated { output, contents });
@@ -181,85 +179,8 @@ fn include_filter_path(
     filter: &mut Filter,
     path: &str,
 ) -> Result<(), Box<dyn std::error::Error>> {
-    if let Some((prefix, names)) = path
-        .strip_suffix('}')
-        .and_then(|path| path.rsplit_once("::{"))
-    {
-        let parts = path_parts(prefix);
-        let (parent, ty) = parts.split_at(parts.len() - 1);
-        if parent.is_empty() {
-            let namespaces = type_namespaces(database, ty[0]);
-            if namespaces.is_empty() {
-                return Err(format!("unresolved filter path `{path}`").into());
-            }
-            for namespace in namespaces {
-                for method in names.split(',').map(str::trim) {
-                    filter.include_method(namespace, ty[0], method);
-                }
-            }
-        } else if type_exists(database, &parent.join("."), ty[0]) {
-            for method in names.split(',').map(str::trim) {
-                filter.include_method(parent.join("."), ty[0], method);
-            }
-        } else {
-            let namespace = parts.join(".");
-            for name in names.split(',').map(str::trim) {
-                filter.include_item(&namespace, name);
-            }
-        }
-        return Ok(());
-    }
-
-    let parts = path_parts(path);
-    if parts.len() == 1 {
-        filter.include_name(parts[0]);
-        return Ok(());
-    }
-    let (namespace, name) = parts.split_at(parts.len() - 1);
-    if type_exists(database, &namespace.join("."), name[0])
-        || namespace_exists(database, &namespace.join("."))
-    {
-        filter.include_item(namespace.join("."), name[0]);
-        return Ok(());
-    }
-    let (namespace, ty) = namespace.split_at(namespace.len() - 1);
-    if namespace.is_empty() {
-        let namespaces = type_namespaces(database, ty[0]);
-        if namespaces.is_empty() {
-            return Err(format!("unresolved filter path `{path}`").into());
-        }
-        for namespace in namespaces {
-            filter.include_method(namespace, ty[0], name[0]);
-        }
-    } else if type_exists(database, &namespace.join("."), ty[0]) {
-        filter.include_method(namespace.join("."), ty[0], name[0]);
-    } else {
-        return Err(format!("unresolved filter path `{path}`").into());
-    }
+    filter.include_path(database, path)?;
     Ok(())
-}
-
-fn path_parts(path: &str) -> Vec<&str> {
-    path.split([':', '.'])
-        .filter(|part| !part.is_empty())
-        .collect()
-}
-
-fn type_namespaces<'a>(database: &'a Database, ty: &str) -> Vec<&'a str> {
-    database
-        .type_names()
-        .filter_map(|(namespace, name, _)| (name == ty).then_some(namespace))
-        .collect()
-}
-
-fn type_exists(database: &Database, namespace: &str, name: &str) -> bool {
-    !database.type_definitions(namespace, name).is_empty()
-}
-
-fn namespace_exists(database: &Database, namespace: &str) -> bool {
-    database
-        .type_names()
-        .any(|(candidate, _, _)| candidate == namespace)
 }
 
 fn write_if_changed(contents: &str, path: PathBuf) -> Result<(), std::io::Error> {

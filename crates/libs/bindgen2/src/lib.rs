@@ -15,6 +15,7 @@ mod enum_model;
 mod error;
 mod external;
 mod filter;
+mod format;
 mod guid;
 mod model;
 mod native;
@@ -37,9 +38,11 @@ mod winrt_collection;
 mod winrt_delegate;
 mod winrt_interface;
 
+pub use build::{Bindgen, builder};
 use enum_model::Enum;
 pub use error::Error;
 pub use filter::Filter;
+pub use format::format;
 use model::{Value, Values};
 use native_constant::Constant;
 use native_delegate::Delegate;
@@ -49,6 +52,8 @@ use native_type::NativeType;
 #[cfg(test)]
 use native_type::NativeTypeKind;
 use struct_model::Struct;
+
+mod build;
 
 /// A projected WinRT value category.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

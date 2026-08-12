@@ -86,8 +86,9 @@ impl Win32Selection {
         filter: Option<&Filter>,
         implementations: Option<&Filter>,
     ) -> Result<Self, Error> {
-        let mut closure =
-            filter.map(|_| native_closure::Closure::new(database, &catalogs.interface_bases));
+        let mut closure = filter.map(|_| {
+            native_closure::Closure::new(database, &catalogs.interface_bases, &catalogs.nested)
+        });
         let mut namespaces = NamespaceSelections::new();
         let mut enum_variants = BTreeMap::<Entity<TypeDef>, EnumVariants>::new();
         let mut selected_implementations = implementations.map(|_| BTreeSet::new());
@@ -182,7 +183,7 @@ impl Win32Selection {
             for (name, architectures, entity) in &apis.constants {
                 if filter.is_none_or(|filter| filter.includes(&apis.namespace, name)) {
                     if let Some(closure) = &mut closure {
-                        closure.include_field(database.field(*entity).unwrap())?;
+                        closure.include_field(database.field(*entity).unwrap(), &apis.namespace)?;
                     }
                     namespaces
                         .entry(apis.namespace.clone())
@@ -198,7 +199,8 @@ impl Win32Selection {
                             .is_some_and(|alias| filter.includes(&apis.namespace, alias))
                 }) {
                     if let Some(closure) = &mut closure {
-                        closure.include_method(database.method(*entity).unwrap())?;
+                        closure
+                            .include_method(database.method(*entity).unwrap(), &apis.namespace)?;
                     }
                     namespaces
                         .entry(apis.namespace.clone())

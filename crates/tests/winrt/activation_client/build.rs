@@ -5,14 +5,12 @@ fn main() {
 
     println!("cargo:rerun-if-changed=../activation/metadata.winmd");
 
-    windows_bindgen::bindgen([
-        "--in",
-        "../activation/metadata.winmd",
-        "default",
-        "--out",
-        "src/bindings.rs",
-        "--filter",
-        "test_activation",
-        "--flat",
-    ]);
+    windows_bindgen2::builder()
+        .input("../activation/metadata.winmd")
+        .input_default()
+        .output("src/bindings.rs")
+        .filter("test_activation")
+        .flat()
+        .write()
+        .unwrap();
 }

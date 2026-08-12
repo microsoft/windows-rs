@@ -44,13 +44,14 @@ fn slice() {
     // Lower the bounded slice to flat `--sys` bindings, written straight to the
     // golden so `git diff` surfaces any change.
     let out_rs = format!("{manifest}/expected/slice.rs");
-    let mut cli: Vec<String> = vec!["--in".into(), winmd.clone(), "--out".into(), out_rs];
-    cli.push("--filter".into());
-    cli.extend(FILTER.iter().map(|name| (*name).to_string()));
-    cli.push("--sys".into());
-    cli.push("--flat".into());
-
-    windows_bindgen::bindgen(cli);
+    windows_bindgen2::builder()
+        .input(&winmd)
+        .output(out_rs)
+        .filters(FILTER)
+        .sys()
+        .flat()
+        .write()
+        .unwrap();
 
     assert_dispatcher_queue_function(&winmd);
 }

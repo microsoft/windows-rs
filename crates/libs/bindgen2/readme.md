@@ -19,6 +19,11 @@ affect a request are deferred until that request traverses them. Each `Generator
 typed entities and selection policy for one request. Formatting, file writing, package staging,
 and legacy command parsing remain the responsibility of callers.
 
+The `builder` facade supports flat build-script consumers that use path or default metadata,
+filters, default or sys projection, rustfmt, and changed-file writes. It is intentionally narrower
+than the existing `windows-bindgen` builder. Unsupported policy is added only when a real consumer
+has a differential test.
+
 The current implementation covers WinRT enums, structs, delegates, interfaces, and classes plus
 native sys types, constants, functions, delegates, and interfaces. Filtered dependency closure,
 nested and flat layouts, architecture gates, and deterministic ordering are implemented.
@@ -29,9 +34,11 @@ core requests.
 
 `tool_bindings` is the first production consumer. Its 17 flat requests share one `Metadata` value
 and select default, sys, or minimal output. The tool owns command parsing, rustfmt compatibility,
-and file writes. `tool_reactor` remains on `windows-bindgen`; its class selection, composable
-activation, hierarchy, event, and producer policies need bounded parity work before migration.
-Package output and broader COM policy remain future work.
+and file writes. The activation client, context-alignment sample, and Win32 metadata slice are the
+first standalone build-script consumers and match their committed output exactly. `tool_reactor`
+remains on `windows-bindgen`; its class selection, composable activation, hierarchy, event, and
+producer policies need bounded parity work before migration. Package output and broader COM policy
+remain future work.
 
 The design and differential evidence are tracked in
 [`docs/crates/windows-bindgen2.md`](../../../docs/crates/windows-bindgen2.md).
