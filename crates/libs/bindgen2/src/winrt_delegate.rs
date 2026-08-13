@@ -92,11 +92,8 @@ impl Delegate {
         for parameter in &model.invoke.parameters {
             parameter.ty.collect_value_dependencies(&mut dependencies);
         }
-        dependencies.retain(|(namespace, name)| {
-            !(namespace == "System" && name == "Guid")
-                && !(namespace == "Windows.Foundation"
-                    && (name == "HResult" || name == "EventRegistrationToken"))
-        });
+        dependencies
+            .retain(|(namespace, name)| canonical::winrt_type_from_name(namespace, name).is_none());
         Ok(dependencies)
     }
 
@@ -357,6 +354,18 @@ impl<'a> MethodContext<'a> {
             owner,
         }
     }
+
+    const fn is_package(&self) -> bool {
+        matches!(self.layout, Layout::Package)
+    }
+
+    const fn is_minimal(&self) -> bool {
+        self.projection.is_minimal()
+    }
+
+    const fn has_public_methods(&self) -> bool {
+        self.projection.has_public_methods()
+    }
 }
 
 impl Method {
@@ -530,7 +539,7 @@ impl Method {
     ) -> Result<TokenStream, Error> {
         let name = tokens::ident(name);
         let remove_name = tokens::ident(remove_name);
-        let handler_type = if context.layout == Layout::Package {
+        let handler_type = if context.is_package() {
             handler.ty.write_name_with_owner(
                 context.namespace,
                 context.layout,
@@ -549,11 +558,11 @@ impl Method {
             context.generics,
             context.owner,
         )?;
-        let send = (!context.projection.is_minimal()).then(|| quote! { + Send });
+        let send = (!context.is_minimal()).then(|| quote! { + Send });
         let arguments = (0..handler.invoke.parameters.len())
             .map(|position| tokens::ident(&format!("a{position}")))
             .collect::<Vec<_>>();
-        let handler = if context.projection.is_minimal() {
+        let handler = if context.is_minimal() {
             let (box_name, arguments) = match &handler.ty {
                 ty::Type::Named {
                     name, arguments, ..
@@ -590,7 +599,7 @@ impl Method {
                 });
             }
         };
-        let visibility = if !context.projection.has_public_methods() {
+        let visibility = if !context.has_public_methods() {
             quote! { pub(crate) }
         } else {
             quote! { pub }
@@ -641,7 +650,7 @@ impl Method {
         let signature_prelude = signature.prelude;
         let return_type = signature.return_type;
         let where_clause = signature.where_clause;
-        let visibility = if !context.projection.has_public_methods() {
+        let visibility = if !context.has_public_methods() {
             quote! { pub(crate) }
         } else {
             quote! { pub }
@@ -723,7 +732,7 @@ impl Method {
             }
             _ => signature.return_type,
         };
-        let visibility = if !context.projection.has_public_methods() {
+        let visibility = if !context.has_public_methods() {
             quote! { pub(crate) }
         } else {
             quote! { pub }
@@ -779,7 +788,7 @@ impl Method {
                 });
             }
         };
-        let visibility = if !context.projection.has_public_methods() {
+        let visibility = if !context.has_public_methods() {
             quote! { pub(crate) }
         } else {
             quote! { pub }
@@ -878,7 +887,7 @@ impl Method {
         } else {
             tokens::ident(&format!("{public_name}_compose"))
         };
-        let visibility = if !context.projection.has_public_methods() {
+        let visibility = if !context.has_public_methods() {
             quote! { pub(crate) }
         } else {
             quote! { pub }
@@ -1074,7 +1083,7 @@ impl Method {
             && let [argument] = arguments.as_slice()
         {
             argument.write_name(context.namespace, context.layout, context.generics)?
-        } else if context.projection.is_minimal() {
+        } else if context.is_minimal() {
             if matches!(self.return_type, ty::Type::String) {
                 quote! { String }
             } else if self.return_type.is_external_minimal() {
@@ -1199,7 +1208,7 @@ impl Method {
                     #call.map(|| result__)
                 }
             },
-            ty::Type::String if context.projection.is_minimal() => quote! {
+            ty::Type::String if context.is_minimal() => quote! {
                 unsafe {
                     let mut result__ = core::mem::zeroed();
                     #call.map(|| {
@@ -1527,8 +1536,7 @@ impl Parameter {
     }
 
     fn write_public_type(&self, context: &MethodContext<'_>) -> Result<TokenStream, Error> {
-        if self.input_only && context.projection.is_minimal() && matches!(self.ty, ty::Type::String)
-        {
+        if self.input_only && context.is_minimal() && matches!(self.ty, ty::Type::String) {
             return Ok(quote! { &str });
         }
         let default = self.write_public_default(context)?;
@@ -1540,7 +1548,7 @@ impl Parameter {
                         context.layout,
                         context.generics,
                     )?;
-                    let element = if context.layout == Layout::Package && element.is_interface() {
+                    let element = if context.is_package() && element.is_interface() {
                         quote! { Option<#element_name> }
                     } else {
                         element_name
@@ -1595,7 +1603,7 @@ impl Parameter {
         let name = tokens::ident(&self.name);
         Ok(if self.input_only {
             match &self.ty {
-                ty::Type::String if context.projection.is_minimal() => {
+                ty::Type::String if context.is_minimal() => {
                     quote! {
                         core::mem::transmute_copy(&windows_core::HSTRING::from(#name))
                     }

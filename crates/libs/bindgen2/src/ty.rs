@@ -72,10 +72,7 @@ impl Type {
                 arguments,
                 ..
             } => {
-                if !(namespace == "System" && name == "Guid")
-                    && !(namespace == "Windows.Foundation"
-                        && (name == "HResult" || name == "EventRegistrationToken"))
-                {
+                if canonical::winrt_type_from_name(namespace, name).is_none() {
                     dependencies.insert((namespace.clone(), name.clone()));
                 }
                 for argument in arguments {
@@ -189,6 +186,9 @@ impl Type {
     ) -> Result<proc_macro2::TokenStream, Error> {
         use quote::quote;
 
+        if let Some(canonical) = self.canonical() {
+            return Ok(canonical.write());
+        }
         Ok(match self {
             Self::Void => quote! { core::ffi::c_void },
             Self::Object => quote! { Option<windows_core::IInspectable> },
@@ -205,15 +205,6 @@ impl Type {
             Self::F32 => quote! { f32 },
             Self::F64 => quote! { f64 },
             Self::String => quote! { windows_core::HSTRING },
-            Self::Named {
-                value_type: true,
-                namespace: target,
-                name,
-                arguments,
-                ..
-            } if target == "System" && name == "Guid" && arguments.is_empty() => {
-                quote! { windows_core::GUID }
-            }
             Self::Named {
                 value_type,
                 namespace: target,
@@ -321,13 +312,7 @@ impl Type {
             Self::F64 => "f8",
             Self::String => "string",
             Self::Object => "cinterface(IInspectable)",
-            Self::Named {
-                value_type: true,
-                namespace,
-                name,
-                arguments,
-                ..
-            } if namespace == "System" && name == "Guid" && arguments.is_empty() => "g16",
+            _ if self.canonical().is_some_and(canonical::Type::is_guid) => "g16",
             _ => return None,
         })
     }
@@ -348,18 +333,22 @@ impl Type {
 
     pub(super) fn is_event_token(&self) -> bool {
         matches!(self, Self::I64)
-            || matches!(
-                self,
-                Self::Named {
-                    value_type: true,
-                    namespace,
-                    name,
-                    arguments,
-                    ..
-                } if namespace == "Windows.Foundation"
-                    && name == "EventRegistrationToken"
-                    && arguments.is_empty()
-            )
+            || self
+                .canonical()
+                .is_some_and(canonical::Type::is_event_token)
+    }
+
+    fn canonical(&self) -> Option<canonical::Type> {
+        match self {
+            Self::Named {
+                value_type: true,
+                namespace,
+                name,
+                arguments,
+                ..
+            } if arguments.is_empty() => canonical::winrt_type_from_name(namespace, name),
+            _ => None,
+        }
     }
 
     pub(super) fn properties(
@@ -383,13 +372,7 @@ impl Type {
                 copyable: true,
                 eq: false,
             },
-            Self::Named {
-                value_type: true,
-                namespace,
-                name,
-                arguments,
-                ..
-            } if namespace == "System" && name == "Guid" && arguments.is_empty() => Properties {
+            _ if self.canonical().is_some_and(canonical::Type::is_guid) => Properties {
                 copyable: true,
                 eq: true,
             },
@@ -462,6 +445,9 @@ impl Type {
     ) -> Result<proc_macro2::TokenStream, Error> {
         use quote::quote;
 
+        if let Some(canonical) = self.canonical() {
+            return Ok(canonical.write());
+        }
         Ok(match self {
             Self::Void => quote! { core::ffi::c_void },
             Self::Object => quote! { windows_core::IInspectable },
@@ -477,36 +463,6 @@ impl Type {
             }
 
             Self::Vector(element) => element.write_name(namespace, layout, generics)?,
-            Self::Named {
-                value_type: true,
-                namespace: target,
-                name,
-                arguments,
-                ..
-            } if target == "System" && name == "Guid" && arguments.is_empty() => {
-                quote! { windows_core::GUID }
-            }
-            Self::Named {
-                value_type: true,
-                namespace: target,
-                name,
-                arguments,
-                ..
-            } if target == "Windows.Foundation" && name == "HResult" && arguments.is_empty() => {
-                quote! { windows_core::HRESULT }
-            }
-            Self::Named {
-                value_type: true,
-                namespace: target,
-                name,
-                arguments,
-                ..
-            } if target == "Windows.Foundation"
-                && name == "EventRegistrationToken"
-                && arguments.is_empty() =>
-            {
-                quote! { i64 }
-            }
             Self::Named {
                 namespace: target,
                 name,
@@ -677,6 +633,9 @@ impl Type {
     ) -> Result<proc_macro2::TokenStream, Error> {
         use quote::quote;
 
+        if let Some(canonical) = self.canonical() {
+            return Ok(canonical.write());
+        }
         Ok(match self {
             Self::Void => quote! { core::ffi::c_void },
             Self::String
@@ -716,31 +675,9 @@ impl Type {
                 name,
                 arguments,
                 ..
-            } if target == "Windows.Foundation" && name == "HResult" && arguments.is_empty() => {
-                quote! { windows_core::HRESULT }
-            }
-            Self::Named {
-                value_type: true,
-                namespace: target,
-                name,
-                arguments,
-                ..
-            } if target == "Windows.Foundation"
-                && name == "EventRegistrationToken"
-                && arguments.is_empty() =>
-            {
-                quote! { i64 }
-            }
-            Self::Named {
-                value_type: true,
-                namespace: target,
-                name,
-                arguments,
-                ..
             } if arguments.is_empty() => {
                 let written = self.write_name(namespace, layout, generics)?;
                 match values.get(target, name) {
-                    _ if target == "System" && name == "Guid" => written,
                     Some(Value::Enum(_)) => written,
                     Some(Value::Struct(_))
                         if values
@@ -801,9 +738,7 @@ impl Type {
                 arguments,
                 ..
             } if arguments.is_empty() => {
-                (namespace == "System" && name == "Guid")
-                    || (namespace == "Windows.Foundation"
-                        && (name == "HResult" || name == "EventRegistrationToken"))
+                canonical::winrt_type_from_name(namespace, name).is_some()
                     || matches!(values.get(namespace, name), Some(Value::Enum(_)))
             }
 
@@ -823,7 +758,9 @@ impl Type {
                 name,
                 arguments,
                 ..
-            } if arguments.is_empty() && namespace == "System" && name == "Guid"
+            } if arguments.is_empty()
+                && canonical::winrt_type_from_name(namespace, name)
+                    .is_some_and(canonical::Type::is_guid)
         )
     }
 
@@ -842,9 +779,7 @@ impl Type {
                 arguments,
                 ..
             } if arguments.is_empty()
-                && !(namespace == "System" && name == "Guid")
-                && !(namespace == "Windows.Foundation"
-                    && (name == "HResult" || name == "EventRegistrationToken")) =>
+                && canonical::winrt_type_from_name(namespace, name).is_none() =>
             {
                 values
                     .properties(namespace, name, &mut BTreeSet::new())?

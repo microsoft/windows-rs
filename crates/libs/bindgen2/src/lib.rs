@@ -11,6 +11,7 @@ use windows_metadata2::{
     tables::{Field, MethodDef, TypeDef},
 };
 
+mod canonical;
 mod enum_model;
 mod error;
 mod external;

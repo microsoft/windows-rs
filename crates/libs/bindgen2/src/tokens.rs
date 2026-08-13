@@ -1,4 +1,4 @@
-use crate::Layout;
+use crate::{Layout, canonical};
 use quote::{ToTokens, quote};
 use std::collections::BTreeSet;
 
@@ -126,6 +126,7 @@ pub(super) fn feature_names<'a>(
         if namespace.is_empty()
             || namespace == "System"
             || namespace == "Windows.Foundation"
+            || canonical::type_from_name(namespace, name).is_some()
             || (current.starts_with("Windows.Win32") && !namespace.starts_with("Windows.Win32"))
             || namespace == current
             || current
@@ -137,9 +138,7 @@ pub(super) fn feature_names<'a>(
         if (namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32."))
             && matches!(
                 name,
-                "GUID"
-                    | "HRESULT"
-                    | "BOOL"
+                "BOOL"
                     | "PSTR"
                     | "PWSTR"
                     | "PCSTR"
@@ -150,7 +149,6 @@ pub(super) fn feature_names<'a>(
                     | "IInspectable"
                     | "NTSTATUS"
                     | "RPC_STATUS"
-                    | "EventRegistrationToken"
             )
         {
             continue;

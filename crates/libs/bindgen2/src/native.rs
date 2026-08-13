@@ -265,15 +265,8 @@ impl Type {
                 {
                     return core;
                 }
-                if target == "Windows.Foundation" && name == "HResult" {
-                    return quote! { windows_core::HRESULT };
-                }
-                if target == "Windows.Foundation" && name == "EventRegistrationToken" {
-                    return quote! { i64 };
-                }
-                if matches!(target.as_str(), "System" | "Windows.Foundation" | "") && name == "Guid"
-                {
-                    return quote! { windows_core::GUID };
+                if let Some(canonical) = canonical::type_from_name(target, name) {
+                    return canonical.write();
                 }
                 if target.is_empty() && name == "PCWSTR" {
                     return quote! { windows_core::PCWSTR };
@@ -582,18 +575,22 @@ impl Type {
         matches!(
             self,
             Self::Named { namespace, name }
-                if (name == "HRESULT" && namespace == "Windows.Win32")
-                    || (name == "HResult" && namespace == "Windows.Foundation")
+                if canonical::type_from_name(namespace, name)
+                    .is_some_and(canonical::Type::is_hresult)
+        )
+    }
+
+    pub(super) fn is_guid(&self) -> bool {
+        matches!(
+            self,
+            Self::Named { namespace, name }
+                if canonical::type_from_name(namespace, name)
+                    .is_some_and(canonical::Type::is_guid)
         )
     }
 
     pub(super) fn is_hresult_package(&self) -> bool {
         self.is_hresult()
-            || matches!(
-                self,
-                Self::Named { namespace, name }
-                    if name == "HRESULT" && namespace.starts_with("Windows.Win32.")
-            )
     }
 
     pub(super) fn is_ntstatus(&self) -> bool {
@@ -650,7 +647,8 @@ impl Type {
         if matches!(
             self,
             Self::Named { namespace, name }
-                if namespace == "Windows.Foundation" && name == "HResult"
+                if canonical::type_from_name(namespace, name)
+                    .is_some_and(canonical::Type::is_hresult)
         ) {
             return Ok(false);
         }
@@ -827,9 +825,10 @@ pub(super) fn core_projection(namespace: &str, name: &str) -> Option<TokenStream
     if !win32 {
         return None;
     }
+    if let Some(canonical) = canonical::type_from_name(namespace, name) {
+        return Some(canonical.write());
+    }
     Some(match name {
-        "GUID" => quote! { windows_core::GUID },
-        "HRESULT" => quote! { windows_core::HRESULT },
         "BOOL" => quote! { windows_core::BOOL },
         "PSTR" => quote! { windows_core::PSTR },
         "PWSTR" => quote! { windows_core::PWSTR },
@@ -841,7 +840,6 @@ pub(super) fn core_projection(namespace: &str, name: &str) -> Option<TokenStream
         "IInspectable" => quote! { windows_core::IInspectable },
         "NTSTATUS" => quote! { windows_core::NTSTATUS },
         "RPC_STATUS" => quote! { windows_core::RPC_STATUS },
-        "EventRegistrationToken" => quote! { i64 },
         _ => return None,
     })
 }
@@ -851,12 +849,12 @@ fn sys_core_projection(namespace: &str, name: &str) -> Option<TokenStream> {
     if !win32 {
         return None;
     }
+    if let Some(canonical) = canonical::type_from_name(namespace, name) {
+        return Some(canonical.write_sys());
+    }
     let name = match name {
-        "GUID" | "HRESULT" | "BOOL" | "PSTR" | "PWSTR" | "PCSTR" | "PCWSTR" | "BSTR"
-        | "HSTRING" | "IUnknown" | "IInspectable" | "NTSTATUS" | "RPC_STATUS" => {
-            tokens::ident(name)
-        }
-        "EventRegistrationToken" => return Some(quote! { i64 }),
+        "BOOL" | "PSTR" | "PWSTR" | "PCSTR" | "PCWSTR" | "BSTR" | "HSTRING" | "IUnknown"
+        | "IInspectable" | "NTSTATUS" | "RPC_STATUS" => tokens::ident(name),
         _ => return None,
     };
     Some(quote! { windows_sys::core::#name })

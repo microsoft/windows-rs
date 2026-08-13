@@ -1070,10 +1070,7 @@ impl native_signature::Signature {
                     native::Type::Pointer {
                         mutable: false,
                         element,
-                    } if matches!(
-                        element.as_ref(),
-                        native::Type::Named { name, .. } if name == "GUID"
-                    )
+                    } if element.is_guid()
                 )
         })?;
         let object = self.parameters.iter().rposition(|parameter| {

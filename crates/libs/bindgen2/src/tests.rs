@@ -3364,6 +3364,14 @@ fn architecture_source_gates() {
         ("Direct2D", "consumer-specific Direct2D policy"),
         ("VSS", "consumer-specific VSS policy"),
         ("Reactor", "consumer-specific Reactor policy"),
+        (
+            "context.layout == Layout::Package",
+            "package policy outside a context method",
+        ),
+        (
+            "context.projection.",
+            "projection policy outside a context method",
+        ),
     ];
 
     for entry in std::fs::read_dir(source).unwrap() {
@@ -3380,6 +3388,21 @@ fn architecture_source_gates() {
                 "{} contains {reason}: {pattern}",
                 path.display()
             );
+        }
+        if path.file_name().is_none_or(|name| name != "canonical.rs") {
+            for name in [
+                "\"GUID\"",
+                "\"Guid\"",
+                "\"HRESULT\"",
+                "\"HResult\"",
+                "\"EventRegistrationToken\"",
+            ] {
+                assert!(
+                    !contents.contains(name),
+                    "{} contains canonical ABI identity {name}",
+                    path.display()
+                );
+            }
         }
     }
 }
