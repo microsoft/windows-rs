@@ -467,9 +467,23 @@ impl Interface {
                     }
             })
             .filter_map(|method| {
-                method
+                let tokens = method
                     .write_public(&method_context, &method.name, None)
-                    .transpose()
+                    .transpose();
+                tokens.map(|tokens| {
+                    tokens.map(|tokens| {
+                        let cfg = tokens::feature_cfg(
+                            namespace,
+                            layout,
+                            method
+                                .method
+                                .dependencies()
+                                .iter()
+                                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+                        );
+                        quote! { #cfg #tokens }
+                    })
+                })
             })
             .collect::<Result<Vec<_>, Error>>()?;
         let agile = self.agile.then(|| {
@@ -834,8 +848,27 @@ impl Interface {
                     &self.generics,
                     false,
                 )?;
+                let features = tokens::feature_names(
+                    namespace,
+                    layout,
+                    method
+                        .method
+                        .dependencies()
+                        .iter()
+                        .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+                );
+                let yes = tokens::feature_cfg_set(&features, false);
+                let no = tokens::feature_cfg_set(&features, true);
+                let fallback = (!features.is_empty()).then(|| {
+                    quote! {
+                        #no
+                        #name: usize,
+                    }
+                });
                 Ok(quote! {
+                    #yes
                     pub #name: unsafe extern "system" fn(#signature) -> windows_core::HRESULT,
+                    #fallback
                 })
             })
             .collect::<Result<Vec<_>, Error>>()?;

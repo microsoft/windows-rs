@@ -3235,6 +3235,49 @@ fn architecture_gates_match_existing_flat_sys_tokens() {
         expected.to_string()
     );
 
+    let metadata = fixture_metadata(
+        r#"
+            #[win32]
+            mod Windows {
+                mod Win32 {
+                    mod Test {
+                        #[repr(i32)]
+                        #[arch(Arm64)]
+                        enum ArchEnum {
+                            Arm64Only = 1,
+                        }
+                        #[repr(i32)]
+                        #[arch(X64)]
+                        enum ArchEnum {
+                            X64Only = 2,
+                        }
+                        #[arch(Arm64)]
+                        interface IArch {
+                            fn Arm64Only(&self);
+                        }
+                        #[arch(X64)]
+                        interface IArch {
+                            fn X64Only(&self);
+                        }
+                    }
+                }
+            }
+        "#,
+    );
+    let output = metadata
+        .generator(Request::filtered(Filter::names(["ArchEnum"])).package())
+        .unwrap()
+        .render(Layout::Modules)
+        .unwrap()
+        .to_string();
+    assert_eq!(output.matches("pub type ArchEnum").count(), 2, "{output}");
+    let generator = metadata
+        .generator(Request::filtered(Filter::names(["IArch"])).package())
+        .unwrap();
+    assert_eq!(generator.win32_items().interfaces().count(), 1);
+    assert!(output.contains("target_arch = \"aarch64\""));
+    assert!(output.contains("target_arch = \"x86_64\""));
+
     let generator = fixture(
         r#"
             #[win32]
@@ -3279,6 +3322,85 @@ fn architecture_gates_match_existing_flat_sys_tokens() {
     .parse()
     .unwrap();
     assert_eq!(actual.to_string(), expected.to_string());
+}
+
+#[test]
+fn package_split_crates_do_not_become_namespace_features() {
+    assert_eq!(
+        external::package_crate_name("Windows.Foundation", "DateTime"),
+        Some("windows_time")
+    );
+    assert_eq!(
+        external::package_crate_name("Windows.Foundation", "IReference"),
+        Some("windows_reference")
+    );
+    assert_eq!(
+        external::package_crate_name("Windows.Foundation.Collections", "IVector"),
+        Some("windows_collections")
+    );
+    assert!(
+        tokens::feature_names(
+            "Windows.UI",
+            Layout::Package,
+            [
+                ("Windows.Foundation", "DateTime"),
+                ("Windows.Foundation", "IReference"),
+                ("Windows.Foundation.Collections", "IVector"),
+            ],
+        )
+        .is_empty()
+    );
+}
+
+#[test]
+fn package_winrt_methods_gate_external_namespace_dependencies() {
+    let metadata = fixture_metadata(
+        r#"
+            #[winrt]
+            mod Windows {
+                mod Storage {
+                    mod Streams {
+                        struct PackageValue {
+                            value: i32,
+                        }
+                    }
+                }
+                mod UI {
+                    delegate fn PackageHandler(
+                        value: Windows::Storage::Streams::PackageValue
+                    );
+                    interface IPackage {
+                        fn Get(&self) -> Windows::Storage::Streams::PackageValue;
+                    }
+                }
+            }
+        "#,
+    );
+    let generator = metadata
+        .generator(Request::filtered(Filter::names(["IPackage", "PackageHandler"])).package())
+        .unwrap();
+    let output = std::env::temp_dir().join(format!(
+        "windows_bindgen2_package_{}_{}",
+        std::process::id(),
+        NEXT_FIXTURE.fetch_add(1, Ordering::Relaxed)
+    ));
+    std::fs::create_dir(&output).unwrap();
+    std::fs::write(output.join("Cargo.toml"), "# generated features\n").unwrap();
+    generator.write_package(&output, None, false).unwrap();
+    let contents =
+        std::fs::read_to_string(output.join("src").join("Windows").join("UI").join("mod.rs"))
+            .unwrap();
+    std::fs::remove_dir_all(output).unwrap();
+    assert!(contents.contains("#[cfg(feature = \"Storage_Streams\")]"));
+    assert!(contents.contains("#[cfg(not(feature = \"Storage_Streams\"))]"));
+    assert!(contents.contains("Get: usize"));
+    assert!(contents.contains("PackageHandler"));
+    assert!(
+        contents
+            .matches("#[cfg(feature = \"Storage_Streams\")]")
+            .count()
+            >= 3
+    );
 }
 
 #[test]

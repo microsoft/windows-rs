@@ -127,6 +127,7 @@ pub(super) fn feature_names<'a>(
             || namespace == "System"
             || namespace == "Windows.Foundation"
             || canonical::type_from_name(namespace, name).is_some()
+            || crate::external::package_crate_name(namespace, name).is_some()
             || (current.starts_with("Windows.Win32") && !namespace.starts_with("Windows.Win32"))
             || namespace == current
             || current

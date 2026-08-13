@@ -112,20 +112,29 @@ impl Generator {
                 definition,
                 &format!("{namespace}.{metadata_name}"),
             )?;
+            let features = tokens::feature_names(
+                namespace,
+                layout,
+                model
+                    .model_dependencies()
+                    .iter()
+                    .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+            );
+            let tokens = model.write(
+                values,
+                namespace,
+                layout,
+                projection,
+                self.winrt_explicit_items.contains(&entry.entity),
+            )?;
             modules
                 .entry(namespace.to_string())
                 .or_default()
                 .push(Item {
                     name: name.to_string(),
                     kind: 0,
-                    tokens: model.write(
-                        values,
-                        namespace,
-                        layout,
-                        projection,
-                        self.winrt_explicit_items.contains(&entry.entity),
-                    )?,
-                    features: BTreeSet::new(),
+                    tokens,
+                    features,
                 });
         }
         for entry in self

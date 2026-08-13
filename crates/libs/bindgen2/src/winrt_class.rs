@@ -389,13 +389,23 @@ impl Class {
                 } else {
                     format!("{context_name}{count}")
                 };
-                methods.push(if interface.default {
+                let method_tokens = if interface.default {
                     method.write_public(&context, &public_name, None)?.unwrap()
                 } else {
                     method
                         .write_public(&context, &public_name, Some(interface_type.clone()))?
                         .unwrap()
-                });
+                };
+                let cfg = tokens::feature_cfg(
+                    namespace,
+                    layout,
+                    method
+                        .method
+                        .dependencies()
+                        .iter()
+                        .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+                );
+                methods.push(quote! { #cfg #method_tokens });
             }
         }
         let factories = self.write_factories(

@@ -78,6 +78,10 @@ impl Delegate {
         })
     }
 
+    pub(super) fn model_dependencies(&self) -> BTreeSet<(String, String)> {
+        self.invoke.dependencies()
+    }
+
     pub(super) fn dependencies(
         database: &Database,
         definition: TypeDefinition<'_>,
@@ -145,6 +149,13 @@ impl Delegate {
             quote! { ::<#(#generic_names,)*> }
         };
         let doc_hidden = layout.is_package().then(|| quote! { #[doc(hidden)] });
+        let cfg = tokens::feature_cfg(
+            namespace,
+            layout,
+            self.model_dependencies()
+                .iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        );
         let named_phantom_types = generic_names
             .iter()
             .map(|name| quote! { #name: core::marker::PhantomData<#name>, })
@@ -160,7 +171,9 @@ impl Delegate {
         let guid = self.guid.write_u128();
         let definition = if generic_names.is_empty() {
             quote! {
+                #cfg
                 windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
+                #cfg
                 impl windows_core::RuntimeType for #name {
                     const SIGNATURE: windows_core::imp::ConstBuffer =
                         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -174,12 +187,14 @@ impl Delegate {
                 quote! { .push_slice(b";").push_other(#name::SIGNATURE) }
             });
             quote! {
+                #cfg
                 #[repr(transparent)]
                 #[derive(Clone, Debug, Eq, PartialEq)]
                 pub struct #name<#generic_list>(
                     windows_core::IUnknown,
                     #(#phantom_types),*
                 ) where #(#constraints),*;
+                #cfg
                 unsafe impl<#(#constraints),*> windows_core::Interface for #name<#generic_list> {
                     type Vtable = #vtbl_name<#generic_list>;
                     const IID: windows_core::GUID =
@@ -187,6 +202,7 @@ impl Delegate {
                             <Self as windows_core::RuntimeType>::SIGNATURE
                         );
                 }
+                #cfg
                 impl<#(#constraints),*> windows_core::RuntimeType for #name<#generic_list> {
                     const SIGNATURE: windows_core::imp::ConstBuffer =
                         windows_core::imp::ConstBuffer::new()
@@ -276,6 +292,7 @@ impl Delegate {
 
         let impl_block = (constructor.is_some() || invoke_method.is_some()).then(|| {
             quote! {
+                #cfg
                 impl #impl_generics #type_name {
                     #constructor
                     #invoke_method
@@ -285,6 +302,7 @@ impl Delegate {
         Ok(quote! {
             #definition
             #impl_block
+            #cfg
             #[repr(C)]
             #doc_hidden
             pub struct #vtbl_name #type_arguments #generic_where {
@@ -292,12 +310,14 @@ impl Delegate {
                 Invoke: unsafe extern "system" fn(#abi_signature) -> windows_core::HRESULT,
                 #(#named_phantom_types)*
             }
+            #cfg
             struct #box_name<
                 #generic_list
                 F: #closure_bound
             >(
                 core::marker::PhantomData<(#generic_list fn() -> F,)>,
             ) #generic_where;
+            #cfg
             impl<
                 #(#constraints,)*
                 F: #closure_bound

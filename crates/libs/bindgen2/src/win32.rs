@@ -242,13 +242,15 @@ impl Win32Selection {
             .map(|(name, mut selection)| {
                 selection.types.sort();
                 if package {
-                    selection.types.dedup_by(|left, right| left.0 == right.0);
+                    selection
+                        .types
+                        .dedup_by(|left, right| left.0 == right.0 && left.1 == right.1);
                 }
                 selection.delegates.sort();
                 if package {
                     selection
                         .delegates
-                        .dedup_by(|left, right| left.0 == right.0);
+                        .dedup_by(|left, right| left.0 == right.0 && left.1 == right.1);
                 }
                 selection.interfaces.sort_by(|left, right| {
                     (&left.0, left.1, left.2).cmp(&(&right.0, right.1, right.2))
@@ -262,13 +264,13 @@ impl Win32Selection {
                 if package {
                     selection
                         .constants
-                        .dedup_by(|left, right| left.0 == right.0);
+                        .dedup_by(|left, right| left.0 == right.0 && left.1 == right.1);
                 }
                 selection.functions.sort();
                 if package {
                     selection
                         .functions
-                        .dedup_by(|left, right| left.0 == right.0);
+                        .dedup_by(|left, right| left.0 == right.0 && left.1 == right.1);
                 }
                 let types = selection.types;
                 let delegates = selection.delegates;

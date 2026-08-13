@@ -41,7 +41,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
 | Build-script facade | Twenty consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, reference and time projections, benchmark and robot components and clients, context alignment, core-only APIs, and Win32 metadata match. |
-| Package output | In progress | The package backend runs, but 914 generated files still differ. Source output has 63,791 missing and 22,580 extra line edges; manifests have 130 missing and 358 extra dependency edges. |
+| Package output | In progress | The package backend runs, but 851 generated files still differ. Source output has 36,377 missing and 21,669 extra line edges; manifests have 122 missing and 358 extra dependency edges. |
 
 The current working implementation has about 14,400 lines of production Rust, roughly the same as
 legacy bindgen. Size is no longer evidence for the rewrite by itself; structure, parity, and
@@ -88,6 +88,19 @@ These gates apply to bindgen2 and to any eventual bindgen3 replacement:
    renderers do not branch directly on `Layout::Package`.
 6. The generated crates pass their existing all-features and no-default-features CI checks.
 7. Bindgen2 tests and clippy pass with warnings denied.
+
+Intermediate parity batches use stricter regression limits than the final zero-difference gate. The
+number of differing files and each manifest-edge direction may not increase. The sum of missing and
+extra source-line edges must decrease, and neither source-line direction may increase by more than
+2 percent. This permits a small temporary directional shift when restoring an omitted declaration
+family produces a much larger net parity gain, without allowing missing output to be exchanged for
+unbounded extra output.
+
+WinRT package methods and ABI slots derive their namespace cfg gates from the lowered method
+dependencies. Disabled ABI slots retain a `usize` placeholder so vtable offsets do not change.
+Split-crate types such as `DateTime`, `TimeSpan`, `IReference`, and collection interfaces route to
+their owning crates and do not become namespace features. Delegates repeat an artifact-level cfg on
+each generated Rust item because one delegate projection emits several adjacent items.
 
 ## Stabilization gate
 

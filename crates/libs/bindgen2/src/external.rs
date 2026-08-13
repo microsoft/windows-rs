@@ -64,9 +64,6 @@ pub(super) fn package_crate_name(namespace: &str, name: &str) -> Option<&'static
                     | "IAsyncInfo"
                     | "IAsyncOperation"
                     | "IAsyncOperationWithProgress"
-                    | "IReference"
-                    | "DateTime"
-                    | "TimeSpan"
             ) =>
         {
             Some("windows_future")
