@@ -242,7 +242,7 @@ impl native_signature::Signature {
             }
 
             let function_generics = if matches!(return_kind, ReturnKind::Query { .. }) {
-                quote! { <T, #(#generic_parameters),*> }
+                quote! { <#(#generic_parameters,)* T> }
             } else if generic_parameters.is_empty() {
                 quote! {}
             } else {
@@ -253,8 +253,8 @@ impl native_signature::Signature {
             let where_clause = (!constraints.is_empty() || query_constraint.is_some()).then(|| {
                 quote! {
                     where
-                        #query_constraint
                         #(#constraints)*
+                        #query_constraint
                 }
             });
             let prelude = matches!(
@@ -318,37 +318,66 @@ impl native_signature::Signature {
         let symbol = import_name.map(|name| quote! { #name });
         let raw_parameters = self.parameters.iter().map(|parameter| {
             let name = tokens::ident(&parameter.name);
-            let ty = if parameter.is_input_only() {
-                parameter.ty.write_public_input(namespace, layout)
-            } else {
-                parameter
-                    .ty
-                    .write_abi_projection(namespace, layout, Projection::Default)
-            };
+            let ty = parameter
+                .ty
+                .write_abi_projection(namespace, layout, Projection::Default);
             quote! { #name: #ty }
         });
-        let parameters = self
-            .parameters
-            .iter()
-            .enumerate()
-            .filter(|(position, _)| *position != retval)
-            .map(|(_, parameter)| {
-                let name = tokens::ident(&parameter.name);
-                let ty = parameter.ty.write_public_input(namespace, layout);
-                quote! { #name: #ty }
-            });
-        let arguments = self
-            .parameters
-            .iter()
-            .enumerate()
-            .map(|(position, parameter)| {
-                if position == retval {
-                    quote! { &mut result__ }
+        let mut generic_parameters = Vec::new();
+        let mut constraints = Vec::new();
+        let mut parameters = Vec::new();
+        let mut arguments = Vec::new();
+        let (slices, slice_counts) = self.slice_parameters();
+        for (position, parameter) in self.parameters.iter().enumerate() {
+            if position == retval {
+                arguments.push(quote! { &mut result__ });
+                continue;
+            }
+            let name = tokens::ident(&parameter.name);
+            if let Some(element) = &slices[position] {
+                let element = element.write_public(namespace, layout);
+                parameters.push(quote! { #name: &[#element] });
+                arguments.push(quote! { #name.as_ptr() });
+            } else if let Some(slice) = slice_counts[position] {
+                let name = tokens::ident(&self.parameters[slice].name);
+                arguments.push(quote! { #name.len().try_into().unwrap() });
+            } else if parameter.is_input_only()
+                && (parameter.ty.is_interface()
+                    || parameter.ty.is_pcwstr()
+                    || (layout.is_package() && parameter.ty.is_const_string()))
+            {
+                let generic = tokens::ident(&format!("P{position}"));
+                let ty = parameter.ty.write_public(namespace, layout);
+                generic_parameters.push(generic.clone());
+                constraints.push(quote! { #generic: windows_core::Param<#ty>, });
+                parameters.push(quote! { #name: #generic });
+                arguments.push(quote! { #name.param().abi() });
+            } else if parameter.is_input_only() && parameter.ty.is_bool() {
+                parameters.push(quote! { #name: bool });
+                arguments.push(quote! { #name.into() });
+            } else if parameter.ty.is_bstr() {
+                parameters.push(quote! { #name: &windows_core::BSTR });
+                arguments.push(quote! { core::mem::transmute_copy(#name) });
+            } else {
+                let ty = parameter.ty.write_public(namespace, layout);
+                parameters.push(quote! { #name: #ty });
+                if parameter.ty.pointee().is_some() {
+                    arguments.push(quote! { #name as _ });
                 } else {
-                    let name = tokens::ident(&parameter.name);
-                    quote! { #name }
+                    arguments.push(quote! { #name });
                 }
-            });
+            }
+        }
+        let function_generics = if generic_parameters.is_empty() {
+            quote! {}
+        } else {
+            quote! { <#(#generic_parameters),*> }
+        };
+        let where_clause = if constraints.is_empty() {
+            quote! {}
+        } else {
+            quote! { where #(#constraints)* }
+        };
         let result = ty.write_public(namespace, layout);
         let body = if ty.is_interface() {
             quote! {
@@ -360,7 +389,9 @@ impl native_signature::Signature {
         };
         Some(quote! {
             #[inline]
-            pub unsafe fn #method(#(#parameters),*) -> windows_core::Result<#result> {
+            pub unsafe fn #method #function_generics(#(#parameters),*) -> windows_core::Result<#result>
+            #where_clause
+            {
                 windows_core::link!(
                     #module #abi #symbol fn #method(#(#raw_parameters),*) -> windows_core::HRESULT
                 );
@@ -382,24 +413,12 @@ impl native_signature::Signature {
         import_name: Option<&str>,
     ) -> Option<TokenStream> {
         let return_kind = self.return_kind(layout.is_package());
-        let output = if matches!(return_kind, ReturnKind::Void) {
-            let outputs = self
-                .parameters
-                .iter()
-                .enumerate()
-                .filter(|(_, parameter)| !parameter.is_input_only())
-                .collect::<Vec<_>>();
-            match outputs.as_slice() {
-                [] => None,
-                [(position, parameter)] => Some((*position, parameter.ty.pointee()?)),
-                _ => return None,
+        let (output, direct) = match return_kind {
+            ReturnKind::VoidValue { position, ty } | ReturnKind::VoidInterface { position, ty } => {
+                (Some((position, ty)), None)
             }
-        } else {
-            None
-        };
-        let direct = match return_kind {
-            ReturnKind::Direct(ty) => Some(ty),
-            ReturnKind::Void => None,
+            ReturnKind::Direct(ty) => (None, Some(ty)),
+            ReturnKind::Void => (None, None),
             _ => return None,
         };
         let method = tokens::ident(name);
@@ -411,36 +430,53 @@ impl native_signature::Signature {
                 .write_abi_projection(namespace, layout, Projection::Default);
             quote! { #name: #ty }
         });
-        let parameters = self
-            .parameters
-            .iter()
-            .enumerate()
-            .filter(|(position, _)| output.is_none_or(|(output, _)| output != *position))
-            .map(|(_, parameter)| {
-                let name = tokens::ident(&parameter.name);
-                if parameter.ty.is_bstr() {
-                    quote! { #name: &windows_core::BSTR }
+        let mut generic_parameters = Vec::new();
+        let mut constraints = Vec::new();
+        let mut parameters = Vec::new();
+        let mut arguments = Vec::new();
+        for (position, parameter) in self.parameters.iter().enumerate() {
+            if output.is_some_and(|(output, _)| output == position) {
+                arguments.push(quote! { &mut result__ });
+                continue;
+            }
+            let name = tokens::ident(&parameter.name);
+            if parameter.is_input_only()
+                && (parameter.ty.is_interface()
+                    || parameter.ty.is_pcwstr()
+                    || (layout.is_package() && parameter.ty.is_const_string()))
+            {
+                let generic = tokens::ident(&format!("P{position}"));
+                let ty = parameter.ty.write_public(namespace, layout);
+                generic_parameters.push(generic.clone());
+                constraints.push(quote! { #generic: windows_core::Param<#ty>, });
+                parameters.push(quote! { #name: #generic });
+                arguments.push(quote! { #name.param().abi() });
+            } else if parameter.is_input_only() && parameter.ty.is_bool() {
+                parameters.push(quote! { #name: bool });
+                arguments.push(quote! { #name.into() });
+            } else if parameter.ty.is_bstr() {
+                parameters.push(quote! { #name: &windows_core::BSTR });
+                arguments.push(quote! { core::mem::transmute_copy(#name) });
+            } else {
+                let ty = parameter.ty.write_public(namespace, layout);
+                parameters.push(quote! { #name: #ty });
+                if parameter.ty.pointee().is_some() {
+                    arguments.push(quote! { #name as _ });
                 } else {
-                    let ty = parameter.ty.write_public_input(namespace, layout);
-                    quote! { #name: #ty }
+                    arguments.push(quote! { #name });
                 }
-            });
-        let arguments = self
-            .parameters
-            .iter()
-            .enumerate()
-            .map(|(position, parameter)| {
-                if output.is_some_and(|(output, _)| output == position) {
-                    quote! { &mut result__ }
-                } else {
-                    let name = tokens::ident(&parameter.name);
-                    if parameter.ty.is_bstr() {
-                        quote! { core::mem::transmute_copy(#name) }
-                    } else {
-                        quote! { #name }
-                    }
-                }
-            });
+            }
+        }
+        let function_generics = if generic_parameters.is_empty() {
+            quote! {}
+        } else {
+            quote! { <#(#generic_parameters),*> }
+        };
+        let where_clause = if constraints.is_empty() {
+            quote! {}
+        } else {
+            quote! { where #(#constraints)* }
+        };
         let result = output.map_or_else(
             || {
                 direct
@@ -465,7 +501,7 @@ impl native_signature::Signature {
         };
         Some(quote! {
             #[inline]
-            pub unsafe fn #method(#(#parameters),*) #return_type {
+            pub unsafe fn #method #function_generics(#(#parameters),*) #return_type #where_clause {
                 windows_core::link!(
                     #module #abi #symbol fn #method(#(#raw_parameters),*) #raw_return_type
                 );

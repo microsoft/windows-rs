@@ -87,6 +87,11 @@ fn bindgen2_probe() {
     eprintln!("  windows-sys: {sys}");
     eprintln!("  windows Win32: {}", windows.win32);
     eprintln!("  windows WinRT: {}", windows.winrt);
+    eprintln!(
+        "  source lines: {} missing, {} extra",
+        sys.source_missing_lines + windows.source_missing_lines,
+        sys.source_extra_lines + windows.source_extra_lines
+    );
     eprintln!("  manifests: {}", sys.manifest + windows.manifest);
     eprintln!(
         "  manifest dependencies: {} missing, {} extra",
@@ -108,6 +113,8 @@ struct PackageDiff {
     manifest: usize,
     manifest_missing_dependencies: usize,
     manifest_extra_dependencies: usize,
+    source_missing_lines: usize,
+    source_extra_lines: usize,
     missing: usize,
     extra: usize,
 }
@@ -175,12 +182,46 @@ fn compare_package(expected: &std::path::Path, actual: &std::path::Path) -> Pack
                 result.manifest_extra_dependencies += extra;
             } else if path.starts_with("src/Windows/Win32") {
                 result.win32 += 1;
+                let (missing, extra) = compare_source_lines(
+                    &std::fs::read_to_string(expected_path).unwrap(),
+                    &std::fs::read_to_string(actual_path).unwrap(),
+                );
+                result.source_missing_lines += missing;
+                result.source_extra_lines += extra;
             } else {
                 result.winrt += 1;
+                let (missing, extra) = compare_source_lines(
+                    &std::fs::read_to_string(expected_path).unwrap(),
+                    &std::fs::read_to_string(actual_path).unwrap(),
+                );
+                result.source_missing_lines += missing;
+                result.source_extra_lines += extra;
             }
         }
     }
     result
+}
+
+fn compare_source_lines(expected: &str, actual: &str) -> (usize, usize) {
+    fn lines(source: &str) -> std::collections::BTreeMap<&str, usize> {
+        let mut result = std::collections::BTreeMap::new();
+        for line in source.lines() {
+            *result.entry(line).or_default() += 1;
+        }
+        result
+    }
+
+    let expected = lines(expected);
+    let actual = lines(actual);
+    let missing = expected
+        .iter()
+        .map(|(line, count)| count.saturating_sub(actual.get(line).copied().unwrap_or_default()))
+        .sum();
+    let extra = actual
+        .iter()
+        .map(|(line, count)| count.saturating_sub(expected.get(line).copied().unwrap_or_default()))
+        .sum();
+    (missing, extra)
 }
 
 fn compare_manifest_dependencies(expected: &str, actual: &str) -> (usize, usize) {
@@ -270,5 +311,13 @@ alpha = ["gamma", "delta"]
 empty = []
 "#;
         assert_eq!(compare_manifest_dependencies(expected, actual), (1, 1));
+    }
+
+    #[test]
+    fn source_line_comparison_counts_duplicates() {
+        assert_eq!(
+            compare_source_lines("same\nold\nold\n", "same\nold\nnew\n"),
+            (1, 1)
+        );
     }
 }

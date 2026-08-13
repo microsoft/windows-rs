@@ -428,15 +428,6 @@ impl Type {
         }
     }
 
-    pub(super) fn write_public_input(&self, namespace: &str, layout: Layout) -> TokenStream {
-        if let Self::Pointer { element, .. } = self {
-            let element = element.write_public(namespace, layout);
-            quote! { *const #element }
-        } else {
-            self.write_public(namespace, layout)
-        }
-    }
-
     pub(super) fn write_public_pointer(&self, namespace: &str, layout: Layout) -> TokenStream {
         if let Self::Pointer { mutable, element } = self {
             let element = if element.is_interface() {
@@ -1027,13 +1018,27 @@ impl Type {
 
     fn into_input(self) -> Self {
         match self {
-            Self::Named { namespace, name } if namespace == "Windows.Win32" && name == "PWSTR" => {
+            Self::Array { element, len } => Self::Array {
+                element: Box::new(element.into_input()),
+                len,
+            },
+            Self::Pointer { mutable, element } => Self::Pointer {
+                mutable,
+                element: Box::new(element.into_input()),
+            },
+            Self::Named { namespace, name }
+                if (namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32."))
+                    && name == "PWSTR" =>
+            {
                 Self::Named {
                     namespace,
                     name: "PCWSTR".to_string(),
                 }
             }
-            Self::Named { namespace, name } if namespace == "Windows.Win32" && name == "PSTR" => {
+            Self::Named { namespace, name }
+                if (namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32."))
+                    && name == "PSTR" =>
+            {
                 Self::Named {
                     namespace,
                     name: "PCSTR".to_string(),
