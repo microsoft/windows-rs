@@ -3358,11 +3358,19 @@ fn package_winrt_methods_gate_external_namespace_dependencies() {
         r#"
             #[winrt]
             mod Windows {
+                mod Foundation {
+                    mod Collections {
+                        interface IIterable<T> {
+                            fn First(&self) -> i32;
+                        }
+                    }
+                }
                 mod Storage {
                     mod Streams {
                         struct PackageValue {
                             value: i32,
                         }
+                        interface IPackageClass {}
                     }
                 }
                 mod UI {
@@ -3372,12 +3380,28 @@ fn package_winrt_methods_gate_external_namespace_dependencies() {
                     interface IPackage {
                         fn Get(&self) -> Windows::Storage::Streams::PackageValue;
                     }
+                    class PackageClass {
+                        Windows::Storage::Streams::IPackageClass,
+                    }
+                    class PackageIterable {
+                        Windows::Foundation::Collections::IIterable<
+                            Windows::Storage::Streams::PackageValue
+                        >,
+                    }
                 }
             }
         "#,
     );
     let generator = metadata
-        .generator(Request::filtered(Filter::names(["IPackage", "PackageHandler"])).package())
+        .generator(
+            Request::filtered(Filter::names([
+                "IPackage",
+                "PackageClass",
+                "PackageHandler",
+                "PackageIterable",
+            ]))
+            .package(),
+        )
         .unwrap();
     let output = std::env::temp_dir().join(format!(
         "windows_bindgen2_package_{}_{}",
@@ -3395,6 +3419,11 @@ fn package_winrt_methods_gate_external_namespace_dependencies() {
     assert!(contents.contains("#[cfg(not(feature = \"Storage_Streams\"))]"));
     assert!(contents.contains("Get: usize"));
     assert!(contents.contains("PackageHandler"));
+    assert!(contents.contains(
+        "#[cfg(feature = \"Storage_Streams\")]\n#[repr(transparent)]\n#[derive(Clone, Debug, Eq, PartialEq)]\npub struct PackageClass"
+    ));
+    assert!(contents.contains("impl IntoIterator for PackageIterable"));
+    assert!(contents.contains("windows_collections::BufferedIterator<Self::Item>"));
     assert!(
         contents
             .matches("#[cfg(feature = \"Storage_Streams\")]")

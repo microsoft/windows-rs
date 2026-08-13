@@ -53,6 +53,7 @@ pub(super) fn write(
             &quote! { <#item: windows_core::RuntimeType> },
             &quote! { <#item> },
             item,
+            &TokenStream::new(),
         )
     });
     let direct_iterator = (interface.namespace == "Windows.Foundation.Collections"
@@ -99,6 +100,7 @@ pub(super) fn write(
                 &constrained_generics,
                 &type_arguments,
                 &item,
+                &TokenStream::new(),
             ))
         })
         .transpose()?;
@@ -120,13 +122,15 @@ fn has_method(
         .any(|method| method.name == name && method.selected(members))
 }
 
-fn iterable(
+pub(super) fn iterable(
     name: &TokenStream,
     generics: &TokenStream,
     type_arguments: &TokenStream,
     item: &TokenStream,
+    cfg: &TokenStream,
 ) -> TokenStream {
     quote! {
+        #cfg
         impl #generics IntoIterator for #name #type_arguments {
             type Item = #item;
             type IntoIter = windows_collections::BufferedIterator<Self::Item>;
@@ -134,6 +138,7 @@ fn iterable(
                 IntoIterator::into_iter(&self)
             }
         }
+        #cfg
         impl #generics IntoIterator for &#name #type_arguments {
             type Item = #item;
             type IntoIter = windows_collections::BufferedIterator<Self::Item>;

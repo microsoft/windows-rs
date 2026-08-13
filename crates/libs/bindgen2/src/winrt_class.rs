@@ -150,6 +150,26 @@ impl Class {
         dependencies
     }
 
+    fn artifact_dependencies(&self) -> BTreeSet<(String, String)> {
+        let mut dependencies = BTreeSet::new();
+        for interface in self
+            .interfaces
+            .iter()
+            .filter(|interface| !interface.factory)
+        {
+            dependencies.insert((interface.namespace.clone(), interface.name.clone()));
+            for argument in &interface.arguments {
+                argument.collect_value_dependencies(&mut dependencies);
+            }
+        }
+        dependencies.extend(
+            self.bases
+                .iter()
+                .map(|base| (base.namespace.clone(), base.name.clone())),
+        );
+        dependencies
+    }
+
     pub(super) fn relationship_members(
         &self,
         members: &MemberSelection,
@@ -259,17 +279,30 @@ impl Class {
     ) -> Result<TokenStream, Error> {
         let name = tokens::ident(&self.name);
         let runtime_name = Literal::string(&format!("{}.{}", self.namespace, self.name));
+        let class_features = tokens::feature_names(
+            namespace,
+            layout,
+            self.artifact_dependencies()
+                .iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        );
+        let class_cfg = tokens::feature_cfg_set(&class_features, false);
         if self.async_default {
             let default_type = self
                 .default_interface
                 .as_ref()
                 .unwrap()
                 .write_async_name(namespace, layout)?;
-            return Ok(quote! { pub type #name = #default_type; });
+            return Ok(quote! {
+                #class_cfg
+                pub type #name = #default_type;
+            });
         }
         let agile = self.agile.then(|| {
             quote! {
+                #class_cfg
                 unsafe impl Send for #name {}
+                #class_cfg
                 unsafe impl Sync for #name {}
             }
         });
@@ -296,14 +329,17 @@ impl Class {
             )?;
             let impl_block = (!factories.is_empty()).then(|| {
                 quote! {
+                    #class_cfg
                     impl #name {
                         #(#factories)*
                     }
                 }
             });
             return Ok(quote! {
+                #class_cfg
                 pub struct #name;
                 #impl_block
+                #class_cfg
                 impl windows_core::RuntimeName for #name {
                     const NAME: &'static str = #runtime_name;
                 }
@@ -330,6 +366,7 @@ impl Class {
             .collect::<Result<Vec<_>, Error>>()?;
         let required_hierarchy = (!required.is_empty()).then(|| {
             quote! {
+                #class_cfg
                 windows_core::imp::required_hierarchy!(#name, #(#required),*);
             }
         });
@@ -396,7 +433,7 @@ impl Class {
                         .write_public(&context, &public_name, Some(interface_type.clone()))?
                         .unwrap()
                 };
-                let cfg = tokens::feature_cfg(
+                let mut features = tokens::feature_names(
                     namespace,
                     layout,
                     method
@@ -405,6 +442,8 @@ impl Class {
                         .iter()
                         .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
                 );
+                features.retain(|feature| !class_features.contains(feature));
+                let cfg = tokens::feature_cfg_set(&features, false);
                 methods.push(quote! { #cfg #method_tokens });
             }
         }
@@ -421,6 +460,7 @@ impl Class {
         )?;
         let deref = projection.is_minimal().then(|| {
             quote! {
+                #class_cfg
                 impl core::ops::Deref for #name {
                     type Target = #default_type;
                     fn deref(&self) -> &Self::Target {
@@ -433,6 +473,7 @@ impl Class {
             quote! {}
         } else {
             quote! {
+                #class_cfg
                 impl #name {
                     #constructor
                     #(#methods)*
@@ -440,10 +481,39 @@ impl Class {
                 }
             }
         };
+        let iterable = if projection.is_minimal() {
+            TokenStream::new()
+        } else {
+            self.interfaces
+                .iter()
+                .find(|interface| {
+                    interface.namespace == "Windows.Foundation.Collections"
+                        && interface.name == "IIterable"
+                        && interface.arguments.len() == 1
+                        && interface
+                            .methods
+                            .iter()
+                            .any(|method| method.name == "First" && method.selected(members))
+                })
+                .map(|interface| {
+                    let item = interface.arguments[0].write_name(namespace, layout, &[])?;
+                    Ok::<_, Error>(winrt_collection::iterable(
+                        &name,
+                        &TokenStream::new(),
+                        &TokenStream::new(),
+                        &item,
+                        &class_cfg,
+                    ))
+                })
+                .transpose()?
+                .unwrap_or_default()
+        };
         Ok(quote! {
+            #class_cfg
             #[repr(transparent)]
             #[derive(Clone, Debug, Eq, PartialEq)]
             pub struct #name(windows_core::IUnknown);
+            #class_cfg
             windows_core::imp::interface_hierarchy!(
                 #name,
                 windows_core::IUnknown,
@@ -452,20 +522,24 @@ impl Class {
             );
             #required_hierarchy
             #impl_block
+            #class_cfg
             impl windows_core::RuntimeType for #name {
                 const SIGNATURE: windows_core::imp::ConstBuffer =
                     windows_core::imp::ConstBuffer::for_class::<Self, #default_type>();
             }
+            #class_cfg
             unsafe impl windows_core::Interface for #name {
                 type Vtable = <#default_type as windows_core::Interface>::Vtable;
                 const IID: windows_core::GUID =
                     <#default_type as windows_core::Interface>::IID;
             }
             #deref
+            #class_cfg
             impl windows_core::RuntimeName for #name {
                 const NAME: &'static str = #runtime_name;
             }
             #agile
+            #iterable
         })
     }
 
@@ -481,6 +555,13 @@ impl Class {
         implementations: Option<&BTreeSet<Entity<TypeDef>>>,
         member_selections: &BTreeMap<Entity<TypeDef>, MemberSelection>,
     ) -> Result<Vec<TokenStream>, Error> {
+        let class_features = tokens::feature_names(
+            namespace,
+            layout,
+            self.artifact_dependencies()
+                .iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        );
         let implemented = implementations.is_some_and(|implementations| {
             self.interfaces
                 .iter()
@@ -556,34 +637,60 @@ impl Class {
                 } else {
                     format!("{context_name}{count}")
                 };
+                let mut features = tokens::feature_names(
+                    namespace,
+                    layout,
+                    method
+                        .method
+                        .dependencies()
+                        .iter()
+                        .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+                );
+                features.retain(|feature| !class_features.contains(feature));
+                let cfg = tokens::feature_cfg_set(&features, false);
                 if interface.composable {
-                    factories.extend(method.method.write_composable_methods(
-                        context,
-                        &public_name,
-                        &method.name,
-                        &interface.name,
-                        (selected || default_constructor)
-                            && (!projection.is_minimal() || !implemented),
-                        !projection.is_minimal() || implementation_constructor,
-                    )?);
-                } else {
-                    factories.push(
+                    factories.extend(
                         method
-                            .write_static(
+                            .method
+                            .write_composable_methods(
                                 context,
                                 &public_name,
+                                &method.name,
                                 &interface.name,
-                                &self.namespace,
-                                &self.name,
+                                (selected || default_constructor)
+                                    && (!projection.is_minimal() || !implemented),
+                                !projection.is_minimal() || implementation_constructor,
                             )?
-                            .unwrap(),
+                            .into_iter()
+                            .map(|tokens| quote! { #cfg #tokens }),
                     );
+                } else {
+                    let tokens = method
+                        .write_static(
+                            context,
+                            &public_name,
+                            &interface.name,
+                            &self.namespace,
+                            &self.name,
+                        )?
+                        .unwrap();
+                    factories.push(quote! { #cfg #tokens });
                 }
             }
             if !emitted {
                 continue;
             }
+            let mut features = tokens::feature_names(
+                namespace,
+                layout,
+                [(&interface.namespace, &interface.name)]
+                    .into_iter()
+                    .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+            );
+            features.retain(|feature| !class_features.contains(feature));
+            let cfg = tokens::feature_cfg_set(&features, false);
             helpers.push(quote! {
+                #cfg
                 fn #factory_name<
                     R,
                     F: FnOnce(&#interface_type) -> windows_core::Result<R>
