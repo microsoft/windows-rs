@@ -1,6 +1,21 @@
 use super::*;
 
 impl Database {
+    /// Returns direct nested types in metadata declaration order.
+    pub fn nested_types_of(
+        &self,
+        enclosing: Entity<tables::TypeDef>,
+    ) -> impl Iterator<Item = TypeDefinition<'_>> {
+        self.nested
+            .get(&enclosing)
+            .into_iter()
+            .flatten()
+            .map(|entity| TypeDefinition {
+                database: self,
+                entity: *entity,
+            })
+    }
+
     /// Iterates direct nested-to-enclosing type relationships.
     pub fn nested_types(&self) -> impl Iterator<Item = (TypeDefinition<'_>, TypeDefinition<'_>)> {
         self.images()
@@ -67,5 +82,24 @@ mod tests {
         actual.sort();
         expected.sort();
         assert_eq!(actual, expected);
+
+        let parents = database
+            .nested_types()
+            .map(|(_, enclosing)| enclosing.entity())
+            .collect::<BTreeSet<_>>();
+        let mut indexed = parents
+            .into_iter()
+            .flat_map(|parent| {
+                let enclosing = database.definition(parent).unwrap();
+                database.nested_types_of(parent).map(move |nested| {
+                    (
+                        nested.name().unwrap().to_string(),
+                        enclosing.name().unwrap().to_string(),
+                    )
+                })
+            })
+            .collect::<Vec<_>>();
+        indexed.sort();
+        assert_eq!(actual, indexed);
     }
 }

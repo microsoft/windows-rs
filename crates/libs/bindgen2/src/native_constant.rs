@@ -10,6 +10,7 @@ pub struct Constant {
     ty: native::Type,
     value: Value,
     dependencies: BTreeSet<(String, String)>,
+    manifest_dependencies: BTreeSet<(String, String)>,
     wrapper: bool,
 }
 
@@ -30,6 +31,7 @@ enum Value {
 impl Constant {
     pub(super) fn lower(
         database: &Database,
+        cache: &native::DependencyCache,
         field: windows_metadata2::FieldDefinition<'_>,
         namespace: &str,
         name: &str,
@@ -61,7 +63,8 @@ impl Constant {
             } else {
                 Value::Guid(guid)
             };
-            let dependencies = ty.package_dependencies(database)?;
+            let dependencies = ty.package_dependencies(database, cache)?;
+            let manifest_dependencies = ty.manifest_dependencies(database)?;
             let wrapper = ty.is_wrapper(database)?;
             return Ok(Self {
                 architectures,
@@ -70,6 +73,7 @@ impl Constant {
                 ty,
                 value,
                 dependencies,
+                manifest_dependencies,
                 wrapper,
             });
         }
@@ -100,7 +104,8 @@ impl Constant {
                 shape: format!("typed constant {ty:?} <- {value:?}"),
             });
         }
-        let dependencies = ty.package_dependencies(database)?;
+        let dependencies = ty.package_dependencies(database, cache)?;
+        let manifest_dependencies = ty.manifest_dependencies(database)?;
         let wrapper = ty.is_wrapper(database)?;
         Ok(Self {
             architectures,
@@ -113,6 +118,7 @@ impl Constant {
                 ansi: is_ansi(field)?,
             },
             dependencies,
+            manifest_dependencies,
             wrapper,
         })
     }
@@ -128,7 +134,7 @@ impl Constant {
         let cfg = tokens::feature_cfg(
             &self.namespace,
             layout,
-            self.dependencies
+            self.manifest_dependencies
                 .iter()
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         );

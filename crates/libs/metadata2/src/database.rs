@@ -149,6 +149,7 @@ impl<'a> TypeCandidates<'a> {
 pub struct Database {
     images: Vec<Image>,
     types: HashMap<String, HashMap<String, Vec<Entity<tables::TypeDef>>>>,
+    pub(crate) nested: HashMap<Entity<tables::TypeDef>, Vec<Entity<tables::TypeDef>>>,
 }
 
 impl Database {
@@ -156,6 +157,8 @@ impl Database {
     pub fn new(images: impl IntoIterator<Item = Image>) -> Result<Self, Error> {
         let images: Vec<_> = images.into_iter().collect();
         let mut types: HashMap<String, HashMap<String, Vec<_>>> = HashMap::new();
+        let mut nested_types: HashMap<Entity<tables::TypeDef>, Vec<Entity<tables::TypeDef>>> =
+            HashMap::new();
 
         for (file, image) in images.iter().enumerate() {
             let file = FileId::new(file);
@@ -168,19 +171,21 @@ impl Database {
                     "image has more than one Assembly row",
                 ));
             }
-            let nested: HashSet<_> = image
-                .rows::<tables::NestedClass>()
-                .map(|row| {
-                    let relationship = image.view(row).unwrap();
-                    let nested = relationship
-                        .index::<tables::TypeDef>(0)?
-                        .ok_or_else(|| Error::invalid(row.number() as usize, "null nested type"))?;
-                    relationship.index::<tables::TypeDef>(1)?.ok_or_else(|| {
-                        Error::invalid(row.number() as usize, "null enclosing type")
-                    })?;
-                    Ok::<_, Error>(nested.number())
-                })
-                .collect::<Result<_, _>>()?;
+            let mut nested = HashSet::new();
+            for row in image.rows::<tables::NestedClass>() {
+                let relationship = image.view(row).unwrap();
+                let child = relationship
+                    .index::<tables::TypeDef>(0)?
+                    .ok_or_else(|| Error::invalid(row.number() as usize, "null nested type"))?;
+                let parent = relationship
+                    .index::<tables::TypeDef>(1)?
+                    .ok_or_else(|| Error::invalid(row.number() as usize, "null enclosing type"))?;
+                nested.insert(child.number());
+                nested_types
+                    .entry(Entity::new(file, parent))
+                    .or_default()
+                    .push(Entity::new(file, child));
+            }
             for row in image.rows::<tables::TypeDef>() {
                 if nested.contains(&row.number()) {
                     continue;
@@ -200,7 +205,11 @@ impl Database {
             }
         }
 
-        Ok(Self { images, types })
+        Ok(Self {
+            images,
+            types,
+            nested: nested_types,
+        })
     }
 
     /// Returns the owned images.

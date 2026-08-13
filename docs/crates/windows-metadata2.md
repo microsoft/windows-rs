@@ -12,7 +12,7 @@ yet a full replacement for metadata writing, merging, remapping, or every ECMA t
 | Area | Status |
 | --- | --- |
 | Owned images and checked row identities | Complete for current consumers. |
-| Exact top-level TypeDef index | Complete; nested definitions remain relationship-driven. |
+| Exact TypeDef indexes | Complete for top-level names and ordered enclosing-to-nested lookup. |
 | Signature and custom-attribute decoding | Complete for current bindgen2 and RDL2 paths. |
 | Layout, import, nested-type, and interface relationships | Complete for current bindgen2 paths. |
 | Base types and attributed interface implementations | Complete for WinRT class projection. |
@@ -179,10 +179,11 @@ with a general table-building framework would add indirection before a second ta
 the required abstraction. Keep the bounded writer explicit until a concrete authoring feature
 cannot be added without duplicated row-width, index, or ordering logic.
 
-The native bindgen inventory added one read-only relationship: `Database::nested_types` streams
-direct nested/enclosing TypeDef pairs from `NestedClass`. Metadata2 retains no reverse map.
-Bindgen2 owns and caches the ordered parent map because repeated enclosing lookup is projection
-policy.
+The native bindgen inventory first added `Database::nested_types` as a streaming view of direct
+nested/enclosing TypeDef pairs. Package dependency traversal later established a repeated
+enclosing-to-nested lookup, so `Database` now indexes that direction once while validating
+`NestedClass`. `Database::nested_types_of` preserves metadata declaration order. Bindgen2 still
+owns generated nested names and dependency policy.
 
 Native interface projection added `Database::interface_implementations`, a streaming
 `InterfaceImpl` view returning the implementing TypeDef and the referenced interface identity.

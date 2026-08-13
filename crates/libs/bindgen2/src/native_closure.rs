@@ -3,6 +3,7 @@ use std::collections::{BTreeMap, BTreeSet};
 
 pub(super) struct Closure<'a> {
     database: &'a Database,
+    dependencies: &'a native::DependencyCache,
     interface_bases: &'a BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
     nested: &'a BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
     selected: BTreeSet<Entity<TypeDef>>,
@@ -15,6 +16,7 @@ pub(super) struct Closure<'a> {
 impl<'a> Closure<'a> {
     pub(super) fn new(
         database: &'a Database,
+        dependencies: &'a native::DependencyCache,
         interface_bases: &'a BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
         nested: &'a BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
     ) -> Self {
@@ -58,6 +60,7 @@ impl<'a> Closure<'a> {
         }
         Self {
             database,
+            dependencies,
             interface_bases,
             nested,
             selected: BTreeSet::new(),
@@ -125,7 +128,12 @@ impl<'a> Closure<'a> {
         method: windows_metadata2::MethodDefinition<'_>,
         namespace: &str,
     ) -> Result<(), Error> {
-        let signature = native_signature::Signature::lower(self.database, method, method.name()?)?;
+        let signature = native_signature::Signature::lower(
+            self.database,
+            self.dependencies,
+            method,
+            method.name()?,
+        )?;
         let mut names = Vec::new();
         signature.named_types(|namespace, name| {
             names.push((namespace.to_string(), name.to_string()));

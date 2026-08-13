@@ -40,6 +40,7 @@ pub(crate) struct Win32Catalogs {
     apis: Vec<NativeApis>,
     nested: BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
     interface_bases: BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
+    dependencies: native::DependencyCache,
 }
 
 struct NativeDefinition {
@@ -88,7 +89,12 @@ impl Win32Selection {
         package: bool,
     ) -> Result<Self, Error> {
         let mut closure = filter.map(|_| {
-            native_closure::Closure::new(database, &catalogs.interface_bases, &catalogs.nested)
+            native_closure::Closure::new(
+                database,
+                &catalogs.dependencies,
+                &catalogs.interface_bases,
+                &catalogs.nested,
+            )
         });
         let mut namespaces = NamespaceSelections::new();
         let mut enum_variants = BTreeMap::<Entity<TypeDef>, EnumVariants>::new();
@@ -379,6 +385,7 @@ impl Win32Catalogs {
             apis,
             nested,
             interface_bases: interface_bases(database)?,
+            dependencies: native::DependencyCache::default(),
         })
     }
 
@@ -462,6 +469,7 @@ impl<'a> Win32Items<'a> {
             namespace.types.iter().map(|entity| {
                 NativeType::lower_filtered(
                     self.database,
+                    &self.catalogs.dependencies,
                     self.database.definition(*entity).unwrap(),
                     &self.catalogs.nested,
                     self.enum_variants(*entity),
@@ -476,7 +484,13 @@ impl<'a> Win32Items<'a> {
         self.selection.namespaces.iter().flat_map(|namespace| {
             namespace.constants.iter().map(|entity| {
                 let field = self.database.field(*entity).unwrap();
-                Constant::lower(self.database, field, &namespace.name, field.name().unwrap())
+                Constant::lower(
+                    self.database,
+                    &self.catalogs.dependencies,
+                    field,
+                    &namespace.name,
+                    field.name().unwrap(),
+                )
             })
         })
     }
@@ -489,6 +503,7 @@ impl<'a> Win32Items<'a> {
                 let method = self.database.method(*entity).unwrap();
                 Function::lower(
                     self.database,
+                    &self.catalogs.dependencies,
                     method,
                     &namespace.name,
                     method.name().unwrap(),
@@ -502,7 +517,11 @@ impl<'a> Win32Items<'a> {
     pub(crate) fn delegates(&self) -> impl Iterator<Item = Result<Delegate, Error>> + '_ {
         self.selection.namespaces.iter().flat_map(|namespace| {
             namespace.delegates.iter().map(|entity| {
-                Delegate::lower(self.database, self.database.definition(*entity).unwrap())
+                Delegate::lower(
+                    self.database,
+                    &self.catalogs.dependencies,
+                    self.database.definition(*entity).unwrap(),
+                )
             })
         })
     }
@@ -514,6 +533,7 @@ impl<'a> Win32Items<'a> {
             namespace.interfaces.iter().map(|(entity, _)| {
                 NativeInterface::lower(
                     self.database,
+                    &self.catalogs.dependencies,
                     self.database.definition(*entity).unwrap(),
                     &self.catalogs.interface_bases,
                 )
@@ -527,6 +547,7 @@ impl<'a> Win32Items<'a> {
         let entity = self.constant_entity(namespace, name)?;
         Constant::lower(
             self.database,
+            &self.catalogs.dependencies,
             self.database.field(entity).unwrap(),
             namespace,
             name,
@@ -539,6 +560,7 @@ impl<'a> Win32Items<'a> {
         let entity = self.function_entity(namespace, name)?;
         Function::lower(
             self.database,
+            &self.catalogs.dependencies,
             self.database.method(entity).unwrap(),
             namespace,
             name,
@@ -551,6 +573,7 @@ impl<'a> Win32Items<'a> {
         let entity = self.type_entity(namespace, name)?;
         NativeType::lower_filtered(
             self.database,
+            &self.catalogs.dependencies,
             self.database.definition(entity).unwrap(),
             &self.catalogs.nested,
             self.enum_variants(entity),
@@ -572,6 +595,7 @@ impl<'a> Win32Items<'a> {
                     let definition = self.database.definition(*entity).unwrap();
                     let interface = NativeInterface::lower(
                         self.database,
+                        &self.catalogs.dependencies,
                         definition,
                         &self.catalogs.interface_bases,
                     )?;
@@ -598,6 +622,7 @@ impl<'a> Win32Items<'a> {
                 let definition = self.database.definition(*entity).unwrap();
                 let ty = NativeType::lower_filtered(
                     self.database,
+                    &self.catalogs.dependencies,
                     definition,
                     &self.catalogs.nested,
                     self.enum_variants(*entity),
@@ -613,7 +638,8 @@ impl<'a> Win32Items<'a> {
             }
             for entity in &namespace.delegates {
                 let definition = self.database.definition(*entity).unwrap();
-                let delegate = Delegate::lower(self.database, definition)?;
+                let delegate =
+                    Delegate::lower(self.database, &self.catalogs.dependencies, definition)?;
                 add(
                     &namespace.name,
                     definition.name()?,
@@ -634,6 +660,7 @@ impl<'a> Win32Items<'a> {
                 }
                 let interface = NativeInterface::lower(
                     self.database,
+                    &self.catalogs.dependencies,
                     definition,
                     &self.catalogs.interface_bases,
                 )?;
@@ -658,7 +685,13 @@ impl<'a> Win32Items<'a> {
             for entity in &namespace.constants {
                 let field = self.database.field(*entity).unwrap();
                 let name = field.name()?;
-                let constant = Constant::lower(self.database, field, &namespace.name, name)?;
+                let constant = Constant::lower(
+                    self.database,
+                    &self.catalogs.dependencies,
+                    field,
+                    &namespace.name,
+                    name,
+                )?;
                 add(
                     &namespace.name,
                     name,
@@ -670,7 +703,13 @@ impl<'a> Win32Items<'a> {
             for entity in &namespace.functions {
                 let method = self.database.method(*entity).unwrap();
                 let name = method.name()?;
-                let function = Function::lower(self.database, method, &namespace.name, name)?;
+                let function = Function::lower(
+                    self.database,
+                    &self.catalogs.dependencies,
+                    method,
+                    &namespace.name,
+                    name,
+                )?;
                 add(
                     &namespace.name,
                     name,
@@ -817,6 +856,7 @@ mod tests {
                 }
                 match NativeType::lower_filtered(
                     &database,
+                    &items.catalogs.dependencies,
                     definition,
                     &items.catalogs.nested,
                     None,
@@ -843,7 +883,7 @@ mod tests {
             }
             for entity in &namespace.delegates {
                 let definition = database.definition(*entity).unwrap();
-                match Delegate::lower(&database, definition) {
+                match Delegate::lower(&database, &items.catalogs.dependencies, definition) {
                     Ok(delegate) => {
                         delegate.write_sys();
                         delegate_supported += 1;
@@ -853,8 +893,12 @@ mod tests {
             }
             for (entity, _) in &namespace.interfaces {
                 let definition = database.definition(*entity).unwrap();
-                match NativeInterface::lower(&database, definition, &items.catalogs.interface_bases)
-                {
+                match NativeInterface::lower(
+                    &database,
+                    &items.catalogs.dependencies,
+                    definition,
+                    &items.catalogs.interface_bases,
+                ) {
                     Ok(interface) => {
                         interface.write_sys();
                         interface_supported += 1;
@@ -864,7 +908,13 @@ mod tests {
             }
             for entity in &namespace.constants {
                 let field = database.field(*entity).unwrap();
-                match Constant::lower(&database, field, &namespace.name, field.name().unwrap()) {
+                match Constant::lower(
+                    &database,
+                    &items.catalogs.dependencies,
+                    field,
+                    &namespace.name,
+                    field.name().unwrap(),
+                ) {
                     Ok(constant) => {
                         constant.write_sys();
                         supported[3] += 1;
@@ -874,7 +924,13 @@ mod tests {
             }
             for entity in &namespace.functions {
                 let method = database.method(*entity).unwrap();
-                match Function::lower(&database, method, &namespace.name, method.name().unwrap()) {
+                match Function::lower(
+                    &database,
+                    &items.catalogs.dependencies,
+                    method,
+                    &namespace.name,
+                    method.name().unwrap(),
+                ) {
                     Ok(function) => {
                         function.write_sys();
                         supported[4] += 1;

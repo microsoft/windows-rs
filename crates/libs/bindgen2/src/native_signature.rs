@@ -9,6 +9,7 @@ pub(super) struct Signature {
     pub(super) return_type: native::Type,
     pub(super) indirect_return: bool,
     package_dependencies: BTreeSet<(String, String)>,
+    manifest_dependencies: BTreeSet<(String, String)>,
 }
 
 pub(super) struct Parameter {
@@ -119,6 +120,7 @@ impl Parameter {
 impl Signature {
     pub(super) fn lower(
         database: &Database,
+        dependencies: &native::DependencyCache,
         method: windows_metadata2::MethodDefinition<'_>,
         owner: &str,
     ) -> Result<Self, Error> {
@@ -270,9 +272,11 @@ impl Signature {
         let return_type =
             native::Type::lower(database, method.entity().file(), owner, return_type)?;
         let indirect_return = return_type.is_indirect_return(database)?;
-        let mut package_dependencies = return_type.package_dependencies(database)?;
+        let mut package_dependencies = return_type.package_dependencies(database, dependencies)?;
+        let mut manifest_dependencies = return_type.manifest_dependencies(database)?;
         for parameter in &parameters {
-            package_dependencies.extend(parameter.ty.package_dependencies(database)?);
+            package_dependencies.extend(parameter.ty.package_dependencies(database, dependencies)?);
+            manifest_dependencies.extend(parameter.ty.manifest_dependencies(database)?);
         }
         Ok(Self {
             flags,
@@ -280,6 +284,7 @@ impl Signature {
             return_type,
             indirect_return,
             package_dependencies,
+            manifest_dependencies,
         })
     }
 
@@ -292,6 +297,10 @@ impl Signature {
 
     pub(super) fn package_dependencies(&self) -> &BTreeSet<(String, String)> {
         &self.package_dependencies
+    }
+
+    pub(super) fn manifest_dependencies(&self) -> &BTreeSet<(String, String)> {
+        &self.manifest_dependencies
     }
 
     pub(super) fn write_parameters_projection(

@@ -30,6 +30,7 @@ struct Alias {
     ty: native::Type,
     wrapper: bool,
     dependencies: BTreeSet<(String, String)>,
+    manifest_dependencies: BTreeSet<(String, String)>,
 }
 
 struct Enum {
@@ -39,6 +40,7 @@ struct Enum {
     values: Vec<(String, ConstantValue)>,
     scoped: bool,
     dependencies: BTreeSet<(String, String)>,
+    manifest_dependencies: BTreeSet<(String, String)>,
 }
 
 struct Struct {
@@ -52,6 +54,7 @@ struct Struct {
     default: native_default::Policy,
     traits: native::TraitSupport,
     dependencies: BTreeSet<(String, String)>,
+    manifest_dependencies: BTreeSet<(String, String)>,
     bitfields: Vec<Bitfield>,
 }
 
@@ -66,6 +69,7 @@ struct Bitfield {
 impl NativeType {
     pub(super) fn lower_filtered(
         database: &Database,
+        cache: &native::DependencyCache,
         definition: TypeDefinition<'_>,
         relationships: &BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
         enum_variants: Option<&BTreeSet<String>>,
@@ -74,6 +78,7 @@ impl NativeType {
         let name = definition.name()?.to_string();
         Self::lower_named(
             database,
+            cache,
             definition,
             relationships,
             &namespace,
@@ -84,6 +89,7 @@ impl NativeType {
 
     fn lower_named(
         database: &Database,
+        cache: &native::DependencyCache,
         definition: TypeDefinition<'_>,
         relationships: &BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
         namespace: &str,
@@ -129,7 +135,8 @@ impl NativeType {
                     name: full_name,
                     message: "native enum has no backing field",
                 })?;
-                let dependencies = ty.package_dependencies(database)?;
+                let dependencies = ty.package_dependencies(database, cache)?;
+                let manifest_dependencies = ty.manifest_dependencies(database)?;
                 Ok(Self {
                     architectures,
                     kind: Kind::Enum(Enum {
@@ -139,6 +146,7 @@ impl NativeType {
                         values,
                         scoped: definition.has_attribute("ScopedEnumAttribute")?,
                         dependencies,
+                        manifest_dependencies,
                     }),
                 })
             }
@@ -210,6 +218,7 @@ impl NativeType {
                     .map(|(_, projected, entity)| {
                         Self::lower_named(
                             database,
+                            cache,
                             database.definition(entity).unwrap(),
                             relationships,
                             namespace,
@@ -224,7 +233,8 @@ impl NativeType {
                     && !native_typedef
                 {
                     let ty = ty.clone().normalize_alias(namespace, &name);
-                    let dependencies = ty.package_dependencies(database)?;
+                    let dependencies = ty.package_dependencies(database, cache)?;
+                    let manifest_dependencies = ty.manifest_dependencies(database)?;
                     return Ok(Self {
                         architectures,
                         kind: Kind::Alias(Alias {
@@ -233,6 +243,7 @@ impl NativeType {
                             ty,
                             wrapper: true,
                             dependencies,
+                            manifest_dependencies,
                         }),
                     });
                 }
@@ -255,7 +266,8 @@ impl NativeType {
                                 if element.as_ref() != &native::Type::Void
                         );
                     let ty = ty.normalize_alias(namespace, &name);
-                    let dependencies = ty.package_dependencies(database)?;
+                    let dependencies = ty.package_dependencies(database, cache)?;
+                    let manifest_dependencies = ty.manifest_dependencies(database)?;
                     return Ok(Self {
                         architectures,
                         kind: Kind::Alias(Alias {
@@ -264,6 +276,7 @@ impl NativeType {
                             ty,
                             wrapper,
                             dependencies,
+                            manifest_dependencies,
                         }),
                     });
                 }
@@ -337,12 +350,16 @@ impl NativeType {
                     traits
                 };
                 let mut dependencies = BTreeSet::new();
+                let mut manifest_dependencies = BTreeSet::new();
                 for (_, ty) in &fields {
-                    dependencies.extend(ty.package_dependencies(database)?);
+                    dependencies.extend(ty.package_dependencies(database, cache)?);
+                    manifest_dependencies.extend(ty.manifest_dependencies(database)?);
                 }
                 for nested in &nested {
                     let (_, nested_dependencies) = nested.dependencies();
                     dependencies.extend(nested_dependencies);
+                    let (_, nested_dependencies) = nested.manifest_dependencies();
+                    manifest_dependencies.extend(nested_dependencies);
                 }
                 Ok(Self {
                     architectures,
@@ -357,6 +374,7 @@ impl NativeType {
                         default,
                         traits,
                         dependencies,
+                        manifest_dependencies,
                         bitfields,
                     }),
                 })
@@ -479,7 +497,7 @@ impl NativeType {
     }
 
     pub(super) fn package_features(&self, layout: Layout) -> BTreeSet<String> {
-        let (namespace, dependencies) = self.dependencies();
+        let (namespace, dependencies) = self.manifest_dependencies();
         tokens::feature_names(
             namespace,
             layout,
@@ -517,6 +535,23 @@ impl NativeType {
             }
         };
         (namespace, dependencies)
+    }
+
+    fn manifest_dependencies(&self) -> (&str, BTreeSet<(String, String)>) {
+        match &self.kind {
+            Kind::Alias(value) => (
+                value.namespace.as_str(),
+                value.manifest_dependencies.clone(),
+            ),
+            Kind::Enum(value) => (
+                value.namespace.as_str(),
+                value.manifest_dependencies.clone(),
+            ),
+            Kind::Struct(value) => (
+                value.namespace.as_str(),
+                value.manifest_dependencies.clone(),
+            ),
+        }
     }
 }
 

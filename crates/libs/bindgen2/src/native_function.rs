@@ -17,6 +17,7 @@ pub struct Function {
 impl Function {
     pub(super) fn lower(
         database: &Database,
+        dependencies: &native::DependencyCache,
         method: windows_metadata2::MethodDefinition<'_>,
         namespace: &str,
         name: &str,
@@ -27,7 +28,8 @@ impl Function {
             name: full_name.clone(),
             message: "Win32 function has no ImplMap",
         })?;
-        let signature = native_signature::Signature::lower(database, method, &full_name)?;
+        let signature =
+            native_signature::Signature::lower(database, dependencies, method, &full_name)?;
         let import_name = (import.name() != name).then(|| import.name().to_string());
         Ok(Self {
             architectures,
@@ -53,7 +55,7 @@ impl Function {
             &self.namespace,
             layout,
             self.signature
-                .package_dependencies()
+                .manifest_dependencies()
                 .iter()
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         );

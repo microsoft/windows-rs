@@ -24,6 +24,7 @@ struct Method {
 impl NativeInterface {
     pub(super) fn lower(
         database: &Database,
+        dependencies: &native::DependencyCache,
         definition: TypeDefinition<'_>,
         bases: &BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
     ) -> Result<Self, Error> {
@@ -58,7 +59,8 @@ impl NativeInterface {
                 } else {
                     format!("{projected_name}{count}")
                 };
-                let signature = native_signature::Signature::lower(database, method, &full_name)?;
+                let signature =
+                    native_signature::Signature::lower(database, dependencies, method, &full_name)?;
                 if signature.flags & 0x20 == 0 {
                     return Err(Error::InvalidType {
                         name: full_name.clone(),
@@ -566,7 +568,7 @@ impl NativeInterface {
                 layout,
                 method
                     .signature
-                    .package_dependencies()
+                    .manifest_dependencies()
                     .iter()
                     .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
             ));

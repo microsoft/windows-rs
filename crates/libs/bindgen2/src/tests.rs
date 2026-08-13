@@ -1275,6 +1275,75 @@ fn native_buffer_relationships_distinguish_elements_bytes_and_shared_counts() {
 }
 
 #[test]
+fn native_package_dependencies_include_nested_type_fields() {
+    let metadata = fixture_metadata(
+        r#"
+            #[win32]
+            mod Test {
+                struct External {
+                    value: u32,
+                }
+                struct Container {
+                    Anonymous: union {
+                        value: External,
+                    },
+                }
+                struct A {
+                    b: *mut B,
+                    external: External,
+                }
+                struct B {
+                    a: *mut A,
+                }
+            }
+        "#,
+    );
+    let dependencies = native::Type::Named {
+        namespace: "Test".to_string(),
+        name: "Container".to_string(),
+    }
+    .package_dependencies(
+        &metadata.shared.database,
+        &native::DependencyCache::default(),
+    )
+    .unwrap();
+
+    assert!(dependencies.contains(&("Test".to_string(), "External".to_string())));
+
+    let first = native::DependencyCache::default();
+    let a_first = native::Type::Named {
+        namespace: "Test".to_string(),
+        name: "A".to_string(),
+    }
+    .package_dependencies(&metadata.shared.database, &first)
+    .unwrap();
+    let b_second = native::Type::Named {
+        namespace: "Test".to_string(),
+        name: "B".to_string(),
+    }
+    .package_dependencies(&metadata.shared.database, &first)
+    .unwrap();
+
+    let second = native::DependencyCache::default();
+    let b_first = native::Type::Named {
+        namespace: "Test".to_string(),
+        name: "B".to_string(),
+    }
+    .package_dependencies(&metadata.shared.database, &second)
+    .unwrap();
+    let a_second = native::Type::Named {
+        namespace: "Test".to_string(),
+        name: "A".to_string(),
+    }
+    .package_dependencies(&metadata.shared.database, &second)
+    .unwrap();
+
+    assert_eq!(a_first, a_second);
+    assert_eq!(b_first, b_second);
+    assert!(b_first.contains(&("Test".to_string(), "External".to_string())));
+}
+
+#[test]
 fn native_custom_derives_join_sys_struct_derives() {
     let output = fixture_metadata(
         r#"

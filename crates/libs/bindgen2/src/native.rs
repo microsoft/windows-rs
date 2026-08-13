@@ -1,7 +1,64 @@
 use super::*;
 use proc_macro2::{Literal, TokenStream};
 use quote::quote;
-use std::collections::BTreeSet;
+use std::{
+    collections::{BTreeMap, BTreeSet},
+    sync::RwLock,
+};
+
+#[derive(Default)]
+pub(super) struct DependencyCache {
+    values: RwLock<BTreeMap<(String, String), BTreeSet<(String, String)>>>,
+}
+
+impl DependencyCache {
+    fn direct(
+        &self,
+        database: &Database,
+        namespace: &str,
+        name: &str,
+    ) -> Result<BTreeSet<(String, String)>, Error> {
+        let key = (namespace.to_string(), name.to_string());
+        if let Some(dependencies) = self.values.read().unwrap().get(&key) {
+            return Ok(dependencies.clone());
+        }
+        let mut dependencies = BTreeSet::new();
+        for entity in database.type_definitions(namespace, name) {
+            Type::collect_definition_direct_dependencies(
+                database,
+                database.definition(*entity).unwrap(),
+                namespace,
+                name,
+                &mut dependencies,
+            )?;
+        }
+        self.values
+            .write()
+            .unwrap()
+            .insert(key, dependencies.clone());
+        Ok(dependencies)
+    }
+
+    fn expand(
+        &self,
+        database: &Database,
+        namespace: &str,
+        name: &str,
+        stack: &mut BTreeSet<(String, String)>,
+        dependencies: &mut BTreeSet<(String, String)>,
+    ) -> Result<(), Error> {
+        let key = (namespace.to_string(), name.to_string());
+        if is_core_projection(namespace, name) || !stack.insert(key.clone()) {
+            return Ok(());
+        }
+        for (namespace, name) in self.direct(database, namespace, name)? {
+            dependencies.insert((namespace.clone(), name.clone()));
+            self.expand(database, &namespace, &name, stack, dependencies)?;
+        }
+        stack.remove(&key);
+        Ok(())
+    }
+}
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(super) enum Type {
@@ -871,9 +928,24 @@ impl Type {
     pub(super) fn package_dependencies(
         &self,
         database: &Database,
+        cache: &DependencyCache,
     ) -> Result<BTreeSet<(String, String)>, Error> {
         let mut dependencies = BTreeSet::new();
-        self.collect_package_dependencies(database, &mut BTreeSet::new(), &mut dependencies)?;
+        self.collect_package_dependencies(
+            database,
+            cache,
+            &mut BTreeSet::new(),
+            &mut dependencies,
+        )?;
+        Ok(dependencies)
+    }
+
+    pub(super) fn manifest_dependencies(
+        &self,
+        database: &Database,
+    ) -> Result<BTreeSet<(String, String)>, Error> {
+        let mut dependencies = BTreeSet::new();
+        self.collect_manifest_dependencies(database, &mut BTreeSet::new(), &mut dependencies)?;
         Ok(dependencies)
     }
 
@@ -912,12 +984,35 @@ impl Type {
     fn collect_package_dependencies(
         &self,
         database: &Database,
+        cache: &DependencyCache,
         stack: &mut BTreeSet<(String, String)>,
         dependencies: &mut BTreeSet<(String, String)>,
     ) -> Result<(), Error> {
         match self {
             Self::Array { element, .. } | Self::Pointer { element, .. } => {
-                element.collect_package_dependencies(database, stack, dependencies)?;
+                element.collect_package_dependencies(database, cache, stack, dependencies)?;
+            }
+            Self::Interface { namespace, name } => {
+                dependencies.insert((namespace.clone(), name.clone()));
+            }
+            Self::Named { namespace, name } => {
+                dependencies.insert((namespace.clone(), name.clone()));
+                cache.expand(database, namespace, name, stack, dependencies)?;
+            }
+            _ => {}
+        }
+        Ok(())
+    }
+
+    fn collect_manifest_dependencies(
+        &self,
+        database: &Database,
+        stack: &mut BTreeSet<(String, String)>,
+        dependencies: &mut BTreeSet<(String, String)>,
+    ) -> Result<(), Error> {
+        match self {
+            Self::Array { element, .. } | Self::Pointer { element, .. } => {
+                element.collect_manifest_dependencies(database, stack, dependencies)?;
             }
             Self::Interface { namespace, name } => {
                 dependencies.insert((namespace.clone(), name.clone()));
@@ -952,7 +1047,7 @@ impl Type {
                         } else {
                             ty
                         };
-                        ty.collect_package_dependencies(database, stack, dependencies)?;
+                        ty.collect_manifest_dependencies(database, stack, dependencies)?;
                     }
                 }
                 stack.remove(&key);
@@ -960,6 +1055,77 @@ impl Type {
             _ => {}
         }
         Ok(())
+    }
+
+    fn collect_definition_direct_dependencies(
+        database: &Database,
+        definition: TypeDefinition<'_>,
+        namespace: &str,
+        projected_name: &str,
+        dependencies: &mut BTreeSet<(String, String)>,
+    ) -> Result<(), Error> {
+        if !matches!(
+            definition.category()?,
+            TypeCategory::Enum | TypeCategory::Struct
+        ) {
+            return Ok(());
+        }
+        let nested = database
+            .nested_types_of(definition.entity())
+            .enumerate()
+            .map(|(index, definition)| {
+                Ok((
+                    definition.name()?.to_string(),
+                    format!("{projected_name}_{index}"),
+                    definition,
+                ))
+            })
+            .collect::<Result<Vec<_>, Error>>()?;
+        let substitutions = nested
+            .iter()
+            .map(|(metadata, projected, _)| (metadata.as_str(), projected.as_str()))
+            .collect::<Vec<_>>();
+        let typedef = definition.has_attribute("NativeTypedefAttribute")?;
+        for field in definition.fields()? {
+            if field.is_literal()? {
+                continue;
+            }
+            let ty = Type::lower_with_nested(
+                database,
+                field.entity().file(),
+                projected_name,
+                field.signature()?,
+                &substitutions,
+            )?;
+            let ty = if typedef {
+                ty.normalize_alias(namespace, projected_name)
+            } else {
+                ty
+            };
+            ty.collect_direct_dependencies(dependencies);
+        }
+        for (_, projected, definition) in nested {
+            Self::collect_definition_direct_dependencies(
+                database,
+                definition,
+                namespace,
+                &projected,
+                dependencies,
+            )?;
+        }
+        Ok(())
+    }
+
+    fn collect_direct_dependencies(&self, dependencies: &mut BTreeSet<(String, String)>) {
+        match self {
+            Self::Array { element, .. } | Self::Pointer { element, .. } => {
+                element.collect_direct_dependencies(dependencies);
+            }
+            Self::Interface { namespace, name } | Self::Named { namespace, name } => {
+                dependencies.insert((namespace.clone(), name.clone()));
+            }
+            _ => {}
+        }
     }
 
     pub(super) fn projected_traits(
