@@ -88,6 +88,11 @@ fn bindgen2_probe() {
     eprintln!("  windows Win32: {}", windows.win32);
     eprintln!("  windows WinRT: {}", windows.winrt);
     eprintln!("  manifests: {}", sys.manifest + windows.manifest);
+    eprintln!(
+        "  manifest dependencies: {} missing, {} extra",
+        sys.manifest_missing_dependencies + windows.manifest_missing_dependencies,
+        sys.manifest_extra_dependencies + windows.manifest_extra_dependencies
+    );
 
     let differences = sys.total() + windows.total();
     assert_eq!(
@@ -101,6 +106,8 @@ struct PackageDiff {
     win32: usize,
     winrt: usize,
     manifest: usize,
+    manifest_missing_dependencies: usize,
+    manifest_extra_dependencies: usize,
     missing: usize,
     extra: usize,
 }
@@ -157,9 +164,15 @@ fn compare_package(expected: &std::path::Path, actual: &std::path::Path) -> Pack
             result.extra += 1;
         } else if !actual_path.exists() {
             result.missing += 1;
-        } else if std::fs::read(expected_path).unwrap() != std::fs::read(actual_path).unwrap() {
+        } else if std::fs::read(&expected_path).unwrap() != std::fs::read(&actual_path).unwrap() {
             if path == std::path::Path::new("Cargo.toml") {
                 result.manifest += 1;
+                let (missing, extra) = compare_manifest_dependencies(
+                    &std::fs::read_to_string(expected_path).unwrap(),
+                    &std::fs::read_to_string(actual_path).unwrap(),
+                );
+                result.manifest_missing_dependencies += missing;
+                result.manifest_extra_dependencies += extra;
             } else if path.starts_with("src/Windows/Win32") {
                 result.win32 += 1;
             } else {
@@ -168,6 +181,31 @@ fn compare_package(expected: &std::path::Path, actual: &std::path::Path) -> Pack
         }
     }
     result
+}
+
+fn compare_manifest_dependencies(expected: &str, actual: &str) -> (usize, usize) {
+    fn dependencies(manifest: &str) -> std::collections::BTreeSet<(String, String)> {
+        let Some((_, features)) = manifest.split_once("# generated features") else {
+            return std::collections::BTreeSet::new();
+        };
+        let mut result = std::collections::BTreeSet::new();
+        for line in features.lines() {
+            let Some((feature, dependencies)) = line.split_once(" = [") else {
+                continue;
+            };
+            for dependency in dependencies.split('"').skip(1).step_by(2) {
+                result.insert((feature.to_string(), dependency.to_string()));
+            }
+        }
+        result
+    }
+
+    let expected = dependencies(expected);
+    let actual = dependencies(actual);
+    (
+        expected.difference(&actual).count(),
+        actual.difference(&expected).count(),
+    )
 }
 
 fn package_files(root: &std::path::Path) -> std::collections::BTreeSet<std::path::PathBuf> {
@@ -213,4 +251,24 @@ fn verify(summary: &[(String, usize)]) {
     let items: usize = summary.iter().map(|(_, n)| n).sum();
     assert!(namespaces > 0, "remap produced no header-stem namespaces");
     println!("Header partition: {namespaces} namespace(s), {items} item(s)");
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn manifest_dependency_comparison_counts_edges() {
+        let expected = r#"
+# generated features
+alpha = ["beta", "gamma"]
+empty = []
+"#;
+        let actual = r#"
+# generated features
+alpha = ["gamma", "delta"]
+empty = []
+"#;
+        assert_eq!(compare_manifest_dependencies(expected, actual), (1, 1));
+    }
 }

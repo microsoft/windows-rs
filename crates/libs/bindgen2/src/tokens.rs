@@ -67,12 +67,12 @@ pub(super) fn to_snake_case(name: &str) -> String {
 }
 
 pub(super) fn namespace(current: &str, target: &str, layout: Layout) -> proc_macro2::TokenStream {
-    if layout == Layout::Flat || target.is_empty() || target == current {
+    if layout.is_flat() || target.is_empty() || target == current {
         return quote! {};
     }
 
     let mut current = current.split('.').peekable();
-    let target = if layout == Layout::Package {
+    let target = if layout.is_package() {
         flat_module_namespace(target)
     } else {
         target
@@ -118,7 +118,7 @@ pub(super) fn feature_names<'a>(
     layout: Layout,
     dependencies: impl IntoIterator<Item = (&'a str, &'a str)>,
 ) -> BTreeSet<String> {
-    if layout != Layout::Package {
+    if !layout.is_package() {
         return BTreeSet::new();
     }
     let mut features = BTreeSet::new();

@@ -236,7 +236,7 @@ impl Type {
             Self::F32 => quote! { f32 },
             Self::F64 => quote! { f64 },
             Self::String if !projection.is_sys() => quote! { windows_core::PCWSTR },
-            Self::String if layout == Layout::Package => quote! { windows_sys::core::PCWSTR },
+            Self::String if layout.is_package() => quote! { windows_sys::core::PCWSTR },
             Self::String => quote! { PCWSTR },
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
@@ -260,7 +260,7 @@ impl Type {
                 name,
             } => {
                 if projection.is_sys()
-                    && layout == Layout::Package
+                    && layout.is_package()
                     && let Some(core) = sys_core_projection(target, name)
                 {
                     return core;
@@ -350,7 +350,7 @@ impl Type {
         layout: Layout,
         projection: Projection,
     ) -> TokenStream {
-        if layout != Layout::Package {
+        if !layout.is_package() {
             return self.write_field_projection(namespace, layout, projection);
         }
         match self {

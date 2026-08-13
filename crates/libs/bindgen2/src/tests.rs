@@ -3374,7 +3374,7 @@ fn architecture_source_gates() {
         ),
     ];
 
-    for entry in std::fs::read_dir(source).unwrap() {
+    for entry in std::fs::read_dir(&source).unwrap() {
         let path = entry.unwrap().path();
         if path.extension().is_none_or(|extension| extension != "rs")
             || path.file_name().is_some_and(|name| name == "tests.rs")
@@ -3403,6 +3403,18 @@ fn architecture_source_gates() {
                     path.display()
                 );
             }
+        }
+        if path.file_name().is_none_or(|name| {
+            !matches!(
+                name.to_str(),
+                Some("build.rs" | "lib.rs" | "output.rs" | "tests.rs")
+            )
+        }) {
+            assert!(
+                !contents.contains("Layout::Package"),
+                "{} contains package branching outside layout policy",
+                path.display()
+            );
         }
     }
 }

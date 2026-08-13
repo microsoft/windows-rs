@@ -579,7 +579,7 @@ impl<'a> Win32Items<'a> {
                         implementable_interfaces
                             .contains(&(namespace.to_string(), name.to_string()))
                     });
-                    if if layout == Layout::Package {
+                    if if layout.is_package() {
                         interface.can_implement_package(members, base_selected)
                     } else {
                         interface.can_implement(members, base_selected)
@@ -624,7 +624,7 @@ impl<'a> Win32Items<'a> {
             }
             for (entity, members) in &namespace.interfaces {
                 let definition = self.database.definition(*entity).unwrap();
-                if layout == Layout::Package && projection.is_sys() {
+                if layout.is_package() && projection.is_sys() {
                     continue;
                 }
                 if !projection.is_sys()

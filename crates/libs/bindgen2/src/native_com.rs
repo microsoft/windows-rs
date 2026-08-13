@@ -50,7 +50,7 @@ impl native_signature::Signature {
         abi: &str,
         import_name: Option<&str>,
     ) -> Option<TokenStream> {
-        let return_kind = self.return_kind(layout == Layout::Package);
+        let return_kind = self.return_kind(layout.is_package());
         if matches!(return_kind, ReturnKind::HResult | ReturnKind::Query { .. }) {
             return Some(write_rich_com_function(
                 self,
@@ -218,7 +218,7 @@ impl native_signature::Signature {
                 } else if (parameter.is_input_only() && parameter.ty.is_interface())
                     || (parameter.is_input_only()
                         && (parameter.ty.is_pcwstr()
-                            || (layout == Layout::Package && parameter.ty.is_const_string())))
+                            || (layout.is_package() && parameter.ty.is_const_string())))
                 {
                     let generic = tokens::ident(&format!("P{position}"));
                     let ty = parameter.ty.write_public(namespace, layout);
@@ -381,7 +381,7 @@ impl native_signature::Signature {
         abi: &str,
         import_name: Option<&str>,
     ) -> Option<TokenStream> {
-        let return_kind = self.return_kind(layout == Layout::Package);
+        let return_kind = self.return_kind(layout.is_package());
         let output = if matches!(return_kind, ReturnKind::Void) {
             let outputs = self
                 .parameters
@@ -487,7 +487,7 @@ impl native_signature::Signature {
         } else {
             quote! { pub }
         };
-        let return_kind = self.return_kind(layout == Layout::Package);
+        let return_kind = self.return_kind(layout.is_package());
         let mut generic_parameters = Vec::new();
         let mut constraints = Vec::new();
         let mut parameters = Vec::new();
@@ -634,7 +634,7 @@ impl native_signature::Signature {
             } else if (parameter.is_input_only() && parameter.ty.is_interface())
                 || (parameter.is_input_only()
                     && (parameter.ty.is_pcwstr()
-                        || (layout == Layout::Package && parameter.ty.is_const_string())))
+                        || (layout.is_package() && parameter.ty.is_const_string())))
             {
                 let generic = tokens::ident(&format!("P{position}"));
                 let ty = parameter.ty.write_public(namespace, layout);
@@ -820,7 +820,7 @@ impl native_signature::Signature {
         name: &str,
     ) -> Result<TokenStream, Error> {
         let method = tokens::ident(name);
-        let return_kind = self.return_kind(layout == Layout::Package);
+        let return_kind = self.return_kind(layout.is_package());
         if matches!(return_kind, ReturnKind::Query { .. }) {
             let parameters = self.parameters.iter().map(|parameter| {
                 let name = tokens::ident(&parameter.name);
@@ -903,7 +903,7 @@ impl native_signature::Signature {
         layout: Layout,
     ) -> Result<TokenStream, Error> {
         let method = tokens::ident(name);
-        let return_kind = self.return_kind(layout == Layout::Package);
+        let return_kind = self.return_kind(layout.is_package());
         let retval_position = match return_kind {
             ReturnKind::Retval { position, .. } => Some(position),
             ReturnKind::HResult

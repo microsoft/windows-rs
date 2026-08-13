@@ -436,7 +436,7 @@ impl NativeType {
         custom_derives: &[String],
     ) -> Vec<(&str, u8, TokenStream)> {
         let result: Vec<(&str, u8, TokenStream)> = if !projection.is_sys()
-            || (layout == Layout::Package
+            || (layout.is_package()
                 && match &self.kind {
                     Kind::Alias(value) => native::is_core_projection(&value.namespace, &value.name),
                     Kind::Enum(value) => native::is_core_projection(&value.namespace, &value.name),

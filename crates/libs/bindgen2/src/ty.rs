@@ -212,10 +212,7 @@ impl Type {
                 arguments,
                 ..
             } => {
-                if layout == Layout::Package
-                    && external::package_crate(target, name)
-                    && let Some(crate_name) = external::package_crate_name(target, name)
-                {
+                if let Some(crate_name) = layout.package_crate(target, name) {
                     let crate_name = tokens::ident(crate_name);
                     let name = tokens::ident(name);
                     let arguments = arguments
@@ -469,14 +466,7 @@ impl Type {
                 arguments,
                 ..
             } => {
-                if (namespace != target
-                    || (layout == Layout::Package && external::package_crate(target, name)))
-                    && let Some(crate_name) = if layout == Layout::Package {
-                        external::package_crate_name(target, name)
-                    } else {
-                        external::winrt_crate(target, name)
-                    }
-                {
+                if let Some(crate_name) = layout.winrt_crate(namespace, target, name) {
                     let crate_name = tokens::ident(crate_name);
                     let name = tokens::ident(name);
                     let arguments = arguments
@@ -747,7 +737,7 @@ impl Type {
     }
 
     pub(super) fn package_input_by_ref(&self, _values: &Values, layout: Layout) -> bool {
-        if layout != Layout::Package {
+        if !layout.is_package() {
             return false;
         }
         matches!(

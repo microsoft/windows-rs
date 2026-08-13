@@ -310,7 +310,7 @@ impl Bindgen {
         } else {
             Request::filtered(filter)
         };
-        if self.preserve_field_names || self.layout == Layout::Package {
+        if self.preserve_field_names || self.layout.is_package() {
             request = request.preserve_field_names();
         }
         if self.sys {
@@ -328,11 +328,11 @@ impl Bindgen {
                 .ok_or("derives must use `Type=Trait` form")?;
             request = request.derive(name, derive);
         }
-        if self.layout == Layout::Package {
+        if self.layout.is_package() {
             request = request.package();
         }
         let generator = metadata.generator(request)?;
-        if self.layout == Layout::Package {
+        if self.layout.is_package() {
             return generator.write_package(&self.output, self.rustfmt.as_deref(), self.sys);
         }
         let tokens = generator.render(self.layout)?;

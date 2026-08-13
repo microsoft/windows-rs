@@ -137,7 +137,7 @@ impl Constant {
             Value::Guid(guid) => {
                 if projection.is_sys() {
                     let guid = guid.write_value();
-                    if layout == Layout::Package {
+                    if layout.is_package() {
                         quote! {
                             pub const #name: windows_sys::core::GUID = #guid;
                         }
@@ -158,7 +158,7 @@ impl Constant {
                 let ty = self
                     .ty
                     .write_constant_projection(&self.namespace, layout, projection);
-                let guid = if layout == Layout::Package {
+                let guid = if layout.is_package() {
                     let guid = guid.write_u128();
                     if projection.is_sys() {
                         quote! { windows_sys::core::GUID::from_u128(#guid) }
@@ -193,7 +193,7 @@ impl Constant {
                         pub const #name: windows_core::PCSTR = windows_core::s!(#value);
                     };
                 }
-                if layout == Layout::Package {
+                if layout.is_package() {
                     let value = Literal::string(value);
                     quote! {
                         pub const #name: windows_sys::core::PCSTR =
@@ -220,7 +220,7 @@ impl Constant {
                         pub const #name: windows_core::PCWSTR = windows_core::w!(#value);
                     };
                 }
-                if layout == Layout::Package {
+                if layout.is_package() {
                     let value = Literal::string(value);
                     quote! {
                         pub const #name: windows_sys::core::PCWSTR =
@@ -250,7 +250,7 @@ impl Constant {
                 if !projection.is_sys()
                     && (self.ty.is_hresult()
                         || self.ty.is_ntstatus()
-                        || (layout == Layout::Package && self.wrapper)
+                        || (layout.is_package() && self.wrapper)
                         || self.ty.mutable_string_pointer())
                 {
                     quote! { pub const #name: #ty = #ty(#value); }

@@ -78,6 +78,32 @@ pub enum Layout {
     Package,
 }
 
+impl Layout {
+    const fn is_flat(self) -> bool {
+        matches!(self, Self::Flat)
+    }
+
+    const fn is_package(self) -> bool {
+        matches!(self, Self::Package)
+    }
+
+    fn package_crate(self, namespace: &str, name: &str) -> Option<&'static str> {
+        self.is_package()
+            .then(|| external::package_crate_name(namespace, name))
+            .flatten()
+    }
+
+    fn winrt_crate(self, current: &str, namespace: &str, name: &str) -> Option<&'static str> {
+        if self.is_package() {
+            external::package_crate_name(namespace, name)
+        } else if current != namespace {
+            external::winrt_crate(namespace, name)
+        } else {
+            None
+        }
+    }
+}
+
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 enum ProjectionStyle {
     Sys,
@@ -419,10 +445,11 @@ impl Generator {
         if request.package {
             winrt.retain(|entry| {
                 let definition = shared.database.definition(entry.entity).unwrap();
-                !external::package_crate(
+                external::package_crate_name(
                     definition.namespace().unwrap(),
                     trim_generic_arity(definition.name().unwrap()),
                 )
+                .is_none()
             });
         }
         let win32 = win32::Win32Selection::new_with_catalogs(

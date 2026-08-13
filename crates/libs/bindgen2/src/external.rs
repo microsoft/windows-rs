@@ -42,10 +42,6 @@ pub(super) fn minimal_crate(namespace: &str, name: &str) -> Option<&'static str>
     })
 }
 
-pub(super) fn package_crate(namespace: &str, name: &str) -> bool {
-    package_crate_name(namespace, name).is_some()
-}
-
 pub(super) fn package_crate_name(namespace: &str, name: &str) -> Option<&'static str> {
     if canonical::winrt_type_from_name(namespace, name)
         .is_some_and(|ty| ty.is_hresult() || ty.is_event_token())

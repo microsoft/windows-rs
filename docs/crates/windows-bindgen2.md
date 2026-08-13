@@ -41,7 +41,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
 | Build-script facade | Twenty consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, reference and time projections, benchmark and robot components and clients, context alignment, core-only APIs, and Win32 metadata match. |
-| Package output | In progress | The package backend runs, but 979 generated files still differ from the published crate output. |
+| Package output | In progress | The package backend runs, but 979 generated files still differ. The manifests have 239 missing and 358 extra dependency edges. |
 
 The current working implementation has about 14,400 lines of production Rust, roughly the same as
 legacy bindgen. Size is no longer evidence for the rewrite by itself; structure, parity, and
@@ -84,8 +84,8 @@ These gates apply to bindgen2 and to any eventual bindgen3 replacement:
 3. Package feature dependencies come from typed render data. Generated Rust text is never parsed
    to reconstruct the dependency graph.
 4. Canonical ABI aliases are defined in one policy module rather than repeated by each renderer.
-5. Package policy is represented by a projection context. Semantic lowering does not branch
-   directly on `Layout::Package`.
+5. Layout owns package routing and path policy while projection remains independent. Semantic
+   renderers do not branch directly on `Layout::Package`.
 6. The generated crates pass their existing all-features and no-default-features CI checks.
 7. Bindgen2 tests and clippy pass with warnings denied.
 

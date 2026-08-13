@@ -842,7 +842,7 @@ impl Interface {
         let phantom_fields = generic_names
             .iter()
             .map(|name| quote! { #name: core::marker::PhantomData<#name>, });
-        let doc_hidden = (layout == Layout::Package).then(|| quote! { #[doc(hidden)] });
+        let doc_hidden = layout.is_package().then(|| quote! { #[doc(hidden)] });
         Ok(quote! {
             #[repr(C)]
             #doc_hidden

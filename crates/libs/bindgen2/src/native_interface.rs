@@ -183,7 +183,7 @@ impl NativeInterface {
         implementation: Option<bool>,
         base_selected: bool,
     ) -> Result<TokenStream, Error> {
-        if layout != Layout::Package
+        if !layout.is_package()
             && self.guid.is_none()
             && self.methods.iter().any(|method| method.selected(members))
         {
@@ -204,7 +204,7 @@ impl NativeInterface {
                 #architectures
                 windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
             }
-        } else if layout == Layout::Package {
+        } else if layout.is_package() {
             quote! {
                 #class_cfg
                 #architectures
@@ -327,7 +327,7 @@ impl NativeInterface {
         let implement = match implementation {
             None => {
                 self.can_implement(members, base_selected)
-                    || (layout == Layout::Package
+                    || (layout.is_package()
                         && self.methods.iter().all(|method| method.selected(members))
                         && self
                             .methods
@@ -352,7 +352,7 @@ impl NativeInterface {
             runtime_features.extend(self.method_features(method, layout, &BTreeSet::new()));
         }
         let runtime_cfg = tokens::feature_cfg_set(&runtime_features, false);
-        let runtime_name = ((self.guid.is_some() || layout == Layout::Package)
+        let runtime_name = ((self.guid.is_some() || layout.is_package())
             && implementation != Some(false))
         .then(|| {
             quote! {
@@ -360,7 +360,7 @@ impl NativeInterface {
                 impl windows_core::RuntimeName for #name {}
             }
         });
-        let doc_hidden = (layout == Layout::Package).then(|| quote! { #[doc(hidden)] });
+        let doc_hidden = layout.is_package().then(|| quote! { #[doc(hidden)] });
         let implementation = if implement {
             self.write_implementation(layout, projection)?
         } else {

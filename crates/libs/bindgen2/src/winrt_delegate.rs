@@ -144,7 +144,7 @@ impl Delegate {
         } else {
             quote! { ::<#(#generic_names,)*> }
         };
-        let doc_hidden = (layout == Layout::Package).then(|| quote! { #[doc(hidden)] });
+        let doc_hidden = layout.is_package().then(|| quote! { #[doc(hidden)] });
         let named_phantom_types = generic_names
             .iter()
             .map(|name| quote! { #name: core::marker::PhantomData<#name>, })
@@ -356,7 +356,7 @@ impl<'a> MethodContext<'a> {
     }
 
     const fn is_package(&self) -> bool {
-        matches!(self.layout, Layout::Package)
+        self.layout.is_package()
     }
 
     const fn is_minimal(&self) -> bool {
