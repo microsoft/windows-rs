@@ -1172,6 +1172,109 @@ fn rich_native_functions_wrap_direct_and_output_returns() {
 }
 
 #[test]
+fn native_buffer_relationships_distinguish_elements_bytes_and_shared_counts() {
+    let metadata = fixture_metadata(
+        r#"
+            #[win32]
+            mod Test {
+                #[library("test.dll")]
+                extern fn ValidElements(count: u32, #[len_param(0)] values: *const u32);
+                #[library("test.dll")]
+                extern fn ValidBytes(count: u32, #[size_param(0)] values: *const u8);
+                #[library("test.dll")]
+                extern fn SharedCount(
+                    count: u32,
+                    #[len_param(0)] left: *const u32,
+                    #[len_param(0)] right: *const u32,
+                );
+                #[library("test.dll")]
+                extern fn MutableElements(
+                    count: u32,
+                    #[len_param(0)] #[in] #[out] values: *mut u32,
+                );
+                #[library("test.dll")]
+                extern fn OutputElements(count: u32, #[len_param(0)] #[out] values: *mut u32);
+                #[library("test.dll")]
+                extern fn MutableFixed(#[len_const(4)] #[in] #[out] values: *mut u32);
+                #[library("test.dll")]
+                extern fn OutputFixed(#[len_const(4)] #[out] values: *mut u32);
+            }
+            #[win32]
+            mod Windows {
+                mod Win32 {
+                    mod Metadata {
+                        attribute NativeArrayInfoAttribute {
+                            fn();
+                            CountParamIndex: i16,
+                            CountConst: i32,
+                        }
+                        attribute MemorySizeAttribute {
+                            fn();
+                            BytesParamIndex: i16,
+                        }
+                    }
+                }
+            }
+        "#,
+    );
+    let output = metadata
+        .generator(Request::all())
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+
+    assert!(
+        output.contains("pub unsafe fn ValidElements (values : & [u32])"),
+        "{output}"
+    );
+    assert!(
+        output.contains(
+            "ValidElements (values . len () . try_into () . unwrap () , values . as_ptr ())"
+        ),
+        "{output}"
+    );
+    assert!(
+        output.contains("pub unsafe fn ValidBytes (values : & [u8])"),
+        "{output}"
+    );
+    assert!(
+        output.contains(
+            "ValidBytes (values . len () . try_into () . unwrap () , values . as_ptr ())"
+        ),
+        "{output}"
+    );
+    assert!(
+        output.contains(
+            "pub unsafe fn SharedCount (count : u32 , left : * const u32 , right : * const u32)"
+        ),
+        "{output}"
+    );
+    assert!(
+        output.contains("pub unsafe fn MutableElements (values : & mut [u32])"),
+        "{output}"
+    );
+    assert!(
+        output.contains(
+            "MutableElements (values . len () . try_into () . unwrap () , values . as_mut_ptr ())"
+        ),
+        "{output}"
+    );
+    assert!(
+        output.contains("pub unsafe fn OutputElements (count : u32 , values : * mut u32)"),
+        "{output}"
+    );
+    assert!(
+        output.contains("pub unsafe fn MutableFixed (values : * mut u32)"),
+        "{output}"
+    );
+    assert!(
+        output.contains("pub unsafe fn OutputFixed (values : * mut u32)"),
+        "{output}"
+    );
+}
+
+#[test]
 fn native_custom_derives_join_sys_struct_derives() {
     let output = fixture_metadata(
         r#"

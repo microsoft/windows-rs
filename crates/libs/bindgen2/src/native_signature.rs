@@ -15,8 +15,7 @@ pub(super) struct Parameter {
     pub(super) name: String,
     flags: u16,
     pub(super) com_out_ptr: bool,
-    pub(super) array_count: Option<usize>,
-    pub(super) array_len: Option<usize>,
+    array: Option<ArrayInfo>,
     pub(super) retval_candidate: bool,
     pub(super) producer_by_ref: bool,
     pub(super) ty: native::Type,
@@ -24,9 +23,17 @@ pub(super) struct Parameter {
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum ArrayInfo {
+    ElementsParam(usize),
+    BytesParam(usize),
+    ElementsConst(usize),
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 enum ParamHint {
     None,
     Slice,
+    ByteSlice,
     SliceCount(usize),
     FixedArray(usize),
     IntoParam,
@@ -41,6 +48,10 @@ enum ParamHint {
 impl Parameter {
     pub(super) fn is_input_only(&self) -> bool {
         self.flags & 0x0002 == 0
+    }
+
+    pub(super) fn is_output_only(&self) -> bool {
+        self.flags & 0x0002 != 0 && self.flags & 0x0001 == 0
     }
 
     pub(super) fn is_optional(&self) -> bool {
@@ -68,17 +79,26 @@ impl Parameter {
         matches!(self.hint, ParamHint::ValueType) && !self.is_input_only()
     }
 
+    pub(super) fn has_array_info(&self) -> bool {
+        self.array.is_some()
+    }
+
+    pub(super) fn is_mutable_pointer(&self) -> bool {
+        matches!(self.ty, native::Type::Pointer { mutable: true, .. })
+    }
+
     pub(super) fn slice_element(&self) -> Option<native::Type> {
-        if !matches!(self.hint, ParamHint::Slice) {
-            return None;
+        match self.hint {
+            ParamHint::ByteSlice => Some(native::Type::U8),
+            ParamHint::Slice => self.ty.pointee().map(|element| {
+                if element == &native::Type::Void {
+                    native::Type::U8
+                } else {
+                    element.clone()
+                }
+            }),
+            _ => None,
         }
-        self.ty.pointee().map(|element| {
-            if element == &native::Type::Void {
-                native::Type::U8
-            } else {
-                element.clone()
-            }
-        })
     }
 
     pub(super) fn slice_parameter(&self) -> Option<usize> {
@@ -118,19 +138,11 @@ impl Signature {
                     .map(|parameter| parameter.flags())
                     .transpose()?
                     .unwrap_or(0);
-                let (array_count, mut array_len) = parameter
+                let array = parameter
                     .map(|parameter| Self::array_info(parameter, owner))
                     .transpose()?
                     .unwrap_or_default();
-                if flags & 0x0002 != 0 && flags & 0x0001 == 0 {
-                    array_len = None;
-                }
-                let buffer = if let Some(parameter) = parameter {
-                    parameter.has_attribute("NativeArrayInfoAttribute")?
-                        || parameter.has_attribute("MemorySizeAttribute")?
-                } else {
-                    false
-                };
+                let buffer = array.is_some();
                 let explicit_retval = parameter
                     .map(|parameter| parameter.has_attribute("RetValAttribute"))
                     .transpose()?
@@ -169,7 +181,9 @@ impl Signature {
                     .map(|ty| ty.projected_traits(database, &mut BTreeSet::new()))
                     .transpose()?
                     .is_none_or(|traits| traits.copy);
-                let hint = if let Some(len) = array_len {
+                let hint = if let Some(ArrayInfo::ElementsConst(len)) = array
+                    && flags & 0x0002 == 0
+                {
                     ParamHint::FixedArray(len)
                 } else if flags & 0x0002 == 0 && (ty.is_interface() || ty.is_pcwstr()) {
                     ParamHint::IntoParam
@@ -195,8 +209,7 @@ impl Signature {
                         .map_or_else(|| format!("p{position}"), str::to_lowercase),
                     flags,
                     com_out_ptr,
-                    array_count,
-                    array_len,
+                    array,
                     retval_candidate,
                     producer_by_ref,
                     ty,
@@ -205,7 +218,8 @@ impl Signature {
             })
             .collect::<Result<_, Error>>()?;
         for (position, parameter) in parameters.iter().enumerate() {
-            if let Some(count) = parameter.array_count
+            if let Some(ArrayInfo::ElementsParam(count) | ArrayInfo::BytesParam(count)) =
+                parameter.array
                 && (count >= parameters.len() || count == position)
             {
                 return Err(Error::InvalidType {
@@ -216,30 +230,41 @@ impl Signature {
         }
         let mut references = vec![0usize; parameters.len()];
         for parameter in &parameters {
-            if let Some(count) = parameter.array_count {
+            if let Some(ArrayInfo::ElementsParam(count) | ArrayInfo::BytesParam(count)) =
+                parameter.array
+            {
                 references[count] += 1;
             }
         }
         for position in 0..parameters.len() {
-            let Some(count) = parameters[position].array_count else {
+            let Some(ArrayInfo::ElementsParam(count) | ArrayInfo::BytesParam(count)) =
+                parameters[position].array
+            else {
                 continue;
             };
             if references[count] != 1
-                || !parameters[position].is_input_only()
+                || parameters[position].is_output_only()
                 || !parameters[count].is_input_only()
                 || parameters[count].is_optional()
                 || !matches!(
                     parameters[count].ty,
                     native::Type::U32 | native::Type::USize
                 )
-                || !matches!(
-                    parameters[position].ty,
-                    native::Type::Pointer { mutable: false, .. }
-                )
+                || !matches!(parameters[position].ty, native::Type::Pointer { .. })
             {
                 continue;
             }
-            parameters[position].hint = ParamHint::Slice;
+            if matches!(parameters[position].array, Some(ArrayInfo::BytesParam(_))) {
+                if !matches!(
+                    parameters[position].ty.pointee(),
+                    Some(native::Type::I8 | native::Type::U8)
+                ) {
+                    continue;
+                }
+                parameters[position].hint = ParamHint::ByteSlice;
+            } else {
+                parameters[position].hint = ParamHint::Slice;
+            }
             parameters[count].hint = ParamHint::SliceCount(position);
         }
         let return_type =
@@ -349,17 +374,14 @@ impl Signature {
     fn array_info(
         parameter: windows_metadata2::ParameterDefinition<'_>,
         owner: &str,
-    ) -> Result<(Option<usize>, Option<usize>), Error> {
-        let attribute =
-            if let Some(attribute) = parameter.find_attribute("NativeArrayInfoAttribute")? {
-                attribute
-            } else if let Some(attribute) = parameter.find_attribute("MemorySizeAttribute")? {
-                attribute
-            } else {
-                return Ok((None, None));
-            };
+    ) -> Result<Option<ArrayInfo>, Error> {
+        let Some(attribute) = parameter
+            .find_attribute("NativeArrayInfoAttribute")?
+            .or(parameter.find_attribute("MemorySizeAttribute")?)
+        else {
+            return Ok(None);
+        };
         let mut result = None;
-        let mut length = None;
         for argument in attribute.arguments(&())? {
             let (name, value) = match argument {
                 AttributeArgument::Named { name, value, .. } => (Some(name), value),
@@ -377,12 +399,15 @@ impl Signature {
                 message: "native array relationship value is negative",
             })?;
             match name.as_deref() {
-                Some("CountConst" | "SizeConst") => length = Some(value),
-                Some("CountParamIndex" | "SizeParamIndex") | None => result = Some(value),
+                Some("CountConst" | "SizeConst") => result = Some(ArrayInfo::ElementsConst(value)),
+                Some("CountParamIndex") | None => result = Some(ArrayInfo::ElementsParam(value)),
+                Some("BytesParamIndex" | "SizeParamIndex") => {
+                    result = Some(ArrayInfo::BytesParam(value))
+                }
                 _ => {}
             }
         }
-        Ok((result, length))
+        Ok(result)
     }
 
     pub(super) fn write_result_projection(

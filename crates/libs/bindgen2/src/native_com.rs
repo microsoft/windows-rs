@@ -27,6 +27,78 @@ enum ReturnKind<'a> {
     },
 }
 
+fn write_slice_parameter(
+    parameter: &native_signature::Parameter,
+    namespace: &str,
+    layout: Layout,
+) -> Option<(TokenStream, TokenStream)> {
+    let element = parameter.slice_element()?;
+    let is_interface = element.is_interface();
+    let is_byte_buffer = parameter
+        .ty
+        .pointee()
+        .is_some_and(|element| element == &native::Type::Void);
+    let element = element.write_public(namespace, layout);
+    let element = if is_interface {
+        quote! { Option<#element> }
+    } else {
+        element
+    };
+    let name = tokens::ident(&parameter.name);
+    let mutable = parameter.is_mutable_pointer();
+    let (parameter, pointer) = if parameter.is_optional() && mutable {
+        (
+            quote! { #name: Option<&mut [#element]> },
+            quote! {
+                #name.as_deref().map_or(
+                    core::ptr::null_mut(),
+                    |slice| slice.as_ptr().cast_mut()
+                )
+            },
+        )
+    } else if parameter.is_optional() {
+        (
+            quote! { #name: Option<&[#element]> },
+            quote! { #name.map_or(core::ptr::null(), |slice| slice.as_ptr()) },
+        )
+    } else if mutable {
+        (
+            quote! { #name: &mut [#element] },
+            quote! { #name.as_mut_ptr() },
+        )
+    } else {
+        (quote! { #name: &[#element] }, quote! { #name.as_ptr() })
+    };
+    let pointer = if is_interface || is_byte_buffer {
+        quote! { core::mem::transmute(#pointer) }
+    } else {
+        pointer
+    };
+    Some((parameter, pointer))
+}
+
+fn write_slice_count(
+    signature: &native_signature::Signature,
+    parameter: &native_signature::Parameter,
+) -> Option<TokenStream> {
+    let slice = parameter.slice_parameter()?;
+    let slice = &signature.parameters[slice];
+    let name = tokens::ident(&slice.name);
+    Some(if slice.is_optional() {
+        if slice.is_mutable_pointer() {
+            quote! {
+                #name.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())
+            }
+        } else {
+            quote! {
+                #name.map_or(0, |slice| slice.len().try_into().unwrap())
+            }
+        }
+    } else {
+        quote! { #name.len().try_into().unwrap() }
+    })
+}
+
 impl native_signature::Signature {
     pub(super) fn supports_implementation(&self) -> bool {
         matches!(
@@ -109,50 +181,15 @@ impl native_signature::Signature {
                     continue;
                 }
                 let name = tokens::ident(&parameter.name);
-                if let Some(element) = parameter.slice_element() {
-                    let is_interface = element.is_interface();
-                    let is_byte_buffer = parameter
-                        .ty
-                        .pointee()
-                        .is_some_and(|element| element == &native::Type::Void);
-                    let element = element.write_public(namespace, layout);
-                    let element = if is_interface {
-                        quote! { Option<#element> }
-                    } else {
-                        element
-                    };
-                    if parameter.is_optional() {
-                        parameters.push(quote! { #name: Option<&[#element]>, });
-                        if is_interface || is_byte_buffer {
-                            arguments.push(quote! {
-                                core::mem::transmute(
-                                    #name.map_or(core::ptr::null(), |slice| slice.as_ptr())
-                                )
-                            });
-                        } else {
-                            arguments.push(
-                                quote! { #name.map_or(core::ptr::null(), |slice| slice.as_ptr()) },
-                            );
-                        }
-                    } else {
-                        parameters.push(quote! { #name: &[#element], });
-                        if is_interface || is_byte_buffer {
-                            arguments.push(quote! { core::mem::transmute(#name.as_ptr()) });
-                        } else {
-                            arguments.push(quote! { #name.as_ptr() });
-                        }
-                    }
+                if let Some((projected, argument)) =
+                    write_slice_parameter(parameter, namespace, layout)
+                {
+                    parameters.push(quote! { #projected, });
+                    arguments.push(argument);
                     continue;
                 }
-                if let Some(slice) = parameter.slice_parameter() {
-                    let name = tokens::ident(&signature.parameters[slice].name);
-                    if signature.parameters[slice].is_optional() {
-                        arguments.push(
-                            quote! { #name.map_or(0, |slice| slice.len().try_into().unwrap()) },
-                        );
-                    } else {
-                        arguments.push(quote! { #name.len().try_into().unwrap() });
-                    }
+                if let Some(argument) = write_slice_count(signature, parameter) {
+                    arguments.push(argument);
                     continue;
                 }
                 if parameter.is_bool() {
@@ -331,22 +368,32 @@ impl native_signature::Signature {
                 continue;
             }
             let name = tokens::ident(&parameter.name);
-            if let Some(element) = parameter.slice_element() {
-                let element = element.write_public(namespace, layout);
-                parameters.push(quote! { #name: &[#element] });
-                arguments.push(quote! { #name.as_ptr() });
-            } else if let Some(slice) = parameter.slice_parameter() {
-                let name = tokens::ident(&self.parameters[slice].name);
-                arguments.push(quote! { #name.len().try_into().unwrap() });
+            if let Some((projected, argument)) = write_slice_parameter(parameter, namespace, layout)
+            {
+                parameters.push(projected);
+                arguments.push(argument);
+            } else if let Some(argument) = write_slice_count(self, parameter) {
+                arguments.push(argument);
             } else if let Some(len) = parameter.fixed_array_len()
                 && let Some(element) = parameter.ty.pointee()
             {
                 let element = element.write_public(namespace, layout);
                 let len = proc_macro2::Literal::usize_unsuffixed(len);
-                if parameter.is_optional() {
+                if parameter.is_optional() && parameter.is_mutable_pointer() {
+                    parameters.push(quote! { #name: Option<&mut [#element; #len]> });
+                    arguments.push(quote! {
+                        #name.as_deref().map_or(
+                            core::ptr::null_mut(),
+                            |array| array.as_ptr().cast_mut()
+                        )
+                    });
+                } else if parameter.is_optional() {
                     parameters.push(quote! { #name: Option<&[#element; #len]> });
                     arguments
                         .push(quote! { #name.map_or(core::ptr::null(), |array| array.as_ptr()) });
+                } else if parameter.is_mutable_pointer() {
+                    parameters.push(quote! { #name: &mut [#element; #len] });
+                    arguments.push(quote! { #name.as_mut_ptr() });
                 } else {
                     parameters.push(quote! { #name: &[#element; #len] });
                     arguments.push(quote! { #name.as_ptr() });
@@ -454,15 +501,32 @@ impl native_signature::Signature {
                 continue;
             }
             let name = tokens::ident(&parameter.name);
-            if let Some(len) = parameter.fixed_array_len()
+            if let Some((projected, argument)) = write_slice_parameter(parameter, namespace, layout)
+            {
+                parameters.push(projected);
+                arguments.push(argument);
+            } else if let Some(argument) = write_slice_count(self, parameter) {
+                arguments.push(argument);
+            } else if let Some(len) = parameter.fixed_array_len()
                 && let Some(element) = parameter.ty.pointee()
             {
                 let element = element.write_public(namespace, layout);
                 let len = proc_macro2::Literal::usize_unsuffixed(len);
-                if parameter.is_optional() {
+                if parameter.is_optional() && parameter.is_mutable_pointer() {
+                    parameters.push(quote! { #name: Option<&mut [#element; #len]> });
+                    arguments.push(quote! {
+                        #name.as_deref().map_or(
+                            core::ptr::null_mut(),
+                            |array| array.as_ptr().cast_mut()
+                        )
+                    });
+                } else if parameter.is_optional() {
                     parameters.push(quote! { #name: Option<&[#element; #len]> });
                     arguments
                         .push(quote! { #name.map_or(core::ptr::null(), |array| array.as_ptr()) });
+                } else if parameter.is_mutable_pointer() {
+                    parameters.push(quote! { #name: &mut [#element; #len] });
+                    arguments.push(quote! { #name.as_mut_ptr() });
                 } else {
                     parameters.push(quote! { #name: &[#element; #len] });
                     arguments.push(quote! { #name.as_ptr() });
@@ -593,49 +657,14 @@ impl native_signature::Signature {
                 arguments.push(quote! { &mut result__ });
                 continue;
             }
-            if let Some(element) = parameter.slice_element() {
-                let is_interface = element.is_interface();
-                let is_byte_buffer = parameter
-                    .ty
-                    .pointee()
-                    .is_some_and(|element| element == &native::Type::Void);
-                let element = element.write_public(namespace, layout);
-                let element = if is_interface {
-                    quote! { Option<#element> }
-                } else {
-                    element
-                };
-                if parameter.is_optional() {
-                    parameters.push(quote! { #name: Option<&[#element]>, });
-                    if is_interface || is_byte_buffer {
-                        arguments.push(quote! {
-                            core::mem::transmute(
-                                #name.map_or(core::ptr::null(), |slice| slice.as_ptr())
-                            )
-                        });
-                    } else {
-                        arguments.push(
-                            quote! { #name.map_or(core::ptr::null(), |slice| slice.as_ptr()) },
-                        );
-                    }
-                } else {
-                    parameters.push(quote! { #name: &[#element], });
-                    if is_interface || is_byte_buffer {
-                        arguments.push(quote! { core::mem::transmute(#name.as_ptr()) });
-                    } else {
-                        arguments.push(quote! { #name.as_ptr() });
-                    }
-                }
+            if let Some((projected, argument)) = write_slice_parameter(parameter, namespace, layout)
+            {
+                parameters.push(quote! { #projected, });
+                arguments.push(argument);
                 continue;
             }
-            if let Some(slice) = parameter.slice_parameter() {
-                let name = tokens::ident(&self.parameters[slice].name);
-                if self.parameters[slice].is_optional() {
-                    arguments
-                        .push(quote! { #name.map_or(0, |slice| slice.len().try_into().unwrap()) });
-                } else {
-                    arguments.push(quote! { #name.len().try_into().unwrap() });
-                }
+            if let Some(argument) = write_slice_count(self, parameter) {
+                arguments.push(argument);
                 continue;
             }
             if parameter.is_bool() {
@@ -918,8 +947,7 @@ impl native_signature::Signature {
             .map(|(_, parameter)| {
                 let name = tokens::ident(&parameter.name);
                 let ty = parameter.ty.write_public(namespace, layout);
-                if parameter.array_count.is_none()
-                    && parameter.array_len.is_none()
+                if !parameter.has_array_info()
                     && let Some((mutable, interface)) = parameter.ty.interface_out()
                 {
                     let interface = interface.write_public(namespace, layout);
@@ -930,7 +958,7 @@ impl native_signature::Signature {
                     }
                 } else if parameter.is_input_only() && parameter.ty.is_interface() {
                     quote! { #name: windows_core::Ref<#ty>, }
-                } else if parameter.array_count.is_some() || parameter.array_len.is_some() {
+                } else if parameter.has_array_info() {
                     let ty = parameter.ty.write_public_pointer(namespace, layout);
                     quote! { #name: #ty, }
                 } else if parameter.producer_by_ref {
