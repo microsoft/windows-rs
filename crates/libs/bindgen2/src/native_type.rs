@@ -478,6 +478,17 @@ impl NativeType {
         result
     }
 
+    pub(super) fn package_features(&self, layout: Layout) -> BTreeSet<String> {
+        let (namespace, dependencies) = self.dependencies();
+        tokens::feature_names(
+            namespace,
+            layout,
+            dependencies
+                .iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        )
+    }
+
     fn cfg(&self, layout: Layout) -> TokenStream {
         let (namespace, dependencies) = self.dependencies();
         tokens::feature_cfg(

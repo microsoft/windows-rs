@@ -41,12 +41,53 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
 | Build-script facade | Twenty consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, reference and time projections, benchmark and robot components and clients, context alignment, core-only APIs, and Win32 metadata match. |
-| Package output | In progress | The package backend runs, but 962 generated files still differ from the published crate output. |
+| Package output | In progress | The package backend runs, but 979 generated files still differ from the published crate output. |
 
-Approximate hand-written production source size is 8,000 lines for bindgen2 versus 12,829 for the
-existing bindgen crate, about 38% less. Bindgen2 also has about 2,160 lines of tests. This is a
-useful maintenance signal, not a complete comparison: bindgen2 still lacks several output
-policies and complete package parity.
+The current working implementation has about 14,400 lines of production Rust, roughly the same as
+legacy bindgen. Size is no longer evidence for the rewrite by itself; structure, parity, and
+measured generation cost are the relevant gates.
+
+## Bindgen architecture gates
+
+These gates apply to bindgen2 and to any eventual bindgen3 replacement:
+
+1. The pipeline remains directional: metadata -> selection -> typed model -> projection -> rendered
+   artifacts -> filesystem output. A phase may not recover facts by parsing output from a later
+   phase.
+2. Projection style, visibility, layout, implementation selection, and package policy are
+   orthogonal typed values. Adding one policy does not add combination variants such as
+   `MinimalPublicPackage`.
+3. Every rendered artifact carries its tokens, dependencies, ordering key, and cfg requirements as
+   typed data. Formatting is the final textual operation.
+4. Canonical ABI identity is defined once. Renderers do not repeat metadata-name checks for
+   `HResult`, `Guid`, `EventRegistrationToken`, strings, handles, or split-crate types.
+5. Production code contains no consumer or tool identities. Focused compatibility policy must be
+   expressed in metadata terms and covered by a reduced fixture.
+6. Shared metadata and catalogs are built once per tool invocation and reused across requests.
+   Package generation must not rescan the complete metadata catalog per namespace.
+7. The median of five warm package generations must be no slower than 1.25 times legacy bindgen,
+   with identical inputs and formatting.
+8. Clippy passes with warnings denied, projection functions take no more than seven arguments, and
+   no production source file exceeds 1,000 lines.
+9. Architecture tests enforce the forbidden dependencies and source-level checks above. A design
+   gate is not complete until its rule is executable.
+10. Exact generated parity and existing crate build checks remain final release gates.
+
+## Package migration gates
+
+`tool_package` remains on legacy bindgen until all gates pass:
+
+1. `cargo run -p tool_package -- --bindgen2-probe` reports zero differing, missing, and extra
+   generated files for `windows-sys`, `windows` Win32, `windows` WinRT, and both manifests.
+2. Regenerating Composition, Reactor, WebView, Direct2D, and VSS produces no committed binding
+   differences.
+3. Package feature dependencies come from typed render data. Generated Rust text is never parsed
+   to reconstruct the dependency graph.
+4. Canonical ABI aliases are defined in one policy module rather than repeated by each renderer.
+5. Package policy is represented by a projection context. Semantic lowering does not branch
+   directly on `Layout::Package`.
+6. The generated crates pass their existing all-features and no-default-features CI checks.
+7. Bindgen2 tests and clippy pass with warnings denied.
 
 ## Stabilization gate
 

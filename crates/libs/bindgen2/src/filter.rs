@@ -179,14 +179,16 @@ impl Filter {
         }
 
         let (namespace, name) = parts.split_at(parts.len() - 1);
-        if type_exists(database, &namespace.join("."), name[0])
-            || namespace_exists(database, &namespace.join("."))
-        {
+        if type_exists(database, &namespace.join("."), name[0]) {
             self.include_item(namespace.join("."), name[0]);
             return Ok(self);
         }
         if namespace_exists(database, &parts.join(".")) {
             self.include_namespace(parts.join("."));
+            return Ok(self);
+        }
+        if namespace_exists(database, &namespace.join(".")) {
+            self.include_item(namespace.join("."), name[0]);
             return Ok(self);
         }
 

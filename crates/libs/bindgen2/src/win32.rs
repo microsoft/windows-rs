@@ -562,7 +562,7 @@ impl<'a> Win32Items<'a> {
         layout: Layout,
         projection: Projection,
         derives: &BTreeMap<String, BTreeSet<String>>,
-        mut add: impl FnMut(&str, &str, u8, proc_macro2::TokenStream),
+        mut add: impl FnMut(&str, &str, u8, proc_macro2::TokenStream, BTreeSet<String>),
     ) -> Result<(), Error> {
         let mut implementable_interfaces = BTreeSet::new();
         loop {
@@ -606,17 +606,20 @@ impl<'a> Win32Items<'a> {
                     .get(definition.name()?)
                     .map(|derives| derives.iter().cloned().collect::<Vec<_>>())
                     .unwrap_or_default();
+                let features = ty.package_features(layout);
                 for (name, kind, tokens) in ty.write_items_context(layout, projection, &derives) {
-                    add(&namespace.name, name, kind, tokens);
+                    add(&namespace.name, name, kind, tokens, features.clone());
                 }
             }
             for entity in &namespace.delegates {
                 let definition = self.database.definition(*entity).unwrap();
+                let delegate = Delegate::lower(self.database, definition)?;
                 add(
                     &namespace.name,
                     definition.name()?,
                     1,
-                    Delegate::lower(self.database, definition)?.write_context(layout, projection),
+                    delegate.write_context(layout, projection),
+                    delegate.package_features(layout),
                 );
             }
             for (entity, members) in &namespace.interfaces {
@@ -637,6 +640,7 @@ impl<'a> Win32Items<'a> {
                 let base_selected = interface.base_name().is_some_and(|(namespace, name)| {
                     implementable_interfaces.contains(&(namespace.to_string(), name.to_string()))
                 });
+                let features = interface.package_features(layout);
                 add(
                     &namespace.name,
                     definition.name()?,
@@ -648,28 +652,31 @@ impl<'a> Win32Items<'a> {
                         self.selection.implements(*entity),
                         base_selected,
                     )?,
+                    features,
                 );
             }
             for entity in &namespace.constants {
                 let field = self.database.field(*entity).unwrap();
                 let name = field.name()?;
+                let constant = Constant::lower(self.database, field, &namespace.name, name)?;
                 add(
                     &namespace.name,
                     name,
                     2,
-                    Constant::lower(self.database, field, &namespace.name, name)?
-                        .write_context(layout, projection),
+                    constant.write_context(layout, projection),
+                    constant.package_features(layout),
                 );
             }
             for entity in &namespace.functions {
                 let method = self.database.method(*entity).unwrap();
                 let name = method.name()?;
+                let function = Function::lower(self.database, method, &namespace.name, name)?;
                 add(
                     &namespace.name,
                     name,
                     3,
-                    Function::lower(self.database, method, &namespace.name, name)?
-                        .write_context(layout, projection),
+                    function.write_context(layout, projection),
+                    function.package_features(layout),
                 );
             }
         }

@@ -262,6 +262,16 @@ impl Constant {
         quote! { #cfg #architectures #value }
     }
 
+    pub(super) fn package_features(&self, layout: Layout) -> BTreeSet<String> {
+        tokens::feature_names(
+            &self.namespace,
+            layout,
+            self.dependencies
+                .iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        )
+    }
+
     fn write_converted(underlying: &native::Type, value: &ConstantValue) -> TokenStream {
         if matches!(underlying, native::Type::Boolean) {
             return match value {

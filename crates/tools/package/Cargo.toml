@@ -6,6 +6,7 @@ publish = false
 
 [dependencies]
 windows-bindgen = { workspace = true }
+windows-bindgen2 = { workspace = true }
 windows-metadata = { workspace = true }
 windows-rdl = { workspace = true }
 

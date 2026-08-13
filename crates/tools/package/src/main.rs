@@ -5,6 +5,7 @@ use tool_package::{WINRT_WINMD, remap_plan};
 /// Holds the remapped header-namespaced Win32/WDK winmd plus a copy of the WinRT `Windows.winmd`.
 const PACKAGE_DIR: &str = "target/package";
 const REMAP_OUTPUT: &str = "target/package/Windows.Win32.winmd";
+const PROBE_DIR: &str = "target/package-bindgen2";
 
 /// Writes a `name<TAB>feature` map (e.g. `D2D1CreateFactory\td2d1`) for every routed item to
 /// `path`, so downstream consumer migration can look up the header feature/module for an API.
@@ -57,13 +58,143 @@ fn main() {
 
     verify(&summary);
 
-    // The `windows-sys` crate (sys-style package).
-    windows_bindgen::bindgen(["--etc", "crates/tools/package/src/sys.txt"]);
+    if std::env::args().any(|arg| arg == "--bindgen2-probe") {
+        bindgen2_probe();
+    } else {
+        // The `windows-sys` crate (sys-style package).
+        windows_bindgen::bindgen(["--etc", "crates/tools/package/src/sys.txt"]);
 
-    // The `windows` crate (full-fidelity package).
-    windows_bindgen::bindgen(["--etc", "crates/tools/package/src/windows.txt"]);
+        // The `windows` crate (full-fidelity package).
+        windows_bindgen::bindgen(["--etc", "crates/tools/package/src/windows.txt"]);
+    }
 
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
+}
+
+fn bindgen2_probe() {
+    let sys = probe_package(
+        "crates/tools/package/src/sys.txt",
+        "crates/libs/sys",
+        &format!("{PROBE_DIR}/sys"),
+    );
+    let windows = probe_package(
+        "crates/tools/package/src/windows.txt",
+        "crates/libs/windows",
+        &format!("{PROBE_DIR}/windows"),
+    );
+
+    eprintln!("bindgen2 package parity:");
+    eprintln!("  windows-sys: {sys}");
+    eprintln!("  windows Win32: {}", windows.win32);
+    eprintln!("  windows WinRT: {}", windows.winrt);
+    eprintln!("  manifests: {}", sys.manifest + windows.manifest);
+
+    let differences = sys.total() + windows.total();
+    assert_eq!(
+        differences, 0,
+        "bindgen2 package output differs in {differences} file(s)"
+    );
+}
+
+#[derive(Default)]
+struct PackageDiff {
+    win32: usize,
+    winrt: usize,
+    manifest: usize,
+    missing: usize,
+    extra: usize,
+}
+
+impl PackageDiff {
+    const fn total(&self) -> usize {
+        self.win32 + self.winrt + self.manifest + self.missing + self.extra
+    }
+}
+
+impl std::fmt::Display for PackageDiff {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            formatter,
+            "{} source, {} manifest, {} missing, {} extra",
+            self.win32 + self.winrt,
+            self.manifest,
+            self.missing,
+            self.extra
+        )
+    }
+}
+
+fn probe_package(commands: &str, expected: &str, actual: &str) -> PackageDiff {
+    let actual = std::path::Path::new(actual);
+    if actual.exists() {
+        std::fs::remove_dir_all(actual).unwrap();
+    }
+    std::fs::create_dir_all(actual).unwrap();
+    std::fs::copy(
+        std::path::Path::new(expected).join("Cargo.toml"),
+        actual.join("Cargo.toml"),
+    )
+    .unwrap();
+
+    windows_bindgen2::command_file(commands)
+        .unwrap()
+        .output(actual)
+        .write()
+        .unwrap();
+
+    compare_package(std::path::Path::new(expected), actual)
+}
+
+fn compare_package(expected: &std::path::Path, actual: &std::path::Path) -> PackageDiff {
+    let expected_files = package_files(expected);
+    let actual_files = package_files(actual);
+    let mut result = PackageDiff::default();
+
+    for path in expected_files.union(&actual_files) {
+        let expected_path = expected.join(path);
+        let actual_path = actual.join(path);
+        if !expected_path.exists() {
+            result.extra += 1;
+        } else if !actual_path.exists() {
+            result.missing += 1;
+        } else if std::fs::read(expected_path).unwrap() != std::fs::read(actual_path).unwrap() {
+            if path == std::path::Path::new("Cargo.toml") {
+                result.manifest += 1;
+            } else if path.starts_with("src/Windows/Win32") {
+                result.win32 += 1;
+            } else {
+                result.winrt += 1;
+            }
+        }
+    }
+    result
+}
+
+fn package_files(root: &std::path::Path) -> std::collections::BTreeSet<std::path::PathBuf> {
+    fn collect(
+        root: &std::path::Path,
+        path: &std::path::Path,
+        result: &mut std::collections::BTreeSet<std::path::PathBuf>,
+    ) {
+        for entry in std::fs::read_dir(path).unwrap() {
+            let path = entry.unwrap().path();
+            if path.is_dir() {
+                collect(root, &path, result);
+            } else if path.file_name().is_some_and(|name| name == "mod.rs") {
+                let path = path.strip_prefix(root).unwrap();
+                if path.starts_with("src/Windows") {
+                    result.insert(path.to_path_buf());
+                }
+            }
+        }
+    }
+
+    let mut result = std::collections::BTreeSet::from([std::path::PathBuf::from("Cargo.toml")]);
+    let src = root.join("src");
+    if src.exists() {
+        collect(root, &src, &mut result);
+    }
+    result
 }
 
 /// Asserts the header partition took effect (every Win32/WDK header stem lands in its own

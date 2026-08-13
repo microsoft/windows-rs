@@ -558,6 +558,22 @@ impl NativeInterface {
         )
     }
 
+    pub(super) fn package_features(&self, layout: Layout) -> BTreeSet<String> {
+        let mut features = self.class_features(layout);
+        for method in &self.methods {
+            features.extend(tokens::feature_names(
+                &self.namespace,
+                layout,
+                method
+                    .signature
+                    .package_dependencies()
+                    .iter()
+                    .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+            ));
+        }
+        features
+    }
+
     fn method_features(
         &self,
         method: &Method,

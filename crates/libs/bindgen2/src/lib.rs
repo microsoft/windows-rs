@@ -78,25 +78,57 @@ pub enum Layout {
 }
 
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-enum Projection {
+enum ProjectionStyle {
     Sys,
     #[default]
     Default,
     Minimal,
-    MinimalPublic,
 }
 
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+enum Visibility {
+    #[default]
+    Public,
+    Crate,
+}
+
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+struct Projection {
+    style: ProjectionStyle,
+    visibility: Visibility,
+}
+
+#[allow(non_upper_case_globals)]
 impl Projection {
+    const Sys: Self = Self {
+        style: ProjectionStyle::Sys,
+        visibility: Visibility::Public,
+    };
+    const Default: Self = Self {
+        style: ProjectionStyle::Default,
+        visibility: Visibility::Public,
+    };
+    const Minimal: Self = Self {
+        style: ProjectionStyle::Minimal,
+        visibility: Visibility::Crate,
+    };
+    const fn minimal_public() -> Self {
+        Self {
+            style: ProjectionStyle::Minimal,
+            visibility: Visibility::Public,
+        }
+    }
+
     const fn is_sys(self) -> bool {
-        matches!(self, Self::Sys)
+        matches!(self.style, ProjectionStyle::Sys)
     }
 
     const fn is_minimal(self) -> bool {
-        matches!(self, Self::Minimal | Self::MinimalPublic)
+        matches!(self.style, ProjectionStyle::Minimal)
     }
 
     const fn has_public_methods(self) -> bool {
-        !matches!(self, Self::Minimal)
+        matches!(self.visibility, Visibility::Public)
     }
 }
 
@@ -177,7 +209,7 @@ impl Request {
     }
 
     fn minimal_public(mut self) -> Self {
-        self.projection = Projection::MinimalPublic;
+        self.projection = Projection::minimal_public();
         self
     }
 

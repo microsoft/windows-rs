@@ -76,6 +76,17 @@ impl Delegate {
             pub type #name = #ty;
         }
     }
+
+    pub(super) fn package_features(&self, layout: Layout) -> BTreeSet<String> {
+        tokens::feature_names(
+            &self.namespace,
+            layout,
+            self.signature
+                .package_dependencies()
+                .iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        )
+    }
 }
 
 fn calling_convention(

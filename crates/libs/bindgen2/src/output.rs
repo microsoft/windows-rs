@@ -11,6 +11,7 @@ struct Item {
     name: String,
     kind: u8,
     tokens: TokenStream,
+    features: BTreeSet<String>,
 }
 
 #[derive(Default)]
@@ -92,6 +93,7 @@ impl Generator {
                         self.preserve_field_names,
                         self.members(item.definition().entity()),
                     )?,
+                    features: BTreeSet::new(),
                 });
         }
         for entry in self
@@ -123,6 +125,7 @@ impl Generator {
                         projection,
                         self.winrt_explicit_items.contains(&entry.entity),
                     )?,
+                    features: BTreeSet::new(),
                 });
         }
         for entry in self
@@ -154,6 +157,7 @@ impl Generator {
                         self.winrt_implementations.as_ref(),
                         &self.winrt_members,
                     )?,
+                    features: BTreeSet::new(),
                 });
         }
         for entry in self
@@ -186,6 +190,7 @@ impl Generator {
                         self.implements(entry.entity),
                         self.winrt_explicit_items.contains(&entry.entity),
                     )?,
+                    features: BTreeSet::new(),
                 });
         }
 
@@ -193,7 +198,7 @@ impl Generator {
             layout,
             projection,
             &self.derives,
-            |namespace, name, kind, tokens| {
+            |namespace, name, kind, tokens, features| {
                 modules
                     .entry(namespace.to_string())
                     .or_default()
@@ -201,6 +206,7 @@ impl Generator {
                         name: name.to_string(),
                         kind,
                         tokens,
+                        features,
                     });
             },
         )?;
@@ -317,13 +323,15 @@ impl Generator {
                         right.kind,
                     ))
                 });
+                let mut dependencies = BTreeSet::new();
                 for item in items.drain(..) {
+                    dependencies.extend(item.features);
                     tokens.extend(item.tokens);
                 }
+                namespace_dependencies.insert(namespace.clone(), dependencies);
             }
 
             let contents = format::format_with_config(&tokens.to_string(), rustfmt)?;
-            namespace_dependencies.insert(namespace.clone(), feature_dependencies(&contents));
             let path = output
                 .join("src")
                 .join(namespace.replace('.', "\\"))
@@ -439,17 +447,4 @@ fn write_if_changed(path: &Path, contents: String) -> Result<(), Box<dyn std::er
     }
     std::fs::write(path, contents)?;
     Ok(())
-}
-
-fn feature_dependencies(contents: &str) -> BTreeSet<String> {
-    let mut result = BTreeSet::new();
-    let mut rest = contents;
-    while let Some((_, suffix)) = rest.split_once("feature = \"") {
-        let Some((feature, suffix)) = suffix.split_once('"') else {
-            break;
-        };
-        result.insert(feature.to_string());
-        rest = suffix;
-    }
-    result
 }

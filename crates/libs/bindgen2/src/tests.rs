@@ -1616,7 +1616,6 @@ fn winrt_class_corpus_lowers_and_renders() {
                     Layout::Modules,
                     projection,
                     &MemberSelection::All,
-                    &BTreeSet::new(),
                     None,
                     &BTreeMap::new(),
                 )?;
@@ -3351,4 +3350,36 @@ fn tool_webview_native_request_matches_committed_output() {
         normalize_existing_output(actual),
         normalize_existing_output(expected)
     );
+}
+#[test]
+fn architecture_source_gates() {
+    let source = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("src");
+    let forbidden = [
+        (
+            "feature_dependencies(",
+            "formatted output dependency recovery",
+        ),
+        ("MinimalPublic", "combined projection and visibility modes"),
+        ("WebView2", "consumer-specific WebView policy"),
+        ("Direct2D", "consumer-specific Direct2D policy"),
+        ("VSS", "consumer-specific VSS policy"),
+        ("Reactor", "consumer-specific Reactor policy"),
+    ];
+
+    for entry in std::fs::read_dir(source).unwrap() {
+        let path = entry.unwrap().path();
+        if path.extension().is_none_or(|extension| extension != "rs")
+            || path.file_name().is_some_and(|name| name == "tests.rs")
+        {
+            continue;
+        }
+        let contents = std::fs::read_to_string(&path).unwrap();
+        for (pattern, reason) in forbidden {
+            assert!(
+                !contents.contains(pattern),
+                "{} contains {reason}: {pattern}",
+                path.display()
+            );
+        }
+    }
 }
