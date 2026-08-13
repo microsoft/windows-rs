@@ -503,16 +503,6 @@ impl Type {
         Ok(false)
     }
 
-    pub(super) fn needs_pointer_cast(&self) -> bool {
-        matches!(
-            self,
-            Self::Pointer {
-                mutable: true,
-                element,
-            } if matches!(element.as_ref(), Self::Named { .. })
-        )
-    }
-
     pub(super) fn is_primitive(&self, database: &Database) -> Result<bool, Error> {
         self.is_primitive_inner(database, &mut BTreeSet::new())
     }

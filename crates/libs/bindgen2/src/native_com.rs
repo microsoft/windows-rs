@@ -90,8 +90,6 @@ impl native_signature::Signature {
             let mut constraints = Vec::new();
             let mut parameters = Vec::new();
             let mut arguments = Vec::new();
-            let (slices, slice_counts) = signature.slice_parameters();
-
             for (position, parameter) in signature.parameters.iter().enumerate() {
                 if matches!(return_kind, ReturnKind::Query { guid, .. } if position == guid) {
                     arguments.push(quote! { &T::IID });
@@ -111,7 +109,7 @@ impl native_signature::Signature {
                     continue;
                 }
                 let name = tokens::ident(&parameter.name);
-                if let Some(element) = &slices[position] {
+                if let Some(element) = parameter.slice_element() {
                     let is_interface = element.is_interface();
                     let is_byte_buffer = parameter
                         .ty
@@ -146,7 +144,7 @@ impl native_signature::Signature {
                     }
                     continue;
                 }
-                if let Some(slice) = slice_counts[position] {
+                if let Some(slice) = parameter.slice_parameter() {
                     let name = tokens::ident(&signature.parameters[slice].name);
                     if signature.parameters[slice].is_optional() {
                         arguments.push(
@@ -157,12 +155,12 @@ impl native_signature::Signature {
                     }
                     continue;
                 }
-                if parameter.is_input_only() && parameter.ty.is_bool() {
+                if parameter.is_bool() {
                     parameters.push(quote! { #name: bool, });
                     arguments.push(quote! { #name.into() });
                     continue;
                 }
-                if let Some(len) = parameter.array_len
+                if let Some(len) = parameter.fixed_array_len()
                     && let Some(element) = parameter.ty.pointee()
                 {
                     let element = element.write_public(namespace, layout);
@@ -215,25 +213,25 @@ impl native_signature::Signature {
                     let ty = parameter.ty.write_public(namespace, layout);
                     parameters.push(quote! { #name: &Option<#ty>, });
                     arguments.push(quote! { core::mem::transmute_copy(#name) });
-                } else if (parameter.is_input_only() && parameter.ty.is_interface())
-                    || (parameter.is_input_only()
-                        && (parameter.ty.is_pcwstr()
-                            || (layout.is_package() && parameter.ty.is_const_string())))
-                {
+                } else if parameter.is_into_param(layout) {
                     let generic = tokens::ident(&format!("P{position}"));
                     let ty = parameter.ty.write_public(namespace, layout);
                     generic_parameters.push(generic.clone());
                     constraints.push(quote! { #generic: windows_core::Param<#ty>, });
                     parameters.push(quote! { #name: #generic, });
                     arguments.push(quote! { #name.param().abi() });
-                } else if parameter.is_optional() && parameter.ty.pointee().is_some() {
+                } else if parameter.is_optional_hint() {
                     let ty = parameter.ty.write_public(namespace, layout);
                     parameters.push(quote! { #name: Option<#ty>, });
                     arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
+                } else if parameter.is_by_ref() {
+                    let ty = parameter.ty.write_public(namespace, layout);
+                    parameters.push(quote! { #name: &#ty, });
+                    arguments.push(quote! { core::mem::transmute_copy(#name) });
                 } else {
                     let ty = parameter.ty.write_public(namespace, layout);
                     parameters.push(quote! { #name: #ty, });
-                    if parameter.pointer_cast {
+                    if parameter.needs_cast() {
                         arguments.push(quote! { #name as _ });
                     } else {
                         arguments.push(quote! { #name });
@@ -327,41 +325,57 @@ impl native_signature::Signature {
         let mut constraints = Vec::new();
         let mut parameters = Vec::new();
         let mut arguments = Vec::new();
-        let (slices, slice_counts) = self.slice_parameters();
         for (position, parameter) in self.parameters.iter().enumerate() {
             if position == retval {
                 arguments.push(quote! { &mut result__ });
                 continue;
             }
             let name = tokens::ident(&parameter.name);
-            if let Some(element) = &slices[position] {
+            if let Some(element) = parameter.slice_element() {
                 let element = element.write_public(namespace, layout);
                 parameters.push(quote! { #name: &[#element] });
                 arguments.push(quote! { #name.as_ptr() });
-            } else if let Some(slice) = slice_counts[position] {
+            } else if let Some(slice) = parameter.slice_parameter() {
                 let name = tokens::ident(&self.parameters[slice].name);
                 arguments.push(quote! { #name.len().try_into().unwrap() });
-            } else if parameter.is_input_only()
-                && (parameter.ty.is_interface()
-                    || parameter.ty.is_pcwstr()
-                    || (layout.is_package() && parameter.ty.is_const_string()))
+            } else if let Some(len) = parameter.fixed_array_len()
+                && let Some(element) = parameter.ty.pointee()
             {
+                let element = element.write_public(namespace, layout);
+                let len = proc_macro2::Literal::usize_unsuffixed(len);
+                if parameter.is_optional() {
+                    parameters.push(quote! { #name: Option<&[#element; #len]> });
+                    arguments
+                        .push(quote! { #name.map_or(core::ptr::null(), |array| array.as_ptr()) });
+                } else {
+                    parameters.push(quote! { #name: &[#element; #len] });
+                    arguments.push(quote! { #name.as_ptr() });
+                }
+            } else if parameter.is_into_param(layout) {
                 let generic = tokens::ident(&format!("P{position}"));
                 let ty = parameter.ty.write_public(namespace, layout);
                 generic_parameters.push(generic.clone());
                 constraints.push(quote! { #generic: windows_core::Param<#ty>, });
                 parameters.push(quote! { #name: #generic });
                 arguments.push(quote! { #name.param().abi() });
-            } else if parameter.is_input_only() && parameter.ty.is_bool() {
+            } else if parameter.is_bool() {
                 parameters.push(quote! { #name: bool });
                 arguments.push(quote! { #name.into() });
             } else if parameter.ty.is_bstr() {
                 parameters.push(quote! { #name: &windows_core::BSTR });
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
+            } else if parameter.is_optional_hint() {
+                let ty = parameter.ty.write_public(namespace, layout);
+                parameters.push(quote! { #name: Option<#ty> });
+                arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
+            } else if parameter.is_by_ref() {
+                let ty = parameter.ty.write_public(namespace, layout);
+                parameters.push(quote! { #name: &#ty });
+                arguments.push(quote! { core::mem::transmute_copy(#name) });
             } else {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: #ty });
-                if parameter.ty.pointee().is_some() {
+                if parameter.needs_cast() {
                     arguments.push(quote! { #name as _ });
                 } else {
                     arguments.push(quote! { #name });
@@ -440,27 +454,44 @@ impl native_signature::Signature {
                 continue;
             }
             let name = tokens::ident(&parameter.name);
-            if parameter.is_input_only()
-                && (parameter.ty.is_interface()
-                    || parameter.ty.is_pcwstr()
-                    || (layout.is_package() && parameter.ty.is_const_string()))
+            if let Some(len) = parameter.fixed_array_len()
+                && let Some(element) = parameter.ty.pointee()
             {
+                let element = element.write_public(namespace, layout);
+                let len = proc_macro2::Literal::usize_unsuffixed(len);
+                if parameter.is_optional() {
+                    parameters.push(quote! { #name: Option<&[#element; #len]> });
+                    arguments
+                        .push(quote! { #name.map_or(core::ptr::null(), |array| array.as_ptr()) });
+                } else {
+                    parameters.push(quote! { #name: &[#element; #len] });
+                    arguments.push(quote! { #name.as_ptr() });
+                }
+            } else if parameter.is_into_param(layout) {
                 let generic = tokens::ident(&format!("P{position}"));
                 let ty = parameter.ty.write_public(namespace, layout);
                 generic_parameters.push(generic.clone());
                 constraints.push(quote! { #generic: windows_core::Param<#ty>, });
                 parameters.push(quote! { #name: #generic });
                 arguments.push(quote! { #name.param().abi() });
-            } else if parameter.is_input_only() && parameter.ty.is_bool() {
+            } else if parameter.is_bool() {
                 parameters.push(quote! { #name: bool });
                 arguments.push(quote! { #name.into() });
             } else if parameter.ty.is_bstr() {
                 parameters.push(quote! { #name: &windows_core::BSTR });
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
+            } else if parameter.is_optional_hint() {
+                let ty = parameter.ty.write_public(namespace, layout);
+                parameters.push(quote! { #name: Option<#ty> });
+                arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
+            } else if parameter.is_by_ref() {
+                let ty = parameter.ty.write_public(namespace, layout);
+                parameters.push(quote! { #name: &#ty });
+                arguments.push(quote! { core::mem::transmute_copy(#name) });
             } else {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: #ty });
-                if parameter.ty.pointee().is_some() {
+                if parameter.needs_cast() {
                     arguments.push(quote! { #name as _ });
                 } else {
                     arguments.push(quote! { #name });
@@ -528,7 +559,7 @@ impl native_signature::Signature {
         let mut constraints = Vec::new();
         let mut parameters = Vec::new();
         let mut arguments = Vec::new();
-        let (slices, slice_counts) = self.slice_parameters();
+
         let retval = match return_kind {
             ReturnKind::Retval { position, ty }
             | ReturnKind::VoidInterface { position, ty }
@@ -562,7 +593,7 @@ impl native_signature::Signature {
                 arguments.push(quote! { &mut result__ });
                 continue;
             }
-            if let Some(element) = &slices[position] {
+            if let Some(element) = parameter.slice_element() {
                 let is_interface = element.is_interface();
                 let is_byte_buffer = parameter
                     .ty
@@ -597,7 +628,7 @@ impl native_signature::Signature {
                 }
                 continue;
             }
-            if let Some(slice) = slice_counts[position] {
+            if let Some(slice) = parameter.slice_parameter() {
                 let name = tokens::ident(&self.parameters[slice].name);
                 if self.parameters[slice].is_optional() {
                     arguments
@@ -607,12 +638,12 @@ impl native_signature::Signature {
                 }
                 continue;
             }
-            if parameter.is_input_only() && parameter.ty.is_bool() {
+            if parameter.is_bool() {
                 parameters.push(quote! { #name: bool, });
                 arguments.push(quote! { #name.into() });
                 continue;
             }
-            if let Some(len) = parameter.array_len
+            if let Some(len) = parameter.fixed_array_len()
                 && let Some(element) = parameter.ty.pointee()
             {
                 let element = element.write_public(namespace, layout);
@@ -667,29 +698,25 @@ impl native_signature::Signature {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: &Option<#ty>, });
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
-            } else if (parameter.is_input_only() && parameter.ty.is_interface())
-                || (parameter.is_input_only()
-                    && (parameter.ty.is_pcwstr()
-                        || (layout.is_package() && parameter.ty.is_const_string())))
-            {
+            } else if parameter.is_into_param(layout) {
                 let generic = tokens::ident(&format!("P{position}"));
                 let ty = parameter.ty.write_public(namespace, layout);
                 generic_parameters.push(generic.clone());
                 constraints.push(quote! { #generic: windows_core::Param<#ty>, });
                 parameters.push(quote! { #name: #generic, });
                 arguments.push(quote! { #name.param().abi() });
-            } else if parameter.is_optional() && parameter.ty.mutable_string_pointer() {
+            } else if parameter.is_optional_hint() {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: Option<#ty>, });
                 arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
-            } else if parameter.is_optional() && parameter.ty.pointee().is_some() {
+            } else if parameter.is_by_ref() {
                 let ty = parameter.ty.write_public(namespace, layout);
-                parameters.push(quote! { #name: Option<#ty>, });
-                arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
+                parameters.push(quote! { #name: &#ty, });
+                arguments.push(quote! { core::mem::transmute_copy(#name) });
             } else if parameter.ty.pointee().is_some() {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: #ty, });
-                if parameter.pointer_cast {
+                if parameter.needs_cast() {
                     arguments.push(quote! { #name as _ });
                 } else {
                     arguments.push(quote! { #name });
@@ -1054,48 +1081,6 @@ impl native_signature::Signature {
         } else {
             None
         }
-    }
-
-    fn slice_parameters(&self) -> (Vec<Option<native::Type>>, Vec<Option<usize>>) {
-        let mut references = vec![0usize; self.parameters.len()];
-        for parameter in &self.parameters {
-            if let Some(count) = parameter.array_count {
-                references[count] += 1;
-            }
-        }
-
-        let mut slices = vec![None; self.parameters.len()];
-        let mut counts = vec![None; self.parameters.len()];
-        for (position, parameter) in self.parameters.iter().enumerate() {
-            let Some(count) = parameter.array_count else {
-                continue;
-            };
-            if references[count] != 1
-                || !parameter.is_input_only()
-                || !self.parameters[count].is_input_only()
-                || self.parameters[count].is_optional()
-                || !matches!(
-                    self.parameters[count].ty,
-                    native::Type::U32 | native::Type::USize
-                )
-            {
-                continue;
-            }
-            let native::Type::Pointer {
-                mutable: false,
-                element,
-            } = &parameter.ty
-            else {
-                continue;
-            };
-            slices[position] = Some(if element.as_ref() == &native::Type::Void {
-                native::Type::U8
-            } else {
-                element.as_ref().clone()
-            });
-            counts[count] = Some(position);
-        }
-        (slices, counts)
     }
 
     fn query_parameters(&self) -> Option<(usize, usize)> {

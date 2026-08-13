@@ -1143,6 +1143,8 @@ fn rich_native_functions_wrap_direct_and_output_returns() {
                 extern fn Direct(value: i32) -> u32;
                 #[library("test.dll")]
                 extern fn Output(#[out] value: *mut u32);
+                #[library("test.dll")]
+                extern fn OutputPointers(#[out] first: *mut u32, #[out] second: *mut u32);
             }
         "#,
     )
@@ -1159,6 +1161,14 @@ fn rich_native_functions_wrap_direct_and_output_returns() {
         "{output}"
     );
     assert!(output.contains("Output (& mut result__)"), "{output}");
+    assert!(
+        output.contains("pub unsafe fn OutputPointers (first : * mut u32 , second : * mut u32)"),
+        "{output}"
+    );
+    assert!(
+        output.contains("OutputPointers (first as _ , second as _)"),
+        "{output}"
+    );
 }
 
 #[test]

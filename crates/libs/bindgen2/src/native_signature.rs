@@ -19,8 +19,23 @@ pub(super) struct Parameter {
     pub(super) array_len: Option<usize>,
     pub(super) retval_candidate: bool,
     pub(super) producer_by_ref: bool,
-    pub(super) pointer_cast: bool,
     pub(super) ty: native::Type,
+    hint: ParamHint,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum ParamHint {
+    None,
+    Slice,
+    SliceCount(usize),
+    FixedArray(usize),
+    IntoParam,
+    PackageIntoParam,
+    Optional,
+    Bool,
+    ValueType,
+    Blittable,
+    ByRef,
 }
 
 impl Parameter {
@@ -30,6 +45,54 @@ impl Parameter {
 
     pub(super) fn is_optional(&self) -> bool {
         self.flags & 0x0010 != 0
+    }
+
+    pub(super) fn is_into_param(&self, layout: Layout) -> bool {
+        matches!(self.hint, ParamHint::IntoParam)
+            || (layout.is_package() && matches!(self.hint, ParamHint::PackageIntoParam))
+    }
+
+    pub(super) fn is_bool(&self) -> bool {
+        matches!(self.hint, ParamHint::Bool)
+    }
+
+    pub(super) fn is_optional_hint(&self) -> bool {
+        matches!(self.hint, ParamHint::Optional)
+    }
+
+    pub(super) fn is_by_ref(&self) -> bool {
+        matches!(self.hint, ParamHint::ByRef)
+    }
+
+    pub(super) fn needs_cast(&self) -> bool {
+        matches!(self.hint, ParamHint::ValueType) && !self.is_input_only()
+    }
+
+    pub(super) fn slice_element(&self) -> Option<native::Type> {
+        if !matches!(self.hint, ParamHint::Slice) {
+            return None;
+        }
+        self.ty.pointee().map(|element| {
+            if element == &native::Type::Void {
+                native::Type::U8
+            } else {
+                element.clone()
+            }
+        })
+    }
+
+    pub(super) fn slice_parameter(&self) -> Option<usize> {
+        match self.hint {
+            ParamHint::SliceCount(position) => Some(position),
+            _ => None,
+        }
+    }
+
+    pub(super) fn fixed_array_len(&self) -> Option<usize> {
+        match self.hint {
+            ParamHint::FixedArray(len) => Some(len),
+            _ => None,
+        }
     }
 }
 
@@ -46,7 +109,7 @@ impl Signature {
             ..
         } = method.signature()?;
         let parameter_rows = method.parameters_by_sequence()?;
-        let parameters: Vec<Parameter> = parameters
+        let mut parameters: Vec<Parameter> = parameters
             .into_iter()
             .enumerate()
             .map(|(position, ty)| {
@@ -96,13 +159,35 @@ impl Signature {
                     false
                 };
                 let producer_by_ref = flags & 0x0002 == 0 && ty.producer_by_ref(database)?;
-                let pointer_cast = ty.needs_pointer_cast()
-                    || (flags & 0x0002 != 0
-                        && matches!(&ty, native::Type::Pointer { mutable: true, .. }));
                 let com_out_ptr = parameter
                     .map(|parameter| parameter.has_attribute("ComOutPtrAttribute"))
                     .transpose()?
                     .unwrap_or(false);
+                let copyable = ty.projected_traits(database, &mut BTreeSet::new())?.copy;
+                let pointee_copyable = ty
+                    .pointee()
+                    .map(|ty| ty.projected_traits(database, &mut BTreeSet::new()))
+                    .transpose()?
+                    .is_none_or(|traits| traits.copy);
+                let hint = if let Some(len) = array_len {
+                    ParamHint::FixedArray(len)
+                } else if flags & 0x0002 == 0 && (ty.is_interface() || ty.is_pcwstr()) {
+                    ParamHint::IntoParam
+                } else if flags & 0x0002 == 0 && ty.is_const_string() {
+                    ParamHint::PackageIntoParam
+                } else if flags & 0x0010 != 0 && copyable {
+                    ParamHint::Optional
+                } else if flags & 0x0002 == 0 && ty.is_bool() {
+                    ParamHint::Bool
+                } else if ty.is_primitive(database)? && pointee_copyable {
+                    ParamHint::ValueType
+                } else if copyable {
+                    ParamHint::Blittable
+                } else if flags & 0x0002 == 0 {
+                    ParamHint::ByRef
+                } else {
+                    ParamHint::None
+                };
                 Ok(Parameter {
                     name: parameter
                         .map(|parameter| parameter.name())
@@ -114,8 +199,8 @@ impl Signature {
                     array_len,
                     retval_candidate,
                     producer_by_ref,
-                    pointer_cast,
                     ty,
+                    hint,
                 })
             })
             .collect::<Result<_, Error>>()?;
@@ -128,6 +213,34 @@ impl Signature {
                     message: "native array count parameter index is invalid",
                 });
             }
+        }
+        let mut references = vec![0usize; parameters.len()];
+        for parameter in &parameters {
+            if let Some(count) = parameter.array_count {
+                references[count] += 1;
+            }
+        }
+        for position in 0..parameters.len() {
+            let Some(count) = parameters[position].array_count else {
+                continue;
+            };
+            if references[count] != 1
+                || !parameters[position].is_input_only()
+                || !parameters[count].is_input_only()
+                || parameters[count].is_optional()
+                || !matches!(
+                    parameters[count].ty,
+                    native::Type::U32 | native::Type::USize
+                )
+                || !matches!(
+                    parameters[position].ty,
+                    native::Type::Pointer { mutable: false, .. }
+                )
+            {
+                continue;
+            }
+            parameters[position].hint = ParamHint::Slice;
+            parameters[count].hint = ParamHint::SliceCount(position);
         }
         let return_type =
             native::Type::lower(database, method.entity().file(), owner, return_type)?;
