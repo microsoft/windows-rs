@@ -101,8 +101,14 @@ impl NativeInterface {
     /// Renders a flat Win32 sys vtable and optional IID.
     #[cfg(test)]
     pub fn write_sys(&self) -> TokenStream {
-        self.write_context(Layout::Flat, Projection::Sys, &MemberSelection::All, None)
-            .unwrap()
+        self.write_context(
+            Layout::Flat,
+            Projection::Sys,
+            &MemberSelection::All,
+            None,
+            false,
+        )
+        .unwrap()
     }
 
     pub(super) fn write_context(
@@ -111,9 +117,10 @@ impl NativeInterface {
         projection: Projection,
         members: &MemberSelection,
         implementation: Option<bool>,
+        base_selected: bool,
     ) -> Result<TokenStream, Error> {
         if !projection.is_sys() {
-            return self.write_rich(layout, projection, members, implementation);
+            return self.write_rich(layout, projection, members, implementation, base_selected);
         }
         let architectures = tokens::architectures(self.architectures);
         let name = tokens::ident(&format!("{}_Vtbl", self.name));
@@ -174,20 +181,41 @@ impl NativeInterface {
         projection: Projection,
         members: &MemberSelection,
         implementation: Option<bool>,
+        base_selected: bool,
     ) -> Result<TokenStream, Error> {
-        let Some(guid) = self.guid else {
+        if layout != Layout::Package
+            && self.guid.is_none()
+            && self.methods.iter().any(|method| method.selected(members))
+        {
             return Err(Error::UnsupportedType {
                 name: format!("{}.{}", self.namespace, self.name),
-                shape: "rich native interface without COM identity".to_string(),
+                shape: "selected rich native interface without COM identity".to_string(),
             });
-        };
+        }
         let architectures = tokens::architectures(self.architectures);
+        let class_features = self.class_features(layout);
+        let class_cfg = tokens::feature_cfg_set(&class_features, false);
         let name = tokens::ident(&self.name);
         let vtbl_name = tokens::ident(&format!("{}_Vtbl", self.name));
-        let guid = guid.write_u128();
-        let identity = quote! {
-            #architectures
-            windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
+        let identity = if let Some(guid) = self.guid {
+            let guid = guid.write_u128();
+            quote! {
+                #class_cfg
+                #architectures
+                windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
+            }
+        } else if layout == Layout::Package {
+            quote! {
+                #class_cfg
+                #architectures
+                windows_core::imp::define_interface!(#name, #vtbl_name, 0);
+            }
+        } else {
+            quote! {
+                #class_cfg
+                #architectures
+                windows_core::imp::define_interface!(#name, #vtbl_name);
+            }
         };
         let write_base = |namespace: &str, name: &str| {
             if let Some(core) = native::core_projection(namespace, name) {
@@ -198,26 +226,32 @@ impl NativeInterface {
                 quote! { #path #name }
             }
         };
-        let base_vtbl = self.base.as_ref().map_or_else(
-            || quote! { windows_core::IUnknown_Vtbl },
-            |(namespace, base)| {
-                if base == "IUnknown" {
-                    quote! { windows_core::IUnknown_Vtbl }
-                } else {
-                    let path = tokens::namespace(&self.namespace, namespace, layout);
-                    let base_vtbl = tokens::ident(&format!("{base}_Vtbl"));
-                    quote! { #path #base_vtbl }
-                }
-            },
-        );
+        let base_vtbl = self.base.as_ref().map(|(namespace, base)| {
+            if base == "IUnknown" {
+                quote! { windows_core::IUnknown_Vtbl }
+            } else {
+                let path = tokens::namespace(&self.namespace, namespace, layout);
+                let base_vtbl = tokens::ident(&format!("{base}_Vtbl"));
+                quote! { #path #base_vtbl }
+            }
+        });
+        let base_field = base_vtbl.map(|base_vtbl| quote! { pub base__: #base_vtbl, });
         let hierarchy = self
             .hierarchy
             .iter()
             .map(|(namespace, name)| write_base(namespace, name));
+        let hierarchy = (!self.hierarchy.is_empty()).then(|| {
+            quote! {
+                #class_cfg
+                #architectures
+                windows_core::imp::interface_hierarchy!(#name, #(#hierarchy),*);
+            }
+        });
         let deref = self.base.as_ref().and_then(|(namespace, base)| {
             (base != "IUnknown").then(|| {
                 let base = write_base(namespace, base);
                 quote! {
+                    #class_cfg
                     #architectures
                     impl core::ops::Deref for #name {
                         type Target = #base;
@@ -244,9 +278,22 @@ impl NativeInterface {
                 layout,
                 projection,
             );
-            quote! {
-                #architectures
-                pub #name: unsafe extern "system" fn(#parameters) #result,
+            let features = self.method_features(method, layout, &class_features);
+            let yes = tokens::feature_cfg_set(&features, false);
+            if features.is_empty() {
+                quote! {
+                    #architectures
+                    pub #name: unsafe extern "system" fn(#parameters) #result,
+                }
+            } else {
+                let no = tokens::feature_cfg_set(&features, true);
+                quote! {
+                    #yes
+                    #architectures
+                    pub #name: unsafe extern "system" fn(#parameters) #result,
+                    #no
+                    #name: usize,
+                }
             }
         });
         let wrappers = if projection.is_minimal() && implementation == Some(true) {
@@ -257,24 +304,42 @@ impl NativeInterface {
                 .iter()
                 .filter(|method| method.selected(members))
                 .map(|method| {
-                    method.signature.write_com_method(
+                    let method_tokens = method.signature.write_com_method(
                         &self.namespace,
                         layout,
                         projection,
                         &method.name,
-                    )
+                    )?;
+                    let features = self.method_features(method, layout, &class_features);
+                    let cfg = tokens::feature_cfg_set(&features, false);
+                    Ok(quote! { #cfg #method_tokens })
                 })
                 .collect::<Result<Vec<_>, Error>>()?;
             if wrappers.is_empty() {
                 quote! {}
             } else {
-                quote! { impl #name { #(#wrappers)* } }
+                quote! {
+                    #class_cfg
+                    impl #name { #(#wrappers)* }
+                }
             }
         };
         let implement = match implementation {
-            None => self.can_implement(members),
+            None => {
+                self.can_implement(members, base_selected)
+                    || (layout == Layout::Package
+                        && self.methods.iter().all(|method| method.selected(members))
+                        && self
+                            .methods
+                            .iter()
+                            .all(|method| method.signature.supports_implementation())
+                        && self
+                            .base
+                            .as_ref()
+                            .is_some_and(|(_, name)| name == "IUnknown" || base_selected))
+            }
             Some(false) => false,
-            Some(true) if self.supports_implementation() => true,
+            Some(true) if self.supports_implementation(base_selected) => true,
             Some(true) => {
                 return Err(Error::InvalidType {
                     name: format!("{}.{}", self.namespace, self.name),
@@ -282,9 +347,20 @@ impl NativeInterface {
                 });
             }
         };
-        let runtime_name = (implementation != Some(false)).then(|| {
-            quote! { impl windows_core::RuntimeName for #name {} }
+        let mut runtime_features = class_features.clone();
+        for method in &self.methods {
+            runtime_features.extend(self.method_features(method, layout, &BTreeSet::new()));
+        }
+        let runtime_cfg = tokens::feature_cfg_set(&runtime_features, false);
+        let runtime_name = ((self.guid.is_some() || layout == Layout::Package)
+            && implementation != Some(false))
+        .then(|| {
+            quote! {
+                #runtime_cfg
+                impl windows_core::RuntimeName for #name {}
+            }
         });
+        let doc_hidden = (layout == Layout::Package).then(|| quote! { #[doc(hidden)] });
         let implementation = if implement {
             self.write_implementation(layout, projection)?
         } else {
@@ -293,13 +369,14 @@ impl NativeInterface {
         Ok(quote! {
             #identity
             #deref
-            #architectures
-            windows_core::imp::interface_hierarchy!(#name, #(#hierarchy),*);
+            #hierarchy
             #wrappers
+            #class_cfg
             #architectures
             #[repr(C)]
+            #doc_hidden
             pub struct #vtbl_name {
-                pub base__: #base_vtbl,
+                #base_field
                 #(#methods)*
             }
 
@@ -308,16 +385,43 @@ impl NativeInterface {
         })
     }
 
-    fn can_implement(&self, members: &MemberSelection) -> bool {
-        self.supports_implementation() && self.methods.iter().all(|method| method.selected(members))
+    pub(super) fn can_implement(&self, members: &MemberSelection, base_selected: bool) -> bool {
+        self.supports_implementation(base_selected)
+            && self.methods.iter().all(|method| method.selected(members))
     }
 
-    fn supports_implementation(&self) -> bool {
-        self.guid.is_some()
+    pub(super) fn can_implement_package(
+        &self,
+        members: &MemberSelection,
+        base_selected: bool,
+    ) -> bool {
+        self.methods.iter().all(|method| method.selected(members))
+            && self
+                .methods
+                .iter()
+                .all(|method| method.signature.supports_implementation())
             && self
                 .base
                 .as_ref()
-                .is_some_and(|(_, name)| name == "IUnknown")
+                .is_some_and(|(_, name)| name == "IUnknown" || base_selected)
+    }
+
+    fn supports_implementation(&self, base_selected: bool) -> bool {
+        self.guid.is_some()
+            && self
+                .methods
+                .iter()
+                .all(|method| method.signature.supports_implementation())
+            && self
+                .base
+                .as_ref()
+                .is_some_and(|(_, name)| name == "IUnknown" || base_selected)
+    }
+
+    pub(super) fn base_name(&self) -> Option<(&str, &str)> {
+        self.base
+            .as_ref()
+            .map(|(namespace, name)| (namespace.as_str(), name.as_str()))
     }
 
     fn write_implementation(
@@ -326,8 +430,46 @@ impl NativeInterface {
         projection: Projection,
     ) -> Result<TokenStream, Error> {
         let name = tokens::ident(&self.name);
+        let mut implementation_features = self.class_features(layout);
+        for method in &self.methods {
+            implementation_features.extend(self.method_features(method, layout, &BTreeSet::new()));
+        }
+        let implementation_cfg = tokens::feature_cfg_set(&implementation_features, false);
         let vtbl_name = tokens::ident(&format!("{}_Vtbl", self.name));
         let impl_name = tokens::ident(&format!("{}_Impl", self.name));
+        let (base_impl, base_new) = self.base.as_ref().map_or_else(
+            || {
+                (
+                    quote! { windows_core::IUnknownImpl },
+                    quote! { windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() },
+                )
+            },
+            |(namespace, base)| {
+                if base == "IUnknown" {
+                    (
+                        quote! { windows_core::IUnknownImpl },
+                        quote! { windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() },
+                    )
+                } else {
+                    let path = tokens::namespace(&self.namespace, namespace, layout);
+                    let base_impl = tokens::ident(&format!("{base}_Impl"));
+                    let base_vtbl = tokens::ident(&format!("{base}_Vtbl"));
+                    (
+                        quote! { #path #base_impl },
+                        quote! { #path #base_vtbl::new::<Identity, OFFSET>() },
+                    )
+                }
+            },
+        );
+        let hierarchy_matches = self
+            .hierarchy
+            .iter()
+            .filter(|(_, base)| base != "IUnknown")
+            .map(|(namespace, base)| {
+                let path = tokens::namespace(&self.namespace, namespace, layout);
+                let base = tokens::ident(base);
+                quote! { || iid == &<#path #base as windows_core::Interface>::IID }
+            });
         let trait_methods = self
             .methods
             .iter()
@@ -358,9 +500,10 @@ impl NativeInterface {
                     layout,
                     projection,
                 );
-                let upcall = method
-                    .signature
-                    .write_impl_upcall(&impl_name, &method.name)?;
+                let upcall =
+                    method
+                        .signature
+                        .write_impl_upcall(&impl_name, &method.name, layout)?;
                 Ok(quote! {
                     #architectures
                     unsafe extern "system" fn #method_name<
@@ -385,22 +528,53 @@ impl NativeInterface {
             }
         });
         Ok(quote! {
-            pub trait #impl_name: windows_core::IUnknownImpl {
+            #implementation_cfg
+            pub trait #impl_name: #base_impl {
                 #(#trait_methods)*
             }
+            #implementation_cfg
             impl #vtbl_name {
                 pub const fn new<Identity: #impl_name, const OFFSET: isize>() -> Self {
                     #(#functions)*
                     Self {
-                        base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+                        base__: #base_new,
                         #(#initializers)*
                     }
                 }
                 pub fn matches(iid: &windows_core::GUID) -> bool {
-                    iid == &<#name as windows_core::Interface>::IID
+                    iid == &<#name as windows_core::Interface>::IID #(#hierarchy_matches)*
                 }
             }
         })
+    }
+
+    fn class_features(&self, layout: Layout) -> BTreeSet<String> {
+        tokens::feature_names(
+            &self.namespace,
+            layout,
+            self.hierarchy
+                .iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        )
+    }
+
+    fn method_features(
+        &self,
+        method: &Method,
+        layout: Layout,
+        parent: &BTreeSet<String>,
+    ) -> BTreeSet<String> {
+        let mut features = tokens::feature_names(
+            &self.namespace,
+            layout,
+            method
+                .signature
+                .package_dependencies()
+                .iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        );
+        features.retain(|feature| !parent.contains(feature));
+        features
     }
 }
 

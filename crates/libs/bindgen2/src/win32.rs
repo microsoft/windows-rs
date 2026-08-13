@@ -85,6 +85,7 @@ impl Win32Selection {
         catalogs: Arc<Win32Catalogs>,
         filter: Option<&Filter>,
         implementations: Option<&Filter>,
+        package: bool,
     ) -> Result<Self, Error> {
         let mut closure = filter.map(|_| {
             native_closure::Closure::new(database, &catalogs.interface_bases, &catalogs.nested)
@@ -234,12 +235,35 @@ impl Win32Selection {
             .into_iter()
             .map(|(name, mut selection)| {
                 selection.types.sort();
+                if package {
+                    selection.types.dedup_by(|left, right| left.0 == right.0);
+                }
                 selection.delegates.sort();
+                if package {
+                    selection
+                        .delegates
+                        .dedup_by(|left, right| left.0 == right.0);
+                }
                 selection.interfaces.sort_by(|left, right| {
                     (&left.0, left.1, left.2).cmp(&(&right.0, right.1, right.2))
                 });
+                if package {
+                    selection
+                        .interfaces
+                        .dedup_by(|left, right| left.0 == right.0);
+                }
                 selection.constants.sort();
+                if package {
+                    selection
+                        .constants
+                        .dedup_by(|left, right| left.0 == right.0);
+                }
                 selection.functions.sort();
+                if package {
+                    selection
+                        .functions
+                        .dedup_by(|left, right| left.0 == right.0);
+                }
                 let types = selection.types;
                 let delegates = selection.delegates;
                 let interfaces = selection.interfaces;
@@ -537,8 +561,38 @@ impl<'a> Win32Items<'a> {
         &self,
         layout: Layout,
         projection: Projection,
+        derives: &BTreeMap<String, BTreeSet<String>>,
         mut add: impl FnMut(&str, &str, u8, proc_macro2::TokenStream),
     ) -> Result<(), Error> {
+        let mut implementable_interfaces = BTreeSet::new();
+        loop {
+            let mut changed = false;
+            for namespace in &self.selection.namespaces {
+                for (entity, members) in &namespace.interfaces {
+                    let definition = self.database.definition(*entity).unwrap();
+                    let interface = NativeInterface::lower(
+                        self.database,
+                        definition,
+                        &self.catalogs.interface_bases,
+                    )?;
+                    let base_selected = interface.base_name().is_some_and(|(namespace, name)| {
+                        implementable_interfaces
+                            .contains(&(namespace.to_string(), name.to_string()))
+                    });
+                    if if layout == Layout::Package {
+                        interface.can_implement_package(members, base_selected)
+                    } else {
+                        interface.can_implement(members, base_selected)
+                    } {
+                        changed |= implementable_interfaces
+                            .insert((namespace.name.clone(), definition.name()?.to_string()));
+                    }
+                }
+            }
+            if !changed {
+                break;
+            }
+        }
         for namespace in &self.selection.namespaces {
             for entity in &namespace.types {
                 let definition = self.database.definition(*entity).unwrap();
@@ -548,7 +602,11 @@ impl<'a> Win32Items<'a> {
                     &self.catalogs.nested,
                     self.enum_variants(*entity),
                 )?;
-                for (name, kind, tokens) in ty.write_items_context(layout, projection) {
+                let derives = derives
+                    .get(definition.name()?)
+                    .map(|derives| derives.iter().cloned().collect::<Vec<_>>())
+                    .unwrap_or_default();
+                for (name, kind, tokens) in ty.write_items_context(layout, projection, &derives) {
                     add(&namespace.name, name, kind, tokens);
                 }
             }
@@ -563,25 +621,32 @@ impl<'a> Win32Items<'a> {
             }
             for (entity, members) in &namespace.interfaces {
                 let definition = self.database.definition(*entity).unwrap();
+                if layout == Layout::Package && projection.is_sys() {
+                    continue;
+                }
                 if !projection.is_sys()
                     && native::is_core_projection(&namespace.name, definition.name()?)
                 {
                     continue;
                 }
+                let interface = NativeInterface::lower(
+                    self.database,
+                    definition,
+                    &self.catalogs.interface_bases,
+                )?;
+                let base_selected = interface.base_name().is_some_and(|(namespace, name)| {
+                    implementable_interfaces.contains(&(namespace.to_string(), name.to_string()))
+                });
                 add(
                     &namespace.name,
                     definition.name()?,
                     1,
-                    NativeInterface::lower(
-                        self.database,
-                        definition,
-                        &self.catalogs.interface_bases,
-                    )?
-                    .write_context(
+                    interface.write_context(
                         layout,
                         projection,
                         members,
                         self.selection.implements(*entity),
+                        base_selected,
                     )?,
                 );
             }
@@ -717,7 +782,8 @@ mod tests {
         let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
         let catalogs = Arc::new(Win32Catalogs::new(&database).unwrap());
         let selection =
-            Win32Selection::new_with_catalogs(&database, catalogs.clone(), None, None).unwrap();
+            Win32Selection::new_with_catalogs(&database, catalogs.clone(), None, None, false)
+                .unwrap();
         let items = Win32Items {
             database: &database,
             catalogs: &catalogs,
@@ -827,7 +893,8 @@ mod tests {
         let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
         let catalogs = Arc::new(Win32Catalogs::new(&database).unwrap());
         let selection =
-            Win32Selection::new_with_catalogs(&database, catalogs.clone(), None, None).unwrap();
+            Win32Selection::new_with_catalogs(&database, catalogs.clone(), None, None, false)
+                .unwrap();
         let items = Win32Items {
             database: &database,
             catalogs: &catalogs,

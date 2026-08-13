@@ -49,6 +49,14 @@ impl Function {
 
     pub(super) fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
         let architectures = tokens::architectures(self.architectures);
+        let cfg = tokens::feature_cfg(
+            &self.namespace,
+            layout,
+            self.signature
+                .package_dependencies()
+                .iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        );
         let module = &self.module;
         let abi = self.abi;
         let symbol = self.import_name.as_ref().map(|name| quote! { #name });
@@ -79,18 +87,21 @@ impl Function {
                 )
             {
                 return quote! {
+                    #cfg
                     #architectures
                     #wrapper
                     #pointer_alias
                 };
             }
             quote! {
+                #cfg
                 #architectures
                 windows_core::link!(#module #abi #symbol fn #name(#parameters #variadic) #result);
                 #pointer_alias
             }
         } else {
             quote! {
+                #cfg
                 #architectures
                 windows_link::link!(#module #abi #symbol fn #name(#parameters #variadic) #result);
                 #pointer_alias

@@ -49,16 +49,29 @@ impl Delegate {
 
     pub(super) fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
         let architectures = tokens::architectures(self.architectures);
+        let cfg = tokens::feature_cfg(
+            &self.namespace,
+            layout,
+            self.signature
+                .package_dependencies()
+                .iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        );
         let name = tokens::ident(&self.name);
         let abi = self.abi;
-        let parameters =
+        let parameters = if projection.is_sys() {
             self.signature
-                .write_parameters_projection(&self.namespace, layout, projection);
+                .write_parameters_projection(&self.namespace, layout, projection)
+        } else {
+            self.signature
+                .write_delegate_parameters_projection(&self.namespace, layout, projection)
+        };
         let result = self
             .signature
             .write_result_projection(&self.namespace, layout, projection);
         let ty = quote! { Option<unsafe extern #abi fn(#parameters) #result> };
         quote! {
+            #cfg
             #architectures
             pub type #name = #ty;
         }

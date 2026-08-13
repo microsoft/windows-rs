@@ -28,6 +28,8 @@ struct Alias {
     namespace: String,
     name: String,
     ty: native::Type,
+    wrapper: bool,
+    dependencies: BTreeSet<(String, String)>,
 }
 
 struct Enum {
@@ -36,6 +38,7 @@ struct Enum {
     ty: native::Type,
     values: Vec<(String, ConstantValue)>,
     scoped: bool,
+    dependencies: BTreeSet<(String, String)>,
 }
 
 struct Struct {
@@ -48,6 +51,16 @@ struct Struct {
     packing: Option<u16>,
     default: native_default::Policy,
     traits: native::TraitSupport,
+    dependencies: BTreeSet<(String, String)>,
+    bitfields: Vec<Bitfield>,
+}
+
+struct Bitfield {
+    field: String,
+    name: String,
+    offset: u32,
+    width: u32,
+    ty: native::Type,
 }
 
 impl NativeType {
@@ -112,17 +125,20 @@ impl NativeType {
                         });
                     }
                 }
+                let ty = ty.ok_or(Error::InvalidType {
+                    name: full_name,
+                    message: "native enum has no backing field",
+                })?;
+                let dependencies = ty.package_dependencies(database)?;
                 Ok(Self {
                     architectures,
                     kind: Kind::Enum(Enum {
                         namespace: namespace.to_string(),
                         name,
-                        ty: ty.ok_or(Error::InvalidType {
-                            name: full_name,
-                            message: "native enum has no backing field",
-                        })?,
+                        ty,
                         values,
                         scoped: definition.has_attribute("ScopedEnumAttribute")?,
+                        dependencies,
                     }),
                 })
             }
@@ -145,18 +161,48 @@ impl NativeType {
                     .map(|(metadata, projected, _)| (metadata.as_str(), projected.as_str()))
                     .collect::<Vec<_>>();
                 let mut fields = Vec::new();
+                let mut bitfields = Vec::new();
                 for field in definition.fields()? {
                     if !field.is_literal()? {
-                        fields.push((
-                            field.name()?.to_string(),
-                            native::Type::lower_with_nested(
-                                database,
-                                field.entity().file(),
-                                &full_name,
-                                field.signature()?,
-                                &substitutions,
-                            )?,
-                        ));
+                        let field_name = field.name()?.to_string();
+                        let field_ty = native::Type::lower_with_nested(
+                            database,
+                            field.entity().file(),
+                            &full_name,
+                            field.signature()?,
+                            &substitutions,
+                        )?;
+                        for attribute in field.attributes()? {
+                            if attribute.name()? != Some("NativeBitfieldAttribute") {
+                                continue;
+                            }
+                            let arguments = attribute.arguments(&())?;
+                            let [
+                                AttributeArgument::Fixed {
+                                    value: AttributeValue::String(name),
+                                    ..
+                                },
+                                AttributeArgument::Fixed { value: offset, .. },
+                                AttributeArgument::Fixed { value: width, .. },
+                            ] = arguments.as_slice()
+                            else {
+                                continue;
+                            };
+                            let Some(offset) = attribute_u32(offset) else {
+                                continue;
+                            };
+                            let Some(width) = attribute_u32(width) else {
+                                continue;
+                            };
+                            bitfields.push(Bitfield {
+                                field: field_name.clone(),
+                                name: name.clone(),
+                                offset,
+                                width,
+                                ty: field_ty.clone(),
+                            });
+                        }
+                        fields.push((field_name, field_ty));
                     }
                 }
                 let nested = nested_names
@@ -172,38 +218,52 @@ impl NativeType {
                         )
                     })
                     .collect::<Result<Vec<_>, Error>>()?;
+                let native_typedef = definition.has_attribute("NativeTypedefAttribute")?;
                 if let [(field, ty)] = fields.as_slice()
                     && field == "Value"
-                    && ty.is_handle_primitive()
+                    && !native_typedef
                 {
                     let ty = ty.clone().normalize_alias(namespace, &name);
+                    let dependencies = ty.package_dependencies(database)?;
                     return Ok(Self {
                         architectures,
                         kind: Kind::Alias(Alias {
                             namespace: namespace.to_string(),
                             name,
                             ty,
+                            wrapper: true,
+                            dependencies,
                         }),
                     });
                 }
-                if definition.has_attribute("NativeTypedefAttribute")? {
+                if native_typedef {
                     if !nested.is_empty() {
                         return Err(Error::InvalidType {
                             name: full_name,
                             message: "native typedef has nested definitions",
                         });
                     }
-                    let [(_, ty)] = fields.try_into().map_err(|_| Error::InvalidType {
+                    let [(field, ty)] = fields.try_into().map_err(|_| Error::InvalidType {
                         name: full_name,
                         message: "native typedef does not have one field",
                     })?;
+                    let wrapper = field == "Value"
+                        && ty.is_primitive(database)?
+                        && !matches!(
+                            &ty,
+                            native::Type::Pointer { element, .. }
+                                if element.as_ref() != &native::Type::Void
+                        );
                     let ty = ty.normalize_alias(namespace, &name);
+                    let dependencies = ty.package_dependencies(database)?;
                     return Ok(Self {
                         architectures,
                         kind: Kind::Alias(Alias {
                             namespace: namespace.to_string(),
                             name,
                             ty,
+                            wrapper,
+                            dependencies,
                         }),
                     });
                 }
@@ -232,21 +292,58 @@ impl NativeType {
                         message: "native type has both alignment and packing",
                     });
                 }
-                let traits = if definition
+                let union = definition
                     .type_attributes()?
-                    .contains(TypeAttributes::EXPLICIT_LAYOUT)
-                    || align.is_some()
-                    || packing.is_some()
+                    .contains(TypeAttributes::EXPLICIT_LAYOUT);
+                let traits = if !union
+                    && (definition
+                        .type_attributes()?
+                        .contains(TypeAttributes::EXPLICIT_LAYOUT)
+                        || align.is_some()
+                        || packing.is_some())
                 {
                     native::TraitSupport::NONE
                 } else {
                     let mut traits = native::TraitSupport::ALL;
                     let mut stack = BTreeSet::new();
                     for (_, ty) in &fields {
-                        traits.combine(ty.projected_traits(database, &mut stack)?);
+                        let nested_traits = match ty {
+                            native::Type::Named {
+                                namespace: target_namespace,
+                                name: target_name,
+                            } if target_namespace.is_empty() || target_namespace == namespace => {
+                                nested.iter().find_map(|value| {
+                                    let Kind::Struct(value) = &value.kind else {
+                                        return None;
+                                    };
+                                    (value.name == *target_name).then_some(if value.union {
+                                        native::TraitSupport {
+                                            copy: true,
+                                            ..native::TraitSupport::NONE
+                                        }
+                                    } else {
+                                        value.traits
+                                    })
+                                })
+                            }
+                            _ => None,
+                        };
+                        if let Some(nested_traits) = nested_traits {
+                            traits.combine(nested_traits);
+                        } else {
+                            traits.combine(ty.projected_traits(database, &mut stack)?);
+                        }
                     }
                     traits
                 };
+                let mut dependencies = BTreeSet::new();
+                for (_, ty) in &fields {
+                    dependencies.extend(ty.package_dependencies(database)?);
+                }
+                for nested in &nested {
+                    let (_, nested_dependencies) = nested.dependencies();
+                    dependencies.extend(nested_dependencies);
+                }
                 Ok(Self {
                     architectures,
                     kind: Kind::Struct(Struct {
@@ -254,13 +351,13 @@ impl NativeType {
                         name,
                         fields,
                         nested,
-                        union: definition
-                            .type_attributes()?
-                            .contains(TypeAttributes::EXPLICIT_LAYOUT),
+                        union,
                         align,
                         packing,
                         default,
                         traits,
+                        dependencies,
+                        bitfields,
                     }),
                 })
             }
@@ -297,25 +394,36 @@ impl NativeType {
 
     fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
         let items = self
-            .write_items_context(layout, projection)
+            .write_items_context(layout, projection, &[])
             .into_iter()
             .map(|(_, _, tokens)| tokens);
         quote! { #(#items)* }
     }
 
-    pub(super) fn write_sys_items_context(&self, layout: Layout) -> Vec<(&str, u8, TokenStream)> {
+    pub(super) fn write_sys_items_context(
+        &self,
+        layout: Layout,
+        custom_derives: &[String],
+    ) -> Vec<(&str, u8, TokenStream)> {
         let architectures = tokens::architectures(self.architectures);
+        let cfg = self.cfg(layout);
         match &self.kind {
             Kind::Alias(value) => {
                 let tokens = value.write(layout, Projection::Sys);
-                vec![(&value.name, 1, quote! { #architectures #tokens })]
+                vec![(&value.name, 1, quote! { #cfg #architectures #tokens })]
             }
-            Kind::Enum(value) => value.write_items(&architectures, layout, Projection::Sys),
+            Kind::Enum(value) => value.write_items(&architectures, &cfg, layout, Projection::Sys),
             Kind::Struct(value) => {
                 vec![(
                     &value.name,
                     1,
-                    value.write(&architectures, layout, Projection::Sys),
+                    value.write(
+                        &architectures,
+                        &cfg,
+                        layout,
+                        Projection::Sys,
+                        custom_derives,
+                    ),
                 )]
             }
         }
@@ -325,8 +433,17 @@ impl NativeType {
         &self,
         layout: Layout,
         projection: Projection,
+        custom_derives: &[String],
     ) -> Vec<(&str, u8, TokenStream)> {
-        if !projection.is_sys() {
+        let result: Vec<(&str, u8, TokenStream)> = if !projection.is_sys()
+            || (layout == Layout::Package
+                && match &self.kind {
+                    Kind::Alias(value) => native::is_core_projection(&value.namespace, &value.name),
+                    Kind::Enum(value) => native::is_core_projection(&value.namespace, &value.name),
+                    Kind::Struct(value) => {
+                        native::is_core_projection(&value.namespace, &value.name)
+                    }
+                }) {
             let (namespace, name) = match &self.kind {
                 Kind::Alias(value) => (&value.namespace, &value.name),
                 Kind::Enum(value) => (&value.namespace, &value.name),
@@ -336,22 +453,59 @@ impl NativeType {
                 return Vec::new();
             }
             let architectures = tokens::architectures(self.architectures);
+            let cfg = self.cfg(layout);
             if let Kind::Struct(value) = &self.kind {
-                return vec![(
-                    &value.name,
+                vec![(
+                    value.name.as_str(),
                     1,
-                    value.write(&architectures, layout, projection),
-                )];
-            }
-            if let Kind::Alias(value) = &self.kind {
+                    value.write(&architectures, &cfg, layout, projection, custom_derives),
+                )]
+            } else if let Kind::Alias(value) = &self.kind {
                 let tokens = value.write(layout, projection);
-                return vec![(&value.name, 1, quote! { #architectures #tokens })];
+                vec![(
+                    value.name.as_str(),
+                    1,
+                    quote! { #cfg #architectures #tokens },
+                )]
+            } else if let Kind::Enum(value) = &self.kind {
+                value.write_items(&architectures, &cfg, layout, projection)
+            } else {
+                unreachable!()
             }
-            if let Kind::Enum(value) = &self.kind {
-                return value.write_items(&architectures, layout, projection);
+        } else {
+            self.write_sys_items_context(layout, custom_derives)
+        };
+        result
+    }
+
+    fn cfg(&self, layout: Layout) -> TokenStream {
+        let (namespace, dependencies) = self.dependencies();
+        tokens::feature_cfg(
+            namespace,
+            layout,
+            dependencies
+                .iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        )
+    }
+
+    fn dependencies(&self) -> (&str, BTreeSet<(String, String)>) {
+        let mut dependencies = BTreeSet::new();
+        let namespace = match &self.kind {
+            Kind::Alias(value) => {
+                dependencies.extend(value.dependencies.iter().cloned());
+                value.namespace.as_str()
             }
-        }
-        self.write_sys_items_context(layout)
+            Kind::Enum(value) => {
+                dependencies.extend(value.dependencies.iter().cloned());
+                value.namespace.as_str()
+            }
+            Kind::Struct(value) => {
+                dependencies.extend(value.dependencies.iter().cloned());
+                value.namespace.as_str()
+            }
+        };
+        (namespace, dependencies)
     }
 }
 
@@ -361,7 +515,15 @@ impl Alias {
         let ty = self
             .ty
             .write_projection(&self.namespace, layout, projection);
-        quote! { pub type #name = #ty; }
+        if self.wrapper && matches!(projection, Projection::Default) {
+            quote! {
+                #[repr(transparent)]
+                #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+                pub struct #name(pub #ty);
+            }
+        } else {
+            quote! { pub type #name = #ty; }
+        }
     }
 }
 
@@ -369,6 +531,7 @@ impl Enum {
     fn write_items(
         &self,
         architectures: &TokenStream,
+        cfg: &TokenStream,
         layout: Layout,
         projection: Projection,
     ) -> Vec<(&str, u8, TokenStream)> {
@@ -388,8 +551,10 @@ impl Enum {
                 quote! {
                     #architectures
                     #[repr(transparent)]
+                    #cfg
                     #[derive(Clone, Copy)]
                     pub struct #name(pub #ty);
+                    #cfg
                     #architectures
                     impl #name {
                         #(#values)*
@@ -400,7 +565,7 @@ impl Enum {
         let mut result = vec![(
             self.name.as_str(),
             1,
-            quote! { #architectures pub type #name = #ty; },
+            quote! { #cfg #architectures pub type #name = #ty; },
         )];
         result.extend(self.values.iter().map(|(value_name, value)| {
             let ident = tokens::ident(value_name);
@@ -408,7 +573,7 @@ impl Enum {
             (
                 value_name.as_str(),
                 2,
-                quote! { #architectures pub const #ident: #name = #value; },
+                quote! { #cfg #architectures pub const #ident: #name = #value; },
             )
         }));
         result
@@ -419,8 +584,10 @@ impl Struct {
     fn write(
         &self,
         architectures: &TokenStream,
+        cfg: &TokenStream,
         layout: Layout,
         projection: Projection,
+        custom_derives: &[String],
     ) -> TokenStream {
         let name = tokens::ident(&self.name);
         if self.fields.is_empty() {
@@ -433,10 +600,12 @@ impl Struct {
                 return quote! {
                     #repr
                     #architectures
+                    #cfg
                     #[derive(Clone, Copy)]
                     pub union #name {
                         pub value: u8,
                     }
+                    #cfg
                     #architectures
                     impl Default for #name {
                         fn default() -> Self {
@@ -450,10 +619,12 @@ impl Struct {
                 .nested
                 .iter()
                 .map(|nested| nested.write_context(layout, projection));
-            let (derive, default) = self.default_tokens(&name, architectures, projection);
+            let (derive, default) =
+                self.default_tokens(&name, architectures, cfg, projection, custom_derives);
             return quote! {
                 #repr
                 #architectures
+                #cfg
                 #derive
                 pub struct #name(pub u8);
                 #default
@@ -462,7 +633,8 @@ impl Struct {
         }
         let fields = self.fields.iter().map(|(field_name, ty)| {
             let field_name = tokens::ident(field_name);
-            let ty = ty.write_field_projection(&self.namespace, layout, projection);
+            let ty =
+                ty.write_field_projection_owner(&self.namespace, &self.name, layout, projection);
             quote! { pub #field_name: #ty, }
         });
         let repr = self.repr();
@@ -474,10 +646,12 @@ impl Struct {
             quote! {
                 #repr
                 #architectures
+                #cfg
                 #[derive(Clone, Copy)]
                 pub union #name {
                     #(#fields)*
                 }
+                #cfg
                 #architectures
                 impl Default for #name {
                     fn default() -> Self {
@@ -487,16 +661,38 @@ impl Struct {
                 #(#nested)*
             }
         } else {
-            let (derive, default) = self.default_tokens(&name, architectures, projection);
+            let (derive, default) =
+                self.default_tokens(&name, architectures, cfg, projection, custom_derives);
+            let bitfields = self.write_bitfields(&name, cfg, projection);
             quote! {
                 #repr
                 #architectures
+                #cfg
                 #derive
                 pub struct #name {
                     #(#fields)*
                 }
+                #bitfields
                 #default
                 #(#nested)*
+            }
+        }
+    }
+
+    fn write_bitfields(
+        &self,
+        name: &TokenStream,
+        cfg: &TokenStream,
+        projection: Projection,
+    ) -> TokenStream {
+        if projection.is_sys() || self.bitfields.is_empty() {
+            return quote! {};
+        }
+        let accessors = self.bitfields.iter().filter_map(Bitfield::write);
+        quote! {
+            #cfg
+            impl #name {
+                #(#accessors)*
             }
         }
     }
@@ -517,8 +713,14 @@ impl Struct {
         &self,
         name: &TokenStream,
         architectures: &TokenStream,
+        cfg: &TokenStream,
         projection: Projection,
+        custom_derives: &[String],
     ) -> (TokenStream, TokenStream) {
+        let custom_derives = custom_derives
+            .iter()
+            .map(|derive| tokens::ident(derive))
+            .collect::<Vec<_>>();
         if !projection.is_sys() && self.align.is_none() && self.packing.is_none() {
             let copy = self.traits.copy.then(|| quote! { , Copy });
             let debug = self.traits.debug.then(|| quote! { , Debug });
@@ -528,6 +730,7 @@ impl Struct {
                 (self.default == native_default::Policy::Derive).then(|| quote! { , Default });
             let default = (self.default != native_default::Policy::Derive).then(|| {
                 quote! {
+                    #cfg
                     #architectures
                     impl Default for #name {
                         fn default() -> Self {
@@ -537,14 +740,17 @@ impl Struct {
                 }
             });
             return (
-                quote! { #[derive(Clone #copy #debug #derive_default #eq #partial_eq)] },
+                quote! {
+                    #[derive(Clone #copy #debug #(, #custom_derives)* #derive_default #eq #partial_eq)]
+                },
                 default.unwrap_or_default(),
             );
         }
         if self.default != native_default::Policy::Derive {
             (
-                quote! { #[derive(Clone, Copy)] },
+                quote! { #[derive(Clone, Copy #(, #custom_derives)*)] },
                 quote! {
+                    #cfg
                     #architectures
                     impl Default for #name {
                         fn default() -> Self {
@@ -554,8 +760,126 @@ impl Struct {
                 },
             )
         } else {
-            (quote! { #[derive(Clone, Copy, Default)] }, quote! {})
+            (
+                quote! { #[derive(Clone, Copy #(, #custom_derives)*, Default)] },
+                quote! {},
+            )
         }
+    }
+}
+
+impl Bitfield {
+    fn write(&self) -> Option<TokenStream> {
+        let (ty, unsigned, bits, signed) = match self.ty {
+            native::Type::U8 => (quote! { u8 }, quote! { u8 }, 8, false),
+            native::Type::I8 => (quote! { i8 }, quote! { u8 }, 8, true),
+            native::Type::U16 => (quote! { u16 }, quote! { u16 }, 16, false),
+            native::Type::I16 => (quote! { i16 }, quote! { u16 }, 16, true),
+            native::Type::U32 => (quote! { u32 }, quote! { u32 }, 32, false),
+            native::Type::I32 => (quote! { i32 }, quote! { u32 }, 32, true),
+            native::Type::U64 => (quote! { u64 }, quote! { u64 }, 64, false),
+            native::Type::I64 => (quote! { i64 }, quote! { u64 }, 64, true),
+            _ => return None,
+        };
+        let field = tokens::ident(&self.field);
+        let getter = tokens::ident(&self.name);
+        let setter = tokens::ident(&format!("set_{}", self.name));
+        let offset = self.offset;
+        let width = self.width;
+        if width == 1 {
+            let get = if offset == 0 {
+                quote! { self.#field & 1 != 0 }
+            } else {
+                let offset = Literal::u32_unsuffixed(offset);
+                quote! { (self.#field >> #offset) & 1 != 0 }
+            };
+            let (clear, place) = if offset == 0 {
+                (quote! { !1 }, quote! { value as #ty })
+            } else {
+                let offset = Literal::u32_unsuffixed(offset);
+                (
+                    quote! { !(1 << #offset) },
+                    quote! { (value as #ty) << #offset },
+                )
+            };
+            return Some(quote! {
+                pub fn #getter(&self) -> bool {
+                    #get
+                }
+                pub fn #setter(&mut self, value: bool) {
+                    self.#field = (self.#field & #clear) | (#place);
+                }
+            });
+        }
+        let high = bits - offset - width;
+        let low = bits - width;
+        let get = match (high, low) {
+            (0, 0) => quote! { self.#field },
+            (0, low) => {
+                let low = Literal::u32_unsuffixed(low);
+                quote! { self.#field >> #low }
+            }
+            (high, low) => {
+                let high = Literal::u32_unsuffixed(high);
+                let low = Literal::u32_unsuffixed(low);
+                quote! { (self.#field << #high) >> #low }
+            }
+        };
+        let mask_value = if width >= 64 {
+            u64::MAX
+        } else {
+            (1u64 << width) - 1
+        };
+        let mask = Literal::u64_unsuffixed(mask_value);
+        let clear = if offset == 0 {
+            quote! { !#mask }
+        } else {
+            let offset = Literal::u32_unsuffixed(offset);
+            quote! { !(#mask << #offset) }
+        };
+        let set = if signed {
+            let place = if offset == 0 {
+                quote! { value as #unsigned & #mask }
+            } else {
+                let offset = Literal::u32_unsuffixed(offset);
+                quote! { (value as #unsigned & #mask) << #offset }
+            };
+            quote! {
+                self.#field = ((self.#field as #unsigned & #clear) | (#place)) as #ty;
+            }
+        } else {
+            let place = if offset == 0 {
+                quote! { value & #mask }
+            } else {
+                let offset = Literal::u32_unsuffixed(offset);
+                quote! { (value & #mask) << #offset }
+            };
+            quote! {
+                self.#field = (self.#field & #clear) | (#place);
+            }
+        };
+        Some(quote! {
+            pub fn #getter(&self) -> #ty {
+                #get
+            }
+            pub fn #setter(&mut self, value: #ty) {
+                #set
+            }
+        })
+    }
+}
+
+fn attribute_u32(value: &AttributeValue) -> Option<u32> {
+    match value {
+        AttributeValue::I8(value) => u32::try_from(*value).ok(),
+        AttributeValue::U8(value) => Some((*value).into()),
+        AttributeValue::I16(value) => u32::try_from(*value).ok(),
+        AttributeValue::U16(value) => Some((*value).into()),
+        AttributeValue::I32(value) => u32::try_from(*value).ok(),
+        AttributeValue::U32(value) => Some(*value),
+        AttributeValue::I64(value) => u32::try_from(*value).ok(),
+        AttributeValue::U64(value) => u32::try_from(*value).ok(),
+        _ => None,
     }
 }
 

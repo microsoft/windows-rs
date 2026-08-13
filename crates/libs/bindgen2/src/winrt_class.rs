@@ -81,7 +81,12 @@ impl Class {
         })
     }
 
-    pub(super) fn dependencies(&self, members: &MemberSelection) -> BTreeSet<(String, String)> {
+    pub(super) fn dependencies(
+        &self,
+        members: &MemberSelection,
+        implementations: Option<&Filter>,
+        projection: Projection,
+    ) -> BTreeSet<(String, String)> {
         let mut dependencies = BTreeSet::new();
         if self.async_default {
             for argument in &self.default_interface.as_ref().unwrap().arguments {
@@ -89,11 +94,39 @@ impl Class {
             }
             return dependencies;
         }
+        let implemented = self.has_implemented_interface(implementations);
         for interface in &self.interfaces {
+            let implementation_factory =
+                projection.is_minimal() && interface.factory && interface.composable && implemented;
+            let default_factory = projection.is_minimal()
+                && interface.factory
+                && interface.composable
+                && !implemented
+                && matches!(
+                    members,
+                    MemberSelection::Names(names)
+                        if !names.is_empty()
+                            && !names.iter().any(|name| name.starts_with("CreateInstance"))
+                );
+            let primary_constructor = interface
+                .methods
+                .iter()
+                .find(|method| method.name == "CreateInstance")
+                .or_else(|| {
+                    interface
+                        .methods
+                        .iter()
+                        .find(|method| method.name.starts_with("CreateInstance"))
+                })
+                .map(|method| method.name.as_str());
             let selected_methods = interface
                 .methods
                 .iter()
-                .filter(|method| method.selected(members))
+                .filter(|method| {
+                    method.selected_factory(members)
+                        || (implementation_factory && method.name == "CreateInstance")
+                        || (default_factory && primary_constructor == Some(method.name.as_str()))
+                })
                 .collect::<Vec<_>>();
             if !interface.default
                 && !matches!(members, MemberSelection::All)
@@ -120,18 +153,72 @@ impl Class {
     pub(super) fn relationship_members(
         &self,
         members: &MemberSelection,
+        implementations: Option<&Filter>,
+        projection: Projection,
     ) -> BTreeMap<(String, String), MemberSelection> {
         let mut result = BTreeMap::new();
+        let implemented = self.has_implemented_interface(implementations);
         for interface in &self.interfaces {
+            if projection.is_minimal()
+                && interface.factory
+                && interface.composable
+                && self.has_implemented_interface(implementations)
+            {
+                result.insert(
+                    (interface.namespace.clone(), interface.name.clone()),
+                    MemberSelection::All,
+                );
+                continue;
+            }
+            if projection.is_minimal()
+                && interface.factory
+                && interface.composable
+                && !implemented
+                && matches!(
+                    members,
+                    MemberSelection::Names(names)
+                        if !names.is_empty()
+                            && !names.iter().any(|name| name.starts_with("CreateInstance"))
+                )
+                && let Some(method) = interface
+                    .methods
+                    .iter()
+                    .find(|method| method.name == "CreateInstance")
+                    .or_else(|| {
+                        interface
+                            .methods
+                            .iter()
+                            .find(|method| method.name.starts_with("CreateInstance"))
+                    })
+            {
+                result.insert(
+                    (interface.namespace.clone(), interface.name.clone()),
+                    MemberSelection::Names(BTreeSet::from([method.name.clone()])),
+                );
+                continue;
+            }
             let selection = match members {
                 MemberSelection::All => MemberSelection::All,
                 MemberSelection::Names(names)
                     if interface
                         .methods
                         .iter()
-                        .any(|method| method.selected(members)) =>
+                        .any(|method| method.selected_factory(members)) =>
                 {
-                    MemberSelection::Names(names.clone())
+                    let mut names = names.clone();
+                    if interface.composable && names.contains("CreateInstance") {
+                        names.extend(
+                            interface
+                                .methods
+                                .iter()
+                                .filter(|method| {
+                                    method.name.starts_with("CreateInstance")
+                                        || method.context_name.starts_with("CreateInstance")
+                                })
+                                .map(|method| method.name.clone()),
+                        );
+                    }
+                    MemberSelection::Names(names)
                 }
                 MemberSelection::Names(_) | MemberSelection::Shell if interface.default => {
                     MemberSelection::Shell
@@ -151,6 +238,15 @@ impl Class {
         result
     }
 
+    fn has_implemented_interface(&self, implementations: Option<&Filter>) -> bool {
+        implementations.is_some_and(|implementations| {
+            self.interfaces.iter().any(|interface| {
+                !interface.factory
+                    && implementations.includes(&interface.namespace, &interface.name)
+            })
+        })
+    }
+
     pub(super) fn write(
         &self,
         values: &Values,
@@ -158,6 +254,8 @@ impl Class {
         layout: Layout,
         projection: Projection,
         members: &MemberSelection,
+        implementations: Option<&BTreeSet<Entity<TypeDef>>>,
+        member_selections: &BTreeMap<Entity<TypeDef>, MemberSelection>,
     ) -> Result<TokenStream, Error> {
         let name = tokens::ident(&self.name);
         let runtime_name = Literal::string(&format!("{}.{}", self.namespace, self.name));
@@ -185,8 +283,17 @@ impl Class {
                 Some(&self.name),
             );
             let mut names = BTreeMap::new();
-            let factories =
-                self.write_factories(namespace, layout, &name, &context, &mut names, members)?;
+            let factories = self.write_factories(
+                namespace,
+                layout,
+                projection,
+                &name,
+                &context,
+                &mut names,
+                members,
+                implementations,
+                member_selections,
+            )?;
             let impl_block = (!factories.is_empty()).then(|| {
                 quote! {
                     impl #name {
@@ -210,11 +317,9 @@ impl Class {
             .filter(|interface| !interface.default)
             .filter(|interface| !interface.exclusive)
             .filter(|interface| {
-                matches!(members, MemberSelection::All)
-                    || interface
-                        .methods
-                        .iter()
-                        .any(|method| method.selected(members))
+                member_selections
+                    .get(&interface.entity)
+                    .is_some_and(|members| !matches!(members, MemberSelection::Shell))
             })
             .map(|interface| interface.write_name(namespace, layout))
             .chain(
@@ -229,11 +334,19 @@ impl Class {
             }
         });
         let constructor = (self.default_constructor
-            && !projection.is_minimal()
-            && !matches!(members, MemberSelection::Shell))
+            && match members {
+                MemberSelection::All => true,
+                MemberSelection::Names(names) => names.contains("CreateInstance"),
+                MemberSelection::Shell => false,
+            })
         .then(|| {
+            let visibility = if projection.is_minimal() {
+                quote! { pub(crate) }
+            } else {
+                quote! { pub }
+            };
             quote! {
-                pub fn new() -> windows_core::Result<Self> {
+                #visibility fn new() -> windows_core::Result<Self> {
                     Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
                 }
                 fn IActivationFactory<
@@ -285,8 +398,17 @@ impl Class {
                 });
             }
         }
-        let factories =
-            self.write_factories(namespace, layout, &name, &context, &mut names, members)?;
+        let factories = self.write_factories(
+            namespace,
+            layout,
+            projection,
+            &name,
+            &context,
+            &mut names,
+            members,
+            implementations,
+            member_selections,
+        )?;
         let deref = projection.is_minimal().then(|| {
             quote! {
                 impl core::ops::Deref for #name {
@@ -341,25 +463,78 @@ impl Class {
         &self,
         namespace: &str,
         layout: Layout,
+        projection: Projection,
         name: &TokenStream,
         context: &winrt_delegate::MethodContext<'_>,
         names: &mut BTreeMap<String, u32>,
         members: &MemberSelection,
+        implementations: Option<&BTreeSet<Entity<TypeDef>>>,
+        member_selections: &BTreeMap<Entity<TypeDef>, MemberSelection>,
     ) -> Result<Vec<TokenStream>, Error> {
+        let implemented = implementations.is_some_and(|implementations| {
+            self.interfaces
+                .iter()
+                .any(|interface| implementations.contains(&interface.entity))
+        });
         let mut factories = Vec::new();
+        let mut helpers = Vec::new();
         for interface in self.interfaces.iter().filter(|interface| {
+            let interface_members = member_selections
+                .get(&interface.entity)
+                .unwrap_or(&MemberSelection::Shell);
+            let default_composable_constructor = projection.is_minimal()
+                && !implemented
+                && interface.composable
+                && matches!(
+                    members,
+                    MemberSelection::Names(names)
+                        if !names.is_empty()
+                            && !names.iter().any(|name| name.starts_with("CreateInstance"))
+                )
+                && interface
+                    .methods
+                    .iter()
+                    .any(|method| method.name.starts_with("CreateInstance"));
             interface.factory
                 && (matches!(members, MemberSelection::All)
-                    || interface
-                        .methods
-                        .iter()
-                        .any(|method| method.selected(members)))
+                    || interface.methods.iter().any(|method| {
+                        method.selected_factory(members) || method.selected(interface_members)
+                    })
+                    || default_composable_constructor
+                    || (projection.is_minimal() && implemented && interface.composable))
         }) {
+            let interface_members = member_selections
+                .get(&interface.entity)
+                .unwrap_or(&MemberSelection::Shell);
             let interface_type = interface.write_name(namespace, layout)?;
             let factory_name = tokens::ident(&interface.name);
+            let primary_constructor = interface
+                .methods
+                .iter()
+                .find(|method| method.name == "CreateInstance")
+                .or_else(|| {
+                    interface
+                        .methods
+                        .iter()
+                        .find(|method| method.name.starts_with("CreateInstance"))
+                })
+                .map(|method| method.name.as_str());
             let mut emitted = false;
             for method in &interface.methods {
-                if !method.selected(members) {
+                if !method.is_public() {
+                    continue;
+                }
+                let selected =
+                    method.selected_factory(members) || method.selected(interface_members);
+                let implementation_constructor = projection.is_minimal()
+                    && implemented
+                    && interface.composable
+                    && method.name == "CreateInstance";
+                let default_constructor = projection.is_minimal()
+                    && !implemented
+                    && interface.composable
+                    && primary_constructor == Some(method.name.as_str());
+                if !selected && !implementation_constructor && !default_constructor {
                     continue;
                 }
                 emitted = true;
@@ -377,22 +552,28 @@ impl Class {
                         &public_name,
                         &method.name,
                         &interface.name,
+                        (selected || default_constructor)
+                            && (!projection.is_minimal() || !implemented),
+                        !projection.is_minimal() || implementation_constructor,
                     )?);
                 } else {
-                    factories.push(method.method.write_static_method(
-                        context,
-                        &public_name,
-                        &method.name,
-                        &interface.name,
-                        &self.namespace,
-                        &self.name,
-                    )?);
+                    factories.push(
+                        method
+                            .write_static(
+                                context,
+                                &public_name,
+                                &interface.name,
+                                &self.namespace,
+                                &self.name,
+                            )?
+                            .unwrap(),
+                    );
                 }
             }
             if !emitted {
                 continue;
             }
-            factories.push(quote! {
+            helpers.push(quote! {
                 fn #factory_name<
                     R,
                     F: FnOnce(&#interface_type) -> windows_core::Result<R>
@@ -403,6 +584,7 @@ impl Class {
                 }
             });
         }
+        factories.extend(helpers);
         Ok(factories)
     }
 }
@@ -448,6 +630,22 @@ impl ClassInterface {
     }
 
     fn write_name(&self, namespace: &str, layout: Layout) -> Result<TokenStream, Error> {
+        if namespace != self.namespace
+            && let Some(crate_name) = external::winrt_crate(&self.namespace, &self.name)
+        {
+            let crate_name = tokens::ident(crate_name);
+            let name = tokens::ident(&self.name);
+            let arguments = self
+                .arguments
+                .iter()
+                .map(|argument| argument.write_name(namespace, layout, &[]))
+                .collect::<Result<Vec<_>, Error>>()?;
+            return Ok(if arguments.is_empty() {
+                quote! { #crate_name::#name }
+            } else {
+                quote! { #crate_name::#name<#(#arguments),*> }
+            });
+        }
         let path = tokens::namespace(namespace, &self.namespace, layout);
         let name = tokens::ident(&self.name);
         let arguments = self

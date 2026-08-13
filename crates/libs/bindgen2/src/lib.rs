@@ -38,7 +38,7 @@ mod winrt_collection;
 mod winrt_delegate;
 mod winrt_interface;
 
-pub use build::{Bindgen, builder};
+pub use build::{Bindgen, builder, command_file};
 use enum_model::Enum;
 pub use error::Error;
 pub use filter::Filter;
@@ -73,6 +73,8 @@ pub enum Layout {
     Modules,
     /// Emit one flat list of items.
     Flat,
+    /// Emit one file per metadata namespace for a package crate.
+    Package,
 }
 
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -81,6 +83,7 @@ enum Projection {
     #[default]
     Default,
     Minimal,
+    MinimalPublic,
 }
 
 impl Projection {
@@ -89,7 +92,11 @@ impl Projection {
     }
 
     const fn is_minimal(self) -> bool {
-        matches!(self, Self::Minimal)
+        matches!(self, Self::Minimal | Self::MinimalPublic)
+    }
+
+    const fn has_public_methods(self) -> bool {
+        !matches!(self, Self::Minimal)
     }
 }
 
@@ -99,7 +106,10 @@ pub struct Request {
     filter: Option<Filter>,
     winrt_implementations: Option<Filter>,
     native_implementations: Option<Filter>,
+    derives: BTreeMap<String, BTreeSet<String>>,
+    preserve_field_names: bool,
     implement_all: bool,
+    package: bool,
     projection: Projection,
 }
 
@@ -115,7 +125,10 @@ impl Request {
             filter: Some(filter),
             winrt_implementations: None,
             native_implementations: None,
+            derives: BTreeMap::new(),
+            preserve_field_names: false,
             implement_all: false,
+            package: false,
             projection: Projection::Default,
         }
     }
@@ -125,6 +138,21 @@ impl Request {
         self.winrt_implementations = Some(filter.clone());
         self.native_implementations = Some(filter);
         self.implement_all = false;
+        self
+    }
+
+    /// Preserves WinRT metadata field names instead of converting them to Rust style.
+    pub fn preserve_field_names(mut self) -> Self {
+        self.preserve_field_names = true;
+        self
+    }
+
+    /// Adds a derived trait to a generated native type.
+    pub fn derive(mut self, name: impl Into<String>, derive: impl Into<String>) -> Self {
+        self.derives
+            .entry(name.into())
+            .or_default()
+            .insert(derive.into());
         self
     }
 
@@ -145,6 +173,16 @@ impl Request {
     /// Selects the minimal projection used by focused library crates.
     pub fn minimal(mut self) -> Self {
         self.projection = Projection::Minimal;
+        self
+    }
+
+    fn minimal_public(mut self) -> Self {
+        self.projection = Projection::MinimalPublic;
+        self
+    }
+
+    fn package(mut self) -> Self {
+        self.package = true;
         self
     }
 
@@ -177,8 +215,9 @@ impl MemberSelection {
         }
     }
 
-    const fn emits_implementation(&self, projection: Projection) -> bool {
-        matches!(self, Self::All) || (projection.is_minimal() && matches!(self, Self::Names(_)))
+    fn emits_implementation(&self, projection: Projection) -> bool {
+        let _ = projection;
+        matches!(self, Self::All)
     }
 
     fn merge(&mut self, other: Self) -> bool {
@@ -271,8 +310,11 @@ pub struct Generator {
     shared: Arc<Shared>,
     winrt: Vec<WinrtEntry>,
     winrt_members: BTreeMap<Entity<TypeDef>, MemberSelection>,
+    winrt_explicit_items: BTreeSet<Entity<TypeDef>>,
     winrt_implementations: Option<BTreeSet<Entity<TypeDef>>>,
     win32: win32::Win32Selection,
+    derives: BTreeMap<String, BTreeSet<String>>,
+    preserve_field_names: bool,
     projection: Projection,
 }
 
@@ -324,7 +366,7 @@ impl Metadata {
 impl Generator {
     fn from_shared(shared: Arc<Shared>, request: &Request) -> Result<Self, Error> {
         let filter = request.filter.as_ref();
-        let (winrt, winrt_members) = if let Some(filter) = filter {
+        let (mut winrt, winrt_members) = if let Some(filter) = filter {
             Self::close_winrt(
                 &shared,
                 filter,
@@ -341,11 +383,21 @@ impl Generator {
                 BTreeMap::new(),
             )
         };
+        if request.package {
+            winrt.retain(|entry| {
+                let definition = shared.database.definition(entry.entity).unwrap();
+                !external::package_crate(
+                    definition.namespace().unwrap(),
+                    trim_generic_arity(definition.name().unwrap()),
+                )
+            });
+        }
         let win32 = win32::Win32Selection::new_with_catalogs(
             &shared.database,
             shared.win32_catalogs.clone(),
             filter,
             request.native_implementations.as_ref(),
+            request.package,
         )?;
         let winrt_implementations = if request.implement_all {
             Some(
@@ -388,13 +440,29 @@ impl Generator {
                         .collect()
                 })
         };
+        let winrt_explicit_items = filter
+            .map(|filter| {
+                shared
+                    .winrt_entries
+                    .iter()
+                    .filter_map(|(namespace, name, entry)| {
+                        filter
+                            .includes_exact_type(namespace, name)
+                            .then_some(entry.entity)
+                    })
+                    .collect()
+            })
+            .unwrap_or_default();
 
         Ok(Self {
             shared,
             winrt,
             winrt_members,
+            winrt_explicit_items,
             winrt_implementations,
             win32,
+            derives: request.derives.clone(),
+            preserve_field_names: request.preserve_field_names,
             projection: request.projection,
         })
     }
@@ -412,7 +480,15 @@ impl Generator {
         for (namespace, name, entry) in &shared.winrt_entries {
             catalog.entry((namespace, name)).or_default().push(*entry);
             let members = if filter.includes(namespace, name) {
-                Some(MemberSelection::All)
+                if matches!(entry.kind, WinrtKind::Class)
+                    && filter.includes_exact_item(namespace, name)
+                {
+                    Some(MemberSelection::Names(
+                        filter.methods(namespace, name).cloned().unwrap_or_default(),
+                    ))
+                } else {
+                    Some(MemberSelection::All)
+                }
             } else {
                 filter
                     .methods(namespace, name)
@@ -470,8 +546,11 @@ impl Generator {
                         &shared.interface_relationships,
                         &format!("{namespace}.{name}"),
                     )?;
+                    let implementation_dependencies = implemented
+                        || (implementations.is_none()
+                            && model.implicitly_implements(&members, projection));
                     (
-                        model.dependencies(&members, implementations.is_none() || implemented),
+                        model.dependencies(&members, implementation_dependencies),
                         model.relationship_members(&members),
                     )
                 }
@@ -483,13 +562,16 @@ impl Generator {
                         &format!("{namespace}.{name}"),
                     )?;
                     (
-                        model.dependencies(&members),
-                        model.relationship_members(&members),
+                        model.dependencies(&members, implementations, projection),
+                        model.relationship_members(&members, implementations, projection),
                     )
                 }
                 WinrtKind::Enum => continue,
             };
             for (namespace, name) in dependencies {
+                if filter.excludes(&namespace, &name) {
+                    continue;
+                }
                 if !filter.includes(&namespace, &name)
                     && (external::winrt_crate(&namespace, &name).is_some()
                         || (projection.is_minimal()
@@ -509,7 +591,11 @@ impl Generator {
                                 .unwrap_or(MemberSelection::Shell),
                         };
                         if let Some(current) = selected.get_mut(&entry.entity) {
-                            if current.merge(members) {
+                            let preserve_explicit_members =
+                                filter.methods(&namespace, &name).is_some()
+                                    && matches!(current, MemberSelection::Names(_))
+                                    && matches!(members, MemberSelection::All);
+                            if !preserve_explicit_members && current.merge(members) {
                                 pending.push_back(*entry);
                             }
                         } else {

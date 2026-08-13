@@ -1,5 +1,5 @@
 fn main() {
-    windows_bindgen::builder()
+    windows_bindgen2::builder()
         .output("src/bindings.rs")
         .flat()
         .sys()
@@ -11,5 +11,6 @@ fn main() {
             "FileTimeToLocalFileTime",
         ])
         .derives(["SYSTEMTIME=Debug", "SERVICE_TIMECHANGE_INFO=Debug"])
-        .write();
+        .write()
+        .unwrap();
 }

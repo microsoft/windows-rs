@@ -7,20 +7,21 @@
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
 
-    windows_bindgen::bindgen([
-        "--in",
-        "default",
-        "--out",
-        "src/bindings.rs",
-        "--filter",
-        "Windows.Foundation.DateTime",
-        "Windows.Foundation.IPropertyValue",
-        "Windows.Foundation.Point",
-        "Windows.Foundation.PropertyType",
-        "Windows.Foundation.Rect",
-        "Windows.Foundation.Size",
-        "Windows.Foundation.TimeSpan",
-        "Windows.Foundation.Numerics.Vector2",
-        "--flat",
-    ]);
+    windows_bindgen2::builder()
+        .input_default()
+        .output("src/bindings.rs")
+        .filters([
+            "Windows.Foundation.DateTime",
+            "Windows.Foundation.IPropertyValue",
+            "Windows.Foundation.Point",
+            "Windows.Foundation.PropertyType",
+            "Windows.Foundation.Rect",
+            "Windows.Foundation.Size",
+            "Windows.Foundation.TimeSpan",
+            "Windows.Foundation.Numerics.Vector2",
+        ])
+        .preserve_field_names()
+        .flat()
+        .write()
+        .unwrap();
 }

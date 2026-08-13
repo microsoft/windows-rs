@@ -18,6 +18,7 @@ pub(super) struct NamedMethod {
     pub(super) name: String,
     pub(super) context_name: String,
     metadata_name: String,
+    overloaded: bool,
     pub(super) method: winrt_delegate::Method,
     event: Option<winrt_delegate::EventHandler>,
     public: bool,
@@ -25,15 +26,52 @@ pub(super) struct NamedMethod {
 
 impl NamedMethod {
     pub(super) fn selected(&self, members: &MemberSelection) -> bool {
-        if members.includes(&self.metadata_name, &self.name) {
+        if matches!(members, MemberSelection::All) {
             return true;
         }
         let MemberSelection::Names(names) = members else {
             return false;
         };
+        if names.contains(&self.name) || (!self.overloaded && names.contains(&self.metadata_name)) {
+            return true;
+        }
         self.metadata_name
             .strip_prefix("remove_")
             .is_some_and(|name| names.contains(&format!("add_{name}")) || names.contains(name))
+    }
+
+    pub(super) fn selected_factory(&self, members: &MemberSelection) -> bool {
+        members.includes(&self.metadata_name, &self.name)
+    }
+
+    pub(super) fn write_static(
+        &self,
+        context: &winrt_delegate::MethodContext<'_>,
+        public_name: &str,
+        factory_name: &str,
+        class_namespace: &str,
+        class_name: &str,
+    ) -> Result<Option<TokenStream>, Error> {
+        if !self.public {
+            return Ok(None);
+        }
+        if let Some(event) = &self.event {
+            return Ok(Some(self.method.write_static_event_method(
+                context,
+                public_name,
+                &format!("Remove{}", self.name),
+                factory_name,
+                event,
+            )?));
+        }
+        Ok(Some(self.method.write_static_method(
+            context,
+            public_name,
+            &self.name,
+            factory_name,
+            class_namespace,
+            class_name,
+        )?))
     }
 
     pub(super) fn substitute(&mut self, arguments: &[ty::Type]) {
@@ -98,6 +136,18 @@ pub(super) struct RequiredInterface {
 }
 
 impl Interface {
+    pub(super) fn implicitly_implements(
+        &self,
+        members: &MemberSelection,
+        projection: Projection,
+    ) -> bool {
+        !self.exclusive
+            && (members.emits_implementation(projection)
+                || (projection.is_minimal()
+                    && matches!(members, MemberSelection::Shell)
+                    && self.methods.is_empty()))
+    }
+
     pub(super) fn lower(
         database: &Database,
         definition: TypeDefinition<'_>,
@@ -294,6 +344,7 @@ impl Interface {
         projection: Projection,
         members: &MemberSelection,
         implementation: Option<bool>,
+        explicit: bool,
     ) -> Result<TokenStream, Error> {
         let implementation = implementation.or_else(|| self.exclusive.then_some(false));
         let name = tokens::ident(&self.name);
@@ -325,8 +376,9 @@ impl Interface {
         };
         let guid = self.guid.write_u128();
         let full_name = format!("{}.{}", self.namespace, self.name);
-        let emit_type_name =
-            !projection.is_minimal() || (!self.exclusive && !generic_names.is_empty());
+        let emit_type_name = !projection.is_minimal()
+            || implementation == Some(true)
+            || (!self.exclusive && !generic_names.is_empty());
         let definition = if generic_names.is_empty() {
             let metadata_name = Literal::byte_string(full_name.as_bytes());
             let metadata_name = emit_type_name.then(|| {
@@ -406,6 +458,14 @@ impl Interface {
             .methods
             .iter()
             .filter(|method| method.selected(members))
+            .filter(|_| {
+                !projection.is_minimal()
+                    || if implementation == Some(true) {
+                        explicit && !self.name.ends_with("Overrides")
+                    } else {
+                        !self.name.ends_with("Factory") && !self.name.ends_with("Statics")
+                    }
+            })
             .filter_map(|method| {
                 method
                     .write_public(&method_context, &method.name, None)
@@ -440,16 +500,22 @@ impl Interface {
                             <Self as windows_core::RuntimeType>::NAME;
                     }
                 });
-                let runtime_name_impl = (!matches!(members, MemberSelection::Shell)).then(|| {
-                    quote! {
-                        impl #constrained_generics windows_core::RuntimeName
-                            for #name #type_arguments
-                        {
-                            const NAME: &'static str = #runtime_name;
-                            #runtime_class_name
+                let implementation_enabled =
+                    implementation.unwrap_or_else(|| members.emits_implementation(projection));
+                let runtime_name_impl = (!projection.is_minimal()
+                    || implementation == Some(true)
+                    || (implementation.is_none()
+                        && (!matches!(members, MemberSelection::Shell) || implementation_enabled)))
+                    .then(|| {
+                        quote! {
+                            impl #constrained_generics windows_core::RuntimeName
+                                for #name #type_arguments
+                            {
+                                const NAME: &'static str = #runtime_name;
+                                #runtime_class_name
+                            }
                         }
-                    }
-                });
+                    });
                 quote! {
                     #runtime_name_impl
                     pub trait #impl_name #type_arguments: windows_core::IUnknownImpl #generic_where {
@@ -464,7 +530,7 @@ impl Interface {
                     layout,
                     &vtbl_name,
                     members,
-                    projection.is_minimal() && implementation == Some(false),
+                    projection.is_minimal() && implementation != Some(true),
                 )?
             };
             let methods = (projection.is_minimal() && !methods.is_empty()).then(
@@ -549,14 +615,24 @@ impl Interface {
                     <Self as windows_core::RuntimeType>::NAME;
             }
         });
-        let runtime_name_impl = (!matches!(members, MemberSelection::Shell)).then(|| {
-            quote! {
-                impl #constrained_generics windows_core::RuntimeName for #name #type_arguments {
-                    const NAME: &'static str = #runtime_name;
-                    #runtime_class_name
-                }
-            }
+        let implementation_enabled = implementation.unwrap_or_else(|| {
+            members.emits_implementation(projection)
+                || (projection.is_minimal()
+                    && matches!(members, MemberSelection::Shell)
+                    && self.methods.is_empty())
         });
+        let runtime_name_impl = (!projection.is_minimal()
+            || implementation == Some(true)
+            || (implementation.is_none()
+                && (!matches!(members, MemberSelection::Shell) || implementation_enabled)))
+            .then(|| {
+                quote! {
+                    impl #constrained_generics windows_core::RuntimeName for #name #type_arguments {
+                        const NAME: &'static str = #runtime_name;
+                        #runtime_class_name
+                    }
+                }
+            });
         let trait_bases = if required_types.is_empty() {
             quote! { windows_core::IUnknownImpl }
         } else {
@@ -579,25 +655,24 @@ impl Interface {
                 )
             })
             .collect::<Result<Vec<_>, Error>>()?;
-        let implementation =
-            if implementation.unwrap_or_else(|| members.emits_implementation(projection)) {
-                let vtable = self.write_vtable(values, namespace, layout, members)?;
-                quote! {
-                    pub trait #impl_name #type_arguments: #trait_bases #generic_where {
-                        #(#impl_methods)*
-                    }
-                    #vtable
+        let implementation = if implementation_enabled {
+            let vtable = self.write_vtable(values, namespace, layout, members)?;
+            quote! {
+                pub trait #impl_name #type_arguments: #trait_bases #generic_where {
+                    #(#impl_methods)*
                 }
-            } else {
-                self.write_vtable_struct(
-                    values,
-                    namespace,
-                    layout,
-                    &vtbl_name,
-                    members,
-                    projection.is_minimal() && implementation == Some(false),
-                )?
-            };
+                #vtable
+            }
+        } else {
+            self.write_vtable_struct(
+                values,
+                namespace,
+                layout,
+                &vtbl_name,
+                members,
+                projection.is_minimal() && !implementation_enabled,
+            )?
+        };
         let methods_impl = (!methods.is_empty() || !inherited_methods.is_empty()).then(|| {
             quote! {
                 impl #constrained_generics #name #type_arguments {
@@ -767,8 +842,10 @@ impl Interface {
         let phantom_fields = generic_names
             .iter()
             .map(|name| quote! { #name: core::marker::PhantomData<#name>, });
+        let doc_hidden = (layout == Layout::Package).then(|| quote! { #[doc(hidden)] });
         Ok(quote! {
             #[repr(C)]
+            #doc_hidden
             pub struct #vtbl_name #type_arguments #generic_where {
                 pub base__: windows_core::IInspectable_Vtbl,
                 #(#fields)*
@@ -843,6 +920,7 @@ pub(super) fn lower_methods(
                     message: "event add method has no matching remove method",
                 });
             }
+            let overload_attribute = method.find_attribute("OverloadAttribute")?;
             let (mut name, context_name) = if method.flags()? & 0x800 != 0 {
                 if let Some(name) = metadata_name.strip_prefix("get_") {
                     (name.to_string(), name.to_string())
@@ -855,7 +933,7 @@ pub(super) fn lower_methods(
                 } else {
                     (metadata_name.to_string(), metadata_name.to_string())
                 }
-            } else if let Some(attribute) = method.find_attribute("OverloadAttribute")? {
+            } else if let Some(attribute) = overload_attribute {
                 let arguments = attribute.arguments(&())?;
                 let overload = arguments.iter().find_map(|argument| match argument {
                     AttributeArgument::Fixed {
@@ -899,6 +977,7 @@ pub(super) fn lower_methods(
                 name,
                 context_name,
                 metadata_name: metadata_name.to_string(),
+                overloaded: overload_attribute.is_some(),
                 method,
                 event,
                 public: !metadata_name.starts_with("remove_"),

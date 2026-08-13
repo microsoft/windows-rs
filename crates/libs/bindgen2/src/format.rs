@@ -2,9 +2,17 @@ use std::io::Write;
 
 /// Formats generated Rust tokens with the repository's flat-binding conventions.
 pub fn format(tokens: &str) -> Result<String, Box<dyn std::error::Error>> {
+    format_with_config(tokens, None)
+}
+
+pub(crate) fn format_with_config(
+    tokens: &str,
+    config: Option<&str>,
+) -> Result<String, Box<dyn std::error::Error>> {
     let mut command = std::process::Command::new("rustfmt");
+    command.args(["--edition", "2024", "--config"]);
+    command.arg(config.unwrap_or("newline_style=Unix"));
     command
-        .args(["--edition", "2024", "--config", "newline_style=Unix"])
         .stdin(std::process::Stdio::piped())
         .stdout(std::process::Stdio::piped());
     let mut child = command.spawn()?;

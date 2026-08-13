@@ -53,13 +53,18 @@ impl Struct {
         name: &str,
         layout: Layout,
         projection: Projection,
+        preserve_field_names: bool,
     ) -> Result<TokenStream, Error> {
         let ident = tokens::ident(name);
         let fields = self
             .fields
             .iter()
             .map(|field| {
-                let name = tokens::ident(&tokens::to_snake_case(&field.name));
+                let name = if preserve_field_names {
+                    tokens::ident(&field.name)
+                } else {
+                    tokens::ident(&tokens::to_snake_case(&field.name))
+                };
                 let ty = field.ty.write(namespace, layout)?;
                 Ok(quote! { pub #name: #ty, })
             })

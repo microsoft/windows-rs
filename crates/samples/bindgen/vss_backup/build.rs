@@ -2,7 +2,7 @@ fn main() {
     let out_dir = std::env::var("OUT_DIR").unwrap();
     let bindings = format!("{out_dir}/bindings.rs");
 
-    windows_bindgen::builder()
+    windows_bindgen2::builder()
         .output(&bindings)
         .filters([
             "CreateVssBackupComponentsInternal",
@@ -10,5 +10,6 @@ fn main() {
             "IVssBackupComponents",
         ])
         .flat()
-        .write();
+        .write()
+        .unwrap();
 }

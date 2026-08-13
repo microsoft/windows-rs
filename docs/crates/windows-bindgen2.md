@@ -40,13 +40,13 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Request differential | Complete | The production adapter proves all 17 request files. |
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
-| Build-script facade | Seventeen consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, benchmark and robot components and client, context alignment, core-only APIs, and Win32 metadata match. |
-| Package output | Not started | Requires multi-file layout, feature generation, and exclusions. |
+| Build-script facade | Twenty consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, reference and time projections, benchmark and robot components and clients, context alignment, core-only APIs, and Win32 metadata match. |
+| Package output | In progress | The package backend runs, but 962 generated files still differ from the published crate output. |
 
 Approximate hand-written production source size is 8,000 lines for bindgen2 versus 12,829 for the
 existing bindgen crate, about 38% less. Bindgen2 also has about 2,160 lines of tests. This is a
 useful maintenance signal, not a complete comparison: bindgen2 still lacks several output
-policies and package generation.
+policies and complete package parity.
 
 ## Stabilization gate
 
@@ -85,12 +85,12 @@ Each `Generator` shares that immutable root while storing request-local typed en
 `tool_bindings` share one parse, index, and lowering pass across its 17 filter files without
 exposing projected models or adding public lifetimes.
 
-Rendering accepts only `Layout::Modules` and `Layout::Flat`. Both consume the same collected output
-items and deterministic sort. The layout is also the explicit name-resolution context: module
-output emits relative namespace paths, while flat output emits unqualified names. Flat output
-checks cross-namespace generated name collisions and returns a structured error. Style options
-are not exposed yet because current rich/minimal projection coverage is incomplete; accepting
-ignored flags would create a false compatibility API.
+Rendering supports `Layout::Modules`, `Layout::Flat`, and the package layout used by the builder.
+The first two consume one collected output map and deterministic sort. Package layout writes one
+`mod.rs` per namespace plus generated Cargo features. The layout is also the explicit
+name-resolution context: module output emits relative namespace paths, flat output emits
+unqualified names, and package output flattens private Win32 header namespaces through the public
+`Windows.Win32` umbrella.
 
 The first filter layer is also intentionally programmatic. `Filter` stores bare names, exact
 namespace/name pairs, namespace roots, and private method selections in ordered maps and sets.
@@ -129,12 +129,12 @@ identities and lookup names, not projected models.
 
 ## Build-script adoption
 
-A narrow `builder` facade now covers path and default metadata inputs, filter resolution, flat
-default or sys projection, WinRT implementation generation, rustfmt, and changed-file writes.
-Formatting is shared with `tool_bindings`, while package staging and legacy command parsing remain
-outside this boundary.
+A builder facade now covers path and default metadata inputs, command files, include and exclusion
+filters, flat output, default or sys projection, WinRT implementation generation, rustfmt, and
+changed-file writes. Package output is available for differential testing but is not yet a
+production replacement.
 
-Seventeen standalone requests have migrated without generated-file differences:
+Twenty standalone requests have migrated without generated-file differences:
 
 - `test_activation_client` covers custom plus default WinRT metadata and default projection; its
   generated bindings match and the client compiles.
@@ -157,44 +157,26 @@ Seventeen standalone requests have migrated without generated-file differences:
   core string types without depending on the full `windows` crate.
 - `robot_client` confirms client generation retains native COM implementation support reached
   through a WinRT class dependency.
+- `test_libs_reference` covers metadata-preserving WinRT field names and object/string array element
+  types in public and ABI signatures.
+- `services_time` covers sys projection with request-specific native derives.
+- `test_bench_rust` covers collection conveniences, async split-crate routing, nullable interface
+  returns, and `IReference<T>` input conversion in one client request.
 
 The native migrations found that nested definitions were rendered with their parent but not walked
 for dependency closure. Closure now traverses nested fields without selecting nested definitions as
 separate output items. This retains same-namespace aliases such as `PWSTR`, `XMM_SAVE_AREA32`, and
 `XSAVE_FORMAT` without duplicating nested structures.
 
-The initial flat-consumer batch exposed policy gaps before additional migrations were retained:
-
-| Consumer | Required bindgen2 work |
-| --- | --- |
-| `vss_backup` | Project rich native interfaces without a COM identity where the legacy output permits them. |
-| `test_bench_rust` | Complete collection conveniences, async routing, nullable interface returns, and `IReference<T>` input conversion. |
-| `test_libs_reference` | Preserve WinRT field names and output-array conventions. |
-
-These consumers remain on `windows-bindgen` until their complete generated files match. This keeps
-the committed bindings as the oracle rather than accepting compile-only migrations.
+The initial flat-consumer batch exposed policy gaps before additional migrations were retained.
+Those consumers, including `vss_backup`, now match their complete committed binding files.
 
 ## Reactor adoption probe
 
-`tool_reactor` was tested as a second production consumer and remains on `windows-bindgen`. Its
-request combines custom WinUI metadata, exact class names, named class members, implementation
-filters, minimal output, and dead-code policy. Treating exact class selection as ordinary member
-selection caused flat name collisions and thousands of lines of output differences. Local fixes
-reduced the diff but mixed selection semantics with incomplete projection policy, so they were
-removed rather than retained as another compatibility layer.
-
-The probe identified the next bounded work, in order:
-
-1. Distinguish a selected class type, selected class members, and a dependency shell.
-2. Match minimal callable visibility without changing public type definitions.
-3. Route external collection interfaces and required class hierarchies.
-4. Project static events and revokers.
-5. Make native and WinRT producer selection explicit.
-6. Canonicalize custom `HResult` metadata to `windows_core::HRESULT`.
-
-Reactor should not migrate until both complete generated binding files are close enough for direct
-review and compile without consumer changes. These gaps are output policy, not evidence that the
-metadata2 ownership model or bindgen2 selection/rendering split needs another redesign.
+`tool_reactor` now uses bindgen2 for both the library and self-test requests. The complete generated
+files match the committed legacy output, and both consumers compile without source changes. The
+migration covers custom WinUI metadata, class and member selection, implementation filters,
+minimal visibility, static event revokers, composable activation, and native interop.
 
 Filtered native selection now closes over decoded field and method signatures. A temporary ordered
 entity set and work queue pull in referenced aliases, enums, structs, delegates, interfaces, and
@@ -361,8 +343,9 @@ The direction remains better than the current generator, but it is not yet a rep
   rules differ. Unifying them now would recreate the broad old `Type` enum;
 - `image.rs` and `semantic.rs` are the main metadata2 growth risks. New relationships should be
   split by concern rather than extending one semantic module indefinitely.
-- bindgen2 production source remains smaller than bindgen but does not implement packages or file
-  writing. The production 17-request `tool_bindings` run takes about 2.90 seconds when warm; phase
+- bindgen2 production source remains smaller than bindgen but package output does not yet match
+  the committed crates. The production 17-request `tool_bindings` run takes about 2.90 seconds
+  when warm; phase
   timings keep request closure and shared-catalog costs visible as more consumers migrate;
 - callable and interface projection are the main bindgen2 growth risks. Collection conveniences
   now live in `winrt_collection.rs`; future named policies should get similarly narrow modules
@@ -459,8 +442,8 @@ is otherwise materialized only while closing or rendering; no second global proj
 graph is retained.
 
 Exclusive interface suppression and class-owned factory policy belong to class projection rather
-than the interface model. Package output remains a separate artifact-planning problem rather than
-a larger `Layout` variant.
+than the interface model. Package output uses a separate filesystem writer over the same collected
+items.
 
 ## WinRT class milestone
 
@@ -642,9 +625,8 @@ generated API shape remains safe on 64-bit targets.
 
 A separate proof uses the native `tool_webview` request generated from the pinned WebView2 headers.
 It produces 6,927 lines and explicitly selects 28 COM interfaces for implementation scaffolding.
-An ignored complete differential consumes `target/webview/WebView2.winmd` after `tool_webview`
-generates it. This request proves native implementation filtering without making `tool_webview` a
-production bindgen2 consumer.
+`tool_webview` now uses bindgen2 for both its native and Reactor binding files with exact committed
+output parity.
 
 Native `Request::implementations` now controls producer emission. The request emits exactly its 28
 producer traits and no others. Requested implementations close dependencies over every method and
@@ -663,11 +645,8 @@ list also limits `RuntimeName` emission to that list; requests without a list re
 default. WebView2 now matches all 218 consumer wrappers, 28 producer traits, and 28 runtime-name
 implementations. The differential dropped from 208 to 130 token groups.
 
-`EventRegistrationToken` versus `i64` remains intentionally unresolved. This resembles the alias
-canonicalization already performed by `windows-clang` and `tool_win32`; bindgen2 should not add a
-WebView2-specific remap. Revisit the metadata producer after parity or leave the named alias in the
-new output if it is the better model. The next local projection category is producer callable
-parameters.
+Native signatures project `Windows.Foundation.EventRegistrationToken` as `i64`, matching the
+legacy native projection and preserving WebView2 formatting and ABI output.
 
 Direct input interface parameters in native producer traits now use `windows_core::Ref<T>`.
 Consumer methods retain generic `Param<T>` inputs and ABI vtables retain raw COM pointers. Producer

@@ -95,10 +95,14 @@ impl Enum {
         name: &str,
         layout: Layout,
         projection: Projection,
+        members: &MemberSelection,
     ) -> Result<TokenStream, Error> {
         let ident = tokens::ident(name);
         let underlying = self.underlying.write(namespace, layout)?;
-        let fields = self.fields.iter().map(|field| {
+        let fields = self.fields.iter().filter(|field| {
+            matches!(members, MemberSelection::All)
+                || matches!(members, MemberSelection::Names(names) if names.contains(&field.name))
+        }).map(|field| {
             let name = tokens::ident(&field.name);
             let value = field.value.write();
             quote! { pub const #name: Self = Self(#value); }

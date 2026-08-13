@@ -236,6 +236,7 @@ impl Type {
             Self::F32 => quote! { f32 },
             Self::F64 => quote! { f64 },
             Self::String if !projection.is_sys() => quote! { windows_core::PCWSTR },
+            Self::String if layout == Layout::Package => quote! { windows_sys::core::PCWSTR },
             Self::String => quote! { PCWSTR },
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
@@ -258,7 +259,26 @@ impl Type {
                 namespace: target,
                 name,
             } => {
-                if projection.is_minimal()
+                if projection.is_sys()
+                    && layout == Layout::Package
+                    && let Some(core) = sys_core_projection(target, name)
+                {
+                    return core;
+                }
+                if target == "Windows.Foundation" && name == "HResult" {
+                    return quote! { windows_core::HRESULT };
+                }
+                if target == "Windows.Foundation" && name == "EventRegistrationToken" {
+                    return quote! { i64 };
+                }
+                if matches!(target.as_str(), "System" | "Windows.Foundation" | "") && name == "Guid"
+                {
+                    return quote! { windows_core::GUID };
+                }
+                if target.is_empty() && name == "PCWSTR" {
+                    return quote! { windows_core::PCWSTR };
+                }
+                if !projection.is_sys()
                     && let Some(crate_name) = external::minimal_crate(target, name)
                 {
                     let crate_name = tokens::ident(crate_name);
@@ -330,6 +350,40 @@ impl Type {
         }
     }
 
+    pub(super) fn write_field_projection_owner(
+        &self,
+        namespace: &str,
+        owner: &str,
+        layout: Layout,
+        projection: Projection,
+    ) -> TokenStream {
+        if layout != Layout::Package {
+            return self.write_field_projection(namespace, layout, projection);
+        }
+        match self {
+            Self::Array { element, len } => {
+                let element =
+                    element.write_field_projection_owner(namespace, owner, layout, projection);
+                let len = Literal::usize_unsuffixed(*len);
+                quote! { [#element; #len] }
+            }
+            Self::Pointer { mutable, element } => {
+                let element =
+                    element.write_field_projection_owner(namespace, owner, layout, projection);
+                if *mutable {
+                    quote! { *mut #element }
+                } else {
+                    quote! { *const #element }
+                }
+            }
+            Self::Named {
+                namespace: target,
+                name,
+            } if target == namespace && name == owner => quote! { Self },
+            _ => self.write_field_projection(namespace, layout, projection),
+        }
+    }
+
     pub(super) fn write_constant_projection(
         &self,
         namespace: &str,
@@ -390,6 +444,24 @@ impl Type {
         }
     }
 
+    pub(super) fn write_public_pointer(&self, namespace: &str, layout: Layout) -> TokenStream {
+        if let Self::Pointer { mutable, element } = self {
+            let element = if element.is_interface() {
+                let element = element.write_public(namespace, layout);
+                quote! { Option<#element> }
+            } else {
+                element.write_public(namespace, layout)
+            };
+            if *mutable {
+                quote! { *mut #element }
+            } else {
+                quote! { *const #element }
+            }
+        } else {
+            self.write_public(namespace, layout)
+        }
+    }
+
     pub(super) fn pointee(&self) -> Option<&Self> {
         match self {
             Self::Pointer { element, .. } => Some(element),
@@ -401,13 +473,136 @@ impl Type {
         matches!(self, Self::Interface { .. })
     }
 
+    pub(super) fn interface_out(&self) -> Option<(bool, &Self)> {
+        let Self::Pointer { mutable, element } = self else {
+            return None;
+        };
+        if element.is_interface() {
+            return Some((*mutable, element));
+        }
+        let Self::Pointer { element, .. } = element.as_ref() else {
+            return None;
+        };
+        element.is_interface().then_some((*mutable, element))
+    }
+
+    pub(super) fn producer_by_ref(&self, database: &Database) -> Result<bool, Error> {
+        if self.is_bstr() || self.is_pcwstr() {
+            return Ok(true);
+        }
+        let Self::Named { namespace, name } = self else {
+            return Ok(false);
+        };
+        for entity in database.type_definitions(namespace, name) {
+            let definition = database.definition(*entity).unwrap();
+            if definition.category()? != TypeCategory::Struct {
+                continue;
+            }
+            if !definition.has_attribute("NativeTypedefAttribute")? {
+                return Ok(true);
+            }
+            let fields = definition.fields()?.collect::<Vec<_>>();
+            let [field] = fields.as_slice() else {
+                return Ok(true);
+            };
+            let field = Self::lower(
+                database,
+                field.entity().file(),
+                &format!("{namespace}.{name}"),
+                field.signature()?,
+            )?;
+            return Ok(matches!(
+                field,
+                Self::Array { .. } | Self::Named { .. } | Self::Interface { .. }
+            ));
+        }
+        Ok(false)
+    }
+
+    pub(super) fn needs_pointer_cast(&self) -> bool {
+        matches!(
+            self,
+            Self::Pointer {
+                mutable: true,
+                element,
+            } if matches!(element.as_ref(), Self::Named { .. })
+        )
+    }
+
+    pub(super) fn is_primitive(&self, database: &Database) -> Result<bool, Error> {
+        self.is_primitive_inner(database, &mut BTreeSet::new())
+    }
+
+    fn is_primitive_inner(
+        &self,
+        database: &Database,
+        stack: &mut BTreeSet<(String, String)>,
+    ) -> Result<bool, Error> {
+        let Self::Named { namespace, name } = self else {
+            return Ok(matches!(
+                self,
+                Self::Boolean
+                    | Self::Char
+                    | Self::I8
+                    | Self::U8
+                    | Self::I16
+                    | Self::U16
+                    | Self::I32
+                    | Self::U32
+                    | Self::I64
+                    | Self::U64
+                    | Self::F32
+                    | Self::F64
+                    | Self::ISize
+                    | Self::USize
+                    | Self::Pointer { .. }
+            ));
+        };
+        let key = (namespace.clone(), name.clone());
+        if !stack.insert(key.clone()) {
+            return Ok(false);
+        }
+        let mut result = false;
+        for entity in database.type_definitions(namespace, name) {
+            let definition = database.definition(*entity).unwrap();
+            match definition.category()? {
+                TypeCategory::Enum | TypeCategory::Delegate => {
+                    result = true;
+                    break;
+                }
+                TypeCategory::Struct => {}
+                _ => {}
+            }
+        }
+        stack.remove(&key);
+        Ok(result)
+    }
+
     pub(super) fn is_hresult(&self) -> bool {
         matches!(
             self,
             Self::Named { namespace, name }
-                if name == "HRESULT"
+                if (name == "HRESULT" && namespace == "Windows.Win32")
+                    || (name == "HResult" && namespace == "Windows.Foundation")
+        )
+    }
+
+    pub(super) fn is_hresult_package(&self) -> bool {
+        self.is_hresult()
+            || matches!(
+                self,
+                Self::Named { namespace, name }
+                    if name == "HRESULT" && namespace.starts_with("Windows.Win32.")
+            )
+    }
+
+    pub(super) fn is_ntstatus(&self) -> bool {
+        matches!(
+            self,
+            Self::Named { namespace, name }
+                if name == "NTSTATUS"
                     && (namespace == "Windows.Win32"
-                        || namespace == "Windows.Win32.Foundation")
+                        || namespace.starts_with("Windows.Win32."))
         )
     }
 
@@ -441,16 +636,44 @@ impl Type {
         )
     }
 
+    pub(super) fn is_const_string(&self) -> bool {
+        matches!(
+            self,
+            Self::Named { namespace, name }
+                if matches!(name.as_str(), "PCSTR" | "PCWSTR")
+                    && (namespace == "Windows.Win32"
+                        || namespace.starts_with("Windows.Win32."))
+        )
+    }
+
     pub(super) fn is_indirect_return(&self, database: &Database) -> Result<bool, Error> {
+        if matches!(
+            self,
+            Self::Named { namespace, name }
+                if namespace == "Windows.Foundation" && name == "HResult"
+        ) {
+            return Ok(false);
+        }
         let Self::Named { namespace, name } = self else {
             return Ok(false);
         };
         for entity in database.type_definitions(namespace, name) {
             let definition = database.definition(*entity).unwrap();
-            if definition.category()? == TypeCategory::Struct
-                && !definition.has_attribute("NativeTypedefAttribute")?
-            {
-                return Ok(true);
+            if definition.category()? == TypeCategory::Struct {
+                if !definition.has_attribute("NativeTypedefAttribute")? {
+                    return Ok(true);
+                }
+                let fields = definition.fields()?.collect::<Vec<_>>();
+                if !matches!(fields.as_slice(), [field] if field.name()? == "Value") {
+                    return Ok(true);
+                }
+                let field = Self::lower(
+                    database,
+                    fields[0].entity().file(),
+                    &format!("{namespace}.{name}"),
+                    fields[0].signature()?,
+                )?;
+                return field.is_indirect_return(database);
             }
         }
         Ok(false)
@@ -623,6 +846,22 @@ pub(super) fn core_projection(namespace: &str, name: &str) -> Option<TokenStream
     })
 }
 
+fn sys_core_projection(namespace: &str, name: &str) -> Option<TokenStream> {
+    let win32 = namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32.");
+    if !win32 {
+        return None;
+    }
+    let name = match name {
+        "GUID" | "HRESULT" | "BOOL" | "PSTR" | "PWSTR" | "PCSTR" | "PCWSTR" | "BSTR"
+        | "HSTRING" | "IUnknown" | "IInspectable" | "NTSTATUS" | "RPC_STATUS" => {
+            tokens::ident(name)
+        }
+        "EventRegistrationToken" => return Some(quote! { i64 }),
+        _ => return None,
+    };
+    Some(quote! { windows_sys::core::#name })
+}
+
 impl Type {
     pub(super) fn normalize_alias(self, namespace: &str, name: &str) -> Self {
         match (namespace, name) {
@@ -648,6 +887,100 @@ impl Type {
 
     pub(super) fn named_types(&self, mut add: impl FnMut(&str, &str)) {
         self.visit_named(&mut add);
+    }
+
+    pub(super) fn package_dependencies(
+        &self,
+        database: &Database,
+    ) -> Result<BTreeSet<(String, String)>, Error> {
+        let mut dependencies = BTreeSet::new();
+        self.collect_package_dependencies(database, &mut BTreeSet::new(), &mut dependencies)?;
+        Ok(dependencies)
+    }
+
+    pub(super) fn is_wrapper(&self, database: &Database) -> Result<bool, Error> {
+        let Self::Named { namespace, name } = self else {
+            return Ok(false);
+        };
+        for entity in database.type_definitions(namespace, name) {
+            let definition = database.definition(*entity).unwrap();
+            if definition.category()? != TypeCategory::Struct {
+                continue;
+            }
+            let fields = definition
+                .fields()?
+                .filter_map(|field| (!field.is_literal().ok()?).then_some(field))
+                .collect::<Vec<_>>();
+            let [field] = fields.as_slice() else {
+                continue;
+            };
+            if field.name()? != "Value" {
+                continue;
+            }
+            let ty = Type::lower(
+                database,
+                field.entity().file(),
+                definition.name()?,
+                field.signature()?,
+            )?;
+            if ty.is_primitive(database)? {
+                return Ok(true);
+            }
+        }
+        Ok(false)
+    }
+
+    fn collect_package_dependencies(
+        &self,
+        database: &Database,
+        stack: &mut BTreeSet<(String, String)>,
+        dependencies: &mut BTreeSet<(String, String)>,
+    ) -> Result<(), Error> {
+        match self {
+            Self::Array { element, .. } | Self::Pointer { element, .. } => {
+                element.collect_package_dependencies(database, stack, dependencies)?;
+            }
+            Self::Interface { namespace, name } => {
+                dependencies.insert((namespace.clone(), name.clone()));
+            }
+            Self::Named { namespace, name } => {
+                dependencies.insert((namespace.clone(), name.clone()));
+                let key = (namespace.clone(), name.clone());
+                if is_core_projection(namespace, name) || !stack.insert(key.clone()) {
+                    return Ok(());
+                }
+                for entity in database.type_definitions(namespace, name) {
+                    let definition = database.definition(*entity).unwrap();
+                    if !matches!(
+                        definition.category()?,
+                        TypeCategory::Enum | TypeCategory::Struct
+                    ) {
+                        continue;
+                    }
+                    let typedef = definition.has_attribute("NativeTypedefAttribute")?;
+                    for field in definition.fields()? {
+                        if field.is_literal()? {
+                            continue;
+                        }
+                        let ty = Type::lower(
+                            database,
+                            field.entity().file(),
+                            definition.name()?,
+                            field.signature()?,
+                        )?;
+                        let ty = if typedef {
+                            ty.normalize_alias(namespace, name)
+                        } else {
+                            ty
+                        };
+                        ty.collect_package_dependencies(database, stack, dependencies)?;
+                    }
+                }
+                stack.remove(&key);
+            }
+            _ => {}
+        }
+        Ok(())
     }
 
     pub(super) fn projected_traits(
@@ -833,27 +1166,6 @@ impl Type {
 
     pub(super) fn signed_i32(&self) -> bool {
         matches!(self, Self::I32)
-    }
-
-    pub(super) fn is_handle_primitive(&self) -> bool {
-        matches!(
-            self,
-            Self::Boolean
-                | Self::Char
-                | Self::I8
-                | Self::U8
-                | Self::I16
-                | Self::U16
-                | Self::I32
-                | Self::U32
-                | Self::I64
-                | Self::U64
-                | Self::F32
-                | Self::F64
-                | Self::ISize
-                | Self::USize
-                | Self::Pointer { .. }
-        )
     }
 
     pub(super) fn from_constant(value: &ConstantValue) -> Self {

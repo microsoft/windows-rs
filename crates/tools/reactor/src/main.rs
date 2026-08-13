@@ -303,7 +303,7 @@ fn generate_reactor_bindings() {
         .write()
         .unwrap();
 
-    windows_bindgen::builder()
+    windows_bindgen2::builder()
         .input("crates/tools/reactor/winmd")
         .input_default()
         .output("crates/libs/reactor/src/bindings.rs")
@@ -318,9 +318,10 @@ fn generate_reactor_bindings() {
             "crates/tools/reactor/src/base.txt",
             "crates/tools/reactor/src/generated.txt",
         ])
-        .write();
+        .write()
+        .unwrap();
 
-    windows_bindgen::builder()
+    windows_bindgen2::builder()
         .input("crates/tools/reactor/winmd")
         .input_default()
         .output("crates/tests/libs/reactor_selftest/src/bindings.rs")
@@ -332,7 +333,8 @@ fn generate_reactor_bindings() {
             "crates/tools/reactor/src/generated.txt",
             "crates/tools/reactor/src/test.txt",
         ])
-        .write();
+        .write()
+        .unwrap();
 }
 
 /// Write `content` to `path` if changed. Runs `rustfmt` when `format` is true.

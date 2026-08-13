@@ -74,7 +74,14 @@ impl Values {
 
     #[cfg(test)]
     pub(crate) fn write(&self, namespace: &str, name: &str) -> Result<TokenStream, Error> {
-        self.write_context(namespace, name, Layout::Modules, Projection::Default)
+        self.write_context(
+            namespace,
+            name,
+            Layout::Modules,
+            Projection::Default,
+            false,
+            &MemberSelection::All,
+        )
     }
 
     pub(super) fn write_context(
@@ -83,6 +90,8 @@ impl Values {
         name: &str,
         layout: Layout,
         projection: Projection,
+        preserve_field_names: bool,
+        members: &MemberSelection,
     ) -> Result<TokenStream, Error> {
         let value = self
             .get(namespace, name)
@@ -91,8 +100,15 @@ impl Values {
                 message: "value was not selected",
             })?;
         match value {
-            Value::Enum(model) => model.write(self, namespace, name, layout, projection),
-            Value::Struct(model) => model.write(self, namespace, name, layout, projection),
+            Value::Enum(model) => model.write(self, namespace, name, layout, projection, members),
+            Value::Struct(model) => model.write(
+                self,
+                namespace,
+                name,
+                layout,
+                projection,
+                preserve_field_names,
+            ),
         }
     }
 

@@ -1,10 +1,100 @@
-use crate::{Filter, Layout, Metadata, Request, format};
+use crate::{Filter, Layout, Metadata, Request};
 use std::path::{Path, PathBuf};
 use windows_metadata2::{Database, Image};
 
 /// Creates a build-script facade over the bindgen2 projection engine.
 pub fn builder() -> Bindgen {
     Bindgen::new()
+}
+
+/// Creates a build request from a legacy bindgen command file.
+pub fn command_file(path: impl AsRef<Path>) -> Result<Bindgen, Box<dyn std::error::Error>> {
+    let contents = std::fs::read_to_string(path)?;
+    let mut tokens = Vec::<String>::new();
+    let mut grouped = String::new();
+    for token in contents
+        .lines()
+        .map(|line| line.split_once("//").map_or(line, |(line, _)| line))
+        .flat_map(str::split_whitespace)
+    {
+        if grouped.is_empty() && !token.contains('{') {
+            tokens.push(token.to_string());
+            continue;
+        }
+        if !grouped.is_empty() {
+            grouped.push(' ');
+        }
+        grouped.push_str(token);
+        if grouped.matches('{').count() == grouped.matches('}').count() {
+            tokens.push(std::mem::take(&mut grouped));
+        }
+    }
+    if !grouped.is_empty() {
+        return Err("unterminated filter group".into());
+    }
+    let mut bindgen = Bindgen::new();
+    let mut position = 0;
+
+    while position < tokens.len() {
+        let option = tokens[position].as_str();
+        position += 1;
+        let start = position;
+        while position < tokens.len() && !tokens[position].starts_with("--") {
+            position += 1;
+        }
+        let values = &tokens[start..position];
+
+        match option {
+            "--in" => {
+                for value in values {
+                    if value == "default" {
+                        bindgen.input_default();
+                    } else {
+                        bindgen.input(value);
+                    }
+                }
+            }
+            "--out" if values.len() == 1 => {
+                bindgen.output(&values[0]);
+            }
+            "--filter" => {
+                bindgen.filters(values);
+            }
+            "--implement" if values.is_empty() => {
+                bindgen.implement_all();
+            }
+            "--implement" => {
+                bindgen.implements(values);
+            }
+            "--derive" => {
+                bindgen.derives(values);
+            }
+            "--flat" if values.is_empty() => {
+                bindgen.flat();
+            }
+            "--package" if values.is_empty() => {
+                bindgen.package();
+            }
+            "--rustfmt" if values.len() == 1 => {
+                bindgen.rustfmt(&values[0]);
+            }
+            "--sys" if values.is_empty() => {
+                bindgen.sys();
+            }
+            "--minimal" if values.is_empty() => {
+                bindgen.minimal();
+            }
+            "--dead-code" if values.is_empty() => {
+                bindgen.dead_code();
+            }
+            "--preserve-field-names" if values.is_empty() => {
+                bindgen.preserve_field_names();
+            }
+            _ => return Err(format!("unsupported bindgen option `{option}`").into()),
+        }
+    }
+
+    Ok(bindgen)
 }
 
 /// Collects metadata inputs and writes one generated Rust file.
@@ -14,8 +104,15 @@ pub struct Bindgen {
     input_default: bool,
     output: PathBuf,
     filters: Vec<String>,
+    filter_files: Vec<PathBuf>,
+    implementations: Vec<String>,
+    derives: Vec<String>,
     layout: Layout,
+    rustfmt: Option<String>,
     sys: bool,
+    minimal: bool,
+    dead_code: bool,
+    preserve_field_names: bool,
     implement_all: bool,
 }
 
@@ -28,6 +125,17 @@ impl Bindgen {
     /// Adds a metadata file or a directory containing metadata files.
     pub fn input(&mut self, input: impl AsRef<Path>) -> &mut Self {
         self.inputs.push(input.as_ref().to_path_buf());
+        self
+    }
+
+    /// Adds metadata files or directories.
+    pub fn inputs<I, P>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = P>,
+        P: AsRef<Path>,
+    {
+        self.inputs
+            .extend(inputs.into_iter().map(|input| input.as_ref().to_path_buf()));
         self
     }
 
@@ -63,15 +171,96 @@ impl Bindgen {
         self
     }
 
+    /// Adds filters from a text file containing one path per line.
+    pub fn filter_file(&mut self, path: impl AsRef<Path>) -> &mut Self {
+        self.filter_files.push(path.as_ref().to_path_buf());
+        self
+    }
+
+    /// Adds filters from text files containing one path per line.
+    pub fn filter_files<I, P>(&mut self, paths: I) -> &mut Self
+    where
+        I: IntoIterator<Item = P>,
+        P: AsRef<Path>,
+    {
+        self.filter_files
+            .extend(paths.into_iter().map(|path| path.as_ref().to_path_buf()));
+        self
+    }
+
+    /// Selects interfaces that require implementation traits and typed ABI vtables.
+    pub fn implements<I, S>(&mut self, implementations: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        self.implementations.extend(
+            implementations
+                .into_iter()
+                .map(|implementation| implementation.as_ref().to_string()),
+        );
+        self
+    }
+
+    /// Adds native type derives in `Type=Trait` form.
+    pub fn derives<I, S>(&mut self, derives: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        self.derives.extend(
+            derives
+                .into_iter()
+                .map(|derive| derive.as_ref().to_string()),
+        );
+        self
+    }
+
     /// Emits raw ABI-oriented bindings.
     pub fn sys(&mut self) -> &mut Self {
         self.sys = true;
         self
     }
 
+    /// Emits the focused minimal projection.
+    pub fn minimal(&mut self) -> &mut Self {
+        self.minimal = true;
+        self
+    }
+
+    /// Retains compatibility with legacy build scripts that request dead-code output.
+    pub fn dead_code(&mut self) -> &mut Self {
+        self.dead_code = true;
+        self
+    }
+
+    /// Preserves WinRT metadata field names instead of converting them to Rust style.
+    pub fn preserve_field_names(&mut self) -> &mut Self {
+        self.preserve_field_names = true;
+        self
+    }
+
     /// Emits one flat list of items.
     pub fn flat(&mut self) -> &mut Self {
+        assert_ne!(
+            self.layout,
+            Layout::Package,
+            "cannot combine package and flat"
+        );
         self.layout = Layout::Flat;
+        self
+    }
+
+    /// Emits one generated file per metadata namespace.
+    pub fn package(&mut self) -> &mut Self {
+        assert_ne!(self.layout, Layout::Flat, "cannot combine package and flat");
+        self.layout = Layout::Package;
+        self
+    }
+
+    /// Overrides the rustfmt configuration used for generated files.
+    pub fn rustfmt(&mut self, rustfmt: impl Into<String>) -> &mut Self {
+        self.rustfmt = Some(rustfmt.into());
         self
     }
 
@@ -86,7 +275,7 @@ impl Bindgen {
         if self.output.as_os_str().is_empty() {
             return Err("output is required".into());
         }
-        if self.filters.is_empty() {
+        if self.filters.is_empty() && self.filter_files.is_empty() {
             return Err("at least one filter is required".into());
         }
 
@@ -95,18 +284,60 @@ impl Bindgen {
         for path in &self.filters {
             filter.include_path(&database, path)?;
         }
+        for file in &self.filter_files {
+            for line in std::fs::read_to_string(file)?.lines().map(str::trim) {
+                if line.is_empty() || line.starts_with("//") || line.starts_with('#') {
+                    continue;
+                }
+                filter.include_path(&database, line)?;
+            }
+        }
+        let implementations = if self.implementations.is_empty() {
+            None
+        } else {
+            let mut implementations = Filter::new();
+            for path in &self.implementations {
+                implementations.include_path(&database, path)?;
+            }
+            Some(implementations)
+        };
 
         let metadata = Metadata::new(database)?;
         let mut request = if self.implement_all {
             Request::filtered(filter).implement_all()
+        } else if let Some(implementations) = implementations {
+            Request::filtered(filter).implementations(implementations)
         } else {
             Request::filtered(filter)
         };
+        if self.preserve_field_names || self.layout == Layout::Package {
+            request = request.preserve_field_names();
+        }
         if self.sys {
             request = request.sys();
+        } else if self.minimal {
+            request = if self.dead_code {
+                request.minimal()
+            } else {
+                request.minimal_public()
+            };
         }
-        let tokens = metadata.generator(request)?.render(self.layout)?;
-        let contents = format(&tokens.to_string())?;
+        for derive in &self.derives {
+            let (name, derive) = derive
+                .split_once('=')
+                .ok_or("derives must use `Type=Trait` form")?;
+            request = request.derive(name, derive);
+        }
+        if self.layout == Layout::Package {
+            request = request.package();
+        }
+        let generator = metadata.generator(request)?;
+        if self.layout == Layout::Package {
+            return generator.write_package(&self.output, self.rustfmt.as_deref(), self.sys);
+        }
+        let tokens = generator.render(self.layout)?;
+        let contents =
+            crate::format::format_with_config(&tokens.to_string(), self.rustfmt.as_deref())?;
 
         if std::fs::read_to_string(&self.output).is_ok_and(|existing| existing == contents) {
             return Ok(());

@@ -1,5 +1,6 @@
 use crate::Layout;
 use quote::{ToTokens, quote};
+use std::collections::BTreeSet;
 
 pub(super) fn architectures(value: i32) -> proc_macro2::TokenStream {
     match value & 7 {
@@ -71,6 +72,11 @@ pub(super) fn namespace(current: &str, target: &str, layout: Layout) -> proc_mac
     }
 
     let mut current = current.split('.').peekable();
+    let target = if layout == Layout::Package {
+        flat_module_namespace(target)
+    } else {
+        target
+    };
     let mut target = target.split('.').peekable();
     while current.peek() == target.peek() {
         current.next();
@@ -86,6 +92,89 @@ pub(super) fn namespace(current: &str, target: &str, layout: Layout) -> proc_mac
         path.push_str("::");
     }
     path.parse().unwrap()
+}
+
+fn flat_module_namespace(namespace: &str) -> &str {
+    if namespace
+        .strip_prefix("Windows.Win32")
+        .is_some_and(|suffix| suffix.starts_with('.'))
+    {
+        "Windows.Win32"
+    } else {
+        namespace
+    }
+}
+
+pub(super) fn feature_cfg<'a>(
+    current: &str,
+    layout: Layout,
+    dependencies: impl IntoIterator<Item = (&'a str, &'a str)>,
+) -> proc_macro2::TokenStream {
+    feature_cfg_set(&feature_names(current, layout, dependencies), false)
+}
+
+pub(super) fn feature_names<'a>(
+    current: &str,
+    layout: Layout,
+    dependencies: impl IntoIterator<Item = (&'a str, &'a str)>,
+) -> BTreeSet<String> {
+    if layout != Layout::Package {
+        return BTreeSet::new();
+    }
+    let mut features = BTreeSet::new();
+    for (namespace, name) in dependencies {
+        if namespace.is_empty()
+            || namespace == "System"
+            || namespace == "Windows.Foundation"
+            || (current.starts_with("Windows.Win32") && !namespace.starts_with("Windows.Win32"))
+            || namespace == current
+            || current
+                .strip_prefix(namespace)
+                .is_some_and(|suffix| suffix.starts_with('.'))
+        {
+            continue;
+        }
+        if (namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32."))
+            && matches!(
+                name,
+                "GUID"
+                    | "HRESULT"
+                    | "BOOL"
+                    | "PSTR"
+                    | "PWSTR"
+                    | "PCSTR"
+                    | "PCWSTR"
+                    | "BSTR"
+                    | "HSTRING"
+                    | "IUnknown"
+                    | "IInspectable"
+                    | "NTSTATUS"
+                    | "RPC_STATUS"
+                    | "EventRegistrationToken"
+            )
+        {
+            continue;
+        }
+        let feature = if let Some(stem) = namespace.strip_prefix("Windows.Win32.") {
+            stem.replace('.', "_")
+        } else if let Some((_, rest)) = namespace.split_once('.') {
+            rest.replace('.', "_")
+        } else {
+            continue;
+        };
+        features.insert(feature);
+    }
+    features
+}
+
+pub(super) fn feature_cfg_set(features: &BTreeSet<String>, not: bool) -> proc_macro2::TokenStream {
+    match (features.len(), not) {
+        (0, _) => quote! {},
+        (1, false) => quote! { #[cfg(#(feature = #features)*)] },
+        (1, true) => quote! { #[cfg(not(#(feature = #features)*))] },
+        (_, false) => quote! { #[cfg(all( #(feature = #features),* ))] },
+        (_, true) => quote! { #[cfg(not(all( #(feature = #features),* )))] },
+    }
 }
 
 fn is_keyword(name: &str) -> bool {

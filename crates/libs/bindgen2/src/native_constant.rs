@@ -9,6 +9,8 @@ pub struct Constant {
     name: String,
     ty: native::Type,
     value: Value,
+    dependencies: BTreeSet<(String, String)>,
+    wrapper: bool,
 }
 
 enum Value {
@@ -59,12 +61,16 @@ impl Constant {
             } else {
                 Value::Guid(guid)
             };
+            let dependencies = ty.package_dependencies(database)?;
+            let wrapper = ty.is_wrapper(database)?;
             return Ok(Self {
                 architectures,
                 namespace: namespace.to_string(),
                 name: name.to_string(),
                 ty,
                 value,
+                dependencies,
+                wrapper,
             });
         }
 
@@ -94,6 +100,8 @@ impl Constant {
                 shape: format!("typed constant {ty:?} <- {value:?}"),
             });
         }
+        let dependencies = ty.package_dependencies(database)?;
+        let wrapper = ty.is_wrapper(database)?;
         Ok(Self {
             architectures,
             namespace: namespace.to_string(),
@@ -104,6 +112,8 @@ impl Constant {
                 value,
                 ansi: is_ansi(field)?,
             },
+            dependencies,
+            wrapper,
         })
     }
 
@@ -115,13 +125,26 @@ impl Constant {
 
     pub(super) fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
         let architectures = tokens::architectures(self.architectures);
+        let cfg = tokens::feature_cfg(
+            &self.namespace,
+            layout,
+            self.dependencies
+                .iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        );
         let name = tokens::ident(&self.name);
         let value = match &self.value {
             Value::Guid(guid) => {
                 if projection.is_sys() {
                     let guid = guid.write_value();
-                    quote! {
-                        pub const #name: GUID = #guid;
+                    if layout == Layout::Package {
+                        quote! {
+                            pub const #name: windows_sys::core::GUID = #guid;
+                        }
+                    } else {
+                        quote! {
+                            pub const #name: GUID = #guid;
+                        }
                     }
                 } else {
                     let guid = guid.write_u128();
@@ -135,7 +158,19 @@ impl Constant {
                 let ty = self
                     .ty
                     .write_constant_projection(&self.namespace, layout, projection);
-                let guid = guid.write_value();
+                let guid = if layout == Layout::Package {
+                    let guid = guid.write_u128();
+                    if projection.is_sys() {
+                        quote! { windows_sys::core::GUID::from_u128(#guid) }
+                    } else {
+                        quote! { windows_core::GUID::from_u128(#guid) }
+                    }
+                } else if projection.is_sys() {
+                    guid.write_value()
+                } else {
+                    let guid = guid.write_u128();
+                    quote! { windows_core::GUID::from_u128(#guid) }
+                };
                 let guid_field = tokens::ident(&fields[0]);
                 let pid_field = tokens::ident(&fields[1]);
                 let pid = native::write_value(&native::Type::from_constant(pid), pid);
@@ -151,24 +186,54 @@ impl Constant {
                 ansi: true,
                 ..
             } => {
-                let bytes = value
-                    .bytes()
-                    .chain(std::iter::once(0))
-                    .map(Literal::u8_unsuffixed);
-                quote! {
-                    pub const #name: PCSTR = [#(#bytes),*].as_ptr();
+                if !projection.is_sys() {
+                    let value = Literal::string(value);
+                    return quote! {
+                        #architectures
+                        pub const #name: windows_core::PCSTR = windows_core::s!(#value);
+                    };
+                }
+                if layout == Layout::Package {
+                    let value = Literal::string(value);
+                    quote! {
+                        pub const #name: windows_sys::core::PCSTR =
+                            windows_sys::core::s!(#value);
+                    }
+                } else {
+                    let bytes = value
+                        .bytes()
+                        .chain(std::iter::once(0))
+                        .map(Literal::u8_unsuffixed);
+                    quote! {
+                        pub const #name: PCSTR = [#(#bytes),*].as_ptr();
+                    }
                 }
             }
             Value::Fixed {
                 value: ConstantValue::String(value),
                 ..
             } => {
-                let units = value
-                    .encode_utf16()
-                    .chain(std::iter::once(0))
-                    .map(Literal::u16_unsuffixed);
-                quote! {
-                    pub const #name: PCWSTR = [#(#units),*].as_ptr();
+                if !projection.is_sys() {
+                    let value = Literal::string(value);
+                    return quote! {
+                        #architectures
+                        pub const #name: windows_core::PCWSTR = windows_core::w!(#value);
+                    };
+                }
+                if layout == Layout::Package {
+                    let value = Literal::string(value);
+                    quote! {
+                        pub const #name: windows_sys::core::PCWSTR =
+                            windows_sys::core::w!(#value);
+                    }
+                } else {
+                    let units = value
+                        .encode_utf16()
+                        .chain(std::iter::once(0))
+                        .map(Literal::u16_unsuffixed);
+                    quote! {
+                        pub const #name: PCWSTR = [#(#units),*].as_ptr();
+                    }
                 }
             }
             Value::Fixed {
@@ -183,7 +248,10 @@ impl Constant {
                     Self::write_converted(underlying, value)
                 };
                 if !projection.is_sys()
-                    && (self.ty.is_hresult() || self.ty.mutable_string_pointer())
+                    && (self.ty.is_hresult()
+                        || self.ty.is_ntstatus()
+                        || (layout == Layout::Package && self.wrapper)
+                        || self.ty.mutable_string_pointer())
                 {
                     quote! { pub const #name: #ty = #ty(#value); }
                 } else {
@@ -191,7 +259,7 @@ impl Constant {
                 }
             }
         };
-        quote! { #architectures #value }
+        quote! { #cfg #architectures #value }
     }
 
     fn write_converted(underlying: &native::Type, value: &ConstantValue) -> TokenStream {

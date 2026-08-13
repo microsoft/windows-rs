@@ -11,7 +11,7 @@ proc-macro2 = { workspace = true }
 quote = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 toml = "0.8"
-windows-bindgen = { workspace = true }
+windows-bindgen2 = { workspace = true }
 windows-clang = { workspace = true }
 windows-default = { workspace = true }
 windows-metadata = { workspace = true }

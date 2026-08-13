@@ -680,6 +680,7 @@ fn winrt_interface_corpus_lowers_and_renders() {
                     projection,
                     &MemberSelection::All,
                     None,
+                    false,
                 )?;
             }
             Ok(())
@@ -1161,6 +1162,30 @@ fn rich_native_functions_wrap_direct_and_output_returns() {
 }
 
 #[test]
+fn native_custom_derives_join_sys_struct_derives() {
+    let output = fixture_metadata(
+        r#"
+            #[win32]
+            mod Test {
+                struct Value {
+                    field: u32,
+                }
+            }
+        "#,
+    )
+    .generator(Request::all().sys().derive("Value", "Debug"))
+    .unwrap()
+    .render(Layout::Flat)
+    .unwrap()
+    .to_string();
+
+    assert!(
+        output.contains("derive (Clone , Copy , Debug , Default)"),
+        "{output}"
+    );
+}
+
+#[test]
 fn class_overloads_are_named_across_exclusive_interfaces() {
     let output = fixture(
         r#"
@@ -1242,6 +1267,38 @@ fn winrt_producer_output_arrays_use_array_proxy() {
     assert!(output.contains("values : & mut windows_core :: Array < i32 >"));
     assert!(output.contains("values_array_size : * mut u32"));
     assert!(output.contains("windows_core :: imp :: array_proxy"));
+}
+
+#[test]
+fn winrt_values_preserve_field_names_and_array_element_types() {
+    let output = fixture_metadata(
+        r#"
+            #[winrt]
+            mod Test {
+                struct Value {
+                    PascalCase: i32,
+                }
+                interface Interface {
+                    fn GetValues(&self, values: &mut [Object]);
+                }
+            }
+        "#,
+    )
+    .generator(Request::all().preserve_field_names())
+    .unwrap()
+    .render(Layout::Flat)
+    .unwrap()
+    .to_string();
+
+    assert!(output.contains("pub PascalCase : i32"), "{output}");
+    assert!(
+        output.contains("values : & mut windows_core :: Array < windows_core :: IInspectable >"),
+        "{output}"
+    );
+    assert!(
+        output.contains("values : * mut * mut windows_core :: IInspectable"),
+        "{output}"
+    );
 }
 
 #[test]
@@ -1559,6 +1616,9 @@ fn winrt_class_corpus_lowers_and_renders() {
                     Layout::Modules,
                     projection,
                     &MemberSelection::All,
+                    &BTreeSet::new(),
+                    None,
+                    &BTreeMap::new(),
                 )?;
             }
             Ok(())
@@ -2052,6 +2112,7 @@ fn winrt_delegate_corpus_lowers_and_renders() {
                     namespace,
                     Layout::Modules,
                     projection,
+                    false,
                 )
                 .unwrap();
         }

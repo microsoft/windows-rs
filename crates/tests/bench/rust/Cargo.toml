@@ -16,7 +16,7 @@ windows-future = { workspace = true, features = ["std"] }
 test_bench_component = { path = "../component" }
 
 [build-dependencies]
-windows-bindgen = { workspace = true }
+windows-bindgen2 = { workspace = true }
 
 [lints]
 workspace = true

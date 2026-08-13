@@ -221,6 +221,27 @@ impl Type {
                 arguments,
                 ..
             } => {
+                if layout == Layout::Package
+                    && external::package_crate(target, name)
+                    && let Some(crate_name) = external::package_crate_name(target, name)
+                {
+                    let crate_name = tokens::ident(crate_name);
+                    let name = tokens::ident(name);
+                    let arguments = arguments
+                        .iter()
+                        .map(|argument| argument.write(namespace, layout))
+                        .collect::<Result<Vec<_>, _>>()?;
+                    let name = if arguments.is_empty() {
+                        quote! { #crate_name::#name }
+                    } else {
+                        quote! { #crate_name::#name<#(#arguments),*> }
+                    };
+                    return Ok(if *value_type {
+                        name
+                    } else {
+                        quote! { Option<#name> }
+                    });
+                }
                 let path = tokens::namespace(namespace, target, layout);
                 let name = tokens::ident(name);
                 let arguments = arguments
@@ -492,8 +513,13 @@ impl Type {
                 arguments,
                 ..
             } => {
-                if namespace != target
-                    && let Some(crate_name) = external::winrt_crate(target, name)
+                if (namespace != target
+                    || (layout == Layout::Package && external::package_crate(target, name)))
+                    && let Some(crate_name) = if layout == Layout::Package {
+                        external::package_crate_name(target, name)
+                    } else {
+                        external::winrt_crate(target, name)
+                    }
                 {
                     let crate_name = tokens::ident(crate_name);
                     let name = tokens::ident(name);
@@ -554,6 +580,43 @@ impl Type {
         self.write_name(namespace, layout, generics)
     }
 
+    pub(super) fn write_name_with_owner(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        generics: &[String],
+        owner: Option<&str>,
+    ) -> Result<proc_macro2::TokenStream, Error> {
+        use quote::quote;
+
+        let Self::Named {
+            namespace: target,
+            name,
+            arguments,
+            ..
+        } = self
+        else {
+            return self.write_name(namespace, layout, generics);
+        };
+        if owner.is_some_and(|owner| target == namespace && name == owner) {
+            return Ok(quote! { Self });
+        }
+        if arguments.is_empty() {
+            return self.write_name(namespace, layout, generics);
+        }
+        let path = tokens::namespace(namespace, target, layout);
+        let name = tokens::ident(name);
+        let arguments = arguments
+            .iter()
+            .map(|argument| argument.write_name_with_owner(namespace, layout, generics, owner))
+            .collect::<Result<Vec<_>, _>>()?;
+        Ok(if arguments.is_empty() {
+            quote! { #path #name }
+        } else {
+            quote! { #path #name<#(#arguments),*> }
+        })
+    }
+
     pub(super) fn is_external_minimal(&self) -> bool {
         matches!(
             self,
@@ -584,6 +647,27 @@ impl Type {
         })
     }
 
+    pub(super) fn write_array_element(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        generics: &[String],
+    ) -> Result<proc_macro2::TokenStream, Error> {
+        if matches!(
+            self,
+            Self::String
+                | Self::Object
+                | Self::Named {
+                    value_type: false,
+                    ..
+                }
+        ) {
+            self.write_name(namespace, layout, generics)
+        } else {
+            self.write_default(namespace, layout, generics)
+        }
+    }
+
     pub(super) fn write_abi(
         &self,
         values: &Values,
@@ -611,6 +695,19 @@ impl Type {
                 };
                 let name = tokens::ident(name);
                 quote! { windows_core::AbiType<#name> }
+            }
+            Self::Vector(element)
+                if matches!(
+                    element.as_ref(),
+                    Self::String
+                        | Self::Object
+                        | Self::Named {
+                            value_type: false,
+                            ..
+                        }
+                ) =>
+            {
+                element.write_name(namespace, layout, generics)?
             }
             Self::Vector(element) => element.write_abi(values, namespace, layout, generics)?,
             Self::Named {
@@ -709,8 +806,25 @@ impl Type {
                         && (name == "HResult" || name == "EventRegistrationToken"))
                     || matches!(values.get(namespace, name), Some(Value::Enum(_)))
             }
+
             _ => false,
         }
+    }
+
+    pub(super) fn package_input_by_ref(&self, _values: &Values, layout: Layout) -> bool {
+        if layout != Layout::Package {
+            return false;
+        }
+        matches!(
+            self,
+            Self::Named {
+                value_type: true,
+                namespace,
+                name,
+                arguments,
+                ..
+            } if arguments.is_empty() && namespace == "System" && name == "Guid"
+        )
     }
 
     pub(super) fn is_copyable(&self, values: &Values, _owner: &str) -> Result<bool, Error> {

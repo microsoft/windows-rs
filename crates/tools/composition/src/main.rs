@@ -1,5 +1,5 @@
 use std::io::Write;
-use windows_bindgen::builder;
+use windows_bindgen2::builder;
 
 const FILTER: &str = "crates/tools/composition/src/composition.txt";
 
@@ -17,7 +17,8 @@ fn main() {
         .dead_code()
         .flat()
         .filter_file(FILTER)
-        .write();
+        .write()
+        .unwrap();
 
     // Lifted stack: Microsoft.UI.Composition (Microsoft.UI.winmd) mirrors the system
     // API, so the same wrapper source compiles against it. The filter is derived from
@@ -35,7 +36,8 @@ fn main() {
         .dead_code()
         .flat()
         .filter_file(lifted_filter)
-        .write();
+        .write()
+        .unwrap();
 
     println!(
         "tool_composition: generated system + lifted bindings in {:.2}s",

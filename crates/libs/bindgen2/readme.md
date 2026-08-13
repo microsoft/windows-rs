@@ -16,13 +16,12 @@ let tokens = generator.render(windows_bindgen2::Layout::Flat)?;
 
 `Metadata` validates images and lowers immutable catalogs once. Relationship errors that do not
 affect a request are deferred until that request traverses them. Each `Generator` retains only the
-typed entities and selection policy for one request. Package staging and legacy command parsing
-remain the responsibility of callers.
+typed entities and selection policy for one request.
 
-The `builder` facade supports flat build-script consumers that use path or default metadata,
-filters, default or sys projection, implementation generation, rustfmt, and changed-file writes.
-It is intentionally narrower than the existing `windows-bindgen` builder. Unsupported policy is
-added only when a real consumer has a differential test.
+The `builder` facade supports build-script and command-file consumers that use path or default
+metadata, include and exclusion filters, default or sys projection, implementation generation,
+flat output, rustfmt settings, and changed-file writes. Package layout is implemented for
+differential testing but does not yet match the published crates.
 
 The current implementation covers WinRT enums, structs, delegates, interfaces, and classes plus
 native sys types, constants, functions, delegates, and interfaces. Filtered dependency closure,
@@ -34,17 +33,18 @@ core requests.
 
 `tool_bindings` is the first production consumer. Its 17 flat requests share one `Metadata` value
 and select default, sys, or minimal output. The tool owns command parsing, rustfmt compatibility,
-and file writes. Seventeen standalone build-script consumers now match their committed output
+and file writes. Twenty standalone build-script consumers now match their committed output
 exactly.
 They include the activation, overload, constructor, and composable client/producer pairs,
-composable aggregation, ref-parameter and `NoException` producers, benchmark and robot components,
-the robot client, the context-alignment sample, the `windows-core`-only API slice, and the Win32
-metadata slice. These requests prove class-wide overload naming, exclusive WinRT implementation
-generation, composable activation and aggregation, output-array and `IReference<T>` authoring,
-canonical external crates, rich standalone native functions, and direct-return native COM
-producers. `tool_reactor` remains on `windows-bindgen`; its class selection, hierarchy, event, and
-producer policies need bounded parity work before migration. Package output and broader COM policy
-remain future work.
+composable aggregation, ref-parameter and `NoException` producers, benchmark component and client,
+robot component and client, the reference library test, the context-alignment and service-time
+samples, the `windows-core`-only API slice, and the Win32 metadata slice. These requests prove
+class-wide overload naming, exclusive WinRT implementation generation, composable activation and
+aggregation, output-array and `IReference<T>` authoring, WinRT field-name policy, custom native
+derives, canonical external crates, rich standalone native functions, and direct-return native COM
+producers. `tool_composition`, `tool_reactor`, and `tool_webview` also run through bindgen2 with
+exact committed-output parity. `tool_package` remains on `windows-bindgen`; bindgen2 package
+generation still differs across hundreds of generated files.
 
 The design and differential evidence are tracked in
 [`docs/crates/windows-bindgen2.md`](../../../docs/crates/windows-bindgen2.md).
