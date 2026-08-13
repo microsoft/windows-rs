@@ -34,9 +34,11 @@ mod struct_model;
 mod tokens;
 mod ty;
 mod win32;
+mod winrt_catalog;
 mod winrt_class;
 mod winrt_collection;
 mod winrt_delegate;
+mod winrt_dependency;
 mod winrt_interface;
 
 pub use build::{Bindgen, builder, command_file};
@@ -381,7 +383,8 @@ struct Shared {
     database: Database,
     winrt_entries: Vec<(String, String, WinrtEntry)>,
     values: Values,
-    interface_relationships: BTreeMap<Entity<TypeDef>, Vec<InterfaceRelationship>>,
+    winrt_catalogs: winrt_catalog::Catalogs,
+    winrt_artifacts: winrt_dependency::ArtifactGraph,
     win32_catalogs: Arc<win32::Win32Catalogs>,
 }
 
@@ -399,13 +402,18 @@ impl Metadata {
         let winrt_entries = winrt_entries(&database)?;
         let values = Values::lower(&database, &winrt_entries)?;
         let interface_relationships = interface_relationships(&database)?;
+        let winrt_catalogs =
+            winrt_catalog::Catalogs::new(&database, &winrt_entries, &interface_relationships)?;
+        let winrt_artifacts =
+            winrt_dependency::ArtifactGraph::new(&winrt_entries, &values, &winrt_catalogs)?;
         let win32_catalogs = Arc::new(win32::Win32Catalogs::new(&database)?);
         Ok(Self {
             shared: Arc::new(Shared {
                 database,
                 winrt_entries,
                 values,
-                interface_relationships,
+                winrt_catalogs,
+                winrt_artifacts,
                 win32_catalogs,
             }),
         })
@@ -592,37 +600,26 @@ impl Generator {
                     (model.dependencies(), BTreeMap::new())
                 }
                 WinrtKind::Delegate => (
-                    winrt_delegate::Delegate::dependencies(
-                        &shared.database,
-                        definition,
-                        &format!("{namespace}.{name}"),
-                    )?,
+                    shared
+                        .winrt_catalogs
+                        .delegate(entry.entity)
+                        .direct_selection_dependencies(),
                     BTreeMap::new(),
                 ),
                 WinrtKind::Interface => {
-                    let model = winrt_interface::Interface::lower(
-                        &shared.database,
-                        definition,
-                        &shared.interface_relationships,
-                        &format!("{namespace}.{name}"),
-                    )?;
+                    let model = shared.winrt_catalogs.interface(entry.entity);
                     let implementation_dependencies = implemented
                         || (implementations.is_none()
                             && model.implicitly_implements(&members, projection));
                     (
-                        model.dependencies(&members, implementation_dependencies),
+                        model.selection_dependencies(&members, implementation_dependencies),
                         model.relationship_members(&members),
                     )
                 }
                 WinrtKind::Class => {
-                    let model = winrt_class::Class::lower(
-                        &shared.database,
-                        definition,
-                        &shared.interface_relationships,
-                        &format!("{namespace}.{name}"),
-                    )?;
+                    let model = shared.winrt_catalogs.class(entry.entity);
                     (
-                        model.dependencies(&members, implementations, projection),
+                        model.selection_dependencies(&members, implementations, projection),
                         model.relationship_members(&members, implementations, projection),
                     )
                 }

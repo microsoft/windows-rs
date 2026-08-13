@@ -107,11 +107,8 @@ impl Generator {
             let name = metadata_name
                 .split_once('`')
                 .map_or(metadata_name, |(name, _)| name);
-            let model = winrt_delegate::Delegate::lower(
-                &self.shared.database,
-                definition,
-                &format!("{namespace}.{metadata_name}"),
-            )?;
+            let mut model = self.shared.winrt_catalogs.delegate(entry.entity).clone();
+            model.expand_package_dependencies(&self.shared.winrt_artifacts);
             let features = tokens::feature_names(
                 namespace,
                 layout,
@@ -145,12 +142,8 @@ impl Generator {
             let definition = self.shared.database.definition(entry.entity).unwrap();
             let namespace = definition.namespace()?;
             let name = definition.name()?;
-            let model = winrt_class::Class::lower(
-                &self.shared.database,
-                definition,
-                &self.shared.interface_relationships,
-                &format!("{namespace}.{name}"),
-            )?;
+            let mut model = self.shared.winrt_catalogs.class(entry.entity).clone();
+            model.expand_package_dependencies(&self.shared.winrt_artifacts);
             modules
                 .entry(namespace.to_string())
                 .or_default()
@@ -178,12 +171,8 @@ impl Generator {
             let namespace = definition.namespace()?;
             let metadata_name = definition.name()?;
             let name = trim_generic_arity(metadata_name);
-            let model = winrt_interface::Interface::lower(
-                &self.shared.database,
-                definition,
-                &self.shared.interface_relationships,
-                &format!("{namespace}.{metadata_name}"),
-            )?;
+            let mut model = self.shared.winrt_catalogs.interface(entry.entity).clone();
+            model.expand_package_dependencies(&self.shared.winrt_artifacts);
             modules
                 .entry(namespace.to_string())
                 .or_default()

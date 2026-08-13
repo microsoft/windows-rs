@@ -3,6 +3,7 @@ use proc_macro2::TokenStream;
 use quote::quote;
 use std::collections::BTreeSet;
 
+#[derive(Clone)]
 pub(super) struct Delegate {
     name: String,
     generics: Vec<String>,
@@ -10,13 +11,16 @@ pub(super) struct Delegate {
     invoke: Method,
 }
 
+#[derive(Clone)]
 pub(super) struct Method {
     parameters: Vec<Parameter>,
     return_type: ty::Type,
+    package_dependencies: BTreeSet<(String, String)>,
     generic_return_default: bool,
     noexcept: bool,
 }
 
+#[derive(Clone)]
 pub(super) struct EventHandler {
     ty: ty::Type,
     invoke: Method,
@@ -31,6 +35,7 @@ pub(super) struct MethodContext<'a> {
     owner: Option<&'a str>,
 }
 
+#[derive(Clone)]
 struct Parameter {
     name: String,
     metadata_name: String,
@@ -78,27 +83,19 @@ impl Delegate {
         })
     }
 
-    pub(super) fn model_dependencies(&self) -> BTreeSet<(String, String)> {
-        self.invoke.dependencies()
+    pub(super) fn model_dependencies(&self) -> &BTreeSet<(String, String)> {
+        self.invoke.package_dependencies()
     }
 
-    pub(super) fn dependencies(
-        database: &Database,
-        definition: TypeDefinition<'_>,
-        owner: &str,
-    ) -> Result<BTreeSet<(String, String)>, Error> {
-        let model = Self::lower(database, definition, owner)?;
-        let mut dependencies = BTreeSet::new();
-        model
-            .invoke
-            .return_type
-            .collect_value_dependencies(&mut dependencies);
-        for parameter in &model.invoke.parameters {
-            parameter.ty.collect_value_dependencies(&mut dependencies);
-        }
+    pub(super) fn direct_selection_dependencies(&self) -> BTreeSet<(String, String)> {
+        let mut dependencies = self.invoke.selection_dependencies();
         dependencies
             .retain(|(namespace, name)| canonical::winrt_type_from_name(namespace, name).is_none());
-        Ok(dependencies)
+        dependencies
+    }
+
+    pub(super) fn expand_package_dependencies(&mut self, graph: &winrt_dependency::ArtifactGraph) {
+        self.invoke.expand_package_dependencies(graph);
     }
 
     pub(super) fn write(
@@ -501,15 +498,18 @@ impl Method {
                 })
             })
             .collect::<Result<_, Error>>()?;
-        Ok(Self {
+        let mut result = Self {
             parameters,
             return_type: ty::Type::lower(database, file, owner, signature.return_type)?,
+            package_dependencies: BTreeSet::new(),
             generic_return_default,
             noexcept: method.find_attribute("NoExceptionAttribute")?.is_some(),
-        })
+        };
+        result.package_dependencies = result.selection_dependencies();
+        Ok(result)
     }
 
-    pub(super) fn dependencies(&self) -> BTreeSet<(String, String)> {
+    pub(super) fn selection_dependencies(&self) -> BTreeSet<(String, String)> {
         let mut dependencies = BTreeSet::new();
         self.return_type
             .collect_value_dependencies(&mut dependencies);
@@ -517,6 +517,14 @@ impl Method {
             parameter.ty.collect_value_dependencies(&mut dependencies);
         }
         dependencies
+    }
+
+    pub(super) fn package_dependencies(&self) -> &BTreeSet<(String, String)> {
+        &self.package_dependencies
+    }
+
+    pub(super) fn expand_package_dependencies(&mut self, graph: &winrt_dependency::ArtifactGraph) {
+        self.package_dependencies = graph.expand(&self.selection_dependencies());
     }
 
     pub(super) fn write_public_method(

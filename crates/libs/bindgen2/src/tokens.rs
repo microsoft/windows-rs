@@ -163,6 +163,20 @@ pub(super) fn feature_names<'a>(
         };
         features.insert(feature);
     }
+    let redundant = features
+        .iter()
+        .filter(|feature| {
+            features.iter().any(|candidate| {
+                candidate
+                    .strip_prefix(feature.as_str())
+                    .is_some_and(|suffix| suffix.starts_with('_'))
+            })
+        })
+        .cloned()
+        .collect::<Vec<_>>();
+    for feature in redundant {
+        features.remove(&feature);
+    }
     features
 }
 

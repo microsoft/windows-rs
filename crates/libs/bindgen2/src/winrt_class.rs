@@ -3,17 +3,20 @@ use proc_macro2::{Literal, TokenStream};
 use quote::quote;
 use std::collections::{BTreeMap, BTreeSet};
 
+#[derive(Clone)]
 pub(super) struct Class {
     name: String,
     namespace: String,
     default_interface: Option<ClassInterface>,
     interfaces: Vec<ClassInterface>,
     bases: Vec<ClassName>,
+    package_dependencies: BTreeSet<(String, String)>,
     default_constructor: bool,
     agile: bool,
     async_default: bool,
 }
 
+#[derive(Clone)]
 struct ClassInterface {
     entity: Entity<TypeDef>,
     namespace: String,
@@ -26,12 +29,20 @@ struct ClassInterface {
     composable: bool,
 }
 
+#[derive(Clone)]
 struct ClassName {
     namespace: String,
     name: String,
 }
 
 impl Class {
+    #[cfg(test)]
+    pub(super) fn default_interface_entity(&self) -> Option<Entity<TypeDef>> {
+        self.default_interface
+            .as_ref()
+            .map(|interface| interface.entity)
+    }
+
     pub(super) fn lower(
         database: &Database,
         definition: TypeDefinition<'_>,
@@ -69,19 +80,22 @@ impl Class {
             .as_ref()
             .is_some_and(ClassInterface::is_async);
         let agile = async_default || is_agile(definition)?;
-        Ok(Self {
+        let mut result = Self {
             name,
             namespace,
             default_interface,
             interfaces,
             bases,
+            package_dependencies: BTreeSet::new(),
             default_constructor,
             agile,
             async_default,
-        })
+        };
+        result.package_dependencies = result.direct_artifact_dependencies();
+        Ok(result)
     }
 
-    pub(super) fn dependencies(
+    pub(super) fn selection_dependencies(
         &self,
         members: &MemberSelection,
         implementations: Option<&Filter>,
@@ -139,7 +153,7 @@ impl Class {
                 argument.collect_value_dependencies(&mut dependencies);
             }
             for method in selected_methods {
-                dependencies.extend(method.method.dependencies());
+                dependencies.extend(method.method.selection_dependencies());
             }
         }
         dependencies.extend(
@@ -150,7 +164,7 @@ impl Class {
         dependencies
     }
 
-    fn artifact_dependencies(&self) -> BTreeSet<(String, String)> {
+    pub(super) fn direct_artifact_dependencies(&self) -> BTreeSet<(String, String)> {
         let mut dependencies = BTreeSet::new();
         for interface in self
             .interfaces
@@ -168,6 +182,20 @@ impl Class {
                 .map(|base| (base.namespace.clone(), base.name.clone())),
         );
         dependencies
+    }
+
+    pub(super) fn expand_package_dependencies(&mut self, graph: &winrt_dependency::ArtifactGraph) {
+        self.package_dependencies = graph.expand(&self.direct_artifact_dependencies());
+        for interface in &mut self.interfaces {
+            for method in &mut interface.methods {
+                method.method.expand_package_dependencies(graph);
+            }
+        }
+        if let Some(interface) = &mut self.default_interface {
+            for method in &mut interface.methods {
+                method.method.expand_package_dependencies(graph);
+            }
+        }
     }
 
     pub(super) fn relationship_members(
@@ -282,7 +310,7 @@ impl Class {
         let class_features = tokens::feature_names(
             namespace,
             layout,
-            self.artifact_dependencies()
+            self.package_dependencies
                 .iter()
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         );
@@ -438,7 +466,7 @@ impl Class {
                     layout,
                     method
                         .method
-                        .dependencies()
+                        .package_dependencies()
                         .iter()
                         .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
                 );
@@ -558,7 +586,7 @@ impl Class {
         let class_features = tokens::feature_names(
             namespace,
             layout,
-            self.artifact_dependencies()
+            self.package_dependencies
                 .iter()
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         );
@@ -642,7 +670,7 @@ impl Class {
                     layout,
                     method
                         .method
-                        .dependencies()
+                        .package_dependencies()
                         .iter()
                         .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
                 );

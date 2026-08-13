@@ -665,13 +665,8 @@ fn winrt_interface_corpus_lowers_and_renders() {
         let definition = generator.shared.database.definition(entry.entity).unwrap();
         let namespace = definition.namespace().unwrap();
         let name = definition.name().unwrap();
-        let result = winrt_interface::Interface::lower(
-            &generator.shared.database,
-            definition,
-            &generator.shared.interface_relationships,
-            &format!("{namespace}.{name}"),
-        )
-        .and_then(|model| {
+        let model = generator.shared.winrt_catalogs.interface(entry.entity);
+        let result: Result<(), Error> = (|| {
             for projection in [Projection::Default, Projection::Minimal] {
                 model.write(
                     values,
@@ -684,7 +679,7 @@ fn winrt_interface_corpus_lowers_and_renders() {
                 )?;
             }
             Ok(())
-        });
+        })();
         if let Err(error) = result {
             unsupported.push((format!("{namespace}.{name}"), error.to_string()));
         }
@@ -1716,22 +1711,14 @@ fn winrt_class_corpus_lowers_and_renders() {
         let definition = generator.shared.database.definition(entry.entity).unwrap();
         let namespace = definition.namespace().unwrap();
         let name = definition.name().unwrap();
-        let default = generator
-            .shared
-            .interface_relationships
-            .get(&entry.entity)
-            .and_then(|relationships| {
-                relationships
-                    .iter()
-                    .filter_map(|relationship| relationship.resolve().ok())
-                    .find(|item| item.default)
-            });
+        let model = generator.shared.winrt_catalogs.class(entry.entity);
+        let default = model.default_interface_entity();
         no_default += usize::from(default.is_none());
         if let Some(default) = default {
             let name = generator
                 .shared
                 .database
-                .definition(default.entity)
+                .definition(default)
                 .unwrap()
                 .name()
                 .unwrap();
@@ -1784,13 +1771,7 @@ fn winrt_class_corpus_lowers_and_renders() {
                 _ => {}
             }
         }
-        let result = winrt_class::Class::lower(
-            &generator.shared.database,
-            definition,
-            &generator.shared.interface_relationships,
-            &format!("{namespace}.{name}"),
-        )
-        .and_then(|model| {
+        let result: Result<(), Error> = (|| {
             for projection in [Projection::Default, Projection::Minimal] {
                 model.write(
                     values,
@@ -1803,7 +1784,7 @@ fn winrt_class_corpus_lowers_and_renders() {
                 )?;
             }
             Ok(())
-        });
+        })();
         if let Err(error) = result {
             unsupported.push((format!("{namespace}.{name}"), error.to_string()));
         }
@@ -3350,6 +3331,17 @@ fn package_split_crates_do_not_become_namespace_features() {
         )
         .is_empty()
     );
+    assert_eq!(
+        tokens::feature_names(
+            "Windows.UI",
+            Layout::Package,
+            [
+                ("Windows.Storage", "StorageFile"),
+                ("Windows.Storage.Streams", "IBuffer"),
+            ],
+        ),
+        BTreeSet::from(["Storage_Streams".to_string()])
+    );
 }
 
 #[test]
@@ -3366,6 +3358,12 @@ fn package_winrt_methods_gate_external_namespace_dependencies() {
                     }
                 }
                 mod Storage {
+                    class PackageWrapper {
+                        Streams::IPackageClass,
+                    }
+                    interface IPackageTransitive {
+                        fn Get(&self) -> PackageWrapper;
+                    }
                     mod Streams {
                         struct PackageValue {
                             value: i32,
@@ -3396,6 +3394,7 @@ fn package_winrt_methods_gate_external_namespace_dependencies() {
         .generator(
             Request::filtered(Filter::names([
                 "IPackage",
+                "IPackageTransitive",
                 "PackageClass",
                 "PackageHandler",
                 "PackageIterable",
@@ -3414,6 +3413,14 @@ fn package_winrt_methods_gate_external_namespace_dependencies() {
     let contents =
         std::fs::read_to_string(output.join("src").join("Windows").join("UI").join("mod.rs"))
             .unwrap();
+    let storage = std::fs::read_to_string(
+        output
+            .join("src")
+            .join("Windows")
+            .join("Storage")
+            .join("mod.rs"),
+    )
+    .unwrap();
     std::fs::remove_dir_all(output).unwrap();
     assert!(contents.contains("#[cfg(feature = \"Storage_Streams\")]"));
     assert!(contents.contains("#[cfg(not(feature = \"Storage_Streams\"))]"));
@@ -3424,6 +3431,10 @@ fn package_winrt_methods_gate_external_namespace_dependencies() {
     ));
     assert!(contents.contains("impl IntoIterator for PackageIterable"));
     assert!(contents.contains("windows_collections::BufferedIterator<Self::Item>"));
+    assert!(storage.contains(
+        "#[cfg(feature = \"Storage_Streams\")]\n    pub fn Get(&self) -> windows_core::Result<PackageWrapper>"
+    ));
+    assert!(storage.contains("#[cfg(not(feature = \"Storage_Streams\"))]\n    Get: usize"));
     assert!(
         contents
             .matches("#[cfg(feature = \"Storage_Streams\")]")
@@ -3749,5 +3760,30 @@ fn architecture_source_gates() {
                 path.display()
             );
         }
+    }
+
+    let catalog = std::fs::read_to_string(source.join("winrt_catalog.rs")).unwrap();
+    for model in [
+        "winrt_delegate::Delegate::lower",
+        "winrt_interface::Interface::lower",
+        "winrt_class::Class::lower",
+    ] {
+        assert!(catalog.contains(model));
+        for file in ["lib.rs", "output.rs", "winrt_dependency.rs"] {
+            assert!(
+                !std::fs::read_to_string(source.join(file))
+                    .unwrap()
+                    .contains(model),
+                "{file} bypasses the shared WinRT catalog with {model}"
+            );
+        }
+    }
+
+    let graph = std::fs::read_to_string(source.join("winrt_dependency.rs")).unwrap();
+    for rendering in ["TokenStream", "quote!", "feature_names"] {
+        assert!(
+            !graph.contains(rendering),
+            "WinRT artifact graph contains rendering policy: {rendering}"
+        );
     }
 }

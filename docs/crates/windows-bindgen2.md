@@ -41,7 +41,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
 | Build-script facade | Twenty consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, reference and time projections, benchmark and robot components and clients, context alignment, core-only APIs, and Win32 metadata match. |
-| Package output | In progress | The package backend runs, but 817 generated files still differ. Source output has 34,127 missing and 21,511 extra line edges; manifests have 122 missing and 358 extra dependency edges. |
+| Package output | In progress | The package backend runs, but 804 generated files still differ. Source output has 33,038 missing and 21,064 extra line edges; manifests have 122 missing and 358 extra dependency edges. |
 
 The current working implementation has about 14,400 lines of production Rust, roughly the same as
 legacy bindgen. Size is no longer evidence for the rewrite by itself; structure, parity, and
@@ -104,6 +104,13 @@ each generated Rust item because one delegate projection emits several adjacent 
 classes distinguish structural interface and base dependencies from method dependencies, apply
 factory and static-method gates independently, and emit collection iterator conveniences when they
 implement `IIterable<T>`.
+
+WinRT models are lowered once into a shared immutable catalog. Request closure borrows catalog
+models, while rendering clones only selected models before expanding package dependencies. A typed
+artifact graph separates selection dependencies, direct artifact dependencies, and transitive
+package dependencies. Hierarchical feature minimization drops parent features when a child feature
+already enables them. A warm package probe with this catalog took 197.2 seconds, compared with
+201.7 seconds before the catalog refactor.
 
 ## Stabilization gate
 

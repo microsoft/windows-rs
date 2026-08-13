@@ -3,6 +3,7 @@ use proc_macro2::{Literal, TokenStream};
 use quote::quote;
 use std::collections::{BTreeMap, BTreeSet};
 
+#[derive(Clone)]
 pub(super) struct Interface {
     pub(super) name: String,
     pub(super) namespace: String,
@@ -14,6 +15,7 @@ pub(super) struct Interface {
     pub(super) required: Vec<RequiredInterface>,
 }
 
+#[derive(Clone)]
 pub(super) struct NamedMethod {
     pub(super) name: String,
     pub(super) context_name: String,
@@ -128,6 +130,7 @@ impl NamedMethod {
     }
 }
 
+#[derive(Clone)]
 pub(super) struct RequiredInterface {
     pub(super) namespace: String,
     pub(super) name: String,
@@ -257,7 +260,7 @@ impl Interface {
         Ok(())
     }
 
-    pub(super) fn dependencies(
+    pub(super) fn selection_dependencies(
         &self,
         members: &MemberSelection,
         retain_abi_prefix: bool,
@@ -272,7 +275,7 @@ impl Interface {
                 .collect()
         };
         for method in methods {
-            dependencies.extend(method.method.dependencies());
+            dependencies.extend(method.method.selection_dependencies());
         }
         dependencies.extend(
             self.required
@@ -288,10 +291,32 @@ impl Interface {
                 .iter()
                 .filter(|method| method.selected(members))
             {
-                dependencies.extend(method.method.dependencies());
+                dependencies.extend(method.method.selection_dependencies());
             }
         }
         dependencies
+    }
+
+    pub(super) fn direct_artifact_dependencies(&self) -> BTreeSet<(String, String)> {
+        let mut dependencies = BTreeSet::new();
+        for required in &self.required {
+            dependencies.insert((required.namespace.clone(), required.name.clone()));
+            for argument in &required.arguments {
+                argument.collect_value_dependencies(&mut dependencies);
+            }
+        }
+        dependencies
+    }
+
+    pub(super) fn expand_package_dependencies(&mut self, graph: &winrt_dependency::ArtifactGraph) {
+        for method in &mut self.methods {
+            method.method.expand_package_dependencies(graph);
+        }
+        for required in &mut self.required {
+            for method in &mut required.methods {
+                method.method.expand_package_dependencies(graph);
+            }
+        }
     }
 
     pub(super) fn relationship_members(
@@ -454,38 +479,37 @@ impl Interface {
             &self.generics,
             Some(&self.name),
         );
-        let methods = self
-            .methods
-            .iter()
-            .filter(|method| method.selected(members))
-            .filter(|_| {
-                !projection.is_minimal()
-                    || if implementation == Some(true) {
-                        explicit && !self.name.ends_with("Overrides")
-                    } else {
-                        !self.name.ends_with("Factory") && !self.name.ends_with("Statics")
-                    }
-            })
-            .filter_map(|method| {
-                let tokens = method
-                    .write_public(&method_context, &method.name, None)
-                    .transpose();
-                tokens.map(|tokens| {
+        let methods =
+            self.methods
+                .iter()
+                .filter(|method| method.selected(members))
+                .filter(|_| {
+                    !projection.is_minimal()
+                        || if implementation == Some(true) {
+                            explicit && !self.name.ends_with("Overrides")
+                        } else {
+                            !self.name.ends_with("Factory") && !self.name.ends_with("Statics")
+                        }
+                })
+                .filter_map(|method| {
+                    let tokens = method
+                        .write_public(&method_context, &method.name, None)
+                        .transpose();
                     tokens.map(|tokens| {
-                        let cfg = tokens::feature_cfg(
-                            namespace,
-                            layout,
-                            method
-                                .method
-                                .dependencies()
-                                .iter()
-                                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
-                        );
-                        quote! { #cfg #tokens }
+                        tokens.map(|tokens| {
+                            let cfg =
+                                tokens::feature_cfg(
+                                    namespace,
+                                    layout,
+                                    method.method.package_dependencies().iter().map(
+                                        |(namespace, name)| (namespace.as_str(), name.as_str()),
+                                    ),
+                                );
+                            quote! { #cfg #tokens }
+                        })
                     })
                 })
-            })
-            .collect::<Result<Vec<_>, Error>>()?;
+                .collect::<Result<Vec<_>, Error>>()?;
         let agile = self.agile.then(|| {
             quote! {
                 unsafe impl #constrained_generics Send for #name #type_arguments {}
@@ -853,7 +877,7 @@ impl Interface {
                     layout,
                     method
                         .method
-                        .dependencies()
+                        .package_dependencies()
                         .iter()
                         .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
                 );
