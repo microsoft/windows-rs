@@ -151,7 +151,7 @@ impl NativeType {
                 })
             }
             TypeCategory::Struct => {
-                let nested_names = relationships
+                let mut nested_names = relationships
                     .get(&definition.entity())
                     .into_iter()
                     .flatten()
@@ -213,6 +213,7 @@ impl NativeType {
                         fields.push((field_name, field_ty));
                     }
                 }
+                nested_names.sort_by(|left, right| left.1.cmp(&right.1));
                 let nested = nested_names
                     .into_iter()
                     .map(|(_, projected, entity)| {
@@ -505,6 +506,20 @@ impl NativeType {
                 .iter()
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         )
+    }
+
+    pub(super) fn supports_package_sys(&self) -> bool {
+        match &self.kind {
+            Kind::Alias(value) => !value.ty.uses_winrt_projection(),
+            Kind::Enum(value) => !value.ty.uses_winrt_projection(),
+            Kind::Struct(value) => {
+                !value
+                    .fields
+                    .iter()
+                    .any(|(_, ty)| ty.uses_winrt_projection())
+                    && value.nested.iter().all(Self::supports_package_sys)
+            }
+        }
     }
 
     fn cfg(&self, layout: Layout) -> TokenStream {

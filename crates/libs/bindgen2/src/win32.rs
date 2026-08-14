@@ -629,6 +629,9 @@ impl<'a> Win32Items<'a> {
                     &self.catalogs.nested,
                     self.enum_variants(*entity),
                 )?;
+                if layout.is_package() && projection.is_sys() && !ty.supports_package_sys() {
+                    continue;
+                }
                 let derives = derives
                     .get(definition.name()?)
                     .map(|derives| derives.iter().cloned().collect::<Vec<_>>())
@@ -642,6 +645,9 @@ impl<'a> Win32Items<'a> {
                 let definition = self.database.definition(*entity).unwrap();
                 let delegate =
                     Delegate::lower(self.database, &self.catalogs.dependencies, definition)?;
+                if layout.is_package() && projection.is_sys() && !delegate.supports_package_sys() {
+                    continue;
+                }
                 add(
                     &namespace.name,
                     definition.name()?,
@@ -694,6 +700,9 @@ impl<'a> Win32Items<'a> {
                     &namespace.name,
                     name,
                 )?;
+                if layout.is_package() && projection.is_sys() && !constant.supports_package_sys() {
+                    continue;
+                }
                 add(
                     &namespace.name,
                     name,
@@ -712,6 +721,9 @@ impl<'a> Win32Items<'a> {
                     &namespace.name,
                     name,
                 )?;
+                if layout.is_package() && projection.is_sys() && !function.supports_package_sys() {
+                    continue;
+                }
                 add(
                     &namespace.name,
                     name,

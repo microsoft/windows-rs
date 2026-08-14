@@ -580,11 +580,19 @@ impl native_signature::Signature {
             },
             |(_, ty)| ty.write_public(namespace, layout),
         );
-        let return_type = (!result.is_empty()).then(|| quote! { -> #result });
-        let raw_return_type = direct.map(|ty| {
-            let ty = ty.write_abi_projection(namespace, layout, Projection::Default);
-            quote! { -> #ty }
-        });
+        let return_type = if self.no_return {
+            Some(quote! { -> ! })
+        } else {
+            (!result.is_empty()).then(|| quote! { -> #result })
+        };
+        let raw_return_type = if self.no_return {
+            Some(quote! { -> ! })
+        } else {
+            direct.map(|ty| {
+                let ty = ty.write_abi_projection(namespace, layout, Projection::Default);
+                quote! { -> #ty }
+            })
+        };
         let body = if output.is_some() {
             quote! {
                 let mut result__ = core::mem::zeroed();

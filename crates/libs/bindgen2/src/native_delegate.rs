@@ -93,6 +93,10 @@ impl Delegate {
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         )
     }
+
+    pub(super) fn supports_package_sys(&self) -> bool {
+        !self.signature.uses_winrt_projection()
+    }
 }
 
 fn calling_convention(

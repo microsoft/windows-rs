@@ -8,6 +8,7 @@ pub(super) struct Signature {
     pub(super) parameters: Vec<Parameter>,
     pub(super) return_type: native::Type,
     pub(super) indirect_return: bool,
+    pub(super) no_return: bool,
     package_dependencies: BTreeSet<(String, String)>,
     manifest_dependencies: BTreeSet<(String, String)>,
 }
@@ -277,6 +278,8 @@ impl Signature {
         let return_type =
             native::Type::lower(database, method.entity().file(), owner, return_type)?;
         let indirect_return = return_type.is_indirect_return(database)?;
+        let no_return = return_type == native::Type::Void
+            && method.find_attribute("DoesNotReturnAttribute")?.is_some();
         let mut package_dependencies = return_type.package_dependencies(database, dependencies)?;
         let mut manifest_dependencies = return_type.manifest_dependencies(database)?;
         for parameter in &parameters {
@@ -288,6 +291,7 @@ impl Signature {
             parameters,
             return_type,
             indirect_return,
+            no_return,
             package_dependencies,
             manifest_dependencies,
         })
@@ -302,6 +306,14 @@ impl Signature {
 
     pub(super) fn package_dependencies(&self) -> &BTreeSet<(String, String)> {
         &self.package_dependencies
+    }
+
+    pub(super) fn uses_winrt_projection(&self) -> bool {
+        self.return_type.uses_winrt_projection()
+            || self
+                .parameters
+                .iter()
+                .any(|parameter| parameter.ty.uses_winrt_projection())
     }
 
     pub(super) fn manifest_dependencies(&self) -> &BTreeSet<(String, String)> {

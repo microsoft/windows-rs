@@ -67,9 +67,12 @@ impl Function {
             self.signature
                 .write_parameters_projection(&self.namespace, layout, projection);
         let variadic = self.variadic.then(|| quote! { , ... });
-        let result = self
-            .signature
-            .write_result_projection(&self.namespace, layout, projection);
+        let result = if self.signature.no_return {
+            quote! { -> ! }
+        } else {
+            self.signature
+                .write_result_projection(&self.namespace, layout, projection)
+        };
         let pointer_alias = window_long_dependency(&self.name).map(|dependency| {
             let dependency = tokens::ident(dependency);
             quote! {
@@ -120,6 +123,10 @@ impl Function {
                 .iter()
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         )
+    }
+
+    pub(super) fn supports_package_sys(&self) -> bool {
+        !self.signature.uses_winrt_projection()
     }
 }
 

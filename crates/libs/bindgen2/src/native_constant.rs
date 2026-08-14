@@ -136,16 +136,23 @@ impl Constant {
         let name = tokens::ident(&self.name);
         let value = match &self.value {
             Value::Guid(guid) => {
-                if projection.is_sys() {
-                    let guid = guid.write_value();
-                    if layout.is_package() {
+                if layout.is_package() {
+                    let guid = guid.write_u128();
+                    if projection.is_sys() {
                         quote! {
-                            pub const #name: windows_sys::core::GUID = #guid;
+                            pub const #name: windows_sys::core::GUID =
+                                windows_sys::core::GUID::from_u128(#guid);
                         }
                     } else {
                         quote! {
-                            pub const #name: GUID = #guid;
+                            pub const #name: windows_core::GUID =
+                                windows_core::GUID::from_u128(#guid);
                         }
+                    }
+                } else if projection.is_sys() {
+                    let guid = guid.write_value();
+                    quote! {
+                        pub const #name: GUID = #guid;
                     }
                 } else {
                     let guid = guid.write_u128();
@@ -271,6 +278,10 @@ impl Constant {
                 .iter()
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         )
+    }
+
+    pub(super) fn supports_package_sys(&self) -> bool {
+        !self.ty.uses_winrt_projection()
     }
 
     fn write_converted(underlying: &native::Type, value: &ConstantValue) -> TokenStream {

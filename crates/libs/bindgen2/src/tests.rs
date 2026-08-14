@@ -3358,6 +3358,59 @@ fn architecture_gates_match_existing_flat_sys_tokens() {
 }
 
 #[test]
+fn native_no_return_functions_render_never_returns() {
+    let generator = fixture(
+        r#"
+            #[win32]
+            mod Test {
+                #[noreturn]
+                #[library("test.dll")]
+                extern fn Exit(code: u32);
+            }
+        "#,
+    );
+    let function = generator.win32_items().functions().next().unwrap().unwrap();
+    assert_eq!(
+        function.write_sys().to_string(),
+        quote! {
+            windows_link::link!("test.dll" "system" fn Exit(code: u32) -> !);
+        }
+        .to_string()
+    );
+    assert_eq!(
+        function
+            .write_context(Layout::Modules, Projection::Default)
+            .to_string(),
+        quote! {
+            #[inline]
+            pub unsafe fn Exit(code: u32) -> ! {
+                windows_core::link!("test.dll" "system" fn Exit(code: u32) -> !);
+                unsafe { Exit(code) }
+            }
+        }
+        .to_string()
+    );
+}
+
+#[test]
+fn package_sys_supports_winrt_interface_abi_types() {
+    assert!(
+        !native::Type::Interface {
+            namespace: "Windows.System".to_string(),
+            name: "DispatcherQueueController".to_string(),
+        }
+        .uses_winrt_projection()
+    );
+    assert!(
+        native::Type::Named {
+            namespace: "Windows.Foundation.Numerics".to_string(),
+            name: "Vector2".to_string(),
+        }
+        .uses_winrt_projection()
+    );
+}
+
+#[test]
 fn package_split_crates_do_not_become_namespace_features() {
     assert_eq!(
         external::package_crate_name("Windows.Foundation", "DateTime"),

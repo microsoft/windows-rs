@@ -847,12 +847,19 @@ fn named_traits(
         return Ok(TraitSupport::NONE);
     }
     let mut result = TraitSupport::ALL;
-    let definitions = database.type_definitions(namespace, name);
+    let mut definitions = database
+        .type_definitions(namespace, name)
+        .iter()
+        .copied()
+        .collect::<Vec<_>>();
+    if definitions.is_empty() {
+        definitions = projected_nested_definitions(database, namespace, name);
+    }
     if definitions.is_empty() {
         result = TraitSupport::NONE;
     }
     for entity in definitions {
-        let definition = database.definition(*entity).unwrap();
+        let definition = database.definition(entity).unwrap();
         let traits = match definition.category()? {
             TypeCategory::Enum => TraitSupport::ALL,
             TypeCategory::Delegate => TraitSupport {
@@ -898,6 +905,45 @@ fn named_traits(
     }
     stack.remove(&key);
     Ok(result)
+}
+
+fn projected_nested_definitions(
+    database: &Database,
+    namespace: &str,
+    name: &str,
+) -> Vec<Entity<TypeDef>> {
+    let mut parent = name;
+    let mut indices = Vec::new();
+    while let Some((candidate, index)) = parent.rsplit_once('_') {
+        let Ok(index) = index.parse::<usize>() else {
+            break;
+        };
+        indices.push(index);
+        parent = candidate;
+        let roots = database.type_definitions(namespace, parent);
+        if roots.is_empty() {
+            continue;
+        }
+        let mut definitions = Vec::new();
+        for root in roots {
+            let mut current = *root;
+            let mut found = true;
+            for index in indices.iter().rev() {
+                let Some(nested) = database.nested_types_of(current).nth(*index) else {
+                    found = false;
+                    break;
+                };
+                current = nested.entity();
+            }
+            if found {
+                definitions.push(current);
+            }
+        }
+        if !definitions.is_empty() {
+            return definitions;
+        }
+    }
+    Vec::new()
 }
 
 pub(super) fn core_projection(namespace: &str, name: &str) -> Option<TokenStream> {
@@ -965,6 +1011,22 @@ impl Type {
 
     pub(super) fn named_types(&self, mut add: impl FnMut(&str, &str)) {
         self.visit_named(&mut add);
+    }
+
+    pub(super) fn uses_winrt_projection(&self) -> bool {
+        match self {
+            Self::Array { element, .. } | Self::Pointer { element, .. } => {
+                element.uses_winrt_projection()
+            }
+            Self::Interface { .. } => false,
+            Self::Named { namespace, name } => {
+                canonical::type_from_name(namespace, name).is_none()
+                    && (namespace == "Windows" || namespace.starts_with("Windows."))
+                    && namespace != "Windows.Win32"
+                    && !namespace.starts_with("Windows.Win32.")
+            }
+            _ => false,
+        }
     }
 
     pub(super) fn package_dependencies(
