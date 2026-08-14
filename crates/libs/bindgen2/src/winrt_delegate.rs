@@ -26,6 +26,12 @@ pub(super) struct EventHandler {
     invoke: Method,
 }
 
+struct EventBinding {
+    signature: TokenStream,
+    send: TokenStream,
+    statement: TokenStream,
+}
+
 pub(super) struct MethodContext<'a> {
     values: &'a Values,
     namespace: &'a str,
@@ -240,11 +246,16 @@ impl Delegate {
             self.invoke
                 .write_abi_signature(values, namespace, layout, &self.generics, true)?;
         let upcall = if projection.is_minimal() {
-            self.invoke
-                .write_upcall_infallible(values, quote! { (this.invoke) }, false, false)?
+            self.invoke.write_upcall_infallible(
+                values,
+                layout,
+                quote! { (this.invoke) },
+                false,
+                false,
+            )?
         } else {
             self.invoke
-                .write_upcall(values, quote! { (this.invoke) }, false)?
+                .write_upcall(values, layout, quote! { (this.invoke) }, false)?
         };
         let generic_params = public_signature.generic_params;
         let method_generics = if generic_params.is_empty() {
@@ -382,6 +393,77 @@ impl<'a> MethodContext<'a> {
 
     const fn has_public_methods(&self) -> bool {
         self.projection.has_public_methods()
+    }
+}
+
+impl EventHandler {
+    fn bind(&self, context: &MethodContext<'_>, owner: &str) -> Result<EventBinding, Error> {
+        let handler_type = if context.is_package() {
+            self.ty.write_name_with_owner(
+                context.namespace,
+                context.layout,
+                context.generics,
+                context.owner,
+            )?
+        } else {
+            self.ty
+                .write_name(context.namespace, context.layout, context.generics)?
+        };
+        let signature = self.invoke.write_infallible_signature(
+            context.values,
+            context.namespace,
+            context.layout,
+            context.generics,
+            context.owner,
+        )?;
+        let send = (!context.is_minimal())
+            .then(|| quote! { + Send })
+            .unwrap_or_default();
+        let parameters = (0..self.invoke.parameters.len())
+            .map(|position| tokens::ident(&format!("a{position}")))
+            .collect::<Vec<_>>();
+        let statement = if context.is_minimal() {
+            let (box_name, arguments) = match &self.ty {
+                ty::Type::Named {
+                    name, arguments, ..
+                } => (
+                    tokens::ident(&format!("{name}Box")),
+                    arguments
+                        .iter()
+                        .map(|argument| {
+                            argument.write_name(context.namespace, context.layout, context.generics)
+                        })
+                        .collect::<Result<Vec<_>, Error>>()?,
+                ),
+                _ => {
+                    return Err(Error::InvalidType {
+                        name: owner.to_string(),
+                        message: "event handler is not a named delegate",
+                    });
+                }
+            };
+            quote! {
+                let handler: #handler_type = {
+                    let com = windows_core::imp::DelegateBox::<#handler_type, F>::new(
+                        &#box_name::<#(#arguments,)* F>::VTABLE,
+                        handler
+                    );
+                    unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+                };
+            }
+        } else {
+            quote! {
+                let handler = <#handler_type>::new(move |#(#parameters),*| {
+                    handler(#(#parameters),*);
+                    Ok(())
+                });
+            }
+        };
+        Ok(EventBinding {
+            signature,
+            send,
+            statement,
+        })
     }
 }
 
@@ -567,66 +649,11 @@ impl Method {
     ) -> Result<TokenStream, Error> {
         let name = tokens::ident(name);
         let remove_name = tokens::ident(remove_name);
-        let handler_type = if context.is_package() {
-            handler.ty.write_name_with_owner(
-                context.namespace,
-                context.layout,
-                context.generics,
-                context.owner,
-            )?
-        } else {
-            handler
-                .ty
-                .write_name(context.namespace, context.layout, context.generics)?
-        };
-        let signature = handler.invoke.write_infallible_signature(
-            context.values,
-            context.namespace,
-            context.layout,
-            context.generics,
-            context.owner,
-        )?;
-        let send = (!context.is_minimal()).then(|| quote! { + Send });
-        let arguments = (0..handler.invoke.parameters.len())
-            .map(|position| tokens::ident(&format!("a{position}")))
-            .collect::<Vec<_>>();
-        let handler = if context.is_minimal() {
-            let (box_name, arguments) = match &handler.ty {
-                ty::Type::Named {
-                    name, arguments, ..
-                } => (
-                    tokens::ident(&format!("{name}Box")),
-                    arguments
-                        .iter()
-                        .map(|argument| {
-                            argument.write_name(context.namespace, context.layout, context.generics)
-                        })
-                        .collect::<Result<Vec<_>, Error>>()?,
-                ),
-                _ => {
-                    return Err(Error::InvalidType {
-                        name: name.to_string(),
-                        message: "event handler is not a named delegate",
-                    });
-                }
-            };
-            quote! {
-                let handler: #handler_type = {
-                    let com = windows_core::imp::DelegateBox::<#handler_type, F>::new(
-                        &#box_name::<#(#arguments,)* F>::VTABLE,
-                        handler
-                    );
-                    unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
-                };
-            }
-        } else {
-            quote! {
-                let handler = <#handler_type>::new(move |#(#arguments),*| {
-                    handler(#(#arguments),*);
-                    Ok(())
-                });
-            }
-        };
+        let EventBinding {
+            signature,
+            send,
+            statement,
+        } = handler.bind(context, &name.to_string())?;
         let visibility = if !context.has_public_methods() {
             quote! { pub(crate) }
         } else {
@@ -638,7 +665,7 @@ impl Method {
                 F: Fn #signature #send + 'static,
             {
                 #prelude
-                #handler
+                #statement
                 unsafe {
                     let mut result__ = core::mem::zeroed();
                     let token__ = (windows_core::Interface::vtable(#receiver).#name)(
@@ -735,8 +762,6 @@ impl Method {
         public_name: &str,
         abi_name: &str,
         factory_name: &str,
-        class_namespace: &str,
-        class_name: &str,
     ) -> Result<TokenStream, Error> {
         let public_name = tokens::ident(public_name);
         let abi_name = tokens::ident(abi_name);
@@ -752,14 +777,7 @@ impl Method {
         let parameters = signature.parameters;
         let signature_prelude = signature.prelude;
         let where_clause = signature.where_clause;
-        let return_type = match &self.return_type {
-            ty::Type::Named {
-                namespace, name, ..
-            } if namespace == class_namespace && name == class_name => {
-                quote! { -> windows_core::Result<Self> }
-            }
-            _ => signature.return_type,
-        };
+        let return_type = signature.return_type;
         let visibility = if !context.has_public_methods() {
             quote! { pub(crate) }
         } else {
@@ -786,36 +804,11 @@ impl Method {
         let name = tokens::ident(name);
         let remove_name = tokens::ident(remove_name);
         let factory_name = tokens::ident(factory_name);
-        let handler_type =
-            handler
-                .ty
-                .write_name(context.namespace, context.layout, context.generics)?;
-        let signature = handler.invoke.write_infallible_signature(
-            context.values,
-            context.namespace,
-            context.layout,
-            context.generics,
-            context.owner,
-        )?;
-        let (box_name, arguments) = match &handler.ty {
-            ty::Type::Named {
-                name, arguments, ..
-            } => (
-                tokens::ident(&format!("{name}Box")),
-                arguments
-                    .iter()
-                    .map(|argument| {
-                        argument.write_name(context.namespace, context.layout, context.generics)
-                    })
-                    .collect::<Result<Vec<_>, Error>>()?,
-            ),
-            _ => {
-                return Err(Error::InvalidType {
-                    name: name.to_string(),
-                    message: "event handler is not a named delegate",
-                });
-            }
-        };
+        let EventBinding {
+            signature,
+            send,
+            statement,
+        } = handler.bind(context, &name.to_string())?;
         let visibility = if !context.has_public_methods() {
             quote! { pub(crate) }
         } else {
@@ -824,15 +817,9 @@ impl Method {
         Ok(quote! {
             #visibility fn #name<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
             where
-                F: Fn #signature + 'static,
+                F: Fn #signature #send + 'static,
             {
-                let handler: #handler_type = {
-                    let com = windows_core::imp::DelegateBox::<#handler_type, F>::new(
-                        &#box_name::<#(#arguments,)* F>::VTABLE,
-                        handler
-                    );
-                    unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
-                };
+                #statement
                 Self::#factory_name(|this| unsafe {
                     let mut result__ = core::mem::zeroed();
                     let token__ = (windows_core::Interface::vtable(this).#name)(
@@ -1054,25 +1041,12 @@ impl Method {
                     Ok(quote! { #name: Option<#argument>, })
                 } else if parameter.input_only && parameter.ty.is_interface() {
                     let generic = tokens::ident(&format!("P{position}"));
-                    let ty = if matches!(
-                        (&parameter.ty, context.owner),
-                        (
-                            ty::Type::Named {
-                                namespace,
-                                name,
-                                ..
-                            },
-                            Some(owner)
-                        ) if namespace == context.namespace && name == owner
-                    ) {
-                        quote! { Self }
-                    } else {
-                        parameter.ty.write_name(
-                            context.namespace,
-                            context.layout,
-                            context.generics,
-                        )?
-                    };
+                    let ty = parameter.ty.write_name_with_owner(
+                        context.namespace,
+                        context.layout,
+                        context.generics,
+                        context.owner,
+                    )?;
                     generic_params.push(generic.clone());
                     constraints.push(quote! { #generic: windows_core::Param<#ty>, });
                     Ok(quote! { #name: #generic, })
@@ -1124,7 +1098,12 @@ impl Method {
                 self.write_return_type(context.namespace, context.layout, context.generics)?
             }
         } else {
-            self.write_return_type(context.namespace, context.layout, context.generics)?
+            self.write_return_type_with_owner(
+                context.namespace,
+                context.layout,
+                context.generics,
+                context.owner,
+            )?
         };
         let return_type = if self.noexcept {
             if matches!(self.return_type, ty::Type::Void) {
@@ -1178,8 +1157,12 @@ impl Method {
         let return_arguments = match &self.return_type {
             ty::Type::Void => quote! {},
             ty::Type::Vector(element) => {
-                let element =
-                    element.write_name(context.namespace, context.layout, context.generics)?;
+                let element = element.write_name_with_owner(
+                    context.namespace,
+                    context.layout,
+                    context.generics,
+                    context.owner,
+                )?;
                 quote! {
                     windows_core::Array::<#element>::set_abi_len(
                         core::mem::transmute(&mut result__)
@@ -1320,9 +1303,6 @@ impl Method {
                         }
                         (ty::Type::Vector(_), true, false, false) => quote! { u32, *const #abi },
                         (ty::Type::Vector(_), false, false, false) => quote! { u32, *mut #abi },
-                        (_, true, _, true) if parameter.ty.package_input_by_ref(values, layout) => {
-                            quote! { #name: &#abi }
-                        }
                         (_, true, _, true) => quote! { #name: #abi },
                         (_, false, _, true) => quote! { #name: *mut #abi },
                         (_, true, _, false) => quote! { #abi },
@@ -1361,13 +1341,14 @@ impl Method {
     pub(super) fn write_upcall(
         &self,
         values: &Values,
+        layout: Layout,
         inner: TokenStream,
         has_this: bool,
     ) -> Result<TokenStream, Error> {
         let arguments = self
             .parameters
             .iter()
-            .map(|parameter| parameter.write_upcall_argument(values))
+            .map(|parameter| parameter.write_upcall_argument(values, layout))
             .collect::<Result<Vec<_>, Error>>()?;
         let this = has_this.then(|| quote! { this, });
         Ok(match &self.return_type {
@@ -1411,19 +1392,21 @@ impl Method {
     pub(super) fn write_method_upcall(
         &self,
         values: &Values,
+        layout: Layout,
         inner: TokenStream,
         has_this: bool,
     ) -> Result<TokenStream, Error> {
         if self.noexcept {
-            self.write_upcall_infallible(values, inner, has_this, true)
+            self.write_upcall_infallible(values, layout, inner, has_this, true)
         } else {
-            self.write_upcall(values, inner, has_this)
+            self.write_upcall(values, layout, inner, has_this)
         }
     }
 
     fn write_upcall_infallible(
         &self,
         values: &Values,
+        layout: Layout,
         inner: TokenStream,
         has_this: bool,
         bind_copy: bool,
@@ -1431,7 +1414,7 @@ impl Method {
         let arguments = self
             .parameters
             .iter()
-            .map(|parameter| parameter.write_upcall_argument(values))
+            .map(|parameter| parameter.write_upcall_argument(values, layout))
             .collect::<Result<Vec<_>, Error>>()?;
         let this = has_this.then(|| quote! { this, });
         Ok(match &self.return_type {
@@ -1478,19 +1461,33 @@ impl Method {
         layout: Layout,
         generics: &[String],
     ) -> Result<TokenStream, Error> {
+        self.write_return_type_with_owner(namespace, layout, generics, None)
+    }
+
+    fn write_return_type_with_owner(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        generics: &[String],
+        owner: Option<&str>,
+    ) -> Result<TokenStream, Error> {
         Ok(match &self.return_type {
             ty::Type::Void => quote! { () },
-            ty::Type::Object => self.return_type.write_name(namespace, layout, generics)?,
+            ty::Type::Object => self
+                .return_type
+                .write_name_with_owner(namespace, layout, generics, owner)?,
             ty::Type::Vector(element) => {
-                let element = element.write_name(namespace, layout, generics)?;
+                let element = element.write_name_with_owner(namespace, layout, generics, owner)?;
                 quote! { windows_core::Array<#element> }
             }
-            ty::Type::Generic(_) if !self.generic_return_default => {
-                self.return_type.write_name(namespace, layout, generics)?
-            }
+            ty::Type::Generic(_) if !self.generic_return_default => self
+                .return_type
+                .write_name_with_owner(namespace, layout, generics, owner)?,
             ty::Type::Named {
                 value_type: false, ..
-            } => self.return_type.write_name(namespace, layout, generics)?,
+            } => self
+                .return_type
+                .write_name_with_owner(namespace, layout, generics, owner)?,
             ty => ty.write_default(namespace, layout, generics)?,
         })
     }
@@ -1529,6 +1526,7 @@ impl Parameter {
                     let element = element.write_array_element(namespace, layout, generics)?;
                     quote! { &[#element] }
                 }
+                ty if ty.package_impl_input_by_ref(layout) => quote! { &#default },
                 ty if ty.is_primitive(values) => default,
                 ty::Type::Named {
                     namespace: target,
@@ -1547,7 +1545,7 @@ impl Parameter {
         } else {
             match &self.ty {
                 ty::Type::Vector(element) => {
-                    let element = element.write_array_element(namespace, layout, generics)?;
+                    let element = element.write_default(namespace, layout, generics)?;
                     if self.array_ref {
                         quote! { &mut windows_core::Array<#element> }
                     } else {
@@ -1588,11 +1586,8 @@ impl Parameter {
             }
         } else {
             if let ty::Type::Vector(element) = &self.ty {
-                let element = element.write_array_element(
-                    context.namespace,
-                    context.layout,
-                    context.generics,
-                )?;
+                let element =
+                    element.write_default(context.namespace, context.layout, context.generics)?;
                 if self.array_ref {
                     quote! { &mut windows_core::Array<#element> }
                 } else {
@@ -1656,9 +1651,6 @@ impl Parameter {
                     quote! { windows_core::Param::param(#value.as_ref()).abi() }
                 }
                 ty if ty.is_interface() => quote! { #name.param().abi() },
-                ty if ty.package_input_by_ref(context.values, context.layout) => {
-                    quote! { &#name }
-                }
                 ty if ty.is_copyable(context.values, &self.name)? => quote! { #name },
                 _ => quote! { core::mem::transmute_copy(#name) },
             }
@@ -1680,7 +1672,7 @@ impl Parameter {
         })
     }
 
-    fn write_upcall_argument(&self, values: &Values) -> Result<TokenStream, Error> {
+    fn write_upcall_argument(&self, values: &Values, layout: Layout) -> Result<TokenStream, Error> {
         let name = tokens::ident(&self.name);
         let size = tokens::ident(&format!("{}_array_size", self.name));
         Ok(if self.input_only {
@@ -1691,6 +1683,9 @@ impl Parameter {
                         #size as usize
                     )
                 },
+                ty if ty.package_impl_input_by_ref(layout) => {
+                    quote! { core::mem::transmute(&#name) }
+                }
                 ty if ty.is_primitive(values) => quote! { #name },
                 ty if ty.is_interface() => quote! { core::mem::transmute_copy(&#name) },
                 _ => quote! { core::mem::transmute(&#name) },

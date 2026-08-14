@@ -41,7 +41,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
 | Build-script facade | Twenty consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, reference and time projections, benchmark and robot components and clients, context alignment, core-only APIs, and Win32 metadata match. |
-| Package output | In progress | The package backend runs, but 804 generated files still differ. Source output has 33,038 missing and 21,064 extra line edges; manifests have 122 missing and 358 extra dependency edges. |
+| Package output | In progress | The package backend runs, but 720 generated files still differ. Source output has 31,669 missing and 20,037 extra line edges; manifests have 122 missing and 358 extra dependency edges. |
 
 The current working implementation has about 14,400 lines of production Rust, roughly the same as
 legacy bindgen. Size is no longer evidence for the rewrite by itself; structure, parity, and
@@ -103,7 +103,12 @@ their owning crates and do not become namespace features. Delegates repeat an ar
 each generated Rust item because one delegate projection emits several adjacent items. Runtime
 classes distinguish structural interface and base dependencies from method dependencies, apply
 factory and static-method gates independently, and emit collection iterator conveniences when they
-implement `IIterable<T>`.
+implement `IIterable<T>`. Public return types use one owner-aware renderer, including recursive
+`Self` substitution inside generic and array return types. Required interfaces use the layout crate
+router for both interface and implementation-trait names. Package GUID inputs stay by value at the
+ABI and public call boundaries and become references only at the implementation-trait boundary.
+Inherited interface methods carry their own method dependency cfgs, and selected required-interface
+methods contribute to implementation artifact cfgs.
 
 WinRT models are lowered once into a shared immutable catalog. Request closure borrows catalog
 models, while rendering clones only selected models before expanding package dependencies. A typed

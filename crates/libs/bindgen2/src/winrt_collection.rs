@@ -13,6 +13,7 @@ pub(super) fn write(
     layout: Layout,
     projection: Projection,
     members: &MemberSelection,
+    artifact_cfg: &TokenStream,
 ) -> Result<Conveniences, Error> {
     if projection.is_minimal() {
         return Ok(Conveniences {
@@ -53,7 +54,7 @@ pub(super) fn write(
             &quote! { <#item: windows_core::RuntimeType> },
             &quote! { <#item> },
             item,
-            &TokenStream::new(),
+            artifact_cfg,
         )
     });
     let direct_iterator = (interface.namespace == "Windows.Foundation.Collections"
@@ -65,6 +66,7 @@ pub(super) fn write(
     .then(|| {
         let item = &generic_names[0];
         quote! {
+            #artifact_cfg
             impl<#item: windows_core::RuntimeType> Iterator for #name<#item> {
                 type Item = #item;
                 fn next(&mut self) -> Option<Self::Item> {
@@ -100,7 +102,7 @@ pub(super) fn write(
                 &constrained_generics,
                 &type_arguments,
                 &item,
-                &TokenStream::new(),
+                artifact_cfg,
             ))
         })
         .transpose()?;

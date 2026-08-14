@@ -909,6 +909,58 @@ fn forwarded_event_revokers_retain_the_cast_interface() {
 }
 
 #[test]
+fn static_events_use_projected_delegate_construction() {
+    let output = fixture(
+        r#"
+            #[winrt]
+            mod Windows {
+                mod Foundation {
+                    mod Metadata {
+                        attribute ExclusiveToAttribute {
+                            fn(r#type: Type);
+                        }
+                        attribute StaticAttribute {
+                            fn(r#type: Type, version: u32);
+                        }
+                    }
+                }
+            }
+            #[winrt]
+            mod Test {
+                #[Windows::Foundation::Metadata::Static(IClassStatics, 1)]
+                class Class {
+                    IClass,
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(Class)]
+                interface IClass {}
+                #[Windows::Foundation::Metadata::ExclusiveTo(Class)]
+                interface IClassStatics {
+                    fn CreateAsync(&self) -> IAsyncOperation<Class>;
+                    #[special]
+                    fn add_Changed(&self, handler: Handler) -> i64;
+                    #[special]
+                    fn remove_Changed(&self, token: i64);
+                }
+                interface IAsyncOperation<T> {}
+                delegate fn Handler(value: i32);
+            }
+        "#,
+    )
+    .render(Layout::Flat)
+    .unwrap()
+    .to_string();
+    assert!(output.contains("F : Fn (i32) + Send + 'static"));
+    assert!(output.contains("let handler = < Handler > :: new (move | a0 |"));
+    assert!(!output.contains("DelegateBox ::< Handler , F >"));
+    assert!(
+        output.contains(
+            "pub fn CreateAsync () -> windows_core :: Result < IAsyncOperation < Self > >"
+        ),
+        "{output}"
+    );
+}
+
+#[test]
 fn focused_winrt_member_filters_match_existing_tokens() {
     for (name, source, expected, ty, methods, projection) in [
         (

@@ -547,6 +547,19 @@ impl Type {
         if owner.is_some_and(|owner| target == namespace && name == owner) {
             return Ok(quote! { Self });
         }
+        if let Some(crate_name) = layout.winrt_crate(namespace, target, name) {
+            let crate_name = tokens::ident(crate_name);
+            let name = tokens::ident(name);
+            let arguments = arguments
+                .iter()
+                .map(|argument| argument.write_name_with_owner(namespace, layout, generics, owner))
+                .collect::<Result<Vec<_>, _>>()?;
+            return Ok(if arguments.is_empty() {
+                quote! { #crate_name::#name }
+            } else {
+                quote! { #crate_name::#name<#(#arguments),*> }
+            });
+        }
         if arguments.is_empty() {
             return self.write_name(namespace, layout, generics);
         }
@@ -736,7 +749,7 @@ impl Type {
         }
     }
 
-    pub(super) fn package_input_by_ref(&self, _values: &Values, layout: Layout) -> bool {
+    pub(super) fn package_impl_input_by_ref(&self, layout: Layout) -> bool {
         if !layout.is_package() {
             return false;
         }

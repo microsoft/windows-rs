@@ -694,13 +694,7 @@ impl Class {
                     );
                 } else {
                     let tokens = method
-                        .write_static(
-                            context,
-                            &public_name,
-                            &interface.name,
-                            &self.namespace,
-                            &self.name,
-                        )?
+                        .write_static(context, &public_name, &interface.name)?
                         .unwrap();
                     factories.push(quote! { #cfg #tokens });
                 }

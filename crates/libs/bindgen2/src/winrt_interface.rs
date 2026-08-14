@@ -11,6 +11,7 @@ pub(super) struct Interface {
     guid: guid::Guid,
     exclusive: bool,
     agile: bool,
+    package_dependencies: BTreeSet<(String, String)>,
     pub(super) methods: Vec<NamedMethod>,
     pub(super) required: Vec<RequiredInterface>,
 }
@@ -51,8 +52,6 @@ impl NamedMethod {
         context: &winrt_delegate::MethodContext<'_>,
         public_name: &str,
         factory_name: &str,
-        class_namespace: &str,
-        class_name: &str,
     ) -> Result<Option<TokenStream>, Error> {
         if !self.public {
             return Ok(None);
@@ -71,8 +70,6 @@ impl NamedMethod {
             public_name,
             &self.name,
             factory_name,
-            class_namespace,
-            class_name,
         )?))
     }
 
@@ -192,16 +189,19 @@ impl Interface {
             })?;
         let exclusive = definition.has_attribute("ExclusiveToAttribute")?;
         let agile = is_agile(definition)?;
-        Ok(Self {
+        let mut result = Self {
             name,
             namespace,
             generics,
             guid,
             exclusive,
             agile,
+            package_dependencies: BTreeSet::new(),
             methods,
             required,
-        })
+        };
+        result.package_dependencies = result.direct_artifact_dependencies();
+        Ok(result)
     }
 
     fn lower_required(
@@ -309,6 +309,7 @@ impl Interface {
     }
 
     pub(super) fn expand_package_dependencies(&mut self, graph: &winrt_dependency::ArtifactGraph) {
+        self.package_dependencies = graph.expand(&self.direct_artifact_dependencies());
         for method in &mut self.methods {
             method.method.expand_package_dependencies(graph);
         }
@@ -375,6 +376,37 @@ impl Interface {
         let name = tokens::ident(&self.name);
         let vtbl_name = tokens::ident(&format!("{}_Vtbl", self.name));
         let impl_name = tokens::ident(&format!("{}_Impl", self.name));
+        let artifact_features = tokens::feature_names(
+            namespace,
+            layout,
+            self.package_dependencies
+                .iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        );
+        let artifact_cfg = tokens::feature_cfg_set(&artifact_features, false);
+        let mut implementation_dependencies = self.package_dependencies.clone();
+        for method in self.abi_methods(members) {
+            implementation_dependencies
+                .extend(method.method.package_dependencies().iter().cloned());
+        }
+        for required in &self.required {
+            for method in required
+                .methods
+                .iter()
+                .filter(|method| method.selected(members))
+            {
+                implementation_dependencies
+                    .extend(method.method.package_dependencies().iter().cloned());
+            }
+        }
+        let implementation_features = tokens::feature_names(
+            namespace,
+            layout,
+            implementation_dependencies
+                .iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        );
+        let implementation_cfg = tokens::feature_cfg_set(&implementation_features, false);
         let generic_names = self
             .generics
             .iter()
@@ -413,7 +445,9 @@ impl Interface {
                 }
             });
             quote! {
+                #artifact_cfg
                 windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
+                #artifact_cfg
                 impl windows_core::RuntimeType for #name {
                     const SIGNATURE: windows_core::imp::ConstBuffer =
                         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -442,16 +476,20 @@ impl Interface {
                 }
             });
             quote! {
+                #artifact_cfg
                 #[repr(transparent)]
                 #[derive(Clone, Debug, Eq, PartialEq)]
                 pub struct #name #type_arguments(
                     windows_core::IUnknown
                     #(, core::marker::PhantomData<#generic_names>)*
                 ) #generic_where;
+                #artifact_cfg
                 impl #constrained_generics windows_core::imp::CanInto<windows_core::IUnknown>
                     for #name #type_arguments {}
+                #artifact_cfg
                 impl #constrained_generics windows_core::imp::CanInto<windows_core::IInspectable>
                     for #name #type_arguments {}
+                #artifact_cfg
                 unsafe impl #constrained_generics windows_core::Interface
                     for #name #type_arguments
                 {
@@ -461,6 +499,7 @@ impl Interface {
                             <Self as windows_core::RuntimeType>::SIGNATURE
                         );
                 }
+                #artifact_cfg
                 impl #constrained_generics windows_core::RuntimeType for #name #type_arguments {
                     const SIGNATURE: windows_core::imp::ConstBuffer =
                         windows_core::imp::ConstBuffer::new()
@@ -497,14 +536,16 @@ impl Interface {
                         .transpose();
                     tokens.map(|tokens| {
                         tokens.map(|tokens| {
-                            let cfg =
-                                tokens::feature_cfg(
+                            let mut features =
+                                tokens::feature_names(
                                     namespace,
                                     layout,
                                     method.method.package_dependencies().iter().map(
                                         |(namespace, name)| (namespace.as_str(), name.as_str()),
                                     ),
                                 );
+                            features.retain(|feature| !artifact_features.contains(feature));
+                            let cfg = tokens::feature_cfg_set(&features, false);
                             quote! { #cfg #tokens }
                         })
                     })
@@ -512,7 +553,9 @@ impl Interface {
                 .collect::<Result<Vec<_>, Error>>()?;
         let agile = self.agile.then(|| {
             quote! {
+                #artifact_cfg
                 unsafe impl #constrained_generics Send for #name #type_arguments {}
+                #artifact_cfg
                 unsafe impl #constrained_generics Sync for #name #type_arguments {}
             }
         });
@@ -530,7 +573,14 @@ impl Interface {
                         )
                     })
                     .collect::<Result<Vec<_>, Error>>()?;
-                let vtable = self.write_vtable(values, namespace, layout, members)?;
+                let vtable = self.write_vtable(
+                    values,
+                    namespace,
+                    layout,
+                    members,
+                    &implementation_cfg,
+                    &artifact_cfg,
+                )?;
                 let runtime_name = Literal::string(&full_name);
                 let runtime_class_name = (!generic_names.is_empty()).then(|| {
                     quote! {
@@ -546,6 +596,7 @@ impl Interface {
                         && (!matches!(members, MemberSelection::Shell) || implementation_enabled)))
                     .then(|| {
                         quote! {
+                            #implementation_cfg
                             impl #constrained_generics windows_core::RuntimeName
                                 for #name #type_arguments
                             {
@@ -556,6 +607,7 @@ impl Interface {
                     });
                 quote! {
                     #runtime_name_impl
+                    #implementation_cfg
                     pub trait #impl_name #type_arguments: windows_core::IUnknownImpl #generic_where {
                         #(#impl_methods)*
                     }
@@ -569,11 +621,15 @@ impl Interface {
                     &vtbl_name,
                     members,
                     projection.is_minimal() && implementation != Some(true),
+                    &artifact_cfg,
                 )?
             };
-            let methods = (projection.is_minimal() && !methods.is_empty()).then(
-                || quote! { impl #constrained_generics #name #type_arguments { #(#methods)* } },
-            );
+            let methods = (projection.is_minimal() && !methods.is_empty()).then(|| {
+                quote! {
+                    #artifact_cfg
+                    impl #constrained_generics #name #type_arguments { #(#methods)* }
+                }
+            });
             return Ok(quote! {
                 #definition
                 #methods
@@ -583,6 +639,7 @@ impl Interface {
         }
         let hierarchy = generic_names.is_empty().then(|| {
             quote! {
+                #artifact_cfg
                 windows_core::imp::interface_hierarchy!(
                     #name,
                     windows_core::IUnknown,
@@ -599,6 +656,7 @@ impl Interface {
             quote! {}
         } else if generic_names.is_empty() {
             quote! {
+                #artifact_cfg
                 windows_core::imp::required_hierarchy!(
                     #name #type_arguments,
                     #(#required_types),*
@@ -607,6 +665,7 @@ impl Interface {
         } else {
             quote! {
                 #(
+                    #artifact_cfg
                     impl #constrained_generics windows_core::imp::CanInto<#required_types>
                         for #name #type_arguments
                     {
@@ -638,11 +697,21 @@ impl Interface {
                     } else {
                         format!("{}{}", method.name, count)
                     };
-                    inherited_methods.push(
+                    let tokens = method
+                        .write_public(&method_context, &public_name, Some(receiver.clone()))?
+                        .unwrap();
+                    let mut features = tokens::feature_names(
+                        namespace,
+                        layout,
                         method
-                            .write_public(&method_context, &public_name, Some(receiver.clone()))?
-                            .unwrap(),
+                            .method
+                            .package_dependencies()
+                            .iter()
+                            .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
                     );
+                    features.retain(|feature| !artifact_features.contains(feature));
+                    let cfg = tokens::feature_cfg_set(&features, false);
+                    inherited_methods.push(quote! { #cfg #tokens });
                 }
             }
         }
@@ -665,6 +734,7 @@ impl Interface {
                 && (!matches!(members, MemberSelection::Shell) || implementation_enabled)))
             .then(|| {
                 quote! {
+                    #implementation_cfg
                     impl #constrained_generics windows_core::RuntimeName for #name #type_arguments {
                         const NAME: &'static str = #runtime_name;
                         #runtime_class_name
@@ -694,8 +764,16 @@ impl Interface {
             })
             .collect::<Result<Vec<_>, Error>>()?;
         let implementation = if implementation_enabled {
-            let vtable = self.write_vtable(values, namespace, layout, members)?;
+            let vtable = self.write_vtable(
+                values,
+                namespace,
+                layout,
+                members,
+                &implementation_cfg,
+                &artifact_cfg,
+            )?;
             quote! {
+                #implementation_cfg
                 pub trait #impl_name #type_arguments: #trait_bases #generic_where {
                     #(#impl_methods)*
                 }
@@ -709,10 +787,12 @@ impl Interface {
                 &vtbl_name,
                 members,
                 projection.is_minimal() && !implementation_enabled,
+                &artifact_cfg,
             )?
         };
         let methods_impl = (!methods.is_empty() || !inherited_methods.is_empty()).then(|| {
             quote! {
+                #artifact_cfg
                 impl #constrained_generics #name #type_arguments {
                     #(#methods)*
                     #(#inherited_methods)*
@@ -722,7 +802,7 @@ impl Interface {
         let winrt_collection::Conveniences {
             before_runtime_name,
             after_implementation,
-        } = winrt_collection::write(self, namespace, layout, projection, members)?;
+        } = winrt_collection::write(self, namespace, layout, projection, members, &artifact_cfg)?;
         Ok(quote! {
             #definition
             #hierarchy
@@ -742,6 +822,8 @@ impl Interface {
         namespace: &str,
         layout: Layout,
         members: &MemberSelection,
+        implementation_cfg: &TokenStream,
+        artifact_cfg: &TokenStream,
     ) -> Result<TokenStream, Error> {
         let name = tokens::ident(&self.name);
         let vtbl_name = tokens::ident(&format!("{}_Vtbl", self.name));
@@ -778,6 +860,7 @@ impl Interface {
                 )?;
                 let upcall = method.method.write_method_upcall(
                     values,
+                    layout,
                     quote! { #impl_name::#method_name },
                     true,
                 )?;
@@ -803,9 +886,17 @@ impl Interface {
         let phantom_values = generic_names
             .iter()
             .map(|name| quote! { #name: core::marker::PhantomData::<#name>, });
-        let vtable =
-            self.write_vtable_struct(values, namespace, layout, &vtbl_name, members, false)?;
+        let vtable = self.write_vtable_struct(
+            values,
+            namespace,
+            layout,
+            &vtbl_name,
+            members,
+            false,
+            artifact_cfg,
+        )?;
         Ok(quote! {
+            #implementation_cfg
             impl #constrained_generics #vtbl_name #type_arguments {
                 pub const fn new<
                     Identity: #impl_name #type_arguments,
@@ -838,6 +929,7 @@ impl Interface {
         vtbl_name: &TokenStream,
         members: &MemberSelection,
         placeholder_prefix: bool,
+        artifact_cfg: &TokenStream,
     ) -> Result<TokenStream, Error> {
         let generic_names = self
             .generics
@@ -858,6 +950,13 @@ impl Interface {
         } else {
             quote! { where #(#constraints),* }
         };
+        let artifact_features = tokens::feature_names(
+            namespace,
+            layout,
+            self.package_dependencies
+                .iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        );
         let fields = self
             .abi_methods(members)
             .map(|method| {
@@ -872,7 +971,7 @@ impl Interface {
                     &self.generics,
                     false,
                 )?;
-                let features = tokens::feature_names(
+                let mut features = tokens::feature_names(
                     namespace,
                     layout,
                     method
@@ -881,6 +980,7 @@ impl Interface {
                         .iter()
                         .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
                 );
+                features.retain(|feature| !artifact_features.contains(feature));
                 let yes = tokens::feature_cfg_set(&features, false);
                 let no = tokens::feature_cfg_set(&features, true);
                 let fallback = (!features.is_empty()).then(|| {
@@ -901,6 +1001,7 @@ impl Interface {
             .map(|name| quote! { #name: core::marker::PhantomData<#name>, });
         let doc_hidden = layout.is_package().then(|| quote! { #[doc(hidden)] });
         Ok(quote! {
+            #artifact_cfg
             #[repr(C)]
             #doc_hidden
             pub struct #vtbl_name #type_arguments #generic_where {
@@ -919,18 +1020,7 @@ impl RequiredInterface {
         layout: Layout,
         generics: &[String],
     ) -> Result<TokenStream, Error> {
-        let path = tokens::namespace(namespace, &self.namespace, layout);
-        let name = tokens::ident(&self.name);
-        let arguments = self
-            .arguments
-            .iter()
-            .map(|argument| argument.write_name(namespace, layout, generics))
-            .collect::<Result<Vec<_>, Error>>()?;
-        Ok(if arguments.is_empty() {
-            quote! { #path #name }
-        } else {
-            quote! { #path #name<#(#arguments),*> }
-        })
+        self.write_named(namespace, layout, generics, &self.name)
     }
 
     fn write_impl_name(
@@ -939,8 +1029,24 @@ impl RequiredInterface {
         layout: Layout,
         generics: &[String],
     ) -> Result<TokenStream, Error> {
-        let path = tokens::namespace(namespace, &self.namespace, layout);
-        let name = tokens::ident(&format!("{}_Impl", self.name));
+        self.write_named(namespace, layout, generics, &format!("{}_Impl", self.name))
+    }
+
+    fn write_named(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        generics: &[String],
+        emitted_name: &str,
+    ) -> Result<TokenStream, Error> {
+        let path =
+            if let Some(crate_name) = layout.winrt_crate(namespace, &self.namespace, &self.name) {
+                let crate_name = tokens::ident(crate_name);
+                quote! { #crate_name:: }
+            } else {
+                tokens::namespace(namespace, &self.namespace, layout)
+            };
+        let name = tokens::ident(emitted_name);
         let arguments = self
             .arguments
             .iter()
