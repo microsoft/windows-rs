@@ -611,6 +611,7 @@ impl native_signature::Signature {
         layout: Layout,
         projection: Projection,
         name: &str,
+        owner: &str,
     ) -> Result<TokenStream, Error> {
         let method = tokens::ident(name);
         let visibility = if projection.is_minimal() {
@@ -675,7 +676,7 @@ impl native_signature::Signature {
             if let Some(len) = parameter.fixed_array_len()
                 && let Some(element) = parameter.ty.pointee()
             {
-                let element = element.write_public(namespace, layout);
+                let element = element.write_public_with_owner(namespace, layout, Some(owner));
                 let len = proc_macro2::Literal::usize_unsuffixed(len);
                 let mutable = matches!(&parameter.ty, native::Type::Pointer { mutable: true, .. });
                 if parameter.is_optional() && mutable {
@@ -702,13 +703,15 @@ impl native_signature::Signature {
                 continue;
             }
             if parameter.ty.pointee().is_some_and(native::Type::is_bstr) {
-                let ty = parameter.ty.write_public(namespace, layout);
+                let ty = parameter
+                    .ty
+                    .write_public_with_owner(namespace, layout, Some(owner));
                 parameters.push(quote! { #name: #ty, });
                 arguments.push(quote! { core::mem::transmute(#name) });
                 continue;
             }
             if let Some((mutable, interface)) = parameter.ty.interface_out() {
-                let interface = interface.write_public(namespace, layout);
+                let interface = interface.write_public_with_owner(namespace, layout, Some(owner));
                 let pointer = if mutable {
                     quote! { *mut Option<#interface> }
                 } else {
@@ -724,26 +727,36 @@ impl native_signature::Signature {
                 continue;
             }
             if parameter.ty.is_interface() && !parameter.is_input_only() {
-                let ty = parameter.ty.write_public(namespace, layout);
+                let ty = parameter
+                    .ty
+                    .write_public_with_owner(namespace, layout, Some(owner));
                 parameters.push(quote! { #name: &Option<#ty>, });
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
             } else if parameter.is_into_param(layout) {
                 let generic = tokens::ident(&format!("P{position}"));
-                let ty = parameter.ty.write_public(namespace, layout);
+                let ty = parameter
+                    .ty
+                    .write_public_with_owner(namespace, layout, Some(owner));
                 generic_parameters.push(generic.clone());
                 constraints.push(quote! { #generic: windows_core::Param<#ty>, });
                 parameters.push(quote! { #name: #generic, });
                 arguments.push(quote! { #name.param().abi() });
             } else if parameter.is_optional_hint() {
-                let ty = parameter.ty.write_public(namespace, layout);
+                let ty = parameter
+                    .ty
+                    .write_public_with_owner(namespace, layout, Some(owner));
                 parameters.push(quote! { #name: Option<#ty>, });
                 arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
             } else if parameter.is_by_ref() {
-                let ty = parameter.ty.write_public(namespace, layout);
+                let ty = parameter
+                    .ty
+                    .write_public_with_owner(namespace, layout, Some(owner));
                 parameters.push(quote! { #name: &#ty, });
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
             } else if parameter.ty.pointee().is_some() {
-                let ty = parameter.ty.write_public(namespace, layout);
+                let ty = parameter
+                    .ty
+                    .write_public_with_owner(namespace, layout, Some(owner));
                 parameters.push(quote! { #name: #ty, });
                 if parameter.needs_cast() {
                     arguments.push(quote! { #name as _ });
@@ -751,7 +764,9 @@ impl native_signature::Signature {
                     arguments.push(quote! { #name });
                 }
             } else {
-                let ty = parameter.ty.write_public(namespace, layout);
+                let ty = parameter
+                    .ty
+                    .write_public_with_owner(namespace, layout, Some(owner));
                 parameters.push(quote! { #name: #ty, });
                 arguments.push(quote! { #name });
             }
@@ -822,13 +837,20 @@ impl native_signature::Signature {
             )
         };
         let (result, body) = match return_kind {
-            ReturnKind::Retval { ty, .. } => {
-                let public = ty.write_public(namespace, layout);
+            ReturnKind::Retval { position, ty } => {
+                let public = ty.write_public_with_owner(namespace, layout, Some(owner));
                 let body = if ty.is_interface() {
                     quote! {
                         unsafe {
                             let mut result__ = core::mem::zeroed();
                             #call.and_then(|| windows_core::Type::from_abi(result__))
+                        }
+                    }
+                } else if self.parameters[position].retval_transmute {
+                    quote! {
+                        unsafe {
+                            let mut result__ = core::mem::zeroed();
+                            #call.map(|| core::mem::transmute(result__))
                         }
                     }
                 } else {
@@ -842,7 +864,7 @@ impl native_signature::Signature {
                 (quote! { -> windows_core::Result<#public> }, body)
             }
             ReturnKind::VoidInterface { ty, .. } => {
-                let public = ty.write_public(namespace, layout);
+                let public = ty.write_public_with_owner(namespace, layout, Some(owner));
                 (
                     quote! { -> windows_core::Result<#public> },
                     quote! {
@@ -855,7 +877,7 @@ impl native_signature::Signature {
                 )
             }
             ReturnKind::VoidValue { ty, .. } => {
-                let public = ty.write_public(namespace, layout);
+                let public = ty.write_public_with_owner(namespace, layout, Some(owner));
                 (
                     quote! { -> #public },
                     quote! {
@@ -873,11 +895,11 @@ impl native_signature::Signature {
             ),
             ReturnKind::Void => (quote! {}, quote! { unsafe { #call; } }),
             ReturnKind::Direct(ty) => {
-                let ty = ty.write_public(namespace, layout);
+                let ty = ty.write_public_with_owner(namespace, layout, Some(owner));
                 (quote! { -> #ty }, quote! { unsafe { #call } })
             }
             ReturnKind::Indirect(ty) => {
-                let ty = ty.write_public(namespace, layout);
+                let ty = ty.write_public_with_owner(namespace, layout, Some(owner));
                 (
                     quote! { -> #ty },
                     quote! {
@@ -1034,17 +1056,13 @@ impl native_signature::Signature {
         ) {
             return Ok(quote! { #impl_name::#method(this, #(#arguments),*); });
         }
-        let ReturnKind::Retval {
-            position,
-            ty: pointee,
-        } = return_kind
-        else {
+        let ReturnKind::Retval { position, ty: _ } = return_kind else {
             return Ok(quote! {
                 #impl_name::#method(this, #(#arguments),*).into()
             });
         };
         let result = tokens::ident(&self.parameters[position].name);
-        let write = if pointee.is_interface() {
+        let write = if self.parameters[position].retval_transmute {
             quote! { #result.write(core::mem::transmute(ok__)); }
         } else {
             quote! { #result.write(ok__); }

@@ -41,7 +41,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
 | Build-script facade | Twenty consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, reference and time projections, benchmark and robot components and clients, context alignment, core-only APIs, and Win32 metadata match. |
-| Package output | In progress | The package backend runs, but 720 generated files still differ. Source output has 31,669 missing and 20,037 extra line edges; manifests have 122 missing and 358 extra dependency edges. |
+| Package output | In progress | The package backend runs, but 652 generated files still differ. Source output has 23,349 missing and 12,540 extra line edges; manifests have 122 missing and 358 extra dependency edges. |
 
 The current working implementation has about 14,400 lines of production Rust, roughly the same as
 legacy bindgen. Size is no longer evidence for the rewrite by itself; structure, parity, and
@@ -109,6 +109,12 @@ router for both interface and implementation-trait names. Package GUID inputs st
 ABI and public call boundaries and become references only at the implementation-trait boundary.
 Inherited interface methods carry their own method dependency cfgs, and selected required-interface
 methods contribute to implementation artifact cfgs.
+
+Native package item cfgs use the same transitive package dependency product as package feature
+selection. A cached interface-method dependency product adds inherited base-method requirements to
+implementation and runtime artifacts without changing manifest policy. Native trait inference
+matches emitted packed, aligned, and union types, which remain `Copy` when nested. Rich COM wrappers
+use owner-aware public types and retain ABI-to-owned transmutation for non-copy retval values.
 
 WinRT models are lowered once into a shared immutable catalog. Request closure borrows catalog
 models, while rendering clones only selected models before expanding package dependencies. A typed

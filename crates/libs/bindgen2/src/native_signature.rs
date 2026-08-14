@@ -18,6 +18,7 @@ pub(super) struct Parameter {
     pub(super) com_out_ptr: bool,
     array: Option<ArrayInfo>,
     pub(super) retval_candidate: bool,
+    pub(super) retval_transmute: bool,
     pub(super) producer_by_ref: bool,
     pub(super) ty: native::Type,
     hint: ParamHint,
@@ -183,6 +184,9 @@ impl Signature {
                     .map(|ty| ty.projected_traits(database, &mut BTreeSet::new()))
                     .transpose()?
                     .is_none_or(|traits| traits.copy);
+                let retval_transmute = ty
+                    .pointee()
+                    .is_some_and(|ty| ty.is_interface() || ty.is_bstr() || !pointee_copyable);
                 let hint = if let Some(ArrayInfo::ElementsConst(len)) = array
                     && flags & 0x0002 == 0
                 {
@@ -213,6 +217,7 @@ impl Signature {
                     com_out_ptr,
                     array,
                     retval_candidate,
+                    retval_transmute,
                     producer_by_ref,
                     ty,
                     hint,

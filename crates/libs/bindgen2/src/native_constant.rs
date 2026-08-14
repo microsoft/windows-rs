@@ -10,7 +10,6 @@ pub struct Constant {
     ty: native::Type,
     value: Value,
     dependencies: BTreeSet<(String, String)>,
-    manifest_dependencies: BTreeSet<(String, String)>,
     wrapper: bool,
 }
 
@@ -64,7 +63,6 @@ impl Constant {
                 Value::Guid(guid)
             };
             let dependencies = ty.package_dependencies(database, cache)?;
-            let manifest_dependencies = ty.manifest_dependencies(database)?;
             let wrapper = ty.is_wrapper(database)?;
             return Ok(Self {
                 architectures,
@@ -73,7 +71,6 @@ impl Constant {
                 ty,
                 value,
                 dependencies,
-                manifest_dependencies,
                 wrapper,
             });
         }
@@ -103,9 +100,8 @@ impl Constant {
                 name: full_name,
                 shape: format!("typed constant {ty:?} <- {value:?}"),
             });
-        }
+        };
         let dependencies = ty.package_dependencies(database, cache)?;
-        let manifest_dependencies = ty.manifest_dependencies(database)?;
         let wrapper = ty.is_wrapper(database)?;
         Ok(Self {
             architectures,
@@ -118,7 +114,6 @@ impl Constant {
                 ansi: is_ansi(field)?,
             },
             dependencies,
-            manifest_dependencies,
             wrapper,
         })
     }
@@ -134,7 +129,7 @@ impl Constant {
         let cfg = tokens::feature_cfg(
             &self.namespace,
             layout,
-            self.manifest_dependencies
+            self.dependencies
                 .iter()
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         );

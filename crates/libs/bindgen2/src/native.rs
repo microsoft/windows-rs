@@ -9,9 +9,36 @@ use std::{
 #[derive(Default)]
 pub(super) struct DependencyCache {
     values: RwLock<BTreeMap<(String, String), BTreeSet<(String, String)>>>,
+    interface_methods: RwLock<BTreeMap<(String, String), BTreeSet<(String, String)>>>,
 }
 
 impl DependencyCache {
+    pub(super) fn interface_method_dependencies(
+        &self,
+        database: &Database,
+        namespace: &str,
+        name: &str,
+    ) -> Result<BTreeSet<(String, String)>, Error> {
+        let key = (namespace.to_string(), name.to_string());
+        if let Some(dependencies) = self.interface_methods.read().unwrap().get(&key) {
+            return Ok(dependencies.clone());
+        }
+        let mut dependencies = BTreeSet::new();
+        let owner = format!("{namespace}.{name}");
+        for entity in database.type_definitions(namespace, name) {
+            let definition = database.definition(*entity).unwrap();
+            for method in definition.methods()? {
+                let signature = native_signature::Signature::lower(database, self, method, &owner)?;
+                dependencies.extend(signature.package_dependencies().iter().cloned());
+            }
+        }
+        self.interface_methods
+            .write()
+            .unwrap()
+            .insert(key, dependencies.clone());
+        Ok(dependencies)
+    }
+
     fn direct(
         &self,
         database: &Database,
@@ -468,11 +495,23 @@ impl Type {
     }
 
     pub(super) fn write_public(&self, namespace: &str, layout: Layout) -> TokenStream {
+        self.write_public_with_owner(namespace, layout, None)
+    }
+
+    pub(super) fn write_public_with_owner(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        owner: Option<&str>,
+    ) -> TokenStream {
         match self {
             Self::Interface {
                 namespace: target,
                 name,
             } => {
+                if owner.is_some_and(|owner| target == namespace && name == owner) {
+                    return quote! { Self };
+                }
                 if let Some(core) = core_projection(target, name) {
                     core
                 } else {
@@ -833,7 +872,10 @@ fn named_traits(
                         .transpose()?
                         .is_some()
                 {
-                    TraitSupport::NONE
+                    TraitSupport {
+                        copy: true,
+                        ..TraitSupport::NONE
+                    }
                 } else {
                     let mut fields = TraitSupport::ALL;
                     for field in definition.fields()? {

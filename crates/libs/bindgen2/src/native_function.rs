@@ -55,7 +55,7 @@ impl Function {
             &self.namespace,
             layout,
             self.signature
-                .manifest_dependencies()
+                .package_dependencies()
                 .iter()
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         );

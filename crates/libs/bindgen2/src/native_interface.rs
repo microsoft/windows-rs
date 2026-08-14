@@ -10,6 +10,7 @@ pub struct NativeInterface {
     name: String,
     base: Option<(String, String)>,
     hierarchy: Vec<(String, String)>,
+    hierarchy_method_dependencies: BTreeSet<(String, String)>,
     guid: Option<guid::Guid>,
     methods: Vec<Method>,
 }
@@ -33,6 +34,11 @@ impl NativeInterface {
         let full_name = format!("{namespace}.{name}");
         let hierarchy =
             collect_interface_bases(database, definition.entity(), bases, &mut BTreeSet::new())?;
+        let mut hierarchy_method_dependencies = BTreeSet::new();
+        for (namespace, name) in &hierarchy {
+            hierarchy_method_dependencies
+                .extend(dependencies.interface_method_dependencies(database, namespace, name)?);
+        }
         let base = hierarchy.last().cloned();
         let own_guid = if name == "IUnknown" {
             guid::Guid::from_definition(definition, &full_name)?
@@ -96,6 +102,7 @@ impl NativeInterface {
                 None
             },
             hierarchy,
+            hierarchy_method_dependencies,
             methods,
         })
     }
@@ -311,6 +318,7 @@ impl NativeInterface {
                         layout,
                         projection,
                         &method.name,
+                        &self.name,
                     )?;
                     let features = self.method_features(method, layout, &class_features);
                     let cfg = tokens::feature_cfg_set(&features, false);
@@ -350,6 +358,7 @@ impl NativeInterface {
             }
         };
         let mut runtime_features = class_features.clone();
+        runtime_features.extend(self.hierarchy_method_features(layout));
         for method in &self.methods {
             runtime_features.extend(self.method_features(method, layout, &BTreeSet::new()));
         }
@@ -433,6 +442,7 @@ impl NativeInterface {
     ) -> Result<TokenStream, Error> {
         let name = tokens::ident(&self.name);
         let mut implementation_features = self.class_features(layout);
+        implementation_features.extend(self.hierarchy_method_features(layout));
         for method in &self.methods {
             implementation_features.extend(self.method_features(method, layout, &BTreeSet::new()));
         }
@@ -555,6 +565,16 @@ impl NativeInterface {
             &self.namespace,
             layout,
             self.hierarchy
+                .iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        )
+    }
+
+    fn hierarchy_method_features(&self, layout: Layout) -> BTreeSet<String> {
+        tokens::feature_names(
+            &self.namespace,
+            layout,
+            self.hierarchy_method_dependencies
                 .iter()
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         )
