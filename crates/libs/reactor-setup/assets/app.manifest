@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--
     Sources:
-    - Microsoft.WindowsAppSDK.Foundation-2.3.5\package.appxfragment
-    - Microsoft.WindowsAppSDK.InteractiveExperiences-2.1.3\package.appxfragment
-    - Microsoft.WindowsAppSDK.WinUI-2.3.0\package.appxfragment
+    - Microsoft.WindowsAppSDK.Foundation-2.3.9\package.appxfragment
+    - Microsoft.WindowsAppSDK.InteractiveExperiences-2.1.6\package.appxfragment
+    - Microsoft.WindowsAppSDK.WinUI-2.3.6\package.appxfragment
 -->
 <assembly
         manifestVersion="1.0"

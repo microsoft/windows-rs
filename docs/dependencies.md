@@ -32,8 +32,8 @@ libclang library and is **not** a shared home for SDK/runtime versions.
 | Windows WDK | `10.0.28000.1839` | `WDK_VERSION` - `crates/tools/win32/src/km.rs` | download (NuGet) | `tool_win32` zero-diff regen |
 | SDK Contracts (WinRT) | `10.0.28000.2270` | `CONTRACTS_VERSION` - `crates/tools/winrt/src/main.rs` | download (NuGet) | `tool_winrt` zero-diff regen |
 | WebView2 SDK headers | `1.0.4078.44` | `WEBVIEW2_VERSION` - `crates/tools/webview/src/main.rs` | download (NuGet) | `tool_webview` zero-diff regen |
-| WinUI / Windows App SDK metadata (`.winmd` files) | `2.3.1` | `WINDOWS_APP_SDK_VERSION` - `crates/tools/reactor/src/main.rs` | download (NuGet) | `tool_reactor` zero-diff regen of the committed metadata |
-| Windows App SDK runtime | `2.3.1` | `RUNTIME_VER` - `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) + committed bootstrap DLLs | `tool_reactor` guard: `== WINDOWS_APP_SDK_VERSION`, and `reactor.yml` matches |
+| WinUI / Windows App SDK metadata (`.winmd` files) | `2.4.0` | `WINDOWS_APP_SDK_VERSION` - `crates/tools/reactor/src/main.rs` | download (NuGet) | `tool_reactor` zero-diff regen of the committed metadata |
+| Windows App SDK runtime | `2.4.0` | `RUNTIME_VER` - `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) + committed bootstrap DLLs | `tool_reactor` guard: `== WINDOWS_APP_SDK_VERSION`, and `reactor.yml` matches |
 | WebView2 runtime projection | `1.0.4078.44` | `WEBVIEW2_VER` - `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) | `tool_reactor` guard: `== WEBVIEW2_VERSION` |
 | LLVM / libclang (CI) | `22.1.8` | `LIBCLANG_VERSION` - `crates/libs/clang/src/provision.rs` | download (NuGet) via `tool_clang path` | `tool_clang`: loads the pin and asserts its version |
 
@@ -130,7 +130,7 @@ the matching runtime so reactor apps run. Metadata and runtime are two faces of 
 a single number.
 
 **Metadata is regenerated, not hand-copied.** `tool_reactor` owns
-`WINDOWS_APP_SDK_VERSION = "2.3.1"`. On every run it downloads the umbrella
+`WINDOWS_APP_SDK_VERSION = "2.4.0"`. On every run it downloads the umbrella
 `Microsoft.WindowsAppSDK` metapackage at that version, reads the exact component versions
 (Foundation / InteractiveExperiences / WinUI) pinned in its nuspec, downloads each component, and
 copies their `.winmd` - plus `Microsoft.Web.WebView2.Core.winmd` at `WEBVIEW2_VERSION` - into the
@@ -146,7 +146,7 @@ stays committed because `tool_webview` and `tool_composition` also read it.
 | WinUI / Windows App SDK `.winmd` + `WebView2.Core.winmd` | regenerated into `crates/tools/reactor/winmd/` at `WINDOWS_APP_SDK_VERSION` | `tool_reactor`, `tool_webview`, `tool_composition` |
 | `Microsoft.WindowsAppSDK.Runtime`, `RUNTIME_VER` | `crates/libs/reactor-setup/src/lib.rs` | app runtime deploy |
 | Bootstrap DLLs (x86/x64/arm64) | regenerated into `crates/libs/reactor-setup/bootstrap/` at `WINDOWS_APP_SDK_VERSION` | framework-dependent apps |
-| `resources.pri`, `app.manifest`, `runtime.txt` | `crates/libs/reactor-setup/assets/` (committed) | runtime staging |
+| `app.manifest`, `runtime.txt` | `crates/libs/reactor-setup/assets/` (committed) | runtime staging |
 | Runtime installer | `.github/workflows/reactor.yml` | CI test host |
 
 `windows-reactor-setup` is a published runtime helper with no generated artifact, so its pins can't
@@ -163,10 +163,12 @@ loudly on drift) that:
   `RUNTIME_VER` (`reactor-setup`) together, update the `reactor.yml` installer URL, then run
   `cargo run -p tool_reactor` and commit the refreshed metadata and bootstrap DLLs. The guard
   enforces the version agreement; the regen enforces the metadata and the bootstrap binaries.
-- `assets/app.manifest` / `assets/resources.pri` are **generated activation assets with no committed
-  generator** - `app.manifest` transforms the App SDK `package.appxfragment` files into SxS fusion
-  format (source versions in its header). They are forward-compatible, so refreshed only when the
-  reactor control set needs newly-moved classes, not on every bump.
+- `assets/app.manifest` is a **generated activation asset with no committed generator** -
+  `app.manifest` transforms the App SDK `package.appxfragment` files into SxS fusion format (source
+  versions in its header). It is forward-compatible, so refreshed only when the reactor control set
+  needs newly-moved classes, not on every bump.
+- `resources.pri` is staged from the App SDK runtime package only for self-contained deployment via
+  `as_self_contained`; framework-dependent staging does not copy it.
 
 See [windows-reactor](crates/windows-reactor.md) and
 [windows-reactor-setup](crates/windows-reactor-setup.md).

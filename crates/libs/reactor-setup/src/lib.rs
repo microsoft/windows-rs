@@ -6,7 +6,7 @@ use std::path::{Path, PathBuf};
 use std::process::Command;
 
 const RUNTIME_PKG: &str = "Microsoft.WindowsAppSDK.Runtime";
-const RUNTIME_VER: &str = "2.3.1";
+const RUNTIME_VER: &str = "2.4.0";
 const RUNTIME_FILES: &str = include_str!("../assets/runtime.txt");
 const APP_MANIFEST: &str = include_str!("../assets/app.manifest");
 const NUGET_URL: &str = "https://www.nuget.org/api/v2/package/{name}/{version}";
@@ -42,11 +42,6 @@ fn as_framework_dependent_impl(subdir: &str) {
         target_dir_from_out(&out_dir).join(subdir)
     };
     copy_bootstrap_to(&dest);
-    fs::write(
-        dest.join("resources.pri"),
-        include_bytes!("../assets/resources.pri"),
-    )
-    .unwrap_or_else(|e| panic!("failed to write resources.pri to {}: {e}", dest.display()));
 }
 
 /// Configures the app to run completely self-contained.

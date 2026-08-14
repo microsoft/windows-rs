@@ -22,7 +22,7 @@ mod extras {
         fn ResumeDraw(&self) -> HRESULT;
     }
 
-    // Sourced from Microsoft.WindowsAppSDK.Runtime 2.0.1
+    // Sourced from Microsoft.WindowsAppSDK.Runtime 2.4.0
 
     #[library("Microsoft.WindowsAppRuntime.Bootstrap.dll")]
     extern fn MddBootstrapInitialize2(
@@ -46,15 +46,15 @@ mod extras {
     }
 
     const WINDOWSAPPSDK_RELEASE_MAJOR: i32 = 2;
-    const WINDOWSAPPSDK_RELEASE_MINOR: i32 = 0;
-    const WINDOWSAPPSDK_RELEASE_PATCH: i32 = 1;
-    const WINDOWSAPPSDK_RELEASE_MAJORMINOR: i32 = 0x0002_0000;
+    const WINDOWSAPPSDK_RELEASE_MINOR: i32 = 4;
+    const WINDOWSAPPSDK_RELEASE_PATCH: i32 = 0;
+    const WINDOWSAPPSDK_RELEASE_MAJORMINOR: i32 = 0x0002_0004;
 
     const WINDOWSAPPSDK_RUNTIME_VERSION_MAJOR: u32 = 2;
-    const WINDOWSAPPSDK_RUNTIME_VERSION_MINOR: u32 = 0;
-    const WINDOWSAPPSDK_RUNTIME_VERSION_BUILD: u32 = 1;
+    const WINDOWSAPPSDK_RUNTIME_VERSION_MINOR: u32 = 4;
+    const WINDOWSAPPSDK_RUNTIME_VERSION_BUILD: u32 = 0;
     const WINDOWSAPPSDK_RUNTIME_VERSION_REVISION: u32 = 0;
-    const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 0x0002_0000_0001_0000;
+    const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 0x0002_0004_0000_0000;
     
     #[encoding("utf-16")]
     const WINDOWSAPPSDK_RELEASE_VERSION_TAG_W: String = "";
