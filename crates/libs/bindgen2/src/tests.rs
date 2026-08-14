@@ -1391,6 +1391,53 @@ fn native_package_dependencies_include_nested_type_fields() {
 }
 
 #[test]
+fn nested_native_artifacts_inherit_the_enclosing_package_gate() {
+    let generator = fixture(
+        r#"
+            #[win32]
+            mod Windows {
+                mod Win32 {
+                    mod First {
+                        struct Value {
+                            value: u32,
+                        }
+                    }
+                    mod Second {
+                        struct Value {
+                            value: u32,
+                        }
+                    }
+                    mod Test {
+                        struct Container {
+                            Anonymous: union {
+                                first: Windows::Win32::First::Value,
+                                second: Windows::Win32::Second::Value,
+                            },
+                        }
+                    }
+                }
+            }
+        "#,
+    );
+    let types = generator
+        .win32_items()
+        .native_types()
+        .collect::<Result<Vec<_>, _>>()
+        .unwrap();
+    let items = types
+        .iter()
+        .flat_map(|ty| ty.write_sys_items_context(Layout::Package, &[]))
+        .map(|(_, _, tokens)| tokens);
+    let output = quote! { #(#items)* }.to_string();
+    assert!(
+        output.contains(
+            "cfg (all (feature = \"First\" , feature = \"Second\"))] # [derive (Clone , Copy)] pub union Container_0"
+        ),
+        "{output}"
+    );
+}
+
+#[test]
 fn native_custom_derives_join_sys_struct_derives() {
     let output = fixture_metadata(
         r#"

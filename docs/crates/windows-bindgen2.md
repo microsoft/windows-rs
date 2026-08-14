@@ -41,7 +41,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
 | Build-script facade | Twenty consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, reference and time projections, benchmark and robot components and clients, context alignment, core-only APIs, and Win32 metadata match. |
-| Package output | In progress | The package backend runs, but 555 generated files still differ. Source output has 20,081 missing and 9,112 extra line edges; manifests have 122 missing and 358 extra dependency edges. |
+| Package output | In progress | The package backend runs, but 522 generated files still differ. Source output has 18,050 missing and 8,864 extra line edges; manifests have 122 missing and 358 extra dependency edges. |
 
 The current working implementation has about 14,400 lines of production Rust, roughly the same as
 legacy bindgen. Size is no longer evidence for the rewrite by itself; structure, parity, and
@@ -118,6 +118,9 @@ use owner-aware public types and retain ABI-to-owned transmutation for non-copy 
 Callable signatures retain `DoesNotReturnAttribute` and render `!` in raw links and rich wrappers.
 Package sys capability checks reject direct noncanonical WinRT value types while retaining WinRT
 interfaces that erase to raw ABI pointers.
+Nested native definitions inherit one enclosing artifact dependency gate while retaining their own
+semantic dependencies. Split-crate routing is defined by one typed route table shared by standard,
+minimal, and package projections; an architecture test rejects conflicting routes.
 
 WinRT models are lowered once into a shared immutable catalog. Request closure borrows catalog
 models, while rendering clones only selected models before expanding package dependencies. A typed

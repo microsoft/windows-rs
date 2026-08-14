@@ -7,6 +7,7 @@ use std::collections::{BTreeMap, BTreeSet};
 pub struct NativeType {
     architectures: i32,
     kind: Kind,
+    artifact_dependencies: Option<BTreeSet<(String, String)>>,
 }
 
 enum Kind {
@@ -139,6 +140,7 @@ impl NativeType {
                 let manifest_dependencies = ty.manifest_dependencies(database)?;
                 Ok(Self {
                     architectures,
+                    artifact_dependencies: None,
                     kind: Kind::Enum(Enum {
                         namespace: namespace.to_string(),
                         name,
@@ -214,7 +216,7 @@ impl NativeType {
                     }
                 }
                 nested_names.sort_by(|left, right| left.1.cmp(&right.1));
-                let nested = nested_names
+                let mut nested = nested_names
                     .into_iter()
                     .map(|(_, projected, entity)| {
                         Self::lower_named(
@@ -238,6 +240,7 @@ impl NativeType {
                     let manifest_dependencies = ty.manifest_dependencies(database)?;
                     return Ok(Self {
                         architectures,
+                        artifact_dependencies: None,
                         kind: Kind::Alias(Alias {
                             namespace: namespace.to_string(),
                             name,
@@ -271,6 +274,7 @@ impl NativeType {
                     let manifest_dependencies = ty.manifest_dependencies(database)?;
                     return Ok(Self {
                         architectures,
+                        artifact_dependencies: None,
                         kind: Kind::Alias(Alias {
                             namespace: namespace.to_string(),
                             name,
@@ -362,8 +366,12 @@ impl NativeType {
                     let (_, nested_dependencies) = nested.manifest_dependencies();
                     manifest_dependencies.extend(nested_dependencies);
                 }
+                for nested in &mut nested {
+                    nested.inherit_artifact_dependencies(&dependencies);
+                }
                 Ok(Self {
                     architectures,
+                    artifact_dependencies: None,
                     kind: Kind::Struct(Struct {
                         namespace: namespace.to_string(),
                         name,
@@ -524,6 +532,7 @@ impl NativeType {
 
     fn cfg(&self, layout: Layout) -> TokenStream {
         let (namespace, dependencies) = self.dependencies();
+        let dependencies = self.artifact_dependencies.as_ref().unwrap_or(&dependencies);
         tokens::feature_cfg(
             namespace,
             layout,
@@ -531,6 +540,15 @@ impl NativeType {
                 .iter()
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         )
+    }
+
+    fn inherit_artifact_dependencies(&mut self, dependencies: &BTreeSet<(String, String)>) {
+        self.artifact_dependencies = Some(dependencies.clone());
+        if let Kind::Struct(value) = &mut self.kind {
+            for nested in &mut value.nested {
+                nested.inherit_artifact_dependencies(dependencies);
+            }
+        }
     }
 
     fn dependencies(&self) -> (&str, BTreeSet<(String, String)>) {

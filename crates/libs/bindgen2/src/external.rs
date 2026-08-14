@@ -1,105 +1,150 @@
+#[derive(Clone, Copy, Eq, PartialEq)]
+enum Policy {
+    Winrt,
+    Package,
+}
+
+struct Route {
+    namespace: &'static str,
+    names: &'static [&'static str],
+    crate_name: &'static str,
+    policies: &'static [Policy],
+}
+
+const WINRT: &[Policy] = &[Policy::Winrt];
+const PACKAGE: &[Policy] = &[Policy::Package];
+const BOTH: &[Policy] = &[Policy::Winrt, Policy::Package];
+
+const ROUTES: &[Route] = &[
+    Route {
+        namespace: "Windows.Foundation",
+        names: &[
+            "IAsyncAction",
+            "IAsyncActionWithProgress",
+            "IAsyncOperation",
+            "IAsyncOperationWithProgress",
+        ],
+        crate_name: "windows_future",
+        policies: BOTH,
+    },
+    Route {
+        namespace: "Windows.Foundation",
+        names: &[
+            "AsyncActionCompletedHandler",
+            "AsyncActionProgressHandler",
+            "AsyncActionWithProgressCompletedHandler",
+            "AsyncOperationCompletedHandler",
+            "AsyncOperationProgressHandler",
+            "AsyncOperationWithProgressCompletedHandler",
+            "AsyncStatus",
+            "IAsyncInfo",
+            "HResult",
+            "EventRegistrationToken",
+        ],
+        crate_name: "windows_future",
+        policies: PACKAGE,
+    },
+    Route {
+        namespace: "Windows.Foundation",
+        names: &["IReference"],
+        crate_name: "windows_reference",
+        policies: BOTH,
+    },
+    Route {
+        namespace: "Windows.Foundation",
+        names: &["IReferenceArray"],
+        crate_name: "windows_reference",
+        policies: WINRT,
+    },
+    Route {
+        namespace: "Windows.Foundation",
+        names: &["DateTime", "TimeSpan"],
+        crate_name: "windows_time",
+        policies: BOTH,
+    },
+    Route {
+        namespace: "Windows.Foundation.Collections",
+        names: &[],
+        crate_name: "windows_collections",
+        policies: WINRT,
+    },
+    Route {
+        namespace: "Windows.Foundation.Collections",
+        names: &[
+            "CollectionChange",
+            "IIterable",
+            "IIterator",
+            "IKeyValuePair",
+            "IMap",
+            "IMapChangedEventArgs",
+            "IMapView",
+            "IObservableMap",
+            "IObservableVector",
+            "IVector",
+            "IVectorChangedEventArgs",
+            "IVectorView",
+            "MapChangedEventHandler",
+            "VectorChangedEventHandler",
+        ],
+        crate_name: "windows_collections",
+        policies: PACKAGE,
+    },
+    Route {
+        namespace: "Windows.Foundation.Numerics",
+        names: &["Matrix3x2", "Matrix4x4", "Vector2", "Vector3", "Vector4"],
+        crate_name: "windows_numerics",
+        policies: BOTH,
+    },
+];
+
+fn crate_name(namespace: &str, name: &str, policy: Policy) -> Option<&'static str> {
+    ROUTES
+        .iter()
+        .find(|route| {
+            route.namespace == namespace
+                && route.policies.contains(&policy)
+                && (route.names.is_empty() || route.names.contains(&name))
+        })
+        .map(|route| route.crate_name)
+}
+
 pub(super) fn winrt_crate(namespace: &str, name: &str) -> Option<&'static str> {
-    match namespace {
-        "Windows.Foundation"
-            if matches!(
-                name,
-                "IAsyncAction"
-                    | "IAsyncActionWithProgress"
-                    | "IAsyncOperation"
-                    | "IAsyncOperationWithProgress"
-            ) =>
-        {
-            Some("windows_future")
-        }
-        "Windows.Foundation" if matches!(name, "IReference" | "IReferenceArray") => {
-            Some("windows_reference")
-        }
-        "Windows.Foundation" if matches!(name, "DateTime" | "TimeSpan") => Some("windows_time"),
-        "Windows.Foundation.Collections" => Some("windows_collections"),
-        "Windows.Foundation.Numerics"
-            if matches!(
-                name,
-                "Matrix3x2" | "Matrix4x4" | "Vector2" | "Vector3" | "Vector4"
-            ) =>
-        {
-            Some("windows_numerics")
-        }
-        _ => None,
-    }
+    crate_name(namespace, name, Policy::Winrt)
 }
 
 pub(super) fn minimal_crate(namespace: &str, name: &str) -> Option<&'static str> {
-    winrt_crate(namespace, name).or(match namespace {
-        "Windows.Foundation.Numerics"
-            if matches!(
-                name,
-                "Matrix3x2" | "Matrix4x4" | "Vector2" | "Vector3" | "Vector4"
-            ) =>
-        {
-            Some("windows_numerics")
-        }
-        _ => None,
-    })
+    crate_name(namespace, name, Policy::Winrt)
 }
 
 pub(super) fn package_crate_name(namespace: &str, name: &str) -> Option<&'static str> {
-    if canonical::winrt_type_from_name(namespace, name)
-        .is_some_and(|ty| ty.is_hresult() || ty.is_event_token())
-    {
-        return Some("windows_future");
-    }
-    match namespace {
-        "Windows.Foundation"
-            if matches!(
-                name,
-                "AsyncActionCompletedHandler"
-                    | "AsyncActionProgressHandler"
-                    | "AsyncActionWithProgressCompletedHandler"
-                    | "AsyncOperationCompletedHandler"
-                    | "AsyncOperationProgressHandler"
-                    | "AsyncOperationWithProgressCompletedHandler"
-                    | "AsyncStatus"
-                    | "IAsyncAction"
-                    | "IAsyncActionWithProgress"
-                    | "IAsyncInfo"
-                    | "IAsyncOperation"
-                    | "IAsyncOperationWithProgress"
-            ) =>
-        {
-            Some("windows_future")
+    crate_name(namespace, name, Policy::Package)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn routes_are_unambiguous() {
+        for (position, left) in ROUTES.iter().enumerate() {
+            for right in &ROUTES[position + 1..] {
+                if left.namespace != right.namespace
+                    || !left
+                        .policies
+                        .iter()
+                        .any(|policy| right.policies.contains(policy))
+                {
+                    continue;
+                }
+                let names_overlap = left.names.is_empty()
+                    || right.names.is_empty()
+                    || left.names.iter().any(|name| right.names.contains(name));
+                assert!(
+                    !names_overlap || left.crate_name == right.crate_name,
+                    "conflicting routes for {}",
+                    left.namespace
+                );
+            }
         }
-        "Windows.Foundation.Collections"
-            if matches!(
-                name,
-                "CollectionChange"
-                    | "IIterable"
-                    | "IIterator"
-                    | "IKeyValuePair"
-                    | "IMap"
-                    | "IMapChangedEventArgs"
-                    | "IMapView"
-                    | "IObservableMap"
-                    | "IObservableVector"
-                    | "IVector"
-                    | "IVectorChangedEventArgs"
-                    | "IVectorView"
-                    | "MapChangedEventHandler"
-                    | "VectorChangedEventHandler"
-            ) =>
-        {
-            Some("windows_collections")
-        }
-        "Windows.Foundation.Numerics"
-            if matches!(
-                name,
-                "Matrix3x2" | "Matrix4x4" | "Vector2" | "Vector3" | "Vector4"
-            ) =>
-        {
-            Some("windows_numerics")
-        }
-        "Windows.Foundation" if name == "IReference" => Some("windows_reference"),
-        "Windows.Foundation" if matches!(name, "DateTime" | "TimeSpan") => Some("windows_time"),
-        _ => None,
     }
 }
-use crate::canonical;

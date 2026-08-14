@@ -27,6 +27,16 @@ enum ReturnKind<'a> {
     },
 }
 
+#[derive(Clone, Copy)]
+struct FunctionContext<'a> {
+    namespace: &'a str,
+    layout: Layout,
+    name: &'a str,
+    module: &'a str,
+    abi: &'a str,
+    import_name: Option<&'a str>,
+}
+
 fn write_slice_parameter(
     parameter: &native_signature::Parameter,
     namespace: &str,
@@ -122,33 +132,35 @@ impl native_signature::Signature {
         abi: &str,
         import_name: Option<&str>,
     ) -> Option<TokenStream> {
+        let context = FunctionContext {
+            namespace,
+            layout,
+            name,
+            module,
+            abi,
+            import_name,
+        };
         let return_kind = self.return_kind(layout.is_package());
         if matches!(return_kind, ReturnKind::HResult | ReturnKind::Query { .. }) {
-            return Some(write_rich_com_function(
-                self,
+            return Some(write_rich_com_function(self, context, return_kind));
+        }
+        if !matches!(return_kind, ReturnKind::Retval { .. }) {
+            return self.write_native_function(context);
+        }
+
+        fn write_rich_com_function(
+            signature: &native_signature::Signature,
+            context: FunctionContext<'_>,
+            return_kind: ReturnKind<'_>,
+        ) -> TokenStream {
+            let FunctionContext {
                 namespace,
                 layout,
                 name,
                 module,
                 abi,
                 import_name,
-                return_kind,
-            ));
-        }
-        if !matches!(return_kind, ReturnKind::Retval { .. }) {
-            return self.write_native_function(namespace, layout, name, module, abi, import_name);
-        }
-
-        fn write_rich_com_function(
-            signature: &native_signature::Signature,
-            namespace: &str,
-            layout: Layout,
-            name: &str,
-            module: &str,
-            abi: &str,
-            import_name: Option<&str>,
-            return_kind: ReturnKind<'_>,
-        ) -> TokenStream {
+            } = context;
             let method = tokens::ident(name);
             let symbol = import_name.map(|name| quote! { #name });
             let raw_parameters = signature.parameters.iter().map(|parameter| {
@@ -464,15 +476,15 @@ impl native_signature::Signature {
         })
     }
 
-    fn write_native_function(
-        &self,
-        namespace: &str,
-        layout: Layout,
-        name: &str,
-        module: &str,
-        abi: &str,
-        import_name: Option<&str>,
-    ) -> Option<TokenStream> {
+    fn write_native_function(&self, context: FunctionContext<'_>) -> Option<TokenStream> {
+        let FunctionContext {
+            namespace,
+            layout,
+            name,
+            module,
+            abi,
+            import_name,
+        } = context;
         let return_kind = self.return_kind(layout.is_package());
         let (output, direct) = match return_kind {
             ReturnKind::VoidValue { position, ty } | ReturnKind::VoidInterface { position, ty } => {
