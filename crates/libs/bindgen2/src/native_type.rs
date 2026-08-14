@@ -437,7 +437,7 @@ impl NativeType {
         match &self.kind {
             Kind::Alias(value) => {
                 let tokens = value.write(layout, Projection::Sys);
-                vec![(&value.name, 1, quote! { #cfg #architectures #tokens })]
+                vec![(&value.name, 1, quote! { #architectures #cfg #tokens })]
             }
             Kind::Enum(value) => value.write_items(&architectures, &cfg, layout, Projection::Sys),
             Kind::Struct(value) => {
@@ -492,7 +492,7 @@ impl NativeType {
                 vec![(
                     value.name.as_str(),
                     1,
-                    quote! { #cfg #architectures #tokens },
+                    quote! { #architectures #cfg #tokens },
                 )]
             } else if let Kind::Enum(value) = &self.kind {
                 value.write_items(&architectures, &cfg, layout, projection)
@@ -633,8 +633,8 @@ impl Enum {
                     #cfg
                     #[derive(Clone, Copy)]
                     pub struct #name(pub #ty);
-                    #cfg
                     #architectures
+                    #cfg
                     impl #name {
                         #(#values)*
                     }
@@ -644,7 +644,7 @@ impl Enum {
         let mut result = vec![(
             self.name.as_str(),
             1,
-            quote! { #cfg #architectures pub type #name = #ty; },
+            quote! { #architectures #cfg pub type #name = #ty; },
         )];
         result.extend(self.values.iter().map(|(value_name, value)| {
             let ident = tokens::ident(value_name);
@@ -652,7 +652,7 @@ impl Enum {
             (
                 value_name.as_str(),
                 2,
-                quote! { #cfg #architectures pub const #ident: #name = #value; },
+                quote! { #architectures #cfg pub const #ident: #name = #value; },
             )
         }));
         result
@@ -684,8 +684,8 @@ impl Struct {
                     pub union #name {
                         pub value: u8,
                     }
-                    #cfg
                     #architectures
+                    #cfg
                     impl Default for #name {
                         fn default() -> Self {
                             unsafe { core::mem::zeroed() }
@@ -730,8 +730,8 @@ impl Struct {
                 pub union #name {
                     #(#fields)*
                 }
-                #cfg
                 #architectures
+                #cfg
                 impl Default for #name {
                     fn default() -> Self {
                         unsafe { core::mem::zeroed() }
@@ -809,8 +809,8 @@ impl Struct {
                 (self.default == native_default::Policy::Derive).then(|| quote! { , Default });
             let default = (self.default != native_default::Policy::Derive).then(|| {
                 quote! {
-                    #cfg
                     #architectures
+                    #cfg
                     impl Default for #name {
                         fn default() -> Self {
                             unsafe { core::mem::zeroed() }
@@ -829,8 +829,8 @@ impl Struct {
             (
                 quote! { #[derive(Clone, Copy #(, #custom_derives)*)] },
                 quote! {
-                    #cfg
                     #architectures
+                    #cfg
                     impl Default for #name {
                         fn default() -> Self {
                             unsafe { core::mem::zeroed() }

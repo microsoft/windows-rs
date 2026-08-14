@@ -467,16 +467,19 @@ impl Type {
         layout: Layout,
         projection: Projection,
     ) -> TokenStream {
-        if !projection.is_sys()
-            && let Self::Named {
-                namespace: target,
-                name,
-            } = self
+        if let Self::Named {
+            namespace: target,
+            name,
+        } = self
             && (target == "Windows.Win32" || target.starts_with("Windows.Win32."))
         {
-            return match name.as_str() {
-                "PSTR" => quote! { windows_core::PCSTR },
-                "PWSTR" => quote! { windows_core::PCWSTR },
+            return match (name.as_str(), projection.is_sys(), layout.is_package()) {
+                ("PSTR", true, true) => quote! { windows_sys::core::PCSTR },
+                ("PWSTR", true, true) => quote! { windows_sys::core::PCWSTR },
+                ("PSTR", true, false) => quote! { PCSTR },
+                ("PWSTR", true, false) => quote! { PCWSTR },
+                ("PSTR", false, _) => quote! { windows_core::PCSTR },
+                ("PWSTR", false, _) => quote! { windows_core::PCWSTR },
                 _ => self.write_projection(namespace, layout, projection),
             };
         }
@@ -1168,11 +1171,27 @@ impl Type {
         projected_name: &str,
         dependencies: &mut BTreeSet<(String, String)>,
     ) -> Result<(), Error> {
-        if !matches!(
-            definition.category()?,
-            TypeCategory::Enum | TypeCategory::Struct
-        ) {
-            return Ok(());
+        match definition.category()? {
+            TypeCategory::Delegate => {
+                let owner = format!("{namespace}.{projected_name}");
+                for method in definition.methods()? {
+                    let signature = method.signature()?;
+                    Type::lower(
+                        database,
+                        method.entity().file(),
+                        &owner,
+                        signature.return_type,
+                    )?
+                    .collect_direct_dependencies(dependencies);
+                    for ty in signature.parameters {
+                        Type::lower(database, method.entity().file(), &owner, ty)?
+                            .collect_direct_dependencies(dependencies);
+                    }
+                }
+                return Ok(());
+            }
+            TypeCategory::Enum | TypeCategory::Struct => {}
+            _ => return Ok(()),
         }
         let nested = database
             .nested_types_of(definition.entity())
@@ -1282,8 +1301,8 @@ impl Type {
                 element: Box::new(element.into_input()),
                 len,
             },
-            Self::Pointer { mutable, element } => Self::Pointer {
-                mutable,
+            Self::Pointer { element, .. } => Self::Pointer {
+                mutable: false,
                 element: Box::new(element.into_input()),
             },
             Self::Named { namespace, name }

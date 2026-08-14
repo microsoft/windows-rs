@@ -1335,6 +1335,11 @@ fn native_package_dependencies_include_nested_type_fields() {
                         value: External,
                     },
                 }
+                extern fn Callback(value: External);
+                extern fn ConstPointerChain(#[in] value: *mut *mut void);
+                struct DelegateContainer {
+                    callback: Callback,
+                }
                 struct A {
                     b: *mut B,
                     external: External,
@@ -1356,6 +1361,33 @@ fn native_package_dependencies_include_nested_type_fields() {
     .unwrap();
 
     assert!(dependencies.contains(&("Test".to_string(), "External".to_string())));
+
+    let delegate_dependencies = native::Type::Named {
+        namespace: "Test".to_string(),
+        name: "DelegateContainer".to_string(),
+    }
+    .package_dependencies(
+        &metadata.shared.database,
+        &native::DependencyCache::default(),
+    )
+    .unwrap();
+    assert!(delegate_dependencies.contains(&("Test".to_string(), "External".to_string())));
+
+    let callback = metadata
+        .generator(Request::all())
+        .unwrap()
+        .win32_items()
+        .delegates()
+        .find_map(|callback| {
+            let callback = callback.ok()?;
+            let output = callback.write_sys().to_string();
+            output.contains("ConstPointerChain").then_some(output)
+        })
+        .unwrap();
+    assert!(
+        callback.contains("value : * const * const core :: ffi :: c_void"),
+        "{callback}"
+    );
 
     let first = native::DependencyCache::default();
     let a_first = native::Type::Named {
@@ -3658,6 +3690,13 @@ fn focused_win32_output_matches_existing_flat_sys_tokens() {
                 #[library("test.dll")]
                 extern fn SysFlatFunction(s: *const Struct) -> i32;
                 const GREETING: String = "hello";
+                const RESOURCE: Windows::Win32::PWSTR = 1;
+            }
+            #[win32]
+            mod Windows {
+                mod Win32 {
+                    type PWSTR = *mut u16;
+                }
             }
         "#,
     );
@@ -3685,6 +3724,14 @@ fn focused_win32_output_matches_existing_flat_sys_tokens() {
             .write_sys()
             .to_string(),
         string_expected.to_string()
+    );
+    assert_eq!(
+        pointer_items
+            .constant("Test", "RESOURCE")
+            .unwrap()
+            .write_sys()
+            .to_string(),
+        quote! { pub const RESOURCE: PCWSTR = 1 as _; }.to_string()
     );
 
     let alias_generator = fixture(

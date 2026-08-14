@@ -92,22 +92,22 @@ impl Function {
                 )
             {
                 return quote! {
-                    #cfg
                     #architectures
+                    #cfg
                     #wrapper
                     #pointer_alias
                 };
             }
             quote! {
-                #cfg
                 #architectures
+                #cfg
                 windows_core::link!(#module #abi #symbol fn #name(#parameters #variadic) #result);
                 #pointer_alias
             }
         } else {
             quote! {
-                #cfg
                 #architectures
+                #cfg
                 windows_link::link!(#module #abi #symbol fn #name(#parameters #variadic) #result);
                 #pointer_alias
             }

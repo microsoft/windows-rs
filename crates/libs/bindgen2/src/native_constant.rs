@@ -267,7 +267,7 @@ impl Constant {
                 }
             }
         };
-        quote! { #cfg #architectures #value }
+        quote! { #architectures #cfg #value }
     }
 
     pub(super) fn package_features(&self, layout: Layout) -> BTreeSet<String> {

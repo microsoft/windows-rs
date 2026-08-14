@@ -77,8 +77,8 @@ impl Delegate {
             .write_result_projection(&self.namespace, layout, projection);
         let ty = quote! { Option<unsafe extern #abi fn(#parameters) #result> };
         quote! {
-            #cfg
             #architectures
+            #cfg
             pub type #name = #ty;
         }
     }
