@@ -47,7 +47,8 @@ fn write_slice_parameter(
     let is_byte_buffer = parameter
         .ty
         .pointee()
-        .is_some_and(|element| element == &native::Type::Void);
+        .is_some_and(|element| element == &native::Type::Void)
+        || parameter.ty.is_const_string();
     let element = element.write_public(namespace, layout);
     let element = if is_interface {
         quote! { Option<#element> }
@@ -118,6 +119,7 @@ impl native_signature::Signature {
                 | ReturnKind::VoidInterface { .. }
                 | ReturnKind::VoidValue { .. }
                 | ReturnKind::Direct(_)
+                | ReturnKind::Indirect(_)
                 | ReturnKind::Retval { .. }
                 | ReturnKind::Query { .. }
         )
@@ -973,13 +975,9 @@ impl native_signature::Signature {
             | ReturnKind::Void
             | ReturnKind::VoidInterface { .. }
             | ReturnKind::VoidValue { .. }
-            | ReturnKind::Direct(_) => None,
-            ReturnKind::Indirect(_) | ReturnKind::Query { .. } => {
-                return Err(Error::UnsupportedType {
-                    name: name.to_string(),
-                    shape: "native COM producer method does not return HRESULT".to_string(),
-                });
-            }
+            | ReturnKind::Direct(_)
+            | ReturnKind::Indirect(_) => None,
+            ReturnKind::Query { .. } => unreachable!(),
         };
         let parameters = self
             .parameters
@@ -1022,6 +1020,10 @@ impl native_signature::Signature {
                 let ty = ty.write_public(namespace, layout);
                 quote! { -> #ty }
             }
+            ReturnKind::Indirect(ty) => {
+                let ty = ty.write_public(namespace, layout);
+                quote! { -> #ty }
+            }
             _ => unreachable!(),
         };
         Ok(quote! {
@@ -1044,13 +1046,8 @@ impl native_signature::Signature {
             | ReturnKind::VoidInterface { .. }
             | ReturnKind::VoidValue { .. }
             | ReturnKind::Direct(_)
+            | ReturnKind::Indirect(_)
             | ReturnKind::Query { .. } => None,
-            ReturnKind::Indirect(_) => {
-                return Err(Error::UnsupportedType {
-                    name: name.to_string(),
-                    shape: "native COM producer method does not return HRESULT".to_string(),
-                });
-            }
         };
         let arguments = self
             .parameters
@@ -1068,6 +1065,11 @@ impl native_signature::Signature {
         if matches!(return_kind, ReturnKind::Direct(_)) {
             return Ok(quote! {
                 #impl_name::#method(this, #(#arguments),*)
+            });
+        }
+        if matches!(return_kind, ReturnKind::Indirect(_)) {
+            return Ok(quote! {
+                result__.write(#impl_name::#method(this, #(#arguments),*));
             });
         }
         if matches!(

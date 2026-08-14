@@ -1249,6 +1249,19 @@ fn native_buffer_relationships_distinguish_elements_bytes_and_shared_counts() {
             #[win32]
             mod Windows {
                 mod Win32 {
+                    struct PCSTR {
+                        Value: *const u8,
+                    }
+                    #[library("test.dll")]
+                    extern fn ValidStringBytes(
+                        #[size_param(1)] value: PCSTR,
+                        size: usize,
+                    );
+                }
+            }
+            #[win32]
+            mod Windows {
+                mod Win32 {
                     mod Metadata {
                         attribute NativeArrayInfoAttribute {
                             fn();
@@ -1288,6 +1301,16 @@ fn native_buffer_relationships_distinguish_elements_bytes_and_shared_counts() {
     assert!(
         output.contains(
             "ValidBytes (values . len () . try_into () . unwrap () , values . as_ptr ())"
+        ),
+        "{output}"
+    );
+    assert!(
+        output.contains("pub unsafe fn ValidStringBytes (value : & [u8])"),
+        "{output}"
+    );
+    assert!(
+        output.contains(
+            "ValidStringBytes (core :: mem :: transmute (value . as_ptr ()) , value . len () . try_into () . unwrap ())"
         ),
         "{output}"
     );
@@ -3109,6 +3132,107 @@ fn native_producer_interface_inputs_are_borrowed() {
     assert!(output.contains(
         "pub DrawBitmap : unsafe extern \"system\" fn (* mut core :: ffi :: c_void , * mut core :: ffi :: c_void"
     ));
+}
+
+#[test]
+fn native_producers_support_indirect_struct_returns() {
+    let output = fixture_metadata(
+        r#"
+            #[win32]
+            mod Test {
+                struct Value {
+                    first: u64,
+                    second: u64,
+                }
+                #[guid(0x00000000_0000_0000_c000_000000000046)]
+                interface IUnknown {
+                }
+                #[guid(0x00000001_0000_0000_c000_000000000046)]
+                interface IValue: IUnknown {
+                    fn GetValue(&self) -> Value;
+                }
+            }
+        "#,
+    )
+    .generator(Request::all().package())
+    .unwrap()
+    .render(Layout::Modules)
+    .unwrap()
+    .to_string();
+
+    assert!(
+        output.contains("pub trait IValue_Impl : windows_core :: IUnknownImpl"),
+        "{output}"
+    );
+    assert!(
+        output.contains("result__ . write (IValue_Impl :: GetValue (this"),
+        "{output}"
+    );
+}
+
+#[test]
+fn native_package_producers_support_baseless_interfaces() {
+    let generator = fixture_metadata(
+        r#"
+            #[win32]
+            mod Windows {
+                mod Win32 {
+                    struct PCSTR {
+                        Value: *const u8,
+                    }
+                    interface IValue {
+                        fn GetValue(&self) -> u32;
+                        fn SetName(&self, name: PCSTR);
+                    }
+                    interface IMore: IValue {
+                        fn GetMore(&self) -> u32;
+                    }
+                }
+            }
+        "#,
+    )
+    .generator(Request::all().package())
+    .unwrap();
+    let output = generator
+        .win32_items()
+        .interfaces()
+        .map(|interface| {
+            interface.unwrap().write_context(
+                Layout::Package,
+                Projection::Default,
+                &MemberSelection::All,
+                None,
+                true,
+            )
+        })
+        .collect::<Result<TokenStream, _>>()
+        .unwrap()
+        .to_string();
+
+    assert!(
+        output.contains("pub trait IValue_Impl { fn GetValue"),
+        "{output}"
+    );
+    assert!(
+        output.contains("pub fn new < 'a , T : IValue_Impl >"),
+        "{output}"
+    );
+    assert!(
+        output.contains("pub const fn new < Identity : IMore_Impl >"),
+        "{output}"
+    );
+    assert!(
+        output.contains("base__ : IValue_Vtbl :: new :: < Identity > ()"),
+        "{output}"
+    );
+    assert!(
+        output.contains("fn SetName (& self , name : & windows_core :: PCSTR"),
+        "{output}"
+    );
+    assert!(
+        output.contains("IValue_Impl :: SetName (this , core :: mem :: transmute (& name))"),
+        "{output}"
+    );
 }
 
 #[test]

@@ -175,7 +175,8 @@ impl Signature {
                 } else {
                     false
                 };
-                let producer_by_ref = flags & 0x0002 == 0 && ty.producer_by_ref(database)?;
+                let producer_by_ref = flags & 0x0002 == 0
+                    && (ty.is_const_string() || ty.producer_by_ref(database)?);
                 let com_out_ptr = parameter
                     .map(|parameter| parameter.has_attribute("ComOutPtrAttribute"))
                     .transpose()?
@@ -259,15 +260,18 @@ impl Signature {
                     parameters[count].ty,
                     native::Type::U32 | native::Type::USize
                 )
-                || !matches!(parameters[position].ty, native::Type::Pointer { .. })
+                || (!matches!(parameters[position].ty, native::Type::Pointer { .. })
+                    && !parameters[position].ty.is_const_string())
             {
                 continue;
             }
             if matches!(parameters[position].array, Some(ArrayInfo::BytesParam(_))) {
-                if !matches!(
-                    parameters[position].ty.pointee(),
-                    Some(native::Type::I8 | native::Type::U8)
-                ) {
+                if !parameters[position].ty.is_const_string()
+                    && !matches!(
+                        parameters[position].ty.pointee(),
+                        Some(native::Type::I8 | native::Type::U8)
+                    )
+                {
                     continue;
                 }
                 parameters[position].hint = ParamHint::ByteSlice;

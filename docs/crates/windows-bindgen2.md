@@ -41,7 +41,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
 | Build-script facade | Twenty consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, reference and time projections, benchmark and robot components and clients, context alignment, core-only APIs, and Win32 metadata match. |
-| Package output | In progress | The package backend runs, but 400 generated files still differ. `windows-sys` source output matches exactly. Rich Win32 has 313 differing files and WinRT has 85; source output has 15,231 missing and 7,488 extra line edges. The two manifests have 119 missing and 353 extra dependency edges. |
+| Package output | In progress | The package backend runs, but 400 generated files still differ. `windows-sys` source output matches exactly. Rich Win32 has 313 differing files and WinRT has 85; source output has 7,102 missing and 6,536 extra line edges. The two manifests have 119 missing and 353 extra dependency edges. |
 
 The current working implementation has about 14,400 lines of production Rust, roughly the same as
 legacy bindgen. Size is no longer evidence for the rewrite by itself; structure, parity, and
@@ -136,6 +136,14 @@ Package sys dependencies are a separate typed product that omits feature namespa
 emit-capable sys artifacts while retaining their rich projection dependencies.
 Architecture-specific enums that share a projected name with another native type retain that
 heterogeneous sibling fact and cast their alias constants explicitly.
+Native COM producers support ABI-indirect struct returns by exposing an ordinary Rust return value
+and writing it through the hidden ABI result pointer.
+Byte-count metadata on `PCSTR` and `PCWSTR` parameters projects them as byte slices while retaining
+the ABI conversion required by the pointer wrapper.
+Native interface lowering retains COM identity separately from GUID availability. Package interfaces
+without COM identity use scoped heap-backed vtables, including GUID-less D3D effect hierarchies.
+Native producer traits borrow input `PCSTR` and `PCWSTR` wrappers and transmute their references at
+the ABI boundary.
 Package output items retain the metadata architecture key, so duplicate same-name variants sort by
 typed metadata rather than insertion or token order.
 

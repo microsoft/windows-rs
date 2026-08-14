@@ -11,6 +11,7 @@ pub struct NativeInterface {
     base: Option<(String, String)>,
     hierarchy: Vec<(String, String)>,
     hierarchy_method_dependencies: BTreeSet<(String, String)>,
+    com_identity: bool,
     guid: Option<guid::Guid>,
     methods: Vec<Method>,
 }
@@ -92,6 +93,7 @@ impl NativeInterface {
             namespace,
             name,
             base,
+            com_identity,
             guid: if com_identity {
                 if own_guid.is_some() {
                     own_guid
@@ -335,19 +337,8 @@ impl NativeInterface {
             }
         };
         let implement = match implementation {
-            None => {
-                self.can_implement(members, base_selected)
-                    || (layout.is_package()
-                        && self.methods.iter().all(|method| method.selected(members))
-                        && self
-                            .methods
-                            .iter()
-                            .all(|method| method.signature.supports_implementation())
-                        && self
-                            .base
-                            .as_ref()
-                            .is_some_and(|(_, name)| name == "IUnknown" || base_selected))
-            }
+            None if layout.is_package() => self.can_implement_package(members, base_selected),
+            None => self.can_implement(members, base_selected),
             Some(false) => false,
             Some(true) if self.supports_implementation(base_selected) => true,
             Some(true) => {
@@ -414,7 +405,7 @@ impl NativeInterface {
             && self
                 .base
                 .as_ref()
-                .is_some_and(|(_, name)| name == "IUnknown" || base_selected)
+                .is_none_or(|(_, name)| name == "IUnknown" || base_selected)
     }
 
     fn supports_implementation(&self, base_selected: bool) -> bool {
@@ -449,18 +440,19 @@ impl NativeInterface {
         let implementation_cfg = tokens::feature_cfg_set(&implementation_features, false);
         let vtbl_name = tokens::ident(&format!("{}_Vtbl", self.name));
         let impl_name = tokens::ident(&format!("{}_Impl", self.name));
-        let (base_impl, base_new) = self.base.as_ref().map_or_else(
-            || {
-                (
-                    quote! { windows_core::IUnknownImpl },
-                    quote! { windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() },
-                )
-            },
-            |(namespace, base)| {
+        let scoped = !self.com_identity;
+        let (base_impl, base_new) = self
+            .base
+            .as_ref()
+            .map(|(namespace, base)| {
                 if base == "IUnknown" {
                     (
                         quote! { windows_core::IUnknownImpl },
-                        quote! { windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() },
+                        if scoped {
+                            quote! { windows_core::IUnknown_Vtbl::new::<Identity, 0>() }
+                        } else {
+                            quote! { windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
+                        },
                     )
                 } else {
                     let path = tokens::namespace(&self.namespace, namespace, layout);
@@ -468,11 +460,18 @@ impl NativeInterface {
                     let base_vtbl = tokens::ident(&format!("{base}_Vtbl"));
                     (
                         quote! { #path #base_impl },
-                        quote! { #path #base_vtbl::new::<Identity, OFFSET>() },
+                        if scoped {
+                            quote! { #path #base_vtbl::new::<Identity>() }
+                        } else {
+                            quote! { #path #base_vtbl::new::<Identity, OFFSET>() }
+                        },
                     )
                 }
-            },
-        );
+            })
+            .map_or_else(
+                || (None, None),
+                |(base_impl, base_new)| (Some(base_impl), Some(base_new)),
+            );
         let hierarchy_matches = self
             .hierarchy
             .iter()
@@ -516,34 +515,103 @@ impl NativeInterface {
                     method
                         .signature
                         .write_impl_upcall(&impl_name, &method.name, layout)?;
-                Ok(quote! {
-                    #architectures
-                    unsafe extern "system" fn #method_name<
-                        Identity: #impl_name,
-                        const OFFSET: isize
-                    >(#signature) #result {
-                        unsafe {
-                            let this: &Identity =
-                                &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                            #upcall
+                if scoped {
+                    Ok(quote! {
+                        #architectures
+                        unsafe extern "system" fn #method_name<Identity: #impl_name>(
+                            #signature
+                        ) #result {
+                            unsafe {
+                                let this =
+                                    (this as *mut *mut core::ffi::c_void)
+                                        as *const windows_core::ScopedHeap;
+                                let this = &*((*this).this as *const Identity);
+                                #upcall
+                            }
                         }
-                    }
-                })
+                    })
+                } else {
+                    Ok(quote! {
+                        #architectures
+                        unsafe extern "system" fn #method_name<
+                            Identity: #impl_name,
+                            const OFFSET: isize
+                        >(#signature) #result {
+                            unsafe {
+                                let this: &Identity =
+                                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                                #upcall
+                            }
+                        }
+                    })
+                }
             })
             .collect::<Result<Vec<_>, Error>>()?;
         let initializers = self.methods.iter().map(|method| {
             let architectures = tokens::architectures(method.architectures);
             let method_name = tokens::ident(&method.name);
-            quote! {
-                #architectures
-                #method_name: #method_name::<Identity, OFFSET>,
+            if scoped {
+                quote! {
+                    #architectures
+                    #method_name: #method_name::<Identity>,
+                }
+            } else {
+                quote! {
+                    #architectures
+                    #method_name: #method_name::<Identity, OFFSET>,
+                }
             }
         });
+        let trait_definition = base_impl.map_or_else(
+            || quote! { pub trait #impl_name { #(#trait_methods)* } },
+            |base_impl| quote! { pub trait #impl_name: #base_impl { #(#trait_methods)* } },
+        );
+        if scoped {
+            let impl_vtbl = tokens::ident(&format!("{}_ImplVtbl", self.name));
+            let base_initializer = base_new.map(|base_new| quote! { base__: #base_new, });
+            return Ok(quote! {
+                #implementation_cfg
+                #trait_definition
+                #implementation_cfg
+                impl #vtbl_name {
+                    pub const fn new<Identity: #impl_name>() -> Self {
+                        #(#functions)*
+                        Self {
+                            #base_initializer
+                            #(#initializers)*
+                        }
+                    }
+                }
+                #implementation_cfg
+                struct #impl_vtbl<T: #impl_name>(core::marker::PhantomData<T>);
+                #implementation_cfg
+                impl<T: #impl_name> #impl_vtbl<T> {
+                    const VTABLE: #vtbl_name = #vtbl_name::new::<T>();
+                }
+                #implementation_cfg
+                impl #name {
+                    pub fn new<'a, T: #impl_name>(
+                        this: &'a T
+                    ) -> windows_core::ScopedInterface<'a, Self> {
+                        let this = windows_core::ScopedHeap {
+                            vtable: &#impl_vtbl::<T>::VTABLE as *const _ as *const _,
+                            this: this as *const _ as *const _,
+                        };
+                        let this =
+                            core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
+                        unsafe {
+                            windows_core::ScopedInterface::new(
+                                core::mem::transmute(&this.vtable)
+                            )
+                        }
+                    }
+                }
+            });
+        }
+        let base_new = base_new.unwrap();
         Ok(quote! {
             #implementation_cfg
-            pub trait #impl_name: #base_impl {
-                #(#trait_methods)*
-            }
+            #trait_definition
             #implementation_cfg
             impl #vtbl_name {
                 pub const fn new<Identity: #impl_name, const OFFSET: isize>() -> Self {
