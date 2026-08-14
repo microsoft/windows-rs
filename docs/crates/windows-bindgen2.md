@@ -41,7 +41,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
 | Build-script facade | Twenty consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, reference and time projections, benchmark and robot components and clients, context alignment, core-only APIs, and Win32 metadata match. |
-| Package output | In progress | The package backend runs, but 413 generated files still differ. Source output has 15,316 missing and 7,582 extra line edges; manifests have 119 missing and 358 extra dependency edges. |
+| Package output | In progress | The package backend runs, but 400 generated files still differ. `windows-sys` source output matches exactly. Rich Win32 has 313 differing files and WinRT has 85; source output has 15,231 missing and 7,488 extra line edges. The two manifests have 119 missing and 353 extra dependency edges. |
 
 The current working implementation has about 14,400 lines of production Rust, roughly the same as
 legacy bindgen. Size is no longer evidence for the rewrite by itself; structure, parity, and
@@ -130,6 +130,12 @@ Interface-valued native dependencies retain transitive base-interface identities
 shape is erased to a raw pointer.
 Metadata constness propagates through native pointer chains, matching the source type when nested
 pointers are all const.
+Native constants retain typedef-chain depth so direct aliases, nested aliases, pointer-sized
+aliases, and signed wrappers select their conversion form from typed lowering facts.
+Package sys dependencies are a separate typed product that omits feature namespaces with no
+emit-capable sys artifacts while retaining their rich projection dependencies.
+Architecture-specific enums that share a projected name with another native type retain that
+heterogeneous sibling fact and cast their alias constants explicitly.
 Package output items retain the metadata architecture key, so duplicate same-name variants sort by
 typed metadata rather than insertion or token order.
 

@@ -308,6 +308,7 @@ impl Win32Catalogs {
     pub(crate) fn new(database: &Database) -> Result<Self, Error> {
         let mut definitions = Vec::new();
         let mut apis = Vec::new();
+        let mut sys_namespaces = BTreeSet::new();
         for definition in database.definitions() {
             if definition.is_windows_runtime()? {
                 continue;
@@ -354,14 +355,18 @@ impl Win32Catalogs {
                         ));
                     }
                     apis.push(NativeApis {
-                        namespace,
+                        namespace: namespace.clone(),
                         constants,
                         functions,
                     });
+                    sys_namespaces.insert(namespace);
                     continue;
                 }
                 _ => continue,
             };
+            if !matches!(kind, NativeKind::Interface) {
+                sys_namespaces.insert(namespace.clone());
+            }
             definitions.push(NativeDefinition {
                 namespace,
                 name,
@@ -383,7 +388,8 @@ impl Win32Catalogs {
             }
         }
         let interface_bases = interface_bases(database)?;
-        let dependencies = native::DependencyCache::new(database, &interface_bases)?;
+        let dependencies =
+            native::DependencyCache::new(database, &interface_bases, sys_namespaces)?;
         Ok(Self {
             definitions,
             apis,
@@ -638,7 +644,7 @@ impl<'a> Win32Items<'a> {
                     .get(definition.name()?)
                     .map(|derives| derives.iter().cloned().collect::<Vec<_>>())
                     .unwrap_or_default();
-                let features = ty.package_features(layout);
+                let features = ty.package_features(layout, projection);
                 for (name, kind, tokens) in ty.write_items_context(layout, projection, &derives) {
                     add(
                         &namespace.name,
@@ -663,7 +669,7 @@ impl<'a> Win32Items<'a> {
                     1,
                     definition.architectures()?,
                     delegate.write_context(layout, projection),
-                    delegate.package_features(layout),
+                    delegate.package_features(layout, projection),
                 );
             }
             for (entity, members) in &namespace.interfaces {
@@ -720,7 +726,7 @@ impl<'a> Win32Items<'a> {
                     2,
                     field.architectures()?,
                     constant.write_context(layout, projection),
-                    constant.package_features(layout),
+                    constant.package_features(layout, projection),
                 );
             }
             for entity in &namespace.functions {
@@ -742,7 +748,7 @@ impl<'a> Win32Items<'a> {
                     3,
                     method.architectures()?,
                     function.write_context(layout, projection),
-                    function.package_features(layout),
+                    function.package_features(layout, projection),
                 );
             }
         }

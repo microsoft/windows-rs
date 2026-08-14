@@ -59,7 +59,7 @@ impl Delegate {
             &self.namespace,
             layout,
             self.signature
-                .package_dependencies()
+                .package_dependencies_for(projection)
                 .iter()
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         );
@@ -83,12 +83,16 @@ impl Delegate {
         }
     }
 
-    pub(super) fn package_features(&self, layout: Layout) -> BTreeSet<String> {
+    pub(super) fn package_features(
+        &self,
+        layout: Layout,
+        projection: Projection,
+    ) -> BTreeSet<String> {
         tokens::feature_names(
             &self.namespace,
             layout,
             self.signature
-                .package_dependencies()
+                .package_dependencies_for(projection)
                 .iter()
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         )

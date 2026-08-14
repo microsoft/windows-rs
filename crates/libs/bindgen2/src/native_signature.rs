@@ -10,6 +10,7 @@ pub(super) struct Signature {
     pub(super) indirect_return: bool,
     pub(super) no_return: bool,
     package_dependencies: BTreeSet<(String, String)>,
+    package_sys_dependencies: BTreeSet<(String, String)>,
     manifest_dependencies: BTreeSet<(String, String)>,
 }
 
@@ -286,6 +287,7 @@ impl Signature {
             package_dependencies.extend(parameter.ty.package_dependencies(database, dependencies)?);
             manifest_dependencies.extend(parameter.ty.manifest_dependencies(database)?);
         }
+        let package_sys_dependencies = dependencies.package_sys_dependencies(&package_dependencies);
         Ok(Self {
             flags,
             parameters,
@@ -293,6 +295,7 @@ impl Signature {
             indirect_return,
             no_return,
             package_dependencies,
+            package_sys_dependencies,
             manifest_dependencies,
         })
     }
@@ -306,6 +309,17 @@ impl Signature {
 
     pub(super) fn package_dependencies(&self) -> &BTreeSet<(String, String)> {
         &self.package_dependencies
+    }
+
+    pub(super) fn package_dependencies_for(
+        &self,
+        projection: Projection,
+    ) -> &BTreeSet<(String, String)> {
+        if projection.is_sys() {
+            &self.package_sys_dependencies
+        } else {
+            &self.package_dependencies
+        }
     }
 
     pub(super) fn uses_winrt_projection(&self) -> bool {

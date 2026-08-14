@@ -10,12 +10,14 @@ pub struct Constant {
     ty: native::Type,
     value: Value,
     dependencies: BTreeSet<(String, String)>,
+    sys_dependencies: BTreeSet<(String, String)>,
     wrapper: bool,
 }
 
 enum Value {
     Fixed {
         underlying: native::Type,
+        alias_depth: usize,
         value: ConstantValue,
         ansi: bool,
     },
@@ -63,6 +65,7 @@ impl Constant {
                 Value::Guid(guid)
             };
             let dependencies = ty.package_dependencies(database, cache)?;
+            let sys_dependencies = cache.package_sys_dependencies(&dependencies);
             let wrapper = ty.is_wrapper(database)?;
             return Ok(Self {
                 architectures,
@@ -71,6 +74,7 @@ impl Constant {
                 ty,
                 value,
                 dependencies,
+                sys_dependencies,
                 wrapper,
             });
         }
@@ -81,8 +85,8 @@ impl Constant {
                 message: "constant field has no Constant row",
             })?
             .value()?;
-        let underlying = if ty.matches(&value) {
-            ty.clone()
+        let (underlying, alias_depth) = if ty.matches(&value) {
+            (ty.clone(), 0)
         } else {
             native::Type::constant_underlying(
                 database,
@@ -102,6 +106,7 @@ impl Constant {
             });
         };
         let dependencies = ty.package_dependencies(database, cache)?;
+        let sys_dependencies = cache.package_sys_dependencies(&dependencies);
         let wrapper = ty.is_wrapper(database)?;
         Ok(Self {
             architectures,
@@ -110,10 +115,12 @@ impl Constant {
             ty,
             value: Value::Fixed {
                 underlying,
+                alias_depth,
                 value,
                 ansi: is_ansi(field)?,
             },
             dependencies,
+            sys_dependencies,
             wrapper,
         })
     }
@@ -126,10 +133,15 @@ impl Constant {
 
     pub(super) fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
         let architectures = tokens::architectures(self.architectures);
+        let dependencies = if projection.is_sys() {
+            &self.sys_dependencies
+        } else {
+            &self.dependencies
+        };
         let cfg = tokens::feature_cfg(
             &self.namespace,
             layout,
-            self.dependencies
+            dependencies
                 .iter()
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         );
@@ -245,7 +257,10 @@ impl Constant {
                 }
             }
             Value::Fixed {
-                underlying, value, ..
+                underlying,
+                alias_depth,
+                value,
+                ..
             } => {
                 let ty = self
                     .ty
@@ -253,7 +268,12 @@ impl Constant {
                 let value = if self.ty == *underlying {
                     native::write_value(underlying, value)
                 } else {
-                    Self::write_converted(underlying, value)
+                    Self::write_converted(
+                        underlying,
+                        *alias_depth,
+                        value,
+                        self.wrapper && underlying.signed_i32(),
+                    )
                 };
                 if !projection.is_sys()
                     && (self.ty.is_hresult()
@@ -270,11 +290,20 @@ impl Constant {
         quote! { #architectures #cfg #value }
     }
 
-    pub(super) fn package_features(&self, layout: Layout) -> BTreeSet<String> {
+    pub(super) fn package_features(
+        &self,
+        layout: Layout,
+        projection: Projection,
+    ) -> BTreeSet<String> {
+        let dependencies = if projection.is_sys() {
+            &self.sys_dependencies
+        } else {
+            &self.dependencies
+        };
         tokens::feature_names(
             &self.namespace,
             layout,
-            self.dependencies
+            dependencies
                 .iter()
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         )
@@ -284,7 +313,12 @@ impl Constant {
         !self.ty.uses_winrt_projection()
     }
 
-    fn write_converted(underlying: &native::Type, value: &ConstantValue) -> TokenStream {
+    fn write_converted(
+        underlying: &native::Type,
+        alias_depth: usize,
+        value: &ConstantValue,
+        signed_error: bool,
+    ) -> TokenStream {
         if matches!(underlying, native::Type::Boolean) {
             return match value {
                 ConstantValue::U8(0) => quote! { false },
@@ -292,21 +326,41 @@ impl Constant {
                 _ => unreachable!(),
             };
         }
-        if underlying.signed_i32()
-            && let ConstantValue::I32(value) = value
-        {
+        if signed_error && let ConstantValue::I32(value) = value {
             return format!("0x{:X}_u32 as _", *value as u32).parse().unwrap();
         }
-        if underlying.matches(value) {
+        if matches!(underlying, native::Type::ISize | native::Type::USize) {
             return native::write_value(underlying, value);
         }
-        let value = native::write_value(&native::Type::from_constant(value), value);
+        if alias_depth <= 1 && underlying.matches(value) {
+            return native::write_value(underlying, value);
+        }
+        Self::write_wide_cast(value)
+    }
+
+    fn write_wide_cast(value: &ConstantValue) -> TokenStream {
+        let fits_i32 = |value: i128| (i32::MIN as i128..=i32::MAX as i128).contains(&value);
+        let value = match value {
+            ConstantValue::U32(value) if !fits_i32(*value as i128) => Literal::u32_suffixed(*value),
+            ConstantValue::I64(value) if !fits_i32(*value as i128) => Literal::i64_suffixed(*value),
+            ConstantValue::U64(value) if !fits_i32(*value as i128) => Literal::u64_suffixed(*value),
+            ConstantValue::ISize(value) if !fits_i32(*value as i128) => {
+                Literal::i64_suffixed(*value)
+            }
+            ConstantValue::USize(value) if !fits_i32(*value as i128) => {
+                Literal::u64_suffixed(*value)
+            }
+            _ => {
+                let value = native::write_value(&native::Type::from_constant(value), value);
+                return quote! { #value as _ };
+            }
+        };
         quote! { #value as _ }
     }
 }
 
 pub(super) fn string_literal(value: &str) -> TokenStream {
-    if !value.contains('\0') {
+    if !value.contains('\0') && !value.contains('\'') {
         let value = Literal::string(value);
         return quote! { #value };
     }

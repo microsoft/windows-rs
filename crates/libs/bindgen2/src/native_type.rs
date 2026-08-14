@@ -8,6 +8,9 @@ pub struct NativeType {
     architectures: i32,
     kind: Kind,
     artifact_dependencies: Option<BTreeSet<(String, String)>>,
+    artifact_sys_dependencies: Option<BTreeSet<(String, String)>>,
+    sys_dependencies: BTreeSet<(String, String)>,
+    sys_manifest_dependencies: BTreeSet<(String, String)>,
 }
 
 enum Kind {
@@ -40,6 +43,7 @@ struct Enum {
     ty: native::Type,
     values: Vec<(String, ConstantValue)>,
     scoped: bool,
+    cast_values: bool,
     dependencies: BTreeSet<(String, String)>,
     manifest_dependencies: BTreeSet<(String, String)>,
 }
@@ -138,15 +142,30 @@ impl NativeType {
                 })?;
                 let dependencies = ty.package_dependencies(database, cache)?;
                 let manifest_dependencies = ty.manifest_dependencies(database)?;
+                let cast_values =
+                    database
+                        .type_definitions(namespace, &name)
+                        .iter()
+                        .any(|entity| {
+                            database.definition(*entity).unwrap().category().unwrap()
+                                != TypeCategory::Enum
+                        });
+                let sys_dependencies = cache.package_sys_dependencies(&dependencies);
+                let sys_manifest_dependencies =
+                    cache.package_sys_dependencies(&manifest_dependencies);
                 Ok(Self {
                     architectures,
                     artifact_dependencies: None,
+                    artifact_sys_dependencies: None,
+                    sys_dependencies,
+                    sys_manifest_dependencies,
                     kind: Kind::Enum(Enum {
                         namespace: namespace.to_string(),
                         name,
                         ty,
                         values,
                         scoped: definition.has_attribute("ScopedEnumAttribute")?,
+                        cast_values,
                         dependencies,
                         manifest_dependencies,
                     }),
@@ -239,9 +258,15 @@ impl NativeType {
                     let ty = ty.clone().normalize_alias(namespace, &name);
                     let dependencies = ty.package_dependencies(database, cache)?;
                     let manifest_dependencies = ty.manifest_dependencies(database)?;
+                    let sys_dependencies = cache.package_sys_dependencies(&dependencies);
+                    let sys_manifest_dependencies =
+                        cache.package_sys_dependencies(&manifest_dependencies);
                     return Ok(Self {
                         architectures,
                         artifact_dependencies: None,
+                        artifact_sys_dependencies: None,
+                        sys_dependencies,
+                        sys_manifest_dependencies,
                         kind: Kind::Alias(Alias {
                             namespace: namespace.to_string(),
                             name,
@@ -273,9 +298,15 @@ impl NativeType {
                     let ty = ty.normalize_alias(namespace, &name);
                     let dependencies = ty.package_dependencies(database, cache)?;
                     let manifest_dependencies = ty.manifest_dependencies(database)?;
+                    let sys_dependencies = cache.package_sys_dependencies(&dependencies);
+                    let sys_manifest_dependencies =
+                        cache.package_sys_dependencies(&manifest_dependencies);
                     return Ok(Self {
                         architectures,
                         artifact_dependencies: None,
+                        artifact_sys_dependencies: None,
+                        sys_dependencies,
+                        sys_manifest_dependencies,
                         kind: Kind::Alias(Alias {
                             namespace: namespace.to_string(),
                             name,
@@ -367,12 +398,18 @@ impl NativeType {
                     let (_, nested_dependencies) = nested.manifest_dependencies();
                     manifest_dependencies.extend(nested_dependencies);
                 }
+                let sys_dependencies = cache.package_sys_dependencies(&dependencies);
+                let sys_manifest_dependencies =
+                    cache.package_sys_dependencies(&manifest_dependencies);
                 for nested in &mut nested {
-                    nested.inherit_artifact_dependencies(&dependencies);
+                    nested.inherit_artifact_dependencies(&dependencies, &sys_dependencies);
                 }
                 Ok(Self {
                     architectures,
                     artifact_dependencies: None,
+                    artifact_sys_dependencies: None,
+                    sys_dependencies,
+                    sys_manifest_dependencies,
                     kind: Kind::Struct(Struct {
                         namespace: namespace.to_string(),
                         name,
@@ -434,7 +471,7 @@ impl NativeType {
         custom_derives: &[String],
     ) -> Vec<(&str, u8, TokenStream)> {
         let architectures = tokens::architectures(self.architectures);
-        let cfg = self.cfg(layout);
+        let cfg = self.cfg(layout, Projection::Sys);
         match &self.kind {
             Kind::Alias(value) => {
                 let tokens = value.write(layout, Projection::Sys);
@@ -481,7 +518,7 @@ impl NativeType {
                 return Vec::new();
             }
             let architectures = tokens::architectures(self.architectures);
-            let cfg = self.cfg(layout);
+            let cfg = self.cfg(layout, projection);
             if let Kind::Struct(value) = &self.kind {
                 vec![(
                     value.name.as_str(),
@@ -506,8 +543,17 @@ impl NativeType {
         result
     }
 
-    pub(super) fn package_features(&self, layout: Layout) -> BTreeSet<String> {
+    pub(super) fn package_features(
+        &self,
+        layout: Layout,
+        projection: Projection,
+    ) -> BTreeSet<String> {
         let (namespace, dependencies) = self.manifest_dependencies();
+        let dependencies = if projection.is_sys() {
+            &self.sys_manifest_dependencies
+        } else {
+            &dependencies
+        };
         tokens::feature_names(
             namespace,
             layout,
@@ -531,9 +577,15 @@ impl NativeType {
         }
     }
 
-    fn cfg(&self, layout: Layout) -> TokenStream {
+    fn cfg(&self, layout: Layout, projection: Projection) -> TokenStream {
         let (namespace, dependencies) = self.dependencies();
-        let dependencies = self.artifact_dependencies.as_ref().unwrap_or(&dependencies);
+        let dependencies = if projection.is_sys() {
+            self.artifact_sys_dependencies
+                .as_ref()
+                .unwrap_or(&self.sys_dependencies)
+        } else {
+            self.artifact_dependencies.as_ref().unwrap_or(&dependencies)
+        };
         tokens::feature_cfg(
             namespace,
             layout,
@@ -543,11 +595,16 @@ impl NativeType {
         )
     }
 
-    fn inherit_artifact_dependencies(&mut self, dependencies: &BTreeSet<(String, String)>) {
+    fn inherit_artifact_dependencies(
+        &mut self,
+        dependencies: &BTreeSet<(String, String)>,
+        sys_dependencies: &BTreeSet<(String, String)>,
+    ) {
         self.artifact_dependencies = Some(dependencies.clone());
+        self.artifact_sys_dependencies = Some(sys_dependencies.clone());
         if let Kind::Struct(value) = &mut self.kind {
             for nested in &mut value.nested {
-                nested.inherit_artifact_dependencies(dependencies);
+                nested.inherit_artifact_dependencies(dependencies, sys_dependencies);
             }
         }
     }
@@ -650,6 +707,11 @@ impl Enum {
         result.extend(self.values.iter().map(|(value_name, value)| {
             let ident = tokens::ident(value_name);
             let value = native::write_value(&native::Type::from_constant(value), value);
+            let value = if self.cast_values {
+                quote! { #value as _ }
+            } else {
+                value
+            };
             (
                 value_name.as_str(),
                 2,

@@ -11,12 +11,14 @@ pub(super) struct DependencyCache {
     values: RwLock<BTreeMap<(String, String), BTreeSet<(String, String)>>>,
     interface_methods: RwLock<BTreeMap<(String, String), BTreeSet<(String, String)>>>,
     interface_bases: BTreeMap<(String, String), BTreeSet<(String, String)>>,
+    sys_namespaces: BTreeSet<String>,
 }
 
 impl DependencyCache {
     pub(super) fn new(
         database: &Database,
         bases: &BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
+        sys_namespaces: BTreeSet<String>,
     ) -> Result<Self, Error> {
         let mut interface_bases = BTreeMap::<(String, String), BTreeSet<(String, String)>>::new();
         for (entity, bases) in bases {
@@ -33,7 +35,23 @@ impl DependencyCache {
             values: RwLock::default(),
             interface_methods: RwLock::default(),
             interface_bases,
+            sys_namespaces,
         })
+    }
+
+    pub(super) fn package_sys_dependencies(
+        &self,
+        dependencies: &BTreeSet<(String, String)>,
+    ) -> BTreeSet<(String, String)> {
+        dependencies
+            .iter()
+            .filter(|(namespace, _)| {
+                namespace == "Windows.Win32"
+                    || !namespace.starts_with("Windows.Win32.")
+                    || self.sys_namespaces.contains(namespace)
+            })
+            .cloned()
+            .collect()
     }
 
     pub(super) fn interface_method_dependencies(
@@ -81,6 +99,9 @@ impl DependencyCache {
                 name,
                 &mut dependencies,
             )?;
+        }
+        if let Some(bases) = self.interface_bases.get(&key) {
+            dependencies.extend(bases.iter().cloned());
         }
         self.values
             .write()
@@ -1416,9 +1437,9 @@ impl Type {
         file: FileId,
         owner: &str,
         ty: &windows_metadata2::Type,
-    ) -> Result<Option<Self>, Error> {
+    ) -> Result<Option<(Self, usize)>, Error> {
         let mut stack = BTreeSet::new();
-        Self::constant_underlying_inner(database, file, owner, ty, &mut stack)
+        Self::constant_underlying_inner(database, file, owner, ty, &mut stack, 0)
     }
 
     fn constant_underlying_inner(
@@ -1427,9 +1448,13 @@ impl Type {
         owner: &str,
         ty: &windows_metadata2::Type,
         stack: &mut BTreeSet<Entity<TypeDef>>,
-    ) -> Result<Option<Self>, Error> {
+        depth: usize,
+    ) -> Result<Option<(Self, usize)>, Error> {
         let (TypeKind::Value(id) | TypeKind::Class(id)) = &ty.kind else {
-            return Ok(Some(Self::lower(database, file, owner, ty.clone())?));
+            return Ok(Some((
+                Self::lower(database, file, owner, ty.clone())?,
+                depth,
+            )));
         };
         let Some((namespace, name)) = database.type_name(file, *id)? else {
             return Err(Error::InvalidType {
@@ -1464,7 +1489,14 @@ impl Type {
                     name: owner.to_string(),
                     message: "native enum has no backing field",
                 })?;
-                Self::constant_underlying_inner(database, entity.file(), owner, &underlying, stack)
+                Self::constant_underlying_inner(
+                    database,
+                    entity.file(),
+                    owner,
+                    &underlying,
+                    stack,
+                    depth + 1,
+                )
             }
             TypeCategory::Struct if definition.has_attribute("NativeTypedefAttribute")? => {
                 let fields = definition.fields()?.collect::<Vec<_>>();
@@ -1480,6 +1512,7 @@ impl Type {
                     owner,
                     &fields[0].signature()?,
                     stack,
+                    depth + 1,
                 )
             }
             _ => Ok(None),

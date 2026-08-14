@@ -1430,6 +1430,9 @@ fn native_interface_dependencies_include_inherited_namespaces() {
             mod Windows {
                 mod Win32 {
                     mod First {
+                        struct Marker {
+                            value: u32,
+                        }
                         interface IBase {
                             fn Method(&self);
                         }
@@ -1441,6 +1444,7 @@ fn native_interface_dependencies_include_inherited_namespaces() {
                         struct Container {
                             value: IDerived,
                         }
+                        type PCONTAINER = *mut Container;
                     }
                 }
             }
@@ -1458,6 +1462,52 @@ fn native_interface_dependencies_include_inherited_namespaces() {
         .to_string();
 
     assert!(output.contains("cfg (feature = \"First\")"), "{output}");
+
+    let alias = generator
+        .win32_items()
+        .native_type("Windows.Win32.Second", "PCONTAINER")
+        .unwrap()
+        .write_sys_items_context(Layout::Package, &[])
+        .into_iter()
+        .map(|(_, _, tokens)| tokens)
+        .collect::<TokenStream>()
+        .to_string();
+    assert!(alias.contains("cfg (feature = \"First\")"), "{alias}");
+}
+
+#[test]
+fn package_sys_dependencies_omit_interface_only_namespaces() {
+    let generator = fixture(
+        r#"
+            #[win32]
+            mod Windows {
+                mod Win32 {
+                    mod InterfaceOnly {
+                        interface IValue {
+                            fn Method(&self);
+                        }
+                    }
+                    mod Consumer {
+                        #[library("test.dll")]
+                        extern fn UseValue(value: Windows::Win32::InterfaceOnly::IValue);
+                    }
+                }
+            }
+        "#,
+    );
+    let function = generator
+        .win32_items()
+        .function("Windows.Win32.Consumer", "UseValue")
+        .unwrap();
+    let rich = function
+        .write_context(Layout::Package, Projection::Default)
+        .to_string();
+    let sys = function
+        .write_context(Layout::Package, Projection::Sys)
+        .to_string();
+
+    assert!(rich.contains("cfg (feature = \"InterfaceOnly\")"), "{rich}");
+    assert!(!sys.contains("InterfaceOnly"), "{sys}");
 }
 
 #[test]
@@ -3374,6 +3424,28 @@ fn architecture_gates_match_existing_flat_sys_tokens() {
             .unwrap();
     assert_eq!(actual.to_string(), expected.to_string());
 
+    let heterogeneous = fixture(
+        r#"
+            #[win32]
+            mod Test {
+                #[arch(X64)]
+                type Mixed = u64;
+                #[repr(i32)]
+                #[arch(X86)]
+                enum Mixed {
+                    Value = 1,
+                }
+            }
+        "#,
+    )
+    .render(Layout::Modules)
+    .unwrap()
+    .to_string();
+    assert!(
+        heterogeneous.contains("pub const Value : Mixed = 1 as _"),
+        "{heterogeneous}"
+    );
+
     let generator = fixture(
         r#"
             #[win32]
@@ -3729,6 +3801,10 @@ fn focused_win32_output_matches_existing_flat_sys_tokens() {
         native_constant::string_literal("name\0").to_string(),
         r#""name\u{0}""#
     );
+    assert_eq!(
+        native_constant::string_literal("don't").to_string(),
+        r#""don\'t""#
+    );
     let generator = fixture(
         r#"
             #[win32]
@@ -3736,6 +3812,14 @@ fn focused_win32_output_matches_existing_flat_sys_tokens() {
                 const A_U8: u8 = 255;
                 const MAX_POINTER: usize = 18446744073709551615;
                 const MIN_POINTER: isize = -9223372036854775808;
+                type DIRECT = u32;
+                type NESTED = DIRECT;
+                type HANDLE = *mut void;
+                type SOCKET = usize;
+                const DIRECT_VALUE: DIRECT = 1;
+                const NESTED_VALUE: NESTED = 4294967295;
+                const HANDLE_VALUE: HANDLE = 4294967294;
+                const SOCKET_VALUE: SOCKET = 18446744073709551615;
                 #[library("test.dll")]
                 extern fn SysFunction() -> u32;
             }
@@ -3767,6 +3851,41 @@ fn focused_win32_output_matches_existing_flat_sys_tokens() {
             .write_sys()
             .to_string(),
         quote! { pub const MIN_POINTER: isize = -9223372036854775808i64 as isize; }.to_string()
+    );
+    assert_eq!(
+        items
+            .constant("Test", "DIRECT_VALUE")
+            .unwrap()
+            .write_sys()
+            .to_string(),
+        quote! { pub const DIRECT_VALUE: DIRECT = 1; }.to_string()
+    );
+    assert_eq!(
+        items
+            .constant("Test", "NESTED_VALUE")
+            .unwrap()
+            .write_sys()
+            .to_string(),
+        quote! { pub const NESTED_VALUE: NESTED = 4294967295u32 as _; }.to_string()
+    );
+    assert_eq!(
+        items
+            .constant("Test", "HANDLE_VALUE")
+            .unwrap()
+            .write_sys()
+            .to_string(),
+        quote! { pub const HANDLE_VALUE: HANDLE = 4294967294i64 as _; }.to_string()
+    );
+    assert_eq!(
+        items
+            .constant("Test", "SOCKET_VALUE")
+            .unwrap()
+            .write_sys()
+            .to_string(),
+        quote! {
+            pub const SOCKET_VALUE: SOCKET = 18446744073709551615u64 as usize;
+        }
+        .to_string()
     );
 
     let function_expected: TokenStream =
