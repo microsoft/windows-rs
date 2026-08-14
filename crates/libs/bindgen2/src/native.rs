@@ -1474,14 +1474,32 @@ impl Type {
 
 pub(super) fn write_value(ty: &Type, value: &ConstantValue) -> TokenStream {
     match (ty, value) {
-        (Type::USize, ConstantValue::USize(value)) if *value > u32::MAX as u64 => {
+        (Type::USize, ConstantValue::USize(value) | ConstantValue::U64(value))
+            if *value > u32::MAX as u64 =>
+        {
             let value = Literal::u64_suffixed(*value);
             return quote! { #value as usize };
         }
-        (Type::ISize, ConstantValue::ISize(value))
+        (Type::USize, ConstantValue::I32(value)) => {
+            let value = Literal::i32_suffixed(*value);
+            return quote! { #value as usize };
+        }
+        (Type::USize, ConstantValue::I64(value)) => {
+            let value = Literal::i64_suffixed(*value);
+            return quote! { #value as usize };
+        }
+        (Type::ISize, ConstantValue::ISize(value) | ConstantValue::I64(value))
             if !(i32::MIN as i64..=i32::MAX as i64).contains(value) =>
         {
             let value = Literal::i64_suffixed(*value);
+            return quote! { #value as isize };
+        }
+        (Type::ISize, ConstantValue::U32(value)) => {
+            let value = Literal::u32_suffixed(*value);
+            return quote! { #value as isize };
+        }
+        (Type::ISize, ConstantValue::U64(value)) => {
+            let value = Literal::u64_suffixed(*value);
             return quote! { #value as isize };
         }
         _ => {}

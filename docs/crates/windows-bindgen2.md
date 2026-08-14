@@ -41,7 +41,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
 | Build-script facade | Twenty consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, reference and time projections, benchmark and robot components and clients, context alignment, core-only APIs, and Win32 metadata match. |
-| Package output | In progress | The package backend runs, but 446 generated files still differ. Source output has 16,526 missing and 8,128 extra line edges; manifests have 122 missing and 358 extra dependency edges. |
+| Package output | In progress | The package backend runs, but 433 generated files still differ. Source output has 16,384 missing and 8,066 extra line edges; manifests have 122 missing and 358 extra dependency edges. |
 
 The current working implementation has about 14,400 lines of production Rust, roughly the same as
 legacy bindgen. Size is no longer evidence for the rewrite by itself; structure, parity, and
@@ -126,6 +126,8 @@ architecture cfgs before feature cfgs. Constant projection converts mutable stri
 const forms without changing ordinary pointer types.
 Input-only native pointer chains apply constness recursively, matching the flattened ABI pointer
 model used for callback and function signatures.
+Package output items retain the metadata architecture key, so duplicate same-name variants sort by
+typed metadata rather than insertion or token order.
 
 WinRT models are lowered once into a shared immutable catalog. Request closure borrows catalog
 models, while rendering clones only selected models before expanding package dependencies. A typed
@@ -407,8 +409,10 @@ Architecture gating is now complete for the selected surface:
 | Functions | 261 |
 
 Metadata2 uses one checked decoder for TypeDef, Field, and MethodDef owners. Bindgen2 stores only
-the decoded bits and emits the existing `x86`, `x86_64`/`arm64ec`, and `aarch64` mappings. Sorting
-uses name, architecture bits, and entity identity so duplicate definitions are deterministic.
+the decoded bits and emits the existing `x86`, `x86_64`/`arm64ec`, and `aarch64` mappings.
+Selection sorting uses name, architecture bits, and entity identity. Output artifacts retain the
+architecture bits as their variant key, so duplicate definitions remain deterministic after
+lowering.
 Enum members are flattened only while building output modules; standalone native models remain
 per definition. Focused aliases and duplicate enums match existing golden tokens, while constants,
 functions, enum members, and union `Default` implementations are each independently gated.

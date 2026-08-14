@@ -195,14 +195,14 @@ impl Constant {
                 ..
             } => {
                 if !projection.is_sys() {
-                    let value = Literal::string(value);
+                    let value = string_literal(value);
                     return quote! {
                         #architectures
                         pub const #name: windows_core::PCSTR = windows_core::s!(#value);
                     };
                 }
                 if layout.is_package() {
-                    let value = Literal::string(value);
+                    let value = string_literal(value);
                     quote! {
                         pub const #name: windows_sys::core::PCSTR =
                             windows_sys::core::s!(#value);
@@ -222,14 +222,14 @@ impl Constant {
                 ..
             } => {
                 if !projection.is_sys() {
-                    let value = Literal::string(value);
+                    let value = string_literal(value);
                     return quote! {
                         #architectures
                         pub const #name: windows_core::PCWSTR = windows_core::w!(#value);
                     };
                 }
                 if layout.is_package() {
-                    let value = Literal::string(value);
+                    let value = string_literal(value);
                     quote! {
                         pub const #name: windows_sys::core::PCWSTR =
                             windows_sys::core::w!(#value);
@@ -303,6 +303,19 @@ impl Constant {
         let value = native::write_value(&native::Type::from_constant(value), value);
         quote! { #value as _ }
     }
+}
+
+pub(super) fn string_literal(value: &str) -> TokenStream {
+    if !value.contains('\0') {
+        let value = Literal::string(value);
+        return quote! { #value };
+    }
+    let mut literal = String::from("\"");
+    for value in value.chars() {
+        literal.extend(value.escape_default());
+    }
+    literal.push('"');
+    literal.parse().unwrap()
 }
 
 fn property_fields(

@@ -3089,6 +3089,12 @@ fn focused_native_type_output_matches_existing_golden_tokens() {
             mod Test {
                 type NativePtr = *const u8;
                 type NativePtrAlias = NativePtr;
+                struct ScalarHandle {
+                    Value: u32,
+                }
+                struct ArrayValue {
+                    Value: [u32; 4],
+                }
                 struct Struct {
                     field: NativePtrAlias,
                     other: i32,
@@ -3121,6 +3127,22 @@ fn focused_native_type_output_matches_existing_golden_tokens() {
             .parse()
             .unwrap();
     assert_eq!(actual.to_string(), expected.to_string());
+    assert_eq!(
+        items
+            .native_type("Test", "ScalarHandle")
+            .unwrap()
+            .write_sys()
+            .to_string(),
+        quote! { pub type ScalarHandle = u32; }.to_string()
+    );
+    assert!(
+        items
+            .native_type("Test", "ArrayValue")
+            .unwrap()
+            .write_sys()
+            .to_string()
+            .contains("pub struct ArrayValue")
+    );
 
     let actual = items.native_type("Test", "Enum").unwrap().write_sys();
     let expected: TokenStream = include_str!("../../../tests/libs/bindgen/expected/enum_sys.rs")
@@ -3644,11 +3666,17 @@ fn win32_apis_selection_has_exact_corpus_counts() {
 
 #[test]
 fn focused_win32_output_matches_existing_flat_sys_tokens() {
+    assert_eq!(
+        native_constant::string_literal("name\0").to_string(),
+        r#""name\u{0}""#
+    );
     let generator = fixture(
         r#"
             #[win32]
             mod Test {
                 const A_U8: u8 = 255;
+                const MAX_POINTER: usize = 18446744073709551615;
+                const MIN_POINTER: isize = -9223372036854775808;
                 #[library("test.dll")]
                 extern fn SysFunction() -> u32;
             }
@@ -3664,6 +3692,22 @@ fn focused_win32_output_matches_existing_flat_sys_tokens() {
             .write_sys()
             .to_string(),
         constant_expected.to_string()
+    );
+    assert_eq!(
+        items
+            .constant("Test", "MAX_POINTER")
+            .unwrap()
+            .write_sys()
+            .to_string(),
+        quote! { pub const MAX_POINTER: usize = 18446744073709551615u64 as usize; }.to_string()
+    );
+    assert_eq!(
+        items
+            .constant("Test", "MIN_POINTER")
+            .unwrap()
+            .write_sys()
+            .to_string(),
+        quote! { pub const MIN_POINTER: isize = -9223372036854775808i64 as isize; }.to_string()
     );
 
     let function_expected: TokenStream =

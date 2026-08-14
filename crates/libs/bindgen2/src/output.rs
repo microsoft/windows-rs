@@ -2,6 +2,7 @@ use super::*;
 use proc_macro2::TokenStream;
 use quote::quote;
 use std::{
+    cmp::Ordering,
     collections::{BTreeMap, BTreeSet},
     path::Path,
 };
@@ -10,6 +11,7 @@ use std::{
 struct Item {
     name: String,
     kind: u8,
+    variant: i32,
     tokens: TokenStream,
     features: BTreeSet<String>,
 }
@@ -85,6 +87,7 @@ impl Generator {
                 .push(Item {
                     name: name.to_string(),
                     kind: 0,
+                    variant: 0,
                     tokens: values.write_context(
                         namespace,
                         name,
@@ -130,6 +133,7 @@ impl Generator {
                 .push(Item {
                     name: name.to_string(),
                     kind: 0,
+                    variant: 0,
                     tokens,
                     features,
                 });
@@ -150,6 +154,7 @@ impl Generator {
                 .push(Item {
                     name: name.to_string(),
                     kind: 0,
+                    variant: 0,
                     tokens: model.write(
                         values,
                         namespace,
@@ -179,6 +184,7 @@ impl Generator {
                 .push(Item {
                     name: name.to_string(),
                     kind: 0,
+                    variant: 0,
                     tokens: model.write(
                         values,
                         namespace,
@@ -196,13 +202,14 @@ impl Generator {
             layout,
             projection,
             &self.derives,
-            |namespace, name, kind, tokens, features| {
+            |namespace, name, kind, variant, tokens, features| {
                 modules
                     .entry(namespace.to_string())
                     .or_default()
                     .push(Item {
                         name: name.to_string(),
                         kind,
+                        variant,
                         tokens,
                         features,
                     });
@@ -314,13 +321,7 @@ impl Generator {
             }
 
             if let Some(items) = modules.get_mut(namespace) {
-                items.sort_by(|left, right| {
-                    (left.kind != 3, &left.name, left.kind).cmp(&(
-                        right.kind != 3,
-                        &right.name,
-                        right.kind,
-                    ))
-                });
+                items.sort_by(|left, right| compare_items(left, right));
                 let mut dependencies = BTreeSet::new();
                 for item in items.drain(..) {
                     dependencies.extend(item.features);
@@ -388,9 +389,7 @@ impl Generator {
 
 impl Module {
     fn write(mut self) -> TokenStream {
-        self.items.sort_by(|left, right| {
-            (left.kind != 3, &left.name, left.kind).cmp(&(right.kind != 3, &right.name, right.kind))
-        });
+        self.items.sort_by(compare_items);
         let items = self.items.into_iter().map(|item| item.tokens);
         let nested = self.nested.into_iter().map(|(name, module)| {
             let name = tokens::ident(&name);
@@ -402,6 +401,15 @@ impl Module {
             #(#nested)*
         }
     }
+}
+
+fn compare_items(left: &Item, right: &Item) -> Ordering {
+    (left.kind != 3, &left.name, left.kind, left.variant).cmp(&(
+        right.kind != 3,
+        &right.name,
+        right.kind,
+        right.variant,
+    ))
 }
 
 fn direct_children<'a>(
@@ -433,6 +441,25 @@ fn prelude_shadow(name: &str) -> Option<TokenStream> {
         "Err" => quote! { core::result::Result::Err },
         _ => return None,
     })
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn architecture_variants_sort_by_metadata_key() {
+        let item = |variant| Item {
+            name: "DUPLICATE".to_string(),
+            kind: 2,
+            variant,
+            tokens: TokenStream::new(),
+            features: BTreeSet::new(),
+        };
+        let mut items = [item(5), item(2)];
+        items.sort_by(compare_items);
+        assert_eq!(items.map(|item| item.variant), [2, 5]);
+    }
 }
 
 fn write_if_changed(path: &Path, contents: String) -> Result<(), Box<dyn std::error::Error>> {

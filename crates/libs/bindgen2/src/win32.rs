@@ -587,7 +587,7 @@ impl<'a> Win32Items<'a> {
         layout: Layout,
         projection: Projection,
         derives: &BTreeMap<String, BTreeSet<String>>,
-        mut add: impl FnMut(&str, &str, u8, proc_macro2::TokenStream, BTreeSet<String>),
+        mut add: impl FnMut(&str, &str, u8, i32, proc_macro2::TokenStream, BTreeSet<String>),
     ) -> Result<(), Error> {
         let mut implementable_interfaces = BTreeSet::new();
         loop {
@@ -638,7 +638,14 @@ impl<'a> Win32Items<'a> {
                     .unwrap_or_default();
                 let features = ty.package_features(layout);
                 for (name, kind, tokens) in ty.write_items_context(layout, projection, &derives) {
-                    add(&namespace.name, name, kind, tokens, features.clone());
+                    add(
+                        &namespace.name,
+                        name,
+                        kind,
+                        definition.architectures()?,
+                        tokens,
+                        features.clone(),
+                    );
                 }
             }
             for entity in &namespace.delegates {
@@ -652,6 +659,7 @@ impl<'a> Win32Items<'a> {
                     &namespace.name,
                     definition.name()?,
                     1,
+                    definition.architectures()?,
                     delegate.write_context(layout, projection),
                     delegate.package_features(layout),
                 );
@@ -680,6 +688,7 @@ impl<'a> Win32Items<'a> {
                     &namespace.name,
                     definition.name()?,
                     1,
+                    definition.architectures()?,
                     interface.write_context(
                         layout,
                         projection,
@@ -707,6 +716,7 @@ impl<'a> Win32Items<'a> {
                     &namespace.name,
                     name,
                     2,
+                    field.architectures()?,
                     constant.write_context(layout, projection),
                     constant.package_features(layout),
                 );
@@ -728,6 +738,7 @@ impl<'a> Win32Items<'a> {
                     &namespace.name,
                     name,
                     3,
+                    method.architectures()?,
                     function.write_context(layout, projection),
                     function.package_features(layout),
                 );

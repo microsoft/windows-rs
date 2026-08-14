@@ -234,6 +234,7 @@ impl NativeType {
                 if let [(field, ty)] = fields.as_slice()
                     && field == "Value"
                     && !native_typedef
+                    && ty.is_primitive(database)?
                 {
                     let ty = ty.clone().normalize_alias(namespace, &name);
                     let dependencies = ty.package_dependencies(database, cache)?;
