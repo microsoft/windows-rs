@@ -146,7 +146,7 @@ stays committed because `tool_webview` and `tool_composition` also read it.
 | WinUI / Windows App SDK `.winmd` + `WebView2.Core.winmd` | regenerated into `crates/tools/reactor/winmd/` at `WINDOWS_APP_SDK_VERSION` | `tool_reactor`, `tool_webview`, `tool_composition` |
 | `Microsoft.WindowsAppSDK.Runtime`, `RUNTIME_VER` | `crates/libs/reactor-setup/src/lib.rs` | app runtime deploy |
 | Bootstrap DLLs (x86/x64/arm64) | regenerated into `crates/libs/reactor-setup/bootstrap/` at `WINDOWS_APP_SDK_VERSION` | framework-dependent apps |
-| `resources.pri`, `app.manifest`, `runtime.txt` | `crates/libs/reactor-setup/assets/` (committed) | runtime staging |
+| `app.manifest`, `runtime.txt` | `crates/libs/reactor-setup/assets/` (committed) | runtime staging |
 | Runtime installer | `.github/workflows/reactor.yml` | CI test host |
 
 `windows-reactor-setup` is a published runtime helper with no generated artifact, so its pins can't
@@ -163,10 +163,12 @@ loudly on drift) that:
   `RUNTIME_VER` (`reactor-setup`) together, update the `reactor.yml` installer URL, then run
   `cargo run -p tool_reactor` and commit the refreshed metadata and bootstrap DLLs. The guard
   enforces the version agreement; the regen enforces the metadata and the bootstrap binaries.
-- `assets/app.manifest` / `assets/resources.pri` are **generated activation assets with no committed
-  generator** - `app.manifest` transforms the App SDK `package.appxfragment` files into SxS fusion
-  format (source versions in its header). They are forward-compatible, so refreshed only when the
-  reactor control set needs newly-moved classes, not on every bump.
+- `assets/app.manifest` is a **generated activation asset with no committed generator** -
+  `app.manifest` transforms the App SDK `package.appxfragment` files into SxS fusion format (source
+  versions in its header). It is forward-compatible, so refreshed only when the reactor control set
+  needs newly-moved classes, not on every bump.
+- `resources.pri` is staged from the App SDK runtime package only for self-contained deployment via
+  `as_self_contained`; framework-dependent staging does not copy it.
 
 See [windows-reactor](crates/windows-reactor.md) and
 [windows-reactor-setup](crates/windows-reactor-setup.md).
