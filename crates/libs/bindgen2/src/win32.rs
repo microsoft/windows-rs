@@ -382,12 +382,14 @@ impl Win32Catalogs {
                     .push(child.entity());
             }
         }
+        let interface_bases = interface_bases(database)?;
+        let dependencies = native::DependencyCache::new(database, &interface_bases)?;
         Ok(Self {
             definitions,
             apis,
             nested,
-            interface_bases: interface_bases(database)?,
-            dependencies: native::DependencyCache::default(),
+            interface_bases,
+            dependencies,
         })
     }
 

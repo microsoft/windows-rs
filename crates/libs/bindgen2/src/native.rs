@@ -10,9 +10,32 @@ use std::{
 pub(super) struct DependencyCache {
     values: RwLock<BTreeMap<(String, String), BTreeSet<(String, String)>>>,
     interface_methods: RwLock<BTreeMap<(String, String), BTreeSet<(String, String)>>>,
+    interface_bases: BTreeMap<(String, String), BTreeSet<(String, String)>>,
 }
 
 impl DependencyCache {
+    pub(super) fn new(
+        database: &Database,
+        bases: &BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
+    ) -> Result<Self, Error> {
+        let mut interface_bases = BTreeMap::<(String, String), BTreeSet<(String, String)>>::new();
+        for (entity, bases) in bases {
+            let definition = database.definition(*entity).unwrap();
+            interface_bases
+                .entry((
+                    definition.namespace()?.to_string(),
+                    definition.name()?.to_string(),
+                ))
+                .or_default()
+                .extend(bases.iter().cloned());
+        }
+        Ok(Self {
+            values: RwLock::default(),
+            interface_methods: RwLock::default(),
+            interface_bases,
+        })
+    }
+
     pub(super) fn interface_method_dependencies(
         &self,
         database: &Database,
@@ -84,6 +107,26 @@ impl DependencyCache {
         }
         stack.remove(&key);
         Ok(())
+    }
+
+    fn expand_interface_bases(
+        &self,
+        namespace: &str,
+        name: &str,
+        stack: &mut BTreeSet<(String, String)>,
+        dependencies: &mut BTreeSet<(String, String)>,
+    ) {
+        let key = (namespace.to_string(), name.to_string());
+        if !stack.insert(key.clone()) {
+            return;
+        }
+        if let Some(bases) = self.interface_bases.get(&key) {
+            for (namespace, name) in bases {
+                dependencies.insert((namespace.clone(), name.clone()));
+                self.expand_interface_bases(namespace, name, stack, dependencies);
+            }
+        }
+        stack.remove(&key);
     }
 }
 
@@ -231,12 +274,17 @@ impl Type {
                     len: sizes[0] as usize,
                 }
             }
-            TypeKind::Pointer(element) => Self::Pointer {
-                mutable: !is_const,
-                element: Box::new(Self::lower_with_nested(
-                    database, file, owner, *element, nested,
-                )?),
-            },
+            TypeKind::Pointer(element) => {
+                let element = Self::lower_with_nested(database, file, owner, *element, nested)?;
+                Self::Pointer {
+                    mutable: !is_const,
+                    element: Box::new(if is_const {
+                        element.into_const_pointer_chain()
+                    } else {
+                        element
+                    }),
+                }
+            }
             TypeKind::Value(id) => {
                 let (namespace, name) =
                     database
@@ -1101,6 +1149,7 @@ impl Type {
             }
             Self::Interface { namespace, name } => {
                 dependencies.insert((namespace.clone(), name.clone()));
+                cache.expand_interface_bases(namespace, name, stack, dependencies);
             }
             Self::Named { namespace, name } => {
                 dependencies.insert((namespace.clone(), name.clone()));
@@ -1323,6 +1372,20 @@ impl Type {
                     name: "PCSTR".to_string(),
                 }
             }
+            _ => self,
+        }
+    }
+
+    fn into_const_pointer_chain(self) -> Self {
+        match self {
+            Self::Array { element, len } => Self::Array {
+                element: Box::new(element.into_const_pointer_chain()),
+                len,
+            },
+            Self::Pointer { element, .. } => Self::Pointer {
+                mutable: false,
+                element: Box::new(element.into_const_pointer_chain()),
+            },
             _ => self,
         }
     }

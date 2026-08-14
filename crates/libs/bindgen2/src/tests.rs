@@ -1423,6 +1423,65 @@ fn native_package_dependencies_include_nested_type_fields() {
 }
 
 #[test]
+fn native_interface_dependencies_include_inherited_namespaces() {
+    let generator = fixture(
+        r#"
+            #[win32]
+            mod Windows {
+                mod Win32 {
+                    mod First {
+                        interface IBase {
+                            fn Method(&self);
+                        }
+                    }
+                    mod Second {
+                        interface IDerived: Windows::Win32::First::IBase {
+                            fn Method(&self);
+                        }
+                        struct Container {
+                            value: IDerived,
+                        }
+                    }
+                }
+            }
+        "#,
+    );
+    let container = generator
+        .win32_items()
+        .native_type("Windows.Win32.Second", "Container")
+        .unwrap();
+    let output = container
+        .write_sys_items_context(Layout::Package, &[])
+        .into_iter()
+        .map(|(_, _, tokens)| tokens)
+        .collect::<TokenStream>()
+        .to_string();
+
+    assert!(output.contains("cfg (feature = \"First\")"), "{output}");
+}
+
+#[test]
+fn native_const_pointer_chains_preserve_inner_constness() {
+    let value = fixture(
+        r#"
+            #[win32]
+            mod Test {
+                struct Value {
+                    pointers: *const *const u32,
+                }
+            }
+        "#,
+    )
+    .win32_items()
+    .native_type("Test", "Value")
+    .unwrap()
+    .write_sys()
+    .to_string();
+
+    assert!(value.contains("pointers : * const * const u32"), "{value}");
+}
+
+#[test]
 fn nested_native_artifacts_inherit_the_enclosing_package_gate() {
     let generator = fixture(
         r#"
