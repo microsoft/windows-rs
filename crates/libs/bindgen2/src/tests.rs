@@ -1345,6 +1345,71 @@ fn native_buffer_relationships_distinguish_elements_bytes_and_shared_counts() {
 }
 
 #[test]
+fn native_buffer_counts_support_integer_typedefs() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let output = metadata
+        .generator(Request::all().package())
+        .unwrap()
+        .win32_items()
+        .function("Windows.Win32", "SQLBrowseConnectA")
+        .unwrap()
+        .write_context(Layout::Package, Projection::Default)
+        .to_string();
+
+    assert!(output.contains("szconnstrin : & [SQLCHAR]"), "{output}");
+    assert!(
+        output.contains("SQLBrowseConnectA (hdbc , szconnstrin . as_ptr ()"),
+        "{output}"
+    );
+}
+
+#[test]
+fn native_reserved_parameters_are_optional() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let output = metadata
+        .generator(Request::all().package())
+        .unwrap()
+        .win32_items()
+        .function("Windows.Win32", "SetupCreateDiskSpaceListA")
+        .unwrap()
+        .write_context(Layout::Package, Projection::Default)
+        .to_string();
+
+    assert!(
+        output.contains("reserved1 : Option < * const core :: ffi :: c_void >"),
+        "{output}"
+    );
+    assert!(output.contains("reserved2 : Option < u32 >"), "{output}");
+}
+
+#[test]
+fn native_property_keys_preserve_pid_newtypes() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let output = metadata
+        .generator(Request::all().package())
+        .unwrap()
+        .win32_items()
+        .constant("Windows.Win32", "DEVPKEY_DevQuery_ObjectType")
+        .unwrap()
+        .write_context(Layout::Package, Projection::Default)
+        .to_string();
+
+    assert!(output.contains("pid : DEVPROPID (2)"), "{output}");
+}
+
+#[test]
 fn native_package_dependencies_include_nested_type_fields() {
     let metadata = fixture_metadata(
         r#"
@@ -3182,6 +3247,7 @@ fn native_package_producers_support_baseless_interfaces() {
                     }
                     interface IValue {
                         fn GetValue(&self) -> u32;
+                        fn GetInterface(&self) -> IMore;
                         fn SetName(&self, name: PCSTR);
                     }
                     interface IMore: IValue {
@@ -3233,6 +3299,10 @@ fn native_package_producers_support_baseless_interfaces() {
         output.contains("IValue_Impl :: SetName (this , core :: mem :: transmute (& name))"),
         "{output}"
     );
+    assert!(
+        output.contains("fn GetInterface (& self ,) -> Option < IMore >"),
+        "{output}"
+    );
 }
 
 #[test]
@@ -3244,6 +3314,7 @@ fn native_com_query_preserves_ordinary_parameters() {
     .unwrap();
     let mut filter = Filter::new();
     include_tool_filter(&metadata, &mut filter, "IDXGISwapChain.GetBuffer");
+    include_tool_filter(&metadata, &mut filter, "ID3D12Device.CreateCommandList");
     let output = normalize_existing_output(
         metadata
             .generator(Request::filtered(filter).projection(Projection::Minimal))
@@ -3260,6 +3331,22 @@ fn native_com_query_preserves_ordinary_parameters() {
         "pub GetBuffer : unsafe extern \"system\" fn (* mut core :: ffi :: c_void , u32 , \
          * const windows_core :: GUID , * mut * mut core :: ffi :: c_void)"
     ));
+    assert!(
+        output.contains("unsafe fn CreateCommandList < P2 , P3 , T >"),
+        "{output}"
+    );
+    let function = metadata
+        .generator(Request::all().package())
+        .unwrap()
+        .win32_items()
+        .function("Windows.Win32", "D3D12GetDebugInterface")
+        .unwrap()
+        .write_context(Layout::Package, Projection::Default)
+        .to_string();
+    assert!(
+        function.contains("unsafe fn D3D12GetDebugInterface < T > (result__ : * mut Option < T >"),
+        "{function}"
+    );
 }
 
 #[test]

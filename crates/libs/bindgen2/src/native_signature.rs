@@ -152,6 +152,10 @@ impl Signature {
                     .map(|parameter| parameter.has_attribute("RetValAttribute"))
                     .transpose()?
                     .unwrap_or(false);
+                let reserved = parameter
+                    .map(|parameter| parameter.has_attribute("ReservedAttribute"))
+                    .transpose()?
+                    .unwrap_or(false);
                 let ty = native::Type::lower_parameter(
                     database,
                     method.entity().file(),
@@ -198,7 +202,7 @@ impl Signature {
                     ParamHint::IntoParam
                 } else if flags & 0x0002 == 0 && ty.is_const_string() {
                     ParamHint::PackageIntoParam
-                } else if flags & 0x0010 != 0 && copyable {
+                } else if (flags & 0x0010 != 0 || reserved) && copyable {
                     ParamHint::Optional
                 } else if flags & 0x0002 == 0 && ty.is_bool() {
                     ParamHint::Bool
@@ -256,10 +260,7 @@ impl Signature {
                 || parameters[position].is_output_only()
                 || !parameters[count].is_input_only()
                 || parameters[count].is_optional()
-                || !matches!(
-                    parameters[count].ty,
-                    native::Type::U32 | native::Type::USize
-                )
+                || !parameters[count].ty.is_integer(database)?
                 || (!matches!(parameters[position].ty, native::Type::Pointer { .. })
                     && !parameters[position].ty.is_const_string())
             {

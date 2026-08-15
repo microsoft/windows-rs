@@ -24,7 +24,9 @@ enum Value {
     Guid(guid::Guid),
     PropertyKey {
         guid: guid::Guid,
-        fields: [String; 2],
+        guid_field: String,
+        pid_field: String,
+        pid_type: native::Type,
         pid: ConstantValue,
     },
 }
@@ -51,14 +53,13 @@ impl Constant {
 
         if let Some(guid) = guid {
             let value = if let Some(constant) = constant {
+                let (guid_field, pid_field, pid_type) =
+                    property_fields(database, field.entity().file(), &signature, &full_name)?;
                 Value::PropertyKey {
                     guid,
-                    fields: property_fields(
-                        database,
-                        field.entity().file(),
-                        &signature,
-                        &full_name,
-                    )?,
+                    guid_field,
+                    pid_field,
+                    pid_type,
                     pid: constant.value()?,
                 }
             } else {
@@ -174,7 +175,13 @@ impl Constant {
                     }
                 }
             }
-            Value::PropertyKey { guid, fields, pid } => {
+            Value::PropertyKey {
+                guid,
+                guid_field,
+                pid_field,
+                pid_type,
+                pid,
+            } => {
                 let ty = self
                     .ty
                     .write_constant_projection(&self.namespace, layout, projection);
@@ -191,9 +198,17 @@ impl Constant {
                     let guid = guid.write_u128();
                     quote! { windows_core::GUID::from_u128(#guid) }
                 };
-                let guid_field = tokens::ident(&fields[0]);
-                let pid_field = tokens::ident(&fields[1]);
+                let guid_field = tokens::ident(guid_field);
+                let pid_field = tokens::ident(pid_field);
                 let pid = native::write_value(&native::Type::from_constant(pid), pid);
+                let pid = if !projection.is_sys() && matches!(pid_type, native::Type::Named { .. })
+                {
+                    let ty =
+                        pid_type.write_constant_projection(&self.namespace, layout, projection);
+                    quote! { #ty(#pid) }
+                } else {
+                    pid
+                };
                 quote! {
                     pub const #name: #ty = #ty {
                         #guid_field: #guid,
@@ -377,7 +392,7 @@ fn property_fields(
     file: FileId,
     ty: &windows_metadata2::Type,
     owner: &str,
-) -> Result<[String; 2], Error> {
+) -> Result<(String, String, native::Type), Error> {
     let (TypeKind::Value(id) | TypeKind::Class(id)) = &ty.kind else {
         return Err(Error::InvalidType {
             name: owner.to_string(),
@@ -401,13 +416,18 @@ fn property_fields(
         .definition(definitions[0])
         .unwrap()
         .fields()?
-        .map(|field| field.name().map(str::to_string))
+        .map(|field| {
+            Ok::<_, Error>((
+                field.name()?.to_string(),
+                native::Type::lower(database, field.entity().file(), owner, field.signature()?)?,
+            ))
+        })
         .collect::<Result<Vec<_>, _>>()?;
     let [first, second] = fields.try_into().map_err(|_| Error::InvalidType {
         name: owner.to_string(),
         message: "GUID-backed constant struct does not have two fields",
     })?;
-    Ok([first, second])
+    Ok((first.0, second.0, second.1))
 }
 
 fn is_ansi(field: windows_metadata2::FieldDefinition<'_>) -> Result<bool, Error> {

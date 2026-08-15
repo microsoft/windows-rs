@@ -188,10 +188,9 @@ impl native_signature::Signature {
                 }
                 if matches!(return_kind, ReturnKind::Query { object, optional: true, .. } if position == object)
                 {
-                    let name = tokens::ident(&parameter.name);
                     let interface = quote! { *mut Option<T> };
-                    parameters.push(quote! { #name: #interface, });
-                    arguments.push(quote! { #name as *mut _ as *mut _ });
+                    parameters.push(quote! { result__: #interface, });
+                    arguments.push(quote! { result__ as *mut _ as *mut _ });
                     continue;
                 }
                 let name = tokens::ident(&parameter.name);
@@ -589,7 +588,14 @@ impl native_signature::Signature {
         let result = output.map_or_else(
             || {
                 direct
-                    .map(|ty| ty.write_public(namespace, layout))
+                    .map(|ty| {
+                        let public = ty.write_public(namespace, layout);
+                        if ty.is_interface() {
+                            quote! { Option<#public> }
+                        } else {
+                            public
+                        }
+                    })
                     .unwrap_or_default()
             },
             |(_, ty)| ty.write_public(namespace, layout),
@@ -801,10 +807,9 @@ impl native_signature::Signature {
                 ..
             }
         ) {
-            let generics =
-                (!generic_parameters.is_empty()).then(|| quote! { , #(#generic_parameters),* });
+            let generics = quote! { <#(#generic_parameters,)* T> };
             return Ok(quote! {
-                #visibility unsafe fn #method<T #generics>(
+                #visibility unsafe fn #method #generics(
                     &self,
                     #(#parameters)*
                 ) -> windows_core::Result<T>
@@ -824,10 +829,9 @@ impl native_signature::Signature {
             });
         }
         if matches!(return_kind, ReturnKind::Query { optional: true, .. }) {
-            let generics =
-                (!generic_parameters.is_empty()).then(|| quote! { , #(#generic_parameters),* });
+            let generics = quote! { <#(#generic_parameters,)* T> };
             return Ok(quote! {
-                #visibility unsafe fn #method<T #generics>(
+                #visibility unsafe fn #method #generics(
                     &self,
                     #(#parameters)*
                 ) -> windows_core::Result<()>
@@ -917,8 +921,13 @@ impl native_signature::Signature {
             ),
             ReturnKind::Void => (quote! {}, quote! { unsafe { #call; } }),
             ReturnKind::Direct(ty) => {
-                let ty = ty.write_public_with_owner(namespace, layout, Some(owner));
-                (quote! { -> #ty }, quote! { unsafe { #call } })
+                let public = ty.write_public_with_owner(namespace, layout, Some(owner));
+                let public = if ty.is_interface() {
+                    quote! { Option<#public> }
+                } else {
+                    public
+                };
+                (quote! { -> #public }, quote! { unsafe { #call } })
             }
             ReturnKind::Indirect(ty) => {
                 let ty = ty.write_public_with_owner(namespace, layout, Some(owner));
@@ -1017,8 +1026,12 @@ impl native_signature::Signature {
                 quote! {}
             }
             ReturnKind::Direct(ty) => {
-                let ty = ty.write_public(namespace, layout);
-                quote! { -> #ty }
+                let public = ty.write_public(namespace, layout);
+                if ty.is_interface() {
+                    quote! { -> Option<#public> }
+                } else {
+                    quote! { -> #public }
+                }
             }
             ReturnKind::Indirect(ty) => {
                 let ty = ty.write_public(namespace, layout);

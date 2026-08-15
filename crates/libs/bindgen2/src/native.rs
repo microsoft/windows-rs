@@ -675,6 +675,62 @@ impl Type {
         self.is_primitive_inner(database, &mut BTreeSet::new())
     }
 
+    pub(super) fn is_integer(&self, database: &Database) -> Result<bool, Error> {
+        self.is_integer_inner(database, &mut BTreeSet::new())
+    }
+
+    fn is_integer_inner(
+        &self,
+        database: &Database,
+        stack: &mut BTreeSet<(String, String)>,
+    ) -> Result<bool, Error> {
+        let Self::Named { namespace, name } = self else {
+            return Ok(matches!(
+                self,
+                Self::Char
+                    | Self::I8
+                    | Self::U8
+                    | Self::I16
+                    | Self::U16
+                    | Self::I32
+                    | Self::U32
+                    | Self::I64
+                    | Self::U64
+                    | Self::ISize
+                    | Self::USize
+            ));
+        };
+        let key = (namespace.clone(), name.clone());
+        if !stack.insert(key.clone()) {
+            return Ok(false);
+        }
+        let mut result = false;
+        for entity in database.type_definitions(namespace, name) {
+            let definition = database.definition(*entity).unwrap();
+            match definition.category()? {
+                TypeCategory::Enum => {
+                    result = true;
+                    break;
+                }
+                TypeCategory::Struct if definition.has_attribute("NativeTypedefAttribute")? => {
+                    let fields = definition.fields()?.collect::<Vec<_>>();
+                    let [field] = fields.as_slice() else {
+                        continue;
+                    };
+                    let field =
+                        Self::lower(database, field.entity().file(), name, field.signature()?)?;
+                    if field.is_integer_inner(database, stack)? {
+                        result = true;
+                        break;
+                    }
+                }
+                _ => {}
+            }
+        }
+        stack.remove(&key);
+        Ok(result)
+    }
+
     fn is_primitive_inner(
         &self,
         database: &Database,
