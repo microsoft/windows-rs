@@ -20,6 +20,7 @@ pub(super) struct Parameter {
     pub(super) com_out_ptr: bool,
     array: Option<ArrayInfo>,
     pub(super) retval_candidate: bool,
+    pub(super) explicit_retval: bool,
     pub(super) retval_transmute: bool,
     pub(super) producer_by_ref: bool,
     pub(super) ty: native::Type,
@@ -80,8 +81,13 @@ impl Parameter {
     }
 
     pub(super) fn needs_cast(&self) -> bool {
-        matches!(self.ty, native::Type::Pointer { mutable: true, .. })
-            || (matches!(self.hint, ParamHint::ValueType) && !self.is_input_only())
+        matches!(
+            self.ty,
+            native::Type::Pointer {
+                mutable: true,
+                ref element,
+            } if **element == native::Type::Void
+        ) || (matches!(self.hint, ParamHint::ValueType) && !self.is_input_only())
     }
 
     pub(super) fn has_array_info(&self) -> bool {
@@ -239,6 +245,7 @@ impl Signature {
                     com_out_ptr,
                     array,
                     retval_candidate,
+                    explicit_retval,
                     retval_transmute,
                     producer_by_ref,
                     ty,
@@ -386,6 +393,9 @@ impl Signature {
             {
                 let ty = interface.write_public(namespace, layout);
                 quote! { #name: windows_core::OutRef<#ty> }
+            } else if parameter.is_input_only() && parameter.ty.is_interface() {
+                let ty = parameter.ty.write_public(namespace, layout);
+                quote! { #name: windows_core::Ref<#ty> }
             } else {
                 let ty = parameter
                     .ty
@@ -488,6 +498,26 @@ impl Signature {
             let ty = self
                 .return_type
                 .write_abi_projection(namespace, layout, projection);
+            quote! { -> #ty }
+        }
+    }
+
+    pub(super) fn write_function_result_projection(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        projection: Projection,
+    ) -> TokenStream {
+        if projection.is_sys() {
+            return self.write_result_projection(namespace, layout, projection);
+        }
+        if self.return_type == native::Type::Void {
+            quote! {}
+        } else if self.return_type.is_interface() {
+            let ty = self.return_type.write_public(namespace, layout);
+            quote! { -> Option<#ty> }
+        } else {
+            let ty = self.return_type.write_public(namespace, layout);
             quote! { -> #ty }
         }
     }

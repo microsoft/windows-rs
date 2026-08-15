@@ -41,7 +41,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
 | Build-script facade | Twenty consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, reference and time projections, benchmark and robot components and clients, context alignment, core-only APIs, and Win32 metadata match. |
-| Package output | In progress | The package backend runs, but 310 generated files still differ. `windows-sys` source output matches exactly. Rich Win32 has 223 differing files and WinRT has 85; source output has 3,500 missing and 2,981 extra line edges. The two manifests have 119 missing and 353 extra dependency edges. |
+| Package output | In progress | The package backend runs, but 254 generated files still differ. `windows-sys` source output matches exactly. Rich Win32 has 167 differing files and WinRT has 85; source output has 1,823 missing and 2,004 extra line edges. The two manifests have 119 missing and 353 extra dependency edges. |
 
 The current working implementation has about 14,400 lines of production Rust, roughly the same as
 legacy bindgen. Size is no longer evidence for the rewrite by itself; structure, parity, and
@@ -165,6 +165,10 @@ Pointers to interface fields project the pointed-to interface as `Option<Interfa
 wrapping the pointee in `ManuallyDrop`.
 Query wrapper constraints keep ordinary `Param` bounds before the result interface bound.
 Indirect producer returns assign through the ABI result pointer.
+Union ownership uses semantic copyability independently from derive support, so packed copyable
+layouts remain `Copy` while non-copy union fields use `ManuallyDrop`.
+Structs containing explicit-layout fields use manual bitwise `Clone` without broadening parent
+ownership traits.
 Package output items retain the metadata architecture key, so duplicate same-name variants sort by
 typed metadata rather than insertion or token order.
 

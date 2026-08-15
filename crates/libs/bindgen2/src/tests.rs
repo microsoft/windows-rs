@@ -1225,6 +1225,28 @@ fn rich_native_functions_wrap_direct_and_output_returns() {
 }
 
 #[test]
+fn rich_native_function_calls_avoid_redundant_struct_pointer_casts() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .functions()
+        .find_map(|function| {
+            let function = function.unwrap();
+            (function.name() == "NdrAllocate").then_some(function)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(output.contains("NdrAllocate (pstubmsg , len)"), "{output}");
+}
+
+#[test]
 fn rich_native_functions_omit_variadics() {
     let metadata = Metadata::from_images([
         Image::new(windows_default::WINRT).unwrap(),
@@ -1475,7 +1497,7 @@ fn rich_native_copy_proof_resolves_projected_nested_layouts() {
         );
     }
     assert!(
-        output.contains("derive (Clone)] pub struct D3D12_RENDER_PASS_DEPTH_STENCIL_DESC"),
+        output.contains("impl Clone for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC"),
         "{output}"
     );
     assert!(
@@ -2448,6 +2470,55 @@ fn rich_native_pointer_fields_borrow_interface_storage() {
         "{output}"
     );
     assert!(!output.contains("ManuallyDrop"), "{output}");
+}
+
+#[test]
+fn rich_native_union_ownership_isolated_from_parent_traits() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let items = generator.win32_items();
+
+    let output = items
+        .native_type("Windows.Win32", "D3D12_RENDER_PASS_ENDING_ACCESS")
+        .unwrap()
+        .write_package()
+        .to_string();
+    assert!(
+        output.contains(
+            "Resolve : core :: mem :: ManuallyDrop < \
+             D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS >"
+        ),
+        "{output}"
+    );
+    assert!(output.contains("impl Clone for D3D12_RENDER_PASS_ENDING_ACCESS_0"));
+    assert!(
+        output.contains("impl Clone for D3D12_RENDER_PASS_ENDING_ACCESS"),
+        "{output}"
+    );
+    assert!(
+        !output.contains("derive (Clone , Copy)] pub struct D3D12_RENDER_PASS_ENDING_ACCESS"),
+        "{output}"
+    );
+    let output = items
+        .native_type("Windows.Win32", "D3D12_RENDER_PASS_DEPTH_STENCIL_DESC")
+        .unwrap()
+        .write_package()
+        .to_string();
+    assert!(output.contains("impl Clone for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC"));
+
+    for name in ["CPU_INFORMATION", "D3DKMT_DISPLAY_CAPS"] {
+        let output = items
+            .native_type("Windows.Win32", name)
+            .unwrap()
+            .write_package()
+            .to_string();
+        assert!(output.contains("derive (Clone , Copy)"), "{output}");
+        assert!(!output.contains("ManuallyDrop"), "{output}");
+    }
 }
 
 #[test]
@@ -3529,6 +3600,313 @@ fn native_d3d12_producer_interface_inputs_are_borrowed() {
     );
     assert!(
         output.contains("fn CreatePlacedResource (& self , windows_core :: Ref < ID3D12Heap >"),
+        "{output}"
+    );
+
+    let interface = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "ID3D12GraphicsCommandList").then_some(interface)
+        })
+        .unwrap();
+    let output = normalize_existing_output(interface.write_package());
+    assert!(
+        output.contains("fn IASetPrimitiveTopology (& self , D3D12_PRIMITIVE_TOPOLOGY)"),
+        "{output}"
+    );
+    assert!(
+        output.contains(
+            "IASetPrimitiveTopology (this , core :: mem :: transmute_copy (& primitivetopology)"
+        ),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_interfaces_apply_architecture_cfgs_to_members_only() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let interface = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "IDebugControl").then_some(interface)
+        })
+        .unwrap();
+    let output = normalize_existing_output(interface.write_package());
+
+    assert!(
+        !output.contains(
+            "# [cfg (any (target_arch = \"arm64ec\" , target_arch = \"x86_64\"))] \
+             windows_core :: imp :: define_interface ! (IDebugControl"
+        ),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_guidless_native_interfaces_have_no_synthetic_identity() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let interface = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "ID3D12FunctionParameterReflection").then_some(interface)
+        })
+        .unwrap();
+    let output = normalize_existing_output(interface.write_package());
+
+    assert!(output.contains(
+        "define_interface ! (ID3D12FunctionParameterReflection , \
+         ID3D12FunctionParameterReflection_Vtbl)"
+    ));
+    assert!(!output.contains("RuntimeName for ID3D12FunctionParameterReflection"));
+
+    let interface = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "DebugBaseEventCallbacks").then_some(interface)
+        })
+        .unwrap();
+    let output = normalize_existing_output(interface.write_package());
+    assert!(
+        output.contains(
+            "define_interface ! (DebugBaseEventCallbacks , DebugBaseEventCallbacks_Vtbl , 0)"
+        ),
+        "{output}"
+    );
+    assert!(
+        output.contains("RuntimeName for DebugBaseEventCallbacks"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_scoped_enums_project_standard_and_flag_traits() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let items = generator.win32_items();
+
+    let output = items
+        .native_type("Windows.Win32", "DXCoreRuntimeFilterFlags")
+        .unwrap()
+        .write_package()
+        .to_string();
+    assert!(
+        output.contains("derive (Clone , Copy , Debug , Default , Eq , PartialEq)"),
+        "{output}"
+    );
+    assert!(
+        output.contains("impl core :: ops :: BitOr for DXCoreRuntimeFilterFlags"),
+        "{output}"
+    );
+
+    let output = items
+        .native_type("Windows.Win32", "DXCoreMemoryQueryInput")
+        .unwrap()
+        .write_package()
+        .to_string();
+    assert!(
+        output.contains("derive (Clone , Copy , Debug , Default , Eq , PartialEq)"),
+        "{output}"
+    );
+    assert!(!output.contains("impl Default for DXCoreMemoryQueryInput"));
+}
+
+#[test]
+fn rich_native_typedef_chains_remain_bare_aliases() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let items = generator.win32_items();
+
+    let output = items
+        .native_type("Windows.Win32", "PDEBUG_ENTENSION_KNOWNSTRUCT")
+        .unwrap()
+        .write_package()
+        .to_string();
+    assert!(
+        output.contains("pub type PDEBUG_ENTENSION_KNOWNSTRUCT = PDEBUG_EXTENSION_KNOWN_STRUCT"),
+        "{output}"
+    );
+
+    let output = items
+        .native_type("Windows.Win32", "HANDLE")
+        .unwrap()
+        .write_package()
+        .to_string();
+    assert!(
+        output.contains("pub struct HANDLE (pub * mut core :: ffi :: c_void)"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_delegates_borrow_interface_inputs() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let delegate = generator
+        .win32_items()
+        .delegates()
+        .find_map(|delegate| {
+            let delegate = delegate.unwrap();
+            (delegate.name() == "PFN_DXCORE_NOTIFICATION_CALLBACK").then_some(delegate)
+        })
+        .unwrap();
+    let output = delegate.write_package().to_string();
+
+    assert!(
+        output.contains("object : windows_core :: Ref < windows_core :: IUnknown >"),
+        "{output}"
+    );
+}
+
+#[test]
+fn native_retval_heuristic_uses_legacy_layout_model() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "ID3D12DeviceRemovedExtendedData").then_some(interface)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains(
+            "GetPageFaultAllocationOutput (& self ,) -> windows_core :: Result < \
+             D3D12_DRED_PAGE_FAULT_OUTPUT >"
+        ),
+        "{output}"
+    );
+}
+
+#[test]
+fn native_explicit_retvals_allow_preceding_output_parameters() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "ISpeechRecognizer").then_some(interface)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains(
+            "GetPropertyNumber (& self , name : & windows_core :: BSTR , value : * mut i32 ,) -> \
+             windows_core :: Result < VARIANT_BOOL >"
+        ),
+        "{output}"
+    );
+}
+
+#[test]
+fn native_retvals_use_projected_copy_support_for_conversion() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .functions()
+        .find_map(|function| {
+            let function = function.unwrap();
+            (function.name() == "BstrFromVector").then_some(function)
+        })
+        .unwrap();
+    let output = output.write_package().to_string();
+
+    assert!(
+        output.contains("map (|| core :: mem :: transmute (result__))"),
+        "{output}"
+    );
+
+    let output = generator
+        .win32_items()
+        .functions()
+        .find_map(|function| {
+            let function = function.unwrap();
+            (function.name() == "SysAllocString").then_some(function)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+    assert!(
+        output.contains("fn SysAllocString (psz : * const OLECHAR) -> windows_core :: BSTR"),
+        "{output}"
+    );
+}
+
+#[test]
+fn native_producers_pass_recursive_handle_typedefs_by_value() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "ISpRecoGrammar").then_some(interface)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("LoadCmdFromResource (& self , hmodule : HMODULE"),
+        "{output}"
+    );
+    assert!(
+        !output.contains("LoadCmdFromResource (& self , hmodule : & HMODULE"),
         "{output}"
     );
 }

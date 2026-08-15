@@ -43,6 +43,7 @@ struct Enum {
     ty: native::Type,
     values: Vec<(String, ConstantValue)>,
     scoped: bool,
+    flags: bool,
     cast_values: bool,
     dependencies: BTreeSet<(String, String)>,
     manifest_dependencies: BTreeSet<(String, String)>,
@@ -52,8 +53,12 @@ struct Struct {
     namespace: String,
     name: String,
     fields: Vec<(String, native::Type)>,
+    field_copy: Vec<bool>,
     nested: Vec<NativeType>,
     union: bool,
+    copyable: bool,
+    explicit_layout: bool,
+    manual_clone: bool,
     align: Option<u32>,
     packing: Option<u16>,
     default: native_default::Policy,
@@ -165,6 +170,7 @@ impl NativeType {
                         ty,
                         values,
                         scoped: definition.has_attribute("ScopedEnumAttribute")?,
+                        flags: definition.has_attribute("FlagsAttribute")?,
                         cast_values,
                         dependencies,
                         manifest_dependencies,
@@ -290,6 +296,7 @@ impl NativeType {
                     })?;
                     let wrapper = field == "Value"
                         && ty.is_primitive(database)?
+                        && !ty.resolves_to_delegate(database, &mut BTreeSet::new())?
                         && !matches!(
                             &ty,
                             native::Type::Pointer { element, .. }
@@ -345,6 +352,57 @@ impl NativeType {
                 let union = definition
                     .type_attributes()?
                     .contains(TypeAttributes::EXPLICIT_LAYOUT);
+                let mut field_copy = Vec::with_capacity(fields.len());
+                for (_, ty) in &fields {
+                    let nested_copy = match ty {
+                        native::Type::Named {
+                            namespace: target_namespace,
+                            name: target_name,
+                        } if target_namespace.is_empty() || target_namespace == namespace => {
+                            nested.iter().find_map(|value| {
+                                let Kind::Struct(value) = &value.kind else {
+                                    return None;
+                                };
+                                (value.name == *target_name).then_some(value.copyable)
+                            })
+                        }
+                        _ => None,
+                    };
+                    field_copy.push(if let Some(copyable) = nested_copy {
+                        copyable
+                    } else {
+                        ty.projected_copyable(database, &mut BTreeSet::new())?
+                    });
+                }
+                let copyable = field_copy.iter().all(|copyable| *copyable);
+                let mut explicit_layout = union;
+                if !explicit_layout {
+                    for (_, ty) in &fields {
+                        let nested_layout = match ty {
+                            native::Type::Named {
+                                namespace: target_namespace,
+                                name: target_name,
+                            } if target_namespace.is_empty() || target_namespace == namespace => {
+                                nested.iter().find_map(|value| {
+                                    let Kind::Struct(value) = &value.kind else {
+                                        return None;
+                                    };
+                                    (value.name == *target_name).then_some(value.explicit_layout)
+                                })
+                            }
+                            _ => None,
+                        };
+                        if if let Some(explicit_layout) = nested_layout {
+                            explicit_layout
+                        } else {
+                            ty.projected_has_explicit_layout(database, &mut BTreeSet::new())?
+                        } {
+                            explicit_layout = true;
+                            break;
+                        }
+                    }
+                }
+                let manual_clone = !union && !copyable && explicit_layout;
                 let traits = if !union
                     && (definition
                         .type_attributes()?
@@ -414,8 +472,12 @@ impl NativeType {
                         namespace: namespace.to_string(),
                         name,
                         fields,
+                        field_copy,
                         nested,
                         union,
+                        copyable,
+                        explicit_layout,
+                        manual_clone,
                         align,
                         packing,
                         default,
@@ -687,6 +749,14 @@ impl Enum {
                 let value = native::write_value(&native::Type::from_constant(value), value);
                 quote! { pub const #value_name: Self = Self(#value); }
             });
+            let derive = if projection.is_sys() {
+                quote! { #[derive(Clone, Copy)] }
+            } else {
+                quote! { #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)] }
+            };
+            let flags = (!projection.is_sys() && self.flags)
+                .then(|| enum_model::write_flags(&name))
+                .unwrap_or_default();
             return vec![(
                 self.name.as_str(),
                 1,
@@ -694,13 +764,14 @@ impl Enum {
                     #architectures
                     #[repr(transparent)]
                     #cfg
-                    #[derive(Clone, Copy)]
+                    #derive
                     pub struct #name(pub #ty);
                     #architectures
                     #cfg
                     impl #name {
                         #(#values)*
                     }
+                    #flags
                 },
             )];
         }
@@ -778,26 +849,57 @@ impl Struct {
                 #(#nested)*
             };
         }
-        let fields = self.fields.iter().map(|(field_name, ty)| {
-            let field_name = tokens::ident(field_name);
-            let ty =
-                ty.write_field_projection_owner(&self.namespace, &self.name, layout, projection);
-            quote! { pub #field_name: #ty, }
-        });
+        let fields =
+            self.fields
+                .iter()
+                .zip(&self.field_copy)
+                .map(|((field_name, ty), copyable)| {
+                    let field_name = tokens::ident(field_name);
+                    let projected = ty.write_field_projection_owner(
+                        &self.namespace,
+                        &self.name,
+                        layout,
+                        projection,
+                    );
+                    let projected =
+                        if self.union && !projection.is_sys() && !copyable && !ty.is_interface() {
+                            quote! { core::mem::ManuallyDrop<#projected> }
+                        } else {
+                            projected
+                        };
+                    quote! { pub #field_name: #projected, }
+                });
         let repr = self.repr();
         let nested = self
             .nested
             .iter()
             .map(|nested| nested.write_context(layout, projection));
         if self.union {
+            let derive = if projection.is_sys() || self.copyable {
+                quote! { #[derive(Clone, Copy)] }
+            } else {
+                quote! {}
+            };
+            let manual_clone = (!projection.is_sys() && !self.copyable).then(|| {
+                quote! {
+                    #architectures
+                    #cfg
+                    impl Clone for #name {
+                        fn clone(&self) -> Self {
+                            unsafe { core::mem::transmute_copy(self) }
+                        }
+                    }
+                }
+            });
             quote! {
                 #repr
                 #architectures
                 #cfg
-                #[derive(Clone, Copy)]
+                #derive
                 pub union #name {
                     #(#fields)*
                 }
+                #manual_clone
                 #architectures
                 #cfg
                 impl Default for #name {
@@ -868,14 +970,47 @@ impl Struct {
             .iter()
             .map(|derive| tokens::ident(derive))
             .collect::<Vec<_>>();
+        if !projection.is_sys() && self.manual_clone {
+            let default = (self.default != native_default::Policy::Derive).then(|| {
+                quote! {
+                    #architectures
+                    #cfg
+                    impl Default for #name {
+                        fn default() -> Self {
+                            unsafe { core::mem::zeroed() }
+                        }
+                    }
+                }
+            });
+            return (
+                quote! {},
+                quote! {
+                    #architectures
+                    #cfg
+                    impl Clone for #name {
+                        fn clone(&self) -> Self {
+                            unsafe { core::mem::transmute_copy(self) }
+                        }
+                    }
+                    #default
+                },
+            );
+        }
         if !projection.is_sys() && self.align.is_none() && self.packing.is_none() {
             let copy = self.traits.copy.then(|| quote! { , Copy });
             let debug = self.traits.debug.then(|| quote! { , Debug });
             let partial_eq = self.traits.partial_eq.then(|| quote! { , PartialEq });
             let eq = self.traits.eq.then(|| quote! { , Eq });
-            let derive_default =
-                (self.default == native_default::Policy::Derive).then(|| quote! { , Default });
-            let default = (self.default != native_default::Policy::Derive).then(|| {
+            let derive_default = matches!(
+                self.default,
+                native_default::Policy::Derive | native_default::Policy::ScopedEnum
+            )
+            .then(|| quote! { , Default });
+            let default = (!matches!(
+                self.default,
+                native_default::Policy::Derive | native_default::Policy::ScopedEnum
+            ))
+            .then(|| {
                 quote! {
                     #architectures
                     #cfg

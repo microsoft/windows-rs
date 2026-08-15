@@ -49,6 +49,16 @@ impl Function {
         self.write_context(Layout::Flat, Projection::Sys)
     }
 
+    #[cfg(test)]
+    pub fn name(&self) -> &str {
+        &self.name
+    }
+
+    #[cfg(test)]
+    pub fn write_package(&self) -> TokenStream {
+        self.write_context(Layout::Package, Projection::Default)
+    }
+
     pub(super) fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
         if self.variadic && !projection.is_sys() {
             return quote! {};
@@ -74,7 +84,7 @@ impl Function {
             quote! { -> ! }
         } else {
             self.signature
-                .write_result_projection(&self.namespace, layout, projection)
+                .write_function_result_projection(&self.namespace, layout, projection)
         };
         let pointer_alias = window_long_dependency(&self.name).map(|dependency| {
             let dependency = tokens::ident(dependency);

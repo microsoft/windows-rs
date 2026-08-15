@@ -207,7 +207,7 @@ impl Integer {
     }
 }
 
-fn write_flags(name: &TokenStream) -> TokenStream {
+pub(super) fn write_flags(name: &TokenStream) -> TokenStream {
     quote! {
         impl #name {
             pub const fn contains(&self, other: Self) -> bool {

@@ -469,6 +469,11 @@ impl native_signature::Signature {
                 #method(#(#arguments),*)
                     .and_then(|| windows_core::Type::from_abi(result__))
             }
+        } else if self.parameters[retval].retval_transmute {
+            quote! {
+                #method(#(#arguments),*)
+                    .map(|| core::mem::transmute(result__))
+            }
         } else {
             quote! { #method(#(#arguments),*).map(|| result__) }
         };
@@ -620,7 +625,7 @@ impl native_signature::Signature {
             Some(quote! { -> ! })
         } else {
             direct.map(|ty| {
-                let ty = ty.write_abi_projection(namespace, layout, Projection::Default);
+                let ty = ty.write_public(namespace, layout);
                 quote! { -> #ty }
             })
         };
@@ -1188,9 +1193,10 @@ impl native_signature::Signature {
     fn retval_parameter(&self) -> Option<(usize, &native::Type)> {
         let (parameter, preceding) = self.parameters.split_last()?;
         if parameter.retval_candidate
-            && preceding
-                .iter()
-                .all(native_signature::Parameter::is_input_only)
+            && (parameter.explicit_retval
+                || preceding
+                    .iter()
+                    .all(native_signature::Parameter::is_input_only))
         {
             Some((preceding.len(), parameter.ty.pointee()?))
         } else {

@@ -53,6 +53,16 @@ impl Delegate {
         self.write_context(Layout::Flat, Projection::Sys)
     }
 
+    #[cfg(test)]
+    pub fn name(&self) -> &str {
+        &self.name
+    }
+
+    #[cfg(test)]
+    pub fn write_package(&self) -> TokenStream {
+        self.write_context(Layout::Package, Projection::Default)
+    }
+
     pub(super) fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
         let architectures = tokens::architectures(self.architectures);
         let cfg = tokens::feature_cfg(

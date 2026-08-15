@@ -667,12 +667,96 @@ impl Type {
                 &format!("{namespace}.{name}"),
                 field.signature()?,
             )?;
-            return Ok(matches!(
-                field,
-                Self::Array { .. } | Self::Named { .. } | Self::Interface { .. }
-            ));
+            return Ok(!field.producer_primitive(database, &mut BTreeSet::new())?);
         }
         Ok(false)
+    }
+
+    pub(super) fn producer_primitive(
+        &self,
+        database: &Database,
+        stack: &mut BTreeSet<(String, String)>,
+    ) -> Result<bool, Error> {
+        let Self::Named { namespace, name } = self else {
+            return self.is_primitive(database);
+        };
+        if canonical::type_from_name(namespace, name).is_some_and(|ty| !ty.is_guid())
+            || ((namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32."))
+                && matches!(name.as_str(), "BOOL" | "NTSTATUS" | "RPC_STATUS"))
+        {
+            return Ok(true);
+        }
+        let key = (namespace.clone(), name.clone());
+        if !stack.insert(key.clone()) {
+            return Ok(false);
+        }
+        let mut result = false;
+        for entity in database.type_definitions(namespace, name) {
+            let definition = database.definition(*entity).unwrap();
+            match definition.category()? {
+                TypeCategory::Enum | TypeCategory::Delegate => {
+                    result = true;
+                    break;
+                }
+                TypeCategory::Struct if definition.has_attribute("NativeTypedefAttribute")? => {
+                    let fields = definition.fields()?.collect::<Vec<_>>();
+                    let [field] = fields.as_slice() else {
+                        continue;
+                    };
+                    if field.name()? != "Value" {
+                        continue;
+                    }
+                    let field =
+                        Self::lower(database, field.entity().file(), name, field.signature()?)?;
+                    if field.producer_primitive(database, stack)? {
+                        result = true;
+                        break;
+                    }
+                }
+                _ => {}
+            }
+        }
+        stack.remove(&key);
+        Ok(result)
+    }
+
+    pub(super) fn resolves_to_delegate(
+        &self,
+        database: &Database,
+        stack: &mut BTreeSet<(String, String)>,
+    ) -> Result<bool, Error> {
+        let Self::Named { namespace, name } = self else {
+            return Ok(false);
+        };
+        let key = (namespace.clone(), name.clone());
+        if !stack.insert(key.clone()) {
+            return Ok(false);
+        }
+        let mut result = false;
+        for entity in database.type_definitions(namespace, name) {
+            let definition = database.definition(*entity).unwrap();
+            match definition.category()? {
+                TypeCategory::Delegate => {
+                    result = true;
+                    break;
+                }
+                TypeCategory::Struct if definition.has_attribute("NativeTypedefAttribute")? => {
+                    let fields = definition.fields()?.collect::<Vec<_>>();
+                    let [field] = fields.as_slice() else {
+                        continue;
+                    };
+                    let field =
+                        Self::lower(database, field.entity().file(), name, field.signature()?)?;
+                    if field.resolves_to_delegate(database, stack)? {
+                        result = true;
+                        break;
+                    }
+                }
+                _ => {}
+            }
+        }
+        stack.remove(&key);
+        Ok(result)
     }
 
     pub(super) fn is_primitive(&self, database: &Database) -> Result<bool, Error> {
@@ -952,12 +1036,12 @@ impl Type {
     ) -> Result<(usize, usize), Error> {
         Ok(match self {
             Self::Void => (0, 1),
-            Self::Boolean | Self::I8 | Self::U8 => (1, 1),
-            Self::Char | Self::I16 | Self::U16 => (2, 2),
+            Self::I8 | Self::U8 => (1, 1),
+            Self::I16 | Self::U16 => (2, 2),
             Self::I64 | Self::U64 | Self::F64 => (8, 8),
             Self::Array { element, len } => {
                 let (size, align) = element.abi_layout(database, stack)?;
-                (size.saturating_mul(*len), align)
+                (size.saturating_mul(*len), align.saturating_mul(*len))
             }
             Self::Named { namespace, name } => {
                 let key = (namespace.clone(), name.clone());
@@ -1005,12 +1089,7 @@ impl Type {
                 stack.remove(&key);
                 result
             }
-            Self::I32 | Self::U32 | Self::F32 => (4, 4),
-            Self::String
-            | Self::ISize
-            | Self::USize
-            | Self::Pointer { .. }
-            | Self::Interface { .. } => (8, 8),
+            _ => (4, 4),
         })
     }
 }
@@ -1166,6 +1245,73 @@ fn named_copyable(
     Ok(true)
 }
 
+fn named_has_explicit_layout(
+    database: &Database,
+    namespace: &str,
+    name: &str,
+    stack: &mut BTreeSet<(String, String)>,
+) -> Result<bool, Error> {
+    let key = (namespace.to_string(), name.to_string());
+    if !stack.insert(key.clone()) {
+        return Ok(false);
+    }
+    let mut definitions = database
+        .type_definitions(namespace, name)
+        .iter()
+        .copied()
+        .collect::<Vec<_>>();
+    if definitions.is_empty() {
+        definitions = projected_nested_definitions(database, namespace, name);
+    }
+    for entity in definitions {
+        let definition = database.definition(entity).unwrap();
+        if definition
+            .type_attributes()?
+            .contains(TypeAttributes::EXPLICIT_LAYOUT)
+        {
+            stack.remove(&key);
+            return Ok(true);
+        }
+        if definition.category()? != TypeCategory::Struct {
+            continue;
+        }
+        let nested = database
+            .nested_types_of(entity)
+            .enumerate()
+            .map(|(index, definition)| {
+                Ok((definition.name()?.to_string(), format!("{name}_{index}")))
+            })
+            .collect::<Result<Vec<_>, Error>>()?;
+        let substitutions = nested
+            .iter()
+            .map(|(metadata, projected)| (metadata.as_str(), projected.as_str()))
+            .collect::<Vec<_>>();
+        let projected = nested
+            .iter()
+            .map(|(_, projected)| projected.as_str())
+            .collect::<BTreeSet<_>>();
+        for field in definition.fields()? {
+            if field.is_literal()? {
+                continue;
+            }
+            let ty = Type::lower_with_nested(
+                database,
+                field.entity().file(),
+                name,
+                field.signature()?,
+                &substitutions,
+            )?
+            .qualify_projected_nested(namespace, &projected);
+            if ty.projected_has_explicit_layout(database, stack)? {
+                stack.remove(&key);
+                return Ok(true);
+            }
+        }
+    }
+    stack.remove(&key);
+    Ok(false)
+}
+
 fn projected_nested_definitions(
     database: &Database,
     namespace: &str,
@@ -1246,7 +1392,7 @@ fn sys_core_projection(namespace: &str, name: &str) -> Option<TokenStream> {
 }
 
 impl Type {
-    fn projected_copyable(
+    pub(super) fn projected_copyable(
         &self,
         database: &Database,
         stack: &mut BTreeSet<(String, String)>,
@@ -1256,6 +1402,20 @@ impl Type {
             Self::Array { element, .. } => element.projected_copyable(database, stack),
             Self::Named { namespace, name } => named_copyable(database, namespace, name, stack),
             _ => Ok(true),
+        }
+    }
+
+    pub(super) fn projected_has_explicit_layout(
+        &self,
+        database: &Database,
+        stack: &mut BTreeSet<(String, String)>,
+    ) -> Result<bool, Error> {
+        match self {
+            Self::Array { element, .. } => element.projected_has_explicit_layout(database, stack),
+            Self::Named { namespace, name } => {
+                named_has_explicit_layout(database, namespace, name, stack)
+            }
+            _ => Ok(false),
         }
     }
 
