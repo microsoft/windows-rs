@@ -221,34 +221,48 @@ impl native_signature::Signature {
                     arguments.push(quote! { #name.into() });
                     continue;
                 }
-                if let Some(len) = parameter.fixed_array_len()
-                    && let Some(element) = parameter.ty.pointee()
-                {
+                if let Some(len) = parameter.fixed_array_len() {
+                    let pointee = parameter.ty.pointee();
+                    let element = pointee.unwrap_or(&parameter.ty);
                     let element = element.write_public(namespace, layout);
                     let len = proc_macro2::Literal::usize_unsuffixed(len);
                     let mutable =
                         matches!(&parameter.ty, native::Type::Pointer { mutable: true, .. });
+                    let indirect = pointee.is_none();
                     if parameter.is_optional() && mutable {
                         parameters.push(quote! { #name: Option<&mut [#element; #len]>, });
-                        arguments.push(
-                            quote! { #name.map_or(core::ptr::null_mut(), |array| array.as_mut_ptr()) },
-                        );
+                        let argument = quote! { #name.map_or(core::ptr::null_mut(), |array| array.as_mut_ptr()) };
+                        arguments.push(if indirect {
+                            quote! { core::mem::transmute(#argument) }
+                        } else {
+                            argument
+                        });
                     } else if parameter.is_optional() {
                         parameters.push(quote! { #name: Option<&[#element; #len]>, });
-                        arguments.push(
-                            quote! { #name.map_or(core::ptr::null(), |slice| slice.as_ptr()) },
-                        );
+                        let argument =
+                            quote! { #name.map_or(core::ptr::null(), |slice| slice.as_ptr()) };
+                        arguments.push(if indirect {
+                            quote! { core::mem::transmute(#argument) }
+                        } else {
+                            argument
+                        });
                     } else if mutable {
                         parameters.push(quote! { #name: &mut [#element; #len], });
                         arguments.push(quote! { #name.as_mut_ptr() });
                     } else {
                         parameters.push(quote! { #name: &[#element; #len], });
-                        arguments.push(quote! { #name.as_ptr() });
+                        let argument = quote! { #name.as_ptr() };
+                        arguments.push(if indirect {
+                            quote! { core::mem::transmute(#argument) }
+                        } else {
+                            argument
+                        });
                     }
                     continue;
                 }
-                if parameter.ty.is_bstr() {
-                    parameters.push(quote! { #name: &windows_core::BSTR, });
+                if parameter.ty.is_bstr() || parameter.ty.is_hstring() {
+                    let ty = parameter.ty.write_public(namespace, layout);
+                    parameters.push(quote! { #name: &#ty, });
                     arguments.push(quote! { core::mem::transmute_copy(#name) });
                     continue;
                 }
@@ -398,29 +412,45 @@ impl native_signature::Signature {
                 arguments.push(argument);
             } else if let Some(argument) = write_slice_count(self, parameter, namespace, layout) {
                 arguments.push(argument);
-            } else if let Some(len) = parameter.fixed_array_len()
-                && let Some(element) = parameter.ty.pointee()
-            {
+            } else if let Some(len) = parameter.fixed_array_len() {
+                let pointee = parameter.ty.pointee();
+                let element = pointee.unwrap_or(&parameter.ty);
                 let element = element.write_public(namespace, layout);
                 let len = proc_macro2::Literal::usize_unsuffixed(len);
+                let indirect = pointee.is_none();
                 if parameter.is_optional() && parameter.is_mutable_pointer() {
                     parameters.push(quote! { #name: Option<&mut [#element; #len]> });
-                    arguments.push(quote! {
+                    let argument = quote! {
                         #name.as_deref().map_or(
                             core::ptr::null_mut(),
                             |array| array.as_ptr().cast_mut()
                         )
+                    };
+                    arguments.push(if indirect {
+                        quote! { core::mem::transmute(#argument) }
+                    } else {
+                        argument
                     });
                 } else if parameter.is_optional() {
                     parameters.push(quote! { #name: Option<&[#element; #len]> });
-                    arguments
-                        .push(quote! { #name.map_or(core::ptr::null(), |array| array.as_ptr()) });
+                    let argument =
+                        quote! { #name.map_or(core::ptr::null(), |array| array.as_ptr()) };
+                    arguments.push(if indirect {
+                        quote! { core::mem::transmute(#argument) }
+                    } else {
+                        argument
+                    });
                 } else if parameter.is_mutable_pointer() {
                     parameters.push(quote! { #name: &mut [#element; #len] });
                     arguments.push(quote! { #name.as_mut_ptr() });
                 } else {
                     parameters.push(quote! { #name: &[#element; #len] });
-                    arguments.push(quote! { #name.as_ptr() });
+                    let argument = quote! { #name.as_ptr() };
+                    arguments.push(if indirect {
+                        quote! { core::mem::transmute(#argument) }
+                    } else {
+                        argument
+                    });
                 }
             } else if parameter.is_into_param(layout) {
                 let generic = tokens::ident(&format!("P{position}"));
@@ -432,8 +462,9 @@ impl native_signature::Signature {
             } else if parameter.is_bool() {
                 parameters.push(quote! { #name: bool });
                 arguments.push(quote! { #name.into() });
-            } else if parameter.ty.is_bstr() {
-                parameters.push(quote! { #name: &windows_core::BSTR });
+            } else if parameter.ty.is_bstr() || parameter.ty.is_hstring() {
+                let ty = parameter.ty.write_public(namespace, layout);
+                parameters.push(quote! { #name: &#ty });
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
             } else if parameter.is_optional_hint() {
                 let ty = parameter.ty.write_public(namespace, layout);
@@ -507,7 +538,7 @@ impl native_signature::Signature {
             ReturnKind::VoidValue { position, ty } | ReturnKind::VoidInterface { position, ty } => {
                 (Some((position, ty)), None)
             }
-            ReturnKind::Direct(ty) => (None, Some(ty)),
+            ReturnKind::Direct(ty) | ReturnKind::Indirect(ty) => (None, Some(ty)),
             ReturnKind::Void => (None, None),
             _ => return None,
         };
@@ -536,29 +567,45 @@ impl native_signature::Signature {
                 arguments.push(argument);
             } else if let Some(argument) = write_slice_count(self, parameter, namespace, layout) {
                 arguments.push(argument);
-            } else if let Some(len) = parameter.fixed_array_len()
-                && let Some(element) = parameter.ty.pointee()
-            {
+            } else if let Some(len) = parameter.fixed_array_len() {
+                let pointee = parameter.ty.pointee();
+                let element = pointee.unwrap_or(&parameter.ty);
                 let element = element.write_public(namespace, layout);
                 let len = proc_macro2::Literal::usize_unsuffixed(len);
+                let indirect = pointee.is_none();
                 if parameter.is_optional() && parameter.is_mutable_pointer() {
                     parameters.push(quote! { #name: Option<&mut [#element; #len]> });
-                    arguments.push(quote! {
+                    let argument = quote! {
                         #name.as_deref().map_or(
                             core::ptr::null_mut(),
                             |array| array.as_ptr().cast_mut()
                         )
+                    };
+                    arguments.push(if indirect {
+                        quote! { core::mem::transmute(#argument) }
+                    } else {
+                        argument
                     });
                 } else if parameter.is_optional() {
                     parameters.push(quote! { #name: Option<&[#element; #len]> });
-                    arguments
-                        .push(quote! { #name.map_or(core::ptr::null(), |array| array.as_ptr()) });
+                    let argument =
+                        quote! { #name.map_or(core::ptr::null(), |array| array.as_ptr()) };
+                    arguments.push(if indirect {
+                        quote! { core::mem::transmute(#argument) }
+                    } else {
+                        argument
+                    });
                 } else if parameter.is_mutable_pointer() {
                     parameters.push(quote! { #name: &mut [#element; #len] });
                     arguments.push(quote! { #name.as_mut_ptr() });
                 } else {
                     parameters.push(quote! { #name: &[#element; #len] });
-                    arguments.push(quote! { #name.as_ptr() });
+                    let argument = quote! { #name.as_ptr() };
+                    arguments.push(if indirect {
+                        quote! { core::mem::transmute(#argument) }
+                    } else {
+                        argument
+                    });
                 }
             } else if parameter.is_into_param(layout) {
                 let generic = tokens::ident(&format!("P{position}"));
@@ -570,8 +617,9 @@ impl native_signature::Signature {
             } else if parameter.is_bool() {
                 parameters.push(quote! { #name: bool });
                 arguments.push(quote! { #name.into() });
-            } else if parameter.ty.is_bstr() {
-                parameters.push(quote! { #name: &windows_core::BSTR });
+            } else if parameter.ty.is_bstr() || parameter.ty.is_hstring() {
+                let ty = parameter.ty.write_public(namespace, layout);
+                parameters.push(quote! { #name: &#ty });
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
             } else if parameter.is_optional_hint() {
                 let ty = parameter.ty.write_public(namespace, layout);
@@ -717,32 +765,50 @@ impl native_signature::Signature {
                 arguments.push(quote! { #name.into() });
                 continue;
             }
-            if let Some(len) = parameter.fixed_array_len()
-                && let Some(element) = parameter.ty.pointee()
-            {
+            if let Some(len) = parameter.fixed_array_len() {
+                let pointee = parameter.ty.pointee();
+                let element = pointee.unwrap_or(&parameter.ty);
                 let element = element.write_public_with_owner(namespace, layout, Some(owner));
                 let len = proc_macro2::Literal::usize_unsuffixed(len);
                 let mutable = matches!(&parameter.ty, native::Type::Pointer { mutable: true, .. });
+                let indirect = pointee.is_none();
                 if parameter.is_optional() && mutable {
                     parameters.push(quote! { #name: Option<&mut [#element; #len]>, });
-                    arguments.push(
-                        quote! { #name.map_or(core::ptr::null_mut(), |array| array.as_mut_ptr()) },
-                    );
+                    let argument =
+                        quote! { #name.map_or(core::ptr::null_mut(), |array| array.as_mut_ptr()) };
+                    arguments.push(if indirect {
+                        quote! { core::mem::transmute(#argument) }
+                    } else {
+                        argument
+                    });
                 } else if parameter.is_optional() {
                     parameters.push(quote! { #name: Option<&[#element; #len]>, });
-                    arguments
-                        .push(quote! { #name.map_or(core::ptr::null(), |slice| slice.as_ptr()) });
+                    let argument =
+                        quote! { #name.map_or(core::ptr::null(), |slice| slice.as_ptr()) };
+                    arguments.push(if indirect {
+                        quote! { core::mem::transmute(#argument) }
+                    } else {
+                        argument
+                    });
                 } else if mutable {
                     parameters.push(quote! { #name: &mut [#element; #len], });
                     arguments.push(quote! { #name.as_mut_ptr() });
                 } else {
                     parameters.push(quote! { #name: &[#element; #len], });
-                    arguments.push(quote! { #name.as_ptr() });
+                    let argument = quote! { #name.as_ptr() };
+                    arguments.push(if indirect {
+                        quote! { core::mem::transmute(#argument) }
+                    } else {
+                        argument
+                    });
                 }
                 continue;
             }
-            if parameter.ty.is_bstr() {
-                parameters.push(quote! { #name: &windows_core::BSTR, });
+            if parameter.ty.is_bstr() || parameter.ty.is_hstring() {
+                let ty = parameter
+                    .ty
+                    .write_public_with_owner(namespace, layout, Some(owner));
+                parameters.push(quote! { #name: &#ty, });
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
                 continue;
             }

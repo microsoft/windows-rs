@@ -961,6 +961,35 @@ fn static_events_use_projected_delegate_construction() {
 }
 
 #[test]
+fn event_wrappers_preserve_metadata_parameter_names() {
+    let output = fixture(
+        r#"
+            #[winrt]
+            mod Test {
+                interface IEvents {
+                    #[special]
+                    fn add_First(&self, value: Handler) -> i64;
+                    #[special]
+                    fn remove_First(&self, token: i64);
+                    #[special]
+                    fn add_Second(&self, handler: Handler) -> i64;
+                    #[special]
+                    fn remove_Second(&self, token: i64);
+                }
+                delegate fn Handler(value: i32);
+            }
+        "#,
+    )
+    .render(Layout::Flat)
+    .unwrap()
+    .to_string();
+    assert!(output.contains("pub fn First < F > (& self , value : F)"));
+    assert!(output.contains("let value = < Handler > :: new"));
+    assert!(output.contains("pub fn Second < F > (& self , handler : F)"));
+    assert!(output.contains("let handler = < Handler > :: new"));
+}
+
+#[test]
 fn focused_winrt_member_filters_match_existing_tokens() {
     for (name, source, expected, ty, methods, projection) in [
         (
@@ -1244,6 +1273,261 @@ fn rich_native_function_calls_avoid_redundant_struct_pointer_casts() {
         .to_string();
 
     assert!(output.contains("NdrAllocate (pstubmsg , len)"), "{output}");
+}
+
+#[test]
+fn rich_native_function_calls_cast_typedef_void_pointers() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .functions()
+        .find_map(|function| {
+            let function = function.unwrap();
+            (function.name() == "JetGetCursorInfo").then_some(function)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("JetGetCursorInfo (sesid , tableid , pvresult as _ , cbmax , infolevel)"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_constants_wrap_intermediate_newtypes() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .constants()
+        .find_map(|constant| {
+            let constant = constant.unwrap();
+            (constant.name() == "JET_bitNil").then_some(constant)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("pub const JET_bitNil : JET_GRBIT = JET_UINT32 (0 as _)"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_callback_parameters_are_not_double_optional() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    for (name, callback) in [("JetBackupA", "JET_PFNSTATUS"), ("SetTimer", "TIMERPROC")] {
+        let output = generator
+            .win32_items()
+            .functions()
+            .find_map(|function| {
+                let function = function.unwrap();
+                (function.name() == name).then_some(function)
+            })
+            .unwrap()
+            .write_package()
+            .to_string();
+        assert!(
+            !output.contains(&format!("Option < {callback} >")),
+            "{name}: {output}"
+        );
+    }
+}
+
+#[test]
+fn rich_native_fixed_arrays_include_inout_and_handle_parameters() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    for (name, parameter) in [
+        ("ScriptCacheGetHeight", "psc : & mut [SCRIPT_CACHE ; 1]"),
+        ("ScriptStringCPtoX", "ssa : & [SCRIPT_STRING_ANALYSIS ; 1]"),
+    ] {
+        let output = generator
+            .win32_items()
+            .functions()
+            .find_map(|function| {
+                let function = function.unwrap();
+                (function.name() == name).then_some(function)
+            })
+            .unwrap()
+            .write_package()
+            .to_string();
+        assert!(output.contains(parameter), "{name}: {output}");
+    }
+}
+
+#[test]
+fn rich_native_nested_struct_layout_limits_retval_projection() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "IDebugControl").then_some(interface)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+    assert!(
+        output.contains(
+            "CoerceValue (& self , r#in : * const DEBUG_VALUE , outtype : u32 , out : * mut DEBUG_VALUE"
+        ),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_void_methods_limit_large_struct_retvals() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let interface = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "ID3D11DepthStencilView").then_some(interface)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+    assert!(
+        interface.contains("GetDesc (& self , pdesc : * mut D3D11_DEPTH_STENCIL_VIEW_DESC"),
+        "{interface}"
+    );
+    let function = generator
+        .win32_items()
+        .functions()
+        .find_map(|function| {
+            let function = function.unwrap();
+            (function.name() == "RtlTimeToTimeFields").then_some(function)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+    assert!(
+        function.contains("RtlTimeToTimeFields (time : * const i64) -> TIME_FIELDS"),
+        "{function}"
+    );
+}
+
+#[test]
+fn rich_native_winrt_value_structs_return_directly() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let interface = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "ID2D1LinearGradientBrush").then_some(interface)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+    assert!(
+        interface.contains(
+            "GetStartPoint : unsafe extern \"system\" fn (* mut core :: ffi :: c_void) -> windows_numerics :: Vector2"
+        ),
+        "{interface}"
+    );
+    let function = generator
+        .win32_items()
+        .functions()
+        .find_map(|function| {
+            let function = function.unwrap();
+            (function.name() == "D2D1ConvertColorSpace").then_some(function)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+    assert!(
+        function.contains("pub unsafe fn D2D1ConvertColorSpace"),
+        "{function}"
+    );
+}
+
+#[test]
+fn rich_native_hstring_parameters_borrow_and_outputs_transmute() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .functions()
+        .find_map(|function| {
+            let function = function.unwrap();
+            (function.name() == "WindowsConcatString").then_some(function)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+    assert!(
+        output
+            .contains("string1 : & windows_core :: HSTRING , string2 : & windows_core :: HSTRING"),
+        "{output}"
+    );
+    assert!(
+        output.contains("map (|| core :: mem :: transmute (result__))"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_bitfield_impls_retain_architecture_cfgs() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .native_types()
+        .map(|ty| ty.unwrap().write_package().to_string())
+        .find(|output| output.contains("pub struct AMD_L2_CACHE_INFO_0"))
+        .unwrap();
+    assert!(
+        output.contains("# [cfg (target_arch = \"x86\")] impl AMD_L2_CACHE_INFO_0"),
+        "{output}"
+    );
 }
 
 #[test]
@@ -2322,6 +2606,75 @@ fn winrt_class_special_policies_render() {
         .to_string();
     assert!(
         output.contains("pub type DeleteSmsMessageOperation = windows_future :: IAsyncAction"),
+        "{output}"
+    );
+
+    let output = metadata
+        .generator(Request::filtered(Filter::names(["AmbientLight"])))
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+    let animation = output.find("IAnimationObject").unwrap();
+    let closable = output.find("IClosable").unwrap();
+    let light = output.find("CompositionLight").unwrap();
+    assert!(animation < closable && closable < light, "{output}");
+
+    let output = metadata
+        .generator(Request::filtered(Filter::names(["AnimationController"])))
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+    let resume = output.find("pub fn Resume").unwrap();
+    let maximum = output.find("pub fn MaxPlaybackRate").unwrap();
+    let populate = output.find("pub fn PopulatePropertyInfo").unwrap();
+    assert!(resume < maximum && maximum < populate, "{output}");
+
+    let output = metadata
+        .generator(Request::filtered(Filter::names(["IStorageFile"])))
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+    let input = output.find("IInputStreamReference").unwrap();
+    let random = output.find("IRandomAccessStreamReference").unwrap();
+    let item = output.find("IStorageItem").unwrap();
+    assert!(input < random && random < item, "{output}");
+
+    let output = metadata
+        .generator(Request::filtered(Filter::names(["JournalPrintJob"])))
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+    let start = output.find("pub fn Print2").unwrap();
+    let method = &output[start..];
+    let end = method[1..]
+        .find("pub fn")
+        .map_or(method.len(), |end| end + 1);
+    assert!(method[..end].contains(". Print) ("), "{output}");
+
+    let output = metadata
+        .generator(Request::filtered(Filter::names(["GuidHelper"])))
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+    assert!(output.contains("& target , & value"), "{output}");
+
+    let output = metadata
+        .generator(Request::filtered(Filter::names(["IPropertyValue"])))
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+    assert!(
+        output.contains("Array < windows_core :: IInspectable >"),
+        "{output}"
+    );
+    assert!(
+        !output.contains("Array < Option < windows_core :: IInspectable > >"),
         "{output}"
     );
 
@@ -3649,6 +4002,58 @@ fn rich_native_interfaces_apply_architecture_cfgs_to_members_only() {
         ),
         "{output}"
     );
+}
+
+#[test]
+fn rich_native_inspectable_bases_use_core_projection() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let interface = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "IAudioFrameNative").then_some(interface)
+        })
+        .unwrap();
+    let output = normalize_existing_output(interface.write_package());
+
+    assert!(output.contains("pub base__ : windows_core :: IInspectable_Vtbl"));
+    assert!(output.contains("pub trait IAudioFrameNative_Impl : windows_core :: IUnknownImpl"));
+    assert!(
+        output.contains(
+            "windows_core :: IInspectable_Vtbl :: new ::< Identity , IAudioFrameNative , OFFSET >"
+        ),
+        "{output}"
+    );
+    assert!(!output.contains("impl core :: ops :: Deref for IAudioFrameNative"));
+    assert!(!output.contains("feature = \"inspectable\""));
+}
+
+#[test]
+fn rich_native_interfaces_include_winrt_method_features() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let interface = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "ICompositionCapabilitiesInteropFactory").then_some(interface)
+        })
+        .unwrap();
+    let output = normalize_existing_output(interface.write_package());
+
+    assert!(output.contains("feature = \"UI_Composition\""), "{output}");
+    assert!(!output.contains("feature = \"inspectable\""), "{output}");
 }
 
 #[test]

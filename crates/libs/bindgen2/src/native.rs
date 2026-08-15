@@ -759,6 +759,52 @@ impl Type {
         Ok(result)
     }
 
+    pub(super) fn resolves_to_mut_void_pointer(
+        &self,
+        database: &Database,
+        stack: &mut BTreeSet<(String, String)>,
+    ) -> Result<bool, Error> {
+        if matches!(
+            self,
+            Self::Pointer {
+                mutable: true,
+                element,
+            } if **element == Self::Void
+        ) {
+            return Ok(true);
+        }
+        let Self::Named { namespace, name } = self else {
+            return Ok(false);
+        };
+        let key = (namespace.clone(), name.clone());
+        if !stack.insert(key.clone()) {
+            return Ok(false);
+        }
+        let mut result = false;
+        for entity in database.type_definitions(namespace, name) {
+            let definition = database.definition(*entity).unwrap();
+            if definition.category()? != TypeCategory::Struct
+                || !definition.has_attribute("NativeTypedefAttribute")?
+            {
+                continue;
+            }
+            let fields = definition.fields()?.collect::<Vec<_>>();
+            let [field] = fields.as_slice() else {
+                continue;
+            };
+            if field.name()? != "Value" {
+                continue;
+            }
+            let field = Self::lower(database, field.entity().file(), name, field.signature()?)?;
+            if field.resolves_to_mut_void_pointer(database, stack)? {
+                result = true;
+                break;
+            }
+        }
+        stack.remove(&key);
+        Ok(result)
+    }
+
     pub(super) fn is_primitive(&self, database: &Database) -> Result<bool, Error> {
         self.is_primitive_inner(database, &mut BTreeSet::new())
     }
@@ -961,6 +1007,16 @@ impl Type {
         )
     }
 
+    pub(super) fn is_hstring(&self) -> bool {
+        matches!(
+            self,
+            Self::Named { namespace, name }
+                if name == "HSTRING"
+                    && (namespace == "Windows.Win32"
+                        || namespace.starts_with("Windows.Win32."))
+        )
+    }
+
     pub(super) fn is_pcwstr(&self) -> bool {
         matches!(
             self,
@@ -992,6 +1048,9 @@ impl Type {
     }
 
     pub(super) fn is_indirect_return(&self, database: &Database) -> Result<bool, Error> {
+        if self.uses_winrt_projection() {
+            return Ok(false);
+        }
         if matches!(
             self,
             Self::Named { namespace, name }
@@ -1048,7 +1107,7 @@ impl Type {
                 if !stack.insert(key.clone()) {
                     return Ok((0, 1));
                 }
-                let mut result = (4usize, 4usize);
+                let mut result = None::<(usize, usize)>;
                 for entity in database.type_definitions(namespace, name) {
                     let definition = database.definition(*entity).unwrap();
                     if definition.category()? != TypeCategory::Struct {
@@ -1082,15 +1141,212 @@ impl Type {
                         }
                         definition_layout.1 = definition_layout.1.max(field_align);
                     }
-                    if definition_layout.0 > result.0 {
-                        result = definition_layout;
-                    }
+                    result = Some(result.map_or(definition_layout, |result| {
+                        (
+                            result.0.max(definition_layout.0),
+                            result.1.max(definition_layout.1),
+                        )
+                    }));
                 }
                 stack.remove(&key);
-                result
+                result.unwrap_or((4, 4))
             }
             _ => (4, 4),
         })
+    }
+}
+
+pub(super) fn metadata_has_oversized_member(
+    database: &Database,
+    file: FileId,
+    ty: &windows_metadata2::Type,
+) -> Result<bool, Error> {
+    metadata_type_has_oversized_member(database, file, ty, None, &mut BTreeSet::new())
+}
+
+pub(super) fn metadata_exceeds_retval_limit(
+    database: &Database,
+    file: FileId,
+    ty: &windows_metadata2::Type,
+) -> Result<bool, Error> {
+    let layout = metadata_type_layout(database, file, ty, None, &mut BTreeSet::new())?;
+    Ok(layout.0 > 16)
+}
+
+fn metadata_type_layout(
+    database: &Database,
+    file: FileId,
+    ty: &windows_metadata2::Type,
+    owner: Option<Entity<TypeDef>>,
+    stack: &mut BTreeSet<Entity<TypeDef>>,
+) -> Result<(usize, usize), Error> {
+    Ok(match &ty.kind {
+        TypeKind::I8 | TypeKind::U8 => (1, 1),
+        TypeKind::I16 | TypeKind::U16 => (2, 2),
+        TypeKind::I64 | TypeKind::U64 | TypeKind::F64 => (8, 8),
+        TypeKind::Array {
+            element,
+            rank,
+            sizes,
+            lower_bounds,
+        } if *rank == 1 && sizes.len() == 1 && lower_bounds.iter().all(|bound| *bound == 0) => {
+            let (size, align) = metadata_type_layout(database, file, element, owner, stack)?;
+            (
+                size.saturating_mul(sizes[0] as usize),
+                align.saturating_mul(sizes[0] as usize).max(1),
+            )
+        }
+        TypeKind::Value(id) => {
+            let (namespace, name) =
+                database
+                    .type_name(file, *id)?
+                    .ok_or_else(|| Error::InvalidType {
+                        name: "retval".to_string(),
+                        message: "native retval type has no name",
+                    })?;
+            let mut definitions = match database.resolve_type(file, *id)? {
+                TypeResolution::Definition(definition) => vec![definition],
+                TypeResolution::Candidates(candidates) => candidates.iter().collect(),
+                TypeResolution::Specification(_) => Vec::new(),
+            };
+            if definitions.is_empty()
+                && namespace.is_empty()
+                && let Some(owner) = owner
+            {
+                definitions.extend(
+                    database
+                        .nested_types_of(owner)
+                        .filter(|definition| {
+                            definition.name().is_ok_and(|candidate| candidate == name)
+                        })
+                        .map(|definition| definition.entity()),
+                );
+            }
+            let mut result = None::<(usize, usize)>;
+            for entity in definitions {
+                if !stack.insert(entity) {
+                    continue;
+                }
+                let definition = database.definition(entity).unwrap();
+                if definition.category()? == TypeCategory::Struct {
+                    let explicit = definition
+                        .type_attributes()?
+                        .contains(TypeAttributes::EXPLICIT_LAYOUT);
+                    let packing = definition
+                        .layout()?
+                        .map(|layout| layout.packing_size())
+                        .transpose()?
+                        .filter(|packing| *packing != 0)
+                        .map(usize::from);
+                    let mut layout = (0usize, 1usize);
+                    for field in definition.fields()? {
+                        if field.is_literal()? {
+                            continue;
+                        }
+                        let (field_size, mut field_align) = metadata_type_layout(
+                            database,
+                            field.entity().file(),
+                            &field.signature()?,
+                            Some(entity),
+                            stack,
+                        )?;
+                        if let Some(packing) = packing {
+                            field_align = field_align.min(packing);
+                        }
+                        if explicit {
+                            layout.0 = layout.0.max(field_size);
+                        } else {
+                            layout.0 = align_up(layout.0, field_align);
+                            layout.0 = layout.0.saturating_add(field_size);
+                        }
+                        layout.1 = layout.1.max(field_align);
+                    }
+                    result = Some(result.map_or(layout, |result| {
+                        (result.0.max(layout.0), result.1.max(layout.1))
+                    }));
+                }
+                stack.remove(&entity);
+            }
+            result.unwrap_or((4, 4))
+        }
+        _ => (4, 4),
+    })
+}
+
+fn metadata_type_has_oversized_member(
+    database: &Database,
+    file: FileId,
+    ty: &windows_metadata2::Type,
+    owner: Option<Entity<TypeDef>>,
+    stack: &mut BTreeSet<Entity<TypeDef>>,
+) -> Result<bool, Error> {
+    match &ty.kind {
+        TypeKind::Array {
+            element,
+            rank,
+            sizes,
+            lower_bounds,
+        } if *rank == 1 && sizes.len() == 1 && lower_bounds.iter().all(|bound| *bound == 0) => {
+            let element = Type::lower(database, file, "retval", (**element).clone())?;
+            Ok(element
+                .abi_layout(database, &mut BTreeSet::new())?
+                .0
+                .saturating_mul(sizes[0] as usize)
+                > 16)
+        }
+        TypeKind::Value(id) => {
+            let (namespace, name) =
+                database
+                    .type_name(file, *id)?
+                    .ok_or_else(|| Error::InvalidType {
+                        name: "retval".to_string(),
+                        message: "native retval type has no name",
+                    })?;
+            let mut definitions = match database.resolve_type(file, *id)? {
+                TypeResolution::Definition(definition) => vec![definition],
+                TypeResolution::Candidates(candidates) => candidates.iter().collect(),
+                TypeResolution::Specification(_) => Vec::new(),
+            };
+            if definitions.is_empty()
+                && namespace.is_empty()
+                && let Some(owner) = owner
+            {
+                definitions.extend(
+                    database
+                        .nested_types_of(owner)
+                        .filter(|definition| {
+                            definition.name().is_ok_and(|candidate| candidate == name)
+                        })
+                        .map(|definition| definition.entity()),
+                );
+            }
+            for entity in definitions {
+                if !stack.insert(entity) {
+                    continue;
+                }
+                let definition = database.definition(entity).unwrap();
+                if definition.category()? == TypeCategory::Struct {
+                    for field in definition.fields()? {
+                        if field.is_literal()? {
+                            continue;
+                        }
+                        if metadata_type_has_oversized_member(
+                            database,
+                            field.entity().file(),
+                            &field.signature()?,
+                            Some(entity),
+                            stack,
+                        )? {
+                            stack.remove(&entity);
+                            return Ok(true);
+                        }
+                    }
+                }
+                stack.remove(&entity);
+            }
+            Ok(false)
+        }
+        _ => Ok(false),
     }
 }
 

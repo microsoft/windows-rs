@@ -12,6 +12,7 @@ pub struct Constant {
     dependencies: BTreeSet<(String, String)>,
     sys_dependencies: BTreeSet<(String, String)>,
     wrapper: bool,
+    converted_wrapper: Option<native::Type>,
 }
 
 enum Value {
@@ -77,6 +78,7 @@ impl Constant {
                 dependencies,
                 sys_dependencies,
                 wrapper,
+                converted_wrapper: None,
             });
         }
 
@@ -109,6 +111,15 @@ impl Constant {
         let dependencies = ty.package_dependencies(database, cache)?;
         let sys_dependencies = cache.package_sys_dependencies(&dependencies);
         let wrapper = ty.is_wrapper(database)?;
+        let converted_wrapper = if alias_depth > 1 {
+            match constant_immediate_type(database, field.entity().file(), &signature, &full_name)?
+            {
+                Some(ty) if ty.is_wrapper(database)? => Some(ty),
+                _ => None,
+            }
+        } else {
+            None
+        };
         Ok(Self {
             architectures,
             namespace: namespace.to_string(),
@@ -123,6 +134,7 @@ impl Constant {
             dependencies,
             sys_dependencies,
             wrapper,
+            converted_wrapper,
         })
     }
 
@@ -130,6 +142,16 @@ impl Constant {
     #[cfg(test)]
     pub fn write_sys(&self) -> TokenStream {
         self.write_context(Layout::Flat, Projection::Sys)
+    }
+
+    #[cfg(test)]
+    pub fn write_package(&self) -> TokenStream {
+        self.write_context(Layout::Package, Projection::Default)
+    }
+
+    #[cfg(test)]
+    pub fn name(&self) -> &str {
+        &self.name
     }
 
     pub(super) fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
@@ -290,6 +312,15 @@ impl Constant {
                         self.wrapper && underlying.signed_i32(),
                     )
                 };
+                let value = if !projection.is_sys()
+                    && let Some(wrapper) = &self.converted_wrapper
+                {
+                    let wrapper =
+                        wrapper.write_constant_projection(&self.namespace, layout, projection);
+                    quote! { #wrapper(#value) }
+                } else {
+                    value
+                };
                 if !projection.is_sys()
                     && (self.ty.is_hresult()
                         || self.ty.is_ntstatus()
@@ -372,6 +403,44 @@ impl Constant {
         };
         quote! { #value as _ }
     }
+}
+
+fn constant_immediate_type(
+    database: &Database,
+    file: FileId,
+    ty: &windows_metadata2::Type,
+    owner: &str,
+) -> Result<Option<native::Type>, Error> {
+    let (TypeKind::Value(id) | TypeKind::Class(id)) = &ty.kind else {
+        return Ok(None);
+    };
+    let Some((namespace, name)) = database.type_name(file, *id)? else {
+        return Ok(None);
+    };
+    let definitions = database.type_definitions(namespace, name);
+    let [entity] = definitions else {
+        return Ok(None);
+    };
+    let definition = database.definition(*entity).unwrap();
+    if !matches!(
+        definition.category()?,
+        TypeCategory::Enum | TypeCategory::Struct
+    ) {
+        return Ok(None);
+    }
+    let fields = definition
+        .fields()?
+        .filter_map(|field| (!field.is_literal().ok()?).then_some(field))
+        .collect::<Vec<_>>();
+    let [field] = fields.as_slice() else {
+        return Ok(None);
+    };
+    Ok(Some(native::Type::lower(
+        database,
+        field.entity().file(),
+        owner,
+        field.signature()?,
+    )?))
 }
 
 pub(super) fn string_literal(value: &str) -> TokenStream {

@@ -64,13 +64,8 @@ impl Class {
         )?;
         lower_factories(database, definition, owner, &mut seen, &mut interfaces)?;
         let bases = lower_bases(database, definition, relationships, owner, &mut interfaces)?;
-        interfaces.sort_by(|left, right| {
-            (&left.namespace, &left.name, &left.arguments).cmp(&(
-                &right.namespace,
-                &right.name,
-                &right.arguments,
-            ))
-        });
+        interfaces
+            .sort_by(|left, right| (&left.name, left.entity).cmp(&(&right.name, right.entity)));
         let default_interface = interfaces
             .iter()
             .find(|interface| interface.default)
@@ -435,12 +430,30 @@ impl Class {
             Some(&self.name),
         );
         let mut methods = Vec::new();
+        let mut factory_helpers = Vec::new();
         let mut names = BTreeMap::<String, u32>::new();
-        for interface in self
-            .interfaces
-            .iter()
-            .filter(|interface| !interface.factory && !projection.is_minimal())
-        {
+        for interface in &self.interfaces {
+            if interface.factory {
+                if let Some((mut factory_methods, helper)) = self.write_factory(
+                    interface,
+                    namespace,
+                    layout,
+                    projection,
+                    &name,
+                    &context,
+                    &mut names,
+                    members,
+                    implementations,
+                    member_selections,
+                )? {
+                    methods.append(&mut factory_methods);
+                    factory_helpers.push(helper);
+                }
+                continue;
+            }
+            if projection.is_minimal() {
+                continue;
+            }
             let interface_type = interface.write_name(namespace, layout)?;
             for method in &interface.methods {
                 if !method.is_public() || !method.selected(members) {
@@ -475,17 +488,6 @@ impl Class {
                 methods.push(quote! { #cfg #method_tokens });
             }
         }
-        let factories = self.write_factories(
-            namespace,
-            layout,
-            projection,
-            &name,
-            &context,
-            &mut names,
-            members,
-            implementations,
-            member_selections,
-        )?;
         let deref = projection.is_minimal().then(|| {
             quote! {
                 #class_cfg
@@ -497,18 +499,19 @@ impl Class {
                 }
             }
         });
-        let impl_block = if constructor.is_none() && methods.is_empty() && factories.is_empty() {
-            quote! {}
-        } else {
-            quote! {
-                #class_cfg
-                impl #name {
-                    #constructor
-                    #(#methods)*
-                    #(#factories)*
+        let impl_block =
+            if constructor.is_none() && methods.is_empty() && factory_helpers.is_empty() {
+                quote! {}
+            } else {
+                quote! {
+                    #class_cfg
+                    impl #name {
+                        #constructor
+                        #(#methods)*
+                        #(#factory_helpers)*
+                    }
                 }
-            }
-        };
+            };
         let iterable = if projection.is_minimal() {
             TokenStream::new()
         } else {
@@ -583,6 +586,43 @@ impl Class {
         implementations: Option<&BTreeSet<Entity<TypeDef>>>,
         member_selections: &BTreeMap<Entity<TypeDef>, MemberSelection>,
     ) -> Result<Vec<TokenStream>, Error> {
+        let mut factories = Vec::new();
+        let mut helpers = Vec::new();
+        for interface in self.interfaces.iter().filter(|interface| interface.factory) {
+            if let Some((mut methods, helper)) = self.write_factory(
+                interface,
+                namespace,
+                layout,
+                projection,
+                name,
+                context,
+                names,
+                members,
+                implementations,
+                member_selections,
+            )? {
+                factories.append(&mut methods);
+                helpers.push(helper);
+            }
+        }
+        factories.extend(helpers);
+        Ok(factories)
+    }
+
+    #[allow(clippy::too_many_arguments)]
+    fn write_factory(
+        &self,
+        interface: &ClassInterface,
+        namespace: &str,
+        layout: Layout,
+        projection: Projection,
+        name: &TokenStream,
+        context: &winrt_delegate::MethodContext<'_>,
+        names: &mut BTreeMap<String, u32>,
+        members: &MemberSelection,
+        implementations: Option<&BTreeSet<Entity<TypeDef>>>,
+        member_selections: &BTreeMap<Entity<TypeDef>, MemberSelection>,
+    ) -> Result<Option<(Vec<TokenStream>, TokenStream)>, Error> {
         let class_features = tokens::feature_names(
             namespace,
             layout,
@@ -595,136 +635,129 @@ impl Class {
                 .iter()
                 .any(|interface| implementations.contains(&interface.entity))
         });
-        let mut factories = Vec::new();
-        let mut helpers = Vec::new();
-        for interface in self.interfaces.iter().filter(|interface| {
-            let interface_members = member_selections
-                .get(&interface.entity)
-                .unwrap_or(&MemberSelection::Shell);
-            let default_composable_constructor = projection.is_minimal()
-                && !implemented
-                && interface.composable
-                && matches!(
-                    members,
-                    MemberSelection::Names(names)
-                        if !names.is_empty()
-                            && !names.iter().any(|name| name.starts_with("CreateInstance"))
-                )
-                && interface
-                    .methods
-                    .iter()
-                    .any(|method| method.name.starts_with("CreateInstance"));
-            interface.factory
-                && (matches!(members, MemberSelection::All)
-                    || interface.methods.iter().any(|method| {
-                        method.selected_factory(members) || method.selected(interface_members)
-                    })
-                    || default_composable_constructor
-                    || (projection.is_minimal() && implemented && interface.composable))
-        }) {
-            let interface_members = member_selections
-                .get(&interface.entity)
-                .unwrap_or(&MemberSelection::Shell);
-            let interface_type = interface.write_name(namespace, layout)?;
-            let factory_name = tokens::ident(&interface.name);
-            let primary_constructor = interface
+        let interface_members = member_selections
+            .get(&interface.entity)
+            .unwrap_or(&MemberSelection::Shell);
+        let default_composable_constructor = projection.is_minimal()
+            && !implemented
+            && interface.composable
+            && matches!(
+                members,
+                MemberSelection::Names(names)
+                    if !names.is_empty()
+                        && !names.iter().any(|name| name.starts_with("CreateInstance"))
+            )
+            && interface
                 .methods
                 .iter()
-                .find(|method| method.name == "CreateInstance")
-                .or_else(|| {
-                    interface
-                        .methods
-                        .iter()
-                        .find(|method| method.name.starts_with("CreateInstance"))
-                })
-                .map(|method| method.name.as_str());
-            let mut emitted = false;
-            for method in &interface.methods {
-                if !method.is_public() {
-                    continue;
-                }
-                let selected =
-                    method.selected_factory(members) || method.selected(interface_members);
-                let implementation_constructor = projection.is_minimal()
-                    && implemented
-                    && interface.composable
-                    && method.name == "CreateInstance";
-                let default_constructor = projection.is_minimal()
-                    && !implemented
-                    && interface.composable
-                    && primary_constructor == Some(method.name.as_str());
-                if !selected && !implementation_constructor && !default_constructor {
-                    continue;
-                }
-                emitted = true;
-                let context_name = &method.context_name;
-                let count = names.entry(context_name.clone()).or_default();
-                *count += 1;
-                let public_name = if *count == 1 {
-                    context_name.clone()
-                } else {
-                    format!("{context_name}{count}")
-                };
-                let mut features = tokens::feature_names(
-                    namespace,
-                    layout,
-                    method
-                        .method
-                        .package_dependencies()
-                        .iter()
-                        .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
-                );
-                features.retain(|feature| !class_features.contains(feature));
-                let cfg = tokens::feature_cfg_set(&features, false);
-                if interface.composable {
-                    factories.extend(
-                        method
-                            .method
-                            .write_composable_methods(
-                                context,
-                                &public_name,
-                                &method.name,
-                                &interface.name,
-                                (selected || default_constructor)
-                                    && (!projection.is_minimal() || !implemented),
-                                !projection.is_minimal() || implementation_constructor,
-                            )?
-                            .into_iter()
-                            .map(|tokens| quote! { #cfg #tokens }),
-                    );
-                } else {
-                    let tokens = method
-                        .write_static(context, &public_name, &interface.name)?
-                        .unwrap();
-                    factories.push(quote! { #cfg #tokens });
-                }
-            }
-            if !emitted {
+                .any(|method| method.name.starts_with("CreateInstance"));
+        if !matches!(members, MemberSelection::All)
+            && !interface.methods.iter().any(|method| {
+                method.selected_factory(members) || method.selected(interface_members)
+            })
+            && !default_composable_constructor
+            && !(projection.is_minimal() && implemented && interface.composable)
+        {
+            return Ok(None);
+        }
+        let interface_type = interface.write_name(namespace, layout)?;
+        let factory_name = tokens::ident(&interface.name);
+        let primary_constructor = interface
+            .methods
+            .iter()
+            .find(|method| method.name == "CreateInstance")
+            .or_else(|| {
+                interface
+                    .methods
+                    .iter()
+                    .find(|method| method.name.starts_with("CreateInstance"))
+            })
+            .map(|method| method.name.as_str());
+        let mut factories = Vec::new();
+        let mut emitted = false;
+        for method in &interface.methods {
+            if !method.is_public() {
                 continue;
             }
+            let selected = method.selected_factory(members) || method.selected(interface_members);
+            let implementation_constructor = projection.is_minimal()
+                && implemented
+                && interface.composable
+                && method.name == "CreateInstance";
+            let default_constructor = projection.is_minimal()
+                && !implemented
+                && interface.composable
+                && primary_constructor == Some(method.name.as_str());
+            if !selected && !implementation_constructor && !default_constructor {
+                continue;
+            }
+            emitted = true;
+            let context_name = &method.context_name;
+            let count = names.entry(context_name.clone()).or_default();
+            *count += 1;
+            let public_name = if *count == 1 {
+                context_name.clone()
+            } else {
+                format!("{context_name}{count}")
+            };
             let mut features = tokens::feature_names(
                 namespace,
                 layout,
-                [(&interface.namespace, &interface.name)]
-                    .into_iter()
+                method
+                    .method
+                    .package_dependencies()
+                    .iter()
                     .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
             );
             features.retain(|feature| !class_features.contains(feature));
             let cfg = tokens::feature_cfg_set(&features, false);
-            helpers.push(quote! {
-                #cfg
-                fn #factory_name<
-                    R,
-                    F: FnOnce(&#interface_type) -> windows_core::Result<R>
-                >(callback: F) -> windows_core::Result<R> {
-                    static SHARED: windows_core::imp::FactoryCache<#name, #interface_type> =
-                        windows_core::imp::FactoryCache::new();
-                    SHARED.call(callback)
-                }
-            });
+            if interface.composable {
+                factories.extend(
+                    method
+                        .method
+                        .write_composable_methods(
+                            context,
+                            &public_name,
+                            &method.name,
+                            &interface.name,
+                            (selected || default_constructor)
+                                && (!projection.is_minimal() || !implemented),
+                            !projection.is_minimal() || implementation_constructor,
+                        )?
+                        .into_iter()
+                        .map(|tokens| quote! { #cfg #tokens }),
+                );
+            } else {
+                let tokens = method
+                    .write_static(context, &public_name, &interface.name)?
+                    .unwrap();
+                factories.push(quote! { #cfg #tokens });
+            }
         }
-        factories.extend(helpers);
-        Ok(factories)
+        if !emitted {
+            return Ok(None);
+        }
+        let mut features = tokens::feature_names(
+            namespace,
+            layout,
+            [(&interface.namespace, &interface.name)]
+                .into_iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        );
+        features.retain(|feature| !class_features.contains(feature));
+        let cfg = tokens::feature_cfg_set(&features, false);
+        let helper = quote! {
+            #cfg
+            fn #factory_name<
+                R,
+                F: FnOnce(&#interface_type) -> windows_core::Result<R>
+            >(callback: F) -> windows_core::Result<R> {
+                static SHARED: windows_core::imp::FactoryCache<#name, #interface_type> =
+                    windows_core::imp::FactoryCache::new();
+                SHARED.call(callback)
+            }
+        };
+        Ok(Some((factories, helper)))
     }
 }
 
@@ -769,9 +802,15 @@ impl ClassInterface {
     }
 
     fn write_name(&self, namespace: &str, layout: Layout) -> Result<TokenStream, Error> {
-        if namespace != self.namespace
-            && let Some(crate_name) = external::winrt_crate(&self.namespace, &self.name)
-        {
+        let crate_name =
+            if layout.is_package() && self.namespace == "Windows.Foundation.Collections" {
+                external::package_crate_name(&self.namespace, &self.name)
+            } else if namespace != self.namespace {
+                external::winrt_crate(&self.namespace, &self.name)
+            } else {
+                None
+            };
+        if let Some(crate_name) = crate_name {
             let crate_name = tokens::ident(crate_name);
             let name = tokens::ident(&self.name);
             let arguments = self

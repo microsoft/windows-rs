@@ -37,6 +37,9 @@ impl NativeInterface {
             collect_interface_bases(database, definition.entity(), bases, &mut BTreeSet::new())?;
         let mut hierarchy_method_dependencies = BTreeSet::new();
         for (namespace, name) in &hierarchy {
+            if matches!(name.as_str(), "IUnknown" | "IInspectable") {
+                continue;
+            }
             hierarchy_method_dependencies
                 .extend(dependencies.interface_method_dependencies(database, namespace, name)?);
         }
@@ -257,6 +260,8 @@ impl NativeInterface {
         let base_vtbl = self.base.as_ref().map(|(namespace, base)| {
             if base == "IUnknown" {
                 quote! { windows_core::IUnknown_Vtbl }
+            } else if base == "IInspectable" {
+                quote! { windows_core::IInspectable_Vtbl }
             } else {
                 let path = tokens::namespace(&self.namespace, namespace, layout);
                 let base_vtbl = tokens::ident(&format!("{base}_Vtbl"));
@@ -276,7 +281,7 @@ impl NativeInterface {
             }
         });
         let deref = self.base.as_ref().and_then(|(namespace, base)| {
-            (base != "IUnknown").then(|| {
+            (!matches!(base.as_str(), "IUnknown" | "IInspectable")).then(|| {
                 let base = write_base(namespace, base);
                 quote! {
                     #class_cfg
@@ -419,10 +424,9 @@ impl NativeInterface {
                 .methods
                 .iter()
                 .all(|method| method.signature.supports_implementation())
-            && self
-                .base
-                .as_ref()
-                .is_none_or(|(_, name)| name == "IUnknown" || base_selected)
+            && self.base.as_ref().is_none_or(|(_, name)| {
+                matches!(name.as_str(), "IUnknown" | "IInspectable") || base_selected
+            })
     }
 
     fn supports_implementation(&self, base_selected: bool) -> bool {
@@ -431,10 +435,9 @@ impl NativeInterface {
                 .methods
                 .iter()
                 .all(|method| method.signature.supports_implementation())
-            && self
-                .base
-                .as_ref()
-                .is_some_and(|(_, name)| name == "IUnknown" || base_selected)
+            && self.base.as_ref().is_some_and(|(_, name)| {
+                matches!(name.as_str(), "IUnknown" | "IInspectable") || base_selected
+            })
     }
 
     pub(super) fn base_name(&self) -> Option<(&str, &str)> {
@@ -471,6 +474,13 @@ impl NativeInterface {
                             quote! { windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
                         },
                     )
+                } else if base == "IInspectable" {
+                    (
+                        quote! { windows_core::IUnknownImpl },
+                        quote! {
+                            windows_core::IInspectable_Vtbl::new::<Identity, #name, OFFSET>()
+                        },
+                    )
                 } else {
                     let path = tokens::namespace(&self.namespace, namespace, layout);
                     let base_impl = tokens::ident(&format!("{base}_Impl"));
@@ -492,7 +502,7 @@ impl NativeInterface {
         let hierarchy_matches = self
             .hierarchy
             .iter()
-            .filter(|(_, base)| base != "IUnknown")
+            .filter(|(_, base)| !matches!(base.as_str(), "IUnknown" | "IInspectable"))
             .map(|(namespace, base)| {
                 let path = tokens::namespace(&self.namespace, namespace, layout);
                 let base = tokens::ident(base);
@@ -651,6 +661,7 @@ impl NativeInterface {
             layout,
             self.hierarchy
                 .iter()
+                .filter(|(namespace, name)| native::core_projection(namespace, name).is_none())
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         )
     }
@@ -661,6 +672,7 @@ impl NativeInterface {
             layout,
             self.hierarchy_method_dependencies
                 .iter()
+                .filter(|(namespace, name)| native::core_projection(namespace, name).is_none())
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         )
     }
@@ -675,6 +687,7 @@ impl NativeInterface {
                     .signature
                     .manifest_dependencies()
                     .iter()
+                    .filter(|(namespace, name)| native::core_projection(namespace, name).is_none())
                     .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
             ));
         }
@@ -687,13 +700,14 @@ impl NativeInterface {
         layout: Layout,
         parent: &BTreeSet<String>,
     ) -> BTreeSet<String> {
-        let mut features = tokens::feature_names(
+        let mut features = tokens::feature_names_with_winrt(
             &self.namespace,
             layout,
             method
                 .signature
                 .package_dependencies()
                 .iter()
+                .filter(|(namespace, name)| native::core_projection(namespace, name).is_none())
                 .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         );
         features.retain(|feature| !parent.contains(feature));

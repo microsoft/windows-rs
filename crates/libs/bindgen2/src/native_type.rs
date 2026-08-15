@@ -912,7 +912,7 @@ impl Struct {
         } else {
             let (derive, default) =
                 self.default_tokens(&name, architectures, cfg, projection, custom_derives);
-            let bitfields = self.write_bitfields(&name, cfg, projection);
+            let bitfields = self.write_bitfields(&name, architectures, cfg, projection);
             quote! {
                 #repr
                 #architectures
@@ -931,14 +931,23 @@ impl Struct {
     fn write_bitfields(
         &self,
         name: &TokenStream,
+        architectures: &TokenStream,
         cfg: &TokenStream,
         projection: Projection,
     ) -> TokenStream {
         if projection.is_sys() || self.bitfields.is_empty() {
             return quote! {};
         }
-        let accessors = self.bitfields.iter().filter_map(Bitfield::write);
+        let accessors = self
+            .bitfields
+            .iter()
+            .filter_map(Bitfield::write)
+            .collect::<Vec<_>>();
+        if accessors.is_empty() {
+            return quote! {};
+        }
         quote! {
+            #architectures
             #cfg
             impl #name {
                 #(#accessors)*

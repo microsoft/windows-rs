@@ -22,11 +22,13 @@ pub(super) struct Method {
 
 #[derive(Clone)]
 pub(super) struct EventHandler {
+    name: String,
     ty: ty::Type,
     invoke: Method,
 }
 
 struct EventBinding {
+    name: TokenStream,
     signature: TokenStream,
     send: TokenStream,
     statement: TokenStream,
@@ -46,6 +48,7 @@ struct Parameter {
     name: String,
     metadata_name: String,
     input_only: bool,
+    by_ref: bool,
     array_ref: bool,
     ty: ty::Type,
 }
@@ -419,6 +422,7 @@ impl EventHandler {
         let send = (!context.is_minimal())
             .then(|| quote! { + Send })
             .unwrap_or_default();
+        let name = tokens::ident(&self.name);
         let parameters = (0..self.invoke.parameters.len())
             .map(|position| tokens::ident(&format!("a{position}")))
             .collect::<Vec<_>>();
@@ -446,20 +450,21 @@ impl EventHandler {
                 let handler: #handler_type = {
                     let com = windows_core::imp::DelegateBox::<#handler_type, F>::new(
                         &#box_name::<#(#arguments,)* F>::VTABLE,
-                        handler
+                        #name
                     );
                     unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
                 };
             }
         } else {
             quote! {
-                let handler = <#handler_type>::new(move |#(#parameters),*| {
-                    handler(#(#parameters),*);
+                let #name = <#handler_type>::new(move |#(#parameters),*| {
+                    #name(#(#parameters),*);
                     Ok(())
                 });
             }
         };
         Ok(EventBinding {
+            name,
             signature,
             send,
             statement,
@@ -520,6 +525,7 @@ impl Method {
         let mut delegate = Delegate::lower(database, definition, owner)?;
         delegate.invoke.substitute(arguments);
         Ok(EventHandler {
+            name: parameter.name.clone(),
             ty: parameter.ty.clone(),
             invoke: delegate.invoke,
         })
@@ -561,6 +567,8 @@ impl Method {
                     });
                 }
                 let array_ref = matches!(&ty.kind, TypeKind::ByRef(inner) if matches!(inner.kind, TypeKind::Vector(_)));
+                let by_ref =
+                    matches!(&ty.kind, TypeKind::ByRef(inner) if !matches!(inner.kind, TypeKind::Vector(_)));
                 let ty = match ty.kind {
                     TypeKind::ByRef(inner) => windows_metadata2::Type {
                         modifiers: Vec::new(),
@@ -575,6 +583,7 @@ impl Method {
                     name,
                     metadata_name,
                     input_only,
+                    by_ref,
                     array_ref,
                     ty: ty::Type::lower(database, file, owner, ty)?,
                 })
@@ -612,10 +621,11 @@ impl Method {
     pub(super) fn write_public_method(
         &self,
         context: &MethodContext<'_>,
-        name: &str,
+        public_name: &str,
+        abi_name: &str,
         receiver: TokenStream,
     ) -> Result<TokenStream, Error> {
-        self.write_public_method_with(context, name, name, receiver, quote! {})
+        self.write_public_method_with(context, public_name, abi_name, receiver, quote! {})
     }
 
     pub(super) fn write_forwarded_public_method(
@@ -650,6 +660,7 @@ impl Method {
         let name = tokens::ident(name);
         let remove_name = tokens::ident(remove_name);
         let EventBinding {
+            name: binding,
             signature,
             send,
             statement,
@@ -660,7 +671,7 @@ impl Method {
             quote! { pub }
         };
         Ok(quote! {
-            #visibility fn #name<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+            #visibility fn #name<F>(&self, #binding: F) -> windows_core::Result<windows_core::EventRevoker>
             where
                 F: Fn #signature #send + 'static,
             {
@@ -670,7 +681,7 @@ impl Method {
                     let mut result__ = core::mem::zeroed();
                     let token__ = (windows_core::Interface::vtable(#receiver).#name)(
                         windows_core::Interface::as_raw(#receiver),
-                        windows_core::Interface::as_raw(&handler),
+                        windows_core::Interface::as_raw(&#binding),
                         &mut result__
                     ).map(|| result__)?;
                     Ok(windows_core::EventRevoker::new(
@@ -805,6 +816,7 @@ impl Method {
         let remove_name = tokens::ident(remove_name);
         let factory_name = tokens::ident(factory_name);
         let EventBinding {
+            name: binding,
             signature,
             send,
             statement,
@@ -815,7 +827,7 @@ impl Method {
             quote! { pub }
         };
         Ok(quote! {
-            #visibility fn #name<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+            #visibility fn #name<F>(#binding: F) -> windows_core::Result<windows_core::EventRevoker>
             where
                 F: Fn #signature #send + 'static,
             {
@@ -824,7 +836,7 @@ impl Method {
                     let mut result__ = core::mem::zeroed();
                     let token__ = (windows_core::Interface::vtable(this).#name)(
                         windows_core::Interface::as_raw(this),
-                        windows_core::Interface::as_raw(&handler),
+                        windows_core::Interface::as_raw(&#binding),
                         &mut result__
                     ).map(|| result__)?;
                     Ok(windows_core::EventRevoker::new(
@@ -1303,6 +1315,12 @@ impl Method {
                         }
                         (ty::Type::Vector(_), true, false, false) => quote! { u32, *const #abi },
                         (ty::Type::Vector(_), false, false, false) => quote! { u32, *mut #abi },
+                        (_, true, _, true) if parameter.by_ref => {
+                            quote! { #name: &#abi }
+                        }
+                        (_, true, _, false) if parameter.by_ref => {
+                            quote! { &#abi }
+                        }
                         (_, true, _, true) => quote! { #name: #abi },
                         (_, false, _, true) => quote! { #name: *mut #abi },
                         (_, true, _, false) => quote! { #abi },
@@ -1523,7 +1541,11 @@ impl Parameter {
         Ok(if self.input_only {
             match &self.ty {
                 ty::Type::Vector(element) => {
-                    let element = element.write_array_element(namespace, layout, generics)?;
+                    let element = if self.array_ref {
+                        element.write_array_element(namespace, layout, generics)?
+                    } else {
+                        element.write_default(namespace, layout, generics)?
+                    };
                     quote! { &[#element] }
                 }
                 ty if ty.package_impl_input_by_ref(layout) => quote! { &#default },
@@ -1545,7 +1567,7 @@ impl Parameter {
         } else {
             match &self.ty {
                 ty::Type::Vector(element) => {
-                    let element = element.write_default(namespace, layout, generics)?;
+                    let element = element.write_array_element(namespace, layout, generics)?;
                     if self.array_ref {
                         quote! { &mut windows_core::Array<#element> }
                     } else {
@@ -1586,8 +1608,15 @@ impl Parameter {
             }
         } else {
             if let ty::Type::Vector(element) = &self.ty {
-                let element =
-                    element.write_default(context.namespace, context.layout, context.generics)?;
+                let element = if self.array_ref {
+                    element.write_array_element(
+                        context.namespace,
+                        context.layout,
+                        context.generics,
+                    )?
+                } else {
+                    element.write_default(context.namespace, context.layout, context.generics)?
+                };
                 if self.array_ref {
                     quote! { &mut windows_core::Array<#element> }
                 } else {
@@ -1650,6 +1679,7 @@ impl Parameter {
                     let value = tokens::ident(&format!("{}__", self.name));
                     quote! { windows_core::Param::param(#value.as_ref()).abi() }
                 }
+                _ if self.by_ref => quote! { &#name },
                 ty if ty.is_interface() => quote! { #name.param().abi() },
                 ty if ty.is_copyable(context.values, &self.name)? => quote! { #name },
                 _ => quote! { core::mem::transmute_copy(#name) },

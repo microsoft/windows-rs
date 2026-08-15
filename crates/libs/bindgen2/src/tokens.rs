@@ -118,6 +118,23 @@ pub(super) fn feature_names<'a>(
     layout: Layout,
     dependencies: impl IntoIterator<Item = (&'a str, &'a str)>,
 ) -> BTreeSet<String> {
+    feature_names_inner(current, layout, dependencies, false)
+}
+
+pub(super) fn feature_names_with_winrt<'a>(
+    current: &str,
+    layout: Layout,
+    dependencies: impl IntoIterator<Item = (&'a str, &'a str)>,
+) -> BTreeSet<String> {
+    feature_names_inner(current, layout, dependencies, true)
+}
+
+fn feature_names_inner<'a>(
+    current: &str,
+    layout: Layout,
+    dependencies: impl IntoIterator<Item = (&'a str, &'a str)>,
+    include_winrt: bool,
+) -> BTreeSet<String> {
     if !layout.is_package() {
         return BTreeSet::new();
     }
@@ -128,7 +145,9 @@ pub(super) fn feature_names<'a>(
             || namespace == "Windows.Foundation"
             || canonical::type_from_name(namespace, name).is_some()
             || crate::external::package_crate_name(namespace, name).is_some()
-            || (current.starts_with("Windows.Win32") && !namespace.starts_with("Windows.Win32"))
+            || (!include_winrt
+                && current.starts_with("Windows.Win32")
+                && !namespace.starts_with("Windows.Win32"))
             || namespace == current
             || current
                 .strip_prefix(namespace)

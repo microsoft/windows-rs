@@ -25,6 +25,7 @@ pub(super) struct Parameter {
     pub(super) producer_by_ref: bool,
     pub(super) ty: native::Type,
     hint: ParamHint,
+    pointer_cast: bool,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -81,13 +82,7 @@ impl Parameter {
     }
 
     pub(super) fn needs_cast(&self) -> bool {
-        matches!(
-            self.ty,
-            native::Type::Pointer {
-                mutable: true,
-                ref element,
-            } if **element == native::Type::Void
-        ) || (matches!(self.hint, ParamHint::ValueType) && !self.is_input_only())
+        self.pointer_cast || (matches!(self.hint, ParamHint::ValueType) && !self.is_input_only())
     }
 
     pub(super) fn has_array_info(&self) -> bool {
@@ -154,6 +149,7 @@ impl Signature {
             parameters,
             ..
         } = method.signature()?;
+        let returns_void = matches!(return_type.kind, TypeKind::Void);
         let parameter_rows = method.parameters_by_sequence()?;
         let mut parameters: Vec<Parameter> = parameters
             .into_iter()
@@ -177,6 +173,21 @@ impl Signature {
                     .map(|parameter| parameter.has_attribute("ReservedAttribute"))
                     .transpose()?
                     .unwrap_or(false);
+                let metadata_retval_too_large = match &ty.kind {
+                    TypeKind::Pointer(element) if returns_void => {
+                        native::metadata_exceeds_retval_limit(
+                            database,
+                            method.entity().file(),
+                            element,
+                        )?
+                    }
+                    TypeKind::Pointer(element) => native::metadata_has_oversized_member(
+                        database,
+                        method.entity().file(),
+                        element,
+                    )?,
+                    _ => false,
+                };
                 let ty = native::Type::lower_parameter(
                     database,
                     method.entity().file(),
@@ -194,6 +205,7 @@ impl Signature {
                         explicit_retval
                             || (pointee != &native::Type::Void
                                 && !pointee.exceeds_retval_limit(database)?)
+                                && !metadata_retval_too_large
                     } else {
                         false
                     }
@@ -202,28 +214,31 @@ impl Signature {
                 };
                 let producer_by_ref = flags & 0x0002 == 0
                     && (ty.is_const_string() || ty.producer_by_ref(database)?);
+                let pointer_cast = flags & 0x0002 != 0
+                    && ty.resolves_to_mut_void_pointer(database, &mut BTreeSet::new())?;
                 let com_out_ptr = parameter
                     .map(|parameter| parameter.has_attribute("ComOutPtrAttribute"))
                     .transpose()?
                     .unwrap_or(false);
                 let copyable = ty.projected_traits(database, &mut BTreeSet::new())?.copy;
+                let delegate = ty.resolves_to_delegate(database, &mut BTreeSet::new())?;
                 let pointee_copyable = ty
                     .pointee()
                     .map(|ty| ty.projected_traits(database, &mut BTreeSet::new()))
                     .transpose()?
                     .is_none_or(|traits| traits.copy);
-                let retval_transmute = ty
-                    .pointee()
-                    .is_some_and(|ty| ty.is_interface() || ty.is_bstr() || !pointee_copyable);
+                let retval_transmute = ty.pointee().is_some_and(|ty| {
+                    ty.is_interface() || ty.is_bstr() || ty.is_hstring() || !pointee_copyable
+                });
                 let hint = if let Some(ArrayInfo::ElementsConst(len)) = array
-                    && flags & 0x0002 == 0
+                    && (flags & 0x0002 == 0 || flags & 0x0001 != 0)
                 {
                     ParamHint::FixedArray(len)
                 } else if flags & 0x0002 == 0 && (ty.is_interface() || ty.is_pcwstr()) {
                     ParamHint::IntoParam
                 } else if flags & 0x0002 == 0 && ty.is_const_string() {
                     ParamHint::PackageIntoParam
-                } else if (flags & 0x0010 != 0 || reserved) && copyable {
+                } else if (flags & 0x0010 != 0 || reserved) && copyable && !delegate {
                     ParamHint::Optional
                 } else if flags & 0x0002 == 0 && ty.is_bool() {
                     ParamHint::Bool
@@ -250,6 +265,7 @@ impl Signature {
                     producer_by_ref,
                     ty,
                     hint,
+                    pointer_cast,
                 })
             })
             .collect::<Result<_, Error>>()?;

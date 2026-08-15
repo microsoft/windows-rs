@@ -122,13 +122,14 @@ impl NamedMethod {
             )?
         } else {
             self.method
-                .write_public_method(context, public_name, receiver)?
+                .write_public_method(context, public_name, &self.name, receiver)?
         }))
     }
 }
 
 #[derive(Clone)]
 pub(super) struct RequiredInterface {
+    entity: Entity<TypeDef>,
     pub(super) namespace: String,
     pub(super) name: String,
     pub(super) arguments: Vec<ty::Type>,
@@ -175,13 +176,7 @@ impl Interface {
             &mut seen,
             &mut required,
         )?;
-        required.sort_by(|left, right| {
-            (&left.namespace, &left.name, &left.arguments).cmp(&(
-                &right.namespace,
-                &right.name,
-                &right.arguments,
-            ))
-        });
+        required.sort_by(|left, right| (&left.name, left.entity).cmp(&(&right.name, right.entity)));
         let guid =
             guid::Guid::from_definition(definition, owner)?.ok_or_else(|| Error::InvalidType {
                 name: owner.to_string(),
@@ -251,6 +246,7 @@ impl Interface {
                 method.substitute(&arguments);
             }
             result.push(RequiredInterface {
+                entity: base.entity,
                 namespace,
                 name: trim_generic_arity(metadata_name).to_string(),
                 arguments,
