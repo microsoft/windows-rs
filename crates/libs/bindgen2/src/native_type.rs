@@ -294,14 +294,7 @@ impl NativeType {
                         name: full_name,
                         message: "native typedef does not have one field",
                     })?;
-                    let wrapper = field == "Value"
-                        && ty.is_primitive(database)?
-                        && !ty.resolves_to_delegate(database, &mut BTreeSet::new())?
-                        && !matches!(
-                            &ty,
-                            native::Type::Pointer { element, .. }
-                                if element.as_ref() != &native::Type::Void
-                        );
+                    let wrapper = field == "Value" && ty.is_wrapper_underlying(database)?;
                     let ty = ty.normalize_alias(namespace, &name);
                     let dependencies = ty.package_dependencies(database, cache)?;
                     let manifest_dependencies = ty.manifest_dependencies(database)?;
@@ -407,7 +400,6 @@ impl NativeType {
                     && (definition
                         .type_attributes()?
                         .contains(TypeAttributes::EXPLICIT_LAYOUT)
-                        || align.is_some()
                         || packing.is_some())
                 {
                     native::TraitSupport::NONE
@@ -522,6 +514,15 @@ impl NativeType {
     #[cfg(test)]
     pub fn write_package(&self) -> TokenStream {
         self.write_context(Layout::Package, Projection::Default)
+    }
+
+    #[cfg(test)]
+    pub fn name(&self) -> &str {
+        match &self.kind {
+            Kind::Alias(value) => &value.name,
+            Kind::Enum(value) => &value.name,
+            Kind::Struct(value) => &value.name,
+        }
     }
 
     fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
@@ -716,9 +717,19 @@ impl NativeType {
 impl Alias {
     fn write(&self, layout: Layout, projection: Projection) -> TokenStream {
         let name = tokens::ident(&self.name);
-        let ty = self
-            .ty
-            .write_projection(&self.namespace, layout, projection);
+        let ty = if !projection.is_sys()
+            && let Some((mutable, interface)) = self.ty.interface_out()
+        {
+            let interface = interface.write_public(&self.namespace, layout);
+            if mutable {
+                quote! { *mut Option<#interface> }
+            } else {
+                quote! { *const Option<#interface> }
+            }
+        } else {
+            self.ty
+                .write_projection(&self.namespace, layout, projection)
+        };
         if self.wrapper && matches!(projection, Projection::Default) {
             quote! {
                 #[repr(transparent)]
@@ -1005,7 +1016,7 @@ impl Struct {
                 },
             );
         }
-        if !projection.is_sys() && self.align.is_none() && self.packing.is_none() {
+        if !projection.is_sys() && self.packing.is_none() {
             let copy = self.traits.copy.then(|| quote! { , Copy });
             let debug = self.traits.debug.then(|| quote! { , Debug });
             let partial_eq = self.traits.partial_eq.then(|| quote! { , PartialEq });

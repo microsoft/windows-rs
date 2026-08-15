@@ -91,6 +91,7 @@ impl Parameter {
 
     pub(super) fn is_mutable_pointer(&self) -> bool {
         matches!(self.ty, native::Type::Pointer { mutable: true, .. })
+            || self.ty.mutable_string_pointer()
     }
 
     pub(super) fn slice_element(&self) -> Option<native::Type> {
@@ -98,6 +99,16 @@ impl Parameter {
             ParamHint::ByteSlice => Some(native::Type::U8),
             ParamHint::Slice if self.ty.is_pcstr() => Some(native::Type::U8),
             ParamHint::Slice if self.ty.is_pcwstr() => Some(native::Type::U16),
+            ParamHint::Slice if self.ty.mutable_string_pointer() => {
+                if matches!(
+                    self.ty,
+                    native::Type::Named { ref name, .. } if name == "PSTR"
+                ) {
+                    Some(native::Type::U8)
+                } else {
+                    Some(native::Type::U16)
+                }
+            }
             ParamHint::Slice => self.ty.pointee().map(|element| {
                 if element == &native::Type::Void {
                     native::Type::U8
@@ -110,7 +121,7 @@ impl Parameter {
     }
 
     pub(super) fn slice_requires_transmute(&self) -> bool {
-        if self.ty.is_const_string() {
+        if self.ty.is_const_string() || self.ty.mutable_string_pointer() {
             return true;
         }
         let Some(element) = self.slice_element() else {
@@ -215,13 +226,13 @@ impl Signature {
                 let producer_by_ref = flags & 0x0002 == 0
                     && (ty.is_const_string() || ty.producer_by_ref(database)?);
                 let pointer_cast = flags & 0x0002 != 0
-                    && ty.resolves_to_mut_void_pointer(database, &mut BTreeSet::new())?;
+                    && ty.needs_output_pointer_cast(database, &mut BTreeSet::new())?;
                 let com_out_ptr = parameter
                     .map(|parameter| parameter.has_attribute("ComOutPtrAttribute"))
                     .transpose()?
                     .unwrap_or(false);
                 let copyable = ty.projected_traits(database, &mut BTreeSet::new())?.copy;
-                let delegate = ty.resolves_to_delegate(database, &mut BTreeSet::new())?;
+                let delegate = ty.is_delegate(database)?;
                 let pointee_copyable = ty
                     .pointee()
                     .map(|ty| ty.projected_traits(database, &mut BTreeSet::new()))
@@ -300,7 +311,8 @@ impl Signature {
                 || parameters[count].is_optional()
                 || !parameters[count].ty.is_integer(database)?
                 || (!matches!(parameters[position].ty, native::Type::Pointer { .. })
-                    && !parameters[position].ty.is_const_string())
+                    && !parameters[position].ty.is_const_string()
+                    && !parameters[position].ty.mutable_string_pointer())
             {
                 continue;
             }

@@ -268,14 +268,19 @@ impl native_signature::Signature {
                 }
                 if parameter.ty.pointee().is_some_and(native::Type::is_bstr) {
                     let ty = parameter.ty.write_public(namespace, layout);
-                    parameters.push(quote! { #name: #ty, });
-                    arguments.push(quote! { core::mem::transmute(#name) });
+                    if parameter.is_optional() || parameter.is_optional_hint() {
+                        parameters.push(quote! { #name: Option<#ty>, });
+                        arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
+                    } else {
+                        parameters.push(quote! { #name: #ty, });
+                        arguments.push(quote! { core::mem::transmute(#name) });
+                    }
                     continue;
                 }
                 if let Some((_, interface)) = parameter.ty.interface_out() {
                     let interface = interface.write_public(namespace, layout);
                     let pointer = quote! { *mut Option<#interface> };
-                    if parameter.is_optional() {
+                    if parameter.is_optional() || parameter.is_optional_hint() {
                         parameters.push(quote! { #name: Option<#pointer>, });
                         arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
                     } else {
@@ -452,6 +457,20 @@ impl native_signature::Signature {
                         argument
                     });
                 }
+            } else if let Some((mutable, interface)) = parameter.ty.interface_out() {
+                let interface = interface.write_public(namespace, layout);
+                let pointer = if mutable {
+                    quote! { *mut Option<#interface> }
+                } else {
+                    quote! { *const Option<#interface> }
+                };
+                if parameter.is_optional() || parameter.is_optional_hint() {
+                    parameters.push(quote! { #name: Option<#pointer> });
+                    arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
+                } else {
+                    parameters.push(quote! { #name: #pointer });
+                    arguments.push(quote! { core::mem::transmute(#name) });
+                }
             } else if parameter.is_into_param(layout) {
                 let generic = tokens::ident(&format!("P{position}"));
                 let ty = parameter.ty.write_public(namespace, layout);
@@ -607,6 +626,20 @@ impl native_signature::Signature {
                         argument
                     });
                 }
+            } else if let Some((mutable, interface)) = parameter.ty.interface_out() {
+                let interface = interface.write_public(namespace, layout);
+                let pointer = if mutable {
+                    quote! { *mut Option<#interface> }
+                } else {
+                    quote! { *const Option<#interface> }
+                };
+                if parameter.is_optional() || parameter.is_optional_hint() {
+                    parameters.push(quote! { #name: Option<#pointer> });
+                    arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
+                } else {
+                    parameters.push(quote! { #name: #pointer });
+                    arguments.push(quote! { core::mem::transmute(#name) });
+                }
             } else if parameter.is_into_param(layout) {
                 let generic = tokens::ident(&format!("P{position}"));
                 let ty = parameter.ty.write_public(namespace, layout);
@@ -673,8 +706,13 @@ impl native_signature::Signature {
             Some(quote! { -> ! })
         } else {
             direct.map(|ty| {
-                let ty = ty.write_public(namespace, layout);
-                quote! { -> #ty }
+                let interface = ty.is_interface();
+                let public = ty.write_public(namespace, layout);
+                if interface {
+                    quote! { -> Option<#public> }
+                } else {
+                    quote! { -> #public }
+                }
             })
         };
         let body = if output.is_some() {
@@ -816,8 +854,13 @@ impl native_signature::Signature {
                 let ty = parameter
                     .ty
                     .write_public_with_owner(namespace, layout, Some(owner));
-                parameters.push(quote! { #name: #ty, });
-                arguments.push(quote! { core::mem::transmute(#name) });
+                if parameter.is_optional() || parameter.is_optional_hint() {
+                    parameters.push(quote! { #name: Option<#ty>, });
+                    arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
+                } else {
+                    parameters.push(quote! { #name: #ty, });
+                    arguments.push(quote! { core::mem::transmute(#name) });
+                }
                 continue;
             }
             if let Some((mutable, interface)) = parameter.ty.interface_out() {
@@ -827,7 +870,7 @@ impl native_signature::Signature {
                 } else {
                     quote! { *const Option<#interface> }
                 };
-                if parameter.is_optional() {
+                if parameter.is_optional() || parameter.is_optional_hint() {
                     parameters.push(quote! { #name: Option<#pointer>, });
                     arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
                 } else {
@@ -1139,11 +1182,11 @@ impl native_signature::Signature {
             }
         } else if parameter.is_input_only() && parameter.ty.is_interface() {
             quote! { #name: windows_core::Ref<#ty>, }
+        } else if parameter.producer_by_ref {
+            quote! { #name: &#ty, }
         } else if parameter.has_array_info() {
             let ty = parameter.ty.write_public_pointer(namespace, layout);
             quote! { #name: #ty, }
-        } else if parameter.producer_by_ref {
-            quote! { #name: &#ty, }
         } else {
             quote! { #name: #ty, }
         }
@@ -1246,6 +1289,7 @@ impl native_signature::Signature {
             if ty
                 .pointee()
                 .is_some_and(|pointee| pointee == &native::Type::Void)
+                && !self.parameters[position].explicit_retval
             {
                 ReturnKind::HResult
             } else {

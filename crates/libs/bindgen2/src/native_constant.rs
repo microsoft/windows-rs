@@ -110,7 +110,7 @@ impl Constant {
         };
         let dependencies = ty.package_dependencies(database, cache)?;
         let sys_dependencies = cache.package_sys_dependencies(&dependencies);
-        let wrapper = ty.is_wrapper(database)?;
+        let wrapper = ty.is_wrapper(database)? && !ty.is_noncanonical_pointer_alias(database)?;
         let converted_wrapper = if alias_depth > 1 {
             match constant_immediate_type(database, field.entity().file(), &signature, &full_name)?
             {

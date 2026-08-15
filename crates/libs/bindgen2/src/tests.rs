@@ -1301,6 +1301,60 @@ fn rich_native_function_calls_cast_typedef_void_pointers() {
 }
 
 #[test]
+fn rich_native_function_calls_cast_output_pointer_typedefs() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .functions()
+        .find_map(|function| {
+            let function = function.unwrap();
+            (function.name() == "DeleteCriticalSection").then_some(function)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("DeleteCriticalSection (lpcriticalsection as _)"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_functions_project_mutable_string_buffers() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .functions()
+        .find_map(|function| {
+            let function = function.unwrap();
+            (function.name() == "PathCchAddBackslash").then_some(function)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("PathCchAddBackslash (pszpath : & mut [u16]"),
+        "{output}"
+    );
+    assert!(
+        output.contains("core :: mem :: transmute (pszpath . as_mut_ptr ())"),
+        "{output}"
+    );
+}
+
+#[test]
 fn rich_native_constants_wrap_intermediate_newtypes() {
     let metadata = Metadata::from_images([
         Image::new(windows_default::WINRT).unwrap(),
@@ -1321,6 +1375,118 @@ fn rich_native_constants_wrap_intermediate_newtypes() {
 
     assert!(
         output.contains("pub const JET_bitNil : JET_GRBIT = JET_UINT32 (0 as _)"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_structs_own_bstr_fields() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let structure = generator
+        .win32_items()
+        .native_types()
+        .find_map(|ty| {
+            let ty = ty.unwrap();
+            (ty.name() == "VisualElement").then_some(ty)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+    let callback = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "IVisualTreeServiceCallback").then_some(interface)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        structure.contains("core :: mem :: ManuallyDrop < windows_core :: BSTR >"),
+        "{structure}"
+    );
+    assert!(!structure.contains("derive (Clone , Copy"), "{structure}");
+    assert!(callback.contains("element : & VisualElement"), "{callback}");
+}
+
+#[test]
+fn rich_native_aligned_structs_retain_supported_traits() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .native_types()
+        .find_map(|ty| {
+            let ty = ty.unwrap();
+            (ty.name() == "M128A").then_some(ty)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("derive (Clone , Copy , Debug , Default , Eq , PartialEq)"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_void_double_pointer_typedefs_are_wrappers() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .native_types()
+        .find_map(|ty| {
+            let ty = ty.unwrap();
+            (ty.name() == "PCLFS_MGMT_CLIENT").then_some(ty)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("pub struct PCLFS_MGMT_CLIENT (pub * mut * mut core :: ffi :: c_void)"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_pointer_alias_constants_skip_wrapper_construction() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .constants()
+        .find_map(|constant| {
+            let constant = constant.unwrap();
+            (constant.name() == "DEVICE_WITH_IRP_EXTENSION").then_some(constant)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("pub const DEVICE_WITH_IRP_EXTENSION : PDEVICE_OBJECT = - 1 as _"),
         "{output}"
     );
 }
@@ -1349,6 +1515,235 @@ fn rich_native_callback_parameters_are_not_double_optional() {
             "{name}: {output}"
         );
     }
+}
+
+#[test]
+fn rich_native_optional_callback_aliases_are_nested_options() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .functions()
+        .find_map(|function| {
+            let function = function.unwrap();
+            (function.name() == "SHCreateThread").then_some(function)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("pfncallback : Option < LPTHREAD_START_ROUTINE >"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_functions_project_interface_pointers_and_returns() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let function = |name| {
+        generator
+            .win32_items()
+            .functions()
+            .find_map(|function| {
+                let function = function.unwrap();
+                (function.name() == name).then_some(function)
+            })
+            .unwrap()
+            .write_package()
+            .to_string()
+    };
+    let set = function("IUnknown_Set");
+    let stream = function("SHCreateMemStream");
+
+    assert!(
+        set.contains("ppunk : * mut Option < windows_core :: IUnknown >"),
+        "{set}"
+    );
+    assert!(
+        stream.contains("fn SHCreateMemStream") && stream.contains("-> Option < IStream >"),
+        "{stream}"
+    );
+}
+
+#[test]
+fn rich_native_aliases_project_interface_pointers() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .native_types()
+        .find_map(|ty| {
+            let ty = ty.unwrap();
+            (ty.name() == "LPLPDIRECTSOUND").then_some(ty)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("pub type LPLPDIRECTSOUND = * mut Option < IDirectSound >"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_reserved_interface_pointers_are_optional() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "IEnumCodePage").then_some(interface)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("ppenum : Option < * const Option < Self > >"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_producer_traits_borrow_input_strings() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "IMLangStringAStr").then_some(interface)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("pszsrc : & windows_core :: PCSTR"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_explicit_void_pointer_retvals_are_results() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "IDisplayDeviceInterop").then_some(interface)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("windows_core :: Result < * mut core :: ffi :: c_void >"),
+        "{output}"
+    );
+    assert!(
+        output.contains("name : & windows_core :: HSTRING"),
+        "{output}"
+    );
+    assert!(output.contains("riid : & windows_core :: GUID"), "{output}");
+}
+
+#[test]
+fn rich_native_optional_bstr_pointers_and_string_aliases() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let function = generator
+        .win32_items()
+        .functions()
+        .find_map(|function| {
+            let function = function.unwrap();
+            (function.name() == "PTGetPrintCapabilities").then_some(function)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+    let interface = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "ISpLexicon").then_some(interface)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        function.contains("pbstrerrormessage : Option < * mut windows_core :: BSTR >"),
+        "{function}"
+    );
+    assert!(
+        interface.contains("pszpronunciation : & PCSPPHONEID"),
+        "{interface}"
+    );
+}
+
+#[test]
+fn rich_native_winrt_generic_interface_retvals_are_preserved() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "IActivatableClassRegistration").then_some(interface)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains(
+            "windows_collections :: IMapView < windows_core :: HSTRING , windows_core :: IInspectable >"
+        ),
+        "{output}"
+    );
 }
 
 #[test]
@@ -4808,6 +5203,7 @@ fn package_sys_supports_winrt_interface_abi_types() {
         !native::Type::Interface {
             namespace: "Windows.System".to_string(),
             name: "DispatcherQueueController".to_string(),
+            arguments: Vec::new(),
         }
         .uses_winrt_projection()
     );

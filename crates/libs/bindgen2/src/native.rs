@@ -169,10 +169,23 @@ pub(super) enum Type {
     String,
     ISize,
     USize,
-    Array { element: Box<Self>, len: usize },
-    Pointer { mutable: bool, element: Box<Self> },
-    Interface { namespace: String, name: String },
-    Named { namespace: String, name: String },
+    Array {
+        element: Box<Self>,
+        len: usize,
+    },
+    Pointer {
+        mutable: bool,
+        element: Box<Self>,
+    },
+    Interface {
+        namespace: String,
+        name: String,
+        arguments: Vec<ty::Type>,
+    },
+    Named {
+        namespace: String,
+        name: String,
+    },
 }
 
 #[derive(Clone, Copy)]
@@ -350,15 +363,31 @@ impl Type {
                     Self::Interface {
                         namespace: namespace.to_string(),
                         name: name.to_string(),
+                        arguments: Vec::new(),
                     }
                 }
             }
             TypeKind::GenericInstance {
-                value_type: false, ..
-            } => Self::Pointer {
-                mutable: true,
-                element: Box::new(Self::Void),
-            },
+                value_type: false,
+                ty: generic,
+                arguments,
+            } => {
+                let (namespace, name) =
+                    database
+                        .type_name(file, generic)?
+                        .ok_or_else(|| Error::InvalidType {
+                            name: owner.to_string(),
+                            message: "native generic interface has no name",
+                        })?;
+                Self::Interface {
+                    namespace: namespace.to_string(),
+                    name: name.split('`').next().unwrap_or(name).to_string(),
+                    arguments: arguments
+                        .into_iter()
+                        .map(|argument| ty::Type::lower(database, file, owner, argument))
+                        .collect::<Result<_, _>>()?,
+                }
+            }
             unsupported => {
                 return Err(Error::UnsupportedType {
                     name: owner.to_string(),
@@ -492,6 +521,10 @@ impl Type {
                 let interface = self.write_public(namespace, layout);
                 quote! { core::mem::ManuallyDrop<Option<#interface>> }
             }
+            Self::Named { .. } if !projection.is_sys() && (self.is_bstr() || self.is_hstring()) => {
+                let value = self.write_public(namespace, layout);
+                quote! { core::mem::ManuallyDrop<#value> }
+            }
             _ => self.write_projection(namespace, layout, projection),
         }
     }
@@ -584,16 +617,25 @@ impl Type {
             Self::Interface {
                 namespace: target,
                 name,
+                arguments,
             } => {
                 if owner.is_some_and(|owner| target == namespace && name == owner) {
                     return quote! { Self };
                 }
-                if let Some(core) = core_projection(target, name) {
+                if arguments.is_empty()
+                    && let Some(core) = core_projection(target, name)
+                {
                     core
                 } else {
-                    let path = tokens::namespace(namespace, target, layout);
-                    let name = tokens::ident(name);
-                    quote! { #path #name }
+                    ty::Type::Named {
+                        value_type: false,
+                        namespace: target.clone(),
+                        name: name.clone(),
+                        arguments: arguments.clone(),
+                        guid: None,
+                    }
+                    .write_name(namespace, layout, &[])
+                    .unwrap()
                 }
             }
             _ => self.write_projection(namespace, layout, Projection::Minimal),
@@ -643,7 +685,12 @@ impl Type {
     }
 
     pub(super) fn producer_by_ref(&self, database: &Database) -> Result<bool, Error> {
-        if self.is_bstr() || self.is_pcwstr() {
+        if self.is_bstr()
+            || self.is_hstring()
+            || self.is_pcstr()
+            || self.is_pcwstr()
+            || self.is_guid()
+        {
             return Ok(true);
         }
         let Self::Named { namespace, name } = self else {
@@ -667,6 +714,9 @@ impl Type {
                 &format!("{namespace}.{name}"),
                 field.signature()?,
             )?;
+            if field.is_const_string() || field.is_bstr() || field.is_hstring() {
+                return Ok(true);
+            }
             return Ok(!field.producer_primitive(database, &mut BTreeSet::new())?);
         }
         Ok(false)
@@ -759,23 +809,32 @@ impl Type {
         Ok(result)
     }
 
-    pub(super) fn resolves_to_mut_void_pointer(
+    pub(super) fn is_delegate(&self, database: &Database) -> Result<bool, Error> {
+        let Self::Named { namespace, name } = self else {
+            return Ok(false);
+        };
+        for entity in database.type_definitions(namespace, name) {
+            if database.definition(*entity).unwrap().category()? == TypeCategory::Delegate {
+                return Ok(true);
+            }
+        }
+        Ok(false)
+    }
+
+    pub(super) fn needs_output_pointer_cast(
         &self,
         database: &Database,
         stack: &mut BTreeSet<(String, String)>,
     ) -> Result<bool, Error> {
-        if matches!(
-            self,
-            Self::Pointer {
-                mutable: true,
-                element,
-            } if **element == Self::Void
-        ) {
-            return Ok(true);
+        if let Self::Pointer { mutable, element } = self {
+            return Ok(*mutable && **element == Self::Void);
         }
         let Self::Named { namespace, name } = self else {
             return Ok(false);
         };
+        if is_core_projection(namespace, name) {
+            return Ok(false);
+        }
         let key = (namespace.clone(), name.clone());
         if !stack.insert(key.clone()) {
             return Ok(false);
@@ -796,13 +855,79 @@ impl Type {
                 continue;
             }
             let field = Self::lower(database, field.entity().file(), name, field.signature()?)?;
-            if field.resolves_to_mut_void_pointer(database, stack)? {
+            if matches!(field, Self::Pointer { .. })
+                || field.needs_output_pointer_cast(database, stack)?
+            {
                 result = true;
                 break;
             }
         }
         stack.remove(&key);
         Ok(result)
+    }
+
+    pub(super) fn is_mutable_void_double_pointer(&self) -> bool {
+        matches!(
+            self,
+            Self::Pointer {
+                mutable: true,
+                element,
+            } if matches!(
+                element.as_ref(),
+                Self::Pointer {
+                    mutable: true,
+                    element,
+                } if element.as_ref() == &Self::Void
+            )
+        )
+    }
+
+    pub(super) fn is_wrapper_underlying(&self, database: &Database) -> Result<bool, Error> {
+        Ok(self.is_mutable_void_double_pointer()
+            || (self.is_primitive(database)?
+                && !self.resolves_to_delegate(database, &mut BTreeSet::new())?
+                && !matches!(
+                    self,
+                    Self::Pointer { element, .. } if element.as_ref() != &Self::Void
+                )))
+    }
+
+    pub(super) fn is_noncanonical_pointer_alias(&self, database: &Database) -> Result<bool, Error> {
+        let Self::Named { namespace, name } = self else {
+            return Ok(false);
+        };
+        if is_core_projection(namespace, name) {
+            return Ok(false);
+        }
+        for entity in database.type_definitions(namespace, name) {
+            let definition = database.definition(*entity).unwrap();
+            if definition.category()? != TypeCategory::Struct
+                || !definition.has_attribute("NativeTypedefAttribute")?
+            {
+                continue;
+            }
+            let fields = definition
+                .fields()?
+                .filter_map(|field| (!field.is_literal().ok()?).then_some(field))
+                .collect::<Vec<_>>();
+            let [field] = fields.as_slice() else {
+                continue;
+            };
+            let ty = Self::lower(
+                database,
+                field.entity().file(),
+                definition.name()?,
+                field.signature()?,
+            )?;
+            if matches!(
+                ty,
+                Self::Pointer { ref element, .. } if element.as_ref() != &Self::Void
+            ) && !ty.is_mutable_void_double_pointer()
+            {
+                return Ok(true);
+            }
+        }
+        Ok(false)
     }
 
     pub(super) fn is_primitive(&self, database: &Database) -> Result<bool, Error> {
@@ -1402,7 +1527,7 @@ fn named_traits(
                         .is_some()
                 {
                     TraitSupport {
-                        copy: true,
+                        copy: false,
                         ..TraitSupport::NONE
                     }
                 } else {
@@ -1656,6 +1781,7 @@ impl Type {
         match self {
             Self::Void | Self::Interface { .. } => Ok(false),
             Self::Array { element, .. } => element.projected_copyable(database, stack),
+            Self::Named { .. } if self.is_bstr() || self.is_hstring() => Ok(false),
             Self::Named { namespace, name } => named_copyable(database, namespace, name, stack),
             _ => Ok(true),
         }
@@ -1801,9 +1927,16 @@ impl Type {
             Self::Array { element, .. } | Self::Pointer { element, .. } => {
                 element.collect_package_dependencies(database, cache, stack, dependencies)?;
             }
-            Self::Interface { namespace, name } => {
+            Self::Interface {
+                namespace,
+                name,
+                arguments,
+            } => {
                 dependencies.insert((namespace.clone(), name.clone()));
                 cache.expand_interface_bases(namespace, name, stack, dependencies);
+                for argument in arguments {
+                    argument.collect_value_dependencies(dependencies);
+                }
             }
             Self::Named { namespace, name } => {
                 dependencies.insert((namespace.clone(), name.clone()));
@@ -1824,8 +1957,15 @@ impl Type {
             Self::Array { element, .. } | Self::Pointer { element, .. } => {
                 element.collect_manifest_dependencies(database, stack, dependencies)?;
             }
-            Self::Interface { namespace, name } => {
+            Self::Interface {
+                namespace,
+                name,
+                arguments,
+            } => {
                 dependencies.insert((namespace.clone(), name.clone()));
+                for argument in arguments {
+                    argument.collect_value_dependencies(dependencies);
+                }
             }
             Self::Named { namespace, name } => {
                 dependencies.insert((namespace.clone(), name.clone()));
@@ -1947,7 +2087,10 @@ impl Type {
             Self::Array { element, .. } | Self::Pointer { element, .. } => {
                 element.collect_direct_dependencies(dependencies);
             }
-            Self::Interface { namespace, name } | Self::Named { namespace, name } => {
+            Self::Interface {
+                namespace, name, ..
+            }
+            | Self::Named { namespace, name } => {
                 dependencies.insert((namespace.clone(), name.clone()));
             }
             _ => {}
@@ -1976,7 +2119,14 @@ impl Type {
             },
             Self::Pointer { .. } | Self::String => TraitSupport::ALL,
             Self::Named { namespace, name } => {
-                if is_core_projection(namespace, name) {
+                if self.is_bstr() || self.is_hstring() {
+                    TraitSupport {
+                        copy: false,
+                        debug: true,
+                        partial_eq: true,
+                        eq: true,
+                    }
+                } else if is_core_projection(namespace, name) {
                     TraitSupport::ALL
                 } else {
                     let mut traits = named_traits(database, namespace, name, stack)?;
@@ -1996,7 +2146,10 @@ impl Type {
             Self::Array { element, .. } | Self::Pointer { element, .. } => {
                 element.visit_named(add);
             }
-            Self::Interface { namespace, name } | Self::Named { namespace, name } => {
+            Self::Interface {
+                namespace, name, ..
+            }
+            | Self::Named { namespace, name } => {
                 add(namespace, name);
             }
             _ => {}
