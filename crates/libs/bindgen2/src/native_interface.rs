@@ -122,6 +122,23 @@ impl NativeInterface {
         .unwrap()
     }
 
+    #[cfg(test)]
+    pub fn write_package(&self) -> TokenStream {
+        self.write_context(
+            Layout::Package,
+            Projection::Default,
+            &MemberSelection::All,
+            None,
+            true,
+        )
+        .unwrap()
+    }
+
+    #[cfg(test)]
+    pub fn name(&self) -> &str {
+        &self.name
+    }
+
     pub(super) fn write_context(
         &self,
         layout: Layout,

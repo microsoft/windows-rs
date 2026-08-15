@@ -1192,6 +1192,8 @@ fn rich_native_functions_wrap_direct_and_output_returns() {
                 extern fn Output(#[out] value: *mut u32);
                 #[library("test.dll")]
                 extern fn OutputPointers(#[out] first: *mut u32, #[out] second: *mut u32);
+                #[library("test.dll")]
+                extern fn InputPointers(first: *const u32, second: *mut void);
             }
         "#,
     )
@@ -1215,6 +1217,41 @@ fn rich_native_functions_wrap_direct_and_output_returns() {
     assert!(
         output.contains("OutputPointers (first as _ , second as _)"),
         "{output}"
+    );
+    assert!(
+        output.contains("InputPointers (first , second as _)"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_functions_omit_variadics() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let function = generator
+        .win32_items()
+        .function("Windows.Win32", "NdrClientCall2")
+        .unwrap();
+
+    assert!(
+        function
+            .write_context(Layout::Package, Projection::Default)
+            .is_empty()
+    );
+    assert!(
+        function
+            .write_context(Layout::Package, Projection::Minimal)
+            .is_empty()
+    );
+    assert!(
+        function
+            .write_context(Layout::Package, Projection::Sys)
+            .to_string()
+            .contains("...")
     );
 }
 
@@ -1363,6 +1400,88 @@ fn native_buffer_counts_support_integer_typedefs() {
     assert!(output.contains("szconnstrin : & [SQLCHAR]"), "{output}");
     assert!(
         output.contains("SQLBrowseConnectA (hdbc , szconnstrin . as_ptr ()"),
+        "{output}"
+    );
+    assert!(
+        output.contains("SQLSMALLINT (szconnstrin . len () . try_into () . unwrap ())"),
+        "{output}"
+    );
+}
+
+#[test]
+fn native_counted_const_strings_project_as_slices() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let items = generator.win32_items();
+
+    for (name, element) in [("LdapUTF8ToUnicode", "u8"), ("LdapUnicodeToUTF8", "u16")] {
+        let output = items
+            .function("Windows.Win32", name)
+            .unwrap()
+            .write_context(Layout::Package, Projection::Default)
+            .to_string();
+
+        assert!(
+            output.contains(&format!("lpsrcstr : & [{element}]")),
+            "{output}"
+        );
+        assert!(
+            output.contains("core :: mem :: transmute (lpsrcstr . as_ptr ())"),
+            "{output}"
+        );
+    }
+
+    let output = items
+        .function("Windows.Win32", "ldap_escape_filter_element")
+        .unwrap()
+        .write_context(Layout::Package, Projection::Default)
+        .to_string();
+    assert!(
+        output.contains("core :: mem :: transmute (sourcefilterelement . as_ptr ())"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_copy_proof_resolves_projected_nested_layouts() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let output = metadata
+        .generator(Request::filtered(Filter::names([
+            "KSAUDIOMODULE_PROPERTY",
+            "KSPROPERTY_COMPOSIT_ON",
+            "D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC",
+            "D3D12_RENDER_PASS_DEPTH_STENCIL_DESC",
+        ])))
+        .unwrap()
+        .render(Layout::Flat)
+        .unwrap()
+        .to_string();
+
+    for name in [
+        "KSAUDIOMODULE_PROPERTY",
+        "D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC",
+    ] {
+        assert!(
+            output.contains(&format!("derive (Clone , Copy)] pub struct {name}")),
+            "{output}"
+        );
+    }
+    assert!(
+        output.contains("derive (Clone)] pub struct D3D12_RENDER_PASS_DEPTH_STENCIL_DESC"),
+        "{output}"
+    );
+    assert!(
+        output.contains(
+            "derive (Clone , Copy , Debug , PartialEq , Eq , Default)] pub struct KSPROPERTY_COMPOSIT_ON"
+        ),
         "{output}"
     );
 }
@@ -2305,6 +2424,33 @@ fn rich_native_struct_fields_own_interfaces() {
 }
 
 #[test]
+fn rich_native_pointer_fields_borrow_interface_storage() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let output = metadata
+        .generator(Request::all().package())
+        .unwrap()
+        .win32_items()
+        .native_type("Windows.Win32", "D3D12_VIDEO_DECODE_REFERENCE_FRAMES")
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("ppTexture2Ds : * mut Option < ID3D12Resource >"),
+        "{output}"
+    );
+    assert!(
+        output.contains("ppHeaps : * mut Option < ID3D12VideoDecoderHeap >"),
+        "{output}"
+    );
+    assert!(!output.contains("ManuallyDrop"), "{output}");
+}
+
+#[test]
 fn rich_native_interfaces_project_complete_inheritance() {
     let metadata = Metadata::new(
         Database::new([
@@ -3230,7 +3376,7 @@ fn native_producers_support_indirect_struct_returns() {
         "{output}"
     );
     assert!(
-        output.contains("result__ . write (IValue_Impl :: GetValue (this"),
+        output.contains("* result__ = IValue_Impl :: GetValue (this"),
         "{output}"
     );
 }
@@ -3335,6 +3481,13 @@ fn native_com_query_preserves_ordinary_parameters() {
         output.contains("unsafe fn CreateCommandList < P2 , P3 , T >"),
         "{output}"
     );
+    assert!(
+        output.contains(
+            "where P2 : windows_core :: Param < ID3D12CommandAllocator >, P3 : windows_core :: \
+             Param < ID3D12PipelineState >, T : windows_core :: Interface"
+        ),
+        "{output}"
+    );
     let function = metadata
         .generator(Request::all().package())
         .unwrap()
@@ -3346,6 +3499,37 @@ fn native_com_query_preserves_ordinary_parameters() {
     assert!(
         function.contains("unsafe fn D3D12GetDebugInterface < T > (result__ : * mut Option < T >"),
         "{function}"
+    );
+}
+
+#[test]
+fn native_d3d12_producer_interface_inputs_are_borrowed() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let interface = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "ID3D12Device").then_some(interface)
+        })
+        .unwrap();
+    let output = normalize_existing_output(interface.write_package());
+
+    assert!(
+        output.contains(
+            "fn CreateCommandList (& self , u32 , D3D12_COMMAND_LIST_TYPE , windows_core :: Ref < \
+             ID3D12CommandAllocator >, windows_core :: Ref < ID3D12PipelineState >"
+        ),
+        "{output}"
+    );
+    assert!(
+        output.contains("fn CreatePlacedResource (& self , windows_core :: Ref < ID3D12Heap >"),
+        "{output}"
     );
 }
 

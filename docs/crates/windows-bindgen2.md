@@ -41,7 +41,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
 | Build-script facade | Twenty consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, reference and time projections, benchmark and robot components and clients, context alignment, core-only APIs, and Win32 metadata match. |
-| Package output | In progress | The package backend runs, but 382 generated files still differ. `windows-sys` source output matches exactly. Rich Win32 has 295 differing files and WinRT has 85; source output has 5,349 missing and 4,862 extra line edges. The two manifests have 119 missing and 353 extra dependency edges. |
+| Package output | In progress | The package backend runs, but 310 generated files still differ. `windows-sys` source output matches exactly. Rich Win32 has 223 differing files and WinRT has 85; source output has 3,500 missing and 2,981 extra line edges. The two manifests have 119 missing and 353 extra dependency edges. |
 
 The current working implementation has about 14,400 lines of production Rust, roughly the same as
 legacy bindgen. Size is no longer evidence for the rewrite by itself; structure, parity, and
@@ -147,9 +147,24 @@ the ABI boundary.
 Query methods append the synthesized interface result generic after ordinary parameter generics,
 and direct interface returns retain their nullable `Option` shape.
 Buffer relationships accept recursively resolved integer typedefs as count parameters.
+Counted `PCSTR` and `PCWSTR` inputs project as byte and UTF-16 slices. Slice pointers transmute when
+their public element type differs from the ABI element type.
+Slice lengths reconstruct rich count newtypes instead of passing their primitive values directly.
 `ReservedAttribute` parameters project as optional values without changing array or query policy.
 Rich property-key constants retain the newtype of their property identifier field while sys output
 keeps the primitive ABI value.
+Mutable raw pointer arguments cast at the wrapper ABI boundary.
+Variadic native functions are omitted from rich and minimal output and retained in sys output.
+Copy proof for named native layouts resolves projected nested types without broadening Debug, Eq,
+or ownership policy.
+Canonical scalar wrappers such as `BOOL` count as primitive when preserving rich native typedef
+newtypes.
+Producer IID-query methods keep ordinary interface inputs as `Ref<Interface>` while retaining the
+IID and result parameters in ABI form.
+Pointers to interface fields project the pointed-to interface as `Option<Interface>` without
+wrapping the pointee in `ManuallyDrop`.
+Query wrapper constraints keep ordinary `Param` bounds before the result interface bound.
+Indirect producer returns assign through the ABI result pointer.
 Package output items retain the metadata architecture key, so duplicate same-name variants sort by
 typed metadata rather than insertion or token order.
 

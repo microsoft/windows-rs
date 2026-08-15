@@ -44,11 +44,7 @@ fn write_slice_parameter(
 ) -> Option<(TokenStream, TokenStream)> {
     let element = parameter.slice_element()?;
     let is_interface = element.is_interface();
-    let is_byte_buffer = parameter
-        .ty
-        .pointee()
-        .is_some_and(|element| element == &native::Type::Void)
-        || parameter.ty.is_const_string();
+    let transmute = parameter.slice_requires_transmute();
     let element = element.write_public(namespace, layout);
     let element = if is_interface {
         quote! { Option<#element> }
@@ -80,7 +76,7 @@ fn write_slice_parameter(
     } else {
         (quote! { #name: &[#element] }, quote! { #name.as_ptr() })
     };
-    let pointer = if is_interface || is_byte_buffer {
+    let pointer = if is_interface || transmute {
         quote! { core::mem::transmute(#pointer) }
     } else {
         pointer
@@ -91,22 +87,35 @@ fn write_slice_parameter(
 fn write_slice_count(
     signature: &native_signature::Signature,
     parameter: &native_signature::Parameter,
+    namespace: &str,
+    layout: Layout,
 ) -> Option<TokenStream> {
-    let slice = parameter.slice_parameter()?;
+    let (slice, newtype) = parameter.slice_parameter()?;
     let slice = &signature.parameters[slice];
     let name = tokens::ident(&slice.name);
+    let wrap = |value| {
+        if newtype {
+            let ty = parameter.ty.write_public(namespace, layout);
+            quote! { #ty(#value) }
+        } else {
+            value
+        }
+    };
     Some(if slice.is_optional() {
+        let zero = wrap(quote! { 0 });
+        let len = wrap(quote! { slice.len().try_into().unwrap() });
         if slice.is_mutable_pointer() {
             quote! {
-                #name.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())
+                #name.as_deref().map_or(#zero, |slice| #len)
             }
         } else {
             quote! {
-                #name.map_or(0, |slice| slice.len().try_into().unwrap())
+                #name.map_or(#zero, |slice| #len)
             }
         }
     } else {
-        quote! { #name.len().try_into().unwrap() }
+        let len = wrap(quote! { #name.len().try_into().unwrap() });
+        quote! { #len }
     })
 }
 
@@ -201,7 +210,9 @@ impl native_signature::Signature {
                     arguments.push(argument);
                     continue;
                 }
-                if let Some(argument) = write_slice_count(signature, parameter) {
+                if let Some(argument) =
+                    write_slice_count(signature, parameter, context.namespace, layout)
+                {
                     arguments.push(argument);
                     continue;
                 }
@@ -385,7 +396,7 @@ impl native_signature::Signature {
             {
                 parameters.push(projected);
                 arguments.push(argument);
-            } else if let Some(argument) = write_slice_count(self, parameter) {
+            } else if let Some(argument) = write_slice_count(self, parameter, namespace, layout) {
                 arguments.push(argument);
             } else if let Some(len) = parameter.fixed_array_len()
                 && let Some(element) = parameter.ty.pointee()
@@ -518,7 +529,7 @@ impl native_signature::Signature {
             {
                 parameters.push(projected);
                 arguments.push(argument);
-            } else if let Some(argument) = write_slice_count(self, parameter) {
+            } else if let Some(argument) = write_slice_count(self, parameter, namespace, layout) {
                 arguments.push(argument);
             } else if let Some(len) = parameter.fixed_array_len()
                 && let Some(element) = parameter.ty.pointee()
@@ -692,7 +703,7 @@ impl native_signature::Signature {
                 arguments.push(argument);
                 continue;
             }
-            if let Some(argument) = write_slice_count(self, parameter) {
+            if let Some(argument) = write_slice_count(self, parameter, namespace, layout) {
                 arguments.push(argument);
                 continue;
             }
@@ -814,8 +825,8 @@ impl native_signature::Signature {
                     #(#parameters)*
                 ) -> windows_core::Result<T>
                 where
-                    T: windows_core::Interface,
                     #(#constraints)*
+                    T: windows_core::Interface,
                 {
                     let mut result__ = core::ptr::null_mut();
                     unsafe {
@@ -836,8 +847,8 @@ impl native_signature::Signature {
                     #(#parameters)*
                 ) -> windows_core::Result<()>
                 where
-                    T: windows_core::Interface,
                     #(#constraints)*
+                    T: windows_core::Interface,
                 {
                     unsafe {
                         (windows_core::Interface::vtable(self).#method)(
@@ -966,14 +977,20 @@ impl native_signature::Signature {
     ) -> Result<TokenStream, Error> {
         let method = tokens::ident(name);
         let return_kind = self.return_kind(layout.is_package());
-        if matches!(return_kind, ReturnKind::Query { .. }) {
-            let parameters = self.parameters.iter().map(|parameter| {
-                let name = tokens::ident(&parameter.name);
-                let ty = parameter
-                    .ty
-                    .write_abi_projection(namespace, layout, projection);
-                quote! { #name: #ty, }
-            });
+        if let ReturnKind::Query { guid, object, .. } = return_kind {
+            let parameters = self
+                .parameters
+                .iter()
+                .enumerate()
+                .map(|(position, parameter)| {
+                    self.write_impl_parameter(
+                        parameter,
+                        namespace,
+                        layout,
+                        projection,
+                        position == guid || position == object,
+                    )
+                });
             return Ok(quote! {
                 fn #method(&self, #(#parameters)*) -> windows_core::Result<()>;
             });
@@ -994,27 +1011,7 @@ impl native_signature::Signature {
             .enumerate()
             .filter(|(position, _)| retval.is_none_or(|(retval, _)| *position != retval))
             .map(|(_, parameter)| {
-                let name = tokens::ident(&parameter.name);
-                let ty = parameter.ty.write_public(namespace, layout);
-                if !parameter.has_array_info()
-                    && let Some((mutable, interface)) = parameter.ty.interface_out()
-                {
-                    let interface = interface.write_public(namespace, layout);
-                    if mutable {
-                        quote! { #name: windows_core::OutRef<#interface>, }
-                    } else {
-                        quote! { #name: *const Option<#interface>, }
-                    }
-                } else if parameter.is_input_only() && parameter.ty.is_interface() {
-                    quote! { #name: windows_core::Ref<#ty>, }
-                } else if parameter.has_array_info() {
-                    let ty = parameter.ty.write_public_pointer(namespace, layout);
-                    quote! { #name: #ty, }
-                } else if parameter.producer_by_ref {
-                    quote! { #name: &#ty, }
-                } else {
-                    quote! { #name: #ty, }
-                }
+                self.write_impl_parameter(parameter, namespace, layout, projection, false)
             });
         let result = match return_kind {
             ReturnKind::Retval { ty, .. } => {
@@ -1042,6 +1039,43 @@ impl native_signature::Signature {
         Ok(quote! {
             fn #method(&self, #(#parameters)*) #result;
         })
+    }
+
+    fn write_impl_parameter(
+        &self,
+        parameter: &native_signature::Parameter,
+        namespace: &str,
+        layout: Layout,
+        projection: Projection,
+        abi: bool,
+    ) -> TokenStream {
+        let name = tokens::ident(&parameter.name);
+        if abi {
+            let ty = parameter
+                .ty
+                .write_abi_projection(namespace, layout, projection);
+            return quote! { #name: #ty, };
+        }
+        let ty = parameter.ty.write_public(namespace, layout);
+        if !parameter.has_array_info()
+            && let Some((mutable, interface)) = parameter.ty.interface_out()
+        {
+            let interface = interface.write_public(namespace, layout);
+            if mutable {
+                quote! { #name: windows_core::OutRef<#interface>, }
+            } else {
+                quote! { #name: *const Option<#interface>, }
+            }
+        } else if parameter.is_input_only() && parameter.ty.is_interface() {
+            quote! { #name: windows_core::Ref<#ty>, }
+        } else if parameter.has_array_info() {
+            let ty = parameter.ty.write_public_pointer(namespace, layout);
+            quote! { #name: #ty, }
+        } else if parameter.producer_by_ref {
+            quote! { #name: &#ty, }
+        } else {
+            quote! { #name: #ty, }
+        }
     }
 
     pub(super) fn write_impl_upcall(
@@ -1082,7 +1116,7 @@ impl native_signature::Signature {
         }
         if matches!(return_kind, ReturnKind::Indirect(_)) {
             return Ok(quote! {
-                result__.write(#impl_name::#method(this, #(#arguments),*));
+                *result__ = #impl_name::#method(this, #(#arguments),*);
             });
         }
         if matches!(

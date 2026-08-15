@@ -50,6 +50,9 @@ impl Function {
     }
 
     pub(super) fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
+        if self.variadic && !projection.is_sys() {
+            return quote! {};
+        }
         let architectures = tokens::architectures(self.architectures);
         let cfg = tokens::feature_cfg(
             &self.namespace,
@@ -119,6 +122,9 @@ impl Function {
         layout: Layout,
         projection: Projection,
     ) -> BTreeSet<String> {
+        if self.variadic && !projection.is_sys() {
+            return BTreeSet::new();
+        }
         tokens::feature_names(
             &self.namespace,
             layout,

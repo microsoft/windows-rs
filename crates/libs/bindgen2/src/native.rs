@@ -514,8 +514,12 @@ impl Type {
                 quote! { [#element; #len] }
             }
             Self::Pointer { mutable, element } => {
-                let element =
-                    element.write_field_projection_owner(namespace, owner, layout, projection);
+                let element = if element.is_interface() && !projection.is_sys() {
+                    let interface = element.write_public(namespace, layout);
+                    quote! { Option<#interface> }
+                } else {
+                    element.write_field_projection_owner(namespace, owner, layout, projection)
+                };
                 if *mutable {
                     quote! { *mut #element }
                 } else {
@@ -679,6 +683,45 @@ impl Type {
         self.is_integer_inner(database, &mut BTreeSet::new())
     }
 
+    pub(super) fn is_newtype(&self, database: &Database) -> Result<bool, Error> {
+        let Self::Named { namespace, name } = self else {
+            return Ok(false);
+        };
+        for entity in database.type_definitions(namespace, name) {
+            let definition = database.definition(*entity).unwrap();
+            match definition.category()? {
+                TypeCategory::Enum => return Ok(true),
+                TypeCategory::Struct => {
+                    let mut fields = Vec::new();
+                    for field in definition.fields()? {
+                        if !field.is_literal()? {
+                            fields.push(field);
+                        }
+                    }
+                    let [field] = fields.as_slice() else {
+                        continue;
+                    };
+                    if field.name()? != "Value" {
+                        continue;
+                    }
+                    let ty =
+                        Self::lower(database, field.entity().file(), name, field.signature()?)?;
+                    if ty.is_primitive(database)?
+                        && !matches!(
+                            ty,
+                            Self::Pointer { ref element, .. }
+                                if element.as_ref() != &Self::Void
+                        )
+                    {
+                        return Ok(true);
+                    }
+                }
+                _ => {}
+            }
+        }
+        Ok(false)
+    }
+
     fn is_integer_inner(
         &self,
         database: &Database,
@@ -756,6 +799,12 @@ impl Type {
                     | Self::Pointer { .. }
             ));
         };
+        if canonical::type_from_name(namespace, name).is_some_and(|ty| !ty.is_guid())
+            || ((namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32."))
+                && matches!(name.as_str(), "BOOL" | "NTSTATUS" | "RPC_STATUS"))
+        {
+            return Ok(true);
+        }
         let key = (namespace.clone(), name.clone());
         if !stack.insert(key.clone()) {
             return Ok(false);
@@ -833,6 +882,16 @@ impl Type {
             self,
             Self::Named { namespace, name }
                 if name == "PCWSTR"
+                    && (namespace == "Windows.Win32"
+                        || namespace.starts_with("Windows.Win32."))
+        )
+    }
+
+    pub(super) fn is_pcstr(&self) -> bool {
+        matches!(
+            self,
+            Self::Named { namespace, name }
+                if name == "PCSTR"
                     && (namespace == "Windows.Win32"
                         || namespace.starts_with("Windows.Win32."))
         )
@@ -1035,6 +1094,78 @@ fn named_traits(
     Ok(result)
 }
 
+fn named_copyable(
+    database: &Database,
+    namespace: &str,
+    name: &str,
+    stack: &mut BTreeSet<(String, String)>,
+) -> Result<bool, Error> {
+    let key = (namespace.to_string(), name.to_string());
+    if !stack.insert(key.clone()) {
+        return Ok(false);
+    }
+    let mut definitions = database
+        .type_definitions(namespace, name)
+        .iter()
+        .copied()
+        .collect::<Vec<_>>();
+    if definitions.is_empty() {
+        definitions = projected_nested_definitions(database, namespace, name);
+    }
+    if definitions.is_empty() {
+        stack.remove(&key);
+        return Ok(false);
+    }
+    for entity in definitions {
+        let definition = database.definition(entity).unwrap();
+        let copyable = match definition.category()? {
+            TypeCategory::Enum | TypeCategory::Delegate => true,
+            TypeCategory::Struct => {
+                let nested = database
+                    .nested_types_of(entity)
+                    .enumerate()
+                    .map(|(index, definition)| {
+                        Ok((definition.name()?.to_string(), format!("{name}_{index}")))
+                    })
+                    .collect::<Result<Vec<_>, Error>>()?;
+                let substitutions = nested
+                    .iter()
+                    .map(|(metadata, projected)| (metadata.as_str(), projected.as_str()))
+                    .collect::<Vec<_>>();
+                let projected = nested
+                    .iter()
+                    .map(|(_, projected)| projected.as_str())
+                    .collect::<BTreeSet<_>>();
+                let mut copyable = true;
+                for field in definition.fields()? {
+                    if !field.is_literal()? {
+                        let ty = Type::lower_with_nested(
+                            database,
+                            field.entity().file(),
+                            name,
+                            field.signature()?,
+                            &substitutions,
+                        )?
+                        .qualify_projected_nested(namespace, &projected);
+                        if !ty.projected_copyable(database, stack)? {
+                            copyable = false;
+                            break;
+                        }
+                    }
+                }
+                copyable
+            }
+            _ => false,
+        };
+        if !copyable {
+            stack.remove(&key);
+            return Ok(false);
+        }
+    }
+    stack.remove(&key);
+    Ok(true)
+}
+
 fn projected_nested_definitions(
     database: &Database,
     namespace: &str,
@@ -1115,6 +1246,36 @@ fn sys_core_projection(namespace: &str, name: &str) -> Option<TokenStream> {
 }
 
 impl Type {
+    fn projected_copyable(
+        &self,
+        database: &Database,
+        stack: &mut BTreeSet<(String, String)>,
+    ) -> Result<bool, Error> {
+        match self {
+            Self::Void | Self::Interface { .. } => Ok(false),
+            Self::Array { element, .. } => element.projected_copyable(database, stack),
+            Self::Named { namespace, name } => named_copyable(database, namespace, name, stack),
+            _ => Ok(true),
+        }
+    }
+
+    fn qualify_projected_nested(mut self, namespace: &str, projected: &BTreeSet<&str>) -> Self {
+        match &mut self {
+            Self::Array { element, .. } | Self::Pointer { element, .. } => {
+                **element = element
+                    .clone()
+                    .qualify_projected_nested(namespace, projected);
+            }
+            Self::Named {
+                namespace: target,
+                name,
+            } if target.is_empty() && projected.contains(name.as_str()) => {
+                *target = namespace.to_string();
+            }
+            _ => {}
+        }
+        self
+    }
     pub(super) fn normalize_alias(self, namespace: &str, name: &str) -> Self {
         match (namespace, name) {
             ("Windows.Win32", "BSTR" | "PCWSTR") => Self::Pointer {
@@ -1402,7 +1563,12 @@ impl Type {
                 if is_core_projection(namespace, name) {
                     TraitSupport::ALL
                 } else {
-                    named_traits(database, namespace, name, stack)?
+                    let mut traits = named_traits(database, namespace, name, stack)?;
+                    if !traits.copy {
+                        traits.copy =
+                            named_copyable(database, namespace, name, &mut BTreeSet::new())?;
+                    }
+                    traits
                 }
             }
             _ => TraitSupport::ALL,

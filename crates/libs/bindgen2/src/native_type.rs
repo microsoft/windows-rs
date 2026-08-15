@@ -457,6 +457,11 @@ impl NativeType {
         self.write_context(Layout::Flat, Projection::Sys)
     }
 
+    #[cfg(test)]
+    pub fn write_package(&self) -> TokenStream {
+        self.write_context(Layout::Package, Projection::Default)
+    }
+
     fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
         let items = self
             .write_items_context(layout, projection, &[])

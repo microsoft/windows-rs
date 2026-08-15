@@ -38,7 +38,7 @@ enum ParamHint {
     None,
     Slice,
     ByteSlice,
-    SliceCount(usize),
+    SliceCount { position: usize, newtype: bool },
     FixedArray(usize),
     IntoParam,
     PackageIntoParam,
@@ -80,7 +80,8 @@ impl Parameter {
     }
 
     pub(super) fn needs_cast(&self) -> bool {
-        matches!(self.hint, ParamHint::ValueType) && !self.is_input_only()
+        matches!(self.ty, native::Type::Pointer { mutable: true, .. })
+            || (matches!(self.hint, ParamHint::ValueType) && !self.is_input_only())
     }
 
     pub(super) fn has_array_info(&self) -> bool {
@@ -94,6 +95,8 @@ impl Parameter {
     pub(super) fn slice_element(&self) -> Option<native::Type> {
         match self.hint {
             ParamHint::ByteSlice => Some(native::Type::U8),
+            ParamHint::Slice if self.ty.is_pcstr() => Some(native::Type::U8),
+            ParamHint::Slice if self.ty.is_pcwstr() => Some(native::Type::U16),
             ParamHint::Slice => self.ty.pointee().map(|element| {
                 if element == &native::Type::Void {
                     native::Type::U8
@@ -105,9 +108,21 @@ impl Parameter {
         }
     }
 
-    pub(super) fn slice_parameter(&self) -> Option<usize> {
+    pub(super) fn slice_requires_transmute(&self) -> bool {
+        if self.ty.is_const_string() {
+            return true;
+        }
+        let Some(element) = self.slice_element() else {
+            return false;
+        };
+        self.ty
+            .pointee()
+            .is_some_and(|abi| abi == &native::Type::Void || abi != &element)
+    }
+
+    pub(super) fn slice_parameter(&self) -> Option<(usize, bool)> {
         match self.hint {
-            ParamHint::SliceCount(position) => Some(position),
+            ParamHint::SliceCount { position, newtype } => Some((position, newtype)),
             _ => None,
         }
     }
@@ -279,7 +294,10 @@ impl Signature {
             } else {
                 parameters[position].hint = ParamHint::Slice;
             }
-            parameters[count].hint = ParamHint::SliceCount(position);
+            parameters[count].hint = ParamHint::SliceCount {
+                position,
+                newtype: parameters[count].ty.is_newtype(database)?,
+            };
         }
         let return_type =
             native::Type::lower(database, method.entity().file(), owner, return_type)?;
