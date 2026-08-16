@@ -42,9 +42,8 @@ fn write_slice_parameter(
     namespace: &str,
     layout: Layout,
 ) -> Option<(TokenStream, TokenStream)> {
-    let element = parameter.slice_element()?;
+    let (element, transmute) = parameter.slice_plan()?;
     let is_interface = element.is_interface();
-    let transmute = parameter.slice_requires_transmute();
     let element = element.write_public(namespace, layout);
     let element = if is_interface {
         quote! { Option<#element> }
@@ -219,17 +218,11 @@ impl native_signature::Signature {
                     arguments.push(quote! { #name.into() });
                     continue;
                 }
-                if let Some(len) = parameter.fixed_array_len() {
-                    let pointee = parameter.ty.pointee();
-                    let slice_element = parameter.fixed_array_element();
-                    let element = slice_element
-                        .as_ref()
-                        .unwrap_or_else(|| pointee.unwrap_or(&parameter.ty));
+                if let Some((len, element, indirect)) = parameter.fixed_array_plan() {
                     let element = element.write_public(namespace, layout);
                     let len = proc_macro2::Literal::usize_unsuffixed(len);
                     let mutable =
                         matches!(&parameter.ty, native::Type::Pointer { mutable: true, .. });
-                    let indirect = pointee.is_none();
                     if parameter.is_optional() && mutable {
                         parameters.push(quote! { #name: Option<&mut [#element; #len]>, });
                         let argument = quote! {
@@ -448,15 +441,9 @@ impl native_signature::Signature {
                 arguments.push(argument);
             } else if let Some(argument) = write_slice_count(self, parameter, namespace, layout) {
                 arguments.push(argument);
-            } else if let Some(len) = parameter.fixed_array_len() {
-                let pointee = parameter.ty.pointee();
-                let slice_element = parameter.fixed_array_element();
-                let element = slice_element
-                    .as_ref()
-                    .unwrap_or_else(|| pointee.unwrap_or(&parameter.ty));
+            } else if let Some((len, element, indirect)) = parameter.fixed_array_plan() {
                 let element = element.write_public(namespace, layout);
                 let len = proc_macro2::Literal::usize_unsuffixed(len);
-                let indirect = pointee.is_none();
                 if parameter.is_optional() && parameter.is_mutable_pointer() {
                     parameters.push(quote! { #name: Option<&mut [#element; #len]> });
                     let argument = quote! {
@@ -641,15 +628,9 @@ impl native_signature::Signature {
                 arguments.push(argument);
             } else if let Some(argument) = write_slice_count(self, parameter, namespace, layout) {
                 arguments.push(argument);
-            } else if let Some(len) = parameter.fixed_array_len() {
-                let pointee = parameter.ty.pointee();
-                let slice_element = parameter.fixed_array_element();
-                let element = slice_element
-                    .as_ref()
-                    .unwrap_or_else(|| pointee.unwrap_or(&parameter.ty));
+            } else if let Some((len, element, indirect)) = parameter.fixed_array_plan() {
                 let element = element.write_public(namespace, layout);
                 let len = proc_macro2::Literal::usize_unsuffixed(len);
-                let indirect = pointee.is_none();
                 if parameter.is_optional() && parameter.is_mutable_pointer() {
                     parameters.push(quote! { #name: Option<&mut [#element; #len]> });
                     let argument = quote! {
@@ -885,16 +866,10 @@ impl native_signature::Signature {
                 arguments.push(quote! { #name.into() });
                 continue;
             }
-            if let Some(len) = parameter.fixed_array_len() {
-                let pointee = parameter.ty.pointee();
-                let slice_element = parameter.fixed_array_element();
-                let element = slice_element
-                    .as_ref()
-                    .unwrap_or_else(|| pointee.unwrap_or(&parameter.ty));
+            if let Some((len, element, indirect)) = parameter.fixed_array_plan() {
                 let element = element.write_public_with_owner(namespace, layout, Some(owner));
                 let len = proc_macro2::Literal::usize_unsuffixed(len);
                 let mutable = matches!(&parameter.ty, native::Type::Pointer { mutable: true, .. });
-                let indirect = pointee.is_none();
                 if parameter.is_optional() && mutable {
                     parameters.push(quote! { #name: Option<&mut [#element; #len]>, });
                     let argument = quote! {
@@ -1390,85 +1365,32 @@ impl native_signature::Signature {
     }
 
     fn return_kind(&self, package: bool) -> ReturnKind<'_> {
-        if !(self.return_type.is_hresult() || (package && self.return_type.is_hresult_package())) {
-            if self.return_type == native::Type::Void {
-                if let Some((position, ty)) = self.retval_parameter() {
-                    return if ty.is_interface() {
-                        ReturnKind::VoidInterface { position, ty }
-                    } else {
-                        ReturnKind::VoidValue { position, ty }
-                    };
-                }
-                return ReturnKind::Void;
-            }
-            if self.indirect_return {
-                return ReturnKind::Indirect(&self.return_type);
-            }
-            return ReturnKind::Direct(&self.return_type);
-        }
-        if let Some((guid, object)) = self.query_parameters() {
-            return ReturnKind::Query {
+        match self.return_plan(package) {
+            native_signature::ReturnPlan::HResult => ReturnKind::HResult,
+            native_signature::ReturnPlan::Void => ReturnKind::Void,
+            native_signature::ReturnPlan::VoidInterface { position } => ReturnKind::VoidInterface {
+                position,
+                ty: self.parameters[position].ty.pointee().unwrap(),
+            },
+            native_signature::ReturnPlan::VoidValue { position } => ReturnKind::VoidValue {
+                position,
+                ty: self.parameters[position].ty.pointee().unwrap(),
+            },
+            native_signature::ReturnPlan::Direct => ReturnKind::Direct(&self.return_type),
+            native_signature::ReturnPlan::Indirect => ReturnKind::Indirect(&self.return_type),
+            native_signature::ReturnPlan::Retval { position } => ReturnKind::Retval {
+                position,
+                ty: self.parameters[position].ty.pointee().unwrap(),
+            },
+            native_signature::ReturnPlan::Query {
                 guid,
                 object,
-                optional: self.parameters[object].is_optional(),
-            };
+                optional,
+            } => ReturnKind::Query {
+                guid,
+                object,
+                optional,
+            },
         }
-        if let Some((position, ty)) = self.retval_parameter() {
-            if ty
-                .pointee()
-                .is_some_and(|pointee| pointee == &native::Type::Void)
-                && !self.parameters[position].explicit_retval
-            {
-                ReturnKind::HResult
-            } else {
-                ReturnKind::Retval { position, ty }
-            }
-        } else {
-            ReturnKind::HResult
-        }
-    }
-
-    fn retval_parameter(&self) -> Option<(usize, &native::Type)> {
-        let (parameter, preceding) = self.parameters.split_last()?;
-        if parameter.retval_candidate
-            && (parameter.explicit_retval
-                || preceding
-                    .iter()
-                    .all(native_signature::Parameter::is_input_only))
-        {
-            Some((preceding.len(), parameter.ty.pointee()?))
-        } else {
-            None
-        }
-    }
-
-    fn query_parameters(&self) -> Option<(usize, usize)> {
-        let guid = self.parameters.iter().rposition(|parameter| {
-            parameter.is_input_only()
-                && matches!(
-                    &parameter.ty,
-                    native::Type::Pointer {
-                        mutable: false,
-                        element,
-                    } if element.is_guid()
-                )
-        })?;
-        let object = self.parameters.iter().rposition(|parameter| {
-            parameter.com_out_ptr
-                && matches!(
-                    &parameter.ty,
-                    native::Type::Pointer {
-                        mutable: true,
-                        element,
-                    } if matches!(
-                        element.as_ref(),
-                        native::Type::Pointer {
-                            mutable: true,
-                            element,
-                        } if matches!(element.as_ref(), native::Type::Void)
-                    )
-                )
-        })?;
-        Some((guid, object))
     }
 }

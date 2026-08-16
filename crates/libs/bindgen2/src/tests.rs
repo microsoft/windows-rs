@@ -6162,6 +6162,18 @@ fn architecture_source_gates() {
             "direct package dependencies retained in persistent WinRT catalogs",
         ),
         (
+            "fn slice_requires_transmute(",
+            "slice conversion policy derived during rendering",
+        ),
+        (
+            "fn fixed_array_element(",
+            "fixed-array element policy derived during rendering",
+        ),
+        (
+            "pointer_alias: Option<native::Type>",
+            "temporary pointer-alias state retained after call planning",
+        ),
+        (
             "context.layout == Layout::Package",
             "package policy outside a context method",
         ),
@@ -6183,6 +6195,29 @@ fn architecture_source_gates() {
             assert!(
                 !contents.contains(pattern),
                 "{} contains {reason}: {pattern}",
+                path.display()
+            );
+        }
+        if path.file_name().is_some_and(|name| name == "native_com.rs") {
+            for pattern in [
+                "fn retval_parameter(",
+                "fn query_parameters(",
+                "return_type.is_hresult",
+            ] {
+                assert!(
+                    !contents.contains(pattern),
+                    "{} reclassifies lowered return behavior: {pattern}",
+                    path.display()
+                );
+            }
+        }
+        if path
+            .file_name()
+            .is_some_and(|name| name == "native_signature.rs")
+        {
+            assert!(
+                !contents.contains("flags: u16"),
+                "{} retains raw parameter flags after lowering",
                 path.display()
             );
         }

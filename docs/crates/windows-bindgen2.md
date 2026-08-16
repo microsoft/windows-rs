@@ -875,3 +875,13 @@ render clone expands those edges into transitive package dependencies. Native so
 manifest features share the same recursive type closure, with narrow interface and sys policies
 applied where the generated package differs. These products remain separate because they answer
 different questions; they no longer maintain independent copies of the same facts.
+
+Step 4 has started with return and direction planning. Native signature lowering now classifies
+direct, indirect, void, HRESULT, retval, and query returns once. A sparse package override records
+the few cases where package HRESULT aliases change that plan. Rendering maps the stored plan to
+tokens without scanning parameters for retval or query patterns. Parameter metadata flags are also
+lowered to typed input, output, or input/output direction plus optionality rather than retained as
+raw bits. Array lowering now owns slice element and transmute policy plus fixed-array element and
+indirection policy. Rendering consumes those plans instead of resolving pointer aliases and ABI
+elements again, and temporary pointer-alias state is discarded after lowering. Alias casts,
+general ABI arguments, result conversion, and producer plans remain to be consolidated.

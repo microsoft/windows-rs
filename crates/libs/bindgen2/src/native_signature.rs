@@ -9,12 +9,15 @@ pub(super) struct Signature {
     pub(super) return_type: native::Type,
     pub(super) indirect_return: bool,
     pub(super) no_return: bool,
+    return_plan: ReturnPlan,
+    package_return_plan_override: Option<ReturnPlan>,
     package_dependencies: BTreeSet<(String, String)>,
 }
 
 pub(super) struct Parameter {
     pub(super) name: String,
-    flags: u16,
+    direction: Direction,
+    optional: bool,
     pub(super) com_out_ptr: bool,
     array: Option<ArrayInfo>,
     pub(super) retval_candidate: bool,
@@ -22,7 +25,6 @@ pub(super) struct Parameter {
     pub(super) retval_transmute: bool,
     pub(super) producer_by_ref: bool,
     pub(super) ty: native::Type,
-    pointer_alias: Option<native::Type>,
     pointer_alias_cast: bool,
     hint: ParamHint,
     pointer_cast: bool,
@@ -36,12 +38,28 @@ enum ArrayInfo {
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum Direction {
+    Input,
+    Output,
+    InputOutput,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
 enum ParamHint {
     None,
-    Slice,
-    ByteSlice,
-    SliceCount { position: usize, newtype: bool },
-    FixedArray(usize),
+    Slice {
+        element: native::Type,
+        transmute: bool,
+    },
+    SliceCount {
+        position: usize,
+        newtype: bool,
+    },
+    FixedArray {
+        len: usize,
+        element: native::Type,
+        indirect: bool,
+    },
     IntoParam,
     PackageIntoParam,
     Optional,
@@ -51,13 +69,35 @@ enum ParamHint {
     ByRef,
 }
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(super) enum ReturnPlan {
+    HResult,
+    Void,
+    VoidInterface {
+        position: usize,
+    },
+    VoidValue {
+        position: usize,
+    },
+    Direct,
+    Indirect,
+    Retval {
+        position: usize,
+    },
+    Query {
+        guid: usize,
+        object: usize,
+        optional: bool,
+    },
+}
+
 impl Parameter {
     pub(super) fn is_input_only(&self) -> bool {
-        self.flags & 0x0002 == 0
+        matches!(self.direction, Direction::Input)
     }
 
     pub(super) fn is_output_only(&self) -> bool {
-        self.flags & 0x0002 != 0 && self.flags & 0x0001 == 0
+        matches!(self.direction, Direction::Output)
     }
 
     pub(super) fn is_interface_output(&self) -> bool {
@@ -65,7 +105,7 @@ impl Parameter {
     }
 
     pub(super) fn is_optional(&self) -> bool {
-        self.flags & 0x0010 != 0
+        self.optional
     }
 
     pub(super) fn is_into_param(&self, layout: Layout) -> bool {
@@ -111,49 +151,11 @@ impl Parameter {
             || self.ty.mutable_string_pointer()
     }
 
-    pub(super) fn slice_element(&self) -> Option<native::Type> {
-        match self.hint {
-            ParamHint::ByteSlice => Some(native::Type::U8),
-            ParamHint::Slice if self.ty.is_pcstr() => Some(native::Type::U8),
-            ParamHint::Slice if self.ty.is_pcwstr() => Some(native::Type::U16),
-            ParamHint::Slice if self.ty.mutable_string_pointer() => {
-                if matches!(
-                    self.ty,
-                    native::Type::Named { ref name, .. } if name == "PSTR"
-                ) {
-                    Some(native::Type::U8)
-                } else {
-                    Some(native::Type::U16)
-                }
-            }
-            ParamHint::Slice => self
-                .ty
-                .pointee()
-                .map(|element| {
-                    if element == &native::Type::Void {
-                        native::Type::U8
-                    } else {
-                        element.clone()
-                    }
-                })
-                .or_else(|| self.pointer_alias.as_ref().map(|_| self.ty.clone())),
+    pub(super) fn slice_plan(&self) -> Option<(&native::Type, bool)> {
+        match &self.hint {
+            ParamHint::Slice { element, transmute } => Some((element, *transmute)),
             _ => None,
         }
-    }
-
-    pub(super) fn slice_requires_transmute(&self) -> bool {
-        if self.ty.is_const_string() || self.ty.mutable_string_pointer() {
-            return true;
-        }
-        if self.pointer_alias.is_some() {
-            return true;
-        }
-        let Some(element) = self.slice_element() else {
-            return false;
-        };
-        self.ty
-            .pointee()
-            .is_some_and(|abi| abi == &native::Type::Void || abi != &element)
     }
 
     pub(super) fn slice_parameter(&self) -> Option<(usize, bool)> {
@@ -163,25 +165,70 @@ impl Parameter {
         }
     }
 
-    pub(super) fn fixed_array_len(&self) -> Option<usize> {
-        match self.hint {
-            ParamHint::FixedArray(len) => Some(len),
+    pub(super) fn fixed_array_plan(&self) -> Option<(usize, &native::Type, bool)> {
+        match &self.hint {
+            ParamHint::FixedArray {
+                len,
+                element,
+                indirect,
+            } => Some((*len, element, *indirect)),
             _ => None,
         }
     }
+}
 
-    pub(super) fn fixed_array_element(&self) -> Option<native::Type> {
-        if !matches!(self.hint, ParamHint::FixedArray(_)) || !self.ty.mutable_string_pointer() {
-            return None;
-        }
-        if matches!(
-            self.ty,
-            native::Type::Named { ref name, .. } if name == "PSTR"
-        ) {
-            Some(native::Type::U8)
+fn slice_plan(
+    ty: &native::Type,
+    pointer_alias: Option<&native::Type>,
+    bytes: bool,
+) -> Option<ParamHint> {
+    let element = if bytes {
+        native::Type::U8
+    } else if ty.is_pcstr() {
+        native::Type::U8
+    } else if ty.is_pcwstr() {
+        native::Type::U16
+    } else if ty.mutable_string_pointer() {
+        if matches!(ty, native::Type::Named { name, .. } if name == "PSTR") {
+            native::Type::U8
         } else {
-            Some(native::Type::U16)
+            native::Type::U16
         }
+    } else if let Some(element) = ty.pointee() {
+        if element == &native::Type::Void {
+            native::Type::U8
+        } else {
+            element.clone()
+        }
+    } else if pointer_alias.is_some() {
+        ty.clone()
+    } else {
+        return None;
+    };
+    let transmute = ty.is_const_string()
+        || ty.mutable_string_pointer()
+        || pointer_alias.is_some()
+        || ty
+            .pointee()
+            .is_some_and(|abi| abi == &native::Type::Void || abi != &element);
+    Some(ParamHint::Slice { element, transmute })
+}
+
+fn fixed_array_plan(ty: &native::Type, len: usize) -> ParamHint {
+    let pointee = ty.pointee();
+    let element = if ty.mutable_string_pointer() {
+        if matches!(ty, native::Type::Named { name, .. } if name == "PSTR") {
+            native::Type::U8
+        } else {
+            native::Type::U16
+        }
+    } else {
+        pointee.cloned().unwrap_or_else(|| ty.clone())
+    };
+    ParamHint::FixedArray {
+        len,
+        element,
+        indirect: pointee.is_none(),
     }
 }
 
@@ -219,7 +266,7 @@ impl Signature {
         } = method.signature()?;
         let returns_void = matches!(return_type.kind, TypeKind::Void);
         let parameter_rows = method.parameters_by_sequence()?;
-        let mut parameters: Vec<Parameter> = parameters
+        let lowered: Vec<(Parameter, Option<native::Type>)> = parameters
             .into_iter()
             .enumerate()
             .map(|(position, ty)| {
@@ -228,6 +275,14 @@ impl Signature {
                     .map(|parameter| parameter.flags())
                     .transpose()?
                     .unwrap_or(0);
+                let direction = if flags & 0x0002 == 0 {
+                    Direction::Input
+                } else if flags & 0x0001 == 0 {
+                    Direction::Output
+                } else {
+                    Direction::InputOutput
+                };
+                let optional = flags & 0x0010 != 0;
                 let array = parameter
                     .map(|parameter| Self::array_info(parameter, owner))
                     .transpose()?
@@ -318,7 +373,7 @@ impl Signature {
                 let hint = if let Some(ArrayInfo::ElementsConst(len)) = array
                     && (flags & 0x0002 == 0 || flags & 0x0001 != 0)
                 {
-                    ParamHint::FixedArray(len)
+                    fixed_array_plan(&ty, len)
                 } else if flags & 0x0002 == 0 && (ty.is_interface() || ty.is_pcwstr()) {
                     ParamHint::IntoParam
                 } else if flags & 0x0002 == 0 && ty.is_const_string() {
@@ -336,26 +391,30 @@ impl Signature {
                 } else {
                     ParamHint::None
                 };
-                Ok(Parameter {
-                    name: parameter
-                        .map(|parameter| parameter.name())
-                        .transpose()?
-                        .map_or_else(|| format!("p{position}"), str::to_lowercase),
-                    flags,
-                    com_out_ptr,
-                    array,
-                    retval_candidate,
-                    explicit_retval,
-                    retval_transmute,
-                    producer_by_ref,
-                    ty,
+                Ok((
+                    Parameter {
+                        name: parameter
+                            .map(|parameter| parameter.name())
+                            .transpose()?
+                            .map_or_else(|| format!("p{position}"), str::to_lowercase),
+                        direction,
+                        optional,
+                        com_out_ptr,
+                        array,
+                        retval_candidate,
+                        explicit_retval,
+                        retval_transmute,
+                        producer_by_ref,
+                        ty,
+                        pointer_alias_cast,
+                        hint,
+                        pointer_cast,
+                    },
                     pointer_alias,
-                    pointer_alias_cast,
-                    hint,
-                    pointer_cast,
-                })
+                ))
             })
             .collect::<Result<_, Error>>()?;
+        let (mut parameters, pointer_aliases): (Vec<_>, Vec<_>) = lowered.into_iter().unzip();
         for (position, parameter) in parameters.iter().enumerate() {
             if let Some(ArrayInfo::ElementsParam(count) | ArrayInfo::BytesParam(count)) =
                 parameter.array
@@ -386,13 +445,14 @@ impl Signature {
                 || !parameters[count].is_input_only()
                 || !parameters[count].ty.is_integer(database)?
                 || (!matches!(parameters[position].ty, native::Type::Pointer { .. })
-                    && parameters[position].pointer_alias.is_none()
+                    && pointer_aliases[position].is_none()
                     && !parameters[position].ty.is_const_string()
                     && !parameters[position].ty.mutable_string_pointer())
             {
                 continue;
             }
-            if matches!(parameters[position].array, Some(ArrayInfo::BytesParam(_))) {
+            let bytes = matches!(parameters[position].array, Some(ArrayInfo::BytesParam(_)));
+            if bytes {
                 if parameters[position].ty.is_pcwstr()
                     || (!parameters[position].ty.is_const_string()
                         && !matches!(
@@ -402,10 +462,13 @@ impl Signature {
                 {
                     continue;
                 }
-                parameters[position].hint = ParamHint::ByteSlice;
-            } else {
-                parameters[position].hint = ParamHint::Slice;
             }
+            parameters[position].hint = slice_plan(
+                &parameters[position].ty,
+                pointer_aliases[position].as_ref(),
+                bytes,
+            )
+            .unwrap();
             parameters[count].hint = ParamHint::SliceCount {
                 position,
                 newtype: parameters[count].ty.is_newtype(database)?,
@@ -416,6 +479,11 @@ impl Signature {
         let indirect_return = return_type.is_indirect_return(database)?;
         let no_return = return_type == native::Type::Void
             && method.find_attribute("DoesNotReturnAttribute")?.is_some();
+        let return_plan = Self::classify_return(&parameters, &return_type, indirect_return, false);
+        let package_return_plan =
+            Self::classify_return(&parameters, &return_type, indirect_return, true);
+        let package_return_plan_override =
+            (package_return_plan != return_plan).then_some(package_return_plan);
         let mut package_dependencies = return_type.package_dependencies(database, dependencies)?;
         for parameter in &parameters {
             package_dependencies.extend(parameter.ty.package_dependencies(database, dependencies)?);
@@ -426,6 +494,8 @@ impl Signature {
             return_type,
             indirect_return,
             no_return,
+            return_plan,
+            package_return_plan_override,
             package_dependencies,
         })
     }
@@ -455,6 +525,100 @@ impl Signature {
             dependencies.extend(core_manifest_dependencies(&parameter.ty));
         }
         dependencies
+    }
+
+    pub(super) fn return_plan(&self, package: bool) -> ReturnPlan {
+        if package {
+            self.package_return_plan_override
+                .unwrap_or(self.return_plan)
+        } else {
+            self.return_plan
+        }
+    }
+
+    fn classify_return(
+        parameters: &[Parameter],
+        return_type: &native::Type,
+        indirect_return: bool,
+        package: bool,
+    ) -> ReturnPlan {
+        if !(return_type.is_hresult() || (package && return_type.is_hresult_package())) {
+            if return_type == &native::Type::Void {
+                if let Some((position, ty)) = Self::retval_parameter(parameters) {
+                    return if ty.is_interface() {
+                        ReturnPlan::VoidInterface { position }
+                    } else {
+                        ReturnPlan::VoidValue { position }
+                    };
+                }
+                return ReturnPlan::Void;
+            }
+            if indirect_return {
+                return ReturnPlan::Indirect;
+            }
+            return ReturnPlan::Direct;
+        }
+        if let Some((guid, object)) = Self::query_parameters(parameters) {
+            return ReturnPlan::Query {
+                guid,
+                object,
+                optional: parameters[object].is_optional(),
+            };
+        }
+        if let Some((position, ty)) = Self::retval_parameter(parameters) {
+            if ty
+                .pointee()
+                .is_some_and(|pointee| pointee == &native::Type::Void)
+                && !parameters[position].explicit_retval
+            {
+                ReturnPlan::HResult
+            } else {
+                ReturnPlan::Retval { position }
+            }
+        } else {
+            ReturnPlan::HResult
+        }
+    }
+
+    fn retval_parameter(parameters: &[Parameter]) -> Option<(usize, &native::Type)> {
+        let (parameter, preceding) = parameters.split_last()?;
+        if parameter.retval_candidate
+            && (parameter.explicit_retval || preceding.iter().all(Parameter::is_input_only))
+        {
+            Some((preceding.len(), parameter.ty.pointee()?))
+        } else {
+            None
+        }
+    }
+
+    fn query_parameters(parameters: &[Parameter]) -> Option<(usize, usize)> {
+        let guid = parameters.iter().rposition(|parameter| {
+            parameter.is_input_only()
+                && matches!(
+                    &parameter.ty,
+                    native::Type::Pointer {
+                        mutable: false,
+                        element,
+                    } if element.is_guid()
+                )
+        })?;
+        let object = parameters.iter().rposition(|parameter| {
+            parameter.com_out_ptr
+                && matches!(
+                    &parameter.ty,
+                    native::Type::Pointer {
+                        mutable: true,
+                        element,
+                    } if matches!(
+                        element.as_ref(),
+                        native::Type::Pointer {
+                            mutable: true,
+                            element,
+                        } if matches!(element.as_ref(), native::Type::Void)
+                    )
+                )
+        })?;
+        Some((guid, object))
     }
 
     pub(super) fn write_parameters_projection(
