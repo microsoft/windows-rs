@@ -1,23 +1,132 @@
 use super::bindings::*;
+use windows_core::*;
 
-/// Initializes the Windows App Runtime bootstrap for apps that rely on
-/// framework-dependent deployment.
+const FRAMEWORK_FAMILY: PCWSTR = w!("Microsoft.WindowsAppRuntime.2_8wekyb3d8bbwe");
+const PACKAGE_DEPENDENCY_LIFETIME_KIND_PROCESS: i32 = 0;
+
+static BOOTSTRAPPED: std::sync::OnceLock<()> = std::sync::OnceLock::new();
+
+/// Initializes the Windows App Runtime for framework-dependent apps by resolving the installed
+/// framework package and adding it to the process package graph directly.
 ///
-/// Call once at the top of `main` and keep the returned handle alive for the
-/// duration of the process. Self-contained apps do not need to call this.
-pub fn bootstrap() -> windows_core::Result<()> {
-    unsafe {
-        MddBootstrapInitialize2(
-            WINDOWSAPPSDK_RELEASE_MAJORMINOR as u32,
-            WINDOWSAPPSDK_RELEASE_VERSION_TAG_W.as_ptr(),
+/// Returns an error (and shows an install dialog) if the runtime framework package is not
+/// installed on the machine.
+pub fn bootstrap() -> Result<()> {
+    if BOOTSTRAPPED.get().is_some() {
+        return Ok(());
+    }
+    unsafe { bootstrap_inner()? };
+    let _ = BOOTSTRAPPED.set(());
+    Ok(())
+}
+
+unsafe fn bootstrap_inner() -> Result<()> {
+    let mut dependency_id: PWSTR = PWSTR::null();
+    let hr = unsafe {
+        TryCreatePackageDependency(
+            std::ptr::null_mut(),
+            FRAMEWORK_FAMILY,
             PACKAGE_VERSION {
                 Anonymous: PACKAGE_VERSION_0 {
                     Version: WINDOWSAPPSDK_RUNTIME_VERSION_UINT64,
                 },
             },
-            MddBootstrapInitializeOptions_OnNoMatch_ShowUI
-                | MddBootstrapInitializeOptions_OnPackageIdentity_NOOP,
+            0,
+            PACKAGE_DEPENDENCY_LIFETIME_KIND_PROCESS,
+            PCWSTR::null(),
+            0,
+            &mut dependency_id,
         )
+    };
+
+    if hr == STATEREPOSITORY_E_DEPENDENCY_NOT_RESOLVED {
+        show_install_dialog();
+        return Err(Error::new(
+            hr,
+            "Microsoft.WindowsAppRuntime.2 framework package is not installed.",
+        ));
+    }
+    hr.ok()?;
+
+    // This handle is unused as the package dependency lifetime is configured for the lifetime
+    // of the process.
+    let mut handle = std::ptr::null_mut();
+    let mut package_full_name = PWSTR::null();
+    unsafe {
+        let add_result = AddPackageDependency(
+            PCWSTR(dependency_id.0),
+            0,
+            0,
+            &mut handle,
+            &mut package_full_name,
+        );
+
+        let _ = HeapFree(
+            GetProcessHeap(),
+            0,
+            dependency_id.0 as *mut std::ffi::c_void,
+        );
+
+        add_result.ok()?;
+    };
+
+    Ok(())
+}
+
+fn process_architecture() -> &'static str {
+    #[cfg(target_arch = "x86_64")]
+    {
+        "x64"
+    }
+    #[cfg(target_arch = "x86")]
+    {
+        "x86"
+    }
+    #[cfg(target_arch = "aarch64")]
+    {
+        "arm64"
+    }
+    #[cfg(target_arch = "arm")]
+    {
+        "arm"
+    }
+}
+
+fn process_caption() -> HSTRING {
+    std::env::current_exe()
         .ok()
+        .and_then(|path| path.file_name().map(|f| f.to_string_lossy().into_owned()))
+        .map_or_else(|| HSTRING::from("This application could not be started"), HSTRING::from)
+}
+
+fn show_install_dialog() {
+    let caption = process_caption();
+    let text = HSTRING::from(format!(
+        "You must install Windows App Runtime ({WINDOWSAPPSDK_RUNTIME_VERSION_MAJOR}.{WINDOWSAPPSDK_RUNTIME_VERSION_MINOR}.{WINDOWSAPPSDK_RUNTIME_VERSION_BUILD}.{WINDOWSAPPSDK_RUNTIME_VERSION_REVISION}, {}) to run this application.\n\
+         \n\
+         Do you want to download it now?",
+        process_architecture()
+    ));
+
+    let result = unsafe {
+        MessageBoxW(
+            HWND::default(),
+            PCWSTR::from_raw(text.as_ptr()),
+            PCWSTR::from_raw(caption.as_ptr()),
+            (MB_YESNO | MB_ICONERROR) as u32,
+        )
+    };
+
+    if result == IDYES {
+        unsafe {
+            ShellExecuteW(
+                HWND::default(),
+                w!("open"),
+                w!("https://learn.microsoft.com/windows/apps/windows-app-sdk/downloads"),
+                PCWSTR::null(),
+                PCWSTR::null(),
+                SW_SHOWNORMAL,
+            );
+        }
     }
 }

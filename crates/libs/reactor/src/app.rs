@@ -145,6 +145,7 @@ pub struct App {
     backdrop: Option<Backdrop>,
     icon: Option<String>,
     on_exit: Option<Box<dyn FnOnce() + Send>>,
+    framework_dependent: bool,
 }
 
 impl Default for App {
@@ -163,6 +164,7 @@ impl App {
             backdrop: None,
             icon: None,
             on_exit: None,
+            framework_dependent: false,
         }
     }
 
@@ -221,12 +223,29 @@ impl App {
         self
     }
 
+    /// Runs as a **framework-dependent** app, relying on a shared, Microsoft-serviced install
+    /// of the Windows App Runtime at the machine level.
+    ///
+    /// The runtime is resolved and added to the process package graph at startup, so nothing
+    /// is shipped with the app. This results in a smaller footprint, but it requires a
+    /// compatible runtime to already be installed on the target machine. If it is missing,
+    /// a standard install dialog appears.
+    pub fn framework_dependent(mut self) -> Self {
+        self.framework_dependent = true;
+        self
+    }
+
     /// Run with custom WinUI setup; the caller manages windows and content.
     pub fn run_custom<F>(self, setup: F) -> Result<()>
     where
         F: FnOnce(&Application) -> Result<()> + Send + 'static,
     {
         init_app_platform()?;
+
+        if self.framework_dependent {
+            bootstrap()?;
+        }
+
         let setup = Mutex::new(Some(setup));
         let on_exit = Mutex::new(self.on_exit);
         let result_slot: Arc<Mutex<Result<()>>> = Arc::new(Mutex::new(Ok(())));
@@ -267,6 +286,11 @@ impl App {
         C: Component + 'static,
     {
         init_app_platform()?;
+
+        if self.framework_dependent {
+            bootstrap()?;
+        }
+
         let title = self.title.unwrap_or_default();
         let size = self.inner_size;
         let constraints = self.inner_constraints;

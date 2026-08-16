@@ -1,17 +1,27 @@
+windows_core::link!("kernel32.dll" "system" fn AddDllDirectory(newdirectory : windows_core::PCWSTR) -> DLL_DIRECTORY_COOKIE);
+windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn AddPackageDependency(packagedependencyid : windows_core::PCWSTR, rank : i32, options : AddPackageDependencyOptions, packagedependencycontext : *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
 windows_core::link!("user32.dll" "system" fn BringWindowToTop(hwnd : HWND) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn ClientToScreen(hwnd : HWND, lppoint : *mut POINT) -> windows_core::BOOL);
 windows_core::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, dwclscontext : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
 windows_core::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : u32) -> windows_core::HRESULT);
+windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn DeletePackageDependency(packagedependencyid : windows_core::PCWSTR) -> windows_core::HRESULT);
 windows_core::link!("user32.dll" "system" fn GetClientRect(hwnd : HWND, lprect : *mut RECT) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn GetDpiForWindow(hwnd : HWND) -> u32);
 windows_core::link!("user32.dll" "system" fn GetMonitorInfoW(hmonitor : HMONITOR, lpmi : *mut MONITORINFO) -> windows_core::BOOL);
+windows_core::link!("kernel32.dll" "system" fn GetProcessHeap() -> HANDLE);
 windows_core::link!("user32.dll" "system" fn GetSystemMetrics(nindex : i32) -> i32);
-windows_core::link!("microsoft.windowsappruntime.bootstrap.dll" "system" fn MddBootstrapInitialize2(majorminorversion : u32, versiontag : *const u16, minversion : PACKAGE_VERSION, options : MddBootstrapInitializeOptions) -> windows_core::HRESULT);
+windows_core::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : u32, lpmem : *mut core::ffi::c_void) -> windows_core::BOOL);
+windows_core::link!("kernel32.dll" "system" fn LoadLibraryExW(lplibfilename : windows_core::PCWSTR, hfile : HANDLE, dwflags : u32) -> HMODULE);
+windows_core::link!("user32.dll" "system" fn MessageBoxW(hwnd : HWND, lptext : windows_core::PCWSTR, lpcaption : windows_core::PCWSTR, utype : u32) -> i32);
 windows_core::link!("user32.dll" "system" fn MonitorFromWindow(hwnd : HWND, dwflags : u32) -> HMONITOR);
 windows_core::link!("user32.dll" "system" fn PostMessageW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> windows_core::BOOL);
+windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn RemovePackageDependency(packagedependencycontext : PACKAGEDEPENDENCY_CONTEXT) -> windows_core::HRESULT);
 windows_core::link!("user32.dll" "system" fn SetForegroundWindow(hwnd : HWND) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn SetProcessDpiAwarenessContext(value : DPI_AWARENESS_CONTEXT) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn SetWindowPos(hwnd : HWND, hwndinsertafter : HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : u32) -> windows_core::BOOL);
+windows_core::link!("shell32.dll" "system" fn ShellExecuteW(hwnd : HWND, lpoperation : windows_core::PCWSTR, lpfile : windows_core::PCWSTR, lpparameters : windows_core::PCWSTR, lpdirectory : windows_core::PCWSTR, nshowcmd : i32) -> HINSTANCE);
+windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn TryCreatePackageDependency(user : PSID, packagefamilyname : windows_core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_core::PCWSTR, options : CreatePackageDependencyOptions, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+pub type AddPackageDependencyOptions = u32;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBar(windows_core::IUnknown);
@@ -2362,6 +2372,12 @@ impl windows_core::RuntimeType for CornerRadius {
         b"struct(Microsoft.UI.Xaml.CornerRadius;f8;f8;f8;f8)",
     );
 }
+pub type CreatePackageDependencyOptions = u32;
+pub const CreatePackageDependencyOptions_DoNotVerifyDependencyResolution:
+    CreatePackageDependencyOptions = 1;
+pub const CreatePackageDependencyOptions_None: CreatePackageDependencyOptions = 0;
+pub const CreatePackageDependencyOptions_ScopeIsSystem: CreatePackageDependencyOptions = 2;
+pub type DLL_DIRECTORY_COOKIE = *mut core::ffi::c_void;
 pub type DPI_AWARENESS_CONTEXT = *mut core::ffi::c_void;
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = -4 as _;
 #[repr(transparent)]
@@ -4160,6 +4176,9 @@ impl windows_core::RuntimeName for GridView {
 }
 unsafe impl Send for GridView {}
 unsafe impl Sync for GridView {}
+pub type HANDLE = *mut core::ffi::c_void;
+pub type HINSTANCE = *mut core::ffi::c_void;
+pub type HMODULE = HINSTANCE;
 pub type HMONITOR = *mut core::ffi::c_void;
 pub const HTCLIENT: i32 = 1;
 pub type HWND = *mut core::ffi::c_void;
@@ -7456,6 +7475,7 @@ pub struct IControl_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
+pub const IDYES: i32 = 6;
 windows_core::imp::define_interface!(
     IDataPackageView,
     IDataPackageView_Vtbl,
@@ -19770,6 +19790,8 @@ impl windows_core::RuntimeType for KeyboardAcceleratorPlacementMode {
         b"enum(Microsoft.UI.Xaml.Input.KeyboardAcceleratorPlacementMode;i4)",
     );
 }
+pub const LOAD_LIBRARY_SEARCH_APPLICATION_DIR: i32 = 512;
+pub const LOAD_LIBRARY_SEARCH_USER_DIRS: i32 = 1024;
 pub type LPARAM = isize;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -20041,6 +20063,9 @@ impl windows_core::RuntimeType for ListViewSelectionMode {
         b"enum(Microsoft.UI.Xaml.Controls.ListViewSelectionMode;i4)",
     );
 }
+pub const MB_ICONERROR: i32 = 16;
+pub const MB_OK: i32 = 0;
+pub const MB_YESNO: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONITORINFO {
@@ -20061,9 +20086,6 @@ impl Default for MONITORINFOEXW {
     }
 }
 pub const MONITOR_DEFAULTTONEAREST: i32 = 2;
-pub type MddBootstrapInitializeOptions = i32;
-pub const MddBootstrapInitializeOptions_OnNoMatch_ShowUI: MddBootstrapInitializeOptions = 8;
-pub const MddBootstrapInitializeOptions_OnPackageIdentity_NOOP: MddBootstrapInitializeOptions = 16;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MenuBar(windows_core::IUnknown);
@@ -20937,6 +20959,7 @@ impl windows_core::RuntimeType for Orientation {
         b"enum(Microsoft.UI.Xaml.Controls.Orientation;i4)",
     );
 }
+pub type PACKAGEDEPENDENCY_CONTEXT = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PACKAGE_VERSION {
@@ -20972,6 +20995,22 @@ pub struct POINT {
     pub x: i32,
     pub y: i32,
 }
+pub type PSID = *mut core::ffi::c_void;
+pub type PackageDependencyLifetimeKind = i32;
+pub const PackageDependencyLifetimeKind_FilePath: PackageDependencyLifetimeKind = 1;
+pub const PackageDependencyLifetimeKind_Process: PackageDependencyLifetimeKind = 0;
+pub const PackageDependencyLifetimeKind_RegistryKey: PackageDependencyLifetimeKind = 2;
+pub type PackageDependencyProcessorArchitectures = u32;
+pub const PackageDependencyProcessorArchitectures_Arm: PackageDependencyProcessorArchitectures = 8;
+pub const PackageDependencyProcessorArchitectures_Arm64: PackageDependencyProcessorArchitectures =
+    16;
+pub const PackageDependencyProcessorArchitectures_Neutral: PackageDependencyProcessorArchitectures =
+    1;
+pub const PackageDependencyProcessorArchitectures_None: PackageDependencyProcessorArchitectures = 0;
+pub const PackageDependencyProcessorArchitectures_X64: PackageDependencyProcessorArchitectures = 4;
+pub const PackageDependencyProcessorArchitectures_X86: PackageDependencyProcessorArchitectures = 2;
+pub const PackageDependencyProcessorArchitectures_X86A64: PackageDependencyProcessorArchitectures =
+    32;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Panel(windows_core::IUnknown);
@@ -22667,9 +22706,12 @@ pub const SM_CXVIRTUALSCREEN: i32 = 78;
 pub const SM_CYVIRTUALSCREEN: i32 = 79;
 pub const SM_XVIRTUALSCREEN: i32 = 76;
 pub const SM_YVIRTUALSCREEN: i32 = 77;
+pub const STATEREPOSITORY_E_DEPENDENCY_NOT_RESOLVED: windows_core::HRESULT =
+    windows_core::HRESULT(0x80670016_u32 as _);
 pub const SWP_NOACTIVATE: i32 = 16;
 pub const SWP_NOSIZE: i32 = 1;
 pub const SWP_NOZORDER: i32 = 4;
+pub const SW_SHOWNORMAL: i32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScrollBarVisibility(pub i32);
@@ -25990,8 +26032,10 @@ impl windows_core::RuntimeName for VisualTreeHelper {
 }
 unsafe impl Send for VisualTreeHelper {}
 unsafe impl Sync for VisualTreeHelper {}
-pub const WINDOWSAPPSDK_RELEASE_MAJORMINOR: i32 = 131076;
-pub const WINDOWSAPPSDK_RELEASE_VERSION_TAG_W: windows_core::PCWSTR = windows_core::w!("");
+pub const WINDOWSAPPSDK_RUNTIME_VERSION_BUILD: u32 = 0;
+pub const WINDOWSAPPSDK_RUNTIME_VERSION_MAJOR: u32 = 2;
+pub const WINDOWSAPPSDK_RUNTIME_VERSION_MINOR: u32 = 4;
+pub const WINDOWSAPPSDK_RUNTIME_VERSION_REVISION: u32 = 0;
 pub const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 562967133290496;
 pub const WM_MOUSEMOVE: i32 = 512;
 pub const WM_SETCURSOR: i32 = 32;

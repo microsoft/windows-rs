@@ -28,8 +28,6 @@ Run the framework-dependent app with:
 cargo run -p reactor_startup_perf --release
 ```
 
-The build script stages `Microsoft.WindowsAppRuntime.Bootstrap.dll` beside the executable.
-
 ## MSIX package
 
 Run these commands from the repository root:
@@ -55,8 +53,7 @@ Run these commands from the repository root:
     Remove-Item $layout -Recurse -Force -ErrorAction Ignore
     New-Item $layout -ItemType Directory | Out-Null
     Copy-Item `
-        target\release\BlankWindowsReactor.exe, `
-        target\release\microsoft.windowsappruntime.bootstrap.dll `
+        target\release\BlankWindowsReactor.exe `
         $layout
     $output = "$work\BlankWindowsReactor_x64.msix"
     $manifest = "crates\samples\reactor\startup_perf\package\Package.appxmanifest"

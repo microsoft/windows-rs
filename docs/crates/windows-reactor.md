@@ -28,19 +28,20 @@ windows-reactor = "0.100"
 windows-reactor-setup = "0.100"
 ```
 
-`build.rs`. Pick the helper that matches your deployment model:
+`build.rs`. For a self-contained deployment, call `as_self_contained`:
 
-The build script selects `as_self_contained`, `as_framework_dependent`, or `as_example`.
+The build script selects `as_self_contained`.
 
 `src/main.rs`. A render function plus `App`:
 
 The crate readme contains a checked counter example. The sample applications cover packaging,
 layout, events, and state.
 
-For a framework-dependent app, `bootstrap()` initializes the Windows App SDK runtime and must be
-called once at startup. A self-contained app does not call it. `App::new()` is a builder. Common
-options are `title`, `inner_size`, `backdrop` (for example `Backdrop::Mica`), `icon` (path to an
-`.ico` file), `fullscreen`, and `presenter`. `render(app)` takes your
+For a framework-dependent app, call `.framework_dependent()` on the `App` builder. It initializes
+the Windows App SDK runtime by resolving the installed framework package directly (no bootstrap DLL ships
+with the app), and does not need `windows-reactor-setup`. A self-contained app omits it. `App::new()`
+is a builder. Common options are `title`, `inner_size`, `backdrop` (for example `Backdrop::Mica`),
+`icon` (path to an `.ico` file), `fullscreen`, and `presenter`. `render(app)` takes your
 `Fn(&mut RenderCx) -> Element` and runs the message loop.
 
 `App::on_exit` runs once on the UI thread immediately before Reactor exits the process after the

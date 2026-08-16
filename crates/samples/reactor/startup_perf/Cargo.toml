@@ -12,8 +12,5 @@ path = "src/main.rs"
 tracelogging = "1.2.4"
 windows-reactor = { workspace = true }
 
-[build-dependencies]
-windows-reactor-setup = { workspace = true }
-
 [lints]
 workspace = true

@@ -7,6 +7,8 @@ fn app(_cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> Result<()> {
-    bootstrap()?;
-    App::new().title("Reactor app").render(app)
+    App::new()
+        .framework_dependent()
+        .title("Reactor App")
+        .render(app)
 }

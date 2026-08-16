@@ -22,28 +22,6 @@ fn assert_windows() {
     }
 }
 
-/// Configures the app to run with a Windows App Runtime dependency.
-pub fn as_framework_dependent() {
-    assert_windows();
-    as_framework_dependent_impl("");
-}
-
-/// Configures an example to run with a Windows App Runtime dependency.
-pub fn as_example() {
-    assert_windows();
-    as_framework_dependent_impl("examples");
-}
-
-fn as_framework_dependent_impl(subdir: &str) {
-    let out_dir = out_dir();
-    let dest = if subdir.is_empty() {
-        target_dir_from_out(&out_dir)
-    } else {
-        target_dir_from_out(&out_dir).join(subdir)
-    };
-    copy_bootstrap_to(&dest);
-}
-
 /// Configures the app to run completely self-contained.
 pub fn as_self_contained() {
     assert_windows();
@@ -118,25 +96,6 @@ fn temp_dir() -> PathBuf {
     let temp = base.join("windows-reactor-setup").join("temp");
     let _ = fs::create_dir_all(&temp);
     temp
-}
-
-fn copy_bootstrap_to(dest: &Path) {
-    let bytes: &[u8] = match env::var("CARGO_CFG_TARGET_ARCH").as_deref() {
-        Ok("x86") => include_bytes!("../bootstrap/x86/Microsoft.WindowsAppRuntime.Bootstrap.dll"),
-        Ok("x86_64") => {
-            include_bytes!("../bootstrap/x64/Microsoft.WindowsAppRuntime.Bootstrap.dll")
-        }
-        Ok("aarch64") => {
-            include_bytes!("../bootstrap/arm64/Microsoft.WindowsAppRuntime.Bootstrap.dll")
-        }
-        Ok(arch) => panic!("Unsupported bootstrap target architecture: {arch}"),
-        Err(_) => panic!("CARGO_CFG_TARGET_ARCH not set"),
-    };
-    let _ = fs::create_dir_all(dest);
-    let _ = fs::write(
-        dest.join("microsoft.windowsappruntime.bootstrap.dll"),
-        bytes,
-    );
 }
 
 fn ensure_msix_extracted(runtime: &Path) -> PathBuf {

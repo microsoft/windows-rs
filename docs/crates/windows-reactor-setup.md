@@ -8,15 +8,13 @@
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/reactor-setup)
 
 `windows-reactor-setup` is used from the `build.rs` of a [`windows-reactor`](windows-reactor.md)
-application. It downloads and stages the Windows App SDK runtime bootstrap files next to the built
-executable so the app can start WinUI 3. The self-contained helper also writes the application
-manifest. Choose the helper that matches your deployment model - for example a framework-dependent
-app or a self-contained one.
+application to configure a self-contained deployment: it stages a private copy of the Windows App
+SDK runtime next to the executable and writes the application manifest.
 
-Call `windows_reactor_setup::as_self_contained()` or
-`windows_reactor_setup::as_framework_dependent()` from `build.rs`. A framework-dependent
-application also calls `windows_reactor::bootstrap()` at startup. A self-contained application
-does not.
+Call `windows_reactor_setup::as_self_contained()` from `build.rs`. A framework-dependent app
+does not depend on `windows-reactor-setup`; the bootstrap is inlined into `windows-reactor`,
+which resolves the installed framework package at startup (call
+`windows_reactor::App::framework_dependent()`).
 
 See the [samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
 for complete project layouts.
@@ -39,11 +37,6 @@ the executable. The XAML `WebView2` control used by [`windows-webview`](windows-
 `webview2loader.dll` supplied by the Evergreen runtime - it is not present on the machine by
 default. Bundling it unconditionally keeps reactor apps that host a WebView2 working with no extra
 build step. The allow-list of WindowsAppSDK runtime files lives in `assets/runtime.txt`.
-
-The framework-dependent bootstrap DLLs committed under `bootstrap/<arch>/` are **not hand-copied** -
-`tool_reactor` refreshes them from the same pinned `Microsoft.WindowsAppSDK.Foundation` package it
-uses for the `.winmd` metadata, and `gen.yml` fails on any drift. See
-[dependencies](../dependencies.md#winui--windows-app-sdk).
 
 ### Testing
 

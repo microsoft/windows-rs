@@ -10,15 +10,14 @@ Add it as a build dependency:
 windows-reactor-setup = "0.100"
 ```
 
-Call one setup function from `build.rs`:
+Call the setup function from `build.rs`:
 
 ```rust,no_run
-windows_reactor_setup::as_framework_dependent();
+windows_reactor_setup::as_self_contained();
 ```
 
-Use `as_framework_dependent` when the Windows App Runtime is installed on the target machine.
-Use `as_self_contained` to stage a private copy of the runtime next to the application.
-`as_example` is the framework-dependent setup for Cargo examples.
+`as_self_contained` stages a private copy of the runtime next to the application.
 
-A framework-dependent application also calls `windows_reactor::bootstrap()` before creating its
-first window. A self-contained application does not call `bootstrap()`.
+A framework-dependent app does not rely on `windows-reactor-setup` at all: the bootstrap is
+inlined into `windows-reactor`, which resolves the installed framework package at startup (call
+`App::framework_dependent()`). It resolves a package and stages no runtime files.

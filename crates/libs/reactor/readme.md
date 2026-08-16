@@ -25,14 +25,18 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> windows_core::Result<()> {
-    bootstrap()?;
-    App::new().title("My App").render(app)
+    App::new()
+        .framework_dependent()
+        .title("My App")
+        .render(app)
 }
 ```
 
-`bootstrap()` initializes the Windows App SDK runtime for a framework-dependent app. Widget
-builders convert to `Element` with `.into()`. `cx.use_state` returns the current value and a handle
-whose `call` schedules a rerender. `ReactorWindow` opens more top-level windows. See the [reactor
+`.framework_dependent()` initializes the Windows App SDK runtime for a framework-dependent app by
+resolving the installed framework package directly (no bootstrap DLL ships with the app). Omit it for a
+self-contained app. Widget builders convert to `Element` with `.into()`. `cx.use_state` returns the
+current value and a handle whose `call` schedules a rerender. `ReactorWindow` opens more top-level
+windows. See the [reactor
 guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md) for
 components, hooks, layout, styling, and widgets.
 
