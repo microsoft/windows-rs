@@ -2733,6 +2733,8 @@ fn nested_native_artifacts_inherit_the_enclosing_package_gate() {
                         struct Container {
                             Anonymous: union {
                                 first: Windows::Win32::First::Value,
+                            },
+                            Other: union {
                                 second: Windows::Win32::Second::Value,
                             },
                         }
@@ -6096,6 +6098,26 @@ fn architecture_source_gates() {
         (
             "native_manifest_dependencies(",
             "namespace-specific manifest compatibility tables",
+        ),
+        (
+            "artifact_sys_dependencies:",
+            "stored nested artifact dependency clones",
+        ),
+        (
+            "interface_manifest:",
+            "separate interface manifest dependency cache",
+        ),
+        (
+            "interface_methods:",
+            "separate interface method dependency cache",
+        ),
+        (
+            "package_sys_dependencies:",
+            "sys dependency products stored on every native signature",
+        ),
+        (
+            "sys_manifest_dependencies:",
+            "complete rich and sys manifest closures stored on native interfaces",
         ),
         (
             "context.layout == Layout::Package",

@@ -12,6 +12,7 @@ pub struct Function {
     abi: &'static str,
     variadic: bool,
     signature: native_signature::Signature,
+    sys_dependencies: BTreeSet<(String, String)>,
 }
 
 impl Function {
@@ -30,6 +31,8 @@ impl Function {
         })?;
         let signature =
             native_signature::Signature::lower(database, dependencies, method, &full_name)?;
+        let sys_dependencies =
+            dependencies.package_sys_dependencies(signature.package_dependencies());
         let import_name = (import.name() != name).then(|| import.name().to_string());
         Ok(Self {
             architectures,
@@ -40,6 +43,7 @@ impl Function {
             abi: calling_convention(import.flags(), &full_name)?,
             variadic: signature.flags & 0x0f == 0x05,
             signature,
+            sys_dependencies,
         })
     }
 
@@ -64,11 +68,13 @@ impl Function {
             return quote! {};
         }
         let architectures = tokens::architectures(self.architectures);
-        let dependencies = self
-            .signature
-            .package_dependencies_for(projection)
-            .iter()
-            .map(|(namespace, name)| (namespace.as_str(), name.as_str()));
+        let dependencies = (if projection.is_sys() {
+            &self.sys_dependencies
+        } else {
+            self.signature.package_dependencies()
+        })
+        .iter()
+        .map(|(namespace, name)| (namespace.as_str(), name.as_str()));
         let features = if projection.is_sys() {
             tokens::feature_names(&self.namespace, layout, dependencies)
         } else {
@@ -138,11 +144,13 @@ impl Function {
         if self.variadic && !projection.is_sys() {
             return BTreeSet::new();
         }
-        let dependencies = self
-            .signature
-            .package_dependencies_for(projection)
-            .iter()
-            .map(|(namespace, name)| (namespace.as_str(), name.as_str()));
+        let dependencies = (if projection.is_sys() {
+            &self.sys_dependencies
+        } else {
+            self.signature.package_dependencies()
+        })
+        .iter()
+        .map(|(namespace, name)| (namespace.as_str(), name.as_str()));
         if projection.is_sys() {
             tokens::feature_names(&self.namespace, layout, dependencies)
         } else {

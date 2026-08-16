@@ -11,8 +11,7 @@ pub struct NativeInterface {
     base: Option<(String, String)>,
     hierarchy: Vec<(String, String)>,
     hierarchy_method_dependencies: BTreeSet<(String, String)>,
-    manifest_dependencies: BTreeSet<(String, String)>,
-    sys_manifest_dependencies: BTreeSet<(String, String)>,
+    inherited_manifest_dependencies: BTreeSet<(String, String)>,
     com_identity: bool,
     guid: Option<guid::Guid>,
     methods: Vec<Method>,
@@ -43,10 +42,9 @@ impl NativeInterface {
             if matches!(name.as_str(), "IUnknown" | "IInspectable") {
                 continue;
             }
-            hierarchy_method_dependencies
-                .extend(dependencies.interface_method_dependencies(database, namespace, name)?);
-            hierarchy_manifest_dependencies
-                .extend(dependencies.interface_manifest_dependencies(database, namespace, name)?);
+            let inherited = dependencies.interface_dependencies(database, namespace, name)?;
+            hierarchy_method_dependencies.extend(inherited.package);
+            hierarchy_manifest_dependencies.extend(inherited.manifest);
         }
         let base = hierarchy.last().cloned();
         let own_guid = if name == "IUnknown" {
@@ -96,17 +94,6 @@ impl NativeInterface {
                 })
             })
             .collect::<Result<_, Error>>()?;
-        let hierarchy_dependencies = hierarchy.iter().cloned().collect::<BTreeSet<_>>();
-        let mut method_manifest_dependencies = hierarchy_manifest_dependencies;
-        for method in &methods {
-            method_manifest_dependencies
-                .extend(method.signature.manifest_dependencies().iter().cloned());
-        }
-        let mut manifest_dependencies = hierarchy_dependencies.clone();
-        manifest_dependencies.extend(method_manifest_dependencies.iter().cloned());
-        let mut sys_manifest_dependencies =
-            dependencies.package_sys_dependencies(&hierarchy_dependencies);
-        sys_manifest_dependencies.extend(method_manifest_dependencies);
         Ok(Self {
             architectures: definition.architectures()?,
             namespace,
@@ -124,8 +111,7 @@ impl NativeInterface {
             },
             hierarchy,
             hierarchy_method_dependencies,
-            manifest_dependencies,
-            sys_manifest_dependencies,
+            inherited_manifest_dependencies: hierarchy_manifest_dependencies,
             methods,
         })
     }
@@ -699,12 +685,18 @@ impl NativeInterface {
         &self,
         layout: Layout,
         projection: Projection,
+        dependency_cache: &native::DependencyCache,
     ) -> BTreeSet<String> {
-        let dependencies = if projection.is_sys() {
-            &self.sys_manifest_dependencies
+        let hierarchy = self.hierarchy.iter().cloned().collect::<BTreeSet<_>>();
+        let mut dependencies = if projection.is_sys() {
+            dependency_cache.package_sys_dependencies(&hierarchy)
         } else {
-            &self.manifest_dependencies
+            hierarchy
         };
+        dependencies.extend(self.inherited_manifest_dependencies.iter().cloned());
+        for method in &self.methods {
+            dependencies.extend(method.signature.manifest_dependencies());
+        }
         tokens::feature_names(
             &self.namespace,
             layout,

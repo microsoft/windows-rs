@@ -10,8 +10,6 @@ pub(super) struct Signature {
     pub(super) indirect_return: bool,
     pub(super) no_return: bool,
     package_dependencies: BTreeSet<(String, String)>,
-    package_sys_dependencies: BTreeSet<(String, String)>,
-    manifest_dependencies: BTreeSet<(String, String)>,
 }
 
 pub(super) struct Parameter {
@@ -419,12 +417,9 @@ impl Signature {
         let no_return = return_type == native::Type::Void
             && method.find_attribute("DoesNotReturnAttribute")?.is_some();
         let mut package_dependencies = return_type.package_dependencies(database, dependencies)?;
-        let mut manifest_dependencies = core_manifest_dependencies(&return_type);
         for parameter in &parameters {
             package_dependencies.extend(parameter.ty.package_dependencies(database, dependencies)?);
-            manifest_dependencies.extend(core_manifest_dependencies(&parameter.ty));
         }
-        let package_sys_dependencies = dependencies.package_sys_dependencies(&package_dependencies);
         Ok(Self {
             flags,
             parameters,
@@ -432,8 +427,6 @@ impl Signature {
             indirect_return,
             no_return,
             package_dependencies,
-            package_sys_dependencies,
-            manifest_dependencies,
         })
     }
 
@@ -448,17 +441,6 @@ impl Signature {
         &self.package_dependencies
     }
 
-    pub(super) fn package_dependencies_for(
-        &self,
-        projection: Projection,
-    ) -> &BTreeSet<(String, String)> {
-        if projection.is_sys() {
-            &self.package_sys_dependencies
-        } else {
-            &self.package_dependencies
-        }
-    }
-
     pub(super) fn uses_winrt_projection(&self) -> bool {
         self.return_type.uses_winrt_projection()
             || self
@@ -467,8 +449,12 @@ impl Signature {
                 .any(|parameter| parameter.ty.uses_winrt_projection())
     }
 
-    pub(super) fn manifest_dependencies(&self) -> &BTreeSet<(String, String)> {
-        &self.manifest_dependencies
+    pub(super) fn manifest_dependencies(&self) -> BTreeSet<(String, String)> {
+        let mut dependencies = core_manifest_dependencies(&self.return_type);
+        for parameter in &self.parameters {
+            dependencies.extend(core_manifest_dependencies(&parameter.ty));
+        }
+        dependencies
     }
 
     pub(super) fn write_parameters_projection(

@@ -850,3 +850,17 @@ artifact kind rather than an empty token stream identified by `u8::MAX`. Native 
 features now come from the same recursive dependency closure used for package projection, including
 projected nested definitions, so the namespace-specific compatibility table and its duplicate
 manifest traversal are gone.
+
+Dependency consolidation has started with two bounded changes. Nested native definitions no longer
+store rich and sys clones of their enclosing artifact's dependency closure; rendering passes the
+enclosing feature gate through the nested tree instead. Native type dependency access also borrows
+the stored set rather than cloning it. The interface dependency cache now computes package and
+manifest products together, so inherited method signatures are lowered once instead of once per
+product. Native signatures no longer retain core manifest dependencies: only interfaces consume
+that narrow policy, and they derive it from the already-lowered parameter and return types. Sys
+dependency sets have also moved out of the shared signature model: only free functions and
+delegates consume that projection, so interface method signatures no longer retain it. Step 3
+now also derives each interface's final rich or sys manifest features from its retained hierarchy,
+inherited method facts, and own signatures. Interfaces no longer store two complete manifest
+closures. Step 3 remains open because constants, types, functions, and delegates still retain some
+separate rich and sys products.

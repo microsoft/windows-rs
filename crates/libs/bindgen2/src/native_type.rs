@@ -7,8 +7,6 @@ use std::collections::{BTreeMap, BTreeSet};
 pub struct NativeType {
     architectures: i32,
     kind: Kind,
-    artifact_dependencies: Option<BTreeSet<(String, String)>>,
-    artifact_sys_dependencies: Option<BTreeSet<(String, String)>>,
     sys_dependencies: BTreeSet<(String, String)>,
 }
 
@@ -153,8 +151,6 @@ impl NativeType {
                 let sys_dependencies = cache.package_sys_dependencies(&dependencies);
                 Ok(Self {
                     architectures,
-                    artifact_dependencies: None,
-                    artifact_sys_dependencies: None,
                     sys_dependencies,
                     kind: Kind::Enum(Enum {
                         namespace: namespace.to_string(),
@@ -232,7 +228,7 @@ impl NativeType {
                     }
                 }
                 nested_names.sort_by(|left, right| left.1.cmp(&right.1));
-                let mut nested = nested_names
+                let nested = nested_names
                     .into_iter()
                     .map(|(_, projected, entity)| {
                         Self::lower_named(
@@ -257,8 +253,6 @@ impl NativeType {
                     let sys_dependencies = cache.package_sys_dependencies(&dependencies);
                     return Ok(Self {
                         architectures,
-                        artifact_dependencies: None,
-                        artifact_sys_dependencies: None,
                         sys_dependencies,
                         kind: Kind::Alias(Alias {
                             namespace: namespace.to_string(),
@@ -286,8 +280,6 @@ impl NativeType {
                     let sys_dependencies = cache.package_sys_dependencies(&dependencies);
                     return Ok(Self {
                         architectures,
-                        artifact_dependencies: None,
-                        artifact_sys_dependencies: None,
                         sys_dependencies,
                         kind: Kind::Alias(Alias {
                             namespace: namespace.to_string(),
@@ -438,16 +430,11 @@ impl NativeType {
                 }
                 for nested in &nested {
                     let (_, nested_dependencies) = nested.dependencies();
-                    dependencies.extend(nested_dependencies);
+                    dependencies.extend(nested_dependencies.iter().cloned());
                 }
                 let sys_dependencies = cache.package_sys_dependencies(&dependencies);
-                for nested in &mut nested {
-                    nested.inherit_artifact_dependencies(&dependencies, &sys_dependencies);
-                }
                 Ok(Self {
                     architectures,
-                    artifact_dependencies: None,
-                    artifact_sys_dependencies: None,
                     sys_dependencies,
                     kind: Kind::Struct(Struct {
                         namespace: namespace.to_string(),
@@ -513,21 +500,47 @@ impl NativeType {
         }
     }
 
+    #[cfg(test)]
     fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
         let items = self
-            .write_items_context(layout, projection, &[])
+            .write_items_context_with_cfg(layout, projection, &[], None)
             .into_iter()
             .map(|(_, _, tokens)| tokens);
         quote! { #(#items)* }
     }
 
+    fn write_context_with_cfg(
+        &self,
+        layout: Layout,
+        projection: Projection,
+        cfg: &TokenStream,
+    ) -> TokenStream {
+        let items = self
+            .write_items_context_with_cfg(layout, projection, &[], Some(cfg))
+            .into_iter()
+            .map(|(_, _, tokens)| tokens);
+        quote! { #(#items)* }
+    }
+
+    #[cfg(test)]
     pub(super) fn write_sys_items_context(
         &self,
         layout: Layout,
         custom_derives: &[String],
     ) -> Vec<(&str, u8, TokenStream)> {
+        self.write_sys_items_context_with_cfg(layout, custom_derives, None)
+    }
+
+    fn write_sys_items_context_with_cfg(
+        &self,
+        layout: Layout,
+        custom_derives: &[String],
+        inherited_cfg: Option<&TokenStream>,
+    ) -> Vec<(&str, u8, TokenStream)> {
         let architectures = tokens::architectures(self.architectures);
-        let cfg = self.cfg(layout, Projection::Sys);
+        let cfg = inherited_cfg
+            .cloned()
+            .unwrap_or_else(|| self.cfg(layout, Projection::Sys));
         match &self.kind {
             Kind::Alias(value) => {
                 let tokens = value.write(layout, Projection::Sys);
@@ -556,6 +569,16 @@ impl NativeType {
         projection: Projection,
         custom_derives: &[String],
     ) -> Vec<(&str, u8, TokenStream)> {
+        self.write_items_context_with_cfg(layout, projection, custom_derives, None)
+    }
+
+    fn write_items_context_with_cfg(
+        &self,
+        layout: Layout,
+        projection: Projection,
+        custom_derives: &[String],
+        inherited_cfg: Option<&TokenStream>,
+    ) -> Vec<(&str, u8, TokenStream)> {
         let result: Vec<(&str, u8, TokenStream)> = if !projection.is_sys()
             || (layout.is_package()
                 && match &self.kind {
@@ -574,7 +597,9 @@ impl NativeType {
                 return Vec::new();
             }
             let architectures = tokens::architectures(self.architectures);
-            let cfg = self.cfg(layout, projection);
+            let cfg = inherited_cfg
+                .cloned()
+                .unwrap_or_else(|| self.cfg(layout, projection));
             if let Kind::Struct(value) = &self.kind {
                 vec![(
                     value.name.as_str(),
@@ -594,7 +619,7 @@ impl NativeType {
                 unreachable!()
             }
         } else {
-            self.write_sys_items_context(layout, custom_derives)
+            self.write_sys_items_context_with_cfg(layout, custom_derives, inherited_cfg)
         };
         result
     }
@@ -608,7 +633,7 @@ impl NativeType {
         let dependencies = if projection.is_sys() {
             &self.sys_dependencies
         } else {
-            &dependencies
+            dependencies
         };
         tokens::feature_names(
             namespace,
@@ -636,11 +661,9 @@ impl NativeType {
     fn cfg(&self, layout: Layout, projection: Projection) -> TokenStream {
         let (namespace, dependencies) = self.dependencies();
         let dependencies = if projection.is_sys() {
-            self.artifact_sys_dependencies
-                .as_ref()
-                .unwrap_or(&self.sys_dependencies)
+            &self.sys_dependencies
         } else {
-            self.artifact_dependencies.as_ref().unwrap_or(&dependencies)
+            dependencies
         };
         tokens::feature_cfg(
             namespace,
@@ -651,37 +674,12 @@ impl NativeType {
         )
     }
 
-    fn inherit_artifact_dependencies(
-        &mut self,
-        dependencies: &BTreeSet<(String, String)>,
-        sys_dependencies: &BTreeSet<(String, String)>,
-    ) {
-        self.artifact_dependencies = Some(dependencies.clone());
-        self.artifact_sys_dependencies = Some(sys_dependencies.clone());
-        if let Kind::Struct(value) = &mut self.kind {
-            for nested in &mut value.nested {
-                nested.inherit_artifact_dependencies(dependencies, sys_dependencies);
-            }
+    fn dependencies(&self) -> (&str, &BTreeSet<(String, String)>) {
+        match &self.kind {
+            Kind::Alias(value) => (value.namespace.as_str(), &value.dependencies),
+            Kind::Enum(value) => (value.namespace.as_str(), &value.dependencies),
+            Kind::Struct(value) => (value.namespace.as_str(), &value.dependencies),
         }
-    }
-
-    fn dependencies(&self) -> (&str, BTreeSet<(String, String)>) {
-        let mut dependencies = BTreeSet::new();
-        let namespace = match &self.kind {
-            Kind::Alias(value) => {
-                dependencies.extend(value.dependencies.iter().cloned());
-                value.namespace.as_str()
-            }
-            Kind::Enum(value) => {
-                dependencies.extend(value.dependencies.iter().cloned());
-                value.namespace.as_str()
-            }
-            Kind::Struct(value) => {
-                dependencies.extend(value.dependencies.iter().cloned());
-                value.namespace.as_str()
-            }
-        };
-        (namespace, dependencies)
     }
 }
 
@@ -796,7 +794,7 @@ impl Struct {
                 let nested = self
                     .nested
                     .iter()
-                    .map(|nested| nested.write_context(layout, projection));
+                    .map(|nested| nested.write_context_with_cfg(layout, projection, cfg));
                 return quote! {
                     #repr
                     #architectures
@@ -818,7 +816,7 @@ impl Struct {
             let nested = self
                 .nested
                 .iter()
-                .map(|nested| nested.write_context(layout, projection));
+                .map(|nested| nested.write_context_with_cfg(layout, projection, cfg));
             let (derive, default) =
                 self.default_tokens(&name, architectures, cfg, projection, custom_derives);
             return quote! {
@@ -860,7 +858,7 @@ impl Struct {
         let nested = self
             .nested
             .iter()
-            .map(|nested| nested.write_context(layout, projection));
+            .map(|nested| nested.write_context_with_cfg(layout, projection, cfg));
         if self.union {
             let derive = if projection.is_sys() || self.copyable {
                 quote! { #[derive(Clone, Copy)] }

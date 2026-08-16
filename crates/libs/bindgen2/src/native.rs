@@ -9,10 +9,15 @@ use std::{
 #[derive(Default)]
 pub(super) struct DependencyCache {
     values: RwLock<BTreeMap<(String, String), BTreeSet<(String, String)>>>,
-    interface_methods: RwLock<BTreeMap<(String, String), BTreeSet<(String, String)>>>,
-    interface_manifest: RwLock<BTreeMap<(String, String), BTreeSet<(String, String)>>>,
+    interfaces: RwLock<BTreeMap<(String, String), InterfaceDependencies>>,
     interface_bases: BTreeMap<(String, String), BTreeSet<(String, String)>>,
     sys_namespaces: BTreeSet<String>,
+}
+
+#[derive(Clone, Default)]
+pub(super) struct InterfaceDependencies {
+    pub(super) package: BTreeSet<(String, String)>,
+    pub(super) manifest: BTreeSet<(String, String)>,
 }
 
 impl DependencyCache {
@@ -34,8 +39,7 @@ impl DependencyCache {
         }
         Ok(Self {
             values: RwLock::default(),
-            interface_methods: RwLock::default(),
-            interface_manifest: RwLock::default(),
+            interfaces: RwLock::default(),
             interface_bases,
             sys_namespaces,
         })
@@ -56,52 +60,31 @@ impl DependencyCache {
             .collect()
     }
 
-    pub(super) fn interface_method_dependencies(
+    pub(super) fn interface_dependencies(
         &self,
         database: &Database,
         namespace: &str,
         name: &str,
-    ) -> Result<BTreeSet<(String, String)>, Error> {
+    ) -> Result<InterfaceDependencies, Error> {
         let key = (namespace.to_string(), name.to_string());
-        if let Some(dependencies) = self.interface_methods.read().unwrap().get(&key) {
+        if let Some(dependencies) = self.interfaces.read().unwrap().get(&key) {
             return Ok(dependencies.clone());
         }
-        let mut dependencies = BTreeSet::new();
+        let mut dependencies = InterfaceDependencies::default();
         let owner = format!("{namespace}.{name}");
         for entity in database.type_definitions(namespace, name) {
             let definition = database.definition(*entity).unwrap();
             for method in definition.methods()? {
                 let signature = native_signature::Signature::lower(database, self, method, &owner)?;
-                dependencies.extend(signature.package_dependencies().iter().cloned());
+                dependencies
+                    .package
+                    .extend(signature.package_dependencies().iter().cloned());
+                dependencies
+                    .manifest
+                    .extend(signature.manifest_dependencies());
             }
         }
-        self.interface_methods
-            .write()
-            .unwrap()
-            .insert(key, dependencies.clone());
-        Ok(dependencies)
-    }
-
-    pub(super) fn interface_manifest_dependencies(
-        &self,
-        database: &Database,
-        namespace: &str,
-        name: &str,
-    ) -> Result<BTreeSet<(String, String)>, Error> {
-        let key = (namespace.to_string(), name.to_string());
-        if let Some(dependencies) = self.interface_manifest.read().unwrap().get(&key) {
-            return Ok(dependencies.clone());
-        }
-        let mut dependencies = BTreeSet::new();
-        let owner = format!("{namespace}.{name}");
-        for entity in database.type_definitions(namespace, name) {
-            let definition = database.definition(*entity).unwrap();
-            for method in definition.methods()? {
-                let signature = native_signature::Signature::lower(database, self, method, &owner)?;
-                dependencies.extend(signature.manifest_dependencies().iter().cloned());
-            }
-        }
-        self.interface_manifest
+        self.interfaces
             .write()
             .unwrap()
             .insert(key, dependencies.clone());

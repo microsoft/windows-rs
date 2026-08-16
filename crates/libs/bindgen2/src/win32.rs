@@ -697,11 +697,12 @@ impl<'a> Win32Items<'a> {
                         output::ArtifactKind::Manifest,
                         definition.architectures()?,
                         TokenStream::new(),
-                        interface.package_features(layout, projection),
+                        interface.package_features(layout, projection, &self.catalogs.dependencies),
                     );
                     continue;
                 }
-                let features = interface.package_features(layout, projection);
+                let features =
+                    interface.package_features(layout, projection, &self.catalogs.dependencies);
                 add(
                     &namespace.name,
                     definition.name()?,

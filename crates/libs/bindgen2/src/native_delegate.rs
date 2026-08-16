@@ -9,6 +9,7 @@ pub struct Delegate {
     name: String,
     abi: &'static str,
     signature: native_signature::Signature,
+    sys_dependencies: BTreeSet<(String, String)>,
 }
 
 impl Delegate {
@@ -33,17 +34,17 @@ impl Delegate {
                 message: "native delegate method is not Invoke",
             });
         }
+        let signature =
+            native_signature::Signature::lower(database, dependencies, *method, &full_name)?;
+        let sys_dependencies =
+            dependencies.package_sys_dependencies(signature.package_dependencies());
         Ok(Self {
             architectures: definition.architectures()?,
             namespace,
             name,
             abi: calling_convention(definition, &full_name)?,
-            signature: native_signature::Signature::lower(
-                database,
-                dependencies,
-                *method,
-                &full_name,
-            )?,
+            signature,
+            sys_dependencies,
         })
     }
 
@@ -68,10 +69,13 @@ impl Delegate {
         let cfg = tokens::feature_cfg(
             &self.namespace,
             layout,
-            self.signature
-                .package_dependencies_for(projection)
-                .iter()
-                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+            (if projection.is_sys() {
+                &self.sys_dependencies
+            } else {
+                self.signature.package_dependencies()
+            })
+            .iter()
+            .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         );
         let name = tokens::ident(&self.name);
         let abi = self.abi;
@@ -101,10 +105,13 @@ impl Delegate {
         tokens::feature_names(
             &self.namespace,
             layout,
-            self.signature
-                .package_dependencies_for(projection)
-                .iter()
-                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+            (if projection.is_sys() {
+                &self.sys_dependencies
+            } else {
+                self.signature.package_dependencies()
+            })
+            .iter()
+            .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
         )
     }
 
