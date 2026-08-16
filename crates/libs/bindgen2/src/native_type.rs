@@ -10,7 +10,6 @@ pub struct NativeType {
     artifact_dependencies: Option<BTreeSet<(String, String)>>,
     artifact_sys_dependencies: Option<BTreeSet<(String, String)>>,
     sys_dependencies: BTreeSet<(String, String)>,
-    sys_manifest_dependencies: BTreeSet<(String, String)>,
 }
 
 enum Kind {
@@ -34,7 +33,6 @@ struct Alias {
     ty: native::Type,
     wrapper: bool,
     dependencies: BTreeSet<(String, String)>,
-    manifest_dependencies: BTreeSet<(String, String)>,
 }
 
 struct Enum {
@@ -46,7 +44,6 @@ struct Enum {
     flags: bool,
     cast_values: bool,
     dependencies: BTreeSet<(String, String)>,
-    manifest_dependencies: BTreeSet<(String, String)>,
 }
 
 struct Struct {
@@ -64,7 +61,6 @@ struct Struct {
     default: native_default::Policy,
     traits: native::TraitSupport,
     dependencies: BTreeSet<(String, String)>,
-    manifest_dependencies: BTreeSet<(String, String)>,
     bitfields: Vec<Bitfield>,
 }
 
@@ -146,7 +142,6 @@ impl NativeType {
                     message: "native enum has no backing field",
                 })?;
                 let dependencies = ty.package_dependencies(database, cache)?;
-                let manifest_dependencies = ty.manifest_dependencies(database)?;
                 let cast_values =
                     database
                         .type_definitions(namespace, &name)
@@ -156,14 +151,11 @@ impl NativeType {
                                 != TypeCategory::Enum
                         });
                 let sys_dependencies = cache.package_sys_dependencies(&dependencies);
-                let sys_manifest_dependencies =
-                    cache.package_sys_dependencies(&manifest_dependencies);
                 Ok(Self {
                     architectures,
                     artifact_dependencies: None,
                     artifact_sys_dependencies: None,
                     sys_dependencies,
-                    sys_manifest_dependencies,
                     kind: Kind::Enum(Enum {
                         namespace: namespace.to_string(),
                         name,
@@ -173,7 +165,6 @@ impl NativeType {
                         flags: definition.has_attribute("FlagsAttribute")?,
                         cast_values,
                         dependencies,
-                        manifest_dependencies,
                     }),
                 })
             }
@@ -263,23 +254,18 @@ impl NativeType {
                 {
                     let ty = ty.clone().normalize_alias(namespace, &name);
                     let dependencies = ty.package_dependencies(database, cache)?;
-                    let manifest_dependencies = ty.manifest_dependencies(database)?;
                     let sys_dependencies = cache.package_sys_dependencies(&dependencies);
-                    let sys_manifest_dependencies =
-                        cache.package_sys_dependencies(&manifest_dependencies);
                     return Ok(Self {
                         architectures,
                         artifact_dependencies: None,
                         artifact_sys_dependencies: None,
                         sys_dependencies,
-                        sys_manifest_dependencies,
                         kind: Kind::Alias(Alias {
                             namespace: namespace.to_string(),
                             name,
                             ty,
                             wrapper: true,
                             dependencies,
-                            manifest_dependencies,
                         }),
                     });
                 }
@@ -297,23 +283,18 @@ impl NativeType {
                     let wrapper = field == "Value" && ty.is_wrapper_underlying(database)?;
                     let ty = ty.normalize_alias(namespace, &name);
                     let dependencies = ty.package_dependencies(database, cache)?;
-                    let manifest_dependencies = ty.manifest_dependencies(database)?;
                     let sys_dependencies = cache.package_sys_dependencies(&dependencies);
-                    let sys_manifest_dependencies =
-                        cache.package_sys_dependencies(&manifest_dependencies);
                     return Ok(Self {
                         architectures,
                         artifact_dependencies: None,
                         artifact_sys_dependencies: None,
                         sys_dependencies,
-                        sys_manifest_dependencies,
                         kind: Kind::Alias(Alias {
                             namespace: namespace.to_string(),
                             name,
                             ty,
                             wrapper,
                             dependencies,
-                            manifest_dependencies,
                         }),
                     });
                 }
@@ -452,20 +433,14 @@ impl NativeType {
                     traits
                 };
                 let mut dependencies = BTreeSet::new();
-                let mut manifest_dependencies = BTreeSet::new();
                 for (_, ty) in &fields {
                     dependencies.extend(ty.package_dependencies(database, cache)?);
-                    manifest_dependencies.extend(ty.manifest_dependencies(database)?);
                 }
                 for nested in &nested {
                     let (_, nested_dependencies) = nested.dependencies();
                     dependencies.extend(nested_dependencies);
-                    let (_, nested_dependencies) = nested.manifest_dependencies();
-                    manifest_dependencies.extend(nested_dependencies);
                 }
                 let sys_dependencies = cache.package_sys_dependencies(&dependencies);
-                let sys_manifest_dependencies =
-                    cache.package_sys_dependencies(&manifest_dependencies);
                 for nested in &mut nested {
                     nested.inherit_artifact_dependencies(&dependencies, &sys_dependencies);
                 }
@@ -474,7 +449,6 @@ impl NativeType {
                     artifact_dependencies: None,
                     artifact_sys_dependencies: None,
                     sys_dependencies,
-                    sys_manifest_dependencies,
                     kind: Kind::Struct(Struct {
                         namespace: namespace.to_string(),
                         name,
@@ -490,7 +464,6 @@ impl NativeType {
                         default,
                         traits,
                         dependencies,
-                        manifest_dependencies,
                         bitfields,
                     }),
                 })
@@ -631,9 +604,9 @@ impl NativeType {
         layout: Layout,
         projection: Projection,
     ) -> BTreeSet<String> {
-        let (namespace, dependencies) = self.manifest_dependencies();
+        let (namespace, dependencies) = self.dependencies();
         let dependencies = if projection.is_sys() {
-            &self.sys_manifest_dependencies
+            &self.sys_dependencies
         } else {
             &dependencies
         };
@@ -709,23 +682,6 @@ impl NativeType {
             }
         };
         (namespace, dependencies)
-    }
-
-    fn manifest_dependencies(&self) -> (&str, BTreeSet<(String, String)>) {
-        match &self.kind {
-            Kind::Alias(value) => (
-                value.namespace.as_str(),
-                value.manifest_dependencies.clone(),
-            ),
-            Kind::Enum(value) => (
-                value.namespace.as_str(),
-                value.manifest_dependencies.clone(),
-            ),
-            Kind::Struct(value) => (
-                value.namespace.as_str(),
-                value.manifest_dependencies.clone(),
-            ),
-        }
     }
 }
 

@@ -6037,6 +6037,48 @@ fn tool_webview_native_request_matches_committed_output() {
     );
 }
 #[test]
+fn native_manifest_dependencies_follow_value_type_closure() {
+    let features = fixture(
+        r#"
+            #[win32]
+            mod Windows {
+                mod Win32 {
+                    mod First {
+                        struct External {
+                            value: u32,
+                        }
+                    }
+                    mod Middle {
+                        struct Variant {
+                            Anonymous: union {
+                                value: Windows::Win32::First::External,
+                            },
+                        }
+                    }
+                    mod Consumer {
+                        struct Container {
+                            value: Windows::Win32::Middle::Variant,
+                        }
+                    }
+                }
+            }
+        "#,
+    )
+    .win32_items()
+    .native_type("Windows.Win32.Consumer", "Container")
+    .unwrap()
+    .package_features(Layout::Package, Projection::Default);
+
+    assert_eq!(
+        features,
+        ["First", "Middle"]
+            .into_iter()
+            .map(str::to_string)
+            .collect()
+    );
+}
+
+#[test]
 fn architecture_source_gates() {
     let source = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("src");
     let forbidden = [
@@ -6049,6 +6091,12 @@ fn architecture_source_gates() {
         ("Direct2D", "consumer-specific Direct2D policy"),
         ("VSS", "consumer-specific VSS policy"),
         ("Reactor", "consumer-specific Reactor policy"),
+        ("u8::MAX", "integer sentinel policy"),
+        ("manifest_only", "coordinated manifest artifact flags"),
+        (
+            "native_manifest_dependencies(",
+            "namespace-specific manifest compatibility tables",
+        ),
         (
             "context.layout == Layout::Package",
             "package policy outside a context method",

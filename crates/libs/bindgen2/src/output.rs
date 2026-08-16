@@ -10,11 +10,25 @@ use std::{
 #[derive(Clone)]
 struct Item {
     name: String,
-    kind: u8,
+    kind: ArtifactKind,
     variant: i32,
     tokens: TokenStream,
     features: BTreeSet<String>,
-    manifest_only: bool,
+}
+
+#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub(super) enum ArtifactKind {
+    Source(u8),
+    Manifest,
+}
+
+impl ArtifactKind {
+    const fn source(self) -> Option<u8> {
+        match self {
+            Self::Source(kind) => Some(kind),
+            Self::Manifest => None,
+        }
+    }
 }
 
 #[derive(Default)]
@@ -87,7 +101,7 @@ impl Generator {
                 .or_default()
                 .push(Item {
                     name: name.to_string(),
-                    kind: 0,
+                    kind: ArtifactKind::Source(0),
                     variant: 0,
                     tokens: values.write_context(
                         namespace,
@@ -98,7 +112,6 @@ impl Generator {
                         self.members(item.definition().entity()),
                     )?,
                     features: BTreeSet::new(),
-                    manifest_only: false,
                 });
         }
         for entry in self
@@ -134,11 +147,10 @@ impl Generator {
                 .or_default()
                 .push(Item {
                     name: name.to_string(),
-                    kind: 0,
+                    kind: ArtifactKind::Source(0),
                     variant: 0,
                     tokens,
                     features,
-                    manifest_only: false,
                 });
         }
         for entry in self
@@ -156,7 +168,7 @@ impl Generator {
                 .or_default()
                 .push(Item {
                     name: name.to_string(),
-                    kind: 0,
+                    kind: ArtifactKind::Source(0),
                     variant: 0,
                     tokens: model.write(
                         values,
@@ -168,7 +180,6 @@ impl Generator {
                         &self.winrt_members,
                     )?,
                     features: BTreeSet::new(),
-                    manifest_only: false,
                 });
         }
         for entry in self
@@ -187,7 +198,7 @@ impl Generator {
                 .or_default()
                 .push(Item {
                     name: name.to_string(),
-                    kind: 0,
+                    kind: ArtifactKind::Source(0),
                     variant: 0,
                     tokens: model.write(
                         values,
@@ -199,7 +210,6 @@ impl Generator {
                         self.winrt_explicit_items.contains(&entry.entity),
                     )?,
                     features: BTreeSet::new(),
-                    manifest_only: false,
                 });
         }
 
@@ -213,11 +223,10 @@ impl Generator {
                     .or_default()
                     .push(Item {
                         name: name.to_string(),
-                        kind: if kind == u8::MAX { 1 } else { kind },
+                        kind,
                         variant,
                         tokens,
                         features,
-                        manifest_only: kind == u8::MAX,
                     });
             },
         )?;
@@ -248,7 +257,7 @@ impl Generator {
             for namespace in namespaces.iter().rev() {
                 let has_items = modules
                     .get(namespace)
-                    .is_some_and(|items| items.iter().any(|item| !item.manifest_only));
+                    .is_some_and(|items| items.iter().any(|item| item.kind.source().is_some()));
                 let has_children =
                     direct_children(&namespaces, namespace).any(|child| !prunable.contains(child));
                 if !has_items && !has_children {
@@ -303,8 +312,7 @@ impl Generator {
                 let mut shadows = BTreeMap::<&str, BTreeSet<String>>::new();
                 for child in &children {
                     for item in modules.get(*child).into_iter().flatten() {
-                        if !item.manifest_only
-                            && item.kind == 2
+                        if item.kind == ArtifactKind::Source(2)
                             && prelude_shadow(&item.name).is_some()
                         {
                             shadows
@@ -334,15 +342,10 @@ impl Generator {
                 let mut dependencies = BTreeSet::new();
                 for item in items.drain(..) {
                     dependencies.extend(item.features);
-                    if !item.manifest_only {
+                    if item.kind.source().is_some() {
                         tokens.extend(item.tokens);
                     }
                 }
-                dependencies.extend(
-                    native_manifest_dependencies(namespace)
-                        .iter()
-                        .map(|dependency| (*dependency).to_string()),
-                );
                 namespace_dependencies.insert(namespace.clone(), dependencies);
             }
 
@@ -420,40 +423,18 @@ impl Module {
 }
 
 fn compare_items(left: &Item, right: &Item) -> Ordering {
-    (left.kind != 3, &left.name, left.kind, left.variant).cmp(&(
-        right.kind != 3,
-        &right.name,
-        right.kind,
-        right.variant,
-    ))
-}
-
-fn native_manifest_dependencies(namespace: &str) -> &'static [&'static str] {
-    match namespace {
-        "Windows.Win32.dbgprop" => &["wtypes", "wtypesbase"],
-        "Windows.Win32.filter" => &["wtypes"],
-        "Windows.Win32.iketypes" => &["winnt"],
-        "Windows.Win32.iprtrmib" => &["nldef"],
-        "Windows.Win32.ipsectypes" => &["winnt"],
-        "Windows.Win32.msctf" => &["wtypes", "wtypesbase"],
-        "Windows.Win32.ntddk" => &["excpt"],
-        "Windows.Win32.oledb" => &["minwindef", "objidl"],
-        "Windows.Win32.sapi" => &["wtypes", "wtypesbase"],
-        "Windows.Win32.searchapi" => &["oaidl", "objidl", "objidlbase", "wtypes"],
-        "Windows.Win32.shdeprecated" => &["oaidl"],
-        "Windows.Win32.spatialaudiometadata" => &[
-            "minwindef",
-            "oaidl",
-            "objidl",
-            "objidlbase",
-            "wtypes",
-            "wtypesbase",
-        ],
-        "Windows.Win32.textstor" => &["wtypes", "wtypesbase"],
-        "Windows.Win32.uiautomationcore" => &["wtypes", "wtypesbase"],
-        "Windows.Win32.wbemprov" => &["wtypes", "wtypesbase"],
-        _ => &[],
-    }
+    (
+        left.kind != ArtifactKind::Source(3),
+        &left.name,
+        left.kind,
+        left.variant,
+    )
+        .cmp(&(
+            right.kind != ArtifactKind::Source(3),
+            &right.name,
+            right.kind,
+            right.variant,
+        ))
 }
 
 fn direct_children<'a>(
@@ -495,11 +476,10 @@ mod tests {
     fn architecture_variants_sort_by_metadata_key() {
         let item = |variant| Item {
             name: "DUPLICATE".to_string(),
-            kind: 2,
+            kind: ArtifactKind::Source(2),
             variant,
             tokens: TokenStream::new(),
             features: BTreeSet::new(),
-            manifest_only: false,
         };
         let mut items = [item(5), item(2)];
         items.sort_by(compare_items);

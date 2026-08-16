@@ -817,3 +817,36 @@ are inherent to ABI exposure, external crate boundaries, and package layout; oth
 forward unnecessary generator complexity. Once parity provides a stable baseline, audit the
 recorded differences and merge policies that do not serve a concrete output or ownership
 requirement.
+
+## Post-parity architecture plan
+
+Exact generated parity is the baseline for simplifying bindgen2. Each change below must preserve a
+zero-difference package probe and the existing focused output tests.
+
+1. [x] Replace the manifest-only integer sentinel and coordinated boolean with an explicit
+   artifact kind. Continue replacing untyped ordering keys and dependency products as their models
+   are consolidated.
+2. [x] Remove the native manifest compatibility table. Native value types use their full typed
+   dependency closure, while interfaces retain their separate inheritance, method, implementation,
+   and sys-availability policies. Production package policy does not name individual Windows
+   header namespaces.
+3. Consolidate dependency facts. Selection, source cfg, artifact, package, manifest, rich, and sys
+   dependencies should be derived from one lowered dependency model through named policies.
+4. Lower native call behavior into a call-plan model. Parameter projection, ABI arguments, return
+   conversion, query handling, slices, aliases, and producer conversion should be decided before
+   token rendering.
+5. Complete canonical ABI classification. GUID, HRESULT, event tokens, strings, BOOL, COM roots,
+   and other canonical aliases should be recognized once during lowering rather than by repeated
+   metadata-name checks.
+6. Separate package planning from filesystem changes. The generator should return modules,
+   manifests, and removals as a deterministic package plan; tool policy should format and write it.
+7. Split files by responsibility after the model boundaries settle. Production files should meet
+   the 1,000-line architecture gate, and the monolithic test file should become focused suites.
+8. Re-run performance, clippy, generated-crate CI, and all consumer regeneration gates before
+   migrating `tool_package` and removing bindgen1.
+
+The first two cleanups are complete. Manifest-only native interface dependencies use an explicit
+artifact kind rather than an empty token stream identified by `u8::MAX`. Native value manifest
+features now come from the same recursive dependency closure used for package projection, including
+projected nested definitions, so the namespace-specific compatibility table and its duplicate
+manifest traversal are gone.

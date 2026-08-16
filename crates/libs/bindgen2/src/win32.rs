@@ -596,7 +596,7 @@ impl<'a> Win32Items<'a> {
         layout: Layout,
         projection: Projection,
         derives: &BTreeMap<String, BTreeSet<String>>,
-        mut add: impl FnMut(&str, &str, u8, i32, TokenStream, BTreeSet<String>),
+        mut add: impl FnMut(&str, &str, output::ArtifactKind, i32, TokenStream, BTreeSet<String>),
     ) -> Result<(), Error> {
         let mut implementable_interfaces = BTreeSet::new();
         loop {
@@ -650,7 +650,7 @@ impl<'a> Win32Items<'a> {
                     add(
                         &namespace.name,
                         name,
-                        kind,
+                        output::ArtifactKind::Source(kind),
                         definition.architectures()?,
                         tokens,
                         features.clone(),
@@ -667,7 +667,7 @@ impl<'a> Win32Items<'a> {
                 add(
                     &namespace.name,
                     definition.name()?,
-                    1,
+                    output::ArtifactKind::Source(1),
                     definition.architectures()?,
                     delegate.write_context(layout, projection),
                     delegate.package_features(layout, projection),
@@ -694,7 +694,7 @@ impl<'a> Win32Items<'a> {
                     add(
                         &namespace.name,
                         definition.name()?,
-                        u8::MAX,
+                        output::ArtifactKind::Manifest,
                         definition.architectures()?,
                         TokenStream::new(),
                         interface.package_features(layout, projection),
@@ -705,7 +705,7 @@ impl<'a> Win32Items<'a> {
                 add(
                     &namespace.name,
                     definition.name()?,
-                    1,
+                    output::ArtifactKind::Source(1),
                     definition.architectures()?,
                     interface.write_context(
                         layout,
@@ -733,7 +733,7 @@ impl<'a> Win32Items<'a> {
                 add(
                     &namespace.name,
                     name,
-                    2,
+                    output::ArtifactKind::Source(2),
                     field.architectures()?,
                     constant.write_context(layout, projection),
                     constant.package_features(layout, projection),
@@ -755,7 +755,7 @@ impl<'a> Win32Items<'a> {
                 add(
                     &namespace.name,
                     name,
-                    3,
+                    output::ArtifactKind::Source(3),
                     method.architectures()?,
                     function.write_context(layout, projection),
                     function.package_features(layout, projection),

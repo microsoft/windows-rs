@@ -2067,15 +2067,6 @@ impl Type {
         Ok(dependencies)
     }
 
-    pub(super) fn manifest_dependencies(
-        &self,
-        database: &Database,
-    ) -> Result<BTreeSet<(String, String)>, Error> {
-        let mut dependencies = BTreeSet::new();
-        self.collect_manifest_dependencies(database, &mut BTreeSet::new(), &mut dependencies)?;
-        Ok(dependencies)
-    }
-
     pub(super) fn is_wrapper(&self, database: &Database) -> Result<bool, Error> {
         let Self::Named { namespace, name } = self else {
             return Ok(false);
@@ -2133,66 +2124,6 @@ impl Type {
             Self::Named { namespace, name } => {
                 dependencies.insert((namespace.clone(), name.clone()));
                 cache.expand(database, namespace, name, stack, dependencies)?;
-            }
-            _ => {}
-        }
-        Ok(())
-    }
-
-    fn collect_manifest_dependencies(
-        &self,
-        database: &Database,
-        stack: &mut BTreeSet<(String, String)>,
-        dependencies: &mut BTreeSet<(String, String)>,
-    ) -> Result<(), Error> {
-        match self {
-            Self::Array { element, .. } | Self::Pointer { element, .. } => {
-                element.collect_manifest_dependencies(database, stack, dependencies)?;
-            }
-            Self::Interface {
-                namespace,
-                name,
-                arguments,
-            } => {
-                dependencies.insert((namespace.clone(), name.clone()));
-                for argument in arguments {
-                    argument.collect_value_dependencies(dependencies);
-                }
-            }
-            Self::Named { namespace, name } => {
-                dependencies.insert((namespace.clone(), name.clone()));
-                let key = (namespace.clone(), name.clone());
-                if is_core_projection(namespace, name) || !stack.insert(key.clone()) {
-                    return Ok(());
-                }
-                for entity in database.type_definitions(namespace, name) {
-                    let definition = database.definition(*entity).unwrap();
-                    if !matches!(
-                        definition.category()?,
-                        TypeCategory::Enum | TypeCategory::Struct
-                    ) {
-                        continue;
-                    }
-                    let typedef = definition.has_attribute("NativeTypedefAttribute")?;
-                    for field in definition.fields()? {
-                        if field.is_literal()? {
-                            continue;
-                        }
-                        let ty = Type::lower(
-                            database,
-                            field.entity().file(),
-                            definition.name()?,
-                            field.signature()?,
-                        )?;
-                        let ty = if typedef {
-                            ty.normalize_alias(namespace, name)
-                        } else {
-                            ty
-                        };
-                        ty.collect_manifest_dependencies(database, stack, dependencies)?;
-                    }
-                }
-                stack.remove(&key);
             }
             _ => {}
         }
