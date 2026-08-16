@@ -833,8 +833,8 @@ zero-difference package probe and the existing focused output tests.
 3. [x] Consolidate dependency facts. Selection, source cfg, artifact, package, manifest, rich, and
    sys dependencies are derived from lowered type relationships through named policies rather than
    parallel compatibility tables and duplicated stored closures.
-4. Lower native call behavior into a call-plan model. Parameter projection, ABI arguments, return
-   conversion, query handling, slices, aliases, and producer conversion should be decided before
+4. [x] Lower native call behavior into a call-plan model. Parameter projection, ABI arguments,
+   return conversion, query handling, slices, aliases, and producer conversion are decided before
    token rendering.
 5. Complete canonical ABI classification. GUID, HRESULT, event tokens, strings, BOOL, COM roots,
    and other canonical aliases should be recognized once during lowering rather than by repeated
@@ -876,12 +876,21 @@ manifest features share the same recursive type closure, with narrow interface a
 applied where the generated package differs. These products remain separate because they answer
 different questions; they no longer maintain independent copies of the same facts.
 
-Step 4 has started with return and direction planning. Native signature lowering now classifies
+Step 4 is complete. Native signature lowering now classifies
 direct, indirect, void, HRESULT, retval, and query returns once. A sparse package override records
 the few cases where package HRESULT aliases change that plan. Rendering maps the stored plan to
 tokens without scanning parameters for retval or query patterns. Parameter metadata flags are also
 lowered to typed input, output, or input/output direction plus optionality rather than retained as
 raw bits. Array lowering now owns slice element and transmute policy plus fixed-array element and
 indirection policy. Rendering consumes those plans instead of resolving pointer aliases and ABI
-elements again, and temporary pointer-alias state is discarded after lowering. Alias casts,
-general ABI arguments, result conversion, and producer plans remain to be consolidated.
+elements again, and temporary pointer-alias state is discarded after lowering. ABI casts now use
+an explicit `None`, `Abi`, or `Method` plan instead of combining pointer-cast, pointer-alias, and
+value-type flags at each call site. Consumer argument plans now classify interface pointers and
+outputs, `Param` inputs, booleans, strings, optional values, borrowed values, and plain ABI values.
+A sparse package override captures package-only string conversion. Renderers retain
+context-specific token spelling but no longer inspect types and hints to choose those shapes.
+Result conversion is part of the return plan, including identity, ownership transmute, and
+`Type::from_abi` paths. Native function, COM consumer, and producer renderers consume that plan
+instead of retaining a conversion flag on output parameters. Producer trait parameter shape and
+upcall borrow/copy conversion use a typed producer plan. The old `producer_by_ref` field and
+render-time interface, array, and by-reference classification are gone.

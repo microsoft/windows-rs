@@ -669,10 +669,12 @@ fn winrt_interface_corpus_lowers_and_renders() {
         let result: Result<(), Error> = (|| {
             for projection in [Projection::Default, Projection::Minimal] {
                 model.write(
-                    values,
-                    namespace,
-                    Layout::Modules,
-                    projection,
+                    &winrt_interface::WriteContext::new(
+                        values,
+                        namespace,
+                        Layout::Modules,
+                        projection,
+                    ),
                     &MemberSelection::All,
                     None,
                     false,
@@ -3206,13 +3208,15 @@ fn winrt_class_corpus_lowers_and_renders() {
         let result: Result<(), Error> = (|| {
             for projection in [Projection::Default, Projection::Minimal] {
                 model.write(
-                    values,
-                    namespace,
-                    Layout::Modules,
-                    projection,
+                    &winrt_class::WriteContext::new(
+                        values,
+                        namespace,
+                        Layout::Modules,
+                        projection,
+                        None,
+                        &BTreeMap::new(),
+                    ),
                     &MemberSelection::All,
-                    None,
-                    &BTreeMap::new(),
                 )?;
             }
             Ok(())
@@ -6174,6 +6178,26 @@ fn architecture_source_gates() {
             "temporary pointer-alias state retained after call planning",
         ),
         (
+            "pointer_alias_cast: bool",
+            "pointer-alias cast policy retained outside the call plan",
+        ),
+        (
+            "pointer_cast: bool",
+            "pointer cast policy retained outside the call plan",
+        ),
+        (
+            "retval_transmute",
+            "result conversion retained outside the return plan",
+        ),
+        (
+            "producer_by_ref",
+            "producer conversion retained outside the producer plan",
+        ),
+        (
+            "ParamHint::ValueType",
+            "ABI cast policy encoded as a parameter hint",
+        ),
+        (
             "context.layout == Layout::Package",
             "package policy outside a context method",
         ),
@@ -6203,6 +6227,12 @@ fn architecture_source_gates() {
                 "fn retval_parameter(",
                 "fn query_parameters(",
                 "return_type.is_hresult",
+                "interface_pointer_depth(",
+                "is_into_param(",
+                "is_optional_hint(",
+                "is_by_ref(",
+                "parameter.is_bool(",
+                "parameter.ty.is_bstr()",
             ] {
                 assert!(
                     !contents.contains(pattern),

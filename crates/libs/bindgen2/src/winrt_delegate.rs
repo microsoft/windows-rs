@@ -419,9 +419,11 @@ impl EventHandler {
             context.generics,
             context.owner,
         )?;
-        let send = (!context.is_minimal())
-            .then(|| quote! { + Send })
-            .unwrap_or_default();
+        let send = if context.is_minimal() {
+            TokenStream::new()
+        } else {
+            quote! { + Send }
+        };
         let name = tokens::ident(&self.name);
         let parameters = (0..self.invoke.parameters.len())
             .map(|position| tokens::ident(&format!("a{position}")))

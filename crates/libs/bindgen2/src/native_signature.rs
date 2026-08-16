@@ -22,12 +22,12 @@ pub(super) struct Parameter {
     array: Option<ArrayInfo>,
     pub(super) retval_candidate: bool,
     pub(super) explicit_retval: bool,
-    pub(super) retval_transmute: bool,
-    pub(super) producer_by_ref: bool,
     pub(super) ty: native::Type,
-    pointer_alias_cast: bool,
     hint: ParamHint,
-    pointer_cast: bool,
+    cast: CastPlan,
+    consumer_plan: ConsumerPlan,
+    package_consumer_plan_override: Option<ConsumerPlan>,
+    producer_plan: ProducerPlan,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -64,9 +64,38 @@ enum ParamHint {
     PackageIntoParam,
     Optional,
     Bool,
-    ValueType,
-    Blittable,
     ByRef,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum CastPlan {
+    None,
+    Abi,
+    Method,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(super) enum ConsumerPlan {
+    InterfacePointer { deep: bool, optional: bool },
+    InterfaceOutput,
+    IntoParam,
+    Bool,
+    StringRef,
+    StringPointer { optional: bool },
+    Optional,
+    ByRef,
+    Plain,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(super) enum ProducerPlan {
+    DirectInterfaceOutput { mutable: bool },
+    InterfacePointer,
+    InterfaceOutput,
+    InterfaceInput,
+    ByRef,
+    Array,
+    Plain,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -75,20 +104,32 @@ pub(super) enum ReturnPlan {
     Void,
     VoidInterface {
         position: usize,
+        conversion: ResultConversion,
     },
     VoidValue {
         position: usize,
+        conversion: ResultConversion,
     },
-    Direct,
+    Direct {
+        interface: bool,
+    },
     Indirect,
     Retval {
         position: usize,
+        conversion: ResultConversion,
     },
     Query {
         guid: usize,
         object: usize,
         optional: bool,
     },
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(super) enum ResultConversion {
+    Identity,
+    Transmute,
+    FromAbi,
 }
 
 impl Parameter {
@@ -108,29 +149,61 @@ impl Parameter {
         self.optional
     }
 
-    pub(super) fn is_into_param(&self, layout: Layout) -> bool {
-        matches!(self.hint, ParamHint::IntoParam)
-            || (layout.is_package() && matches!(self.hint, ParamHint::PackageIntoParam))
+    pub(super) fn casts_abi_argument(&self) -> bool {
+        matches!(self.cast, CastPlan::Abi)
     }
 
-    pub(super) fn is_bool(&self) -> bool {
-        matches!(self.hint, ParamHint::Bool)
+    pub(super) fn casts_method_argument(&self) -> bool {
+        !matches!(self.cast, CastPlan::None)
     }
 
-    pub(super) fn is_optional_hint(&self) -> bool {
-        matches!(self.hint, ParamHint::Optional)
+    pub(super) fn consumer_plan(&self, package: bool) -> ConsumerPlan {
+        if package {
+            self.package_consumer_plan_override
+                .unwrap_or(self.consumer_plan)
+        } else {
+            self.consumer_plan
+        }
     }
 
-    pub(super) fn is_by_ref(&self) -> bool {
-        matches!(self.hint, ParamHint::ByRef)
+    pub(super) fn producer_plan(&self) -> ProducerPlan {
+        self.producer_plan
     }
 
-    pub(super) fn needs_cast(&self) -> bool {
-        self.pointer_cast || (matches!(self.hint, ParamHint::ValueType) && !self.is_input_only())
-    }
-
-    pub(super) fn needs_method_cast(&self) -> bool {
-        self.needs_cast() || self.pointer_alias_cast
+    fn classify_consumer(&self, package: bool) -> ConsumerPlan {
+        if self.ty.interface_out().is_some() {
+            ConsumerPlan::InterfacePointer {
+                deep: self
+                    .ty
+                    .interface_pointer_depth()
+                    .is_some_and(|depth| depth > 1),
+                optional: matches!(self.hint, ParamHint::Optional),
+            }
+        } else if self.ty.is_interface() && !self.is_input_only() {
+            ConsumerPlan::InterfaceOutput
+        } else if matches!(self.hint, ParamHint::IntoParam)
+            || (package && matches!(self.hint, ParamHint::PackageIntoParam))
+        {
+            ConsumerPlan::IntoParam
+        } else if matches!(self.hint, ParamHint::Bool) {
+            ConsumerPlan::Bool
+        } else if self.ty.is_bstr() || self.ty.is_hstring() {
+            ConsumerPlan::StringRef
+        } else if self
+            .ty
+            .pointee()
+            .is_some_and(|ty| ty.is_bstr() || ty.is_hstring())
+        {
+            ConsumerPlan::StringPointer {
+                optional: matches!(self.hint, ParamHint::Optional),
+            }
+        } else if matches!(self.hint, ParamHint::Optional) {
+            ConsumerPlan::Optional
+        } else if matches!(self.hint, ParamHint::ByRef) {
+            ConsumerPlan::ByRef
+        } else {
+            ConsumerPlan::Plain
+        }
     }
 
     pub(super) fn has_array_info(&self) -> bool {
@@ -182,9 +255,7 @@ fn slice_plan(
     pointer_alias: Option<&native::Type>,
     bytes: bool,
 ) -> Option<ParamHint> {
-    let element = if bytes {
-        native::Type::U8
-    } else if ty.is_pcstr() {
+    let element = if bytes || ty.is_pcstr() {
         native::Type::U8
     } else if ty.is_pcwstr() {
         native::Type::U16
@@ -266,7 +337,7 @@ impl Signature {
         } = method.signature()?;
         let returns_void = matches!(return_type.kind, TypeKind::Void);
         let parameter_rows = method.parameters_by_sequence()?;
-        let lowered: Vec<(Parameter, Option<native::Type>)> = parameters
+        let lowered: Vec<(Parameter, Option<native::Type>, ResultConversion, bool)> = parameters
             .into_iter()
             .enumerate()
             .map(|(position, ty)| {
@@ -347,7 +418,7 @@ impl Signature {
                 } else {
                     false
                 };
-                let producer_by_ref = flags & 0x0002 == 0
+                let producer_borrowed = flags & 0x0002 == 0
                     && (ty.is_const_string() || ty.producer_by_ref(database)?);
                 let pointer_cast = flags & 0x0002 != 0
                     && ty.needs_output_pointer_cast(database, &mut BTreeSet::new())?;
@@ -362,13 +433,28 @@ impl Signature {
                     .map(|ty| ty.projected_traits(database, &mut BTreeSet::new()))
                     .transpose()?
                     .is_none_or(|traits| traits.copy);
-                let retval_transmute = if let Some(ty) = ty.pointee() {
-                    ty.is_interface()
-                        || ty.is_bstr()
+                let result_conversion = if let Some(ty) = ty.pointee() {
+                    if ty.is_interface() {
+                        ResultConversion::FromAbi
+                    } else if ty.is_bstr()
                         || ty.is_hstring()
                         || (!ty.is_void_alias(database)? && !pointee_copyable)
+                    {
+                        ResultConversion::Transmute
+                    } else {
+                        ResultConversion::Identity
+                    }
                 } else {
-                    false
+                    ResultConversion::Identity
+                };
+                let value_output_cast =
+                    ty.is_primitive(database)? && pointee_copyable && direction != Direction::Input;
+                let cast = if pointer_cast || value_output_cast {
+                    CastPlan::Abi
+                } else if pointer_alias_cast {
+                    CastPlan::Method
+                } else {
+                    CastPlan::None
                 };
                 let hint = if let Some(ArrayInfo::ElementsConst(len)) = array
                     && (flags & 0x0002 == 0 || flags & 0x0001 != 0)
@@ -382,10 +468,8 @@ impl Signature {
                     ParamHint::Optional
                 } else if flags & 0x0002 == 0 && ty.is_bool() {
                     ParamHint::Bool
-                } else if ty.is_primitive(database)? && pointee_copyable {
-                    ParamHint::ValueType
                 } else if copyable {
-                    ParamHint::Blittable
+                    ParamHint::None
                 } else if flags & 0x0002 == 0 {
                     ParamHint::ByRef
                 } else {
@@ -403,18 +487,29 @@ impl Signature {
                         array,
                         retval_candidate,
                         explicit_retval,
-                        retval_transmute,
-                        producer_by_ref,
                         ty,
-                        pointer_alias_cast,
                         hint,
-                        pointer_cast,
+                        cast,
+                        consumer_plan: ConsumerPlan::Plain,
+                        package_consumer_plan_override: None,
+                        producer_plan: ProducerPlan::Plain,
                     },
                     pointer_alias,
+                    result_conversion,
+                    producer_borrowed,
                 ))
             })
             .collect::<Result<_, Error>>()?;
-        let (mut parameters, pointer_aliases): (Vec<_>, Vec<_>) = lowered.into_iter().unzip();
+        let mut parameters = Vec::with_capacity(lowered.len());
+        let mut pointer_aliases = Vec::with_capacity(lowered.len());
+        let mut result_conversions = Vec::with_capacity(lowered.len());
+        let mut producer_borrowed = Vec::with_capacity(lowered.len());
+        for (parameter, pointer_alias, result_conversion, borrowed) in lowered {
+            parameters.push(parameter);
+            pointer_aliases.push(pointer_alias);
+            result_conversions.push(result_conversion);
+            producer_borrowed.push(borrowed);
+        }
         for (position, parameter) in parameters.iter().enumerate() {
             if let Some(ArrayInfo::ElementsParam(count) | ArrayInfo::BytesParam(count)) =
                 parameter.array
@@ -452,16 +547,15 @@ impl Signature {
                 continue;
             }
             let bytes = matches!(parameters[position].array, Some(ArrayInfo::BytesParam(_)));
-            if bytes {
-                if parameters[position].ty.is_pcwstr()
+            if bytes
+                && (parameters[position].ty.is_pcwstr()
                     || (!parameters[position].ty.is_const_string()
                         && !matches!(
                             parameters[position].ty.pointee(),
                             Some(native::Type::I8 | native::Type::U8)
-                        ))
-                {
-                    continue;
-                }
+                        )))
+            {
+                continue;
             }
             parameters[position].hint = slice_plan(
                 &parameters[position].ty,
@@ -474,14 +568,63 @@ impl Signature {
                 newtype: parameters[count].ty.is_newtype(database)?,
             };
         }
+        for parameter in &mut parameters {
+            parameter.consumer_plan = parameter.classify_consumer(false);
+            let package_plan = parameter.classify_consumer(true);
+            parameter.package_consumer_plan_override =
+                (package_plan != parameter.consumer_plan).then_some(package_plan);
+        }
+        let producer_plans = parameters
+            .iter()
+            .enumerate()
+            .map(|(position, parameter)| {
+                let producer_outref = !parameter.has_array_info()
+                    || parameter
+                        .array_count()
+                        .and_then(|position| parameters.get(position))
+                        .is_some_and(|count| !count.is_input_only());
+                if producer_outref
+                    && parameter.ty.is_direct_interface_pointer()
+                    && let Some((mutable, _)) = parameter.ty.interface_out()
+                {
+                    ProducerPlan::DirectInterfaceOutput { mutable }
+                } else if parameter.ty.interface_out().is_some() {
+                    ProducerPlan::InterfacePointer
+                } else if parameter.is_interface_output() {
+                    ProducerPlan::InterfaceOutput
+                } else if parameter.is_input_only() && parameter.ty.is_interface() {
+                    ProducerPlan::InterfaceInput
+                } else if producer_borrowed[position] {
+                    ProducerPlan::ByRef
+                } else if parameter.has_array_info() {
+                    ProducerPlan::Array
+                } else {
+                    ProducerPlan::Plain
+                }
+            })
+            .collect::<Vec<_>>();
+        for (parameter, plan) in parameters.iter_mut().zip(producer_plans) {
+            parameter.producer_plan = plan;
+        }
         let return_type =
             native::Type::lower(database, method.entity().file(), owner, return_type)?;
         let indirect_return = return_type.is_indirect_return(database)?;
         let no_return = return_type == native::Type::Void
             && method.find_attribute("DoesNotReturnAttribute")?.is_some();
-        let return_plan = Self::classify_return(&parameters, &return_type, indirect_return, false);
-        let package_return_plan =
-            Self::classify_return(&parameters, &return_type, indirect_return, true);
+        let return_plan = Self::classify_return(
+            &parameters,
+            &result_conversions,
+            &return_type,
+            indirect_return,
+            false,
+        );
+        let package_return_plan = Self::classify_return(
+            &parameters,
+            &result_conversions,
+            &return_type,
+            indirect_return,
+            true,
+        );
         let package_return_plan_override =
             (package_return_plan != return_plan).then_some(package_return_plan);
         let mut package_dependencies = return_type.package_dependencies(database, dependencies)?;
@@ -538,6 +681,7 @@ impl Signature {
 
     fn classify_return(
         parameters: &[Parameter],
+        result_conversions: &[ResultConversion],
         return_type: &native::Type,
         indirect_return: bool,
         package: bool,
@@ -545,10 +689,17 @@ impl Signature {
         if !(return_type.is_hresult() || (package && return_type.is_hresult_package())) {
             if return_type == &native::Type::Void {
                 if let Some((position, ty)) = Self::retval_parameter(parameters) {
+                    let conversion = result_conversions[position];
                     return if ty.is_interface() {
-                        ReturnPlan::VoidInterface { position }
+                        ReturnPlan::VoidInterface {
+                            position,
+                            conversion,
+                        }
                     } else {
-                        ReturnPlan::VoidValue { position }
+                        ReturnPlan::VoidValue {
+                            position,
+                            conversion,
+                        }
                     };
                 }
                 return ReturnPlan::Void;
@@ -556,7 +707,9 @@ impl Signature {
             if indirect_return {
                 return ReturnPlan::Indirect;
             }
-            return ReturnPlan::Direct;
+            return ReturnPlan::Direct {
+                interface: return_type.is_interface(),
+            };
         }
         if let Some((guid, object)) = Self::query_parameters(parameters) {
             return ReturnPlan::Query {
@@ -573,7 +726,10 @@ impl Signature {
             {
                 ReturnPlan::HResult
             } else {
-                ReturnPlan::Retval { position }
+                ReturnPlan::Retval {
+                    position,
+                    conversion: result_conversions[position],
+                }
             }
         } else {
             ReturnPlan::HResult
@@ -741,7 +897,7 @@ impl Signature {
                 Some("CountConst" | "SizeConst") => result = Some(ArrayInfo::ElementsConst(value)),
                 Some("CountParamIndex") | None => result = Some(ArrayInfo::ElementsParam(value)),
                 Some("BytesParamIndex" | "SizeParamIndex") => {
-                    result = Some(ArrayInfo::BytesParam(value))
+                    result = Some(ArrayInfo::BytesParam(value));
                 }
                 _ => {}
             }

@@ -35,6 +35,35 @@ struct ClassName {
     name: String,
 }
 
+pub(super) struct WriteContext<'a> {
+    values: &'a Values,
+    namespace: &'a str,
+    layout: Layout,
+    projection: Projection,
+    implementations: Option<&'a BTreeSet<Entity<TypeDef>>>,
+    member_selections: &'a BTreeMap<Entity<TypeDef>, MemberSelection>,
+}
+
+impl<'a> WriteContext<'a> {
+    pub(super) fn new(
+        values: &'a Values,
+        namespace: &'a str,
+        layout: Layout,
+        projection: Projection,
+        implementations: Option<&'a BTreeSet<Entity<TypeDef>>>,
+        member_selections: &'a BTreeMap<Entity<TypeDef>, MemberSelection>,
+    ) -> Self {
+        Self {
+            values,
+            namespace,
+            layout,
+            projection,
+            implementations,
+            member_selections,
+        }
+    }
+}
+
 impl Class {
     #[cfg(test)]
     pub(super) fn default_interface_entity(&self) -> Option<Entity<TypeDef>> {
@@ -290,14 +319,18 @@ impl Class {
 
     pub(super) fn write(
         &self,
-        values: &Values,
-        namespace: &str,
-        layout: Layout,
-        projection: Projection,
+        write_context: &WriteContext<'_>,
         members: &MemberSelection,
-        implementations: Option<&BTreeSet<Entity<TypeDef>>>,
-        member_selections: &BTreeMap<Entity<TypeDef>, MemberSelection>,
     ) -> Result<TokenStream, Error> {
+        let WriteContext {
+            values,
+            namespace,
+            layout,
+            projection,
+            implementations: _,
+            member_selections,
+        } = write_context;
+        let (layout, projection) = (*layout, *projection);
         let name = tokens::ident(&self.name);
         let runtime_name = Literal::string(&format!("{}.{}", self.namespace, self.name));
         let class_features = tokens::feature_names(
@@ -337,17 +370,8 @@ impl Class {
                 Some(&self.name),
             );
             let mut names = BTreeMap::new();
-            let factories = self.write_factories(
-                namespace,
-                layout,
-                projection,
-                &name,
-                &context,
-                &mut names,
-                members,
-                implementations,
-                member_selections,
-            )?;
+            let factories =
+                self.write_factories(write_context, &name, &context, &mut names, members)?;
             let impl_block = (!factories.is_empty()).then(|| {
                 quote! {
                     #class_cfg
@@ -434,15 +458,11 @@ impl Class {
             if interface.factory {
                 if let Some((mut factory_methods, helper)) = self.write_factory(
                     interface,
-                    namespace,
-                    layout,
-                    projection,
+                    write_context,
                     &name,
                     &context,
                     &mut names,
                     members,
-                    implementations,
-                    member_selections,
                 )? {
                     methods.append(&mut factory_methods);
                     factory_helpers.push(helper);
@@ -574,31 +594,18 @@ impl Class {
 
     fn write_factories(
         &self,
-        namespace: &str,
-        layout: Layout,
-        projection: Projection,
+        write_context: &WriteContext<'_>,
         name: &TokenStream,
         context: &winrt_delegate::MethodContext<'_>,
         names: &mut BTreeMap<String, u32>,
         members: &MemberSelection,
-        implementations: Option<&BTreeSet<Entity<TypeDef>>>,
-        member_selections: &BTreeMap<Entity<TypeDef>, MemberSelection>,
     ) -> Result<Vec<TokenStream>, Error> {
         let mut factories = Vec::new();
         let mut helpers = Vec::new();
         for interface in self.interfaces.iter().filter(|interface| interface.factory) {
-            if let Some((mut methods, helper)) = self.write_factory(
-                interface,
-                namespace,
-                layout,
-                projection,
-                name,
-                context,
-                names,
-                members,
-                implementations,
-                member_selections,
-            )? {
+            if let Some((mut methods, helper)) =
+                self.write_factory(interface, write_context, name, context, names, members)?
+            {
                 factories.append(&mut methods);
                 helpers.push(helper);
             }
@@ -607,20 +614,24 @@ impl Class {
         Ok(factories)
     }
 
-    #[allow(clippy::too_many_arguments)]
     fn write_factory(
         &self,
         interface: &ClassInterface,
-        namespace: &str,
-        layout: Layout,
-        projection: Projection,
+        write_context: &WriteContext<'_>,
         name: &TokenStream,
         context: &winrt_delegate::MethodContext<'_>,
         names: &mut BTreeMap<String, u32>,
         members: &MemberSelection,
-        implementations: Option<&BTreeSet<Entity<TypeDef>>>,
-        member_selections: &BTreeMap<Entity<TypeDef>, MemberSelection>,
     ) -> Result<Option<(Vec<TokenStream>, TokenStream)>, Error> {
+        let WriteContext {
+            namespace,
+            layout,
+            projection,
+            implementations,
+            member_selections,
+            ..
+        } = write_context;
+        let (layout, projection) = (*layout, *projection);
         let class_features = tokens::feature_names(
             namespace,
             layout,

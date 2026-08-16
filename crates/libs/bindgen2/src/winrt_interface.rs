@@ -16,6 +16,29 @@ pub(super) struct Interface {
     pub(super) required: Vec<RequiredInterface>,
 }
 
+pub(super) struct WriteContext<'a> {
+    values: &'a Values,
+    namespace: &'a str,
+    layout: Layout,
+    projection: Projection,
+}
+
+impl<'a> WriteContext<'a> {
+    pub(super) fn new(
+        values: &'a Values,
+        namespace: &'a str,
+        layout: Layout,
+        projection: Projection,
+    ) -> Self {
+        Self {
+            values,
+            namespace,
+            layout,
+            projection,
+        }
+    }
+}
+
 #[derive(Clone)]
 pub(super) struct NamedMethod {
     pub(super) name: String,
@@ -358,14 +381,18 @@ impl Interface {
 
     pub(super) fn write(
         &self,
-        values: &Values,
-        namespace: &str,
-        layout: Layout,
-        projection: Projection,
+        context: &WriteContext<'_>,
         members: &MemberSelection,
         implementation: Option<bool>,
         explicit: bool,
     ) -> Result<TokenStream, Error> {
+        let WriteContext {
+            values,
+            namespace,
+            layout,
+            projection,
+        } = context;
+        let (layout, projection) = (*layout, *projection);
         let implementation = implementation.or_else(|| self.exclusive.then_some(false));
         let name = tokens::ident(&self.name);
         let vtbl_name = tokens::ident(&format!("{}_Vtbl", self.name));
@@ -567,14 +594,8 @@ impl Interface {
                         )
                     })
                     .collect::<Result<Vec<_>, Error>>()?;
-                let vtable = self.write_vtable(
-                    values,
-                    namespace,
-                    layout,
-                    members,
-                    &implementation_cfg,
-                    &artifact_cfg,
-                )?;
+                let vtable =
+                    self.write_vtable(context, members, &implementation_cfg, &artifact_cfg)?;
                 let runtime_name = Literal::string(&full_name);
                 let runtime_class_name = (!generic_names.is_empty()).then(|| {
                     quote! {
@@ -609,9 +630,7 @@ impl Interface {
                 }
             } else {
                 self.write_vtable_struct(
-                    values,
-                    namespace,
-                    layout,
+                    context,
                     &vtbl_name,
                     members,
                     projection.is_minimal() && implementation != Some(true),
@@ -758,14 +777,7 @@ impl Interface {
             })
             .collect::<Result<Vec<_>, Error>>()?;
         let implementation = if implementation_enabled {
-            let vtable = self.write_vtable(
-                values,
-                namespace,
-                layout,
-                members,
-                &implementation_cfg,
-                &artifact_cfg,
-            )?;
+            let vtable = self.write_vtable(context, members, &implementation_cfg, &artifact_cfg)?;
             quote! {
                 #implementation_cfg
                 pub trait #impl_name #type_arguments: #trait_bases #generic_where {
@@ -775,9 +787,7 @@ impl Interface {
             }
         } else {
             self.write_vtable_struct(
-                values,
-                namespace,
-                layout,
+                context,
                 &vtbl_name,
                 members,
                 projection.is_minimal() && !implementation_enabled,
@@ -812,13 +822,18 @@ impl Interface {
 
     fn write_vtable(
         &self,
-        values: &Values,
-        namespace: &str,
-        layout: Layout,
+        context: &WriteContext<'_>,
         members: &MemberSelection,
         implementation_cfg: &TokenStream,
         artifact_cfg: &TokenStream,
     ) -> Result<TokenStream, Error> {
+        let WriteContext {
+            values,
+            namespace,
+            layout,
+            ..
+        } = context;
+        let layout = *layout;
         let name = tokens::ident(&self.name);
         let vtbl_name = tokens::ident(&format!("{}_Vtbl", self.name));
         let impl_name = tokens::ident(&format!("{}_Impl", self.name));
@@ -880,15 +895,7 @@ impl Interface {
         let phantom_values = generic_names
             .iter()
             .map(|name| quote! { #name: core::marker::PhantomData::<#name>, });
-        let vtable = self.write_vtable_struct(
-            values,
-            namespace,
-            layout,
-            &vtbl_name,
-            members,
-            false,
-            artifact_cfg,
-        )?;
+        let vtable = self.write_vtable_struct(context, &vtbl_name, members, false, artifact_cfg)?;
         Ok(quote! {
             #implementation_cfg
             impl #constrained_generics #vtbl_name #type_arguments {
@@ -917,14 +924,19 @@ impl Interface {
 
     fn write_vtable_struct(
         &self,
-        values: &Values,
-        namespace: &str,
-        layout: Layout,
+        context: &WriteContext<'_>,
         vtbl_name: &TokenStream,
         members: &MemberSelection,
         placeholder_prefix: bool,
         artifact_cfg: &TokenStream,
     ) -> Result<TokenStream, Error> {
+        let WriteContext {
+            values,
+            namespace,
+            layout,
+            ..
+        } = context;
+        let layout = *layout;
         let generic_names = self
             .generics
             .iter()

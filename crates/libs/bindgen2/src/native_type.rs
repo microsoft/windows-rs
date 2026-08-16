@@ -743,9 +743,11 @@ impl Enum {
             } else {
                 quote! { #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)] }
             };
-            let flags = (!projection.is_sys() && self.flags)
-                .then(|| enum_model::write_flags(&name))
-                .unwrap_or_default();
+            let flags = if !projection.is_sys() && self.flags {
+                enum_model::write_flags(&name)
+            } else {
+                TokenStream::new()
+            };
             return vec![(
                 self.name.as_str(),
                 1,
@@ -1033,9 +1035,11 @@ impl Struct {
         }
         if !projection.is_sys() && !self.copyable {
             if self.default != native_default::Policy::Derive {
-                let derive = (!custom_derives.is_empty())
-                    .then(|| quote! { #[derive(#(#custom_derives),*)] })
-                    .unwrap_or_default();
+                let derive = if custom_derives.is_empty() {
+                    TokenStream::new()
+                } else {
+                    quote! { #[derive(#(#custom_derives),*)] }
+                };
                 return (
                     derive,
                     quote! {

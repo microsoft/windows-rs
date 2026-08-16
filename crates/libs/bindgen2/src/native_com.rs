@@ -6,19 +6,25 @@ use quote::quote;
 enum ReturnKind<'a> {
     HResult,
     Void,
-    Direct(&'a native::Type),
+    Direct {
+        ty: &'a native::Type,
+        interface: bool,
+    },
     Indirect(&'a native::Type),
     Retval {
         position: usize,
         ty: &'a native::Type,
+        conversion: native_signature::ResultConversion,
     },
     VoidInterface {
         position: usize,
         ty: &'a native::Type,
+        conversion: native_signature::ResultConversion,
     },
     VoidValue {
         position: usize,
         ty: &'a native::Type,
+        conversion: native_signature::ResultConversion,
     },
     Query {
         guid: usize,
@@ -126,7 +132,7 @@ impl native_signature::Signature {
                 | ReturnKind::Void
                 | ReturnKind::VoidInterface { .. }
                 | ReturnKind::VoidValue { .. }
-                | ReturnKind::Direct(_)
+                | ReturnKind::Direct { .. }
                 | ReturnKind::Indirect(_)
                 | ReturnKind::Retval { .. }
                 | ReturnKind::Query { .. }
@@ -200,6 +206,7 @@ impl native_signature::Signature {
                     continue;
                 }
                 let name = tokens::ident(&parameter.name);
+                let consumer = parameter.consumer_plan(layout.is_package());
                 if let Some((projected, argument)) =
                     write_slice_parameter(parameter, namespace, layout)
                 {
@@ -213,7 +220,7 @@ impl native_signature::Signature {
                     arguments.push(argument);
                     continue;
                 }
-                if parameter.is_bool() {
+                if matches!(consumer, native_signature::ConsumerPlan::Bool) {
                     parameters.push(quote! { #name: bool, });
                     arguments.push(quote! { #name.into() });
                     continue;
@@ -264,19 +271,15 @@ impl native_signature::Signature {
                     }
                     continue;
                 }
-                if parameter.ty.is_bstr() || parameter.ty.is_hstring() {
+                if matches!(consumer, native_signature::ConsumerPlan::StringRef) {
                     let ty = parameter.ty.write_public(namespace, layout);
                     parameters.push(quote! { #name: &#ty, });
                     arguments.push(quote! { core::mem::transmute_copy(#name) });
                     continue;
                 }
-                if parameter
-                    .ty
-                    .pointee()
-                    .is_some_and(|ty| ty.is_bstr() || ty.is_hstring())
-                {
+                if let native_signature::ConsumerPlan::StringPointer { optional } = consumer {
                     let ty = parameter.ty.write_public(namespace, layout);
-                    if parameter.is_optional() || parameter.is_optional_hint() {
+                    if parameter.is_optional() || optional {
                         parameters.push(quote! { #name: Option<#ty>, });
                         arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
                     } else {
@@ -285,53 +288,49 @@ impl native_signature::Signature {
                     }
                     continue;
                 }
-                if parameter.ty.interface_out().is_some() {
+                if let native_signature::ConsumerPlan::InterfacePointer { deep, optional } =
+                    consumer
+                {
                     let pointer = parameter
                         .ty
                         .write_interface_pointer(namespace, layout, None)
                         .unwrap();
-                    if parameter.is_optional() || parameter.is_optional_hint() {
+                    if parameter.is_optional() || optional {
                         parameters.push(quote! { #name: Option<#pointer>, });
                         arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
                     } else {
                         parameters.push(quote! { #name: #pointer, });
-                        arguments.push(
-                            if parameter
-                                .ty
-                                .interface_pointer_depth()
-                                .is_some_and(|depth| depth > 1)
-                            {
-                                quote! { #name as _ }
-                            } else {
-                                quote! { core::mem::transmute(#name) }
-                            },
-                        );
+                        arguments.push(if deep {
+                            quote! { #name as _ }
+                        } else {
+                            quote! { core::mem::transmute(#name) }
+                        });
                     }
                     continue;
                 }
-                if parameter.ty.is_interface() && !parameter.is_input_only() {
+                if matches!(consumer, native_signature::ConsumerPlan::InterfaceOutput) {
                     let ty = parameter.ty.write_public(namespace, layout);
                     parameters.push(quote! { #name: &Option<#ty>, });
                     arguments.push(quote! { core::mem::transmute_copy(#name) });
-                } else if parameter.is_into_param(layout) {
+                } else if matches!(consumer, native_signature::ConsumerPlan::IntoParam) {
                     let generic = tokens::ident(&format!("P{position}"));
                     let ty = parameter.ty.write_public(namespace, layout);
                     generic_parameters.push(generic.clone());
                     constraints.push(quote! { #generic: windows_core::Param<#ty>, });
                     parameters.push(quote! { #name: #generic, });
                     arguments.push(quote! { #name.param().abi() });
-                } else if parameter.is_optional_hint() {
+                } else if matches!(consumer, native_signature::ConsumerPlan::Optional) {
                     let ty = parameter.ty.write_public(namespace, layout);
                     parameters.push(quote! { #name: Option<#ty>, });
                     arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
-                } else if parameter.is_by_ref() {
+                } else if matches!(consumer, native_signature::ConsumerPlan::ByRef) {
                     let ty = parameter.ty.write_public(namespace, layout);
                     parameters.push(quote! { #name: &#ty, });
                     arguments.push(quote! { core::mem::transmute_copy(#name) });
                 } else {
                     let ty = parameter.ty.write_public(namespace, layout);
                     parameters.push(quote! { #name: #ty, });
-                    if parameter.needs_cast() {
+                    if parameter.casts_abi_argument() {
                         arguments.push(quote! { #name as _ });
                     } else {
                         arguments.push(quote! { #name });
@@ -412,6 +411,7 @@ impl native_signature::Signature {
         let ReturnKind::Retval {
             position: retval,
             ty,
+            conversion,
         } = return_kind
         else {
             unreachable!()
@@ -435,6 +435,7 @@ impl native_signature::Signature {
                 continue;
             }
             let name = tokens::ident(&parameter.name);
+            let consumer = parameter.consumer_plan(layout.is_package());
             if let Some((projected, argument)) = write_slice_parameter(parameter, namespace, layout)
             {
                 parameters.push(projected);
@@ -483,62 +484,59 @@ impl native_signature::Signature {
                         argument
                     });
                 }
-            } else if parameter.ty.interface_out().is_some() {
+            } else if let native_signature::ConsumerPlan::InterfacePointer { deep, optional } =
+                consumer
+            {
                 let pointer = parameter
                     .ty
                     .write_interface_pointer(namespace, layout, None)
                     .unwrap();
-                if parameter.is_optional() || parameter.is_optional_hint() {
+                if parameter.is_optional() || optional {
                     parameters.push(quote! { #name: Option<#pointer> });
                     arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
                 } else {
                     parameters.push(quote! { #name: #pointer });
-                    arguments.push(
-                        if parameter
-                            .ty
-                            .interface_pointer_depth()
-                            .is_some_and(|depth| depth > 1)
-                        {
-                            quote! { #name as _ }
-                        } else {
-                            quote! { core::mem::transmute(#name) }
-                        },
-                    );
+                    arguments.push(if deep {
+                        quote! { #name as _ }
+                    } else {
+                        quote! { core::mem::transmute(#name) }
+                    });
                 }
-            } else if parameter.is_into_param(layout) {
+            } else if matches!(consumer, native_signature::ConsumerPlan::IntoParam) {
                 let generic = tokens::ident(&format!("P{position}"));
                 let ty = parameter.ty.write_public(namespace, layout);
                 generic_parameters.push(generic.clone());
                 constraints.push(quote! { #generic: windows_core::Param<#ty>, });
                 parameters.push(quote! { #name: #generic });
                 arguments.push(quote! { #name.param().abi() });
-            } else if parameter.is_bool() {
+            } else if matches!(consumer, native_signature::ConsumerPlan::Bool) {
                 parameters.push(quote! { #name: bool });
                 arguments.push(quote! { #name.into() });
-            } else if parameter.ty.is_bstr() || parameter.ty.is_hstring() {
+            } else if matches!(consumer, native_signature::ConsumerPlan::StringRef) {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: &#ty });
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
-            } else if parameter
-                .ty
-                .pointee()
-                .is_some_and(|ty| ty.is_bstr() || ty.is_hstring())
-            {
+            } else if let native_signature::ConsumerPlan::StringPointer { optional } = consumer {
                 let ty = parameter.ty.write_public(namespace, layout);
-                parameters.push(quote! { #name: #ty });
-                arguments.push(quote! { core::mem::transmute(#name) });
-            } else if parameter.is_optional_hint() {
+                if parameter.is_optional() || optional {
+                    parameters.push(quote! { #name: Option<#ty> });
+                    arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
+                } else {
+                    parameters.push(quote! { #name: #ty });
+                    arguments.push(quote! { core::mem::transmute(#name) });
+                }
+            } else if matches!(consumer, native_signature::ConsumerPlan::Optional) {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: Option<#ty> });
                 arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
-            } else if parameter.is_by_ref() {
+            } else if matches!(consumer, native_signature::ConsumerPlan::ByRef) {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: &#ty });
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
             } else {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: #ty });
-                if parameter.needs_cast() {
+                if parameter.casts_abi_argument() {
                     arguments.push(quote! { #name as _ });
                 } else {
                     arguments.push(quote! { #name });
@@ -556,18 +554,18 @@ impl native_signature::Signature {
             quote! { where #(#constraints)* }
         };
         let result = ty.write_public(namespace, layout);
-        let body = if ty.is_interface() {
-            quote! {
+        let body = match conversion {
+            native_signature::ResultConversion::FromAbi => quote! {
                 #method(#(#arguments),*)
                     .and_then(|| windows_core::Type::from_abi(result__))
-            }
-        } else if self.parameters[retval].retval_transmute {
-            quote! {
+            },
+            native_signature::ResultConversion::Transmute => quote! {
                 #method(#(#arguments),*)
                     .map(|| core::mem::transmute(result__))
+            },
+            native_signature::ResultConversion::Identity => {
+                quote! { #method(#(#arguments),*).map(|| result__) }
             }
-        } else {
-            quote! { #method(#(#arguments),*).map(|| result__) }
         };
         Some(quote! {
             #[inline]
@@ -596,10 +594,25 @@ impl native_signature::Signature {
         } = context;
         let return_kind = self.return_kind(layout.is_package());
         let (output, direct) = match return_kind {
-            ReturnKind::VoidValue { position, ty } | ReturnKind::VoidInterface { position, ty } => {
-                (Some((position, ty)), None)
+            ReturnKind::VoidValue {
+                position,
+                ty,
+                conversion,
             }
-            ReturnKind::Direct(ty) | ReturnKind::Indirect(ty) => (None, Some(ty)),
+            | ReturnKind::VoidInterface {
+                position,
+                ty,
+                conversion,
+            } => (
+                Some((
+                    position,
+                    ty,
+                    !matches!(conversion, native_signature::ResultConversion::Identity),
+                )),
+                None,
+            ),
+            ReturnKind::Direct { ty, interface } => (None, Some((ty, interface))),
+            ReturnKind::Indirect(ty) => (None, Some((ty, false))),
             ReturnKind::Void => (None, None),
             _ => return None,
         };
@@ -617,11 +630,12 @@ impl native_signature::Signature {
         let mut parameters = Vec::new();
         let mut arguments = Vec::new();
         for (position, parameter) in self.parameters.iter().enumerate() {
-            if output.is_some_and(|(output, _)| output == position) {
+            if output.is_some_and(|(output, _, _)| output == position) {
                 arguments.push(quote! { &mut result__ });
                 continue;
             }
             let name = tokens::ident(&parameter.name);
+            let consumer = parameter.consumer_plan(layout.is_package());
             if let Some((projected, argument)) = write_slice_parameter(parameter, namespace, layout)
             {
                 parameters.push(projected);
@@ -670,62 +684,57 @@ impl native_signature::Signature {
                         argument
                     });
                 }
-            } else if parameter.ty.interface_out().is_some() {
+            } else if let native_signature::ConsumerPlan::InterfacePointer { deep, optional } =
+                consumer
+            {
                 let pointer = parameter
                     .ty
                     .write_interface_pointer(namespace, layout, None)
                     .unwrap();
-                if parameter.is_optional() || parameter.is_optional_hint() {
+                if parameter.is_optional() || optional {
                     parameters.push(quote! { #name: Option<#pointer> });
                     arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
                 } else {
                     parameters.push(quote! { #name: #pointer });
-                    arguments.push(
-                        if parameter
-                            .ty
-                            .interface_pointer_depth()
-                            .is_some_and(|depth| depth > 1)
-                        {
-                            quote! { #name as _ }
-                        } else {
-                            quote! { core::mem::transmute(#name) }
-                        },
-                    );
+                    arguments.push(if deep {
+                        quote! { #name as _ }
+                    } else {
+                        quote! { core::mem::transmute(#name) }
+                    });
                 }
-            } else if parameter.is_into_param(layout) {
+            } else if matches!(consumer, native_signature::ConsumerPlan::IntoParam) {
                 let generic = tokens::ident(&format!("P{position}"));
                 let ty = parameter.ty.write_public(namespace, layout);
                 generic_parameters.push(generic.clone());
                 constraints.push(quote! { #generic: windows_core::Param<#ty>, });
                 parameters.push(quote! { #name: #generic });
                 arguments.push(quote! { #name.param().abi() });
-            } else if parameter.is_bool() {
+            } else if matches!(consumer, native_signature::ConsumerPlan::Bool) {
                 parameters.push(quote! { #name: bool });
                 arguments.push(quote! { #name.into() });
-            } else if parameter.ty.is_bstr() || parameter.ty.is_hstring() {
+            } else if matches!(consumer, native_signature::ConsumerPlan::StringRef) {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: &#ty });
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
-            } else if parameter
-                .ty
-                .pointee()
-                .is_some_and(|ty| ty.is_bstr() || ty.is_hstring())
-            {
+            } else if matches!(
+                consumer,
+                native_signature::ConsumerPlan::StringPointer { .. }
+            ) {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: #ty });
                 arguments.push(quote! { core::mem::transmute(#name) });
-            } else if parameter.is_optional_hint() {
+            } else if matches!(consumer, native_signature::ConsumerPlan::Optional) {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: Option<#ty> });
                 arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
-            } else if parameter.is_by_ref() {
+            } else if matches!(consumer, native_signature::ConsumerPlan::ByRef) {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: &#ty });
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
             } else {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: #ty });
-                if parameter.needs_cast() {
+                if parameter.casts_abi_argument() {
                     arguments.push(quote! { #name as _ });
                 } else {
                     arguments.push(quote! { #name });
@@ -745,9 +754,9 @@ impl native_signature::Signature {
         let result = output.map_or_else(
             || {
                 direct
-                    .map(|ty| {
+                    .map(|(ty, interface)| {
                         let public = ty.write_public(namespace, layout);
-                        if ty.is_interface() {
+                        if interface {
                             quote! { Option<#public> }
                         } else {
                             public
@@ -755,7 +764,7 @@ impl native_signature::Signature {
                     })
                     .unwrap_or_default()
             },
-            |(_, ty)| ty.write_public(namespace, layout),
+            |(_, ty, _)| ty.write_public(namespace, layout),
         );
         let return_type = if self.no_return {
             Some(quote! { -> ! })
@@ -765,8 +774,7 @@ impl native_signature::Signature {
         let raw_return_type = if self.no_return {
             Some(quote! { -> ! })
         } else {
-            direct.map(|ty| {
-                let interface = ty.is_interface();
+            direct.map(|(ty, interface)| {
                 let public = ty.write_public(namespace, layout);
                 if interface {
                     quote! { -> Option<#public> }
@@ -775,8 +783,8 @@ impl native_signature::Signature {
                 }
             })
         };
-        let body = if let Some((position, _)) = output {
-            let result = if self.parameters[position].retval_transmute {
+        let body = if let Some((_, _, transmute)) = output {
+            let result = if transmute {
                 quote! { core::mem::transmute(result__) }
             } else {
                 quote! { result__ }
@@ -821,12 +829,12 @@ impl native_signature::Signature {
         let mut arguments = Vec::new();
 
         let retval = match return_kind {
-            ReturnKind::Retval { position, ty }
-            | ReturnKind::VoidInterface { position, ty }
-            | ReturnKind::VoidValue { position, ty } => Some((position, ty)),
+            ReturnKind::Retval { position, ty, .. }
+            | ReturnKind::VoidInterface { position, ty, .. }
+            | ReturnKind::VoidValue { position, ty, .. } => Some((position, ty)),
             ReturnKind::HResult
             | ReturnKind::Void
-            | ReturnKind::Direct(_)
+            | ReturnKind::Direct { .. }
             | ReturnKind::Indirect(_) => None,
             ReturnKind::Query { .. } => None,
         };
@@ -847,6 +855,7 @@ impl native_signature::Signature {
                 continue;
             }
             let name = tokens::ident(&parameter.name);
+            let consumer = parameter.consumer_plan(layout.is_package());
             if retval.is_some_and(|(retval, _)| retval == position) {
                 arguments.push(quote! { &mut result__ });
                 continue;
@@ -861,7 +870,7 @@ impl native_signature::Signature {
                 arguments.push(argument);
                 continue;
             }
-            if parameter.is_bool() {
+            if matches!(consumer, native_signature::ConsumerPlan::Bool) {
                 parameters.push(quote! { #name: bool, });
                 arguments.push(quote! { #name.into() });
                 continue;
@@ -911,7 +920,7 @@ impl native_signature::Signature {
                 }
                 continue;
             }
-            if parameter.ty.is_bstr() || parameter.ty.is_hstring() {
+            if matches!(consumer, native_signature::ConsumerPlan::StringRef) {
                 let ty = parameter
                     .ty
                     .write_public_with_owner(namespace, layout, Some(owner));
@@ -919,15 +928,11 @@ impl native_signature::Signature {
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
                 continue;
             }
-            if parameter
-                .ty
-                .pointee()
-                .is_some_and(|ty| ty.is_bstr() || ty.is_hstring())
-            {
+            if let native_signature::ConsumerPlan::StringPointer { optional } = consumer {
                 let ty = parameter
                     .ty
                     .write_public_with_owner(namespace, layout, Some(owner));
-                if parameter.is_optional() || parameter.is_optional_hint() {
+                if parameter.is_optional() || optional {
                     parameters.push(quote! { #name: Option<#ty>, });
                     arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
                 } else {
@@ -936,37 +941,31 @@ impl native_signature::Signature {
                 }
                 continue;
             }
-            if parameter.ty.interface_out().is_some() {
+            if let native_signature::ConsumerPlan::InterfacePointer { deep, optional } = consumer {
                 let pointer = parameter
                     .ty
                     .write_interface_pointer(namespace, layout, Some(owner))
                     .unwrap();
-                if parameter.is_optional() || parameter.is_optional_hint() {
+                if parameter.is_optional() || optional {
                     parameters.push(quote! { #name: Option<#pointer>, });
                     arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
                 } else {
                     parameters.push(quote! { #name: #pointer, });
-                    arguments.push(
-                        if parameter
-                            .ty
-                            .interface_pointer_depth()
-                            .is_some_and(|depth| depth > 1)
-                        {
-                            quote! { #name as _ }
-                        } else {
-                            quote! { core::mem::transmute(#name) }
-                        },
-                    );
+                    arguments.push(if deep {
+                        quote! { #name as _ }
+                    } else {
+                        quote! { core::mem::transmute(#name) }
+                    });
                 }
                 continue;
             }
-            if parameter.ty.is_interface() && !parameter.is_input_only() {
+            if matches!(consumer, native_signature::ConsumerPlan::InterfaceOutput) {
                 let ty = parameter
                     .ty
                     .write_public_with_owner(namespace, layout, Some(owner));
                 parameters.push(quote! { #name: &Option<#ty>, });
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
-            } else if parameter.is_into_param(layout) {
+            } else if matches!(consumer, native_signature::ConsumerPlan::IntoParam) {
                 let generic = tokens::ident(&format!("P{position}"));
                 let ty = parameter
                     .ty
@@ -975,13 +974,13 @@ impl native_signature::Signature {
                 constraints.push(quote! { #generic: windows_core::Param<#ty>, });
                 parameters.push(quote! { #name: #generic, });
                 arguments.push(quote! { #name.param().abi() });
-            } else if parameter.is_optional_hint() {
+            } else if matches!(consumer, native_signature::ConsumerPlan::Optional) {
                 let ty = parameter
                     .ty
                     .write_public_with_owner(namespace, layout, Some(owner));
                 parameters.push(quote! { #name: Option<#ty>, });
                 arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
-            } else if parameter.is_by_ref() {
+            } else if matches!(consumer, native_signature::ConsumerPlan::ByRef) {
                 let ty = parameter
                     .ty
                     .write_public_with_owner(namespace, layout, Some(owner));
@@ -992,7 +991,7 @@ impl native_signature::Signature {
                     .ty
                     .write_public_with_owner(namespace, layout, Some(owner));
                 parameters.push(quote! { #name: #ty, });
-                if parameter.needs_cast() {
+                if parameter.casts_abi_argument() {
                     arguments.push(quote! { #name as _ });
                 } else {
                     arguments.push(quote! { #name });
@@ -1002,7 +1001,7 @@ impl native_signature::Signature {
                     .ty
                     .write_public_with_owner(namespace, layout, Some(owner));
                 parameters.push(quote! { #name: #ty, });
-                if parameter.needs_method_cast() {
+                if parameter.casts_method_argument() {
                     arguments.push(quote! { #name as _ });
                 } else {
                     arguments.push(quote! { #name });
@@ -1077,29 +1076,31 @@ impl native_signature::Signature {
             )
         };
         let (result, body) = match return_kind {
-            ReturnKind::Retval { position, ty } => {
+            ReturnKind::Retval {
+                position: _,
+                ty,
+                conversion,
+            } => {
                 let public = ty.write_public_with_owner(namespace, layout, Some(owner));
-                let body = if ty.is_interface() {
-                    quote! {
+                let body = match conversion {
+                    native_signature::ResultConversion::FromAbi => quote! {
                         unsafe {
                             let mut result__ = core::mem::zeroed();
                             #call.and_then(|| windows_core::Type::from_abi(result__))
                         }
-                    }
-                } else if self.parameters[position].retval_transmute {
-                    quote! {
+                    },
+                    native_signature::ResultConversion::Transmute => quote! {
                         unsafe {
                             let mut result__ = core::mem::zeroed();
                             #call.map(|| core::mem::transmute(result__))
                         }
-                    }
-                } else {
-                    quote! {
+                    },
+                    native_signature::ResultConversion::Identity => quote! {
                         unsafe {
                             let mut result__ = core::mem::zeroed();
                             #call.map(|| result__)
                         }
-                    }
+                    },
                 };
                 (quote! { -> windows_core::Result<#public> }, body)
             }
@@ -1134,9 +1135,9 @@ impl native_signature::Signature {
                 quote! { unsafe { #call } },
             ),
             ReturnKind::Void => (quote! {}, quote! { unsafe { #call; } }),
-            ReturnKind::Direct(ty) => {
+            ReturnKind::Direct { ty, interface } => {
                 let public = ty.write_public_with_owner(namespace, layout, Some(owner));
-                let public = if ty.is_interface() {
+                let public = if interface {
                     quote! { Option<#public> }
                 } else {
                     public
@@ -1199,12 +1200,12 @@ impl native_signature::Signature {
             });
         }
         let retval = match return_kind {
-            ReturnKind::Retval { position, ty } => Some((position, ty)),
+            ReturnKind::Retval { position, ty, .. } => Some((position, ty)),
             ReturnKind::HResult
             | ReturnKind::Void
             | ReturnKind::VoidInterface { .. }
             | ReturnKind::VoidValue { .. }
-            | ReturnKind::Direct(_)
+            | ReturnKind::Direct { .. }
             | ReturnKind::Indirect(_) => None,
             ReturnKind::Query { .. } => unreachable!(),
         };
@@ -1225,9 +1226,9 @@ impl native_signature::Signature {
             ReturnKind::Void | ReturnKind::VoidInterface { .. } | ReturnKind::VoidValue { .. } => {
                 quote! {}
             }
-            ReturnKind::Direct(ty) => {
+            ReturnKind::Direct { ty, interface } => {
                 let public = ty.write_public(namespace, layout);
-                if ty.is_interface() {
+                if interface {
                     quote! { -> Option<#public> }
                 } else {
                     quote! { -> #public }
@@ -1260,38 +1261,35 @@ impl native_signature::Signature {
             return quote! { #name: #ty, };
         }
         let ty = parameter.ty.write_public(namespace, layout);
-        let producer_outref = !parameter.has_array_info()
-            || parameter
-                .array_count()
-                .and_then(|position| self.parameters.get(position))
-                .is_some_and(|count| !count.is_input_only());
-        if producer_outref
-            && parameter.ty.is_direct_interface_pointer()
-            && let Some((mutable, interface)) = parameter.ty.interface_out()
-        {
-            let interface = interface.write_public(namespace, layout);
-            if mutable {
-                quote! { #name: windows_core::OutRef<#interface>, }
-            } else {
-                quote! { #name: *const Option<#interface>, }
+        match parameter.producer_plan() {
+            native_signature::ProducerPlan::DirectInterfaceOutput { mutable } => {
+                let (_, interface) = parameter.ty.interface_out().unwrap();
+                let interface = interface.write_public(namespace, layout);
+                if mutable {
+                    quote! { #name: windows_core::OutRef<#interface>, }
+                } else {
+                    quote! { #name: *const Option<#interface>, }
+                }
             }
-        } else if parameter.ty.interface_out().is_some() {
-            let ty = parameter
-                .ty
-                .write_interface_pointer(namespace, layout, None)
-                .unwrap();
-            quote! { #name: #ty, }
-        } else if parameter.is_interface_output() {
-            quote! { #name: windows_core::OutRef<#ty>, }
-        } else if parameter.is_input_only() && parameter.ty.is_interface() {
-            quote! { #name: windows_core::Ref<#ty>, }
-        } else if parameter.producer_by_ref {
-            quote! { #name: &#ty, }
-        } else if parameter.has_array_info() {
-            let ty = parameter.ty.write_public_pointer(namespace, layout);
-            quote! { #name: #ty, }
-        } else {
-            quote! { #name: #ty, }
+            native_signature::ProducerPlan::InterfacePointer => {
+                let ty = parameter
+                    .ty
+                    .write_interface_pointer(namespace, layout, None)
+                    .unwrap();
+                quote! { #name: #ty, }
+            }
+            native_signature::ProducerPlan::InterfaceOutput => {
+                quote! { #name: windows_core::OutRef<#ty>, }
+            }
+            native_signature::ProducerPlan::InterfaceInput => {
+                quote! { #name: windows_core::Ref<#ty>, }
+            }
+            native_signature::ProducerPlan::ByRef => quote! { #name: &#ty, },
+            native_signature::ProducerPlan::Array => {
+                let ty = parameter.ty.write_public_pointer(namespace, layout);
+                quote! { #name: #ty, }
+            }
+            native_signature::ProducerPlan::Plain => quote! { #name: #ty, },
         }
     }
 
@@ -1309,7 +1307,7 @@ impl native_signature::Signature {
             | ReturnKind::Void
             | ReturnKind::VoidInterface { .. }
             | ReturnKind::VoidValue { .. }
-            | ReturnKind::Direct(_)
+            | ReturnKind::Direct { .. }
             | ReturnKind::Indirect(_)
             | ReturnKind::Query { .. } => None,
         };
@@ -1320,13 +1318,17 @@ impl native_signature::Signature {
             .filter(|(position, _)| retval_position != Some(*position))
             .map(|(_, parameter)| {
                 let name = tokens::ident(&parameter.name);
-                if parameter.producer_by_ref || parameter.is_interface_output() {
+                if matches!(
+                    parameter.producer_plan(),
+                    native_signature::ProducerPlan::ByRef
+                        | native_signature::ProducerPlan::InterfaceOutput
+                ) {
                     quote! { core::mem::transmute(&#name) }
                 } else {
                     quote! { core::mem::transmute_copy(&#name) }
                 }
             });
-        if matches!(return_kind, ReturnKind::Direct(_)) {
+        if matches!(return_kind, ReturnKind::Direct { .. }) {
             return Ok(quote! {
                 #impl_name::#method(this, #(#arguments),*)
             });
@@ -1342,13 +1344,22 @@ impl native_signature::Signature {
         ) {
             return Ok(quote! { #impl_name::#method(this, #(#arguments),*); });
         }
-        let ReturnKind::Retval { position, ty: _ } = return_kind else {
+        let ReturnKind::Retval {
+            position,
+            conversion,
+            ..
+        } = return_kind
+        else {
             return Ok(quote! {
                 #impl_name::#method(this, #(#arguments),*).into()
             });
         };
         let result = tokens::ident(&self.parameters[position].name);
-        let write = if self.parameters[position].retval_transmute {
+        let write = if matches!(
+            conversion,
+            native_signature::ResultConversion::Transmute
+                | native_signature::ResultConversion::FromAbi
+        ) {
             quote! { #result.write(core::mem::transmute(ok__)); }
         } else {
             quote! { #result.write(ok__); }
@@ -1368,19 +1379,34 @@ impl native_signature::Signature {
         match self.return_plan(package) {
             native_signature::ReturnPlan::HResult => ReturnKind::HResult,
             native_signature::ReturnPlan::Void => ReturnKind::Void,
-            native_signature::ReturnPlan::VoidInterface { position } => ReturnKind::VoidInterface {
+            native_signature::ReturnPlan::VoidInterface {
+                position,
+                conversion,
+            } => ReturnKind::VoidInterface {
                 position,
                 ty: self.parameters[position].ty.pointee().unwrap(),
+                conversion,
             },
-            native_signature::ReturnPlan::VoidValue { position } => ReturnKind::VoidValue {
+            native_signature::ReturnPlan::VoidValue {
+                position,
+                conversion,
+            } => ReturnKind::VoidValue {
                 position,
                 ty: self.parameters[position].ty.pointee().unwrap(),
+                conversion,
             },
-            native_signature::ReturnPlan::Direct => ReturnKind::Direct(&self.return_type),
+            native_signature::ReturnPlan::Direct { interface } => ReturnKind::Direct {
+                ty: &self.return_type,
+                interface,
+            },
             native_signature::ReturnPlan::Indirect => ReturnKind::Indirect(&self.return_type),
-            native_signature::ReturnPlan::Retval { position } => ReturnKind::Retval {
+            native_signature::ReturnPlan::Retval {
+                position,
+                conversion,
+            } => ReturnKind::Retval {
                 position,
                 ty: self.parameters[position].ty.pointee().unwrap(),
+                conversion,
             },
             native_signature::ReturnPlan::Query {
                 guid,

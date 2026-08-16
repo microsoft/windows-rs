@@ -171,13 +171,15 @@ impl Generator {
                     kind: ArtifactKind::Source(0),
                     variant: 0,
                     tokens: model.write(
-                        values,
-                        namespace,
-                        layout,
-                        projection,
+                        &winrt_class::WriteContext::new(
+                            values,
+                            namespace,
+                            layout,
+                            projection,
+                            self.winrt_implementations.as_ref(),
+                            &self.winrt_members,
+                        ),
                         self.members(entry.entity),
-                        self.winrt_implementations.as_ref(),
-                        &self.winrt_members,
                     )?,
                     features: BTreeSet::new(),
                 });
@@ -201,10 +203,7 @@ impl Generator {
                     kind: ArtifactKind::Source(0),
                     variant: 0,
                     tokens: model.write(
-                        values,
-                        namespace,
-                        layout,
-                        projection,
+                        &winrt_interface::WriteContext::new(values, namespace, layout, projection),
                         self.members(entry.entity),
                         self.implements(entry.entity),
                         self.winrt_explicit_items.contains(&entry.entity),
@@ -338,7 +337,7 @@ impl Generator {
             }
 
             if let Some(items) = modules.get_mut(namespace) {
-                items.sort_by(|left, right| compare_items(left, right));
+                items.sort_by(compare_items);
                 let mut dependencies = BTreeSet::new();
                 for item in items.drain(..) {
                     dependencies.extend(item.features);
@@ -468,6 +467,18 @@ fn prelude_shadow(name: &str) -> Option<TokenStream> {
     })
 }
 
+fn write_if_changed(path: &Path, contents: String) -> Result<(), Box<dyn std::error::Error>> {
+    if std::fs::read_to_string(path).is_ok_and(|existing| existing == contents) {
+        return Ok(());
+    }
+
+    if let Some(parent) = path.parent() {
+        std::fs::create_dir_all(parent)?;
+    }
+    std::fs::write(path, contents)?;
+    Ok(())
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -485,16 +496,4 @@ mod tests {
         items.sort_by(compare_items);
         assert_eq!(items.map(|item| item.variant), [2, 5]);
     }
-}
-
-fn write_if_changed(path: &Path, contents: String) -> Result<(), Box<dyn std::error::Error>> {
-    if std::fs::read_to_string(path).is_ok_and(|existing| existing == contents) {
-        return Ok(());
-    }
-
-    if let Some(parent) = path.parent() {
-        std::fs::create_dir_all(parent)?;
-    }
-    std::fs::write(path, contents)?;
-    Ok(())
 }

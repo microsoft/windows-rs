@@ -1663,11 +1663,7 @@ fn named_traits(
         return Ok(TraitSupport::NONE);
     }
     let mut result = TraitSupport::ALL;
-    let mut definitions = database
-        .type_definitions(namespace, name)
-        .iter()
-        .copied()
-        .collect::<Vec<_>>();
+    let mut definitions = database.type_definitions(namespace, name).to_vec();
     if definitions.is_empty() {
         definitions = projected_nested_definitions(database, namespace, name);
     }
@@ -1749,11 +1745,7 @@ fn named_copyable(
     if !stack.insert(key.clone()) {
         return Ok(false);
     }
-    let mut definitions = database
-        .type_definitions(namespace, name)
-        .iter()
-        .copied()
-        .collect::<Vec<_>>();
+    let mut definitions = database.type_definitions(namespace, name).to_vec();
     if definitions.is_empty() {
         definitions = projected_nested_definitions(database, namespace, name);
     }
@@ -1821,11 +1813,7 @@ fn named_has_explicit_layout(
     if !stack.insert(key.clone()) {
         return Ok(false);
     }
-    let mut definitions = database
-        .type_definitions(namespace, name)
-        .iter()
-        .copied()
-        .collect::<Vec<_>>();
+    let mut definitions = database.type_definitions(namespace, name).to_vec();
     if definitions.is_empty() {
         definitions = projected_nested_definitions(database, namespace, name);
     }
@@ -2079,7 +2067,7 @@ impl Type {
             if field.name()? != "Value" {
                 continue;
             }
-            let ty = Type::lower(
+            let ty = Self::lower(
                 database,
                 field.entity().file(),
                 definition.name()?,
@@ -2135,7 +2123,7 @@ impl Type {
                 let owner = format!("{namespace}.{projected_name}");
                 for method in definition.methods()? {
                     let signature = method.signature()?;
-                    Type::lower(
+                    Self::lower(
                         database,
                         method.entity().file(),
                         &owner,
@@ -2143,7 +2131,7 @@ impl Type {
                     )?
                     .collect_direct_dependencies(dependencies);
                     for ty in signature.parameters {
-                        Type::lower(database, method.entity().file(), &owner, ty)?
+                        Self::lower(database, method.entity().file(), &owner, ty)?
                             .collect_direct_dependencies(dependencies);
                     }
                 }
@@ -2172,7 +2160,7 @@ impl Type {
             if field.is_literal()? {
                 continue;
             }
-            let ty = Type::lower_with_nested(
+            let ty = Self::lower_with_nested(
                 database,
                 field.entity().file(),
                 projected_name,
