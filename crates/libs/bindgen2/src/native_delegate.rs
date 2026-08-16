@@ -9,7 +9,7 @@ pub struct Delegate {
     name: String,
     abi: &'static str,
     signature: native_signature::Signature,
-    sys_dependencies: BTreeSet<(String, String)>,
+    sys_dependency_override: Option<BTreeSet<(String, String)>>,
 }
 
 impl Delegate {
@@ -36,15 +36,15 @@ impl Delegate {
         }
         let signature =
             native_signature::Signature::lower(database, dependencies, *method, &full_name)?;
-        let sys_dependencies =
-            dependencies.package_sys_dependencies(signature.package_dependencies());
+        let sys_dependency_override =
+            dependencies.package_sys_override(signature.package_dependencies());
         Ok(Self {
             architectures: definition.architectures()?,
             namespace,
             name,
             abi: calling_convention(definition, &full_name)?,
             signature,
-            sys_dependencies,
+            sys_dependency_override,
         })
     }
 
@@ -70,7 +70,9 @@ impl Delegate {
             &self.namespace,
             layout,
             (if projection.is_sys() {
-                &self.sys_dependencies
+                self.sys_dependency_override
+                    .as_ref()
+                    .unwrap_or(self.signature.package_dependencies())
             } else {
                 self.signature.package_dependencies()
             })
@@ -106,7 +108,9 @@ impl Delegate {
             &self.namespace,
             layout,
             (if projection.is_sys() {
-                &self.sys_dependencies
+                self.sys_dependency_override
+                    .as_ref()
+                    .unwrap_or(self.signature.package_dependencies())
             } else {
                 self.signature.package_dependencies()
             })
@@ -117,6 +121,11 @@ impl Delegate {
 
     pub(super) fn supports_package_sys(&self) -> bool {
         !self.signature.uses_winrt_projection()
+    }
+
+    #[cfg(test)]
+    pub(super) const fn has_sys_dependency_override(&self) -> bool {
+        self.sys_dependency_override.is_some()
     }
 }
 

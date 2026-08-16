@@ -7,7 +7,7 @@ use std::collections::{BTreeMap, BTreeSet};
 pub struct NativeType {
     architectures: i32,
     kind: Kind,
-    sys_dependencies: BTreeSet<(String, String)>,
+    sys_dependency_override: Option<BTreeSet<(String, String)>>,
 }
 
 enum Kind {
@@ -148,10 +148,10 @@ impl NativeType {
                             database.definition(*entity).unwrap().category().unwrap()
                                 != TypeCategory::Enum
                         });
-                let sys_dependencies = cache.package_sys_dependencies(&dependencies);
+                let sys_dependency_override = cache.package_sys_override(&dependencies);
                 Ok(Self {
                     architectures,
-                    sys_dependencies,
+                    sys_dependency_override,
                     kind: Kind::Enum(Enum {
                         namespace: namespace.to_string(),
                         name,
@@ -250,10 +250,10 @@ impl NativeType {
                 {
                     let ty = ty.clone().normalize_alias(namespace, &name);
                     let dependencies = ty.package_dependencies(database, cache)?;
-                    let sys_dependencies = cache.package_sys_dependencies(&dependencies);
+                    let sys_dependency_override = cache.package_sys_override(&dependencies);
                     return Ok(Self {
                         architectures,
-                        sys_dependencies,
+                        sys_dependency_override,
                         kind: Kind::Alias(Alias {
                             namespace: namespace.to_string(),
                             name,
@@ -277,10 +277,10 @@ impl NativeType {
                     let wrapper = field == "Value" && ty.is_wrapper_underlying(database)?;
                     let ty = ty.normalize_alias(namespace, &name);
                     let dependencies = ty.package_dependencies(database, cache)?;
-                    let sys_dependencies = cache.package_sys_dependencies(&dependencies);
+                    let sys_dependency_override = cache.package_sys_override(&dependencies);
                     return Ok(Self {
                         architectures,
-                        sys_dependencies,
+                        sys_dependency_override,
                         kind: Kind::Alias(Alias {
                             namespace: namespace.to_string(),
                             name,
@@ -432,10 +432,10 @@ impl NativeType {
                     let (_, nested_dependencies) = nested.dependencies();
                     dependencies.extend(nested_dependencies.iter().cloned());
                 }
-                let sys_dependencies = cache.package_sys_dependencies(&dependencies);
+                let sys_dependency_override = cache.package_sys_override(&dependencies);
                 Ok(Self {
                     architectures,
-                    sys_dependencies,
+                    sys_dependency_override,
                     kind: Kind::Struct(Struct {
                         namespace: namespace.to_string(),
                         name,
@@ -631,7 +631,9 @@ impl NativeType {
     ) -> BTreeSet<String> {
         let (namespace, dependencies) = self.dependencies();
         let dependencies = if projection.is_sys() {
-            &self.sys_dependencies
+            self.sys_dependency_override
+                .as_ref()
+                .unwrap_or(dependencies)
         } else {
             dependencies
         };
@@ -658,10 +660,17 @@ impl NativeType {
         }
     }
 
+    #[cfg(test)]
+    pub(super) const fn has_sys_dependency_override(&self) -> bool {
+        self.sys_dependency_override.is_some()
+    }
+
     fn cfg(&self, layout: Layout, projection: Projection) -> TokenStream {
         let (namespace, dependencies) = self.dependencies();
         let dependencies = if projection.is_sys() {
-            &self.sys_dependencies
+            self.sys_dependency_override
+                .as_ref()
+                .unwrap_or(dependencies)
         } else {
             dependencies
         };

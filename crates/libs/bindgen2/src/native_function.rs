@@ -12,7 +12,7 @@ pub struct Function {
     abi: &'static str,
     variadic: bool,
     signature: native_signature::Signature,
-    sys_dependencies: BTreeSet<(String, String)>,
+    sys_dependency_override: Option<BTreeSet<(String, String)>>,
 }
 
 impl Function {
@@ -31,8 +31,8 @@ impl Function {
         })?;
         let signature =
             native_signature::Signature::lower(database, dependencies, method, &full_name)?;
-        let sys_dependencies =
-            dependencies.package_sys_dependencies(signature.package_dependencies());
+        let sys_dependency_override =
+            dependencies.package_sys_override(signature.package_dependencies());
         let import_name = (import.name() != name).then(|| import.name().to_string());
         Ok(Self {
             architectures,
@@ -43,7 +43,7 @@ impl Function {
             abi: calling_convention(import.flags(), &full_name)?,
             variadic: signature.flags & 0x0f == 0x05,
             signature,
-            sys_dependencies,
+            sys_dependency_override,
         })
     }
 
@@ -69,7 +69,9 @@ impl Function {
         }
         let architectures = tokens::architectures(self.architectures);
         let dependencies = (if projection.is_sys() {
-            &self.sys_dependencies
+            self.sys_dependency_override
+                .as_ref()
+                .unwrap_or(self.signature.package_dependencies())
         } else {
             self.signature.package_dependencies()
         })
@@ -145,7 +147,9 @@ impl Function {
             return BTreeSet::new();
         }
         let dependencies = (if projection.is_sys() {
-            &self.sys_dependencies
+            self.sys_dependency_override
+                .as_ref()
+                .unwrap_or(self.signature.package_dependencies())
         } else {
             self.signature.package_dependencies()
         })
@@ -160,6 +164,11 @@ impl Function {
 
     pub(super) fn supports_package_sys(&self) -> bool {
         !self.signature.uses_winrt_projection()
+    }
+
+    #[cfg(test)]
+    pub(super) const fn has_sys_dependency_override(&self) -> bool {
+        self.sys_dependency_override.is_some()
     }
 }
 

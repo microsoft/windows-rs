@@ -10,7 +10,7 @@ pub struct Constant {
     ty: native::Type,
     value: Value,
     dependencies: BTreeSet<(String, String)>,
-    sys_dependencies: BTreeSet<(String, String)>,
+    sys_dependency_override: Option<BTreeSet<(String, String)>>,
     wrapper: bool,
     converted_wrapper: Option<native::Type>,
 }
@@ -67,7 +67,7 @@ impl Constant {
                 Value::Guid(guid)
             };
             let dependencies = ty.package_dependencies(database, cache)?;
-            let sys_dependencies = cache.package_sys_dependencies(&dependencies);
+            let sys_dependency_override = cache.package_sys_override(&dependencies);
             let wrapper = ty.is_wrapper(database)?;
             return Ok(Self {
                 architectures,
@@ -76,7 +76,7 @@ impl Constant {
                 ty,
                 value,
                 dependencies,
-                sys_dependencies,
+                sys_dependency_override,
                 wrapper,
                 converted_wrapper: None,
             });
@@ -109,7 +109,7 @@ impl Constant {
             });
         };
         let dependencies = ty.package_dependencies(database, cache)?;
-        let sys_dependencies = cache.package_sys_dependencies(&dependencies);
+        let sys_dependency_override = cache.package_sys_override(&dependencies);
         let wrapper = ty.is_wrapper(database)? && !ty.is_noncanonical_pointer_alias(database)?;
         let converted_wrapper = if alias_depth > 1 {
             match constant_immediate_type(database, field.entity().file(), &signature, &full_name)?
@@ -132,7 +132,7 @@ impl Constant {
                 ansi: is_ansi(field)?,
             },
             dependencies,
-            sys_dependencies,
+            sys_dependency_override,
             wrapper,
             converted_wrapper,
         })
@@ -157,7 +157,9 @@ impl Constant {
     pub(super) fn write_context(&self, layout: Layout, projection: Projection) -> TokenStream {
         let architectures = tokens::architectures(self.architectures);
         let dependencies = if projection.is_sys() {
-            &self.sys_dependencies
+            self.sys_dependency_override
+                .as_ref()
+                .unwrap_or(&self.dependencies)
         } else {
             &self.dependencies
         };
@@ -342,7 +344,9 @@ impl Constant {
         projection: Projection,
     ) -> BTreeSet<String> {
         let dependencies = if projection.is_sys() {
-            &self.sys_dependencies
+            self.sys_dependency_override
+                .as_ref()
+                .unwrap_or(&self.dependencies)
         } else {
             &self.dependencies
         };
@@ -357,6 +361,11 @@ impl Constant {
 
     pub(super) fn supports_package_sys(&self) -> bool {
         !self.ty.uses_winrt_projection()
+    }
+
+    #[cfg(test)]
+    pub(super) const fn has_sys_dependency_override(&self) -> bool {
+        self.sys_dependency_override.is_some()
     }
 
     fn write_converted(

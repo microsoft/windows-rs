@@ -2671,6 +2671,8 @@ fn package_sys_dependencies_omit_interface_only_namespaces() {
                     mod Consumer {
                         #[library("test.dll")]
                         extern fn UseValue(value: Windows::Win32::InterfaceOnly::IValue);
+                        #[library("test.dll")]
+                        extern fn UsePrimitive(value: u32);
                     }
                 }
             }
@@ -2680,6 +2682,7 @@ fn package_sys_dependencies_omit_interface_only_namespaces() {
         .win32_items()
         .function("Windows.Win32.Consumer", "UseValue")
         .unwrap();
+    assert!(function.has_sys_dependency_override());
     let rich = function
         .write_context(Layout::Package, Projection::Default)
         .to_string();
@@ -2689,6 +2692,12 @@ fn package_sys_dependencies_omit_interface_only_namespaces() {
 
     assert!(rich.contains("cfg (feature = \"InterfaceOnly\")"), "{rich}");
     assert!(!sys.contains("InterfaceOnly"), "{sys}");
+
+    let function = generator
+        .win32_items()
+        .function("Windows.Win32.Consumer", "UsePrimitive")
+        .unwrap();
+    assert!(!function.has_sys_dependency_override());
 }
 
 #[test]
@@ -5645,6 +5654,31 @@ fn win32_apis_selection_has_exact_corpus_counts() {
 }
 
 #[test]
+fn package_sys_dependency_overrides_are_sparse() {
+    let generator = generator();
+    let items = generator.win32_items();
+    let counts = [
+        items
+            .native_types()
+            .filter(|value| value.as_ref().unwrap().has_sys_dependency_override())
+            .count(),
+        items
+            .constants()
+            .filter(|value| value.as_ref().unwrap().has_sys_dependency_override())
+            .count(),
+        items
+            .functions()
+            .filter(|value| value.as_ref().unwrap().has_sys_dependency_override())
+            .count(),
+        items
+            .delegates()
+            .filter(|value| value.as_ref().unwrap().has_sys_dependency_override())
+            .count(),
+    ];
+    assert_eq!(counts, [0, 0, 0, 0]);
+}
+
+#[test]
 fn chained_pointer_alias_arrays_project_as_slices() {
     let generator = generator();
     let output = generator
@@ -6118,6 +6152,14 @@ fn architecture_source_gates() {
         (
             "sys_manifest_dependencies:",
             "complete rich and sys manifest closures stored on native interfaces",
+        ),
+        (
+            "sys_dependencies:",
+            "complete sys dependency clones instead of sparse overrides",
+        ),
+        (
+            "result.package_dependencies = result.",
+            "direct package dependencies retained in persistent WinRT catalogs",
         ),
         (
             "context.layout == Layout::Package",

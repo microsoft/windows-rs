@@ -830,8 +830,9 @@ zero-difference package probe and the existing focused output tests.
    dependency closure, while interfaces retain their separate inheritance, method, implementation,
    and sys-availability policies. Production package policy does not name individual Windows
    header namespaces.
-3. Consolidate dependency facts. Selection, source cfg, artifact, package, manifest, rich, and sys
-   dependencies should be derived from one lowered dependency model through named policies.
+3. [x] Consolidate dependency facts. Selection, source cfg, artifact, package, manifest, rich, and
+   sys dependencies are derived from lowered type relationships through named policies rather than
+   parallel compatibility tables and duplicated stored closures.
 4. Lower native call behavior into a call-plan model. Parameter projection, ABI arguments, return
    conversion, query handling, slices, aliases, and producer conversion should be decided before
    token rendering.
@@ -862,5 +863,15 @@ dependency sets have also moved out of the shared signature model: only free fun
 delegates consume that projection, so interface method signatures no longer retain it. Step 3
 now also derives each interface's final rich or sys manifest features from its retained hierarchy,
 inherited method facts, and own signatures. Interfaces no longer store two complete manifest
-closures. Step 3 remains open because constants, types, functions, and delegates still retain some
-separate rich and sys products.
+closures. Constants, types, functions, and delegates now treat rich dependencies as canonical and
+store a sys override only when package availability removes a dependency. Identical rich and sys
+sets no longer allocate duplicate trees. None of the selected 30,109 types, 83,641 constants,
+14,559 functions, or 2,159 delegates needs an override in the committed package corpus; the
+override path remains for filtered and custom metadata.
+
+Step 3 is complete. WinRT catalogs retain lowered relationships, not package closures. Selection
+derives member-sensitive reachability, the artifact graph derives direct type-identity edges, and a
+render clone expands those edges into transitive package dependencies. Native source cfg and
+manifest features share the same recursive type closure, with narrow interface and sys policies
+applied where the generated package differs. These products remain separate because they answer
+different questions; they no longer maintain independent copies of the same facts.

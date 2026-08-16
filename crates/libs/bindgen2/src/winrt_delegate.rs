@@ -589,15 +589,13 @@ impl Method {
                 })
             })
             .collect::<Result<_, Error>>()?;
-        let mut result = Self {
+        Ok(Self {
             parameters,
             return_type: ty::Type::lower(database, file, owner, signature.return_type)?,
             package_dependencies: BTreeSet::new(),
             generic_return_default,
             noexcept: method.find_attribute("NoExceptionAttribute")?.is_some(),
-        };
-        result.package_dependencies = result.selection_dependencies();
-        Ok(result)
+        })
     }
 
     pub(super) fn selection_dependencies(&self) -> BTreeSet<(String, String)> {

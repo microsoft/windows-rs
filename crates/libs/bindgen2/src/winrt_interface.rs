@@ -184,7 +184,7 @@ impl Interface {
             })?;
         let exclusive = definition.has_attribute("ExclusiveToAttribute")?;
         let agile = is_agile(definition)?;
-        let mut result = Self {
+        Ok(Self {
             name,
             namespace,
             generics,
@@ -194,9 +194,7 @@ impl Interface {
             package_dependencies: BTreeSet::new(),
             methods,
             required,
-        };
-        result.package_dependencies = result.direct_artifact_dependencies();
-        Ok(result)
+        })
     }
 
     fn lower_required(

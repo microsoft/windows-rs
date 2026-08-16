@@ -75,7 +75,7 @@ impl Class {
             .as_ref()
             .is_some_and(ClassInterface::is_async);
         let agile = async_default || is_agile(definition)?;
-        let mut result = Self {
+        Ok(Self {
             name,
             namespace,
             default_interface,
@@ -85,9 +85,7 @@ impl Class {
             default_constructor,
             agile,
             async_default,
-        };
-        result.package_dependencies = result.direct_artifact_dependencies();
-        Ok(result)
+        })
     }
 
     pub(super) fn selection_dependencies(

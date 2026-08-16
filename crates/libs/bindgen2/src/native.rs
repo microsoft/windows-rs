@@ -45,19 +45,29 @@ impl DependencyCache {
         })
     }
 
-    pub(super) fn package_sys_dependencies(
+    pub(super) fn package_sys_override(
         &self,
         dependencies: &BTreeSet<(String, String)>,
-    ) -> BTreeSet<(String, String)> {
-        dependencies
+    ) -> Option<BTreeSet<(String, String)>> {
+        if dependencies
             .iter()
-            .filter(|(namespace, _)| {
-                namespace == "Windows.Win32"
-                    || !namespace.starts_with("Windows.Win32.")
-                    || self.sys_namespaces.contains(namespace)
-            })
-            .cloned()
-            .collect()
+            .all(|(namespace, _)| self.supports_package_sys_namespace(namespace))
+        {
+            return None;
+        }
+        Some(
+            dependencies
+                .iter()
+                .filter(|(namespace, _)| self.supports_package_sys_namespace(namespace))
+                .cloned()
+                .collect(),
+        )
+    }
+
+    fn supports_package_sys_namespace(&self, namespace: &str) -> bool {
+        namespace == "Windows.Win32"
+            || !namespace.starts_with("Windows.Win32.")
+            || self.sys_namespaces.contains(namespace)
     }
 
     pub(super) fn interface_dependencies(

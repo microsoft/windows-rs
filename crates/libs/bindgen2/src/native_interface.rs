@@ -689,7 +689,9 @@ impl NativeInterface {
     ) -> BTreeSet<String> {
         let hierarchy = self.hierarchy.iter().cloned().collect::<BTreeSet<_>>();
         let mut dependencies = if projection.is_sys() {
-            dependency_cache.package_sys_dependencies(&hierarchy)
+            dependency_cache
+                .package_sys_override(&hierarchy)
+                .unwrap_or(hierarchy)
         } else {
             hierarchy
         };
