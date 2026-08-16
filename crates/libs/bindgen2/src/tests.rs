@@ -2533,27 +2533,21 @@ fn native_package_dependencies_include_nested_type_fields() {
             }
         "#,
     );
-    let dependencies = native::Type::Named {
-        namespace: "Test".to_string(),
-        name: "Container".to_string(),
-    }
-    .package_dependencies(
-        &metadata.shared.database,
-        &native::DependencyCache::default(),
-    )
-    .unwrap();
+    let dependencies = native::Type::named("Test", "Container")
+        .package_dependencies(
+            &metadata.shared.database,
+            &native::DependencyCache::default(),
+        )
+        .unwrap();
 
     assert!(dependencies.contains(&("Test".to_string(), "External".to_string())));
 
-    let delegate_dependencies = native::Type::Named {
-        namespace: "Test".to_string(),
-        name: "DelegateContainer".to_string(),
-    }
-    .package_dependencies(
-        &metadata.shared.database,
-        &native::DependencyCache::default(),
-    )
-    .unwrap();
+    let delegate_dependencies = native::Type::named("Test", "DelegateContainer")
+        .package_dependencies(
+            &metadata.shared.database,
+            &native::DependencyCache::default(),
+        )
+        .unwrap();
     assert!(delegate_dependencies.contains(&("Test".to_string(), "External".to_string())));
 
     let callback = metadata
@@ -2573,32 +2567,20 @@ fn native_package_dependencies_include_nested_type_fields() {
     );
 
     let first = native::DependencyCache::default();
-    let a_first = native::Type::Named {
-        namespace: "Test".to_string(),
-        name: "A".to_string(),
-    }
-    .package_dependencies(&metadata.shared.database, &first)
-    .unwrap();
-    let b_second = native::Type::Named {
-        namespace: "Test".to_string(),
-        name: "B".to_string(),
-    }
-    .package_dependencies(&metadata.shared.database, &first)
-    .unwrap();
+    let a_first = native::Type::named("Test", "A")
+        .package_dependencies(&metadata.shared.database, &first)
+        .unwrap();
+    let b_second = native::Type::named("Test", "B")
+        .package_dependencies(&metadata.shared.database, &first)
+        .unwrap();
 
     let second = native::DependencyCache::default();
-    let b_first = native::Type::Named {
-        namespace: "Test".to_string(),
-        name: "B".to_string(),
-    }
-    .package_dependencies(&metadata.shared.database, &second)
-    .unwrap();
-    let a_second = native::Type::Named {
-        namespace: "Test".to_string(),
-        name: "A".to_string(),
-    }
-    .package_dependencies(&metadata.shared.database, &second)
-    .unwrap();
+    let b_first = native::Type::named("Test", "B")
+        .package_dependencies(&metadata.shared.database, &second)
+        .unwrap();
+    let a_second = native::Type::named("Test", "A")
+        .package_dependencies(&metadata.shared.database, &second)
+        .unwrap();
 
     assert_eq!(a_first, a_second);
     assert_eq!(b_first, b_second);
@@ -5495,13 +5477,7 @@ fn package_sys_supports_winrt_interface_abi_types() {
         }
         .uses_winrt_projection()
     );
-    assert!(
-        native::Type::Named {
-            namespace: "Windows.Foundation.Numerics".to_string(),
-            name: "Vector2".to_string(),
-        }
-        .uses_winrt_projection()
-    );
+    assert!(native::Type::named("Windows.Foundation.Numerics", "Vector2").uses_winrt_projection());
 }
 
 #[test]

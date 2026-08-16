@@ -8,13 +8,37 @@ pub struct NativeInterface {
     architectures: i32,
     namespace: String,
     name: String,
-    base: Option<(String, String)>,
-    hierarchy: Vec<(String, String)>,
+    canonical: Option<canonical::Type>,
+    base: Option<InterfaceName>,
+    hierarchy: Vec<InterfaceName>,
     hierarchy_method_dependencies: BTreeSet<(String, String)>,
     inherited_manifest_dependencies: BTreeSet<(String, String)>,
     com_identity: bool,
     guid: Option<guid::Guid>,
     methods: Vec<Method>,
+}
+
+#[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
+struct InterfaceName {
+    namespace: String,
+    name: String,
+    canonical: Option<canonical::Type>,
+}
+
+impl InterfaceName {
+    fn new(namespace: String, name: String) -> Self {
+        let canonical =
+            canonical::native_core_from_name(&namespace, &name).filter(|ty| ty.is_com_root());
+        Self {
+            namespace,
+            name,
+            canonical,
+        }
+    }
+
+    fn is_root(&self) -> bool {
+        self.canonical.is_some()
+    }
 }
 
 struct Method {
@@ -33,29 +57,35 @@ impl NativeInterface {
     ) -> Result<Self, Error> {
         let namespace = definition.namespace()?.to_string();
         let name = definition.name()?.to_string();
+        let canonical =
+            canonical::native_core_from_name(&namespace, &name).filter(|ty| ty.is_com_root());
         let full_name = format!("{namespace}.{name}");
         let hierarchy =
-            collect_interface_bases(database, definition.entity(), bases, &mut BTreeSet::new())?;
+            collect_interface_bases(database, definition.entity(), bases, &mut BTreeSet::new())?
+                .into_iter()
+                .map(|(namespace, name)| InterfaceName::new(namespace, name))
+                .collect::<Vec<_>>();
         let mut hierarchy_method_dependencies = BTreeSet::new();
         let mut hierarchy_manifest_dependencies = BTreeSet::new();
-        for (namespace, name) in &hierarchy {
-            if matches!(name.as_str(), "IUnknown" | "IInspectable") {
+        for base in &hierarchy {
+            if base.is_root() {
                 continue;
             }
-            let inherited = dependencies.interface_dependencies(database, namespace, name)?;
+            let inherited =
+                dependencies.interface_dependencies(database, &base.namespace, &base.name)?;
             hierarchy_method_dependencies.extend(inherited.package);
             hierarchy_manifest_dependencies.extend(inherited.manifest);
         }
         let base = hierarchy.last().cloned();
-        let own_guid = if name == "IUnknown" {
+        let own_guid = if matches!(canonical, Some(canonical::Type::IUnknown)) {
             guid::Guid::from_definition(definition, &full_name)?
         } else {
             None
         };
         let com_identity = if own_guid.is_some_and(guid::Guid::is_iunknown) {
             true
-        } else if let Some((namespace, name)) = hierarchy.first() {
-            is_iunknown(database, namespace, name)?
+        } else if let Some(base) = hierarchy.first() {
+            is_iunknown(database, &base.namespace, &base.name)?
         } else {
             false
         };
@@ -98,6 +128,7 @@ impl NativeInterface {
             architectures: definition.architectures()?,
             namespace,
             name,
+            canonical,
             base,
             com_identity,
             guid: if com_identity {
@@ -167,32 +198,31 @@ impl NativeInterface {
                 pub const #name: GUID = #guid;
             }
         });
-        let base = self.base.as_ref().map(|(namespace, name)| {
-            let path = tokens::namespace(&self.namespace, namespace, layout);
-            let name = tokens::ident(&format!("{name}_Vtbl"));
+        let base = self.base.as_ref().map(|base| {
+            let path = tokens::namespace(&self.namespace, &base.namespace, layout);
+            let name = tokens::ident(&format!("{}_Vtbl", base.name));
             quote! { pub base__: #path #name, }
         });
         let methods = self.methods.iter().map(|method| {
             let architectures = tokens::architectures(method.architectures);
             let name = tokens::ident(&method.name);
-            let parameters =
-                if self.namespace == "Windows.Win32.System.Com" && self.name == "IUnknown" {
-                    match method.name.as_str() {
-                        "QueryInterface" => quote! {
-                            this: *mut core::ffi::c_void,
-                            iid: *const GUID,
-                            interface: *mut *mut core::ffi::c_void
-                        },
-                        "AddRef" | "Release" => quote! { this: *mut core::ffi::c_void },
-                        _ => unreachable!(),
-                    }
-                } else {
-                    method.signature.write_vtable_parameters_projection(
-                        &self.namespace,
-                        layout,
-                        Projection::Sys,
-                    )
-                };
+            let parameters = if matches!(self.canonical, Some(canonical::Type::IUnknown)) {
+                match method.name.as_str() {
+                    "QueryInterface" => quote! {
+                        this: *mut core::ffi::c_void,
+                        iid: *const GUID,
+                        interface: *mut *mut core::ffi::c_void
+                    },
+                    "AddRef" | "Release" => quote! { this: *mut core::ffi::c_void },
+                    _ => unreachable!(),
+                }
+            } else {
+                method.signature.write_vtable_parameters_projection(
+                    &self.namespace,
+                    layout,
+                    Projection::Sys,
+                )
+            };
             let result = method.signature.write_result(&self.namespace, layout);
             quote! {
                 #architectures
@@ -261,14 +291,12 @@ impl NativeInterface {
                 quote! { #path #name }
             }
         };
-        let base_vtbl = self.base.as_ref().map(|(namespace, base)| {
-            if base == "IUnknown" {
-                quote! { windows_core::IUnknown_Vtbl }
-            } else if base == "IInspectable" {
-                quote! { windows_core::IInspectable_Vtbl }
-            } else {
-                let path = tokens::namespace(&self.namespace, namespace, layout);
-                let base_vtbl = tokens::ident(&format!("{base}_Vtbl"));
+        let base_vtbl = self.base.as_ref().map(|base| match base.canonical {
+            Some(canonical::Type::IUnknown) => quote! { windows_core::IUnknown_Vtbl },
+            Some(canonical::Type::IInspectable) => quote! { windows_core::IInspectable_Vtbl },
+            _ => {
+                let path = tokens::namespace(&self.namespace, &base.namespace, layout);
+                let base_vtbl = tokens::ident(&format!("{}_Vtbl", base.name));
                 quote! { #path #base_vtbl }
             }
         });
@@ -276,7 +304,7 @@ impl NativeInterface {
         let hierarchy = self
             .hierarchy
             .iter()
-            .map(|(namespace, name)| write_base(namespace, name));
+            .map(|base| write_base(&base.namespace, &base.name));
         let hierarchy = (!self.hierarchy.is_empty()).then(|| {
             quote! {
                 #class_cfg
@@ -284,9 +312,9 @@ impl NativeInterface {
                 windows_core::imp::interface_hierarchy!(#name, #(#hierarchy),*);
             }
         });
-        let deref = self.base.as_ref().and_then(|(namespace, base)| {
-            (!matches!(base.as_str(), "IUnknown" | "IInspectable")).then(|| {
-                let base = write_base(namespace, base);
+        let deref = self.base.as_ref().and_then(|base| {
+            (!base.is_root()).then(|| {
+                let base = write_base(&base.namespace, &base.name);
                 quote! {
                     #class_cfg
                     #architectures
@@ -428,9 +456,10 @@ impl NativeInterface {
                 .methods
                 .iter()
                 .all(|method| method.signature.supports_implementation())
-            && self.base.as_ref().is_none_or(|(_, name)| {
-                matches!(name.as_str(), "IUnknown" | "IInspectable") || base_selected
-            })
+            && self
+                .base
+                .as_ref()
+                .is_none_or(|base| base.is_root() || base_selected)
     }
 
     fn supports_implementation(&self, base_selected: bool) -> bool {
@@ -439,15 +468,16 @@ impl NativeInterface {
                 .methods
                 .iter()
                 .all(|method| method.signature.supports_implementation())
-            && self.base.as_ref().is_some_and(|(_, name)| {
-                matches!(name.as_str(), "IUnknown" | "IInspectable") || base_selected
-            })
+            && self
+                .base
+                .as_ref()
+                .is_some_and(|base| base.is_root() || base_selected)
     }
 
     pub(super) fn base_name(&self) -> Option<(&str, &str)> {
         self.base
             .as_ref()
-            .map(|(namespace, name)| (namespace.as_str(), name.as_str()))
+            .map(|base| (base.namespace.as_str(), base.name.as_str()))
     }
 
     fn write_implementation(
@@ -468,8 +498,8 @@ impl NativeInterface {
         let (base_impl, base_new) = self
             .base
             .as_ref()
-            .map(|(namespace, base)| {
-                if base == "IUnknown" {
+            .map(|base| {
+                if matches!(base.canonical, Some(canonical::Type::IUnknown)) {
                     (
                         quote! { windows_core::IUnknownImpl },
                         if scoped {
@@ -478,7 +508,7 @@ impl NativeInterface {
                             quote! { windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
                         },
                     )
-                } else if base == "IInspectable" {
+                } else if matches!(base.canonical, Some(canonical::Type::IInspectable)) {
                     (
                         quote! { windows_core::IUnknownImpl },
                         quote! {
@@ -486,9 +516,9 @@ impl NativeInterface {
                         },
                     )
                 } else {
-                    let path = tokens::namespace(&self.namespace, namespace, layout);
-                    let base_impl = tokens::ident(&format!("{base}_Impl"));
-                    let base_vtbl = tokens::ident(&format!("{base}_Vtbl"));
+                    let path = tokens::namespace(&self.namespace, &base.namespace, layout);
+                    let base_impl = tokens::ident(&format!("{}_Impl", base.name));
+                    let base_vtbl = tokens::ident(&format!("{}_Vtbl", base.name));
                     (
                         quote! { #path #base_impl },
                         if scoped {
@@ -506,10 +536,10 @@ impl NativeInterface {
         let hierarchy_matches = self
             .hierarchy
             .iter()
-            .filter(|(_, base)| !matches!(base.as_str(), "IUnknown" | "IInspectable"))
-            .map(|(namespace, base)| {
-                let path = tokens::namespace(&self.namespace, namespace, layout);
-                let base = tokens::ident(base);
+            .filter(|base| !base.is_root())
+            .map(|base| {
+                let path = tokens::namespace(&self.namespace, &base.namespace, layout);
+                let base = tokens::ident(&base.name);
                 quote! { || iid == &<#path #base as windows_core::Interface>::IID }
             });
         let trait_methods = self
@@ -665,8 +695,8 @@ impl NativeInterface {
             layout,
             self.hierarchy
                 .iter()
-                .filter(|(namespace, name)| native::core_projection(namespace, name).is_none())
-                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+                .filter(|base| base.canonical.is_none())
+                .map(|base| (base.namespace.as_str(), base.name.as_str())),
         )
     }
 
@@ -687,7 +717,11 @@ impl NativeInterface {
         projection: Projection,
         dependency_cache: &native::DependencyCache,
     ) -> BTreeSet<String> {
-        let hierarchy = self.hierarchy.iter().cloned().collect::<BTreeSet<_>>();
+        let hierarchy = self
+            .hierarchy
+            .iter()
+            .map(|base| (base.namespace.clone(), base.name.clone()))
+            .collect::<BTreeSet<_>>();
         let mut dependencies = if projection.is_sys() {
             dependency_cache
                 .package_sys_override(&hierarchy)

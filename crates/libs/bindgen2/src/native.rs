@@ -206,6 +206,7 @@ pub(super) enum Type {
     Named {
         namespace: String,
         name: String,
+        canonical: Option<canonical::Type>,
     },
 }
 
@@ -241,6 +242,25 @@ impl TraitSupport {
 }
 
 impl Type {
+    pub(super) fn named(namespace: impl Into<String>, name: impl Into<String>) -> Self {
+        let namespace = namespace.into();
+        let name = name.into();
+        let canonical = canonical::type_from_name(&namespace, &name)
+            .or_else(|| canonical::native_alias_from_name(&namespace, &name));
+        Self::Named {
+            namespace,
+            name,
+            canonical,
+        }
+    }
+
+    fn canonical(&self) -> Option<canonical::Type> {
+        match self {
+            Self::Named { canonical, .. } => *canonical,
+            _ => None,
+        }
+    }
+
     pub(super) fn lower_parameter(
         database: &Database,
         file: FileId,
@@ -356,10 +376,7 @@ impl Type {
                 } else {
                     name
                 };
-                Self::Named {
-                    namespace: namespace.to_string(),
-                    name: name.to_string(),
-                }
+                Self::named(namespace, name)
             }
             TypeKind::Class(id) => {
                 let Some((namespace, name)) = database.type_name(file, id)? else {
@@ -376,10 +393,7 @@ impl Type {
                     }
                 }
                 if delegate {
-                    Self::Named {
-                        namespace: namespace.to_string(),
-                        name: name.to_string(),
-                    }
+                    Self::named(namespace, name)
                 } else {
                     Self::Interface {
                         namespace: namespace.to_string(),
@@ -461,6 +475,7 @@ impl Type {
             Self::Named {
                 namespace: target,
                 name,
+                canonical,
             } => {
                 if projection.is_sys()
                     && layout.is_package()
@@ -468,7 +483,7 @@ impl Type {
                 {
                     return core;
                 }
-                if let Some(canonical) = canonical::type_from_name(target, name) {
+                if let Some(canonical) = canonical {
                     return canonical.write();
                 }
                 if target.is_empty() && name == "PCWSTR" {
@@ -514,12 +529,7 @@ impl Type {
                 }
             }
             Self::Interface { .. } => quote! { *mut core::ffi::c_void },
-            Self::Named { namespace, name }
-                if !projection.is_sys()
-                    && matches!(name.as_str(), "BSTR" | "HSTRING")
-                    && (namespace == "Windows.Win32"
-                        || namespace.starts_with("Windows.Win32.")) =>
-            {
+            Self::Named { .. } if !projection.is_sys() && (self.is_bstr() || self.is_hstring()) => {
                 quote! { *mut core::ffi::c_void }
             }
             _ => self.write_projection(namespace, layout, projection),
@@ -585,6 +595,7 @@ impl Type {
             Self::Named {
                 namespace: target,
                 name,
+                ..
             } if target == namespace && name == owner => quote! { Self },
             _ => self.write_field_projection(namespace, layout, projection),
         }
@@ -596,34 +607,20 @@ impl Type {
         layout: Layout,
         projection: Projection,
     ) -> TokenStream {
-        if let Self::Named {
-            namespace: target,
-            name,
-        } = self
-            && (target == "Windows.Win32" || target.starts_with("Windows.Win32."))
-        {
-            return match (name.as_str(), projection.is_sys(), layout.is_package()) {
-                ("PSTR", true, true) => quote! { windows_sys::core::PCSTR },
-                ("PWSTR", true, true) => quote! { windows_sys::core::PCWSTR },
-                ("PSTR", true, false) => quote! { PCSTR },
-                ("PWSTR", true, false) => quote! { PCWSTR },
-                ("PSTR", false, _) => quote! { windows_core::PCSTR },
-                ("PWSTR", false, _) => quote! { windows_core::PCWSTR },
-                _ => self.write_projection(namespace, layout, projection),
-            };
+        match (self.canonical(), projection.is_sys(), layout.is_package()) {
+            (Some(canonical::Type::PStr), true, true) => quote! { windows_sys::core::PCSTR },
+            (Some(canonical::Type::PWStr), true, true) => quote! { windows_sys::core::PCWSTR },
+            (Some(canonical::Type::PStr), true, false) => quote! { PCSTR },
+            (Some(canonical::Type::PWStr), true, false) => quote! { PCWSTR },
+            (Some(canonical::Type::PStr), false, _) => quote! { windows_core::PCSTR },
+            (Some(canonical::Type::PWStr), false, _) => quote! { windows_core::PCWSTR },
+            _ => self.write_projection(namespace, layout, projection),
         }
-        self.write_projection(namespace, layout, projection)
     }
 
     pub(super) fn mutable_string_pointer(&self) -> bool {
-        matches!(
-            self,
-            Self::Named {
-                namespace,
-                name,
-            } if (namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32."))
-                && (name == "PSTR" || name == "PWSTR")
-        )
+        self.canonical()
+            .is_some_and(canonical::Type::is_mutable_string)
     }
 
     pub(super) fn write_public(&self, namespace: &str, layout: Layout) -> TokenStream {
@@ -656,6 +653,7 @@ impl Type {
                         name: name.clone(),
                         arguments: arguments.clone(),
                         guid: None,
+                        canonical: canonical::winrt_type_from_name(target, name),
                     }
                     .write_name(namespace, layout, &[])
                     .unwrap()
@@ -761,7 +759,10 @@ impl Type {
         {
             return Ok(true);
         }
-        let Self::Named { namespace, name } = self else {
+        let Self::Named {
+            namespace, name, ..
+        } = self
+        else {
             return Ok(false);
         };
         for entity in database.type_definitions(namespace, name) {
@@ -799,12 +800,15 @@ impl Type {
         database: &Database,
         stack: &mut BTreeSet<(String, String)>,
     ) -> Result<bool, Error> {
-        let Self::Named { namespace, name } = self else {
+        let Self::Named {
+            namespace, name, ..
+        } = self
+        else {
             return self.is_primitive(database);
         };
-        if canonical::type_from_name(namespace, name).is_some_and(|ty| !ty.is_guid())
-            || ((namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32."))
-                && matches!(name.as_str(), "BOOL" | "NTSTATUS" | "RPC_STATUS"))
+        if self
+            .canonical()
+            .is_some_and(canonical::Type::is_native_primitive)
         {
             return Ok(true);
         }
@@ -847,7 +851,10 @@ impl Type {
         database: &Database,
         stack: &mut BTreeSet<(String, String)>,
     ) -> Result<bool, Error> {
-        let Self::Named { namespace, name } = self else {
+        let Self::Named {
+            namespace, name, ..
+        } = self
+        else {
             return Ok(false);
         };
         let key = (namespace.clone(), name.clone());
@@ -882,7 +889,10 @@ impl Type {
     }
 
     pub(super) fn is_delegate(&self, database: &Database) -> Result<bool, Error> {
-        let Self::Named { namespace, name } = self else {
+        let Self::Named {
+            namespace, name, ..
+        } = self
+        else {
             return Ok(false);
         };
         for entity in database.type_definitions(namespace, name) {
@@ -901,7 +911,10 @@ impl Type {
         if let Self::Pointer { mutable, element } = self {
             return Ok(*mutable && **element == Self::Void);
         }
-        let Self::Named { namespace, name } = self else {
+        let Self::Named {
+            namespace, name, ..
+        } = self
+        else {
             return Ok(false);
         };
         if is_core_projection(namespace, name) {
@@ -969,7 +982,10 @@ impl Type {
     }
 
     pub(super) fn pointer_alias(&self, database: &Database) -> Result<Option<Self>, Error> {
-        let Self::Named { namespace, name } = self else {
+        let Self::Named {
+            namespace, name, ..
+        } = self
+        else {
             return Ok(None);
         };
         if is_core_projection(namespace, name) {
@@ -1021,7 +1037,10 @@ impl Type {
         if let Some(ty) = self.pointer_alias(database)? {
             return Ok(Some(ty));
         }
-        let Self::Named { namespace, name } = self else {
+        let Self::Named {
+            namespace, name, ..
+        } = self
+        else {
             return Ok(None);
         };
         let key = (namespace.clone(), name.clone());
@@ -1063,7 +1082,10 @@ impl Type {
     }
 
     pub(super) fn is_newtype(&self, database: &Database) -> Result<bool, Error> {
-        let Self::Named { namespace, name } = self else {
+        let Self::Named {
+            namespace, name, ..
+        } = self
+        else {
             return Ok(false);
         };
         for entity in database.type_definitions(namespace, name) {
@@ -1106,7 +1128,10 @@ impl Type {
         database: &Database,
         stack: &mut BTreeSet<(String, String)>,
     ) -> Result<bool, Error> {
-        let Self::Named { namespace, name } = self else {
+        let Self::Named {
+            namespace, name, ..
+        } = self
+        else {
             return Ok(matches!(
                 self,
                 Self::Char
@@ -1158,7 +1183,10 @@ impl Type {
         database: &Database,
         stack: &mut BTreeSet<(String, String)>,
     ) -> Result<bool, Error> {
-        let Self::Named { namespace, name } = self else {
+        let Self::Named {
+            namespace, name, ..
+        } = self
+        else {
             return Ok(matches!(
                 self,
                 Self::Boolean
@@ -1178,9 +1206,9 @@ impl Type {
                     | Self::Pointer { .. }
             ));
         };
-        if canonical::type_from_name(namespace, name).is_some_and(|ty| !ty.is_guid())
-            || ((namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32."))
-                && matches!(name.as_str(), "BOOL" | "NTSTATUS" | "RPC_STATUS"))
+        if self
+            .canonical()
+            .is_some_and(canonical::Type::is_native_primitive)
         {
             return Ok(true);
         }
@@ -1205,12 +1233,7 @@ impl Type {
     }
 
     pub(super) fn is_hresult(&self) -> bool {
-        matches!(
-            self,
-            Self::Named { namespace, name }
-                if canonical::type_from_name(namespace, name)
-                    .is_some_and(canonical::Type::is_hresult)
-        )
+        self.canonical().is_some_and(canonical::Type::is_hresult)
     }
 
     pub(super) fn is_void_alias(&self, database: &Database) -> Result<bool, Error> {
@@ -1225,7 +1248,10 @@ impl Type {
         if self == &Self::Void {
             return Ok(true);
         }
-        let Self::Named { namespace, name } = self else {
+        let Self::Named {
+            namespace, name, ..
+        } = self
+        else {
             return Ok(false);
         };
         let key = (namespace.clone(), name.clone());
@@ -1259,12 +1285,7 @@ impl Type {
     }
 
     pub(super) fn is_guid(&self) -> bool {
-        matches!(
-            self,
-            Self::Named { namespace, name }
-                if canonical::type_from_name(namespace, name)
-                    .is_some_and(canonical::Type::is_guid)
-        )
+        self.canonical().is_some_and(canonical::Type::is_guid)
     }
 
     pub(super) fn is_hresult_package(&self) -> bool {
@@ -1272,88 +1293,49 @@ impl Type {
     }
 
     pub(super) fn is_ntstatus(&self) -> bool {
-        matches!(
-            self,
-            Self::Named { namespace, name }
-                if name == "NTSTATUS"
-                    && (namespace == "Windows.Win32"
-                        || namespace.starts_with("Windows.Win32."))
-        )
+        self.canonical().is_some_and(canonical::Type::is_ntstatus)
     }
 
     pub(super) fn is_bool(&self) -> bool {
-        matches!(
-            self,
-            Self::Named { namespace, name }
-                if name == "BOOL"
-                    && (namespace == "Windows.Win32"
-                        || namespace.starts_with("Windows.Win32."))
-        )
+        self.canonical().is_some_and(canonical::Type::is_bool)
     }
 
     pub(super) fn is_bstr(&self) -> bool {
-        matches!(
-            self,
-            Self::Named { namespace, name }
-                if name == "BSTR"
-                    && (namespace == "Windows.Win32"
-                        || namespace.starts_with("Windows.Win32."))
-        )
+        self.canonical().is_some_and(canonical::Type::is_bstr)
     }
 
     pub(super) fn is_hstring(&self) -> bool {
-        matches!(
-            self,
-            Self::Named { namespace, name }
-                if name == "HSTRING"
-                    && (namespace == "Windows.Win32"
-                        || namespace.starts_with("Windows.Win32."))
-        )
+        self.canonical().is_some_and(canonical::Type::is_hstring)
     }
 
     pub(super) fn is_pcwstr(&self) -> bool {
-        matches!(
-            self,
-            Self::Named { namespace, name }
-                if name == "PCWSTR"
-                    && (namespace == "Windows.Win32"
-                        || namespace.starts_with("Windows.Win32."))
-        )
+        self.canonical().is_some_and(canonical::Type::is_pcwstr)
+    }
+
+    pub(super) fn is_pstr(&self) -> bool {
+        self.canonical().is_some_and(canonical::Type::is_pstr)
     }
 
     pub(super) fn is_pcstr(&self) -> bool {
-        matches!(
-            self,
-            Self::Named { namespace, name }
-                if name == "PCSTR"
-                    && (namespace == "Windows.Win32"
-                        || namespace.starts_with("Windows.Win32."))
-        )
+        self.canonical().is_some_and(canonical::Type::is_pcstr)
     }
 
     pub(super) fn is_const_string(&self) -> bool {
-        matches!(
-            self,
-            Self::Named { namespace, name }
-                if matches!(name.as_str(), "PCSTR" | "PCWSTR")
-                    && (namespace == "Windows.Win32"
-                        || namespace.starts_with("Windows.Win32."))
-        )
+        self.canonical()
+            .is_some_and(canonical::Type::is_const_string)
     }
 
     pub(super) fn is_indirect_return(&self, database: &Database) -> Result<bool, Error> {
         if self.uses_winrt_projection() {
             return Ok(false);
         }
-        if matches!(
-            self,
-            Self::Named { namespace, name }
-                if canonical::type_from_name(namespace, name)
-                    .is_some_and(canonical::Type::is_hresult)
-        ) {
+        if self.is_hresult() {
             return Ok(false);
         }
-        let Self::Named { namespace, name } = self else {
+        let Self::Named {
+            namespace, name, ..
+        } = self
+        else {
             return Ok(false);
         };
         for entity in database.type_definitions(namespace, name) {
@@ -1396,7 +1378,9 @@ impl Type {
                 let (size, align) = element.abi_layout(database, stack)?;
                 (size.saturating_mul(*len), align.saturating_mul(*len))
             }
-            Self::Named { namespace, name } => {
+            Self::Named {
+                namespace, name, ..
+            } => {
                 let key = (namespace.clone(), name.clone());
                 if !stack.insert(key.clone()) {
                     return Ok((0, 1));
@@ -1910,23 +1894,12 @@ pub(super) fn core_projection(namespace: &str, name: &str) -> Option<TokenStream
     if !win32 {
         return None;
     }
-    if let Some(canonical) = canonical::type_from_name(namespace, name) {
+    if let Some(canonical) = canonical::type_from_name(namespace, name)
+        .or_else(|| canonical::native_core_from_name(namespace, name))
+    {
         return Some(canonical.write());
     }
-    Some(match name {
-        "BOOL" => quote! { windows_core::BOOL },
-        "PSTR" => quote! { windows_core::PSTR },
-        "PWSTR" => quote! { windows_core::PWSTR },
-        "PCSTR" => quote! { windows_core::PCSTR },
-        "PCWSTR" => quote! { windows_core::PCWSTR },
-        "BSTR" => quote! { windows_core::BSTR },
-        "HSTRING" => quote! { windows_core::HSTRING },
-        "IUnknown" => quote! { windows_core::IUnknown },
-        "IInspectable" => quote! { windows_core::IInspectable },
-        "NTSTATUS" => quote! { windows_core::NTSTATUS },
-        "RPC_STATUS" => quote! { windows_core::RPC_STATUS },
-        _ => return None,
-    })
+    None
 }
 
 fn sys_core_projection(namespace: &str, name: &str) -> Option<TokenStream> {
@@ -1934,15 +1907,12 @@ fn sys_core_projection(namespace: &str, name: &str) -> Option<TokenStream> {
     if !win32 {
         return None;
     }
-    if let Some(canonical) = canonical::type_from_name(namespace, name) {
+    if let Some(canonical) = canonical::type_from_name(namespace, name)
+        .or_else(|| canonical::native_core_from_name(namespace, name))
+    {
         return Some(canonical.write_sys());
     }
-    let name = match name {
-        "BOOL" | "PSTR" | "PWSTR" | "PCSTR" | "PCWSTR" | "BSTR" | "HSTRING" | "IUnknown"
-        | "IInspectable" | "NTSTATUS" | "RPC_STATUS" => tokens::ident(name),
-        _ => return None,
-    };
-    Some(quote! { windows_sys::core::#name })
+    None
 }
 
 impl Type {
@@ -1955,7 +1925,9 @@ impl Type {
             Self::Void | Self::Interface { .. } => Ok(false),
             Self::Array { element, .. } => element.projected_copyable(database, stack),
             Self::Named { .. } if self.is_bstr() || self.is_hstring() => Ok(false),
-            Self::Named { namespace, name } => named_copyable(database, namespace, name, stack),
+            Self::Named {
+                namespace, name, ..
+            } => named_copyable(database, namespace, name, stack),
             _ => Ok(true),
         }
     }
@@ -1967,9 +1939,9 @@ impl Type {
     ) -> Result<bool, Error> {
         match self {
             Self::Array { element, .. } => element.projected_has_explicit_layout(database, stack),
-            Self::Named { namespace, name } => {
-                named_has_explicit_layout(database, namespace, name, stack)
-            }
+            Self::Named {
+                namespace, name, ..
+            } => named_has_explicit_layout(database, namespace, name, stack),
             _ => Ok(false),
         }
     }
@@ -1984,6 +1956,7 @@ impl Type {
             Self::Named {
                 namespace: target,
                 name,
+                ..
             } if target.is_empty() && projected.contains(name.as_str()) => {
                 *target = namespace.to_string();
             }
@@ -1992,20 +1965,20 @@ impl Type {
         self
     }
     pub(super) fn normalize_alias(self, namespace: &str, name: &str) -> Self {
-        match (namespace, name) {
-            ("Windows.Win32", "BSTR" | "PCWSTR") => Self::Pointer {
+        match canonical::native_alias_from_name(namespace, name) {
+            Some(canonical::Type::BStr | canonical::Type::PcWStr) => Self::Pointer {
                 mutable: false,
                 element: Box::new(Self::U16),
             },
-            ("Windows.Win32", "PWSTR") => Self::Pointer {
+            Some(canonical::Type::PWStr) => Self::Pointer {
                 mutable: true,
                 element: Box::new(Self::U16),
             },
-            ("Windows.Win32", "PCSTR") => Self::Pointer {
+            Some(canonical::Type::PcStr) => Self::Pointer {
                 mutable: false,
                 element: Box::new(Self::U8),
             },
-            ("Windows.Win32", "PSTR") => Self::Pointer {
+            Some(canonical::Type::PStr) => Self::Pointer {
                 mutable: true,
                 element: Box::new(Self::U8),
             },
@@ -2023,7 +1996,9 @@ impl Type {
                 element.uses_winrt_projection()
             }
             Self::Interface { .. } => false,
-            Self::Named { namespace, name } => {
+            Self::Named {
+                namespace, name, ..
+            } => {
                 canonical::type_from_name(namespace, name).is_none()
                     && (namespace == "Windows" || namespace.starts_with("Windows."))
                     && namespace != "Windows.Win32"
@@ -2049,7 +2024,10 @@ impl Type {
     }
 
     pub(super) fn is_wrapper(&self, database: &Database) -> Result<bool, Error> {
-        let Self::Named { namespace, name } = self else {
+        let Self::Named {
+            namespace, name, ..
+        } = self
+        else {
             return Ok(false);
         };
         for entity in database.type_definitions(namespace, name) {
@@ -2102,7 +2080,9 @@ impl Type {
                     argument.collect_value_dependencies(dependencies);
                 }
             }
-            Self::Named { namespace, name } => {
+            Self::Named {
+                namespace, name, ..
+            } => {
                 dependencies.insert((namespace.clone(), name.clone()));
                 cache.expand(database, namespace, name, stack, dependencies)?;
             }
@@ -2194,7 +2174,9 @@ impl Type {
             Self::Interface {
                 namespace, name, ..
             }
-            | Self::Named { namespace, name } => {
+            | Self::Named {
+                namespace, name, ..
+            } => {
                 dependencies.insert((namespace.clone(), name.clone()));
             }
             _ => {}
@@ -2222,7 +2204,9 @@ impl Type {
                 eq: true,
             },
             Self::Pointer { .. } | Self::String => TraitSupport::ALL,
-            Self::Named { namespace, name } => {
+            Self::Named {
+                namespace, name, ..
+            } => {
                 if self.is_bstr() || self.is_hstring() {
                     TraitSupport {
                         copy: false,
@@ -2253,7 +2237,9 @@ impl Type {
             Self::Interface {
                 namespace, name, ..
             }
-            | Self::Named { namespace, name } => {
+            | Self::Named {
+                namespace, name, ..
+            } => {
                 add(namespace, name);
             }
             _ => {}
@@ -2270,24 +2256,24 @@ impl Type {
                 mutable: false,
                 element: Box::new(element.into_input()),
             },
-            Self::Named { namespace, name }
-                if (namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32."))
-                    && name == "PWSTR" =>
-            {
-                Self::Named {
-                    namespace,
-                    name: "PCWSTR".to_string(),
-                }
-            }
-            Self::Named { namespace, name }
-                if (namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32."))
-                    && name == "PSTR" =>
-            {
-                Self::Named {
-                    namespace,
-                    name: "PCSTR".to_string(),
-                }
-            }
+            Self::Named {
+                namespace,
+                canonical: Some(canonical::Type::PWStr),
+                ..
+            } => Self::Named {
+                namespace,
+                name: "PCWSTR".to_string(),
+                canonical: Some(canonical::Type::PcWStr),
+            },
+            Self::Named {
+                namespace,
+                canonical: Some(canonical::Type::PStr),
+                ..
+            } => Self::Named {
+                namespace,
+                name: "PCSTR".to_string(),
+                canonical: Some(canonical::Type::PcStr),
+            },
             _ => self,
         }
     }

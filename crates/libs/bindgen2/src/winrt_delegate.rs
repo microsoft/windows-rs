@@ -97,10 +97,7 @@ impl Delegate {
     }
 
     pub(super) fn direct_selection_dependencies(&self) -> BTreeSet<(String, String)> {
-        let mut dependencies = self.invoke.selection_dependencies();
-        dependencies
-            .retain(|(namespace, name)| canonical::winrt_type_from_name(namespace, name).is_none());
-        dependencies
+        self.invoke.selection_dependencies()
     }
 
     pub(super) fn expand_package_dependencies(&mut self, graph: &winrt_dependency::ArtifactGraph) {

@@ -260,7 +260,7 @@ fn slice_plan(
     } else if ty.is_pcwstr() {
         native::Type::U16
     } else if ty.mutable_string_pointer() {
-        if matches!(ty, native::Type::Named { name, .. } if name == "PSTR") {
+        if ty.is_pstr() {
             native::Type::U8
         } else {
             native::Type::U16
@@ -288,7 +288,7 @@ fn slice_plan(
 fn fixed_array_plan(ty: &native::Type, len: usize) -> ParamHint {
     let pointee = ty.pointee();
     let element = if ty.mutable_string_pointer() {
-        if matches!(ty, native::Type::Named { name, .. } if name == "PSTR") {
+        if ty.is_pstr() {
             native::Type::U8
         } else {
             native::Type::U16
@@ -315,7 +315,9 @@ fn core_manifest_dependencies(ty: &native::Type) -> BTreeSet<(String, String)> {
         } if arguments.is_empty() && native::is_core_projection(namespace, name) => {
             BTreeSet::from([(namespace.clone(), name.clone())])
         }
-        native::Type::Named { namespace, name } if native::is_core_projection(namespace, name) => {
+        native::Type::Named {
+            namespace, name, ..
+        } if native::is_core_projection(namespace, name) => {
             BTreeSet::from([(namespace.clone(), name.clone())])
         }
         _ => BTreeSet::new(),

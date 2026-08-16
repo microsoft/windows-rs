@@ -26,6 +26,7 @@ pub(super) enum Type {
         name: String,
         arguments: Vec<Self>,
         guid: Option<guid::Guid>,
+        canonical: Option<canonical::Type>,
     },
 }
 
@@ -49,6 +50,7 @@ impl Type {
                 name,
                 arguments: nested,
                 guid,
+                canonical,
             } => Self::Named {
                 value_type: *value_type,
                 namespace: namespace.clone(),
@@ -58,6 +60,7 @@ impl Type {
                     .map(|argument| argument.substitute(arguments))
                     .collect(),
                 guid: *guid,
+                canonical: *canonical,
             },
             _ => self.clone(),
         }
@@ -70,9 +73,10 @@ impl Type {
                 namespace,
                 name,
                 arguments,
+                canonical,
                 ..
             } => {
-                if canonical::winrt_type_from_name(namespace, name).is_none() {
+                if canonical.is_none() {
                     dependencies.insert((namespace.clone(), name.clone()));
                 }
                 for argument in arguments {
@@ -176,6 +180,10 @@ impl Type {
             name: trim_generic_arity(metadata_name).to_string(),
             arguments,
             guid,
+            canonical: canonical::winrt_type_from_name(
+                namespace,
+                trim_generic_arity(metadata_name),
+            ),
         })
     }
 
@@ -339,11 +347,10 @@ impl Type {
         match self {
             Self::Named {
                 value_type: true,
-                namespace,
-                name,
                 arguments,
+                canonical,
                 ..
-            } if arguments.is_empty() => canonical::winrt_type_from_name(namespace, name),
+            } if arguments.is_empty() => *canonical,
             _ => None,
         }
     }
@@ -739,10 +746,10 @@ impl Type {
                 namespace,
                 name,
                 arguments,
+                canonical,
                 ..
             } if arguments.is_empty() => {
-                canonical::winrt_type_from_name(namespace, name).is_some()
-                    || matches!(values.get(namespace, name), Some(Value::Enum(_)))
+                canonical.is_some() || matches!(values.get(namespace, name), Some(Value::Enum(_)))
             }
 
             _ => false,
@@ -757,13 +764,11 @@ impl Type {
             self,
             Self::Named {
                 value_type: true,
-                namespace,
-                name,
                 arguments,
+                canonical,
                 ..
             } if arguments.is_empty()
-                && canonical::winrt_type_from_name(namespace, name)
-                    .is_some_and(canonical::Type::is_guid)
+                && canonical.is_some_and(canonical::Type::is_guid)
         )
     }
 
@@ -780,10 +785,9 @@ impl Type {
                 namespace,
                 name,
                 arguments,
+                canonical,
                 ..
-            } if arguments.is_empty()
-                && canonical::winrt_type_from_name(namespace, name).is_none() =>
-            {
+            } if arguments.is_empty() && canonical.is_none() => {
                 values
                     .properties(namespace, name, &mut BTreeSet::new())?
                     .copyable

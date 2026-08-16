@@ -155,22 +155,7 @@ fn feature_names_inner<'a>(
         {
             continue;
         }
-        if (namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32."))
-            && matches!(
-                name,
-                "BOOL"
-                    | "PSTR"
-                    | "PWSTR"
-                    | "PCSTR"
-                    | "PCWSTR"
-                    | "BSTR"
-                    | "HSTRING"
-                    | "IUnknown"
-                    | "IInspectable"
-                    | "NTSTATUS"
-                    | "RPC_STATUS"
-            )
-        {
+        if canonical::native_core_from_name(namespace, name).is_some() {
             continue;
         }
         let feature = if let Some(stem) = namespace.strip_prefix("Windows.Win32.") {

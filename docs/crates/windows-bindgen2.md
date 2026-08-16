@@ -836,7 +836,7 @@ zero-difference package probe and the existing focused output tests.
 4. [x] Lower native call behavior into a call-plan model. Parameter projection, ABI arguments,
    return conversion, query handling, slices, aliases, and producer conversion are decided before
    token rendering.
-5. Complete canonical ABI classification. GUID, HRESULT, event tokens, strings, BOOL, COM roots,
+5. [x] Complete canonical ABI classification. GUID, HRESULT, event tokens, strings, BOOL, COM roots,
    and other canonical aliases should be recognized once during lowering rather than by repeated
    metadata-name checks.
 6. Separate package planning from filesystem changes. The generator should return modules,
@@ -894,3 +894,12 @@ Result conversion is part of the return plan, including identity, ownership tran
 instead of retaining a conversion flag on output parameters. Producer trait parameter shape and
 upcall borrow/copy conversion use a typed producer plan. The old `producer_by_ref` field and
 render-time interface, array, and by-reference classification are gone.
+
+Step 5 is complete. Native named types retain their canonical GUID,
+HRESULT, event-token, BOOL, string, status, and core projection classification from lowering.
+Rendering, call planning, alias normalization, and feature filtering consume that identity instead
+of repeating namespace and name lists. WinRT named types likewise retain canonical value identity,
+so dependency, primitive, copy, GUID, and event-token policy no longer reclassifies the name. Native
+COM interfaces and each retained hierarchy entry also carry root-interface identity, removing
+`IUnknown` and `IInspectable` name checks from rendering and implementation policy. Raw dependency
+tuples use the same canonical classifier where no lowered type object exists.

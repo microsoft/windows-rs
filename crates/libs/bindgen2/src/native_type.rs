@@ -324,6 +324,7 @@ impl NativeType {
                         native::Type::Named {
                             namespace: target_namespace,
                             name: target_name,
+                            ..
                         } if target_namespace.is_empty() || target_namespace == namespace => {
                             nested.iter().find_map(|value| {
                                 let Kind::Struct(value) = &value.kind else {
@@ -348,6 +349,7 @@ impl NativeType {
                             native::Type::Named {
                                 namespace: target_namespace,
                                 name: target_name,
+                                ..
                             } if target_namespace.is_empty() || target_namespace == namespace => {
                                 nested.iter().find_map(|value| {
                                     let Kind::Struct(value) = &value.kind else {
@@ -384,6 +386,7 @@ impl NativeType {
                             native::Type::Named {
                                 namespace: target_namespace,
                                 name: target_name,
+                                ..
                             } if target_namespace.is_empty() || target_namespace == namespace => {
                                 nested.iter().find_map(|value| {
                                     let Kind::Struct(value) = &value.kind else {
@@ -408,15 +411,13 @@ impl NativeType {
                         } else if let native::Type::Named {
                             namespace: target_namespace,
                             name: target_name,
+                            ..
                         } = ty
                             && target_namespace.is_empty()
                         {
                             traits.combine(
-                                native::Type::Named {
-                                    namespace: namespace.to_string(),
-                                    name: target_name.clone(),
-                                }
-                                .projected_traits(database, &mut stack)?,
+                                native::Type::named(namespace, target_name)
+                                    .projected_traits(database, &mut stack)?,
                             );
                         } else {
                             traits.combine(ty.projected_traits(database, &mut stack)?);
