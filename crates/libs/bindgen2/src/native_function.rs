@@ -64,14 +64,17 @@ impl Function {
             return quote! {};
         }
         let architectures = tokens::architectures(self.architectures);
-        let cfg = tokens::feature_cfg(
-            &self.namespace,
-            layout,
-            self.signature
-                .package_dependencies_for(projection)
-                .iter()
-                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
-        );
+        let dependencies = self
+            .signature
+            .package_dependencies_for(projection)
+            .iter()
+            .map(|(namespace, name)| (namespace.as_str(), name.as_str()));
+        let features = if projection.is_sys() {
+            tokens::feature_names(&self.namespace, layout, dependencies)
+        } else {
+            tokens::feature_names_with_winrt(&self.namespace, layout, dependencies)
+        };
+        let cfg = tokens::feature_cfg_set(&features, false);
         let module = &self.module;
         let abi = self.abi;
         let symbol = self.import_name.as_ref().map(|name| quote! { #name });
@@ -135,14 +138,16 @@ impl Function {
         if self.variadic && !projection.is_sys() {
             return BTreeSet::new();
         }
-        tokens::feature_names(
-            &self.namespace,
-            layout,
-            self.signature
-                .package_dependencies_for(projection)
-                .iter()
-                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
-        )
+        let dependencies = self
+            .signature
+            .package_dependencies_for(projection)
+            .iter()
+            .map(|(namespace, name)| (namespace.as_str(), name.as_str()));
+        if projection.is_sys() {
+            tokens::feature_names(&self.namespace, layout, dependencies)
+        } else {
+            tokens::feature_names_with_winrt(&self.namespace, layout, dependencies)
+        }
     }
 
     pub(super) fn supports_package_sys(&self) -> bool {

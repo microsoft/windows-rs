@@ -41,7 +41,7 @@ boundary, both layouts, and WinRT value, delegate, interface, and class projecti
 | Projection styles | Production proof | Public request builders select default, sys, and minimal output. |
 | Tool requests | Production migration | All 17 `tool_bindings` requests run through bindgen2. |
 | Build-script facade | Twenty consumers | Activation, overloads, constructors, composable classes, `NoException`, ref parameters, reference and time projections, benchmark and robot components and clients, context alignment, core-only APIs, and Win32 metadata match. |
-| Package output | In progress | The package backend runs, but 55 generated files still differ. `windows-sys` and WinRT source output match exactly. Rich Win32 has 53 differing files; source output has 160 missing and 145 extra line edges. The two manifests have 119 missing and 353 extra dependency edges. |
+| Package output | Exact parity | The package probe reports zero source, manifest, missing, extra, or dependency-edge differences for `windows` and `windows-sys`. |
 
 The current working implementation has about 14,400 lines of production Rust, roughly the same as
 legacy bindgen. Size is no longer evidence for the rewrite by itself; structure, parity, and
@@ -462,10 +462,10 @@ functions, enum members, and union `Default` implementations are each independen
 
 ## Critical assessment
 
-The direction remains better than the current generator, but it is not yet a replacement:
+Bindgen2 now satisfies the exact generated package parity gate, but replacing legacy bindgen still
+requires the remaining performance, CI, and migration gates:
 
-- bindgen2 remains smaller than bindgen, but native COM implementation policy is incomplete, and
-  it does not include complete rich native policy, file writing, or packages;
+- bindgen2 package output matches the committed `windows` and `windows-sys` crates exactly;
 - metadata2 owns data, uses checked typed identities, and avoids the leaked reader, but its source
   is already close to the old metadata crate's raw line count because parsing and differential
   tests are extensive;
@@ -476,10 +476,8 @@ The direction remains better than the current generator, but it is not yet a rep
   rules differ. Unifying them now would recreate the broad old `Type` enum;
 - `image.rs` and `semantic.rs` are the main metadata2 growth risks. New relationships should be
   split by concern rather than extending one semantic module indefinitely.
-- bindgen2 production source remains smaller than bindgen but package output does not yet match
-  the committed crates. The production 17-request `tool_bindings` run takes about 2.90 seconds
-  when warm; phase
-  timings keep request closure and shared-catalog costs visible as more consumers migrate;
+- the production 17-request `tool_bindings` run takes about 2.90 seconds when warm; phase timings
+  keep request closure and shared-catalog costs visible as more consumers migrate;
 - callable and interface projection are the main bindgen2 growth risks. Collection conveniences
   now live in `winrt_collection.rs`; future named policies should get similarly narrow modules
   rather than accumulating in `winrt_interface.rs` or `winrt_delegate.rs`.

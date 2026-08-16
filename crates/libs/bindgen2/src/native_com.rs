@@ -197,8 +197,6 @@ impl native_signature::Signature {
                 }
                 if matches!(return_kind, ReturnKind::Query { object, optional: true, .. } if position == object)
                 {
-                    let interface = quote! { *mut Option<T> };
-                    parameters.push(quote! { result__: #interface, });
                     arguments.push(quote! { result__ as *mut _ as *mut _ });
                     continue;
                 }
@@ -223,7 +221,10 @@ impl native_signature::Signature {
                 }
                 if let Some(len) = parameter.fixed_array_len() {
                     let pointee = parameter.ty.pointee();
-                    let element = pointee.unwrap_or(&parameter.ty);
+                    let slice_element = parameter.fixed_array_element();
+                    let element = slice_element
+                        .as_ref()
+                        .unwrap_or_else(|| pointee.unwrap_or(&parameter.ty));
                     let element = element.write_public(namespace, layout);
                     let len = proc_macro2::Literal::usize_unsuffixed(len);
                     let mutable =
@@ -231,7 +232,12 @@ impl native_signature::Signature {
                     let indirect = pointee.is_none();
                     if parameter.is_optional() && mutable {
                         parameters.push(quote! { #name: Option<&mut [#element; #len]>, });
-                        let argument = quote! { #name.map_or(core::ptr::null_mut(), |array| array.as_mut_ptr()) };
+                        let argument = quote! {
+                            #name.as_deref().map_or(
+                                core::ptr::null_mut(),
+                                |slice| slice.as_ptr().cast_mut()
+                            )
+                        };
                         arguments.push(if indirect {
                             quote! { core::mem::transmute(#argument) }
                         } else {
@@ -248,7 +254,12 @@ impl native_signature::Signature {
                         });
                     } else if mutable {
                         parameters.push(quote! { #name: &mut [#element; #len], });
-                        arguments.push(quote! { #name.as_mut_ptr() });
+                        let argument = quote! { #name.as_mut_ptr() };
+                        arguments.push(if indirect {
+                            quote! { core::mem::transmute(#argument) }
+                        } else {
+                            argument
+                        });
                     } else {
                         parameters.push(quote! { #name: &[#element; #len], });
                         let argument = quote! { #name.as_ptr() };
@@ -266,7 +277,11 @@ impl native_signature::Signature {
                     arguments.push(quote! { core::mem::transmute_copy(#name) });
                     continue;
                 }
-                if parameter.ty.pointee().is_some_and(native::Type::is_bstr) {
+                if parameter
+                    .ty
+                    .pointee()
+                    .is_some_and(|ty| ty.is_bstr() || ty.is_hstring())
+                {
                     let ty = parameter.ty.write_public(namespace, layout);
                     if parameter.is_optional() || parameter.is_optional_hint() {
                         parameters.push(quote! { #name: Option<#ty>, });
@@ -277,15 +292,27 @@ impl native_signature::Signature {
                     }
                     continue;
                 }
-                if let Some((_, interface)) = parameter.ty.interface_out() {
-                    let interface = interface.write_public(namespace, layout);
-                    let pointer = quote! { *mut Option<#interface> };
+                if parameter.ty.interface_out().is_some() {
+                    let pointer = parameter
+                        .ty
+                        .write_interface_pointer(namespace, layout, None)
+                        .unwrap();
                     if parameter.is_optional() || parameter.is_optional_hint() {
                         parameters.push(quote! { #name: Option<#pointer>, });
                         arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
                     } else {
                         parameters.push(quote! { #name: #pointer, });
-                        arguments.push(quote! { core::mem::transmute(#name) });
+                        arguments.push(
+                            if parameter
+                                .ty
+                                .interface_pointer_depth()
+                                .is_some_and(|depth| depth > 1)
+                            {
+                                quote! { #name as _ }
+                            } else {
+                                quote! { core::mem::transmute(#name) }
+                            },
+                        );
                     }
                     continue;
                 }
@@ -317,6 +344,10 @@ impl native_signature::Signature {
                         arguments.push(quote! { #name });
                     }
                 }
+            }
+
+            if matches!(return_kind, ReturnKind::Query { optional: true, .. }) {
+                parameters.push(quote! { result__: *mut Option<T>, });
             }
 
             let function_generics = if matches!(return_kind, ReturnKind::Query { .. }) {
@@ -419,7 +450,10 @@ impl native_signature::Signature {
                 arguments.push(argument);
             } else if let Some(len) = parameter.fixed_array_len() {
                 let pointee = parameter.ty.pointee();
-                let element = pointee.unwrap_or(&parameter.ty);
+                let slice_element = parameter.fixed_array_element();
+                let element = slice_element
+                    .as_ref()
+                    .unwrap_or_else(|| pointee.unwrap_or(&parameter.ty));
                 let element = element.write_public(namespace, layout);
                 let len = proc_macro2::Literal::usize_unsuffixed(len);
                 let indirect = pointee.is_none();
@@ -428,7 +462,7 @@ impl native_signature::Signature {
                     let argument = quote! {
                         #name.as_deref().map_or(
                             core::ptr::null_mut(),
-                            |array| array.as_ptr().cast_mut()
+                            |slice| slice.as_ptr().cast_mut()
                         )
                     };
                     arguments.push(if indirect {
@@ -439,7 +473,7 @@ impl native_signature::Signature {
                 } else if parameter.is_optional() {
                     parameters.push(quote! { #name: Option<&[#element; #len]> });
                     let argument =
-                        quote! { #name.map_or(core::ptr::null(), |array| array.as_ptr()) };
+                        quote! { #name.map_or(core::ptr::null(), |slice| slice.as_ptr()) };
                     arguments.push(if indirect {
                         quote! { core::mem::transmute(#argument) }
                     } else {
@@ -447,7 +481,12 @@ impl native_signature::Signature {
                     });
                 } else if parameter.is_mutable_pointer() {
                     parameters.push(quote! { #name: &mut [#element; #len] });
-                    arguments.push(quote! { #name.as_mut_ptr() });
+                    let argument = quote! { #name.as_mut_ptr() };
+                    arguments.push(if indirect {
+                        quote! { core::mem::transmute(#argument) }
+                    } else {
+                        argument
+                    });
                 } else {
                     parameters.push(quote! { #name: &[#element; #len] });
                     let argument = quote! { #name.as_ptr() };
@@ -457,19 +496,27 @@ impl native_signature::Signature {
                         argument
                     });
                 }
-            } else if let Some((mutable, interface)) = parameter.ty.interface_out() {
-                let interface = interface.write_public(namespace, layout);
-                let pointer = if mutable {
-                    quote! { *mut Option<#interface> }
-                } else {
-                    quote! { *const Option<#interface> }
-                };
+            } else if parameter.ty.interface_out().is_some() {
+                let pointer = parameter
+                    .ty
+                    .write_interface_pointer(namespace, layout, None)
+                    .unwrap();
                 if parameter.is_optional() || parameter.is_optional_hint() {
                     parameters.push(quote! { #name: Option<#pointer> });
                     arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
                 } else {
                     parameters.push(quote! { #name: #pointer });
-                    arguments.push(quote! { core::mem::transmute(#name) });
+                    arguments.push(
+                        if parameter
+                            .ty
+                            .interface_pointer_depth()
+                            .is_some_and(|depth| depth > 1)
+                        {
+                            quote! { #name as _ }
+                        } else {
+                            quote! { core::mem::transmute(#name) }
+                        },
+                    );
                 }
             } else if parameter.is_into_param(layout) {
                 let generic = tokens::ident(&format!("P{position}"));
@@ -485,6 +532,14 @@ impl native_signature::Signature {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: &#ty });
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
+            } else if parameter
+                .ty
+                .pointee()
+                .is_some_and(|ty| ty.is_bstr() || ty.is_hstring())
+            {
+                let ty = parameter.ty.write_public(namespace, layout);
+                parameters.push(quote! { #name: #ty });
+                arguments.push(quote! { core::mem::transmute(#name) });
             } else if parameter.is_optional_hint() {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: Option<#ty> });
@@ -588,7 +643,10 @@ impl native_signature::Signature {
                 arguments.push(argument);
             } else if let Some(len) = parameter.fixed_array_len() {
                 let pointee = parameter.ty.pointee();
-                let element = pointee.unwrap_or(&parameter.ty);
+                let slice_element = parameter.fixed_array_element();
+                let element = slice_element
+                    .as_ref()
+                    .unwrap_or_else(|| pointee.unwrap_or(&parameter.ty));
                 let element = element.write_public(namespace, layout);
                 let len = proc_macro2::Literal::usize_unsuffixed(len);
                 let indirect = pointee.is_none();
@@ -597,7 +655,7 @@ impl native_signature::Signature {
                     let argument = quote! {
                         #name.as_deref().map_or(
                             core::ptr::null_mut(),
-                            |array| array.as_ptr().cast_mut()
+                            |slice| slice.as_ptr().cast_mut()
                         )
                     };
                     arguments.push(if indirect {
@@ -608,7 +666,7 @@ impl native_signature::Signature {
                 } else if parameter.is_optional() {
                     parameters.push(quote! { #name: Option<&[#element; #len]> });
                     let argument =
-                        quote! { #name.map_or(core::ptr::null(), |array| array.as_ptr()) };
+                        quote! { #name.map_or(core::ptr::null(), |slice| slice.as_ptr()) };
                     arguments.push(if indirect {
                         quote! { core::mem::transmute(#argument) }
                     } else {
@@ -616,7 +674,12 @@ impl native_signature::Signature {
                     });
                 } else if parameter.is_mutable_pointer() {
                     parameters.push(quote! { #name: &mut [#element; #len] });
-                    arguments.push(quote! { #name.as_mut_ptr() });
+                    let argument = quote! { #name.as_mut_ptr() };
+                    arguments.push(if indirect {
+                        quote! { core::mem::transmute(#argument) }
+                    } else {
+                        argument
+                    });
                 } else {
                     parameters.push(quote! { #name: &[#element; #len] });
                     let argument = quote! { #name.as_ptr() };
@@ -626,19 +689,27 @@ impl native_signature::Signature {
                         argument
                     });
                 }
-            } else if let Some((mutable, interface)) = parameter.ty.interface_out() {
-                let interface = interface.write_public(namespace, layout);
-                let pointer = if mutable {
-                    quote! { *mut Option<#interface> }
-                } else {
-                    quote! { *const Option<#interface> }
-                };
+            } else if parameter.ty.interface_out().is_some() {
+                let pointer = parameter
+                    .ty
+                    .write_interface_pointer(namespace, layout, None)
+                    .unwrap();
                 if parameter.is_optional() || parameter.is_optional_hint() {
                     parameters.push(quote! { #name: Option<#pointer> });
                     arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
                 } else {
                     parameters.push(quote! { #name: #pointer });
-                    arguments.push(quote! { core::mem::transmute(#name) });
+                    arguments.push(
+                        if parameter
+                            .ty
+                            .interface_pointer_depth()
+                            .is_some_and(|depth| depth > 1)
+                        {
+                            quote! { #name as _ }
+                        } else {
+                            quote! { core::mem::transmute(#name) }
+                        },
+                    );
                 }
             } else if parameter.is_into_param(layout) {
                 let generic = tokens::ident(&format!("P{position}"));
@@ -654,6 +725,14 @@ impl native_signature::Signature {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: &#ty });
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
+            } else if parameter
+                .ty
+                .pointee()
+                .is_some_and(|ty| ty.is_bstr() || ty.is_hstring())
+            {
+                let ty = parameter.ty.write_public(namespace, layout);
+                parameters.push(quote! { #name: #ty });
+                arguments.push(quote! { core::mem::transmute(#name) });
             } else if parameter.is_optional_hint() {
                 let ty = parameter.ty.write_public(namespace, layout);
                 parameters.push(quote! { #name: Option<#ty> });
@@ -715,11 +794,16 @@ impl native_signature::Signature {
                 }
             })
         };
-        let body = if output.is_some() {
+        let body = if let Some((position, _)) = output {
+            let result = if self.parameters[position].retval_transmute {
+                quote! { core::mem::transmute(result__) }
+            } else {
+                quote! { result__ }
+            };
             quote! {
                 let mut result__ = core::mem::zeroed();
                 #method(#(#arguments),*);
-                result__
+                #result
             }
         } else {
             quote! { #method(#(#arguments),*) }
@@ -778,8 +862,6 @@ impl native_signature::Signature {
             }
             if matches!(return_kind, ReturnKind::Query { object, optional: true, .. } if position == object)
             {
-                let interface = quote! { *mut Option<T> };
-                parameters.push(quote! { result__: #interface, });
                 arguments.push(quote! { result__ as *mut _ as *mut _ });
                 continue;
             }
@@ -805,15 +887,22 @@ impl native_signature::Signature {
             }
             if let Some(len) = parameter.fixed_array_len() {
                 let pointee = parameter.ty.pointee();
-                let element = pointee.unwrap_or(&parameter.ty);
+                let slice_element = parameter.fixed_array_element();
+                let element = slice_element
+                    .as_ref()
+                    .unwrap_or_else(|| pointee.unwrap_or(&parameter.ty));
                 let element = element.write_public_with_owner(namespace, layout, Some(owner));
                 let len = proc_macro2::Literal::usize_unsuffixed(len);
                 let mutable = matches!(&parameter.ty, native::Type::Pointer { mutable: true, .. });
                 let indirect = pointee.is_none();
                 if parameter.is_optional() && mutable {
                     parameters.push(quote! { #name: Option<&mut [#element; #len]>, });
-                    let argument =
-                        quote! { #name.map_or(core::ptr::null_mut(), |array| array.as_mut_ptr()) };
+                    let argument = quote! {
+                        #name.as_deref().map_or(
+                            core::ptr::null_mut(),
+                            |slice| slice.as_ptr().cast_mut()
+                        )
+                    };
                     arguments.push(if indirect {
                         quote! { core::mem::transmute(#argument) }
                     } else {
@@ -830,7 +919,12 @@ impl native_signature::Signature {
                     });
                 } else if mutable {
                     parameters.push(quote! { #name: &mut [#element; #len], });
-                    arguments.push(quote! { #name.as_mut_ptr() });
+                    let argument = quote! { #name.as_mut_ptr() };
+                    arguments.push(if indirect {
+                        quote! { core::mem::transmute(#argument) }
+                    } else {
+                        argument
+                    });
                 } else {
                     parameters.push(quote! { #name: &[#element; #len], });
                     let argument = quote! { #name.as_ptr() };
@@ -850,7 +944,11 @@ impl native_signature::Signature {
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
                 continue;
             }
-            if parameter.ty.pointee().is_some_and(native::Type::is_bstr) {
+            if parameter
+                .ty
+                .pointee()
+                .is_some_and(|ty| ty.is_bstr() || ty.is_hstring())
+            {
                 let ty = parameter
                     .ty
                     .write_public_with_owner(namespace, layout, Some(owner));
@@ -863,19 +961,27 @@ impl native_signature::Signature {
                 }
                 continue;
             }
-            if let Some((mutable, interface)) = parameter.ty.interface_out() {
-                let interface = interface.write_public_with_owner(namespace, layout, Some(owner));
-                let pointer = if mutable {
-                    quote! { *mut Option<#interface> }
-                } else {
-                    quote! { *const Option<#interface> }
-                };
+            if parameter.ty.interface_out().is_some() {
+                let pointer = parameter
+                    .ty
+                    .write_interface_pointer(namespace, layout, Some(owner))
+                    .unwrap();
                 if parameter.is_optional() || parameter.is_optional_hint() {
                     parameters.push(quote! { #name: Option<#pointer>, });
                     arguments.push(quote! { #name.unwrap_or(core::mem::zeroed()) as _ });
                 } else {
                     parameters.push(quote! { #name: #pointer, });
-                    arguments.push(quote! { core::mem::transmute(#name) });
+                    arguments.push(
+                        if parameter
+                            .ty
+                            .interface_pointer_depth()
+                            .is_some_and(|depth| depth > 1)
+                        {
+                            quote! { #name as _ }
+                        } else {
+                            quote! { core::mem::transmute(#name) }
+                        },
+                    );
                 }
                 continue;
             }
@@ -921,8 +1027,16 @@ impl native_signature::Signature {
                     .ty
                     .write_public_with_owner(namespace, layout, Some(owner));
                 parameters.push(quote! { #name: #ty, });
-                arguments.push(quote! { #name });
+                if parameter.needs_method_cast() {
+                    arguments.push(quote! { #name as _ });
+                } else {
+                    arguments.push(quote! { #name });
+                }
             }
+        }
+
+        if matches!(return_kind, ReturnKind::Query { optional: true, .. }) {
+            parameters.push(quote! { result__: *mut Option<T>, });
         }
 
         if matches!(
@@ -1171,7 +1285,13 @@ impl native_signature::Signature {
             return quote! { #name: #ty, };
         }
         let ty = parameter.ty.write_public(namespace, layout);
-        if !parameter.has_array_info()
+        let producer_outref = !parameter.has_array_info()
+            || parameter
+                .array_count()
+                .and_then(|position| self.parameters.get(position))
+                .is_some_and(|count| !count.is_input_only());
+        if producer_outref
+            && parameter.ty.is_direct_interface_pointer()
             && let Some((mutable, interface)) = parameter.ty.interface_out()
         {
             let interface = interface.write_public(namespace, layout);
@@ -1180,6 +1300,14 @@ impl native_signature::Signature {
             } else {
                 quote! { #name: *const Option<#interface>, }
             }
+        } else if parameter.ty.interface_out().is_some() {
+            let ty = parameter
+                .ty
+                .write_interface_pointer(namespace, layout, None)
+                .unwrap();
+            quote! { #name: #ty, }
+        } else if parameter.is_interface_output() {
+            quote! { #name: windows_core::OutRef<#ty>, }
         } else if parameter.is_input_only() && parameter.ty.is_interface() {
             quote! { #name: windows_core::Ref<#ty>, }
         } else if parameter.producer_by_ref {
@@ -1217,7 +1345,7 @@ impl native_signature::Signature {
             .filter(|(position, _)| retval_position != Some(*position))
             .map(|(_, parameter)| {
                 let name = tokens::ident(&parameter.name);
-                if parameter.producer_by_ref {
+                if parameter.producer_by_ref || parameter.is_interface_output() {
                     quote! { core::mem::transmute(&#name) }
                 } else {
                     quote! { core::mem::transmute_copy(&#name) }

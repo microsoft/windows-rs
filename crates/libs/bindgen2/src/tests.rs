@@ -1442,6 +1442,140 @@ fn rich_native_aligned_structs_retain_supported_traits() {
 }
 
 #[test]
+fn rich_native_structs_retain_traits_from_aligned_fields() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .native_types()
+        .find_map(|ty| {
+            let ty = ty.unwrap();
+            (ty.name() == "XSAVE_AREA").then_some(ty)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("derive (Clone , Copy , Debug , Default , Eq , PartialEq)"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_packed_structs_respect_copyability() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    for (name, expected) in [
+        ("DBBINDING", "derive (Default)"),
+        ("DBINDEXCOLUMNDESC", "derive (Clone , Copy , Default)"),
+    ] {
+        let output = generator
+            .win32_items()
+            .native_types()
+            .find_map(|ty| {
+                let ty = ty.unwrap();
+                (ty.name() == name).then_some(ty)
+            })
+            .unwrap()
+            .write_package()
+            .to_string();
+        assert!(output.contains(expected), "{output}");
+    }
+}
+
+#[test]
+fn rich_native_string_pointers_do_not_own_the_pointee() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .native_types()
+        .find_map(|ty| {
+            let ty = ty.unwrap();
+            (ty.name() == "RMTPACK").then_some(ty)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("pub rgBSTR : * mut windows_core :: BSTR"),
+        "{output}"
+    );
+    assert!(
+        !output.contains("* mut core :: mem :: ManuallyDrop < windows_core :: BSTR >"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_interface_pointer_depth_is_preserved() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .functions()
+        .find_map(|function| {
+            let function = function.unwrap();
+            (function.name() == "MFTEnumEx").then_some(function)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("pppmftactivate : * mut * mut Option < IMFActivate >"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_union_string_fields_are_wrapped_once() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .native_types()
+        .find_map(|ty| {
+            let ty = ty.unwrap();
+            (ty.name() == "PROPVARIANT").then_some(ty)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("pub bstrVal : core :: mem :: ManuallyDrop < windows_core :: BSTR >"),
+        "{output}"
+    );
+    assert!(
+        !output.contains("ManuallyDrop < core :: mem :: ManuallyDrop"),
+        "{output}"
+    );
+}
+
+#[test]
 fn rich_native_void_double_pointer_typedefs_are_wrappers() {
     let metadata = Metadata::from_images([
         Image::new(windows_default::WINRT).unwrap(),
@@ -1716,6 +1850,28 @@ fn rich_native_optional_bstr_pointers_and_string_aliases() {
     assert!(
         interface.contains("pszpronunciation : & PCSPPHONEID"),
         "{interface}"
+    );
+}
+
+#[test]
+fn rich_native_bstr_pointers_transmute_at_free_function_abi() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let output = metadata
+        .generator(Request::all().package())
+        .unwrap()
+        .win32_items()
+        .function("Windows.Win32", "SysReAllocString")
+        .unwrap()
+        .write_context(Layout::Package, Projection::Default)
+        .to_string();
+
+    assert!(
+        output.contains("core :: mem :: transmute (pbstr)"),
+        "{output}"
     );
 }
 
@@ -2183,6 +2339,123 @@ fn rich_native_copy_proof_resolves_projected_nested_layouts() {
         output.contains(
             "derive (Clone , Copy , Debug , PartialEq , Eq , Default)] pub struct KSPROPERTY_COMPOSIT_ON"
         ),
+        "{output}"
+    );
+}
+
+#[test]
+fn native_byte_counted_wide_strings_keep_explicit_lengths() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let items = generator.win32_items();
+
+    let wide = items
+        .function("Windows.Win32", "WTSSendMessageW")
+        .unwrap()
+        .write_context(Layout::Package, Projection::Default)
+        .to_string();
+    assert!(wide.contains("ptitle : P2 , titlelength : u32"), "{wide}");
+    assert!(
+        wide.contains("P2 : windows_core :: Param < windows_core :: PCWSTR >"),
+        "{wide}"
+    );
+
+    let ansi = items
+        .function("Windows.Win32", "WTSSendMessageA")
+        .unwrap()
+        .write_context(Layout::Package, Projection::Default)
+        .to_string();
+    assert!(ansi.contains("ptitle : & [u8]"), "{ansi}");
+}
+
+#[test]
+fn native_fixed_mutable_string_buffers_use_character_elements() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let items = generator.win32_items();
+
+    for (name, element) in [
+        ("ExtractAssociatedIconA", "u8"),
+        ("ExtractAssociatedIconW", "u16"),
+    ] {
+        let output = items
+            .function("Windows.Win32", name)
+            .unwrap()
+            .write_context(Layout::Package, Projection::Default)
+            .to_string();
+        assert!(
+            output.contains(&format!("psziconpath : & mut [{element} ; 128]")),
+            "{output}"
+        );
+        assert!(
+            output.contains("core :: mem :: transmute (psziconpath . as_mut_ptr ())"),
+            "{output}"
+        );
+    }
+}
+
+#[test]
+fn rich_native_producer_query_arrays_use_outref() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "ID3D11DeviceContext").then_some(interface)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("ppclassinstances : windows_core :: OutRef < ID3D11ClassInstance >"),
+        "{output}"
+    );
+    assert!(
+        output.contains("ppshaderresourceviews : * mut Option < ID3D11ShaderResourceView >"),
+        "{output}"
+    );
+}
+
+#[test]
+fn rich_native_producer_interface_outputs_use_outref() {
+    let metadata = Metadata::from_images([
+        Image::new(windows_default::WINRT).unwrap(),
+        Image::new(windows_default::WIN32).unwrap(),
+    ])
+    .unwrap();
+    let generator = metadata.generator(Request::all().package()).unwrap();
+    let output = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "IMFRemoteDesktopPlugin").then_some(interface)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("ptopology : windows_core :: OutRef < IMFTopology >"),
+        "{output}"
+    );
+    assert!(
+        output.contains("core :: mem :: transmute (& ptopology)"),
         "{output}"
     );
 }
@@ -5367,6 +5640,79 @@ fn win32_apis_selection_has_exact_corpus_counts() {
         ],
         [30_109, 83_641, 14_559, 4_290]
     );
+}
+
+#[test]
+fn chained_pointer_alias_arrays_project_as_slices() {
+    let generator = generator();
+    let output = generator
+        .win32_items()
+        .functions()
+        .find_map(|function| {
+            let function = function.unwrap();
+            (function.name() == "AuditSetSystemPolicy").then_some(function)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("pauditpolicy : & [PCAUDIT_POLICY_INFORMATION]"),
+        "{output}"
+    );
+
+    let output = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "IShellBrowser").then_some(interface)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("lpbuttons : Option < & [LPTBBUTTONSB] >"),
+        "{output}"
+    );
+}
+
+#[test]
+fn noncopyable_native_alias_returns_transmute() {
+    let generator = generator();
+    let output = generator
+        .win32_items()
+        .functions()
+        .find_map(|function| {
+            let function = function.unwrap();
+            (function.name() == "VariantInit").then_some(function)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(
+        output.contains("core :: mem :: transmute (result__)"),
+        "{output}"
+    );
+}
+
+#[test]
+fn com_method_pointer_aliases_cast_to_abi() {
+    let generator = generator();
+    let output = generator
+        .win32_items()
+        .interfaces()
+        .find_map(|interface| {
+            let interface = interface.unwrap();
+            (interface.name() == "IPrintDialogServices").then_some(interface)
+        })
+        .unwrap()
+        .write_package()
+        .to_string();
+
+    assert!(output.contains("pdevmode as _"), "{output}");
 }
 
 #[test]

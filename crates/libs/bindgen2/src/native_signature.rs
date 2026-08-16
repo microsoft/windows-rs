@@ -24,6 +24,8 @@ pub(super) struct Parameter {
     pub(super) retval_transmute: bool,
     pub(super) producer_by_ref: bool,
     pub(super) ty: native::Type,
+    pointer_alias: Option<native::Type>,
+    pointer_alias_cast: bool,
     hint: ParamHint,
     pointer_cast: bool,
 }
@@ -60,6 +62,10 @@ impl Parameter {
         self.flags & 0x0002 != 0 && self.flags & 0x0001 == 0
     }
 
+    pub(super) fn is_interface_output(&self) -> bool {
+        !self.is_input_only() && self.ty.is_interface()
+    }
+
     pub(super) fn is_optional(&self) -> bool {
         self.flags & 0x0010 != 0
     }
@@ -85,8 +91,21 @@ impl Parameter {
         self.pointer_cast || (matches!(self.hint, ParamHint::ValueType) && !self.is_input_only())
     }
 
+    pub(super) fn needs_method_cast(&self) -> bool {
+        self.needs_cast() || self.pointer_alias_cast
+    }
+
     pub(super) fn has_array_info(&self) -> bool {
         self.array.is_some()
+    }
+
+    pub(super) fn array_count(&self) -> Option<usize> {
+        match self.array {
+            Some(ArrayInfo::ElementsParam(position) | ArrayInfo::BytesParam(position)) => {
+                Some(position)
+            }
+            _ => None,
+        }
     }
 
     pub(super) fn is_mutable_pointer(&self) -> bool {
@@ -109,19 +128,26 @@ impl Parameter {
                     Some(native::Type::U16)
                 }
             }
-            ParamHint::Slice => self.ty.pointee().map(|element| {
-                if element == &native::Type::Void {
-                    native::Type::U8
-                } else {
-                    element.clone()
-                }
-            }),
+            ParamHint::Slice => self
+                .ty
+                .pointee()
+                .map(|element| {
+                    if element == &native::Type::Void {
+                        native::Type::U8
+                    } else {
+                        element.clone()
+                    }
+                })
+                .or_else(|| self.pointer_alias.as_ref().map(|_| self.ty.clone())),
             _ => None,
         }
     }
 
     pub(super) fn slice_requires_transmute(&self) -> bool {
         if self.ty.is_const_string() || self.ty.mutable_string_pointer() {
+            return true;
+        }
+        if self.pointer_alias.is_some() {
             return true;
         }
         let Some(element) = self.slice_element() else {
@@ -144,6 +170,39 @@ impl Parameter {
             ParamHint::FixedArray(len) => Some(len),
             _ => None,
         }
+    }
+
+    pub(super) fn fixed_array_element(&self) -> Option<native::Type> {
+        if !matches!(self.hint, ParamHint::FixedArray(_)) || !self.ty.mutable_string_pointer() {
+            return None;
+        }
+        if matches!(
+            self.ty,
+            native::Type::Named { ref name, .. } if name == "PSTR"
+        ) {
+            Some(native::Type::U8)
+        } else {
+            Some(native::Type::U16)
+        }
+    }
+}
+
+fn core_manifest_dependencies(ty: &native::Type) -> BTreeSet<(String, String)> {
+    match ty {
+        native::Type::Array { element, .. } | native::Type::Pointer { element, .. } => {
+            core_manifest_dependencies(element)
+        }
+        native::Type::Interface {
+            namespace,
+            name,
+            arguments,
+        } if arguments.is_empty() && native::is_core_projection(namespace, name) => {
+            BTreeSet::from([(namespace.clone(), name.clone())])
+        }
+        native::Type::Named { namespace, name } if native::is_core_projection(namespace, name) => {
+            BTreeSet::from([(namespace.clone(), name.clone())])
+        }
+        _ => BTreeSet::new(),
     }
 }
 
@@ -206,6 +265,18 @@ impl Signature {
                     ty,
                     flags & 0x0002 == 0,
                 )?;
+                let resolved_pointer_alias = ty.resolved_pointer_alias(database)?;
+                let pointer_alias_cast = if let Some(native::Type::Pointer {
+                    mutable: true,
+                    element,
+                }) = &resolved_pointer_alias
+                {
+                    !element.is_primitive(database)?
+                        && !ty.resolves_to_delegate(database, &mut BTreeSet::new())?
+                } else {
+                    false
+                };
+                let pointer_alias = array.is_some().then_some(resolved_pointer_alias).flatten();
                 let retval_candidate = if explicit_retval
                     || (flags & 0x0002 != 0
                         && flags & 0x0001 == 0
@@ -238,9 +309,14 @@ impl Signature {
                     .map(|ty| ty.projected_traits(database, &mut BTreeSet::new()))
                     .transpose()?
                     .is_none_or(|traits| traits.copy);
-                let retval_transmute = ty.pointee().is_some_and(|ty| {
-                    ty.is_interface() || ty.is_bstr() || ty.is_hstring() || !pointee_copyable
-                });
+                let retval_transmute = if let Some(ty) = ty.pointee() {
+                    ty.is_interface()
+                        || ty.is_bstr()
+                        || ty.is_hstring()
+                        || (!ty.is_void_alias(database)? && !pointee_copyable)
+                } else {
+                    false
+                };
                 let hint = if let Some(ArrayInfo::ElementsConst(len)) = array
                     && (flags & 0x0002 == 0 || flags & 0x0001 != 0)
                 {
@@ -275,6 +351,8 @@ impl Signature {
                     retval_transmute,
                     producer_by_ref,
                     ty,
+                    pointer_alias,
+                    pointer_alias_cast,
                     hint,
                     pointer_cast,
                 })
@@ -308,20 +386,21 @@ impl Signature {
             if references[count] != 1
                 || parameters[position].is_output_only()
                 || !parameters[count].is_input_only()
-                || parameters[count].is_optional()
                 || !parameters[count].ty.is_integer(database)?
                 || (!matches!(parameters[position].ty, native::Type::Pointer { .. })
+                    && parameters[position].pointer_alias.is_none()
                     && !parameters[position].ty.is_const_string()
                     && !parameters[position].ty.mutable_string_pointer())
             {
                 continue;
             }
             if matches!(parameters[position].array, Some(ArrayInfo::BytesParam(_))) {
-                if !parameters[position].ty.is_const_string()
-                    && !matches!(
-                        parameters[position].ty.pointee(),
-                        Some(native::Type::I8 | native::Type::U8)
-                    )
+                if parameters[position].ty.is_pcwstr()
+                    || (!parameters[position].ty.is_const_string()
+                        && !matches!(
+                            parameters[position].ty.pointee(),
+                            Some(native::Type::I8 | native::Type::U8)
+                        ))
                 {
                     continue;
                 }
@@ -340,10 +419,10 @@ impl Signature {
         let no_return = return_type == native::Type::Void
             && method.find_attribute("DoesNotReturnAttribute")?.is_some();
         let mut package_dependencies = return_type.package_dependencies(database, dependencies)?;
-        let mut manifest_dependencies = return_type.manifest_dependencies(database)?;
+        let mut manifest_dependencies = core_manifest_dependencies(&return_type);
         for parameter in &parameters {
             package_dependencies.extend(parameter.ty.package_dependencies(database, dependencies)?);
-            manifest_dependencies.extend(parameter.ty.manifest_dependencies(database)?);
+            manifest_dependencies.extend(core_manifest_dependencies(&parameter.ty));
         }
         let package_sys_dependencies = dependencies.package_sys_dependencies(&package_dependencies);
         Ok(Self {
@@ -422,6 +501,15 @@ impl Signature {
                 let ty = interface.write_public(namespace, layout);
                 quote! { #name: windows_core::OutRef<#ty> }
             } else if parameter.is_input_only() && parameter.ty.is_interface() {
+                let ty = parameter.ty.write_public(namespace, layout);
+                quote! { #name: windows_core::Ref<#ty> }
+            } else if parameter.is_input_only() && parameter.ty.interface_out().is_some() {
+                let ty = parameter
+                    .ty
+                    .write_interface_pointer(namespace, layout, None)
+                    .unwrap();
+                quote! { #name: #ty }
+            } else if parameter.is_input_only() && parameter.ty.is_hstring() {
                 let ty = parameter.ty.write_public(namespace, layout);
                 quote! { #name: windows_core::Ref<#ty> }
             } else {

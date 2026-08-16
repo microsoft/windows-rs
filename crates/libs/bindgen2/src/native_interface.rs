@@ -11,6 +11,8 @@ pub struct NativeInterface {
     base: Option<(String, String)>,
     hierarchy: Vec<(String, String)>,
     hierarchy_method_dependencies: BTreeSet<(String, String)>,
+    manifest_dependencies: BTreeSet<(String, String)>,
+    sys_manifest_dependencies: BTreeSet<(String, String)>,
     com_identity: bool,
     guid: Option<guid::Guid>,
     methods: Vec<Method>,
@@ -36,12 +38,15 @@ impl NativeInterface {
         let hierarchy =
             collect_interface_bases(database, definition.entity(), bases, &mut BTreeSet::new())?;
         let mut hierarchy_method_dependencies = BTreeSet::new();
+        let mut hierarchy_manifest_dependencies = BTreeSet::new();
         for (namespace, name) in &hierarchy {
             if matches!(name.as_str(), "IUnknown" | "IInspectable") {
                 continue;
             }
             hierarchy_method_dependencies
                 .extend(dependencies.interface_method_dependencies(database, namespace, name)?);
+            hierarchy_manifest_dependencies
+                .extend(dependencies.interface_manifest_dependencies(database, namespace, name)?);
         }
         let base = hierarchy.last().cloned();
         let own_guid = if name == "IUnknown" {
@@ -57,7 +62,7 @@ impl NativeInterface {
             false
         };
         let mut names = BTreeMap::<String, u32>::new();
-        let methods = definition
+        let methods: Vec<Method> = definition
             .methods()?
             .map(|method| {
                 let metadata_name = method.name()?.to_string();
@@ -91,6 +96,17 @@ impl NativeInterface {
                 })
             })
             .collect::<Result<_, Error>>()?;
+        let hierarchy_dependencies = hierarchy.iter().cloned().collect::<BTreeSet<_>>();
+        let mut method_manifest_dependencies = hierarchy_manifest_dependencies;
+        for method in &methods {
+            method_manifest_dependencies
+                .extend(method.signature.manifest_dependencies().iter().cloned());
+        }
+        let mut manifest_dependencies = hierarchy_dependencies.clone();
+        manifest_dependencies.extend(method_manifest_dependencies.iter().cloned());
+        let mut sys_manifest_dependencies =
+            dependencies.package_sys_dependencies(&hierarchy_dependencies);
+        sys_manifest_dependencies.extend(method_manifest_dependencies);
         Ok(Self {
             architectures: definition.architectures()?,
             namespace,
@@ -108,6 +124,8 @@ impl NativeInterface {
             },
             hierarchy,
             hierarchy_method_dependencies,
+            manifest_dependencies,
+            sys_manifest_dependencies,
             methods,
         })
     }
@@ -677,21 +695,23 @@ impl NativeInterface {
         )
     }
 
-    pub(super) fn package_features(&self, layout: Layout) -> BTreeSet<String> {
-        let mut features = self.class_features(layout);
-        for method in &self.methods {
-            features.extend(tokens::feature_names(
-                &self.namespace,
-                layout,
-                method
-                    .signature
-                    .manifest_dependencies()
-                    .iter()
-                    .filter(|(namespace, name)| native::core_projection(namespace, name).is_none())
-                    .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
-            ));
-        }
-        features
+    pub(super) fn package_features(
+        &self,
+        layout: Layout,
+        projection: Projection,
+    ) -> BTreeSet<String> {
+        let dependencies = if projection.is_sys() {
+            &self.sys_manifest_dependencies
+        } else {
+            &self.manifest_dependencies
+        };
+        tokens::feature_names(
+            &self.namespace,
+            layout,
+            dependencies
+                .iter()
+                .map(|(namespace, name)| (namespace.as_str(), name.as_str())),
+        )
     }
 
     fn method_features(

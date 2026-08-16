@@ -14,6 +14,7 @@ struct Item {
     variant: i32,
     tokens: TokenStream,
     features: BTreeSet<String>,
+    manifest_only: bool,
 }
 
 #[derive(Default)]
@@ -97,6 +98,7 @@ impl Generator {
                         self.members(item.definition().entity()),
                     )?,
                     features: BTreeSet::new(),
+                    manifest_only: false,
                 });
         }
         for entry in self
@@ -136,6 +138,7 @@ impl Generator {
                     variant: 0,
                     tokens,
                     features,
+                    manifest_only: false,
                 });
         }
         for entry in self
@@ -165,6 +168,7 @@ impl Generator {
                         &self.winrt_members,
                     )?,
                     features: BTreeSet::new(),
+                    manifest_only: false,
                 });
         }
         for entry in self
@@ -195,6 +199,7 @@ impl Generator {
                         self.winrt_explicit_items.contains(&entry.entity),
                     )?,
                     features: BTreeSet::new(),
+                    manifest_only: false,
                 });
         }
 
@@ -208,10 +213,11 @@ impl Generator {
                     .or_default()
                     .push(Item {
                         name: name.to_string(),
-                        kind,
+                        kind: if kind == u8::MAX { 1 } else { kind },
                         variant,
                         tokens,
                         features,
+                        manifest_only: kind == u8::MAX,
                     });
             },
         )?;
@@ -242,7 +248,7 @@ impl Generator {
             for namespace in namespaces.iter().rev() {
                 let has_items = modules
                     .get(namespace)
-                    .is_some_and(|items| !items.is_empty());
+                    .is_some_and(|items| items.iter().any(|item| !item.manifest_only));
                 let has_children =
                     direct_children(&namespaces, namespace).any(|child| !prunable.contains(child));
                 if !has_items && !has_children {
@@ -297,7 +303,10 @@ impl Generator {
                 let mut shadows = BTreeMap::<&str, BTreeSet<String>>::new();
                 for child in &children {
                     for item in modules.get(*child).into_iter().flatten() {
-                        if item.kind == 2 && prelude_shadow(&item.name).is_some() {
+                        if !item.manifest_only
+                            && item.kind == 2
+                            && prelude_shadow(&item.name).is_some()
+                        {
                             shadows
                                 .entry(item.name.as_str())
                                 .or_default()
@@ -325,8 +334,15 @@ impl Generator {
                 let mut dependencies = BTreeSet::new();
                 for item in items.drain(..) {
                     dependencies.extend(item.features);
-                    tokens.extend(item.tokens);
+                    if !item.manifest_only {
+                        tokens.extend(item.tokens);
+                    }
                 }
+                dependencies.extend(
+                    native_manifest_dependencies(namespace)
+                        .iter()
+                        .map(|dependency| (*dependency).to_string()),
+                );
                 namespace_dependencies.insert(namespace.clone(), dependencies);
             }
 
@@ -412,6 +428,34 @@ fn compare_items(left: &Item, right: &Item) -> Ordering {
     ))
 }
 
+fn native_manifest_dependencies(namespace: &str) -> &'static [&'static str] {
+    match namespace {
+        "Windows.Win32.dbgprop" => &["wtypes", "wtypesbase"],
+        "Windows.Win32.filter" => &["wtypes"],
+        "Windows.Win32.iketypes" => &["winnt"],
+        "Windows.Win32.iprtrmib" => &["nldef"],
+        "Windows.Win32.ipsectypes" => &["winnt"],
+        "Windows.Win32.msctf" => &["wtypes", "wtypesbase"],
+        "Windows.Win32.ntddk" => &["excpt"],
+        "Windows.Win32.oledb" => &["minwindef", "objidl"],
+        "Windows.Win32.sapi" => &["wtypes", "wtypesbase"],
+        "Windows.Win32.searchapi" => &["oaidl", "objidl", "objidlbase", "wtypes"],
+        "Windows.Win32.shdeprecated" => &["oaidl"],
+        "Windows.Win32.spatialaudiometadata" => &[
+            "minwindef",
+            "oaidl",
+            "objidl",
+            "objidlbase",
+            "wtypes",
+            "wtypesbase",
+        ],
+        "Windows.Win32.textstor" => &["wtypes", "wtypesbase"],
+        "Windows.Win32.uiautomationcore" => &["wtypes", "wtypesbase"],
+        "Windows.Win32.wbemprov" => &["wtypes", "wtypesbase"],
+        _ => &[],
+    }
+}
+
 fn direct_children<'a>(
     namespaces: &'a BTreeSet<String>,
     namespace: &'a str,
@@ -455,6 +499,7 @@ mod tests {
             variant,
             tokens: TokenStream::new(),
             features: BTreeSet::new(),
+            manifest_only: false,
         };
         let mut items = [item(5), item(2)];
         items.sort_by(compare_items);

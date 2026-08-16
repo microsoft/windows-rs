@@ -10,6 +10,7 @@ use std::{
 pub(super) struct DependencyCache {
     values: RwLock<BTreeMap<(String, String), BTreeSet<(String, String)>>>,
     interface_methods: RwLock<BTreeMap<(String, String), BTreeSet<(String, String)>>>,
+    interface_manifest: RwLock<BTreeMap<(String, String), BTreeSet<(String, String)>>>,
     interface_bases: BTreeMap<(String, String), BTreeSet<(String, String)>>,
     sys_namespaces: BTreeSet<String>,
 }
@@ -34,6 +35,7 @@ impl DependencyCache {
         Ok(Self {
             values: RwLock::default(),
             interface_methods: RwLock::default(),
+            interface_manifest: RwLock::default(),
             interface_bases,
             sys_namespaces,
         })
@@ -74,6 +76,32 @@ impl DependencyCache {
             }
         }
         self.interface_methods
+            .write()
+            .unwrap()
+            .insert(key, dependencies.clone());
+        Ok(dependencies)
+    }
+
+    pub(super) fn interface_manifest_dependencies(
+        &self,
+        database: &Database,
+        namespace: &str,
+        name: &str,
+    ) -> Result<BTreeSet<(String, String)>, Error> {
+        let key = (namespace.to_string(), name.to_string());
+        if let Some(dependencies) = self.interface_manifest.read().unwrap().get(&key) {
+            return Ok(dependencies.clone());
+        }
+        let mut dependencies = BTreeSet::new();
+        let owner = format!("{namespace}.{name}");
+        for entity in database.type_definitions(namespace, name) {
+            let definition = database.definition(*entity).unwrap();
+            for method in definition.methods()? {
+                let signature = native_signature::Signature::lower(database, self, method, &owner)?;
+                dependencies.extend(signature.manifest_dependencies().iter().cloned());
+            }
+        }
+        self.interface_manifest
             .write()
             .unwrap()
             .insert(key, dependencies.clone());
@@ -550,6 +578,8 @@ impl Type {
                 let element = if element.is_interface() && !projection.is_sys() {
                     let interface = element.write_public(namespace, layout);
                     quote! { Option<#interface> }
+                } else if !projection.is_sys() && (element.is_bstr() || element.is_hstring()) {
+                    element.write_public(namespace, layout)
                 } else {
                     element.write_field_projection_owner(namespace, owner, layout, projection)
                 };
@@ -684,6 +714,51 @@ impl Type {
         element.is_interface().then_some((*mutable, element))
     }
 
+    pub(super) fn interface_pointer_depth(&self) -> Option<usize> {
+        let mut depth = 0;
+        let mut ty = self;
+        while let Self::Pointer { element, .. } = ty {
+            depth += 1;
+            ty = element;
+        }
+        ty.is_interface().then_some(depth)
+    }
+
+    pub(super) fn write_interface_pointer(
+        &self,
+        namespace: &str,
+        layout: Layout,
+        owner: Option<&str>,
+    ) -> Option<TokenStream> {
+        fn write(
+            ty: &Type,
+            namespace: &str,
+            layout: Layout,
+            owner: Option<&str>,
+        ) -> Option<TokenStream> {
+            match ty {
+                Type::Interface { .. } => {
+                    let interface = ty.write_public_with_owner(namespace, layout, owner);
+                    Some(quote! { Option<#interface> })
+                }
+                Type::Pointer { mutable, element } => {
+                    let element = write(element, namespace, layout, owner)?;
+                    Some(if *mutable {
+                        quote! { *mut #element }
+                    } else {
+                        quote! { *const #element }
+                    })
+                }
+                _ => None,
+            }
+        }
+        write(self, namespace, layout, owner)
+    }
+
+    pub(super) fn is_direct_interface_pointer(&self) -> bool {
+        self.pointee().is_some_and(Self::is_interface)
+    }
+
     pub(super) fn producer_by_ref(&self, database: &Database) -> Result<bool, Error> {
         if self.is_bstr()
             || self.is_hstring()
@@ -714,7 +789,11 @@ impl Type {
                 &format!("{namespace}.{name}"),
                 field.signature()?,
             )?;
-            if field.is_const_string() || field.is_bstr() || field.is_hstring() {
+            if field.is_const_string()
+                || field.mutable_string_pointer()
+                || field.is_bstr()
+                || field.is_hstring()
+            {
                 return Ok(true);
             }
             return Ok(!field.producer_primitive(database, &mut BTreeSet::new())?);
@@ -893,11 +972,15 @@ impl Type {
     }
 
     pub(super) fn is_noncanonical_pointer_alias(&self, database: &Database) -> Result<bool, Error> {
+        Ok(self.pointer_alias(database)?.is_some())
+    }
+
+    pub(super) fn pointer_alias(&self, database: &Database) -> Result<Option<Self>, Error> {
         let Self::Named { namespace, name } = self else {
-            return Ok(false);
+            return Ok(None);
         };
         if is_core_projection(namespace, name) {
-            return Ok(false);
+            return Ok(None);
         }
         for entity in database.type_definitions(namespace, name) {
             let definition = database.definition(*entity).unwrap();
@@ -924,10 +1007,58 @@ impl Type {
                 Self::Pointer { ref element, .. } if element.as_ref() != &Self::Void
             ) && !ty.is_mutable_void_double_pointer()
             {
-                return Ok(true);
+                return Ok(Some(ty));
             }
         }
-        Ok(false)
+        Ok(None)
+    }
+
+    pub(super) fn resolved_pointer_alias(
+        &self,
+        database: &Database,
+    ) -> Result<Option<Self>, Error> {
+        self.resolved_pointer_alias_inner(database, &mut BTreeSet::new())
+    }
+
+    fn resolved_pointer_alias_inner(
+        &self,
+        database: &Database,
+        stack: &mut BTreeSet<(String, String)>,
+    ) -> Result<Option<Self>, Error> {
+        if let Some(ty) = self.pointer_alias(database)? {
+            return Ok(Some(ty));
+        }
+        let Self::Named { namespace, name } = self else {
+            return Ok(None);
+        };
+        let key = (namespace.clone(), name.clone());
+        if !stack.insert(key.clone()) {
+            return Ok(None);
+        }
+        for entity in database.type_definitions(namespace, name) {
+            let definition = database.definition(*entity).unwrap();
+            if definition.category()? != TypeCategory::Struct
+                || !definition.has_attribute("NativeTypedefAttribute")?
+            {
+                continue;
+            }
+            let fields = definition.fields()?.collect::<Vec<_>>();
+            let [field] = fields.as_slice() else {
+                continue;
+            };
+            let ty = Self::lower(
+                database,
+                field.entity().file(),
+                definition.name()?,
+                field.signature()?,
+            )?;
+            if let Some(ty) = ty.resolved_pointer_alias_inner(database, stack)? {
+                stack.remove(&key);
+                return Ok(Some(ty));
+            }
+        }
+        stack.remove(&key);
+        Ok(None)
     }
 
     pub(super) fn is_primitive(&self, database: &Database) -> Result<bool, Error> {
@@ -1087,6 +1218,51 @@ impl Type {
                 if canonical::type_from_name(namespace, name)
                     .is_some_and(canonical::Type::is_hresult)
         )
+    }
+
+    pub(super) fn is_void_alias(&self, database: &Database) -> Result<bool, Error> {
+        self.is_void_alias_inner(database, &mut BTreeSet::new())
+    }
+
+    fn is_void_alias_inner(
+        &self,
+        database: &Database,
+        stack: &mut BTreeSet<(String, String)>,
+    ) -> Result<bool, Error> {
+        if self == &Self::Void {
+            return Ok(true);
+        }
+        let Self::Named { namespace, name } = self else {
+            return Ok(false);
+        };
+        let key = (namespace.clone(), name.clone());
+        if !stack.insert(key.clone()) {
+            return Ok(false);
+        }
+        for entity in database.type_definitions(namespace, name) {
+            let definition = database.definition(*entity).unwrap();
+            if definition.category()? != TypeCategory::Struct
+                || !definition.has_attribute("NativeTypedefAttribute")?
+            {
+                continue;
+            }
+            let fields = definition.fields()?.collect::<Vec<_>>();
+            let [field] = fields.as_slice() else {
+                continue;
+            };
+            let ty = Self::lower(
+                database,
+                field.entity().file(),
+                definition.name()?,
+                field.signature()?,
+            )?;
+            if ty.is_void_alias_inner(database, stack)? {
+                stack.remove(&key);
+                return Ok(true);
+            }
+        }
+        stack.remove(&key);
+        Ok(false)
     }
 
     pub(super) fn is_guid(&self) -> bool {
@@ -1519,7 +1695,6 @@ fn named_traits(
                 if definition
                     .type_attributes()?
                     .contains(TypeAttributes::EXPLICIT_LAYOUT)
-                    || definition.has_attribute("AlignmentAttribute")?
                     || definition
                         .layout()?
                         .map(|layout| layout.packing_size())
@@ -1531,15 +1706,32 @@ fn named_traits(
                         ..TraitSupport::NONE
                     }
                 } else {
+                    let nested = database
+                        .nested_types_of(entity)
+                        .enumerate()
+                        .map(|(index, definition)| {
+                            Ok((definition.name()?.to_string(), format!("{name}_{index}")))
+                        })
+                        .collect::<Result<Vec<_>, Error>>()?;
+                    let substitutions = nested
+                        .iter()
+                        .map(|(metadata, projected)| (metadata.as_str(), projected.as_str()))
+                        .collect::<Vec<_>>();
+                    let projected = nested
+                        .iter()
+                        .map(|(_, projected)| projected.as_str())
+                        .collect::<BTreeSet<_>>();
                     let mut fields = TraitSupport::ALL;
                     for field in definition.fields()? {
                         if !field.is_literal()? {
-                            let ty = Type::lower(
+                            let ty = Type::lower_with_nested(
                                 database,
                                 field.entity().file(),
                                 name,
                                 field.signature()?,
-                            )?;
+                                &substitutions,
+                            )?
+                            .qualify_projected_nested(namespace, &projected);
                             fields.combine(ty.projected_traits(database, stack)?);
                         }
                     }

@@ -416,20 +416,35 @@ impl NativeType {
                                     let Kind::Struct(value) = &value.kind else {
                                         return None;
                                     };
-                                    (value.name == *target_name).then_some(if value.union {
-                                        native::TraitSupport {
-                                            copy: true,
-                                            ..native::TraitSupport::NONE
-                                        }
-                                    } else {
-                                        value.traits
-                                    })
+                                    (value.name == *target_name).then_some(
+                                        if value.union || value.packing.is_some() {
+                                            native::TraitSupport {
+                                                copy: true,
+                                                ..native::TraitSupport::NONE
+                                            }
+                                        } else {
+                                            value.traits
+                                        },
+                                    )
                                 })
                             }
                             _ => None,
                         };
                         if let Some(nested_traits) = nested_traits {
                             traits.combine(nested_traits);
+                        } else if let native::Type::Named {
+                            namespace: target_namespace,
+                            name: target_name,
+                        } = ty
+                            && target_namespace.is_empty()
+                        {
+                            traits.combine(
+                                native::Type::Named {
+                                    namespace: namespace.to_string(),
+                                    name: target_name.clone(),
+                                }
+                                .projected_traits(database, &mut stack)?,
+                            );
                         } else {
                             traits.combine(ty.projected_traits(database, &mut stack)?);
                         }
@@ -872,12 +887,17 @@ impl Struct {
                         layout,
                         projection,
                     );
-                    let projected =
-                        if self.union && !projection.is_sys() && !copyable && !ty.is_interface() {
-                            quote! { core::mem::ManuallyDrop<#projected> }
-                        } else {
-                            projected
-                        };
+                    let projected = if self.union
+                        && !projection.is_sys()
+                        && !copyable
+                        && !ty.is_interface()
+                        && !ty.is_bstr()
+                        && !ty.is_hstring()
+                    {
+                        quote! { core::mem::ManuallyDrop<#projected> }
+                    } else {
+                        projected
+                    };
                     quote! { pub #field_name: #projected, }
                 });
         let repr = self.repr();
@@ -1046,6 +1066,29 @@ impl Struct {
                     #[derive(Clone #copy #debug #(, #custom_derives)* #derive_default #eq #partial_eq)]
                 },
                 default.unwrap_or_default(),
+            );
+        }
+        if !projection.is_sys() && !self.copyable {
+            if self.default != native_default::Policy::Derive {
+                let derive = (!custom_derives.is_empty())
+                    .then(|| quote! { #[derive(#(#custom_derives),*)] })
+                    .unwrap_or_default();
+                return (
+                    derive,
+                    quote! {
+                        #architectures
+                        #cfg
+                        impl Default for #name {
+                            fn default() -> Self {
+                                unsafe { core::mem::zeroed() }
+                            }
+                        }
+                    },
+                );
+            }
+            return (
+                quote! { #[derive(#(#custom_derives,)* Default)] },
+                quote! {},
             );
         }
         if self.default != native_default::Policy::Derive {

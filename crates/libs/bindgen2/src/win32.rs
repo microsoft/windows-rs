@@ -1,4 +1,5 @@
 use super::*;
+use proc_macro2::TokenStream;
 use std::collections::{BTreeMap, BTreeSet};
 use std::sync::Arc;
 
@@ -595,7 +596,7 @@ impl<'a> Win32Items<'a> {
         layout: Layout,
         projection: Projection,
         derives: &BTreeMap<String, BTreeSet<String>>,
-        mut add: impl FnMut(&str, &str, u8, i32, proc_macro2::TokenStream, BTreeSet<String>),
+        mut add: impl FnMut(&str, &str, u8, i32, TokenStream, BTreeSet<String>),
     ) -> Result<(), Error> {
         let mut implementable_interfaces = BTreeSet::new();
         loop {
@@ -674,9 +675,6 @@ impl<'a> Win32Items<'a> {
             }
             for (entity, members) in &namespace.interfaces {
                 let definition = self.database.definition(*entity).unwrap();
-                if layout.is_package() && projection.is_sys() {
-                    continue;
-                }
                 if !projection.is_sys()
                     && native::is_core_projection(&namespace.name, definition.name()?)
                 {
@@ -688,10 +686,22 @@ impl<'a> Win32Items<'a> {
                     definition,
                     &self.catalogs.interface_bases,
                 )?;
+                let implementation = self.selection.implements(*entity);
                 let base_selected = interface.base_name().is_some_and(|(namespace, name)| {
                     implementable_interfaces.contains(&(namespace.to_string(), name.to_string()))
                 });
-                let features = interface.package_features(layout);
+                if layout.is_package() && projection.is_sys() {
+                    add(
+                        &namespace.name,
+                        definition.name()?,
+                        u8::MAX,
+                        definition.architectures()?,
+                        TokenStream::new(),
+                        interface.package_features(layout, projection),
+                    );
+                    continue;
+                }
+                let features = interface.package_features(layout, projection);
                 add(
                     &namespace.name,
                     definition.name()?,
@@ -701,7 +711,7 @@ impl<'a> Win32Items<'a> {
                         layout,
                         projection,
                         members,
-                        self.selection.implements(*entity),
+                        implementation,
                         base_selected,
                     )?,
                     features,
