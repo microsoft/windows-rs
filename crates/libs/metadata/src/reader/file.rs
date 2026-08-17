@@ -32,37 +32,45 @@ impl File {
         let file = result.bytes.view_as::<IMAGE_FILE_HEADER>(file_offset)?;
 
         let optional_offset = file_offset + size_of::<IMAGE_FILE_HEADER>();
+        let optional_size = file.SizeOfOptionalHeader as usize;
+        result
+            .bytes
+            .view_as_slice_of::<u8>(optional_offset, optional_size)?;
 
-        let (com_virtual_address, sections) =
+        let (directories_offset, directory_count_offset): (usize, usize) =
             match result.bytes.copy_as::<u16>(optional_offset)? as i32 {
-                IMAGE_NT_OPTIONAL_HDR32_MAGIC => {
-                    let optional = result
-                        .bytes
-                        .view_as::<IMAGE_OPTIONAL_HEADER32>(optional_offset)?;
-                    (
-                        optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
-                            .VirtualAddress,
-                        result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(
-                            optional_offset + size_of::<IMAGE_OPTIONAL_HEADER32>(),
-                            file.NumberOfSections as usize,
-                        )?,
-                    )
-                }
-                IMAGE_NT_OPTIONAL_HDR64_MAGIC => {
-                    let optional = result
-                        .bytes
-                        .view_as::<IMAGE_OPTIONAL_HEADER64>(optional_offset)?;
-                    (
-                        optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
-                            .VirtualAddress,
-                        result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(
-                            optional_offset + size_of::<IMAGE_OPTIONAL_HEADER64>(),
-                            file.NumberOfSections as usize,
-                        )?,
-                    )
-                }
+                IMAGE_NT_OPTIONAL_HDR32_MAGIC => (
+                    std::mem::offset_of!(IMAGE_OPTIONAL_HEADER32, DataDirectory),
+                    std::mem::offset_of!(IMAGE_OPTIONAL_HEADER32, NumberOfRvaAndSizes),
+                ),
+                IMAGE_NT_OPTIONAL_HDR64_MAGIC => (
+                    std::mem::offset_of!(IMAGE_OPTIONAL_HEADER64, DataDirectory),
+                    std::mem::offset_of!(IMAGE_OPTIONAL_HEADER64, NumberOfRvaAndSizes),
+                ),
                 _ => return None,
             };
+        if directory_count_offset + size_of::<u32>() > optional_size {
+            return None;
+        }
+        let directory_count = result
+            .bytes
+            .copy_as::<u32>(optional_offset + directory_count_offset)?
+            as usize;
+        let directory = IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize;
+        if directory_count <= directory {
+            return None;
+        }
+        let directory_offset = directories_offset.checked_add(directory.checked_mul(8)?)?;
+        if directory_offset.checked_add(8)? > optional_size {
+            return None;
+        }
+        let com_virtual_address = result
+            .bytes
+            .copy_as::<u32>(optional_offset + directory_offset)?;
+        let sections = result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(
+            optional_offset.checked_add(optional_size)?,
+            file.NumberOfSections as usize,
+        )?;
 
         let clr = result.bytes.view_as::<IMAGE_COR20_HEADER>(offset_from_rva(
             section_from_rva(sections, com_virtual_address)?,
