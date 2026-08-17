@@ -374,15 +374,17 @@ impl Class {
         };
         let default_type = default_interface.write_name(namespace, layout)?;
         let default_hierarchy = (!default_interface.exclusive).then(|| quote! { , #default_type });
+        let selected_all_members = matches!(members, MemberSelection::All);
         let required = self
             .interfaces
             .iter()
             .filter(|interface| !interface.default)
             .filter(|interface| !interface.exclusive)
             .filter(|interface| {
-                member_selections
-                    .get(&interface.entity)
-                    .is_some_and(|members| !matches!(members, MemberSelection::Shell))
+                selected_all_members
+                    || member_selections
+                        .get(&interface.entity)
+                        .is_some_and(|members| !matches!(members, MemberSelection::Shell))
             })
             .map(|interface| interface.write_name(namespace, layout))
             .chain(
@@ -400,7 +402,9 @@ impl Class {
         let constructor = (self.default_constructor
             && match members {
                 MemberSelection::All => true,
-                MemberSelection::Names(names) => names.contains("CreateInstance"),
+                MemberSelection::Names(names) => {
+                    !projection.is_minimal() || names.contains("CreateInstance")
+                }
                 MemberSelection::Shell => false,
             })
         .then(|| {

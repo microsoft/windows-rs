@@ -932,3 +932,8 @@ The last oversized production file, `native.rs`, now keeps the shared model and 
 constant writer while private child modules own cache, lowering, projection, ABI,
 metadata-layout, and dependency analysis logic. The architecture test now counts `native.rs` and
 each `native/*.rs` child against the 1,000-line source gate.
+
+Step 8 stabilization now has a clean bindgen2 test and clippy baseline. Member-filter closure retains
+the ABI prefix and class relationships needed by selected methods, minimal requests preserve their
+requested visibility, and maximum-width ABI sizing is tested separately from the legacy native
+retval heuristic. Exact package source and manifest parity remains unchanged.

@@ -7,12 +7,6 @@ impl windows_core::RuntimeType for Handler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-impl Handler {
-    pub fn new<F: Fn(i32) + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<Self, F>::new(&HandlerBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
-    }
-}
 #[repr(C)]
 pub struct Handler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
@@ -50,7 +44,7 @@ impl windows_core::RuntimeType for Sink {
 }
 windows_core::imp::interface_hierarchy!(Sink, windows_core::IUnknown, windows_core::IInspectable);
 impl Sink {
-    pub fn Subscribe<P0>(&self, handler: P0) -> windows_core::Result<i32>
+    pub(crate) fn Subscribe<P0>(&self, handler: P0) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<Handler>,
     {
@@ -67,37 +61,6 @@ impl Sink {
 }
 impl windows_core::RuntimeName for Sink {
     const NAME: &'static str = "Test.Sink";
-}
-pub trait Sink_Impl: windows_core::IUnknownImpl {
-    fn Subscribe(&self, handler: windows_core::Ref<Handler>) -> windows_core::Result<i32>;
-}
-impl Sink_Vtbl {
-    pub const fn new<Identity: Sink_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Subscribe<Identity: Sink_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            handler: *mut core::ffi::c_void,
-            result__: *mut i32,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match Sink_Impl::Subscribe(this, core::mem::transmute_copy(&handler)) {
-                    Ok(ok__) => {
-                        result__.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, Sink, OFFSET>(),
-            Subscribe: Subscribe::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Sink as windows_core::Interface>::IID
-    }
 }
 #[repr(C)]
 pub struct Sink_Vtbl {

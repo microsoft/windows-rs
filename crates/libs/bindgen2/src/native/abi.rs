@@ -1,6 +1,12 @@
 use super::*;
 use std::collections::BTreeSet;
 
+#[derive(Clone, Copy)]
+enum AbiLayoutModel {
+    Maximum,
+    Legacy,
+}
+
 impl Type {
     pub(crate) fn producer_borrows_input(&self, database: &Database) -> Result<bool, Error> {
         if self.is_bstr()
@@ -612,8 +618,19 @@ impl Type {
         Ok(false)
     }
 
+    #[cfg(test)]
     pub(crate) fn exceeds_retval_limit(&self, database: &Database) -> Result<bool, Error> {
-        Ok(self.abi_layout(database, &mut BTreeSet::new())?.0 > 16)
+        Ok(self
+            .abi_layout_model(database, &mut BTreeSet::new(), AbiLayoutModel::Maximum)?
+            .0
+            > 16)
+    }
+
+    pub(crate) fn exceeds_retval_limit_legacy(&self, database: &Database) -> Result<bool, Error> {
+        Ok(self
+            .abi_layout_model(database, &mut BTreeSet::new(), AbiLayoutModel::Legacy)?
+            .0
+            > 16)
     }
 
     pub(super) fn abi_layout(
@@ -621,14 +638,37 @@ impl Type {
         database: &Database,
         stack: &mut BTreeSet<(String, String)>,
     ) -> Result<(usize, usize), Error> {
+        self.abi_layout_model(database, stack, AbiLayoutModel::Maximum)
+    }
+
+    fn abi_layout_model(
+        &self,
+        database: &Database,
+        stack: &mut BTreeSet<(String, String)>,
+        model: AbiLayoutModel,
+    ) -> Result<(usize, usize), Error> {
         Ok(match self {
             Self::Void => (0, 1),
             Self::I8 | Self::U8 => (1, 1),
             Self::I16 | Self::U16 => (2, 2),
             Self::I64 | Self::U64 | Self::F64 => (8, 8),
+            Self::Pointer { .. }
+            | Self::Interface { .. }
+            | Self::String
+            | Self::ISize
+            | Self::USize
+                if matches!(model, AbiLayoutModel::Maximum) =>
+            {
+                (8, 8)
+            }
             Self::Array { element, len } => {
-                let (size, align) = element.abi_layout(database, stack)?;
-                (size.saturating_mul(*len), align.saturating_mul(*len))
+                let (size, align) = element.abi_layout_model(database, stack, model)?;
+                let align = if matches!(model, AbiLayoutModel::Legacy) {
+                    align.saturating_mul(*len)
+                } else {
+                    align
+                };
+                (size.saturating_mul(*len), align)
             }
             Self::Named {
                 namespace, name, ..
@@ -659,7 +699,7 @@ impl Type {
                         }
                         let (field_size, mut field_align) =
                             Self::lower(database, field.entity().file(), name, field.signature()?)?
-                                .abi_layout(database, stack)?;
+                                .abi_layout_model(database, stack, model)?;
                         if let Some(packing) = packing {
                             field_align = field_align.min(packing);
                         }

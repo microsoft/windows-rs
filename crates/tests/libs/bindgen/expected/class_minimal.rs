@@ -2,6 +2,21 @@
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Class(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Class, windows_core::IUnknown, windows_core::IInspectable);
+impl Class {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Class, windows_core::imp::IGenericFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeType for Class {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IClass>();
@@ -25,7 +40,7 @@ impl windows_core::RuntimeType for IClass {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IClass {
-    pub fn Method(&self) -> windows_core::Result<i32> {
+    pub(crate) fn Method(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Method)(
@@ -35,7 +50,7 @@ impl IClass {
             .map(|| result__)
         }
     }
-    pub fn Name(&self) -> windows_core::Result<String> {
+    pub(crate) fn Name(&self) -> windows_core::Result<String> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(
@@ -48,7 +63,7 @@ impl IClass {
             })
         }
     }
-    pub fn SetName(&self, value: &str) -> windows_core::Result<()> {
+    pub(crate) fn SetName(&self, value: &str) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetName)(
                 windows_core::Interface::as_raw(self),

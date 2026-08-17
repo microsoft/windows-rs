@@ -412,8 +412,8 @@ impl Signature {
                     if let Some(pointee) = ty.pointee() {
                         explicit_retval
                             || (pointee != &native::Type::Void
-                                && !pointee.exceeds_retval_limit(database)?)
-                                && !metadata_retval_too_large
+                                && !pointee.exceeds_retval_limit_legacy(database)?
+                                && !metadata_retval_too_large)
                     } else {
                         false
                     }

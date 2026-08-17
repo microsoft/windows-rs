@@ -7,12 +7,6 @@ impl windows_core::RuntimeType for Delegate {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-impl Delegate {
-    pub fn new<F: Fn(i32, i32) + 'static>(invoke: F) -> Self {
-        let com = windows_core::imp::DelegateBox::<Self, F>::new(&DelegateBox::<F>::VTABLE, invoke);
-        unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
-    }
-}
 #[repr(C)]
 pub struct Delegate_Vtbl {
     base__: windows_core::IUnknown_Vtbl,

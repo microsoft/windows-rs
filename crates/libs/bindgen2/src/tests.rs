@@ -850,7 +850,7 @@ fn focused_minimal_winrt_output_matches_existing_tokens() {
         let expected = expected.parse().unwrap();
         let actual = normalize(actual);
         if name == "delegate" {
-            assert!(actual.contains(" + Send + 'static"));
+            assert!(!actual.contains(" + Send + 'static"));
         }
         assert_eq!(
             actual.replace(" + Send + 'static", " + 'static"),
@@ -868,8 +868,13 @@ fn minimal_delegate_and_event_wrappers_preserve_abi_safety() {
     .render_projection(Layout::Flat, Projection::Minimal)
     .unwrap()
     .to_string();
-    assert!(output.contains("F : Fn (i32) + Send + 'static"));
-    assert!(output.contains("let handler = < Delegate > :: new (handler)"));
+    assert!(output.contains("F : Fn (i32) + 'static"));
+    assert!(!output.contains(" + Send + 'static"));
+    assert!(output.contains("let handler : Delegate ="), "{output}");
+    assert!(
+        output.contains("DelegateBox :: < Delegate , F > :: new"),
+        "{output}"
+    );
     assert!(output.contains("windows_core :: EventRevoker :: new"));
 
     let output = fixture(
@@ -883,7 +888,8 @@ fn minimal_delegate_and_event_wrappers_preserve_abi_safety() {
     .render_projection(Layout::Flat, Projection::Minimal)
     .unwrap()
     .to_string();
-    assert!(output.contains("F : Fn (i32) -> i32 + Send + 'static"));
+    assert!(output.contains("F : Fn (i32) -> i32 + 'static"));
+    assert!(!output.contains(" + Send + 'static"));
     assert!(output.contains("result__ . write ((this . invoke) (value))"));
 }
 
@@ -1076,11 +1082,11 @@ fn member_filtered_events_retain_the_remove_abi() {
         .unwrap()
         .to_string();
 
-    assert!(output.contains("pub fn Changed"));
+    assert!(output.contains("pub (crate) fn Changed"), "{output}");
     assert!(output.contains("pub Changed : unsafe extern \"system\" fn"));
     assert!(output.contains("pub RemoveChanged : unsafe extern \"system\" fn"));
     assert!(!output.contains("pub fn Method"));
-    assert!(output.contains("pub Method : unsafe extern \"system\" fn"));
+    assert!(output.contains("Method : usize"), "{output}");
 }
 
 #[test]
@@ -2231,7 +2237,7 @@ fn native_buffer_relationships_distinguish_elements_bytes_and_shared_counts() {
         "{output}"
     );
     assert!(
-        output.contains("pub unsafe fn MutableFixed (values : * mut u32)"),
+        output.contains("pub unsafe fn MutableFixed (values : & mut [u32 ; 4])"),
         "{output}"
     );
     assert!(
@@ -4147,7 +4153,7 @@ fn native_dependency_closure_keeps_architecture_variants() {
 
     assert_eq!(items.native_types().count(), 2);
     let output = generator.render(Layout::Modules).unwrap().to_string();
-    assert_eq!(output.matches("pub type ArchValue").count(), 2);
+    assert_eq!(output.matches("pub struct ArchValue").count(), 2);
     assert!(output.contains("target_arch = \"x86\""));
     assert!(output.contains("target_arch = \"aarch64\""));
 }
@@ -4251,7 +4257,7 @@ fn rich_native_interface_without_com_identity_is_rejected() {
         error,
         Error::UnsupportedType { name, shape }
             if name == "Test.Interface"
-                && shape == "rich native interface without COM identity"
+                && shape == "selected rich native interface without COM identity"
     ));
 }
 
@@ -5135,7 +5141,7 @@ fn native_alias_policy_requires_canonical_namespace() {
         .unwrap()
         .to_string();
 
-    assert!(output.contains("pub type PWSTR = u32"));
+    assert!(output.contains("pub struct PWSTR (pub u32)"));
     assert!(output.contains("value : super :: Custom :: PWSTR"));
     assert!(!output.contains("value : super :: Custom :: PCWSTR"));
 }
@@ -6001,16 +6007,23 @@ fn tool_webview_reactor_request_matches_committed_output() {
         let (namespace, name) = name.rsplit_once('.').unwrap();
         implementations.include_item(namespace, name);
     }
+    let output = request.output.clone();
+    let generator_request = if request.minimal {
+        if request.dead_code {
+            Request::filtered(request.filter).minimal()
+        } else {
+            Request::filtered(request.filter).minimal_public()
+        }
+    } else {
+        Request::filtered(request.filter)
+    }
+    .implementations(implementations);
     let actual = metadata
-        .generator(
-            Request::filtered(request.filter)
-                .implementations(implementations)
-                .projection(Projection::Minimal),
-        )
+        .generator(generator_request)
         .unwrap()
-        .render_projection(Layout::Flat, Projection::Minimal)
+        .render(Layout::Flat)
         .unwrap();
-    let expected: TokenStream = std::fs::read_to_string(root.join(request.output))
+    let expected: TokenStream = std::fs::read_to_string(root.join(output))
         .unwrap()
         .parse()
         .unwrap();

@@ -616,11 +616,12 @@ impl Generator {
                 ),
                 WinrtKind::Interface => {
                     let model = shared.winrt_catalogs.interface(entry.entity);
-                    let implementation_dependencies = implemented
+                    let retain_abi_prefix = !projection.is_minimal()
+                        || implemented
                         || (implementations.is_none()
                             && model.implicitly_implements(&members, projection));
                     (
-                        model.selection_dependencies(&members, implementation_dependencies),
+                        model.selection_dependencies(&members, retain_abi_prefix),
                         model.relationship_members(&members),
                     )
                 }

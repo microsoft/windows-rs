@@ -27,7 +27,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Interface {
-    pub fn Method(&self, value: Struct) -> windows_core::Result<Enum> {
+    pub(crate) fn Method(&self, value: Struct) -> windows_core::Result<Enum> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Method)(
@@ -41,37 +41,6 @@ impl Interface {
 }
 impl windows_core::RuntimeName for Interface {
     const NAME: &'static str = "Test.Interface";
-}
-pub trait Interface_Impl: windows_core::IUnknownImpl {
-    fn Method(&self, value: &Struct) -> windows_core::Result<Enum>;
-}
-impl Interface_Vtbl {
-    pub const fn new<Identity: Interface_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Method<Identity: Interface_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            value: Struct,
-            result__: *mut Enum,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match Interface_Impl::Method(this, core::mem::transmute(&value)) {
-                    Ok(ok__) => {
-                        result__.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, Interface, OFFSET>(),
-            Method: Method::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Interface as windows_core::Interface>::IID
-    }
 }
 #[repr(C)]
 pub struct Interface_Vtbl {
