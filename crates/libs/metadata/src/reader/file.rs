@@ -67,24 +67,32 @@ impl File {
         let com_virtual_address = result
             .bytes
             .copy_as::<u32>(optional_offset + directory_offset)?;
+        let com_size = result
+            .bytes
+            .copy_as::<u32>(optional_offset + directory_offset + 4)?
+            as usize;
+        if com_size < size_of::<IMAGE_COR20_HEADER>() {
+            return None;
+        }
         let sections = result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(
             optional_offset.checked_add(optional_size)?,
             file.NumberOfSections as usize,
         )?;
 
-        let clr = result.bytes.view_as::<IMAGE_COR20_HEADER>(offset_from_rva(
-            section_from_rva(sections, com_virtual_address)?,
+        let clr_offset = offset_from_rva(
+            sections,
             com_virtual_address,
-        ))?;
+            size_of::<IMAGE_COR20_HEADER>(),
+        )?;
+        let clr = result.bytes.view_as::<IMAGE_COR20_HEADER>(clr_offset)?;
 
         if clr.cb != size_of::<IMAGE_COR20_HEADER>() as u32 {
             return None;
         }
 
-        let metadata_offset = offset_from_rva(
-            section_from_rva(sections, clr.MetaData.VirtualAddress)?,
-            clr.MetaData.VirtualAddress,
-        );
+        let metadata_size = clr.MetaData.Size as usize;
+        let metadata_offset =
+            offset_from_rva(sections, clr.MetaData.VirtualAddress, metadata_size)?;
         let metadata = result.bytes.view_as::<METADATA_HEADER>(metadata_offset)?;
 
         if metadata.signature != METADATA_SIGNATURE {
@@ -650,14 +658,23 @@ impl File {
     }
 }
 
-fn section_from_rva(sections: &[IMAGE_SECTION_HEADER], rva: u32) -> Option<&IMAGE_SECTION_HEADER> {
-    sections.iter().find(|&s| {
-        rva >= s.VirtualAddress && rva < s.VirtualAddress + unsafe { s.Misc.VirtualSize }
-    })
-}
-
-fn offset_from_rva(section: &IMAGE_SECTION_HEADER, rva: u32) -> usize {
-    (rva - section.VirtualAddress + section.PointerToRawData) as usize
+fn offset_from_rva(sections: &[IMAGE_SECTION_HEADER], rva: u32, size: usize) -> Option<usize> {
+    for section in sections {
+        let virtual_size = unsafe { section.Misc.VirtualSize };
+        let section_size = virtual_size.max(section.SizeOfRawData);
+        let section_end = section.VirtualAddress.checked_add(section_size)?;
+        if rva >= section.VirtualAddress && rva < section_end {
+            let offset = rva - section.VirtualAddress;
+            if (offset as usize).checked_add(size)? > section.SizeOfRawData as usize {
+                return None;
+            }
+            return section
+                .PointerToRawData
+                .checked_add(offset)
+                .map(|value| value as usize);
+        }
+    }
+    None
 }
 
 trait View {
