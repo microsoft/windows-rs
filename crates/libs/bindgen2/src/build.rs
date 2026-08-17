@@ -272,6 +272,7 @@ impl Bindgen {
 
     /// Generates, formats, and writes the requested bindings.
     pub fn write(&self) -> Result<(), Box<dyn std::error::Error>> {
+        let total = std::time::Instant::now();
         if self.output.as_os_str().is_empty() {
             return Err("output is required".into());
         }
@@ -279,7 +280,9 @@ impl Bindgen {
             return Err("at least one filter is required".into());
         }
 
+        let phase = std::time::Instant::now();
         let database = Database::new(self.images()?)?;
+        report_timing(&self.output, "metadata database", phase.elapsed());
         let mut filter = Filter::new();
         for path in &self.filters {
             filter.include_path(&database, path)?;
@@ -302,7 +305,9 @@ impl Bindgen {
             Some(implementations)
         };
 
+        let phase = std::time::Instant::now();
         let metadata = Metadata::new(database)?;
+        report_timing(&self.output, "metadata catalogs", phase.elapsed());
         let mut request = if self.implement_all {
             Request::filtered(filter).implement_all()
         } else if let Some(implementations) = implementations {
@@ -331,16 +336,26 @@ impl Bindgen {
         if self.layout.is_package() {
             request = request.package();
         }
+        let phase = std::time::Instant::now();
         let generator = metadata.generator(request)?;
+        report_timing(&self.output, "selection", phase.elapsed());
         if self.layout.is_package() {
+            let phase = std::time::Instant::now();
             let plan = generator.package_plan(self.sys)?;
-            return self.write_package(plan);
+            report_timing(&self.output, "package planning", phase.elapsed());
+            let phase = std::time::Instant::now();
+            self.write_package(plan)?;
+            report_timing(&self.output, "package output", phase.elapsed());
+            report_timing(&self.output, "total", total.elapsed());
+            return Ok(());
         }
         let tokens = generator.render(self.layout)?;
         let contents =
             crate::format::format_with_config(&tokens.to_string(), self.rustfmt.as_deref())?;
 
-        write_if_changed(&self.output, contents)
+        write_if_changed(&self.output, contents)?;
+        report_timing(&self.output, "total", total.elapsed());
+        Ok(())
     }
 
     fn write_package(
@@ -350,13 +365,31 @@ impl Bindgen {
         for path in plan.removals {
             let _ = std::fs::remove_dir_all(self.output.join(path));
         }
-        for module in plan.modules {
-            let contents = crate::format::format_with_config(
-                &module.tokens.to_string(),
-                self.rustfmt.as_deref(),
-            )?;
-            write_if_changed(&self.output.join(module.path), contents)?;
-        }
+        let modules = plan
+            .modules
+            .into_iter()
+            .map(|module| (module.path, module.tokens.to_string()))
+            .collect::<Vec<_>>();
+        let output = &self.output;
+        let rustfmt = self.rustfmt.as_deref();
+        std::thread::scope(|scope| -> Result<(), Box<dyn std::error::Error>> {
+            let mut handles = Vec::with_capacity(modules.len());
+            for (path, tokens) in modules {
+                handles.push(scope.spawn(move || -> Result<(), String> {
+                    let contents = crate::format::format_with_config(&tokens, rustfmt)
+                        .map_err(|error| error.to_string())?;
+                    write_if_changed(&output.join(path), contents)
+                        .map_err(|error| error.to_string())
+                }));
+            }
+            for handle in handles {
+                handle
+                    .join()
+                    .map_err(|_| "package formatting worker panicked")?
+                    .map_err(|error| -> Box<dyn std::error::Error> { error.into() })?;
+            }
+            Ok(())
+        })?;
 
         let toml_path = self.output.join("Cargo.toml");
         let existing = std::fs::read_to_string(&toml_path)?;
@@ -421,4 +454,8 @@ fn write_if_changed(path: &Path, contents: String) -> Result<(), Box<dyn std::er
     }
     std::fs::write(path, contents)?;
     Ok(())
+}
+
+fn report_timing(output: &Path, phase: &str, elapsed: std::time::Duration) {
+    crate::report_timing(&format!("`{}` {phase}", output.display()), elapsed);
 }

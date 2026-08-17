@@ -206,7 +206,9 @@ impl NativeInterface {
         let methods = self.methods.iter().map(|method| {
             let architectures = tokens::architectures(method.architectures);
             let name = tokens::ident(&method.name);
-            let parameters = if matches!(self.canonical, Some(canonical::Type::IUnknown)) {
+            let parameters = if layout.is_package()
+                && matches!(self.canonical, Some(canonical::Type::IUnknown))
+            {
                 match method.name.as_str() {
                     "QueryInterface" => quote! {
                         this: *mut core::ffi::c_void,

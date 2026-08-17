@@ -613,6 +613,7 @@ impl native_signature::Signature {
             | ReturnKind::Indirect(_) => None,
             ReturnKind::Query { .. } => None,
         };
+        let cast_value_outputs = self.requires_abi_argument_cast();
 
         for (position, parameter) in self.parameters.iter().enumerate() {
             if matches!(return_kind, ReturnKind::Query { guid, .. } if position == guid) {
@@ -742,9 +743,7 @@ impl native_signature::Signature {
                 arguments.push(quote! { core::mem::transmute_copy(#name) });
             } else if matches!(consumer, native_signature::ConsumerPlan::IntoParam) {
                 let generic = tokens::ident(&format!("P{position}"));
-                let ty = parameter
-                    .ty
-                    .write_public_with_owner(namespace, layout, Some(owner));
+                let ty = parameter.ty.write_param(namespace, layout, owner);
                 generic_parameters.push(generic.clone());
                 constraints.push(quote! { #generic: windows_core::Param<#ty>, });
                 parameters.push(quote! { #name: #generic, });
@@ -766,7 +765,11 @@ impl native_signature::Signature {
                     .ty
                     .write_public_with_owner(namespace, layout, Some(owner));
                 parameters.push(quote! { #name: #ty, });
-                if parameter.casts_abi_argument() {
+                if parameter.casts_com_abi_argument(
+                    layout.is_package()
+                        || matches!(return_kind, ReturnKind::Query { .. })
+                        || cast_value_outputs,
+                ) {
                     arguments.push(quote! { #name as _ });
                 } else {
                     arguments.push(quote! { #name });

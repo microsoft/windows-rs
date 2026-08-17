@@ -167,7 +167,9 @@ impl Type {
         stack: &mut BTreeSet<(String, String)>,
     ) -> Result<bool, Error> {
         if let Self::Pointer { mutable, element } = self {
-            return Ok(*mutable && **element == Self::Void);
+            return Ok(*mutable
+                && (**element == Self::Void
+                    || element.needs_output_pointer_cast(database, stack)?));
         }
         let Self::Named {
             namespace, name, ..

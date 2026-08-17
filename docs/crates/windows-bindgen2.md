@@ -844,8 +844,9 @@ zero-difference package probe and the existing focused output tests.
 7. [x] Split production files by responsibility after the model boundaries settle. Production
    files now meet the 1,000-line architecture gate. The monolithic test file remains a follow-up
    cleanup after migration.
-8. Re-run performance, clippy, generated-crate CI, and all consumer regeneration gates before
-   migrating `tool_package` and removing bindgen1.
+8. [ ] Re-run performance, clippy, generated-crate CI, and all consumer regeneration gates before
+   migrating `tool_package` and removing bindgen1. Correctness and consumer gates pass, but package
+   performance remains above the migration limit.
 
 The first two cleanups are complete. Manifest-only native interface dependencies use an explicit
 artifact kind rather than an empty token stream identified by `u8::MAX`. Native value manifest
@@ -933,7 +934,15 @@ constant writer while private child modules own cache, lowering, projection, ABI
 metadata-layout, and dependency analysis logic. The architecture test now counts `native.rs` and
 each `native/*.rs` child against the 1,000-line source gate.
 
-Step 8 stabilization now has a clean bindgen2 test and clippy baseline. Member-filter closure retains
+Step 8 stabilization has a clean bindgen2 test and clippy baseline. Member-filter closure retains
 the ABI prefix and class relationships needed by selected methods, minimal requests preserve their
 requested visibility, and maximum-width ABI sizing is tested separately from the legacy native
-retval heuristic. Exact package source and manifest parity remains unchanged.
+retval heuristic. Exact package source and manifest parity remains unchanged. All package,
+generated-crate, and regenerated-consumer correctness gates pass.
+
+The five-run warm package benchmark does not pass. Legacy bindgen took 42.57s, 42.59s, 42.67s,
+42.85s, and 42.89s for a 42.67s median. Bindgen2 took 156.11s, 157.10s, 157.63s, 157.66s, and
+158.29s for a 157.63s median, or 3.69 times legacy. The 1.25-times gate allows at most 53.34s.
+Parallel package formatting and one-time native interface lowering reduced the bindgen2 median from
+254.42s, but native Win32 selection and rendering remain the dominant costs. `tool_package` must
+remain on bindgen1 until those phases meet the performance gate.

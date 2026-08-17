@@ -114,6 +114,11 @@ impl Delegate {
             .iter()
             .map(|name| quote! { #name: core::marker::PhantomData::<#name> })
             .collect::<Vec<_>>();
+        let named_phantom_initializers = if projection.is_minimal() {
+            quote! { #(#named_phantom_values),* }
+        } else {
+            quote! { #(#named_phantom_values,)* }
+        };
         let phantom_types = generic_names
             .iter()
             .map(|name| quote! { core::marker::PhantomData<#name> })
@@ -287,7 +292,7 @@ impl Delegate {
                             windows_core::imp::DelegateBox::<#type_name, F>::Release,
                     },
                     Invoke: Self::Invoke,
-                    #(#named_phantom_values,)*
+                    #named_phantom_initializers
                 };
                 unsafe extern "system" fn Invoke(#abi_signature_named) -> windows_core::HRESULT {
                     unsafe {

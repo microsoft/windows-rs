@@ -71,6 +71,7 @@ enum ParamHint {
 enum CastPlan {
     None,
     Abi,
+    PackageAbi,
     Method,
 }
 
@@ -150,6 +151,14 @@ impl Parameter {
     }
 
     pub(super) fn casts_abi_argument(&self) -> bool {
+        matches!(self.cast, CastPlan::Abi | CastPlan::PackageAbi)
+    }
+
+    pub(super) fn casts_com_abi_argument(&self, package: bool) -> bool {
+        matches!(self.cast, CastPlan::Abi) || (package && matches!(self.cast, CastPlan::PackageAbi))
+    }
+
+    pub(super) fn requires_abi_argument_cast(&self) -> bool {
         matches!(self.cast, CastPlan::Abi)
     }
 
@@ -325,6 +334,12 @@ fn core_manifest_dependencies(ty: &native::Type) -> BTreeSet<(String, String)> {
 }
 
 impl Signature {
+    pub(super) fn requires_abi_argument_cast(&self) -> bool {
+        self.parameters
+            .iter()
+            .any(Parameter::requires_abi_argument_cast)
+    }
+
     pub(super) fn lower(
         database: &Database,
         dependencies: &native::DependencyCache,
@@ -451,8 +466,10 @@ impl Signature {
                 };
                 let value_output_cast =
                     ty.is_primitive(database)? && pointee_copyable && direction != Direction::Input;
-                let cast = if pointer_cast || value_output_cast {
+                let cast = if pointer_cast {
                     CastPlan::Abi
+                } else if value_output_cast {
+                    CastPlan::PackageAbi
                 } else if pointer_alias_cast {
                     CastPlan::Method
                 } else {

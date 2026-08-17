@@ -101,7 +101,9 @@ impl Generator {
         layout: Layout,
         projection: Projection,
     ) -> Result<BTreeMap<String, Vec<Item>>, Error> {
+        let total = std::time::Instant::now();
         let mut modules = BTreeMap::<String, Vec<Item>>::new();
+        let phase = std::time::Instant::now();
         let values = self.lower_values();
         for item in self.values() {
             let definition = item.definition();
@@ -125,6 +127,8 @@ impl Generator {
                     features: BTreeSet::new(),
                 });
         }
+        report_timing("render WinRT values", phase.elapsed());
+        let phase = std::time::Instant::now();
         for entry in self
             .winrt
             .iter()
@@ -164,6 +168,8 @@ impl Generator {
                     features,
                 });
         }
+        report_timing("render WinRT delegates", phase.elapsed());
+        let phase = std::time::Instant::now();
         for entry in self
             .winrt
             .iter()
@@ -195,6 +201,8 @@ impl Generator {
                     features: BTreeSet::new(),
                 });
         }
+        report_timing("render WinRT classes", phase.elapsed());
+        let phase = std::time::Instant::now();
         for entry in self
             .winrt
             .iter()
@@ -222,7 +230,9 @@ impl Generator {
                     features: BTreeSet::new(),
                 });
         }
+        report_timing("render WinRT interfaces", phase.elapsed());
 
+        let phase = std::time::Instant::now();
         self.win32_items().render(
             layout,
             projection,
@@ -240,6 +250,8 @@ impl Generator {
                     });
             },
         )?;
+        report_timing("render Win32", phase.elapsed());
+        report_timing("render total", total.elapsed());
         Ok(modules)
     }
 

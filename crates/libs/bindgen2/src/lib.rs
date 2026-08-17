@@ -37,6 +37,7 @@ mod tokens;
 mod ty;
 mod win32;
 mod win32_catalog;
+mod win32_interface;
 #[cfg(test)]
 mod win32_test;
 mod winrt_catalog;
@@ -62,6 +63,15 @@ use native_type::NativeType;
 #[cfg(test)]
 use native_type::NativeTypeKind;
 use struct_model::Struct;
+
+pub(crate) fn report_timing(phase: &str, elapsed: std::time::Duration) {
+    if std::env::var_os("WINDOWS_BINDGEN_TIMINGS").is_some() {
+        eprintln!(
+            "windows-bindgen2 timing {phase}: {:.3} ms",
+            elapsed.as_secs_f64() * 1_000.0
+        );
+    }
+}
 
 mod build;
 
@@ -439,6 +449,7 @@ impl Metadata {
 
 impl Generator {
     fn from_shared(shared: Arc<Shared>, request: &Request) -> Result<Self, Error> {
+        let phase = std::time::Instant::now();
         let filter = request.filter.as_ref();
         let (mut winrt, winrt_members) = if let Some(filter) = filter {
             Self::close_winrt(
@@ -457,6 +468,7 @@ impl Generator {
                 BTreeMap::new(),
             )
         };
+        report_timing("selection WinRT closure", phase.elapsed());
         if request.package {
             winrt.retain(|entry| {
                 let definition = shared.database.definition(entry.entity).unwrap();
@@ -467,6 +479,7 @@ impl Generator {
                 .is_none()
             });
         }
+        let phase = std::time::Instant::now();
         let win32 = win32::Win32Selection::new_with_catalogs(
             &shared.database,
             shared.win32_catalogs.clone(),
@@ -475,6 +488,7 @@ impl Generator {
             request.implement_all,
             request.package,
         )?;
+        report_timing("selection Win32 closure", phase.elapsed());
         let winrt_implementations = if request.implement_all {
             Some(
                 winrt

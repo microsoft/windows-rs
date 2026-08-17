@@ -55,6 +55,9 @@ impl Type {
                     return core;
                 }
                 if let Some(canonical) = canonical {
+                    if projection.is_sys() {
+                        return tokens::ident(name);
+                    }
                     return canonical.write();
                 }
                 if target.is_empty() && name == "PCWSTR" {
@@ -196,6 +199,14 @@ impl Type {
 
     pub(crate) fn write_public(&self, namespace: &str, layout: Layout) -> TokenStream {
         self.write_public_with_owner(namespace, layout, None)
+    }
+
+    pub(crate) fn write_param(&self, namespace: &str, layout: Layout, owner: &str) -> TokenStream {
+        if layout.is_package() {
+            self.write_public_with_owner(namespace, layout, Some(owner))
+        } else {
+            self.write_public(namespace, layout)
+        }
     }
 
     pub(crate) fn write_public_with_owner(

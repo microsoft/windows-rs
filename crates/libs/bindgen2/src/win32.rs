@@ -373,36 +373,8 @@ impl<'a> Win32Items<'a> {
         derives: &BTreeMap<String, BTreeSet<String>>,
         mut add: impl FnMut(&str, &str, output::ArtifactKind, i32, TokenStream, BTreeSet<String>),
     ) -> Result<(), Error> {
-        let mut implementable_interfaces = BTreeSet::new();
-        loop {
-            let mut changed = false;
-            for namespace in &self.selection.namespaces {
-                for (entity, members) in &namespace.interfaces {
-                    let definition = self.database.definition(*entity).unwrap();
-                    let interface = NativeInterface::lower(
-                        self.database,
-                        &self.catalogs.dependencies,
-                        definition,
-                        &self.catalogs.interface_bases,
-                    )?;
-                    let base_selected = interface.base_name().is_some_and(|(namespace, name)| {
-                        implementable_interfaces
-                            .contains(&(namespace.to_string(), name.to_string()))
-                    });
-                    if if layout.is_package() {
-                        interface.can_implement_package(members, base_selected)
-                    } else {
-                        interface.can_implement(members, base_selected)
-                    } {
-                        changed |= implementable_interfaces
-                            .insert((namespace.name.clone(), definition.name()?.to_string()));
-                    }
-                }
-            }
-            if !changed {
-                break;
-            }
-        }
+        let (interfaces, implementable_interfaces) =
+            self.lower_implementable_interfaces(layout, projection)?;
         for namespace in &self.selection.namespaces {
             for entity in &namespace.types {
                 let definition = self.database.definition(*entity).unwrap();
@@ -455,12 +427,18 @@ impl<'a> Win32Items<'a> {
                 {
                     continue;
                 }
-                let interface = NativeInterface::lower(
-                    self.database,
-                    &self.catalogs.dependencies,
-                    definition,
-                    &self.catalogs.interface_bases,
-                )?;
+                let lowered;
+                let interface = if let Some(interface) = interfaces.get(entity) {
+                    interface
+                } else {
+                    lowered = NativeInterface::lower(
+                        self.database,
+                        &self.catalogs.dependencies,
+                        definition,
+                        &self.catalogs.interface_bases,
+                    )?;
+                    &lowered
+                };
                 let implementation = self.selection.implements(*entity);
                 let base_selected = interface.base_name().is_some_and(|(namespace, name)| {
                     implementable_interfaces.contains(&(namespace.to_string(), name.to_string()))
