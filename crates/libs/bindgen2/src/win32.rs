@@ -2,14 +2,17 @@ use super::*;
 use proc_macro2::TokenStream;
 use std::collections::{BTreeMap, BTreeSet};
 use std::sync::Arc;
+use win32_catalog::NativeKind;
 
-struct Namespace {
-    name: String,
-    types: Vec<Entity<TypeDef>>,
-    delegates: Vec<Entity<TypeDef>>,
-    interfaces: Vec<(Entity<TypeDef>, MemberSelection)>,
-    constants: Vec<Entity<Field>>,
-    functions: Vec<Entity<MethodDef>>,
+pub(crate) use win32_catalog::Win32Catalogs;
+
+pub(super) struct Namespace {
+    pub(super) name: String,
+    pub(super) types: Vec<Entity<TypeDef>>,
+    pub(super) delegates: Vec<Entity<TypeDef>>,
+    pub(super) interfaces: Vec<(Entity<TypeDef>, MemberSelection)>,
+    pub(super) constants: Vec<Entity<Field>>,
+    pub(super) functions: Vec<Entity<MethodDef>>,
 }
 
 type NamedEntity<T> = (String, i32, Entity<T>);
@@ -31,44 +34,15 @@ enum EnumVariants {
 }
 
 pub(crate) struct Win32Selection {
-    namespaces: Vec<Namespace>,
+    pub(super) namespaces: Vec<Namespace>,
     enum_variants: BTreeMap<Entity<TypeDef>, EnumVariants>,
     implementations: Option<BTreeSet<Entity<TypeDef>>>,
 }
 
-pub(crate) struct Win32Catalogs {
-    definitions: Vec<NativeDefinition>,
-    apis: Vec<NativeApis>,
-    nested: BTreeMap<Entity<TypeDef>, Vec<Entity<TypeDef>>>,
-    interface_bases: BTreeMap<Entity<TypeDef>, Vec<(String, String)>>,
-    dependencies: native::DependencyCache,
-}
-
-struct NativeDefinition {
-    namespace: String,
-    name: String,
-    architectures: i32,
-    entity: Entity<TypeDef>,
-    kind: NativeKind,
-}
-
-enum NativeKind {
-    Enum(Vec<String>),
-    Struct,
-    Delegate,
-    Interface,
-}
-
-struct NativeApis {
-    namespace: String,
-    constants: Vec<NamedEntity<Field>>,
-    functions: Vec<NamedEntity<MethodDef>>,
-}
-
 pub(crate) struct Win32Items<'a> {
-    database: &'a Database,
-    catalogs: &'a Win32Catalogs,
-    selection: &'a Win32Selection,
+    pub(super) database: &'a Database,
+    pub(super) catalogs: &'a Win32Catalogs,
+    pub(super) selection: &'a Win32Selection,
 }
 
 impl Generator {
@@ -308,107 +282,6 @@ impl Win32Selection {
     }
 }
 
-impl Win32Catalogs {
-    pub(crate) fn new(database: &Database) -> Result<Self, Error> {
-        let mut definitions = Vec::new();
-        let mut apis = Vec::new();
-        let mut sys_namespaces = BTreeSet::new();
-        for definition in database.definitions() {
-            if definition.is_windows_runtime()? {
-                continue;
-            }
-            let namespace = definition.namespace()?.to_string();
-            let name = definition.name()?.to_string();
-            let entity = definition.entity();
-            let architectures = definition.architectures()?;
-            let kind = match definition.category()? {
-                TypeCategory::Enum => {
-                    let mut variants = Vec::new();
-                    for field in definition.fields()? {
-                        if field.is_literal()? {
-                            variants.push(field.name()?.to_string());
-                        }
-                    }
-                    NativeKind::Enum(variants)
-                }
-                TypeCategory::Struct => NativeKind::Struct,
-                TypeCategory::Delegate => NativeKind::Delegate,
-                TypeCategory::Interface => NativeKind::Interface,
-                TypeCategory::Class if name == "Apis" => {
-                    let constants = definition
-                        .fields()?
-                        .map(|field| {
-                            Ok((
-                                field.name()?.to_string(),
-                                field.architectures()?,
-                                field.entity(),
-                            ))
-                        })
-                        .collect::<Result<_, Error>>()?;
-                    let mut functions = Vec::new();
-                    for method in definition.methods()? {
-                        if let Some(import) = method.import()?
-                            && (import.module() == "FORCEINLINE" || import.name().starts_with('#'))
-                        {
-                            continue;
-                        }
-                        functions.push((
-                            method.name()?.to_string(),
-                            method.architectures()?,
-                            method.entity(),
-                        ));
-                    }
-                    apis.push(NativeApis {
-                        namespace: namespace.clone(),
-                        constants,
-                        functions,
-                    });
-                    sys_namespaces.insert(namespace);
-                    continue;
-                }
-                _ => continue,
-            };
-            if !matches!(kind, NativeKind::Interface) {
-                sys_namespaces.insert(namespace.clone());
-            }
-            definitions.push(NativeDefinition {
-                namespace,
-                name,
-                architectures,
-                entity,
-                kind,
-            });
-        }
-        let mut nested = BTreeMap::<Entity<TypeDef>, Vec<Entity<TypeDef>>>::new();
-        for (child, parent) in database.nested_types() {
-            if !child.is_windows_runtime()?
-                && child.category()? == TypeCategory::Struct
-                && parent.category()? == TypeCategory::Struct
-            {
-                nested
-                    .entry(parent.entity())
-                    .or_default()
-                    .push(child.entity());
-            }
-        }
-        let interface_bases = interface_bases(database)?;
-        let dependencies =
-            native::DependencyCache::new(database, &interface_bases, sys_namespaces)?;
-        Ok(Self {
-            definitions,
-            apis,
-            nested,
-            interface_bases,
-            dependencies,
-        })
-    }
-
-    #[cfg(test)]
-    pub(crate) fn nested_type_count(&self) -> usize {
-        self.nested.values().map(Vec::len).sum()
-    }
-}
-
 fn add_definition(
     namespaces: &mut NamespaceSelections,
     definition: TypeDefinition<'_>,
@@ -453,108 +326,7 @@ fn add_interface(
     Ok(())
 }
 
-fn interface_bases(
-    database: &Database,
-) -> Result<BTreeMap<Entity<TypeDef>, Vec<(String, String)>>, Error> {
-    let mut result = BTreeMap::<Entity<TypeDef>, Vec<(String, String)>>::new();
-    for relationship in database.interface_implementations() {
-        let (definition, interface) = relationship?;
-        if definition.is_windows_runtime()? {
-            continue;
-        }
-        let Some((namespace, name)) = database.type_name(interface.file, interface.ty)? else {
-            return Err(Error::UnsupportedType {
-                name: format!("{}.{}", definition.namespace()?, definition.name()?),
-                shape: "generic native interface base".to_string(),
-            });
-        };
-        result
-            .entry(definition.entity())
-            .or_default()
-            .push((namespace.to_string(), name.to_string()));
-    }
-    Ok(result)
-}
-
 impl<'a> Win32Items<'a> {
-    #[cfg(test)]
-    pub(crate) fn native_types(&self) -> impl Iterator<Item = Result<NativeType, Error>> + '_ {
-        self.selection.namespaces.iter().flat_map(|namespace| {
-            namespace.types.iter().map(|entity| {
-                NativeType::lower_filtered(
-                    self.database,
-                    &self.catalogs.dependencies,
-                    self.database.definition(*entity).unwrap(),
-                    &self.catalogs.nested,
-                    self.enum_variants(*entity),
-                )
-            })
-        })
-    }
-
-    /// Lowers constants in deterministic namespace and name order.
-    #[cfg(test)]
-    pub(crate) fn constants(&self) -> impl Iterator<Item = Result<Constant, Error>> + '_ {
-        self.selection.namespaces.iter().flat_map(|namespace| {
-            namespace.constants.iter().map(|entity| {
-                let field = self.database.field(*entity).unwrap();
-                Constant::lower(
-                    self.database,
-                    &self.catalogs.dependencies,
-                    field,
-                    &namespace.name,
-                    field.name().unwrap(),
-                )
-            })
-        })
-    }
-
-    /// Lowers functions in deterministic namespace and name order.
-    #[cfg(test)]
-    pub(crate) fn functions(&self) -> impl Iterator<Item = Result<Function, Error>> + '_ {
-        self.selection.namespaces.iter().flat_map(|namespace| {
-            namespace.functions.iter().map(|entity| {
-                let method = self.database.method(*entity).unwrap();
-                Function::lower(
-                    self.database,
-                    &self.catalogs.dependencies,
-                    method,
-                    &namespace.name,
-                    method.name().unwrap(),
-                )
-            })
-        })
-    }
-
-    /// Lowers native delegates in deterministic namespace and name order.
-    #[cfg(test)]
-    pub(crate) fn delegates(&self) -> impl Iterator<Item = Result<Delegate, Error>> + '_ {
-        self.selection.namespaces.iter().flat_map(|namespace| {
-            namespace.delegates.iter().map(|entity| {
-                Delegate::lower(
-                    self.database,
-                    &self.catalogs.dependencies,
-                    self.database.definition(*entity).unwrap(),
-                )
-            })
-        })
-    }
-
-    /// Lowers native interfaces in deterministic namespace and name order.
-    #[cfg(test)]
-    pub(crate) fn interfaces(&self) -> impl Iterator<Item = Result<NativeInterface, Error>> + '_ {
-        self.selection.namespaces.iter().flat_map(|namespace| {
-            namespace.interfaces.iter().map(|(entity, _)| {
-                NativeInterface::lower(
-                    self.database,
-                    &self.catalogs.dependencies,
-                    self.database.definition(*entity).unwrap(),
-                    &self.catalogs.interface_bases,
-                )
-            })
-        })
-    }
-
     /// Lowers a uniquely named constant.
     #[cfg(test)]
     pub(crate) fn constant(&self, namespace: &str, name: &str) -> Result<Constant, Error> {
@@ -788,7 +560,7 @@ impl<'a> Win32Items<'a> {
         )
     }
 
-    fn enum_variants(&self, entity: Entity<TypeDef>) -> Option<&BTreeSet<String>> {
+    pub(super) fn enum_variants(&self, entity: Entity<TypeDef>) -> Option<&BTreeSet<String>> {
         match self.selection.enum_variants.get(&entity) {
             Some(EnumVariants::Names(names)) => Some(names),
             Some(EnumVariants::All) | None => None,

@@ -36,6 +36,9 @@ mod struct_model;
 mod tokens;
 mod ty;
 mod win32;
+mod win32_catalog;
+#[cfg(test)]
+mod win32_test;
 mod winrt_catalog;
 mod winrt_class;
 mod winrt_class_type;

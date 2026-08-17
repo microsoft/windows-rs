@@ -841,8 +841,9 @@ zero-difference package probe and the existing focused output tests.
    metadata-name checks.
 6. [x] Separate package planning from filesystem changes. The generator returns modules,
    manifests, and removals as a deterministic package plan; tool policy should format and write it.
-7. Split files by responsibility after the model boundaries settle. Production files should meet
-   the 1,000-line architecture gate, and the monolithic test file should become focused suites.
+7. [x] Split production files by responsibility after the model boundaries settle. Production
+   files now meet the 1,000-line architecture gate. The monolithic test file remains a follow-up
+   cleanup after migration.
 8. Re-run performance, clippy, generated-crate CI, and all consumer regeneration gates before
    migrating `tool_package` and removing bindgen1.
 
@@ -910,14 +911,24 @@ the Cargo.toml marker, directory removal, parent creation, and changed-file writ
 contains no filesystem or formatting calls, and focused tests inspect the plan without temporary
 directories.
 
-Step 7 has started with two WinRT boundaries. Interface member naming, overload and event pairing,
+Step 7 now covers three WinRT boundaries. Interface member naming, overload and event pairing,
 selection, substitution, and public/static method rendering moved to `winrt_method.rs`, leaving
 `winrt_interface.rs` at 901 lines. Class interface and base-class type spelling moved to
-`winrt_class_type.rs`, leaving `winrt_class.rs` at 984 lines. Both extracted files are below the
-1,000-line gate. Native free-function wrappers moved to `native_function_call.rs`, and native COM
-implementation traits, producer parameters, and ABI upcalls moved to `native_com_producer.rs`.
-`native_com.rs` now contains the shared return view and COM consumer wrappers and is 994 lines.
-Native struct, union, derive, default, and bitfield rendering moved to
+`winrt_class_type.rs`, leaving `winrt_class.rs` at 984 lines. Delegate lowering and type
+rendering moved to `winrt_delegate/delegate.rs`, method ABI signature and upcall rendering moved
+to `winrt_delegate/upcall.rs`, and parameter projection and conversion moved to
+`winrt_delegate/parameter.rs`, leaving `winrt_delegate.rs` at 939 lines. All extracted files are
+below the 1,000-line gate. Native free-function wrappers moved to `native_function_call.rs`, and
+native COM implementation traits, producer parameters, and ABI upcalls moved to
+`native_com_producer.rs`. `native_com.rs` now contains the shared return view and COM consumer
+wrappers and is 994 lines. Native struct, union, derive, default, and bitfield rendering moved to
 `native_type/struct_render.rs`, leaving native type lowering and item dispatch in `native_type.rs`
 at 966 lines. Request-wide `implement_all` selection now reaches native interfaces as well as WinRT
 interfaces; the indirect native producer fixture uses a canonical Win32 `IUnknown` hierarchy.
+Immutable Win32 catalog construction and interface-base discovery moved to `win32_catalog.rs`.
+Test-only deterministic lowering iterators moved to `win32_test.rs`, leaving selection, rendering,
+and lookup orchestration in `win32.rs` at 997 lines.
+The last oversized production file, `native.rs`, now keeps the shared model and primitive
+constant writer while private child modules own cache, lowering, projection, ABI,
+metadata-layout, and dependency analysis logic. The architecture test now counts `native.rs` and
+each `native/*.rs` child against the 1,000-line source gate.

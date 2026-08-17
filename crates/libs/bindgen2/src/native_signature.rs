@@ -421,7 +421,7 @@ impl Signature {
                     false
                 };
                 let producer_borrowed = flags & 0x0002 == 0
-                    && (ty.is_const_string() || ty.producer_by_ref(database)?);
+                    && (ty.is_const_string() || ty.producer_borrows_input(database)?);
                 let pointer_cast = flags & 0x0002 != 0
                     && ty.needs_output_pointer_cast(database, &mut BTreeSet::new())?;
                 let com_out_ptr = parameter

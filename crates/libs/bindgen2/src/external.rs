@@ -38,8 +38,6 @@ const ROUTES: &[Route] = &[
             "AsyncOperationWithProgressCompletedHandler",
             "AsyncStatus",
             "IAsyncInfo",
-            "HResult",
-            "EventRegistrationToken",
         ],
         crate_name: "windows_future",
         policies: PACKAGE,
@@ -117,6 +115,12 @@ pub(super) fn minimal_crate(namespace: &str, name: &str) -> Option<&'static str>
 }
 
 pub(super) fn package_crate_name(namespace: &str, name: &str) -> Option<&'static str> {
+    if matches!(
+        crate::canonical::winrt_type_from_name(namespace, name),
+        Some(crate::canonical::Type::HResult | crate::canonical::Type::EventRegistrationToken)
+    ) {
+        return Some("windows_future");
+    }
     crate_name(namespace, name, Policy::Package)
 }
 

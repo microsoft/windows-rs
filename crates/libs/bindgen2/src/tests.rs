@@ -5498,6 +5498,14 @@ fn package_split_crates_do_not_become_namespace_features() {
         external::package_crate_name("Windows.Foundation.Collections", "IVector"),
         Some("windows_collections")
     );
+    assert_eq!(
+        external::package_crate_name("Windows.Foundation", "HResult"),
+        Some("windows_future")
+    );
+    assert_eq!(
+        external::package_crate_name("Windows.Foundation", "EventRegistrationToken"),
+        Some("windows_future")
+    );
     assert!(
         tokens::feature_names(
             "Windows.UI",
@@ -6248,8 +6256,22 @@ fn architecture_source_gates() {
                 Some("build.rs" | "lib.rs" | "output.rs" | "tests.rs")
             )
         }) {
-            assert!(
-                !contents.contains("Layout::Package"),
+            let package_references = contents.matches("Layout::Package").count();
+            let test_helper = path.file_name().is_some_and(|name| {
+                matches!(
+                    name.to_str(),
+                    Some(
+                        "native_constant.rs"
+                            | "native_delegate.rs"
+                            | "native_function.rs"
+                            | "native_interface.rs"
+                            | "native_type.rs"
+                    )
+                )
+            });
+            assert_eq!(
+                package_references,
+                usize::from(test_helper),
                 "{} contains package branching outside layout policy",
                 path.display()
             );
@@ -6296,15 +6318,29 @@ fn architecture_source_gates() {
         );
     }
     for file in [
+        "native.rs",
+        "native/abi.rs",
+        "native/analysis.rs",
+        "native/cache.rs",
+        "native/lower.rs",
+        "native/metadata.rs",
+        "native/projection.rs",
         "winrt_interface.rs",
         "winrt_method.rs",
         "winrt_class.rs",
         "winrt_class_type.rs",
+        "winrt_delegate.rs",
+        "winrt_delegate/delegate.rs",
+        "winrt_delegate/parameter.rs",
+        "winrt_delegate/upcall.rs",
         "native_com.rs",
         "native_com_producer.rs",
         "native_function_call.rs",
         "native_type.rs",
         "native_type/struct_render.rs",
+        "win32.rs",
+        "win32_catalog.rs",
+        "win32_test.rs",
     ] {
         let lines = std::fs::read_to_string(source.join(file))
             .unwrap()
