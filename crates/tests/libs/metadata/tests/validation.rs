@@ -45,6 +45,29 @@ fn metadata_root(bytes: &[u8]) -> (usize, usize) {
     (rva_offset(bytes, u32_at(bytes, cli + 8)), cli + 12)
 }
 
+fn metadata_streams(bytes: &[u8]) -> Vec<(String, usize, usize, usize)> {
+    let (metadata, _) = metadata_root(bytes);
+    let version_len = u32_at(bytes, metadata + 12) as usize;
+    let stream_count = u16_at(bytes, metadata + version_len + 18) as usize;
+    let mut stream = metadata + version_len + 20;
+    let mut result = Vec::with_capacity(stream_count);
+
+    for _ in 0..stream_count {
+        let offset = u32_at(bytes, stream) as usize;
+        let len = u32_at(bytes, stream + 4) as usize;
+        let name = &bytes[stream + 8..];
+        let name_len = name.iter().position(|byte| *byte == 0).unwrap();
+        result.push((
+            std::str::from_utf8(&name[..name_len]).unwrap().to_string(),
+            stream,
+            metadata + offset,
+            len,
+        ));
+        stream += 8 + (name_len + 1).next_multiple_of(4);
+    }
+    result
+}
+
 #[test]
 fn optional_header_bounds_data_directories() {
     let mut bytes = windows_default::WINRT.to_vec();
@@ -87,21 +110,54 @@ fn metadata_root_is_bounded_by_directory() {
 fn metadata_streams_are_bounded_by_directory() {
     let mut bytes = windows_default::WINRT.to_vec();
     let (metadata, metadata_size) = metadata_root(&bytes);
-    let version_len = u32_at(&bytes, metadata + 12) as usize;
-    let stream_count = u16_at(&bytes, metadata + version_len + 18) as usize;
-    let mut stream = metadata + version_len + 20;
-    let mut stream_end = 0;
-
-    for _ in 0..stream_count {
-        let offset = u32_at(&bytes, stream) as usize;
-        let len = u32_at(&bytes, stream + 4) as usize;
-        stream_end = stream_end.max(offset + len);
-        let name = &bytes[stream + 8..];
-        let name_len = name.iter().position(|byte| *byte == 0).unwrap() + 1;
-        stream += 8 + name_len.next_multiple_of(4);
-    }
+    let stream_end = metadata_streams(&bytes)
+        .into_iter()
+        .map(|(_, _, start, len)| start + len - metadata)
+        .max()
+        .unwrap();
 
     bytes[metadata_size..metadata_size + 4].copy_from_slice(&(stream_end as u32 - 1).to_le_bytes());
+
+    assert!(File::new(bytes).is_none());
+}
+
+#[test]
+fn table_rows_are_bounded_by_stream() {
+    let mut bytes = windows_default::WINRT.to_vec();
+    let (_, header, _, _) = metadata_streams(&bytes)
+        .into_iter()
+        .find(|(name, _, _, _)| name == "#~")
+        .unwrap();
+
+    bytes[header + 4..header + 8].copy_from_slice(&24u32.to_le_bytes());
+
+    assert!(File::new(bytes).is_none());
+}
+
+#[test]
+fn table_stream_rejects_nonzero_trailing_data() {
+    let mut bytes = windows_default::WINRT.to_vec();
+    let (_, _, start, len) = metadata_streams(&bytes)
+        .into_iter()
+        .find(|(name, _, _, _)| name == "#~")
+        .unwrap();
+    assert_eq!(bytes[start + len - 1], 0);
+
+    bytes[start + len - 1] = 1;
+
+    assert!(File::new(bytes).is_none());
+}
+
+#[test]
+fn table_stream_rejects_excessive_zero_padding() {
+    let mut bytes = windows_default::WINRT.to_vec();
+    let (_, header, start, len) = metadata_streams(&bytes)
+        .into_iter()
+        .find(|(name, _, _, _)| name == "#~")
+        .unwrap();
+
+    bytes[header + 4..header + 8].copy_from_slice(&(len as u32 + 5).to_le_bytes());
+    bytes[start + len..start + len + 5].fill(0);
 
     assert!(File::new(bytes).is_none());
 }

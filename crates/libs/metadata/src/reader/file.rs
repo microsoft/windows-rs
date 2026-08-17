@@ -135,6 +135,10 @@ impl File {
             }
         }
 
+        if tables_data.1 < 24 {
+            return None;
+        }
+        let tables_end = tables_data.0.checked_add(tables_data.1)?;
         let heap_sizes = result.bytes.copy_as::<u8>(tables_data.0 + 6)?;
         let string_index_size = if (heap_sizes & 1) == 1 { 4 } else { 2 };
         let guid_index_size = if ((heap_sizes >> 1) & 1) == 1 { 4 } else { 2 };
@@ -172,6 +176,9 @@ impl File {
                 continue;
             }
 
+            if view.checked_add(4)? > tables_end {
+                return None;
+            }
             let len = result.bytes.copy_as::<u32>(view)? as usize;
             view += 4;
 
@@ -465,42 +472,49 @@ impl File {
         );
         result.tables[TypeSpec::TABLE].set_columns(blob_index_size, 0, 0, 0, 0, 0);
 
-        unused_module.set_data(&mut view);
-        result.tables[TypeRef::TABLE].set_data(&mut view);
-        result.tables[TypeDef::TABLE].set_data(&mut view);
-        result.tables[Field::TABLE].set_data(&mut view);
-        result.tables[MethodDef::TABLE].set_data(&mut view);
-        result.tables[MethodParam::TABLE].set_data(&mut view);
-        result.tables[InterfaceImpl::TABLE].set_data(&mut view);
-        result.tables[MemberRef::TABLE].set_data(&mut view);
-        result.tables[Constant::TABLE].set_data(&mut view);
-        result.tables[Attribute::TABLE].set_data(&mut view);
-        unused_field_marshal.set_data(&mut view);
-        unused_decl_security.set_data(&mut view);
-        result.tables[ClassLayout::TABLE].set_data(&mut view);
-        unused_field_layout.set_data(&mut view);
-        unused_standalone_sig.set_data(&mut view);
-        unused_event_map.set_data(&mut view);
-        unused_event.set_data(&mut view);
-        unused_property_map.set_data(&mut view);
-        unused_property.set_data(&mut view);
-        unused_method_semantics.set_data(&mut view);
-        unused_method_impl.set_data(&mut view);
-        result.tables[ModuleRef::TABLE].set_data(&mut view);
-        result.tables[TypeSpec::TABLE].set_data(&mut view);
-        result.tables[ImplMap::TABLE].set_data(&mut view);
-        unused_field_rva.set_data(&mut view);
-        result.tables[Assembly::TABLE].set_data(&mut view);
-        unused_assembly_processor.set_data(&mut view);
-        unused_assembly_os.set_data(&mut view);
-        unused_assembly_ref.set_data(&mut view);
-        unused_assembly_ref_processor.set_data(&mut view);
-        unused_assembly_ref_os.set_data(&mut view);
-        unused_file.set_data(&mut view);
-        unused_exported_type.set_data(&mut view);
-        unused_manifest_resource.set_data(&mut view);
-        result.tables[NestedClass::TABLE].set_data(&mut view);
-        result.tables[GenericParam::TABLE].set_data(&mut view);
+        unused_module.set_data(&mut view, tables_end)?;
+        result.tables[TypeRef::TABLE].set_data(&mut view, tables_end)?;
+        result.tables[TypeDef::TABLE].set_data(&mut view, tables_end)?;
+        result.tables[Field::TABLE].set_data(&mut view, tables_end)?;
+        result.tables[MethodDef::TABLE].set_data(&mut view, tables_end)?;
+        result.tables[MethodParam::TABLE].set_data(&mut view, tables_end)?;
+        result.tables[InterfaceImpl::TABLE].set_data(&mut view, tables_end)?;
+        result.tables[MemberRef::TABLE].set_data(&mut view, tables_end)?;
+        result.tables[Constant::TABLE].set_data(&mut view, tables_end)?;
+        result.tables[Attribute::TABLE].set_data(&mut view, tables_end)?;
+        unused_field_marshal.set_data(&mut view, tables_end)?;
+        unused_decl_security.set_data(&mut view, tables_end)?;
+        result.tables[ClassLayout::TABLE].set_data(&mut view, tables_end)?;
+        unused_field_layout.set_data(&mut view, tables_end)?;
+        unused_standalone_sig.set_data(&mut view, tables_end)?;
+        unused_event_map.set_data(&mut view, tables_end)?;
+        unused_event.set_data(&mut view, tables_end)?;
+        unused_property_map.set_data(&mut view, tables_end)?;
+        unused_property.set_data(&mut view, tables_end)?;
+        unused_method_semantics.set_data(&mut view, tables_end)?;
+        unused_method_impl.set_data(&mut view, tables_end)?;
+        result.tables[ModuleRef::TABLE].set_data(&mut view, tables_end)?;
+        result.tables[TypeSpec::TABLE].set_data(&mut view, tables_end)?;
+        result.tables[ImplMap::TABLE].set_data(&mut view, tables_end)?;
+        unused_field_rva.set_data(&mut view, tables_end)?;
+        result.tables[Assembly::TABLE].set_data(&mut view, tables_end)?;
+        unused_assembly_processor.set_data(&mut view, tables_end)?;
+        unused_assembly_os.set_data(&mut view, tables_end)?;
+        unused_assembly_ref.set_data(&mut view, tables_end)?;
+        unused_assembly_ref_processor.set_data(&mut view, tables_end)?;
+        unused_assembly_ref_os.set_data(&mut view, tables_end)?;
+        unused_file.set_data(&mut view, tables_end)?;
+        unused_exported_type.set_data(&mut view, tables_end)?;
+        unused_manifest_resource.set_data(&mut view, tables_end)?;
+        result.tables[NestedClass::TABLE].set_data(&mut view, tables_end)?;
+        result.tables[GenericParam::TABLE].set_data(&mut view, tables_end)?;
+        unused_method_spec.set_data(&mut view, tables_end)?;
+        unused_generic_param_constraint.set_data(&mut view, tables_end)?;
+
+        let trailing = result.bytes.get(view..tables_end)?;
+        if trailing.len() > 4 || trailing.iter().any(|byte| *byte != 0) {
+            return None;
+        }
 
         Some(result)
     }
@@ -772,12 +786,16 @@ impl Table {
         }
     }
 
-    fn set_data(&mut self, offset: &mut usize) {
+    fn set_data(&mut self, offset: &mut usize, end: usize) -> Option<()> {
         if self.len != 0 {
-            let next = *offset + self.len * self.width;
+            let next = self.len.checked_mul(self.width)?.checked_add(*offset)?;
+            if next > end {
+                return None;
+            }
             self.offset = *offset;
             *offset = next;
         }
+        Some(())
     }
 }
 

@@ -32,7 +32,8 @@ rejected even when the containing file has enough trailing bytes to decode the f
 The CLI header is also bounded by its data-directory size and the raw section data mapped by its
 RVA. RVA ranges cannot borrow bytes past the section's file-backed data. The metadata version,
 stream directory, stream names, and stream ranges are bounded by the CLI header's `MetaData.Size`
-field rather than by trailing file bytes.
+field rather than by trailing file bytes. The table stream bounds its header, row counts, and row
+data, and permits at most four trailing zero bytes after the final table.
 
 ### Multi-arch merge
 
