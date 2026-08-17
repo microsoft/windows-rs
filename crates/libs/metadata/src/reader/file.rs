@@ -93,35 +93,46 @@ impl File {
         let metadata_size = clr.MetaData.Size as usize;
         let metadata_offset =
             offset_from_rva(sections, clr.MetaData.VirtualAddress, metadata_size)?;
-        let metadata = result.bytes.view_as::<METADATA_HEADER>(metadata_offset)?;
-
-        if metadata.signature != METADATA_SIGNATURE {
+        if metadata_size < 20 || result.bytes.copy_as::<u32>(metadata_offset)? != METADATA_SIGNATURE
+        {
             return None;
         }
-
-        // The METADATA_HEADER struct is not a fixed size so have to offset a little more carefully.
-        let mut view = metadata_offset + metadata.length as usize + 20;
+        let metadata_end = metadata_offset.checked_add(metadata_size)?;
+        let version_len = result.bytes.copy_as::<u32>(metadata_offset + 12)? as usize;
+        let version_end = metadata_offset.checked_add(16)?.checked_add(version_len)?;
+        let flags = version_end.checked_add(3)? & !3;
+        if flags.checked_add(4)? > metadata_end {
+            return None;
+        }
+        let stream_count = result.bytes.copy_as::<u16>(flags + 2)? as usize;
+        let mut view = flags + 4;
         let mut tables_data: (usize, usize) = (0, 0);
 
-        for _ in 0..result
-            .bytes
-            .copy_as::<u16>(metadata_offset + metadata.length as usize + 18)?
-        {
+        for _ in 0..stream_count {
+            if view.checked_add(8)? > metadata_end {
+                return None;
+            }
             let stream_offset = result.bytes.copy_as::<u32>(view)? as usize;
             let stream_len = result.bytes.copy_as::<u32>(view + 4)? as usize;
-            let stream_name = result.bytes.view_as_str(view + 8)?;
+            let name_offset = view + 8;
+            let name_bytes = result.bytes.get(name_offset..metadata_end)?;
+            let name_len = name_bytes.iter().position(|byte| *byte == 0)?;
+            let stream_name = &name_bytes[..name_len];
+            let stream_start = metadata_offset.checked_add(stream_offset)?;
+            if stream_start.checked_add(stream_len)? > metadata_end {
+                return None;
+            }
             match stream_name {
-                b"#Strings" => result.strings = metadata_offset + stream_offset,
-                b"#Blob" => result.blobs = metadata_offset + stream_offset,
-                b"#~" => tables_data = (metadata_offset + stream_offset, stream_len),
+                b"#Strings" => result.strings = stream_start,
+                b"#Blob" => result.blobs = stream_start,
+                b"#~" => tables_data = (stream_start, stream_len),
                 b"#GUID" | b"#US" => {}
                 rest => panic!("{rest:?}"),
             }
-            let mut padding = 4 - stream_name.len() % 4;
-            if padding == 0 {
-                padding = 4;
+            view = name_offset.checked_add(name_len.checked_add(4)? & !3)?;
+            if view > metadata_end {
+                return None;
             }
-            view += 8 + stream_name.len() + padding;
         }
 
         let heap_sizes = result.bytes.copy_as::<u8>(tables_data.0 + 6)?;
@@ -681,7 +692,6 @@ trait View {
     fn view_as<T>(&self, offset: usize) -> Option<&T>;
     fn view_as_slice_of<T>(&self, offset: usize, len: usize) -> Option<&[T]>;
     fn copy_as<T: Copy>(&self, offset: usize) -> Option<T>;
-    fn view_as_str(&self, offset: usize) -> Option<&[u8]>;
     fn is_proper_length<T>(&self, offset: usize, count: usize) -> Option<()>;
     fn is_proper_length_and_alignment<T>(&self, offset: usize, count: usize) -> Option<*const T>;
 }
@@ -707,12 +717,6 @@ impl View for [u8] {
         // definition) ensures the value can be bitwise-copied; read_unaligned handles any
         // alignment of the source pointer.
         Some(unsafe { (self[offset..].as_ptr() as *const T).read_unaligned() })
-    }
-
-    fn view_as_str(&self, offset: usize) -> Option<&[u8]> {
-        let buffer = &self[offset..];
-        let pos = buffer.iter().position(|c| *c == b'\0')?;
-        Some(&self[offset..offset + pos])
     }
 
     fn is_proper_length<T>(&self, offset: usize, count: usize) -> Option<()> {
@@ -787,19 +791,6 @@ impl Column {
     fn new(offset: usize, width: usize) -> Self {
         Self { offset, width }
     }
-}
-
-#[repr(C)]
-#[derive(Default)]
-struct METADATA_HEADER {
-    signature: u32,
-    major_version: u16,
-    minor_version: u16,
-    reserved: u32,
-    length: u32,
-    version: [u8; 20],
-    flags: u16,
-    streams: u16,
 }
 
 const METADATA_SIGNATURE: u32 = 0x424A_5342;

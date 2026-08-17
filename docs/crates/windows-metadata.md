@@ -30,7 +30,9 @@ The reader bounds the PE optional header by the COFF `SizeOfOptionalHeader` fiel
 the CLI data-directory entry or locating section headers. A truncated declared optional header is
 rejected even when the containing file has enough trailing bytes to decode the full structure.
 The CLI header is also bounded by its data-directory size and the raw section data mapped by its
-RVA. RVA ranges cannot borrow bytes past the section's file-backed data.
+RVA. RVA ranges cannot borrow bytes past the section's file-backed data. The metadata version,
+stream directory, stream names, and stream ranges are bounded by the CLI header's `MetaData.Size`
+field rather than by trailing file bytes.
 
 ### Multi-arch merge
 
