@@ -914,4 +914,10 @@ Step 7 has started with two WinRT boundaries. Interface member naming, overload 
 selection, substitution, and public/static method rendering moved to `winrt_method.rs`, leaving
 `winrt_interface.rs` at 901 lines. Class interface and base-class type spelling moved to
 `winrt_class_type.rs`, leaving `winrt_class.rs` at 984 lines. Both extracted files are below the
-1,000-line gate.
+1,000-line gate. Native free-function wrappers moved to `native_function_call.rs`, and native COM
+implementation traits, producer parameters, and ABI upcalls moved to `native_com_producer.rs`.
+`native_com.rs` now contains the shared return view and COM consumer wrappers and is 994 lines.
+Native struct, union, derive, default, and bitfield rendering moved to
+`native_type/struct_render.rs`, leaving native type lowering and item dispatch in `native_type.rs`
+at 966 lines. Request-wide `implement_all` selection now reaches native interfaces as well as WinRT
+interfaces; the indirect native producer fixture uses a canonical Win32 `IUnknown` hierarchy.

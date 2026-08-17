@@ -4439,22 +4439,26 @@ fn native_producers_support_indirect_struct_returns() {
     let output = fixture_metadata(
         r#"
             #[win32]
-            mod Test {
-                struct Value {
-                    first: u64,
-                    second: u64,
-                }
-                #[guid(0x00000000_0000_0000_c000_000000000046)]
-                interface IUnknown {
-                }
-                #[guid(0x00000001_0000_0000_c000_000000000046)]
-                interface IValue: IUnknown {
-                    fn GetValue(&self) -> Value;
+            mod Windows {
+                mod Win32 {
+                    mod Test {
+                        struct Value {
+                            first: u64,
+                            second: u64,
+                        }
+                        #[guid(0x00000000_0000_0000_c000_000000000046)]
+                        interface IUnknown {
+                        }
+                        #[guid(0x00000001_0000_0000_c000_000000000046)]
+                        interface IValue: IUnknown {
+                            fn GetValue(&self) -> Value;
+                        }
+                    }
                 }
             }
         "#,
     )
-    .generator(Request::all().package())
+    .generator(Request::all().package().implement_all())
     .unwrap()
     .render(Layout::Modules)
     .unwrap()
@@ -6296,6 +6300,11 @@ fn architecture_source_gates() {
         "winrt_method.rs",
         "winrt_class.rs",
         "winrt_class_type.rs",
+        "native_com.rs",
+        "native_com_producer.rs",
+        "native_function_call.rs",
+        "native_type.rs",
+        "native_type/struct_render.rs",
     ] {
         let lines = std::fs::read_to_string(source.join(file))
             .unwrap()

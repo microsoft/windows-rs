@@ -87,6 +87,7 @@ impl Win32Selection {
         catalogs: Arc<Win32Catalogs>,
         filter: Option<&Filter>,
         implementations: Option<&Filter>,
+        implement_all: bool,
         package: bool,
     ) -> Result<Self, Error> {
         let mut closure = filter.map(|_| {
@@ -99,7 +100,8 @@ impl Win32Selection {
         });
         let mut namespaces = NamespaceSelections::new();
         let mut enum_variants = BTreeMap::<Entity<TypeDef>, EnumVariants>::new();
-        let mut selected_implementations = implementations.map(|_| BTreeSet::new());
+        let mut selected_implementations =
+            (implementations.is_some() || implement_all).then(BTreeSet::new);
         for definition in &catalogs.definitions {
             match &definition.kind {
                 NativeKind::Enum(variants) => {
@@ -137,9 +139,10 @@ impl Win32Selection {
                 }
                 NativeKind::Struct | NativeKind::Delegate | NativeKind::Interface => {
                     if matches!(&definition.kind, NativeKind::Interface)
-                        && implementations.is_some_and(|filter| {
-                            filter.includes(&definition.namespace, &definition.name)
-                        })
+                        && (implement_all
+                            || implementations.is_some_and(|filter| {
+                                filter.includes(&definition.namespace, &definition.name)
+                            }))
                     {
                         selected_implementations
                             .as_mut()
@@ -871,9 +874,15 @@ mod tests {
     fn inventory_current_win32_lowering() {
         let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
         let catalogs = Arc::new(Win32Catalogs::new(&database).unwrap());
-        let selection =
-            Win32Selection::new_with_catalogs(&database, catalogs.clone(), None, None, false)
-                .unwrap();
+        let selection = Win32Selection::new_with_catalogs(
+            &database,
+            catalogs.clone(),
+            None,
+            None,
+            false,
+            false,
+        )
+        .unwrap();
         let items = Win32Items {
             database: &database,
             catalogs: &catalogs,
@@ -999,9 +1008,15 @@ mod tests {
     fn inventory_architecture_variants_and_nested_types() {
         let database = Database::new([Image::new(windows_default::WIN32).unwrap()]).unwrap();
         let catalogs = Arc::new(Win32Catalogs::new(&database).unwrap());
-        let selection =
-            Win32Selection::new_with_catalogs(&database, catalogs.clone(), None, None, false)
-                .unwrap();
+        let selection = Win32Selection::new_with_catalogs(
+            &database,
+            catalogs.clone(),
+            None,
+            None,
+            false,
+            false,
+        )
+        .unwrap();
         let items = Win32Items {
             database: &database,
             catalogs: &catalogs,

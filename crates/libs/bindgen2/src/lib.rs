@@ -22,10 +22,12 @@ mod model;
 mod native;
 mod native_closure;
 mod native_com;
+mod native_com_producer;
 mod native_constant;
 mod native_default;
 mod native_delegate;
 mod native_function;
+mod native_function_call;
 mod native_interface;
 mod native_signature;
 mod native_type;
@@ -467,6 +469,7 @@ impl Generator {
             shared.win32_catalogs.clone(),
             filter,
             request.native_implementations.as_ref(),
+            request.implement_all,
             request.package,
         )?;
         let winrt_implementations = if request.implement_all {
