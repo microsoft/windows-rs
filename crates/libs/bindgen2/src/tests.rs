@@ -5577,26 +5577,22 @@ fn package_winrt_methods_gate_external_namespace_dependencies() {
             .package(),
         )
         .unwrap();
-    let output = std::env::temp_dir().join(format!(
-        "windows_bindgen2_package_{}_{}",
-        std::process::id(),
-        NEXT_FIXTURE.fetch_add(1, Ordering::Relaxed)
-    ));
-    std::fs::create_dir(&output).unwrap();
-    std::fs::write(output.join("Cargo.toml"), "# generated features\n").unwrap();
-    generator.write_package(&output, None, false).unwrap();
-    let contents =
-        std::fs::read_to_string(output.join("src").join("Windows").join("UI").join("mod.rs"))
+    let plan = generator.package_plan(false).unwrap();
+    assert_eq!(
+        plan.removals,
+        [std::path::PathBuf::from("src").join("Windows")]
+    );
+    assert!(plan.features.windows(2).all(|pair| pair[0] <= pair[1]));
+    let module = |path: &str| {
+        let module = plan
+            .modules
+            .iter()
+            .find(|module| module.path == std::path::Path::new(path))
             .unwrap();
-    let storage = std::fs::read_to_string(
-        output
-            .join("src")
-            .join("Windows")
-            .join("Storage")
-            .join("mod.rs"),
-    )
-    .unwrap();
-    std::fs::remove_dir_all(output).unwrap();
+        format(&module.tokens.to_string()).unwrap()
+    };
+    let contents = module("src\\Windows\\UI\\mod.rs");
+    let storage = module("src\\Windows\\Storage\\mod.rs");
     assert!(contents.contains("#[cfg(feature = \"Storage_Streams\")]"));
     assert!(contents.contains("#[cfg(not(feature = \"Storage_Streams\"))]"));
     assert!(contents.contains("Get: usize"));
@@ -6278,6 +6274,36 @@ fn architecture_source_gates() {
         assert!(
             !graph.contains(rendering),
             "WinRT artifact graph contains rendering policy: {rendering}"
+        );
+    }
+
+    let output = std::fs::read_to_string(source.join("output.rs")).unwrap();
+    for filesystem_policy in ["std::fs", "format_with_config", "write_if_changed"] {
+        assert!(
+            !output.contains(filesystem_policy),
+            "package planning contains filesystem policy: {filesystem_policy}"
+        );
+    }
+    let build = std::fs::read_to_string(source.join("build.rs")).unwrap();
+    for package_policy in ["package_plan(", "remove_dir_all", "format_with_config"] {
+        assert!(
+            build.contains(package_policy),
+            "build policy is missing package operation: {package_policy}"
+        );
+    }
+    for file in [
+        "winrt_interface.rs",
+        "winrt_method.rs",
+        "winrt_class.rs",
+        "winrt_class_type.rs",
+    ] {
+        let lines = std::fs::read_to_string(source.join(file))
+            .unwrap()
+            .lines()
+            .count();
+        assert!(
+            lines < 1_000,
+            "{file} exceeds the architecture gate: {lines}"
         );
     }
 }

@@ -4,7 +4,7 @@ use quote::quote;
 use std::{
     cmp::Ordering,
     collections::{BTreeMap, BTreeSet},
-    path::Path,
+    path::PathBuf,
 };
 
 #[derive(Clone)]
@@ -35,6 +35,17 @@ impl ArtifactKind {
 struct Module {
     items: Vec<Item>,
     nested: BTreeMap<String, Self>,
+}
+
+pub(super) struct PackagePlan {
+    pub(super) removals: Vec<PathBuf>,
+    pub(super) modules: Vec<PackageModule>,
+    pub(super) features: Vec<String>,
+}
+
+pub(super) struct PackageModule {
+    pub(super) path: PathBuf,
+    pub(super) tokens: TokenStream,
 }
 
 impl Generator {
@@ -232,12 +243,7 @@ impl Generator {
         Ok(modules)
     }
 
-    pub(super) fn write_package(
-        &self,
-        output: &Path,
-        rustfmt: Option<&str>,
-        sys: bool,
-    ) -> Result<(), Box<dyn std::error::Error>> {
+    pub(super) fn package_plan(&self, sys: bool) -> Result<PackagePlan, Error> {
         let mut modules = self.collect_modules(Layout::Package, self.projection)?;
         let mut namespaces = BTreeSet::new();
         for namespace in modules.keys() {
@@ -265,14 +271,14 @@ impl Generator {
             }
         }
 
-        for root in namespaces
+        let removals = namespaces
             .iter()
             .filter(|namespace| !namespace.contains('.'))
-        {
-            let _ = std::fs::remove_dir_all(output.join("src").join(root));
-        }
+            .map(|root| PathBuf::from("src").join(root))
+            .collect();
 
         let mut namespace_dependencies = BTreeMap::<String, BTreeSet<String>>::new();
+        let mut module_files = Vec::new();
         for namespace in &namespaces {
             if prunable.contains(namespace) {
                 continue;
@@ -348,12 +354,10 @@ impl Generator {
                 namespace_dependencies.insert(namespace.clone(), dependencies);
             }
 
-            let contents = format::format_with_config(&tokens.to_string(), rustfmt)?;
-            let path = output
-                .join("src")
+            let path = PathBuf::from("src")
                 .join(namespace.replace('.', "\\"))
                 .join("mod.rs");
-            write_if_changed(&path, contents)?;
+            module_files.push(PackageModule { path, tokens });
         }
 
         let mut features = Vec::new();
@@ -386,22 +390,11 @@ impl Generator {
         }
         features.sort();
 
-        let toml_path = output.join("Cargo.toml");
-        let existing = std::fs::read_to_string(&toml_path)?;
-        let Some((prefix, _)) = existing.split_once("# generated features") else {
-            return Err(format!(
-                "missing `# generated features` marker in `{}`",
-                toml_path.display()
-            )
-            .into());
-        };
-        let mut toml = format!("{prefix}# generated features\n");
-        for feature in features {
-            toml.push_str(&feature);
-            toml.push('\n');
-        }
-        write_if_changed(&toml_path, toml)?;
-        Ok(())
+        Ok(PackagePlan {
+            removals,
+            modules: module_files,
+            features,
+        })
     }
 }
 
@@ -465,18 +458,6 @@ fn prelude_shadow(name: &str) -> Option<TokenStream> {
         "Err" => quote! { core::result::Result::Err },
         _ => return None,
     })
-}
-
-fn write_if_changed(path: &Path, contents: String) -> Result<(), Box<dyn std::error::Error>> {
-    if std::fs::read_to_string(path).is_ok_and(|existing| existing == contents) {
-        return Ok(());
-    }
-
-    if let Some(parent) = path.parent() {
-        std::fs::create_dir_all(parent)?;
-    }
-    std::fs::write(path, contents)?;
-    Ok(())
 }
 
 #[cfg(test)]

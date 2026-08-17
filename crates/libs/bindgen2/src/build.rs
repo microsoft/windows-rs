@@ -333,20 +333,46 @@ impl Bindgen {
         }
         let generator = metadata.generator(request)?;
         if self.layout.is_package() {
-            return generator.write_package(&self.output, self.rustfmt.as_deref(), self.sys);
+            let plan = generator.package_plan(self.sys)?;
+            return self.write_package(plan);
         }
         let tokens = generator.render(self.layout)?;
         let contents =
             crate::format::format_with_config(&tokens.to_string(), self.rustfmt.as_deref())?;
 
-        if std::fs::read_to_string(&self.output).is_ok_and(|existing| existing == contents) {
-            return Ok(());
+        write_if_changed(&self.output, contents)
+    }
+
+    fn write_package(
+        &self,
+        plan: crate::output::PackagePlan,
+    ) -> Result<(), Box<dyn std::error::Error>> {
+        for path in plan.removals {
+            let _ = std::fs::remove_dir_all(self.output.join(path));
         }
-        if let Some(parent) = self.output.parent() {
-            std::fs::create_dir_all(parent)?;
+        for module in plan.modules {
+            let contents = crate::format::format_with_config(
+                &module.tokens.to_string(),
+                self.rustfmt.as_deref(),
+            )?;
+            write_if_changed(&self.output.join(module.path), contents)?;
         }
-        std::fs::write(&self.output, contents)?;
-        Ok(())
+
+        let toml_path = self.output.join("Cargo.toml");
+        let existing = std::fs::read_to_string(&toml_path)?;
+        let Some((prefix, _)) = existing.split_once("# generated features") else {
+            return Err(format!(
+                "missing `# generated features` marker in `{}`",
+                toml_path.display()
+            )
+            .into());
+        };
+        let mut toml = format!("{prefix}# generated features\n");
+        for feature in plan.features {
+            toml.push_str(&feature);
+            toml.push('\n');
+        }
+        write_if_changed(&toml_path, toml)
     }
 
     fn images(&self) -> Result<Vec<Image>, Box<dyn std::error::Error>> {
@@ -378,11 +404,21 @@ impl Bindgen {
                 images.push(Image::read(input)?);
             }
         }
-
         if self.inputs.is_empty() || self.input_default {
             images.push(Image::new(windows_default::WINRT)?);
             images.push(Image::new(windows_default::WIN32)?);
         }
         Ok(images)
     }
+}
+
+fn write_if_changed(path: &Path, contents: String) -> Result<(), Box<dyn std::error::Error>> {
+    if std::fs::read_to_string(path).is_ok_and(|existing| existing == contents) {
+        return Ok(());
+    }
+    if let Some(parent) = path.parent() {
+        std::fs::create_dir_all(parent)?;
+    }
+    std::fs::write(path, contents)?;
+    Ok(())
 }

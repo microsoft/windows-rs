@@ -839,7 +839,7 @@ zero-difference package probe and the existing focused output tests.
 5. [x] Complete canonical ABI classification. GUID, HRESULT, event tokens, strings, BOOL, COM roots,
    and other canonical aliases should be recognized once during lowering rather than by repeated
    metadata-name checks.
-6. Separate package planning from filesystem changes. The generator should return modules,
+6. [x] Separate package planning from filesystem changes. The generator returns modules,
    manifests, and removals as a deterministic package plan; tool policy should format and write it.
 7. Split files by responsibility after the model boundaries settle. Production files should meet
    the 1,000-line architecture gate, and the monolithic test file should become focused suites.
@@ -903,3 +903,15 @@ so dependency, primitive, copy, GUID, and event-token policy no longer reclassif
 COM interfaces and each retained hierarchy entry also carry root-interface identity, removing
 `IUnknown` and `IInspectable` name checks from rendering and implementation policy. Raw dependency
 tuples use the same canonical classifier where no lowered type object exists.
+
+Step 6 is complete. Package generation first returns a deterministic plan containing relative
+module token files, generated feature lines, and stale source roots. The build facade owns rustfmt,
+the Cargo.toml marker, directory removal, parent creation, and changed-file writes. Package planning
+contains no filesystem or formatting calls, and focused tests inspect the plan without temporary
+directories.
+
+Step 7 has started with two WinRT boundaries. Interface member naming, overload and event pairing,
+selection, substitution, and public/static method rendering moved to `winrt_method.rs`, leaving
+`winrt_interface.rs` at 901 lines. Class interface and base-class type spelling moved to
+`winrt_class_type.rs`, leaving `winrt_class.rs` at 984 lines. Both extracted files are below the
+1,000-line gate.

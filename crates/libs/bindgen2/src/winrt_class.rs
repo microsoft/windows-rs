@@ -2,6 +2,7 @@ use super::*;
 use proc_macro2::{Literal, TokenStream};
 use quote::quote;
 use std::collections::{BTreeMap, BTreeSet};
+use winrt_class_type::{ClassInterface, ClassName};
 
 #[derive(Clone)]
 pub(super) struct Class {
@@ -14,25 +15,6 @@ pub(super) struct Class {
     default_constructor: bool,
     agile: bool,
     async_default: bool,
-}
-
-#[derive(Clone)]
-struct ClassInterface {
-    entity: Entity<TypeDef>,
-    namespace: String,
-    name: String,
-    arguments: Vec<ty::Type>,
-    methods: Vec<winrt_interface::NamedMethod>,
-    default: bool,
-    exclusive: bool,
-    factory: bool,
-    composable: bool,
-}
-
-#[derive(Clone)]
-struct ClassName {
-    namespace: String,
-    name: String,
 }
 
 pub(super) struct WriteContext<'a> {
@@ -767,92 +749,6 @@ impl Class {
             }
         };
         Ok(Some((factories, helper)))
-    }
-}
-
-impl ClassInterface {
-    fn is_async(&self) -> bool {
-        self.namespace == "Windows.Foundation"
-            && matches!(
-                self.name.as_str(),
-                "IAsyncAction"
-                    | "IAsyncActionWithProgress"
-                    | "IAsyncOperation"
-                    | "IAsyncOperationWithProgress"
-            )
-    }
-
-    fn write_async_name(&self, namespace: &str, layout: Layout) -> Result<TokenStream, Error> {
-        let name = tokens::ident(&self.name);
-        let arguments = self
-            .arguments
-            .iter()
-            .map(|argument| argument.write_name(namespace, layout, &[]))
-            .collect::<Result<Vec<_>, Error>>()?;
-        Ok(if arguments.is_empty() {
-            quote! { windows_future::#name }
-        } else {
-            quote! { windows_future::#name<#(#arguments),*> }
-        })
-    }
-
-    fn clone_model(&self) -> Self {
-        Self {
-            namespace: self.namespace.clone(),
-            entity: self.entity,
-            name: self.name.clone(),
-            arguments: self.arguments.clone(),
-            methods: Vec::new(),
-            default: self.default,
-            exclusive: self.exclusive,
-            factory: self.factory,
-            composable: self.composable,
-        }
-    }
-
-    fn write_name(&self, namespace: &str, layout: Layout) -> Result<TokenStream, Error> {
-        let crate_name =
-            if layout.is_package() && self.namespace == "Windows.Foundation.Collections" {
-                external::package_crate_name(&self.namespace, &self.name)
-            } else if namespace != self.namespace {
-                external::winrt_crate(&self.namespace, &self.name)
-            } else {
-                None
-            };
-        if let Some(crate_name) = crate_name {
-            let crate_name = tokens::ident(crate_name);
-            let name = tokens::ident(&self.name);
-            let arguments = self
-                .arguments
-                .iter()
-                .map(|argument| argument.write_name(namespace, layout, &[]))
-                .collect::<Result<Vec<_>, Error>>()?;
-            return Ok(if arguments.is_empty() {
-                quote! { #crate_name::#name }
-            } else {
-                quote! { #crate_name::#name<#(#arguments),*> }
-            });
-        }
-        let path = tokens::namespace(namespace, &self.namespace, layout);
-        let name = tokens::ident(&self.name);
-        let arguments = self
-            .arguments
-            .iter()
-            .map(|argument| argument.write_name(namespace, layout, &[]))
-            .collect::<Result<Vec<_>, Error>>()?;
-        Ok(if arguments.is_empty() {
-            quote! { #path #name }
-        } else {
-            quote! { #path #name<#(#arguments),*> }
-        })
-    }
-}
-
-impl ClassName {
-    fn write_name(&self, namespace: &str, layout: Layout) -> TokenStream {
-        let path = tokens::namespace(namespace, &self.namespace, layout);
-        let name = tokens::ident(&self.name);
-        quote! { #path #name }
     }
 }
 

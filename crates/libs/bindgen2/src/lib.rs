@@ -36,10 +36,12 @@ mod ty;
 mod win32;
 mod winrt_catalog;
 mod winrt_class;
+mod winrt_class_type;
 mod winrt_collection;
 mod winrt_delegate;
 mod winrt_dependency;
 mod winrt_interface;
+mod winrt_method;
 
 pub use build::{Bindgen, builder, command_file};
 use enum_model::Enum;
