@@ -221,6 +221,7 @@ const HEADERS: &[&str] = &[
     "d3d11on12.h",
     "d3d12video.h",
     "netlistmgr.h",
+    "netfw.h",
     "wincred.h",
     "wtsapi32.h",
     "evntrace.h",

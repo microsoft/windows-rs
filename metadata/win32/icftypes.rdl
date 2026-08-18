@@ -1,0 +1,95 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum NET_FW_ACTION {
+            NET_FW_ACTION_BLOCK = 0,
+            NET_FW_ACTION_ALLOW = 1,
+            NET_FW_ACTION_MAX = 2,
+        }
+        #[repr(i32)]
+        enum NET_FW_AUTHENTICATE_TYPE {
+            NET_FW_AUTHENTICATE_NONE = 0,
+            NET_FW_AUTHENTICATE_NO_ENCAPSULATION = 1,
+            NET_FW_AUTHENTICATE_WITH_INTEGRITY = 2,
+            NET_FW_AUTHENTICATE_AND_NEGOTIATE_ENCRYPTION = 3,
+            NET_FW_AUTHENTICATE_AND_ENCRYPT = 4,
+        }
+        #[repr(i32)]
+        enum NET_FW_EDGE_TRAVERSAL_TYPE {
+            NET_FW_EDGE_TRAVERSAL_TYPE_DENY = 0,
+            NET_FW_EDGE_TRAVERSAL_TYPE_ALLOW = 1,
+            NET_FW_EDGE_TRAVERSAL_TYPE_DEFER_TO_APP = 2,
+            NET_FW_EDGE_TRAVERSAL_TYPE_DEFER_TO_USER = 3,
+        }
+        #[repr(i32)]
+        enum NET_FW_IP_PROTOCOL {
+            NET_FW_IP_PROTOCOL_TCP = 6,
+            NET_FW_IP_PROTOCOL_UDP = 17,
+            NET_FW_IP_PROTOCOL_ANY = 256,
+        }
+        #[repr(i32)]
+        enum NET_FW_IP_VERSION {
+            NET_FW_IP_VERSION_V4 = 0,
+            NET_FW_IP_VERSION_V6 = 1,
+            NET_FW_IP_VERSION_ANY = 2,
+            NET_FW_IP_VERSION_MAX = 3,
+        }
+        #[repr(i32)]
+        enum NET_FW_MODIFY_STATE {
+            NET_FW_MODIFY_STATE_OK = 0,
+            NET_FW_MODIFY_STATE_GP_OVERRIDE = 1,
+            NET_FW_MODIFY_STATE_INBOUND_BLOCKED = 2,
+        }
+        #[repr(i32)]
+        enum NET_FW_POLICY_TYPE {
+            NET_FW_POLICY_GROUP = 0,
+            NET_FW_POLICY_LOCAL = 1,
+            NET_FW_POLICY_EFFECTIVE = 2,
+            NET_FW_POLICY_TYPE_MAX = 3,
+        }
+        #[repr(i32)]
+        enum NET_FW_PROFILE_TYPE {
+            NET_FW_PROFILE_DOMAIN = 0,
+            NET_FW_PROFILE_STANDARD = 1,
+            NET_FW_PROFILE_CURRENT = 2,
+            NET_FW_PROFILE_TYPE_MAX = 3,
+        }
+        #[repr(i32)]
+        enum NET_FW_PROFILE_TYPE2 {
+            NET_FW_PROFILE2_DOMAIN = 1,
+            NET_FW_PROFILE2_PRIVATE = 2,
+            NET_FW_PROFILE2_PUBLIC = 4,
+            NET_FW_PROFILE2_ALL = 2147483647,
+        }
+        #[repr(i32)]
+        enum NET_FW_RULE_CATEGORY {
+            NET_FW_RULE_CATEGORY_BOOT = 0,
+            NET_FW_RULE_CATEGORY_STEALTH = 1,
+            NET_FW_RULE_CATEGORY_FIREWALL = 2,
+            NET_FW_RULE_CATEGORY_CONSEC = 3,
+            NET_FW_RULE_CATEGORY_MAX = 4,
+        }
+        #[repr(i32)]
+        enum NET_FW_RULE_DIRECTION {
+            NET_FW_RULE_DIR_IN = 1,
+            NET_FW_RULE_DIR_OUT = 2,
+            NET_FW_RULE_DIR_MAX = 3,
+        }
+        #[repr(i32)]
+        enum NET_FW_SCOPE {
+            NET_FW_SCOPE_ALL = 0,
+            NET_FW_SCOPE_LOCAL_SUBNET = 1,
+            NET_FW_SCOPE_CUSTOM = 2,
+            NET_FW_SCOPE_MAX = 3,
+        }
+        #[repr(i32)]
+        enum NET_FW_SERVICE_TYPE {
+            NET_FW_SERVICE_FILE_AND_PRINT = 0,
+            NET_FW_SERVICE_UPNP = 1,
+            NET_FW_SERVICE_REMOTE_DESKTOP = 2,
+            NET_FW_SERVICE_NONE = 3,
+            NET_FW_SERVICE_TYPE_MAX = 4,
+        }
+    }
+}

@@ -679,6 +679,10 @@ pub use httpfilt::*;
 pub mod iads;
 #[cfg(feature = "iads")]
 pub use iads::*;
+#[cfg(feature = "icftypes")]
+pub mod icftypes;
+#[cfg(feature = "icftypes")]
+pub use icftypes::*;
 #[cfg(feature = "icm")]
 pub mod icm;
 #[cfg(feature = "icm")]
@@ -1131,6 +1135,10 @@ pub use ncryptprotect::*;
 pub mod ndisport;
 #[cfg(feature = "ndisport")]
 pub use ndisport::*;
+#[cfg(feature = "netfw")]
+pub mod netfw;
+#[cfg(feature = "netfw")]
+pub use netfw::*;
 #[cfg(feature = "netioapi")]
 pub mod netioapi;
 #[cfg(feature = "netioapi")]
