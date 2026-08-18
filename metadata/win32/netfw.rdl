@@ -1,0 +1,547 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct FW_DYNAMIC_KEYWORD_ADDRESS0 {
+            id: GUID,
+            keyword: PCWSTR,
+            flags: u32,
+            addresses: PCWSTR,
+        }
+        struct FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
+            dynamicKeywordAddress: FW_DYNAMIC_KEYWORD_ADDRESS0,
+            next: *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0,
+            schemaVersion: u16,
+            originType: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
+            FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE = 1,
+            FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_NON_AUTO_RESOLVE = 2,
+            FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_ALL = 3,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
+            FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS_AUTO_RESOLVE = 1,
+        }
+        #[repr(i32)]
+        enum FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
+            FW_DYNAMIC_KEYWORD_ORIGIN_INVALID = 0,
+            FW_DYNAMIC_KEYWORD_ORIGIN_LOCAL = 1,
+            FW_DYNAMIC_KEYWORD_ORIGIN_MDM = 2,
+        }
+        struct INET_FIREWALL_AC_BINARIES {
+            count: u32,
+            binaries: *mut PWSTR,
+        }
+        struct INET_FIREWALL_AC_CAPABILITIES {
+            count: u32,
+            capabilities: *mut SID_AND_ATTRIBUTES,
+        }
+        struct INET_FIREWALL_AC_CHANGE {
+            changeType: INET_FIREWALL_AC_CHANGE_TYPE,
+            createType: INET_FIREWALL_AC_CREATION_TYPE,
+            appContainerSid: *mut SID,
+            userSid: *mut SID,
+            displayName: PWSTR,
+            Anonymous: union {
+                capabilities: INET_FIREWALL_AC_CAPABILITIES,
+                binaries: INET_FIREWALL_AC_BINARIES,
+            },
+        }
+        #[repr(i32)]
+        enum INET_FIREWALL_AC_CHANGE_TYPE {
+            INET_FIREWALL_AC_CHANGE_INVALID = 0,
+            INET_FIREWALL_AC_CHANGE_CREATE = 1,
+            INET_FIREWALL_AC_CHANGE_DELETE = 2,
+            INET_FIREWALL_AC_CHANGE_MAX = 3,
+        }
+        #[repr(i32)]
+        enum INET_FIREWALL_AC_CREATION_TYPE {
+            INET_FIREWALL_AC_NONE = 0,
+            INET_FIREWALL_AC_PACKAGE_ID_ONLY = 1,
+            INET_FIREWALL_AC_BINARY = 2,
+            INET_FIREWALL_AC_MAX = 4,
+        }
+        struct INET_FIREWALL_APP_CONTAINER {
+            appContainerSid: *mut SID,
+            userSid: *mut SID,
+            appContainerName: PWSTR,
+            displayName: PWSTR,
+            description: PWSTR,
+            capabilities: INET_FIREWALL_AC_CAPABILITIES,
+            binaries: INET_FIREWALL_AC_BINARIES,
+            workingDirectory: PWSTR,
+            packageFullName: PWSTR,
+        }
+        #[guid(0xb5e64ffa_c2c5_444e_a301_fb5e00018050)]
+        interface INetFwAuthorizedApplication: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Name(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_ProcessImageFileName(&self, #[retval] imageFileName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ProcessImageFileName(&self, imageFileName: BSTR) -> HRESULT;
+            #[special]
+            fn get_IpVersion(&self, #[retval] ipVersion: *mut NET_FW_IP_VERSION) -> HRESULT;
+            #[special]
+            fn put_IpVersion(&self, ipVersion: NET_FW_IP_VERSION) -> HRESULT;
+            #[special]
+            fn get_Scope(&self, #[retval] scope: *mut NET_FW_SCOPE) -> HRESULT;
+            #[special]
+            fn put_Scope(&self, scope: NET_FW_SCOPE) -> HRESULT;
+            #[special]
+            fn get_RemoteAddresses(&self, #[retval] remoteAddrs: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RemoteAddresses(&self, remoteAddrs: BSTR) -> HRESULT;
+            #[special]
+            fn get_Enabled(&self, #[retval] enabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Enabled(&self, enabled: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0x644efd52_ccf9_486c_97a2_39f352570b30)]
+        interface INetFwAuthorizedApplications: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] count: *mut i32) -> HRESULT;
+            fn Add(&self, app: INetFwAuthorizedApplication) -> HRESULT;
+            fn Remove(&self, imageFileName: BSTR) -> HRESULT;
+            fn Item(&self, imageFileName: BSTR, #[retval] app: *mut INetFwAuthorizedApplication) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] newEnum: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0xa6207b2e_7cdd_426a_951e_5e1cbc5afead)]
+        interface INetFwIcmpSettings: IDispatch {
+            #[special]
+            fn get_AllowOutboundDestinationUnreachable(&self, #[retval] allow: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AllowOutboundDestinationUnreachable(&self, allow: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AllowRedirect(&self, #[retval] allow: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AllowRedirect(&self, allow: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AllowInboundEchoRequest(&self, #[retval] allow: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AllowInboundEchoRequest(&self, allow: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AllowOutboundTimeExceeded(&self, #[retval] allow: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AllowOutboundTimeExceeded(&self, allow: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AllowOutboundParameterProblem(&self, #[retval] allow: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AllowOutboundParameterProblem(&self, allow: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AllowOutboundSourceQuench(&self, #[retval] allow: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AllowOutboundSourceQuench(&self, allow: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AllowInboundRouterRequest(&self, #[retval] allow: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AllowInboundRouterRequest(&self, allow: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AllowInboundTimestampRequest(&self, #[retval] allow: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AllowInboundTimestampRequest(&self, allow: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AllowInboundMaskRequest(&self, #[retval] allow: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AllowInboundMaskRequest(&self, allow: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_AllowOutboundPacketTooBig(&self, #[retval] allow: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_AllowOutboundPacketTooBig(&self, allow: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0xf7898af5_cac4_4632_a2ec_da06e5111af2)]
+        interface INetFwMgr: IDispatch {
+            #[special]
+            fn get_LocalPolicy(&self, #[retval] localPolicy: *mut INetFwPolicy) -> HRESULT;
+            #[special]
+            fn get_CurrentProfileType(&self, #[retval] profileType: *mut NET_FW_PROFILE_TYPE) -> HRESULT;
+            fn RestoreDefaults(&self) -> HRESULT;
+            fn IsPortAllowed(&self, imageFileName: BSTR, ipVersion: NET_FW_IP_VERSION, portNumber: i32, localAddress: BSTR, ipProtocol: NET_FW_IP_PROTOCOL, allowed: *mut VARIANT, restricted: *mut VARIANT) -> HRESULT;
+            fn IsIcmpTypeAllowed(&self, ipVersion: NET_FW_IP_VERSION, localAddress: BSTR, r#type: u8, allowed: *mut VARIANT, restricted: *mut VARIANT) -> HRESULT;
+        }
+        #[guid(0xe0483ba0_47ff_4d9c_a6d6_7741d0b195f7)]
+        interface INetFwOpenPort: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Name(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_IpVersion(&self, #[retval] ipVersion: *mut NET_FW_IP_VERSION) -> HRESULT;
+            #[special]
+            fn put_IpVersion(&self, ipVersion: NET_FW_IP_VERSION) -> HRESULT;
+            #[special]
+            fn get_Protocol(&self, #[retval] ipProtocol: *mut NET_FW_IP_PROTOCOL) -> HRESULT;
+            #[special]
+            fn put_Protocol(&self, ipProtocol: NET_FW_IP_PROTOCOL) -> HRESULT;
+            #[special]
+            fn get_Port(&self, #[retval] portNumber: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Port(&self, portNumber: i32) -> HRESULT;
+            #[special]
+            fn get_Scope(&self, #[retval] scope: *mut NET_FW_SCOPE) -> HRESULT;
+            #[special]
+            fn put_Scope(&self, scope: NET_FW_SCOPE) -> HRESULT;
+            #[special]
+            fn get_RemoteAddresses(&self, #[retval] remoteAddrs: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RemoteAddresses(&self, remoteAddrs: BSTR) -> HRESULT;
+            #[special]
+            fn get_Enabled(&self, #[retval] enabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Enabled(&self, enabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_BuiltIn(&self, #[retval] builtIn: *mut VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0xc0e9d7fa_e07e_430a_b19a_090ce82d92e2)]
+        interface INetFwOpenPorts: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] count: *mut i32) -> HRESULT;
+            fn Add(&self, port: INetFwOpenPort) -> HRESULT;
+            fn Remove(&self, portNumber: i32, ipProtocol: NET_FW_IP_PROTOCOL) -> HRESULT;
+            fn Item(&self, portNumber: i32, ipProtocol: NET_FW_IP_PROTOCOL, #[retval] openPort: *mut INetFwOpenPort) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] newEnum: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0xd46d2478_9ac9_4008_9dc7_5563ce5536cc)]
+        interface INetFwPolicy: IDispatch {
+            #[special]
+            fn get_CurrentProfile(&self, #[retval] profile: *mut INetFwProfile) -> HRESULT;
+            fn GetProfileByType(&self, profileType: NET_FW_PROFILE_TYPE, #[retval] profile: *mut INetFwProfile) -> HRESULT;
+        }
+        #[guid(0x98325047_c671_4174_8d81_defcd3f03186)]
+        interface INetFwPolicy2: IDispatch {
+            #[special]
+            fn get_CurrentProfileTypes(&self, #[retval] profileTypesBitmask: *mut i32) -> HRESULT;
+            #[special]
+            fn get_FirewallEnabled(&self, profileType: NET_FW_PROFILE_TYPE2, #[retval] enabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_FirewallEnabled(&self, profileType: NET_FW_PROFILE_TYPE2, enabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ExcludedInterfaces(&self, profileType: NET_FW_PROFILE_TYPE2, #[retval] interfaces: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_ExcludedInterfaces(&self, profileType: NET_FW_PROFILE_TYPE2, interfaces: VARIANT) -> HRESULT;
+            #[special]
+            fn get_BlockAllInboundTraffic(&self, profileType: NET_FW_PROFILE_TYPE2, #[retval] Block: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_BlockAllInboundTraffic(&self, profileType: NET_FW_PROFILE_TYPE2, Block: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_NotificationsDisabled(&self, profileType: NET_FW_PROFILE_TYPE2, #[retval] disabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_NotificationsDisabled(&self, profileType: NET_FW_PROFILE_TYPE2, disabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_UnicastResponsesToMulticastBroadcastDisabled(&self, profileType: NET_FW_PROFILE_TYPE2, #[retval] disabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_UnicastResponsesToMulticastBroadcastDisabled(&self, profileType: NET_FW_PROFILE_TYPE2, disabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Rules(&self, #[retval] rules: *mut INetFwRules) -> HRESULT;
+            #[special]
+            fn get_ServiceRestriction(&self, #[retval] ServiceRestriction: *mut INetFwServiceRestriction) -> HRESULT;
+            fn EnableRuleGroup(&self, profileTypesBitmask: i32, group: BSTR, enable: VARIANT_BOOL) -> HRESULT;
+            fn IsRuleGroupEnabled(&self, profileTypesBitmask: i32, group: BSTR, #[retval] enabled: *mut VARIANT_BOOL) -> HRESULT;
+            fn RestoreLocalFirewallDefaults(&self) -> HRESULT;
+            #[special]
+            fn get_DefaultInboundAction(&self, profileType: NET_FW_PROFILE_TYPE2, #[retval] action: *mut NET_FW_ACTION) -> HRESULT;
+            #[special]
+            fn put_DefaultInboundAction(&self, profileType: NET_FW_PROFILE_TYPE2, action: NET_FW_ACTION) -> HRESULT;
+            #[special]
+            fn get_DefaultOutboundAction(&self, profileType: NET_FW_PROFILE_TYPE2, #[retval] action: *mut NET_FW_ACTION) -> HRESULT;
+            #[special]
+            fn put_DefaultOutboundAction(&self, profileType: NET_FW_PROFILE_TYPE2, action: NET_FW_ACTION) -> HRESULT;
+            #[special]
+            fn get_IsRuleGroupCurrentlyEnabled(&self, group: BSTR, #[retval] enabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_LocalPolicyModifyState(&self, #[retval] modifyState: *mut NET_FW_MODIFY_STATE) -> HRESULT;
+        }
+        #[guid(0x71881699_18f4_458b_b892_3ffce5e07f75)]
+        interface INetFwProduct: IDispatch {
+            #[special]
+            fn get_RuleCategories(&self, #[retval] ruleCategories: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_RuleCategories(&self, ruleCategories: VARIANT) -> HRESULT;
+            #[special]
+            fn get_DisplayName(&self, #[retval] displayName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_DisplayName(&self, displayName: BSTR) -> HRESULT;
+            #[special]
+            fn get_PathToSignedProductExe(&self, #[retval] path: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x39eb36e0_2097_40bd_8af2_63a13b525362)]
+        interface INetFwProducts: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] count: *mut i32) -> HRESULT;
+            fn Register(&self, product: INetFwProduct, #[retval] registration: *mut IUnknown) -> HRESULT;
+            fn Item(&self, index: i32, #[retval] product: *mut INetFwProduct) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] newEnum: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x174a0dda_e9f9_449d_993b_21ab667ca456)]
+        interface INetFwProfile: IDispatch {
+            #[special]
+            fn get_Type(&self, #[retval] r#type: *mut NET_FW_PROFILE_TYPE) -> HRESULT;
+            #[special]
+            fn get_FirewallEnabled(&self, #[retval] enabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_FirewallEnabled(&self, enabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_ExceptionsNotAllowed(&self, #[retval] notAllowed: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_ExceptionsNotAllowed(&self, notAllowed: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_NotificationsDisabled(&self, #[retval] disabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_NotificationsDisabled(&self, disabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_UnicastResponsesToMulticastBroadcastDisabled(&self, #[retval] disabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_UnicastResponsesToMulticastBroadcastDisabled(&self, disabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_RemoteAdminSettings(&self, #[retval] remoteAdminSettings: *mut INetFwRemoteAdminSettings) -> HRESULT;
+            #[special]
+            fn get_IcmpSettings(&self, #[retval] icmpSettings: *mut INetFwIcmpSettings) -> HRESULT;
+            #[special]
+            fn get_GloballyOpenPorts(&self, #[retval] openPorts: *mut INetFwOpenPorts) -> HRESULT;
+            #[special]
+            fn get_Services(&self, #[retval] services: *mut INetFwServices) -> HRESULT;
+            #[special]
+            fn get_AuthorizedApplications(&self, #[retval] apps: *mut INetFwAuthorizedApplications) -> HRESULT;
+        }
+        #[guid(0xd4becddf_6f73_4a83_b832_9c66874cd20e)]
+        interface INetFwRemoteAdminSettings: IDispatch {
+            #[special]
+            fn get_IpVersion(&self, #[retval] ipVersion: *mut NET_FW_IP_VERSION) -> HRESULT;
+            #[special]
+            fn put_IpVersion(&self, ipVersion: NET_FW_IP_VERSION) -> HRESULT;
+            #[special]
+            fn get_Scope(&self, #[retval] scope: *mut NET_FW_SCOPE) -> HRESULT;
+            #[special]
+            fn put_Scope(&self, scope: NET_FW_SCOPE) -> HRESULT;
+            #[special]
+            fn get_RemoteAddresses(&self, #[retval] remoteAddrs: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RemoteAddresses(&self, remoteAddrs: BSTR) -> HRESULT;
+            #[special]
+            fn get_Enabled(&self, #[retval] enabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Enabled(&self, enabled: VARIANT_BOOL) -> HRESULT;
+        }
+        #[guid(0xaf230d27_baba_4e42_aced_f524f22cfce2)]
+        interface INetFwRule: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Name(&self, name: BSTR) -> HRESULT;
+            #[special]
+            fn get_Description(&self, #[retval] desc: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Description(&self, desc: BSTR) -> HRESULT;
+            #[special]
+            fn get_ApplicationName(&self, #[retval] imageFileName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ApplicationName(&self, imageFileName: BSTR) -> HRESULT;
+            #[special]
+            fn get_ServiceName(&self, #[retval] serviceName: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_ServiceName(&self, serviceName: BSTR) -> HRESULT;
+            #[special]
+            fn get_Protocol(&self, #[retval] protocol: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Protocol(&self, protocol: i32) -> HRESULT;
+            #[special]
+            fn get_LocalPorts(&self, #[retval] portNumbers: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_LocalPorts(&self, portNumbers: BSTR) -> HRESULT;
+            #[special]
+            fn get_RemotePorts(&self, #[retval] portNumbers: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RemotePorts(&self, portNumbers: BSTR) -> HRESULT;
+            #[special]
+            fn get_LocalAddresses(&self, #[retval] localAddrs: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_LocalAddresses(&self, localAddrs: BSTR) -> HRESULT;
+            #[special]
+            fn get_RemoteAddresses(&self, #[retval] remoteAddrs: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RemoteAddresses(&self, remoteAddrs: BSTR) -> HRESULT;
+            #[special]
+            fn get_IcmpTypesAndCodes(&self, #[retval] icmpTypesAndCodes: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_IcmpTypesAndCodes(&self, icmpTypesAndCodes: BSTR) -> HRESULT;
+            #[special]
+            fn get_Direction(&self, #[retval] dir: *mut NET_FW_RULE_DIRECTION) -> HRESULT;
+            #[special]
+            fn put_Direction(&self, dir: NET_FW_RULE_DIRECTION) -> HRESULT;
+            #[special]
+            fn get_Interfaces(&self, #[retval] interfaces: *mut VARIANT) -> HRESULT;
+            #[special]
+            fn put_Interfaces(&self, interfaces: VARIANT) -> HRESULT;
+            #[special]
+            fn get_InterfaceTypes(&self, #[retval] interfaceTypes: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_InterfaceTypes(&self, interfaceTypes: BSTR) -> HRESULT;
+            #[special]
+            fn get_Enabled(&self, #[retval] enabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Enabled(&self, enabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Grouping(&self, #[retval] context: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_Grouping(&self, context: BSTR) -> HRESULT;
+            #[special]
+            fn get_Profiles(&self, #[retval] profileTypesBitmask: *mut i32) -> HRESULT;
+            #[special]
+            fn put_Profiles(&self, profileTypesBitmask: i32) -> HRESULT;
+            #[special]
+            fn get_EdgeTraversal(&self, #[retval] enabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_EdgeTraversal(&self, enabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Action(&self, #[retval] action: *mut NET_FW_ACTION) -> HRESULT;
+            #[special]
+            fn put_Action(&self, action: NET_FW_ACTION) -> HRESULT;
+        }
+        #[guid(0x9c27c8da_189b_4dde_89f7_8b39a316782c)]
+        interface INetFwRule2: INetFwRule {
+            #[special]
+            fn get_EdgeTraversalOptions(&self, #[retval] lOptions: *mut i32) -> HRESULT;
+            #[special]
+            fn put_EdgeTraversalOptions(&self, lOptions: i32) -> HRESULT;
+        }
+        #[guid(0xb21563ff_d696_4222_ab46_4e89b73ab34a)]
+        interface INetFwRule3: INetFwRule2 {
+            #[special]
+            fn get_LocalAppPackageId(&self, #[retval] wszPackageId: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_LocalAppPackageId(&self, wszPackageId: BSTR) -> HRESULT;
+            #[special]
+            fn get_LocalUserOwner(&self, #[retval] wszUserOwner: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_LocalUserOwner(&self, wszUserOwner: BSTR) -> HRESULT;
+            #[special]
+            fn get_LocalUserAuthorizedList(&self, #[retval] wszUserAuthList: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_LocalUserAuthorizedList(&self, wszUserAuthList: BSTR) -> HRESULT;
+            #[special]
+            fn get_RemoteUserAuthorizedList(&self, #[retval] wszUserAuthList: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RemoteUserAuthorizedList(&self, wszUserAuthList: BSTR) -> HRESULT;
+            #[special]
+            fn get_RemoteMachineAuthorizedList(&self, #[retval] wszUserAuthList: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RemoteMachineAuthorizedList(&self, wszUserAuthList: BSTR) -> HRESULT;
+            #[special]
+            fn get_SecureFlags(&self, #[retval] lOptions: *mut i32) -> HRESULT;
+            #[special]
+            fn put_SecureFlags(&self, lOptions: i32) -> HRESULT;
+        }
+        #[guid(0x9c4c6277_5027_441e_afae_ca1f542da009)]
+        interface INetFwRules: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] count: *mut i32) -> HRESULT;
+            fn Add(&self, rule: INetFwRule) -> HRESULT;
+            fn Remove(&self, name: BSTR) -> HRESULT;
+            fn Item(&self, name: BSTR, #[retval] rule: *mut INetFwRule) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] newEnum: *mut IUnknown) -> HRESULT;
+        }
+        #[guid(0x79fd57c8_908e_4a36_9888_d5b3f0a444cf)]
+        interface INetFwService: IDispatch {
+            #[special]
+            fn get_Name(&self, #[retval] name: *mut BSTR) -> HRESULT;
+            #[special]
+            fn get_Type(&self, #[retval] r#type: *mut NET_FW_SERVICE_TYPE) -> HRESULT;
+            #[special]
+            fn get_Customized(&self, #[retval] customized: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_IpVersion(&self, #[retval] ipVersion: *mut NET_FW_IP_VERSION) -> HRESULT;
+            #[special]
+            fn put_IpVersion(&self, ipVersion: NET_FW_IP_VERSION) -> HRESULT;
+            #[special]
+            fn get_Scope(&self, #[retval] scope: *mut NET_FW_SCOPE) -> HRESULT;
+            #[special]
+            fn put_Scope(&self, scope: NET_FW_SCOPE) -> HRESULT;
+            #[special]
+            fn get_RemoteAddresses(&self, #[retval] remoteAddrs: *mut BSTR) -> HRESULT;
+            #[special]
+            fn put_RemoteAddresses(&self, remoteAddrs: BSTR) -> HRESULT;
+            #[special]
+            fn get_Enabled(&self, #[retval] enabled: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn put_Enabled(&self, enabled: VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_GloballyOpenPorts(&self, #[retval] openPorts: *mut INetFwOpenPorts) -> HRESULT;
+        }
+        #[guid(0x8267bbe3_f890_491c_b7b6_2db1ef0e5d2b)]
+        interface INetFwServiceRestriction: IDispatch {
+            fn RestrictService(&self, serviceName: BSTR, appName: BSTR, restrictService: VARIANT_BOOL, serviceSidRestricted: VARIANT_BOOL) -> HRESULT;
+            fn ServiceRestricted(&self, serviceName: BSTR, appName: BSTR, #[retval] serviceRestricted: *mut VARIANT_BOOL) -> HRESULT;
+            #[special]
+            fn get_Rules(&self, #[retval] rules: *mut INetFwRules) -> HRESULT;
+        }
+        #[guid(0x79649bb4_903e_421b_94c9_79848e79f6ee)]
+        interface INetFwServices: IDispatch {
+            #[special]
+            fn get_Count(&self, #[retval] count: *mut i32) -> HRESULT;
+            fn Item(&self, svcType: NET_FW_SERVICE_TYPE, #[retval] service: *mut INetFwService) -> HRESULT;
+            #[special]
+            fn get__NewEnum(&self, #[retval] newEnum: *mut IUnknown) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum NETISO_ERROR_TYPE {
+            NETISO_ERROR_TYPE_NONE = 0,
+            NETISO_ERROR_TYPE_PRIVATE_NETWORK = 1,
+            NETISO_ERROR_TYPE_INTERNET_CLIENT = 2,
+            NETISO_ERROR_TYPE_INTERNET_CLIENT_SERVER = 3,
+            NETISO_ERROR_TYPE_MAX = 4,
+        }
+        #[repr(i32)]
+        enum NETISO_FLAG {
+            NETISO_FLAG_FORCE_COMPUTE_BINARIES = 1,
+            NETISO_FLAG_MAX = 2,
+        }
+        const NETISO_GEID_FOR_NEUTRAL_AWARE: i32 = 2;
+        const NETISO_GEID_FOR_WDAG: i32 = 1;
+        const NetFwAuthorizedApplication: GUID = 0xec9846b3_2762_4a6b_a214_6acb603462d2;
+        const NetFwMgr: GUID = 0x304ce942_6e39_40d8_943a_b913c40c9cd4;
+        const NetFwOpenPort: GUID = 0x0ca545c6_37ad_4a6c_bf92_9f7610067ef5;
+        const NetFwPolicy2: GUID = 0xe2b3c97f_6ae1_41ac_817a_f6f92166d7dd;
+        const NetFwProduct: GUID = 0x9d745ed8_c514_4d1d_bf42_751fed2d5ac7;
+        const NetFwProducts: GUID = 0xcc19079b_8272_4d73_bb70_cdb533527b61;
+        const NetFwRule: GUID = 0x2c5bc43e_3369_4c33_ab0c_be9469677af4;
+        #[library("api-ms-win-net-isolation-l1-1-0.dll")]
+        extern fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszServerName: PCWSTR, netIsoError: *mut NETISO_ERROR_TYPE) -> u32;
+        #[library("api-ms-win-net-isolation-l1-1-0.dll")]
+        extern fn NetworkIsolationEnumAppContainers(Flags: u32, pdwNumPublicAppCs: *mut u32, ppPublicAppCs: *mut PINET_FIREWALL_APP_CONTAINER) -> u32;
+        #[library("api-ms-win-net-isolation-l1-1-0.dll")]
+        extern fn NetworkIsolationFreeAppContainers(pPublicAppCs: *const INET_FIREWALL_APP_CONTAINER) -> u32;
+        #[library("api-ms-win-net-isolation-l1-1-0.dll")]
+        extern fn NetworkIsolationGetAppContainerConfig(pdwNumPublicAppCs: *mut u32, appContainerSids: *mut PSID_AND_ATTRIBUTES) -> u32;
+        #[library("api-ms-win-net-isolation-l1-1-0.dll")]
+        extern fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: PAC_CHANGES_CALLBACK_FN, #[opt] context: *const void, registrationObject: *mut HANDLE) -> u32;
+        #[library("api-ms-win-net-isolation-l1-1-0.dll")]
+        extern fn NetworkIsolationSetAppContainerConfig(dwNumPublicAppCs: u32, #[len_param(0)] appContainerSids: *const SID_AND_ATTRIBUTES) -> u32;
+        #[library("api-ms-win-net-isolation-l1-1-0.dll")]
+        extern fn NetworkIsolationSetupAppContainerBinaries(applicationContainerSid: PSID, packageFullName: PCWSTR, packageFolder: PCWSTR, displayName: PCWSTR, bBinariesFullyComputed: BOOL, #[len_param(6)] binaries: *const PCWSTR, binariesCount: u32) -> HRESULT;
+        #[library("api-ms-win-net-isolation-l1-1-0.dll")]
+        extern fn NetworkIsolationUnregisterForAppContainerChanges(registrationObject: HANDLE) -> u32;
+        extern fn PAC_CHANGES_CALLBACK_FN(#[opt] context: *const void, pChange: *const INET_FIREWALL_AC_CHANGE);
+        extern fn PFN_FWADDDYNAMICKEYWORDADDRESS0(dynamicKeywordAddress: *const FW_DYNAMIC_KEYWORD_ADDRESS0) -> u32;
+        extern fn PFN_FWDELETEDYNAMICKEYWORDADDRESS0(dynamicKeywordAddressId: GUID) -> u32;
+        extern fn PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0(dynamicKeywordAddressId: GUID, dynamicKeywordAddressData: *mut PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32;
+        extern fn PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0(flags: u32, dynamicKeywordAddressData: *mut PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32;
+        extern fn PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0(dynamicKeywordAddressData: *const FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32;
+        extern fn PFN_FWUPDATEDYNAMICKEYWORDADDRESS0(dynamicKeywordAddressId: GUID, updatedAddresses: PCWSTR, append: BOOL) -> u32;
+        type PFW_DYNAMIC_KEYWORD_ADDRESS0 = *mut FW_DYNAMIC_KEYWORD_ADDRESS0;
+        type PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0 = *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0;
+        type PINET_FIREWALL_AC_BINARIES = *mut INET_FIREWALL_AC_BINARIES;
+        type PINET_FIREWALL_AC_CAPABILITIES = *mut INET_FIREWALL_AC_CAPABILITIES;
+        type PINET_FIREWALL_AC_CHANGE = *mut INET_FIREWALL_AC_CHANGE;
+        type PINET_FIREWALL_APP_CONTAINER = *mut INET_FIREWALL_APP_CONTAINER;
+        extern fn PNETISO_EDP_ID_CALLBACK_FN(#[in] #[out] #[opt] context: *mut void, #[opt] wszEnterpriseId: PCWSTR, dwErr: u32);
+    }
+}
