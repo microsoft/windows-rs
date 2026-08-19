@@ -87,7 +87,7 @@ resolved without changing an existing method signature or removing the old WebVi
 - [x] Add model coverage reporting and measured floors.
 - [x] Add native private fixtures.
 - [x] Add a smoke-only `test_reactor2_selftest` with a Rust process/UI Automation harness.
-- [ ] Add Reactor2-only CI without editing the existing Reactor workflow.
+- [x] Add Reactor2-only CI without editing the existing Reactor workflow.
 - [ ] Establish clean and incremental compile-time baselines.
 - [ ] Establish release `.rlib` and representative binary-size baselines.
 - [ ] Establish startup, reconciliation, churn, allocation, and command baselines.
@@ -102,6 +102,7 @@ resolved without changing an existing method signature or removing the old WebVi
 - [x] `cargo test -p windows-reactor --all-features --quiet`
 - [x] Clippy with `-D warnings` for both Reactors and all affected test and tool packages
 - [x] No PowerShell files or unvalidated fixture scenarios under Reactor2-owned paths
+- [x] `.github\workflows\reactor2.yml` parses and uses the commands validated above
 
 ## Phase 3 - Incremental sample migration
 
@@ -206,3 +207,6 @@ No shared change is approved merely because it exists on the reference branch.
   tests use Rust integration tests, one fixture process per test, shared RAII process handling, and
   direct UI Automation. The initial self-test fixture contains only the validated smoke surface;
   fixture code is added with each later Rust scenario rather than copied in advance.
+- 2026-08-19: Reactor2 CI is independent of the existing Reactor workflow. Stable quality and API
+  checks, self-contained native smoke testing, and nightly coverage run as separate jobs so each
+  failure identifies one gate.

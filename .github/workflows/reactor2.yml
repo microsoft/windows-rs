@@ -1,0 +1,158 @@
+name: test_reactor2
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+
+env:
+  CARGO_INCREMENTAL: "0"
+  CARGO_REGISTRIES_CRATES_IO_PROTOCOL: sparse
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: "1"
+  RUSTFLAGS: -D warnings
+
+jobs:
+  quality:
+    name: quality
+    runs-on: windows-2025-vs2026
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Update toolchains
+        run: |
+          rustup update --no-self-update stable
+          rustup default stable-x86_64-pc-windows-msvc
+          rustup toolchain install nightly --profile minimal
+          rustup target add i686-pc-windows-msvc
+          rustup component add clippy rustfmt
+
+      - name: Fix environment
+        uses: ./.github/actions/fix-environment
+        with:
+          target: x86_64-pc-windows-msvc
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Install public API tool
+        run: cargo install cargo-public-api --locked --version 0.52.0
+        env:
+          RUSTFLAGS: ""
+
+      - name: Check formatting
+        run: >
+          cargo fmt
+          -p windows-reactor2
+          -p windows-reactor-setup
+          -p test_reactor2_support
+          -p test_reactor2_selftest
+          -p tool_reactor2
+          -p tool_reactor2_public_api
+          -p tool_reactor2_coverage
+          -- --check
+
+      - name: Generate bindings
+        run: cargo run -p tool_reactor2 --release
+
+      - name: Check generated bindings
+        run: git diff --exit-code -- crates/libs/reactor2/src/bindings.rs
+
+      - name: Check default features
+        run: cargo check -p windows-reactor2 --quiet
+
+      - name: Check all features
+        run: cargo check -p windows-reactor2 --all-features --quiet
+
+      - name: Check i686
+        run: cargo check -p windows-reactor2 --all-features --target i686-pc-windows-msvc --quiet
+
+      - name: Test
+        run: cargo test -p windows-reactor2 --all-features --quiet
+
+      - name: Clippy
+        run: >
+          cargo clippy
+          -p windows-reactor2
+          -p windows-reactor-setup
+          -p test_reactor2_support
+          -p test_reactor2_selftest
+          -p tool_reactor2
+          -p tool_reactor2_public_api
+          -p tool_reactor2_coverage
+          --all-features
+          --all-targets
+          -- -D warnings
+
+      - name: Check public API
+        run: cargo run -p tool_reactor2_public_api --quiet
+
+  native:
+    name: native smoke
+    runs-on: windows-2025-vs2026
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Test
+        run: cargo test -p test_reactor2_selftest --test native -- --test-threads=1
+
+  coverage:
+    name: coverage
+    runs-on: windows-2025-vs2026
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Install Windows App Runtime
+        shell: pwsh
+        run: |
+          $installerUrl = "https://aka.ms/windowsappsdk/2.4/2.4.0/windowsappruntimeinstall-x64.exe"
+          $installerPath = "$env:TEMP\WindowsAppRuntimeInstall.exe"
+          Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
+          Start-Process -FilePath $installerPath -ArgumentList "--quiet" -Wait -PassThru | Out-Null
+
+      - name: Install coverage tools
+        shell: pwsh
+        env:
+          RUSTFLAGS: ""
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          rustup toolchain install nightly --profile minimal --component llvm-tools-preview
+          cargo install cargo-llvm-cov --locked --version 0.8.7
+
+      - name: Collect coverage
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          cargo +nightly llvm-cov clean --workspace
+          cargo +nightly llvm-cov -p windows-reactor2 --no-default-features --branch --no-report
+          cargo +nightly llvm-cov -p windows-reactor2 --branch --no-report --lib -- `
+            winui::tests:: --ignored --test-threads=1
+          cargo +nightly llvm-cov report -p windows-reactor2 --branch --json `
+            --output-path target\reactor2-coverage.json
+          cargo run -p tool_reactor2_coverage --quiet -- target\reactor2-coverage.json
