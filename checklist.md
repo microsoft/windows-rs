@@ -210,3 +210,6 @@ No shared change is approved merely because it exists on the reference branch.
 - 2026-08-19: Reactor2 CI is independent of the existing Reactor workflow. Stable quality and API
   checks, self-contained native smoke testing, and nightly coverage run as separate jobs so each
   failure identifies one gate.
+- 2026-08-19: The repository generators add `windows-reactor2` to workspace dependencies and the
+  generic MSRV and no-default-feature workflows. These are standard generated entries for a library
+  crate, not duplicate Reactor-specific CI.

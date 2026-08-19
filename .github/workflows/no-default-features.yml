@@ -108,6 +108,8 @@ jobs:
         run:  cargo check -p windows-reactor --no-default-features
       - name: Check windows-reactor-setup
         run:  cargo check -p windows-reactor-setup --no-default-features
+      - name: Check windows-reactor2
+        run:  cargo check -p windows-reactor2 --no-default-features
       - name: Check windows-reference
         run:  cargo check -p windows-reference --no-default-features
       - name: Check windows-registry

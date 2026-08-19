@@ -194,9 +194,7 @@ impl SwapChain {
             _31: 0.0,
             _32: 0.0,
         };
-        unsafe {
-            sc2.SetMatrixTransform(&matrix).ok()
-        }
+        unsafe { sc2.SetMatrixTransform(&matrix).ok() }
     }
 
     /// Returns `true` if the device was lost during the last frame.

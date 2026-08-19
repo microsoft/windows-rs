@@ -64,6 +64,7 @@ windows-numerics = { version = "0.100.0", path = "crates/libs/numerics", default
 windows-rdl = { version = "0.100.0", path = "crates/libs/rdl", default-features = false }
 windows-reactor = { version = "0.100.0", path = "crates/libs/reactor", default-features = false }
 windows-reactor-setup = { version = "0.100.0", path = "crates/libs/reactor-setup", default-features = false }
+windows-reactor2 = { version = "0.100.0", path = "crates/libs/reactor2", default-features = false }
 windows-reference = { version = "0.100.0", path = "crates/libs/reference", default-features = false }
 windows-registry = { version = "0.100.0", path = "crates/libs/registry", default-features = false }
 windows-result = { version = "0.100.0", path = "crates/libs/result", default-features = false }
