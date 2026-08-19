@@ -2493,12 +2493,13 @@ mod virtualization {
             });
         }
         let mut mounts = 0;
-        let mut rows = |engine: &mut Engine<RecordingRuntime>, _, _| {
-            mounts += 1;
-            engine.create_native(NativeKind::TextBlock)
-        };
-        engine.process_events(&mut rows).unwrap();
-        drop(rows);
+        {
+            let mut rows = |engine: &mut Engine<RecordingRuntime>, _, _| {
+                mounts += 1;
+                engine.create_native(NativeKind::TextBlock)
+            };
+            engine.process_events(&mut rows).unwrap();
+        }
         assert_eq!(mounts, 1);
 
         for _ in 0..2 {

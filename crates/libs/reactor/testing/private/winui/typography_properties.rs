@@ -45,6 +45,7 @@ fn typography_fixture() {
                         close.set(false);
                     },
                 )
+                .theme(WindowTheme::Dark)
                 .build(),
             ]
         } else {

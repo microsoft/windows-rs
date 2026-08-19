@@ -10,9 +10,11 @@ pub fn app(cx: &mut RenderCx<'_>) -> Element {
             (3, "Notice".to_string()),
         ]
     });
-    let selected = cx.use_state(|| 0i32);
+    let selected = cx.use_state(|| Some(0usize));
     let current_tabs = tabs.value();
     let current_selected = selected.value();
+    let selected_text =
+        current_selected.map_or_else(|| "none".to_string(), |index| index.to_string());
 
     let update_selection = selected.clone();
     let close_tabs = tabs.clone();
@@ -66,7 +68,7 @@ pub fn app(cx: &mut RenderCx<'_>) -> Element {
             })
             .build(),
             TextBlock::new(format!(
-                "selected_index = {current_selected}, tabs remaining = {}",
+                "selected_index = {selected_text}, tabs remaining = {}",
                 current_tabs.len()
             ))
             .build(),
@@ -74,11 +76,11 @@ pub fn app(cx: &mut RenderCx<'_>) -> Element {
     )
 }
 
-fn selected_after_removal(selected: i32, count: usize) -> i32 {
+fn selected_after_removal(selected: Option<usize>, count: usize) -> Option<usize> {
     if count == 0 {
-        -1
+        None
     } else {
-        selected.min(count as i32 - 1).max(0)
+        Some(selected.unwrap_or(0).min(count - 1))
     }
 }
 

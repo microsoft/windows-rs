@@ -3,8 +3,9 @@
 use windows_reactor::{Element, Pivot, PivotItem, RenderCx, TextBlock, Thickness, vstack};
 
 pub fn app(cx: &mut RenderCx<'_>) -> Element {
-    let selected = cx.use_state(|| 0i32);
+    let selected = cx.use_state(|| Some(0usize));
     let current = selected.value();
+    let current_text = current.map_or_else(|| "none".to_string(), |index| index.to_string());
     let update = selected;
 
     vstack(
@@ -41,7 +42,7 @@ pub fn app(cx: &mut RenderCx<'_>) -> Element {
             .title("Demo")
             .selected_index(current)
             .build(),
-            TextBlock::new(format!("selected_index = {current}")).build(),
+            TextBlock::new(format!("selected_index = {current_text}")).build(),
         ],
     )
 }

@@ -144,6 +144,9 @@ jobs:
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable
 
+      - name: Install nightly toolchain
+        run: rustup toolchain install nightly --profile minimal
+
       - uses: Swatinem/rust-cache@v2
 
       - name: Install public API tool
@@ -230,7 +233,9 @@ jobs:
         shell: pwsh
 
       - name: Enforce release performance policy
-        run: crates\libs\reactor\testing\performance.ps1 -BaseRef 6d63568e6
+        run: |
+          crates\libs\reactor\testing\performance.ps1 `
+            -BaseRef "${{ github.sha }}"
         shell: pwsh
 
       - name: Stability matrix

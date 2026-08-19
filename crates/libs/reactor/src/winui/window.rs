@@ -332,7 +332,7 @@ impl WinUiRuntime {
             bindings::SetWindowLongPtrW(child_hwnd, bindings::GWLP_HWNDPARENT, owner_hwnd as _);
             assert_eq!(
                 bindings::GetWindowLongPtrW(child_hwnd, bindings::GWLP_HWNDPARENT),
-                owner_hwnd as isize,
+                owner_hwnd as _,
                 "failed to assign owned window parent"
             );
         }

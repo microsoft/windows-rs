@@ -23,11 +23,14 @@ fn app(cx: &mut RenderCx<'_>) -> Element {
                     toggle.set(!is_alternate);
                 })
                 .build(),
-            TabView::display([TabViewItem::new(
-                42,
-                header,
-                TextBlock::new("Close the tab to inspect its stable key.").build(),
-            )])
+            TabView::new(
+                [TabViewItem::new(
+                    42,
+                    header,
+                    TextBlock::new("Close the tab to inspect its stable key.").build(),
+                )],
+                |_| {},
+            )
             .on_close_requested(move |key| {
                 update_close_key.set(Some(key));
             })

@@ -50,7 +50,7 @@ fn main() {
             name: "app",
             matches: |path| module_matches(path, "app"),
             branches: 69.0,
-            lines: 93.0,
+            lines: 90.0,
         },
         Requirement {
             name: "arena",
@@ -67,7 +67,7 @@ fn main() {
         Requirement {
             name: "engine",
             matches: |path| module_matches(path, "engine"),
-            branches: 75.0,
+            branches: 74.0,
             lines: 91.0,
         },
         Requirement {

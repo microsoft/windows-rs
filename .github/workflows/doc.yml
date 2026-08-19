@@ -53,4 +53,4 @@ jobs:
       - name: Check windows-canvas (composition)
         run: cargo doc --no-deps -p windows-canvas --features composition
       - name: Check reactor features
-        run: cargo doc --no-deps -p windows-reactor -p windows-webview --features windows-reactor/canvas,windows-webview/reactor
+        run: cargo doc --no-deps -p windows-reactor -p windows-webview --features windows-reactor/canvas,windows-webview/xaml

@@ -6,8 +6,9 @@ use windows_reactor::{
 };
 
 pub fn app(cx: &mut RenderCx<'_>) -> Element {
-    let page = cx.use_state(|| 0i32);
+    let page = cx.use_state(|| Some(0usize));
     let current = page.value();
+    let current_text = current.map_or_else(|| "none".to_string(), |index| index.to_string());
     let previous_page = page.clone();
     let next_page = page.clone();
     let selected_page = page;
@@ -33,17 +34,17 @@ pub fn app(cx: &mut RenderCx<'_>) -> Element {
                 [
                     Button::new("Prev")
                         .on_click(move || {
-                            previous_page.set((current - 1).max(0));
+                            previous_page.set(Some(current.unwrap_or(0).saturating_sub(1)));
                         })
                         .automation_id("previous-page")
                         .build(),
                     Button::new("Next")
                         .on_click(move || {
-                            next_page.set((current + 1).min(2));
+                            next_page.set(Some(current.unwrap_or(0).saturating_add(1).min(2)));
                         })
                         .automation_id("next-page")
                         .build(),
-                    TextBlock::new(format!("page = {current}"))
+                    TextBlock::new(format!("page = {current_text}"))
                         .opacity(0.7)
                         .build(),
                 ],
