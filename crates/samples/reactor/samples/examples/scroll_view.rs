@@ -1,33 +1,45 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(_cx: &mut RenderCx) -> Element {
-    let tall_body = vstack(
-        (1..=30)
-            .map(|i| text_block(format!("Line {i}")).font_size(13.0).into())
-            .collect::<Vec<Element>>(),
+use windows_reactor::{
+    Element, FontWeight, RenderCx, ScrollOrientation, ScrollView, ScrollViewBarVisibility,
+    StackPanel, TextBlock, vstack,
+};
+
+pub fn app(_cx: &mut RenderCx<'_>) -> Element {
+    let tall_body = StackPanel::new((1..=30).map(|line| {
+        TextBlock::new(format!("Line {line}"))
+            .font_size(13.0)
+            .build()
+    }))
+    .spacing(4.0)
+    .build();
+    let wide_body = TextBlock::new(
+        "This line is intentionally long so ScrollView can reveal the full horizontal content.",
     )
-    .spacing(4.0);
+    .font_size(13.0)
+    .build();
 
-    let wide_body = text_block(
-        "This line is intentionally long so the ScrollView scrolls \
-             horizontally to reveal the full content.",
+    vstack(
+        8.0,
+        [
+            TextBlock::new("Default vertical scrolling")
+                .font_weight(FontWeight::BOLD)
+                .build(),
+            ScrollView::new(tall_body).max_height(120.0).build(),
+            TextBlock::new("Both axes with visible scroll bars")
+                .font_weight(FontWeight::BOLD)
+                .build(),
+            ScrollView::new(wide_body)
+                .content_orientation(ScrollOrientation::Both)
+                .horizontal_scroll_bar_visibility(ScrollViewBarVisibility::Visible)
+                .vertical_scroll_bar_visibility(ScrollViewBarVisibility::Visible)
+                .max_width(280.0)
+                .max_height(80.0)
+                .build(),
+        ],
     )
-    .font_size(13.0);
-
-    vstack((
-        text_block("Default (vertical-only, auto)").bold(),
-        scroll_view(tall_body).max_height(120.0),
-        text_block("Both axes, always visible").bold(),
-        scroll_view(wide_body)
-            .horizontal_scroll_bar_visibility(ScrollingScrollBarVisibility::Visible)
-            .vertical_scroll_bar_visibility(ScrollingScrollBarVisibility::Visible)
-            .max_width(280.0)
-            .max_height(80.0),
-    ))
-    .spacing(8.0)
-    .into()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("ScrollView", app)
 }

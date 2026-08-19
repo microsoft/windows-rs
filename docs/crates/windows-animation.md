@@ -2,11 +2,11 @@
 
 > A safe wrapper around the Windows Animation Manager (`IUIAnimationManager`).
 
-- 📦 [crates.io](https://crates.io/crates/windows-animation)
-- 📖 [docs.rs](https://docs.rs/windows-animation)
-- 🚀 [Getting started](../../crates/libs/animation/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/animation)
-- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/animation)
+- [crates.io](https://crates.io/crates/windows-animation)
+- [docs.rs](https://docs.rs/windows-animation)
+- [Getting started](../../crates/libs/animation/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/animation)
+- [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/animation)
 
 `windows-animation` wraps the Win32 Windows Animation Manager COM APIs in safe Rust types. A
 `Manager` owns animation `Variable`s. Each one is a smoothly animated `f64`. You describe motion
@@ -136,10 +136,10 @@ This family has three animation technologies with distinct roles:
   frame (`update(time)` then `value()`). This matches immediate-mode rendering, such as
   `windows-canvas`'s `animated_canvas` per-frame draw loop. It is the animation engine for canvas
   and raw Win32 or DirectComposition.
-- **`windows-reactor` implicit transitions** use Windows.UI.Composition. It runs animations
+- **`windows-reactor` implicit transitions** use Microsoft.UI.Composition. It runs animations
   off-thread on retained visuals. This is the model for a declarative, re-rendering UI, where you do
   not re-render every frame to animate.
 - **Bridging caveat.** `Variable::copy_curve` targets `IDCompositionAnimation` (DirectComposition,
-  the Win32 composition engine), not Windows.UI.Composition (the WinRT engine WinUI and reactor
+  the Win32 composition engine), not Microsoft.UI.Composition (the WinRT engine WinUI and reactor
   use). The two are distinct. So `windows-animation` plugs into canvas and raw Win32 or
   DirectComposition, but does not drop directly into the reactor visual tree.

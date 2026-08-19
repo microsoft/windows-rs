@@ -1,18 +1,25 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (clicks, set_clicks) = cx.use_state(0_u32);
+use windows_reactor::{Element, RenderCx, SplitButton, TextBlock, vstack};
 
-    let bump = move || set_clicks.call(clicks + 1);
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let clicks = cx.use_state(|| 0u32);
+    let current = clicks.value();
 
-    vstack((
-        split_button(format!("Primary action ({clicks})")).on_click(bump),
-        split_button("Disabled").enabled(false),
-    ))
-    .spacing(8.0)
-    .into()
+    vstack(
+        8.0,
+        [
+            SplitButton::new(format!("Primary action ({current})"))
+                .on_click(move || {
+                    clicks.set(current + 1);
+                })
+                .flyout(TextBlock::new(format!("Secondary action ({current})")).build())
+                .build(),
+            SplitButton::new("Disabled").enabled(false).build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("SplitButton", app)
 }

@@ -34,7 +34,14 @@ pub fn as_example() {
     as_framework_dependent_impl("examples");
 }
 
-fn as_framework_dependent_impl(subdir: &str) {
+/// Configures Cargo test executables to run with a Windows App Runtime dependency.
+pub fn as_test() {
+    assert_windows();
+    let dest = as_framework_dependent_impl("deps");
+    println!("cargo:rustc-link-search=native={}", dest.display());
+}
+
+fn as_framework_dependent_impl(subdir: &str) -> PathBuf {
     let out_dir = out_dir();
     let dest = if subdir.is_empty() {
         target_dir_from_out(&out_dir)
@@ -42,6 +49,7 @@ fn as_framework_dependent_impl(subdir: &str) {
         target_dir_from_out(&out_dir).join(subdir)
     };
     copy_bootstrap_to(&dest);
+    dest
 }
 
 /// Configures the app to run completely self-contained.
@@ -85,7 +93,7 @@ pub fn as_self_contained() {
 
 /// Deploys `Microsoft.Web.WebView2.Core.dll` next to the executable.
 ///
-/// The XAML `WebView2` control hosted by `windows-webview`'s `reactor` feature
+/// The XAML `WebView2` control hosted by `windows-reactor`'s `webview` feature
 /// loads this WinRT projection assembly at runtime. Unlike the COM-only path
 /// (`webview2loader.dll`, supplied by the Evergreen runtime), it is not present
 /// on the machine by default, so a self-contained app must carry it alongside
@@ -258,7 +266,11 @@ fn extract_tar(src: &Path, dst: &Path, extra: &[&str]) {
 }
 
 fn target_dir_from_out(out: &Path) -> PathBuf {
-    out.ancestors().nth(3).unwrap_or(out).to_path_buf()
+    out.ancestors()
+        .find(|path| path.file_name().is_some_and(|name| name == "build"))
+        .and_then(Path::parent)
+        .unwrap_or(out)
+        .to_path_buf()
 }
 
 fn target_arch() -> &'static str {
@@ -266,5 +278,21 @@ fn target_arch() -> &'static str {
         Ok("aarch64") => "arm64",
         Ok("x86") => "x86",
         _ => "x64",
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn target_directory_is_the_parent_of_the_build_directory() {
+        let profile = Path::new("target").join("release");
+        for suffix in [
+            Path::new("build").join("package-hash").join("out"),
+            Path::new("build").join("package").join("hash").join("out"),
+        ] {
+            assert_eq!(target_dir_from_out(&profile.join(suffix)), profile);
+        }
     }
 }

@@ -2,82 +2,48 @@
 
 use std::f32::consts::TAU;
 use windows_canvas::*;
-use windows_reactor::*;
+use windows_reactor::{
+    Application, CanvasDrawContext, Element, RenderCx, StackPanel, Thickness, Window,
+    WindowBackdrop, button, component, hstack, run_reactor_winui_app,
+    swap_chain_canvas_invalidated, text_block,
+};
 
 const BARS: usize = 12;
 
 const WIDTH: f32 = 640.0;
 const HEIGHT: f32 = 320.0;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (seed, set_seed) = cx.use_state(1_u32);
-    let (size, set_size) = cx.use_state((WIDTH, HEIGHT));
-    let (scale, set_scale) = cx.use_state(1.0_f32);
-    let device = cx.use_ref::<Option<GpuDevice>>(None);
-    let host = cx.use_ref::<Option<CanvasSwapChain>>(None);
-    let scale_sub = cx.use_ref::<Option<windows_core::EventRevoker>>(None);
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let seed = cx.use_state(|| 1_u32);
+    let current_seed = seed.value();
+    let invalidator = cx.use_canvas_invalidator();
+    let invalidate = invalidator.clone();
+    cx.use_effect(current_seed, move || {
+        invalidate.invalidate();
+    });
 
-    if device.borrow().is_none() {
-        match GpuDevice::new_or_warp() {
-            Ok(d) => device.set(Some(d)),
-            Err(e) => eprintln!("failed to create device: {e}"),
-        }
-    }
-
-    {
-        let host = host.clone();
-        cx.use_effect((seed, size, scale), move || {
-            if let Some(chain) = host.borrow().as_ref() {
-                let _ = chain.set_scale(scale);
-                let _ = chain.resize(size.0, size.1);
-                let _ = chain.draw(|ctx| draw_chart(ctx, seed));
-            }
-        });
-    }
-
-    let panel = swap_chain_panel()
-        .on_mounted(move |panel| {
-            let s = panel.composition_scale().map_or(1.0, |(x, _)| x);
-            set_scale.call(s);
-
-            let device = device.borrow();
-            let Some(device) = device.as_ref() else {
-                return;
-            };
-            match CanvasSwapChain::with_device(&panel, device, WIDTH, HEIGHT, s) {
-                Ok(chain) => {
-                    let _ = chain.draw(|ctx| draw_chart(ctx, seed));
-                    host.set(Some(chain));
-                }
-                Err(e) => return eprintln!("failed to create swap chain: {e}"),
-            }
-
-            let set_scale = set_scale.clone();
-            if let Ok(revoker) = panel.on_composition_scale_changed(move |x, _| set_scale.call(x)) {
-                scale_sub.set(Some(revoker));
-            }
-        })
-        .on_resize(move |w, h| set_size.call((w as f32, h as f32)))
-        .width(WIDTH as f64)
-        .height(HEIGHT as f64);
-
-    let controls = hstack((
-        button("New data").on_click(move || set_seed.call(seed.wrapping_add(1))),
-        text_block(format!("revision {seed}")),
-    ))
-    .spacing(8.0);
-
-    vstack((
-        text_block("On-demand swap chain \u{2014} redraws only when the data changes:"),
-        panel,
-        controls,
-    ))
+    StackPanel::new([
+        text_block("On-demand swap chain - redraws only when the data changes:"),
+        swap_chain_canvas_invalidated(&invalidator, move |ctx| draw_chart(ctx, current_seed))
+            .width(WIDTH as f64)
+            .height(HEIGHT as f64)
+            .build(),
+        hstack(
+            8.0,
+            [
+                button("New data", move || {
+                    seed.update(|value| *value = value.wrapping_add(1));
+                }),
+                text_block(format!("revision {current_seed}")),
+            ],
+        ),
+    ])
     .spacing(12.0)
     .margin(Thickness::uniform(16.0))
-    .into()
+    .build()
 }
 
-fn draw_chart(ctx: &DrawContext, seed: u32) -> Result<()> {
+fn draw_chart(ctx: &CanvasDrawContext<'_>, seed: u32) -> Result<()> {
     ctx.clear(ColorF::new(0.10, 0.12, 0.16, 1.0));
 
     let pad = 24.0;
@@ -115,8 +81,22 @@ fn bar_value(seed: u32, index: usize) -> f32 {
 }
 
 fn main() -> Result<()> {
-    App::new()
-        .title("Canvas Chart")
-        .backdrop(Backdrop::Mica)
-        .render(app)
+    let root = component(|cx| {
+        let open = cx.use_state(|| true);
+        let windows = if open.value() {
+            vec![
+                Window::new("Canvas Chart", component(app), move || {
+                    open.set(false);
+                })
+                .backdrop(WindowBackdrop::Mica)
+                .client_size(704.0, 456.0)
+                .build()
+                .key(0),
+            ]
+        } else {
+            Vec::new()
+        };
+        Application::new(windows).build()
+    });
+    run_reactor_winui_app(root)
 }

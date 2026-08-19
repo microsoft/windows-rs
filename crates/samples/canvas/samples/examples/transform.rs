@@ -1,17 +1,23 @@
 #![windows_subsystem = "windows"]
 
-use std::cell::Cell;
 use windows_canvas::*;
-use windows_reactor::DrawContext;
+use windows_reactor::{CanvasDrawContext, Element, RenderCx, animated_canvas};
 
-thread_local! {
-    static FRAME: Cell<u64> = const { Cell::new(0) };
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let frame = cx.use_ref(|| 0_u64);
+    animated_canvas(move |ctx| {
+        let frame = frame
+            .with_mut(|frame| {
+                *frame += 1;
+                *frame
+            })
+            .unwrap();
+        draw(ctx, frame as f32 * 0.01)
+    })
+    .build()
 }
 
-fn draw(ctx: &DrawContext) -> Result<()> {
-    FRAME.with(|f| f.set(f.get() + 1));
-    let t = FRAME.with(|f| f.get()) as f32 * 0.01;
-
+fn draw(ctx: &CanvasDrawContext<'_>, t: f32) -> Result<()> {
     ctx.clear(ColorF::BLACK);
 
     let brush = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
@@ -46,5 +52,5 @@ fn draw(ctx: &DrawContext) -> Result<()> {
 }
 
 fn main() -> Result<()> {
-    canvas_samples::run_animated("Transform", draw)
+    canvas_samples::run_component("Transform", app)
 }

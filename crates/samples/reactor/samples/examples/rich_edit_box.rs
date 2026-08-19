@@ -1,26 +1,36 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (text, set_text) = cx.use_state(String::new());
+use windows_reactor::{Element, RenderCx, RichEditBox, StackPanel, TextBlock, Thickness};
 
-    let on_changed = move |v: String| set_text.call(v);
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let text = cx.use_state(String::new);
+    let value = text.value();
 
-    vstack((
-        rich_edit_box(String::new())
-            .header("Rich Editor")
-            .placeholder_text("Type rich text here…")
-            .on_text_changed(on_changed)
-            .height(200.0),
-        text_block(format!("Plain text: {text}")),
-        rich_edit_box("Read-only content.".to_string())
+    StackPanel::new([
+        RichEditBox::new(value.clone(), {
+            move |value| {
+                text.set(value);
+            }
+        })
+        .header("Rich Editor")
+        .placeholder_text("Type rich text here...")
+        .height(200.0)
+        .automation_id("editor")
+        .build(),
+        TextBlock::new(format!("Plain text: {value}"))
+            .automation_id("plain-text")
+            .build(),
+        RichEditBox::display("Read-only content.")
             .header("Read Only")
-            .read_only()
-            .height(100.0),
-    ))
+            .height(100.0)
+            .automation_id("read-only-editor")
+            .build(),
+    ])
     .spacing(8.0)
-    .into()
+    .padding(Thickness::uniform(16.0))
+    .build()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("RichEditBox", app)
 }

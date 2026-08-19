@@ -1,56 +1,59 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(_cx: &mut RenderCx) -> Element {
-    let mixed = RichTextBlock::single_paragraph(vec![
+use windows_reactor::{
+    Element, RenderCx, RichTextBlock, RichTextHyperlink, RichTextInline, RichTextParagraph,
+    RichTextRun, StackPanel, TextBlock, Thickness,
+};
+
+pub fn app(_cx: &mut RenderCx<'_>) -> Element {
+    let mixed = RichTextBlock::single_paragraph([
         RichTextInline::Run(RichTextRun::plain("Plain, ")),
         RichTextInline::Run(RichTextRun {
-            text: "bold".to_string(),
-            is_bold: true,
+            text: "bold".into(),
+            bold: true,
             ..Default::default()
         }),
         RichTextInline::Run(RichTextRun::plain(", ")),
         RichTextInline::Run(RichTextRun {
-            text: "italic".to_string(),
-            is_italic: true,
+            text: "italic".into(),
+            italic: true,
             ..Default::default()
         }),
         RichTextInline::Run(RichTextRun::plain(", and a ")),
         RichTextInline::Hyperlink(RichTextHyperlink {
-            text: "link".to_string(),
-            uri: "https://github.com/microsoft/windows-rs".to_string(),
+            text: "link".into(),
+            uri: "https://github.com/microsoft/windows-rs".into(),
         }),
         RichTextInline::Run(RichTextRun::plain(" all in one paragraph.")),
         RichTextInline::LineBreak,
         RichTextInline::Run(RichTextRun::plain(
-            "This continuation lives in the same paragraph but on a new visual line.",
+            "This continuation is on a new visual line.",
         )),
     ])
     .font_size(14.0)
-    .selectable()
-    .wrap();
+    .selectable(true)
+    .wrap(true)
+    .automation_id("mixed-text")
+    .build();
 
-    let multi = RichTextBlock {
-        paragraphs: vec![
-            RichTextParagraph::new(vec![RichTextInline::Run(RichTextRun::plain(
-                "First paragraph.",
-            ))]),
-            RichTextParagraph::new(vec![RichTextInline::Run(RichTextRun::plain(
-                "Second paragraph.",
-            ))]),
-        ],
-        ..RichTextBlock::new()
-    };
+    let multi = RichTextBlock::new([
+        RichTextParagraph::new([RichTextInline::Run(RichTextRun::plain("First paragraph."))]),
+        RichTextParagraph::new([RichTextInline::Run(RichTextRun::plain("Second paragraph."))]),
+    ])
+    .automation_id("multi-text")
+    .build();
 
-    vstack((
-        text_block("Single paragraph with mixed inlines:"),
+    StackPanel::new([
+        TextBlock::new("Single paragraph with mixed inlines:").build(),
         mixed,
-        text_block("Multi-paragraph block:"),
+        TextBlock::new("Multi-paragraph block:").build(),
         multi,
-    ))
+    ])
     .spacing(8.0)
-    .into()
+    .padding(Thickness::uniform(16.0))
+    .build()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("RichText", app)
 }

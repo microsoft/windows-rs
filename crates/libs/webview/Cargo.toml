@@ -10,19 +10,12 @@ categories = ["os::windows-apis"]
 readme = "readme.md"
 
 [features]
-reactor = ["dep:windows-reactor", "dep:windows-future"]
+xaml = ["dep:windows-future"]
 
 [dependencies]
 windows-core = { workspace = true }
 windows-window = { workspace = true }
-
-[dependencies.windows-reactor]
-workspace = true
-optional = true
-
-[dependencies.windows-future]
-workspace = true
-optional = true
+windows-future = { workspace = true, optional = true }
 
 [lints]
 workspace = true
@@ -30,4 +23,4 @@ workspace = true
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []
-features = ["reactor"]
+features = ["xaml"]

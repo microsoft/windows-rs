@@ -1,20 +1,29 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(_cx: &mut RenderCx) -> Element {
-    let rich_panel = vstack((
-        text_block("Action: Save").bold(),
-        text_block("Writes the current document to disk."),
-    ))
-    .spacing(4.0);
+use windows_reactor::{Button, Element, FontWeight, RenderCx, TextBlock, vstack};
 
-    vstack((
-        button("Save").tooltip_with(Tooltip::rich(rich_panel)),
-        button("Open").tooltip("Opens a document"),
-    ))
-    .spacing(8.0)
-    .into()
+fn app(_cx: &mut RenderCx<'_>) -> Element {
+    let rich = vstack(
+        4.0,
+        [
+            TextBlock::new("Action: Save")
+                .font_weight(FontWeight::BOLD)
+                .build(),
+            TextBlock::new("Writes the current document to disk.").build(),
+        ],
+    );
+
+    vstack(
+        8.0,
+        [
+            Button::new("Save").build().tooltip(rich),
+            Button::new("Open")
+                .build()
+                .tooltip(TextBlock::new("Opens a document").build()),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("TooltipRich", app)
 }

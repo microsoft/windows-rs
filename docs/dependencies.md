@@ -8,34 +8,31 @@ which are already centralized under `[workspace.dependencies]`.
 
 ## The model: one owner, validated by running
 
-There is no central version registry. Every external dependency has a single **owning tool** that
-declares the pin as a `const`, downloads/consumes the artifact at that exact version, and runs in CI
-(`.github/workflows/gen.yml`) - so *running the tool proves the pin is current*, in one of two ways:
+There is no central version registry. Every external dependency has one **owner** that declares the
+pin as a `const`. Generators, validators, and tests consume that pin in CI:
 
-- **Generators** (`tool_win32`, `tool_winrt`, `tool_webview`, `tool_reactor`) regenerate
+- **Generators** (`tool_win32`, `tool_winrt`, `tool_webview`, and `tool_composition`) regenerate
   committed artifacts; `gen.yml` runs each then `git diff --exit-code`, so a stale pin produces a
   diff and fails.
 - **Validators** (`tool_clang`, and guards inside generators) assert invariants and write nothing; a
   violation panics loudly, failing the job with a clean tree.
 
-When one crate must track a pin another crate owns, the owner reads the peer's constant straight
+When one crate must track a pin another crate owns, the consumer reads the peer's constant straight
 from source with [`helpers::read_str_const`](../crates/tools/helpers/src/lib.rs) and asserts they
 agree. Pins are never copied - they are read back and checked. `windows-clang` stays a clean
 libclang library and is **not** a shared home for SDK/runtime versions.
 
 ## At a glance
 
-| Dependency | Version | Owner (pin) | Obtained by | Validated by |
-| --- | --- | --- | --- | --- |
-| libclang | `22.1.8` | `LIBCLANG_VERSION` - `crates/libs/clang/src/provision.rs` | download (NuGet: `libclang.runtime.win-<arch>` + `git` sparse checkout of LLVM headers) | `tool_clang` validator + runtime assert |
-| Windows SDK | `10.0.28000.2270` | `SDK_VERSION` - `crates/tools/win32/src/main.rs` | download (NuGet) | `tool_win32` zero-diff regen |
-| Windows WDK | `10.0.28000.1839` | `WDK_VERSION` - `crates/tools/win32/src/km.rs` | download (NuGet) | `tool_win32` zero-diff regen |
-| SDK Contracts (WinRT) | `10.0.28000.2270` | `CONTRACTS_VERSION` - `crates/tools/winrt/src/main.rs` | download (NuGet) | `tool_winrt` zero-diff regen |
-| WebView2 SDK headers | `1.0.4078.44` | `WEBVIEW2_VERSION` - `crates/tools/webview/src/main.rs` | download (NuGet) | `tool_webview` zero-diff regen |
-| WinUI / Windows App SDK metadata (`.winmd` files) | `2.4.0` | `WINDOWS_APP_SDK_VERSION` - `crates/tools/reactor/src/main.rs` | download (NuGet) | `tool_reactor` zero-diff regen of the committed metadata |
-| Windows App SDK runtime | `2.4.0` | `RUNTIME_VER` - `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) + committed bootstrap DLLs | `tool_reactor` guard: `== WINDOWS_APP_SDK_VERSION`, and `reactor.yml` matches |
-| WebView2 runtime projection | `1.0.4078.44` | `WEBVIEW2_VER` - `crates/libs/reactor-setup/src/lib.rs` | download (NuGet) | `tool_reactor` guard: `== WEBVIEW2_VERSION` |
-| LLVM / libclang (CI) | `22.1.8` | `LIBCLANG_VERSION` - `crates/libs/clang/src/provision.rs` | download (NuGet) via `tool_clang path` | `tool_clang`: loads the pin and asserts its version |
+| Dependency | Version | Owner | Validation |
+| --- | --- | --- | --- |
+| libclang | `22.1.8` | `windows-clang` `LIBCLANG_VERSION` | `tool_clang` |
+| Windows SDK | `10.0.28000.2270` | `tool_win32` `SDK_VERSION` | `tool_win32` |
+| Windows WDK | `10.0.28000.1839` | `tool_win32` `WDK_VERSION` | `tool_win32` |
+| SDK Contracts | `10.0.28000.2270` | `tool_winrt` `CONTRACTS_VERSION` | `tool_winrt` |
+| WebView2 SDK | `1.0.4078.44` | `tool_webview` `WEBVIEW2_VERSION` | `tool_webview` |
+| Windows App SDK | `2.4.0` | `reactor-setup` `RUNTIME_VER` | setup, Reactor, and binding tests |
+| WebView2 projection | `1.0.4078.44` | `reactor-setup` `WEBVIEW2_VER` | `tool_webview` |
 
 ## Toolchain: libclang
 
@@ -82,8 +79,8 @@ metadata files.
 
 | Package | Owner (pin) | Produces |
 | --- | --- | --- |
-| `Microsoft.Windows.SDK.CPP[.<arch>]` | `SDK_VERSION` - `tool_win32` | um scrape half of `Windows.Win32.winmd` |
-| `Microsoft.Windows.WDK.x64` | `WDK_VERSION` - `tool_win32` | km scrape half of `Windows.Win32.winmd` |
+| `Microsoft.Windows.SDK.CPP[.<arch>]` | `SDK_VERSION` - `tool_win32` | um scrape |
+| `Microsoft.Windows.WDK.x64` | `WDK_VERSION` - `tool_win32` | km scrape |
 | `Microsoft.Windows.SDK.Contracts` | `CONTRACTS_VERSION` - `tool_winrt` | `Windows.winmd` |
 
 - **Obtained:** `windows_clang::nuget_package(id, version)` restores from the NuGet global cache or
@@ -104,71 +101,55 @@ distinct NuGet package with its own pin - the two are not coupled and can diverg
 WebView2 ships only C/C++ SDK headers, so `windows-webview` is scraped from them. The WinRT `Core`
 metadata and runtime projection DLL are separate artifacts.
 
-| Artifact | Owner / location | Used by |
-| --- | --- | --- |
-| `WebView2.h`, `WebView2Interop.h` | `WEBVIEW2_VERSION` - `tool_webview` (downloaded, not vendored) | `tool_webview` -> `webview/src/bindings.rs` |
-| `Microsoft.Web.WebView2.Core.winmd` | regenerated into `crates/tools/reactor/winmd/` by `tool_reactor` at `WEBVIEW2_VERSION` | `tool_webview`, `tool_reactor` |
-| Runtime projection (`Core.dll`), `WEBVIEW2_VER` | `crates/libs/reactor-setup/src/lib.rs` | self-contained apps |
-| Evergreen runtime | `.github/workflows/webview.yml` | CI test host |
+- `WebView2.h` and `WebView2Interop.h` come from the `WEBVIEW2_VERSION` NuGet package and generate
+  `crates/libs/webview/src/bindings.rs`.
+- `Microsoft.Web.WebView2.Core.winmd` comes from the same package and generates the XAML bindings.
+- `Microsoft.Web.WebView2.Core.dll` is staged by `reactor-setup` for self-contained applications.
+- The Evergreen runtime installed by `.github/workflows/webview.yml` is the CI test host.
 
 - **Headers are downloaded, not vendored:** `tool_webview` fetches the pinned NuGet package via
   `nuget_package` and parses the headers from it. A bump is a one-line `WEBVIEW2_VERSION` edit.
 - **Pinned libclang:** like `tool_win32`, `tool_webview` calls `ensure_libclang` +
   `assert_libclang_version`, so it parses with the exact pinned `22.1.8` (its `gen.yml` job needs no
   LLVM install - only the SDK include paths for the system headers `WebView2.h` pulls in).
-- **Runtime projection:** bump `WEBVIEW2_VER` in `reactor-setup`; it must equal `WEBVIEW2_VERSION` -
-  `tool_reactor` asserts this.
-- **`Core.winmd`** is refreshed into the reactor metadata by `tool_reactor` at `WEBVIEW2_VERSION`
-  (see below).
+- **Runtime projection:** bump `WEBVIEW2_VER` in `reactor-setup` with `WEBVIEW2_VERSION`.
+  `tool_webview` asserts that they match.
+- **`Core.winmd`:** `tool_webview` reads it from the same pinned NuGet package as the headers.
 
 For the full pipeline and COM<->WinRT bridge, see [windows-webview](crates/windows-webview.md).
 
 ## WinUI / Windows App SDK
 
-`windows-reactor` is generated from WinUI / Windows App SDK `.winmd`; `windows-reactor-setup` stages
-the matching runtime so reactor apps run. Metadata and runtime are two faces of one release, tied to
-a single number.
+`windows-reactor` is hand-written and has no semantic generator. Its private WinUI binding layer is
+generated by `tool_bindings` from a fixed filter. `windows-reactor-setup` owns the Windows App SDK
+runtime pin used by applications and by tools that need matching WinUI metadata.
 
-**Metadata is regenerated, not hand-copied.** `tool_reactor` owns
-`WINDOWS_APP_SDK_VERSION = "2.4.0"`. On every run it downloads the umbrella
-`Microsoft.WindowsAppSDK` metapackage at that version, reads the exact component versions
-(Foundation / InteractiveExperiences / WinUI) pinned in its nuspec, downloads each component, and
-copies their `.winmd` - plus `Microsoft.Web.WebView2.Core.winmd` at `WEBVIEW2_VERSION` - into the
-committed metadata at `crates/tools/reactor/winmd/`. It also refreshes the committed bootstrap DLLs
-(`crates/libs/reactor-setup/bootstrap/<arch>/`) from that same Foundation package's
-`runtimes/<rid>/native/`, so metadata and staged runtime provably come from one pin. `gen.yml`
-re-runs the tool and fails on any diff, so both provably match the pin. (`extras.winmd` in that
-directory is *generated* by `tool_reactor` from `Windows.Win32.winmd`, not a package.) The metadata
-stays committed because `tool_webview` and `tool_composition` also read it.
+`helpers::windows_app_sdk_metadata` reads `RUNTIME_VER = "2.4.0"` from `reactor-setup`, downloads
+the `Microsoft.WindowsAppSDK` umbrella package, resolves the Foundation,
+InteractiveExperiences, and WinUI component versions from its nuspec, and returns their metadata
+paths. `tool_bindings`, `tool_composition`, and `tool_webview` use those paths when generating
+lifted bindings.
 
-| Artifact | Owner / location | Used by |
-| --- | --- | --- |
-| WinUI / Windows App SDK `.winmd` + `WebView2.Core.winmd` | regenerated into `crates/tools/reactor/winmd/` at `WINDOWS_APP_SDK_VERSION` | `tool_reactor`, `tool_webview`, `tool_composition` |
-| `Microsoft.WindowsAppSDK.Runtime`, `RUNTIME_VER` | `crates/libs/reactor-setup/src/lib.rs` | app runtime deploy |
-| Bootstrap DLLs (x86/x64/arm64) | regenerated into `crates/libs/reactor-setup/bootstrap/` at `WINDOWS_APP_SDK_VERSION` | framework-dependent apps |
-| `app.manifest`, `runtime.txt` | `crates/libs/reactor-setup/assets/` (committed) | runtime staging |
-| Runtime installer | `.github/workflows/reactor.yml` | CI test host |
+- WinUI metadata is downloaded from components resolved through `RUNTIME_VER` by
+  `tool_bindings`, `tool_composition`, and `tool_webview`.
+- `Microsoft.WindowsAppSDK.Runtime` is staged by `reactor-setup` for self-contained applications.
+- Bootstrap DLLs under `crates/libs/reactor-setup/bootstrap/` support framework-dependent apps and
+  are refreshed by `tool_bindings` from the matching Foundation package.
+- `app.manifest` and `runtime.txt` support runtime staging.
+- `.github/workflows/reactor.yml` installs the runtime for native CI.
 
-`windows-reactor-setup` is a published runtime helper with no generated artifact, so its pins can't
-be proven by regen. Instead **`tool_reactor` guards them** on every run, asserting (and failing
-loudly on drift) that:
+`RUNTIME_VER` drives self-contained runtime staging and metadata resolution. The native Reactor
+workflow installs the same version for tests. `WEBVIEW2_VER` must equal the `tool_webview`
+`WEBVIEW2_VERSION`; the tool checks that relation before generation.
 
-- `WINDOWS_APP_SDK_VERSION` (metadata) equals `RUNTIME_VER` (runtime) - one number drives both;
-- `WEBVIEW2_VER` equals `WEBVIEW2_VERSION`, so the staged WebView2 runtime matches the ABI the
-  bindings target; and
-- `reactor.yml`'s installer URL installs `RUNTIME_VER` (`.../windowsappsdk/<major.minor>/<ver>/`),
-  so CI's self-tests exercise the runtime apps ship.
-
-- **To update metadata + runtime:** bump `WINDOWS_APP_SDK_VERSION` (`tool_reactor`) and
-  `RUNTIME_VER` (`reactor-setup`) together, update the `reactor.yml` installer URL, then run
-  `cargo run -p tool_reactor` and commit the refreshed metadata and bootstrap DLLs. The guard
-  enforces the version agreement; the regen enforces the metadata and the bootstrap binaries.
-- `assets/app.manifest` is a **generated activation asset with no committed generator** -
-  `app.manifest` transforms the App SDK `package.appxfragment` files into SxS fusion format (source
-  versions in its header). It is forward-compatible, so refreshed only when the reactor control set
+- **To update the Windows App SDK:** bump `RUNTIME_VER`, replace the committed bootstrap DLLs with
+  the matching Foundation package files, update the `reactor.yml` installer URLs, then run
+  `cargo run -p tool_composition`, `cargo run -p tool_webview`,
+  `cargo test -p windows-reactor-setup`, and the Reactor checks.
+- `assets/app.manifest` is a **generated activation asset with no committed generator**. It
+  transforms the App SDK `package.appxfragment` files into SxS fusion format (source versions in
+  its header). It is forward-compatible, so it is refreshed only when the Reactor control set
   needs newly-moved classes, not on every bump.
-- `resources.pri` is staged from the App SDK runtime package only for self-contained deployment via
-  `as_self_contained`; framework-dependent staging does not copy it.
 
 See [windows-reactor](crates/windows-reactor.md) and
 [windows-reactor-setup](crates/windows-reactor-setup.md).
@@ -177,8 +158,8 @@ See [windows-reactor](crates/windows-reactor.md) and
 
 Two independent NuGet paths, both using `https://www.nuget.org/api/v2/package/{id}/{version}`:
 
-- **`windows_clang::nuget_package`** - used by the scraping/codegen tools (`tool_win32`,
-  `tool_winrt`, `tool_webview`, `tool_reactor`). Restores into the NuGet global cache
+- **`windows_clang::nuget_package`** - used by the scraping and binding tools (`tool_win32`,
+  `tool_winrt`, `tool_webview`, `tool_composition`). Restores into the NuGet global cache
   (`NUGET_PACKAGES` overrides), else downloads via bundled `curl`/`tar`. Layout-agnostic - each
   caller indexes the subtree it needs.
 - **`reactor-setup`'s staging** - runs in the `build.rs` of every consuming app to stage the App SDK
@@ -187,13 +168,13 @@ Two independent NuGet paths, both using `https://www.nuget.org/api/v2/package/{i
 
 ## The `tool_*` / pin pairing
 
-| Tool | Proves | How |
-| --- | --- | --- |
-| `tool_win32` | `SDK_VERSION`, `WDK_VERSION` | zero-diff regen of `Windows.Win32.winmd` (um + km scrapes and their merge) |
-| `tool_winrt` | `CONTRACTS_VERSION` | zero-diff regen of `Windows.winmd` |
-| `tool_webview` | `WEBVIEW2_VERSION` | zero-diff regen of `webview/src/bindings.rs` |
-| `tool_clang` | `LIBCLANG_VERSION` (drives NuGet DLL + `llvmorg-<ver>` header tag) | pure-check assertion |
-| `tool_reactor` | `WINDOWS_APP_SDK_VERSION`; reactor-setup sync | zero-diff regen of the winmd files + bindings + bootstrap DLLs; guard reads reactor-setup constants |
+| Tool | Proves |
+| --- | --- |
+| `tool_win32` | `SDK_VERSION`, `WDK_VERSION`, and `Windows.Win32.winmd` |
+| `tool_winrt` | `CONTRACTS_VERSION` and `Windows.winmd` |
+| `tool_clang` | `LIBCLANG_VERSION` |
+| `tool_composition` | `RUNTIME_VER` metadata selection and lifted bindings |
+| `tool_webview` | WebView2 pins, Windows App SDK metadata selection, and both binding sets |
 
 All cross-file reads go through `helpers::read_str_const`, so each pin is declared once by its owner
 and read back everywhere else.

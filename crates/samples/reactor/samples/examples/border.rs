@@ -1,24 +1,34 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(_cx: &mut RenderCx) -> Element {
-    vstack((
-        border(text_block("Boxed text").foreground(Color::rgb(255, 255, 255)))
+use windows_reactor::{Border, Color, Element, FontWeight, RenderCx, TextBlock, Thickness, vstack};
+
+pub fn app(_cx: &mut RenderCx<'_>) -> Element {
+    vstack(
+        8.0,
+        [
+            Border::new(
+                TextBlock::new("Boxed text")
+                    .foreground(Color::rgb(255, 255, 255))
+                    .build(),
+            )
             .background(Color::rgb(60, 100, 180))
-            .padding(Thickness::uniform(12.0)),
-        border(
-            text_block("Margined + width-capped")
-                .bold()
-                .foreground(Color::rgb(255, 255, 255)),
-        )
-        .background(Color::rgb(80, 140, 90))
-        .padding(Thickness::xy(16.0, 8.0))
-        .margin(Thickness::uniform(4.0))
-        .max_width(280.0),
-    ))
-    .spacing(8.0)
-    .into()
+            .padding(Thickness::uniform(12.0))
+            .build(),
+            Border::new(
+                TextBlock::new("Margined + width-capped")
+                    .font_weight(FontWeight::BOLD)
+                    .foreground(Color::rgb(255, 255, 255))
+                    .build(),
+            )
+            .background(Color::rgb(80, 140, 90))
+            .padding(Thickness::xy(16.0, 8.0))
+            .margin(Thickness::uniform(4.0))
+            .max_width(280.0)
+            .build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("Border", app)
 }

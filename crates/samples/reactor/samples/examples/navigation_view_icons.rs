@@ -1,34 +1,38 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (page, set_page) = cx.use_state(String::from("home"));
+use windows_reactor::{
+    Element, Icon, IconSymbol, NavigationItem, NavigationView, RenderCx, TextBlock,
+};
 
-    let content = match page.as_str() {
-        "home" => text_block("Welcome home!"),
-        "settings" => text_block("Settings page"),
-        "mail" => text_block("Mail inbox"),
-        "people" => text_block("Contacts"),
-        _ => text_block("Unknown page"),
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let page = cx.use_state(|| 0_u64);
+    let current = page.value();
+    let content = match current {
+        1 => "Mail inbox",
+        2 => "Contacts",
+        3 => "Settings page",
+        _ => "Welcome home!",
     };
 
     NavigationView::new(
         [
-            NavViewItem::new("Home").tag("home").icon(Symbol::Home),
-            NavViewItem::new("Mail").tag("mail").icon(Symbol::Mail),
-            NavViewItem::new("People")
-                .tag("people")
-                .icon(Symbol::People),
-            NavViewItem::new("Settings")
-                .tag("settings")
-                .icon(Symbol::Setting),
+            NavigationItem::new(0, "Home").icon(Icon::symbol(IconSymbol::HOME)),
+            NavigationItem::new(1, "Mail").icon(Icon::symbol(IconSymbol::MAIL)),
+            NavigationItem::new(2, "People").icon(Icon::symbol(IconSymbol::PEOPLE)),
+            NavigationItem::new(3, "Settings").icon(Icon::symbol(IconSymbol::SETTINGS)),
         ],
-        content,
+        TextBlock::new(content).build(),
+        move |key| {
+            if let Some(key) = key {
+                page.set(key);
+            }
+        },
     )
-    .selected_tag(&*page)
-    .on_selection_changed(move |tag: String| set_page.call(tag))
-    .into()
+    .selected_key(Some(current))
+    .settings_visible(false)
+    .build()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("NavigationViewIcons", app)
 }

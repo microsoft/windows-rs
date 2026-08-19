@@ -9,7 +9,9 @@ name = "BlankWindowsReactor"
 path = "src/main.rs"
 
 [dependencies]
+reactor_samples = { path = "../samples" }
 tracelogging = "1.2.4"
+windows-core.workspace = true
 windows-reactor = { workspace = true }
 
 [build-dependencies]

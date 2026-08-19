@@ -1,6 +1,8 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-#[derive(Clone, PartialEq, Default)]
+use windows_reactor::{Button, Element, FontWeight, RenderCx, TextBlock, hstack, vstack};
+
+#[derive(Clone, Default)]
 struct CounterState {
     count: i32,
 }
@@ -11,46 +13,45 @@ enum Action {
     Reset,
 }
 
-fn reducer(state: CounterState, action: Action) -> CounterState {
+fn reducer(mut state: CounterState, action: Action) -> CounterState {
     match action {
-        Action::Increment => CounterState {
-            count: state.count + 1,
-        },
-        Action::Decrement => CounterState {
-            count: state.count - 1,
-        },
-        Action::Reset => CounterState::default(),
+        Action::Increment => state.count += 1,
+        Action::Decrement => state.count -= 1,
+        Action::Reset => state = CounterState::default(),
     }
+    state
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (state, dispatch) = cx.use_reducer_fn(reducer, CounterState::default());
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let (state, dispatch) = cx.use_reducer(CounterState::default, reducer);
+    let increment = dispatch.clone();
+    let decrement = dispatch.clone();
 
-    let inc = {
-        let d = dispatch.clone();
-        move || d.call(Action::Increment)
-    };
-    let dec = {
-        let d = dispatch.clone();
-        move || d.call(Action::Decrement)
-    };
-    let reset = move || dispatch.call(Action::Reset);
-
-    vstack((
-        text_block(format!("count = {}", state.count))
-            .font_size(24.0)
-            .bold(),
-        hstack((
-            button("-").on_click(dec),
-            button("+").on_click(inc),
-            button("reset").on_click(reset),
-        ))
-        .spacing(8.0),
-    ))
-    .spacing(8.0)
-    .into()
+    vstack(
+        8.0,
+        [
+            TextBlock::new(format!("count = {}", state.count))
+                .font_size(24.0)
+                .font_weight(FontWeight::BOLD)
+                .build(),
+            hstack(
+                8.0,
+                [
+                    Button::new("-")
+                        .on_click(move || decrement.call(Action::Decrement))
+                        .build(),
+                    Button::new("+")
+                        .on_click(move || increment.call(Action::Increment))
+                        .build(),
+                    Button::new("Reset")
+                        .on_click(move || dispatch.call(Action::Reset))
+                        .build(),
+                ],
+            ),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("UseReducer", app)
 }

@@ -1,18 +1,27 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0_u32);
+use windows_reactor::{CalendarSelectionMode, CalendarView, Element, RenderCx, TextBlock, vstack};
 
-    let bump = move || set_count.call(count + 1);
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let selected = cx.use_state(Vec::new);
+    let count = cx.use_state(|| 0_u32);
+    let update_selected = selected.clone();
+    let update_count = count.clone();
 
-    vstack((
-        calendar_view().on_selected_dates_changed(bump),
-        text_block(format!("Selection changed {count} time(s)")),
-    ))
-    .spacing(8.0)
-    .into()
+    vstack(
+        8.0,
+        [
+            CalendarView::new(selected.value(), move |dates| {
+                update_selected.set(dates);
+                update_count.set(update_count.value() + 1);
+            })
+            .selection_mode(CalendarSelectionMode::Multiple)
+            .build(),
+            TextBlock::new(format!("Selection changed {} time(s)", count.value())).build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("CalendarView", app)
 }

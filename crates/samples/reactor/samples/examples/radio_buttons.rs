@@ -1,25 +1,31 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (selected, set_selected) = cx.use_state(0_i32);
+use windows_reactor::{Element, RadioButtons, RenderCx, TextBlock, vstack};
 
-    let update_selected = move |i: i32| set_selected.call(i);
-
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let selected = cx.use_state(|| 0_u64);
+    let current = selected.value();
     let options = ["Email", "SMS", "None"];
-    let label = options.get(selected as usize).copied().unwrap_or("(none)");
+    let label = options.get(current as usize).copied().unwrap_or("(none)");
 
-    vstack((
-        RadioButtons::new(options)
+    let selection = selected;
+    vstack(
+        8.0,
+        [
+            RadioButtons::new([(0, "Email"), (1, "SMS"), (2, "None")], move |value| {
+                if let Some(key) = value {
+                    selection.set(key);
+                }
+            })
             .header("Notifications")
-            .selected_index(selected)
+            .selected_key(Some(current))
             .max_columns(3)
-            .on_selection_changed(update_selected),
-        text_block(format!("selected_index = {selected} ({label})")),
-    ))
-    .spacing(8.0)
-    .into()
+            .build(),
+            TextBlock::new(format!("selected = {current} ({label})")).build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("RadioButtons", app)
 }

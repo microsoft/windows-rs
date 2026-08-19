@@ -1,14 +1,21 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(_cx: &mut RenderCx) -> Element {
-    vstack((
-        button("Hover me").tooltip("This is a tooltip"),
-        text_block("Plain text also tips").tooltip("Even on TextBlock"),
-    ))
-    .spacing(12.0)
-    .into()
+use windows_reactor::{Button, Element, RenderCx, TextBlock, vstack};
+
+pub fn app(_cx: &mut RenderCx<'_>) -> Element {
+    vstack(
+        12.0,
+        [
+            Button::new("Hover me")
+                .build()
+                .tooltip(TextBlock::new("This is a tooltip").build()),
+            TextBlock::new("Plain text also has a tooltip")
+                .build()
+                .tooltip(TextBlock::new("Tooltips can contain elements").build()),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("Tooltip", app)
 }

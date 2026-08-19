@@ -1,28 +1,35 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (password, set_password) = cx.use_state(String::new());
+use windows_reactor::{Element, PasswordBox, PasswordRevealMode, RenderCx, StackPanel, TextBlock};
 
-    let update_password = move |v: String| set_password.call(v);
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let password = cx.use_state(String::new);
+    let hidden = cx.use_state(String::new);
+    let current = password.value();
+    let current_hidden = hidden.value();
 
-    vstack((
-        PasswordBox::new()
-            .value(password.clone())
-            .header("Password")
-            .placeholder_text("Type a password…")
-            .on_password_changed(update_password),
-        text_block(format!("captured length = {}", password.chars().count())),
-        PasswordBox::new()
-            .header("No reveal button")
-            .placeholder_text("Reveal hidden")
-            .password_reveal_mode(PasswordRevealMode::Hidden),
-        PasswordBox::new().header("Disabled").enabled(false),
-    ))
+    StackPanel::new([
+        PasswordBox::new(current.clone(), move |value| {
+            password.set(value);
+        })
+        .header("Password")
+        .placeholder_text("Type a password...")
+        .build(),
+        TextBlock::new(format!("captured length = {}", current.chars().count())).build(),
+        PasswordBox::new(current_hidden, move |value| {
+            hidden.set(value);
+        })
+        .header("No reveal button")
+        .placeholder_text("Reveal hidden")
+        .password_reveal_mode(PasswordRevealMode::Hidden)
+        .build(),
+        PasswordBox::display("").header("Disabled").build(),
+    ])
     .spacing(8.0)
     .max_width(320.0)
-    .into()
+    .build()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("PasswordBox", app)
 }

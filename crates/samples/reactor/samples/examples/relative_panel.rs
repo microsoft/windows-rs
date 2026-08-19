@@ -1,26 +1,30 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(_cx: &mut RenderCx) -> Element {
-    relative_panel([
-        text_block("Top Left"),
-        text_block("Top Right")
-            .relative_align_right()
-            .relative_align_top(),
-        text_block("Bottom Left")
-            .relative_align_left()
-            .relative_align_bottom(),
-        text_block("Bottom Right")
-            .relative_align_right()
-            .relative_align_bottom(),
-        text_block("Center")
-            .relative_align_h_center()
-            .relative_align_v_center(),
+use windows_reactor::{Element, RelativePanel, RelativePanelChild, RenderCx, TextBlock};
+
+pub fn app(_cx: &mut RenderCx<'_>) -> Element {
+    RelativePanel::new([
+        RelativePanelChild::new(TextBlock::new("Top Left").build())
+            .align_left(true)
+            .align_top(true),
+        RelativePanelChild::new(TextBlock::new("Top Right").build())
+            .align_right(true)
+            .align_top(true),
+        RelativePanelChild::new(TextBlock::new("Bottom Left").build())
+            .align_left(true)
+            .align_bottom(true),
+        RelativePanelChild::new(TextBlock::new("Bottom Right").build())
+            .align_right(true)
+            .align_bottom(true),
+        RelativePanelChild::new(TextBlock::new("Center").build())
+            .align_horizontal_center(true)
+            .align_vertical_center(true),
     ])
     .width(300.0)
     .height(200.0)
-    .into()
+    .build()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("RelativePanel", app)
 }

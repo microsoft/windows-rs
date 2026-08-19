@@ -1,19 +1,27 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (clicks, set_clicks) = cx.use_state(0_u32);
+use windows_reactor::{Button, ButtonEmphasis, Element, RenderCx, vstack};
 
-    let bump = set_clicks.setter(clicks + 1);
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let clicks = cx.use_state(|| 0_u32);
+    let current = clicks.value();
 
-    vstack((
-        button(format!("Clicked {clicks} times")).on_click(bump),
-        button("Disabled").enabled(false),
-        button("Accent (Primary Action)").accent(),
-    ))
-    .spacing(8.0)
-    .into()
+    vstack(
+        8.0,
+        [
+            Button::new(format!("Clicked {current} times"))
+                .on_click(move || {
+                    clicks.update(|value| *value += 1);
+                })
+                .build(),
+            Button::new("Disabled").enabled(false).build(),
+            Button::new("Accent (Primary Action)")
+                .emphasis(ButtonEmphasis::Accent)
+                .build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("Button", app)
 }

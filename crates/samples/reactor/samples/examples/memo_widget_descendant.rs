@@ -1,35 +1,52 @@
 #![windows_subsystem = "windows"]
 
-use windows_reactor::*;
+use windows_reactor::{
+    Border, Button, Element, RenderCx, TextBlock, Thickness, component, hstack, memo_component,
+    vstack,
+};
 
-fn counter(_props: &(), cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0_u32);
-
-    hstack((
-        text_block(format!("count = {count}")).font_size(20.0),
-        button("Increment").on_click(move || set_count.call(count + 1)),
-    ))
-    .spacing(12.0)
-    .into()
+fn counter() -> Element {
+    component(|cx| {
+        let count = cx.use_state(|| 0_u32);
+        let current = count.value();
+        hstack(
+            12.0,
+            [
+                TextBlock::new(format!("Child count: {current}"))
+                    .automation_id("memo-child-count")
+                    .build(),
+                Button::new("Increment child")
+                    .on_click(move || {
+                        count.update(|value| *value += 1);
+                    })
+                    .build(),
+            ],
+        )
+    })
 }
 
-fn memoized_frame(_props: &(), _cx: &mut RenderCx) -> Element {
-    border(component(counter, ()))
-        .padding(Thickness::uniform(12.0))
-        .into()
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let parent = cx.use_state(|| 0_u32);
+    let parent_count = parent.value();
+
+    vstack(
+        12.0,
+        [
+            TextBlock::new(format!("Parent renders: {parent_count}")).build(),
+            Button::new("Rerender parent")
+                .on_click(move || {
+                    parent.update(|value| *value += 1);
+                })
+                .build(),
+            memo_component((), |_| {
+                Border::new(counter())
+                    .padding(Thickness::uniform(12.0))
+                    .build()
+            }),
+        ],
+    )
 }
 
-fn app(_cx: &mut RenderCx) -> Element {
-    vstack((
-        text_block("A dirty child must update through a memoized component with a widget root."),
-        text_block("Click Increment. The count must advance on every click."),
-        memo(memoized_frame, ()),
-    ))
-    .spacing(12.0)
-    .padding(Thickness::uniform(16.0))
-    .into()
-}
-
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("MemoWidgetDescendant", app)
 }

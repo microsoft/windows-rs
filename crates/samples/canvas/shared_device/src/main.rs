@@ -1,120 +1,66 @@
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
-use windows_reactor::*;
+use windows_reactor::{
+    Application, Element, RenderCx, StackPanel, Thickness, Window, WindowBackdrop, canvas_image,
+    component, run_reactor_winui_app, text_block,
+};
 
 const COLS: usize = 4;
 const ROWS: usize = 3;
 const TILES: usize = COLS * ROWS;
 const TILE: f32 = 132.0;
+const GAP: f32 = 8.0;
+const WIDTH: f32 = COLS as f32 * TILE + (COLS - 1) as f32 * GAP;
+const HEIGHT: f32 = ROWS as f32 * TILE + (ROWS - 1) as f32 * GAP;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let device = cx.use_ref::<Option<GpuDevice>>(None);
-    let surfaces = cx.use_ref::<Vec<CanvasImageSource>>(Vec::new());
-    let (images, set_images) = cx.use_state::<Vec<ImageSource>>(Vec::new());
-    let (scale, set_scale) = cx.use_state(1.0_f64);
-    let scale_sub = cx.use_ref::<Option<windows_core::EventRevoker>>(None);
+struct Resources {
+    scale: f32,
+    white: Brush,
+}
 
-    let scale_sub_effect = scale_sub.clone();
-    cx.use_effect((scale,), move || {
-        let stale = surfaces
-            .borrow()
-            .first()
-            .is_some_and(|s| s.scale() != scale as f32);
-        if stale {
-            surfaces.set(Vec::new());
-        }
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let resources = cx.use_ref(|| None::<Resources>);
 
-        for attempt in 0..2 {
-            if device.borrow().is_none() {
-                match GpuDevice::new_or_warp() {
-                    Ok(d) => device.set(Some(d)),
-                    Err(e) => return eprintln!("failed to create shared device: {e}"),
-                }
-            }
-
-            if surfaces.borrow().is_empty() {
-                let mut built = Vec::new();
-                let mut sources = Vec::new();
-                let mut lost = false;
-                {
-                    let device = device.borrow();
-                    let device = device.as_ref().unwrap();
-                    for i in 0..TILES {
-                        let surface = match CanvasImageSource::new(device, TILE, TILE, scale as f32)
-                        {
-                            Ok(s) => s,
-                            Err(e) => return eprintln!("failed to create surface: {e}"),
-                        };
-                        match surface.draw(background(i), |session| draw_tile(session, i)) {
-                            Ok(true) => {}
-                            Ok(false) => {
-                                lost = true;
-                                break;
-                            }
-                            Err(e) => return eprintln!("failed to draw surface: {e}"),
-                        }
-                        sources.push(surface.image_source());
-                        built.push(surface);
-                    }
-                }
-
-                if lost {
-                    device.set(None);
-                    surfaces.set(Vec::new());
-                    set_images.call(Vec::new());
-                    scale_sub_effect.set(None);
-                    if attempt == 0 {
-                        continue;
-                    }
-                    return eprintln!("device lost while building surfaces");
-                }
-
-                set_images.call(sources);
-                surfaces.set(built);
-            }
-            return;
-        }
-    });
-
-    let content: Element = if images.is_empty() {
-        text_block("Preparing surfaces\u{2026}").into()
-    } else {
-        let mut rows: Vec<Element> = Vec::new();
-        for (r, chunk) in images.chunks(COLS).enumerate() {
-            let mut tiles: Vec<Element> = Vec::new();
-            for (c, source) in chunk.iter().enumerate() {
-                let mut tile = Image::new(source.clone())
-                    .width(TILE as f64)
-                    .height(TILE as f64);
-                if r == 0 && c == 0 {
-                    let set_scale = set_scale.clone();
-                    let scale_sub = scale_sub.clone();
-                    tile = tile.on_mounted(move |handle| {
-                        let set_scale = set_scale.clone();
-                        if let Ok(revoker) =
-                            handle.on_rasterization_scale_changed(move |s| set_scale.call(s))
-                        {
-                            scale_sub.set(Some(revoker));
-                        }
-                    });
-                }
-                tiles.push(tile.into());
-            }
-            rows.push(hstack(tiles).spacing(8.0).into());
-        }
-        vstack(rows).spacing(8.0).into()
-    };
-
-    vstack((
+    StackPanel::new([
         text_block(format!(
-            "{TILES} on-demand surfaces \u{2014} all sharing one GpuDevice:"
+            "{TILES} on-demand tiles - all rendered with one GpuDevice:"
         )),
-        content,
-    ))
+        canvas_image(move |ctx| {
+            let stale = ctx.device_changed()
+                || ctx.surface_changed()
+                || resources
+                    .with(|current| {
+                        current
+                            .as_ref()
+                            .is_none_or(|current| current.scale != ctx.scale_x)
+                    })
+                    .unwrap_or(true);
+            if stale {
+                resources.set(Some(Resources {
+                    scale: ctx.scale_x,
+                    white: ctx.create_solid_brush(ColorF::WHITE)?,
+                }));
+            }
+
+            ctx.clear(ColorF::TRANSPARENT);
+            resources
+                .with(|resources| {
+                    let resources = resources.as_ref().unwrap();
+                    for i in 0..TILES {
+                        draw_tile(ctx, &resources.white, i)?;
+                    }
+                    Ok(())
+                })
+                .unwrap()
+        })
+        .width(WIDTH as f64)
+        .height(HEIGHT as f64)
+        .build(),
+    ])
     .spacing(12.0)
     .margin(Thickness::uniform(16.0))
-    .into()
+    .build()
 }
 
 fn background(i: usize) -> ColorF {
@@ -122,13 +68,21 @@ fn background(i: usize) -> ColorF {
     ColorF::new(0.12 + 0.10 * t, 0.14, 0.30 - 0.12 * t, 1.0)
 }
 
-fn draw_tile(session: &DrawingSession, i: usize) -> Result<()> {
-    let center = Vector2::new(TILE / 2.0, TILE / 2.0);
+fn draw_tile(session: &DrawingSession<'_>, brush: &Brush, i: usize) -> Result<()> {
+    let col = i % COLS;
+    let row = i / COLS;
+    let left = col as f32 * (TILE + GAP);
+    let top = row as f32 * (TILE + GAP);
+    let right = left + TILE;
+    let bottom = top + TILE;
+    let background = session.create_solid_brush(background(i))?;
+    session.fill_rect(&Rect::new(left, top, right, bottom), &background);
+
+    let center = Vector2::new(left + TILE / 2.0, top + TILE / 2.0);
     let radius = TILE * 0.28;
-    let brush = session.create_solid_brush(ColorF::WHITE)?;
 
     match i % 4 {
-        0 => session.fill_ellipse(&Ellipse::circle(center, radius), &brush),
+        0 => session.fill_ellipse(&Ellipse::circle(center, radius), brush),
         1 => session.fill_rect(
             &Rect::new(
                 center.x - radius,
@@ -136,9 +90,9 @@ fn draw_tile(session: &DrawingSession, i: usize) -> Result<()> {
                 center.x + radius,
                 center.y + radius,
             ),
-            &brush,
+            brush,
         ),
-        2 => session.draw_ellipse(&Ellipse::circle(center, radius), &brush, 8.0),
+        2 => session.draw_ellipse(&Ellipse::circle(center, radius), brush, 8.0),
         _ => {
             let arm = radius;
             let thick = radius * 0.34;
@@ -149,7 +103,7 @@ fn draw_tile(session: &DrawingSession, i: usize) -> Result<()> {
                     center.x + arm,
                     center.y + thick,
                 ),
-                &brush,
+                brush,
             );
             session.fill_rect(
                 &Rect::new(
@@ -158,7 +112,7 @@ fn draw_tile(session: &DrawingSession, i: usize) -> Result<()> {
                     center.x + thick,
                     center.y + arm,
                 ),
-                &brush,
+                brush,
             );
         }
     }
@@ -167,15 +121,29 @@ fn draw_tile(session: &DrawingSession, i: usize) -> Result<()> {
     session.draw_text(
         &format!("{i}"),
         &format,
-        &Rect::new(0.0, TILE - 28.0, TILE, TILE),
-        &brush,
+        &Rect::new(left, bottom - 28.0, right, bottom),
+        brush,
     );
     Ok(())
 }
 
 fn main() -> Result<()> {
-    App::new()
-        .title("Canvas Shared Device")
-        .backdrop(Backdrop::Mica)
-        .render(app)
+    let root = component(|cx| {
+        let open = cx.use_state(|| true);
+        let windows = if open.value() {
+            vec![
+                Window::new("Canvas Shared Device", component(app), move || {
+                    open.set(false);
+                })
+                .backdrop(WindowBackdrop::Mica)
+                .client_size(640.0, 520.0)
+                .build()
+                .key(0),
+            ]
+        } else {
+            Vec::new()
+        };
+        Application::new(windows).build()
+    });
+    run_reactor_winui_app(root)
 }

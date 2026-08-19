@@ -1,22 +1,30 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0_u32);
+use windows_reactor::{Button, Element, FlyoutPlacement, RenderCx, TextBlock, vstack};
 
-    let bump = move || set_count.call(count + 1);
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let count = cx.use_state(|| 0_u32);
+    let current = count.value();
 
-    vstack((
-        button("Show Flyout").flyout("Hello from the flyout!"),
-        button("Bottom Flyout").flyout_with_placement(
-            format!("Clicked {count} times"),
-            FlyoutPlacementMode::Bottom,
-        ),
-        button("Increment").on_click(bump),
-    ))
-    .spacing(8.0)
-    .into()
+    vstack(
+        8.0,
+        [
+            Button::new("Show Flyout")
+                .flyout(TextBlock::new("Hello from the flyout!").build())
+                .build(),
+            Button::new("Bottom Flyout")
+                .flyout(TextBlock::new(format!("Clicked {current} times")).build())
+                .flyout_placement(FlyoutPlacement::Bottom)
+                .build(),
+            Button::new("Increment")
+                .on_click(move || {
+                    count.set(current + 1);
+                })
+                .build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("Flyout", app)
 }

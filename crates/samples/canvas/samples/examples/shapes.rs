@@ -1,9 +1,9 @@
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
-use windows_reactor::DrawContext;
+use windows_reactor::CanvasDrawContext;
 
-fn draw(ctx: &DrawContext) -> Result<()> {
+fn draw(ctx: &CanvasDrawContext<'_>) -> Result<()> {
     ctx.clear(ColorF::DARK_SLATE_BLUE);
 
     let brush = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;

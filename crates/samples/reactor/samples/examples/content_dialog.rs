@@ -1,41 +1,51 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (open, set_open) = cx.use_state(false);
-    let (result, set_result) = cx.use_state::<Option<ContentDialogResult>>(None);
+use windows_reactor::{
+    Button, ContentDialog, ContentDialogResult, Element, RenderCx, StackPanel, TextBlock,
+};
 
-    let close = set_open.clone();
-    let record = set_result;
-    let on_closed = move |r: ContentDialogResult| {
-        record.call(Some(r));
-        close.call(false);
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let open = cx.use_state(|| false);
+    let result = cx.use_state(|| None::<ContentDialogResult>);
+    let current_open = open.value();
+    let current_result = result.value();
+    let show = open.clone();
+    let close = open;
+
+    let label = match current_result {
+        None => "No choice yet.",
+        Some(ContentDialogResult::Primary) => "You picked: Delete",
+        Some(ContentDialogResult::Secondary) => "You picked: Archive",
+        Some(ContentDialogResult::None) => "You picked: Cancel",
     };
 
-    let show = move || set_open.call(true);
-
-    let label = match result {
-        None => "No choice yet.".to_string(),
-        Some(ContentDialogResult::Primary) => "You picked: Delete".to_string(),
-        Some(ContentDialogResult::Secondary) => "You picked: Archive".to_string(),
-        Some(ContentDialogResult::None) => "You picked: Cancel".to_string(),
-    };
-
-    vstack((
-        text_block(label),
-        button("Open dialog").on_click(show),
-        ContentDialog::new("Delete this item?")
-            .content("This action cannot be undone.")
-            .primary_button_text("Delete")
-            .secondary_button_text("Archive")
-            .close_button_text("Cancel")
-            .is_open(open)
-            .on_closed(on_closed),
-    ))
+    StackPanel::new([
+        TextBlock::new(label).automation_id("dialog-result").build(),
+        Button::new("Open dialog")
+            .on_click(move || {
+                show.set(true);
+            })
+            .automation_id("open-dialog")
+            .build(),
+        ContentDialog::new(
+            "Delete this item?",
+            TextBlock::new("This action cannot be undone.").build(),
+        )
+        .primary_button("Delete")
+        .secondary_button("Archive")
+        .close_button("Cancel")
+        .open(current_open)
+        .on_closed(move |value| {
+            result.set(Some(value));
+            close.set(false);
+        })
+        .build(),
+    ])
     .spacing(8.0)
     .max_width(320.0)
-    .into()
+    .build()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("ContentDialog", app)
 }

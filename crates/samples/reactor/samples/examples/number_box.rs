@@ -1,23 +1,28 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (quantity, set_quantity) = cx.use_state(3.0_f64);
+use windows_reactor::{Element, NumberBox, RenderCx, StackPanel, TextBlock};
 
-    let update_quantity = move |v: f64| set_quantity.call(v);
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let quantity = cx.use_state(|| 3.0_f64);
+    let current = quantity.value();
 
-    vstack((
-        NumberBox::new(quantity)
-            .range(0.0, 10.0)
-            .header("Quantity")
-            .on_value_changed(update_quantity),
-        text_block(format!("Quantity = {quantity:.0}")),
-        NumberBox::new(42.0).header("Disabled").enabled(false),
-    ))
+    StackPanel::new([
+        NumberBox::new(current, move |value| {
+            if let Some(value) = value {
+                quantity.set(value);
+            }
+        })
+        .range(0.0, 10.0)
+        .header("Quantity")
+        .build(),
+        TextBlock::new(format!("Quantity = {current:.0}")).build(),
+        NumberBox::display(42.0).header("Disabled").build(),
+    ])
     .spacing(8.0)
     .max_width(320.0)
-    .into()
+    .build()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("NumberBox", app)
 }

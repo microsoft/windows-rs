@@ -1,216 +1,171 @@
-use crate::controls::{CardItem, card_grid};
-use crate::registry::{self, CATEGORIES, ControlInfo};
-use crate::router;
-use windows_reactor::*;
+use std::rc::Rc;
 
-pub fn gallery_shell(cx: &mut RenderCx) -> Element {
-    let (nav, set_nav) = cx.use_state((String::from("home"), Vec::<String>::new()));
-    let (is_pane_open, set_pane_open) = cx.use_state(true);
-    let (search_text, set_search_text) = cx.use_state(String::new());
+use windows_reactor::{
+    Application, AutoSuggestBox, Button, Element, Icon, IconSymbol, NavigationItem,
+    NavigationPaneDisplayMode, NavigationView, RenderCx, TitleBar, TitleBarHeight, Window,
+    WindowBackdrop, WindowTheme,
+};
 
-    let selected_tag = nav.0;
-    let history = nav.1;
-    let is_dark = matches!(cx.use_color_scheme(), ColorScheme::Dark);
+use crate::{registry, router};
 
-    let category_tags: Vec<String> = CATEGORIES
-        .iter()
-        .map(|c| registry::category_tag(c))
-        .collect();
+pub fn gallery(cx: &mut RenderCx<'_>) -> Element {
+    let open = cx.use_state(|| true);
+    let selected = cx.use_state(|| router::HOME_KEY);
+    let history = cx.use_state(Vec::<u64>::new);
+    let search = cx.use_state(String::new);
+    let pane_open = cx.use_state(|| true);
+    let theme = cx.use_state(|| WindowTheme::System);
 
-    let suggestions: Vec<String> = if search_text.is_empty() {
-        Vec::new()
-    } else {
-        registry::search(&search_text)
-            .iter()
-            .map(|c| c.title.to_string())
-            .collect()
-    };
+    let current = selected.value();
+    let current_history = history.value();
+    let current_search = search.value();
+    let current_pane_open = pane_open.value();
+    let current_theme = theme.value();
 
-    let mut nav_items = vec![NavViewItem::new("Home").tag("home").icon(Symbol::Home)];
-    for &cat in CATEGORIES {
-        let controls = registry::controls_in_category(cat);
-        let mut item = NavViewItem::new(cat)
-            .tag(registry::category_tag(cat))
-            .icon(category_icon(cat));
-        for c in &controls {
-            item = item.child(NavViewItem::new(c.title).tag(c.tag));
+    let navigate: Rc<dyn Fn(u64)> = Rc::new({
+        let selected = selected.clone();
+        let history = history.clone();
+        move |next| {
+            if next != current {
+                history.update(|values| values.push(current));
+                selected.set(next);
+            }
         }
-        nav_items.push(item);
-    }
+    });
 
-    let content: Element = if selected_tag == "home" {
-        crate::pages::home::home_page({
-            let (set_nav, tag, hist) = (set_nav.clone(), selected_tag.clone(), history.clone());
-            move |key| {
-                let mut h = hist.clone();
-                h.push(tag.clone());
-                set_nav.call((key, h));
+    let search_items = registry::ALL_CONTROLS
+        .iter()
+        .enumerate()
+        .filter(|(_, info)| {
+            let query = current_search.to_lowercase();
+            !query.is_empty()
+                && (info.title.to_lowercase().contains(&query)
+                    || info.description.to_lowercase().contains(&query))
+        })
+        .map(|(index, info)| (router::control_key(index), info.title));
+
+    let search_box = AutoSuggestBox::new(current_search.clone(), {
+        let search = search.clone();
+        move |value| {
+            search.set(value);
+        }
+    })
+    .items(search_items)
+    .placeholder_text("Search controls and samples...")
+    .on_query_submitted({
+        let navigate = Rc::clone(&navigate);
+        move |query| {
+            if let Some((index, _)) = registry::ALL_CONTROLS
+                .iter()
+                .enumerate()
+                .find(|(_, info)| info.title.eq_ignore_ascii_case(query.trim()))
+            {
+                navigate(router::control_key(index));
+            }
+        }
+    })
+    .on_suggestion_chosen({
+        let navigate = Rc::clone(&navigate);
+        move |key| {
+            if let Some(info) = router::control_info(key) {
+                search.set(info.title.to_string());
+                navigate(key);
+            }
+        }
+    })
+    .width(380.0)
+    .build();
+
+    let title_bar = TitleBar::custom("Reactor WinUI Gallery")
+        .content(search_box)
+        .right_header(
+            Button::new(match current_theme {
+                WindowTheme::Dark => "Light theme",
+                _ => "Dark theme",
+            })
+            .on_click(move || {
+                theme.set(if current_theme == WindowTheme::Dark {
+                    WindowTheme::Light
+                } else {
+                    WindowTheme::Dark
+                });
+            })
+            .build(),
+        )
+        .back_button_visible(true)
+        .back_button_enabled(!current_history.is_empty())
+        .pane_toggle_button_visible(true)
+        .height(TitleBarHeight::Tall)
+        .on_back_requested({
+            move || {
+                let mut values = current_history.clone();
+                if let Some(previous) = values.pop() {
+                    history.set(values);
+                    selected.set(previous);
+                }
             }
         })
-    } else if selected_tag.eq_ignore_ascii_case("settings") {
-        component(crate::pages::settings::settings_page, ())
-    } else if category_tags.contains(&selected_tag) {
-        let cat = CATEGORIES
+        .on_pane_requested({
+            let pane_open = pane_open.clone();
+            move || {
+                pane_open.set(!current_pane_open);
+            }
+        });
+
+    let mut items = vec![
+        NavigationItem::new(router::HOME_KEY, "Home").icon(Icon::symbol(IconSymbol::HOME)),
+        NavigationItem::new(router::SETTINGS_KEY, "Settings")
+            .icon(Icon::symbol(IconSymbol::SETTINGS)),
+    ];
+    items.extend(
+        registry::CATEGORIES
             .iter()
-            .find(|c| registry::category_tag(c) == selected_tag)
-            .unwrap_or(&"");
-        let controls = registry::controls_in_category(cat);
-        render_category_page(cat, controls, {
-            let (set_nav, tag, hist) = (set_nav.clone(), selected_tag.clone(), history.clone());
-            move |key| {
-                let mut h = hist.clone();
-                h.push(tag.clone());
-                set_nav.call((key, h));
-            }
-        })
+            .enumerate()
+            .map(|(index, category)| NavigationItem::new(router::category_key(index), *category)),
+    );
+    items.extend(
+        registry::ALL_CONTROLS
+            .iter()
+            .enumerate()
+            .map(|(index, info)| {
+                NavigationItem::new(
+                    router::control_key(index),
+                    format!("{} / {}", info.category, info.title),
+                )
+            }),
+    );
+
+    let content = router::route(current, Rc::clone(&navigate));
+    let navigation = NavigationView::new(items, content, move |key| {
+        if let Some(key) = key {
+            navigate(key);
+        }
+    })
+    .selected_key(Some(current))
+    .pane_display_mode(NavigationPaneDisplayMode::Left)
+    .pane_title("Reactor Gallery")
+    .pane_toggle_visible(false)
+    .pane_open(current_pane_open, move |value| {
+        pane_open.set(value);
+    })
+    .settings_visible(false)
+    .build();
+
+    let windows = if open.value() {
+        vec![
+            Window::new("Reactor WinUI Gallery", navigation, move || {
+                open.set(false);
+            })
+            .client_size(1400.0, 900.0)
+            .backdrop(WindowBackdrop::Mica)
+            .theme(current_theme)
+            .title_bar(title_bar)
+            .build()
+            .key(0),
+        ]
     } else {
-        router::route(&selected_tag)
+        Vec::new()
     };
 
-    let search_box = auto_suggest_box(&*search_text)
-        .placeholder_text("Search controls and samples...")
-        .items(suggestions)
-        .on_text_changed(set_search_text)
-        .on_query_submitted({
-            let (set_nav, tag, hist) = (set_nav.clone(), selected_tag.clone(), history.clone());
-            move |query: String| {
-                if let Some(info) = registry::ALL_CONTROLS
-                    .iter()
-                    .find(|c| c.title.eq_ignore_ascii_case(&query))
-                {
-                    let mut h = hist.clone();
-                    h.push(tag.clone());
-                    set_nav.call((info.tag.to_string(), h));
-                }
-            }
-        })
-        .on_suggestion_chosen({
-            let (set_nav, tag, hist) = (set_nav.clone(), selected_tag.clone(), history.clone());
-            move |chosen: String| {
-                if let Some(info) = registry::ALL_CONTROLS
-                    .iter()
-                    .find(|c| c.title.eq_ignore_ascii_case(&chosen))
-                {
-                    let mut h = hist.clone();
-                    h.push(tag.clone());
-                    set_nav.call((info.tag.to_string(), h));
-                }
-            }
-        })
-        .width(320.0);
-
-    let title_bar = TitleBar::new("Reactor WinUI Gallery")
-        .pane_toggle_button_visible(true)
-        .back_button_visible(true)
-        .back_button_enabled(!history.is_empty())
-        .on_back_requested({
-            let (set_nav, hist) = (set_nav.clone(), history.clone());
-            move || {
-                let mut h = hist.clone();
-                if let Some(prev) = h.pop() {
-                    set_nav.call((prev, h));
-                }
-            }
-        })
-        .on_pane_toggle_requested(move || set_pane_open.call(!is_pane_open))
-        .content(search_box)
-        .footer({
-            let glyph = if is_dark { "\u{E706}" } else { "\u{E708}" };
-            button(glyph)
-                .on_click(move || {
-                    set_requested_theme(if is_dark {
-                        RequestedTheme::Light
-                    } else {
-                        RequestedTheme::Dark
-                    });
-                })
-                .font_family("Segoe MDL2 Assets")
-                .font_size(14.0)
-                .width(40.0)
-                .height(36.0)
-                .padding(0.0)
-        })
-        .tall(true);
-
-    let nav_view = NavigationView::new(nav_items, content)
-        .selected_tag(&selected_tag)
-        .on_selection_changed({
-            let (set_nav, tag, hist) = (set_nav, selected_tag, history);
-            move |new_tag: String| {
-                let effective = if new_tag.is_empty() || new_tag.eq_ignore_ascii_case("settings") {
-                    "settings".to_string()
-                } else {
-                    new_tag
-                };
-                if effective != tag {
-                    let mut h = hist.clone();
-                    h.push(tag.clone());
-                    set_nav.call((effective, h));
-                }
-            }
-        })
-        .pane_display_mode(NavigationViewPaneDisplayMode::Left)
-        .pane_open(is_pane_open)
-        .pane_toggle_button_visible(false)
-        .back_button_visible(false)
-        .font_family("Segoe UI Variable");
-
-    grid((title_bar.grid_row(0), nav_view.grid_row(1)))
-        .rows([GridLength::Auto, GridLength::Star(1.0)])
-        .columns([GridLength::Star(1.0)])
-        .into()
-}
-
-fn category_icon(category: &str) -> Symbol {
-    match category {
-        "Basic Input" | "Text" => Symbol::Edit,
-        "Collections" | "Menus and Toolbars" => Symbol::More,
-        "Date and Time" => Symbol::Favorite,
-        "Design Guidance" => Symbol::People,
-        "Dialogs and Flyouts" => Symbol::Mail,
-        "Layout" => Symbol::Find,
-        "Media" => Symbol::Camera,
-        "Navigation" => Symbol::World,
-        "Status and Info" => Symbol::Flag,
-        _ => Symbol::Help,
-    }
-}
-
-fn render_category_page(
-    category: &'static str,
-    controls: Vec<&'static ControlInfo>,
-    on_navigate: impl Fn(String) + 'static,
-) -> Element {
-    let count = controls.len();
-    let items: Vec<CardItem> = controls
-        .iter()
-        .map(|c| CardItem {
-            title: c.title.to_string(),
-            subtitle: c.description.to_string(),
-            image_file: c.image.to_string(),
-            key: c.tag.to_string(),
-        })
-        .collect();
-
-    let root = grid((
-        vstack((
-            text_block(category).font_size(28.0).bold(),
-            text_block(format!("{count} controls")).opacity(0.6),
-        ))
-        .spacing(4.0)
-        .grid_row(0),
-        card_grid(&items, on_navigate).grid_row(1),
-    ))
-    .rows([GridLength::Auto, GridLength::Star(1.0)])
-    .columns([GridLength::Star(1.0)])
-    .row_spacing(24.0);
-
-    border(root)
-        .padding(Thickness {
-            left: 36.0,
-            top: 40.0,
-            right: 36.0,
-            bottom: 36.0,
-        })
-        .into()
+    Application::new(windows).build()
 }

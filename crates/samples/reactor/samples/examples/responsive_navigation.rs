@@ -1,20 +1,26 @@
 #![windows_subsystem = "windows"]
 
-use windows_reactor::*;
+use windows_reactor::{
+    Button, Element, Icon, IconSymbol, NavigationDisplayMode, NavigationItem,
+    NavigationPaneDisplayMode, NavigationView, RenderCx, StackPanel, TextBlock, Thickness,
+};
 
-fn display_mode_name(mode: NavigationViewDisplayMode) -> &'static str {
+fn display_mode_name(mode: NavigationDisplayMode) -> &'static str {
     match mode {
-        NavigationViewDisplayMode::Minimal => "minimal",
-        NavigationViewDisplayMode::Compact => "compact",
-        NavigationViewDisplayMode::Expanded => "expanded",
-        _ => "unknown",
+        NavigationDisplayMode::Minimal => "minimal",
+        NavigationDisplayMode::Compact => "compact",
+        NavigationDisplayMode::Expanded => "expanded",
     }
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (pane_open, set_pane_open) = cx.use_state(true);
-    let (display_mode, set_display_mode) = cx.use_state(NavigationViewDisplayMode::Expanded);
-    let footer = if display_mode == NavigationViewDisplayMode::Expanded {
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let pane_open = cx.use_state(|| true);
+    let display_mode = cx.use_state(|| NavigationDisplayMode::Expanded);
+    let selected = cx.use_state(|| None::<u64>);
+    let open = pane_open.value();
+    let mode = display_mode.value();
+    let current_selected = selected.value();
+    let footer = if mode == NavigationDisplayMode::Expanded {
         "Signed in: Ada"
     } else {
         "AD"
@@ -22,40 +28,48 @@ fn app(cx: &mut RenderCx) -> Element {
 
     NavigationView::new(
         [
-            NavViewItem::new("Home").tag("home").icon(Symbol::Home),
-            NavViewItem::new("Documents")
-                .tag("documents")
-                .icon(Symbol::Document),
+            NavigationItem::new(0, "Home").icon(Icon::symbol(IconSymbol::HOME)),
+            NavigationItem::new(1, "Documents").icon(Icon::symbol(IconSymbol::DOCUMENT)),
         ],
-        vstack((
-            text_block(format!(
-                "Actual display mode: {}",
-                display_mode_name(display_mode)
-            )),
-            text_block(if pane_open {
+        StackPanel::new([
+            TextBlock::new(format!("Actual display mode: {}", display_mode_name(mode))).build(),
+            TextBlock::new(if open {
                 "Pane is open"
             } else {
                 "Pane is closed"
-            }),
-            button("Toggle pane").on_click({
-                let set_pane_open = set_pane_open.clone();
-                move || set_pane_open.call(!pane_open)
-            }),
-            text_block("Resize the window to cross compact and minimal thresholds."),
-        ))
+            })
+            .build(),
+            Button::new("Toggle pane")
+                .on_click({
+                    let pane_open = pane_open.clone();
+                    move || {
+                        pane_open.set(!open);
+                    }
+                })
+                .build(),
+            TextBlock::new("Resize the window to cross compact and minimal thresholds.").build(),
+        ])
         .spacing(12.0)
-        .padding(Thickness::uniform(16.0)),
+        .padding(Thickness::uniform(16.0))
+        .build(),
+        move |key| {
+            selected.set(key);
+        },
     )
-    .pane_open(pane_open)
-    .on_pane_open_changed(set_pane_open)
-    .pane_display_mode(NavigationViewPaneDisplayMode::Auto)
-    .on_display_mode_changed(set_display_mode)
+    .selected_key(current_selected)
+    .pane_open(open, move |value| {
+        pane_open.set(value);
+    })
+    .pane_display_mode(NavigationPaneDisplayMode::Auto)
+    .on_display_mode_changed(move |value| {
+        display_mode.set(value);
+    })
     .pane_title("Responsive navigation")
-    .pane_footer(text_block(footer))
+    .pane_footer(TextBlock::new(footer).build())
     .settings_visible(false)
-    .into()
+    .build()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("Responsive Navigation", app)
 }

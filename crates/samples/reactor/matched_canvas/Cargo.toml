@@ -1,0 +1,16 @@
+[package]
+name = "reactor_matched_canvas"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-canvas = { workspace = true }
+windows-core.workspace = true
+windows-reactor = { workspace = true, features = ["canvas"] }
+
+[build-dependencies]
+windows-reactor-setup = { workspace = true }
+
+[lints]
+workspace = true

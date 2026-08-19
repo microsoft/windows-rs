@@ -1,51 +1,68 @@
 #![windows_subsystem = "windows"]
 
-use windows_reactor::*;
+use windows_reactor::{
+    Button, Element, RenderCx, TextBlock, VirtualItemKeys, VirtualList, component, hstack, vstack,
+};
 
-#[derive(Clone, PartialEq)]
-struct RowProps {
-    name: String,
+fn item_name(key: u64) -> &'static str {
+    match key {
+        10 => "Alpha",
+        20 => "Beta",
+        30 => "Gamma",
+        _ => unreachable!(),
+    }
 }
 
-fn row(props: &RowProps, cx: &mut RenderCx) -> Element {
-    let (clicks, set_clicks) = cx.use_state(0_u32);
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let keys = cx.use_state(|| VirtualItemKeys::new([10, 20, 30]));
+    let current = keys.value();
+    let order = current
+        .as_slice()
+        .iter()
+        .map(|key| item_name(*key))
+        .collect::<Vec<_>>()
+        .join(", ");
+    let row_keys = current.clone();
 
-    hstack((
-        text_block(format!("{}: {clicks}", props.name)).width(120.0),
-        button(format!("Increment {}", props.name)).on_click(move || set_clicks.call(clicks + 1)),
-    ))
-    .spacing(8.0)
-    .padding(Thickness::uniform(6.0))
-    .into()
+    vstack(
+        8.0,
+        [
+            TextBlock::new(format!("Order: {order}")).build(),
+            Button::new("Rotate rows")
+                .on_click(move || {
+                    keys.update(|keys| {
+                        let mut values = keys.as_slice().to_vec();
+                        values.rotate_left(1);
+                        *keys = VirtualItemKeys::new(values);
+                    });
+                })
+                .build(),
+            VirtualList::new(current.len(), 240.0, move |index| {
+                let key = row_keys.as_slice()[index];
+                component(move |cx| {
+                    let clicks = cx.use_state(|| 0u32);
+                    let count = clicks.value();
+                    let name = item_name(key);
+                    hstack(
+                        8.0,
+                        [
+                            TextBlock::new(format!("{name}: {count}")).build(),
+                            Button::new(format!("Increment {name}"))
+                                .on_click(move || {
+                                    clicks.update(|value| *value += 1);
+                                })
+                                .build(),
+                        ],
+                    )
+                })
+            })
+            .item_keys(current)
+            .automation_name("Keyed rows")
+            .build(),
+        ],
+    )
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (items, set_items) = cx.use_state(vec![
-        "Alpha".to_string(),
-        "Beta".to_string(),
-        "Gamma".to_string(),
-        "Delta".to_string(),
-    ]);
-    let shuffled = {
-        let mut items = items.clone();
-        items.rotate_left(1);
-        items
-    };
-
-    vstack((
-        text_block("Increment a row, then rotate the list. The count stays with its name."),
-        button("Rotate").on_click(move || set_items.call(shuffled.clone())),
-        list_view(items, |name, _| {
-            component(row, RowProps { name: name.clone() })
-        })
-        .with_key_selector(|name| name.clone())
-        .height(240.0),
-    ))
-    .spacing(12.0)
-    .padding(Thickness::uniform(16.0))
-    .into()
-}
-
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("KeyedListReorder", app)
 }

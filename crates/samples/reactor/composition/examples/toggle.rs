@@ -1,53 +1,54 @@
 #![windows_subsystem = "windows"]
 
 use windows_composition::{Color, SpriteVisual};
-use windows_reactor::*;
+use windows_reactor::{
+    Button, CompositionContent, CompositionHost, Element, Grid, GridChild, GridLength, RenderCx,
+};
 
-fn build(host: &CompositionHostHandle) -> Result<SpriteVisual> {
-    let compositor = host.compositor()?;
-    let visual = compositor.create_sprite_visual();
-    visual.set_brush(&compositor.create_color_brush(Color::rgb(0, 153, 102)));
-    host.set_child_visual(&visual)?;
-    Ok(visual)
-}
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let shown = cx.use_state(|| true);
+    let host = cx.use_composition_host_ref::<SpriteVisual>();
+    let toggle = host.clone();
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (shown, set_shown) = cx.use_state(true);
-    let visual = cx.use_ref::<Option<SpriteVisual>>(None);
-
-    {
-        let visual = visual.clone();
-        cx.use_effect((shown,), move || {
-            if let Some(visual) = visual.borrow().as_ref() {
-                visual.set_visible(shown);
-            }
-        });
-    }
-
-    grid((
-        composition_host()
-            .on_mounted({
-                let visual = visual.clone();
-                move |host| match build(&host) {
-                    Ok(built) => visual.set(Some(built)),
-                    Err(e) => eprintln!("composition init failed: {e}"),
-                }
+    Grid::new([
+        GridChild::new(
+            CompositionHost::new(
+                &host,
+                |compositor| {
+                    let visual = compositor.create_sprite_visual();
+                    visual.set_brush(&compositor.create_color_brush(Color::rgb(0, 153, 102)));
+                    Ok(CompositionContent::new(visual.clone(), visual))
+                },
+                |visual, layout| {
+                    visual.set_size(layout.width, layout.height);
+                    Ok(())
+                },
+            )
+            .build(),
+        )
+        .row(0),
+        GridChild::new(
+            Button::new(if shown.value() {
+                "Hide visual"
+            } else {
+                "Show visual"
             })
-            .on_resize(move |w, h| {
-                if let Some(visual) = visual.borrow().as_ref() {
-                    visual.set_size(w as f32, h as f32);
-                }
+            .on_click(move || {
+                let visible = !shown.value();
+                shown.set(visible);
+                toggle.update(move |visual| {
+                    visual.set_visible(visible);
+                    Ok(())
+                });
             })
-            .grid_row(0),
-        button(if shown { "Hide visual" } else { "Show visual" })
-            .on_click(move || set_shown.call(!shown))
-            .grid_row(1)
-            .margin(Thickness::uniform(16.0)),
-    ))
+            .build(),
+        )
+        .row(1),
+    ])
     .rows([GridLength::STAR, GridLength::Auto])
-    .into()
+    .build()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_composition::run("Composition Toggle", app)
 }

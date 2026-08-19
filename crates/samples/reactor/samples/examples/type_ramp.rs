@@ -1,19 +1,37 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(_cx: &mut RenderCx) -> Element {
-    vstack((
-        title("Title — 28px Semibold"),
-        subtitle("Subtitle — 20px Semibold"),
-        body_large("BodyLarge — 18px Normal"),
-        body_strong("BodyStrong — 14px Semibold"),
-        body("Body — 14px Normal"),
-        caption("Caption — 12px Normal"),
-        text_block("Custom weight").font_weight(300),
-    ))
-    .spacing(8.0)
-    .into()
+use windows_reactor::{Element, FontWeight, RenderCx, TextBlock, vstack};
+
+pub fn app(_cx: &mut RenderCx<'_>) -> Element {
+    vstack(
+        8.0,
+        [
+            TextBlock::new("Title - 28 pixels, semibold")
+                .font_size(28.0)
+                .font_weight(FontWeight::SEMI_BOLD)
+                .build(),
+            TextBlock::new("Subtitle - 20 pixels, semibold")
+                .font_size(20.0)
+                .font_weight(FontWeight::SEMI_BOLD)
+                .build(),
+            TextBlock::new("Body large - 18 pixels")
+                .font_size(18.0)
+                .build(),
+            TextBlock::new("Body strong - 14 pixels, semibold")
+                .font_size(14.0)
+                .font_weight(FontWeight::SEMI_BOLD)
+                .build(),
+            TextBlock::new("Body - 14 pixels").font_size(14.0).build(),
+            TextBlock::new("Caption - 12 pixels")
+                .font_size(12.0)
+                .build(),
+            TextBlock::new("Custom light weight")
+                .font_weight(FontWeight::LIGHT)
+                .build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("TypeRamp", app)
+fn main() -> windows_core::Result<()> {
+    reactor_samples::run("Type Ramp", app)
 }

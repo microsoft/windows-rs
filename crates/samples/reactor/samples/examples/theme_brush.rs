@@ -1,41 +1,44 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(_cx: &mut RenderCx) -> Element {
-    let swatch = |label: &str, bg: ThemeRef, fg: ThemeRef| -> Element {
-        border(
-            text_block(label)
+use windows_reactor::{Border, Element, RenderCx, TextBlock, ThemeBrush, Thickness, vstack};
+
+fn app(_cx: &mut RenderCx<'_>) -> Element {
+    let swatch = |label: &str, background: ThemeBrush, foreground: ThemeBrush| {
+        Border::new(
+            TextBlock::new(label)
+                .padding(Thickness::uniform(10.0))
                 .font_size(13.0)
-                .foreground(fg)
-                .padding(Thickness::uniform(10.0)),
+                .foreground(foreground)
+                .build(),
         )
-        .background(bg)
+        .background(background)
         .padding(Thickness::uniform(4.0))
         .min_width(200.0)
-        .into()
+        .build()
     };
 
-    vstack((
-        swatch(
-            "Accent / AccentText",
-            ThemeRef::Accent,
-            ThemeRef::AccentText,
-        ),
-        swatch(
-            "Card / Primary text",
-            ThemeRef::CardBackground,
-            ThemeRef::PrimaryText,
-        ),
-        swatch(
-            "SystemCritical background / foreground",
-            ThemeRef::SystemCriticalBackground,
-            ThemeRef::SystemCritical,
-        ),
-    ))
-    .spacing(6.0)
-    .max_width(420.0)
-    .into()
+    vstack(
+        6.0,
+        [
+            swatch(
+                "Accent / AccentText",
+                ThemeBrush::Accent,
+                ThemeBrush::AccentText,
+            ),
+            swatch(
+                "Card / Primary text",
+                ThemeBrush::CardBackground,
+                ThemeBrush::PrimaryText,
+            ),
+            swatch(
+                "SystemCritical background / foreground",
+                ThemeBrush::SystemCriticalBackground,
+                ThemeBrush::SystemCritical,
+            ),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("ThemeBrush", app)
+fn main() -> windows_core::Result<()> {
+    reactor_samples::run("Theme Brush", app)
 }

@@ -2,10 +2,10 @@
 
 > A parser for RDL (Rust Definition Language) and an ECMA-335 metadata generator.
 
-- 📦 [crates.io](https://crates.io/crates/windows-rdl)
-- 📖 [docs.rs](https://docs.rs/windows-rdl)
-- 🚀 [Getting started](../../crates/libs/rdl/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/rdl)
+- [crates.io](https://crates.io/crates/windows-rdl)
+- [docs.rs](https://docs.rs/windows-rdl)
+- [Getting started](../../crates/libs/rdl/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/rdl)
 
 `windows-rdl` is the front of the metadata authoring pipeline. It parses RDL (Rust Definition
 Language), a small Rust-like syntax for Windows APIs. It emits ECMA-335 `.winmd` metadata for
@@ -188,18 +188,14 @@ C/C++ headers -- clang() --> .rdl -- reader() --> .winmd -- bindgen() --> bindin
 Skip `windows-rdl` when metadata already exists. Use it when you need to create metadata first. You
 can write RDL by hand or lift declarations from a header.
 
-Two in-repo tools show both uses:
+One in-repo tool runs the complete path:
 
 - `tool_webview` runs the full path. WebView2 ships only a C/C++ header. `clang()` produces
   `WebView2.rdl`. `reader()` compiles it to `WebView2.winmd`. Then `windows_bindgen::bindgen`
   generates bindings for [`windows-webview`](windows-webview.md).
-- `tool_reactor` hand-writes COM interfaces and bootstrap functions in
-  `crates/tools/reactor/src/extras.rdl`. These declarations fill gaps in the WinUI and Windows App
-  SDK metadata. The tool compiles them with the standard Win32 winmd into `extras.winmd`. Then it
-  feeds that winmd to `windows_bindgen::bindgen` for [`windows-reactor`](windows-reactor.md).
 
-In both tools, `reader` also gets the standard metadata as references. That lets RDL names resolve
-against the standard definitions.
+`reader` also gets the standard metadata as references. That lets RDL names resolve against the
+standard definitions.
 
 ---
 
@@ -255,8 +251,8 @@ The binary winmd files are derived artifacts. Generation is deterministic. The m
 stages tables in `BTreeMap`s and uses a fixed zero GUID for the module MVID.
 
 Every maintained crate that needs Win32 metadata resolves against the in-repo `Windows.Win32.winmd`.
-Minimal-binding crates and `windows-reactor` use it directly. The `windows` and `windows-sys` crates
-use it through `tool_package`.
+Minimal-binding crates use it directly. The `windows` and `windows-sys` crates use it through
+`tool_package`.
 
 ### Multi-arch merge
 

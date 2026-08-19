@@ -1,21 +1,23 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(_cx: &mut RenderCx) -> Element {
-    text_block("Check the title bar and taskbar — the window uses icon.ico.")
+use windows_reactor::{
+    Element, HorizontalAlignment, RenderCx, TextBlock, VerticalAlignment, WindowIcon,
+};
+
+fn app(_cx: &mut RenderCx<'_>) -> Element {
+    TextBlock::new("Check the title bar and taskbar - the window uses icon.ico.")
         .horizontal_alignment(HorizontalAlignment::Center)
         .vertical_alignment(VerticalAlignment::Center)
-        .into()
+        .build()
 }
 
-fn main() -> Result<()> {
-    bootstrap()?;
-    let icon = format!(
-        "{}/examples/icon.ico",
-        env!("CARGO_MANIFEST_DIR").replace('\\', "/"),
-    );
-    App::new()
-        .title("Window Icon")
-        .icon(icon)
-        .inner_size(560.0, 240.0)
-        .render(app)
+fn main() -> windows_core::Result<()> {
+    let icon = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("examples")
+        .join("icon.ico");
+    reactor_samples::run_with_window(
+        "Window Icon",
+        move |window| window.icon(WindowIcon::file(icon.to_string_lossy())),
+        app,
+    )
 }

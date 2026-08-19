@@ -1,6 +1,8 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(_cx: &mut RenderCx) -> Element {
+use windows_reactor::{Element, Image, ImageSource, RenderCx, Stretch, TextBlock, vstack};
+
+pub fn app(_cx: &mut RenderCx<'_>) -> Element {
     let bitmap = format!(
         "file:///{}/examples/image.png",
         env!("CARGO_MANIFEST_DIR").replace('\\', "/"),
@@ -10,33 +12,46 @@ fn app(_cx: &mut RenderCx) -> Element {
         env!("CARGO_MANIFEST_DIR").replace('\\', "/"),
     );
 
-    vstack((
-        text_block("PNG"),
-        Image::new(&bitmap).width(120.0).height(60.0),
-        text_block("SVG"),
-        Image::new(&svg).width(120.0).height(60.0),
-        text_block("Uniform (default)"),
-        Image::new_with_uri(&bitmap).width(120.0).height(60.0),
-        text_block("UniformToFill"),
-        Image::new_with_uri(&bitmap)
-            .stretch(Stretch::UniformToFill)
-            .width(120.0)
-            .height(60.0),
-        text_block("Fill"),
-        Image::new_with_uri(&bitmap)
-            .stretch(Stretch::Fill)
-            .width(120.0)
-            .height(60.0),
-        text_block("None"),
-        Image::new_with_uri(&bitmap)
-            .stretch(Stretch::None)
-            .width(120.0)
-            .height(60.0),
-    ))
-    .spacing(8.0)
-    .into()
+    vstack(
+        8.0,
+        [
+            TextBlock::new("PNG").build(),
+            Image::new(ImageSource::bitmap(bitmap.as_str()))
+                .width(120.0)
+                .height(60.0)
+                .build(),
+            TextBlock::new("SVG").build(),
+            Image::new(ImageSource::svg(svg))
+                .width(120.0)
+                .height(60.0)
+                .build(),
+            TextBlock::new("Uniform (default)").build(),
+            Image::new(ImageSource::bitmap(bitmap.as_str()))
+                .width(120.0)
+                .height(60.0)
+                .build(),
+            TextBlock::new("UniformToFill").build(),
+            Image::new(ImageSource::bitmap(bitmap.as_str()))
+                .stretch(Stretch::UniformToFill)
+                .width(120.0)
+                .height(60.0)
+                .build(),
+            TextBlock::new("Fill").build(),
+            Image::new(ImageSource::bitmap(bitmap.as_str()))
+                .stretch(Stretch::Fill)
+                .width(120.0)
+                .height(60.0)
+                .build(),
+            TextBlock::new("None").build(),
+            Image::new(ImageSource::bitmap(bitmap))
+                .stretch(Stretch::None)
+                .width(120.0)
+                .height(60.0)
+                .build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("Image", app)
 }

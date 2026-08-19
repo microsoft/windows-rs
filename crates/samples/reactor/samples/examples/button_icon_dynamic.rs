@@ -1,27 +1,37 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0u32);
-    let label = format!("Clicked {count} times");
+use windows_reactor::{
+    Button, ButtonEmphasis, Element, Icon, IconSymbol, RenderCx, TextBlock, vstack,
+};
 
-    vstack((
-        Button::new(&*label).icon(Symbol::Favorite).on_click({
-            let set_count = set_count.clone();
-            move || set_count.call(count + 1)
-        }),
-        Button::new(if count == 0 { "Save" } else { "Saved!" })
-            .icon(Symbol::Save)
-            .accent()
-            .on_click({
-                let set_count = set_count;
-                move || set_count.call(count + 1)
-            }),
-        text_block("Click the buttons — the icons should remain visible.").opacity(0.6),
-    ))
-    .spacing(12.0)
-    .into()
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let count = cx.use_state(|| 0_u32);
+    let current = count.value();
+    let increment_first = count.clone();
+
+    vstack(
+        12.0,
+        [
+            Button::new(format!("Clicked {current} times"))
+                .icon(Icon::symbol(IconSymbol::FAVORITE))
+                .on_click(move || {
+                    increment_first.update(|value| *value += 1);
+                })
+                .build(),
+            Button::new(if current == 0 { "Save" } else { "Saved!" })
+                .icon(Icon::symbol(IconSymbol::SAVE))
+                .emphasis(ButtonEmphasis::Accent)
+                .on_click(move || {
+                    count.update(|value| *value += 1);
+                })
+                .build(),
+            TextBlock::new("Click the buttons - the icons should remain visible.")
+                .opacity(0.6)
+                .build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("ButtonIconDynamic", app)
 }

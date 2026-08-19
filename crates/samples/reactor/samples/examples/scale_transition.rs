@@ -1,39 +1,41 @@
+#![windows_subsystem = "windows"]
+
 use std::time::Duration;
 
-use windows_reactor::*;
+use windows_reactor::{Border, Button, Color, Element, RenderCx, TextBlock, Thickness, vstack};
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (big, set_big) = cx.use_state(false);
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let big = cx.use_state(|| false);
+    let current = big.value();
+    let toggle = big;
 
-    let toggle = move || set_big.call(!big);
-
-    let target_scale = if big { 1.3 } else { 1.0 };
-
-    let swatch = border(
-        text_block("Animated content")
+    let swatch = Border::new(
+        TextBlock::new("Animated content")
+            .padding(Thickness::uniform(20.0))
             .font_size(18.0)
             .foreground(Color::rgb(255, 255, 255))
-            .padding(Thickness::uniform(20.0)),
+            .build(),
     )
     .background(Color::rgb(70, 130, 200))
-    .with_scale_transition(Duration::from_millis(1000))
-    .animate(AnimationConfig {
-        scale: Some(target_scale),
-        duration: Duration::from_millis(1000),
-        easing: Easing::EaseOut,
-        ..AnimationConfig::default()
-    })
-    .max_width(280.0);
+    .scale_transition(Some(Duration::from_millis(1000)))
+    .scale(Some(if current { 1.3 } else { 1.0 }))
+    .max_width(280.0)
+    .build();
 
-    vstack((
-        text_block("Toggle to drive scale through an implicit transition."),
-        button(if big { "Scale down" } else { "Scale up" }).on_click(toggle),
-        swatch,
-    ))
-    .spacing(12.0)
-    .into()
+    vstack(
+        12.0,
+        [
+            TextBlock::new("Toggle to drive scale through an implicit transition.").build(),
+            Button::new(if current { "Scale down" } else { "Scale up" })
+                .on_click(move || {
+                    toggle.set(!current);
+                })
+                .build(),
+            swatch,
+        ],
+    )
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("ScaleTransition", app)
+fn main() -> windows_core::Result<()> {
+    reactor_samples::run("Scale Transition", app)
 }

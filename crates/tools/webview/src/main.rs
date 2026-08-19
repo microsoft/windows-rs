@@ -2,14 +2,19 @@ use windows_clang::*;
 use windows_rdl::*;
 
 // WebView2 owns its SDK pin here: the headers are downloaded from this exact NuGet package
-// (via `nuget_package`, like the other header scrapers) instead of being vendored, so a version
-// bump is a one-line edit that re-fetches byte-stable headers. `tool_reactor` reads
-// `WEBVIEW2_VERSION` back and fails loudly if `windows-reactor-setup` drifts from it.
+// instead of being vendored, so a version bump is a one-line edit that re-fetches byte-stable
+// headers.
 const WEBVIEW2_PKG: &str = "Microsoft.Web.WebView2";
 const WEBVIEW2_VERSION: &str = "1.0.4078.44";
 
 fn main() {
     let time = std::time::Instant::now();
+    let runtime_version =
+        helpers::read_str_const("crates/libs/reactor-setup/src/lib.rs", "WEBVIEW2_VER");
+    assert_eq!(
+        WEBVIEW2_VERSION, runtime_version,
+        "windows-reactor-setup's WebView2 runtime must match tool_webview"
+    );
 
     // Like `tool_win32`, provision and pin libclang before the first parse: download
     // the exact `LIBCLANG_VERSION` wheel on demand (unless `LIBCLANG_PATH` is set) and assert the
@@ -60,12 +65,26 @@ fn main() {
 
     windows_bindgen::bindgen(["--etc", "crates/tools/webview/src/webview.txt"]);
 
-    // Feature-gated WinRT bindings for the `reactor` integration: the WinUI XAML
-    // `WebView2` control (Microsoft.UI.Xaml.winmd) and the WinRT `CoreWebView2`
-    // (Microsoft.Web.WebView2.Core.winmd), generated straight from the vendored
-    // winmd metadata. The control's `CoreWebView2` is bridged to the COM
-    // `ICoreWebView2` above via `ICoreWebView2Interop2::GetComICoreWebView2`.
-    windows_bindgen::bindgen(["--etc", "crates/tools/webview/src/reactor.txt"]);
+    // Feature-gated WinRT bindings for the `reactor` integration. The control's WinUI metadata
+    // comes from the Windows App SDK package matching windows-reactor-setup's runtime pin.
+    let metadata = helpers::windows_app_sdk_metadata(nuget_package);
+    windows_bindgen::builder()
+        .inputs([
+            metadata.foundation,
+            metadata.interactive,
+            metadata.winui,
+            pkg.join("lib").join("Microsoft.Web.WebView2.Core.winmd"),
+            "crates/libs/default/Windows.winmd".into(),
+        ])
+        .output("crates/libs/webview/src/reactor_bindings.rs")
+        .flat()
+        .minimal()
+        .implements([
+            "Windows.Foundation.TypedEventHandler",
+            "Microsoft.UI.Xaml.RoutedEventHandler",
+        ])
+        .filter_file("crates/tools/webview/src/reactor.txt")
+        .write();
 
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }

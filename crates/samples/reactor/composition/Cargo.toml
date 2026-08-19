@@ -5,6 +5,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
+reactor_samples = { path = "../samples" }
 windows-core = { workspace = true }
 windows-reactor = { workspace = true }
 windows-composition = { workspace = true, default-features = false, features = ["reactor"] }

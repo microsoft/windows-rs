@@ -1,28 +1,35 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0_i32);
+use windows_reactor::{Element, RenderCx, RepeatButton, TextBlock, vstack};
 
-    let set_inc = set_count.clone();
-    let increment = move || set_inc.call(count + 1);
-    let decrement = move || set_count.call(count - 1);
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let count = cx.use_state(|| 0_i32);
+    let current = count.value();
+    let increment = count.clone();
 
-    vstack((
-        text_block(format!("Count: {count}")),
-        repeat_button("+1 (hold to repeat)")
-            .on_click(increment)
-            .delay(300)
-            .interval(50),
-        repeat_button("-1 (hold to repeat)")
-            .on_click(decrement)
-            .delay(300)
-            .interval(50),
-        repeat_button("Disabled").enabled(false),
-    ))
-    .spacing(8.0)
-    .into()
+    vstack(
+        8.0,
+        [
+            TextBlock::new(format!("Count: {current}")).build(),
+            RepeatButton::new("+1 (hold to repeat)")
+                .on_click(move || {
+                    increment.update(|value| *value += 1);
+                })
+                .delay(300)
+                .interval(50)
+                .build(),
+            RepeatButton::new("-1 (hold to repeat)")
+                .on_click(move || {
+                    count.update(|value| *value -= 1);
+                })
+                .delay(300)
+                .interval(50)
+                .build(),
+            RepeatButton::new("Disabled").enabled(false).build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("RepeatButton", app)
 }

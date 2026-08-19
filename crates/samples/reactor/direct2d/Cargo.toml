@@ -5,13 +5,13 @@ edition = "2024"
 publish = false
 
 [dependencies]
-windows-core = { workspace = true }
-windows-reactor = { workspace = true }
-windows-numerics = { workspace = true }
+reactor_samples = { path = "../samples" }
+windows-canvas.workspace = true
+windows-core.workspace = true
+windows-reactor = { workspace = true, features = ["canvas"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }
-windows-bindgen = { workspace = true }
 
 [lints]
 workspace = true

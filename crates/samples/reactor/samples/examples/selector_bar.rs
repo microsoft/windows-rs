@@ -1,21 +1,40 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (selected, set_selected) = cx.use_state(String::from("Recent"));
+use windows_reactor::{
+    Element, Icon, IconSymbol, RenderCx, SelectorBar, SelectorBarItem, TextBlock, vstack,
+};
 
-    vstack((
-        selector_bar(vec![
-            selector_bar_item("Recent"),
-            selector_bar_item("Shared").icon(Symbol::People),
-            selector_bar_item("Favorites").icon(Symbol::Favorite),
-        ])
-        .on_selection_changed(set_selected),
-        text_block(format!("Selected: {selected}")),
-    ))
-    .spacing(12.0)
-    .into()
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let selected = cx.use_state(|| Some(1u64));
+    let current = selected.value();
+    let update = selected;
+    let label = match current {
+        Some(1) => "Recent",
+        Some(2) => "Shared",
+        Some(3) => "Favorites",
+        _ => "<none>",
+    };
+
+    vstack(
+        12.0,
+        [
+            SelectorBar::new(
+                [
+                    SelectorBarItem::new(1, "Recent"),
+                    SelectorBarItem::new(2, "Shared").icon(Icon::symbol(IconSymbol::PEOPLE)),
+                    SelectorBarItem::new(3, "Favorites").icon(Icon::symbol(IconSymbol::FAVORITE)),
+                ],
+                move |key| {
+                    update.set(key);
+                },
+            )
+            .selected_key(current)
+            .build(),
+            TextBlock::new(format!("Selected: {label}")).build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("SelectorBar", app)
 }

@@ -1,28 +1,44 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0u32);
+use windows_reactor::{
+    Button, ButtonEmphasis, Element, Icon, IconSymbol, RenderCx, TextBlock, vstack,
+};
 
-    vstack((
-        button("Plain Button").on_click({
-            let set_count = set_count.clone();
-            move || set_count.call(count + 1)
-        }),
-        button("Add Item").icon(Symbol::Add).on_click({
-            let set_count = set_count.clone();
-            move || set_count.call(count + 1)
-        }),
-        button("Delete").icon(Symbol::Delete).on_click({
-            let set_count = set_count;
-            move || set_count.call(count.saturating_sub(1))
-        }),
-        button("Save").icon(Symbol::Save).accent(),
-        text_block(format!("Count: {count}")),
-    ))
-    .spacing(8.0)
-    .into()
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let count = cx.use_state(|| 0_u32);
+    let current = count.value();
+    let increment_plain = count.clone();
+    let increment_add = count.clone();
+
+    vstack(
+        8.0,
+        [
+            Button::new("Plain Button")
+                .on_click(move || {
+                    increment_plain.update(|value| *value += 1);
+                })
+                .build(),
+            Button::new("Add Item")
+                .icon(Icon::symbol(IconSymbol::ADD))
+                .on_click(move || {
+                    increment_add.update(|value| *value += 1);
+                })
+                .build(),
+            Button::new("Delete")
+                .icon(Icon::symbol(IconSymbol::DELETE))
+                .on_click(move || {
+                    count.update(|value| *value = value.saturating_sub(1));
+                })
+                .build(),
+            Button::new("Save")
+                .icon(Icon::symbol(IconSymbol::SAVE))
+                .emphasis(ButtonEmphasis::Accent)
+                .build(),
+            TextBlock::new(format!("Count: {current}")).build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("ButtonIcon", app)
 }

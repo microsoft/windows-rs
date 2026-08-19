@@ -3,10 +3,9 @@
 use windows_reactor::*;
 
 fn app(_cx: &mut RenderCx) -> Element {
-    text_block("Hello, world!").into()
+    TextBlock::new("Hello from a framework-dependent Reactor app.").build()
 }
 
-fn main() -> Result<()> {
-    bootstrap()?;
-    App::new().title("Reactor app").render(app)
+fn main() -> windows_core::Result<()> {
+    reactor_samples::run("Framework-dependent Reactor app", app)
 }

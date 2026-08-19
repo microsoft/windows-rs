@@ -16,8 +16,8 @@ Cargo workspace (`resolver = "3"`). Members are globbed from:
   `windows-bindgen`, `metadata`, `rdl`, and the newer `reactor`/`canvas`/`webview`/`window` crates).
   See `docs/readme.md` for the full categorized crate index, and `docs/crates/<crate>.md` per crate.
 - `crates/tools/*` - code generators and CI helpers, run via `cargo run -p tool_*`.
-- `crates/tests/*/*` - test crates; `crates/tests/libs/<crate>` mirrors each library crate (e.g.
-  `test_reactor`, `test_webview`). Crate names are `test_<dir>`.
+- `crates/tests/*/*` - test crates; `crates/tests/libs/<crate>` mirrors library crates where a
+  separate fixture is useful (e.g. `test_webview`). Crate names are generally `test_<dir>`.
 - `crates/samples/*/*` - runnable examples.
 
 The crates fall into rough groups (see `docs/readme.md` for the authoritative list): core & errors
@@ -60,22 +60,18 @@ warnings and therefore enforced.
 ### Reactor
 
 ```sh
-# Regenerate codegen (after editing winui.toml or tool_reactor source)
-cargo run -p tool_reactor --quiet
-
-# Regenerate bindings (after editing filter .txt files)
-cargo run -p tool_bindings --quiet
-
 # Verify reactor compiles
 cargo check -p windows-reactor --quiet
 
 # Unit tests (headless, fast)
-cargo test -p test_reactor --quiet
+cargo test -p windows-reactor --quiet
 
-# Integration tests (launches WinUI window)
-cargo run -p test_reactor_selftest
-cargo run -p test_reactor_selftest -- --headless    # CI mode
-cargo run -p test_reactor_selftest -- --filter Name  # single fixture
+# Integration tests (launches and closes WinUI windows through UI Automation)
+powershell -File crates\tests\libs\reactor_selftest\native.ps1
+powershell -File crates\tests\libs\reactor_selftest\native.ps1 -Case smoke
+
+# Enforce coverage floors after producing target\reactor-coverage.json
+cargo run -p tool_reactor_coverage --quiet -- target\reactor-coverage.json
 
 # Clippy
 cargo clippy -p windows-reactor --all-targets
@@ -104,21 +100,19 @@ re-run the tool and commit the result.
 
 The core `windows` / `windows-sys` crates are generated from Windows metadata (`.winmd`) via
 `windows-bindgen` (driven by `tool_package`). `windows-metadata` and `windows-rdl` support
-reading/authoring that metadata. The reactor / canvas / webview pipelines layer on top:
+reading/authoring that metadata. Reactor is hand-written and has no semantic generator. The other
+binding pipelines include:
 
-1. **`tool_reactor`** - reads `crates/tools/reactor/src/winui.toml` + WinUI `.winmd` metadata ->
-   generates `generated.rs`, `generated_set_prop.rs`, `generated_attach_event.rs`, and
-   `generated.txt` filter entries.
-
-2. **`tool_bindings`** - reads filter `.txt` files from `crates/tools/bindings/src/` -> runs
+1. **`tool_bindings`** - reads filter `.txt` files from `crates/tools/bindings/src/` -> runs
    `windows-bindgen` -> generates `bindings.rs` in each crate:
    - `crates/libs/canvas/src/bindings.rs` (from `canvas.txt`)
+   - `crates/libs/reactor/src/bindings.rs` (from `reactor.txt` and `reactor.rdl`)
    - `crates/libs/time/src/bindings.rs`, `numerics`, `reference`, etc.
 
-3. **`tool_package`** - generates the published `windows` and `windows-sys` package crates using
+2. **`tool_package`** - generates the published `windows` and `windows-sys` package crates using
    `--package` mode (per-namespace files + Cargo.toml features).
 
-4. After regenerating, always verify: `cargo check -p <affected-crate> --quiet`
+3. After regenerating, always verify: `cargo check -p <affected-crate> --quiet`
 
 ## Key Architecture Facts
 
@@ -127,16 +121,17 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 - `windows-core` is the foundation - almost everything depends on it.
 - `windows` is the umbrella crate that re-exports from `windows-core`, `windows-numerics`,
   `windows-time`, `windows-collections`, `windows-reference`, etc.
-- `windows-reactor` depends on `windows-core` (not `windows`) and uses minimal bindings generated
-  with `--minimal --flat` mode.
+- `windows-reactor` depends on `windows-core` (not `windows`). Its implementation is hand-written;
+  `tool_bindings` generates the private WinUI ABI projection from a fixed filter.
 - `windows-canvas` similarly uses minimal bindings for D2D/DXGI/DWrite/WIC.
 - `windows-animation` wraps Win32 UIAnimation Manager COM APIs.
 
 ### Reactor architecture
 
-- WinUI backend is in `crates/libs/reactor/src/backend/winui/`.
-- The TOML config (`winui.toml`) declares ~52 WinUI controls. Keys are WinUI metadata names; the
-  tool infers types, setter patterns, and event handlers from `.winmd` files.
+- The application protocol is in `crates/libs/reactor/src/app/`, and the WinUI runtime is in
+  `crates/libs/reactor/src/winui/`.
+- Controls, properties, event routing, and native adapters are hand-written. There is no Reactor
+  semantic generator or generated control catalog.
 - COM casts: classes Deref to their default interface (zero-cost). Only cast to non-default parent
   interfaces. The `Param` trait handles parent-class conversions automatically.
 
@@ -154,8 +149,8 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
 - **`.unwrap()` over `.expect("...")`** - the panic hook provides full context.
 - **No `thread_local!` in app code** - use reactor hooks (`use_state`, `use_ref`) instead.
   `thread_local!` is reserved for framework plumbing.
-- **Test naming**: Unit tests in `test_reactor`, integration tests in `test_reactor_selftest`.
-  Canvas tests use WARP software rendering.
+- **Test naming**: Reactor model/unit tests live in `windows-reactor`; native integration tests use
+  `test_reactor_selftest`. Canvas tests use WARP software rendering.
 
 ## Documentation
 
@@ -171,9 +166,9 @@ The `docs/` folder has one page per crate:
 `docs/` also holds `contributing.md`, `code_of_conduct.md`, and `security.md`.
 
 When making changes to a crate, update its `docs/crates/<crate>.md` page and its `readme.md` as
-needed. For example, `windows-reactor` changes touch `docs/crates/windows-reactor.md` (codegen,
-TOML, threading, COM pitfalls, plus the conceptual overview) and `crates/libs/reactor/readme.md`
-(getting started and the quick example).
+needed. For example, `windows-reactor` changes touch `docs/crates/windows-reactor.md` (application
+model, native adapters, threading, testing, and maintenance) and
+`crates/libs/reactor/readme.md` (getting started and the quick example).
 
 ## Writing Style for Docs and Comments
 

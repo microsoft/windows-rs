@@ -1,6 +1,8 @@
 #![windows_subsystem = "windows"]
 
-use windows_reactor::*;
+use windows_reactor::{
+    Button, Element, FontWeight, RenderCx, StackPanel, TextBlock, Thickness, memo_component, vstack,
+};
 
 #[derive(Clone, PartialEq)]
 struct GreetingProps {
@@ -8,32 +10,45 @@ struct GreetingProps {
     clicks: u32,
 }
 
-fn greeting(props: &GreetingProps, _cx: &mut RenderCx) -> Element {
-    let GreetingProps { name, clicks } = props;
-    vstack((
-        text_block(format!("Hello, {name}!")).bold().font_size(20.0),
-        text_block(format!("You have clicked the button {clicks} times.")),
-    ))
-    .spacing(4.0)
-    .into()
+fn greeting(props: &GreetingProps) -> Element {
+    vstack(
+        4.0,
+        [
+            TextBlock::new(format!("Hello, {}!", props.name))
+                .font_weight(FontWeight::BOLD)
+                .font_size(20.0)
+                .build(),
+            TextBlock::new(format!(
+                "You have clicked the button {} times.",
+                props.clicks
+            ))
+            .build(),
+        ],
+    )
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (name, _set_name) = cx.use_state(String::from("world"));
-    let (clicks, set_clicks) = cx.use_state(0_u32);
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let clicks = cx.use_state(|| 0_u32);
+    let current = clicks.value();
+    let props = GreetingProps {
+        name: "world".to_string(),
+        clicks: current,
+    };
+    let render_props = props.clone();
 
-    let bump = move || set_clicks.call(clicks + 1);
-
-    vstack((
-        TitleBar::new("windows_reactor — component props"),
-        component(greeting, GreetingProps { name, clicks }),
-        button("Click me").on_click(bump),
-    ))
+    StackPanel::new([
+        memo_component(props, move |_| greeting(&render_props)),
+        Button::new("Click me")
+            .on_click(move || {
+                clicks.update(|value| *value += 1);
+            })
+            .build(),
+    ])
     .spacing(12.0)
     .padding(Thickness::uniform(16.0))
-    .into()
+    .build()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("ComponentProps", app)
 }

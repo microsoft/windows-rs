@@ -1,35 +1,42 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (label, set_label) = cx.use_state(String::from("Pick a date to see days from today"));
+use windows_reactor::{CalendarDatePicker, DateTime, Element, RenderCx, TextBlock, vstack};
 
-    let on_date = move |selected: DateTime| {
-        let now = DateTime::now();
-        let text = match selected.checked_duration_since(now) {
-            Some(span) => {
-                let days = span.whole_days();
-                match days.cmp(&0) {
-                    std::cmp::Ordering::Greater => format!("{days} day(s) from now"),
-                    std::cmp::Ordering::Less => format!("{} day(s) ago", days.abs()),
-                    std::cmp::Ordering::Equal => String::from("That's today!"),
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let selected = cx.use_state(|| None::<DateTime>);
+    let current = selected.value();
+    let label = current.map_or_else(
+        || "Pick a date to see days from today".to_string(),
+        |value| {
+            let now = DateTime::now();
+            match value.checked_duration_since(now) {
+                Some(span) => {
+                    let days = span.whole_days();
+                    match days.cmp(&0) {
+                        std::cmp::Ordering::Greater => format!("{days} day(s) from now"),
+                        std::cmp::Ordering::Less => format!("{} day(s) ago", days.abs()),
+                        std::cmp::Ordering::Equal => "That's today!".to_string(),
+                    }
                 }
+                None => "Date too far away to compute".to_string(),
             }
-            None => String::from("Date too far away to compute"),
-        };
-        set_label.call(text);
-    };
+        },
+    );
 
-    vstack((
-        calendar_date_picker()
+    vstack(
+        8.0,
+        [
+            CalendarDatePicker::new(current, move |value| {
+                selected.set(value);
+            })
             .header("Select a date")
             .placeholder_text("Choose...")
-            .on_date_changed(on_date),
-        text_block(&*label),
-    ))
-    .spacing(8.0)
-    .into()
+            .build(),
+            TextBlock::new(label).build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("CalendarDatePicker", app)
 }

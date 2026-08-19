@@ -1,45 +1,54 @@
-use std::sync::LazyLock;
+#![windows_subsystem = "windows"]
 
-use windows_reactor::*;
+use windows_reactor::{
+    Context, Element, FontWeight, RenderCx, TextBlock, button, component, hstack, provide_context,
+    vstack,
+};
 
-static THEME: LazyLock<Context<String>> = LazyLock::new(|| Context::new("light".to_string()));
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let theme = cx.use_state(|| "light".to_string());
+    let selected = theme.value();
+    let context = cx.use_memo((), || Context::new("light".to_string()));
 
-fn leaf(_: &(), cx: &mut RenderCx) -> Element {
-    let theme = cx.use_context(&THEME);
-    let (bg, fg) = match theme.as_str() {
-        "dark" => (Color::rgb(30, 30, 30), Color::rgb(255, 255, 255)),
-        "neon" => (Color::rgb(50, 200, 150), Color::rgb(0, 0, 0)),
-        _ => (Color::rgb(240, 240, 240), Color::rgb(0, 0, 0)),
-    };
-    border(
-        text_block(format!("Leaf sees theme = {theme}"))
+    let light = theme.clone();
+    let dark = theme.clone();
+    let neon = theme;
+    let leaf_context = context.clone();
+    let leaf = component(move |cx| {
+        let theme = cx.use_context(&leaf_context);
+        TextBlock::new(format!("Leaf sees theme = {theme}"))
             .font_size(16.0)
-            .foreground(fg)
-            .padding(Thickness::uniform(16.0)),
+            .font_weight(FontWeight::BOLD)
+            .build()
+    });
+
+    provide_context(
+        &context,
+        selected,
+        vstack(
+            12.0,
+            [
+                TextBlock::new("Pick a theme; the leaf reads it through typed context.").build(),
+                hstack(
+                    8.0,
+                    [
+                        button("light", move || {
+                            light.set("light".to_string());
+                        }),
+                        button("dark", move || {
+                            dark.set("dark".to_string());
+                        }),
+                        button("neon", move || {
+                            neon.set("neon".to_string());
+                        }),
+                    ],
+                ),
+                leaf,
+            ],
+        ),
     )
-    .background(bg)
-    .into()
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (theme, set_theme) = cx.use_state("light".to_string());
-
-    let pick = |name: &'static str| {
-        let set_theme = set_theme.clone();
-        button(name).on_click(move || set_theme.call(name.to_string()))
-    };
-
-    let tree = vstack((
-        text_block("Pick a theme; the leaf below reads it via cx.use_context.").font_size(12.0),
-        hstack((pick("light"), pick("dark"), pick("neon"))).spacing(8.0),
-        border(component(leaf, ())).padding(Thickness::uniform(8.0)),
-    ))
-    .spacing(12.0)
-    .padding(Thickness::uniform(16.0));
-
-    tree.provide(&THEME, theme)
-}
-
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("Context", app)
 }

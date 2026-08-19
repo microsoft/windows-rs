@@ -1,43 +1,47 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (keyed, set_keyed) = cx.use_state(true);
-    let (last_close_key, set_last_close_key) = cx.use_state(String::new());
+use windows_reactor::{Button, Element, RenderCx, TabView, TabViewItem, TextBlock, vstack};
 
-    let mut item = TabItem::new("Document", text_block("Close the tab to inspect its key."));
-    if keyed {
-        item = item.with_key("document");
-    }
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let alternate = cx.use_state(|| false);
+    let last_close_key = cx.use_state(|| None::<u64>);
+    let is_alternate = alternate.value();
+    let current_close_key = last_close_key.value();
+    let toggle = alternate;
+    let update_close_key = last_close_key;
+    let header = if is_alternate {
+        "Renamed document"
+    } else {
+        "Document"
+    };
 
-    vstack((
-        button(if keyed {
-            "Remove item key"
-        } else {
-            "Restore item key"
-        })
-        .on_click(move || set_keyed.call(!keyed)),
-        TabView::new([item]).on_close_requested(move |key: String| {
-            set_last_close_key.call(if key.is_empty() {
-                "<none>".to_string()
-            } else {
-                key
-            });
-        }),
-        text_block(format!(
-            "configured key: {}; last close request: {}",
-            if keyed { "document" } else { "<none>" },
-            if last_close_key.is_empty() {
-                "<not requested>"
-            } else {
-                &last_close_key
-            }
-        )),
-    ))
-    .spacing(8.0)
-    .padding(Thickness::uniform(16.0))
-    .into()
+    vstack(
+        8.0,
+        [
+            Button::new("Rename tab")
+                .on_click(move || {
+                    toggle.set(!is_alternate);
+                })
+                .build(),
+            TabView::display([TabViewItem::new(
+                42,
+                header,
+                TextBlock::new("Close the tab to inspect its stable key.").build(),
+            )])
+            .on_close_requested(move |key| {
+                update_close_key.set(Some(key));
+            })
+            .build(),
+            TextBlock::new(format!(
+                "configured key: 42; last close request: {}",
+                current_close_key
+                    .map_or_else(|| "<not requested>".to_string(), |key| key.to_string())
+            ))
+            .build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("TabView Item Key", app)
 }

@@ -2,37 +2,49 @@
 
 use std::time::Duration;
 
-use windows_reactor::*;
+use windows_reactor::{
+    Border, Button, Color, CornerRadius, Element, RenderCx, TextBlock, Thickness, fade_transition,
+    fragment, vstack,
+};
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (visible, set_visible) = cx.use_state(true);
-    let card: Element = if visible {
-        border(
-            text_block("This visual remains visible while its exit animation completes.")
-                .font_size(18.0),
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let visible = cx.use_state(|| true);
+    let current = visible.value();
+    let toggle = visible;
+    let card = if current {
+        Border::new(
+            TextBlock::new("This visual remains visible while its exit animation completes.")
+                .font_size(18.0)
+                .foreground(Color::rgb(255, 255, 255))
+                .build(),
         )
         .padding(Thickness::uniform(24.0))
         .background(Color::rgb(32, 96, 160))
-        .corner_radius(12.0)
-        .transition(
-            Some(AnimationConfig::fade_in(Duration::from_millis(300))),
-            Some(AnimationConfig::fade_out(Duration::from_millis(600))),
-        )
-        .into()
+        .corner_radius(CornerRadius::uniform(12.0))
+        .build()
     } else {
-        Element::Empty
+        fragment([])
     };
 
-    vstack((
-        button(if visible { "Remove" } else { "Restore" })
-            .on_click(move || set_visible.call(!visible)),
-        card,
+    Border::new(vstack(
+        16.0,
+        [
+            Button::new(if current { "Remove" } else { "Restore" })
+                .on_click(move || {
+                    toggle.set(!current);
+                })
+                .build(),
+            fade_transition(
+                card,
+                Some(Duration::from_millis(300)),
+                Some(Duration::from_millis(600)),
+            ),
+        ],
     ))
-    .spacing(16.0)
     .padding(Thickness::uniform(24.0))
-    .into()
+    .build()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("Exit Transition", app)
 }

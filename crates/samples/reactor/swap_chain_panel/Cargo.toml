@@ -5,17 +5,10 @@ edition = "2024"
 publish = false
 
 [dependencies]
-windows-reactor = { workspace = true }
-
-[dependencies.windows]
-workspace = true
-default-features = true
-features = [
-    "d3d11",
-    "d3dcommon",
-    "dxgi",
-    "minwindef",
-]
+reactor_samples = { path = "../samples" }
+windows-canvas.workspace = true
+windows-core.workspace = true
+windows-reactor = { workspace = true, features = ["canvas"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }

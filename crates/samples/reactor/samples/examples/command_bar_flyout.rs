@@ -1,28 +1,51 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (last_action, set_action) = cx.use_state("(none)".to_string());
+use windows_reactor::{
+    Button, CommandBarFlyout, CommandBarItem, Element, Icon, IconSymbol, RenderCx, TextBlock,
+    vstack,
+};
 
-    let on_cmd = move |label: String| set_action.call(label);
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let last_action = cx.use_state(|| String::from("(none)"));
+    let current = last_action.value();
+    let cut = last_action.clone();
+    let copy = last_action.clone();
+    let paste = last_action.clone();
+    let select_all = last_action.clone();
+    let print = last_action;
 
-    vstack((
-        button("Show Commands")
-            .command_bar_flyout(vec![
-                app_bar_button_icon("Cut", Symbol::Cut),
-                app_bar_button_icon("Copy", Symbol::Copy),
-                app_bar_button_icon("Paste", Symbol::Paste),
-            ])
-            .command_bar_flyout_secondary(vec![
-                app_bar_button("Select All"),
-                app_bar_button("Print"),
-            ])
-            .on_command_bar_flyout_click(on_cmd),
-        text_block(format!("Last action: {last_action}")),
-    ))
-    .spacing(8.0)
-    .into()
+    vstack(
+        8.0,
+        [
+            Button::new("Show Commands")
+                .command_bar_flyout(
+                    CommandBarFlyout::new([
+                        CommandBarItem::button(1, "Cut", move || {
+                            cut.set(String::from("Cut"));
+                        })
+                        .icon(Icon::symbol(IconSymbol::EDIT)),
+                        CommandBarItem::button(2, "Copy", move || {
+                            copy.set(String::from("Copy"));
+                        }),
+                        CommandBarItem::button(3, "Paste", move || {
+                            paste.set(String::from("Paste"));
+                        }),
+                    ])
+                    .secondary_commands([
+                        CommandBarItem::button(4, "Select All", move || {
+                            select_all.set(String::from("Select All"));
+                        }),
+                        CommandBarItem::button(5, "Print", move || {
+                            print.set(String::from("Print"));
+                        }),
+                    ]),
+                )
+                .build(),
+            TextBlock::new(format!("Last action: {current}")).build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("CommandBarFlyout", app)
 }

@@ -1,29 +1,34 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (on, set_on) = cx.use_state(true);
+use windows_reactor::{Element, RenderCx, TextBlock, ToggleSwitch, vstack};
 
-    let toggle = move |v| set_on.call(v);
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let on = cx.use_state(|| true);
+    let current = on.value();
 
-    vstack((
-        ToggleSwitch::new(on)
+    vstack(
+        8.0,
+        [
+            ToggleSwitch::new(current, move |value| {
+                on.set(value);
+            })
             .header("Notifications")
             .on_content("On")
             .off_content("Off")
-            .on_toggled(toggle),
-        text_block(if on {
-            "Notifications enabled"
-        } else {
-            "Notifications muted"
-        }),
-        ToggleSwitch::new(true)
-            .header("Disabled (always on)")
-            .enabled(false),
-    ))
-    .spacing(8.0)
-    .into()
+            .build(),
+            TextBlock::new(if current {
+                "Notifications enabled"
+            } else {
+                "Notifications muted"
+            })
+            .build(),
+            ToggleSwitch::display(true)
+                .header("Disabled (always on)")
+                .build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("ToggleSwitch", app)
 }

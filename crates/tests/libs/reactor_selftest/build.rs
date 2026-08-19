@@ -1,3 +1,3 @@
 fn main() {
-    windows_reactor_setup::as_framework_dependent();
+    windows_reactor_setup::as_self_contained();
 }

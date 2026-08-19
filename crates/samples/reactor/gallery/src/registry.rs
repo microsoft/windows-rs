@@ -485,17 +485,3 @@ pub fn controls_in_category(category: &str) -> Vec<&'static ControlInfo> {
         .filter(|c| c.category == category)
         .collect()
 }
-
-pub fn search(query: &str) -> Vec<&'static ControlInfo> {
-    let q = query.to_lowercase();
-    ALL_CONTROLS
-        .iter()
-        .filter(|c| {
-            c.title.to_lowercase().contains(&q) || c.description.to_lowercase().contains(&q)
-        })
-        .collect()
-}
-
-pub fn category_tag(category: &str) -> String {
-    category.to_lowercase().replace(' ', "-")
-}

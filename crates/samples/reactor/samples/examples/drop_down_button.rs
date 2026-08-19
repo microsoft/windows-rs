@@ -1,18 +1,42 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (clicks, set_clicks) = cx.use_state(0_u32);
+use windows_reactor::{DropDownButton, Element, RenderCx, TextBlock, vstack};
 
-    let bump = move || set_clicks.call(clicks + 1);
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let opened = cx.use_state(|| 0_u32);
+    let closed = cx.use_state(|| 0_u32);
+    let current_opened = opened.value();
+    let current_closed = closed.value();
 
-    vstack((
-        drop_down_button("Options").on_click(bump),
-        text_block(format!("Clicked {clicks} time(s)")),
-    ))
-    .spacing(8.0)
-    .into()
+    vstack(
+        8.0,
+        [
+            DropDownButton::new(
+                "Options",
+                vstack(
+                    4.0,
+                    [
+                        TextBlock::new("First option").build(),
+                        TextBlock::new("Second option").build(),
+                    ],
+                ),
+            )
+            .on_opened(move || {
+                opened.update(|value| *value += 1);
+            })
+            .on_closed(move || {
+                closed.update(|value| *value += 1);
+            })
+            .build(),
+            TextBlock::new(format!(
+                "Opened: {current_opened}; closed: {current_closed}"
+            ))
+            .automation_id("drop-down-status")
+            .build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("DropDownButton", app)
 }

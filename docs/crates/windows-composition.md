@@ -2,11 +2,11 @@
 
 > Safe Rust wrappers for the Windows composition engine.
 
-- 📦 [crates.io](https://crates.io/crates/windows-composition)
-- 📖 [docs.rs](https://docs.rs/windows-composition)
-- 🚀 [Getting started](../../crates/libs/composition/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/composition)
-- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/composition)
+- [crates.io](https://crates.io/crates/windows-composition)
+- [docs.rs](https://docs.rs/windows-composition)
+- [Getting started](../../crates/libs/composition/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/composition)
+- [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/composition)
 
 `windows-composition` wraps `Windows.UI.Composition` and `Microsoft.UI.Composition`. It gives you a
 `Compositor`, visuals, brushes, shapes, animations, and hosting helpers. The wrappers use minimal
@@ -148,9 +148,9 @@ inputs and emits two binding modules from one filter.
 
 - System bindings read the default `Windows.winmd` and `Windows.Win32.winmd`. They include
   `Windows.UI.Composition`, `Windows.System`, `ICompositorDesktopInterop`, `HWND`, and `BOOL`.
-- Lifted bindings read `Microsoft.UI.winmd` from the reactor tool inputs and the default
-  `Windows.winmd`. They include `Microsoft.UI.Composition` plus shared `Windows.Foundation` and
-  `Windows.UI.Color` types.
+- Lifted bindings read Windows App SDK metadata resolved from `windows-reactor-setup`'s
+  `RUNTIME_VER` and the default `Windows.winmd`. They include `Microsoft.UI.Composition` plus
+  shared `Windows.Foundation` and `Windows.UI.Color` types.
 
 `composition.txt` is the source filter. `// region: system-only` and `// endregion` mark entries
 that exist only in the system stack. The tool removes those regions for lifted bindings. It also
@@ -186,18 +186,17 @@ together. Add a new system-stack crate to both the exclusion list and the second
 Lifted composition is hosted inside a WinUI element. Reactor owns that element tree. Reactor depends
 on `windows-composition` with the `reactor` feature.
 
-Reactor's `CompositionHost` widget exposes typed methods on `CompositionHostHandle`:
-
-The host exposes its compositor and accepts a root child visual.
+Reactor's `CompositionHost` owns a root child visual and typed application state.
+`CompositionHostRef<T>` queues state updates only while that host generation is mounted.
 
 This crate provides the lifted binding set and seam helpers for that bridge.
 `Compositor::from_host(&IInspectable)` adopts the element's compositor.
 `Visual::{from_host, as_raw}` adopts or exposes a visual's interop `IInspectable`.
 
 Both crates use the same `Microsoft.UI.winmd` input for lifted bindings. The `IInspectable` values
-have matching IIDs, so the casts in the seam helpers are ABI-safe. Reactor's animation engine also uses this crate's key-frame, animation-group, easing, and
-implicit-animation wrappers. Element lifecycle transitions use one group when opacity and scale
-must animate together.
+have matching IIDs, so the casts in the seam helpers are ABI-safe. Reactor's animation engine also
+uses this crate's key-frame, animation-group, easing, and implicit-animation wrappers. Element
+lifecycle transitions use one group when opacity and scale must animate together.
 
 ### Canvas bridge
 

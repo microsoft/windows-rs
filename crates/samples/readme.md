@@ -45,10 +45,14 @@ samples for a published release, use its tag - for example
 
 | Crate | Sample | Run |
 | --- | --- | --- |
-| [windows-reactor](../../docs/crates/windows-reactor.md) | `reactor_samples` - one demo per WinUI control plus the reactor hooks (97 examples) | `cargo run -p reactor_samples --example <name>` |
-| | `reactor_apps` - complete apps: dotsweeper, minesweeper, notepad, solitaire, tictactoe | `cargo run -p reactor_apps --example <name>` |
-| | `reactor_gallery` / `reactor_direct2d` / `reactor_webview` / `reactor_swap_chain_panel` / `reactor_self_contained` / `reactor_framework_dependent` | `cargo run -p <crate>` |
-| | `reactor_startup_perf` - blank app demonstrating startup TraceLogging events | `cargo run -p reactor_startup_perf --release` |
+| [Reactor][reactor-doc] | `reactor_samples` | `cargo run -p reactor_samples --example <name>` |
+| | `reactor_gallery` - 65 WinUI control routes | `cargo run -p reactor_gallery` |
+| | `reactor_composition` | `cargo run -p reactor_composition --example host` |
+| | `reactor_direct2d` / `reactor_swap_chain_panel` / `reactor_webview` | `cargo run -p <crate>` |
+| | `reactor_framework_dependent` / `reactor_self_contained` | `cargo run -p <crate>` |
+| | `reactor_windows` - multiple keyed windows | `cargo run -p reactor_windows` |
+| | `reactor_startup_perf` | `cargo run -p reactor_startup_perf --release` |
+| | `reactor_matched*` | `crates\samples\reactor\matched.ps1` |
 | [windows-canvas](../../docs/crates/windows-canvas.md) | `canvas_samples` - Direct2D drawing: bitmap, brush, color, curves, draw_text, gradient, hello, lines, path, shapes, stroke, transform | `cargo run -p canvas_samples --example <name>` |
 | | `canvas_circles` / `canvas_clock` / `canvas_editor` / `canvas_hit_test` / `canvas_standalone` | `cargo run -p <crate>` |
 | [windows-animation](../../docs/crates/windows-animation.md) | `animation_samples` - the Windows Animation Manager, headless: variable, storyboard | `cargo run -p animation_samples --example <name>` |
@@ -80,3 +84,5 @@ surface. For new projects, prefer the focused crates above or generate a minimal
 Many of these samples were inspired by or originally appeared in Kenny's
 [articles](https://kennykerrca.wordpress.com/articles/) and [Pluralsight
 courses](https://www.pluralsight.com/authors/kenny-kerr).
+
+[reactor-doc]: ../../docs/crates/windows-reactor.md

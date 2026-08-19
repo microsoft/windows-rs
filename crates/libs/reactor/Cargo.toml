@@ -4,30 +4,35 @@ version = "0.100.0"
 edition = "2024"
 rust-version = "1.95"
 license = "MIT OR Apache-2.0"
-description = "Windows UI library"
+description = "Declarative UI library backed by WinUI 3"
 repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
 readme = "readme.md"
 
+[[test]]
+name = "public_api"
+path = "testing/integration/public_api.rs"
+
 [features]
 default = []
-test = []
 canvas = ["dep:windows-canvas"]
+webview = ["dep:windows-webview"]
 
 [dependencies]
-rustc-hash = { workspace = true }
-windows-core = { workspace = true }
-windows-numerics = { workspace = true }
 windows-collections = { workspace = true, features = ["std"] }
-windows-future = { workspace = true }
+windows-composition = { workspace = true, features = ["reactor"] }
+windows-core.workspace = true
+windows-future.workspace = true
 windows-reference = { workspace = true, features = ["std"] }
-windows-threading = { workspace = true }
+windows-numerics.workspace = true
+windows-threading.workspace = true
 windows-time = { workspace = true }
-windows-composition = { workspace = true, default-features = false, features = ["reactor"] }
+windows-canvas = { workspace = true, optional = true }
+windows-webview = { workspace = true, features = ["xaml"], optional = true }
 
-[dependencies.windows-canvas]
-workspace = true
-optional = true
+[dev-dependencies]
+test_reactor_support = { path = "../../tests/libs/reactor_support" }
+windows = { workspace = true, features = ["processthreadsapi", "psapi", "winnt"] }
 
 [lints]
 workspace = true
@@ -35,4 +40,4 @@ workspace = true
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []
-features = ["canvas"]
+features = ["canvas", "webview"]

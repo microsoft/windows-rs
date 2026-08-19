@@ -5,14 +5,9 @@ edition = "2024"
 publish = false
 
 [dependencies]
-windows-reactor = { workspace = true }
-
-windows-core = { workspace = true }
-windows-collections = { workspace = true }
-windows-future = { workspace = true }
-windows-numerics = { workspace = true }
-windows-reference = { workspace = true, features = ["std"] }
-windows-time = { workspace = true }
+windows-canvas.workspace = true
+windows-core.workspace = true
+windows-reactor = { workspace = true, features = ["canvas"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }

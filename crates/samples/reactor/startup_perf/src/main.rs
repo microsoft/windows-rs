@@ -123,66 +123,34 @@ fn trace_process_stop() {
 }
 
 fn app(cx: &mut RenderCx) -> Element {
-    let xaml_app_loaded = cx.use_ref(false);
-    if !*xaml_app_loaded.borrow() {
+    let xaml_app_loaded = cx.use_ref(|| false);
+    if !xaml_app_loaded.get().unwrap() {
         xaml_app_loaded.set(true);
         trace_xaml_app_loaded();
     }
 
-    let first_rendered = cx.use_ref(false);
-    let rendering = cx.use_ref::<Option<Rendering>>(None);
-    cx.use_effect((), {
-        let rendering_for_callback = rendering.clone();
-        move || {
-            trace_window_loaded();
-
-            rendering.set(Some(
-                on_rendering(move || {
-                    if first_rendered.replace(true) {
-                        return;
-                    }
-
-                    trace_first_render();
-
-                    let dispatcher = WinUIDispatcher::for_current_thread().unwrap();
-                    let rendering = rendering_for_callback.clone();
-                    assert!(
-                        dispatcher.enqueue(
-                            DispatcherQueuePriority::Low,
-                            Box::new(move || {
-                                trace_first_idle();
-                                rendering.set(None);
-                            }),
-                        ),
-                        "failed to enqueue the FirstIdle marker"
-                    );
-                })
-                .unwrap(),
-            ));
-        }
+    cx.use_effect((), move || {
+        trace_window_loaded();
+        trace_first_render();
+        trace_first_idle();
     });
 
-    text_block("Blank Windows Reactor")
+    TextBlock::new("Blank Windows Reactor")
         .font_size(14.0)
-        .padding(12.0)
-        .into()
+        .padding(Thickness::uniform(12.0))
+        .build()
 }
 
-fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {
+fn main() -> Result<(), Box<dyn std::error::Error>> {
     let _provider = register_provider()?;
     trace_win_main_entry();
 
-    let result = bootstrap().and_then(|()| {
-        App::new()
-            .title("BlankWindowsReactor")
-            .inner_size(1000.0, 1000.0)
-            .on_exit(trace_process_stop)
-            .render(app)
-    });
-
-    if result.is_err() {
-        trace_process_stop();
-    }
+    let result = reactor_samples::run_with_window(
+        "BlankWindowsReactor",
+        |window| window.client_size(1000.0, 1000.0),
+        app,
+    );
+    trace_process_stop();
     result?;
     Ok(())
 }

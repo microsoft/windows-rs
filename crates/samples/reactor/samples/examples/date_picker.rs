@@ -1,22 +1,28 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (label, set_label) = cx.use_state(String::from("No date picked"));
+use windows_reactor::{DatePicker, Element, RenderCx, TextBlock, vstack};
 
-    let on_date = move |dt: DateTime| {
-        set_label.call(format!("Picked: {dt}"));
-    };
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let date = cx.use_state(|| None);
+    let current = date.value();
+    let label = current.map_or_else(
+        || "No date picked".to_string(),
+        |value| format!("Picked: {value}"),
+    );
 
-    vstack((
-        date_picker()
+    vstack(
+        8.0,
+        [
+            DatePicker::new(current, move |value| {
+                date.set(value);
+            })
             .header("Pick a date")
-            .on_selected_date_changed(on_date),
-        text_block(&*label),
-    ))
-    .spacing(8.0)
-    .into()
+            .build(),
+            TextBlock::new(label).build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("DatePicker", app)
 }

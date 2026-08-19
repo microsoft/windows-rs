@@ -1,32 +1,38 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(_cx: &mut RenderCx) -> Element {
+use windows_reactor::{
+    Border, Canvas, CanvasChild, Color, Element, RenderCx, TextBlock, Thickness,
+};
+
+fn block(label: &str, color: Color, width: f64, height: f64) -> Element {
+    Border::new(TextBlock::new(label).build())
+        .background(color)
+        .padding(Thickness::uniform(8.0))
+        .width(width)
+        .height(height)
+        .build()
+}
+
+pub fn app(_cx: &mut RenderCx<'_>) -> Element {
     Canvas::new([
-        Shape::rectangle()
-            .stroke(Color::rgb(128, 128, 128))
-            .stroke_thickness(1.0)
-            .width(260.0)
-            .height(120.0)
-            .canvas_left(0.0)
-            .canvas_top(0.0),
-        Shape::rectangle()
-            .fill_rgb(40, 120, 200)
-            .width(80.0)
-            .height(40.0)
-            .canvas_left(20.0)
-            .canvas_top(20.0),
-        Shape::ellipse()
-            .fill_rgb(220, 80, 120)
-            .width(40.0)
-            .height(40.0)
-            .canvas_left(180.0)
-            .canvas_top(40.0),
+        CanvasChild::new(block("Background", Color::rgb(210, 220, 235), 260.0, 120.0))
+            .left(0.0)
+            .top(0.0)
+            .z_index(0),
+        CanvasChild::new(block("Blue", Color::rgb(40, 120, 200), 100.0, 52.0))
+            .left(20.0)
+            .top(20.0)
+            .z_index(1),
+        CanvasChild::new(block("Rose", Color::rgb(220, 80, 120), 100.0, 52.0))
+            .left(90.0)
+            .top(48.0)
+            .z_index(2),
     ])
     .width(260.0)
     .height(120.0)
-    .into()
+    .build()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("Canvas", app)
 }

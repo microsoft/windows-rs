@@ -1,21 +1,32 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (color, set_color) = cx.use_state((255_u8, 0_u8, 120_u8, 215_u8));
+use windows_reactor::{Color, ColorPicker, Element, RenderCx, TextBlock, vstack};
 
-    let update = move |argb: (u8, u8, u8, u8)| set_color.call(argb);
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let color = cx.use_state(|| Color::argb(255, 0, 120, 215));
+    let current = color.value();
 
-    let (a, r, g, b) = color;
-
-    vstack((
-        color_picker(ColorArgb::with_alpha(a, r, g, b)).on_color_changed(update),
-        text_block(format!("ARGB: ({a}, {r}, {g}, {b})")),
-        text_block(format!("Hex: #{r:02X}{g:02X}{b:02X}")),
-    ))
-    .spacing(8.0)
-    .into()
+    vstack(
+        8.0,
+        [
+            ColorPicker::new(current, move |value| {
+                color.set(value);
+            })
+            .build(),
+            TextBlock::new(format!(
+                "ARGB: ({}, {}, {}, {})",
+                current.a, current.r, current.g, current.b
+            ))
+            .build(),
+            TextBlock::new(format!(
+                "Hex: #{:02X}{:02X}{:02X}",
+                current.r, current.g, current.b
+            ))
+            .build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("ColorPicker", app)
 }

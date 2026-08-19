@@ -1,9 +1,12 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (page, set_page) = cx.use_state(String::from("home"));
-    // The sample runner is unpackaged, so absolute file URIs point at the example assets.
-    // Packaged apps should use ms-appx:/// URIs for files included in the package.
+use windows_reactor::{
+    Element, Icon, IconSymbol, ImageSource, NavigationItem, NavigationView, RenderCx, TextBlock,
+};
+
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let page = cx.use_state(|| 0_u64);
+    let set_page = page.clone();
     let image = format!(
         "file:///{}/examples/image.svg",
         env!("CARGO_MANIFEST_DIR").replace('\\', "/"),
@@ -13,38 +16,36 @@ fn app(cx: &mut RenderCx) -> Element {
         env!("CARGO_MANIFEST_DIR").replace('\\', "/"),
     );
 
-    let content = match page.as_str() {
-        "home" => text_block("Symbol icon (SymbolIcon)."),
-        "starred" => text_block("Font-glyph icon (FontIcon)."),
-        "repo" => text_block("SVG image icon (ImageIcon)."),
-        "bitmap" => text_block("Foreground-tinted bitmap mask (BitmapIcon)."),
-        "path" => text_block("Vector path data (PathIcon)."),
-        _ => text_block("Unknown page"),
-    };
+    let content = TextBlock::new(match page.value() {
+        0 => "Symbol icon (SymbolIcon).",
+        1 => "Font-glyph icon (FontIcon).",
+        2 => "SVG image icon (ImageIcon).",
+        3 => "Foreground-tinted bitmap mask (BitmapIcon).",
+        4 => "Vector path data (PathIcon).",
+        _ => "Unknown page",
+    })
+    .build();
 
     NavigationView::new(
         [
-            NavViewItem::new("Home").tag("home").icon(Symbol::Home),
-            NavViewItem::new("Starred")
-                .tag("starred")
-                .icon(Icon::font("\u{E734}")),
-            NavViewItem::new("Repository")
-                .tag("repo")
-                .icon(Icon::image(image)),
-            NavViewItem::new("Bitmap mask")
-                .tag("bitmap")
-                .icon(Icon::bitmap_icon(bitmap, true)),
-            NavViewItem::new("Path")
-                .tag("path")
+            NavigationItem::new(0, "Home").icon(Icon::symbol(IconSymbol::HOME)),
+            NavigationItem::new(1, "Starred").icon(Icon::font("\u{E734}", "Segoe MDL2 Assets")),
+            NavigationItem::new(2, "Repository").icon(Icon::image(ImageSource::svg(image))),
+            NavigationItem::new(3, "Bitmap mask").icon(Icon::bitmap(bitmap, true)),
+            NavigationItem::new(4, "Path")
                 .icon(Icon::path("F1 M 0,8 L 6,14 L 16,2 L 14,0 L 6,10 L 2,6 Z")),
         ],
         content,
+        move |key| {
+            if let Some(key) = key {
+                set_page.set(key);
+            }
+        },
     )
-    .selected_tag(&*page)
-    .on_selection_changed(move |tag: String| set_page.call(tag))
-    .into()
+    .selected_key(Some(page.value()))
+    .build()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("IconElements", app)
 }

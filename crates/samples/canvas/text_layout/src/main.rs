@@ -2,7 +2,10 @@
 
 use windows_canvas::Brush;
 use windows_canvas::*;
-use windows_reactor::*;
+use windows_reactor::{
+    Application, RenderCx, Window, WindowBackdrop, component, run_reactor_winui_app,
+    swap_chain_canvas,
+};
 
 const TEXT: &str = "TextLayout shapes this paragraph and measures it, then draws it without \
 re-shaping. Resize the window and the text reflows to fit the box, redrawing only when the size \
@@ -19,13 +22,13 @@ struct Resources {
     white: Brush,
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let res = cx.use_ref::<Option<Resources>>(None);
+fn app(cx: &mut RenderCx<'_>) -> windows_reactor::Element {
+    let resources = cx.use_ref(|| None::<Resources>);
 
-    canvas(move |ctx| {
+    swap_chain_canvas(move |ctx| {
         ctx.clear(ColorF::from_rgb8(16, 20, 28));
 
-        if ctx.device_changed() {
+        if ctx.device_changed() || ctx.surface_changed() {
             let format = TextFormat::new("Segoe UI", 28.0)?.with_word_wrapping(WordWrapping::Wrap);
             let layout = TextLayout::new(
                 TEXT,
@@ -42,36 +45,59 @@ fn app(cx: &mut RenderCx) -> Element {
             let label_format = TextFormat::new("Consolas", 16.0)?;
             let label = TextLayout::new(&readout, &label_format, ctx.width - 2.0 * MARGIN, MARGIN)?;
 
-            *res.borrow_mut() = Some(Resources {
+            resources.set(Some(Resources {
                 layout,
                 metrics,
                 label,
                 outline: ctx.create_solid_brush(ColorF::from_rgb8(60, 70, 90))?,
                 accent: ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE)?,
                 white: ctx.create_solid_brush(ColorF::WHITE)?,
-            });
+            }));
         }
 
-        let res = res.borrow();
-        let res = res.as_ref().unwrap();
-
-        let box_rect = Rect::new(MARGIN, MARGIN, ctx.width - MARGIN, ctx.height - MARGIN);
-        ctx.draw_rect(&box_rect, &res.outline, 1.0);
-        ctx.draw_rect(
-            &res.metrics.bounds().offset(MARGIN, MARGIN),
-            &res.accent,
-            1.5,
-        );
-        ctx.draw_text_layout(Vector2::new(MARGIN, MARGIN), &res.layout, &res.white);
-        ctx.draw_text_layout(Vector2::new(MARGIN, 8.0), &res.label, &res.accent);
-        Ok(())
+        resources
+            .with(|resources| {
+                let resources = resources.as_ref().unwrap();
+                let box_rect = Rect::new(MARGIN, MARGIN, ctx.width - MARGIN, ctx.height - MARGIN);
+                ctx.draw_rect(&box_rect, &resources.outline, 1.0);
+                ctx.draw_rect(
+                    &resources.metrics.bounds().offset(MARGIN, MARGIN),
+                    &resources.accent,
+                    1.5,
+                );
+                ctx.draw_text_layout(
+                    Vector2::new(MARGIN, MARGIN),
+                    &resources.layout,
+                    &resources.white,
+                );
+                ctx.draw_text_layout(
+                    Vector2::new(MARGIN, 8.0),
+                    &resources.label,
+                    &resources.accent,
+                );
+                Ok(())
+            })
+            .unwrap()
     })
-    .into()
+    .build()
 }
 
 fn main() -> Result<()> {
-    App::new()
-        .title("Text Layout")
-        .backdrop(Backdrop::Mica)
-        .render(app)
+    let root = component(|cx| {
+        let open = cx.use_state(|| true);
+        let windows = if open.value() {
+            vec![
+                Window::new("Text Layout", component(app), move || {
+                    open.set(false);
+                })
+                .backdrop(WindowBackdrop::Mica)
+                .build()
+                .key(0),
+            ]
+        } else {
+            Vec::new()
+        };
+        Application::new(windows).build()
+    });
+    run_reactor_winui_app(root)
 }

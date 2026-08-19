@@ -1,76 +1,91 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let window_size = cx.use_inner_size();
+use windows_reactor::{
+    Application, Element, Grid, HorizontalAlignment, RenderCx, TextBlock, Thickness,
+    VerticalAlignment, Window, WindowBackdrop, WindowConstraints, WindowSize,
+};
 
-    let mut children = create_arrows();
-    children.push(
-        TextBlock::new(format!(
-            "({}, {})",
-            window_size.width as i32, window_size.height as i32
-        ))
-        .font_size(24.0)
-        .horizontal_alignment(HorizontalAlignment::Center)
-        .vertical_alignment(VerticalAlignment::Center)
-        .into(),
-    );
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let open = cx.use_state(|| true);
+    let size = cx.use_state(|| WindowSize {
+        width: 800.0,
+        height: 600.0,
+    });
+    let current = size.value();
+    let set_size = size;
+    let close = open.clone();
 
-    grid(children)
-        .vertical_alignment(VerticalAlignment::Stretch)
-        .horizontal_alignment(HorizontalAlignment::Stretch)
-        .into()
-}
-
-fn create_arrows() -> Vec<Element> {
-    [
-        (
-            "🢁",
+    let content = Grid::new([
+        arrow(
+            "Up",
             HorizontalAlignment::Center,
             VerticalAlignment::Top,
-            Thickness::xy(0.0, -8.0),
+            Thickness::xy(0.0, 8.0),
         ),
-        (
-            "🢃",
+        arrow(
+            "Down",
             HorizontalAlignment::Center,
             VerticalAlignment::Bottom,
-            Thickness::xy(0.0, -5.0),
+            Thickness::xy(0.0, 8.0),
         ),
-        (
-            "🢀",
+        arrow(
+            "Left",
             HorizontalAlignment::Left,
             VerticalAlignment::Center,
-            Thickness::xy(-2.0, 0.0),
+            Thickness::xy(8.0, 0.0),
         ),
-        (
-            "🢂",
+        arrow(
+            "Right",
             HorizontalAlignment::Right,
             VerticalAlignment::Center,
-            Thickness::xy(-2.0, 0.0),
+            Thickness::xy(8.0, 0.0),
         ),
-    ]
-    .into_iter()
-    .map(|(arrow, halign, valign, margin)| {
-        TextBlock::new(arrow)
+        TextBlock::new(format!("({:.0}, {:.0})", current.width, current.height))
             .font_size(24.0)
-            .horizontal_alignment(halign)
-            .vertical_alignment(valign)
-            .margin(margin)
-            .into()
-    })
-    .collect()
+            .horizontal_alignment(HorizontalAlignment::Center)
+            .vertical_alignment(VerticalAlignment::Center)
+            .build(),
+    ])
+    .build();
+
+    let windows = if open.value() {
+        vec![
+            Window::new("Window Size", content, move || {
+                close.set(false);
+            })
+            .backdrop(WindowBackdrop::Mica)
+            .client_size(800.0, 600.0)
+            .client_constraints(WindowConstraints {
+                min_width: Some(400.0),
+                min_height: Some(300.0),
+                max_width: Some(1200.0),
+                max_height: Some(900.0),
+            })
+            .on_size_changed(move |size| {
+                set_size.set(size);
+            })
+            .build(),
+        ]
+    } else {
+        Vec::new()
+    };
+    Application::new(windows).build()
 }
 
-fn main() -> Result<()> {
-    bootstrap()?;
-    App::new()
-        .title("Sample")
-        .backdrop(Backdrop::Mica)
-        .inner_size(800.0, 600.0)
-        .inner_constraints(InnerConstraints {
-            min_width: Some(400.0),
-            min_height: Some(300.0),
-            max_height: Some(900.0),
-            max_width: Some(1200.0),
-        })
-        .render(app)
+fn arrow(
+    label: &'static str,
+    horizontal: HorizontalAlignment,
+    vertical: VerticalAlignment,
+    margin: Thickness,
+) -> Element {
+    TextBlock::new(label)
+        .font_size(24.0)
+        .horizontal_alignment(horizontal)
+        .vertical_alignment(vertical)
+        .margin(margin)
+        .build()
+}
+
+fn main() -> windows_core::Result<()> {
+    reactor_samples::run_application(app)
 }

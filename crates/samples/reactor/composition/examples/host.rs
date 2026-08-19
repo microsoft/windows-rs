@@ -1,7 +1,7 @@
 #![windows_subsystem = "windows"]
 
 use windows_composition::{Color, ContainerVisual, SpriteVisual};
-use windows_reactor::*;
+use windows_reactor::{CompositionContent, CompositionHost, Element, RenderCx};
 
 struct Scene {
     root: ContainerVisual,
@@ -10,9 +10,7 @@ struct Scene {
 }
 
 impl Scene {
-    fn build(host: &CompositionHostHandle) -> Result<Self> {
-        let compositor = host.compositor()?;
-
+    fn new(compositor: &windows_composition::Compositor) -> Self {
         let root = compositor.create_container_visual();
         let background = compositor.create_sprite_visual();
         background.set_brush(&compositor.create_color_brush(Color::rgb(24, 24, 32)));
@@ -23,44 +21,39 @@ impl Scene {
         square.set_brush(&compositor.create_color_brush(Color::rgb(0, 120, 215)));
         root.children().insert_at_top(&square);
 
-        host.set_child_visual(&root)?;
-        let scene = Self {
+        Self {
             root,
             background,
             square,
-        };
-        scene.layout(400.0, 300.0)?;
-        Ok(scene)
+        }
     }
 
-    fn layout(&self, width: f32, height: f32) -> Result<()> {
+    fn layout(&self, width: f32, height: f32) {
         self.root.set_size(width, height);
         self.background.set_size(width, height);
         let size = self.square.size();
         self.square
             .set_offset((width - size.x) / 2.0, (height - size.y) / 2.0, 0.0);
-        Ok(())
     }
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let scene = cx.use_ref::<Option<Scene>>(None);
-    composition_host()
-        .on_mounted({
-            let scene = scene.clone();
-            move |host| match Scene::build(&host) {
-                Ok(built) => scene.set(Some(built)),
-                Err(e) => eprintln!("composition init failed: {e}"),
-            }
-        })
-        .on_resize(move |w, h| {
-            if let Some(scene) = scene.borrow().as_ref() {
-                scene.layout(w as f32, h as f32).unwrap();
-            }
-        })
-        .into()
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let host = cx.use_composition_host_ref::<Scene>();
+    CompositionHost::new(
+        &host,
+        |compositor| {
+            let scene = Scene::new(compositor);
+            let root = scene.root.clone();
+            Ok(CompositionContent::new(scene, root))
+        },
+        |scene, layout| {
+            scene.layout(layout.width, layout.height);
+            Ok(())
+        },
+    )
+    .build()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_composition::run("Composition Host", app)
 }

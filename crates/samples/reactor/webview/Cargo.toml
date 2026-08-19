@@ -5,8 +5,9 @@ edition = "2024"
 publish = false
 
 [dependencies]
-windows-reactor = { workspace = true }
-windows-webview = { workspace = true, features = ["reactor"] }
+reactor_samples = { path = "../samples" }
+windows-core.workspace = true
+windows-reactor = { workspace = true, features = ["webview"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }

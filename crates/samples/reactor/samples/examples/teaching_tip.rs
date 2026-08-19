@@ -1,41 +1,49 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (is_open, set_is_open) = cx.use_state(false);
-    let (status, set_status) = cx.use_state(String::from("(tip closed)"));
+use windows_reactor::{Button, Element, RenderCx, TeachingTip, TextBlock, vstack};
 
-    vstack((
-        button("Show Teaching Tip").on_click({
-            let set_is_open = set_is_open.clone();
-            move || set_is_open.call(true)
-        }),
-        text_block(format!("Status: {status}")),
-        teaching_tip("Welcome!")
-            .subtitle("This is a teaching tip with action and close buttons.")
-            .is_open(is_open)
-            .light_dismiss()
-            .preferred_placement(TeachingTipPlacementMode::Bottom)
-            .action_button("Got it")
-            .close_button("Dismiss")
-            .on_action_button_click({
-                let set_status = set_status.clone();
-                move || {
-                    set_status.call(String::from("Action button clicked!"));
-                }
-            })
-            .on_closed({
-                let set_status = set_status;
-                let set_is_open = set_is_open;
-                move || {
-                    set_is_open.call(false);
-                    set_status.call(String::from("Tip was closed/dismissed"));
-                }
-            }),
-    ))
-    .spacing(12.0)
-    .into()
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let open = cx.use_state(|| false);
+    let status = cx.use_state(|| "(tip closed)".to_string());
+    let current_open = open.value();
+    let current_status = status.value();
+    let show = open.clone();
+    let close = open;
+    let action_status = status.clone();
+    let close_status = status;
+
+    let owner = Button::new("Show Teaching Tip")
+        .on_click(move || {
+            show.set(true);
+        })
+        .build()
+        .teaching_tip(
+            TeachingTip::new("Welcome!")
+                .subtitle("This teaching tip has action and close buttons.")
+                .open(current_open)
+                .light_dismiss(true)
+                .action_button("Got it")
+                .close_button("Dismiss")
+                .on_action_button_click(move || {
+                    action_status.set("Action button clicked".to_string());
+                })
+                .on_closed(move || {
+                    close.set(false);
+                    close_status.set("Tip was closed".to_string());
+                }),
+        );
+
+    vstack(
+        12.0,
+        [
+            owner,
+            TextBlock::new(format!("Status: {current_status}"))
+                .automation_id("teaching-tip-status")
+                .build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("TeachingTip", app)
 }

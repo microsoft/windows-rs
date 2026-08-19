@@ -110,7 +110,8 @@ Style:
   instead of `link!`. The `windows-sys` crate uses this style.
 - `--minimal` or `.minimal()` starts from default style. It omits per-class wrappers, inherited
   forwarders, handle helpers, and free-function wrappers. Use it for small binding sets.
-  `windows-canvas` and `windows-reactor` use it. It is mutually exclusive with `--sys`.
+  `windows-canvas` uses it, and `windows-reactor` uses generated minimal bindings as private ABI
+  support. It is mutually exclusive with `--sys`.
 
 WinRT event accessors are always collapsed into an `Event` wrapper. This applies to all styles and
 layouts. See [Event accessors](#event-accessors).
@@ -149,7 +150,7 @@ The style and layout choices are independent. The repository uses only the combi
 | default + `--package` | Published umbrella crate                         | `windows`                                 |
 | `--sys` + `--flat`    | Raw FFI helper crate with one bindings file      | `windows-result`, `windows-registry`      |
 | `--sys` + `--package` | Published raw FFI crate                          | `windows-sys`                             |
-| `--minimal` + `--flat`| Small binding set                                | `windows-core`, `windows-canvas`, `windows-reactor` |
+| `--minimal --flat` | Small binding set | `windows-core`, `windows-canvas` |
 | any + modules         | Namespace-per-module output for direct consumers | External binding generation               |
 
 `--minimal` and `--package` are not used together. Minimal output targets small binding sets.

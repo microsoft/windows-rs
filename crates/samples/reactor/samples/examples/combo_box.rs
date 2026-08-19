@@ -1,41 +1,47 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (selected, set_selected) = cx.use_state(-1_i32);
+use windows_reactor::{ComboBox, Element, RenderCx, StackPanel, TextBlock};
 
-    let update_selected = move |i: i32| set_selected.call(i);
-
-    let colors = ["Red", "Green", "Blue"];
-    let label = if selected >= 0 {
-        colors
-            .get(selected as usize)
-            .copied()
-            .unwrap_or("(out of range)")
-    } else {
-        "(none)"
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let selected = cx.use_state(|| None::<u64>);
+    let animal = cx.use_state(|| None::<u64>);
+    let current = selected.value();
+    let current_animal = animal.value();
+    let label = match current {
+        Some(1) => "Red",
+        Some(2) => "Green",
+        Some(3) => "Blue",
+        _ => "(none)",
     };
 
-    vstack((
-        ComboBox::new(colors)
-            .header("Color")
-            .placeholder_text("Pick a color")
-            .selected_index(selected)
-            .on_selection_changed(update_selected),
-        text_block(format!("selected_index = {selected} ({label})")),
-        ComboBox::new(["Cat", "Dog", "Fox"])
-            .header("Editable")
-            .placeholder_text("Type or pick an animal")
-            .editable(true),
-        ComboBox::new(["A", "B", "C"])
+    StackPanel::new([
+        ComboBox::new([(1, "Red"), (2, "Green"), (3, "Blue")], move |value| {
+            selected.set(value);
+        })
+        .header("Color")
+        .placeholder_text("Pick a color")
+        .selected_key(current)
+        .build(),
+        TextBlock::new(format!("selected = {current:?} ({label})")).build(),
+        ComboBox::new([(10, "Cat"), (20, "Dog"), (30, "Fox")], move |value| {
+            animal.set(value);
+        })
+        .header("Editable")
+        .placeholder_text("Type or pick an animal")
+        .editable(true)
+        .selected_key(current_animal)
+        .build(),
+        ComboBox::display([(100, "A"), (200, "B"), (300, "C")])
             .header("Disabled")
-            .selected_index(0)
-            .enabled(false),
-    ))
+            .selected_key(Some(100))
+            .enabled(false)
+            .build(),
+    ])
     .spacing(8.0)
     .max_width(320.0)
-    .into()
+    .build()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("ComboBox", app)
 }

@@ -1,20 +1,36 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (rating, set_rating) = cx.use_state(3.0_f64);
+use windows_reactor::{Element, RatingControl, RenderCx, TextBlock, vstack};
 
-    let update = move |v: f64| set_rating.call(v);
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let rating = cx.use_state(|| 3.0_f64);
+    let extended = cx.use_state(|| 4.0_f64);
+    let current = rating.value();
+    let current_extended = extended.value();
 
-    vstack((
-        RatingControl::new(rating).on_value_changed(update),
-        text_block(format!("Rating: {rating:.1} / 5")),
-        RatingControl::new(4.0).max_rating(10).caption("Out of 10"),
-        RatingControl::new(2.5).read_only(),
-    ))
-    .spacing(8.0)
-    .into()
+    vstack(
+        8.0,
+        [
+            RatingControl::new(current, move |value| {
+                if let Some(value) = value {
+                    rating.set(value);
+                }
+            })
+            .build(),
+            TextBlock::new(format!("Rating: {current:.1} / 5")).build(),
+            RatingControl::new(current_extended, move |value| {
+                if let Some(value) = value {
+                    extended.set(value);
+                }
+            })
+            .max_rating(10)
+            .caption("Out of 10")
+            .build(),
+            RatingControl::display(2.5).build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("RatingControl", app)
 }

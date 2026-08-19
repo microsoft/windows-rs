@@ -1,5 +1,6 @@
 use std::io::Write;
 use windows_bindgen::builder;
+use windows_clang::nuget_package;
 
 const FILTER: &str = "crates/tools/composition/src/composition.txt";
 
@@ -19,16 +20,17 @@ fn main() {
         .filter_file(FILTER)
         .write();
 
-    // Lifted stack: Microsoft.UI.Composition (Microsoft.UI.winmd) mirrors the system
-    // API, so the same wrapper source compiles against it. The filter is derived from
-    // the one above by dropping system-only regions and rewriting the namespace, so a
-    // single filter stays the source of truth for both stacks. Windows.winmd resolves
-    // the shared foundation types (Color, TimeSpan, IVector, numerics).
+    // Lifted stack: Microsoft.UI.Composition mirrors the system API, so the same wrapper source
+    // compiles against it. Resolve the matching Windows App SDK metadata from the runtime pin.
+    // Windows.winmd resolves the shared foundation types (Color, TimeSpan, IVector, numerics).
     let lifted_filter = write_lifted_filter();
+    let metadata = helpers::windows_app_sdk_metadata(nuget_package);
     builder()
         .inputs([
-            "crates/tools/reactor/winmd/Microsoft.UI.winmd",
-            "crates/libs/default/Windows.winmd",
+            metadata.foundation,
+            metadata.interactive,
+            metadata.winui,
+            "crates/libs/default/Windows.winmd".into(),
         ])
         .output("crates/libs/composition/src/bindings_lifted.rs")
         .minimal()

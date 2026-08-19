@@ -1,7 +1,11 @@
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
-use windows_reactor::*;
+use windows_reactor::{
+    Application, Button, CanvasInvalidator, Grid, GridChild, GridLength, HookRef, Orientation,
+    RenderCx, StackPanel, Thickness, Window, WindowBackdrop, component, run_reactor_winui_app,
+    swap_chain_canvas_invalidated,
+};
 
 #[derive(Clone, Copy, PartialEq)]
 enum Kind {
@@ -75,116 +79,151 @@ impl Model {
     }
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let model = cx.use_ref(Model::new());
-    let inv = cx.use_invalidator();
+fn app(cx: &mut RenderCx<'_>) -> windows_reactor::Element {
+    let model = cx.use_ref(Model::new);
+    let invalidator = cx.use_canvas_invalidator();
 
-    let on_pressed = cx.use_callback((), {
-        let (model, inv) = (model.clone(), inv.clone());
-        move |info: PointerEventInfo| {
-            let (x, y) = (info.x as f32, info.y as f32);
-            let mut m = model.borrow_mut();
-            let hit = m.hit(x, y);
+    let pressed_model = model.clone();
+    let pressed_invalidator = invalidator.clone();
+    let on_pressed = move |event: windows_reactor::PointerEvent| {
+        let (x, y) = (event.x, event.y);
+        pressed_model.with_mut(|model| {
+            let hit = model.hit(x, y);
 
-            if info.is_right_button_pressed {
-                if let Some(i) = hit {
-                    m.shapes.remove(i);
-                    m.selected = None;
-                    m.drag_offset = None;
+            if event.is_right_button_pressed {
+                if let Some(index) = hit {
+                    model.shapes.remove(index);
+                    model.selected = None;
+                    model.drag_offset = None;
                 }
-                inv.invalidate();
                 return;
             }
 
-            if let Some(i) = hit {
-                let (sx, sy) = (m.shapes[i].x, m.shapes[i].y);
-                m.selected = Some(i);
-                m.drag_offset = Some((x - sx, y - sy));
+            if !event.is_left_button_pressed {
+                return;
+            }
+
+            if let Some(index) = hit {
+                let shape = &model.shapes[index];
+                model.selected = Some(index);
+                model.drag_offset = Some((x - shape.x, y - shape.y));
             } else {
-                let kind = m.kind;
-                let color = palette(m.next_color);
-                m.next_color += 1;
-                m.shapes.push(Shape::new(kind, x, y, color));
-                m.selected = Some(m.shapes.len() - 1);
-                m.drag_offset = Some((0.0, 0.0));
+                let color = palette(model.next_color);
+                model.next_color += 1;
+                model.shapes.push(Shape::new(model.kind, x, y, color));
+                model.selected = Some(model.shapes.len() - 1);
+                model.drag_offset = Some((0.0, 0.0));
             }
-            inv.invalidate();
-        }
-    });
+        });
+        pressed_invalidator.invalidate();
+    };
 
-    let on_moved = cx.use_callback((), {
-        let (model, inv) = (model.clone(), inv.clone());
-        move |info: PointerEventInfo| {
-            if !info.is_left_button_pressed {
-                return;
-            }
-            let mut m = model.borrow_mut();
-            if let (Some(i), Some((ox, oy))) = (m.selected, m.drag_offset)
-                && let Some(s) = m.shapes.get_mut(i)
-            {
-                s.x = info.x as f32 - ox;
-                s.y = info.y as f32 - oy;
-                drop(m);
-                inv.invalidate();
-            }
+    let moved_model = model.clone();
+    let moved_invalidator = invalidator.clone();
+    let on_moved = move |event: windows_reactor::PointerEvent| {
+        if !event.is_left_button_pressed {
+            moved_model.with_mut(|model| model.drag_offset = None);
+            return;
         }
-    });
+        let moved = moved_model
+            .with_mut(|model| {
+                if let (Some(index), Some((offset_x, offset_y))) =
+                    (model.selected, model.drag_offset)
+                    && let Some(shape) = model.shapes.get_mut(index)
+                {
+                    shape.x = event.x - offset_x;
+                    shape.y = event.y - offset_y;
+                    true
+                } else {
+                    false
+                }
+            })
+            .unwrap_or(false);
+        if moved {
+            moved_invalidator.invalidate();
+        }
+    };
 
-    let on_released = cx.use_callback((), {
-        let model = model.clone();
-        move |_: PointerEventInfo| model.borrow_mut().drag_offset = None
-    });
+    let released_model = model.clone();
+    let on_released = move |_: windows_reactor::PointerEvent| {
+        released_model.with_mut(|model| model.drag_offset = None);
+    };
+    let lost_model = model.clone();
+    let on_capture_lost = move |_: windows_reactor::PointerEvent| {
+        lost_model.with_mut(|model| model.drag_offset = None);
+    };
+    let canceled_model = model.clone();
+    let on_canceled = move |_: windows_reactor::PointerEvent| {
+        canceled_model.with_mut(|model| model.drag_offset = None);
+    };
 
     let margin = 16.0;
+    let draw_model = model.clone();
+    let drawing_surface =
+        swap_chain_canvas_invalidated(&invalidator, move |ctx| draw(ctx, &draw_model))
+            .on_pointer_pressed(on_pressed)
+            .on_pointer_moved(on_moved)
+            .on_pointer_released(on_released)
+            .on_pointer_capture_lost(on_capture_lost)
+            .on_pointer_canceled(on_canceled)
+            .capture_pointer_on_press()
+            .margin(Thickness {
+                left: margin,
+                top: margin,
+                right: margin,
+                bottom: 0.0,
+            })
+            .build();
 
-    grid((
-        canvas_invalidated(&inv, {
-            let model = model.clone();
-            move |ctx| draw(ctx, &model)
-        })
-        .on_pointer_pressed(on_pressed)
-        .on_pointer_moved(on_moved)
-        .on_pointer_released(on_released)
-        .margin(Thickness {
-            left: margin,
-            top: margin,
-            right: margin,
-            bottom: 0.0,
-        })
-        .grid_row(0),
-        hstack((
-            tool_button(&model, &inv, Kind::Rectangle),
-            tool_button(&model, &inv, Kind::Triangle),
-            tool_button(&model, &inv, Kind::Star),
-            button("Clear").on_click({
-                let (model, inv) = (model.clone(), inv.clone());
-                move || {
-                    let mut m = model.borrow_mut();
-                    m.shapes.clear();
-                    m.selected = None;
-                    m.drag_offset = None;
-                    drop(m);
-                    inv.invalidate();
-                }
-            }),
-        ))
-        .spacing(8.0)
-        .margin(Thickness::uniform(margin))
-        .grid_row(1),
-    ))
+    Grid::new([
+        GridChild::new(drawing_surface).row(0),
+        GridChild::new(
+            StackPanel::new([
+                tool_button(&model, &invalidator, Kind::Rectangle),
+                tool_button(&model, &invalidator, Kind::Triangle),
+                tool_button(&model, &invalidator, Kind::Star),
+                Button::new("Clear")
+                    .on_click({
+                        let model = model.clone();
+                        let invalidator = invalidator.clone();
+                        move || {
+                            model.with_mut(|model| {
+                                model.shapes.clear();
+                                model.selected = None;
+                                model.drag_offset = None;
+                            });
+                            invalidator.invalidate();
+                        }
+                    })
+                    .build(),
+            ])
+            .orientation(Orientation::Horizontal)
+            .spacing(8.0)
+            .margin(Thickness::uniform(margin))
+            .build(),
+        )
+        .row(1),
+    ])
     .rows([GridLength::STAR, GridLength::Auto])
-    .into()
+    .build()
 }
 
-fn tool_button(model: &HookRef<Model>, inv: &Invalidator, kind: Kind) -> Button {
-    let (model, inv) = (model.clone(), inv.clone());
-    button(kind.label()).on_click(move || {
-        model.borrow_mut().kind = kind;
-        inv.invalidate();
-    })
+fn tool_button(
+    model: &HookRef<Model>,
+    invalidator: &CanvasInvalidator,
+    kind: Kind,
+) -> windows_reactor::Element {
+    let model = model.clone();
+    let invalidator = invalidator.clone();
+    Button::new(kind.label())
+        .on_click(move || {
+            model.with_mut(|model| model.kind = kind);
+            invalidator.invalidate();
+        })
+        .build()
 }
 
-fn draw(ctx: &DrawContext<'_>, model: &HookRef<Model>) -> Result<()> {
+fn draw(ctx: &windows_reactor::CanvasDrawContext<'_>, model: &HookRef<Model>) -> Result<()> {
     ctx.clear(ColorF::new(0.11, 0.12, 0.16, 1.0));
 
     let grid_brush = ctx.create_solid_brush(ColorF::new(1.0, 1.0, 1.0, 0.06))?;
@@ -211,43 +250,51 @@ fn draw(ctx: &DrawContext<'_>, model: &HookRef<Model>) -> Result<()> {
     }
 
     let device_changed = ctx.device_changed();
-    let mut m = model.borrow_mut();
-    let selected = m.selected;
+    model
+        .with_mut(|model| {
+            let selected = model.selected;
 
-    for (i, s) in m.shapes.iter_mut().enumerate() {
-        if device_changed || s.built_at != Some((s.x, s.y)) {
-            s.path = build_path(ctx.device(), s.kind, s.x, s.y).ok();
-            s.built_at = Some((s.x, s.y));
-        }
-        let Some(path) = &s.path else {
-            continue;
-        };
+            for (index, shape) in model.shapes.iter_mut().enumerate() {
+                if device_changed || shape.built_at != Some((shape.x, shape.y)) {
+                    shape.path = build_path(ctx.device(), shape.kind, shape.x, shape.y).ok();
+                    shape.built_at = Some((shape.x, shape.y));
+                }
+                let Some(path) = &shape.path else {
+                    continue;
+                };
 
-        let brush = ctx.create_solid_brush(s.color)?;
-        ctx.fill_path(path, &brush);
+                let brush = ctx.create_solid_brush(shape.color)?;
+                ctx.fill_path(path, &brush);
 
-        if Some(i) == selected {
+                if Some(index) == selected {
+                    let brush = ctx.create_solid_brush(ColorF::WHITE)?;
+                    let bounds = path.compute_bounds();
+                    let pad = 4.0;
+                    ctx.draw_rect(
+                        &Rect::new(
+                            bounds.left - pad,
+                            bounds.top - pad,
+                            bounds.right + pad,
+                            bounds.bottom + pad,
+                        ),
+                        &brush,
+                        1.5,
+                    );
+                }
+            }
+
+            let format = TextFormat::with_weight("Segoe UI", 16.0, FontWeight::BOLD)?;
             let brush = ctx.create_solid_brush(ColorF::WHITE)?;
-            let b = path.compute_bounds();
-            let pad = 4.0;
-            ctx.draw_rect(
-                &Rect::new(b.left - pad, b.top - pad, b.right + pad, b.bottom + pad),
-                &brush,
-                1.5,
+            let label = format!(
+                "{} shape(s) - tool: {} - click to add, left-drag to move, right-click to delete",
+                model.shapes.len(),
+                model.kind.label()
             );
-        }
-    }
-
-    let format = TextFormat::with_weight("Segoe UI", 16.0, FontWeight::BOLD)?;
-    let brush = ctx.create_solid_brush(ColorF::WHITE)?;
-    let label = format!(
-        "{} shape(s)  ·  tool: {}  ·  click to add, left-drag to move, right-click to delete",
-        m.shapes.len(),
-        m.kind.label()
-    );
-    let rect = Rect::new(12.0, ctx.height - 30.0, ctx.width, ctx.height);
-    ctx.draw_text(&label, &format, &rect, &brush);
-    Ok(())
+            let rect = Rect::new(12.0, ctx.height - 30.0, ctx.width, ctx.height);
+            ctx.draw_text(&label, &format, &rect, &brush);
+            Ok(())
+        })
+        .unwrap()
 }
 
 const SIZE: f32 = 38.0;
@@ -296,8 +343,21 @@ fn palette(i: usize) -> ColorF {
 }
 
 fn main() -> Result<()> {
-    App::new()
-        .title("Canvas editor")
-        .backdrop(Backdrop::Mica)
-        .render(app)
+    let root = component(|cx| {
+        let open = cx.use_state(|| true);
+        let windows = if open.value() {
+            vec![
+                Window::new("Canvas editor", component(app), move || {
+                    open.set(false);
+                })
+                .backdrop(WindowBackdrop::Mica)
+                .build()
+                .key(0),
+            ]
+        } else {
+            Vec::new()
+        };
+        Application::new(windows).build()
+    });
+    run_reactor_winui_app(root)
 }

@@ -1,33 +1,40 @@
 #![windows_subsystem = "windows"]
 
-use windows_reactor::*;
+use windows_reactor::{
+    Button, Element, RenderCx, StackPanel, TextBlock, Thickness, component, memo_component, vstack,
+};
 
-fn counter(_props: &(), cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0_u32);
-
-    vstack((
-        text_block(format!("count = {count}")).font_size(20.0),
-        button("Increment").on_click(move || set_count.call(count + 1)),
-    ))
-    .spacing(8.0)
-    .into()
+fn counter() -> Element {
+    component(|cx| {
+        let count = cx.use_state(|| 0_u32);
+        let current = count.value();
+        vstack(
+            8.0,
+            [
+                TextBlock::new(format!("count = {current}"))
+                    .font_size(20.0)
+                    .build(),
+                Button::new("Increment")
+                    .on_click(move || {
+                        count.update(|value| *value += 1);
+                    })
+                    .build(),
+            ],
+        )
+    })
 }
 
-fn pass_through(_props: &(), _cx: &mut RenderCx) -> Element {
-    component(counter, ())
-}
-
-fn app(_cx: &mut RenderCx) -> Element {
-    vstack((
-        text_block("The memoized wrapper returns the stateful component directly."),
-        text_block("Clicking Increment must continue to update the count."),
-        memo(pass_through, ()),
-    ))
+fn app(_cx: &mut RenderCx<'_>) -> Element {
+    StackPanel::new([
+        TextBlock::new("The memoized wrapper returns the stateful component directly.").build(),
+        TextBlock::new("Clicking Increment must continue to update the count.").build(),
+        memo_component((), |_| counter()),
+    ])
     .spacing(12.0)
     .padding(Thickness::uniform(16.0))
-    .into()
+    .build()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("PassThroughComponent", app)
 }

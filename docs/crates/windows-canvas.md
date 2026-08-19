@@ -2,11 +2,11 @@
 
 > A safe, fast 2D graphics library backed by Direct2D, Direct3D 11, DXGI, DirectWrite, and WIC.
 
-- 📦 [crates.io](https://crates.io/crates/windows-canvas)
-- 📖 [docs.rs](https://docs.rs/windows-canvas)
-- 🚀 [Getting started](../../crates/libs/canvas/readme.md)
-- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/canvas)
-- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas)
+- [crates.io](https://crates.io/crates/windows-canvas)
+- [docs.rs](https://docs.rs/windows-canvas)
+- [Getting started](../../crates/libs/canvas/readme.md)
+- [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/canvas)
+- [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas)
 
 `windows-canvas` wraps the DirectX graphics stack behind safe Rust types. A `GpuDevice` owns the
 Direct3D and Direct2D devices. From it, you create a `SwapChain` to present frames. Each frame,
@@ -16,12 +16,13 @@ Use it inside a [`windows-reactor`](windows-reactor.md) window, or use it with y
 
 ## Getting started inside a reactor window
 
-Enable the reactor `canvas` feature. Then call `animated_canvas(draw)`. It returns a
-`SwapChainPanel` element. The element creates the device and swap chain. It handles resize, DPI
-changes, and device loss.
+Enable the reactor `canvas` feature. Then call `animated_canvas(draw)` and build the returned
+`SwapChainCanvas`. The element creates the device and swap chain. It handles resize, DPI changes,
+and device loss.
 
-The closure receives a `DrawContext` and returns `Result<()>`, so resource creation inside it can
-use `?`. It derefs to the frame `DrawingSession`, so all drawing methods are available on `ctx`.
+The closure receives a `CanvasDrawContext` and returns `Result<()>`, so resource creation inside it
+can use `?`. It derefs to the frame `DrawingSession`, so all drawing methods are available on
+`ctx`.
 
 ```toml
 [dependencies]
@@ -34,23 +35,24 @@ See the reactor canvas samples for a complete animated drawing loop.
 `ctx.width` and `ctx.height` give the surface size in DIPs. Use `ctx.device()` and
 `ctx.device_changed()` for cached resources. Recreate bitmaps and brushes when the device changes.
 
-For content that changes with its size rather than every frame - text, a chart, a diagram - use
-`canvas(draw)` instead. It manages the device, swap chain, resize, DPI, and device loss exactly like
-`animated_canvas`, but calls `draw` only on the first layout and when the surface resizes or the
-display scale changes. When the window is idle, no GPU work happens.
+For content that changes with its size rather than every frame - text, a chart, or a diagram - use
+`swap_chain_canvas(draw)` instead. It manages the device, swap chain, resize, DPI, and device loss
+like `animated_canvas`, but draws only on first layout and when the surface size or display scale
+changes. When the window is idle, no GPU work happens.
 
-Use `canvas` for content that changes only when its size or scale changes.
+Use `swap_chain_canvas` for content that changes only when its size or scale changes.
 
 Because `draw` runs only on resize, size-dependent resources such as a `TextLayout` fitted to the
-client area can be shaped once and cached in a `use_ref`, then rebuilt only when `device_changed`
-reports a resize or device loss. See the `text_layout` sample.
+client area can be shaped once and cached in a `use_ref`, then rebuilt when `surface_changed()` or
+`device_changed()` reports a new surface or device. See the `text_layout` sample.
 
 When content changes with app state rather than size, drive repaints with
-`canvas_invalidated(&inv, draw)`. Keep drawing state in a `use_ref`, mutate it in an event handler,
-then call `inv.invalidate()` to schedule one repaint. Mutating a `use_ref` does not reconcile the
-tree. Get a stable invalidator from `cx.use_invalidator()`:
+`swap_chain_canvas_invalidated(&invalidator, draw)`. Keep drawing state in a `use_ref`, mutate it in
+an event handler, then call `invalidator.invalidate()` to schedule one repaint. Mutating a
+`use_ref` does not reconcile the tree. Get a stable invalidator from
+`cx.use_canvas_invalidator()`.
 
-Use `canvas_invalidated` when event handlers mutate drawing state between renders.
+Use `swap_chain_canvas_invalidated` when event handlers mutate drawing state between renders.
 
 The `invalidate` sample draws this way, and the `editor` and `hit_test` samples use the same pattern
 to repaint only in response to pointer input.
@@ -64,29 +66,19 @@ For a raw handle from another source, `create_swap_chain_for_hwnd` is the `unsaf
 
 The standalone canvas samples show swap-chain creation, drawing, presentation, and resize handling.
 
-On resize, call `chain.resize(width, height)`. Use `chain.set_dpi(..)` and
-`chain.set_composition_scale(..)` for sharp output. `chain.is_device_lost()` reports device loss.
+On resize, call `chain.resize(width, height)`. Use `chain.set_dpi(..)?` and
+`chain.set_composition_scale(..)?` for sharp output. Both operations report target or matrix
+failures. `chain.is_device_lost()` reports device loss.
 
-## Getting started with an on-demand surface
+## Getting started with an on-demand image
 
-`animated_canvas` presents a new frame each vsync. Use `CanvasImageSource` for static content. It
-redraws only when you call `draw`.
+Use `canvas_image(draw)` for static content displayed through a WinUI `SurfaceImageSource`.
+`canvas_image_invalidated(&invalidator, draw)` adds explicit repaint control. Both return a
+`CanvasImage` builder with normal Reactor framework properties.
 
-Enable the reactor `canvas` feature. Create a `CanvasImageSource` from a device that you own.
-Display it with a reactor `Image` widget.
-
-`CanvasImageSource` draws on demand and exposes an image source for reactor's `Image` widget.
-
-`new(device, width, height, scale)` takes a size in DIPs. It uses the host DPI scale to allocate
-physical pixels. Drawing inside `draw` uses DIPs and origin `(0, 0)`.
-
-`draw` returns `Ok(false)` on device loss. Create a new `GpuDevice`, call `set_device`, and draw
-again.
-
-Get the `scale` from the reactor `Image`. `Image::on_mounted` returns an `ImageHandle`.
-`ImageHandle::on_rasterization_scale_changed` reports the host DPI scale. Rebuild the surface when
-the scale changes. See the `image_source` sample. For a full-window surface that resizes with the
-window, prefer `canvas`, which handles the device, swap chain, resize, and DPI for you.
+The element owns the device, surface, DPI handling, subscriptions, and device-loss recovery.
+Drawing uses DIPs with origin `(0, 0)`. See the `canvas/image_source` sample. For a full-window
+surface, prefer `swap_chain_canvas`.
 
 ## Getting started with a composition surface
 
@@ -188,8 +180,8 @@ tree contains these samples:
 - **`samples`**: runs focused drawing examples in a reactor window.
 - **`circles`**: animates circles and reuses brushes.
 - **`clock`**: draws an animated analog clock with transforms and shadows.
-- **`image_source`**: redraws a `CanvasImageSource` only when data changes.
-- **`chart`**: hosts an on-demand swap chain on a `SwapChainPanel`.
+- **`image_source`**: redraws `canvas_image_invalidated` only when data changes.
+- **`chart`**: hosts an invalidated swap-chain canvas.
 - **`readback`**: renders off-screen and reads pixels back to the CPU.
 - **`hit_test`**: tests whether the pointer is inside a filled `Path`, repainting on demand.
 - **`editor`**: combines reactor pointer events with canvas geometry queries, repainting on demand.
@@ -198,7 +190,7 @@ tree contains these samples:
 
 The `samples` crate also has focused single-file examples under
 [`samples/examples`](../../crates/samples/canvas/samples/examples), including `invalidate`, which
-links clicked points with a line and repaints only when `Invalidator::invalidate` is called.
+links clicked points with a line and repaints only when `CanvasInvalidator::invalidate` is called.
 
 ---
 
@@ -227,12 +219,13 @@ The reactor integration lives in [`windows-reactor`](windows-reactor.md). It is 
   thread that owns the swap chain.
 - **Continuous rendering:** `animated_canvas` drives frames on the UI thread with
   `CompositionTarget::Rendering`.
-- **Demand-driven rendering:** `canvas` repaints only on resize and DPI change; `canvas_invalidated`
-  adds an `Invalidator` for state-driven repaints. Both stay idle otherwise.
-- **On-demand image source:** `CanvasImageSource` draws into a WinUI `SurfaceImageSource` only when
-  requested. It uses a borrowed `DrawingSession`.
+- **Demand-driven rendering:** `swap_chain_canvas` repaints on first layout, resize, and DPI
+  change. `swap_chain_canvas_invalidated` adds state-driven repaints.
+- **On-demand image source:** `canvas_image` draws into a WinUI `SurfaceImageSource`.
 - **Composition bridge:** `CanvasCompositionExt::draw` draws Direct2D content into a
   `CompositionDrawingSurface`. It also uses a borrowed `DrawingSession`.
+- **Draw completion:** `DrawingSession::finish` reports `EndDraw` failures. `Drop` still closes an
+  unfinished owned session as a fallback.
 - **Device-lost recovery:** `device_lost.rs` classifies DXGI and D2D loss codes. `EndDraw` and
   `Present` set a flag. The next frame recreates the device and resources.
 - **WARP fallback:** `GpuDevice::new_or_warp()` tries hardware first. It falls back to the WARP
@@ -242,9 +235,10 @@ The reactor integration lives in [`windows-reactor`](windows-reactor.md). It is 
 
 ### Reactor integration
 
-The reactor harness lives in [`windows-reactor`](windows-reactor.md). It exports `animated_canvas`,
-`canvas`, `canvas_invalidated`, `Invalidator`, `CanvasImageSource`, `CanvasSwapChain`, and
-`DrawContext` under the reactor `canvas` feature.
+The reactor harness lives in [`windows-reactor`](windows-reactor.md). Under the `canvas` feature it
+exports `animated_canvas`, `swap_chain_canvas`, `swap_chain_canvas_invalidated`, `canvas_image`,
+`canvas_image_invalidated`, `CanvasInvalidator`, `SwapChainCanvas`, `CanvasImage`,
+`CanvasDrawContext`, and `SwapChainHost`.
 
 The dependency direction is `windows-reactor[canvas]` to `windows-canvas`. Reactor owns the WinUI
 element harness. That includes `SwapChainPanel`, `SurfaceImageSource`, the render loop, resize, DPI,

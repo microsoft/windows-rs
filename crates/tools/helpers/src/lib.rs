@@ -1,12 +1,12 @@
 use serde::Deserialize;
 use std::cmp::Ordering;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
 #[derive(Deserialize)]
 pub struct Crate {
     pub package: Package,
     pub lints: Option<Lints>,
-    pub path: Option<std::path::PathBuf>,
+    pub path: Option<PathBuf>,
 }
 
 impl PartialEq for Crate {
@@ -80,11 +80,10 @@ fn find<P: AsRef<Path>>(path: P) -> Vec<Crate> {
 /// Reads the string value of a `const NAME: &str = "…";` (or `pub const`) declaration from a
 /// Rust source file. Panics loudly if the file cannot be read or the constant is not found.
 ///
-/// This is the single shared mechanism for the *paired* dependency-pin validators: a pin is
-/// declared as an ordinary constant in exactly one crate (its owner), and any other tool that
-/// must stay in lock-step reads it back from source and asserts agreement - e.g. `tool_reactor`
-/// reads `windows-reactor-setup`'s `RUNTIME_VER` / `WEBVIEW2_VER`, and reads the pinned WebView2
-/// version back from `tool_webview`. Keeping one reader keeps every such check consistent.
+/// This is the single shared mechanism for paired dependency-pin validators: a pin is declared as
+/// an ordinary constant in exactly one crate (its owner), and any other tool that must stay in
+/// lock-step reads it back from source and asserts agreement. Keeping one reader keeps every such
+/// check consistent.
 pub fn read_str_const<P: AsRef<Path>>(path: P, name: &str) -> String {
     let path = path.as_ref();
     let text = std::fs::read_to_string(path)
@@ -95,6 +94,73 @@ pub fn read_str_const<P: AsRef<Path>>(path: P, name: &str) -> String {
             path.display()
         )
     })
+}
+
+pub struct WindowsAppSdkMetadata {
+    pub foundation: PathBuf,
+    pub interactive: PathBuf,
+    pub winui: PathBuf,
+}
+
+pub fn windows_app_sdk_metadata(
+    nuget_package: impl Fn(&str, &str) -> PathBuf,
+) -> WindowsAppSdkMetadata {
+    let version = read_str_const("crates/libs/reactor-setup/src/lib.rs", "RUNTIME_VER");
+    let umbrella = nuget_package("microsoft.windowsappsdk", &version);
+    let nuspec = std::fs::read_dir(&umbrella)
+        .unwrap_or_else(|e| panic!("cannot read `{}`: {e}", umbrella.display()))
+        .filter_map(Result::ok)
+        .map(|entry| entry.path())
+        .find(|path| {
+            path.extension()
+                .is_some_and(|extension| extension.eq_ignore_ascii_case("nuspec"))
+        })
+        .unwrap_or_else(|| panic!("no `.nuspec` in `{}`", umbrella.display()));
+    let nuspec = std::fs::read_to_string(&nuspec)
+        .unwrap_or_else(|e| panic!("cannot read `{}`: {e}", nuspec.display()));
+    let dependency_version = |name| {
+        let needle = format!("id=\"{name}\"");
+        let dependency = nuspec.find(&needle).map_or_else(
+            || panic!("nuspec has no dependency `{name}`"),
+            |index| &nuspec[index..],
+        );
+        let version = dependency.find("version=\"").map_or_else(
+            || panic!("dependency `{name}` has no version"),
+            |index| &dependency[index + "version=\"".len()..],
+        );
+        let end = version
+            .find('"')
+            .unwrap_or_else(|| panic!("dependency `{name}` version is unterminated"));
+        version[..end].trim_matches(['[', ']']).to_string()
+    };
+
+    let foundation_version = dependency_version("Microsoft.WindowsAppSDK.Foundation");
+    let interactive_version = dependency_version("Microsoft.WindowsAppSDK.InteractiveExperiences");
+    let winui_version = dependency_version("Microsoft.WindowsAppSDK.WinUI");
+    let interactive_root = nuget_package(
+        "microsoft.windowsappsdk.interactiveexperiences",
+        &interactive_version,
+    )
+    .join("metadata");
+    let interactive = std::fs::read_dir(&interactive_root)
+        .unwrap_or_else(|e| panic!("cannot read `{}`: {e}", interactive_root.display()))
+        .filter_map(Result::ok)
+        .map(|entry| entry.path())
+        .filter(|path| path.is_dir())
+        .max()
+        .unwrap_or_else(|| {
+            panic!(
+                "no metadata subdirectory in `{}`",
+                interactive_root.display()
+            )
+        });
+
+    WindowsAppSdkMetadata {
+        foundation: nuget_package("microsoft.windowsappsdk.foundation", &foundation_version)
+            .join("metadata"),
+        interactive,
+        winui: nuget_package("microsoft.windowsappsdk.winui", &winui_version).join("metadata"),
+    }
 }
 
 fn str_const(text: &str, name: &str) -> Option<String> {

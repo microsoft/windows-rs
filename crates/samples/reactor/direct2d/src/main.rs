@@ -1,20 +1,11 @@
 #![windows_subsystem = "windows"]
 
-use windows_reactor::*;
+use windows_reactor::{Element, RenderCx};
 
-#[allow(nonstandard_style, unused, clippy::all)]
-mod bindings {
-    include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    reactor_samples::direct2d_host::app(cx)
 }
 
-mod device;
-mod shell;
-mod surface_image_source;
-mod swap_chain;
-
-fn main() -> Result<()> {
-    App::new()
-        .title("Direct2D Samples")
-        .backdrop(Backdrop::Mica)
-        .render(shell::shell)
+fn main() -> windows_core::Result<()> {
+    reactor_samples::run("Direct2D Host", app)
 }

@@ -1,7 +1,7 @@
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
-use windows_reactor::DrawContext;
+use windows_reactor::CanvasDrawContext;
 
 fn checkerboard() -> ([u8; 64 * 64 * 4], u32, u32) {
     const SIZE: u32 = 64;
@@ -22,7 +22,7 @@ fn checkerboard() -> ([u8; 64 * 64 * 4], u32, u32) {
     (pixels, SIZE, SIZE)
 }
 
-fn draw(ctx: &DrawContext) -> Result<()> {
+fn draw(ctx: &CanvasDrawContext<'_>) -> Result<()> {
     ctx.clear(ColorF::new(0.1, 0.1, 0.1, 1.0));
 
     let (pixels, w, h) = checkerboard();

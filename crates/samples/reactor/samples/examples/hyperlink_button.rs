@@ -1,22 +1,30 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (clicks, set_clicks) = cx.use_state(0_u32);
+use windows_reactor::{Element, HyperlinkButton, RenderCx, vstack};
 
-    let bump = move || set_clicks.call(clicks + 1);
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let clicks = cx.use_state(|| 0_u32);
+    let current = clicks.value();
 
-    vstack((
-        HyperlinkButton::new("Open Microsoft Docs")
-            .navigate_uri("https://learn.microsoft.com/windows/apps/"),
-        HyperlinkButton::new(format!("Clicked {clicks} times")).on_click(bump),
-        HyperlinkButton::new("Disabled")
-            .navigate_uri("https://example.com/")
-            .enabled(false),
-    ))
-    .spacing(8.0)
-    .into()
+    vstack(
+        8.0,
+        [
+            HyperlinkButton::new("Open Microsoft Docs")
+                .navigate_uri("https://learn.microsoft.com/windows/apps/")
+                .build(),
+            HyperlinkButton::new(format!("Clicked {current} times"))
+                .on_click(move || {
+                    clicks.update(|value| *value += 1);
+                })
+                .build(),
+            HyperlinkButton::new("Disabled")
+                .navigate_uri("https://example.com/")
+                .enabled(false)
+                .build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("HyperlinkButton", app)
 }

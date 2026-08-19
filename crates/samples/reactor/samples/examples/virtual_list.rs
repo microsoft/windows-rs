@@ -1,36 +1,31 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-const COUNT: usize = 5_000;
+use windows_reactor::{
+    Border, Color, Element, RenderCx, TextBlock, Thickness, VirtualList, vstack,
+};
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (items, update_items) = cx.use_reducer(
-        (0..COUNT)
-            .map(|i| format!("Item {i:04}"))
-            .collect::<Vec<_>>(),
-    );
-
-    vstack((
-        text_block(format!("{} items, drag any row to reorder", items.len())).bold(),
-        list_view(items, |s, idx| {
-            let shade = if idx % 2 == 0 { 245 } else { 230 };
-            border(text_block(s.clone()).margin(Thickness::xy(12.0, 6.0)))
-                .background(Color::rgb(shade, shade, 250))
-        })
-        .with_key_selector(|s| s.clone())
-        .can_drag_items(true)
-        .can_reorder_items(true)
-        .allow_drop(true)
-        .on_reorder(move |order: Vec<usize>| {
-            update_items.call(move |prev| order.iter().map(|i| prev[*i].clone()).collect());
-        })
-        .height(400.0),
-    ))
-    .spacing(8.0)
-    .max_width(360.0)
-    .into()
+fn app(_cx: &mut RenderCx<'_>) -> Element {
+    vstack(
+        8.0,
+        [
+            TextBlock::new("Only the visible rows are realized from 5,000 logical items.").build(),
+            VirtualList::new(5_000, 420.0, |index| {
+                let padding = if index % 5 == 0 { 14.0 } else { 6.0 };
+                Border::new(TextBlock::new(format!("Item {index}")).build())
+                    .background(if index % 2 == 0 {
+                        Color::rgb(245, 247, 250)
+                    } else {
+                        Color::rgb(232, 238, 246)
+                    })
+                    .padding(Thickness::uniform(padding))
+                    .build()
+            })
+            .automation_name("5,000 virtual items")
+            .build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
-    bootstrap()?;
-    App::new().title("Sample").render(app)
+fn main() -> windows_core::Result<()> {
+    reactor_samples::run("VirtualList", app)
 }

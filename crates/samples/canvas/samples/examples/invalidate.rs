@@ -1,26 +1,27 @@
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
-use windows_reactor::*;
+use windows_reactor::{CanvasDrawContext, Element, RenderCx, swap_chain_canvas_invalidated};
 
-fn app(cx: &mut RenderCx) -> Element {
-    let points = cx.use_ref(Vec::<Vector2>::new());
-    let inv = cx.use_invalidator();
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let points = cx.use_ref(Vec::<Vector2>::new);
+    let invalidator = cx.use_canvas_invalidator();
+    let draw_points = points.clone();
+    let invalidate = invalidator.clone();
 
-    canvas_invalidated(&inv, {
-        let points = points.clone();
-        move |ctx| draw(ctx, &points.borrow())
+    swap_chain_canvas_invalidated(&invalidator, move |ctx| {
+        draw_points.with(|points| draw(ctx, points)).unwrap()
     })
-    .on_pointer_pressed(move |info: PointerEventInfo| {
+    .on_pointer_pressed(move |info| {
         points
-            .borrow_mut()
-            .push(Vector2::new(info.x as f32, info.y as f32));
-        inv.invalidate();
+            .with_mut(|points| points.push(Vector2::new(info.x, info.y)))
+            .unwrap();
+        invalidate.invalidate();
     })
-    .into()
+    .build()
 }
 
-fn draw(ctx: &DrawContext, points: &[Vector2]) -> Result<()> {
+fn draw(ctx: &CanvasDrawContext<'_>, points: &[Vector2]) -> Result<()> {
     ctx.clear(ColorF::from_rgb8(0x10, 0x12, 0x18));
 
     let brush = ctx.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
@@ -35,9 +36,5 @@ fn draw(ctx: &DrawContext, points: &[Vector2]) -> Result<()> {
 }
 
 fn main() -> Result<()> {
-    bootstrap()?;
-    App::new()
-        .title("Invalidate")
-        .backdrop(Backdrop::Mica)
-        .render(app)
+    canvas_samples::run_component("Invalidate", app)
 }

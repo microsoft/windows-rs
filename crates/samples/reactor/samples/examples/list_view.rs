@@ -1,74 +1,143 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (selected, set_selected) = cx.use_state(-1_i32);
-    let (mode_idx, set_mode_idx) = cx.use_state(1_i32);
-    let (items, set_items) = cx.use_state(
-        ["Red", "Green", "Blue", "Yellow", "Magenta"]
-            .iter()
-            .map(|s| (*s).to_string())
-            .collect::<Vec<_>>(),
-    );
+use windows_reactor::{
+    CollectionSelection, Element, FontWeight, RenderCx, SelectionMode, StackPanel, TextBlock,
+    Thickness, VirtualItemKeys, VirtualList,
+};
 
-    let modes = [
-        SelectionMode::None,
-        SelectionMode::Single,
-        SelectionMode::Multiple,
-        SelectionMode::Extended,
-    ];
-    let mode = modes[mode_idx as usize];
-
-    let label = if selected >= 0 {
-        items
-            .get(selected as usize)
-            .cloned()
-            .unwrap_or_else(|| "(out of range)".into())
-    } else {
-        "(none)".into()
-    };
-
-    let mode_items: Vec<String> = ["None", "Single", "Multiple", "Extended"]
-        .iter()
-        .map(|s| (*s).to_string())
-        .collect();
-
-    let reorder_source = items.clone();
-
-    vstack((
-        text_block("Selection Mode:").bold(),
-        list_view(mode_items, |s, _idx| {
-            text_block(s.clone()).margin(Thickness::xy(12.0, 4.0))
-        })
-        .with_key_selector(|s| s.clone())
-        .selected_index(mode_idx)
-        .on_selection_changed(set_mode_idx)
-        .height(120.0),
-        text_block("Items (drag to reorder):").bold(),
-        list_view(items, |s, _idx| {
-            text_block(s.clone()).margin(Thickness::xy(12.0, 6.0))
-        })
-        .with_key_selector(|s| s.clone())
-        .selected_index(selected)
-        .selection_mode(mode)
-        .can_drag_items(true)
-        .can_reorder_items(true)
-        .allow_drop(true)
-        .on_selection_changed(set_selected)
-        .on_reorder(move |order: Vec<usize>| {
-            let next: Vec<String> = order.iter().map(|i| reorder_source[*i].clone()).collect();
-            set_items.call(next);
-        })
-        .height(180.0),
-        text_block(format!(
-            "selected_index = {selected} ({label}) | mode = {mode:?}"
-        )),
-    ))
-    .spacing(8.0)
-    .max_width(320.0)
-    .into()
+#[derive(Clone)]
+struct ColorItem {
+    key: u64,
+    name: &'static str,
 }
 
-fn main() -> Result<()> {
-    bootstrap()?;
-    App::new().title("Sample").render(app)
+const MODES: [(u64, &str, SelectionMode); 4] = [
+    (100, "None", SelectionMode::None),
+    (200, "Single", SelectionMode::Single),
+    (300, "Multiple", SelectionMode::Multiple),
+    (400, "Extended", SelectionMode::Extended),
+];
+
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let mode = cx.use_state(|| SelectionMode::Single);
+    let selection = cx.use_state(CollectionSelection::default);
+    let items = cx.use_state(|| {
+        vec![
+            ColorItem {
+                key: 10,
+                name: "Red",
+            },
+            ColorItem {
+                key: 20,
+                name: "Green",
+            },
+            ColorItem {
+                key: 30,
+                name: "Blue",
+            },
+            ColorItem {
+                key: 40,
+                name: "Yellow",
+            },
+            ColorItem {
+                key: 50,
+                name: "Magenta",
+            },
+        ]
+    });
+
+    let current_mode = mode.value();
+    let current_selection = selection.value();
+    let current_items = items.value();
+    let selected_names = current_items
+        .iter()
+        .filter(|item| current_selection.as_slice().contains(&item.key))
+        .map(|item| item.name)
+        .collect::<Vec<_>>();
+    let selected_label = if selected_names.is_empty() {
+        "(none)".to_string()
+    } else {
+        selected_names.join(", ")
+    };
+    let order = current_items
+        .iter()
+        .map(|item| item.name)
+        .collect::<Vec<_>>()
+        .join(", ");
+    let mode_key = MODES
+        .iter()
+        .find(|entry| entry.2 == current_mode)
+        .unwrap()
+        .0;
+    let mode_selection = mode;
+    let controlled_selection = selection.clone();
+    let rows = current_items.clone();
+    let reordered_items = items;
+
+    StackPanel::new([
+        TextBlock::new("Selection Mode:")
+            .font_weight(FontWeight::BOLD)
+            .build(),
+        VirtualList::new(MODES.len(), 120.0, |index| {
+            TextBlock::new(MODES[index].1)
+                .margin(Thickness::xy(12.0, 4.0))
+                .build()
+        })
+        .item_keys(VirtualItemKeys::new(MODES.iter().map(|entry| entry.0)))
+        .selection(CollectionSelection::new([mode_key]), move |value| {
+            let Some(key) = value.as_slice().first() else {
+                return;
+            };
+            let next = MODES.iter().find(|entry| entry.0 == *key).unwrap().2;
+            mode_selection.set(next);
+            controlled_selection.update(|selection| {
+                if next == SelectionMode::None {
+                    *selection = CollectionSelection::default();
+                } else if next == SelectionMode::Single && selection.len() > 1 {
+                    *selection = CollectionSelection::new(selection.as_slice().first().copied());
+                }
+            });
+        })
+        .automation_name("Selection modes")
+        .build(),
+        TextBlock::new("Items (drag to reorder):")
+            .font_weight(FontWeight::BOLD)
+            .build(),
+        VirtualList::new(current_items.len(), 220.0, move |index| {
+            let item = rows[index].clone();
+            TextBlock::new(item.name)
+                .margin(Thickness::xy(12.0, 6.0))
+                .build()
+        })
+        .item_keys(VirtualItemKeys::new(
+            current_items.iter().map(|item| item.key),
+        ))
+        .selection_mode(current_mode)
+        .selection(current_selection, move |value| {
+            selection.set(value);
+        })
+        .reorderable(move |keys| {
+            reordered_items.update(|items| {
+                assert_eq!(keys.len(), items.len());
+                *items = keys
+                    .into_iter()
+                    .map(|key| items.iter().find(|item| item.key == key).unwrap().clone())
+                    .collect();
+            });
+        })
+        .automation_name("Reorderable colors")
+        .build(),
+        TextBlock::new(format!(
+            "Selected: {selected_label} | Mode: {current_mode:?}"
+        ))
+        .build(),
+        TextBlock::new(format!("Order: {order}")).build(),
+    ])
+    .spacing(8.0)
+    .max_width(420.0)
+    .build()
+}
+
+fn main() -> windows_core::Result<()> {
+    reactor_samples::run("ListView", app)
 }

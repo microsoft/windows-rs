@@ -1,29 +1,38 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (clicks, set_clicks) = cx.use_state(0_u32);
+use windows_reactor::{Button, Element, RenderCx, TextBlock, vstack};
 
-    let render_count = cx.use_ref(0_u64);
-    *render_count.borrow_mut() += 1;
-    let renders = *render_count.borrow();
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let clicks = cx.use_state(|| 0_u32);
+    let current_clicks = clicks.value();
+    let render_count = cx.use_ref(|| 0_u64);
+    render_count.with_mut(|value| *value += 1);
+    let current_renders = render_count.get().unwrap();
 
-    let bump = move || set_clicks.call(clicks + 1);
-
-    vstack((
-        text_block(format!("clicks (use_state) = {clicks}")).font_size(18.0),
-        text_block(format!("renders (use_ref)  = {renders}")).font_size(18.0),
-        button("Click me").on_click(bump),
-        text_block(
-            "The ref counter increments every render; the state counter \
-                 only on button click. Ref mutation never schedules a rerender.",
-        )
-        .font_size(12.0)
-        .opacity(0.7),
-    ))
-    .spacing(8.0)
-    .into()
+    vstack(
+        8.0,
+        [
+            TextBlock::new(format!("clicks (use_state) = {current_clicks}"))
+                .font_size(18.0)
+                .build(),
+            TextBlock::new(format!("renders (use_ref) = {current_renders}"))
+                .font_size(18.0)
+                .build(),
+            Button::new("Click me")
+                .on_click(move || {
+                    clicks.update(|value| *value += 1);
+                })
+                .build(),
+            TextBlock::new(
+                "The ref changes during every render but never schedules a render itself.",
+            )
+            .font_size(12.0)
+            .opacity(0.7)
+            .build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("UseRef", app)
 }

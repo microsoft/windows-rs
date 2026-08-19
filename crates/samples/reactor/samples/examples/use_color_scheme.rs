@@ -1,31 +1,57 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let scheme = cx.use_color_scheme();
-    let is_dark = matches!(scheme, ColorScheme::Dark);
+use windows_reactor::{
+    Application, ColorScheme, Element, RenderCx, TextBlock, ThemeBrush, Window, vstack,
+};
 
-    let scheme_label = match scheme {
-        ColorScheme::Light => "Light",
-        ColorScheme::Dark => "Dark",
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let open = cx.use_state(|| true);
+    let scheme = cx.use_state(|| ColorScheme::Light);
+    let current = scheme.value();
+    let set_scheme = scheme;
+    let close = open.clone();
+    let is_dark = current == ColorScheme::Dark;
+
+    let content = vstack(
+        8.0,
+        [
+            TextBlock::new(format!("is_dark_theme = {is_dark}"))
+                .font_size(20.0)
+                .font_weight(windows_reactor::FontWeight::BOLD)
+                .build(),
+            TextBlock::new(format!(
+                "color_scheme  = {}",
+                if is_dark { "Dark" } else { "Light" }
+            ))
+            .font_size(16.0)
+            .build(),
+            TextBlock::new(if is_dark {
+                "dark color branch"
+            } else {
+                "light color branch"
+            })
+            .font_size(14.0)
+            .foreground(ThemeBrush::PrimaryText)
+            .build(),
+        ],
+    );
+
+    let windows = if open.value() {
+        vec![
+            Window::new("Color Scheme", content, move || {
+                close.set(false);
+            })
+            .on_color_scheme_changed(move |scheme| {
+                set_scheme.set(scheme);
+            })
+            .build(),
+        ]
+    } else {
+        Vec::new()
     };
-
-    vstack((
-        text_block(format!("is_dark_theme = {is_dark}"))
-            .font_size(20.0)
-            .bold(),
-        text_block(format!("color_scheme  = {scheme_label}")).font_size(16.0),
-        text_block(if is_dark {
-            "🌙 dark branch"
-        } else {
-            "☀ light branch"
-        })
-        .font_size(14.0)
-        .foreground(ThemeRef::PrimaryText),
-    ))
-    .spacing(8.0)
-    .into()
+    Application::new(windows).build()
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("UseColorScheme", app)
+fn main() -> windows_core::Result<()> {
+    reactor_samples::run_application(app)
 }

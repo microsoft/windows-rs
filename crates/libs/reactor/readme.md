@@ -1,135 +1,214 @@
-## Windows Reactor
+# windows-reactor
 
-Windows Reactor is a declarative WinUI 3 library with render functions, state hooks, and widget
-builders.
+[![crates.io badge][crates-badge]][crates]
+[![docs.rs badge][docs-badge]][docs]
 
-* [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
-* [Reactor
-  guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md)
+`windows-reactor` is a declarative WinUI 3 library for Windows applications. Render functions
+produce an `Element` tree from state. Reactor retains native controls, reconciles later renders,
+and applies typed updates while preserving WinUI-owned state such as focus and scroll position.
 
-A minimal app defines a render function `fn(&mut RenderCx) -> Element` and passes it to
-`App::render`:
+- [Guide](../../../docs/crates/windows-reactor.md)
+- [API documentation](https://docs.rs/windows-reactor)
+- [Samples](../../samples/reactor)
+- [Runtime setup](../reactor-setup/readme.md)
+
+## Features
+
+WinUI support is always available. Optional features add integrations:
+
+| Feature | Adds |
+| --- | --- |
+| `canvas` | `windows-canvas` drawing elements and `SwapChainHost`. |
+| `webview` | `WebViewHost` backed by `windows-webview`. |
+
+docs.rs builds both optional features.
+
+## Add the package
+
+```toml
+[dependencies]
+windows-reactor = "0.100"
+
+[build-dependencies]
+windows-reactor-setup = "0.100"
+```
+
+Framework-dependent applications stage bootstrap files in `build.rs`:
+
+```rust,ignore
+fn main() {
+    windows_reactor_setup::as_framework_dependent();
+}
+```
+
+Use `as_self_contained()` to stage a private Windows App Runtime. Self-contained applications do
+not call `windows_reactor::bootstrap()`.
+
+## Counter
 
 ```rust,no_run
-use windows_reactor::*;
+use windows_reactor::{
+    Application, Element, RenderCx, Window, button, component, run_reactor_winui_app, text_block,
+    vstack,
+};
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0_i32);
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let open = cx.use_state(|| true);
+    let count = cx.use_state(|| 0_i32);
 
-    vstack((
-        text_block(format!("count = {count}")).font_size(18.0).bold(),
-        button("Click").on_click(move || set_count.call(count + 1)),
-    ))
-    .spacing(12.0)
-    .into()
+    let windows = if open.value() {
+        let increment = count.clone();
+        let close = open.clone();
+        vec![
+            Window::new(
+                "Counter",
+                vstack(
+                    12.0,
+                    [
+                        text_block(format!("Count: {}", count.value())),
+                        button("Increment", move || {
+                            increment.update(|value| *value += 1);
+                        }),
+                    ],
+                ),
+                move || close.set(false),
+            )
+            .build(),
+        ]
+    } else {
+        Vec::new()
+    };
+
+    Application::new(windows).build()
 }
 
-fn main() -> windows_core::Result<()> {
-    bootstrap()?;
-    App::new().title("My App").render(app)
+fn main() {
+    windows_reactor::bootstrap().unwrap();
+    run_reactor_winui_app(component(app)).unwrap();
 }
 ```
 
-`bootstrap()` initializes the Windows App SDK runtime for a framework-dependent app. Widget
-builders convert to `Element` with `.into()`. `cx.use_state` returns the current value and a handle
-whose `call` schedules a rerender. `ReactorWindow` opens more top-level windows. See the [reactor
-guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md) for
-components, hooks, layout, styling, and widgets.
+`Window` close callbacks update application state. Removing the final window ends the application
+run.
 
-Multi-child builders accept tuples, arrays, vectors, and child-only fragments:
+## Components and hooks
 
-```rust,ignore
-vstack((
-    text_block("Header"),
-    fragment((text_block("Name"), text_block("Value"))),
-))
-```
+Use ordinary Rust functions for stateless composition. Use `component` for a subtree with hooks or
+an independent render lifecycle. `component_with_props` owns props and borrows them during
+rendering. `memo_component` and `memo_component_with_props` skip equal parent-driven renders.
 
-`Fragment` cannot be converted into `Element`, so it cannot be returned as an application root or
-inserted into a single-child control.
+`RenderCx` provides:
 
-Use a typed element reference for imperative native operations that must happen after mount:
+- `use_state`, `use_async_state`, `use_ref`, `use_memo`, `use_callback`, and `use_reducer`;
+- `use_effect` and `use_effect_with_cleanup`;
+- `use_timeout` and `use_interval`;
+- `use_resource` for cancellable Windows thread-pool work;
+- `use_mutation` for triggered worker operations;
+- `use_context` and `use_context_key`; and
+- typed element, window, Composition, Canvas, and WebView references.
 
-```rust,ignore
-let input = cx.use_element_ref::<TextBoxHandle>();
-let input_for_focus = input.clone();
+State handles are generation-bound. `set` and `update` are safe to call from retained callbacks;
+they do nothing after the owning component is removed. Effects run after native commit and clean
+up when dependencies change or the component unmounts.
 
-vstack((
-    text_box("").element_ref(&input),
-    button("Focus").on_click(move || {
-        let _ = input_for_focus.focus();
-    }),
-))
-```
+## Builders, keys, and controlled values
 
-The reference is populated after mount and cleared before native destruction. Its handle type
-prevents attachment to an incompatible widget.
-
-`App::on_exit` registers synchronous cleanup or instrumentation that runs once on the UI thread
-immediately before Reactor exits the process after the final window closes.
-
-WinUI lightweight styling resources use typed values:
+Typed builders expose only compatible layout, styling, accessibility, input, resource, and
+attached-layout modifiers. Apply modifiers before `.build()`:
 
 ```rust,ignore
-button("Delete").resource_overrides(|resources| {
-    resources
-        .set("ButtonBackground", Color::rgb(178, 34, 34))
-        .set("ButtonBorderThemeThickness", Thickness::uniform(0.0))
-        .set("ControlCornerRadius", CornerRadius::uniform(8.0))
-})
+Button::new("Save")
+    .on_click(save)
+    .width(120.0)
+    .automation_name("Save document")
+    .build()
 ```
 
-Replacing or clearing the builder removes only the resource keys previously owned by Reactor.
+Use `.key(u64)` when child identity must survive insertion or reorder. Keyed collection APIs report
+application keys rather than native positions. `VirtualList` and `VirtualGrid` use WinUI
+realization while Reactor owns each realized row subtree.
 
-`PointerEventInfo` reports both element-local `x`/`y` coordinates and stable window-relative
-`window_x`/`window_y` coordinates for drag calculations whose target moves during the gesture.
-Use `.capture_pointer_on_press()` for drag handles that must keep receiving moves outside their
-hit-test bounds, and clear drag state from capture-lost and canceled callbacks.
-
-`NavigationView` can keep pane state controlled and react to its actual responsive display mode:
+Interactive values pair a declared value with a callback:
 
 ```rust,ignore
-NavigationView::new(items, content)
-    .pane_open(pane_open)
-    .on_pane_open_changed(set_pane_open)
-    .pane_display_mode(NavigationViewPaneDisplayMode::Auto)
-    .on_display_mode_changed(set_display_mode)
+TextBox::new(name, move |value| set_name.set(value)).build();
+ToggleSwitch::new(enabled, move |value| set_enabled.set(value)).build();
+Slider::new(volume, move |value| set_volume.set(value))
+    .range(0.0, 100.0)
+    .build();
 ```
 
-The callbacks report settled WinUI dependency-property values rather than pane transition intent.
+Reactor-originated writes do not echo through the callback. Display-only controls use
+`display(...)` or a display-state modifier where supported.
 
-Lifecycle transitions run when an element enters or leaves the WinUI visual tree:
+## Windows and structural content
 
-```rust,ignore
-button("Animated").transition(
-    Some(AnimationConfig::fade_in(Duration::from_millis(200))),
-    Some(AnimationConfig::fade_out(Duration::from_millis(300))),
-)
+`Application` can declare multiple keyed windows. `Window` supports owned windows, themes,
+backdrops, presenters, constraints, custom title bars, resources, and a generation-bound
+`WindowRef`.
+
+Headers, panes, dialog content, tooltips, TeachingTips, flyouts, command sections, and native-host
+content are explicit structural slots. Their child elements keep ordinary component, hook, key,
+and cleanup behavior.
+
+## Native hosts
+
+The default build includes `CompositionHost` and `CompositionHostRef<T>`. The optional features add
+typed Canvas and WebView hosts:
+
+- `CompositionHost` is in the default build. See
+  [`composition.rs`](../../samples/reactor/samples/examples/composition.rs).
+- `SwapChainHost` is in the `canvas` feature. See
+  [`direct2d_host.rs`](../../samples/reactor/samples/examples/direct2d_host.rs).
+- `WebViewHost` is in the `webview` feature. See
+  [`webview_host.rs`](../../samples/reactor/samples/examples/webview_host.rs).
+
+Run them with:
+
+```text
+cargo run -p reactor_samples --example composition
+cargo run -p reactor_samples --example direct2d_host
+cargo run -p reactor_samples --example webview_host
 ```
 
-Reactor removes the logical element immediately while WinUI Composition keeps the departing visual
-alive until its exit animation finishes. See the `exit_transition` sample.
+The `canvas` feature also provides:
 
-`TabItem::with_key` supplies the identity returned by `TabView::on_close_requested`. Key changes,
-including removal, update the existing native item without leaving stale close-callback identity.
-See the `tab_view_item_key` sample.
+- `animated_canvas` for continuous drawing;
+- `swap_chain_canvas` for size or scale driven drawing;
+- `swap_chain_canvas_invalidated` for explicit repaint; and
+- `canvas_image` and `canvas_image_invalidated` for image content.
 
-Icon-taking controls share one `Icon` model:
+`WebViewRef` provides generation-bound navigation, reload, stop, back, and forward commands.
 
-```rust,ignore
-button("Confirm").icon(Icon::path("F1 M 0,8 L 6,14 L 16,2 L 14,0 L 6,10 L 2,6 Z"));
-button("Mask").icon(Icon::bitmap_icon("ms-appx:///Assets/mask.png", true));
-button("Logo").icon(Icon::image("ms-appx:///Assets/logo.svg"));
+## Samples
+
+The [Reactor sample tree](../../samples/reactor) has 13 packages. It includes focused examples,
+five complete applications, a 65-route gallery, deployment modes, startup tracing, multiple
+windows, acceptance workloads, and typed Composition, Direct2D, swap-chain, and WebView hosts.
+
+```text
+cargo run -p reactor_samples --example counter
+cargo run -p reactor_samples --example acceptance
+cargo run -p reactor_gallery
+cargo run -p reactor_composition --example host
+cargo run -p reactor_direct2d
+cargo run -p reactor_webview
+cargo run -p reactor_framework_dependent
+cargo run -p reactor_self_contained
+cargo run -p reactor_windows
 ```
 
-`bitmap_icon` uses WinUI `BitmapIcon` and makes monochrome rendering explicit. `image` uses
-full-color `ImageIcon` and accepts raster, SVG, or surface sources. Image icons are constrained to
-the standard 20-DIP icon box so an unconstrained SVG cannot consume the control's available space.
+Run the public sample smoke suite and native selftests with:
 
-Long text can be limited and trimmed with native WinUI behavior:
-
-```rust,ignore
-text_block("A long label")
-    .max_lines(1)
-    .text_trimming(TextTrimming::CharacterEllipsis)
+```text
+crates\samples\reactor\samples\native.ps1 -Profile release
+powershell -File crates\tests\libs\reactor_selftest\native.ps1
 ```
+
+See the [windows-reactor guide](../../../docs/crates/windows-reactor.md) for architecture,
+reconciliation, lifecycle, testing, API snapshots, and maintenance commands.
+
+[crates]: https://crates.io/crates/windows-reactor
+[crates-badge]: https://img.shields.io/crates/v/windows-reactor.svg
+[docs]: https://docs.rs/windows-reactor
+[docs-badge]: https://docs.rs/windows-reactor/badge.svg

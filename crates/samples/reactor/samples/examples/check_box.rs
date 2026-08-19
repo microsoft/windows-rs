@@ -1,27 +1,29 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (checked, set_checked) = cx.use_state(false);
+use windows_reactor::{CheckBox, Element, RenderCx, TextBlock, vstack};
 
-    let toggle = move |v| set_checked.call(v);
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let checked = cx.use_state(|| false);
+    let current = checked.value();
 
-    vstack((
-        check_box(checked)
-            .content("I accept the terms")
-            .on_checked(toggle),
-        text_block(if checked {
-            "Accepted ✓"
-        } else {
-            "Not yet accepted"
-        }),
-        check_box(true)
-            .content("Disabled (always on)")
-            .enabled(false),
-    ))
-    .spacing(8.0)
-    .into()
+    vstack(
+        8.0,
+        [
+            CheckBox::new("I accept the terms", current, move |value| {
+                checked.set(value);
+            })
+            .build(),
+            TextBlock::new(if current {
+                "Accepted"
+            } else {
+                "Not yet accepted"
+            })
+            .build(),
+            CheckBox::display("Disabled (always on)", true).build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("CheckBox", app)
 }

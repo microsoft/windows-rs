@@ -1,61 +1,99 @@
 #![windows_subsystem = "windows"]
 
-use windows_reactor::*;
+use windows_reactor::{
+    Application, Element, FontWeight, StackPanel, TextBlock, Thickness, Window, button, component,
+    hstack,
+};
 
-fn counter_view(cx: &mut RenderCx, heading: &str) -> Element {
-    let (count, set_count) = cx.use_state(0_i32);
+fn counter(heading: String) -> Element {
+    component(move |cx| {
+        let count = cx.use_state(|| 0_i32);
+        let current = count.value();
+        let decrement = count.clone();
+        let increment = count;
 
-    let dec = {
-        let s = set_count.clone();
-        move || s.call(count - 1)
-    };
-    let inc = {
-        let s = set_count;
-        move || s.call(count + 1)
-    };
-
-    vstack((
-        text_block(heading).bold().font_size(20.0),
-        text_block(format!("Count: {count}")).font_size(28.0),
-        hstack((button("-").on_click(dec), button("+").on_click(inc))).spacing(8.0),
-    ))
-    .spacing(12.0)
-    .margin(Thickness::uniform(24.0))
-    .into()
+        StackPanel::new([
+            TextBlock::new(heading.clone())
+                .font_weight(FontWeight::BOLD)
+                .font_size(20.0)
+                .build(),
+            TextBlock::new(format!("Count: {current}"))
+                .font_size(28.0)
+                .build(),
+            hstack(
+                8.0,
+                [
+                    button("-", move || {
+                        decrement.update(|value| *value -= 1);
+                    }),
+                    button("+", move || {
+                        increment.update(|value| *value += 1);
+                    }),
+                ],
+            ),
+        ])
+        .spacing(12.0)
+        .padding(Thickness::uniform(24.0))
+        .build()
+    })
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (opened, set_opened) = cx.use_state(0_u32);
+fn app(cx: &mut windows_reactor::RenderCx<'_>) -> Element {
+    let window_ids = cx.use_state(|| vec![0_u64]);
+    let opened = cx.use_state(|| 0_u64);
+    let opened_count = opened.value();
 
-    let open = {
-        let set_opened = set_opened;
-        move || {
-            let n = opened + 1;
-            match ReactorWindow::new()
-                .title(format!("Counter window #{n}"))
-                .inner_size(320.0, 220.0)
-                .render(move |cx| counter_view(cx, "Independent counter"))
-            {
-                Ok(_handle) => set_opened.call(n),
-                Err(err) => eprintln!("failed to open secondary window: {err}"),
-            }
-        }
-    };
+    let windows = window_ids
+        .value()
+        .into_iter()
+        .map(|id| {
+            let content = if id == 0 {
+                let ids_for_open = window_ids.clone();
+                let opened_for_open = opened.clone();
+                StackPanel::new([
+                    TextBlock::new("Each window owns independent component state.").build(),
+                    TextBlock::new("Closing the last remaining window exits the app.")
+                        .opacity(0.75)
+                        .build(),
+                    button("Open counter window", move || {
+                        let Some(next) = opened_for_open.try_value().map(|value| value + 1) else {
+                            return;
+                        };
+                        opened_for_open.set(next);
+                        ids_for_open.update(|ids| ids.push(next));
+                    }),
+                    TextBlock::new(format!("Windows opened: {opened_count}"))
+                        .opacity(0.6)
+                        .build(),
+                ])
+                .spacing(12.0)
+                .padding(Thickness::uniform(24.0))
+                .build()
+            } else {
+                counter(format!("Independent counter #{id}"))
+            };
 
-    vstack((
-        TitleBar::new("windows_reactor - secondary windows"),
-        text_block("Each window you open hosts its own independent counter.").opacity(0.75),
-        text_block("Closing the last remaining window exits the app.").opacity(0.75),
-        button("Open counter window")
-            .on_click(open)
-            .automation_id("open-window-button"),
-        text_block(format!("Windows opened: {opened}")).opacity(0.6),
-    ))
-    .spacing(12.0)
-    .margin(Thickness::uniform(24.0))
-    .into()
+            let ids_for_close = window_ids.clone();
+            Window::new(
+                if id == 0 {
+                    "Secondary windows".to_string()
+                } else {
+                    format!("Counter window #{id}")
+                },
+                content,
+                move || {
+                    ids_for_close.update(|ids| ids.retain(|candidate| *candidate != id));
+                },
+            )
+            .client_size(420.0, 260.0)
+            .build()
+            .key(id)
+        })
+        .collect::<Vec<_>>();
+
+    Application::new(windows).build()
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("Secondary windows", app)
+fn main() -> windows_core::Result<()> {
+    reactor_samples::run_application(app)
 }

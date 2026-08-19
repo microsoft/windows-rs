@@ -17,7 +17,7 @@ fn main() -> Result<()> {
 
     let brush = session.create_solid_brush(ColorF::rgb(1.0, 0.5, 0.0))?;
     session.fill_rect(&Rect::new(20.0, 20.0, 200.0, 120.0), &brush);
-    drop(session);
+    session.finish()?;
 
     swap_chain.present()?;
     Ok(())
@@ -27,9 +27,12 @@ fn main() -> Result<()> {
 Core types include `GpuDevice`, `SwapChain`, `DrawingSession`, `PathBuilder`, `TextFormat`, and
 `Bitmap`. To host a canvas in
 [`windows-reactor`][reactor-guide], enable reactor's `canvas` feature. `animated_canvas()` draws
-each frame on the UI thread and recovers from device loss. `CanvasImageSource` draws on demand. See
-the [canvas
+each frame on the UI thread and recovers from device loss. `canvas_image()` draws on demand. See the
+[canvas
 guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-canvas.md) for the
 API and samples.
+
+Owned drawing sessions may call `finish()` to observe `EndDraw` failures before presenting.
+`SwapChain::set_dpi` and `set_composition_scale` also return `Result<()>`.
 
 [reactor-guide]: https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md

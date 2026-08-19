@@ -1,23 +1,42 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(_cx: &mut RenderCx) -> Element {
-    vstack((
-        text_block("Default (placeholder glyph)"),
-        PersonPicture::new(),
-        text_block("display_name (initials auto-derived)"),
-        hstack((
-            PersonPicture::new().display_name("Ada Lovelace"),
-            PersonPicture::new().display_name("Grace Hopper"),
-            PersonPicture::new().display_name("Alan Turing"),
-        ))
-        .spacing(12.0),
-        text_block("initials (explicit)"),
-        PersonPicture::new().initials("WR"),
-    ))
-    .spacing(8.0)
-    .into()
+use windows_reactor::{Element, PersonPicture, RenderCx, TextBlock, hstack, vstack};
+
+pub fn app(_cx: &mut RenderCx<'_>) -> Element {
+    vstack(
+        8.0,
+        [
+            TextBlock::new("Default (placeholder glyph)").build(),
+            PersonPicture::new()
+                .automation_name("Default person picture")
+                .build(),
+            TextBlock::new("Display name (initials derived by WinUI)").build(),
+            hstack(
+                12.0,
+                [
+                    PersonPicture::new()
+                        .display_name("Ada Lovelace")
+                        .automation_name("Ada Lovelace")
+                        .build(),
+                    PersonPicture::new()
+                        .display_name("Grace Hopper")
+                        .automation_name("Grace Hopper")
+                        .build(),
+                    PersonPicture::new()
+                        .display_name("Alan Turing")
+                        .automation_name("Alan Turing")
+                        .build(),
+                ],
+            ),
+            TextBlock::new("Explicit initials").build(),
+            PersonPicture::new()
+                .initials("WR")
+                .automation_name("Initials WR")
+                .build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("PersonPicture", app)
 }

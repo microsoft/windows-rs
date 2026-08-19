@@ -1,11 +1,12 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (is_bold, set_bold) = cx.use_state(false);
-    let (is_italic, set_italic) = cx.use_state(false);
+use windows_reactor::{Element, RenderCx, TextBlock, ToggleButton, vstack};
 
-    let on_bold = move |v: bool| set_bold.call(v);
-    let on_italic = move |v: bool| set_italic.call(v);
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let bold = cx.use_state(|| false);
+    let italic = cx.use_state(|| false);
+    let is_bold = bold.value();
+    let is_italic = italic.value();
 
     let style_label = match (is_bold, is_italic) {
         (true, true) => "Bold + Italic",
@@ -14,15 +15,22 @@ fn app(cx: &mut RenderCx) -> Element {
         (false, false) => "Normal",
     };
 
-    vstack((
-        toggle_button("Bold", is_bold).on_checked(on_bold),
-        toggle_button("Italic", is_italic).on_checked(on_italic),
-        text_block(format!("Style: {style_label}")),
-    ))
-    .spacing(8.0)
-    .into()
+    vstack(
+        8.0,
+        [
+            ToggleButton::new("Bold", is_bold, move |value| {
+                bold.set(value);
+            })
+            .build(),
+            ToggleButton::new("Italic", is_italic, move |value| {
+                italic.set(value);
+            })
+            .build(),
+            TextBlock::new(format!("Style: {style_label}")).build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("ToggleButton", app)
 }

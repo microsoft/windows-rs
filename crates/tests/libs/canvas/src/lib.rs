@@ -960,7 +960,7 @@ mod tests {
     fn set_dpi_recreates_target_and_still_draws() {
         let device = GpuDevice::new_warp().unwrap();
         let mut chain = device.create_swap_chain(64, 64).unwrap();
-        chain.set_dpi(192.0, 192.0);
+        chain.set_dpi(192.0, 192.0).unwrap();
         {
             let session = chain.begin_draw().unwrap();
             session.clear(ColorF::WHITE);
@@ -972,7 +972,7 @@ mod tests {
     fn set_composition_scale_is_applied() {
         let device = GpuDevice::new_warp().unwrap();
         let mut chain = device.create_swap_chain(64, 64).unwrap();
-        chain.set_composition_scale(2.0, 2.0);
+        chain.set_composition_scale(2.0, 2.0).unwrap();
         {
             let session = chain.begin_draw().unwrap();
             session.clear(ColorF::BLACK);

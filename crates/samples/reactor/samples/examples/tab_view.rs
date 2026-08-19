@@ -1,58 +1,87 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (tabs, set_tabs) = cx.use_state(vec![
-        ("overview", "Overview"),
-        ("badges", "Badges"),
-        ("notice", "Notice"),
-    ]);
-    let (selected, set_selected) = cx.use_state(0i32);
+use windows_reactor::{Element, RenderCx, TabView, TabViewItem, TextBlock, Thickness, vstack};
 
-    let items: Vec<TabItem> = tabs
-        .iter()
-        .map(|(key, header)| {
-            let closable = *key != "overview";
-            TabItem::new(
-                *header,
-                text_block(format!("Tab content — {header}")).padding(Thickness::uniform(12.0)),
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let tabs = cx.use_state(|| {
+        vec![
+            (1u64, "Overview".to_string()),
+            (2, "Badges".to_string()),
+            (3, "Notice".to_string()),
+        ]
+    });
+    let selected = cx.use_state(|| 0i32);
+    let current_tabs = tabs.value();
+    let current_selected = selected.value();
+
+    let update_selection = selected.clone();
+    let close_tabs = tabs.clone();
+    let close_selection = selected;
+    let tabs_for_close = current_tabs.clone();
+    let reorder_tabs = tabs;
+    let tabs_for_reorder = current_tabs.clone();
+
+    vstack(
+        8.0,
+        [
+            TabView::new(
+                current_tabs.iter().map(|(key, header)| {
+                    TabViewItem::new(
+                        *key,
+                        header,
+                        TextBlock::new(format!("Tab content - {header}"))
+                            .padding(Thickness::uniform(12.0))
+                            .build(),
+                    )
+                    .closable(*key != 1)
+                }),
+                move |index| {
+                    update_selection.set(index);
+                },
             )
-            .with_key(*key)
-            .closable(closable)
-        })
-        .collect();
-
-    let tabs_for_close = tabs.clone();
-    let selected_for_close = selected;
-    let set_tabs_close = set_tabs.clone();
-    let set_selected_close = set_selected.clone();
-
-    vstack((
-        TabView::new(items)
-            .selected_index(selected)
-            .can_reorder_tabs(true)
-            .on_selection_changed(set_selected)
+            .selected_index(current_selected)
             .on_close_requested(move |key| {
-                let next: Vec<_> = tabs_for_close
+                let next = tabs_for_close
                     .iter()
-                    .filter(|(k, _)| *k != key)
-                    .copied()
-                    .collect();
-                let max_index = next.len().saturating_sub(1) as i32;
-                let clamped = selected_for_close.min(max_index).max(0);
-                set_tabs_close.call(next);
-                if clamped != selected_for_close {
-                    set_selected_close.call(clamped);
+                    .filter(|(candidate, _)| *candidate != key)
+                    .cloned()
+                    .collect::<Vec<_>>();
+                let next_index = selected_after_removal(current_selected, next.len());
+                close_tabs.set(next);
+                close_selection.set(next_index);
+            })
+            .reorderable(move |keys| {
+                let next = keys
+                    .into_iter()
+                    .filter_map(|key| {
+                        tabs_for_reorder
+                            .iter()
+                            .find(|(candidate, _)| *candidate == key)
+                            .cloned()
+                    })
+                    .collect::<Vec<_>>();
+                if next.len() == tabs_for_reorder.len() {
+                    reorder_tabs.set(next);
                 }
-            }),
-        text_block(format!(
-            "selected_index = {selected}, tabs remaining = {}",
-            tabs.len()
-        )),
-    ))
-    .spacing(8.0)
-    .into()
+            })
+            .build(),
+            TextBlock::new(format!(
+                "selected_index = {current_selected}, tabs remaining = {}",
+                current_tabs.len()
+            ))
+            .build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn selected_after_removal(selected: i32, count: usize) -> i32 {
+    if count == 0 {
+        -1
+    } else {
+        selected.min(count as i32 - 1).max(0)
+    }
+}
+
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("TabView", app)
 }

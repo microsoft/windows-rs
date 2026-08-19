@@ -1,34 +1,67 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(_cx: &mut RenderCx) -> Element {
-    vstack((
+use windows_reactor::{
+    Element, Expander, FontWeight, RenderCx, StackPanel, TextBlock, hstack, vstack,
+};
+
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let details = cx.use_state(|| true);
+    let more = cx.use_state(|| false);
+    let settings = cx.use_state(|| true);
+    let details_value = details.value();
+    let more_value = more.value();
+    let settings_value = settings.value();
+
+    StackPanel::new([
         Expander::new(
-            vstack((
-                text_block("Hidden details live inside the expander."),
-                text_block("Click the chevron to collapse this panel.").opacity(0.7),
-            ))
-            .spacing(4.0),
+            TextBlock::new("Details").build(),
+            vstack(
+                4.0,
+                [
+                    TextBlock::new("Hidden details live inside the expander.").build(),
+                    TextBlock::new("Use the chevron to collapse this panel.")
+                        .opacity(0.7)
+                        .build(),
+                ],
+            ),
+            move |value| {
+                details.set(value);
+            },
         )
-        .header("Details")
-        .expanded(true),
-        Expander::new(text_block("Collapsed by default."))
-            .header("More")
-            .expanded(false),
-        Expander::new(text_block("Body content for the rich header expander."))
-            .header_content(
-                hstack((
-                    text_block("⚙").font_size(18.0),
-                    text_block("Settings").bold(),
-                ))
-                .spacing(8.0),
-            )
-            .expanded(true),
-    ))
+        .expanded(details_value)
+        .build(),
+        Expander::new(
+            TextBlock::new("More").build(),
+            TextBlock::new("Collapsed by default.").build(),
+            move |value| {
+                more.set(value);
+            },
+        )
+        .expanded(more_value)
+        .build(),
+        Expander::new(
+            hstack(
+                8.0,
+                [
+                    TextBlock::new("*").font_size(18.0).build(),
+                    TextBlock::new("Settings")
+                        .font_weight(FontWeight::BOLD)
+                        .build(),
+                ],
+            ),
+            TextBlock::new("Body content for the rich header expander.").build(),
+            move |value| {
+                settings.set(value);
+            },
+        )
+        .expanded(settings_value)
+        .build(),
+    ])
     .spacing(8.0)
     .max_width(400.0)
-    .into()
+    .build()
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("Expander", app)
 }

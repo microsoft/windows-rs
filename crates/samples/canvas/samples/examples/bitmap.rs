@@ -1,9 +1,9 @@
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
-use windows_reactor::DrawContext;
+use windows_reactor::CanvasDrawContext;
 
-fn draw(ctx: &DrawContext) -> Result<()> {
+fn draw(ctx: &CanvasDrawContext<'_>) -> Result<()> {
     ctx.clear(ColorF::new(0.1, 0.1, 0.1, 1.0));
 
     let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))

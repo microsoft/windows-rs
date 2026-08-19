@@ -1,26 +1,36 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (toggled, set_toggled) = cx.use_state(false);
-    let icon = if toggled {
-        Symbol::Save
+use windows_reactor::{Button, Element, Icon, IconSymbol, RenderCx, TextBlock, vstack};
+
+fn app(cx: &mut RenderCx<'_>) -> Element {
+    let toggled = cx.use_state(|| false);
+    let current = toggled.value();
+    let icon = if current {
+        IconSymbol::SAVE
     } else {
-        Symbol::Favorite
+        IconSymbol::FAVORITE
     };
-    let status = if toggled { "Save" } else { "Favorite" };
+    let status = if current { "Save" } else { "Favorite" };
 
-    vstack((
-        Button::new("Toggle Icon").icon(icon).on_click({
-            let set_toggled = set_toggled;
-            move || set_toggled.call(!toggled)
-        }),
-        text_block(format!("Current icon: {status}")).opacity(0.6),
-        text_block("Click the button — the icon should change but the label stays.").opacity(0.4),
-    ))
-    .spacing(12.0)
-    .into()
+    vstack(
+        12.0,
+        [
+            Button::new("Toggle Icon")
+                .icon(Icon::symbol(icon))
+                .on_click(move || {
+                    toggled.set(!current);
+                })
+                .build(),
+            TextBlock::new(format!("Current icon: {status}"))
+                .opacity(0.6)
+                .build(),
+            TextBlock::new("Click the button - the icon should change but the label stays.")
+                .opacity(0.4)
+                .build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("ButtonIconGlyphChange", app)
 }

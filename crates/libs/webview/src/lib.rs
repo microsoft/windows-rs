@@ -19,15 +19,15 @@ mod options;
 mod profile;
 mod protocol;
 mod pump;
-#[cfg(feature = "reactor")]
-mod reactor;
-#[cfg(feature = "reactor")]
+#[cfg(feature = "xaml")]
 #[expect(non_snake_case)]
 mod reactor_bindings;
 mod script;
 mod settings;
 mod string;
 mod webview;
+#[cfg(feature = "xaml")]
+mod xaml;
 
 use bindings::*;
 use windows_core::*;
@@ -49,9 +49,10 @@ pub use event::{
 pub use options::{EnvironmentOptions, ScrollBarStyle};
 pub use profile::{PreferredColorScheme, Profile};
 pub use protocol::{WebResourceRequest, WebResourceResponse};
-#[cfg(feature = "reactor")]
-pub use reactor::webview;
 pub use script::ScriptId;
 pub use settings::Settings;
 pub use webview::{HostResourceAccessKind, MemoryUsageTargetLevel, NavigationRequest, WebView};
 pub use windows_core::Result;
+#[cfg(feature = "xaml")]
+#[doc(hidden)]
+pub use xaml::XamlWebViewHost;

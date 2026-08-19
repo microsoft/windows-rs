@@ -1,16 +1,19 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(_cx: &mut RenderCx) -> Element {
-    vstack((
-        text_block("Determinate (40%)"),
-        ProgressRing::new(40.0),
-        text_block("Indeterminate (busy)"),
-        ProgressRing::indeterminate(),
-    ))
-    .spacing(8.0)
-    .into()
+use windows_reactor::{Element, ProgressRing, RenderCx, TextBlock, vstack};
+
+pub fn app(_cx: &mut RenderCx<'_>) -> Element {
+    vstack(
+        8.0,
+        [
+            TextBlock::new("Determinate (40%)").build(),
+            ProgressRing::new(40.0).build(),
+            TextBlock::new("Indeterminate (busy)").build(),
+            ProgressRing::indeterminate().build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("ProgressRing", app)
 }

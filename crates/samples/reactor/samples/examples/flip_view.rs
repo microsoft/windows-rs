@@ -1,50 +1,72 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (page, set_page) = cx.use_state(0_i32);
+use windows_reactor::{
+    Border, Button, Color, Element, FlipView, FlipViewItem, FontWeight, RenderCx, TextBlock,
+    Thickness, hstack, vstack,
+};
 
-    let items: Vec<String> = ["Red", "Green", "Blue"]
-        .iter()
-        .map(|s| (*s).to_string())
-        .collect();
-    let last = (items.len() as i32) - 1;
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let page = cx.use_state(|| 0i32);
+    let current = page.value();
+    let previous_page = page.clone();
+    let next_page = page.clone();
+    let selected_page = page;
 
-    let prev = {
-        let set_page = set_page.clone();
-        move || set_page.call((page - 1).max(0))
-    };
-    let next = {
-        let set_page = set_page.clone();
-        move || set_page.call((page + 1).min(last))
-    };
-    let on_sel = {
-        let set_page = set_page;
-        move |i: i32| set_page.call(i)
-    };
-
-    vstack((
-        flip_view(items, |s, _idx| {
-            border(text_block(s.clone()).font_size(20.0).bold())
-                .background(Color::rgb(245, 230, 220))
-                .padding(Thickness::uniform(24.0))
-        })
-        .with_key_selector(|s| s.clone())
-        .selected_index(page)
-        .on_selection_changed(on_sel)
-        .height(180.0),
-        hstack((
-            button("Prev").on_click(prev),
-            button("Next").on_click(next),
-            text_block(format!("page = {page}")).opacity(0.7),
-        ))
-        .spacing(8.0),
-    ))
-    .spacing(8.0)
-    .max_width(360.0)
-    .into()
+    vstack(
+        8.0,
+        [
+            FlipView::new(
+                [
+                    page_item(1, "Red"),
+                    page_item(2, "Green"),
+                    page_item(3, "Blue"),
+                ],
+                move |index| {
+                    selected_page.set(index);
+                },
+            )
+            .selected_index(current)
+            .height(180.0)
+            .build(),
+            hstack(
+                8.0,
+                [
+                    Button::new("Prev")
+                        .on_click(move || {
+                            previous_page.set((current - 1).max(0));
+                        })
+                        .automation_id("previous-page")
+                        .build(),
+                    Button::new("Next")
+                        .on_click(move || {
+                            next_page.set((current + 1).min(2));
+                        })
+                        .automation_id("next-page")
+                        .build(),
+                    TextBlock::new(format!("page = {current}"))
+                        .opacity(0.7)
+                        .build(),
+                ],
+            ),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
-    bootstrap()?;
-    App::new().title("Sample").render(app)
+fn page_item(key: u64, name: &str) -> FlipViewItem {
+    FlipViewItem::new(
+        key,
+        Border::new(
+            TextBlock::new(name)
+                .font_size(20.0)
+                .font_weight(FontWeight::BOLD)
+                .build(),
+        )
+        .background(Color::rgb(245, 230, 220))
+        .padding(Thickness::uniform(24.0))
+        .build(),
+    )
+}
+
+fn main() -> windows_core::Result<()> {
+    reactor_samples::run("FlipView", app)
 }

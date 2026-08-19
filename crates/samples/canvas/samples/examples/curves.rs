@@ -1,9 +1,9 @@
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
-use windows_reactor::DrawContext;
+use windows_reactor::CanvasDrawContext;
 
-fn draw(ctx: &DrawContext) -> Result<()> {
+fn draw(ctx: &CanvasDrawContext<'_>) -> Result<()> {
     ctx.clear(ColorF::DARK_SLATE_BLUE);
 
     let path = filled_blob(ctx)?;
@@ -16,7 +16,7 @@ fn draw(ctx: &DrawContext) -> Result<()> {
     Ok(())
 }
 
-fn filled_blob(ctx: &DrawContext) -> Result<Path> {
+fn filled_blob(ctx: &CanvasDrawContext<'_>) -> Result<Path> {
     let cx = ctx.width / 2.0;
     let cy = ctx.height / 2.0;
     let r = cx.min(cy) * 0.5;
@@ -37,7 +37,7 @@ fn filled_blob(ctx: &DrawContext) -> Result<Path> {
         .build()
 }
 
-fn open_wave(ctx: &DrawContext) -> Result<Path> {
+fn open_wave(ctx: &CanvasDrawContext<'_>) -> Result<Path> {
     let y = ctx.height * 0.8;
     let x0 = ctx.width * 0.1;
     let span = ctx.width * 0.8;

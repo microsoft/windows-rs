@@ -1,25 +1,33 @@
-use windows_reactor::*;
+#![windows_subsystem = "windows"]
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (label, set_label) = cx.use_state(String::from("No time picked"));
+use windows_reactor::{Element, RenderCx, TextBlock, TimePicker, TimeSpan, vstack};
 
-    let on_time = move |ts: TimeSpan| {
-        let hours = ts.whole_hours();
-        let minutes = ts.whole_minutes() % 60;
-        set_label.call(format!("Picked: {hours:02}:{minutes:02}"));
-    };
+pub fn app(cx: &mut RenderCx<'_>) -> Element {
+    let selected = cx.use_state(|| None::<TimeSpan>);
+    let current = selected.value();
+    let label = current.map_or_else(
+        || "No time picked".to_string(),
+        |time| {
+            let hours = time.whole_hours();
+            let minutes = time.whole_minutes() % 60;
+            format!("Picked: {hours:02}:{minutes:02}")
+        },
+    );
 
-    vstack((
-        time_picker()
+    vstack(
+        8.0,
+        [
+            TimePicker::new(current, move |value| {
+                selected.set(value);
+            })
             .header("Pick a time")
             .minute_increment(15)
-            .on_selected_time_changed(on_time),
-        text_block(&*label),
-    ))
-    .spacing(8.0)
-    .into()
+            .build(),
+            TextBlock::new(label).build(),
+        ],
+    )
 }
 
-fn main() -> Result<()> {
+fn main() -> windows_core::Result<()> {
     reactor_samples::run("TimePicker", app)
 }

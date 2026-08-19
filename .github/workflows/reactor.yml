@@ -1,4 +1,7 @@
-name: test_reactor
+name: windows-reactor
+
+permissions:
+  contents: read
 
 on:
   push:
@@ -8,20 +11,87 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: selftest-${{ github.ref }}
-  cancel-in-progress: true
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
 env:
   CARGO_TERM_COLOR: always
   CARGO_INCREMENTAL: "0"
   RUST_BACKTRACE: "1"
+  RUSTFLAGS: "-D warnings"
   CARGO_REGISTRIES_CRATES_IO_PROTOCOL: sparse
 
 jobs:
-  selftest:
-    name: cargo run -p test_reactor_selftest
+  quality:
+    name: format, lint, and model tests
     runs-on: windows-2025-vs2026
-    timeout-minutes: 30
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+
+      - name: Install Rust components
+        run: rustup component add clippy rustfmt
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Format
+        run: |
+          cargo fmt -p windows-reactor -p tool_reactor_coverage `
+            -p reactor_samples -p reactor_gallery -p reactor_framework_dependent `
+            -p reactor_self_contained -p reactor_startup_perf -p reactor_composition `
+            -p reactor_direct2d -p reactor_swap_chain_panel -p reactor_webview `
+            -p reactor_matched -p reactor_matched_canvas -p reactor_matched_hooks `
+            -p reactor_windows -- --check
+        shell: pwsh
+
+      - name: Clippy
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          cargo clippy -p windows-reactor --all-targets -- -D warnings
+          cargo clippy -p windows-reactor --all-features --all-targets -- -D warnings
+          cargo clippy -p tool_reactor_coverage --all-targets -- -D warnings
+
+      - name: Model tests
+        run: cargo test -p windows-reactor --no-default-features --quiet
+
+      - name: All-feature tests
+        run: cargo test -p windows-reactor --all-features --quiet
+
+      - name: Coverage tool tests
+        run: cargo test -p tool_reactor_coverage --quiet
+
+      - name: Support and selftest crates
+        run: cargo check -p test_reactor_support -p test_reactor_selftest --quiet
+
+      - name: Reactor sample checks
+        shell: pwsh
+        run: |
+          cargo check -p reactor_samples -p reactor_gallery `
+            -p reactor_framework_dependent -p reactor_self_contained `
+            -p reactor_startup_perf -p reactor_composition -p reactor_direct2d `
+            -p reactor_swap_chain_panel -p reactor_webview -p reactor_matched `
+            -p reactor_matched_canvas -p reactor_matched_hooks -p reactor_windows `
+            --all-targets --quiet
+          cargo test -p reactor_samples --lib --quiet
+          cargo test -p reactor_gallery --quiet
+
+      - name: Reactor sample Clippy
+        shell: pwsh
+        run: |
+          cargo clippy -p reactor_samples -p reactor_gallery -p reactor_composition `
+            -p reactor_direct2d -p reactor_swap_chain_panel -p reactor_webview `
+            -p reactor_framework_dependent -p reactor_self_contained `
+            -p reactor_startup_perf -p reactor_matched -p reactor_matched_canvas `
+            -p reactor_matched_hooks -p reactor_windows --all-targets -- -D warnings
+
+  native:
+    name: native fixtures and selftests
+    runs-on: windows-2025-vs2026
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v7
 
@@ -29,26 +99,70 @@ jobs:
         run: rustup update --no-self-update stable && rustup default stable
 
       - uses: Swatinem/rust-cache@v2
+
       - name: Install Windows App Runtime
         shell: pwsh
         run: |
           $installerUrl = "https://aka.ms/windowsappsdk/2.4/2.4.0/windowsappruntimeinstall-x64.exe"
-          $installerPath = "$env:TEMP\WindowsAppRuntimeInstall.exe"
+          $installerPath = "$env:RUNNER_TEMP\WindowsAppRuntimeInstall.exe"
           Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
-          Start-Process -FilePath $installerPath -ArgumentList "--quiet" -Wait -PassThru | Out-Null
+          Start-Process -FilePath $installerPath -ArgumentList "--quiet" -Wait -PassThru |
+            Out-Null
 
-      - name: cargo run -p test_reactor_selftest -- --headless
-        run: cargo run -p test_reactor_selftest -- --headless
+      - name: Package-owned native fixtures
+        run: |
+          cargo test -p windows-reactor --release winui::tests:: -- `
+            --ignored --test-threads=1
         shell: pwsh
 
-  reconciler-quality:
-    name: reconciler coverage and performance
+      - name: Native selftests
+        run: crates\tests\libs\reactor_selftest\native.ps1 -Profile release
+        shell: pwsh
+
+      - name: Matched sample acceptance
+        run: crates\samples\reactor\matched.ps1 -Profile release
+        shell: pwsh
+
+      - name: Public sample smoke tests
+        run: crates\samples\reactor\samples\native.ps1 -Profile release
+        shell: pwsh
+
+      - name: Public API UI Automation fixture
+        run: |
+          cargo test -p windows-reactor --release --test public_api `
+            ui_automation_drives_representative_public_flows -- `
+            --ignored --test-threads=1
+        shell: pwsh
+
+  release-checks:
+    name: public API and package checks
     runs-on: windows-2025-vs2026
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
+
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Install public API tool
+        run: cargo install cargo-public-api --locked --version 0.52.0
+
+      - name: Public API snapshots
+        run: crates\libs\reactor\testing\public-api.ps1
+        shell: pwsh
+
+      - name: Packaged source
+        run: crates\libs\reactor\testing\package.ps1
+        shell: pwsh
+
+  coverage:
+    name: branch coverage
+    runs-on: windows-2025-vs2026
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
 
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable
@@ -63,20 +177,62 @@ jobs:
           rustup toolchain install nightly --profile minimal --component llvm-tools-preview
           cargo install cargo-llvm-cov --locked --version 0.8.7
 
-      - name: Reconciler branch coverage
+      - name: Install Windows App Runtime
+        shell: pwsh
+        run: |
+          $installerUrl = "https://aka.ms/windowsappsdk/2.4/2.4.0/windowsappruntimeinstall-x64.exe"
+          $installerPath = "$env:RUNNER_TEMP\WindowsAppRuntimeInstall.exe"
+          Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
+          Start-Process -FilePath $installerPath -ArgumentList "--quiet" -Wait -PassThru |
+            Out-Null
+
+      - name: Enforce coverage floors
         shell: pwsh
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
           cargo +nightly llvm-cov clean --workspace
-          cargo +nightly llvm-cov -p test_reactor --branch --no-report
+          cargo +nightly llvm-cov -p windows-reactor --no-default-features --branch --no-report
+          cargo +nightly llvm-cov -p windows-reactor --branch --no-report --lib -- `
+            winui::tests:: --ignored --test-threads=1
           cargo +nightly llvm-cov report -p windows-reactor --branch --json `
             --output-path target\reactor-coverage.json
-          crates\tests\libs\reactor\coverage.ps1
+          cargo run -p tool_reactor_coverage --quiet -- target\reactor-coverage.json
 
-      - name: Compare reconciler performance with merge base
-        if: github.event_name == 'pull_request'
+  performance:
+    name: benchmark, performance, and stability
+    runs-on: windows-2025-vs2026
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Install Windows App Runtime
         shell: pwsh
         run: |
-          crates\tests\libs\reactor_bench\compare.ps1 `
+          $installerUrl = "https://aka.ms/windowsappsdk/2.4/2.4.0/windowsappruntimeinstall-x64.exe"
+          $installerPath = "$env:RUNNER_TEMP\WindowsAppRuntimeInstall.exe"
+          Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
+          Start-Process -FilePath $installerPath -ArgumentList "--quiet" -Wait -PassThru |
+            Out-Null
+
+      - name: Compare model performance with merge base
+        if: github.event_name == 'pull_request'
+        run: |
+          crates\libs\reactor\benchmark.ps1 `
             -BaseRef "${{ github.event.pull_request.base.sha }}"
+        shell: pwsh
+
+      - name: Enforce release performance policy
+        run: crates\libs\reactor\testing\performance.ps1 -BaseRef 6d63568e6
+        shell: pwsh
+
+      - name: Stability matrix
+        run: crates\libs\reactor\testing\stability.ps1 -Repetitions 1
+        shell: pwsh
