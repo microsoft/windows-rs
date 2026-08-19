@@ -27,7 +27,7 @@ windows-reactor-setup = "0.100"
 
 A framework-dependent application stages the bootstrap files in `build.rs`:
 
-```rust,no_run
+```rust,ignore
 fn main() {
     windows_reactor_setup::as_framework_dependent();
 }
