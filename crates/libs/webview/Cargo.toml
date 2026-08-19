@@ -10,17 +10,14 @@ categories = ["os::windows-apis"]
 readme = "readme.md"
 
 [features]
-reactor = ["dep:windows-reactor", "dep:windows-future"]
+reactor = ["dep:windows-reactor"]
 
 [dependencies]
 windows-core = { workspace = true }
+windows-future = { workspace = true }
 windows-window = { workspace = true }
 
 [dependencies.windows-reactor]
-workspace = true
-optional = true
-
-[dependencies.windows-future]
 workspace = true
 optional = true
 

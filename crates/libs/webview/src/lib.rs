@@ -19,15 +19,16 @@ mod options;
 mod profile;
 mod protocol;
 mod pump;
+// TODO: remove when done
 #[cfg(feature = "reactor")]
 mod reactor;
-#[cfg(feature = "reactor")]
 #[expect(non_snake_case)]
 mod reactor_bindings;
 mod script;
 mod settings;
 mod string;
 mod webview;
+mod xaml;
 
 use bindings::*;
 use windows_core::*;
@@ -55,3 +56,5 @@ pub use script::ScriptId;
 pub use settings::Settings;
 pub use webview::{HostResourceAccessKind, MemoryUsageTargetLevel, NavigationRequest, WebView};
 pub use windows_core::Result;
+#[doc(hidden)]
+pub use xaml::XamlWebViewHost;

@@ -111,6 +111,31 @@ impl SwapChain {
         self.set_target()
     }
 
+    /// Resizes the buffers and applies new DPI with one target recreation.
+    pub fn resize_with_dpi(
+        &mut self,
+        width: u32,
+        height: u32,
+        dpi_x: f32,
+        dpi_y: f32,
+    ) -> Result<()> {
+        if width == 0 || height == 0 {
+            return Ok(());
+        }
+        unsafe {
+            self.d2d_context.SetTarget(None);
+            self.swap_chain
+                .ResizeBuffers(0, width, height, DXGI_FORMAT_UNKNOWN, 0)
+                .ok()?;
+            self.d2d_context.SetDpi(dpi_x, dpi_y);
+        }
+        self.width = width;
+        self.height = height;
+        self.dpi_x = dpi_x;
+        self.dpi_y = dpi_y;
+        self.set_target()
+    }
+
     /// Begins drawing a frame, returning a [`DrawingSession`].
     pub fn begin_draw(&mut self) -> Result<DrawingSession<'_>> {
         self.device_lost_flag.set(false);
@@ -151,27 +176,26 @@ impl SwapChain {
     }
 
     /// Sets the Direct2D DPI for subsequent rendering.
-    pub fn set_dpi(&mut self, dpi_x: f32, dpi_y: f32) {
+    pub fn set_dpi(&mut self, dpi_x: f32, dpi_y: f32) -> Result<()> {
         self.dpi_x = dpi_x;
         self.dpi_y = dpi_y;
         unsafe { self.d2d_context.SetDpi(dpi_x, dpi_y) }
-        let _ = self.set_target();
+        self.set_target()
     }
 
     /// Applies an inverse composition scale for high-DPI presentation.
-    pub fn set_composition_scale(&self, scale_x: f32, scale_y: f32) {
-        if let Ok(sc2) = self.swap_chain.cast::<IDXGISwapChain2>() {
-            let matrix = DXGI_MATRIX_3X2_F {
-                _11: 1.0 / scale_x,
-                _12: 0.0,
-                _21: 0.0,
-                _22: 1.0 / scale_y,
-                _31: 0.0,
-                _32: 0.0,
-            };
-            unsafe {
-                let _ = sc2.SetMatrixTransform(&matrix);
-            }
+    pub fn set_composition_scale(&self, scale_x: f32, scale_y: f32) -> Result<()> {
+        let sc2 = self.swap_chain.cast::<IDXGISwapChain2>()?;
+        let matrix = DXGI_MATRIX_3X2_F {
+            _11: 1.0 / scale_x,
+            _12: 0.0,
+            _21: 0.0,
+            _22: 1.0 / scale_y,
+            _31: 0.0,
+            _32: 0.0,
+        };
+        unsafe {
+            sc2.SetMatrixTransform(&matrix).ok()
         }
     }
 

@@ -8,7 +8,10 @@ pub struct DrawingSession<'a> {
 
 enum Mode<'a> {
     /// This session owns the `BeginDraw`/`EndDraw` bracket.
-    Owned { device_lost_flag: &'a Cell<bool> },
+    Owned {
+        device_lost_flag: &'a Cell<bool>,
+        ended: bool,
+    },
     /// This borrowed context is already bracketed by its owner.
     Borrowed { offset: Matrix3x2 },
 }
@@ -21,8 +24,37 @@ impl<'a> DrawingSession<'a> {
         unsafe { context.BeginDraw() };
         Ok(Self {
             context,
-            mode: Mode::Owned { device_lost_flag },
+            mode: Mode::Owned {
+                device_lost_flag,
+                ended: false,
+            },
         })
+    }
+
+    /// Ends an owned drawing session and returns the `EndDraw` result.
+    ///
+    /// Borrowed sessions have no draw bracket to end.
+    pub fn finish(mut self) -> Result<()> {
+        self.finish_owned()
+    }
+
+    fn finish_owned(&mut self) -> Result<()> {
+        let Mode::Owned {
+            device_lost_flag,
+            ended,
+        } = &mut self.mode
+        else {
+            return Ok(());
+        };
+        if *ended {
+            return Ok(());
+        }
+        *ended = true;
+        let result = unsafe { self.context.EndDraw(None, None) };
+        if is_device_lost(result) {
+            device_lost_flag.set(true);
+        }
+        result.ok()
     }
 
     /// Wraps a context that is already inside a caller-owned `BeginDraw`/`EndDraw` bracket.
@@ -419,14 +451,6 @@ impl<'a> DrawingSession<'a> {
 
 impl Drop for DrawingSession<'_> {
     fn drop(&mut self) {
-        let Mode::Owned { device_lost_flag } = self.mode else {
-            return;
-        };
-        unsafe {
-            let result = self.context.EndDraw(None, None);
-            if is_device_lost(result) {
-                device_lost_flag.set(true);
-            }
-        }
+        _ = self.finish_owned();
     }
 }

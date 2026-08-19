@@ -3,8 +3,9 @@
 ## Goal
 
 Rebuild the Reactor replacement as a reviewable, additive migration from master. Keep the existing
-Reactor implementation and every existing consumer unchanged until Reactor2 has independently
-passed its quality, behavior, usability, and performance gates.
+Reactor implementation operational until Reactor2 has independently passed its quality, behavior,
+usability, and performance gates. Mechanical migrations to approved shared APIs are allowed when
+they remove temporary compatibility APIs without changing old behavior.
 
 ## Repositories
 
@@ -19,13 +20,13 @@ passed its quality, behavior, usability, and performance gates.
 
 - [x] Start from a clean clone of `origin/master`.
 - [x] Create a dedicated migration branch.
-- [x] Keep the old `windows-reactor`, generator, tests, samples, and CI unchanged.
+- [x] Keep the old `windows-reactor`, generator, tests, samples, and CI operational.
 - [x] Add new packages under Reactor2-specific paths.
 - [x] Do not copy documentation, workflows, samples, or unrelated cleanup from the reference branch.
 - [ ] Make one independently testable change per commit.
 - [ ] Do not commit automatically.
-- [ ] Run old and new gates after every shared-crate change.
-- [ ] Justify every change outside Reactor2-specific paths in the table below.
+- [x] Run old and new gates after every shared-crate change.
+- [x] Justify every change outside Reactor2-specific paths in the table below.
 - [ ] Revert experiments that do not show a measured benefit.
 - [ ] Keep timing comparisons informational until repeated measurements show stable variance.
 - [ ] Use allocation counts, native command counts, API snapshots, and compile failures as hard gates.
@@ -54,18 +55,16 @@ Changes outside these paths require a separate justification and validation entr
 - [x] Confirm default-feature Reactor2 builds against untouched master dependencies.
 - [x] Confirm existing Reactor still builds and tests.
 
-Phase 1 stages the default feature first. The Canvas and WebView features remain declared so their
-source stays reviewable, but they are not gates until their additive shared APIs are approved.
-Native and public API tests require the test-deployment seam recorded below; no test is deleted to
-make the initial library check pass.
+Phase 1 staged the default feature first. Canvas and WebView were then enabled through the additive
+shared APIs recorded below. Native and public API tests use the test-deployment seam; no test was
+deleted to make the library checks pass.
 
 The reference quality scripts and API snapshots are deferred to Phase 2. Their copied forms target
 the old package and self-test paths, so including them before adaptation would provide misleading
 results.
 
-The all-feature probe reaches only the expected integration seams. Canvas needs the new session
-finish method, fallible DPI/composition-scale setters, and `resize_with_dpi`. WebView needs the
-Reactor-neutral `XamlWebViewHost`. No other master incompatibility was reported.
+The all-feature probe initially reached only the expected Canvas and WebView seams. Both are now
+resolved without changing an existing method signature or removing the old WebView integration.
 
 ### Phase 1 gates
 
@@ -75,7 +74,11 @@ Reactor-neutral `XamlWebViewHost`. No other master incompatibility was reported.
 - [x] `cargo check -p windows-reactor2 --quiet`
 - [x] `cargo test -p windows-reactor2 --quiet`
 - [x] `cargo clippy -p windows-reactor2 --all-targets`
+- [x] `cargo test -p windows-reactor2 --all-features --quiet`
+- [x] `cargo clippy -p windows-reactor2 --all-features --all-targets`
 - [x] `cargo check -p windows-reactor2 --target i686-pc-windows-msvc --quiet`
+- [x] `cargo check -p windows-reactor2 --all-features --quiet`
+- [x] `cargo check -p windows-reactor2 --all-features --target i686-pc-windows-msvc --quiet`
 - [x] Reactor2 generated-output neutrality
 
 ## Phase 2 - Reactor2-owned quality gates
@@ -115,10 +118,12 @@ For each sample or related group:
 
 ## Phase 4 - Shared integration seams
 
-Shared changes must remain backward compatible and must not migrate an old consumer.
+Shared changes must keep old behavior working. Old consumers may be migrated mechanically when
+that avoids carrying a temporary API or duplicate implementation.
 
-- [ ] Canvas: determine the smallest additive checked drawing/DPI APIs required by Reactor2.
-- [ ] WebView: retain the old `reactor` feature and add an independent `xaml` host feature.
+- [x] Canvas: add the smallest checked drawing/DPI APIs required by Reactor2.
+- [x] WebView: add one unconditional XAML host and retain only the temporary old `reactor` adapter
+  feature.
 - [x] Reactor setup: add only the test deployment support required by Reactor2 tests.
 - [ ] Test support: add neutral shared support only when both implementations can use it.
 
@@ -126,8 +131,8 @@ Shared changes must remain backward compatible and must not migrate an old consu
 
 | Area | Proposed change | Why Reactor2 needs it | Why it belongs in the shared crate | Old gates |
 | --- | --- | --- | --- | --- |
-| Canvas | Not yet approved | Reactor2 needs observable draw and DPI failures | Pending investigation | Pending |
-| WebView | Not yet approved | Reactor2 owns the XAML control and needs a Reactor-neutral host | Pending investigation | Pending |
+| Canvas | Make the existing DPI/composition setters fallible; add `DrawingSession::finish` and `SwapChain::resize_with_dpi`; migrate old Reactor in the same step | Both Reactors need observable draw, resize, DPI, and composition-scale failures | Canvas owns the Direct2D/DXGI operations and error values; migrating the in-repo consumer avoids permanent duplicate setter APIs | Canvas check/test/Clippy; old Reactor check/test; Reactor2 Canvas check/test/Clippy |
+| WebView | Add an unconditional hidden `XamlWebViewHost`; make the temporary old `reactor` adapter delegate to it | Reactor2 owns the XAML control and needs a Reactor-neutral host | The host is only 98 lines with 603 lines of bindings, and WebView owns the XAML-to-COM bridge; one implementation serves both Reactors until the marked adapter is deleted | WebView all-feature check/test/Clippy; old Reactor all-feature check/test; Reactor2 all-feature check/test/Clippy |
 | Reactor setup | Add `as_test`, returning the copied bootstrap directory from the existing helper | Cargo test executables load the bootstrap DLL from `target/<profile>/deps` | Runtime deployment belongs with the existing app/example deployment APIs; the addition does not change either existing path | `cargo test -p windows-reactor-setup`; old Reactor check/test |
 
 No shared change is approved merely because it exists on the reference branch.
@@ -173,3 +178,10 @@ No shared change is approved merely because it exists on the reference branch.
   seams have independent old-stack gates.
 - 2026-08-19: Approved the additive Reactor setup `as_test` API because Cargo test executables use
   a distinct output directory; existing app and example deployment behavior remains unchanged.
+- 2026-08-19: Replaced the temporary checked Canvas method names with fallible canonical setters
+  and migrated old Reactor, avoiding permanent duplicate APIs.
+- 2026-08-19: Made the Reactor-neutral WebView XAML host unconditional and made the marked
+  temporary old `reactor` adapter delegate to it, avoiding both a tiny permanent feature and
+  duplicate XAML initialization implementations.
+- 2026-08-19: Transitional code intended for final-cutover deletion must carry the exact
+  `// TODO: remove when done` comment.

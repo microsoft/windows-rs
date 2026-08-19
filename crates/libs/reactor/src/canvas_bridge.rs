@@ -24,6 +24,10 @@ pub struct DrawContext<'a> {
 }
 
 impl<'a> DrawContext<'a> {
+    fn finish(self) -> Result<()> {
+        self.session.finish()
+    }
+
     /// Returns the GPU device backing this context.
     pub fn device(&self) -> &GpuDevice {
         self.device
@@ -70,8 +74,13 @@ impl RenderState {
             return false;
         };
         let dpi = 96.0 * self.scale;
-        chain.set_dpi(dpi, dpi);
-        chain.set_composition_scale(self.scale, self.scale);
+        if chain
+            .set_dpi(dpi, dpi)
+            .and_then(|()| chain.set_composition_scale(self.scale, self.scale))
+            .is_err()
+        {
+            return false;
+        }
         let _ = self.panel.set_swap_chain(chain.raw_swap_chain());
         self.device = device;
         self.chain = chain;
@@ -224,8 +233,13 @@ fn animated_canvas_impl(
                 return;
             };
             let dpi = 96.0 * s;
-            chain.set_dpi(dpi, dpi);
-            chain.set_composition_scale(s, s);
+            if chain
+                .set_dpi(dpi, dpi)
+                .and_then(|()| chain.set_composition_scale(s, s))
+                .is_err()
+            {
+                return;
+            }
             let _ = panel.set_swap_chain(chain.raw_swap_chain());
 
             let sc_size = ready_size.clone();
@@ -241,10 +255,11 @@ fn animated_canvas_impl(
                     let mut borrow = sc_state.borrow_mut();
                     if let Some(rs) = borrow.as_mut() {
                         rs.scale = new_s;
-                        let _ = rs.chain.resize(pw, ph);
                         let dpi = 96.0 * new_s;
-                        rs.chain.set_dpi(dpi, dpi);
-                        rs.chain.set_composition_scale(new_s, new_s);
+                        _ = rs
+                            .chain
+                            .resize_with_dpi(pw, ph, dpi, dpi)
+                            .and_then(|()| rs.chain.set_composition_scale(new_s, new_s));
                         sc_gen.set(true);
                     }
                 })
@@ -281,9 +296,9 @@ fn animated_canvas_impl(
                                 height: h,
                                 changed: render_changed.replace(false),
                             };
-                            let result = render_draw(&ctx);
-                            drop(ctx);
-                            result
+                            let draw_result = render_draw(&ctx);
+                            let end_result = ctx.finish();
+                            draw_result.and(end_result)
                         })
                         .and_then(|()| rs.chain.present());
 
@@ -456,8 +471,9 @@ impl SwapChainState {
             changed: false,
         };
         let draw_result = f(&ctx);
-        drop(ctx);
+        let end_result = ctx.finish();
         draw_result?;
+        end_result?;
         match self.chain.present() {
             Ok(true) => Ok(()),
             // `SwapChain::present` reports device loss as `Ok(false)` and does not
@@ -479,8 +495,13 @@ impl SwapChainState {
             return false;
         };
         let dpi = 96.0 * self.scale;
-        chain.set_dpi(dpi, dpi);
-        chain.set_composition_scale(self.scale, self.scale);
+        if chain
+            .set_dpi(dpi, dpi)
+            .and_then(|()| chain.set_composition_scale(self.scale, self.scale))
+            .is_err()
+        {
+            return false;
+        }
         if self.panel.set_swap_chain(chain.raw_swap_chain()).is_err() {
             return false;
         }
@@ -538,8 +559,8 @@ impl CanvasSwapChain {
         let pixel_height = surface_pixels(height, scale);
         let mut chain = device.create_swap_chain(pixel_width, pixel_height)?;
         let dpi = 96.0 * scale;
-        chain.set_dpi(dpi, dpi);
-        chain.set_composition_scale(scale, scale);
+        chain.set_dpi(dpi, dpi)?;
+        chain.set_composition_scale(scale, scale)?;
         panel.set_swap_chain(chain.raw_swap_chain())?;
         Ok(Self {
             inner: Rc::new(RefCell::new(SwapChainState {
@@ -597,11 +618,12 @@ impl CanvasSwapChain {
         }
         let pixel_width = surface_pixels(state.width, scale);
         let pixel_height = surface_pixels(state.height, scale);
-        state.chain.resize(pixel_width, pixel_height)?;
-        state.scale = scale;
         let dpi = 96.0 * scale;
-        state.chain.set_dpi(dpi, dpi);
-        state.chain.set_composition_scale(scale, scale);
+        state
+            .chain
+            .resize_with_dpi(pixel_width, pixel_height, dpi, dpi)?;
+        state.chain.set_composition_scale(scale, scale)?;
+        state.scale = scale;
         Ok(())
     }
 

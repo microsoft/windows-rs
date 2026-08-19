@@ -97,10 +97,7 @@ impl HostResourceAccessKind {
 pub struct WebView(pub(crate) ICoreWebView2);
 
 impl WebView {
-    /// Wraps an existing `ICoreWebView2`. Used by the optional `reactor` feature
-    /// to build a `WebView` from the WinUI XAML `WebView2` control's bridged COM
-    /// core.
-    #[cfg(feature = "reactor")]
+    /// Wraps an existing `ICoreWebView2` from a WinUI XAML `WebView2` control.
     pub(crate) fn from_core(core: ICoreWebView2) -> Self {
         Self(core)
     }

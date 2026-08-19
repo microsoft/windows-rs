@@ -1,5 +1,7 @@
 use std::time::Duration;
 
+// TODO: remove when done
+
 use windows_reactor::{
     Application, CollectionSelection, ContentDialog, ContentDialogResult, ContextKey, Element,
     ListBox, RenderCx, State, TextBox, Window, button, component, provide_context_key, stack_panel,
