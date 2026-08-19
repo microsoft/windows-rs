@@ -1,0 +1,18 @@
+[package]
+name = "test_reactor2_selftest"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-core.workspace = true
+windows-reactor2 = { path = "../../../libs/reactor2" }
+
+[build-dependencies]
+windows-reactor-setup = { workspace = true }
+
+[dev-dependencies]
+test_reactor2_support = { path = "../reactor2_support" }
+
+[lints]
+workspace = true

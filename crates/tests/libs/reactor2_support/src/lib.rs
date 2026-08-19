@@ -1,5 +1,6 @@
 //! Shared deployment and process support for Reactor Cargo tests.
 
+use std::ffi::OsStr;
 use std::fmt;
 use std::io::{self, Read};
 use std::process::{Command, ExitStatus, Output, Stdio};
@@ -67,11 +68,25 @@ impl TestProcess {
             .arg("--exact")
             .arg("--nocapture")
             .arg("--test-threads=1")
-            .envs(environment.iter().copied())
+            .envs(environment.iter().copied());
+        Self::spawn_command(&mut command)
+    }
+
+    pub fn spawn_executable(
+        executable: impl AsRef<OsStr>,
+        arguments: &[&str],
+        environment: &[(&str, &str)],
+    ) -> Result<Self, ProcessError> {
+        let mut command = Command::new(executable);
+        command.args(arguments).envs(environment.iter().copied());
+        Self::spawn_command(&mut command)
+    }
+
+    fn spawn_command(command: &mut Command) -> Result<Self, ProcessError> {
+        command
             .stdin(Stdio::null())
             .stdout(Stdio::piped())
             .stderr(Stdio::piped());
-
         let mut child = command.spawn()?;
         let stdout = child.stdout.take().unwrap();
         let stderr = child.stderr.take().unwrap();
@@ -137,6 +152,13 @@ impl Drop for TestProcess {
 }
 
 pub fn assert_success(output: Output) {
+    assert_process_success(&output);
+    let stdout = String::from_utf8_lossy(&output.stdout);
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert_test_ran(&stdout, &stderr);
+}
+
+pub fn assert_process_success(output: &Output) {
     let stdout = String::from_utf8_lossy(&output.stdout);
     let stderr = String::from_utf8_lossy(&output.stderr);
     assert!(
@@ -146,7 +168,6 @@ pub fn assert_success(output: Output) {
         stdout,
         stderr
     );
-    assert_test_ran(&stdout, &stderr);
 }
 
 fn assert_test_ran(stdout: &str, stderr: &str) {

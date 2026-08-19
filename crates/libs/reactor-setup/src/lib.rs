@@ -266,7 +266,11 @@ fn extract_tar(src: &Path, dst: &Path, extra: &[&str]) {
 }
 
 fn target_dir_from_out(out: &Path) -> PathBuf {
-    out.ancestors().nth(3).unwrap_or(out).to_path_buf()
+    out.ancestors()
+        .find(|path| path.file_name().is_some_and(|name| name == "build"))
+        .and_then(Path::parent)
+        .unwrap_or_else(|| panic!("Cargo OUT_DIR has no build ancestor: {}", out.display()))
+        .to_path_buf()
 }
 
 fn target_arch() -> &'static str {
@@ -274,5 +278,21 @@ fn target_arch() -> &'static str {
         Ok("aarch64") => "arm64",
         Ok("x86") => "x86",
         _ => "x64",
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn target_directory_is_the_parent_of_the_build_directory() {
+        let profile = Path::new("target").join("release");
+        for suffix in [
+            Path::new("build").join("package-hash").join("out"),
+            Path::new("build").join("package").join("hash").join("out"),
+        ] {
+            assert_eq!(target_dir_from_out(&profile.join(suffix)), profile);
+        }
     }
 }

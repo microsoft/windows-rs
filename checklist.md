@@ -34,7 +34,7 @@ they remove temporary compatibility APIs without changing old behavior.
 ## Default additive paths
 
 - `crates/libs/reactor2/**`
-- `crates/tools/reactor2/**`
+- `crates/tools/reactor2*/**`
 - `crates/samples/reactor2/**`
 - `crates/tests/libs/reactor2_*/**`
 - `.github/workflows/reactor2.yml`
@@ -83,14 +83,25 @@ resolved without changing an existing method signature or removing the old WebVi
 
 ## Phase 2 - Reactor2-owned quality gates
 
-- [ ] Add normalized public API snapshots.
-- [ ] Add model coverage reporting and measured floors.
-- [ ] Add native private fixtures.
-- [ ] Add `test_reactor2_selftest`.
+- [x] Add normalized public API snapshots with `tool_reactor2_public_api`.
+- [x] Add model coverage reporting and measured floors.
+- [x] Add native private fixtures.
+- [x] Add a smoke-only `test_reactor2_selftest` with a Rust process/UI Automation harness.
 - [ ] Add Reactor2-only CI without editing the existing Reactor workflow.
 - [ ] Establish clean and incremental compile-time baselines.
 - [ ] Establish release `.rlib` and representative binary-size baselines.
 - [ ] Establish startup, reconciliation, churn, allocation, and command baselines.
+
+### Phase 2 gates
+
+- [x] `cargo run -p tool_reactor2_public_api --quiet`
+- [x] `cargo run -p tool_reactor2_coverage --quiet -- target\reactor2-coverage.json`
+- [x] `cargo test -p windows-reactor-setup -p test_reactor2_support --quiet`
+- [x] `cargo test -p test_reactor2_selftest --test native --quiet -- --test-threads=1`
+- [x] `cargo test -p windows-reactor2 --all-features --quiet`
+- [x] `cargo test -p windows-reactor --all-features --quiet`
+- [x] Clippy with `-D warnings` for both Reactors and all affected test and tool packages
+- [x] No PowerShell files or unvalidated fixture scenarios under Reactor2-owned paths
 
 ## Phase 3 - Incremental sample migration
 
@@ -133,7 +144,7 @@ that avoids carrying a temporary API or duplicate implementation.
 | --- | --- | --- | --- | --- |
 | Canvas | Make the existing DPI/composition setters fallible; add `DrawingSession::finish` and `SwapChain::resize_with_dpi`; migrate old Reactor in the same step | Both Reactors need observable draw, resize, DPI, and composition-scale failures | Canvas owns the Direct2D/DXGI operations and error values; migrating the in-repo consumer avoids permanent duplicate setter APIs | Canvas check/test/Clippy; old Reactor check/test; Reactor2 Canvas check/test/Clippy |
 | WebView | Add an unconditional hidden `XamlWebViewHost`; make the temporary old `reactor` adapter delegate to it | Reactor2 owns the XAML control and needs a Reactor-neutral host | The host is only 98 lines with 603 lines of bindings, and WebView owns the XAML-to-COM bridge; one implementation serves both Reactors until the marked adapter is deleted | WebView all-feature check/test/Clippy; old Reactor all-feature check/test; Reactor2 all-feature check/test/Clippy |
-| Reactor setup | Add `as_test`, returning the copied bootstrap directory from the existing helper | Cargo test executables load the bootstrap DLL from `target/<profile>/deps` | Runtime deployment belongs with the existing app/example deployment APIs; the addition does not change either existing path | `cargo test -p windows-reactor-setup`; old Reactor check/test |
+| Reactor setup | Add `as_test` and resolve the profile directory by finding the `build` ancestor | Cargo tests need the bootstrap DLL under `deps`; self-contained binaries need runtime DLLs beside the executable | Runtime deployment belongs with the existing app/example APIs; the old fixed-depth lookup put self-contained files under `target/<profile>/build/deps` | Setup unit/doctests; old Reactor check/test; Reactor2 native selftest |
 
 No shared change is approved merely because it exists on the reference branch.
 
@@ -185,3 +196,13 @@ No shared change is approved merely because it exists on the reference branch.
   duplicate XAML initialization implementations.
 - 2026-08-19: Transitional code intended for final-cutover deletion must carry the exact
   `// TODO: remove when done` comment.
+- 2026-08-19: Reactor2 API snapshots normalize only `windows_reactor2` to the final
+  `windows_reactor` crate name; all four snapshots match the reference branch exactly. The
+  `tool_reactor2_public_api` package keeps this gate separate from binding generation.
+- 2026-08-19: Fresh Reactor2 coverage passed the reviewed floors: app 76.77% branches/90.54%
+  lines, engine 74.87%/92.60%, and WinUI 36.74%/55.21%. All 44 ignored native fixtures passed
+  during collection.
+- 2026-08-19: Do not propagate the copied PowerShell native harness. Reactor2 native acceptance
+  tests use Rust integration tests, one fixture process per test, shared RAII process handling, and
+  direct UI Automation. The initial self-test fixture contains only the validated smoke surface;
+  fixture code is added with each later Rust scenario rather than copied in advance.

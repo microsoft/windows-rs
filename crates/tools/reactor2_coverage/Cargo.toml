@@ -1,0 +1,12 @@
+[package]
+name = "tool_reactor2_coverage"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+serde = { workspace = true, features = ["derive", "std"] }
+serde_json = { workspace = true, features = ["std"] }
+
+[lints]
+workspace = true
