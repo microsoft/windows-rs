@@ -1,0 +1,48 @@
+name: test_reactor_next
+
+on:
+  push:
+    branches: [windows-reactor-next]
+  pull_request:
+    branches: [master, main]
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+  CARGO_INCREMENTAL: "0"
+  RUSTFLAGS: "-D warnings"
+
+jobs:
+  quality:
+    runs-on: windows-2025-vs2026
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Format
+        shell: pwsh
+        run: |
+          cargo fmt -p windows-reactor-next -p tool_reactor_next `
+            -p test_reactor_next -p test_reactor_next_bench `
+            -p sample_reactor_next_counter -- --check
+
+      - name: Check and test
+        shell: pwsh
+        run: |
+          cargo test -p windows-reactor-next -p test_reactor_next --quiet
+          cargo check -p tool_reactor_next -p test_reactor_next_bench `
+            -p sample_reactor_next_counter --quiet
+          cargo clippy -p windows-reactor-next -p tool_reactor_next `
+            -p test_reactor_next -p test_reactor_next_bench `
+            -p sample_reactor_next_counter --all-targets --quiet
+
+      - name: Generated output
+        shell: pwsh
+        run: |
+          cargo run -p tool_reactor_next --quiet
+          git diff --exit-code

@@ -49,6 +49,7 @@ Each crate page covers usage and maintenance. Generated API documentation is ava
 | Crate | Description |
 | --- | --- |
 | [windows-reactor](crates/windows-reactor.md) | Declarative UI library backed by WinUI 3. |
+| [windows-reactor-next](crates/windows-reactor-next.md) | Unpublished next-generation Reactor experiment. |
 | [windows-canvas](crates/windows-canvas.md) | 2D graphics built on Direct2D. |
 | [windows-composition](crates/windows-composition.md) | Windows composition visuals. |
 | [windows-webview](crates/windows-webview.md) | Safe wrapper around the WebView2 browser control. |

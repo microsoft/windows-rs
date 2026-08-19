@@ -1,0 +1,13 @@
+[package]
+name = "windows-reactor-next"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.95"
+publish = false
+license = "MIT OR Apache-2.0"
+description = "Experimental next-generation Windows UI library"
+repository = "https://github.com/microsoft/windows-rs"
+readme = "readme.md"
+
+[lints]
+workspace = true

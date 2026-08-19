@@ -157,11 +157,11 @@ Deferred:
 
 ### 0. Baseline
 
-- Record toolchain, target, profile, and runner.
-- Record current reactor clean check, release build, incremental check, and executable size.
-- Record `test_reactor_bench` output.
-- Record live stock-grid results at 10% and 100% mutation.
-- Define paired counter and representative-tree samples.
+- [x] Record toolchain, target, profile, and runner.
+- [x] Record current reactor clean check, release build, incremental check, and executable size.
+- [x] Record `test_reactor_bench` output.
+- [x] Record live stock-grid results at 10% and 100% mutation.
+- [x] Define paired counter and representative-tree samples.
 
 **Exit:** measurements are reproducible and paired scenarios have matching behavior.
 
@@ -303,13 +303,10 @@ After representative parity:
 
 ### In progress
 
-- [ ] Capture current reactor baseline measurements.
-- [ ] Define paired sample behavior.
+- [ ] Establish the metadata and curation schema.
 
 ### Next
 
-- [ ] Add workspace packages.
-- [ ] Establish the metadata and curation schema.
 - [ ] Generate the first four controls.
 - [ ] Implement the arena and recording runtime.
 
@@ -328,5 +325,41 @@ After representative parity:
 
 - Architecture and correctness gates: active.
 - Compile and runtime gates: report-only until parity.
-- Current phase: 0 - baseline.
-- Next action: capture baseline environment and benchmark output.
+- Current phase: 2 - schema and generator.
+- Next action: define the metadata-derived schema for the first four controls.
+
+## Current reactor baseline
+
+Environment: commit `e73382fa`, Rust nightly 1.99.0, `x86_64-pc-windows-msvc`, Windows 11 build
+26674, Core i9-12900K, Windows App Runtime 2.4.0.
+
+| Compile measurement | Result |
+| --- | ---: |
+| Library clean check | 4.903 s |
+| Stock sample clean check | 5.148 s |
+| Stock sample incremental check | 0.493 s |
+| Stock sample clean release build | 12.269 s |
+| Stock sample executable | 3,270,656 bytes |
+
+Selected headless results:
+
+| Scenario | ns/op | bytes/op | allocations/op |
+| --- | ---: | ---: | ---: |
+| Component mount | 700 | 399 | 10 |
+| Mount/unmount 512 | 199,818 | 152,536 | 2,076 |
+| One changed leaf in 512 | 11,931 | 658 | 7 |
+| No change in 512 | 7,386 | 0 | 0 |
+| Keyed reverse 512 | 101,004 | 58,244 | 11 |
+| Keyed rotate 512 | 67,286 | 82,828 | 33 |
+
+| Live stock grid | 10% mutation | 100% mutation |
+| --- | ---: | ---: |
+| Average FPS | 55.3 | 9.4 |
+| Average reconcile | 3.58 ms | 11.24 ms |
+| Allocated bytes/render | 4.13 MB | 6.28 MB |
+| Average working set | 182.6 MB | 190.3 MB |
+| Average private memory | 229.0 MB | 237.7 MB |
+
+The paired counter covers window, panel, text, button events, state, and effect cleanup. The paired
+representative tree adds nested components, one changed leaf, no-change renders, keyed reorder,
+controlled text, property clearing, and a virtual collection.
