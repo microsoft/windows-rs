@@ -53,6 +53,7 @@ jobs:
       - name: Check formatting
         run: >
           cargo fmt
+          -p reactor2_samples
           -p windows-reactor2
           -p windows-reactor-setup
           -p test_reactor2_support
@@ -74,15 +75,25 @@ jobs:
       - name: Check all features
         run: cargo check -p windows-reactor2 --all-features --quiet
 
-      - name: Check i686
-        run: cargo check -p windows-reactor2 --all-features --target i686-pc-windows-msvc --quiet
+      - name: Compile i686 tests
+        run: >
+          cargo test
+          -p windows-reactor2
+          --all-features
+          --target i686-pc-windows-msvc
+          --no-run
+          --quiet
 
       - name: Test
         run: cargo test -p windows-reactor2 --all-features --quiet
 
+      - name: Check samples
+        run: cargo check -p reactor2_samples --all-targets --quiet
+
       - name: Clippy
         run: >
           cargo clippy
+          -p reactor2_samples
           -p windows-reactor2
           -p windows-reactor-setup
           -p test_reactor2_support

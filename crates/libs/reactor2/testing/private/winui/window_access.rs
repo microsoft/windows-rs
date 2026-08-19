@@ -19,7 +19,7 @@ pub(in crate::winui) fn owner(runtime: &WinUiRuntime, id: NodeId) -> Option<Node
     runtime
         .windows
         .iter()
-        .find_map(|(id, window)| (window.hwnd as isize == owner).then_some(*id))
+        .find_map(|(id, window)| (window.hwnd as isize == owner as isize).then_some(*id))
 }
 
 pub(in crate::winui) fn active(runtime: &WinUiRuntime) -> Option<NodeId> {

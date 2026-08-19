@@ -106,8 +106,8 @@ resolved without changing an existing method signature or removing the old WebVi
 
 ## Phase 3 - Incremental sample migration
 
-- [ ] Add a Reactor2 sample package that aliases `windows-reactor2` as `windows-reactor`.
-- [ ] Port basic rendering and counter samples.
+- [x] Add a Reactor2 sample package that depends directly on `windows-reactor2`.
+- [x] Port basic rendering and the counter sample.
 - [ ] Port hooks and component samples.
 - [ ] Port layout and basic controls.
 - [ ] Port controlled text and value inputs.
@@ -153,17 +153,19 @@ No shared change is approved merely because it exists on the reference branch.
 
 | Metric | Old Reactor | Reactor2 | Gate |
 | --- | ---: | ---: | --- |
-| Clean check | Pending | Pending | Report |
-| Touched incremental check | Pending | Pending | Report |
+| Clean check | 5.13 s | 6.53 s | Report |
+| Touched incremental check | 3.79 s | 4.76 s | Report |
 | Release build | Pending | Pending | Report |
-| Release `.rlib` | Pending | Pending | Report |
-| Representative executable | Pending | Pending | Report |
-| Startup | Pending | Pending | Report |
+| Release `.rlib` | 22,899,882 B | 27,878,826 B | Report |
+| Counter executable | 2,975,744 B | 2,954,752 B | Report |
+| Counter startup | 300 ms | 380 ms | Report |
+| Counter idle working set | 103,663,616 B | 107,819,008 B | Report |
+| Counter idle private bytes | 85,381,120 B | 84,107,264 B | Report |
 | Ordinary reconciliation | Pending | Pending | Report |
 | Churn reconciliation | Pending | Pending | Report |
 | Allocation per render | Pending | Pending | Hard floor |
 | Native commands | Pending | Pending | Hard floor |
-| Sample source LOC | Pending | Pending | Review |
+| Counter + shared host LOC | 56 | 92 | Review |
 | Public API | Pending | Pending | Snapshot |
 
 ## Final cutover - blocked until all prior phases pass
@@ -213,3 +215,12 @@ No shared change is approved merely because it exists on the reference branch.
 - 2026-08-19: The repository generators add `windows-reactor2` to workspace dependencies and the
   generic MSRV and no-default-feature workflows. These are standard generated entries for a library
   crate, not duplicate Reactor-specific CI.
+- 2026-08-19: The first Reactor2 sample package contains only its shared window host and counter.
+  Counter preserves the custom title bar, subtitle, state changes, accessibility targets, and
+  keyboard accelerator; broader sample registration is added only as samples are ported.
+- 2026-08-19: Reactor2 CI compiles i686 test targets rather than checking only the library. This
+  covers architecture-specific private fixture code such as Win32 pointer-sized return values.
+- 2026-08-19: A six-run alternating counter smoke comparison found a 0.71% smaller executable,
+  26.60% slower startup to the first rendered count, 4.01% higher idle working set, and 1.49% lower
+  idle private bytes. Values are counter-specific and warm-cache; Tic-Tac-Toe remains the first
+  representative application comparison.
