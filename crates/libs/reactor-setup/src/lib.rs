@@ -34,7 +34,14 @@ pub fn as_example() {
     as_framework_dependent_impl("examples");
 }
 
-fn as_framework_dependent_impl(subdir: &str) {
+/// Configures Cargo test executables to run with a Windows App Runtime dependency.
+pub fn as_test() {
+    assert_windows();
+    let dest = as_framework_dependent_impl("deps");
+    println!("cargo:rustc-link-search=native={}", dest.display());
+}
+
+fn as_framework_dependent_impl(subdir: &str) -> PathBuf {
     let out_dir = out_dir();
     let dest = if subdir.is_empty() {
         target_dir_from_out(&out_dir)
@@ -42,6 +49,7 @@ fn as_framework_dependent_impl(subdir: &str) {
         target_dir_from_out(&out_dir).join(subdir)
     };
     copy_bootstrap_to(&dest);
+    dest
 }
 
 /// Configures the app to run completely self-contained.

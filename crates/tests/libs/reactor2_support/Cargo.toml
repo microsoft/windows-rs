@@ -1,0 +1,21 @@
+[package]
+name = "test_reactor2_support"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows = { workspace = true, features = [
+    "combaseapi",
+    "objbase",
+    "uiautomationclient",
+    "uiautomationcore",
+    "winuser",
+    "windef",
+] }
+
+[build-dependencies]
+windows-reactor-setup = { workspace = true }
+
+[lints]
+workspace = true

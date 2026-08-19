@@ -1,0 +1,44 @@
+[package]
+name = "windows-reactor2"
+version = "0.100.0"
+edition = "2024"
+rust-version = "1.95"
+license = "MIT OR Apache-2.0"
+description = "Declarative UI library backed by WinUI 3"
+repository = "https://github.com/microsoft/windows-rs"
+categories = ["os::windows-apis"]
+readme = "readme.md"
+publish = false
+
+[[test]]
+name = "public_api"
+path = "testing/integration/public_api.rs"
+
+[features]
+default = []
+canvas = ["dep:windows-canvas"]
+webview = ["dep:windows-webview"]
+
+[dependencies]
+windows-collections = { workspace = true, features = ["std"] }
+windows-composition = { workspace = true, features = ["reactor"] }
+windows-core.workspace = true
+windows-future.workspace = true
+windows-reference = { workspace = true, features = ["std"] }
+windows-numerics.workspace = true
+windows-threading.workspace = true
+windows-time = { workspace = true }
+windows-canvas = { workspace = true, optional = true }
+windows-webview = { workspace = true, optional = true }
+
+[dev-dependencies]
+test_reactor_support = { package = "test_reactor2_support", path = "../../tests/libs/reactor2_support" }
+windows = { workspace = true, features = ["processthreadsapi", "psapi", "winnt"] }
+
+[lints]
+workspace = true
+
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+targets = []
+features = ["canvas", "webview"]

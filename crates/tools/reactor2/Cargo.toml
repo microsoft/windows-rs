@@ -1,0 +1,14 @@
+[package]
+name = "tool_reactor2"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+helpers = { workspace = true }
+windows-bindgen = { workspace = true }
+windows-clang = { workspace = true }
+windows-rdl = { workspace = true }
+
+[lints]
+workspace = true
