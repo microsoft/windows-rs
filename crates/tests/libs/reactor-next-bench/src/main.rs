@@ -88,6 +88,94 @@ struct BenchLeaf {
     active: bool,
 }
 
+enum BackgroundMessage {
+    Complete,
+    Start,
+}
+
+#[derive(Clone)]
+struct BackgroundProps {
+    sender: Rc<RefCell<Option<LocalSender<BackgroundMessage>>>>,
+}
+
+impl PartialEq for BackgroundProps {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.sender, &other.sender)
+    }
+}
+
+struct BackgroundLeaf(bool);
+
+impl Component for BackgroundLeaf {
+    type Props = BackgroundProps;
+    type Message = BackgroundMessage;
+
+    fn create(props: &Self::Props, context: &mut ComponentContext<Self>) -> Self {
+        *props.sender.borrow_mut() = Some(context.sender());
+        Self(false)
+    }
+
+    fn changed(&mut self, _props: &Self::Props, _context: &mut ComponentContext<Self>) {}
+
+    fn update(&mut self, message: BackgroundMessage, context: &mut ComponentContext<Self>) {
+        match message {
+            BackgroundMessage::Complete => self.0 = !self.0,
+            BackgroundMessage::Start => {
+                context.spawn_background(|_| BackgroundMessage::Complete);
+            }
+        }
+    }
+
+    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        View::native(TextBlock::new().text(self.0.to_string()))
+    }
+}
+
+#[derive(Clone)]
+struct BackgroundRootProps {
+    count: usize,
+    sender: Rc<RefCell<Option<LocalSender<BackgroundMessage>>>>,
+}
+
+impl PartialEq for BackgroundRootProps {
+    fn eq(&self, other: &Self) -> bool {
+        self.count == other.count && Rc::ptr_eq(&self.sender, &other.sender)
+    }
+}
+
+struct BackgroundRoot(BackgroundRootProps);
+
+impl Component for BackgroundRoot {
+    type Props = BackgroundRootProps;
+    type Message = ();
+
+    fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+        Self(props.clone())
+    }
+
+    fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+        self.0 = props.clone();
+    }
+
+    fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
+
+    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        View::children(
+            StackPanel::new(),
+            (0..self.0.count).map(|index| {
+                let view = if index == self.0.count / 2 {
+                    View::component::<BackgroundLeaf>(BackgroundProps {
+                        sender: Rc::clone(&self.0.sender),
+                    })
+                } else {
+                    View::native(TextBlock::new().text("static"))
+                };
+                KeyedView::new(index, view)
+            }),
+        )
+    }
+}
+
 impl Component for BenchLeaf {
     type Props = LeafProps;
     type Message = bool;
@@ -254,6 +342,101 @@ impl Component for ContextOwner {
 }
 
 #[derive(Clone)]
+struct ContextSubtreeProps {
+    all_consumers: bool,
+    context: Rc<Context<bool>>,
+    count: usize,
+}
+
+impl PartialEq for ContextSubtreeProps {
+    fn eq(&self, other: &Self) -> bool {
+        self.all_consumers == other.all_consumers
+            && self.count == other.count
+            && Rc::ptr_eq(&self.context, &other.context)
+    }
+}
+
+struct ContextSubtree(ContextSubtreeProps);
+
+impl Component for ContextSubtree {
+    type Props = ContextSubtreeProps;
+    type Message = ();
+
+    fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+        Self(props.clone())
+    }
+
+    fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+        self.0 = props.clone();
+    }
+
+    fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
+
+    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        View::children(
+            StackPanel::new(),
+            (0..self.0.count).map(|index| {
+                let view = if self.0.all_consumers || index == self.0.count / 2 {
+                    View::component::<ContextConsumer>(Rc::clone(&self.0.context))
+                } else {
+                    View::native(TextBlock::new().text("static"))
+                };
+                KeyedView::new(index, view)
+            }),
+        )
+    }
+}
+
+#[derive(Clone)]
+struct ContextBroadOwnerProps {
+    context: Rc<Context<bool>>,
+    sender: Rc<RefCell<Option<LocalSender<bool>>>>,
+    subtree: ContextSubtreeProps,
+}
+
+impl PartialEq for ContextBroadOwnerProps {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.context, &other.context)
+            && Rc::ptr_eq(&self.sender, &other.sender)
+            && self.subtree == other.subtree
+    }
+}
+
+struct ContextBroadOwner {
+    props: ContextBroadOwnerProps,
+    value: bool,
+}
+
+impl Component for ContextBroadOwner {
+    type Props = ContextBroadOwnerProps;
+    type Message = bool;
+
+    fn create(props: &Self::Props, context: &mut ComponentContext<Self>) -> Self {
+        *props.sender.borrow_mut() = Some(context.sender());
+        Self {
+            props: props.clone(),
+            value: false,
+        }
+    }
+
+    fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+        self.props = props.clone();
+    }
+
+    fn update(&mut self, value: bool, _context: &mut ComponentContext<Self>) {
+        self.value = value;
+    }
+
+    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        View::provide(
+            &self.props.context,
+            self.value,
+            View::component::<ContextSubtree>(self.props.subtree.clone()),
+        )
+    }
+}
+
+#[derive(Clone)]
 struct ContextRootProps {
     context: Rc<Context<bool>>,
     owner: Rc<RefCell<Option<LocalSender<bool>>>>,
@@ -300,6 +483,50 @@ impl Component for ContextRoot {
                     })
                 };
                 KeyedView::new(index, view)
+            }),
+        )
+    }
+}
+
+#[derive(Clone)]
+struct ManyProviderRootProps {
+    context: Rc<Context<bool>>,
+    owners: Rc<Vec<Rc<RefCell<Option<LocalSender<bool>>>>>>,
+}
+
+impl PartialEq for ManyProviderRootProps {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.context, &other.context) && Rc::ptr_eq(&self.owners, &other.owners)
+    }
+}
+
+struct ManyProviderRoot(ManyProviderRootProps);
+
+impl Component for ManyProviderRoot {
+    type Props = ManyProviderRootProps;
+    type Message = ();
+
+    fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+        Self(props.clone())
+    }
+
+    fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+        self.0 = props.clone();
+    }
+
+    fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
+
+    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        View::children(
+            StackPanel::new(),
+            self.0.owners.iter().enumerate().map(|(index, owner)| {
+                KeyedView::new(
+                    index,
+                    View::component::<ContextOwner>(ContextOwnerProps {
+                        context: Rc::clone(&self.0.context),
+                        sender: Rc::clone(owner),
+                    }),
+                )
             }),
         )
     }
@@ -735,6 +962,82 @@ fn bench_context_isolated_provider(count: usize, samples: usize) -> FrontendRow 
     })
 }
 
+fn bench_context_broad_provider(count: usize, all_consumers: bool, samples: usize) -> FrontendRow {
+    let context = Rc::new(Context::new(false));
+    let owner = Rc::new(RefCell::new(None));
+    let mut pump = Pump::new(runtime());
+    pump.mount_view(View::component::<ContextBroadOwner>(
+        ContextBroadOwnerProps {
+            context: Rc::clone(&context),
+            sender: Rc::clone(&owner),
+            subtree: ContextSubtreeProps {
+                all_consumers,
+                context,
+                count,
+            },
+        },
+    ))
+    .unwrap();
+    let sender = owner.borrow().as_ref().unwrap().clone();
+    let mut value = false;
+    measure_frontend(
+        "components",
+        if all_consumers {
+            "context_all"
+        } else {
+            "context_broad"
+        },
+        count,
+        samples,
+        1,
+        || {
+            value = !value;
+            _ = sender.send(value);
+            pump.dispatch_components(1).unwrap();
+        },
+    )
+}
+
+fn bench_context_many_providers(count: usize, samples: usize) -> FrontendRow {
+    let owners = Rc::new(
+        (0..count)
+            .map(|_| Rc::new(RefCell::new(None)))
+            .collect::<Vec<_>>(),
+    );
+    let mut pump = Pump::new(runtime());
+    pump.mount_view(View::component::<ManyProviderRoot>(ManyProviderRootProps {
+        context: Rc::new(Context::new(false)),
+        owners: Rc::clone(&owners),
+    }))
+    .unwrap();
+    let sender = owners[count / 2].borrow().as_ref().unwrap().clone();
+    let mut value = false;
+    measure_frontend("components", "context_many", count, samples, 1, || {
+        value = !value;
+        _ = sender.send(value);
+        pump.dispatch_components(1).unwrap();
+    })
+}
+
+fn bench_background_task(count: usize, samples: usize) -> FrontendRow {
+    let sender = Rc::new(RefCell::new(None));
+    let mut pump = Pump::new(runtime());
+    pump.mount_view(View::component::<BackgroundRoot>(BackgroundRootProps {
+        count,
+        sender: Rc::clone(&sender),
+    }))
+    .unwrap();
+    let sender = sender.borrow().as_ref().unwrap().clone();
+    measure_frontend("components", "background_task", count, samples, 1, || {
+        _ = sender.send(BackgroundMessage::Start);
+        pump.dispatch_components(1).unwrap();
+        while !pump.native_work_pending() {
+            std::thread::yield_now();
+        }
+        pump.dispatch_components(1).unwrap();
+    })
+}
+
 fn measure_idle_component_memory(count: usize) -> MemoryRow {
     let senders = Rc::new(
         (0..count)
@@ -999,6 +1302,14 @@ fn main() {
         bench_component_fragment_leaf(16_384, samples),
         bench_context_isolated_provider(512, samples),
         bench_context_isolated_provider(16_384, samples),
+        bench_context_broad_provider(512, false, samples),
+        bench_context_broad_provider(16_384, false, samples),
+        bench_context_broad_provider(512, true, samples),
+        bench_context_broad_provider(16_384, true, (samples / 32).max(8)),
+        bench_context_many_providers(512, samples),
+        bench_context_many_providers(16_384, samples),
+        bench_background_task(512, samples),
+        bench_background_task(16_384, samples),
     ];
     println!("\nfrontend comparison");
     println!(

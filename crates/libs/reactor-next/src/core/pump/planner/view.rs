@@ -98,46 +98,73 @@ impl<R: NativeRuntime> Pump<R> {
                     );
                 }
                 let previous = tree.provision(node)?.clone();
-                if previous != provision {
-                    let ids = [previous.id, provision.id];
-                    for descendant in tree.subtree_postorder(node)? {
-                        if tree.kind(descendant)? != NodeKind::Component {
-                            continue;
-                        }
-                        let token = components.token(tree.component_scope(descendant)?)?;
-                        let affected =
-                            components
+                let affected = if previous != provision {
+                    let mut affected = components
+                        .context_consumers(ContextDependency {
+                            id: previous.id,
+                            provider: Some(node),
+                        })
+                        .collect::<HashSet<_>>();
+                    if previous.id != provision.id {
+                        for scope in components.context_consumers_for_id(provision.id) {
+                            let consumer = tree
+                                .component_node(scope)?
+                                .ok_or(PumpError::StructureUnsupported)?;
+                            if !tree.is_descendant_of(consumer, node)? {
+                                continue;
+                            }
+                            let token = components.token(scope)?;
+                            let resolved = components
                                 .context_dependencies(token)?
-                                .is_some_and(|dependencies| {
-                                    dependencies.iter().any(|dependency| {
-                                        if previous.id == provision.id {
-                                            dependency.id == provision.id
-                                                && dependency.provider == Some(node)
-                                        } else {
-                                            ids.contains(&dependency.id)
-                                        }
-                                    })
-                                });
-                        if affected {
-                            let mut current = descendant;
-                            while current != node {
-                                if tree.kind(current)? == NodeKind::Component {
-                                    changes
-                                        .retry
-                                        .insert(components.token(tree.component_scope(current)?)?);
-                                }
-                                current = tree
-                                    .parent(current)?
-                                    .ok_or(PumpError::StructureUnsupported)?;
+                                .and_then(|dependencies| {
+                                    dependencies
+                                        .iter()
+                                        .find(|dependency| dependency.id == provision.id)
+                                })
+                                .and_then(|dependency| dependency.provider);
+                            let shadowed = match resolved {
+                                Some(provider) => tree.is_descendant_of(provider, node)?,
+                                None => false,
+                            };
+                            if !shadowed {
+                                affected.insert(scope);
                             }
                         }
                     }
                     tree.set_provision(node, provision)?;
-                }
+                    Some(affected)
+                } else {
+                    None
+                };
                 let [current] = tree.children(node)? else {
                     return Err(PumpError::StructureUnsupported);
                 };
                 Self::reconcile_planned_view(tree, *current, *child, components, changes, plan)?;
+                if let Some(affected) = affected {
+                    let mut ordered = Vec::with_capacity(affected.len());
+                    for scope in affected {
+                        if let Some(consumer) = tree.component_node(scope)?
+                            && tree.is_descendant_of(consumer, node)?
+                        {
+                            ordered.push((tree.depth(consumer)?, consumer, scope));
+                        }
+                    }
+                    ordered.sort_unstable_by_key(|(depth, consumer, _)| (*depth, *consumer));
+                    for (_, _, scope) in ordered {
+                        if let Some(consumer) = tree.component_node(scope)?
+                            && tree.is_descendant_of(consumer, node)?
+                        {
+                            Self::recompose_component(
+                                tree,
+                                consumer,
+                                components.token(scope)?,
+                                components,
+                                changes,
+                                plan,
+                            )?;
+                        }
+                    }
+                }
                 Ok(node)
             }
             View::Content { control, content } => {

@@ -8,8 +8,11 @@ use std::collections::{HashMap, HashSet, VecDeque};
 use std::fmt;
 use std::marker::PhantomData;
 use std::rc::Rc;
-use std::sync::atomic::{AtomicU64, Ordering};
+use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
+use std::sync::{Arc, Mutex, Weak};
 
+pub const BACKGROUND_MESSAGE_QUEUE_CAPACITY: usize = 4_096;
+pub const BACKGROUND_TASK_CAPACITY: usize = 64;
 pub const LOCAL_MESSAGE_QUEUE_CAPACITY: usize = 4_096;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
@@ -29,6 +32,10 @@ impl<T> Context<T> {
             default,
             id: ContextId(NEXT_CONTEXT_ID.fetch_add(1, Ordering::Relaxed)),
         }
+    }
+
+    pub(crate) fn id(&self) -> ContextId {
+        self.id
     }
 }
 
@@ -135,8 +142,308 @@ impl From<ScopeError> for ComponentStoreError {
 }
 
 struct MessageEnvelope {
+    control: Option<Arc<TaskControl>>,
     token: ComponentToken,
     payload: Box<dyn Any>,
+}
+
+struct BackgroundEnvelope {
+    control: Arc<TaskControl>,
+    payload: Box<dyn Any + Send>,
+    token: ComponentToken,
+}
+
+enum PendingEnvelope {
+    Background(BackgroundEnvelope),
+    Local(MessageEnvelope),
+}
+
+impl PendingEnvelope {
+    fn control(&self) -> Option<&Arc<TaskControl>> {
+        match self {
+            Self::Background(envelope) => Some(&envelope.control),
+            Self::Local(envelope) => envelope.control.as_ref(),
+        }
+    }
+
+    fn token(&self) -> ComponentToken {
+        match self {
+            Self::Background(envelope) => envelope.token,
+            Self::Local(envelope) => envelope.token,
+        }
+    }
+}
+
+struct BackgroundQueue {
+    envelopes: VecDeque<BackgroundEnvelope>,
+    open: bool,
+    tasks: HashMap<ScopeId, Vec<Weak<TaskControl>>>,
+    wake: Option<Arc<dyn Fn() -> bool + Send + Sync>>,
+    wake_pending: bool,
+}
+
+#[derive(Clone)]
+struct TaskSpawner {
+    limiter: Arc<TaskLimiter>,
+    queue: Arc<Mutex<BackgroundQueue>>,
+    token: ComponentToken,
+}
+
+#[derive(Default)]
+struct TaskLimiter {
+    active: std::sync::atomic::AtomicUsize,
+}
+
+impl TaskLimiter {
+    fn acquire(self: &Arc<Self>) -> Option<TaskSlot> {
+        self.active
+            .try_update(Ordering::AcqRel, Ordering::Acquire, |active| {
+                (active < BACKGROUND_TASK_CAPACITY).then_some(active + 1)
+            })
+            .ok()
+            .map(|_| TaskSlot(Arc::clone(self)))
+    }
+}
+
+struct TaskSlot(Arc<TaskLimiter>);
+
+impl Drop for TaskSlot {
+    fn drop(&mut self) {
+        self.0.active.fetch_sub(1, Ordering::AcqRel);
+    }
+}
+
+#[derive(Clone, Debug)]
+pub struct CancellationToken {
+    control: Arc<TaskControl>,
+}
+
+impl CancellationToken {
+    pub fn is_cancelled(&self) -> bool {
+        self.control.cancelled.load(Ordering::Acquire)
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(u8)]
+pub enum ComponentTaskStatus {
+    Running,
+    Queued,
+    Delivered,
+    Cancelled,
+    Rejected,
+}
+
+#[derive(Debug)]
+struct TaskControl {
+    cancelled: AtomicBool,
+    status: std::sync::atomic::AtomicU8,
+}
+
+impl TaskControl {
+    fn new() -> Self {
+        Self {
+            cancelled: AtomicBool::new(false),
+            status: std::sync::atomic::AtomicU8::new(ComponentTaskStatus::Running as u8),
+        }
+    }
+
+    fn queue(&self) {
+        let _ = self.status.compare_exchange(
+            ComponentTaskStatus::Running as u8,
+            ComponentTaskStatus::Queued as u8,
+            Ordering::AcqRel,
+            Ordering::Acquire,
+        );
+    }
+
+    fn deliver(&self) -> bool {
+        self.status
+            .compare_exchange(
+                ComponentTaskStatus::Queued as u8,
+                ComponentTaskStatus::Delivered as u8,
+                Ordering::AcqRel,
+                Ordering::Acquire,
+            )
+            .is_ok()
+    }
+
+    fn reject(&self) {
+        self.finish(ComponentTaskStatus::Rejected);
+    }
+
+    fn finish(&self, status: ComponentTaskStatus) {
+        let mut current = self.status.load(Ordering::Acquire);
+        while current == ComponentTaskStatus::Running as u8
+            || current == ComponentTaskStatus::Queued as u8
+        {
+            match self.status.compare_exchange_weak(
+                current,
+                status as u8,
+                Ordering::AcqRel,
+                Ordering::Acquire,
+            ) {
+                Ok(_) => return,
+                Err(actual) => current = actual,
+            }
+        }
+    }
+
+    fn status(&self) -> ComponentTaskStatus {
+        match self.status.load(Ordering::Acquire) {
+            0 => ComponentTaskStatus::Running,
+            1 => ComponentTaskStatus::Queued,
+            2 => ComponentTaskStatus::Delivered,
+            3 => ComponentTaskStatus::Cancelled,
+            4 => ComponentTaskStatus::Rejected,
+            _ => unreachable!(),
+        }
+    }
+
+    fn cancel(&self) {
+        self.cancelled.store(true, Ordering::Release);
+        self.finish(ComponentTaskStatus::Cancelled);
+    }
+}
+
+#[derive(Clone)]
+pub struct ComponentTask {
+    control: Arc<TaskControl>,
+    queue: Arc<Mutex<BackgroundQueue>>,
+    token: ComponentToken,
+}
+
+impl ComponentTask {
+    pub fn cancel(&self) {
+        self.control.cancel();
+        let mut queue = self.queue.lock().unwrap();
+        queue
+            .envelopes
+            .retain(|envelope| !Arc::ptr_eq(&envelope.control, &self.control));
+    }
+
+    pub fn is_cancelled(&self) -> bool {
+        self.control.cancelled.load(Ordering::Acquire)
+    }
+
+    pub fn status(&self) -> ComponentTaskStatus {
+        self.control.status()
+    }
+}
+
+impl fmt::Debug for ComponentTask {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter
+            .debug_struct("ComponentTask")
+            .field("status", &self.status())
+            .field("token", &self.token)
+            .finish()
+    }
+}
+
+impl TaskSpawner {
+    fn spawn<M, F>(&self, work: F) -> ComponentTask
+    where
+        M: Send + 'static,
+        F: FnOnce(CancellationToken) -> M + Send + 'static,
+    {
+        let control = Arc::new(TaskControl::new());
+        let task = ComponentTask {
+            control: Arc::clone(&control),
+            queue: Arc::clone(&self.queue),
+            token: self.token,
+        };
+        let Some(slot) = self.limiter.acquire() else {
+            control.reject();
+            return task;
+        };
+        {
+            let mut queue = self.queue.lock().unwrap();
+            if !queue.open {
+                control.reject();
+                return task;
+            }
+            queue
+                .tasks
+                .entry(self.token.scope)
+                .or_default()
+                .push(Arc::downgrade(&control));
+        }
+        let queue = Arc::clone(&self.queue);
+        let token = self.token;
+        let thread_control = Arc::clone(&control);
+        let spawn = std::thread::Builder::new()
+            .name("windows-reactor-next".to_string())
+            .spawn(move || {
+                let _slot = slot;
+                let message = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                    work(CancellationToken {
+                        control: Arc::clone(&thread_control),
+                    })
+                }));
+                let wake = {
+                    let mut queue = queue.lock().unwrap();
+                    let registered = queue.tasks.get_mut(&token.scope).is_some_and(|tasks| {
+                        let before = tasks.len();
+                        tasks.retain(|task| {
+                            task.upgrade()
+                                .is_some_and(|task| !Arc::ptr_eq(&task, &thread_control))
+                        });
+                        tasks.len() != before
+                    });
+                    if queue.tasks.get(&token.scope).is_some_and(Vec::is_empty) {
+                        queue.tasks.remove(&token.scope);
+                    }
+                    if !registered
+                        || thread_control.cancelled.load(Ordering::Acquire)
+                        || !queue.open
+                    {
+                        thread_control.cancel();
+                        return;
+                    }
+                    let Ok(message) = message else {
+                        thread_control.reject();
+                        return;
+                    };
+                    if queue.envelopes.len() >= BACKGROUND_MESSAGE_QUEUE_CAPACITY {
+                        thread_control.reject();
+                        return;
+                    }
+                    queue.envelopes.push_back(BackgroundEnvelope {
+                        control: Arc::clone(&thread_control),
+                        payload: Box::new(message),
+                        token,
+                    });
+                    thread_control.queue();
+                    let wake = (!queue.wake_pending).then(|| queue.wake.clone()).flatten();
+                    queue.wake_pending |= wake.is_some();
+                    wake
+                };
+                if let Some(wake) = wake
+                    && !wake()
+                {
+                    let mut queue = queue.lock().unwrap();
+                    queue.wake_pending = false;
+                    for envelope in queue.envelopes.drain(..) {
+                        envelope.control.reject();
+                    }
+                }
+            });
+        if spawn.is_err() {
+            let mut queue = self.queue.lock().unwrap();
+            if let Some(tasks) = queue.tasks.get_mut(&self.token.scope) {
+                tasks.retain(|task| {
+                    task.upgrade()
+                        .is_some_and(|task| !Arc::ptr_eq(&task, &control))
+                });
+                if tasks.is_empty() {
+                    queue.tasks.remove(&self.token.scope);
+                }
+            }
+            control.reject();
+        }
+        task
+    }
 }
 
 struct ComponentQueue {
@@ -178,6 +485,7 @@ impl<M: 'static> LocalSender<M> {
                 .then(|| queue.wake.clone())
                 .flatten();
             queue.envelopes.push_back(MessageEnvelope {
+                control: None,
                 token: self.token,
                 payload: Box::new(message),
             });
@@ -196,11 +504,20 @@ impl<M: 'static> LocalSender<M> {
 
 pub struct ComponentContext<C: Component> {
     sender: LocalSender<C::Message>,
+    tasks: TaskSpawner,
 }
 
 impl<C: Component> ComponentContext<C> {
     pub fn sender(&self) -> LocalSender<C::Message> {
         self.sender.clone()
+    }
+
+    pub fn spawn_background<F>(&mut self, work: F) -> ComponentTask
+    where
+        C::Message: Send,
+        F: FnOnce(CancellationToken) -> C::Message + Send + 'static,
+    {
+        self.tasks.spawn(work)
     }
 }
 
@@ -461,9 +778,10 @@ struct TypedScope<C, P, M> {
     context_dependencies: Option<Rc<HashSet<ContextDependency>>>,
     effects: Rc<RefCell<ComponentEffects>>,
     props: P,
-    changed: fn(&mut C, &P, LocalSender<M>),
+    changed: Changed<C, P, M>,
     sender: LocalSender<M>,
-    update: fn(&mut C, M, LocalSender<M>),
+    tasks: TaskSpawner,
+    update: Update<C, M>,
     view: Box<
         dyn Fn(
             &C,
@@ -472,6 +790,16 @@ struct TypedScope<C, P, M> {
             ContextSnapshot,
         ) -> ComponentRender,
     >,
+}
+
+enum Changed<C, P, M> {
+    Basic(fn(&mut C, &P, LocalSender<M>)),
+    WithTasks(fn(&mut C, &P, LocalSender<M>, TaskSpawner)),
+}
+
+enum Update<C, M> {
+    Basic(fn(&mut C, M, LocalSender<M>)),
+    WithTasks(fn(&mut C, M, LocalSender<M>, TaskSpawner)),
 }
 
 impl<C, P, M> Drop for TypedScope<C, P, M> {
@@ -498,7 +826,17 @@ where
             return Ok(false);
         }
         self.props = *props;
-        (self.changed)(&mut self.component, &self.props, self.sender.clone());
+        match &self.changed {
+            Changed::Basic(changed) => {
+                changed(&mut self.component, &self.props, self.sender.clone());
+            }
+            Changed::WithTasks(changed) => changed(
+                &mut self.component,
+                &self.props,
+                self.sender.clone(),
+                self.tasks.clone(),
+            ),
+        }
         Ok(true)
     }
 
@@ -527,7 +865,15 @@ where
                     expected: TypeId::of::<M>(),
                     actual,
                 })?;
-        (self.update)(&mut self.component, *message, self.sender.clone());
+        match &self.update {
+            Update::Basic(update) => update(&mut self.component, *message, self.sender.clone()),
+            Update::WithTasks(update) => update(
+                &mut self.component,
+                *message,
+                self.sender.clone(),
+                self.tasks.clone(),
+            ),
+        }
         Ok(())
     }
 
@@ -571,16 +917,36 @@ pub struct DrainReport {
 }
 
 pub struct ComponentStore {
+    background: Arc<Mutex<BackgroundQueue>>,
+    context_consumers: HashMap<ContextDependency, HashSet<ScopeId>>,
+    context_consumers_by_id: HashMap<ContextId, HashSet<ScopeId>>,
+    drain_background_next: bool,
     window: WindowToken,
     scopes: ScopeArena<Box<dyn ErasedScope>>,
+    task_limiter: Arc<TaskLimiter>,
     queue: Rc<RefCell<ComponentQueue>>,
 }
 
 impl ComponentStore {
     pub fn new(window: WindowToken) -> Self {
+        Self::with_task_limiter(window, Arc::new(TaskLimiter::default()))
+    }
+
+    fn with_task_limiter(window: WindowToken, task_limiter: Arc<TaskLimiter>) -> Self {
         Self {
+            background: Arc::new(Mutex::new(BackgroundQueue {
+                envelopes: VecDeque::new(),
+                open: true,
+                tasks: HashMap::new(),
+                wake: None,
+                wake_pending: false,
+            })),
+            context_consumers: HashMap::new(),
+            context_consumers_by_id: HashMap::new(),
+            drain_background_next: false,
             window,
             scopes: ScopeArena::new(),
+            task_limiter,
             queue: Rc::new(RefCell::new(ComponentQueue {
                 active: HashSet::new(),
                 envelopes: VecDeque::new(),
@@ -603,7 +969,9 @@ impl ComponentStore {
         P: Clone + PartialEq + 'static,
         M: 'static,
     {
+        let background = Arc::clone(&self.background);
         let queue = Rc::clone(&self.queue);
+        let task_limiter = Arc::clone(&self.task_limiter);
         let window = self.window;
         let view = Box::new(
             move |component: &C, sender, _effects, _contexts| ComponentRender {
@@ -618,14 +986,20 @@ impl ComponentStore {
                 token: ComponentToken { window, scope },
                 marker: PhantomData,
             };
+            let tasks = TaskSpawner {
+                limiter: Arc::clone(&task_limiter),
+                queue: Arc::clone(&background),
+                token: ComponentToken { window, scope },
+            };
             Box::new(TypedScope {
                 component,
                 context_dependencies: None,
                 effects: Rc::new(RefCell::new(ComponentEffects::default())),
                 props,
-                changed,
+                changed: Changed::Basic(changed),
                 sender,
-                update,
+                tasks,
+                update: Update::Basic(update),
                 view,
             }) as Box<dyn ErasedScope>
         })?;
@@ -643,16 +1017,18 @@ impl ComponentStore {
             component: &mut C,
             props: &C::Props,
             sender: LocalSender<C::Message>,
+            tasks: TaskSpawner,
         ) {
-            component.changed(props, &mut ComponentContext { sender });
+            component.changed(props, &mut ComponentContext { sender, tasks });
         }
 
         fn update<C: Component>(
             component: &mut C,
             message: C::Message,
             sender: LocalSender<C::Message>,
+            tasks: TaskSpawner,
         ) {
-            component.update(message, &mut ComponentContext { sender });
+            component.update(message, &mut ComponentContext { sender, tasks });
         }
 
         fn view<C: Component>(
@@ -674,7 +1050,9 @@ impl ComponentStore {
             }
         }
 
+        let background = Arc::clone(&self.background);
         let queue = Rc::clone(&self.queue);
+        let task_limiter = Arc::clone(&self.task_limiter);
         let window = self.window;
         let scope = self.scopes.reserve_with(move |scope| {
             queue.borrow_mut().active.insert(scope);
@@ -683,10 +1061,16 @@ impl ComponentStore {
                 token: ComponentToken { window, scope },
                 marker: PhantomData,
             };
+            let tasks = TaskSpawner {
+                limiter: Arc::clone(&task_limiter),
+                queue: Arc::clone(&background),
+                token: ComponentToken { window, scope },
+            };
             let component = C::create(
                 &props,
                 &mut ComponentContext {
                     sender: sender.clone(),
+                    tasks: tasks.clone(),
                 },
             );
             Box::new(TypedScope {
@@ -694,9 +1078,10 @@ impl ComponentStore {
                 context_dependencies: None,
                 effects: Rc::new(RefCell::new(ComponentEffects::default())),
                 props,
-                changed: changed::<C>,
+                changed: Changed::WithTasks(changed::<C>),
                 sender,
-                update: update::<C>,
+                tasks,
+                update: Update::WithTasks(update::<C>),
                 view: Box::new(view::<C>),
             }) as Box<dyn ErasedScope>
         })?;
@@ -712,25 +1097,24 @@ impl ComponentStore {
         Ok(())
     }
 
+    pub(crate) fn restarted(&self, window: WindowToken) -> Self {
+        Self::with_task_limiter(window, Arc::clone(&self.task_limiter))
+    }
+
     pub fn retire(&mut self, token: ComponentToken) -> Result<(), ComponentStoreError> {
         self.validate_window(token)?;
         self.scopes.retire(token.scope)?;
-        let mut queue = self.queue.borrow_mut();
-        queue.active.remove(&token.scope);
-        queue
-            .envelopes
-            .retain(|envelope| envelope.token.scope != token.scope);
+        self.cancel_scope_tasks(token.scope);
+        self.remove_scope_messages(token.scope);
         Ok(())
     }
 
     pub fn remove(&mut self, token: ComponentToken) -> Result<(), ComponentStoreError> {
         self.validate_window(token)?;
+        self.clear_context_dependencies(token.scope)?;
         self.scopes.remove(token.scope)?;
-        let mut queue = self.queue.borrow_mut();
-        queue.active.remove(&token.scope);
-        queue
-            .envelopes
-            .retain(|envelope| envelope.token.scope != token.scope);
+        self.cancel_scope_tasks(token.scope);
+        self.remove_scope_messages(token.scope);
         Ok(())
     }
 
@@ -796,17 +1180,47 @@ impl ComponentStore {
 
     pub fn drain(&mut self, budget: usize) -> Result<DrainReport, ComponentStoreError> {
         let mut report = DrainReport::default();
+        self.background.lock().unwrap().wake_pending = false;
         for _ in 0..budget {
-            let Some(envelope) = self.queue.borrow_mut().envelopes.pop_front() else {
+            let pop_background = || {
+                self.background
+                    .lock()
+                    .unwrap()
+                    .envelopes
+                    .pop_front()
+                    .map(PendingEnvelope::Background)
+            };
+            let pop_local = || {
+                self.queue
+                    .borrow_mut()
+                    .envelopes
+                    .pop_front()
+                    .map(PendingEnvelope::Local)
+            };
+            let envelope = if self.drain_background_next {
+                pop_background().or_else(pop_local)
+            } else {
+                pop_local().or_else(pop_background)
+            };
+            let Some(envelope) = envelope else {
                 break;
             };
-            if envelope.token.window != self.window {
+            let from_background = matches!(envelope, PendingEnvelope::Background(_));
+            self.drain_background_next = !from_background;
+            let token = envelope.token();
+            if token.window != self.window {
+                if let Some(control) = envelope.control() {
+                    control.cancel();
+                }
                 report.dropped += 1;
                 continue;
             }
-            let state = match self.scopes.state(envelope.token.scope) {
+            let state = match self.scopes.state(token.scope) {
                 Ok(state) => state,
                 Err(ScopeError::Stale(_)) => {
+                    if let Some(control) = envelope.control() {
+                        control.cancel();
+                    }
                     report.dropped += 1;
                     continue;
                 }
@@ -814,19 +1228,40 @@ impl ComponentStore {
             };
             match state {
                 ScopeState::Reserved => {
-                    self.queue.borrow_mut().envelopes.push_front(envelope);
+                    match envelope {
+                        PendingEnvelope::Background(envelope) => self
+                            .background
+                            .lock()
+                            .unwrap()
+                            .envelopes
+                            .push_front(envelope),
+                        PendingEnvelope::Local(envelope) => {
+                            self.queue.borrow_mut().envelopes.push_front(envelope);
+                        }
+                    }
                     report.blocked = true;
                     break;
                 }
                 ScopeState::Retiring => {
+                    if let Some(control) = envelope.control() {
+                        control.cancel();
+                    }
                     report.dropped += 1;
                 }
                 ScopeState::Published => {
-                    self.scopes
-                        .get_mut(envelope.token.scope)?
-                        .dispatch(envelope.payload)?;
+                    if let Some(control) = envelope.control()
+                        && !control.deliver()
+                    {
+                        report.dropped += 1;
+                        continue;
+                    }
+                    let payload: Box<dyn Any> = match envelope {
+                        PendingEnvelope::Background(envelope) => envelope.payload,
+                        PendingEnvelope::Local(envelope) => envelope.payload,
+                    };
+                    self.scopes.get_mut(token.scope)?.dispatch(payload)?;
                     report.dispatched += 1;
-                    report.dirty.push(envelope.token);
+                    report.dirty.push(token);
                 }
             }
         }
@@ -834,16 +1269,26 @@ impl ComponentStore {
     }
 
     pub fn pending(&self) -> usize {
-        self.queue.borrow().envelopes.len()
+        self.queue.borrow().envelopes.len() + self.background.lock().unwrap().envelopes.len()
     }
 
     pub(crate) fn pending_tokens(&self) -> Vec<ComponentToken> {
-        self.queue
+        let mut tokens = self
+            .queue
             .borrow()
             .envelopes
             .iter()
             .map(|envelope| envelope.token)
-            .collect()
+            .collect::<Vec<_>>();
+        tokens.extend(
+            self.background
+                .lock()
+                .unwrap()
+                .envelopes
+                .iter()
+                .map(|envelope| envelope.token),
+        );
+        tokens
     }
 
     pub(crate) fn context_dependencies(
@@ -860,10 +1305,62 @@ impl ComponentStore {
         dependencies: HashSet<ContextDependency>,
     ) -> Result<(), ComponentStoreError> {
         self.validate_window(token)?;
+        let previous = self
+            .scopes
+            .get(token.scope)?
+            .context_dependencies()
+            .cloned()
+            .unwrap_or_default();
+        for dependency in previous.difference(&dependencies) {
+            if let Some(consumers) = self.context_consumers.get_mut(dependency) {
+                consumers.remove(&token.scope);
+                if consumers.is_empty() {
+                    self.context_consumers.remove(dependency);
+                }
+            }
+            if let Some(consumers) = self.context_consumers_by_id.get_mut(&dependency.id) {
+                consumers.remove(&token.scope);
+                if consumers.is_empty() {
+                    self.context_consumers_by_id.remove(&dependency.id);
+                }
+            }
+        }
+        for dependency in dependencies.difference(&previous).copied() {
+            self.context_consumers
+                .entry(dependency)
+                .or_default()
+                .insert(token.scope);
+            self.context_consumers_by_id
+                .entry(dependency.id)
+                .or_default()
+                .insert(token.scope);
+        }
         self.scopes
             .get_mut(token.scope)?
             .set_context_dependencies(dependencies);
         Ok(())
+    }
+
+    pub(crate) fn context_consumers(
+        &self,
+        dependency: ContextDependency,
+    ) -> impl Iterator<Item = ScopeId> + '_ {
+        self.context_consumers
+            .get(&dependency)
+            .into_iter()
+            .flatten()
+            .copied()
+    }
+
+    pub(crate) fn context_consumers_for_id(
+        &self,
+        id: ContextId,
+    ) -> impl Iterator<Item = ScopeId> + '_ {
+        self.context_consumers_by_id
+            .get(&id)
+            .into_iter()
+            .flatten()
+            .copied()
     }
 
     pub(crate) fn view(
@@ -905,12 +1402,97 @@ impl ComponentStore {
         self.queue.borrow_mut().wake = Some(wake);
     }
 
+    pub(crate) fn set_background_waker(&mut self, wake: Arc<dyn Fn() -> bool + Send + Sync>) {
+        self.background.lock().unwrap().wake = Some(wake);
+    }
+
     pub(crate) fn close(&mut self) {
+        {
+            let mut queue = self.queue.borrow_mut();
+            queue.open = false;
+            queue.active.clear();
+            for envelope in queue.envelopes.drain(..) {
+                if let Some(control) = envelope.control {
+                    control.cancel();
+                }
+            }
+            queue.wake = None;
+        }
+        let mut background = self.background.lock().unwrap();
+        background.open = false;
+        for envelope in background.envelopes.drain(..) {
+            envelope.control.cancel();
+        }
+        background.wake = None;
+        background.wake_pending = false;
+        for tasks in background.tasks.values() {
+            for control in tasks.iter().filter_map(Weak::upgrade) {
+                control.cancel();
+            }
+        }
+        background.tasks.clear();
+        self.context_consumers.clear();
+        self.context_consumers_by_id.clear();
+    }
+
+    fn cancel_scope_tasks(&mut self, scope: ScopeId) {
+        let mut background = self.background.lock().unwrap();
+        if let Some(tasks) = background.tasks.remove(&scope) {
+            for control in tasks.iter().filter_map(Weak::upgrade) {
+                control.cancel();
+            }
+        }
+        for envelope in background
+            .envelopes
+            .iter()
+            .filter(|envelope| envelope.token.scope == scope)
+        {
+            envelope.control.cancel();
+        }
+        background
+            .envelopes
+            .retain(|envelope| envelope.token.scope != scope);
+    }
+
+    fn remove_scope_messages(&mut self, scope: ScopeId) {
         let mut queue = self.queue.borrow_mut();
-        queue.open = false;
-        queue.active.clear();
-        queue.envelopes.clear();
-        queue.wake = None;
+        queue.active.remove(&scope);
+        for envelope in queue
+            .envelopes
+            .iter()
+            .filter(|envelope| envelope.token.scope == scope)
+        {
+            if let Some(control) = &envelope.control {
+                control.cancel();
+            }
+        }
+        queue
+            .envelopes
+            .retain(|envelope| envelope.token.scope != scope);
+    }
+
+    fn clear_context_dependencies(&mut self, scope: ScopeId) -> Result<(), ComponentStoreError> {
+        let dependencies = self
+            .scopes
+            .get(scope)?
+            .context_dependencies()
+            .cloned()
+            .unwrap_or_default();
+        for dependency in dependencies {
+            if let Some(consumers) = self.context_consumers.get_mut(&dependency) {
+                consumers.remove(&scope);
+                if consumers.is_empty() {
+                    self.context_consumers.remove(&dependency);
+                }
+            }
+            if let Some(consumers) = self.context_consumers_by_id.get_mut(&dependency.id) {
+                consumers.remove(&scope);
+                if consumers.is_empty() {
+                    self.context_consumers_by_id.remove(&dependency.id);
+                }
+            }
+        }
+        Ok(())
     }
 
     fn validate_window(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {
@@ -933,6 +1515,9 @@ mod tests {
     use super::*;
     use crate::TextBlock;
     use crate::core::{WindowId, WindowToken};
+    use std::sync::Barrier;
+    use std::sync::atomic::AtomicUsize;
+    use std::time::{Duration, Instant};
 
     struct State {
         changed: usize,
@@ -957,6 +1542,14 @@ mod tests {
 
     fn store() -> ComponentStore {
         ComponentStore::new(WindowToken::new(WindowId::allocate()))
+    }
+
+    fn wait_for_status(task: &ComponentTask, status: ComponentTaskStatus) {
+        let deadline = Instant::now() + Duration::from_secs(2);
+        while task.status() != status {
+            assert!(Instant::now() < deadline, "background task timed out");
+            std::thread::sleep(Duration::from_millis(1));
+        }
     }
 
     #[test]
@@ -1085,6 +1678,288 @@ mod tests {
             store.sender::<String>(token),
             Err(ComponentStoreError::MessageTypeMismatch { .. })
         ));
+    }
+
+    #[test]
+    fn background_queue_capacity_rejects_excess_completion() {
+        let mut store = store();
+        let token = store
+            .reserve(
+                State {
+                    changed: 0,
+                    sender: None,
+                    value: 0,
+                },
+                String::new(),
+                changed,
+                update,
+                view,
+            )
+            .unwrap();
+        store.publish(token).unwrap();
+        {
+            let mut queue = store.background.lock().unwrap();
+            for _ in 0..BACKGROUND_MESSAGE_QUEUE_CAPACITY {
+                queue.envelopes.push_back(BackgroundEnvelope {
+                    control: Arc::new(TaskControl::new()),
+                    payload: Box::new(0u32),
+                    token,
+                });
+            }
+        }
+
+        let task = TaskSpawner {
+            limiter: Arc::clone(&store.task_limiter),
+            queue: Arc::clone(&store.background),
+            token,
+        }
+        .spawn::<u32, _>(|_| 1);
+        wait_for_status(&task, ComponentTaskStatus::Rejected);
+        assert_eq!(store.background.lock().unwrap().envelopes.len(), 4096);
+    }
+
+    #[test]
+    fn panicking_background_work_is_rejected() {
+        let mut store = store();
+        let token = store
+            .reserve(
+                State {
+                    changed: 0,
+                    sender: None,
+                    value: 0,
+                },
+                String::new(),
+                changed,
+                update,
+                view,
+            )
+            .unwrap();
+        store.publish(token).unwrap();
+
+        let task = TaskSpawner {
+            limiter: Arc::clone(&store.task_limiter),
+            queue: Arc::clone(&store.background),
+            token,
+        }
+        .spawn::<u32, _>(|_| panic!("injected task panic"));
+        wait_for_status(&task, ComponentTaskStatus::Rejected);
+        assert_eq!(store.pending(), 0);
+    }
+
+    #[test]
+    fn failed_wake_rejects_every_completion_waiting_behind_it() {
+        let mut store = store();
+        let token = store
+            .reserve(
+                State {
+                    changed: 0,
+                    sender: None,
+                    value: 0,
+                },
+                String::new(),
+                changed,
+                update,
+                view,
+            )
+            .unwrap();
+        store.publish(token).unwrap();
+        let wake_barrier = Arc::new(Barrier::new(2));
+        let wakes = Arc::new(AtomicUsize::new(0));
+        {
+            let wake_barrier = Arc::clone(&wake_barrier);
+            let wakes = Arc::clone(&wakes);
+            store.set_background_waker(Arc::new(move || {
+                wakes.fetch_add(1, Ordering::AcqRel);
+                wake_barrier.wait();
+                false
+            }));
+        }
+        let work_barrier = Arc::new(Barrier::new(3));
+        let spawn = TaskSpawner {
+            limiter: Arc::clone(&store.task_limiter),
+            queue: Arc::clone(&store.background),
+            token,
+        };
+        let first_barrier = Arc::clone(&work_barrier);
+        let first = spawn.spawn::<u32, _>(move |_| {
+            first_barrier.wait();
+            1
+        });
+        let second_barrier = Arc::clone(&work_barrier);
+        let second = spawn.spawn::<u32, _>(move |_| {
+            second_barrier.wait();
+            2
+        });
+        work_barrier.wait();
+        let deadline = Instant::now() + Duration::from_secs(2);
+        while store.background.lock().unwrap().envelopes.len() != 2 {
+            assert!(Instant::now() < deadline, "background tasks timed out");
+            std::thread::sleep(Duration::from_millis(1));
+        }
+        wake_barrier.wait();
+
+        wait_for_status(&first, ComponentTaskStatus::Rejected);
+        wait_for_status(&second, ComponentTaskStatus::Rejected);
+        assert_eq!(wakes.load(Ordering::Acquire), 1);
+        assert_eq!(store.pending(), 0);
+    }
+
+    #[test]
+    fn cancelled_reserved_completion_cannot_deliver_after_publication() {
+        let mut store = store();
+        let token = store
+            .reserve(
+                State {
+                    changed: 0,
+                    sender: None,
+                    value: 0,
+                },
+                String::new(),
+                changed,
+                update,
+                view,
+            )
+            .unwrap();
+        let task = TaskSpawner {
+            limiter: Arc::clone(&store.task_limiter),
+            queue: Arc::clone(&store.background),
+            token,
+        }
+        .spawn::<u32, _>(|_| 4);
+        wait_for_status(&task, ComponentTaskStatus::Queued);
+        assert!(store.drain(1).unwrap().blocked);
+
+        task.cancel();
+        store.publish(token).unwrap();
+        assert_eq!(store.drain(1).unwrap().dispatched, 0);
+        assert_eq!(store.component::<State>(token).unwrap().value, 0);
+    }
+
+    #[test]
+    fn local_and_background_messages_alternate() {
+        let mut store = store();
+        let token = store
+            .reserve(
+                State {
+                    changed: 0,
+                    sender: None,
+                    value: 0,
+                },
+                String::new(),
+                changed,
+                update,
+                view,
+            )
+            .unwrap();
+        store.publish(token).unwrap();
+        let sender = store.sender::<u32>(token).unwrap();
+        assert!(sender.send(3));
+        let control = Arc::new(TaskControl::new());
+        control.queue();
+        store
+            .background
+            .lock()
+            .unwrap()
+            .envelopes
+            .push_back(BackgroundEnvelope {
+                control,
+                payload: Box::new(10u32),
+                token,
+            });
+
+        assert_eq!(store.drain(1).unwrap().dispatched, 1);
+        assert_eq!(store.component::<State>(token).unwrap().value, 3);
+        assert!(sender.send(100));
+        assert_eq!(store.drain(1).unwrap().dispatched, 1);
+        assert_eq!(store.component::<State>(token).unwrap().value, 13);
+        assert_eq!(store.pending(), 1);
+    }
+
+    #[test]
+    fn stale_background_completion_cannot_reach_a_reused_scope() {
+        let mut store = store();
+        let first = store
+            .reserve(
+                State {
+                    changed: 0,
+                    sender: None,
+                    value: 0,
+                },
+                String::new(),
+                changed,
+                update,
+                view,
+            )
+            .unwrap();
+        store.publish(first).unwrap();
+        store.retire(first).unwrap();
+        store.remove(first).unwrap();
+        let second = store
+            .reserve(
+                State {
+                    changed: 0,
+                    sender: None,
+                    value: 0,
+                },
+                String::new(),
+                changed,
+                update,
+                view,
+            )
+            .unwrap();
+        store.publish(second).unwrap();
+        let control = Arc::new(TaskControl::new());
+        control.queue();
+        store
+            .background
+            .lock()
+            .unwrap()
+            .envelopes
+            .push_back(BackgroundEnvelope {
+                control: Arc::clone(&control),
+                payload: Box::new(8u32),
+                token: first,
+            });
+
+        assert_eq!(store.drain(1).unwrap().dropped, 1);
+        assert_eq!(control.status(), ComponentTaskStatus::Cancelled);
+        assert_eq!(store.component::<State>(second).unwrap().value, 0);
+    }
+
+    #[test]
+    fn closed_store_and_live_task_limit_reject_without_spawning() {
+        let mut store = store();
+        let token = store
+            .reserve(
+                State {
+                    changed: 0,
+                    sender: None,
+                    value: 0,
+                },
+                String::new(),
+                changed,
+                update,
+                view,
+            )
+            .unwrap();
+        let spawn = TaskSpawner {
+            limiter: Arc::clone(&store.task_limiter),
+            queue: Arc::clone(&store.background),
+            token,
+        };
+        store
+            .task_limiter
+            .active
+            .store(BACKGROUND_TASK_CAPACITY, Ordering::Release);
+        let limited = spawn.spawn::<u32, _>(|_| 1);
+        assert_eq!(limited.status(), ComponentTaskStatus::Rejected);
+        let restarted = store.restarted(WindowToken::new(WindowId::allocate()));
+        assert!(restarted.task_limiter.acquire().is_none());
+
+        store.task_limiter.active.store(0, Ordering::Release);
+        store.close();
+        let closed = spawn.spawn::<u32, _>(|_| 1);
+        assert_eq!(closed.status(), ComponentTaskStatus::Rejected);
     }
 
     #[test]

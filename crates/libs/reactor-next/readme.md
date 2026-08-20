@@ -43,6 +43,27 @@ Local component messages stay on the UI thread. Each window queues at most
 `LOCAL_MESSAGE_QUEUE_CAPACITY` messages. `LocalSender::send` returns `false` when the owning scope
 has retired, the window has closed, or the queue is full.
 
+Components may run blocking work on an owned background thread:
+
+```rust,ignore
+let task = context.spawn_background(|cancellation| {
+    match load_data(cancellation) {
+        Ok(value) => Message::Loaded(value),
+        Err(error) => Message::LoadFailed(error),
+    }
+});
+```
+
+The closure receives a cooperative `CancellationToken`, and its `Send` result returns as the
+component's normal message on the UI thread. Retiring the component or closing its window cancels
+ownership and discards late results. `ComponentTask::cancel` also removes a queued result.
+`ComponentTaskStatus` reports `Running`, `Queued`, `Delivered`, `Cancelled`, or `Rejected`.
+
+Each window permits at most `BACKGROUND_TASK_CAPACITY` live task threads and
+`BACKGROUND_MESSAGE_QUEUE_CAPACITY` queued completions. Work beyond either limit returns a task
+with `Rejected` status instead of starting another thread. Tasks that ignore cancellation may
+finish their closure, but they cannot deliver after their scope retires.
+
 Typed context values flow through logical provider nodes:
 
 ```rust,ignore
@@ -55,8 +76,9 @@ View::provide(
 ```
 
 `Context::new` defines a typed key and its default. `View::provide` shadows that key for descendant
-components. Provider changes recompose only consumers resolved to that provider and the component
-paths needed to reach them.
+components. Provider changes use a published reverse dependency index and recompose the exact
+surviving consumers. Changing a provider to a different context key does not recompose consumers
+shadowed by nearer providers.
 
 Props, messages, and thread ownership are checked at the public boundary:
 

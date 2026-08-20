@@ -64,19 +64,38 @@ identical-props retry recomposes them instead of accepting the old structural tr
 `Context<T>` is a typed key with a default value. `View::provide` creates a transparent logical
 provider, and `ViewContext::use_context` resolves the nearest matching ancestor.
 
-Each consumer records the provider node it resolved, not only the context type. A provider value
-change therefore skips consumers shadowed by a nested provider. Reactor recomposes only matching
-consumers and their component ancestor paths. Keyed movement retains provider identity, retirement
-removes dependency state with the component scope, and separate Pumps never share values or
-subscriptions.
+Each consumer records the provider node it resolved, not only the context type. A published reverse
+dependency index maps that identity to consuming scopes. A provider change therefore recomposes the
+exact surviving consumers without scanning its subtree or recomposing unchanged component paths.
+Changing the context key also skips consumers shadowed by nearer providers. Keyed movement retains
+provider identity, retirement removes dependency state with the component scope, and separate Pumps
+never share values or subscriptions.
 
 Context reads are candidate data. Planning stages new dependency sets and publishes them only after
 native apply succeeds. A failed plan retains the previously published dependencies and forces the
 same touched scopes to retry.
 
-The arena uses 256-node copy-on-write chunks, and the scope-to-node index is copy-on-write. This
-keeps context and other structural candidates from cloning the full tree while preserving
-transactional publication.
+The arena uses 256-node copy-on-write chunks, the scope-to-node index is copy-on-write, and sparse
+provider values use a two-level chunked store. Updating one provider clones only its small provider
+chunk and directory group rather than a global provider map. Context dependencies and their reverse
+index publish only after native success.
+
+## Background tasks
+
+`ComponentContext::spawn_background` runs a `Send` closure on an owned OS thread. The closure
+receives a cooperative `CancellationToken`; its typed result enters the normal component message
+path on the UI thread. Local non-`Send` messages and background `Send` completions remain in
+separate queues, and draining alternates between them.
+
+A window permits 64 live task threads and 4,096 queued completions. Exceeding either bound produces
+a `ComponentTask` with `Rejected` status. Dispatcher wake rejection rejects all completions covered
+by that wake, so none can strand the queue. Scope retirement, explicit cancellation, window close,
+and Pump shutdown mark owned work `Cancelled`, remove queued completions, and rely on scope
+generations to reject late races.
+
+Cancellation is cooperative for the closure but absolute for delivery. A closure that ignores its
+token may continue running, but its result cannot reach a retired or replaced component. Task
+panics remain confined to their worker thread and produce `Rejected` status.
 
 ## Native events and controlled properties
 
@@ -161,12 +180,18 @@ measurements are about 0.42 ms/4.09 ms for same-order parent recomposition and 0
 reversal. Rotate, insert, and remove remain in the same range at 4,096 children. Reorders moving
 10%, 20%, and 25% of 4,096 keys take about 5.0-5.4 ms and use child synchronization.
 
-An isolated context-provider update measured about 3.4 us and 7.7 KB at 512 unrelated scopes and
-4.1 us and 9.2 KB at 16,384. Only the resolved consumer recomposed; the time increase was about
-21%.
+An isolated context-provider update measured about 3.8 us at 512 unrelated scopes and 4.3 us at
+16,384. A provider spanning 16,384 descendants with one consumer remained about 3.7 us. Updating
+one of 16,384 independent providers measured about 4.7 us, compared with 4.1 us at 512. A provider
+with 16,384 actual consumers remains linear in the work requested.
+
+A complete background task, including OS-thread creation, result enqueue, and UI dispatch, measured
+about 66-69 us and 817 allocated bytes at both 512 and 16,384 unrelated scopes. Live tasks are
+bounded separately from queued completions. Idle component storage is about 2,496 bytes per scope.
 
 The `test` feature exposes the recording runtime and Pump to the headless test and benchmark
 packages. `test_reactor_next_selftest` exercises two real WinUI windows in a process-isolated
 fixture. It edits one window at a time, verifies window-specific callback payloads, closes the
-secondary with stale queued work, and continues updates and final effect cleanup in the surviving
-window. An explicit completion marker prevents an early `App::run_windows` return from passing.
+secondary with a background task in flight, verifies that its completion is discarded, and
+continues background delivery, updates, and final effect cleanup in the surviving window. An
+explicit completion marker prevents an early `App::run_windows` return from passing.

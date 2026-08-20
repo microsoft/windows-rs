@@ -203,12 +203,15 @@ and WebView own only behavior that cannot be expressed by the ordinary schema.
 | Component release executable ratio | 0.91x hook |
 | Isolated component leaf at 512 scopes | 0.51 us, 430 bytes, 9 allocations |
 | Isolated component leaf at 16,384 scopes | 0.51 us, 430 bytes, 9 allocations |
-| Idle component memory | About 2,448 bytes per scope |
+| Idle component memory | About 2,496 bytes per scope |
 | Ordinary keyed reversal, 512 -> 4,096 | 0.19 ms -> 2.15 ms |
 | Component same order, 512 -> 4,096 | 0.42 ms -> 4.09 ms |
 | Component reversal, 512 -> 4,096 | 0.49 ms -> 5.76 ms |
 | Component 10-25% movement at 4,096 | 5.0-5.4 ms |
-| Context provider, 512 -> 16,384 unrelated scopes | 3.4 us -> 4.1 us |
+| Context provider, 512 -> 16,384 unrelated scopes | 3.8 us -> 4.3 us |
+| Broad provider with one consumer, 512 -> 16,384 descendants | 3.6 us -> 3.7 us |
+| One provider update among 512 -> 16,384 providers | 4.1 us -> 4.7 us |
+| Background task, 512 -> 16,384 unrelated scopes | 69 us -> 66 us |
 
 The local component path remains close to the current `windows-reactor` baseline while using fewer
 allocations than the recovery prototype.
@@ -294,11 +297,33 @@ Context propagation is complete:
 
 - `Context<T>` provides a typed default, `View::provide` adds a logical provider, and
   `ViewContext::use_context` records the resolved provider identity.
-- Provider changes recompose only matching consumers and the component paths needed to reach them.
-  Nested shadowing, stopped reads, keyed movement, retirement, failed planning, component messages,
-  and separate Pump ownership have focused tests.
-- Dependency changes publish only after native success.
-- Chunked copy-on-write arena storage and a copy-on-write scope index keep an isolated provider
-  update within the locality gate: about 3.4 us at 512 scopes and 4.1 us at 16,384.
+- Provider changes use a published reverse dependency index and directly recompose the exact
+  surviving consumers after child reconciliation. They do not scan the provider subtree or force
+  unchanged component ancestor paths through composition.
+- Context-key replacement is shadow-aware. Consumers resolved to nearer providers do not
+  recompose.
+- Dependency and reverse-index changes publish only after native success. Planning and injected
+  native-apply failures retain the prior dependency set.
+- Sparse provider values use two-level copy-on-write chunks rather than one global map.
+- A broad provider with one consumer remains about 3.6-3.7 us from 512 to 16,384 descendants.
+  Updating one provider among 16,384 providers remains within the 25% locality gate.
 
-The next phase is background async ownership and cancellation.
+Scope-owned background tasks are implemented:
+
+- `ComponentContext::spawn_background` runs one `Send` closure per owned OS thread and routes its
+  typed result through normal component message dispatch.
+- Each closure receives cooperative cancellation. Scope retirement, explicit cancellation, Pump
+  shutdown, and window close prevent delivery even when work ignores cancellation.
+- Each Pump permits 64 live task threads and 4,096 queued completions. Excess work is `Rejected`.
+- Local and background queues remain separate and alternate during draining, preserving non-`Send`
+  local messages without starvation.
+- An explicit wake-pending bit coalesces dispatcher callbacks. Wake rejection rejects every
+  completion covered by that callback instead of stranding later work.
+- Task status is observable as `Running`, `Queued`, `Delivered`, `Cancelled`, or `Rejected`.
+- The live two-window fixture delivers a primary background result through WinUI's dispatcher,
+  closes the secondary with a task in flight, discards its late result, and keeps the primary
+  operational.
+- End-to-end thread creation, completion enqueue, and UI dispatch measure about 66-69 us and 817
+  allocated bytes through 16,384 unrelated scopes.
+
+The next phase is API consolidation and replacement qualification.

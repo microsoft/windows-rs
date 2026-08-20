@@ -71,6 +71,9 @@ impl<R: NativeRuntime> Pump<R> {
         if let Some(wake) = runtime.component_waker() {
             components.set_waker(wake);
         }
+        if let Some(wake) = runtime.component_background_waker() {
+            components.set_background_waker(wake);
+        }
         Self {
             application: None,
             components,
@@ -317,12 +320,15 @@ impl<R: NativeRuntime> Pump<R> {
         self.window = None;
         if let Some(identity) = identity {
             self.identity = identity;
-            let mut components = ComponentStore::new(identity);
+            self.runtime.set_identity(identity);
+            let mut components = self.components.restarted(identity);
             if let Some(wake) = self.runtime.component_waker() {
                 components.set_waker(wake);
             }
+            if let Some(wake) = self.runtime.component_background_waker() {
+                components.set_background_waker(wake);
+            }
             self.components = components;
-            self.runtime.set_identity(identity);
             self.poisoned = false;
         } else {
             self.poisoned = true;
@@ -417,12 +423,6 @@ impl<R: NativeRuntime> Pump<R> {
         self.version
             .checked_add(1)
             .ok_or(PumpError::RevisionExhausted)
-    }
-
-    fn refresh_component_waker(&mut self) {
-        if let Some(wake) = self.runtime.component_waker() {
-            self.components.set_waker(wake);
-        }
     }
 
     fn apply_component_candidate(

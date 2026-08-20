@@ -4,6 +4,9 @@ use std::any::TypeId;
 use std::collections::{BTreeMap, HashMap};
 use std::rc::Rc;
 
+const PROVIDER_CHUNK_CAPACITY: usize = 256;
+const PROVIDER_GROUP_CAPACITY: usize = 64;
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum NodeKind {
     Application,
@@ -70,8 +73,48 @@ impl From<VirtualModelError> for TreeError {
 pub struct Tree {
     arena: Arena<Node>,
     components: Rc<HashMap<ScopeId, NodeId>>,
-    providers: Rc<HashMap<NodeId, ContextProvision>>,
+    providers: ProviderStore,
     root: Option<NodeId>,
+}
+
+#[derive(Clone, Default)]
+struct ProviderStore {
+    groups: Rc<Vec<Rc<Vec<Rc<HashMap<NodeId, ContextProvision>>>>>>,
+}
+
+impl ProviderStore {
+    fn get(&self, id: NodeId) -> Option<&ContextProvision> {
+        let chunk = id.index() / PROVIDER_CHUNK_CAPACITY;
+        self.groups
+            .get(chunk / PROVIDER_GROUP_CAPACITY)?
+            .get(chunk % PROVIDER_GROUP_CAPACITY)?
+            .get(&id)
+    }
+
+    fn insert(&mut self, id: NodeId, provision: ContextProvision) {
+        let chunk = id.index() / PROVIDER_CHUNK_CAPACITY;
+        let group = chunk / PROVIDER_GROUP_CAPACITY;
+        let groups = Rc::make_mut(&mut self.groups);
+        while groups.len() <= group {
+            groups.push(Rc::new(Vec::new()));
+        }
+        let chunks = Rc::make_mut(&mut groups[group]);
+        while chunks.len() <= chunk % PROVIDER_GROUP_CAPACITY {
+            chunks.push(Rc::new(HashMap::new()));
+        }
+        Rc::make_mut(&mut chunks[chunk % PROVIDER_GROUP_CAPACITY]).insert(id, provision);
+    }
+
+    fn remove(&mut self, id: NodeId) {
+        let chunk = id.index() / PROVIDER_CHUNK_CAPACITY;
+        let group = chunk / PROVIDER_GROUP_CAPACITY;
+        let Some(chunks) = Rc::make_mut(&mut self.groups).get_mut(group) else {
+            return;
+        };
+        if let Some(providers) = Rc::make_mut(chunks).get_mut(chunk % PROVIDER_GROUP_CAPACITY) {
+            Rc::make_mut(providers).remove(&id);
+        }
+    }
 }
 
 impl Tree {
@@ -79,7 +122,7 @@ impl Tree {
         Self {
             arena: Arena::new(),
             components: Rc::new(HashMap::new()),
-            providers: Rc::new(HashMap::new()),
+            providers: ProviderStore::default(),
             root: None,
         }
     }
@@ -176,7 +219,7 @@ impl Tree {
     ) -> Result<NodeId, TreeError> {
         let id = self.insert(parent, NodeKind::Provider)?;
         self.arena.get_mut(id)?.key = key;
-        Rc::make_mut(&mut self.providers).insert(id, provision);
+        self.providers.insert(id, provision);
         Ok(id)
     }
 
@@ -184,7 +227,7 @@ impl Tree {
         if self.arena.get(id)?.kind != NodeKind::Provider {
             return Err(TreeError::NotComponent);
         }
-        self.providers.get(&id).ok_or(TreeError::NotComponent)
+        self.providers.get(id).ok_or(TreeError::NotComponent)
     }
 
     pub fn set_provision(
@@ -195,7 +238,7 @@ impl Tree {
         if self.arena.get(id)?.kind != NodeKind::Provider {
             return Err(TreeError::NotComponent);
         }
-        Rc::make_mut(&mut self.providers).insert(id, provision);
+        self.providers.insert(id, provision);
         Ok(())
     }
 
@@ -363,6 +406,17 @@ impl Tree {
         Ok(self.arena.get(id)?.parent)
     }
 
+    pub fn is_descendant_of(&self, id: NodeId, ancestor: NodeId) -> Result<bool, TreeError> {
+        let mut current = Some(id);
+        while let Some(node) = current {
+            if node == ancestor {
+                return Ok(true);
+            }
+            current = self.parent(node)?;
+        }
+        Ok(false)
+    }
+
     pub fn kind(&self, id: NodeId) -> Result<NodeKind, TreeError> {
         Ok(self.arena.get(id)?.kind)
     }
@@ -414,7 +468,7 @@ impl Tree {
                 Rc::make_mut(&mut self.components).remove(&scope);
             }
             if node.kind == NodeKind::Provider {
-                Rc::make_mut(&mut self.providers).remove(&id);
+                self.providers.remove(id);
             }
             retired.push((id, node.kind));
         }

@@ -4,6 +4,7 @@
 
 mod support;
 
+mod background_tasks;
 mod components_turn_ordering;
 mod context_propagation;
 mod events_controlled_feedback;

@@ -1,6 +1,8 @@
 use std::cell::{Cell, RefCell};
 use std::collections::HashMap;
 use std::rc::Rc;
+use std::sync::Arc;
+use std::sync::atomic::{AtomicBool, Ordering};
 
 use super::*;
 use windows_core::Interface;
@@ -635,6 +637,31 @@ impl NativeRuntime for WinUiRuntime {
     fn component_waker(&self) -> Option<Rc<dyn Fn()>> {
         let sink = self.event_sink().ok()?;
         Some(Rc::new(move || sink.wake()))
+    }
+
+    fn component_background_waker(&self) -> Option<Arc<dyn Fn() -> bool + Send + Sync>> {
+        let dispatcher = DispatcherQueue::GetForCurrentThread().ok()?;
+        let identity = self.identity.get()?;
+        let queued = Arc::new(AtomicBool::new(false));
+        Some(Arc::new(move || {
+            if queued.swap(true, Ordering::AcqRel) {
+                return true;
+            }
+            let handler_queued = Arc::clone(&queued);
+            let handler = DispatcherQueueHandler::new(move || {
+                handler_queued.store(false, Ordering::Release);
+                dispatch_native_events(identity);
+            });
+            if matches!(
+                dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &handler),
+                Ok(true)
+            ) {
+                true
+            } else {
+                queued.store(false, Ordering::Release);
+                false
+            }
+        }))
     }
 
     fn set_identity(&mut self, identity: WindowToken) {

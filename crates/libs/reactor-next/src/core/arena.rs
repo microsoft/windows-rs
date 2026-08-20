@@ -12,6 +12,10 @@ impl NodeId {
     pub const fn from_parts(index: u32, generation: u32) -> Self {
         Self { index, generation }
     }
+
+    pub(crate) const fn index(self) -> usize {
+        self.index as usize
+    }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

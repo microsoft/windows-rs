@@ -1,5 +1,6 @@
 use super::*;
 use std::rc::Rc;
+use std::sync::Arc;
 use std::sync::atomic::{AtomicU64, Ordering};
 
 static NEXT_WINDOW_ID: AtomicU64 = AtomicU64::new(1);
@@ -75,6 +76,10 @@ pub trait NativeRuntime {
     fn set_identity(&mut self, _identity: WindowToken) {}
 
     fn component_waker(&self) -> Option<Rc<dyn Fn()>> {
+        None
+    }
+
+    fn component_background_waker(&self) -> Option<Arc<dyn Fn() -> bool + Send + Sync>> {
         None
     }
 

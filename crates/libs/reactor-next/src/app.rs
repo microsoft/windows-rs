@@ -8,6 +8,10 @@ use crate::native::*;
 
 const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);
 
+#[cfg(feature = "test")]
+static LIVE_CLOSED_TASK_FINISHED: std::sync::atomic::AtomicBool =
+    std::sync::atomic::AtomicBool::new(false);
+
 thread_local! {
     static HOST: RefCell<Option<LiveHost>> = const { RefCell::new(None) };
     static SCHEDULER_FAULT: RefCell<Option<windows_core::Error>> = const { RefCell::new(None) };
@@ -20,6 +24,8 @@ thread_local! {
     static LIVE_COMPONENT_CREATES: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_COMPONENT_EFFECT_SETUPS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_COMPONENT_EFFECT_CLEANUPS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
+    static LIVE_COMPONENT_BACKGROUND: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
+    static LIVE_CLOSED_TASK_DELIVERED: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
     static LIVE_PRIMARY_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_PRIMARY_NATIVE_PAYLOAD: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
     static LIVE_SECONDARY_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
@@ -61,6 +67,16 @@ impl LiveHost {
             .iter()
             .find(|(token, _)| **token != self.primary)
             .map(|(_, pump)| pump.as_ref())
+    }
+
+    #[cfg(feature = "test")]
+    fn secondary_mut(&mut self) -> Option<&mut (dyn LivePump + '_)> {
+        for (token, pump) in &mut self.windows {
+            if *token != self.primary {
+                return Some(pump.as_mut());
+            }
+        }
+        None
     }
 
     #[cfg(feature = "test")]
@@ -109,6 +125,10 @@ trait LivePump {
     #[cfg(feature = "test")]
     fn live_component_text(&self) -> Result<String, RuntimeError> {
         Err(RuntimeError::UnsupportedKind)
+    }
+    #[cfg(feature = "test")]
+    fn live_closing_task(&mut self) -> bool {
+        false
     }
     #[cfg(feature = "test")]
     fn live_dense_reorder(&mut self) -> bool {
@@ -170,12 +190,19 @@ struct LiveTestComponent {
 }
 
 #[cfg(feature = "test")]
+enum LiveTestMessage {
+    Background,
+    Native(String),
+}
+
+#[cfg(feature = "test")]
 impl Component for LiveTestComponent {
     type Props = String;
-    type Message = String;
+    type Message = LiveTestMessage;
 
-    fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+    fn create(props: &Self::Props, context: &mut ComponentContext<Self>) -> Self {
         LIVE_COMPONENT_CREATES.with(|count| count.set(count.get().saturating_add(1)));
+        context.spawn_background(|_| LiveTestMessage::Background);
         Self {
             messages: 0,
             text: props.clone(),
@@ -187,12 +214,19 @@ impl Component for LiveTestComponent {
     }
 
     fn update(&mut self, message: Self::Message, _context: &mut ComponentContext<Self>) {
-        self.messages = self.messages.saturating_add(1);
-        self.text = if self.messages == 65 {
-            message
-        } else {
-            "pending".to_string()
-        };
+        match message {
+            LiveTestMessage::Background => {
+                LIVE_COMPONENT_BACKGROUND.with(|completed| completed.set(true));
+            }
+            LiveTestMessage::Native(message) => {
+                self.messages = self.messages.saturating_add(1);
+                self.text = if self.messages == 65 {
+                    message
+                } else {
+                    "pending".to_string()
+                };
+            }
+        }
     }
 
     fn view(&self, context: &mut ViewContext<Self>) -> View {
@@ -209,10 +243,38 @@ impl Component for LiveTestComponent {
                 .text(self.text.clone())
                 .on_text_changed(move |value| {
                     for _ in 0..65 {
-                        sender.send(value.clone());
+                        sender.send(LiveTestMessage::Native(value.clone()));
                     }
                 }),
         )
+    }
+}
+
+#[cfg(feature = "test")]
+struct LiveClosingTask;
+
+#[cfg(feature = "test")]
+impl Component for LiveClosingTask {
+    type Props = ();
+    type Message = ();
+
+    fn create(_props: &Self::Props, context: &mut ComponentContext<Self>) -> Self {
+        LIVE_CLOSED_TASK_FINISHED.store(false, std::sync::atomic::Ordering::Release);
+        context.spawn_background(|_| {
+            std::thread::sleep(std::time::Duration::from_millis(300));
+            LIVE_CLOSED_TASK_FINISHED.store(true, std::sync::atomic::Ordering::Release);
+        });
+        Self
+    }
+
+    fn changed(&mut self, _props: &Self::Props, _context: &mut ComponentContext<Self>) {}
+
+    fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {
+        LIVE_CLOSED_TASK_DELIVERED.with(|delivered| delivered.set(true));
+    }
+
+    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        View::native(TextBlock::new().text("closing"))
     }
 }
 
@@ -283,6 +345,7 @@ where
         LIVE_COMPONENT_CREATES.with(|count| count.set(0));
         LIVE_COMPONENT_EFFECT_SETUPS.with(|count| count.set(0));
         LIVE_COMPONENT_EFFECT_CLEANUPS.with(|count| count.set(0));
+        LIVE_COMPONENT_BACKGROUND.with(|completed| completed.set(false));
         if self
             .pump_mut()
             .update_view(View::component::<LiveTestComponent>(
@@ -312,6 +375,7 @@ where
             return false;
         };
         LIVE_COMPONENT_CREATES.with(|count| count.get() == 1)
+            && LIVE_COMPONENT_BACKGROUND.with(std::cell::Cell::get)
             && self.pump().runtime().live_text(native).as_deref() == Ok("message")
     }
 
@@ -322,6 +386,14 @@ where
             .root_native()
             .ok_or(RuntimeError::UnsupportedKind)?;
         self.pump().runtime().live_text(native)
+    }
+
+    #[cfg(feature = "test")]
+    fn live_closing_task(&mut self) -> bool {
+        LIVE_CLOSED_TASK_DELIVERED.with(|delivered| delivered.set(false));
+        self.pump_mut()
+            .update_view(View::component::<LiveClosingTask>(()))
+            .is_ok()
     }
 
     #[cfg(feature = "test")]
@@ -900,6 +972,16 @@ fn finish_live_backend_test() {
             .as_ref()
             .and_then(LiveHost::secondary_window_for_test)
     });
+    let prepared = HOST.with(|host| {
+        host.borrow_mut()
+            .as_mut()
+            .and_then(LiveHost::secondary_mut)
+            .is_some_and(LivePump::live_closing_task)
+    });
+    if !prepared {
+        eprintln!("live backend fixture could not start a secondary background task");
+        std::process::exit(1);
+    }
     if window.is_none_or(|window| window.Close().is_err()) {
         eprintln!("live backend fixture did not isolate and close its second window");
         std::process::exit(1);
@@ -1045,15 +1127,45 @@ fn queue_live_component_verification(
 
 #[cfg(feature = "test")]
 fn finish_live_component_test() {
-    let window = HOST.with(|host| {
-        host.borrow()
-            .as_ref()
-            .and_then(LiveHost::primary_window_for_test)
+    let dispatcher = match DispatcherQueue::GetForCurrentThread() {
+        Ok(dispatcher) => dispatcher,
+        Err(error) => {
+            eprintln!("closed-task fixture has no dispatcher: {error}");
+            std::process::exit(1);
+        }
+    };
+    std::thread::spawn(move || {
+        let deadline = std::time::Instant::now() + std::time::Duration::from_secs(2);
+        while !LIVE_CLOSED_TASK_FINISHED.load(std::sync::atomic::Ordering::Acquire) {
+            if std::time::Instant::now() >= deadline {
+                eprintln!("closed-task fixture did not finish its worker");
+                std::process::exit(1);
+            }
+            std::thread::sleep(std::time::Duration::from_millis(1));
+        }
+        let verify = DispatcherQueueHandler::new(move || {
+            if LIVE_CLOSED_TASK_DELIVERED.with(std::cell::Cell::get) {
+                eprintln!("closed secondary window received a background completion");
+                std::process::exit(1);
+            }
+            let window = HOST.with(|host| {
+                host.borrow()
+                    .as_ref()
+                    .and_then(LiveHost::primary_window_for_test)
+            });
+            if window.is_none_or(|window| window.Close().is_err()) {
+                eprintln!("component scheduler fixture could not close its primary window");
+                std::process::exit(1);
+            }
+        });
+        if !matches!(
+            dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Low, &verify),
+            Ok(true)
+        ) {
+            eprintln!("dispatcher rejected closed-task verification");
+            std::process::exit(1);
+        }
     });
-    if window.is_none_or(|window| window.Close().is_err()) {
-        eprintln!("component scheduler fixture could not close its primary window");
-        std::process::exit(1);
-    }
 }
 
 #[cfg(feature = "test")]
