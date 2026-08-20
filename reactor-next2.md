@@ -391,7 +391,7 @@ template behavior, COM reentrancy, partial native mutation, shell visuals, or sh
 - [x] Add nested components with props and local typed messages.
 - [x] Keep leaf recomposition within the component boundary.
 - [x] Retain child state across parent prop changes and keyed movement.
-- [ ] Replace same-key/different-type children and retire the old scope.
+- [x] Replace same-key/different-type children and retire the old scope.
 - [x] Queue reentrant messages without directly reborrowing a component.
 - [ ] Retain current application state and desired view across native failure.
 - [ ] Run cleanup exactly once in the required order.
@@ -528,7 +528,10 @@ multiple messages for one component coalesce into one view pass. This slice curr
 component chain to end in the same leaf native control. `View::Content` and `View::Children` now
 mount logical component descendants under a native parent. Same-key children retain their scopes
 when parent props change or their order moves, and native move commands target each component's
-realized native root. Insert/remove, same-key type replacement, transactional retirement, fragments,
-and virtual view items are still open. A failed component structural update currently resets and
-poisons the pump rather than recovering the prior or desired tree, so structural failure recovery
-remains a gate. Control expansion remains frozen.
+realized native root. Keyed insert/remove and same-key type replacement use one scope transaction:
+new scopes remain reserved during native apply, removed scopes remain published, and successful
+native publication publishes the new scopes before retiring the old scopes. Failed structural
+candidates discard new reservations without retiring old scopes. Fragments and virtual view items
+are still open. A failed component structural update currently resets and poisons the pump rather
+than recovering the prior or desired tree, so structural failure recovery remains a gate. Control
+expansion remains frozen.

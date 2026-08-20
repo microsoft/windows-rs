@@ -86,12 +86,13 @@ through the existing command and receipt path. Component scopes remain reserved 
 commands run and publish only after structural success. Same-type prop updates retain every scope
 in the chain, and typed local messages trigger a candidate reconciliation rooted at the component
 that received them. Multiple messages for one component coalesce into one view pass. This bounded
-path currently requires the chain to end in the same leaf native control. Structural replacement
-and retirement are not implemented yet. `View::Content` and `View::Children` can mount
-component descendants below a native parent. Same-key child components retain their scopes across
-parent prop updates and keyed movement; move commands use the descendant native root rather than a
-logical component node. Insert/remove and same-key type replacement remain blocked on transactional
-scope retirement. A failed structural component update currently resets and poisons its pump.
+path currently requires the chain to end in the same leaf native control. `View::Content` and
+`View::Children` can mount component descendants below a native parent. Same-key child components
+retain their scopes across parent prop updates and keyed movement; move commands use the descendant
+native root rather than a logical component node. Keyed insert/remove and same-key type replacement
+reserve new scopes and keep removed scopes published until the native batch succeeds. Success
+publishes replacements and retires removed scopes; failure discards reservations without retiring
+the old scopes. A failed structural component update currently resets and poisons its pump.
 
 The `test` feature exposes the recording runtime and pump to the headless benchmark package. It is
 not part of the default application surface.
