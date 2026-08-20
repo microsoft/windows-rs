@@ -50,14 +50,23 @@ struct PropertyCommit {
     value: Option<PropertyValue>,
 }
 
-#[derive(Default)]
 struct UpdatePlan {
     commands: Vec<Command>,
     commits: Vec<PropertyCommit>,
+    identity: NativeIdentity,
     retry_properties: bool,
 }
 
 impl UpdatePlan {
+    fn new(identity: NativeIdentity) -> Self {
+        Self {
+            commands: Vec::new(),
+            commits: Vec::new(),
+            identity,
+            retry_properties: false,
+        }
+    }
+
     fn push(&mut self, command: Command) -> usize {
         let index = self.commands.len();
         self.commands.push(command);
@@ -71,7 +80,8 @@ pub struct Pump<R: NativeRuntime> {
     tree: Tree,
     runtime: R,
     root: Option<NodeId>,
-    events: VecDeque<QueuedEvent>,
+    events: VecDeque<NativeWork<QueuedEvent>>,
+    identity: NativeIdentity,
     poisoned: bool,
     retry_pending: bool,
     version: u64,
@@ -79,7 +89,9 @@ pub struct Pump<R: NativeRuntime> {
 }
 
 impl<R: NativeRuntime> Pump<R> {
-    pub fn new(runtime: R) -> Self {
+    pub fn new(mut runtime: R) -> Self {
+        let identity = NativeIdentity::new(WindowToken::new(WindowId::allocate()));
+        runtime.set_identity(identity);
         Self {
             application: None,
             element: None,
@@ -87,6 +99,7 @@ impl<R: NativeRuntime> Pump<R> {
             runtime,
             root: None,
             events: VecDeque::new(),
+            identity,
             poisoned: false,
             retry_pending: false,
             version: 0,
@@ -104,7 +117,7 @@ impl<R: NativeRuntime> Pump<R> {
         let next_version = self.next_version()?;
         let desired = element.clone();
         let mut candidate = Tree::new();
-        let mut plan = UpdatePlan::default();
+        let mut plan = UpdatePlan::new(self.identity);
         let application = candidate.insert(None, NodeKind::Application)?;
         plan.push(Command::CreateApplication { node: application });
         let window = candidate.insert(Some(application), NodeKind::Window)?;
@@ -184,7 +197,7 @@ impl<R: NativeRuntime> Pump<R> {
         let mut candidate = self.tree.clone();
         let mut plan = UpdatePlan {
             retry_properties: self.retry_pending,
-            ..Default::default()
+            ..UpdatePlan::new(self.identity)
         };
         let candidate_root = Self::reconcile_node(&mut candidate, node, element, &mut plan)?;
         if plan.commands.is_empty() {
@@ -250,7 +263,11 @@ impl<R: NativeRuntime> Pump<R> {
         let desired = element.clone();
         candidate.retire_subtree(failed_root)?;
 
-        let mut plan = UpdatePlan::default();
+        let recovery_identity = self
+            .identity
+            .next_realization()
+            .ok_or(PumpError::RevisionExhausted)?;
+        let mut plan = UpdatePlan::new(recovery_identity);
         plan.push(Command::ResetWindowContent { window });
         let root =
             Self::mount_planned_element(&mut candidate, Some(window), None, element, &mut plan)?;
@@ -261,6 +278,8 @@ impl<R: NativeRuntime> Pump<R> {
         });
 
         self.events.clear();
+        self.identity = recovery_identity;
+        self.runtime.set_identity(recovery_identity);
         let recovery = self.runtime.apply(&plan.commands);
         let attempt = |recovery| {
             Box::new(StructuralRecovery {
@@ -313,16 +332,23 @@ impl<R: NativeRuntime> Pump<R> {
     }
 
     pub fn shutdown(&mut self) {
+        let identity = self.identity.next_window();
         self.runtime.reset();
         self.application = None;
         self.element = None;
         self.events.clear();
-        self.poisoned = false;
         self.retry_pending = false;
         self.root = None;
         self.tree = Tree::new();
         self.version = 0;
         self.window = None;
+        if let Some(identity) = identity {
+            self.identity = identity;
+            self.runtime.set_identity(identity);
+            self.poisoned = false;
+        } else {
+            self.poisoned = true;
+        }
     }
 
     pub fn root(&self) -> Option<NodeId> {
@@ -356,7 +382,21 @@ impl<R: NativeRuntime> Pump<R> {
     }
 
     pub fn queue_event(&mut self, event: QueuedEvent) {
-        self.events.push_back(event);
+        self.events.push_back(NativeWork {
+            identity: self.identity,
+            work: event,
+        });
+    }
+
+    pub fn native_identity(&self) -> NativeIdentity {
+        self.identity
+    }
+
+    fn queue_event_with_identity(&mut self, identity: NativeIdentity, event: QueuedEvent) {
+        self.events.push_back(NativeWork {
+            identity,
+            work: event,
+        });
     }
 
     pub fn dispatch_events(&mut self) -> Result<usize, PumpError> {
@@ -373,7 +413,11 @@ impl<R: NativeRuntime> Pump<R> {
             return Err(PumpError::EventReadFailed(error));
         }
         let mut dispatched = 0;
-        while let Some(event) = self.events.pop_front() {
+        while let Some(queued) = self.events.pop_front() {
+            if queued.identity != self.identity {
+                continue;
+            }
+            let event = queued.work;
             let Ok(native) = self.tree.native(event.node) else {
                 continue;
             };
@@ -398,8 +442,13 @@ impl<R: NativeRuntime> Pump<R> {
         let requests = self.runtime.drain_realizations();
         let mut outcomes = Vec::with_capacity(requests.len());
         let mut candidate = self.tree.clone();
-        let mut plan = UpdatePlan::default();
-        for request in requests {
+        let mut plan = UpdatePlan::new(self.identity);
+        for queued in requests {
+            let request = queued.work;
+            if queued.identity != self.identity {
+                outcomes.push(RealizationOutcome::Rejected(request));
+                continue;
+            }
             let outcome = match request {
                 RealizationRequest::Realize {
                     collection,
@@ -995,7 +1044,7 @@ impl<R: NativeRuntime> Pump<R> {
                 return Err(PumpError::StructureUnsupported);
             }
             let item_count = items.len();
-            let node = tree.insert_virtual_items(parent, key, items)?;
+            let node = tree.insert_virtual_items(plan.identity, parent, key, items)?;
             plan.push(Command::CreateVirtualCollection { node, item_count });
             return Ok(node);
         }
@@ -1908,6 +1957,47 @@ mod tests {
     }
 
     #[test]
+    fn native_remount_rejects_late_work_without_replacing_window_identity() {
+        let calls = Rc::new(Cell::new(0));
+        let callback_calls = Rc::clone(&calls);
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(Button::new().on_click(|| {}).into()).unwrap();
+        let old_identity = pump.native_identity();
+        pump.runtime_mut().fail_at(0);
+
+        assert!(matches!(
+            pump.update(
+                Button::new()
+                    .content(TextBlock::new())
+                    .on_click(move || callback_calls.set(callback_calls.get() + 1))
+                    .into()
+            ),
+            Err(PumpError::RecoveredStructure(_))
+        ));
+
+        let new_identity = pump.native_identity();
+        assert_eq!(old_identity.window(), new_identity.window());
+        assert_ne!(
+            old_identity.realization_epoch(),
+            new_identity.realization_epoch()
+        );
+        let root = pump.root().unwrap();
+        let revision = pump.event_revision(root, EventId::ButtonClick).unwrap();
+        pump.queue_event_with_identity(
+            old_identity,
+            QueuedEvent {
+                node: root,
+                event: EventId::ButtonClick,
+                revision,
+                payload: EventPayload::Unit,
+            },
+        );
+
+        assert_eq!(pump.dispatch_events(), Ok(0));
+        assert_eq!(calls.get(), 0);
+    }
+
+    #[test]
     fn event_payload_read_failure_is_reported() {
         let mut pump = Pump::new(EventErrorRuntime::default());
         pump.mount(TextBox::new().into()).unwrap();
@@ -2294,17 +2384,31 @@ mod tests {
             container: RealizedContainer(1),
             index: 0,
         };
+        let old_identity = pump.native_identity();
         pump.runtime_mut().queue_realization(request);
 
         pump.shutdown();
 
         assert!(pump.process_realizations().unwrap().is_empty());
-        pump.runtime_mut().queue_realization(request);
+        pump.mount(
+            ItemsRepeater::new()
+                .item("a", TextBlock::new().text("A"))
+                .into(),
+        )
+        .unwrap();
+        assert_eq!(pump.root(), Some(collection));
+        assert_ne!(pump.native_identity().window(), old_identity.window());
+        pump.runtime_mut()
+            .queue_realization_with_identity(old_identity, request);
         assert_eq!(
             pump.process_realizations().unwrap(),
             [RealizationOutcome::Rejected(request)]
         );
-        assert!(pump.runtime().is_empty());
+        pump.runtime_mut().queue_realization(request);
+        assert!(matches!(
+            pump.process_realizations().unwrap().as_slice(),
+            [RealizationOutcome::Realized(_)]
+        ));
     }
 
     #[test]

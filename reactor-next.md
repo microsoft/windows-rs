@@ -138,16 +138,13 @@ Exit animation is deferred because it introduces a second physical child order.
 
 ## Initial scope
 
-The representative slice includes:
+The proven slice includes one application/window, generated leaf/content/children/controlled
+controls, root hooks, explicit native commits and failures, and a minimal read-only
+`ItemsRepeater`.
 
-- `Application` and multiple `Window` nodes.
-- `TextBlock` as a leaf.
-- `Button` for content and events.
-- `StackPanel` for keyed children.
-- `TextBox` for controlled values and `ClearValue`.
-- A minimal read-only `ItemsRepeater`.
-- A non-recreatable native-control test adapter.
-- State, callback, effect cleanup, context, and owner-scoped async work.
+The core proof is not representative until it also includes nested component ownership, context,
+owner-scoped async work, multiple isolated windows, a non-recreatable control, and local row
+failure recovery.
 
 Deferred:
 
@@ -239,8 +236,20 @@ Deferred:
 
 ### 7. Expansion decision
 
-Review all correctness, complexity, compile-time, runtime, and memory gates. Expand control coverage
-only if the representative slice remains simpler and competitive with current reactor.
+Control expansion is on hold. Continue only with the missing core proof:
+
+1. Add phase-separated scale curves before changing the architecture.
+2. Add lifecycle/host identity that cannot repeat across shutdown and remount.
+3. Define application ownership and one isolated arena/scheduler per window.
+4. Implement nested component ownership, context, and owner-scoped async cancellation in that arena.
+5. Replace root-rerender property retries with bounded per-property pending writes.
+6. Recover isolated row realization failures without poisoning an otherwise valid window.
+7. Spike non-clearable, slot-heavy, and non-recreatable controls without expanding general coverage.
+8. Rerun the gates after each structural step and on the complete representative sample.
+
+Stop the rewrite and carry the generator/native-boundary lessons back to the current reactor if
+the representative core needs a second ownership graph, cannot contain faults per window, or
+cannot approach the current reactor's update and allocation curves.
 
 ## Gates
 
@@ -334,6 +343,9 @@ After representative parity:
 
 ### Next
 
+- [ ] Prevent stale ids, events, and realization work across shutdown/remount.
+- [ ] Measure first/middle/last leaf changes and keyed operations from 64 to 16,384 nodes.
+- [ ] Split render, plan, native apply, and commit measurements.
 - [ ] Separate keyed planning from recording-runtime move cost and reduce keyed scratch bytes.
 - [ ] Decide whether row realization failures need independent recovery before expansion.
 - [ ] Review the remaining owner-scoped async and arena-scope decisions.
@@ -390,6 +402,9 @@ Current next-generation measurements use the same machine and release benchmark 
 The keyed figure includes 511 observed-tree vector moves in `RecordingRuntime`; add a planning-only
 measurement before attributing that full time to reconciliation. Its scratch bytes remain above the
 gate either way.
+
+The compile and artifact comparison is directional only: next currently generates six controls and
+does not yet include nested components, context, multi-window hosting, or async ownership.
 
 | Paired counter measurement | Current reactor | Next reactor |
 | --- | ---: | ---: |

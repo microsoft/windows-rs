@@ -10,7 +10,8 @@ implement_decl! {
 
 pub struct ReactorElementFactory {
     collection: NodeId,
-    requests: Rc<RefCell<Vec<RealizationRequest>>>,
+    identity: NativeIdentity,
+    requests: Rc<RefCell<Vec<NativeWork<RealizationRequest>>>>,
     shells: Rc<RealizedShells>,
     wake: EventSink,
 }
@@ -24,13 +25,15 @@ pub struct VirtualHandle {
 
 impl VirtualHandle {
     pub fn create(
+        identity: NativeIdentity,
         collection: NodeId,
         item_count: usize,
-        requests: Rc<RefCell<Vec<RealizationRequest>>>,
+        requests: Rc<RefCell<Vec<NativeWork<RealizationRequest>>>>,
         wake: EventSink,
     ) -> Result<Self> {
         let shells = Rc::new(RealizedShells::default());
-        let factory = ReactorElementFactory::create(collection, requests, Rc::clone(&shells), wake);
+        let factory =
+            ReactorElementFactory::create(identity, collection, requests, Rc::clone(&shells), wake);
         let values = item_values(item_count)?;
         let source: windows_collections::IObservableVector<IInspectable> = values.into();
         let repeater = bindings::ItemsRepeater::new()?;
@@ -119,15 +122,21 @@ impl RealizedShells {
         Ok((container, element))
     }
 
-    fn recycle(&self, element: &UIElement) -> Option<RealizedContainer> {
-        let container = self.shells.borrow().iter().find_map(|(container, shell)| {
-            (shell.cast::<UIElement>().as_ref() == Ok(element)).then_some(*container)
-        })?;
+    fn recycle(&self, element: &UIElement) -> Result<Option<RealizedContainer>> {
+        let Some((container, shell)) =
+            self.shells.borrow().iter().find_map(|(container, shell)| {
+                (shell.cast::<UIElement>().as_ref() == Ok(element))
+                    .then(|| (*container, shell.clone()))
+            })
+        else {
+            return Ok(None);
+        };
+        shell.SetContent(None::<&IInspectable>)?;
         let mut available = self.available.borrow_mut();
         if !available.contains(&container) {
             available.push(container);
         }
-        Some(container)
+        Ok(Some(container))
     }
 
     pub fn len(&self) -> usize {
@@ -137,13 +146,15 @@ impl RealizedShells {
 
 impl ReactorElementFactory {
     pub fn create(
+        identity: NativeIdentity,
         collection: NodeId,
-        requests: Rc<RefCell<Vec<RealizationRequest>>>,
+        requests: Rc<RefCell<Vec<NativeWork<RealizationRequest>>>>,
         shells: Rc<RealizedShells>,
         wake: EventSink,
     ) -> IElementFactory {
         ComObject::new(Self {
             collection,
+            identity,
             requests,
             shells,
             wake,
@@ -152,7 +163,10 @@ impl ReactorElementFactory {
     }
 
     fn queue(&self, request: RealizationRequest) {
-        self.requests.borrow_mut().push(request);
+        self.requests.borrow_mut().push(NativeWork {
+            identity: self.identity,
+            work: request,
+        });
         self.wake.wake();
     }
 }
@@ -175,7 +189,7 @@ impl IElementFactory_Impl for ReactorElementFactory_Impl {
         let element = args.ok()?.Element()?;
         let container = self
             .shells
-            .recycle(&element)
+            .recycle(&element)?
             .ok_or_else(|| Error::new(E_FAIL, "element factory received an unknown shell"))?;
         self.queue(RealizationRequest::Recycle {
             collection: self.collection,

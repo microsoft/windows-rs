@@ -7,6 +7,7 @@ use crate::native::*;
 
 thread_local! {
     static HOST: RefCell<Option<LiveHost>> = const { RefCell::new(None) };
+    static SCHEDULER_FAULT: RefCell<Option<windows_core::Error>> = const { RefCell::new(None) };
 }
 
 struct LiveHost {
@@ -20,6 +21,7 @@ const MAX_RECOVERABLE_RETRIES: u8 = 3;
 trait LivePump {
     fn mount(&mut self) -> Result<(), PumpError>;
     fn dispatch_events(&mut self) -> Result<(), PumpError>;
+    fn schedule_retry(&self) -> Result<(), RuntimeError>;
     fn shutdown(&mut self);
 }
 
@@ -35,8 +37,13 @@ where
         self.dispatch_events().map(|_| ())
     }
 
+    fn schedule_retry(&self) -> Result<(), RuntimeError> {
+        self.pump().runtime().schedule_retry()
+    }
+
     fn shutdown(&mut self) {
-        self.pump_mut().shutdown();
+        Self::shutdown(self);
+        self.pump().runtime().close_scheduler();
     }
 }
 
@@ -52,43 +59,77 @@ impl App {
         F: FnMut(&mut Hooks) -> Element + 'static,
     {
         initialize_ui_thread()?;
-        let root = RefCell::new(Some(root));
+        let root = Rc::new(RefCell::new(Some(root)));
         let result = Rc::new(RefCell::new(Ok(())));
         let callback_result = Rc::clone(&result);
 
         let start = Application::Start(&ApplicationInitializationCallback::new(move |_| {
-            let mounted = (|| {
-                let root = root.borrow_mut().take().unwrap();
-                let mut pump: Box<dyn LivePump> =
-                    Box::new(RenderLoop::new(WinUiRuntime::default(), root));
-                let property_fault = match pump.mount() {
-                    Ok(()) => None,
-                    Err(error) if error.recoverable() => Some(error),
-                    Err(error) => return Err(pump_error(error)),
-                };
-                HOST.with(|host| {
-                    *host.borrow_mut() = Some(LiveHost {
-                        fault: None,
-                        pump,
-                        recoverable_retries: u8::from(property_fault.is_some()),
+            let application = Rc::new(RefCell::new(None));
+            let launch_application = Rc::clone(&application);
+            let launch_result = Rc::clone(&callback_result);
+            let launch_root = Rc::clone(&root);
+            let on_launched = Box::new(move || {
+                let launched = (|| {
+                    let application = launch_application
+                        .borrow_mut()
+                        .take()
+                        .ok_or_else(|| windows_core::Error::new(E_FAIL, "missing application"))?;
+                    install_xaml_controls_resources(&application)?;
+                    let root = launch_root.borrow_mut().take().unwrap();
+                    let mut pump: Box<dyn LivePump> = Box::new(RenderLoop::new(
+                        WinUiRuntime::with_application(application),
+                        root,
+                    ));
+                    let property_fault = match pump.mount() {
+                        Ok(()) => None,
+                        Err(error) if error.recoverable() => Some(error),
+                        Err(error) => return Err(pump_error(error)),
+                    };
+                    HOST.with(|host| {
+                        *host.borrow_mut() = Some(LiveHost {
+                            fault: None,
+                            pump,
+                            recoverable_retries: u8::from(property_fault.is_some()),
+                        });
                     });
-                });
-                if let Some(error) = property_fault {
-                    eprintln!("windows-reactor-next fault: {}", pump_error(error));
-                    schedule_native_retry()?;
+                    if let Some(error) = property_fault {
+                        eprintln!("windows-reactor-next fault: {}", pump_error(error));
+                        HOST.with(|host| {
+                            host.borrow()
+                                .as_ref()
+                                .unwrap()
+                                .pump
+                                .schedule_retry()
+                                .map_err(runtime_error)
+                        })?;
+                    }
+                    Ok(())
+                })();
+                if let Err(error) = &launched {
+                    *launch_result.borrow_mut() = Err(error.clone());
+                    exit_ui_thread();
                 }
-                Ok(())
-            })();
-            if let Err(error) = mounted {
-                *callback_result.borrow_mut() = Err(error);
-                exit_ui_thread();
+                launched
+            });
+            match create_application(on_launched) {
+                Ok(created) => *application.borrow_mut() = Some(created),
+                Err(error) => {
+                    *callback_result.borrow_mut() = Err(error);
+                    exit_ui_thread();
+                }
             }
         }));
 
         let callback_result = std::mem::replace(&mut *result.borrow_mut(), Ok(()));
         let host = HOST.with(|host| host.borrow_mut().take());
         let host_result = host.and_then(|host| host.fault).map_or(Ok(()), Err);
-        start.and(callback_result).and(host_result)
+        let scheduler_result = SCHEDULER_FAULT
+            .with(|fault| fault.borrow_mut().take())
+            .map_or(Ok(()), Err);
+        start
+            .and(callback_result)
+            .and(host_result)
+            .and(scheduler_result)
     }
 }
 
@@ -116,8 +157,8 @@ pub(crate) fn dispatch_native_events() {
                 }
             }
         }
-        if retry && let Err(error) = schedule_native_retry() {
-            live.fault = Some(error);
+        if retry && let Err(error) = live.pump.schedule_retry() {
+            live.fault = Some(runtime_error(error));
             live.pump.shutdown();
             exit_ui_thread();
         }
@@ -127,4 +168,17 @@ pub(crate) fn dispatch_native_events() {
 
 fn pump_error(error: PumpError) -> windows_core::Error {
     windows_core::Error::new(E_FAIL, format!("{error:?}"))
+}
+
+fn runtime_error(error: RuntimeError) -> windows_core::Error {
+    windows_core::Error::new(E_FAIL, format!("{error:?}"))
+}
+
+pub(crate) fn fail_native_scheduler(error: RuntimeError) {
+    SCHEDULER_FAULT.with(|fault| {
+        if fault.borrow().is_none() {
+            *fault.borrow_mut() = Some(runtime_error(error));
+        }
+    });
+    exit_ui_thread();
 }

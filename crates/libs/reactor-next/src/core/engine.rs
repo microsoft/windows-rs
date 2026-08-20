@@ -147,11 +147,12 @@ impl Tree {
 
     pub fn insert_virtual(
         &mut self,
+        identity: NativeIdentity,
         parent: Option<NodeId>,
         keys: impl IntoIterator<Item = Key>,
     ) -> Result<NodeId, TreeError> {
         let id = self.insert(parent, NodeKind::VirtualCollection)?;
-        let model = match VirtualModel::new(id, keys) {
+        let model = match VirtualModel::new(identity, id, keys) {
             Ok(model) => model,
             Err(error) => {
                 self.retire_subtree(id)?;
@@ -164,12 +165,13 @@ impl Tree {
 
     pub fn insert_virtual_items(
         &mut self,
+        identity: NativeIdentity,
         parent: Option<NodeId>,
         key: Option<Key>,
         items: Rc<Vec<KeyedElement>>,
     ) -> Result<NodeId, TreeError> {
         let keys = items.iter().map(|item| item.key().clone());
-        let id = self.insert_virtual(parent, keys)?;
+        let id = self.insert_virtual(identity, parent, keys)?;
         let node = self.arena.get_mut(id)?;
         node.key = key;
         node.virtual_items = Some(items);
@@ -318,6 +320,10 @@ impl Tree {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    fn identity() -> NativeIdentity {
+        NativeIdentity::new(WindowToken::new(WindowId::allocate()))
+    }
     use std::collections::{HashMap, HashSet};
 
     struct Rng(u64);
@@ -385,7 +391,7 @@ mod tests {
         let mut tree = Tree::new();
         let application = tree.insert(None, NodeKind::Application).unwrap();
         let collection = tree
-            .insert_virtual(Some(application), [Key::from("a")])
+            .insert_virtual(identity(), Some(application), [Key::from("a")])
             .unwrap();
 
         let lease = tree
@@ -407,7 +413,7 @@ mod tests {
         let mut tree = Tree::new();
         let application = tree.insert(None, NodeKind::Application).unwrap();
         let collection = tree
-            .insert_virtual(Some(application), [Key::from("a")])
+            .insert_virtual(identity(), Some(application), [Key::from("a")])
             .unwrap();
         let first = tree
             .insert(Some(collection), NodeKind::Native(MountedKind::TextBlock))

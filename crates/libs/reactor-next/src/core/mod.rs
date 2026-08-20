@@ -7,6 +7,7 @@ mod keyed;
 pub mod public;
 mod pump;
 mod runtime;
+mod scheduler;
 mod virtual_model;
 
 pub use arena::*;
@@ -15,4 +16,5 @@ pub use hooks::*;
 pub use keyed::*;
 pub use pump::*;
 pub use runtime::*;
+pub use scheduler::*;
 pub use virtual_model::*;

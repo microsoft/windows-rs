@@ -8,12 +8,14 @@ implement_decl! {
 
 pub struct ReactorApplicationOverrides {
     controls_provider: RefCell<Option<XamlControlsXamlMetaDataProvider>>,
+    on_launched: RefCell<Option<Box<dyn FnOnce() -> Result<()>>>>,
 }
 
 impl ReactorApplicationOverrides {
-    fn new() -> Self {
+    fn new(on_launched: Box<dyn FnOnce() -> Result<()>>) -> Self {
         Self {
             controls_provider: RefCell::new(None),
+            on_launched: RefCell::new(Some(on_launched)),
         }
     }
 
@@ -29,6 +31,9 @@ impl ReactorApplicationOverrides {
 
 impl IApplicationOverrides_Impl for ReactorApplicationOverrides_Impl {
     fn OnLaunched(&self, _args: Ref<LaunchActivatedEventArgs>) -> Result<()> {
+        if let Some(on_launched) = self.on_launched.borrow_mut().take() {
+            on_launched()?;
+        }
         Ok(())
     }
 }
@@ -48,6 +53,15 @@ impl IXamlMetadataProvider_Impl for ReactorApplicationOverrides_Impl {
     }
 }
 
-pub fn create_application() -> Result<Application> {
-    Application::compose(ReactorApplicationOverrides::new())
+pub fn create_application(on_launched: Box<dyn FnOnce() -> Result<()>>) -> Result<Application> {
+    Application::compose(ReactorApplicationOverrides::new(on_launched))
+}
+
+pub fn install_xaml_controls_resources(application: &Application) -> Result<()> {
+    let controls = XamlControlsResources::new()?;
+    let resources: ResourceDictionary = controls.cast()?;
+    application
+        .Resources()?
+        .MergedDictionaries()?
+        .Append(&resources)
 }

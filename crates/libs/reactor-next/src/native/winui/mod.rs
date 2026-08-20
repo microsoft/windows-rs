@@ -27,23 +27,36 @@ pub struct WinUiRuntime {
     application: Option<(NodeId, Application)>,
     event_errors: Rc<RefCell<Vec<RuntimeError>>>,
     handles: HashMap<NodeId, Handle>,
-    events: Rc<RefCell<Vec<QueuedEvent>>>,
-    event_tick_scheduled: Rc<Cell<bool>>,
+    events: Rc<RefCell<Vec<NativeWork<QueuedEvent>>>>,
     feedback: Rc<RefCell<HashMap<(NodeId, EventId), EventPayload>>>,
-    realizations: Rc<RefCell<Vec<RealizationRequest>>>,
+    identity: Rc<Cell<Option<NativeIdentity>>>,
+    realizations: Rc<RefCell<Vec<NativeWork<RealizationRequest>>>>,
+    scheduler: Rc<RefCell<SchedulerState>>,
     subscriptions: HashMap<(NodeId, EventId), windows_core::EventRevoker>,
     virtuals: HashMap<NodeId, element_factory::VirtualHandle>,
     windows: HashMap<NodeId, Window>,
+    pending_application: Option<Application>,
 }
 
 impl WinUiRuntime {
+    pub fn with_application(application: Application) -> Self {
+        Self {
+            pending_application: Some(application),
+            ..Default::default()
+        }
+    }
+
     fn apply_one(&mut self, command: &Command) -> Result<(), RuntimeError> {
         match command {
             Command::CreateApplication { node } => {
                 if self.contains(*node) || self.application.is_some() {
                     return Err(RuntimeError::DuplicateNode(*node));
                 }
-                self.application = Some((*node, create_application().map_err(native_error)?));
+                let application = self
+                    .pending_application
+                    .take()
+                    .ok_or(RuntimeError::MissingApplication)?;
+                self.application = Some((*node, application));
             }
             Command::CreateWindow { node } => {
                 if self.contains(*node) {
@@ -74,7 +87,6 @@ impl WinUiRuntime {
                 self.realizations.borrow_mut().clear();
                 self.events.borrow_mut().clear();
                 self.event_errors.borrow_mut().clear();
-                self.event_tick_scheduled.set(false);
             }
             Command::Create { node, kind } => {
                 if self.contains(*node) {
@@ -88,6 +100,7 @@ impl WinUiRuntime {
                     return Err(RuntimeError::DuplicateNode(*node));
                 }
                 let handle = element_factory::VirtualHandle::create(
+                    self.identity.get().unwrap(),
                     *node,
                     *item_count,
                     Rc::clone(&self.realizations),
@@ -333,19 +346,31 @@ impl WinUiRuntime {
             queue: Rc::clone(&self.events),
             errors: Rc::clone(&self.event_errors),
             feedback: Rc::clone(&self.feedback),
-            scheduled: Rc::clone(&self.event_tick_scheduled),
             dispatcher: DispatcherQueue::GetForCurrentThread().map_err(native_error)?,
+            identity: self.identity.get().unwrap(),
+            current_identity: Rc::clone(&self.identity),
+            scheduler: Rc::clone(&self.scheduler),
         })
+    }
+
+    pub fn schedule_retry(&self) -> Result<(), RuntimeError> {
+        self.event_sink()?.request(WorkPriority::Low)
+    }
+
+    pub fn close_scheduler(&self) {
+        self.scheduler.borrow_mut().close();
     }
 }
 
 #[derive(Clone)]
 pub struct EventSink {
-    queue: Rc<RefCell<Vec<QueuedEvent>>>,
+    queue: Rc<RefCell<Vec<NativeWork<QueuedEvent>>>>,
     errors: Rc<RefCell<Vec<RuntimeError>>>,
     feedback: Rc<RefCell<HashMap<(NodeId, EventId), EventPayload>>>,
-    scheduled: Rc<Cell<bool>>,
     dispatcher: DispatcherQueue,
+    identity: NativeIdentity,
+    current_identity: Rc<Cell<Option<NativeIdentity>>>,
+    scheduler: Rc<RefCell<SchedulerState>>,
 }
 
 impl EventSink {
@@ -359,11 +384,14 @@ impl EventSink {
             self.feedback.borrow_mut().remove(&(node, event));
             return;
         }
-        self.queue.borrow_mut().push(QueuedEvent {
-            node,
-            event,
-            revision,
-            payload,
+        self.queue.borrow_mut().push(NativeWork {
+            identity: self.identity,
+            work: QueuedEvent {
+                node,
+                event,
+                revision,
+                payload,
+            },
         });
         self.schedule();
     }
@@ -378,18 +406,92 @@ impl EventSink {
     }
 
     fn schedule(&self) {
-        if !self.scheduled.replace(true) {
-            let scheduled = Rc::clone(&self.scheduled);
-            let handler = DispatcherQueueHandler::new(move || {
-                scheduled.set(false);
-                dispatch_native_events();
-            });
-            if self
-                .dispatcher
-                .TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &handler)
-                != Ok(true)
+        match self.request(WorkPriority::Normal) {
+            Ok(()) | Err(RuntimeError::SchedulerClosed) => {}
+            Err(error) => fail_native_scheduler(error),
+        }
+    }
+
+    fn request(&self, priority: WorkPriority) -> Result<(), RuntimeError> {
+        let action = self.scheduler.borrow_mut().request(priority);
+        Self::perform(
+            action,
+            self.identity,
+            &self.current_identity,
+            &self.scheduler,
+            &self.dispatcher,
+        )
+    }
+
+    fn perform(
+        action: ScheduleAction,
+        identity: NativeIdentity,
+        current_identity: &Rc<Cell<Option<NativeIdentity>>>,
+        scheduler: &Rc<RefCell<SchedulerState>>,
+        dispatcher: &DispatcherQueue,
+    ) -> Result<(), RuntimeError> {
+        let ScheduleAction::Enqueue(priority) = action else {
+            return match action {
+                ScheduleAction::Closed => Err(RuntimeError::SchedulerClosed),
+                _ => Ok(()),
+            };
+        };
+        let current_identity_capture = Rc::clone(current_identity);
+        let scheduler_capture = Rc::clone(scheduler);
+        let dispatcher_capture = dispatcher.clone();
+        let handler = DispatcherQueueHandler::new(move || {
+            if current_identity_capture.get() != Some(identity) {
+                let action = {
+                    let mut scheduler = scheduler_capture.borrow_mut();
+                    if !scheduler.begin_dispatch() {
+                        return;
+                    }
+                    _ = scheduler.request(WorkPriority::Normal);
+                    scheduler.finish_dispatch()
+                };
+                if let Some(identity) = current_identity_capture.get()
+                    && let Err(error) = Self::perform(
+                        action,
+                        identity,
+                        &current_identity_capture,
+                        &scheduler_capture,
+                        &dispatcher_capture,
+                    )
+                {
+                    fail_native_scheduler(error);
+                }
+                return;
+            }
+            if !scheduler_capture.borrow_mut().begin_dispatch() {
+                return;
+            }
+            dispatch_native_events();
+            let action = scheduler_capture.borrow_mut().finish_dispatch();
+            if let Some(identity) = current_identity_capture.get()
+                && let Err(error) = Self::perform(
+                    action,
+                    identity,
+                    &current_identity_capture,
+                    &scheduler_capture,
+                    &dispatcher_capture,
+                )
             {
-                self.scheduled.set(false);
+                fail_native_scheduler(error);
+            }
+        });
+        let priority = match priority {
+            WorkPriority::Low => DispatcherQueuePriority::Low,
+            WorkPriority::Normal => DispatcherQueuePriority::Normal,
+        };
+        match dispatcher.TryEnqueueWithPriority(priority, &handler) {
+            Ok(true) => Ok(()),
+            Ok(false) => {
+                scheduler.borrow_mut().enqueue_failed();
+                Err(RuntimeError::DispatcherRejected)
+            }
+            Err(error) => {
+                scheduler.borrow_mut().enqueue_failed();
+                Err(native_error(error))
             }
         }
     }
@@ -440,14 +542,25 @@ impl NativeRuntime for WinUiRuntime {
         self.handles.clear();
         self.virtuals.clear();
         self.application = None;
+        self.pending_application = None;
         self.event_errors.borrow_mut().clear();
         self.events.borrow_mut().clear();
         self.feedback.borrow_mut().clear();
         self.realizations.borrow_mut().clear();
-        self.event_tick_scheduled.set(false);
     }
 
-    fn drain_events(&mut self) -> Vec<QueuedEvent> {
+    fn set_identity(&mut self, identity: NativeIdentity) {
+        if self
+            .identity
+            .get()
+            .is_none_or(|current| current.window() != identity.window())
+        {
+            self.scheduler.borrow_mut().open();
+        }
+        self.identity.set(Some(identity));
+    }
+
+    fn drain_events(&mut self) -> Vec<NativeWork<QueuedEvent>> {
         self.events.borrow_mut().drain(..).collect()
     }
 
@@ -455,7 +568,7 @@ impl NativeRuntime for WinUiRuntime {
         self.event_errors.borrow_mut().drain(..).collect()
     }
 
-    fn drain_realizations(&mut self) -> Vec<RealizationRequest> {
+    fn drain_realizations(&mut self) -> Vec<NativeWork<RealizationRequest>> {
         self.realizations.borrow_mut().drain(..).collect()
     }
 }
@@ -498,18 +611,5 @@ pub fn initialize_ui_thread() -> windows_core::Result<()> {
 pub fn exit_ui_thread() {
     unsafe {
         PostQuitMessage(0);
-    }
-}
-
-pub fn schedule_native_retry() -> windows_core::Result<()> {
-    let dispatcher = DispatcherQueue::GetForCurrentThread()?;
-    let handler = DispatcherQueueHandler::new(dispatch_native_events);
-    if dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Low, &handler)? {
-        Ok(())
-    } else {
-        Err(windows_core::Error::new(
-            E_FAIL,
-            "dispatcher rejected reactor retry",
-        ))
     }
 }

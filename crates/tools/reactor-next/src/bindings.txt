@@ -33,12 +33,15 @@ Microsoft::UI::Xaml::Controls::TextBox::CreateInstance
 Microsoft::UI::Xaml::Controls::TextBox::PlaceholderTextProperty
 Microsoft::UI::Xaml::Controls::TextBox::TextProperty
 Microsoft::UI::Xaml::Controls::UIElementCollection
+Microsoft::UI::Xaml::Controls::XamlControlsResources::CreateInstance
+Microsoft::UI::Xaml::IApplication::get_Resources
 Microsoft::UI::Xaml::IApplicationOverrides
 Microsoft::UI::Xaml::IDependencyObject::ClearValue
 Microsoft::UI::Xaml::IElementFactory
 Microsoft::UI::Xaml::IElementFactoryGetArgs::{get_Data, get_Parent}
 Microsoft::UI::Xaml::IElementFactoryRecycleArgs::{get_Element, get_Parent}
 Microsoft::UI::Xaml::IFrameworkElement::put_MinHeight
+Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
 Microsoft::UI::Xaml::IWindow::{Activate, Close, put_Content}
 Microsoft::UI::Xaml::LaunchActivatedEventArgs
 Microsoft::UI::Xaml::Markup::IXamlMetadataProvider

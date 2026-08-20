@@ -634,9 +634,25 @@ impl windows_core::RuntimeType for IApplication {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+impl IApplication {
+    pub(crate) fn Resources(&self) -> windows_core::Result<ResourceDictionary> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Resources)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
 #[repr(C)]
 pub struct IApplication_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub Resources: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IApplicationFactory,
@@ -1439,6 +1455,39 @@ pub struct IPanel_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IResourceDictionary,
+    IResourceDictionary_Vtbl,
+    0x1b690975_a710_5783_a6e1_15836f6186c2
+);
+impl windows_core::RuntimeType for IResourceDictionary {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IResourceDictionary {
+    pub(crate) fn MergedDictionaries(
+        &self,
+    ) -> windows_core::Result<windows_collections::IVector<ResourceDictionary>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).MergedDictionaries)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct IResourceDictionary_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    Source: usize,
+    SetSource: usize,
+    pub MergedDictionaries: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IRoutedEventArgs,
     IRoutedEventArgs_Vtbl,
     0x0908c407_1c7d_5de3_9c50_d971c62ec8ec
@@ -1955,6 +2004,19 @@ pub struct IWindowFactory_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IXamlControlsResources,
+    IXamlControlsResources_Vtbl,
+    0x918ca043_f42c_5805_861b_62d6d1d0c162
+);
+impl windows_core::RuntimeType for IXamlControlsResources {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IXamlControlsResources_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
     IXamlMetadataProvider,
     IXamlMetadataProvider_Vtbl,
     0xa96251f0_2214_5d53_8746_ce99a2593cd7
@@ -2292,6 +2354,34 @@ impl windows_core::RuntimeName for Panel {
 unsafe impl Send for Panel {}
 unsafe impl Sync for Panel {}
 pub const RPC_E_CHANGED_MODE: windows_core::HRESULT = windows_core::HRESULT(0x80010106_u32 as _);
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ResourceDictionary(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ResourceDictionary,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(ResourceDictionary, DependencyObject);
+impl windows_core::RuntimeType for ResourceDictionary {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IResourceDictionary>();
+}
+unsafe impl windows_core::Interface for ResourceDictionary {
+    type Vtable = <IResourceDictionary as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IResourceDictionary as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ResourceDictionary {
+    type Target = IResourceDictionary;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ResourceDictionary {
+    const NAME: &'static str = "Microsoft.UI.Xaml.ResourceDictionary";
+}
+unsafe impl Send for ResourceDictionary {}
+unsafe impl Sync for ResourceDictionary {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RoutedEventArgs(windows_core::IUnknown);
@@ -2883,6 +2973,51 @@ impl windows_core::RuntimeName for Window {
 }
 unsafe impl Send for Window {}
 unsafe impl Sync for Window {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct XamlControlsResources(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    XamlControlsResources,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(XamlControlsResources, ResourceDictionary, DependencyObject);
+impl XamlControlsResources {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            XamlControlsResources,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for XamlControlsResources {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IXamlControlsResources>();
+}
+unsafe impl windows_core::Interface for XamlControlsResources {
+    type Vtable = <IXamlControlsResources as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IXamlControlsResources as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for XamlControlsResources {
+    type Target = IXamlControlsResources;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for XamlControlsResources {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
+}
+unsafe impl Send for XamlControlsResources {}
+unsafe impl Sync for XamlControlsResources {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XamlControlsXamlMetaDataProvider(windows_core::IUnknown);

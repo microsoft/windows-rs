@@ -153,13 +153,19 @@ impl Hooks {
         self.cursor += 1;
         index
     }
+
+    fn cleanup(&mut self) {
+        for slot in self.slots.iter().rev() {
+            slot.cleanup();
+        }
+        self.slots.clear();
+        self.pending_effects.clear();
+    }
 }
 
 impl Drop for Hooks {
     fn drop(&mut self) {
-        for slot in self.slots.iter().rev() {
-            slot.cleanup();
-        }
+        self.cleanup();
     }
 }
 
@@ -235,6 +241,12 @@ where
 
     pub fn pump_mut(&mut self) -> &mut Pump<R> {
         &mut self.pump
+    }
+
+    pub fn shutdown(&mut self) {
+        self.hooks.cleanup();
+        self.pump.shutdown();
+        self.mounted = false;
     }
 }
 
@@ -321,6 +333,28 @@ mod tests {
             &*log.borrow(),
             &["setup 0", "cleanup 0", "setup 1", "cleanup 1"]
         );
+    }
+
+    #[test]
+    fn explicit_shutdown_cleans_effects_once() {
+        let cleanups = Rc::new(Cell::new(0));
+        let cleanup_capture = Rc::clone(&cleanups);
+        let mut app = RenderLoop::new(RecordingRuntime::default(), move |hooks| {
+            let cleanup_capture = Rc::clone(&cleanup_capture);
+            hooks.use_effect((), move || {
+                Some(Box::new(move || {
+                    cleanup_capture.set(cleanup_capture.get() + 1);
+                }))
+            });
+            TextBlock::new().into()
+        });
+        app.run().unwrap();
+
+        app.shutdown();
+        app.shutdown();
+        drop(app);
+
+        assert_eq!(cleanups.get(), 1);
     }
 
     #[test]

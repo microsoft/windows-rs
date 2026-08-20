@@ -17,7 +17,8 @@ pub struct RecordingRuntime {
     commands: Vec<Vec<Command>>,
     record_commands: bool,
     fail_at: HashSet<(usize, usize)>,
-    realizations: Vec<RealizationRequest>,
+    identity: Option<NativeIdentity>,
+    realizations: Vec<NativeWork<RealizationRequest>>,
     subscriptions: HashSet<(NodeId, EventId)>,
     windows: HashSet<NodeId>,
 }
@@ -31,6 +32,7 @@ impl Default for RecordingRuntime {
             commands: Vec::new(),
             record_commands: true,
             fail_at: HashSet::new(),
+            identity: None,
             realizations: Vec::new(),
             subscriptions: HashSet::new(),
             windows: HashSet::new(),
@@ -72,7 +74,21 @@ impl RecordingRuntime {
     }
 
     pub fn queue_realization(&mut self, request: RealizationRequest) {
-        self.realizations.push(request);
+        self.realizations.push(NativeWork {
+            identity: self.identity.unwrap(),
+            work: request,
+        });
+    }
+
+    pub fn queue_realization_with_identity(
+        &mut self,
+        identity: NativeIdentity,
+        request: RealizationRequest,
+    ) {
+        self.realizations.push(NativeWork {
+            identity,
+            work: request,
+        });
     }
 }
 
@@ -382,7 +398,11 @@ impl NativeRuntime for RecordingRuntime {
         self.windows.clear();
     }
 
-    fn drain_realizations(&mut self) -> Vec<RealizationRequest> {
+    fn set_identity(&mut self, identity: NativeIdentity) {
+        self.identity = Some(identity);
+    }
+
+    fn drain_realizations(&mut self) -> Vec<NativeWork<RealizationRequest>> {
         std::mem::take(&mut self.realizations)
     }
 }
