@@ -200,21 +200,21 @@ Deferred:
 
 ### 4. Native slice
 
-- [ ] Own application and window lifetimes in arena nodes.
+- [x] Own application and window lifetimes in arena nodes.
 - [x] Mount `StackPanel`, `TextBlock`, and `Button`.
 - [x] Apply set, clear, insert, remove, and move operations.
 - [x] Queue button events and coalesce state updates.
 - [x] Revoke subscriptions before releasing handles.
-- [ ] Generate ordinary native mappings from the schema.
+- [x] Generate ordinary native mappings from the schema.
 - [x] Add the fault sink.
 
 **Exit:** the counter runs without callbacks during arena mutation or native apply.
 
 ### 5. Controlled input and failures
 
-- Add `TextBox`.
-- Implement mount-before-subscribe and expected-feedback suppression.
-- Replace callbacks without native resubscription.
+- [x] Add `TextBox`.
+- [x] Implement mount-before-subscribe and expected-feedback suppression.
+- [x] Replace callbacks without native resubscription.
 - Implement property divergence and structural failure handling.
 - Test non-recreatable failure escalation.
 
@@ -317,8 +317,9 @@ After representative parity:
 
 ### Next
 
-- [ ] Start and stop WinUI through application and window arena nodes.
-- [ ] Implement generated native construction and property mutation for the pilot controls.
+- [x] Generate `TextBox.TextChanged` payload extraction.
+- [x] Suppress controlled-property feedback.
+- [ ] Replace whole-pump poison with fresh-generation subtree remount where safe.
 
 ### Decisions needed before implementation
 
@@ -331,9 +332,8 @@ After representative parity:
 
 - Architecture and correctness gates: active.
 - Compile and runtime gates: report-only until parity.
-- Current phase: 4 - native slice.
-- Next action: generate pilot native mappings, then move application/window lifetime into the
-  arena.
+- Current phase: 5 - controlled input and failures.
+- Next action: define and test fresh-generation subtree remount boundaries.
 
 ## Current reactor baseline
 

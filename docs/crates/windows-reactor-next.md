@@ -12,9 +12,13 @@ an observed-tree recording runtime, candidate-tree keyed updates, queued event r
 slots, and post-commit effects.
 
 The live slice mounts `StackPanel`, `TextBlock`, and `Button`, queues button events, and rerenders
-stateful roots. `tool_reactor_next` also generates a narrow WinUI binding file from `bindings.txt`.
-Application and window ownership, generated native mappings, and the fault sink remain Phase 4
-work.
+stateful roots. `tool_reactor_next` generates the WinUI binding filter, bindings, handle variants,
+property operations, structural roles, event subscriptions, and event payload reads from the
+control schema.
+Application, window, control, and subscription handles share the arena lifetime. Structural
+failures stop the affected pump; property failures retain the last comparison value for retry.
+`TextBox.TextChanged` reads its payload before queueing, and Reactor-originated text writes suppress
+their matching native feedback.
 
 The framework-dependent setup helper currently stages the bootstrap DLL under
 `target\debug\build`; live runs need it copied beside the executable in `target\debug`.

@@ -42,6 +42,10 @@ pub trait NativeRuntime {
     fn drain_events(&mut self) -> Vec<QueuedEvent> {
         Vec::new()
     }
+
+    fn drain_event_errors(&mut self) -> Vec<RuntimeError> {
+        Vec::new()
+    }
 }
 
 pub struct QueuedEvent {
@@ -53,6 +57,15 @@ pub struct QueuedEvent {
 
 #[derive(Clone, Debug, PartialEq)]
 pub enum Command {
+    CreateApplication {
+        node: NodeId,
+    },
+    CreateWindow {
+        node: NodeId,
+    },
+    ActivateWindow {
+        node: NodeId,
+    },
     Create {
         node: NodeId,
         kind: MountedKind,

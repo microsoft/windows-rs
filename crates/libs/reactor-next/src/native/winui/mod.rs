@@ -3,10 +3,10 @@ use std::collections::HashMap;
 use std::rc::Rc;
 
 use super::*;
-use crate::{Orientation as ReactorOrientation, TextWrapping as ReactorTextWrapping};
 use windows_core::Interface;
 
 #[allow(
+    clippy::missing_transmute_annotations,
     clippy::upper_case_acronyms,
     dead_code,
     non_camel_case_types,
@@ -15,74 +15,70 @@ use windows_core::Interface;
 )]
 mod bindings;
 pub use bindings::*;
-
-enum Handle {
-    Button(bindings::Button),
-    StackPanel(bindings::StackPanel),
-    TextBlock(bindings::TextBlock),
-}
-
-impl Handle {
-    fn ui_element(&self) -> windows_core::Result<UIElement> {
-        match self {
-            Self::Button(value) => value.cast(),
-            Self::StackPanel(value) => value.cast(),
-            Self::TextBlock(value) => value.cast(),
-        }
-    }
-
-    fn dependency_object(&self) -> windows_core::Result<IDependencyObject> {
-        match self {
-            Self::Button(value) => value.cast(),
-            Self::StackPanel(value) => value.cast(),
-            Self::TextBlock(value) => value.cast(),
-        }
-    }
-}
+mod app_shim;
+pub use app_shim::*;
+#[allow(unused_qualifications)]
+mod generated;
+pub use generated::*;
 
 #[derive(Default)]
 pub struct WinUiRuntime {
+    application: Option<(NodeId, Application)>,
+    event_errors: Rc<RefCell<Vec<RuntimeError>>>,
     handles: HashMap<NodeId, Handle>,
     events: Rc<RefCell<Vec<QueuedEvent>>>,
     event_tick_scheduled: Rc<Cell<bool>>,
+    feedback: Rc<RefCell<HashMap<(NodeId, EventId), EventPayload>>>,
     subscriptions: HashMap<(NodeId, EventId), windows_core::EventRevoker>,
+    windows: HashMap<NodeId, Window>,
 }
 
 impl WinUiRuntime {
-    pub fn ui_element(&self, node: NodeId) -> windows_core::Result<UIElement> {
-        self.handles
-            .get(&node)
-            .ok_or_else(|| windows_core::Error::from_hresult(E_FAIL))?
-            .ui_element()
-    }
-
     fn apply_one(&mut self, command: &Command) -> Result<(), RuntimeError> {
         match command {
-            Command::Create { node, kind } => {
-                if self.handles.contains_key(node) {
+            Command::CreateApplication { node } => {
+                if self.contains(*node) || self.application.is_some() {
                     return Err(RuntimeError::DuplicateNode(*node));
                 }
-                let handle = match kind {
-                    MountedKind::Button => {
-                        Handle::Button(bindings::Button::new().map_err(native_error)?)
-                    }
-                    MountedKind::StackPanel => {
-                        Handle::StackPanel(bindings::StackPanel::new().map_err(native_error)?)
-                    }
-                    MountedKind::TextBlock => {
-                        Handle::TextBlock(bindings::TextBlock::new().map_err(native_error)?)
-                    }
-                    _ => return Err(RuntimeError::UnsupportedKind),
-                };
+                self.application = Some((*node, create_application().map_err(native_error)?));
+            }
+            Command::CreateWindow { node } => {
+                if self.contains(*node) {
+                    return Err(RuntimeError::DuplicateNode(*node));
+                }
+                self.windows
+                    .insert(*node, Window::new().map_err(native_error)?);
+            }
+            Command::ActivateWindow { node } => {
+                self.windows
+                    .get(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?
+                    .Activate()
+                    .map_err(native_error)?;
+            }
+            Command::Create { node, kind } => {
+                if self.contains(*node) {
+                    return Err(RuntimeError::DuplicateNode(*node));
+                }
+                let handle = Handle::create(*kind)?;
                 self.handles.insert(*node, handle);
             }
             Command::Destroy { node } => {
-                if !self.handles.contains_key(node) {
+                if !self.contains(*node) {
                     return Err(RuntimeError::MissingNode(*node));
                 }
                 self.subscriptions
                     .retain(|(subscription_node, _), _| subscription_node != node);
-                drop(self.handles.remove(node));
+                if self.handles.remove(node).is_some() || self.windows.remove(node).is_some() {
+                    return Ok(());
+                }
+                if self
+                    .application
+                    .as_ref()
+                    .is_some_and(|(application, _)| application == node)
+                {
+                    self.application = None;
+                }
             }
             Command::SetProperty {
                 node,
@@ -93,91 +89,34 @@ impl WinUiRuntime {
                     .handles
                     .get(node)
                     .ok_or(RuntimeError::MissingNode(*node))?;
-                match (handle, property, value) {
-                    (
-                        Handle::Button(button),
-                        PropertyId::ButtonIsEnabled,
-                        PropertyValue::Bool(value),
-                    ) => button
-                        .cast::<IControl>()
-                        .map_err(native_error)?
-                        .SetIsEnabled(*value)
-                        .map_err(native_error)?,
-                    (
-                        Handle::StackPanel(panel),
-                        PropertyId::StackPanelOrientation,
-                        PropertyValue::Orientation(value),
-                    ) => panel
-                        .SetOrientation(match value {
-                            ReactorOrientation::Horizontal => bindings::Orientation::Horizontal,
-                            ReactorOrientation::Vertical => bindings::Orientation::Vertical,
-                        })
-                        .map_err(native_error)?,
-                    (
-                        Handle::StackPanel(panel),
-                        PropertyId::StackPanelSpacing,
-                        PropertyValue::F64(value),
-                    ) => panel.SetSpacing(*value).map_err(native_error)?,
-                    (
-                        Handle::TextBlock(text),
-                        PropertyId::TextBlockText,
-                        PropertyValue::Str(value),
-                    ) => text.SetText(value).map_err(native_error)?,
-                    (
-                        Handle::TextBlock(text),
-                        PropertyId::TextBlockTextWrapping,
-                        PropertyValue::TextWrapping(value),
-                    ) => text
-                        .SetTextWrapping(match value {
-                            ReactorTextWrapping::NoWrap => bindings::TextWrapping::NoWrap,
-                            ReactorTextWrapping::Wrap => bindings::TextWrapping::Wrap,
-                            ReactorTextWrapping::WrapWholeWords => {
-                                bindings::TextWrapping::WrapWholeWords
-                            }
-                        })
-                        .map_err(native_error)?,
-                    _ => return Err(RuntimeError::UnsupportedKind),
+                let feedback = expected_feedback(*property, Some(value));
+                if let Some((event, value)) = &feedback {
+                    self.feedback
+                        .borrow_mut()
+                        .insert((*node, *event), value.clone());
                 }
+                let result = set_property(handle, *property, value);
+                if let Some((event, _)) = feedback {
+                    self.feedback.borrow_mut().remove(&(*node, event));
+                }
+                result?;
             }
             Command::ClearProperty { node, property } => {
                 let handle = self
                     .handles
                     .get(node)
                     .ok_or(RuntimeError::MissingNode(*node))?;
-                match (handle, property) {
-                    (Handle::TextBlock(_), PropertyId::TextBlockText) => {
-                        handle
-                            .dependency_object()
-                            .map_err(native_error)?
-                            .ClearValue(&bindings::TextBlock::TextProperty().map_err(native_error)?)
-                            .map_err(native_error)?;
-                    }
-                    (Handle::TextBlock(_), PropertyId::TextBlockTextWrapping) => handle
-                        .dependency_object()
-                        .map_err(native_error)?
-                        .ClearValue(
-                            &bindings::TextBlock::TextWrappingProperty().map_err(native_error)?,
-                        )
-                        .map_err(native_error)?,
-                    (Handle::Button(_), PropertyId::ButtonIsEnabled) => handle
-                        .dependency_object()
-                        .map_err(native_error)?
-                        .ClearValue(&Control::IsEnabledProperty().map_err(native_error)?)
-                        .map_err(native_error)?,
-                    (Handle::StackPanel(_), PropertyId::StackPanelOrientation) => handle
-                        .dependency_object()
-                        .map_err(native_error)?
-                        .ClearValue(
-                            &bindings::StackPanel::OrientationProperty().map_err(native_error)?,
-                        )
-                        .map_err(native_error)?,
-                    (Handle::StackPanel(_), PropertyId::StackPanelSpacing) => handle
-                        .dependency_object()
-                        .map_err(native_error)?
-                        .ClearValue(&bindings::StackPanel::SpacingProperty().map_err(native_error)?)
-                        .map_err(native_error)?,
-                    _ => return Err(RuntimeError::UnsupportedKind),
+                let feedback = expected_feedback(*property, None);
+                if let Some((event, value)) = &feedback {
+                    self.feedback
+                        .borrow_mut()
+                        .insert((*node, *event), value.clone());
                 }
+                let result = clear_property(handle, *property);
+                if let Some((event, _)) = feedback {
+                    self.feedback.borrow_mut().remove(&(*node, event));
+                }
+                result?;
             }
             Command::SubscribeEvent {
                 node,
@@ -192,43 +131,18 @@ impl WinUiRuntime {
                     .get(node)
                     .ok_or(RuntimeError::MissingNode(*node))?;
                 let queue = Rc::clone(&self.events);
+                let event_errors = Rc::clone(&self.event_errors);
+                let feedback = Rc::clone(&self.feedback);
                 let scheduled = Rc::clone(&self.event_tick_scheduled);
                 let dispatcher = DispatcherQueue::GetForCurrentThread().map_err(native_error)?;
-                let revoker = match (handle, event) {
-                    (Handle::Button(button), EventId::ButtonClick) => button
-                        .cast::<ButtonBase>()
-                        .map_err(native_error)?
-                        .Click({
-                            let node = *node;
-                            let revision = *revision;
-                            move |_, _| {
-                                queue.borrow_mut().push(QueuedEvent {
-                                    node,
-                                    event: EventId::ButtonClick,
-                                    revision,
-                                    payload: EventPayload::Unit,
-                                });
-                                if !scheduled.replace(true) {
-                                    let scheduled = Rc::clone(&scheduled);
-                                    let handler = DispatcherQueueHandler::new(move || {
-                                        scheduled.set(false);
-                                        dispatch_native_events();
-                                    });
-                                    assert!(
-                                        dispatcher
-                                            .TryEnqueueWithPriority(
-                                                DispatcherQueuePriority::Normal,
-                                                &handler,
-                                            )
-                                            .unwrap(),
-                                        "live WinUI dispatcher rejected an event tick"
-                                    );
-                                }
-                            }
-                        })
-                        .map_err(native_error)?,
-                    _ => return Err(RuntimeError::UnsupportedKind),
+                let sink = EventSink {
+                    queue,
+                    errors: event_errors,
+                    feedback,
+                    scheduled,
+                    dispatcher,
                 };
+                let revoker = subscribe_event(handle, *node, *event, *revision, sink)?;
                 self.subscriptions.insert((*node, *event), revoker);
             }
             Command::UnsubscribeEvent { node, event } => {
@@ -253,95 +167,167 @@ impl WinUiRuntime {
         Ok(())
     }
 
+    fn contains(&self, node: NodeId) -> bool {
+        self.handles.contains_key(&node)
+            || self.windows.contains_key(&node)
+            || self
+                .application
+                .as_ref()
+                .is_some_and(|(application, _)| *application == node)
+    }
+
     fn insert_child(
         &self,
         parent: NodeId,
         child: NodeId,
         index: usize,
     ) -> Result<(), RuntimeError> {
-        let parent = self
-            .handles
-            .get(&parent)
-            .ok_or(RuntimeError::MissingNode(parent))?;
         let child = self
             .handles
             .get(&child)
             .ok_or(RuntimeError::MissingNode(child))?
             .ui_element()
             .map_err(native_error)?;
-        match parent {
-            Handle::Button(button) if index == 0 => button
-                .cast::<IContentControl>()
-                .map_err(native_error)?
-                .SetContent(&child)
-                .map_err(native_error),
-            Handle::StackPanel(panel) => panel_children(panel)?
-                .InsertAt(index32(index)?, &child)
-                .map_err(native_error),
-            _ => Err(RuntimeError::IndexOutOfBounds),
+        if let Some(window) = self.windows.get(&parent) {
+            if index != 0 {
+                return Err(RuntimeError::IndexOutOfBounds);
+            }
+            window.SetContent(&child).map_err(native_error)
+        } else {
+            let parent = self
+                .handles
+                .get(&parent)
+                .ok_or(RuntimeError::MissingNode(parent))?;
+            if let Some(content) = parent.content_control()? {
+                if index != 0 {
+                    return Err(RuntimeError::IndexOutOfBounds);
+                }
+                content.SetContent(&child).map_err(native_error)
+            } else if let Some(children) = parent.child_collection()? {
+                children
+                    .InsertAt(index32(index)?, &child)
+                    .map_err(native_error)
+            } else {
+                Err(RuntimeError::UnsupportedKind)
+            }
         }
     }
 
     fn remove_child(&self, parent: NodeId, child: NodeId) -> Result<(), RuntimeError> {
         let child_id = child;
-        let parent = self
-            .handles
-            .get(&parent)
-            .ok_or(RuntimeError::MissingNode(parent))?;
         let child = self
             .handles
             .get(&child)
             .ok_or(RuntimeError::MissingNode(child))?
             .ui_element()
             .map_err(native_error)?;
-        match parent {
-            Handle::Button(button) => button
-                .cast::<IContentControl>()
-                .map_err(native_error)?
-                .SetContent(None::<&windows_core::IInspectable>)
-                .map_err(native_error),
-            Handle::StackPanel(panel) => {
-                let children = panel_children(panel)?;
+        if let Some(window) = self.windows.get(&parent) {
+            window.SetContent(None::<&UIElement>).map_err(native_error)
+        } else {
+            let parent = self
+                .handles
+                .get(&parent)
+                .ok_or(RuntimeError::MissingNode(parent))?;
+            if let Some(content) = parent.content_control()? {
+                content
+                    .SetContent(None::<&windows_core::IInspectable>)
+                    .map_err(native_error)
+            } else if let Some(children) = parent.child_collection()? {
                 let index = child_index(&children, child_id, &child)?;
                 children.RemoveAt(index).map_err(native_error)
+            } else {
+                Err(RuntimeError::UnsupportedKind)
             }
-            _ => Err(RuntimeError::UnsupportedKind),
         }
     }
 
     fn move_child(&self, parent: NodeId, child: NodeId, index: usize) -> Result<(), RuntimeError> {
         let child_id = child;
-        let parent = self
-            .handles
-            .get(&parent)
-            .ok_or(RuntimeError::MissingNode(parent))?;
         let child = self
             .handles
             .get(&child)
             .ok_or(RuntimeError::MissingNode(child))?
             .ui_element()
             .map_err(native_error)?;
-        match parent {
-            Handle::Button(_) if index == 0 => Ok(()),
-            Handle::StackPanel(panel) => {
-                let children = panel_children(panel)?;
+        if self.windows.contains_key(&parent) {
+            if index != 0 {
+                return Err(RuntimeError::IndexOutOfBounds);
+            }
+            Ok(())
+        } else {
+            let parent = self
+                .handles
+                .get(&parent)
+                .ok_or(RuntimeError::MissingNode(parent))?;
+            if parent.content_control()?.is_some() {
+                if index == 0 {
+                    Ok(())
+                } else {
+                    Err(RuntimeError::IndexOutOfBounds)
+                }
+            } else if let Some(children) = parent.child_collection()? {
                 let from = child_index(&children, child_id, &child)?;
                 children.RemoveAt(from).map_err(native_error)?;
                 children
                     .InsertAt(index32(index)?, &child)
                     .map_err(native_error)
+            } else {
+                Err(RuntimeError::UnsupportedKind)
             }
-            _ => Err(RuntimeError::IndexOutOfBounds),
         }
     }
 }
 
-fn panel_children(panel: &bindings::StackPanel) -> Result<UIElementCollection, RuntimeError> {
-    panel
-        .cast::<IPanel>()
-        .map_err(native_error)?
-        .Children()
-        .map_err(native_error)
+#[derive(Clone)]
+pub struct EventSink {
+    queue: Rc<RefCell<Vec<QueuedEvent>>>,
+    errors: Rc<RefCell<Vec<RuntimeError>>>,
+    feedback: Rc<RefCell<HashMap<(NodeId, EventId), EventPayload>>>,
+    scheduled: Rc<Cell<bool>>,
+    dispatcher: DispatcherQueue,
+}
+
+impl EventSink {
+    pub fn enqueue(&self, node: NodeId, event: EventId, revision: u32, payload: EventPayload) {
+        let expected = self
+            .feedback
+            .borrow()
+            .get(&(node, event))
+            .is_some_and(|expected| expected == &payload);
+        if expected {
+            self.feedback.borrow_mut().remove(&(node, event));
+            return;
+        }
+        self.queue.borrow_mut().push(QueuedEvent {
+            node,
+            event,
+            revision,
+            payload,
+        });
+        self.schedule();
+    }
+
+    pub fn error(&self, error: RuntimeError) {
+        self.errors.borrow_mut().push(error);
+        self.schedule();
+    }
+
+    fn schedule(&self) {
+        if !self.scheduled.replace(true) {
+            let scheduled = Rc::clone(&self.scheduled);
+            let handler = DispatcherQueueHandler::new(move || {
+                scheduled.set(false);
+                dispatch_native_events();
+            });
+            if self
+                .dispatcher
+                .TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &handler)
+                != Ok(true)
+            {
+                self.scheduled.set(false);
+            }
+        }
+    }
 }
 
 fn child_index(
@@ -382,13 +368,24 @@ impl NativeRuntime for WinUiRuntime {
 
     fn reset(&mut self) {
         self.subscriptions.clear();
+        for window in self.windows.values() {
+            _ = window.Close();
+        }
+        self.windows.clear();
         self.handles.clear();
+        self.application = None;
+        self.event_errors.borrow_mut().clear();
         self.events.borrow_mut().clear();
+        self.feedback.borrow_mut().clear();
         self.event_tick_scheduled.set(false);
     }
 
     fn drain_events(&mut self) -> Vec<QueuedEvent> {
         self.events.borrow_mut().drain(..).collect()
+    }
+
+    fn drain_event_errors(&mut self) -> Vec<RuntimeError> {
+        self.event_errors.borrow_mut().drain(..).collect()
     }
 }
 
@@ -425,4 +422,10 @@ pub fn initialize_ui_thread() -> windows_core::Result<()> {
         ));
     }
     result.ok()
+}
+
+pub fn exit_ui_thread() {
+    unsafe {
+        PostQuitMessage(0);
+    }
 }

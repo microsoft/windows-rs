@@ -163,9 +163,9 @@ impl Drop for Hooks {
     }
 }
 
-pub struct RenderLoop<R, F> {
-    pump: Pump<R>,
+pub struct RenderLoop<R: NativeRuntime, F> {
     hooks: Hooks,
+    pump: Pump<R>,
     render: F,
     mounted: bool,
 }
@@ -177,8 +177,8 @@ where
 {
     pub fn new(runtime: R, render: F) -> Self {
         Self {
-            pump: Pump::new(runtime),
             hooks: Hooks::new(),
+            pump: Pump::new(runtime),
             render,
             mounted: false,
         }
@@ -214,7 +214,7 @@ where
     }
 
     pub fn dispatch_events(&mut self) -> Result<usize, PumpError> {
-        let dispatched = self.pump.dispatch_events();
+        let dispatched = self.pump.dispatch_events()?;
         self.run()?;
         Ok(dispatched)
     }

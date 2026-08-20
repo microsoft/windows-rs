@@ -93,6 +93,7 @@ pub(crate) struct ResolvedProperty {
     pub(crate) clearable: bool,
     pub(crate) feedback: Option<String>,
     pub(crate) enum_variants: Vec<String>,
+    pub(crate) native_value: Option<String>,
 }
 
 pub(crate) struct ResolvedEvent {
@@ -100,6 +101,7 @@ pub(crate) struct ResolvedEvent {
     pub(crate) field: String,
     pub(crate) payload: String,
     pub(crate) interface: String,
+    pub(crate) property: Option<String>,
 }
 
 impl Schema {
@@ -154,6 +156,7 @@ impl Schema {
                     .enum_info(&name, &method)
                     .map(|(_, variants)| variants.to_vec())
                     .unwrap_or_default();
+                let native_value = metadata.enum_path(&name, &method);
 
                 properties.push(ResolvedProperty {
                     field: property
@@ -165,6 +168,7 @@ impl Schema {
                     clearable: property.clearable,
                     feedback: property.controlled,
                     enum_variants,
+                    native_value,
                 });
             }
 
@@ -209,6 +213,7 @@ impl Schema {
                     name: event.name,
                     payload,
                     interface: interface.full_path(),
+                    property: event.property,
                 });
             }
 

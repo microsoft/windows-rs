@@ -218,14 +218,14 @@ fn build_prop(
 
     // Infer enum_map from metadata when the parameter is an enum type.
     let method_enum_map = if has_method {
-        if let Some((enum_name, _variants)) = resolver.enum_info(handle, &method_name) {
-            Some(EnumMapSetter {
+        resolver
+            .enum_path(handle, &method_name)
+            .map(|enum_path| EnumMapSetter {
                 method: Some(method_name.clone()),
-                winui_type: enum_name.to_string(),
+                winui_type: enum_path
+                    .rsplit_once('.')
+                    .map_or(enum_path.clone(), |(_, name)| name.to_string()),
             })
-        } else {
-            None
-        }
     } else {
         None
     };

@@ -293,6 +293,18 @@ impl MetadataResolver {
         }
     }
 
+    pub fn enum_path(&self, class_name: &str, method_name: &str) -> Option<String> {
+        let mref = self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?;
+        let Type::ValueName(type_name) = mref.param_types.first()? else {
+            return None;
+        };
+        self.enum_variants
+            .contains_key(&(type_name.namespace.clone(), type_name.name.clone()))
+            .then(|| format!("{}.{}", type_name.namespace, type_name.name))
+    }
+
     /// Infer the `PropValue` variant name and Copy-ness from a method's parameter
     /// type in metadata.
     ///

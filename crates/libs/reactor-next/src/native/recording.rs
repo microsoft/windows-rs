@@ -4,7 +4,7 @@ use super::*;
 
 #[derive(Debug)]
 pub struct RecordedNode {
-    kind: MountedKind,
+    kind: Option<MountedKind>,
     parent: Option<NodeId>,
     children: Vec<NodeId>,
     properties: BTreeMap<PropertyId, PropertyValue>,
@@ -48,6 +48,25 @@ impl RecordedNode {
 impl RecordingRuntime {
     fn apply_one(&mut self, command: &Command) -> Result<(), RuntimeError> {
         match command {
+            Command::CreateApplication { node } | Command::CreateWindow { node } => {
+                if self.nodes.contains_key(node) {
+                    return Err(RuntimeError::DuplicateNode(*node));
+                }
+                self.nodes.insert(
+                    *node,
+                    RecordedNode {
+                        kind: None,
+                        parent: None,
+                        children: Vec::new(),
+                        properties: BTreeMap::new(),
+                    },
+                );
+            }
+            Command::ActivateWindow { node } => {
+                self.nodes
+                    .get(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?;
+            }
             Command::Create { node, kind } => {
                 if self.nodes.contains_key(node) {
                     return Err(RuntimeError::DuplicateNode(*node));
@@ -55,7 +74,7 @@ impl RecordingRuntime {
                 self.nodes.insert(
                     *node,
                     RecordedNode {
-                        kind: *kind,
+                        kind: Some(*kind),
                         parent: None,
                         children: Vec::new(),
                         properties: BTreeMap::new(),
@@ -245,7 +264,10 @@ mod tests {
                 .all(|outcome| { *outcome == CommandOutcome::Applied })
         );
         assert_eq!(runtime.batches, 1);
-        assert_eq!(runtime.node(ROOT).unwrap().kind, MountedKind::StackPanel);
+        assert_eq!(
+            runtime.node(ROOT).unwrap().kind,
+            Some(MountedKind::StackPanel)
+        );
         assert_eq!(runtime.node(ROOT).unwrap().children, [CHILD]);
         assert_eq!(runtime.node(CHILD).unwrap().parent, Some(ROOT));
         assert_eq!(

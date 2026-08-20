@@ -9,6 +9,7 @@ pub enum PumpError {
     KindChanged,
     NotMounted,
     DuplicateKey(Key),
+    EventReadFailed(RuntimeError),
     Poisoned,
     PropertyApplyFailed(CommitReceipt),
     RenderBudgetExceeded,
@@ -45,7 +46,8 @@ impl UpdatePlan {
     }
 }
 
-pub struct Pump<R> {
+pub struct Pump<R: NativeRuntime> {
+    application: Option<NodeId>,
     tree: Tree,
     runtime: R,
     root: Option<NodeId>,
@@ -53,11 +55,13 @@ pub struct Pump<R> {
     poisoned: bool,
     retry_pending: bool,
     version: u64,
+    window: Option<NodeId>,
 }
 
 impl<R: NativeRuntime> Pump<R> {
     pub fn new(runtime: R) -> Self {
         Self {
+            application: None,
             tree: Tree::new(),
             runtime,
             root: None,
@@ -65,6 +69,7 @@ impl<R: NativeRuntime> Pump<R> {
             poisoned: false,
             retry_pending: false,
             version: 0,
+            window: None,
         }
     }
 
@@ -78,14 +83,29 @@ impl<R: NativeRuntime> Pump<R> {
         let next_version = self.next_version()?;
         let mut candidate = Tree::new();
         let mut plan = UpdatePlan::default();
-        let node = Self::mount_planned_element(&mut candidate, None, None, element, &mut plan)?;
+        let application = candidate.insert(None, NodeKind::Application)?;
+        plan.push(Command::CreateApplication { node: application });
+        let window = candidate.insert(Some(application), NodeKind::Window)?;
+        plan.push(Command::CreateWindow { node: window });
+        let node =
+            Self::mount_planned_element(&mut candidate, Some(window), None, element, &mut plan)?;
+        plan.push(Command::InsertChild {
+            parent: window,
+            child: node,
+            index: 0,
+        });
+        plan.push(Command::ActivateWindow { node: window });
 
         let receipt = self.runtime.apply(&plan.commands);
         if receipt.outcomes.len() != plan.commands.len() {
             self.runtime.reset();
             self.tree = Tree::new();
+            self.application = None;
             self.events.clear();
-            self.retry_pending = true;
+            self.poisoned = true;
+            self.root = None;
+            self.retry_pending = false;
+            self.window = None;
             return Err(PumpError::ApplyReceiptMismatch);
         }
         let structural_failure = plan
@@ -96,13 +116,19 @@ impl<R: NativeRuntime> Pump<R> {
         if structural_failure {
             self.runtime.reset();
             self.tree = Tree::new();
+            self.application = None;
             self.events.clear();
-            self.retry_pending = true;
+            self.poisoned = true;
+            self.root = None;
+            self.retry_pending = false;
+            self.window = None;
             return Err(PumpError::StructuralApplyFailed(receipt));
         }
         Self::commit_tree_properties(&mut candidate, &plan.commits, &receipt)?;
         self.tree = candidate;
+        self.application = Some(application);
         self.root = Some(node);
+        self.window = Some(window);
         if plan
             .commands
             .iter()
@@ -174,8 +200,24 @@ impl<R: NativeRuntime> Pump<R> {
         &self.runtime
     }
 
+    pub fn application(&self) -> Option<NodeId> {
+        self.application
+    }
+
     pub fn runtime_mut(&mut self) -> &mut R {
         &mut self.runtime
+    }
+
+    pub fn shutdown(&mut self) {
+        self.runtime.reset();
+        self.application = None;
+        self.events.clear();
+        self.poisoned = false;
+        self.retry_pending = false;
+        self.root = None;
+        self.tree = Tree::new();
+        self.version = 0;
+        self.window = None;
     }
 
     pub fn root(&self) -> Option<NodeId> {
@@ -184,6 +226,10 @@ impl<R: NativeRuntime> Pump<R> {
 
     pub fn version(&self) -> u64 {
         self.version
+    }
+
+    pub fn window(&self) -> Option<NodeId> {
+        self.window
     }
 
     pub fn poisoned(&self) -> bool {
@@ -208,8 +254,17 @@ impl<R: NativeRuntime> Pump<R> {
         self.events.push_back(event);
     }
 
-    pub fn dispatch_events(&mut self) -> usize {
+    pub fn dispatch_events(&mut self) -> Result<usize, PumpError> {
         self.events.extend(self.runtime.drain_events());
+        if self.poisoned {
+            self.events.clear();
+            _ = self.runtime.drain_event_errors();
+            return Ok(0);
+        }
+        if let Some(error) = self.runtime.drain_event_errors().into_iter().next() {
+            self.events.clear();
+            return Err(PumpError::EventReadFailed(error));
+        }
         let mut dispatched = 0;
         while let Some(event) = self.events.pop_front() {
             let Ok(native) = self.tree.native(event.node) else {
@@ -225,7 +280,7 @@ impl<R: NativeRuntime> Pump<R> {
                 dispatched += 1;
             }
         }
-        dispatched
+        Ok(dispatched)
     }
 
     fn commit_tree_properties(
@@ -554,6 +609,12 @@ impl<R: NativeRuntime> Pump<R> {
     }
 }
 
+impl<R: NativeRuntime> Drop for Pump<R> {
+    fn drop(&mut self) {
+        self.runtime.reset();
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -579,6 +640,28 @@ mod tests {
                 }),
             )
             .into()
+    }
+
+    fn representative_tree() -> Element {
+        StackPanel::new()
+            .spacing(8.0)
+            .child(
+                "button",
+                Button::new()
+                    .is_enabled(true)
+                    .on_click(|| {})
+                    .content(TextBlock::new().text("increment")),
+            )
+            .into()
+    }
+
+    fn arena_keys(pump: &Pump<RecordingRuntime>) -> Vec<Key> {
+        pump.tree
+            .children(pump.root().unwrap())
+            .unwrap()
+            .iter()
+            .map(|node| pump.tree.key(*node).unwrap().unwrap().clone())
+            .collect()
     }
 
     fn recorded_text(runtime: &RecordingRuntime, root: NodeId) -> Vec<String> {
@@ -629,13 +712,34 @@ mod tests {
         }
     }
 
+    #[derive(Default)]
+    struct EventErrorRuntime {
+        error: Option<RuntimeError>,
+    }
+
+    impl NativeRuntime for EventErrorRuntime {
+        fn apply(&mut self, commands: &[Command]) -> CommitReceipt {
+            CommitReceipt {
+                outcomes: vec![CommandOutcome::Applied; commands.len()],
+            }
+        }
+
+        fn reset(&mut self) {}
+
+        fn drain_event_errors(&mut self) -> Vec<RuntimeError> {
+            self.error.take().into_iter().collect()
+        }
+    }
+
     #[test]
     fn mount_update_clear_and_no_change_follow_receipts() {
         let mut pump = Pump::new(RecordingRuntime::default());
         let mounted = pump.mount(TextBlock::new().text("first").into()).unwrap();
         let root = pump.root().unwrap();
 
-        assert_eq!(mounted.outcomes.len(), 2);
+        assert_eq!(mounted.outcomes.len(), 6);
+        assert!(pump.application().is_some());
+        assert!(pump.window().is_some());
         assert_eq!(
             pump.runtime()
                 .node(root)
@@ -727,15 +831,21 @@ mod tests {
             [
                 CommandOutcome::Failed(RuntimeError::Injected),
                 CommandOutcome::Skipped,
+                CommandOutcome::Skipped,
+                CommandOutcome::Skipped,
+                CommandOutcome::Skipped,
+                CommandOutcome::Skipped,
             ]
         );
         assert_eq!(pump.root(), None);
         assert!(pump.runtime().is_empty());
         assert_eq!(pump.version(), 0);
-        assert!(pump.retry_pending());
-
-        pump.mount(TextBlock::new().text("first").into()).unwrap();
-        assert_eq!(pump.version(), 1);
+        assert!(!pump.retry_pending());
+        assert!(pump.poisoned());
+        assert_eq!(
+            pump.mount(TextBlock::new().text("first").into()),
+            Err(PumpError::Poisoned)
+        );
     }
 
     #[test]
@@ -772,6 +882,113 @@ mod tests {
     }
 
     #[test]
+    fn every_mount_command_failure_reaches_a_defined_state() {
+        let mut baseline = Pump::new(RecordingRuntime::default());
+        let command_count = baseline
+            .mount(representative_tree())
+            .unwrap()
+            .outcomes
+            .len();
+        assert!(command_count > 1);
+
+        for failed_index in 0..command_count {
+            let mut runtime = RecordingRuntime::default();
+            runtime.fail_at(failed_index);
+            let mut pump = Pump::new(runtime);
+            let error = pump.mount(representative_tree()).unwrap_err();
+
+            match error {
+                PumpError::PropertyApplyFailed(receipt) => {
+                    assert!(matches!(
+                        receipt.outcomes[failed_index],
+                        CommandOutcome::Failed(RuntimeError::Injected)
+                    ));
+                    assert_eq!(pump.version(), 0);
+                    assert!(pump.retry_pending());
+                    assert!(!pump.poisoned());
+                    assert!(pump.root().is_some());
+
+                    pump.update(representative_tree()).unwrap();
+                    assert_eq!(pump.version(), 1);
+                    assert!(!pump.retry_pending());
+                }
+                PumpError::StructuralApplyFailed(receipt) => {
+                    assert!(matches!(
+                        receipt.outcomes[failed_index],
+                        CommandOutcome::Failed(RuntimeError::Injected)
+                    ));
+                    assert_eq!(pump.version(), 0);
+                    assert!(!pump.retry_pending());
+                    assert!(pump.poisoned());
+                    assert_eq!(pump.root(), None);
+                    assert!(pump.runtime().is_empty());
+                    assert_eq!(pump.mount(representative_tree()), Err(PumpError::Poisoned));
+                }
+                error => panic!("unexpected mount failure: {error:?}"),
+            }
+        }
+    }
+
+    #[test]
+    fn every_update_command_failure_reaches_a_defined_state() {
+        let before = keyed_text(&["a", "b", "c"]);
+        let after: Element = StackPanel::new()
+            .child("c", TextBlock::new().text("c updated"))
+            .child("d", TextBlock::new().text("d"))
+            .child("a", TextBlock::new().text("a"))
+            .into();
+        let mut baseline = Pump::new(RecordingRuntime::default());
+        baseline.mount(before.clone()).unwrap();
+        let command_count = baseline.update(after.clone()).unwrap().outcomes.len();
+        assert!(command_count > 1);
+
+        for failed_index in 0..command_count {
+            let mut pump = Pump::new(RecordingRuntime::default());
+            pump.mount(before.clone()).unwrap();
+            let version = pump.version();
+            let old_keys = arena_keys(&pump);
+            pump.runtime_mut().fail_at(failed_index);
+            let error = pump.update(after.clone()).unwrap_err();
+
+            match error {
+                PumpError::PropertyApplyFailed(receipt) => {
+                    assert!(matches!(
+                        receipt.outcomes[failed_index],
+                        CommandOutcome::Failed(RuntimeError::Injected)
+                    ));
+                    assert_eq!(pump.version(), version);
+                    assert!(pump.retry_pending());
+                    assert!(!pump.poisoned());
+                    assert_eq!(
+                        arena_keys(&pump),
+                        [Key::from("c"), Key::from("d"), Key::from("a")]
+                    );
+
+                    pump.update(after.clone()).unwrap();
+                    assert_eq!(pump.version(), version + 1);
+                    assert!(!pump.retry_pending());
+                    assert_eq!(
+                        recorded_text(pump.runtime(), pump.root().unwrap())[0],
+                        "c updated"
+                    );
+                }
+                PumpError::StructuralApplyFailed(receipt) => {
+                    assert!(matches!(
+                        receipt.outcomes[failed_index],
+                        CommandOutcome::Failed(RuntimeError::Injected)
+                    ));
+                    assert_eq!(pump.version(), version);
+                    assert!(!pump.retry_pending());
+                    assert!(pump.poisoned());
+                    assert_eq!(arena_keys(&pump), old_keys);
+                    assert_eq!(pump.update(after.clone()), Err(PumpError::Poisoned));
+                }
+                error => panic!("unexpected update failure: {error:?}"),
+            }
+        }
+    }
+
+    #[test]
     fn mounts_content_and_keyed_children_recursively() {
         let mut pump = Pump::new(RecordingRuntime::default());
         let tree = StackPanel::new()
@@ -791,6 +1008,30 @@ mod tests {
     }
 
     #[test]
+    fn application_window_and_root_share_one_arena_lifetime() {
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(TextBlock::new().text("root").into()).unwrap();
+        let application = pump.application().unwrap();
+        let window = pump.window().unwrap();
+        let root = pump.root().unwrap();
+
+        assert_eq!(pump.tree.parent(application), Ok(None));
+        assert_eq!(pump.tree.parent(window), Ok(Some(application)));
+        assert_eq!(pump.tree.parent(root), Ok(Some(window)));
+        assert!(pump.runtime().node(application).is_some());
+        assert!(pump.runtime().node(window).is_some());
+        assert!(pump.runtime().node(root).is_some());
+
+        pump.shutdown();
+
+        assert_eq!(pump.application(), None);
+        assert_eq!(pump.window(), None);
+        assert_eq!(pump.root(), None);
+        assert_eq!(pump.version(), 0);
+        assert!(pump.runtime().is_empty());
+    }
+
+    #[test]
     fn structural_mount_failure_removes_created_nodes() {
         let mut runtime = RecordingRuntime::default();
         runtime.fail_at(1);
@@ -805,7 +1046,7 @@ mod tests {
         ));
         assert_eq!(pump.root(), None);
         assert!(pump.runtime().is_empty());
-        assert!(!pump.poisoned());
+        assert!(pump.poisoned());
     }
 
     #[test]
@@ -993,7 +1234,7 @@ mod tests {
             pump.event_revision(root, EventId::ButtonClick),
             Some(revision)
         );
-        assert_eq!(pump.dispatch_events(), 1);
+        assert_eq!(pump.dispatch_events(), Ok(1));
         assert_eq!(first.get(), 0);
         assert_eq!(second.get(), 1);
     }
@@ -1014,7 +1255,48 @@ mod tests {
         pump.update(Button::new().into()).unwrap();
 
         assert_eq!(pump.event_revision(root, EventId::ButtonClick), None);
-        assert_eq!(pump.dispatch_events(), 0);
+        assert_eq!(pump.dispatch_events(), Ok(0));
+    }
+
+    #[test]
+    fn poisoned_pump_discards_queued_events() {
+        let calls = Rc::new(Cell::new(0));
+        let callback_calls = Rc::clone(&calls);
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(
+            Button::new()
+                .on_click(move || callback_calls.set(callback_calls.get() + 1))
+                .into(),
+        )
+        .unwrap();
+        let root = pump.root().unwrap();
+        let revision = pump.event_revision(root, EventId::ButtonClick).unwrap();
+        pump.runtime_mut().fail_at(0);
+        assert!(matches!(
+            pump.update(Button::new().into()),
+            Err(PumpError::StructuralApplyFailed(_))
+        ));
+        pump.queue_event(QueuedEvent {
+            node: root,
+            event: EventId::ButtonClick,
+            revision,
+            payload: EventPayload::Unit,
+        });
+
+        assert_eq!(pump.dispatch_events(), Ok(0));
+        assert_eq!(calls.get(), 0);
+    }
+
+    #[test]
+    fn event_payload_read_failure_is_reported() {
+        let mut pump = Pump::new(EventErrorRuntime::default());
+        pump.mount(TextBox::new().into()).unwrap();
+        pump.runtime_mut().error = Some(RuntimeError::Injected);
+
+        assert_eq!(
+            pump.dispatch_events(),
+            Err(PumpError::EventReadFailed(RuntimeError::Injected))
+        );
     }
 
     #[test]
@@ -1038,7 +1320,7 @@ mod tests {
 
         pump.update(StackPanel::new().into()).unwrap();
 
-        assert_eq!(pump.dispatch_events(), 0);
+        assert_eq!(pump.dispatch_events(), Ok(0));
     }
 
     #[test]
@@ -1064,7 +1346,7 @@ mod tests {
             payload: EventPayload::Str("updated".into()),
         });
 
-        assert_eq!(pump.dispatch_events(), 1);
+        assert_eq!(pump.dispatch_events(), Ok(1));
         assert_eq!(&*value.borrow(), "updated");
     }
 }

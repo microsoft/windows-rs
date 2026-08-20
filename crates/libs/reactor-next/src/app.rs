@@ -10,29 +10,30 @@ thread_local! {
 }
 
 struct LiveHost {
-    _application: Application,
-    _window: Window,
     fault: Option<windows_core::Error>,
     pump: Box<dyn LivePump>,
 }
 
 trait LivePump {
-    fn mount(&mut self) -> windows_core::Result<UIElement>;
+    fn mount(&mut self) -> Result<(), PumpError>;
     fn dispatch_events(&mut self) -> Result<(), PumpError>;
+    fn shutdown(&mut self);
 }
 
 impl<F> LivePump for RenderLoop<WinUiRuntime, F>
 where
     F: FnMut(&mut Hooks) -> Element,
 {
-    fn mount(&mut self) -> windows_core::Result<UIElement> {
-        self.run().map_err(pump_error)?;
-        let root = self.pump().root().unwrap();
-        self.pump().runtime().ui_element(root)
+    fn mount(&mut self) -> Result<(), PumpError> {
+        self.run()
     }
 
     fn dispatch_events(&mut self) -> Result<(), PumpError> {
         self.dispatch_events().map(|_| ())
+    }
+
+    fn shutdown(&mut self) {
+        self.pump_mut().shutdown();
     }
 }
 
@@ -54,52 +55,53 @@ impl App {
 
         let start = Application::Start(&ApplicationInitializationCallback::new(move |_| {
             let mounted = (|| {
-                let application = Application::new()?;
-                let window = Window::new()?;
                 let root = root.borrow_mut().take().unwrap();
                 let mut pump: Box<dyn LivePump> =
                     Box::new(RenderLoop::new(WinUiRuntime::default(), root));
-                window.SetContent(&pump.mount()?)?;
-                window.Activate()?;
+                let property_fault = match pump.mount() {
+                    Ok(()) => None,
+                    Err(error @ PumpError::PropertyApplyFailed(_)) => Some(error),
+                    Err(error) => return Err(pump_error(error)),
+                };
                 HOST.with(|host| {
-                    *host.borrow_mut() = Some(LiveHost {
-                        _application: application,
-                        _window: window,
-                        fault: None,
-                        pump,
-                    });
+                    *host.borrow_mut() = Some(LiveHost { fault: None, pump });
                 });
+                if let Some(error) = property_fault {
+                    eprintln!("windows-reactor-next fault: {}", pump_error(error));
+                }
                 Ok(())
             })();
             if let Err(error) = mounted {
                 *callback_result.borrow_mut() = Err(error);
+                exit_ui_thread();
             }
         }));
 
         let callback_result = std::mem::replace(&mut *result.borrow_mut(), Ok(()));
-        let host_result = HOST.with(|host| {
-            host.borrow_mut()
-                .take()
-                .and_then(|host| host.fault)
-                .map_or(Ok(()), Err)
-        });
+        let host = HOST.with(|host| host.borrow_mut().take());
+        let host_result = host.and_then(|host| host.fault).map_or(Ok(()), Err);
         start.and(callback_result).and(host_result)
     }
 }
 
 pub(crate) fn dispatch_native_events() {
     HOST.with(|host| {
-        if let Some(host) = host.borrow_mut().as_mut()
-            && host.fault.is_none()
-            && let Err(error) = host.pump.dispatch_events()
+        let Some(mut live) = host.borrow_mut().take() else {
+            return;
+        };
+        if live.fault.is_none()
+            && let Err(error) = live.pump.dispatch_events()
         {
             let recoverable = matches!(error, PumpError::PropertyApplyFailed(_));
             let error = pump_error(error);
             eprintln!("windows-reactor-next fault: {error}");
             if !recoverable {
-                host.fault = Some(error);
+                live.fault = Some(error);
+                live.pump.shutdown();
+                exit_ui_thread();
             }
         }
+        *host.borrow_mut() = Some(live);
     });
 }
 

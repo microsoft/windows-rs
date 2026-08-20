@@ -32,7 +32,7 @@ jobs:
         run: |
           cargo fmt -p windows-reactor-next -p tool_reactor_next `
             -p test_reactor_next -p test_reactor_next_bench `
-            -p sample_reactor_next_counter -- --check
+            -p sample_reactor_next_counter -p sample_reactor_next_controlled -- --check
 
       - name: Check and test
         shell: pwsh
@@ -40,10 +40,11 @@ jobs:
           cargo test -p windows-reactor-next -p tool_reactor_next `
             -p test_reactor_next --quiet
           cargo check -p test_reactor_next_bench `
-            -p sample_reactor_next_counter --quiet
+            -p sample_reactor_next_counter -p sample_reactor_next_controlled --quiet
           cargo clippy -p windows-reactor-next -p tool_reactor_next `
             -p test_reactor_next -p test_reactor_next_bench `
-            -p sample_reactor_next_counter --all-targets --quiet
+            -p sample_reactor_next_counter -p sample_reactor_next_controlled `
+            --all-targets --quiet
 
       - name: Generated output
         shell: pwsh
