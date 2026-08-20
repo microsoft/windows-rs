@@ -11,6 +11,7 @@ quote = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 toml = "0.8"
 tool_reactor = { path = "../reactor" }
+windows-bindgen = { workspace = true }
 
 [lints]
 workspace = true

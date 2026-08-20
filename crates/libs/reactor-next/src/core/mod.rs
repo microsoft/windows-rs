@@ -4,6 +4,7 @@ mod arena;
 mod engine;
 mod hooks;
 mod keyed;
+pub mod public;
 mod pump;
 mod runtime;
 

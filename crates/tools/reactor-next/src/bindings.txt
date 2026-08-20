@@ -1,0 +1,37 @@
+Microsoft::UI::Xaml::Application::{CreateInstance, Start}
+Microsoft::UI::Xaml::ApplicationInitializationCallback
+Microsoft::UI::Dispatching::DispatcherQueue::GetForCurrentThread
+Microsoft::UI::Dispatching::DispatcherQueueHandler
+Microsoft::UI::Dispatching::DispatcherQueuePriority
+Microsoft::UI::Dispatching::IDispatcherQueue::TryEnqueueWithPriority
+Microsoft::UI::Xaml::Controls::Button::CreateInstance
+Microsoft::UI::Xaml::Controls::Control::IsEnabledProperty
+Microsoft::UI::Xaml::Controls::IContentControl::put_Content
+Microsoft::UI::Xaml::Controls::IControl::put_IsEnabled
+Microsoft::UI::Xaml::Controls::IPanel::Children
+Microsoft::UI::Xaml::Controls::IStackPanel::{put_Orientation, put_Spacing}
+Microsoft::UI::Xaml::Controls::ITextBlock::put_Text
+Microsoft::UI::Xaml::Controls::ITextBlock::put_TextWrapping
+Microsoft::UI::Xaml::Controls::Orientation
+Microsoft::UI::Xaml::Controls::Primitives::IButtonBase::{add_Click, remove_Click}
+Microsoft::UI::Xaml::Controls::StackPanel::{CreateInstance, OrientationProperty, SpacingProperty}
+Microsoft::UI::Xaml::Controls::TextBlock::{CreateInstance, TextProperty, TextWrappingProperty}
+Microsoft::UI::Xaml::Controls::UIElementCollection
+Microsoft::UI::Xaml::IDependencyObject::ClearValue
+Microsoft::UI::Xaml::IWindow::{Activate, put_Content}
+Microsoft::UI::Xaml::TextWrapping
+Microsoft::UI::Xaml::UIElement
+Microsoft::UI::Xaml::Window::CreateInstance
+Windows::Win32::COINIT_APARTMENTTHREADED
+Windows::Win32::CoInitializeEx
+Windows::Win32::DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2
+Windows::Win32::E_FAIL
+Windows::Win32::RPC_E_CHANGED_MODE
+Windows::Win32::SetProcessDpiAwarenessContext
+extras::MddBootstrapInitialize2
+extras::MddBootstrapInitializeOptions::{}
+extras::MddBootstrapInitializeOptions_OnNoMatch_ShowUI
+extras::MddBootstrapInitializeOptions_OnPackageIdentity_NOOP
+extras::WINDOWSAPPSDK_RELEASE_MAJORMINOR
+extras::WINDOWSAPPSDK_RELEASE_VERSION_TAG_W
+extras::WINDOWSAPPSDK_RUNTIME_VERSION_UINT64

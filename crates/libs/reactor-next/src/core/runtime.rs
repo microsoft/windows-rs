@@ -22,17 +22,33 @@ pub enum CommandOutcome {
 pub enum RuntimeError {
     AlreadyParented(NodeId),
     ChildNotFound(NodeId),
+    DuplicateEvent(NodeId, EventId),
     DuplicateNode(NodeId),
     HasChildren(NodeId),
     IndexOutOfBounds,
     Injected,
     MissingNode(NodeId),
+    MissingSubscription(NodeId, EventId),
+    Native(i32),
     SelfParent(NodeId),
     StillParented(NodeId),
+    UnsupportedKind,
 }
 
 pub trait NativeRuntime {
     fn apply(&mut self, commands: &[Command]) -> CommitReceipt;
+    fn reset(&mut self);
+
+    fn drain_events(&mut self) -> Vec<QueuedEvent> {
+        Vec::new()
+    }
+}
+
+pub struct QueuedEvent {
+    pub node: NodeId,
+    pub event: EventId,
+    pub revision: u32,
+    pub payload: EventPayload,
 }
 
 #[derive(Clone, Debug, PartialEq)]
@@ -52,6 +68,15 @@ pub enum Command {
     ClearProperty {
         node: NodeId,
         property: PropertyId,
+    },
+    SubscribeEvent {
+        node: NodeId,
+        event: EventId,
+        revision: u32,
+    },
+    UnsubscribeEvent {
+        node: NodeId,
+        event: EventId,
     },
     InsertChild {
         parent: NodeId,

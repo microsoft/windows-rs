@@ -93,6 +93,11 @@ impl RecordingRuntime {
                     .properties
                     .remove(property);
             }
+            Command::SubscribeEvent { node, .. } | Command::UnsubscribeEvent { node, .. } => {
+                self.nodes
+                    .get(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?;
+            }
             Command::InsertChild {
                 parent,
                 child,
@@ -195,6 +200,10 @@ impl NativeRuntime for RecordingRuntime {
             })
             .collect();
         CommitReceipt { outcomes }
+    }
+
+    fn reset(&mut self) {
+        self.nodes.clear();
     }
 }
 

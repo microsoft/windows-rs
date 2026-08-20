@@ -108,14 +108,14 @@ writes do not echo into application state.
 
 ### Failure handling
 
-WinUI mutation is not transactional, so the design does not attempt rollback.
+WinUI mutation is not transactional, so the pump does not attempt rollback.
 
-- A property failure reports to the fault sink, marks the property diverged, and does not commit
-  its comparison value.
-- A structural failure retires and remounts the nearest re-creatable subtree with fresh
-  generations.
-- A failure involving non-recreatable native state escalates through the fault sink.
-- A failed remount leaves a faulted subtree and does not retry indefinitely.
+- A property failure reports to the fault sink, keeps the old comparison value and render version,
+  and retains a retry signal.
+- A structural failure does not publish the candidate arena and poisons the pump because native
+  state may have changed before the error.
+- Phase 5 replaces whole-pump poisoning for re-creatable controls with subtree remounting using
+  fresh generations.
 
 No recoverable failure is debug-only or silently ignored.
 
@@ -183,7 +183,7 @@ Deferred:
 - [x] Add compile-fail tests for unsupported operations.
 - [x] Prove an ordinary control needs only schema input.
 
-**Exit:** ordinary coverage grows through the schema without parallel runtime edits.
+**Exit:** the semantic API and backend-neutral descriptors grow from one schema.
 
 ### 3. Pure core
 
@@ -200,12 +200,13 @@ Deferred:
 
 ### 4. Native slice
 
-- Start and stop WinUI with application and window nodes.
-- Mount `StackPanel`, `TextBlock`, and `Button`.
-- Apply set, clear, insert, remove, and move operations.
-- Queue button events and coalesce state updates.
-- Revoke subscriptions before releasing handles.
-- Add the fault sink.
+- [ ] Own application and window lifetimes in arena nodes.
+- [x] Mount `StackPanel`, `TextBlock`, and `Button`.
+- [x] Apply set, clear, insert, remove, and move operations.
+- [x] Queue button events and coalesce state updates.
+- [x] Revoke subscriptions before releasing handles.
+- [ ] Generate ordinary native mappings from the schema.
+- [x] Add the fault sink.
 
 **Exit:** the counter runs without callbacks during arena mutation or native apply.
 
@@ -310,8 +311,9 @@ After representative parity:
 
 - [x] Generate shallow mounted props and split structural payloads without cloning subtrees.
 - [x] Implement initial state and callback hooks.
-- [x] Add transactional recursive mount, property updates, and keyed move/insert/remove.
+- [x] Add candidate-tree recursive mount, property updates, and keyed move/insert/remove.
 - [x] Add state scheduling, queued callback dispatch, effects, cleanup, and a render budget.
+- [x] Make failed commits explicit, preserve property retries, and poison structural divergence.
 
 ### Next
 
@@ -330,7 +332,8 @@ After representative parity:
 - Architecture and correctness gates: active.
 - Compile and runtime gates: report-only until parity.
 - Current phase: 4 - native slice.
-- Next action: establish application/window lifetime and mount the first generated WinUI control.
+- Next action: generate pilot native mappings, then move application/window lifetime into the
+  arena.
 
 ## Current reactor baseline
 

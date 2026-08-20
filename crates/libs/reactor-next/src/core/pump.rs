@@ -5,12 +5,15 @@ use super::*;
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum PumpError {
     AlreadyMounted,
+    ApplyReceiptMismatch,
     KindChanged,
     NotMounted,
     DuplicateKey(Key),
+    Poisoned,
+    PropertyApplyFailed(CommitReceipt),
     RenderBudgetExceeded,
     RevisionExhausted,
-    StructuralApplyFailed,
+    StructuralApplyFailed(CommitReceipt),
     StructureUnsupported,
     Tree(TreeError),
 }
@@ -31,19 +34,13 @@ struct PropertyCommit {
 #[derive(Default)]
 struct UpdatePlan {
     commands: Vec<Command>,
-    undos: Vec<Vec<Command>>,
     commits: Vec<PropertyCommit>,
 }
 
 impl UpdatePlan {
-    fn push(&mut self, command: Command, undo: Option<Command>) -> usize {
-        self.push_many(command, undo.into_iter().collect())
-    }
-
-    fn push_many(&mut self, command: Command, undo: Vec<Command>) -> usize {
+    fn push(&mut self, command: Command) -> usize {
         let index = self.commands.len();
         self.commands.push(command);
-        self.undos.push(undo);
         index
     }
 }
@@ -53,14 +50,9 @@ pub struct Pump<R> {
     runtime: R,
     root: Option<NodeId>,
     events: VecDeque<QueuedEvent>,
+    poisoned: bool,
+    retry_pending: bool,
     version: u64,
-}
-
-pub struct QueuedEvent {
-    pub node: NodeId,
-    pub event: EventId,
-    pub revision: u32,
-    pub payload: EventPayload,
 }
 
 impl<R: NativeRuntime> Pump<R> {
@@ -70,87 +62,111 @@ impl<R: NativeRuntime> Pump<R> {
             runtime,
             root: None,
             events: VecDeque::new(),
+            poisoned: false,
+            retry_pending: false,
             version: 0,
         }
     }
 
     pub fn mount(&mut self, element: Element) -> Result<CommitReceipt, PumpError> {
+        if self.poisoned {
+            return Err(PumpError::Poisoned);
+        }
         if self.root.is_some() {
             return Err(PumpError::AlreadyMounted);
         }
-        let mut commands = Vec::new();
-        let mut commits = Vec::new();
-        let node = self.mount_element(None, None, element, &mut commands, &mut commits)?;
-
-        let receipt = self.runtime.apply(&commands);
-        let structural_failure = commands
-            .iter()
-            .enumerate()
-            .any(|(index, command)| command.structural() && !receipt.applied(index));
-        if structural_failure {
-            let rollback = commands
-                .iter()
-                .enumerate()
-                .rev()
-                .filter(|(index, _)| receipt.applied(*index))
-                .filter_map(|(_, command)| match command {
-                    Command::Create { node, .. } => Some(Command::Destroy { node: *node }),
-                    Command::InsertChild { parent, child, .. } => Some(Command::RemoveChild {
-                        parent: *parent,
-                        child: *child,
-                    }),
-                    _ => None,
-                })
-                .collect::<Vec<_>>();
-            if !rollback.is_empty() {
-                self.runtime.apply(&rollback);
-            }
-            self.tree.retire_subtree(node)?;
-            return Ok(receipt);
-        }
-        self.commit_properties(&commits, &receipt)?;
-        self.root = Some(node);
-        self.advance_version()?;
-        Ok(receipt)
-    }
-
-    pub fn update(&mut self, element: Element) -> Result<CommitReceipt, PumpError> {
-        let node = self.root.ok_or(PumpError::NotMounted)?;
-        let mut candidate = self.tree.clone();
+        let next_version = self.next_version()?;
+        let mut candidate = Tree::new();
         let mut plan = UpdatePlan::default();
-        Self::reconcile_node(&mut candidate, node, element, &mut plan)?;
-        if plan.commands.is_empty() {
-            self.tree = candidate;
-            self.advance_version()?;
-            return Ok(CommitReceipt {
-                outcomes: Vec::new(),
-            });
-        }
+        let node = Self::mount_planned_element(&mut candidate, None, None, element, &mut plan)?;
 
         let receipt = self.runtime.apply(&plan.commands);
+        if receipt.outcomes.len() != plan.commands.len() {
+            self.runtime.reset();
+            self.tree = Tree::new();
+            self.events.clear();
+            self.retry_pending = true;
+            return Err(PumpError::ApplyReceiptMismatch);
+        }
         let structural_failure = plan
             .commands
             .iter()
             .enumerate()
             .any(|(index, command)| command.structural() && !receipt.applied(index));
         if structural_failure {
-            let rollback = plan
-                .undos
-                .iter()
-                .enumerate()
-                .rev()
-                .filter(|(index, _)| receipt.applied(*index))
-                .flat_map(|(_, undo)| undo.iter().cloned())
-                .collect::<Vec<_>>();
-            if !rollback.is_empty() {
-                self.runtime.apply(&rollback);
-            }
-            return Ok(receipt);
+            self.runtime.reset();
+            self.tree = Tree::new();
+            self.events.clear();
+            self.retry_pending = true;
+            return Err(PumpError::StructuralApplyFailed(receipt));
+        }
+        Self::commit_tree_properties(&mut candidate, &plan.commits, &receipt)?;
+        self.tree = candidate;
+        self.root = Some(node);
+        if plan
+            .commands
+            .iter()
+            .enumerate()
+            .any(|(index, command)| !command.structural() && !receipt.applied(index))
+        {
+            self.retry_pending = true;
+            return Err(PumpError::PropertyApplyFailed(receipt));
+        }
+        self.retry_pending = false;
+        self.version = next_version;
+        Ok(receipt)
+    }
+
+    pub fn update(&mut self, element: Element) -> Result<CommitReceipt, PumpError> {
+        if self.poisoned {
+            return Err(PumpError::Poisoned);
+        }
+        let next_version = self.next_version()?;
+        let node = self.root.ok_or(PumpError::NotMounted)?;
+        let mut candidate = self.tree.clone();
+        let mut plan = UpdatePlan::default();
+        Self::reconcile_node(&mut candidate, node, element, &mut plan)?;
+        if plan.commands.is_empty() {
+            self.tree = candidate;
+            self.retry_pending = false;
+            self.version = next_version;
+            return Ok(CommitReceipt {
+                outcomes: Vec::new(),
+            });
+        }
+
+        let receipt = self.runtime.apply(&plan.commands);
+        if receipt.outcomes.len() != plan.commands.len() {
+            self.poisoned = true;
+            self.events.clear();
+            self.retry_pending = false;
+            return Err(PumpError::ApplyReceiptMismatch);
+        }
+        let structural_failure = plan
+            .commands
+            .iter()
+            .enumerate()
+            .any(|(index, command)| command.structural() && !receipt.applied(index));
+        if structural_failure {
+            self.poisoned = true;
+            self.events.clear();
+            self.retry_pending = false;
+            return Err(PumpError::StructuralApplyFailed(receipt));
         }
 
         Self::commit_tree_properties(&mut candidate, &plan.commits, &receipt)?;
         self.tree = candidate;
-        self.advance_version()?;
+        if plan
+            .commands
+            .iter()
+            .enumerate()
+            .any(|(index, command)| !command.structural() && !receipt.applied(index))
+        {
+            self.retry_pending = true;
+            return Err(PumpError::PropertyApplyFailed(receipt));
+        }
+        self.retry_pending = false;
+        self.version = next_version;
         Ok(receipt)
     }
 
@@ -170,6 +186,14 @@ impl<R: NativeRuntime> Pump<R> {
         self.version
     }
 
+    pub fn poisoned(&self) -> bool {
+        self.poisoned
+    }
+
+    pub fn retry_pending(&self) -> bool {
+        self.retry_pending
+    }
+
     pub fn event_revision(&self, node: NodeId, event: EventId) -> Option<u32> {
         self.tree
             .native(node)
@@ -185,6 +209,7 @@ impl<R: NativeRuntime> Pump<R> {
     }
 
     pub fn dispatch_events(&mut self) -> usize {
+        self.events.extend(self.runtime.drain_events());
         let mut dispatched = 0;
         while let Some(event) = self.events.pop_front() {
             let Ok(native) = self.tree.native(event.node) else {
@@ -201,24 +226,6 @@ impl<R: NativeRuntime> Pump<R> {
             }
         }
         dispatched
-    }
-
-    fn commit_properties(
-        &mut self,
-        commits: &[PropertyCommit],
-        receipt: &CommitReceipt,
-    ) -> Result<(), PumpError> {
-        for commit in commits {
-            if receipt.applied(commit.command) {
-                let committed = &mut self.tree.native_mut(commit.node)?.committed;
-                if let Some(value) = &commit.value {
-                    committed.insert(commit.property, value.clone());
-                } else {
-                    committed.remove(&commit.property);
-                }
-            }
-        }
-        Ok(())
     }
 
     fn commit_tree_properties(
@@ -263,14 +270,6 @@ impl<R: NativeRuntime> Pump<R> {
                 return;
             }
 
-            let undo = committed.get(&property).map_or_else(
-                || Command::ClearProperty { node, property },
-                |value| Command::SetProperty {
-                    node,
-                    property,
-                    value: value.clone(),
-                },
-            );
             let command = match &value {
                 Some(value) => Command::SetProperty {
                     node,
@@ -279,7 +278,7 @@ impl<R: NativeRuntime> Pump<R> {
                 },
                 None => Command::ClearProperty { node, property },
             };
-            let command = plan.push(command, Some(undo));
+            let command = plan.push(command);
             plan.commits.push(PropertyCommit {
                 command,
                 node,
@@ -287,7 +286,7 @@ impl<R: NativeRuntime> Pump<R> {
                 value,
             });
         });
-        Self::update_event_states(tree.native_mut(node)?, &parts.props)?;
+        Self::update_event_states(tree.native_mut(node)?, node, &parts.props, plan)?;
         tree.native_mut(node)?.desired = parts.props;
 
         let current_children = tree.children(node)?.to_vec();
@@ -339,7 +338,7 @@ impl<R: NativeRuntime> Pump<R> {
 
                 let mut order = current_children;
                 for operation in operations {
-                    let (key, before, child, previous) = match operation {
+                    let (key, before, child, moved) = match operation {
                         KeyedOperation::Move { key, before } => {
                             let child = nodes
                                 .get(&key)
@@ -350,7 +349,7 @@ impl<R: NativeRuntime> Pump<R> {
                                 .position(|item| *item == child)
                                 .ok_or(PumpError::StructureUnsupported)?;
                             order.remove(previous);
-                            (key, before, child, Some(previous))
+                            (key, before, child, true)
                         }
                         KeyedOperation::Insert { key, before } => {
                             let element = elements
@@ -363,7 +362,7 @@ impl<R: NativeRuntime> Pump<R> {
                                 element,
                                 plan,
                             )?;
-                            (key, before, child, None)
+                            (key, before, child, false)
                         }
                         KeyedOperation::Remove { key } => {
                             let child =
@@ -390,31 +389,18 @@ impl<R: NativeRuntime> Pump<R> {
                         order.len()
                     };
                     order.insert(index, child);
-                    if let Some(previous) = previous {
-                        plan.push(
-                            Command::MoveChild {
-                                parent: node,
-                                child,
-                                index,
-                            },
-                            Some(Command::MoveChild {
-                                parent: node,
-                                child,
-                                index: previous,
-                            }),
-                        );
+                    if moved {
+                        plan.push(Command::MoveChild {
+                            parent: node,
+                            child,
+                            index,
+                        });
                     } else {
-                        plan.push(
-                            Command::InsertChild {
-                                parent: node,
-                                child,
-                                index,
-                            },
-                            Some(Command::RemoveChild {
-                                parent: node,
-                                child,
-                            }),
-                        );
+                        plan.push(Command::InsertChild {
+                            parent: node,
+                            child,
+                            index,
+                        });
                     }
                     nodes.insert(key, child);
                 }
@@ -426,7 +412,9 @@ impl<R: NativeRuntime> Pump<R> {
 
     fn update_event_states(
         native: &mut NativeState,
+        node: NodeId,
         desired: &MountedProps,
+        plan: &mut UpdatePlan,
     ) -> Result<(), PumpError> {
         let mut desired_events = Vec::new();
         desired.visit_events(&mut |event, active| {
@@ -443,17 +431,24 @@ impl<R: NativeRuntime> Pump<R> {
                     .checked_add(1)
                     .ok_or(PumpError::RevisionExhausted)?;
                 state.active = active;
+                if active {
+                    plan.push(Command::SubscribeEvent {
+                        node,
+                        event,
+                        revision: state.revision,
+                    });
+                } else {
+                    plan.push(Command::UnsubscribeEvent { node, event });
+                }
             }
         }
         Ok(())
     }
 
-    fn advance_version(&mut self) -> Result<(), PumpError> {
-        self.version = self
-            .version
+    fn next_version(&self) -> Result<u64, PumpError> {
+        self.version
             .checked_add(1)
-            .ok_or(PumpError::RevisionExhausted)?;
-        Ok(())
+            .ok_or(PumpError::RevisionExhausted)
     }
 
     fn retire_planned_subtree(
@@ -463,36 +458,24 @@ impl<R: NativeRuntime> Pump<R> {
     ) -> Result<(), PumpError> {
         for node in tree.subtree_postorder(root)? {
             if let Some(parent) = tree.parent(node)? {
-                let index = tree
-                    .children(parent)?
-                    .iter()
-                    .position(|child| *child == node)
-                    .ok_or(PumpError::StructureUnsupported)?;
-                plan.push(
-                    Command::RemoveChild {
-                        parent,
-                        child: node,
-                    },
-                    Some(Command::InsertChild {
-                        parent,
-                        child: node,
-                        index,
-                    }),
-                );
-            }
-
-            let NodeKind::Native(kind) = tree.kind(node)? else {
-                return Err(PumpError::StructureUnsupported);
-            };
-            let mut undo = vec![Command::Create { node, kind }];
-            for (property, value) in &tree.native(node)?.committed {
-                undo.push(Command::SetProperty {
-                    node,
-                    property: *property,
-                    value: value.clone(),
+                plan.push(Command::RemoveChild {
+                    parent,
+                    child: node,
                 });
             }
-            plan.push_many(Command::Destroy { node }, undo);
+
+            let NodeKind::Native(_) = tree.kind(node)? else {
+                return Err(PumpError::StructureUnsupported);
+            };
+            for (event, state) in &tree.native(node)?.events {
+                if state.active {
+                    plan.push(Command::UnsubscribeEvent {
+                        node,
+                        event: *event,
+                    });
+                }
+            }
+            plan.push(Command::Destroy { node });
         }
         tree.retire_subtree(root)?;
         Ok(())
@@ -507,23 +490,17 @@ impl<R: NativeRuntime> Pump<R> {
     ) -> Result<NodeId, PumpError> {
         let parts = element.into_parts();
         let node = tree.insert_native(parent, parts.kind, key, parts.props.clone())?;
-        plan.push(
-            Command::Create {
-                node,
-                kind: parts.kind,
-            },
-            Some(Command::Destroy { node }),
-        );
+        plan.push(Command::Create {
+            node,
+            kind: parts.kind,
+        });
         parts.props.visit_properties(&mut |property, value| {
             if let Some(value) = value {
-                let command = plan.push(
-                    Command::SetProperty {
-                        node,
-                        property,
-                        value: value.clone(),
-                    },
-                    Some(Command::ClearProperty { node, property }),
-                );
+                let command = plan.push(Command::SetProperty {
+                    node,
+                    property,
+                    value: value.clone(),
+                });
                 plan.commits.push(PropertyCommit {
                     command,
                     node,
@@ -532,85 +509,22 @@ impl<R: NativeRuntime> Pump<R> {
                 });
             }
         });
+        for (event, state) in &tree.native(node)?.events {
+            if state.active {
+                plan.push(Command::SubscribeEvent {
+                    node,
+                    event: *event,
+                    revision: state.revision,
+                });
+            }
+        }
 
         match parts.structure {
             ElementStructure::None => {}
             ElementStructure::Content(content) => {
                 if let Some(content) = content {
                     let child = Self::mount_planned_element(tree, Some(node), None, content, plan)?;
-                    plan.push(
-                        Command::InsertChild {
-                            parent: node,
-                            child,
-                            index: 0,
-                        },
-                        Some(Command::RemoveChild {
-                            parent: node,
-                            child,
-                        }),
-                    );
-                }
-            }
-            ElementStructure::Children(children) => {
-                for (index, child) in children.into_iter().enumerate() {
-                    let (key, child) = child.into_parts();
-                    let child =
-                        Self::mount_planned_element(tree, Some(node), Some(key), child, plan)?;
-                    plan.push(
-                        Command::InsertChild {
-                            parent: node,
-                            child,
-                            index,
-                        },
-                        Some(Command::RemoveChild {
-                            parent: node,
-                            child,
-                        }),
-                    );
-                }
-            }
-        }
-        Ok(node)
-    }
-
-    fn mount_element(
-        &mut self,
-        parent: Option<NodeId>,
-        key: Option<Key>,
-        element: Element,
-        commands: &mut Vec<Command>,
-        commits: &mut Vec<PropertyCommit>,
-    ) -> Result<NodeId, PumpError> {
-        let parts = element.into_parts();
-        let node = self
-            .tree
-            .insert_native(parent, parts.kind, key, parts.props.clone())?;
-        commands.push(Command::Create {
-            node,
-            kind: parts.kind,
-        });
-        parts.props.visit_properties(&mut |property, value| {
-            if let Some(value) = value {
-                commits.push(PropertyCommit {
-                    command: commands.len(),
-                    node,
-                    property,
-                    value: Some(value.clone()),
-                });
-                commands.push(Command::SetProperty {
-                    node,
-                    property,
-                    value,
-                });
-            }
-        });
-
-        match parts.structure {
-            ElementStructure::None => {}
-            ElementStructure::Content(content) => {
-                if let Some(content) = content {
-                    let child = self.mount_element(Some(node), None, content, commands, commits)?;
-                    commands.push(Command::InsertChild {
+                    plan.push(Command::InsertChild {
                         parent: node,
                         child,
                         index: 0,
@@ -618,11 +532,17 @@ impl<R: NativeRuntime> Pump<R> {
                 }
             }
             ElementStructure::Children(children) => {
+                let keys = children
+                    .iter()
+                    .map(|child| child.key().clone())
+                    .collect::<Vec<_>>();
+                diff(&[], &keys)
+                    .map_err(|KeyedError::DuplicateKey(key)| PumpError::DuplicateKey(key))?;
                 for (index, child) in children.into_iter().enumerate() {
                     let (key, child) = child.into_parts();
                     let child =
-                        self.mount_element(Some(node), Some(key), child, commands, commits)?;
-                    commands.push(Command::InsertChild {
+                        Self::mount_planned_element(tree, Some(node), Some(key), child, plan)?;
+                    plan.push(Command::InsertChild {
                         parent: node,
                         child,
                         index,
@@ -681,6 +601,34 @@ mod tests {
             .collect()
     }
 
+    fn structural_receipt(error: PumpError) -> CommitReceipt {
+        let PumpError::StructuralApplyFailed(receipt) = error else {
+            panic!("expected structural apply failure");
+        };
+        receipt
+    }
+
+    #[derive(Default)]
+    struct ShortReceiptRuntime {
+        inner: RecordingRuntime,
+        short_next: bool,
+    }
+
+    impl NativeRuntime for ShortReceiptRuntime {
+        fn apply(&mut self, commands: &[Command]) -> CommitReceipt {
+            let mut receipt = self.inner.apply(commands);
+            if self.short_next {
+                self.short_next = false;
+                receipt.outcomes.pop();
+            }
+            receipt
+        }
+
+        fn reset(&mut self) {
+            self.inner.reset();
+        }
+    }
+
     #[test]
     fn mount_update_clear_and_no_change_follow_receipts() {
         let mut pump = Pump::new(RecordingRuntime::default());
@@ -727,13 +675,21 @@ mod tests {
         let mut pump = Pump::new(RecordingRuntime::default());
         pump.mount(TextBlock::new().text("first").into()).unwrap();
         let root = pump.root().unwrap();
+        let version = pump.version();
         pump.runtime_mut().fail_at(0);
 
-        let failed = pump.update(TextBlock::new().text("second").into()).unwrap();
+        let failed = pump
+            .update(TextBlock::new().text("second").into())
+            .unwrap_err();
+        let PumpError::PropertyApplyFailed(failed) = failed else {
+            panic!("expected property apply failure");
+        };
         assert_eq!(
             failed.outcomes,
             [CommandOutcome::Failed(RuntimeError::Injected)]
         );
+        assert_eq!(pump.version(), version);
+        assert!(pump.retry_pending());
         assert_eq!(
             pump.runtime()
                 .node(root)
@@ -744,6 +700,8 @@ mod tests {
 
         let retried = pump.update(TextBlock::new().text("second").into()).unwrap();
         assert_eq!(retried.outcomes, [CommandOutcome::Applied]);
+        assert_eq!(pump.version(), version + 1);
+        assert!(!pump.retry_pending());
         assert_eq!(
             pump.runtime()
                 .node(root)
@@ -759,7 +717,10 @@ mod tests {
         runtime.fail_at(0);
         let mut pump = Pump::new(runtime);
 
-        let failed = pump.mount(TextBlock::new().text("first").into()).unwrap();
+        let failed = structural_receipt(
+            pump.mount(TextBlock::new().text("first").into())
+                .unwrap_err(),
+        );
 
         assert_eq!(
             failed.outcomes,
@@ -770,6 +731,44 @@ mod tests {
         );
         assert_eq!(pump.root(), None);
         assert!(pump.runtime().is_empty());
+        assert_eq!(pump.version(), 0);
+        assert!(pump.retry_pending());
+
+        pump.mount(TextBlock::new().text("first").into()).unwrap();
+        assert_eq!(pump.version(), 1);
+    }
+
+    #[test]
+    fn duplicate_mount_keys_fail_before_native_apply() {
+        let mut pump = Pump::new(RecordingRuntime::default());
+
+        assert_eq!(
+            pump.mount(
+                StackPanel::new()
+                    .child("duplicate", TextBlock::new())
+                    .child("duplicate", TextBlock::new())
+                    .into()
+            ),
+            Err(PumpError::DuplicateKey(Key::from("duplicate")))
+        );
+        assert_eq!(pump.runtime().batches(), 0);
+        assert!(pump.runtime().is_empty());
+        assert_eq!(pump.root(), None);
+    }
+
+    #[test]
+    fn malformed_update_receipt_poisons_without_advancing_version() {
+        let mut pump = Pump::new(ShortReceiptRuntime::default());
+        pump.mount(TextBlock::new().text("first").into()).unwrap();
+        let version = pump.version();
+        pump.runtime_mut().short_next = true;
+
+        assert_eq!(
+            pump.update(TextBlock::new().text("second").into()),
+            Err(PumpError::ApplyReceiptMismatch)
+        );
+        assert_eq!(pump.version(), version);
+        assert!(pump.poisoned());
     }
 
     #[test]
@@ -798,7 +797,7 @@ mod tests {
         let mut pump = Pump::new(runtime);
         let tree = StackPanel::new().child("text", TextBlock::new().text("value"));
 
-        let failed = pump.mount(tree.into()).unwrap();
+        let failed = structural_receipt(pump.mount(tree.into()).unwrap_err());
 
         assert!(matches!(
             failed.outcomes[1],
@@ -806,6 +805,7 @@ mod tests {
         ));
         assert_eq!(pump.root(), None);
         assert!(pump.runtime().is_empty());
+        assert!(!pump.poisoned());
     }
 
     #[test]
@@ -850,23 +850,25 @@ mod tests {
     }
 
     #[test]
-    fn failed_keyed_move_restores_native_and_arena_order() {
+    fn failed_keyed_move_poisons_without_publishing_candidate() {
         let mut pump = Pump::new(RecordingRuntime::default());
         pump.mount(keyed_text(&["a", "b", "c", "d"])).unwrap();
-        let root = pump.root().unwrap();
+        let version = pump.version();
         pump.runtime_mut().fail_at(1);
 
-        let failed = pump.update(keyed_text(&["d", "c", "b", "a"])).unwrap();
+        let failed =
+            structural_receipt(pump.update(keyed_text(&["d", "c", "b", "a"])).unwrap_err());
 
         assert!(matches!(
             failed.outcomes[1],
             CommandOutcome::Failed(RuntimeError::Injected)
         ));
-        assert_eq!(recorded_text(pump.runtime(), root), ["a", "b", "c", "d"]);
-
-        let retried = pump.update(keyed_text(&["d", "c", "b", "a"])).unwrap();
-        assert_eq!(retried.outcomes.len(), 3);
-        assert_eq!(recorded_text(pump.runtime(), root), ["d", "c", "b", "a"]);
+        assert_eq!(pump.version(), version);
+        assert!(pump.poisoned());
+        assert_eq!(
+            pump.update(keyed_text(&["d", "c", "b", "a"])),
+            Err(PumpError::Poisoned)
+        );
     }
 
     #[test]
@@ -882,23 +884,20 @@ mod tests {
     }
 
     #[test]
-    fn failed_keyed_insert_destroys_the_candidate_subtree() {
+    fn failed_keyed_insert_poisons_without_publishing_candidate() {
         let mut pump = Pump::new(RecordingRuntime::default());
         pump.mount(keyed_text(&["a", "c"])).unwrap();
-        let root = pump.root().unwrap();
+        let version = pump.version();
         pump.runtime_mut().fail_at(2);
 
-        let failed = pump.update(keyed_text(&["a", "b", "c"])).unwrap();
+        let failed = structural_receipt(pump.update(keyed_text(&["a", "b", "c"])).unwrap_err());
 
         assert!(matches!(
             failed.outcomes[2],
             CommandOutcome::Failed(RuntimeError::Injected)
         ));
-        assert_eq!(recorded_text(pump.runtime(), root), ["a", "c"]);
-
-        let retried = pump.update(keyed_text(&["a", "b", "c"])).unwrap();
-        assert_eq!(retried.outcomes.len(), 3);
-        assert_eq!(recorded_text(pump.runtime(), root), ["a", "b", "c"]);
+        assert_eq!(pump.version(), version);
+        assert!(pump.poisoned());
     }
 
     #[test]
@@ -914,23 +913,20 @@ mod tests {
     }
 
     #[test]
-    fn failed_keyed_remove_recreates_destroyed_state() {
+    fn failed_keyed_remove_poisons_without_publishing_candidate() {
         let mut pump = Pump::new(RecordingRuntime::default());
         pump.mount(keyed_text(&["a", "b", "c"])).unwrap();
-        let root = pump.root().unwrap();
+        let version = pump.version();
         pump.runtime_mut().fail_at(1);
 
-        let failed = pump.update(keyed_text(&["a", "c"])).unwrap();
+        let failed = structural_receipt(pump.update(keyed_text(&["a", "c"])).unwrap_err());
 
         assert!(matches!(
             failed.outcomes[1],
             CommandOutcome::Failed(RuntimeError::Injected)
         ));
-        assert_eq!(recorded_text(pump.runtime(), root), ["a", "b", "c"]);
-
-        let retried = pump.update(keyed_text(&["a", "c"])).unwrap();
-        assert_eq!(retried.outcomes.len(), 2);
-        assert_eq!(recorded_text(pump.runtime(), root), ["a", "c"]);
+        assert_eq!(pump.version(), version);
+        assert!(pump.poisoned());
     }
 
     #[test]

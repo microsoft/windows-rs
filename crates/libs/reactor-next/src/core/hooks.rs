@@ -67,7 +67,7 @@ pub struct Hooks {
 }
 
 impl Hooks {
-    pub fn new() -> Self {
+    pub(crate) fn new() -> Self {
         Self {
             slots: Vec::new(),
             cursor: 0,
@@ -129,31 +129,29 @@ impl Hooks {
         }
     }
 
-    pub fn begin(&mut self) {
+    pub(crate) fn begin(&mut self) {
         self.cursor = 0;
         self.pending_effects.clear();
         self.dirty.set(false);
     }
 
-    pub fn finish(&mut self) -> Vec<Box<dyn FnOnce()>> {
+    pub(crate) fn finish(&mut self) -> Vec<Box<dyn FnOnce()>> {
         assert_eq!(self.cursor, self.slots.len(), "hook count changed");
         std::mem::take(&mut self.pending_effects)
     }
 
-    pub fn dirty(&self) -> bool {
+    pub(crate) fn dirty(&self) -> bool {
         self.dirty.get()
+    }
+
+    pub(crate) fn retry(&self) {
+        self.dirty.set(true);
     }
 
     fn next_slot(&mut self) -> usize {
         let index = self.cursor;
         self.cursor += 1;
         index
-    }
-}
-
-impl Default for Hooks {
-    fn default() -> Self {
-        Self::new()
     }
 }
 
@@ -197,16 +195,16 @@ where
             self.hooks.begin();
             let element = (self.render)(&mut self.hooks);
             let effects = self.hooks.finish();
-            let version = self.pump.version();
-            if self.mounted {
-                self.pump.update(element)?;
+            let result = if self.mounted {
+                self.pump.update(element)
             } else {
-                self.pump.mount(element)?;
+                let result = self.pump.mount(element);
                 self.mounted = self.pump.root().is_some();
-            }
-
-            if self.pump.version() == version {
-                return Err(PumpError::StructuralApplyFailed);
+                result
+            };
+            if let Err(error) = result {
+                self.hooks.retry();
+                return Err(error);
             }
             for effect in effects {
                 effect();
@@ -313,6 +311,43 @@ mod tests {
             &*log.borrow(),
             &["setup 0", "cleanup 0", "setup 1", "cleanup 1"]
         );
+    }
+
+    #[test]
+    fn failed_property_keeps_render_dirty_and_defers_effects() {
+        let state = Rc::new(RefCell::new(None));
+        let state_capture = Rc::clone(&state);
+        let effects = Rc::new(Cell::new(0));
+        let effects_capture = Rc::clone(&effects);
+        let mut app = RenderLoop::new(RecordingRuntime::default(), move |hooks| {
+            let value = hooks.use_state(|| 0_u32);
+            *state_capture.borrow_mut() = Some(value.clone());
+            let dependency = value.get();
+            let effects = Rc::clone(&effects_capture);
+            hooks.use_effect(dependency, move || {
+                effects.set(effects.get() + 1);
+                None
+            });
+            TextBlock::new().text(dependency.to_string()).into()
+        });
+        app.run().unwrap();
+        assert_eq!(effects.get(), 1);
+        let version = app.pump().version();
+
+        state.borrow().as_ref().unwrap().set(1);
+        app.pump_mut().runtime_mut().fail_at(0);
+        assert!(matches!(app.run(), Err(PumpError::PropertyApplyFailed(_))));
+
+        assert!(app.hooks.dirty());
+        assert!(app.pump().retry_pending());
+        assert_eq!(app.pump().version(), version);
+        assert_eq!(effects.get(), 1);
+
+        app.run().unwrap();
+        assert!(!app.hooks.dirty());
+        assert!(!app.pump().retry_pending());
+        assert_eq!(app.pump().version(), version + 1);
+        assert_eq!(effects.get(), 2);
     }
 
     #[test]
