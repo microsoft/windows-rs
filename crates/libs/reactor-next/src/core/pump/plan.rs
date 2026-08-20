@@ -17,8 +17,10 @@ pub(super) struct UpdatePlan {
 pub(super) struct ComponentChanges {
     pub(super) composed: HashSet<ComponentToken>,
     pub(super) deferred: HashSet<ComponentToken>,
+    pub(super) retry: HashSet<ComponentToken>,
     pub(super) reserved: Vec<ComponentToken>,
     pub(super) retired: Vec<ComponentToken>,
+    pub(super) touched: HashSet<ComponentToken>,
 }
 
 pub(super) enum LocalComponentUpdate {
@@ -40,6 +42,10 @@ pub(super) enum CandidateState {
 
 pub(super) enum FrontendChanges {
     Element(Element),
+    Hooks {
+        element: Element,
+        effects: HookEffects,
+    },
     Component(ComponentChanges),
     Local(ComponentToken),
 }

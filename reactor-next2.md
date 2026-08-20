@@ -156,6 +156,11 @@ publication do not run.
 Normal shutdown cleans effects before dropping native resources. Cleanup remains idempotent across
 explicit shutdown and `Drop`.
 
+Hook effects follow the same boundary: changed cleanup runs after candidate validation and before
+native apply, while setup runs after publication. If component props are applied before later
+planning fails, touched scopes remain planning-dirty so an identical-props retry recomposes rather
+than accepting stale structure.
+
 ## Scheduling
 
 - Native callbacks enqueue work and return.
@@ -164,6 +169,10 @@ explicit shutdown and `Drop`.
 - Component messages are capped at 4,096 per window and expose backpressure.
 - Scheduler rejection is an explicit host fault.
 - Work queued during dispatch is rearmed after the current turn.
+
+The budgets count queued items. They do not preempt one component `view` call or split one candidate
+plan. Adding a general composition continuation would restore much of the state-machine complexity
+that this design removed. Large trees are instead governed by locality and keyed-scale gates.
 
 Scheduler retry means retrying dispatcher enqueue after rejection. It is unrelated to native
 mutation recovery.
@@ -244,17 +253,27 @@ The fatal native failure simplification is implemented in the core:
 - `NativeRuntime::apply` stops on the first error.
 - `NativeApplyError` retains only command index and error for diagnostics.
 - The WinUI host aborts on `NativeApplyFailed`.
-- Candidate publication has one success path.
+- Update publication has one success path; initial mount and realization retain separate,
+  documented invariants.
 - Controlled observations reconcile without retry state.
 - Fine-grained recovery code and tests are removed.
 - The isolated component path improved from 476 bytes and 11 allocations to about 430 bytes and
   9 allocations without losing constant scaling through 16,384 scopes.
+- Failed component planning keeps touched scopes dirty for an identical-props retry.
+- Hook and component cleanup precede native mutation, and final `Drop` cleans components before
+  native reset.
+- Component-owned keyed reconciliation uses one key index and scales near-linearly through 4,096
+  children.
+- The token-keyed live host owns the application separately from its Pumps. Two real windows route
+  work independently; closing the secondary discards stale scheduled work while the primary
+  continues through structural and component updates. In-flight tokens remain visible to close
+  routing so synchronous closure cannot resurrect a Pump or trigger premature application exit.
 
 Before feature expansion:
 
 1. Re-run compile-time, runtime, allocation, and binary-size measurements.
-2. Run the process-isolated live WinUI fixture.
-3. Add live two-window ownership and fault-isolation coverage.
-4. Review remaining Pump and scheduler complexity without adding new recovery behavior.
+2. Decide whether initial mount and realization should share more publication helpers without
+   obscuring their different invariants.
+3. Review remaining Pump and scheduler complexity without adding new recovery behavior.
 
 Do not add context, background async ownership, or more control coverage until these gates pass.

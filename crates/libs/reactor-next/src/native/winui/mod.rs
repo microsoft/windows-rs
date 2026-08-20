@@ -8,7 +8,6 @@ use windows_core::Interface;
 #[cfg(feature = "test")]
 thread_local! {
     static LIVE_TEST_CLEANUP: Cell<u8> = const { Cell::new(0) };
-    static LIVE_TEST_CLEANUP_ORDERED: Cell<bool> = const { Cell::new(false) };
 }
 
 #[allow(
@@ -40,6 +39,8 @@ pub struct WinUiRuntime {
     scheduler: Rc<RefCell<SchedulerState>>,
     subscriptions: HashMap<(NodeId, EventId), windows_core::EventRevoker>,
     virtuals: HashMap<NodeId, element_factory::VirtualHandle>,
+    window_closed: Rc<Cell<bool>>,
+    window_subscriptions: HashMap<NodeId, windows_core::EventRevoker>,
     windows: HashMap<NodeId, Window>,
     pending_application: Option<Application>,
     #[cfg(feature = "test")]
@@ -91,8 +92,17 @@ impl WinUiRuntime {
                 if self.contains(*node) {
                     return Err(RuntimeError::DuplicateNode(*node));
                 }
-                self.windows
-                    .insert(*node, Window::new().map_err(native_error)?);
+                let window = Window::new().map_err(native_error)?;
+                let closed = Rc::clone(&self.window_closed);
+                let identity = self.identity.get().unwrap();
+                let subscription = window
+                    .Closed(move |_, _| {
+                        closed.set(true);
+                        dispatch_window_closed(identity);
+                    })
+                    .map_err(native_error)?;
+                self.window_subscriptions.insert(*node, subscription);
+                self.windows.insert(*node, window);
             }
             Command::ActivateWindow { node } => {
                 self.windows
@@ -158,6 +168,7 @@ impl WinUiRuntime {
                 }
                 self.subscriptions
                     .retain(|(subscription_node, _), _| subscription_node != node);
+                self.window_subscriptions.remove(node);
                 if self.handles.remove(node).is_some()
                     || self.virtuals.remove(node).is_some()
                     || self.windows.remove(node).is_some()
@@ -529,7 +540,7 @@ impl EventSink {
             if !scheduler_capture.borrow_mut().begin_dispatch(ticket) {
                 return;
             }
-            dispatch_native_events();
+            dispatch_native_events(identity);
             let action = scheduler_capture.borrow_mut().finish_dispatch();
             if let Some(identity) = current_identity_capture.get()
                 && let Err(error) = Self::perform(
@@ -590,13 +601,16 @@ impl NativeRuntime for WinUiRuntime {
     }
 
     fn reset(&mut self) {
-        #[cfg(feature = "test")]
-        LIVE_TEST_CLEANUP_ORDERED.with(|ordered| {
-            ordered.set(LIVE_TEST_CLEANUP.with(|cleanup| cleanup.get() == 1));
-        });
         self.subscriptions.clear();
-        for window in self.windows.values() {
-            _ = window.Close();
+        if self.window_closed.get() {
+            for (_, subscription) in self.window_subscriptions.drain() {
+                subscription.into_token();
+            }
+        } else {
+            self.window_subscriptions.clear();
+            for window in self.windows.values() {
+                _ = window.Close();
+            }
         }
         self.windows.clear();
         self.handles.clear();
@@ -607,6 +621,7 @@ impl NativeRuntime for WinUiRuntime {
         self.events.borrow_mut().clear();
         self.feedback.borrow_mut().clear();
         self.realizations.borrow_mut().clear();
+        self.window_closed.set(false);
     }
 
     fn component_waker(&self) -> Option<Rc<dyn Fn()>> {
@@ -635,6 +650,17 @@ impl NativeRuntime for WinUiRuntime {
 
     fn drain_realizations(&mut self) -> Vec<NativeWork<RealizationRequest>> {
         self.realizations.borrow_mut().drain(..).collect()
+    }
+}
+
+impl WinUiRuntime {
+    #[cfg(feature = "test")]
+    pub(crate) fn live_window(&self) -> Result<Window, RuntimeError> {
+        self.windows
+            .values()
+            .next()
+            .cloned()
+            .ok_or(RuntimeError::MissingApplication)
     }
 }
 
@@ -685,8 +711,8 @@ pub fn mark_live_test_cleanup() {
 }
 
 #[cfg(feature = "test")]
-pub fn live_test_cleanup_ordered() -> bool {
-    LIVE_TEST_CLEANUP_ORDERED.with(Cell::get)
+pub(crate) fn live_test_cleanup_count() -> u8 {
+    LIVE_TEST_CLEANUP.with(Cell::get)
 }
 
 #[cfg(feature = "test")]

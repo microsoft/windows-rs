@@ -24,7 +24,8 @@ state
 ```
 
 The planner is runtime-independent. `core/pump/planner/` handles topology, ordinary elements, and
-component views. `core/pump/publish.rs` is the only candidate publication path.
+component views. `core/pump/publish.rs` owns update publication. Initial mount and virtual
+realization use separate paths because neither replaces a published candidate.
 
 ## Native failure policy
 
@@ -51,7 +52,12 @@ dispatcher turn drains at most 64 messages. Dirty scopes compose parent-first. P
 before queued child messages, and retiring a child removes its queued work.
 
 An isolated native leaf uses a property-only candidate and does not clone the full tree. Hooks
-remain available as a comparison frontend and use the same planner and publication path.
+remain available as a comparison frontend and use the same planner and update publication path.
+Hook and component effect cleanup runs before native mutation, and setup runs after publication.
+
+If component props are applied but later candidate validation fails, Reactor records each touched
+scope. An identical-props retry recomposes those scopes instead of accepting the old structural
+tree.
 
 ## Native events and controlled properties
 
@@ -72,8 +78,9 @@ Logical fragments create no hidden WinUI control. They flatten zero or more nati
 generated children collections. Window and content slots accept zero or one flattened root and
 reject invalid arity before native mutation.
 
-Sparse keyed edits use insert and move commands. Dense keyed reversal uses `ResetChildren`
-followed by ordered attachment to avoid quadratic vector movement.
+Component-owned keyed children build one key index and one desired order. Sparse keyed edits use
+insert and move commands. Dense keyed reversal uses child synchronization to avoid quadratic
+search and vector movement.
 
 `ItemsRepeater` owns virtual collection leases and stable native shells. Recycling clears shell
 content before reuse. Realized row subtrees remain ordinary arena nodes and retain independent
@@ -88,6 +95,22 @@ dispatcher rejection is an explicit host fault.
 Changed and retired effect cleanup runs child-first before native mutation. New setup runs
 parent-first after publication. Normal shutdown cleans effects before native reset, and cleanup is
 idempotent across shutdown and `Drop`.
+
+These budgets bound queued work items, not the size of one component composition or candidate.
+Large synchronous component trees are controlled by the locality and keyed-scale gates rather than
+a continuation state machine.
+
+## Multi-window host
+
+`LiveHost` owns the WinUI `Application` and a `WindowToken`-keyed Pump map. Each Pump owns its tree,
+component store, queues, scheduler state, native window, subscriptions, and effects.
+
+Scheduler callbacks route only to the captured token. `Window.Closed` removes that Pump during the
+native lifecycle callback, closes its scheduler, and lets final `Drop` clean effects before native
+reset. The host tracks a Pump that is temporarily in flight, so a synchronous close cannot reinsert
+it or make another close appear to be the last window. A stale queued callback then finds no
+matching Pump. Closing the last window exits the UI thread; closing a secondary leaves the other
+Pumps running.
 
 ## Generation
 
@@ -111,5 +134,11 @@ Removing fine-grained recovery reduced `core/pump/publish.rs` from 396 lines to 
 per-command outcome vectors, divergent properties, retries, remount recovery, recovery
 continuations, and their specialized tests.
 
+Component-owned keyed updates scale near-linearly from 512 to 4,096 children. The current release
+measurements are about 0.45 ms/4.11 ms for same-order parent recomposition and 0.49 ms/5.25 ms for
+reversal. Rotate, insert, and remove remain in the same range at 4,096 children.
+
 The `test` feature exposes the recording runtime and Pump to the headless test and benchmark
-packages. `test_reactor_next_selftest` exercises the real WinUI host in a process-isolated fixture.
+packages. `test_reactor_next_selftest` exercises two real WinUI windows in a process-isolated
+fixture, including independent controlled input, secondary closure with stale queued work, and
+continued updates and final effect cleanup in the surviving window.

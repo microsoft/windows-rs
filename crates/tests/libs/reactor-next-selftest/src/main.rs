@@ -11,15 +11,24 @@ fn main() -> Result<()> {
         std::process::exit(1);
     });
 
-    App::run(move |hooks| {
-        hooks.use_effect((), move || {
-            let passed = live_resources_installed().unwrap_or(false);
-            if let Err(error) = schedule_live_controlled_repair_test(passed) {
-                eprintln!("could not start live backend fixture: {error}");
-                std::process::exit(1);
-            }
-            Some(Box::new(mark_live_test_cleanup as fn()))
-        });
-        TextBox::new().text("fixed").into()
-    })
+    App::run_windows([
+        primary as fn(&mut Hooks) -> Element,
+        secondary as fn(&mut Hooks) -> Element,
+    ])
+}
+
+fn primary(hooks: &mut Hooks) -> Element {
+    hooks.use_effect((), move || {
+        let passed = live_resources_installed().unwrap_or(false);
+        if let Err(error) = schedule_live_controlled_repair_test(passed) {
+            eprintln!("could not start live backend fixture: {error}");
+            std::process::exit(1);
+        }
+        Some(Box::new(mark_live_test_cleanup as fn()))
+    });
+    TextBox::new().text("fixed").into()
+}
+
+fn secondary(_hooks: &mut Hooks) -> Element {
+    TextBox::new().text("second").into()
 }

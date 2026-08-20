@@ -23,6 +23,33 @@ struct EffectSlot<D> {
     initialized: Cell<bool>,
 }
 
+pub(crate) struct HookEffect {
+    cleanup: Option<Box<dyn FnOnce()>>,
+    commit: Option<Box<dyn FnOnce()>>,
+}
+
+pub(crate) struct HookEffects {
+    effects: Vec<HookEffect>,
+}
+
+impl HookEffects {
+    pub(crate) fn prepare(&mut self) {
+        for effect in &mut self.effects {
+            if let Some(cleanup) = effect.cleanup.take() {
+                cleanup();
+            }
+        }
+    }
+
+    pub(crate) fn commit(mut self) {
+        for effect in &mut self.effects {
+            if let Some(commit) = effect.commit.take() {
+                commit();
+            }
+        }
+    }
+}
+
 impl<D: 'static> Slot for Rc<EffectSlot<D>> {
     fn as_any(&self) -> &dyn Any {
         self
@@ -63,7 +90,7 @@ pub struct Hooks {
     slots: Vec<Box<dyn Slot>>,
     cursor: usize,
     dirty: Rc<Cell<bool>>,
-    pending_effects: Vec<Box<dyn FnOnce()>>,
+    pending_effects: Vec<HookEffect>,
 }
 
 impl Hooks {
@@ -118,14 +145,19 @@ impl Hooks {
 
         let changed = *slot.dependency.borrow() != dependency || !slot.initialized.get();
         if changed {
-            self.pending_effects.push(Box::new(move || {
-                if let Some(cleanup) = slot.cleanup.borrow_mut().take() {
-                    cleanup();
-                }
-                *slot.dependency.borrow_mut() = dependency;
-                *slot.cleanup.borrow_mut() = setup();
-                slot.initialized.set(true);
-            }));
+            let cleanup_slot = Rc::clone(&slot);
+            self.pending_effects.push(HookEffect {
+                cleanup: Some(Box::new(move || {
+                    if let Some(cleanup) = cleanup_slot.cleanup.borrow_mut().take() {
+                        cleanup();
+                    }
+                })),
+                commit: Some(Box::new(move || {
+                    *slot.dependency.borrow_mut() = dependency;
+                    *slot.cleanup.borrow_mut() = setup();
+                    slot.initialized.set(true);
+                })),
+            });
         }
     }
 
@@ -135,9 +167,11 @@ impl Hooks {
         self.dirty.set(false);
     }
 
-    pub(crate) fn finish(&mut self) -> Vec<Box<dyn FnOnce()>> {
+    pub(crate) fn finish(&mut self) -> HookEffects {
         assert_eq!(self.cursor, self.slots.len(), "hook count changed");
-        std::mem::take(&mut self.pending_effects)
+        HookEffects {
+            effects: std::mem::take(&mut self.pending_effects),
+        }
     }
 
     pub(crate) fn dirty(&self) -> bool {
@@ -200,20 +234,21 @@ where
 
             self.hooks.begin();
             let element = (self.render)(&mut self.hooks);
-            let effects = self.hooks.finish();
+            let mut effects = self.hooks.finish();
             let result = if self.mounted {
-                self.pump.update(element)
+                self.pump.update_with_hook_effects(element, effects)
             } else {
                 let result = self.pump.mount(element);
                 self.mounted = self.pump.root().is_some();
+                if result.is_ok() {
+                    effects.prepare();
+                    effects.commit();
+                }
                 result
             };
             if let Err(error) = result {
                 self.hooks.retry();
                 return Err(error);
-            }
-            for effect in effects {
-                effect();
             }
         }
         Err(PumpError::RenderBudgetExceeded)
@@ -238,12 +273,76 @@ where
         self.pump.shutdown();
         self.mounted = false;
     }
+
+    pub(crate) fn native_window_closed(&mut self) {
+        self.hooks.cleanup();
+        self.pump.native_window_closed();
+        self.mounted = false;
+    }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
     use crate::native::*;
+
+    struct LifecycleRuntime {
+        inner: RecordingRuntime,
+        log: Rc<RefCell<Vec<String>>>,
+    }
+
+    impl NativeRuntime for LifecycleRuntime {
+        fn apply(&mut self, commands: &[Command]) -> Result<(), NativeApplyError> {
+            self.log.borrow_mut().push("apply".to_string());
+            self.inner.apply(commands)
+        }
+
+        fn reset(&mut self) {
+            self.log.borrow_mut().push("reset".to_string());
+            self.inner.reset();
+        }
+    }
+
+    #[test]
+    fn changed_effect_cleanup_precedes_native_apply_and_setup_follows_publication() {
+        let log = Rc::new(RefCell::new(Vec::new()));
+        let state = Rc::new(RefCell::new(None));
+        let state_capture = Rc::clone(&state);
+        let effect_log = Rc::clone(&log);
+        let mut app = RenderLoop::new(
+            LifecycleRuntime {
+                inner: RecordingRuntime::default(),
+                log: Rc::clone(&log),
+            },
+            move |hooks| {
+                let value = hooks.use_state(|| 0_u32);
+                *state_capture.borrow_mut() = Some(value.clone());
+                let dependency = value.get();
+                let setup_log = Rc::clone(&effect_log);
+                hooks.use_effect(dependency, move || {
+                    setup_log.borrow_mut().push(format!("setup {dependency}"));
+                    Some(Box::new(move || {
+                        setup_log.borrow_mut().push(format!("cleanup {dependency}"));
+                    }))
+                });
+                TextBlock::new().text(dependency.to_string()).into()
+            },
+        );
+
+        app.run().unwrap();
+        log.borrow_mut().clear();
+        state.borrow().as_ref().unwrap().set(1);
+        app.run().unwrap();
+
+        assert_eq!(
+            &*log.borrow(),
+            &[
+                "cleanup 0".to_string(),
+                "apply".to_string(),
+                "setup 1".to_string()
+            ]
+        );
+    }
 
     #[test]
     fn state_callback_schedules_whole_root_render() {

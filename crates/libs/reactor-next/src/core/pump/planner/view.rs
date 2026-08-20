@@ -11,7 +11,7 @@ impl<R: NativeRuntime> Pump<R> {
         components: &mut ComponentStore,
         changes: &mut ComponentChanges,
         plan: &mut UpdatePlan,
-    ) -> Result<(), PumpError> {
+    ) -> Result<NodeId, PumpError> {
         match view {
             View::Native(element) => {
                 if tree.kind(node)? != NodeKind::Native(element.kind())
@@ -27,8 +27,7 @@ impl<R: NativeRuntime> Pump<R> {
                         plan,
                     );
                 }
-                Self::reconcile_node(tree, node, element, plan)?;
-                Ok(())
+                Self::reconcile_node(tree, node, element, plan)
             }
             View::Component(component) => {
                 if tree.kind(node)? != NodeKind::Component
@@ -44,14 +43,19 @@ impl<R: NativeRuntime> Pump<R> {
                     );
                 }
                 let token = components.token(tree.component_scope(node)?)?;
-                if component.apply_props(components, token)? {
+                let changed = component.apply_props(components, token)?;
+                if changed {
+                    changes.touched.insert(token);
+                }
+                if changed || changes.retry.contains(&token) {
                     if changes.deferred.contains(&token) {
-                        Ok(())
+                        Ok(node)
                     } else {
-                        Self::recompose_component(tree, node, token, components, changes, plan)
+                        Self::recompose_component(tree, node, token, components, changes, plan)?;
+                        Ok(node)
                     }
                 } else {
-                    Ok(())
+                    Ok(node)
                 }
             }
             View::Empty => {
@@ -65,7 +69,8 @@ impl<R: NativeRuntime> Pump<R> {
                         plan,
                     );
                 }
-                Self::reconcile_fragment(tree, node, &[], components, changes, plan)
+                Self::reconcile_fragment(tree, node, &[], components, changes, plan)?;
+                Ok(node)
             }
             View::Fragment(children) => {
                 if tree.kind(node)? != NodeKind::Fragment {
@@ -78,7 +83,8 @@ impl<R: NativeRuntime> Pump<R> {
                         plan,
                     );
                 }
-                Self::reconcile_fragment(tree, node, &children, components, changes, plan)
+                Self::reconcile_fragment(tree, node, &children, components, changes, plan)?;
+                Ok(node)
             }
             View::Content { control, content } => {
                 if !Self::control_has_role(control.kind(), ControlRole::Content) {
@@ -98,7 +104,8 @@ impl<R: NativeRuntime> Pump<R> {
                 let [child] = tree.children(node)? else {
                     return Err(PumpError::StructureUnsupported);
                 };
-                Self::reconcile_planned_view(tree, *child, *content, components, changes, plan)
+                Self::reconcile_planned_view(tree, *child, *content, components, changes, plan)?;
+                Ok(node)
             }
             View::Children { control, children } => {
                 if !Self::control_has_role(control.kind(), ControlRole::Children) {
@@ -132,23 +139,25 @@ impl<R: NativeRuntime> Pump<R> {
                     .iter()
                     .map(|child| child.key().clone())
                     .collect::<Vec<_>>();
-                diff(&old_keys, &new_keys)
+                let operations = diff(&old_keys, &new_keys)
                     .map_err(|KeyedError::DuplicateKey(key)| PumpError::DuplicateKey(key))?;
+                let new_key_set = new_keys.iter().cloned().collect::<HashSet<_>>();
+                let mut nodes = old_keys
+                    .iter()
+                    .cloned()
+                    .zip(current.iter().copied())
+                    .collect::<HashMap<_, _>>();
 
                 for (key, child) in old_keys.iter().zip(current.iter().copied()) {
-                    if !new_keys.contains(key) {
+                    if !new_key_set.contains(key) {
                         Self::collect_retired_components(tree, child, components, changes)?;
                         Self::retire_planned_subtree(tree, child, plan)?;
                     }
                 }
-                for (index, child) in children.iter().enumerate() {
-                    let existing =
-                        tree.children(node)?.iter().copied().find(|candidate| {
-                            tree.key(*candidate).ok().flatten() == Some(child.key())
-                        });
-                    let (child_node, inserted) = if let Some(child_node) = existing {
+                for child in children.iter() {
+                    if let Some(child_node) = nodes.get(child.key()).copied() {
                         let old_roots = Self::native_roots(tree, child_node)?;
-                        Self::reconcile_planned_view(
+                        let reconciled = Self::reconcile_planned_view(
                             tree,
                             child_node,
                             child.view().clone(),
@@ -156,18 +165,15 @@ impl<R: NativeRuntime> Pump<R> {
                             changes,
                             plan,
                         )?;
-                        let child_node = tree
-                            .children(node)?
-                            .iter()
-                            .copied()
-                            .find(|candidate| {
-                                tree.key(*candidate).ok().flatten() == Some(child.key())
-                            })
-                            .ok_or(PumpError::StructureUnsupported)?;
                         requires_sync |= old_roots.len() != 1
-                            || Self::native_roots(tree, child_node)?.len() != 1;
-                        (child_node, false)
-                    } else {
+                            || Self::native_roots(tree, reconciled)?.len() != 1;
+                        if reconciled != child_node {
+                            nodes.insert(child.key().clone(), reconciled);
+                        }
+                    }
+                }
+                for child in children.iter() {
+                    if !nodes.contains_key(child.key()) {
                         let (child_node, native) = Self::mount_planned_view(
                             tree,
                             Some(node),
@@ -177,43 +183,76 @@ impl<R: NativeRuntime> Pump<R> {
                             changes,
                             plan,
                         )?;
-                        if let [native] = native.as_slice()
-                            && !requires_sync
-                        {
-                            plan.push(Command::InsertChild {
-                                parent: node,
-                                child: *native,
-                                index,
-                            });
-                        } else {
+                        if native.len() != 1 {
                             requires_sync = true;
                         }
-                        (child_node, true)
-                    };
-
-                    let mut order = tree.children(node)?.to_vec();
-                    let previous = order
-                        .iter()
-                        .position(|node| *node == child_node)
-                        .ok_or(PumpError::StructureUnsupported)?;
-                    if previous != index {
-                        order.remove(previous);
-                        order.insert(index, child_node);
-                        if !inserted && !requires_sync {
-                            plan.push(Command::MoveChild {
-                                parent: node,
-                                child: Self::native_root(tree, child_node)?,
-                                index,
-                            });
-                        }
-                        tree.set_children(node, order)?;
+                        nodes.insert(child.key().clone(), child_node);
                     }
                 }
+
+                let order = new_keys
+                    .iter()
+                    .map(|key| {
+                        nodes
+                            .get(key)
+                            .copied()
+                            .ok_or(PumpError::StructureUnsupported)
+                    })
+                    .collect::<Result<Vec<_>, _>>()?;
+                tree.set_children(node, order)?;
                 let new_native = Self::native_children(tree, node)?;
-                if requires_sync && old_native != new_native {
+                let dense = operations.len() >= 256 && operations.len() * 4 > new_keys.len();
+                if (requires_sync || dense) && old_native != new_native {
                     plan.synchronize_children(node, new_native);
+                } else if !requires_sync {
+                    let mut key_order = old_keys;
+                    for operation in operations {
+                        let (key, before, inserted) = match operation {
+                            KeyedOperation::Remove { key } => {
+                                if let Some(index) = key_order.iter().position(|item| item == &key)
+                                {
+                                    key_order.remove(index);
+                                }
+                                continue;
+                            }
+                            KeyedOperation::Insert { key, before } => (key, before, true),
+                            KeyedOperation::Move { key, before } => {
+                                let previous = key_order
+                                    .iter()
+                                    .position(|item| item == &key)
+                                    .ok_or(PumpError::StructureUnsupported)?;
+                                key_order.remove(previous);
+                                (key, before, false)
+                            }
+                        };
+                        let index = before.as_ref().map_or(key_order.len(), |before| {
+                            key_order
+                                .iter()
+                                .position(|item| item == before)
+                                .unwrap_or(key_order.len())
+                        });
+                        key_order.insert(index, key.clone());
+                        let child_node = nodes
+                            .get(&key)
+                            .copied()
+                            .ok_or(PumpError::StructureUnsupported)?;
+                        let child = Self::native_root(tree, child_node)?;
+                        plan.push(if inserted {
+                            Command::InsertChild {
+                                parent: node,
+                                child,
+                                index,
+                            }
+                        } else {
+                            Command::MoveChild {
+                                parent: node,
+                                child,
+                                index,
+                            }
+                        });
+                    }
                 }
-                Ok(())
+                Ok(node)
             }
             View::VirtualItems { .. } => Err(PumpError::StructureUnsupported),
         }
@@ -244,21 +283,22 @@ impl<R: NativeRuntime> Pump<R> {
         diff(&old_keys, &new_keys)
             .map_err(|KeyedError::DuplicateKey(key)| PumpError::DuplicateKey(key))?;
 
+        let new_key_set = new_keys.iter().cloned().collect::<HashSet<_>>();
+        let mut nodes = old_keys
+            .iter()
+            .cloned()
+            .zip(current.iter().copied())
+            .collect::<HashMap<_, _>>();
         for (key, child) in old_keys.iter().zip(current) {
-            if !new_keys.contains(key) {
+            if !new_key_set.contains(key) {
                 Self::collect_retired_components(tree, child, components, changes)?;
                 Self::retire_planned_subtree(tree, child, plan)?;
             }
         }
         let mut order = Vec::with_capacity(children.len());
         for child in children {
-            let existing = tree
-                .children(node)?
-                .iter()
-                .copied()
-                .find(|candidate| tree.key(*candidate).ok().flatten() == Some(child.key()));
-            let child_node = if let Some(child_node) = existing {
-                Self::reconcile_planned_view(
+            let child_node = if let Some(child_node) = nodes.get(child.key()).copied() {
+                let reconciled = Self::reconcile_planned_view(
                     tree,
                     child_node,
                     child.view().clone(),
@@ -266,13 +306,10 @@ impl<R: NativeRuntime> Pump<R> {
                     changes,
                     plan,
                 )?;
-                tree.children(node)?
-                    .iter()
-                    .copied()
-                    .find(|candidate| tree.key(*candidate).ok().flatten() == Some(child.key()))
-                    .ok_or(PumpError::StructureUnsupported)?
+                nodes.insert(child.key().clone(), reconciled);
+                reconciled
             } else {
-                Self::mount_planned_view(
+                let mounted = Self::mount_planned_view(
                     tree,
                     Some(node),
                     Some(child.key().clone()),
@@ -281,7 +318,9 @@ impl<R: NativeRuntime> Pump<R> {
                     changes,
                     plan,
                 )?
-                .0
+                .0;
+                nodes.insert(child.key().clone(), mounted);
+                mounted
             };
             order.push(child_node);
         }
@@ -304,7 +343,7 @@ impl<R: NativeRuntime> Pump<R> {
         components: &mut ComponentStore,
         changes: &mut ComponentChanges,
         plan: &mut UpdatePlan,
-    ) -> Result<(), PumpError> {
+    ) -> Result<NodeId, PumpError> {
         let parent = tree.parent(node)?.ok_or(PumpError::StructureUnsupported)?;
         let key = tree.key(node)?.cloned();
         let index = tree
@@ -338,7 +377,7 @@ impl<R: NativeRuntime> Pump<R> {
                 index: native_index + index,
             });
         }
-        Ok(())
+        Ok(replacement)
     }
 
     fn collect_retired_components(
@@ -390,7 +429,7 @@ impl<R: NativeRuntime> Pump<R> {
         let [child] = tree.children(*slot)? else {
             return Err(PumpError::StructureUnsupported);
         };
-        Self::reconcile_planned_view(tree, *child, view, components, changes, plan)
+        Self::reconcile_planned_view(tree, *child, view, components, changes, plan).map(|_| ())
     }
 
     pub(in super::super) fn mount_planned_view(

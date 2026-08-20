@@ -5,12 +5,13 @@ impl<R: NativeRuntime> Pump<R> {
         &mut self,
         mut candidate: CandidateState,
         plan: UpdatePlan,
-        changes: FrontendChanges,
+        mut changes: FrontendChanges,
         next_version: u64,
     ) -> Result<(), PumpError> {
-        match &changes {
+        match &mut changes {
             FrontendChanges::Component(changes) => self.prepare_component_effects(changes)?,
             FrontendChanges::Local(token) => self.components.prepare_effects(*token)?,
+            FrontendChanges::Hooks { effects, .. } => effects.prepare(),
             FrontendChanges::Element(_) => {}
         }
 
@@ -24,7 +25,7 @@ impl<R: NativeRuntime> Pump<R> {
         }
 
         self.commit_candidate_properties(&mut candidate, &plan.commits)?;
-        self.publish_frontend(candidate, &changes)?;
+        self.publish_frontend(candidate, changes)?;
         self.native_observation_pending = false;
         self.version = next_version;
         Ok(())
@@ -33,9 +34,9 @@ impl<R: NativeRuntime> Pump<R> {
     fn publish_frontend(
         &mut self,
         candidate: CandidateState,
-        changes: &FrontendChanges,
+        changes: FrontendChanges,
     ) -> Result<(), PumpError> {
-        if let FrontendChanges::Component(changes) = changes {
+        if let FrontendChanges::Component(changes) = &changes {
             self.finalize_component_changes(changes)?;
         }
         match candidate {
@@ -48,9 +49,13 @@ impl<R: NativeRuntime> Pump<R> {
             }
         }
         match changes {
-            FrontendChanges::Element(element) => self.element = Some(element.clone()),
-            FrontendChanges::Component(changes) => self.commit_component_effects(changes)?,
-            FrontendChanges::Local(token) => self.components.commit_effects(*token)?,
+            FrontendChanges::Element(element) => self.element = Some(element),
+            FrontendChanges::Hooks { element, effects } => {
+                self.element = Some(element);
+                effects.commit();
+            }
+            FrontendChanges::Component(changes) => self.commit_component_effects(&changes)?,
+            FrontendChanges::Local(token) => self.components.commit_effects(token)?,
         }
         Ok(())
     }

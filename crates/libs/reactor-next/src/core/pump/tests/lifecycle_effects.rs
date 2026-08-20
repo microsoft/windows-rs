@@ -7,6 +7,70 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 #[test]
+fn dropping_component_pump_cleans_effects_before_native_reset() {
+    struct DropRuntime {
+        inner: RecordingRuntime,
+        log: Rc<RefCell<Vec<&'static str>>>,
+    }
+
+    impl NativeRuntime for DropRuntime {
+        fn apply(&mut self, commands: &[Command]) -> Result<(), NativeApplyError> {
+            self.inner.apply(commands)
+        }
+
+        fn reset(&mut self) {
+            self.log.borrow_mut().push("reset");
+            self.inner.reset();
+        }
+    }
+
+    #[derive(Clone)]
+    struct Props(Rc<RefCell<Vec<&'static str>>>);
+
+    impl PartialEq for Props {
+        fn eq(&self, other: &Self) -> bool {
+            Rc::ptr_eq(&self.0, &other.0)
+        }
+    }
+
+    struct DropEffect(Props);
+
+    impl Component for DropEffect {
+        type Message = ();
+        type Props = Props;
+
+        fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+            Self(props.clone())
+        }
+
+        fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+            self.0 = props.clone();
+        }
+
+        fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
+
+        fn view(&self, context: &mut ViewContext<Self>) -> View {
+            let log = Rc::clone(&self.0.0);
+            context.use_effect((), move || {
+                Some(Box::new(move || log.borrow_mut().push("cleanup")))
+            });
+            View::native(TextBlock::new())
+        }
+    }
+
+    let log = Rc::new(RefCell::new(Vec::new()));
+    let mut pump = Pump::new(DropRuntime {
+        inner: RecordingRuntime::default(),
+        log: Rc::clone(&log),
+    });
+    pump.mount_view(View::component::<DropEffect>(Props(Rc::clone(&log))))
+        .unwrap();
+    drop(pump);
+
+    assert_eq!(&*log.borrow(), &["cleanup", "reset"]);
+}
+
+#[test]
 fn component_effects_commit_after_mount_and_cleanup_once() {
     #[derive(Clone)]
     struct Props {

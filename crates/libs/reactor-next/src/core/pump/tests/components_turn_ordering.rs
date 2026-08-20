@@ -7,6 +7,85 @@ use std::any::TypeId;
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
+#[derive(Clone, PartialEq)]
+enum PlanningMode {
+    Valid,
+    InvalidArity,
+    DuplicateKey,
+    InvalidRole,
+}
+
+struct PlanningFailureComponent {
+    mode: PlanningMode,
+}
+
+impl Component for PlanningFailureComponent {
+    type Message = ();
+    type Props = PlanningMode;
+
+    fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+        Self {
+            mode: props.clone(),
+        }
+    }
+
+    fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+        self.mode = props.clone();
+    }
+
+    fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
+
+    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        match self.mode {
+            PlanningMode::Valid => View::native(TextBlock::new().text("valid")),
+            PlanningMode::InvalidArity => View::fragment([
+                KeyedView::new("a", View::native(TextBlock::new())),
+                KeyedView::new("b", View::native(TextBlock::new())),
+            ]),
+            PlanningMode::DuplicateKey => View::fragment([
+                KeyedView::new("duplicate", View::native(TextBlock::new())),
+                KeyedView::new("duplicate", View::native(TextBlock::new())),
+            ]),
+            PlanningMode::InvalidRole => View::Children {
+                control: TextBlock::new().into(),
+                children: Rc::new(Vec::new()),
+            },
+        }
+    }
+}
+
+#[test]
+fn identical_props_retry_recomposes_after_planning_failure() {
+    for (mode, expected) in [
+        (PlanningMode::InvalidArity, PumpError::StructureUnsupported),
+        (
+            PlanningMode::DuplicateKey,
+            PumpError::DuplicateKey(Key::from("duplicate")),
+        ),
+        (PlanningMode::InvalidRole, PumpError::StructureUnsupported),
+    ] {
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount_view(View::component::<PlanningFailureComponent>(
+            PlanningMode::Valid,
+        ))
+        .unwrap();
+        let version = pump.version();
+
+        assert_eq!(
+            pump.update_view(View::component::<PlanningFailureComponent>(mode.clone())),
+            Err(expected.clone())
+        );
+        assert_eq!(
+            pump.update_view(View::component::<PlanningFailureComponent>(mode)),
+            Err(expected)
+        );
+        assert_eq!(pump.version(), version);
+        pump.update_view(View::native(TextBlock::new().text("replacement")))
+            .unwrap();
+        assert!(pump.planning_dirty.is_empty());
+    }
+}
+
 #[test]
 fn mounts_a_component_chain_into_the_authoritative_tree() {
     let mut pump = Pump::new(RecordingRuntime::default());

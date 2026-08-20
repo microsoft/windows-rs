@@ -55,8 +55,10 @@ pub struct Pump<R: NativeRuntime> {
     events: VecDeque<NativeWork<QueuedEvent>>,
     identity: WindowToken,
     native_observation_pending: bool,
+    planning_dirty: HashSet<ComponentToken>,
     poisoned: bool,
     realizations: VecDeque<NativeWork<RealizationRequest>>,
+    reset_on_drop: bool,
     version: u64,
     window: Option<NodeId>,
 }
@@ -80,8 +82,10 @@ impl<R: NativeRuntime> Pump<R> {
             events: VecDeque::new(),
             identity,
             native_observation_pending: false,
+            planning_dirty: HashSet::new(),
             poisoned: false,
             realizations: VecDeque::new(),
+            reset_on_drop: true,
             version: 0,
             window: None,
         }
@@ -204,7 +208,10 @@ impl<R: NativeRuntime> Pump<R> {
             reconcile_observations: self.native_observation_pending,
             ..UpdatePlan::new(self.identity)
         };
-        let mut changes = ComponentChanges::default();
+        let mut changes = ComponentChanges {
+            retry: self.planning_dirty.clone(),
+            ..ComponentChanges::default()
+        };
         if let Err(error) = Self::reconcile_planned_view(
             &mut candidate,
             root,
@@ -213,11 +220,13 @@ impl<R: NativeRuntime> Pump<R> {
             &mut changes,
             &mut plan,
         ) {
+            self.planning_dirty.extend(changes.touched.iter().copied());
             Self::remove_reservations(&mut self.components, &changes.reserved);
             return Err(error);
         }
         let window = self.window.ok_or(PumpError::NotMounted)?;
         let [candidate_root] = candidate.children(window)? else {
+            self.planning_dirty.extend(changes.touched.iter().copied());
             Self::remove_reservations(&mut self.components, &changes.reserved);
             return Err(PumpError::StructureUnsupported);
         };
@@ -226,6 +235,22 @@ impl<R: NativeRuntime> Pump<R> {
     }
 
     pub fn update(&mut self, element: Element) -> Result<(), PumpError> {
+        self.update_element(element, None)
+    }
+
+    pub(crate) fn update_with_hook_effects(
+        &mut self,
+        element: Element,
+        effects: HookEffects,
+    ) -> Result<(), PumpError> {
+        self.update_element(element, Some(effects))
+    }
+
+    fn update_element(
+        &mut self,
+        element: Element,
+        mut effects: Option<HookEffects>,
+    ) -> Result<(), PumpError> {
         if self.poisoned {
             return Err(PumpError::Poisoned);
         }
@@ -238,6 +263,12 @@ impl<R: NativeRuntime> Pump<R> {
                 &element,
             )?
         {
+            if let Some(effects) = effects.as_mut() {
+                effects.prepare();
+            }
+            if let Some(effects) = effects {
+                effects.commit();
+            }
             self.version = next_version;
             return Ok(());
         }
@@ -249,13 +280,20 @@ impl<R: NativeRuntime> Pump<R> {
             ..UpdatePlan::new(self.identity)
         };
         let candidate_root = Self::reconcile_node(&mut candidate, node, element, &mut plan)?;
+        let changes = match effects {
+            Some(effects) => FrontendChanges::Hooks {
+                element: desired_element,
+                effects,
+            },
+            None => FrontendChanges::Element(desired_element),
+        };
         self.publish_candidate(
             CandidateState::Tree {
                 tree: candidate,
                 root: candidate_root,
             },
             plan,
-            FrontendChanges::Element(desired_element),
+            changes,
             next_version,
         )
     }
@@ -274,17 +312,7 @@ impl<R: NativeRuntime> Pump<R> {
 
     pub fn shutdown(&mut self) {
         let identity = self.identity.next();
-        if let Some(root) = self.root {
-            for node in self.tree.subtree_postorder(root).unwrap() {
-                if self.tree.kind(node).unwrap() == NodeKind::Component {
-                    let token = self
-                        .components
-                        .token(self.tree.component_scope(node).unwrap())
-                        .unwrap();
-                    self.components.cleanup_effects(token).unwrap();
-                }
-            }
-        }
+        self.cleanup_component_effects().unwrap();
         self.runtime.reset();
         self.application = None;
         self.element = None;
@@ -292,6 +320,7 @@ impl<R: NativeRuntime> Pump<R> {
         self.events.clear();
         self.realizations.clear();
         self.native_observation_pending = false;
+        self.planning_dirty.clear();
         self.root = None;
         self.tree = Tree::new();
         self.version = 0;
@@ -308,6 +337,26 @@ impl<R: NativeRuntime> Pump<R> {
         } else {
             self.poisoned = true;
         }
+    }
+
+    fn cleanup_component_effects(&mut self) -> Result<(), PumpError> {
+        let Some(root) = self.root else {
+            return Ok(());
+        };
+        for node in self.tree.subtree_postorder(root)? {
+            if self.tree.kind(node)? == NodeKind::Component {
+                let scope = self.tree.component_scope(node)?;
+                let token = self.components.token(scope)?;
+                self.components.cleanup_effects(token)?;
+            }
+        }
+        Ok(())
+    }
+
+    pub(crate) fn native_window_closed(&mut self) {
+        self.cleanup_component_effects().unwrap();
+        self.components.close();
+        self.reset_on_drop = false;
     }
 
     pub fn root(&self) -> Option<NodeId> {
@@ -393,6 +442,12 @@ impl<R: NativeRuntime> Pump<R> {
         changes: ComponentChanges,
         next_version: u64,
     ) -> Result<(), PumpError> {
+        let resolved = changes
+            .composed
+            .iter()
+            .chain(changes.retired.iter())
+            .copied()
+            .collect::<HashSet<_>>();
         self.publish_candidate(
             CandidateState::Tree {
                 tree: candidate,
@@ -401,12 +456,18 @@ impl<R: NativeRuntime> Pump<R> {
             plan,
             FrontendChanges::Component(changes),
             next_version,
-        )
+        )?;
+        self.planning_dirty
+            .retain(|token| !resolved.contains(token));
+        Ok(())
     }
 }
 
 impl<R: NativeRuntime> Drop for Pump<R> {
     fn drop(&mut self) {
-        self.runtime.reset();
+        _ = self.cleanup_component_effects();
+        if self.reset_on_drop {
+            self.runtime.reset();
+        }
     }
 }

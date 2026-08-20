@@ -186,6 +186,63 @@ impl Component for BenchFragmentRoot {
     }
 }
 
+#[derive(Clone)]
+struct KeyedRootProps(Rc<Vec<u64>>);
+
+impl PartialEq for KeyedRootProps {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.0, &other.0)
+    }
+}
+
+struct KeyedRoot(KeyedRootProps);
+
+impl Component for KeyedRoot {
+    type Props = KeyedRootProps;
+    type Message = ();
+
+    fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+        Self(props.clone())
+    }
+
+    fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+        self.0 = props.clone();
+    }
+
+    fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
+
+    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        View::children(
+            StackPanel::new(),
+            self.0
+                .0
+                .iter()
+                .map(|key| KeyedView::new(*key, View::component::<KeyedLeaf>(*key))),
+        )
+    }
+}
+
+struct KeyedLeaf(u64);
+
+impl Component for KeyedLeaf {
+    type Props = u64;
+    type Message = ();
+
+    fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+        Self(*props)
+    }
+
+    fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+        self.0 = *props;
+    }
+
+    fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
+
+    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        View::native(TextBlock::new().text(self.0.to_string()))
+    }
+}
+
 fn measure(iters: u64, reps: u32, mut op: impl FnMut()) -> Perf {
     for _ in 0..2 {
         for _ in 0..iters {
@@ -305,6 +362,29 @@ fn bench_update(
     let mut flip = false;
     let perf = measure(iters, reps, || {
         pump.update(if flip { a.clone() } else { b.clone() })
+            .unwrap();
+        flip = !flip;
+    });
+    Row { name, n, perf }
+}
+
+fn bench_component_keyed(
+    name: &'static str,
+    n: usize,
+    a: Vec<u64>,
+    b: Vec<u64>,
+    iters: u64,
+    reps: u32,
+) -> Row {
+    let a = KeyedRootProps(Rc::new(a));
+    let b = KeyedRootProps(Rc::new(b));
+    let mut pump = Pump::new(runtime());
+    pump.mount_view(View::component::<KeyedRoot>(a.clone()))
+        .unwrap();
+    let mut flip = false;
+    let perf = measure(iters, reps, || {
+        let props = if flip { a.clone() } else { b.clone() };
+        pump.update_view(View::component::<KeyedRoot>(props))
             .unwrap();
         flip = !flip;
     });
@@ -551,8 +631,26 @@ fn main() {
     let labels_4k: Vec<_> = (0..4_096).map(|index| format!("cell-{index}")).collect();
     let mut reversed_4k = labels_4k.clone();
     reversed_4k.reverse();
+    let component_keys = (0..512_u64).collect::<Vec<_>>();
+    let mut component_reversed = component_keys.clone();
+    component_reversed.reverse();
+    let mut component_rotated = component_keys.clone();
+    component_rotated.rotate_left(1);
+    let mut component_inserted = component_keys.clone();
+    component_inserted.push(512);
+    let mut component_removed = component_keys.clone();
+    component_removed.pop();
+    let component_keys_4k = (0..4_096_u64).collect::<Vec<_>>();
+    let mut component_reversed_4k = component_keys_4k.clone();
+    component_reversed_4k.reverse();
+    let mut component_rotated_4k = component_keys_4k.clone();
+    component_rotated_4k.rotate_left(1);
+    let mut component_inserted_4k = component_keys_4k.clone();
+    component_inserted_4k.push(4_096);
+    let mut component_removed_4k = component_keys_4k.clone();
+    component_removed_4k.pop();
 
-    let rows = [
+    let rows = vec![
         bench_update(
             "update_no_change",
             512,
@@ -619,6 +717,86 @@ fn main() {
         bench_component_leaf(512, iters, reps),
         bench_component_leaf(4_096, (iters / 4).max(1), reps),
         bench_component_leaf(16_384, (iters / 16).max(1), reps),
+        bench_component_keyed(
+            "component_same_order",
+            512,
+            component_keys.clone(),
+            component_keys.clone(),
+            (iters / 4).max(1),
+            reps,
+        ),
+        bench_component_keyed(
+            "component_reverse",
+            512,
+            component_keys.clone(),
+            component_reversed,
+            (iters / 4).max(1),
+            reps,
+        ),
+        bench_component_keyed(
+            "component_rotate",
+            512,
+            component_keys.clone(),
+            component_rotated,
+            (iters / 4).max(1),
+            reps,
+        ),
+        bench_component_keyed(
+            "component_insert",
+            512,
+            component_keys.clone(),
+            component_inserted,
+            (iters / 4).max(1),
+            reps,
+        ),
+        bench_component_keyed(
+            "component_remove",
+            512,
+            component_keys.clone(),
+            component_removed,
+            (iters / 4).max(1),
+            reps,
+        ),
+        bench_component_keyed(
+            "component_same_order",
+            4_096,
+            component_keys_4k.clone(),
+            component_keys_4k.clone(),
+            (iters / 32).max(1),
+            reps,
+        ),
+        bench_component_keyed(
+            "component_reverse",
+            4_096,
+            component_keys_4k.clone(),
+            component_reversed_4k,
+            (iters / 32).max(1),
+            reps,
+        ),
+        bench_component_keyed(
+            "component_rotate",
+            4_096,
+            component_keys_4k.clone(),
+            component_rotated_4k,
+            (iters / 32).max(1),
+            reps,
+        ),
+        bench_component_keyed(
+            "component_insert",
+            4_096,
+            component_keys_4k.clone(),
+            component_inserted_4k,
+            (iters / 32).max(1),
+            reps,
+        ),
+        bench_component_keyed(
+            "component_remove",
+            4_096,
+            component_keys_4k,
+            component_removed_4k,
+            (iters / 32).max(1),
+            reps,
+        ),
     ];
 
     println!("windows-reactor-next headless reconciler micro-benchmarks");
