@@ -39,6 +39,7 @@ fn main() {
         .input_default()
         .output(workspace_path(BINDINGS))
         .implements([
+            "Microsoft.UI.Xaml.IElementFactory",
             "Microsoft.UI.Xaml.IApplicationOverrides",
             "Microsoft.UI.Xaml.Markup.IXamlMetadataProvider",
         ])

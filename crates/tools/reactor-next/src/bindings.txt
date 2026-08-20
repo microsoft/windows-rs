@@ -5,9 +5,11 @@ Microsoft::UI::Dispatching::IDispatcherQueue::TryEnqueueWithPriority
 Microsoft::UI::Xaml::Application::{CreateInstance, Start}
 Microsoft::UI::Xaml::ApplicationInitializationCallback
 Microsoft::UI::Xaml::Controls::Button::CreateInstance
+Microsoft::UI::Xaml::Controls::ContentControl::CreateInstance
 Microsoft::UI::Xaml::Controls::Control::IsEnabledProperty
 Microsoft::UI::Xaml::Controls::IContentControl::put_Content
 Microsoft::UI::Xaml::Controls::IControl::put_IsEnabled
+Microsoft::UI::Xaml::Controls::IItemsRepeater::{put_ItemsSource, put_ItemTemplate}
 Microsoft::UI::Xaml::Controls::IPanel::Children
 Microsoft::UI::Xaml::Controls::IStackPanel::put_Orientation
 Microsoft::UI::Xaml::Controls::IStackPanel::put_Spacing
@@ -17,6 +19,7 @@ Microsoft::UI::Xaml::Controls::ITextBox::get_Text
 Microsoft::UI::Xaml::Controls::ITextBox::put_PlaceholderText
 Microsoft::UI::Xaml::Controls::ITextBox::put_Text
 Microsoft::UI::Xaml::Controls::ITextBox::{add_TextChanged, remove_TextChanged}
+Microsoft::UI::Xaml::Controls::ItemsRepeater::CreateInstance
 Microsoft::UI::Xaml::Controls::Orientation
 Microsoft::UI::Xaml::Controls::Primitives::IButtonBase::{add_Click, remove_Click}
 Microsoft::UI::Xaml::Controls::StackPanel::CreateInstance
@@ -31,6 +34,9 @@ Microsoft::UI::Xaml::Controls::TextBox::TextProperty
 Microsoft::UI::Xaml::Controls::UIElementCollection
 Microsoft::UI::Xaml::IApplicationOverrides
 Microsoft::UI::Xaml::IDependencyObject::ClearValue
+Microsoft::UI::Xaml::IElementFactory
+Microsoft::UI::Xaml::IElementFactoryGetArgs::{get_Data, get_Parent}
+Microsoft::UI::Xaml::IElementFactoryRecycleArgs::{get_Element, get_Parent}
 Microsoft::UI::Xaml::IWindow::{Activate, Close, put_Content}
 Microsoft::UI::Xaml::LaunchActivatedEventArgs
 Microsoft::UI::Xaml::Markup::IXamlMetadataProvider

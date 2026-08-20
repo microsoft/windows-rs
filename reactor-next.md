@@ -56,8 +56,8 @@ Rules:
 - Explicit memo nodes compare only their own props; callbacks are excluded.
 - A work budget defers excess work to the next dispatcher tick without dropping it.
 - Async work is cancelled when its owner retires.
-- `ItemsRepeater` realization is a narrow synchronous exception guarded by a lease and
-  reentrancy rules.
+- `ItemsRepeater` callbacks synchronously lease stable container shells and enqueue realization.
+  User row builders and arena mutation run on the dispatcher commit path.
 
 ### Generated control model
 
@@ -316,6 +316,7 @@ After representative parity:
 - [x] Add state scheduling, queued callback dispatch, effects, cleanup, and a render budget.
 - [x] Make failed commits explicit, preserve property retries, and poison structural divergence.
 - [x] Add arena-owned virtual models and generation-checked realization leases.
+- [x] Include native container identity in leases and reject reused-container callbacks.
 
 ### Next
 
@@ -325,18 +326,18 @@ After representative parity:
 
 ### Decisions needed before implementation
 
-- [ ] Fault-sink API.
+- [x] Fault-sink API.
 - [ ] Per-window or per-UI-thread arena.
 - [ ] Owner-scoped async contract.
-- [ ] Synchronous realization contract.
+- [ ] Queued realization and factory contract.
 
 ### Gate state
 
 - Architecture and correctness gates: active.
 - Compile and runtime gates: report-only until parity.
 - Current phase: 6 - collections and lifecycle.
-- Next action: generate the minimal `ItemsRepeater` native surface and connect synchronous
-  realization to arena-owned leases.
+- Next action: implement the stable-shell element factory and connect its queued requests to
+  arena-owned leases.
 
 ## Current reactor baseline
 

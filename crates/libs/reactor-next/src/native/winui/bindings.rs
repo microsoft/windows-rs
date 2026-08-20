@@ -272,6 +272,27 @@ windows_core::imp::required_hierarchy!(
     UIElement,
     DependencyObject
 );
+impl ContentControl {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IContentControlFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IContentControlFactory<R, F: FnOnce(&IContentControlFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ContentControl, IContentControlFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeType for ContentControl {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IContentControl>();
@@ -522,6 +543,60 @@ impl windows_core::RuntimeType for DispatcherQueuePriority {
     );
 }
 pub const E_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x80004005_u32 as _);
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ElementFactoryGetArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ElementFactoryGetArgs,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for ElementFactoryGetArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IElementFactoryGetArgs>();
+}
+unsafe impl windows_core::Interface for ElementFactoryGetArgs {
+    type Vtable = <IElementFactoryGetArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IElementFactoryGetArgs as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ElementFactoryGetArgs {
+    type Target = IElementFactoryGetArgs;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ElementFactoryGetArgs {
+    const NAME: &'static str = "Microsoft.UI.Xaml.ElementFactoryGetArgs";
+}
+unsafe impl Send for ElementFactoryGetArgs {}
+unsafe impl Sync for ElementFactoryGetArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ElementFactoryRecycleArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ElementFactoryRecycleArgs,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for ElementFactoryRecycleArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IElementFactoryRecycleArgs>();
+}
+unsafe impl windows_core::Interface for ElementFactoryRecycleArgs {
+    type Vtable = <IElementFactoryRecycleArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IElementFactoryRecycleArgs as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ElementFactoryRecycleArgs {
+    type Target = IElementFactoryRecycleArgs;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ElementFactoryRecycleArgs {
+    const NAME: &'static str = "Microsoft.UI.Xaml.ElementFactoryRecycleArgs";
+}
+unsafe impl Send for ElementFactoryRecycleArgs {}
+unsafe impl Sync for ElementFactoryRecycleArgs {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FrameworkElement(windows_core::IUnknown);
@@ -789,6 +864,25 @@ pub struct IContentControl_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IContentControlFactory,
+    IContentControlFactory_Vtbl,
+    0x3dea958e_5acd_5f80_8938_38634f51493a
+);
+impl windows_core::RuntimeType for IContentControlFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IContentControlFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IControl,
     IControl_Vtbl,
     0x857d6e8a_d45a_5c69_a99c_bf6a5c54fb38
@@ -990,6 +1084,210 @@ pub struct IDispatcherQueueStatics_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IElementFactory,
+    IElementFactory_Vtbl,
+    0x75faba47_2cf2_54ae_91e6_0581556fddaa
+);
+impl windows_core::RuntimeType for IElementFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Microsoft.UI.Xaml.IElementFactory");
+}
+windows_core::imp::interface_hierarchy!(
+    IElementFactory,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl IElementFactory {
+    pub(crate) fn GetElement<P0>(&self, args: P0) -> windows_core::Result<UIElement>
+    where
+        P0: windows_core::Param<ElementFactoryGetArgs>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetElement)(
+                windows_core::Interface::as_raw(self),
+                args.param().abi(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub(crate) fn RecycleElement<P0>(&self, args: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ElementFactoryRecycleArgs>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).RecycleElement)(
+                windows_core::Interface::as_raw(self),
+                args.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
+impl windows_core::RuntimeName for IElementFactory {
+    const NAME: &'static str = "Microsoft.UI.Xaml.IElementFactory";
+}
+pub trait IElementFactory_Impl: windows_core::IUnknownImpl {
+    fn GetElement(
+        &self,
+        args: windows_core::Ref<ElementFactoryGetArgs>,
+    ) -> windows_core::Result<UIElement>;
+    fn RecycleElement(
+        &self,
+        args: windows_core::Ref<ElementFactoryRecycleArgs>,
+    ) -> windows_core::Result<()>;
+}
+impl IElementFactory_Vtbl {
+    pub const fn new<Identity: IElementFactory_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetElement<
+            Identity: IElementFactory_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            args: *mut core::ffi::c_void,
+            result__: *mut *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IElementFactory_Impl::GetElement(this, core::mem::transmute_copy(&args)) {
+                    Ok(ok__) => {
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        core::mem::forget(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn RecycleElement<
+            Identity: IElementFactory_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            args: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IElementFactory_Impl::RecycleElement(this, core::mem::transmute_copy(&args)).into()
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IElementFactory, OFFSET>(),
+            GetElement: GetElement::<Identity, OFFSET>,
+            RecycleElement: RecycleElement::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IElementFactory as windows_core::Interface>::IID
+    }
+}
+#[repr(C)]
+pub struct IElementFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetElement: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub RecycleElement: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IElementFactoryGetArgs,
+    IElementFactoryGetArgs_Vtbl,
+    0xb7017d68_ec9e_5435_b078_be6f906f0953
+);
+impl windows_core::RuntimeType for IElementFactoryGetArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IElementFactoryGetArgs {
+    pub(crate) fn Data(&self) -> windows_core::Result<windows_core::IInspectable> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Data)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub(crate) fn Parent(&self) -> windows_core::Result<UIElement> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Parent)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct IElementFactoryGetArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Data: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    SetData: usize,
+    pub Parent: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IElementFactoryRecycleArgs,
+    IElementFactoryRecycleArgs_Vtbl,
+    0x46e444f7_05d3_5c5e_9b7a_5541f63e4ef9
+);
+impl windows_core::RuntimeType for IElementFactoryRecycleArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IElementFactoryRecycleArgs {
+    pub(crate) fn Element(&self) -> windows_core::Result<UIElement> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Element)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub(crate) fn Parent(&self) -> windows_core::Result<UIElement> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Parent)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct IElementFactoryRecycleArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Element: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    SetElement: usize,
+    pub Parent: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IFrameworkElement,
     IFrameworkElement_Vtbl,
     0xfe08f13d_dc6a_5495_ad44_c2d8d21863b0
@@ -1001,6 +1299,75 @@ impl windows_core::RuntimeType for IFrameworkElement {
 #[repr(C)]
 pub struct IFrameworkElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IItemsRepeater,
+    IItemsRepeater_Vtbl,
+    0x9dabac84_fe81_53d1_a041_7a3befea505f
+);
+impl windows_core::RuntimeType for IItemsRepeater {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IItemsRepeater {
+    pub(crate) fn SetItemsSource<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetItemsSource)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetItemTemplate<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetItemTemplate)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IItemsRepeater_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    ItemsSource: usize,
+    pub SetItemsSource: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    ItemsSourceView: usize,
+    ItemTemplate: usize,
+    pub SetItemTemplate: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IItemsRepeaterFactory,
+    IItemsRepeaterFactory_Vtbl,
+    0xc3c1f244_67a8_568f_a6f7_5da8b0eadd49
+);
+impl windows_core::RuntimeType for IItemsRepeaterFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IItemsRepeaterFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ILaunchActivatedEventArgs,
@@ -1728,6 +2095,60 @@ windows_core::imp::interface_hierarchy!(
 pub struct IXamlType_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ItemsRepeater(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ItemsRepeater,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    ItemsRepeater,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
+impl ItemsRepeater {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IItemsRepeaterFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IItemsRepeaterFactory<R, F: FnOnce(&IItemsRepeaterFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ItemsRepeater, IItemsRepeaterFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for ItemsRepeater {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IItemsRepeater>();
+}
+unsafe impl windows_core::Interface for ItemsRepeater {
+    type Vtable = <IItemsRepeater as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IItemsRepeater as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ItemsRepeater {
+    type Target = IItemsRepeater;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ItemsRepeater {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.ItemsRepeater";
+}
+unsafe impl Send for ItemsRepeater {}
+unsafe impl Sync for ItemsRepeater {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LaunchActivatedEventArgs(windows_core::IUnknown);

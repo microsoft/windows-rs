@@ -5,9 +5,13 @@ use super::*;
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RealizationLease {
     pub collection: NodeId,
+    pub container: RealizedContainer,
     pub key: Key,
     pub revision: u64,
 }
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub struct RealizedContainer(pub u64);
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum VirtualModelError {
@@ -18,8 +22,9 @@ pub enum VirtualModelError {
 
 #[derive(Clone)]
 pub struct VirtualModel {
-    active: HashMap<Key, u64>,
+    active: HashMap<Key, (u64, RealizedContainer)>,
     collection: NodeId,
+    containers: HashMap<RealizedContainer, (Key, u64)>,
     keys: Vec<Key>,
     revision: u64,
 }
@@ -35,6 +40,7 @@ impl VirtualModel {
         Ok(Self {
             active: HashMap::new(),
             collection,
+            containers: HashMap::new(),
             keys,
             revision: 0,
         })
@@ -49,11 +55,16 @@ impl VirtualModel {
             .map_err(|KeyedError::DuplicateKey(key)| VirtualModelError::DuplicateKey(key))?;
         let retained = keys.iter().cloned().collect::<HashSet<_>>();
         self.active.retain(|key, _| retained.contains(key));
+        self.containers.retain(|_, (key, _)| retained.contains(key));
         self.keys = keys;
         Ok(operations)
     }
 
-    pub fn realize(&mut self, index: usize) -> Result<RealizationLease, VirtualModelError> {
+    pub fn realize(
+        &mut self,
+        index: usize,
+        container: RealizedContainer,
+    ) -> Result<RealizationLease, VirtualModelError> {
         let key = self
             .keys
             .get(index)
@@ -63,16 +74,28 @@ impl VirtualModel {
             .revision
             .checked_add(1)
             .ok_or(VirtualModelError::RevisionExhausted)?;
-        self.active.insert(key.clone(), self.revision);
+        if let Some((old_key, old_revision)) = self.containers.remove(&container)
+            && self.active.get(&old_key) == Some(&(old_revision, container))
+        {
+            self.active.remove(&old_key);
+        }
+        if let Some((_, old_container)) = self.active.remove(&key) {
+            self.containers.remove(&old_container);
+        }
+        self.active.insert(key.clone(), (self.revision, container));
+        self.containers
+            .insert(container, (key.clone(), self.revision));
         Ok(RealizationLease {
             collection: self.collection,
+            container,
             key,
             revision: self.revision,
         })
     }
 
     pub fn accepts(&self, lease: &RealizationLease) -> bool {
-        lease.collection == self.collection && self.active.get(&lease.key) == Some(&lease.revision)
+        lease.collection == self.collection
+            && self.active.get(&lease.key) == Some(&(lease.revision, lease.container))
     }
 
     pub fn recycle(&mut self, lease: &RealizationLease) -> bool {
@@ -80,11 +103,27 @@ impl VirtualModel {
             return false;
         }
         self.active.remove(&lease.key);
+        self.containers.remove(&lease.container);
         true
+    }
+
+    pub fn recycle_container(&mut self, container: RealizedContainer) -> Option<RealizationLease> {
+        let (key, revision) = self.containers.remove(&container)?;
+        if self.active.get(&key) != Some(&(revision, container)) {
+            return None;
+        }
+        self.active.remove(&key);
+        Some(RealizationLease {
+            collection: self.collection,
+            container,
+            key,
+            revision,
+        })
     }
 
     pub fn clear(&mut self) {
         self.active.clear();
+        self.containers.clear();
     }
 
     pub fn active_len(&self) -> usize {
@@ -101,6 +140,8 @@ mod tests {
     use super::*;
 
     const COLLECTION: NodeId = NodeId::from_parts(4, 2);
+    const FIRST: RealizedContainer = RealizedContainer(10);
+    const SECOND: RealizedContainer = RealizedContainer(11);
 
     fn keys(values: &[&str]) -> Vec<Key> {
         values.iter().copied().map(Key::from).collect()
@@ -109,7 +150,7 @@ mod tests {
     #[test]
     fn update_uses_shared_keyed_operations_and_retains_moved_lease() {
         let mut model = VirtualModel::new(COLLECTION, keys(&["a", "b", "c"])).unwrap();
-        let lease = model.realize(1).unwrap();
+        let lease = model.realize(1, FIRST).unwrap();
 
         let operations = model.update(keys(&["c", "b", "d"])).unwrap();
 
@@ -126,8 +167,8 @@ mod tests {
     #[test]
     fn removed_and_recycled_leases_are_rejected() {
         let mut model = VirtualModel::new(COLLECTION, keys(&["a", "b"])).unwrap();
-        let removed = model.realize(0).unwrap();
-        let recycled = model.realize(1).unwrap();
+        let removed = model.realize(0, FIRST).unwrap();
+        let recycled = model.realize(1, SECOND).unwrap();
 
         model.update(keys(&["b"])).unwrap();
 
@@ -140,17 +181,19 @@ mod tests {
     #[test]
     fn replacement_realization_invalidates_older_callback() {
         let mut model = VirtualModel::new(COLLECTION, keys(&["a"])).unwrap();
-        let first = model.realize(0).unwrap();
-        let second = model.realize(0).unwrap();
+        let first = model.realize(0, FIRST).unwrap();
+        let second = model.realize(0, SECOND).unwrap();
 
         assert!(!model.accepts(&first));
         assert!(model.accepts(&second));
+        assert_eq!(model.recycle_container(FIRST), None);
+        assert_eq!(model.recycle_container(SECOND), Some(second));
     }
 
     #[test]
     fn collection_identity_rejects_foreign_lease() {
         let mut model = VirtualModel::new(COLLECTION, keys(&["a"])).unwrap();
-        let lease = model.realize(0).unwrap();
+        let lease = model.realize(0, FIRST).unwrap();
         let foreign = RealizationLease {
             collection: NodeId::from_parts(5, 2),
             ..lease
@@ -160,12 +203,26 @@ mod tests {
     }
 
     #[test]
+    fn reused_container_invalidates_its_previous_key() {
+        let mut model = VirtualModel::new(COLLECTION, keys(&["a", "b"])).unwrap();
+        let first = model.realize(0, FIRST).unwrap();
+        let second = model.realize(1, FIRST).unwrap();
+
+        assert!(!model.accepts(&first));
+        assert!(model.accepts(&second));
+        assert_eq!(model.active_len(), 1);
+        assert_eq!(model.recycle_container(FIRST), Some(second));
+    }
+
+    #[test]
     fn repeated_realize_recycle_returns_to_zero_resources() {
         let mut model = VirtualModel::new(COLLECTION, keys(&["a", "b", "c"])).unwrap();
 
         for _ in 0..10_000 {
             for index in 0..model.keys().len() {
-                let lease = model.realize(index).unwrap();
+                let lease = model
+                    .realize(index, RealizedContainer(index as u64))
+                    .unwrap();
                 assert!(model.recycle(&lease));
             }
             assert_eq!(model.active_len(), 0);
@@ -182,7 +239,10 @@ mod tests {
             Some(VirtualModelError::DuplicateKey(Key::from("a")))
         );
         let mut model = VirtualModel::new(COLLECTION, keys(&["a"])).unwrap();
-        assert_eq!(model.realize(1), Err(VirtualModelError::MissingIndex(1)));
+        assert_eq!(
+            model.realize(1, FIRST),
+            Err(VirtualModelError::MissingIndex(1))
+        );
         assert_eq!(
             model.update(keys(&["a", "a"])),
             Err(VirtualModelError::DuplicateKey(Key::from("a")))

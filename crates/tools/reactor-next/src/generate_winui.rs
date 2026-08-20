@@ -14,8 +14,15 @@ pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
         "Microsoft::UI::Xaml::ApplicationInitializationCallback".to_string(),
         "Microsoft::UI::Xaml::IApplicationOverrides".to_string(),
         "Microsoft::UI::Xaml::IDependencyObject::ClearValue".to_string(),
+        "Microsoft::UI::Xaml::IElementFactory".to_string(),
         "Microsoft::UI::Xaml::IWindow::{Activate, Close, put_Content}".to_string(),
         "Microsoft::UI::Xaml::LaunchActivatedEventArgs".to_string(),
+        "Microsoft::UI::Xaml::Controls::ContentControl::CreateInstance".to_string(),
+        "Microsoft::UI::Xaml::Controls::IItemsRepeater::{put_ItemsSource, put_ItemTemplate}"
+            .to_string(),
+        "Microsoft::UI::Xaml::Controls::ItemsRepeater::CreateInstance".to_string(),
+        "Microsoft::UI::Xaml::IElementFactoryGetArgs::{get_Data, get_Parent}".to_string(),
+        "Microsoft::UI::Xaml::IElementFactoryRecycleArgs::{get_Element, get_Parent}".to_string(),
         "Microsoft::UI::Xaml::Markup::IXamlMetadataProvider".to_string(),
         "Microsoft::UI::Xaml::Markup::IXamlType::{}".to_string(),
         "Microsoft::UI::Xaml::Markup::XmlnsDefinition".to_string(),
@@ -433,6 +440,8 @@ mod tests {
         assert!(filter.contains("ITextBox::put_PlaceholderText"));
         assert!(filter.contains("ITextBox::{add_TextChanged, remove_TextChanged}"));
         assert!(filter.contains("Control::IsEnabledProperty"));
+        assert!(filter.contains("IElementFactoryGetArgs"));
+        assert!(filter.contains("IItemsRepeater::{put_ItemsSource, put_ItemTemplate}"));
     }
 
     #[test]

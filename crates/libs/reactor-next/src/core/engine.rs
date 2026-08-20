@@ -310,7 +310,7 @@ mod tests {
         let lease = tree
             .virtual_model_mut(collection)
             .unwrap()
-            .realize(0)
+            .realize(0, RealizedContainer(1))
             .unwrap();
 
         assert_eq!(lease.collection, collection);
