@@ -15,6 +15,7 @@ pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
         "Microsoft::UI::Xaml::IApplicationOverrides".to_string(),
         "Microsoft::UI::Xaml::IDependencyObject::ClearValue".to_string(),
         "Microsoft::UI::Xaml::IElementFactory".to_string(),
+        "Microsoft::UI::Xaml::IFrameworkElement::put_MinHeight".to_string(),
         "Microsoft::UI::Xaml::IWindow::{Activate, Close, put_Content}".to_string(),
         "Microsoft::UI::Xaml::LaunchActivatedEventArgs".to_string(),
         "Microsoft::UI::Xaml::Controls::ContentControl::CreateInstance".to_string(),
@@ -48,6 +49,9 @@ pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
     ]);
 
     for control in &schema.controls {
+        if matches!(control.role, Role::Virtual) {
+            continue;
+        }
         entries.insert(format!(
             "{}::CreateInstance",
             filter_path(&control.type_name)
@@ -62,7 +66,7 @@ pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
                 entries.insert("Microsoft::UI::Xaml::Controls::IPanel::Children".to_string());
                 entries.insert("Microsoft::UI::Xaml::Controls::UIElementCollection".to_string());
             }
-            Role::Leaf | Role::Controlled => {}
+            Role::Leaf | Role::Controlled | Role::Virtual => {}
         }
 
         for property in &control.properties {
@@ -108,11 +112,16 @@ pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
 }
 
 pub(crate) fn generate(schema: &ResolvedSchema) -> String {
-    let variants = schema.controls.iter().map(|control| {
+    let native_controls = schema
+        .controls
+        .iter()
+        .filter(|control| !matches!(control.role, Role::Virtual))
+        .collect::<Vec<_>>();
+    let variants = native_controls.iter().map(|control| {
         let name = ident(&control.name);
         quote! { #name(bindings::#name) }
     });
-    let create = schema.controls.iter().map(|control| {
+    let create = native_controls.iter().map(|control| {
         let name = ident(&control.name);
         quote! {
             MountedKind::#name => {
@@ -120,11 +129,21 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             }
         }
     });
-    let ui_elements = schema.controls.iter().map(|control| {
+    let virtual_create = schema
+        .controls
+        .iter()
+        .filter(|control| matches!(control.role, Role::Virtual))
+        .map(|control| {
+            let name = ident(&control.name);
+            quote! {
+                MountedKind::#name => return Err(RuntimeError::UnsupportedKind)
+            }
+        });
+    let ui_elements = native_controls.iter().map(|control| {
         let name = ident(&control.name);
         quote! { Self::#name(value) => value.cast() }
     });
-    let dependency_objects = schema.controls.iter().map(|control| {
+    let dependency_objects = native_controls.iter().map(|control| {
         let name = ident(&control.name);
         quote! { Self::#name(value) => value.cast() }
     });
@@ -251,7 +270,8 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         impl Handle {
             pub fn create(kind: MountedKind) -> Result<Self, RuntimeError> {
                 Ok(match kind {
-                    #(#create),*
+                    #(#create,)*
+                    #(#virtual_create),*
                 })
             }
 

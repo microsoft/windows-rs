@@ -24,6 +24,11 @@ their matching native feedback.
 
 Virtual collection models use the panel keyed differ and issue arena-owned realization leases.
 Recycling, key removal, collection retirement, and replacement realization invalidate stale work.
+`ItemsRepeater` returns stable `ContentControl` shells from its native factory and queues row
+realization for the dispatcher pump. Row controls remain ordinary arena subtrees and attach to a
+shell only after their native command batch succeeds. The initial vertical-list slice gives empty
+shells a nonzero estimated height so WinUI does not realize the whole source before queued content
+is mounted.
 
 The framework-dependent setup helper currently stages the bootstrap DLL under
 `target\debug\build`; live runs need it copied beside the executable in `target\debug`.

@@ -6,7 +6,7 @@ performance are proven.
 
 See [`reactor-next.md`](../../../reactor-next.md) for the current plan and gates.
 
-The current slice generates `TextBlock`, `Button`, `StackPanel`, and `TextBox` from WinUI metadata
-plus a small curation schema. The private WinUI backend now mounts the first three controls,
-applies properties and keyed structure, queues button events, and rerenders hook state. The
-recording runtime remains the failure-injection and randomized-test backend.
+The current slice generates `TextBlock`, `Button`, `StackPanel`, `TextBox`, `ScrollViewer`, and
+`ItemsRepeater` from WinUI metadata plus a small curation schema. The private WinUI backend applies
+properties and keyed structure, queues native work, and rerenders hook state. The recording
+runtime remains the failure-injection and randomized-test backend.

@@ -17,6 +17,7 @@ mod bindings;
 pub use bindings::*;
 mod app_shim;
 pub use app_shim::*;
+mod element_factory;
 #[allow(unused_qualifications)]
 mod generated;
 pub use generated::*;
@@ -29,7 +30,9 @@ pub struct WinUiRuntime {
     events: Rc<RefCell<Vec<QueuedEvent>>>,
     event_tick_scheduled: Rc<Cell<bool>>,
     feedback: Rc<RefCell<HashMap<(NodeId, EventId), EventPayload>>>,
+    realizations: Rc<RefCell<Vec<RealizationRequest>>>,
     subscriptions: HashMap<(NodeId, EventId), windows_core::EventRevoker>,
+    virtuals: HashMap<NodeId, element_factory::VirtualHandle>,
     windows: HashMap<NodeId, Window>,
 }
 
@@ -66,7 +69,9 @@ impl WinUiRuntime {
                     .SetContent(None::<&UIElement>)
                     .map_err(native_error)?;
                 self.handles.clear();
+                self.virtuals.clear();
                 self.feedback.borrow_mut().clear();
+                self.realizations.borrow_mut().clear();
                 self.events.borrow_mut().clear();
                 self.event_errors.borrow_mut().clear();
                 self.event_tick_scheduled.set(false);
@@ -78,13 +83,59 @@ impl WinUiRuntime {
                 let handle = Handle::create(*kind)?;
                 self.handles.insert(*node, handle);
             }
+            Command::CreateVirtualCollection { node, item_count } => {
+                if self.contains(*node) {
+                    return Err(RuntimeError::DuplicateNode(*node));
+                }
+                let handle = element_factory::VirtualHandle::create(
+                    *node,
+                    *item_count,
+                    Rc::clone(&self.realizations),
+                    self.event_sink()?,
+                )
+                .map_err(native_error)?;
+                self.virtuals.insert(*node, handle);
+            }
+            Command::ResetVirtualCollection { node, item_count } => {
+                self.virtuals
+                    .get(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?
+                    .reset(*item_count)
+                    .map_err(native_error)?;
+            }
+            Command::AttachRealized {
+                collection,
+                container,
+                child,
+            } => {
+                let child = self.ui_element(*child)?;
+                self.virtuals
+                    .get(collection)
+                    .ok_or(RuntimeError::MissingNode(*collection))?
+                    .set_content(*container, Some(&child))
+                    .map_err(native_error)?;
+            }
+            Command::DetachRealized {
+                collection,
+                container,
+                ..
+            } => {
+                self.virtuals
+                    .get(collection)
+                    .ok_or(RuntimeError::MissingNode(*collection))?
+                    .set_content(*container, None)
+                    .map_err(native_error)?;
+            }
             Command::Destroy { node } => {
                 if !self.contains(*node) {
                     return Err(RuntimeError::MissingNode(*node));
                 }
                 self.subscriptions
                     .retain(|(subscription_node, _), _| subscription_node != node);
-                if self.handles.remove(node).is_some() || self.windows.remove(node).is_some() {
+                if self.handles.remove(node).is_some()
+                    || self.virtuals.remove(node).is_some()
+                    || self.windows.remove(node).is_some()
+                {
                     return Ok(());
                 }
                 if self
@@ -145,18 +196,7 @@ impl WinUiRuntime {
                     .handles
                     .get(node)
                     .ok_or(RuntimeError::MissingNode(*node))?;
-                let queue = Rc::clone(&self.events);
-                let event_errors = Rc::clone(&self.event_errors);
-                let feedback = Rc::clone(&self.feedback);
-                let scheduled = Rc::clone(&self.event_tick_scheduled);
-                let dispatcher = DispatcherQueue::GetForCurrentThread().map_err(native_error)?;
-                let sink = EventSink {
-                    queue,
-                    errors: event_errors,
-                    feedback,
-                    scheduled,
-                    dispatcher,
-                };
+                let sink = self.event_sink()?;
                 let revoker = subscribe_event(handle, *node, *event, *revision, sink)?;
                 self.subscriptions.insert((*node, *event), revoker);
             }
@@ -184,6 +224,7 @@ impl WinUiRuntime {
 
     fn contains(&self, node: NodeId) -> bool {
         self.handles.contains_key(&node)
+            || self.virtuals.contains_key(&node)
             || self.windows.contains_key(&node)
             || self
                 .application
@@ -197,12 +238,7 @@ impl WinUiRuntime {
         child: NodeId,
         index: usize,
     ) -> Result<(), RuntimeError> {
-        let child = self
-            .handles
-            .get(&child)
-            .ok_or(RuntimeError::MissingNode(child))?
-            .ui_element()
-            .map_err(native_error)?;
+        let child = self.ui_element(child)?;
         if let Some(window) = self.windows.get(&parent) {
             if index != 0 {
                 return Err(RuntimeError::IndexOutOfBounds);
@@ -230,12 +266,7 @@ impl WinUiRuntime {
 
     fn remove_child(&self, parent: NodeId, child: NodeId) -> Result<(), RuntimeError> {
         let child_id = child;
-        let child = self
-            .handles
-            .get(&child)
-            .ok_or(RuntimeError::MissingNode(child))?
-            .ui_element()
-            .map_err(native_error)?;
+        let child = self.ui_element(child)?;
         if let Some(window) = self.windows.get(&parent) {
             window.SetContent(None::<&UIElement>).map_err(native_error)
         } else {
@@ -258,12 +289,7 @@ impl WinUiRuntime {
 
     fn move_child(&self, parent: NodeId, child: NodeId, index: usize) -> Result<(), RuntimeError> {
         let child_id = child;
-        let child = self
-            .handles
-            .get(&child)
-            .ok_or(RuntimeError::MissingNode(child))?
-            .ui_element()
-            .map_err(native_error)?;
+        let child = self.ui_element(child)?;
         if self.windows.contains_key(&parent) {
             if index != 0 {
                 return Err(RuntimeError::IndexOutOfBounds);
@@ -290,6 +316,26 @@ impl WinUiRuntime {
                 Err(RuntimeError::UnsupportedKind)
             }
         }
+    }
+
+    fn ui_element(&self, node: NodeId) -> Result<UIElement, RuntimeError> {
+        if let Some(handle) = self.handles.get(&node) {
+            handle.ui_element().map_err(native_error)
+        } else if let Some(handle) = self.virtuals.get(&node) {
+            handle.ui_element().map_err(native_error)
+        } else {
+            Err(RuntimeError::MissingNode(node))
+        }
+    }
+
+    fn event_sink(&self) -> Result<EventSink, RuntimeError> {
+        Ok(EventSink {
+            queue: Rc::clone(&self.events),
+            errors: Rc::clone(&self.event_errors),
+            feedback: Rc::clone(&self.feedback),
+            scheduled: Rc::clone(&self.event_tick_scheduled),
+            dispatcher: DispatcherQueue::GetForCurrentThread().map_err(native_error)?,
+        })
     }
 }
 
@@ -324,6 +370,10 @@ impl EventSink {
 
     pub fn error(&self, error: RuntimeError) {
         self.errors.borrow_mut().push(error);
+        self.schedule();
+    }
+
+    pub fn wake(&self) {
         self.schedule();
     }
 
@@ -388,10 +438,12 @@ impl NativeRuntime for WinUiRuntime {
         }
         self.windows.clear();
         self.handles.clear();
+        self.virtuals.clear();
         self.application = None;
         self.event_errors.borrow_mut().clear();
         self.events.borrow_mut().clear();
         self.feedback.borrow_mut().clear();
+        self.realizations.borrow_mut().clear();
         self.event_tick_scheduled.set(false);
     }
 
@@ -401,6 +453,10 @@ impl NativeRuntime for WinUiRuntime {
 
     fn drain_event_errors(&mut self) -> Vec<RuntimeError> {
         self.event_errors.borrow_mut().drain(..).collect()
+    }
+
+    fn drain_realizations(&mut self) -> Vec<RealizationRequest> {
+        self.realizations.borrow_mut().drain(..).collect()
     }
 }
 

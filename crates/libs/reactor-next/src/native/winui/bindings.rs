@@ -1296,9 +1296,40 @@ impl windows_core::RuntimeType for IFrameworkElement {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+impl IFrameworkElement {
+    pub(crate) fn SetMinHeight(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMinHeight)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
 #[repr(C)]
 pub struct IFrameworkElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    Triggers: usize,
+    Resources: usize,
+    SetResources: usize,
+    Tag: usize,
+    SetTag: usize,
+    Language: usize,
+    SetLanguage: usize,
+    ActualWidth: usize,
+    ActualHeight: usize,
+    Width: usize,
+    SetWidth: usize,
+    Height: usize,
+    SetHeight: usize,
+    MinWidth: usize,
+    SetMinWidth: usize,
+    MaxWidth: usize,
+    SetMaxWidth: usize,
+    MinHeight: usize,
+    pub SetMinHeight:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IItemsRepeater,
@@ -1418,6 +1449,19 @@ impl windows_core::RuntimeType for IRoutedEventArgs {
 }
 #[repr(C)]
 pub struct IRoutedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IScrollViewer,
+    IScrollViewer_Vtbl,
+    0x1dc28c2e_996c_5394_89c3_4dc656b4ad46
+);
+impl windows_core::RuntimeType for IScrollViewer {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IScrollViewer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
@@ -2324,6 +2368,58 @@ impl<
         }
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ScrollViewer(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ScrollViewer,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    ScrollViewer,
+    ContentControl,
+    Control,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
+impl ScrollViewer {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            ScrollViewer,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for ScrollViewer {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IScrollViewer>();
+}
+unsafe impl windows_core::Interface for ScrollViewer {
+    type Vtable = <IScrollViewer as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IScrollViewer as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ScrollViewer {
+    type Target = IScrollViewer;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ScrollViewer {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.ScrollViewer";
+}
+unsafe impl Send for ScrollViewer {}
+unsafe impl Sync for ScrollViewer {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StackPanel(windows_core::IUnknown);

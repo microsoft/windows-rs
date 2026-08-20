@@ -1,11 +1,17 @@
 pub mod windows_reactor_next
 pub enum windows_reactor_next::Element
 pub windows_reactor_next::Element::Button(windows_reactor_next::Button)
+pub windows_reactor_next::Element::ItemsRepeater(windows_reactor_next::ItemsRepeater)
+pub windows_reactor_next::Element::ScrollViewer(windows_reactor_next::ScrollViewer)
 pub windows_reactor_next::Element::StackPanel(windows_reactor_next::StackPanel)
 pub windows_reactor_next::Element::TextBlock(windows_reactor_next::TextBlock)
 pub windows_reactor_next::Element::TextBox(windows_reactor_next::TextBox)
 impl core::convert::From<windows_reactor_next::Button> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::Button) -> Self
+impl core::convert::From<windows_reactor_next::ItemsRepeater> for windows_reactor_next::Element
+pub fn windows_reactor_next::Element::from(windows_reactor_next::ItemsRepeater) -> Self
+impl core::convert::From<windows_reactor_next::ScrollViewer> for windows_reactor_next::Element
+pub fn windows_reactor_next::Element::from(windows_reactor_next::ScrollViewer) -> Self
 impl core::convert::From<windows_reactor_next::StackPanel> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::StackPanel) -> Self
 impl core::convert::From<windows_reactor_next::TextBlock> for windows_reactor_next::Element
@@ -70,11 +76,30 @@ pub fn windows_reactor_next::Hooks::use_effect<D: core::clone::Clone + core::cmp
 pub fn windows_reactor_next::Hooks::use_state<T: 'static>(&mut self, impl core::ops::function::FnOnce() -> T) -> windows_reactor_next::State<T>
 impl core::ops::drop::Drop for windows_reactor_next::Hooks
 pub fn windows_reactor_next::Hooks::drop(&mut self)
+pub struct windows_reactor_next::ItemsRepeater
+impl windows_reactor_next::ItemsRepeater
+pub fn windows_reactor_next::ItemsRepeater::item(self, impl core::convert::Into<windows_reactor_next::Key>, impl core::convert::Into<windows_reactor_next::Element>) -> Self
+pub fn windows_reactor_next::ItemsRepeater::item_elements(&self) -> &[windows_reactor_next::KeyedElement]
+pub fn windows_reactor_next::ItemsRepeater::items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::KeyedElement>) -> Self
+pub fn windows_reactor_next::ItemsRepeater::new() -> Self
+impl core::convert::From<windows_reactor_next::ItemsRepeater> for windows_reactor_next::Element
+pub fn windows_reactor_next::Element::from(windows_reactor_next::ItemsRepeater) -> Self
+impl windows_reactor_next::ItemsControl for windows_reactor_next::ItemsRepeater
+impl windows_reactor_next::LayoutControl for windows_reactor_next::ItemsRepeater
 pub struct windows_reactor_next::KeyedElement
 impl windows_reactor_next::KeyedElement
 pub fn windows_reactor_next::KeyedElement::element(&self) -> &windows_reactor_next::Element
 pub fn windows_reactor_next::KeyedElement::key(&self) -> &windows_reactor_next::Key
 pub fn windows_reactor_next::KeyedElement::new(impl core::convert::Into<windows_reactor_next::Key>, impl core::convert::Into<windows_reactor_next::Element>) -> Self
+pub struct windows_reactor_next::ScrollViewer
+impl windows_reactor_next::ScrollViewer
+pub fn windows_reactor_next::ScrollViewer::content(self, impl core::convert::Into<windows_reactor_next::Element>) -> Self
+pub fn windows_reactor_next::ScrollViewer::content_element(&self) -> core::option::Option<&windows_reactor_next::Element>
+pub fn windows_reactor_next::ScrollViewer::new() -> Self
+impl core::convert::From<windows_reactor_next::ScrollViewer> for windows_reactor_next::Element
+pub fn windows_reactor_next::Element::from(windows_reactor_next::ScrollViewer) -> Self
+impl windows_reactor_next::ContentControl for windows_reactor_next::ScrollViewer
+impl windows_reactor_next::LayoutControl for windows_reactor_next::ScrollViewer
 pub struct windows_reactor_next::StackPanel
 impl windows_reactor_next::StackPanel
 pub fn windows_reactor_next::StackPanel::child(self, impl core::convert::Into<windows_reactor_next::Key>, impl core::convert::Into<windows_reactor_next::Element>) -> Self
@@ -127,13 +152,18 @@ pub trait windows_reactor_next::ChildrenControl: windows_reactor_next::element::
 impl windows_reactor_next::ChildrenControl for windows_reactor_next::StackPanel
 pub trait windows_reactor_next::ContentControl: windows_reactor_next::element::sealed::Sealed
 impl windows_reactor_next::ContentControl for windows_reactor_next::Button
+impl windows_reactor_next::ContentControl for windows_reactor_next::ScrollViewer
 pub trait windows_reactor_next::ControlledTextControl: windows_reactor_next::element::sealed::Sealed
 impl windows_reactor_next::ControlledTextControl for windows_reactor_next::TextBox
 pub trait windows_reactor_next::EnabledControl: windows_reactor_next::element::sealed::Sealed
 impl windows_reactor_next::EnabledControl for windows_reactor_next::Button
 impl windows_reactor_next::EnabledControl for windows_reactor_next::TextBox
+pub trait windows_reactor_next::ItemsControl: windows_reactor_next::element::sealed::Sealed
+impl windows_reactor_next::ItemsControl for windows_reactor_next::ItemsRepeater
 pub trait windows_reactor_next::LayoutControl: windows_reactor_next::element::sealed::Sealed
 impl windows_reactor_next::LayoutControl for windows_reactor_next::Button
+impl windows_reactor_next::LayoutControl for windows_reactor_next::ItemsRepeater
+impl windows_reactor_next::LayoutControl for windows_reactor_next::ScrollViewer
 impl windows_reactor_next::LayoutControl for windows_reactor_next::StackPanel
 impl windows_reactor_next::LayoutControl for windows_reactor_next::TextBlock
 impl windows_reactor_next::LayoutControl for windows_reactor_next::TextBox

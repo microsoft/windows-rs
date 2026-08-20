@@ -6,6 +6,7 @@ pub enum Handle {
     Button(bindings::Button),
     StackPanel(bindings::StackPanel),
     TextBox(bindings::TextBox),
+    ScrollViewer(bindings::ScrollViewer),
 }
 impl Handle {
     pub fn create(kind: MountedKind) -> Result<Self, RuntimeError> {
@@ -18,6 +19,10 @@ impl Handle {
                 Self::StackPanel(bindings::StackPanel::new().map_err(native_error)?)
             }
             MountedKind::TextBox => Self::TextBox(bindings::TextBox::new().map_err(native_error)?),
+            MountedKind::ScrollViewer => {
+                Self::ScrollViewer(bindings::ScrollViewer::new().map_err(native_error)?)
+            }
+            MountedKind::ItemsRepeater => return Err(RuntimeError::UnsupportedKind),
         })
     }
     pub fn ui_element(&self) -> windows_core::Result<UIElement> {
@@ -26,6 +31,7 @@ impl Handle {
             Self::Button(value) => value.cast(),
             Self::StackPanel(value) => value.cast(),
             Self::TextBox(value) => value.cast(),
+            Self::ScrollViewer(value) => value.cast(),
         }
     }
     pub fn dependency_object(&self) -> windows_core::Result<IDependencyObject> {
@@ -34,11 +40,15 @@ impl Handle {
             Self::Button(value) => value.cast(),
             Self::StackPanel(value) => value.cast(),
             Self::TextBox(value) => value.cast(),
+            Self::ScrollViewer(value) => value.cast(),
         }
     }
     pub fn content_control(&self) -> Result<Option<IContentControl>, RuntimeError> {
         Ok(match self {
             Self::Button(value) => Some(value.cast::<IContentControl>().map_err(native_error)?),
+            Self::ScrollViewer(value) => {
+                Some(value.cast::<IContentControl>().map_err(native_error)?)
+            }
             _ => None,
         })
     }

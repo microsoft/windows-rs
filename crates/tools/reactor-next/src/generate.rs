@@ -132,6 +132,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             None,
             Content(Option<Element>),
             Children(Vec<KeyedElement>),
+            Virtual(Vec<KeyedElement>),
         }
 
         #[derive(Clone, Debug, PartialEq)]
@@ -160,6 +161,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             Content,
             Children,
             Controlled,
+            Virtual,
         }
 
         #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -170,6 +172,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             Content,
             Children,
             ControlledText,
+            Items,
         }
 
         #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -291,6 +294,10 @@ fn generate_element_parts(control: &ResolvedControl) -> TokenStream {
         Role::Children => (
             quote! { children },
             quote! { ElementStructure::Children(children) },
+        ),
+        Role::Virtual => (
+            quote! { items },
+            quote! { ElementStructure::Virtual(items) },
         ),
         Role::Leaf | Role::Controlled => (TokenStream::new(), quote! { ElementStructure::None }),
     };
@@ -491,6 +498,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
     let structural_field = match control.role {
         Role::Content => quote! { content: Option<Box<Element>> },
         Role::Children => quote! { children: Vec<KeyedElement> },
+        Role::Virtual => quote! { items: Vec<KeyedElement> },
         Role::Leaf | Role::Controlled => TokenStream::new(),
     };
     let property_methods = control.properties.iter().flat_map(|property| {
@@ -578,6 +586,24 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                 &self.children
             }
         },
+        Role::Virtual => quote! {
+            pub fn item(mut self, key: impl Into<Key>, item: impl Into<Element>) -> Self {
+                self.items.push(KeyedElement::new(key, item));
+                self
+            }
+
+            pub fn items(
+                mut self,
+                items: impl IntoIterator<Item = KeyedElement>,
+            ) -> Self {
+                self.items = items.into_iter().collect();
+                self
+            }
+
+            pub fn item_elements(&self) -> &[KeyedElement] {
+                &self.items
+            }
+        },
         Role::Leaf | Role::Controlled => TokenStream::new(),
     };
     let capability_impls = control.capabilities.iter().map(|capability| {
@@ -588,6 +614,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
             Capability::Content => "ContentControl",
             Capability::Children => "ChildrenControl",
             Capability::ControlledText => "ControlledTextControl",
+            Capability::Items => "ItemsControl",
         });
         quote! { impl #capability for #name {} }
     });
@@ -678,6 +705,7 @@ fn generate_control(control: &ResolvedControl) -> TokenStream {
             Role::Content => "Content",
             Role::Children => "Children",
             Role::Controlled => "Controlled",
+            Role::Virtual => "Virtual",
         },
         Span::call_site(),
     );
@@ -690,6 +718,7 @@ fn generate_control(control: &ResolvedControl) -> TokenStream {
                 Capability::Content => "Content",
                 Capability::Children => "Children",
                 Capability::ControlledText => "ControlledText",
+                Capability::Items => "Items",
             },
             Span::call_site(),
         );
@@ -750,11 +779,12 @@ mod tests {
         let resolved = schema.resolve(&metadata).unwrap();
         let output = generate(&resolved);
 
-        assert_eq!(output.matches("ControlDescriptor").count(), 6);
+        assert_eq!(output.matches("ControlDescriptor").count(), 8);
         assert!(output.contains("feedback : Some"));
         assert!(output.contains("ControlRole :: Children"));
         assert!(output.contains("pub struct TextBox"));
         assert!(output.contains("impl ControlledTextControl for TextBox"));
+        assert!(output.contains("impl ItemsControl for ItemsRepeater"));
         assert!(output.contains("pub enum Orientation"));
     }
 

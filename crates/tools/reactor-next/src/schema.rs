@@ -37,6 +37,7 @@ pub(crate) enum Role {
     Content,
     Children,
     Controlled,
+    Virtual,
 }
 
 #[derive(Clone, Copy, Deserialize, Eq, PartialEq)]
@@ -48,6 +49,7 @@ pub(crate) enum Capability {
     Content,
     Children,
     ControlledText,
+    Items,
 }
 
 #[derive(Deserialize)]
@@ -261,6 +263,10 @@ fn validate_role(control: &Control) -> Result<(), String> {
             "{} children role needs children capability",
             control.type_name
         )),
+        Role::Virtual if !has(Capability::Items) => Err(format!(
+            "{} virtual role needs items capability",
+            control.type_name
+        )),
         Role::Controlled
             if !control
                 .property
@@ -272,7 +278,7 @@ fn validate_role(control: &Control) -> Result<(), String> {
                 control.type_name
             ))
         }
-        Role::Leaf | Role::Content | Role::Children | Role::Controlled => Ok(()),
+        Role::Leaf | Role::Content | Role::Children | Role::Controlled | Role::Virtual => Ok(()),
     }
 }
 
@@ -303,7 +309,7 @@ mod tests {
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
         let resolved = schema.resolve(&metadata).unwrap();
 
-        assert_eq!(resolved.controls.len(), 4);
+        assert_eq!(resolved.controls.len(), 6);
         assert_eq!(resolved.controls[0].name, "TextBlock");
         assert_eq!(resolved.controls[0].properties[0].value, "Str");
         assert_eq!(resolved.controls[1].events[0].payload, "Unit");
@@ -312,6 +318,7 @@ mod tests {
             Some("TextChanged")
         );
         assert_eq!(resolved.controls[3].events[0].payload, "Str");
+        assert!(matches!(resolved.controls[4].role, Role::Virtual));
     }
 
     #[test]

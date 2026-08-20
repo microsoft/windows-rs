@@ -17,6 +17,7 @@ pub struct RecordingRuntime {
     batches: usize,
     commands: Vec<Vec<Command>>,
     fail_at: HashSet<(usize, usize)>,
+    realizations: Vec<RealizationRequest>,
     subscriptions: HashSet<(NodeId, EventId)>,
     windows: HashSet<NodeId>,
 }
@@ -45,6 +46,10 @@ impl RecordingRuntime {
 
     pub fn is_empty(&self) -> bool {
         self.nodes.is_empty()
+    }
+
+    pub fn queue_realization(&mut self, request: RealizationRequest) {
+        self.realizations.push(request);
     }
 }
 
@@ -125,6 +130,62 @@ impl RecordingRuntime {
                         properties: BTreeMap::new(),
                     },
                 );
+            }
+            Command::CreateVirtualCollection { node, .. } => {
+                if self.nodes.contains_key(node) {
+                    return Err(RuntimeError::DuplicateNode(*node));
+                }
+                self.nodes.insert(
+                    *node,
+                    RecordedNode {
+                        kind: None,
+                        parent: None,
+                        children: Vec::new(),
+                        properties: BTreeMap::new(),
+                    },
+                );
+            }
+            Command::ResetVirtualCollection { node, .. } => {
+                self.nodes
+                    .get(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?;
+            }
+            Command::AttachRealized {
+                collection, child, ..
+            } => {
+                if self
+                    .nodes
+                    .get(child)
+                    .ok_or(RuntimeError::MissingNode(*child))?
+                    .parent
+                    .is_some()
+                {
+                    return Err(RuntimeError::AlreadyParented(*child));
+                }
+                self.nodes
+                    .get_mut(collection)
+                    .ok_or(RuntimeError::MissingNode(*collection))?
+                    .children
+                    .push(*child);
+                self.nodes.get_mut(child).unwrap().parent = Some(*collection);
+            }
+            Command::DetachRealized {
+                collection, child, ..
+            } => {
+                self.nodes
+                    .get(child)
+                    .ok_or(RuntimeError::MissingNode(*child))?;
+                let collection = self
+                    .nodes
+                    .get_mut(collection)
+                    .ok_or(RuntimeError::MissingNode(*collection))?;
+                let position = collection
+                    .children
+                    .iter()
+                    .position(|current| current == child)
+                    .ok_or(RuntimeError::ChildNotFound(*child))?;
+                collection.children.remove(position);
+                self.nodes.get_mut(child).unwrap().parent = None;
             }
             Command::Destroy { node } => {
                 let recorded = self
@@ -287,8 +348,13 @@ impl NativeRuntime for RecordingRuntime {
     fn reset(&mut self) {
         self.application = None;
         self.nodes.clear();
+        self.realizations.clear();
         self.subscriptions.clear();
         self.windows.clear();
+    }
+
+    fn drain_realizations(&mut self) -> Vec<RealizationRequest> {
+        std::mem::take(&mut self.realizations)
     }
 }
 

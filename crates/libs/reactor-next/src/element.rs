@@ -132,3 +132,4 @@ pub trait EnabledControl: sealed::Sealed {}
 pub trait ContentControl: sealed::Sealed {}
 pub trait ChildrenControl: sealed::Sealed {}
 pub trait ControlledTextControl: sealed::Sealed {}
+pub trait ItemsControl: sealed::Sealed {}

@@ -58,6 +58,8 @@ Rules:
 - Async work is cancelled when its owner retires.
 - `ItemsRepeater` callbacks synchronously lease stable container shells and enqueue realization.
   User row builders and arena mutation run on the dispatcher commit path.
+- Deferred shells have a nonzero estimated extent; zero-size shells can force full-source
+  realization before queued content is mounted.
 
 ### Generated control model
 
@@ -223,9 +225,10 @@ Deferred:
 
 ### 6. Collections and lifecycle
 
-- Add minimal `ItemsRepeater` and realization leases.
-- Use the shared keyed differ for panels and models.
-- Test recycled callbacks, pending work during window close, and repeated mount/retire cycles.
+- [x] Add minimal vertical `ItemsRepeater`, stable shells, and realization leases.
+- [x] Use the shared keyed differ for panels and models.
+- [x] Reject stale keys, containers, collection generations, and duplicate recycle work.
+- [ ] Test pending realization during window close and repeated native mount/retire cycles.
 - Prove Reactor-owned resource counts return to a bounded steady state.
 
 **Exit:** collection realization and shutdown cannot retain or address retired state.
@@ -329,15 +332,14 @@ After representative parity:
 - [x] Fault-sink API.
 - [ ] Per-window or per-UI-thread arena.
 - [ ] Owner-scoped async contract.
-- [ ] Queued realization and factory contract.
+- [x] Queued realization and factory contract.
 
 ### Gate state
 
 - Architecture and correctness gates: active.
 - Compile and runtime gates: report-only until parity.
 - Current phase: 6 - collections and lifecycle.
-- Next action: implement the stable-shell element factory and connect its queued requests to
-  arena-owned leases.
+- Next action: finish window-close and repeated native lifecycle tests for realized rows.
 
 ## Current reactor baseline
 

@@ -22,6 +22,7 @@ Microsoft::UI::Xaml::Controls::ITextBox::{add_TextChanged, remove_TextChanged}
 Microsoft::UI::Xaml::Controls::ItemsRepeater::CreateInstance
 Microsoft::UI::Xaml::Controls::Orientation
 Microsoft::UI::Xaml::Controls::Primitives::IButtonBase::{add_Click, remove_Click}
+Microsoft::UI::Xaml::Controls::ScrollViewer::CreateInstance
 Microsoft::UI::Xaml::Controls::StackPanel::CreateInstance
 Microsoft::UI::Xaml::Controls::StackPanel::OrientationProperty
 Microsoft::UI::Xaml::Controls::StackPanel::SpacingProperty
@@ -37,6 +38,7 @@ Microsoft::UI::Xaml::IDependencyObject::ClearValue
 Microsoft::UI::Xaml::IElementFactory
 Microsoft::UI::Xaml::IElementFactoryGetArgs::{get_Data, get_Parent}
 Microsoft::UI::Xaml::IElementFactoryRecycleArgs::{get_Element, get_Parent}
+Microsoft::UI::Xaml::IFrameworkElement::put_MinHeight
 Microsoft::UI::Xaml::IWindow::{Activate, Close, put_Content}
 Microsoft::UI::Xaml::LaunchActivatedEventArgs
 Microsoft::UI::Xaml::Markup::IXamlMetadataProvider

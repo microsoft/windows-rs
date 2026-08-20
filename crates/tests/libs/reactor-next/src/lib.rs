@@ -48,6 +48,10 @@ mod tests {
         let stack = StackPanel::new()
             .child("first", TextBlock::new().text("one"))
             .children([KeyedElement::new(2_u64, TextBlock::new().text("two"))]);
+        let repeater = ItemsRepeater::new()
+            .item("first", TextBlock::new().text("one"))
+            .items([KeyedElement::new(2_u64, TextBlock::new().text("two"))]);
+        let scroll = ScrollViewer::new().content(repeater.clone());
 
         assert!(matches!(
             button.content_element(),
@@ -55,6 +59,11 @@ mod tests {
         ));
         assert_eq!(stack.child_elements().len(), 1);
         assert_eq!(stack.child_elements()[0].key(), &Key::Integer(2));
+        assert_eq!(repeater.item_elements()[0].key(), &Key::Integer(2));
+        assert!(matches!(
+            scroll.content_element(),
+            Some(Element::ItemsRepeater(_))
+        ));
     }
 
     #[test]

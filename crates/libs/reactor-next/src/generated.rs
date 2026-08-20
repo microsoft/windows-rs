@@ -161,12 +161,56 @@ pub mod public {
     impl EnabledControl for TextBox {}
     impl TextStyleControl for TextBox {}
     impl ControlledTextControl for TextBox {}
+    #[derive(Clone, Debug, Default, PartialEq)]
+    pub struct ItemsRepeater {
+        items: Vec<KeyedElement>,
+    }
+    impl ItemsRepeater {
+        pub fn new() -> Self {
+            Self::default()
+        }
+        pub fn item(mut self, key: impl Into<Key>, item: impl Into<Element>) -> Self {
+            self.items.push(KeyedElement::new(key, item));
+            self
+        }
+        pub fn items(mut self, items: impl IntoIterator<Item = KeyedElement>) -> Self {
+            self.items = items.into_iter().collect();
+            self
+        }
+        pub fn item_elements(&self) -> &[KeyedElement] {
+            &self.items
+        }
+    }
+    impl sealed::Sealed for ItemsRepeater {}
+    impl LayoutControl for ItemsRepeater {}
+    impl ItemsControl for ItemsRepeater {}
+    #[derive(Clone, Debug, Default, PartialEq)]
+    pub struct ScrollViewer {
+        content: Option<Box<Element>>,
+    }
+    impl ScrollViewer {
+        pub fn new() -> Self {
+            Self::default()
+        }
+        pub fn content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+        pub fn content_element(&self) -> Option<&Element> {
+            self.content.as_deref()
+        }
+    }
+    impl sealed::Sealed for ScrollViewer {}
+    impl LayoutControl for ScrollViewer {}
+    impl ContentControl for ScrollViewer {}
     #[derive(Clone, Debug, PartialEq)]
     pub enum Element {
         TextBlock(TextBlock),
         Button(Button),
         StackPanel(StackPanel),
         TextBox(TextBox),
+        ItemsRepeater(ItemsRepeater),
+        ScrollViewer(ScrollViewer),
     }
     impl From<TextBlock> for Element {
         fn from(value: TextBlock) -> Self {
@@ -186,6 +230,16 @@ pub mod public {
     impl From<TextBox> for Element {
         fn from(value: TextBox) -> Self {
             Self::TextBox(value)
+        }
+    }
+    impl From<ItemsRepeater> for Element {
+        fn from(value: ItemsRepeater) -> Self {
+            Self::ItemsRepeater(value)
+        }
+    }
+    impl From<ScrollViewer> for Element {
+        fn from(value: ScrollViewer) -> Self {
+            Self::ScrollViewer(value)
         }
     }
     impl ElementPartsExt for Element {
@@ -240,6 +294,16 @@ pub mod public {
                         on_text_changed,
                     },
                     structure: ElementStructure::None,
+                },
+                Self::ItemsRepeater(ItemsRepeater { items }) => ElementParts {
+                    kind: MountedKind::ItemsRepeater,
+                    props: MountedProps::ItemsRepeater {},
+                    structure: ElementStructure::Virtual(items),
+                },
+                Self::ScrollViewer(ScrollViewer { content }) => ElementParts {
+                    kind: MountedKind::ScrollViewer,
+                    props: MountedProps::ScrollViewer {},
+                    structure: ElementStructure::Content(content.map(|element| *element)),
                 },
             }
         }
@@ -336,6 +400,8 @@ impl MountedPropsExt for MountedProps {
                     },
                 );
             }
+            Self::ItemsRepeater { .. } => {}
+            Self::ScrollViewer { .. } => {}
         }
     }
 }
@@ -352,6 +418,8 @@ impl MountedEventsExt for MountedProps {
             } => {
                 visit(EventId::TextBoxTextChanged, on_text_changed.is_some());
             }
+            Self::ItemsRepeater { .. } => {}
+            Self::ScrollViewer { .. } => {}
         }
     }
     fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> bool {
@@ -388,6 +456,8 @@ pub enum MountedKind {
     Button,
     StackPanel,
     TextBox,
+    ItemsRepeater,
+    ScrollViewer,
 }
 #[derive(Clone, Debug, PartialEq)]
 pub enum MountedProps {
@@ -409,12 +479,15 @@ pub enum MountedProps {
         is_enabled: Property<bool>,
         on_text_changed: Option<Callback<String>>,
     },
+    ItemsRepeater {},
+    ScrollViewer {},
 }
 #[derive(Clone, Debug, PartialEq)]
 pub enum ElementStructure {
     None,
     Content(Option<Element>),
     Children(Vec<KeyedElement>),
+    Virtual(Vec<KeyedElement>),
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct ElementParts {
@@ -482,6 +555,7 @@ pub enum ControlRole {
     Content,
     Children,
     Controlled,
+    Virtual,
 }
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Capability {
@@ -491,6 +565,7 @@ pub enum Capability {
     Content,
     Children,
     ControlledText,
+    Items,
 }
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PropertyDescriptor {
@@ -614,6 +689,10 @@ const TEXT_BOX_EVENTS: &[EventDescriptor] = &[EventDescriptor {
     payload: "Str",
     interface: "Microsoft.UI.Xaml.Controls.ITextBox",
 }];
+const ITEMS_REPEATER_PROPERTIES: &[PropertyDescriptor] = &[];
+const ITEMS_REPEATER_EVENTS: &[EventDescriptor] = &[];
+const SCROLL_VIEWER_PROPERTIES: &[PropertyDescriptor] = &[];
+const SCROLL_VIEWER_EVENTS: &[EventDescriptor] = &[];
 pub const CONTROLS: &[ControlDescriptor] = &[
     ControlDescriptor {
         kind: MountedKind::TextBlock,
@@ -655,6 +734,24 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         ],
         properties: TEXT_BOX_PROPERTIES,
         events: TEXT_BOX_EVENTS,
+    },
+    ControlDescriptor {
+        kind: MountedKind::ItemsRepeater,
+        name: "ItemsRepeater",
+        type_name: "Microsoft.UI.Xaml.Controls.ItemsRepeater",
+        role: ControlRole::Virtual,
+        capabilities: &[Capability::Layout, Capability::Items],
+        properties: ITEMS_REPEATER_PROPERTIES,
+        events: ITEMS_REPEATER_EVENTS,
+    },
+    ControlDescriptor {
+        kind: MountedKind::ScrollViewer,
+        name: "ScrollViewer",
+        type_name: "Microsoft.UI.Xaml.Controls.ScrollViewer",
+        role: ControlRole::Content,
+        capabilities: &[Capability::Layout, Capability::Content],
+        properties: SCROLL_VIEWER_PROPERTIES,
+        events: SCROLL_VIEWER_EVENTS,
     },
 ];
 const _: () = {

@@ -46,6 +46,30 @@ pub trait NativeRuntime {
     fn drain_event_errors(&mut self) -> Vec<RuntimeError> {
         Vec::new()
     }
+
+    fn drain_realizations(&mut self) -> Vec<RealizationRequest> {
+        Vec::new()
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum RealizationRequest {
+    Realize {
+        collection: NodeId,
+        container: RealizedContainer,
+        index: usize,
+    },
+    Recycle {
+        collection: NodeId,
+        container: RealizedContainer,
+    },
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub enum RealizationOutcome {
+    Realized(RealizationLease),
+    Recycled(RealizationLease),
+    Rejected(RealizationRequest),
 }
 
 pub struct QueuedEvent {
@@ -72,6 +96,24 @@ pub enum Command {
     Create {
         node: NodeId,
         kind: MountedKind,
+    },
+    CreateVirtualCollection {
+        node: NodeId,
+        item_count: usize,
+    },
+    ResetVirtualCollection {
+        node: NodeId,
+        item_count: usize,
+    },
+    AttachRealized {
+        collection: NodeId,
+        container: RealizedContainer,
+        child: NodeId,
+    },
+    DetachRealized {
+        collection: NodeId,
+        container: RealizedContainer,
+        child: NodeId,
     },
     Destroy {
         node: NodeId,

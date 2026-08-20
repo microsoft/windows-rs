@@ -57,3 +57,13 @@ clearable = true
 [[control.event]]
 name = "TextChanged"
 property = "Text"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ItemsRepeater"
+role = "virtual"
+capabilities = ["layout", "items"]
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ScrollViewer"
+role = "content"
+capabilities = ["layout", "content"]

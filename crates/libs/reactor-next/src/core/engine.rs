@@ -1,5 +1,5 @@
 use super::*;
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, HashMap};
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum NodeKind {
@@ -18,6 +18,8 @@ struct Node {
     children: Vec<NodeId>,
     key: Option<Key>,
     native: Option<NativeState>,
+    realized: HashMap<RealizedContainer, NodeId>,
+    virtual_items: Option<Vec<KeyedElement>>,
     virtual_model: Option<VirtualModel>,
 }
 
@@ -82,6 +84,8 @@ impl Tree {
             children: Vec::new(),
             key: None,
             native: None,
+            realized: HashMap::new(),
+            virtual_items: None,
             virtual_model: None,
         })?;
 
@@ -156,6 +160,80 @@ impl Tree {
         Ok(id)
     }
 
+    pub fn insert_virtual_items(
+        &mut self,
+        parent: Option<NodeId>,
+        key: Option<Key>,
+        items: Vec<KeyedElement>,
+    ) -> Result<NodeId, TreeError> {
+        let keys = items.iter().map(|item| item.key().clone());
+        let id = self.insert_virtual(parent, keys)?;
+        let node = self.arena.get_mut(id)?;
+        node.key = key;
+        node.virtual_items = Some(items);
+        Ok(id)
+    }
+
+    pub fn virtual_items(&self, id: NodeId) -> Result<&[KeyedElement], TreeError> {
+        self.arena
+            .get(id)?
+            .virtual_items
+            .as_deref()
+            .ok_or(TreeError::NotVirtual)
+    }
+
+    pub fn virtual_item(&self, id: NodeId, key: &Key) -> Result<&Element, TreeError> {
+        self.virtual_items(id)?
+            .iter()
+            .find(|item| item.key() == key)
+            .map(KeyedElement::element)
+            .ok_or(TreeError::NotVirtual)
+    }
+
+    pub fn realized(
+        &self,
+        id: NodeId,
+        container: RealizedContainer,
+    ) -> Result<Option<NodeId>, TreeError> {
+        Ok(self.arena.get(id)?.realized.get(&container).copied())
+    }
+
+    pub fn realized_container(
+        &self,
+        id: NodeId,
+        child: NodeId,
+    ) -> Result<Option<RealizedContainer>, TreeError> {
+        Ok(self
+            .arena
+            .get(id)?
+            .realized
+            .iter()
+            .find_map(|(container, current)| (*current == child).then_some(*container)))
+    }
+
+    pub fn set_realized(
+        &mut self,
+        id: NodeId,
+        container: RealizedContainer,
+        child: NodeId,
+    ) -> Result<(), TreeError> {
+        self.arena.get(child)?;
+        self.arena.get_mut(id)?.realized.insert(container, child);
+        Ok(())
+    }
+
+    pub fn update_virtual_items(
+        &mut self,
+        id: NodeId,
+        items: Vec<KeyedElement>,
+    ) -> Result<Vec<KeyedOperation<Key>>, TreeError> {
+        let keys = items.iter().map(|item| item.key().clone());
+        let operations = self.virtual_model_mut(id)?.update(keys)?;
+        let node = self.arena.get_mut(id)?;
+        node.virtual_items = Some(items);
+        Ok(operations)
+    }
+
     pub fn virtual_model(&self, id: NodeId) -> Result<&VirtualModel, TreeError> {
         self.arena
             .get(id)?
@@ -203,10 +281,9 @@ impl Tree {
 
         let parent = self.arena.get(id)?.parent;
         if let Some(parent) = parent {
-            self.arena
-                .get_mut(parent)?
-                .children
-                .retain(|child| *child != id);
+            let parent = self.arena.get_mut(parent)?;
+            parent.children.retain(|child| *child != id);
+            parent.realized.retain(|_, child| *child != id);
         } else {
             self.root = None;
         }
