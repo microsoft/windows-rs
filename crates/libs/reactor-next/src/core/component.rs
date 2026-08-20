@@ -8,15 +8,15 @@ use std::collections::{HashMap, HashSet, VecDeque};
 use std::fmt;
 use std::marker::PhantomData;
 use std::rc::Rc;
-use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
+use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::{Arc, Mutex, Weak};
 
-pub const BACKGROUND_MESSAGE_QUEUE_CAPACITY: usize = 4_096;
-pub const BACKGROUND_TASK_CAPACITY: usize = 64;
-pub const LOCAL_MESSAGE_QUEUE_CAPACITY: usize = 4_096;
+pub(crate) const BACKGROUND_MESSAGE_QUEUE_CAPACITY: usize = 4_096;
+pub(crate) const BACKGROUND_TASK_CAPACITY: usize = 64;
+pub(crate) const LOCAL_MESSAGE_QUEUE_CAPACITY: usize = 4_096;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-pub struct ContextId(u64);
+pub(crate) struct ContextId(u64);
 
 static NEXT_CONTEXT_ID: AtomicU64 = AtomicU64::new(1);
 
@@ -34,6 +34,7 @@ impl<T> Context<T> {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn id(&self) -> ContextId {
         self.id
     }
@@ -48,7 +49,7 @@ impl<T> PartialEq for Context<T> {
 impl<T> Eq for Context<T> {}
 
 #[derive(Clone)]
-pub struct ContextProvision {
+pub(crate) struct ContextProvision {
     pub(crate) id: ContextId,
     pub(crate) value: Rc<dyn Any>,
     value_type: TypeId,
@@ -115,7 +116,7 @@ impl ContextSnapshot {
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
-pub struct ComponentToken {
+pub(crate) struct ComponentToken {
     window: WindowToken,
     scope: ScopeId,
 }
@@ -128,9 +129,19 @@ impl ComponentToken {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ComponentStoreError {
-    ComponentTypeMismatch { expected: TypeId, actual: TypeId },
-    MessageTypeMismatch { expected: TypeId, actual: TypeId },
-    PropsTypeMismatch { expected: TypeId, actual: TypeId },
+    #[cfg(test)]
+    ComponentTypeMismatch {
+        expected: TypeId,
+        actual: TypeId,
+    },
+    MessageTypeMismatch {
+        expected: TypeId,
+        actual: TypeId,
+    },
+    PropsTypeMismatch {
+        expected: TypeId,
+        actual: TypeId,
+    },
     Scope(ScopeError),
     WindowMismatch,
 }
@@ -220,7 +231,7 @@ pub struct CancellationToken {
 
 impl CancellationToken {
     pub fn is_cancelled(&self) -> bool {
-        self.control.cancelled.load(Ordering::Acquire)
+        self.control.status() == ComponentTaskStatus::Cancelled
     }
 }
 
@@ -236,25 +247,25 @@ pub enum ComponentTaskStatus {
 
 #[derive(Debug)]
 struct TaskControl {
-    cancelled: AtomicBool,
     status: std::sync::atomic::AtomicU8,
 }
 
 impl TaskControl {
     fn new() -> Self {
         Self {
-            cancelled: AtomicBool::new(false),
             status: std::sync::atomic::AtomicU8::new(ComponentTaskStatus::Running as u8),
         }
     }
 
-    fn queue(&self) {
-        let _ = self.status.compare_exchange(
-            ComponentTaskStatus::Running as u8,
-            ComponentTaskStatus::Queued as u8,
-            Ordering::AcqRel,
-            Ordering::Acquire,
-        );
+    fn queue(&self) -> bool {
+        self.status
+            .compare_exchange(
+                ComponentTaskStatus::Running as u8,
+                ComponentTaskStatus::Queued as u8,
+                Ordering::AcqRel,
+                Ordering::Acquire,
+            )
+            .is_ok()
     }
 
     fn deliver(&self) -> bool {
@@ -301,12 +312,15 @@ impl TaskControl {
     }
 
     fn cancel(&self) {
-        self.cancelled.store(true, Ordering::Release);
         self.finish(ComponentTaskStatus::Cancelled);
     }
 }
 
 #[derive(Clone)]
+/// A handle for observing or cancelling background work.
+///
+/// Dropping the handle does not cancel the task. Scope retirement, Pump shutdown, or an explicit
+/// [`cancel`](Self::cancel) call cancels it.
 pub struct ComponentTask {
     control: Arc<TaskControl>,
     queue: Arc<Mutex<BackgroundQueue>>,
@@ -323,7 +337,7 @@ impl ComponentTask {
     }
 
     pub fn is_cancelled(&self) -> bool {
-        self.control.cancelled.load(Ordering::Acquire)
+        self.status() == ComponentTaskStatus::Cancelled
     }
 
     pub fn status(&self) -> ComponentTaskStatus {
@@ -395,7 +409,7 @@ impl TaskSpawner {
                         queue.tasks.remove(&token.scope);
                     }
                     if !registered
-                        || thread_control.cancelled.load(Ordering::Acquire)
+                        || thread_control.status() == ComponentTaskStatus::Cancelled
                         || !queue.open
                     {
                         thread_control.cancel();
@@ -409,12 +423,14 @@ impl TaskSpawner {
                         thread_control.reject();
                         return;
                     }
+                    if !thread_control.queue() {
+                        return;
+                    }
                     queue.envelopes.push_back(BackgroundEnvelope {
                         control: Arc::clone(&thread_control),
                         payload: Box::new(message),
                         token,
                     });
-                    thread_control.queue();
                     let wake = (!queue.wake_pending).then(|| queue.wake.clone()).flatten();
                     queue.wake_pending |= wake.is_some();
                     wake
@@ -496,10 +512,6 @@ impl<M: 'static> LocalSender<M> {
         }
         true
     }
-
-    pub fn token(&self) -> ComponentToken {
-        self.token
-    }
 }
 
 pub struct ComponentContext<C: Component> {
@@ -512,7 +524,7 @@ impl<C: Component> ComponentContext<C> {
         self.sender.clone()
     }
 
-    pub fn spawn_background<F>(&mut self, work: F) -> ComponentTask
+    pub fn spawn_background<F>(&self, work: F) -> ComponentTask
     where
         C::Message: Send,
         F: FnOnce(CancellationToken) -> C::Message + Send + 'static,
@@ -615,12 +627,12 @@ impl<C: Component> ErasedComponentFactory for TypedComponentFactory<C> {
 }
 
 #[derive(Clone)]
-pub struct ComponentView {
+pub(crate) struct ComponentView {
     factory: Rc<dyn ErasedComponentFactory>,
 }
 
 impl ComponentView {
-    pub fn new<C: Component>(props: C::Props) -> Self {
+    pub(crate) fn new<C: Component>(props: C::Props) -> Self {
         Self {
             factory: Rc::new(TypedComponentFactory::<C> { props }),
         }
@@ -662,10 +674,19 @@ impl PartialEq for ComponentView {
 }
 
 trait ErasedScope {
-    fn apply_props(&mut self, props: Box<dyn Any>) -> Result<bool, ComponentStoreError>;
+    fn apply_props(
+        &mut self,
+        props: Box<dyn Any>,
+        tasks: TaskSpawner,
+    ) -> Result<bool, ComponentStoreError>;
+    #[cfg(test)]
     fn component(&self) -> &dyn Any;
-    fn component_mut(&mut self) -> &mut dyn Any;
-    fn dispatch(&mut self, message: Box<dyn Any>) -> Result<(), ComponentStoreError>;
+    fn dispatch(
+        &mut self,
+        message: Box<dyn Any>,
+        tasks: TaskSpawner,
+    ) -> Result<(), ComponentStoreError>;
+    #[cfg(test)]
     fn message_type(&self) -> TypeId;
     fn props_type(&self) -> TypeId;
     fn context_dependencies(&self) -> Option<&HashSet<ContextDependency>>;
@@ -778,28 +799,10 @@ struct TypedScope<C, P, M> {
     context_dependencies: Option<Rc<HashSet<ContextDependency>>>,
     effects: Rc<RefCell<ComponentEffects>>,
     props: P,
-    changed: Changed<C, P, M>,
+    changed: fn(&mut C, &P, LocalSender<M>, TaskSpawner),
     sender: LocalSender<M>,
-    tasks: TaskSpawner,
-    update: Update<C, M>,
-    view: Box<
-        dyn Fn(
-            &C,
-            LocalSender<M>,
-            Rc<RefCell<ComponentEffects>>,
-            ContextSnapshot,
-        ) -> ComponentRender,
-    >,
-}
-
-enum Changed<C, P, M> {
-    Basic(fn(&mut C, &P, LocalSender<M>)),
-    WithTasks(fn(&mut C, &P, LocalSender<M>, TaskSpawner)),
-}
-
-enum Update<C, M> {
-    Basic(fn(&mut C, M, LocalSender<M>)),
-    WithTasks(fn(&mut C, M, LocalSender<M>, TaskSpawner)),
+    update: fn(&mut C, M, LocalSender<M>, TaskSpawner),
+    view: fn(&C, LocalSender<M>, Rc<RefCell<ComponentEffects>>, ContextSnapshot) -> ComponentRender,
 }
 
 impl<C, P, M> Drop for TypedScope<C, P, M> {
@@ -814,7 +817,11 @@ where
     P: Clone + PartialEq + 'static,
     M: 'static,
 {
-    fn apply_props(&mut self, props: Box<dyn Any>) -> Result<bool, ComponentStoreError> {
+    fn apply_props(
+        &mut self,
+        props: Box<dyn Any>,
+        tasks: TaskSpawner,
+    ) -> Result<bool, ComponentStoreError> {
         let actual = props.as_ref().type_id();
         let props = props
             .downcast::<P>()
@@ -826,26 +833,13 @@ where
             return Ok(false);
         }
         self.props = *props;
-        match &self.changed {
-            Changed::Basic(changed) => {
-                changed(&mut self.component, &self.props, self.sender.clone());
-            }
-            Changed::WithTasks(changed) => changed(
-                &mut self.component,
-                &self.props,
-                self.sender.clone(),
-                self.tasks.clone(),
-            ),
-        }
+        (self.changed)(&mut self.component, &self.props, self.sender.clone(), tasks);
         Ok(true)
     }
 
+    #[cfg(test)]
     fn component(&self) -> &dyn Any {
         &self.component
-    }
-
-    fn component_mut(&mut self) -> &mut dyn Any {
-        &mut self.component
     }
 
     fn context_dependencies(&self) -> Option<&HashSet<ContextDependency>> {
@@ -856,7 +850,11 @@ where
         self.context_dependencies = (!dependencies.is_empty()).then(|| Rc::new(dependencies));
     }
 
-    fn dispatch(&mut self, message: Box<dyn Any>) -> Result<(), ComponentStoreError> {
+    fn dispatch(
+        &mut self,
+        message: Box<dyn Any>,
+        tasks: TaskSpawner,
+    ) -> Result<(), ComponentStoreError> {
         let actual = message.as_ref().type_id();
         let message =
             message
@@ -865,18 +863,11 @@ where
                     expected: TypeId::of::<M>(),
                     actual,
                 })?;
-        match &self.update {
-            Update::Basic(update) => update(&mut self.component, *message, self.sender.clone()),
-            Update::WithTasks(update) => update(
-                &mut self.component,
-                *message,
-                self.sender.clone(),
-                self.tasks.clone(),
-            ),
-        }
+        (self.update)(&mut self.component, *message, self.sender.clone(), tasks);
         Ok(())
     }
 
+    #[cfg(test)]
     fn message_type(&self) -> TypeId {
         TypeId::of::<M>()
     }
@@ -956,59 +947,6 @@ impl ComponentStore {
         }
     }
 
-    pub fn reserve<C, P, M>(
-        &mut self,
-        component: C,
-        props: P,
-        changed: fn(&mut C, &P, LocalSender<M>),
-        update: fn(&mut C, M, LocalSender<M>),
-        view: fn(&C, LocalSender<M>) -> View,
-    ) -> Result<ComponentToken, ComponentStoreError>
-    where
-        C: 'static,
-        P: Clone + PartialEq + 'static,
-        M: 'static,
-    {
-        let background = Arc::clone(&self.background);
-        let queue = Rc::clone(&self.queue);
-        let task_limiter = Arc::clone(&self.task_limiter);
-        let window = self.window;
-        let view = Box::new(
-            move |component: &C, sender, _effects, _contexts| ComponentRender {
-                dependencies: HashSet::new(),
-                view: view(component, sender),
-            },
-        );
-        let scope = self.scopes.reserve_with(move |scope| {
-            queue.borrow_mut().active.insert(scope);
-            let sender = LocalSender {
-                queue: Rc::clone(&queue),
-                token: ComponentToken { window, scope },
-                marker: PhantomData,
-            };
-            let tasks = TaskSpawner {
-                limiter: Arc::clone(&task_limiter),
-                queue: Arc::clone(&background),
-                token: ComponentToken { window, scope },
-            };
-            Box::new(TypedScope {
-                component,
-                context_dependencies: None,
-                effects: Rc::new(RefCell::new(ComponentEffects::default())),
-                props,
-                changed: Changed::Basic(changed),
-                sender,
-                tasks,
-                update: Update::Basic(update),
-                view,
-            }) as Box<dyn ErasedScope>
-        })?;
-        Ok(ComponentToken {
-            window: self.window,
-            scope,
-        })
-    }
-
     pub fn reserve_component<C: Component>(
         &mut self,
         props: C::Props,
@@ -1070,7 +1008,7 @@ impl ComponentStore {
                 &props,
                 &mut ComponentContext {
                     sender: sender.clone(),
-                    tasks: tasks.clone(),
+                    tasks,
                 },
             );
             Box::new(TypedScope {
@@ -1078,11 +1016,10 @@ impl ComponentStore {
                 context_dependencies: None,
                 effects: Rc::new(RefCell::new(ComponentEffects::default())),
                 props,
-                changed: Changed::WithTasks(changed::<C>),
+                changed: changed::<C>,
                 sender,
-                tasks,
-                update: Update::WithTasks(update::<C>),
-                view: Box::new(view::<C>),
+                update: update::<C>,
+                view: view::<C>,
             }) as Box<dyn ErasedScope>
         })?;
         Ok(ComponentToken {
@@ -1101,14 +1038,6 @@ impl ComponentStore {
         Self::with_task_limiter(window, Arc::clone(&self.task_limiter))
     }
 
-    pub fn retire(&mut self, token: ComponentToken) -> Result<(), ComponentStoreError> {
-        self.validate_window(token)?;
-        self.scopes.retire(token.scope)?;
-        self.cancel_scope_tasks(token.scope);
-        self.remove_scope_messages(token.scope);
-        Ok(())
-    }
-
     pub fn remove(&mut self, token: ComponentToken) -> Result<(), ComponentStoreError> {
         self.validate_window(token)?;
         self.clear_context_dependencies(token.scope)?;
@@ -1118,6 +1047,7 @@ impl ComponentStore {
         Ok(())
     }
 
+    #[cfg(test)]
     pub fn sender<M: 'static>(
         &self,
         token: ComponentToken,
@@ -1142,36 +1072,23 @@ impl ComponentStore {
         props: P,
     ) -> Result<bool, ComponentStoreError> {
         self.validate_window(token)?;
+        let tasks = self.task_spawner(token);
         let scope = self.scopes.get_mut(token.scope)?;
         let actual = TypeId::of::<P>();
         let expected = scope.props_type();
         if actual != expected {
             return Err(ComponentStoreError::PropsTypeMismatch { expected, actual });
         }
-        scope.apply_props(Box::new(props))
+        scope.apply_props(Box::new(props), tasks)
     }
 
+    #[cfg(test)]
     pub fn component<C: 'static>(&self, token: ComponentToken) -> Result<&C, ComponentStoreError> {
         self.validate_window(token)?;
         let component = self.scopes.get(token.scope)?.component();
         let actual = component.type_id();
         component
             .downcast_ref()
-            .ok_or(ComponentStoreError::ComponentTypeMismatch {
-                expected: TypeId::of::<C>(),
-                actual,
-            })
-    }
-
-    pub fn component_mut<C: 'static>(
-        &mut self,
-        token: ComponentToken,
-    ) -> Result<&mut C, ComponentStoreError> {
-        self.validate_window(token)?;
-        let component = self.scopes.get_mut(token.scope)?.component_mut();
-        let actual = (*component).type_id();
-        component
-            .downcast_mut()
             .ok_or(ComponentStoreError::ComponentTypeMismatch {
                 expected: TypeId::of::<C>(),
                 actual,
@@ -1242,12 +1159,6 @@ impl ComponentStore {
                     report.blocked = true;
                     break;
                 }
-                ScopeState::Retiring => {
-                    if let Some(control) = envelope.control() {
-                        control.cancel();
-                    }
-                    report.dropped += 1;
-                }
                 ScopeState::Published => {
                     if let Some(control) = envelope.control()
                         && !control.deliver()
@@ -1259,7 +1170,8 @@ impl ComponentStore {
                         PendingEnvelope::Background(envelope) => envelope.payload,
                         PendingEnvelope::Local(envelope) => envelope.payload,
                     };
-                    self.scopes.get_mut(token.scope)?.dispatch(payload)?;
+                    let tasks = self.task_spawner(token);
+                    self.scopes.get_mut(token.scope)?.dispatch(payload, tasks)?;
                     report.dispatched += 1;
                     report.dirty.push(token);
                 }
@@ -1291,6 +1203,27 @@ impl ComponentStore {
         tokens
     }
 
+    pub(crate) fn next_pending_token(&self) -> Option<ComponentToken> {
+        let local = self
+            .queue
+            .borrow()
+            .envelopes
+            .front()
+            .map(|envelope| envelope.token);
+        let background = self
+            .background
+            .lock()
+            .unwrap()
+            .envelopes
+            .front()
+            .map(|envelope| envelope.token);
+        if self.drain_background_next {
+            background.or(local)
+        } else {
+            local.or(background)
+        }
+    }
+
     pub(crate) fn context_dependencies(
         &self,
         token: ComponentToken,
@@ -1312,18 +1245,7 @@ impl ComponentStore {
             .cloned()
             .unwrap_or_default();
         for dependency in previous.difference(&dependencies) {
-            if let Some(consumers) = self.context_consumers.get_mut(dependency) {
-                consumers.remove(&token.scope);
-                if consumers.is_empty() {
-                    self.context_consumers.remove(dependency);
-                }
-            }
-            if let Some(consumers) = self.context_consumers_by_id.get_mut(&dependency.id) {
-                consumers.remove(&token.scope);
-                if consumers.is_empty() {
-                    self.context_consumers_by_id.remove(&dependency.id);
-                }
-            }
+            self.remove_context_consumer(*dependency, token.scope);
         }
         for dependency in dependencies.difference(&previous).copied() {
             self.context_consumers
@@ -1454,6 +1376,14 @@ impl ComponentStore {
             .retain(|envelope| envelope.token.scope != scope);
     }
 
+    fn task_spawner(&self, token: ComponentToken) -> TaskSpawner {
+        TaskSpawner {
+            limiter: Arc::clone(&self.task_limiter),
+            queue: Arc::clone(&self.background),
+            token,
+        }
+    }
+
     fn remove_scope_messages(&mut self, scope: ScopeId) {
         let mut queue = self.queue.borrow_mut();
         queue.active.remove(&scope);
@@ -1472,27 +1402,28 @@ impl ComponentStore {
     }
 
     fn clear_context_dependencies(&mut self, scope: ScopeId) -> Result<(), ComponentStoreError> {
-        let dependencies = self
-            .scopes
-            .get(scope)?
-            .context_dependencies()
-            .cloned()
-            .unwrap_or_default();
-        for dependency in dependencies {
-            if let Some(consumers) = self.context_consumers.get_mut(&dependency) {
-                consumers.remove(&scope);
-                if consumers.is_empty() {
-                    self.context_consumers.remove(&dependency);
-                }
-            }
-            if let Some(consumers) = self.context_consumers_by_id.get_mut(&dependency.id) {
-                consumers.remove(&scope);
-                if consumers.is_empty() {
-                    self.context_consumers_by_id.remove(&dependency.id);
-                }
+        self.set_context_dependencies(
+            ComponentToken {
+                window: self.window,
+                scope,
+            },
+            HashSet::new(),
+        )
+    }
+
+    fn remove_context_consumer(&mut self, dependency: ContextDependency, scope: ScopeId) {
+        if let Some(consumers) = self.context_consumers.get_mut(&dependency) {
+            consumers.remove(&scope);
+            if consumers.is_empty() {
+                self.context_consumers.remove(&dependency);
             }
         }
-        Ok(())
+        if let Some(consumers) = self.context_consumers_by_id.get_mut(&dependency.id) {
+            consumers.remove(&scope);
+            if consumers.is_empty() {
+                self.context_consumers_by_id.remove(&dependency.id);
+            }
+        }
     }
 
     fn validate_window(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {
@@ -1525,23 +1456,40 @@ mod tests {
         value: u32,
     }
 
-    fn changed(state: &mut State, _props: &String, _sender: LocalSender<u32>) {
-        state.changed += 1;
-    }
+    impl Component for State {
+        type Props = String;
+        type Message = u32;
 
-    fn update(state: &mut State, message: u32, _sender: LocalSender<u32>) {
-        state.value += message;
-        if message == 1 {
-            state.sender.as_ref().unwrap().send(2);
+        fn create(_props: &Self::Props, context: &mut ComponentContext<Self>) -> Self {
+            Self {
+                changed: 0,
+                sender: Some(context.sender()),
+                value: 0,
+            }
         }
-    }
 
-    fn view(_state: &State, _sender: LocalSender<u32>) -> View {
-        View::Empty
+        fn changed(&mut self, _props: &Self::Props, _context: &mut ComponentContext<Self>) {
+            self.changed += 1;
+        }
+
+        fn update(&mut self, message: u32, _context: &mut ComponentContext<Self>) {
+            self.value += message;
+            if message == 1 {
+                self.sender.as_ref().unwrap().send(2);
+            }
+        }
+
+        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+            View::empty()
+        }
     }
 
     fn store() -> ComponentStore {
         ComponentStore::new(WindowToken::new(WindowId::allocate()))
+    }
+
+    fn reserve_state(store: &mut ComponentStore, props: &str) -> ComponentToken {
+        store.reserve_component::<State>(props.to_string()).unwrap()
     }
 
     fn wait_for_status(task: &ComponentTask, status: ComponentTaskStatus) {
@@ -1555,21 +1503,8 @@ mod tests {
     #[test]
     fn reserved_messages_wait_for_publication_and_reentrant_messages_queue() {
         let mut store = store();
-        let token = store
-            .reserve(
-                State {
-                    changed: 0,
-                    sender: None,
-                    value: 0,
-                },
-                "first".to_string(),
-                changed,
-                update,
-                view,
-            )
-            .unwrap();
+        let token = reserve_state(&mut store, "first");
         let sender = store.sender::<u32>(token).unwrap();
-        store.component_mut::<State>(token).unwrap().sender = Some(sender.clone());
         sender.send(1);
 
         assert_eq!(
@@ -1589,19 +1524,7 @@ mod tests {
     #[test]
     fn props_are_typed_coalesced_and_applied_before_messages() {
         let mut store = store();
-        let token = store
-            .reserve(
-                State {
-                    changed: 0,
-                    sender: None,
-                    value: 0,
-                },
-                "first".to_string(),
-                changed,
-                update,
-                view,
-            )
-            .unwrap();
+        let token = reserve_state(&mut store, "first");
         store.publish(token).unwrap();
 
         assert_eq!(store.apply_props(token, "first".to_string()), Ok(false));
@@ -1614,41 +1537,16 @@ mod tests {
     }
 
     #[test]
-    fn retiring_and_stale_tokens_cannot_reach_a_reused_slot() {
+    fn stale_tokens_cannot_reach_a_reused_slot() {
         let mut store = store();
-        let first = store
-            .reserve(
-                State {
-                    changed: 0,
-                    sender: None,
-                    value: 0,
-                },
-                String::new(),
-                changed,
-                update,
-                view,
-            )
-            .unwrap();
+        let first = reserve_state(&mut store, "");
         store.publish(first).unwrap();
         let old_sender = store.sender::<u32>(first).unwrap();
-        store.retire(first).unwrap();
+        store.remove(first).unwrap();
         old_sender.send(1);
         assert_eq!(store.drain(10).unwrap().dropped, 0);
-        store.remove(first).unwrap();
 
-        let second = store
-            .reserve(
-                State {
-                    changed: 0,
-                    sender: None,
-                    value: 0,
-                },
-                String::new(),
-                changed,
-                update,
-                view,
-            )
-            .unwrap();
+        let second = reserve_state(&mut store, "");
         assert_ne!(first, second);
         store.publish(second).unwrap();
         old_sender.send(4);
@@ -1660,19 +1558,7 @@ mod tests {
     #[test]
     fn sender_creation_checks_the_message_type() {
         let mut store = store();
-        let token = store
-            .reserve(
-                State {
-                    changed: 0,
-                    sender: None,
-                    value: 0,
-                },
-                String::new(),
-                changed,
-                update,
-                view,
-            )
-            .unwrap();
+        let token = reserve_state(&mut store, "");
 
         assert!(matches!(
             store.sender::<String>(token),
@@ -1683,19 +1569,7 @@ mod tests {
     #[test]
     fn background_queue_capacity_rejects_excess_completion() {
         let mut store = store();
-        let token = store
-            .reserve(
-                State {
-                    changed: 0,
-                    sender: None,
-                    value: 0,
-                },
-                String::new(),
-                changed,
-                update,
-                view,
-            )
-            .unwrap();
+        let token = reserve_state(&mut store, "");
         store.publish(token).unwrap();
         {
             let mut queue = store.background.lock().unwrap();
@@ -1721,19 +1595,7 @@ mod tests {
     #[test]
     fn panicking_background_work_is_rejected() {
         let mut store = store();
-        let token = store
-            .reserve(
-                State {
-                    changed: 0,
-                    sender: None,
-                    value: 0,
-                },
-                String::new(),
-                changed,
-                update,
-                view,
-            )
-            .unwrap();
+        let token = reserve_state(&mut store, "");
         store.publish(token).unwrap();
 
         let task = TaskSpawner {
@@ -1747,21 +1609,32 @@ mod tests {
     }
 
     #[test]
+    fn dropping_task_handle_does_not_cancel_delivery() {
+        let mut store = store();
+        let token = reserve_state(&mut store, "");
+        store.publish(token).unwrap();
+
+        drop(
+            TaskSpawner {
+                limiter: Arc::clone(&store.task_limiter),
+                queue: Arc::clone(&store.background),
+                token,
+            }
+            .spawn::<u32, _>(|_| 7),
+        );
+        let deadline = Instant::now() + Duration::from_secs(2);
+        while store.pending() == 0 {
+            assert!(Instant::now() < deadline, "background task timed out");
+            std::thread::sleep(Duration::from_millis(1));
+        }
+        assert_eq!(store.drain(1).unwrap().dispatched, 1);
+        assert_eq!(store.component::<State>(token).unwrap().value, 7);
+    }
+
+    #[test]
     fn failed_wake_rejects_every_completion_waiting_behind_it() {
         let mut store = store();
-        let token = store
-            .reserve(
-                State {
-                    changed: 0,
-                    sender: None,
-                    value: 0,
-                },
-                String::new(),
-                changed,
-                update,
-                view,
-            )
-            .unwrap();
+        let token = reserve_state(&mut store, "");
         store.publish(token).unwrap();
         let wake_barrier = Arc::new(Barrier::new(2));
         let wakes = Arc::new(AtomicUsize::new(0));
@@ -1807,19 +1680,7 @@ mod tests {
     #[test]
     fn cancelled_reserved_completion_cannot_deliver_after_publication() {
         let mut store = store();
-        let token = store
-            .reserve(
-                State {
-                    changed: 0,
-                    sender: None,
-                    value: 0,
-                },
-                String::new(),
-                changed,
-                update,
-                view,
-            )
-            .unwrap();
+        let token = reserve_state(&mut store, "");
         let task = TaskSpawner {
             limiter: Arc::clone(&store.task_limiter),
             queue: Arc::clone(&store.background),
@@ -1838,19 +1699,7 @@ mod tests {
     #[test]
     fn local_and_background_messages_alternate() {
         let mut store = store();
-        let token = store
-            .reserve(
-                State {
-                    changed: 0,
-                    sender: None,
-                    value: 0,
-                },
-                String::new(),
-                changed,
-                update,
-                view,
-            )
-            .unwrap();
+        let token = reserve_state(&mut store, "");
         store.publish(token).unwrap();
         let sender = store.sender::<u32>(token).unwrap();
         assert!(sender.send(3));
@@ -1878,35 +1727,10 @@ mod tests {
     #[test]
     fn stale_background_completion_cannot_reach_a_reused_scope() {
         let mut store = store();
-        let first = store
-            .reserve(
-                State {
-                    changed: 0,
-                    sender: None,
-                    value: 0,
-                },
-                String::new(),
-                changed,
-                update,
-                view,
-            )
-            .unwrap();
+        let first = reserve_state(&mut store, "");
         store.publish(first).unwrap();
-        store.retire(first).unwrap();
         store.remove(first).unwrap();
-        let second = store
-            .reserve(
-                State {
-                    changed: 0,
-                    sender: None,
-                    value: 0,
-                },
-                String::new(),
-                changed,
-                update,
-                view,
-            )
-            .unwrap();
+        let second = reserve_state(&mut store, "");
         store.publish(second).unwrap();
         let control = Arc::new(TaskControl::new());
         control.queue();
@@ -1929,19 +1753,7 @@ mod tests {
     #[test]
     fn closed_store_and_live_task_limit_reject_without_spawning() {
         let mut store = store();
-        let token = store
-            .reserve(
-                State {
-                    changed: 0,
-                    sender: None,
-                    value: 0,
-                },
-                String::new(),
-                changed,
-                update,
-                view,
-            )
-            .unwrap();
+        let token = reserve_state(&mut store, "");
         let spawn = TaskSpawner {
             limiter: Arc::clone(&store.task_limiter),
             queue: Arc::clone(&store.background),
@@ -1970,19 +1782,7 @@ mod tests {
         store.set_waker(Rc::new(move || {
             wake_capture.set(wake_capture.get() + 1);
         }));
-        let token = store
-            .reserve(
-                State {
-                    changed: 0,
-                    sender: None,
-                    value: 0,
-                },
-                String::new(),
-                changed,
-                update,
-                view,
-            )
-            .unwrap();
+        let token = reserve_state(&mut store, "");
         store.publish(token).unwrap();
         let sender = store.sender::<u32>(token).unwrap();
 
@@ -1990,7 +1790,7 @@ mod tests {
         sender.send(2);
         assert_eq!(wakes.get(), 1);
         assert_eq!(store.pending(), 2);
-        store.retire(token).unwrap();
+        store.remove(token).unwrap();
         assert_eq!(store.pending(), 0);
         sender.send(3);
         assert_eq!(store.pending(), 0);
@@ -2000,19 +1800,7 @@ mod tests {
     #[test]
     fn local_message_queue_reports_backpressure_at_its_fixed_capacity() {
         let mut store = store();
-        let token = store
-            .reserve(
-                State {
-                    changed: 0,
-                    sender: None,
-                    value: 0,
-                },
-                String::new(),
-                changed,
-                update,
-                view,
-            )
-            .unwrap();
+        let token = reserve_state(&mut store, "");
         store.publish(token).unwrap();
         let sender = store.sender::<u32>(token).unwrap();
 

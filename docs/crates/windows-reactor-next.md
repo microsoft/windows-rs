@@ -41,7 +41,7 @@ This policy keeps platform workarounds narrow. A workaround may be added for a d
 repeatable platform defect. Canvas device loss and WebView process failure remain specialized
 adapter concerns because those APIs document those failure modes.
 
-## Components and hooks
+## Components
 
 The owned-component frontend stores stable generational scopes outside cloned candidates. Scope
 reservation, publication, replacement, and retirement follow the structural tree transaction.
@@ -51,9 +51,8 @@ Component sends are queue-only. Each window accepts at most 4,096 queued message
 dispatcher turn drains at most 64 messages. Dirty scopes compose parent-first. Parent props apply
 before queued child messages, and retiring a child removes its queued work.
 
-An isolated native leaf uses a property-only candidate and does not clone the full tree. Hooks
-remain available as a comparison frontend and use the same planner and update publication path.
-Hook and component effect cleanup runs before native mutation, and setup runs after publication.
+An isolated native leaf uses a property-only candidate and does not clone the full tree. Component
+effect cleanup runs before native mutation, and setup runs after publication.
 
 If component props are applied but later candidate validation fails, Reactor records each touched
 scope. Direct updates and component turns seed their next candidate with those scopes, so an
@@ -96,6 +95,7 @@ generations to reject late races.
 Cancellation is cooperative for the closure but absolute for delivery. A closure that ignores its
 token may continue running, but its result cannot reach a retired or replaced component. Task
 panics remain confined to their worker thread and produce `Rejected` status.
+Dropping a `ComponentTask` handle does not cancel its task.
 
 ## Native events and controlled properties
 
@@ -168,8 +168,11 @@ cargo check -p windows-reactor-next --quiet
 
 The component frontend measured about 0.5 us, 430 allocated bytes, and 9 allocations for an
 isolated leaf at both 512 and 16,384 unrelated scopes. Idle storage was about 2,448 bytes per scope.
-Equivalent component applications measured 0.99x hook time for a clean build and 1.01x for a
-source-only rebuild. The component release executable was 0.91x the hook executable.
+A standalone thin counter compiled clean in about 5.1 seconds, compared with 12.7-13.0 seconds for
+the equivalent current-reactor counter. A source-only rebuild took 0.55 seconds, compared with 3.0
+seconds. The release executables were 856 KB and 2.99 MB. These ratios are provisional because the
+current crate carries much broader generated control coverage. Repeat the comparison after broad
+reactor-next generation.
 
 Removing fine-grained recovery reduced `core/pump/publish.rs` from 396 lines to 57 and removed
 per-command outcome vectors, divergent properties, retries, remount recovery, recovery
@@ -186,8 +189,8 @@ one of 16,384 independent providers measured about 4.7 us, compared with 4.1 us 
 with 16,384 actual consumers remains linear in the work requested.
 
 A complete background task, including OS-thread creation, result enqueue, and UI dispatch, measured
-about 66-69 us and 817 allocated bytes at both 512 and 16,384 unrelated scopes. Live tasks are
-bounded separately from queued completions. Idle component storage is about 2,496 bytes per scope.
+about 67 us and 825 allocated bytes at both 512 and 16,384 unrelated scopes. Live tasks are bounded
+separately from queued completions. Idle component storage is about 2,440 bytes per scope.
 
 The `test` feature exposes the recording runtime and Pump to the headless test and benchmark
 packages. `test_reactor_next_selftest` exercises two real WinUI windows in a process-isolated

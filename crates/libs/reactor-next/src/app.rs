@@ -145,44 +145,6 @@ struct ComponentLoop {
     root: Option<View>,
 }
 
-impl LivePump for ComponentLoop {
-    fn mount(&mut self) -> Result<(), PumpError> {
-        self.pump
-            .mount_view(self.root.take().ok_or(PumpError::AlreadyMounted)?)
-            .map(|_| ())
-    }
-
-    fn dispatch_events(&mut self) -> Result<(), PumpError> {
-        self.pump.dispatch_events()?;
-        self.pump.dispatch_components(64).map(|_| ())
-    }
-
-    fn native_work_pending(&self) -> bool {
-        self.pump.native_work_pending()
-    }
-
-    fn schedule_dispatch(&self) -> Result<(), RuntimeError> {
-        self.pump.runtime().schedule_dispatch()
-    }
-
-    fn close_scheduler(&self) {
-        self.pump.runtime().close_scheduler();
-    }
-
-    fn native_window_closed(&mut self) {
-        self.pump.native_window_closed();
-    }
-
-    fn shutdown(&mut self) {
-        self.pump.shutdown();
-        self.pump.runtime().close_scheduler();
-    }
-
-    fn window_token(&self) -> WindowToken {
-        self.pump.window_token()
-    }
-}
-
 #[cfg(feature = "test")]
 struct LiveTestComponent {
     messages: u8,
@@ -278,66 +240,71 @@ impl Component for LiveClosingTask {
     }
 }
 
-impl<F> LivePump for RenderLoop<WinUiRuntime, F>
-where
-    F: FnMut(&mut Hooks) -> Element,
-{
+impl LivePump for ComponentLoop {
     fn mount(&mut self) -> Result<(), PumpError> {
-        self.run()
+        self.pump
+            .mount_view(self.root.take().ok_or(PumpError::AlreadyMounted)?)
+            .map(|_| ())
     }
 
     fn dispatch_events(&mut self) -> Result<(), PumpError> {
-        self.dispatch_events()?;
-        self.pump_mut().dispatch_components(64).map(|_| ())
+        self.pump.dispatch_events()?;
+        self.pump.dispatch_components(64).map(|_| ())
     }
 
     fn native_work_pending(&self) -> bool {
-        self.pump().native_work_pending()
+        self.pump.native_work_pending()
     }
 
     fn schedule_dispatch(&self) -> Result<(), RuntimeError> {
-        self.pump().runtime().schedule_dispatch()
+        self.pump.runtime().schedule_dispatch()
     }
 
     fn close_scheduler(&self) {
-        self.pump().runtime().close_scheduler();
+        self.pump.runtime().close_scheduler();
     }
 
     fn native_window_closed(&mut self) {
-        Self::native_window_closed(self);
+        self.pump.native_window_closed();
     }
 
     fn shutdown(&mut self) {
-        Self::shutdown(self);
-        self.pump().runtime().close_scheduler();
+        self.pump.shutdown();
+        self.pump.runtime().close_scheduler();
     }
 
     fn window_token(&self) -> WindowToken {
-        self.pump().window_token()
+        self.pump.window_token()
     }
 
     #[cfg(feature = "test")]
     fn live_set_root_text(&self, value: &str) -> Result<(), RuntimeError> {
-        let root = self.pump().root().ok_or(RuntimeError::UnsupportedKind)?;
-        self.pump().runtime().live_set_text(root, value)
+        let root = self
+            .pump
+            .root_native()
+            .ok_or(RuntimeError::UnsupportedKind)?;
+        self.pump.runtime().live_set_text(root, value)
     }
 
     #[cfg(feature = "test")]
     fn live_root_text(&self) -> Result<String, RuntimeError> {
-        let root = self.pump().root().ok_or(RuntimeError::UnsupportedKind)?;
-        self.pump().runtime().live_text(root)
+        let root = self
+            .pump
+            .root_native()
+            .ok_or(RuntimeError::UnsupportedKind)?;
+        self.pump.runtime().live_text(root)
     }
 
     #[cfg(feature = "test")]
     fn live_window(&self) -> Result<Window, RuntimeError> {
-        self.pump().runtime().live_window()
+        self.pump.runtime().live_window()
     }
 
     #[cfg(feature = "test")]
     fn live_rejection_then_retry(&self) -> bool {
-        self.pump().runtime().live_reject_next_enqueue();
-        self.pump().runtime().schedule_dispatch() == Err(RuntimeError::DispatcherRejected)
-            && self.pump().runtime().schedule_dispatch().is_ok()
+        self.pump.runtime().live_reject_next_enqueue();
+        self.pump.runtime().schedule_dispatch() == Err(RuntimeError::DispatcherRejected)
+            && self.pump.runtime().schedule_dispatch().is_ok()
     }
 
     #[cfg(feature = "test")]
@@ -347,7 +314,7 @@ where
         LIVE_COMPONENT_EFFECT_CLEANUPS.with(|count| count.set(0));
         LIVE_COMPONENT_BACKGROUND.with(|completed| completed.set(false));
         if self
-            .pump_mut()
+            .pump
             .update_view(View::component::<LiveTestComponent>(
                 "component".to_string(),
             ))
@@ -355,43 +322,39 @@ where
         {
             return false;
         }
-        let Some(native) = self.pump().root_native() else {
+        let Some(native) = self.pump.root_native() else {
             return false;
         };
         LIVE_COMPONENT_CREATES.with(|count| count.get() == 1)
             && LIVE_COMPONENT_EFFECT_SETUPS.with(|count| count.get() == 1)
             && LIVE_COMPONENT_EFFECT_CLEANUPS.with(|count| count.get() == 0)
-            && self.pump().runtime().live_text(native).as_deref() == Ok("component")
-            && self
-                .pump()
-                .runtime()
-                .live_set_text(native, "message")
-                .is_ok()
+            && self.pump.runtime().live_text(native).as_deref() == Ok("component")
+            && self.pump.runtime().live_set_text(native, "message").is_ok()
     }
 
     #[cfg(feature = "test")]
     fn live_component_message_result(&self) -> bool {
-        let Some(native) = self.pump().root_native() else {
+        let Some(native) = self.pump.root_native() else {
             return false;
         };
         LIVE_COMPONENT_CREATES.with(|count| count.get() == 1)
             && LIVE_COMPONENT_BACKGROUND.with(std::cell::Cell::get)
-            && self.pump().runtime().live_text(native).as_deref() == Ok("message")
+            && self.pump.runtime().live_text(native).as_deref() == Ok("message")
     }
 
     #[cfg(feature = "test")]
     fn live_component_text(&self) -> Result<String, RuntimeError> {
         let native = self
-            .pump()
+            .pump
             .root_native()
             .ok_or(RuntimeError::UnsupportedKind)?;
-        self.pump().runtime().live_text(native)
+        self.pump.runtime().live_text(native)
     }
 
     #[cfg(feature = "test")]
     fn live_closing_task(&mut self) -> bool {
         LIVE_CLOSED_TASK_DELIVERED.with(|delivered| delivered.set(false));
-        self.pump_mut()
+        self.pump
             .update_view(View::component::<LiveClosingTask>(()))
             .is_ok()
     }
@@ -407,11 +370,11 @@ where
                     }),
                 ))
             };
-        if self.pump_mut().update_view(view(&labels)).is_err() {
+        if self.pump.update_view(view(&labels)).is_err() {
             return false;
         }
         let reversed = labels.into_iter().rev().collect::<Vec<_>>();
-        self.pump_mut().update_view(view(&reversed)).is_ok()
+        self.pump.update_view(view(&reversed)).is_ok()
     }
 
     #[cfg(feature = "test")]
@@ -431,15 +394,15 @@ where
             View::children(
                 StackPanel::new(),
                 [
-                    KeyedView::new("empty", View::Empty),
+                    KeyedView::new("empty", View::empty()),
                     KeyedView::new("fragment", View::fragment(children)),
                 ],
             )
         };
 
-        self.pump_mut().update_view(View::Empty).is_ok()
-            && self.pump_mut().update_view(fragment(false)).is_ok()
-            && self.pump_mut().update_view(fragment(true)).is_ok()
+        self.pump.update_view(View::empty()).is_ok()
+            && self.pump.update_view(fragment(false)).is_ok()
+            && self.pump.update_view(fragment(true)).is_ok()
     }
 }
 
@@ -450,22 +413,18 @@ pub fn bootstrap() -> windows_core::Result<()> {
 pub struct App;
 
 impl App {
-    pub fn run<F>(root: F) -> windows_core::Result<()>
-    where
-        F: FnMut(&mut Hooks) -> Element + 'static,
-    {
+    pub fn run(root: View) -> windows_core::Result<()> {
         Self::run_with(move |application| {
-            vec![Box::new(RenderLoop::new(
-                WinUiRuntime::with_application(application),
-                root,
-            ))]
+            vec![Box::new(ComponentLoop {
+                pump: Pump::new(WinUiRuntime::with_application(application)),
+                root: Some(root),
+            })]
         })
     }
 
-    pub fn run_windows<F, I>(roots: I) -> windows_core::Result<()>
+    pub fn run_windows<I>(roots: I) -> windows_core::Result<()>
     where
-        F: FnMut(&mut Hooks) -> Element + 'static,
-        I: IntoIterator<Item = F>,
+        I: IntoIterator<Item = View>,
     {
         let roots = roots.into_iter().collect::<Vec<_>>();
         if roots.is_empty() {
@@ -478,22 +437,17 @@ impl App {
             roots
                 .into_iter()
                 .map(|root| {
-                    Box::new(RenderLoop::new(
-                        WinUiRuntime::with_application(application.clone()),
-                        root,
-                    )) as Box<dyn LivePump>
+                    Box::new(ComponentLoop {
+                        pump: Pump::new(WinUiRuntime::with_application(application.clone())),
+                        root: Some(root),
+                    }) as Box<dyn LivePump>
                 })
                 .collect()
         })
     }
 
     pub fn run_component<C: Component>(props: C::Props) -> windows_core::Result<()> {
-        Self::run_with(move |application| {
-            vec![Box::new(ComponentLoop {
-                pump: Pump::new(WinUiRuntime::with_application(application)),
-                root: Some(View::component::<C>(props)),
-            })]
-        })
+        Self::run(View::component::<C>(props))
     }
 
     fn run_with(

@@ -8,10 +8,10 @@ See [`reactor-next.md`](../../../reactor-next.md) for the current plan and gates
 
 The current slice generates `TextBlock`, `Button`, `StackPanel`, `TextBox`, `ScrollViewer`, and
 `ItemsRepeater` from WinUI metadata plus a small curation schema. The private WinUI backend applies
-properties and keyed structure, queues native work, and rerenders hook state. The recording
-runtime remains the failure-injection and randomized-test backend.
+properties and keyed structure and queues native work. The recording runtime remains the
+failure-injection and randomized-test backend.
 
-Applications can use either the root hook frontend or an owned component:
+Applications use owned components:
 
 ```rust,no_run
 use windows_reactor_next::*;
@@ -39,9 +39,9 @@ App::run_component::<Root>(())?;
 # Ok::<(), windows_core::Error>(())
 ```
 
-Local component messages stay on the UI thread. Each window queues at most
-`LOCAL_MESSAGE_QUEUE_CAPACITY` messages. `LocalSender::send` returns `false` when the owning scope
-has retired, the window has closed, or the queue is full.
+Local component messages stay on the UI thread. Each window queues at most 4,096 messages.
+`LocalSender::send` returns `false` when the owning scope has retired, the window has closed, or
+the queue is full.
 
 Components may run blocking work on an owned background thread:
 
@@ -57,12 +57,12 @@ let task = context.spawn_background(|cancellation| {
 The closure receives a cooperative `CancellationToken`, and its `Send` result returns as the
 component's normal message on the UI thread. Retiring the component or closing its window cancels
 ownership and discards late results. `ComponentTask::cancel` also removes a queued result.
-`ComponentTaskStatus` reports `Running`, `Queued`, `Delivered`, `Cancelled`, or `Rejected`.
+Dropping the handle does not cancel its task. `ComponentTaskStatus` reports `Running`, `Queued`,
+`Delivered`, `Cancelled`, or `Rejected`.
 
-Each window permits at most `BACKGROUND_TASK_CAPACITY` live task threads and
-`BACKGROUND_MESSAGE_QUEUE_CAPACITY` queued completions. Work beyond either limit returns a task
-with `Rejected` status instead of starting another thread. Tasks that ignore cancellation may
-finish their closure, but they cannot deliver after their scope retires.
+Each window permits at most 64 live task threads and 4,096 queued completions. Work beyond either
+limit returns a task with `Rejected` status instead of starting another thread. Tasks that ignore
+cancellation may finish their closure, but they cannot deliver after their scope retires.
 
 Typed context values flow through logical provider nodes:
 

@@ -2,6 +2,7 @@ use std::fmt;
 use std::rc::Rc;
 
 use super::*;
+use crate::core::{ComponentView, ContextProvision};
 
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub enum Key {
@@ -67,8 +68,10 @@ impl KeyedElement {
 }
 
 #[derive(Clone, Debug, PartialEq)]
-pub enum View {
-    Empty,
+pub struct View(ViewKind);
+
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) enum ViewKind {
     Native(Element),
     Component(ComponentView),
     Fragment(Rc<Vec<KeyedView>>),
@@ -84,69 +87,67 @@ pub enum View {
         control: Element,
         children: Rc<Vec<KeyedView>>,
     },
-    VirtualItems {
-        control: Element,
-        items: Rc<Vec<KeyedView>>,
-    },
 }
 
 impl View {
+    pub fn empty() -> Self {
+        Self::fragment([])
+    }
+
     pub fn native(control: impl Into<Element>) -> Self {
-        Self::Native(control.into())
+        Self(ViewKind::Native(control.into()))
     }
 
     pub fn component<C: Component>(props: C::Props) -> Self {
-        Self::Component(ComponentView::new::<C>(props))
+        Self(ViewKind::Component(ComponentView::new::<C>(props)))
     }
 
     pub fn fragment(children: impl IntoIterator<Item = KeyedView>) -> Self {
-        Self::Fragment(Rc::new(children.into_iter().collect()))
+        Self(ViewKind::Fragment(Rc::new(children.into_iter().collect())))
     }
 
     pub fn provide<T>(context: &Context<T>, value: T, child: impl Into<Self>) -> Self
     where
         T: Clone + PartialEq + 'static,
     {
-        Self::Provider {
+        Self(ViewKind::Provider {
             provision: ContextProvision::new(context, value),
-            child: Box::new(child.into()),
-        }
+            child: Box::new(child.into().into_kind()),
+        })
     }
 
     pub fn content<C>(control: C, content: impl Into<Self>) -> Self
     where
         C: ContentControl + Into<Element>,
     {
-        Self::Content {
+        Self(ViewKind::Content {
             control: control.into(),
-            content: Box::new(content.into()),
-        }
+            content: Box::new(content.into().into_kind()),
+        })
     }
 
     pub fn children<C>(control: C, children: impl IntoIterator<Item = KeyedView>) -> Self
     where
         C: ChildrenControl + Into<Element>,
     {
-        Self::Children {
+        Self(ViewKind::Children {
             control: control.into(),
             children: Rc::new(children.into_iter().collect()),
-        }
+        })
     }
 
-    pub fn virtual_items(
-        control: impl Into<Element>,
-        items: impl IntoIterator<Item = KeyedView>,
-    ) -> Self {
-        Self::VirtualItems {
-            control: control.into(),
-            items: Rc::new(items.into_iter().collect()),
-        }
+    pub(crate) fn from_kind(kind: ViewKind) -> Self {
+        Self(kind)
+    }
+
+    pub(crate) fn into_kind(self) -> ViewKind {
+        self.0
     }
 }
 
 impl From<Element> for View {
     fn from(value: Element) -> Self {
-        Self::Native(value)
+        Self(ViewKind::Native(value))
     }
 }
 

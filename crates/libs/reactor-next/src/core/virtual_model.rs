@@ -99,12 +99,14 @@ impl VirtualModel {
         })
     }
 
+    #[cfg(test)]
     pub fn accepts(&self, lease: &RealizationLease) -> bool {
         lease.identity == self.identity
             && lease.collection == self.collection
             && self.active.get(&lease.key) == Some(&(lease.revision, lease.container))
     }
 
+    #[cfg(test)]
     pub fn recycle(&mut self, lease: &RealizationLease) -> bool {
         if !self.accepts(lease) {
             return false;
@@ -134,6 +136,7 @@ impl VirtualModel {
         self.containers.clear();
     }
 
+    #[cfg(test)]
     pub fn active_len(&self) -> usize {
         self.active.len()
     }

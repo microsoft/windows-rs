@@ -39,15 +39,6 @@ pub(super) fn representative_tree() -> Element {
         .into()
 }
 
-pub(super) fn arena_keys(pump: &Pump<RecordingRuntime>) -> Vec<Key> {
-    pump.tree
-        .children(pump.root().unwrap())
-        .unwrap()
-        .iter()
-        .map(|node| pump.tree.key(*node).unwrap().unwrap().clone())
-        .collect()
-}
-
 pub(super) fn recorded_text(runtime: &RecordingRuntime, root: NodeId) -> Vec<String> {
     runtime
         .node(root)

@@ -26,7 +26,6 @@ pub enum PumpError {
     EventReadFailed(RuntimeError),
     NativeApplyFailed(NativeApplyError),
     Poisoned,
-    RenderBudgetExceeded,
     RevisionExhausted,
     StructureUnsupported,
     Tree(TreeError),
@@ -94,6 +93,7 @@ impl<R: NativeRuntime> Pump<R> {
         }
     }
 
+    #[cfg(any(test, feature = "test"))]
     pub fn mount(&mut self, element: Element) -> Result<(), PumpError> {
         if self.poisoned {
             return Err(PumpError::Poisoned);
@@ -190,6 +190,7 @@ impl<R: NativeRuntime> Pump<R> {
         Ok(())
     }
 
+    #[cfg(any(test, feature = "test"))]
     pub fn update_view(&mut self, view: View) -> Result<(), PumpError> {
         if self.poisoned {
             return Err(PumpError::Poisoned);
@@ -227,23 +228,8 @@ impl<R: NativeRuntime> Pump<R> {
         self.apply_component_candidate(candidate, candidate_root, plan, changes, next_version)
     }
 
+    #[cfg(any(test, feature = "test"))]
     pub fn update(&mut self, element: Element) -> Result<(), PumpError> {
-        self.update_element(element, None)
-    }
-
-    pub(crate) fn update_with_hook_effects(
-        &mut self,
-        element: Element,
-        effects: HookEffects,
-    ) -> Result<(), PumpError> {
-        self.update_element(element, Some(effects))
-    }
-
-    fn update_element(
-        &mut self,
-        element: Element,
-        mut effects: Option<HookEffects>,
-    ) -> Result<(), PumpError> {
         if self.poisoned {
             return Err(PumpError::Poisoned);
         }
@@ -256,12 +242,6 @@ impl<R: NativeRuntime> Pump<R> {
                 &element,
             )?
         {
-            if let Some(effects) = effects.as_mut() {
-                effects.prepare();
-            }
-            if let Some(effects) = effects {
-                effects.commit();
-            }
             self.version = next_version;
             return Ok(());
         }
@@ -273,20 +253,13 @@ impl<R: NativeRuntime> Pump<R> {
             ..UpdatePlan::new(self.identity)
         };
         let candidate_root = Self::reconcile_node(&mut candidate, node, element, &mut plan)?;
-        let changes = match effects {
-            Some(effects) => FrontendChanges::Hooks {
-                element: desired_element,
-                effects,
-            },
-            None => FrontendChanges::Element(desired_element),
-        };
         self.publish_candidate(
             CandidateState::Tree {
                 tree: candidate,
                 root: candidate_root,
             },
             plan,
-            changes,
+            FrontendChanges::Element(desired_element),
             next_version,
         )
     }
@@ -295,10 +268,12 @@ impl<R: NativeRuntime> Pump<R> {
         &self.runtime
     }
 
+    #[cfg(any(test, feature = "test"))]
     pub fn application(&self) -> Option<NodeId> {
         self.application
     }
 
+    #[cfg(any(test, feature = "test"))]
     pub fn runtime_mut(&mut self) -> &mut R {
         &mut self.runtime
     }
@@ -356,6 +331,7 @@ impl<R: NativeRuntime> Pump<R> {
         self.reset_on_drop = false;
     }
 
+    #[cfg(any(test, feature = "test"))]
     pub fn root(&self) -> Option<NodeId> {
         self.root
     }
@@ -365,22 +341,27 @@ impl<R: NativeRuntime> Pump<R> {
         Self::native_root(&self.tree, self.root?).ok()
     }
 
+    #[cfg(any(test, feature = "test"))]
     pub fn version(&self) -> u64 {
         self.version
     }
 
+    #[cfg(any(test, feature = "test"))]
     pub fn window(&self) -> Option<NodeId> {
         self.window
     }
 
+    #[cfg(any(test, feature = "test"))]
     pub fn poisoned(&self) -> bool {
         self.poisoned
     }
 
+    #[cfg(test)]
     pub(crate) fn components(&self) -> &ComponentStore {
         &self.components
     }
 
+    #[cfg(test)]
     pub(crate) fn components_mut(&mut self) -> &mut ComponentStore {
         &mut self.components
     }

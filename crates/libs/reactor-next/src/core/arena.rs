@@ -104,6 +104,7 @@ impl<T: Clone> Arena<T> {
         Ok(value)
     }
 
+    #[cfg(test)]
     pub fn len(&self) -> usize {
         self.live
     }

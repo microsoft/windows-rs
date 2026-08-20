@@ -12,8 +12,8 @@ impl<R: NativeRuntime> Pump<R> {
         changes: &mut ComponentChanges,
         plan: &mut UpdatePlan,
     ) -> Result<NodeId, PumpError> {
-        match view {
-            View::Native(element) => {
+        match view.into_kind() {
+            ViewKind::Native(element) => {
                 if tree.kind(node)? != NodeKind::Native(element.kind())
                     || !tree.children(node)?.is_empty()
                     || !matches!(element.structure(), ElementStructureRef::None)
@@ -21,7 +21,7 @@ impl<R: NativeRuntime> Pump<R> {
                     return Self::replace_planned_view(
                         tree,
                         node,
-                        View::Native(element),
+                        View::from_kind(ViewKind::Native(element)),
                         components,
                         changes,
                         plan,
@@ -29,14 +29,14 @@ impl<R: NativeRuntime> Pump<R> {
                 }
                 Self::reconcile_node(tree, node, element, plan)
             }
-            View::Component(component) => {
+            ViewKind::Component(component) => {
                 if tree.kind(node)? != NodeKind::Component
                     || tree.component_type(node)? != component.component_type()
                 {
                     return Self::replace_planned_view(
                         tree,
                         node,
-                        View::Component(component),
+                        View::from_kind(ViewKind::Component(component)),
                         components,
                         changes,
                         plan,
@@ -58,26 +58,12 @@ impl<R: NativeRuntime> Pump<R> {
                     Ok(node)
                 }
             }
-            View::Empty => {
+            ViewKind::Fragment(children) => {
                 if tree.kind(node)? != NodeKind::Fragment {
                     return Self::replace_planned_view(
                         tree,
                         node,
-                        View::Empty,
-                        components,
-                        changes,
-                        plan,
-                    );
-                }
-                Self::reconcile_fragment(tree, node, &[], components, changes, plan)?;
-                Ok(node)
-            }
-            View::Fragment(children) => {
-                if tree.kind(node)? != NodeKind::Fragment {
-                    return Self::replace_planned_view(
-                        tree,
-                        node,
-                        View::Fragment(children),
+                        View::from_kind(ViewKind::Fragment(children)),
                         components,
                         changes,
                         plan,
@@ -86,12 +72,12 @@ impl<R: NativeRuntime> Pump<R> {
                 Self::reconcile_fragment(tree, node, &children, components, changes, plan)?;
                 Ok(node)
             }
-            View::Provider { provision, child } => {
+            ViewKind::Provider { provision, child } => {
                 if tree.kind(node)? != NodeKind::Provider {
                     return Self::replace_planned_view(
                         tree,
                         node,
-                        View::Provider { provision, child },
+                        View::from_kind(ViewKind::Provider { provision, child }),
                         components,
                         changes,
                         plan,
@@ -139,7 +125,14 @@ impl<R: NativeRuntime> Pump<R> {
                 let [current] = tree.children(node)? else {
                     return Err(PumpError::StructureUnsupported);
                 };
-                Self::reconcile_planned_view(tree, *current, *child, components, changes, plan)?;
+                Self::reconcile_planned_view(
+                    tree,
+                    *current,
+                    View::from_kind(*child),
+                    components,
+                    changes,
+                    plan,
+                )?;
                 if let Some(affected) = affected {
                     let mut ordered = Vec::with_capacity(affected.len());
                     for scope in affected {
@@ -167,7 +160,7 @@ impl<R: NativeRuntime> Pump<R> {
                 }
                 Ok(node)
             }
-            View::Content { control, content } => {
+            ViewKind::Content { control, content } => {
                 if !Self::control_has_role(control.kind(), ControlRole::Content) {
                     return Err(PumpError::StructureUnsupported);
                 }
@@ -175,7 +168,7 @@ impl<R: NativeRuntime> Pump<R> {
                     return Self::replace_planned_view(
                         tree,
                         node,
-                        View::Content { control, content },
+                        View::from_kind(ViewKind::Content { control, content }),
                         components,
                         changes,
                         plan,
@@ -185,10 +178,17 @@ impl<R: NativeRuntime> Pump<R> {
                 let [child] = tree.children(node)? else {
                     return Err(PumpError::StructureUnsupported);
                 };
-                Self::reconcile_planned_view(tree, *child, *content, components, changes, plan)?;
+                Self::reconcile_planned_view(
+                    tree,
+                    *child,
+                    View::from_kind(*content),
+                    components,
+                    changes,
+                    plan,
+                )?;
                 Ok(node)
             }
-            View::Children { control, children } => {
+            ViewKind::Children { control, children } => {
                 if !Self::control_has_role(control.kind(), ControlRole::Children) {
                     return Err(PumpError::StructureUnsupported);
                 }
@@ -196,7 +196,7 @@ impl<R: NativeRuntime> Pump<R> {
                     return Self::replace_planned_view(
                         tree,
                         node,
-                        View::Children { control, children },
+                        View::from_kind(ViewKind::Children { control, children }),
                         components,
                         changes,
                         plan,
@@ -335,7 +335,6 @@ impl<R: NativeRuntime> Pump<R> {
                 }
                 Ok(node)
             }
-            View::VirtualItems { .. } => Err(PumpError::StructureUnsupported),
         }
     }
 
@@ -523,12 +522,12 @@ impl<R: NativeRuntime> Pump<R> {
         changes: &mut ComponentChanges,
         plan: &mut UpdatePlan,
     ) -> Result<(NodeId, Vec<NodeId>), PumpError> {
-        match view {
-            View::Native(element) => {
+        match view.into_kind() {
+            ViewKind::Native(element) => {
                 let node = Self::mount_planned_element(tree, logical_parent, key, element, plan)?;
                 Ok((node, vec![node]))
             }
-            View::Component(component) => {
+            ViewKind::Component(component) => {
                 let token = component.reserve(components)?;
                 changes.reserved.push(token);
                 let node = tree.insert_component(
@@ -551,11 +550,7 @@ impl<R: NativeRuntime> Pump<R> {
                 )?;
                 Ok((node, native))
             }
-            View::Empty => {
-                let node = tree.insert_fragment(logical_parent, key)?;
-                Ok((node, Vec::new()))
-            }
-            View::Fragment(children) => {
+            ViewKind::Fragment(children) => {
                 let node = tree.insert_fragment(logical_parent, key)?;
                 let children = Rc::unwrap_or_clone(children);
                 let keys = children
@@ -580,20 +575,20 @@ impl<R: NativeRuntime> Pump<R> {
                 }
                 Ok((node, native))
             }
-            View::Provider { provision, child } => {
+            ViewKind::Provider { provision, child } => {
                 let node = tree.insert_provider(logical_parent, key, provision)?;
                 let (_, native) = Self::mount_planned_view(
                     tree,
                     Some(node),
                     None,
-                    *child,
+                    View::from_kind(*child),
                     components,
                     changes,
                     plan,
                 )?;
                 Ok((node, native))
             }
-            View::Content { control, content } => {
+            ViewKind::Content { control, content } => {
                 if !Self::element_structure_is_empty(&control)
                     || !Self::control_has_role(control.kind(), ControlRole::Content)
                 {
@@ -604,7 +599,7 @@ impl<R: NativeRuntime> Pump<R> {
                     tree,
                     Some(node),
                     None,
-                    *content,
+                    View::from_kind(*content),
                     components,
                     changes,
                     plan,
@@ -622,7 +617,7 @@ impl<R: NativeRuntime> Pump<R> {
                 }
                 Ok((node, vec![node]))
             }
-            View::Children { control, children } => {
+            ViewKind::Children { control, children } => {
                 if !Self::element_structure_is_empty(&control)
                     || !Self::control_has_role(control.kind(), ControlRole::Children)
                 {
@@ -659,7 +654,6 @@ impl<R: NativeRuntime> Pump<R> {
                 }
                 Ok((node, vec![node]))
             }
-            View::VirtualItems { .. } => Err(PumpError::StructureUnsupported),
         }
     }
 }

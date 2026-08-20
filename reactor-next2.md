@@ -104,8 +104,9 @@ Rules:
 - Local leaf updates do not clone the full tree.
 - Typed context reads resolve to a specific logical provider and publish with the candidate.
 
-Hooks remain available as a comparison frontend. They use the same planner, runtime, and fatal
-native failure policy.
+Components and `View` are the only public frontend. The hook frontend was retained for early
+comparison measurements, then removed before the API freeze so the core has one state and effect
+model.
 
 ## Logical anchoring
 
@@ -198,12 +199,12 @@ and WebView own only behavior that cannot be expressed by the ordinary schema.
 
 | Metric | Result |
 | --- | --- |
-| Component clean compile ratio | 0.99x hook |
-| Component source-only rebuild ratio | 1.01x hook |
-| Component release executable ratio | 0.91x hook |
+| Thin counter clean compile ratio | 0.40x current reactor |
+| Thin counter source-only rebuild ratio | 0.18x current reactor |
+| Thin counter release executable ratio | 0.29x current reactor |
 | Isolated component leaf at 512 scopes | 0.51 us, 430 bytes, 9 allocations |
 | Isolated component leaf at 16,384 scopes | 0.51 us, 430 bytes, 9 allocations |
-| Idle component memory | About 2,496 bytes per scope |
+| Idle component memory | About 2,440 bytes per scope |
 | Ordinary keyed reversal, 512 -> 4,096 | 0.19 ms -> 2.15 ms |
 | Component same order, 512 -> 4,096 | 0.42 ms -> 4.09 ms |
 | Component reversal, 512 -> 4,096 | 0.49 ms -> 5.76 ms |
@@ -255,6 +256,60 @@ WinUI mutation failures that justify a generic recovery engine.
 | Keyed scale | No quadratic behavior through 4,096 siblings |
 | Live evidence | Templates, input, two windows, repeater reuse, and shutdown |
 
+### Future expansion gate
+
+`compare.md` is a useful replacement review and expansion checklist. Its context-scaling and
+owner-scoped background-task gaps describe older revisions; exact context consumer invalidation,
+chunked provider storage, task ownership, cancellation, queue bounds, and live delivery are now
+implemented. The remaining guidance is the gate for growing beyond the initial API:
+
+| Expansion | Required proof |
+| --- | --- |
+| Coercing controls | Slider or NumberBox fits generated feedback contracts without Pump state |
+| Multiple slots | NavigationView or TabView uses generated roles rather than control branches |
+| Templates | ItemsRepeater passes recycling, local-value, selection, move, and key tests |
+| Third-party controls | Extension contracts add native behavior without a runtime type registry |
+| Generated scale | Compile time and binary size remain within their gates after broad coverage |
+| Multi-window failure | Process-fatal native failure remains an explicit product decision |
+| Large composition | A practical render bound is documented or a small continuation is proven |
+
+Keep the current reactor's retained controls, stable keys, generated mappings, explicit cleanup,
+templates, collections, and multi-window behavior. Keep Reactor2's generational identity, queued
+work, controlled observations, and explicit ownership. Use the C# Reactor as evidence for
+control-specific WinUI behavior, not as a runtime design to copy.
+
+The stop condition is concrete: if a feature requires new Pump state, a handwritten reconciliation
+path, another authoritative side table, or generic recovery machinery, stop and revise the
+contract before adding it. Difficult vertical slices come before dozens of ordinary controls.
+
+### Structural composition decision
+
+Initial reactor-next composition is synchronous and atomic. It does not add a continuation state
+machine for one large component render. Applications should put large collections behind
+virtualization and keep ordinary component subtrees within one UI turn. The reconciler is qualified
+through 4,096 keyed siblings, but that is a scale test rather than a recommended per-frame render.
+
+Revisit this only with a measured live UI stall that virtualization or component boundaries cannot
+solve. Any continuation must preserve one candidate publication boundary and may not expose
+partially rendered logical or native state.
+
+### Migration boundary
+
+The initial migration model is direct:
+
+| Current reactor | Reactor-next |
+| --- | --- |
+| Root render function | Root `Component` |
+| `RenderCx` hook state | Component fields and typed messages |
+| Hook effect | `ViewContext::use_effect` |
+| Root `Element` | Opaque `View` built from generated controls |
+| Callback state mutation | Callback sends a component message |
+| `App::new().render(...)` | `App::run_component::<C>(props)` |
+
+This is not yet a general replacement path. Applications using controls outside the generated
+slice, mature templates, navigation, focus helpers, animation, third-party controls, or current
+reactor resource facilities must wait for the matching difficult vertical slice and live proof.
+
 ## Current work
 
 The fatal native failure simplification is implemented in the core:
@@ -284,14 +339,34 @@ The fatal native failure simplification is implemented in the core:
 
 The consolidation checkpoint is complete:
 
-- Clean compile time is 0.99x the equivalent hook application; source-only rebuild time is 1.01x.
-- The component release executable is 0.91x the hook executable.
+- A standalone thin counter compiled clean in 5.1 seconds, compared with 12.7-13.0 seconds for the
+  equivalent current-reactor counter. A source-only rebuild took 0.55 seconds, compared with 3.0
+  seconds. The release executables were 856 KB and 2.99 MB.
+- These current-reactor ratios are favorable but provisional. The current crate carries broad
+  generated control coverage while reactor-next still has a narrow generated slice. The same
+  measurements must be repeated after broad control generation.
 - Isolated component work remains about 0.51 us, 430 bytes, and 9 allocations through 16,384
   unrelated scopes.
 - Initial mount, update, and realization retain distinct publication invariants while sharing the
   fatal native-apply boundary.
 - The Pump, scheduler, and close lifecycle audit found no recovery-era state to remove. Normal
   scheduler closure after an in-flight dispatch is not reported as a fault.
+- Components and `View` are now the sole public frontend. The 593-line hook frontend, its second
+  effect engine, live host path, and benchmark path are removed.
+- `View` is opaque. Unsupported virtual-item construction is not public, and an empty view is an
+  empty fragment rather than a second planner case.
+- Component scopes use direct function pointers rather than a boxed view closure or test-only
+  dispatch enums. The transient `Retiring` state is removed; removal cancels work and advances the
+  scope generation directly.
+- Task cancellation and task status share one atomic state. Dropping a task handle does not
+  cancel its work.
+- Component turns scan pending descendants only at a parent-before-child composition boundary,
+  rather than after every dispatched message.
+- The exact context dependency index remains alongside the context-ID index. Removing it would
+  turn one-provider updates into scans across every provider of the same context and violate the
+  measured many-provider locality gate.
+- Idle component storage is now about 2,440 bytes per scope. Isolated leaf updates remain about
+  430 bytes and 9 allocations with flat time through 16,384 unrelated scopes.
 
 Context propagation is complete:
 
@@ -323,7 +398,7 @@ Scope-owned background tasks are implemented:
 - The live two-window fixture delivers a primary background result through WinUI's dispatcher,
   closes the secondary with a task in flight, discards its late result, and keeps the primary
   operational.
-- End-to-end thread creation, completion enqueue, and UI dispatch measure about 66-69 us and 817
+- End-to-end thread creation, completion enqueue, and UI dispatch measure about 67 us and 825
   allocated bytes through 16,384 unrelated scopes.
 
 The next phase is API consolidation and replacement qualification.

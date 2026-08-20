@@ -46,10 +46,10 @@ impl Component for PlanningFailureComponent {
                 KeyedView::new("duplicate", View::native(TextBlock::new())),
                 KeyedView::new("duplicate", View::native(TextBlock::new())),
             ]),
-            PlanningMode::InvalidRole => View::Children {
+            PlanningMode::InvalidRole => View::from_kind(ViewKind::Children {
                 control: TextBlock::new().into(),
                 children: Rc::new(Vec::new()),
-            },
+            }),
         }
     }
 }
@@ -247,7 +247,7 @@ fn component_can_toggle_between_empty_and_one_native_root() {
             if self.visible {
                 View::native(TextBlock::new().text("visible"))
             } else {
-                View::Empty
+                View::empty()
             }
         }
     }

@@ -7,6 +7,21 @@ impl<R: NativeRuntime> Pump<R> {
         }
         let mut dispatched = 0;
         for _ in 0..budget {
+            if let Some(token) = self.components.next_pending_token()
+                && self.has_dirty_component_ancestor(token)?.is_some()
+            {
+                let deferred = self
+                    .components
+                    .pending_tokens()
+                    .into_iter()
+                    .filter_map(|token| {
+                        self.has_dirty_component_ancestor(token)
+                            .transpose()
+                            .map(|result| result.map(|()| token))
+                    })
+                    .collect::<Result<HashSet<_>, PumpError>>()?;
+                self.compose_dirty_components(deferred)?;
+            }
             let report = self.components.drain(1)?;
             let processed = report.dispatched + report.dropped;
             dispatched += report.dispatched;
@@ -15,20 +30,6 @@ impl<R: NativeRuntime> Pump<R> {
             }
             if processed == 0 {
                 break;
-            }
-
-            let deferred = self
-                .components
-                .pending_tokens()
-                .into_iter()
-                .filter_map(|token| {
-                    self.has_dirty_component_ancestor(token)
-                        .transpose()
-                        .map(|result| result.map(|()| token))
-                })
-                .collect::<Result<HashSet<_>, PumpError>>()?;
-            if !deferred.is_empty() {
-                self.compose_dirty_components(deferred)?;
             }
         }
         if self.dirty_components.is_empty() {
@@ -181,11 +182,14 @@ impl<R: NativeRuntime> Pump<R> {
         let ComponentRender { dependencies, view } = self
             .components
             .view(token, self.tree.context_snapshot(node)?)?;
-        let View::Native(element) = view else {
-            return Ok(LocalComponentUpdate::Fallback(ComponentRender {
-                dependencies,
-                view,
-            }));
+        let element = match view.into_kind() {
+            ViewKind::Native(element) => element,
+            kind => {
+                return Ok(LocalComponentUpdate::Fallback(ComponentRender {
+                    dependencies,
+                    view: View::from_kind(kind),
+                }));
+            }
         };
         if self.tree.kind(native)? != NodeKind::Native(element.kind())
             || !self.tree.children(native)?.is_empty()
@@ -193,7 +197,7 @@ impl<R: NativeRuntime> Pump<R> {
         {
             return Ok(LocalComponentUpdate::Fallback(ComponentRender {
                 dependencies,
-                view: View::Native(element),
+                view: View::native(element),
             }));
         }
         let mut event_activity_matches = true;
@@ -208,7 +212,7 @@ impl<R: NativeRuntime> Pump<R> {
         if !event_activity_matches {
             return Ok(LocalComponentUpdate::Fallback(ComponentRender {
                 dependencies,
-                view: View::Native(element),
+                view: View::native(element),
             }));
         }
         let mut plan = UpdatePlan {

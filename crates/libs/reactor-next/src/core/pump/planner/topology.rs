@@ -1,6 +1,6 @@
 //! Tree topology helpers shared by element and view planning: native-root
 //! lookup, native parent/location/children queries, arity validation, subtree
-//! retirement, and replaying an already-mounted subtree into commands.
+//! and subtree retirement.
 
 use super::super::*;
 
@@ -30,64 +30,6 @@ impl<R: NativeRuntime> Pump<R> {
                 }
                 Ok(roots)
             }
-            NodeKind::Application | NodeKind::Window => Err(PumpError::StructureUnsupported),
-        }
-    }
-
-    pub(in super::super) fn plan_existing_subtree(
-        tree: &Tree,
-        node: NodeId,
-        plan: &mut UpdatePlan,
-    ) -> Result<Vec<NodeId>, PumpError> {
-        match tree.kind(node)? {
-            NodeKind::Component | NodeKind::Fragment | NodeKind::Provider | NodeKind::Slot => {
-                let mut roots = Vec::new();
-                for child in tree.children(node)?.iter().copied() {
-                    roots.extend(Self::plan_existing_subtree(tree, child, plan)?);
-                }
-                Ok(roots)
-            }
-            NodeKind::Native(kind) => {
-                let desired = tree.native(node)?.desired.clone();
-                let events = tree.native(node)?.events.clone();
-                plan.push(Command::Create { node, kind });
-                desired.visit_properties(&mut |property, value| {
-                    if let Some(value) = value {
-                        plan.push(Command::SetProperty {
-                            node,
-                            property,
-                            value: value.clone(),
-                        });
-                        plan.commits.push(PropertyCommit {
-                            node,
-                            property,
-                            value: Some(value),
-                        });
-                    }
-                });
-                for (event, state) in events {
-                    if state.active {
-                        plan.push(Command::SubscribeEvent {
-                            node,
-                            event,
-                            revision: state.revision,
-                        });
-                    }
-                }
-                let mut index = 0;
-                for child in tree.children(node)?.iter().copied() {
-                    for child in Self::plan_existing_subtree(tree, child, plan)? {
-                        plan.push(Command::InsertChild {
-                            parent: node,
-                            child,
-                            index,
-                        });
-                        index += 1;
-                    }
-                }
-                Ok(vec![node])
-            }
-            NodeKind::VirtualCollection => Err(PumpError::StructureUnsupported),
             NodeKind::Application | NodeKind::Window => Err(PumpError::StructureUnsupported),
         }
     }

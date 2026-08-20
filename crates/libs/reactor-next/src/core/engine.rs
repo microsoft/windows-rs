@@ -434,6 +434,7 @@ impl Tree {
         Ok(())
     }
 
+    #[cfg(test)]
     pub fn len(&self) -> usize {
         self.arena.len()
     }

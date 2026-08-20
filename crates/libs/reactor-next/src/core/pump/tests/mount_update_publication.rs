@@ -8,20 +8,20 @@ use std::rc::Rc;
 fn component_slot_adapters_reject_incompatible_control_roles() {
     let mut children = Pump::new(RecordingRuntime::default());
     assert_eq!(
-        children.mount_view(View::Children {
+        children.mount_view(View::from_kind(ViewKind::Children {
             control: TextBlock::new().into(),
             children: Rc::new(Vec::new()),
-        }),
+        })),
         Err(PumpError::StructureUnsupported)
     );
     assert!(!children.poisoned());
 
     let mut content = Pump::new(RecordingRuntime::default());
     assert_eq!(
-        content.mount_view(View::Content {
+        content.mount_view(View::from_kind(ViewKind::Content {
             control: StackPanel::new().into(),
-            content: Box::new(View::native(TextBlock::new())),
-        }),
+            content: Box::new(View::native(TextBlock::new()).into_kind()),
+        })),
         Err(PumpError::StructureUnsupported)
     );
     assert!(!content.poisoned());
@@ -30,7 +30,7 @@ fn component_slot_adapters_reject_incompatible_control_roles() {
 #[test]
 fn empty_root_mounts_without_native_window_content_and_can_toggle() {
     let mut pump = Pump::new(RecordingRuntime::default());
-    pump.mount_view(View::Empty).unwrap();
+    pump.mount_view(View::empty()).unwrap();
     let root = pump.root().unwrap();
     let window = pump.window().unwrap();
 
@@ -40,7 +40,7 @@ fn empty_root_mounts_without_native_window_content_and_can_toggle() {
     pump.update_view(View::native(TextBlock::new().text("visible")))
         .unwrap();
     assert_eq!(pump.runtime().node(window).unwrap().children().len(), 1);
-    pump.update_view(View::Empty).unwrap();
+    pump.update_view(View::empty()).unwrap();
     assert!(pump.runtime().node(window).unwrap().children().is_empty());
 }
 

@@ -86,11 +86,7 @@ impl<R: NativeRuntime> Pump<R> {
             }
         }
         for token in changes.retired.iter().copied() {
-            if let Err(error) = self
-                .components
-                .retire(token)
-                .and_then(|()| self.components.remove(token))
-            {
+            if let Err(error) = self.components.remove(token) {
                 self.poisoned = true;
                 return Err(error.into());
             }

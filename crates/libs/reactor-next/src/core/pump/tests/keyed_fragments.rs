@@ -45,7 +45,7 @@ fn fragment_splices_into_children_and_retains_keyed_component_scope() {
         View::children(
             StackPanel::new(),
             [
-                KeyedView::new("empty", View::Empty),
+                KeyedView::new("empty", View::empty()),
                 KeyedView::new("group", fragment),
             ],
         )

@@ -3,7 +3,6 @@ use super::*;
 mod arena;
 mod component;
 mod engine;
-mod hooks;
 mod keyed;
 pub mod public;
 mod pump;
@@ -14,11 +13,10 @@ mod virtual_model;
 
 pub use arena::*;
 pub(crate) use component::{
-    ComponentRender, ComponentStore, ComponentStoreError, ComponentToken, ContextDependency,
-    ContextProvision, ContextSnapshot,
+    ComponentRender, ComponentStore, ComponentStoreError, ComponentToken, ComponentView,
+    ContextDependency, ContextProvision, ContextSnapshot,
 };
 pub use engine::*;
-pub use hooks::*;
 pub use keyed::*;
 pub use pump::*;
 pub use runtime::*;

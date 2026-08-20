@@ -836,27 +836,6 @@ fn bench_component_leaf(count: usize, iters: u64, reps: u32) -> Row {
     }
 }
 
-fn bench_hook_no_change(count: usize, samples: usize) -> FrontendRow {
-    let state = Rc::new(RefCell::new(None));
-    let state_capture = Rc::clone(&state);
-    let labels = Rc::new(
-        (0..count)
-            .map(|index| format!("cell-{index}"))
-            .collect::<Vec<_>>(),
-    );
-    let mut app = RenderLoop::new(runtime(), move |hooks| {
-        let active = hooks.use_state(|| false);
-        *state_capture.borrow_mut() = Some(active);
-        stack(&labels)
-    });
-    app.run().unwrap();
-    let state = state.borrow().as_ref().unwrap().clone();
-    measure_frontend("hooks", "no_change", count, samples, 1, || {
-        state.set(state.get());
-        app.run().unwrap();
-    })
-}
-
 fn bench_component_no_change(count: usize, samples: usize) -> FrontendRow {
     let senders = Rc::new(
         (0..count)
@@ -870,38 +849,6 @@ fn bench_component_no_change(count: usize, samples: usize) -> FrontendRow {
     measure_frontend("components", "no_change", count, samples, 1, || {
         _ = sender.send(false);
         pump.dispatch_components(1).unwrap();
-    })
-}
-
-fn bench_hook_isolated_leaf(count: usize, samples: usize) -> FrontendRow {
-    let state = Rc::new(RefCell::new(None));
-    let state_capture = Rc::clone(&state);
-    let labels = Rc::new(
-        (0..count)
-            .map(|index| format!("cell-{index}"))
-            .collect::<Vec<_>>(),
-    );
-    let mut app = RenderLoop::new(runtime(), move |hooks| {
-        let active = hooks.use_state(|| false);
-        *state_capture.borrow_mut() = Some(active.clone());
-        StackPanel::new()
-            .children(labels.iter().enumerate().map(|(index, label)| {
-                KeyedElement::new(
-                    index,
-                    TextBlock::new().text(if index == count / 2 && active.get() {
-                        "active".to_string()
-                    } else {
-                        label.clone()
-                    }),
-                )
-            }))
-            .into()
-    });
-    app.run().unwrap();
-    let state = state.borrow().as_ref().unwrap().clone();
-    measure_frontend("hooks", "isolated_leaf", count, samples, 1, || {
-        state.update(|active| *active = !*active);
-        app.run().unwrap();
     })
 }
 
@@ -1290,13 +1237,9 @@ fn main() {
 
     let samples = usize::try_from(iters).unwrap().max(128);
     let frontend_rows = [
-        bench_hook_no_change(512, samples),
         bench_component_no_change(512, samples),
-        bench_hook_isolated_leaf(512, samples),
         bench_component_isolated_leaf(512, samples),
-        bench_hook_isolated_leaf(4_096, samples),
         bench_component_isolated_leaf(4_096, samples),
-        bench_hook_isolated_leaf(16_384, samples),
         bench_component_isolated_leaf(16_384, samples),
         bench_component_fragment_leaf(512, samples),
         bench_component_fragment_leaf(16_384, samples),

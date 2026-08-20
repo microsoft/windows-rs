@@ -12,6 +12,7 @@ impl<R: NativeRuntime> Pump<R> {
             || self.native_observation_pending
     }
 
+    #[cfg(any(test, feature = "test"))]
     pub fn event_revision(&self, node: NodeId, event: EventId) -> Option<u32> {
         self.tree
             .native(node)
@@ -22,6 +23,7 @@ impl<R: NativeRuntime> Pump<R> {
             .map(|state| state.revision)
     }
 
+    #[cfg(any(test, feature = "test"))]
     pub fn queue_event(&mut self, event: QueuedEvent) {
         self.events.push_back(NativeWork {
             identity: self.identity,
@@ -31,17 +33,6 @@ impl<R: NativeRuntime> Pump<R> {
 
     pub fn window_token(&self) -> WindowToken {
         self.identity
-    }
-
-    pub(crate) fn native_observation_pending(&self) -> bool {
-        self.native_observation_pending
-    }
-
-    pub(super) fn queue_event_with_identity(&mut self, identity: WindowToken, event: QueuedEvent) {
-        self.events.push_back(NativeWork {
-            identity,
-            work: event,
-        });
     }
 
     pub fn dispatch_events(&mut self) -> Result<usize, PumpError> {

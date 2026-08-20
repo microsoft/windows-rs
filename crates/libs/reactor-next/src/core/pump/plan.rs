@@ -42,12 +42,13 @@ pub(super) enum CandidateState {
     Native { node: NodeId, desired: MountedProps },
 }
 
+#[expect(
+    clippy::large_enum_variant,
+    reason = "boxing component changes would allocate on every component publication"
+)]
 pub(super) enum FrontendChanges {
+    #[cfg(any(test, feature = "test"))]
     Element(Element),
-    Hooks {
-        element: Element,
-        effects: HookEffects,
-    },
     Component(ComponentChanges),
     Local {
         context_reads: HashSet<ContextDependency>,

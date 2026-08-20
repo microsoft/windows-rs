@@ -8,13 +8,11 @@ pub struct ScopeId {
 pub enum ScopeState {
     Reserved,
     Published,
-    Retiring,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ScopeError {
     CapacityExceeded,
-    InvalidRemoval(ScopeState),
     InvalidTransition(ScopeState, ScopeState),
     Stale(ScopeId),
 }
@@ -50,6 +48,7 @@ impl<T> ScopeArena<T> {
         }
     }
 
+    #[cfg(test)]
     pub fn reserve(&mut self, value: T) -> Result<ScopeId, ScopeError> {
         self.reserve_with(|_| value)
     }
@@ -89,10 +88,6 @@ impl<T> ScopeArena<T> {
         self.transition(id, ScopeState::Reserved, ScopeState::Published)
     }
 
-    pub fn retire(&mut self, id: ScopeId) -> Result<(), ScopeError> {
-        self.transition(id, ScopeState::Published, ScopeState::Retiring)
-    }
-
     pub fn state(&self, id: ScopeId) -> Result<ScopeState, ScopeError> {
         Ok(self.entry(id)?.state)
     }
@@ -107,10 +102,6 @@ impl<T> ScopeArena<T> {
 
     pub fn remove(&mut self, id: ScopeId) -> Result<T, ScopeError> {
         let slot = self.slot_mut(id)?;
-        let state = slot.entry.as_ref().ok_or(ScopeError::Stale(id))?.state;
-        if state == ScopeState::Published {
-            return Err(ScopeError::InvalidRemoval(state));
-        }
         let entry = slot.entry.take().ok_or(ScopeError::Stale(id))?;
         if let Some(generation) = slot.generation.checked_add(1) {
             slot.generation = generation;
@@ -120,10 +111,7 @@ impl<T> ScopeArena<T> {
         Ok(entry.value)
     }
 
-    pub fn len(&self) -> usize {
-        self.live
-    }
-
+    #[cfg(test)]
     pub fn is_empty(&self) -> bool {
         self.live == 0
     }
@@ -200,21 +188,8 @@ mod tests {
         let scope = arena.reserve("scope").unwrap();
 
         assert_eq!(arena.state(scope), Ok(ScopeState::Reserved));
-        assert_eq!(
-            arena.retire(scope),
-            Err(ScopeError::InvalidTransition(
-                ScopeState::Reserved,
-                ScopeState::Retiring
-            ))
-        );
         arena.publish(scope).unwrap();
         assert_eq!(arena.state(scope), Ok(ScopeState::Published));
-        assert_eq!(
-            arena.remove(scope),
-            Err(ScopeError::InvalidRemoval(ScopeState::Published))
-        );
-        arena.retire(scope).unwrap();
-        assert_eq!(arena.state(scope), Ok(ScopeState::Retiring));
         assert_eq!(arena.remove(scope), Ok("scope"));
         assert!(arena.is_empty());
     }
