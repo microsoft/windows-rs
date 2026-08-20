@@ -532,6 +532,10 @@ realized native root. Keyed insert/remove and same-key type replacement use one 
 new scopes remain reserved during native apply, removed scopes remain published, and successful
 native publication publishes the new scopes before retiring the old scopes. Failed structural
 candidates discard new reservations without retiring old scopes. Fragments and virtual view items
-are still open. A failed component structural update currently resets and poisons the pump rather
-than recovering the prior or desired tree, so structural failure recovery remains a gate. Control
-expansion remains frozen.
+are still open. A failed component structural update now resets native state, advances realization
+identity, and remounts the complete desired logical candidate without recreating component state.
+The scope transaction commits only after recovery succeeds. A failed recovery discards reserved
+scopes, preserves old published scopes, and poisons the pump. This is proven headlessly; the live
+component recovery fixture remains a gate. Virtual collections are excluded from this recovery path
+until their leases can be rebound to the new realization identity. Control expansion remains
+frozen.

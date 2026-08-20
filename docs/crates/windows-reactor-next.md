@@ -92,7 +92,11 @@ retain their scopes across parent prop updates and keyed movement; move commands
 native root rather than a logical component node. Keyed insert/remove and same-key type replacement
 reserve new scopes and keep removed scopes published until the native batch succeeds. Success
 publishes replacements and retires removed scopes; failure discards reservations without retiring
-the old scopes. A failed structural component update currently resets and poisons its pump.
+the old scopes. A failed structural component update resets native state, advances realization
+identity, and remounts the complete desired candidate while retaining component state and scope
+identities. The scope transaction commits after recovery succeeds. A second structural failure
+poisons the pump and leaves old scopes published. Virtual collections are not accepted by this
+component recovery path until their leases can be rebound to the new realization identity.
 
 The `test` feature exposes the recording runtime and pump to the headless benchmark package. It is
 not part of the default application surface.
