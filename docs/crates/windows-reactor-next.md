@@ -151,11 +151,18 @@ types and publication are in `core/pump/plan.rs` and `core/pump/publish.rs`.
 scope lifecycle work is in `lifecycle.rs`, and validated events and realization work is in
 `native_work.rs`. Runtime-independent planning is split into `planner/topology.rs`,
 `planner/element.rs`, and `planner/view.rs`. Every production module is below the 1,000-line review
-trigger; the coordinator is 539 lines. Pump tests are grouped by publication, failure, components,
-keyed fragments, events, virtualization, and lifecycle under `core/pump/tests/`.
+trigger; the coordinator remains below that limit. Pump tests are grouped by publication, failure,
+components, keyed fragments, events, virtualization, and lifecycle under `core/pump/tests/`.
 
-Budgeted structural recovery and a live multi-window host remain continuation blockers. Feature
-and control expansion stay frozen until those gates pass.
+Budgeted structural recovery now exists as a comparison prototype, but it is not the selected
+policy. It adds multi-turn continuation state and extensive tests for a failure class that is not
+represented in the repository's reactor issue reports. The preferred next prototype treats an
+unexpected native command failure as loss of the affected native window generation. It preserves
+application/component state and the desired candidate, invalidates stale work, cleans up
+generation-bound effects, and closes the native window. Automatic HWND reconstruction is deferred
+until live evidence shows that mutation failures are frequent enough to justify its host and
+lifecycle cost. Feature and control expansion stay frozen until this simpler policy and
+multi-window isolation pass.
 
 The `test` feature exposes the recording runtime and pump to the headless benchmark package. It is
 not part of the default application surface.

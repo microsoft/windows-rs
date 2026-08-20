@@ -13,7 +13,7 @@ Retain:
 - Generated control schema and typed public API.
 - Generational identity.
 - Cloneable candidate structural tree.
-- Ordered mutation batches and per-command receipts.
+- Ordered mutation batches.
 - Queued native events and realization.
 - Specialized adapters for controls such as `ItemsRepeater`.
 - Current hook frontend as the comparison control.
@@ -92,11 +92,32 @@ The following state layers are distinct:
 - **Application state:** committed when a message or hook update returns.
 - **Desired view:** derived from application state and retained across native failure.
 - **Published structure:** committed after valid planning and its defined native apply outcome.
-- **Native certainty:** updated from trusted observations, successful writes, and receipts.
+- **Native certainty:** updated from trusted observations and successful writes.
 - **Effects:** run only after the corresponding published/native state reaches its required point.
 
-Native failure never rolls arbitrary application or component state back. Recovery retries or
-remounts the same current desired view.
+Native failure never rolls arbitrary application or component state back. A lost native generation
+is closed without publishing its candidate.
+
+The budgeted recovery prototype is a comparison implementation, not the selected failure policy.
+Repository issue evidence does not show recurring arbitrary WinUI mutation failures. Reported
+reactor failures are dominated by reconciliation, component scheduling, generated property
+coverage, and startup policy. The default design must therefore optimize for a small, auditable
+steady-state core rather than preserving a partially mutated native generation.
+
+The current preferred policy is fail-stop native generation loss:
+
+- An unexpected native command failure makes the generation unusable.
+- Invalidate its identity before cleanup and never interpret later command outcomes from it.
+- Preserve committed application/component state and the already-produced desired candidate.
+- Run generation-bound effect cleanup once and close the affected native window.
+- Do not add automatic reconstruction until live evidence shows that such failures occur often
+  enough to justify HWND replacement, effect restart, focus restoration, and dispatcher handling.
+- A future reconstruction policy may rebuild the preserved candidate once. It must remain a host
+  operation rather than a second reconciliation or ownership engine.
+
+Expected controlled-property feedback and validation rejection are not native generation loss.
+They remain ordinary reconciliation inputs. Specialized Canvas device loss and WebView process
+failure remain adapter-specific lifecycle events.
 
 ### Native property certainty
 
@@ -104,14 +125,13 @@ Controlled properties track:
 
 ```text
 desired: T
-native: Known(T) | Divergent
+native: Known(T) | Unknown
 feedback: property-specific state
-attempts: u32
 ```
 
 `Known(T)` requires a trusted native observation, generated readback, or successful write under a
-documented native contract. Setter failure produces `Divergent` unless readback establishes the
-actual value.
+documented native contract. An unexpected setter failure invalidates the native generation rather
+than creating property retry state.
 
 Each controlled property declares one feedback contract:
 
@@ -172,7 +192,7 @@ error boundary is part of this prototype.
 - Setup runs only after the corresponding view commit.
 - Dependency change runs old cleanup before new setup.
 - Retirement runs cleanup before native resources required by cleanup are destroyed.
-- Failed recovery does not run setup for an unrealized view.
+- A failed native generation does not run setup for an unrealized view.
 - Cleanup is idempotent across replacement, close, and terminal fault.
 - Framework subscriptions cannot retain an untracked cycle to their component scope.
 
@@ -302,7 +322,7 @@ One window turn runs these phases:
    plan's reservation list, and call its first `view` depth-first in this phase.
 5. Validate the already-built logical candidate and every reservation without running user code.
 6. Run retiring cleanup and old cleanup for changed effects child-first while old native resources
-   still exist, apply native commands, recover if needed, and publish.
+   still exist, apply native commands, and either publish or invalidate the failed generation.
 7. Run new and changed effect setup parent-first after publication.
 
 Messages sent from `create`, `changed`, `update`, `view`, callbacks, or effects append to the queue.
@@ -461,7 +481,7 @@ faster for a 512-item dense keyed reversal (0.10 ms versus 0.17 ms).
 **Decision:** continue with the owned-component architecture and retain hooks during the remaining
 gate work. Components provide a clear locality advantage without compile-time or executable-size
 regressions, and they stay close to the current crate's local component baseline. Do not start
-context or async ownership yet. Empty/multi-root anchoring, bounded native recovery, and a live
+context or async ownership yet. Empty/multi-root anchoring, native generation loss, and a live
 multi-window host remain blockers rather than being hidden by the favorable leaf benchmark.
 
 ### 6. Conditional context and async proof
@@ -494,7 +514,7 @@ carry the proven generator and backend work into the current reactor.
 | Reentrancy | Message send is queue-only; nested loops cannot reborrow an active scope |
 | Props | Coalescing, comparison, and ordering relative to messages are deterministic |
 | Anchoring | Empty, single-root, multi-root, and component-only views recompose locally |
-| Failure | Mutate-then-fail setters, structural failure, and rejected edits converge |
+| Failure | Mutation failure invalidates one generation; rejected edits converge |
 | Lifecycle | Effects and subscriptions clean up once before required native resources disappear |
 | Scheduling | No lost wakeup under rejection, reentrancy, cross-window activity, or close |
 | Generation | Ordinary controls remain schema-only; event payloads retain typed source conversion |
@@ -518,7 +538,7 @@ applications on the same machine and toolchain.
 | Keyed siblings, 512 -> 4K | No quadratic growth |
 | Repeated mount and retirement | Scope, callback, COM handle, and memory counts reach steady state |
 | Message burst | Queue is bounded or applies documented backpressure |
-| Native recovery | Fixed per-tick budget; cannot monopolize the UI thread |
+| Native failure | No retry loop or continuation; generation loss is bounded |
 | Idle scope memory | Report retained bytes at 512, 4K, and 16K scopes |
 | Compile diagnostics | Invalid props, messages, and thread crossing fail at the public API boundary |
 
@@ -534,7 +554,7 @@ Phase 5 results:
 | Keyed siblings, 512 -> 4K | Pass - 8x input produced about 11x time after dense reset |
 | Repeated mount and retirement | Pass headlessly; more live resource cycles remain |
 | Message burst | Pass - 4,096-message queue capacity and observable `false` backpressure |
-| Native recovery | Pass - RECOVERY_COMMAND_BUDGET = 64; 11 headless tests cover budget, multi-turn, effects, stale work, poisoning, event deferral |
+| Native failure | Fine-grained comparison passed but is not selected without failure evidence |
 | Idle scope memory | Reported - about 2,479 bytes per scope |
 | Compile diagnostics | Pass - props/messages are typed and `LocalSender` is not `Send` |
 
@@ -637,9 +657,9 @@ dirty ancestor precedes them. Ancestor composition applies props first, retireme
 messages, and surviving descendants compose once. Full-tree and property-local candidates feed one
 publisher for native apply, receipts, property certainty, effects, retry state, and recovery.
 
-The pump review confirmed that the command/receipt protocol is useful but the central coordinator
-had accumulated too many engines. `core/pump/plan.rs` owns candidate and plan types, and
-`core/pump/publish.rs` owns the shared publisher and recovery policy. This is a transactional
+The pump review confirmed that ordered command planning is useful but the central coordinator had
+accumulated too many engines. `core/pump/plan.rs` owns candidate and plan types, and
+`core/pump/publish.rs` owns the shared publisher and native failure policy. This is a transactional
 decomposition, not a file-only split.
 
 Component turns are now isolated in `core/pump/turn.rs`, including ancestor-first props and
@@ -648,10 +668,15 @@ Validated events and realization work are in `core/pump/native_work.rs`. The loc
 continues to meet the 0.6 us, 476-byte, and 11-allocation gate because it carries only desired
 props; receipt-derived certainty publishes after native apply.
 
-`core/pump/mod.rs` is now a 539-line phase coordinator. Runtime-independent planning is split into
+`core/pump/mod.rs` is now a phase coordinator. Runtime-independent planning is split into
 `planner/topology.rs`, `planner/element.rs`, and `planner/view.rs`; no planning module can apply
 native commands, interpret receipts, schedule work, run effects, or mutate published pump state.
 Every production module is below the 1,000-line review trigger. The former inline pump tests are
 grouped by behavioral contract under `core/pump/tests/`. Pump decomposition therefore passes.
-Budgeted structural recovery and live multi-window ownership must pass before context or
-background async work begins.
+
+The completed budgeted-recovery comparison adds a continuation type, accumulated command
+outcomes, recovery scheduling, retry state, and 433 lines of continuation tests. The publisher is
+396 lines and the recovery plan module is 107 lines. This is material complexity for a failure
+class not represented in the repository's reactor reports. Feature expansion remains frozen while
+the prototype is reduced to fail-stop native generation loss and tested for stale work, effect
+cleanup, component-state retention, and window isolation.
