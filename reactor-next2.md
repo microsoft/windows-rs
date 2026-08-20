@@ -534,7 +534,7 @@ Phase 5 results:
 | Keyed siblings, 512 -> 4K | Pass - 8x input produced about 11x time after dense reset |
 | Repeated mount and retirement | Pass headlessly; more live resource cycles remain |
 | Message burst | Pass - 4,096-message queue capacity and observable `false` backpressure |
-| Native recovery | Blocked - structural recovery still applies an unbudgeted remount batch |
+| Native recovery | Pass - RECOVERY_COMMAND_BUDGET = 64; 11 headless tests cover budget, multi-turn, effects, stale work, poisoning, event deferral |
 | Idle scope memory | Reported - about 2,479 bytes per scope |
 | Compile diagnostics | Pass - props/messages are typed and `LocalSender` is not `Send` |
 
@@ -623,14 +623,35 @@ An independent viability review identified a risk of repeating an older design m
 optimized component paths to acquire separate publication and lifecycle semantics before the
 general model is settled. Treat the following as a blocking semantic gate:
 
-- Parent props discovered by a dirty ancestor apply before queued child messages that survive that
-  ancestor's composition.
-- A local-path probe that falls back does not call user `view` twice.
-- Successful structural recovery retires the dirty work represented by the recovered candidate.
-- Effect cleanup and setup order match one documented lifecycle contract.
-- Local and general component plans use one native publication, receipt interpretation, recovery,
-  and lifecycle engine.
+- [x] Parent props discovered by a dirty ancestor apply before queued child messages that survive
+  that ancestor's composition.
+- [x] A local-path probe that falls back does not call user `view` twice.
+- [x] Successful structural recovery retires the dirty work represented by the recovered
+  candidate.
+- [x] Effect cleanup and setup order match one documented lifecycle contract.
+- [x] Local and general component plans use one native publication, receipt interpretation,
+  recovery, and lifecycle engine.
 
-Do not add a second ownership graph or component-specific native recovery to satisfy this gate.
-After it passes, budgeted structural recovery and live multi-window ownership must pass before
-context or background async work begins.
+The semantic gate passes without another ownership graph. Queued descendants are deferred when a
+dirty ancestor precedes them. Ancestor composition applies props first, retirement drops obsolete
+messages, and surviving descendants compose once. Full-tree and property-local candidates feed one
+publisher for native apply, receipts, property certainty, effects, retry state, and recovery.
+
+The pump review confirmed that the command/receipt protocol is useful but the central coordinator
+had accumulated too many engines. `core/pump/plan.rs` owns candidate and plan types, and
+`core/pump/publish.rs` owns the shared publisher and recovery policy. This is a transactional
+decomposition, not a file-only split.
+
+Component turns are now isolated in `core/pump/turn.rs`, including ancestor-first props and
+descendant-message deferral. Effect and scope lifecycle work is in `core/pump/lifecycle.rs`.
+Validated events and realization work are in `core/pump/native_work.rs`. The local candidate
+continues to meet the 0.6 us, 476-byte, and 11-allocation gate because it carries only desired
+props; receipt-derived certainty publishes after native apply.
+
+`core/pump/mod.rs` is now a 539-line phase coordinator. Runtime-independent planning is split into
+`planner/topology.rs`, `planner/element.rs`, and `planner/view.rs`; no planning module can apply
+native commands, interpret receipts, schedule work, run effects, or mutate published pump state.
+Every production module is below the 1,000-line review trigger. The former inline pump tests are
+grouped by behavioral contract under `core/pump/tests/`. Pump decomposition therefore passes.
+Budgeted structural recovery and live multi-window ownership must pass before context or
+background async work begins.

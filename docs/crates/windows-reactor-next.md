@@ -135,10 +135,27 @@ failure. The live WinUI fixture covers empty window content and a two-root fragm
 An isolated component leaf inside a 16,384-scope fragment remained at 0.6 us, 476 bytes, and 11
 allocations per update, matching the ordinary isolated-leaf path.
 
-Component publication semantics, budgeted structural recovery, and a live multi-window host remain
-continuation blockers. The publication gate includes parent-prop ordering relative to child
-messages, one `view` call when a local-path probe falls back, dirty-token retirement after recovery,
-and one receipt/recovery/lifecycle engine for local and general component plans.
+The component publication gate now passes. A parent message is composed before queued descendant
+messages run, which applies current props first and drops messages for descendants retired by the
+parent. Surviving descendants compose once with the new props. Local-path fallback reuses the
+already-produced view, and successful structural recovery clears the dirty work represented by its
+candidate.
+
+Element, general component, and property-local updates now produce either a full-tree or native-node
+candidate consumed by one publisher. That publisher owns native apply, receipt interpretation,
+property certainty, structural recovery, effect publication, retry state, and poisoning. The local
+path carries only desired props and does not mutate the published tree before apply. Candidate
+types and publication are in `core/pump/plan.rs` and `core/pump/publish.rs`.
+
+`core/pump/mod.rs` is the phase coordinator. Component turn ordering is in `turn.rs`, effect and
+scope lifecycle work is in `lifecycle.rs`, and validated events and realization work is in
+`native_work.rs`. Runtime-independent planning is split into `planner/topology.rs`,
+`planner/element.rs`, and `planner/view.rs`. Every production module is below the 1,000-line review
+trigger; the coordinator is 539 lines. Pump tests are grouped by publication, failure, components,
+keyed fragments, events, virtualization, and lifecycle under `core/pump/tests/`.
+
+Budgeted structural recovery and a live multi-window host remain continuation blockers. Feature
+and control expansion stay frozen until those gates pass.
 
 The `test` feature exposes the recording runtime and pump to the headless benchmark package. It is
 not part of the default application surface.

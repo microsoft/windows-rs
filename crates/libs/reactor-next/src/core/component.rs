@@ -687,6 +687,15 @@ impl ComponentStore {
         self.queue.borrow().envelopes.len()
     }
 
+    pub(crate) fn pending_tokens(&self) -> Vec<ComponentToken> {
+        self.queue
+            .borrow()
+            .envelopes
+            .iter()
+            .map(|envelope| envelope.token)
+            .collect()
+    }
+
     pub fn view(&self, token: ComponentToken) -> Result<View, ComponentStoreError> {
         self.validate_window(token)?;
         self.scopes.get(token.scope)?.view()
