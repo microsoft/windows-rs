@@ -8,7 +8,9 @@ pub enum PumpError {
     KindChanged,
     NotMounted,
     DuplicateKey(Key),
+    RenderBudgetExceeded,
     RevisionExhausted,
+    StructuralApplyFailed,
     StructureUnsupported,
     Tree(TreeError),
 }
@@ -51,6 +53,7 @@ pub struct Pump<R> {
     runtime: R,
     root: Option<NodeId>,
     events: VecDeque<QueuedEvent>,
+    version: u64,
 }
 
 pub struct QueuedEvent {
@@ -67,6 +70,7 @@ impl<R: NativeRuntime> Pump<R> {
             runtime,
             root: None,
             events: VecDeque::new(),
+            version: 0,
         }
     }
 
@@ -106,6 +110,7 @@ impl<R: NativeRuntime> Pump<R> {
         }
         self.commit_properties(&commits, &receipt)?;
         self.root = Some(node);
+        self.advance_version()?;
         Ok(receipt)
     }
 
@@ -116,6 +121,7 @@ impl<R: NativeRuntime> Pump<R> {
         Self::reconcile_node(&mut candidate, node, element, &mut plan)?;
         if plan.commands.is_empty() {
             self.tree = candidate;
+            self.advance_version()?;
             return Ok(CommitReceipt {
                 outcomes: Vec::new(),
             });
@@ -144,6 +150,7 @@ impl<R: NativeRuntime> Pump<R> {
 
         Self::commit_tree_properties(&mut candidate, &plan.commits, &receipt)?;
         self.tree = candidate;
+        self.advance_version()?;
         Ok(receipt)
     }
 
@@ -157,6 +164,10 @@ impl<R: NativeRuntime> Pump<R> {
 
     pub fn root(&self) -> Option<NodeId> {
         self.root
+    }
+
+    pub fn version(&self) -> u64 {
+        self.version
     }
 
     pub fn event_revision(&self, node: NodeId, event: EventId) -> Option<u32> {
@@ -434,6 +445,14 @@ impl<R: NativeRuntime> Pump<R> {
                 state.active = active;
             }
         }
+        Ok(())
+    }
+
+    fn advance_version(&mut self) -> Result<(), PumpError> {
+        self.version = self
+            .version
+            .checked_add(1)
+            .ok_or(PumpError::RevisionExhausted)?;
         Ok(())
     }
 

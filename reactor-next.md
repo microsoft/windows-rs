@@ -190,7 +190,7 @@ Deferred:
 - [x] Implement the generational arena and child-first retirement.
 - [x] Implement keys and one keyed differ.
 - [x] Implement `RecordingRuntime`.
-- Implement the initial hooks and phased pump.
+- [x] Implement the initial hooks and phased pump.
 - [x] Implement command receipts.
 - [x] Implement conditional comparison-state commit.
 - [x] Implement queued events with stale-work rejection.
@@ -309,20 +309,19 @@ After representative parity:
 ### In progress
 
 - [x] Generate shallow mounted props and split structural payloads without cloning subtrees.
-- [ ] Implement initial state and callback hooks.
+- [x] Implement initial state and callback hooks.
 - [x] Add transactional recursive mount, property updates, and keyed move/insert/remove.
-- [ ] Add render scheduling and hooks around the transaction core.
+- [x] Add state scheduling, queued callback dispatch, effects, cleanup, and a render budget.
 
 ### Next
 
-- [ ] Implement state slots and whole-root render scheduling.
-- [ ] Add effect cleanup after successful apply.
+- [ ] Start and stop WinUI through application and window arena nodes.
+- [ ] Implement generated native construction and property mutation for the pilot controls.
 
 ### Decisions needed before implementation
 
 - [ ] Fault-sink API.
 - [ ] Per-window or per-UI-thread arena.
-- [ ] Pump work-budget unit.
 - [ ] Owner-scoped async contract.
 - [ ] Synchronous realization contract.
 
@@ -330,8 +329,8 @@ After representative parity:
 
 - Architecture and correctness gates: active.
 - Compile and runtime gates: report-only until parity.
-- Current phase: 3 - pure core.
-- Next action: connect generated props and structural payloads to the arena and recording runtime.
+- Current phase: 4 - native slice.
+- Next action: establish application/window lifetime and mount the first generated WinUI control.
 
 ## Current reactor baseline
 
