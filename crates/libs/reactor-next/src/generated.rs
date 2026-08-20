@@ -249,6 +249,92 @@ use public::*;
 pub trait ElementPartsExt {
     fn into_parts(self) -> ElementParts;
 }
+pub trait MountedPropsExt {
+    fn visit_properties(&self, visit: &mut dyn FnMut(PropertyId, Option<PropertyValue>));
+}
+impl MountedPropsExt for MountedProps {
+    fn visit_properties(&self, visit: &mut dyn FnMut(PropertyId, Option<PropertyValue>)) {
+        match self {
+            Self::TextBlock {
+                text,
+                text_wrapping,
+                ..
+            } => {
+                visit(
+                    PropertyId::TextBlockText,
+                    match text {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((value.clone()).into()),
+                    },
+                );
+                visit(
+                    PropertyId::TextBlockTextWrapping,
+                    match text_wrapping {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+            }
+            Self::Button { is_enabled, .. } => {
+                visit(
+                    PropertyId::ButtonIsEnabled,
+                    match is_enabled {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+            }
+            Self::StackPanel {
+                orientation,
+                spacing,
+                ..
+            } => {
+                visit(
+                    PropertyId::StackPanelOrientation,
+                    match orientation {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+                visit(
+                    PropertyId::StackPanelSpacing,
+                    match spacing {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+            }
+            Self::TextBox {
+                text,
+                placeholder_text,
+                is_enabled,
+                ..
+            } => {
+                visit(
+                    PropertyId::TextBoxText,
+                    match text {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((value.clone()).into()),
+                    },
+                );
+                visit(
+                    PropertyId::TextBoxPlaceholderText,
+                    match placeholder_text {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((value.clone()).into()),
+                    },
+                );
+                visit(
+                    PropertyId::TextBoxIsEnabled,
+                    match is_enabled {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+            }
+        }
+    }
+}
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum MountedKind {
     TextBlock,

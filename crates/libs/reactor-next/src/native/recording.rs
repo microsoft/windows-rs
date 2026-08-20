@@ -18,14 +18,34 @@ pub struct RecordingRuntime {
 }
 
 impl RecordingRuntime {
-    fn fail_at(&mut self, command_index: usize) {
+    pub fn fail_at(&mut self, command_index: usize) {
         self.fail_at.insert(command_index);
     }
 
-    fn node(&self, id: NodeId) -> Option<&RecordedNode> {
+    pub fn node(&self, id: NodeId) -> Option<&RecordedNode> {
         self.nodes.get(&id)
     }
 
+    pub fn batches(&self) -> usize {
+        self.batches
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.nodes.is_empty()
+    }
+}
+
+impl RecordedNode {
+    pub fn property(&self, property: PropertyId) -> Option<&PropertyValue> {
+        self.properties.get(&property)
+    }
+
+    pub fn children(&self) -> &[NodeId] {
+        &self.children
+    }
+}
+
+impl RecordingRuntime {
     fn apply_one(&mut self, command: &Command) -> Result<(), RuntimeError> {
         match command {
             Command::Create { node, kind } => {

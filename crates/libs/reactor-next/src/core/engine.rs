@@ -1,4 +1,5 @@
 use super::*;
+use std::collections::BTreeMap;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum NodeKind {
@@ -14,11 +15,19 @@ struct Node {
     kind: NodeKind,
     parent: Option<NodeId>,
     children: Vec<NodeId>,
+    key: Option<Key>,
+    native: Option<NativeState>,
+}
+
+pub struct NativeState {
+    pub desired: MountedProps,
+    pub committed: BTreeMap<PropertyId, PropertyValue>,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum TreeError {
     Arena(ArenaError),
+    NotNative,
     RootAlreadyExists,
 }
 
@@ -52,6 +61,8 @@ impl Tree {
             kind,
             parent,
             children: Vec::new(),
+            key: None,
+            native: None,
         })?;
 
         if let Some(parent) = parent {
@@ -62,8 +73,45 @@ impl Tree {
         Ok(id)
     }
 
+    pub fn insert_native(
+        &mut self,
+        parent: Option<NodeId>,
+        kind: MountedKind,
+        key: Option<Key>,
+        desired: MountedProps,
+    ) -> Result<NodeId, TreeError> {
+        let id = self.insert(parent, NodeKind::Native(kind))?;
+        let node = self.arena.get_mut(id)?;
+        node.key = key;
+        node.native = Some(NativeState {
+            desired,
+            committed: BTreeMap::new(),
+        });
+        Ok(id)
+    }
+
+    pub fn native(&self, id: NodeId) -> Result<&NativeState, TreeError> {
+        self.arena
+            .get(id)?
+            .native
+            .as_ref()
+            .ok_or(TreeError::NotNative)
+    }
+
+    pub fn native_mut(&mut self, id: NodeId) -> Result<&mut NativeState, TreeError> {
+        self.arena
+            .get_mut(id)?
+            .native
+            .as_mut()
+            .ok_or(TreeError::NotNative)
+    }
+
     pub fn parent(&self, id: NodeId) -> Result<Option<NodeId>, TreeError> {
         Ok(self.arena.get(id)?.parent)
+    }
+
+    pub fn kind(&self, id: NodeId) -> Result<NodeKind, TreeError> {
+        Ok(self.arena.get(id)?.kind)
     }
 
     pub fn children(&self, id: NodeId) -> Result<&[NodeId], TreeError> {

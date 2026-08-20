@@ -26,6 +26,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         quote! { #name }
     });
     let mounted_props_variants = schema.controls.iter().map(generate_mounted_props_variant);
+    let mounted_props_visitors = schema.controls.iter().map(generate_mounted_props_visitor);
     let element_parts = schema.controls.iter().map(generate_element_parts);
     let property_ids = schema.controls.iter().flat_map(|control| {
         control
@@ -73,6 +74,24 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
 
         pub trait ElementPartsExt {
             fn into_parts(self) -> ElementParts;
+        }
+
+        pub trait MountedPropsExt {
+            fn visit_properties(
+                &self,
+                visit: &mut dyn FnMut(PropertyId, Option<PropertyValue>),
+            );
+        }
+
+        impl MountedPropsExt for MountedProps {
+            fn visit_properties(
+                &self,
+                visit: &mut dyn FnMut(PropertyId, Option<PropertyValue>),
+            ) {
+                match self {
+                    #(#mounted_props_visitors),*
+                }
+            }
         }
 
         #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -262,6 +281,38 @@ fn generate_element_parts(control: &ResolvedControl) -> TokenStream {
                 #(#fields),*
             },
             structure: #structure,
+        }
+    }
+}
+
+fn generate_mounted_props_visitor(control: &ResolvedControl) -> TokenStream {
+    let name = ident(&control.name);
+    let fields = control
+        .properties
+        .iter()
+        .map(|property| ident(&property.field));
+    let properties = control.properties.iter().map(|property| {
+        let field = ident(&property.field);
+        let id = ident(&format!("{}{}", control.name, property.name));
+        let value = if property.value == "Str" {
+            quote! { value.clone() }
+        } else {
+            quote! { *value }
+        };
+        quote! {
+            visit(
+                PropertyId::#id,
+                match #field {
+                    Property::Inherited => None,
+                    Property::Set(value) => Some((#value).into()),
+                },
+            );
+        }
+    });
+
+    quote! {
+        Self::#name { #(#fields,)* .. } => {
+            #(#properties)*
         }
     }
 }

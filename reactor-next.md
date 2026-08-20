@@ -192,7 +192,7 @@ Deferred:
 - [x] Implement `RecordingRuntime`.
 - Implement the initial hooks and phased pump.
 - [x] Implement command receipts.
-- Implement conditional comparison-state commit.
+- [x] Implement conditional comparison-state commit.
 - Implement queued events with stale-work rejection.
 - [x] Add randomized model tests and command failure injection.
 
@@ -310,11 +310,10 @@ After representative parity:
 
 - [x] Generate shallow mounted props and split structural payloads without cloning subtrees.
 - [ ] Implement initial state and callback hooks.
-- [ ] Implement the phased headless pump.
+- [ ] Extend the headless pump from recursive mount and leaf updates to keyed structural updates.
 
 ### Next
 
-- [ ] Commit comparison state only for successful command receipts.
 - [ ] Queue events and reject stale generations.
 
 ### Decisions needed before implementation

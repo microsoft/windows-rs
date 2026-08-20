@@ -60,6 +60,10 @@ impl KeyedElement {
     pub fn element(&self) -> &Element {
         &self.element
     }
+
+    pub(crate) fn into_parts(self) -> (Key, Element) {
+        (self.key, self.element)
+    }
 }
 
 #[derive(Clone, Debug, Default, PartialEq)]
