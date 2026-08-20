@@ -2,18 +2,18 @@ use std::collections::{HashMap, HashSet};
 use std::hash::Hash;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub(crate) enum KeyedOperation<K> {
+pub enum KeyedOperation<K> {
     Remove { key: K },
     Insert { key: K, before: Option<K> },
     Move { key: K, before: Option<K> },
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub(crate) enum KeyedError<K> {
+pub enum KeyedError<K> {
     DuplicateKey(K),
 }
 
-pub(crate) fn diff<K>(previous: &[K], next: &[K]) -> Result<Vec<KeyedOperation<K>>, KeyedError<K>>
+pub fn diff<K>(previous: &[K], next: &[K]) -> Result<Vec<KeyedOperation<K>>, KeyedError<K>>
 where
     K: Clone + Eq + Hash,
 {

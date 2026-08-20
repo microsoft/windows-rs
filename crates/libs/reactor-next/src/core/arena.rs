@@ -1,17 +1,17 @@
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub(crate) struct NodeId {
+pub struct NodeId {
     index: u32,
     generation: u32,
 }
 
 impl NodeId {
-    pub(crate) const fn from_parts(index: u32, generation: u32) -> Self {
+    pub const fn from_parts(index: u32, generation: u32) -> Self {
         Self { index, generation }
     }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub(crate) enum ArenaError {
+pub enum ArenaError {
     Stale(NodeId),
     CapacityExceeded,
 }
@@ -21,14 +21,14 @@ struct Slot<T> {
     value: Option<T>,
 }
 
-pub(crate) struct Arena<T> {
+pub struct Arena<T> {
     slots: Vec<Slot<T>>,
     free: Vec<u32>,
     live: usize,
 }
 
 impl<T> Arena<T> {
-    pub(crate) fn new() -> Self {
+    pub fn new() -> Self {
         Self {
             slots: Vec::new(),
             free: Vec::new(),
@@ -36,7 +36,7 @@ impl<T> Arena<T> {
         }
     }
 
-    pub(crate) fn insert(&mut self, value: T) -> Result<NodeId, ArenaError> {
+    pub fn insert(&mut self, value: T) -> Result<NodeId, ArenaError> {
         let id = if let Some(index) = self.free.pop() {
             let slot = &mut self.slots[index as usize];
             debug_assert!(slot.value.is_none());
@@ -61,17 +61,17 @@ impl<T> Arena<T> {
         Ok(id)
     }
 
-    pub(crate) fn get(&self, id: NodeId) -> Result<&T, ArenaError> {
+    pub fn get(&self, id: NodeId) -> Result<&T, ArenaError> {
         let slot = self.slot(id)?;
         slot.value.as_ref().ok_or(ArenaError::Stale(id))
     }
 
-    pub(crate) fn get_mut(&mut self, id: NodeId) -> Result<&mut T, ArenaError> {
+    pub fn get_mut(&mut self, id: NodeId) -> Result<&mut T, ArenaError> {
         let slot = self.slot_mut(id)?;
         slot.value.as_mut().ok_or(ArenaError::Stale(id))
     }
 
-    pub(crate) fn remove(&mut self, id: NodeId) -> Result<T, ArenaError> {
+    pub fn remove(&mut self, id: NodeId) -> Result<T, ArenaError> {
         let slot = self.slot_mut(id)?;
         let value = slot.value.take().ok_or(ArenaError::Stale(id))?;
         if let Some(generation) = slot.generation.checked_add(1) {
@@ -82,7 +82,7 @@ impl<T> Arena<T> {
         Ok(value)
     }
 
-    pub(crate) fn len(&self) -> usize {
+    pub fn len(&self) -> usize {
         self.live
     }
 

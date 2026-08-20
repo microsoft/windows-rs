@@ -1,11 +1,9 @@
 use std::collections::{BTreeMap, HashMap, HashSet};
 
-use crate::arena::NodeId;
-use crate::generated::{MountedKind, PropertyId, PropertyValue};
-use crate::runtime::{Command, CommandOutcome, CommitReceipt, NativeRuntime, RuntimeError};
+use super::*;
 
 #[derive(Debug)]
-pub(crate) struct RecordedNode {
+pub struct RecordedNode {
     kind: MountedKind,
     parent: Option<NodeId>,
     children: Vec<NodeId>,
@@ -13,7 +11,7 @@ pub(crate) struct RecordedNode {
 }
 
 #[derive(Default)]
-pub(crate) struct RecordingRuntime {
+pub struct RecordingRuntime {
     nodes: HashMap<NodeId, RecordedNode>,
     batches: usize,
     fail_at: HashSet<usize>,

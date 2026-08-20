@@ -1,20 +1,21 @@
 #![doc = include_str!("../readme.md")]
 
-#[cfg(test)]
-mod arena;
+#[expect(
+    dead_code,
+    unused_imports,
+    reason = "the pure core is wired into the headless pump next"
+)]
+mod core;
 mod element;
-#[cfg(test)]
-mod engine;
+#[expect(
+    dead_code,
+    reason = "generated mounted state is wired into the headless pump next"
+)]
 mod generated;
 #[cfg(test)]
-mod keyed;
-#[cfg(test)]
 mod native;
-#[cfg(test)]
-mod runtime;
 
-pub use element::{
-    Callback, ChildrenControl, ContentControl, ControlledTextControl, EnabledControl, Key,
-    KeyedElement, LayoutControl, Property, TextStyleControl,
-};
-pub use generated::*;
+use generated::*;
+
+pub use element::*;
+pub use generated::public::*;

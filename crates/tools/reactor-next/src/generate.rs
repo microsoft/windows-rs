@@ -44,72 +44,75 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     let controls = schema.controls.iter().map(generate_control);
 
     let tokens = quote! {
-        use crate::element::{
-            self, Callback, ChildrenControl, ContentControl, ControlledTextControl,
-            EnabledControl, Key, KeyedElement, LayoutControl, Property, TextStyleControl,
-        };
+        use crate::element::*;
 
-        #value_enums
+        pub mod public {
+            use super::*;
 
-        #(#elements)*
+            #value_enums
 
-        #[derive(Clone, Debug, PartialEq)]
-        pub enum Element {
-            #(#element_variants),*
+            #(#elements)*
+
+            #[derive(Clone, Debug, PartialEq)]
+            pub enum Element {
+                #(#element_variants),*
+            }
+
+            #(#element_conversions)*
+
+            impl ElementPartsExt for Element {
+                fn into_parts(self) -> ElementParts {
+                    match self {
+                        #(#element_parts),*
+                    }
+                }
+            }
         }
 
-        #(#element_conversions)*
+        use public::*;
+
+        pub trait ElementPartsExt {
+            fn into_parts(self) -> ElementParts;
+        }
 
         #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-        pub(crate) enum MountedKind {
+        pub enum MountedKind {
             #(#mounted_variants),*
         }
 
-        #[cfg(test)]
         #[derive(Clone, Debug, PartialEq)]
-        pub(crate) enum MountedProps {
+        pub enum MountedProps {
             #(#mounted_props_variants),*
         }
 
-        #[cfg(test)]
         #[derive(Clone, Debug, PartialEq)]
-        pub(crate) enum ElementStructure {
+        pub enum ElementStructure {
             None,
             Content(Option<Element>),
             Children(Vec<KeyedElement>),
         }
 
-        #[cfg(test)]
         #[derive(Clone, Debug, PartialEq)]
-        pub(crate) struct ElementParts {
-            pub(crate) kind: MountedKind,
-            pub(crate) props: MountedProps,
-            pub(crate) structure: ElementStructure,
-        }
-
-        #[cfg(test)]
-        impl Element {
-            pub(crate) fn into_parts(self) -> ElementParts {
-                match self {
-                    #(#element_parts),*
-                }
-            }
+        pub struct ElementParts {
+            pub kind: MountedKind,
+            pub props: MountedProps,
+            pub structure: ElementStructure,
         }
 
         #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-        pub(crate) enum PropertyId {
+        pub enum PropertyId {
             #(#property_ids),*
         }
 
         #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-        pub(crate) enum EventId {
+        pub enum EventId {
             #(#event_ids),*
         }
 
         #property_values
 
         #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-        pub(crate) enum ControlRole {
+        pub enum ControlRole {
             Leaf,
             Content,
             Children,
@@ -117,7 +120,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         }
 
         #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-        pub(crate) enum Capability {
+        pub enum Capability {
             Layout,
             TextStyle,
             Enabled,
@@ -127,39 +130,39 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         }
 
         #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-        pub(crate) struct PropertyDescriptor {
-            pub(crate) id: PropertyId,
-            pub(crate) name: &'static str,
-            pub(crate) field: &'static str,
-            pub(crate) value: &'static str,
-            pub(crate) interface: &'static str,
-            pub(crate) clearable: bool,
-            pub(crate) feedback: Option<&'static str>,
+        pub struct PropertyDescriptor {
+            pub id: PropertyId,
+            pub name: &'static str,
+            pub field: &'static str,
+            pub value: &'static str,
+            pub interface: &'static str,
+            pub clearable: bool,
+            pub feedback: Option<&'static str>,
         }
 
         #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-        pub(crate) struct EventDescriptor {
-            pub(crate) id: EventId,
-            pub(crate) name: &'static str,
-            pub(crate) field: &'static str,
-            pub(crate) payload: &'static str,
-            pub(crate) interface: &'static str,
+        pub struct EventDescriptor {
+            pub id: EventId,
+            pub name: &'static str,
+            pub field: &'static str,
+            pub payload: &'static str,
+            pub interface: &'static str,
         }
 
         #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-        pub(crate) struct ControlDescriptor {
-            pub(crate) kind: MountedKind,
-            pub(crate) name: &'static str,
-            pub(crate) type_name: &'static str,
-            pub(crate) role: ControlRole,
-            pub(crate) capabilities: &'static [Capability],
-            pub(crate) properties: &'static [PropertyDescriptor],
-            pub(crate) events: &'static [EventDescriptor],
+        pub struct ControlDescriptor {
+            pub kind: MountedKind,
+            pub name: &'static str,
+            pub type_name: &'static str,
+            pub role: ControlRole,
+            pub capabilities: &'static [Capability],
+            pub properties: &'static [PropertyDescriptor],
+            pub events: &'static [EventDescriptor],
         }
 
         #(#descriptors)*
 
-        pub(crate) const CONTROLS: &[ControlDescriptor] = &[
+        pub const CONTROLS: &[ControlDescriptor] = &[
             #(#controls),*
         ];
 
@@ -291,7 +294,7 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
 
     quote! {
         #[derive(Clone, Debug, PartialEq)]
-        pub(crate) enum PropertyValue {
+        pub enum PropertyValue {
             #(#variants),*
         }
 
@@ -459,7 +462,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
             #structural_methods
         }
 
-        impl element::sealed::Sealed for #name {}
+        impl sealed::Sealed for #name {}
         #(#capability_impls)*
     }
 }

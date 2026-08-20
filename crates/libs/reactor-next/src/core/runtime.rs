@@ -1,26 +1,25 @@
-use crate::arena::NodeId;
-use crate::generated::{MountedKind, PropertyId, PropertyValue};
+use super::*;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub(crate) struct CommitReceipt {
-    pub(crate) outcomes: Vec<CommandOutcome>,
+pub struct CommitReceipt {
+    pub outcomes: Vec<CommandOutcome>,
 }
 
 impl CommitReceipt {
-    pub(crate) fn applied(&self, index: usize) -> bool {
+    pub fn applied(&self, index: usize) -> bool {
         self.outcomes.get(index) == Some(&CommandOutcome::Applied)
     }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub(crate) enum CommandOutcome {
+pub enum CommandOutcome {
     Applied,
     Failed(RuntimeError),
     Skipped,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub(crate) enum RuntimeError {
+pub enum RuntimeError {
     AlreadyParented(NodeId),
     ChildNotFound(NodeId),
     DuplicateNode(NodeId),
@@ -32,12 +31,12 @@ pub(crate) enum RuntimeError {
     StillParented(NodeId),
 }
 
-pub(crate) trait NativeRuntime {
+pub trait NativeRuntime {
     fn apply(&mut self, commands: &[Command]) -> CommitReceipt;
 }
 
 #[derive(Clone, Debug, PartialEq)]
-pub(crate) enum Command {
+pub enum Command {
     Create {
         node: NodeId,
         kind: MountedKind,
@@ -71,7 +70,7 @@ pub(crate) enum Command {
 }
 
 impl Command {
-    pub(crate) fn structural(&self) -> bool {
+    pub fn structural(&self) -> bool {
         !matches!(self, Self::SetProperty { .. } | Self::ClearProperty { .. })
     }
 }

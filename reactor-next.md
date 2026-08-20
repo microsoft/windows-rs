@@ -245,6 +245,9 @@ only if the representative slice remains simpler and competitive with current re
 - Unsupported operations have no silent catch-all.
 - Generated output has a zero-diff check.
 - Runtime internals remain private.
+- Crate exports come from module-level wildcard re-exports; internal modules do not maintain
+  parallel symbol lists.
+- Test-only backends stay behind one module boundary; ordinary unit tests stay in `tests` modules.
 - User code does not run during reconciliation or native apply.
 - Failed writes are not committed as successful state.
 - Stale ids, events, state handles, and leases are rejected.

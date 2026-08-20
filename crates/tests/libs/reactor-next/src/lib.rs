@@ -1,9 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use windows_reactor_next::{
-        Button, Element, Key, KeyedElement, Orientation, Property, StackPanel, TextBlock, TextBox,
-        TextWrapping,
-    };
+    use windows_reactor_next::*;
 
     #[test]
     fn generated_builders_preserve_property_state() {

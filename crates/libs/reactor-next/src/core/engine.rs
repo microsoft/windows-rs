@@ -1,8 +1,7 @@
-use crate::arena::{Arena, ArenaError, NodeId};
-use crate::generated::MountedKind;
+use super::*;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub(crate) enum NodeKind {
+pub enum NodeKind {
     Application,
     Window,
     Component,
@@ -18,7 +17,7 @@ struct Node {
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub(crate) enum TreeError {
+pub enum TreeError {
     Arena(ArenaError),
     RootAlreadyExists,
 }
@@ -29,24 +28,20 @@ impl From<ArenaError> for TreeError {
     }
 }
 
-pub(crate) struct Tree {
+pub struct Tree {
     arena: Arena<Node>,
     root: Option<NodeId>,
 }
 
 impl Tree {
-    pub(crate) fn new() -> Self {
+    pub fn new() -> Self {
         Self {
             arena: Arena::new(),
             root: None,
         }
     }
 
-    pub(crate) fn insert(
-        &mut self,
-        parent: Option<NodeId>,
-        kind: NodeKind,
-    ) -> Result<NodeId, TreeError> {
+    pub fn insert(&mut self, parent: Option<NodeId>, kind: NodeKind) -> Result<NodeId, TreeError> {
         if let Some(parent) = parent {
             self.arena.get(parent)?;
         } else if self.root.is_some() {
@@ -67,22 +62,19 @@ impl Tree {
         Ok(id)
     }
 
-    pub(crate) fn parent(&self, id: NodeId) -> Result<Option<NodeId>, TreeError> {
+    pub fn parent(&self, id: NodeId) -> Result<Option<NodeId>, TreeError> {
         Ok(self.arena.get(id)?.parent)
     }
 
-    pub(crate) fn children(&self, id: NodeId) -> Result<&[NodeId], TreeError> {
+    pub fn children(&self, id: NodeId) -> Result<&[NodeId], TreeError> {
         Ok(&self.arena.get(id)?.children)
     }
 
-    pub(crate) fn len(&self) -> usize {
+    pub fn len(&self) -> usize {
         self.arena.len()
     }
 
-    pub(crate) fn retire_subtree(
-        &mut self,
-        id: NodeId,
-    ) -> Result<Vec<(NodeId, NodeKind)>, TreeError> {
+    pub fn retire_subtree(&mut self, id: NodeId) -> Result<Vec<(NodeId, NodeKind)>, TreeError> {
         let mut order = Vec::new();
         self.collect_postorder(id, &mut order)?;
 
@@ -116,7 +108,6 @@ impl Tree {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::generated::{Element, ElementStructure, MountedProps, StackPanel, TextBlock};
     use std::collections::{HashMap, HashSet};
 
     struct Rng(u64);

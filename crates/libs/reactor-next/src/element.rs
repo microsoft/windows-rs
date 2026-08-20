@@ -1,7 +1,7 @@
 use std::fmt;
 use std::rc::Rc;
 
-use crate::generated::Element;
+use super::*;
 
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub enum Key {
