@@ -1,3 +1,4 @@
+use super::scope::ScopeId;
 use super::*;
 use std::collections::{BTreeMap, HashMap};
 use std::rc::Rc;
@@ -20,6 +21,7 @@ struct Node {
     key: Option<Key>,
     native: Option<NativeState>,
     realized: HashMap<RealizedContainer, NodeId>,
+    scope: Option<ScopeId>,
     virtual_items: Option<Rc<Vec<KeyedElement>>>,
     virtual_model: Option<VirtualModel>,
 }
@@ -46,6 +48,7 @@ pub struct EventState {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum TreeError {
     Arena(ArenaError),
+    NotComponent,
     NotNative,
     NotVirtual,
     RealizedConflict(RealizedContainer),
@@ -93,6 +96,7 @@ impl Tree {
             key: None,
             native: None,
             realized: HashMap::new(),
+            scope: None,
             virtual_items: None,
             virtual_model: None,
         })?;
@@ -133,6 +137,27 @@ impl Tree {
             events,
         });
         Ok(id)
+    }
+
+    pub fn insert_component(
+        &mut self,
+        parent: Option<NodeId>,
+        key: Option<Key>,
+        scope: ScopeId,
+    ) -> Result<NodeId, TreeError> {
+        let id = self.insert(parent, NodeKind::Component)?;
+        let node = self.arena.get_mut(id)?;
+        node.key = key;
+        node.scope = Some(scope);
+        Ok(id)
+    }
+
+    pub fn component_scope(&self, id: NodeId) -> Result<ScopeId, TreeError> {
+        let node = self.arena.get(id)?;
+        if node.kind != NodeKind::Component {
+            return Err(TreeError::NotComponent);
+        }
+        node.scope.ok_or(TreeError::NotComponent)
     }
 
     pub fn native(&self, id: NodeId) -> Result<&NativeState, TreeError> {
@@ -326,6 +351,7 @@ impl Tree {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::core::scope::ScopeArena;
 
     fn identity() -> NativeIdentity {
         NativeIdentity::new(WindowToken::new(WindowId::allocate()))
@@ -379,6 +405,29 @@ mod tests {
             tree.parent(window),
             Err(TreeError::Arena(ArenaError::Stale(window)))
         );
+    }
+
+    #[test]
+    fn candidate_tree_clones_component_identity_without_component_state() {
+        struct State {
+            value: u32,
+        }
+
+        let mut scopes = ScopeArena::new();
+        let scope = scopes.reserve(State { value: 1 }).unwrap();
+        scopes.publish(scope).unwrap();
+        let mut tree = Tree::new();
+        let root = tree.insert(None, NodeKind::Application).unwrap();
+        let component = tree
+            .insert_component(Some(root), Some(Key::from("child")), scope)
+            .unwrap();
+
+        let candidate = tree.clone();
+        scopes.get_mut(scope).unwrap().value = 2;
+
+        assert_eq!(tree.component_scope(component), Ok(scope));
+        assert_eq!(candidate.component_scope(component), Ok(scope));
+        assert_eq!(scopes.get(scope).unwrap().value, 2);
     }
 
     #[test]

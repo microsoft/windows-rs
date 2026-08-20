@@ -1,6 +1,7 @@
 use super::*;
 
 mod arena;
+mod component;
 mod engine;
 mod hooks;
 mod keyed;

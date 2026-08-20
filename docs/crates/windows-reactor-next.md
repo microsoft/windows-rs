@@ -72,7 +72,11 @@ The bounded component prototype starts with a separate generational scope arena 
 component state. Scope slots enforce reserved, published, and retiring states. Failed reservations
 can be dropped before publication, published scopes must enter retirement before removal, and slot
 reuse invalidates the old generation. Component parent, key, type, and order will remain in the
-structural tree rather than being duplicated in this arena.
+structural tree rather than being duplicated in this arena. Logical component nodes now carry only
+their `ScopeId`, so cloning a structural candidate does not clone component state. The window-local
+component store erases props and messages behind checked `TypeId` boundaries. Reserved scopes
+cannot execute queued messages, reentrant sends append to the FIFO, and retiring or stale tokens
+cannot dispatch into a reused slot.
 
 The `test` feature exposes the recording runtime and pump to the headless benchmark package. It is
 not part of the default application surface.
