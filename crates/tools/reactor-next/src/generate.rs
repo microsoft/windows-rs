@@ -29,6 +29,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     let mounted_props_visitors = schema.controls.iter().map(generate_mounted_props_visitor);
     let mounted_event_visitors = schema.controls.iter().map(generate_mounted_event_visitor);
     let mounted_event_dispatchers = schema.controls.iter().flat_map(generate_event_dispatchers);
+    let mounted_event_observers = schema.controls.iter().flat_map(generate_event_observers);
     let element_parts = schema.controls.iter().map(generate_element_parts);
     let element_props_matches = schema.controls.iter().map(generate_element_props_match);
     let element_structures = schema.controls.iter().map(generate_element_structure);
@@ -117,6 +118,11 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         pub trait MountedEventsExt {
             fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool));
             fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> bool;
+            fn observe_event(
+                &self,
+                event: EventId,
+                payload: &EventPayload,
+            ) -> Option<(PropertyId, PropertyValue)>;
         }
 
         impl MountedPropsExt for MountedProps {
@@ -141,6 +147,17 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                 match (self, event, payload) {
                     #(#mounted_event_dispatchers,)*
                     _ => false,
+                }
+            }
+
+            fn observe_event(
+                &self,
+                event: EventId,
+                payload: &EventPayload,
+            ) -> Option<(PropertyId, PropertyValue)> {
+                match (self, event, payload) {
+                    #(#mounted_event_observers,)*
+                    _ => None,
                 }
             }
         }
@@ -469,6 +486,27 @@ fn generate_event_dispatchers(control: &ResolvedControl) -> Vec<TokenStream> {
                     true
                 }
             }
+        })
+        .collect()
+}
+
+fn generate_event_observers(control: &ResolvedControl) -> Vec<TokenStream> {
+    let name = ident(&control.name);
+    control
+        .events
+        .iter()
+        .filter_map(|event| {
+            let property = event.property.as_ref()?;
+            let event_id = ident(&format!("{}{}", control.name, event.name));
+            let property_id = ident(&format!("{}{}", control.name, property));
+            let payload = ident(&event.payload);
+            Some(quote! {
+                (
+                    Self::#name { .. },
+                    EventId::#event_id,
+                    EventPayload::#payload(value),
+                ) => Some((PropertyId::#property_id, value.clone().into()))
+            })
         })
         .collect()
 }

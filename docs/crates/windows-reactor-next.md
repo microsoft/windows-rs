@@ -18,8 +18,9 @@ bindings, handle variants, property operations, structural roles, event subscrip
 payload reads from the control schema.
 Application, window, control, and subscription handles share the arena lifetime. Structural
 update failures clear and remount the control root with fresh generations while preserving the
-application and window. A remount failure stops the affected pump. Property failures retain the
-last comparison value for retry.
+application and window. A remount failure stops the affected pump. Property comparison records
+known native values or divergence. A failed setter becomes divergent and is retried even when the
+control may have changed before returning the error.
 Native work also carries separate window-lifetime and realization identities. Root recovery
 advances only realization identity, so component-level work can eventually survive a native
 remount. Shutdown advances window identity and rejects all delayed work even when the new tree
@@ -31,7 +32,10 @@ dispatch is rearmed after the current phase, stale dispatcher callbacks rearm cu
 dispatcher rejection becomes an explicit host fault. Terminal shutdown runs hook and effect
 cleanup before resetting native resources.
 `TextBox.TextChanged` reads its payload before queueing, and Reactor-originated text writes suppress
-their matching native feedback.
+their matching synchronous feedback. Native observations update property knowledge before
+application callbacks, so rejecting a user edit produces a restoring write. Controlled properties
+must declare a feedback contract; the current slice accepts only synchronous exact feedback and
+rejects unsupported contracts during generation.
 
 Virtual collection models use the panel keyed differ and issue arena-owned realization leases.
 Recycling, key removal, collection retirement, and replacement realization invalidate stale work.

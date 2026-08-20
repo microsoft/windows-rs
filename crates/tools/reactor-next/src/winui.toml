@@ -45,6 +45,7 @@ capabilities = ["layout", "enabled", "text_style", "controlled_text"]
 name = "Text"
 clearable = true
 controlled = "TextChanged"
+feedback_contract = "synchronous_exact"
 
 [[control.property]]
 name = "PlaceholderText"

@@ -189,8 +189,8 @@ error boundary is part of this prototype.
 - [x] Preserve queued work across reentrancy and surface enqueue rejection as a terminal fault.
 - [x] Run cleanup before revoking subscriptions and releasing required native resources.
 - [x] Clear recycled repeater shell content synchronously.
-- [ ] Add property certainty and controlled-observation tracking.
-- [ ] Add schema-validated feedback contracts.
+- [x] Add property certainty and controlled-observation tracking.
+- [x] Add schema-validated feedback contracts.
 - [ ] Retain event payload source and conversion in the schema.
 
 **Exit:** verified backend behavior is independent of the frontend model.
@@ -339,6 +339,9 @@ Current phase: **1 - repair the shared backend**
 - [x] Mount from `OnLaunched` and install WinUI control resources.
 - [x] Run effect cleanup before native reset.
 - [x] Clear recycled repeater shells synchronously.
-- [ ] Replace committed-only property comparison with desired/known/divergent native state.
+- [x] Replace committed-only property comparison with desired/known/divergent native state.
+- [x] Restore rejected controlled edits from native observations.
+- [x] Require an explicit supported feedback contract for controlled properties.
+- [ ] Retain typed event payload source and conversion in the schema.
 
 Control expansion remains frozen.

@@ -402,6 +402,11 @@ pub trait MountedPropsExt {
 pub trait MountedEventsExt {
     fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool));
     fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> bool;
+    fn observe_event(
+        &self,
+        event: EventId,
+        payload: &EventPayload,
+    ) -> Option<(PropertyId, PropertyValue)>;
 }
 impl MountedPropsExt for MountedProps {
     fn visit_properties(&self, visit: &mut dyn FnMut(PropertyId, Option<PropertyValue>)) {
@@ -530,6 +535,18 @@ impl MountedEventsExt for MountedProps {
                 true
             }
             _ => false,
+        }
+    }
+    fn observe_event(
+        &self,
+        event: EventId,
+        payload: &EventPayload,
+    ) -> Option<(PropertyId, PropertyValue)> {
+        match (self, event, payload) {
+            (Self::TextBox { .. }, EventId::TextBoxTextChanged, EventPayload::Str(value)) => {
+                Some((PropertyId::TextBoxText, value.clone().into()))
+            }
+            _ => None,
         }
     }
 }

@@ -62,6 +62,18 @@ pub(crate) struct Property {
     pub(crate) clearable: bool,
     #[serde(default)]
     pub(crate) controlled: Option<String>,
+    #[serde(default)]
+    pub(crate) feedback_contract: Option<FeedbackContract>,
+}
+
+#[derive(Clone, Copy, Deserialize, Eq, PartialEq)]
+#[serde(rename_all = "snake_case")]
+pub(crate) enum FeedbackContract {
+    SynchronousExact,
+    SynchronousNormalized,
+    DeferredOrdered,
+    DeferredCoalesced,
+    Unknown,
 }
 
 #[derive(Deserialize)]
@@ -134,6 +146,28 @@ impl Schema {
             let mut field_names = HashSet::new();
 
             for property in control.property {
+                match (property.controlled.as_ref(), property.feedback_contract) {
+                    (Some(_), Some(FeedbackContract::SynchronousExact)) => {}
+                    (Some(_), Some(_)) => {
+                        return Err(format!(
+                            "{}.{} uses an unsupported feedback contract",
+                            control.type_name, property.name
+                        ));
+                    }
+                    (Some(_), None) => {
+                        return Err(format!(
+                            "{}.{} needs a feedback contract",
+                            control.type_name, property.name
+                        ));
+                    }
+                    (None, Some(_)) => {
+                        return Err(format!(
+                            "{}.{} has a feedback contract but is not controlled",
+                            control.type_name, property.name
+                        ));
+                    }
+                    (None, None) => {}
+                }
                 if !property.clearable {
                     return Err(format!(
                         "{}.{} must be clearable until required properties are supported",
@@ -339,6 +373,7 @@ capabilities = ["controlled_text"]
 name = "Text"
 clearable = true
 controlled = "Missing"
+feedback_contract = "synchronous_exact"
 "#;
         let schema = Schema::parse(source).unwrap();
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
@@ -347,6 +382,53 @@ controlled = "Missing"
             schema.resolve(&metadata).err().unwrap(),
             "Microsoft.UI.Xaml.Controls.TextBox.Text names missing feedback event Missing"
         );
+    }
+
+    #[test]
+    fn rejects_missing_controlled_feedback_contract() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TextBox"
+role = "controlled"
+capabilities = ["controlled_text"]
+
+[[control.property]]
+name = "Text"
+clearable = true
+controlled = "TextChanged"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let error = Schema::parse(source)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+
+        assert!(error.contains("needs a feedback contract"));
+    }
+
+    #[test]
+    fn rejects_unsupported_controlled_feedback_contract() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TextBox"
+role = "controlled"
+capabilities = ["controlled_text"]
+
+[[control.property]]
+name = "Text"
+clearable = true
+controlled = "TextChanged"
+feedback_contract = "deferred_coalesced"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let error = Schema::parse(source)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+
+        assert!(error.contains("unsupported feedback contract"));
     }
 
     #[test]

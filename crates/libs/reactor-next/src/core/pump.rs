@@ -424,9 +424,22 @@ impl<R: NativeRuntime> Pump<R> {
             let Some(state) = native.events.get(&event.event) else {
                 continue;
             };
-            if state.active
-                && state.revision == event.revision
-                && native.desired.dispatch_event(event.event, &event.payload)
+            if !state.active || state.revision != event.revision {
+                continue;
+            }
+            let observation = native.desired.observe_event(event.event, &event.payload);
+            if let Some((property, value)) = observation {
+                self.tree
+                    .native_mut(event.node)?
+                    .properties
+                    .insert(property, NativePropertyState::Known(Some(value)));
+                self.retry_pending = true;
+            }
+            if self
+                .tree
+                .native(event.node)?
+                .desired
+                .dispatch_event(event.event, &event.payload)
             {
                 dispatched += 1;
             }
@@ -549,14 +562,14 @@ impl<R: NativeRuntime> Pump<R> {
         receipt: &CommitReceipt,
     ) -> Result<(), PumpError> {
         for commit in commits {
-            if receipt.applied(commit.command) {
-                let committed = &mut tree.native_mut(commit.node)?.committed;
-                if let Some(value) = &commit.value {
-                    committed.insert(commit.property, value.clone());
-                } else {
-                    committed.remove(&commit.property);
-                }
-            }
+            let state = if receipt.applied(commit.command) {
+                NativePropertyState::Known(commit.value.clone())
+            } else {
+                NativePropertyState::Divergent
+            };
+            tree.native_mut(commit.node)?
+                .properties
+                .insert(commit.property, state);
         }
         Ok(())
     }
@@ -633,12 +646,12 @@ impl<R: NativeRuntime> Pump<R> {
 
         let props_changed = tree.native(node)?.desired != parts.props;
         if props_changed || plan.retry_properties {
-            let committed = &tree.native(node)?.committed;
+            let properties = &tree.native(node)?.properties;
             parts.props.visit_properties(&mut |property, value| {
-                let changed = match &value {
-                    Some(value) => committed.get(&property) != Some(value),
-                    None => committed.contains_key(&property),
-                };
+                let changed = properties.get(&property).map_or_else(
+                    || value.is_some(),
+                    |native| native != &NativePropertyState::Known(value.clone()),
+                );
                 if !changed {
                     return;
                 }
@@ -1309,6 +1322,14 @@ mod tests {
         assert_eq!(pump.version(), version);
         assert!(pump.retry_pending());
         assert_eq!(
+            pump.tree
+                .native(root)
+                .unwrap()
+                .properties
+                .get(&PropertyId::TextBlockText),
+            Some(&NativePropertyState::Divergent)
+        );
+        assert_eq!(
             pump.runtime()
                 .node(root)
                 .unwrap()
@@ -1326,6 +1347,16 @@ mod tests {
                 .unwrap()
                 .property(PropertyId::TextBlockText),
             Some(&PropertyValue::Str("second".into()))
+        );
+        assert_eq!(
+            pump.tree
+                .native(root)
+                .unwrap()
+                .properties
+                .get(&PropertyId::TextBlockText),
+            Some(&NativePropertyState::Known(Some(PropertyValue::Str(
+                "second".into()
+            ))))
         );
     }
 
@@ -2058,6 +2089,63 @@ mod tests {
 
         assert_eq!(pump.dispatch_events(), Ok(1));
         assert_eq!(&*value.borrow(), "updated");
+    }
+
+    #[test]
+    fn rejected_controlled_edit_restores_the_desired_value() {
+        let observed = Rc::new(RefCell::new(String::new()));
+        let capture = Rc::clone(&observed);
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(
+            TextBox::new()
+                .text("desired")
+                .on_text_changed(move |text| *capture.borrow_mut() = text)
+                .into(),
+        )
+        .unwrap();
+        let root = pump.root().unwrap();
+        let revision = pump
+            .event_revision(root, EventId::TextBoxTextChanged)
+            .unwrap();
+        pump.queue_event(QueuedEvent {
+            node: root,
+            event: EventId::TextBoxTextChanged,
+            revision,
+            payload: EventPayload::Str("native".into()),
+        });
+
+        assert_eq!(pump.dispatch_events(), Ok(1));
+        assert_eq!(&*observed.borrow(), "native");
+        assert!(pump.retry_pending());
+        assert_eq!(
+            pump.tree
+                .native(root)
+                .unwrap()
+                .properties
+                .get(&PropertyId::TextBoxText),
+            Some(&NativePropertyState::Known(Some(PropertyValue::Str(
+                "native".into()
+            ))))
+        );
+
+        let restored = pump
+            .update(
+                TextBox::new()
+                    .text("desired")
+                    .on_text_changed(|_| {})
+                    .into(),
+            )
+            .unwrap();
+
+        assert_eq!(restored.outcomes, [CommandOutcome::Applied]);
+        assert!(!pump.retry_pending());
+        assert_eq!(
+            pump.runtime()
+                .node(root)
+                .unwrap()
+                .property(PropertyId::TextBoxText),
+            Some(&PropertyValue::Str("desired".into()))
+        );
     }
 
     #[test]

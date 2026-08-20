@@ -27,8 +27,14 @@ struct Node {
 #[derive(Clone)]
 pub struct NativeState {
     pub desired: MountedProps,
-    pub committed: BTreeMap<PropertyId, PropertyValue>,
+    pub properties: BTreeMap<PropertyId, NativePropertyState>,
     pub events: BTreeMap<EventId, EventState>,
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub enum NativePropertyState {
+    Known(Option<PropertyValue>),
+    Divergent,
 }
 
 #[derive(Clone, Copy)]
@@ -123,7 +129,7 @@ impl Tree {
         });
         node.native = Some(NativeState {
             desired,
-            committed: BTreeMap::new(),
+            properties: BTreeMap::new(),
             events,
         });
         Ok(id)
