@@ -56,6 +56,21 @@ impl WinUiRuntime {
                     .Activate()
                     .map_err(native_error)?;
             }
+            Command::ResetWindowContent { window } => {
+                let window = self
+                    .windows
+                    .get(window)
+                    .ok_or(RuntimeError::MissingNode(*window))?;
+                self.subscriptions.clear();
+                window
+                    .SetContent(None::<&UIElement>)
+                    .map_err(native_error)?;
+                self.handles.clear();
+                self.feedback.borrow_mut().clear();
+                self.events.borrow_mut().clear();
+                self.event_errors.borrow_mut().clear();
+                self.event_tick_scheduled.set(false);
+            }
             Command::Create { node, kind } => {
                 if self.contains(*node) {
                     return Err(RuntimeError::DuplicateNode(*node));

@@ -12,14 +12,23 @@ pub struct RecordedNode {
 
 #[derive(Default)]
 pub struct RecordingRuntime {
+    application: Option<NodeId>,
     nodes: HashMap<NodeId, RecordedNode>,
     batches: usize,
-    fail_at: HashSet<usize>,
+    commands: Vec<Vec<Command>>,
+    fail_at: HashSet<(usize, usize)>,
+    subscriptions: HashSet<(NodeId, EventId)>,
+    windows: HashSet<NodeId>,
 }
 
 impl RecordingRuntime {
     pub fn fail_at(&mut self, command_index: usize) {
-        self.fail_at.insert(command_index);
+        self.fail_after(0, command_index);
+    }
+
+    pub fn fail_after(&mut self, batches: usize, command_index: usize) {
+        self.fail_at
+            .insert((self.batches + batches + 1, command_index));
     }
 
     pub fn node(&self, id: NodeId) -> Option<&RecordedNode> {
@@ -28,6 +37,10 @@ impl RecordingRuntime {
 
     pub fn batches(&self) -> usize {
         self.batches
+    }
+
+    pub fn commands(&self) -> &[Vec<Command>] {
+        &self.commands
     }
 
     pub fn is_empty(&self) -> bool {
@@ -48,7 +61,25 @@ impl RecordedNode {
 impl RecordingRuntime {
     fn apply_one(&mut self, command: &Command) -> Result<(), RuntimeError> {
         match command {
-            Command::CreateApplication { node } | Command::CreateWindow { node } => {
+            Command::CreateApplication { node } => {
+                if self.nodes.contains_key(node) {
+                    return Err(RuntimeError::DuplicateNode(*node));
+                }
+                if self.application.is_some() {
+                    return Err(RuntimeError::DuplicateNode(*node));
+                }
+                self.nodes.insert(
+                    *node,
+                    RecordedNode {
+                        kind: None,
+                        parent: None,
+                        children: Vec::new(),
+                        properties: BTreeMap::new(),
+                    },
+                );
+                self.application = Some(*node);
+            }
+            Command::CreateWindow { node } => {
                 if self.nodes.contains_key(node) {
                     return Err(RuntimeError::DuplicateNode(*node));
                 }
@@ -61,11 +92,25 @@ impl RecordingRuntime {
                         properties: BTreeMap::new(),
                     },
                 );
+                self.windows.insert(*node);
             }
             Command::ActivateWindow { node } => {
                 self.nodes
                     .get(node)
                     .ok_or(RuntimeError::MissingNode(*node))?;
+            }
+            Command::ResetWindowContent { window } => {
+                if !self.windows.contains(window) {
+                    return Err(RuntimeError::MissingNode(*window));
+                }
+                self.subscriptions.clear();
+                let application = self.application;
+                let windows = &self.windows;
+                self.nodes
+                    .retain(|node, _| Some(*node) == application || windows.contains(node));
+                for window in &self.windows {
+                    self.nodes.get_mut(window).unwrap().children.clear();
+                }
             }
             Command::Create { node, kind } => {
                 if self.nodes.contains_key(node) {
@@ -93,6 +138,12 @@ impl RecordingRuntime {
                     return Err(RuntimeError::HasChildren(*node));
                 }
                 self.nodes.remove(node);
+                self.subscriptions
+                    .retain(|(subscription_node, _)| subscription_node != node);
+                self.windows.remove(node);
+                if self.application == Some(*node) {
+                    self.application = None;
+                }
             }
             Command::SetProperty {
                 node,
@@ -112,10 +163,21 @@ impl RecordingRuntime {
                     .properties
                     .remove(property);
             }
-            Command::SubscribeEvent { node, .. } | Command::UnsubscribeEvent { node, .. } => {
+            Command::SubscribeEvent { node, event, .. } => {
                 self.nodes
                     .get(node)
                     .ok_or(RuntimeError::MissingNode(*node))?;
+                if !self.subscriptions.insert((*node, *event)) {
+                    return Err(RuntimeError::DuplicateEvent(*node, *event));
+                }
+            }
+            Command::UnsubscribeEvent { node, event } => {
+                self.nodes
+                    .get(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?;
+                if !self.subscriptions.remove(&(*node, *event)) {
+                    return Err(RuntimeError::MissingSubscription(*node, *event));
+                }
             }
             Command::InsertChild {
                 parent,
@@ -195,6 +257,7 @@ impl RecordingRuntime {
 impl NativeRuntime for RecordingRuntime {
     fn apply(&mut self, commands: &[Command]) -> CommitReceipt {
         self.batches += 1;
+        self.commands.push(commands.to_vec());
         let mut structural_failure = false;
         let outcomes = commands
             .iter()
@@ -204,7 +267,7 @@ impl NativeRuntime for RecordingRuntime {
                     return CommandOutcome::Skipped;
                 }
 
-                let result = if self.fail_at.remove(&index) {
+                let result = if self.fail_at.remove(&(self.batches, index)) {
                     Err(RuntimeError::Injected)
                 } else {
                     self.apply_one(command)
@@ -222,7 +285,10 @@ impl NativeRuntime for RecordingRuntime {
     }
 
     fn reset(&mut self) {
+        self.application = None;
         self.nodes.clear();
+        self.subscriptions.clear();
+        self.windows.clear();
     }
 }
 
@@ -382,5 +448,84 @@ mod tests {
             ]
         );
         assert!(runtime.nodes.is_empty());
+    }
+
+    #[test]
+    fn reset_window_content_preserves_host_and_drops_control_state() {
+        let application = NodeId::from_parts(10, 0);
+        let window = NodeId::from_parts(11, 0);
+        let button = NodeId::from_parts(12, 0);
+        let replacement = NodeId::from_parts(12, 1);
+        let mut runtime = RecordingRuntime::default();
+        let mounted = runtime.apply(&[
+            Command::CreateApplication { node: application },
+            Command::CreateWindow { node: window },
+            Command::Create {
+                node: button,
+                kind: MountedKind::Button,
+            },
+            Command::SubscribeEvent {
+                node: button,
+                event: EventId::ButtonClick,
+                revision: 1,
+            },
+            Command::InsertChild {
+                parent: window,
+                child: button,
+                index: 0,
+            },
+        ]);
+        assert!(
+            mounted
+                .outcomes
+                .iter()
+                .all(|outcome| { *outcome == CommandOutcome::Applied })
+        );
+
+        let reset = runtime.apply(&[
+            Command::ResetWindowContent { window },
+            Command::Create {
+                node: replacement,
+                kind: MountedKind::TextBlock,
+            },
+            Command::InsertChild {
+                parent: window,
+                child: replacement,
+                index: 0,
+            },
+        ]);
+
+        assert!(
+            reset
+                .outcomes
+                .iter()
+                .all(|outcome| { *outcome == CommandOutcome::Applied })
+        );
+        assert!(runtime.node(application).is_some());
+        assert!(runtime.node(window).is_some());
+        assert!(runtime.node(button).is_none());
+        assert_eq!(runtime.node(window).unwrap().children(), &[replacement]);
+        assert!(runtime.subscriptions.is_empty());
+    }
+
+    #[test]
+    fn reset_unknown_window_skips_following_commands() {
+        let mut runtime = RecordingRuntime::default();
+
+        let receipt = runtime.apply(&[
+            Command::ResetWindowContent { window: ROOT },
+            Command::Create {
+                node: CHILD,
+                kind: MountedKind::TextBlock,
+            },
+        ]);
+
+        assert_eq!(
+            receipt.outcomes,
+            [
+                CommandOutcome::Failed(RuntimeError::MissingNode(ROOT)),
+                CommandOutcome::Skipped,
+            ]
+        );
     }
 }

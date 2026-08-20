@@ -12,11 +12,29 @@ pub enum PumpError {
     EventReadFailed(RuntimeError),
     Poisoned,
     PropertyApplyFailed(CommitReceipt),
+    RecoveredStructure(Box<StructuralRecovery>),
+    RecoveryFailed(Box<StructuralRecovery>),
     RenderBudgetExceeded,
     RevisionExhausted,
     StructuralApplyFailed(CommitReceipt),
     StructureUnsupported,
     Tree(TreeError),
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct StructuralRecovery {
+    pub failure: CommitReceipt,
+    pub recovery: CommitReceipt,
+    pub root: NodeId,
+}
+
+impl PumpError {
+    pub fn recoverable(&self) -> bool {
+        matches!(
+            self,
+            Self::PropertyApplyFailed(_) | Self::RecoveredStructure(_)
+        )
+    }
 }
 
 impl From<TreeError> for PumpError {
@@ -149,6 +167,7 @@ impl<R: NativeRuntime> Pump<R> {
         }
         let next_version = self.next_version()?;
         let node = self.root.ok_or(PumpError::NotMounted)?;
+        let recovery_element = element.clone();
         let mut candidate = self.tree.clone();
         let mut plan = UpdatePlan::default();
         Self::reconcile_node(&mut candidate, node, element, &mut plan)?;
@@ -174,10 +193,7 @@ impl<R: NativeRuntime> Pump<R> {
             .enumerate()
             .any(|(index, command)| command.structural() && !receipt.applied(index));
         if structural_failure {
-            self.poisoned = true;
-            self.events.clear();
-            self.retry_pending = false;
-            return Err(PumpError::StructuralApplyFailed(receipt));
+            return self.recover_structure(candidate, recovery_element, receipt, next_version);
         }
 
         Self::commit_tree_properties(&mut candidate, &plan.commits, &receipt)?;
@@ -194,6 +210,66 @@ impl<R: NativeRuntime> Pump<R> {
         self.retry_pending = false;
         self.version = next_version;
         Ok(receipt)
+    }
+
+    fn recover_structure(
+        &mut self,
+        mut candidate: Tree,
+        element: Element,
+        failure: CommitReceipt,
+        next_version: u64,
+    ) -> Result<CommitReceipt, PumpError> {
+        let window = self.window.ok_or(PumpError::NotMounted)?;
+        let root = self.root.ok_or(PumpError::NotMounted)?;
+        candidate.retire_subtree(root)?;
+
+        let mut plan = UpdatePlan::default();
+        plan.push(Command::ResetWindowContent { window });
+        let root =
+            Self::mount_planned_element(&mut candidate, Some(window), None, element, &mut plan)?;
+        plan.push(Command::InsertChild {
+            parent: window,
+            child: root,
+            index: 0,
+        });
+
+        self.events.clear();
+        let recovery = self.runtime.apply(&plan.commands);
+        let attempt = |recovery| {
+            Box::new(StructuralRecovery {
+                failure: failure.clone(),
+                recovery,
+                root,
+            })
+        };
+        if recovery.outcomes.len() != plan.commands.len() {
+            self.poisoned = true;
+            self.retry_pending = false;
+            return Err(PumpError::RecoveryFailed(attempt(recovery)));
+        }
+        let structural_failure = plan
+            .commands
+            .iter()
+            .enumerate()
+            .any(|(index, command)| command.structural() && !recovery.applied(index));
+        if structural_failure {
+            self.poisoned = true;
+            self.retry_pending = false;
+            return Err(PumpError::RecoveryFailed(attempt(recovery)));
+        }
+
+        Self::commit_tree_properties(&mut candidate, &plan.commits, &recovery)?;
+        self.tree = candidate;
+        self.root = Some(root);
+        self.retry_pending = plan
+            .commands
+            .iter()
+            .enumerate()
+            .any(|(index, command)| !command.structural() && !recovery.applied(index));
+        if !self.retry_pending {
+            self.version = next_version;
+        }
+        Err(PumpError::RecoveredStructure(attempt(recovery)))
     }
 
     pub fn runtime(&self) -> &R {
@@ -620,6 +696,7 @@ mod tests {
     use super::*;
     use crate::native::*;
     use std::cell::{Cell, RefCell};
+    use std::collections::HashSet;
     use std::rc::Rc;
 
     fn keyed_text(values: &[&str]) -> Element {
@@ -689,6 +766,13 @@ mod tests {
             panic!("expected structural apply failure");
         };
         receipt
+    }
+
+    fn recovered_structure(error: PumpError) -> StructuralRecovery {
+        let PumpError::RecoveredStructure(recovery) = error else {
+            panic!("expected recovered structure");
+        };
+        *recovery
     }
 
     #[derive(Default)]
@@ -946,7 +1030,9 @@ mod tests {
             let mut pump = Pump::new(RecordingRuntime::default());
             pump.mount(before.clone()).unwrap();
             let version = pump.version();
-            let old_keys = arena_keys(&pump);
+            let old_root = pump.root().unwrap();
+            let application = pump.application();
+            let window = pump.window();
             pump.runtime_mut().fail_at(failed_index);
             let error = pump.update(after.clone()).unwrap_err();
 
@@ -972,20 +1058,125 @@ mod tests {
                         "c updated"
                     );
                 }
-                PumpError::StructuralApplyFailed(receipt) => {
+                PumpError::RecoveredStructure(recovery) => {
                     assert!(matches!(
-                        receipt.outcomes[failed_index],
+                        recovery.failure.outcomes[failed_index],
+                        CommandOutcome::Failed(RuntimeError::Injected)
+                    ));
+                    assert_eq!(pump.version(), version + 1);
+                    assert!(!pump.retry_pending());
+                    assert!(!pump.poisoned());
+                    assert_ne!(pump.root(), Some(old_root));
+                    assert_eq!(pump.application(), application);
+                    assert_eq!(pump.window(), window);
+                    assert_eq!(
+                        arena_keys(&pump),
+                        [Key::from("c"), Key::from("d"), Key::from("a")]
+                    );
+                    assert_eq!(
+                        recorded_text(pump.runtime(), pump.root().unwrap())[0],
+                        "c updated"
+                    );
+                }
+                error => panic!("unexpected update failure: {error:?}"),
+            }
+        }
+    }
+
+    #[test]
+    fn every_recovery_command_failure_reaches_a_defined_state() {
+        let before = keyed_text(&["a", "b", "c"]);
+        let after: Element = StackPanel::new()
+            .child("c", TextBlock::new().text("c updated"))
+            .child("d", TextBlock::new().text("d"))
+            .child("a", TextBlock::new().text("a"))
+            .into();
+        let mut baseline = Pump::new(RecordingRuntime::default());
+        baseline.mount(before.clone()).unwrap();
+        baseline.runtime_mut().fail_at(1);
+        let recovered = recovered_structure(baseline.update(after.clone()).unwrap_err());
+        let command_count = recovered.recovery.outcomes.len();
+        let mut saw_property = false;
+        let mut saw_structural = false;
+
+        for failed_index in 0..command_count {
+            let mut pump = Pump::new(RecordingRuntime::default());
+            pump.mount(before.clone()).unwrap();
+            let version = pump.version();
+            let old_root = pump.root();
+            pump.runtime_mut().fail_at(1);
+            pump.runtime_mut().fail_after(1, failed_index);
+
+            match pump.update(after.clone()).unwrap_err() {
+                PumpError::RecoveredStructure(recovery) => {
+                    saw_property = true;
+                    assert!(matches!(
+                        recovery.recovery.outcomes[failed_index],
+                        CommandOutcome::Failed(RuntimeError::Injected)
+                    ));
+                    assert_eq!(pump.version(), version);
+                    assert!(pump.retry_pending());
+                    assert!(!pump.poisoned());
+                    assert_ne!(pump.root(), old_root);
+                }
+                PumpError::RecoveryFailed(recovery) => {
+                    saw_structural = true;
+                    assert!(matches!(
+                        recovery.recovery.outcomes[failed_index],
                         CommandOutcome::Failed(RuntimeError::Injected)
                     ));
                     assert_eq!(pump.version(), version);
                     assert!(!pump.retry_pending());
                     assert!(pump.poisoned());
-                    assert_eq!(arena_keys(&pump), old_keys);
-                    assert_eq!(pump.update(after.clone()), Err(PumpError::Poisoned));
+                    assert_eq!(pump.root(), old_root);
                 }
-                error => panic!("unexpected update failure: {error:?}"),
+                error => panic!("unexpected recovery failure: {error:?}"),
             }
         }
+
+        assert!(saw_property);
+        assert!(saw_structural);
+    }
+
+    #[test]
+    fn recovery_does_not_reuse_ids_created_by_failed_batch() {
+        let before = keyed_text(&["a", "b", "c"]);
+        let after: Element = StackPanel::new()
+            .child("c", TextBlock::new().text("c"))
+            .child("d", TextBlock::new().text("d"))
+            .child("a", TextBlock::new().text("a"))
+            .into();
+        let mut probe = Pump::new(RecordingRuntime::default());
+        probe.mount(before.clone()).unwrap();
+        probe.update(after.clone()).unwrap();
+        let update = &probe.runtime().commands()[1];
+        let failed_index = update.iter().rposition(Command::structural).unwrap();
+
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(before).unwrap();
+        pump.runtime_mut().fail_at(failed_index);
+        assert!(matches!(
+            pump.update(after),
+            Err(PumpError::RecoveredStructure(_))
+        ));
+        let batches = pump.runtime().commands();
+        let failed_created = batches[1]
+            .iter()
+            .filter_map(|command| match command {
+                Command::Create { node, .. } => Some(*node),
+                _ => None,
+            })
+            .collect::<HashSet<_>>();
+        let recovered_created = batches[2]
+            .iter()
+            .filter_map(|command| match command {
+                Command::Create { node, .. } => Some(*node),
+                _ => None,
+            })
+            .collect::<HashSet<_>>();
+
+        assert!(!failed_created.is_empty());
+        assert!(failed_created.is_disjoint(&recovered_created));
     }
 
     #[test]
@@ -1091,24 +1282,26 @@ mod tests {
     }
 
     #[test]
-    fn failed_keyed_move_poisons_without_publishing_candidate() {
+    fn failed_keyed_move_remounts_with_fresh_root() {
         let mut pump = Pump::new(RecordingRuntime::default());
         pump.mount(keyed_text(&["a", "b", "c", "d"])).unwrap();
         let version = pump.version();
+        let old_root = pump.root().unwrap();
         pump.runtime_mut().fail_at(1);
 
-        let failed =
-            structural_receipt(pump.update(keyed_text(&["d", "c", "b", "a"])).unwrap_err());
+        let recovered =
+            recovered_structure(pump.update(keyed_text(&["d", "c", "b", "a"])).unwrap_err());
 
         assert!(matches!(
-            failed.outcomes[1],
+            recovered.failure.outcomes[1],
             CommandOutcome::Failed(RuntimeError::Injected)
         ));
-        assert_eq!(pump.version(), version);
-        assert!(pump.poisoned());
+        assert_eq!(pump.version(), version + 1);
+        assert!(!pump.poisoned());
+        assert_ne!(pump.root(), Some(old_root));
         assert_eq!(
-            pump.update(keyed_text(&["d", "c", "b", "a"])),
-            Err(PumpError::Poisoned)
+            recorded_text(pump.runtime(), pump.root().unwrap()),
+            ["d", "c", "b", "a"]
         );
     }
 
@@ -1125,20 +1318,26 @@ mod tests {
     }
 
     #[test]
-    fn failed_keyed_insert_poisons_without_publishing_candidate() {
+    fn failed_keyed_insert_remounts_with_fresh_root() {
         let mut pump = Pump::new(RecordingRuntime::default());
         pump.mount(keyed_text(&["a", "c"])).unwrap();
         let version = pump.version();
+        let old_root = pump.root().unwrap();
         pump.runtime_mut().fail_at(2);
 
-        let failed = structural_receipt(pump.update(keyed_text(&["a", "b", "c"])).unwrap_err());
+        let recovered = recovered_structure(pump.update(keyed_text(&["a", "b", "c"])).unwrap_err());
 
         assert!(matches!(
-            failed.outcomes[2],
+            recovered.failure.outcomes[2],
             CommandOutcome::Failed(RuntimeError::Injected)
         ));
-        assert_eq!(pump.version(), version);
-        assert!(pump.poisoned());
+        assert_eq!(pump.version(), version + 1);
+        assert!(!pump.poisoned());
+        assert_ne!(pump.root(), Some(old_root));
+        assert_eq!(
+            recorded_text(pump.runtime(), pump.root().unwrap()),
+            ["a", "b", "c"]
+        );
     }
 
     #[test]
@@ -1154,20 +1353,26 @@ mod tests {
     }
 
     #[test]
-    fn failed_keyed_remove_poisons_without_publishing_candidate() {
+    fn failed_keyed_remove_remounts_with_fresh_root() {
         let mut pump = Pump::new(RecordingRuntime::default());
         pump.mount(keyed_text(&["a", "b", "c"])).unwrap();
         let version = pump.version();
+        let old_root = pump.root().unwrap();
         pump.runtime_mut().fail_at(1);
 
-        let failed = structural_receipt(pump.update(keyed_text(&["a", "c"])).unwrap_err());
+        let recovered = recovered_structure(pump.update(keyed_text(&["a", "c"])).unwrap_err());
 
         assert!(matches!(
-            failed.outcomes[1],
+            recovered.failure.outcomes[1],
             CommandOutcome::Failed(RuntimeError::Injected)
         ));
-        assert_eq!(pump.version(), version);
-        assert!(pump.poisoned());
+        assert_eq!(pump.version(), version + 1);
+        assert!(!pump.poisoned());
+        assert_ne!(pump.root(), Some(old_root));
+        assert_eq!(
+            recorded_text(pump.runtime(), pump.root().unwrap()),
+            ["a", "c"]
+        );
     }
 
     #[test]
@@ -1259,7 +1464,7 @@ mod tests {
     }
 
     #[test]
-    fn poisoned_pump_discards_queued_events() {
+    fn recovery_failure_poisons_and_discards_queued_events() {
         let calls = Rc::new(Cell::new(0));
         let callback_calls = Rc::clone(&calls);
         let mut pump = Pump::new(RecordingRuntime::default());
@@ -1272,9 +1477,10 @@ mod tests {
         let root = pump.root().unwrap();
         let revision = pump.event_revision(root, EventId::ButtonClick).unwrap();
         pump.runtime_mut().fail_at(0);
+        pump.runtime_mut().fail_after(1, 0);
         assert!(matches!(
             pump.update(Button::new().into()),
-            Err(PumpError::StructuralApplyFailed(_))
+            Err(PumpError::RecoveryFailed(_))
         ));
         pump.queue_event(QueuedEvent {
             node: root,
@@ -1283,6 +1489,39 @@ mod tests {
             payload: EventPayload::Unit,
         });
 
+        assert_eq!(pump.dispatch_events(), Ok(0));
+        assert_eq!(calls.get(), 0);
+    }
+
+    #[test]
+    fn recovered_root_rejects_pre_failure_event() {
+        let calls = Rc::new(Cell::new(0));
+        let callback_calls = Rc::clone(&calls);
+        let element = || {
+            Button::new()
+                .on_click({
+                    let callback_calls = Rc::clone(&callback_calls);
+                    move || callback_calls.set(callback_calls.get() + 1)
+                })
+                .into()
+        };
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(element()).unwrap();
+        let old_root = pump.root().unwrap();
+        let revision = pump.event_revision(old_root, EventId::ButtonClick).unwrap();
+        pump.queue_event(QueuedEvent {
+            node: old_root,
+            event: EventId::ButtonClick,
+            revision,
+            payload: EventPayload::Unit,
+        });
+        pump.runtime_mut().fail_at(0);
+
+        assert!(matches!(
+            pump.update(Button::new().into()),
+            Err(PumpError::RecoveredStructure(_))
+        ));
+        assert_ne!(pump.root(), Some(old_root));
         assert_eq!(pump.dispatch_events(), Ok(0));
         assert_eq!(calls.get(), 0);
     }

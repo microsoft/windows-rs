@@ -112,10 +112,11 @@ WinUI mutation is not transactional, so the pump does not attempt rollback.
 
 - A property failure reports to the fault sink, keeps the old comparison value and render version,
   and retains a retry signal.
-- A structural failure does not publish the candidate arena and poisons the pump because native
-  state may have changed before the error.
-- Phase 5 replaces whole-pump poisoning for re-creatable controls with subtree remounting using
-  fresh generations.
+- A structural update failure does not publish the failed candidate. The runtime clears the window
+  content and remounts the control root with fresh generations while preserving the application
+  and window.
+- A successful remount reports a recoverable fault. A failed remount or host-creation failure
+  poisons the pump.
 
 No recoverable failure is debug-only or silently ignored.
 
@@ -215,8 +216,8 @@ Deferred:
 - [x] Add `TextBox`.
 - [x] Implement mount-before-subscribe and expected-feedback suppression.
 - [x] Replace callbacks without native resubscription.
-- Implement property divergence and structural failure handling.
-- Test non-recreatable failure escalation.
+- [x] Implement property divergence and structural failure handling.
+- [x] Test non-recreatable failure escalation.
 
 **Exit:** controlled input and every injected failure reach a defined state.
 
@@ -314,12 +315,13 @@ After representative parity:
 - [x] Add candidate-tree recursive mount, property updates, and keyed move/insert/remove.
 - [x] Add state scheduling, queued callback dispatch, effects, cleanup, and a render budget.
 - [x] Make failed commits explicit, preserve property retries, and poison structural divergence.
+- [x] Add arena-owned virtual models and generation-checked realization leases.
 
 ### Next
 
 - [x] Generate `TextBox.TextChanged` payload extraction.
 - [x] Suppress controlled-property feedback.
-- [ ] Replace whole-pump poison with fresh-generation subtree remount where safe.
+- [x] Replace whole-pump poison with fresh-generation root remount where safe.
 
 ### Decisions needed before implementation
 
@@ -332,8 +334,9 @@ After representative parity:
 
 - Architecture and correctness gates: active.
 - Compile and runtime gates: report-only until parity.
-- Current phase: 5 - controlled input and failures.
-- Next action: define and test fresh-generation subtree remount boundaries.
+- Current phase: 6 - collections and lifecycle.
+- Next action: generate the minimal `ItemsRepeater` native surface and connect synchronous
+  realization to arena-owned leases.
 
 ## Current reactor baseline
 

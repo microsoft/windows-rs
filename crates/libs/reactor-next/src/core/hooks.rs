@@ -203,7 +203,17 @@ where
                 result
             };
             if let Err(error) = result {
-                self.hooks.retry();
+                if matches!(error, PumpError::RecoveredStructure(_)) {
+                    if self.pump.retry_pending() {
+                        self.hooks.retry();
+                    } else {
+                        for effect in effects {
+                            effect();
+                        }
+                    }
+                } else {
+                    self.hooks.retry();
+                }
                 return Err(error);
             }
             for effect in effects {
@@ -337,6 +347,85 @@ mod tests {
         state.borrow().as_ref().unwrap().set(1);
         app.pump_mut().runtime_mut().fail_at(0);
         assert!(matches!(app.run(), Err(PumpError::PropertyApplyFailed(_))));
+
+        assert!(app.hooks.dirty());
+        assert!(app.pump().retry_pending());
+        assert_eq!(app.pump().version(), version);
+        assert_eq!(effects.get(), 1);
+
+        app.run().unwrap();
+        assert!(!app.hooks.dirty());
+        assert!(!app.pump().retry_pending());
+        assert_eq!(app.pump().version(), version + 1);
+        assert_eq!(effects.get(), 2);
+    }
+
+    #[test]
+    fn recovered_structure_runs_effects_for_published_render() {
+        let state = Rc::new(RefCell::new(None));
+        let state_capture = Rc::clone(&state);
+        let effects = Rc::new(Cell::new(0));
+        let effects_capture = Rc::clone(&effects);
+        let mut app = RenderLoop::new(RecordingRuntime::default(), move |hooks| {
+            let value = hooks.use_state(|| 0_u32);
+            *state_capture.borrow_mut() = Some(value.clone());
+            let dependency = value.get();
+            let effects = Rc::clone(&effects_capture);
+            hooks.use_effect(dependency, move || {
+                effects.set(effects.get() + 1);
+                None
+            });
+            StackPanel::new()
+                .child(
+                    dependency.to_string(),
+                    TextBlock::new().text(dependency.to_string()),
+                )
+                .into()
+        });
+        app.run().unwrap();
+        let version = app.pump().version();
+        let root = app.pump().root();
+
+        state.borrow().as_ref().unwrap().set(1);
+        app.pump_mut().runtime_mut().fail_at(0);
+        assert!(matches!(app.run(), Err(PumpError::RecoveredStructure(_))));
+
+        assert!(!app.hooks.dirty());
+        assert!(!app.pump().retry_pending());
+        assert_eq!(app.pump().version(), version + 1);
+        assert_ne!(app.pump().root(), root);
+        assert_eq!(effects.get(), 2);
+    }
+
+    #[test]
+    fn recovered_property_failure_defers_effects_and_version() {
+        let state = Rc::new(RefCell::new(None));
+        let state_capture = Rc::clone(&state);
+        let effects = Rc::new(Cell::new(0));
+        let effects_capture = Rc::clone(&effects);
+        let mut app = RenderLoop::new(RecordingRuntime::default(), move |hooks| {
+            let value = hooks.use_state(|| 0_u32);
+            *state_capture.borrow_mut() = Some(value.clone());
+            let dependency = value.get();
+            let effects = Rc::clone(&effects_capture);
+            hooks.use_effect(dependency, move || {
+                effects.set(effects.get() + 1);
+                None
+            });
+            StackPanel::new()
+                .child(
+                    dependency.to_string(),
+                    TextBlock::new().text(dependency.to_string()),
+                )
+                .into()
+        });
+        app.run().unwrap();
+        let version = app.pump().version();
+
+        state.borrow().as_ref().unwrap().set(1);
+        app.pump_mut().runtime_mut().fail_at(0);
+        app.pump_mut().runtime_mut().fail_after(1, 3);
+        assert!(matches!(app.run(), Err(PumpError::RecoveredStructure(_))));
 
         assert!(app.hooks.dirty());
         assert!(app.pump().retry_pending());

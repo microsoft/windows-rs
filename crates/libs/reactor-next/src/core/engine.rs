@@ -18,6 +18,7 @@ struct Node {
     children: Vec<NodeId>,
     key: Option<Key>,
     native: Option<NativeState>,
+    virtual_model: Option<VirtualModel>,
 }
 
 #[derive(Clone)]
@@ -33,16 +34,24 @@ pub struct EventState {
     pub active: bool,
 }
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub enum TreeError {
     Arena(ArenaError),
     NotNative,
+    NotVirtual,
     RootAlreadyExists,
+    Virtual(VirtualModelError),
 }
 
 impl From<ArenaError> for TreeError {
     fn from(value: ArenaError) -> Self {
         Self::Arena(value)
+    }
+}
+
+impl From<VirtualModelError> for TreeError {
+    fn from(value: VirtualModelError) -> Self {
+        Self::Virtual(value)
     }
 }
 
@@ -73,6 +82,7 @@ impl Tree {
             children: Vec::new(),
             key: None,
             native: None,
+            virtual_model: None,
         })?;
 
         if let Some(parent) = parent {
@@ -127,6 +137,39 @@ impl Tree {
             .native
             .as_mut()
             .ok_or(TreeError::NotNative)
+    }
+
+    pub fn insert_virtual(
+        &mut self,
+        parent: Option<NodeId>,
+        keys: impl IntoIterator<Item = Key>,
+    ) -> Result<NodeId, TreeError> {
+        let id = self.insert(parent, NodeKind::VirtualCollection)?;
+        let model = match VirtualModel::new(id, keys) {
+            Ok(model) => model,
+            Err(error) => {
+                self.retire_subtree(id)?;
+                return Err(error.into());
+            }
+        };
+        self.arena.get_mut(id)?.virtual_model = Some(model);
+        Ok(id)
+    }
+
+    pub fn virtual_model(&self, id: NodeId) -> Result<&VirtualModel, TreeError> {
+        self.arena
+            .get(id)?
+            .virtual_model
+            .as_ref()
+            .ok_or(TreeError::NotVirtual)
+    }
+
+    pub fn virtual_model_mut(&mut self, id: NodeId) -> Result<&mut VirtualModel, TreeError> {
+        self.arena
+            .get_mut(id)?
+            .virtual_model
+            .as_mut()
+            .ok_or(TreeError::NotVirtual)
     }
 
     pub fn parent(&self, id: NodeId) -> Result<Option<NodeId>, TreeError> {
@@ -254,6 +297,28 @@ mod tests {
             tree.insert(None, NodeKind::Application),
             Err(TreeError::RootAlreadyExists)
         );
+    }
+
+    #[test]
+    fn virtual_model_uses_its_arena_identity_for_leases() {
+        let mut tree = Tree::new();
+        let application = tree.insert(None, NodeKind::Application).unwrap();
+        let collection = tree
+            .insert_virtual(Some(application), [Key::from("a")])
+            .unwrap();
+
+        let lease = tree
+            .virtual_model_mut(collection)
+            .unwrap()
+            .realize(0)
+            .unwrap();
+
+        assert_eq!(lease.collection, collection);
+        tree.retire_subtree(collection).unwrap();
+        assert!(matches!(
+            tree.virtual_model(collection),
+            Err(TreeError::Arena(ArenaError::Stale(id))) if id == collection
+        ));
     }
 
     #[test]

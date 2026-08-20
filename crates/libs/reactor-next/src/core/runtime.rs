@@ -66,6 +66,9 @@ pub enum Command {
     ActivateWindow {
         node: NodeId,
     },
+    ResetWindowContent {
+        window: NodeId,
+    },
     Create {
         node: NodeId,
         kind: MountedKind,

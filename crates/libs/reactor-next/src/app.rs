@@ -60,7 +60,7 @@ impl App {
                     Box::new(RenderLoop::new(WinUiRuntime::default(), root));
                 let property_fault = match pump.mount() {
                     Ok(()) => None,
-                    Err(error @ PumpError::PropertyApplyFailed(_)) => Some(error),
+                    Err(error) if error.recoverable() => Some(error),
                     Err(error) => return Err(pump_error(error)),
                 };
                 HOST.with(|host| {
@@ -92,7 +92,7 @@ pub(crate) fn dispatch_native_events() {
         if live.fault.is_none()
             && let Err(error) = live.pump.dispatch_events()
         {
-            let recoverable = matches!(error, PumpError::PropertyApplyFailed(_));
+            let recoverable = error.recoverable();
             let error = pump_error(error);
             eprintln!("windows-reactor-next fault: {error}");
             if !recoverable {

@@ -16,9 +16,14 @@ stateful roots. `tool_reactor_next` generates the WinUI binding filter, bindings
 property operations, structural roles, event subscriptions, and event payload reads from the
 control schema.
 Application, window, control, and subscription handles share the arena lifetime. Structural
-failures stop the affected pump; property failures retain the last comparison value for retry.
+update failures clear and remount the control root with fresh generations while preserving the
+application and window. A remount failure stops the affected pump. Property failures retain the
+last comparison value for retry.
 `TextBox.TextChanged` reads its payload before queueing, and Reactor-originated text writes suppress
 their matching native feedback.
+
+Virtual collection models use the panel keyed differ and issue arena-owned realization leases.
+Recycling, key removal, collection retirement, and replacement realization invalidate stale work.
 
 The framework-dependent setup helper currently stages the bootstrap DLL under
 `target\debug\build`; live runs need it copied beside the executable in `target\debug`.
