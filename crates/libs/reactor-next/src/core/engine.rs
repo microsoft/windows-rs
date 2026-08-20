@@ -34,7 +34,7 @@ pub struct NativeState {
 #[derive(Clone, Debug, PartialEq)]
 pub enum NativePropertyState {
     Known(Option<PropertyValue>),
-    Divergent,
+    Divergent { attempts: u8 },
 }
 
 #[derive(Clone, Copy)]

@@ -197,8 +197,12 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             let interface = path_ident(&event.interface);
             let method = ident(&event.name);
             let payload = ident(&event.payload);
-            let payload_value = match event.conversion {
+            let payload_value = match &event.conversion {
                 EventPayloadConversion::Identity => quote! { value },
+                EventPayloadConversion::Field(field) => {
+                    let field = ident(field);
+                    quote! { value.#field }
+                }
             };
             let callback = match &event.source {
                 EventPayloadSource::Unit => quote! {
@@ -229,25 +233,41 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                                     revision,
                                     EventPayload::#payload(#payload_value),
                                 ),
-                                Err(error) => sink.error(native_error(error)),
+                                Err(error) => sink.error(
+                                    node,
+                                    EventId::#event_id,
+                                    revision,
+                                    native_error(error),
+                                ),
                             }
                         }
                     }
                     }
                 }
-                EventPayloadSource::EventArgsProperty { .. } => {
+                EventPayloadSource::EventArgsProperty {
+                    interface: property_interface,
+                } => {
                     let property = ident(event.property.as_deref().unwrap());
+                    let property_interface = path_ident(property_interface);
                     quote! {
                         move |_, args| {
                             if let Some(args) = args.as_ref() {
-                                match args.#property() {
+                                match args
+                                    .cast::<#property_interface>()
+                                    .and_then(|args| args.#property())
+                                {
                                     Ok(value) => sink.enqueue(
                                         node,
                                         EventId::#event_id,
                                         revision,
                                         EventPayload::#payload(#payload_value),
                                     ),
-                                    Err(error) => sink.error(native_error(error)),
+                                    Err(error) => sink.error(
+                                        node,
+                                        EventId::#event_id,
+                                        revision,
+                                        native_error(error),
+                                    ),
                                 }
                             }
                         }
@@ -505,5 +525,34 @@ mod tests {
         assert!(generated.contains("expected_feedback"));
         assert!(generated.contains("event_source . Text"));
         assert!(generated.contains("child_collection"));
+    }
+
+    #[test]
+    fn event_args_use_the_getter_interface_and_wrapper_conversion() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.NumberBox"
+role = "leaf"
+capabilities = ["layout"]
+
+[[control.event]]
+name = "ValueChanged"
+property = "NewValue"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TextBlock"
+role = "leaf"
+capabilities = ["layout"]
+
+[[control.event]]
+name = "Tapped"
+property = "FontWeight"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let schema = Schema::parse(source).unwrap().resolve(&metadata).unwrap();
+        let generated = generate(&schema);
+
+        assert!(generated.contains("cast :: < INumberBoxValueChangedEventArgs >"));
+        assert!(generated.contains("EventPayload :: U16 (value . Weight)"));
     }
 }

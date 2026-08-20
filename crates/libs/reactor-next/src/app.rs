@@ -13,16 +13,17 @@ thread_local! {
 struct LiveHost {
     fault: Option<windows_core::Error>,
     pump: Box<dyn LivePump>,
-    recoverable_retries: u8,
 }
-
-const MAX_RECOVERABLE_RETRIES: u8 = 3;
 
 trait LivePump {
     fn mount(&mut self) -> Result<(), PumpError>;
     fn dispatch_events(&mut self) -> Result<(), PumpError>;
     fn schedule_retry(&self) -> Result<(), RuntimeError>;
     fn shutdown(&mut self);
+    #[cfg(feature = "test")]
+    fn live_inject_root_text(&mut self, value: &str) -> Result<(), RuntimeError>;
+    #[cfg(feature = "test")]
+    fn live_root_text(&self) -> Result<String, RuntimeError>;
 }
 
 impl<F> LivePump for RenderLoop<WinUiRuntime, F>
@@ -44,6 +45,32 @@ where
     fn shutdown(&mut self) {
         Self::shutdown(self);
         self.pump().runtime().close_scheduler();
+    }
+
+    #[cfg(feature = "test")]
+    fn live_inject_root_text(&mut self, value: &str) -> Result<(), RuntimeError> {
+        let root = self.pump().root().ok_or(RuntimeError::UnsupportedKind)?;
+        let revision = self
+            .pump()
+            .event_revision(root, EventId::TextBoxTextChanged)
+            .ok_or(RuntimeError::MissingSubscription(
+                root,
+                EventId::TextBoxTextChanged,
+            ))?;
+        self.pump().runtime().live_set_text(root, value)?;
+        self.pump_mut().queue_event(QueuedEvent {
+            node: root,
+            event: EventId::TextBoxTextChanged,
+            revision,
+            payload: EventPayload::Str(value.into()),
+        });
+        self.pump().runtime().schedule_retry()
+    }
+
+    #[cfg(feature = "test")]
+    fn live_root_text(&self) -> Result<String, RuntimeError> {
+        let root = self.pump().root().ok_or(RuntimeError::UnsupportedKind)?;
+        self.pump().runtime().live_text(root)
     }
 }
 
@@ -86,11 +113,7 @@ impl App {
                         Err(error) => return Err(pump_error(error)),
                     };
                     HOST.with(|host| {
-                        *host.borrow_mut() = Some(LiveHost {
-                            fault: None,
-                            pump,
-                            recoverable_retries: u8::from(property_fault.is_some()),
-                        });
+                        *host.borrow_mut() = Some(LiveHost { fault: None, pump });
                     });
                     if let Some(error) = property_fault {
                         eprintln!("windows-reactor-next fault: {}", pump_error(error));
@@ -141,13 +164,12 @@ pub(crate) fn dispatch_native_events() {
         let mut retry = false;
         if live.fault.is_none() {
             match live.pump.dispatch_events() {
-                Ok(()) => live.recoverable_retries = 0,
+                Ok(()) => {}
                 Err(error) => {
                     let recoverable = error.recoverable();
                     let error = pump_error(error);
                     eprintln!("windows-reactor-next fault: {error}");
-                    if recoverable && live.recoverable_retries < MAX_RECOVERABLE_RETRIES {
-                        live.recoverable_retries += 1;
+                    if recoverable {
                         retry = true;
                     } else {
                         live.fault = Some(error);
@@ -164,6 +186,73 @@ pub(crate) fn dispatch_native_events() {
         }
         *host.borrow_mut() = Some(live);
     });
+}
+
+#[cfg(feature = "test")]
+pub fn schedule_live_controlled_repair_test(initial_success: bool) -> windows_core::Result<()> {
+    let dispatcher = DispatcherQueue::GetForCurrentThread()?;
+    let verify_dispatcher = dispatcher.clone();
+    let edit = DispatcherQueueHandler::new(move || {
+        let edited = HOST.with(|host| {
+            host.borrow_mut()
+                .as_mut()
+                .map(|host| host.pump.live_inject_root_text("native"))
+        });
+        if !matches!(edited, Some(Ok(()))) {
+            eprintln!("controlled repair fixture could not edit root: {edited:?}");
+            std::process::exit(1);
+        }
+        if queue_live_repair_verification(verify_dispatcher.clone(), initial_success, 8).is_err() {
+            std::process::exit(1);
+        }
+    });
+    if dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &edit)? {
+        Ok(())
+    } else {
+        Err(windows_core::Error::new(
+            E_FAIL,
+            "dispatcher rejected controlled repair fixture",
+        ))
+    }
+}
+
+#[cfg(feature = "test")]
+fn queue_live_repair_verification(
+    dispatcher: DispatcherQueue,
+    initial_success: bool,
+    attempts: u8,
+) -> windows_core::Result<()> {
+    let next_dispatcher = dispatcher.clone();
+    let verify = DispatcherQueueHandler::new(move || {
+        let text = HOST.with(|host| {
+            host.borrow()
+                .as_ref()
+                .map(|host| host.pump.live_root_text())
+        });
+        let repaired = matches!(text.as_ref(), Some(Ok(value)) if value == "fixed");
+        if initial_success && repaired {
+            std::process::exit(0);
+        }
+        if attempts == 0 {
+            eprintln!(
+                "controlled repair fixture failed: resources={initial_success}, text={text:?}"
+            );
+            std::process::exit(1);
+        }
+        if queue_live_repair_verification(next_dispatcher.clone(), initial_success, attempts - 1)
+            .is_err()
+        {
+            std::process::exit(1);
+        }
+    });
+    if dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Low, &verify)? {
+        Ok(())
+    } else {
+        Err(windows_core::Error::new(
+            E_FAIL,
+            "dispatcher rejected controlled repair verification",
+        ))
+    }
 }
 
 fn pump_error(error: PumpError) -> windows_core::Error {

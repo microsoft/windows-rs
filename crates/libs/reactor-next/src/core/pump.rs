@@ -12,6 +12,7 @@ pub enum PumpError {
     EventReadFailed(RuntimeError),
     Poisoned,
     PropertyApplyFailed(CommitReceipt),
+    PropertyRetriesExhausted(CommitReceipt),
     RecoveredStructure(Box<StructuralRecovery>),
     RecoveryFailed(Box<StructuralRecovery>),
     RenderBudgetExceeded,
@@ -49,6 +50,8 @@ struct PropertyCommit {
     property: PropertyId,
     value: Option<PropertyValue>,
 }
+
+const MAX_PROPERTY_ATTEMPTS: u8 = 3;
 
 struct UpdatePlan {
     commands: Vec<Command>,
@@ -161,7 +164,8 @@ impl<R: NativeRuntime> Pump<R> {
             self.window = None;
             return Err(PumpError::StructuralApplyFailed(receipt));
         }
-        Self::commit_tree_properties(&mut candidate, &plan.commits, &receipt)?;
+        let retries_exhausted =
+            Self::commit_tree_properties(&mut candidate, &plan.commits, &receipt)?;
         self.tree = candidate;
         self.application = Some(application);
         self.element = Some(desired);
@@ -174,7 +178,11 @@ impl<R: NativeRuntime> Pump<R> {
             .any(|(index, command)| !command.structural() && !receipt.applied(index))
         {
             self.retry_pending = true;
-            return Err(PumpError::PropertyApplyFailed(receipt));
+            return Err(if retries_exhausted {
+                PumpError::PropertyRetriesExhausted(receipt)
+            } else {
+                PumpError::PropertyApplyFailed(receipt)
+            });
         }
         self.retry_pending = false;
         self.version = next_version;
@@ -233,7 +241,8 @@ impl<R: NativeRuntime> Pump<R> {
             );
         }
 
-        Self::commit_tree_properties(&mut candidate, &plan.commits, &receipt)?;
+        let retries_exhausted =
+            Self::commit_tree_properties(&mut candidate, &plan.commits, &receipt)?;
         self.tree = candidate;
         self.root = Some(candidate_root);
         self.element = Some(recovery_element);
@@ -244,7 +253,11 @@ impl<R: NativeRuntime> Pump<R> {
             .any(|(index, command)| !command.structural() && !receipt.applied(index))
         {
             self.retry_pending = true;
-            return Err(PumpError::PropertyApplyFailed(receipt));
+            return Err(if retries_exhausted {
+                PumpError::PropertyRetriesExhausted(receipt)
+            } else {
+                PumpError::PropertyApplyFailed(receipt)
+            });
         }
         self.retry_pending = false;
         self.version = next_version;
@@ -408,9 +421,22 @@ impl<R: NativeRuntime> Pump<R> {
             return Ok(0);
         }
         self.process_realizations()?;
-        if let Some(error) = self.runtime.drain_event_errors().into_iter().next() {
+        for queued in self.runtime.drain_event_errors() {
+            if queued.identity != self.identity {
+                continue;
+            }
+            let error = queued.work;
+            let Ok(native) = self.tree.native(error.node) else {
+                continue;
+            };
+            let Some(state) = native.events.get(&error.event) else {
+                continue;
+            };
+            if !state.active || state.revision != error.revision {
+                continue;
+            }
             self.events.clear();
-            return Err(PumpError::EventReadFailed(error));
+            return Err(PumpError::EventReadFailed(error.error));
         }
         let mut dispatched = 0;
         while let Some(queued) = self.events.pop_front() {
@@ -560,18 +586,24 @@ impl<R: NativeRuntime> Pump<R> {
         tree: &mut Tree,
         commits: &[PropertyCommit],
         receipt: &CommitReceipt,
-    ) -> Result<(), PumpError> {
+    ) -> Result<bool, PumpError> {
+        let mut retries_exhausted = false;
         for commit in commits {
             let state = if receipt.applied(commit.command) {
                 NativePropertyState::Known(commit.value.clone())
             } else {
-                NativePropertyState::Divergent
+                let attempts = match tree.native(commit.node)?.properties.get(&commit.property) {
+                    Some(NativePropertyState::Divergent { attempts }) => attempts.saturating_add(1),
+                    _ => 1,
+                };
+                retries_exhausted |= attempts >= MAX_PROPERTY_ATTEMPTS;
+                NativePropertyState::Divergent { attempts }
             };
             tree.native_mut(commit.node)?
                 .properties
                 .insert(commit.property, state);
         }
-        Ok(())
+        Ok(retries_exhausted)
     }
 
     fn reconcile_node(
@@ -1241,7 +1273,8 @@ mod tests {
 
     #[derive(Default)]
     struct EventErrorRuntime {
-        error: Option<RuntimeError>,
+        error: Option<NativeWork<QueuedEventError>>,
+        identity: Option<NativeIdentity>,
     }
 
     impl NativeRuntime for EventErrorRuntime {
@@ -1253,7 +1286,11 @@ mod tests {
 
         fn reset(&mut self) {}
 
-        fn drain_event_errors(&mut self) -> Vec<RuntimeError> {
+        fn set_identity(&mut self, identity: NativeIdentity) {
+            self.identity = Some(identity);
+        }
+
+        fn drain_event_errors(&mut self) -> Vec<NativeWork<QueuedEventError>> {
             self.error.take().into_iter().collect()
         }
     }
@@ -1327,7 +1364,7 @@ mod tests {
                 .unwrap()
                 .properties
                 .get(&PropertyId::TextBlockText),
-            Some(&NativePropertyState::Divergent)
+            Some(&NativePropertyState::Divergent { attempts: 1 })
         );
         assert_eq!(
             pump.runtime()
@@ -1358,6 +1395,25 @@ mod tests {
                 "second".into()
             ))))
         );
+    }
+
+    #[test]
+    fn property_retry_exhaustion_is_tracked_by_the_property() {
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(TextBlock::new().text("first").into()).unwrap();
+
+        for attempt in 1..=MAX_PROPERTY_ATTEMPTS {
+            pump.runtime_mut().fail_at(0);
+            let error = pump
+                .update(TextBlock::new().text("second").into())
+                .unwrap_err();
+            if attempt < MAX_PROPERTY_ATTEMPTS {
+                assert!(matches!(error, PumpError::PropertyApplyFailed(_)));
+            } else {
+                assert!(matches!(error, PumpError::PropertyRetriesExhausted(_)));
+                assert!(!error.recoverable());
+            }
+        }
     }
 
     #[test]
@@ -2031,13 +2087,98 @@ mod tests {
     #[test]
     fn event_payload_read_failure_is_reported() {
         let mut pump = Pump::new(EventErrorRuntime::default());
-        pump.mount(TextBox::new().into()).unwrap();
-        pump.runtime_mut().error = Some(RuntimeError::Injected);
+        pump.mount(TextBox::new().on_text_changed(|_| {}).into())
+            .unwrap();
+        let root = pump.root().unwrap();
+        let revision = pump
+            .event_revision(root, EventId::TextBoxTextChanged)
+            .unwrap();
+        let identity = pump.native_identity();
+        pump.runtime_mut().error = Some(NativeWork {
+            identity,
+            work: QueuedEventError {
+                node: root,
+                event: EventId::TextBoxTextChanged,
+                revision,
+                error: RuntimeError::Injected,
+            },
+        });
 
         assert_eq!(
             pump.dispatch_events(),
             Err(PumpError::EventReadFailed(RuntimeError::Injected))
         );
+    }
+
+    #[test]
+    fn old_window_event_payload_read_failure_is_ignored() {
+        let mut pump = Pump::new(EventErrorRuntime::default());
+        pump.mount(TextBox::new().into()).unwrap();
+        let root = pump.root().unwrap();
+        let revision = pump
+            .event_revision(root, EventId::TextBoxTextChanged)
+            .unwrap();
+        let stale_identity = pump.native_identity();
+        pump.shutdown();
+        pump.mount(TextBox::new().into()).unwrap();
+        assert_eq!(pump.root(), Some(root));
+        pump.runtime_mut().error = Some(NativeWork {
+            identity: stale_identity,
+            work: QueuedEventError {
+                node: root,
+                event: EventId::TextBoxTextChanged,
+                revision,
+                error: RuntimeError::Injected,
+            },
+        });
+
+        assert_eq!(pump.dispatch_events(), Ok(0));
+    }
+
+    #[test]
+    fn old_realization_event_payload_read_failure_is_ignored() {
+        let mut pump = Pump::new(EventErrorRuntime::default());
+        pump.mount(TextBox::new().into()).unwrap();
+        let root = pump.root().unwrap();
+        let revision = pump
+            .event_revision(root, EventId::TextBoxTextChanged)
+            .unwrap();
+        let stale_identity = pump.native_identity();
+        pump.identity = stale_identity.next_realization().unwrap();
+        let identity = pump.identity;
+        pump.runtime_mut().set_identity(identity);
+        pump.runtime_mut().error = Some(NativeWork {
+            identity: stale_identity,
+            work: QueuedEventError {
+                node: root,
+                event: EventId::TextBoxTextChanged,
+                revision,
+                error: RuntimeError::Injected,
+            },
+        });
+
+        assert_eq!(pump.dispatch_events(), Ok(0));
+    }
+
+    #[test]
+    fn retired_subscription_event_payload_read_failure_is_ignored() {
+        let mut pump = Pump::new(EventErrorRuntime::default());
+        pump.mount(Button::new().on_click(|| {}).into()).unwrap();
+        let root = pump.root().unwrap();
+        let revision = pump.event_revision(root, EventId::ButtonClick).unwrap();
+        let identity = pump.native_identity();
+        pump.update(Button::new().into()).unwrap();
+        pump.runtime_mut().error = Some(NativeWork {
+            identity,
+            work: QueuedEventError {
+                node: root,
+                event: EventId::ButtonClick,
+                revision,
+                error: RuntimeError::Injected,
+            },
+        });
+
+        assert_eq!(pump.dispatch_events(), Ok(0));
     }
 
     #[test]

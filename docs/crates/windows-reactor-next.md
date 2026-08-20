@@ -17,29 +17,33 @@ events, and rerenders stateful roots. `tool_reactor_next` generates the WinUI bi
 bindings, handle variants, property operations, structural roles, event subscriptions, and event
 payload reads from the control schema.
 Event metadata retains whether a payload comes from the sender or event arguments and records its
-conversion separately. The bindings filter follows that source to include the correct getter
-interface. Unsupported event shapes fail generation instead of defaulting to a sender string
-getter.
+conversion separately. Generated event-argument reads cast to the interface that owns the getter,
+and single-field value wrappers are converted to their public payload type. Object, class, and
+other unsupported read shapes fail generation instead of defaulting to a sender string getter.
 Application, window, control, and subscription handles share the arena lifetime. Structural
 update failures clear and remount the control root with fresh generations while preserving the
 application and window. A remount failure stops the affected pump. Property comparison records
 known native values or divergence. A failed setter becomes divergent and is retried even when the
-control may have changed before returning the error.
+control may have changed before returning the error. Retry attempts belong to each divergent
+property; a successful property or event dispatch cannot reset another property's failure count.
 Native work also carries separate window-lifetime and realization identities. Root recovery
 advances only realization identity, so component-level work can eventually survive a native
 remount. Shutdown advances window identity and rejects all delayed work even when the new tree
 reuses the same numerical node IDs.
-The live host schedules bounded low-priority retries and stops after persistent divergence rather
-than leaving an undispatched retry signal.
-Its scheduler tracks pending, scheduled, dispatching, and closing states. Work queued during
-dispatch is rearmed after the current phase, stale dispatcher callbacks rearm current work, and
-dispatcher rejection becomes an explicit host fault. Terminal shutdown runs hook and effect
-cleanup before resetting native resources.
+The live host schedules low-priority retries and stops when a property exhausts its attempt budget
+rather than leaving an undispatched retry signal. Its scheduler tracks pending, scheduled,
+dispatching, and closing states. Work queued during dispatch is rearmed after the current phase. A
+normal request replaces a queued low-priority callback using a scheduler generation, stale
+callbacks become no-ops, and dispatcher rejection becomes an explicit host fault. Terminal
+shutdown runs hook and effect cleanup before resetting native resources.
 `TextBox.TextChanged` reads its payload before queueing, and Reactor-originated text writes suppress
 their matching synchronous feedback. Native observations update property knowledge before
 application callbacks, so rejecting a user edit produces a restoring write. Controlled properties
 must declare a feedback contract; the current slice accepts only synchronous exact feedback and
 rejects unsupported contracts during generation.
+The process-isolated WinUI fixture injects a native text observation through the live scheduler
+without a public callback and verifies that the render loop restores the actual `TextBox.Text`
+value. OS input and native event delivery still need a separate automation fixture.
 
 Virtual collection models use the panel keyed differ and issue arena-owned realization leases.
 Recycling, key removal, collection retirement, and replacement realization invalidate stale work.

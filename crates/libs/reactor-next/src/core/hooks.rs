@@ -194,7 +194,7 @@ where
         const MAX_RENDERS: usize = 100;
 
         for _ in 0..MAX_RENDERS {
-            if self.mounted && !self.hooks.dirty() {
+            if self.mounted && !self.hooks.dirty() && !self.pump.retry_pending() {
                 return Ok(());
             }
 
@@ -299,6 +299,73 @@ mod tests {
                 .property(PropertyId::TextBlockText),
             Some(&PropertyValue::Str("1".into()))
         );
+    }
+
+    #[test]
+    fn controlled_observation_repairs_without_public_callback() {
+        let mut app = RenderLoop::new(RecordingRuntime::default(), |_| {
+            TextBox::new().text("fixed").into()
+        });
+        app.run().unwrap();
+        let root = app.pump().root().unwrap();
+        let revision = app
+            .pump()
+            .event_revision(root, EventId::TextBoxTextChanged)
+            .unwrap();
+        app.pump_mut().queue_event(QueuedEvent {
+            node: root,
+            event: EventId::TextBoxTextChanged,
+            revision,
+            payload: EventPayload::Str("edited".into()),
+        });
+
+        assert_eq!(app.dispatch_events().unwrap(), 0);
+
+        assert_eq!(
+            app.pump()
+                .runtime()
+                .node(root)
+                .unwrap()
+                .property(PropertyId::TextBoxText),
+            Some(&PropertyValue::Str("fixed".into()))
+        );
+        assert!(!app.pump().retry_pending());
+    }
+
+    #[test]
+    fn controlled_callback_can_reject_with_the_existing_state_value() {
+        let mut app = RenderLoop::new(RecordingRuntime::default(), |hooks| {
+            let value = hooks.use_state(|| "fixed".to_string());
+            let callback = value.clone();
+            TextBox::new()
+                .text(value.get())
+                .on_text_changed(move |_| callback.set("fixed".to_string()))
+                .into()
+        });
+        app.run().unwrap();
+        let root = app.pump().root().unwrap();
+        let revision = app
+            .pump()
+            .event_revision(root, EventId::TextBoxTextChanged)
+            .unwrap();
+        app.pump_mut().queue_event(QueuedEvent {
+            node: root,
+            event: EventId::TextBoxTextChanged,
+            revision,
+            payload: EventPayload::Str("edited".into()),
+        });
+
+        assert_eq!(app.dispatch_events().unwrap(), 1);
+
+        assert_eq!(
+            app.pump()
+                .runtime()
+                .node(root)
+                .unwrap()
+                .property(PropertyId::TextBoxText),
+            Some(&PropertyValue::Str("fixed".into()))
+        );
+        assert!(!app.pump().retry_pending());
     }
 
     #[test]

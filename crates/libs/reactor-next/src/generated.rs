@@ -501,10 +501,8 @@ impl MountedEventsExt for MountedProps {
                 visit(EventId::ButtonClick, on_click.is_some());
             }
             Self::StackPanel { .. } => {}
-            Self::TextBox {
-                on_text_changed, ..
-            } => {
-                visit(EventId::TextBoxTextChanged, on_text_changed.is_some());
+            Self::TextBox { .. } => {
+                visit(EventId::TextBoxTextChanged, true);
             }
             Self::ItemsRepeater { .. } => {}
             Self::ScrollViewer { .. } => {}

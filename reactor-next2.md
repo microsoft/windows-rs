@@ -65,12 +65,12 @@ WindowToken {
 }
 
 ComponentToken {
-    window_epoch,
+    window: WindowToken,
     scope_id,
 }
 
 NativeToken {
-    window_epoch,
+    window: WindowToken,
     realization_epoch,
     node_id,
     revision,
@@ -186,12 +186,12 @@ error boundary is part of this prototype.
 - [x] Move startup/window mounting to `OnLaunched`.
 - [x] Install `XamlControlsResources`.
 - [x] Replace scheduled booleans with an explicit pending/scheduled/dispatching/closing scheduler.
-- [x] Preserve queued work across reentrancy and surface enqueue rejection as a terminal fault.
+- [x] Preserve queued work across reentrancy, priority escalation, and enqueue rejection.
 - [x] Run cleanup before revoking subscriptions and releasing required native resources.
 - [x] Clear recycled repeater shell content synchronously.
-- [x] Add property certainty and controlled-observation tracking.
+- [x] Add property certainty, per-property retry accounting, and controlled-observation tracking.
 - [x] Add schema-validated feedback contracts.
-- [x] Retain event payload source and conversion in the schema.
+- [x] Retain and honor event payload source, interface, and conversion in generation.
 
 **Exit:** verified backend behavior is independent of the frontend model.
 
@@ -333,19 +333,20 @@ context.
 
 ## Current work
 
-Current phase: **2 - add the live backend harness**
+Current phase: **1 - close backend contract gaps found by early review**
 
 - [x] Implement separate window and realization identity domains.
 - [x] Add stale-work tests for native remount and complete window replacement.
-- [x] Replace the live scheduler boolean with an explicit state machine.
+- [x] Complete scheduler priority escalation and stale callback handling.
 - [x] Mount from `OnLaunched` and install WinUI control resources.
 - [x] Run effect cleanup before native reset.
 - [x] Clear recycled repeater shells synchronously.
-- [x] Replace committed-only property comparison with desired/known/divergent native state.
-- [x] Restore rejected controlled edits from native observations.
+- [x] Complete desired/known/divergent state with per-property attempts.
+- [x] Restore rejected controlled edits through the live render loop with or without callbacks.
 - [x] Require an explicit supported feedback contract for controlled properties.
-- [x] Retain typed event payload source and conversion in the schema.
+- [x] Honor typed event payload source interfaces and conversions in generated code.
 - [x] Add the first live startup/resources fixture.
+- [x] Verify callback-free controlled repair through the live scheduler and WinUI property.
 - [ ] Add live tests for scheduler reentrancy and shutdown ordering.
 
 Control expansion remains frozen.

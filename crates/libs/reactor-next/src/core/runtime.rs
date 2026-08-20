@@ -121,7 +121,7 @@ pub trait NativeRuntime {
         Vec::new()
     }
 
-    fn drain_event_errors(&mut self) -> Vec<RuntimeError> {
+    fn drain_event_errors(&mut self) -> Vec<NativeWork<QueuedEventError>> {
         Vec::new()
     }
 
@@ -155,6 +155,14 @@ pub struct QueuedEvent {
     pub event: EventId,
     pub revision: u32,
     pub payload: EventPayload,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct QueuedEventError {
+    pub node: NodeId,
+    pub event: EventId,
+    pub revision: u32,
+    pub error: RuntimeError,
 }
 
 #[derive(Clone, Debug, PartialEq)]

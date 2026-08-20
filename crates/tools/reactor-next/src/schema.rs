@@ -2,7 +2,7 @@ use serde::Deserialize;
 use std::collections::HashSet;
 use std::path::{Path, PathBuf};
 use tool_reactor::helpers::to_snake_case;
-use tool_reactor::metadata::MetadataResolver;
+use tool_reactor::metadata::{MetadataResolver, ReadValueConversion};
 
 pub(crate) fn workspace_path(path: impl AsRef<Path>) -> PathBuf {
     Path::new(env!("CARGO_MANIFEST_DIR"))
@@ -127,9 +127,10 @@ pub(crate) enum EventPayloadSource {
     EventArgsProperty { interface: String },
 }
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) enum EventPayloadConversion {
     Identity,
+    Field(String),
 }
 
 impl Schema {
@@ -243,41 +244,48 @@ impl Schema {
                         control.type_name, event.name
                     )
                 })?;
-                let (payload, source) = if let Some(property) = event.property.as_deref() {
-                    let sender_property = format!("put_{property}");
-                    if metadata.has_method(&name, &sender_property) {
-                        let payload = metadata
-                            .infer_value_type(&name, &sender_property)
-                            .map(|(value, _)| value)
-                            .ok_or_else(|| {
-                                format!(
-                                    "{}.{} cannot infer sender property {}",
-                                    control.type_name, event.name, property
-                                )
-                            })?;
-                        let interface = metadata
-                            .resolve(&name, &sender_property)
-                            .ok_or_else(|| {
-                                format!(
-                                    "{}.{} cannot resolve sender property {}",
-                                    control.type_name, event.name, property
-                                )
-                            })?
-                            .full_path();
-                        (payload, EventPayloadSource::SenderProperty { interface })
+                let (payload, source, conversion) =
+                    if let Some(property) = event.property.as_deref() {
+                        let sender_property = format!("put_{property}");
+                        if metadata.has_method(&name, &sender_property) {
+                            let (payload, interface, conversion) = metadata
+                                .resolve_property_read(&name, property)
+                                .ok_or_else(|| {
+                                    format!(
+                                        "{}.{} has unsupported sender property {}",
+                                        control.type_name, event.name, property
+                                    )
+                                })?;
+                            (
+                                payload,
+                                EventPayloadSource::SenderProperty { interface },
+                                conversion,
+                            )
+                        } else {
+                            let (payload, interface, conversion) = metadata
+                                .resolve_event_args_property(&name, &method, property)
+                                .ok_or_else(|| {
+                                    format!(
+                                        "{}.{} has unsupported event property {}",
+                                        control.type_name, event.name, property
+                                    )
+                                })?;
+                            (
+                                payload,
+                                EventPayloadSource::EventArgsProperty { interface },
+                                conversion,
+                            )
+                        }
                     } else {
-                        let (payload, interface) = metadata
-                            .resolve_event_args_property(&name, &method, property)
-                            .ok_or_else(|| {
-                                format!(
-                                    "{}.{} cannot infer event property {}",
-                                    control.type_name, event.name, property
-                                )
-                            })?;
-                        (payload, EventPayloadSource::EventArgsProperty { interface })
-                    }
-                } else {
-                    ("Unit".to_string(), EventPayloadSource::Unit)
+                        (
+                            "Unit".to_string(),
+                            EventPayloadSource::Unit,
+                            ReadValueConversion::Identity,
+                        )
+                    };
+                let conversion = match conversion {
+                    ReadValueConversion::Identity => EventPayloadConversion::Identity,
+                    ReadValueConversion::Field(field) => EventPayloadConversion::Field(field),
                 };
 
                 events.push(ResolvedEvent {
@@ -289,7 +297,7 @@ impl Schema {
                     interface: interface.full_path(),
                     property: event.property,
                     source,
-                    conversion: EventPayloadConversion::Identity,
+                    conversion,
                 });
             }
 
@@ -417,10 +425,56 @@ property = "NewValue"
 
         assert_eq!(event.payload, "F64");
         assert!(matches!(
-            event.source,
-            EventPayloadSource::EventArgsProperty { .. }
+            &event.source,
+            EventPayloadSource::EventArgsProperty { interface }
+                if interface.ends_with("INumberBoxValueChangedEventArgs")
         ));
         assert_eq!(event.conversion, EventPayloadConversion::Identity);
+    }
+
+    #[test]
+    fn retains_single_field_payload_conversion() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TextBlock"
+role = "leaf"
+capabilities = ["layout"]
+
+[[control.event]]
+name = "Tapped"
+property = "FontWeight"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let resolved = Schema::parse(source).unwrap().resolve(&metadata).unwrap();
+        let event = &resolved.controls[0].events[0];
+
+        assert_eq!(event.payload, "U16");
+        assert_eq!(
+            event.conversion,
+            EventPayloadConversion::Field("Weight".to_string())
+        );
+    }
+
+    #[test]
+    fn rejects_object_event_payload() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.BreadcrumbBar"
+role = "leaf"
+capabilities = ["layout"]
+
+[[control.event]]
+name = "ItemClicked"
+property = "Item"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let error = Schema::parse(source)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+
+        assert!(error.contains("unsupported event property Item"));
     }
 
     #[test]

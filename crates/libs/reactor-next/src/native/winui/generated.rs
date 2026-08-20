@@ -197,7 +197,12 @@ pub fn subscribe_event(
                             revision,
                             EventPayload::Str(value),
                         ),
-                        Err(error) => sink.error(native_error(error)),
+                        Err(error) => sink.error(
+                            node,
+                            EventId::TextBoxTextChanged,
+                            revision,
+                            native_error(error),
+                        ),
                     }
                 })
                 .map_err(native_error)

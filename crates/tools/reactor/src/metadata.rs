@@ -51,12 +51,18 @@ pub enum ParamClass {
     Complex,
 }
 
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum ReadValueConversion {
+    Identity,
+    Field(String),
+}
+
 /// Pre-built lookup: `(class_short_name, method_name) → MethodRef`.
 pub struct MetadataResolver {
     lookup: HashMap<(String, String), MethodRef>,
     /// Value-type structs that wrap a single primitive field.
     /// Maps `(namespace, name)` → the unwrapped inner `Type`.
-    single_field_types: HashMap<(String, String), Type>,
+    single_field_types: HashMap<(String, String), (String, Type)>,
     /// Enum types: maps `(namespace, name)` → list of variant names.
     enum_variants: HashMap<(String, String), Vec<String>>,
     /// Non-generic delegate → args class short name, resolved from the
@@ -133,7 +139,10 @@ impl MetadataResolver {
             } else if fields.len() == 1 {
                 let inner_ty = fields[0].ty();
                 if Self::primitive_value_for_type(&inner_ty).is_some() {
-                    single_field_types.insert((namespace.to_string(), name.to_string()), inner_ty);
+                    single_field_types.insert(
+                        (namespace.to_string(), name.to_string()),
+                        (fields[0].name().to_string(), inner_ty),
+                    );
                 }
             }
         }
@@ -334,7 +343,7 @@ impl MetadataResolver {
         property: &str,
     ) -> Option<String> {
         self.resolve_event_args_property(class_name, add_event, property)
-            .map(|(value, _)| value)
+            .map(|(value, _, _)| value)
     }
 
     pub fn resolve_event_args_property(
@@ -342,7 +351,7 @@ impl MetadataResolver {
         class_name: &str,
         add_event: &str,
         property: &str,
-    ) -> Option<(String, String)> {
+    ) -> Option<(String, String, ReadValueConversion)> {
         // Get the delegate type from the add method's first param.
         let add_ref = self
             .lookup
@@ -363,10 +372,20 @@ impl MetadataResolver {
         // Look up get_{property} on the args class.
         let getter = format!("get_{property}");
         let getter_ref = self.lookup.get(&(args_class, getter))?;
-        Some((
-            self.value_for_type(&getter_ref.return_type)?,
-            getter_ref.interface.full_path(),
-        ))
+        let (value, conversion) = self.read_value_for_type(&getter_ref.return_type)?;
+        Some((value, getter_ref.interface.full_path(), conversion))
+    }
+
+    #[allow(dead_code)]
+    pub fn resolve_property_read(
+        &self,
+        class_name: &str,
+        property: &str,
+    ) -> Option<(String, String, ReadValueConversion)> {
+        let getter = format!("get_{property}");
+        let getter_ref = self.lookup.get(&(class_name.to_string(), getter))?;
+        let (value, conversion) = self.read_value_for_type(&getter_ref.return_type)?;
+        Some((value, getter_ref.interface.full_path(), conversion))
     }
 
     /// Returns true if a metadata `Type` is Copy (primitive or value type).
@@ -395,7 +414,7 @@ impl MetadataResolver {
             }
             Type::ValueName(tn) => {
                 let key = (tn.namespace.clone(), tn.name.clone());
-                if let Some(inner) = self.single_field_types.get(&key) {
+                if let Some((_, inner)) = self.single_field_types.get(&key) {
                     // Single-field wrapper → unwraps to inner primitive
                     Self::is_copy(inner)
                 } else {
@@ -471,7 +490,7 @@ impl MetadataResolver {
             Type::ValueName(tn) => {
                 let key = (tn.namespace.clone(), tn.name.clone());
                 // Single-field wrapper structs → unwrap to inner primitive
-                if let Some(inner) = self.single_field_types.get(&key) {
+                if let Some((_, inner)) = self.single_field_types.get(&key) {
                     return Self::primitive_value_for_type(inner);
                 }
                 // Multi-field value types → use the struct's short name as
@@ -481,6 +500,26 @@ impl MetadataResolver {
                 Some(tn.name.clone())
             }
             _ => None,
+        }
+    }
+
+    fn read_value_for_type(&self, ty: &Type) -> Option<(String, ReadValueConversion)> {
+        match ty {
+            Type::Object | Type::ClassName(_) => None,
+            Type::ValueName(type_name) => {
+                let key = (type_name.namespace.clone(), type_name.name.clone());
+                if let Some((field, inner)) = self.single_field_types.get(&key) {
+                    return Some((
+                        Self::primitive_value_for_type(inner)?,
+                        ReadValueConversion::Field(field.clone()),
+                    ));
+                }
+                Some((self.value_for_type(ty)?, ReadValueConversion::Identity))
+            }
+            _ => Some((
+                Self::primitive_value_for_type(ty)?,
+                ReadValueConversion::Identity,
+            )),
         }
     }
 

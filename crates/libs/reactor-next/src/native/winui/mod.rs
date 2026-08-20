@@ -25,7 +25,7 @@ pub use generated::*;
 #[derive(Default)]
 pub struct WinUiRuntime {
     application: Option<(NodeId, Application)>,
-    event_errors: Rc<RefCell<Vec<RuntimeError>>>,
+    event_errors: Rc<RefCell<Vec<NativeWork<QueuedEventError>>>>,
     handles: HashMap<NodeId, Handle>,
     events: Rc<RefCell<Vec<NativeWork<QueuedEvent>>>>,
     feedback: Rc<RefCell<HashMap<(NodeId, EventId), EventPayload>>>,
@@ -44,6 +44,22 @@ impl WinUiRuntime {
             pending_application: Some(application),
             ..Default::default()
         }
+    }
+
+    #[cfg(feature = "test")]
+    pub fn live_set_text(&self, node: NodeId, value: &str) -> Result<(), RuntimeError> {
+        let Some(Handle::TextBox(text_box)) = self.handles.get(&node) else {
+            return Err(RuntimeError::UnsupportedKind);
+        };
+        text_box.SetText(value).map_err(native_error)
+    }
+
+    #[cfg(feature = "test")]
+    pub fn live_text(&self, node: NodeId) -> Result<String, RuntimeError> {
+        let Some(Handle::TextBox(text_box)) = self.handles.get(&node) else {
+            return Err(RuntimeError::UnsupportedKind);
+        };
+        text_box.Text().map_err(native_error)
     }
 
     fn apply_one(&mut self, command: &Command) -> Result<(), RuntimeError> {
@@ -365,7 +381,7 @@ impl WinUiRuntime {
 #[derive(Clone)]
 pub struct EventSink {
     queue: Rc<RefCell<Vec<NativeWork<QueuedEvent>>>>,
-    errors: Rc<RefCell<Vec<RuntimeError>>>,
+    errors: Rc<RefCell<Vec<NativeWork<QueuedEventError>>>>,
     feedback: Rc<RefCell<HashMap<(NodeId, EventId), EventPayload>>>,
     dispatcher: DispatcherQueue,
     identity: NativeIdentity,
@@ -396,8 +412,16 @@ impl EventSink {
         self.schedule();
     }
 
-    pub fn error(&self, error: RuntimeError) {
-        self.errors.borrow_mut().push(error);
+    pub fn error(&self, node: NodeId, event: EventId, revision: u32, error: RuntimeError) {
+        self.errors.borrow_mut().push(NativeWork {
+            identity: self.identity,
+            work: QueuedEventError {
+                node,
+                event,
+                revision,
+                error,
+            },
+        });
         self.schedule();
     }
 
@@ -430,7 +454,7 @@ impl EventSink {
         scheduler: &Rc<RefCell<SchedulerState>>,
         dispatcher: &DispatcherQueue,
     ) -> Result<(), RuntimeError> {
-        let ScheduleAction::Enqueue(priority) = action else {
+        let ScheduleAction::Enqueue(ticket) = action else {
             return match action {
                 ScheduleAction::Closed => Err(RuntimeError::SchedulerClosed),
                 _ => Ok(()),
@@ -443,7 +467,7 @@ impl EventSink {
             if current_identity_capture.get() != Some(identity) {
                 let action = {
                     let mut scheduler = scheduler_capture.borrow_mut();
-                    if !scheduler.begin_dispatch() {
+                    if !scheduler.begin_dispatch(ticket) {
                         return;
                     }
                     _ = scheduler.request(WorkPriority::Normal);
@@ -462,7 +486,7 @@ impl EventSink {
                 }
                 return;
             }
-            if !scheduler_capture.borrow_mut().begin_dispatch() {
+            if !scheduler_capture.borrow_mut().begin_dispatch(ticket) {
                 return;
             }
             dispatch_native_events();
@@ -479,18 +503,18 @@ impl EventSink {
                 fail_native_scheduler(error);
             }
         });
-        let priority = match priority {
+        let priority = match ticket.priority {
             WorkPriority::Low => DispatcherQueuePriority::Low,
             WorkPriority::Normal => DispatcherQueuePriority::Normal,
         };
         match dispatcher.TryEnqueueWithPriority(priority, &handler) {
             Ok(true) => Ok(()),
             Ok(false) => {
-                scheduler.borrow_mut().enqueue_failed();
+                scheduler.borrow_mut().enqueue_failed(ticket);
                 Err(RuntimeError::DispatcherRejected)
             }
             Err(error) => {
-                scheduler.borrow_mut().enqueue_failed();
+                scheduler.borrow_mut().enqueue_failed(ticket);
                 Err(native_error(error))
             }
         }
@@ -564,7 +588,7 @@ impl NativeRuntime for WinUiRuntime {
         self.events.borrow_mut().drain(..).collect()
     }
 
-    fn drain_event_errors(&mut self) -> Vec<RuntimeError> {
+    fn drain_event_errors(&mut self) -> Vec<NativeWork<QueuedEventError>> {
         self.event_errors.borrow_mut().drain(..).collect()
     }
 

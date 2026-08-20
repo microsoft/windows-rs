@@ -444,11 +444,25 @@ fn generate_mounted_props_visitor(control: &ResolvedControl) -> TokenStream {
 
 fn generate_mounted_event_visitor(control: &ResolvedControl) -> TokenStream {
     let name = ident(&control.name);
-    let fields = control.events.iter().map(|event| ident(&event.field));
+    let fields = control.events.iter().filter_map(|event| {
+        let feedback = control
+            .properties
+            .iter()
+            .any(|property| property.feedback.as_deref() == Some(event.name.as_str()));
+        (!feedback).then(|| ident(&event.field))
+    });
     let events = control.events.iter().map(|event| {
         let field = ident(&event.field);
         let id = ident(&format!("{}{}", control.name, event.name));
-        quote! { visit(EventId::#id, #field.is_some()); }
+        let feedback = control
+            .properties
+            .iter()
+            .any(|property| property.feedback.as_deref() == Some(event.name.as_str()));
+        if feedback {
+            quote! { visit(EventId::#id, true); }
+        } else {
+            quote! { visit(EventId::#id, #field.is_some()); }
+        }
     });
     quote! {
         Self::#name { #(#fields,)* .. } => {
