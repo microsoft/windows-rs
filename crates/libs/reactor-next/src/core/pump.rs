@@ -3,6 +3,9 @@ use std::rc::Rc;
 
 use super::*;
 
+const EVENT_WORK_BUDGET: usize = 64;
+const REALIZATION_WORK_BUDGET: usize = 32;
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum PumpError {
     AlreadyMounted,
@@ -86,6 +89,7 @@ pub struct Pump<R: NativeRuntime> {
     events: VecDeque<NativeWork<QueuedEvent>>,
     identity: NativeIdentity,
     poisoned: bool,
+    realizations: VecDeque<NativeWork<RealizationRequest>>,
     retry_pending: bool,
     version: u64,
     window: Option<NodeId>,
@@ -104,6 +108,7 @@ impl<R: NativeRuntime> Pump<R> {
             events: VecDeque::new(),
             identity,
             poisoned: false,
+            realizations: VecDeque::new(),
             retry_pending: false,
             version: 0,
             window: None,
@@ -141,6 +146,7 @@ impl<R: NativeRuntime> Pump<R> {
             self.application = None;
             self.element = None;
             self.events.clear();
+            self.realizations.clear();
             self.poisoned = true;
             self.root = None;
             self.retry_pending = false;
@@ -158,6 +164,7 @@ impl<R: NativeRuntime> Pump<R> {
             self.application = None;
             self.element = None;
             self.events.clear();
+            self.realizations.clear();
             self.poisoned = true;
             self.root = None;
             self.retry_pending = false;
@@ -223,6 +230,7 @@ impl<R: NativeRuntime> Pump<R> {
         if receipt.outcomes.len() != plan.commands.len() {
             self.poisoned = true;
             self.events.clear();
+            self.realizations.clear();
             self.retry_pending = false;
             return Err(PumpError::ApplyReceiptMismatch);
         }
@@ -291,6 +299,7 @@ impl<R: NativeRuntime> Pump<R> {
         });
 
         self.events.clear();
+        self.realizations.clear();
         self.identity = recovery_identity;
         self.runtime.set_identity(recovery_identity);
         let recovery = self.runtime.apply(&plan.commands);
@@ -350,6 +359,7 @@ impl<R: NativeRuntime> Pump<R> {
         self.application = None;
         self.element = None;
         self.events.clear();
+        self.realizations.clear();
         self.retry_pending = false;
         self.root = None;
         self.tree = Tree::new();
@@ -384,6 +394,10 @@ impl<R: NativeRuntime> Pump<R> {
         self.retry_pending
     }
 
+    pub fn native_work_pending(&self) -> bool {
+        !self.events.is_empty() || !self.realizations.is_empty()
+    }
+
     pub fn event_revision(&self, node: NodeId, event: EventId) -> Option<u32> {
         self.tree
             .native(node)
@@ -416,6 +430,7 @@ impl<R: NativeRuntime> Pump<R> {
         self.events.extend(self.runtime.drain_events());
         if self.poisoned {
             self.events.clear();
+            self.realizations.clear();
             _ = self.runtime.drain_event_errors();
             _ = self.runtime.drain_realizations();
             return Ok(0);
@@ -439,7 +454,10 @@ impl<R: NativeRuntime> Pump<R> {
             return Err(PumpError::EventReadFailed(error.error));
         }
         let mut dispatched = 0;
-        while let Some(queued) = self.events.pop_front() {
+        for _ in 0..EVENT_WORK_BUDGET {
+            let Some(queued) = self.events.pop_front() else {
+                break;
+            };
             if queued.identity != self.identity {
                 continue;
             }
@@ -475,14 +493,18 @@ impl<R: NativeRuntime> Pump<R> {
 
     pub fn process_realizations(&mut self) -> Result<Vec<RealizationOutcome>, PumpError> {
         if self.poisoned {
+            self.realizations.clear();
             _ = self.runtime.drain_realizations();
             return Err(PumpError::Poisoned);
         }
-        let requests = self.runtime.drain_realizations();
-        let mut outcomes = Vec::with_capacity(requests.len());
+        self.realizations.extend(self.runtime.drain_realizations());
+        let mut outcomes = Vec::with_capacity(self.realizations.len().min(REALIZATION_WORK_BUDGET));
         let mut candidate = self.tree.clone();
         let mut plan = UpdatePlan::new(self.identity);
-        for queued in requests {
+        for _ in 0..REALIZATION_WORK_BUDGET {
+            let Some(queued) = self.realizations.pop_front() else {
+                break;
+            };
             let request = queued.work;
             if queued.identity != self.identity {
                 outcomes.push(RealizationOutcome::Rejected(request));
@@ -2233,6 +2255,36 @@ mod tests {
     }
 
     #[test]
+    fn event_work_budget_preserves_and_reports_pending_work() {
+        let calls = Rc::new(Cell::new(0));
+        let callback_calls = Rc::clone(&calls);
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(
+            Button::new()
+                .on_click(move || callback_calls.set(callback_calls.get() + 1))
+                .into(),
+        )
+        .unwrap();
+        let root = pump.root().unwrap();
+        let revision = pump.event_revision(root, EventId::ButtonClick).unwrap();
+        for _ in 0..=EVENT_WORK_BUDGET {
+            pump.queue_event(QueuedEvent {
+                node: root,
+                event: EventId::ButtonClick,
+                revision,
+                payload: EventPayload::Unit,
+            });
+        }
+
+        assert_eq!(pump.dispatch_events(), Ok(EVENT_WORK_BUDGET));
+        assert_eq!(calls.get(), EVENT_WORK_BUDGET);
+        assert!(pump.native_work_pending());
+        assert_eq!(pump.dispatch_events(), Ok(1));
+        assert_eq!(calls.get(), EVENT_WORK_BUDGET + 1);
+        assert!(!pump.native_work_pending());
+    }
+
+    #[test]
     fn rejected_controlled_edit_restores_the_desired_value() {
         let observed = Rc::new(RefCell::new(String::new()));
         let capture = Rc::clone(&observed);
@@ -2596,6 +2648,29 @@ mod tests {
             );
             assert!(!pump.poisoned(), "command {failed}");
         }
+    }
+
+    #[test]
+    fn realization_work_budget_preserves_and_reports_pending_work() {
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(ItemsRepeater::new().into()).unwrap();
+        let missing = NodeId::from_parts(u32::MAX, 0);
+        for index in 0..=REALIZATION_WORK_BUDGET {
+            pump.runtime_mut()
+                .queue_realization(RealizationRequest::Realize {
+                    collection: missing,
+                    container: RealizedContainer(index as u64),
+                    index,
+                });
+        }
+
+        assert_eq!(
+            pump.process_realizations().unwrap().len(),
+            REALIZATION_WORK_BUDGET
+        );
+        assert!(pump.native_work_pending());
+        assert_eq!(pump.process_realizations().unwrap().len(), 1);
+        assert!(!pump.native_work_pending());
     }
 
     #[test]

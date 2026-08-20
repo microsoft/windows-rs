@@ -451,8 +451,30 @@ property = "FontWeight"
         assert_eq!(event.payload, "U16");
         assert_eq!(
             event.conversion,
-            EventPayloadConversion::Field("Weight".to_string())
+            EventPayloadConversion::Field("weight".to_string())
         );
+    }
+
+    #[test]
+    fn rejects_multi_field_event_payload() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TextBlock"
+role = "leaf"
+capabilities = ["layout"]
+
+[[control.event]]
+name = "SizeChanged"
+property = "NewSize"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let error = Schema::parse(source)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+
+        assert!(error.contains("unsupported event property NewSize"));
     }
 
     #[test]

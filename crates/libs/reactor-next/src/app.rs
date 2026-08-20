@@ -24,6 +24,7 @@ struct LiveHost {
 trait LivePump {
     fn mount(&mut self) -> Result<(), PumpError>;
     fn dispatch_events(&mut self) -> Result<(), PumpError>;
+    fn native_work_pending(&self) -> bool;
     fn schedule_retry(&self) -> Result<(), RuntimeError>;
     fn shutdown(&mut self);
     #[cfg(feature = "test")]
@@ -48,6 +49,10 @@ where
 
     fn dispatch_events(&mut self) -> Result<(), PumpError> {
         self.dispatch_events().map(|_| ())
+    }
+
+    fn native_work_pending(&self) -> bool {
+        self.pump().native_work_pending()
     }
 
     fn schedule_retry(&self) -> Result<(), RuntimeError> {
@@ -248,7 +253,7 @@ pub(crate) fn dispatch_native_events() {
         let mut retry = false;
         if live.fault.is_none() {
             match live.pump.dispatch_events() {
-                Ok(()) => {}
+                Ok(()) => retry = live.pump.native_work_pending(),
                 Err(error) => {
                     let recoverable = error.recoverable();
                     let error = pump_error(error);

@@ -18,8 +18,11 @@ bindings, handle variants, property operations, structural roles, event subscrip
 payload reads from the control schema.
 Event metadata retains whether a payload comes from the sender or event arguments and records its
 conversion separately. Generated event-argument reads cast to the interface that owns the getter,
-and single-field value wrappers are converted to their public payload type. Object, class, and
-other unsupported read shapes fail generation instead of defaulting to a sender string getter.
+and single-field value wrappers are converted through their projected Rust field. Object, class,
+enum, multi-field value, and other unsupported read shapes fail generation instead of defaulting
+to an unproven conversion. Only events configured as controlled-property feedback update native
+property certainty; other payload-bearing events dispatch callbacks without inventing a writable
+property.
 Application, window, control, and subscription handles share the arena lifetime. Structural
 update failures clear and remount the control root with fresh generations while preserving the
 application and window. A remount failure stops the affected pump. Property comparison records
@@ -36,6 +39,9 @@ dispatching, and closing states. Work queued during dispatch is rearmed after th
 normal request replaces a queued low-priority callback using a scheduler generation, stale
 callbacks become no-ops, and dispatcher rejection becomes an explicit host fault. Terminal
 shutdown runs hook and effect cleanup before resetting native resources.
+Each dispatcher turn processes at most 64 queued events and 32 realization requests. Remaining
+work stays in pump-owned queues and rearms the scheduler so sustained native input cannot hold the
+UI thread indefinitely.
 `TextBox.TextChanged` reads its payload before queueing, and Reactor-originated text writes suppress
 their matching synchronous feedback. Native observations update property knowledge before
 application callbacks, so rejecting a user edit produces a restoring write. Controlled properties

@@ -141,7 +141,7 @@ impl MetadataResolver {
                 if Self::primitive_value_for_type(&inner_ty).is_some() {
                     single_field_types.insert(
                         (namespace.to_string(), name.to_string()),
-                        (fields[0].name().to_string(), inner_ty),
+                        (crate::helpers::to_snake_case(fields[0].name()), inner_ty),
                     );
                 }
             }
@@ -514,7 +514,7 @@ impl MetadataResolver {
                         ReadValueConversion::Field(field.clone()),
                     ));
                 }
-                Some((self.value_for_type(ty)?, ReadValueConversion::Identity))
+                None
             }
             _ => Some((
                 Self::primitive_value_for_type(ty)?,

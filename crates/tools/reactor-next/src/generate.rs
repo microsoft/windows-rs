@@ -507,12 +507,17 @@ fn generate_event_dispatchers(control: &ResolvedControl) -> Vec<TokenStream> {
 fn generate_event_observers(control: &ResolvedControl) -> Vec<TokenStream> {
     let name = ident(&control.name);
     control
-        .events
+        .properties
         .iter()
-        .filter_map(|event| {
-            let property = event.property.as_ref()?;
+        .filter_map(|property| {
+            let feedback = property.feedback.as_ref()?;
+            let event = control
+                .events
+                .iter()
+                .find(|event| &event.name == feedback)
+                .unwrap();
             let event_id = ident(&format!("{}{}", control.name, event.name));
-            let property_id = ident(&format!("{}{}", control.name, property));
+            let property_id = ident(&format!("{}{}", control.name, property.name));
             let payload = ident(&event.payload);
             Some(quote! {
                 (
@@ -939,5 +944,25 @@ clearable = true
         assert!(
             output.contains("interface : \"Microsoft.UI.Xaml.Controls.Primitives.IRangeBase\"")
         );
+    }
+
+    #[test]
+    fn ordinary_event_payload_is_not_a_property_observation() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.NumberBox"
+role = "leaf"
+capabilities = ["layout"]
+
+[[control.event]]
+name = "ValueChanged"
+property = "NewValue"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let resolved = Schema::parse(source).unwrap().resolve(&metadata).unwrap();
+        let output = generate(&resolved);
+
+        assert!(output.contains("EventId :: NumberBoxValueChanged"));
+        assert!(!output.contains("PropertyId :: NumberBoxNewValue"));
     }
 }

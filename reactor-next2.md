@@ -343,11 +343,12 @@ drain, retire, or report success for another window.
 - [x] Install `XamlControlsResources`.
 - [x] Replace scheduled booleans with an explicit pending/scheduled/dispatching/closing scheduler.
 - [x] Preserve queued work across reentrancy, priority escalation, and enqueue rejection.
+- [x] Bound native event and realization work per dispatcher turn and rearm remaining work.
 - [x] Run cleanup before revoking subscriptions and releasing required native resources.
 - [x] Clear recycled repeater shell content synchronously.
 - [x] Add property certainty, per-property retry accounting, and controlled-observation tracking.
 - [x] Add schema-validated feedback contracts.
-- [x] Retain and honor event payload source, interface, and conversion in generation.
+- [ ] Retain and honor event payload source, interface, and conversion in generation.
 
 **Exit:** verified backend behavior is independent of the frontend model.
 
@@ -489,7 +490,14 @@ context.
 
 ## Current work
 
-Current phase: **4 - implement the bounded component prototype**
+Current phase: **1 - close reopened generator and work-budget gaps**
+
+The August follow-up review found two accepted event schemas that could generate invalid Rust.
+Observation generation now walks controlled properties rather than every payload event, wrapper
+fields use minimal-projection Rust names, unsupported enum and multi-field reads are rejected,
+native drains are budgeted, and the live executable has a hard timeout. Keep this phase open until
+custom accepted schemas compile end to end and a live fixture proves generated COM event delivery
+without manually injecting the observation.
 
 - [x] Implement separate window and realization identity domains.
 - [x] Add stale-work tests for native remount and complete window replacement.
@@ -500,7 +508,7 @@ Current phase: **4 - implement the bounded component prototype**
 - [x] Complete desired/known/divergent state with per-property attempts.
 - [x] Restore rejected controlled edits through the live render loop with or without callbacks.
 - [x] Require an explicit supported feedback contract for controlled properties.
-- [x] Honor typed event payload source interfaces and conversions in generated code.
+- [ ] Honor typed event payload source interfaces and conversions in generated code.
 - [x] Add the first live startup/resources fixture.
 - [x] Verify callback-free controlled repair through the live scheduler and WinUI property.
 - [x] Add live tests for scheduler rejection/reentrancy, stale remount, and shutdown ordering.

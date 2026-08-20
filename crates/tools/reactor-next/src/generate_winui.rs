@@ -553,6 +553,6 @@ property = "FontWeight"
         let generated = generate(&schema);
 
         assert!(generated.contains("cast :: < INumberBoxValueChangedEventArgs >"));
-        assert!(generated.contains("EventPayload :: U16 (value . Weight)"));
+        assert!(generated.contains("EventPayload :: U16 (value . weight)"));
     }
 }
