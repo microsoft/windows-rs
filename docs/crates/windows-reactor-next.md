@@ -100,11 +100,10 @@ scope transaction commits after recovery succeeds. A second structural failure p
 and leaves old scopes published.
 
 Local sends request normal-priority work only when the queue changes from empty to nonempty. Each
-dispatcher turn drains at most 64 messages and rearms if work remains. Retired scopes and replaced
-windows reject stale sends before insertion. Dirty scopes use a derived tree index, set-based
-coalescing, and parent-first composition. A property-only isolated leaf update avoids cloning the
-candidate tree; the release benchmark remains within 3.4% from 512 to 16,384 unrelated components
-with a constant 475 bytes and 10 allocations per operation.
+dispatcher turn drains at most 64 messages and rearms if work remains. Each window accepts at most
+4,096 queued messages. `LocalSender::send` returns `false` when that capacity is reached or when the
+scope or window is stale. Dirty scopes use a derived tree index, set-based coalescing, and
+parent-first composition. A property-only isolated leaf update avoids cloning the candidate tree.
 
 `ViewContext::use_effect` records dependency-indexed lifecycle work. Changed and retired cleanups
 run child-first before native mutation. Setups run parent-first after scope and tree publication and
@@ -113,6 +112,19 @@ fixture forces structural recovery, drives a 65-message burst from generated COM
 checks one-time component creation and effect setup, and checks one cleanup at shutdown. Virtual
 collections are not accepted by the component recovery path until their leases can be rebound to
 the new realization identity.
+
+The Phase 5 frontend comparison measured forced no-change and isolated-leaf work with equivalent
+hook and component trees. At 512 leaves, component p95 was 0.3 us for no-change work and 0.9 us for
+a changed leaf, compared with 29.3 us and 34.5 us for root hooks. Component leaf cost stayed near
+0.7 us through 16,384 unrelated scopes with 476 allocated bytes per update. Idle component storage
+was about 2,479 retained bytes per scope. Two isolated release builds put component compile time at
+0.78x-0.91x hook time and component executable size at 0.97x.
+
+Dense keyed reversal uses `ResetChildren` followed by ordered attachment once minimal moves would
+touch more than one quarter of a collection and at least 256 children. This avoids quadratic vector
+movement while sparse edits keep their minimal move plan. The live WinUI fixture exercises the
+collection reset. Empty and multi-root component views, budgeted structural recovery, and a live
+multi-window host remain continuation blockers.
 
 The `test` feature exposes the recording runtime and pump to the headless benchmark package. It is
 not part of the default application surface.

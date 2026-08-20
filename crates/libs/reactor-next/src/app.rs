@@ -58,6 +58,10 @@ trait LivePump {
     fn live_component_message_result(&self) -> bool {
         false
     }
+    #[cfg(feature = "test")]
+    fn live_dense_reorder(&mut self) -> bool {
+        false
+    }
 }
 
 struct ComponentLoop {
@@ -292,6 +296,24 @@ where
         };
         LIVE_COMPONENT_CREATES.with(|count| count.get() == 1)
             && self.pump().runtime().live_text(native).as_deref() == Ok("message")
+    }
+
+    #[cfg(feature = "test")]
+    fn live_dense_reorder(&mut self) -> bool {
+        let labels = (0..512).map(|index| index.to_string()).collect::<Vec<_>>();
+        let view =
+            |labels: &[String]| {
+                View::native(StackPanel::new().children(
+                    labels.iter().map(|label| {
+                        KeyedElement::new(label.clone(), TextBlock::new().text(label))
+                    }),
+                ))
+            };
+        if self.pump_mut().update_view(view(&labels)).is_err() {
+            return false;
+        }
+        let reversed = labels.into_iter().rev().collect::<Vec<_>>();
+        self.pump_mut().update_view(view(&reversed)).is_ok()
     }
 }
 
@@ -578,6 +600,10 @@ fn finish_live_backend_test() {
     }
     if !live.pump.live_stale_remount() {
         eprintln!("live backend fixture did not reject stale remount work");
+        std::process::exit(1);
+    }
+    if !live.pump.live_dense_reorder() {
+        eprintln!("live backend fixture did not apply a dense keyed reorder");
         std::process::exit(1);
     }
     if !live.pump.live_component_recovery() {

@@ -294,6 +294,7 @@ impl WinUiRuntime {
                 index,
             } => self.insert_child(*parent, *child, *index)?,
             Command::RemoveChild { parent, child } => self.remove_child(*parent, *child)?,
+            Command::ResetChildren { parent } => self.reset_children(*parent)?,
             Command::MoveChild {
                 parent,
                 child,
@@ -362,6 +363,26 @@ impl WinUiRuntime {
             } else if let Some(children) = parent.child_collection()? {
                 let index = child_index(&children, child_id, &child)?;
                 children.RemoveAt(index).map_err(native_error)
+            } else {
+                Err(RuntimeError::UnsupportedKind)
+            }
+        }
+    }
+
+    fn reset_children(&self, parent: NodeId) -> Result<(), RuntimeError> {
+        if let Some(window) = self.windows.get(&parent) {
+            window.SetContent(None::<&UIElement>).map_err(native_error)
+        } else {
+            let parent = self
+                .handles
+                .get(&parent)
+                .ok_or(RuntimeError::MissingNode(parent))?;
+            if let Some(content) = parent.content_control()? {
+                content
+                    .SetContent(None::<&windows_core::IInspectable>)
+                    .map_err(native_error)
+            } else if let Some(children) = parent.child_collection()? {
+                children.Clear().map_err(native_error)
             } else {
                 Err(RuntimeError::UnsupportedKind)
             }

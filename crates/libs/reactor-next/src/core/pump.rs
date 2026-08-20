@@ -1208,6 +1208,36 @@ impl<R: NativeRuntime> Pump<R> {
                     }
                 }
 
+                if operations.len() >= 256 && operations.len() * 4 > new_keys.len() {
+                    let old_key_set = old_keys.iter().cloned().collect::<HashSet<_>>();
+                    let new_key_set = new_keys.iter().cloned().collect::<HashSet<_>>();
+                    if old_key_set == new_key_set {
+                        let order = new_keys
+                            .iter()
+                            .map(|key| {
+                                nodes
+                                    .get(key)
+                                    .copied()
+                                    .ok_or(PumpError::StructureUnsupported)
+                            })
+                            .collect::<Result<Vec<_>, _>>()?;
+                        plan.push(Command::ResetChildren { parent: node });
+                        for (index, key) in new_keys.iter().enumerate() {
+                            let child = nodes
+                                .get(key)
+                                .copied()
+                                .ok_or(PumpError::StructureUnsupported)?;
+                            plan.push(Command::InsertChild {
+                                parent: node,
+                                child,
+                                index,
+                            });
+                        }
+                        tree.set_children(node, order)?;
+                        return Ok(node);
+                    }
+                }
+
                 let mut order = current_children
                     .into_iter()
                     .map(|child| replacements.get(&child).copied().unwrap_or(child))
@@ -3405,6 +3435,48 @@ mod tests {
     }
 
     #[test]
+    fn dense_keyed_reorder_resets_collection_without_recreating_children() {
+        let labels = (0..512).map(|index| index.to_string()).collect::<Vec<_>>();
+        let mut reversed = labels.clone();
+        reversed.reverse();
+        let element =
+            |labels: &[String]| {
+                StackPanel::new()
+                    .children(labels.iter().map(|label| {
+                        KeyedElement::new(label.clone(), TextBlock::new().text(label))
+                    }))
+                    .into()
+            };
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(element(&labels)).unwrap();
+        let root = pump.root().unwrap();
+        let original = pump
+            .tree
+            .children(root)
+            .unwrap()
+            .iter()
+            .copied()
+            .collect::<HashSet<_>>();
+
+        pump.update(element(&reversed)).unwrap();
+
+        assert!(pump.runtime().commands()[1].contains(&Command::ResetChildren { parent: root }));
+        assert_eq!(
+            pump.tree
+                .children(root)
+                .unwrap()
+                .iter()
+                .copied()
+                .collect::<HashSet<_>>(),
+            original
+        );
+        assert_eq!(
+            pump.runtime().node(root).unwrap().children(),
+            pump.tree.children(root).unwrap()
+        );
+    }
+
+    #[test]
     fn retained_key_recurses_into_property_update() {
         let mut pump = Pump::new(RecordingRuntime::default());
         pump.mount(
@@ -3949,6 +4021,59 @@ mod tests {
     }
 
     #[test]
+    fn component_rejected_controlled_edit_restores_the_desired_value() {
+        struct Controlled;
+
+        impl Component for Controlled {
+            type Message = String;
+            type Props = ();
+
+            fn create(_props: &(), _context: &mut ComponentContext<Self>) -> Self {
+                Self
+            }
+
+            fn changed(&mut self, _props: &(), _context: &mut ComponentContext<Self>) {}
+
+            fn update(&mut self, _message: String, _context: &mut ComponentContext<Self>) {}
+
+            fn view(&self, context: &mut ViewContext<Self>) -> View {
+                let sender = context.sender();
+                View::native(
+                    TextBox::new()
+                        .text("desired")
+                        .on_text_changed(move |value| {
+                            _ = sender.send(value);
+                        }),
+                )
+            }
+        }
+
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount_view(View::component::<Controlled>(())).unwrap();
+        let root = Pump::<RecordingRuntime>::native_root(&pump.tree, pump.root().unwrap()).unwrap();
+        let revision = pump
+            .event_revision(root, EventId::TextBoxTextChanged)
+            .unwrap();
+        pump.queue_event(QueuedEvent {
+            node: root,
+            event: EventId::TextBoxTextChanged,
+            revision,
+            payload: EventPayload::Str("native".into()),
+        });
+
+        assert_eq!(pump.dispatch_events(), Ok(1));
+        assert_eq!(pump.dispatch_components(1), Ok(1));
+        assert_eq!(
+            pump.runtime()
+                .node(root)
+                .unwrap()
+                .property(PropertyId::TextBoxText),
+            Some(&PropertyValue::Str("desired".into()))
+        );
+        assert!(!pump.retry_pending());
+    }
+
+    #[test]
     fn realization_requests_are_checked_against_arena_and_container_generations() {
         let mut pump = Pump::new(RecordingRuntime::default());
         pump.mount(
@@ -4357,6 +4482,76 @@ mod tests {
             assert_eq!(pump.tree.len(), 0, "cycle {cycle}");
             assert!(pump.runtime().is_empty(), "cycle {cycle}");
         }
+    }
+
+    #[test]
+    fn component_view_reuses_a_virtual_collection_shell_immediately() {
+        struct VirtualRoot;
+
+        impl Component for VirtualRoot {
+            type Message = ();
+            type Props = ();
+
+            fn create(_props: &(), _context: &mut ComponentContext<Self>) -> Self {
+                Self
+            }
+
+            fn changed(&mut self, _props: &(), _context: &mut ComponentContext<Self>) {}
+
+            fn update(&mut self, _message: (), _context: &mut ComponentContext<Self>) {}
+
+            fn view(&self, _context: &mut ViewContext<Self>) -> View {
+                View::native(
+                    ScrollViewer::new().content(
+                        ItemsRepeater::new()
+                            .item("a", TextBlock::new().text("A"))
+                            .item("b", TextBlock::new().text("B")),
+                    ),
+                )
+            }
+        }
+
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount_view(View::component::<VirtualRoot>(())).unwrap();
+        let scroll =
+            Pump::<RecordingRuntime>::native_root(&pump.tree, pump.root().unwrap()).unwrap();
+        let collection = pump.tree.children(scroll).unwrap()[0];
+        let container = RealizedContainer(1);
+        pump.runtime_mut()
+            .queue_realization(RealizationRequest::Realize {
+                collection,
+                container,
+                index: 0,
+            });
+        let first = pump.process_realizations().unwrap();
+        let first_child = pump.tree.children(collection).unwrap()[0];
+        pump.runtime_mut()
+            .queue_realization(RealizationRequest::Recycle {
+                collection,
+                container,
+            });
+        pump.process_realizations().unwrap();
+        pump.runtime_mut()
+            .queue_realization(RealizationRequest::Realize {
+                collection,
+                container,
+                index: 1,
+            });
+        let second = pump.process_realizations().unwrap();
+
+        let [RealizationOutcome::Realized(first)] = first.as_slice() else {
+            panic!("expected first realization");
+        };
+        let [RealizationOutcome::Realized(second)] = second.as_slice() else {
+            panic!("expected second realization");
+        };
+        assert_eq!(first.container, container);
+        assert_eq!(second.container, container);
+        assert_eq!(first.key, Key::from("a"));
+        assert_eq!(second.key, Key::from("b"));
+        assert_eq!(pump.tree.children(collection).unwrap().len(), 1);
+        assert_ne!(pump.tree.children(collection).unwrap()[0], first_child);
+        assert_eq!(recorded_text(pump.runtime(), collection), ["B"]);
     }
 
     #[test]

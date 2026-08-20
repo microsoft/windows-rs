@@ -333,6 +333,18 @@ impl RecordingRuntime {
                 parent_node.children.remove(position);
                 self.nodes.get_mut(child).unwrap().parent = None;
             }
+            Command::ResetChildren { parent } => {
+                let children = {
+                    let parent = self
+                        .nodes
+                        .get_mut(parent)
+                        .ok_or(RuntimeError::MissingNode(*parent))?;
+                    std::mem::take(&mut parent.children)
+                };
+                for child in children {
+                    self.nodes.get_mut(&child).unwrap().parent = None;
+                }
+            }
             Command::MoveChild {
                 parent,
                 child,

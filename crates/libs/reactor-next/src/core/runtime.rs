@@ -236,6 +236,9 @@ pub enum Command {
         parent: NodeId,
         child: NodeId,
     },
+    ResetChildren {
+        parent: NodeId,
+    },
     MoveChild {
         parent: NodeId,
         child: NodeId,

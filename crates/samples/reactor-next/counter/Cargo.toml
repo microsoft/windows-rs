@@ -4,6 +4,10 @@ version = "0.0.0"
 edition = "2024"
 publish = false
 
+[[bin]]
+name = "component"
+path = "src/component.rs"
+
 [dependencies]
 windows-reactor-next = { workspace = true }
 

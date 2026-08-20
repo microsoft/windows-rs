@@ -403,26 +403,66 @@ against live WinUI.
 
 ### 5. Compare hooks and components
 
-Run equivalent applications through both frontends:
+| Scenario | Result |
+| --- | --- |
+| Counter | Hook and component binaries compile from equivalent generated controls |
+| Controlled rejection | Both restore the desired `TextBox.Text` value |
+| Nested ownership | Pass-through and native-owning component tests pass |
+| Keyed changes | Insert, move, removal, type replacement, and dense reorder pass |
+| Anchoring | Single-root and component-only pass; empty and multi-root remain unsupported |
+| Reentrancy | Queue-only sends, a 65-message live burst, and fixed-capacity backpressure pass |
+| Repeated lifecycle | Scope, callback, effect, repeater, and shutdown tests return to zero |
+| Virtual collection | Component-owned repeater shells recycle and immediately realize new rows |
+| Two windows | Separate pumps reject cross-window tokens; the live host still owns one window |
 
-- Counter.
-- Controlled form with rejected input.
-- Nested pass-through and native-owning components.
-- Keyed insert, move, removal, and type replacement.
-- Empty, single-root, multi-root, and component-only views.
-- Reentrant message/event delivery.
-- Repeated mount and retirement.
-- Virtual collection with immediate shell reuse.
-- Two windows.
+The component counter uses 42 nonblank source lines versus 19 for hooks. Most of the difference is
+the explicit state type and `create`/`changed`/`update`/`view` methods. The component surface gives
+props, messages, effects, and ownership separate compiler-checked boundaries, but it is not the
+shorter frontend for a small root.
 
-Compare:
+The release benchmark used 256 latency samples for p50/p95/p99 and disabled command history in the
+recording runtime:
 
-- Correctness and failure convergence.
-- Source size and framework boilerplate.
-- Compiler diagnostics for props, messages, keys, and thread use.
-- Render, plan, native apply, publication, and effects separately.
-- Allocation count and retained memory per idle component.
-- Compile time, executable size, p95/p99 latency, dispatcher backlog, and resource bounds.
+| Frontend and operation | N | p50 | p95 | p99 | Bytes/op | Allocs/op |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Hooks, forced no-change | 512 | 25.5 us | 29.3 us | 35.8 us | 49,122 | 515 |
+| Components, forced no-change | 512 | 0.2 us | 0.3 us | 0.3 us | 100 | 3 |
+| Hooks, isolated leaf | 512 | 30.9 us | 34.5 us | 40.8 us | 62,605 | 530 |
+| Components, isolated leaf | 512 | 0.6 us | 0.9 us | 1.1 us | 476 | 11 |
+| Hooks, isolated leaf | 4,096 | 288.4 us | 396.3 us | 560.7 us | 495,785 | 4,114 |
+| Components, isolated leaf | 4,096 | 0.6 us | 0.7 us | 0.7 us | 476 | 11 |
+| Hooks, isolated leaf | 16,384 | 1.67 ms | 3.02 ms | 4.47 ms | 1,989,017 | 16,402 |
+| Components, isolated leaf | 16,384 | 0.6 us | 0.7 us | 0.7 us | 476 | 11 |
+
+The component isolated-leaf path retained constant allocation and latency through 16,384 unrelated
+leaf scopes. Including the root, idle retained memory was 1,271,876 bytes at 513 scopes, 10,156,612
+bytes at 4,097, and 40,618,564 bytes at 16,385 - about 2,479 bytes per scope at every size.
+
+Dense keyed reversal initially exposed quadratic vector movement. Reorders above the dense-change
+threshold now issue one `ResetChildren` followed by ordered attachment, while sparse changes keep
+minimal moves. The 512-to-4,096 reversal grew from 0.17 ms to 1.86 ms for an 8x input increase and
+the live WinUI fixture exercises the reset transaction.
+
+Two isolated compile trials built the same counter controls:
+
+| Metric | Hooks | Components | Component/hook |
+| --- | ---: | ---: | ---: |
+| Clean release, trial 1 | 5.54 s | 4.91 s | 0.89x |
+| Clean release, trial 2 | 5.54 s | 5.03 s | 0.91x |
+| Incremental release, trial 1 | 2.71 s | 2.43 s | 0.90x |
+| Incremental release, trial 2 | 2.59 s | 2.03 s | 0.78x |
+| Release executable | 706,560 bytes | 686,592 bytes | 0.97x |
+
+The current `windows-reactor` headless baseline measured 0.54 us and 457 bytes for one dirty
+component. The new component path measured about 0.60 us and 476 bytes, so local update cost remains
+close to the established crate rather than paying the root-hook cost. The current crate remains
+faster for a 512-item dense keyed reversal (0.10 ms versus 0.17 ms).
+
+**Decision:** continue with the owned-component architecture and retain hooks during the remaining
+gate work. Components provide a clear locality advantage without compile-time or executable-size
+regressions, and they stay close to the current crate's local component baseline. Do not start
+context or async ownership yet. Empty/multi-root anchoring, bounded native recovery, and a live
+multi-window host remain blockers rather than being hidden by the favorable leaf benchmark.
 
 ### 6. Conditional context and async proof
 
@@ -482,6 +522,22 @@ applications on the same machine and toolchain.
 | Idle scope memory | Report retained bytes at 512, 4K, and 16K scopes |
 | Compile diagnostics | Invalid props, messages, and thread crossing fail at the public API boundary |
 
+Phase 5 results:
+
+| Metric | Result |
+| --- | --- |
+| Clean and incremental compile time | Pass - worst component ratio 0.91x |
+| Release executable size | Pass - component ratio 0.97x |
+| No-change median and p95 | Pass - component ratios 0.01x |
+| Isolated-leaf median and p95 | Pass - component ratios <= 0.02x at 512 |
+| Isolated leaf, 512 -> 16K | Pass - constant latency, bytes, and allocations |
+| Keyed siblings, 512 -> 4K | Pass - 8x input produced about 11x time after dense reset |
+| Repeated mount and retirement | Pass headlessly; more live resource cycles remain |
+| Message burst | Pass - 4,096-message queue capacity and observable `false` backpressure |
+| Native recovery | Blocked - structural recovery still applies an unbudgeted remount batch |
+| Idle scope memory | Reported - about 2,479 bytes per scope |
+| Compile diagnostics | Pass - props/messages are typed and `LocalSender` is not `Send` |
+
 Report update CPU p95 and p99 separately from end-to-end frame latency. Set the absolute CPU budget
 from current-reactor measurements on the same live scenarios; a full 16.7 ms frame is not an
 acceptable update CPU budget.
@@ -491,7 +547,7 @@ context.
 
 ## Current work
 
-Current phase: **5 - compare hooks and components**
+Current phase: **Phase 5 complete - close continuation blockers before Phase 6**
 
 The August follow-up review found two accepted event schemas that could generate invalid Rust.
 Observation generation now walks controlled properties rather than every payload event, wrapper
@@ -519,42 +575,38 @@ Phase 2 still tracks live window recreation, repeater shell visuals, OS input de
 two-window isolation. These require host or automation surfaces beyond the bounded one-window
 component slice; they remain continuation gates rather than being treated as passing evidence.
 Phase 4 is complete. The component frontend stores `ScopeId` and component type on logical
-component nodes. A
-separate window-token-bound store owns non-cloneable component state, checked typed props, and FIFO
-local message envelopes. The public `Component` and `View` types can reserve a component-only chain,
-expand it to one native root in the authoritative candidate tree, run the normal native command
-batch, and publish all scopes only after structural success. Same-type prop updates retain parent
-and child scopes. Typed local messages are drained before a local candidate reconciliation, and
-multiple messages for one component coalesce into one view pass. This slice currently requires the
-component chain to end in the same leaf native control. `View::Content` and `View::Children` now
-mount logical component descendants under a native parent. Same-key children retain their scopes
-when parent props change or their order moves, and native move commands target each component's
-realized native root. Keyed insert/remove and same-key type replacement use one scope transaction:
-new scopes remain reserved during native apply, removed scopes remain published, and successful
-native publication publishes the new scopes before retiring the old scopes. Failed structural
-candidates discard new reservations without retiring old scopes. Fragments and virtual view items
-are still open. A failed component structural update now preserves the composed application and
-window, resets their native content, advances realization identity, and remounts the complete
-desired logical candidate without recreating component state. The scope transaction commits only
-after recovery succeeds. A failed recovery discards reserved scopes, preserves old published
-scopes, and poisons the pump. Headless and live WinUI fixtures prove the recovery and verify that
-`Component::create` runs only once. Virtual collections are excluded from this recovery path until
-their leases can be rebound to the new realization identity. Control expansion remains frozen.
+component nodes. A separate window-token-bound store owns non-cloneable component state, checked
+typed props, and FIFO local message envelopes. The public `Component` and `View` types can reserve a
+component-only chain, expand it to one native root in the authoritative candidate tree, run the
+normal native command batch, and publish all scopes only after structural success. Same-type prop
+updates retain parent and child scopes. Typed local messages are drained before local candidate
+reconciliation, and multiple messages for one component coalesce into one view pass.
+`View::Content` and `View::Children` mount logical component descendants under a native parent.
+Same-key children retain scopes across prop updates and movement. Insert/remove and type
+replacement use one scope transaction. Failed structural updates preserve the application and
+window, advance realization identity, and remount the desired candidate without recreating
+component state. Virtual collections work below components but remain excluded from this recovery
+path until leases can be rebound to the new realization identity. Control expansion remains frozen.
 `App::run_component` hosts a component root through the same live scheduler as the hook frontend.
 Local sends wake normal-priority work only when the queue changes from empty to nonempty. Each turn
-drains at most 64 messages and rearms when work remains. Retired scopes, replaced windows, and
-shutdown close their queue gates so stale senders cannot append or wake work.
+drains at most 64 messages and rearms when work remains. Each window accepts at most 4,096 queued
+messages, and `LocalSender::send` returns `false` when the queue is full or its owner is stale.
+Retired scopes, replaced windows, and shutdown close their queue gates.
 
 Dirty scopes use a derived `ScopeId` index, set-based coalescing, and parent-first composition.
 Unchanged child props suppress duplicate child composition. A property-only update to one native
-leaf avoids cloning the candidate tree. The release benchmark measured 534.4, 525.0, and 525.0
-ns/op at 512, 4,096, and 16,384 unrelated components, with 475 bytes and 10 allocations per
-operation at every size. Structural changes retain the full candidate and recovery path. A
-component host also treats pending native-property repair as schedulable work and recomposes its
-mounted scopes when no message is available to trigger the retry.
+leaf avoids cloning the candidate tree. Phase 5 measured about 0.6 us and 476 bytes per isolated
+leaf update through 16,384 unrelated components. Structural changes retain the full candidate and
+recovery path. A component host also treats pending property repair as schedulable work and
+recomposes mounted scopes when no message is available to trigger the retry.
 
 `ViewContext::use_effect` records dependency-indexed setup and cleanup work. Changed and retired
 cleanups run child-first before native mutation. Setups run parent-first after scope and tree
 publication, never after failed recovery, and cleanup is idempotent across shutdown and drop.
 Headless failure-injection tests and the live WinUI fixture cover setup, dependency changes,
 recovery, and shutdown counts.
+
+Phase 5 found a clear reason to continue: owned components preserve local work while root hooks
+scale with unrelated tree size, and the component binary did not regress compilation or size.
+Empty/multi-root anchoring, budgeted structural recovery, and live multi-window ownership must pass
+before context or background async work begins.

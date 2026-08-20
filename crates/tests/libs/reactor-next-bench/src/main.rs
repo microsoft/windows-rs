@@ -8,6 +8,7 @@ use windows_reactor_next::*;
 
 static BYTES: AtomicU64 = AtomicU64::new(0);
 static ALLOCS: AtomicU64 = AtomicU64::new(0);
+static CURRENT_BYTES: AtomicU64 = AtomicU64::new(0);
 
 struct Counting;
 
@@ -17,11 +18,13 @@ unsafe impl GlobalAlloc for Counting {
         if !pointer.is_null() {
             BYTES.fetch_add(layout.size() as u64, Ordering::Relaxed);
             ALLOCS.fetch_add(1, Ordering::Relaxed);
+            CURRENT_BYTES.fetch_add(layout.size() as u64, Ordering::Relaxed);
         }
         pointer
     }
 
     unsafe fn dealloc(&self, pointer: *mut u8, layout: Layout) {
+        CURRENT_BYTES.fetch_sub(layout.size() as u64, Ordering::Relaxed);
         unsafe { System.dealloc(pointer, layout) };
     }
 
@@ -30,6 +33,9 @@ unsafe impl GlobalAlloc for Counting {
         if !pointer.is_null() && size > layout.size() {
             BYTES.fetch_add((size - layout.size()) as u64, Ordering::Relaxed);
             ALLOCS.fetch_add(1, Ordering::Relaxed);
+            CURRENT_BYTES.fetch_add((size - layout.size()) as u64, Ordering::Relaxed);
+        } else if !pointer.is_null() {
+            CURRENT_BYTES.fetch_sub((layout.size() - size) as u64, Ordering::Relaxed);
         }
         pointer
     }
@@ -50,9 +56,26 @@ struct Row {
     perf: Perf,
 }
 
+struct FrontendRow {
+    frontend: &'static str,
+    name: &'static str,
+    n: usize,
+    median_ns: f64,
+    p95_ns: f64,
+    p99_ns: f64,
+    bytes: f64,
+    allocs: f64,
+}
+
+struct MemoryRow {
+    n: usize,
+    bytes: u64,
+    bytes_per_scope: f64,
+}
+
 #[derive(Clone)]
 struct LeafProps {
-    sender: Rc<RefCell<Option<LocalSender<()>>>>,
+    sender: Rc<RefCell<Option<LocalSender<bool>>>>,
 }
 
 impl PartialEq for LeafProps {
@@ -67,7 +90,7 @@ struct BenchLeaf {
 
 impl Component for BenchLeaf {
     type Props = LeafProps;
-    type Message = ();
+    type Message = bool;
 
     fn create(props: &Self::Props, context: &mut ComponentContext<Self>) -> Self {
         *props.sender.borrow_mut() = Some(context.sender());
@@ -76,8 +99,10 @@ impl Component for BenchLeaf {
 
     fn changed(&mut self, _props: &Self::Props, _context: &mut ComponentContext<Self>) {}
 
-    fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {
-        self.active = !self.active;
+    fn update(&mut self, toggle: Self::Message, _context: &mut ComponentContext<Self>) {
+        if toggle {
+            self.active = !self.active;
+        }
     }
 
     fn view(&self, _context: &mut ViewContext<Self>) -> View {
@@ -86,11 +111,11 @@ impl Component for BenchLeaf {
 }
 
 struct BenchRoot {
-    senders: Rc<Vec<Rc<RefCell<Option<LocalSender<()>>>>>>,
+    senders: Rc<Vec<Rc<RefCell<Option<LocalSender<bool>>>>>>,
 }
 
 #[derive(Clone)]
-struct RootProps(Rc<Vec<Rc<RefCell<Option<LocalSender<()>>>>>>);
+struct RootProps(Rc<Vec<Rc<RefCell<Option<LocalSender<bool>>>>>>);
 
 impl PartialEq for RootProps {
     fn eq(&self, other: &Self) -> bool {
@@ -156,6 +181,46 @@ fn measure(iters: u64, reps: u32, mut op: impl FnMut()) -> Perf {
         }
     }
     best
+}
+
+fn measure_frontend(
+    frontend: &'static str,
+    name: &'static str,
+    n: usize,
+    samples: usize,
+    batch: usize,
+    mut op: impl FnMut(),
+) -> FrontendRow {
+    for _ in 0..16 {
+        for _ in 0..batch {
+            op();
+        }
+    }
+    let mut timings = Vec::with_capacity(samples);
+    let bytes = BYTES.load(Ordering::Relaxed);
+    let allocs = ALLOCS.load(Ordering::Relaxed);
+    for _ in 0..samples {
+        let start = Instant::now();
+        for _ in 0..batch {
+            op();
+        }
+        timings.push(start.elapsed().as_nanos() as f64 / batch as f64);
+    }
+    timings.sort_by(f64::total_cmp);
+    let percentile = |value: f64| {
+        let index = ((timings.len() - 1) as f64 * value).ceil() as usize;
+        timings[index]
+    };
+    FrontendRow {
+        frontend,
+        name,
+        n,
+        median_ns: percentile(0.50),
+        p95_ns: percentile(0.95),
+        p99_ns: percentile(0.99),
+        bytes: (BYTES.load(Ordering::Relaxed) - bytes) as f64 / (samples * batch) as f64,
+        allocs: (ALLOCS.load(Ordering::Relaxed) - allocs) as f64 / (samples * batch) as f64,
+    }
 }
 
 fn runtime() -> RecordingRuntime {
@@ -303,13 +368,117 @@ fn bench_component_leaf(count: usize, iters: u64, reps: u32) -> Row {
         .unwrap();
     let sender = senders[count / 2].borrow().as_ref().unwrap().clone();
     let perf = measure(iters, reps, || {
-        sender.send(());
+        sender.send(true);
         pump.dispatch_components(1).unwrap();
     });
     Row {
         name: "component_leaf",
         n: count,
         perf,
+    }
+}
+
+fn bench_hook_no_change(count: usize, samples: usize) -> FrontendRow {
+    let state = Rc::new(RefCell::new(None));
+    let state_capture = Rc::clone(&state);
+    let labels = Rc::new(
+        (0..count)
+            .map(|index| format!("cell-{index}"))
+            .collect::<Vec<_>>(),
+    );
+    let mut app = RenderLoop::new(runtime(), move |hooks| {
+        let active = hooks.use_state(|| false);
+        *state_capture.borrow_mut() = Some(active);
+        stack(&labels)
+    });
+    app.run().unwrap();
+    let state = state.borrow().as_ref().unwrap().clone();
+    measure_frontend("hooks", "no_change", count, samples, 1, || {
+        state.set(state.get());
+        app.run().unwrap();
+    })
+}
+
+fn bench_component_no_change(count: usize, samples: usize) -> FrontendRow {
+    let senders = Rc::new(
+        (0..count)
+            .map(|_| Rc::new(RefCell::new(None)))
+            .collect::<Vec<_>>(),
+    );
+    let mut pump = Pump::new(runtime());
+    pump.mount_view(View::component::<BenchRoot>(RootProps(Rc::clone(&senders))))
+        .unwrap();
+    let sender = senders[count / 2].borrow().as_ref().unwrap().clone();
+    measure_frontend("components", "no_change", count, samples, 1, || {
+        _ = sender.send(false);
+        pump.dispatch_components(1).unwrap();
+    })
+}
+
+fn bench_hook_isolated_leaf(count: usize, samples: usize) -> FrontendRow {
+    let state = Rc::new(RefCell::new(None));
+    let state_capture = Rc::clone(&state);
+    let labels = Rc::new(
+        (0..count)
+            .map(|index| format!("cell-{index}"))
+            .collect::<Vec<_>>(),
+    );
+    let mut app = RenderLoop::new(runtime(), move |hooks| {
+        let active = hooks.use_state(|| false);
+        *state_capture.borrow_mut() = Some(active.clone());
+        StackPanel::new()
+            .children(labels.iter().enumerate().map(|(index, label)| {
+                KeyedElement::new(
+                    index,
+                    TextBlock::new().text(if index == count / 2 && active.get() {
+                        "active".to_string()
+                    } else {
+                        label.clone()
+                    }),
+                )
+            }))
+            .into()
+    });
+    app.run().unwrap();
+    let state = state.borrow().as_ref().unwrap().clone();
+    measure_frontend("hooks", "isolated_leaf", count, samples, 1, || {
+        state.update(|active| *active = !*active);
+        app.run().unwrap();
+    })
+}
+
+fn bench_component_isolated_leaf(count: usize, samples: usize) -> FrontendRow {
+    let senders = Rc::new(
+        (0..count)
+            .map(|_| Rc::new(RefCell::new(None)))
+            .collect::<Vec<_>>(),
+    );
+    let mut pump = Pump::new(runtime());
+    pump.mount_view(View::component::<BenchRoot>(RootProps(Rc::clone(&senders))))
+        .unwrap();
+    let sender = senders[count / 2].borrow().as_ref().unwrap().clone();
+    measure_frontend("components", "isolated_leaf", count, samples, 1, || {
+        _ = sender.send(true);
+        pump.dispatch_components(1).unwrap();
+    })
+}
+
+fn measure_idle_component_memory(count: usize) -> MemoryRow {
+    let senders = Rc::new(
+        (0..count)
+            .map(|_| Rc::new(RefCell::new(None)))
+            .collect::<Vec<_>>(),
+    );
+    let mut pump = Pump::new(runtime());
+    let before = CURRENT_BYTES.load(Ordering::Relaxed);
+    pump.mount_view(View::component::<BenchRoot>(RootProps(senders)))
+        .unwrap();
+    let bytes = CURRENT_BYTES.load(Ordering::Relaxed) - before;
+    pump.shutdown();
+    MemoryRow {
+        n: count + 1,
+        bytes,
+        bytes_per_scope: bytes as f64 / (count + 1) as f64,
     }
 }
 
@@ -329,6 +498,9 @@ fn main() {
     changed[0] = "changed".to_string();
     let mut reversed = labels.clone();
     reversed.reverse();
+    let labels_4k: Vec<_> = (0..4_096).map(|index| format!("cell-{index}")).collect();
+    let mut reversed_4k = labels_4k.clone();
+    reversed_4k.reverse();
 
     let rows = [
         bench_update(
@@ -353,6 +525,14 @@ fn main() {
             keyed_stack(&labels),
             keyed_stack(&reversed),
             (iters / 4).max(1),
+            reps,
+        ),
+        bench_update(
+            "keyed_reverse",
+            4_096,
+            keyed_stack(&labels_4k),
+            keyed_stack(&reversed_4k),
+            (iters / 16).max(1),
             reps,
         ),
         bench_update(
@@ -402,6 +582,50 @@ fn main() {
         println!(
             "{:<22} {:>8} {:>14.1} {:>14.1} {:>12.2}",
             row.name, row.n, row.perf.ns, row.perf.bytes, row.perf.allocs
+        );
+    }
+
+    let samples = usize::try_from(iters).unwrap().max(128);
+    let frontend_rows = [
+        bench_hook_no_change(512, samples),
+        bench_component_no_change(512, samples),
+        bench_hook_isolated_leaf(512, samples),
+        bench_component_isolated_leaf(512, samples),
+        bench_hook_isolated_leaf(4_096, samples),
+        bench_component_isolated_leaf(4_096, samples),
+        bench_hook_isolated_leaf(16_384, samples),
+        bench_component_isolated_leaf(16_384, samples),
+    ];
+    println!("\nfrontend comparison");
+    println!(
+        "{:<12} {:<16} {:>8} {:>12} {:>12} {:>12} {:>12} {:>10}",
+        "frontend", "bench", "N", "median ns", "p95 ns", "p99 ns", "bytes/op", "allocs/op"
+    );
+    println!("{}", "-".repeat(104));
+    for row in frontend_rows {
+        println!(
+            "{:<12} {:<16} {:>8} {:>12.1} {:>12.1} {:>12.1} {:>12.1} {:>10.2}",
+            row.frontend,
+            row.name,
+            row.n,
+            row.median_ns,
+            row.p95_ns,
+            row.p99_ns,
+            row.bytes,
+            row.allocs
+        );
+    }
+
+    println!("\nidle component memory");
+    println!(
+        "{:>8} {:>16} {:>18}",
+        "scopes", "retained bytes", "bytes/scope"
+    );
+    println!("{}", "-".repeat(46));
+    for row in [512, 4_096, 16_384].map(measure_idle_component_memory) {
+        println!(
+            "{:>8} {:>16} {:>18.1}",
+            row.n, row.bytes, row.bytes_per_scope
         );
     }
 }

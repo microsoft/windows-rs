@@ -8,6 +8,8 @@ use std::fmt;
 use std::marker::PhantomData;
 use std::rc::Rc;
 
+pub const LOCAL_MESSAGE_QUEUE_CAPACITY: usize = 4_096;
+
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct ComponentToken {
     window: WindowToken,
@@ -64,11 +66,14 @@ impl<M> Clone for LocalSender<M> {
 }
 
 impl<M: 'static> LocalSender<M> {
-    pub fn send(&self, message: M) {
+    pub fn send(&self, message: M) -> bool {
         let wake = {
             let mut queue = self.queue.borrow_mut();
-            if !queue.open || !queue.active.contains(&self.token.scope) {
-                return;
+            if !queue.open
+                || !queue.active.contains(&self.token.scope)
+                || queue.envelopes.len() >= LOCAL_MESSAGE_QUEUE_CAPACITY
+            {
+                return false;
             }
             let wake = queue
                 .envelopes
@@ -84,6 +89,7 @@ impl<M: 'static> LocalSender<M> {
         if let Some(wake) = wake {
             wake();
         }
+        true
     }
 
     pub fn token(&self) -> ComponentToken {
@@ -931,6 +937,32 @@ mod tests {
         sender.send(3);
         assert_eq!(store.pending(), 0);
         assert_eq!(wakes.get(), 1);
+    }
+
+    #[test]
+    fn local_message_queue_reports_backpressure_at_its_fixed_capacity() {
+        let mut store = store();
+        let token = store
+            .reserve(
+                State {
+                    changed: 0,
+                    sender: None,
+                    value: 0,
+                },
+                String::new(),
+                changed,
+                update,
+                view,
+            )
+            .unwrap();
+        store.publish(token).unwrap();
+        let sender = store.sender::<u32>(token).unwrap();
+
+        for value in 0..LOCAL_MESSAGE_QUEUE_CAPACITY {
+            assert!(sender.send(value as u32));
+        }
+        assert!(!sender.send(u32::MAX));
+        assert_eq!(store.pending(), LOCAL_MESSAGE_QUEUE_CAPACITY);
     }
 
     struct Counter {
