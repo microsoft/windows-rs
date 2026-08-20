@@ -187,6 +187,125 @@ impl Component for BenchFragmentRoot {
 }
 
 #[derive(Clone)]
+struct ContextOwnerProps {
+    context: Rc<Context<bool>>,
+    sender: Rc<RefCell<Option<LocalSender<bool>>>>,
+}
+
+impl PartialEq for ContextOwnerProps {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.context, &other.context) && Rc::ptr_eq(&self.sender, &other.sender)
+    }
+}
+
+struct ContextConsumer(Rc<Context<bool>>);
+
+impl Component for ContextConsumer {
+    type Props = Rc<Context<bool>>;
+    type Message = ();
+
+    fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+        Self(Rc::clone(props))
+    }
+
+    fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+        self.0 = Rc::clone(props);
+    }
+
+    fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
+
+    fn view(&self, context: &mut ViewContext<Self>) -> View {
+        View::native(TextBlock::new().text(context.use_context(&self.0).to_string()))
+    }
+}
+
+struct ContextOwner {
+    props: ContextOwnerProps,
+    value: bool,
+}
+
+impl Component for ContextOwner {
+    type Props = ContextOwnerProps;
+    type Message = bool;
+
+    fn create(props: &Self::Props, context: &mut ComponentContext<Self>) -> Self {
+        *props.sender.borrow_mut() = Some(context.sender());
+        Self {
+            props: props.clone(),
+            value: false,
+        }
+    }
+
+    fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+        self.props = props.clone();
+    }
+
+    fn update(&mut self, value: bool, _context: &mut ComponentContext<Self>) {
+        self.value = value;
+    }
+
+    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        View::provide(
+            &self.props.context,
+            self.value,
+            View::component::<ContextConsumer>(Rc::clone(&self.props.context)),
+        )
+    }
+}
+
+#[derive(Clone)]
+struct ContextRootProps {
+    context: Rc<Context<bool>>,
+    owner: Rc<RefCell<Option<LocalSender<bool>>>>,
+    senders: Rc<Vec<Rc<RefCell<Option<LocalSender<bool>>>>>>,
+}
+
+impl PartialEq for ContextRootProps {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.context, &other.context)
+            && Rc::ptr_eq(&self.owner, &other.owner)
+            && Rc::ptr_eq(&self.senders, &other.senders)
+    }
+}
+
+struct ContextRoot(ContextRootProps);
+
+impl Component for ContextRoot {
+    type Props = ContextRootProps;
+    type Message = ();
+
+    fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+        Self(props.clone())
+    }
+
+    fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+        self.0 = props.clone();
+    }
+
+    fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
+
+    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        let middle = self.0.senders.len() / 2;
+        View::children(
+            StackPanel::new(),
+            self.0.senders.iter().enumerate().map(|(index, sender)| {
+                let view = if index == middle {
+                    View::component::<ContextOwner>(ContextOwnerProps {
+                        context: Rc::clone(&self.0.context),
+                        sender: Rc::clone(&self.0.owner),
+                    })
+                } else {
+                    View::component::<BenchLeaf>(LeafProps {
+                        sender: Rc::clone(sender),
+                    })
+                };
+                KeyedView::new(index, view)
+            }),
+        )
+    }
+}
+
+#[derive(Clone)]
 struct KeyedRootProps(Rc<Vec<u64>>);
 
 impl PartialEq for KeyedRootProps {
@@ -593,6 +712,29 @@ fn bench_component_fragment_leaf(count: usize, samples: usize) -> FrontendRow {
     })
 }
 
+fn bench_context_isolated_provider(count: usize, samples: usize) -> FrontendRow {
+    let senders = Rc::new(
+        (0..count)
+            .map(|_| Rc::new(RefCell::new(None)))
+            .collect::<Vec<_>>(),
+    );
+    let owner = Rc::new(RefCell::new(None));
+    let mut pump = Pump::new(runtime());
+    pump.mount_view(View::component::<ContextRoot>(ContextRootProps {
+        context: Rc::new(Context::new(false)),
+        owner: Rc::clone(&owner),
+        senders,
+    }))
+    .unwrap();
+    let sender = owner.borrow().as_ref().unwrap().clone();
+    let mut value = false;
+    measure_frontend("components", "context_provider", count, samples, 1, || {
+        value = !value;
+        _ = sender.send(value);
+        pump.dispatch_components(1).unwrap();
+    })
+}
+
 fn measure_idle_component_memory(count: usize) -> MemoryRow {
     let senders = Rc::new(
         (0..count)
@@ -855,6 +997,8 @@ fn main() {
         bench_component_isolated_leaf(16_384, samples),
         bench_component_fragment_leaf(512, samples),
         bench_component_fragment_leaf(16_384, samples),
+        bench_context_isolated_provider(512, samples),
+        bench_context_isolated_provider(16_384, samples),
     ];
     println!("\nfrontend comparison");
     println!(

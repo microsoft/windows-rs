@@ -8,9 +8,9 @@ correctness, compile-time, runtime, memory, and live WinUI gates in
 ## Architecture
 
 The core has one authoritative structural `Tree`. It owns native nodes, component boundaries,
-fragments, keys, parents, and child order. A separate generational component store owns
-non-cloneable component instances, state, effects, and message queues without duplicating the
-structural graph.
+context providers, fragments, keys, parents, and child order. A separate generational component
+store owns non-cloneable component instances, state, effects, context reads, and message queues
+without duplicating the structural graph.
 
 Updates follow one path:
 
@@ -58,6 +58,25 @@ Hook and component effect cleanup runs before native mutation, and setup runs af
 If component props are applied but later candidate validation fails, Reactor records each touched
 scope. Direct updates and component turns seed their next candidate with those scopes, so an
 identical-props retry recomposes them instead of accepting the old structural tree.
+
+## Context
+
+`Context<T>` is a typed key with a default value. `View::provide` creates a transparent logical
+provider, and `ViewContext::use_context` resolves the nearest matching ancestor.
+
+Each consumer records the provider node it resolved, not only the context type. A provider value
+change therefore skips consumers shadowed by a nested provider. Reactor recomposes only matching
+consumers and their component ancestor paths. Keyed movement retains provider identity, retirement
+removes dependency state with the component scope, and separate Pumps never share values or
+subscriptions.
+
+Context reads are candidate data. Planning stages new dependency sets and publishes them only after
+native apply succeeds. A failed plan retains the previously published dependencies and forces the
+same touched scopes to retry.
+
+The arena uses 256-node copy-on-write chunks, and the scope-to-node index is copy-on-write. This
+keeps context and other structural candidates from cloning the full tree while preserving
+transactional publication.
 
 ## Native events and controlled properties
 
@@ -129,9 +148,9 @@ cargo check -p windows-reactor-next --quiet
 ## Current evidence
 
 The component frontend measured about 0.5 us, 430 allocated bytes, and 9 allocations for an
-isolated leaf at both 512 and 16,384 unrelated scopes. Idle storage was about 2,455 bytes per scope.
-Equivalent component applications measured 0.88x hook time for a clean build and 0.63x for a
-source-only rebuild. The component release executable was 0.84x the hook executable.
+isolated leaf at both 512 and 16,384 unrelated scopes. Idle storage was about 2,448 bytes per scope.
+Equivalent component applications measured 0.99x hook time for a clean build and 1.01x for a
+source-only rebuild. The component release executable was 0.91x the hook executable.
 
 Removing fine-grained recovery reduced `core/pump/publish.rs` from 396 lines to 57 and removed
 per-command outcome vectors, divergent properties, retries, remount recovery, recovery
@@ -141,6 +160,10 @@ Component-owned keyed updates scale near-linearly from 512 to 4,096 children. Th
 measurements are about 0.42 ms/4.09 ms for same-order parent recomposition and 0.49 ms/5.76 ms for
 reversal. Rotate, insert, and remove remain in the same range at 4,096 children. Reorders moving
 10%, 20%, and 25% of 4,096 keys take about 5.0-5.4 ms and use child synchronization.
+
+An isolated context-provider update measured about 3.4 us and 7.7 KB at 512 unrelated scopes and
+4.1 us and 9.2 KB at 16,384. Only the resolved consumer recomposed; the time increase was about
+21%.
 
 The `test` feature exposes the recording runtime and Pump to the headless test and benchmark
 packages. `test_reactor_next_selftest` exercises two real WinUI windows in a process-isolated

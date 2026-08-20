@@ -102,6 +102,7 @@ Rules:
 - Retirement drops queued work for removed descendants.
 - One turn composes each dirty scope at most once.
 - Local leaf updates do not clone the full tree.
+- Typed context reads resolve to a specific logical provider and publish with the candidate.
 
 Hooks remain available as a comparison frontend. They use the same planner, runtime, and fatal
 native failure policy.
@@ -197,16 +198,17 @@ and WebView own only behavior that cannot be expressed by the ordinary schema.
 
 | Metric | Result |
 | --- | --- |
-| Component clean compile ratio | 0.88x hook |
-| Component source-only rebuild ratio | 0.63x hook |
-| Component release executable ratio | 0.84x hook |
+| Component clean compile ratio | 0.99x hook |
+| Component source-only rebuild ratio | 1.01x hook |
+| Component release executable ratio | 0.91x hook |
 | Isolated component leaf at 512 scopes | 0.51 us, 430 bytes, 9 allocations |
 | Isolated component leaf at 16,384 scopes | 0.51 us, 430 bytes, 9 allocations |
-| Idle component memory | About 2,455 bytes per scope |
+| Idle component memory | About 2,448 bytes per scope |
 | Ordinary keyed reversal, 512 -> 4,096 | 0.19 ms -> 2.15 ms |
 | Component same order, 512 -> 4,096 | 0.42 ms -> 4.09 ms |
 | Component reversal, 512 -> 4,096 | 0.49 ms -> 5.76 ms |
 | Component 10-25% movement at 4,096 | 5.0-5.4 ms |
+| Context provider, 512 -> 16,384 unrelated scopes | 3.4 us -> 4.1 us |
 
 The local component path remains close to the current `windows-reactor` baseline while using fewer
 allocations than the recovery prototype.
@@ -279,8 +281,8 @@ The fatal native failure simplification is implemented in the core:
 
 The consolidation checkpoint is complete:
 
-- Clean compile time is 0.88x the equivalent hook application; source-only rebuild time is 0.63x.
-- The component release executable is 0.84x the hook executable.
+- Clean compile time is 0.99x the equivalent hook application; source-only rebuild time is 1.01x.
+- The component release executable is 0.91x the hook executable.
 - Isolated component work remains about 0.51 us, 430 bytes, and 9 allocations through 16,384
   unrelated scopes.
 - Initial mount, update, and realization retain distinct publication invariants while sharing the
@@ -288,5 +290,15 @@ The consolidation checkpoint is complete:
 - The Pump, scheduler, and close lifecycle audit found no recovery-era state to remove. Normal
   scheduler closure after an in-flight dispatch is not reported as a fault.
 
-The foundation is ready for context propagation. Background async ownership and cancellation
-follow context rather than being added at the same time.
+Context propagation is complete:
+
+- `Context<T>` provides a typed default, `View::provide` adds a logical provider, and
+  `ViewContext::use_context` records the resolved provider identity.
+- Provider changes recompose only matching consumers and the component paths needed to reach them.
+  Nested shadowing, stopped reads, keyed movement, retirement, failed planning, component messages,
+  and separate Pump ownership have focused tests.
+- Dependency changes publish only after native success.
+- Chunked copy-on-write arena storage and a copy-on-write scope index keep an isolated provider
+  update within the locality gate: about 3.4 us at 512 scopes and 4.1 us at 16,384.
+
+The next phase is background async ownership and cancellation.

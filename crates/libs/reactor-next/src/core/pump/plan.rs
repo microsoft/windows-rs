@@ -16,6 +16,7 @@ pub(super) struct UpdatePlan {
 #[derive(Default)]
 pub(super) struct ComponentChanges {
     pub(super) composed: HashSet<ComponentToken>,
+    pub(super) context_reads: HashMap<ComponentToken, HashSet<ContextDependency>>,
     pub(super) deferred: HashSet<ComponentToken>,
     pub(super) retry: HashSet<ComponentToken>,
     pub(super) reserved: Vec<ComponentToken>,
@@ -25,11 +26,12 @@ pub(super) struct ComponentChanges {
 
 pub(super) enum LocalComponentUpdate {
     Plan(LocalCandidate),
-    Fallback(View),
+    Fallback(ComponentRender),
     Unavailable,
 }
 
 pub(super) struct LocalCandidate {
+    pub(super) context_reads: HashSet<ContextDependency>,
     pub(super) node: NodeId,
     pub(super) desired: MountedProps,
     pub(super) plan: UpdatePlan,
@@ -47,7 +49,10 @@ pub(super) enum FrontendChanges {
         effects: HookEffects,
     },
     Component(ComponentChanges),
-    Local(ComponentToken),
+    Local {
+        context_reads: HashSet<ContextDependency>,
+        token: ComponentToken,
+    },
 }
 
 impl UpdatePlan {

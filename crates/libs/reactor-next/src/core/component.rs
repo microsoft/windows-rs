@@ -1,14 +1,111 @@
+use super::arena::NodeId;
 use super::runtime::WindowToken;
 use super::scope::{ScopeArena, ScopeError, ScopeId, ScopeState};
 use crate::element::View;
 use std::any::{Any, TypeId};
 use std::cell::RefCell;
-use std::collections::{HashSet, VecDeque};
+use std::collections::{HashMap, HashSet, VecDeque};
 use std::fmt;
 use std::marker::PhantomData;
 use std::rc::Rc;
+use std::sync::atomic::{AtomicU64, Ordering};
 
 pub const LOCAL_MESSAGE_QUEUE_CAPACITY: usize = 4_096;
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub struct ContextId(u64);
+
+static NEXT_CONTEXT_ID: AtomicU64 = AtomicU64::new(1);
+
+#[derive(Clone, Debug)]
+pub struct Context<T> {
+    default: T,
+    id: ContextId,
+}
+
+impl<T> Context<T> {
+    pub fn new(default: T) -> Self {
+        Self {
+            default,
+            id: ContextId(NEXT_CONTEXT_ID.fetch_add(1, Ordering::Relaxed)),
+        }
+    }
+}
+
+impl<T> PartialEq for Context<T> {
+    fn eq(&self, other: &Self) -> bool {
+        self.id == other.id
+    }
+}
+
+impl<T> Eq for Context<T> {}
+
+#[derive(Clone)]
+pub struct ContextProvision {
+    pub(crate) id: ContextId,
+    pub(crate) value: Rc<dyn Any>,
+    value_type: TypeId,
+    equals: fn(&dyn Any, &dyn Any) -> bool,
+}
+
+impl ContextProvision {
+    pub(crate) fn new<T: Clone + PartialEq + 'static>(context: &Context<T>, value: T) -> Self {
+        Self {
+            id: context.id,
+            value: Rc::new(value),
+            value_type: TypeId::of::<T>(),
+            equals: |left, right| {
+                left.downcast_ref::<T>()
+                    .zip(right.downcast_ref::<T>())
+                    .is_some_and(|(left, right)| left == right)
+            },
+        }
+    }
+}
+
+impl fmt::Debug for ContextProvision {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter
+            .debug_struct("ContextProvision")
+            .field("id", &self.id)
+            .field("value_type", &self.value_type)
+            .finish()
+    }
+}
+
+impl PartialEq for ContextProvision {
+    fn eq(&self, other: &Self) -> bool {
+        self.id == other.id
+            && self.value_type == other.value_type
+            && (Rc::ptr_eq(&self.value, &other.value)
+                || (self.equals)(self.value.as_ref(), other.value.as_ref()))
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub(crate) struct ContextDependency {
+    pub(crate) id: ContextId,
+    pub(crate) provider: Option<NodeId>,
+}
+
+#[derive(Clone, Default)]
+pub(crate) struct ContextSnapshot {
+    values: HashMap<ContextId, (NodeId, TypeId, Rc<dyn Any>)>,
+}
+
+impl ContextSnapshot {
+    pub(crate) fn insert(&mut self, provider: NodeId, provision: &ContextProvision) {
+        self.values
+            .entry(provision.id)
+            .or_insert_with(|| (provider, provision.value_type, Rc::clone(&provision.value)));
+    }
+
+    fn get<T: Clone + 'static>(&self, context: &Context<T>) -> Option<(NodeId, T)> {
+        let (provider, value_type, value) = self.values.get(&context.id)?;
+        assert_eq!(*value_type, TypeId::of::<T>(), "context type mismatch");
+        Some((*provider, value.downcast_ref::<T>().unwrap().clone()))
+    }
+}
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct ComponentToken {
@@ -108,13 +205,24 @@ impl<C: Component> ComponentContext<C> {
 }
 
 pub struct ViewContext<C: Component> {
+    contexts: ContextSnapshot,
     effects: Rc<RefCell<ComponentEffects>>,
+    reads: HashSet<ContextDependency>,
     sender: LocalSender<C::Message>,
 }
 
 impl<C: Component> ViewContext<C> {
     pub fn sender(&self) -> LocalSender<C::Message> {
         self.sender.clone()
+    }
+
+    pub fn use_context<T: Clone + 'static>(&mut self, context: &Context<T>) -> T {
+        let resolved = self.contexts.get(context);
+        self.reads.insert(ContextDependency {
+            id: context.id,
+            provider: resolved.as_ref().map(|(provider, _)| *provider),
+        });
+        resolved.map_or_else(|| context.default.clone(), |(_, value)| value)
     }
 
     pub fn use_effect<D>(
@@ -243,10 +351,17 @@ trait ErasedScope {
     fn dispatch(&mut self, message: Box<dyn Any>) -> Result<(), ComponentStoreError>;
     fn message_type(&self) -> TypeId;
     fn props_type(&self) -> TypeId;
-    fn view(&self) -> Result<View, ComponentStoreError>;
+    fn context_dependencies(&self) -> Option<&HashSet<ContextDependency>>;
+    fn set_context_dependencies(&mut self, dependencies: HashSet<ContextDependency>);
+    fn view(&self, contexts: ContextSnapshot) -> Result<ComponentRender, ComponentStoreError>;
     fn cleanup_effects(&self);
     fn commit_effects(&self);
     fn prepare_effects(&self);
+}
+
+pub(crate) struct ComponentRender {
+    pub(crate) dependencies: HashSet<ContextDependency>,
+    pub(crate) view: View,
 }
 
 type EffectCleanup = Box<dyn FnOnce()>;
@@ -343,12 +458,20 @@ impl ComponentEffects {
 
 struct TypedScope<C, P, M> {
     component: C,
+    context_dependencies: Option<Rc<HashSet<ContextDependency>>>,
     effects: Rc<RefCell<ComponentEffects>>,
     props: P,
     changed: fn(&mut C, &P, LocalSender<M>),
     sender: LocalSender<M>,
     update: fn(&mut C, M, LocalSender<M>),
-    view: Box<dyn Fn(&C, LocalSender<M>, Rc<RefCell<ComponentEffects>>) -> View>,
+    view: Box<
+        dyn Fn(
+            &C,
+            LocalSender<M>,
+            Rc<RefCell<ComponentEffects>>,
+            ContextSnapshot,
+        ) -> ComponentRender,
+    >,
 }
 
 impl<C, P, M> Drop for TypedScope<C, P, M> {
@@ -387,6 +510,14 @@ where
         &mut self.component
     }
 
+    fn context_dependencies(&self) -> Option<&HashSet<ContextDependency>> {
+        self.context_dependencies.as_deref()
+    }
+
+    fn set_context_dependencies(&mut self, dependencies: HashSet<ContextDependency>) {
+        self.context_dependencies = (!dependencies.is_empty()).then(|| Rc::new(dependencies));
+    }
+
     fn dispatch(&mut self, message: Box<dyn Any>) -> Result<(), ComponentStoreError> {
         let actual = message.as_ref().type_id();
         let message =
@@ -408,12 +539,13 @@ where
         TypeId::of::<P>()
     }
 
-    fn view(&self) -> Result<View, ComponentStoreError> {
+    fn view(&self, contexts: ContextSnapshot) -> Result<ComponentRender, ComponentStoreError> {
         self.effects.borrow_mut().begin_view();
         Ok((self.view)(
             &self.component,
             self.sender.clone(),
             Rc::clone(&self.effects),
+            contexts,
         ))
     }
 
@@ -473,7 +605,12 @@ impl ComponentStore {
     {
         let queue = Rc::clone(&self.queue);
         let window = self.window;
-        let view = Box::new(move |component: &C, sender, _effects| view(component, sender));
+        let view = Box::new(
+            move |component: &C, sender, _effects, _contexts| ComponentRender {
+                dependencies: HashSet::new(),
+                view: view(component, sender),
+            },
+        );
         let scope = self.scopes.reserve_with(move |scope| {
             queue.borrow_mut().active.insert(scope);
             let sender = LocalSender {
@@ -483,6 +620,7 @@ impl ComponentStore {
             };
             Box::new(TypedScope {
                 component,
+                context_dependencies: None,
                 effects: Rc::new(RefCell::new(ComponentEffects::default())),
                 props,
                 changed,
@@ -521,8 +659,19 @@ impl ComponentStore {
             component: &C,
             sender: LocalSender<C::Message>,
             effects: Rc<RefCell<ComponentEffects>>,
-        ) -> View {
-            component.view(&mut ViewContext { effects, sender })
+            contexts: ContextSnapshot,
+        ) -> ComponentRender {
+            let mut context = ViewContext {
+                contexts,
+                effects,
+                reads: HashSet::new(),
+                sender,
+            };
+            let view = component.view(&mut context);
+            ComponentRender {
+                dependencies: context.reads,
+                view,
+            }
         }
 
         let queue = Rc::clone(&self.queue);
@@ -542,6 +691,7 @@ impl ComponentStore {
             );
             Box::new(TypedScope {
                 component,
+                context_dependencies: None,
                 effects: Rc::new(RefCell::new(ComponentEffects::default())),
                 props,
                 changed: changed::<C>,
@@ -696,9 +846,33 @@ impl ComponentStore {
             .collect()
     }
 
-    pub fn view(&self, token: ComponentToken) -> Result<View, ComponentStoreError> {
+    pub(crate) fn context_dependencies(
+        &self,
+        token: ComponentToken,
+    ) -> Result<Option<&HashSet<ContextDependency>>, ComponentStoreError> {
         self.validate_window(token)?;
-        self.scopes.get(token.scope)?.view()
+        Ok(self.scopes.get(token.scope)?.context_dependencies())
+    }
+
+    pub(crate) fn set_context_dependencies(
+        &mut self,
+        token: ComponentToken,
+        dependencies: HashSet<ContextDependency>,
+    ) -> Result<(), ComponentStoreError> {
+        self.validate_window(token)?;
+        self.scopes
+            .get_mut(token.scope)?
+            .set_context_dependencies(dependencies);
+        Ok(())
+    }
+
+    pub(crate) fn view(
+        &self,
+        token: ComponentToken,
+        contexts: ContextSnapshot,
+    ) -> Result<ComponentRender, ComponentStoreError> {
+        self.validate_window(token)?;
+        self.scopes.get(token.scope)?.view(contexts)
     }
 
     pub fn cleanup_effects(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {
@@ -1016,8 +1190,8 @@ mod tests {
         assert_eq!(store.drain(10).unwrap().dispatched, 1);
         assert_eq!(store.component::<Counter>(token).unwrap().value, 3);
         assert_eq!(
-            store.view(token),
-            Ok(View::native(TextBlock::new().text("3")))
+            store.view(token, ContextSnapshot::default()).unwrap().view,
+            View::native(TextBlock::new().text("3"))
         );
     }
 }

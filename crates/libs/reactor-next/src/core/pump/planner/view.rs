@@ -86,6 +86,60 @@ impl<R: NativeRuntime> Pump<R> {
                 Self::reconcile_fragment(tree, node, &children, components, changes, plan)?;
                 Ok(node)
             }
+            View::Provider { provision, child } => {
+                if tree.kind(node)? != NodeKind::Provider {
+                    return Self::replace_planned_view(
+                        tree,
+                        node,
+                        View::Provider { provision, child },
+                        components,
+                        changes,
+                        plan,
+                    );
+                }
+                let previous = tree.provision(node)?.clone();
+                if previous != provision {
+                    let ids = [previous.id, provision.id];
+                    for descendant in tree.subtree_postorder(node)? {
+                        if tree.kind(descendant)? != NodeKind::Component {
+                            continue;
+                        }
+                        let token = components.token(tree.component_scope(descendant)?)?;
+                        let affected =
+                            components
+                                .context_dependencies(token)?
+                                .is_some_and(|dependencies| {
+                                    dependencies.iter().any(|dependency| {
+                                        if previous.id == provision.id {
+                                            dependency.id == provision.id
+                                                && dependency.provider == Some(node)
+                                        } else {
+                                            ids.contains(&dependency.id)
+                                        }
+                                    })
+                                });
+                        if affected {
+                            let mut current = descendant;
+                            while current != node {
+                                if tree.kind(current)? == NodeKind::Component {
+                                    changes
+                                        .retry
+                                        .insert(components.token(tree.component_scope(current)?)?);
+                                }
+                                current = tree
+                                    .parent(current)?
+                                    .ok_or(PumpError::StructureUnsupported)?;
+                            }
+                        }
+                    }
+                    tree.set_provision(node, provision)?;
+                }
+                let [current] = tree.children(node)? else {
+                    return Err(PumpError::StructureUnsupported);
+                };
+                Self::reconcile_planned_view(tree, *current, *child, components, changes, plan)?;
+                Ok(node)
+            }
             View::Content { control, content } => {
                 if !Self::control_has_role(control.kind(), ControlRole::Content) {
                     return Err(PumpError::StructureUnsupported);
@@ -408,8 +462,9 @@ impl<R: NativeRuntime> Pump<R> {
         if !changes.composed.insert(token) {
             return Ok(());
         }
-        let view = components.view(token)?;
-        Self::recompose_component_view(tree, node, view, components, changes, plan)
+        let render = components.view(token, tree.context_snapshot(node)?)?;
+        changes.context_reads.insert(token, render.dependencies);
+        Self::recompose_component_view(tree, node, render.view, components, changes, plan)
     }
 
     pub(in super::super) fn recompose_component_view(
@@ -456,12 +511,13 @@ impl<R: NativeRuntime> Pump<R> {
                     component.component_type(),
                 )?;
                 let slot = tree.insert(Some(node), NodeKind::Slot)?;
-                let view = components.view(token)?;
+                let render = components.view(token, tree.context_snapshot(node)?)?;
+                changes.context_reads.insert(token, render.dependencies);
                 let (_, native) = Self::mount_planned_view(
                     tree,
                     Some(slot),
                     None,
-                    view,
+                    render.view,
                     components,
                     changes,
                     plan,
@@ -495,6 +551,19 @@ impl<R: NativeRuntime> Pump<R> {
                     )?;
                     native.extend(child_native);
                 }
+                Ok((node, native))
+            }
+            View::Provider { provision, child } => {
+                let node = tree.insert_provider(logical_parent, key, provision)?;
+                let (_, native) = Self::mount_planned_view(
+                    tree,
+                    Some(node),
+                    None,
+                    *child,
+                    components,
+                    changes,
+                    plan,
+                )?;
                 Ok((node, native))
             }
             View::Content { control, content } => {

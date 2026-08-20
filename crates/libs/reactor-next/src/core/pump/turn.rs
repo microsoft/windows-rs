@@ -56,14 +56,17 @@ impl<R: NativeRuntime> Pump<R> {
                             desired: plan.desired,
                         },
                         plan.plan,
-                        FrontendChanges::Local(token),
+                        FrontendChanges::Local {
+                            context_reads: plan.context_reads,
+                            token,
+                        },
                         next_version,
                     )?;
                     self.planning_dirty.remove(&token);
                     self.dirty_components.clear();
                     return Ok(());
                 }
-                LocalComponentUpdate::Fallback(view) => composed_view = Some((token, view)),
+                LocalComponentUpdate::Fallback(render) => composed_view = Some((token, render)),
                 LocalComponentUpdate::Unavailable => {}
             }
         }
@@ -107,12 +110,13 @@ impl<R: NativeRuntime> Pump<R> {
                 .as_ref()
                 .is_some_and(|(cached, _)| *cached == token)
             {
-                let (_, view) = composed_view.take().unwrap();
+                let (_, render) = composed_view.take().unwrap();
                 changes.composed.insert(token);
+                changes.context_reads.insert(token, render.dependencies);
                 Self::recompose_component_view(
                     &mut candidate,
                     node,
-                    view,
+                    render.view,
                     &mut self.components,
                     &mut changes,
                     &mut plan,
@@ -174,15 +178,23 @@ impl<R: NativeRuntime> Pump<R> {
         {
             return Ok(LocalComponentUpdate::Unavailable);
         }
-        let view = self.components.view(token)?;
+        let ComponentRender { dependencies, view } = self
+            .components
+            .view(token, self.tree.context_snapshot(node)?)?;
         let View::Native(element) = view else {
-            return Ok(LocalComponentUpdate::Fallback(view));
+            return Ok(LocalComponentUpdate::Fallback(ComponentRender {
+                dependencies,
+                view,
+            }));
         };
         if self.tree.kind(native)? != NodeKind::Native(element.kind())
             || !self.tree.children(native)?.is_empty()
             || !matches!(element.structure(), ElementStructureRef::None)
         {
-            return Ok(LocalComponentUpdate::Fallback(View::Native(element)));
+            return Ok(LocalComponentUpdate::Fallback(ComponentRender {
+                dependencies,
+                view: View::Native(element),
+            }));
         }
         let mut event_activity_matches = true;
         element.visit_events(&mut |event, active| {
@@ -194,7 +206,10 @@ impl<R: NativeRuntime> Pump<R> {
                 .is_some_and(|state| state.active == active);
         });
         if !event_activity_matches {
-            return Ok(LocalComponentUpdate::Fallback(View::Native(element)));
+            return Ok(LocalComponentUpdate::Fallback(ComponentRender {
+                dependencies,
+                view: View::Native(element),
+            }));
         }
         let mut plan = UpdatePlan {
             reconcile_observations: self.native_observation_pending,
@@ -207,6 +222,7 @@ impl<R: NativeRuntime> Pump<R> {
             &mut plan,
         )?;
         Ok(LocalComponentUpdate::Plan(LocalCandidate {
+            context_reads: dependencies,
             node: native,
             desired,
             plan,

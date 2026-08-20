@@ -43,6 +43,21 @@ Local component messages stay on the UI thread. Each window queues at most
 `LOCAL_MESSAGE_QUEUE_CAPACITY` messages. `LocalSender::send` returns `false` when the owning scope
 has retired, the window has closed, or the queue is full.
 
+Typed context values flow through logical provider nodes:
+
+```rust,ignore
+let value = cx.use_context(context);
+View::provide(
+    context,
+    "provided".to_string(),
+    View::native(TextBlock::new().text(value)),
+)
+```
+
+`Context::new` defines a typed key and its default. `View::provide` shadows that key for descendant
+components. Provider changes recompose only consumers resolved to that provider and the component
+paths needed to reach them.
+
 Props, messages, and thread ownership are checked at the public boundary:
 
 ```compile_fail

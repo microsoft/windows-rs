@@ -147,6 +147,108 @@ fn component_effects_commit_after_mount_and_cleanup_once() {
 }
 
 #[test]
+fn full_tree_recomposition_preserves_unchanged_effects_and_replaces_changed_effects() {
+    #[derive(Clone)]
+    struct Props {
+        log: Rc<RefCell<Vec<String>>>,
+        sender: Rc<RefCell<Option<LocalSender<u32>>>>,
+    }
+
+    impl PartialEq for Props {
+        fn eq(&self, other: &Self) -> bool {
+            Rc::ptr_eq(&self.log, &other.log) && Rc::ptr_eq(&self.sender, &other.sender)
+        }
+    }
+
+    struct EffectComponent {
+        props: Props,
+        value: u32,
+    }
+
+    impl Component for EffectComponent {
+        type Message = u32;
+        type Props = Props;
+
+        fn create(props: &Props, context: &mut ComponentContext<Self>) -> Self {
+            *props.sender.borrow_mut() = Some(context.sender());
+            Self {
+                props: props.clone(),
+                value: 0,
+            }
+        }
+
+        fn changed(&mut self, props: &Props, _context: &mut ComponentContext<Self>) {
+            self.props = props.clone();
+        }
+
+        fn update(&mut self, value: u32, _context: &mut ComponentContext<Self>) {
+            self.value = value;
+        }
+
+        fn view(&self, context: &mut ViewContext<Self>) -> View {
+            let stable_log = Rc::clone(&self.props.log);
+            context.use_effect((), move || {
+                stable_log.borrow_mut().push("stable setup".to_string());
+                Some(Box::new(move || {
+                    stable_log.borrow_mut().push("stable cleanup".to_string());
+                }))
+            });
+            let changed_log = Rc::clone(&self.props.log);
+            let value = self.value;
+            context.use_effect(value, move || {
+                changed_log
+                    .borrow_mut()
+                    .push(format!("changed setup {value}"));
+                Some(Box::new(move || {
+                    changed_log
+                        .borrow_mut()
+                        .push(format!("changed cleanup {value}"));
+                }))
+            });
+            View::content(
+                Button::new(),
+                View::native(TextBlock::new().text(value.to_string())),
+            )
+        }
+    }
+
+    let log = Rc::new(RefCell::new(Vec::new()));
+    let sender = Rc::new(RefCell::new(None));
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<EffectComponent>(Props {
+        log: Rc::clone(&log),
+        sender: Rc::clone(&sender),
+    }))
+    .unwrap();
+    assert_eq!(&*log.borrow(), &["stable setup", "changed setup 0"]);
+
+    assert!(sender.borrow().as_ref().unwrap().send(1));
+    pump.dispatch_components(1).unwrap();
+    assert_eq!(
+        &*log.borrow(),
+        &[
+            "stable setup",
+            "changed setup 0",
+            "changed cleanup 0",
+            "changed setup 1",
+        ]
+    );
+
+    pump.shutdown();
+    assert_eq!(
+        &*log.borrow(),
+        &[
+            "stable setup",
+            "changed setup 0",
+            "changed cleanup 0",
+            "changed setup 1",
+            "changed cleanup 1",
+            "stable cleanup",
+        ]
+    );
+}
+
+#[test]
 fn component_effect_setup_follows_parent_first_tree_order() {
     #[derive(Clone)]
     struct Props {

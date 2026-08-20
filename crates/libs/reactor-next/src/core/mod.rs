@@ -13,7 +13,10 @@ mod scope;
 mod virtual_model;
 
 pub use arena::*;
-pub(crate) use component::{ComponentStore, ComponentStoreError, ComponentToken};
+pub(crate) use component::{
+    ComponentRender, ComponentStore, ComponentStoreError, ComponentToken, ContextDependency,
+    ContextProvision, ContextSnapshot,
+};
 pub use engine::*;
 pub use hooks::*;
 pub use keyed::*;

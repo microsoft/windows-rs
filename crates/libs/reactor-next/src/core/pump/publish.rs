@@ -23,7 +23,7 @@ impl<R: NativeRuntime> Pump<R> {
     ) -> Result<(), PumpError> {
         match &mut changes {
             FrontendChanges::Component(changes) => self.prepare_component_effects(changes)?,
-            FrontendChanges::Local(token) => self.components.prepare_effects(*token)?,
+            FrontendChanges::Local { token, .. } => self.components.prepare_effects(*token)?,
             FrontendChanges::Hooks { effects, .. } => effects.prepare(),
             FrontendChanges::Element(_) => {}
         }
@@ -61,7 +61,14 @@ impl<R: NativeRuntime> Pump<R> {
                 effects.commit();
             }
             FrontendChanges::Component(changes) => self.commit_component_effects(&changes)?,
-            FrontendChanges::Local(token) => self.components.commit_effects(token)?,
+            FrontendChanges::Local {
+                context_reads,
+                token,
+            } => {
+                self.components
+                    .set_context_dependencies(token, context_reads)?;
+                self.components.commit_effects(token)?;
+            }
         }
         Ok(())
     }

@@ -72,6 +72,10 @@ pub enum View {
     Native(Element),
     Component(ComponentView),
     Fragment(Rc<Vec<KeyedView>>),
+    Provider {
+        provision: ContextProvision,
+        child: Box<Self>,
+    },
     Content {
         control: Element,
         content: Box<Self>,
@@ -97,6 +101,16 @@ impl View {
 
     pub fn fragment(children: impl IntoIterator<Item = KeyedView>) -> Self {
         Self::Fragment(Rc::new(children.into_iter().collect()))
+    }
+
+    pub fn provide<T>(context: &Context<T>, value: T, child: impl Into<Self>) -> Self
+    where
+        T: Clone + PartialEq + 'static,
+    {
+        Self::Provider {
+            provision: ContextProvision::new(context, value),
+            child: Box::new(child.into()),
+        }
     }
 
     pub fn content<C>(control: C, content: impl Into<Self>) -> Self

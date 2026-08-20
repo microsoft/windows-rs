@@ -5,6 +5,7 @@
 mod support;
 
 mod components_turn_ordering;
+mod context_propagation;
 mod events_controlled_feedback;
 mod keyed_fragments;
 mod lifecycle_effects;

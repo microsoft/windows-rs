@@ -10,6 +10,7 @@ pub enum NodeKind {
     Window,
     Component,
     Fragment,
+    Provider,
     Slot,
     Native(MountedKind),
     VirtualCollection,
@@ -68,7 +69,8 @@ impl From<VirtualModelError> for TreeError {
 #[derive(Clone)]
 pub struct Tree {
     arena: Arena<Node>,
-    components: HashMap<ScopeId, NodeId>,
+    components: Rc<HashMap<ScopeId, NodeId>>,
+    providers: Rc<HashMap<NodeId, ContextProvision>>,
     root: Option<NodeId>,
 }
 
@@ -76,7 +78,8 @@ impl Tree {
     pub fn new() -> Self {
         Self {
             arena: Arena::new(),
-            components: HashMap::new(),
+            components: Rc::new(HashMap::new()),
+            providers: Rc::new(HashMap::new()),
             root: None,
         }
     }
@@ -151,7 +154,7 @@ impl Tree {
         node.key = key;
         node.scope = Some(scope);
         node.component_type = Some(component_type);
-        self.components.insert(scope, id);
+        Rc::make_mut(&mut self.components).insert(scope, id);
         Ok(id)
     }
 
@@ -163,6 +166,49 @@ impl Tree {
         let id = self.insert(parent, NodeKind::Fragment)?;
         self.arena.get_mut(id)?.key = key;
         Ok(id)
+    }
+
+    pub fn insert_provider(
+        &mut self,
+        parent: Option<NodeId>,
+        key: Option<Key>,
+        provision: ContextProvision,
+    ) -> Result<NodeId, TreeError> {
+        let id = self.insert(parent, NodeKind::Provider)?;
+        self.arena.get_mut(id)?.key = key;
+        Rc::make_mut(&mut self.providers).insert(id, provision);
+        Ok(id)
+    }
+
+    pub fn provision(&self, id: NodeId) -> Result<&ContextProvision, TreeError> {
+        if self.arena.get(id)?.kind != NodeKind::Provider {
+            return Err(TreeError::NotComponent);
+        }
+        self.providers.get(&id).ok_or(TreeError::NotComponent)
+    }
+
+    pub fn set_provision(
+        &mut self,
+        id: NodeId,
+        provision: ContextProvision,
+    ) -> Result<(), TreeError> {
+        if self.arena.get(id)?.kind != NodeKind::Provider {
+            return Err(TreeError::NotComponent);
+        }
+        Rc::make_mut(&mut self.providers).insert(id, provision);
+        Ok(())
+    }
+
+    pub(crate) fn context_snapshot(&self, id: NodeId) -> Result<ContextSnapshot, TreeError> {
+        let mut snapshot = ContextSnapshot::default();
+        let mut current = self.parent(id)?;
+        while let Some(node) = current {
+            if self.kind(node)? == NodeKind::Provider {
+                snapshot.insert(node, self.provision(node)?);
+            }
+            current = self.parent(node)?;
+        }
+        Ok(snapshot)
     }
 
     pub fn component_scope(&self, id: NodeId) -> Result<ScopeId, TreeError> {
@@ -365,7 +411,10 @@ impl Tree {
         for id in order {
             let node = self.arena.remove(id)?;
             if let Some(scope) = node.scope {
-                self.components.remove(&scope);
+                Rc::make_mut(&mut self.components).remove(&scope);
+            }
+            if node.kind == NodeKind::Provider {
+                Rc::make_mut(&mut self.providers).remove(&id);
             }
             retired.push((id, node.kind));
         }

@@ -23,7 +23,7 @@ impl<R: NativeRuntime> Pump<R> {
     pub(super) fn native_roots(tree: &Tree, node: NodeId) -> Result<Vec<NodeId>, PumpError> {
         match tree.kind(node)? {
             NodeKind::Native(_) | NodeKind::VirtualCollection => Ok(vec![node]),
-            NodeKind::Component | NodeKind::Fragment | NodeKind::Slot => {
+            NodeKind::Component | NodeKind::Fragment | NodeKind::Provider | NodeKind::Slot => {
                 let mut roots = Vec::new();
                 for child in tree.children(node)?.iter().copied() {
                     roots.extend(Self::native_roots(tree, child)?);
@@ -40,7 +40,7 @@ impl<R: NativeRuntime> Pump<R> {
         plan: &mut UpdatePlan,
     ) -> Result<Vec<NodeId>, PumpError> {
         match tree.kind(node)? {
-            NodeKind::Component | NodeKind::Fragment | NodeKind::Slot => {
+            NodeKind::Component | NodeKind::Fragment | NodeKind::Provider | NodeKind::Slot => {
                 let mut roots = Vec::new();
                 for child in tree.children(node)?.iter().copied() {
                     roots.extend(Self::plan_existing_subtree(tree, child, plan)?);
@@ -100,7 +100,7 @@ impl<R: NativeRuntime> Pump<R> {
                 | NodeKind::VirtualCollection
                 | NodeKind::Window
                 | NodeKind::Application => return Ok(current),
-                NodeKind::Component | NodeKind::Fragment | NodeKind::Slot => {
+                NodeKind::Component | NodeKind::Fragment | NodeKind::Provider | NodeKind::Slot => {
                     current = tree
                         .parent(current)?
                         .ok_or(PumpError::StructureUnsupported)?;
@@ -127,7 +127,9 @@ impl<R: NativeRuntime> Pump<R> {
                 | NodeKind::VirtualCollection
                 | NodeKind::Window
                 | NodeKind::Application => return Ok((parent, offset)),
-                NodeKind::Component | NodeKind::Fragment | NodeKind::Slot => current = parent,
+                NodeKind::Component | NodeKind::Fragment | NodeKind::Provider | NodeKind::Slot => {
+                    current = parent;
+                }
             }
         }
     }
@@ -205,7 +207,7 @@ impl<R: NativeRuntime> Pump<R> {
                     }
                     plan.push(Command::Destroy { node });
                 }
-                NodeKind::Component | NodeKind::Fragment | NodeKind::Slot => {}
+                NodeKind::Component | NodeKind::Fragment | NodeKind::Provider | NodeKind::Slot => {}
                 NodeKind::Application | NodeKind::Window => {
                     return Err(PumpError::StructureUnsupported);
                 }
