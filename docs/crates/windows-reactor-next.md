@@ -56,8 +56,8 @@ remain available as a comparison frontend and use the same planner and update pu
 Hook and component effect cleanup runs before native mutation, and setup runs after publication.
 
 If component props are applied but later candidate validation fails, Reactor records each touched
-scope. An identical-props retry recomposes those scopes instead of accepting the old structural
-tree.
+scope. Direct updates and component turns seed their next candidate with those scopes, so an
+identical-props retry recomposes them instead of accepting the old structural tree.
 
 ## Native events and controlled properties
 
@@ -78,9 +78,9 @@ Logical fragments create no hidden WinUI control. They flatten zero or more nati
 generated children collections. Window and content slots accept zero or one flattened root and
 reject invalid arity before native mutation.
 
-Component-owned keyed children build one key index and one desired order. Sparse keyed edits use
-insert and move commands. Dense keyed reversal uses child synchronization to avoid quadratic
-search and vector movement.
+Component-owned keyed children build one key index and one desired order. Small keyed edits use
+insert and move commands. Updates with 256 or more ordering operations use child synchronization,
+which bounds repeated vector search and movement for dense and adversarial sparse reorders.
 
 `ItemsRepeater` owns virtual collection leases and stable native shells. Recycling clears shell
 content before reuse. Realized row subtrees remain ordinary arena nodes and retain independent
@@ -106,11 +106,14 @@ a continuation state machine.
 component store, queues, scheduler state, native window, subscriptions, and effects.
 
 Scheduler callbacks route only to the captured token. `Window.Closed` removes that Pump during the
-native lifecycle callback, closes its scheduler, and lets final `Drop` clean effects before native
-reset. The host tracks a Pump that is temporarily in flight, so a synchronous close cannot reinsert
-it or make another close appear to be the last window. A stale queued callback then finds no
-matching Pump. Closing the last window exits the UI thread; closing a secondary leaves the other
-Pumps running.
+native lifecycle callback, closes its scheduler, and suppresses native reset against the closed
+window. The host tracks a Pump that is temporarily in flight, so a synchronous close cannot
+reinsert it or make another close appear to be the last window. A stale queued callback then finds
+no matching Pump. Closing the last window exits the UI thread; closing a secondary leaves the
+other Pumps running.
+
+This is ownership and lifecycle isolation, not native fault isolation. An unexpected native
+failure in any Pump follows the process-fatal policy above.
 
 ## Generation
 
@@ -127,18 +130,20 @@ cargo check -p windows-reactor-next --quiet
 
 The component frontend measured about 0.5 us, 430 allocated bytes, and 9 allocations for an
 isolated leaf at both 512 and 16,384 unrelated scopes. Idle storage was about 2,455 bytes per scope.
-Equivalent component applications compiled at 0.78x-0.91x hook time and produced a 0.97x release
-executable.
+Equivalent component applications measured 0.88x hook time for a clean build and 0.63x for a
+source-only rebuild. The component release executable was 0.84x the hook executable.
 
 Removing fine-grained recovery reduced `core/pump/publish.rs` from 396 lines to 57 and removed
 per-command outcome vectors, divergent properties, retries, remount recovery, recovery
 continuations, and their specialized tests.
 
 Component-owned keyed updates scale near-linearly from 512 to 4,096 children. The current release
-measurements are about 0.45 ms/4.11 ms for same-order parent recomposition and 0.49 ms/5.25 ms for
-reversal. Rotate, insert, and remove remain in the same range at 4,096 children.
+measurements are about 0.42 ms/4.09 ms for same-order parent recomposition and 0.49 ms/5.76 ms for
+reversal. Rotate, insert, and remove remain in the same range at 4,096 children. Reorders moving
+10%, 20%, and 25% of 4,096 keys take about 5.0-5.4 ms and use child synchronization.
 
 The `test` feature exposes the recording runtime and Pump to the headless test and benchmark
 packages. `test_reactor_next_selftest` exercises two real WinUI windows in a process-isolated
-fixture, including independent controlled input, secondary closure with stale queued work, and
-continued updates and final effect cleanup in the surviving window.
+fixture. It edits one window at a time, verifies window-specific callback payloads, closes the
+secondary with stale queued work, and continues updates and final effect cleanup in the surviving
+window. An explicit completion marker prevents an early `App::run_windows` return from passing.

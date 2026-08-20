@@ -70,6 +70,8 @@ pub trait NativeRuntime {
     fn apply(&mut self, commands: &[Command]) -> Result<(), NativeApplyError>;
     fn reset(&mut self);
 
+    fn native_window_closed(&mut self) {}
+
     fn set_identity(&mut self, _identity: WindowToken) {}
 
     fn component_waker(&self) -> Option<Rc<dyn Fn()>> {

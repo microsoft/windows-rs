@@ -59,6 +59,7 @@ impl<R: NativeRuntime> Pump<R> {
                         FrontendChanges::Local(token),
                         next_version,
                     )?;
+                    self.planning_dirty.remove(&token);
                     self.dirty_components.clear();
                     return Ok(());
                 }
@@ -74,6 +75,7 @@ impl<R: NativeRuntime> Pump<R> {
         };
         let mut changes = ComponentChanges {
             deferred,
+            retry: self.planning_dirty.clone(),
             ..ComponentChanges::default()
         };
         let mut dirty = self
@@ -126,6 +128,7 @@ impl<R: NativeRuntime> Pump<R> {
                 )
             };
             if let Err(error) = result {
+                self.planning_dirty.extend(changes.touched.iter().copied());
                 Self::remove_reservations(&mut self.components, &changes.reserved);
                 return Err(error);
             }

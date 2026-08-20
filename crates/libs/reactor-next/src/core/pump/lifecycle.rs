@@ -1,5 +1,3 @@
-use std::cmp::Reverse;
-
 use super::*;
 
 impl<R: NativeRuntime> Pump<R> {
@@ -7,26 +5,21 @@ impl<R: NativeRuntime> Pump<R> {
         &self,
         changes: &ComponentChanges,
     ) -> Result<(), PumpError> {
-        for token in changes.retired.iter().copied() {
-            self.components.cleanup_effects(token)?;
-        }
-        let retired = changes.retired.iter().copied().collect::<HashSet<_>>();
-        let mut composed = changes
-            .composed
+        let cleanup = changes
+            .retired
             .iter()
+            .chain(changes.composed.iter())
             .copied()
-            .filter(|token| !retired.contains(token))
-            .map(|token| {
-                let node = self
-                    .tree
-                    .component_node(token.scope())?
-                    .ok_or(PumpError::StructureUnsupported)?;
-                Ok((self.tree.depth(node)?, token))
-            })
-            .collect::<Result<Vec<_>, PumpError>>()?;
-        composed.sort_unstable_by_key(|(depth, _)| Reverse(*depth));
-        for (_, token) in composed {
-            self.components.prepare_effects(token)?;
+            .collect::<HashSet<_>>();
+        let root = self.root.ok_or(PumpError::NotMounted)?;
+        for node in self.tree.subtree_postorder(root)? {
+            if self.tree.kind(node)? != NodeKind::Component {
+                continue;
+            }
+            let token = self.components.token(self.tree.component_scope(node)?)?;
+            if cleanup.contains(&token) {
+                self.components.cleanup_effects(token)?;
+            }
         }
         Ok(())
     }
@@ -36,25 +29,24 @@ impl<R: NativeRuntime> Pump<R> {
         changes: &ComponentChanges,
     ) -> Result<(), PumpError> {
         let retired = changes.retired.iter().copied().collect::<HashSet<_>>();
-        let mut tokens = changes
+        let setup = changes
             .reserved
             .iter()
             .chain(changes.composed.iter())
             .copied()
             .filter(|token| !retired.contains(token))
-            .collect::<HashSet<_>>()
-            .into_iter()
-            .map(|token| {
-                let node = self
-                    .tree
-                    .component_node(token.scope())?
-                    .ok_or(PumpError::StructureUnsupported)?;
-                Ok((self.tree.depth(node)?, token))
-            })
-            .collect::<Result<Vec<_>, PumpError>>()?;
-        tokens.sort_unstable_by_key(|(depth, _)| *depth);
-        for (_, token) in tokens {
-            self.components.commit_effects(token)?;
+            .collect::<HashSet<_>>();
+        let root = self.root.ok_or(PumpError::NotMounted)?;
+        let mut pending = vec![root];
+        while let Some(node) = pending.pop() {
+            pending.extend(self.tree.children(node)?.iter().rev().copied());
+            if self.tree.kind(node)? != NodeKind::Component {
+                continue;
+            }
+            let token = self.components.token(self.tree.component_scope(node)?)?;
+            if setup.contains(&token) {
+                self.components.commit_effects(token)?;
+            }
         }
         Ok(())
     }

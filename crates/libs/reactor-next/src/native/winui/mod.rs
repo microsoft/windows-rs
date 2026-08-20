@@ -406,7 +406,7 @@ impl WinUiRuntime {
         })
     }
 
-    pub fn schedule_retry(&self) -> Result<(), RuntimeError> {
+    pub fn schedule_dispatch(&self) -> Result<(), RuntimeError> {
         self.event_sink()?.request(WorkPriority::Low)
     }
 
@@ -532,6 +532,7 @@ impl EventSink {
                         #[cfg(feature = "test")]
                         &reject_next_enqueue_capture,
                     )
+                    && error != RuntimeError::SchedulerClosed
                 {
                     fail_native_scheduler(error);
                 }
@@ -552,6 +553,7 @@ impl EventSink {
                     #[cfg(feature = "test")]
                     &reject_next_enqueue_capture,
                 )
+                && error != RuntimeError::SchedulerClosed
             {
                 fail_native_scheduler(error);
             }
@@ -622,6 +624,12 @@ impl NativeRuntime for WinUiRuntime {
         self.feedback.borrow_mut().clear();
         self.realizations.borrow_mut().clear();
         self.window_closed.set(false);
+    }
+
+    fn native_window_closed(&mut self) {
+        for (_, subscription) in self.window_subscriptions.drain() {
+            subscription.into_token();
+        }
     }
 
     fn component_waker(&self) -> Option<Rc<dyn Fn()>> {

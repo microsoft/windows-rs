@@ -174,8 +174,8 @@ The budgets count queued items. They do not preempt one component `view` call or
 plan. Adding a general composition continuation would restore much of the state-machine complexity
 that this design removed. Large trees are instead governed by locality and keyed-scale gates.
 
-Scheduler retry means retrying dispatcher enqueue after rejection. It is unrelated to native
-mutation recovery.
+Dispatcher rearming schedules remaining bounded work after the current callback. A failed enqueue
+is surfaced as a host fault; neither behavior retries native mutation.
 
 ## Generated and specialized controls
 
@@ -197,12 +197,16 @@ and WebView own only behavior that cannot be expressed by the ordinary schema.
 
 | Metric | Result |
 | --- | --- |
-| Component clean/incremental compile ratio | 0.78x-0.91x hook |
-| Component release executable ratio | 0.97x hook |
-| Isolated component leaf at 512 scopes | 0.5 us, 430 bytes, 9 allocations |
-| Isolated component leaf at 16,384 scopes | 0.5 us, 430 bytes, 9 allocations |
+| Component clean compile ratio | 0.88x hook |
+| Component source-only rebuild ratio | 0.63x hook |
+| Component release executable ratio | 0.84x hook |
+| Isolated component leaf at 512 scopes | 0.51 us, 430 bytes, 9 allocations |
+| Isolated component leaf at 16,384 scopes | 0.51 us, 430 bytes, 9 allocations |
 | Idle component memory | About 2,455 bytes per scope |
-| Dense keyed reversal, 512 -> 4,096 | 0.19 ms -> 2.30 ms |
+| Ordinary keyed reversal, 512 -> 4,096 | 0.19 ms -> 2.15 ms |
+| Component same order, 512 -> 4,096 | 0.42 ms -> 4.09 ms |
+| Component reversal, 512 -> 4,096 | 0.49 ms -> 5.76 ms |
+| Component 10-25% movement at 4,096 | 5.0-5.4 ms |
 
 The local component path remains close to the current `windows-reactor` baseline while using fewer
 allocations than the recovery prototype.
@@ -259,21 +263,30 @@ The fatal native failure simplification is implemented in the core:
 - Fine-grained recovery code and tests are removed.
 - The isolated component path improved from 476 bytes and 11 allocations to about 430 bytes and
   9 allocations without losing constant scaling through 16,384 scopes.
-- Failed component planning keeps touched scopes dirty for an identical-props retry.
+- Failed direct and component-turn planning keeps touched scopes dirty for an identical-props
+  retry.
 - Hook and component cleanup precede native mutation, and final `Drop` cleans components before
   native reset.
-- Component-owned keyed reconciliation uses one key index and scales near-linearly through 4,096
-  children.
+- Component-owned keyed reconciliation uses one key index. Reorders with 256 or more operations
+  use synchronization and remain near-linear through adversarial 10%, 20%, and 25% movement at
+  4,096 children.
 - The token-keyed live host owns the application separately from its Pumps. Two real windows route
-  work independently; closing the secondary discards stale scheduled work while the primary
-  continues through structural and component updates. In-flight tokens remain visible to close
-  routing so synchronous closure cannot resurrect a Pump or trigger premature application exit.
+  window-specific event payloads independently; closing the secondary discards stale scheduled
+  work while the primary continues through structural and component updates. In-flight tokens
+  remain visible to close routing so synchronous closure cannot resurrect a Pump or trigger
+  premature application exit. This proves ownership and lifecycle isolation, not survival after a
+  process-fatal native failure.
 
-Before feature expansion:
+The consolidation checkpoint is complete:
 
-1. Re-run compile-time, runtime, allocation, and binary-size measurements.
-2. Decide whether initial mount and realization should share more publication helpers without
-   obscuring their different invariants.
-3. Review remaining Pump and scheduler complexity without adding new recovery behavior.
+- Clean compile time is 0.88x the equivalent hook application; source-only rebuild time is 0.63x.
+- The component release executable is 0.84x the hook executable.
+- Isolated component work remains about 0.51 us, 430 bytes, and 9 allocations through 16,384
+  unrelated scopes.
+- Initial mount, update, and realization retain distinct publication invariants while sharing the
+  fatal native-apply boundary.
+- The Pump, scheduler, and close lifecycle audit found no recovery-era state to remove. Normal
+  scheduler closure after an in-flight dispatch is not reported as a fault.
 
-Do not add context, background async ownership, or more control coverage until these gates pass.
+The foundation is ready for context propagation. Background async ownership and cancellation
+follow context rather than being added at the same time.

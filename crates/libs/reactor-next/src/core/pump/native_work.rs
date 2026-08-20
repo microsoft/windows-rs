@@ -212,10 +212,7 @@ impl<R: NativeRuntime> Pump<R> {
         mut candidate: Tree,
         plan: &UpdatePlan,
     ) -> Result<(), PumpError> {
-        if let Err(error) = self.runtime.apply(&plan.commands) {
-            self.poisoned = true;
-            return Err(PumpError::NativeApplyFailed(error));
-        }
+        self.apply_native_commands(&plan.commands)?;
         Self::commit_tree_properties(&mut candidate, &plan.commits)?;
         self.tree = candidate;
         Ok(())

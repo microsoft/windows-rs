@@ -147,6 +147,99 @@ fn component_effects_commit_after_mount_and_cleanup_once() {
 }
 
 #[test]
+fn component_effect_setup_follows_parent_first_tree_order() {
+    #[derive(Clone)]
+    struct Props {
+        label: &'static str,
+        log: Rc<RefCell<Vec<&'static str>>>,
+    }
+
+    impl PartialEq for Props {
+        fn eq(&self, other: &Self) -> bool {
+            self.label == other.label && Rc::ptr_eq(&self.log, &other.log)
+        }
+    }
+
+    struct Child(Props);
+
+    impl Component for Child {
+        type Message = ();
+        type Props = Props;
+
+        fn create(props: &Props, _cx: &mut ComponentContext<Self>) -> Self {
+            Self(props.clone())
+        }
+
+        fn changed(&mut self, props: &Props, _cx: &mut ComponentContext<Self>) {
+            self.0 = props.clone();
+        }
+
+        fn update(&mut self, (): (), _cx: &mut ComponentContext<Self>) {}
+
+        fn view(&self, cx: &mut ViewContext<Self>) -> View {
+            let label = self.0.label;
+            let log = Rc::clone(&self.0.log);
+            cx.use_effect((), move || {
+                log.borrow_mut().push(label);
+                None
+            });
+            View::native(TextBlock::new())
+        }
+    }
+
+    struct Parent(Rc<RefCell<Vec<&'static str>>>);
+
+    impl Component for Parent {
+        type Message = ();
+        type Props = Rc<RefCell<Vec<&'static str>>>;
+
+        fn create(props: &Self::Props, _cx: &mut ComponentContext<Self>) -> Self {
+            Self(Rc::clone(props))
+        }
+
+        fn changed(&mut self, props: &Self::Props, _cx: &mut ComponentContext<Self>) {
+            self.0 = Rc::clone(props);
+        }
+
+        fn update(&mut self, (): (), _cx: &mut ComponentContext<Self>) {}
+
+        fn view(&self, cx: &mut ViewContext<Self>) -> View {
+            let log = Rc::clone(&self.0);
+            cx.use_effect((), move || {
+                log.borrow_mut().push("parent");
+                None
+            });
+            View::children(
+                StackPanel::new(),
+                [
+                    KeyedView::new(
+                        "a",
+                        View::component::<Child>(Props {
+                            label: "a",
+                            log: Rc::clone(&self.0),
+                        }),
+                    ),
+                    KeyedView::new(
+                        "b",
+                        View::component::<Child>(Props {
+                            label: "b",
+                            log: Rc::clone(&self.0),
+                        }),
+                    ),
+                ],
+            )
+        }
+    }
+
+    let log = Rc::new(RefCell::new(Vec::new()));
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<Parent>(Rc::clone(&log)))
+        .unwrap();
+
+    assert_eq!(&*log.borrow(), &["parent", "a", "b"]);
+}
+
+#[test]
 fn component_host_treats_initial_property_failure_as_fatal() {
     let mut probe = Pump::new(RecordingRuntime::default());
     probe

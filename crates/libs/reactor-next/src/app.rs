@@ -20,6 +20,10 @@ thread_local! {
     static LIVE_COMPONENT_CREATES: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_COMPONENT_EFFECT_SETUPS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_COMPONENT_EFFECT_CLEANUPS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
+    static LIVE_PRIMARY_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
+    static LIVE_PRIMARY_NATIVE_PAYLOAD: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
+    static LIVE_SECONDARY_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
+    static LIVE_SECONDARY_NATIVE_PAYLOAD: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
 }
 
 struct LiveHost {
@@ -62,7 +66,7 @@ impl LiveHost {
     #[cfg(feature = "test")]
     fn secondary_window_for_test(&self) -> Option<Window> {
         let pump = self.secondary()?;
-        if pump.live_root_text().as_deref() != Ok("second") || pump.schedule_retry().is_err() {
+        if pump.live_root_text().as_deref() != Ok("second") || pump.schedule_dispatch().is_err() {
             return None;
         }
         pump.live_window().ok()
@@ -73,7 +77,7 @@ trait LivePump {
     fn mount(&mut self) -> Result<(), PumpError>;
     fn dispatch_events(&mut self) -> Result<(), PumpError>;
     fn native_work_pending(&self) -> bool;
-    fn schedule_retry(&self) -> Result<(), RuntimeError>;
+    fn schedule_dispatch(&self) -> Result<(), RuntimeError>;
     fn close_scheduler(&self);
     fn native_window_closed(&mut self);
     fn shutdown(&mut self);
@@ -137,8 +141,8 @@ impl LivePump for ComponentLoop {
         self.pump.native_work_pending()
     }
 
-    fn schedule_retry(&self) -> Result<(), RuntimeError> {
-        self.pump.runtime().schedule_retry()
+    fn schedule_dispatch(&self) -> Result<(), RuntimeError> {
+        self.pump.runtime().schedule_dispatch()
     }
 
     fn close_scheduler(&self) {
@@ -229,8 +233,8 @@ where
         self.pump().native_work_pending()
     }
 
-    fn schedule_retry(&self) -> Result<(), RuntimeError> {
-        self.pump().runtime().schedule_retry()
+    fn schedule_dispatch(&self) -> Result<(), RuntimeError> {
+        self.pump().runtime().schedule_dispatch()
     }
 
     fn close_scheduler(&self) {
@@ -270,8 +274,8 @@ where
     #[cfg(feature = "test")]
     fn live_rejection_then_retry(&self) -> bool {
         self.pump().runtime().live_reject_next_enqueue();
-        self.pump().runtime().schedule_retry() == Err(RuntimeError::DispatcherRejected)
-            && self.pump().runtime().schedule_retry().is_ok()
+        self.pump().runtime().schedule_dispatch() == Err(RuntimeError::DispatcherRejected)
+            && self.pump().runtime().schedule_dispatch().is_ok()
     }
 
     #[cfg(feature = "test")]
@@ -572,7 +576,7 @@ pub(crate) fn dispatch_native_events(token: WindowToken) {
         #[cfg(feature = "test")]
         if !closed
             && LIVE_TEST_REARM.with(|rearm| rearm.replace(false))
-            && let Err(error) = live.schedule_retry()
+            && let Err(error) = live.schedule_dispatch()
         {
             fault = Some(runtime_error(error));
             live.shutdown();
@@ -580,7 +584,7 @@ pub(crate) fn dispatch_native_events(token: WindowToken) {
         }
         if !closed
             && retry
-            && let Err(error) = live.schedule_retry()
+            && let Err(error) = live.schedule_dispatch()
         {
             fault = Some(runtime_error(error));
             live.shutdown();
@@ -646,26 +650,41 @@ fn finalize_closed_window(mut live: Box<dyn LivePump>, empty: bool) {
 }
 
 #[cfg(feature = "test")]
+pub fn record_live_primary_event(value: String) {
+    LIVE_PRIMARY_EVENTS.with(|count| count.set(count.get().saturating_add(1)));
+    if value == "native" {
+        LIVE_PRIMARY_NATIVE_PAYLOAD.with(|observed| observed.set(true));
+    }
+}
+
+#[cfg(feature = "test")]
+pub fn record_live_secondary_event(value: String) {
+    LIVE_SECONDARY_EVENTS.with(|count| count.set(count.get().saturating_add(1)));
+    if value == "secondary-native" {
+        LIVE_SECONDARY_NATIVE_PAYLOAD.with(|observed| observed.set(true));
+    }
+}
+
+#[cfg(feature = "test")]
 pub fn schedule_live_controlled_repair_test(initial_success: bool) -> windows_core::Result<()> {
     let dispatcher = DispatcherQueue::GetForCurrentThread()?;
     std::thread::spawn(move || {
         std::thread::sleep(std::time::Duration::from_millis(150));
         let edit_dispatcher = dispatcher.clone();
         let edit = DispatcherQueueHandler::new(move || {
+            LIVE_PRIMARY_EVENTS.with(|count| count.set(0));
+            LIVE_SECONDARY_EVENTS.with(|count| count.set(0));
+            LIVE_PRIMARY_NATIVE_PAYLOAD.with(|observed| observed.set(false));
+            LIVE_SECONDARY_NATIVE_PAYLOAD.with(|observed| observed.set(false));
             let edited = HOST.with(|host| {
                 host.borrow().as_ref().map(|host| {
-                    (
-                        host.primary()
-                            .ok_or(RuntimeError::MissingApplication)
-                            .and_then(|pump| pump.live_set_root_text("native")),
-                        host.secondary()
-                            .ok_or(RuntimeError::MissingApplication)
-                            .and_then(|pump| pump.live_set_root_text("secondary-native")),
-                    )
+                    host.primary()
+                        .ok_or(RuntimeError::MissingApplication)
+                        .and_then(|pump| pump.live_set_root_text("native"))
                 })
             });
-            if !matches!(edited, Some((Ok(()), Ok(())))) {
-                eprintln!("controlled repair fixture could not edit both roots: {edited:?}");
+            if !matches!(edited, Some(Ok(()))) {
+                eprintln!("controlled repair fixture could not edit primary root: {edited:?}");
                 std::process::exit(1);
             }
             let verify_dispatcher = edit_dispatcher.clone();
@@ -707,15 +726,19 @@ fn queue_live_repair_verification(
             Some((Some(Ok(primary)), Some(Ok(secondary))))
                 if primary == "fixed" && secondary == "second"
         );
-        if initial_success && repaired {
-            if schedule_live_scheduler_reentrancy_test().is_err() {
+        let routed = LIVE_PRIMARY_EVENTS.with(|count| count.get() > 0)
+            && LIVE_SECONDARY_EVENTS.with(|count| count.get() == 0)
+            && LIVE_PRIMARY_NATIVE_PAYLOAD.with(std::cell::Cell::get);
+        if initial_success && repaired && routed {
+            if schedule_live_secondary_repair_test(initial_success).is_err() {
                 std::process::exit(1);
             }
             return;
         }
         if attempts == 0 {
             eprintln!(
-                "controlled repair fixture failed: resources={initial_success}, text={text:?}"
+                "primary controlled repair fixture failed: resources={initial_success}, \
+                 text={text:?}, routed={routed}"
             );
             std::process::exit(1);
         }
@@ -731,6 +754,86 @@ fn queue_live_repair_verification(
         Err(windows_core::Error::new(
             E_FAIL,
             "dispatcher rejected controlled repair verification",
+        ))
+    }
+}
+
+#[cfg(feature = "test")]
+fn schedule_live_secondary_repair_test(initial_success: bool) -> windows_core::Result<()> {
+    let edited = HOST.with(|host| {
+        host.borrow().as_ref().map(|host| {
+            host.secondary()
+                .ok_or(RuntimeError::MissingApplication)
+                .and_then(|pump| pump.live_set_root_text("secondary-native"))
+        })
+    });
+    if !matches!(edited, Some(Ok(()))) {
+        return Err(windows_core::Error::new(
+            E_FAIL,
+            format!("controlled repair fixture could not edit secondary root: {edited:?}"),
+        ));
+    }
+    queue_live_secondary_repair_verification(
+        DispatcherQueue::GetForCurrentThread()?,
+        initial_success,
+        LIVE_PRIMARY_EVENTS.with(std::cell::Cell::get),
+        8,
+    )
+}
+
+#[cfg(feature = "test")]
+fn queue_live_secondary_repair_verification(
+    dispatcher: DispatcherQueue,
+    initial_success: bool,
+    primary_events: u8,
+    attempts: u8,
+) -> windows_core::Result<()> {
+    let next_dispatcher = dispatcher.clone();
+    let verify = DispatcherQueueHandler::new(move || {
+        let text = HOST.with(|host| {
+            host.borrow().as_ref().map(|host| {
+                (
+                    host.primary().map(LivePump::live_root_text),
+                    host.secondary().map(LivePump::live_root_text),
+                )
+            })
+        });
+        let repaired = matches!(
+            text.as_ref(),
+            Some((Some(Ok(primary)), Some(Ok(secondary))))
+                if primary == "fixed" && secondary == "second"
+        );
+        let routed = LIVE_PRIMARY_EVENTS.with(|count| count.get() == primary_events)
+            && LIVE_SECONDARY_EVENTS.with(|count| count.get() > 0)
+            && LIVE_SECONDARY_NATIVE_PAYLOAD.with(std::cell::Cell::get);
+        if initial_success && repaired && routed {
+            if schedule_live_scheduler_reentrancy_test().is_err() {
+                std::process::exit(1);
+            }
+            return;
+        }
+        if attempts == 0
+            || queue_live_secondary_repair_verification(
+                next_dispatcher.clone(),
+                initial_success,
+                primary_events,
+                attempts - 1,
+            )
+            .is_err()
+        {
+            eprintln!(
+                "secondary controlled repair fixture failed: resources={initial_success}, \
+                 text={text:?}, routed={routed}"
+            );
+            std::process::exit(1);
+        }
+    });
+    if dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Low, &verify)? {
+        Ok(())
+    } else {
+        Err(windows_core::Error::new(
+            E_FAIL,
+            "dispatcher rejected secondary controlled repair verification",
         ))
     }
 }

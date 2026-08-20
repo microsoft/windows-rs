@@ -14,7 +14,11 @@ fn main() -> Result<()> {
     App::run_windows([
         primary as fn(&mut Hooks) -> Element,
         secondary as fn(&mut Hooks) -> Element,
-    ])
+    ])?;
+    Err(Error::new(
+        HRESULT(0x80004005_u32 as _),
+        "windows-reactor-next self-test returned before its completion marker",
+    ))
 }
 
 fn primary(hooks: &mut Hooks) -> Element {
@@ -26,9 +30,15 @@ fn primary(hooks: &mut Hooks) -> Element {
         }
         Some(Box::new(mark_live_test_cleanup as fn()))
     });
-    TextBox::new().text("fixed").into()
+    TextBox::new()
+        .text("fixed")
+        .on_text_changed(record_live_primary_event)
+        .into()
 }
 
 fn secondary(_hooks: &mut Hooks) -> Element {
-    TextBox::new().text("second").into()
+    TextBox::new()
+        .text("second")
+        .on_text_changed(record_live_secondary_event)
+        .into()
 }

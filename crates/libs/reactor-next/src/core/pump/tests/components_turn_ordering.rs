@@ -87,6 +87,67 @@ fn identical_props_retry_recomposes_after_planning_failure() {
 }
 
 #[test]
+fn component_turn_retry_recomposes_touched_child_after_planning_failure() {
+    #[derive(Clone)]
+    struct ParentProps(Rc<RefCell<Option<LocalSender<PlanningMode>>>>);
+
+    impl PartialEq for ParentProps {
+        fn eq(&self, other: &Self) -> bool {
+            Rc::ptr_eq(&self.0, &other.0)
+        }
+    }
+
+    struct Parent {
+        mode: PlanningMode,
+    }
+
+    impl Component for Parent {
+        type Message = PlanningMode;
+        type Props = ParentProps;
+
+        fn create(props: &Self::Props, context: &mut ComponentContext<Self>) -> Self {
+            *props.0.borrow_mut() = Some(context.sender());
+            Self {
+                mode: PlanningMode::Valid,
+            }
+        }
+
+        fn changed(&mut self, _props: &Self::Props, _context: &mut ComponentContext<Self>) {}
+
+        fn update(&mut self, message: Self::Message, _context: &mut ComponentContext<Self>) {
+            self.mode = message;
+        }
+
+        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+            View::component::<PlanningFailureComponent>(self.mode.clone())
+        }
+    }
+
+    let sender = Rc::new(RefCell::new(None));
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<Parent>(ParentProps(Rc::clone(&sender))))
+        .unwrap();
+    let version = pump.version();
+
+    assert!(
+        sender
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .send(PlanningMode::InvalidArity)
+    );
+    assert_eq!(
+        pump.dispatch_components(1),
+        Err(PumpError::StructureUnsupported)
+    );
+    assert_eq!(
+        pump.dispatch_components(1),
+        Err(PumpError::StructureUnsupported)
+    );
+    assert_eq!(pump.version(), version);
+}
+
+#[test]
 fn mounts_a_component_chain_into_the_authoritative_tree() {
     let mut pump = Pump::new(RecordingRuntime::default());
 

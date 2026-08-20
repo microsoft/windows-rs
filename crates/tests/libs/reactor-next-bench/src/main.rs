@@ -649,6 +649,12 @@ fn main() {
     component_inserted_4k.push(4_096);
     let mut component_removed_4k = component_keys_4k.clone();
     component_removed_4k.pop();
+    let mut component_moved_10_4k = component_keys_4k.clone();
+    component_moved_10_4k.rotate_left(410);
+    let mut component_moved_20_4k = component_keys_4k.clone();
+    component_moved_20_4k.rotate_left(819);
+    let mut component_moved_25_4k = component_keys_4k.clone();
+    component_moved_25_4k.rotate_left(1_024);
 
     let rows = vec![
         bench_update(
@@ -792,8 +798,32 @@ fn main() {
         bench_component_keyed(
             "component_remove",
             4_096,
-            component_keys_4k,
+            component_keys_4k.clone(),
             component_removed_4k,
+            (iters / 32).max(1),
+            reps,
+        ),
+        bench_component_keyed(
+            "component_move_10pct",
+            4_096,
+            component_keys_4k.clone(),
+            component_moved_10_4k,
+            (iters / 32).max(1),
+            reps,
+        ),
+        bench_component_keyed(
+            "component_move_20pct",
+            4_096,
+            component_keys_4k.clone(),
+            component_moved_20_4k,
+            (iters / 32).max(1),
+            reps,
+        ),
+        bench_component_keyed(
+            "component_move_25pct",
+            4_096,
+            component_keys_4k,
+            component_moved_25_4k,
             (iters / 32).max(1),
             reps,
         ),

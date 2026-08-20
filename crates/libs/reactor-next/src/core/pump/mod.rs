@@ -116,10 +116,7 @@ impl<R: NativeRuntime> Pump<R> {
         });
         plan.push(Command::ActivateWindow { node: window });
 
-        if let Err(error) = self.runtime.apply(&plan.commands) {
-            self.poisoned = true;
-            return Err(PumpError::NativeApplyFailed(error));
-        }
+        self.apply_native_commands(&plan.commands)?;
         Self::commit_tree_properties(&mut candidate, &plan.commits)?;
         self.tree = candidate;
         self.application = Some(application);
@@ -177,22 +174,15 @@ impl<R: NativeRuntime> Pump<R> {
         }
         plan.push(Command::ActivateWindow { node: window });
 
-        if let Err(error) = self.runtime.apply(&plan.commands) {
-            self.poisoned = true;
-            return Err(PumpError::NativeApplyFailed(error));
-        }
+        self.apply_native_commands(&plan.commands)?;
 
         Self::commit_tree_properties(&mut candidate, &plan.commits)?;
-        for token in changes.reserved.iter().copied() {
-            self.components.publish(token)?;
-        }
+        self.finalize_component_changes(&changes)?;
         self.tree = candidate;
         self.application = Some(application);
         self.root = Some(root);
         self.window = Some(window);
-        for token in changes.reserved {
-            self.components.commit_effects(token)?;
-        }
+        self.commit_component_effects(&changes)?;
         self.version = next_version;
         Ok(())
     }
@@ -356,6 +346,7 @@ impl<R: NativeRuntime> Pump<R> {
     pub(crate) fn native_window_closed(&mut self) {
         self.cleanup_component_effects().unwrap();
         self.components.close();
+        self.runtime.native_window_closed();
         self.reset_on_drop = false;
     }
 

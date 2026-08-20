@@ -1,6 +1,19 @@
 use super::*;
 
 impl<R: NativeRuntime> Pump<R> {
+    pub(super) fn apply_native_commands(&mut self, commands: &[Command]) -> Result<(), PumpError> {
+        if commands.is_empty() {
+            return Ok(());
+        }
+        if let Err(error) = self.runtime.apply(commands) {
+            self.poisoned = true;
+            self.events.clear();
+            self.realizations.clear();
+            return Err(PumpError::NativeApplyFailed(error));
+        }
+        Ok(())
+    }
+
     pub(super) fn publish_candidate(
         &mut self,
         mut candidate: CandidateState,
@@ -15,14 +28,7 @@ impl<R: NativeRuntime> Pump<R> {
             FrontendChanges::Element(_) => {}
         }
 
-        if !plan.commands.is_empty()
-            && let Err(error) = self.runtime.apply(&plan.commands)
-        {
-            self.poisoned = true;
-            self.events.clear();
-            self.realizations.clear();
-            return Err(PumpError::NativeApplyFailed(error));
-        }
+        self.apply_native_commands(&plan.commands)?;
 
         self.commit_candidate_properties(&mut candidate, &plan.commits)?;
         self.publish_frontend(candidate, changes)?;
