@@ -28,7 +28,7 @@ trait LivePump {
     fn schedule_retry(&self) -> Result<(), RuntimeError>;
     fn shutdown(&mut self);
     #[cfg(feature = "test")]
-    fn live_inject_root_text(&mut self, value: &str) -> Result<(), RuntimeError>;
+    fn live_set_root_text(&self, value: &str) -> Result<(), RuntimeError>;
     #[cfg(feature = "test")]
     fn live_root_text(&self) -> Result<String, RuntimeError>;
     #[cfg(feature = "test")]
@@ -65,23 +65,9 @@ where
     }
 
     #[cfg(feature = "test")]
-    fn live_inject_root_text(&mut self, value: &str) -> Result<(), RuntimeError> {
+    fn live_set_root_text(&self, value: &str) -> Result<(), RuntimeError> {
         let root = self.pump().root().ok_or(RuntimeError::UnsupportedKind)?;
-        let revision = self
-            .pump()
-            .event_revision(root, EventId::TextBoxTextChanged)
-            .ok_or(RuntimeError::MissingSubscription(
-                root,
-                EventId::TextBoxTextChanged,
-            ))?;
-        self.pump().runtime().live_set_text(root, value)?;
-        self.pump_mut().queue_event(QueuedEvent {
-            node: root,
-            event: EventId::TextBoxTextChanged,
-            revision,
-            payload: EventPayload::Str(value.into()),
-        });
-        self.pump().runtime().schedule_retry()
+        self.pump().runtime().live_set_text(root, value)
     }
 
     #[cfg(feature = "test")]
@@ -288,29 +274,35 @@ pub(crate) fn dispatch_native_events() {
 #[cfg(feature = "test")]
 pub fn schedule_live_controlled_repair_test(initial_success: bool) -> windows_core::Result<()> {
     let dispatcher = DispatcherQueue::GetForCurrentThread()?;
-    let verify_dispatcher = dispatcher.clone();
-    let edit = DispatcherQueueHandler::new(move || {
-        let edited = HOST.with(|host| {
-            host.borrow_mut()
-                .as_mut()
-                .map(|host| host.pump.live_inject_root_text("native"))
+    std::thread::spawn(move || {
+        std::thread::sleep(std::time::Duration::from_millis(150));
+        let edit_dispatcher = dispatcher.clone();
+        let edit = DispatcherQueueHandler::new(move || {
+            let edited = HOST.with(|host| {
+                host.borrow()
+                    .as_ref()
+                    .map(|host| host.pump.live_set_root_text("native"))
+            });
+            if !matches!(edited, Some(Ok(()))) {
+                eprintln!("controlled repair fixture could not edit root: {edited:?}");
+                std::process::exit(1);
+            }
+            let verify_dispatcher = edit_dispatcher.clone();
+            std::thread::spawn(move || {
+                std::thread::sleep(std::time::Duration::from_millis(100));
+                if queue_live_repair_verification(verify_dispatcher, initial_success, 8).is_err() {
+                    std::process::exit(1);
+                }
+            });
         });
-        if !matches!(edited, Some(Ok(()))) {
-            eprintln!("controlled repair fixture could not edit root: {edited:?}");
-            std::process::exit(1);
-        }
-        if queue_live_repair_verification(verify_dispatcher.clone(), initial_success, 8).is_err() {
+        if !matches!(
+            dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &edit),
+            Ok(true)
+        ) {
             std::process::exit(1);
         }
     });
-    if dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &edit)? {
-        Ok(())
-    } else {
-        Err(windows_core::Error::new(
-            E_FAIL,
-            "dispatcher rejected controlled repair fixture",
-        ))
-    }
+    Ok(())
 }
 
 #[cfg(feature = "test")]

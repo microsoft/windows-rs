@@ -47,13 +47,13 @@ their matching synchronous feedback. Native observations update property knowled
 application callbacks, so rejecting a user edit produces a restoring write. Controlled properties
 must declare a feedback contract; the current slice accepts only synchronous exact feedback and
 rejects unsupported contracts during generation.
-The process-isolated WinUI fixture injects a native text observation through the live scheduler
-without a public callback and verifies that the render loop restores the actual `TextBox.Text`
-value. It also forces dispatcher enqueue rejection followed by retry, requests work reentrantly
-during dispatch, verifies recovery after a setter mutates WinUI and reports failure, forces a
-structural failure and native remount, rejects stale realization work, and verifies hook cleanup
-runs once before native reset. OS input and native event delivery still need a separate automation
-fixture.
+The process-isolated WinUI fixture changes a loaded native `TextBox` without a public callback and
+relies on the generated COM `TextChanged` subscription to drive the live scheduler and restore the
+desired value. It also forces dispatcher enqueue rejection followed by retry, requests work
+reentrantly during dispatch, verifies recovery after a setter mutates WinUI and reports failure,
+forces a structural failure and native remount, rejects stale realization work, and verifies hook
+cleanup runs once before native reset. User-generated keyboard and pointer input still need a
+separate automation fixture.
 
 Virtual collection models use the panel keyed differ and issue arena-owned realization leases.
 Recycling, key removal, collection retirement, and replacement realization invalidate stale work.

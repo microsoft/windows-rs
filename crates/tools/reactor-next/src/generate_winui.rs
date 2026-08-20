@@ -3,8 +3,8 @@ use quote::quote;
 use std::collections::BTreeSet;
 
 use crate::schema::{
-    EventPayloadConversion, EventPayloadSource, ResolvedControl, ResolvedProperty, ResolvedSchema,
-    Role,
+    EventPayloadConversion, EventPayloadSource, ResolvedControl, ResolvedEvent, ResolvedProperty,
+    ResolvedSchema, Role,
 };
 
 pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
@@ -191,96 +191,10 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             .map(move |property| generate_clear_property(control, property))
     });
     let events = schema.controls.iter().flat_map(|control| {
-        control.events.iter().map(move |event| {
-            let control_name = ident(&control.name);
-            let event_id = ident(&format!("{}{}", control.name, event.name));
-            let interface = path_ident(&event.interface);
-            let method = ident(&event.name);
-            let payload = ident(&event.payload);
-            let payload_value = match &event.conversion {
-                EventPayloadConversion::Identity => quote! { value },
-                EventPayloadConversion::Field(field) => {
-                    let field = ident(field);
-                    quote! { value.#field }
-                }
-            };
-            let callback = match &event.source {
-                EventPayloadSource::Unit => quote! {
-                    move |_, _| {
-                        sink.enqueue(
-                            node,
-                            EventId::#event_id,
-                            revision,
-                            EventPayload::Unit,
-                        );
-                    }
-                },
-                EventPayloadSource::SenderProperty {
-                    interface: property_interface,
-                } => {
-                    let property = ident(event.property.as_deref().unwrap());
-                    let property_interface = path_ident(property_interface);
-                    quote! {
-                    {
-                        let event_source = value
-                            .cast::<#property_interface>()
-                            .map_err(native_error)?;
-                        move |_, _| {
-                            match event_source.#property() {
-                                Ok(value) => sink.enqueue(
-                                    node,
-                                    EventId::#event_id,
-                                    revision,
-                                    EventPayload::#payload(#payload_value),
-                                ),
-                                Err(error) => sink.error(
-                                    node,
-                                    EventId::#event_id,
-                                    revision,
-                                    native_error(error),
-                                ),
-                            }
-                        }
-                    }
-                    }
-                }
-                EventPayloadSource::EventArgsProperty {
-                    interface: property_interface,
-                } => {
-                    let property = ident(event.property.as_deref().unwrap());
-                    let property_interface = path_ident(property_interface);
-                    quote! {
-                        move |_, args| {
-                            if let Some(args) = args.as_ref() {
-                                match args
-                                    .cast::<#property_interface>()
-                                    .and_then(|args| args.#property())
-                                {
-                                    Ok(value) => sink.enqueue(
-                                        node,
-                                        EventId::#event_id,
-                                        revision,
-                                        EventPayload::#payload(#payload_value),
-                                    ),
-                                    Err(error) => sink.error(
-                                        node,
-                                        EventId::#event_id,
-                                        revision,
-                                        native_error(error),
-                                    ),
-                                }
-                            }
-                        }
-                    }
-                }
-            };
-            quote! {
-                (Handle::#control_name(value), EventId::#event_id) => {
-                    let source = value.cast::<#interface>().map_err(native_error)?;
-                    source.#method(#callback).map_err(native_error)
-                }
-            }
-        })
+        control
+            .events
+            .iter()
+            .map(move |event| generate_event_arm(control, event))
     });
     let feedback_values = schema.controls.iter().flat_map(|control| {
         control.properties.iter().filter_map(move |property| {
@@ -404,6 +318,101 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     format!("// Generated by `tool_reactor_next`. Do not edit.\n\n{tokens}\n")
 }
 
+fn generate_payload_value(conversion: &EventPayloadConversion) -> TokenStream {
+    match conversion {
+        EventPayloadConversion::Identity => quote! { value },
+        EventPayloadConversion::Field(field) => {
+            let field = ident(field);
+            quote! { value.#field }
+        }
+    }
+}
+
+fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> TokenStream {
+    let control_name = ident(&control.name);
+    let event_id = ident(&format!("{}{}", control.name, event.name));
+    let interface = path_ident(&event.interface);
+    let method = ident(&event.name);
+    let payload = ident(&event.payload);
+    let payload_value = generate_payload_value(&event.conversion);
+    let callback = match &event.source {
+        EventPayloadSource::Unit => quote! {
+            move |_, _| {
+                sink.enqueue(
+                    node,
+                    EventId::#event_id,
+                    revision,
+                    EventPayload::Unit,
+                );
+            }
+        },
+        EventPayloadSource::SenderProperty {
+            interface: property_interface,
+        } => {
+            let property = ident(event.property.as_deref().unwrap());
+            let property_interface = path_ident(property_interface);
+            quote! {
+                {
+                    let event_source = value
+                        .cast::<#property_interface>()
+                        .map_err(native_error)?;
+                    move |_, _| {
+                        match event_source.#property() {
+                            Ok(value) => sink.enqueue(
+                                node,
+                                EventId::#event_id,
+                                revision,
+                                EventPayload::#payload(#payload_value),
+                            ),
+                            Err(error) => sink.error(
+                                node,
+                                EventId::#event_id,
+                                revision,
+                                native_error(error),
+                            ),
+                        }
+                    }
+                }
+            }
+        }
+        EventPayloadSource::EventArgsProperty {
+            interface: property_interface,
+        } => {
+            let property = ident(event.property.as_deref().unwrap());
+            let property_interface = path_ident(property_interface);
+            quote! {
+                move |_, args| {
+                    if let Some(args) = args.as_ref() {
+                        match args
+                            .cast::<#property_interface>()
+                            .and_then(|args| args.#property())
+                        {
+                            Ok(value) => sink.enqueue(
+                                node,
+                                EventId::#event_id,
+                                revision,
+                                EventPayload::#payload(#payload_value),
+                            ),
+                            Err(error) => sink.error(
+                                node,
+                                EventId::#event_id,
+                                revision,
+                                native_error(error),
+                            ),
+                        }
+                    }
+                }
+            }
+        }
+    };
+    quote! {
+        (Handle::#control_name(value), EventId::#event_id) => {
+            let source = value.cast::<#interface>().map_err(native_error)?;
+            source.#method(#callback).map_err(native_error)
+        }
+    }
+}
+
 fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty) -> TokenStream {
     let control_name = ident(&control.name);
     let property_id = ident(&format!("{}{}", control.name, property.name));
@@ -496,6 +505,34 @@ mod tests {
     use crate::schema::{Schema, workspace_path};
     use tool_reactor::metadata::MetadataResolver;
 
+    fn assert_compiles(body: TokenStream) {
+        let unique = format!(
+            "reactor_next_codegen_{}_{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        );
+        let source = std::env::temp_dir().join(format!("{unique}.rs"));
+        let output = std::env::temp_dir().join(format!("{unique}.rmeta"));
+        std::fs::write(&source, body.to_string()).unwrap();
+        let result = std::process::Command::new("rustc")
+            .args(["--edition=2024", "--crate-type=lib", "--emit=metadata"])
+            .arg(&source)
+            .arg("-o")
+            .arg(&output)
+            .output()
+            .unwrap();
+        _ = std::fs::remove_file(source);
+        _ = std::fs::remove_file(output);
+        assert!(
+            result.status.success(),
+            "{}",
+            String::from_utf8_lossy(&result.stderr)
+        );
+    }
+
     fn schema() -> ResolvedSchema {
         let source = include_str!("winui.toml");
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
@@ -554,5 +591,154 @@ property = "FontWeight"
 
         assert!(generated.contains("cast :: < INumberBoxValueChangedEventArgs >"));
         assert!(generated.contains("EventPayload :: U16 (value . weight)"));
+    }
+
+    #[test]
+    fn accepted_event_payload_expressions_compile() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.NumberBox"
+role = "leaf"
+capabilities = ["layout"]
+
+[[control.event]]
+name = "ValueChanged"
+property = "NewValue"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TextBlock"
+role = "leaf"
+capabilities = ["layout"]
+
+[[control.event]]
+name = "Tapped"
+property = "FontWeight"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let schema = Schema::parse(source).unwrap().resolve(&metadata).unwrap();
+        let number = generate_payload_value(&schema.controls[0].events[0].conversion);
+        let weight = generate_payload_value(&schema.controls[1].events[0].conversion);
+
+        assert_compiles(quote! {
+            struct FontWeight {
+                weight: u16,
+            }
+
+            fn number_payload(value: f64) -> f64 {
+                #number
+            }
+
+            fn weight_payload(value: FontWeight) -> u16 {
+                #weight
+            }
+        });
+
+        let number_arm = generate_event_arm(&schema.controls[0], &schema.controls[0].events[0]);
+        assert_compiles(quote! {
+            #[derive(Clone, Copy)]
+            struct RuntimeError;
+
+            fn native_error(error: RuntimeError) -> RuntimeError {
+                error
+            }
+
+            struct EventRevoker;
+
+            #[derive(Clone, Copy)]
+            enum EventId {
+                NumberBoxValueChanged,
+                Other,
+            }
+
+            enum EventPayload {
+                F64(f64),
+            }
+
+            #[derive(Clone)]
+            struct EventSink;
+
+            impl EventSink {
+                fn enqueue(
+                    &self,
+                    _node: u32,
+                    _event: EventId,
+                    _revision: u32,
+                    _payload: EventPayload,
+                ) {
+                }
+
+                fn error(
+                    &self,
+                    _node: u32,
+                    _event: EventId,
+                    _revision: u32,
+                    _error: RuntimeError,
+                ) {
+                }
+            }
+
+            #[derive(Default)]
+            struct INumberBox;
+
+            impl INumberBox {
+                fn ValueChanged<F>(&self, _callback: F) -> Result<EventRevoker, RuntimeError>
+                where
+                    F: Fn((), EventArgsRef) + 'static,
+                {
+                    Ok(EventRevoker)
+                }
+            }
+
+            struct EventArgsRef(Option<EventArgs>);
+
+            impl EventArgsRef {
+                fn as_ref(&self) -> Option<&EventArgs> {
+                    self.0.as_ref()
+                }
+            }
+
+            struct EventArgs;
+
+            impl EventArgs {
+                fn cast<T: Default>(&self) -> Result<T, RuntimeError> {
+                    Ok(T::default())
+                }
+            }
+
+            #[derive(Default)]
+            struct INumberBoxValueChangedEventArgs;
+
+            impl INumberBoxValueChangedEventArgs {
+                fn NewValue(&self) -> Result<f64, RuntimeError> {
+                    Ok(1.0)
+                }
+            }
+
+            struct NumberBox;
+
+            impl NumberBox {
+                fn cast<T: Default>(&self) -> Result<T, RuntimeError> {
+                    Ok(T::default())
+                }
+            }
+
+            enum Handle {
+                NumberBox(NumberBox),
+                Other,
+            }
+
+            fn subscribe(
+                handle: &Handle,
+                node: u32,
+                event: EventId,
+                revision: u32,
+                sink: EventSink,
+            ) -> Result<EventRevoker, RuntimeError> {
+                match (handle, event) {
+                    #number_arm,
+                    _ => Err(RuntimeError),
+                }
+            }
+        });
     }
 }
