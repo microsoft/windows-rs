@@ -35,17 +35,13 @@ pub struct WinUiRuntime {
     handles: HashMap<NodeId, Handle>,
     events: Rc<RefCell<Vec<NativeWork<QueuedEvent>>>>,
     feedback: Rc<RefCell<HashMap<(NodeId, EventId), EventPayload>>>,
-    identity: Rc<Cell<Option<NativeIdentity>>>,
+    identity: Rc<Cell<Option<WindowToken>>>,
     realizations: Rc<RefCell<Vec<NativeWork<RealizationRequest>>>>,
     scheduler: Rc<RefCell<SchedulerState>>,
     subscriptions: HashMap<(NodeId, EventId), windows_core::EventRevoker>,
     virtuals: HashMap<NodeId, element_factory::VirtualHandle>,
     windows: HashMap<NodeId, Window>,
     pending_application: Option<Application>,
-    #[cfg(feature = "test")]
-    fail_next_structural: bool,
-    #[cfg(feature = "test")]
-    fail_next_property_after_apply: bool,
     #[cfg(feature = "test")]
     reject_next_enqueue: Rc<Cell<bool>>,
 }
@@ -72,36 +68,6 @@ impl WinUiRuntime {
             return Err(RuntimeError::UnsupportedKind);
         };
         text_box.Text().map_err(native_error)
-    }
-
-    #[cfg(feature = "test")]
-    pub fn live_fail_next_structural(&mut self) {
-        self.fail_next_structural = true;
-    }
-
-    #[cfg(feature = "test")]
-    pub fn live_fail_next_property_after_apply(&mut self) {
-        self.fail_next_property_after_apply = true;
-    }
-
-    #[cfg(feature = "test")]
-    pub fn live_queue_event(
-        &self,
-        identity: NativeIdentity,
-        node: NodeId,
-        event: EventId,
-        revision: u32,
-        payload: EventPayload,
-    ) {
-        self.events.borrow_mut().push(NativeWork {
-            identity,
-            work: QueuedEvent {
-                node,
-                event,
-                revision,
-                payload,
-            },
-        });
     }
 
     #[cfg(feature = "test")]
@@ -134,22 +100,6 @@ impl WinUiRuntime {
                     .ok_or(RuntimeError::MissingNode(*node))?
                     .Activate()
                     .map_err(native_error)?;
-            }
-            Command::ResetWindowContent { window } => {
-                let window = self
-                    .windows
-                    .get(window)
-                    .ok_or(RuntimeError::MissingNode(*window))?;
-                self.subscriptions.clear();
-                window
-                    .SetContent(None::<&UIElement>)
-                    .map_err(native_error)?;
-                self.handles.clear();
-                self.virtuals.clear();
-                self.feedback.borrow_mut().clear();
-                self.realizations.borrow_mut().clear();
-                self.events.borrow_mut().clear();
-                self.event_errors.borrow_mut().clear();
             }
             Command::Create { node, kind } => {
                 if self.contains(*node) {
@@ -242,11 +192,6 @@ impl WinUiRuntime {
                     self.feedback.borrow_mut().remove(&(*node, event));
                 }
                 result?;
-                #[cfg(feature = "test")]
-                if self.fail_next_property_after_apply {
-                    self.fail_next_property_after_apply = false;
-                    return Err(RuntimeError::Injected);
-                }
             }
             Command::ClearProperty { node, property } => {
                 let handle = self
@@ -465,8 +410,8 @@ pub struct EventSink {
     errors: Rc<RefCell<Vec<NativeWork<QueuedEventError>>>>,
     feedback: Rc<RefCell<HashMap<(NodeId, EventId), EventPayload>>>,
     dispatcher: DispatcherQueue,
-    identity: NativeIdentity,
-    current_identity: Rc<Cell<Option<NativeIdentity>>>,
+    identity: WindowToken,
+    current_identity: Rc<Cell<Option<WindowToken>>>,
     scheduler: Rc<RefCell<SchedulerState>>,
     #[cfg(feature = "test")]
     reject_next_enqueue: Rc<Cell<bool>>,
@@ -534,8 +479,8 @@ impl EventSink {
 
     fn perform(
         action: ScheduleAction,
-        identity: NativeIdentity,
-        current_identity: &Rc<Cell<Option<NativeIdentity>>>,
+        identity: WindowToken,
+        current_identity: &Rc<Cell<Option<WindowToken>>>,
         scheduler: &Rc<RefCell<SchedulerState>>,
         dispatcher: &DispatcherQueue,
         #[cfg(feature = "test")] reject_next_enqueue: &Rc<Cell<bool>>,
@@ -634,30 +579,14 @@ fn index32(index: usize) -> Result<u32, RuntimeError> {
 }
 
 impl NativeRuntime for WinUiRuntime {
-    fn apply(&mut self, commands: &[Command]) -> CommitReceipt {
-        let mut structural_failure = false;
-        let outcomes = commands
-            .iter()
-            .map(|command| {
-                if structural_failure {
-                    return CommandOutcome::Skipped;
-                }
-                #[cfg(feature = "test")]
-                if self.fail_next_structural && command.structural() {
-                    self.fail_next_structural = false;
-                    structural_failure = true;
-                    return CommandOutcome::Failed(RuntimeError::Injected);
-                }
-                match self.apply_one(command) {
-                    Ok(()) => CommandOutcome::Applied,
-                    Err(error) => {
-                        structural_failure = command.structural();
-                        CommandOutcome::Failed(error)
-                    }
-                }
-            })
-            .collect();
-        CommitReceipt { outcomes }
+    fn apply(&mut self, commands: &[Command]) -> Result<(), NativeApplyError> {
+        for (index, command) in commands.iter().enumerate() {
+            self.apply_one(command).map_err(|error| NativeApplyError {
+                command: index,
+                error,
+            })?;
+        }
+        Ok(())
     }
 
     fn reset(&mut self) {
@@ -685,11 +614,11 @@ impl NativeRuntime for WinUiRuntime {
         Some(Rc::new(move || sink.wake()))
     }
 
-    fn set_identity(&mut self, identity: NativeIdentity) {
+    fn set_identity(&mut self, identity: WindowToken) {
         if self
             .identity
             .get()
-            .is_none_or(|current| current.window() != identity.window())
+            .is_none_or(|current| current != identity)
         {
             self.scheduler.borrow_mut().open();
         }

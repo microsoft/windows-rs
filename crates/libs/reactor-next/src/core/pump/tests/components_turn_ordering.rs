@@ -60,17 +60,17 @@ fn mounts_a_component_chain_into_the_authoritative_tree() {
 }
 
 #[test]
-fn structural_mount_failure_discards_reserved_component_scopes() {
+fn native_mount_failure_does_not_publish_component_scopes() {
     let mut runtime = RecordingRuntime::default();
     runtime.fail_at(0);
     let mut pump = Pump::new(runtime);
 
     assert!(matches!(
         pump.mount_view(View::component::<Root>("leaf".to_string())),
-        Err(PumpError::StructuralApplyFailed(_))
+        Err(PumpError::NativeApplyFailed(_))
     ));
-    assert_eq!(pump.components().pending(), 0);
-    assert_eq!(pump.components_mut().drain(10).unwrap().dropped, 0);
+    assert!(pump.poisoned());
+    assert!(pump.root().is_none());
 }
 
 #[test]
@@ -203,7 +203,7 @@ fn local_probe_fallback_composes_once() {
 }
 
 #[test]
-fn recovered_component_candidate_retires_its_dirty_token() {
+fn failed_component_candidate_is_fatal() {
     #[derive(Clone)]
     struct Props(Rc<RefCell<Option<LocalSender<bool>>>>);
 
@@ -247,13 +247,9 @@ fn recovered_component_candidate_retires_its_dirty_token() {
     pump.runtime_mut().fail_at(0);
     assert!(matches!(
         pump.dispatch_components(1),
-        Err(PumpError::RecoveredStructure(_))
+        Err(PumpError::NativeApplyFailed(_))
     ));
-    assert!(pump.dirty_components.is_empty());
-
-    let batches = pump.runtime().batches();
-    assert_eq!(pump.dispatch_components(1), Ok(0));
-    assert_eq!(pump.runtime().batches(), batches);
+    assert!(pump.poisoned());
 }
 
 #[test]
@@ -364,7 +360,7 @@ fn same_key_different_component_type_replaces_and_retires_scope() {
 }
 
 #[test]
-fn failed_type_replacement_recovers_and_commits_scope_transaction() {
+fn failed_type_replacement_is_fatal() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(View::component::<MixedList>(false))
         .unwrap();
@@ -377,51 +373,36 @@ fn failed_type_replacement_recovers_and_commits_scope_transaction() {
         .token(pump.tree.component_scope(old).unwrap())
         .unwrap();
     let old_sender = pump.components().sender::<()>(old_token).unwrap();
-    let identity = pump.native_identity();
     pump.runtime_mut().fail_after(0, 0);
 
     assert!(matches!(
         pump.update_view(View::component::<MixedList>(true)),
-        Err(PumpError::RecoveredStructure(_))
+        Err(PumpError::NativeApplyFailed(_))
     ));
-    assert!(!pump.poisoned());
-    assert_eq!(pump.native_identity().window(), identity.window());
-    assert_ne!(
-        pump.native_identity().realization_epoch(),
-        identity.realization_epoch()
-    );
+    assert!(pump.poisoned());
     assert_eq!(
-        recorded_text(pump.runtime(), panel),
-        vec!["alt:value".to_string()]
+        pump.update_view(View::component::<MixedList>(true)),
+        Err(PumpError::Poisoned)
     );
-    old_sender.send(());
-    assert_eq!(pump.components_mut().drain(1).unwrap().dropped, 0);
+    drop(old_sender);
 }
 
 #[test]
-fn failed_component_recovery_discards_new_scope_without_retiring_old_scope() {
+fn repeated_component_failure_is_not_retried() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(View::component::<MixedList>(false))
         .unwrap();
-    let root = pump.root().unwrap();
-    let slot = pump.tree.children(root).unwrap()[0];
-    let panel = pump.tree.children(slot).unwrap()[0];
-    let old = pump.tree.children(panel).unwrap()[0];
-    let old_token = pump
-        .components()
-        .token(pump.tree.component_scope(old).unwrap())
-        .unwrap();
-    let old_sender = pump.components().sender::<()>(old_token).unwrap();
     pump.runtime_mut().fail_after(0, 0);
-    pump.runtime_mut().fail_after(1, 0);
 
     assert!(matches!(
         pump.update_view(View::component::<MixedList>(true)),
-        Err(PumpError::RecoveryFailed(_))
+        Err(PumpError::NativeApplyFailed(_))
     ));
     assert!(pump.poisoned());
-    old_sender.send(());
-    assert_eq!(pump.components_mut().drain(1).unwrap().dispatched, 1);
+    assert_eq!(
+        pump.update_view(View::component::<MixedList>(true)),
+        Err(PumpError::Poisoned)
+    );
 }
 
 #[test]

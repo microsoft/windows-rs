@@ -28,15 +28,12 @@ fn queued_event_uses_latest_callback_without_revision_change() {
 
     let second = Rc::new(Cell::new(0));
     let second_capture = Rc::clone(&second);
-    let updated = pump
-        .update(
-            Button::new()
-                .on_click(move || second_capture.set(second_capture.get() + 1))
-                .into(),
-        )
-        .unwrap();
-
-    assert!(updated.outcomes.is_empty());
+    pump.update(
+        Button::new()
+            .on_click(move || second_capture.set(second_capture.get() + 1))
+            .into(),
+    )
+    .unwrap();
     assert_eq!(
         pump.event_revision(root, EventId::ButtonClick),
         Some(revision)
@@ -66,110 +63,6 @@ fn removed_callback_rejects_queued_revision() {
 }
 
 #[test]
-fn recovery_failure_poisons_and_discards_queued_events() {
-    let calls = Rc::new(Cell::new(0));
-    let callback_calls = Rc::clone(&calls);
-    let mut pump = Pump::new(RecordingRuntime::default());
-    pump.mount(
-        Button::new()
-            .on_click(move || callback_calls.set(callback_calls.get() + 1))
-            .into(),
-    )
-    .unwrap();
-    let root = pump.root().unwrap();
-    let revision = pump.event_revision(root, EventId::ButtonClick).unwrap();
-    pump.runtime_mut().fail_at(0);
-    pump.runtime_mut().fail_after(1, 0);
-    assert!(matches!(
-        pump.update(Button::new().into()),
-        Err(PumpError::RecoveryFailed(_))
-    ));
-    pump.queue_event(QueuedEvent {
-        node: root,
-        event: EventId::ButtonClick,
-        revision,
-        payload: EventPayload::Unit,
-    });
-
-    assert_eq!(pump.dispatch_events(), Ok(0));
-    assert_eq!(calls.get(), 0);
-}
-
-#[test]
-fn recovered_root_rejects_pre_failure_event() {
-    let calls = Rc::new(Cell::new(0));
-    let callback_calls = Rc::clone(&calls);
-    let element = || {
-        Button::new()
-            .on_click({
-                let callback_calls = Rc::clone(&callback_calls);
-                move || callback_calls.set(callback_calls.get() + 1)
-            })
-            .into()
-    };
-    let mut pump = Pump::new(RecordingRuntime::default());
-    pump.mount(element()).unwrap();
-    let old_root = pump.root().unwrap();
-    let revision = pump.event_revision(old_root, EventId::ButtonClick).unwrap();
-    pump.queue_event(QueuedEvent {
-        node: old_root,
-        event: EventId::ButtonClick,
-        revision,
-        payload: EventPayload::Unit,
-    });
-    pump.runtime_mut().fail_at(0);
-
-    assert!(matches!(
-        pump.update(Button::new().into()),
-        Err(PumpError::RecoveredStructure(_))
-    ));
-    assert_ne!(pump.root(), Some(old_root));
-    assert_eq!(pump.dispatch_events(), Ok(0));
-    assert_eq!(calls.get(), 0);
-}
-
-#[test]
-fn native_remount_rejects_late_work_without_replacing_window_identity() {
-    let calls = Rc::new(Cell::new(0));
-    let callback_calls = Rc::clone(&calls);
-    let mut pump = Pump::new(RecordingRuntime::default());
-    pump.mount(Button::new().on_click(|| {}).into()).unwrap();
-    let old_identity = pump.native_identity();
-    pump.runtime_mut().fail_at(0);
-
-    assert!(matches!(
-        pump.update(
-            Button::new()
-                .content(TextBlock::new())
-                .on_click(move || callback_calls.set(callback_calls.get() + 1))
-                .into()
-        ),
-        Err(PumpError::RecoveredStructure(_))
-    ));
-
-    let new_identity = pump.native_identity();
-    assert_eq!(old_identity.window(), new_identity.window());
-    assert_ne!(
-        old_identity.realization_epoch(),
-        new_identity.realization_epoch()
-    );
-    let root = pump.root().unwrap();
-    let revision = pump.event_revision(root, EventId::ButtonClick).unwrap();
-    pump.queue_event_with_identity(
-        old_identity,
-        QueuedEvent {
-            node: root,
-            event: EventId::ButtonClick,
-            revision,
-            payload: EventPayload::Unit,
-        },
-    );
-
-    assert_eq!(pump.dispatch_events(), Ok(0));
-    assert_eq!(calls.get(), 0);
-}
-
-#[test]
 fn event_payload_read_failure_is_reported() {
     let mut pump = Pump::new(EventErrorRuntime::default());
     pump.mount(TextBox::new().on_text_changed(|_| {}).into())
@@ -178,7 +71,7 @@ fn event_payload_read_failure_is_reported() {
     let revision = pump
         .event_revision(root, EventId::TextBoxTextChanged)
         .unwrap();
-    let identity = pump.native_identity();
+    let identity = pump.window_token();
     pump.runtime_mut().error = Some(NativeWork {
         identity,
         work: QueuedEventError {
@@ -203,35 +96,10 @@ fn old_window_event_payload_read_failure_is_ignored() {
     let revision = pump
         .event_revision(root, EventId::TextBoxTextChanged)
         .unwrap();
-    let stale_identity = pump.native_identity();
+    let stale_identity = pump.window_token();
     pump.shutdown();
     pump.mount(TextBox::new().into()).unwrap();
     assert_eq!(pump.root(), Some(root));
-    pump.runtime_mut().error = Some(NativeWork {
-        identity: stale_identity,
-        work: QueuedEventError {
-            node: root,
-            event: EventId::TextBoxTextChanged,
-            revision,
-            error: RuntimeError::Injected,
-        },
-    });
-
-    assert_eq!(pump.dispatch_events(), Ok(0));
-}
-
-#[test]
-fn old_realization_event_payload_read_failure_is_ignored() {
-    let mut pump = Pump::new(EventErrorRuntime::default());
-    pump.mount(TextBox::new().into()).unwrap();
-    let root = pump.root().unwrap();
-    let revision = pump
-        .event_revision(root, EventId::TextBoxTextChanged)
-        .unwrap();
-    let stale_identity = pump.native_identity();
-    pump.identity = stale_identity.next_realization().unwrap();
-    let identity = pump.identity;
-    pump.runtime_mut().set_identity(identity);
     pump.runtime_mut().error = Some(NativeWork {
         identity: stale_identity,
         work: QueuedEventError {
@@ -251,7 +119,7 @@ fn retired_subscription_event_payload_read_failure_is_ignored() {
     pump.mount(Button::new().on_click(|| {}).into()).unwrap();
     let root = pump.root().unwrap();
     let revision = pump.event_revision(root, EventId::ButtonClick).unwrap();
-    let identity = pump.native_identity();
+    let identity = pump.window_token();
     pump.update(Button::new().into()).unwrap();
     pump.runtime_mut().error = Some(NativeWork {
         identity,
@@ -372,29 +240,22 @@ fn rejected_controlled_edit_restores_the_desired_value() {
 
     assert_eq!(pump.dispatch_events(), Ok(1));
     assert_eq!(&*observed.borrow(), "native");
-    assert!(pump.retry_pending());
     assert_eq!(
         pump.tree
             .native(root)
             .unwrap()
             .properties
             .get(&PropertyId::TextBoxText),
-        Some(&NativePropertyState::Known(Some(PropertyValue::Str(
-            "native".into()
-        ))))
+        Some(&Some(PropertyValue::Str("native".into())))
     );
 
-    let restored = pump
-        .update(
-            TextBox::new()
-                .text("desired")
-                .on_text_changed(|_| {})
-                .into(),
-        )
-        .unwrap();
-
-    assert_eq!(restored.outcomes, [CommandOutcome::Applied]);
-    assert!(!pump.retry_pending());
+    pump.update(
+        TextBox::new()
+            .text("desired")
+            .on_text_changed(|_| {})
+            .into(),
+    )
+    .unwrap();
     assert_eq!(
         pump.runtime()
             .node(root)
@@ -454,5 +315,4 @@ fn component_rejected_controlled_edit_restores_the_desired_value() {
             .property(PropertyId::TextBoxText),
         Some(&PropertyValue::Str("desired".into()))
     );
-    assert!(!pump.retry_pending());
 }

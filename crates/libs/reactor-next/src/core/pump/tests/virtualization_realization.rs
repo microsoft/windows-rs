@@ -156,7 +156,7 @@ fn every_realization_command_failure_poisoned_without_publication() {
 
         assert!(matches!(
             pump.process_realizations(),
-            Err(PumpError::StructuralApplyFailed(_))
+            Err(PumpError::NativeApplyFailed(_))
         ));
         assert!(pump.tree.children(collection).unwrap().is_empty());
         assert_eq!(pump.process_realizations(), Err(PumpError::Poisoned));
@@ -201,7 +201,7 @@ fn shutdown_discards_pending_realization_and_rejects_stale_collection() {
         container: RealizedContainer(1),
         index: 0,
     };
-    let old_identity = pump.native_identity();
+    let old_identity = pump.window_token();
     pump.runtime_mut().queue_realization(request);
 
     pump.shutdown();
@@ -214,7 +214,7 @@ fn shutdown_discards_pending_realization_and_rejects_stale_collection() {
     )
     .unwrap();
     assert_eq!(pump.root(), Some(collection));
-    assert_ne!(pump.native_identity().window(), old_identity.window());
+    assert_ne!(pump.window_token(), old_identity);
     pump.runtime_mut()
         .queue_realization_with_identity(old_identity, request);
     assert_eq!(

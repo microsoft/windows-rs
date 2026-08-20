@@ -1,7 +1,6 @@
 //! Mount, update, and publication contract tests for [`Pump`].
 
 use super::super::*;
-use super::support::*;
 use crate::native::*;
 use std::rc::Rc;
 
@@ -51,26 +50,16 @@ fn failed_create_does_not_publish_a_root() {
     runtime.fail_at(0);
     let mut pump = Pump::new(runtime);
 
-    let failed = structural_receipt(
-        pump.mount(TextBlock::new().text("first").into())
-            .unwrap_err(),
-    );
-
     assert_eq!(
-        failed.outcomes,
-        [
-            CommandOutcome::Failed(RuntimeError::Injected),
-            CommandOutcome::Skipped,
-            CommandOutcome::Skipped,
-            CommandOutcome::Skipped,
-            CommandOutcome::Skipped,
-            CommandOutcome::Skipped,
-        ]
+        pump.mount(TextBlock::new().text("first").into()),
+        Err(PumpError::NativeApplyFailed(NativeApplyError {
+            command: 0,
+            error: RuntimeError::Injected,
+        }))
     );
     assert_eq!(pump.root(), None);
     assert!(pump.runtime().is_empty());
     assert_eq!(pump.version(), 0);
-    assert!(!pump.retry_pending());
     assert!(pump.poisoned());
     assert_eq!(
         pump.mount(TextBlock::new().text("first").into()),
@@ -140,20 +129,21 @@ fn application_window_and_root_share_one_arena_lifetime() {
 }
 
 #[test]
-fn structural_mount_failure_removes_created_nodes() {
+fn native_mount_failure_does_not_publish_partial_native_state() {
     let mut runtime = RecordingRuntime::default();
     runtime.fail_at(1);
     let mut pump = Pump::new(runtime);
     let tree = StackPanel::new().child("text", TextBlock::new().text("value"));
 
-    let failed = structural_receipt(pump.mount(tree.into()).unwrap_err());
-
-    assert!(matches!(
-        failed.outcomes[1],
-        CommandOutcome::Failed(RuntimeError::Injected)
-    ));
+    assert_eq!(
+        pump.mount(tree.into()),
+        Err(PumpError::NativeApplyFailed(NativeApplyError {
+            command: 1,
+            error: RuntimeError::Injected,
+        }))
+    );
     assert_eq!(pump.root(), None);
-    assert!(pump.runtime().is_empty());
+    assert!(!pump.runtime().is_empty());
     assert!(pump.poisoned());
 }
 

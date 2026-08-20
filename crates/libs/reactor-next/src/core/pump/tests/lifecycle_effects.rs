@@ -83,7 +83,7 @@ fn component_effects_commit_after_mount_and_cleanup_once() {
 }
 
 #[test]
-fn component_host_retries_initial_property_failure_without_a_message() {
+fn component_host_treats_initial_property_failure_as_fatal() {
     let mut probe = Pump::new(RecordingRuntime::default());
     probe
         .mount_view(View::component::<Leaf>("value".to_string()))
@@ -98,17 +98,14 @@ fn component_host_retries_initial_property_failure_without_a_message() {
     let mut pump = Pump::new(runtime);
     assert!(matches!(
         pump.mount_view(View::component::<Leaf>("value".to_string())),
-        Err(PumpError::PropertyApplyFailed(_))
+        Err(PumpError::NativeApplyFailed(_))
     ));
-    assert!(pump.native_work_pending());
-
-    assert_eq!(pump.dispatch_components(64), Ok(0));
-    assert!(!pump.retry_pending());
+    assert!(pump.poisoned());
     assert!(!pump.native_work_pending());
 }
 
 #[test]
-fn failed_component_recovery_does_not_commit_pending_effects() {
+fn fatal_component_apply_does_not_commit_pending_effects() {
     #[derive(Clone)]
     struct Props {
         alternate: bool,
@@ -169,7 +166,7 @@ fn failed_component_recovery_does_not_commit_pending_effects() {
             alternate: true,
             log: Rc::clone(&log),
         })),
-        Err(PumpError::RecoveryFailed(_))
+        Err(PumpError::NativeApplyFailed(_))
     ));
     assert_eq!(&*log.borrow(), &["setup false", "cleanup false"]);
 }

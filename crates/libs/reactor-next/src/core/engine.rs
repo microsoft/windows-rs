@@ -32,14 +32,8 @@ struct Node {
 #[derive(Clone)]
 pub struct NativeState {
     pub desired: MountedProps,
-    pub properties: BTreeMap<PropertyId, NativePropertyState>,
+    pub properties: BTreeMap<PropertyId, Option<PropertyValue>>,
     pub events: BTreeMap<EventId, EventState>,
-}
-
-#[derive(Clone, Debug, PartialEq)]
-pub enum NativePropertyState {
-    Known(Option<PropertyValue>),
-    Divergent { attempts: u8 },
 }
 
 #[derive(Clone, Copy)]
@@ -210,7 +204,7 @@ impl Tree {
 
     pub fn insert_virtual(
         &mut self,
-        identity: NativeIdentity,
+        identity: WindowToken,
         parent: Option<NodeId>,
         keys: impl IntoIterator<Item = Key>,
     ) -> Result<NodeId, TreeError> {
@@ -228,7 +222,7 @@ impl Tree {
 
     pub fn insert_virtual_items(
         &mut self,
-        identity: NativeIdentity,
+        identity: WindowToken,
         parent: Option<NodeId>,
         key: Option<Key>,
         items: Rc<Vec<KeyedElement>>,
@@ -398,8 +392,8 @@ mod tests {
     use super::*;
     use crate::core::scope::ScopeArena;
 
-    fn identity() -> NativeIdentity {
-        NativeIdentity::new(WindowToken::new(WindowId::allocate()))
+    fn identity() -> WindowToken {
+        WindowToken::new(WindowId::allocate())
     }
     use std::collections::{HashMap, HashSet};
 

@@ -1,10 +1,6 @@
 use super::*;
 
-/// Maximum number of native commands applied in one recovery continuation.
-pub(super) const RECOVERY_COMMAND_BUDGET: usize = 64;
-
 pub(super) struct PropertyCommit {
-    pub(super) command: usize,
     pub(super) node: NodeId,
     pub(super) property: PropertyId,
     pub(super) value: Option<PropertyValue>,
@@ -13,8 +9,8 @@ pub(super) struct PropertyCommit {
 pub(super) struct UpdatePlan {
     pub(super) commands: Vec<Command>,
     pub(super) commits: Vec<PropertyCommit>,
-    pub(super) identity: NativeIdentity,
-    pub(super) retry_properties: bool,
+    pub(super) identity: WindowToken,
+    pub(super) reconcile_observations: bool,
 }
 
 #[derive(Default)]
@@ -49,12 +45,12 @@ pub(super) enum FrontendChanges {
 }
 
 impl UpdatePlan {
-    pub(super) fn new(identity: NativeIdentity) -> Self {
+    pub(super) fn new(identity: WindowToken) -> Self {
         Self {
             commands: Vec::new(),
             commits: Vec::new(),
             identity,
-            retry_properties: false,
+            reconcile_observations: false,
         }
     }
 
@@ -69,39 +65,7 @@ impl UpdatePlan {
             |command| matches!(command, Command::SynchronizeChildren { parent: current, .. } if *current == parent),
         ) {
             self.commands.remove(index);
-            for commit in &mut self.commits {
-                debug_assert_ne!(commit.command, index);
-                if commit.command > index {
-                    commit.command -= 1;
-                }
-            }
         }
         self.push(Command::SynchronizeChildren { parent, children });
-    }
-}
-
-/// In-flight recovery continuation owned by [`Pump`].
-///
-/// When a structural recovery plan exceeds [`RECOVERY_COMMAND_BUDGET`], the
-/// pump stores this continuation and resumes it on subsequent scheduler turns
-/// before processing ordinary events, messages, or reconciliation.
-pub(super) struct PendingRecovery {
-    pub(super) candidate: CandidateState,
-    pub(super) changes: FrontendChanges,
-    pub(super) plan: UpdatePlan,
-    pub(super) failure: CommitReceipt,
-    pub(super) next_version: u64,
-    pub(super) commands_applied: usize,
-    pub(super) outcomes: Vec<CommandOutcome>,
-    pub(super) recovery_root: NodeId,
-}
-
-impl PendingRecovery {
-    pub(super) fn remaining_commands(&self) -> &[Command] {
-        &self.plan.commands[self.commands_applied..]
-    }
-
-    pub(super) fn is_complete(&self) -> bool {
-        self.commands_applied >= self.plan.commands.len()
     }
 }

@@ -53,13 +53,12 @@ impl<R: NativeRuntime> Pump<R> {
                 plan.push(Command::Create { node, kind });
                 desired.visit_properties(&mut |property, value| {
                     if let Some(value) = value {
-                        let command = plan.push(Command::SetProperty {
+                        plan.push(Command::SetProperty {
                             node,
                             property,
                             value: value.clone(),
                         });
                         plan.commits.push(PropertyCommit {
-                            command,
                             node,
                             property,
                             value: Some(value),

@@ -39,19 +39,11 @@ trait LivePump {
         Err(RuntimeError::UnsupportedKind)
     }
     #[cfg(feature = "test")]
-    fn live_stale_remount(&mut self) -> bool {
-        false
-    }
-    #[cfg(feature = "test")]
     fn live_rejection_then_retry(&self) -> bool {
         false
     }
     #[cfg(feature = "test")]
-    fn live_mutate_then_fail(&mut self) -> bool {
-        false
-    }
-    #[cfg(feature = "test")]
-    fn live_component_recovery(&mut self) -> bool {
+    fn live_component_update(&mut self) -> bool {
         false
     }
     #[cfg(feature = "test")]
@@ -100,13 +92,13 @@ impl LivePump for ComponentLoop {
 }
 
 #[cfg(feature = "test")]
-struct LiveRecoveryComponent {
+struct LiveTestComponent {
     messages: u8,
     text: String,
 }
 
 #[cfg(feature = "test")]
-impl Component for LiveRecoveryComponent {
+impl Component for LiveTestComponent {
     type Props = String;
     type Message = String;
 
@@ -191,42 +183,6 @@ where
     }
 
     #[cfg(feature = "test")]
-    fn live_stale_remount(&mut self) -> bool {
-        let calls = Rc::new(std::cell::Cell::new(0));
-        let callback_calls = Rc::clone(&calls);
-        let old_identity = self.pump().native_identity();
-        self.pump_mut().runtime_mut().live_fail_next_structural();
-        if !matches!(
-            self.pump_mut().update(
-                Button::new()
-                    .on_click(move || callback_calls.set(callback_calls.get() + 1))
-                    .into()
-            ),
-            Err(PumpError::RecoveredStructure(_))
-        ) {
-            return false;
-        }
-        let new_identity = self.pump().native_identity();
-        let Some(root) = self.pump().root() else {
-            return false;
-        };
-        let Some(revision) = self.pump().event_revision(root, EventId::ButtonClick) else {
-            return false;
-        };
-        self.pump().runtime().live_queue_event(
-            old_identity,
-            root,
-            EventId::ButtonClick,
-            revision,
-            EventPayload::Unit,
-        );
-        old_identity.window() == new_identity.window()
-            && old_identity.realization_epoch() != new_identity.realization_epoch()
-            && self.pump_mut().dispatch_events() == Ok(0)
-            && calls.get() == 0
-    }
-
-    #[cfg(feature = "test")]
     fn live_rejection_then_retry(&self) -> bool {
         self.pump().runtime().live_reject_next_enqueue();
         self.pump().runtime().schedule_retry() == Err(RuntimeError::DispatcherRejected)
@@ -234,55 +190,23 @@ where
     }
 
     #[cfg(feature = "test")]
-    fn live_mutate_then_fail(&mut self) -> bool {
-        self.pump_mut()
-            .runtime_mut()
-            .live_fail_next_property_after_apply();
-        if !matches!(
-            self.pump_mut()
-                .update(TextBox::new().text("mutated").into()),
-            Err(PumpError::PropertyApplyFailed(_))
-        ) {
-            return false;
-        }
-        if self
-            .pump()
-            .runtime()
-            .live_text(self.pump().root().unwrap())
-            .as_deref()
-            != Ok("mutated")
-        {
-            return false;
-        }
-        self.pump_mut()
-            .update(TextBox::new().text("mutated").into())
-            .is_ok()
-            && !self.pump().retry_pending()
-    }
-
-    #[cfg(feature = "test")]
-    fn live_component_recovery(&mut self) -> bool {
+    fn live_component_update(&mut self) -> bool {
         LIVE_COMPONENT_CREATES.with(|count| count.set(0));
         LIVE_COMPONENT_EFFECT_SETUPS.with(|count| count.set(0));
         LIVE_COMPONENT_EFFECT_CLEANUPS.with(|count| count.set(0));
-        let old_identity = self.pump().native_identity();
-        self.pump_mut().runtime_mut().live_fail_next_structural();
-        if !matches!(
-            self.pump_mut()
-                .update_view(View::component::<LiveRecoveryComponent>(
-                    "component".to_string()
-                )),
-            Err(PumpError::RecoveredStructure(_))
-        ) {
+        if self
+            .pump_mut()
+            .update_view(View::component::<LiveTestComponent>(
+                "component".to_string(),
+            ))
+            .is_err()
+        {
             return false;
         }
-        let new_identity = self.pump().native_identity();
         let Some(native) = self.pump().root_native() else {
             return false;
         };
-        old_identity.window() == new_identity.window()
-            && old_identity.realization_epoch() != new_identity.realization_epoch()
-            && LIVE_COMPONENT_CREATES.with(|count| count.get() == 1)
+        LIVE_COMPONENT_CREATES.with(|count| count.get() == 1)
             && LIVE_COMPONENT_EFFECT_SETUPS.with(|count| count.get() == 1)
             && LIVE_COMPONENT_EFFECT_CLEANUPS.with(|count| count.get() == 0)
             && self.pump().runtime().live_text(native).as_deref() == Ok("component")
@@ -391,7 +315,7 @@ impl App {
             let launch_result = Rc::clone(&callback_result);
             let launch_create_pump = Rc::clone(&create_pump);
             let on_launched = Box::new(move || {
-                let launched = (|| {
+                let launched: windows_core::Result<()> = (|| {
                     let application = launch_application
                         .borrow_mut()
                         .take()
@@ -399,25 +323,10 @@ impl App {
                     install_xaml_controls_resources(&application)?;
                     let create_pump = launch_create_pump.borrow_mut().take().unwrap();
                     let mut pump = create_pump(application);
-                    let property_fault = match pump.mount() {
-                        Ok(()) => None,
-                        Err(error) if error.recoverable() => Some(error),
-                        Err(error) => return Err(pump_error(error)),
-                    };
+                    pump.mount().map_err(pump_error)?;
                     HOST.with(|host| {
                         *host.borrow_mut() = Some(LiveHost { fault: None, pump });
                     });
-                    if let Some(error) = property_fault {
-                        eprintln!("windows-reactor-next fault: {}", pump_error(error));
-                        HOST.with(|host| {
-                            host.borrow()
-                                .as_ref()
-                                .unwrap()
-                                .pump
-                                .schedule_retry()
-                                .map_err(runtime_error)
-                        })?;
-                    }
                     Ok(())
                 })();
                 if let Err(error) = &launched {
@@ -460,16 +369,11 @@ pub(crate) fn dispatch_native_events() {
             match live.pump.dispatch_events() {
                 Ok(()) => retry = live.pump.native_work_pending(),
                 Err(error) => {
-                    let recoverable = error.recoverable();
                     let error = pump_error(error);
                     eprintln!("windows-reactor-next fault: {error}");
-                    if recoverable {
-                        retry = true;
-                    } else {
-                        live.fault = Some(error);
-                        live.pump.shutdown();
-                        exit_ui_thread();
-                    }
+                    live.fault = Some(error);
+                    live.pump.shutdown();
+                    exit_ui_thread();
                 }
             }
         }
@@ -626,14 +530,6 @@ fn finish_live_backend_test() {
         eprintln!("live backend fixture lost its host");
         std::process::exit(1);
     };
-    if !live.pump.live_mutate_then_fail() {
-        eprintln!("live backend fixture did not recover a mutate-then-fail setter");
-        std::process::exit(1);
-    }
-    if !live.pump.live_stale_remount() {
-        eprintln!("live backend fixture did not reject stale remount work");
-        std::process::exit(1);
-    }
     if !live.pump.live_dense_reorder() {
         eprintln!("live backend fixture did not apply a dense keyed reorder");
         std::process::exit(1);
@@ -642,8 +538,8 @@ fn finish_live_backend_test() {
         eprintln!("live backend fixture did not apply empty and fragment transitions");
         std::process::exit(1);
     }
-    if !live.pump.live_component_recovery() {
-        eprintln!("live backend fixture did not recover a component structural update");
+    if !live.pump.live_component_update() {
+        eprintln!("live backend fixture did not apply a component structural update");
         std::process::exit(1);
     }
     let dispatcher = match DispatcherQueue::GetForCurrentThread() {
@@ -713,7 +609,16 @@ fn finish_live_component_test() {
 }
 
 fn pump_error(error: PumpError) -> windows_core::Error {
-    windows_core::Error::new(E_FAIL, format!("{error:?}"))
+    match error {
+        PumpError::NativeApplyFailed(error) => {
+            eprintln!(
+                "windows-reactor-next fatal native command failure at {}: {:?}",
+                error.command, error.error
+            );
+            std::process::abort();
+        }
+        error => windows_core::Error::new(E_FAIL, format!("{error:?}")),
+    }
 }
 
 fn runtime_error(error: RuntimeError) -> windows_core::Error {

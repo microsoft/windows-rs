@@ -67,7 +67,7 @@ fn fragment_splices_into_children_and_retains_keyed_component_scope() {
 }
 
 #[test]
-fn fragment_synchronization_failure_recovers_desired_native_order() {
+fn fragment_synchronization_failure_is_fatal_without_publishing_candidate() {
     let view = |reverse: bool| {
         let children = if reverse {
             [
@@ -99,15 +99,18 @@ fn fragment_synchronization_failure_recovers_desired_native_order() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(view(false)).unwrap();
     pump.runtime_mut().fail_at(failed_index);
-    assert!(matches!(
+    assert_eq!(
         pump.update_view(view(true)),
-        Err(PumpError::RecoveredStructure(_))
-    ));
+        Err(PumpError::NativeApplyFailed(NativeApplyError {
+            command: failed_index,
+            error: RuntimeError::Injected,
+        }))
+    );
     assert_eq!(
         recorded_text(pump.runtime(), pump.root().unwrap()),
-        ["B", "A"]
+        ["A", "B"]
     );
-    assert!(!pump.poisoned());
+    assert!(pump.poisoned());
 }
 
 #[test]
@@ -116,15 +119,7 @@ fn keyed_reorder_moves_survivors_without_recreation() {
     pump.mount(keyed_text(&["a", "b", "c", "d"])).unwrap();
     let root = pump.root().unwrap();
 
-    let receipt = pump.update(keyed_text(&["d", "c", "b", "a"])).unwrap();
-
-    assert_eq!(receipt.outcomes.len(), 3);
-    assert!(
-        receipt
-            .outcomes
-            .iter()
-            .all(|outcome| *outcome == CommandOutcome::Applied)
-    );
+    pump.update(keyed_text(&["d", "c", "b", "a"])).unwrap();
     assert_eq!(recorded_text(pump.runtime(), root), ["d", "c", "b", "a"]);
 }
 
@@ -182,40 +177,13 @@ fn retained_key_recurses_into_property_update() {
     .unwrap();
     let root = pump.root().unwrap();
 
-    let receipt = pump
-        .update(
-            StackPanel::new()
-                .child("value", TextBlock::new().text("second"))
-                .into(),
-        )
-        .unwrap();
-
-    assert_eq!(receipt.outcomes, [CommandOutcome::Applied]);
+    pump.update(
+        StackPanel::new()
+            .child("value", TextBlock::new().text("second"))
+            .into(),
+    )
+    .unwrap();
     assert_eq!(recorded_text(pump.runtime(), root), ["second"]);
-}
-
-#[test]
-fn failed_keyed_move_remounts_with_fresh_root() {
-    let mut pump = Pump::new(RecordingRuntime::default());
-    pump.mount(keyed_text(&["a", "b", "c", "d"])).unwrap();
-    let version = pump.version();
-    let old_root = pump.root().unwrap();
-    pump.runtime_mut().fail_at(1);
-
-    let recovered =
-        recovered_structure(pump.update(keyed_text(&["d", "c", "b", "a"])).unwrap_err());
-
-    assert!(matches!(
-        recovered.failure.outcomes[1],
-        CommandOutcome::Failed(RuntimeError::Injected)
-    ));
-    assert_eq!(pump.version(), version + 1);
-    assert!(!pump.poisoned());
-    assert_ne!(pump.root(), Some(old_root));
-    assert_eq!(
-        recorded_text(pump.runtime(), pump.root().unwrap()),
-        ["d", "c", "b", "a"]
-    );
 }
 
 #[test]
@@ -224,33 +192,8 @@ fn keyed_insert_mounts_only_the_new_subtree() {
     pump.mount(keyed_text(&["a", "c"])).unwrap();
     let root = pump.root().unwrap();
 
-    let inserted = pump.update(keyed_text(&["a", "b", "c"])).unwrap();
-
-    assert_eq!(inserted.outcomes.len(), 3);
+    pump.update(keyed_text(&["a", "b", "c"])).unwrap();
     assert_eq!(recorded_text(pump.runtime(), root), ["a", "b", "c"]);
-}
-
-#[test]
-fn failed_keyed_insert_remounts_with_fresh_root() {
-    let mut pump = Pump::new(RecordingRuntime::default());
-    pump.mount(keyed_text(&["a", "c"])).unwrap();
-    let version = pump.version();
-    let old_root = pump.root().unwrap();
-    pump.runtime_mut().fail_at(2);
-
-    let recovered = recovered_structure(pump.update(keyed_text(&["a", "b", "c"])).unwrap_err());
-
-    assert!(matches!(
-        recovered.failure.outcomes[2],
-        CommandOutcome::Failed(RuntimeError::Injected)
-    ));
-    assert_eq!(pump.version(), version + 1);
-    assert!(!pump.poisoned());
-    assert_ne!(pump.root(), Some(old_root));
-    assert_eq!(
-        recorded_text(pump.runtime(), pump.root().unwrap()),
-        ["a", "b", "c"]
-    );
 }
 
 #[test]
@@ -259,33 +202,8 @@ fn keyed_remove_retires_the_old_subtree_child_first() {
     pump.mount(keyed_text(&["a", "b", "c"])).unwrap();
     let root = pump.root().unwrap();
 
-    let removed = pump.update(keyed_text(&["a", "c"])).unwrap();
-
-    assert_eq!(removed.outcomes.len(), 2);
+    pump.update(keyed_text(&["a", "c"])).unwrap();
     assert_eq!(recorded_text(pump.runtime(), root), ["a", "c"]);
-}
-
-#[test]
-fn failed_keyed_remove_remounts_with_fresh_root() {
-    let mut pump = Pump::new(RecordingRuntime::default());
-    pump.mount(keyed_text(&["a", "b", "c"])).unwrap();
-    let version = pump.version();
-    let old_root = pump.root().unwrap();
-    pump.runtime_mut().fail_at(1);
-
-    let recovered = recovered_structure(pump.update(keyed_text(&["a", "c"])).unwrap_err());
-
-    assert!(matches!(
-        recovered.failure.outcomes[1],
-        CommandOutcome::Failed(RuntimeError::Injected)
-    ));
-    assert_eq!(pump.version(), version + 1);
-    assert!(!pump.poisoned());
-    assert_ne!(pump.root(), Some(old_root));
-    assert_eq!(
-        recorded_text(pump.runtime(), pump.root().unwrap()),
-        ["a", "c"]
-    );
 }
 
 #[test]

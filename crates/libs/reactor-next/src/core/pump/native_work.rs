@@ -5,12 +5,11 @@ pub(super) const REALIZATION_WORK_BUDGET: usize = 32;
 
 impl<R: NativeRuntime> Pump<R> {
     pub fn native_work_pending(&self) -> bool {
-        self.pending_recovery.is_some()
-            || !self.events.is_empty()
+        !self.events.is_empty()
             || !self.realizations.is_empty()
             || self.components.pending() != 0
             || !self.dirty_components.is_empty()
-            || self.retry_pending
+            || self.native_observation_pending
     }
 
     pub fn event_revision(&self, node: NodeId, event: EventId) -> Option<u32> {
@@ -30,15 +29,15 @@ impl<R: NativeRuntime> Pump<R> {
         });
     }
 
-    pub fn native_identity(&self) -> NativeIdentity {
+    pub fn window_token(&self) -> WindowToken {
         self.identity
     }
 
-    pub(super) fn queue_event_with_identity(
-        &mut self,
-        identity: NativeIdentity,
-        event: QueuedEvent,
-    ) {
+    pub(crate) fn native_observation_pending(&self) -> bool {
+        self.native_observation_pending
+    }
+
+    pub(super) fn queue_event_with_identity(&mut self, identity: WindowToken, event: QueuedEvent) {
         self.events.push_back(NativeWork {
             identity,
             work: event,
@@ -46,7 +45,6 @@ impl<R: NativeRuntime> Pump<R> {
     }
 
     pub fn dispatch_events(&mut self) -> Result<usize, PumpError> {
-        self.resume_recovery()?;
         self.events.extend(self.runtime.drain_events());
         if self.poisoned {
             self.events.clear();
@@ -96,8 +94,17 @@ impl<R: NativeRuntime> Pump<R> {
                 self.tree
                     .native_mut(event.node)?
                     .properties
-                    .insert(property, NativePropertyState::Known(Some(value)));
-                self.retry_pending = true;
+                    .insert(property, Some(value));
+                self.native_observation_pending = true;
+                let mut current = event.node;
+                while let Some(parent) = self.tree.parent(current)? {
+                    current = parent;
+                    if self.tree.kind(current)? == NodeKind::Component {
+                        let token = self.components.token(self.tree.component_scope(current)?)?;
+                        self.dirty_components.insert(token);
+                        break;
+                    }
+                }
             }
             if self
                 .tree
@@ -205,21 +212,11 @@ impl<R: NativeRuntime> Pump<R> {
         mut candidate: Tree,
         plan: &UpdatePlan,
     ) -> Result<(), PumpError> {
-        let receipt = self.runtime.apply(&plan.commands);
-        if receipt.outcomes.len() != plan.commands.len() {
+        if let Err(error) = self.runtime.apply(&plan.commands) {
             self.poisoned = true;
-            return Err(PumpError::ApplyReceiptMismatch);
+            return Err(PumpError::NativeApplyFailed(error));
         }
-        if plan
-            .commands
-            .iter()
-            .enumerate()
-            .any(|(index, _)| !receipt.applied(index))
-        {
-            self.poisoned = true;
-            return Err(PumpError::StructuralApplyFailed(receipt));
-        }
-        Self::commit_tree_properties(&mut candidate, &plan.commits, &receipt)?;
+        Self::commit_tree_properties(&mut candidate, &plan.commits)?;
         self.tree = candidate;
         Ok(())
     }

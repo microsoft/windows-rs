@@ -17,44 +17,19 @@ use plan::*;
 #[cfg(test)]
 use native_work::{EVENT_WORK_BUDGET, REALIZATION_WORK_BUDGET};
 
-#[cfg(test)]
-use plan::RECOVERY_COMMAND_BUDGET;
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum PumpError {
     AlreadyMounted,
-    ApplyReceiptMismatch,
     Component(ComponentStoreError),
     NotMounted,
     DuplicateKey(Key),
     EventReadFailed(RuntimeError),
+    NativeApplyFailed(NativeApplyError),
     Poisoned,
-    PropertyApplyFailed(CommitReceipt),
-    PropertyRetriesExhausted(CommitReceipt),
-    RecoveredStructure(Box<StructuralRecovery>),
-    RecoveryPending,
-    RecoveryFailed(Box<StructuralRecovery>),
     RenderBudgetExceeded,
     RevisionExhausted,
-    StructuralApplyFailed(CommitReceipt),
     StructureUnsupported,
     Tree(TreeError),
-}
-
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct StructuralRecovery {
-    pub failure: CommitReceipt,
-    pub recovery: CommitReceipt,
-    pub root: NodeId,
-}
-
-impl PumpError {
-    pub fn recoverable(&self) -> bool {
-        matches!(
-            self,
-            Self::PropertyApplyFailed(_) | Self::RecoveredStructure(_) | Self::RecoveryPending
-        )
-    }
 }
 
 impl From<TreeError> for PumpError {
@@ -69,8 +44,6 @@ impl From<ComponentStoreError> for PumpError {
     }
 }
 
-const MAX_PROPERTY_ATTEMPTS: u8 = 3;
-
 pub struct Pump<R: NativeRuntime> {
     application: Option<NodeId>,
     components: ComponentStore,
@@ -80,20 +53,19 @@ pub struct Pump<R: NativeRuntime> {
     runtime: R,
     root: Option<NodeId>,
     events: VecDeque<NativeWork<QueuedEvent>>,
-    identity: NativeIdentity,
-    pending_recovery: Option<PendingRecovery>,
+    identity: WindowToken,
+    native_observation_pending: bool,
     poisoned: bool,
     realizations: VecDeque<NativeWork<RealizationRequest>>,
-    retry_pending: bool,
     version: u64,
     window: Option<NodeId>,
 }
 
 impl<R: NativeRuntime> Pump<R> {
     pub fn new(mut runtime: R) -> Self {
-        let identity = NativeIdentity::new(WindowToken::new(WindowId::allocate()));
+        let identity = WindowToken::new(WindowId::allocate());
         runtime.set_identity(identity);
-        let mut components = ComponentStore::new(identity.window());
+        let mut components = ComponentStore::new(identity);
         if let Some(wake) = runtime.component_waker() {
             components.set_waker(wake);
         }
@@ -107,16 +79,15 @@ impl<R: NativeRuntime> Pump<R> {
             root: None,
             events: VecDeque::new(),
             identity,
-            pending_recovery: None,
+            native_observation_pending: false,
             poisoned: false,
             realizations: VecDeque::new(),
-            retry_pending: false,
             version: 0,
             window: None,
         }
     }
 
-    pub fn mount(&mut self, element: Element) -> Result<CommitReceipt, PumpError> {
+    pub fn mount(&mut self, element: Element) -> Result<(), PumpError> {
         if self.poisoned {
             return Err(PumpError::Poisoned);
         }
@@ -141,64 +112,21 @@ impl<R: NativeRuntime> Pump<R> {
         });
         plan.push(Command::ActivateWindow { node: window });
 
-        let receipt = self.runtime.apply(&plan.commands);
-        if receipt.outcomes.len() != plan.commands.len() {
-            self.runtime.reset();
-            self.tree = Tree::new();
-            self.application = None;
-            self.element = None;
-            self.events.clear();
-            self.realizations.clear();
+        if let Err(error) = self.runtime.apply(&plan.commands) {
             self.poisoned = true;
-            self.root = None;
-            self.retry_pending = false;
-            self.window = None;
-            return Err(PumpError::ApplyReceiptMismatch);
+            return Err(PumpError::NativeApplyFailed(error));
         }
-        let structural_failure = plan
-            .commands
-            .iter()
-            .enumerate()
-            .any(|(index, command)| command.structural() && !receipt.applied(index));
-        if structural_failure {
-            self.runtime.reset();
-            self.tree = Tree::new();
-            self.application = None;
-            self.element = None;
-            self.events.clear();
-            self.realizations.clear();
-            self.poisoned = true;
-            self.root = None;
-            self.retry_pending = false;
-            self.window = None;
-            return Err(PumpError::StructuralApplyFailed(receipt));
-        }
-        let retries_exhausted =
-            Self::commit_tree_properties(&mut candidate, &plan.commits, &receipt)?;
+        Self::commit_tree_properties(&mut candidate, &plan.commits)?;
         self.tree = candidate;
         self.application = Some(application);
         self.element = Some(desired);
         self.root = Some(node);
         self.window = Some(window);
-        if plan
-            .commands
-            .iter()
-            .enumerate()
-            .any(|(index, command)| !command.structural() && !receipt.applied(index))
-        {
-            self.retry_pending = true;
-            return Err(if retries_exhausted {
-                PumpError::PropertyRetriesExhausted(receipt)
-            } else {
-                PumpError::PropertyApplyFailed(receipt)
-            });
-        }
-        self.retry_pending = false;
         self.version = next_version;
-        Ok(receipt)
+        Ok(())
     }
 
-    pub fn mount_view(&mut self, view: View) -> Result<CommitReceipt, PumpError> {
+    pub fn mount_view(&mut self, view: View) -> Result<(), PumpError> {
         if self.poisoned {
             return Err(PumpError::Poisoned);
         }
@@ -245,34 +173,12 @@ impl<R: NativeRuntime> Pump<R> {
         }
         plan.push(Command::ActivateWindow { node: window });
 
-        let receipt = self.runtime.apply(&plan.commands);
-        if receipt.outcomes.len() != plan.commands.len()
-            || plan
-                .commands
-                .iter()
-                .enumerate()
-                .any(|(index, command)| command.structural() && !receipt.applied(index))
-        {
-            self.runtime.reset();
-            Self::remove_reservations(&mut self.components, &changes.reserved);
+        if let Err(error) = self.runtime.apply(&plan.commands) {
             self.poisoned = true;
-            return Err(if receipt.outcomes.len() != plan.commands.len() {
-                PumpError::ApplyReceiptMismatch
-            } else {
-                PumpError::StructuralApplyFailed(receipt)
-            });
+            return Err(PumpError::NativeApplyFailed(error));
         }
 
-        let retries_exhausted =
-            match Self::commit_tree_properties(&mut candidate, &plan.commits, &receipt) {
-                Ok(retries_exhausted) => retries_exhausted,
-                Err(error) => {
-                    self.runtime.reset();
-                    Self::remove_reservations(&mut self.components, &changes.reserved);
-                    self.poisoned = true;
-                    return Err(error);
-                }
-            };
+        Self::commit_tree_properties(&mut candidate, &plan.commits)?;
         for token in changes.reserved.iter().copied() {
             self.components.publish(token)?;
         }
@@ -283,28 +189,11 @@ impl<R: NativeRuntime> Pump<R> {
         for token in changes.reserved {
             self.components.commit_effects(token)?;
         }
-        if plan
-            .commands
-            .iter()
-            .enumerate()
-            .any(|(index, command)| !command.structural() && !receipt.applied(index))
-        {
-            self.retry_pending = true;
-            return Err(if retries_exhausted {
-                PumpError::PropertyRetriesExhausted(receipt)
-            } else {
-                PumpError::PropertyApplyFailed(receipt)
-            });
-        }
-        self.retry_pending = false;
         self.version = next_version;
-        Ok(receipt)
+        Ok(())
     }
 
-    pub fn update_view(&mut self, view: View) -> Result<CommitReceipt, PumpError> {
-        if self.pending_recovery.is_some() {
-            return Err(PumpError::RecoveryPending);
-        }
+    pub fn update_view(&mut self, view: View) -> Result<(), PumpError> {
         if self.poisoned {
             return Err(PumpError::Poisoned);
         }
@@ -312,7 +201,7 @@ impl<R: NativeRuntime> Pump<R> {
         let root = self.root.ok_or(PumpError::NotMounted)?;
         let mut candidate = self.tree.clone();
         let mut plan = UpdatePlan {
-            retry_properties: self.retry_pending,
+            reconcile_observations: self.native_observation_pending,
             ..UpdatePlan::new(self.identity)
         };
         let mut changes = ComponentChanges::default();
@@ -336,25 +225,27 @@ impl<R: NativeRuntime> Pump<R> {
         self.apply_component_candidate(candidate, candidate_root, plan, changes, next_version)
     }
 
-    pub fn update(&mut self, element: Element) -> Result<CommitReceipt, PumpError> {
-        if self.pending_recovery.is_some() {
-            return Err(PumpError::RecoveryPending);
-        }
+    pub fn update(&mut self, element: Element) -> Result<(), PumpError> {
         if self.poisoned {
             return Err(PumpError::Poisoned);
         }
         let next_version = self.next_version()?;
-        if !self.retry_pending && self.element.as_ref() == Some(&element) {
+        if !self.native_observation_pending
+            && self.element.as_ref() == Some(&element)
+            && Self::node_matches_element(
+                &self.tree,
+                self.root.ok_or(PumpError::NotMounted)?,
+                &element,
+            )?
+        {
             self.version = next_version;
-            return Ok(CommitReceipt {
-                outcomes: Vec::new(),
-            });
+            return Ok(());
         }
         let node = self.root.ok_or(PumpError::NotMounted)?;
-        let recovery_element = element.clone();
+        let desired_element = element.clone();
         let mut candidate = self.tree.clone();
         let mut plan = UpdatePlan {
-            retry_properties: self.retry_pending,
+            reconcile_observations: self.native_observation_pending,
             ..UpdatePlan::new(self.identity)
         };
         let candidate_root = Self::reconcile_node(&mut candidate, node, element, &mut plan)?;
@@ -364,7 +255,7 @@ impl<R: NativeRuntime> Pump<R> {
                 root: candidate_root,
             },
             plan,
-            FrontendChanges::Element(recovery_element),
+            FrontendChanges::Element(desired_element),
             next_version,
         )
     }
@@ -382,7 +273,7 @@ impl<R: NativeRuntime> Pump<R> {
     }
 
     pub fn shutdown(&mut self) {
-        let identity = self.identity.next_window();
+        let identity = self.identity.next();
         if let Some(root) = self.root {
             for node in self.tree.subtree_postorder(root).unwrap() {
                 if self.tree.kind(node).unwrap() == NodeKind::Component {
@@ -399,16 +290,15 @@ impl<R: NativeRuntime> Pump<R> {
         self.element = None;
         self.dirty_components.clear();
         self.events.clear();
-        self.pending_recovery = None;
         self.realizations.clear();
-        self.retry_pending = false;
+        self.native_observation_pending = false;
         self.root = None;
         self.tree = Tree::new();
         self.version = 0;
         self.window = None;
         if let Some(identity) = identity {
             self.identity = identity;
-            let mut components = ComponentStore::new(identity.window());
+            let mut components = ComponentStore::new(identity);
             if let Some(wake) = self.runtime.component_waker() {
                 components.set_waker(wake);
             }
@@ -441,14 +331,6 @@ impl<R: NativeRuntime> Pump<R> {
         self.poisoned
     }
 
-    pub fn retry_pending(&self) -> bool {
-        self.retry_pending
-    }
-
-    pub fn recovery_pending(&self) -> bool {
-        self.pending_recovery.is_some()
-    }
-
     pub(crate) fn components(&self) -> &ComponentStore {
         &self.components
     }
@@ -460,59 +342,33 @@ impl<R: NativeRuntime> Pump<R> {
     fn commit_tree_properties(
         tree: &mut Tree,
         commits: &[PropertyCommit],
-        receipt: &CommitReceipt,
-    ) -> Result<bool, PumpError> {
-        let mut retries_exhausted = false;
+    ) -> Result<(), PumpError> {
         for commit in commits {
-            let state = if receipt.applied(commit.command) {
-                NativePropertyState::Known(commit.value.clone())
-            } else {
-                let attempts = match tree.native(commit.node)?.properties.get(&commit.property) {
-                    Some(NativePropertyState::Divergent { attempts }) => attempts.saturating_add(1),
-                    _ => 1,
-                };
-                retries_exhausted |= attempts >= MAX_PROPERTY_ATTEMPTS;
-                NativePropertyState::Divergent { attempts }
-            };
             tree.native_mut(commit.node)?
                 .properties
-                .insert(commit.property, state);
+                .insert(commit.property, commit.value.clone());
         }
-        Ok(retries_exhausted)
+        Ok(())
     }
 
     fn commit_candidate_properties(
         &mut self,
         candidate: &mut CandidateState,
         commits: &[PropertyCommit],
-        receipt: &CommitReceipt,
-    ) -> Result<bool, PumpError> {
+    ) -> Result<(), PumpError> {
         match candidate {
-            CandidateState::Tree { tree, .. } => {
-                Self::commit_tree_properties(tree, commits, receipt)
-            }
+            CandidateState::Tree { tree, .. } => Self::commit_tree_properties(tree, commits),
             CandidateState::Native { node, .. } => {
                 let native = self.tree.native_mut(*node)?;
-                let mut retries_exhausted = false;
                 for commit in commits {
                     if commit.node != *node {
                         return Err(PumpError::StructureUnsupported);
                     }
-                    let state = if receipt.applied(commit.command) {
-                        NativePropertyState::Known(commit.value.clone())
-                    } else {
-                        let attempts = match native.properties.get(&commit.property) {
-                            Some(NativePropertyState::Divergent { attempts }) => {
-                                attempts.saturating_add(1)
-                            }
-                            _ => 1,
-                        };
-                        retries_exhausted |= attempts >= MAX_PROPERTY_ATTEMPTS;
-                        NativePropertyState::Divergent { attempts }
-                    };
-                    native.properties.insert(commit.property, state);
+                    native
+                        .properties
+                        .insert(commit.property, commit.value.clone());
                 }
-                Ok(retries_exhausted)
+                Ok(())
             }
         }
     }
@@ -536,7 +392,7 @@ impl<R: NativeRuntime> Pump<R> {
         plan: UpdatePlan,
         changes: ComponentChanges,
         next_version: u64,
-    ) -> Result<CommitReceipt, PumpError> {
+    ) -> Result<(), PumpError> {
         self.publish_candidate(
             CandidateState::Tree {
                 tree: candidate,

@@ -68,57 +68,20 @@ pub(super) fn recorded_text(runtime: &RecordingRuntime, root: NodeId) -> Vec<Str
         .collect()
 }
 
-pub(super) fn structural_receipt(error: PumpError) -> CommitReceipt {
-    let PumpError::StructuralApplyFailed(receipt) = error else {
-        panic!("expected structural apply failure");
-    };
-    receipt
-}
-
-pub(super) fn recovered_structure(error: PumpError) -> StructuralRecovery {
-    let PumpError::RecoveredStructure(recovery) = error else {
-        panic!("expected recovered structure");
-    };
-    *recovery
-}
-
-#[derive(Default)]
-pub(super) struct ShortReceiptRuntime {
-    inner: RecordingRuntime,
-    pub(super) short_next: bool,
-}
-
-impl NativeRuntime for ShortReceiptRuntime {
-    fn apply(&mut self, commands: &[Command]) -> CommitReceipt {
-        let mut receipt = self.inner.apply(commands);
-        if self.short_next {
-            self.short_next = false;
-            receipt.outcomes.pop();
-        }
-        receipt
-    }
-
-    fn reset(&mut self) {
-        self.inner.reset();
-    }
-}
-
 #[derive(Default)]
 pub(super) struct EventErrorRuntime {
     pub(super) error: Option<NativeWork<QueuedEventError>>,
-    identity: Option<NativeIdentity>,
+    identity: Option<WindowToken>,
 }
 
 impl NativeRuntime for EventErrorRuntime {
-    fn apply(&mut self, commands: &[Command]) -> CommitReceipt {
-        CommitReceipt {
-            outcomes: vec![CommandOutcome::Applied; commands.len()],
-        }
+    fn apply(&mut self, _commands: &[Command]) -> Result<(), NativeApplyError> {
+        Ok(())
     }
 
     fn reset(&mut self) {}
 
-    fn set_identity(&mut self, identity: NativeIdentity) {
+    fn set_identity(&mut self, identity: WindowToken) {
         self.identity = Some(identity);
     }
 

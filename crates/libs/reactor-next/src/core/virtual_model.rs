@@ -5,7 +5,7 @@ use super::*;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RealizationLease {
-    pub identity: NativeIdentity,
+    pub identity: WindowToken,
     pub collection: NodeId,
     pub container: RealizedContainer,
     pub key: Key,
@@ -27,14 +27,14 @@ pub struct VirtualModel {
     active: HashMap<Key, (u64, RealizedContainer)>,
     collection: NodeId,
     containers: HashMap<RealizedContainer, (Key, u64)>,
-    identity: NativeIdentity,
+    identity: WindowToken,
     keys: Rc<Vec<Key>>,
     revision: u64,
 }
 
 impl VirtualModel {
     pub fn new(
-        identity: NativeIdentity,
+        identity: WindowToken,
         collection: NodeId,
         keys: impl IntoIterator<Item = Key>,
     ) -> Result<Self, VirtualModelError> {
@@ -151,8 +151,8 @@ mod tests {
     const FIRST: RealizedContainer = RealizedContainer(10);
     const SECOND: RealizedContainer = RealizedContainer(11);
 
-    fn identity() -> NativeIdentity {
-        NativeIdentity::new(WindowToken::new(WindowId::allocate()))
+    fn identity() -> WindowToken {
+        WindowToken::new(WindowId::allocate())
     }
 
     fn keys(values: &[&str]) -> Vec<Key> {

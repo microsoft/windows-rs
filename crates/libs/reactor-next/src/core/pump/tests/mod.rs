@@ -4,11 +4,10 @@
 
 mod support;
 
-mod budget_recovery;
 mod components_turn_ordering;
 mod events_controlled_feedback;
 mod keyed_fragments;
 mod lifecycle_effects;
 mod mount_update_publication;
-mod properties_failure_recovery;
+mod properties_native_failure;
 mod virtualization_realization;

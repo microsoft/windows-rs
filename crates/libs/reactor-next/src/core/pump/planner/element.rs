@@ -19,33 +19,30 @@ impl<R: NativeRuntime> Pump<R> {
         parts: ElementParts,
         plan: &mut UpdatePlan,
     ) -> Result<MountedProps, PumpError> {
-        let props_changed = native.desired != parts.props;
-        if props_changed || plan.retry_properties {
-            parts.props.visit_properties(&mut |property, value| {
-                let changed = native.properties.get(&property).map_or_else(
-                    || value.is_some(),
-                    |current| current != &NativePropertyState::Known(value.clone()),
-                );
-                if !changed {
-                    return;
-                }
-                let command = match &value {
-                    Some(value) => Command::SetProperty {
-                        node,
-                        property,
-                        value: value.clone(),
-                    },
-                    None => Command::ClearProperty { node, property },
-                };
-                let command = plan.push(command);
-                plan.commits.push(PropertyCommit {
-                    command,
+        parts.props.visit_properties(&mut |property, value| {
+            let changed = plan.reconcile_observations
+                || native
+                    .properties
+                    .get(&property)
+                    .map_or_else(|| value.is_some(), |current| current != &value);
+            if !changed {
+                return;
+            }
+            let command = match &value {
+                Some(value) => Command::SetProperty {
                     node,
                     property,
-                    value,
-                });
+                    value: value.clone(),
+                },
+                None => Command::ClearProperty { node, property },
+            };
+            plan.push(command);
+            plan.commits.push(PropertyCommit {
+                node,
+                property,
+                value,
             });
-        }
+        });
         Ok(parts.props)
     }
 
@@ -64,7 +61,7 @@ impl<R: NativeRuntime> Pump<R> {
         if !compatible {
             return Self::replace_planned_node(tree, node, element, plan);
         }
-        if !plan.retry_properties && Self::node_matches_element(tree, node, &element)? {
+        if !plan.reconcile_observations && Self::node_matches_element(tree, node, &element)? {
             return Ok(node);
         }
 
@@ -120,13 +117,13 @@ impl<R: NativeRuntime> Pump<R> {
         debug_assert_eq!(kind, parts.kind);
 
         let props_changed = tree.native(node)?.desired != parts.props;
-        if props_changed || plan.retry_properties {
+        {
             let properties = &tree.native(node)?.properties;
             parts.props.visit_properties(&mut |property, value| {
-                let changed = properties.get(&property).map_or_else(
-                    || value.is_some(),
-                    |native| native != &NativePropertyState::Known(value.clone()),
-                );
+                let changed = plan.reconcile_observations
+                    || properties
+                        .get(&property)
+                        .map_or_else(|| value.is_some(), |native| native != &value);
                 if !changed {
                     return;
                 }
@@ -139,9 +136,8 @@ impl<R: NativeRuntime> Pump<R> {
                     },
                     None => Command::ClearProperty { node, property },
                 };
-                let command = plan.push(command);
+                plan.push(command);
                 plan.commits.push(PropertyCommit {
-                    command,
                     node,
                     property,
                     value,
@@ -194,7 +190,7 @@ impl<R: NativeRuntime> Pump<R> {
                         .zip(children.iter())
                         .enumerate()
                     {
-                        if !plan.retry_properties
+                        if !plan.reconcile_observations
                             && Self::node_matches_element(tree, child, desired.element())?
                         {
                         } else {
@@ -243,7 +239,7 @@ impl<R: NativeRuntime> Pump<R> {
                         let child = elements
                             .remove(key)
                             .ok_or(PumpError::StructureUnsupported)?;
-                        let reconciled = if !plan.retry_properties
+                        let reconciled = if !plan.reconcile_observations
                             && Self::node_matches_element(tree, child_node, child)?
                         {
                             child_node
@@ -365,7 +361,7 @@ impl<R: NativeRuntime> Pump<R> {
         Ok(node)
     }
 
-    fn node_matches_element(
+    pub(in super::super) fn node_matches_element(
         tree: &Tree,
         node: NodeId,
         element: &Element,
@@ -386,6 +382,17 @@ impl<R: NativeRuntime> Pump<R> {
             return Ok(tree.virtual_items(node)? == items);
         }
         if !element.props_match(&tree.native(node)?.desired) {
+            return Ok(false);
+        }
+        let native = tree.native(node)?;
+        let mut properties_match = true;
+        native.desired.visit_properties(&mut |property, value| {
+            properties_match &= native
+                .properties
+                .get(&property)
+                .map_or_else(|| value.is_none(), |current| current == &value);
+        });
+        if !properties_match {
             return Ok(false);
         }
 
@@ -529,13 +536,13 @@ impl<R: NativeRuntime> Pump<R> {
         plan: &mut UpdatePlan,
     ) -> Result<(), PumpError> {
         let props_changed = native.desired != parts.props;
-        if props_changed || plan.retry_properties {
+        {
             let properties = &native.properties;
             parts.props.visit_properties(&mut |property, value| {
-                let changed = properties.get(&property).map_or_else(
-                    || value.is_some(),
-                    |native| native != &NativePropertyState::Known(value.clone()),
-                );
+                let changed = plan.reconcile_observations
+                    || properties
+                        .get(&property)
+                        .map_or_else(|| value.is_some(), |native| native != &value);
                 if !changed {
                     return;
                 }
@@ -547,9 +554,8 @@ impl<R: NativeRuntime> Pump<R> {
                     },
                     None => Command::ClearProperty { node, property },
                 };
-                let command = plan.push(command);
+                plan.push(command);
                 plan.commits.push(PropertyCommit {
-                    command,
                     node,
                     property,
                     value,
@@ -587,13 +593,12 @@ impl<R: NativeRuntime> Pump<R> {
         });
         parts.props.visit_properties(&mut |property, value| {
             if let Some(value) = value {
-                let command = plan.push(Command::SetProperty {
+                plan.push(Command::SetProperty {
                     node,
                     property,
                     value: value.clone(),
                 });
                 plan.commits.push(PropertyCommit {
-                    command,
                     node,
                     property,
                     value: Some(value),

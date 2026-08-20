@@ -10,7 +10,7 @@ implement_decl! {
 
 pub struct ReactorElementFactory {
     collection: NodeId,
-    identity: NativeIdentity,
+    identity: WindowToken,
     requests: Rc<RefCell<Vec<NativeWork<RealizationRequest>>>>,
     shells: Rc<RealizedShells>,
     wake: EventSink,
@@ -25,7 +25,7 @@ pub struct VirtualHandle {
 
 impl VirtualHandle {
     pub fn create(
-        identity: NativeIdentity,
+        identity: WindowToken,
         collection: NodeId,
         item_count: usize,
         requests: Rc<RefCell<Vec<NativeWork<RealizationRequest>>>>,
@@ -146,7 +146,7 @@ impl RealizedShells {
 
 impl ReactorElementFactory {
     pub fn create(
-        identity: NativeIdentity,
+        identity: WindowToken,
         collection: NodeId,
         requests: Rc<RefCell<Vec<NativeWork<RealizationRequest>>>>,
         shells: Rc<RealizedShells>,

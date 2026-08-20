@@ -31,15 +31,6 @@ impl<R: NativeRuntime> Pump<R> {
                 self.compose_dirty_components(deferred)?;
             }
         }
-        if self.dirty_components.is_empty() && self.retry_pending {
-            let root = self.root.ok_or(PumpError::NotMounted)?;
-            for node in self.tree.subtree_postorder(root)? {
-                if self.tree.kind(node)? == NodeKind::Component {
-                    self.dirty_components
-                        .insert(self.components.token(self.tree.component_scope(node)?)?);
-                }
-            }
-        }
         if self.dirty_components.is_empty() {
             return Ok(dispatched);
         }
@@ -78,7 +69,7 @@ impl<R: NativeRuntime> Pump<R> {
 
         let mut candidate = self.tree.clone();
         let mut plan = UpdatePlan {
-            retry_properties: self.retry_pending,
+            reconcile_observations: self.native_observation_pending,
             ..UpdatePlan::new(self.identity)
         };
         let mut changes = ComponentChanges {
@@ -140,17 +131,9 @@ impl<R: NativeRuntime> Pump<R> {
             }
         }
         let root = self.root.ok_or(PumpError::NotMounted)?;
-        match self.apply_component_candidate(candidate, root, plan, changes, next_version) {
-            Ok(_) => {
-                self.dirty_components.clear();
-                Ok(())
-            }
-            Err(error @ PumpError::RecoveredStructure(_)) => {
-                self.dirty_components.clear();
-                Err(error)
-            }
-            Err(error) => Err(error),
-        }
+        self.apply_component_candidate(candidate, root, plan, changes, next_version)?;
+        self.dirty_components.clear();
+        Ok(())
     }
 
     fn has_dirty_component_ancestor(&self, token: ComponentToken) -> Result<Option<()>, PumpError> {
@@ -211,7 +194,7 @@ impl<R: NativeRuntime> Pump<R> {
             return Ok(LocalComponentUpdate::Fallback(View::Native(element)));
         }
         let mut plan = UpdatePlan {
-            retry_properties: self.retry_pending,
+            reconcile_observations: self.native_observation_pending,
             ..UpdatePlan::new(self.identity)
         };
         let desired = Self::plan_local_native_state(
@@ -220,7 +203,6 @@ impl<R: NativeRuntime> Pump<R> {
             element.into_parts(),
             &mut plan,
         )?;
-        debug_assert!(plan.commands.iter().all(|command| !command.structural()));
         Ok(LocalComponentUpdate::Plan(LocalCandidate {
             node: native,
             desired,

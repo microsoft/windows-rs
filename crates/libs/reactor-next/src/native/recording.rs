@@ -17,7 +17,7 @@ pub struct RecordingRuntime {
     commands: Vec<Vec<Command>>,
     record_commands: bool,
     fail_at: HashSet<(usize, usize)>,
-    identity: Option<NativeIdentity>,
+    identity: Option<WindowToken>,
     realizations: Vec<NativeWork<RealizationRequest>>,
     subscriptions: HashSet<(NodeId, EventId)>,
     windows: HashSet<NodeId>,
@@ -82,7 +82,7 @@ impl RecordingRuntime {
 
     pub fn queue_realization_with_identity(
         &mut self,
-        identity: NativeIdentity,
+        identity: WindowToken,
         request: RealizationRequest,
     ) {
         self.realizations.push(NativeWork {
@@ -146,19 +146,6 @@ impl RecordingRuntime {
                 self.nodes
                     .get(node)
                     .ok_or(RuntimeError::MissingNode(*node))?;
-            }
-            Command::ResetWindowContent { window } => {
-                if !self.windows.contains(window) {
-                    return Err(RuntimeError::MissingNode(*window));
-                }
-                self.subscriptions.clear();
-                let application = self.application;
-                let windows = &self.windows;
-                self.nodes
-                    .retain(|node, _| Some(*node) == application || windows.contains(node));
-                for window in &self.windows {
-                    self.nodes.get_mut(window).unwrap().children.clear();
-                }
             }
             Command::Create { node, kind } => {
                 if self.nodes.contains_key(node) {
@@ -405,35 +392,23 @@ impl RecordingRuntime {
 }
 
 impl NativeRuntime for RecordingRuntime {
-    fn apply(&mut self, commands: &[Command]) -> CommitReceipt {
+    fn apply(&mut self, commands: &[Command]) -> Result<(), NativeApplyError> {
         self.batches += 1;
         if self.record_commands {
             self.commands.push(commands.to_vec());
         }
-        let mut structural_failure = false;
-        let outcomes = commands
-            .iter()
-            .enumerate()
-            .map(|(index, command)| {
-                if structural_failure {
-                    return CommandOutcome::Skipped;
-                }
-
-                let result = if self.fail_at.remove(&(self.batches, index)) {
-                    Err(RuntimeError::Injected)
-                } else {
-                    self.apply_one(command)
-                };
-                match result {
-                    Ok(()) => CommandOutcome::Applied,
-                    Err(error) => {
-                        structural_failure = command.structural();
-                        CommandOutcome::Failed(error)
-                    }
-                }
-            })
-            .collect();
-        CommitReceipt { outcomes }
+        for (index, command) in commands.iter().enumerate() {
+            let result = if self.fail_at.remove(&(self.batches, index)) {
+                Err(RuntimeError::Injected)
+            } else {
+                self.apply_one(command)
+            };
+            result.map_err(|error| NativeApplyError {
+                command: index,
+                error,
+            })?;
+        }
+        Ok(())
     }
 
     fn reset(&mut self) {
@@ -444,7 +419,7 @@ impl NativeRuntime for RecordingRuntime {
         self.windows.clear();
     }
 
-    fn set_identity(&mut self, identity: NativeIdentity) {
+    fn set_identity(&mut self, identity: WindowToken) {
         self.identity = Some(identity);
     }
 
@@ -464,10 +439,12 @@ mod tests {
     fn command_history_can_be_disabled() {
         let mut runtime = RecordingRuntime::default();
         runtime.record_commands(false);
-        runtime.apply(&[Command::Create {
-            node: ROOT,
-            kind: MountedKind::TextBlock,
-        }]);
+        runtime
+            .apply(&[Command::Create {
+                node: ROOT,
+                kind: MountedKind::TextBlock,
+            }])
+            .unwrap();
 
         assert!(runtime.commands().is_empty());
         assert!(runtime.node(ROOT).is_some());
@@ -476,33 +453,28 @@ mod tests {
     #[test]
     fn records_tree_and_property_mutations() {
         let mut runtime = RecordingRuntime::default();
-        let receipt = runtime.apply(&[
-            Command::Create {
-                node: ROOT,
-                kind: MountedKind::StackPanel,
-            },
-            Command::Create {
-                node: CHILD,
-                kind: MountedKind::TextBlock,
-            },
-            Command::SetProperty {
-                node: CHILD,
-                property: PropertyId::TextBlockText,
-                value: PropertyValue::Str("hello".into()),
-            },
-            Command::InsertChild {
-                parent: ROOT,
-                child: CHILD,
-                index: 0,
-            },
-        ]);
-
-        assert!(
-            receipt
-                .outcomes
-                .iter()
-                .all(|outcome| { *outcome == CommandOutcome::Applied })
-        );
+        runtime
+            .apply(&[
+                Command::Create {
+                    node: ROOT,
+                    kind: MountedKind::StackPanel,
+                },
+                Command::Create {
+                    node: CHILD,
+                    kind: MountedKind::TextBlock,
+                },
+                Command::SetProperty {
+                    node: CHILD,
+                    property: PropertyId::TextBlockText,
+                    value: PropertyValue::Str("hello".into()),
+                },
+                Command::InsertChild {
+                    parent: ROOT,
+                    child: CHILD,
+                    index: 0,
+                },
+            ])
+            .unwrap();
         assert_eq!(runtime.batches, 1);
         assert_eq!(
             runtime.node(ROOT).unwrap().kind(),
@@ -520,82 +492,85 @@ mod tests {
     fn records_clear_move_remove_and_child_first_destroy() {
         let mut runtime = RecordingRuntime::default();
         let second = NodeId::from_parts(2, 0);
-        runtime.apply(&[
-            Command::Create {
-                node: ROOT,
-                kind: MountedKind::StackPanel,
-            },
-            Command::Create {
-                node: CHILD,
-                kind: MountedKind::TextBlock,
-            },
-            Command::Create {
-                node: second,
-                kind: MountedKind::TextBlock,
-            },
-            Command::InsertChild {
-                parent: ROOT,
-                child: CHILD,
-                index: 0,
-            },
-            Command::InsertChild {
-                parent: ROOT,
-                child: second,
-                index: 1,
-            },
-            Command::SetProperty {
-                node: CHILD,
-                property: PropertyId::TextBlockText,
-                value: PropertyValue::Str("temporary".into()),
-            },
-        ]);
+        runtime
+            .apply(&[
+                Command::Create {
+                    node: ROOT,
+                    kind: MountedKind::StackPanel,
+                },
+                Command::Create {
+                    node: CHILD,
+                    kind: MountedKind::TextBlock,
+                },
+                Command::Create {
+                    node: second,
+                    kind: MountedKind::TextBlock,
+                },
+                Command::InsertChild {
+                    parent: ROOT,
+                    child: CHILD,
+                    index: 0,
+                },
+                Command::InsertChild {
+                    parent: ROOT,
+                    child: second,
+                    index: 1,
+                },
+                Command::SetProperty {
+                    node: CHILD,
+                    property: PropertyId::TextBlockText,
+                    value: PropertyValue::Str("temporary".into()),
+                },
+            ])
+            .unwrap();
 
-        let receipt = runtime.apply(&[
-            Command::ClearProperty {
-                node: CHILD,
-                property: PropertyId::TextBlockText,
-            },
-            Command::MoveChild {
-                parent: ROOT,
-                child: second,
-                index: 0,
-            },
-            Command::RemoveChild {
-                parent: ROOT,
-                child: CHILD,
-            },
-            Command::Destroy { node: CHILD },
-        ]);
-
-        assert!(receipt.applied(0));
-        assert!(receipt.applied(3));
+        runtime
+            .apply(&[
+                Command::ClearProperty {
+                    node: CHILD,
+                    property: PropertyId::TextBlockText,
+                },
+                Command::MoveChild {
+                    parent: ROOT,
+                    child: second,
+                    index: 0,
+                },
+                Command::RemoveChild {
+                    parent: ROOT,
+                    child: CHILD,
+                },
+                Command::Destroy { node: CHILD },
+            ])
+            .unwrap();
         assert_eq!(runtime.node(ROOT).unwrap().children, [second]);
         assert!(runtime.node(CHILD).is_none());
     }
 
     #[test]
-    fn property_failure_does_not_skip_later_commands() {
+    fn failure_stops_before_later_commands() {
         let mut runtime = RecordingRuntime::default();
-        let receipt = runtime.apply(&[
-            Command::SetProperty {
-                node: CHILD,
-                property: PropertyId::TextBlockText,
-                value: PropertyValue::Str("missing".into()),
-            },
-            Command::Create {
-                node: ROOT,
-                kind: MountedKind::StackPanel,
-            },
-        ]);
+        let error = runtime
+            .apply(&[
+                Command::SetProperty {
+                    node: CHILD,
+                    property: PropertyId::TextBlockText,
+                    value: PropertyValue::Str("missing".into()),
+                },
+                Command::Create {
+                    node: ROOT,
+                    kind: MountedKind::StackPanel,
+                },
+            ])
+            .unwrap_err();
 
         assert_eq!(
-            receipt.outcomes,
-            [
-                CommandOutcome::Failed(RuntimeError::MissingNode(CHILD)),
-                CommandOutcome::Applied,
-            ]
+            error,
+            NativeApplyError {
+                command: 0,
+                error: RuntimeError::MissingNode(CHILD),
+            }
         );
-        assert!(runtime.node(ROOT).is_some());
+        assert!(runtime.node(ROOT).is_none());
     }
 
     #[test]
@@ -603,103 +578,26 @@ mod tests {
         let mut runtime = RecordingRuntime::default();
         runtime.fail_at(0);
 
-        let receipt = runtime.apply(&[
-            Command::Create {
-                node: ROOT,
-                kind: MountedKind::StackPanel,
-            },
-            Command::Create {
-                node: CHILD,
-                kind: MountedKind::TextBlock,
-            },
-        ]);
+        let error = runtime
+            .apply(&[
+                Command::Create {
+                    node: ROOT,
+                    kind: MountedKind::StackPanel,
+                },
+                Command::Create {
+                    node: CHILD,
+                    kind: MountedKind::TextBlock,
+                },
+            ])
+            .unwrap_err();
 
         assert_eq!(
-            receipt.outcomes,
-            [
-                CommandOutcome::Failed(RuntimeError::Injected),
-                CommandOutcome::Skipped,
-            ]
+            error,
+            NativeApplyError {
+                command: 0,
+                error: RuntimeError::Injected,
+            }
         );
         assert!(runtime.nodes.is_empty());
-    }
-
-    #[test]
-    fn reset_window_content_preserves_host_and_drops_control_state() {
-        let application = NodeId::from_parts(10, 0);
-        let window = NodeId::from_parts(11, 0);
-        let button = NodeId::from_parts(12, 0);
-        let replacement = NodeId::from_parts(12, 1);
-        let mut runtime = RecordingRuntime::default();
-        let mounted = runtime.apply(&[
-            Command::CreateApplication { node: application },
-            Command::CreateWindow { node: window },
-            Command::Create {
-                node: button,
-                kind: MountedKind::Button,
-            },
-            Command::SubscribeEvent {
-                node: button,
-                event: EventId::ButtonClick,
-                revision: 1,
-            },
-            Command::InsertChild {
-                parent: window,
-                child: button,
-                index: 0,
-            },
-        ]);
-        assert!(
-            mounted
-                .outcomes
-                .iter()
-                .all(|outcome| { *outcome == CommandOutcome::Applied })
-        );
-
-        let reset = runtime.apply(&[
-            Command::ResetWindowContent { window },
-            Command::Create {
-                node: replacement,
-                kind: MountedKind::TextBlock,
-            },
-            Command::InsertChild {
-                parent: window,
-                child: replacement,
-                index: 0,
-            },
-        ]);
-
-        assert!(
-            reset
-                .outcomes
-                .iter()
-                .all(|outcome| { *outcome == CommandOutcome::Applied })
-        );
-        assert!(runtime.node(application).is_some());
-        assert!(runtime.node(window).is_some());
-        assert!(runtime.node(button).is_none());
-        assert_eq!(runtime.node(window).unwrap().children(), &[replacement]);
-        assert!(runtime.subscriptions.is_empty());
-    }
-
-    #[test]
-    fn reset_unknown_window_skips_following_commands() {
-        let mut runtime = RecordingRuntime::default();
-
-        let receipt = runtime.apply(&[
-            Command::ResetWindowContent { window: ROOT },
-            Command::Create {
-                node: CHILD,
-                kind: MountedKind::TextBlock,
-            },
-        ]);
-
-        assert_eq!(
-            receipt.outcomes,
-            [
-                CommandOutcome::Failed(RuntimeError::MissingNode(ROOT)),
-                CommandOutcome::Skipped,
-            ]
-        );
     }
 }

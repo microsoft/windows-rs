@@ -34,62 +34,16 @@ impl WindowToken {
     }
 }
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NativeIdentity {
-    window: WindowToken,
-    realization_epoch: u64,
-}
-
-impl NativeIdentity {
-    pub fn new(window: WindowToken) -> Self {
-        Self {
-            window,
-            realization_epoch: 1,
-        }
-    }
-
-    pub fn next_window(self) -> Option<Self> {
-        Some(Self::new(self.window.next()?))
-    }
-
-    pub fn next_realization(self) -> Option<Self> {
-        Some(Self {
-            window: self.window,
-            realization_epoch: self.realization_epoch.checked_add(1)?,
-        })
-    }
-
-    pub fn window(self) -> WindowToken {
-        self.window
-    }
-
-    pub fn realization_epoch(self) -> u64 {
-        self.realization_epoch
-    }
-}
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NativeWork<T> {
-    pub identity: NativeIdentity,
+    pub identity: WindowToken,
     pub work: T,
 }
 
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct CommitReceipt {
-    pub outcomes: Vec<CommandOutcome>,
-}
-
-impl CommitReceipt {
-    pub fn applied(&self, index: usize) -> bool {
-        self.outcomes.get(index) == Some(&CommandOutcome::Applied)
-    }
-}
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum CommandOutcome {
-    Applied,
-    Failed(RuntimeError),
-    Skipped,
+pub struct NativeApplyError {
+    pub command: usize,
+    pub error: RuntimeError,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -113,10 +67,10 @@ pub enum RuntimeError {
 }
 
 pub trait NativeRuntime {
-    fn apply(&mut self, commands: &[Command]) -> CommitReceipt;
+    fn apply(&mut self, commands: &[Command]) -> Result<(), NativeApplyError>;
     fn reset(&mut self);
 
-    fn set_identity(&mut self, _identity: NativeIdentity) {}
+    fn set_identity(&mut self, _identity: WindowToken) {}
 
     fn component_waker(&self) -> Option<Rc<dyn Fn()>> {
         None
@@ -180,9 +134,6 @@ pub enum Command {
     },
     ActivateWindow {
         node: NodeId,
-    },
-    ResetWindowContent {
-        window: NodeId,
     },
     Create {
         node: NodeId,
@@ -248,10 +199,4 @@ pub enum Command {
         child: NodeId,
         index: usize,
     },
-}
-
-impl Command {
-    pub fn structural(&self) -> bool {
-        !matches!(self, Self::SetProperty { .. } | Self::ClearProperty { .. })
-    }
 }
