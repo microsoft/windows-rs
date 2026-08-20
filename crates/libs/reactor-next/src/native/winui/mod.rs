@@ -295,6 +295,12 @@ impl WinUiRuntime {
             } => self.insert_child(*parent, *child, *index)?,
             Command::RemoveChild { parent, child } => self.remove_child(*parent, *child)?,
             Command::ResetChildren { parent } => self.reset_children(*parent)?,
+            Command::SynchronizeChildren { parent, children } => {
+                self.reset_children(*parent)?;
+                for (index, child) in children.iter().copied().enumerate() {
+                    self.insert_child(*parent, child, index)?;
+                }
+            }
             Command::MoveChild {
                 parent,
                 child,

@@ -303,7 +303,7 @@ One window turn runs these phases:
 5. Validate the already-built logical candidate and every reservation without running user code.
 6. Run retiring cleanup and old cleanup for changed effects child-first while old native resources
    still exist, apply native commands, recover if needed, and publish.
-7. Run new and changed effect setup child-first after publication.
+7. Run new and changed effect setup parent-first after publication.
 
 Messages sent from `create`, `changed`, `update`, `view`, callbacks, or effects append to the queue.
 They never execute in the current borrow. A turn has separate message and composition budgets.
@@ -409,7 +409,7 @@ against live WinUI.
 | Controlled rejection | Both restore the desired `TextBox.Text` value |
 | Nested ownership | Pass-through and native-owning component tests pass |
 | Keyed changes | Insert, move, removal, type replacement, and dense reorder pass |
-| Anchoring | Single-root and component-only pass; empty and multi-root remain unsupported |
+| Anchoring | Empty, single-root, multi-root children, and component-only views pass |
 | Reentrancy | Queue-only sends, a 65-message live burst, and fixed-capacity backpressure pass |
 | Repeated lifecycle | Scope, callback, effect, repeater, and shutdown tests return to zero |
 | Virtual collection | Component-owned repeater shells recycle and immediately realize new rows |
@@ -547,7 +547,7 @@ context.
 
 ## Current work
 
-Current phase: **Phase 5 complete - close continuation blockers before Phase 6**
+Current phase: **Phase 5 complete - close semantic and host blockers before Phase 6**
 
 The August follow-up review found two accepted event schemas that could generate invalid Rust.
 Observation generation now walks controlled properties rather than every payload event, wrapper
@@ -608,5 +608,29 @@ recovery, and shutdown counts.
 
 Phase 5 found a clear reason to continue: owned components preserve local work while root hooks
 scale with unrelated tree size, and the component binary did not regress compilation or size.
-Empty/multi-root anchoring, budgeted structural recovery, and live multi-window ownership must pass
-before context or background async work begins.
+
+Empty and multi-root anchoring now uses logical fragment nodes rather than hidden native panels.
+Fragments splice zero or more native roots into generated children collections. Window and content
+slots validate a zero-or-one-root result before publication. Exact-order publication is coalesced
+to one `SynchronizeChildren` command per native parent, while ordinary one-root keyed children keep
+sparse insert and move plans. Headless tests cover empty transitions, retained keyed component
+scopes, rejected multi-root slots, and structural recovery to the desired fragment order. The live
+WinUI fixture exercises empty window content and a retained two-root reorder.
+An isolated leaf inside a fragment measured 0.6 us, 476 bytes, and 11 allocations at both 512 and
+16,384 scopes, so logical flattening does not reintroduce unrelated-tree work on the local path.
+
+An independent viability review identified a risk of repeating an older design mistake: allowing
+optimized component paths to acquire separate publication and lifecycle semantics before the
+general model is settled. Treat the following as a blocking semantic gate:
+
+- Parent props discovered by a dirty ancestor apply before queued child messages that survive that
+  ancestor's composition.
+- A local-path probe that falls back does not call user `view` twice.
+- Successful structural recovery retires the dirty work represented by the recovered candidate.
+- Effect cleanup and setup order match one documented lifecycle contract.
+- Local and general component plans use one native publication, receipt interpretation, recovery,
+  and lifecycle engine.
+
+Do not add a second ownership graph or component-specific native recovery to satisfy this gate.
+After it passes, budgeted structural recovery and live multi-window ownership must pass before
+context or background async work begins.

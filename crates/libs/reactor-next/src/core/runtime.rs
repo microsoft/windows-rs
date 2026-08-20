@@ -239,6 +239,10 @@ pub enum Command {
     ResetChildren {
         parent: NodeId,
     },
+    SynchronizeChildren {
+        parent: NodeId,
+        children: Vec<NodeId>,
+    },
     MoveChild {
         parent: NodeId,
         child: NodeId,

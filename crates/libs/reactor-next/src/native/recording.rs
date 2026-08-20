@@ -345,6 +345,40 @@ impl RecordingRuntime {
                     self.nodes.get_mut(&child).unwrap().parent = None;
                 }
             }
+            Command::SynchronizeChildren { parent, children } => {
+                if children.contains(parent) {
+                    return Err(RuntimeError::SelfParent(*parent));
+                }
+                if children.iter().collect::<HashSet<_>>().len() != children.len() {
+                    return Err(RuntimeError::DuplicateNode(*parent));
+                }
+                for child in children {
+                    let node = self
+                        .nodes
+                        .get(child)
+                        .ok_or(RuntimeError::MissingNode(*child))?;
+                    if node.parent.is_some() && node.parent != Some(*parent) {
+                        return Err(RuntimeError::AlreadyParented(*child));
+                    }
+                }
+                let previous = {
+                    let parent = self
+                        .nodes
+                        .get_mut(parent)
+                        .ok_or(RuntimeError::MissingNode(*parent))?;
+                    std::mem::replace(&mut parent.children, children.clone())
+                };
+                for child in previous {
+                    self.nodes.get_mut(&child).unwrap().parent = None;
+                }
+                for child in children {
+                    let node = self.nodes.get_mut(child).unwrap();
+                    if node.parent.is_some() {
+                        return Err(RuntimeError::AlreadyParented(*child));
+                    }
+                    node.parent = Some(*parent);
+                }
+            }
             Command::MoveChild {
                 parent,
                 child,

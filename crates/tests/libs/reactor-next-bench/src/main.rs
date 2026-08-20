@@ -154,6 +154,38 @@ impl Component for BenchRoot {
     }
 }
 
+struct BenchFragmentRoot(RootProps);
+
+impl Component for BenchFragmentRoot {
+    type Props = RootProps;
+    type Message = ();
+
+    fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+        Self(props.clone())
+    }
+
+    fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+        self.0 = props.clone();
+    }
+
+    fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
+
+    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        let fragment = self.0.0.iter().enumerate().map(|(index, sender)| {
+            KeyedView::new(
+                index,
+                View::component::<BenchLeaf>(LeafProps {
+                    sender: Rc::clone(sender),
+                }),
+            )
+        });
+        View::children(
+            StackPanel::new(),
+            [KeyedView::new("fragment", View::fragment(fragment))],
+        )
+    }
+}
+
 fn measure(iters: u64, reps: u32, mut op: impl FnMut()) -> Perf {
     for _ in 0..2 {
         for _ in 0..iters {
@@ -463,6 +495,24 @@ fn bench_component_isolated_leaf(count: usize, samples: usize) -> FrontendRow {
     })
 }
 
+fn bench_component_fragment_leaf(count: usize, samples: usize) -> FrontendRow {
+    let senders = Rc::new(
+        (0..count)
+            .map(|_| Rc::new(RefCell::new(None)))
+            .collect::<Vec<_>>(),
+    );
+    let mut pump = Pump::new(runtime());
+    pump.mount_view(View::component::<BenchFragmentRoot>(RootProps(Rc::clone(
+        &senders,
+    ))))
+    .unwrap();
+    let sender = senders[count / 2].borrow().as_ref().unwrap().clone();
+    measure_frontend("components", "fragment_leaf", count, samples, 1, || {
+        _ = sender.send(true);
+        pump.dispatch_components(1).unwrap();
+    })
+}
+
 fn measure_idle_component_memory(count: usize) -> MemoryRow {
     let senders = Rc::new(
         (0..count)
@@ -595,6 +645,8 @@ fn main() {
         bench_component_isolated_leaf(4_096, samples),
         bench_hook_isolated_leaf(16_384, samples),
         bench_component_isolated_leaf(16_384, samples),
+        bench_component_fragment_leaf(512, samples),
+        bench_component_fragment_leaf(16_384, samples),
     ];
     println!("\nfrontend comparison");
     println!(

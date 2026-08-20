@@ -9,6 +9,7 @@ pub enum NodeKind {
     Application,
     Window,
     Component,
+    Fragment,
     Slot,
     Native(MountedKind),
     VirtualCollection,
@@ -157,6 +158,16 @@ impl Tree {
         node.scope = Some(scope);
         node.component_type = Some(component_type);
         self.components.insert(scope, id);
+        Ok(id)
+    }
+
+    pub fn insert_fragment(
+        &mut self,
+        parent: Option<NodeId>,
+        key: Option<Key>,
+    ) -> Result<NodeId, TreeError> {
+        let id = self.insert(parent, NodeKind::Fragment)?;
+        self.arena.get_mut(id)?.key = key;
         Ok(id)
     }
 

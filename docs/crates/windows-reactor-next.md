@@ -123,8 +123,22 @@ was about 2,479 retained bytes per scope. Two isolated release builds put compon
 Dense keyed reversal uses `ResetChildren` followed by ordered attachment once minimal moves would
 touch more than one quarter of a collection and at least 256 children. This avoids quadratic vector
 movement while sparse edits keep their minimal move plan. The live WinUI fixture exercises the
-collection reset. Empty and multi-root component views, budgeted structural recovery, and a live
-multi-window host remain continuation blockers.
+collection reset.
+
+Empty views and keyed fragments use logical `Fragment` nodes in the authoritative tree. They do not
+create hidden native controls. Native-root traversal flattens fragments into generated children
+collections, while window and content slots reject more than one resulting root before
+publication. Exact fragment order uses one coalesced `SynchronizeChildren` command per native
+parent; ordinary one-root keyed children retain sparse insert and move commands. Headless tests
+cover empty transitions, keyed scope retention, slot rejection, and recovery after synchronization
+failure. The live WinUI fixture covers empty window content and a two-root fragment reorder.
+An isolated component leaf inside a 16,384-scope fragment remained at 0.6 us, 476 bytes, and 11
+allocations per update, matching the ordinary isolated-leaf path.
+
+Component publication semantics, budgeted structural recovery, and a live multi-window host remain
+continuation blockers. The publication gate includes parent-prop ordering relative to child
+messages, one `view` call when a local-path probe falls back, dirty-token retirement after recovery,
+and one receipt/recovery/lifecycle engine for local and general component plans.
 
 The `test` feature exposes the recording runtime and pump to the headless benchmark package. It is
 not part of the default application surface.

@@ -33,6 +33,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     let element_parts = schema.controls.iter().map(generate_element_parts);
     let element_props_matches = schema.controls.iter().map(generate_element_props_match);
     let element_structures = schema.controls.iter().map(generate_element_structure);
+    let element_event_visitors = schema.controls.iter().map(generate_element_event_visitor);
     let element_kinds = schema.controls.iter().map(|control| {
         let name = ident(&control.name);
         quote! { Self::#name(_) => MountedKind::#name }
@@ -96,6 +97,12 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                         #(#element_structures),*
                     }
                 }
+
+                fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool)) {
+                    match self {
+                        #(#element_event_visitors),*
+                    }
+                }
             }
         }
 
@@ -106,6 +113,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             fn into_parts(self) -> ElementParts;
             fn props_match(&self, props: &MountedProps) -> bool;
             fn structure(&self) -> ElementStructureRef<'_>;
+            fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool));
         }
 
         pub trait MountedPropsExt {
@@ -407,6 +415,41 @@ fn generate_element_structure(control: &ResolvedControl) -> TokenStream {
             quote! { Self::#name(value) => ElementStructureRef::Virtual(value.items.as_slice()) }
         }
         Role::Leaf | Role::Controlled => quote! { Self::#name(_) => ElementStructureRef::None },
+    }
+}
+
+fn generate_element_event_visitor(control: &ResolvedControl) -> TokenStream {
+    let name = ident(&control.name);
+    let fields = control.events.iter().filter_map(|event| {
+        let feedback = control
+            .properties
+            .iter()
+            .any(|property| property.feedback.as_deref() == Some(event.name.as_str()));
+        (!feedback).then(|| ident(&event.field))
+    });
+    let fields = fields.collect::<Vec<_>>();
+    let events = control.events.iter().map(|event| {
+        let field = ident(&event.field);
+        let id = ident(&format!("{}{}", control.name, event.name));
+        let feedback = control
+            .properties
+            .iter()
+            .any(|property| property.feedback.as_deref() == Some(event.name.as_str()));
+        if feedback {
+            quote! { visit(EventId::#id, true); }
+        } else {
+            quote! { visit(EventId::#id, #field.is_some()); }
+        }
+    });
+    let pattern = if fields.is_empty() {
+        quote! { Self::#name(_) }
+    } else {
+        quote! { Self::#name(#name { #(#fields,)* .. }) }
+    };
+    quote! {
+        #pattern => {
+            #(#events)*
+        }
     }
 }
 

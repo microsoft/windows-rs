@@ -387,6 +387,20 @@ pub mod public {
                 Self::ScrollViewer(value) => ElementStructureRef::Content(value.content.as_deref()),
             }
         }
+        fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool)) {
+            match self {
+                Self::TextBlock(_) => {}
+                Self::Button(Button { on_click, .. }) => {
+                    visit(EventId::ButtonClick, on_click.is_some());
+                }
+                Self::StackPanel(_) => {}
+                Self::TextBox(_) => {
+                    visit(EventId::TextBoxTextChanged, true);
+                }
+                Self::ItemsRepeater(_) => {}
+                Self::ScrollViewer(_) => {}
+            }
+        }
     }
 }
 use public::*;
@@ -395,6 +409,7 @@ pub trait ElementPartsExt {
     fn into_parts(self) -> ElementParts;
     fn props_match(&self, props: &MountedProps) -> bool;
     fn structure(&self) -> ElementStructureRef<'_>;
+    fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool));
 }
 pub trait MountedPropsExt {
     fn visit_properties(&self, visit: &mut dyn FnMut(PropertyId, Option<PropertyValue>));

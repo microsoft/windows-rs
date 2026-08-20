@@ -62,6 +62,10 @@ trait LivePump {
     fn live_dense_reorder(&mut self) -> bool {
         false
     }
+    #[cfg(feature = "test")]
+    fn live_fragment_anchor(&mut self) -> bool {
+        false
+    }
 }
 
 struct ComponentLoop {
@@ -314,6 +318,34 @@ where
         }
         let reversed = labels.into_iter().rev().collect::<Vec<_>>();
         self.pump_mut().update_view(view(&reversed)).is_ok()
+    }
+
+    #[cfg(feature = "test")]
+    fn live_fragment_anchor(&mut self) -> bool {
+        let fragment = |reverse: bool| {
+            let children = if reverse {
+                [
+                    KeyedView::new("b", View::native(TextBlock::new().text("B"))),
+                    KeyedView::new("a", View::native(TextBlock::new().text("A"))),
+                ]
+            } else {
+                [
+                    KeyedView::new("a", View::native(TextBlock::new().text("A"))),
+                    KeyedView::new("b", View::native(TextBlock::new().text("B"))),
+                ]
+            };
+            View::children(
+                StackPanel::new(),
+                [
+                    KeyedView::new("empty", View::Empty),
+                    KeyedView::new("fragment", View::fragment(children)),
+                ],
+            )
+        };
+
+        self.pump_mut().update_view(View::Empty).is_ok()
+            && self.pump_mut().update_view(fragment(false)).is_ok()
+            && self.pump_mut().update_view(fragment(true)).is_ok()
     }
 }
 
@@ -604,6 +636,10 @@ fn finish_live_backend_test() {
     }
     if !live.pump.live_dense_reorder() {
         eprintln!("live backend fixture did not apply a dense keyed reorder");
+        std::process::exit(1);
+    }
+    if !live.pump.live_fragment_anchor() {
+        eprintln!("live backend fixture did not apply empty and fragment transitions");
         std::process::exit(1);
     }
     if !live.pump.live_component_recovery() {
