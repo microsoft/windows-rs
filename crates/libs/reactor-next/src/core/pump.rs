@@ -10,6 +10,7 @@ const REALIZATION_WORK_BUDGET: usize = 32;
 pub enum PumpError {
     AlreadyMounted,
     ApplyReceiptMismatch,
+    Component(ComponentStoreError),
     NotMounted,
     DuplicateKey(Key),
     EventReadFailed(RuntimeError),
@@ -44,6 +45,12 @@ impl PumpError {
 impl From<TreeError> for PumpError {
     fn from(value: TreeError) -> Self {
         Self::Tree(value)
+    }
+}
+
+impl From<ComponentStoreError> for PumpError {
+    fn from(value: ComponentStoreError) -> Self {
+        Self::Component(value)
     }
 }
 
@@ -82,6 +89,7 @@ impl UpdatePlan {
 
 pub struct Pump<R: NativeRuntime> {
     application: Option<NodeId>,
+    components: ComponentStore,
     element: Option<Element>,
     tree: Tree,
     runtime: R,
@@ -101,6 +109,7 @@ impl<R: NativeRuntime> Pump<R> {
         runtime.set_identity(identity);
         Self {
             application: None,
+            components: ComponentStore::new(identity.window()),
             element: None,
             tree: Tree::new(),
             runtime,
@@ -119,6 +128,7 @@ impl<R: NativeRuntime> Pump<R> {
         if self.poisoned {
             return Err(PumpError::Poisoned);
         }
+
         if self.root.is_some() {
             return Err(PumpError::AlreadyMounted);
         }
@@ -177,6 +187,97 @@ impl<R: NativeRuntime> Pump<R> {
         self.application = Some(application);
         self.element = Some(desired);
         self.root = Some(node);
+        self.window = Some(window);
+        if plan
+            .commands
+            .iter()
+            .enumerate()
+            .any(|(index, command)| !command.structural() && !receipt.applied(index))
+        {
+            self.retry_pending = true;
+            return Err(if retries_exhausted {
+                PumpError::PropertyRetriesExhausted(receipt)
+            } else {
+                PumpError::PropertyApplyFailed(receipt)
+            });
+        }
+        self.retry_pending = false;
+        self.version = next_version;
+        Ok(receipt)
+    }
+
+    pub fn mount_view(&mut self, view: View) -> Result<CommitReceipt, PumpError> {
+        if self.poisoned {
+            return Err(PumpError::Poisoned);
+        }
+        if self.root.is_some() {
+            return Err(PumpError::AlreadyMounted);
+        }
+        let next_version = self.next_version()?;
+        let mut candidate = Tree::new();
+        let mut plan = UpdatePlan::new(self.identity);
+        let mut reserved = Vec::new();
+        let application = candidate.insert(None, NodeKind::Application)?;
+        plan.push(Command::CreateApplication { node: application });
+        let window = candidate.insert(Some(application), NodeKind::Window)?;
+        plan.push(Command::CreateWindow { node: window });
+        let mounted = Self::mount_planned_view(
+            &mut candidate,
+            Some(window),
+            None,
+            view,
+            &mut self.components,
+            &mut reserved,
+            &mut plan,
+        );
+        let (root, native_root) = match mounted {
+            Ok(mounted) => mounted,
+            Err(error) => {
+                Self::remove_reservations(&mut self.components, &reserved);
+                return Err(error);
+            }
+        };
+        plan.push(Command::InsertChild {
+            parent: window,
+            child: native_root,
+            index: 0,
+        });
+        plan.push(Command::ActivateWindow { node: window });
+
+        let receipt = self.runtime.apply(&plan.commands);
+        if receipt.outcomes.len() != plan.commands.len()
+            || plan
+                .commands
+                .iter()
+                .enumerate()
+                .any(|(index, command)| command.structural() && !receipt.applied(index))
+        {
+            self.runtime.reset();
+            Self::remove_reservations(&mut self.components, &reserved);
+            self.poisoned = true;
+            return Err(if receipt.outcomes.len() != plan.commands.len() {
+                PumpError::ApplyReceiptMismatch
+            } else {
+                PumpError::StructuralApplyFailed(receipt)
+            });
+        }
+
+        let retries_exhausted =
+            match Self::commit_tree_properties(&mut candidate, &plan.commits, &receipt) {
+                Ok(retries_exhausted) => retries_exhausted,
+                Err(error) => {
+                    self.runtime.reset();
+                    Self::remove_reservations(&mut self.components, &reserved);
+                    self.poisoned = true;
+                    return Err(error);
+                }
+            };
+        for token in reserved {
+            self.components.publish(token)?;
+        }
+        self.tree = candidate;
+        self.application = Some(application);
+        self.root = Some(root);
         self.window = Some(window);
         if plan
             .commands
@@ -367,6 +468,7 @@ impl<R: NativeRuntime> Pump<R> {
         self.window = None;
         if let Some(identity) = identity {
             self.identity = identity;
+            self.components = ComponentStore::new(identity.window());
             self.runtime.set_identity(identity);
             self.poisoned = false;
         } else {
@@ -392,6 +494,14 @@ impl<R: NativeRuntime> Pump<R> {
 
     pub fn retry_pending(&self) -> bool {
         self.retry_pending
+    }
+
+    pub(crate) fn components(&self) -> &ComponentStore {
+        &self.components
+    }
+
+    pub(crate) fn components_mut(&mut self) -> &mut ComponentStore {
+        &mut self.components
     }
 
     pub fn native_work_pending(&self) -> bool {
@@ -1052,6 +1162,56 @@ impl<R: NativeRuntime> Pump<R> {
             .ok_or(PumpError::RevisionExhausted)
     }
 
+    fn mount_planned_view(
+        tree: &mut Tree,
+        logical_parent: Option<NodeId>,
+        key: Option<Key>,
+        view: View,
+        components: &mut ComponentStore,
+        reserved: &mut Vec<ComponentToken>,
+        plan: &mut UpdatePlan,
+    ) -> Result<(NodeId, NodeId), PumpError> {
+        match view {
+            View::Native(element) => {
+                let node = Self::mount_planned_element(tree, logical_parent, key, element, plan)?;
+                Ok((node, node))
+            }
+            View::Component(component) => {
+                let token = component.reserve(components)?;
+                reserved.push(token);
+                let node = tree.insert_component(
+                    logical_parent,
+                    key,
+                    token.scope(),
+                    component.component_type(),
+                )?;
+                let slot = tree.insert(Some(node), NodeKind::Slot)?;
+                let view = components.view(token)?;
+                let (_, native) = Self::mount_planned_view(
+                    tree,
+                    Some(slot),
+                    None,
+                    view,
+                    components,
+                    reserved,
+                    plan,
+                )?;
+                Ok((node, native))
+            }
+            View::Empty
+            | View::Fragment(_)
+            | View::Content { .. }
+            | View::Children { .. }
+            | View::VirtualItems { .. } => Err(PumpError::StructureUnsupported),
+        }
+    }
+
+    fn remove_reservations(components: &mut ComponentStore, reserved: &[ComponentToken]) {
+        for token in reserved.iter().rev().copied() {
+            _ = components.remove(token);
+        }
+    }
+
     fn retire_planned_subtree(
         tree: &mut Tree,
         root: NodeId,
@@ -1192,6 +1352,7 @@ impl<R: NativeRuntime> Drop for Pump<R> {
 mod tests {
     use super::*;
     use crate::native::*;
+    use std::any::TypeId;
     use std::cell::{Cell, RefCell};
     use std::collections::HashSet;
     use std::rc::Rc;
@@ -1315,6 +1476,88 @@ mod tests {
         fn drain_event_errors(&mut self) -> Vec<NativeWork<QueuedEventError>> {
             self.error.take().into_iter().collect()
         }
+    }
+
+    struct Leaf;
+
+    impl Component for Leaf {
+        type Props = String;
+        type Message = ();
+
+        fn create(_props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+            Self
+        }
+
+        fn changed(&mut self, _props: &Self::Props, _context: &mut ComponentContext<Self>) {}
+
+        fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
+
+        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+            View::native(TextBlock::new().text("leaf"))
+        }
+    }
+
+    struct Root;
+
+    impl Component for Root {
+        type Props = ();
+        type Message = ();
+
+        fn create(_props: &Self::Props, context: &mut ComponentContext<Self>) -> Self {
+            context.sender().send(());
+            Self
+        }
+
+        fn changed(&mut self, _props: &Self::Props, _context: &mut ComponentContext<Self>) {}
+
+        fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
+
+        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+            View::component::<Leaf>("leaf".to_string())
+        }
+    }
+
+    #[test]
+    fn mounts_a_component_chain_into_the_authoritative_tree() {
+        let mut pump = Pump::new(RecordingRuntime::default());
+
+        pump.mount_view(View::component::<Root>(())).unwrap();
+
+        let root = pump.root().unwrap();
+        assert_eq!(pump.tree.kind(root), Ok(NodeKind::Component));
+        assert_eq!(pump.tree.component_type(root), Ok(TypeId::of::<Root>()));
+        let root_slot = pump.tree.children(root).unwrap()[0];
+        assert_eq!(pump.tree.kind(root_slot), Ok(NodeKind::Slot));
+        let leaf = pump.tree.children(root_slot).unwrap()[0];
+        assert_eq!(pump.tree.component_type(leaf), Ok(TypeId::of::<Leaf>()));
+        let leaf_slot = pump.tree.children(leaf).unwrap()[0];
+        let native = pump.tree.children(leaf_slot).unwrap()[0];
+        assert_eq!(
+            pump.tree.kind(native),
+            Ok(NodeKind::Native(MountedKind::TextBlock))
+        );
+        assert_eq!(
+            pump.runtime()
+                .node(native)
+                .unwrap()
+                .property(PropertyId::TextBlockText),
+            Some(&PropertyValue::Str("leaf".to_string()))
+        );
+        assert_eq!(pump.components_mut().drain(10).unwrap().dispatched, 1);
+    }
+
+    #[test]
+    fn structural_mount_failure_discards_reserved_component_scopes() {
+        let mut runtime = RecordingRuntime::default();
+        runtime.fail_at(0);
+        let mut pump = Pump::new(runtime);
+
+        assert!(matches!(
+            pump.mount_view(View::component::<Root>(())),
+            Err(PumpError::StructuralApplyFailed(_))
+        ));
+        assert_eq!(pump.components().pending(), 1);
+        assert_eq!(pump.components_mut().drain(10).unwrap().dropped, 1);
     }
 
     #[test]

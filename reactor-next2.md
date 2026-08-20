@@ -387,11 +387,12 @@ template behavior, COM reentrancy, partial native mutation, shell visuals, or sh
 
 - [x] Add stable generational scope storage.
 - [x] Add logical component boundaries to the structural tree.
+- [x] Mount component-only chains ending in one native root through the shared command path.
 - [ ] Add nested components with props and local typed messages.
 - [ ] Keep local recomposition within the component boundary.
 - [ ] Retain child state across parent prop changes and keyed movement.
 - [ ] Replace same-key/different-type children and retire the old scope.
-- [ ] Queue reentrant messages without directly reborrowing a component.
+- [x] Queue reentrant messages without directly reborrowing a component.
 - [ ] Retain current application state and desired view across native failure.
 - [ ] Run cleanup exactly once in the required order.
 
@@ -516,7 +517,10 @@ proves generated COM `TextChanged` delivery without manually injecting the obser
 Phase 2 still tracks live window recreation, repeater shell visuals, OS input delivery, and
 two-window isolation. These require host or automation surfaces beyond the bounded one-window
 component slice; they remain continuation gates rather than being treated as passing evidence.
-The Phase 4 foundation now stores only `ScopeId` on logical component nodes. A separate
-window-token-bound store owns non-cloneable component state, checked typed props, and FIFO local
-message envelopes. Nested `View` reconciliation and public component APIs remain open.
-Control expansion remains frozen.
+The Phase 4 foundation now stores `ScopeId` and component type on logical component nodes. A
+separate window-token-bound store owns non-cloneable component state, checked typed props, and FIFO
+local message envelopes. The public `Component` and `View` types can reserve a component-only chain,
+expand it to one native root in the authoritative candidate tree, run the normal native command
+batch, and publish all scopes only after structural success. Props reconciliation, keyed siblings,
+retirement, local recomposition, and the remaining view adapters are still open. Control expansion
+remains frozen.

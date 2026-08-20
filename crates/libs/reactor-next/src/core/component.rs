@@ -1,8 +1,10 @@
 use super::runtime::WindowToken;
 use super::scope::{ScopeArena, ScopeError, ScopeId, ScopeState};
+use crate::element::View;
 use std::any::{Any, TypeId};
 use std::cell::RefCell;
 use std::collections::VecDeque;
+use std::fmt;
 use std::marker::PhantomData;
 use std::rc::Rc;
 
@@ -10,6 +12,12 @@ use std::rc::Rc;
 pub struct ComponentToken {
     window: WindowToken,
     scope: ScopeId,
+}
+
+impl ComponentToken {
+    pub(crate) fn scope(self) -> ScopeId {
+        self.scope
+    }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -61,6 +69,134 @@ impl<M: 'static> LocalSender<M> {
     }
 }
 
+pub struct ComponentContext<C: Component> {
+    sender: LocalSender<C::Message>,
+}
+
+impl<C: Component> ComponentContext<C> {
+    pub fn sender(&self) -> LocalSender<C::Message> {
+        self.sender.clone()
+    }
+}
+
+pub struct ViewContext<C: Component> {
+    sender: LocalSender<C::Message>,
+}
+
+impl<C: Component> ViewContext<C> {
+    pub fn sender(&self) -> LocalSender<C::Message> {
+        self.sender.clone()
+    }
+}
+
+pub trait Component: Sized + 'static {
+    type Props: Clone + PartialEq + 'static;
+    type Message: 'static;
+
+    fn create(props: &Self::Props, context: &mut ComponentContext<Self>) -> Self;
+    fn changed(&mut self, props: &Self::Props, context: &mut ComponentContext<Self>);
+    fn update(&mut self, message: Self::Message, context: &mut ComponentContext<Self>);
+    fn view(&self, context: &mut ViewContext<Self>) -> View;
+}
+
+trait ErasedComponentFactory {
+    fn apply_props(
+        &self,
+        store: &mut ComponentStore,
+        token: ComponentToken,
+    ) -> Result<bool, ComponentStoreError>;
+    fn as_any(&self) -> &dyn Any;
+    fn component_type(&self) -> TypeId;
+    fn equals(&self, other: &dyn ErasedComponentFactory) -> bool;
+    fn reserve(&self, store: &mut ComponentStore) -> Result<ComponentToken, ComponentStoreError>;
+    fn type_name(&self) -> &'static str;
+}
+
+struct TypedComponentFactory<C: Component> {
+    props: C::Props,
+}
+
+impl<C: Component> ErasedComponentFactory for TypedComponentFactory<C> {
+    fn apply_props(
+        &self,
+        store: &mut ComponentStore,
+        token: ComponentToken,
+    ) -> Result<bool, ComponentStoreError> {
+        store.apply_props(token, self.props.clone())
+    }
+
+    fn as_any(&self) -> &dyn Any {
+        self
+    }
+
+    fn component_type(&self) -> TypeId {
+        TypeId::of::<C>()
+    }
+
+    fn equals(&self, other: &dyn ErasedComponentFactory) -> bool {
+        other.component_type() == TypeId::of::<C>()
+            && other
+                .as_any()
+                .downcast_ref::<Self>()
+                .is_some_and(|other| self.props == other.props)
+    }
+
+    fn reserve(&self, store: &mut ComponentStore) -> Result<ComponentToken, ComponentStoreError> {
+        store.reserve_component::<C>(self.props.clone())
+    }
+
+    fn type_name(&self) -> &'static str {
+        std::any::type_name::<C>()
+    }
+}
+
+#[derive(Clone)]
+pub struct ComponentView {
+    factory: Rc<dyn ErasedComponentFactory>,
+}
+
+impl ComponentView {
+    pub fn new<C: Component>(props: C::Props) -> Self {
+        Self {
+            factory: Rc::new(TypedComponentFactory::<C> { props }),
+        }
+    }
+
+    pub(crate) fn component_type(&self) -> TypeId {
+        self.factory.component_type()
+    }
+
+    pub(crate) fn apply_props(
+        &self,
+        store: &mut ComponentStore,
+        token: ComponentToken,
+    ) -> Result<bool, ComponentStoreError> {
+        self.factory.apply_props(store, token)
+    }
+
+    pub(crate) fn reserve(
+        &self,
+        store: &mut ComponentStore,
+    ) -> Result<ComponentToken, ComponentStoreError> {
+        self.factory.reserve(store)
+    }
+}
+
+impl fmt::Debug for ComponentView {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter
+            .debug_tuple("Component")
+            .field(&self.factory.type_name())
+            .finish()
+    }
+}
+
+impl PartialEq for ComponentView {
+    fn eq(&self, other: &Self) -> bool {
+        self.factory.equals(&*other.factory)
+    }
+}
+
 trait ErasedScope {
     fn apply_props(&mut self, props: Box<dyn Any>) -> Result<bool, ComponentStoreError>;
     fn component(&self) -> &dyn Any;
@@ -68,13 +204,16 @@ trait ErasedScope {
     fn dispatch(&mut self, message: Box<dyn Any>) -> Result<(), ComponentStoreError>;
     fn message_type(&self) -> TypeId;
     fn props_type(&self) -> TypeId;
+    fn view(&self) -> Result<View, ComponentStoreError>;
 }
 
 struct TypedScope<C, P, M> {
     component: C,
     props: P,
-    changed: fn(&mut C, &P),
-    update: fn(&mut C, M),
+    changed: fn(&mut C, &P, LocalSender<M>),
+    sender: LocalSender<M>,
+    update: fn(&mut C, M, LocalSender<M>),
+    view: fn(&C, LocalSender<M>) -> View,
 }
 
 impl<C, P, M> ErasedScope for TypedScope<C, P, M>
@@ -95,7 +234,7 @@ where
             return Ok(false);
         }
         self.props = *props;
-        (self.changed)(&mut self.component, &self.props);
+        (self.changed)(&mut self.component, &self.props, self.sender.clone());
         Ok(true)
     }
 
@@ -116,7 +255,7 @@ where
                     expected: TypeId::of::<M>(),
                     actual,
                 })?;
-        (self.update)(&mut self.component, *message);
+        (self.update)(&mut self.component, *message, self.sender.clone());
         Ok(())
     }
 
@@ -126,6 +265,10 @@ where
 
     fn props_type(&self) -> TypeId {
         TypeId::of::<P>()
+    }
+
+    fn view(&self) -> Result<View, ComponentStoreError> {
+        Ok((self.view)(&self.component, self.sender.clone()))
     }
 }
 
@@ -155,20 +298,85 @@ impl ComponentStore {
         &mut self,
         component: C,
         props: P,
-        changed: fn(&mut C, &P),
-        update: fn(&mut C, M),
+        changed: fn(&mut C, &P, LocalSender<M>),
+        update: fn(&mut C, M, LocalSender<M>),
+        view: fn(&C, LocalSender<M>) -> View,
     ) -> Result<ComponentToken, ComponentStoreError>
     where
         C: 'static,
         P: Clone + PartialEq + 'static,
         M: 'static,
     {
-        let scope = self.scopes.reserve(Box::new(TypedScope {
-            component,
-            props,
-            changed,
-            update,
-        }))?;
+        let queue = Rc::clone(&self.queue);
+        let window = self.window;
+        let scope = self.scopes.reserve_with(move |scope| {
+            let sender = LocalSender {
+                queue,
+                token: ComponentToken { window, scope },
+                marker: PhantomData,
+            };
+            Box::new(TypedScope {
+                component,
+                props,
+                changed,
+                sender,
+                update,
+                view,
+            }) as Box<dyn ErasedScope>
+        })?;
+        Ok(ComponentToken {
+            window: self.window,
+            scope,
+        })
+    }
+
+    pub fn reserve_component<C: Component>(
+        &mut self,
+        props: C::Props,
+    ) -> Result<ComponentToken, ComponentStoreError> {
+        fn changed<C: Component>(
+            component: &mut C,
+            props: &C::Props,
+            sender: LocalSender<C::Message>,
+        ) {
+            component.changed(props, &mut ComponentContext { sender });
+        }
+
+        fn update<C: Component>(
+            component: &mut C,
+            message: C::Message,
+            sender: LocalSender<C::Message>,
+        ) {
+            component.update(message, &mut ComponentContext { sender });
+        }
+
+        fn view<C: Component>(component: &C, sender: LocalSender<C::Message>) -> View {
+            component.view(&mut ViewContext { sender })
+        }
+
+        let queue = Rc::clone(&self.queue);
+        let window = self.window;
+        let scope = self.scopes.reserve_with(move |scope| {
+            let sender = LocalSender {
+                queue,
+                token: ComponentToken { window, scope },
+                marker: PhantomData,
+            };
+            let component = C::create(
+                &props,
+                &mut ComponentContext {
+                    sender: sender.clone(),
+                },
+            );
+            Box::new(TypedScope {
+                component,
+                props,
+                changed: changed::<C>,
+                sender,
+                update: update::<C>,
+                view: view::<C>,
+            }) as Box<dyn ErasedScope>
+        })?;
         Ok(ComponentToken {
             window: self.window,
             scope,
@@ -295,6 +503,11 @@ impl ComponentStore {
         self.queue.borrow().len()
     }
 
+    pub fn view(&self, token: ComponentToken) -> Result<View, ComponentStoreError> {
+        self.validate_window(token)?;
+        self.scopes.get(token.scope)?.view()
+    }
+
     fn validate_window(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {
         if token.window == self.window {
             Ok(())
@@ -307,6 +520,7 @@ impl ComponentStore {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::TextBlock;
     use crate::core::{WindowId, WindowToken};
 
     struct State {
@@ -315,15 +529,19 @@ mod tests {
         value: u32,
     }
 
-    fn changed(state: &mut State, _props: &String) {
+    fn changed(state: &mut State, _props: &String, _sender: LocalSender<u32>) {
         state.changed += 1;
     }
 
-    fn update(state: &mut State, message: u32) {
+    fn update(state: &mut State, message: u32, _sender: LocalSender<u32>) {
         state.value += message;
         if message == 1 {
             state.sender.as_ref().unwrap().send(2);
         }
+    }
+
+    fn view(_state: &State, _sender: LocalSender<u32>) -> View {
+        View::Empty
     }
 
     fn store() -> ComponentStore {
@@ -343,6 +561,7 @@ mod tests {
                 "first".to_string(),
                 changed,
                 update,
+                view,
             )
             .unwrap();
         let sender = store.sender::<u32>(token).unwrap();
@@ -375,6 +594,7 @@ mod tests {
                 "first".to_string(),
                 changed,
                 update,
+                view,
             )
             .unwrap();
         store.publish(token).unwrap();
@@ -401,6 +621,7 @@ mod tests {
                 String::new(),
                 changed,
                 update,
+                view,
             )
             .unwrap();
         store.publish(first).unwrap();
@@ -420,6 +641,7 @@ mod tests {
                 String::new(),
                 changed,
                 update,
+                view,
             )
             .unwrap();
         assert_ne!(first, second);
@@ -443,6 +665,7 @@ mod tests {
                 String::new(),
                 changed,
                 update,
+                view,
             )
             .unwrap();
 
@@ -450,5 +673,52 @@ mod tests {
             store.sender::<String>(token),
             Err(ComponentStoreError::MessageTypeMismatch { .. })
         ));
+    }
+
+    struct Counter {
+        value: u32,
+    }
+
+    impl Component for Counter {
+        type Props = u32;
+        type Message = u32;
+
+        fn create(props: &Self::Props, context: &mut ComponentContext<Self>) -> Self {
+            context.sender().send(1);
+            Self { value: *props }
+        }
+
+        fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+            self.value = *props;
+        }
+
+        fn update(&mut self, message: Self::Message, _context: &mut ComponentContext<Self>) {
+            self.value += message;
+        }
+
+        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+            View::native(TextBlock::new().text(self.value.to_string()))
+        }
+    }
+
+    #[test]
+    fn component_factory_creates_with_a_reserved_sender_and_composes() {
+        let first = ComponentView::new::<Counter>(2);
+        let same = ComponentView::new::<Counter>(2);
+        let changed = ComponentView::new::<Counter>(3);
+        assert_eq!(first, same);
+        assert_ne!(first, changed);
+
+        let mut store = store();
+        let token = first.reserve(&mut store).unwrap();
+        assert_eq!(store.pending(), 1);
+        assert!(store.drain(10).unwrap().blocked);
+        store.publish(token).unwrap();
+        assert_eq!(store.drain(10).unwrap().dispatched, 1);
+        assert_eq!(store.component::<Counter>(token).unwrap().value, 3);
+        assert_eq!(
+            store.view(token),
+            Ok(View::native(TextBlock::new().text("3")))
+        );
     }
 }

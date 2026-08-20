@@ -1,5 +1,6 @@
 use super::scope::ScopeId;
 use super::*;
+use std::any::TypeId;
 use std::collections::{BTreeMap, HashMap};
 use std::rc::Rc;
 
@@ -18,6 +19,7 @@ struct Node {
     kind: NodeKind,
     parent: Option<NodeId>,
     children: Vec<NodeId>,
+    component_type: Option<TypeId>,
     key: Option<Key>,
     native: Option<NativeState>,
     realized: HashMap<RealizedContainer, NodeId>,
@@ -93,6 +95,7 @@ impl Tree {
             kind,
             parent,
             children: Vec::new(),
+            component_type: None,
             key: None,
             native: None,
             realized: HashMap::new(),
@@ -144,11 +147,13 @@ impl Tree {
         parent: Option<NodeId>,
         key: Option<Key>,
         scope: ScopeId,
+        component_type: TypeId,
     ) -> Result<NodeId, TreeError> {
         let id = self.insert(parent, NodeKind::Component)?;
         let node = self.arena.get_mut(id)?;
         node.key = key;
         node.scope = Some(scope);
+        node.component_type = Some(component_type);
         Ok(id)
     }
 
@@ -158,6 +163,14 @@ impl Tree {
             return Err(TreeError::NotComponent);
         }
         node.scope.ok_or(TreeError::NotComponent)
+    }
+
+    pub fn component_type(&self, id: NodeId) -> Result<TypeId, TreeError> {
+        let node = self.arena.get(id)?;
+        if node.kind != NodeKind::Component {
+            return Err(TreeError::NotComponent);
+        }
+        node.component_type.ok_or(TreeError::NotComponent)
     }
 
     pub fn native(&self, id: NodeId) -> Result<&NativeState, TreeError> {
@@ -419,7 +432,12 @@ mod tests {
         let mut tree = Tree::new();
         let root = tree.insert(None, NodeKind::Application).unwrap();
         let component = tree
-            .insert_component(Some(root), Some(Key::from("child")), scope)
+            .insert_component(
+                Some(root),
+                Some(Key::from("child")),
+                scope,
+                TypeId::of::<State>(),
+            )
             .unwrap();
 
         let candidate = tree.clone();
@@ -427,6 +445,10 @@ mod tests {
 
         assert_eq!(tree.component_scope(component), Ok(scope));
         assert_eq!(candidate.component_scope(component), Ok(scope));
+        assert_eq!(
+            candidate.component_type(component),
+            Ok(TypeId::of::<State>())
+        );
         assert_eq!(scopes.get(scope).unwrap().value, 2);
     }
 

@@ -51,13 +51,16 @@ impl<T> ScopeArena<T> {
     }
 
     pub fn reserve(&mut self, value: T) -> Result<ScopeId, ScopeError> {
+        self.reserve_with(|_| value)
+    }
+
+    pub fn reserve_with(
+        &mut self,
+        create: impl FnOnce(ScopeId) -> T,
+    ) -> Result<ScopeId, ScopeError> {
         let id = if let Some(index) = self.free.pop() {
             let slot = &mut self.slots[index as usize];
             debug_assert!(slot.entry.is_none());
-            slot.entry = Some(ScopeEntry {
-                state: ScopeState::Reserved,
-                value,
-            });
             ScopeId {
                 index,
                 generation: slot.generation,
@@ -67,16 +70,17 @@ impl<T> ScopeArena<T> {
                 u32::try_from(self.slots.len()).map_err(|_| ScopeError::CapacityExceeded)?;
             self.slots.push(ScopeSlot {
                 generation: 0,
-                entry: Some(ScopeEntry {
-                    state: ScopeState::Reserved,
-                    value,
-                }),
+                entry: None,
             });
             ScopeId {
                 index,
                 generation: 0,
             }
         };
+        self.slots[id.index as usize].entry = Some(ScopeEntry {
+            state: ScopeState::Reserved,
+            value: create(id),
+        });
         self.live += 1;
         Ok(id)
     }

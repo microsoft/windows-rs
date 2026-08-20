@@ -66,6 +66,96 @@ impl KeyedElement {
     }
 }
 
+#[derive(Clone, Debug, PartialEq)]
+pub enum View {
+    Empty,
+    Native(Element),
+    Component(ComponentView),
+    Fragment(Rc<Vec<KeyedView>>),
+    Content {
+        control: Element,
+        content: Box<Self>,
+    },
+    Children {
+        control: Element,
+        children: Rc<Vec<KeyedView>>,
+    },
+    VirtualItems {
+        control: Element,
+        items: Rc<Vec<KeyedView>>,
+    },
+}
+
+impl View {
+    pub fn native(control: impl Into<Element>) -> Self {
+        Self::Native(control.into())
+    }
+
+    pub fn component<C: Component>(props: C::Props) -> Self {
+        Self::Component(ComponentView::new::<C>(props))
+    }
+
+    pub fn fragment(children: impl IntoIterator<Item = KeyedView>) -> Self {
+        Self::Fragment(Rc::new(children.into_iter().collect()))
+    }
+
+    pub fn content(control: impl Into<Element>, content: impl Into<Self>) -> Self {
+        Self::Content {
+            control: control.into(),
+            content: Box::new(content.into()),
+        }
+    }
+
+    pub fn children(
+        control: impl Into<Element>,
+        children: impl IntoIterator<Item = KeyedView>,
+    ) -> Self {
+        Self::Children {
+            control: control.into(),
+            children: Rc::new(children.into_iter().collect()),
+        }
+    }
+
+    pub fn virtual_items(
+        control: impl Into<Element>,
+        items: impl IntoIterator<Item = KeyedView>,
+    ) -> Self {
+        Self::VirtualItems {
+            control: control.into(),
+            items: Rc::new(items.into_iter().collect()),
+        }
+    }
+}
+
+impl From<Element> for View {
+    fn from(value: Element) -> Self {
+        Self::Native(value)
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub struct KeyedView {
+    key: Key,
+    view: View,
+}
+
+impl KeyedView {
+    pub fn new(key: impl Into<Key>, view: impl Into<View>) -> Self {
+        Self {
+            key: key.into(),
+            view: view.into(),
+        }
+    }
+
+    pub fn key(&self) -> &Key {
+        &self.key
+    }
+
+    pub fn view(&self) -> &View {
+        &self.view
+    }
+}
+
 #[derive(Clone, Debug, Default, PartialEq)]
 pub enum Property<T> {
     #[default]
