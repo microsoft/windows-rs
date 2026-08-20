@@ -338,7 +338,7 @@ fn generate_reactor_bindings() {
 /// Write `content` to `path` if changed. Runs `rustfmt` when `format` is true.
 fn write_if_changed(path: &str, content: &str, format: bool) {
     let content = if format {
-        std::borrow::Cow::Owned(rustfmt(content))
+        std::borrow::Cow::Owned(helpers::rustfmt(content))
     } else {
         std::borrow::Cow::Borrowed(content)
     };
@@ -354,26 +354,4 @@ fn write_if_changed(path: &str, content: &str, format: bool) {
     }
     std::fs::write(&path_buf, &*content).unwrap_or_else(|e| panic!("Failed to write {path}: {e}"));
     println!("  {path}: written");
-}
-
-/// Run `rustfmt` on a string of Rust code. Falls back to unformatted if
-/// rustfmt is unavailable.
-fn rustfmt(code: &str) -> String {
-    use std::io::Write;
-    use std::process::{Command, Stdio};
-
-    let Ok(mut child) = Command::new("rustfmt")
-        .arg("--edition=2024")
-        .stdin(Stdio::piped())
-        .stdout(Stdio::piped())
-        .stderr(Stdio::null())
-        .spawn()
-    else {
-        return code.to_string();
-    };
-    child.stdin.take().unwrap().write_all(code.as_bytes()).ok();
-    match child.wait_with_output() {
-        Ok(out) if out.status.success() => String::from_utf8(out.stdout).unwrap_or(code.into()),
-        _ => code.to_string(),
-    }
 }

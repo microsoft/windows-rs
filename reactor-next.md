@@ -167,32 +167,34 @@ Deferred:
 
 ### 1. Workspace
 
-- Add unpublished `windows-reactor-next`.
-- Add the semantic generator, headless tests, benchmark, and counter sample packages.
-- Establish private module boundaries.
-- Add a public-API snapshot and generated-diff check.
-- Build against `RecordingRuntime` without starting WinUI.
+- [x] Add unpublished `windows-reactor-next`.
+- [x] Add the semantic generator, headless tests, benchmark, and counter sample packages.
+- [x] Establish private module boundaries.
+- [x] Add a public-API snapshot.
+- [x] Add a generated-diff check.
+- [x] Build against `RecordingRuntime` without starting WinUI.
 
 **Exit:** all packages build and generated output is deterministic.
 
 ### 2. Schema and generator
 
-- Generate `TextBlock`, `Button`, `StackPanel`, and `TextBox`.
-- Generate capabilities, props, mounted state, native operations, and event pairing.
-- Add compile-fail tests for unsupported operations.
-- Measure edit sites for one ordinary property and control.
+- [x] Generate `TextBlock`, `Button`, `StackPanel`, and `TextBox`.
+- [x] Generate capabilities, props, mounted state, native operation descriptors, and event pairing.
+- [x] Add compile-fail tests for unsupported operations.
+- [x] Prove an ordinary control needs only schema input.
 
 **Exit:** ordinary coverage grows through the schema without parallel runtime edits.
 
 ### 3. Pure core
 
-- Implement the generational arena and child-first retirement.
-- Implement keys and one keyed differ.
-- Implement `RecordingRuntime`.
+- [x] Implement the generational arena and child-first retirement.
+- [x] Implement keys and one keyed differ.
+- [x] Implement `RecordingRuntime`.
 - Implement the initial hooks and phased pump.
-- Implement command receipts and conditional comparison-state commit.
+- [x] Implement command receipts.
+- Implement conditional comparison-state commit.
 - Implement queued events with stale-work rejection.
-- Add randomized model tests and command failure injection.
+- [x] Add randomized model tests and command failure injection.
 
 **Exit:** counter, nested component, and keyed panel pass headlessly.
 
@@ -303,18 +305,17 @@ After representative parity:
 
 ### In progress
 
-- [ ] Establish the metadata and curation schema.
+- [x] Generate shallow mounted props and split structural payloads without cloning subtrees.
+- [ ] Implement initial state and callback hooks.
+- [ ] Implement the phased headless pump.
 
 ### Next
 
-- [ ] Generate the first four controls.
-- [ ] Implement the arena and recording runtime.
+- [ ] Commit comparison state only for successful command receipts.
+- [ ] Queue events and reject stale generations.
 
 ### Decisions needed before implementation
 
-- [ ] Public key representation.
-- [ ] Generated command encoding.
-- [ ] Runtime receipt granularity.
 - [ ] Fault-sink API.
 - [ ] Per-window or per-UI-thread arena.
 - [ ] Pump work-budget unit.
@@ -325,8 +326,8 @@ After representative parity:
 
 - Architecture and correctness gates: active.
 - Compile and runtime gates: report-only until parity.
-- Current phase: 2 - schema and generator.
-- Next action: define the metadata-derived schema for the first four controls.
+- Current phase: 3 - pure core.
+- Next action: connect generated props and structural payloads to the arena and recording runtime.
 
 ## Current reactor baseline
 

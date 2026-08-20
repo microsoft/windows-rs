@@ -1,0 +1,59 @@
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TextBlock"
+role = "leaf"
+capabilities = ["layout", "text_style"]
+
+[[control.property]]
+name = "Text"
+clearable = true
+
+[[control.property]]
+name = "TextWrapping"
+clearable = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.Button"
+role = "content"
+capabilities = ["layout", "enabled", "content"]
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "Click"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.StackPanel"
+role = "children"
+capabilities = ["layout", "children"]
+
+[[control.property]]
+name = "Orientation"
+clearable = true
+
+[[control.property]]
+name = "Spacing"
+clearable = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TextBox"
+role = "controlled"
+capabilities = ["layout", "enabled", "text_style", "controlled_text"]
+
+[[control.property]]
+name = "Text"
+clearable = true
+controlled = "TextChanged"
+
+[[control.property]]
+name = "PlaceholderText"
+clearable = true
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "TextChanged"
+property = "Text"

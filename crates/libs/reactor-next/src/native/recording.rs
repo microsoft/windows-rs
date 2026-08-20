@@ -1,24 +1,337 @@
-use crate::runtime::{Command, CommitReceipt, NativeRuntime, RuntimeError};
+use std::collections::{BTreeMap, HashMap, HashSet};
+
+use crate::arena::NodeId;
+use crate::generated::{MountedKind, PropertyId, PropertyValue};
+use crate::runtime::{Command, CommandOutcome, CommitReceipt, NativeRuntime, RuntimeError};
+
+#[derive(Debug)]
+pub(crate) struct RecordedNode {
+    kind: MountedKind,
+    parent: Option<NodeId>,
+    children: Vec<NodeId>,
+    properties: BTreeMap<PropertyId, PropertyValue>,
+}
 
 #[derive(Default)]
 pub(crate) struct RecordingRuntime {
+    nodes: HashMap<NodeId, RecordedNode>,
     batches: usize,
+    fail_at: HashSet<usize>,
 }
 
-impl NativeRuntime for RecordingRuntime {
-    fn apply(&mut self, commands: &[Command]) -> Result<CommitReceipt, RuntimeError> {
-        self.batches += 1;
-        Ok(CommitReceipt {
-            command_count: commands.len(),
-        })
+impl RecordingRuntime {
+    fn fail_at(&mut self, command_index: usize) {
+        self.fail_at.insert(command_index);
+    }
+
+    fn node(&self, id: NodeId) -> Option<&RecordedNode> {
+        self.nodes.get(&id)
+    }
+
+    fn apply_one(&mut self, command: &Command) -> Result<(), RuntimeError> {
+        match command {
+            Command::Create { node, kind } => {
+                if self.nodes.contains_key(node) {
+                    return Err(RuntimeError::DuplicateNode(*node));
+                }
+                self.nodes.insert(
+                    *node,
+                    RecordedNode {
+                        kind: *kind,
+                        parent: None,
+                        children: Vec::new(),
+                        properties: BTreeMap::new(),
+                    },
+                );
+            }
+            Command::Destroy { node } => {
+                let recorded = self
+                    .nodes
+                    .get(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?;
+                if recorded.parent.is_some() {
+                    return Err(RuntimeError::StillParented(*node));
+                }
+                if !recorded.children.is_empty() {
+                    return Err(RuntimeError::HasChildren(*node));
+                }
+                self.nodes.remove(node);
+            }
+            Command::SetProperty {
+                node,
+                property,
+                value,
+            } => {
+                self.nodes
+                    .get_mut(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?
+                    .properties
+                    .insert(*property, value.clone());
+            }
+            Command::ClearProperty { node, property } => {
+                self.nodes
+                    .get_mut(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?
+                    .properties
+                    .remove(property);
+            }
+            Command::InsertChild {
+                parent,
+                child,
+                index,
+            } => {
+                if parent == child {
+                    return Err(RuntimeError::SelfParent(*child));
+                }
+                let parent_node = self
+                    .nodes
+                    .get(parent)
+                    .ok_or(RuntimeError::MissingNode(*parent))?;
+                if *index > parent_node.children.len() {
+                    return Err(RuntimeError::IndexOutOfBounds);
+                }
+                let child_node = self
+                    .nodes
+                    .get(child)
+                    .ok_or(RuntimeError::MissingNode(*child))?;
+                if child_node.parent.is_some() {
+                    return Err(RuntimeError::AlreadyParented(*child));
+                }
+
+                self.nodes
+                    .get_mut(parent)
+                    .unwrap()
+                    .children
+                    .insert(*index, *child);
+                self.nodes.get_mut(child).unwrap().parent = Some(*parent);
+            }
+            Command::RemoveChild { parent, child } => {
+                let child_node = self
+                    .nodes
+                    .get(child)
+                    .ok_or(RuntimeError::MissingNode(*child))?;
+                if child_node.parent != Some(*parent) {
+                    return Err(RuntimeError::ChildNotFound(*child));
+                }
+                let parent_node = self
+                    .nodes
+                    .get_mut(parent)
+                    .ok_or(RuntimeError::MissingNode(*parent))?;
+                let position = parent_node
+                    .children
+                    .iter()
+                    .position(|current| current == child)
+                    .ok_or(RuntimeError::ChildNotFound(*child))?;
+                parent_node.children.remove(position);
+                self.nodes.get_mut(child).unwrap().parent = None;
+            }
+            Command::MoveChild {
+                parent,
+                child,
+                index,
+            } => {
+                let parent_node = self
+                    .nodes
+                    .get_mut(parent)
+                    .ok_or(RuntimeError::MissingNode(*parent))?;
+                let position = parent_node
+                    .children
+                    .iter()
+                    .position(|current| current == child)
+                    .ok_or(RuntimeError::ChildNotFound(*child))?;
+                if *index >= parent_node.children.len() {
+                    return Err(RuntimeError::IndexOutOfBounds);
+                }
+                let child = parent_node.children.remove(position);
+                parent_node.children.insert(*index, child);
+            }
+        }
+        Ok(())
     }
 }
 
-#[test]
-fn applies_empty_batch() {
-    let mut runtime = RecordingRuntime::default();
-    let receipt = runtime.apply(&[]).unwrap();
+impl NativeRuntime for RecordingRuntime {
+    fn apply(&mut self, commands: &[Command]) -> CommitReceipt {
+        self.batches += 1;
+        let mut structural_failure = false;
+        let outcomes = commands
+            .iter()
+            .enumerate()
+            .map(|(index, command)| {
+                if structural_failure {
+                    return CommandOutcome::Skipped;
+                }
 
-    assert_eq!(receipt.command_count, 0);
-    assert_eq!(runtime.batches, 1);
+                let result = if self.fail_at.remove(&index) {
+                    Err(RuntimeError::Injected)
+                } else {
+                    self.apply_one(command)
+                };
+                match result {
+                    Ok(()) => CommandOutcome::Applied,
+                    Err(error) => {
+                        structural_failure = command.structural();
+                        CommandOutcome::Failed(error)
+                    }
+                }
+            })
+            .collect();
+        CommitReceipt { outcomes }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    const ROOT: NodeId = NodeId::from_parts(0, 0);
+    const CHILD: NodeId = NodeId::from_parts(1, 0);
+
+    #[test]
+    fn records_tree_and_property_mutations() {
+        let mut runtime = RecordingRuntime::default();
+        let receipt = runtime.apply(&[
+            Command::Create {
+                node: ROOT,
+                kind: MountedKind::StackPanel,
+            },
+            Command::Create {
+                node: CHILD,
+                kind: MountedKind::TextBlock,
+            },
+            Command::SetProperty {
+                node: CHILD,
+                property: PropertyId::TextBlockText,
+                value: PropertyValue::Str("hello".into()),
+            },
+            Command::InsertChild {
+                parent: ROOT,
+                child: CHILD,
+                index: 0,
+            },
+        ]);
+
+        assert!(
+            receipt
+                .outcomes
+                .iter()
+                .all(|outcome| { *outcome == CommandOutcome::Applied })
+        );
+        assert_eq!(runtime.batches, 1);
+        assert_eq!(runtime.node(ROOT).unwrap().kind, MountedKind::StackPanel);
+        assert_eq!(runtime.node(ROOT).unwrap().children, [CHILD]);
+        assert_eq!(runtime.node(CHILD).unwrap().parent, Some(ROOT));
+        assert_eq!(
+            runtime.node(CHILD).unwrap().properties[&PropertyId::TextBlockText],
+            PropertyValue::Str("hello".into())
+        );
+    }
+
+    #[test]
+    fn records_clear_move_remove_and_child_first_destroy() {
+        let mut runtime = RecordingRuntime::default();
+        let second = NodeId::from_parts(2, 0);
+        runtime.apply(&[
+            Command::Create {
+                node: ROOT,
+                kind: MountedKind::StackPanel,
+            },
+            Command::Create {
+                node: CHILD,
+                kind: MountedKind::TextBlock,
+            },
+            Command::Create {
+                node: second,
+                kind: MountedKind::TextBlock,
+            },
+            Command::InsertChild {
+                parent: ROOT,
+                child: CHILD,
+                index: 0,
+            },
+            Command::InsertChild {
+                parent: ROOT,
+                child: second,
+                index: 1,
+            },
+            Command::SetProperty {
+                node: CHILD,
+                property: PropertyId::TextBlockText,
+                value: PropertyValue::Str("temporary".into()),
+            },
+        ]);
+
+        let receipt = runtime.apply(&[
+            Command::ClearProperty {
+                node: CHILD,
+                property: PropertyId::TextBlockText,
+            },
+            Command::MoveChild {
+                parent: ROOT,
+                child: second,
+                index: 0,
+            },
+            Command::RemoveChild {
+                parent: ROOT,
+                child: CHILD,
+            },
+            Command::Destroy { node: CHILD },
+        ]);
+
+        assert!(receipt.applied(0));
+        assert!(receipt.applied(3));
+        assert_eq!(runtime.node(ROOT).unwrap().children, [second]);
+        assert!(runtime.node(CHILD).is_none());
+    }
+
+    #[test]
+    fn property_failure_does_not_skip_later_commands() {
+        let mut runtime = RecordingRuntime::default();
+        let receipt = runtime.apply(&[
+            Command::SetProperty {
+                node: CHILD,
+                property: PropertyId::TextBlockText,
+                value: PropertyValue::Str("missing".into()),
+            },
+            Command::Create {
+                node: ROOT,
+                kind: MountedKind::StackPanel,
+            },
+        ]);
+
+        assert_eq!(
+            receipt.outcomes,
+            [
+                CommandOutcome::Failed(RuntimeError::MissingNode(CHILD)),
+                CommandOutcome::Applied,
+            ]
+        );
+        assert!(runtime.node(ROOT).is_some());
+    }
+
+    #[test]
+    fn structural_failure_skips_dependent_commands() {
+        let mut runtime = RecordingRuntime::default();
+        runtime.fail_at(0);
+
+        let receipt = runtime.apply(&[
+            Command::Create {
+                node: ROOT,
+                kind: MountedKind::StackPanel,
+            },
+            Command::Create {
+                node: CHILD,
+                kind: MountedKind::TextBlock,
+            },
+        ]);
+
+        assert_eq!(
+            receipt.outcomes,
+            [
+                CommandOutcome::Failed(RuntimeError::Injected),
+                CommandOutcome::Skipped,
+            ]
+        );
+        assert!(runtime.nodes.is_empty());
+    }
 }

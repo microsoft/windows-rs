@@ -20,9 +20,12 @@ jobs:
       - uses: actions/checkout@v7
 
       - name: Update toolchain
-        run: rustup update --no-self-update stable && rustup default stable
+        run: rustup update --no-self-update stable nightly && rustup default stable
 
       - uses: Swatinem/rust-cache@v2
+
+      - name: Install public API tool
+        run: cargo install cargo-public-api --locked --version 0.52.0
 
       - name: Format
         shell: pwsh
@@ -34,8 +37,9 @@ jobs:
       - name: Check and test
         shell: pwsh
         run: |
-          cargo test -p windows-reactor-next -p test_reactor_next --quiet
-          cargo check -p tool_reactor_next -p test_reactor_next_bench `
+          cargo test -p windows-reactor-next -p tool_reactor_next `
+            -p test_reactor_next --quiet
+          cargo check -p test_reactor_next_bench `
             -p sample_reactor_next_counter --quiet
           cargo clippy -p windows-reactor-next -p tool_reactor_next `
             -p test_reactor_next -p test_reactor_next_bench `
@@ -46,3 +50,13 @@ jobs:
         run: |
           cargo run -p tool_reactor_next --quiet
           git diff --exit-code
+
+      - name: Public API
+        shell: pwsh
+        run: |
+          $actual = (cargo public-api -p windows-reactor-next -sss --color never |
+            Out-String).Trim()
+          $expected = (Get-Content crates\libs\reactor-next\public-api.txt -Raw).Trim()
+          if ($actual -ne $expected) {
+            throw "windows-reactor-next public API changed"
+          }
