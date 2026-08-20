@@ -2,7 +2,7 @@ Microsoft::UI::Dispatching::DispatcherQueue::GetForCurrentThread
 Microsoft::UI::Dispatching::DispatcherQueueHandler
 Microsoft::UI::Dispatching::DispatcherQueuePriority
 Microsoft::UI::Dispatching::IDispatcherQueue::TryEnqueueWithPriority
-Microsoft::UI::Xaml::Application::{CreateInstance, Start}
+Microsoft::UI::Xaml::Application::{CreateInstance, Current, Start}
 Microsoft::UI::Xaml::ApplicationInitializationCallback
 Microsoft::UI::Xaml::Controls::Button::CreateInstance
 Microsoft::UI::Xaml::Controls::ContentControl::CreateInstance

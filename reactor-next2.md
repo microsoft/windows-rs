@@ -197,6 +197,8 @@ error boundary is part of this prototype.
 
 ### 2. Add the live backend harness
 
+- [x] Add a process-isolated live WinUI fixture runner.
+- [x] Verify `OnLaunched`, control resources, and first native view commit.
 - [ ] Queue old work, remount native content, and reject only old native work.
 - [ ] Close/recreate a window and reject all old window work.
 - [ ] Exercise dispatcher reentrancy and enqueue rejection.
@@ -343,6 +345,7 @@ Current phase: **2 - add the live backend harness**
 - [x] Restore rejected controlled edits from native observations.
 - [x] Require an explicit supported feedback contract for controlled properties.
 - [x] Retain typed event payload source and conversion in the schema.
-- [ ] Add live tests for startup/resources, scheduler reentrancy, and shutdown ordering.
+- [x] Add the first live startup/resources fixture.
+- [ ] Add live tests for scheduler reentrancy and shutdown ordering.
 
 Control expansion remains frozen.

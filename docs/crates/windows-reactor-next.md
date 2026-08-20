@@ -56,6 +56,10 @@ their properties or children.
 
 The `test` feature exposes the recording runtime and pump to the headless benchmark package. It is
 not part of the default application surface.
+`test_reactor_next_selftest` launches the real WinUI host in a process-isolated fixture. Its first
+fixture verifies `OnLaunched`, merged control resources, and the initial native commit. Live
+fixtures report through their process exit status because forcing `WM_QUIT` while WinUI callbacks
+are active is not a valid shutdown test.
 
 The framework-dependent setup helper currently stages the bootstrap DLL under
 `target\debug\build`; live runs need it copied beside the executable in `target\debug`.

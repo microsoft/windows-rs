@@ -13,7 +13,7 @@ pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
         "Microsoft::UI::Dispatching::DispatcherQueueHandler".to_string(),
         "Microsoft::UI::Dispatching::DispatcherQueuePriority".to_string(),
         "Microsoft::UI::Dispatching::IDispatcherQueue::TryEnqueueWithPriority".to_string(),
-        "Microsoft::UI::Xaml::Application::{CreateInstance, Start}".to_string(),
+        "Microsoft::UI::Xaml::Application::{CreateInstance, Current, Start}".to_string(),
         "Microsoft::UI::Xaml::ApplicationInitializationCallback".to_string(),
         "Microsoft::UI::Xaml::Controls::XamlControlsResources::CreateInstance".to_string(),
         "Microsoft::UI::Xaml::IApplicationOverrides".to_string(),

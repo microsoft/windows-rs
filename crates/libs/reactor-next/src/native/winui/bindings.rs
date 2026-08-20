@@ -29,6 +29,16 @@ impl Application {
             windows_core::Type::from_abi(result__)
         })
     }
+    pub(crate) fn Current() -> windows_core::Result<Self> {
+        Self::IApplicationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Current)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
     pub(crate) fn Start<P0>(callback: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ApplicationInitializationCallback>,
@@ -752,7 +762,10 @@ impl windows_core::RuntimeType for IApplicationStatics {
 #[repr(C)]
 pub struct IApplicationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    Current: usize,
+    pub Current: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub Start: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,

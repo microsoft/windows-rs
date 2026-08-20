@@ -613,3 +613,25 @@ pub fn exit_ui_thread() {
         PostQuitMessage(0);
     }
 }
+
+#[cfg(feature = "test")]
+pub fn live_resources_installed() -> windows_core::Result<bool> {
+    Ok(Application::Current()?
+        .Resources()?
+        .MergedDictionaries()?
+        .Size()?
+        != 0)
+}
+
+#[cfg(feature = "test")]
+pub fn schedule_live_test_exit(success: bool) -> windows_core::Result<()> {
+    let dispatcher = DispatcherQueue::GetForCurrentThread()?;
+    let handler = DispatcherQueueHandler::new(move || {
+        std::process::exit(i32::from(!success));
+    });
+    if dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Low, &handler)? {
+        Ok(())
+    } else {
+        std::process::exit(1);
+    }
+}
