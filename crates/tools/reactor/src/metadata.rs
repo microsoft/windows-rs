@@ -333,6 +333,16 @@ impl MetadataResolver {
         add_event: &str,
         property: &str,
     ) -> Option<String> {
+        self.resolve_event_args_property(class_name, add_event, property)
+            .map(|(value, _)| value)
+    }
+
+    pub fn resolve_event_args_property(
+        &self,
+        class_name: &str,
+        add_event: &str,
+        property: &str,
+    ) -> Option<(String, String)> {
         // Get the delegate type from the add method's first param.
         let add_ref = self
             .lookup
@@ -353,7 +363,10 @@ impl MetadataResolver {
         // Look up get_{property} on the args class.
         let getter = format!("get_{property}");
         let getter_ref = self.lookup.get(&(args_class, getter))?;
-        self.value_for_type(&getter_ref.return_type)
+        Some((
+            self.value_for_type(&getter_ref.return_type)?,
+            getter_ref.interface.full_path(),
+        ))
     }
 
     /// Returns true if a metadata `Type` is Copy (primitive or value type).

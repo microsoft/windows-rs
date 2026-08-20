@@ -2,7 +2,10 @@ use proc_macro2::{Ident, Span, TokenStream};
 use quote::quote;
 use std::collections::BTreeSet;
 
-use crate::schema::{ResolvedControl, ResolvedProperty, ResolvedSchema, Role};
+use crate::schema::{
+    EventPayloadConversion, EventPayloadSource, ResolvedControl, ResolvedProperty, ResolvedSchema,
+    Role,
+};
 
 pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
     let mut entries = BTreeSet::from([
@@ -94,17 +97,13 @@ pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
                 event.name,
                 event.name
             ));
-            if let Some(property) = &event.property
-                && let Some(property) = control
-                    .properties
-                    .iter()
-                    .find(|candidate| candidate.name == *property)
-            {
-                entries.insert(format!(
-                    "{}::get_{}",
-                    filter_path(&property.interface),
-                    property.name
-                ));
+            if let Some(property) = &event.property {
+                let interface = match &event.source {
+                    EventPayloadSource::SenderProperty { interface }
+                    | EventPayloadSource::EventArgsProperty { interface } => interface,
+                    EventPayloadSource::Unit => continue,
+                };
+                entries.insert(format!("{}::get_{}", filter_path(interface), property));
             }
         }
     }
@@ -197,8 +196,12 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             let event_id = ident(&format!("{}{}", control.name, event.name));
             let interface = path_ident(&event.interface);
             let method = ident(&event.name);
-            let callback = if event.payload == "Unit" {
-                quote! {
+            let payload = ident(&event.payload);
+            let payload_value = match event.conversion {
+                EventPayloadConversion::Identity => quote! { value },
+            };
+            let callback = match &event.source {
+                EventPayloadSource::Unit => quote! {
                     move |_, _| {
                         sink.enqueue(
                             node,
@@ -207,21 +210,45 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                             EventPayload::Unit,
                         );
                     }
-                }
-            } else {
-                let property = ident(event.property.as_deref().unwrap());
-                quote! {
+                },
+                EventPayloadSource::SenderProperty {
+                    interface: property_interface,
+                } => {
+                    let property = ident(event.property.as_deref().unwrap());
+                    let property_interface = path_ident(property_interface);
+                    quote! {
                     {
-                        let event_source = source.clone();
+                        let event_source = value
+                            .cast::<#property_interface>()
+                            .map_err(native_error)?;
                         move |_, _| {
                             match event_source.#property() {
                                 Ok(value) => sink.enqueue(
                                     node,
                                     EventId::#event_id,
                                     revision,
-                                    EventPayload::Str(value),
+                                    EventPayload::#payload(#payload_value),
                                 ),
                                 Err(error) => sink.error(native_error(error)),
+                            }
+                        }
+                    }
+                    }
+                }
+                EventPayloadSource::EventArgsProperty { .. } => {
+                    let property = ident(event.property.as_deref().unwrap());
+                    quote! {
+                        move |_, args| {
+                            if let Some(args) = args.as_ref() {
+                                match args.#property() {
+                                    Ok(value) => sink.enqueue(
+                                        node,
+                                        EventId::#event_id,
+                                        revision,
+                                        EventPayload::#payload(#payload_value),
+                                    ),
+                                    Err(error) => sink.error(native_error(error)),
+                                }
                             }
                         }
                     }

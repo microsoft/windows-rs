@@ -189,7 +189,7 @@ pub fn subscribe_event(
             let source = value.cast::<ITextBox>().map_err(native_error)?;
             source
                 .TextChanged({
-                    let event_source = source.clone();
+                    let event_source = value.cast::<ITextBox>().map_err(native_error)?;
                     move |_, _| match event_source.Text() {
                         Ok(value) => sink.enqueue(
                             node,

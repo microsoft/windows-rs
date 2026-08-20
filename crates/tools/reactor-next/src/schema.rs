@@ -116,6 +116,20 @@ pub(crate) struct ResolvedEvent {
     pub(crate) payload: String,
     pub(crate) interface: String,
     pub(crate) property: Option<String>,
+    pub(crate) source: EventPayloadSource,
+    pub(crate) conversion: EventPayloadConversion,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub(crate) enum EventPayloadSource {
+    Unit,
+    SenderProperty { interface: String },
+    EventArgsProperty { interface: String },
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum EventPayloadConversion {
+    Identity,
 }
 
 impl Schema {
@@ -229,23 +243,41 @@ impl Schema {
                         control.type_name, event.name
                     )
                 })?;
-                let payload = if let Some(property) = event.property.as_deref() {
+                let (payload, source) = if let Some(property) = event.property.as_deref() {
                     let sender_property = format!("put_{property}");
                     if metadata.has_method(&name, &sender_property) {
-                        metadata
+                        let payload = metadata
                             .infer_value_type(&name, &sender_property)
                             .map(|(value, _)| value)
+                            .ok_or_else(|| {
+                                format!(
+                                    "{}.{} cannot infer sender property {}",
+                                    control.type_name, event.name, property
+                                )
+                            })?;
+                        let interface = metadata
+                            .resolve(&name, &sender_property)
+                            .ok_or_else(|| {
+                                format!(
+                                    "{}.{} cannot resolve sender property {}",
+                                    control.type_name, event.name, property
+                                )
+                            })?
+                            .full_path();
+                        (payload, EventPayloadSource::SenderProperty { interface })
                     } else {
-                        metadata.infer_event_args_type(&name, &method, property)
+                        let (payload, interface) = metadata
+                            .resolve_event_args_property(&name, &method, property)
+                            .ok_or_else(|| {
+                                format!(
+                                    "{}.{} cannot infer event property {}",
+                                    control.type_name, event.name, property
+                                )
+                            })?;
+                        (payload, EventPayloadSource::EventArgsProperty { interface })
                     }
-                    .ok_or_else(|| {
-                        format!(
-                            "{}.{} cannot infer event property {}",
-                            control.type_name, event.name, property
-                        )
-                    })?
                 } else {
-                    "Unit".to_string()
+                    ("Unit".to_string(), EventPayloadSource::Unit)
                 };
 
                 events.push(ResolvedEvent {
@@ -256,6 +288,8 @@ impl Schema {
                     payload,
                     interface: interface.full_path(),
                     property: event.property,
+                    source,
+                    conversion: EventPayloadConversion::Identity,
                 });
             }
 
@@ -358,7 +392,35 @@ mod tests {
             Some("TextChanged")
         );
         assert_eq!(resolved.controls[3].events[0].payload, "Str");
+        assert!(matches!(
+            resolved.controls[3].events[0].source,
+            EventPayloadSource::SenderProperty { .. }
+        ));
         assert!(matches!(resolved.controls[4].role, Role::Virtual));
+    }
+
+    #[test]
+    fn retains_event_args_payload_source() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.NumberBox"
+role = "leaf"
+capabilities = ["layout"]
+
+[[control.event]]
+name = "ValueChanged"
+property = "NewValue"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let resolved = Schema::parse(source).unwrap().resolve(&metadata).unwrap();
+        let event = &resolved.controls[0].events[0];
+
+        assert_eq!(event.payload, "F64");
+        assert!(matches!(
+            event.source,
+            EventPayloadSource::EventArgsProperty { .. }
+        ));
+        assert_eq!(event.conversion, EventPayloadConversion::Identity);
     }
 
     #[test]

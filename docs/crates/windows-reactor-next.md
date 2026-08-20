@@ -16,6 +16,10 @@ from `OnLaunched`. The live slice mounts `StackPanel`, `TextBlock`, and `Button`
 events, and rerenders stateful roots. `tool_reactor_next` generates the WinUI binding filter,
 bindings, handle variants, property operations, structural roles, event subscriptions, and event
 payload reads from the control schema.
+Event metadata retains whether a payload comes from the sender or event arguments and records its
+conversion separately. The bindings filter follows that source to include the correct getter
+interface. Unsupported event shapes fail generation instead of defaulting to a sender string
+getter.
 Application, window, control, and subscription handles share the arena lifetime. Structural
 update failures clear and remount the control root with fresh generations while preserving the
 application and window. A remount failure stops the affected pump. Property comparison records

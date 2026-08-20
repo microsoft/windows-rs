@@ -191,7 +191,7 @@ error boundary is part of this prototype.
 - [x] Clear recycled repeater shell content synchronously.
 - [x] Add property certainty and controlled-observation tracking.
 - [x] Add schema-validated feedback contracts.
-- [ ] Retain event payload source and conversion in the schema.
+- [x] Retain event payload source and conversion in the schema.
 
 **Exit:** verified backend behavior is independent of the frontend model.
 
@@ -331,7 +331,7 @@ context.
 
 ## Current work
 
-Current phase: **1 - repair the shared backend**
+Current phase: **2 - add the live backend harness**
 
 - [x] Implement separate window and realization identity domains.
 - [x] Add stale-work tests for native remount and complete window replacement.
@@ -342,6 +342,7 @@ Current phase: **1 - repair the shared backend**
 - [x] Replace committed-only property comparison with desired/known/divergent native state.
 - [x] Restore rejected controlled edits from native observations.
 - [x] Require an explicit supported feedback contract for controlled properties.
-- [ ] Retain typed event payload source and conversion in the schema.
+- [x] Retain typed event payload source and conversion in the schema.
+- [ ] Add live tests for startup/resources, scheduler reentrancy, and shutdown ordering.
 
 Control expansion remains frozen.
