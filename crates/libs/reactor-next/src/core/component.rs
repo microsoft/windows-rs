@@ -272,11 +272,12 @@ where
     }
 }
 
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DrainReport {
     pub blocked: bool,
     pub dispatched: usize,
     pub dropped: usize,
+    pub(crate) dirty: Vec<ComponentToken>,
 }
 
 pub struct ComponentStore {
@@ -493,6 +494,7 @@ impl ComponentStore {
                         .get_mut(envelope.token.scope)?
                         .dispatch(envelope.payload)?;
                     report.dispatched += 1;
+                    report.dirty.push(envelope.token);
                 }
             }
         }
@@ -506,6 +508,14 @@ impl ComponentStore {
     pub fn view(&self, token: ComponentToken) -> Result<View, ComponentStoreError> {
         self.validate_window(token)?;
         self.scopes.get(token.scope)?.view()
+    }
+
+    pub(crate) fn token(&self, scope: ScopeId) -> Result<ComponentToken, ComponentStoreError> {
+        self.scopes.state(scope)?;
+        Ok(ComponentToken {
+            window: self.window,
+            scope,
+        })
     }
 
     fn validate_window(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {
@@ -574,6 +584,7 @@ mod tests {
                 blocked: true,
                 dispatched: 0,
                 dropped: 0,
+                dirty: Vec::new(),
             })
         );
         store.publish(token).unwrap();

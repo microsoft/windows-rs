@@ -388,9 +388,9 @@ template behavior, COM reentrancy, partial native mutation, shell visuals, or sh
 - [x] Add stable generational scope storage.
 - [x] Add logical component boundaries to the structural tree.
 - [x] Mount component-only chains ending in one native root through the shared command path.
-- [ ] Add nested components with props and local typed messages.
-- [ ] Keep local recomposition within the component boundary.
-- [ ] Retain child state across parent prop changes and keyed movement.
+- [x] Add nested components with props and local typed messages.
+- [x] Keep leaf recomposition within the component boundary.
+- [x] Retain child state across parent prop changes and keyed movement.
 - [ ] Replace same-key/different-type children and retire the old scope.
 - [x] Queue reentrant messages without directly reborrowing a component.
 - [ ] Retain current application state and desired view across native failure.
@@ -497,8 +497,9 @@ The August follow-up review found two accepted event schemas that could generate
 Observation generation now walks controlled properties rather than every payload event, wrapper
 fields use minimal-projection Rust names, unsupported enum and multi-field reads are rejected,
 accepted primitive/wrapper expressions and the secondary-interface event arm are compiler-checked,
-native drains are budgeted, and the live executable has a hard timeout. A delayed native edit now
-proves generated COM `TextChanged` delivery without manually injecting the observation.
+native drains are budgeted, and the live executable has a hard timeout. Feedback events are unique
+per controlled property until one event can return multiple observations. A delayed native edit
+now proves generated COM `TextChanged` delivery without manually injecting the observation.
 
 - [x] Implement separate window and realization identity domains.
 - [x] Add stale-work tests for native remount and complete window replacement.
@@ -521,6 +522,13 @@ The Phase 4 foundation now stores `ScopeId` and component type on logical compon
 separate window-token-bound store owns non-cloneable component state, checked typed props, and FIFO
 local message envelopes. The public `Component` and `View` types can reserve a component-only chain,
 expand it to one native root in the authoritative candidate tree, run the normal native command
-batch, and publish all scopes only after structural success. Props reconciliation, keyed siblings,
-retirement, local recomposition, and the remaining view adapters are still open. Control expansion
-remains frozen.
+batch, and publish all scopes only after structural success. Same-type prop updates retain parent
+and child scopes. Typed local messages are drained before a local candidate reconciliation, and
+multiple messages for one component coalesce into one view pass. This slice currently requires the
+component chain to end in the same leaf native control. `View::Content` and `View::Children` now
+mount logical component descendants under a native parent. Same-key children retain their scopes
+when parent props change or their order moves, and native move commands target each component's
+realized native root. Insert/remove, same-key type replacement, transactional retirement, fragments,
+and virtual view items are still open. A failed component structural update currently resets and
+poisons the pump rather than recovering the prior or desired tree, so structural failure recovery
+remains a gate. Control expansion remains frozen.

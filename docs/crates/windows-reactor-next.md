@@ -46,7 +46,9 @@ UI thread indefinitely.
 their matching synchronous feedback. Native observations update property knowledge before
 application callbacks, so rejecting a user edit produces a restoring write. Controlled properties
 must declare a feedback contract; the current slice accepts only synchronous exact feedback and
-rejects unsupported contracts during generation.
+rejects unsupported contracts during generation. A feedback event can belong to only one
+controlled property on a control because one native event currently produces one property
+observation.
 The process-isolated WinUI fixture changes a loaded native `TextBox` without a public callback and
 relies on the generated COM `TextChanged` subscription to drive the live scheduler and restore the
 desired value. It also forces dispatcher enqueue rejection followed by retry, requests work
@@ -81,8 +83,15 @@ stale tokens cannot dispatch into a reused slot.
 The first component composition slice accepts a public `Component` and `View`, expands nested
 component-only chains into logical component and slot nodes, and mounts the final native root
 through the existing command and receipt path. Component scopes remain reserved while native
-commands run and publish only after structural success. Keyed sibling reconciliation, prop updates,
-retirement, and local recomposition are not implemented yet.
+commands run and publish only after structural success. Same-type prop updates retain every scope
+in the chain, and typed local messages trigger a candidate reconciliation rooted at the component
+that received them. Multiple messages for one component coalesce into one view pass. This bounded
+path currently requires the chain to end in the same leaf native control. Structural replacement
+and retirement are not implemented yet. `View::Content` and `View::Children` can mount
+component descendants below a native parent. Same-key child components retain their scopes across
+parent prop updates and keyed movement; move commands use the descendant native root rather than a
+logical component node. Insert/remove and same-key type replacement remain blocked on transactional
+scope retirement. A failed structural component update currently resets and poisons its pump.
 
 The `test` feature exposes the recording runtime and pump to the headless benchmark package. It is
 not part of the default application surface.

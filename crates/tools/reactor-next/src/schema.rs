@@ -301,11 +301,18 @@ impl Schema {
                 });
             }
 
+            let mut feedback_events = HashSet::new();
             for property in properties
                 .iter()
                 .filter(|property| property.feedback.is_some())
             {
                 let feedback = property.feedback.as_deref().unwrap();
+                if !feedback_events.insert(feedback) {
+                    return Err(format!(
+                        "{} assigns feedback event {} to multiple controlled properties",
+                        control.type_name, feedback
+                    ));
+                }
                 let Some(event) = events.iter().find(|event| event.name == feedback) else {
                     return Err(format!(
                         "{}.{} names missing feedback event {}",
@@ -519,6 +526,44 @@ feedback_contract = "synchronous_exact"
         assert_eq!(
             schema.resolve(&metadata).err().unwrap(),
             "Microsoft.UI.Xaml.Controls.TextBox.Text names missing feedback event Missing"
+        );
+    }
+
+    #[test]
+    fn rejects_feedback_event_shared_by_controlled_properties() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TextBox"
+role = "controlled"
+capabilities = ["controlled_text"]
+
+[[control.property]]
+name = "Text"
+clearable = true
+controlled = "TextChanged"
+feedback_contract = "synchronous_exact"
+
+[[control.property]]
+name = "SelectedText"
+clearable = true
+controlled = "TextChanged"
+feedback_contract = "synchronous_exact"
+
+[[control.event]]
+name = "TextChanged"
+property = "Text"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let error = Schema::parse(source)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+
+        assert_eq!(
+            error,
+            "Microsoft.UI.Xaml.Controls.TextBox assigns feedback event TextChanged to multiple \
+             controlled properties"
         );
     }
 

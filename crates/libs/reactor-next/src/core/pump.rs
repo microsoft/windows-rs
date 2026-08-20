@@ -90,6 +90,7 @@ impl UpdatePlan {
 pub struct Pump<R: NativeRuntime> {
     application: Option<NodeId>,
     components: ComponentStore,
+    dirty_components: VecDeque<ComponentToken>,
     element: Option<Element>,
     tree: Tree,
     runtime: R,
@@ -110,6 +111,7 @@ impl<R: NativeRuntime> Pump<R> {
         Self {
             application: None,
             components: ComponentStore::new(identity.window()),
+            dirty_components: VecDeque::new(),
             element: None,
             tree: Tree::new(),
             runtime,
@@ -297,6 +299,58 @@ impl<R: NativeRuntime> Pump<R> {
         Ok(receipt)
     }
 
+    pub fn update_view(&mut self, view: View) -> Result<CommitReceipt, PumpError> {
+        if self.poisoned {
+            return Err(PumpError::Poisoned);
+        }
+        let next_version = self.next_version()?;
+        let root = self.root.ok_or(PumpError::NotMounted)?;
+        let mut candidate = self.tree.clone();
+        let mut plan = UpdatePlan {
+            retry_properties: self.retry_pending,
+            ..UpdatePlan::new(self.identity)
+        };
+        Self::reconcile_planned_view(&mut candidate, root, view, &mut self.components, &mut plan)?;
+        self.apply_component_candidate(candidate, plan, next_version)
+    }
+
+    pub fn dispatch_components(&mut self, budget: usize) -> Result<usize, PumpError> {
+        if self.poisoned {
+            return Err(PumpError::Poisoned);
+        }
+        let report = self.components.drain(budget)?;
+        for token in report.dirty {
+            if !self.dirty_components.contains(&token) {
+                self.dirty_components.push_back(token);
+            }
+        }
+        if self.dirty_components.is_empty() {
+            return Ok(report.dispatched);
+        }
+
+        let next_version = self.next_version()?;
+        let mut candidate = self.tree.clone();
+        let mut plan = UpdatePlan {
+            retry_properties: self.retry_pending,
+            ..UpdatePlan::new(self.identity)
+        };
+        for token in self.dirty_components.iter().copied() {
+            let node = candidate
+                .component_node(token.scope())?
+                .ok_or(PumpError::StructureUnsupported)?;
+            Self::recompose_component(
+                &mut candidate,
+                node,
+                token,
+                &mut self.components,
+                &mut plan,
+            )?;
+        }
+        self.apply_component_candidate(candidate, plan, next_version)?;
+        self.dirty_components.clear();
+        Ok(report.dispatched)
+    }
+
     pub fn update(&mut self, element: Element) -> Result<CommitReceipt, PumpError> {
         if self.poisoned {
             return Err(PumpError::Poisoned);
@@ -459,6 +513,7 @@ impl<R: NativeRuntime> Pump<R> {
         self.runtime.reset();
         self.application = None;
         self.element = None;
+        self.dirty_components.clear();
         self.events.clear();
         self.realizations.clear();
         self.retry_pending = false;
@@ -712,6 +767,28 @@ impl<R: NativeRuntime> Pump<R> {
         Self::commit_tree_properties(&mut candidate, &plan.commits, &receipt)?;
         self.tree = candidate;
         Ok(())
+    }
+
+    fn element_structure_is_empty(element: &Element) -> bool {
+        match element.structure() {
+            ElementStructureRef::None | ElementStructureRef::Content(None) => true,
+            ElementStructureRef::Children(children) => children.is_empty(),
+            ElementStructureRef::Virtual(_) => false,
+            ElementStructureRef::Content(Some(_)) => false,
+        }
+    }
+
+    fn native_root(tree: &Tree, node: NodeId) -> Result<NodeId, PumpError> {
+        match tree.kind(node)? {
+            NodeKind::Native(_) | NodeKind::VirtualCollection => Ok(node),
+            NodeKind::Component | NodeKind::Slot => {
+                let [child] = tree.children(node)? else {
+                    return Err(PumpError::StructureUnsupported);
+                };
+                Self::native_root(tree, *child)
+            }
+            NodeKind::Application | NodeKind::Window => Err(PumpError::StructureUnsupported),
+        }
     }
 
     fn commit_tree_properties(
@@ -1162,6 +1239,224 @@ impl<R: NativeRuntime> Pump<R> {
             .ok_or(PumpError::RevisionExhausted)
     }
 
+    fn apply_component_candidate(
+        &mut self,
+        mut candidate: Tree,
+        plan: UpdatePlan,
+        next_version: u64,
+    ) -> Result<CommitReceipt, PumpError> {
+        if plan.commands.is_empty() {
+            self.tree = candidate;
+            self.retry_pending = false;
+            self.version = next_version;
+            return Ok(CommitReceipt {
+                outcomes: Vec::new(),
+            });
+        }
+
+        let receipt = self.runtime.apply(&plan.commands);
+        if receipt.outcomes.len() != plan.commands.len() {
+            self.poisoned = true;
+            return Err(PumpError::ApplyReceiptMismatch);
+        }
+        if plan
+            .commands
+            .iter()
+            .enumerate()
+            .any(|(index, command)| command.structural() && !receipt.applied(index))
+        {
+            self.runtime.reset();
+            self.poisoned = true;
+            return Err(PumpError::StructuralApplyFailed(receipt));
+        }
+        let retries_exhausted =
+            Self::commit_tree_properties(&mut candidate, &plan.commits, &receipt)?;
+        self.tree = candidate;
+        if plan
+            .commands
+            .iter()
+            .enumerate()
+            .any(|(index, _)| !receipt.applied(index))
+        {
+            self.retry_pending = true;
+            return Err(if retries_exhausted {
+                PumpError::PropertyRetriesExhausted(receipt)
+            } else {
+                PumpError::PropertyApplyFailed(receipt)
+            });
+        }
+        self.retry_pending = false;
+        self.version = next_version;
+        Ok(receipt)
+    }
+
+    fn reconcile_planned_view(
+        tree: &mut Tree,
+        node: NodeId,
+        view: View,
+        components: &mut ComponentStore,
+        plan: &mut UpdatePlan,
+    ) -> Result<(), PumpError> {
+        match view {
+            View::Native(element) => {
+                if tree.kind(node)? != NodeKind::Native(element.kind())
+                    || !tree.children(node)?.is_empty()
+                    || !matches!(element.structure(), ElementStructureRef::None)
+                {
+                    return Err(PumpError::StructureUnsupported);
+                }
+                Self::reconcile_node(tree, node, element, plan)?;
+                Ok(())
+            }
+            View::Component(component) => {
+                if tree.kind(node)? != NodeKind::Component
+                    || tree.component_type(node)? != component.component_type()
+                {
+                    return Err(PumpError::StructureUnsupported);
+                }
+                let token = components.token(tree.component_scope(node)?)?;
+                component.apply_props(components, token)?;
+                Self::recompose_component(tree, node, token, components, plan)
+            }
+            View::Content { control, content } => {
+                Self::reconcile_shallow_control(tree, node, control, plan)?;
+                let [child] = tree.children(node)? else {
+                    return Err(PumpError::StructureUnsupported);
+                };
+                Self::reconcile_planned_view(tree, *child, *content, components, plan)
+            }
+            View::Children { control, children } => {
+                Self::reconcile_shallow_control(tree, node, control, plan)?;
+                let current = tree.children(node)?.to_vec();
+                let old_keys = current
+                    .iter()
+                    .map(|child| {
+                        tree.key(*child)?
+                            .cloned()
+                            .ok_or(PumpError::StructureUnsupported)
+                    })
+                    .collect::<Result<Vec<_>, PumpError>>()?;
+                let new_keys = children
+                    .iter()
+                    .map(|child| child.key().clone())
+                    .collect::<Vec<_>>();
+                diff(&old_keys, &new_keys)
+                    .map_err(|KeyedError::DuplicateKey(key)| PumpError::DuplicateKey(key))?;
+                if current.len() != children.len()
+                    || new_keys.iter().any(|key| !old_keys.contains(key))
+                {
+                    return Err(PumpError::StructureUnsupported);
+                }
+
+                let nodes = old_keys
+                    .into_iter()
+                    .zip(current.iter().copied())
+                    .collect::<HashMap<_, _>>();
+                let mut order = current;
+                for (index, child) in children.iter().enumerate() {
+                    let child_node = nodes
+                        .get(child.key())
+                        .copied()
+                        .ok_or(PumpError::StructureUnsupported)?;
+                    Self::reconcile_planned_view(
+                        tree,
+                        child_node,
+                        child.view().clone(),
+                        components,
+                        plan,
+                    )?;
+                    let previous = order
+                        .iter()
+                        .position(|node| *node == child_node)
+                        .ok_or(PumpError::StructureUnsupported)?;
+                    if previous != index {
+                        order.remove(previous);
+                        order.insert(index, child_node);
+                        plan.push(Command::MoveChild {
+                            parent: node,
+                            child: Self::native_root(tree, child_node)?,
+                            index,
+                        });
+                    }
+                }
+                tree.set_children(node, order)?;
+                Ok(())
+            }
+            View::Empty | View::Fragment(_) | View::VirtualItems { .. } => {
+                Err(PumpError::StructureUnsupported)
+            }
+        }
+    }
+
+    fn reconcile_shallow_control(
+        tree: &mut Tree,
+        node: NodeId,
+        control: Element,
+        plan: &mut UpdatePlan,
+    ) -> Result<(), PumpError> {
+        if !Self::element_structure_is_empty(&control) {
+            return Err(PumpError::StructureUnsupported);
+        }
+        let parts = control.into_parts();
+        if tree.kind(node)? != NodeKind::Native(parts.kind) {
+            return Err(PumpError::StructureUnsupported);
+        }
+
+        let props_changed = tree.native(node)?.desired != parts.props;
+        if props_changed || plan.retry_properties {
+            let properties = &tree.native(node)?.properties;
+            parts.props.visit_properties(&mut |property, value| {
+                let changed = properties.get(&property).map_or_else(
+                    || value.is_some(),
+                    |native| native != &NativePropertyState::Known(value.clone()),
+                );
+                if !changed {
+                    return;
+                }
+                let command = match &value {
+                    Some(value) => Command::SetProperty {
+                        node,
+                        property,
+                        value: value.clone(),
+                    },
+                    None => Command::ClearProperty { node, property },
+                };
+                let command = plan.push(command);
+                plan.commits.push(PropertyCommit {
+                    command,
+                    node,
+                    property,
+                    value,
+                });
+            });
+        }
+        if props_changed {
+            Self::update_event_states(tree.native_mut(node)?, node, &parts.props, plan)?;
+            tree.native_mut(node)?.desired = parts.props;
+        }
+        Ok(())
+    }
+
+    fn recompose_component(
+        tree: &mut Tree,
+        node: NodeId,
+        token: ComponentToken,
+        components: &mut ComponentStore,
+        plan: &mut UpdatePlan,
+    ) -> Result<(), PumpError> {
+        let [slot] = tree.children(node)? else {
+            return Err(PumpError::StructureUnsupported);
+        };
+        if tree.kind(*slot)? != NodeKind::Slot {
+            return Err(PumpError::StructureUnsupported);
+        }
+        let [child] = tree.children(*slot)? else {
+            return Err(PumpError::StructureUnsupported);
+        };
+        let view = components.view(token)?;
+        Self::reconcile_planned_view(tree, *child, view, components, plan)
+    }
+
     fn mount_planned_view(
         tree: &mut Tree,
         logical_parent: Option<NodeId>,
@@ -1198,11 +1493,61 @@ impl<R: NativeRuntime> Pump<R> {
                 )?;
                 Ok((node, native))
             }
-            View::Empty
-            | View::Fragment(_)
-            | View::Content { .. }
-            | View::Children { .. }
-            | View::VirtualItems { .. } => Err(PumpError::StructureUnsupported),
+            View::Content { control, content } => {
+                if !Self::element_structure_is_empty(&control) {
+                    return Err(PumpError::StructureUnsupported);
+                }
+                let node = Self::mount_planned_element(tree, logical_parent, key, control, plan)?;
+                let (_, native) = Self::mount_planned_view(
+                    tree,
+                    Some(node),
+                    None,
+                    *content,
+                    components,
+                    reserved,
+                    plan,
+                )?;
+                plan.push(Command::InsertChild {
+                    parent: node,
+                    child: native,
+                    index: 0,
+                });
+                Ok((node, node))
+            }
+            View::Children { control, children } => {
+                if !Self::element_structure_is_empty(&control) {
+                    return Err(PumpError::StructureUnsupported);
+                }
+                let node = Self::mount_planned_element(tree, logical_parent, key, control, plan)?;
+                let children = Rc::unwrap_or_clone(children);
+                let keys = children
+                    .iter()
+                    .map(|child| child.key().clone())
+                    .collect::<Vec<_>>();
+                diff(&[], &keys)
+                    .map_err(|KeyedError::DuplicateKey(key)| PumpError::DuplicateKey(key))?;
+                for (index, child) in children.into_iter().enumerate() {
+                    let (key, view) = child.into_parts();
+                    let (_, native) = Self::mount_planned_view(
+                        tree,
+                        Some(node),
+                        Some(key),
+                        view,
+                        components,
+                        reserved,
+                        plan,
+                    )?;
+                    plan.push(Command::InsertChild {
+                        parent: node,
+                        child: native,
+                        index,
+                    });
+                }
+                Ok((node, node))
+            }
+            View::Empty | View::Fragment(_) | View::VirtualItems { .. } => {
+                Err(PumpError::StructureUnsupported)
+            }
         }
     }
 
@@ -1478,42 +1823,86 @@ mod tests {
         }
     }
 
-    struct Leaf;
+    struct Leaf {
+        text: String,
+    }
 
     impl Component for Leaf {
         type Props = String;
         type Message = ();
 
-        fn create(_props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
-            Self
+        fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+            Self {
+                text: props.clone(),
+            }
         }
 
-        fn changed(&mut self, _props: &Self::Props, _context: &mut ComponentContext<Self>) {}
+        fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+            self.text.clone_from(props);
+        }
 
         fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
 
         fn view(&self, _context: &mut ViewContext<Self>) -> View {
-            View::native(TextBlock::new().text("leaf"))
+            View::native(TextBlock::new().text(self.text.clone()))
         }
     }
 
-    struct Root;
+    struct Root {
+        text: String,
+    }
 
     impl Component for Root {
-        type Props = ();
-        type Message = ();
+        type Props = String;
+        type Message = String;
 
-        fn create(_props: &Self::Props, context: &mut ComponentContext<Self>) -> Self {
-            context.sender().send(());
-            Self
+        fn create(props: &Self::Props, context: &mut ComponentContext<Self>) -> Self {
+            context.sender().send("message".to_string());
+            Self {
+                text: props.clone(),
+            }
         }
 
-        fn changed(&mut self, _props: &Self::Props, _context: &mut ComponentContext<Self>) {}
+        fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+            self.text.clone_from(props);
+        }
+
+        fn update(&mut self, message: Self::Message, _context: &mut ComponentContext<Self>) {
+            self.text = message;
+        }
+
+        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+            View::component::<Leaf>(self.text.clone())
+        }
+    }
+
+    struct List {
+        items: Vec<(u64, String)>,
+    }
+
+    impl Component for List {
+        type Props = Vec<(u64, String)>;
+        type Message = ();
+
+        fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+            Self {
+                items: props.clone(),
+            }
+        }
+
+        fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+            self.items.clone_from(props);
+        }
 
         fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
 
         fn view(&self, _context: &mut ViewContext<Self>) -> View {
-            View::component::<Leaf>("leaf".to_string())
+            View::children(
+                StackPanel::new(),
+                self.items
+                    .iter()
+                    .map(|(key, text)| KeyedView::new(*key, View::component::<Leaf>(text.clone()))),
+            )
         }
     }
 
@@ -1521,15 +1910,18 @@ mod tests {
     fn mounts_a_component_chain_into_the_authoritative_tree() {
         let mut pump = Pump::new(RecordingRuntime::default());
 
-        pump.mount_view(View::component::<Root>(())).unwrap();
+        pump.mount_view(View::component::<Root>("leaf".to_string()))
+            .unwrap();
 
         let root = pump.root().unwrap();
         assert_eq!(pump.tree.kind(root), Ok(NodeKind::Component));
         assert_eq!(pump.tree.component_type(root), Ok(TypeId::of::<Root>()));
+        let root_scope = pump.tree.component_scope(root).unwrap();
         let root_slot = pump.tree.children(root).unwrap()[0];
         assert_eq!(pump.tree.kind(root_slot), Ok(NodeKind::Slot));
         let leaf = pump.tree.children(root_slot).unwrap()[0];
         assert_eq!(pump.tree.component_type(leaf), Ok(TypeId::of::<Leaf>()));
+        let leaf_scope = pump.tree.component_scope(leaf).unwrap();
         let leaf_slot = pump.tree.children(leaf).unwrap()[0];
         let native = pump.tree.children(leaf_slot).unwrap()[0];
         assert_eq!(
@@ -1543,7 +1935,27 @@ mod tests {
                 .property(PropertyId::TextBlockText),
             Some(&PropertyValue::Str("leaf".to_string()))
         );
-        assert_eq!(pump.components_mut().drain(10).unwrap().dispatched, 1);
+        pump.update_view(View::component::<Root>("props".to_string()))
+            .unwrap();
+        assert_eq!(pump.root(), Some(root));
+        assert_eq!(pump.tree.component_scope(root), Ok(root_scope));
+        assert_eq!(pump.tree.component_scope(leaf), Ok(leaf_scope));
+        assert_eq!(
+            pump.runtime()
+                .node(native)
+                .unwrap()
+                .property(PropertyId::TextBlockText),
+            Some(&PropertyValue::Str("props".to_string()))
+        );
+
+        assert_eq!(pump.dispatch_components(10), Ok(1));
+        assert_eq!(
+            pump.runtime()
+                .node(native)
+                .unwrap()
+                .property(PropertyId::TextBlockText),
+            Some(&PropertyValue::Str("message".to_string()))
+        );
     }
 
     #[test]
@@ -1553,11 +1965,66 @@ mod tests {
         let mut pump = Pump::new(runtime);
 
         assert!(matches!(
-            pump.mount_view(View::component::<Root>(())),
+            pump.mount_view(View::component::<Root>("leaf".to_string())),
             Err(PumpError::StructuralApplyFailed(_))
         ));
         assert_eq!(pump.components().pending(), 1);
         assert_eq!(pump.components_mut().drain(10).unwrap().dropped, 1);
+    }
+
+    #[test]
+    fn keyed_component_siblings_retain_scopes_across_prop_updates() {
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount_view(View::component::<List>(vec![
+            (1, "one".to_string()),
+            (2, "two".to_string()),
+        ]))
+        .unwrap();
+
+        let root = pump.root().unwrap();
+        let slot = pump.tree.children(root).unwrap()[0];
+        let panel = pump.tree.children(slot).unwrap()[0];
+        let children = pump.tree.children(panel).unwrap().to_vec();
+        let scopes = children
+            .iter()
+            .map(|node| pump.tree.component_scope(*node).unwrap())
+            .collect::<Vec<_>>();
+
+        pump.update_view(View::component::<List>(vec![
+            (1, "first".to_string()),
+            (2, "second".to_string()),
+        ]))
+        .unwrap();
+
+        assert_eq!(pump.tree.children(panel), Ok(children.as_slice()));
+        assert_eq!(
+            children
+                .iter()
+                .map(|node| pump.tree.component_scope(*node).unwrap())
+                .collect::<Vec<_>>(),
+            scopes
+        );
+        assert_eq!(
+            recorded_text(pump.runtime(), panel),
+            vec!["first".to_string(), "second".to_string()]
+        );
+
+        pump.update_view(View::component::<List>(vec![
+            (2, "second".to_string()),
+            (1, "first".to_string()),
+        ]))
+        .unwrap();
+
+        assert_eq!(
+            pump.tree.children(panel),
+            Ok(&[children[1], children[0]][..])
+        );
+        assert_eq!(pump.tree.component_scope(children[0]), Ok(scopes[0]));
+        assert_eq!(pump.tree.component_scope(children[1]), Ok(scopes[1]));
+        assert_eq!(
+            recorded_text(pump.runtime(), panel),
+            vec!["second".to_string(), "first".to_string()]
+        );
     }
 
     #[test]

@@ -154,6 +154,10 @@ impl KeyedView {
     pub fn view(&self) -> &View {
         &self.view
     }
+
+    pub(crate) fn into_parts(self) -> (Key, View) {
+        (self.key, self.view)
+    }
 }
 
 #[derive(Clone, Debug, Default, PartialEq)]

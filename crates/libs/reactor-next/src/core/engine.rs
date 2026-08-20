@@ -170,7 +170,15 @@ impl Tree {
         if node.kind != NodeKind::Component {
             return Err(TreeError::NotComponent);
         }
+
         node.component_type.ok_or(TreeError::NotComponent)
+    }
+
+    pub fn component_node(&self, scope: ScopeId) -> Result<Option<NodeId>, TreeError> {
+        let Some(root) = self.root else {
+            return Ok(None);
+        };
+        self.find_component(root, scope)
     }
 
     pub fn native(&self, id: NodeId) -> Result<&NativeState, TreeError> {
@@ -358,6 +366,19 @@ impl Tree {
         }
         order.push(id);
         Ok(())
+    }
+
+    fn find_component(&self, id: NodeId, scope: ScopeId) -> Result<Option<NodeId>, TreeError> {
+        let node = self.arena.get(id)?;
+        if node.kind == NodeKind::Component && node.scope == Some(scope) {
+            return Ok(Some(id));
+        }
+        for child in node.children.iter().copied() {
+            if let Some(component) = self.find_component(child, scope)? {
+                return Ok(Some(component));
+            }
+        }
+        Ok(None)
     }
 }
 
