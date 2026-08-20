@@ -73,6 +73,7 @@ impl From<VirtualModelError> for TreeError {
 #[derive(Clone)]
 pub struct Tree {
     arena: Arena<Node>,
+    components: HashMap<ScopeId, NodeId>,
     root: Option<NodeId>,
 }
 
@@ -80,6 +81,7 @@ impl Tree {
     pub fn new() -> Self {
         Self {
             arena: Arena::new(),
+            components: HashMap::new(),
             root: None,
         }
     }
@@ -154,6 +156,7 @@ impl Tree {
         node.key = key;
         node.scope = Some(scope);
         node.component_type = Some(component_type);
+        self.components.insert(scope, id);
         Ok(id)
     }
 
@@ -175,10 +178,7 @@ impl Tree {
     }
 
     pub fn component_node(&self, scope: ScopeId) -> Result<Option<NodeId>, TreeError> {
-        let Some(root) = self.root else {
-            return Ok(None);
-        };
-        self.find_component(root, scope)
+        Ok(self.components.get(&scope).copied())
     }
 
     pub fn native(&self, id: NodeId) -> Result<&NativeState, TreeError> {
@@ -333,6 +333,16 @@ impl Tree {
         self.arena.len()
     }
 
+    pub fn depth(&self, id: NodeId) -> Result<usize, TreeError> {
+        let mut depth = 0;
+        let mut current = id;
+        while let Some(parent) = self.arena.get(current)?.parent {
+            depth += 1;
+            current = parent;
+        }
+        Ok(depth)
+    }
+
     pub fn retire_subtree(&mut self, id: NodeId) -> Result<Vec<(NodeId, NodeKind)>, TreeError> {
         let mut order = Vec::new();
         self.collect_postorder(id, &mut order)?;
@@ -349,6 +359,9 @@ impl Tree {
         let mut retired = Vec::with_capacity(order.len());
         for id in order {
             let node = self.arena.remove(id)?;
+            if let Some(scope) = node.scope {
+                self.components.remove(&scope);
+            }
             retired.push((id, node.kind));
         }
         Ok(retired)
@@ -366,19 +379,6 @@ impl Tree {
         }
         order.push(id);
         Ok(())
-    }
-
-    fn find_component(&self, id: NodeId, scope: ScopeId) -> Result<Option<NodeId>, TreeError> {
-        let node = self.arena.get(id)?;
-        if node.kind == NodeKind::Component && node.scope == Some(scope) {
-            return Ok(Some(id));
-        }
-        for child in node.children.iter().copied() {
-            if let Some(component) = self.find_component(child, scope)? {
-                return Ok(Some(component));
-            }
-        }
-        Ok(None)
     }
 }
 

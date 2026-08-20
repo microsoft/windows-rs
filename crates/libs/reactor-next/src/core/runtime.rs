@@ -1,4 +1,5 @@
 use super::*;
+use std::rc::Rc;
 use std::sync::atomic::{AtomicU64, Ordering};
 
 static NEXT_WINDOW_ID: AtomicU64 = AtomicU64::new(1);
@@ -14,7 +15,7 @@ impl WindowId {
     }
 }
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct WindowToken {
     id: WindowId,
     epoch: u64,
@@ -116,6 +117,10 @@ pub trait NativeRuntime {
     fn reset(&mut self);
 
     fn set_identity(&mut self, _identity: NativeIdentity) {}
+
+    fn component_waker(&self) -> Option<Rc<dyn Fn()>> {
+        None
+    }
 
     fn drain_events(&mut self) -> Vec<NativeWork<QueuedEvent>> {
         Vec::new()

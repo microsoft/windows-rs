@@ -14,6 +14,9 @@ thread_local! {
 thread_local! {
     static LIVE_TEST_DISPATCHES: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_TEST_REARM: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
+    static LIVE_COMPONENT_CREATES: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
+    static LIVE_COMPONENT_EFFECT_SETUPS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
+    static LIVE_COMPONENT_EFFECT_CLEANUPS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
 }
 
 struct LiveHost {
@@ -28,15 +31,117 @@ trait LivePump {
     fn schedule_retry(&self) -> Result<(), RuntimeError>;
     fn shutdown(&mut self);
     #[cfg(feature = "test")]
-    fn live_set_root_text(&self, value: &str) -> Result<(), RuntimeError>;
+    fn live_set_root_text(&self, _value: &str) -> Result<(), RuntimeError> {
+        Err(RuntimeError::UnsupportedKind)
+    }
     #[cfg(feature = "test")]
-    fn live_root_text(&self) -> Result<String, RuntimeError>;
+    fn live_root_text(&self) -> Result<String, RuntimeError> {
+        Err(RuntimeError::UnsupportedKind)
+    }
     #[cfg(feature = "test")]
-    fn live_stale_remount(&mut self) -> bool;
+    fn live_stale_remount(&mut self) -> bool {
+        false
+    }
     #[cfg(feature = "test")]
-    fn live_rejection_then_retry(&self) -> bool;
+    fn live_rejection_then_retry(&self) -> bool {
+        false
+    }
     #[cfg(feature = "test")]
-    fn live_mutate_then_fail(&mut self) -> bool;
+    fn live_mutate_then_fail(&mut self) -> bool {
+        false
+    }
+    #[cfg(feature = "test")]
+    fn live_component_recovery(&mut self) -> bool {
+        false
+    }
+    #[cfg(feature = "test")]
+    fn live_component_message_result(&self) -> bool {
+        false
+    }
+}
+
+struct ComponentLoop {
+    pump: Pump<WinUiRuntime>,
+    root: Option<View>,
+}
+
+impl LivePump for ComponentLoop {
+    fn mount(&mut self) -> Result<(), PumpError> {
+        self.pump
+            .mount_view(self.root.take().ok_or(PumpError::AlreadyMounted)?)
+            .map(|_| ())
+    }
+
+    fn dispatch_events(&mut self) -> Result<(), PumpError> {
+        self.pump.dispatch_events()?;
+        self.pump.dispatch_components(64).map(|_| ())
+    }
+
+    fn native_work_pending(&self) -> bool {
+        self.pump.native_work_pending()
+    }
+
+    fn schedule_retry(&self) -> Result<(), RuntimeError> {
+        self.pump.runtime().schedule_retry()
+    }
+
+    fn shutdown(&mut self) {
+        self.pump.shutdown();
+        self.pump.runtime().close_scheduler();
+    }
+}
+
+#[cfg(feature = "test")]
+struct LiveRecoveryComponent {
+    messages: u8,
+    text: String,
+}
+
+#[cfg(feature = "test")]
+impl Component for LiveRecoveryComponent {
+    type Props = String;
+    type Message = String;
+
+    fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+        LIVE_COMPONENT_CREATES.with(|count| count.set(count.get().saturating_add(1)));
+        Self {
+            messages: 0,
+            text: props.clone(),
+        }
+    }
+
+    fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+        self.text.clone_from(props);
+    }
+
+    fn update(&mut self, message: Self::Message, _context: &mut ComponentContext<Self>) {
+        self.messages = self.messages.saturating_add(1);
+        self.text = if self.messages == 65 {
+            message
+        } else {
+            "pending".to_string()
+        };
+    }
+
+    fn view(&self, context: &mut ViewContext<Self>) -> View {
+        context.use_effect((), || {
+            LIVE_COMPONENT_EFFECT_SETUPS.with(|count| count.set(count.get().saturating_add(1)));
+            Some(Box::new(|| {
+                LIVE_COMPONENT_EFFECT_CLEANUPS
+                    .with(|count| count.set(count.get().saturating_add(1)));
+            }))
+        });
+        let sender = context.sender();
+        View::native(
+            TextBox::new()
+                .text(self.text.clone())
+                .on_text_changed(move |value| {
+                    for _ in 0..65 {
+                        sender.send(value.clone());
+                    }
+                }),
+        )
+    }
 }
 
 impl<F> LivePump for RenderLoop<WinUiRuntime, F>
@@ -48,7 +153,8 @@ where
     }
 
     fn dispatch_events(&mut self) -> Result<(), PumpError> {
-        self.dispatch_events().map(|_| ())
+        self.dispatch_events()?;
+        self.pump_mut().dispatch_components(64).map(|_| ())
     }
 
     fn native_work_pending(&self) -> bool {
@@ -145,6 +251,48 @@ where
             .is_ok()
             && !self.pump().retry_pending()
     }
+
+    #[cfg(feature = "test")]
+    fn live_component_recovery(&mut self) -> bool {
+        LIVE_COMPONENT_CREATES.with(|count| count.set(0));
+        LIVE_COMPONENT_EFFECT_SETUPS.with(|count| count.set(0));
+        LIVE_COMPONENT_EFFECT_CLEANUPS.with(|count| count.set(0));
+        let old_identity = self.pump().native_identity();
+        self.pump_mut().runtime_mut().live_fail_next_structural();
+        if !matches!(
+            self.pump_mut()
+                .update_view(View::component::<LiveRecoveryComponent>(
+                    "component".to_string()
+                )),
+            Err(PumpError::RecoveredStructure(_))
+        ) {
+            return false;
+        }
+        let new_identity = self.pump().native_identity();
+        let Some(native) = self.pump().root_native() else {
+            return false;
+        };
+        old_identity.window() == new_identity.window()
+            && old_identity.realization_epoch() != new_identity.realization_epoch()
+            && LIVE_COMPONENT_CREATES.with(|count| count.get() == 1)
+            && LIVE_COMPONENT_EFFECT_SETUPS.with(|count| count.get() == 1)
+            && LIVE_COMPONENT_EFFECT_CLEANUPS.with(|count| count.get() == 0)
+            && self.pump().runtime().live_text(native).as_deref() == Ok("component")
+            && self
+                .pump()
+                .runtime()
+                .live_set_text(native, "message")
+                .is_ok()
+    }
+
+    #[cfg(feature = "test")]
+    fn live_component_message_result(&self) -> bool {
+        let Some(native) = self.pump().root_native() else {
+            return false;
+        };
+        LIVE_COMPONENT_CREATES.with(|count| count.get() == 1)
+            && self.pump().runtime().live_text(native).as_deref() == Ok("message")
+    }
 }
 
 pub fn bootstrap() -> windows_core::Result<()> {
@@ -158,8 +306,28 @@ impl App {
     where
         F: FnMut(&mut Hooks) -> Element + 'static,
     {
+        Self::run_with(move |application| {
+            Box::new(RenderLoop::new(
+                WinUiRuntime::with_application(application),
+                root,
+            ))
+        })
+    }
+
+    pub fn run_component<C: Component>(props: C::Props) -> windows_core::Result<()> {
+        Self::run_with(move |application| {
+            Box::new(ComponentLoop {
+                pump: Pump::new(WinUiRuntime::with_application(application)),
+                root: Some(View::component::<C>(props)),
+            })
+        })
+    }
+
+    fn run_with(
+        create_pump: impl FnOnce(Application) -> Box<dyn LivePump> + 'static,
+    ) -> windows_core::Result<()> {
         initialize_ui_thread()?;
-        let root = Rc::new(RefCell::new(Some(root)));
+        let create_pump = Rc::new(RefCell::new(Some(create_pump)));
         let result = Rc::new(RefCell::new(Ok(())));
         let callback_result = Rc::clone(&result);
 
@@ -167,7 +335,7 @@ impl App {
             let application = Rc::new(RefCell::new(None));
             let launch_application = Rc::clone(&application);
             let launch_result = Rc::clone(&callback_result);
-            let launch_root = Rc::clone(&root);
+            let launch_create_pump = Rc::clone(&create_pump);
             let on_launched = Box::new(move || {
                 let launched = (|| {
                     let application = launch_application
@@ -175,11 +343,8 @@ impl App {
                         .take()
                         .ok_or_else(|| windows_core::Error::new(E_FAIL, "missing application"))?;
                     install_xaml_controls_resources(&application)?;
-                    let root = launch_root.borrow_mut().take().unwrap();
-                    let mut pump: Box<dyn LivePump> = Box::new(RenderLoop::new(
-                        WinUiRuntime::with_application(application),
-                        root,
-                    ));
+                    let create_pump = launch_create_pump.borrow_mut().take().unwrap();
+                    let mut pump = create_pump(application);
                     let property_fault = match pump.mount() {
                         Ok(()) => None,
                         Err(error) if error.recoverable() => Some(error),
@@ -415,7 +580,69 @@ fn finish_live_backend_test() {
         eprintln!("live backend fixture did not reject stale remount work");
         std::process::exit(1);
     }
+    if !live.pump.live_component_recovery() {
+        eprintln!("live backend fixture did not recover a component structural update");
+        std::process::exit(1);
+    }
+    let dispatcher = match DispatcherQueue::GetForCurrentThread() {
+        Ok(dispatcher) => dispatcher,
+        Err(error) => {
+            eprintln!("component scheduler fixture has no dispatcher: {error}");
+            std::process::exit(1);
+        }
+    };
+    HOST.with(|host| *host.borrow_mut() = Some(live));
+    if queue_live_component_verification(dispatcher, 8).is_err() {
+        std::process::exit(1);
+    }
+}
+
+#[cfg(feature = "test")]
+fn queue_live_component_verification(
+    dispatcher: DispatcherQueue,
+    attempts: u8,
+) -> windows_core::Result<()> {
+    let next_dispatcher = dispatcher.clone();
+    let verify = DispatcherQueueHandler::new(move || {
+        let passed = HOST.with(|host| {
+            host.borrow()
+                .as_ref()
+                .is_some_and(|host| host.pump.live_component_message_result())
+        });
+        if passed {
+            finish_live_component_test();
+            return;
+        }
+        if attempts == 0
+            || queue_live_component_verification(next_dispatcher.clone(), attempts - 1).is_err()
+        {
+            eprintln!("component scheduler fixture did not drain and rearm its message backlog");
+            std::process::exit(1);
+        }
+    });
+    if dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Low, &verify)? {
+        Ok(())
+    } else {
+        Err(windows_core::Error::new(
+            E_FAIL,
+            "dispatcher rejected component scheduler verification",
+        ))
+    }
+}
+
+#[cfg(feature = "test")]
+fn finish_live_component_test() {
+    let Some(mut live) = HOST.with(|host| host.borrow_mut().take()) else {
+        eprintln!("component scheduler fixture lost its host");
+        std::process::exit(1);
+    };
     live.pump.shutdown();
+    if LIVE_COMPONENT_EFFECT_SETUPS.with(|count| count.get()) != 1
+        || LIVE_COMPONENT_EFFECT_CLEANUPS.with(|count| count.get()) != 1
+    {
+        eprintln!("live component effect setup or cleanup count was incorrect");
+        std::process::exit(1);
+    }
     if !live_test_cleanup_ordered() {
         eprintln!("live backend fixture observed native reset before hook cleanup");
         std::process::exit(1);

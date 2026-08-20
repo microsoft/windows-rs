@@ -1,4 +1,6 @@
 use std::alloc::{GlobalAlloc, Layout, System};
+use std::cell::RefCell;
+use std::rc::Rc;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::Instant;
 
@@ -46,6 +48,85 @@ struct Row {
     name: &'static str,
     n: usize,
     perf: Perf,
+}
+
+#[derive(Clone)]
+struct LeafProps {
+    sender: Rc<RefCell<Option<LocalSender<()>>>>,
+}
+
+impl PartialEq for LeafProps {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.sender, &other.sender)
+    }
+}
+
+struct BenchLeaf {
+    active: bool,
+}
+
+impl Component for BenchLeaf {
+    type Props = LeafProps;
+    type Message = ();
+
+    fn create(props: &Self::Props, context: &mut ComponentContext<Self>) -> Self {
+        *props.sender.borrow_mut() = Some(context.sender());
+        Self { active: false }
+    }
+
+    fn changed(&mut self, _props: &Self::Props, _context: &mut ComponentContext<Self>) {}
+
+    fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {
+        self.active = !self.active;
+    }
+
+    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        View::native(TextBlock::new().text(if self.active { "on" } else { "off" }))
+    }
+}
+
+struct BenchRoot {
+    senders: Rc<Vec<Rc<RefCell<Option<LocalSender<()>>>>>>,
+}
+
+#[derive(Clone)]
+struct RootProps(Rc<Vec<Rc<RefCell<Option<LocalSender<()>>>>>>);
+
+impl PartialEq for RootProps {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.0, &other.0)
+    }
+}
+
+impl Component for BenchRoot {
+    type Props = RootProps;
+    type Message = ();
+
+    fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+        Self {
+            senders: Rc::clone(&props.0),
+        }
+    }
+
+    fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+        self.senders = Rc::clone(&props.0);
+    }
+
+    fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
+
+    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        View::children(
+            StackPanel::new(),
+            self.senders.iter().enumerate().map(|(index, sender)| {
+                KeyedView::new(
+                    index,
+                    View::component::<BenchLeaf>(LeafProps {
+                        sender: Rc::clone(sender),
+                    }),
+                )
+            }),
+        )
+    }
 }
 
 fn measure(iters: u64, reps: u32, mut op: impl FnMut()) -> Perf {
@@ -211,6 +292,27 @@ fn bench_realize_cycle(count: usize, realized: usize, iters: u64, reps: u32) -> 
     }
 }
 
+fn bench_component_leaf(count: usize, iters: u64, reps: u32) -> Row {
+    let senders = Rc::new(
+        (0..count)
+            .map(|_| Rc::new(RefCell::new(None)))
+            .collect::<Vec<_>>(),
+    );
+    let mut pump = Pump::new(runtime());
+    pump.mount_view(View::component::<BenchRoot>(RootProps(Rc::clone(&senders))))
+        .unwrap();
+    let sender = senders[count / 2].borrow().as_ref().unwrap().clone();
+    let perf = measure(iters, reps, || {
+        sender.send(());
+        pump.dispatch_components(1).unwrap();
+    });
+    Row {
+        name: "component_leaf",
+        n: count,
+        perf,
+    }
+}
+
 fn parse_arg(name: &str, default: u64) -> u64 {
     let args: Vec<String> = std::env::args().collect();
     args.windows(2)
@@ -284,6 +386,9 @@ fn main() {
         bench_virtual_payload(10_000, 32, (iters / 4).max(1), reps),
         bench_virtual_reset(10_000, 32, (iters / 10).max(1), reps),
         bench_realize_cycle(10_000, 32, (iters / 4).max(1), reps),
+        bench_component_leaf(512, iters, reps),
+        bench_component_leaf(4_096, (iters / 4).max(1), reps),
+        bench_component_leaf(16_384, (iters / 16).max(1), reps),
     ];
 
     println!("windows-reactor-next headless reconciler micro-benchmarks");

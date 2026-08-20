@@ -1,4 +1,5 @@
-use std::collections::{HashMap, VecDeque};
+use std::cmp::Reverse;
+use std::collections::{HashMap, HashSet, VecDeque};
 use std::rc::Rc;
 
 use super::*;
@@ -72,6 +73,7 @@ struct UpdatePlan {
 
 #[derive(Default)]
 struct ComponentChanges {
+    composed: HashSet<ComponentToken>,
     reserved: Vec<ComponentToken>,
     retired: Vec<ComponentToken>,
 }
@@ -96,7 +98,7 @@ impl UpdatePlan {
 pub struct Pump<R: NativeRuntime> {
     application: Option<NodeId>,
     components: ComponentStore,
-    dirty_components: VecDeque<ComponentToken>,
+    dirty_components: HashSet<ComponentToken>,
     element: Option<Element>,
     tree: Tree,
     runtime: R,
@@ -114,10 +116,14 @@ impl<R: NativeRuntime> Pump<R> {
     pub fn new(mut runtime: R) -> Self {
         let identity = NativeIdentity::new(WindowToken::new(WindowId::allocate()));
         runtime.set_identity(identity);
+        let mut components = ComponentStore::new(identity.window());
+        if let Some(wake) = runtime.component_waker() {
+            components.set_waker(wake);
+        }
         Self {
             application: None,
-            components: ComponentStore::new(identity.window()),
-            dirty_components: VecDeque::new(),
+            components,
+            dirty_components: HashSet::new(),
             element: None,
             tree: Tree::new(),
             runtime,
@@ -280,13 +286,16 @@ impl<R: NativeRuntime> Pump<R> {
                     return Err(error);
                 }
             };
-        for token in changes.reserved {
+        for token in changes.reserved.iter().copied() {
             self.components.publish(token)?;
         }
         self.tree = candidate;
         self.application = Some(application);
         self.root = Some(root);
         self.window = Some(window);
+        for token in changes.reserved {
+            self.components.commit_effects(token)?;
+        }
         if plan
             .commands
             .iter()
@@ -343,8 +352,15 @@ impl<R: NativeRuntime> Pump<R> {
         }
         let report = self.components.drain(budget)?;
         for token in report.dirty {
-            if !self.dirty_components.contains(&token) {
-                self.dirty_components.push_back(token);
+            self.dirty_components.insert(token);
+        }
+        if self.dirty_components.is_empty() && self.retry_pending {
+            let root = self.root.ok_or(PumpError::NotMounted)?;
+            for node in self.tree.subtree_postorder(root)? {
+                if self.tree.kind(node)? == NodeKind::Component {
+                    self.dirty_components
+                        .insert(self.components.token(self.tree.component_scope(node)?)?);
+                }
             }
         }
         if self.dirty_components.is_empty() {
@@ -352,13 +368,41 @@ impl<R: NativeRuntime> Pump<R> {
         }
 
         let next_version = self.next_version()?;
+        if self.dirty_components.len() == 1 {
+            let Some(token) = self.dirty_components.iter().next().copied() else {
+                return Ok(report.dispatched);
+            };
+            if let Some(plan) = self.try_local_component_update(token)? {
+                self.apply_local_component_plan(token, plan, next_version)?;
+                self.dirty_components.clear();
+                return Ok(report.dispatched);
+            }
+        }
+
         let mut candidate = self.tree.clone();
         let mut plan = UpdatePlan {
             retry_properties: self.retry_pending,
             ..UpdatePlan::new(self.identity)
         };
         let mut changes = ComponentChanges::default();
-        for token in self.dirty_components.iter().copied() {
+        let mut dirty = self
+            .dirty_components
+            .iter()
+            .copied()
+            .map(|token| {
+                let depth = if let Some(node) = candidate.component_node(token.scope())? {
+                    candidate.depth(node)?
+                } else {
+                    usize::MAX
+                };
+                Ok((depth, token))
+            })
+            .collect::<Result<Vec<_>, PumpError>>()?;
+        dirty.sort_unstable_by_key(|(depth, _)| *depth);
+        for (_, token) in dirty {
+            if changes.composed.contains(&token) {
+                continue;
+            }
             let Some(node) = candidate.component_node(token.scope())? else {
                 if changes.retired.contains(&token) {
                     continue;
@@ -382,6 +426,82 @@ impl<R: NativeRuntime> Pump<R> {
         self.apply_component_candidate(candidate, root, plan, changes, next_version)?;
         self.dirty_components.clear();
         Ok(report.dispatched)
+    }
+
+    fn try_local_component_update(
+        &mut self,
+        token: ComponentToken,
+    ) -> Result<Option<UpdatePlan>, PumpError> {
+        let Some(node) = self.tree.component_node(token.scope())? else {
+            return Ok(None);
+        };
+        let [slot] = self.tree.children(node)? else {
+            return Ok(None);
+        };
+        let native = match self.tree.children(*slot)? {
+            [native] => *native,
+            _ => return Ok(None),
+        };
+        let view = self.components.view(token)?;
+        let View::Native(element) = view else {
+            return Ok(None);
+        };
+        if self.tree.kind(native)? != NodeKind::Native(element.kind())
+            || !self.tree.children(native)?.is_empty()
+            || !matches!(element.structure(), ElementStructureRef::None)
+        {
+            return Ok(None);
+        }
+        let mut plan = UpdatePlan {
+            retry_properties: self.retry_pending,
+            ..UpdatePlan::new(self.identity)
+        };
+        Self::reconcile_node(&mut self.tree, native, element, &mut plan)?;
+        Ok(Some(plan))
+    }
+
+    fn apply_local_component_plan(
+        &mut self,
+        token: ComponentToken,
+        plan: UpdatePlan,
+        next_version: u64,
+    ) -> Result<CommitReceipt, PumpError> {
+        self.components.prepare_effects(token)?;
+        if plan.commands.is_empty() {
+            self.components.commit_effects(token)?;
+            self.retry_pending = false;
+            self.version = next_version;
+            return Ok(CommitReceipt {
+                outcomes: Vec::new(),
+            });
+        }
+        if plan.commands.iter().any(Command::structural) {
+            return Err(PumpError::StructureUnsupported);
+        }
+        let receipt = self.runtime.apply(&plan.commands);
+        if receipt.outcomes.len() != plan.commands.len() {
+            self.poisoned = true;
+            return Err(PumpError::ApplyReceiptMismatch);
+        }
+        let retries_exhausted =
+            Self::commit_tree_properties(&mut self.tree, &plan.commits, &receipt)?;
+        self.components.commit_effects(token)?;
+        if plan
+            .commands
+            .iter()
+            .enumerate()
+            .any(|(index, _)| !receipt.applied(index))
+        {
+            self.retry_pending = true;
+            return Err(if retries_exhausted {
+                PumpError::PropertyRetriesExhausted(receipt)
+            } else {
+                PumpError::PropertyApplyFailed(receipt)
+            });
+        }
+        self.retry_pending = false;
+        self.version = next_version;
+        Ok(receipt)
     }
 
     pub fn update(&mut self, element: Element) -> Result<CommitReceipt, PumpError> {
@@ -490,6 +610,7 @@ impl<R: NativeRuntime> Pump<R> {
         self.realizations.clear();
         self.identity = recovery_identity;
         self.runtime.set_identity(recovery_identity);
+        self.refresh_component_waker();
         let recovery = self.runtime.apply(&plan.commands);
         let attempt = |recovery| {
             Box::new(StructuralRecovery {
@@ -543,6 +664,17 @@ impl<R: NativeRuntime> Pump<R> {
 
     pub fn shutdown(&mut self) {
         let identity = self.identity.next_window();
+        if let Some(root) = self.root {
+            for node in self.tree.subtree_postorder(root).unwrap() {
+                if self.tree.kind(node).unwrap() == NodeKind::Component {
+                    let token = self
+                        .components
+                        .token(self.tree.component_scope(node).unwrap())
+                        .unwrap();
+                    self.components.cleanup_effects(token).unwrap();
+                }
+            }
+        }
         self.runtime.reset();
         self.application = None;
         self.element = None;
@@ -556,7 +688,11 @@ impl<R: NativeRuntime> Pump<R> {
         self.window = None;
         if let Some(identity) = identity {
             self.identity = identity;
-            self.components = ComponentStore::new(identity.window());
+            let mut components = ComponentStore::new(identity.window());
+            if let Some(wake) = self.runtime.component_waker() {
+                components.set_waker(wake);
+            }
+            self.components = components;
             self.runtime.set_identity(identity);
             self.poisoned = false;
         } else {
@@ -566,6 +702,11 @@ impl<R: NativeRuntime> Pump<R> {
 
     pub fn root(&self) -> Option<NodeId> {
         self.root
+    }
+
+    #[cfg(feature = "test")]
+    pub(crate) fn root_native(&self) -> Option<NodeId> {
+        Self::native_root(&self.tree, self.root?).ok()
     }
 
     pub fn version(&self) -> u64 {
@@ -593,7 +734,11 @@ impl<R: NativeRuntime> Pump<R> {
     }
 
     pub fn native_work_pending(&self) -> bool {
-        !self.events.is_empty() || !self.realizations.is_empty()
+        !self.events.is_empty()
+            || !self.realizations.is_empty()
+            || self.components.pending() != 0
+            || !self.dirty_components.is_empty()
+            || self.retry_pending
     }
 
     pub fn event_revision(&self, node: NodeId, event: EventId) -> Option<u32> {
@@ -809,6 +954,13 @@ impl<R: NativeRuntime> Pump<R> {
             ElementStructureRef::Virtual(_) => false,
             ElementStructureRef::Content(Some(_)) => false,
         }
+    }
+
+    fn control_has_role(kind: MountedKind, role: ControlRole) -> bool {
+        CONTROLS
+            .iter()
+            .find(|control| control.kind == kind)
+            .is_some_and(|control| control.role == role)
     }
 
     fn native_root(tree: &Tree, node: NodeId) -> Result<NodeId, PumpError> {
@@ -1272,6 +1424,12 @@ impl<R: NativeRuntime> Pump<R> {
             .ok_or(PumpError::RevisionExhausted)
     }
 
+    fn refresh_component_waker(&mut self) {
+        if let Some(wake) = self.runtime.component_waker() {
+            self.components.set_waker(wake);
+        }
+    }
+
     fn apply_component_candidate(
         &mut self,
         mut candidate: Tree,
@@ -1280,10 +1438,12 @@ impl<R: NativeRuntime> Pump<R> {
         changes: ComponentChanges,
         next_version: u64,
     ) -> Result<CommitReceipt, PumpError> {
+        self.prepare_component_effects(&changes)?;
         if plan.commands.is_empty() {
             self.finalize_component_changes(&changes)?;
             self.tree = candidate;
             self.root = Some(candidate_root);
+            self.commit_component_effects(&changes)?;
             self.retry_pending = false;
             self.version = next_version;
             return Ok(CommitReceipt {
@@ -1324,6 +1484,7 @@ impl<R: NativeRuntime> Pump<R> {
         self.finalize_component_changes(&changes)?;
         self.tree = candidate;
         self.root = Some(candidate_root);
+        self.commit_component_effects(&changes)?;
         if plan
             .commands
             .iter()
@@ -1340,6 +1501,56 @@ impl<R: NativeRuntime> Pump<R> {
         self.retry_pending = false;
         self.version = next_version;
         Ok(receipt)
+    }
+
+    fn prepare_component_effects(&self, changes: &ComponentChanges) -> Result<(), PumpError> {
+        for token in changes.retired.iter().copied() {
+            self.components.cleanup_effects(token)?;
+        }
+        let retired = changes.retired.iter().copied().collect::<HashSet<_>>();
+        let mut composed = changes
+            .composed
+            .iter()
+            .copied()
+            .filter(|token| !retired.contains(token))
+            .map(|token| {
+                let node = self
+                    .tree
+                    .component_node(token.scope())?
+                    .ok_or(PumpError::StructureUnsupported)?;
+                Ok((self.tree.depth(node)?, token))
+            })
+            .collect::<Result<Vec<_>, PumpError>>()?;
+        composed.sort_unstable_by_key(|(depth, _)| Reverse(*depth));
+        for (_, token) in composed {
+            self.components.prepare_effects(token)?;
+        }
+        Ok(())
+    }
+
+    fn commit_component_effects(&self, changes: &ComponentChanges) -> Result<(), PumpError> {
+        let retired = changes.retired.iter().copied().collect::<HashSet<_>>();
+        let mut tokens = changes
+            .reserved
+            .iter()
+            .chain(changes.composed.iter())
+            .copied()
+            .filter(|token| !retired.contains(token))
+            .collect::<HashSet<_>>()
+            .into_iter()
+            .map(|token| {
+                let node = self
+                    .tree
+                    .component_node(token.scope())?
+                    .ok_or(PumpError::StructureUnsupported)?;
+                Ok((self.tree.depth(node)?, token))
+            })
+            .collect::<Result<Vec<_>, PumpError>>()?;
+        tokens.sort_unstable_by_key(|(depth, _)| *depth);
+        for (_, token) in tokens {
+            self.components.commit_effects(token)?;
+        }
+        Ok(())
     }
 
     fn finalize_component_changes(&mut self, changes: &ComponentChanges) -> Result<(), PumpError> {
@@ -1370,15 +1581,13 @@ impl<R: NativeRuntime> Pump<R> {
         changes: ComponentChanges,
         next_version: u64,
     ) -> Result<CommitReceipt, PumpError> {
-        let application = self.application.ok_or(PumpError::NotMounted)?;
         let window = self.window.ok_or(PumpError::NotMounted)?;
         let recovery_identity = self
             .identity
             .next_realization()
             .ok_or(PumpError::RevisionExhausted)?;
         let mut plan = UpdatePlan::new(recovery_identity);
-        plan.push(Command::CreateApplication { node: application });
-        plan.push(Command::CreateWindow { node: window });
+        plan.push(Command::ResetWindowContent { window });
         let native_root = match Self::plan_existing_subtree(&candidate, candidate_root, &mut plan) {
             Ok(native_root) => native_root,
             Err(error) => {
@@ -1393,13 +1602,12 @@ impl<R: NativeRuntime> Pump<R> {
             child: native_root,
             index: 0,
         });
-        plan.push(Command::ActivateWindow { node: window });
 
         self.events.clear();
         self.realizations.clear();
-        self.runtime.reset();
         self.identity = recovery_identity;
         self.runtime.set_identity(recovery_identity);
+        self.refresh_component_waker();
         let recovery = self.runtime.apply(&plan.commands);
         let attempt = |recovery| {
             Box::new(StructuralRecovery {
@@ -1425,6 +1633,7 @@ impl<R: NativeRuntime> Pump<R> {
         self.finalize_component_changes(&changes)?;
         self.tree = candidate;
         self.root = Some(candidate_root);
+        self.commit_component_effects(&changes)?;
         self.retry_pending = plan
             .commands
             .iter()
@@ -1531,10 +1740,16 @@ impl<R: NativeRuntime> Pump<R> {
                     );
                 }
                 let token = components.token(tree.component_scope(node)?)?;
-                component.apply_props(components, token)?;
-                Self::recompose_component(tree, node, token, components, changes, plan)
+                if component.apply_props(components, token)? {
+                    Self::recompose_component(tree, node, token, components, changes, plan)
+                } else {
+                    Ok(())
+                }
             }
             View::Content { control, content } => {
+                if !Self::control_has_role(control.kind(), ControlRole::Content) {
+                    return Err(PumpError::StructureUnsupported);
+                }
                 if tree.kind(node)? != NodeKind::Native(control.kind()) {
                     return Self::replace_planned_view(
                         tree,
@@ -1552,6 +1767,9 @@ impl<R: NativeRuntime> Pump<R> {
                 Self::reconcile_planned_view(tree, *child, *content, components, changes, plan)
             }
             View::Children { control, children } => {
+                if !Self::control_has_role(control.kind(), ControlRole::Children) {
+                    return Err(PumpError::StructureUnsupported);
+                }
                 if tree.kind(node)? != NodeKind::Native(control.kind()) {
                     return Self::replace_planned_view(
                         tree,
@@ -1783,6 +2001,9 @@ impl<R: NativeRuntime> Pump<R> {
         changes: &mut ComponentChanges,
         plan: &mut UpdatePlan,
     ) -> Result<(), PumpError> {
+        if !changes.composed.insert(token) {
+            return Ok(());
+        }
         let [slot] = tree.children(node)? else {
             return Err(PumpError::StructureUnsupported);
         };
@@ -1833,7 +2054,9 @@ impl<R: NativeRuntime> Pump<R> {
                 Ok((node, native))
             }
             View::Content { control, content } => {
-                if !Self::element_structure_is_empty(&control) {
+                if !Self::element_structure_is_empty(&control)
+                    || !Self::control_has_role(control.kind(), ControlRole::Content)
+                {
                     return Err(PumpError::StructureUnsupported);
                 }
                 let node = Self::mount_planned_element(tree, logical_parent, key, control, plan)?;
@@ -1854,7 +2077,9 @@ impl<R: NativeRuntime> Pump<R> {
                 Ok((node, node))
             }
             View::Children { control, children } => {
-                if !Self::element_structure_is_empty(&control) {
+                if !Self::element_structure_is_empty(&control)
+                    || !Self::control_has_role(control.kind(), ControlRole::Children)
+                {
                     return Err(PumpError::StructureUnsupported);
                 }
                 let node = Self::mount_planned_element(tree, logical_parent, key, control, plan)?;
@@ -2312,6 +2537,70 @@ mod tests {
         }
     }
 
+    #[derive(Clone)]
+    struct ViewCounts {
+        child: Rc<Cell<u32>>,
+        parent: Rc<Cell<u32>>,
+    }
+
+    impl PartialEq for ViewCounts {
+        fn eq(&self, other: &Self) -> bool {
+            Rc::ptr_eq(&self.child, &other.child) && Rc::ptr_eq(&self.parent, &other.parent)
+        }
+    }
+
+    struct CountingChild {
+        views: Rc<Cell<u32>>,
+    }
+
+    impl Component for CountingChild {
+        type Props = Rc<Cell<u32>>;
+        type Message = ();
+
+        fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+            Self {
+                views: Rc::clone(props),
+            }
+        }
+
+        fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+            self.views = Rc::clone(props);
+        }
+
+        fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
+
+        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+            self.views.set(self.views.get() + 1);
+            View::native(TextBlock::new())
+        }
+    }
+
+    struct CountingParent {
+        counts: ViewCounts,
+    }
+
+    impl Component for CountingParent {
+        type Props = ViewCounts;
+        type Message = ();
+
+        fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+            Self {
+                counts: props.clone(),
+            }
+        }
+
+        fn changed(&mut self, props: &Self::Props, _context: &mut ComponentContext<Self>) {
+            self.counts = props.clone();
+        }
+
+        fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
+
+        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+            self.counts.parent.set(self.counts.parent.get() + 1);
+            View::component::<CountingChild>(Rc::clone(&self.counts.child))
+        }
+    }
+
     #[test]
     fn mounts_a_component_chain_into_the_authoritative_tree() {
         let mut pump = Pump::new(RecordingRuntime::default());
@@ -2374,8 +2663,31 @@ mod tests {
             pump.mount_view(View::component::<Root>("leaf".to_string())),
             Err(PumpError::StructuralApplyFailed(_))
         ));
-        assert_eq!(pump.components().pending(), 1);
-        assert_eq!(pump.components_mut().drain(10).unwrap().dropped, 1);
+        assert_eq!(pump.components().pending(), 0);
+        assert_eq!(pump.components_mut().drain(10).unwrap().dropped, 0);
+    }
+
+    #[test]
+    fn component_slot_adapters_reject_incompatible_control_roles() {
+        let mut children = Pump::new(RecordingRuntime::default());
+        assert_eq!(
+            children.mount_view(View::Children {
+                control: TextBlock::new().into(),
+                children: Rc::new(Vec::new()),
+            }),
+            Err(PumpError::StructureUnsupported)
+        );
+        assert!(!children.poisoned());
+
+        let mut content = Pump::new(RecordingRuntime::default());
+        assert_eq!(
+            content.mount_view(View::Content {
+                control: StackPanel::new().into(),
+                content: Box::new(View::native(TextBlock::new())),
+            }),
+            Err(PumpError::StructureUnsupported)
+        );
+        assert!(!content.poisoned());
     }
 
     #[test]
@@ -2452,7 +2764,7 @@ mod tests {
             vec!["second".to_string(), "third".to_string()]
         );
         removed_sender.send(());
-        assert_eq!(pump.components_mut().drain(1).unwrap().dropped, 1);
+        assert_eq!(pump.components_mut().drain(1).unwrap().dropped, 0);
     }
 
     #[test]
@@ -2482,7 +2794,7 @@ mod tests {
             vec!["alt:value".to_string()]
         );
         old_sender.send(());
-        assert_eq!(pump.components_mut().drain(1).unwrap().dropped, 1);
+        assert_eq!(pump.components_mut().drain(1).unwrap().dropped, 0);
     }
 
     #[test]
@@ -2517,7 +2829,7 @@ mod tests {
             vec!["alt:value".to_string()]
         );
         old_sender.send(());
-        assert_eq!(pump.components_mut().drain(1).unwrap().dropped, 1);
+        assert_eq!(pump.components_mut().drain(1).unwrap().dropped, 0);
     }
 
     #[test]
@@ -2575,7 +2887,41 @@ mod tests {
             vec!["alt:value".to_string()]
         );
         child_sender.send(());
-        assert_eq!(pump.components_mut().drain(1).unwrap().dropped, 1);
+        assert_eq!(pump.components_mut().drain(1).unwrap().dropped, 0);
+    }
+
+    #[test]
+    fn dirty_parent_and_child_each_compose_once_parent_first() {
+        let counts = ViewCounts {
+            child: Rc::new(Cell::new(0)),
+            parent: Rc::new(Cell::new(0)),
+        };
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount_view(View::component::<CountingParent>(counts.clone()))
+            .unwrap();
+        let parent = pump.root().unwrap();
+        let parent_token = pump
+            .components()
+            .token(pump.tree.component_scope(parent).unwrap())
+            .unwrap();
+        let slot = pump.tree.children(parent).unwrap()[0];
+        let child = pump.tree.children(slot).unwrap()[0];
+        let child_token = pump
+            .components()
+            .token(pump.tree.component_scope(child).unwrap())
+            .unwrap();
+
+        pump.components()
+            .sender::<()>(parent_token)
+            .unwrap()
+            .send(());
+        pump.components()
+            .sender::<()>(child_token)
+            .unwrap()
+            .send(());
+        assert_eq!(pump.dispatch_components(10), Ok(2));
+        assert_eq!(counts.parent.get(), 2);
+        assert_eq!(counts.child.get(), 2);
     }
 
     #[test]
@@ -4146,5 +4492,239 @@ mod tests {
             Ok(Some(&Key::from("b")))
         );
         assert_eq!(pump.runtime().node(collection).unwrap().children().len(), 1);
+    }
+
+    #[test]
+    fn component_effects_commit_after_mount_and_cleanup_once() {
+        #[derive(Clone)]
+        struct Props {
+            log: Rc<RefCell<Vec<String>>>,
+            sender: Rc<RefCell<Option<LocalSender<u32>>>>,
+        }
+
+        impl PartialEq for Props {
+            fn eq(&self, other: &Self) -> bool {
+                Rc::ptr_eq(&self.log, &other.log) && Rc::ptr_eq(&self.sender, &other.sender)
+            }
+        }
+
+        struct EffectComponent {
+            log: Rc<RefCell<Vec<String>>>,
+            value: u32,
+        }
+
+        impl Component for EffectComponent {
+            type Message = u32;
+            type Props = Props;
+
+            fn create(props: &Props, cx: &mut ComponentContext<Self>) -> Self {
+                *props.sender.borrow_mut() = Some(cx.sender());
+                Self {
+                    log: Rc::clone(&props.log),
+                    value: 0,
+                }
+            }
+
+            fn update(&mut self, message: u32, _cx: &mut ComponentContext<Self>) {
+                self.value = message;
+            }
+
+            fn changed(&mut self, _props: &Props, _cx: &mut ComponentContext<Self>) {}
+
+            fn view(&self, cx: &mut ViewContext<Self>) -> View {
+                let log = Rc::clone(&self.log);
+                let value = self.value;
+                cx.use_effect(value, move || {
+                    log.borrow_mut().push(format!("setup {value}"));
+                    Some(Box::new(move || {
+                        log.borrow_mut().push(format!("cleanup {value}"));
+                    }))
+                });
+                Element::from(TextBlock::new().text(value.to_string())).into()
+            }
+        }
+
+        let log = Rc::new(RefCell::new(Vec::new()));
+        let sender = Rc::new(RefCell::new(None));
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount_view(View::component::<EffectComponent>(Props {
+            log: Rc::clone(&log),
+            sender: Rc::clone(&sender),
+        }))
+        .unwrap();
+        assert_eq!(&*log.borrow(), &["setup 0"]);
+
+        sender.borrow().as_ref().unwrap().send(1);
+        pump.dispatch_components(1).unwrap();
+        assert_eq!(&*log.borrow(), &["setup 0", "cleanup 0", "setup 1"]);
+
+        pump.shutdown();
+        assert_eq!(
+            &*log.borrow(),
+            &["setup 0", "cleanup 0", "setup 1", "cleanup 1"]
+        );
+        drop(pump);
+        assert_eq!(
+            &*log.borrow(),
+            &["setup 0", "cleanup 0", "setup 1", "cleanup 1"]
+        );
+    }
+
+    #[test]
+    fn component_host_retries_initial_property_failure_without_a_message() {
+        let mut probe = Pump::new(RecordingRuntime::default());
+        probe
+            .mount_view(View::component::<Leaf>("value".to_string()))
+            .unwrap();
+        let failed = probe.runtime().commands()[0]
+            .iter()
+            .position(|command| matches!(command, Command::SetProperty { .. }))
+            .unwrap();
+
+        let mut runtime = RecordingRuntime::default();
+        runtime.fail_at(failed);
+        let mut pump = Pump::new(runtime);
+        assert!(matches!(
+            pump.mount_view(View::component::<Leaf>("value".to_string())),
+            Err(PumpError::PropertyApplyFailed(_))
+        ));
+        assert!(pump.native_work_pending());
+
+        assert_eq!(pump.dispatch_components(64), Ok(0));
+        assert!(!pump.retry_pending());
+        assert!(!pump.native_work_pending());
+    }
+
+    #[test]
+    fn failed_component_recovery_does_not_commit_pending_effects() {
+        #[derive(Clone)]
+        struct Props {
+            alternate: bool,
+            log: Rc<RefCell<Vec<String>>>,
+        }
+
+        impl PartialEq for Props {
+            fn eq(&self, other: &Self) -> bool {
+                self.alternate == other.alternate && Rc::ptr_eq(&self.log, &other.log)
+            }
+        }
+
+        struct EffectComponent(Props);
+
+        impl Component for EffectComponent {
+            type Message = ();
+            type Props = Props;
+
+            fn create(props: &Props, _cx: &mut ComponentContext<Self>) -> Self {
+                Self(props.clone())
+            }
+
+            fn update(&mut self, _message: (), _cx: &mut ComponentContext<Self>) {}
+
+            fn changed(&mut self, props: &Props, _cx: &mut ComponentContext<Self>) {
+                self.0 = props.clone();
+            }
+
+            fn view(&self, cx: &mut ViewContext<Self>) -> View {
+                let alternate = self.0.alternate;
+                let log = Rc::clone(&self.0.log);
+                cx.use_effect(alternate, move || {
+                    log.borrow_mut().push(format!("setup {alternate}"));
+                    Some(Box::new(move || {
+                        log.borrow_mut().push(format!("cleanup {alternate}"));
+                    }))
+                });
+                if alternate {
+                    Element::from(Button::new()).into()
+                } else {
+                    Element::from(TextBlock::new()).into()
+                }
+            }
+        }
+
+        let log = Rc::new(RefCell::new(Vec::new()));
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount_view(View::component::<EffectComponent>(Props {
+            alternate: false,
+            log: Rc::clone(&log),
+        }))
+        .unwrap();
+        pump.runtime_mut().fail_after(0, 0);
+        pump.runtime_mut().fail_after(1, 0);
+
+        assert!(matches!(
+            pump.update_view(View::component::<EffectComponent>(Props {
+                alternate: true,
+                log: Rc::clone(&log),
+            })),
+            Err(PumpError::RecoveryFailed(_))
+        ));
+        assert_eq!(&*log.borrow(), &["setup false", "cleanup false"]);
+    }
+
+    #[test]
+    fn retired_component_effects_cleanup_child_first() {
+        #[derive(Clone)]
+        struct Props {
+            child: bool,
+            log: Rc<RefCell<Vec<&'static str>>>,
+            name: &'static str,
+        }
+
+        impl PartialEq for Props {
+            fn eq(&self, other: &Self) -> bool {
+                self.child == other.child
+                    && self.name == other.name
+                    && Rc::ptr_eq(&self.log, &other.log)
+            }
+        }
+
+        struct EffectTree(Props);
+
+        impl Component for EffectTree {
+            type Message = ();
+            type Props = Props;
+
+            fn create(props: &Props, _cx: &mut ComponentContext<Self>) -> Self {
+                Self(props.clone())
+            }
+
+            fn update(&mut self, _message: (), _cx: &mut ComponentContext<Self>) {}
+
+            fn changed(&mut self, props: &Props, _cx: &mut ComponentContext<Self>) {
+                self.0 = props.clone();
+            }
+
+            fn view(&self, cx: &mut ViewContext<Self>) -> View {
+                let cleanup = self.0.name;
+                let log = Rc::clone(&self.0.log);
+                cx.use_effect((), move || {
+                    Some(Box::new(move || {
+                        log.borrow_mut().push(cleanup);
+                    }))
+                });
+                if self.0.child {
+                    View::component::<Self>(Props {
+                        child: false,
+                        log: Rc::clone(&self.0.log),
+                        name: "child",
+                    })
+                } else {
+                    View::native(TextBlock::new())
+                }
+            }
+        }
+
+        let log = Rc::new(RefCell::new(Vec::new()));
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount_view(View::component::<EffectTree>(Props {
+            child: true,
+            log: Rc::clone(&log),
+            name: "parent",
+        }))
+        .unwrap();
+
+        pump.update_view(View::native(TextBlock::new())).unwrap();
+        assert_eq!(&*log.borrow(), &["child", "parent"]);
     }
 }

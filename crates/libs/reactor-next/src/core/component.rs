@@ -3,12 +3,12 @@ use super::scope::{ScopeArena, ScopeError, ScopeId, ScopeState};
 use crate::element::View;
 use std::any::{Any, TypeId};
 use std::cell::RefCell;
-use std::collections::VecDeque;
+use std::collections::{HashSet, VecDeque};
 use std::fmt;
 use std::marker::PhantomData;
 use std::rc::Rc;
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct ComponentToken {
     window: WindowToken,
     scope: ScopeId,
@@ -40,8 +40,15 @@ struct MessageEnvelope {
     payload: Box<dyn Any>,
 }
 
+struct ComponentQueue {
+    active: HashSet<ScopeId>,
+    envelopes: VecDeque<MessageEnvelope>,
+    open: bool,
+    wake: Option<Rc<dyn Fn()>>,
+}
+
 pub struct LocalSender<M> {
-    queue: Rc<RefCell<VecDeque<MessageEnvelope>>>,
+    queue: Rc<RefCell<ComponentQueue>>,
     token: ComponentToken,
     marker: PhantomData<fn(M)>,
 }
@@ -58,10 +65,25 @@ impl<M> Clone for LocalSender<M> {
 
 impl<M: 'static> LocalSender<M> {
     pub fn send(&self, message: M) {
-        self.queue.borrow_mut().push_back(MessageEnvelope {
-            token: self.token,
-            payload: Box::new(message),
-        });
+        let wake = {
+            let mut queue = self.queue.borrow_mut();
+            if !queue.open || !queue.active.contains(&self.token.scope) {
+                return;
+            }
+            let wake = queue
+                .envelopes
+                .is_empty()
+                .then(|| queue.wake.clone())
+                .flatten();
+            queue.envelopes.push_back(MessageEnvelope {
+                token: self.token,
+                payload: Box::new(message),
+            });
+            wake
+        };
+        if let Some(wake) = wake {
+            wake();
+        }
     }
 
     pub fn token(&self) -> ComponentToken {
@@ -80,12 +102,23 @@ impl<C: Component> ComponentContext<C> {
 }
 
 pub struct ViewContext<C: Component> {
+    effects: Rc<RefCell<ComponentEffects>>,
     sender: LocalSender<C::Message>,
 }
 
 impl<C: Component> ViewContext<C> {
     pub fn sender(&self) -> LocalSender<C::Message> {
         self.sender.clone()
+    }
+
+    pub fn use_effect<D>(
+        &mut self,
+        dependency: D,
+        setup: impl FnOnce() -> Option<Box<dyn FnOnce()>> + 'static,
+    ) where
+        D: PartialEq + 'static,
+    {
+        self.effects.borrow_mut().use_effect(dependency, setup);
     }
 }
 
@@ -205,15 +238,117 @@ trait ErasedScope {
     fn message_type(&self) -> TypeId;
     fn props_type(&self) -> TypeId;
     fn view(&self) -> Result<View, ComponentStoreError>;
+    fn cleanup_effects(&self);
+    fn commit_effects(&self);
+    fn prepare_effects(&self);
+}
+
+type EffectCleanup = Box<dyn FnOnce()>;
+type EffectSetup = Box<dyn FnOnce() -> Option<EffectCleanup>>;
+
+struct EffectSlot {
+    cleanup: Option<EffectCleanup>,
+    dependency: Box<dyn Any>,
+}
+
+struct PendingEffect {
+    dependency: Box<dyn Any>,
+    setup: EffectSetup,
+    slot: usize,
+}
+
+#[derive(Default)]
+pub(crate) struct ComponentEffects {
+    cursor: usize,
+    pending: Vec<PendingEffect>,
+    slots: Vec<EffectSlot>,
+}
+
+impl ComponentEffects {
+    fn begin_view(&mut self) {
+        self.cursor = 0;
+        self.pending.clear();
+    }
+
+    fn use_effect<D>(
+        &mut self,
+        dependency: D,
+        setup: impl FnOnce() -> Option<EffectCleanup> + 'static,
+    ) where
+        D: PartialEq + 'static,
+    {
+        let slot = self.cursor;
+        self.cursor += 1;
+        let changed = self
+            .slots
+            .get(slot)
+            .and_then(|slot| slot.dependency.downcast_ref::<D>())
+            != Some(&dependency);
+        if changed {
+            self.pending.push(PendingEffect {
+                dependency: Box::new(dependency),
+                setup: Box::new(setup),
+                slot,
+            });
+        }
+    }
+
+    fn prepare(&mut self) {
+        for pending in &self.pending {
+            if let Some(slot) = self.slots.get_mut(pending.slot)
+                && let Some(cleanup) = slot.cleanup.take()
+            {
+                cleanup();
+            }
+        }
+        for slot in self.slots.iter_mut().skip(self.cursor) {
+            if let Some(cleanup) = slot.cleanup.take() {
+                cleanup();
+            }
+        }
+    }
+
+    fn commit(&mut self) {
+        self.slots.truncate(self.cursor);
+        for pending in self.pending.drain(..) {
+            let slot = EffectSlot {
+                cleanup: (pending.setup)(),
+                dependency: pending.dependency,
+            };
+            if pending.slot == self.slots.len() {
+                self.slots.push(slot);
+            } else {
+                self.slots[pending.slot] = slot;
+            }
+        }
+    }
+
+    fn cleanup(&mut self) {
+        for slot in self.slots.iter_mut().rev() {
+            if let Some(cleanup) = slot.cleanup.take() {
+                cleanup();
+            }
+        }
+        self.slots.clear();
+        self.pending.clear();
+        self.cursor = 0;
+    }
 }
 
 struct TypedScope<C, P, M> {
     component: C,
+    effects: Rc<RefCell<ComponentEffects>>,
     props: P,
     changed: fn(&mut C, &P, LocalSender<M>),
     sender: LocalSender<M>,
     update: fn(&mut C, M, LocalSender<M>),
-    view: fn(&C, LocalSender<M>) -> View,
+    view: Box<dyn Fn(&C, LocalSender<M>, Rc<RefCell<ComponentEffects>>) -> View>,
+}
+
+impl<C, P, M> Drop for TypedScope<C, P, M> {
+    fn drop(&mut self) {
+        self.effects.borrow_mut().cleanup();
+    }
 }
 
 impl<C, P, M> ErasedScope for TypedScope<C, P, M>
@@ -268,7 +403,24 @@ where
     }
 
     fn view(&self) -> Result<View, ComponentStoreError> {
-        Ok((self.view)(&self.component, self.sender.clone()))
+        self.effects.borrow_mut().begin_view();
+        Ok((self.view)(
+            &self.component,
+            self.sender.clone(),
+            Rc::clone(&self.effects),
+        ))
+    }
+
+    fn cleanup_effects(&self) {
+        self.effects.borrow_mut().cleanup();
+    }
+
+    fn commit_effects(&self) {
+        self.effects.borrow_mut().commit();
+    }
+
+    fn prepare_effects(&self) {
+        self.effects.borrow_mut().prepare();
     }
 }
 
@@ -283,7 +435,7 @@ pub struct DrainReport {
 pub struct ComponentStore {
     window: WindowToken,
     scopes: ScopeArena<Box<dyn ErasedScope>>,
-    queue: Rc<RefCell<VecDeque<MessageEnvelope>>>,
+    queue: Rc<RefCell<ComponentQueue>>,
 }
 
 impl ComponentStore {
@@ -291,7 +443,12 @@ impl ComponentStore {
         Self {
             window,
             scopes: ScopeArena::new(),
-            queue: Rc::new(RefCell::new(VecDeque::new())),
+            queue: Rc::new(RefCell::new(ComponentQueue {
+                active: HashSet::new(),
+                envelopes: VecDeque::new(),
+                open: true,
+                wake: None,
+            })),
         }
     }
 
@@ -310,14 +467,17 @@ impl ComponentStore {
     {
         let queue = Rc::clone(&self.queue);
         let window = self.window;
+        let view = Box::new(move |component: &C, sender, _effects| view(component, sender));
         let scope = self.scopes.reserve_with(move |scope| {
+            queue.borrow_mut().active.insert(scope);
             let sender = LocalSender {
-                queue,
+                queue: Rc::clone(&queue),
                 token: ComponentToken { window, scope },
                 marker: PhantomData,
             };
             Box::new(TypedScope {
                 component,
+                effects: Rc::new(RefCell::new(ComponentEffects::default())),
                 props,
                 changed,
                 sender,
@@ -351,15 +511,20 @@ impl ComponentStore {
             component.update(message, &mut ComponentContext { sender });
         }
 
-        fn view<C: Component>(component: &C, sender: LocalSender<C::Message>) -> View {
-            component.view(&mut ViewContext { sender })
+        fn view<C: Component>(
+            component: &C,
+            sender: LocalSender<C::Message>,
+            effects: Rc<RefCell<ComponentEffects>>,
+        ) -> View {
+            component.view(&mut ViewContext { effects, sender })
         }
 
         let queue = Rc::clone(&self.queue);
         let window = self.window;
         let scope = self.scopes.reserve_with(move |scope| {
+            queue.borrow_mut().active.insert(scope);
             let sender = LocalSender {
-                queue,
+                queue: Rc::clone(&queue),
                 token: ComponentToken { window, scope },
                 marker: PhantomData,
             };
@@ -371,11 +536,12 @@ impl ComponentStore {
             );
             Box::new(TypedScope {
                 component,
+                effects: Rc::new(RefCell::new(ComponentEffects::default())),
                 props,
                 changed: changed::<C>,
                 sender,
                 update: update::<C>,
-                view: view::<C>,
+                view: Box::new(view::<C>),
             }) as Box<dyn ErasedScope>
         })?;
         Ok(ComponentToken {
@@ -393,12 +559,22 @@ impl ComponentStore {
     pub fn retire(&mut self, token: ComponentToken) -> Result<(), ComponentStoreError> {
         self.validate_window(token)?;
         self.scopes.retire(token.scope)?;
+        let mut queue = self.queue.borrow_mut();
+        queue.active.remove(&token.scope);
+        queue
+            .envelopes
+            .retain(|envelope| envelope.token.scope != token.scope);
         Ok(())
     }
 
     pub fn remove(&mut self, token: ComponentToken) -> Result<(), ComponentStoreError> {
         self.validate_window(token)?;
         self.scopes.remove(token.scope)?;
+        let mut queue = self.queue.borrow_mut();
+        queue.active.remove(&token.scope);
+        queue
+            .envelopes
+            .retain(|envelope| envelope.token.scope != token.scope);
         Ok(())
     }
 
@@ -465,7 +641,7 @@ impl ComponentStore {
     pub fn drain(&mut self, budget: usize) -> Result<DrainReport, ComponentStoreError> {
         let mut report = DrainReport::default();
         for _ in 0..budget {
-            let Some(envelope) = self.queue.borrow_mut().pop_front() else {
+            let Some(envelope) = self.queue.borrow_mut().envelopes.pop_front() else {
                 break;
             };
             if envelope.token.window != self.window {
@@ -482,7 +658,7 @@ impl ComponentStore {
             };
             match state {
                 ScopeState::Reserved => {
-                    self.queue.borrow_mut().push_front(envelope);
+                    self.queue.borrow_mut().envelopes.push_front(envelope);
                     report.blocked = true;
                     break;
                 }
@@ -502,12 +678,30 @@ impl ComponentStore {
     }
 
     pub fn pending(&self) -> usize {
-        self.queue.borrow().len()
+        self.queue.borrow().envelopes.len()
     }
 
     pub fn view(&self, token: ComponentToken) -> Result<View, ComponentStoreError> {
         self.validate_window(token)?;
         self.scopes.get(token.scope)?.view()
+    }
+
+    pub fn cleanup_effects(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {
+        self.validate_window(token)?;
+        self.scopes.get(token.scope)?.cleanup_effects();
+        Ok(())
+    }
+
+    pub fn commit_effects(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {
+        self.validate_window(token)?;
+        self.scopes.get(token.scope)?.commit_effects();
+        Ok(())
+    }
+
+    pub fn prepare_effects(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {
+        self.validate_window(token)?;
+        self.scopes.get(token.scope)?.prepare_effects();
+        Ok(())
     }
 
     pub(crate) fn token(&self, scope: ScopeId) -> Result<ComponentToken, ComponentStoreError> {
@@ -518,12 +712,30 @@ impl ComponentStore {
         })
     }
 
+    pub(crate) fn set_waker(&mut self, wake: Rc<dyn Fn()>) {
+        self.queue.borrow_mut().wake = Some(wake);
+    }
+
+    pub(crate) fn close(&mut self) {
+        let mut queue = self.queue.borrow_mut();
+        queue.open = false;
+        queue.active.clear();
+        queue.envelopes.clear();
+        queue.wake = None;
+    }
+
     fn validate_window(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {
         if token.window == self.window {
             Ok(())
         } else {
             Err(ComponentStoreError::WindowMismatch)
         }
+    }
+}
+
+impl Drop for ComponentStore {
+    fn drop(&mut self) {
+        self.close();
     }
 }
 
@@ -639,7 +851,7 @@ mod tests {
         let old_sender = store.sender::<u32>(first).unwrap();
         store.retire(first).unwrap();
         old_sender.send(1);
-        assert_eq!(store.drain(10).unwrap().dropped, 1);
+        assert_eq!(store.drain(10).unwrap().dropped, 0);
         store.remove(first).unwrap();
 
         let second = store
@@ -659,7 +871,7 @@ mod tests {
         store.publish(second).unwrap();
         old_sender.send(4);
 
-        assert_eq!(store.drain(10).unwrap().dropped, 1);
+        assert_eq!(store.drain(10).unwrap().dropped, 0);
         assert_eq!(store.component::<State>(second).unwrap().value, 0);
     }
 
@@ -684,6 +896,41 @@ mod tests {
             store.sender::<String>(token),
             Err(ComponentStoreError::MessageTypeMismatch { .. })
         ));
+    }
+
+    #[test]
+    fn valid_sender_wakes_once_and_retirement_blocks_new_traffic() {
+        let wakes = Rc::new(std::cell::Cell::new(0));
+        let wake_capture = Rc::clone(&wakes);
+        let mut store = store();
+        store.set_waker(Rc::new(move || {
+            wake_capture.set(wake_capture.get() + 1);
+        }));
+        let token = store
+            .reserve(
+                State {
+                    changed: 0,
+                    sender: None,
+                    value: 0,
+                },
+                String::new(),
+                changed,
+                update,
+                view,
+            )
+            .unwrap();
+        store.publish(token).unwrap();
+        let sender = store.sender::<u32>(token).unwrap();
+
+        sender.send(1);
+        sender.send(2);
+        assert_eq!(wakes.get(), 1);
+        assert_eq!(store.pending(), 2);
+        store.retire(token).unwrap();
+        assert_eq!(store.pending(), 0);
+        sender.send(3);
+        assert_eq!(store.pending(), 0);
+        assert_eq!(wakes.get(), 1);
     }
 
     struct Counter {

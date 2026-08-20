@@ -393,8 +393,8 @@ template behavior, COM reentrancy, partial native mutation, shell visuals, or sh
 - [x] Retain child state across parent prop changes and keyed movement.
 - [x] Replace same-key/different-type children and retire the old scope.
 - [x] Queue reentrant messages without directly reborrowing a component.
-- [ ] Retain current application state and desired view across native failure.
-- [ ] Run cleanup exactly once in the required order.
+- [x] Retain current application state and desired view across native failure.
+- [x] Run cleanup exactly once in the required order.
 
 Do not add context, background senders, or general async ownership in this phase.
 
@@ -491,7 +491,7 @@ context.
 
 ## Current work
 
-Current phase: **4 - implement the bounded component prototype**
+Current phase: **5 - compare hooks and components**
 
 The August follow-up review found two accepted event schemas that could generate invalid Rust.
 Observation generation now walks controlled properties rather than every payload event, wrapper
@@ -518,7 +518,8 @@ now proves generated COM `TextChanged` delivery without manually injecting the o
 Phase 2 still tracks live window recreation, repeater shell visuals, OS input delivery, and
 two-window isolation. These require host or automation surfaces beyond the bounded one-window
 component slice; they remain continuation gates rather than being treated as passing evidence.
-The Phase 4 foundation now stores `ScopeId` and component type on logical component nodes. A
+Phase 4 is complete. The component frontend stores `ScopeId` and component type on logical
+component nodes. A
 separate window-token-bound store owns non-cloneable component state, checked typed props, and FIFO
 local message envelopes. The public `Component` and `View` types can reserve a component-only chain,
 expand it to one native root in the authoritative candidate tree, run the normal native command
@@ -532,10 +533,28 @@ realized native root. Keyed insert/remove and same-key type replacement use one 
 new scopes remain reserved during native apply, removed scopes remain published, and successful
 native publication publishes the new scopes before retiring the old scopes. Failed structural
 candidates discard new reservations without retiring old scopes. Fragments and virtual view items
-are still open. A failed component structural update now resets native state, advances realization
-identity, and remounts the complete desired logical candidate without recreating component state.
-The scope transaction commits only after recovery succeeds. A failed recovery discards reserved
-scopes, preserves old published scopes, and poisons the pump. This is proven headlessly; the live
-component recovery fixture remains a gate. Virtual collections are excluded from this recovery path
-until their leases can be rebound to the new realization identity. Control expansion remains
-frozen.
+are still open. A failed component structural update now preserves the composed application and
+window, resets their native content, advances realization identity, and remounts the complete
+desired logical candidate without recreating component state. The scope transaction commits only
+after recovery succeeds. A failed recovery discards reserved scopes, preserves old published
+scopes, and poisons the pump. Headless and live WinUI fixtures prove the recovery and verify that
+`Component::create` runs only once. Virtual collections are excluded from this recovery path until
+their leases can be rebound to the new realization identity. Control expansion remains frozen.
+`App::run_component` hosts a component root through the same live scheduler as the hook frontend.
+Local sends wake normal-priority work only when the queue changes from empty to nonempty. Each turn
+drains at most 64 messages and rearms when work remains. Retired scopes, replaced windows, and
+shutdown close their queue gates so stale senders cannot append or wake work.
+
+Dirty scopes use a derived `ScopeId` index, set-based coalescing, and parent-first composition.
+Unchanged child props suppress duplicate child composition. A property-only update to one native
+leaf avoids cloning the candidate tree. The release benchmark measured 534.4, 525.0, and 525.0
+ns/op at 512, 4,096, and 16,384 unrelated components, with 475 bytes and 10 allocations per
+operation at every size. Structural changes retain the full candidate and recovery path. A
+component host also treats pending native-property repair as schedulable work and recomposes its
+mounted scopes when no message is available to trigger the retry.
+
+`ViewContext::use_effect` records dependency-indexed setup and cleanup work. Changed and retired
+cleanups run child-first before native mutation. Setups run parent-first after scope and tree
+publication, never after failed recovery, and cleanup is idempotent across shutdown and drop.
+Headless failure-injection tests and the live WinUI fixture cover setup, dependency changes,
+recovery, and shutdown counts.

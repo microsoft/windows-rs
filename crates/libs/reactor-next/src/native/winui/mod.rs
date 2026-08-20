@@ -653,6 +653,11 @@ impl NativeRuntime for WinUiRuntime {
         self.realizations.borrow_mut().clear();
     }
 
+    fn component_waker(&self) -> Option<Rc<dyn Fn()>> {
+        let sink = self.event_sink().ok()?;
+        Some(Rc::new(move || sink.wake()))
+    }
+
     fn set_identity(&mut self, identity: NativeIdentity) {
         if self
             .identity

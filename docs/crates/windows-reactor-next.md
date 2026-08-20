@@ -80,23 +80,39 @@ window-local component store erases props and messages behind checked `TypeId` b
 Reserved scopes cannot execute queued messages, reentrant sends append to the FIFO, and retiring or
 stale tokens cannot dispatch into a reused slot.
 
-The first component composition slice accepts a public `Component` and `View`, expands nested
-component-only chains into logical component and slot nodes, and mounts the final native root
-through the existing command and receipt path. Component scopes remain reserved while native
-commands run and publish only after structural success. Same-type prop updates retain every scope
-in the chain, and typed local messages trigger a candidate reconciliation rooted at the component
-that received them. Multiple messages for one component coalesce into one view pass. This bounded
-path currently requires the chain to end in the same leaf native control. `View::Content` and
-`View::Children` can mount component descendants below a native parent. Same-key child components
-retain their scopes across parent prop updates and keyed movement; move commands use the descendant
-native root rather than a logical component node. Keyed insert/remove and same-key type replacement
-reserve new scopes and keep removed scopes published until the native batch succeeds. Success
-publishes replacements and retires removed scopes; failure discards reservations without retiring
-the old scopes. A failed structural component update resets native state, advances realization
-identity, and remounts the complete desired candidate while retaining component state and scope
-identities. The scope transaction commits after recovery succeeds. A second structural failure
-poisons the pump and leaves old scopes published. Virtual collections are not accepted by this
-component recovery path until their leases can be rebound to the new realization identity.
+The component frontend accepts public `Component` and `View` types. `App::run_component` hosts a
+component root through the same WinUI scheduler and command path as the hook frontend. Component
+scopes remain reserved while native commands run and publish only after structural success.
+Same-type prop updates retain every scope in the chain, and typed local messages trigger
+reconciliation at the receiving component. Multiple messages coalesce into one view pass.
+`View::Content` and `View::Children` mount component descendants below native parents. Their public
+constructors require the generated control role, and planning checks the role again for directly
+constructed enum variants.
+
+Same-key child components retain their scopes across parent prop updates and keyed movement; move
+commands use the descendant native root rather than a logical component node. Keyed insert/remove
+and same-key type replacement reserve new scopes and keep removed scopes published until the native
+batch succeeds. Success publishes replacements and retires removed scopes; failure discards
+reservations without retiring the old scopes. A failed structural component update preserves the
+composed application and window, resets their native content, advances realization identity, and
+remounts the complete desired candidate while retaining component state and scope identities. The
+scope transaction commits after recovery succeeds. A second structural failure poisons the pump
+and leaves old scopes published.
+
+Local sends request normal-priority work only when the queue changes from empty to nonempty. Each
+dispatcher turn drains at most 64 messages and rearms if work remains. Retired scopes and replaced
+windows reject stale sends before insertion. Dirty scopes use a derived tree index, set-based
+coalescing, and parent-first composition. A property-only isolated leaf update avoids cloning the
+candidate tree; the release benchmark remains within 3.4% from 512 to 16,384 unrelated components
+with a constant 475 bytes and 10 allocations per operation.
+
+`ViewContext::use_effect` records dependency-indexed lifecycle work. Changed and retired cleanups
+run child-first before native mutation. Setups run parent-first after scope and tree publication and
+do not run after failed recovery. Shutdown and scope drop make cleanup idempotent. The live WinUI
+fixture forces structural recovery, drives a 65-message burst from generated COM `TextChanged`,
+checks one-time component creation and effect setup, and checks one cleanup at shutdown. Virtual
+collections are not accepted by the component recovery path until their leases can be rebound to
+the new realization identity.
 
 The `test` feature exposes the recording runtime and pump to the headless benchmark package. It is
 not part of the default application surface.

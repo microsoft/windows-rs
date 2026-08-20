@@ -99,17 +99,20 @@ impl View {
         Self::Fragment(Rc::new(children.into_iter().collect()))
     }
 
-    pub fn content(control: impl Into<Element>, content: impl Into<Self>) -> Self {
+    pub fn content<C>(control: C, content: impl Into<Self>) -> Self
+    where
+        C: ContentControl + Into<Element>,
+    {
         Self::Content {
             control: control.into(),
             content: Box::new(content.into()),
         }
     }
 
-    pub fn children(
-        control: impl Into<Element>,
-        children: impl IntoIterator<Item = KeyedView>,
-    ) -> Self {
+    pub fn children<C>(control: C, children: impl IntoIterator<Item = KeyedView>) -> Self
+    where
+        C: ChildrenControl + Into<Element>,
+    {
         Self::Children {
             control: control.into(),
             children: Rc::new(children.into_iter().collect()),
