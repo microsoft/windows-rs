@@ -12,7 +12,10 @@ thread_local! {
 struct LiveHost {
     fault: Option<windows_core::Error>,
     pump: Box<dyn LivePump>,
+    recoverable_retries: u8,
 }
+
+const MAX_RECOVERABLE_RETRIES: u8 = 3;
 
 trait LivePump {
     fn mount(&mut self) -> Result<(), PumpError>;
@@ -64,10 +67,15 @@ impl App {
                     Err(error) => return Err(pump_error(error)),
                 };
                 HOST.with(|host| {
-                    *host.borrow_mut() = Some(LiveHost { fault: None, pump });
+                    *host.borrow_mut() = Some(LiveHost {
+                        fault: None,
+                        pump,
+                        recoverable_retries: u8::from(property_fault.is_some()),
+                    });
                 });
                 if let Some(error) = property_fault {
                     eprintln!("windows-reactor-next fault: {}", pump_error(error));
+                    schedule_native_retry()?;
                 }
                 Ok(())
             })();
@@ -89,17 +97,29 @@ pub(crate) fn dispatch_native_events() {
         let Some(mut live) = host.borrow_mut().take() else {
             return;
         };
-        if live.fault.is_none()
-            && let Err(error) = live.pump.dispatch_events()
-        {
-            let recoverable = error.recoverable();
-            let error = pump_error(error);
-            eprintln!("windows-reactor-next fault: {error}");
-            if !recoverable {
-                live.fault = Some(error);
-                live.pump.shutdown();
-                exit_ui_thread();
+        let mut retry = false;
+        if live.fault.is_none() {
+            match live.pump.dispatch_events() {
+                Ok(()) => live.recoverable_retries = 0,
+                Err(error) => {
+                    let recoverable = error.recoverable();
+                    let error = pump_error(error);
+                    eprintln!("windows-reactor-next fault: {error}");
+                    if recoverable && live.recoverable_retries < MAX_RECOVERABLE_RETRIES {
+                        live.recoverable_retries += 1;
+                        retry = true;
+                    } else {
+                        live.fault = Some(error);
+                        live.pump.shutdown();
+                        exit_ui_thread();
+                    }
+                }
             }
+        }
+        if retry && let Err(error) = schedule_native_retry() {
+            live.fault = Some(error);
+            live.pump.shutdown();
+            exit_ui_thread();
         }
         *host.borrow_mut() = Some(live);
     });

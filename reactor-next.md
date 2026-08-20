@@ -101,6 +101,7 @@ enum Property<T> {
 ```
 
 `Inherited` calls `ClearValue`. Non-clearable properties receive a different generated API.
+Until that required-value API exists, the schema rejects non-clearable properties.
 
 Native event handlers are subscribed once. They read the latest callback from an arena-owned cell.
 Queued events carry node generation and subscription revision.
@@ -113,12 +114,15 @@ writes do not echo into application state.
 WinUI mutation is not transactional, so the pump does not attempt rollback.
 
 - A property failure reports to the fault sink, keeps the old comparison value and render version,
-  and retains a retry signal.
+  and retains a retry signal. The live host makes up to three low-priority retries; persistent
+  divergence stops the host rather than leaving hidden work pending forever.
 - A structural update failure does not publish the failed candidate. The runtime clears the window
   content and remounts the control root with fresh generations while preserving the application
   and window.
 - A successful remount reports a recoverable fault. A failed remount or host-creation failure
   poisons the pump.
+- A failed realization batch poisons the pump because partially created row controls cannot yet be
+  remounted independently.
 
 No recoverable failure is debug-only or silently ignored.
 
@@ -228,8 +232,8 @@ Deferred:
 - [x] Add minimal vertical `ItemsRepeater`, stable shells, and realization leases.
 - [x] Use the shared keyed differ for panels and models.
 - [x] Reject stale keys, containers, collection generations, and duplicate recycle work.
-- [ ] Test pending realization during window close and repeated native mount/retire cycles.
-- Prove Reactor-owned resource counts return to a bounded steady state.
+- [x] Test pending realization during shutdown and repeated mount/realize/recycle cycles.
+- [x] Prove Reactor-owned resources return to a bounded steady state in the live scroll sample.
 
 **Exit:** collection realization and shutdown cannot retain or address retired state.
 
@@ -320,12 +324,19 @@ After representative parity:
 - [x] Make failed commits explicit, preserve property retries, and poison structural divergence.
 - [x] Add arena-owned virtual models and generation-checked realization leases.
 - [x] Include native container identity in leases and reject reused-container callbacks.
+- [x] Schedule bounded property retries instead of leaving dirty work undispatched.
+- [x] Support root, content, and same-key kind replacement through one recovery path.
+- [x] Reject non-clearable schema rows until required-value generation exists.
+- [x] Retire realized rows before source reset and reconcile same-key payload changes in place.
+- [x] Batch realization requests and share large virtual payloads across candidates.
+- [x] Add copy-on-write arena candidates and borrowed generated subtree comparisons.
+- [x] Measure representative headless, compile-time, artifact, and live virtual-list costs.
 
 ### Next
 
-- [x] Generate `TextBox.TextChanged` payload extraction.
-- [x] Suppress controlled-property feedback.
-- [x] Replace whole-pump poison with fresh-generation root remount where safe.
+- [ ] Separate keyed planning from recording-runtime move cost and reduce keyed scratch bytes.
+- [ ] Decide whether row realization failures need independent recovery before expansion.
+- [ ] Review the remaining owner-scoped async and arena-scope decisions.
 
 ### Decisions needed before implementation
 
@@ -338,8 +349,8 @@ After representative parity:
 
 - Architecture and correctness gates: active.
 - Compile and runtime gates: report-only until parity.
-- Current phase: 6 - collections and lifecycle.
-- Next action: finish window-close and repeated native lifecycle tests for realized rows.
+- Current phase: 7 - hardening and expansion decision.
+- Next action: resolve the keyed, row-recovery, and ownership decisions before expansion.
 
 ## Current reactor baseline
 
@@ -364,6 +375,28 @@ Selected headless results:
 | No change in 512 | 7,386 | 0 | 0 |
 | Keyed reverse 512 | 101,004 | 58,244 | 11 |
 | Keyed rotate 512 | 67,286 | 82,828 | 33 |
+
+Current next-generation measurements use the same machine and release benchmark method:
+
+| Scenario | Current reactor | Next reactor |
+| --- | ---: | ---: |
+| No change in 512 | 7,622 ns / 0 B | 2,163 ns / 0 B |
+| One changed leaf in 512 | 11,914 ns / 658 B | 7,738 ns / 13,410 B |
+| Keyed reverse 512 | 110,924 ns / 58,244 B | 247,976 ns / 203,312 B |
+| Virtual no change in 10,000 | n/a | 56,559 ns / 0 B |
+| Virtual payload, 32 visible | n/a | 36,228 ns / 34,386 B |
+| Virtual key reset, 32 visible | n/a | 1.673 ms / 2.90 MB |
+
+The keyed figure includes 511 observed-tree vector moves in `RecordingRuntime`; add a planning-only
+measurement before attributing that full time to reconciliation. Its scratch bytes remain above the
+gate either way.
+
+| Paired counter measurement | Current reactor | Next reactor |
+| --- | ---: | ---: |
+| Clean check | 5.148 s | 1.136 s |
+| Incremental check | 0.493 s | 0.381 s |
+| Clean release build | 12.269 s | 3.728 s |
+| Release executable | 3,270,656 bytes | 583,680 bytes |
 
 | Live stock grid | 10% mutation | 100% mutation |
 | --- | ---: | ---: |

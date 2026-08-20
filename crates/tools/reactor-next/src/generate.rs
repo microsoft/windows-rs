@@ -30,6 +30,12 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     let mounted_event_visitors = schema.controls.iter().map(generate_mounted_event_visitor);
     let mounted_event_dispatchers = schema.controls.iter().flat_map(generate_event_dispatchers);
     let element_parts = schema.controls.iter().map(generate_element_parts);
+    let element_props_matches = schema.controls.iter().map(generate_element_props_match);
+    let element_structures = schema.controls.iter().map(generate_element_structure);
+    let element_kinds = schema.controls.iter().map(|control| {
+        let name = ident(&control.name);
+        quote! { Self::#name(_) => MountedKind::#name }
+    });
     let property_ids = schema.controls.iter().flat_map(|control| {
         control
             .properties
@@ -65,9 +71,28 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             #(#element_conversions)*
 
             impl ElementPartsExt for Element {
+                fn kind(&self) -> MountedKind {
+                    match self {
+                        #(#element_kinds),*
+                    }
+                }
+
                 fn into_parts(self) -> ElementParts {
                     match self {
                         #(#element_parts),*
+                    }
+                }
+
+                fn props_match(&self, props: &MountedProps) -> bool {
+                    match (self, props) {
+                        #(#element_props_matches),*,
+                        _ => false,
+                    }
+                }
+
+                fn structure(&self) -> ElementStructureRef<'_> {
+                    match self {
+                        #(#element_structures),*
                     }
                 }
             }
@@ -76,7 +101,10 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         use public::*;
 
         pub trait ElementPartsExt {
+            fn kind(&self) -> MountedKind;
             fn into_parts(self) -> ElementParts;
+            fn props_match(&self, props: &MountedProps) -> bool;
+            fn structure(&self) -> ElementStructureRef<'_>;
         }
 
         pub trait MountedPropsExt {
@@ -131,8 +159,16 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         pub enum ElementStructure {
             None,
             Content(Option<Element>),
-            Children(Vec<KeyedElement>),
-            Virtual(Vec<KeyedElement>),
+            Children(std::rc::Rc<Vec<KeyedElement>>),
+            Virtual(std::rc::Rc<Vec<KeyedElement>>),
+        }
+
+        #[derive(Clone, Copy)]
+        pub enum ElementStructureRef<'a> {
+            None,
+            Content(Option<&'a Element>),
+            Children(&'a [KeyedElement]),
+            Virtual(&'a [KeyedElement]),
         }
 
         #[derive(Clone, Debug, PartialEq)]
@@ -313,6 +349,47 @@ fn generate_element_parts(control: &ResolvedControl) -> TokenStream {
             },
             structure: #structure,
         }
+    }
+}
+
+fn generate_element_props_match(control: &ResolvedControl) -> TokenStream {
+    let name = ident(&control.name);
+    let fields = control
+        .properties
+        .iter()
+        .map(|property| ident(&property.field))
+        .chain(control.events.iter().map(|event| ident(&event.field)))
+        .collect::<Vec<_>>();
+    let mounted = fields
+        .iter()
+        .map(|field| ident(&format!("mounted_{field}")))
+        .collect::<Vec<_>>();
+    let comparisons = fields
+        .iter()
+        .zip(&mounted)
+        .map(|(field, mounted)| quote! { #field == #mounted });
+
+    quote! {
+        (
+            Self::#name(#name { #(#fields,)* .. }),
+            MountedProps::#name { #(#fields: #mounted),* },
+        ) => true #(&& #comparisons)*
+    }
+}
+
+fn generate_element_structure(control: &ResolvedControl) -> TokenStream {
+    let name = ident(&control.name);
+    match control.role {
+        Role::Content => {
+            quote! { Self::#name(value) => ElementStructureRef::Content(value.content.as_deref()) }
+        }
+        Role::Children => {
+            quote! { Self::#name(value) => ElementStructureRef::Children(value.children.as_slice()) }
+        }
+        Role::Virtual => {
+            quote! { Self::#name(value) => ElementStructureRef::Virtual(value.items.as_slice()) }
+        }
+        Role::Leaf | Role::Controlled => quote! { Self::#name(_) => ElementStructureRef::None },
     }
 }
 
@@ -497,8 +574,8 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
     });
     let structural_field = match control.role {
         Role::Content => quote! { content: Option<Box<Element>> },
-        Role::Children => quote! { children: Vec<KeyedElement> },
-        Role::Virtual => quote! { items: Vec<KeyedElement> },
+        Role::Children => quote! { children: std::rc::Rc<Vec<KeyedElement>> },
+        Role::Virtual => quote! { items: std::rc::Rc<Vec<KeyedElement>> },
         Role::Leaf | Role::Controlled => TokenStream::new(),
     };
     let property_methods = control.properties.iter().flat_map(|property| {
@@ -570,7 +647,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         },
         Role::Children => quote! {
             pub fn child(mut self, key: impl Into<Key>, child: impl Into<Element>) -> Self {
-                self.children.push(KeyedElement::new(key, child));
+                std::rc::Rc::make_mut(&mut self.children).push(KeyedElement::new(key, child));
                 self
             }
 
@@ -578,17 +655,17 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                 mut self,
                 children: impl IntoIterator<Item = KeyedElement>,
             ) -> Self {
-                self.children = children.into_iter().collect();
+                self.children = std::rc::Rc::new(children.into_iter().collect());
                 self
             }
 
             pub fn child_elements(&self) -> &[KeyedElement] {
-                &self.children
+                self.children.as_slice()
             }
         },
         Role::Virtual => quote! {
             pub fn item(mut self, key: impl Into<Key>, item: impl Into<Element>) -> Self {
-                self.items.push(KeyedElement::new(key, item));
+                std::rc::Rc::make_mut(&mut self.items).push(KeyedElement::new(key, item));
                 self
             }
 
@@ -596,12 +673,12 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                 mut self,
                 items: impl IntoIterator<Item = KeyedElement>,
             ) -> Self {
-                self.items = items.into_iter().collect();
+                self.items = std::rc::Rc::new(items.into_iter().collect());
                 self
             }
 
             pub fn item_elements(&self) -> &[KeyedElement] {
-                &self.items
+                self.items.as_slice()
             }
         },
         Role::Leaf | Role::Controlled => TokenStream::new(),

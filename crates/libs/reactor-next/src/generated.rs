@@ -81,7 +81,7 @@ pub mod public {
     pub struct StackPanel {
         orientation: Property<Orientation>,
         spacing: Property<f64>,
-        children: Vec<KeyedElement>,
+        children: std::rc::Rc<Vec<KeyedElement>>,
     }
     impl StackPanel {
         pub fn new() -> Self {
@@ -102,15 +102,15 @@ pub mod public {
             &self.spacing
         }
         pub fn child(mut self, key: impl Into<Key>, child: impl Into<Element>) -> Self {
-            self.children.push(KeyedElement::new(key, child));
+            std::rc::Rc::make_mut(&mut self.children).push(KeyedElement::new(key, child));
             self
         }
         pub fn children(mut self, children: impl IntoIterator<Item = KeyedElement>) -> Self {
-            self.children = children.into_iter().collect();
+            self.children = std::rc::Rc::new(children.into_iter().collect());
             self
         }
         pub fn child_elements(&self) -> &[KeyedElement] {
-            &self.children
+            self.children.as_slice()
         }
     }
     impl sealed::Sealed for StackPanel {}
@@ -163,22 +163,22 @@ pub mod public {
     impl ControlledTextControl for TextBox {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ItemsRepeater {
-        items: Vec<KeyedElement>,
+        items: std::rc::Rc<Vec<KeyedElement>>,
     }
     impl ItemsRepeater {
         pub fn new() -> Self {
             Self::default()
         }
         pub fn item(mut self, key: impl Into<Key>, item: impl Into<Element>) -> Self {
-            self.items.push(KeyedElement::new(key, item));
+            std::rc::Rc::make_mut(&mut self.items).push(KeyedElement::new(key, item));
             self
         }
         pub fn items(mut self, items: impl IntoIterator<Item = KeyedElement>) -> Self {
-            self.items = items.into_iter().collect();
+            self.items = std::rc::Rc::new(items.into_iter().collect());
             self
         }
         pub fn item_elements(&self) -> &[KeyedElement] {
-            &self.items
+            self.items.as_slice()
         }
     }
     impl sealed::Sealed for ItemsRepeater {}
@@ -243,6 +243,16 @@ pub mod public {
         }
     }
     impl ElementPartsExt for Element {
+        fn kind(&self) -> MountedKind {
+            match self {
+                Self::TextBlock(_) => MountedKind::TextBlock,
+                Self::Button(_) => MountedKind::Button,
+                Self::StackPanel(_) => MountedKind::StackPanel,
+                Self::TextBox(_) => MountedKind::TextBox,
+                Self::ItemsRepeater(_) => MountedKind::ItemsRepeater,
+                Self::ScrollViewer(_) => MountedKind::ScrollViewer,
+            }
+        }
         fn into_parts(self) -> ElementParts {
             match self {
                 Self::TextBlock(TextBlock {
@@ -307,11 +317,84 @@ pub mod public {
                 },
             }
         }
+        fn props_match(&self, props: &MountedProps) -> bool {
+            match (self, props) {
+                (
+                    Self::TextBlock(TextBlock {
+                        text,
+                        text_wrapping,
+                        ..
+                    }),
+                    MountedProps::TextBlock {
+                        text: mounted_text,
+                        text_wrapping: mounted_text_wrapping,
+                    },
+                ) => true && text == mounted_text && text_wrapping == mounted_text_wrapping,
+                (
+                    Self::Button(Button {
+                        is_enabled,
+                        on_click,
+                        ..
+                    }),
+                    MountedProps::Button {
+                        is_enabled: mounted_is_enabled,
+                        on_click: mounted_on_click,
+                    },
+                ) => true && is_enabled == mounted_is_enabled && on_click == mounted_on_click,
+                (
+                    Self::StackPanel(StackPanel {
+                        orientation,
+                        spacing,
+                        ..
+                    }),
+                    MountedProps::StackPanel {
+                        orientation: mounted_orientation,
+                        spacing: mounted_spacing,
+                    },
+                ) => true && orientation == mounted_orientation && spacing == mounted_spacing,
+                (
+                    Self::TextBox(TextBox {
+                        text,
+                        placeholder_text,
+                        is_enabled,
+                        on_text_changed,
+                        ..
+                    }),
+                    MountedProps::TextBox {
+                        text: mounted_text,
+                        placeholder_text: mounted_placeholder_text,
+                        is_enabled: mounted_is_enabled,
+                        on_text_changed: mounted_on_text_changed,
+                    },
+                ) => {
+                    true && text == mounted_text
+                        && placeholder_text == mounted_placeholder_text
+                        && is_enabled == mounted_is_enabled
+                        && on_text_changed == mounted_on_text_changed
+                }
+                (Self::ItemsRepeater(ItemsRepeater { .. }), MountedProps::ItemsRepeater {}) => true,
+                (Self::ScrollViewer(ScrollViewer { .. }), MountedProps::ScrollViewer {}) => true,
+                _ => false,
+            }
+        }
+        fn structure(&self) -> ElementStructureRef<'_> {
+            match self {
+                Self::TextBlock(_) => ElementStructureRef::None,
+                Self::Button(value) => ElementStructureRef::Content(value.content.as_deref()),
+                Self::StackPanel(value) => ElementStructureRef::Children(value.children.as_slice()),
+                Self::TextBox(_) => ElementStructureRef::None,
+                Self::ItemsRepeater(value) => ElementStructureRef::Virtual(value.items.as_slice()),
+                Self::ScrollViewer(value) => ElementStructureRef::Content(value.content.as_deref()),
+            }
+        }
     }
 }
 use public::*;
 pub trait ElementPartsExt {
+    fn kind(&self) -> MountedKind;
     fn into_parts(self) -> ElementParts;
+    fn props_match(&self, props: &MountedProps) -> bool;
+    fn structure(&self) -> ElementStructureRef<'_>;
 }
 pub trait MountedPropsExt {
     fn visit_properties(&self, visit: &mut dyn FnMut(PropertyId, Option<PropertyValue>));
@@ -486,8 +569,15 @@ pub enum MountedProps {
 pub enum ElementStructure {
     None,
     Content(Option<Element>),
-    Children(Vec<KeyedElement>),
-    Virtual(Vec<KeyedElement>),
+    Children(std::rc::Rc<Vec<KeyedElement>>),
+    Virtual(std::rc::Rc<Vec<KeyedElement>>),
+}
+#[derive(Clone, Copy)]
+pub enum ElementStructureRef<'a> {
+    None,
+    Content(Option<&'a Element>),
+    Children(&'a [KeyedElement]),
+    Virtual(&'a [KeyedElement]),
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct ElementParts {

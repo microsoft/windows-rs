@@ -20,7 +20,7 @@ impl core::convert::From<windows_reactor_next::TextBox> for windows_reactor_next
 pub fn windows_reactor_next::Element::from(windows_reactor_next::TextBox) -> Self
 pub enum windows_reactor_next::Key
 pub windows_reactor_next::Key::Integer(u64)
-pub windows_reactor_next::Key::String(alloc::string::String)
+pub windows_reactor_next::Key::String(alloc::rc::Rc<str>)
 impl core::convert::From<&str> for windows_reactor_next::Key
 pub fn windows_reactor_next::Key::from(&str) -> Self
 impl core::convert::From<alloc::string::String> for windows_reactor_next::Key

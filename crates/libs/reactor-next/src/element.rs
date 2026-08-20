@@ -6,7 +6,7 @@ use super::*;
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub enum Key {
     Integer(u64),
-    String(String),
+    String(Rc<str>),
 }
 
 impl From<u64> for Key {
@@ -29,7 +29,7 @@ impl From<usize> for Key {
 
 impl From<String> for Key {
     fn from(value: String) -> Self {
-        Self::String(value)
+        Self::String(value.into())
     }
 }
 

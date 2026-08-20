@@ -1,5 +1,6 @@
 use super::*;
 use std::collections::{BTreeMap, HashMap};
+use std::rc::Rc;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum NodeKind {
@@ -19,7 +20,7 @@ struct Node {
     key: Option<Key>,
     native: Option<NativeState>,
     realized: HashMap<RealizedContainer, NodeId>,
-    virtual_items: Option<Vec<KeyedElement>>,
+    virtual_items: Option<Rc<Vec<KeyedElement>>>,
     virtual_model: Option<VirtualModel>,
 }
 
@@ -41,6 +42,7 @@ pub enum TreeError {
     Arena(ArenaError),
     NotNative,
     NotVirtual,
+    RealizedConflict(RealizedContainer),
     RootAlreadyExists,
     Virtual(VirtualModelError),
 }
@@ -164,7 +166,7 @@ impl Tree {
         &mut self,
         parent: Option<NodeId>,
         key: Option<Key>,
-        items: Vec<KeyedElement>,
+        items: Rc<Vec<KeyedElement>>,
     ) -> Result<NodeId, TreeError> {
         let keys = items.iter().map(|item| item.key().clone());
         let id = self.insert_virtual(parent, keys)?;
@@ -179,6 +181,7 @@ impl Tree {
             .get(id)?
             .virtual_items
             .as_deref()
+            .map(Vec::as_slice)
             .ok_or(TreeError::NotVirtual)
     }
 
@@ -218,20 +221,21 @@ impl Tree {
         child: NodeId,
     ) -> Result<(), TreeError> {
         self.arena.get(child)?;
-        self.arena.get_mut(id)?.realized.insert(container, child);
+        let realized = &mut self.arena.get_mut(id)?.realized;
+        if realized.contains_key(&container) || realized.values().any(|current| *current == child) {
+            return Err(TreeError::RealizedConflict(container));
+        }
+        realized.insert(container, child);
         Ok(())
     }
 
     pub fn update_virtual_items(
         &mut self,
         id: NodeId,
-        items: Vec<KeyedElement>,
-    ) -> Result<Vec<KeyedOperation<Key>>, TreeError> {
-        let keys = items.iter().map(|item| item.key().clone());
-        let operations = self.virtual_model_mut(id)?.update(keys)?;
-        let node = self.arena.get_mut(id)?;
-        node.virtual_items = Some(items);
-        Ok(operations)
+        items: Rc<Vec<KeyedElement>>,
+    ) -> Result<(), TreeError> {
+        self.arena.get_mut(id)?.virtual_items = Some(items);
+        Ok(())
     }
 
     pub fn virtual_model(&self, id: NodeId) -> Result<&VirtualModel, TreeError> {
@@ -396,6 +400,29 @@ mod tests {
             tree.virtual_model(collection),
             Err(TreeError::Arena(ArenaError::Stale(id))) if id == collection
         ));
+    }
+
+    #[test]
+    fn realized_container_mapping_cannot_be_overwritten() {
+        let mut tree = Tree::new();
+        let application = tree.insert(None, NodeKind::Application).unwrap();
+        let collection = tree
+            .insert_virtual(Some(application), [Key::from("a")])
+            .unwrap();
+        let first = tree
+            .insert(Some(collection), NodeKind::Native(MountedKind::TextBlock))
+            .unwrap();
+        let second = tree
+            .insert(Some(collection), NodeKind::Native(MountedKind::Button))
+            .unwrap();
+        let container = RealizedContainer(1);
+
+        tree.set_realized(collection, container, first).unwrap();
+
+        assert_eq!(
+            tree.set_realized(collection, container, second),
+            Err(TreeError::RealizedConflict(container))
+        );
     }
 
     #[test]

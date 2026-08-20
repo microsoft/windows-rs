@@ -1,3 +1,5 @@
+use std::rc::Rc;
+
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct NodeId {
     index: u32,
@@ -19,7 +21,7 @@ pub enum ArenaError {
 #[derive(Clone)]
 struct Slot<T> {
     generation: u32,
-    value: Option<T>,
+    value: Option<Rc<T>>,
 }
 
 #[derive(Clone)]
@@ -29,7 +31,7 @@ pub struct Arena<T> {
     live: usize,
 }
 
-impl<T> Arena<T> {
+impl<T: Clone> Arena<T> {
     pub fn new() -> Self {
         Self {
             slots: Vec::new(),
@@ -42,7 +44,7 @@ impl<T> Arena<T> {
         let id = if let Some(index) = self.free.pop() {
             let slot = &mut self.slots[index as usize];
             debug_assert!(slot.value.is_none());
-            slot.value = Some(value);
+            slot.value = Some(Rc::new(value));
             NodeId {
                 index,
                 generation: slot.generation,
@@ -52,7 +54,7 @@ impl<T> Arena<T> {
                 u32::try_from(self.slots.len()).map_err(|_| ArenaError::CapacityExceeded)?;
             self.slots.push(Slot {
                 generation: 0,
-                value: Some(value),
+                value: Some(Rc::new(value)),
             });
             NodeId {
                 index,
@@ -65,17 +67,20 @@ impl<T> Arena<T> {
 
     pub fn get(&self, id: NodeId) -> Result<&T, ArenaError> {
         let slot = self.slot(id)?;
-        slot.value.as_ref().ok_or(ArenaError::Stale(id))
+        slot.value.as_deref().ok_or(ArenaError::Stale(id))
     }
 
     pub fn get_mut(&mut self, id: NodeId) -> Result<&mut T, ArenaError> {
         let slot = self.slot_mut(id)?;
-        slot.value.as_mut().ok_or(ArenaError::Stale(id))
+        slot.value
+            .as_mut()
+            .map(Rc::make_mut)
+            .ok_or(ArenaError::Stale(id))
     }
 
     pub fn remove(&mut self, id: NodeId) -> Result<T, ArenaError> {
         let slot = self.slot_mut(id)?;
-        let value = slot.value.take().ok_or(ArenaError::Stale(id))?;
+        let value = Rc::unwrap_or_clone(slot.value.take().ok_or(ArenaError::Stale(id))?);
         if let Some(generation) = slot.generation.checked_add(1) {
             slot.generation = generation;
             self.free.push(id.index);

@@ -1,10 +1,10 @@
 use super::*;
 use crate::core::*;
 
-#[cfg(test)]
+#[cfg(any(test, feature = "test"))]
 mod recording;
 mod winui;
 
-#[cfg(test)]
+#[cfg(any(test, feature = "test"))]
 pub use recording::*;
 pub use winui::*;

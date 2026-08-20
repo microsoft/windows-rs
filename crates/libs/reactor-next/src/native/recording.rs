@@ -10,19 +10,42 @@ pub struct RecordedNode {
     properties: BTreeMap<PropertyId, PropertyValue>,
 }
 
-#[derive(Default)]
 pub struct RecordingRuntime {
     application: Option<NodeId>,
     nodes: HashMap<NodeId, RecordedNode>,
     batches: usize,
     commands: Vec<Vec<Command>>,
+    record_commands: bool,
     fail_at: HashSet<(usize, usize)>,
     realizations: Vec<RealizationRequest>,
     subscriptions: HashSet<(NodeId, EventId)>,
     windows: HashSet<NodeId>,
 }
 
+impl Default for RecordingRuntime {
+    fn default() -> Self {
+        Self {
+            application: None,
+            nodes: HashMap::new(),
+            batches: 0,
+            commands: Vec::new(),
+            record_commands: true,
+            fail_at: HashSet::new(),
+            realizations: Vec::new(),
+            subscriptions: HashSet::new(),
+            windows: HashSet::new(),
+        }
+    }
+}
+
 impl RecordingRuntime {
+    pub fn record_commands(&mut self, record: bool) {
+        self.record_commands = record;
+        if !record {
+            self.commands.clear();
+        }
+    }
+
     pub fn fail_at(&mut self, command_index: usize) {
         self.fail_after(0, command_index);
     }
@@ -54,6 +77,10 @@ impl RecordingRuntime {
 }
 
 impl RecordedNode {
+    pub fn kind(&self) -> Option<MountedKind> {
+        self.kind
+    }
+
     pub fn property(&self, property: PropertyId) -> Option<&PropertyValue> {
         self.properties.get(&property)
     }
@@ -318,7 +345,9 @@ impl RecordingRuntime {
 impl NativeRuntime for RecordingRuntime {
     fn apply(&mut self, commands: &[Command]) -> CommitReceipt {
         self.batches += 1;
-        self.commands.push(commands.to_vec());
+        if self.record_commands {
+            self.commands.push(commands.to_vec());
+        }
         let mut structural_failure = false;
         let outcomes = commands
             .iter()
@@ -366,6 +395,19 @@ mod tests {
     const CHILD: NodeId = NodeId::from_parts(1, 0);
 
     #[test]
+    fn command_history_can_be_disabled() {
+        let mut runtime = RecordingRuntime::default();
+        runtime.record_commands(false);
+        runtime.apply(&[Command::Create {
+            node: ROOT,
+            kind: MountedKind::TextBlock,
+        }]);
+
+        assert!(runtime.commands().is_empty());
+        assert!(runtime.node(ROOT).is_some());
+    }
+
+    #[test]
     fn records_tree_and_property_mutations() {
         let mut runtime = RecordingRuntime::default();
         let receipt = runtime.apply(&[
@@ -397,7 +439,7 @@ mod tests {
         );
         assert_eq!(runtime.batches, 1);
         assert_eq!(
-            runtime.node(ROOT).unwrap().kind,
+            runtime.node(ROOT).unwrap().kind(),
             Some(MountedKind::StackPanel)
         );
         assert_eq!(runtime.node(ROOT).unwrap().children, [CHILD]);

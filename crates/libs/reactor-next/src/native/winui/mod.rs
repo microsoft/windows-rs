@@ -500,3 +500,16 @@ pub fn exit_ui_thread() {
         PostQuitMessage(0);
     }
 }
+
+pub fn schedule_native_retry() -> windows_core::Result<()> {
+    let dispatcher = DispatcherQueue::GetForCurrentThread()?;
+    let handler = DispatcherQueueHandler::new(dispatch_native_events);
+    if dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Low, &handler)? {
+        Ok(())
+    } else {
+        Err(windows_core::Error::new(
+            E_FAIL,
+            "dispatcher rejected reactor retry",
+        ))
+    }
+}

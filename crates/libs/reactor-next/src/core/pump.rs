@@ -1,4 +1,5 @@
 use std::collections::{HashMap, VecDeque};
+use std::rc::Rc;
 
 use super::*;
 
@@ -6,7 +7,6 @@ use super::*;
 pub enum PumpError {
     AlreadyMounted,
     ApplyReceiptMismatch,
-    KindChanged,
     NotMounted,
     DuplicateKey(Key),
     EventReadFailed(RuntimeError),
@@ -54,6 +54,7 @@ struct PropertyCommit {
 struct UpdatePlan {
     commands: Vec<Command>,
     commits: Vec<PropertyCommit>,
+    retry_properties: bool,
 }
 
 impl UpdatePlan {
@@ -66,6 +67,7 @@ impl UpdatePlan {
 
 pub struct Pump<R: NativeRuntime> {
     application: Option<NodeId>,
+    element: Option<Element>,
     tree: Tree,
     runtime: R,
     root: Option<NodeId>,
@@ -80,6 +82,7 @@ impl<R: NativeRuntime> Pump<R> {
     pub fn new(runtime: R) -> Self {
         Self {
             application: None,
+            element: None,
             tree: Tree::new(),
             runtime,
             root: None,
@@ -99,6 +102,7 @@ impl<R: NativeRuntime> Pump<R> {
             return Err(PumpError::AlreadyMounted);
         }
         let next_version = self.next_version()?;
+        let desired = element.clone();
         let mut candidate = Tree::new();
         let mut plan = UpdatePlan::default();
         let application = candidate.insert(None, NodeKind::Application)?;
@@ -119,6 +123,7 @@ impl<R: NativeRuntime> Pump<R> {
             self.runtime.reset();
             self.tree = Tree::new();
             self.application = None;
+            self.element = None;
             self.events.clear();
             self.poisoned = true;
             self.root = None;
@@ -135,6 +140,7 @@ impl<R: NativeRuntime> Pump<R> {
             self.runtime.reset();
             self.tree = Tree::new();
             self.application = None;
+            self.element = None;
             self.events.clear();
             self.poisoned = true;
             self.root = None;
@@ -145,6 +151,7 @@ impl<R: NativeRuntime> Pump<R> {
         Self::commit_tree_properties(&mut candidate, &plan.commits, &receipt)?;
         self.tree = candidate;
         self.application = Some(application);
+        self.element = Some(desired);
         self.root = Some(node);
         self.window = Some(window);
         if plan
@@ -166,13 +173,24 @@ impl<R: NativeRuntime> Pump<R> {
             return Err(PumpError::Poisoned);
         }
         let next_version = self.next_version()?;
+        if !self.retry_pending && self.element.as_ref() == Some(&element) {
+            self.version = next_version;
+            return Ok(CommitReceipt {
+                outcomes: Vec::new(),
+            });
+        }
         let node = self.root.ok_or(PumpError::NotMounted)?;
         let recovery_element = element.clone();
         let mut candidate = self.tree.clone();
-        let mut plan = UpdatePlan::default();
-        Self::reconcile_node(&mut candidate, node, element, &mut plan)?;
+        let mut plan = UpdatePlan {
+            retry_properties: self.retry_pending,
+            ..Default::default()
+        };
+        let candidate_root = Self::reconcile_node(&mut candidate, node, element, &mut plan)?;
         if plan.commands.is_empty() {
             self.tree = candidate;
+            self.root = Some(candidate_root);
+            self.element = Some(recovery_element);
             self.retry_pending = false;
             self.version = next_version;
             return Ok(CommitReceipt {
@@ -193,11 +211,19 @@ impl<R: NativeRuntime> Pump<R> {
             .enumerate()
             .any(|(index, command)| command.structural() && !receipt.applied(index));
         if structural_failure {
-            return self.recover_structure(candidate, recovery_element, receipt, next_version);
+            return self.recover_structure(
+                candidate,
+                candidate_root,
+                recovery_element,
+                receipt,
+                next_version,
+            );
         }
 
         Self::commit_tree_properties(&mut candidate, &plan.commits, &receipt)?;
         self.tree = candidate;
+        self.root = Some(candidate_root);
+        self.element = Some(recovery_element);
         if plan
             .commands
             .iter()
@@ -215,13 +241,14 @@ impl<R: NativeRuntime> Pump<R> {
     fn recover_structure(
         &mut self,
         mut candidate: Tree,
+        failed_root: NodeId,
         element: Element,
         failure: CommitReceipt,
         next_version: u64,
     ) -> Result<CommitReceipt, PumpError> {
         let window = self.window.ok_or(PumpError::NotMounted)?;
-        let root = self.root.ok_or(PumpError::NotMounted)?;
-        candidate.retire_subtree(root)?;
+        let desired = element.clone();
+        candidate.retire_subtree(failed_root)?;
 
         let mut plan = UpdatePlan::default();
         plan.push(Command::ResetWindowContent { window });
@@ -260,6 +287,7 @@ impl<R: NativeRuntime> Pump<R> {
 
         Self::commit_tree_properties(&mut candidate, &plan.commits, &recovery)?;
         self.tree = candidate;
+        self.element = Some(desired);
         self.root = Some(root);
         self.retry_pending = plan
             .commands
@@ -287,6 +315,7 @@ impl<R: NativeRuntime> Pump<R> {
     pub fn shutdown(&mut self) {
         self.runtime.reset();
         self.application = None;
+        self.element = None;
         self.events.clear();
         self.poisoned = false;
         self.retry_pending = false;
@@ -368,6 +397,8 @@ impl<R: NativeRuntime> Pump<R> {
         }
         let requests = self.runtime.drain_realizations();
         let mut outcomes = Vec::with_capacity(requests.len());
+        let mut candidate = self.tree.clone();
+        let mut plan = UpdatePlan::default();
         for request in requests {
             let outcome = match request {
                 RealizationRequest::Realize {
@@ -375,7 +406,6 @@ impl<R: NativeRuntime> Pump<R> {
                     container,
                     index,
                 } => {
-                    let mut candidate = self.tree.clone();
                     let Ok(lease) = candidate
                         .virtual_model_mut(collection)
                         .and_then(|model| model.realize(index, container).map_err(TreeError::from))
@@ -384,12 +414,15 @@ impl<R: NativeRuntime> Pump<R> {
                         continue;
                     };
                     let element = candidate.virtual_item(collection, &lease.key)?.clone();
-                    let mut plan = UpdatePlan::default();
                     let stale = candidate
                         .children(collection)?
                         .iter()
                         .copied()
-                        .filter(|child| candidate.key(*child).ok().flatten() == Some(&lease.key))
+                        .filter(|child| {
+                            candidate.key(*child).ok().flatten() == Some(&lease.key)
+                                || candidate.realized(collection, container).ok().flatten()
+                                    == Some(*child)
+                        })
                         .collect::<Vec<_>>();
                     for old in stale {
                         Self::retire_planned_subtree(&mut candidate, old, &mut plan)?;
@@ -407,14 +440,16 @@ impl<R: NativeRuntime> Pump<R> {
                         container,
                         child,
                     });
-                    self.apply_realization(candidate, &plan)?;
                     RealizationOutcome::Realized(lease)
                 }
                 RealizationRequest::Recycle {
                     collection,
                     container,
                 } => {
-                    let mut candidate = self.tree.clone();
+                    let Some(child) = candidate.realized(collection, container)? else {
+                        outcomes.push(RealizationOutcome::Rejected(request));
+                        continue;
+                    };
                     let Some(lease) = candidate
                         .virtual_model_mut(collection)
                         .ok()
@@ -423,17 +458,14 @@ impl<R: NativeRuntime> Pump<R> {
                         outcomes.push(RealizationOutcome::Rejected(request));
                         continue;
                     };
-                    let Some(child) = candidate.realized(collection, container)? else {
-                        outcomes.push(RealizationOutcome::Rejected(request));
-                        continue;
-                    };
-                    let mut plan = UpdatePlan::default();
                     Self::retire_planned_subtree(&mut candidate, child, &mut plan)?;
-                    self.apply_realization(candidate, &plan)?;
                     RealizationOutcome::Recycled(lease)
                 }
             };
             outcomes.push(outcome);
+        }
+        if !plan.commands.is_empty() {
+            self.apply_realization(candidate, &plan)?;
         }
         Ok(outcomes)
     }
@@ -485,60 +517,104 @@ impl<R: NativeRuntime> Pump<R> {
         node: NodeId,
         element: Element,
         plan: &mut UpdatePlan,
-    ) -> Result<(), PumpError> {
+    ) -> Result<NodeId, PumpError> {
+        let desired_kind = element.kind();
+        let compatible = match tree.kind(node)? {
+            NodeKind::Native(kind) => kind == desired_kind,
+            NodeKind::VirtualCollection => desired_kind == MountedKind::ItemsRepeater,
+            _ => false,
+        };
+        if !compatible {
+            return Self::replace_planned_node(tree, node, element, plan);
+        }
+        if !plan.retry_properties && Self::node_matches_element(tree, node, &element)? {
+            return Ok(node);
+        }
+
         let parts = element.into_parts();
         if tree.kind(node)? == NodeKind::VirtualCollection {
-            if parts.kind != MountedKind::ItemsRepeater {
-                return Err(PumpError::KindChanged);
-            }
             let ElementStructure::Virtual(items) = parts.structure else {
                 return Err(PumpError::StructureUnsupported);
             };
-            if tree.virtual_items(node)? != items {
+            let old_keys = tree.virtual_model(node)?.keys();
+            let keys_changed = old_keys.len() != items.len()
+                || old_keys
+                    .iter()
+                    .zip(items.iter())
+                    .any(|(old, new)| old != new.key());
+            if keys_changed {
+                for child in tree.children(node)?.to_vec() {
+                    Self::retire_planned_subtree(tree, child, plan)?;
+                }
+                let keys = items.iter().map(|item| item.key().clone());
+                tree.virtual_model_mut(node)?
+                    .update(keys)
+                    .map_err(TreeError::from)?;
                 tree.update_virtual_items(node, items)?;
                 tree.virtual_model_mut(node)?.clear();
                 plan.push(Command::ResetVirtualCollection {
                     node,
                     item_count: tree.virtual_items(node)?.len(),
                 });
+            } else {
+                tree.update_virtual_items(node, items)?;
+                let realized = tree
+                    .children(node)?
+                    .iter()
+                    .copied()
+                    .map(|child| {
+                        let key = tree
+                            .key(child)?
+                            .cloned()
+                            .ok_or(PumpError::StructureUnsupported)?;
+                        let element = tree.virtual_item(node, &key)?.clone();
+                        Ok((child, element))
+                    })
+                    .collect::<Result<Vec<_>, PumpError>>()?;
+                for (child, element) in realized {
+                    Self::reconcile_node(tree, child, element, plan)?;
+                }
             }
-            return Ok(());
+            return Ok(node);
         }
         let NodeKind::Native(kind) = tree.kind(node)? else {
             return Err(PumpError::NotMounted);
         };
-        if kind != parts.kind {
-            return Err(PumpError::KindChanged);
-        }
+        debug_assert_eq!(kind, parts.kind);
 
-        let committed = tree.native(node)?.committed.clone();
-        parts.props.visit_properties(&mut |property, value| {
-            let changed = match &value {
-                Some(value) => committed.get(&property) != Some(value),
-                None => committed.contains_key(&property),
-            };
-            if !changed {
-                return;
-            }
+        let props_changed = tree.native(node)?.desired != parts.props;
+        if props_changed || plan.retry_properties {
+            let committed = &tree.native(node)?.committed;
+            parts.props.visit_properties(&mut |property, value| {
+                let changed = match &value {
+                    Some(value) => committed.get(&property) != Some(value),
+                    None => committed.contains_key(&property),
+                };
+                if !changed {
+                    return;
+                }
 
-            let command = match &value {
-                Some(value) => Command::SetProperty {
+                let command = match &value {
+                    Some(value) => Command::SetProperty {
+                        node,
+                        property,
+                        value: value.clone(),
+                    },
+                    None => Command::ClearProperty { node, property },
+                };
+                let command = plan.push(command);
+                plan.commits.push(PropertyCommit {
+                    command,
                     node,
                     property,
-                    value: value.clone(),
-                },
-                None => Command::ClearProperty { node, property },
-            };
-            let command = plan.push(command);
-            plan.commits.push(PropertyCommit {
-                command,
-                node,
-                property,
-                value,
+                    value,
+                });
             });
-        });
-        Self::update_event_states(tree.native_mut(node)?, node, &parts.props, plan)?;
-        tree.native_mut(node)?.desired = parts.props;
+        }
+        if props_changed {
+            Self::update_event_states(tree.native_mut(node)?, node, &parts.props, plan)?;
+            tree.native_mut(node)?.desired = parts.props;
+        }
 
         let current_children = tree.children(node)?.to_vec();
         match parts.structure {
@@ -549,12 +625,59 @@ impl<R: NativeRuntime> Pump<R> {
             }
             ElementStructure::Content(content) => match (current_children.as_slice(), content) {
                 ([], None) => {}
+                ([], Some(content)) => {
+                    let child = Self::mount_planned_element(tree, Some(node), None, content, plan)?;
+                    plan.push(Command::InsertChild {
+                        parent: node,
+                        child,
+                        index: 0,
+                    });
+                }
+                ([child], None) => {
+                    Self::retire_planned_subtree(tree, *child, plan)?;
+                }
                 ([child], Some(content)) => {
                     Self::reconcile_node(tree, *child, content, plan)?;
                 }
                 _ => return Err(PumpError::StructureUnsupported),
             },
             ElementStructure::Children(children) => {
+                if current_children.len() == children.len()
+                    && current_children
+                        .iter()
+                        .zip(children.iter())
+                        .all(|(child, desired)| {
+                            tree.key(*child).is_ok_and(|key| key == Some(desired.key()))
+                        })
+                {
+                    let mut replacements = Vec::new();
+                    for (index, (child, desired)) in current_children
+                        .iter()
+                        .copied()
+                        .zip(children.iter())
+                        .enumerate()
+                    {
+                        if !plan.retry_properties
+                            && Self::node_matches_element(tree, child, desired.element())?
+                        {
+                        } else {
+                            let reconciled =
+                                Self::reconcile_node(tree, child, desired.element().clone(), plan)?;
+                            if reconciled != child {
+                                replacements.push((index, reconciled));
+                            }
+                        }
+                    }
+                    if !replacements.is_empty() {
+                        let mut children = current_children;
+                        for (index, replacement) in replacements {
+                            children[index] = replacement;
+                        }
+                        tree.set_children(node, children)?;
+                    }
+                    return Ok(node);
+                }
+
                 let mut old_keys = Vec::with_capacity(current_children.len());
                 let mut nodes = HashMap::with_capacity(current_children.len());
                 for child in current_children.iter().copied() {
@@ -566,28 +689,41 @@ impl<R: NativeRuntime> Pump<R> {
                     nodes.insert(key, child);
                 }
 
-                let children = children
-                    .into_iter()
-                    .map(KeyedElement::into_parts)
-                    .collect::<Vec<_>>();
                 let new_keys = children
                     .iter()
-                    .map(|(key, _)| key.clone())
+                    .map(|child| child.key().clone())
                     .collect::<Vec<_>>();
                 let operations = diff(&old_keys, &new_keys)
                     .map_err(|KeyedError::DuplicateKey(key)| PumpError::DuplicateKey(key))?;
 
-                let mut elements = children.into_iter().collect::<HashMap<_, _>>();
+                let mut elements = children
+                    .iter()
+                    .map(|child| (child.key().clone(), child.element()))
+                    .collect::<HashMap<_, _>>();
+                let mut replacements = HashMap::new();
                 for key in &new_keys {
                     if let Some(child_node) = nodes.get(key).copied() {
                         let child = elements
                             .remove(key)
                             .ok_or(PumpError::StructureUnsupported)?;
-                        Self::reconcile_node(tree, child_node, child, plan)?;
+                        let reconciled = if !plan.retry_properties
+                            && Self::node_matches_element(tree, child_node, child)?
+                        {
+                            child_node
+                        } else {
+                            Self::reconcile_node(tree, child_node, child.clone(), plan)?
+                        };
+                        if reconciled != child_node {
+                            nodes.insert(key.clone(), reconciled);
+                            replacements.insert(child_node, reconciled);
+                        }
                     }
                 }
 
-                let mut order = current_children;
+                let mut order = current_children
+                    .into_iter()
+                    .map(|child| replacements.get(&child).copied().unwrap_or(child))
+                    .collect::<Vec<_>>();
                 for operation in operations {
                     let (key, before, child, moved) = match operation {
                         KeyedOperation::Move { key, before } => {
@@ -610,7 +746,7 @@ impl<R: NativeRuntime> Pump<R> {
                                 tree,
                                 Some(node),
                                 Some(key.clone()),
-                                element,
+                                element.clone(),
                                 plan,
                             )?;
                             (key, before, child, false)
@@ -659,7 +795,104 @@ impl<R: NativeRuntime> Pump<R> {
             }
             ElementStructure::Virtual(_) => return Err(PumpError::StructureUnsupported),
         }
-        Ok(())
+        Ok(node)
+    }
+
+    fn node_matches_element(
+        tree: &Tree,
+        node: NodeId,
+        element: &Element,
+    ) -> Result<bool, PumpError> {
+        let kind = tree.kind(node)?;
+        let compatible = match kind {
+            NodeKind::Native(mounted) => mounted == element.kind(),
+            NodeKind::VirtualCollection => element.kind() == MountedKind::ItemsRepeater,
+            _ => false,
+        };
+        if !compatible {
+            return Ok(false);
+        }
+        if kind == NodeKind::VirtualCollection {
+            let ElementStructureRef::Virtual(items) = element.structure() else {
+                return Ok(false);
+            };
+            return Ok(tree.virtual_items(node)? == items);
+        }
+        if !element.props_match(&tree.native(node)?.desired) {
+            return Ok(false);
+        }
+
+        let children = tree.children(node)?;
+        match element.structure() {
+            ElementStructureRef::None => Ok(children.is_empty()),
+            ElementStructureRef::Content(content) => match (children, content) {
+                ([], None) => Ok(true),
+                ([child], Some(content)) => Self::node_matches_element(tree, *child, content),
+                _ => Ok(false),
+            },
+            ElementStructureRef::Children(desired) => {
+                if children.len() != desired.len() {
+                    return Ok(false);
+                }
+                for (child, desired) in children.iter().zip(desired) {
+                    if tree.key(*child)? != Some(desired.key())
+                        || !Self::node_matches_element(tree, *child, desired.element())?
+                    {
+                        return Ok(false);
+                    }
+                }
+                Ok(true)
+            }
+            ElementStructureRef::Virtual(_) => Ok(false),
+        }
+    }
+
+    fn replace_planned_node(
+        tree: &mut Tree,
+        node: NodeId,
+        element: Element,
+        plan: &mut UpdatePlan,
+    ) -> Result<NodeId, PumpError> {
+        let parent = tree.parent(node)?.ok_or(PumpError::StructureUnsupported)?;
+        let key = tree.key(node)?.cloned();
+        let container = if tree.kind(parent)? == NodeKind::VirtualCollection {
+            Some(
+                tree.realized_container(parent, node)?
+                    .ok_or(PumpError::StructureUnsupported)?,
+            )
+        } else {
+            None
+        };
+        let index = tree
+            .children(parent)?
+            .iter()
+            .position(|child| *child == node)
+            .ok_or(PumpError::StructureUnsupported)?;
+        Self::retire_planned_subtree(tree, node, plan)?;
+        let replacement = Self::mount_planned_element(tree, Some(parent), key, element, plan)?;
+        let mut children = tree.children(parent)?.to_vec();
+        let appended = children
+            .iter()
+            .position(|child| *child == replacement)
+            .ok_or(PumpError::StructureUnsupported)?;
+        children.remove(appended);
+        children.insert(index, replacement);
+        tree.set_children(parent, children)?;
+        if let Some(container) = container {
+            tree.set_realized(parent, container, replacement)?;
+            plan.push(Command::AttachRealized {
+                collection: parent,
+                container,
+                child: replacement,
+            });
+        } else {
+            plan.push(Command::InsertChild {
+                parent,
+                child: replacement,
+                index,
+            });
+        }
+        Ok(replacement)
     }
 
     fn update_event_states(
@@ -708,7 +941,9 @@ impl<R: NativeRuntime> Pump<R> {
         root: NodeId,
         plan: &mut UpdatePlan,
     ) -> Result<(), PumpError> {
-        for node in tree.subtree_postorder(root)? {
+        let nodes = tree.subtree_postorder(root)?;
+        plan.commits.retain(|commit| !nodes.contains(&commit.node));
+        for node in nodes {
             if let Some(parent) = tree.parent(node)? {
                 if tree.kind(parent)? == NodeKind::VirtualCollection {
                     let container = tree
@@ -807,6 +1042,7 @@ impl<R: NativeRuntime> Pump<R> {
                 }
             }
             ElementStructure::Children(children) => {
+                let children = Rc::unwrap_or_clone(children);
                 let keys = children
                     .iter()
                     .map(|child| child.key().clone())
@@ -1889,5 +2125,357 @@ mod tests {
             assert!(pump.tree.children(collection).unwrap().is_empty());
             assert_eq!(pump.process_realizations(), Err(PumpError::Poisoned));
         }
+    }
+
+    #[test]
+    fn root_kind_replacement_updates_arena_and_native_parent() {
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(TextBlock::new().text("first").into()).unwrap();
+        let old = pump.root().unwrap();
+        let window = pump.window().unwrap();
+
+        pump.update(Button::new().into()).unwrap();
+
+        let root = pump.root().unwrap();
+        assert_ne!(root, old);
+        assert_eq!(
+            pump.tree.kind(root),
+            Ok(NodeKind::Native(MountedKind::Button))
+        );
+        assert_eq!(pump.runtime().node(window).unwrap().children(), &[root]);
+    }
+
+    #[test]
+    fn content_transitions_support_insert_replace_and_remove() {
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(Button::new().into()).unwrap();
+        let root = pump.root().unwrap();
+
+        pump.update(Button::new().content(TextBlock::new().text("text")).into())
+            .unwrap();
+        let text = pump.tree.children(root).unwrap()[0];
+        assert_eq!(
+            pump.tree.kind(text),
+            Ok(NodeKind::Native(MountedKind::TextBlock))
+        );
+
+        pump.update(Button::new().content(Button::new()).into())
+            .unwrap();
+        let button = pump.tree.children(root).unwrap()[0];
+        assert_ne!(button, text);
+        assert_eq!(
+            pump.tree.kind(button),
+            Ok(NodeKind::Native(MountedKind::Button))
+        );
+
+        pump.update(Button::new().into()).unwrap();
+        assert!(pump.tree.children(root).unwrap().is_empty());
+        assert!(pump.runtime().node(root).unwrap().children().is_empty());
+    }
+
+    #[test]
+    fn same_key_child_can_change_kind_without_replacing_panel() {
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(
+            StackPanel::new()
+                .child("item", TextBlock::new().text("text"))
+                .into(),
+        )
+        .unwrap();
+        let root = pump.root().unwrap();
+        let old = pump.tree.children(root).unwrap()[0];
+
+        pump.update(StackPanel::new().child("item", Button::new()).into())
+            .unwrap();
+
+        let child = pump.tree.children(root).unwrap()[0];
+        assert_eq!(pump.root(), Some(root));
+        assert_ne!(child, old);
+        assert_eq!(
+            pump.tree.kind(child),
+            Ok(NodeKind::Native(MountedKind::Button))
+        );
+        assert_eq!(pump.runtime().node(root).unwrap().children(), &[child]);
+    }
+
+    #[test]
+    fn failed_root_replacement_recovers_from_candidate_root() {
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(TextBlock::new().text("first").into()).unwrap();
+        let old = pump.root().unwrap();
+        pump.runtime_mut().fail_at(0);
+
+        assert!(matches!(
+            pump.update(Button::new().into()),
+            Err(PumpError::RecoveredStructure(_))
+        ));
+        let root = pump.root().unwrap();
+        assert_ne!(root, old);
+        assert_eq!(
+            pump.tree.kind(root),
+            Ok(NodeKind::Native(MountedKind::Button))
+        );
+    }
+
+    #[test]
+    fn every_root_replacement_command_failure_recovers_desired_kind() {
+        let command_count = {
+            let mut pump = Pump::new(RecordingRuntime::default());
+            pump.mount(TextBlock::new().into()).unwrap();
+            pump.update(Button::new().into()).unwrap();
+            pump.runtime().commands().last().unwrap().len()
+        };
+
+        for failed in 0..command_count {
+            let mut pump = Pump::new(RecordingRuntime::default());
+            pump.mount(TextBlock::new().into()).unwrap();
+            pump.runtime_mut().fail_at(failed);
+
+            assert!(matches!(
+                pump.update(Button::new().into()),
+                Err(PumpError::RecoveredStructure(_))
+            ));
+            assert_eq!(
+                pump.tree.kind(pump.root().unwrap()),
+                Ok(NodeKind::Native(MountedKind::Button)),
+                "command {failed}"
+            );
+            assert!(!pump.poisoned(), "command {failed}");
+        }
+    }
+
+    #[test]
+    fn every_content_replacement_command_failure_recovers_desired_tree() {
+        let before = || {
+            Button::new()
+                .content(TextBlock::new().text("before"))
+                .into()
+        };
+        let after = || Button::new().content(Button::new()).into();
+        let command_count = {
+            let mut pump = Pump::new(RecordingRuntime::default());
+            pump.mount(before()).unwrap();
+            pump.update(after()).unwrap();
+            pump.runtime().commands().last().unwrap().len()
+        };
+
+        for failed in 0..command_count {
+            let mut pump = Pump::new(RecordingRuntime::default());
+            pump.mount(before()).unwrap();
+            pump.runtime_mut().fail_at(failed);
+
+            assert!(matches!(
+                pump.update(after()),
+                Err(PumpError::RecoveredStructure(_))
+            ));
+            let root = pump.root().unwrap();
+            let child = pump.tree.children(root).unwrap()[0];
+            assert_eq!(
+                pump.tree.kind(child),
+                Ok(NodeKind::Native(MountedKind::Button)),
+                "command {failed}"
+            );
+            assert!(!pump.poisoned(), "command {failed}");
+        }
+    }
+
+    #[test]
+    fn shutdown_discards_pending_realization_and_rejects_stale_collection() {
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(
+            ItemsRepeater::new()
+                .item("a", TextBlock::new().text("A"))
+                .into(),
+        )
+        .unwrap();
+        let collection = pump.root().unwrap();
+        let request = RealizationRequest::Realize {
+            collection,
+            container: RealizedContainer(1),
+            index: 0,
+        };
+        pump.runtime_mut().queue_realization(request);
+
+        pump.shutdown();
+
+        assert!(pump.process_realizations().unwrap().is_empty());
+        pump.runtime_mut().queue_realization(request);
+        assert_eq!(
+            pump.process_realizations().unwrap(),
+            [RealizationOutcome::Rejected(request)]
+        );
+        assert!(pump.runtime().is_empty());
+    }
+
+    #[test]
+    fn repeated_virtual_mount_realize_recycle_shutdown_returns_to_zero() {
+        let mut pump = Pump::new(RecordingRuntime::default());
+        for cycle in 0..100 {
+            pump.mount(
+                ItemsRepeater::new()
+                    .item("a", TextBlock::new().text("A"))
+                    .item("b", Button::new())
+                    .into(),
+            )
+            .unwrap();
+            let collection = pump.root().unwrap();
+            for index in 0..2 {
+                pump.runtime_mut()
+                    .queue_realization(RealizationRequest::Realize {
+                        collection,
+                        container: RealizedContainer(index),
+                        index: index as usize,
+                    });
+            }
+            assert_eq!(pump.process_realizations().unwrap().len(), 2);
+            for index in 0..2 {
+                pump.runtime_mut()
+                    .queue_realization(RealizationRequest::Recycle {
+                        collection,
+                        container: RealizedContainer(index),
+                    });
+            }
+            assert_eq!(pump.process_realizations().unwrap().len(), 2);
+
+            pump.shutdown();
+
+            assert_eq!(pump.tree.len(), 0, "cycle {cycle}");
+            assert!(pump.runtime().is_empty(), "cycle {cycle}");
+        }
+    }
+
+    #[test]
+    fn virtual_source_reset_retires_realized_rows_before_clearing_leases() {
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(
+            ItemsRepeater::new()
+                .item("a", TextBlock::new().text("A"))
+                .item("b", TextBlock::new().text("B"))
+                .into(),
+        )
+        .unwrap();
+        let collection = pump.root().unwrap();
+        for index in 0..2 {
+            pump.runtime_mut()
+                .queue_realization(RealizationRequest::Realize {
+                    collection,
+                    container: RealizedContainer(index),
+                    index: index as usize,
+                });
+        }
+        pump.process_realizations().unwrap();
+        let realized = pump.tree.children(collection).unwrap().to_vec();
+        assert_eq!(realized.len(), 2);
+
+        pump.update(
+            ItemsRepeater::new()
+                .item("z", TextBlock::new().text("Z"))
+                .item("b", TextBlock::new().text("B"))
+                .into(),
+        )
+        .unwrap();
+
+        assert!(pump.tree.children(collection).unwrap().is_empty());
+        assert_eq!(pump.tree.virtual_model(collection).unwrap().active_len(), 0);
+        assert!(
+            pump.runtime()
+                .node(collection)
+                .unwrap()
+                .children()
+                .is_empty()
+        );
+        for child in realized {
+            assert!(pump.runtime().node(child).is_none());
+        }
+    }
+
+    #[test]
+    fn virtual_payload_change_reconciles_rows_without_resetting_source() {
+        let first = Rc::new(Cell::new(0));
+        let second = Rc::new(Cell::new(0));
+        let first_callback = Rc::clone(&first);
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(
+            ItemsRepeater::new()
+                .item(
+                    "button",
+                    Button::new().on_click(move || first_callback.set(first_callback.get() + 1)),
+                )
+                .into(),
+        )
+        .unwrap();
+        let collection = pump.root().unwrap();
+        pump.runtime_mut()
+            .queue_realization(RealizationRequest::Realize {
+                collection,
+                container: RealizedContainer(0),
+                index: 0,
+            });
+        pump.process_realizations().unwrap();
+        let child = pump.tree.children(collection).unwrap()[0];
+        let revision = pump.event_revision(child, EventId::ButtonClick).unwrap();
+        let batches = pump.runtime().batches();
+        let second_callback = Rc::clone(&second);
+
+        pump.update(
+            ItemsRepeater::new()
+                .item(
+                    "button",
+                    Button::new().on_click(move || second_callback.set(second_callback.get() + 1)),
+                )
+                .into(),
+        )
+        .unwrap();
+
+        assert_eq!(pump.runtime().batches(), batches);
+        assert_eq!(pump.tree.children(collection).unwrap(), &[child]);
+        pump.queue_event(QueuedEvent {
+            node: child,
+            event: EventId::ButtonClick,
+            revision,
+            payload: EventPayload::Unit,
+        });
+        assert_eq!(pump.dispatch_events(), Ok(1));
+        assert_eq!(first.get(), 0);
+        assert_eq!(second.get(), 1);
+    }
+
+    #[test]
+    fn same_batch_container_reuse_retires_earlier_row() {
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount(
+            ItemsRepeater::new()
+                .item("a", TextBlock::new().text("A"))
+                .item("b", TextBlock::new().text("B"))
+                .into(),
+        )
+        .unwrap();
+        let collection = pump.root().unwrap();
+        let container = RealizedContainer(1);
+        for index in 0..2 {
+            pump.runtime_mut()
+                .queue_realization(RealizationRequest::Realize {
+                    collection,
+                    container,
+                    index,
+                });
+        }
+
+        let outcomes = pump.process_realizations().unwrap();
+
+        let RealizationOutcome::Realized(first) = &outcomes[0] else {
+            panic!("expected first lease");
+        };
+        let RealizationOutcome::Realized(second) = &outcomes[1] else {
+            panic!("expected second lease");
+        };
+        assert!(!pump.tree.virtual_model(collection).unwrap().accepts(first));
+        assert!(pump.tree.virtual_model(collection).unwrap().accepts(second));
+        assert_eq!(pump.tree.children(collection).unwrap().len(), 1);
+        assert_eq!(
+            pump.tree.key(pump.tree.children(collection).unwrap()[0]),
+            Ok(Some(&Key::from("b")))
+        );
+        assert_eq!(pump.runtime().node(collection).unwrap().children().len(), 1);
     }
 }

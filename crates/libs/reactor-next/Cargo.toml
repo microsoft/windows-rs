@@ -9,6 +9,9 @@ description = "Experimental next-generation Windows UI library"
 repository = "https://github.com/microsoft/windows-rs"
 readme = "readme.md"
 
+[features]
+test = []
+
 [dependencies]
 windows-collections = { workspace = true, features = ["std"] }
 windows-core = { workspace = true }

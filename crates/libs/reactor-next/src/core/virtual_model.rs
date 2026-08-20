@@ -1,4 +1,5 @@
 use std::collections::{HashMap, HashSet};
+use std::rc::Rc;
 
 use super::*;
 
@@ -25,7 +26,7 @@ pub struct VirtualModel {
     active: HashMap<Key, (u64, RealizedContainer)>,
     collection: NodeId,
     containers: HashMap<RealizedContainer, (Key, u64)>,
-    keys: Vec<Key>,
+    keys: Rc<Vec<Key>>,
     revision: u64,
 }
 
@@ -41,7 +42,7 @@ impl VirtualModel {
             active: HashMap::new(),
             collection,
             containers: HashMap::new(),
-            keys,
+            keys: Rc::new(keys),
             revision: 0,
         })
     }
@@ -56,7 +57,7 @@ impl VirtualModel {
         let retained = keys.iter().cloned().collect::<HashSet<_>>();
         self.active.retain(|key, _| retained.contains(key));
         self.containers.retain(|_, (key, _)| retained.contains(key));
-        self.keys = keys;
+        self.keys = Rc::new(keys);
         Ok(operations)
     }
 

@@ -5,7 +5,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
-windows-reactor-next = { workspace = true }
+windows-reactor-next = { workspace = true, features = ["test"] }
 
 [lints]
 workspace = true

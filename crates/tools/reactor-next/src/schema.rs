@@ -134,6 +134,12 @@ impl Schema {
             let mut field_names = HashSet::new();
 
             for property in control.property {
+                if !property.clearable {
+                    return Err(format!(
+                        "{}.{} must be clearable until required properties are supported",
+                        control.type_name, property.name
+                    ));
+                }
                 validate_member(
                     &control.type_name,
                     &property.name,
@@ -331,6 +337,7 @@ capabilities = ["controlled_text"]
 
 [[control.property]]
 name = "Text"
+clearable = true
 controlled = "Missing"
 "#;
         let schema = Schema::parse(source).unwrap();
@@ -340,6 +347,27 @@ controlled = "Missing"
             schema.resolve(&metadata).err().unwrap(),
             "Microsoft.UI.Xaml.Controls.TextBox.Text names missing feedback event Missing"
         );
+    }
+
+    #[test]
+    fn rejects_non_clearable_property_without_required_value_contract() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ProgressBar"
+role = "leaf"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Value"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let error = Schema::parse(source)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+
+        assert!(error.contains("must be clearable"));
     }
 
     #[test]

@@ -19,6 +19,8 @@ Application, window, control, and subscription handles share the arena lifetime.
 update failures clear and remount the control root with fresh generations while preserving the
 application and window. A remount failure stops the affected pump. Property failures retain the
 last comparison value for retry.
+The live host schedules bounded low-priority retries and stops after persistent divergence rather
+than leaving an undispatched retry signal.
 `TextBox.TextChanged` reads its payload before queueing, and Reactor-originated text writes suppress
 their matching native feedback.
 
@@ -29,6 +31,14 @@ realization for the dispatcher pump. Row controls remain ordinary arena subtrees
 shell only after their native command batch succeeds. The initial vertical-list slice gives empty
 shells a nonzero estimated height so WinUI does not realize the whole source before queued content
 is mounted.
+Changing source keys retires every realized row before clearing leases. Changes to row payloads
+with the same keys reconcile the visible row subtrees without resetting the item source.
+Candidate trees use copy-on-write arena nodes. Child and virtual item payloads and string keys use
+shared immutable storage. Borrowed generated comparisons skip unchanged subtrees without cloning
+their properties or children.
+
+The `test` feature exposes the recording runtime and pump to the headless benchmark package. It is
+not part of the default application surface.
 
 The framework-dependent setup helper currently stages the bootstrap DLL under
 `target\debug\build`; live runs need it copied beside the executable in `target\debug`.
