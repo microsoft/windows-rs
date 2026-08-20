@@ -27,6 +27,8 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     });
     let mounted_props_variants = schema.controls.iter().map(generate_mounted_props_variant);
     let mounted_props_visitors = schema.controls.iter().map(generate_mounted_props_visitor);
+    let mounted_event_visitors = schema.controls.iter().map(generate_mounted_event_visitor);
+    let mounted_event_dispatchers = schema.controls.iter().flat_map(generate_event_dispatchers);
     let element_parts = schema.controls.iter().map(generate_element_parts);
     let property_ids = schema.controls.iter().flat_map(|control| {
         control
@@ -41,6 +43,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             .map(|event| ident(&format!("{}{}", control.name, event.name)))
     });
     let property_values = generate_property_values(schema);
+    let event_payloads = generate_event_payloads(schema);
     let descriptors = schema.controls.iter().map(generate_descriptors);
     let controls = schema.controls.iter().map(generate_control);
 
@@ -83,6 +86,11 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             );
         }
 
+        pub trait MountedEventsExt {
+            fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool));
+            fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> bool;
+        }
+
         impl MountedPropsExt for MountedProps {
             fn visit_properties(
                 &self,
@@ -90,6 +98,21 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             ) {
                 match self {
                     #(#mounted_props_visitors),*
+                }
+            }
+        }
+
+        impl MountedEventsExt for MountedProps {
+            fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool)) {
+                match self {
+                    #(#mounted_event_visitors),*
+                }
+            }
+
+            fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> bool {
+                match (self, event, payload) {
+                    #(#mounted_event_dispatchers,)*
+                    _ => false,
                 }
             }
         }
@@ -129,6 +152,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         }
 
         #property_values
+        #event_payloads
 
         #[derive(Clone, Copy, Debug, Eq, PartialEq)]
         pub enum ControlRole {
@@ -317,6 +341,54 @@ fn generate_mounted_props_visitor(control: &ResolvedControl) -> TokenStream {
     }
 }
 
+fn generate_mounted_event_visitor(control: &ResolvedControl) -> TokenStream {
+    let name = ident(&control.name);
+    let fields = control.events.iter().map(|event| ident(&event.field));
+    let events = control.events.iter().map(|event| {
+        let field = ident(&event.field);
+        let id = ident(&format!("{}{}", control.name, event.name));
+        quote! { visit(EventId::#id, #field.is_some()); }
+    });
+    quote! {
+        Self::#name { #(#fields,)* .. } => {
+            #(#events)*
+        }
+    }
+}
+
+fn generate_event_dispatchers(control: &ResolvedControl) -> Vec<TokenStream> {
+    let name = ident(&control.name);
+    control
+        .events
+        .iter()
+        .map(|event| {
+            let field = ident(&event.field);
+            let id = ident(&format!("{}{}", control.name, event.name));
+            let payload = ident(&event.payload);
+            let call = if event.payload == "Unit" {
+                quote! { callback.call(()) }
+            } else {
+                quote! { callback.call(value.clone()) }
+            };
+            let payload_pattern = if event.payload == "Unit" {
+                quote! { EventPayload::#payload }
+            } else {
+                quote! { EventPayload::#payload(value) }
+            };
+            quote! {
+                (
+                    Self::#name { #field: Some(callback), .. },
+                    EventId::#id,
+                    #payload_pattern,
+                ) => {
+                    #call;
+                    true
+                }
+            }
+        })
+        .collect()
+}
+
 fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
     let mut values = BTreeMap::new();
     for property in schema
@@ -328,6 +400,7 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
             .entry(property.value.clone())
             .or_insert_with(|| value_type(&property.value));
     }
+
     let variants = values.iter().map(|(name, value)| {
         let name = ident(name);
         quote! { #name(#value) }
@@ -350,6 +423,30 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
         }
 
         #(#conversions)*
+    }
+}
+
+fn generate_event_payloads(schema: &ResolvedSchema) -> TokenStream {
+    let mut payloads = BTreeMap::new();
+    for event in schema.controls.iter().flat_map(|control| &control.events) {
+        payloads
+            .entry(event.payload.clone())
+            .or_insert_with(|| value_type(&event.payload));
+    }
+    let variants = payloads.into_iter().map(|(name, value)| {
+        let is_unit = name == "Unit";
+        let name = ident(&name);
+        if is_unit {
+            quote! { #name }
+        } else {
+            quote! { #name(#value) }
+        }
+    });
+    quote! {
+        #[derive(Clone, Debug, PartialEq)]
+        pub enum EventPayload {
+            #(#variants),*
+        }
     }
 }
 

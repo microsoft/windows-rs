@@ -193,7 +193,7 @@ Deferred:
 - Implement the initial hooks and phased pump.
 - [x] Implement command receipts.
 - [x] Implement conditional comparison-state commit.
-- Implement queued events with stale-work rejection.
+- [x] Implement queued events with stale-work rejection.
 - [x] Add randomized model tests and command failure injection.
 
 **Exit:** counter, nested component, and keyed panel pass headlessly.
@@ -310,11 +310,13 @@ After representative parity:
 
 - [x] Generate shallow mounted props and split structural payloads without cloning subtrees.
 - [ ] Implement initial state and callback hooks.
-- [ ] Extend the headless pump from recursive mount and leaf updates to keyed structural updates.
+- [x] Add transactional recursive mount, property updates, and keyed move/insert/remove.
+- [ ] Add render scheduling and hooks around the transaction core.
 
 ### Next
 
-- [ ] Queue events and reject stale generations.
+- [ ] Implement state slots and whole-root render scheduling.
+- [ ] Add effect cleanup after successful apply.
 
 ### Decisions needed before implementation
 

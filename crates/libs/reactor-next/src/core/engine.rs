@@ -11,6 +11,7 @@ pub enum NodeKind {
     VirtualCollection,
 }
 
+#[derive(Clone)]
 struct Node {
     kind: NodeKind,
     parent: Option<NodeId>,
@@ -19,9 +20,17 @@ struct Node {
     native: Option<NativeState>,
 }
 
+#[derive(Clone)]
 pub struct NativeState {
     pub desired: MountedProps,
     pub committed: BTreeMap<PropertyId, PropertyValue>,
+    pub events: BTreeMap<EventId, EventState>,
+}
+
+#[derive(Clone, Copy)]
+pub struct EventState {
+    pub revision: u32,
+    pub active: bool,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -37,6 +46,7 @@ impl From<ArenaError> for TreeError {
     }
 }
 
+#[derive(Clone)]
 pub struct Tree {
     arena: Arena<Node>,
     root: Option<NodeId>,
@@ -83,9 +93,22 @@ impl Tree {
         let id = self.insert(parent, NodeKind::Native(kind))?;
         let node = self.arena.get_mut(id)?;
         node.key = key;
+        let mut events = BTreeMap::new();
+        desired.visit_events(&mut |event, active| {
+            if active {
+                events.insert(
+                    event,
+                    EventState {
+                        revision: 1,
+                        active: true,
+                    },
+                );
+            }
+        });
         node.native = Some(NativeState {
             desired,
             committed: BTreeMap::new(),
+            events,
         });
         Ok(id)
     }
@@ -118,6 +141,15 @@ impl Tree {
         Ok(&self.arena.get(id)?.children)
     }
 
+    pub fn key(&self, id: NodeId) -> Result<Option<&Key>, TreeError> {
+        Ok(self.arena.get(id)?.key.as_ref())
+    }
+
+    pub fn set_children(&mut self, id: NodeId, children: Vec<NodeId>) -> Result<(), TreeError> {
+        self.arena.get_mut(id)?.children = children;
+        Ok(())
+    }
+
     pub fn len(&self) -> usize {
         self.arena.len()
     }
@@ -142,6 +174,12 @@ impl Tree {
             retired.push((id, node.kind));
         }
         Ok(retired)
+    }
+
+    pub fn subtree_postorder(&self, id: NodeId) -> Result<Vec<NodeId>, TreeError> {
+        let mut order = Vec::new();
+        self.collect_postorder(id, &mut order)?;
+        Ok(order)
     }
 
     fn collect_postorder(&self, id: NodeId, order: &mut Vec<NodeId>) -> Result<(), TreeError> {

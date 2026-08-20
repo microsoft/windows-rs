@@ -16,11 +16,13 @@ pub enum ArenaError {
     CapacityExceeded,
 }
 
+#[derive(Clone)]
 struct Slot<T> {
     generation: u32,
     value: Option<T>,
 }
 
+#[derive(Clone)]
 pub struct Arena<T> {
     slots: Vec<Slot<T>>,
     free: Vec<u32>,

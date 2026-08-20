@@ -252,6 +252,10 @@ pub trait ElementPartsExt {
 pub trait MountedPropsExt {
     fn visit_properties(&self, visit: &mut dyn FnMut(PropertyId, Option<PropertyValue>));
 }
+pub trait MountedEventsExt {
+    fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool));
+    fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> bool;
+}
 impl MountedPropsExt for MountedProps {
     fn visit_properties(&self, visit: &mut dyn FnMut(PropertyId, Option<PropertyValue>)) {
         match self {
@@ -332,6 +336,49 @@ impl MountedPropsExt for MountedProps {
                     },
                 );
             }
+        }
+    }
+}
+impl MountedEventsExt for MountedProps {
+    fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool)) {
+        match self {
+            Self::TextBlock { .. } => {}
+            Self::Button { on_click, .. } => {
+                visit(EventId::ButtonClick, on_click.is_some());
+            }
+            Self::StackPanel { .. } => {}
+            Self::TextBox {
+                on_text_changed, ..
+            } => {
+                visit(EventId::TextBoxTextChanged, on_text_changed.is_some());
+            }
+        }
+    }
+    fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> bool {
+        match (self, event, payload) {
+            (
+                Self::Button {
+                    on_click: Some(callback),
+                    ..
+                },
+                EventId::ButtonClick,
+                EventPayload::Unit,
+            ) => {
+                callback.call(());
+                true
+            }
+            (
+                Self::TextBox {
+                    on_text_changed: Some(callback),
+                    ..
+                },
+                EventId::TextBoxTextChanged,
+                EventPayload::Str(value),
+            ) => {
+                callback.call(value.clone());
+                true
+            }
+            _ => false,
         }
     }
 }
@@ -423,6 +470,11 @@ impl From<TextWrapping> for PropertyValue {
     fn from(value: TextWrapping) -> Self {
         Self::TextWrapping(value)
     }
+}
+#[derive(Clone, Debug, PartialEq)]
+pub enum EventPayload {
+    Str(String),
+    Unit,
 }
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ControlRole {
