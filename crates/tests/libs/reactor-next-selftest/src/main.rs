@@ -10,7 +10,7 @@ fn main() -> Result<()> {
         hooks.use_effect((), move || {
             let passed = live_resources_installed().unwrap_or(false);
             _ = schedule_live_controlled_repair_test(passed);
-            None
+            Some(Box::new(mark_live_test_cleanup as fn()))
         });
         TextBox::new().text("fixed").into()
     })

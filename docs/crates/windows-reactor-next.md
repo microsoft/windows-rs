@@ -43,7 +43,11 @@ must declare a feedback contract; the current slice accepts only synchronous exa
 rejects unsupported contracts during generation.
 The process-isolated WinUI fixture injects a native text observation through the live scheduler
 without a public callback and verifies that the render loop restores the actual `TextBox.Text`
-value. OS input and native event delivery still need a separate automation fixture.
+value. It also forces dispatcher enqueue rejection followed by retry, requests work reentrantly
+during dispatch, verifies recovery after a setter mutates WinUI and reports failure, forces a
+structural failure and native remount, rejects stale realization work, and verifies hook cleanup
+runs once before native reset. OS input and native event delivery still need a separate automation
+fixture.
 
 Virtual collection models use the panel keyed differ and issue arena-owned realization leases.
 Recycling, key removal, collection retirement, and replacement realization invalidate stale work.
@@ -57,6 +61,12 @@ with the same keys reconcile the visible row subtrees without resetting the item
 Candidate trees use copy-on-write arena nodes. Child and virtual item payloads and string keys use
 shared immutable storage. Borrowed generated comparisons skip unchanged subtrees without cloning
 their properties or children.
+
+The bounded component prototype starts with a separate generational scope arena for non-cloneable
+component state. Scope slots enforce reserved, published, and retiring states. Failed reservations
+can be dropped before publication, published scopes must enter retirement before removal, and slot
+reuse invalidates the old generation. Component parent, key, type, and order will remain in the
+structural tree rather than being duplicated in this arena.
 
 The `test` feature exposes the recording runtime and pump to the headless benchmark package. It is
 not part of the default application surface.

@@ -10,6 +10,12 @@ thread_local! {
     static SCHEDULER_FAULT: RefCell<Option<windows_core::Error>> = const { RefCell::new(None) };
 }
 
+#[cfg(feature = "test")]
+thread_local! {
+    static LIVE_TEST_DISPATCHES: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
+    static LIVE_TEST_REARM: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
+}
+
 struct LiveHost {
     fault: Option<windows_core::Error>,
     pump: Box<dyn LivePump>,
@@ -24,6 +30,12 @@ trait LivePump {
     fn live_inject_root_text(&mut self, value: &str) -> Result<(), RuntimeError>;
     #[cfg(feature = "test")]
     fn live_root_text(&self) -> Result<String, RuntimeError>;
+    #[cfg(feature = "test")]
+    fn live_stale_remount(&mut self) -> bool;
+    #[cfg(feature = "test")]
+    fn live_rejection_then_retry(&self) -> bool;
+    #[cfg(feature = "test")]
+    fn live_mutate_then_fail(&mut self) -> bool;
 }
 
 impl<F> LivePump for RenderLoop<WinUiRuntime, F>
@@ -71,6 +83,76 @@ where
     fn live_root_text(&self) -> Result<String, RuntimeError> {
         let root = self.pump().root().ok_or(RuntimeError::UnsupportedKind)?;
         self.pump().runtime().live_text(root)
+    }
+
+    #[cfg(feature = "test")]
+    fn live_stale_remount(&mut self) -> bool {
+        let calls = Rc::new(std::cell::Cell::new(0));
+        let callback_calls = Rc::clone(&calls);
+        let old_identity = self.pump().native_identity();
+        self.pump_mut().runtime_mut().live_fail_next_structural();
+        if !matches!(
+            self.pump_mut().update(
+                Button::new()
+                    .on_click(move || callback_calls.set(callback_calls.get() + 1))
+                    .into()
+            ),
+            Err(PumpError::RecoveredStructure(_))
+        ) {
+            return false;
+        }
+        let new_identity = self.pump().native_identity();
+        let Some(root) = self.pump().root() else {
+            return false;
+        };
+        let Some(revision) = self.pump().event_revision(root, EventId::ButtonClick) else {
+            return false;
+        };
+        self.pump().runtime().live_queue_event(
+            old_identity,
+            root,
+            EventId::ButtonClick,
+            revision,
+            EventPayload::Unit,
+        );
+        old_identity.window() == new_identity.window()
+            && old_identity.realization_epoch() != new_identity.realization_epoch()
+            && self.pump_mut().dispatch_events() == Ok(0)
+            && calls.get() == 0
+    }
+
+    #[cfg(feature = "test")]
+    fn live_rejection_then_retry(&self) -> bool {
+        self.pump().runtime().live_reject_next_enqueue();
+        self.pump().runtime().schedule_retry() == Err(RuntimeError::DispatcherRejected)
+            && self.pump().runtime().schedule_retry().is_ok()
+    }
+
+    #[cfg(feature = "test")]
+    fn live_mutate_then_fail(&mut self) -> bool {
+        self.pump_mut()
+            .runtime_mut()
+            .live_fail_next_property_after_apply();
+        if !matches!(
+            self.pump_mut()
+                .update(TextBox::new().text("mutated").into()),
+            Err(PumpError::PropertyApplyFailed(_))
+        ) {
+            return false;
+        }
+        if self
+            .pump()
+            .runtime()
+            .live_text(self.pump().root().unwrap())
+            .as_deref()
+            != Ok("mutated")
+        {
+            return false;
+        }
+        self.pump_mut()
+            .update(TextBox::new().text("mutated").into())
+            .is_ok()
+            && !self.pump().retry_pending()
     }
 }
 
@@ -161,6 +243,8 @@ pub(crate) fn dispatch_native_events() {
         let Some(mut live) = host.borrow_mut().take() else {
             return;
         };
+        #[cfg(feature = "test")]
+        LIVE_TEST_DISPATCHES.with(|count| count.set(count.get().saturating_add(1)));
         let mut retry = false;
         if live.fault.is_none() {
             match live.pump.dispatch_events() {
@@ -178,6 +262,14 @@ pub(crate) fn dispatch_native_events() {
                     }
                 }
             }
+        }
+        #[cfg(feature = "test")]
+        if LIVE_TEST_REARM.with(|rearm| rearm.replace(false))
+            && let Err(error) = live.pump.schedule_retry()
+        {
+            live.fault = Some(runtime_error(error));
+            live.pump.shutdown();
+            exit_ui_thread();
         }
         if retry && let Err(error) = live.pump.schedule_retry() {
             live.fault = Some(runtime_error(error));
@@ -231,7 +323,10 @@ fn queue_live_repair_verification(
         });
         let repaired = matches!(text.as_ref(), Some(Ok(value)) if value == "fixed");
         if initial_success && repaired {
-            std::process::exit(0);
+            if schedule_live_scheduler_reentrancy_test().is_err() {
+                std::process::exit(1);
+            }
+            return;
         }
         if attempts == 0 {
             eprintln!(
@@ -253,6 +348,82 @@ fn queue_live_repair_verification(
             "dispatcher rejected controlled repair verification",
         ))
     }
+}
+
+#[cfg(feature = "test")]
+fn schedule_live_scheduler_reentrancy_test() -> windows_core::Result<()> {
+    let dispatcher = DispatcherQueue::GetForCurrentThread()?;
+    let verify_dispatcher = dispatcher.clone();
+    let start = DispatcherQueueHandler::new(move || {
+        LIVE_TEST_DISPATCHES.with(|count| count.set(0));
+        LIVE_TEST_REARM.with(|rearm| rearm.set(true));
+        let scheduled = HOST.with(|host| {
+            host.borrow()
+                .as_ref()
+                .is_some_and(|host| host.pump.live_rejection_then_retry())
+        });
+        if !scheduled || queue_live_reentrancy_verification(verify_dispatcher.clone(), 8).is_err() {
+            std::process::exit(1);
+        }
+    });
+    if dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &start)? {
+        Ok(())
+    } else {
+        Err(windows_core::Error::new(
+            E_FAIL,
+            "dispatcher rejected reentrancy fixture",
+        ))
+    }
+}
+
+#[cfg(feature = "test")]
+fn queue_live_reentrancy_verification(
+    dispatcher: DispatcherQueue,
+    attempts: u8,
+) -> windows_core::Result<()> {
+    let next_dispatcher = dispatcher.clone();
+    let verify = DispatcherQueueHandler::new(move || {
+        if LIVE_TEST_DISPATCHES.with(|count| count.get() >= 2) {
+            finish_live_backend_test();
+            return;
+        }
+        if attempts == 0
+            || queue_live_reentrancy_verification(next_dispatcher.clone(), attempts - 1).is_err()
+        {
+            eprintln!("scheduler reentrancy fixture did not observe a rearmed dispatch");
+            std::process::exit(1);
+        }
+    });
+    if dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Low, &verify)? {
+        Ok(())
+    } else {
+        Err(windows_core::Error::new(
+            E_FAIL,
+            "dispatcher rejected reentrancy verification",
+        ))
+    }
+}
+
+#[cfg(feature = "test")]
+fn finish_live_backend_test() {
+    let Some(mut live) = HOST.with(|host| host.borrow_mut().take()) else {
+        eprintln!("live backend fixture lost its host");
+        std::process::exit(1);
+    };
+    if !live.pump.live_mutate_then_fail() {
+        eprintln!("live backend fixture did not recover a mutate-then-fail setter");
+        std::process::exit(1);
+    }
+    if !live.pump.live_stale_remount() {
+        eprintln!("live backend fixture did not reject stale remount work");
+        std::process::exit(1);
+    }
+    live.pump.shutdown();
+    if !live_test_cleanup_ordered() {
+        eprintln!("live backend fixture observed native reset before hook cleanup");
+        std::process::exit(1);
+    }
+    std::process::exit(0);
 }
 
 fn pump_error(error: PumpError) -> windows_core::Error {

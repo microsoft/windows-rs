@@ -8,6 +8,7 @@ pub mod public;
 mod pump;
 mod runtime;
 mod scheduler;
+mod scope;
 mod virtual_model;
 
 pub use arena::*;

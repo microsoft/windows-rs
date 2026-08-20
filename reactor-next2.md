@@ -176,6 +176,162 @@ error boundary is part of this prototype.
 - Cleanup is idempotent across replacement, close, and terminal fault.
 - Framework subscriptions cannot retain an untracked cycle to their component scope.
 
+## Component prototype contract
+
+### Published ownership and scope states
+
+The published `Tree` owns component parent, key, type, and sibling order. A component boundary is a
+logical `NodeKind::Component` node with one `ScopeId`. The scope arena does not store parent, key,
+or sibling links.
+
+```text
+ScopeSlot {
+    generation,
+    entry: None | ScopeEntry,
+}
+
+ScopeEntry<C> {
+    state: Reserved | Published | Retiring,
+    component: C,
+    props: C::Props,
+    desired: View,
+    effects,
+}
+```
+
+| Scope state | Structural relation | Message handling |
+| --- | --- | --- |
+| Reserved | Candidate boundary only | Envelopes may queue but cannot execute |
+| Published | Exactly one published boundary | Valid envelopes execute |
+| Retiring | Old published boundary until apply begins | New envelopes are rejected |
+| Vacant slot | None | Tokens fail generation validation |
+
+Planning first validates keys, types, slot cardinality, and scope reservations. It does not run
+cleanup. After a valid plan, retiring scopes run cleanup child-first while their native resources
+still exist. Native apply and immediate recovery then publish the candidate relation or fault the
+host. Failed reservations are retired without setup. There is no rollback to an old component
+state or old desired view after component code has accepted props or a message.
+
+The arena retains a vacant slot's generation and increments it before reuse. A stale token
+therefore cannot address a later scope in the same slot. Any invalid key, type, cardinality, or
+reservation invalidates the entire candidate, drops every reservation in that plan, and faults the
+window. Phase 4 does not publish a valid subset of an invalid candidate.
+
+The candidate tree may clone `ScopeId` values but never scope entries. Existing published scopes
+remain in the arena while the candidate is planned. New scopes live in a reservation list owned by
+that plan. Publication changes their state to `Published`; abandoning the plan drops them and all
+queued reserved envelopes.
+
+### Component and message erasure
+
+The bounded public contract is:
+
+```text
+trait Component: 'static {
+    type Props: Clone + PartialEq + 'static;
+    type Message: 'static;
+
+    fn create(props: &Self::Props, context: &mut ComponentContext<Self>) -> Self;
+    fn changed(&mut self, props: &Self::Props, context: &mut ComponentContext<Self>);
+    fn update(&mut self, message: Self::Message, context: &mut ComponentContext<Self>);
+    fn view(&self, context: &mut ViewContext<Self>) -> View;
+}
+```
+
+`ScopeEntry<C>` is held behind an object-safe internal trait. Props and message envelopes carry
+their concrete `TypeId`; internal dispatch functions downcast both the scope and payload. A failed
+downcast is a framework invariant fault, not an ignored message. No unsafe cast is needed.
+
+`LocalSender<C::Message>` contains a `ComponentToken` and the window-local queue. `send` only
+enqueues. Validation checks the full `WindowToken`, scope generation, published state, and message
+type before dispatch. A sender for a reserved scope may enqueue, but its envelopes remain blocked
+until publication and are discarded if reservation fails. Background senders are outside Phase 4.
+
+Props are parent input, not messages. Equal props do nothing. New props replace the stored desired
+props and call `changed` once before that child's next `view`. If a parent update discovers new
+props while child messages are already queued, props are applied first; surviving child messages
+then observe the new props. Multiple parent renders before child composition coalesce to the last
+props.
+
+### View shape and logical anchoring
+
+`View` has four forms:
+
+```text
+Empty
+Native(Element)
+Component { key, factory, props }
+Fragment(Vec<KeyedView>)
+```
+
+Component and fragment nodes are logical and never create a WinUI object. A component boundary owns
+one logical slot containing its current `View`.
+
+The initial prototype uses explicit native slot adapters rather than changing every generated
+builder:
+
+```text
+View::content(control, child)
+View::children(control, keyed_children)
+View::virtual_items(control, keyed_items)
+```
+
+The control argument must have the matching generated role and must not already contain structural
+children. This keeps ordinary `Element` APIs unchanged during the A/B test. If the component model
+passes, the generator may accept `Into<View>` directly.
+
+Fragments splice into a native children slot. Empty and single-root views are valid in any slot.
+A content slot and the window root accept at most one realized native root after transparent
+component and fragment expansion. A multi-root fragment in either location is a planning error.
+Component-only chains and pass-through components therefore add no native control.
+
+Child identity is `(parent component boundary, key, component TypeId)`. An unkeyed child uses its
+stable ordinal among unkeyed component children in that logical slot. Same key and type retains the
+scope across props and keyed movement. Same key with a different type retires the old scope and
+reserves a new generation.
+
+### Drain, composition, and publication phases
+
+One window turn runs these phases:
+
+1. Drain native observations and validate their native tokens.
+2. Apply coalesced parent props to published scopes, parent-first.
+3. Drain validated component messages by global enqueue sequence.
+4. Compose dirty scopes parent-first; retirement discovered by a parent prevents later child work.
+   When a component view has no matching published scope, call `create`, add its scope to the
+   plan's reservation list, and call its first `view` depth-first in this phase.
+5. Validate the already-built logical candidate and every reservation without running user code.
+6. Run retiring cleanup and old cleanup for changed effects child-first while old native resources
+   still exist, apply native commands, recover if needed, and publish.
+7. Run new and changed effect setup child-first after publication.
+
+Messages sent from `create`, `changed`, `update`, `view`, callbacks, or effects append to the queue.
+They never execute in the current borrow. A turn has separate message and composition budgets.
+Message-budget exhaustion leaves envelopes queued. Composition-budget exhaustion preserves the
+candidate, reservations, retirement set, and a traversal cursor. The next turn resumes that plan
+before processing later props or messages; native observations may queue but cannot mutate the
+paused plan. This prevents partial-plan publication and guarantees that a tree larger than one
+tick's budget can finish. Either exhaustion rearms the dispatcher. Panic or an invariant fault
+discards the paused plan, clears the active-borrow marker, faults only that window host, runs
+cleanup, and rejects later tokens.
+
+Component state and desired views commit when their lifecycle call returns. Structural publication
+still follows native structural success or successful immediate remount. Property failure leaves
+the new desired view and published relation in place with per-property divergence. Effects from a
+failed, unpublished candidate do not run.
+
+### Window ownership and native access
+
+Each logical window owns one scope arena, component queue, scheduler, structural tree, and native
+runtime under the same `WindowToken`. No process-global scope or message queue participates in
+dispatch. Native remount advances only `NativeIdentity`; component senders remain valid. Window
+close advances `WindowToken`, retires every scope, and rejects all old senders.
+
+Effect setup and cleanup receive validated window/component access, not an unowned raw handle.
+Cleanup runs while the retiring published relation and required native handles remain queryable.
+After cleanup, subscriptions are revoked and native nodes are destroyed. A window fault cannot
+drain, retire, or report success for another window.
+
 ## Work sequence
 
 ### 1. Repair the shared backend
@@ -199,13 +355,13 @@ error boundary is part of this prototype.
 
 - [x] Add a process-isolated live WinUI fixture runner.
 - [x] Verify `OnLaunched`, control resources, and first native view commit.
-- [ ] Queue old work, remount native content, and reject only old native work.
+- [x] Queue old work, remount native content, and reject only old native work.
 - [ ] Close/recreate a window and reject all old window work.
-- [ ] Exercise dispatcher reentrancy and enqueue rejection.
-- [ ] Exercise mutate-then-fail setters and rejected controlled edits.
-- [ ] Exercise delayed/coalesced feedback for supported contracts.
+- [x] Exercise dispatcher reentrancy and enqueue rejection.
+- [x] Exercise mutate-then-fail setters and rejected controlled edits.
+- [x] Reject delayed/coalesced feedback until those contracts are implemented.
 - [ ] Exercise repeater recycle and immediate shell reuse.
-- [ ] Verify cleanup observes required native resources and runs once.
+- [x] Verify cleanup runs once before native reset.
 - [ ] Verify two windows cannot consume each other's work or faults.
 
 `RecordingRuntime` remains useful for deterministic planning and failure positions. It cannot prove
@@ -215,20 +371,20 @@ template behavior, COM reentrancy, partial native mutation, shell visuals, or sh
 
 ### 3. Write the component ownership specification
 
-- [ ] Define the one authoritative parent-child relation.
-- [ ] Define scope reservation, publication, retirement, and failed-candidate cleanup.
-- [ ] Define candidate interaction with non-cloneable component state.
-- [ ] Define `Component`, `View`, props, keys, logical anchors, and type replacement.
-- [ ] Define safe erased storage and typed local message envelopes.
-- [ ] Define queue phases, borrowing, ordering, budgets, and panic policy.
-- [ ] Define effect ordering and native-resource access.
-- [ ] Define per-window ownership and fault containment.
+- [x] Define the one authoritative parent-child relation.
+- [x] Define scope reservation, publication, retirement, and failed-candidate cleanup.
+- [x] Define candidate interaction with non-cloneable component state.
+- [x] Define `Component`, `View`, props, keys, logical anchors, and type replacement.
+- [x] Define safe erased storage and typed local message envelopes.
+- [x] Define queue phases, borrowing, ordering, budgets, and panic policy.
+- [x] Define effect ordering and native-resource access.
+- [x] Define per-window ownership and fault containment.
 
 **Exit:** the four blocking contracts are explicit and do not depend on implementation convention.
 
 ### 4. Implement the bounded component prototype
 
-- [ ] Add stable generational scope storage.
+- [x] Add stable generational scope storage.
 - [ ] Add logical component boundaries to the structural tree.
 - [ ] Add nested components with props and local typed messages.
 - [ ] Keep local recomposition within the component boundary.
@@ -333,7 +489,7 @@ context.
 
 ## Current work
 
-Current phase: **1 - close backend contract gaps found by early review**
+Current phase: **4 - implement the bounded component prototype**
 
 - [x] Implement separate window and realization identity domains.
 - [x] Add stale-work tests for native remount and complete window replacement.
@@ -347,6 +503,9 @@ Current phase: **1 - close backend contract gaps found by early review**
 - [x] Honor typed event payload source interfaces and conversions in generated code.
 - [x] Add the first live startup/resources fixture.
 - [x] Verify callback-free controlled repair through the live scheduler and WinUI property.
-- [ ] Add live tests for scheduler reentrancy and shutdown ordering.
+- [x] Add live tests for scheduler rejection/reentrancy, stale remount, and shutdown ordering.
 
+Phase 2 still tracks live window recreation, repeater shell visuals, OS input delivery, and
+two-window isolation. These require host or automation surfaces beyond the bounded one-window
+component slice; they remain continuation gates rather than being treated as passing evidence.
 Control expansion remains frozen.

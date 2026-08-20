@@ -5,6 +5,12 @@ use std::rc::Rc;
 use super::*;
 use windows_core::Interface;
 
+#[cfg(feature = "test")]
+thread_local! {
+    static LIVE_TEST_CLEANUP: Cell<u8> = const { Cell::new(0) };
+    static LIVE_TEST_CLEANUP_ORDERED: Cell<bool> = const { Cell::new(false) };
+}
+
 #[allow(
     clippy::missing_transmute_annotations,
     clippy::upper_case_acronyms,
@@ -36,6 +42,12 @@ pub struct WinUiRuntime {
     virtuals: HashMap<NodeId, element_factory::VirtualHandle>,
     windows: HashMap<NodeId, Window>,
     pending_application: Option<Application>,
+    #[cfg(feature = "test")]
+    fail_next_structural: bool,
+    #[cfg(feature = "test")]
+    fail_next_property_after_apply: bool,
+    #[cfg(feature = "test")]
+    reject_next_enqueue: Rc<Cell<bool>>,
 }
 
 impl WinUiRuntime {
@@ -60,6 +72,41 @@ impl WinUiRuntime {
             return Err(RuntimeError::UnsupportedKind);
         };
         text_box.Text().map_err(native_error)
+    }
+
+    #[cfg(feature = "test")]
+    pub fn live_fail_next_structural(&mut self) {
+        self.fail_next_structural = true;
+    }
+
+    #[cfg(feature = "test")]
+    pub fn live_fail_next_property_after_apply(&mut self) {
+        self.fail_next_property_after_apply = true;
+    }
+
+    #[cfg(feature = "test")]
+    pub fn live_queue_event(
+        &self,
+        identity: NativeIdentity,
+        node: NodeId,
+        event: EventId,
+        revision: u32,
+        payload: EventPayload,
+    ) {
+        self.events.borrow_mut().push(NativeWork {
+            identity,
+            work: QueuedEvent {
+                node,
+                event,
+                revision,
+                payload,
+            },
+        });
+    }
+
+    #[cfg(feature = "test")]
+    pub fn live_reject_next_enqueue(&self) {
+        self.reject_next_enqueue.set(true);
     }
 
     fn apply_one(&mut self, command: &Command) -> Result<(), RuntimeError> {
@@ -195,6 +242,11 @@ impl WinUiRuntime {
                     self.feedback.borrow_mut().remove(&(*node, event));
                 }
                 result?;
+                #[cfg(feature = "test")]
+                if self.fail_next_property_after_apply {
+                    self.fail_next_property_after_apply = false;
+                    return Err(RuntimeError::Injected);
+                }
             }
             Command::ClearProperty { node, property } => {
                 let handle = self
@@ -366,6 +418,8 @@ impl WinUiRuntime {
             identity: self.identity.get().unwrap(),
             current_identity: Rc::clone(&self.identity),
             scheduler: Rc::clone(&self.scheduler),
+            #[cfg(feature = "test")]
+            reject_next_enqueue: Rc::clone(&self.reject_next_enqueue),
         })
     }
 
@@ -387,6 +441,8 @@ pub struct EventSink {
     identity: NativeIdentity,
     current_identity: Rc<Cell<Option<NativeIdentity>>>,
     scheduler: Rc<RefCell<SchedulerState>>,
+    #[cfg(feature = "test")]
+    reject_next_enqueue: Rc<Cell<bool>>,
 }
 
 impl EventSink {
@@ -444,6 +500,8 @@ impl EventSink {
             &self.current_identity,
             &self.scheduler,
             &self.dispatcher,
+            #[cfg(feature = "test")]
+            &self.reject_next_enqueue,
         )
     }
 
@@ -453,6 +511,7 @@ impl EventSink {
         current_identity: &Rc<Cell<Option<NativeIdentity>>>,
         scheduler: &Rc<RefCell<SchedulerState>>,
         dispatcher: &DispatcherQueue,
+        #[cfg(feature = "test")] reject_next_enqueue: &Rc<Cell<bool>>,
     ) -> Result<(), RuntimeError> {
         let ScheduleAction::Enqueue(ticket) = action else {
             return match action {
@@ -460,9 +519,16 @@ impl EventSink {
                 _ => Ok(()),
             };
         };
+        #[cfg(feature = "test")]
+        if reject_next_enqueue.replace(false) {
+            scheduler.borrow_mut().enqueue_failed(ticket);
+            return Err(RuntimeError::DispatcherRejected);
+        }
         let current_identity_capture = Rc::clone(current_identity);
         let scheduler_capture = Rc::clone(scheduler);
         let dispatcher_capture = dispatcher.clone();
+        #[cfg(feature = "test")]
+        let reject_next_enqueue_capture = Rc::clone(reject_next_enqueue);
         let handler = DispatcherQueueHandler::new(move || {
             if current_identity_capture.get() != Some(identity) {
                 let action = {
@@ -480,6 +546,8 @@ impl EventSink {
                         &current_identity_capture,
                         &scheduler_capture,
                         &dispatcher_capture,
+                        #[cfg(feature = "test")]
+                        &reject_next_enqueue_capture,
                     )
                 {
                     fail_native_scheduler(error);
@@ -498,6 +566,8 @@ impl EventSink {
                     &current_identity_capture,
                     &scheduler_capture,
                     &dispatcher_capture,
+                    #[cfg(feature = "test")]
+                    &reject_next_enqueue_capture,
                 )
             {
                 fail_native_scheduler(error);
@@ -545,6 +615,12 @@ impl NativeRuntime for WinUiRuntime {
                 if structural_failure {
                     return CommandOutcome::Skipped;
                 }
+                #[cfg(feature = "test")]
+                if self.fail_next_structural && command.structural() {
+                    self.fail_next_structural = false;
+                    structural_failure = true;
+                    return CommandOutcome::Failed(RuntimeError::Injected);
+                }
                 match self.apply_one(command) {
                     Ok(()) => CommandOutcome::Applied,
                     Err(error) => {
@@ -558,6 +634,10 @@ impl NativeRuntime for WinUiRuntime {
     }
 
     fn reset(&mut self) {
+        #[cfg(feature = "test")]
+        LIVE_TEST_CLEANUP_ORDERED.with(|ordered| {
+            ordered.set(LIVE_TEST_CLEANUP.with(|cleanup| cleanup.get() == 1));
+        });
         self.subscriptions.clear();
         for window in self.windows.values() {
             _ = window.Close();
@@ -636,6 +716,16 @@ pub fn exit_ui_thread() {
     unsafe {
         PostQuitMessage(0);
     }
+}
+
+#[cfg(feature = "test")]
+pub fn mark_live_test_cleanup() {
+    LIVE_TEST_CLEANUP.with(|cleanup| cleanup.set(cleanup.get().saturating_add(1)));
+}
+
+#[cfg(feature = "test")]
+pub fn live_test_cleanup_ordered() -> bool {
+    LIVE_TEST_CLEANUP_ORDERED.with(Cell::get)
 }
 
 #[cfg(feature = "test")]
