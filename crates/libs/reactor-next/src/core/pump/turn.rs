@@ -66,6 +66,7 @@ impl<R: NativeRuntime> Pump<R> {
                             token,
                         },
                         next_version,
+                        CandidateFailureStage::PlanningRetry,
                     )?;
                     self.planning_dirty.remove(&token);
                     self.dirty_components.clear();
@@ -109,7 +110,7 @@ impl<R: NativeRuntime> Pump<R> {
                 if changes.retired.contains(&token) {
                     continue;
                 }
-                Self::remove_reservations(&mut self.components, &changes.reserved);
+                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
                 return Err(PumpError::StructureUnsupported);
             };
             let result = if composed_view
@@ -144,8 +145,7 @@ impl<R: NativeRuntime> Pump<R> {
                 )
             };
             if let Err(error) = result {
-                self.planning_dirty.extend(changes.touched.iter().copied());
-                Self::remove_reservations(&mut self.components, &changes.reserved);
+                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
                 return Err(error);
             }
         }

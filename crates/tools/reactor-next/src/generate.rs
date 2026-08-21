@@ -1300,6 +1300,7 @@ fn generate_descriptors(control: &ResolvedControl) -> TokenStream {
         let interface = &slot.interface;
         let target = match slot.target {
             crate::schema::SlotTarget::Inspectable => "inspectable",
+            crate::schema::SlotTarget::UiElement => "ui_element",
         };
         quote! {
             SlotDescriptor {
@@ -1413,7 +1414,7 @@ mod tests {
         let resolved = schema.resolve(&metadata).unwrap();
         let output = generate(&resolved);
 
-        assert_eq!(output.matches("ControlDescriptor").count(), 14);
+        assert_eq!(output.matches("ControlDescriptor").count(), 15);
         assert!(output.contains("feedback : Some"));
         assert!(output.contains("feedback_contract : Some (\"synchronous_normalized\")"));
         assert!(output.contains("pub struct NumberBox"));
@@ -1422,6 +1423,9 @@ mod tests {
         assert!(output.contains("pub struct ProgressBar"));
         assert!(output.contains("pub struct ToggleSwitch"));
         assert!(output.contains("pub struct Grid"));
+        assert!(output.contains("pub struct SplitView"));
+        assert!(output.contains("pub enum SplitViewDisplayMode"));
+        assert!(output.contains("impl SlotsControl for SplitView"));
         assert!(output.contains("pub fn rows"));
         assert!(output.contains("PropertyId :: GridRows"));
         assert!(output.contains("impl From < TextBlock > for View"));

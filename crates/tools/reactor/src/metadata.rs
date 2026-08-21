@@ -554,6 +554,17 @@ impl MetadataResolver {
         Some(Self::classify_type(param))
     }
 
+    #[allow(dead_code)]
+    pub fn param_class_name(&self, class_name: &str, method_name: &str) -> Option<String> {
+        let mref = self
+            .lookup
+            .get(&(class_name.to_string(), method_name.to_string()))?;
+        let Type::ClassName(name) = mref.param_types.first()? else {
+            return None;
+        };
+        Some(format!("{}.{}", name.namespace, name.name))
+    }
+
     /// Classify a Type into a setter pattern category.
     fn classify_type(ty: &Type) -> ParamClass {
         match ty {

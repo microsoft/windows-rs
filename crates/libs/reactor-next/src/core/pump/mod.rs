@@ -149,6 +149,7 @@ impl<R: NativeRuntime> Pump<R> {
             plan,
             FrontendChanges::Element(desired),
             next_version,
+            CandidateFailureStage::PlanningDiscard,
         )?;
         self.application = Some(application);
         self.window = Some(window);
@@ -182,7 +183,7 @@ impl<R: NativeRuntime> Pump<R> {
         let (root, native_roots) = match mounted {
             Ok(mounted) => mounted,
             Err(error) => {
-                Self::remove_reservations(&mut self.components, &changes.reserved);
+                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
                 return Err(error);
             }
         };
@@ -196,12 +197,12 @@ impl<R: NativeRuntime> Pump<R> {
                 });
             }
             _ => {
-                Self::remove_reservations(&mut self.components, &changes.reserved);
+                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
                 return Err(PumpError::StructureUnsupported);
             }
         }
         if let Err(error) = Self::plan_window_title(window, &self.tree, &candidate, &mut plan) {
-            Self::remove_reservations(&mut self.components, &changes.reserved);
+            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
             return Err(error);
         }
         plan.push(Command::ActivateWindow { node: window });
@@ -215,6 +216,7 @@ impl<R: NativeRuntime> Pump<R> {
             plan,
             FrontendChanges::Component(changes),
             next_version,
+            CandidateFailureStage::PlanningDiscard,
         )?;
         self.application = Some(application);
         self.window = Some(window);
@@ -245,17 +247,21 @@ impl<R: NativeRuntime> Pump<R> {
             &mut changes,
             &mut plan,
         ) {
-            self.planning_dirty.extend(changes.touched.iter().copied());
-            Self::remove_reservations(&mut self.components, &changes.reserved);
+            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
             return Err(error);
         }
         let window = self.window.ok_or(PumpError::NotMounted)?;
-        let [candidate_root] = candidate.children(window)? else {
-            self.planning_dirty.extend(changes.touched.iter().copied());
-            Self::remove_reservations(&mut self.components, &changes.reserved);
-            return Err(PumpError::StructureUnsupported);
+        let candidate_root = match candidate.children(window) {
+            Ok([candidate_root]) => *candidate_root,
+            Ok(_) => {
+                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
+                return Err(PumpError::StructureUnsupported);
+            }
+            Err(error) => {
+                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
+                return Err(error.into());
+            }
         };
-        let candidate_root = *candidate_root;
         self.apply_component_candidate(candidate, candidate_root, plan, changes, next_version)
     }
 
@@ -298,6 +304,7 @@ impl<R: NativeRuntime> Pump<R> {
             plan,
             FrontendChanges::Element(desired_element),
             next_version,
+            CandidateFailureStage::PlanningDiscard,
         )
     }
 
@@ -604,8 +611,7 @@ impl<R: NativeRuntime> Pump<R> {
     ) -> Result<(), PumpError> {
         let window = self.window.ok_or(PumpError::NotMounted)?;
         if let Err(error) = Self::plan_window_title(window, &self.tree, &candidate, &mut plan) {
-            self.planning_dirty.extend(changes.touched.iter().copied());
-            Self::remove_reservations(&mut self.components, &changes.reserved);
+            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
             return Err(error);
         }
         Self::plan_host_requests(window, &mut changes.host_requests, &mut plan);
@@ -623,6 +629,7 @@ impl<R: NativeRuntime> Pump<R> {
             plan,
             FrontendChanges::Component(changes),
             next_version,
+            CandidateFailureStage::PlanningRetry,
         )?;
         self.planning_dirty
             .retain(|token| !resolved.contains(token));

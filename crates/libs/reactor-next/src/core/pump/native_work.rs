@@ -300,10 +300,18 @@ impl<R: NativeRuntime> Pump<R> {
                             continue;
                         };
                         if model.source_revision() != source_revision {
+                            plan.push(Command::AcknowledgeRecycle {
+                                collection,
+                                container,
+                            });
                             outcomes.push(RealizationOutcome::Rejected(request));
                             continue;
                         }
                         let Some(row) = candidate.realized(collection, container)? else {
+                            plan.push(Command::AcknowledgeRecycle {
+                                collection,
+                                container,
+                            });
                             outcomes.push(RealizationOutcome::Rejected(request));
                             continue;
                         };
@@ -312,6 +320,10 @@ impl<R: NativeRuntime> Pump<R> {
                             .ok()
                             .and_then(|model| model.recycle_container(container))
                         else {
+                            plan.push(Command::AcknowledgeRecycle {
+                                collection,
+                                container,
+                            });
                             outcomes.push(RealizationOutcome::Rejected(request));
                             continue;
                         };
@@ -333,7 +345,7 @@ impl<R: NativeRuntime> Pump<R> {
             for queued in consumed.into_iter().rev() {
                 self.realizations.push_front(queued);
             }
-            Self::remove_reservations(&mut self.components, &changes.reserved);
+            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
             return Err(error);
         }
         let has_work = !plan.commands.is_empty()
@@ -351,7 +363,7 @@ impl<R: NativeRuntime> Pump<R> {
             match self.apply_realization(candidate, plan, changes) {
                 Ok(()) => {}
                 Err(error) => {
-                    if error == PumpError::DuplicateElementRef {
+                    if !self.poisoned {
                         for queued in consumed.into_iter().rev() {
                             self.realizations.push_front(queued);
                         }
@@ -372,7 +384,7 @@ impl<R: NativeRuntime> Pump<R> {
         let root = self.root.ok_or(PumpError::NotMounted)?;
         let window = self.window.ok_or(PumpError::NotMounted)?;
         if let Err(error) = Self::plan_window_title(window, &self.tree, &candidate, &mut plan) {
-            Self::remove_reservations(&mut self.components, &changes.reserved);
+            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
             return Err(error);
         }
         self.publish_candidate(
@@ -383,6 +395,7 @@ impl<R: NativeRuntime> Pump<R> {
             plan,
             FrontendChanges::Component(changes),
             self.version,
+            CandidateFailureStage::PlanningDiscard,
         )
     }
 }

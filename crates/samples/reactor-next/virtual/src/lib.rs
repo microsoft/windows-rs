@@ -19,21 +19,36 @@ struct TaskEditor {
     loading: bool,
     next_id: u64,
     selected: Option<u64>,
-    selected_context: Rc<Context<bool>>,
     sender: LocalSender<Message>,
     status: String,
-    tasks: Vec<Task>,
+    tasks: Vec<Rc<Task>>,
 }
 
-#[derive(Clone, Default)]
+#[derive(Clone)]
 struct EditorProps {
     metrics: Rc<RowMetrics>,
+    render_revision: u64,
     sender: Rc<RefCell<Option<LocalSender<Message>>>>,
+    task_count: usize,
+}
+
+impl Default for EditorProps {
+    fn default() -> Self {
+        Self {
+            metrics: Rc::default(),
+            render_revision: 0,
+            sender: Rc::default(),
+            task_count: INITIAL_TASKS,
+        }
+    }
 }
 
 impl PartialEq for EditorProps {
     fn eq(&self, other: &Self) -> bool {
-        Rc::ptr_eq(&self.metrics, &other.metrics) && Rc::ptr_eq(&self.sender, &other.sender)
+        Rc::ptr_eq(&self.metrics, &other.metrics)
+            && self.render_revision == other.render_revision
+            && Rc::ptr_eq(&self.sender, &other.sender)
+            && self.task_count == other.task_count
     }
 }
 
@@ -68,9 +83,9 @@ enum RowAction {
 
 #[derive(Clone)]
 struct RowProps {
-    item: Task,
+    item: Rc<Task>,
     metrics: Rc<RowMetrics>,
-    selected_context: Rc<Context<bool>>,
+    selected: bool,
     sender: LocalSender<Message>,
 }
 
@@ -78,7 +93,7 @@ impl PartialEq for RowProps {
     fn eq(&self, other: &Self) -> bool {
         self.item == other.item
             && Rc::ptr_eq(&self.metrics, &other.metrics)
-            && Rc::ptr_eq(&self.selected_context, &other.selected_context)
+            && self.selected == other.selected
     }
 }
 
@@ -131,12 +146,14 @@ impl Component for TaskEditor {
         Self {
             load_generation: 0,
             loading: false,
-            next_id: INITIAL_TASKS as u64,
+            next_id: props.task_count as u64,
             selected: Some(0),
-            selected_context: Rc::new(Context::new(false)),
             sender,
-            status: format!("{INITIAL_TASKS} tasks"),
-            tasks: Self::tasks(0, INITIAL_TASKS),
+            status: format!("{} tasks", props.task_count),
+            tasks: Self::tasks(0, props.task_count)
+                .into_iter()
+                .map(Rc::new)
+                .collect(),
         }
     }
 
@@ -147,11 +164,11 @@ impl Component for TaskEditor {
                 self.next_id += 1;
                 self.tasks.insert(
                     0,
-                    Task {
+                    Rc::new(Task {
                         id,
                         title: format!("New task {id}"),
                         done: false,
-                    },
+                    }),
                 );
                 self.selected = Some(id);
                 self.status = format!("Inserted task {id} at the front");
@@ -178,7 +195,7 @@ impl Component for TaskEditor {
                 generation,
                 mut tasks,
             } if generation == self.load_generation => {
-                self.tasks.append(&mut tasks);
+                self.tasks.extend(tasks.drain(..).map(Rc::new));
                 self.loading = false;
                 self.status = format!("Loaded; {} tasks", self.tasks.len());
             }
@@ -198,7 +215,10 @@ impl Component for TaskEditor {
             Message::Stress => {
                 self.load_generation = self.load_generation.checked_add(1).unwrap();
                 self.loading = false;
-                self.tasks = Self::tasks(self.next_id, STRESS_TASKS);
+                self.tasks = Self::tasks(self.next_id, STRESS_TASKS)
+                    .into_iter()
+                    .map(Rc::new)
+                    .collect();
                 self.next_id += STRESS_TASKS as u64;
                 self.selected = self.tasks.first().map(|task| task.id);
                 self.status = format!("Reset to {STRESS_TASKS} tasks");
@@ -210,7 +230,7 @@ impl Component for TaskEditor {
             }
             Message::Row(RowAction::Rename { id, title }) => {
                 if let Some(task) = self.tasks.iter_mut().find(|task| task.id == id) {
-                    task.title = title;
+                    Rc::make_mut(task).title = title;
                     self.status = format!("Saved task {id}");
                 }
             }
@@ -220,7 +240,7 @@ impl Component for TaskEditor {
             }
             Message::Row(RowAction::SetDone { id, done }) => {
                 if let Some(task) = self.tasks.iter_mut().find(|task| task.id == id) {
-                    task.done = done;
+                    Rc::make_mut(task).done = done;
                     self.status = format!("Task {id} is {}", if done { "done" } else { "open" });
                 }
             }
@@ -236,16 +256,12 @@ impl Component for TaskEditor {
             let id = item.id;
             KeyedView::new(
                 id,
-                View::provide(
-                    &self.selected_context,
-                    self.selected == Some(id),
-                    View::component::<TaskRow>(RowProps {
-                        item: item.clone(),
-                        metrics: Rc::clone(&props.metrics),
-                        selected_context: Rc::clone(&self.selected_context),
-                        sender: self.sender.clone(),
-                    }),
-                ),
+                View::component::<TaskRow>(RowProps {
+                    item: Rc::clone(item),
+                    metrics: Rc::clone(&props.metrics),
+                    selected: self.selected == Some(id),
+                    sender: self.sender.clone(),
+                }),
             )
         });
 
@@ -348,7 +364,6 @@ impl Component for TaskRow {
     }
 
     fn view(&self, props: &Self::Props, context: &mut ViewContext<Self>) -> View {
-        let selected = context.use_context(&props.selected_context);
         let editing = self.editing;
         let input = self.input.clone();
         let metrics = Rc::clone(&props.metrics);
@@ -373,7 +388,7 @@ impl Component for TaskRow {
             TextBlock::new().text(format!(
                 "#{}{}",
                 props.item.id,
-                if selected { " selected" } else { "" }
+                if props.selected { " selected" } else { "" }
             )),
             ToggleSwitch::new()
                 .is_on(props.item.done)
@@ -424,6 +439,7 @@ pub mod performance {
     use std::time::Instant;
 
     const REALIZED_ROWS: usize = 32;
+    const SETTLE_FRAMES: usize = 5;
     const WARMUP_FRAMES: usize = 30;
 
     pub struct Scenario {
@@ -435,11 +451,20 @@ pub mod performance {
         props: EditorProps,
         pump: Pump<RecordingRuntime>,
         selected: u64,
+        task_count: usize,
     }
 
     impl Scenario {
         pub fn new() -> Self {
-            let props = EditorProps::default();
+            Self::with_task_count(STRESS_TASKS)
+        }
+
+        pub fn with_task_count(task_count: usize) -> Self {
+            assert!(task_count > REALIZED_ROWS);
+            let props = EditorProps {
+                task_count,
+                ..Default::default()
+            };
             let mut pump = Pump::new(RecordingRuntime::default());
             pump.mount_view(View::component::<TaskEditor>(props.clone()))
                 .unwrap();
@@ -453,9 +478,6 @@ pub mod performance {
                     _ => None,
                 })
                 .unwrap();
-            let sender = props.sender.borrow().as_ref().unwrap().clone();
-            assert!(sender.send(Message::Stress));
-            assert_eq!(pump.dispatch_components(1), Ok(1));
 
             let containers = (0..REALIZED_ROWS)
                 .map(|value| RealizedContainer(value as u64))
@@ -487,7 +509,8 @@ pub mod performance {
                 next_index: REALIZED_ROWS,
                 props,
                 pump,
-                selected: STRESS_TASKS as u64 / 10,
+                selected: task_count as u64 / 10,
+                task_count,
             }
         }
 
@@ -510,10 +533,10 @@ pub mod performance {
         }
 
         pub fn broad_selection_change(&mut self) {
-            self.selected = if self.selected == STRESS_TASKS as u64 / 10 {
-                STRESS_TASKS as u64 / 10 + 1
+            self.selected = if self.selected == self.task_count as u64 / 10 {
+                self.task_count as u64 / 10 + 1
             } else {
-                STRESS_TASKS as u64 / 10
+                self.task_count as u64 / 10
             };
             assert!(
                 self.editor_sender()
@@ -530,10 +553,19 @@ pub mod performance {
             assert_eq!(self.pump.dispatch_components(1), Ok(1));
         }
 
-        pub fn identical_full_root_update(&mut self) {
+        pub fn unchanged_root_component_memo_hit(&mut self) {
             self.pump
                 .update_view(View::component::<TaskEditor>(self.props.clone()))
                 .unwrap();
+        }
+
+        pub fn value_equal_root_recomposition(&mut self) {
+            let mut props = self.props.clone();
+            props.render_revision = props.render_revision.checked_add(1).unwrap();
+            self.pump
+                .update_view(View::component::<TaskEditor>(props.clone()))
+                .unwrap();
+            self.props = props;
         }
 
         pub fn realize_recycle_batch(&mut self) {
@@ -543,7 +575,7 @@ pub mod performance {
                     .queue_recycle(self.collection, container);
             }
 
-            self.next_index = (self.next_index + REALIZED_ROWS) % (STRESS_TASKS - REALIZED_ROWS);
+            self.next_index = (self.next_index + REALIZED_ROWS) % (self.task_count - REALIZED_ROWS);
             self.containers = (0..REALIZED_ROWS)
                 .map(|offset| {
                     let container = RealizedContainer(self.next_container);
@@ -564,7 +596,7 @@ pub mod performance {
 
         pub fn background_completion(&mut self) {
             assert!(self.editor_sender().send(Message::Loaded {
-                generation: 1,
+                generation: 0,
                 tasks: Vec::new(),
             }));
             assert_eq!(self.pump.dispatch_components(1), Ok(1));
@@ -594,6 +626,7 @@ pub mod performance {
         frame: usize,
         last_frame: Option<Instant>,
         samples: Vec<f64>,
+        settle_frames: Option<usize>,
     }
 
     #[derive(Clone, Copy, PartialEq)]
@@ -616,6 +649,7 @@ pub mod performance {
                 frame: 0,
                 last_frame: None,
                 samples: Vec::with_capacity(target_samples),
+                settle_frames: None,
             }));
             let done = Arc::new(AtomicBool::new(false));
             let rendering = subscribe_live_rendering({
@@ -629,6 +663,24 @@ pub mod performance {
                         return;
                     }
                     stats.frame += 1;
+                    if let Some(remaining) = stats.settle_frames {
+                        if remaining != 0 {
+                            stats.settle_frames = Some(remaining - 1);
+                            return;
+                        }
+                        let result = match live_virtual_shell_counts() {
+                            Ok((_, 0)) => Ok(()),
+                            Ok((live, retired)) => Err(format!(
+                                "{retired} retired virtual shells remain after settling \
+                                 ({live} live)"
+                            )),
+                            Err(error) => {
+                                Err(format!("could not inspect virtual shells: {error:?}"))
+                            }
+                        };
+                        finish_live(&mut stats, &done, result);
+                        return;
+                    }
                     if stats.frame == 1
                         && let Some(sender) = editor.sender.borrow().as_ref()
                     {
@@ -677,7 +729,7 @@ pub mod performance {
                         }
                     }
                     if stats.samples.len() >= target_samples {
-                        finish_live(&mut stats, &done, Ok(()));
+                        stats.settle_frames = Some(SETTLE_FRAMES);
                     }
                 }
             })

@@ -1,14 +1,50 @@
 use super::*;
 
 impl<R: NativeRuntime> Pump<R> {
+    pub(super) fn fail_stop(&mut self) {
+        self.poisoned = true;
+        self.events.clear();
+        self.realizations.clear();
+    }
+
+    pub(super) fn fail_component_candidate(
+        &mut self,
+        changes: &ComponentChanges,
+        stage: CandidateFailureStage,
+    ) {
+        if matches!(stage, CandidateFailureStage::PlanningRetry) {
+            self.planning_dirty.extend(changes.touched.iter().copied());
+        }
+        Self::remove_reservations(&mut self.components, &changes.reserved);
+        if matches!(
+            stage,
+            CandidateFailureStage::EffectPreparation
+                | CandidateFailureStage::NativeApply
+                | CandidateFailureStage::Publication
+        ) {
+            self.fail_stop();
+        }
+    }
+
+    fn fail_frontend_candidate(&mut self, changes: &FrontendChanges, stage: CandidateFailureStage) {
+        if let FrontendChanges::Component(changes) = changes {
+            self.fail_component_candidate(changes, stage);
+        } else if matches!(
+            stage,
+            CandidateFailureStage::EffectPreparation
+                | CandidateFailureStage::NativeApply
+                | CandidateFailureStage::Publication
+        ) {
+            self.fail_stop();
+        }
+    }
+
     pub(super) fn apply_native_commands(&mut self, commands: &[Command]) -> Result<(), PumpError> {
         if commands.is_empty() {
             return Ok(());
         }
         if let Err(error) = self.runtime.apply(commands) {
-            self.poisoned = true;
-            self.events.clear();
-            self.realizations.clear();
+            self.fail_stop();
             return Err(PumpError::NativeApplyFailed(error));
         }
         Ok(())
@@ -19,9 +55,7 @@ impl<R: NativeRuntime> Pump<R> {
             return Ok(());
         }
         if let Err(error) = self.runtime.open_windows(roots) {
-            self.poisoned = true;
-            self.events.clear();
-            self.realizations.clear();
+            self.fail_stop();
             return Err(PumpError::NativeApplyFailed(NativeApplyError {
                 command: 0,
                 error,
@@ -36,6 +70,7 @@ impl<R: NativeRuntime> Pump<R> {
         plan: UpdatePlan,
         mut changes: FrontendChanges,
         next_version: u64,
+        planning_failure: CandidateFailureStage,
     ) -> Result<(), PumpError> {
         let commits_window_close = plan
             .post_publish_commands
@@ -43,10 +78,7 @@ impl<R: NativeRuntime> Pump<R> {
             .any(|command| matches!(command, Command::CloseWindow { .. }));
         if let Err(error) = self.validate_candidate_references(&candidate, &plan.reference_commits)
         {
-            if let FrontendChanges::Component(changes) = &changes {
-                self.planning_dirty.extend(changes.touched.iter().copied());
-                Self::remove_reservations(&mut self.components, &changes.reserved);
-            }
+            self.fail_frontend_candidate(&changes, planning_failure);
             return Err(error);
         }
         let prepared = match &mut changes {
@@ -58,18 +90,29 @@ impl<R: NativeRuntime> Pump<R> {
             FrontendChanges::Element(_) => Ok(()),
         };
         if let Err(error) = prepared {
-            self.poisoned = true;
-            if let FrontendChanges::Component(changes) = &changes {
-                Self::remove_reservations(&mut self.components, &changes.reserved);
-            }
+            self.fail_frontend_candidate(&changes, CandidateFailureStage::EffectPreparation);
             return Err(error);
         }
 
-        self.apply_native_commands(&plan.commands)?;
+        if let Err(error) = self.apply_native_commands(&plan.commands) {
+            self.fail_frontend_candidate(&changes, CandidateFailureStage::NativeApply);
+            return Err(error);
+        }
 
-        self.commit_candidate_properties(&mut candidate, &plan.commits)?;
-        self.commit_candidate_references(&mut candidate, &plan.reference_commits)?;
-        self.publish_frontend(candidate, changes, &plan.reference_commits)?;
+        if let Err(error) = self.commit_candidate_properties(&mut candidate, &plan.commits) {
+            self.fail_frontend_candidate(&changes, CandidateFailureStage::Publication);
+            return Err(error);
+        }
+        if let Err(error) =
+            self.commit_candidate_references(&mut candidate, &plan.reference_commits)
+        {
+            self.fail_frontend_candidate(&changes, CandidateFailureStage::Publication);
+            return Err(error);
+        }
+        if let Err(error) = self.publish_frontend(candidate, &changes, &plan.reference_commits) {
+            self.fail_frontend_candidate(&changes, CandidateFailureStage::Publication);
+            return Err(error);
+        }
         self.diagnostics.extend(plan.diagnostics);
         self.native_observation_pending = false;
         self.version = next_version;
@@ -83,10 +126,10 @@ impl<R: NativeRuntime> Pump<R> {
     fn publish_frontend(
         &mut self,
         candidate: CandidateState,
-        changes: FrontendChanges,
+        changes: &FrontendChanges,
         reference_commits: &[ReferenceCommit],
     ) -> Result<(), PumpError> {
-        if let FrontendChanges::Component(changes) = &changes {
+        if let FrontendChanges::Component(changes) = changes {
             self.finalize_component_changes(changes)?;
         }
         match candidate {
@@ -107,15 +150,15 @@ impl<R: NativeRuntime> Pump<R> {
         self.apply_reference_bindings(reference_commits);
         match changes {
             #[cfg(any(test, feature = "test"))]
-            FrontendChanges::Element(element) => self.element = Some(element),
-            FrontendChanges::Component(changes) => self.commit_component_effects(&changes)?,
+            FrontendChanges::Element(element) => self.element = Some(element.clone()),
+            FrontendChanges::Component(changes) => self.commit_component_effects(changes)?,
             FrontendChanges::Local {
                 context_reads,
                 token,
             } => {
                 self.components
-                    .set_context_dependencies(token, context_reads)?;
-                self.components.commit_effects(token)?;
+                    .set_context_dependencies(*token, context_reads.clone())?;
+                self.components.commit_effects(*token)?;
             }
         }
         Ok(())

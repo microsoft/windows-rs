@@ -663,9 +663,10 @@ scales acceptably.
 
 - [x] Measure a local edit in one realized virtual row.
 - [x] Measure a broad parent update whose rows are mostly unchanged.
-- [x] Measure a deliberately redundant component message and full-root update separately.
+- [x] Measure a redundant component message, unchanged root-component memo hit, and forced
+      value-equal root recomposition separately.
 - [x] Measure sustained scrolling and realize/recycle traffic with controlled input, focus, effects,
-      contexts, and background completions active.
+      selection changes, and background completions active.
 - [x] Separate Rust planning time from WinUI layout, rendering, and presentation time.
 - [x] Record allocation volume plus median, p95, and p99 frame times rather than only best-case
       microbenchmark time.
@@ -675,13 +676,13 @@ scales acceptably.
 
 The shared virtual-editor recording driver covers the Rust half of this gate without duplicating
 the sample model. On the August 21, 2026 checkpoint machine, 500 release-mode samples put the mixed
-background/context/32-row recycle-and-realize cycle at 1.26 ms median, 1.67 ms p95, and 2.47 ms p99.
-A local controlled edit was 344 us median and 608 us p99. The latency results do not trigger
-profiling, but the local edit allocated 784 KB across 5,422 allocations because its durable
-write-through rebuilds the 1,000-item parent source. Allocation volume was the main watch entering
-the live WinUI run.
+background/selection/32-row recycle-and-realize cycle at 866 us median, 1.02 ms p95, and 1.21 ms
+p99. A local controlled edit was 213 us median and 325 us p99. Sharing task payloads and replacing
+one single-consumer context provider per task with a direct row prop reduced that edit from 826 KB
+and 5,422 allocations to 532 KB and 1,355 allocations. Durable write-through ownership remains in
+the parent task model.
 
-The live run then forced a new virtual index on every frame while alternating context, editing
+The live run then forced a new virtual index on every frame while alternating selection, editing
 controlled rows, and delivering background completions. Its 300-frame p95 was 17.79 ms versus
 17.16 ms for the idle editor; two active frames exceeded 33.4 ms, while the baseline had none.
 Instrumented active host turns were 1.41 ms median and 1.78 ms p95. Native apply batches were
@@ -733,6 +734,48 @@ The iterator-based `rows` and `columns` builders allocate owned definition value
 The post-expansion allocation pass should measure this in Grid-heavy forms and add a shared-value
 builder only if those allocations are material; do not add a retained layout cache in Pump.
 
+#### SplitView tranche
+
+- [x] Add schema-driven SplitView properties and `Pane`/`Content` slots.
+- [x] Classify `UIElement`-typed slot setters without adding a SplitView planner path.
+- [x] Apply pane lengths and display mode before opening the pane.
+- [x] Qualify property dispatch, slot mount and clear, native readback, and generated ordering.
+- [x] Convert the navigation sample to a SplitView application shell.
+- [x] Measure the tranche against the completed Grid state.
+
+SplitView reuses ordinary properties and named slots. The schema now distinguishes
+`IInspectable`-typed and `UIElement`-typed slot setters, while Pump retains one `SetSlot` command
+and one named-slot lifecycle. This avoids the incumbent defect where `display_mode()` existed in
+the public builder but never reached WinUI.
+
+The tranche keeps `Node`, `MountedProps`, and `Element` at 432, 72, and 96 bytes. Five isolated
+source-only thin-counter rebuilds moved from the Grid checkpoint's 0.813-second median to 0.873
+seconds (+7.4%, 60 ms). The release thin counter moved from 1,098,752 to 1,111,040 bytes (+12,288
+bytes, +1.12%). This matches the recurring ordinary generated-control binary slope and adds no
+retained engine state.
+
+#### Post-expansion review follow-up
+
+- [x] Separate the unchanged root-component memo hit from forced value-equal root recomposition.
+- [x] Centralize candidate abort and fail-stop policy by publication stage.
+- [x] Test native shell recycle immediately before a keyed source reset and under repeated resets.
+- [x] Measure virtual source declaration and update costs at 1,000, 10,000, and 100,000 rows.
+- [x] A/B shared task payloads and direct selection props before designing a lazy virtual source.
+- [x] Run longer active and idle live measurements, emphasizing missed frames and native work.
+
+The unchanged root-component memo hit is 0.2 microseconds and two allocations, but it does not
+reconcile the application tree. Forced value-equal `TaskEditor` recomposition is 110 microseconds
+and 1,202 allocations at 1,000 tasks. It scales to 1.72 ms at 10,000 and 21.8 ms at 100,000. The
+focused value-equal 512-leaf static-tree case remains about 26 times slower than the incumbent. The
+current 1,000-item application does not justify another source model. A real 100,000-item
+application would justify designing a lazy indexed source that preserves one authoritative tree.
+
+Two repeated 600-frame active runs had 17.91-18.10 ms p95, two frames over 33.4 ms, roughly 1.5 ms
+host-dispatch p95, and roughly 1.05 ms native-apply p95. The 600-frame idle run had 17.16 ms p95 and
+no frames over 25 ms. One earlier active run under system contention reached 33.33 ms p95 while
+host and native-apply p95 rose to 5.08 and 3.31 ms. This confirms that missed-frame counts and
+correlated host/native phases are more useful than one headline frame percentile.
+
 ### 7. Performance-optimization gate
 
 Run this gate after representative layout and application-shell controls exist, and before deciding
@@ -743,7 +786,8 @@ must be visible in realistic applications, not only in isolated component operat
       Reactor where their semantics overlap.
 - [ ] Measure wall time, median/p95/p99 frame intervals, allocator traffic, retained Rust memory,
       process working set, compile time, and release binary size on the same machine.
-- [ ] Reduce the 1,000-item controlled-edit allocation volume from the current 784 KB and 5,422
+- [x] Reduce the 1,000-item controlled-edit allocation volume from 826 KB and 5,422 allocations.
+      Shared immutable task payloads and direct row selection props reach 532 KB and 1,355
       allocations without weakening durable edit ownership.
 - [ ] Investigate repeated key/view construction, unchanged parent reconciliation, candidate-tree
       copy-on-write granularity, and virtual-row command construction with profiles and allocation
@@ -794,6 +838,18 @@ may already have run; this is part of the fatal-failure policy, not a recoverabl
 An effect-preparation error also poisons because earlier cleanup closures may have run. Post-apply
 component-store failures poison because native state has already changed.
 
+`CandidateFailureStage` makes cleanup policy explicit at each publication exit. Planning discard
+removes reservations. Planning retry also retains every touched scope in `planning_dirty`.
+Effect-preparation, native-apply, and publication failures remove remaining reservations and
+fail-stop. `Pump::fail_stop` poisons the Pump and clears queued events and realizations. Any
+nonfatal realization failure restores the consumed native request.
+
+A live active-scroll soak exposed a separate shell-lifetime leak: 79 retired tokens remained after
+120 frames because WinUI can recycle a shell whose queued realization never publishes. Rejected
+recycle work now emits `AcknowledgeRecycle`. The WinUI adapter removes only a retired token, rejects
+a still-live token, and accepts a token already consumed by a reset detach. The same 120-frame soak
+settled with no retired tokens after the fix.
+
 ### Findings fixed during the audit
 
 - Initial mount duplicated publication and could drift from update behavior. Both element and
@@ -802,8 +858,11 @@ component-store failures poison because native state has already changed.
   scopes. Pre-apply failures now remove reservations centrally.
 - The same validation path could leave staged component props outside `planning_dirty`. Pre-apply
   failures now retain every touched scope for forced recomposition on retry.
-- A realized row that failed duplicate-reference validation consumed its native realization
-  request. The request is restored until validation can succeed.
+- A realized row that failed nonfatally consumed its native realization request. The request is
+  restored until planning and validation can succeed.
+- A rejected recycle for an unpublished or stale realization left WinUI's retired shell token
+  unconsumed. Rejected recycle work now acknowledges that token without weakening ordinary detach
+  validation.
 - Reusable WinUI shells shared a container identity across physical lifetimes, and realization
   requests carried no source generation. Each checkout now gets a fresh lifetime token, recycle
   retires its live mapping before pooling the physical control, and attachment resolves only live
@@ -971,7 +1030,7 @@ The first slice exposes a host API boundary:
 | Configure content | Each startup root is an independent `View` |
 | Configure native window | `ViewContext` declares the title; size and presenter are deferred |
 | Create a window after startup | `ComponentContext::open_window` stages an independent root |
-| Request close from a component | Token-bound `WindowRef::request_close` commits after publication |
+| Request close from a component | Token-bound `WindowRef` request commits after publication |
 | React to close | Pump retirement cleans effects, tasks, references, queues, and sender registry |
 
 Do not expose the private WinUI `Window` to fill these gaps. The next design step must decide

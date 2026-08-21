@@ -10,6 +10,7 @@ pub enum Handle {
     NumberBox(bindings::NumberBox),
     Slider(bindings::Slider),
     NavigationView(bindings::NavigationView),
+    SplitView(bindings::SplitView),
     ProgressBar(bindings::ProgressBar),
     ToggleSwitch(bindings::ToggleSwitch),
     ScrollViewer(bindings::ScrollViewer),
@@ -33,6 +34,9 @@ impl Handle {
             MountedKind::NavigationView => {
                 Self::NavigationView(bindings::NavigationView::new().map_err(native_error)?)
             }
+            MountedKind::SplitView => {
+                Self::SplitView(bindings::SplitView::new().map_err(native_error)?)
+            }
             MountedKind::ProgressBar => {
                 Self::ProgressBar(bindings::ProgressBar::new().map_err(native_error)?)
             }
@@ -55,6 +59,7 @@ impl Handle {
             Self::NumberBox(value) => value.cast(),
             Self::Slider(value) => value.cast(),
             Self::NavigationView(value) => value.cast(),
+            Self::SplitView(value) => value.cast(),
             Self::ProgressBar(value) => value.cast(),
             Self::ToggleSwitch(value) => value.cast(),
             Self::ScrollViewer(value) => value.cast(),
@@ -70,6 +75,7 @@ impl Handle {
             Self::NumberBox(value) => value.cast(),
             Self::Slider(value) => value.cast(),
             Self::NavigationView(value) => value.cast(),
+            Self::SplitView(value) => value.cast(),
             Self::ProgressBar(value) => value.cast(),
             Self::ToggleSwitch(value) => value.cast(),
             Self::ScrollViewer(value) => value.cast(),
@@ -215,6 +221,37 @@ pub fn set_property(
             .SetIsEnabled(*value)
             .map_err(native_error),
         (
+            Handle::SplitView(control),
+            PropertyId::SplitViewOpenPaneLength,
+            PropertyValue::F64(value),
+        ) => control.SetOpenPaneLength(*value).map_err(native_error),
+        (
+            Handle::SplitView(control),
+            PropertyId::SplitViewCompactPaneLength,
+            PropertyValue::F64(value),
+        ) => control.SetCompactPaneLength(*value).map_err(native_error),
+        (
+            Handle::SplitView(control),
+            PropertyId::SplitViewDisplayMode,
+            PropertyValue::SplitViewDisplayMode(value),
+        ) => control
+            .SetDisplayMode(match value {
+                crate::SplitViewDisplayMode::Overlay => bindings::SplitViewDisplayMode::Overlay,
+                crate::SplitViewDisplayMode::Inline => bindings::SplitViewDisplayMode::Inline,
+                crate::SplitViewDisplayMode::CompactOverlay => {
+                    bindings::SplitViewDisplayMode::CompactOverlay
+                }
+                crate::SplitViewDisplayMode::CompactInline => {
+                    bindings::SplitViewDisplayMode::CompactInline
+                }
+            })
+            .map_err(native_error),
+        (
+            Handle::SplitView(control),
+            PropertyId::SplitViewIsPaneOpen,
+            PropertyValue::Bool(value),
+        ) => control.SetIsPaneOpen(*value).map_err(native_error),
+        (
             Handle::ProgressBar(control),
             PropertyId::ProgressBarMinimum,
             PropertyValue::F64(value),
@@ -340,6 +377,18 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
         (Handle::NavigationView(_), PropertyId::NavigationViewIsEnabled) => dependency_object
             .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
             .map_err(native_error),
+        (Handle::SplitView(_), PropertyId::SplitViewOpenPaneLength) => dependency_object
+            .ClearValue(&bindings::SplitView::OpenPaneLengthProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::SplitView(_), PropertyId::SplitViewCompactPaneLength) => dependency_object
+            .ClearValue(&bindings::SplitView::CompactPaneLengthProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::SplitView(_), PropertyId::SplitViewDisplayMode) => dependency_object
+            .ClearValue(&bindings::SplitView::DisplayModeProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::SplitView(_), PropertyId::SplitViewIsPaneOpen) => dependency_object
+            .ClearValue(&bindings::SplitView::IsPaneOpenProperty().map_err(native_error)?)
+            .map_err(native_error),
         (Handle::ProgressBar(_), PropertyId::ProgressBarMinimum) => dependency_object
             .ClearValue(&bindings::RangeBase::MinimumProperty().map_err(native_error)?)
             .map_err(native_error),
@@ -390,6 +439,14 @@ pub fn set_slot(
             None => control
                 .SetHeader(None::<&windows_core::IInspectable>)
                 .map_err(native_error),
+        },
+        (Handle::SplitView(control), SlotId::SplitViewPane) => match child {
+            Some(child) => control.SetPane(child).map_err(native_error),
+            None => control.SetPane(None::<&UIElement>).map_err(native_error),
+        },
+        (Handle::SplitView(control), SlotId::SplitViewContent) => match child {
+            Some(child) => control.SetContent(child).map_err(native_error),
+            None => control.SetContent(None::<&UIElement>).map_err(native_error),
         },
         _ => Err(RuntimeError::UnsupportedKind),
     }

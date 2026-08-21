@@ -10,6 +10,13 @@ pub mod public {
         Horizontal,
     }
     #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+    pub enum SplitViewDisplayMode {
+        Overlay,
+        Inline,
+        CompactOverlay,
+        CompactInline,
+    }
+    #[derive(Clone, Copy, Debug, Eq, PartialEq)]
     pub enum TextWrapping {
         NoWrap,
         Wrap,
@@ -434,6 +441,65 @@ pub mod public {
         }
     }
     #[derive(Clone, Debug, Default, PartialEq)]
+    pub struct SplitView {
+        open_pane_length: Property<f64>,
+        compact_pane_length: Property<f64>,
+        display_mode: Property<SplitViewDisplayMode>,
+        is_pane_open: Property<bool>,
+        grid_placement: Option<std::rc::Rc<GridPlacement>>,
+    }
+    impl SplitView {
+        pub fn new() -> Self {
+            Self::default()
+        }
+        pub fn open_pane_length(mut self, value: f64) -> Self {
+            self.open_pane_length = Property::Set(value);
+            self
+        }
+        pub fn open_pane_length_property(&self) -> &Property<f64> {
+            &self.open_pane_length
+        }
+        pub fn compact_pane_length(mut self, value: f64) -> Self {
+            self.compact_pane_length = Property::Set(value);
+            self
+        }
+        pub fn compact_pane_length_property(&self) -> &Property<f64> {
+            &self.compact_pane_length
+        }
+        pub fn display_mode(mut self, value: SplitViewDisplayMode) -> Self {
+            self.display_mode = Property::Set(value);
+            self
+        }
+        pub fn display_mode_property(&self) -> &Property<SplitViewDisplayMode> {
+            &self.display_mode
+        }
+        pub fn is_pane_open(mut self, value: bool) -> Self {
+            self.is_pane_open = Property::Set(value);
+            self
+        }
+        pub fn is_pane_open_property(&self) -> &Property<bool> {
+            &self.is_pane_open
+        }
+    }
+    impl sealed::Sealed for SplitView {}
+    impl LayoutControl for SplitView {
+        fn grid_placement_mut(&mut self) -> &mut Option<std::rc::Rc<GridPlacement>> {
+            &mut self.grid_placement
+        }
+    }
+    #[repr(u8)]
+    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+    pub enum SplitViewSlot {
+        Pane,
+        Content,
+    }
+    impl SlotsControl for SplitView {
+        type Slot = SplitViewSlot;
+        fn slot_index(slot: Self::Slot) -> u8 {
+            slot as u8
+        }
+    }
+    #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ProgressBar {
         minimum: Property<f64>,
         maximum: Property<f64>,
@@ -604,6 +670,7 @@ pub mod public {
         NumberBox(NumberBox),
         Slider(Slider),
         NavigationView(NavigationView),
+        SplitView(SplitView),
         ProgressBar(ProgressBar),
         ToggleSwitch(ToggleSwitch),
         ItemsRepeater(ItemsRepeater),
@@ -689,6 +756,16 @@ pub mod public {
             Self::native(value)
         }
     }
+    impl From<SplitView> for Element {
+        fn from(value: SplitView) -> Self {
+            Self::SplitView(value)
+        }
+    }
+    impl From<SplitView> for View {
+        fn from(value: SplitView) -> Self {
+            Self::native(value)
+        }
+    }
     impl From<ProgressBar> for Element {
         fn from(value: ProgressBar) -> Self {
             Self::ProgressBar(value)
@@ -740,6 +817,7 @@ pub mod public {
                 Self::NumberBox(_) => MountedKind::NumberBox,
                 Self::Slider(_) => MountedKind::Slider,
                 Self::NavigationView(_) => MountedKind::NavigationView,
+                Self::SplitView(_) => MountedKind::SplitView,
                 Self::ProgressBar(_) => MountedKind::ProgressBar,
                 Self::ToggleSwitch(_) => MountedKind::ToggleSwitch,
                 Self::ItemsRepeater(_) => MountedKind::ItemsRepeater,
@@ -879,6 +957,24 @@ pub mod public {
                 }) => ElementParts {
                     kind: MountedKind::NavigationView,
                     props: MountedProps::NavigationView { is_enabled },
+                    reference: None,
+                    grid_placement,
+                    structure: ElementStructure::None,
+                },
+                Self::SplitView(SplitView {
+                    open_pane_length,
+                    compact_pane_length,
+                    display_mode,
+                    is_pane_open,
+                    grid_placement,
+                }) => ElementParts {
+                    kind: MountedKind::SplitView,
+                    props: MountedProps::SplitView {
+                        open_pane_length,
+                        compact_pane_length,
+                        display_mode,
+                        is_pane_open,
+                    },
                     reference: None,
                     grid_placement,
                     structure: ElementStructure::None,
@@ -1074,6 +1170,26 @@ pub mod public {
                     },
                 ) => true && is_enabled == mounted_is_enabled,
                 (
+                    Self::SplitView(SplitView {
+                        open_pane_length,
+                        compact_pane_length,
+                        display_mode,
+                        is_pane_open,
+                        ..
+                    }),
+                    MountedProps::SplitView {
+                        open_pane_length: mounted_open_pane_length,
+                        compact_pane_length: mounted_compact_pane_length,
+                        display_mode: mounted_display_mode,
+                        is_pane_open: mounted_is_pane_open,
+                    },
+                ) => {
+                    true && f64_property_eq(open_pane_length, mounted_open_pane_length)
+                        && f64_property_eq(compact_pane_length, mounted_compact_pane_length)
+                        && display_mode == mounted_display_mode
+                        && is_pane_open == mounted_is_pane_open
+                }
+                (
                     Self::ProgressBar(ProgressBar {
                         minimum,
                         maximum,
@@ -1134,6 +1250,7 @@ pub mod public {
                 Self::NumberBox(value) => value.reference.as_ref(),
                 Self::Slider(value) => value.reference.as_ref(),
                 Self::NavigationView(_) => None,
+                Self::SplitView(_) => None,
                 Self::ProgressBar(_) => None,
                 Self::ToggleSwitch(value) => value.reference.as_ref(),
                 Self::ItemsRepeater(_) => None,
@@ -1150,6 +1267,7 @@ pub mod public {
                 Self::NumberBox(value) => value.grid_placement.as_deref(),
                 Self::Slider(value) => value.grid_placement.as_deref(),
                 Self::NavigationView(value) => value.grid_placement.as_deref(),
+                Self::SplitView(value) => value.grid_placement.as_deref(),
                 Self::ProgressBar(value) => value.grid_placement.as_deref(),
                 Self::ToggleSwitch(value) => value.grid_placement.as_deref(),
                 Self::ItemsRepeater(_) => None,
@@ -1166,6 +1284,7 @@ pub mod public {
                 Self::NumberBox(_) => ElementStructureRef::None,
                 Self::Slider(_) => ElementStructureRef::None,
                 Self::NavigationView(_) => ElementStructureRef::None,
+                Self::SplitView(_) => ElementStructureRef::None,
                 Self::ProgressBar(_) => ElementStructureRef::None,
                 Self::ToggleSwitch(_) => ElementStructureRef::None,
                 Self::ItemsRepeater(value) => ElementStructureRef::Virtual(value.items.as_slice()),
@@ -1190,6 +1309,7 @@ pub mod public {
                     visit(EventId::SliderValueChanged, true);
                 }
                 Self::NavigationView(_) => {}
+                Self::SplitView(_) => {}
                 Self::ProgressBar(_) => {}
                 Self::ToggleSwitch(_) => {
                     visit(EventId::ToggleSwitchToggled, true);
@@ -1416,6 +1536,42 @@ impl MountedPropsExt for MountedProps {
                     },
                 );
             }
+            Self::SplitView {
+                open_pane_length,
+                compact_pane_length,
+                display_mode,
+                is_pane_open,
+                ..
+            } => {
+                visit(
+                    PropertyId::SplitViewOpenPaneLength,
+                    match open_pane_length {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+                visit(
+                    PropertyId::SplitViewCompactPaneLength,
+                    match compact_pane_length {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+                visit(
+                    PropertyId::SplitViewDisplayMode,
+                    match display_mode {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+                visit(
+                    PropertyId::SplitViewIsPaneOpen,
+                    match is_pane_open {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+            }
             Self::ProgressBar {
                 minimum,
                 maximum,
@@ -1518,6 +1674,7 @@ impl MountedEventsExt for MountedProps {
                 visit(EventId::SliderValueChanged, true);
             }
             Self::NavigationView { .. } => {}
+            Self::SplitView { .. } => {}
             Self::ProgressBar { .. } => {}
             Self::ToggleSwitch { .. } => {
                 visit(EventId::ToggleSwitchToggled, true);
@@ -1605,6 +1762,7 @@ pub enum MountedKind {
     NumberBox,
     Slider,
     NavigationView,
+    SplitView,
     ProgressBar,
     ToggleSwitch,
     ItemsRepeater,
@@ -1614,12 +1772,19 @@ pub enum MountedKind {
 pub enum SlotId {
     NavigationViewContent,
     NavigationViewHeader,
+    SplitViewPane,
+    SplitViewContent,
 }
 pub fn slot_id(kind: MountedKind, index: u8) -> Option<SlotId> {
     match kind {
         MountedKind::NavigationView => match index {
             0u8 => Some(SlotId::NavigationViewContent),
             1u8 => Some(SlotId::NavigationViewHeader),
+            _ => None,
+        },
+        MountedKind::SplitView => match index {
+            0u8 => Some(SlotId::SplitViewPane),
+            1u8 => Some(SlotId::SplitViewContent),
             _ => None,
         },
         _ => None,
@@ -1637,6 +1802,7 @@ pub fn slots(kind: MountedKind) -> &'static [SlotId] {
         MountedKind::NavigationView => {
             &[SlotId::NavigationViewContent, SlotId::NavigationViewHeader]
         }
+        MountedKind::SplitView => &[SlotId::SplitViewPane, SlotId::SplitViewContent],
         MountedKind::ProgressBar => &[],
         MountedKind::ToggleSwitch => &[],
         MountedKind::ItemsRepeater => &[],
@@ -1685,6 +1851,12 @@ pub enum MountedProps {
     },
     NavigationView {
         is_enabled: Property<bool>,
+    },
+    SplitView {
+        open_pane_length: Property<f64>,
+        compact_pane_length: Property<f64>,
+        display_mode: Property<SplitViewDisplayMode>,
+        is_pane_open: Property<bool>,
     },
     ProgressBar {
         minimum: Property<f64>,
@@ -1830,6 +2002,25 @@ impl PartialEq for MountedProps {
                 },
             ) => true && left_is_enabled == right_is_enabled,
             (
+                Self::SplitView {
+                    open_pane_length: left_open_pane_length,
+                    compact_pane_length: left_compact_pane_length,
+                    display_mode: left_display_mode,
+                    is_pane_open: left_is_pane_open,
+                },
+                Self::SplitView {
+                    open_pane_length: right_open_pane_length,
+                    compact_pane_length: right_compact_pane_length,
+                    display_mode: right_display_mode,
+                    is_pane_open: right_is_pane_open,
+                },
+            ) => {
+                true && f64_property_eq(left_open_pane_length, right_open_pane_length)
+                    && f64_property_eq(left_compact_pane_length, right_compact_pane_length)
+                    && left_display_mode == right_display_mode
+                    && left_is_pane_open == right_is_pane_open
+            }
+            (
                 Self::ProgressBar {
                     minimum: left_minimum,
                     maximum: left_maximum,
@@ -1928,6 +2119,10 @@ pub enum PropertyId {
     SliderValue,
     SliderIsEnabled,
     NavigationViewIsEnabled,
+    SplitViewOpenPaneLength,
+    SplitViewCompactPaneLength,
+    SplitViewDisplayMode,
+    SplitViewIsPaneOpen,
     ProgressBarMinimum,
     ProgressBarMaximum,
     ProgressBarValue,
@@ -1953,6 +2148,7 @@ pub enum PropertyValue {
     GridLengths(std::rc::Rc<Vec<GridLength>>),
     I32(i32),
     Orientation(Orientation),
+    SplitViewDisplayMode(SplitViewDisplayMode),
     Str(String),
     TextWrapping(TextWrapping),
 }
@@ -1964,6 +2160,7 @@ impl PartialEq for PropertyValue {
             (Self::GridLengths(left), Self::GridLengths(right)) => left == right,
             (Self::I32(left), Self::I32(right)) => left == right,
             (Self::Orientation(left), Self::Orientation(right)) => left == right,
+            (Self::SplitViewDisplayMode(left), Self::SplitViewDisplayMode(right)) => left == right,
             (Self::Str(left), Self::Str(right)) => left == right,
             (Self::TextWrapping(left), Self::TextWrapping(right)) => left == right,
             _ => false,
@@ -1993,6 +2190,11 @@ impl From<i32> for PropertyValue {
 impl From<Orientation> for PropertyValue {
     fn from(value: Orientation) -> Self {
         Self::Orientation(value)
+    }
+}
+impl From<SplitViewDisplayMode> for PropertyValue {
+    fn from(value: SplitViewDisplayMode) -> Self {
+        Self::SplitViewDisplayMode(value)
     }
 }
 impl From<String> for PropertyValue {
@@ -2356,6 +2558,67 @@ const NAVIGATION_VIEW_SLOTS: &[SlotDescriptor] = &[
         target: "inspectable",
     },
 ];
+const SPLIT_VIEW_PROPERTIES: &[PropertyDescriptor] = &[
+    PropertyDescriptor {
+        id: PropertyId::SplitViewOpenPaneLength,
+        name: "OpenPaneLength",
+        field: "open_pane_length",
+        value: "F64",
+        interface: "Microsoft.UI.Xaml.Controls.ISplitView",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::SplitViewCompactPaneLength,
+        name: "CompactPaneLength",
+        field: "compact_pane_length",
+        value: "F64",
+        interface: "Microsoft.UI.Xaml.Controls.ISplitView",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::SplitViewDisplayMode,
+        name: "DisplayMode",
+        field: "display_mode",
+        value: "SplitViewDisplayMode",
+        interface: "Microsoft.UI.Xaml.Controls.ISplitView",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::SplitViewIsPaneOpen,
+        name: "IsPaneOpen",
+        field: "is_pane_open",
+        value: "Bool",
+        interface: "Microsoft.UI.Xaml.Controls.ISplitView",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+];
+const SPLIT_VIEW_EVENTS: &[EventDescriptor] = &[];
+const SPLIT_VIEW_SLOTS: &[SlotDescriptor] = &[
+    SlotDescriptor {
+        id: SlotId::SplitViewPane,
+        name: "Pane",
+        interface: "Microsoft.UI.Xaml.Controls.ISplitView",
+        target: "ui_element",
+    },
+    SlotDescriptor {
+        id: SlotId::SplitViewContent,
+        name: "Content",
+        interface: "Microsoft.UI.Xaml.Controls.ISplitView",
+        target: "ui_element",
+    },
+];
 const PROGRESS_BAR_PROPERTIES: &[PropertyDescriptor] = &[
     PropertyDescriptor {
         id: PropertyId::ProgressBarMinimum,
@@ -2570,6 +2833,16 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         properties: NAVIGATION_VIEW_PROPERTIES,
         events: NAVIGATION_VIEW_EVENTS,
         slots: NAVIGATION_VIEW_SLOTS,
+    },
+    ControlDescriptor {
+        kind: MountedKind::SplitView,
+        name: "SplitView",
+        type_name: "Microsoft.UI.Xaml.Controls.SplitView",
+        role: ControlRole::Slots,
+        capabilities: &[Capability::Layout],
+        properties: SPLIT_VIEW_PROPERTIES,
+        events: SPLIT_VIEW_EVENTS,
+        slots: SPLIT_VIEW_SLOTS,
     },
     ControlDescriptor {
         kind: MountedKind::ProgressBar,

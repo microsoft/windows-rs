@@ -32,6 +32,13 @@ Microsoft::UI::Xaml::Controls::IProgressBar::put_IsIndeterminate
 Microsoft::UI::Xaml::Controls::IProgressBar::put_ShowError
 Microsoft::UI::Xaml::Controls::IProgressBar::put_ShowPaused
 Microsoft::UI::Xaml::Controls::IRowDefinition::{get_Height, put_Height}
+Microsoft::UI::Xaml::Controls::ISplitView::put_CompactPaneLength
+Microsoft::UI::Xaml::Controls::ISplitView::put_Content
+Microsoft::UI::Xaml::Controls::ISplitView::put_DisplayMode
+Microsoft::UI::Xaml::Controls::ISplitView::put_IsPaneOpen
+Microsoft::UI::Xaml::Controls::ISplitView::put_OpenPaneLength
+Microsoft::UI::Xaml::Controls::ISplitView::put_Pane
+Microsoft::UI::Xaml::Controls::ISplitView::{get_CompactPaneLength, get_Content, get_DisplayMode, get_IsPaneOpen, get_OpenPaneLength, get_Pane}
 Microsoft::UI::Xaml::Controls::IStackPanel::put_Orientation
 Microsoft::UI::Xaml::Controls::IStackPanel::put_Spacing
 Microsoft::UI::Xaml::Controls::ITextBlock::put_Text
@@ -68,6 +75,12 @@ Microsoft::UI::Xaml::Controls::RowDefinition::CreateInstance
 Microsoft::UI::Xaml::Controls::RowDefinitionCollection
 Microsoft::UI::Xaml::Controls::ScrollViewer::CreateInstance
 Microsoft::UI::Xaml::Controls::Slider::CreateInstance
+Microsoft::UI::Xaml::Controls::SplitView::CompactPaneLengthProperty
+Microsoft::UI::Xaml::Controls::SplitView::CreateInstance
+Microsoft::UI::Xaml::Controls::SplitView::DisplayModeProperty
+Microsoft::UI::Xaml::Controls::SplitView::IsPaneOpenProperty
+Microsoft::UI::Xaml::Controls::SplitView::OpenPaneLengthProperty
+Microsoft::UI::Xaml::Controls::SplitViewDisplayMode
 Microsoft::UI::Xaml::Controls::StackPanel::CreateInstance
 Microsoft::UI::Xaml::Controls::StackPanel::OrientationProperty
 Microsoft::UI::Xaml::Controls::StackPanel::SpacingProperty

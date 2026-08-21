@@ -41,6 +41,12 @@ This policy keeps platform workarounds narrow. A workaround may be added for a d
 repeatable platform defect. Canvas device loss and WebView process failure remain specialized
 adapter concerns because those APIs document those failure modes.
 
+Candidate cleanup is classified by publication stage. Planning failures discard component
+reservations; retryable planning failures also retain touched scopes for recomposition.
+Effect-preparation, native-apply, and frontend-publication failures remove remaining reservations
+and poison the Pump. Fail-stop clears queued events and virtual realizations rather than attempting
+rollback against partially changed native state.
+
 ## Components
 
 The owned-component frontend stores stable generational scopes outside cloned candidates. Scope
@@ -234,10 +240,12 @@ use the same `ViewKind::Fragment` path.
 
 Generated named slots use a distinct transparent logical node and a generic
 `SetSlot { parent, slot, child }` command. `NavigationView` currently exposes typed `Content` and
-`Header` slots. Components, fragments, providers, context, and effects pass through named slots
-without another ownership graph. Each slot accepts zero or one flattened native root and validates
-arity before native apply. Mount, independent update, replacement, clear, and retirement contain
-no `NavigationView` branch in Pump code.
+`Header` slots, while `SplitView` exposes `Pane` and `Content`. Schema resolution classifies both
+`IInspectable`-typed and `UIElement`-typed slot setters; the generated WinUI adapter supplies the
+matching null type when clearing either form. Components, fragments, providers, context, and
+effects pass through named slots without another ownership graph. Each slot accepts zero or one
+flattened native root and validates arity before native apply. Mount, independent update,
+replacement, clear, and retirement contain no control-specific branch in Pump code.
 
 Component-owned keyed children build one key index and one desired order. Small keyed edits use
 insert and move commands. Updates with 256 or more ordering operations use child synchronization,
@@ -273,7 +281,9 @@ realization for the same lifetime token. Valid realization resolves its row by i
 that the indexed key matches the lease key before composition. WinUI clears and retires the shell
 synchronously in `RecycleElement`, before the queued Pump recycle runs. The later native detach
 therefore clears a still-live shell but accepts an already-retired lifetime token. Native attach
-still requires a live token.
+still requires a live token. A recycle for a stale or never-published realization emits a separate
+acknowledgement command. The WinUI adapter removes a retired token, rejects a live token, and
+accepts a token already consumed by a reset detach. Normal detach validation remains strict.
 
 The virtual task editor in `crates/samples/reactor-next/virtual` is the integrated qualification
 slice. Durable task data remains in the parent model because WinUI may recycle a realized row and a

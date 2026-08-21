@@ -103,6 +103,7 @@ pub(crate) struct Slot {
 #[serde(rename_all = "snake_case")]
 pub(crate) enum SlotTarget {
     Inspectable,
+    UiElement,
 }
 
 pub(crate) struct ResolvedSchema {
@@ -374,16 +375,25 @@ impl Schema {
                         control.type_name, slot.name
                     )
                 })?;
-                if metadata.classify_param(&name, &method) != Some(ParamClass::IInspectable) {
-                    return Err(format!(
-                        "{}.{} has an unsupported slot parameter",
-                        control.type_name, slot.name
-                    ));
-                }
+                let target = match metadata.classify_param(&name, &method) {
+                    Some(ParamClass::IInspectable) => SlotTarget::Inspectable,
+                    Some(ParamClass::Complex)
+                        if metadata.param_class_name(&name, &method).as_deref()
+                            == Some("Microsoft.UI.Xaml.UIElement") =>
+                    {
+                        SlotTarget::UiElement
+                    }
+                    _ => {
+                        return Err(format!(
+                            "{}.{} has an unsupported slot parameter",
+                            control.type_name, slot.name
+                        ));
+                    }
+                };
                 slots.push(ResolvedSlot {
                     name: slot.name,
                     interface: interface.full_path(),
-                    target: SlotTarget::Inspectable,
+                    target,
                 });
             }
 
@@ -554,7 +564,7 @@ mod tests {
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
         let resolved = schema.resolve(&metadata).unwrap();
 
-        assert_eq!(resolved.controls.len(), 12);
+        assert_eq!(resolved.controls.len(), 13);
         assert_eq!(resolved.controls[0].name, "TextBlock");
         assert_eq!(resolved.controls[0].properties[0].value, "Str");
         assert_eq!(resolved.controls[1].events[0].payload, "Unit");
@@ -607,29 +617,43 @@ mod tests {
                 .interface
                 .ends_with("INavigationView")
         );
-        assert_eq!(resolved.controls[8].name, "ProgressBar");
-        assert_eq!(resolved.controls[8].properties.len(), 7);
-        assert_eq!(resolved.controls[8].properties[0].value, "F64");
-        assert_eq!(resolved.controls[8].properties[3].value, "Bool");
-        assert_eq!(resolved.controls[9].name, "ToggleSwitch");
-        assert_eq!(resolved.controls[9].properties[0].value, "Bool");
-        assert!(resolved.controls[9].properties[0].copy);
+        assert_eq!(resolved.controls[8].name, "SplitView");
         assert_eq!(
-            resolved.controls[9].properties[0].feedback.as_deref(),
+            resolved.controls[8].properties[2].value,
+            "SplitViewDisplayMode"
+        );
+        assert_eq!(resolved.controls[8].slots.len(), 2);
+        assert!(matches!(
+            resolved.controls[8].slots[0].target,
+            SlotTarget::UiElement
+        ));
+        assert!(matches!(
+            resolved.controls[8].slots[1].target,
+            SlotTarget::UiElement
+        ));
+        assert_eq!(resolved.controls[9].name, "ProgressBar");
+        assert_eq!(resolved.controls[9].properties.len(), 7);
+        assert_eq!(resolved.controls[9].properties[0].value, "F64");
+        assert_eq!(resolved.controls[9].properties[3].value, "Bool");
+        assert_eq!(resolved.controls[10].name, "ToggleSwitch");
+        assert_eq!(resolved.controls[10].properties[0].value, "Bool");
+        assert!(resolved.controls[10].properties[0].copy);
+        assert_eq!(
+            resolved.controls[10].properties[0].feedback.as_deref(),
             Some("Toggled")
         );
         assert_eq!(
-            resolved.controls[9].properties[0]
+            resolved.controls[10].properties[0]
                 .feedback_contract
                 .unwrap(),
             FeedbackContract::SynchronousExact
         );
-        assert_eq!(resolved.controls[9].events[0].payload, "Bool");
+        assert_eq!(resolved.controls[10].events[0].payload, "Bool");
         assert!(matches!(
-            resolved.controls[9].events[0].source,
+            resolved.controls[10].events[0].source,
             EventPayloadSource::SenderProperty { .. }
         ));
-        assert!(matches!(resolved.controls[10].role, Role::Virtual));
+        assert!(matches!(resolved.controls[11].role, Role::Virtual));
     }
 
     #[test]

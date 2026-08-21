@@ -95,6 +95,15 @@ impl VirtualHandle {
     pub fn clear_content(&self, container: RealizedContainer) -> Result<()> {
         self._shells.clear_content(container)
     }
+
+    pub fn acknowledge_recycle(&self, container: RealizedContainer) -> Result<()> {
+        self._shells.acknowledge_recycle(container)
+    }
+
+    #[cfg(feature = "test")]
+    pub fn shell_counts(&self) -> (usize, usize) {
+        (self._shells.len(), self._shells.retired_len())
+    }
 }
 
 fn item_values(item_count: usize) -> Result<Vec<Option<IInspectable>>> {
@@ -166,6 +175,14 @@ impl<T: Clone> ShellPool<T> {
     fn take_retired(&mut self, container: RealizedContainer) -> bool {
         self.retired.remove(&container)
     }
+
+    fn acknowledge_recycle(&mut self, container: RealizedContainer) -> Result<()> {
+        if self.shells.contains_key(&container) {
+            return Err(Error::new(E_FAIL, "cannot acknowledge a live container"));
+        }
+        self.retired.remove(&container);
+        Ok(())
+    }
 }
 
 impl RealizedShells {
@@ -205,6 +222,11 @@ impl RealizedShells {
         self.pool.borrow().shells.len()
     }
 
+    #[cfg(feature = "test")]
+    pub fn retired_len(&self) -> usize {
+        self.pool.borrow().retired.len()
+    }
+
     fn clear_content(&self, container: RealizedContainer) -> Result<()> {
         let mut pool = self.pool.borrow_mut();
         if let Some(shell) = pool.shell(container) {
@@ -216,6 +238,10 @@ impl RealizedShells {
         } else {
             Err(Error::new(E_FAIL, "missing realized container"))
         }
+    }
+
+    fn acknowledge_recycle(&self, container: RealizedContainer) -> Result<()> {
+        self.pool.borrow_mut().acknowledge_recycle(container)
     }
 
     fn borrow(&self) -> std::cell::Ref<'_, ShellPool<bindings::ContentControl>> {
@@ -321,5 +347,19 @@ mod tests {
         assert_ne!(new, old);
         assert_eq!(reused, physical);
         assert_eq!(shells.shell(new), Some(physical));
+    }
+
+    #[test]
+    fn recycle_acknowledgement_releases_only_retired_tokens() {
+        let mut shells = ShellPool::<usize>::default();
+        let (retired, _) = shells.take(|| Ok(42)).unwrap();
+        assert!(shells.retire(retired));
+
+        shells.acknowledge_recycle(retired).unwrap();
+        assert!(shells.retired.is_empty());
+        shells.acknowledge_recycle(retired).unwrap();
+
+        let (live, _) = shells.take(|| Ok(43)).unwrap();
+        assert!(shells.acknowledge_recycle(live).is_err());
     }
 }

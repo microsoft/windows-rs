@@ -74,7 +74,7 @@ impl<R: NativeRuntime> Pump<R> {
             if !retired.contains(&token)
                 && let Err(error) = self.components.publish(token)
             {
-                self.poisoned = true;
+                self.fail_stop();
                 return Err(error.into());
             }
         }
@@ -84,13 +84,13 @@ impl<R: NativeRuntime> Pump<R> {
                     .components
                     .set_context_dependencies(*token, dependencies.clone())
             {
-                self.poisoned = true;
+                self.fail_stop();
                 return Err(error.into());
             }
         }
         for token in changes.retired.iter().copied() {
             if let Err(error) = self.components.remove(token) {
-                self.poisoned = true;
+                self.fail_stop();
                 return Err(error.into());
             }
         }

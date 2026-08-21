@@ -5,7 +5,7 @@ static labels. It includes:
 
 - keyed row components with controlled `TextBox` and `ToggleSwitch` values;
 - front insertion, removal, move-to-end, reversal, and a 1,000-item reset;
-- selection distributed through `Context<bool>`;
+- direct selection props for each keyed row;
 - validation and queued typed focus;
 - keyed row effects and cleanup on recycle;
 - background loading with scope-owned cancellation;
@@ -26,10 +26,11 @@ cargo run -p sample_reactor_next_virtual --bin reactor-next-virtual-perf `
     --features perf --release -- --samples 500
 ```
 
-The driver measures local editing, broad and redundant parent messages, an identical full-root
-update, 32-row recycle/realize batches, background completion, and a mixed virtual cycle. It
-reports allocator traffic and median, p95, and p99 Rust-side turn time. It does not include WinUI
-control work, layout, rendering, or presentation.
+The driver measures local editing, broad and redundant parent messages, an unchanged root-component
+memo hit, a forced value-equal root recomposition, 32-row recycle/realize batches, background
+completion, and a mixed virtual cycle. It reports allocator traffic and median, p95, and p99
+Rust-side turn time. It also measures value-equal declaration scaling at 1,000, 10,000, and 100,000
+tasks. It does not include WinUI control work, layout, rendering, or presentation.
 
 The live driver adds `CompositionTarget::Rendering` frame intervals and host/native phase timing:
 
@@ -40,11 +41,12 @@ cargo run -p sample_reactor_next_virtual --bin reactor-next-virtual-live-perf `
     --features perf --release -- --baseline --samples 300
 ```
 
-The active run moves by 32 virtual indices per frame, alternates selection context, edits a
+The active run moves by 32 virtual indices per frame, alternates selection, edits a
 controlled row every six frames, and delivers a background completion every 30 frames. The
 baseline opens the same 1,000-item editor without scheduling those actions. Each command writes a
-report next to the executable. A machine that emits no composition frames writes an explicit
-failure report and exits unsuccessfully after 20 seconds.
+report next to the executable. After the measured frames, the driver also verifies that queued
+recycle and source-reset work left no retired WinUI shell tokens. A machine that emits no
+composition frames writes an explicit failure report and exits unsuccessfully after 20 seconds.
 
 The durable task title belongs to `TaskEditor`, not the realized row component. A row component is
 retained across key-stable payload updates, but native virtualization or a source reset may recycle

@@ -119,6 +119,10 @@ trait LivePump {
         Err(RuntimeError::UnsupportedKind)
     }
     #[cfg(feature = "test")]
+    fn live_virtual_shell_counts(&self) -> Result<(usize, usize), RuntimeError> {
+        Err(RuntimeError::UnsupportedKind)
+    }
+    #[cfg(feature = "test")]
     fn take_live_native_apply_times(&mut self) -> Vec<f64> {
         Vec::new()
     }
@@ -152,6 +156,10 @@ trait LivePump {
     }
     #[cfg(feature = "test")]
     fn live_grid(&mut self) -> bool {
+        false
+    }
+    #[cfg(feature = "test")]
+    fn live_split_view(&mut self) -> bool {
         false
     }
     #[cfg(feature = "test")]
@@ -421,6 +429,11 @@ impl LivePump for ComponentLoop {
     }
 
     #[cfg(feature = "test")]
+    fn live_virtual_shell_counts(&self) -> Result<(usize, usize), RuntimeError> {
+        self.pump.runtime().live_virtual_shell_counts()
+    }
+
+    #[cfg(feature = "test")]
     fn take_live_native_apply_times(&mut self) -> Vec<f64> {
         self.pump.runtime_mut().take_live_native_apply_times()
     }
@@ -564,6 +577,31 @@ impl LivePump for ComponentLoop {
             return false;
         }
         self.pump.runtime().live_grid_matches(grid, child, false) == Ok(true)
+    }
+
+    #[cfg(feature = "test")]
+    fn live_split_view(&mut self) -> bool {
+        let view = SplitView::new()
+            .open_pane_length(280.0)
+            .compact_pane_length(48.0)
+            .display_mode(SplitViewDisplayMode::CompactInline)
+            .is_pane_open(true)
+            .slots([
+                SlotView::new(
+                    SplitViewSlot::Pane,
+                    StackPanel::new().children((TextBlock::new().text("Pane"),)),
+                ),
+                SlotView::new(
+                    SplitViewSlot::Content,
+                    Grid::new().children((TextBlock::new().text("Content"),)),
+                ),
+            ]);
+        if self.pump.update_view(view).is_err() {
+            return false;
+        }
+        self.pump
+            .root_native()
+            .is_some_and(|root| self.pump.runtime().live_split_view_matches(root) == Ok(true))
     }
 
     #[cfg(feature = "test")]
@@ -739,6 +777,17 @@ pub fn bring_live_virtual_index(index: usize) -> Result<(), RuntimeError> {
             .and_then(LiveHost::primary)
             .ok_or(RuntimeError::UnsupportedKind)?
             .live_bring_virtual_index(index)
+    })
+}
+
+#[cfg(feature = "test")]
+pub fn live_virtual_shell_counts() -> Result<(usize, usize), RuntimeError> {
+    HOST.with(|host| {
+        host.borrow()
+            .as_ref()
+            .and_then(LiveHost::primary)
+            .ok_or(RuntimeError::UnsupportedKind)?
+            .live_virtual_shell_counts()
     })
 }
 
@@ -1687,6 +1736,16 @@ fn queue_live_range_restore_verification(
                     });
                     if !grid_passed {
                         eprintln!("live backend fixture did not apply or clear Grid state");
+                        std::process::exit(1);
+                    }
+                    let split_view_passed = HOST.with(|host| {
+                        host.borrow_mut()
+                            .as_mut()
+                            .and_then(LiveHost::primary_mut)
+                            .is_some_and(LivePump::live_split_view)
+                    });
+                    if !split_view_passed {
+                        eprintln!("live backend fixture did not apply SplitView state");
                         std::process::exit(1);
                     }
                     let prepared = HOST.with(|host| {

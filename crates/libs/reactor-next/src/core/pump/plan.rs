@@ -35,6 +35,15 @@ pub(super) struct ComponentChanges {
     pub(super) host_requests: Vec<HostRequest>,
 }
 
+#[derive(Clone, Copy)]
+pub(super) enum CandidateFailureStage {
+    PlanningDiscard,
+    PlanningRetry,
+    EffectPreparation,
+    NativeApply,
+    Publication,
+}
+
 pub(super) enum LocalComponentUpdate {
     Plan(LocalCandidate),
     Fallback(ComponentRender),

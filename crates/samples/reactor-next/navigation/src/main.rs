@@ -309,10 +309,15 @@ impl Component for Workspace {
         View::provide(
             &self.shared.theme,
             self.shared.dark.get(),
-            NavigationView::new().slots([
-                SlotView::new(NavigationViewSlot::Header, header),
-                SlotView::new(NavigationViewSlot::Content, page),
-            ]),
+            SplitView::new()
+                .open_pane_length(280.0)
+                .compact_pane_length(48.0)
+                .display_mode(SplitViewDisplayMode::CompactInline)
+                .is_pane_open(true)
+                .slots([
+                    SlotView::new(SplitViewSlot::Pane, header),
+                    SlotView::new(SplitViewSlot::Content, page),
+                ]),
         )
     }
 }

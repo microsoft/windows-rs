@@ -102,50 +102,73 @@ The August 21, 2026 run used the checkpoint toolchain and 500 samples after 16 w
 
 | Workload | Median | p95 | p99 | Bytes/op | Allocations/op |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Local controlled edit | 344 us | 440 us | 608 us | 784,467 | 5,422 |
-| Broad selection change | 350 us | 503 us | 665 us | 798,810 | 5,569 |
-| Redundant parent message | 261 us | 336 us | 469 us | 771,590 | 5,267 |
-| Identical full-root update | 0.2 us | 0.3 us | 0.3 us | 48 | 2 |
-| 32-row recycle/realize | 694 us | 970 us | 1,407 us | 1,118,845 | 7,280 |
-| Background completion | 248 us | 352 us | 502 us | 771,593 | 5,267 |
-| Mixed virtual cycle | 1,260 us | 1,665 us | 2,466 us | 2,674,661 | 17,834 |
+| Local controlled edit | 213 us | 258 us | 325 us | 531,780 | 1,355 |
+| Broad selection change | 194 us | 243 us | 286 us | 520,919 | 1,212 |
+| Redundant parent message | 185 us | 215 us | 248 us | 519,778 | 1,203 |
+| Unchanged root component memo hit | 0.2 us | 0.3 us | 0.3 us | 80 | 2 |
+| Value-equal root recomposition | 110 us | 192 us | 239 us | 519,661 | 1,202 |
+| 32-row recycle/realize | 697 us | 885 us | 992 us | 1,055,413 | 6,774 |
+| Background completion | 86 us | 101 us | 123 us | 519,781 | 1,203 |
+| Mixed virtual cycle | 866 us | 1,018 us | 1,214 us | 2,110,829 | 9,207 |
 
-The mixed cycle performs a background completion, a context-changing parent update, and a complete
+The mixed cycle performs a background completion, a selection-changing parent update, and a complete
 32-row recycle/realize batch. `process_realizations` has a 32-request work budget, so the driver
 drains both the recycle and realization turns before stopping the timer.
 
 These are Rust planning, publication, effect, and `RecordingRuntime` command-application times.
 They exclude WinUI control work, layout, rendering, and presentation. The integrated Rust path is
 below the 4 ms profiling trigger, so no architectural optimization is justified by latency yet.
-Allocation volume is the main watch: a valid controlled keystroke writes through to the parent task
-model and rebuilds the 1,000-item source, while the identical root update takes the O(1) unchanged
-component-props path.
+A valid controlled keystroke writes through to the parent task model and rebuilds the 1,000-item
+source. Sharing immutable task payloads with `Rc<Task>` removed per-row title clones. Passing
+selection directly in `RowProps` removed one context provider declaration per task; each provider
+had only one consumer and added no useful fan-out. Together these changes cut local-edit bytes by
+36%, allocations by 75%, and median time by 48%. The 0.2 us row is only the O(1) unchanged
+component-props memo path. The forced recomposition changes a private render revision while
+preserving the same application model and rebuilds the value-equal TaskEditor declaration.
 
-The live driver measured the same editor for 300 frames after 30 warmups. The active workload
-requests a new virtual index every frame, alternates selection context, edits a controlled row
+Value-equal eager-source scaling after the same changes is:
+
+| Tasks | Median | p95 | Bytes/op | Allocations/op |
+| ---: | ---: | ---: | ---: | ---: |
+| 1,000 | 88 us | 102 us | 519,661 | 1,202 |
+| 10,000 | 1.72 ms | 1.78 ms | 4,355,696 | 10,202 |
+| 100,000 | 21.8 ms | 24.6 ms | 38,787,955 | 100,202 |
+
+The eager declaration remains linear. The 1,000-item application is comfortably below the gate,
+and 10,000 items remain below the 4 ms profiling trigger at p95. A 100,000-item source needs a lazy
+indexed source if an application requires that scale; this synthetic result alone does not justify
+adding another public source model.
+
+The live driver measured the same editor for 600 frames after 30 warmups. The active workload
+requests a new virtual index every frame, alternates selection, edits a controlled row
 every six frames, and delivers a background completion every 30 frames. The baseline opens the
 same 1,000-item editor without those actions:
 
 | Metric | Baseline | Active |
 | --- | ---: | ---: |
 | Frame median | 16.68 ms | 16.65 ms |
-| Frame p95 | 17.16 ms | 17.79 ms |
-| Frame p99 | 17.83 ms | 22.78 ms |
-| Frame max | 18.51 ms | 62.73 ms |
-| Frames over 25 ms | 0 / 300 | 2 / 300 |
-| Frames over 33.4 ms | 0 / 300 | 2 / 300 |
+| Frame p95 | 17.16 ms | 18.10 ms |
+| Frame p99 | 17.58 ms | 20.71 ms |
+| Frame max | 18.35 ms | 58.85 ms |
+| Frames over 25 ms | 0 / 600 | 2 / 600 |
+| Frames over 33.4 ms | 0 / 600 | 2 / 600 |
 
-The active host dispatched 300 turns at 1.41 ms median, 1.78 ms p95, and 4.33 ms p99. Its 598
-native apply batches were 199 us median, 1.13 ms p95, and 3.38 ms p99. Baseline p95 already
+The active host dispatched 602 turns at 1.20 ms median, 1.48 ms p95, and 2.06 ms p99. Its 1,202
+native apply batches were 184 us median, 1.05 ms p95, and 1.39 ms p99. Baseline p95 already
 exceeded 16.7 ms because presentation intervals straddle the display period; the active p95 delta
-was 0.63 ms. The two long frames coincided with a 19.64 ms host turn and an 18.47 ms native apply
-outlier during forced realization. Together with the recording results, the phase data points to
-native realization/layout at the tail rather than a sustained Rust planning problem.
+was 0.94 ms. The two long frames coincide with the roughly 17 ms host and native-apply maxima during
+forced realization. An earlier run under system contention reached 33.33 ms p95 while host and
+native-apply p95 rose to 5.08 and 3.31 ms; two immediate repeats produced the stable distribution
+above. Use missed frames and correlated phase times rather than treating one frame percentile as a
+frontend result.
 
-The first live run also found a recycle-order defect: WinUI clears and retires an element-factory
+The live runs also found recycle-order defects. WinUI clears and retires an element-factory
 shell before its queued Pump recycle runs. `DetachRealized` then tried to clear the retired token
 again and treated the expected absence as a fatal native error. The WinUI runtime now clears a
-still-live shell but accepts an already-retired shell; attaching content remains strict.
+still-live shell but accepts an already-retired shell; attaching content remains strict. A later
+120-frame soak found 79 leaked retired tokens when a recycle followed a realization that never
+published. Rejected recycle work now acknowledges only retired tokens, and the repeated-reset soak
+settles at zero.
 
 Profile before changing architecture if Rust planning approaches 4 ms or sustained p95 frame time
 exceeds 16.7 ms on the checkpoint machine. Start with repeated key/view collection, avoidable

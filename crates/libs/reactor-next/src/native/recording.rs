@@ -332,6 +332,11 @@ impl RecordingRuntime {
                 self.attachments.remove(&attachment);
                 self.nodes.get_mut(child).unwrap().parent = None;
             }
+            Command::AcknowledgeRecycle { collection, .. } => {
+                self.nodes
+                    .get(collection)
+                    .ok_or(RuntimeError::MissingNode(*collection))?;
+            }
             Command::Destroy { node } => {
                 let recorded = self
                     .nodes

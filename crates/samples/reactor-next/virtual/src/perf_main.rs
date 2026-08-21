@@ -40,18 +40,19 @@ struct Row {
     allocs: f64,
     bytes: f64,
     median_us: f64,
-    name: &'static str,
+    name: String,
     p95_us: f64,
     p99_us: f64,
 }
 
 fn measure(
-    name: &'static str,
+    name: impl Into<String>,
     samples: usize,
+    warmups: usize,
     mut scenario: Scenario,
     mut operation: impl FnMut(&mut Scenario),
 ) -> Row {
-    for _ in 0..16 {
+    for _ in 0..warmups {
         operation(&mut scenario);
     }
 
@@ -75,7 +76,7 @@ fn measure(
         allocs: allocs as f64 / samples as f64,
         bytes: bytes as f64 / samples as f64,
         median_us: percentile(0.50),
-        name,
+        name: name.into(),
         p95_us: percentile(0.95),
         p99_us: percentile(0.99),
     }
@@ -87,11 +88,17 @@ fn main() {
         .nth(1)
         .map_or(500, |value| value.parse::<usize>().unwrap());
     assert!(samples > 0);
+    let scaling_samples = std::env::args()
+        .skip_while(|argument| argument != "--scaling-samples")
+        .nth(1)
+        .map_or(20, |value| value.parse::<usize>().unwrap());
+    assert!(scaling_samples > 0);
 
     let rows = [
         measure(
             "local controlled edit",
             samples,
+            16,
             Scenario::new(),
             |scenario| {
                 scenario.local_edit();
@@ -100,6 +107,7 @@ fn main() {
         measure(
             "broad selection change",
             samples,
+            16,
             Scenario::new(),
             |scenario| {
                 scenario.broad_selection_change();
@@ -108,22 +116,34 @@ fn main() {
         measure(
             "redundant parent message",
             samples,
+            16,
             Scenario::new(),
             |scenario| {
                 scenario.redundant_parent_message();
             },
         ),
         measure(
-            "identical full-root update",
+            "unchanged root component memo hit",
             samples,
+            16,
             Scenario::new(),
             |scenario| {
-                scenario.identical_full_root_update();
+                scenario.unchanged_root_component_memo_hit();
+            },
+        ),
+        measure(
+            "value-equal root recomposition",
+            samples,
+            16,
+            Scenario::new(),
+            |scenario| {
+                scenario.value_equal_root_recomposition();
             },
         ),
         measure(
             "32-row recycle/realize",
             samples,
+            16,
             Scenario::new(),
             |scenario| {
                 scenario.realize_recycle_batch();
@@ -132,6 +152,7 @@ fn main() {
         measure(
             "background completion",
             samples,
+            16,
             Scenario::new(),
             |scenario| {
                 scenario.background_completion();
@@ -140,6 +161,7 @@ fn main() {
         measure(
             "mixed virtual cycle",
             samples,
+            16,
             Scenario::new(),
             |scenario| {
                 scenario.mixed_virtual_cycle();
@@ -153,6 +175,26 @@ fn main() {
         "workload", "median us", "p95 us", "p99 us", "bytes/op", "allocs/op"
     );
     for row in rows {
+        println!(
+            "{:<28} {:>10.1} {:>10.1} {:>10.1} {:>12.0} {:>10.1}",
+            row.name, row.median_us, row.p95_us, row.p99_us, row.bytes, row.allocs
+        );
+    }
+
+    println!();
+    println!("eager virtual-source scaling ({scaling_samples} samples after 2 warmups)");
+    println!(
+        "{:<28} {:>10} {:>10} {:>10} {:>12} {:>10}",
+        "workload", "median us", "p95 us", "p99 us", "bytes/op", "allocs/op"
+    );
+    for task_count in [1_000, 10_000, 100_000] {
+        let row = measure(
+            format!("value-equal {task_count}"),
+            scaling_samples,
+            2,
+            Scenario::with_task_count(task_count),
+            Scenario::value_equal_root_recomposition,
+        );
         println!(
             "{:<28} {:>10.1} {:>10.1} {:>10.1} {:>12.0} {:>10.1}",
             row.name, row.median_us, row.p95_us, row.p99_us, row.bytes, row.allocs

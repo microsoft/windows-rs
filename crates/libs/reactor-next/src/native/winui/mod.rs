@@ -147,6 +147,20 @@ impl WinUiRuntime {
     }
 
     #[cfg(feature = "test")]
+    pub fn live_split_view_matches(&self, node: NodeId) -> Result<bool, RuntimeError> {
+        let Some(Handle::SplitView(split_view)) = self.handles.get(&node) else {
+            return Err(RuntimeError::UnsupportedKind);
+        };
+        Ok(split_view.OpenPaneLength().map_err(native_error)? == 280.0
+            && split_view.CompactPaneLength().map_err(native_error)? == 48.0
+            && split_view.DisplayMode().map_err(native_error)?
+                == bindings::SplitViewDisplayMode::CompactInline
+            && split_view.IsPaneOpen().map_err(native_error)?
+            && split_view.Pane().is_ok()
+            && split_view.Content().is_ok())
+    }
+
+    #[cfg(feature = "test")]
     pub fn live_reject_next_enqueue(&self) {
         self.reject_next_enqueue.set(true);
     }
@@ -174,6 +188,22 @@ impl WinUiRuntime {
             .GetOrCreateElement(index)
             .and_then(|element| element.StartBringIntoView())
             .map_err(native_error)
+    }
+
+    #[cfg(feature = "test")]
+    pub fn live_virtual_shell_counts(&self) -> Result<(usize, usize), RuntimeError> {
+        let mut live = 0;
+        let mut retired = 0;
+        for handle in self.virtuals.values() {
+            let counts = handle.shell_counts();
+            live += counts.0;
+            retired += counts.1;
+        }
+        if self.virtuals.is_empty() {
+            Err(RuntimeError::UnsupportedKind)
+        } else {
+            Ok((live, retired))
+        }
     }
 
     fn apply_one(&mut self, command: &Command) -> Result<(), RuntimeError> {
@@ -283,6 +313,16 @@ impl WinUiRuntime {
                     .get(collection)
                     .ok_or(RuntimeError::MissingNode(*collection))?
                     .clear_content(*container)
+                    .map_err(native_error)?;
+            }
+            Command::AcknowledgeRecycle {
+                collection,
+                container,
+            } => {
+                self.virtuals
+                    .get(collection)
+                    .ok_or(RuntimeError::MissingNode(*collection))?
+                    .acknowledge_recycle(*container)
                     .map_err(native_error)?;
             }
             Command::Destroy { node } => {

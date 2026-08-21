@@ -7,11 +7,11 @@ performance are proven.
 See [`reactor-next.md`](../../../reactor-next.md) for the current plan and gates.
 
 The current slice generates `TextBlock`, `Button`, `StackPanel`, `Grid`, `TextBox`, `NumberBox`,
-`Slider`, `NavigationView`, `ProgressBar`, `ToggleSwitch`, `ScrollViewer`, and `ItemsRepeater` from
-WinUI metadata plus a small curation schema. `ToggleSwitch` adds typed boolean controlled feedback.
-`NavigationView` exposes typed `Content` and `Header` slots through `SlotsControl::slots`. The
-private WinUI backend applies properties and keyed structure and queues native work. The recording
-runtime remains the failure-injection and randomized-test backend.
+`Slider`, `NavigationView`, `SplitView`, `ProgressBar`, `ToggleSwitch`, `ScrollViewer`, and
+`ItemsRepeater` from WinUI metadata plus a small curation schema. `ToggleSwitch` adds typed boolean
+controlled feedback. `NavigationView` and `SplitView` expose typed named slots through
+`SlotsControl::slots`. The private WinUI backend applies properties and keyed structure and queues
+native work. The recording runtime remains the failure-injection and randomized-test backend.
 
 Applications use owned components:
 
@@ -88,6 +88,21 @@ Grid::new()
 
 Components and fragments can flatten to more than one native root, so they do not expose attached
 placement. Put such a view inside a concrete native layout control and place that wrapper.
+
+`SplitView` uses the same named-slot ownership path as `NavigationView`, including for its
+`UIElement`-typed Pane and Content properties:
+
+```rust,ignore
+SplitView::new()
+    .open_pane_length(280.0)
+    .compact_pane_length(48.0)
+    .display_mode(SplitViewDisplayMode::CompactInline)
+    .is_pane_open(true)
+    .slots([
+        SlotView::new(SplitViewSlot::Pane, navigation),
+        SlotView::new(SplitViewSlot::Content, page),
+    ])
+```
 
 `ItemsRepeater` accepts explicitly keyed `View` rows:
 

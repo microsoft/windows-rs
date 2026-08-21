@@ -44,6 +44,9 @@ pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
          put_ItemTemplate}"
             .to_string(),
         "Microsoft::UI::Xaml::Controls::IRowDefinition::{get_Height, put_Height}".to_string(),
+        "Microsoft::UI::Xaml::Controls::ISplitView::{get_CompactPaneLength, get_Content, \
+         get_DisplayMode, get_IsPaneOpen, get_OpenPaneLength, get_Pane}"
+            .to_string(),
         "Microsoft::UI::Xaml::Controls::ItemsRepeater::CreateInstance".to_string(),
         "Microsoft::UI::Xaml::Controls::RowDefinition::CreateInstance".to_string(),
         "Microsoft::UI::Xaml::Controls::RowDefinitionCollection".to_string(),
@@ -417,6 +420,12 @@ fn generate_set_slot(control: &ResolvedControl, slot: &crate::schema::ResolvedSl
                     .map_err(native_error),
             }
         },
+        SlotTarget::UiElement => quote! {
+            match child {
+                Some(child) => control.#setter(child).map_err(native_error),
+                None => control.#setter(None::<&UIElement>).map_err(native_error),
+            }
+        },
     };
     let set = if slot.interface.ends_with(&format!(".I{}", control.name)) {
         value
@@ -670,6 +679,7 @@ mod tests {
         );
         assert!(filter.contains("Grid::{ColumnProperty"));
         assert!(filter.contains("IGrid::{get_ColumnDefinitions, get_RowDefinitions}"));
+        assert!(filter.contains("ISplitView::{get_CompactPaneLength, get_Content"));
     }
 
     #[test]

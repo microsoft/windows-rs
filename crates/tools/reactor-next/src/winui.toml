@@ -150,6 +150,33 @@ name = "Content"
 name = "Header"
 
 [[control]]
+type = "Microsoft.UI.Xaml.Controls.SplitView"
+role = "slots"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "OpenPaneLength"
+clearable = true
+
+[[control.property]]
+name = "CompactPaneLength"
+clearable = true
+
+[[control.property]]
+name = "DisplayMode"
+clearable = true
+
+[[control.property]]
+name = "IsPaneOpen"
+clearable = true
+
+[[control.slot]]
+name = "Pane"
+
+[[control.slot]]
+name = "Content"
+
+[[control]]
 type = "Microsoft.UI.Xaml.Controls.ProgressBar"
 role = "leaf"
 capabilities = ["layout", "enabled"]

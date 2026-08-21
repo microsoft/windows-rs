@@ -1170,6 +1170,47 @@ fn source_reset_rejects_a_queued_old_revision_request() {
 }
 
 #[test]
+fn recycle_queued_before_source_reset_is_acknowledged_after_reset() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount(
+        ItemsRepeater::new()
+            .item("a", TextBlock::new().text("A"))
+            .into(),
+    )
+    .unwrap();
+    let collection = pump.root().unwrap();
+    let container = RealizedContainer(1);
+    pump.runtime_mut().queue_realize(collection, container, 0);
+    assert!(matches!(
+        pump.process_realizations().unwrap().as_slice(),
+        [RealizationOutcome::Realized(_)]
+    ));
+    pump.runtime_mut().queue_recycle(collection, container);
+
+    pump.update(
+        ItemsRepeater::new()
+            .item("z", TextBlock::new().text("Z"))
+            .into(),
+    )
+    .unwrap();
+
+    assert!(matches!(
+        pump.process_realizations().unwrap().as_slice(),
+        [RealizationOutcome::Rejected(RealizationRequest::Recycle {
+            container: rejected,
+            ..
+        })] if *rejected == container
+    ));
+    assert_eq!(
+        pump.runtime().commands().last().unwrap(),
+        &[Command::AcknowledgeRecycle {
+            collection,
+            container,
+        }]
+    );
+}
+
+#[test]
 fn queued_recycle_supersedes_unprocessed_realization() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount(

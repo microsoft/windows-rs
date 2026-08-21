@@ -212,6 +212,10 @@ pub enum Command {
         container: RealizedContainer,
         child: NodeId,
     },
+    AcknowledgeRecycle {
+        collection: NodeId,
+        container: RealizedContainer,
+    },
     Destroy {
         node: NodeId,
     },

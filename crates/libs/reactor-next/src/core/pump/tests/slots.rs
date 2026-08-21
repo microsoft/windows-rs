@@ -16,6 +16,87 @@ fn navigation(content: Option<View>, header: Option<View>) -> View {
     NavigationView::new().slots(slots)
 }
 
+fn split_view(content: Option<View>, pane: Option<View>) -> View {
+    let mut slots = Vec::new();
+    if let Some(pane) = pane {
+        slots.push(SlotView::new(SplitViewSlot::Pane, pane));
+    }
+    if let Some(content) = content {
+        slots.push(SlotView::new(SplitViewSlot::Content, content));
+    }
+    SplitView::new()
+        .open_pane_length(280.0)
+        .compact_pane_length(48.0)
+        .display_mode(SplitViewDisplayMode::CompactInline)
+        .is_pane_open(true)
+        .slots(slots)
+}
+
+#[test]
+fn split_view_properties_and_ui_element_slots_follow_generated_paths() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(split_view(
+        Some(View::native(TextBlock::new().text("content"))),
+        Some(View::native(StackPanel::new())),
+    ))
+    .unwrap();
+    let root = pump.root().unwrap();
+    let recorded = pump.runtime().node(root).unwrap();
+
+    assert_eq!(
+        recorded.property(PropertyId::SplitViewOpenPaneLength),
+        Some(&PropertyValue::F64(280.0))
+    );
+    assert_eq!(
+        recorded.property(PropertyId::SplitViewCompactPaneLength),
+        Some(&PropertyValue::F64(48.0))
+    );
+    assert_eq!(
+        recorded.property(PropertyId::SplitViewDisplayMode),
+        Some(&PropertyValue::SplitViewDisplayMode(
+            SplitViewDisplayMode::CompactInline
+        ))
+    );
+    assert_eq!(
+        recorded.property(PropertyId::SplitViewIsPaneOpen),
+        Some(&PropertyValue::Bool(true))
+    );
+    assert!(recorded.slot(SlotId::SplitViewPane).is_some());
+    assert!(recorded.slot(SlotId::SplitViewContent).is_some());
+
+    let property_order = pump.runtime().commands()[0]
+        .iter()
+        .filter_map(|command| match command {
+            Command::SetProperty { property, .. }
+                if matches!(
+                    property,
+                    PropertyId::SplitViewOpenPaneLength
+                        | PropertyId::SplitViewCompactPaneLength
+                        | PropertyId::SplitViewDisplayMode
+                        | PropertyId::SplitViewIsPaneOpen
+                ) =>
+            {
+                Some(*property)
+            }
+            _ => None,
+        })
+        .collect::<Vec<_>>();
+    assert_eq!(
+        property_order,
+        [
+            PropertyId::SplitViewOpenPaneLength,
+            PropertyId::SplitViewCompactPaneLength,
+            PropertyId::SplitViewDisplayMode,
+            PropertyId::SplitViewIsPaneOpen,
+        ]
+    );
+
+    pump.update_view(split_view(None, None)).unwrap();
+    let recorded = pump.runtime().node(root).unwrap();
+    assert_eq!(recorded.slot(SlotId::SplitViewPane), None);
+    assert_eq!(recorded.slot(SlotId::SplitViewContent), None);
+}
+
 #[test]
 fn named_slots_mount_update_replace_and_clear_independently() {
     let mut pump = Pump::new(RecordingRuntime::default());

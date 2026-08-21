@@ -1,7 +1,8 @@
 # Navigation and multi-window workspace
 
 This sample qualifies navigation and window isolation by opening a secondary workspace from the
-primary at runtime. Each window owns its page, editor text, focus reference, background work, and
+primary at runtime. A `SplitView` hosts the navigation pane and current page through generated
+typed slots. Each window owns its page, editor text, focus reference, background work, and
 component queue. The windows share a small application model that broadcasts theme changes and
 window-lifecycle notifications.
 
