@@ -653,10 +653,10 @@ scales acceptably.
 
 ### 4. Navigation and multi-window sample
 
-- [ ] Retain page state across navigation.
-- [ ] Qualify context propagation across page and window boundaries.
+- [x] Retain page state across navigation.
+- [x] Qualify context propagation across page and window boundaries.
 - [ ] Qualify window creation, configuration, close, task cancellation, and cleanup.
-- [ ] Prove queues, references, events, and background completions remain window-isolated.
+- [x] Prove queues, references, events, and background completions remain window-isolated.
 - [ ] Let sample evidence define navigation and window APIs.
 
 ### 5. Control-expansion gate
@@ -819,6 +819,11 @@ Until application evidence replaces them, the gates are:
 - 10,000-item virtual source updates < 2 ms and 32-row realize/recycle < 100 us;
 - reference-heavy mount overhead < 50% time and < 10% bytes over identical controls.
 
+The largest relative gap is a no-change update of a 512-leaf tree: about 7.5 us in the incumbent
+and 197 us in next, or 26.3x. The incumbent skips the shared root in O(1), while next clones and
+traverses a candidate tree. This remains below the 1 ms absolute bound and does not justify a
+second mutable tree, but it must remain visible in performance reports.
+
 The integrated virtual editor is the next gate. If it exceeds these bounds, profile repeated
 key/view collection and copy-on-write chunk mutation before changing ownership or publication.
 
@@ -849,3 +854,70 @@ The existing control set was sufficient, so this gate added no generated control
 larger than the form because it spells out parent actions, row messages, and durable model updates.
 That is useful evidence for the deferred API-polish work, but convenience APIs should wait until
 the navigation sample shows whether the same action-forwarding pattern recurs outside virtual rows.
+
+## Navigation and multi-window qualification
+
+`crates/samples/reactor-next/navigation` starts a primary and secondary workspace through
+`App::run_windows`. Each Pump owns its current page, controlled editor text, typed editor reference,
+component messages, and background task. Page components may retire when navigation replaces
+them; durable page data stays in the owning workspace model and is restored through controlled
+props when the page returns.
+
+The windows share an application coordinator, not a Pump or component store. The coordinator owns
+the common theme value and a sender registry populated by one lifecycle effect per window. A shared
+change sends an ordinary message to each Pump, and each Pump publishes its own context provider.
+Context identity may be shared, but context updates do not cross Pump boundaries by themselves.
+This keeps scheduling and publication local while making cross-window fan-out explicit.
+
+The recording qualification drives a real TextBox event in the primary editor, navigates away and
+back, and checks that only the primary model changed. It then broadcasts a theme change, starts
+background work in the secondary, shuts down that Pump, and verifies cancellation, one-time effect
+cleanup, stale-sender rejection, peer notification, and continued primary work.
+
+The first slice exposes a host API boundary:
+
+| Operation | Current contract |
+| --- | --- |
+| Create multiple windows | `App::run_windows` creates a fixed startup set |
+| Configure content | Each startup root is an independent `View` |
+| Configure native window | No public title, size, or presenter contract |
+| Create a window after startup | No public contract |
+| Request close from a component | No public contract |
+| React to close | Pump retirement cleans effects, tasks, references, queues, and sender registry |
+
+Do not expose the private WinUI `Window` to fill these gaps. The next design step must decide
+whether dynamic windows are controlled application data or host resources opened through a queued
+capability. It must preserve one Pump per window, route every request through the UI scheduler, and
+make close ownership explicit before adding title or size options.
+
+### Window API direction
+
+A top-level application component returning keyed windows is not the next step. Native close is an
+external lifetime event: if the key remains in a controlled window list, reconciliation would
+reopen the window. A candidate spanning several Pumps would also have no coherent failure or
+publication boundary. One candidate publication must remain scoped to one Pump and one native
+window.
+
+Window lifetime should instead be an app-owned host resource:
+
+1. Add a cloneable, token-bound `WindowRef` whose `request_close()` operation enters a bounded
+   queue. It must use request-shaped naming because close cancellation is a separate future
+   contract.
+2. Drain close through the existing Pump turn after frontend publication. A stale `WindowToken`
+   rejects the request without touching another window.
+3. Add runtime open later as a committed host request carrying an independent window root. The
+   opener's component scope must not own the new window. Cross-window data continues to use an
+   application-owned sender registry rather than a typed message channel on the window handle.
+4. Track pending opens before supporting replacement of the last window, so a close followed by an
+   open cannot exit the UI thread between requests.
+
+Configuration and lifetime need different rules. A title is safe declarative state. Size,
+position, and presenter state can change outside the framework and need create-time semantics or
+controlled native feedback. A static startup descriptor is useful for create-time options, but it
+cannot by itself express a component-derived title. Do not add size or presenter setters until
+their observation contract is defined.
+
+Host requests issued by `create`, `update`, or effect setup must commit with the candidate. A
+planning failure must not open or close a window for an unpublished component turn. Native apply
+failure remains process-fatal; a planning failure while preparing a new independent root must
+reject that open without shutting down existing windows.

@@ -138,6 +138,9 @@ focus-first-invalid validation, a nested component, and scope-owned background s
 The [`virtual task editor`](../../samples/reactor-next/virtual/readme.md) exercises keyed row
 components, durable controlled edits, selection context, focus, effects, source reordering,
 background loading, recycling, and a 1,000-row stress path.
+The [`navigation and multi-window workspace`](../../samples/reactor-next/navigation/readme.md)
+exercises retained page models, context propagation, independent window queues and references,
+shared application updates, background cancellation, and peer cleanup.
 
 The component store owns current props and passes them by reference to `Component::view`.
 Components can render from that argument without copying props into their own fields.

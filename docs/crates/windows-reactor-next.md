@@ -278,6 +278,16 @@ other Pumps running.
 This is ownership and lifecycle isolation, not native fault isolation. An unexpected native
 failure in any Pump follows the process-fatal policy above.
 
+The navigation sample in `crates/samples/reactor-next/navigation` qualifies two startup windows.
+Each window owns its page model, controlled editor, typed reference, queue, and background work.
+A shared application coordinator broadcasts theme changes by sending an ordinary local message to
+each registered window. Closing one window retires its effects and tasks, removes its sender, and
+notifies the remaining window without sharing Pump state.
+
+`App::run_windows` currently fixes the complete window set at startup. Runtime creation,
+declarative title or size configuration, and component-requested close are not public contracts.
+The sample leaves those operations unresolved rather than calling private WinUI objects directly.
+
 ## Generation
 
 `tool_reactor_next` reads `crates/tools/reactor-next/src/winui.toml` and generates the public typed
