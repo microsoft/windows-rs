@@ -26,7 +26,6 @@ pub enum PumpError {
     DuplicateEffectKey(EffectKey),
     DuplicateElementRef,
     DuplicateKey(Key),
-    EventCallbackRejected { node: NodeId, event: EventId },
     EventReadFailed(RuntimeError),
     NativeApplyFailed(NativeApplyError),
     Poisoned,
@@ -50,9 +49,19 @@ impl From<ComponentStoreError> for PumpError {
     }
 }
 
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub enum PumpDiagnostic {
+    VirtualRowRootCount {
+        collection: NodeId,
+        key: Key,
+        actual: usize,
+    },
+}
+
 pub struct Pump<R: NativeRuntime> {
     application: Option<NodeId>,
     components: ComponentStore,
+    diagnostics: VecDeque<PumpDiagnostic>,
     dirty_components: HashSet<ComponentToken>,
     element: Option<Element>,
     tree: Tree,
@@ -85,6 +94,7 @@ impl<R: NativeRuntime> Pump<R> {
         Self {
             application: None,
             components,
+            diagnostics: VecDeque::new(),
             dirty_components: HashSet::new(),
             element: None,
             tree: Tree::new(),
@@ -129,17 +139,17 @@ impl<R: NativeRuntime> Pump<R> {
         });
         plan.push(Command::ActivateWindow { node: window });
 
-        self.validate_tree_references(&candidate, node, &plan.reference_commits)?;
-        self.apply_native_commands(&plan.commands)?;
-        Self::commit_tree_properties(&mut candidate, &plan.commits)?;
-        Self::commit_tree_references(&mut candidate, &plan.reference_commits)?;
-        self.tree = candidate;
+        self.publish_candidate(
+            CandidateState::Tree {
+                tree: candidate,
+                root: node,
+            },
+            plan,
+            FrontendChanges::Element(desired),
+            next_version,
+        )?;
         self.application = Some(application);
-        self.element = Some(desired);
-        self.root = Some(node);
         self.window = Some(window);
-        self.apply_reference_bindings(&plan.reference_commits);
-        self.version = next_version;
         Ok(())
     }
 
@@ -190,19 +200,17 @@ impl<R: NativeRuntime> Pump<R> {
         }
         plan.push(Command::ActivateWindow { node: window });
 
-        self.validate_tree_references(&candidate, root, &plan.reference_commits)?;
-        self.apply_native_commands(&plan.commands)?;
-
-        Self::commit_tree_properties(&mut candidate, &plan.commits)?;
-        Self::commit_tree_references(&mut candidate, &plan.reference_commits)?;
-        self.finalize_component_changes(&changes)?;
-        self.tree = candidate;
+        self.publish_candidate(
+            CandidateState::Tree {
+                tree: candidate,
+                root,
+            },
+            plan,
+            FrontendChanges::Component(changes),
+            next_version,
+        )?;
         self.application = Some(application);
-        self.root = Some(root);
         self.window = Some(window);
-        self.apply_reference_bindings(&plan.reference_commits);
-        self.commit_component_effects(&changes)?;
-        self.version = next_version;
         Ok(())
     }
 
@@ -290,6 +298,10 @@ impl<R: NativeRuntime> Pump<R> {
         &self.runtime
     }
 
+    pub fn drain_diagnostics(&mut self) -> Vec<PumpDiagnostic> {
+        self.diagnostics.drain(..).collect()
+    }
+
     #[cfg(any(test, feature = "test"))]
     pub fn application(&self) -> Option<NodeId> {
         self.application
@@ -309,6 +321,7 @@ impl<R: NativeRuntime> Pump<R> {
         self.application = None;
         self.element = None;
         self.dirty_components.clear();
+        self.diagnostics.clear();
         self.events.clear();
         self.realizations.clear();
         self.native_observation_pending = false;
@@ -477,7 +490,10 @@ impl<R: NativeRuntime> Pump<R> {
         root: NodeId,
         commits: &[ReferenceCommit],
     ) -> Result<(), PumpError> {
-        let mut references = Vec::<NativeElementRef>::new();
+        if !commits.iter().any(|commit| commit.new.is_some()) {
+            return Ok(());
+        }
+        let mut references = HashSet::new();
         for node in tree.subtree_postorder(root)? {
             let Ok(native) = tree.native(node) else {
                 continue;
@@ -490,14 +506,13 @@ impl<R: NativeRuntime> Pump<R> {
             let Some(reference) = desired else {
                 continue;
             };
-            if references.iter().any(|current| current == reference)
+            if !references.insert(reference.identity())
                 || reference
                     .binding_target()
                     .is_some_and(|(identity, _)| identity != self.identity)
             {
                 return Err(PumpError::DuplicateElementRef);
             }
-            references.push(reference.clone());
         }
         Ok(())
     }
@@ -507,6 +522,9 @@ impl<R: NativeRuntime> Pump<R> {
         candidate: &CandidateState,
         commits: &[ReferenceCommit],
     ) -> Result<(), PumpError> {
+        if !commits.iter().any(|commit| commit.new.is_some()) {
+            return Ok(());
+        }
         match candidate {
             CandidateState::Tree { tree, root } => {
                 self.validate_tree_references(tree, *root, commits)

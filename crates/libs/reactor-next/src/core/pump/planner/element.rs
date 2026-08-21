@@ -82,14 +82,17 @@ impl<R: NativeRuntime> Pump<R> {
                     Self::retire_planned_subtree(tree, child, plan)?;
                 }
                 let keys = items.iter().map(|item| item.key().clone());
-                tree.virtual_model_mut(node)?
-                    .update(keys)
-                    .map_err(TreeError::from)?;
+                let source_revision = {
+                    let model = tree.virtual_model_mut(node)?;
+                    model.update(keys).map_err(TreeError::from)?;
+                    model.source_revision()
+                };
                 tree.update_virtual_items(node, items)?;
                 tree.virtual_model_mut(node)?.clear();
                 plan.push(Command::ResetVirtualCollection {
                     node,
                     item_count: tree.virtual_items(node)?.len(),
+                    source_revision,
                 });
             } else {
                 tree.update_virtual_items(node, items)?;
@@ -426,7 +429,7 @@ impl<R: NativeRuntime> Pump<R> {
         let key = tree.key(node)?.cloned();
         let container = if tree.kind(parent)? == NodeKind::VirtualCollection {
             Some(
-                tree.realized_container(parent, node)?
+                tree.realized_container_for_logical(parent, node)?
                     .ok_or(PumpError::StructureUnsupported)?,
             )
         } else {
@@ -448,12 +451,8 @@ impl<R: NativeRuntime> Pump<R> {
         children.insert(index, replacement);
         tree.set_children(parent, children)?;
         if let Some(container) = container {
-            tree.set_realized(parent, container, replacement, replacement)?;
-            plan.push(Command::AttachRealized {
-                collection: parent,
-                container,
-                child: replacement,
-            });
+            tree.set_realized(parent, container, replacement, None)?;
+            Self::refresh_virtual_row_attachment(tree, parent, container, plan)?;
         } else {
             plan.push(Command::InsertChild {
                 parent,
@@ -595,7 +594,11 @@ impl<R: NativeRuntime> Pump<R> {
             }
             let item_count = items.len();
             let node = tree.insert_virtual_items(plan.identity, parent, key, items)?;
-            plan.push(Command::CreateVirtualCollection { node, item_count });
+            plan.push(Command::CreateVirtualCollection {
+                node,
+                item_count,
+                source_revision: 0,
+            });
             return Ok(node);
         }
         let node = tree.insert_native(parent, parts.kind, key, parts.props.clone())?;

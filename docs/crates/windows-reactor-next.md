@@ -91,6 +91,10 @@ wakes the host. The host drains pending native events and component messages bef
 so removal or replacement publishes before stale work is checked. `Focus(Programmatic)` returning
 `false` completes normally; an HRESULT error follows the native failure policy.
 
+The per-window imperative queue accepts 4,096 requests and applies at most 64 in one host turn.
+`request_focus` returns `false` when the reference is unbound or the queue is full. Valid requests
+in one turn are sent to the runtime as one command batch.
+
 Reference attach, swap, and detach are candidate commits. Planning only records them. Successful
 native apply and logical publication bind the new target before effect setup. Failed planning or
 native apply cannot expose a candidate binding. Retirement, shutdown, and window close conditionally
@@ -163,10 +167,10 @@ revision. Stale work is discarded before dispatch.
 
 `Callback::call` returns an acceptance bit. Ordinary user closures return `true`. Callbacks
 adapted from `LocalSender` return the exact result of `LocalSender::send`. After window, node,
-subscription, and event-revision checks pass, a `false` result produces
-`PumpError::EventCallbackRejected`; the WinUI host records it as a fault, shuts down that Pump, and
-exits the UI thread. Work rejected by an earlier stale-event check never invokes the callback and
-does not produce this error.
+subscription, and event-revision checks pass, a `false` result leaves the native event at the front
+of the Pump queue. The host drains component work and retries the callback on a later turn. This
+preserves bounded local-message backpressure without losing the event or faulting the window. Work
+rejected by an earlier stale-event check never invokes the callback.
 
 Controlled feedback updates the known native value before invoking the application callback. If
 the application rejects the edit, ordinary reconciliation writes the desired value again. There
@@ -211,12 +215,30 @@ which bounds repeated vector search and movement for dense and adversarial spars
 `IntoIterator<Item = KeyedView>`. Rows stay as keyed desired views until native realization asks
 for one, so unrealized components are not created and their effects do not run.
 
-Each realization entry stores the row's logical ownership root and its one native attachment root.
-The logical root may be a component, provider, fragment, or native node. Mount and key-stable
-updates use the ordinary `View` planner. Empty and multi-native-root rows fail with
-`StructureUnsupported` before publication. Recycling and source replacement retire the logical
-subtree child-first, while `DetachRealized` targets the native root. Realization keeps the existing
-generation, container, key, and work-budget checks and does not increment the Pump version.
+Each realization entry stores the row's logical ownership root and an optional native attachment
+root. The logical root may be a component, provider, fragment, or native node. Mount and key-stable
+updates use the ordinary `View` planner. Exactly one flattened root attaches to the WinUI shell.
+Zero roots leave the shell empty. Multiple roots also leave it empty and commit
+`PumpDiagnostic::VirtualRowRootCount`; `Pump::drain_diagnostics` exposes committed diagnostics and
+the application host writes them as non-fatal warnings. Returning to one root reattaches the same
+logical row without recreating its component or effects. References remain bound to published
+native descendants while detached. Invalid root count is a committed row shape, not pending work,
+so the Pump does not retry it without another source or component update.
+
+Recycling and source replacement retire the logical subtree child-first. `DetachRealized` targets
+only a present attachment, while every unattached native descendant is destroyed through ordinary
+logical subtree retirement. Realization keeps the existing generation, container, key, and
+work-budget checks and does not increment the Pump version. Diagnostics are part of the update
+plan and become visible only after native apply and candidate publication succeed.
+
+`RealizedContainer` identifies one native shell lifetime, not a reusable physical control. WinUI
+assigns a new monotonically increasing token whenever it checks out a shell, removes that token
+before pooling the cleared control, and resolves attachment only through the live token map. Each
+virtual source also has a `u64` revision. Key changes increment it in the candidate, publish it with
+the reset command, and make callbacks from an older source revision stale. Key-stable payload
+updates preserve the revision and realized rows. A queued recycle supersedes an earlier unprocessed
+realization for the same lifetime token. Valid realization resolves its row by index and verifies
+that the indexed key matches the lease key before composition.
 
 ## Scheduling and lifecycle
 

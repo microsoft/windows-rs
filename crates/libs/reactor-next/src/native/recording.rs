@@ -13,6 +13,7 @@ pub struct RecordedNode {
 
 pub struct RecordingRuntime {
     application: Option<NodeId>,
+    attachments: HashMap<(NodeId, RealizedContainer), NodeId>,
     nodes: HashMap<NodeId, RecordedNode>,
     batches: usize,
     commands: Vec<Vec<Command>>,
@@ -20,6 +21,7 @@ pub struct RecordingRuntime {
     fail_at: HashSet<(usize, usize)>,
     identity: Option<WindowToken>,
     realizations: Vec<NativeWork<RealizationRequest>>,
+    source_revisions: HashMap<NodeId, u64>,
     subscriptions: HashSet<(NodeId, EventId)>,
     windows: HashSet<NodeId>,
 }
@@ -28,6 +30,7 @@ impl Default for RecordingRuntime {
     fn default() -> Self {
         Self {
             application: None,
+            attachments: HashMap::new(),
             nodes: HashMap::new(),
             batches: 0,
             commands: Vec::new(),
@@ -35,6 +38,7 @@ impl Default for RecordingRuntime {
             fail_at: HashSet::new(),
             identity: None,
             realizations: Vec::new(),
+            source_revisions: HashMap::new(),
             subscriptions: HashSet::new(),
             windows: HashSet::new(),
         }
@@ -79,6 +83,32 @@ impl RecordingRuntime {
             identity: self.identity.unwrap(),
             work: request,
         });
+    }
+
+    pub fn queue_realize(
+        &mut self,
+        collection: NodeId,
+        container: RealizedContainer,
+        index: usize,
+    ) {
+        self.queue_realization(RealizationRequest::Realize {
+            collection,
+            container,
+            index,
+            source_revision: self.source_revisions[&collection],
+        });
+    }
+
+    pub fn queue_recycle(&mut self, collection: NodeId, container: RealizedContainer) {
+        self.queue_realization(RealizationRequest::Recycle {
+            collection,
+            container,
+            source_revision: self.source_revisions[&collection],
+        });
+    }
+
+    pub fn source_revision(&self, collection: NodeId) -> Option<u64> {
+        self.source_revisions.get(&collection).copied()
     }
 
     pub fn queue_realization_with_identity(
@@ -169,7 +199,11 @@ impl RecordingRuntime {
                     },
                 );
             }
-            Command::CreateVirtualCollection { node, .. } => {
+            Command::CreateVirtualCollection {
+                node,
+                source_revision,
+                ..
+            } => {
                 if self.nodes.contains_key(node) {
                     return Err(RuntimeError::DuplicateNode(*node));
                 }
@@ -183,14 +217,22 @@ impl RecordingRuntime {
                         properties: BTreeMap::new(),
                     },
                 );
+                self.source_revisions.insert(*node, *source_revision);
             }
-            Command::ResetVirtualCollection { node, .. } => {
+            Command::ResetVirtualCollection {
+                node,
+                source_revision,
+                ..
+            } => {
                 self.nodes
                     .get(node)
                     .ok_or(RuntimeError::MissingNode(*node))?;
+                self.source_revisions.insert(*node, *source_revision);
             }
             Command::AttachRealized {
-                collection, child, ..
+                collection,
+                container,
+                child,
             } => {
                 if self
                     .nodes
@@ -202,6 +244,23 @@ impl RecordingRuntime {
                     return Err(RuntimeError::AlreadyParented(*child));
                 }
                 self.nodes
+                    .get(collection)
+                    .ok_or(RuntimeError::MissingNode(*collection))?;
+                if let Some(previous) = self.attachments.get(&(*collection, *container)).copied() {
+                    self.nodes
+                        .get(&previous)
+                        .ok_or(RuntimeError::MissingNode(previous))?;
+                    let collection = self.nodes.get_mut(collection).unwrap();
+                    let position = collection
+                        .children
+                        .iter()
+                        .position(|current| *current == previous)
+                        .ok_or(RuntimeError::ChildNotFound(previous))?;
+                    collection.children.remove(position);
+                    self.nodes.get_mut(&previous).unwrap().parent = None;
+                }
+                self.attachments.insert((*collection, *container), *child);
+                self.nodes
                     .get_mut(collection)
                     .ok_or(RuntimeError::MissingNode(*collection))?
                     .children
@@ -209,11 +268,17 @@ impl RecordingRuntime {
                 self.nodes.get_mut(child).unwrap().parent = Some(*collection);
             }
             Command::DetachRealized {
-                collection, child, ..
+                collection,
+                container,
+                child,
             } => {
+                let attachment = (*collection, *container);
                 self.nodes
                     .get(child)
                     .ok_or(RuntimeError::MissingNode(*child))?;
+                if self.attachments.get(&attachment) != Some(child) {
+                    return Err(RuntimeError::ChildNotFound(*child));
+                }
                 let collection = self
                     .nodes
                     .get_mut(collection)
@@ -224,6 +289,7 @@ impl RecordingRuntime {
                     .position(|current| current == child)
                     .ok_or(RuntimeError::ChildNotFound(*child))?;
                 collection.children.remove(position);
+                self.attachments.remove(&attachment);
                 self.nodes.get_mut(child).unwrap().parent = None;
             }
             Command::Destroy { node } => {
@@ -238,6 +304,7 @@ impl RecordingRuntime {
                     return Err(RuntimeError::HasChildren(*node));
                 }
                 self.nodes.remove(node);
+                self.source_revisions.remove(node);
                 self.subscriptions
                     .retain(|(subscription_node, _)| subscription_node != node);
                 self.windows.remove(node);
@@ -464,8 +531,10 @@ impl NativeRuntime for RecordingRuntime {
 
     fn reset(&mut self) {
         self.application = None;
+        self.attachments.clear();
         self.nodes.clear();
         self.realizations.clear();
+        self.source_revisions.clear();
         self.subscriptions.clear();
         self.windows.clear();
     }
@@ -537,6 +606,53 @@ mod tests {
             runtime.node(CHILD).unwrap().properties[&PropertyId::TextBlockText],
             PropertyValue::Str("hello".into())
         );
+    }
+
+    #[test]
+    fn attach_realized_replaces_content_for_the_same_shell_lifetime() {
+        let mut runtime = RecordingRuntime::default();
+        let second = NodeId::from_parts(2, 0);
+        let container = RealizedContainer(7);
+        runtime
+            .apply(&[
+                Command::CreateVirtualCollection {
+                    node: ROOT,
+                    item_count: 1,
+                    source_revision: 0,
+                },
+                Command::Create {
+                    node: CHILD,
+                    kind: MountedKind::TextBlock,
+                },
+                Command::Create {
+                    node: second,
+                    kind: MountedKind::Button,
+                },
+                Command::AttachRealized {
+                    collection: ROOT,
+                    container,
+                    child: CHILD,
+                },
+                Command::AttachRealized {
+                    collection: ROOT,
+                    container,
+                    child: second,
+                },
+            ])
+            .unwrap();
+
+        assert_eq!(runtime.node(ROOT).unwrap().children(), &[second]);
+        assert_eq!(runtime.node(CHILD).unwrap().parent, None);
+        assert_eq!(runtime.node(second).unwrap().parent, Some(ROOT));
+
+        runtime
+            .apply(&[Command::DetachRealized {
+                collection: ROOT,
+                container,
+                child: second,
+            }])
+            .unwrap();
+        assert!(runtime.node(ROOT).unwrap().children().is_empty());
     }
 
     #[test]

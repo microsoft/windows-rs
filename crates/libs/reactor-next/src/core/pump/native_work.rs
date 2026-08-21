@@ -1,6 +1,7 @@
 use super::*;
 
 pub(super) const EVENT_WORK_BUDGET: usize = 64;
+pub(super) const IMPERATIVE_WORK_BUDGET: usize = 64;
 pub(super) const REALIZATION_WORK_BUDGET: usize = 32;
 
 impl<R: NativeRuntime> Pump<R> {
@@ -26,8 +27,11 @@ impl<R: NativeRuntime> Pump<R> {
         {
             return Ok(0);
         }
-        let mut processed = 0;
-        while let Some(queued) = self.imperative.pop_front() {
+        let mut commands = Vec::new();
+        for _ in 0..IMPERATIVE_WORK_BUDGET {
+            let Some(queued) = self.imperative.pop_front() else {
+                break;
+            };
             if queued.identity != self.identity {
                 continue;
             }
@@ -36,12 +40,12 @@ impl<R: NativeRuntime> Pump<R> {
                     if self.tree.native(node).is_err() {
                         continue;
                     }
-                    self.apply_native_commands(&[Command::Focus { node }])?;
-                    processed += 1;
+                    commands.push(Command::Focus { node });
                 }
             }
         }
-        Ok(processed)
+        self.apply_native_commands(&commands)?;
+        Ok(commands.len())
     }
 
     #[cfg(any(test, feature = "test"))]
@@ -99,7 +103,8 @@ impl<R: NativeRuntime> Pump<R> {
             let Some(queued) = self.events.pop_front() else {
                 break;
             };
-            if queued.identity != self.identity {
+            let identity = queued.identity;
+            if identity != self.identity {
                 continue;
             }
             let event = queued.work;
@@ -141,11 +146,11 @@ impl<R: NativeRuntime> Pump<R> {
                 {
                     Some(true) => dispatched += 1,
                     Some(false) => {
-                        self.events.clear();
-                        return Err(PumpError::EventCallbackRejected {
-                            node: event.node,
-                            event: event.event,
+                        self.events.push_front(NativeWork {
+                            identity,
+                            work: event,
                         });
+                        break;
                     }
                     None => {}
                 }
@@ -166,14 +171,55 @@ impl<R: NativeRuntime> Pump<R> {
         let mut plan = UpdatePlan::new(self.identity);
         let mut changes = ComponentChanges::default();
         let mut consumed = Vec::new();
+        let mut pending_recycles = self
+            .realizations
+            .iter()
+            .filter(|queued| queued.identity == self.identity)
+            .filter_map(|queued| match queued.work {
+                RealizationRequest::Recycle {
+                    collection,
+                    container,
+                    ..
+                } => Some((collection, container)),
+                _ => None,
+            })
+            .fold(HashMap::new(), |mut counts, key| {
+                *counts.entry(key).or_insert(0usize) += 1;
+                counts
+            });
         let planning = (|| {
-            for _ in 0..REALIZATION_WORK_BUDGET {
+            let mut processed = 0;
+            while processed < REALIZATION_WORK_BUDGET {
                 let Some(queued) = self.realizations.pop_front() else {
                     break;
                 };
                 let request = queued.work;
                 let current_identity = queued.identity == self.identity;
                 consumed.push(queued);
+                if current_identity
+                    && let RealizationRequest::Recycle {
+                        collection,
+                        container,
+                        ..
+                    } = request
+                    && let Some(count) = pending_recycles.get_mut(&(collection, container))
+                {
+                    *count -= 1;
+                }
+                if current_identity
+                    && let RealizationRequest::Realize {
+                        collection,
+                        container,
+                        ..
+                    } = request
+                    && pending_recycles
+                        .get(&(collection, container))
+                        .is_some_and(|count| *count != 0)
+                {
+                    outcomes.push(RealizationOutcome::Rejected(request));
+                    continue;
+                }
+                processed += 1;
                 if !current_identity {
                     outcomes.push(RealizationOutcome::Rejected(request));
                     continue;
@@ -183,14 +229,27 @@ impl<R: NativeRuntime> Pump<R> {
                         collection,
                         container,
                         index,
+                        source_revision,
                     } => {
+                        let Ok(model) = candidate.virtual_model(collection) else {
+                            outcomes.push(RealizationOutcome::Rejected(request));
+                            continue;
+                        };
+                        if model.source_revision() != source_revision {
+                            outcomes.push(RealizationOutcome::Rejected(request));
+                            continue;
+                        }
                         let Ok(lease) = candidate.virtual_model_mut(collection).and_then(|model| {
                             model.realize(index, container).map_err(TreeError::from)
                         }) else {
                             outcomes.push(RealizationOutcome::Rejected(request));
                             continue;
                         };
-                        let view = candidate.virtual_item(collection, &lease.key)?.clone();
+                        let item = candidate.virtual_item_at(collection, index)?;
+                        if item.key() != &lease.key {
+                            return Err(PumpError::StructureUnsupported);
+                        }
+                        let view = item.view().clone();
                         let stale = candidate
                             .children(collection)?
                             .iter()
@@ -213,7 +272,7 @@ impl<R: NativeRuntime> Pump<R> {
                             )?;
                             Self::retire_planned_subtree(&mut candidate, old, &mut plan)?;
                         }
-                        let (logical_root, native) = Self::mount_planned_view(
+                        let (logical_root, _) = Self::mount_planned_view(
                             &mut candidate,
                             Some(collection),
                             Some(lease.key.clone()),
@@ -222,26 +281,28 @@ impl<R: NativeRuntime> Pump<R> {
                             &mut changes,
                             &mut plan,
                         )?;
-                        let [native_root] = native.as_slice() else {
-                            return Err(PumpError::StructureUnsupported);
-                        };
-                        candidate.set_realized(
+                        candidate.set_realized(collection, container, logical_root, None)?;
+                        Self::refresh_virtual_row_attachment(
+                            &mut candidate,
                             collection,
                             container,
-                            logical_root,
-                            *native_root,
+                            &mut plan,
                         )?;
-                        plan.push(Command::AttachRealized {
-                            collection,
-                            container,
-                            child: *native_root,
-                        });
                         RealizationOutcome::Realized(lease)
                     }
                     RealizationRequest::Recycle {
                         collection,
                         container,
+                        source_revision,
                     } => {
+                        let Ok(model) = candidate.virtual_model(collection) else {
+                            outcomes.push(RealizationOutcome::Rejected(request));
+                            continue;
+                        };
+                        if model.source_revision() != source_revision {
+                            outcomes.push(RealizationOutcome::Rejected(request));
+                            continue;
+                        }
                         let Some(row) = candidate.realized(collection, container)? else {
                             outcomes.push(RealizationOutcome::Rejected(request));
                             continue;
@@ -275,12 +336,29 @@ impl<R: NativeRuntime> Pump<R> {
             Self::remove_reservations(&mut self.components, &changes.reserved);
             return Err(error);
         }
-        if !plan.commands.is_empty()
+        let has_work = !plan.commands.is_empty()
+            || !plan.diagnostics.is_empty()
             || !changes.reserved.is_empty()
             || !changes.retired.is_empty()
             || !changes.composed.is_empty()
-        {
-            self.apply_realization(candidate, plan, changes)?;
+            || outcomes.iter().any(|outcome| {
+                matches!(
+                    outcome,
+                    RealizationOutcome::Realized(_) | RealizationOutcome::Recycled(_)
+                )
+            });
+        if has_work {
+            match self.apply_realization(candidate, plan, changes) {
+                Ok(()) => {}
+                Err(error) => {
+                    if error == PumpError::DuplicateElementRef {
+                        for queued in consumed.into_iter().rev() {
+                            self.realizations.push_front(queued);
+                        }
+                    }
+                    return Err(error);
+                }
+            }
         }
         Ok(outcomes)
     }

@@ -176,7 +176,7 @@ fn retired_node_rejects_queued_event() {
 }
 
 #[test]
-fn rejected_message_callback_is_a_pump_error() {
+fn full_message_queue_defers_native_event_until_capacity_is_available() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(View::component::<UnitEventComponent>(()))
         .unwrap();
@@ -198,13 +198,17 @@ fn rejected_message_callback_is_a_pump_error() {
         EventPayload::Unit,
     ));
 
+    assert_eq!(pump.dispatch_events(), Ok(0));
+    assert_eq!(pump.events.len(), 1);
+    assert!(pump.native_work_pending());
+
     assert_eq!(
-        pump.dispatch_events(),
-        Err(PumpError::EventCallbackRejected {
-            node: root,
-            event: EventId::ButtonClick,
-        })
+        pump.dispatch_components(component::LOCAL_MESSAGE_QUEUE_CAPACITY),
+        Ok(component::LOCAL_MESSAGE_QUEUE_CAPACITY)
     );
+    assert_eq!(pump.dispatch_events(), Ok(1));
+    assert!(pump.events.is_empty());
+    assert_eq!(pump.dispatch_components(1), Ok(1));
 }
 
 #[test]

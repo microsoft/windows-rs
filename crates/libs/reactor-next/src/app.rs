@@ -94,6 +94,7 @@ impl LiveHost {
 trait LivePump {
     fn mount(&mut self) -> Result<(), PumpError>;
     fn dispatch_events(&mut self) -> Result<(), PumpError>;
+    fn drain_diagnostics(&mut self) -> Vec<PumpDiagnostic>;
     fn native_work_pending(&self) -> bool;
     fn schedule_dispatch(&self) -> Result<(), RuntimeError>;
     fn close_scheduler(&self);
@@ -296,6 +297,10 @@ impl LivePump for ComponentLoop {
         self.pump.dispatch_events()?;
         self.pump.dispatch_components(64)?;
         self.pump.process_imperatives().map(|_| ())
+    }
+
+    fn drain_diagnostics(&mut self) -> Vec<PumpDiagnostic> {
+        self.pump.drain_diagnostics()
     }
 
     fn native_work_pending(&self) -> bool {
@@ -793,6 +798,20 @@ pub(crate) fn dispatch_native_events(token: WindowToken) {
                 fault = Some(error);
                 live.shutdown();
                 exit_ui_thread();
+            }
+        }
+        for diagnostic in live.drain_diagnostics() {
+            match diagnostic {
+                PumpDiagnostic::VirtualRowRootCount {
+                    collection,
+                    key,
+                    actual,
+                } => {
+                    eprintln!(
+                        "windows-reactor-next warning: virtual row {key:?} in \
+                         {collection:?} has {actual} native roots; shell left empty"
+                    );
+                }
             }
         }
         let closed = host

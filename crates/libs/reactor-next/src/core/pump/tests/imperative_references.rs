@@ -19,6 +19,23 @@ fn unmounted_reference_rejects_focus() {
 }
 
 #[test]
+fn imperative_queue_rejects_excess_work_and_drains_with_a_budget() {
+    const WORK_BUDGET: usize = 64;
+    let reference = ElementRef::<TextBox>::new();
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount(TextBox::new().element_ref(&reference).into())
+        .unwrap();
+
+    for _ in 0..4_096 {
+        assert!(reference.request_focus());
+    }
+    assert!(!reference.request_focus());
+    assert_eq!(pump.process_imperatives(), Ok(WORK_BUDGET));
+    assert!(pump.native_work_pending());
+    assert_eq!(focus_count(pump.runtime()), WORK_BUDGET);
+}
+
+#[test]
 fn mount_binds_only_after_successful_native_apply() {
     let reference = ElementRef::<TextBox>::new();
     let mut failed = RecordingRuntime::default();
@@ -170,6 +187,106 @@ fn one_reference_cannot_own_two_published_elements() {
         Err(PumpError::DuplicateElementRef)
     );
     assert!(reference.request_focus());
+}
+
+#[derive(Clone)]
+struct DuplicateOwnerProps {
+    dropped: Rc<Cell<usize>>,
+    reference: ElementRef<TextBox>,
+}
+
+impl PartialEq for DuplicateOwnerProps {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.dropped, &other.dropped) && self.reference == other.reference
+    }
+}
+
+struct DuplicateOwner(DuplicateOwnerProps);
+
+impl Drop for DuplicateOwner {
+    fn drop(&mut self) {
+        self.0.dropped.set(self.0.dropped.get() + 1);
+    }
+}
+
+impl Component for DuplicateOwner {
+    type Message = ();
+    type Props = DuplicateOwnerProps;
+
+    fn create(props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+        Self(props.clone())
+    }
+
+    fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
+
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
+        StackPanel::new().children((
+            TextBox::new().element_ref(&self.0.reference),
+            TextBox::new().element_ref(&self.0.reference),
+        ))
+    }
+}
+
+#[test]
+fn duplicate_reference_validation_removes_component_reservations() {
+    let dropped = Rc::new(Cell::new(0));
+    let reference = ElementRef::new();
+    let mut pump = Pump::new(RecordingRuntime::default());
+
+    assert_eq!(
+        pump.mount_view(View::component::<DuplicateOwner>(DuplicateOwnerProps {
+            dropped: Rc::clone(&dropped),
+            reference,
+        })),
+        Err(PumpError::DuplicateElementRef)
+    );
+    assert_eq!(dropped.get(), 1);
+}
+
+struct PropReference;
+
+impl Component for PropReference {
+    type Message = ();
+    type Props = ElementRef<TextBox>;
+
+    fn create(_props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
+
+    fn view(&self, reference: &Self::Props, _context: &mut ViewContext<Self>) -> View {
+        TextBox::new().element_ref(reference).into()
+    }
+}
+
+#[test]
+fn duplicate_reference_retry_recomposes_staged_component_props() {
+    let shared = ElementRef::<TextBox>::new();
+    let mut owner = Pump::new(RecordingRuntime::default());
+    owner
+        .mount(TextBox::new().element_ref(&shared).into())
+        .unwrap();
+
+    let original = ElementRef::<TextBox>::new();
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<PropReference>(original.clone()))
+        .unwrap();
+
+    assert_eq!(
+        pump.update_view(View::component::<PropReference>(shared.clone())),
+        Err(PumpError::DuplicateElementRef)
+    );
+    assert!(original.request_focus());
+    assert!(shared.request_focus());
+    assert_eq!(owner.process_imperatives(), Ok(1));
+    assert_eq!(pump.process_imperatives(), Ok(1));
+
+    owner.shutdown();
+    pump.update_view(View::component::<PropReference>(shared.clone()))
+        .unwrap();
+    assert!(!original.request_focus());
+    assert!(shared.request_focus());
 }
 
 #[derive(Clone)]

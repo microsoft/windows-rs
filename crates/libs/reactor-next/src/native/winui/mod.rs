@@ -147,7 +147,11 @@ impl WinUiRuntime {
                 let handle = Handle::create(*kind)?;
                 self.handles.insert(*node, handle);
             }
-            Command::CreateVirtualCollection { node, item_count } => {
+            Command::CreateVirtualCollection {
+                node,
+                item_count,
+                source_revision,
+            } => {
                 if self.contains(*node) {
                     return Err(RuntimeError::DuplicateNode(*node));
                 }
@@ -155,17 +159,22 @@ impl WinUiRuntime {
                     self.identity.get().unwrap(),
                     *node,
                     *item_count,
+                    *source_revision,
                     Rc::clone(&self.realizations),
                     self.event_sink()?,
                 )
                 .map_err(native_error)?;
                 self.virtuals.insert(*node, handle);
             }
-            Command::ResetVirtualCollection { node, item_count } => {
+            Command::ResetVirtualCollection {
+                node,
+                item_count,
+                source_revision,
+            } => {
                 self.virtuals
                     .get(node)
                     .ok_or(RuntimeError::MissingNode(*node))?
-                    .reset(*item_count)
+                    .reset(*item_count, *source_revision)
                     .map_err(native_error)?;
             }
             Command::AttachRealized {

@@ -21,12 +21,28 @@ impl<R: NativeRuntime> Pump<R> {
         mut changes: FrontendChanges,
         next_version: u64,
     ) -> Result<(), PumpError> {
-        self.validate_candidate_references(&candidate, &plan.reference_commits)?;
-        match &mut changes {
-            FrontendChanges::Component(changes) => self.prepare_component_effects(changes)?,
-            FrontendChanges::Local { token, .. } => self.components.prepare_effects(*token)?,
+        if let Err(error) = self.validate_candidate_references(&candidate, &plan.reference_commits)
+        {
+            if let FrontendChanges::Component(changes) = &changes {
+                self.planning_dirty.extend(changes.touched.iter().copied());
+                Self::remove_reservations(&mut self.components, &changes.reserved);
+            }
+            return Err(error);
+        }
+        let prepared = match &mut changes {
+            FrontendChanges::Component(changes) => self.prepare_component_effects(changes),
+            FrontendChanges::Local { token, .. } => {
+                self.components.prepare_effects(*token).map_err(Into::into)
+            }
             #[cfg(any(test, feature = "test"))]
-            FrontendChanges::Element(_) => {}
+            FrontendChanges::Element(_) => Ok(()),
+        };
+        if let Err(error) = prepared {
+            self.poisoned = true;
+            if let FrontendChanges::Component(changes) = &changes {
+                Self::remove_reservations(&mut self.components, &changes.reserved);
+            }
+            return Err(error);
         }
 
         self.apply_native_commands(&plan.commands)?;
@@ -34,6 +50,7 @@ impl<R: NativeRuntime> Pump<R> {
         self.commit_candidate_properties(&mut candidate, &plan.commits)?;
         self.commit_candidate_references(&mut candidate, &plan.reference_commits)?;
         self.publish_frontend(candidate, changes, &plan.reference_commits)?;
+        self.diagnostics.extend(plan.diagnostics);
         self.native_observation_pending = false;
         self.version = next_version;
         Ok(())

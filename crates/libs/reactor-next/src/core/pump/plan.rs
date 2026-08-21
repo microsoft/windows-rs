@@ -15,6 +15,7 @@ pub(super) struct ReferenceCommit {
 pub(super) struct UpdatePlan {
     pub(super) commands: Vec<Command>,
     pub(super) commits: Vec<PropertyCommit>,
+    pub(super) diagnostics: Vec<PumpDiagnostic>,
     pub(super) reference_commits: Vec<ReferenceCommit>,
     pub(super) identity: WindowToken,
     pub(super) reconcile_observations: bool,
@@ -76,6 +77,7 @@ impl UpdatePlan {
         Self {
             commands: Vec::new(),
             commits: Vec::new(),
+            diagnostics: Vec::new(),
             reference_commits: Vec::new(),
             identity,
             reconcile_observations: false,

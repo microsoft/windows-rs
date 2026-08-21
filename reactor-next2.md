@@ -225,9 +225,9 @@ fixed message for each zero-argument invocation. Both forward to `LocalSender`, 
 uses the local component queue.
 
 `Callback::call` returns `true` for ordinary closures and the exact `LocalSender::send` result for
-message adapters. A current event that receives `false` returns
-`PumpError::EventCallbackRejected` to the host. Window, node, subscription, and event-revision
-validation runs first, so stale work is discarded without creating a false host fault.
+message adapters. A current event that receives `false` stays at the front of the Pump queue while
+the host drains component work, then retries on a later turn. Window, node, subscription, and
+event-revision validation runs first, so stale work is discarded without invoking the callback.
 
 ## Generated and specialized controls
 
@@ -586,7 +586,7 @@ or reconciliation path.
 
 Passing store-owned props to `view` lets the read-only summary render without duplicating its props
 or synchronizing them in `changed`. The core structural capability methods reduce the formatted
-form from 176 to 149 source lines and from seven explicit child keys to zero. Typed event-message
+form from 176 to 143 source lines and from seven explicit child keys to zero. Typed event-message
 adapters remove all three sender handles and forwarding closures. The form retains one empty
 `update` in the read-only child component. The form now owns generated typed references and queues
 focus for the first invalid field. `ElementRef<T>` binds only after successful candidate
@@ -601,3 +601,192 @@ their own ownership and documented-failure contracts. A reference has one publis
 duplicate use within a tree or across windows fails candidate validation before native mutation.
 Imperative work waits for the native-event and component-message backlog to publish, preserving the
 causal ordering between a request and later removal or replacement messages already in the queue.
+
+## Post-UX qualification plan
+
+Complete these gates in order. Do not broaden generated control coverage until the architecture
+audit and integrated sample show that the current lifecycle model remains understandable and
+scales acceptably.
+
+### 1. Architecture and implementation audit
+
+- [x] Restate the ownership and publication invariants from the implementation.
+- [x] Trace initial mount, full update, and the local component fast path.
+- [x] Trace keyed movement, replacement, fragments, providers, content, children, and slots.
+- [x] Trace virtual source update, lazy realization, recycle, and realization retry.
+- [x] Prove virtual source revisions and shell-lifetime tokens reject delayed native callbacks.
+- [x] Define optional virtual-row attachment and non-fatal invalid-root diagnostics.
+- [x] Trace component reservation, publication, prop staging, retry, and retirement.
+- [x] Trace keyed effect registration, preparation, setup, cleanup, and shutdown.
+- [x] Trace reference attach, swap, detach, duplicate detection, and imperative queue ordering.
+- [x] Check every planning error leaves native state, the published tree, effects, and references
+      unchanged, apart from documented component prop staging that is carried into retry.
+- [x] Check every native apply error poisons the Pump without publishing candidate state.
+- [x] Check every retirement path cleans components child-first and invalidates stale work.
+- [x] Check shutdown, window close, Pump restart, and multi-window identity independently.
+- [x] Find lifecycle logic duplicated across properties, references, effects, components, and
+      virtualization that could drift as new facilities are added.
+- [x] Record high-confidence defects, scaling risks, and accepted tradeoffs in this document.
+- [x] Close the audit only after focused regressions and the existing live host gate pass.
+
+### 2. Performance checkpoint
+
+- [ ] Select equivalent incumbent and reactor-next applications.
+- [ ] Record clean compile time and representative incremental edit time.
+- [ ] Record release binary size and generated binding growth.
+- [ ] Measure mount and unchanged-update work.
+- [ ] Measure keyed insertion, removal, reorder, and replacement.
+- [ ] Measure component message throughput and local-update hit rate.
+- [ ] Measure virtual source update, realization, recycle, and row-component overhead.
+- [ ] Measure candidate-tree cloning and reference-validation cost at realistic and stress sizes.
+- [ ] Compare against the current reactor baseline and define acceptable regression bounds.
+
+### 3. Integrated virtual task/editor sample
+
+- [ ] Use keyed row components with controlled editing and retained row state.
+- [ ] Exercise add, remove, front insertion, reorder, and replacement.
+- [ ] Exercise selection and focus transfer during editing and validation.
+- [ ] Exercise conditional rows, contexts, keyed effects, and background loading.
+- [ ] Exercise realization, recycle, key-stable payload updates, and source reset.
+- [ ] Add a deterministic stress path with hundreds or thousands of rows.
+- [ ] Use findings to adjust core contracts before adding convenience APIs.
+
+### 4. Navigation and multi-window sample
+
+- [ ] Retain page state across navigation.
+- [ ] Qualify context propagation across page and window boundaries.
+- [ ] Qualify window creation, configuration, close, task cancellation, and cleanup.
+- [ ] Prove queues, references, events, and background completions remain window-isolated.
+- [ ] Let sample evidence define navigation and window APIs.
+
+### 5. Control-expansion gate
+
+- [ ] Add a control only when a qualification sample requires it.
+- [ ] Prioritize layout and application-shell gaps such as Grid and row/column definitions.
+- [ ] Qualify each new capability through generation, planning, recording runtime, and live WinUI.
+- [ ] Defer templates, dialogs, menus, and broad navigation until their ownership contract is
+      explicit.
+- [ ] Re-run compile-time, binary-size, and generated-surface measurements after each control
+      tranche.
+
+## Architecture audit record
+
+### Authoritative ownership
+
+| State | Owner | Candidate behavior |
+| --- | --- | --- |
+| Logical topology and identity | `Tree` | Candidate is published or discarded as a unit |
+| Desired and observed properties | Native `Tree` nodes | Commit after native apply |
+| Components, tasks, and effects | `ComponentStore` | Tracks reservations and staged updates |
+| Context providers and dependencies | `Tree`, `ComponentStore` | Publish with component scopes |
+| Virtual leases and rows | Virtual `Tree` nodes | Retain logical and optional native roots |
+| WinUI objects and subscriptions | `NativeRuntime` | Change through ordered commands |
+| Imperative reference binding | Shared `ElementRef` target | Changes after apply |
+
+There is still one logical tree, one component store, and one native runtime. Virtual rows,
+references, effects, and generated controls do not add another frontend or owner.
+
+### Shared publication sequence
+
+Initial mount, full updates, local leaf updates, and realization now converge on
+`Pump::publish_candidate`:
+
+1. Validate reference ownership without changing a shared target.
+2. Prepare changed and retired effects. Cleanup is child-first.
+3. Apply the ordered native command batch.
+4. Commit observed properties and desired reference declarations to the candidate.
+5. Publish reserved scopes, context dependencies, retirements, and the candidate tree.
+6. Apply reference unbind/bind commits against the published generational identity.
+7. Set up new and changed effects parent-first.
+8. Publish the Pump version and clear native-observation repair state.
+
+Unexpected native apply failure poisons the Pump and does not publish the candidate. Effect cleanup
+may already have run; this is part of the fatal-failure policy, not a recoverable transaction.
+An effect-preparation error also poisons because earlier cleanup closures may have run. Post-apply
+component-store failures poison because native state has already changed.
+
+### Findings fixed during the audit
+
+- Initial mount duplicated publication and could drift from update behavior. Both element and
+  component mount now use `publish_candidate`.
+- Duplicate-reference validation could fail after component reservation without removing reserved
+  scopes. Pre-apply failures now remove reservations centrally.
+- The same validation path could leave staged component props outside `planning_dirty`. Pre-apply
+  failures now retain every touched scope for forced recomposition on retry.
+- A realized row that failed duplicate-reference validation consumed its native realization
+  request. The request is restored until validation can succeed.
+- Reusable WinUI shells shared a container identity across physical lifetimes, and realization
+  requests carried no source generation. Each checkout now gets a fresh lifetime token, recycle
+  retires its live mapping before pooling the physical control, and attachment resolves only live
+  tokens. Key-changing source resets publish a checked `u64` revision that callbacks capture.
+  Planning rejects mismatched revisions and realizations superseded by a queued recycle.
+- Realization found an indexed row by scanning keyed views for the lease key. It now reads the
+  validated index directly and verifies that the indexed key matches the lease before composition.
+- Empty or multi-root virtual rows raised `StructureUnsupported`, so a component message could
+  terminate the window. A realized row now retains its logical subtree with an optional shell
+  attachment. Zero roots leave the shell empty. Multiple roots leave it empty and commit one
+  `VirtualRowRootCount` diagnostic. Returning to one root reattaches without recreating row
+  components or effects. Diagnostics publish only with the candidate, and the live host warns
+  without shutdown. Deterministic invalid shape does not enter a retry queue.
+- Imperative work had an unbounded queue and unbounded drain. The queue now accepts at most 4,096
+  requests and applies at most 64 per host turn in one native batch.
+- Reference uniqueness walked the complete tree on publications with no reference change.
+  Validation now skips the steady-state path unless a candidate introduces a binding and uses a
+  hash set of stable reference-cell identities when a scan is required.
+- A full local-message queue turned ordinary native input backpressure into a fatal host fault.
+  Rejected adapted callbacks now retain the event and retry after component work frees capacity.
+- General virtual rows could change from one native root to zero or multiple roots, turning an
+  ordinary component update into a fatal host fault. Realized rows now retain their logical
+  subtree with an optional shell attachment. Zero roots leave the shell empty. Multiple roots
+  leave it empty and commit a non-fatal diagnostic. Returning to one root reattaches the same
+  component and effect state.
+- Same-key virtual payload reconciliation scanned the source and realized-container ownership once
+  per realized row. It now builds temporary key and logical-owner maps once per update, while
+  direct realization uses its validated index.
+
+Focused regressions cover reservation cleanup, staged-prop retry, realization retry, source-reset
+staleness, recycle supersession, deep-index identity, revision exhaustion, optional row attachment,
+message and source shape transitions, detached retirement, transactional diagnostics, bounded
+imperative work, cross-window reference ownership, and the shared publication paths.
+
+### Accepted tradeoffs and open audit risks
+
+- Component messages and changed props mutate the authoritative component before candidate proof.
+  `planning_dirty` guarantees recomposition after a planning or pre-apply failure, but component
+  state is not rolled back. `Component::changed` can also send messages or start background work.
+  This follows from the decision not to clone component instances and needs an explicit application
+  contract or a narrower `changed` context.
+- Full updates clone the `Tree`. This keeps candidate ownership simple, but its cost must be
+  measured with deep component trees and large realized collections.
+- Effect key lookup is linear within each component. The intended case has few effects; measure
+  before adding a map and another allocation.
+- Reference validation scans the candidate tree only when a new binding is introduced and uses a
+  hash set for duplicate detection. The performance gate will still test a reference-heavy tree.
+- Typed references increased `Element` from 80 to 88 bytes and `Node` from 416 to 424 bytes.
+  Virtual source revisions then increased `Node` to 432 bytes. The retained per-node cost is
+  accepted because reference ownership and stale source rejection belong to authoritative tree
+  state; the performance gate must measure its aggregate cost.
+- Realization must know whether a publication error happened before native apply so it can retain
+  the native request. The current retryable pre-apply error is duplicate reference ownership.
+  Future pre-apply validators need to join the same classification rather than add another
+  one-off restoration path.
+- Content and named slots remain strict zero-or-one-native-root positions. A component that places
+  multiple roots there receives `StructureUnsupported`; unlike virtual rows, these APIs declare a
+  single structural value rather than a dynamic row template. Revisit this only if application
+  evidence shows that preserving a detached logical subtree is useful outside virtualization.
+
+### Audit conclusion
+
+The architecture audit is closed. Initial mount, full reconciliation, local component updates, and
+virtual realization share the same candidate publication spine. Native failure remains fatal;
+planning and validation failure do not publish; effects, references, component scopes, virtual
+leases, and diagnostics commit in defined order. Native callbacks are guarded by window, node,
+event, source, and shell-lifetime generations. Work queues have explicit capacities or turn
+budgets, and ordinary local-message backpressure defers rather than faults.
+
+The remaining risks are measured-design questions rather than known correctness defects: full
+Tree cloning, retained node size, effect lookup at unusually high counts, reference-heavy initial
+publication, and the cost of detached virtual rows. These move to the performance checkpoint.
+- Content and named-slot views retain their existing zero-or-one native-root contracts. Whether
+  those APIs need a recoverable multi-root policy is a separate audit decision; virtual-row
+  attachment does not change their ownership or arity rules.

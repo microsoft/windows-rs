@@ -30,6 +30,7 @@ pub struct VirtualModel {
     identity: WindowToken,
     keys: Rc<Vec<Key>>,
     revision: u64,
+    source_revision: u64,
 }
 
 impl VirtualModel {
@@ -48,6 +49,7 @@ impl VirtualModel {
             identity,
             keys: Rc::new(keys),
             revision: 0,
+            source_revision: 0,
         })
     }
 
@@ -58,10 +60,15 @@ impl VirtualModel {
         let keys = keys.into_iter().collect::<Vec<_>>();
         let operations = diff(&self.keys, &keys)
             .map_err(|KeyedError::DuplicateKey(key)| VirtualModelError::DuplicateKey(key))?;
+        let source_revision = self
+            .source_revision
+            .checked_add(1)
+            .ok_or(VirtualModelError::RevisionExhausted)?;
         let retained = keys.iter().cloned().collect::<HashSet<_>>();
         self.active.retain(|key, _| retained.contains(key));
         self.containers.retain(|_, (key, _)| retained.contains(key));
         self.keys = Rc::new(keys);
+        self.source_revision = source_revision;
         Ok(operations)
     }
 
@@ -143,6 +150,10 @@ impl VirtualModel {
 
     pub fn keys(&self) -> &[Key] {
         &self.keys
+    }
+
+    pub fn source_revision(&self) -> u64 {
+        self.source_revision
     }
 }
 
@@ -262,5 +273,18 @@ mod tests {
             model.update(keys(&["a", "a"])),
             Err(VirtualModelError::DuplicateKey(Key::from("a")))
         );
+    }
+
+    #[test]
+    fn source_revision_update_is_transactional_at_exhaustion() {
+        let mut model = VirtualModel::new(identity(), COLLECTION, keys(&["a"])).unwrap();
+        model.source_revision = u64::MAX;
+
+        assert_eq!(
+            model.update(keys(&["b"])),
+            Err(VirtualModelError::RevisionExhausted)
+        );
+        assert_eq!(model.keys(), keys(&["a"]));
+        assert_eq!(model.source_revision(), u64::MAX);
     }
 }

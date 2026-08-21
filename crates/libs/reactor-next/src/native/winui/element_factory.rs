@@ -12,6 +12,7 @@ pub struct ReactorElementFactory {
     collection: NodeId,
     identity: WindowToken,
     requests: Rc<RefCell<Vec<NativeWork<RealizationRequest>>>>,
+    source_revision: Rc<Cell<u64>>,
     shells: Rc<RealizedShells>,
     wake: EventSink,
 }
@@ -21,6 +22,7 @@ pub struct VirtualHandle {
     pub repeater: bindings::ItemsRepeater,
     _shells: Rc<RealizedShells>,
     source: windows_collections::IObservableVector<IInspectable>,
+    source_revision: Rc<Cell<u64>>,
 }
 
 impl VirtualHandle {
@@ -28,12 +30,20 @@ impl VirtualHandle {
         identity: WindowToken,
         collection: NodeId,
         item_count: usize,
+        source_revision: u64,
         requests: Rc<RefCell<Vec<NativeWork<RealizationRequest>>>>,
         wake: EventSink,
     ) -> Result<Self> {
         let shells = Rc::new(RealizedShells::default());
-        let factory =
-            ReactorElementFactory::create(identity, collection, requests, Rc::clone(&shells), wake);
+        let source_revision = Rc::new(Cell::new(source_revision));
+        let factory = ReactorElementFactory::create(
+            identity,
+            collection,
+            requests,
+            Rc::clone(&source_revision),
+            Rc::clone(&shells),
+            wake,
+        );
         let values = item_values(item_count)?;
         let source: windows_collections::IObservableVector<IInspectable> = values.into();
         let repeater = bindings::ItemsRepeater::new()?;
@@ -45,6 +55,7 @@ impl VirtualHandle {
             repeater,
             _shells: shells,
             source,
+            source_revision,
         })
     }
 
@@ -52,8 +63,9 @@ impl VirtualHandle {
         self.repeater.cast()
     }
 
-    pub fn reset(&self, item_count: usize) -> Result<()> {
+    pub fn reset(&self, item_count: usize, source_revision: u64) -> Result<()> {
         let values = item_values(item_count)?;
+        self.source_revision.set(source_revision);
         self.source.Clear()?;
         for value in values {
             self.source.Append(value.as_ref())?;
@@ -68,10 +80,8 @@ impl VirtualHandle {
     ) -> Result<()> {
         let shell = self
             ._shells
-            .shells
             .borrow()
-            .get(&container)
-            .cloned()
+            .shell(container)
             .ok_or_else(|| Error::new(E_FAIL, "missing realized container"))?;
         if let Some(content) = content {
             let content = content.cast::<IInspectable>()?;
@@ -94,53 +104,97 @@ fn item_values(item_count: usize) -> Result<Vec<Option<IInspectable>>> {
 
 #[derive(Default)]
 pub struct RealizedShells {
-    available: RefCell<Vec<RealizedContainer>>,
-    next: Cell<u64>,
-    shells: RefCell<HashMap<RealizedContainer, bindings::ContentControl>>,
+    pool: RefCell<ShellPool<bindings::ContentControl>>,
+}
+
+struct ShellPool<T> {
+    available: Vec<T>,
+    next: u64,
+    shells: HashMap<RealizedContainer, T>,
+}
+
+impl<T> Default for ShellPool<T> {
+    fn default() -> Self {
+        Self {
+            available: Vec::new(),
+            next: 0,
+            shells: HashMap::new(),
+        }
+    }
+}
+
+impl<T: Clone> ShellPool<T> {
+    fn next_container(&mut self) -> Result<RealizedContainer> {
+        let value = self.next;
+        self.next = value
+            .checked_add(1)
+            .ok_or_else(|| Error::new(E_FAIL, "realized container id exhausted"))?;
+        Ok(RealizedContainer(value))
+    }
+
+    fn take(&mut self, create: impl FnOnce() -> Result<T>) -> Result<(RealizedContainer, T)> {
+        let container = self.next_container()?;
+        let shell = if let Some(shell) = self.available.pop() {
+            shell
+        } else {
+            create()?
+        };
+        self.shells.insert(container, shell.clone());
+        Ok((container, shell))
+    }
+
+    fn shell(&self, container: RealizedContainer) -> Option<T> {
+        self.shells.get(&container).cloned()
+    }
+
+    fn retire(&mut self, container: RealizedContainer) -> bool {
+        let Some(shell) = self.shells.remove(&container) else {
+            return false;
+        };
+        self.available.push(shell);
+        true
+    }
 }
 
 impl RealizedShells {
     fn take(&self) -> Result<(RealizedContainer, UIElement)> {
-        if let Some(container) = self.available.borrow_mut().pop() {
-            let shell = self.shells.borrow()[&container].clone();
-            return Ok((container, shell.cast()?));
-        }
-
-        let value = self.next.get();
-        self.next.set(
-            value
-                .checked_add(1)
-                .ok_or_else(|| Error::new(E_FAIL, "realized container id exhausted"))?,
-        );
-        let container = RealizedContainer(value);
-        let shell = bindings::ContentControl::new()?;
-        shell
-            .cast::<IFrameworkElement>()?
-            .SetMinHeight(ESTIMATED_ROW_HEIGHT)?;
+        let (container, shell) = self.pool.borrow_mut().take(|| {
+            let shell = bindings::ContentControl::new()?;
+            shell
+                .cast::<IFrameworkElement>()?
+                .SetMinHeight(ESTIMATED_ROW_HEIGHT)?;
+            Ok(shell)
+        })?;
         let element = shell.cast()?;
-        self.shells.borrow_mut().insert(container, shell);
         Ok((container, element))
     }
 
     fn recycle(&self, element: &UIElement) -> Result<Option<RealizedContainer>> {
         let Some((container, shell)) =
-            self.shells.borrow().iter().find_map(|(container, shell)| {
-                (shell.cast::<UIElement>().as_ref() == Ok(element))
-                    .then(|| (*container, shell.clone()))
-            })
+            self.pool
+                .borrow()
+                .shells
+                .iter()
+                .find_map(|(container, shell)| {
+                    (shell.cast::<UIElement>().as_ref() == Ok(element))
+                        .then(|| (*container, shell.clone()))
+                })
         else {
             return Ok(None);
         };
         shell.SetContent(None::<&IInspectable>)?;
-        let mut available = self.available.borrow_mut();
-        if !available.contains(&container) {
-            available.push(container);
+        if !self.pool.borrow_mut().retire(container) {
+            return Err(Error::new(E_FAIL, "realized container retired twice"));
         }
         Ok(Some(container))
     }
 
     pub fn len(&self) -> usize {
-        self.shells.borrow().len()
+        self.pool.borrow().shells.len()
+    }
+
+    fn borrow(&self) -> std::cell::Ref<'_, ShellPool<bindings::ContentControl>> {
+        self.pool.borrow()
     }
 }
 
@@ -149,6 +203,7 @@ impl ReactorElementFactory {
         identity: WindowToken,
         collection: NodeId,
         requests: Rc<RefCell<Vec<NativeWork<RealizationRequest>>>>,
+        source_revision: Rc<Cell<u64>>,
         shells: Rc<RealizedShells>,
         wake: EventSink,
     ) -> IElementFactory {
@@ -156,6 +211,7 @@ impl ReactorElementFactory {
             collection,
             identity,
             requests,
+            source_revision,
             shells,
             wake,
         })
@@ -181,6 +237,7 @@ impl IElementFactory_Impl for ReactorElementFactory_Impl {
             collection: self.collection,
             container,
             index,
+            source_revision: self.source_revision.get(),
         });
         Ok(element)
     }
@@ -194,7 +251,48 @@ impl IElementFactory_Impl for ReactorElementFactory_Impl {
         self.queue(RealizationRequest::Recycle {
             collection: self.collection,
             container,
+            source_revision: self.source_revision.get(),
         });
         Ok(())
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn every_shell_lifetime_gets_a_fresh_token() {
+        let mut shells = ShellPool::<usize>::default();
+
+        assert_eq!(shells.next_container().unwrap(), RealizedContainer(0));
+        assert_eq!(shells.next_container().unwrap(), RealizedContainer(1));
+    }
+
+    #[test]
+    fn shell_lifetime_token_exhaustion_is_reported() {
+        let mut shells = ShellPool::<usize> {
+            next: u64::MAX,
+            ..Default::default()
+        };
+
+        assert!(shells.next_container().is_err());
+        assert_eq!(shells.next, u64::MAX);
+    }
+
+    #[test]
+    fn reused_physical_shell_gets_a_new_live_token() {
+        let mut shells = ShellPool::<usize>::default();
+        let (old, physical) = shells.take(|| Ok(42)).unwrap();
+
+        assert!(shells.retire(old));
+        assert_eq!(shells.shell(old), None);
+
+        let (new, reused) = shells
+            .take(|| panic!("available shell was not reused"))
+            .unwrap();
+        assert_ne!(new, old);
+        assert_eq!(reused, physical);
+        assert_eq!(shells.shell(new), Some(physical));
     }
 }

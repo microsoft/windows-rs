@@ -119,6 +119,91 @@ impl<R: NativeRuntime> Pump<R> {
         Ok(native)
     }
 
+    pub(super) fn virtual_row_owner(
+        tree: &Tree,
+        node: NodeId,
+    ) -> Result<Option<(NodeId, RealizedContainer, RealizedRow)>, PumpError> {
+        let mut logical_root = node;
+        while let Some(parent) = tree.parent(logical_root)? {
+            if tree.kind(parent)? == NodeKind::VirtualCollection {
+                let Some(container) = tree.realized_container_for_logical(parent, logical_root)?
+                else {
+                    return Ok(None);
+                };
+                let row = tree
+                    .realized(parent, container)?
+                    .ok_or(PumpError::StructureUnsupported)?;
+                return Ok(Some((parent, container, row)));
+            }
+            logical_root = parent;
+        }
+        Ok(None)
+    }
+
+    pub(in crate::core::pump) fn refresh_virtual_row_attachment(
+        tree: &mut Tree,
+        collection: NodeId,
+        container: RealizedContainer,
+        plan: &mut UpdatePlan,
+    ) -> Result<(), PumpError> {
+        let row = tree
+            .realized(collection, container)?
+            .ok_or(PumpError::StructureUnsupported)?;
+        let roots = Self::native_roots(tree, row.logical_root)?;
+        let next = match roots.as_slice() {
+            [root] => Some(*root),
+            _ => None,
+        };
+        if let Some(root) = next
+            && let Some(owner) = tree.realized_container(collection, root)?
+            && owner != container
+        {
+            return Err(PumpError::StructureUnsupported);
+        }
+        if row.native_root != next {
+            match (row.native_root, next) {
+                (_, Some(child)) => {
+                    plan.push(Command::AttachRealized {
+                        collection,
+                        container,
+                        child,
+                    });
+                }
+                (Some(child), None) => {
+                    plan.push(Command::DetachRealized {
+                        collection,
+                        container,
+                        child,
+                    });
+                }
+                (None, None) => {}
+            }
+            tree.update_realized(collection, container, row.logical_root, next)?;
+        }
+        let key = tree
+            .key(row.logical_root)?
+            .cloned()
+            .ok_or(PumpError::StructureUnsupported)?;
+        plan.diagnostics.retain(|diagnostic| {
+            !matches!(
+                diagnostic,
+                PumpDiagnostic::VirtualRowRootCount {
+                    collection: current,
+                    key: current_key,
+                    ..
+                } if *current == collection && current_key == &key
+            )
+        });
+        if roots.len() > 1 {
+            plan.diagnostics.push(PumpDiagnostic::VirtualRowRootCount {
+                collection,
+                key,
+                actual: roots.len(),
+            });
+        }
+        Ok(())
+    }
+
     pub(super) fn validate_native_arity(
         tree: &Tree,
         parent: NodeId,
@@ -160,14 +245,24 @@ impl<R: NativeRuntime> Pump<R> {
                             NativeAttachment::Children { parent, .. }
                                 if tree.kind(parent)? == NodeKind::VirtualCollection =>
                             {
-                                let container = tree
-                                    .realized_container(parent, node)?
-                                    .ok_or(PumpError::StructureUnsupported)?;
-                                plan.push(Command::DetachRealized {
-                                    collection: parent,
-                                    container,
-                                    child: node,
-                                });
+                                let Some((collection, container, row)) =
+                                    Self::virtual_row_owner(tree, node)?
+                                else {
+                                    return Err(PumpError::StructureUnsupported);
+                                };
+                                if row.native_root == Some(node) {
+                                    plan.push(Command::DetachRealized {
+                                        collection,
+                                        container,
+                                        child: node,
+                                    });
+                                    tree.update_realized(
+                                        collection,
+                                        container,
+                                        row.logical_root,
+                                        None,
+                                    )?;
+                                }
                             }
                             NativeAttachment::Children { parent, .. } => {
                                 plan.push(Command::RemoveChild {

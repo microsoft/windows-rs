@@ -210,7 +210,7 @@ The current measured result is:
 
 | Measure | Current result |
 | --- | ---: |
-| Source lines | 149 |
+| Source lines | 143 |
 | Explicit child keys | 0 |
 | Sender handles | 0 |
 | Event forwarding closures | 0 |
@@ -227,8 +227,8 @@ therefore remains a unit struct and needs no duplicate props field or `changed` 
 All seven static children now use one tuple, require no keys, and need no per-leaf `.into()` calls.
 Payload events use `context.callback(Message::Variant)`, and the submit event uses
 `context.message(Message::Submit)`. These adapters retain `LocalSender` rejection through
-`Callback::call`; current-event rejection becomes `PumpError::EventCallbackRejected`, while stale
-events are discarded before invocation. The summary still requires `create` and an empty `update`.
+`Callback::call`; queue backpressure defers and retries the current event, while stale events are
+discarded before invocation. The summary still requires `create` and an empty `update`.
 The form owns typed `TextBox` and `NumberBox` references as component fields and queues focus for
 the first invalid field on submit.
 

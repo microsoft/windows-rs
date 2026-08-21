@@ -6,6 +6,8 @@ use std::rc::Rc;
 
 use crate::core::{NativeWork, NodeId, WindowToken};
 
+const IMPERATIVE_QUEUE_CAPACITY: usize = 4_096;
+
 #[doc(hidden)]
 pub trait ReferenceType: sealed::Sealed + 'static {}
 
@@ -58,8 +60,7 @@ impl<T: FocusControl> ElementRef<T> {
         binding.endpoint.enqueue(NativeWork {
             identity: binding.identity,
             work: ImperativeRequest::Focus { node: binding.node },
-        });
-        true
+        })
     }
 }
 
@@ -105,6 +106,10 @@ pub trait FocusControl: ReferenceType {}
 pub(crate) struct NativeElementRef(Rc<RefCell<Option<ReferenceBinding>>>);
 
 impl NativeElementRef {
+    pub(crate) fn identity(&self) -> usize {
+        Rc::as_ptr(&self.0) as usize
+    }
+
     pub(crate) fn bind(&self, endpoint: ImperativeEndpoint, identity: WindowToken, node: NodeId) {
         *self.0.borrow_mut() = Some(ReferenceBinding {
             endpoint,
@@ -172,11 +177,17 @@ impl ImperativeEndpoint {
         }
     }
 
-    fn enqueue(&self, request: NativeWork<ImperativeRequest>) {
-        self.queue.borrow_mut().push_back(request);
+    fn enqueue(&self, request: NativeWork<ImperativeRequest>) -> bool {
+        let mut queue = self.queue.borrow_mut();
+        if queue.len() >= IMPERATIVE_QUEUE_CAPACITY {
+            return false;
+        }
+        queue.push_back(request);
+        drop(queue);
         if let Some(wake) = &self.wake {
             wake();
         }
+        true
     }
 
     pub(crate) fn pop_front(&self) -> Option<NativeWork<ImperativeRequest>> {

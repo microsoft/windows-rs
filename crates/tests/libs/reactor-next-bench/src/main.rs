@@ -713,11 +713,7 @@ fn queue_realize(pump: &mut Pump<RecordingRuntime>, count: usize) {
     let collection = pump.root().unwrap();
     for index in 0..count {
         pump.runtime_mut()
-            .queue_realization(RealizationRequest::Realize {
-                collection,
-                container: RealizedContainer(index as u64),
-                index,
-            });
+            .queue_realize(collection, RealizedContainer(index as u64), index);
     }
     pump.process_realizations().unwrap();
 }
@@ -726,10 +722,7 @@ fn queue_recycle(pump: &mut Pump<RecordingRuntime>, count: usize) {
     let collection = pump.root().unwrap();
     for index in 0..count {
         pump.runtime_mut()
-            .queue_realization(RealizationRequest::Recycle {
-                collection,
-                container: RealizedContainer(index as u64),
-            });
+            .queue_recycle(collection, RealizedContainer(index as u64));
     }
     pump.process_realizations().unwrap();
 }

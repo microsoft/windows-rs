@@ -82,9 +82,13 @@ ItemsRepeater::new()
 ```
 
 Rows are realized lazily. A row may contain native controls, components, providers, fragments, and
-ordinary `View` composition, but it must flatten to exactly one native root for the repeater
-container. Empty and multi-root rows fail planning without publishing the row. Recycling retires
-the logical row subtree and its component scopes while detaching the row's native root.
+ordinary `View` composition. The logical row and its component, effect, and reference state remain
+realized when it flattens to zero or multiple native roots. Exactly one root attaches to the native
+shell. Zero roots leave it empty. Multiple roots leave it empty and publish
+`PumpDiagnostic::VirtualRowRootCount`; the application host writes this diagnostic as a warning
+without stopping the window. A later update that returns to one root reattaches the same logical
+row. Recycling always retires the full logical subtree and detaches only its optional shell root.
+Test and custom hosts can inspect committed diagnostics with `Pump::drain_diagnostics`.
 
 Event setters accept ordinary unit-returning closures and typed message callbacks:
 
@@ -100,10 +104,10 @@ type to implement `Clone`. Both methods forward to the same methods on `LocalSen
 through the existing local component queue.
 
 Ordinary event closures are always accepted. A message callback retains the `bool` returned by
-`LocalSender::send`. If a current native event invokes a callback and the send is rejected, event
-dispatch reports `PumpError::EventCallbackRejected` and the WinUI host treats it as a fault.
-Events with stale window, node, subscription, or event revisions are discarded before callback
-invocation and cannot produce that fault.
+`LocalSender::send`. If the bounded component queue is full, the Pump leaves the native event at
+the front of its queue, drains component work, and retries the callback on a later turn. Events
+with stale window, node, subscription, or event revisions are discarded before callback
+invocation.
 
 Components can own typed imperative references as fields:
 
@@ -122,7 +126,8 @@ retains the exact window epoch and generational node ID, so replacement, removal
 window close discard stale work. WinUI returning `false` from `Focus(Programmatic)` is a completed
 request, not a host error. `Button`, `TextBox`, `NumberBox`, `Slider`, and `ToggleSwitch` currently
 carry the generated sealed focus capability. One reference can own one published element;
-duplicate use returns `PumpError::DuplicateElementRef` before native mutation.
+duplicate use returns `PumpError::DuplicateElementRef` before native mutation. Each window accepts
+up to 4,096 pending imperative requests and applies at most 64 in one host turn.
 
 Raw native handles remain intentionally absent. Specialized Canvas, WebView, and similar subsystem
 adapters need separate ownership and documented-failure designs rather than cloned COM handles in

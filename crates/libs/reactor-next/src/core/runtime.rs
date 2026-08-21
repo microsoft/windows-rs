@@ -102,10 +102,12 @@ pub enum RealizationRequest {
         collection: NodeId,
         container: RealizedContainer,
         index: usize,
+        source_revision: u64,
     },
     Recycle {
         collection: NodeId,
         container: RealizedContainer,
+        source_revision: u64,
     },
 }
 
@@ -181,10 +183,12 @@ pub enum Command {
     CreateVirtualCollection {
         node: NodeId,
         item_count: usize,
+        source_revision: u64,
     },
     ResetVirtualCollection {
         node: NodeId,
         item_count: usize,
+        source_revision: u64,
     },
     AttachRealized {
         collection: NodeId,

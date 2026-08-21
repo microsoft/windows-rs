@@ -433,19 +433,33 @@ impl<R: NativeRuntime> Pump<R> {
                 Self::collect_retired_components(tree, row, components, changes)?;
                 Self::retire_planned_subtree(tree, row, plan)?;
             }
-            tree.virtual_model_mut(node)?
-                .update(items.iter().map(|item| item.key().clone()))
-                .map_err(TreeError::from)?;
+            let source_revision = {
+                let model = tree.virtual_model_mut(node)?;
+                model
+                    .update(items.iter().map(|item| item.key().clone()))
+                    .map_err(TreeError::from)?;
+                model.source_revision()
+            };
             tree.update_virtual_items(node, items)?;
             tree.virtual_model_mut(node)?.clear();
             plan.push(Command::ResetVirtualCollection {
                 node,
                 item_count: tree.virtual_items(node)?.len(),
+                source_revision,
             });
             return Ok(node);
         }
 
         tree.update_virtual_items(node, items)?;
+        let views = tree
+            .virtual_items(node)?
+            .iter()
+            .map(|item| (item.key().clone(), item.view().clone()))
+            .collect::<HashMap<_, _>>();
+        let containers = tree
+            .realized_rows(node)?
+            .map(|(container, row)| (row.logical_root, container))
+            .collect::<HashMap<_, _>>();
         let realized = tree
             .children(node)?
             .iter()
@@ -455,10 +469,14 @@ impl<R: NativeRuntime> Pump<R> {
                     .key(logical_root)?
                     .cloned()
                     .ok_or(PumpError::StructureUnsupported)?;
-                let container = tree
-                    .realized_container_for_logical(node, logical_root)?
+                let container = containers
+                    .get(&logical_root)
+                    .copied()
                     .ok_or(PumpError::StructureUnsupported)?;
-                let view = tree.virtual_item(node, &key)?.clone();
+                let view = views
+                    .get(&key)
+                    .cloned()
+                    .ok_or(PumpError::StructureUnsupported)?;
                 Ok((container, logical_root, view))
             })
             .collect::<Result<Vec<_>, PumpError>>()?;
@@ -542,25 +560,11 @@ impl<R: NativeRuntime> Pump<R> {
                 NativeAttachment::Children { parent, .. }
                     if tree.kind(parent)? == NodeKind::VirtualCollection =>
                 {
-                    let [old_native] = old_native.as_slice() else {
+                    let Some((collection, container, _)) = Self::virtual_row_owner(tree, node)?
+                    else {
                         return Err(PumpError::StructureUnsupported);
                     };
-                    let [new_native] = new_native.as_slice() else {
-                        return Err(PumpError::StructureUnsupported);
-                    };
-                    if let Some(container) = tree.realized_container(parent, *old_native)? {
-                        let row = tree
-                            .realized(parent, container)?
-                            .ok_or(PumpError::StructureUnsupported)?;
-                        tree.update_realized(parent, container, row.logical_root, *new_native)?;
-                        plan.push(Command::AttachRealized {
-                            collection: parent,
-                            container,
-                            child: *new_native,
-                        });
-                    } else if tree.realized_container(parent, *new_native)?.is_none() {
-                        return Err(PumpError::StructureUnsupported);
-                    }
+                    Self::refresh_virtual_row_attachment(tree, collection, container, plan)?;
                 }
                 NativeAttachment::Children { parent, .. } => {
                     let native = Self::native_children(tree, parent)?;
@@ -604,14 +608,7 @@ impl<R: NativeRuntime> Pump<R> {
             NativeAttachment::Children { parent, .. }
                 if tree.kind(parent)? == NodeKind::VirtualCollection =>
             {
-                let native = Self::native_root(tree, node)?;
-                let container = tree
-                    .realized_container(parent, native)?
-                    .ok_or(PumpError::StructureUnsupported)?;
-                let row = tree
-                    .realized(parent, container)?
-                    .ok_or(PumpError::StructureUnsupported)?;
-                Some((parent, container, row))
+                Self::virtual_row_owner(tree, node)?
             }
             _ => None,
         };
@@ -630,24 +627,17 @@ impl<R: NativeRuntime> Pump<R> {
         tree.set_children(parent, children)?;
         match (attachment, realized) {
             (NativeAttachment::Children { .. }, Some((collection, container, row))) => {
-                let [native] = native.as_slice() else {
-                    return Err(PumpError::StructureUnsupported);
-                };
                 let logical_root = if row.logical_root == node {
                     replacement
                 } else {
                     row.logical_root
                 };
                 if row.logical_root == node {
-                    tree.set_realized(collection, container, logical_root, *native)?;
+                    tree.set_realized(collection, container, logical_root, None)?;
                 } else {
-                    tree.update_realized(collection, container, logical_root, *native)?;
+                    tree.update_realized(collection, container, logical_root, None)?;
                 }
-                plan.push(Command::AttachRealized {
-                    collection,
-                    container,
-                    child: *native,
-                });
+                Self::refresh_virtual_row_attachment(tree, collection, container, plan)?;
             }
             (
                 NativeAttachment::Children {

@@ -38,7 +38,7 @@ struct Node {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RealizedRow {
     pub logical_root: NodeId,
-    pub native_root: NodeId,
+    pub native_root: Option<NodeId>,
 }
 
 #[derive(Clone)]
@@ -343,12 +343,10 @@ impl Tree {
             .ok_or(TreeError::NotVirtual)
     }
 
-    pub fn virtual_item(&self, id: NodeId, key: &Key) -> Result<&View, TreeError> {
+    pub fn virtual_item_at(&self, id: NodeId, index: usize) -> Result<&KeyedView, TreeError> {
         self.virtual_items(id)?
-            .iter()
-            .find(|item| item.key() == key)
-            .map(KeyedView::view)
-            .ok_or(TreeError::NotVirtual)
+            .get(index)
+            .ok_or_else(|| VirtualModelError::MissingIndex(index).into())
     }
 
     pub fn realized(
@@ -357,6 +355,18 @@ impl Tree {
         container: RealizedContainer,
     ) -> Result<Option<RealizedRow>, TreeError> {
         Ok(self.arena.get(id)?.realized.get(&container).copied())
+    }
+
+    pub fn realized_rows(
+        &self,
+        id: NodeId,
+    ) -> Result<impl Iterator<Item = (RealizedContainer, RealizedRow)> + '_, TreeError> {
+        Ok(self
+            .arena
+            .get(id)?
+            .realized
+            .iter()
+            .map(|(container, row)| (*container, *row)))
     }
 
     pub fn realized_container(
@@ -369,7 +379,9 @@ impl Tree {
             .get(id)?
             .realized
             .iter()
-            .find_map(|(container, row)| (row.native_root == native_root).then_some(*container)))
+            .find_map(|(container, row)| {
+                (row.native_root == Some(native_root)).then_some(*container)
+            }))
     }
 
     pub fn realized_container_for_logical(
@@ -390,15 +402,18 @@ impl Tree {
         id: NodeId,
         container: RealizedContainer,
         logical_root: NodeId,
-        native_root: NodeId,
+        native_root: Option<NodeId>,
     ) -> Result<(), TreeError> {
         self.arena.get(logical_root)?;
-        self.arena.get(native_root)?;
+        if let Some(native_root) = native_root {
+            self.arena.get(native_root)?;
+        }
         let realized = &mut self.arena.get_mut(id)?.realized;
         if realized.contains_key(&container)
-            || realized
-                .values()
-                .any(|row| row.logical_root == logical_root || row.native_root == native_root)
+            || realized.values().any(|row| {
+                row.logical_root == logical_root
+                    || native_root.is_some() && row.native_root == native_root
+            })
         {
             return Err(TreeError::RealizedConflict(container));
         }
@@ -417,10 +432,12 @@ impl Tree {
         id: NodeId,
         container: RealizedContainer,
         logical_root: NodeId,
-        native_root: NodeId,
+        native_root: Option<NodeId>,
     ) -> Result<(), TreeError> {
         self.arena.get(logical_root)?;
-        self.arena.get(native_root)?;
+        if let Some(native_root) = native_root {
+            self.arena.get(native_root)?;
+        }
         let row = self
             .arena
             .get_mut(id)?
@@ -574,7 +591,7 @@ mod tests {
     #[test]
     #[cfg(target_pointer_width = "64")]
     fn generated_control_growth_preserves_core_layouts() {
-        assert_eq!(size_of::<Node>(), 424);
+        assert_eq!(size_of::<Node>(), 432);
         assert_eq!(size_of::<MountedProps>(), 72);
         assert_eq!(size_of::<Element>(), 88);
     }
@@ -696,12 +713,40 @@ mod tests {
             .unwrap();
         let container = RealizedContainer(1);
 
-        tree.set_realized(collection, container, first, first)
+        tree.set_realized(collection, container, first, Some(first))
             .unwrap();
 
         assert_eq!(
-            tree.set_realized(collection, container, second, second),
+            tree.set_realized(collection, container, second, Some(second)),
             Err(TreeError::RealizedConflict(container))
+        );
+    }
+
+    #[test]
+    fn detached_realized_row_remains_addressable_by_logical_root() {
+        let mut tree = Tree::new();
+        let collection = tree
+            .insert_virtual(identity(), None, [Key::from("row")])
+            .unwrap();
+        let logical = tree.insert(Some(collection), NodeKind::Fragment).unwrap();
+        let native = tree
+            .insert(Some(logical), NodeKind::Native(MountedKind::TextBlock))
+            .unwrap();
+        let container = RealizedContainer(1);
+
+        tree.set_realized(collection, container, logical, None)
+            .unwrap();
+        assert_eq!(
+            tree.realized_container_for_logical(collection, logical),
+            Ok(Some(container))
+        );
+        assert_eq!(tree.realized_container(collection, native), Ok(None));
+
+        tree.update_realized(collection, container, logical, Some(native))
+            .unwrap();
+        assert_eq!(
+            tree.realized_container(collection, native),
+            Ok(Some(container))
         );
     }
 
