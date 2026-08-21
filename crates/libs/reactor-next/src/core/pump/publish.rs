@@ -21,6 +21,7 @@ impl<R: NativeRuntime> Pump<R> {
         mut changes: FrontendChanges,
         next_version: u64,
     ) -> Result<(), PumpError> {
+        self.validate_candidate_references(&candidate, &plan.reference_commits)?;
         match &mut changes {
             FrontendChanges::Component(changes) => self.prepare_component_effects(changes)?,
             FrontendChanges::Local { token, .. } => self.components.prepare_effects(*token)?,
@@ -31,7 +32,8 @@ impl<R: NativeRuntime> Pump<R> {
         self.apply_native_commands(&plan.commands)?;
 
         self.commit_candidate_properties(&mut candidate, &plan.commits)?;
-        self.publish_frontend(candidate, changes)?;
+        self.commit_candidate_references(&mut candidate, &plan.reference_commits)?;
+        self.publish_frontend(candidate, changes, &plan.reference_commits)?;
         self.native_observation_pending = false;
         self.version = next_version;
         Ok(())
@@ -41,6 +43,7 @@ impl<R: NativeRuntime> Pump<R> {
         &mut self,
         candidate: CandidateState,
         changes: FrontendChanges,
+        reference_commits: &[ReferenceCommit],
     ) -> Result<(), PumpError> {
         if let FrontendChanges::Component(changes) = &changes {
             self.finalize_component_changes(changes)?;
@@ -50,10 +53,17 @@ impl<R: NativeRuntime> Pump<R> {
                 self.tree = tree;
                 self.root = Some(root);
             }
-            CandidateState::Native { node, desired } => {
-                self.tree.native_mut(node)?.desired = desired;
+            CandidateState::Native {
+                node,
+                desired,
+                reference,
+            } => {
+                let native = self.tree.native_mut(node)?;
+                native.desired = desired;
+                native.reference = reference;
             }
         }
+        self.apply_reference_bindings(reference_commits);
         match changes {
             #[cfg(any(test, feature = "test"))]
             FrontendChanges::Element(element) => self.element = Some(element),

@@ -245,6 +245,11 @@ impl RecordingRuntime {
                     self.application = None;
                 }
             }
+            Command::Focus { node } => {
+                self.nodes
+                    .get(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?;
+            }
             Command::SetProperty {
                 node,
                 property,

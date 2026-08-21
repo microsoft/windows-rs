@@ -199,6 +199,9 @@ pub enum Command {
     Destroy {
         node: NodeId,
     },
+    Focus {
+        node: NodeId,
+    },
     SetProperty {
         node: NodeId,
         property: PropertyId,

@@ -53,6 +53,7 @@ pub(crate) enum Capability {
     Children,
     ControlledText,
     Items,
+    Focus,
 }
 
 #[derive(Deserialize)]

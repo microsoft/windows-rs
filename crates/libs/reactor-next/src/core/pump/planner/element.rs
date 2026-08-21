@@ -18,7 +18,7 @@ impl<R: NativeRuntime> Pump<R> {
         node: NodeId,
         parts: ElementParts,
         plan: &mut UpdatePlan,
-    ) -> Result<MountedProps, PumpError> {
+    ) -> Result<(MountedProps, Option<NativeElementRef>), PumpError> {
         parts.props.visit_properties(&mut |property, value| {
             let changed = plan.reconcile_observations
                 || native
@@ -43,7 +43,8 @@ impl<R: NativeRuntime> Pump<R> {
                 value,
             });
         });
-        Ok(parts.props)
+        Self::plan_reference(native, node, parts.reference.clone(), plan);
+        Ok((parts.props, parts.reference))
     }
 
     pub(in super::super) fn reconcile_node(
@@ -104,6 +105,7 @@ impl<R: NativeRuntime> Pump<R> {
         debug_assert_eq!(kind, parts.kind);
 
         let props_changed = tree.native(node)?.desired != parts.props;
+        let desired_reference = parts.reference.clone();
         {
             let properties = &tree.native(node)?.properties;
             parts.props.visit_properties(&mut |property, value| {
@@ -135,6 +137,7 @@ impl<R: NativeRuntime> Pump<R> {
             Self::update_event_states(tree.native_mut(node)?, node, &parts.props, plan)?;
             tree.native_mut(node)?.desired = parts.props;
         }
+        Self::plan_reference(tree.native(node)?, node, desired_reference, plan);
 
         let current_children = tree.children(node)?.to_vec();
         match parts.structure {
@@ -362,6 +365,11 @@ impl<R: NativeRuntime> Pump<R> {
         if !compatible {
             return Ok(false);
         }
+        if let NodeKind::Native(_) = kind
+            && tree.native(node)?.reference.as_ref() != element.reference()
+        {
+            return Ok(false);
+        }
         if kind == NodeKind::VirtualCollection {
             let ElementStructureRef::Virtual(items) = element.structure() else {
                 return Ok(false);
@@ -523,6 +531,7 @@ impl<R: NativeRuntime> Pump<R> {
         plan: &mut UpdatePlan,
     ) -> Result<(), PumpError> {
         let props_changed = native.desired != parts.props;
+        let desired_reference = parts.reference.clone();
         {
             let properties = &native.properties;
             parts.props.visit_properties(&mut |property, value| {
@@ -553,7 +562,23 @@ impl<R: NativeRuntime> Pump<R> {
             Self::update_event_states(native, node, &parts.props, plan)?;
             native.desired = parts.props;
         }
+        Self::plan_reference(native, node, desired_reference, plan);
         Ok(())
+    }
+
+    fn plan_reference(
+        native: &NativeState,
+        node: NodeId,
+        desired: Option<NativeElementRef>,
+        plan: &mut UpdatePlan,
+    ) {
+        if native.reference != desired {
+            plan.reference_commits.push(ReferenceCommit {
+                node,
+                old: native.reference.clone(),
+                new: desired,
+            });
+        }
     }
 
     pub(in super::super) fn mount_planned_element(
@@ -578,6 +603,13 @@ impl<R: NativeRuntime> Pump<R> {
             node,
             kind: parts.kind,
         });
+        if parts.reference.is_some() {
+            plan.reference_commits.push(ReferenceCommit {
+                node,
+                old: None,
+                new: parts.reference.clone(),
+            });
+        }
         parts.props.visit_properties(&mut |property, value| {
             if let Some(value) = value {
                 plan.push(Command::SetProperty {

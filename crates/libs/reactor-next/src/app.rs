@@ -294,7 +294,8 @@ impl LivePump for ComponentLoop {
 
     fn dispatch_events(&mut self) -> Result<(), PumpError> {
         self.pump.dispatch_events()?;
-        self.pump.dispatch_components(64).map(|_| ())
+        self.pump.dispatch_components(64)?;
+        self.pump.process_imperatives().map(|_| ())
     }
 
     fn native_work_pending(&self) -> bool {

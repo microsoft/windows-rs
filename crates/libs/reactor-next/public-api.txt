@@ -63,6 +63,7 @@ pub fn windows_reactor_next::App::run_component<C: windows_reactor_next::Compone
 pub fn windows_reactor_next::App::run_windows<I>(I) -> windows_result::Result<()> where I: core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::View>
 pub struct windows_reactor_next::Button
 impl windows_reactor_next::Button
+pub fn windows_reactor_next::Button::element_ref(self, &windows_reactor_next::ElementRef<Self>) -> Self
 pub fn windows_reactor_next::Button::is_enabled(self, bool) -> Self
 pub fn windows_reactor_next::Button::is_enabled_property(&self) -> &windows_reactor_next::Property<bool>
 pub fn windows_reactor_next::Button::new() -> Self
@@ -75,6 +76,7 @@ pub fn windows_reactor_next::View::from(windows_reactor_next::Button) -> Self
 impl windows_reactor_next::ContentControl for windows_reactor_next::Button
 pub fn windows_reactor_next::Button::content(self, impl core::convert::Into<windows_reactor_next::View>) -> windows_reactor_next::View
 impl windows_reactor_next::EnabledControl for windows_reactor_next::Button
+impl windows_reactor_next::FocusControl for windows_reactor_next::Button
 impl windows_reactor_next::LayoutControl for windows_reactor_next::Button
 pub struct windows_reactor_next::Callback<T>(_)
 impl<T> windows_reactor_next::Callback<T>
@@ -121,6 +123,20 @@ impl core::convert::From<u64> for windows_reactor_next::EffectKey
 pub fn windows_reactor_next::EffectKey::from(u64) -> Self
 impl core::convert::From<usize> for windows_reactor_next::EffectKey
 pub fn windows_reactor_next::EffectKey::from(usize) -> Self
+pub struct windows_reactor_next::ElementRef<T>
+impl<T: ReferenceType> windows_reactor_next::ElementRef<T>
+pub fn windows_reactor_next::ElementRef<T>::new() -> Self
+impl<T: windows_reactor_next::FocusControl> windows_reactor_next::ElementRef<T>
+pub fn windows_reactor_next::ElementRef<T>::request_focus(&self) -> bool
+impl<T: ReferenceType> core::default::Default for windows_reactor_next::ElementRef<T>
+pub fn windows_reactor_next::ElementRef<T>::default() -> Self
+impl<T> core::clone::Clone for windows_reactor_next::ElementRef<T>
+pub fn windows_reactor_next::ElementRef<T>::clone(&self) -> Self
+impl<T> core::cmp::Eq for windows_reactor_next::ElementRef<T>
+impl<T> core::cmp::PartialEq for windows_reactor_next::ElementRef<T>
+pub fn windows_reactor_next::ElementRef<T>::eq(&self, &Self) -> bool
+impl<T> core::fmt::Debug for windows_reactor_next::ElementRef<T>
+pub fn windows_reactor_next::ElementRef<T>::fmt(&self, &mut core::fmt::Formatter<'_>) -> core::fmt::Result
 pub struct windows_reactor_next::ItemsRepeater
 impl windows_reactor_next::ItemsRepeater
 pub fn windows_reactor_next::ItemsRepeater::item(self, impl core::convert::Into<windows_reactor_next::Key>, impl core::convert::Into<windows_reactor_next::View>) -> Self
@@ -176,6 +192,7 @@ pub type windows_reactor_next::NavigationView::Slot = windows_reactor_next::Navi
 pub fn windows_reactor_next::NavigationView::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::SlotView<Self::Slot>>) -> windows_reactor_next::View
 pub struct windows_reactor_next::NumberBox
 impl windows_reactor_next::NumberBox
+pub fn windows_reactor_next::NumberBox::element_ref(self, &windows_reactor_next::ElementRef<Self>) -> Self
 pub fn windows_reactor_next::NumberBox::is_enabled(self, bool) -> Self
 pub fn windows_reactor_next::NumberBox::is_enabled_property(&self) -> &windows_reactor_next::Property<bool>
 pub fn windows_reactor_next::NumberBox::maximum(self, f64) -> Self
@@ -192,6 +209,7 @@ pub fn windows_reactor_next::Element::from(windows_reactor_next::NumberBox) -> S
 impl core::convert::From<windows_reactor_next::NumberBox> for windows_reactor_next::View
 pub fn windows_reactor_next::View::from(windows_reactor_next::NumberBox) -> Self
 impl windows_reactor_next::EnabledControl for windows_reactor_next::NumberBox
+impl windows_reactor_next::FocusControl for windows_reactor_next::NumberBox
 impl windows_reactor_next::LayoutControl for windows_reactor_next::NumberBox
 pub struct windows_reactor_next::ProgressBar
 impl windows_reactor_next::ProgressBar
@@ -228,6 +246,7 @@ pub fn windows_reactor_next::ScrollViewer::content(self, impl core::convert::Int
 impl windows_reactor_next::LayoutControl for windows_reactor_next::ScrollViewer
 pub struct windows_reactor_next::Slider
 impl windows_reactor_next::Slider
+pub fn windows_reactor_next::Slider::element_ref(self, &windows_reactor_next::ElementRef<Self>) -> Self
 pub fn windows_reactor_next::Slider::is_enabled(self, bool) -> Self
 pub fn windows_reactor_next::Slider::is_enabled_property(&self) -> &windows_reactor_next::Property<bool>
 pub fn windows_reactor_next::Slider::maximum(self, f64) -> Self
@@ -244,6 +263,7 @@ pub fn windows_reactor_next::Element::from(windows_reactor_next::Slider) -> Self
 impl core::convert::From<windows_reactor_next::Slider> for windows_reactor_next::View
 pub fn windows_reactor_next::View::from(windows_reactor_next::Slider) -> Self
 impl windows_reactor_next::EnabledControl for windows_reactor_next::Slider
+impl windows_reactor_next::FocusControl for windows_reactor_next::Slider
 impl windows_reactor_next::LayoutControl for windows_reactor_next::Slider
 pub struct windows_reactor_next::SlotView<S>
 impl<S> windows_reactor_next::SlotView<S>
@@ -278,6 +298,7 @@ impl windows_reactor_next::LayoutControl for windows_reactor_next::TextBlock
 impl windows_reactor_next::TextStyleControl for windows_reactor_next::TextBlock
 pub struct windows_reactor_next::TextBox
 impl windows_reactor_next::TextBox
+pub fn windows_reactor_next::TextBox::element_ref(self, &windows_reactor_next::ElementRef<Self>) -> Self
 pub fn windows_reactor_next::TextBox::is_enabled(self, bool) -> Self
 pub fn windows_reactor_next::TextBox::is_enabled_property(&self) -> &windows_reactor_next::Property<bool>
 pub fn windows_reactor_next::TextBox::new() -> Self
@@ -293,10 +314,12 @@ impl core::convert::From<windows_reactor_next::TextBox> for windows_reactor_next
 pub fn windows_reactor_next::View::from(windows_reactor_next::TextBox) -> Self
 impl windows_reactor_next::ControlledTextControl for windows_reactor_next::TextBox
 impl windows_reactor_next::EnabledControl for windows_reactor_next::TextBox
+impl windows_reactor_next::FocusControl for windows_reactor_next::TextBox
 impl windows_reactor_next::LayoutControl for windows_reactor_next::TextBox
 impl windows_reactor_next::TextStyleControl for windows_reactor_next::TextBox
 pub struct windows_reactor_next::ToggleSwitch
 impl windows_reactor_next::ToggleSwitch
+pub fn windows_reactor_next::ToggleSwitch::element_ref(self, &windows_reactor_next::ElementRef<Self>) -> Self
 pub fn windows_reactor_next::ToggleSwitch::is_enabled(self, bool) -> Self
 pub fn windows_reactor_next::ToggleSwitch::is_enabled_property(&self) -> &windows_reactor_next::Property<bool>
 pub fn windows_reactor_next::ToggleSwitch::is_on(self, bool) -> Self
@@ -309,6 +332,7 @@ pub fn windows_reactor_next::Element::from(windows_reactor_next::ToggleSwitch) -
 impl core::convert::From<windows_reactor_next::ToggleSwitch> for windows_reactor_next::View
 pub fn windows_reactor_next::View::from(windows_reactor_next::ToggleSwitch) -> Self
 impl windows_reactor_next::EnabledControl for windows_reactor_next::ToggleSwitch
+impl windows_reactor_next::FocusControl for windows_reactor_next::ToggleSwitch
 impl windows_reactor_next::LayoutControl for windows_reactor_next::ToggleSwitch
 pub struct windows_reactor_next::View(_)
 impl windows_reactor_next::View
@@ -378,6 +402,12 @@ impl windows_reactor_next::EnabledControl for windows_reactor_next::ProgressBar
 impl windows_reactor_next::EnabledControl for windows_reactor_next::Slider
 impl windows_reactor_next::EnabledControl for windows_reactor_next::TextBox
 impl windows_reactor_next::EnabledControl for windows_reactor_next::ToggleSwitch
+pub trait windows_reactor_next::FocusControl: ReferenceType
+impl windows_reactor_next::FocusControl for windows_reactor_next::Button
+impl windows_reactor_next::FocusControl for windows_reactor_next::NumberBox
+impl windows_reactor_next::FocusControl for windows_reactor_next::Slider
+impl windows_reactor_next::FocusControl for windows_reactor_next::TextBox
+impl windows_reactor_next::FocusControl for windows_reactor_next::ToggleSwitch
 pub trait windows_reactor_next::IntoPayloadCallback<T>
 pub fn windows_reactor_next::IntoPayloadCallback::into_payload_callback(self) -> windows_reactor_next::Callback<T>
 impl<T, F> windows_reactor_next::IntoPayloadCallback<T> for F where F: core::ops::function::Fn(T) + 'static

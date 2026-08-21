@@ -40,6 +40,14 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     let element_parts = schema.controls.iter().map(generate_element_parts);
     let element_props_matches = schema.controls.iter().map(generate_element_props_match);
     let element_structures = schema.controls.iter().map(generate_element_structure);
+    let element_references = schema.controls.iter().map(|control| {
+        let name = ident(&control.name);
+        if control.capabilities.contains(&Capability::Focus) {
+            quote! { Self::#name(value) => value.reference.as_ref() }
+        } else {
+            quote! { Self::#name(_) => None }
+        }
+    });
     let element_event_visitors = schema.controls.iter().map(generate_element_event_visitor);
     let element_kinds = schema.controls.iter().map(|control| {
         let name = ident(&control.name);
@@ -96,6 +104,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
 
     let tokens = quote! {
         use crate::element::*;
+        use crate::reference::{ElementRef, FocusControl, NativeElementRef};
 
         pub mod public {
             use super::*;
@@ -131,6 +140,12 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                     }
                 }
 
+                fn reference(&self) -> Option<&NativeElementRef> {
+                    match self {
+                        #(#element_references),*
+                    }
+                }
+
                 fn structure(&self) -> ElementStructureRef<'_> {
                     match self {
                         #(#element_structures),*
@@ -151,6 +166,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             fn kind(&self) -> MountedKind;
             fn into_parts(self) -> ElementParts;
             fn props_match(&self, props: &MountedProps) -> bool;
+            fn reference(&self) -> Option<&NativeElementRef>;
             fn structure(&self) -> ElementStructureRef<'_>;
             fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool));
         }
@@ -266,6 +282,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         pub struct ElementParts {
             pub kind: MountedKind,
             pub props: MountedProps,
+            pub reference: Option<NativeElementRef>,
             pub structure: ElementStructure,
         }
 
@@ -301,6 +318,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             Children,
             ControlledText,
             Items,
+            Focus,
         }
 
         #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -465,6 +483,12 @@ fn generate_mounted_props_equality(control: &ResolvedControl) -> TokenStream {
 
 fn generate_element_parts(control: &ResolvedControl) -> TokenStream {
     let name = ident(&control.name);
+    let (reference_pattern, reference_field) = if control.capabilities.contains(&Capability::Focus)
+    {
+        (quote! { reference, }, quote! { reference, })
+    } else {
+        (TokenStream::new(), quote! { reference: None, })
+    };
     let fields = control
         .properties
         .iter()
@@ -492,12 +516,14 @@ fn generate_element_parts(control: &ResolvedControl) -> TokenStream {
     quote! {
         Self::#name(#name {
             #(#fields,)*
+            #reference_pattern
             #structural_pattern
         }) => ElementParts {
             kind: MountedKind::#name,
             props: MountedProps::#name {
                 #(#fields),*
             },
+            #reference_field
             structure: #structure,
         }
     }
@@ -843,6 +869,24 @@ fn generate_value_enums(schema: &ResolvedSchema) -> TokenStream {
 
 fn generate_element(control: &ResolvedControl) -> TokenStream {
     let name = ident(&control.name);
+    let (reference_field, reference_method, reference_impls) =
+        if control.capabilities.contains(&Capability::Focus) {
+            (
+                quote! { reference: Option<NativeElementRef>, },
+                quote! {
+                    pub fn element_ref(mut self, reference: &ElementRef<Self>) -> Self {
+                        self.reference = Some(reference.binding());
+                        self
+                    }
+                },
+                quote! {
+                    impl crate::reference::sealed::Sealed for #name {}
+                    impl crate::reference::ReferenceType for #name {}
+                },
+            )
+        } else {
+            (TokenStream::new(), TokenStream::new(), TokenStream::new())
+        };
     let property_fields = control.properties.iter().map(|property| {
         let field = ident(&property.field);
         let value = value_type(&property.value);
@@ -968,6 +1012,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
             Capability::Children => "ChildrenControl",
             Capability::ControlledText => "ControlledTextControl",
             Capability::Items => "ItemsControl",
+            Capability::Focus => "FocusControl",
         });
         quote! { impl #capability for #name {} }
     });
@@ -997,6 +1042,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         pub struct #name {
             #(#property_fields,)*
             #(#event_fields,)*
+            #reference_field
             #structural_field
         }
 
@@ -1005,12 +1051,15 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                 Self::default()
             }
 
+            #reference_method
+
             #(#property_methods)*
             #(#event_methods)*
             #structural_methods
         }
 
         impl sealed::Sealed for #name {}
+        #reference_impls
         #(#capability_impls)*
         #slots
     }
@@ -1142,6 +1191,7 @@ fn generate_control(control: &ResolvedControl) -> TokenStream {
                 Capability::Children => "Children",
                 Capability::ControlledText => "ControlledText",
                 Capability::Items => "Items",
+                Capability::Focus => "Focus",
             },
             Span::call_site(),
         );

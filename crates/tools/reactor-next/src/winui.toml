@@ -14,7 +14,7 @@ clearable = true
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.Button"
 role = "content"
-capabilities = ["layout", "enabled", "content"]
+capabilities = ["layout", "enabled", "content", "focus"]
 
 [[control.property]]
 name = "IsEnabled"
@@ -39,7 +39,7 @@ clearable = true
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.TextBox"
 role = "controlled"
-capabilities = ["layout", "enabled", "text_style", "controlled_text"]
+capabilities = ["layout", "enabled", "text_style", "controlled_text", "focus"]
 
 [[control.property]]
 name = "Text"
@@ -62,7 +62,7 @@ property = "Text"
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.NumberBox"
 role = "controlled"
-capabilities = ["layout", "enabled"]
+capabilities = ["layout", "enabled", "focus"]
 
 [[control.property]]
 name = "Minimum"
@@ -93,7 +93,7 @@ property = "NewValue"
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.Slider"
 role = "controlled"
-capabilities = ["layout", "enabled"]
+capabilities = ["layout", "enabled", "focus"]
 
 [[control.property]]
 name = "Minimum"
@@ -172,7 +172,7 @@ clearable = true
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.ToggleSwitch"
 role = "controlled"
-capabilities = ["layout", "enabled"]
+capabilities = ["layout", "enabled", "focus"]
 
 [[control.property]]
 name = "IsOn"

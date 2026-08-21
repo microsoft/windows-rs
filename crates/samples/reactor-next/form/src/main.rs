@@ -5,7 +5,9 @@ use windows_reactor_next::*;
 
 struct Form {
     amount: f64,
+    amount_ref: ElementRef<NumberBox>,
     name: String,
+    name_ref: ElementRef<TextBox>,
     status: Status,
 }
 
@@ -46,7 +48,9 @@ impl Component for Form {
     fn create(_props: &(), _context: &mut ComponentContext<Self>) -> Self {
         Self {
             amount: 1.0,
+            amount_ref: ElementRef::new(),
             name: String::new(),
+            name_ref: ElementRef::new(),
             status: Status::Editing,
         }
     }
@@ -73,7 +77,12 @@ impl Component for Form {
             }
             Message::Cancelled => self.status = Status::Editing,
             Message::Submitted => self.status = Status::Submitted,
-            Message::Submit => {}
+            Message::Submit if self.name.trim().is_empty() => {
+                _ = self.name_ref.request_focus();
+            }
+            Message::Submit => {
+                _ = self.amount_ref.request_focus();
+            }
         }
     }
 
@@ -94,11 +103,13 @@ impl Component for Form {
                 .text("Payment")
                 .text_wrapping(TextWrapping::Wrap),
             TextBox::new()
+                .element_ref(&self.name_ref)
                 .text(self.name.clone())
                 .placeholder_text("Name")
                 .is_enabled(self.status != Status::Submitting)
                 .on_text_changed(context.callback(Message::NameChanged)),
             NumberBox::new()
+                .element_ref(&self.amount_ref)
                 .minimum(0.0)
                 .maximum(10_000.0)
                 .value(self.amount)
@@ -119,7 +130,7 @@ impl Component for Form {
                 name: self.name.clone(),
             }),
             Button::new()
-                .is_enabled(self.is_valid() && self.status == Status::Editing)
+                .is_enabled(self.status == Status::Editing)
                 .on_click(context.message(Message::Submit))
                 .content(TextBlock::new().text("Submit")),
         ))

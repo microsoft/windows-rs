@@ -8,6 +8,7 @@ mod background_tasks;
 mod components_turn_ordering;
 mod context_propagation;
 mod events_controlled_feedback;
+mod imperative_references;
 mod keyed_fragments;
 mod lifecycle_effects;
 mod mount_update_publication;

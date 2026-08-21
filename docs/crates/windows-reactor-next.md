@@ -78,6 +78,32 @@ traits so both these callbacks and ordinary unit-returning closures retain the s
 An isolated native leaf uses a property-only candidate and does not clone the full tree. Component
 effect cleanup runs before native mutation, and setup runs after publication.
 
+## Imperative element references
+
+`ElementRef<T>` is typed to a focus-capable generated control and is normally an owned component
+field. Those controls bind it with `element_ref`; a reference for one control type cannot bind to
+another. `Button`, `TextBox`, `NumberBox`, `Slider`, and `ToggleSwitch` implement the sealed
+generated focus capability, which adds `request_focus() -> bool` to their references.
+
+The return value reports queue acceptance, not the final WinUI focus result. A request captures the
+current `WindowToken` and generational `NodeId`, enters that Pump's shared imperative queue, and
+wakes the host. The host drains pending native events and component messages before imperative work,
+so removal or replacement publishes before stale work is checked. `Focus(Programmatic)` returning
+`false` completes normally; an HRESULT error follows the native failure policy.
+
+Reference attach, swap, and detach are candidate commits. Planning only records them. Successful
+native apply and logical publication bind the new target before effect setup. Failed planning or
+native apply cannot expose a candidate binding. Retirement, shutdown, and window close conditionally
+unbind the exact published identity and clear pending imperative work. This also covers locally
+composed native leaves and lazily realized `View` rows.
+
+One reference has one published owner. Candidate validation rejects duplicate use within a tree or
+across windows with `PumpError::DuplicateElementRef` before effect cleanup or native mutation.
+
+Raw WinUI handles are intentionally not exposed or cloned. Render, update, event, and effect
+callbacks remain queue-only. Canvas, WebView, and other specialized subsystems need adapters with
+their own ownership and documented-failure contracts.
+
 `ViewContext::use_effect(key, dependency, setup)` identifies each effect with an opaque
 `EffectKey`. Numeric and string conversions make keys concise without exposing an internal
 positional form. Each key must be unique within one component view. Omitted keys clean their
@@ -195,8 +221,9 @@ generation, container, key, and work-budget checks and does not increment the Pu
 ## Scheduling and lifecycle
 
 Each dispatcher turn handles at most 64 native events, 64 component messages, and 32 realization
-requests. Remaining work rearms the scheduler. Work queued during dispatch is not lost, and
-dispatcher rejection is an explicit host fault.
+requests, then drains accepted imperative requests against the published tree. Remaining work
+rearms the scheduler. Work queued during dispatch is not lost, and dispatcher rejection is an
+explicit host fault.
 
 Changed and retired effect cleanup runs child-first before native mutation. New setup runs
 parent-first after publication. Normal shutdown cleans effects before native reset, and cleanup is
@@ -227,7 +254,8 @@ failure in any Pump follows the process-fatal policy above.
 
 `tool_reactor_next` reads `crates/tools/reactor-next/src/winui.toml` and generates the public typed
 controls, minimal bindings filter, handle variants, property operations, structural roles, and
-event payload conversion. Generated files must not be edited by hand.
+event payload conversion, reference binding, and focus capability declarations. Generated files
+must not be edited by hand.
 
 ```powershell
 cargo run -p tool_reactor_next --quiet

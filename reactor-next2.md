@@ -184,6 +184,7 @@ One window turn:
 7. Apply native commands.
 8. Publish tree, scopes, desired state, and version.
 9. Run new and changed effect setup parent-first.
+10. Drain imperative commands against the published window and node identities.
 
 An unexpected failure in step 7 aborts the production process. Effect setup and candidate
 publication do not run.
@@ -201,6 +202,7 @@ so an identical-props retry recomposes rather than accepting stale structure.
 ## Scheduling
 
 - Native callbacks enqueue work and return.
+- Typed element references enqueue imperative work and wake their owning Pump.
 - Each dispatcher turn handles at most 64 events, 64 component messages, and 32 realizations.
 - Remaining work rearms the scheduler.
 - Component messages are capped at 4,096 per window and expose backpressure.
@@ -586,5 +588,16 @@ Passing store-owned props to `view` lets the read-only summary render without du
 or synchronizing them in `changed`. The core structural capability methods reduce the formatted
 form from 176 to 149 source lines and from seven explicit child keys to zero. Typed event-message
 adapters remove all three sender handles and forwarding closures. The form retains one empty
-`update` in the read-only child component. Focus is not expressible. These remain UX inputs; do
-not solve them with a parallel wrapper DSL.
+`update` in the read-only child component. The form now owns generated typed references and queues
+focus for the first invalid field. `ElementRef<T>` binds only after successful candidate
+publication and carries the exact window epoch and generational node identity into queued work.
+Removal, replacement, shutdown, and window close unbind it and discard stale requests.
+
+Focus-capable schema rows generate a sealed marker for `Button`, `TextBox`, `NumberBox`, `Slider`,
+and `ToggleSwitch`. `request_focus` reports queue acceptance; WinUI `Focus(Programmatic)` returning
+`false` completes normally. Raw native handles remain intentionally absent so callbacks cannot
+bypass the Pump. Canvas, WebView, and similar subsystems require later specialized adapters with
+their own ownership and documented-failure contracts. A reference has one published owner;
+duplicate use within a tree or across windows fails candidate validation before native mutation.
+Imperative work waits for the native-event and component-message backlog to publish, preserving the
+causal ordering between a request and later removal or replacement messages already in the queue.

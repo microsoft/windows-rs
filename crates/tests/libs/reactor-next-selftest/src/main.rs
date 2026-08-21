@@ -21,14 +21,18 @@ fn main() -> Result<()> {
     ))
 }
 
-struct Primary;
+struct Primary {
+    input_ref: ElementRef<TextBox>,
+}
 
 impl Component for Primary {
     type Props = ();
     type Message = String;
 
     fn create(_props: &(), _context: &mut ComponentContext<Self>) -> Self {
-        Self
+        Self {
+            input_ref: ElementRef::new(),
+        }
     }
 
     fn changed(&mut self, _props: &(), _context: &mut ComponentContext<Self>) {}
@@ -38,7 +42,12 @@ impl Component for Primary {
     }
 
     fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
+        let input_ref = self.input_ref.clone();
         context.use_effect("live-test", (), move || {
+            if !input_ref.request_focus() {
+                eprintln!("live backend fixture could not queue programmatic focus");
+                std::process::exit(1);
+            }
             let passed = live_resources_installed().unwrap_or(false);
             if let Err(error) = schedule_live_controlled_repair_test(passed) {
                 eprintln!("could not start live backend fixture: {error}");
@@ -47,9 +56,14 @@ impl Component for Primary {
             Some(Box::new(mark_live_test_cleanup as fn()))
         });
         let sender = context.sender();
-        View::native(TextBox::new().text("fixed").on_text_changed(move |value| {
-            sender.send(value);
-        }))
+        View::native(
+            TextBox::new()
+                .element_ref(&self.input_ref)
+                .text("fixed")
+                .on_text_changed(move |value| {
+                    sender.send(value);
+                }),
+        )
     }
 }
 

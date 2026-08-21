@@ -143,9 +143,18 @@ impl<R: NativeRuntime> Pump<R> {
     ) -> Result<(), PumpError> {
         let nodes = tree.subtree_postorder(root)?;
         plan.commits.retain(|commit| !nodes.contains(&commit.node));
+        plan.reference_commits
+            .retain(|commit| !nodes.contains(&commit.node));
         for node in nodes {
             match tree.kind(node)? {
                 NodeKind::Native(_) => {
+                    if let Some(reference) = tree.native(node)?.reference.clone() {
+                        plan.reference_commits.push(ReferenceCommit {
+                            node,
+                            old: Some(reference),
+                            new: None,
+                        });
+                    }
                     if tree.parent(node)?.is_some() {
                         match Self::native_attachment(tree, node)? {
                             NativeAttachment::Children { parent, .. }

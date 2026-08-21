@@ -6,10 +6,42 @@ pub(super) const REALIZATION_WORK_BUDGET: usize = 32;
 impl<R: NativeRuntime> Pump<R> {
     pub fn native_work_pending(&self) -> bool {
         !self.events.is_empty()
+            || !self.imperative.is_empty()
             || !self.realizations.is_empty()
             || self.components.pending() != 0
             || !self.dirty_components.is_empty()
             || self.native_observation_pending
+    }
+
+    /// Processes queued imperative element work after frontend publication.
+    pub fn process_imperatives(&mut self) -> Result<usize, PumpError> {
+        if self.poisoned {
+            self.imperative.clear();
+            return Err(PumpError::Poisoned);
+        }
+        if !self.events.is_empty()
+            || self.components.pending() != 0
+            || !self.dirty_components.is_empty()
+            || self.native_observation_pending
+        {
+            return Ok(0);
+        }
+        let mut processed = 0;
+        while let Some(queued) = self.imperative.pop_front() {
+            if queued.identity != self.identity {
+                continue;
+            }
+            match queued.work {
+                ImperativeRequest::Focus { node } => {
+                    if self.tree.native(node).is_err() {
+                        continue;
+                    }
+                    self.apply_native_commands(&[Command::Focus { node }])?;
+                    processed += 1;
+                }
+            }
+        }
+        Ok(processed)
     }
 
     #[cfg(any(test, feature = "test"))]

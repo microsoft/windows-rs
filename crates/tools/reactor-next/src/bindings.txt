@@ -68,6 +68,7 @@ Microsoft::UI::Xaml::Controls::ToggleSwitch::CreateInstance
 Microsoft::UI::Xaml::Controls::ToggleSwitch::IsOnProperty
 Microsoft::UI::Xaml::Controls::UIElementCollection
 Microsoft::UI::Xaml::Controls::XamlControlsResources::CreateInstance
+Microsoft::UI::Xaml::FocusState
 Microsoft::UI::Xaml::IApplication::get_Resources
 Microsoft::UI::Xaml::IApplicationOverrides
 Microsoft::UI::Xaml::IDependencyObject::ClearValue
@@ -76,6 +77,7 @@ Microsoft::UI::Xaml::IElementFactoryGetArgs::{get_Data, get_Parent}
 Microsoft::UI::Xaml::IElementFactoryRecycleArgs::{get_Element, get_Parent}
 Microsoft::UI::Xaml::IFrameworkElement::put_MinHeight
 Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
+Microsoft::UI::Xaml::IUIElement::Focus
 Microsoft::UI::Xaml::IWindow::{Activate, Close, Closed, put_Content}
 Microsoft::UI::Xaml::LaunchActivatedEventArgs
 Microsoft::UI::Xaml::Markup::IXamlMetadataProvider

@@ -1,5 +1,6 @@
 use super::scope::ScopeId;
 use super::*;
+use crate::reference::NativeElementRef;
 use std::any::TypeId;
 use std::collections::{BTreeMap, HashMap};
 use std::rc::Rc;
@@ -43,6 +44,7 @@ pub struct RealizedRow {
 #[derive(Clone)]
 pub struct NativeState {
     pub desired: MountedProps,
+    pub reference: Option<NativeElementRef>,
     pub properties: BTreeMap<PropertyId, Option<PropertyValue>>,
     pub events: BTreeMap<EventId, EventState>,
 }
@@ -186,6 +188,7 @@ impl Tree {
         });
         node.native = Some(NativeState {
             desired,
+            reference: None,
             properties: BTreeMap::new(),
             events,
         });
@@ -571,9 +574,9 @@ mod tests {
     #[test]
     #[cfg(target_pointer_width = "64")]
     fn generated_control_growth_preserves_core_layouts() {
-        assert_eq!(size_of::<Node>(), 416);
+        assert_eq!(size_of::<Node>(), 424);
         assert_eq!(size_of::<MountedProps>(), 72);
-        assert_eq!(size_of::<Element>(), 80);
+        assert_eq!(size_of::<Element>(), 88);
     }
 
     #[test]

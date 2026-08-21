@@ -6,9 +6,16 @@ pub(super) struct PropertyCommit {
     pub(super) value: Option<PropertyValue>,
 }
 
+pub(super) struct ReferenceCommit {
+    pub(super) node: NodeId,
+    pub(super) old: Option<NativeElementRef>,
+    pub(super) new: Option<NativeElementRef>,
+}
+
 pub(super) struct UpdatePlan {
     pub(super) commands: Vec<Command>,
     pub(super) commits: Vec<PropertyCommit>,
+    pub(super) reference_commits: Vec<ReferenceCommit>,
     pub(super) identity: WindowToken,
     pub(super) reconcile_observations: bool,
 }
@@ -34,15 +41,23 @@ pub(super) struct LocalCandidate {
     pub(super) context_reads: HashSet<ContextDependency>,
     pub(super) node: NodeId,
     pub(super) desired: MountedProps,
+    pub(super) reference: Option<NativeElementRef>,
     pub(super) plan: UpdatePlan,
 }
 
 pub(super) enum CandidateState {
-    Tree { tree: Tree, root: NodeId },
-    Native { node: NodeId, desired: MountedProps },
+    Tree {
+        tree: Tree,
+        root: NodeId,
+    },
+    Native {
+        node: NodeId,
+        desired: MountedProps,
+        reference: Option<NativeElementRef>,
+    },
 }
 
-#[expect(
+#[allow(
     clippy::large_enum_variant,
     reason = "boxing component changes would allocate on every component publication"
 )]
@@ -61,6 +76,7 @@ impl UpdatePlan {
         Self {
             commands: Vec::new(),
             commits: Vec::new(),
+            reference_commits: Vec::new(),
             identity,
             reconcile_observations: false,
         }

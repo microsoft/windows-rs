@@ -31,7 +31,7 @@ real application slices.
 | Composition | Helpers, tuples, implicit conversion | Core `View`; positional/keyed children |
 | Effects | Rich hook API | `ViewContext::use_effect(key, dependency, setup)` |
 | Async | State, resources, mutations, marshalling | Owned thread returning a message |
-| Imperative access | Typed element references and handles | Not present in the public slice |
+| Imperative access | Typed element references and handles | Typed queued focus references |
 | Control coverage | Dozens of practical controls and behaviors | Eleven generated controls |
 | Styling and interaction | Broad modifier and behavior coverage | Narrow current slice |
 
@@ -228,9 +228,9 @@ All seven static children now use one tuple, require no keys, and need no per-le
 Payload events use `context.callback(Message::Variant)`, and the submit event uses
 `context.message(Message::Submit)`. These adapters retain `LocalSender` rejection through
 `Callback::call`; current-event rejection becomes `PumpError::EventCallbackRejected`, while stale
-events are discarded before invocation. The summary still requires `create` and an empty
-`update`. Focus cannot be expressed, so the form cannot implement focus-first-invalid or
-post-submit focus behavior yet.
+events are discarded before invocation. The summary still requires `create` and an empty `update`.
+The form owns typed `TextBox` and `NumberBox` references as component fields and queues focus for
+the first invalid field on submit.
 
 ## Current flexibility
 
@@ -285,8 +285,8 @@ Reactor-next can provide observable behavioral improvements:
 - failed candidate planning cannot partially publish logical state.
 
 But reactor-next can currently deliver a worse application experience because important facilities
-are missing: focus APIs, templates, richer layout, animation, navigation, accessibility
-conveniences, and many control-specific behaviors.
+are missing: templates, richer layout, animation, navigation, accessibility conveniences, and many
+control-specific behaviors.
 
 ## How much of the work has been backend-focused?
 
@@ -347,7 +347,7 @@ The following should remain:
 The following should be treated as open UX work:
 
 - component boilerplate;
-- imperative focus and native-handle access;
+- specialized native subsystem adapters without general raw-handle access;
 - async resource and mutation helpers;
 - window and host context;
 - layout and styling convenience traits;
@@ -383,10 +383,11 @@ The initial UX gate has settled:
 2. Structural capability methods and direct control conversions form one core `View` path.
 3. Effects use explicit typed keys and impose no positional hook-order contract.
 
-The remaining gate must settle:
-
-1. How imperative focus and native handles fit the ownership model.
-2. Whether the owned typed-message model remains acceptable in a realistic component.
+The initial form gate now covers owned typed messages, controlled values, keyed effects, background
+work, and focus-first-invalid validation. Imperative focus uses single-owner typed references and
+queue-only native commands. The host drains pending frontend work before focus, so a queued removal
+cannot be overtaken. General raw native handles remain intentionally absent; specialized subsystem
+adapters are deferred.
 
 After this gate, qualify broader facilities with:
 

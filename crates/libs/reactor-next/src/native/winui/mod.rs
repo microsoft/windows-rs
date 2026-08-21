@@ -212,6 +212,12 @@ impl WinUiRuntime {
                     self.application = None;
                 }
             }
+            Command::Focus { node } => {
+                _ = self
+                    .ui_element(*node)?
+                    .Focus(FocusState::Programmatic)
+                    .map_err(native_error)?;
+            }
             Command::SetProperty {
                 node,
                 property,

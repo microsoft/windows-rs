@@ -55,6 +55,7 @@ impl<R: NativeRuntime> Pump<R> {
                         CandidateState::Native {
                             node: plan.node,
                             desired: plan.desired,
+                            reference: plan.reference,
                         },
                         plan.plan,
                         FrontendChanges::Local {
@@ -219,7 +220,7 @@ impl<R: NativeRuntime> Pump<R> {
             reconcile_observations: self.native_observation_pending,
             ..UpdatePlan::new(self.identity)
         };
-        let desired = Self::plan_local_native_state(
+        let (desired, reference) = Self::plan_local_native_state(
             self.tree.native(native)?,
             native,
             element.into_parts(),
@@ -229,6 +230,7 @@ impl<R: NativeRuntime> Pump<R> {
             context_reads: dependencies,
             node: native,
             desired,
+            reference,
             plan,
         }))
     }

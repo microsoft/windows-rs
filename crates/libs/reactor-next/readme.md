@@ -105,8 +105,31 @@ dispatch reports `PumpError::EventCallbackRejected` and the WinUI host treats it
 Events with stale window, node, subscription, or event revisions are discarded before callback
 invocation and cannot produce that fault.
 
+Components can own typed imperative references as fields:
+
+```rust,ignore
+struct Form {
+    name_ref: ElementRef<TextBox>,
+}
+
+TextBox::new().element_ref(&self.name_ref);
+_ = self.name_ref.request_focus();
+```
+
+`request_focus` returns `true` only when the reference is bound to a published element and the
+request enters its window's imperative queue. It never calls WinUI directly. The queued request
+retains the exact window epoch and generational node ID, so replacement, removal, shutdown, and
+window close discard stale work. WinUI returning `false` from `Focus(Programmatic)` is a completed
+request, not a host error. `Button`, `TextBox`, `NumberBox`, `Slider`, and `ToggleSwitch` currently
+carry the generated sealed focus capability. One reference can own one published element;
+duplicate use returns `PumpError::DuplicateElementRef` before native mutation.
+
+Raw native handles remain intentionally absent. Specialized Canvas, WebView, and similar subsystem
+adapters need separate ownership and documented-failure designs rather than cloned COM handles in
+render, update, event, or effect callbacks.
+
 The [`form sample`](../../samples/reactor-next/form/src/main.rs) exercises controlled input,
-validation, a nested component, and scope-owned background submission.
+focus-first-invalid validation, a nested component, and scope-owned background submission.
 
 The component store owns current props and passes them by reference to `Component::view`.
 Components can render from that argument without copying props into their own fields.
