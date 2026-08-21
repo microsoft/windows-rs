@@ -643,13 +643,13 @@ scales acceptably.
 
 ### 3. Integrated virtual task/editor sample
 
-- [ ] Use keyed row components with controlled editing and retained row state.
-- [ ] Exercise add, remove, front insertion, reorder, and replacement.
-- [ ] Exercise selection and focus transfer during editing and validation.
-- [ ] Exercise conditional rows, contexts, keyed effects, and background loading.
-- [ ] Exercise realization, recycle, key-stable payload updates, and source reset.
-- [ ] Add a deterministic stress path with hundreds or thousands of rows.
-- [ ] Use findings to adjust core contracts before adding convenience APIs.
+- [x] Use keyed row components with controlled editing and retained row state.
+- [x] Exercise add, remove, front insertion, reorder, and replacement.
+- [x] Exercise selection and focus transfer during editing and validation.
+- [x] Exercise conditional rows, contexts, keyed effects, and background loading.
+- [x] Exercise realization, recycle, key-stable payload updates, and source reset.
+- [x] Add a deterministic stress path with hundreds or thousands of rows.
+- [x] Use findings to adjust core contracts before adding convenience APIs.
 
 ### 4. Navigation and multi-window sample
 
@@ -821,3 +821,31 @@ Until application evidence replaces them, the gates are:
 
 The integrated virtual editor is the next gate. If it exceeds these bounds, profile repeated
 key/view collection and copy-on-write chunk mutation before changing ownership or publication.
+
+## Integrated virtual editor
+
+`crates/samples/reactor-next/virtual` now contains a task editor rather than a static 10,000-label
+list. It uses keyed row components, controlled text and toggle values, selection context, keyed
+effects, typed focus, conditional row content, background loading, and dynamic source operations.
+Buttons cover front insertion, removal, move-to-end, reversal, 100-row background loading, and a
+deterministic 1,000-row reset.
+
+The sample established the durable-state boundary. A realized row component survives key-stable
+payload updates, but native recycle or a key-changing source reset may retire it. Every non-empty
+draft therefore enters the parent task model on its controlled input event. A blank draft remains
+row-local validation state and falls back to the last valid model value if the row is recycled. The
+recording-runtime test enters edit mode, checks the focus effect, edits a row, recycles and
+re-realizes it, reverses the source, and re-realizes the same task key. It verifies that the edited
+title survives and each retired row effect cleans once.
+
+Reset advances a load generation and clears the loading state. A late background result from an
+older generation is ignored, so `Reset to 1,000` cannot later become 1,100 tasks.
+
+This does not require another state store or a special virtual component. Durable application data
+belongs to the keyed source model; row-local state is realization-local UI state. The distinction
+matches native virtualization lifetime and is now part of the sample documentation.
+
+The existing control set was sufficient, so this gate added no generated controls. The sample is
+larger than the form because it spells out parent actions, row messages, and durable model updates.
+That is useful evidence for the deferred API-polish work, but convenience APIs should wait until
+the navigation sample shows whether the same action-forwarding pattern recurs outside virtual rows.

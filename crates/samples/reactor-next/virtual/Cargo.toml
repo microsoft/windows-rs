@@ -7,6 +7,9 @@ publish = false
 [dependencies]
 windows-reactor-next = { workspace = true }
 
+[dev-dependencies]
+windows-reactor-next = { workspace = true, features = ["test"] }
+
 [build-dependencies]
 windows-reactor-setup = { workspace = true }
 

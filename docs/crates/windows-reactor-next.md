@@ -240,6 +240,12 @@ updates preserve the revision and realized rows. A queued recycle supersedes an 
 realization for the same lifetime token. Valid realization resolves its row by index and verifies
 that the indexed key matches the lease key before composition.
 
+The virtual task editor in `crates/samples/reactor-next/virtual` is the integrated qualification
+slice. Durable task data remains in the parent model because WinUI may recycle a realized row and a
+key-changing source reset intentionally retires all current row scopes. A key-stable payload update
+reuses the row component. The recording-runtime test edits a row, reverses the source, re-realizes
+the same key, and verifies data survival plus one-time effect cleanup and setup.
+
 ## Scheduling and lifecycle
 
 Each dispatcher turn handles at most 64 native events, 64 component messages, and 32 realization

@@ -135,6 +135,9 @@ render, update, event, or effect callbacks.
 
 The [`form sample`](../../samples/reactor-next/form/src/main.rs) exercises controlled input,
 focus-first-invalid validation, a nested component, and scope-owned background submission.
+The [`virtual task editor`](../../samples/reactor-next/virtual/readme.md) exercises keyed row
+components, durable controlled edits, selection context, focus, effects, source reordering,
+background loading, recycling, and a 1,000-row stress path.
 
 The component store owns current props and passes them by reference to `Component::view`.
 Components can render from that argument without copying props into their own fields.
