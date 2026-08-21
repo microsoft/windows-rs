@@ -696,8 +696,9 @@ mod tests {
 
     #[test]
     fn element_split_keeps_props_shallow_and_moves_children_once() {
-        let parts = Element::from(StackPanel::new().child("text", TextBlock::new().text("hello")))
-            .into_parts();
+        let parts =
+            Element::from(StackPanel::new().native_child("text", TextBlock::new().text("hello")))
+                .into_parts();
 
         assert_eq!(parts.kind, MountedKind::StackPanel);
         assert!(matches!(parts.props, MountedProps::StackPanel { .. }));

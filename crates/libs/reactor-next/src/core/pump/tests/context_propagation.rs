@@ -84,29 +84,26 @@ impl Component for ProviderRoot {
         View::provide(
             &self.0.context,
             self.0.value.clone(),
-            View::children(
-                StackPanel::new(),
-                [
-                    KeyedView::new(
-                        "direct",
+            StackPanel::new().keyed_children([
+                KeyedView::new(
+                    "direct",
+                    View::component::<Consumer>(ConsumerProps {
+                        context: Rc::clone(&self.0.context),
+                        views: Rc::clone(&self.0.direct_views),
+                    }),
+                ),
+                KeyedView::new(
+                    "inner",
+                    View::provide(
+                        &self.0.context,
+                        "inner".to_string(),
                         View::component::<Consumer>(ConsumerProps {
                             context: Rc::clone(&self.0.context),
-                            views: Rc::clone(&self.0.direct_views),
+                            views: Rc::clone(&self.0.inner_views),
                         }),
                     ),
-                    KeyedView::new(
-                        "inner",
-                        View::provide(
-                            &self.0.context,
-                            "inner".to_string(),
-                            View::component::<Consumer>(ConsumerProps {
-                                context: Rc::clone(&self.0.context),
-                                views: Rc::clone(&self.0.inner_views),
-                            }),
-                        ),
-                    ),
-                ],
-            ),
+                ),
+            ]),
         )
     }
 }
@@ -191,47 +188,44 @@ fn provider_key_changes_do_not_recompose_shadowed_consumers() {
         fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
         fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
-            let child = View::children(
-                StackPanel::new(),
-                [
-                    KeyedView::new(
-                        "direct-a",
+            let child = StackPanel::new().keyed_children([
+                KeyedView::new(
+                    "direct-a",
+                    View::component::<Consumer>(ConsumerProps {
+                        context: Rc::clone(&self.0.context_a),
+                        views: Rc::clone(&self.0.direct_a),
+                    }),
+                ),
+                KeyedView::new(
+                    "direct-b",
+                    View::component::<Consumer>(ConsumerProps {
+                        context: Rc::clone(&self.0.context_b),
+                        views: Rc::clone(&self.0.direct_b),
+                    }),
+                ),
+                KeyedView::new(
+                    "shadowed-a",
+                    View::provide(
+                        &self.0.context_a,
+                        "inner-a".to_string(),
                         View::component::<Consumer>(ConsumerProps {
                             context: Rc::clone(&self.0.context_a),
-                            views: Rc::clone(&self.0.direct_a),
+                            views: Rc::clone(&self.0.shadowed_a),
                         }),
                     ),
-                    KeyedView::new(
-                        "direct-b",
+                ),
+                KeyedView::new(
+                    "shadowed-b",
+                    View::provide(
+                        &self.0.context_b,
+                        "inner-b".to_string(),
                         View::component::<Consumer>(ConsumerProps {
                             context: Rc::clone(&self.0.context_b),
-                            views: Rc::clone(&self.0.direct_b),
+                            views: Rc::clone(&self.0.shadowed_b),
                         }),
                     ),
-                    KeyedView::new(
-                        "shadowed-a",
-                        View::provide(
-                            &self.0.context_a,
-                            "inner-a".to_string(),
-                            View::component::<Consumer>(ConsumerProps {
-                                context: Rc::clone(&self.0.context_a),
-                                views: Rc::clone(&self.0.shadowed_a),
-                            }),
-                        ),
-                    ),
-                    KeyedView::new(
-                        "shadowed-b",
-                        View::provide(
-                            &self.0.context_b,
-                            "inner-b".to_string(),
-                            View::component::<Consumer>(ConsumerProps {
-                                context: Rc::clone(&self.0.context_b),
-                                views: Rc::clone(&self.0.shadowed_b),
-                            }),
-                        ),
-                    ),
-                ],
-            );
+                ),
+            ]);
             if self.0.selected {
                 View::provide(&self.0.context_b, "outer-b".to_string(), child)
             } else {
@@ -321,7 +315,7 @@ fn broad_provider_update_skips_non_consuming_component_boundary() {
                     views: Rc::clone(&self.0.consumer_views),
                 }),
             ));
-            View::children(StackPanel::new(), children)
+            StackPanel::new().keyed_children(children)
         }
     }
 
@@ -633,22 +627,19 @@ impl Component for ProviderList {
     fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
     fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
-        View::children(
-            StackPanel::new(),
-            self.0.entries.iter().map(|(key, value)| {
-                KeyedView::new(
-                    *key,
-                    View::provide(
-                        &self.0.context,
-                        value.clone(),
-                        View::component::<Consumer>(ConsumerProps {
-                            context: Rc::clone(&self.0.context),
-                            views: Rc::clone(&self.0.views),
-                        }),
-                    ),
-                )
-            }),
-        )
+        StackPanel::new().keyed_children(self.0.entries.iter().map(|(key, value)| {
+            KeyedView::new(
+                *key,
+                View::provide(
+                    &self.0.context,
+                    value.clone(),
+                    View::component::<Consumer>(ConsumerProps {
+                        context: Rc::clone(&self.0.context),
+                        views: Rc::clone(&self.0.views),
+                    }),
+                ),
+            )
+        }))
     }
 }
 
@@ -711,10 +702,7 @@ impl Component for InvalidConsumer {
     fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
         self.0.views.set(self.0.views.get() + 1);
         if context.use_context(&self.0.context) == "bad" {
-            View::fragment([
-                KeyedView::new("a", View::native(TextBlock::new())),
-                KeyedView::new("b", View::native(TextBlock::new())),
-            ])
+            View::fragment([TextBlock::new().into(), TextBlock::new().into()])
         } else {
             View::native(TextBlock::new())
         }

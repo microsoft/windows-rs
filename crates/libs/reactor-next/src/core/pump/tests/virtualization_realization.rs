@@ -282,12 +282,10 @@ fn component_view_reuses_a_virtual_collection_shell_immediately() {
         fn update(&mut self, _message: (), _context: &mut ComponentContext<Self>) {}
 
         fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
-            View::native(
-                ScrollViewer::new().content(
-                    ItemsRepeater::new()
-                        .item("a", TextBlock::new().text("A"))
-                        .item("b", TextBlock::new().text("B")),
-                ),
+            ScrollViewer::new().content(
+                ItemsRepeater::new()
+                    .item("a", TextBlock::new().text("A"))
+                    .item("b", TextBlock::new().text("B")),
             )
         }
     }

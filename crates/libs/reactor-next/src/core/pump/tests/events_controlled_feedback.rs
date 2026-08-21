@@ -139,7 +139,7 @@ fn retired_node_rejects_queued_event() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount(
         StackPanel::new()
-            .child("button", Button::new().on_click(|| {}))
+            .native_child("button", Button::new().on_click(|| {}))
             .into(),
     )
     .unwrap();

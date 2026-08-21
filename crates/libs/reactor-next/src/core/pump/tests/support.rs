@@ -8,7 +8,7 @@ use std::rc::Rc;
 
 pub(super) fn keyed_text(values: &[&str]) -> Element {
     StackPanel::new()
-        .children(
+        .native_children(
             values
                 .iter()
                 .map(|value| KeyedElement::new(*value, TextBlock::new().text(*value))),
@@ -18,7 +18,7 @@ pub(super) fn keyed_text(values: &[&str]) -> Element {
 
 pub(super) fn keyed_numbers(values: &[u64]) -> Element {
     StackPanel::new()
-        .children(
+        .native_children(
             values
                 .iter()
                 .map(|value| KeyedElement::new(*value, TextBlock::new().text(value.to_string()))),
@@ -29,12 +29,12 @@ pub(super) fn keyed_numbers(values: &[u64]) -> Element {
 pub(super) fn representative_tree() -> Element {
     StackPanel::new()
         .spacing(8.0)
-        .child(
+        .native_child(
             "button",
             Button::new()
                 .is_enabled(true)
                 .on_click(|| {})
-                .content(TextBlock::new().text("increment")),
+                .native_content(TextBlock::new().text("increment")),
         )
         .into()
 }
@@ -155,8 +155,7 @@ impl Component for List {
     fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
 
     fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
-        View::children(
-            StackPanel::new(),
+        StackPanel::new().keyed_children(
             self.items
                 .iter()
                 .map(|(key, text)| KeyedView::new(*key, View::component::<Leaf>(text.clone()))),
@@ -215,7 +214,7 @@ impl Component for MixedList {
         } else {
             View::component::<Leaf>("value".to_string())
         };
-        View::children(StackPanel::new(), [KeyedView::new(1u64, child)])
+        StackPanel::new().keyed_children([KeyedView::new(1u64, child)])
     }
 }
 

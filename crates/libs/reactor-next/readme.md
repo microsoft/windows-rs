@@ -9,9 +9,9 @@ See [`reactor-next.md`](../../../reactor-next.md) for the current plan and gates
 The current slice generates `TextBlock`, `Button`, `StackPanel`, `TextBox`, `NumberBox`, `Slider`,
 `NavigationView`, `ProgressBar`, `ToggleSwitch`, `ScrollViewer`, and `ItemsRepeater` from WinUI
 metadata plus a small curation schema. `ToggleSwitch` adds typed boolean controlled feedback.
-`NavigationView` exposes typed `Content` and `Header` slots through `View::slots`. The private WinUI
-backend applies properties and keyed structure and queues native work. The recording runtime
-remains the failure-injection and randomized-test backend.
+`NavigationView` exposes typed `Content` and `Header` slots through `SlotsControl::slots`. The
+private WinUI backend applies properties and keyed structure and queues native work. The recording
+runtime remains the failure-injection and randomized-test backend.
 
 Applications use owned components:
 
@@ -31,7 +31,7 @@ impl Component for Root {
     fn update(&mut self, _: (), _: &mut ComponentContext<Self>) {}
 
     fn view(&self, _: &Self::Props, _: &mut ViewContext<Self>) -> View {
-        View::native(TextBlock::new().text("Hello"))
+        TextBlock::new().text("Hello").into()
     }
 }
 
@@ -39,7 +39,30 @@ App::run_component::<Root>(())?;
 # Ok::<(), windows_core::Error>(())
 ```
 
-Generated controls convert directly into `View` when passed to composition APIs. The
+Generated controls convert directly into `View`. Structural capability traits keep composition on
+that same core type:
+
+```rust,ignore
+StackPanel::new().spacing(8.0).children([
+    TextBlock::new().text("Ready").into(),
+    Button::new()
+        .is_enabled(true)
+        .on_click(submit)
+        .content(TextBlock::new().text("Submit")),
+])
+```
+
+`ContentControl::content`, `ChildrenControl::children`, and `SlotsControl::slots` are terminal
+builders that return `View`, so set control properties and events before calling them. Positional
+children retain identity by index. Use `ChildrenControl::keyed_children` and `KeyedView` when
+identity must survive insertion or reordering. `View::fragment` and `View::keyed_fragment` provide
+the same positional and explicit-key choices without a native parent. Positional keys occupy a
+private key domain and cannot collide with public numeric or string keys.
+
+These methods construct the core `View` variants consumed by the existing planner. They are not a
+wrapper frontend and do not add another tree or reconciliation path.
+
+The
 [`form sample`](../../samples/reactor-next/form/src/main.rs) exercises controlled input,
 validation, a nested component, and scope-owned background submission.
 

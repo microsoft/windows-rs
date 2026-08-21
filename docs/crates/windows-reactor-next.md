@@ -49,6 +49,15 @@ Same-key, same-type children retain scopes across prop updates and keyed movemen
 The component store owns current props and borrows them into `Component::view`. Components that
 render directly from props do not need duplicate fields or a `changed` implementation.
 
+Generated controls convert directly to `View`. Structural capabilities are terminal methods on
+the controls: `content`, `children`, `keyed_children`, and `slots` all return the same core `View`
+used by components and the planner. This is not a wrapper frontend. Property and event builders
+must run before a terminal structural method.
+
+`children` assigns positional identity, while `keyed_children` accepts `KeyedView` for identity
+that survives insertion and reordering. Public numeric and string keys cannot collide with the
+private positional-key domain.
+
 Component sends are queue-only. Each window accepts at most 4,096 queued messages, and each
 dispatcher turn drains at most 64 messages. Dirty scopes compose parent-first. Parent props apply
 before queued child messages, and retiring a child removes its queued work.
@@ -126,6 +135,10 @@ and keeps clear-then-rerender idempotent.
 Logical fragments create no hidden WinUI control. They flatten zero or more native roots into
 generated children collections. Window and content slots accept zero or one flattened root and
 reject invalid arity before native mutation.
+
+`View::fragment` accepts positional `View` children. `View::keyed_fragment` accepts `KeyedView`
+children when fragment descendants need explicit stable identity. Both forms become the existing
+keyed fragment edges before planning and use the same `ViewKind::Fragment` path.
 
 Generated named slots use a distinct transparent logical node and a generic
 `SetSlot { parent, slot, child }` command. `NavigationView` currently exposes typed `Content` and

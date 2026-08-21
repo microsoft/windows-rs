@@ -38,11 +38,10 @@ impl Component for PlanningFailureComponent {
     fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         match self.mode {
             PlanningMode::Valid => View::native(TextBlock::new().text("valid")),
-            PlanningMode::InvalidArity => View::fragment([
-                KeyedView::new("a", View::native(TextBlock::new())),
-                KeyedView::new("b", View::native(TextBlock::new())),
-            ]),
-            PlanningMode::DuplicateKey => View::fragment([
+            PlanningMode::InvalidArity => {
+                View::fragment([TextBlock::new().into(), TextBlock::new().into()])
+            }
+            PlanningMode::DuplicateKey => View::keyed_fragment([
                 KeyedView::new("duplicate", View::native(TextBlock::new())),
                 KeyedView::new("duplicate", View::native(TextBlock::new())),
             ]),
@@ -254,13 +253,9 @@ fn component_can_toggle_between_empty_and_one_native_root() {
 
     let sender = Rc::new(RefCell::new(None));
     let mut pump = Pump::new(RecordingRuntime::default());
-    pump.mount_view(View::children(
-        StackPanel::new(),
-        [KeyedView::new(
-            "optional",
-            View::component::<OptionalLeaf>(Props(Rc::clone(&sender))),
-        )],
-    ))
+    pump.mount_view(
+        StackPanel::new().children([View::component::<OptionalLeaf>(Props(Rc::clone(&sender)))]),
+    )
     .unwrap();
     let root = pump.root().unwrap();
     assert!(pump.runtime().node(root).unwrap().children().is_empty());
@@ -314,13 +309,7 @@ fn local_probe_fallback_composes_once() {
         fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
             self.views.set(self.views.get() + 1);
             if self.expanded {
-                View::children(
-                    StackPanel::new(),
-                    [KeyedView::new(
-                        "child",
-                        View::native(TextBlock::new().text("expanded")),
-                    )],
-                )
+                StackPanel::new().children([TextBlock::new().text("expanded").into()])
             } else {
                 View::native(TextBlock::new().text("collapsed"))
             }

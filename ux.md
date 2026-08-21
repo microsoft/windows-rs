@@ -28,7 +28,7 @@ real application slices.
 | State model | Render functions and hooks | Owned component structs and typed messages |
 | Small component | Very concise | Considerably more boilerplate |
 | State transitions | Setter and reducer handles | `Message` enum plus `update` |
-| Composition | Helpers, tuples, implicit conversion | Explicit `View` and `KeyedView` |
+| Composition | Helpers, tuples, implicit conversion | Core `View`; positional/keyed children |
 | Effects | Rich hook API | `ViewContext::use_effect` |
 | Async | State, resources, mutations, marshalling | Owned thread returning a message |
 | Imperative access | Typed element references and handles | Not present in the public slice |
@@ -50,7 +50,7 @@ fn app(cx: &mut RenderCx) -> Element {
 ```
 
 The equivalent reactor-next application requires a component type, state field, message type,
-three required trait methods, a sender, and explicit keyed views:
+three required trait methods, and a sender:
 
 ```rust
 struct Counter {
@@ -72,25 +72,14 @@ impl Component for Counter {
     fn view(&self, _: &Self::Props, cx: &mut ViewContext<Self>) -> View {
         let sender = cx.sender();
 
-        View::children(
-            StackPanel::new(),
-            [
-                KeyedView::new(
-                    "value",
-                    View::native(TextBlock::new().text(self.count.to_string())),
-                ),
-                KeyedView::new(
-                    "button",
-                    View::native(
-                        Button::new()
-                            .on_click(move || {
-                                sender.send(());
-                            })
-                            .content(TextBlock::new().text("+")),
-                    ),
-                ),
-            ],
-        )
+        StackPanel::new().children([
+            TextBlock::new().text(self.count.to_string()).into(),
+            Button::new()
+                .on_click(move || {
+                    _ = sender.send(());
+                })
+                .content(TextBlock::new().text("+")),
+        ])
     }
 }
 ```
@@ -128,12 +117,16 @@ This provides:
 
 It also requires message enums and forwarding closures that the hook API avoids.
 
-### Explicit identity
+### Positional and explicit identity
 
-`View::children` accepts `KeyedView`, making retained identity visible at the call site. That is
-safer than silently assigning positional identity, but it is noisy for static layouts. Requiring a
-string key for every child in a two-item `StackPanel` is likely prototype UX rather than a necessary
-final requirement.
+`ChildrenControl::children` accepts positional `View` values. Same-type children retain identity
+at the same index, so inserting at the front reuses existing component scopes for the new values at
+those positions. `ChildrenControl::keyed_children` accepts `KeyedView` when identity must follow an
+item through insertion or reordering.
+
+`Key` is opaque and supports public integer and string conversions. Positional identity uses a
+private key variant, so an application-provided `0` or `"0"` cannot collide with position zero.
+Fragments expose the same choice through `View::fragment` and `View::keyed_fragment`.
 
 ### Positional effects remain
 
@@ -142,30 +135,31 @@ effect identity by call position. Conditional insertion or reordering can theref
 different effect slot. This is a smaller constraint than a complete hook runtime, but it is still
 a hook-order rule and should be documented or replaced before the API settles.
 
-## Current composition split
+## Core View composition
 
-Reactor-next currently has two similar-looking composition paths with different capabilities:
+Reactor-next now has one public composition model. Generated controls convert directly to `View`,
+and structural capability traits provide terminal methods over that type:
 
-| Path | Accepted descendants | Purpose |
+| Capability | Method | Identity |
 | --- | --- | --- |
-| Generated structural methods | Native `Element` only | Compact native-only trees |
-| `View` structural methods | General `View` | All logical descendants |
+| `ContentControl` | `content` | One logical child |
+| `ChildrenControl` | `children` | Position |
+| `ChildrenControl` | `keyed_children` | Explicit `KeyedView` key |
+| `SlotsControl` | `slots` | Typed slot |
 
-For example, `Button::content(TextBlock::new())` works, but putting a component in the same content
-position requires changing to `View::content(Button::new(), View::component::<C>(props))`.
-`StackPanel::children` and `View::children` have the same distinction. The names do not explain the
-semantic boundary, and extracting a native subtree into a component changes its construction form.
+Calling a terminal method consumes the configured control and returns `View`. Property and event
+builders therefore come before `content`, `children`, or `slots`. A native leaf can use its direct
+`Into<View>` conversion.
 
-This is the highest-priority UX issue because it affects generated APIs and the mental model.
-Reactor-next should expose one obvious composition model. A native-only fast path may remain
-internally or as an advanced API, but ordinary application code should not need to choose between
-two tree languages.
+This API constructs the core `ViewKind::Content`, `ViewKind::Children`, and `ViewKind::Slots`
+variants. Positional children are converted to the existing keyed edge representation before the
+planner sees them. The change adds no wrapper frontend, second tree, or reconciliation path.
+Native-only structural builders remain crate-private for Element-level planner tests.
 
 ## UX that can improve without changing the architecture
 
-Several current rough edges can be addressed by a thin frontend layer:
+The remaining rough edges can be addressed with focused additions to the core API:
 
-- `View::children(control, [KeyedView::new(...)])`.
 - No `vstack`, `text_block`, or `button` convenience constructors.
 - No tuple or array child conversion comparable to `IntoChildren`.
 - Repetitive empty `create` and `update` methods.
@@ -173,7 +167,7 @@ Several current rough edges can be addressed by a thin frontend layer:
 - No component derive or macro for common cases.
 - No concise child-component syntax.
 
-A frontend could make the same component model more concise:
+A future convenience layer could make the same component model more concise:
 
 ```rust
 vstack((
@@ -185,8 +179,8 @@ vstack((
 ))
 ```
 
-This would remain syntax over `View`, `KeyedView`, and typed senders rather than creating another
-ownership or state model.
+Any such helpers must remain syntax over `View`, `KeyedView`, and typed senders rather than
+creating another ownership, tree, or reconciliation model.
 
 A component derive or macro could reduce common `create` boilerplate. The main constraint is to
 avoid turning convenience APIs into a second reconciliation frontend.
@@ -204,23 +198,24 @@ The initial public-API baseline is:
 
 | Measure | Current result |
 | --- | ---: |
-| Source lines | 176 |
-| Explicit child keys | 7 |
+| Source lines | 161 |
+| Explicit child keys | 0 |
 | Sender handles | 3 |
 | Event forwarding closures | 3 |
 | Empty component lifecycle methods | 1 |
 
-The first attempted version also required six `View::native(...)` calls because Rust does not chain
-the generated control-to-`Element` and `Element`-to-`View` conversions. Generated controls now
-convert directly to `View`. This removes ceremony without adding a frontend or changing the tree:
-the conversion calls the existing `View::native`.
+The first attempted version required six `View::native(...)` calls because Rust does not chain the
+generated control-to-`Element` and `Element`-to-`View` conversions. Generated controls now convert
+directly to `View`. Structural capability methods also return `View`, and the positional
+`children` item type gives `.into()` a concrete target in heterogeneous arrays. These changes are
+part of the core `View` API and do not add a frontend or another tree.
 
 The component store now borrows its authoritative current props into `view`. The read-only summary
 therefore remains a unit struct and needs no duplicate props field or `changed` synchronization.
-All seven children are static but require keys. Three events repeat sender capture, message
-construction, send, and ignored-result handling. The summary still requires `create` and an empty
-`update`. Focus cannot be expressed, so the form cannot implement focus-first-invalid or
-post-submit focus behavior yet.
+All seven static children now use positional identity and require no keys. Three events still
+repeat sender capture, message construction, send, and ignored-result handling. The summary still
+requires `create` and an empty `update`. Focus cannot be expressed, so the form cannot implement
+focus-first-invalid or post-submit focus behavior yet.
 
 ## Current flexibility
 
@@ -335,8 +330,6 @@ The following should remain:
 
 The following should be treated as open UX work:
 
-- child and content construction syntax;
-- key requirements for static versus dynamic children;
 - effect identity and conditional-effect rules;
 - component boilerplate;
 - sender-to-message adapters;
@@ -370,14 +363,17 @@ Measure:
 - diagnostics for unsupported shapes;
 - reliability differences found during the port.
 
-The initial UX gate should settle:
+The initial UX gate has settled:
 
-1. How much explicit keying normal layouts require.
-2. Which child and content conversions form the one normal composition path.
-3. Whether effect identity remains positional.
-4. How sender-to-message adapters expose queue rejection.
-5. How imperative focus and native handles fit the ownership model.
-6. Whether the owned typed-message model remains acceptable in a realistic component.
+1. Normal static layouts use positional identity and require no explicit keys.
+2. Structural capability methods and direct control conversions form one core `View` path.
+
+The remaining gate must settle:
+
+1. Whether effect identity remains positional.
+2. How sender-to-message adapters expose queue rejection.
+3. How imperative focus and native handles fit the ownership model.
+4. Whether the owned typed-message model remains acceptable in a realistic component.
 
 After this gate, qualify broader facilities with:
 
@@ -395,8 +391,9 @@ The rewrite has not preserved the incumbent developer UX unchanged. It has selec
 explicit Elm/Yew-like component model in exchange for stronger ownership and scheduling
 semantics. That choice should be evaluated with users.
 
-The current verbosity is not an unavoidable consequence of the architecture. Much of it can be
-removed with an ergonomic layer while retaining owned components and typed messages.
+The current verbosity is not an unavoidable consequence of the architecture. The core View
+composition methods remove structural ceremony while retaining owned components and typed
+messages.
 
 **The architecture can support a better UX than it currently presents, but the incumbent remains
 substantially more approachable and flexible today. Reactor-next's present advantage is reliability

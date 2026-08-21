@@ -91,67 +91,50 @@ impl Component for Form {
             Status::Submitted => "Submitted",
         };
 
-        View::children(
-            StackPanel::new().spacing(8.0),
-            [
-                KeyedView::new(
-                    "title",
-                    TextBlock::new()
-                        .text("Payment")
-                        .text_wrapping(TextWrapping::Wrap),
-                ),
-                KeyedView::new(
-                    "name",
-                    TextBox::new()
-                        .text(self.name.clone())
-                        .placeholder_text("Name")
-                        .is_enabled(self.status != Status::Submitting)
-                        .on_text_changed(move |value| {
-                            _ = name_changed.send(Message::NameChanged(value));
-                        }),
-                ),
-                KeyedView::new(
-                    "amount",
-                    NumberBox::new()
-                        .minimum(0.0)
-                        .maximum(10_000.0)
-                        .value(self.amount)
-                        .is_enabled(self.status != Status::Submitting)
-                        .on_value_changed(move |value| {
-                            _ = amount_changed.send(Message::AmountChanged(value));
-                        }),
-                ),
-                KeyedView::new("validation", TextBlock::new().text(status)),
-                KeyedView::new(
-                    "progress",
-                    ProgressBar::new()
-                        .minimum(0.0)
-                        .maximum(1.0)
-                        .value(if self.status == Status::Submitted {
-                            1.0
-                        } else {
-                            0.0
-                        })
-                        .is_indeterminate(self.status == Status::Submitting),
-                ),
-                KeyedView::new(
-                    "summary",
-                    View::component::<Summary>(SummaryProps {
-                        amount: self.amount,
-                        name: self.name.clone(),
-                    }),
-                ),
-                KeyedView::new(
-                    "submit",
-                    Button::new()
-                        .content(TextBlock::new().text("Submit"))
-                        .is_enabled(self.is_valid() && self.status == Status::Editing)
-                        .on_click(move || {
-                            _ = submit.send(Message::Submit);
-                        }),
-                ),
-            ],
-        )
+        StackPanel::new().spacing(8.0).children([
+            TextBlock::new()
+                .text("Payment")
+                .text_wrapping(TextWrapping::Wrap)
+                .into(),
+            TextBox::new()
+                .text(self.name.clone())
+                .placeholder_text("Name")
+                .is_enabled(self.status != Status::Submitting)
+                .on_text_changed(move |value| {
+                    _ = name_changed.send(Message::NameChanged(value));
+                })
+                .into(),
+            NumberBox::new()
+                .minimum(0.0)
+                .maximum(10_000.0)
+                .value(self.amount)
+                .is_enabled(self.status != Status::Submitting)
+                .on_value_changed(move |value| {
+                    _ = amount_changed.send(Message::AmountChanged(value));
+                })
+                .into(),
+            TextBlock::new().text(status).into(),
+            ProgressBar::new()
+                .minimum(0.0)
+                .maximum(1.0)
+                .value(if self.status == Status::Submitted {
+                    1.0
+                } else {
+                    0.0
+                })
+                .is_indeterminate(self.status == Status::Submitting)
+                .into(),
+            View::component::<Summary>(SummaryProps {
+                amount: self.amount,
+                name: self.name.clone(),
+            }),
+            Button::new()
+                .is_enabled(self.is_valid() && self.status == Status::Editing)
+                .on_click(move || {
+                    _ = submit.send(Message::Submit);
+                })
+                .content(TextBlock::new().text("Submit")),
+        ])
     }
 }
 
@@ -166,7 +149,9 @@ impl Component for Summary {
     fn update(&mut self, _message: (), _context: &mut ComponentContext<Self>) {}
 
     fn view(&self, props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
-        View::native(TextBlock::new().text(format!("{}: {:.2}", props.name.trim(), props.amount)))
+        TextBlock::new()
+            .text(format!("{}: {:.2}", props.name.trim(), props.amount))
+            .into()
     }
 }
 

@@ -20,25 +20,14 @@ impl Component for Counter {
 
     fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
         let increment = context.sender();
-        View::children(
-            StackPanel::new().spacing(8.0),
-            [
-                KeyedView::new(
-                    "value",
-                    View::native(TextBlock::new().text(self.count.to_string())),
-                ),
-                KeyedView::new(
-                    "increment",
-                    View::native(
-                        Button::new()
-                            .on_click(move || {
-                                _ = increment.send(());
-                            })
-                            .content(TextBlock::new().text("+")),
-                    ),
-                ),
-            ],
-        )
+        StackPanel::new().spacing(8.0).children([
+            TextBlock::new().text(self.count.to_string()).into(),
+            Button::new()
+                .on_click(move || {
+                    _ = increment.send(());
+                })
+                .content(TextBlock::new().text("+")),
+        ])
     }
 }
 

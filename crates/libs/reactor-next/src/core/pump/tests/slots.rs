@@ -13,7 +13,7 @@ fn navigation(content: Option<View>, header: Option<View>) -> View {
     if let Some(header) = header {
         slots.push(SlotView::new(NavigationViewSlot::Header, header));
     }
-    View::slots(NavigationView::new(), slots)
+    NavigationView::new().slots(slots)
 }
 
 #[test]
@@ -87,13 +87,10 @@ fn named_slots_mount_update_replace_and_clear_independently() {
 
 #[test]
 fn named_slot_rejects_duplicate_assignments_and_multiple_native_roots() {
-    let duplicate = View::slots(
-        NavigationView::new(),
-        [
-            SlotView::new(NavigationViewSlot::Content, View::native(TextBlock::new())),
-            SlotView::new(NavigationViewSlot::Content, View::native(Button::new())),
-        ],
-    );
+    let duplicate = NavigationView::new().slots([
+        SlotView::new(NavigationViewSlot::Content, View::native(TextBlock::new())),
+        SlotView::new(NavigationViewSlot::Content, View::native(Button::new())),
+    ]);
     let mut pump = Pump::new(RecordingRuntime::default());
     assert_eq!(
         pump.mount_view(duplicate),
@@ -101,10 +98,7 @@ fn named_slot_rejects_duplicate_assignments_and_multiple_native_roots() {
     );
     assert!(pump.root().is_none());
 
-    let multiple = View::fragment([
-        KeyedView::new("a", View::native(TextBlock::new())),
-        KeyedView::new("b", View::native(Button::new())),
-    ]);
+    let multiple = View::fragment([TextBlock::new().into(), Button::new().into()]);
     assert_eq!(
         pump.mount_view(navigation(Some(multiple), None)),
         Err(PumpError::StructureUnsupported)

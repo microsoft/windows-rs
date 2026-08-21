@@ -43,27 +43,24 @@ mod tests {
     }
 
     #[test]
-    fn generated_structural_builders_preserve_content_and_keys() {
-        let button = Button::new().content(TextBlock::new().text("button"));
-        let stack = StackPanel::new()
-            .child("first", TextBlock::new().text("one"))
-            .children([KeyedElement::new(2_u64, TextBlock::new().text("two"))]);
+    fn generated_structural_capabilities_compose_views() {
+        let _: View = Button::new().content(TextBlock::new().text("button"));
+        let _: View =
+            StackPanel::new().children([TextBlock::new().text("one").into(), Button::new().into()]);
+        let _: View = StackPanel::new().keyed_children([
+            KeyedView::new("first", TextBlock::new().text("one")),
+            KeyedView::new(2_u64, TextBlock::new().text("two")),
+        ]);
         let repeater = ItemsRepeater::new()
             .item("first", TextBlock::new().text("one"))
             .items([KeyedElement::new(2_u64, TextBlock::new().text("two"))]);
-        let scroll = ScrollViewer::new().content(repeater.clone());
+        let _: View = ScrollViewer::new().content(repeater.clone());
+        let _: View = NavigationView::new().slots([
+            SlotView::new(NavigationViewSlot::Content, TextBlock::new()),
+            SlotView::new(NavigationViewSlot::Header, Button::new()),
+        ]);
 
-        assert!(matches!(
-            button.content_element(),
-            Some(Element::TextBlock(_))
-        ));
-        assert_eq!(stack.child_elements().len(), 1);
-        assert_eq!(stack.child_elements()[0].key(), &Key::Integer(2));
-        assert_eq!(repeater.item_elements()[0].key(), &Key::Integer(2));
-        assert!(matches!(
-            scroll.content_element(),
-            Some(Element::ItemsRepeater(_))
-        ));
+        assert_eq!(repeater.item_elements()[0].key(), &Key::from(2_u64));
     }
 
     #[test]

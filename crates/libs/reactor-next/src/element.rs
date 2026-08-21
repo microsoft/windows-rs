@@ -5,38 +5,48 @@ use super::*;
 use crate::core::{ComponentView, ContextProvision};
 
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
-pub enum Key {
+pub struct Key(KeyKind);
+
+#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+enum KeyKind {
     Integer(u64),
     String(Rc<str>),
+    Position(usize),
+}
+
+impl Key {
+    pub(crate) fn position(value: usize) -> Self {
+        Self(KeyKind::Position(value))
+    }
 }
 
 impl From<u64> for Key {
     fn from(value: u64) -> Self {
-        Self::Integer(value)
+        Self(KeyKind::Integer(value))
     }
 }
 
 impl From<u32> for Key {
     fn from(value: u32) -> Self {
-        Self::Integer(value.into())
+        Self(KeyKind::Integer(value.into()))
     }
 }
 
 impl From<usize> for Key {
     fn from(value: usize) -> Self {
-        Self::Integer(u64::try_from(value).unwrap())
+        Self(KeyKind::Integer(u64::try_from(value).unwrap()))
     }
 }
 
 impl From<String> for Key {
     fn from(value: String) -> Self {
-        Self::String(value.into())
+        Self(KeyKind::String(value.into()))
     }
 }
 
 impl From<&str> for Key {
     fn from(value: &str) -> Self {
-        Self::String(value.into())
+        Self(KeyKind::String(value.into()))
     }
 }
 
@@ -106,7 +116,11 @@ impl View {
         Self(ViewKind::Component(ComponentView::new::<C>(props)))
     }
 
-    pub fn fragment(children: impl IntoIterator<Item = KeyedView>) -> Self {
+    pub fn fragment(children: impl IntoIterator<Item = Self>) -> Self {
+        Self(ViewKind::Fragment(positioned(children)))
+    }
+
+    pub fn keyed_fragment(children: impl IntoIterator<Item = KeyedView>) -> Self {
         Self(ViewKind::Fragment(Rc::new(children.into_iter().collect())))
     }
 
@@ -117,48 +131,6 @@ impl View {
         Self(ViewKind::Provider {
             provision: ContextProvision::new(context, value),
             child: Box::new(child.into().into_kind()),
-        })
-    }
-
-    pub fn content<C>(control: C, content: impl Into<Self>) -> Self
-    where
-        C: ContentControl + Into<Element>,
-    {
-        Self(ViewKind::Content {
-            control: control.into(),
-            content: Box::new(content.into().into_kind()),
-        })
-    }
-
-    pub fn children<C>(control: C, children: impl IntoIterator<Item = KeyedView>) -> Self
-    where
-        C: ChildrenControl + Into<Element>,
-    {
-        Self(ViewKind::Children {
-            control: control.into(),
-            children: Rc::new(children.into_iter().collect()),
-        })
-    }
-
-    pub fn slots<C>(control: C, slots: impl IntoIterator<Item = SlotView<C::Slot>>) -> Self
-    where
-        C: SlotsControl + Into<Element>,
-    {
-        let control = control.into();
-        let kind = control.kind();
-        let slots = slots
-            .into_iter()
-            .map(|slot| {
-                let (slot, view) = slot.into_parts();
-                SlottedView {
-                    slot: slot_id(kind, C::slot_index(slot)).unwrap(),
-                    view,
-                }
-            })
-            .collect();
-        Self(ViewKind::Slots {
-            control,
-            slots: Rc::new(slots),
         })
     }
 
@@ -227,6 +199,23 @@ impl KeyedView {
     pub(crate) fn into_parts(self) -> (Key, View) {
         (self.key, self.view)
     }
+
+    fn position(position: usize, view: View) -> Self {
+        Self {
+            key: Key::position(position),
+            view,
+        }
+    }
+}
+
+fn positioned(children: impl IntoIterator<Item = View>) -> Rc<Vec<KeyedView>> {
+    Rc::new(
+        children
+            .into_iter()
+            .enumerate()
+            .map(|(position, view)| KeyedView::position(position, view))
+            .collect(),
+    )
 }
 
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -304,10 +293,50 @@ pub trait TextStyleControl: sealed::Sealed {}
 /// let _ = TextBlock::new().is_enabled(false);
 /// ```
 pub trait EnabledControl: sealed::Sealed {}
-pub trait ContentControl: sealed::Sealed {}
-pub trait ChildrenControl: sealed::Sealed {}
-pub trait SlotsControl: sealed::Sealed {
+pub trait ContentControl: sealed::Sealed + Into<Element> + Sized {
+    fn content(self, content: impl Into<View>) -> View {
+        View(ViewKind::Content {
+            control: self.into(),
+            content: Box::new(content.into().into_kind()),
+        })
+    }
+}
+pub trait ChildrenControl: sealed::Sealed + Into<Element> + Sized {
+    fn children(self, children: impl IntoIterator<Item = View>) -> View {
+        View(ViewKind::Children {
+            control: self.into(),
+            children: positioned(children),
+        })
+    }
+
+    fn keyed_children(self, children: impl IntoIterator<Item = KeyedView>) -> View {
+        View(ViewKind::Children {
+            control: self.into(),
+            children: Rc::new(children.into_iter().collect()),
+        })
+    }
+}
+pub trait SlotsControl: sealed::Sealed + Into<Element> + Sized {
     type Slot: Copy;
+
+    fn slots(self, slots: impl IntoIterator<Item = SlotView<Self::Slot>>) -> View {
+        let control = self.into();
+        let kind = control.kind();
+        let slots = slots
+            .into_iter()
+            .map(|slot| {
+                let (slot, view) = slot.into_parts();
+                SlottedView {
+                    slot: slot_id(kind, Self::slot_index(slot)).unwrap(),
+                    view,
+                }
+            })
+            .collect();
+        View(ViewKind::Slots {
+            control,
+            slots: Rc::new(slots),
+        })
+    }
 
     #[doc(hidden)]
     fn slot_index(slot: Self::Slot) -> u8;

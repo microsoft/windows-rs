@@ -160,19 +160,16 @@ impl Component for BackgroundRoot {
     fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
     fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
-        View::children(
-            StackPanel::new(),
-            (0..self.0.count).map(|index| {
-                let view = if index == self.0.count / 2 {
-                    View::component::<BackgroundLeaf>(BackgroundProps {
-                        sender: Rc::clone(&self.0.sender),
-                    })
-                } else {
-                    View::native(TextBlock::new().text("static"))
-                };
-                KeyedView::new(index, view)
-            }),
-        )
+        StackPanel::new().keyed_children((0..self.0.count).map(|index| {
+            let view = if index == self.0.count / 2 {
+                View::component::<BackgroundLeaf>(BackgroundProps {
+                    sender: Rc::clone(&self.0.sender),
+                })
+            } else {
+                View::native(TextBlock::new().text("static"))
+            };
+            KeyedView::new(index, view)
+        }))
     }
 }
 
@@ -228,17 +225,14 @@ impl Component for BenchRoot {
     fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
 
     fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
-        View::children(
-            StackPanel::new(),
-            self.senders.iter().enumerate().map(|(index, sender)| {
-                KeyedView::new(
-                    index,
-                    View::component::<BenchLeaf>(LeafProps {
-                        sender: Rc::clone(sender),
-                    }),
-                )
-            }),
-        )
+        StackPanel::new().keyed_children(self.senders.iter().enumerate().map(|(index, sender)| {
+            KeyedView::new(
+                index,
+                View::component::<BenchLeaf>(LeafProps {
+                    sender: Rc::clone(sender),
+                }),
+            )
+        }))
     }
 }
 
@@ -267,10 +261,7 @@ impl Component for BenchFragmentRoot {
                 }),
             )
         });
-        View::children(
-            StackPanel::new(),
-            [KeyedView::new("fragment", View::fragment(fragment))],
-        )
+        StackPanel::new().children([View::keyed_fragment(fragment)])
     }
 }
 
@@ -373,17 +364,14 @@ impl Component for ContextSubtree {
     fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
     fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
-        View::children(
-            StackPanel::new(),
-            (0..self.0.count).map(|index| {
-                let view = if self.0.all_consumers || index == self.0.count / 2 {
-                    View::component::<ContextConsumer>(Rc::clone(&self.0.context))
-                } else {
-                    View::native(TextBlock::new().text("static"))
-                };
-                KeyedView::new(index, view)
-            }),
-        )
+        StackPanel::new().keyed_children((0..self.0.count).map(|index| {
+            let view = if self.0.all_consumers || index == self.0.count / 2 {
+                View::component::<ContextConsumer>(Rc::clone(&self.0.context))
+            } else {
+                View::native(TextBlock::new().text("static"))
+            };
+            KeyedView::new(index, view)
+        }))
     }
 }
 
@@ -469,9 +457,8 @@ impl Component for ContextRoot {
 
     fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         let middle = self.0.senders.len() / 2;
-        View::children(
-            StackPanel::new(),
-            self.0.senders.iter().enumerate().map(|(index, sender)| {
+        StackPanel::new().keyed_children(self.0.senders.iter().enumerate().map(
+            |(index, sender)| {
                 let view = if index == middle {
                     View::component::<ContextOwner>(ContextOwnerProps {
                         context: Rc::clone(&self.0.context),
@@ -483,8 +470,8 @@ impl Component for ContextRoot {
                     })
                 };
                 KeyedView::new(index, view)
-            }),
-        )
+            },
+        ))
     }
 }
 
@@ -517,18 +504,15 @@ impl Component for ManyProviderRoot {
     fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
     fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
-        View::children(
-            StackPanel::new(),
-            self.0.owners.iter().enumerate().map(|(index, owner)| {
-                KeyedView::new(
-                    index,
-                    View::component::<ContextOwner>(ContextOwnerProps {
-                        context: Rc::clone(&self.0.context),
-                        sender: Rc::clone(owner),
-                    }),
-                )
-            }),
-        )
+        StackPanel::new().keyed_children(self.0.owners.iter().enumerate().map(|(index, owner)| {
+            KeyedView::new(
+                index,
+                View::component::<ContextOwner>(ContextOwnerProps {
+                    context: Rc::clone(&self.0.context),
+                    sender: Rc::clone(owner),
+                }),
+            )
+        }))
     }
 }
 
@@ -558,8 +542,7 @@ impl Component for KeyedRoot {
     fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
 
     fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
-        View::children(
-            StackPanel::new(),
+        StackPanel::new().keyed_children(
             self.0
                 .0
                 .iter()
@@ -664,24 +647,19 @@ fn runtime() -> RecordingRuntime {
     runtime
 }
 
-fn stack(labels: &[String]) -> Element {
-    StackPanel::new()
-        .children(
-            labels
-                .iter()
-                .enumerate()
-                .map(|(index, text)| KeyedElement::new(index as u64, TextBlock::new().text(text))),
-        )
-        .into()
+fn stack(labels: &[String]) -> View {
+    StackPanel::new().children(
+        labels
+            .iter()
+            .map(|text| View::native(TextBlock::new().text(text))),
+    )
 }
 
-fn keyed_stack(keys: &[String]) -> Element {
-    StackPanel::new()
-        .children(
-            keys.iter()
-                .map(|key| KeyedElement::new(key.clone(), TextBlock::new().text(key.clone()))),
-        )
-        .into()
+fn keyed_stack(keys: &[String]) -> View {
+    StackPanel::new().keyed_children(
+        keys.iter()
+            .map(|key| KeyedView::new(key.clone(), TextBlock::new().text(key.clone()))),
+    )
 }
 
 fn virtual_list(key_prefix: &str, text_prefix: &str, count: usize) -> Element {
@@ -695,19 +673,12 @@ fn virtual_list(key_prefix: &str, text_prefix: &str, count: usize) -> Element {
         .into()
 }
 
-fn bench_update(
-    name: &'static str,
-    n: usize,
-    a: Element,
-    b: Element,
-    iters: u64,
-    reps: u32,
-) -> Row {
+fn bench_update(name: &'static str, n: usize, a: View, b: View, iters: u64, reps: u32) -> Row {
     let mut pump = Pump::new(runtime());
-    pump.mount(a.clone()).unwrap();
+    pump.mount_view(a.clone()).unwrap();
     let mut flip = false;
     let perf = measure(iters, reps, || {
-        pump.update(if flip { a.clone() } else { b.clone() })
+        pump.update_view(if flip { a.clone() } else { b.clone() })
             .unwrap();
         flip = !flip;
     });
@@ -1085,27 +1056,24 @@ fn main() {
             "root_replace",
             1,
             TextBlock::new().text("text").into(),
-            Button::new()
-                .content(TextBlock::new().text("button"))
-                .into(),
+            Button::new().content(TextBlock::new().text("button")),
             iters,
             reps,
         ),
         bench_update(
             "content_replace",
             2,
-            Button::new().content(TextBlock::new().text("text")).into(),
+            Button::new().content(TextBlock::new().text("text")),
             Button::new()
-                .content(StackPanel::new().child("row", TextBlock::new().text("row")))
-                .into(),
+                .content(StackPanel::new().children([TextBlock::new().text("row").into()])),
             iters,
             reps,
         ),
         bench_update(
             "virtual_no_change",
             10_000,
-            virtual_list("key-", "row-", 10_000),
-            virtual_list("key-", "row-", 10_000),
+            virtual_list("key-", "row-", 10_000).into(),
+            virtual_list("key-", "row-", 10_000).into(),
             iters,
             reps,
         ),
@@ -1150,7 +1118,7 @@ fn main() {
         bench_component_keyed(
             "component_remove",
             512,
-            component_keys.clone(),
+            component_keys,
             component_removed,
             (iters / 4).max(1),
             reps,

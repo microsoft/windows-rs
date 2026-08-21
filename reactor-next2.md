@@ -76,6 +76,10 @@ events, dispatcher work, async completions, and component senders.
 Native remount identity was removed because automatic remounting was removed. Virtual collection
 leases retain their own generation checks.
 
+Child identity has two domains. Positional children use an internal `Position` key assigned from
+their index. Explicit children use public integer or string `Key` values. `Key` is opaque, so
+application code cannot construct a positional key or collide with that domain.
+
 ## Component model
 
 The owned-component frontend remains the primary direction:
@@ -109,6 +113,12 @@ Components and `View` are the only public frontend. The hook frontend was retain
 comparison measurements, then removed before the API freeze so the core has one state and effect
 model.
 
+Generated controls convert directly to `View`. `ContentControl::content`,
+`ChildrenControl::children`, `ChildrenControl::keyed_children`, and `SlotsControl::slots` consume
+the control and return `View`. These are terminal composition methods on the core model, not a
+wrapper DSL. Positional inputs are converted to keyed edges before planning, so `ViewKind::Children`
+and `ViewKind::Fragment` remain the only collection planner paths.
+
 ## Logical anchoring
 
 `Fragment` is a logical node and creates no hidden WinUI control. It may represent zero, one, or
@@ -117,6 +127,7 @@ many native roots.
 - Generated children collections accept many flattened roots.
 - Window and content slots accept zero or one flattened root.
 - Invalid arity fails planning before native mutation.
+- `View::fragment` assigns positional identity and `View::keyed_fragment` accepts explicit keys.
 - Exact fragment order uses one coalesced `SynchronizeChildren` command per native parent.
 - Ordinary keyed children retain sparse insert and move plans.
 
@@ -510,7 +521,7 @@ Scope-owned background tasks are implemented:
 - End-to-end thread creation, completion enqueue, and UI dispatch measure about 67 us and 825
   allocated bytes through 16,384 unrelated scopes.
 
-The next phase is API consolidation and replacement qualification.
+The current phase is API consolidation and replacement qualification.
 
 ### Developer UX gate
 
@@ -535,12 +546,12 @@ migration shims follow application evidence. They must remain syntax and service
 
 The initial form baseline is `crates/samples/reactor-next/form`. Its first compile exposed that
 generated controls converted to `Element` but not directly to `View`, forcing `View::native` at
-every logical child boundary because Rust does not chain `Into` conversions. The generator now
-emits direct control-to-`View` conversions that call the existing `View::native`; this adds no tree
-type or reconciliation path.
+every logical child boundary because Rust does not chain `Into` conversions. The generator emits
+direct control-to-`View` conversions that call the existing `View::native`; this adds no tree type
+or reconciliation path.
 
 Passing store-owned props to `view` lets the read-only summary render without duplicating its props
-or synchronizing them in `changed`. The form still has seven mandatory keys for seven static
-children, three sender handles and forwarding closures, and one empty `update` in the read-only
-child component. Focus is not expressible. These are the next UX inputs; do not solve them all with
-a parallel wrapper DSL.
+or synchronizing them in `changed`. The core structural capability methods reduce the formatted
+form from 176 to 161 source lines and from seven explicit child keys to zero. It still has three
+sender handles and forwarding closures and one empty `update` in the read-only child component.
+Focus is not expressible. These remain UX inputs; do not solve them with a parallel wrapper DSL.

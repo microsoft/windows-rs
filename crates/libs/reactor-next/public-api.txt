@@ -41,19 +41,6 @@ impl core::convert::From<windows_reactor_next::TextBox> for windows_reactor_next
 pub fn windows_reactor_next::Element::from(windows_reactor_next::TextBox) -> Self
 impl core::convert::From<windows_reactor_next::ToggleSwitch> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::ToggleSwitch) -> Self
-pub enum windows_reactor_next::Key
-pub windows_reactor_next::Key::Integer(u64)
-pub windows_reactor_next::Key::String(alloc::rc::Rc<str>)
-impl core::convert::From<&str> for windows_reactor_next::Key
-pub fn windows_reactor_next::Key::from(&str) -> Self
-impl core::convert::From<alloc::string::String> for windows_reactor_next::Key
-pub fn windows_reactor_next::Key::from(alloc::string::String) -> Self
-impl core::convert::From<u32> for windows_reactor_next::Key
-pub fn windows_reactor_next::Key::from(u32) -> Self
-impl core::convert::From<u64> for windows_reactor_next::Key
-pub fn windows_reactor_next::Key::from(u64) -> Self
-impl core::convert::From<usize> for windows_reactor_next::Key
-pub fn windows_reactor_next::Key::from(usize) -> Self
 #[repr(u8)] pub enum windows_reactor_next::NavigationViewSlot
 pub windows_reactor_next::NavigationViewSlot::Content
 pub windows_reactor_next::NavigationViewSlot::Header
@@ -76,8 +63,6 @@ pub fn windows_reactor_next::App::run_component<C: windows_reactor_next::Compone
 pub fn windows_reactor_next::App::run_windows<I>(I) -> windows_result::Result<()> where I: core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::View>
 pub struct windows_reactor_next::Button
 impl windows_reactor_next::Button
-pub fn windows_reactor_next::Button::content(self, impl core::convert::Into<windows_reactor_next::Element>) -> Self
-pub fn windows_reactor_next::Button::content_element(&self) -> core::option::Option<&windows_reactor_next::Element>
 pub fn windows_reactor_next::Button::is_enabled(self, bool) -> Self
 pub fn windows_reactor_next::Button::is_enabled_property(&self) -> &windows_reactor_next::Property<bool>
 pub fn windows_reactor_next::Button::new() -> Self
@@ -88,6 +73,7 @@ pub fn windows_reactor_next::Element::from(windows_reactor_next::Button) -> Self
 impl core::convert::From<windows_reactor_next::Button> for windows_reactor_next::View
 pub fn windows_reactor_next::View::from(windows_reactor_next::Button) -> Self
 impl windows_reactor_next::ContentControl for windows_reactor_next::Button
+pub fn windows_reactor_next::Button::content(self, impl core::convert::Into<windows_reactor_next::View>) -> windows_reactor_next::View
 impl windows_reactor_next::EnabledControl for windows_reactor_next::Button
 impl windows_reactor_next::LayoutControl for windows_reactor_next::Button
 pub struct windows_reactor_next::Callback<T>(_)
@@ -132,6 +118,17 @@ impl core::convert::From<windows_reactor_next::ItemsRepeater> for windows_reacto
 pub fn windows_reactor_next::View::from(windows_reactor_next::ItemsRepeater) -> Self
 impl windows_reactor_next::ItemsControl for windows_reactor_next::ItemsRepeater
 impl windows_reactor_next::LayoutControl for windows_reactor_next::ItemsRepeater
+pub struct windows_reactor_next::Key(_)
+impl core::convert::From<&str> for windows_reactor_next::Key
+pub fn windows_reactor_next::Key::from(&str) -> Self
+impl core::convert::From<alloc::string::String> for windows_reactor_next::Key
+pub fn windows_reactor_next::Key::from(alloc::string::String) -> Self
+impl core::convert::From<u32> for windows_reactor_next::Key
+pub fn windows_reactor_next::Key::from(u32) -> Self
+impl core::convert::From<u64> for windows_reactor_next::Key
+pub fn windows_reactor_next::Key::from(u64) -> Self
+impl core::convert::From<usize> for windows_reactor_next::Key
+pub fn windows_reactor_next::Key::from(usize) -> Self
 pub struct windows_reactor_next::KeyedElement
 impl windows_reactor_next::KeyedElement
 pub fn windows_reactor_next::KeyedElement::element(&self) -> &windows_reactor_next::Element
@@ -160,6 +157,7 @@ impl windows_reactor_next::EnabledControl for windows_reactor_next::NavigationVi
 impl windows_reactor_next::LayoutControl for windows_reactor_next::NavigationView
 impl windows_reactor_next::SlotsControl for windows_reactor_next::NavigationView
 pub type windows_reactor_next::NavigationView::Slot = windows_reactor_next::NavigationViewSlot
+pub fn windows_reactor_next::NavigationView::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::SlotView<Self::Slot>>) -> windows_reactor_next::View
 pub struct windows_reactor_next::NumberBox
 impl windows_reactor_next::NumberBox
 pub fn windows_reactor_next::NumberBox::is_enabled(self, bool) -> Self
@@ -204,14 +202,13 @@ impl windows_reactor_next::EnabledControl for windows_reactor_next::ProgressBar
 impl windows_reactor_next::LayoutControl for windows_reactor_next::ProgressBar
 pub struct windows_reactor_next::ScrollViewer
 impl windows_reactor_next::ScrollViewer
-pub fn windows_reactor_next::ScrollViewer::content(self, impl core::convert::Into<windows_reactor_next::Element>) -> Self
-pub fn windows_reactor_next::ScrollViewer::content_element(&self) -> core::option::Option<&windows_reactor_next::Element>
 pub fn windows_reactor_next::ScrollViewer::new() -> Self
 impl core::convert::From<windows_reactor_next::ScrollViewer> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::ScrollViewer) -> Self
 impl core::convert::From<windows_reactor_next::ScrollViewer> for windows_reactor_next::View
 pub fn windows_reactor_next::View::from(windows_reactor_next::ScrollViewer) -> Self
 impl windows_reactor_next::ContentControl for windows_reactor_next::ScrollViewer
+pub fn windows_reactor_next::ScrollViewer::content(self, impl core::convert::Into<windows_reactor_next::View>) -> windows_reactor_next::View
 impl windows_reactor_next::LayoutControl for windows_reactor_next::ScrollViewer
 pub struct windows_reactor_next::Slider
 impl windows_reactor_next::Slider
@@ -237,9 +234,6 @@ impl<S> windows_reactor_next::SlotView<S>
 pub fn windows_reactor_next::SlotView<S>::new(S, impl core::convert::Into<windows_reactor_next::View>) -> Self
 pub struct windows_reactor_next::StackPanel
 impl windows_reactor_next::StackPanel
-pub fn windows_reactor_next::StackPanel::child(self, impl core::convert::Into<windows_reactor_next::Key>, impl core::convert::Into<windows_reactor_next::Element>) -> Self
-pub fn windows_reactor_next::StackPanel::child_elements(&self) -> &[windows_reactor_next::KeyedElement]
-pub fn windows_reactor_next::StackPanel::children(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::KeyedElement>) -> Self
 pub fn windows_reactor_next::StackPanel::new() -> Self
 pub fn windows_reactor_next::StackPanel::orientation(self, windows_reactor_next::Orientation) -> Self
 pub fn windows_reactor_next::StackPanel::orientation_property(&self) -> &windows_reactor_next::Property<windows_reactor_next::Orientation>
@@ -250,6 +244,8 @@ pub fn windows_reactor_next::Element::from(windows_reactor_next::StackPanel) -> 
 impl core::convert::From<windows_reactor_next::StackPanel> for windows_reactor_next::View
 pub fn windows_reactor_next::View::from(windows_reactor_next::StackPanel) -> Self
 impl windows_reactor_next::ChildrenControl for windows_reactor_next::StackPanel
+pub fn windows_reactor_next::StackPanel::children(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::View>) -> windows_reactor_next::View
+pub fn windows_reactor_next::StackPanel::keyed_children(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::KeyedView>) -> windows_reactor_next::View
 impl windows_reactor_next::LayoutControl for windows_reactor_next::StackPanel
 pub struct windows_reactor_next::TextBlock
 impl windows_reactor_next::TextBlock
@@ -300,14 +296,12 @@ impl windows_reactor_next::EnabledControl for windows_reactor_next::ToggleSwitch
 impl windows_reactor_next::LayoutControl for windows_reactor_next::ToggleSwitch
 pub struct windows_reactor_next::View(_)
 impl windows_reactor_next::View
-pub fn windows_reactor_next::View::children<C>(C, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::KeyedView>) -> Self where C: windows_reactor_next::ChildrenControl + core::convert::Into<windows_reactor_next::Element>
 pub fn windows_reactor_next::View::component<C: windows_reactor_next::Component>(<C as windows_reactor_next::Component>::Props) -> Self
-pub fn windows_reactor_next::View::content<C>(C, impl core::convert::Into<Self>) -> Self where C: windows_reactor_next::ContentControl + core::convert::Into<windows_reactor_next::Element>
 pub fn windows_reactor_next::View::empty() -> Self
-pub fn windows_reactor_next::View::fragment(impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::KeyedView>) -> Self
+pub fn windows_reactor_next::View::fragment(impl core::iter::traits::collect::IntoIterator<Item = Self>) -> Self
+pub fn windows_reactor_next::View::keyed_fragment(impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::KeyedView>) -> Self
 pub fn windows_reactor_next::View::native(impl core::convert::Into<windows_reactor_next::Element>) -> Self
 pub fn windows_reactor_next::View::provide<T>(&windows_reactor_next::Context<T>, T, impl core::convert::Into<Self>) -> Self where T: core::clone::Clone + core::cmp::PartialEq + 'static
-pub fn windows_reactor_next::View::slots<C>(C, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::SlotView<<C as windows_reactor_next::SlotsControl>::Slot>>) -> Self where C: windows_reactor_next::SlotsControl + core::convert::Into<windows_reactor_next::Element>
 impl core::convert::From<windows_reactor_next::Button> for windows_reactor_next::View
 pub fn windows_reactor_next::View::from(windows_reactor_next::Button) -> Self
 impl core::convert::From<windows_reactor_next::Element> for windows_reactor_next::View
@@ -337,8 +331,12 @@ impl<C: windows_reactor_next::Component> windows_reactor_next::ViewContext<C>
 pub fn windows_reactor_next::ViewContext<C>::sender(&self) -> windows_reactor_next::LocalSender<<C as windows_reactor_next::Component>::Message>
 pub fn windows_reactor_next::ViewContext<C>::use_context<T: core::clone::Clone + 'static>(&mut self, &windows_reactor_next::Context<T>) -> T
 pub fn windows_reactor_next::ViewContext<C>::use_effect<D>(&mut self, D, impl core::ops::function::FnOnce() -> core::option::Option<alloc::boxed::Box<dyn core::ops::function::FnOnce()>> + 'static) where D: core::cmp::PartialEq + 'static
-pub trait windows_reactor_next::ChildrenControl: windows_reactor_next::element::sealed::Sealed
+pub trait windows_reactor_next::ChildrenControl: windows_reactor_next::element::sealed::Sealed + core::convert::Into<windows_reactor_next::Element> + core::marker::Sized
+pub fn windows_reactor_next::ChildrenControl::children(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::View>) -> windows_reactor_next::View
+pub fn windows_reactor_next::ChildrenControl::keyed_children(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::KeyedView>) -> windows_reactor_next::View
 impl windows_reactor_next::ChildrenControl for windows_reactor_next::StackPanel
+pub fn windows_reactor_next::StackPanel::children(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::View>) -> windows_reactor_next::View
+pub fn windows_reactor_next::StackPanel::keyed_children(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::KeyedView>) -> windows_reactor_next::View
 pub trait windows_reactor_next::Component: core::marker::Sized + 'static
 pub type windows_reactor_next::Component::Message: 'static
 pub type windows_reactor_next::Component::Props: core::clone::Clone + core::cmp::PartialEq + 'static
@@ -346,9 +344,12 @@ pub fn windows_reactor_next::Component::changed(&mut self, &Self::Props, &mut wi
 pub fn windows_reactor_next::Component::create(&Self::Props, &mut windows_reactor_next::ComponentContext<Self>) -> Self
 pub fn windows_reactor_next::Component::update(&mut self, Self::Message, &mut windows_reactor_next::ComponentContext<Self>)
 pub fn windows_reactor_next::Component::view(&self, &Self::Props, &mut windows_reactor_next::ViewContext<Self>) -> windows_reactor_next::View
-pub trait windows_reactor_next::ContentControl: windows_reactor_next::element::sealed::Sealed
+pub trait windows_reactor_next::ContentControl: windows_reactor_next::element::sealed::Sealed + core::convert::Into<windows_reactor_next::Element> + core::marker::Sized
+pub fn windows_reactor_next::ContentControl::content(self, impl core::convert::Into<windows_reactor_next::View>) -> windows_reactor_next::View
 impl windows_reactor_next::ContentControl for windows_reactor_next::Button
+pub fn windows_reactor_next::Button::content(self, impl core::convert::Into<windows_reactor_next::View>) -> windows_reactor_next::View
 impl windows_reactor_next::ContentControl for windows_reactor_next::ScrollViewer
+pub fn windows_reactor_next::ScrollViewer::content(self, impl core::convert::Into<windows_reactor_next::View>) -> windows_reactor_next::View
 pub trait windows_reactor_next::ControlledTextControl: windows_reactor_next::element::sealed::Sealed
 impl windows_reactor_next::ControlledTextControl for windows_reactor_next::TextBox
 pub trait windows_reactor_next::EnabledControl: windows_reactor_next::element::sealed::Sealed
@@ -373,10 +374,12 @@ impl windows_reactor_next::LayoutControl for windows_reactor_next::StackPanel
 impl windows_reactor_next::LayoutControl for windows_reactor_next::TextBlock
 impl windows_reactor_next::LayoutControl for windows_reactor_next::TextBox
 impl windows_reactor_next::LayoutControl for windows_reactor_next::ToggleSwitch
-pub trait windows_reactor_next::SlotsControl: windows_reactor_next::element::sealed::Sealed
+pub trait windows_reactor_next::SlotsControl: windows_reactor_next::element::sealed::Sealed + core::convert::Into<windows_reactor_next::Element> + core::marker::Sized
 pub type windows_reactor_next::SlotsControl::Slot: core::marker::Copy
+pub fn windows_reactor_next::SlotsControl::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::SlotView<Self::Slot>>) -> windows_reactor_next::View
 impl windows_reactor_next::SlotsControl for windows_reactor_next::NavigationView
 pub type windows_reactor_next::NavigationView::Slot = windows_reactor_next::NavigationViewSlot
+pub fn windows_reactor_next::NavigationView::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::SlotView<Self::Slot>>) -> windows_reactor_next::View
 pub trait windows_reactor_next::TextStyleControl: windows_reactor_next::element::sealed::Sealed
 impl windows_reactor_next::TextStyleControl for windows_reactor_next::TextBlock
 impl windows_reactor_next::TextStyleControl for windows_reactor_next::TextBox

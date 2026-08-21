@@ -411,7 +411,7 @@ impl LivePump for ComponentLoop {
         let labels = (0..512).map(|index| index.to_string()).collect::<Vec<_>>();
         let view =
             |labels: &[String]| {
-                View::native(StackPanel::new().children(
+                View::native(StackPanel::new().native_children(
                     labels.iter().map(|label| {
                         KeyedElement::new(label.clone(), TextBlock::new().text(label))
                     }),
@@ -438,13 +438,7 @@ impl LivePump for ComponentLoop {
                     KeyedView::new("b", View::native(TextBlock::new().text("B"))),
                 ]
             };
-            View::children(
-                StackPanel::new(),
-                [
-                    KeyedView::new("empty", View::empty()),
-                    KeyedView::new("fragment", View::fragment(children)),
-                ],
-            )
+            StackPanel::new().children([View::empty(), View::keyed_fragment(children)])
         };
 
         self.pump.update_view(View::empty()).is_ok()
@@ -542,7 +536,7 @@ impl LivePump for ComponentLoop {
                     View::native(TextBlock::new().text(content)),
                 ));
             }
-            View::slots(NavigationView::new(), slots)
+            NavigationView::new().slots(slots)
         };
 
         self.pump

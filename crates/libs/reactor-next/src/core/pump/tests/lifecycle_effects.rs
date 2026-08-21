@@ -205,10 +205,7 @@ fn full_tree_recomposition_preserves_unchanged_effects_and_replaces_changed_effe
                         .push(format!("changed cleanup {value}"));
                 }))
             });
-            View::content(
-                Button::new(),
-                View::native(TextBlock::new().text(value.to_string())),
-            )
+            Button::new().content(TextBlock::new().text(value.to_string()))
         }
     }
 
@@ -311,25 +308,16 @@ fn component_effect_setup_follows_parent_first_tree_order() {
                 log.borrow_mut().push("parent");
                 None
             });
-            View::children(
-                StackPanel::new(),
-                [
-                    KeyedView::new(
-                        "a",
-                        View::component::<Child>(Props {
-                            label: "a",
-                            log: Rc::clone(&self.0),
-                        }),
-                    ),
-                    KeyedView::new(
-                        "b",
-                        View::component::<Child>(Props {
-                            label: "b",
-                            log: Rc::clone(&self.0),
-                        }),
-                    ),
-                ],
-            )
+            StackPanel::new().children([
+                View::component::<Child>(Props {
+                    label: "a",
+                    log: Rc::clone(&self.0),
+                }),
+                View::component::<Child>(Props {
+                    label: "b",
+                    log: Rc::clone(&self.0),
+                }),
+            ])
         }
     }
 

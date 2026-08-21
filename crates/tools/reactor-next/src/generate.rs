@@ -920,31 +920,30 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
     });
     let structural_methods = match control.role {
         Role::Content => quote! {
-            pub fn content(mut self, content: impl Into<Element>) -> Self {
+            #[allow(dead_code)]
+            pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
                 self.content = Some(Box::new(content.into()));
                 self
             }
-
-            pub fn content_element(&self) -> Option<&Element> {
-                self.content.as_deref()
-            }
         },
         Role::Children => quote! {
-            pub fn child(mut self, key: impl Into<Key>, child: impl Into<Element>) -> Self {
+            #[allow(dead_code)]
+            pub(crate) fn native_child(
+                mut self,
+                key: impl Into<Key>,
+                child: impl Into<Element>,
+            ) -> Self {
                 std::rc::Rc::make_mut(&mut self.children).push(KeyedElement::new(key, child));
                 self
             }
 
-            pub fn children(
+            #[allow(dead_code)]
+            pub(crate) fn native_children(
                 mut self,
                 children: impl IntoIterator<Item = KeyedElement>,
             ) -> Self {
                 self.children = std::rc::Rc::new(children.into_iter().collect());
                 self
-            }
-
-            pub fn child_elements(&self) -> &[KeyedElement] {
-                self.children.as_slice()
             }
         },
         Role::Virtual => quote! {

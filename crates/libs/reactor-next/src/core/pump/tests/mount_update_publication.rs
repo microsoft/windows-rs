@@ -74,8 +74,8 @@ fn duplicate_mount_keys_fail_before_native_apply() {
     assert_eq!(
         pump.mount(
             StackPanel::new()
-                .child("duplicate", TextBlock::new())
-                .child("duplicate", TextBlock::new())
+                .native_child("duplicate", TextBlock::new())
+                .native_child("duplicate", TextBlock::new())
                 .into()
         ),
         Err(PumpError::DuplicateKey(Key::from("duplicate")))
@@ -89,10 +89,10 @@ fn duplicate_mount_keys_fail_before_native_apply() {
 fn mounts_content_and_keyed_children_recursively() {
     let mut pump = Pump::new(RecordingRuntime::default());
     let tree = StackPanel::new()
-        .child("text", TextBlock::new().text("value"))
-        .child(
+        .native_child("text", TextBlock::new().text("value"))
+        .native_child(
             "button",
-            Button::new().content(TextBlock::new().text("increment")),
+            Button::new().native_content(TextBlock::new().text("increment")),
         );
 
     pump.mount(tree.into()).unwrap();
@@ -133,7 +133,7 @@ fn native_mount_failure_does_not_publish_partial_native_state() {
     let mut runtime = RecordingRuntime::default();
     runtime.fail_at(1);
     let mut pump = Pump::new(runtime);
-    let tree = StackPanel::new().child("text", TextBlock::new().text("value"));
+    let tree = StackPanel::new().native_child("text", TextBlock::new().text("value"));
 
     assert_eq!(
         pump.mount(tree.into()),
@@ -171,15 +171,19 @@ fn content_transitions_support_insert_replace_and_remove() {
     pump.mount(Button::new().into()).unwrap();
     let root = pump.root().unwrap();
 
-    pump.update(Button::new().content(TextBlock::new().text("text")).into())
-        .unwrap();
+    pump.update(
+        Button::new()
+            .native_content(TextBlock::new().text("text"))
+            .into(),
+    )
+    .unwrap();
     let text = pump.tree.children(root).unwrap()[0];
     assert_eq!(
         pump.tree.kind(text),
         Ok(NodeKind::Native(MountedKind::TextBlock))
     );
 
-    pump.update(Button::new().content(Button::new()).into())
+    pump.update(Button::new().native_content(Button::new()).into())
         .unwrap();
     let button = pump.tree.children(root).unwrap()[0];
     assert_ne!(button, text);

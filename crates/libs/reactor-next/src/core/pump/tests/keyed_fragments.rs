@@ -9,8 +9,8 @@ use std::collections::HashSet;
 fn multi_root_fragment_is_rejected_in_window_and_content_slots() {
     let fragment = || {
         View::fragment([
-            KeyedView::new("a", View::native(TextBlock::new().text("A"))),
-            KeyedView::new("b", View::native(TextBlock::new().text("B"))),
+            TextBlock::new().text("A").into(),
+            TextBlock::new().text("B").into(),
         ])
     };
     let mut window = Pump::new(RecordingRuntime::default());
@@ -22,7 +22,7 @@ fn multi_root_fragment_is_rejected_in_window_and_content_slots() {
 
     let mut content = Pump::new(RecordingRuntime::default());
     assert_eq!(
-        content.mount_view(View::content(Button::new(), fragment())),
+        content.mount_view(Button::new().content(fragment())),
         Err(PumpError::StructureUnsupported)
     );
     assert!(content.root().is_none());
@@ -88,26 +88,119 @@ fn generated_ordinary_control_updates_without_replacement() {
 }
 
 #[test]
+fn positional_component_children_retain_scopes_by_position() {
+    let view = |labels: &[&str]| {
+        StackPanel::new().children(
+            labels
+                .iter()
+                .map(|label| View::component::<Leaf>((*label).to_string())),
+        )
+    };
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(view(&["one", "two"])).unwrap();
+    let root = pump.root().unwrap();
+    let children = pump.tree.children(root).unwrap().to_vec();
+    let scopes = children
+        .iter()
+        .map(|child| pump.tree.component_scope(*child).unwrap())
+        .collect::<Vec<_>>();
+
+    pump.update_view(view(&["first", "second"])).unwrap();
+
+    assert_eq!(pump.tree.children(root), Ok(children.as_slice()));
+    assert_eq!(
+        children
+            .iter()
+            .map(|child| pump.tree.component_scope(*child).unwrap())
+            .collect::<Vec<_>>(),
+        scopes
+    );
+    assert_eq!(recorded_text(pump.runtime(), root), ["first", "second"]);
+}
+
+#[test]
+fn positional_front_insertion_reuses_existing_positions() {
+    let view = |labels: &[&str]| {
+        StackPanel::new().children(
+            labels
+                .iter()
+                .map(|label| View::component::<Leaf>((*label).to_string())),
+        )
+    };
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(view(&["a", "b"])).unwrap();
+    let root = pump.root().unwrap();
+    let original = pump.tree.children(root).unwrap().to_vec();
+    let scopes = original
+        .iter()
+        .map(|child| pump.tree.component_scope(*child).unwrap())
+        .collect::<Vec<_>>();
+
+    pump.update_view(view(&["x", "a", "b"])).unwrap();
+
+    let updated = pump.tree.children(root).unwrap();
+    assert_eq!(&updated[..2], original.as_slice());
+    assert_eq!(pump.tree.component_scope(updated[0]), Ok(scopes[0]));
+    assert_eq!(pump.tree.component_scope(updated[1]), Ok(scopes[1]));
+    assert_ne!(pump.tree.component_scope(updated[2]), Ok(scopes[1]));
+    assert_eq!(recorded_text(pump.runtime(), root), ["x", "a", "b"]);
+}
+
+#[test]
+fn explicit_keys_retain_component_identity_across_reorder() {
+    let view = |labels: &[&str]| {
+        StackPanel::new().keyed_children(
+            labels
+                .iter()
+                .map(|label| KeyedView::new(*label, View::component::<Leaf>((*label).to_string()))),
+        )
+    };
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(view(&["a", "b"])).unwrap();
+    let root = pump.root().unwrap();
+    let original = pump.tree.children(root).unwrap().to_vec();
+    let scopes = original
+        .iter()
+        .map(|child| pump.tree.component_scope(*child).unwrap())
+        .collect::<Vec<_>>();
+
+    pump.update_view(view(&["b", "a"])).unwrap();
+
+    assert_eq!(
+        pump.tree.children(root),
+        Ok(&[original[1], original[0]][..])
+    );
+    assert_eq!(pump.tree.component_scope(original[0]), Ok(scopes[0]));
+    assert_eq!(pump.tree.component_scope(original[1]), Ok(scopes[1]));
+    assert_eq!(recorded_text(pump.runtime(), root), ["b", "a"]);
+}
+
+#[test]
+fn positional_keys_do_not_collide_with_public_keys() {
+    let position = Key::position(0);
+
+    assert_ne!(position, Key::from(0_u32));
+    assert_ne!(position, Key::from(0_u64));
+    assert_ne!(position, Key::from(0_usize));
+    assert_ne!(position, Key::from("0"));
+    assert_ne!(position, Key::from(String::from("0")));
+}
+
+#[test]
 fn fragment_splices_into_children_and_retains_keyed_component_scope() {
     let view = |reverse: bool| {
         let fragment = if reverse {
-            View::fragment([
+            View::keyed_fragment([
                 KeyedView::new("text", View::native(TextBlock::new().text("text"))),
                 KeyedView::new("leaf", View::component::<Leaf>("leaf".to_string())),
             ])
         } else {
-            View::fragment([
+            View::keyed_fragment([
                 KeyedView::new("leaf", View::component::<Leaf>("leaf".to_string())),
                 KeyedView::new("text", View::native(TextBlock::new().text("text"))),
             ])
         };
-        View::children(
-            StackPanel::new(),
-            [
-                KeyedView::new("empty", View::empty()),
-                KeyedView::new("group", fragment),
-            ],
-        )
+        StackPanel::new().children([View::empty(), fragment])
     };
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(view(false)).unwrap();
@@ -139,10 +232,7 @@ fn fragment_synchronization_failure_is_fatal_without_publishing_candidate() {
                 KeyedView::new("b", View::native(TextBlock::new().text("B"))),
             ]
         };
-        View::children(
-            StackPanel::new(),
-            [KeyedView::new("fragment", View::fragment(children))],
-        )
+        StackPanel::new().children([View::keyed_fragment(children)])
     };
     let mut probe = Pump::new(RecordingRuntime::default());
     probe.mount_view(view(false)).unwrap();
@@ -189,7 +279,7 @@ fn dense_keyed_reorder_resets_collection_without_recreating_children() {
     reversed.reverse();
     let element = |labels: &[String]| {
         StackPanel::new()
-            .children(
+            .native_children(
                 labels
                     .iter()
                     .map(|label| KeyedElement::new(label.clone(), TextBlock::new().text(label))),
@@ -230,7 +320,7 @@ fn retained_key_recurses_into_property_update() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount(
         StackPanel::new()
-            .child("value", TextBlock::new().text("first"))
+            .native_child("value", TextBlock::new().text("first"))
             .into(),
     )
     .unwrap();
@@ -238,7 +328,7 @@ fn retained_key_recurses_into_property_update() {
 
     pump.update(
         StackPanel::new()
-            .child("value", TextBlock::new().text("second"))
+            .native_child("value", TextBlock::new().text("second"))
             .into(),
     )
     .unwrap();
@@ -299,14 +389,14 @@ fn same_key_child_can_change_kind_without_replacing_panel() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount(
         StackPanel::new()
-            .child("item", TextBlock::new().text("text"))
+            .native_child("item", TextBlock::new().text("text"))
             .into(),
     )
     .unwrap();
     let root = pump.root().unwrap();
     let old = pump.tree.children(root).unwrap()[0];
 
-    pump.update(StackPanel::new().child("item", Button::new()).into())
+    pump.update(StackPanel::new().native_child("item", Button::new()).into())
         .unwrap();
 
     let child = pump.tree.children(root).unwrap()[0];
