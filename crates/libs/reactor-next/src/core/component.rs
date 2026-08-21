@@ -575,6 +575,12 @@ pub struct ComponentContext<C: Component> {
 }
 
 impl<C: Component> ComponentContext<C> {
+    /// Requests a new application-owned window with an independent Pump.
+    #[must_use = "false means there is no active component publication"]
+    pub fn open_window(&self, root: View) -> bool {
+        self.window.request_open(root)
+    }
+
     pub fn sender(&self) -> LocalSender<C::Message> {
         self.sender.clone()
     }

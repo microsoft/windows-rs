@@ -39,6 +39,13 @@ fn title(value: Option<&str>) -> TitleProps {
     }
 }
 
+fn sibling_titles(first: (&str, Option<&str>), second: (&str, Option<&str>)) -> View {
+    StackPanel::new().keyed_children([
+        KeyedView::new(first.0, View::component::<TitleComponent>(title(first.1))),
+        KeyedView::new(second.0, View::component::<TitleComponent>(title(second.1))),
+    ])
+}
+
 fn title_command_count(runtime: &RecordingRuntime) -> usize {
     runtime
         .commands()
@@ -122,6 +129,46 @@ fn title_ownership_transfers_after_owner_retirement() {
 }
 
 #[test]
+fn surviving_siblings_transfer_title_in_either_child_order() {
+    for (initial, transferred) in [
+        (
+            sibling_titles(("a", None), ("b", Some("B"))),
+            sibling_titles(("a", Some("A")), ("b", None)),
+        ),
+        (
+            sibling_titles(("b", Some("B")), ("a", None)),
+            sibling_titles(("b", None), ("a", Some("A"))),
+        ),
+    ] {
+        let mut pump = Pump::new(RecordingRuntime::default());
+        pump.mount_view(initial).unwrap();
+        let window = pump.window.unwrap();
+
+        pump.update_view(transferred).unwrap();
+
+        assert_eq!(pump.runtime().window_title(window), Some("A"));
+    }
+}
+
+#[test]
+fn failed_sibling_handoff_can_retry_with_one_declarer() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(sibling_titles(("a", None), ("b", Some("B"))))
+        .unwrap();
+    let window = pump.window.unwrap();
+
+    assert_eq!(
+        pump.update_view(sibling_titles(("a", Some("A")), ("b", Some("B")))),
+        Err(PumpError::DuplicateWindowTitle)
+    );
+    assert_eq!(pump.runtime().window_title(window), Some("B"));
+
+    pump.update_view(sibling_titles(("a", Some("A")), ("b", None)))
+        .unwrap();
+    assert_eq!(pump.runtime().window_title(window), Some("A"));
+}
+
+#[test]
 fn duplicate_live_owner_is_rejected_transactionally() {
     let mut pump = Pump::new(RecordingRuntime::default());
     let result = pump.mount_view(StackPanel::new().keyed_children([
@@ -186,6 +233,76 @@ impl PartialEq for LocalProps {
 
 struct LocalTitle {
     title: String,
+}
+
+#[derive(Clone)]
+struct IndependentProps {
+    initial: Option<String>,
+    sender: Rc<RefCell<Option<LocalSender<Option<String>>>>>,
+}
+
+impl PartialEq for IndependentProps {
+    fn eq(&self, other: &Self) -> bool {
+        self.initial == other.initial && Rc::ptr_eq(&self.sender, &other.sender)
+    }
+}
+
+struct IndependentTitle {
+    title: Option<String>,
+}
+
+impl Component for IndependentTitle {
+    type Message = Option<String>;
+    type Props = IndependentProps;
+
+    fn create(props: &Self::Props, context: &mut ComponentContext<Self>) -> Self {
+        *props.sender.borrow_mut() = Some(context.sender());
+        Self {
+            title: props.initial.clone(),
+        }
+    }
+
+    fn update(&mut self, title: Option<String>, _context: &mut ComponentContext<Self>) {
+        self.title = title;
+    }
+
+    fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
+        if let Some(title) = &self.title {
+            context.window_title(title);
+        }
+        TextBlock::new().into()
+    }
+}
+
+#[test]
+fn independently_dirty_siblings_transfer_title() {
+    let a = Rc::new(RefCell::new(None));
+    let b = Rc::new(RefCell::new(None));
+    let view = StackPanel::new().keyed_children([
+        KeyedView::new(
+            "a",
+            View::component::<IndependentTitle>(IndependentProps {
+                initial: None,
+                sender: Rc::clone(&a),
+            }),
+        ),
+        KeyedView::new(
+            "b",
+            View::component::<IndependentTitle>(IndependentProps {
+                initial: Some("B".to_string()),
+                sender: Rc::clone(&b),
+            }),
+        ),
+    ]);
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(view).unwrap();
+    let window = pump.window.unwrap();
+
+    assert!(a.borrow().as_ref().unwrap().send(Some("A".to_string())));
+    assert!(b.borrow().as_ref().unwrap().send(None));
+    assert_eq!(pump.dispatch_components(2), Ok(2));
+
+    assert_eq!(pump.runtime().window_title(window), Some("A"));
 }
 
 impl Component for LocalTitle {

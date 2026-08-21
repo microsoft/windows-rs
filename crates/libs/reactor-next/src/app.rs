@@ -7,6 +7,7 @@ use crate::core::*;
 use crate::native::*;
 
 const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);
+const MAX_PENDING_WINDOW_OPENS: usize = 64;
 
 #[cfg(feature = "test")]
 static LIVE_CLOSED_TASK_FINISHED: std::sync::atomic::AtomicBool =
@@ -27,6 +28,8 @@ thread_local! {
     static LIVE_COMPONENT_BACKGROUND: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
     static LIVE_CLOSED_TASK_DELIVERED: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
     static LIVE_CLOSE_SENDER: RefCell<Option<LocalSender<LiveClosingMessage>>> = const { RefCell::new(None) };
+    static LIVE_RUNTIME_OPEN_SETUPS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
+    static LIVE_RUNTIME_OPEN_CLEANUPS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_RANGE_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_TOGGLE_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_PRIMARY_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
@@ -259,6 +262,9 @@ impl Component for LiveTestComponent {
 struct LiveClosingTask;
 
 #[cfg(feature = "test")]
+struct LiveRuntimeOpened;
+
+#[cfg(feature = "test")]
 #[derive(Clone)]
 enum LiveClosingMessage {
     Background,
@@ -289,8 +295,10 @@ impl Component for LiveClosingTask {
                 LIVE_CLOSED_TASK_DELIVERED.with(|delivered| delivered.set(true));
             }
             LiveClosingMessage::Close => {
-                if !context.window().request_close() {
-                    eprintln!("live component could not request its window close");
+                let opened = context.open_window(View::component::<LiveRuntimeOpened>(()));
+                let closed = context.window().request_close();
+                if !opened || !closed {
+                    eprintln!("live component could not replace its window");
                     std::process::exit(1);
                 }
             }
@@ -299,6 +307,33 @@ impl Component for LiveClosingTask {
 
     fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::native(TextBlock::new().text("closing"))
+    }
+}
+
+#[cfg(feature = "test")]
+impl Component for LiveRuntimeOpened {
+    type Props = ();
+    type Message = ();
+
+    fn create(_props: &Self::Props, context: &mut ComponentContext<Self>) -> Self {
+        if !context.window().request_close() {
+            eprintln!("runtime-open fixture could not request close");
+            std::process::exit(1);
+        }
+        Self
+    }
+
+    fn update(&mut self, _message: (), _context: &mut ComponentContext<Self>) {}
+
+    fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
+        context.window_title("Runtime opened");
+        context.use_effect("runtime-open", (), || {
+            LIVE_RUNTIME_OPEN_SETUPS.with(|count| count.set(count.get().saturating_add(1)));
+            Some(Box::new(|| {
+                LIVE_RUNTIME_OPEN_CLEANUPS.with(|count| count.set(count.get().saturating_add(1)));
+            }))
+        });
+        TextBlock::new().text("runtime opened").into()
     }
 }
 
@@ -817,6 +852,126 @@ fn publish_mounted_window(pump: Box<dyn LivePump>) {
     }
 }
 
+pub(crate) fn open_live_windows(roots: Vec<View>) -> Result<(), RuntimeError> {
+    if roots.is_empty() {
+        return Ok(());
+    }
+    let application =
+        HOST.with(|host| host.borrow().as_ref().map(|host| host._application.clone()));
+    let application = application.ok_or(RuntimeError::MissingApplication)?;
+    let pumps = roots
+        .into_iter()
+        .map(|root| {
+            Box::new(ComponentLoop {
+                pump: Pump::new(WinUiRuntime::with_application(application.clone())),
+                root: Some(root),
+            }) as Box<dyn LivePump>
+        })
+        .collect::<Vec<_>>();
+    let tokens = pumps
+        .iter()
+        .map(|pump| pump.window_token())
+        .collect::<Vec<_>>();
+    let registered = HOST.with(|host| {
+        let mut host = host.borrow_mut();
+        let Some(host) = host.as_mut() else {
+            return false;
+        };
+        if host.pending_opens.saturating_add(pumps.len()) > MAX_PENDING_WINDOW_OPENS {
+            return false;
+        }
+        host.pending_opens += pumps.len();
+        for token in &tokens {
+            assert!(host.in_flight.insert(*token));
+        }
+        true
+    });
+    if !registered {
+        return Err(RuntimeError::WindowOpenCapacity);
+    }
+
+    let pending = Rc::new(RefCell::new(Some(pumps)));
+    let pending_mount = Rc::clone(&pending);
+    let mount = DispatcherQueueHandler::new(move || {
+        let Some(pumps) = pending_mount.borrow_mut().take() else {
+            return;
+        };
+        for mut pump in pumps {
+            match pump.mount() {
+                Ok(()) => publish_mounted_window(pump),
+                Err(error) => reject_pending_window(pump, error),
+            }
+        }
+    });
+    let queued = DispatcherQueue::GetForCurrentThread()
+        .map_err(winui_runtime_error)
+        .and_then(|dispatcher| {
+            dispatcher
+                .TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &mount)
+                .map_err(winui_runtime_error)
+        });
+    match queued {
+        Ok(true) => Ok(()),
+        Ok(false) => {
+            rollback_pending_windows(&tokens);
+            Err(RuntimeError::DispatcherRejected)
+        }
+        Err(error) => {
+            rollback_pending_windows(&tokens);
+            Err(error)
+        }
+    }
+}
+
+fn rollback_pending_windows(tokens: &[WindowToken]) {
+    HOST.with(|host| {
+        let mut host = host.borrow_mut();
+        let Some(host) = host.as_mut() else {
+            return;
+        };
+        for token in tokens {
+            assert!(host.in_flight.remove(token));
+            host.closed_in_flight.remove(token);
+        }
+        host.pending_opens = host.pending_opens.checked_sub(tokens.len()).unwrap();
+    });
+}
+
+fn reject_pending_window(mut pump: Box<dyn LivePump>, error: PumpError) {
+    let token = pump.window_token();
+    let rejected = matches!(
+        error,
+        PumpError::DuplicateEffectKey(_)
+            | PumpError::DuplicateElementRef
+            | PumpError::DuplicateKey(_)
+            | PumpError::DuplicateWindowTitle
+            | PumpError::StructureUnsupported
+    );
+    pump.shutdown();
+    let empty = HOST.with(|host| {
+        let mut host = host.borrow_mut();
+        let host = host
+            .as_mut()
+            .expect("missing live host during window rejection");
+        assert!(host.in_flight.remove(&token));
+        host.closed_in_flight.remove(&token);
+        host.pending_opens = host.pending_opens.checked_sub(1).unwrap();
+        if !rejected {
+            host.fault = Some(pump_error(error.clone()));
+        }
+        host.is_empty()
+    });
+    if rejected {
+        eprintln!("windows-reactor-next rejected a runtime window: {error:?}");
+    } else {
+        eprintln!("windows-reactor-next runtime window fault: {error:?}");
+        exit_ui_thread();
+    }
+    if empty {
+        exit_ui_thread();
+    }
+}
+
 pub(crate) fn dispatch_native_events(token: WindowToken) {
     HOST.with(|host| {
         let Some(mut live) = ({
@@ -1186,6 +1341,8 @@ fn queue_live_reentrancy_verification(
 
 #[cfg(feature = "test")]
 fn finish_live_backend_test() {
+    LIVE_RUNTIME_OPEN_SETUPS.with(|count| count.set(0));
+    LIVE_RUNTIME_OPEN_CLEANUPS.with(|count| count.set(0));
     let prepared = HOST.with(|host| {
         host.borrow_mut()
             .as_mut()
@@ -1218,12 +1375,15 @@ fn queue_live_secondary_close_verification(
         let closed = HOST.with(|host| {
             host.borrow().as_ref().is_some_and(|host| {
                 host.windows.len() == 1
+                    && host.pending_opens == 0
                     && host
                         .primary()
                         .is_some_and(|pump| pump.live_root_text().as_deref() == Ok("fixed"))
             })
         });
-        if closed {
+        let runtime_opened = LIVE_RUNTIME_OPEN_SETUPS.with(|count| count.get() == 1)
+            && LIVE_RUNTIME_OPEN_CLEANUPS.with(|count| count.get() == 1);
+        if closed && runtime_opened {
             continue_live_backend_test();
             return;
         }
@@ -1231,7 +1391,10 @@ fn queue_live_secondary_close_verification(
             || queue_live_secondary_close_verification(next_dispatcher.clone(), attempts - 1)
                 .is_err()
         {
-            eprintln!("live backend fixture retained its closed second window");
+            eprintln!(
+                "live backend fixture did not complete runtime open/close: \
+                 closed={closed}, runtime_opened={runtime_opened}"
+            );
             std::process::exit(1);
         }
     });
@@ -1588,6 +1751,10 @@ fn pump_error(error: PumpError) -> windows_core::Error {
 
 fn runtime_error(error: RuntimeError) -> windows_core::Error {
     windows_core::Error::new(E_FAIL, format!("{error:?}"))
+}
+
+fn winui_runtime_error(error: windows_core::Error) -> RuntimeError {
+    RuntimeError::Native(error.code().0)
 }
 
 pub(crate) fn fail_native_scheduler(error: RuntimeError) {

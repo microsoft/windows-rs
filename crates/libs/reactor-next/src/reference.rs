@@ -5,12 +5,14 @@ use std::marker::PhantomData;
 use std::rc::Rc;
 
 use crate::core::{NativeWork, NodeId, WindowToken};
+use crate::element::View;
 
 const IMPERATIVE_QUEUE_CAPACITY: usize = 4_096;
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Debug)]
 pub(crate) enum HostRequest {
     CloseWindow { identity: WindowToken },
+    OpenWindow { identity: WindowToken, root: View },
 }
 
 struct WindowRequestState {
@@ -18,7 +20,9 @@ struct WindowRequestState {
     close_committed: bool,
     close_requested: bool,
     open: bool,
+    open_requests: Vec<View>,
     staged_close: bool,
+    staged_opens: Vec<View>,
 }
 
 #[derive(Clone)]
@@ -36,7 +40,9 @@ impl WindowEndpoint {
                 close_committed: false,
                 close_requested: false,
                 open: true,
+                open_requests: Vec::new(),
                 staged_close: false,
+                staged_opens: Vec::new(),
             })),
         }
     }
@@ -46,6 +52,7 @@ impl WindowEndpoint {
         assert!(!state.active, "component lifecycle invocation reentered");
         state.active = true;
         state.close_requested = false;
+        state.open_requests.clear();
     }
 
     pub(crate) fn finish(&self) {
@@ -57,18 +64,27 @@ impl WindowEndpoint {
         state.active = false;
         state.staged_close |= state.close_requested;
         state.close_requested = false;
+        let requests = std::mem::take(&mut state.open_requests);
+        state.staged_opens.extend(requests);
     }
 
     pub(crate) fn take_requests(&self) -> Vec<HostRequest> {
         let mut state = self.state.borrow_mut();
+        let mut requests = state
+            .staged_opens
+            .drain(..)
+            .map(|root| HostRequest::OpenWindow {
+                identity: self.identity,
+                root,
+            })
+            .collect::<Vec<_>>();
         if state.staged_close {
             state.staged_close = false;
-            vec![HostRequest::CloseWindow {
+            requests.push(HostRequest::CloseWindow {
                 identity: self.identity,
-            }]
-        } else {
-            Vec::new()
+            });
         }
+        requests
     }
 
     pub(crate) fn close(&self) {
@@ -76,7 +92,9 @@ impl WindowEndpoint {
         state.open = false;
         state.active = false;
         state.close_requested = false;
+        state.open_requests.clear();
         state.staged_close = false;
+        state.staged_opens.clear();
     }
 
     pub(crate) fn commit_close(&self) {
@@ -87,6 +105,15 @@ impl WindowEndpoint {
         WindowRef {
             endpoint: self.clone(),
         }
+    }
+
+    fn request_open(&self, root: View) -> bool {
+        let mut state = self.state.borrow_mut();
+        if !state.open || !state.active || state.close_committed {
+            return false;
+        }
+        state.open_requests.push(root);
+        true
     }
 }
 
@@ -109,6 +136,10 @@ impl WindowRef {
         }
         state.close_requested = true;
         true
+    }
+
+    pub(crate) fn request_open(&self, root: View) -> bool {
+        self.endpoint.request_open(root)
     }
 }
 

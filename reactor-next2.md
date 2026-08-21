@@ -655,9 +655,9 @@ scales acceptably.
 
 - [x] Retain page state across navigation.
 - [x] Qualify context propagation across page and window boundaries.
-- [ ] Qualify window creation, configuration, close, task cancellation, and cleanup.
+- [x] Qualify window creation, title configuration, close, task cancellation, and cleanup.
 - [x] Prove queues, references, events, and background completions remain window-isolated.
-- [ ] Let sample evidence define navigation and window APIs.
+- [x] Let sample evidence define navigation and window APIs.
 
 ### 5. Application performance gate
 
@@ -871,11 +871,11 @@ the navigation sample shows whether the same action-forwarding pattern recurs ou
 
 ## Navigation and multi-window qualification
 
-`crates/samples/reactor-next/navigation` starts a primary and secondary workspace through
-`App::run_windows`. Each Pump owns its current page, controlled editor text, typed editor reference,
-component messages, and background task. Page components may retire when navigation replaces
-them; durable page data stays in the owning workspace model and is restored through controlled
-props when the page returns.
+`crates/samples/reactor-next/navigation` starts a primary workspace and opens the secondary through
+`ComponentContext::open_window`. Each Pump owns its current page, controlled editor text, typed
+editor reference, component messages, and background task. Page components may retire when
+navigation replaces them; durable page data stays in the owning workspace model and is restored
+through controlled props when the page returns.
 
 The windows share an application coordinator, not a Pump or component store. The coordinator owns
 the common theme value and a sender registry populated by one lifecycle effect per window. A shared
@@ -892,10 +892,10 @@ The first slice exposes a host API boundary:
 
 | Operation | Current contract |
 | --- | --- |
-| Create multiple windows | `App::run_windows` creates a fixed startup set |
+| Create multiple windows | Startup roots or committed runtime-open requests |
 | Configure content | Each startup root is an independent `View` |
-| Configure native window | One component declares the Pump title through `ViewContext`; size and presenter are deferred |
-| Create a window after startup | No public contract |
+| Configure native window | `ViewContext` declares the title; size and presenter are deferred |
+| Create a window after startup | `ComponentContext::open_window` stages an independent root |
 | Request close from a component | Token-bound `WindowRef::request_close` commits after publication |
 | React to close | Pump retirement cleans effects, tasks, references, queues, and sender registry |
 
@@ -921,18 +921,22 @@ Window lifetime should instead be an app-owned host resource:
    frontend state and effects commit. The first committed close latches the endpoint, so later
    turns cannot issue another native close while `Closed` is pending. Planning failure discards the
    request. An inactive or stale reference returns false without touching another window.
-3. Add runtime open later as a committed host request carrying an independent window root. The
-   opener's component scope must not own the new window. Cross-window data continues to use an
-   application-owned sender registry rather than a typed message channel on the window handle.
+3. `ComponentContext::open_window` is a committed host request carrying an independent window root.
+   The host registers pending-open and in-flight state before dispatcher work, then mounts a new
+   Pump after the opener publishes. The opener's component scope does not own the new window.
+   Cross-window data continues to use an application-owned sender registry rather than a typed
+   message channel on the window handle.
 4. `LiveHost` now pre-registers startup Pumps as in-flight and counts pending opens before mount.
    This prevents a `create`-time close from being lost and prevents exit while another startup
-   window remains. Runtime open must join the same accounting before it enters the dispatcher.
+   window remains. Runtime open joins the same accounting before it enters the dispatcher.
 
 Configuration and lifetime use different rules. `ViewContext::window_title` is declarative Pump
-state with one live component owner. A changed value is part of candidate planning, omission or
-owner retirement clears it, and duplicate ownership rejects the candidate before native mutation.
-The local native fast path is used only when the declaration matches published state. This keeps
-component-derived titles in the authoritative tree without exposing an imperative native handle.
+state with one live component owner. Candidate planning stores declarations by component scope and
+validates the completed set, so surviving siblings can transfer ownership in either traversal
+order. A changed value is part of candidate planning, omission or owner retirement clears it, and
+duplicate ownership rejects the candidate before native mutation. The local native fast path is
+used only when the declaration matches published state. This keeps component-derived titles in the
+authoritative tree without exposing an imperative native handle.
 
 Size, position, and presenter state can change outside the framework and need create-time semantics
 or controlled native feedback. A static startup descriptor is useful for create-time options, but

@@ -84,7 +84,7 @@ pub struct Tree {
     components: Rc<HashMap<ScopeId, NodeId>>,
     providers: ProviderStore,
     root: Option<NodeId>,
-    window_title: Option<WindowTitleState>,
+    window_titles: Rc<HashMap<ScopeId, Rc<str>>>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -140,7 +140,7 @@ impl Tree {
             components: Rc::new(HashMap::new()),
             providers: ProviderStore::default(),
             root: None,
-            window_title: None,
+            window_titles: Rc::new(HashMap::new()),
         }
     }
 
@@ -503,12 +503,29 @@ impl Tree {
         Ok(self.arena.get(id)?.kind)
     }
 
-    pub(crate) fn window_title(&self) -> Option<&WindowTitleState> {
-        self.window_title.as_ref()
+    pub(crate) fn window_title(&self) -> Option<WindowTitleState> {
+        let (owner, title) = self.window_titles.iter().next()?;
+        (self.window_titles.len() == 1).then(|| WindowTitleState {
+            owner: *owner,
+            title: Rc::clone(title),
+        })
     }
 
-    pub(crate) fn set_window_title(&mut self, value: Option<WindowTitleState>) {
-        self.window_title = value;
+    pub(crate) fn validate_window_title(&self) -> Result<Option<WindowTitleState>, ()> {
+        if self.window_titles.len() > 1 {
+            Err(())
+        } else {
+            Ok(self.window_title())
+        }
+    }
+
+    pub(crate) fn set_window_title(&mut self, owner: ScopeId, title: Option<Rc<str>>) {
+        let titles = Rc::make_mut(&mut self.window_titles);
+        if let Some(title) = title {
+            titles.insert(owner, title);
+        } else {
+            titles.remove(&owner);
+        }
     }
 
     pub fn children(&self, id: NodeId) -> Result<&[NodeId], TreeError> {

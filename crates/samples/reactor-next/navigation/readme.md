@@ -1,8 +1,9 @@
 # Navigation and multi-window workspace
 
-This sample qualifies navigation and window isolation with two startup windows. Each window owns
-its page, editor text, focus reference, background work, and component queue. The windows share a
-small application model that broadcasts theme changes and window-lifecycle notifications.
+This sample qualifies navigation and window isolation by opening a secondary workspace from the
+primary at runtime. Each window owns its page, editor text, focus reference, background work, and
+component queue. The windows share a small application model that broadcasts theme changes and
+window-lifecycle notifications.
 
 Run it with:
 
@@ -12,15 +13,16 @@ cargo run -p sample_reactor_next_navigation
 
 Try this sequence:
 
-1. Open the editor in each window and enter different text.
+1. Choose **Open secondary window**, then open the editor in each window and enter different text.
 2. Move between Home and Editor and confirm each window retains its own text.
    The window title follows the current page.
 3. Change the shared theme and confirm both windows update.
 4. Start background work in the secondary window, then choose **Close this window**.
 5. Confirm the primary window remains responsive and reports the secondary closure.
 
-The sample uses `App::run_windows`, which creates all windows at startup. Component close requests
-are token-bound, staged with the current component publication, and applied only after it succeeds.
-Each workspace declares its native title from component state. The current host does not yet expose
-runtime window creation or declarative size configuration. Those APIs remain part of this
-qualification gate rather than being hidden in the sample with direct WinUI calls.
+`ComponentContext::open_window` stages an independent root with the current component publication.
+After publication, the host registers a pending open and mounts that root in a new Pump. The
+opener's scope does not own the new Pump. Close requests use the same transactional boundary and
+are applied only after publication. Each workspace declares its native title from component state.
+Declarative size configuration remains deferred rather than being hidden in the sample with direct
+WinUI calls.

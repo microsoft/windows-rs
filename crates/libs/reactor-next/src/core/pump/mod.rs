@@ -200,9 +200,12 @@ impl<R: NativeRuntime> Pump<R> {
                 return Err(PumpError::StructureUnsupported);
             }
         }
-        Self::plan_window_title(window, &self.tree, &candidate, &mut plan);
+        if let Err(error) = Self::plan_window_title(window, &self.tree, &candidate, &mut plan) {
+            Self::remove_reservations(&mut self.components, &changes.reserved);
+            return Err(error);
+        }
         plan.push(Command::ActivateWindow { node: window });
-        Self::plan_host_requests(window, &changes.host_requests, &mut plan);
+        Self::plan_host_requests(window, &mut changes.host_requests, &mut plan);
 
         self.publish_candidate(
             CandidateState::Tree {
@@ -591,12 +594,16 @@ impl<R: NativeRuntime> Pump<R> {
         candidate: Tree,
         candidate_root: NodeId,
         mut plan: UpdatePlan,
-        changes: ComponentChanges,
+        mut changes: ComponentChanges,
         next_version: u64,
     ) -> Result<(), PumpError> {
         let window = self.window.ok_or(PumpError::NotMounted)?;
-        Self::plan_window_title(window, &self.tree, &candidate, &mut plan);
-        Self::plan_host_requests(window, &changes.host_requests, &mut plan);
+        if let Err(error) = Self::plan_window_title(window, &self.tree, &candidate, &mut plan) {
+            self.planning_dirty.extend(changes.touched.iter().copied());
+            Self::remove_reservations(&mut self.components, &changes.reserved);
+            return Err(error);
+        }
+        Self::plan_host_requests(window, &mut changes.host_requests, &mut plan);
         let resolved = changes
             .composed
             .iter()
@@ -617,24 +624,44 @@ impl<R: NativeRuntime> Pump<R> {
         Ok(())
     }
 
-    fn plan_host_requests(window: NodeId, requests: &[HostRequest], plan: &mut UpdatePlan) {
-        if requests.iter().any(
-            |request| matches!(request, HostRequest::CloseWindow { identity } if *identity == plan.identity),
-        ) {
+    fn plan_host_requests(window: NodeId, requests: &mut Vec<HostRequest>, plan: &mut UpdatePlan) {
+        let mut close = false;
+        for request in requests.drain(..) {
+            match request {
+                HostRequest::CloseWindow { identity } if identity == plan.identity => close = true,
+                HostRequest::OpenWindow { identity, root } if identity == plan.identity => {
+                    plan.post_publish_windows.push(root);
+                }
+                HostRequest::CloseWindow { .. } | HostRequest::OpenWindow { .. } => {}
+            }
+        }
+        if close {
             plan.post_publish_commands
                 .push(Command::CloseWindow { node: window });
         }
     }
 
-    fn plan_window_title(window: NodeId, current: &Tree, candidate: &Tree, plan: &mut UpdatePlan) {
-        let current = current.window_title().map(|title| title.title.as_ref());
-        let candidate = candidate.window_title().map(|title| title.title.as_ref());
+    fn plan_window_title(
+        window: NodeId,
+        current: &Tree,
+        candidate: &Tree,
+        plan: &mut UpdatePlan,
+    ) -> Result<(), PumpError> {
+        let current = current
+            .validate_window_title()
+            .map_err(|()| PumpError::DuplicateWindowTitle)?;
+        let candidate = candidate
+            .validate_window_title()
+            .map_err(|()| PumpError::DuplicateWindowTitle)?;
+        let current = current.as_ref().map(|title| title.title.as_ref());
+        let candidate = candidate.as_ref().map(|title| title.title.as_ref());
         if current != candidate {
             plan.push(Command::SetWindowTitle {
                 node: window,
                 title: candidate.unwrap_or_default().to_string(),
             });
         }
+        Ok(())
     }
 }
 

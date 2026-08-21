@@ -149,6 +149,21 @@ publication. A failed turn discards the request. Once one close commits, later r
 `false` for that window lifetime; stale references also return `false`. Native window objects are
 not exposed.
 
+Components can stage an independent application-owned window from the same lifecycle context:
+
+```rust,ignore
+if !context.open_window(View::component::<Inspector>(props)) {
+    self.status = "Window open request was rejected".to_string();
+}
+```
+
+The root travels with the current candidate and is discarded if that candidate fails. After
+publication, the host registers the pending open before dispatcher work and mounts it in a new
+Pump. The new Pump owns its tree, components, queues, effects, references, and lifetime; retiring
+the opener does not close it. `true` means the request crossed the component lifecycle boundary,
+not that asynchronous mounting has completed. An invalid independent root is rejected without
+shutting down existing windows. Unexpected native failures remain process-fatal.
+
 Components declare the owning window title while rendering:
 
 ```rust,ignore
@@ -161,7 +176,9 @@ fn view(&self, _: &Self::Props, context: &mut ViewContext<Self>) -> View {
 One live component owns the declaration. Changing its value updates the native title with the same
 candidate as its view; omitting the declaration or retiring the owner clears it. A second live
 owner or two declarations from one render return `PumpError::DuplicateWindowTitle` before native
-mutation. The title is declarative Pump state rather than an imperative `WindowRef` setter.
+mutation. Candidate planning collects declarations by component scope and validates the completed
+set, so surviving siblings can hand ownership off without depending on traversal order. The title
+is declarative Pump state rather than an imperative `WindowRef` setter.
 
 The [`form sample`](../../samples/reactor-next/form/src/main.rs) exercises controlled input,
 focus-first-invalid validation, a nested component, and scope-owned background submission.

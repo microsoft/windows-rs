@@ -15,11 +15,13 @@ pub struct RecordingRuntime {
     application: Option<NodeId>,
     attachments: HashMap<(NodeId, RealizedContainer), NodeId>,
     nodes: HashMap<NodeId, RecordedNode>,
+    opened_windows: Vec<View>,
     batches: usize,
     commands: Vec<Vec<Command>>,
     close_requests: Vec<NodeId>,
     record_commands: bool,
     fail_at: HashSet<(usize, usize)>,
+    fail_window_open: bool,
     identity: Option<WindowToken>,
     realizations: Vec<NativeWork<RealizationRequest>>,
     source_revisions: HashMap<NodeId, u64>,
@@ -34,11 +36,13 @@ impl Default for RecordingRuntime {
             application: None,
             attachments: HashMap::new(),
             nodes: HashMap::new(),
+            opened_windows: Vec::new(),
             batches: 0,
             commands: Vec::new(),
             close_requests: Vec::new(),
             record_commands: true,
             fail_at: HashSet::new(),
+            fail_window_open: false,
             identity: None,
             realizations: Vec::new(),
             source_revisions: HashMap::new(),
@@ -66,6 +70,11 @@ impl RecordingRuntime {
             .insert((self.batches + batches + 1, command_index));
     }
 
+    #[cfg(any(test, feature = "test"))]
+    pub fn fail_window_open(&mut self) {
+        self.fail_window_open = true;
+    }
+
     pub fn node(&self, id: NodeId) -> Option<&RecordedNode> {
         self.nodes.get(&id)
     }
@@ -90,6 +99,11 @@ impl RecordingRuntime {
 
     pub fn is_empty(&self) -> bool {
         self.nodes.is_empty()
+    }
+
+    #[cfg(any(test, feature = "test"))]
+    pub fn opened_windows(&self) -> &[View] {
+        &self.opened_windows
     }
 
     pub fn queue_realization(&mut self, request: RealizationRequest) {
@@ -553,6 +567,14 @@ impl NativeRuntime for RecordingRuntime {
                 error,
             })?;
         }
+        Ok(())
+    }
+
+    fn open_windows(&mut self, roots: Vec<View>) -> Result<(), RuntimeError> {
+        if std::mem::take(&mut self.fail_window_open) {
+            return Err(RuntimeError::Injected);
+        }
+        self.opened_windows.extend(roots);
         Ok(())
     }
 

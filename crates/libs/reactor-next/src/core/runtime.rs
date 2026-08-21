@@ -65,11 +65,16 @@ pub enum RuntimeError {
     SchedulerClosed,
     StillParented(NodeId),
     UnsupportedKind,
+    WindowOpenCapacity,
 }
 
 pub trait NativeRuntime {
     fn apply(&mut self, commands: &[Command]) -> Result<(), NativeApplyError>;
     fn reset(&mut self);
+
+    fn open_windows(&mut self, _roots: Vec<View>) -> Result<(), RuntimeError> {
+        Err(RuntimeError::UnsupportedKind)
+    }
 
     fn native_window_closed(&mut self) {}
 

@@ -684,6 +684,7 @@ impl NativeRuntime for WinUiRuntime {
         {
             self.applied_commands += commands.len();
         }
+
         for (index, command) in commands.iter().enumerate() {
             self.apply_one(command).map_err(|error| NativeApplyError {
                 command: index,
@@ -691,6 +692,10 @@ impl NativeRuntime for WinUiRuntime {
             })?;
         }
         Ok(())
+    }
+
+    fn open_windows(&mut self, roots: Vec<View>) -> Result<(), RuntimeError> {
+        open_live_windows(roots)
     }
 
     fn reset(&mut self) {

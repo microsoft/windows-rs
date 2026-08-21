@@ -20,6 +20,7 @@ pub(super) struct UpdatePlan {
     pub(super) identity: WindowToken,
     pub(super) reconcile_observations: bool,
     pub(super) post_publish_commands: Vec<Command>,
+    pub(super) post_publish_windows: Vec<View>,
 }
 
 #[derive(Default)]
@@ -84,6 +85,7 @@ impl UpdatePlan {
             identity,
             reconcile_observations: false,
             post_publish_commands: Vec::new(),
+            post_publish_windows: Vec::new(),
         }
     }
 

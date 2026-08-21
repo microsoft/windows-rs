@@ -14,6 +14,22 @@ impl<R: NativeRuntime> Pump<R> {
         Ok(())
     }
 
+    fn apply_window_opens(&mut self, roots: Vec<View>) -> Result<(), PumpError> {
+        if roots.is_empty() {
+            return Ok(());
+        }
+        if let Err(error) = self.runtime.open_windows(roots) {
+            self.poisoned = true;
+            self.events.clear();
+            self.realizations.clear();
+            return Err(PumpError::NativeApplyFailed(NativeApplyError {
+                command: 0,
+                error,
+            }));
+        }
+        Ok(())
+    }
+
     pub(super) fn publish_candidate(
         &mut self,
         mut candidate: CandidateState,
@@ -57,6 +73,7 @@ impl<R: NativeRuntime> Pump<R> {
         self.diagnostics.extend(plan.diagnostics);
         self.native_observation_pending = false;
         self.version = next_version;
+        self.apply_window_opens(plan.post_publish_windows)?;
         if commits_window_close {
             self.components.commit_window_close();
         }

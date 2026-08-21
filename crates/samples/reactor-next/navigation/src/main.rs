@@ -106,6 +106,7 @@ struct Workspace {
     note: String,
     page: Page,
     role: WindowRole,
+    secondary_open: bool,
     sender: LocalSender<Message>,
     shared: Rc<SharedApp>,
     status: String,
@@ -118,6 +119,7 @@ enum Message {
     Increment,
     Navigate(Page),
     NoteChanged(String),
+    OpenSecondary,
     PeerClosed(WindowRole),
     SharedChanged,
     StartWork,
@@ -170,6 +172,7 @@ impl Component for Workspace {
             note: format!("{} window note", props.role.label()),
             page: Page::Home,
             role: props.role,
+            secondary_open: false,
             sender: context.sender(),
             shared: Rc::clone(&props.shared),
             status: "Ready".to_string(),
@@ -188,7 +191,20 @@ impl Component for Workspace {
             Message::Navigate(page) => self.page = page,
             Message::NoteChanged(note) => self.note = note,
             Message::PeerClosed(role) if role != self.role => {
+                if role == WindowRole::Secondary {
+                    self.secondary_open = false;
+                }
                 self.status = format!("{} window closed", role.label());
+            }
+            Message::OpenSecondary if self.role == WindowRole::Primary && !self.secondary_open => {
+                let opened = context.open_window(View::component::<Self>(WorkspaceProps {
+                    role: WindowRole::Secondary,
+                    shared: Rc::clone(&self.shared),
+                }));
+                self.secondary_open = opened;
+                if !opened {
+                    self.status = "Secondary window open request was rejected".to_string();
+                }
             }
             Message::SharedChanged => {}
             Message::StartWork if !self.working => {
@@ -218,7 +234,7 @@ impl Component for Workspace {
                 self.working = false;
                 self.status = "Background work finished".to_string();
             }
-            Message::PeerClosed(_) | Message::StartWork => {}
+            Message::OpenSecondary | Message::PeerClosed(_) | Message::StartWork => {}
         }
     }
 
@@ -273,6 +289,14 @@ impl Component for Workspace {
             Button::new()
                 .on_click(context.message(Message::ToggleTheme))
                 .content(TextBlock::new().text("Toggle shared theme")),
+            if self.role == WindowRole::Primary {
+                Button::new()
+                    .is_enabled(!self.secondary_open)
+                    .on_click(context.message(Message::OpenSecondary))
+                    .content(TextBlock::new().text("Open secondary window"))
+            } else {
+                View::empty()
+            },
             Button::new()
                 .is_enabled(!self.working)
                 .on_click(context.message(Message::StartWork))
@@ -363,16 +387,10 @@ impl Component for ThemeBanner {
 fn main() {
     bootstrap().unwrap();
     let shared = SharedApp::new();
-    App::run_windows([
-        View::component::<Workspace>(WorkspaceProps {
-            role: WindowRole::Primary,
-            shared: Rc::clone(&shared),
-        }),
-        View::component::<Workspace>(WorkspaceProps {
-            role: WindowRole::Secondary,
-            shared,
-        }),
-    ])
+    App::run_component::<Workspace>(WorkspaceProps {
+        role: WindowRole::Primary,
+        shared,
+    })
     .unwrap();
 }
 
@@ -449,6 +467,9 @@ mod tests {
 
         let primary_sender = sender(&shared, WindowRole::Primary);
         let secondary_sender = sender(&shared, WindowRole::Secondary);
+        assert!(primary_sender.send(Message::OpenSecondary));
+        assert_eq!(primary.dispatch_components(1), Ok(1));
+        assert_eq!(primary.runtime().opened_windows().len(), 1);
         assert_eq!(
             primary.runtime().window_title(primary.window().unwrap()),
             Some("Primary workspace - Home")

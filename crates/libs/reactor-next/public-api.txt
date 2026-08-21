@@ -102,6 +102,7 @@ impl windows_reactor_next::CancellationToken
 pub fn windows_reactor_next::CancellationToken::is_cancelled(&self) -> bool
 pub struct windows_reactor_next::ComponentContext<C: windows_reactor_next::Component>
 impl<C: windows_reactor_next::Component> windows_reactor_next::ComponentContext<C>
+pub fn windows_reactor_next::ComponentContext<C>::open_window(&self, windows_reactor_next::View) -> bool
 pub fn windows_reactor_next::ComponentContext<C>::sender(&self) -> windows_reactor_next::LocalSender<<C as windows_reactor_next::Component>::Message>
 pub fn windows_reactor_next::ComponentContext<C>::spawn_background<F>(&self, F) -> windows_reactor_next::ComponentTask where <C as windows_reactor_next::Component>::Message: core::marker::Send, F: core::ops::function::FnOnce(windows_reactor_next::CancellationToken) -> <C as windows_reactor_next::Component>::Message + core::marker::Send + 'static
 pub fn windows_reactor_next::ComponentContext<C>::window(&self) -> windows_reactor_next::WindowRef

@@ -117,6 +117,15 @@ issue a second native close while the `Closed` callback is pending. References f
 an inactive lifecycle call return false. The live callback then follows the ordinary in-flight
 close path.
 
+`ComponentContext::open_window` stages an independent `View` root with the current candidate.
+Failed candidate planning or pre-publication native apply discards it. After publication, the host
+creates a new Pump and registers its token in both pending-open and in-flight accounting before
+queueing mount work. The new lifetime is application-owned rather than tied to the opener's scope.
+Same-turn open and close registers the open first, so closing the current window cannot exit the UI
+thread before the new Pump mounts. Dispatcher rejection rolls back all tokens in the requested
+batch. Invalid new-root planning rejects that root without stopping existing windows; unexpected
+native failure retains the process-fatal policy.
+
 `ViewContext::use_effect(key, dependency, setup)` identifies each effect with an opaque
 `EffectKey`. Numeric and string conversions make keys concise without exposing an internal
 positional form. Each key must be unique within one component view. Omitted keys clean their
@@ -291,18 +300,21 @@ early startup window cannot exit while another startup Pump still needs to mount
 This is ownership and lifecycle isolation, not native fault isolation. An unexpected native
 failure in any Pump follows the process-fatal policy above.
 
-The navigation sample in `crates/samples/reactor-next/navigation` qualifies two startup windows.
-Each window owns its page model, controlled editor, typed reference, queue, and background work.
-A shared application coordinator broadcasts theme changes by sending an ordinary local message to
-each registered window. Closing one window retires its effects and tasks, removes its sender, and
-notifies the remaining window without sharing Pump state. Each root component declares a
-page-derived title through `ViewContext::window_title`.
+The navigation sample in `crates/samples/reactor-next/navigation` starts a primary workspace and
+opens the secondary at runtime. Each window owns its page model, controlled editor, typed
+reference, queue, and background work. A shared application coordinator broadcasts theme changes
+by sending an ordinary local message to each registered window. Closing one window retires its
+effects and tasks, removes its sender, and notifies the remaining window without sharing Pump
+state. Each root component declares a page-derived title through `ViewContext::window_title`.
 
 One live component owns the title declaration for a Pump. A changed declaration is planned with
 the candidate, omission or owner retirement clears it, and ownership may transfer after retirement.
-Duplicate declarations fail planning before native mutation. `App::run_windows` still fixes the
-complete window set at startup, and declarative size configuration is not a public contract.
-Component-requested close uses the transactional `WindowRef` contract above.
+Declarations are collected by scope and validated after candidate composition, so hand-off between
+surviving siblings is independent of traversal order. Duplicate declarations fail planning before
+native mutation. `App::run_windows` remains available for a fixed startup set.
+`ComponentContext::open_window` adds application-owned runtime creation, while declarative size
+configuration is not a public contract. Component-requested close uses the transactional
+`WindowRef` contract above.
 
 ## Generation
 

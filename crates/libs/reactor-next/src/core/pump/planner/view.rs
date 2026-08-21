@@ -684,7 +684,6 @@ impl<R: NativeRuntime> Pump<R> {
         components: &ComponentStore,
         changes: &mut ComponentChanges,
     ) -> Result<(), PumpError> {
-        let mut retired_title_owner = false;
         for node in tree.subtree_postorder(root)? {
             if tree.kind(node)? == NodeKind::Component {
                 let scope = tree.component_scope(node)?;
@@ -692,13 +691,8 @@ impl<R: NativeRuntime> Pump<R> {
                 if !changes.retired.contains(&token) {
                     changes.retired.push(token);
                 }
-                retired_title_owner |= tree
-                    .window_title()
-                    .is_some_and(|title| title.owner == scope);
+                tree.set_window_title(scope, None);
             }
-        }
-        if retired_title_owner {
-            tree.set_window_title(None);
         }
         Ok(())
     }
@@ -735,25 +729,7 @@ impl<R: NativeRuntime> Pump<R> {
             return Err(PumpError::DuplicateWindowTitle);
         }
         let scope = token.scope();
-        match tree.window_title() {
-            Some(current) if current.owner != scope => {
-                if title.is_some() {
-                    return Err(PumpError::DuplicateWindowTitle);
-                }
-            }
-            Some(_) => tree.set_window_title(title.map(|title| WindowTitleState {
-                owner: scope,
-                title: title.into(),
-            })),
-            None => {
-                if let Some(title) = title {
-                    tree.set_window_title(Some(WindowTitleState {
-                        owner: scope,
-                        title: title.into(),
-                    }));
-                }
-            }
-        }
+        tree.set_window_title(scope, title.map(Into::into));
         Ok(())
     }
 

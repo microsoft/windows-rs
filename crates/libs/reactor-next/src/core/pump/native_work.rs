@@ -371,7 +371,10 @@ impl<R: NativeRuntime> Pump<R> {
     ) -> Result<(), PumpError> {
         let root = self.root.ok_or(PumpError::NotMounted)?;
         let window = self.window.ok_or(PumpError::NotMounted)?;
-        Self::plan_window_title(window, &self.tree, &candidate, &mut plan);
+        if let Err(error) = Self::plan_window_title(window, &self.tree, &candidate, &mut plan) {
+            Self::remove_reservations(&mut self.components, &changes.reserved);
+            return Err(error);
+        }
         self.publish_candidate(
             CandidateState::Tree {
                 tree: candidate,
