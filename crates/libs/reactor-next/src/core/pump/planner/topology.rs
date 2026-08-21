@@ -4,6 +4,12 @@
 
 use super::super::*;
 
+#[derive(Clone, Copy)]
+pub(super) enum NativeAttachment {
+    Children { parent: NodeId, index: usize },
+    Slot { parent: NodeId, slot: SlotId },
+}
+
 impl<R: NativeRuntime> Pump<R> {
     pub(super) fn control_has_role(kind: MountedKind, role: ControlRole) -> bool {
         CONTROLS
@@ -23,7 +29,11 @@ impl<R: NativeRuntime> Pump<R> {
     pub(super) fn native_roots(tree: &Tree, node: NodeId) -> Result<Vec<NodeId>, PumpError> {
         match tree.kind(node)? {
             NodeKind::Native(_) | NodeKind::VirtualCollection => Ok(vec![node]),
-            NodeKind::Component | NodeKind::Fragment | NodeKind::Provider | NodeKind::Slot => {
+            NodeKind::Component
+            | NodeKind::Fragment
+            | NodeKind::Provider
+            | NodeKind::Slot
+            | NodeKind::NamedSlot(_) => {
                 let mut roots = Vec::new();
                 for child in tree.children(node)?.iter().copied() {
                     roots.extend(Self::native_roots(tree, child)?);
@@ -42,7 +52,11 @@ impl<R: NativeRuntime> Pump<R> {
                 | NodeKind::VirtualCollection
                 | NodeKind::Window
                 | NodeKind::Application => return Ok(current),
-                NodeKind::Component | NodeKind::Fragment | NodeKind::Provider | NodeKind::Slot => {
+                NodeKind::Component
+                | NodeKind::Fragment
+                | NodeKind::Provider
+                | NodeKind::Slot
+                | NodeKind::NamedSlot(_) => {
                     current = tree
                         .parent(current)?
                         .ok_or(PumpError::StructureUnsupported)?;
@@ -51,7 +65,10 @@ impl<R: NativeRuntime> Pump<R> {
         }
     }
 
-    pub(super) fn native_location(tree: &Tree, node: NodeId) -> Result<(NodeId, usize), PumpError> {
+    pub(super) fn native_attachment(
+        tree: &Tree,
+        node: NodeId,
+    ) -> Result<NativeAttachment, PumpError> {
         let mut current = node;
         let mut offset = 0;
         loop {
@@ -68,7 +85,22 @@ impl<R: NativeRuntime> Pump<R> {
                 NodeKind::Native(_)
                 | NodeKind::VirtualCollection
                 | NodeKind::Window
-                | NodeKind::Application => return Ok((parent, offset)),
+                | NodeKind::Application => {
+                    return Ok(NativeAttachment::Children {
+                        parent,
+                        index: offset,
+                    });
+                }
+                NodeKind::NamedSlot(slot) => {
+                    if offset != 0 || Self::native_roots(tree, parent)?.len() > 1 {
+                        return Err(PumpError::StructureUnsupported);
+                    }
+                    let parent = Self::native_container(tree, parent)?;
+                    if !matches!(tree.kind(parent)?, NodeKind::Native(_)) {
+                        return Err(PumpError::StructureUnsupported);
+                    }
+                    return Ok(NativeAttachment::Slot { parent, slot });
+                }
                 NodeKind::Component | NodeKind::Fragment | NodeKind::Provider | NodeKind::Slot => {
                     current = parent;
                 }
@@ -79,6 +111,9 @@ impl<R: NativeRuntime> Pump<R> {
     pub(super) fn native_children(tree: &Tree, parent: NodeId) -> Result<Vec<NodeId>, PumpError> {
         let mut native = Vec::new();
         for child in tree.children(parent)?.iter().copied() {
+            if matches!(tree.kind(child)?, NodeKind::NamedSlot(_)) {
+                continue;
+            }
             native.extend(Self::native_roots(tree, child)?);
         }
         Ok(native)
@@ -111,22 +146,33 @@ impl<R: NativeRuntime> Pump<R> {
         for node in nodes {
             match tree.kind(node)? {
                 NodeKind::Native(_) => {
-                    if let Some(parent) = tree.parent(node)? {
-                        let parent = Self::native_container(tree, parent)?;
-                        if tree.kind(parent)? == NodeKind::VirtualCollection {
-                            let container = tree
-                                .realized_container(parent, node)?
-                                .ok_or(PumpError::StructureUnsupported)?;
-                            plan.push(Command::DetachRealized {
-                                collection: parent,
-                                container,
-                                child: node,
-                            });
-                        } else {
-                            plan.push(Command::RemoveChild {
-                                parent,
-                                child: node,
-                            });
+                    if tree.parent(node)?.is_some() {
+                        match Self::native_attachment(tree, node)? {
+                            NativeAttachment::Children { parent, .. }
+                                if tree.kind(parent)? == NodeKind::VirtualCollection =>
+                            {
+                                let container = tree
+                                    .realized_container(parent, node)?
+                                    .ok_or(PumpError::StructureUnsupported)?;
+                                plan.push(Command::DetachRealized {
+                                    collection: parent,
+                                    container,
+                                    child: node,
+                                });
+                            }
+                            NativeAttachment::Children { parent, .. } => {
+                                plan.push(Command::RemoveChild {
+                                    parent,
+                                    child: node,
+                                });
+                            }
+                            NativeAttachment::Slot { parent, slot } => {
+                                plan.push(Command::SetSlot {
+                                    parent,
+                                    slot,
+                                    child: None,
+                                });
+                            }
                         }
                     }
                     for (event, state) in &tree.native(node)?.events {
@@ -140,16 +186,30 @@ impl<R: NativeRuntime> Pump<R> {
                     plan.push(Command::Destroy { node });
                 }
                 NodeKind::VirtualCollection => {
-                    if let Some(parent) = tree.parent(node)? {
-                        let parent = Self::native_container(tree, parent)?;
-                        plan.push(Command::RemoveChild {
-                            parent,
-                            child: node,
-                        });
+                    if tree.parent(node)?.is_some() {
+                        match Self::native_attachment(tree, node)? {
+                            NativeAttachment::Children { parent, .. } => {
+                                plan.push(Command::RemoveChild {
+                                    parent,
+                                    child: node,
+                                });
+                            }
+                            NativeAttachment::Slot { parent, slot } => {
+                                plan.push(Command::SetSlot {
+                                    parent,
+                                    slot,
+                                    child: None,
+                                });
+                            }
+                        }
                     }
                     plan.push(Command::Destroy { node });
                 }
-                NodeKind::Component | NodeKind::Fragment | NodeKind::Provider | NodeKind::Slot => {}
+                NodeKind::Component
+                | NodeKind::Fragment
+                | NodeKind::Provider
+                | NodeKind::Slot
+                | NodeKind::NamedSlot(_) => {}
                 NodeKind::Application | NodeKind::Window => {
                     return Err(PumpError::StructureUnsupported);
                 }

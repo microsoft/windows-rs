@@ -7,6 +7,7 @@ pub struct RecordedNode {
     kind: Option<MountedKind>,
     parent: Option<NodeId>,
     children: Vec<NodeId>,
+    slots: BTreeMap<SlotId, NodeId>,
     properties: BTreeMap<PropertyId, PropertyValue>,
 }
 
@@ -104,6 +105,10 @@ impl RecordedNode {
     pub fn children(&self) -> &[NodeId] {
         &self.children
     }
+
+    pub fn slot(&self, slot: SlotId) -> Option<NodeId> {
+        self.slots.get(&slot).copied()
+    }
 }
 
 impl RecordingRuntime {
@@ -122,6 +127,7 @@ impl RecordingRuntime {
                         kind: None,
                         parent: None,
                         children: Vec::new(),
+                        slots: BTreeMap::new(),
                         properties: BTreeMap::new(),
                     },
                 );
@@ -137,6 +143,7 @@ impl RecordingRuntime {
                         kind: None,
                         parent: None,
                         children: Vec::new(),
+                        slots: BTreeMap::new(),
                         properties: BTreeMap::new(),
                     },
                 );
@@ -157,6 +164,7 @@ impl RecordingRuntime {
                         kind: Some(*kind),
                         parent: None,
                         children: Vec::new(),
+                        slots: BTreeMap::new(),
                         properties: BTreeMap::new(),
                     },
                 );
@@ -171,6 +179,7 @@ impl RecordingRuntime {
                         kind: None,
                         parent: None,
                         children: Vec::new(),
+                        slots: BTreeMap::new(),
                         properties: BTreeMap::new(),
                     },
                 );
@@ -225,7 +234,7 @@ impl RecordingRuntime {
                 if recorded.parent.is_some() {
                     return Err(RuntimeError::StillParented(*node));
                 }
-                if !recorded.children.is_empty() {
+                if !recorded.children.is_empty() || !recorded.slots.is_empty() {
                     return Err(RuntimeError::HasChildren(*node));
                 }
                 self.nodes.remove(node);
@@ -268,6 +277,43 @@ impl RecordingRuntime {
                     .ok_or(RuntimeError::MissingNode(*node))?;
                 if !self.subscriptions.remove(&(*node, *event)) {
                     return Err(RuntimeError::MissingSubscription(*node, *event));
+                }
+            }
+            Command::SetSlot {
+                parent,
+                slot,
+                child,
+            } => {
+                if child == &Some(*parent) {
+                    return Err(RuntimeError::SelfParent(*parent));
+                }
+                self.nodes
+                    .get(parent)
+                    .ok_or(RuntimeError::MissingNode(*parent))?;
+                if let Some(child) = child {
+                    let child_node = self
+                        .nodes
+                        .get(child)
+                        .ok_or(RuntimeError::MissingNode(*child))?;
+                    let current = self.nodes[parent].slots.get(slot).copied();
+                    if child_node.parent.is_some() && current != Some(*child) {
+                        return Err(RuntimeError::AlreadyParented(*child));
+                    }
+                }
+                let previous = if let Some(child) = child {
+                    self.nodes
+                        .get_mut(parent)
+                        .unwrap()
+                        .slots
+                        .insert(*slot, *child)
+                } else {
+                    self.nodes.get_mut(parent).unwrap().slots.remove(slot)
+                };
+                if let Some(previous) = previous {
+                    self.nodes.get_mut(&previous).unwrap().parent = None;
+                }
+                if let Some(child) = child {
+                    self.nodes.get_mut(child).unwrap().parent = Some(*parent);
                 }
             }
             Command::InsertChild {

@@ -8,6 +8,7 @@ pub enum Handle {
     TextBox(bindings::TextBox),
     NumberBox(bindings::NumberBox),
     Slider(bindings::Slider),
+    NavigationView(bindings::NavigationView),
     ScrollViewer(bindings::ScrollViewer),
 }
 impl Handle {
@@ -25,6 +26,9 @@ impl Handle {
                 Self::NumberBox(bindings::NumberBox::new().map_err(native_error)?)
             }
             MountedKind::Slider => Self::Slider(bindings::Slider::new().map_err(native_error)?),
+            MountedKind::NavigationView => {
+                Self::NavigationView(bindings::NavigationView::new().map_err(native_error)?)
+            }
             MountedKind::ScrollViewer => {
                 Self::ScrollViewer(bindings::ScrollViewer::new().map_err(native_error)?)
             }
@@ -39,6 +43,7 @@ impl Handle {
             Self::TextBox(value) => value.cast(),
             Self::NumberBox(value) => value.cast(),
             Self::Slider(value) => value.cast(),
+            Self::NavigationView(value) => value.cast(),
             Self::ScrollViewer(value) => value.cast(),
         }
     }
@@ -50,6 +55,7 @@ impl Handle {
             Self::TextBox(value) => value.cast(),
             Self::NumberBox(value) => value.cast(),
             Self::Slider(value) => value.cast(),
+            Self::NavigationView(value) => value.cast(),
             Self::ScrollViewer(value) => value.cast(),
         }
     }
@@ -170,6 +176,15 @@ pub fn set_property(
                 .SetIsEnabled(*value)
                 .map_err(native_error)
         }
+        (
+            Handle::NavigationView(control),
+            PropertyId::NavigationViewIsEnabled,
+            PropertyValue::Bool(value),
+        ) => control
+            .cast::<IControl>()
+            .map_err(native_error)?
+            .SetIsEnabled(*value)
+            .map_err(native_error),
         _ => Err(RuntimeError::UnsupportedKind),
     }
 }
@@ -224,6 +239,33 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
         (Handle::Slider(_), PropertyId::SliderIsEnabled) => dependency_object
             .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
             .map_err(native_error),
+        (Handle::NavigationView(_), PropertyId::NavigationViewIsEnabled) => dependency_object
+            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
+            .map_err(native_error),
+        _ => Err(RuntimeError::UnsupportedKind),
+    }
+}
+pub fn set_slot(
+    handle: &Handle,
+    slot: SlotId,
+    child: Option<&UIElement>,
+) -> Result<(), RuntimeError> {
+    match (handle, slot) {
+        (Handle::NavigationView(control), SlotId::NavigationViewContent) => {
+            let control = control.cast::<IContentControl>().map_err(native_error)?;
+            match child {
+                Some(child) => control.SetContent(child).map_err(native_error),
+                None => control
+                    .SetContent(None::<&windows_core::IInspectable>)
+                    .map_err(native_error),
+            }
+        }
+        (Handle::NavigationView(control), SlotId::NavigationViewHeader) => match child {
+            Some(child) => control.SetHeader(child).map_err(native_error),
+            None => control
+                .SetHeader(None::<&windows_core::IInspectable>)
+                .map_err(native_error),
+        },
         _ => Err(RuntimeError::UnsupportedKind),
     }
 }

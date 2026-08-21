@@ -114,12 +114,22 @@ the numeric payload. The last suppressed normalized payload updates known native
 invoking the application callback or scheduling an immediate retry. Bounds are generated before
 `Value`, and only `Value` observes user feedback. Two NaN values compare as the same empty numeric
 state during reconciliation. Deferred and unknown feedback contracts still fail generation.
+Clear operations suppress the same synchronous event but do not retain its concrete default as a
+native observation. The known-native state remains `None`, which represents a cleared local value
+and keeps clear-then-rerender idempotent.
 
 ## Fragments and collections
 
 Logical fragments create no hidden WinUI control. They flatten zero or more native roots into
 generated children collections. Window and content slots accept zero or one flattened root and
 reject invalid arity before native mutation.
+
+Generated named slots use a distinct transparent logical node and a generic
+`SetSlot { parent, slot, child }` command. `NavigationView` currently exposes typed `Content` and
+`Header` slots. Components, fragments, providers, context, and effects pass through named slots
+without another ownership graph. Each slot accepts zero or one flattened native root and validates
+arity before native apply. Mount, independent update, replacement, clear, and retirement contain
+no `NavigationView` branch in Pump code.
 
 Component-owned keyed children build one key index and one desired order. Small keyed edits use
 insert and move commands. Updates with 256 or more ordering operations use child synchronization,
@@ -191,6 +201,13 @@ the corrected NumberBox baseline, median source-only rebuild time changed from 1
 seconds (+3.1%). The thin release counter grew from 847,360 to 858,624 bytes (+11,264 bytes,
 +1.33%), including 8,416 bytes of executable code and 3,008 bytes of read-only data. Core layouts
 did not change.
+
+The NavigationView multi-slot slice added the shared named-slot tree and command protocol plus one
+generated control. A seven-sample source-only thin-counter rebuild changed from a 0.530-second
+median to 0.493 seconds, which is measurement noise rather than a compile regression. The native
+thin release counter grew from 886,784 to 905,216 bytes (+18,432 bytes, +2.08%). PE virtual sizes
+grew by 17,136 bytes in `.text`, 880 bytes in `.rdata`, 792 bytes in `.pdata`, and 28 bytes in
+`.reloc`. `Node`, `MountedProps`, and `Element` remain 416, 72, and 80 bytes.
 
 Removing fine-grained recovery reduced `core/pump/publish.rs` from 396 lines to 57 and removed
 per-command outcome vectors, divergent properties, retries, remount recovery, recovery

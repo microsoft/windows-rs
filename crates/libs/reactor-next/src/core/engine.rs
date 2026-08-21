@@ -15,6 +15,7 @@ pub enum NodeKind {
     Fragment,
     Provider,
     Slot,
+    NamedSlot(SlotId),
     Native(MountedKind),
     VirtualCollection,
 }

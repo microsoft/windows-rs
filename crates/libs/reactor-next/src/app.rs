@@ -151,6 +151,14 @@ trait LivePump {
     fn live_range_value(&self) -> Result<f64, RuntimeError> {
         Err(RuntimeError::UnsupportedKind)
     }
+    #[cfg(feature = "test")]
+    fn live_range_clear_is_idempotent(&mut self, _control: LiveRangeControl) -> bool {
+        false
+    }
+    #[cfg(feature = "test")]
+    fn live_named_slots(&mut self) -> bool {
+        false
+    }
 }
 
 struct ComponentLoop {
@@ -486,6 +494,56 @@ impl LivePump for ComponentLoop {
             .root_native()
             .ok_or(RuntimeError::UnsupportedKind)?;
         self.pump.runtime().live_range_value(native)
+    }
+
+    #[cfg(feature = "test")]
+    fn live_range_clear_is_idempotent(&mut self, control: LiveRangeControl) -> bool {
+        let view = match control {
+            LiveRangeControl::NumberBox => View::native(
+                NumberBox::new()
+                    .minimum(0.0)
+                    .maximum(10.0)
+                    .on_value_changed(record_live_range_event),
+            ),
+            LiveRangeControl::Slider => View::native(
+                Slider::new()
+                    .minimum(0.0)
+                    .maximum(10.0)
+                    .on_value_changed(record_live_range_event),
+            ),
+        };
+        if self.pump.update_view(view.clone()).is_err() || self.pump.dispatch_events().is_err() {
+            return false;
+        }
+        let commands = self.pump.runtime().live_applied_commands();
+        self.pump.update_view(view).is_ok()
+            && self.pump.runtime().live_applied_commands() == commands
+    }
+
+    #[cfg(feature = "test")]
+    fn live_named_slots(&mut self) -> bool {
+        let view = |content: Option<&str>, header: &str| {
+            let mut slots = vec![SlotView::new(
+                NavigationViewSlot::Header,
+                View::native(TextBlock::new().text(header)),
+            )];
+            if let Some(content) = content {
+                slots.push(SlotView::new(
+                    NavigationViewSlot::Content,
+                    View::native(TextBlock::new().text(content)),
+                ));
+            }
+            View::slots(NavigationView::new(), slots)
+        };
+
+        self.pump
+            .update_view(view(Some("content 1"), "header 1"))
+            .is_ok()
+            && self
+                .pump
+                .update_view(view(Some("content 2"), "header 1"))
+                .is_ok()
+            && self.pump.update_view(view(None, "header 2")).is_ok()
     }
 }
 
@@ -1192,6 +1250,16 @@ fn queue_live_range_restore_verification(
         if matches!(value, Some(Ok(value)) if value == 7.0) {
             match control {
                 LiveRangeControl::NumberBox => {
+                    let clear_passed = HOST.with(|host| {
+                        host.borrow_mut()
+                            .as_mut()
+                            .and_then(LiveHost::primary_mut)
+                            .is_some_and(|pump| pump.live_range_clear_is_idempotent(control))
+                    });
+                    if !clear_passed {
+                        eprintln!("NumberBox clear feedback was not idempotent");
+                        std::process::exit(1);
+                    }
                     let slider = LiveRangeControl::Slider;
                     let started = HOST.with(|host| {
                         host.borrow_mut()
@@ -1208,6 +1276,26 @@ fn queue_live_range_restore_verification(
                     }
                 }
                 LiveRangeControl::Slider => {
+                    let clear_passed = HOST.with(|host| {
+                        host.borrow_mut()
+                            .as_mut()
+                            .and_then(LiveHost::primary_mut)
+                            .is_some_and(|pump| pump.live_range_clear_is_idempotent(control))
+                    });
+                    if !clear_passed {
+                        eprintln!("Slider clear feedback was not idempotent");
+                        std::process::exit(1);
+                    }
+                    let slots_passed = HOST.with(|host| {
+                        host.borrow_mut()
+                            .as_mut()
+                            .and_then(LiveHost::primary_mut)
+                            .is_some_and(LivePump::live_named_slots)
+                    });
+                    if !slots_passed {
+                        eprintln!("live backend fixture did not update NavigationView named slots");
+                        std::process::exit(1);
+                    }
                     let prepared = HOST.with(|host| {
                         host.borrow_mut()
                             .as_mut()

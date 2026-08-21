@@ -545,3 +545,52 @@ fn slider_nan_value_is_idempotent() {
 
     assert_eq!(pump.runtime().batches(), batches);
 }
+
+#[test]
+fn normalized_range_value_clears_are_idempotent() {
+    let mut number_box = Pump::new(RecordingRuntime::default());
+    number_box
+        .mount(NumberBox::new().value(5.0).into())
+        .unwrap();
+    number_box.update(NumberBox::new().into()).unwrap();
+    assert!(
+        number_box
+            .runtime()
+            .commands()
+            .last()
+            .unwrap()
+            .iter()
+            .any(|command| matches!(
+                command,
+                Command::ClearProperty {
+                    property: PropertyId::NumberBoxValue,
+                    ..
+                }
+            ))
+    );
+    let batches = number_box.runtime().batches();
+    number_box.update(NumberBox::new().into()).unwrap();
+    assert_eq!(number_box.runtime().batches(), batches);
+
+    let mut slider = Pump::new(RecordingRuntime::default());
+    slider.mount(Slider::new().value(5.0).into()).unwrap();
+    slider.update(Slider::new().into()).unwrap();
+    assert!(
+        slider
+            .runtime()
+            .commands()
+            .last()
+            .unwrap()
+            .iter()
+            .any(|command| matches!(
+                command,
+                Command::ClearProperty {
+                    property: PropertyId::SliderValue,
+                    ..
+                }
+            ))
+    );
+    let batches = slider.runtime().batches();
+    slider.update(Slider::new().into()).unwrap();
+    assert_eq!(slider.runtime().batches(), batches);
+}

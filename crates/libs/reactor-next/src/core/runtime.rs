@@ -217,6 +217,11 @@ pub enum Command {
         node: NodeId,
         event: EventId,
     },
+    SetSlot {
+        parent: NodeId,
+        slot: SlotId,
+        child: Option<NodeId>,
+    },
     InsertChild {
         parent: NodeId,
         child: NodeId,

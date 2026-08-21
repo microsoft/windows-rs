@@ -51,6 +51,38 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             .iter()
             .map(|event| ident(&format!("{}{}", control.name, event.name)))
     });
+    let slot_ids = schema.controls.iter().flat_map(|control| {
+        control
+            .slots
+            .iter()
+            .map(|slot| ident(&format!("{}{}", control.name, slot.name)))
+    });
+    let slot_id_lookups = schema
+        .controls
+        .iter()
+        .filter(|control| !control.slots.is_empty())
+        .map(|control| {
+            let kind = ident(&control.name);
+            let indexes = control.slots.iter().enumerate().map(|(index, slot)| {
+                let index = u8::try_from(index).unwrap();
+                let slot = ident(&format!("{}{}", control.name, slot.name));
+                quote! { #index => Some(SlotId::#slot) }
+            });
+            quote! {
+                MountedKind::#kind => match index {
+                    #(#indexes,)*
+                    _ => None,
+                }
+            }
+        });
+    let slot_lists = schema.controls.iter().map(|control| {
+        let kind = ident(&control.name);
+        let slots = control.slots.iter().map(|slot| {
+            let slot = ident(&format!("{}{}", control.name, slot.name));
+            quote! { SlotId::#slot }
+        });
+        quote! { MountedKind::#kind => &[#(#slots),*] }
+    });
     let property_values = generate_property_values(schema);
     let event_payloads = generate_event_payloads(schema);
     let descriptors = schema.controls.iter().map(generate_descriptors);
@@ -171,9 +203,27 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             }
         }
 
-        #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+        #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
         pub enum MountedKind {
             #(#mounted_variants),*
+        }
+
+        #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+        pub enum SlotId {
+            #(#slot_ids),*
+        }
+
+        pub fn slot_id(kind: MountedKind, index: u8) -> Option<SlotId> {
+            match kind {
+                #(#slot_id_lookups,)*
+                _ => None,
+            }
+        }
+
+        pub fn slots(kind: MountedKind) -> &'static [SlotId] {
+            match kind {
+                #(#slot_lists),*
+            }
         }
 
         #[derive(Clone, Debug)]
@@ -232,6 +282,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             Content,
             Children,
             Controlled,
+            Slots,
             Virtual,
         }
 
@@ -269,6 +320,14 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         }
 
         #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+        pub struct SlotDescriptor {
+            pub id: SlotId,
+            pub name: &'static str,
+            pub interface: &'static str,
+            pub target: &'static str,
+        }
+
+        #[derive(Clone, Copy, Debug, Eq, PartialEq)]
         pub struct ControlDescriptor {
             pub kind: MountedKind,
             pub name: &'static str,
@@ -277,6 +336,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             pub capabilities: &'static [Capability],
             pub properties: &'static [PropertyDescriptor],
             pub events: &'static [EventDescriptor],
+            pub slots: &'static [SlotDescriptor],
         }
 
         #(#descriptors)*
@@ -296,6 +356,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                     control.kind,
                     control.role,
                     control.capabilities,
+                    control.slots,
                 );
                 let mut property_index = 0;
                 while property_index < control.properties.len() {
@@ -324,6 +385,12 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                         event.interface,
                     );
                     event_index += 1;
+                }
+                let mut slot_index = 0;
+                while slot_index < control.slots.len() {
+                    let slot = &control.slots[slot_index];
+                    let _ = (slot.id, slot.name, slot.interface, slot.target);
+                    slot_index += 1;
                 }
                 control_index += 1;
             }
@@ -411,7 +478,9 @@ fn generate_element_parts(control: &ResolvedControl) -> TokenStream {
             quote! { items },
             quote! { ElementStructure::Virtual(items) },
         ),
-        Role::Leaf | Role::Controlled => (TokenStream::new(), quote! { ElementStructure::None }),
+        Role::Leaf | Role::Controlled | Role::Slots => {
+            (TokenStream::new(), quote! { ElementStructure::None })
+        }
     };
 
     quote! {
@@ -469,7 +538,9 @@ fn generate_element_structure(control: &ResolvedControl) -> TokenStream {
         Role::Virtual => {
             quote! { Self::#name(value) => ElementStructureRef::Virtual(value.items.as_slice()) }
         }
-        Role::Leaf | Role::Controlled => quote! { Self::#name(_) => ElementStructureRef::None },
+        Role::Leaf | Role::Controlled | Role::Slots => {
+            quote! { Self::#name(_) => ElementStructureRef::None }
+        }
     }
 }
 
@@ -783,7 +854,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         Role::Content => quote! { content: Option<Box<Element>> },
         Role::Children => quote! { children: std::rc::Rc<Vec<KeyedElement>> },
         Role::Virtual => quote! { items: std::rc::Rc<Vec<KeyedElement>> },
-        Role::Leaf | Role::Controlled => TokenStream::new(),
+        Role::Leaf | Role::Controlled | Role::Slots => TokenStream::new(),
     };
     let property_methods = control.properties.iter().flat_map(|property| {
         let field = ident(&property.field);
@@ -888,7 +959,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                 self.items.as_slice()
             }
         },
-        Role::Leaf | Role::Controlled => TokenStream::new(),
+        Role::Leaf | Role::Controlled | Role::Slots => TokenStream::new(),
     };
     let capability_impls = control.capabilities.iter().map(|capability| {
         let capability = ident(match capability {
@@ -902,6 +973,27 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         });
         quote! { impl #capability for #name {} }
     });
+    let slots = if control.slots.is_empty() {
+        TokenStream::new()
+    } else {
+        let slot_name = ident(&format!("{}Slot", control.name));
+        let variants = control.slots.iter().map(|slot| ident(&slot.name));
+        quote! {
+            #[repr(u8)]
+            #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+            pub enum #slot_name {
+                #(#variants),*
+            }
+
+            impl SlotsControl for #name {
+                type Slot = #slot_name;
+
+                fn slot_index(slot: Self::Slot) -> u8 {
+                    slot as u8
+                }
+            }
+        }
+    };
     quote! {
         #[derive(Clone, Debug, Default, PartialEq)]
         pub struct #name {
@@ -922,6 +1014,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
 
         impl sealed::Sealed for #name {}
         #(#capability_impls)*
+        #slots
     }
 }
 
@@ -940,6 +1033,7 @@ fn value_equality(
 fn generate_descriptors(control: &ResolvedControl) -> TokenStream {
     let properties_ident = descriptor_ident(&control.name, "PROPERTIES");
     let events_ident = descriptor_ident(&control.name, "EVENTS");
+    let slots_ident = descriptor_ident(&control.name, "SLOTS");
     let properties = control.properties.iter().map(|property| {
         let id = ident(&format!("{}{}", control.name, property.name));
         let name = &property.name;
@@ -995,6 +1089,22 @@ fn generate_descriptors(control: &ResolvedControl) -> TokenStream {
             }
         }
     });
+    let slots = control.slots.iter().map(|slot| {
+        let id = ident(&format!("{}{}", control.name, slot.name));
+        let name = &slot.name;
+        let interface = &slot.interface;
+        let target = match slot.target {
+            crate::schema::SlotTarget::Inspectable => "inspectable",
+        };
+        quote! {
+            SlotDescriptor {
+                id: SlotId::#id,
+                name: #name,
+                interface: #interface,
+                target: #target,
+            }
+        }
+    });
 
     quote! {
         const #properties_ident: &[PropertyDescriptor] = &[
@@ -1002,6 +1112,9 @@ fn generate_descriptors(control: &ResolvedControl) -> TokenStream {
         ];
         const #events_ident: &[EventDescriptor] = &[
             #(#events),*
+        ];
+        const #slots_ident: &[SlotDescriptor] = &[
+            #(#slots),*
         ];
     }
 }
@@ -1016,6 +1129,7 @@ fn generate_control(control: &ResolvedControl) -> TokenStream {
             Role::Content => "Content",
             Role::Children => "Children",
             Role::Controlled => "Controlled",
+            Role::Slots => "Slots",
             Role::Virtual => "Virtual",
         },
         Span::call_site(),
@@ -1037,6 +1151,7 @@ fn generate_control(control: &ResolvedControl) -> TokenStream {
     });
     let properties = descriptor_ident(name, "PROPERTIES");
     let events = descriptor_ident(name, "EVENTS");
+    let slots = descriptor_ident(name, "SLOTS");
 
     quote! {
         ControlDescriptor {
@@ -1047,6 +1162,7 @@ fn generate_control(control: &ResolvedControl) -> TokenStream {
             capabilities: &[#(#capabilities),*],
             properties: #properties,
             events: #events,
+            slots: #slots,
         }
     }
 }
@@ -1090,11 +1206,16 @@ mod tests {
         let resolved = schema.resolve(&metadata).unwrap();
         let output = generate(&resolved);
 
-        assert_eq!(output.matches("ControlDescriptor").count(), 10);
+        assert_eq!(output.matches("ControlDescriptor").count(), 11);
         assert!(output.contains("feedback : Some"));
         assert!(output.contains("feedback_contract : Some (\"synchronous_normalized\")"));
         assert!(output.contains("pub struct NumberBox"));
         assert!(output.contains("pub struct Slider"));
+        assert!(output.contains("pub struct NavigationView"));
+        assert!(output.contains("pub enum NavigationViewSlot"));
+        assert!(output.contains("impl SlotsControl for NavigationView"));
+        assert!(output.contains("NavigationViewContent"));
+        assert!(output.contains("NavigationViewHeader"));
         assert!(output.contains("ControlRole :: Children"));
         assert!(output.contains("pub struct TextBox"));
         assert!(output.contains("impl ControlledTextControl for TextBox"));

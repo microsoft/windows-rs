@@ -2,7 +2,7 @@ use serde::Deserialize;
 use std::collections::HashSet;
 use std::path::{Path, PathBuf};
 use tool_reactor::helpers::to_snake_case;
-use tool_reactor::metadata::{MetadataResolver, ReadValueConversion};
+use tool_reactor::metadata::{MetadataResolver, ParamClass, ReadValueConversion};
 
 pub(crate) fn workspace_path(path: impl AsRef<Path>) -> PathBuf {
     Path::new(env!("CARGO_MANIFEST_DIR"))
@@ -28,6 +28,8 @@ pub(crate) struct Control {
     pub(crate) property: Vec<Property>,
     #[serde(default)]
     pub(crate) event: Vec<Event>,
+    #[serde(default)]
+    pub(crate) slot: Vec<Slot>,
 }
 
 #[derive(Clone, Copy, Deserialize)]
@@ -37,6 +39,7 @@ pub(crate) enum Role {
     Content,
     Children,
     Controlled,
+    Slots,
     Virtual,
 }
 
@@ -88,6 +91,18 @@ pub(crate) struct Event {
     pub(crate) property: Option<String>,
 }
 
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+pub(crate) struct Slot {
+    pub(crate) name: String,
+}
+
+#[derive(Clone, Copy, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub(crate) enum SlotTarget {
+    Inspectable,
+}
+
 pub(crate) struct ResolvedSchema {
     pub(crate) controls: Vec<ResolvedControl>,
 }
@@ -99,6 +114,7 @@ pub(crate) struct ResolvedControl {
     pub(crate) capabilities: Vec<Capability>,
     pub(crate) properties: Vec<ResolvedProperty>,
     pub(crate) events: Vec<ResolvedEvent>,
+    pub(crate) slots: Vec<ResolvedSlot>,
 }
 
 pub(crate) struct ResolvedProperty {
@@ -122,6 +138,12 @@ pub(crate) struct ResolvedEvent {
     pub(crate) property: Option<String>,
     pub(crate) source: EventPayloadSource,
     pub(crate) conversion: EventPayloadConversion,
+}
+
+pub(crate) struct ResolvedSlot {
+    pub(crate) name: String,
+    pub(crate) interface: String,
+    pub(crate) target: SlotTarget,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -161,6 +183,7 @@ impl Schema {
 
             let mut properties = Vec::with_capacity(control.property.len());
             let mut events = Vec::with_capacity(control.event.len());
+            let mut slots = Vec::with_capacity(control.slot.len());
             let mut member_names = HashSet::new();
             let mut field_names = HashSet::new();
 
@@ -331,6 +354,34 @@ impl Schema {
                 });
             }
 
+            for slot in control.slot {
+                validate_member(
+                    &control.type_name,
+                    &slot.name,
+                    None,
+                    &mut member_names,
+                    &mut field_names,
+                )?;
+                let method = format!("put_{}", slot.name);
+                let interface = metadata.resolve(&name, &method).ok_or_else(|| {
+                    format!(
+                        "{}.{} is not a metadata slot property",
+                        control.type_name, slot.name
+                    )
+                })?;
+                if metadata.classify_param(&name, &method) != Some(ParamClass::IInspectable) {
+                    return Err(format!(
+                        "{}.{} has an unsupported slot parameter",
+                        control.type_name, slot.name
+                    ));
+                }
+                slots.push(ResolvedSlot {
+                    name: slot.name,
+                    interface: interface.full_path(),
+                    target: SlotTarget::Inspectable,
+                });
+            }
+
             let coercing_events = properties
                 .iter()
                 .filter(|property| !property.observes_feedback)
@@ -377,6 +428,7 @@ impl Schema {
                 capabilities: control.capabilities,
                 properties,
                 events,
+                slots,
             });
         }
 
@@ -386,6 +438,12 @@ impl Schema {
 
 fn validate_role(control: &Control) -> Result<(), String> {
     let has = |capability| control.capabilities.contains(&capability);
+    if !matches!(control.role, Role::Slots) && !control.slot.is_empty() {
+        return Err(format!(
+            "{} slot declarations need the slots role",
+            control.type_name
+        ));
+    }
     match control.role {
         Role::Content if !has(Capability::Content) => Err(format!(
             "{} content role needs content capability",
@@ -410,7 +468,16 @@ fn validate_role(control: &Control) -> Result<(), String> {
                 control.type_name
             ))
         }
-        Role::Leaf | Role::Content | Role::Children | Role::Controlled | Role::Virtual => Ok(()),
+        Role::Slots if control.slot.len() < 2 => Err(format!(
+            "{} slots role needs at least two slots",
+            control.type_name
+        )),
+        Role::Leaf
+        | Role::Content
+        | Role::Children
+        | Role::Controlled
+        | Role::Slots
+        | Role::Virtual => Ok(()),
     }
 }
 
@@ -441,7 +508,7 @@ mod tests {
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
         let resolved = schema.resolve(&metadata).unwrap();
 
-        assert_eq!(resolved.controls.len(), 8);
+        assert_eq!(resolved.controls.len(), 9);
         assert_eq!(resolved.controls[0].name, "TextBlock");
         assert_eq!(resolved.controls[0].properties[0].value, "Str");
         assert_eq!(resolved.controls[1].events[0].payload, "Unit");
@@ -472,7 +539,72 @@ mod tests {
         );
         assert!(!resolved.controls[5].properties[0].observes_feedback);
         assert!(resolved.controls[5].properties[2].observes_feedback);
-        assert!(matches!(resolved.controls[6].role, Role::Virtual));
+        assert_eq!(resolved.controls[6].name, "NavigationView");
+        assert!(matches!(resolved.controls[6].role, Role::Slots));
+        assert_eq!(resolved.controls[6].slots.len(), 2);
+        assert_eq!(resolved.controls[6].slots[0].name, "Content");
+        assert!(
+            resolved.controls[6].slots[0]
+                .interface
+                .ends_with("IContentControl")
+        );
+        assert_eq!(resolved.controls[6].slots[1].name, "Header");
+        assert!(
+            resolved.controls[6].slots[1]
+                .interface
+                .ends_with("INavigationView")
+        );
+        assert!(matches!(resolved.controls[7].role, Role::Virtual));
+    }
+
+    #[test]
+    fn rejects_duplicate_and_non_object_slots() {
+        let duplicate = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.NavigationView"
+role = "slots"
+capabilities = ["layout"]
+
+[[control.slot]]
+name = "Content"
+
+[[control.slot]]
+name = "Content"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let error = Schema::parse(duplicate)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+        assert!(error.contains("duplicate member Content"));
+
+        let non_object = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.Slider"
+role = "slots"
+capabilities = ["layout"]
+
+[[control.slot]]
+name = "Value"
+
+[[control.slot]]
+name = "IsEnabled"
+"#;
+        let error = Schema::parse(non_object)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+        assert!(error.contains("unsupported slot parameter"));
+
+        let wrong_role = duplicate.replace("role = \"slots\"", "role = \"leaf\"");
+        let error = Schema::parse(&wrong_role)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+        assert!(error.contains("slot declarations need the slots role"));
     }
 
     #[test]

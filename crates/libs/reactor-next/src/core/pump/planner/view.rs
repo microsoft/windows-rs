@@ -2,6 +2,7 @@
 //! reconciliation and mounting, built on top of `element` and `topology`.
 
 use super::super::*;
+use super::topology::NativeAttachment;
 
 impl<R: NativeRuntime> Pump<R> {
     pub(in super::super) fn reconcile_planned_view(
@@ -156,6 +157,61 @@ impl<R: NativeRuntime> Pump<R> {
                                 plan,
                             )?;
                         }
+                    }
+                }
+                Ok(node)
+            }
+            ViewKind::Slots {
+                control,
+                slots: desired,
+            } => {
+                if !Self::control_has_role(control.kind(), ControlRole::Slots) {
+                    return Err(PumpError::StructureUnsupported);
+                }
+                let slot_ids = slots(control.kind());
+                let structure_matches = tree.kind(node)? == NodeKind::Native(control.kind())
+                    && tree.children(node)?.len() == slot_ids.len()
+                    && tree
+                        .children(node)?
+                        .iter()
+                        .zip(slot_ids)
+                        .all(|(node, slot)| tree.kind(*node) == Ok(NodeKind::NamedSlot(*slot)));
+                if !structure_matches {
+                    return Self::replace_planned_view(
+                        tree,
+                        node,
+                        View::from_kind(ViewKind::Slots {
+                            control,
+                            slots: desired,
+                        }),
+                        components,
+                        changes,
+                        plan,
+                    );
+                }
+                Self::reconcile_shallow_control(tree, node, control, plan)?;
+                let mut desired = collect_desired_slots(desired)?;
+                let slot_ids = slots(node_kind(tree, node)?);
+                if desired.keys().any(|slot| !slot_ids.contains(slot)) {
+                    return Err(PumpError::StructureUnsupported);
+                }
+                let children = tree.children(node)?.to_vec();
+                if children.len() != slot_ids.len() {
+                    return Err(PumpError::StructureUnsupported);
+                }
+                for (slot_node, slot) in children.into_iter().zip(slot_ids.iter().copied()) {
+                    if tree.kind(slot_node)? != NodeKind::NamedSlot(slot) {
+                        return Err(PumpError::StructureUnsupported);
+                    }
+                    let [child] = tree.children(slot_node)? else {
+                        return Err(PumpError::StructureUnsupported);
+                    };
+                    let view = desired.remove(&slot).unwrap_or_else(View::empty);
+                    let child = Self::reconcile_planned_view(
+                        tree, *child, view, components, changes, plan,
+                    )?;
+                    if Self::native_roots(tree, child)?.len() > 1 {
+                        return Err(PumpError::StructureUnsupported);
                     }
                 }
                 Ok(node)
@@ -408,10 +464,25 @@ impl<R: NativeRuntime> Pump<R> {
 
         let new_native = Self::native_roots(tree, node)?;
         if old_native != new_native {
-            let (native_parent, _) = Self::native_location(tree, node)?;
-            let native = Self::native_children(tree, native_parent)?;
-            Self::validate_native_arity(tree, native_parent, &native)?;
-            plan.synchronize_children(native_parent, native);
+            match Self::native_attachment(tree, node)? {
+                NativeAttachment::Children { parent, .. } => {
+                    let native = Self::native_children(tree, parent)?;
+                    Self::validate_native_arity(tree, parent, &native)?;
+                    plan.synchronize_children(parent, native);
+                }
+                NativeAttachment::Slot { parent, slot } => {
+                    let child = match new_native.as_slice() {
+                        [] => None,
+                        [child] => Some(*child),
+                        _ => return Err(PumpError::StructureUnsupported),
+                    };
+                    plan.push(Command::SetSlot {
+                        parent,
+                        slot,
+                        child,
+                    });
+                }
+            }
         }
         Ok(())
     }
@@ -431,8 +502,12 @@ impl<R: NativeRuntime> Pump<R> {
             .iter()
             .position(|child| *child == node)
             .ok_or(PumpError::StructureUnsupported)?;
-        let (native_parent, native_index) = Self::native_location(tree, node)?;
-        if tree.kind(native_parent)? == NodeKind::VirtualCollection {
+        let attachment = Self::native_attachment(tree, node)?;
+        if matches!(
+            attachment,
+            NativeAttachment::Children { parent, .. }
+                if tree.kind(parent)? == NodeKind::VirtualCollection
+        ) {
             return Err(PumpError::StructureUnsupported);
         }
 
@@ -448,14 +523,33 @@ impl<R: NativeRuntime> Pump<R> {
         children.remove(appended);
         children.insert(index, replacement);
         tree.set_children(parent, children)?;
-        let native_children = Self::native_children(tree, native_parent)?;
-        Self::validate_native_arity(tree, native_parent, &native_children)?;
-        for (index, child) in native.into_iter().enumerate() {
-            plan.push(Command::InsertChild {
-                parent: native_parent,
-                child,
-                index: native_index + index,
-            });
+        match attachment {
+            NativeAttachment::Children {
+                parent,
+                index: native_index,
+            } => {
+                let native_children = Self::native_children(tree, parent)?;
+                Self::validate_native_arity(tree, parent, &native_children)?;
+                for (index, child) in native.into_iter().enumerate() {
+                    plan.push(Command::InsertChild {
+                        parent,
+                        child,
+                        index: native_index + index,
+                    });
+                }
+            }
+            NativeAttachment::Slot { parent, slot } => {
+                let child = match native.as_slice() {
+                    [] => None,
+                    [child] => Some(*child),
+                    _ => return Err(PumpError::StructureUnsupported),
+                };
+                plan.push(Command::SetSlot {
+                    parent,
+                    slot,
+                    child,
+                });
+            }
         }
         Ok(replacement)
     }
@@ -588,6 +682,51 @@ impl<R: NativeRuntime> Pump<R> {
                 )?;
                 Ok((node, native))
             }
+            ViewKind::Slots {
+                control,
+                slots: desired,
+            } => {
+                if !Self::element_structure_is_empty(&control)
+                    || !Self::control_has_role(control.kind(), ControlRole::Slots)
+                {
+                    return Err(PumpError::StructureUnsupported);
+                }
+                let kind = control.kind();
+                let mut desired = collect_desired_slots(desired)?;
+                let slot_ids = slots(kind);
+                if desired.len() > slot_ids.len()
+                    || desired.keys().any(|slot| !slot_ids.contains(slot))
+                {
+                    return Err(PumpError::StructureUnsupported);
+                }
+                let node = Self::mount_planned_element(tree, logical_parent, key, control, plan)?;
+                for slot in slot_ids {
+                    let slot_node = tree.insert(Some(node), NodeKind::NamedSlot(*slot))?;
+                    let view = desired.remove(slot).unwrap_or_else(View::empty);
+                    let (_, native) = Self::mount_planned_view(
+                        tree,
+                        Some(slot_node),
+                        None,
+                        view,
+                        components,
+                        changes,
+                        plan,
+                    )?;
+                    let child = match native.as_slice() {
+                        [] => None,
+                        [child] => Some(*child),
+                        _ => return Err(PumpError::StructureUnsupported),
+                    };
+                    if child.is_some() {
+                        plan.push(Command::SetSlot {
+                            parent: node,
+                            slot: *slot,
+                            child,
+                        });
+                    }
+                }
+                Ok((node, vec![node]))
+            }
             ViewKind::Content { control, content } => {
                 if !Self::element_structure_is_empty(&control)
                     || !Self::control_has_role(control.kind(), ControlRole::Content)
@@ -652,8 +791,26 @@ impl<R: NativeRuntime> Pump<R> {
                         native_index += 1;
                     }
                 }
+
                 Ok((node, vec![node]))
             }
         }
     }
+}
+
+fn node_kind(tree: &Tree, node: NodeId) -> Result<MountedKind, PumpError> {
+    match tree.kind(node)? {
+        NodeKind::Native(kind) => Ok(kind),
+        _ => Err(PumpError::StructureUnsupported),
+    }
+}
+
+fn collect_desired_slots(slots: Rc<Vec<SlottedView>>) -> Result<HashMap<SlotId, View>, PumpError> {
+    let mut desired = HashMap::new();
+    for slot in Rc::unwrap_or_clone(slots) {
+        if desired.insert(slot.slot, slot.view).is_some() {
+            return Err(PumpError::StructureUnsupported);
+        }
+    }
+    Ok(desired)
 }

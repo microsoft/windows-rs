@@ -10,6 +10,7 @@ Microsoft::UI::Xaml::Controls::Control::IsEnabledProperty
 Microsoft::UI::Xaml::Controls::IContentControl::put_Content
 Microsoft::UI::Xaml::Controls::IControl::put_IsEnabled
 Microsoft::UI::Xaml::Controls::IItemsRepeater::{put_ItemsSource, put_ItemTemplate}
+Microsoft::UI::Xaml::Controls::INavigationView::put_Header
 Microsoft::UI::Xaml::Controls::INumberBox::get_Value
 Microsoft::UI::Xaml::Controls::INumberBox::put_Maximum
 Microsoft::UI::Xaml::Controls::INumberBox::put_Minimum
@@ -26,6 +27,7 @@ Microsoft::UI::Xaml::Controls::ITextBox::put_PlaceholderText
 Microsoft::UI::Xaml::Controls::ITextBox::put_Text
 Microsoft::UI::Xaml::Controls::ITextBox::{add_TextChanged, remove_TextChanged}
 Microsoft::UI::Xaml::Controls::ItemsRepeater::CreateInstance
+Microsoft::UI::Xaml::Controls::NavigationView::CreateInstance
 Microsoft::UI::Xaml::Controls::NumberBox::CreateInstance
 Microsoft::UI::Xaml::Controls::NumberBox::MaximumProperty
 Microsoft::UI::Xaml::Controls::NumberBox::MinimumProperty

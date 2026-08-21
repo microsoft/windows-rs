@@ -264,6 +264,37 @@ pub mod public {
     impl LayoutControl for Slider {}
     impl EnabledControl for Slider {}
     #[derive(Clone, Debug, Default, PartialEq)]
+    pub struct NavigationView {
+        is_enabled: Property<bool>,
+    }
+    impl NavigationView {
+        pub fn new() -> Self {
+            Self::default()
+        }
+        pub fn is_enabled(mut self, value: bool) -> Self {
+            self.is_enabled = Property::Set(value);
+            self
+        }
+        pub fn is_enabled_property(&self) -> &Property<bool> {
+            &self.is_enabled
+        }
+    }
+    impl sealed::Sealed for NavigationView {}
+    impl LayoutControl for NavigationView {}
+    impl EnabledControl for NavigationView {}
+    #[repr(u8)]
+    #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+    pub enum NavigationViewSlot {
+        Content,
+        Header,
+    }
+    impl SlotsControl for NavigationView {
+        type Slot = NavigationViewSlot;
+        fn slot_index(slot: Self::Slot) -> u8 {
+            slot as u8
+        }
+    }
+    #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ItemsRepeater {
         items: std::rc::Rc<Vec<KeyedElement>>,
     }
@@ -313,6 +344,7 @@ pub mod public {
         TextBox(TextBox),
         NumberBox(NumberBox),
         Slider(Slider),
+        NavigationView(NavigationView),
         ItemsRepeater(ItemsRepeater),
         ScrollViewer(ScrollViewer),
     }
@@ -346,6 +378,11 @@ pub mod public {
             Self::Slider(value)
         }
     }
+    impl From<NavigationView> for Element {
+        fn from(value: NavigationView) -> Self {
+            Self::NavigationView(value)
+        }
+    }
     impl From<ItemsRepeater> for Element {
         fn from(value: ItemsRepeater) -> Self {
             Self::ItemsRepeater(value)
@@ -365,6 +402,7 @@ pub mod public {
                 Self::TextBox(_) => MountedKind::TextBox,
                 Self::NumberBox(_) => MountedKind::NumberBox,
                 Self::Slider(_) => MountedKind::Slider,
+                Self::NavigationView(_) => MountedKind::NavigationView,
                 Self::ItemsRepeater(_) => MountedKind::ItemsRepeater,
                 Self::ScrollViewer(_) => MountedKind::ScrollViewer,
             }
@@ -453,6 +491,11 @@ pub mod public {
                         is_enabled,
                         on_value_changed,
                     },
+                    structure: ElementStructure::None,
+                },
+                Self::NavigationView(NavigationView { is_enabled }) => ElementParts {
+                    kind: MountedKind::NavigationView,
+                    props: MountedProps::NavigationView { is_enabled },
                     structure: ElementStructure::None,
                 },
                 Self::ItemsRepeater(ItemsRepeater { items }) => ElementParts {
@@ -571,6 +614,12 @@ pub mod public {
                         && is_enabled == mounted_is_enabled
                         && on_value_changed == mounted_on_value_changed
                 }
+                (
+                    Self::NavigationView(NavigationView { is_enabled, .. }),
+                    MountedProps::NavigationView {
+                        is_enabled: mounted_is_enabled,
+                    },
+                ) => true && is_enabled == mounted_is_enabled,
                 (Self::ItemsRepeater(ItemsRepeater { .. }), MountedProps::ItemsRepeater {}) => true,
                 (Self::ScrollViewer(ScrollViewer { .. }), MountedProps::ScrollViewer {}) => true,
                 _ => false,
@@ -584,6 +633,7 @@ pub mod public {
                 Self::TextBox(_) => ElementStructureRef::None,
                 Self::NumberBox(_) => ElementStructureRef::None,
                 Self::Slider(_) => ElementStructureRef::None,
+                Self::NavigationView(_) => ElementStructureRef::None,
                 Self::ItemsRepeater(value) => ElementStructureRef::Virtual(value.items.as_slice()),
                 Self::ScrollViewer(value) => ElementStructureRef::Content(value.content.as_deref()),
             }
@@ -604,6 +654,7 @@ pub mod public {
                 Self::Slider(_) => {
                     visit(EventId::SliderValueChanged, true);
                 }
+                Self::NavigationView(_) => {}
                 Self::ItemsRepeater(_) => {}
                 Self::ScrollViewer(_) => {}
             }
@@ -782,6 +833,15 @@ impl MountedPropsExt for MountedProps {
                     },
                 );
             }
+            Self::NavigationView { is_enabled, .. } => {
+                visit(
+                    PropertyId::NavigationViewIsEnabled,
+                    match is_enabled {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+            }
             Self::ItemsRepeater { .. } => {}
             Self::ScrollViewer { .. } => {}
         }
@@ -804,6 +864,7 @@ impl MountedEventsExt for MountedProps {
             Self::Slider { .. } => {
                 visit(EventId::SliderValueChanged, true);
             }
+            Self::NavigationView { .. } => {}
             Self::ItemsRepeater { .. } => {}
             Self::ScrollViewer { .. } => {}
         }
@@ -876,7 +937,7 @@ impl MountedEventsExt for MountedProps {
         }
     }
 }
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum MountedKind {
     TextBlock,
     Button,
@@ -884,8 +945,39 @@ pub enum MountedKind {
     TextBox,
     NumberBox,
     Slider,
+    NavigationView,
     ItemsRepeater,
     ScrollViewer,
+}
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum SlotId {
+    NavigationViewContent,
+    NavigationViewHeader,
+}
+pub fn slot_id(kind: MountedKind, index: u8) -> Option<SlotId> {
+    match kind {
+        MountedKind::NavigationView => match index {
+            0u8 => Some(SlotId::NavigationViewContent),
+            1u8 => Some(SlotId::NavigationViewHeader),
+            _ => None,
+        },
+        _ => None,
+    }
+}
+pub fn slots(kind: MountedKind) -> &'static [SlotId] {
+    match kind {
+        MountedKind::TextBlock => &[],
+        MountedKind::Button => &[],
+        MountedKind::StackPanel => &[],
+        MountedKind::TextBox => &[],
+        MountedKind::NumberBox => &[],
+        MountedKind::Slider => &[],
+        MountedKind::NavigationView => {
+            &[SlotId::NavigationViewContent, SlotId::NavigationViewHeader]
+        }
+        MountedKind::ItemsRepeater => &[],
+        MountedKind::ScrollViewer => &[],
+    }
 }
 #[derive(Clone, Debug)]
 pub enum MountedProps {
@@ -920,6 +1012,9 @@ pub enum MountedProps {
         value: Property<f64>,
         is_enabled: Property<bool>,
         on_value_changed: Option<Callback<f64>>,
+    },
+    NavigationView {
+        is_enabled: Property<bool>,
     },
     ItemsRepeater {},
     ScrollViewer {},
@@ -1023,6 +1118,14 @@ impl PartialEq for MountedProps {
                     && left_is_enabled == right_is_enabled
                     && left_on_value_changed == right_on_value_changed
             }
+            (
+                Self::NavigationView {
+                    is_enabled: left_is_enabled,
+                },
+                Self::NavigationView {
+                    is_enabled: right_is_enabled,
+                },
+            ) => true && left_is_enabled == right_is_enabled,
             (Self::ItemsRepeater {}, Self::ItemsRepeater {}) => true,
             (Self::ScrollViewer {}, Self::ScrollViewer {}) => true,
             _ => false,
@@ -1067,6 +1170,7 @@ pub enum PropertyId {
     SliderMaximum,
     SliderValue,
     SliderIsEnabled,
+    NavigationViewIsEnabled,
 }
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum EventId {
@@ -1142,6 +1246,7 @@ pub enum ControlRole {
     Content,
     Children,
     Controlled,
+    Slots,
     Virtual,
 }
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1175,6 +1280,13 @@ pub struct EventDescriptor {
     pub interface: &'static str,
 }
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct SlotDescriptor {
+    pub id: SlotId,
+    pub name: &'static str,
+    pub interface: &'static str,
+    pub target: &'static str,
+}
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ControlDescriptor {
     pub kind: MountedKind,
     pub name: &'static str,
@@ -1183,6 +1295,7 @@ pub struct ControlDescriptor {
     pub capabilities: &'static [Capability],
     pub properties: &'static [PropertyDescriptor],
     pub events: &'static [EventDescriptor],
+    pub slots: &'static [SlotDescriptor],
 }
 const TEXT_BLOCK_PROPERTIES: &[PropertyDescriptor] = &[
     PropertyDescriptor {
@@ -1209,6 +1322,7 @@ const TEXT_BLOCK_PROPERTIES: &[PropertyDescriptor] = &[
     },
 ];
 const TEXT_BLOCK_EVENTS: &[EventDescriptor] = &[];
+const TEXT_BLOCK_SLOTS: &[SlotDescriptor] = &[];
 const BUTTON_PROPERTIES: &[PropertyDescriptor] = &[PropertyDescriptor {
     id: PropertyId::ButtonIsEnabled,
     name: "IsEnabled",
@@ -1227,6 +1341,7 @@ const BUTTON_EVENTS: &[EventDescriptor] = &[EventDescriptor {
     payload: "Unit",
     interface: "Microsoft.UI.Xaml.Controls.Primitives.IButtonBase",
 }];
+const BUTTON_SLOTS: &[SlotDescriptor] = &[];
 const STACK_PANEL_PROPERTIES: &[PropertyDescriptor] = &[
     PropertyDescriptor {
         id: PropertyId::StackPanelOrientation,
@@ -1252,6 +1367,7 @@ const STACK_PANEL_PROPERTIES: &[PropertyDescriptor] = &[
     },
 ];
 const STACK_PANEL_EVENTS: &[EventDescriptor] = &[];
+const STACK_PANEL_SLOTS: &[SlotDescriptor] = &[];
 const TEXT_BOX_PROPERTIES: &[PropertyDescriptor] = &[
     PropertyDescriptor {
         id: PropertyId::TextBoxText,
@@ -1294,6 +1410,7 @@ const TEXT_BOX_EVENTS: &[EventDescriptor] = &[EventDescriptor {
     payload: "Str",
     interface: "Microsoft.UI.Xaml.Controls.ITextBox",
 }];
+const TEXT_BOX_SLOTS: &[SlotDescriptor] = &[];
 const NUMBER_BOX_PROPERTIES: &[PropertyDescriptor] = &[
     PropertyDescriptor {
         id: PropertyId::NumberBoxMinimum,
@@ -1347,6 +1464,7 @@ const NUMBER_BOX_EVENTS: &[EventDescriptor] = &[EventDescriptor {
     payload: "F64",
     interface: "Microsoft.UI.Xaml.Controls.INumberBox",
 }];
+const NUMBER_BOX_SLOTS: &[SlotDescriptor] = &[];
 const SLIDER_PROPERTIES: &[PropertyDescriptor] = &[
     PropertyDescriptor {
         id: PropertyId::SliderMinimum,
@@ -1400,10 +1518,39 @@ const SLIDER_EVENTS: &[EventDescriptor] = &[EventDescriptor {
     payload: "F64",
     interface: "Microsoft.UI.Xaml.Controls.Primitives.IRangeBase",
 }];
+const SLIDER_SLOTS: &[SlotDescriptor] = &[];
+const NAVIGATION_VIEW_PROPERTIES: &[PropertyDescriptor] = &[PropertyDescriptor {
+    id: PropertyId::NavigationViewIsEnabled,
+    name: "IsEnabled",
+    field: "is_enabled",
+    value: "Bool",
+    interface: "Microsoft.UI.Xaml.Controls.IControl",
+    clearable: true,
+    feedback: None,
+    feedback_contract: None,
+    observes_feedback: false,
+}];
+const NAVIGATION_VIEW_EVENTS: &[EventDescriptor] = &[];
+const NAVIGATION_VIEW_SLOTS: &[SlotDescriptor] = &[
+    SlotDescriptor {
+        id: SlotId::NavigationViewContent,
+        name: "Content",
+        interface: "Microsoft.UI.Xaml.Controls.IContentControl",
+        target: "inspectable",
+    },
+    SlotDescriptor {
+        id: SlotId::NavigationViewHeader,
+        name: "Header",
+        interface: "Microsoft.UI.Xaml.Controls.INavigationView",
+        target: "inspectable",
+    },
+];
 const ITEMS_REPEATER_PROPERTIES: &[PropertyDescriptor] = &[];
 const ITEMS_REPEATER_EVENTS: &[EventDescriptor] = &[];
+const ITEMS_REPEATER_SLOTS: &[SlotDescriptor] = &[];
 const SCROLL_VIEWER_PROPERTIES: &[PropertyDescriptor] = &[];
 const SCROLL_VIEWER_EVENTS: &[EventDescriptor] = &[];
+const SCROLL_VIEWER_SLOTS: &[SlotDescriptor] = &[];
 pub const CONTROLS: &[ControlDescriptor] = &[
     ControlDescriptor {
         kind: MountedKind::TextBlock,
@@ -1413,6 +1560,7 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         capabilities: &[Capability::Layout, Capability::TextStyle],
         properties: TEXT_BLOCK_PROPERTIES,
         events: TEXT_BLOCK_EVENTS,
+        slots: TEXT_BLOCK_SLOTS,
     },
     ControlDescriptor {
         kind: MountedKind::Button,
@@ -1422,6 +1570,7 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         capabilities: &[Capability::Layout, Capability::Enabled, Capability::Content],
         properties: BUTTON_PROPERTIES,
         events: BUTTON_EVENTS,
+        slots: BUTTON_SLOTS,
     },
     ControlDescriptor {
         kind: MountedKind::StackPanel,
@@ -1431,6 +1580,7 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         capabilities: &[Capability::Layout, Capability::Children],
         properties: STACK_PANEL_PROPERTIES,
         events: STACK_PANEL_EVENTS,
+        slots: STACK_PANEL_SLOTS,
     },
     ControlDescriptor {
         kind: MountedKind::TextBox,
@@ -1445,6 +1595,7 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         ],
         properties: TEXT_BOX_PROPERTIES,
         events: TEXT_BOX_EVENTS,
+        slots: TEXT_BOX_SLOTS,
     },
     ControlDescriptor {
         kind: MountedKind::NumberBox,
@@ -1454,6 +1605,7 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         capabilities: &[Capability::Layout, Capability::Enabled],
         properties: NUMBER_BOX_PROPERTIES,
         events: NUMBER_BOX_EVENTS,
+        slots: NUMBER_BOX_SLOTS,
     },
     ControlDescriptor {
         kind: MountedKind::Slider,
@@ -1463,6 +1615,17 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         capabilities: &[Capability::Layout, Capability::Enabled],
         properties: SLIDER_PROPERTIES,
         events: SLIDER_EVENTS,
+        slots: SLIDER_SLOTS,
+    },
+    ControlDescriptor {
+        kind: MountedKind::NavigationView,
+        name: "NavigationView",
+        type_name: "Microsoft.UI.Xaml.Controls.NavigationView",
+        role: ControlRole::Slots,
+        capabilities: &[Capability::Layout, Capability::Enabled],
+        properties: NAVIGATION_VIEW_PROPERTIES,
+        events: NAVIGATION_VIEW_EVENTS,
+        slots: NAVIGATION_VIEW_SLOTS,
     },
     ControlDescriptor {
         kind: MountedKind::ItemsRepeater,
@@ -1472,6 +1635,7 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         capabilities: &[Capability::Layout, Capability::Items],
         properties: ITEMS_REPEATER_PROPERTIES,
         events: ITEMS_REPEATER_EVENTS,
+        slots: ITEMS_REPEATER_SLOTS,
     },
     ControlDescriptor {
         kind: MountedKind::ScrollViewer,
@@ -1481,6 +1645,7 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         capabilities: &[Capability::Layout, Capability::Content],
         properties: SCROLL_VIEWER_PROPERTIES,
         events: SCROLL_VIEWER_EVENTS,
+        slots: SCROLL_VIEWER_SLOTS,
     },
 ];
 const _: () = {
@@ -1494,6 +1659,7 @@ const _: () = {
             control.kind,
             control.role,
             control.capabilities,
+            control.slots,
         );
         let mut property_index = 0;
         while property_index < control.properties.len() {
@@ -1522,6 +1688,12 @@ const _: () = {
                 event.interface,
             );
             event_index += 1;
+        }
+        let mut slot_index = 0;
+        while slot_index < control.slots.len() {
+            let slot = &control.slots[slot_index];
+            let _ = (slot.id, slot.name, slot.interface, slot.target);
+            slot_index += 1;
         }
         control_index += 1;
     }

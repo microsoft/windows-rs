@@ -122,6 +122,21 @@ name = "ValueChanged"
 property = "NewValue"
 
 [[control]]
+type = "Microsoft.UI.Xaml.Controls.NavigationView"
+role = "slots"
+capabilities = ["layout", "enabled"]
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.slot]]
+name = "Content"
+
+[[control.slot]]
+name = "Header"
+
+[[control]]
 type = "Microsoft.UI.Xaml.Controls.ItemsRepeater"
 role = "virtual"
 capabilities = ["layout", "items"]

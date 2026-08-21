@@ -47,6 +47,8 @@ pub struct WinUiRuntime {
     pending_application: Option<Application>,
     #[cfg(feature = "test")]
     reject_next_enqueue: Rc<Cell<bool>>,
+    #[cfg(feature = "test")]
+    applied_commands: usize,
 }
 
 impl WinUiRuntime {
@@ -88,6 +90,11 @@ impl WinUiRuntime {
     #[cfg(feature = "test")]
     pub fn live_reject_next_enqueue(&self) {
         self.reject_next_enqueue.set(true);
+    }
+
+    #[cfg(feature = "test")]
+    pub fn live_applied_commands(&self) -> usize {
+        self.applied_commands
     }
 
     fn apply_one(&mut self, command: &Command) -> Result<(), RuntimeError> {
@@ -245,23 +252,10 @@ impl WinUiRuntime {
                         .insert((*node, event), expectation);
                 }
                 let result = clear_property(handle, *property);
-                let observation = feedback_event.and_then(|event| {
-                    self.feedback
-                        .borrow_mut()
-                        .remove(&(*node, event))
-                        .and_then(|expectation| match expectation {
-                            FeedbackExpectation::Normalized { observation } => observation,
-                            FeedbackExpectation::Exact(_) => None,
-                        })
-                });
-                result?;
-                if let Some(observation) = observation {
-                    self.events.borrow_mut().push(NativeWork {
-                        identity: self.identity.get().unwrap(),
-                        work: observation,
-                    });
-                    self.schedule_dispatch()?;
+                if let Some(event) = feedback_event {
+                    self.feedback.borrow_mut().remove(&(*node, event));
                 }
+                result?;
             }
             Command::SubscribeEvent {
                 node,
@@ -285,6 +279,18 @@ impl WinUiRuntime {
                     .remove(&(*node, *event))
                     .ok_or(RuntimeError::MissingSubscription(*node, *event))?;
                 drop(revoker);
+            }
+            Command::SetSlot {
+                parent,
+                slot,
+                child,
+            } => {
+                let child = child.map(|child| self.ui_element(child)).transpose()?;
+                let handle = self
+                    .handles
+                    .get(parent)
+                    .ok_or(RuntimeError::MissingNode(*parent))?;
+                set_slot(handle, *slot, child.as_ref())?;
             }
             Command::InsertChild {
                 parent,
@@ -637,6 +643,10 @@ fn index32(index: usize) -> Result<u32, RuntimeError> {
 
 impl NativeRuntime for WinUiRuntime {
     fn apply(&mut self, commands: &[Command]) -> Result<(), NativeApplyError> {
+        #[cfg(feature = "test")]
+        {
+            self.applied_commands += commands.len();
+        }
         for (index, command) in commands.iter().enumerate() {
             self.apply_one(command).map_err(|error| NativeApplyError {
                 command: index,

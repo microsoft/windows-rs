@@ -12,4 +12,5 @@ mod keyed_fragments;
 mod lifecycle_effects;
 mod mount_update_publication;
 mod properties_native_failure;
+mod slots;
 mod virtualization_realization;

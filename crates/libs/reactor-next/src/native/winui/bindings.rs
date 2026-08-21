@@ -1443,6 +1443,68 @@ pub struct ILaunchActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
+    INavigationView,
+    INavigationView_Vtbl,
+    0xe77a4b36_3dd1_53d9_9f97_65dccaa74a5c
+);
+impl windows_core::RuntimeType for INavigationView {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl INavigationView {
+    pub(crate) fn SetHeader<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetHeader)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct INavigationView_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    IsPaneOpen: usize,
+    SetIsPaneOpen: usize,
+    CompactModeThresholdWidth: usize,
+    SetCompactModeThresholdWidth: usize,
+    ExpandedModeThresholdWidth: usize,
+    SetExpandedModeThresholdWidth: usize,
+    FooterMenuItems: usize,
+    FooterMenuItemsSource: usize,
+    SetFooterMenuItemsSource: usize,
+    PaneFooter: usize,
+    SetPaneFooter: usize,
+    Header: usize,
+    pub SetHeader: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    INavigationViewFactory,
+    INavigationViewFactory_Vtbl,
+    0xffea1ada_9232_5507_a320_ed2fadbe6127
+);
+impl windows_core::RuntimeType for INavigationViewFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct INavigationViewFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     INumberBox,
     INumberBox_Vtbl,
     0xc18eb0e9_29fb_525d_abbc_d6b2110f542e
@@ -2755,6 +2817,62 @@ unsafe impl Sync for LaunchActivatedEventArgs {}
 pub type MddBootstrapInitializeOptions = i32;
 pub const MddBootstrapInitializeOptions_OnNoMatch_ShowUI: MddBootstrapInitializeOptions = 8;
 pub const MddBootstrapInitializeOptions_OnPackageIdentity_NOOP: MddBootstrapInitializeOptions = 16;
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NavigationView(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    NavigationView,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    NavigationView,
+    ContentControl,
+    Control,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
+impl NavigationView {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::INavigationViewFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn INavigationViewFactory<R, F: FnOnce(&INavigationViewFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NavigationView, INavigationViewFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for NavigationView {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, INavigationView>();
+}
+unsafe impl windows_core::Interface for NavigationView {
+    type Vtable = <INavigationView as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <INavigationView as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for NavigationView {
+    type Target = INavigationView;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for NavigationView {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.NavigationView";
+}
+unsafe impl Send for NavigationView {}
+unsafe impl Sync for NavigationView {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NumberBox(windows_core::IUnknown);

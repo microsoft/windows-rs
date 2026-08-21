@@ -87,6 +87,10 @@ pub(crate) enum ViewKind {
         control: Element,
         children: Rc<Vec<KeyedView>>,
     },
+    Slots {
+        control: Element,
+        slots: Rc<Vec<SlottedView>>,
+    },
 }
 
 impl View {
@@ -136,6 +140,28 @@ impl View {
         })
     }
 
+    pub fn slots<C>(control: C, slots: impl IntoIterator<Item = SlotView<C::Slot>>) -> Self
+    where
+        C: SlotsControl + Into<Element>,
+    {
+        let control = control.into();
+        let kind = control.kind();
+        let slots = slots
+            .into_iter()
+            .map(|slot| {
+                let (slot, view) = slot.into_parts();
+                SlottedView {
+                    slot: slot_id(kind, C::slot_index(slot)).unwrap(),
+                    view,
+                }
+            })
+            .collect();
+        Self(ViewKind::Slots {
+            control,
+            slots: Rc::new(slots),
+        })
+    }
+
     pub(crate) fn from_kind(kind: ViewKind) -> Self {
         Self(kind)
     }
@@ -143,6 +169,31 @@ impl View {
     pub(crate) fn into_kind(self) -> ViewKind {
         self.0
     }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub struct SlotView<S> {
+    slot: S,
+    view: View,
+}
+
+impl<S> SlotView<S> {
+    pub fn new(slot: S, view: impl Into<View>) -> Self {
+        Self {
+            slot,
+            view: view.into(),
+        }
+    }
+
+    fn into_parts(self) -> (S, View) {
+        (self.slot, self.view)
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) struct SlottedView {
+    pub(crate) slot: SlotId,
+    pub(crate) view: View,
 }
 
 impl From<Element> for View {
@@ -255,5 +306,11 @@ pub trait TextStyleControl: sealed::Sealed {}
 pub trait EnabledControl: sealed::Sealed {}
 pub trait ContentControl: sealed::Sealed {}
 pub trait ChildrenControl: sealed::Sealed {}
+pub trait SlotsControl: sealed::Sealed {
+    type Slot: Copy;
+
+    #[doc(hidden)]
+    fn slot_index(slot: Self::Slot) -> u8;
+}
 pub trait ControlledTextControl: sealed::Sealed {}
 pub trait ItemsControl: sealed::Sealed {}

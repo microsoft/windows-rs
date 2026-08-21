@@ -218,6 +218,10 @@ and WebView own only behavior that cannot be expressed by the ordinary schema.
 | Slider thin release delta | 847,360 -> 858,624 bytes: +11,264 bytes, +1.33% |
 | Slider PE section delta | `.text` +8,416 bytes; `.rdata` +3,008 bytes |
 | Slider retained core layouts | Unchanged: `Node` 416, `MountedProps` 72, `Element` 80 bytes |
+| NavigationView slots source-only rebuild | 0.530 -> 0.493 seconds: within noise |
+| NavigationView slots thin release delta | 886,784 -> 905,216 bytes: +18,432 bytes, +2.08% |
+| NavigationView slots PE section delta | `.text` +17,136; `.rdata` +880; `.pdata` +792 bytes |
+| NavigationView slots retained layouts | Unchanged: `Node` 416, `MountedProps` 72, `Element` 80 |
 | Isolated component leaf at 512 scopes | 0.51 us, 430 bytes, 9 allocations |
 | Isolated component leaf at 16,384 scopes | 0.51 us, 430 bytes, 9 allocations |
 | Idle component memory | About 2,440 bytes per scope |
@@ -282,7 +286,7 @@ implemented. The remaining guidance is the gate for growing beyond the initial A
 | Expansion | Required proof |
 | --- | --- |
 | Coercing controls | Slider or NumberBox fits generated feedback contracts without Pump state |
-| Multiple slots | NavigationView or TabView uses generated roles rather than control branches |
+| Multiple slots | Passed: NavigationView uses generated roles rather than control branches |
 | Templates | ItemsRepeater passes recycling, local-value, selection, move, and key tests |
 | Third-party controls | Extension contracts add native behavior without a runtime type registry |
 | Generated scale | Each difficult slice records compile, binary, and core-layout deltas |
@@ -308,10 +312,9 @@ The control-cost gate remains open. NumberBox did not change source-only rebuild
 core layouts, but it added 18,432 bytes to the thin release counter. The PE sections grew by 12,256
 bytes of executable code and 4,680 bytes of read-only data. Generated backend dispatch is
 centralized over runtime control and property IDs, so the linker cannot discard every unused-control
-branch.
-Do not extrapolate broad coverage from the favorable compile result alone. Measure a
+branch. Do not extrapolate broad coverage from the favorable compile result alone. Measure a
 representative control batch and decide whether control feature partitioning is needed before
-adding dozens of controls. The generated multi-slot gate follows that decision.
+adding dozens of controls.
 
 For each difficult control slice:
 
@@ -333,6 +336,24 @@ schema alone and passed the same live tighten/coerce/relax/restore sequence as N
 retained core layouts. This confirms a recurring per-control binary cost but does not justify
 feature partitioning yet. The next difficult slice should proceed while preserving the same
 measurement gate; a varied control batch remains necessary before projecting broad coverage.
+
+NavigationView passes the generated multi-slot gate with typed `Content` and `Header` slots. The
+schema resolves each object-valued setter from metadata and generates the public slot enum, slot
+IDs, descriptors, binding filters, and WinUI setter dispatch. Pump sees only transparent
+`NamedSlot` nodes and the generic `SetSlot` command. It has no NavigationView branch, slot ownership
+table, or recovery state. Each slot accepts zero or one flattened native root. Recording tests
+cover independent updates, replacement, clear, invalid arity, context propagation, and effect
+cleanup; the live fixture updates both WinUI slots.
+
+The slice adds 18,432 bytes (+2.08%) to the native thin release counter, mostly executable code,
+and no measured compile or retained-layout regression. This is the third recurring generated-cost
+point and the first that includes new shared structural machinery. Keep the cost gate open until
+the varied batch includes enum-heavy properties and additional event payload shapes.
+
+Normalized clear feedback now has a separate semantic from normalized setter feedback. A
+successful `ClearValue` suppresses its synchronous echo but does not turn the known-native local
+value from `None` into `Some(default)`. NumberBox and Slider live gates clear `Value`, drain native
+events, rerender the same cleared control, and verify that no native command is emitted.
 
 ### Structural composition decision
 
