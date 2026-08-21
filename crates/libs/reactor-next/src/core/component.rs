@@ -1,7 +1,7 @@
 use super::arena::NodeId;
 use super::runtime::WindowToken;
 use super::scope::{ScopeArena, ScopeError, ScopeId, ScopeState};
-use crate::element::View;
+use crate::element::{Callback, View};
 use std::any::{Any, TypeId};
 use std::cell::RefCell;
 use std::collections::{HashMap, HashSet, VecDeque};
@@ -14,6 +14,45 @@ use std::sync::{Arc, Mutex, Weak};
 pub(crate) const BACKGROUND_MESSAGE_QUEUE_CAPACITY: usize = 4_096;
 pub(crate) const BACKGROUND_TASK_CAPACITY: usize = 64;
 pub(crate) const LOCAL_MESSAGE_QUEUE_CAPACITY: usize = 4_096;
+
+#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+pub struct EffectKey(EffectKeyKind);
+
+#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+enum EffectKeyKind {
+    Integer(u64),
+    String(Rc<str>),
+}
+
+impl From<u64> for EffectKey {
+    fn from(value: u64) -> Self {
+        Self(EffectKeyKind::Integer(value))
+    }
+}
+
+impl From<u32> for EffectKey {
+    fn from(value: u32) -> Self {
+        Self(EffectKeyKind::Integer(value.into()))
+    }
+}
+
+impl From<usize> for EffectKey {
+    fn from(value: usize) -> Self {
+        Self(EffectKeyKind::Integer(u64::try_from(value).unwrap()))
+    }
+}
+
+impl From<String> for EffectKey {
+    fn from(value: String) -> Self {
+        Self(EffectKeyKind::String(value.into()))
+    }
+}
+
+impl From<&str> for EffectKey {
+    fn from(value: &str) -> Self {
+        Self(EffectKeyKind::String(value.into()))
+    }
+}
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub(crate) struct ContextId(u64);
@@ -127,13 +166,14 @@ impl ComponentToken {
     }
 }
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub enum ComponentStoreError {
     #[cfg(test)]
     ComponentTypeMismatch {
         expected: TypeId,
         actual: TypeId,
     },
+    DuplicateEffectKey(EffectKey),
     MessageTypeMismatch {
         expected: TypeId,
         actual: TypeId,
@@ -512,6 +552,18 @@ impl<M: 'static> LocalSender<M> {
         }
         true
     }
+
+    pub fn callback<T>(&self, map: impl Fn(T) -> M + 'static) -> Callback<T> {
+        let sender = self.clone();
+        Callback::new_with_acceptance(move |value| sender.send(map(value)))
+    }
+
+    pub fn message(&self, message: M) -> Callback<()>
+    where
+        M: Clone,
+    {
+        self.callback(move |()| message.clone())
+    }
 }
 
 pub struct ComponentContext<C: Component> {
@@ -545,6 +597,17 @@ impl<C: Component> ViewContext<C> {
         self.sender.clone()
     }
 
+    pub fn callback<T>(&self, map: impl Fn(T) -> C::Message + 'static) -> Callback<T> {
+        self.sender.callback(map)
+    }
+
+    pub fn message(&self, message: C::Message) -> Callback<()>
+    where
+        C::Message: Clone,
+    {
+        self.sender.message(message)
+    }
+
     pub fn use_context<T: Clone + 'static>(&mut self, context: &Context<T>) -> T {
         let resolved = self.contexts.get(context);
         self.reads.insert(ContextDependency {
@@ -556,12 +619,15 @@ impl<C: Component> ViewContext<C> {
 
     pub fn use_effect<D>(
         &mut self,
+        key: impl Into<EffectKey>,
         dependency: D,
         setup: impl FnOnce() -> Option<Box<dyn FnOnce()>> + 'static,
     ) where
         D: PartialEq + 'static,
     {
-        self.effects.borrow_mut().use_effect(dependency, setup);
+        self.effects
+            .borrow_mut()
+            .use_effect(key.into(), dependency, setup);
     }
 }
 
@@ -708,78 +774,106 @@ type EffectSetup = Box<dyn FnOnce() -> Option<EffectCleanup>>;
 struct EffectSlot {
     cleanup: Option<EffectCleanup>,
     dependency: Box<dyn Any>,
+    key: EffectKey,
 }
 
 struct PendingEffect {
     dependency: Box<dyn Any>,
     setup: EffectSetup,
-    slot: usize,
+}
+
+struct EffectRegistration {
+    key: EffectKey,
+    pending: Option<PendingEffect>,
 }
 
 #[derive(Default)]
 pub(crate) struct ComponentEffects {
-    cursor: usize,
-    pending: Vec<PendingEffect>,
+    duplicate: Option<EffectKey>,
+    registrations: Vec<EffectRegistration>,
     slots: Vec<EffectSlot>,
 }
 
 impl ComponentEffects {
     fn begin_view(&mut self) {
-        self.cursor = 0;
-        self.pending.clear();
+        self.duplicate = None;
+        self.registrations.clear();
     }
 
     fn use_effect<D>(
         &mut self,
+        key: EffectKey,
         dependency: D,
         setup: impl FnOnce() -> Option<EffectCleanup> + 'static,
     ) where
         D: PartialEq + 'static,
     {
-        let slot = self.cursor;
-        self.cursor += 1;
+        if self
+            .registrations
+            .iter()
+            .any(|registration| registration.key == key)
+        {
+            if self.duplicate.is_none() {
+                self.duplicate = Some(key);
+            }
+            return;
+        }
         let changed = self
             .slots
-            .get(slot)
+            .iter()
+            .find(|slot| slot.key == key)
             .and_then(|slot| slot.dependency.downcast_ref::<D>())
             != Some(&dependency);
-        if changed {
-            self.pending.push(PendingEffect {
+        let pending = if changed {
+            Some(PendingEffect {
                 dependency: Box::new(dependency),
                 setup: Box::new(setup),
-                slot,
-            });
+            })
+        } else {
+            None
+        };
+        self.registrations.push(EffectRegistration { key, pending });
+    }
+
+    fn finish_view(&self) -> Result<(), ComponentStoreError> {
+        match &self.duplicate {
+            Some(key) => Err(ComponentStoreError::DuplicateEffectKey(key.clone())),
+            None => Ok(()),
         }
     }
 
     fn prepare(&mut self) {
-        for pending in &self.pending {
-            if let Some(slot) = self.slots.get_mut(pending.slot)
-                && let Some(cleanup) = slot.cleanup.take()
-            {
-                cleanup();
-            }
-        }
-        for slot in self.slots.iter_mut().skip(self.cursor) {
-            if let Some(cleanup) = slot.cleanup.take() {
+        for slot in &mut self.slots {
+            let cleanup_required = self
+                .registrations
+                .iter()
+                .find(|registration| registration.key == slot.key)
+                .is_none_or(|registration| registration.pending.is_some());
+            if cleanup_required && let Some(cleanup) = slot.cleanup.take() {
                 cleanup();
             }
         }
     }
 
     fn commit(&mut self) {
-        self.slots.truncate(self.cursor);
-        for pending in self.pending.drain(..) {
-            let slot = EffectSlot {
-                cleanup: (pending.setup)(),
-                dependency: pending.dependency,
-            };
-            if pending.slot == self.slots.len() {
-                self.slots.push(slot);
+        let mut published = std::mem::take(&mut self.slots);
+        for registration in self.registrations.drain(..) {
+            let slot = if let Some(pending) = registration.pending {
+                EffectSlot {
+                    cleanup: (pending.setup)(),
+                    dependency: pending.dependency,
+                    key: registration.key,
+                }
             } else {
-                self.slots[pending.slot] = slot;
-            }
+                let index = published
+                    .iter()
+                    .position(|slot| slot.key == registration.key)
+                    .unwrap();
+                published.remove(index)
+            };
+            self.slots.push(slot);
         }
+        self.duplicate = None;
     }
 
     fn cleanup(&mut self) {
@@ -789,8 +883,8 @@ impl ComponentEffects {
             }
         }
         self.slots.clear();
-        self.pending.clear();
-        self.cursor = 0;
+        self.registrations.clear();
+        self.duplicate = None;
     }
 }
 
@@ -884,13 +978,15 @@ where
 
     fn view(&self, contexts: ContextSnapshot) -> Result<ComponentRender, ComponentStoreError> {
         self.effects.borrow_mut().begin_view();
-        Ok((self.view)(
+        let render = (self.view)(
             &self.component,
             &self.props,
             self.sender.clone(),
             Rc::clone(&self.effects),
             contexts,
-        ))
+        );
+        self.effects.borrow().finish_view()?;
+        Ok(render)
     }
 
     fn cleanup_effects(&self) {
@@ -1454,6 +1550,7 @@ mod tests {
     use super::*;
     use crate::TextBlock;
     use crate::core::{WindowId, WindowToken};
+    use std::cell::Cell;
     use std::sync::Barrier;
     use std::sync::atomic::AtomicUsize;
     use std::time::{Duration, Instant};
@@ -1563,6 +1660,79 @@ mod tests {
         store.publish(token).unwrap();
         assert_eq!(store.drain(10).unwrap().dispatched, 2);
         assert_eq!(store.component::<State>(token).unwrap().value, 3);
+    }
+
+    #[test]
+    fn payload_callback_maps_into_the_component_queue() {
+        let mut store = store();
+        let token = reserve_state(&mut store, "");
+        store.publish(token).unwrap();
+        let callback = store
+            .sender::<u32>(token)
+            .unwrap()
+            .callback(|value: String| value.len() as u32);
+
+        assert!(callback.call("mapped".to_string()));
+        assert_eq!(store.pending(), 1);
+        assert_eq!(store.drain(1).unwrap().dispatched, 1);
+        assert_eq!(store.component::<State>(token).unwrap().value, 6);
+    }
+
+    struct RepeatedMessage {
+        clones: Rc<Cell<usize>>,
+        value: u32,
+    }
+
+    impl Clone for RepeatedMessage {
+        fn clone(&self) -> Self {
+            self.clones.set(self.clones.get() + 1);
+            Self {
+                clones: Rc::clone(&self.clones),
+                value: self.value,
+            }
+        }
+    }
+
+    struct RepeatedState {
+        value: u32,
+    }
+
+    impl Component for RepeatedState {
+        type Props = ();
+        type Message = RepeatedMessage;
+
+        fn create(_props: &(), _context: &mut ComponentContext<Self>) -> Self {
+            Self { value: 0 }
+        }
+
+        fn update(&mut self, message: RepeatedMessage, _context: &mut ComponentContext<Self>) {
+            self.value += message.value;
+        }
+
+        fn view(&self, _props: &(), _context: &mut ViewContext<Self>) -> View {
+            View::empty()
+        }
+    }
+
+    #[test]
+    fn unit_message_callback_clones_for_every_delivery() {
+        let mut store = store();
+        let token = store.reserve_component::<RepeatedState>(()).unwrap();
+        store.publish(token).unwrap();
+        let clones = Rc::new(Cell::new(0));
+        let callback = store
+            .sender::<RepeatedMessage>(token)
+            .unwrap()
+            .message(RepeatedMessage {
+                clones: Rc::clone(&clones),
+                value: 7,
+            });
+
+        assert!(callback.call(()));
+        assert!(callback.call(()));
+        assert_eq!(clones.get(), 2);
+        assert_eq!(store.drain(2).unwrap().dispatched, 2);
+        assert_eq!(store.component::<RepeatedState>(token).unwrap().value, 14);
     }
 
     #[test]
@@ -1820,7 +1990,7 @@ mod tests {
 
     #[test]
     fn valid_sender_wakes_once_and_retirement_blocks_new_traffic() {
-        let wakes = Rc::new(std::cell::Cell::new(0));
+        let wakes = Rc::new(Cell::new(0));
         let wake_capture = Rc::clone(&wakes);
         let mut store = store();
         store.set_waker(Rc::new(move || {

@@ -7,12 +7,7 @@ use std::collections::HashSet;
 
 #[test]
 fn multi_root_fragment_is_rejected_in_window_and_content_slots() {
-    let fragment = || {
-        View::fragment([
-            TextBlock::new().text("A").into(),
-            TextBlock::new().text("B").into(),
-        ])
-    };
+    let fragment = || View::fragment((TextBlock::new().text("A"), TextBlock::new().text("B")));
     let mut window = Pump::new(RecordingRuntime::default());
     assert_eq!(
         window.mount_view(fragment()),
@@ -89,15 +84,14 @@ fn generated_ordinary_control_updates_without_replacement() {
 
 #[test]
 fn positional_component_children_retain_scopes_by_position() {
-    let view = |labels: &[&str]| {
-        StackPanel::new().children(
-            labels
-                .iter()
-                .map(|label| View::component::<Leaf>((*label).to_string())),
-        )
+    let view = |first: &str, second: &str| {
+        StackPanel::new().children([
+            View::component::<Leaf>(first.to_string()),
+            View::component::<Leaf>(second.to_string()),
+        ])
     };
     let mut pump = Pump::new(RecordingRuntime::default());
-    pump.mount_view(view(&["one", "two"])).unwrap();
+    pump.mount_view(view("one", "two")).unwrap();
     let root = pump.root().unwrap();
     let children = pump.tree.children(root).unwrap().to_vec();
     let scopes = children
@@ -105,7 +99,7 @@ fn positional_component_children_retain_scopes_by_position() {
         .map(|child| pump.tree.component_scope(*child).unwrap())
         .collect::<Vec<_>>();
 
-    pump.update_view(view(&["first", "second"])).unwrap();
+    pump.update_view(view("first", "second")).unwrap();
 
     assert_eq!(pump.tree.children(root), Ok(children.as_slice()));
     assert_eq!(
@@ -120,15 +114,12 @@ fn positional_component_children_retain_scopes_by_position() {
 
 #[test]
 fn positional_front_insertion_reuses_existing_positions() {
-    let view = |labels: &[&str]| {
-        StackPanel::new().children(
-            labels
-                .iter()
-                .map(|label| View::component::<Leaf>((*label).to_string())),
-        )
-    };
     let mut pump = Pump::new(RecordingRuntime::default());
-    pump.mount_view(view(&["a", "b"])).unwrap();
+    pump.mount_view(StackPanel::new().children((
+        View::component::<Leaf>("a".to_string()),
+        View::component::<Leaf>("b".to_string()),
+    )))
+    .unwrap();
     let root = pump.root().unwrap();
     let original = pump.tree.children(root).unwrap().to_vec();
     let scopes = original
@@ -136,7 +127,12 @@ fn positional_front_insertion_reuses_existing_positions() {
         .map(|child| pump.tree.component_scope(*child).unwrap())
         .collect::<Vec<_>>();
 
-    pump.update_view(view(&["x", "a", "b"])).unwrap();
+    pump.update_view(StackPanel::new().children((
+        View::component::<Leaf>("x".to_string()),
+        View::component::<Leaf>("a".to_string()),
+        View::component::<Leaf>("b".to_string()),
+    )))
+    .unwrap();
 
     let updated = pump.tree.children(root).unwrap();
     assert_eq!(&updated[..2], original.as_slice());
@@ -200,7 +196,7 @@ fn fragment_splices_into_children_and_retains_keyed_component_scope() {
                 KeyedView::new("text", View::native(TextBlock::new().text("text"))),
             ])
         };
-        StackPanel::new().children([View::empty(), fragment])
+        StackPanel::new().children((View::empty(), fragment))
     };
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(view(false)).unwrap();
@@ -232,7 +228,7 @@ fn fragment_synchronization_failure_is_fatal_without_publishing_candidate() {
                 KeyedView::new("b", View::native(TextBlock::new().text("B"))),
             ]
         };
-        StackPanel::new().children([View::keyed_fragment(children)])
+        StackPanel::new().children((View::keyed_fragment(children),))
     };
     let mut probe = Pump::new(RecordingRuntime::default());
     probe.mount_view(view(false)).unwrap();

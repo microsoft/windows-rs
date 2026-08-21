@@ -29,7 +29,7 @@ real application slices.
 | Small component | Very concise | Considerably more boilerplate |
 | State transitions | Setter and reducer handles | `Message` enum plus `update` |
 | Composition | Helpers, tuples, implicit conversion | Core `View`; positional/keyed children |
-| Effects | Rich hook API | `ViewContext::use_effect` |
+| Effects | Rich hook API | `ViewContext::use_effect(key, dependency, setup)` |
 | Async | State, resources, mutations, marshalling | Owned thread returning a message |
 | Imperative access | Typed element references and handles | Not present in the public slice |
 | Control coverage | Dozens of practical controls and behaviors | Eleven generated controls |
@@ -96,8 +96,9 @@ Some of the difference is architectural and should not be hidden behind syntax.
 ### Owned state instead of hooks
 
 Reactor-next intentionally removed its hook frontend. Arbitrary, non-cloneable Rust state belongs
-directly to a stable component instance. This eliminates hook ordering, hook-slot type erasure,
-pervasive interior mutability, and a second effect engine.
+directly to a stable component instance. This eliminates state-hook ordering, hook-slot type
+erasure, pervasive interior mutability, and a second effect engine. The remaining effect engine
+uses explicit typed keys, so owned components have no positional hook-order contract.
 
 That is a material public API decision. Reintroducing incumbent-style hooks would give up part of
 the simplification the rewrite was created to obtain.
@@ -115,25 +116,38 @@ This provides:
 - one path for local and background results;
 - component behavior that can be tested as a state machine.
 
-It also requires message enums and forwarding closures that the hook API avoids.
+It also requires message enums that the hook API avoids. Typed event adapters remove the
+sender-capture and forwarding-closure boilerplate without changing this queue-only path.
 
 ### Positional and explicit identity
 
-`ChildrenControl::children` accepts positional `View` values. Same-type children retain identity
-at the same index, so inserting at the front reuses existing component scopes for the new values at
-those positions. `ChildrenControl::keyed_children` accepts `KeyedView` when identity must follow an
-item through insertion or reordering.
+`ChildrenControl::children` accepts the sealed `IntoViews` trait. `()` supplies an empty shape,
+fixed-size arrays supply homogeneous shapes, and tuples of up to 16 elements supply heterogeneous
+shapes. Tuple leaves each implement `Into<View>`, so mixed controls, components, and terminal
+content views need no per-leaf `.into()` calls.
+
+These forms make the positional shape visible in syntax and type. Same-type children retain
+identity at the same index, so changing a fixed leaf preserves its component scope. Dynamic lists
+cannot use positional identity: inserting at the front would reuse existing scopes for different
+items, which is React's index-as-key state bug. `ChildrenControl::keyed_children` accepts
+`KeyedView` for `Vec`, slice, and iterator-driven lists so identity follows each item through
+insertion or reordering.
 
 `Key` is opaque and supports public integer and string conversions. Positional identity uses a
 private key variant, so an application-provided `0` or `"0"` cannot collide with position zero.
-Fragments expose the same choice through `View::fragment` and `View::keyed_fragment`.
+`View::fragment` accepts the same fixed shapes, while `View::keyed_fragment` is the dynamic path.
 
-### Positional effects remain
+### Effects use explicit identity
 
-Owned component fields remove state-hook ordering, but `ViewContext::use_effect` still assigns
-effect identity by call position. Conditional insertion or reordering can therefore replace a
-different effect slot. This is a smaller constraint than a complete hook runtime, but it is still
-a hook-order rule and should be documented or replaced before the API settles.
+`ViewContext::use_effect` accepts an opaque `EffectKey` separately from its typed dependency.
+Numeric and string conversions provide semantic keys without a positional variant. Conditional
+omission cleans only the missing key, call reordering retains unchanged keyed effects, and a
+changed dependency cleans then sets up the same key exactly once.
+
+Duplicate keys in one component view reject planning before cleanup, native mutation, or pending
+setup. A failed plan leaves published effect slots intact, and the next `begin_view` discards only
+the failed pending registrations. This keeps the existing effect publication engine and removes
+the last positional hook-order rule from owned components.
 
 ## Core View composition
 
@@ -143,7 +157,7 @@ and structural capability traits provide terminal methods over that type:
 | Capability | Method | Identity |
 | --- | --- | --- |
 | `ContentControl` | `content` | One logical child |
-| `ChildrenControl` | `children` | Position |
+| `ChildrenControl` | `children` | Position in a static `IntoViews` shape |
 | `ChildrenControl` | `keyed_children` | Explicit `KeyedView` key |
 | `SlotsControl` | `slots` | Typed slot |
 
@@ -161,9 +175,7 @@ Native-only structural builders remain crate-private for Element-level planner t
 The remaining rough edges can be addressed with focused additions to the core API:
 
 - No `vstack`, `text_block`, or `button` convenience constructors.
-- No tuple or array child conversion comparable to `IntoChildren`.
 - Repetitive empty `create` and `update` methods.
-- Event closures that manually discard the `bool` from `sender.send`.
 - No component derive or macro for common cases.
 - No concise child-component syntax.
 
@@ -194,28 +206,31 @@ the non-macro API is proven by realistic applications.
 The first form slice is
 `crates/samples/reactor-next/form/src/main.rs`. It includes controlled text and numeric input,
 validation, disabled state, progress, background submission, and an extracted summary component.
-The initial public-API baseline is:
+The current measured result is:
 
 | Measure | Current result |
 | --- | ---: |
-| Source lines | 161 |
+| Source lines | 149 |
 | Explicit child keys | 0 |
-| Sender handles | 3 |
-| Event forwarding closures | 3 |
+| Sender handles | 0 |
+| Event forwarding closures | 0 |
 | Empty component lifecycle methods | 1 |
 
 The first attempted version required six `View::native(...)` calls because Rust does not chain the
 generated control-to-`Element` and `Element`-to-`View` conversions. Generated controls now convert
-directly to `View`. Structural capability methods also return `View`, and the positional
-`children` item type gives `.into()` a concrete target in heterogeneous arrays. These changes are
-part of the core `View` API and do not add a frontend or another tree.
+directly to `View`. Structural capability methods also return `View`, and heterogeneous tuples
+convert each leaf through the sealed `IntoViews` trait. These changes are part of the core `View`
+API and do not add a frontend or another tree.
 
 The component store now borrows its authoritative current props into `view`. The read-only summary
 therefore remains a unit struct and needs no duplicate props field or `changed` synchronization.
-All seven static children now use positional identity and require no keys. Three events still
-repeat sender capture, message construction, send, and ignored-result handling. The summary still
-requires `create` and an empty `update`. Focus cannot be expressed, so the form cannot implement
-focus-first-invalid or post-submit focus behavior yet.
+All seven static children now use one tuple, require no keys, and need no per-leaf `.into()` calls.
+Payload events use `context.callback(Message::Variant)`, and the submit event uses
+`context.message(Message::Submit)`. These adapters retain `LocalSender` rejection through
+`Callback::call`; current-event rejection becomes `PumpError::EventCallbackRejected`, while stale
+events are discarded before invocation. The summary still requires `create` and an empty
+`update`. Focus cannot be expressed, so the form cannot implement focus-first-invalid or
+post-submit focus behavior yet.
 
 ## Current flexibility
 
@@ -229,7 +244,8 @@ Structurally, reactor-next already has a useful foundation:
 - controlled inputs;
 - effects with cleanup;
 - scope-owned background work;
-- virtualized `ItemsRepeater` rows;
+- keyed, lazy `ItemsRepeater` rows composed from native controls, components, providers, and
+  fragments;
 - multiple independent windows.
 
 Practical application flexibility remains far behind the incumbent. Reactor-next currently
@@ -307,7 +323,6 @@ UX work should start now, but it should be split into contract work and polish.
 | Decide now | Defer until application evidence |
 | --- | --- |
 | One composition model for all view kinds | Convenience constructor names |
-| Positional versus explicit effect identity | Component derive and procedural macros |
 | Static positional children versus explicit keyed children | Full styling and modifier vocabulary |
 | Sender adapters and observable send rejection | Async resource and mutation conveniences |
 | Imperative references and mount lifetime | Broad migration shims |
@@ -324,15 +339,14 @@ The following should remain:
 - typed props and messages;
 - queue-only sends;
 - explicit component identity;
+- explicit typed effect identity;
 - one effect engine;
 - one `View` reconciliation frontend;
 - generated property and event semantics.
 
 The following should be treated as open UX work:
 
-- effect identity and conditional-effect rules;
 - component boilerplate;
-- sender-to-message adapters;
 - imperative focus and native-handle access;
 - async resource and mutation helpers;
 - window and host context;
@@ -367,13 +381,12 @@ The initial UX gate has settled:
 
 1. Normal static layouts use positional identity and require no explicit keys.
 2. Structural capability methods and direct control conversions form one core `View` path.
+3. Effects use explicit typed keys and impose no positional hook-order contract.
 
 The remaining gate must settle:
 
-1. Whether effect identity remains positional.
-2. How sender-to-message adapters expose queue rejection.
-3. How imperative focus and native handles fit the ownership model.
-4. Whether the owned typed-message model remains acceptable in a realistic component.
+1. How imperative focus and native handles fit the ownership model.
+2. Whether the owned typed-message model remains acceptable in a realistic component.
 
 After this gate, qualify broader facilities with:
 

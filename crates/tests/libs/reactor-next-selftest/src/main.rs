@@ -38,7 +38,7 @@ impl Component for Primary {
     }
 
     fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
-        context.use_effect((), move || {
+        context.use_effect("live-test", (), move || {
             let passed = live_resources_installed().unwrap_or(false);
             if let Err(error) = schedule_live_controlled_repair_test(passed) {
                 eprintln!("could not start live backend fixture: {error}");

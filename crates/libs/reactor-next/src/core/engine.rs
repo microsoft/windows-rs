@@ -28,10 +28,16 @@ struct Node {
     component_type: Option<TypeId>,
     key: Option<Key>,
     native: Option<NativeState>,
-    realized: HashMap<RealizedContainer, NodeId>,
+    realized: HashMap<RealizedContainer, RealizedRow>,
     scope: Option<ScopeId>,
-    virtual_items: Option<Rc<Vec<KeyedElement>>>,
+    virtual_items: Option<Rc<Vec<KeyedView>>>,
     virtual_model: Option<VirtualModel>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct RealizedRow {
+    pub logical_root: NodeId,
+    pub native_root: NodeId,
 }
 
 #[derive(Clone)]
@@ -315,7 +321,7 @@ impl Tree {
         identity: WindowToken,
         parent: Option<NodeId>,
         key: Option<Key>,
-        items: Rc<Vec<KeyedElement>>,
+        items: Rc<Vec<KeyedView>>,
     ) -> Result<NodeId, TreeError> {
         let keys = items.iter().map(|item| item.key().clone());
         let id = self.insert_virtual(identity, parent, keys)?;
@@ -325,7 +331,7 @@ impl Tree {
         Ok(id)
     }
 
-    pub fn virtual_items(&self, id: NodeId) -> Result<&[KeyedElement], TreeError> {
+    pub fn virtual_items(&self, id: NodeId) -> Result<&[KeyedView], TreeError> {
         self.arena
             .get(id)?
             .virtual_items
@@ -334,11 +340,11 @@ impl Tree {
             .ok_or(TreeError::NotVirtual)
     }
 
-    pub fn virtual_item(&self, id: NodeId, key: &Key) -> Result<&Element, TreeError> {
+    pub fn virtual_item(&self, id: NodeId, key: &Key) -> Result<&View, TreeError> {
         self.virtual_items(id)?
             .iter()
             .find(|item| item.key() == key)
-            .map(KeyedElement::element)
+            .map(KeyedView::view)
             .ok_or(TreeError::NotVirtual)
     }
 
@@ -346,42 +352,89 @@ impl Tree {
         &self,
         id: NodeId,
         container: RealizedContainer,
-    ) -> Result<Option<NodeId>, TreeError> {
+    ) -> Result<Option<RealizedRow>, TreeError> {
         Ok(self.arena.get(id)?.realized.get(&container).copied())
     }
 
     pub fn realized_container(
         &self,
         id: NodeId,
-        child: NodeId,
+        native_root: NodeId,
     ) -> Result<Option<RealizedContainer>, TreeError> {
         Ok(self
             .arena
             .get(id)?
             .realized
             .iter()
-            .find_map(|(container, current)| (*current == child).then_some(*container)))
+            .find_map(|(container, row)| (row.native_root == native_root).then_some(*container)))
+    }
+
+    pub fn realized_container_for_logical(
+        &self,
+        id: NodeId,
+        logical_root: NodeId,
+    ) -> Result<Option<RealizedContainer>, TreeError> {
+        Ok(self
+            .arena
+            .get(id)?
+            .realized
+            .iter()
+            .find_map(|(container, row)| (row.logical_root == logical_root).then_some(*container)))
     }
 
     pub fn set_realized(
         &mut self,
         id: NodeId,
         container: RealizedContainer,
-        child: NodeId,
+        logical_root: NodeId,
+        native_root: NodeId,
     ) -> Result<(), TreeError> {
-        self.arena.get(child)?;
+        self.arena.get(logical_root)?;
+        self.arena.get(native_root)?;
         let realized = &mut self.arena.get_mut(id)?.realized;
-        if realized.contains_key(&container) || realized.values().any(|current| *current == child) {
+        if realized.contains_key(&container)
+            || realized
+                .values()
+                .any(|row| row.logical_root == logical_root || row.native_root == native_root)
+        {
             return Err(TreeError::RealizedConflict(container));
         }
-        realized.insert(container, child);
+        realized.insert(
+            container,
+            RealizedRow {
+                logical_root,
+                native_root,
+            },
+        );
+        Ok(())
+    }
+
+    pub fn update_realized(
+        &mut self,
+        id: NodeId,
+        container: RealizedContainer,
+        logical_root: NodeId,
+        native_root: NodeId,
+    ) -> Result<(), TreeError> {
+        self.arena.get(logical_root)?;
+        self.arena.get(native_root)?;
+        let row = self
+            .arena
+            .get_mut(id)?
+            .realized
+            .get_mut(&container)
+            .ok_or(TreeError::NotVirtual)?;
+        *row = RealizedRow {
+            logical_root,
+            native_root,
+        };
         Ok(())
     }
 
     pub fn update_virtual_items(
         &mut self,
         id: NodeId,
-        items: Rc<Vec<KeyedElement>>,
+        items: Rc<Vec<KeyedView>>,
     ) -> Result<(), TreeError> {
         self.arena.get_mut(id)?.virtual_items = Some(items);
         Ok(())
@@ -458,7 +511,7 @@ impl Tree {
         if let Some(parent) = parent {
             let parent = self.arena.get_mut(parent)?;
             parent.children.retain(|child| *child != id);
-            parent.realized.retain(|_, child| *child != id);
+            parent.realized.retain(|_, row| row.logical_root != id);
         } else {
             self.root = None;
         }
@@ -640,10 +693,11 @@ mod tests {
             .unwrap();
         let container = RealizedContainer(1);
 
-        tree.set_realized(collection, container, first).unwrap();
+        tree.set_realized(collection, container, first, first)
+            .unwrap();
 
         assert_eq!(
-            tree.set_realized(collection, container, second),
+            tree.set_realized(collection, container, second, second),
             Err(TreeError::RealizedConflict(container))
         );
     }

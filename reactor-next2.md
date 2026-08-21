@@ -77,8 +77,16 @@ Native remount identity was removed because automatic remounting was removed. Vi
 leases retain their own generation checks.
 
 Child identity has two domains. Positional children use an internal `Position` key assigned from
-their index. Explicit children use public integer or string `Key` values. `Key` is opaque, so
-application code cannot construct a positional key or collide with that domain.
+their index, but only statically shaped `IntoViews` expressions can request that identity.
+Explicit children use public integer or string `Key` values. `Key` is opaque, so application code
+cannot construct a positional key or collide with that domain. Dynamic collections require
+explicit keys, which prevents the React index-as-key state bug where an insertion shifts retained
+component state onto different items.
+
+Effect identity is always explicit. `EffectKey` is an opaque numeric or string key with no
+positional variant. The dependency remains a separate typed `PartialEq` value. Conditional
+omission and reordering therefore do not reassign effect slots, and owned components have no
+positional hook-order contract.
 
 ## Component model
 
@@ -116,8 +124,11 @@ model.
 Generated controls convert directly to `View`. `ContentControl::content`,
 `ChildrenControl::children`, `ChildrenControl::keyed_children`, and `SlotsControl::slots` consume
 the control and return `View`. These are terminal composition methods on the core model, not a
-wrapper DSL. Positional inputs are converted to keyed edges before planning, so `ViewKind::Children`
-and `ViewKind::Fragment` remain the only collection planner paths.
+wrapper DSL. The sealed `IntoViews` trait accepts `()`, fixed arrays, and heterogeneous tuples up
+to 16 elements. It does not accept `Vec`, slices, arbitrary `IntoIterator` inputs, or iterator
+adapters. Positional inputs first become `Vec<View>` and then private positional keyed edges before
+planning, so `ViewKind::Children` and `ViewKind::Fragment` remain the only collection planner
+paths.
 
 ## Logical anchoring
 
@@ -127,7 +138,8 @@ many native roots.
 - Generated children collections accept many flattened roots.
 - Window and content slots accept zero or one flattened root.
 - Invalid arity fails planning before native mutation.
-- `View::fragment` assigns positional identity and `View::keyed_fragment` accepts explicit keys.
+- `View::fragment` assigns positional identity to a static shape, and `View::keyed_fragment`
+  accepts explicit keys for dynamic collections.
 - Exact fragment order uses one coalesced `SynchronizeChildren` command per native parent.
 - Ordinary keyed children retain sparse insert and move plans.
 
@@ -179,10 +191,12 @@ publication do not run.
 Normal shutdown cleans effects before dropping native resources. Cleanup remains idempotent across
 explicit shutdown and `Drop`.
 
-Hook effects follow the same boundary: changed cleanup runs after candidate validation and before
-native apply, while setup runs after publication. If component props are applied before later
-planning fails, touched scopes remain planning-dirty so an identical-props retry recomposes rather
-than accepting stale structure.
+Keyed component effects follow the same boundary: changed cleanup runs after candidate validation
+and before native apply, while setup runs after publication. Removed and changed cleanup follows
+published key order; setup follows new registration order. Duplicate keys fail planning before
+either phase, and the retry discards only pending registrations while retaining published slots.
+If component props are applied before later planning fails, touched scopes remain planning-dirty
+so an identical-props retry recomposes rather than accepting stale structure.
 
 ## Scheduling
 
@@ -190,6 +204,7 @@ than accepting stale structure.
 - Each dispatcher turn handles at most 64 events, 64 component messages, and 32 realizations.
 - Remaining work rearms the scheduler.
 - Component messages are capped at 4,096 per window and expose backpressure.
+- Typed event-message callbacks preserve that backpressure result.
 - Scheduler rejection is an explicit host fault.
 - Work queued during dispatch is rearmed after the current turn.
 
@@ -199,6 +214,18 @@ that this design removed. Large trees are instead governed by locality and keyed
 
 Dispatcher rearming schedules remaining bounded work after the current callback. A failed enqueue
 is surfaced as a host fault; neither behavior retries native mutation.
+
+Generated payload event setters accept unit-returning `Fn(T)` closures through
+`IntoPayloadCallback<T>`, and zero-argument setters accept `Fn()` through `IntoUnitCallback`.
+Both also accept `Callback<T>`.
+`ViewContext::callback` maps payloads to component messages, and `ViewContext::message` clones a
+fixed message for each zero-argument invocation. Both forward to `LocalSender`, so delivery still
+uses the local component queue.
+
+`Callback::call` returns `true` for ordinary closures and the exact `LocalSender::send` result for
+message adapters. A current event that receives `false` returns
+`PumpError::EventCallbackRejected` to the host. Window, node, subscription, and event-revision
+validation runs first, so stale work is discarded without creating a false host fault.
 
 ## Generated and specialized controls
 
@@ -421,7 +448,7 @@ The initial migration model is direct:
 | --- | --- |
 | Root render function | Root `Component` |
 | `RenderCx` hook state | Component fields and typed messages |
-| Hook effect | `ViewContext::use_effect` |
+| Hook effect | `ViewContext::use_effect(key, dependency, setup)` |
 | Root `Element` | Opaque `View` built from generated controls |
 | Callback state mutation | Callback sends a component message |
 | `App::new().render(...)` | `App::run_component::<C>(props)` |
@@ -447,9 +474,15 @@ The fatal native failure simplification is implemented in the core:
   retry.
 - Hook and component cleanup precede native mutation, and final `Drop` cleans components before
   native reset.
+- Component effects use opaque explicit keys. Conditional omission, call reordering, duplicate
+  rejection, dependency replacement, and retry retention use the existing publication engine.
 - Component-owned keyed reconciliation uses one key index. Reorders with 256 or more operations
   use synchronization and remain near-linear through adversarial 10%, 20%, and 25% movement at
   4,096 children.
+- `ItemsRepeater` stores keyed `View` rows and realizes them through the ordinary View planner.
+  Each published row has one logical ownership root and one native attachment root. Component
+  scopes stay lazy, key-stable source updates preserve row identity, and recycle or source reset
+  uses the normal child-first component lifecycle.
 - The token-keyed live host owns the application separately from its Pumps. Two real windows route
   window-specific event payloads independently; closing the secondary discards stale scheduled
   work while the primary continues through structural and component updates. In-flight tokens
@@ -532,8 +565,7 @@ costly to change once generated coverage expands:
 1. One normal composition path for native controls, components, fragments, providers, and slots.
 2. Explicit rules for positional and keyed child identity.
 3. Effect identity, which is currently positional even though component state is not hook-based.
-4. Typed sender adapters and how callback code handles queue rejection.
-5. Typed imperative references for focus and other native operations without a second owner.
+4. Typed imperative references for focus and other native operations without a second owner.
 
 Use a realistic form with controlled text and numeric input, validation, focus, and background
 submission as the first qualification slice. Preserve the current implementation as a baseline,
@@ -552,6 +584,7 @@ or reconciliation path.
 
 Passing store-owned props to `view` lets the read-only summary render without duplicating its props
 or synchronizing them in `changed`. The core structural capability methods reduce the formatted
-form from 176 to 161 source lines and from seven explicit child keys to zero. It still has three
-sender handles and forwarding closures and one empty `update` in the read-only child component.
-Focus is not expressible. These remain UX inputs; do not solve them with a parallel wrapper DSL.
+form from 176 to 149 source lines and from seven explicit child keys to zero. Typed event-message
+adapters remove all three sender handles and forwarding closures. The form retains one empty
+`update` in the read-only child component. Focus is not expressible. These remain UX inputs; do
+not solve them with a parallel wrapper DSL.

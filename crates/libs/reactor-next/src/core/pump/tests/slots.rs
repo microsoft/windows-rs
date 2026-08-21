@@ -98,7 +98,7 @@ fn named_slot_rejects_duplicate_assignments_and_multiple_native_roots() {
     );
     assert!(pump.root().is_none());
 
-    let multiple = View::fragment([TextBlock::new().into(), Button::new().into()]);
+    let multiple = View::fragment((TextBlock::new(), Button::new()));
     assert_eq!(
         pump.mount_view(navigation(Some(multiple), None)),
         Err(PumpError::StructureUnsupported)
@@ -140,7 +140,7 @@ fn named_slots_preserve_context_and_component_effect_lifecycle() {
             let value = context.use_context(&self.0.context);
             let log = Rc::clone(&self.0.log);
             let effect_value = value.clone();
-            context.use_effect(effect_value.clone(), move || {
+            context.use_effect("context", effect_value.clone(), move || {
                 log.borrow_mut().push(format!("setup {effect_value}"));
                 Some(Box::new(move || {
                     log.borrow_mut().push(format!("cleanup {effect_value}"));

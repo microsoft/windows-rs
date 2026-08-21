@@ -22,7 +22,9 @@ pub enum PumpError {
     AlreadyMounted,
     Component(ComponentStoreError),
     NotMounted,
+    DuplicateEffectKey(EffectKey),
     DuplicateKey(Key),
+    EventCallbackRejected { node: NodeId, event: EventId },
     EventReadFailed(RuntimeError),
     NativeApplyFailed(NativeApplyError),
     Poisoned,
@@ -39,7 +41,10 @@ impl From<TreeError> for PumpError {
 
 impl From<ComponentStoreError> for PumpError {
     fn from(value: ComponentStoreError) -> Self {
-        Self::Component(value)
+        match value {
+            ComponentStoreError::DuplicateEffectKey(key) => Self::DuplicateEffectKey(key),
+            value => Self::Component(value),
+        }
     }
 }
 
@@ -230,6 +235,12 @@ impl<R: NativeRuntime> Pump<R> {
 
     #[cfg(any(test, feature = "test"))]
     pub fn update(&mut self, element: Element) -> Result<(), PumpError> {
+        if matches!(element.structure(), ElementStructureRef::Virtual(_)) {
+            let desired_element = element.clone();
+            self.update_view(View::native(element))?;
+            self.element = Some(desired_element);
+            return Ok(());
+        }
         if self.poisoned {
             return Err(PumpError::Poisoned);
         }

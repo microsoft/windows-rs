@@ -17,6 +17,7 @@ struct SummaryProps {
 
 struct Summary;
 
+#[derive(Clone)]
 enum Message {
     AmountChanged(f64),
     Cancelled,
@@ -77,9 +78,6 @@ impl Component for Form {
     }
 
     fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
-        let name_changed = context.sender();
-        let amount_changed = context.sender();
-        let submit = context.sender();
         let validation = if self.is_valid() {
             "Ready to submit"
         } else {
@@ -91,29 +89,22 @@ impl Component for Form {
             Status::Submitted => "Submitted",
         };
 
-        StackPanel::new().spacing(8.0).children([
+        StackPanel::new().spacing(8.0).children((
             TextBlock::new()
                 .text("Payment")
-                .text_wrapping(TextWrapping::Wrap)
-                .into(),
+                .text_wrapping(TextWrapping::Wrap),
             TextBox::new()
                 .text(self.name.clone())
                 .placeholder_text("Name")
                 .is_enabled(self.status != Status::Submitting)
-                .on_text_changed(move |value| {
-                    _ = name_changed.send(Message::NameChanged(value));
-                })
-                .into(),
+                .on_text_changed(context.callback(Message::NameChanged)),
             NumberBox::new()
                 .minimum(0.0)
                 .maximum(10_000.0)
                 .value(self.amount)
                 .is_enabled(self.status != Status::Submitting)
-                .on_value_changed(move |value| {
-                    _ = amount_changed.send(Message::AmountChanged(value));
-                })
-                .into(),
-            TextBlock::new().text(status).into(),
+                .on_value_changed(context.callback(Message::AmountChanged)),
+            TextBlock::new().text(status),
             ProgressBar::new()
                 .minimum(0.0)
                 .maximum(1.0)
@@ -122,19 +113,16 @@ impl Component for Form {
                 } else {
                     0.0
                 })
-                .is_indeterminate(self.status == Status::Submitting)
-                .into(),
+                .is_indeterminate(self.status == Status::Submitting),
             View::component::<Summary>(SummaryProps {
                 amount: self.amount,
                 name: self.name.clone(),
             }),
             Button::new()
                 .is_enabled(self.is_valid() && self.status == Status::Editing)
-                .on_click(move || {
-                    _ = submit.send(Message::Submit);
-                })
+                .on_click(context.message(Message::Submit))
                 .content(TextBlock::new().text("Submit")),
-        ])
+        ))
     }
 }
 

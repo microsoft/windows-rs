@@ -29,27 +29,19 @@ impl Component for Controlled {
     }
 
     fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
-        let changed = context.sender();
-        let number_changed = changed.clone();
-        StackPanel::new().spacing(8.0).children([
+        StackPanel::new().spacing(8.0).children((
             TextBox::new()
                 .text(self.text.clone())
                 .placeholder_text("Type here")
-                .on_text_changed(move |value| {
-                    changed.send(Message::Text(value));
-                })
-                .into(),
-            TextBlock::new().text(self.text.clone()).into(),
+                .on_text_changed(context.callback(Message::Text)),
+            TextBlock::new().text(self.text.clone()),
             NumberBox::new()
                 .minimum(0.0)
                 .maximum(10.0)
                 .value(self.number)
-                .on_value_changed(move |value| {
-                    number_changed.send(Message::Number(value));
-                })
-                .into(),
-            TextBlock::new().text(self.number.to_string()).into(),
-        ])
+                .on_value_changed(context.callback(Message::Number)),
+            TextBlock::new().text(self.number.to_string()),
+        ))
     }
 }
 

@@ -261,7 +261,7 @@ impl Component for BenchFragmentRoot {
                 }),
             )
         });
-        StackPanel::new().children([View::keyed_fragment(fragment)])
+        StackPanel::new().children((View::keyed_fragment(fragment),))
     }
 }
 
@@ -647,11 +647,12 @@ fn runtime() -> RecordingRuntime {
     runtime
 }
 
-fn stack(labels: &[String]) -> View {
-    StackPanel::new().children(
+fn indexed_stack(labels: &[String]) -> View {
+    StackPanel::new().keyed_children(
         labels
             .iter()
-            .map(|text| View::native(TextBlock::new().text(text))),
+            .enumerate()
+            .map(|(index, text)| KeyedView::new(index, TextBlock::new().text(text))),
     )
 }
 
@@ -665,7 +666,7 @@ fn keyed_stack(keys: &[String]) -> View {
 fn virtual_list(key_prefix: &str, text_prefix: &str, count: usize) -> Element {
     ItemsRepeater::new()
         .items((0..count).map(|index| {
-            KeyedElement::new(
+            KeyedView::new(
                 format!("{key_prefix}{index}"),
                 TextBlock::new().text(format!("{text_prefix}{index}")),
             )
@@ -1023,16 +1024,16 @@ fn main() {
         bench_update(
             "update_no_change",
             512,
-            stack(&labels),
-            stack(&labels),
+            indexed_stack(&labels),
+            indexed_stack(&labels),
             iters,
             reps,
         ),
         bench_update(
             "update_1_changed",
             512,
-            stack(&labels),
-            stack(&changed),
+            indexed_stack(&labels),
+            indexed_stack(&changed),
             iters,
             reps,
         ),
@@ -1064,8 +1065,7 @@ fn main() {
             "content_replace",
             2,
             Button::new().content(TextBlock::new().text("text")),
-            Button::new()
-                .content(StackPanel::new().children([TextBlock::new().text("row").into()])),
+            Button::new().content(StackPanel::new().children([TextBlock::new().text("row")])),
             iters,
             reps,
         ),

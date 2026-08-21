@@ -6,6 +6,181 @@ use crate::native::*;
 use std::cell::RefCell;
 use std::rc::Rc;
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum EffectPlan {
+    Conditional { show_a: bool },
+    Duplicate,
+    Ordered { reverse: bool },
+    Single { dependency: u32 },
+}
+
+#[derive(Clone)]
+struct KeyedEffectProps {
+    log: Rc<RefCell<Vec<String>>>,
+    plan: EffectPlan,
+}
+
+impl PartialEq for KeyedEffectProps {
+    fn eq(&self, other: &Self) -> bool {
+        self.plan == other.plan && Rc::ptr_eq(&self.log, &other.log)
+    }
+}
+
+struct KeyedEffects;
+
+impl KeyedEffects {
+    fn unit_effect(
+        context: &mut ViewContext<Self>,
+        key: &'static str,
+        label: &'static str,
+        log: &Rc<RefCell<Vec<String>>>,
+    ) {
+        let log = Rc::clone(log);
+        context.use_effect(key, (), move || {
+            log.borrow_mut().push(format!("setup {label}"));
+            Some(Box::new(move || {
+                log.borrow_mut().push(format!("cleanup {label}"));
+            }))
+        });
+    }
+
+    fn value_effect(
+        context: &mut ViewContext<Self>,
+        key: &'static str,
+        dependency: u32,
+        log: &Rc<RefCell<Vec<String>>>,
+    ) {
+        let log = Rc::clone(log);
+        context.use_effect(key, dependency, move || {
+            log.borrow_mut().push(format!("setup D {dependency}"));
+            Some(Box::new(move || {
+                log.borrow_mut().push(format!("cleanup D {dependency}"));
+            }))
+        });
+    }
+}
+
+impl Component for KeyedEffects {
+    type Message = ();
+    type Props = KeyedEffectProps;
+
+    fn create(_props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
+
+    fn view(&self, props: &Self::Props, context: &mut ViewContext<Self>) -> View {
+        match props.plan {
+            EffectPlan::Conditional { show_a } => {
+                if show_a {
+                    Self::unit_effect(context, "a", "A", &props.log);
+                }
+                Self::unit_effect(context, "b", "B", &props.log);
+            }
+            EffectPlan::Duplicate => {
+                Self::value_effect(context, "duplicate", 1, &props.log);
+                Self::value_effect(context, "duplicate", 2, &props.log);
+            }
+            EffectPlan::Ordered { reverse: false } => {
+                Self::unit_effect(context, "a", "A", &props.log);
+                Self::unit_effect(context, "b", "B", &props.log);
+            }
+            EffectPlan::Ordered { reverse: true } => {
+                Self::unit_effect(context, "b", "B", &props.log);
+                Self::unit_effect(context, "a", "A", &props.log);
+            }
+            EffectPlan::Single { dependency } => {
+                Self::value_effect(context, "duplicate", dependency, &props.log);
+            }
+        }
+        TextBlock::new().text(format!("{:?}", props.plan)).into()
+    }
+}
+
+#[test]
+fn conditional_effect_omission_cleans_a_and_leaves_b_active() {
+    let log = Rc::new(RefCell::new(Vec::new()));
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<KeyedEffects>(KeyedEffectProps {
+        log: Rc::clone(&log),
+        plan: EffectPlan::Conditional { show_a: true },
+    }))
+    .unwrap();
+    assert_eq!(&*log.borrow(), &["setup A", "setup B"]);
+
+    pump.update_view(View::component::<KeyedEffects>(KeyedEffectProps {
+        log: Rc::clone(&log),
+        plan: EffectPlan::Conditional { show_a: false },
+    }))
+    .unwrap();
+    assert_eq!(&*log.borrow(), &["setup A", "setup B", "cleanup A"]);
+
+    pump.shutdown();
+    assert_eq!(
+        &*log.borrow(),
+        &["setup A", "setup B", "cleanup A", "cleanup B"]
+    );
+}
+
+#[test]
+fn reordering_effect_keys_does_not_cleanup_or_setup() {
+    let log = Rc::new(RefCell::new(Vec::new()));
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<KeyedEffects>(KeyedEffectProps {
+        log: Rc::clone(&log),
+        plan: EffectPlan::Ordered { reverse: false },
+    }))
+    .unwrap();
+    assert_eq!(&*log.borrow(), &["setup A", "setup B"]);
+
+    pump.update_view(View::component::<KeyedEffects>(KeyedEffectProps {
+        log: Rc::clone(&log),
+        plan: EffectPlan::Ordered { reverse: true },
+    }))
+    .unwrap();
+    assert_eq!(&*log.borrow(), &["setup A", "setup B"]);
+
+    pump.shutdown();
+    assert_eq!(
+        &*log.borrow(),
+        &["setup A", "setup B", "cleanup A", "cleanup B"]
+    );
+}
+
+#[test]
+fn duplicate_effect_key_rejects_before_native_mutation_or_pending_setup() {
+    let log = Rc::new(RefCell::new(Vec::new()));
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<KeyedEffects>(KeyedEffectProps {
+        log: Rc::clone(&log),
+        plan: EffectPlan::Single { dependency: 0 },
+    }))
+    .unwrap();
+    let native_batches = pump.runtime().batches();
+    assert_eq!(&*log.borrow(), &["setup D 0"]);
+
+    assert_eq!(
+        pump.update_view(View::component::<KeyedEffects>(KeyedEffectProps {
+            log: Rc::clone(&log),
+            plan: EffectPlan::Duplicate,
+        })),
+        Err(PumpError::DuplicateEffectKey(EffectKey::from("duplicate")))
+    );
+    assert_eq!(pump.runtime().batches(), native_batches);
+    assert_eq!(&*log.borrow(), &["setup D 0"]);
+
+    pump.update_view(View::component::<KeyedEffects>(KeyedEffectProps {
+        log: Rc::clone(&log),
+        plan: EffectPlan::Single { dependency: 0 },
+    }))
+    .unwrap();
+    assert_eq!(&*log.borrow(), &["setup D 0"]);
+
+    pump.shutdown();
+    assert_eq!(&*log.borrow(), &["setup D 0", "cleanup D 0"]);
+}
+
 #[test]
 fn dropping_component_pump_cleans_effects_before_native_reset() {
     struct DropRuntime {
@@ -51,7 +226,7 @@ fn dropping_component_pump_cleans_effects_before_native_reset() {
 
         fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
             let log = Rc::clone(&self.0.0);
-            context.use_effect((), move || {
+            context.use_effect("drop", (), move || {
                 Some(Box::new(move || log.borrow_mut().push("cleanup")))
             });
             View::native(TextBlock::new())
@@ -110,7 +285,7 @@ fn component_effects_commit_after_mount_and_cleanup_once() {
         fn view(&self, _props: &Self::Props, cx: &mut ViewContext<Self>) -> View {
             let log = Rc::clone(&self.log);
             let value = self.value;
-            cx.use_effect(value, move || {
+            cx.use_effect("value", value, move || {
                 log.borrow_mut().push(format!("setup {value}"));
                 Some(Box::new(move || {
                     log.borrow_mut().push(format!("cleanup {value}"));
@@ -187,7 +362,7 @@ fn full_tree_recomposition_preserves_unchanged_effects_and_replaces_changed_effe
 
         fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
             let stable_log = Rc::clone(&self.props.log);
-            context.use_effect((), move || {
+            context.use_effect("stable", (), move || {
                 stable_log.borrow_mut().push("stable setup".to_string());
                 Some(Box::new(move || {
                     stable_log.borrow_mut().push("stable cleanup".to_string());
@@ -195,7 +370,7 @@ fn full_tree_recomposition_preserves_unchanged_effects_and_replaces_changed_effe
             });
             let changed_log = Rc::clone(&self.props.log);
             let value = self.value;
-            context.use_effect(value, move || {
+            context.use_effect("changed", value, move || {
                 changed_log
                     .borrow_mut()
                     .push(format!("changed setup {value}"));
@@ -278,7 +453,7 @@ fn component_effect_setup_follows_parent_first_tree_order() {
         fn view(&self, _props: &Self::Props, cx: &mut ViewContext<Self>) -> View {
             let label = self.0.label;
             let log = Rc::clone(&self.0.log);
-            cx.use_effect((), move || {
+            cx.use_effect("child", (), move || {
                 log.borrow_mut().push(label);
                 None
             });
@@ -304,11 +479,11 @@ fn component_effect_setup_follows_parent_first_tree_order() {
 
         fn view(&self, _props: &Self::Props, cx: &mut ViewContext<Self>) -> View {
             let log = Rc::clone(&self.0);
-            cx.use_effect((), move || {
+            cx.use_effect("parent", (), move || {
                 log.borrow_mut().push("parent");
                 None
             });
-            StackPanel::new().children([
+            StackPanel::new().children((
                 View::component::<Child>(Props {
                     label: "a",
                     log: Rc::clone(&self.0),
@@ -317,7 +492,7 @@ fn component_effect_setup_follows_parent_first_tree_order() {
                     label: "b",
                     log: Rc::clone(&self.0),
                 }),
-            ])
+            ))
         }
     }
 
@@ -384,7 +559,7 @@ fn fatal_component_apply_does_not_commit_pending_effects() {
         fn view(&self, _props: &Self::Props, cx: &mut ViewContext<Self>) -> View {
             let alternate = self.0.alternate;
             let log = Rc::clone(&self.0.log);
-            cx.use_effect(alternate, move || {
+            cx.use_effect("replace", alternate, move || {
                 log.borrow_mut().push(format!("setup {alternate}"));
                 Some(Box::new(move || {
                     log.borrow_mut().push(format!("cleanup {alternate}"));
@@ -454,7 +629,7 @@ fn retired_component_effects_cleanup_child_first() {
         fn view(&self, _props: &Self::Props, cx: &mut ViewContext<Self>) -> View {
             let cleanup = self.0.name;
             let log = Rc::clone(&self.0.log);
-            cx.use_effect((), move || {
+            cx.use_effect("lifecycle", (), move || {
                 Some(Box::new(move || {
                     log.borrow_mut().push(cleanup);
                 }))

@@ -164,7 +164,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
 
         pub trait MountedEventsExt {
             fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool));
-            fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> bool;
+            fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> Option<bool>;
             fn observe_event(
                 &self,
                 event: EventId,
@@ -190,10 +190,10 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                 }
             }
 
-            fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> bool {
+            fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> Option<bool> {
                 match (self, event, payload) {
                     #(#mounted_event_dispatchers,)*
-                    _ => false,
+                    _ => None,
                 }
             }
 
@@ -251,7 +251,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             None,
             Content(Option<Element>),
             Children(std::rc::Rc<Vec<KeyedElement>>),
-            Virtual(std::rc::Rc<Vec<KeyedElement>>),
+            Virtual(std::rc::Rc<Vec<KeyedView>>),
         }
 
         #[derive(Clone, Copy)]
@@ -259,7 +259,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             None,
             Content(Option<&'a Element>),
             Children(&'a [KeyedElement]),
-            Virtual(&'a [KeyedElement]),
+            Virtual(&'a [KeyedView]),
         }
 
         #[derive(Clone, Debug, PartialEq)]
@@ -672,10 +672,7 @@ fn generate_event_dispatchers(control: &ResolvedControl) -> Vec<TokenStream> {
                     Self::#name { #field: Some(callback), .. },
                     EventId::#id,
                     #payload_pattern,
-                ) => {
-                    #call;
-                    true
-                }
+                ) => Some(#call)
             }
         })
         .collect()
@@ -859,7 +856,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
     let structural_field = match control.role {
         Role::Content => quote! { content: Option<Box<Element>> },
         Role::Children => quote! { children: std::rc::Rc<Vec<KeyedElement>> },
-        Role::Virtual => quote! { items: std::rc::Rc<Vec<KeyedElement>> },
+        Role::Virtual => quote! { items: std::rc::Rc<Vec<KeyedView>> },
         Role::Leaf | Role::Controlled | Role::Slots => TokenStream::new(),
     };
     let property_methods = control.properties.iter().flat_map(|property| {
@@ -896,15 +893,15 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         let payload = value_type(&event.payload);
         let setter = if event.payload == "Unit" {
             quote! {
-                pub fn #field(mut self, callback: impl Fn() + 'static) -> Self {
-                    self.#field = Some(Callback::new(move |()| callback()));
+                pub fn #field(mut self, callback: impl IntoUnitCallback) -> Self {
+                    self.#field = Some(callback.into_unit_callback());
                     self
                 }
             }
         } else {
             quote! {
-                pub fn #field(mut self, callback: impl Fn(#payload) + 'static) -> Self {
-                    self.#field = Some(Callback::new(callback));
+                pub fn #field(mut self, callback: impl IntoPayloadCallback<#payload>) -> Self {
+                    self.#field = Some(callback.into_payload_callback());
                     self
                 }
             }
@@ -947,21 +944,17 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
             }
         },
         Role::Virtual => quote! {
-            pub fn item(mut self, key: impl Into<Key>, item: impl Into<Element>) -> Self {
-                std::rc::Rc::make_mut(&mut self.items).push(KeyedElement::new(key, item));
+            pub fn item(mut self, key: impl Into<Key>, item: impl Into<View>) -> Self {
+                std::rc::Rc::make_mut(&mut self.items).push(KeyedView::new(key, item));
                 self
             }
 
             pub fn items(
                 mut self,
-                items: impl IntoIterator<Item = KeyedElement>,
+                items: impl IntoIterator<Item = KeyedView>,
             ) -> Self {
                 self.items = std::rc::Rc::new(items.into_iter().collect());
                 self
-            }
-
-            pub fn item_elements(&self) -> &[KeyedElement] {
-                self.items.as_slice()
             }
         },
         Role::Leaf | Role::Controlled | Role::Slots => TokenStream::new(),
@@ -1228,7 +1221,12 @@ mod tests {
         assert!(output.contains("pub struct TextBox"));
         assert!(output.contains("impl ControlledTextControl for TextBox"));
         assert!(output.contains("impl ItemsControl for ItemsRepeater"));
+        assert!(output.contains("item : impl Into < View >"));
+        assert!(output.contains("Item = KeyedView"));
+        assert!(!output.contains("item_elements"));
         assert!(output.contains("pub enum Orientation"));
+        assert!(output.contains("callback : impl IntoUnitCallback"));
+        assert!(output.contains("callback : impl IntoPayloadCallback < String >"));
     }
 
     #[test]

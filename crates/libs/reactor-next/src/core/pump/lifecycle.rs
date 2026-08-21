@@ -12,6 +12,7 @@ impl<R: NativeRuntime> Pump<R> {
             .iter()
             .chain(changes.composed.iter())
             .copied()
+            .filter(|token| !changes.reserved.contains(token))
             .collect::<HashSet<_>>();
         let retired = changes.retired.iter().copied().collect::<HashSet<_>>();
         let mut ordered = cleanup
@@ -68,13 +69,15 @@ impl<R: NativeRuntime> Pump<R> {
         &mut self,
         changes: &ComponentChanges,
     ) -> Result<(), PumpError> {
+        let retired = changes.retired.iter().copied().collect::<HashSet<_>>();
         for token in changes.reserved.iter().copied() {
-            if let Err(error) = self.components.publish(token) {
+            if !retired.contains(&token)
+                && let Err(error) = self.components.publish(token)
+            {
                 self.poisoned = true;
                 return Err(error.into());
             }
         }
-        let retired = changes.retired.iter().copied().collect::<HashSet<_>>();
         for (token, dependencies) in &changes.context_reads {
             if !retired.contains(token)
                 && let Err(error) = self

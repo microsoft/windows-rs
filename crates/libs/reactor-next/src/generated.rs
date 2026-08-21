@@ -58,8 +58,8 @@ pub mod public {
         pub fn is_enabled_property(&self) -> &Property<bool> {
             &self.is_enabled
         }
-        pub fn on_click(mut self, callback: impl Fn() + 'static) -> Self {
-            self.on_click = Some(Callback::new(move |()| callback()));
+        pub fn on_click(mut self, callback: impl IntoUnitCallback) -> Self {
+            self.on_click = Some(callback.into_unit_callback());
             self
         }
         pub fn on_click_callback(&self) -> Option<&Callback<()>> {
@@ -152,8 +152,8 @@ pub mod public {
         pub fn is_enabled_property(&self) -> &Property<bool> {
             &self.is_enabled
         }
-        pub fn on_text_changed(mut self, callback: impl Fn(String) + 'static) -> Self {
-            self.on_text_changed = Some(Callback::new(callback));
+        pub fn on_text_changed(mut self, callback: impl IntoPayloadCallback<String>) -> Self {
+            self.on_text_changed = Some(callback.into_payload_callback());
             self
         }
         pub fn on_text_changed_callback(&self) -> Option<&Callback<String>> {
@@ -205,8 +205,8 @@ pub mod public {
         pub fn is_enabled_property(&self) -> &Property<bool> {
             &self.is_enabled
         }
-        pub fn on_value_changed(mut self, callback: impl Fn(f64) + 'static) -> Self {
-            self.on_value_changed = Some(Callback::new(callback));
+        pub fn on_value_changed(mut self, callback: impl IntoPayloadCallback<f64>) -> Self {
+            self.on_value_changed = Some(callback.into_payload_callback());
             self
         }
         pub fn on_value_changed_callback(&self) -> Option<&Callback<f64>> {
@@ -256,8 +256,8 @@ pub mod public {
         pub fn is_enabled_property(&self) -> &Property<bool> {
             &self.is_enabled
         }
-        pub fn on_value_changed(mut self, callback: impl Fn(f64) + 'static) -> Self {
-            self.on_value_changed = Some(Callback::new(callback));
+        pub fn on_value_changed(mut self, callback: impl IntoPayloadCallback<f64>) -> Self {
+            self.on_value_changed = Some(callback.into_payload_callback());
             self
         }
         pub fn on_value_changed_callback(&self) -> Option<&Callback<f64>> {
@@ -389,8 +389,8 @@ pub mod public {
         pub fn is_enabled_property(&self) -> &Property<bool> {
             &self.is_enabled
         }
-        pub fn on_toggled(mut self, callback: impl Fn(bool) + 'static) -> Self {
-            self.on_toggled = Some(Callback::new(callback));
+        pub fn on_toggled(mut self, callback: impl IntoPayloadCallback<bool>) -> Self {
+            self.on_toggled = Some(callback.into_payload_callback());
             self
         }
         pub fn on_toggled_callback(&self) -> Option<&Callback<bool>> {
@@ -402,22 +402,19 @@ pub mod public {
     impl EnabledControl for ToggleSwitch {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ItemsRepeater {
-        items: std::rc::Rc<Vec<KeyedElement>>,
+        items: std::rc::Rc<Vec<KeyedView>>,
     }
     impl ItemsRepeater {
         pub fn new() -> Self {
             Self::default()
         }
-        pub fn item(mut self, key: impl Into<Key>, item: impl Into<Element>) -> Self {
-            std::rc::Rc::make_mut(&mut self.items).push(KeyedElement::new(key, item));
+        pub fn item(mut self, key: impl Into<Key>, item: impl Into<View>) -> Self {
+            std::rc::Rc::make_mut(&mut self.items).push(KeyedView::new(key, item));
             self
         }
-        pub fn items(mut self, items: impl IntoIterator<Item = KeyedElement>) -> Self {
+        pub fn items(mut self, items: impl IntoIterator<Item = KeyedView>) -> Self {
             self.items = std::rc::Rc::new(items.into_iter().collect());
             self
-        }
-        pub fn item_elements(&self) -> &[KeyedElement] {
-            self.items.as_slice()
         }
     }
     impl sealed::Sealed for ItemsRepeater {}
@@ -933,7 +930,7 @@ pub trait MountedPropsExt {
 }
 pub trait MountedEventsExt {
     fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool));
-    fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> bool;
+    fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> Option<bool>;
     fn observe_event(
         &self,
         event: EventId,
@@ -1210,7 +1207,7 @@ impl MountedEventsExt for MountedProps {
             Self::ScrollViewer { .. } => {}
         }
     }
-    fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> bool {
+    fn dispatch_event(&self, event: EventId, payload: &EventPayload) -> Option<bool> {
         match (self, event, payload) {
             (
                 Self::Button {
@@ -1219,10 +1216,7 @@ impl MountedEventsExt for MountedProps {
                 },
                 EventId::ButtonClick,
                 EventPayload::Unit,
-            ) => {
-                callback.call(());
-                true
-            }
+            ) => Some(callback.call(())),
             (
                 Self::TextBox {
                     on_text_changed: Some(callback),
@@ -1230,10 +1224,7 @@ impl MountedEventsExt for MountedProps {
                 },
                 EventId::TextBoxTextChanged,
                 EventPayload::Str(value),
-            ) => {
-                callback.call(value.clone());
-                true
-            }
+            ) => Some(callback.call(value.clone())),
             (
                 Self::NumberBox {
                     on_value_changed: Some(callback),
@@ -1241,10 +1232,7 @@ impl MountedEventsExt for MountedProps {
                 },
                 EventId::NumberBoxValueChanged,
                 EventPayload::F64(value),
-            ) => {
-                callback.call(*value);
-                true
-            }
+            ) => Some(callback.call(*value)),
             (
                 Self::Slider {
                     on_value_changed: Some(callback),
@@ -1252,10 +1240,7 @@ impl MountedEventsExt for MountedProps {
                 },
                 EventId::SliderValueChanged,
                 EventPayload::F64(value),
-            ) => {
-                callback.call(*value);
-                true
-            }
+            ) => Some(callback.call(*value)),
             (
                 Self::ToggleSwitch {
                     on_toggled: Some(callback),
@@ -1263,11 +1248,8 @@ impl MountedEventsExt for MountedProps {
                 },
                 EventId::ToggleSwitchToggled,
                 EventPayload::Bool(value),
-            ) => {
-                callback.call(*value);
-                true
-            }
-            _ => false,
+            ) => Some(callback.call(*value)),
+            _ => None,
         }
     }
     fn observe_event(
@@ -1556,14 +1538,14 @@ pub enum ElementStructure {
     None,
     Content(Option<Element>),
     Children(std::rc::Rc<Vec<KeyedElement>>),
-    Virtual(std::rc::Rc<Vec<KeyedElement>>),
+    Virtual(std::rc::Rc<Vec<KeyedView>>),
 }
 #[derive(Clone, Copy)]
 pub enum ElementStructureRef<'a> {
     None,
     Content(Option<&'a Element>),
     Children(&'a [KeyedElement]),
-    Virtual(&'a [KeyedElement]),
+    Virtual(&'a [KeyedView]),
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct ElementParts {

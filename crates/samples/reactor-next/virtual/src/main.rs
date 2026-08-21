@@ -4,7 +4,7 @@ fn main() {
     bootstrap().unwrap();
     App::run(
         ScrollViewer::new().content(ItemsRepeater::new().items((0_u32..10_000).map(|index| {
-            KeyedElement::new(index, TextBlock::new().text(format!("Virtual row {index}")))
+            KeyedView::new(index, TextBlock::new().text(format!("Virtual row {index}")))
         }))),
     )
     .unwrap();

@@ -4,6 +4,14 @@ use std::rc::Rc;
 use super::*;
 use crate::core::{ComponentView, ContextProvision};
 
+pub(crate) mod sealed {
+    pub trait Sealed {}
+
+    pub trait StaticViews {
+        fn into_views(self) -> Vec<super::View>;
+    }
+}
+
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub struct Key(KeyKind);
 
@@ -103,9 +111,34 @@ pub(crate) enum ViewKind {
     },
 }
 
+/// Converts a statically shaped expression into positional views.
+///
+/// This trait is sealed. `()` represents no views, fixed-size arrays represent homogeneous
+/// shapes, and tuples represent heterogeneous shapes. Dynamic collections require
+/// [`ChildrenControl::keyed_children`] or [`View::keyed_fragment`].
+///
+/// A `Vec` cannot supply positional children:
+///
+/// ```compile_fail
+/// use windows_reactor_next::*;
+///
+/// let dynamic: Vec<View> = vec![TextBlock::new().into()];
+/// let _ = StackPanel::new().children(dynamic);
+/// ```
+///
+/// Iterator adapters cannot supply positional children:
+///
+/// ```compile_fail
+/// use windows_reactor_next::*;
+///
+/// let dynamic = (0..3).map(|index| TextBlock::new().text(index.to_string()));
+/// let _ = StackPanel::new().children(dynamic);
+/// ```
+pub trait IntoViews: sealed::StaticViews {}
+
 impl View {
     pub fn empty() -> Self {
-        Self::fragment([])
+        Self::fragment(())
     }
 
     pub fn native(control: impl Into<Element>) -> Self {
@@ -116,7 +149,7 @@ impl View {
         Self(ViewKind::Component(ComponentView::new::<C>(props)))
     }
 
-    pub fn fragment(children: impl IntoIterator<Item = Self>) -> Self {
+    pub fn fragment(children: impl IntoViews) -> Self {
         Self(ViewKind::Fragment(positioned(children)))
     }
 
@@ -208,7 +241,8 @@ impl KeyedView {
     }
 }
 
-fn positioned(children: impl IntoIterator<Item = View>) -> Rc<Vec<KeyedView>> {
+fn positioned(children: impl IntoViews) -> Rc<Vec<KeyedView>> {
+    let children = sealed::StaticViews::into_views(children);
     Rc::new(
         children
             .into_iter()
@@ -217,6 +251,67 @@ fn positioned(children: impl IntoIterator<Item = View>) -> Rc<Vec<KeyedView>> {
             .collect(),
     )
 }
+
+impl sealed::StaticViews for () {
+    fn into_views(self) -> Vec<View> {
+        Vec::new()
+    }
+}
+
+impl IntoViews for () {}
+
+impl<T, const N: usize> sealed::StaticViews for [T; N]
+where
+    T: Into<View>,
+{
+    fn into_views(self) -> Vec<View> {
+        self.into_iter().map(Into::into).collect()
+    }
+}
+
+impl<T, const N: usize> IntoViews for [T; N] where T: Into<View> {}
+
+macro_rules! impl_into_views_tuple {
+    ($($type:ident $index:tt),+ $(,)?) => {
+        impl<$($type),+> sealed::StaticViews for ($($type,)+)
+        where
+            $($type: Into<View>,)+
+        {
+            fn into_views(self) -> Vec<View> {
+                vec![$(self.$index.into()),+]
+            }
+        }
+
+        impl<$($type),+> IntoViews for ($($type,)+)
+        where
+            $($type: Into<View>,)+
+        {
+        }
+    };
+}
+
+impl_into_views_tuple!(A 0);
+impl_into_views_tuple!(A 0, B 1);
+impl_into_views_tuple!(A 0, B 1, C 2);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4, F 5);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4, F 5, G 6);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9, K 10);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9, K 10, L 11);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9, K 10, L 11, M 12);
+impl_into_views_tuple!(
+    A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9, K 10, L 11, M 12, N 13
+);
+impl_into_views_tuple!(
+    A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9, K 10, L 11, M 12, N 13, O 14
+);
+impl_into_views_tuple!(
+    A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9, K 10, L 11, M 12, N 13, O 14, P 15
+);
 
 #[derive(Clone, Debug, Default, PartialEq)]
 pub enum Property<T> {
@@ -246,15 +341,23 @@ pub(crate) fn f64_property_eq(left: &Property<f64>, right: &Property<f64>) -> bo
     }
 }
 
-pub struct Callback<T>(Rc<dyn Fn(T)>);
+pub struct Callback<T>(Rc<dyn Fn(T) -> bool>);
 
 impl<T> Callback<T> {
     pub fn new(callback: impl Fn(T) + 'static) -> Self {
+        Self::new_with_acceptance(move |value| {
+            callback(value);
+            true
+        })
+    }
+
+    pub(crate) fn new_with_acceptance(callback: impl Fn(T) -> bool + 'static) -> Self {
         Self(Rc::new(callback))
     }
 
-    pub fn call(&self, value: T) {
-        (self.0)(value);
+    #[must_use = "false means the adapted message was rejected"]
+    pub fn call(&self, value: T) -> bool {
+        (self.0)(value)
     }
 }
 
@@ -279,8 +382,44 @@ impl<T> PartialEq for Callback<T> {
     }
 }
 
-pub(crate) mod sealed {
-    pub trait Sealed {}
+/// Converts a payload handler or typed message callback into an event callback.
+pub trait IntoPayloadCallback<T> {
+    fn into_payload_callback(self) -> Callback<T>;
+}
+
+impl<T, F> IntoPayloadCallback<T> for F
+where
+    F: Fn(T) + 'static,
+{
+    fn into_payload_callback(self) -> Callback<T> {
+        Callback::new(self)
+    }
+}
+
+impl<T> IntoPayloadCallback<T> for Callback<T> {
+    fn into_payload_callback(self) -> Self {
+        self
+    }
+}
+
+/// Converts a zero-argument handler or typed message callback into an event callback.
+pub trait IntoUnitCallback {
+    fn into_unit_callback(self) -> Callback<()>;
+}
+
+impl<F> IntoUnitCallback for F
+where
+    F: Fn() + 'static,
+{
+    fn into_unit_callback(self) -> Callback<()> {
+        Callback::new(move |()| self())
+    }
+}
+
+impl IntoUnitCallback for Callback<()> {
+    fn into_unit_callback(self) -> Self {
+        self
+    }
 }
 
 pub trait LayoutControl: sealed::Sealed {}
@@ -302,7 +441,7 @@ pub trait ContentControl: sealed::Sealed + Into<Element> + Sized {
     }
 }
 pub trait ChildrenControl: sealed::Sealed + Into<Element> + Sized {
-    fn children(self, children: impl IntoIterator<Item = View>) -> View {
+    fn children(self, children: impl IntoViews) -> View {
         View(ViewKind::Children {
             control: self.into(),
             children: positioned(children),

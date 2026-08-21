@@ -6,6 +6,23 @@ use crate::native::*;
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
+struct UnitEventComponent;
+
+impl Component for UnitEventComponent {
+    type Message = ();
+    type Props = ();
+
+    fn create(_props: &(), _context: &mut ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn update(&mut self, _message: (), _context: &mut ComponentContext<Self>) {}
+
+    fn view(&self, _props: &(), context: &mut ViewContext<Self>) -> View {
+        Button::new().on_click(context.message(())).into()
+    }
+}
+
 #[test]
 fn queued_event_uses_latest_callback_without_revision_change() {
     let first = Rc::new(Cell::new(0));
@@ -159,6 +176,57 @@ fn retired_node_rejects_queued_event() {
 }
 
 #[test]
+fn rejected_message_callback_is_a_pump_error() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<UnitEventComponent>(()))
+        .unwrap();
+    let component = pump.root().unwrap();
+    let root = Pump::<RecordingRuntime>::native_root(&pump.tree, component).unwrap();
+    let token = pump
+        .components
+        .token(pump.tree.component_scope(component).unwrap())
+        .unwrap();
+    let sender = pump.components.sender::<()>(token).unwrap();
+    for _ in 0..component::LOCAL_MESSAGE_QUEUE_CAPACITY {
+        assert!(sender.send(()));
+    }
+    let revision = pump.event_revision(root, EventId::ButtonClick).unwrap();
+    pump.queue_event(QueuedEvent::new(
+        root,
+        EventId::ButtonClick,
+        revision,
+        EventPayload::Unit,
+    ));
+
+    assert_eq!(
+        pump.dispatch_events(),
+        Err(PumpError::EventCallbackRejected {
+            node: root,
+            event: EventId::ButtonClick,
+        })
+    );
+}
+
+#[test]
+fn stale_message_callback_event_is_rejected_before_dispatch() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<UnitEventComponent>(()))
+        .unwrap();
+    let root = Pump::<RecordingRuntime>::native_root(&pump.tree, pump.root().unwrap()).unwrap();
+    let revision = pump.event_revision(root, EventId::ButtonClick).unwrap();
+    pump.queue_event(QueuedEvent::new(
+        root,
+        EventId::ButtonClick,
+        revision,
+        EventPayload::Unit,
+    ));
+
+    pump.update_view(View::native(TextBlock::new())).unwrap();
+
+    assert_eq!(pump.dispatch_events(), Ok(0));
+}
+
+#[test]
 fn generated_event_payload_reaches_callback() {
     let value = Rc::new(RefCell::new(String::new()));
     let capture = Rc::clone(&value);
@@ -282,13 +350,10 @@ fn component_rejected_controlled_edit_restores_the_desired_value() {
         fn update(&mut self, _message: String, _context: &mut ComponentContext<Self>) {}
 
         fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
-            let sender = context.sender();
             View::native(
                 TextBox::new()
                     .text("desired")
-                    .on_text_changed(move |value| {
-                        _ = sender.send(value);
-                    }),
+                    .on_text_changed(context.callback(std::convert::identity)),
             )
         }
     }

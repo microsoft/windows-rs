@@ -239,7 +239,7 @@ impl Component for LiveTestComponent {
     }
 
     fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
-        context.use_effect((), || {
+        context.use_effect("live-test", (), || {
             LIVE_COMPONENT_EFFECT_SETUPS.with(|count| count.set(count.get().saturating_add(1)));
             Some(Box::new(|| {
                 LIVE_COMPONENT_EFFECT_CLEANUPS
@@ -247,15 +247,13 @@ impl Component for LiveTestComponent {
             }))
         });
         let sender = context.sender();
-        View::native(
-            TextBox::new()
-                .text(self.text.clone())
-                .on_text_changed(move |value| {
-                    for _ in 0..65 {
-                        sender.send(LiveTestMessage::Native(value.clone()));
-                    }
-                }),
-        )
+        View::native(TextBox::new().text(self.text.clone()).on_text_changed(
+            move |value: String| {
+                for _ in 0..65 {
+                    sender.send(LiveTestMessage::Native(value.clone()));
+                }
+            },
+        ))
     }
 }
 
@@ -438,7 +436,7 @@ impl LivePump for ComponentLoop {
                     KeyedView::new("b", View::native(TextBlock::new().text("B"))),
                 ]
             };
-            StackPanel::new().children([View::empty(), View::keyed_fragment(children)])
+            StackPanel::new().children((View::empty(), View::keyed_fragment(children)))
         };
 
         self.pump.update_view(View::empty()).is_ok()

@@ -54,16 +54,38 @@ the controls: `content`, `children`, `keyed_children`, and `slots` all return th
 used by components and the planner. This is not a wrapper frontend. Property and event builders
 must run before a terminal structural method.
 
-`children` assigns positional identity, while `keyed_children` accepts `KeyedView` for identity
-that survives insertion and reordering. Public numeric and string keys cannot collide with the
-private positional-key domain.
+`children` assigns positional identity only through the sealed `IntoViews` trait. `()` supplies an
+empty shape, fixed arrays supply homogeneous shapes, and tuples of up to 16 elements supply
+heterogeneous shapes whose leaves each implement `Into<View>`. The tuple syntax therefore accepts
+controls, components, and terminal content views together without per-leaf `.into()` calls.
+
+Dynamic lists cannot implement `IntoViews`. Inserting at the front of an index-identified list
+would reuse each existing component scope for the next item, reproducing React's index-as-key state
+bug. Dynamic `Vec`, slice, and iterator inputs must use `keyed_children` with `KeyedView`.
+Explicit keys follow items through insertion and reordering. Public numeric and string keys cannot
+collide with the private positional-key domain.
 
 Component sends are queue-only. Each window accepts at most 4,096 queued messages, and each
 dispatcher turn drains at most 64 messages. Dirty scopes compose parent-first. Parent props apply
 before queued child messages, and retiring a child removes its queued work.
 
+`ViewContext::callback` maps an event payload to a component message, while
+`ViewContext::message` clones a fixed message for repeated zero-argument events. The methods
+forward to the equivalent `LocalSender` methods and produce `Callback<T>` values; they do not add
+a queue or state path. Generated payload and zero-argument event setters use generic conversion
+traits so both these callbacks and ordinary unit-returning closures retain the same control API.
+
 An isolated native leaf uses a property-only candidate and does not clone the full tree. Component
 effect cleanup runs before native mutation, and setup runs after publication.
+
+`ViewContext::use_effect(key, dependency, setup)` identifies each effect with an opaque
+`EffectKey`. Numeric and string conversions make keys concise without exposing an internal
+positional form. Each key must be unique within one component view. Omitted keys clean their
+published effects, reordered keys retain their effects, and changed typed dependencies clean then
+set up exactly once across the publication boundary. Duplicate keys return
+`PumpError::DuplicateEffectKey` during planning, before effect cleanup or native mutation.
+`begin_view` clears only pending registrations from an earlier failed plan; published keyed slots
+remain available for the retry. Owned components have no positional hook-order contract.
 
 If component props are applied but later candidate validation fails, Reactor records each touched
 scope. Direct updates and component turns seed their next candidate with those scopes, so an
@@ -113,6 +135,13 @@ Dropping a `ComponentTask` handle does not cancel its task.
 Native callbacks capture typed payloads and enqueue them with the current window identity and event
 revision. Stale work is discarded before dispatch.
 
+`Callback::call` returns an acceptance bit. Ordinary user closures return `true`. Callbacks
+adapted from `LocalSender` return the exact result of `LocalSender::send`. After window, node,
+subscription, and event-revision checks pass, a `false` result produces
+`PumpError::EventCallbackRejected`; the WinUI host records it as a fault, shuts down that Pump, and
+exits the UI thread. Work rejected by an earlier stale-event check never invokes the callback and
+does not produce this error.
+
 Controlled feedback updates the known native value before invoking the application callback. If
 the application rejects the edit, ordinary reconciliation writes the desired value again. There
 is no divergent-property state or retry scheduler. An unexpected restoring-setter failure follows
@@ -136,9 +165,10 @@ Logical fragments create no hidden WinUI control. They flatten zero or more nati
 generated children collections. Window and content slots accept zero or one flattened root and
 reject invalid arity before native mutation.
 
-`View::fragment` accepts positional `View` children. `View::keyed_fragment` accepts `KeyedView`
-children when fragment descendants need explicit stable identity. Both forms become the existing
-keyed fragment edges before planning and use the same `ViewKind::Fragment` path.
+`View::fragment` accepts the same statically shaped `IntoViews` inputs as `children`.
+`View::keyed_fragment` accepts dynamic `KeyedView` collections when fragment descendants need
+explicit stable identity. Both forms become the existing keyed fragment edges before planning and
+use the same `ViewKind::Fragment` path.
 
 Generated named slots use a distinct transparent logical node and a generic
 `SetSlot { parent, slot, child }` command. `NavigationView` currently exposes typed `Content` and
@@ -151,9 +181,16 @@ Component-owned keyed children build one key index and one desired order. Small 
 insert and move commands. Updates with 256 or more ordering operations use child synchronization,
 which bounds repeated vector search and movement for dense and adversarial sparse reorders.
 
-`ItemsRepeater` owns virtual collection leases and stable native shells. Recycling clears shell
-content before reuse. Realized row subtrees remain ordinary arena nodes and retain independent
-generation checks.
+`ItemsRepeater::item` accepts a key and any `Into<View>`. `ItemsRepeater::items` accepts
+`IntoIterator<Item = KeyedView>`. Rows stay as keyed desired views until native realization asks
+for one, so unrealized components are not created and their effects do not run.
+
+Each realization entry stores the row's logical ownership root and its one native attachment root.
+The logical root may be a component, provider, fragment, or native node. Mount and key-stable
+updates use the ordinary `View` planner. Empty and multi-native-root rows fail with
+`StructureUnsupported` before publication. Recycling and source replacement retire the logical
+subtree child-first, while `DetachRealized` targets the native root. Realization keeps the existing
+generation, container, key, and work-budget checks and does not increment the Pump version.
 
 ## Scheduling and lifecycle
 
@@ -163,7 +200,9 @@ dispatcher rejection is an explicit host fault.
 
 Changed and retired effect cleanup runs child-first before native mutation. New setup runs
 parent-first after publication. Normal shutdown cleans effects before native reset, and cleanup is
-idempotent across shutdown and `Drop`.
+idempotent across shutdown and `Drop`. Within one component, changed and removed cleanup follows
+the published key order, setup follows the new registration order, and final cleanup reverses the
+current published order.
 
 These budgets bound queued work items, not the size of one component composition or candidate.
 Large synchronous component trees are controlled by the locality and keyed-scale gates rather than

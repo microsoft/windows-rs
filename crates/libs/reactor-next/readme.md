@@ -43,36 +43,95 @@ Generated controls convert directly into `View`. Structural capability traits ke
 that same core type:
 
 ```rust,ignore
-StackPanel::new().spacing(8.0).children([
-    TextBlock::new().text("Ready").into(),
+StackPanel::new().spacing(8.0).children((
+    TextBlock::new().text("Ready"),
+    TextBox::new().placeholder_text("Name"),
+    View::component::<Summary>(summary_props),
     Button::new()
         .is_enabled(true)
         .on_click(submit)
         .content(TextBlock::new().text("Submit")),
-])
+))
 ```
 
 `ContentControl::content`, `ChildrenControl::children`, and `SlotsControl::slots` are terminal
-builders that return `View`, so set control properties and events before calling them. Positional
-children retain identity by index. Use `ChildrenControl::keyed_children` and `KeyedView` when
-identity must survive insertion or reordering. `View::fragment` and `View::keyed_fragment` provide
-the same positional and explicit-key choices without a native parent. Positional keys occupy a
-private key domain and cannot collide with public numeric or string keys.
+builders that return `View`, so set control properties and events before calling them.
+`ChildrenControl::children` and `View::fragment` accept the sealed `IntoViews` trait. `()` is
+empty, fixed-size arrays provide homogeneous shapes, and tuples of up to 16 elements provide
+heterogeneous shapes. Each tuple element implements `Into<View>`, so controls and component or
+content views do not need per-leaf `.into()` calls.
+
+Positional identity is available only to these statically shaped expressions. A dynamic list can
+insert or remove an item and shift every later index, which would attach retained component state
+to the wrong item - the React index-as-key state bug. Dynamic `Vec`, slice, and iterator inputs
+therefore do not implement `IntoViews`. Use `ChildrenControl::keyed_children` with `KeyedView`, or
+`View::keyed_fragment`, for dynamic collections. Positional keys occupy a private key domain and
+cannot collide with public numeric or string keys.
 
 These methods construct the core `View` variants consumed by the existing planner. They are not a
 wrapper frontend and do not add another tree or reconciliation path.
 
-The
-[`form sample`](../../samples/reactor-next/form/src/main.rs) exercises controlled input,
+`ItemsRepeater` accepts explicitly keyed `View` rows:
+
+```rust,ignore
+ItemsRepeater::new()
+    .item("summary", View::component::<Summary>(summary_props))
+    .items(records.map(|record| {
+        KeyedView::new(record.id, Row::new().content(TextBlock::new().text(record.name)))
+    }))
+```
+
+Rows are realized lazily. A row may contain native controls, components, providers, fragments, and
+ordinary `View` composition, but it must flatten to exactly one native root for the repeater
+container. Empty and multi-root rows fail planning without publishing the row. Recycling retires
+the logical row subtree and its component scopes while detaching the row's native root.
+
+Event setters accept ordinary unit-returning closures and typed message callbacks:
+
+```rust,ignore
+TextBox::new().on_text_changed(context.callback(Message::NameChanged));
+NumberBox::new().on_value_changed(context.callback(Message::AmountChanged));
+Button::new().on_click(context.message(Message::Submit));
+```
+
+`ViewContext::callback` maps an event payload into a component message.
+`ViewContext::message` clones one message for each invocation and requires the component message
+type to implement `Clone`. Both methods forward to the same methods on `LocalSender` and enqueue
+through the existing local component queue.
+
+Ordinary event closures are always accepted. A message callback retains the `bool` returned by
+`LocalSender::send`. If a current native event invokes a callback and the send is rejected, event
+dispatch reports `PumpError::EventCallbackRejected` and the WinUI host treats it as a fault.
+Events with stale window, node, subscription, or event revisions are discarded before callback
+invocation and cannot produce that fault.
+
+The [`form sample`](../../samples/reactor-next/form/src/main.rs) exercises controlled input,
 validation, a nested component, and scope-owned background submission.
 
 The component store owns current props and passes them by reference to `Component::view`.
 Components can render from that argument without copying props into their own fields.
 `Component::changed` defaults to a no-op and is only needed for prop-driven state updates.
 
+Effects use an explicit key separately from their typed dependency:
+
+```rust,ignore
+context.use_effect("subscription", topic.clone(), move || {
+    let subscription = subscribe(topic);
+    Some(Box::new(move || subscription.close()))
+});
+```
+
+`EffectKey` is opaque and accepts `u32`, `u64`, `usize`, `String`, and `&str`. Keys are unique
+within one component view. Conditional omission cleans the omitted effect without changing other
+effects, and reordering calls with the same keys retains them. A changed dependency under one key
+cleans the published effect before native mutation and runs its replacement setup after successful
+publication. Duplicate keys reject candidate planning before cleanup, native mutation, or setup.
+Owned components therefore have no positional hook-order contract.
+
 Local component messages stay on the UI thread. Each window queues at most 4,096 messages.
 `LocalSender::send` returns `false` when the owning scope has retired, the window has closed, or
-the queue is full.
+the queue is full. `Callback::call` returns the same acceptance result for callbacks created by
+`LocalSender::callback` or `LocalSender::message`.
 
 Components may run blocking work on an owned background thread:
 

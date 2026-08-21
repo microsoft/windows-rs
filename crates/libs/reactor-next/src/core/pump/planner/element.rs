@@ -92,21 +92,8 @@ impl<R: NativeRuntime> Pump<R> {
                 });
             } else {
                 tree.update_virtual_items(node, items)?;
-                let realized = tree
-                    .children(node)?
-                    .iter()
-                    .copied()
-                    .map(|child| {
-                        let key = tree
-                            .key(child)?
-                            .cloned()
-                            .ok_or(PumpError::StructureUnsupported)?;
-                        let element = tree.virtual_item(node, &key)?.clone();
-                        Ok((child, element))
-                    })
-                    .collect::<Result<Vec<_>, PumpError>>()?;
-                for (child, element) in realized {
-                    Self::reconcile_node(tree, child, element, plan)?;
+                if !tree.children(node)?.is_empty() {
+                    return Err(PumpError::StructureUnsupported);
                 }
             }
             return Ok(node);
@@ -453,7 +440,7 @@ impl<R: NativeRuntime> Pump<R> {
         children.insert(index, replacement);
         tree.set_children(parent, children)?;
         if let Some(container) = container {
-            tree.set_realized(parent, container, replacement)?;
+            tree.set_realized(parent, container, replacement, replacement)?;
             plan.push(Command::AttachRealized {
                 collection: parent,
                 container,

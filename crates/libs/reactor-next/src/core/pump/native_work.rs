@@ -100,14 +100,23 @@ impl<R: NativeRuntime> Pump<R> {
                     }
                 }
             }
-            if event.invokes_callback()
-                && self
+            if event.invokes_callback() {
+                match self
                     .tree
                     .native(event.node)?
                     .desired
                     .dispatch_event(event.event, &event.payload)
-            {
-                dispatched += 1;
+                {
+                    Some(true) => dispatched += 1,
+                    Some(false) => {
+                        self.events.clear();
+                        return Err(PumpError::EventCallbackRejected {
+                            node: event.node,
+                            event: event.event,
+                        });
+                    }
+                    None => {}
+                }
             }
         }
         Ok(dispatched)
@@ -123,93 +132,142 @@ impl<R: NativeRuntime> Pump<R> {
         let mut outcomes = Vec::with_capacity(self.realizations.len().min(REALIZATION_WORK_BUDGET));
         let mut candidate = self.tree.clone();
         let mut plan = UpdatePlan::new(self.identity);
-        for _ in 0..REALIZATION_WORK_BUDGET {
-            let Some(queued) = self.realizations.pop_front() else {
-                break;
-            };
-            let request = queued.work;
-            if queued.identity != self.identity {
-                outcomes.push(RealizationOutcome::Rejected(request));
-                continue;
-            }
-            let outcome = match request {
-                RealizationRequest::Realize {
-                    collection,
-                    container,
-                    index,
-                } => {
-                    let Ok(lease) = candidate
-                        .virtual_model_mut(collection)
-                        .and_then(|model| model.realize(index, container).map_err(TreeError::from))
-                    else {
-                        outcomes.push(RealizationOutcome::Rejected(request));
-                        continue;
-                    };
-                    let element = candidate.virtual_item(collection, &lease.key)?.clone();
-                    let stale = candidate
-                        .children(collection)?
-                        .iter()
-                        .copied()
-                        .filter(|child| {
-                            candidate.key(*child).ok().flatten() == Some(&lease.key)
-                                || candidate.realized(collection, container).ok().flatten()
-                                    == Some(*child)
-                        })
-                        .collect::<Vec<_>>();
-                    for old in stale {
-                        Self::retire_planned_subtree(&mut candidate, old, &mut plan)?;
-                    }
-                    let child = Self::mount_planned_element(
-                        &mut candidate,
-                        Some(collection),
-                        Some(lease.key.clone()),
-                        element,
-                        &mut plan,
-                    )?;
-                    candidate.set_realized(collection, container, child)?;
-                    plan.push(Command::AttachRealized {
+        let mut changes = ComponentChanges::default();
+        let mut consumed = Vec::new();
+        let planning = (|| {
+            for _ in 0..REALIZATION_WORK_BUDGET {
+                let Some(queued) = self.realizations.pop_front() else {
+                    break;
+                };
+                let request = queued.work;
+                let current_identity = queued.identity == self.identity;
+                consumed.push(queued);
+                if !current_identity {
+                    outcomes.push(RealizationOutcome::Rejected(request));
+                    continue;
+                }
+                let outcome = match request {
+                    RealizationRequest::Realize {
                         collection,
                         container,
-                        child,
-                    });
-                    RealizationOutcome::Realized(lease)
-                }
-                RealizationRequest::Recycle {
-                    collection,
-                    container,
-                } => {
-                    let Some(child) = candidate.realized(collection, container)? else {
-                        outcomes.push(RealizationOutcome::Rejected(request));
-                        continue;
-                    };
-                    let Some(lease) = candidate
-                        .virtual_model_mut(collection)
-                        .ok()
-                        .and_then(|model| model.recycle_container(container))
-                    else {
-                        outcomes.push(RealizationOutcome::Rejected(request));
-                        continue;
-                    };
-                    Self::retire_planned_subtree(&mut candidate, child, &mut plan)?;
-                    RealizationOutcome::Recycled(lease)
-                }
-            };
-            outcomes.push(outcome);
+                        index,
+                    } => {
+                        let Ok(lease) = candidate.virtual_model_mut(collection).and_then(|model| {
+                            model.realize(index, container).map_err(TreeError::from)
+                        }) else {
+                            outcomes.push(RealizationOutcome::Rejected(request));
+                            continue;
+                        };
+                        let view = candidate.virtual_item(collection, &lease.key)?.clone();
+                        let stale = candidate
+                            .children(collection)?
+                            .iter()
+                            .copied()
+                            .filter(|logical_root| {
+                                candidate.key(*logical_root).ok().flatten() == Some(&lease.key)
+                                    || candidate
+                                        .realized(collection, container)
+                                        .ok()
+                                        .flatten()
+                                        .is_some_and(|row| row.logical_root == *logical_root)
+                            })
+                            .collect::<Vec<_>>();
+                        for old in stale {
+                            Self::collect_retired_components(
+                                &candidate,
+                                old,
+                                &self.components,
+                                &mut changes,
+                            )?;
+                            Self::retire_planned_subtree(&mut candidate, old, &mut plan)?;
+                        }
+                        let (logical_root, native) = Self::mount_planned_view(
+                            &mut candidate,
+                            Some(collection),
+                            Some(lease.key.clone()),
+                            view,
+                            &mut self.components,
+                            &mut changes,
+                            &mut plan,
+                        )?;
+                        let [native_root] = native.as_slice() else {
+                            return Err(PumpError::StructureUnsupported);
+                        };
+                        candidate.set_realized(
+                            collection,
+                            container,
+                            logical_root,
+                            *native_root,
+                        )?;
+                        plan.push(Command::AttachRealized {
+                            collection,
+                            container,
+                            child: *native_root,
+                        });
+                        RealizationOutcome::Realized(lease)
+                    }
+                    RealizationRequest::Recycle {
+                        collection,
+                        container,
+                    } => {
+                        let Some(row) = candidate.realized(collection, container)? else {
+                            outcomes.push(RealizationOutcome::Rejected(request));
+                            continue;
+                        };
+                        let Some(lease) = candidate
+                            .virtual_model_mut(collection)
+                            .ok()
+                            .and_then(|model| model.recycle_container(container))
+                        else {
+                            outcomes.push(RealizationOutcome::Rejected(request));
+                            continue;
+                        };
+                        Self::collect_retired_components(
+                            &candidate,
+                            row.logical_root,
+                            &self.components,
+                            &mut changes,
+                        )?;
+                        Self::retire_planned_subtree(&mut candidate, row.logical_root, &mut plan)?;
+                        RealizationOutcome::Recycled(lease)
+                    }
+                };
+                outcomes.push(outcome);
+            }
+            Ok::<(), PumpError>(())
+        })();
+        if let Err(error) = planning {
+            for queued in consumed.into_iter().rev() {
+                self.realizations.push_front(queued);
+            }
+            Self::remove_reservations(&mut self.components, &changes.reserved);
+            return Err(error);
         }
-        if !plan.commands.is_empty() {
-            self.apply_realization(candidate, &plan)?;
+        if !plan.commands.is_empty()
+            || !changes.reserved.is_empty()
+            || !changes.retired.is_empty()
+            || !changes.composed.is_empty()
+        {
+            self.apply_realization(candidate, plan, changes)?;
         }
         Ok(outcomes)
     }
 
     fn apply_realization(
         &mut self,
-        mut candidate: Tree,
-        plan: &UpdatePlan,
+        candidate: Tree,
+        plan: UpdatePlan,
+        changes: ComponentChanges,
     ) -> Result<(), PumpError> {
-        self.apply_native_commands(&plan.commands)?;
-        Self::commit_tree_properties(&mut candidate, &plan.commits)?;
-        self.tree = candidate;
-        Ok(())
+        let root = self.root.ok_or(PumpError::NotMounted)?;
+        self.publish_candidate(
+            CandidateState::Tree {
+                tree: candidate,
+                root,
+            },
+            plan,
+            FrontendChanges::Component(changes),
+            self.version,
+        )
     }
 }

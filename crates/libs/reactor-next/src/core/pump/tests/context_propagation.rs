@@ -702,7 +702,7 @@ impl Component for InvalidConsumer {
     fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
         self.0.views.set(self.0.views.get() + 1);
         if context.use_context(&self.0.context) == "bad" {
-            View::fragment([TextBlock::new().into(), TextBlock::new().into()])
+            View::fragment([TextBlock::new(), TextBlock::new()])
         } else {
             View::native(TextBlock::new())
         }
