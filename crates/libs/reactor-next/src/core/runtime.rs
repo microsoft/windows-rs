@@ -121,6 +121,38 @@ pub struct QueuedEvent {
     pub event: EventId,
     pub revision: u32,
     pub payload: EventPayload,
+    invoke_callback: bool,
+}
+
+impl QueuedEvent {
+    pub fn new(node: NodeId, event: EventId, revision: u32, payload: EventPayload) -> Self {
+        Self {
+            node,
+            event,
+            revision,
+            payload,
+            invoke_callback: true,
+        }
+    }
+
+    pub(crate) fn observation(
+        node: NodeId,
+        event: EventId,
+        revision: u32,
+        payload: EventPayload,
+    ) -> Self {
+        Self {
+            node,
+            event,
+            revision,
+            payload,
+            invoke_callback: false,
+        }
+    }
+
+    pub(crate) fn invokes_callback(&self) -> bool {
+        self.invoke_callback
+    }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

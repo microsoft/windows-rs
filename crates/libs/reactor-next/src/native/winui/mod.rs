@@ -203,16 +203,30 @@ impl WinUiRuntime {
                     .get(node)
                     .ok_or(RuntimeError::MissingNode(*node))?;
                 let feedback = expected_feedback(*property, Some(value));
-                if let Some((event, expectation)) = &feedback {
+                let feedback_event = feedback.as_ref().map(|(event, _)| *event);
+                if let Some((event, expectation)) = feedback {
                     self.feedback
                         .borrow_mut()
-                        .insert((*node, *event), expectation.clone());
+                        .insert((*node, event), expectation);
                 }
                 let result = set_property(handle, *property, value);
-                if let Some((event, _)) = feedback {
-                    self.feedback.borrow_mut().remove(&(*node, event));
-                }
+                let observation = feedback_event.and_then(|event| {
+                    self.feedback
+                        .borrow_mut()
+                        .remove(&(*node, event))
+                        .and_then(|expectation| match expectation {
+                            FeedbackExpectation::Normalized { observation } => observation,
+                            FeedbackExpectation::Exact(_) => None,
+                        })
+                });
                 result?;
+                if let Some(observation) = observation {
+                    self.events.borrow_mut().push(NativeWork {
+                        identity: self.identity.get().unwrap(),
+                        work: observation,
+                    });
+                    self.schedule_dispatch()?;
+                }
             }
             Command::ClearProperty { node, property } => {
                 let handle = self
@@ -220,16 +234,30 @@ impl WinUiRuntime {
                     .get(node)
                     .ok_or(RuntimeError::MissingNode(*node))?;
                 let feedback = expected_feedback(*property, None);
-                if let Some((event, expectation)) = &feedback {
+                let feedback_event = feedback.as_ref().map(|(event, _)| *event);
+                if let Some((event, expectation)) = feedback {
                     self.feedback
                         .borrow_mut()
-                        .insert((*node, *event), expectation.clone());
+                        .insert((*node, event), expectation);
                 }
                 let result = clear_property(handle, *property);
-                if let Some((event, _)) = feedback {
-                    self.feedback.borrow_mut().remove(&(*node, event));
-                }
+                let observation = feedback_event.and_then(|event| {
+                    self.feedback
+                        .borrow_mut()
+                        .remove(&(*node, event))
+                        .and_then(|expectation| match expectation {
+                            FeedbackExpectation::Normalized { observation } => observation,
+                            FeedbackExpectation::Exact(_) => None,
+                        })
+                });
                 result?;
+                if let Some(observation) = observation {
+                    self.events.borrow_mut().push(NativeWork {
+                        identity: self.identity.get().unwrap(),
+                        work: observation,
+                    });
+                    self.schedule_dispatch()?;
+                }
             }
             Command::SubscribeEvent {
                 node,
@@ -440,26 +468,25 @@ pub struct EventSink {
 
 impl EventSink {
     pub fn enqueue(&self, node: NodeId, event: EventId, revision: u32, payload: EventPayload) {
-        let expected = self
-            .feedback
-            .borrow()
-            .get(&(node, event))
-            .is_some_and(|expected| match expected {
-                FeedbackExpectation::Any => true,
-                FeedbackExpectation::Exact(expected) => expected == &payload,
-            });
-        if expected {
-            self.feedback.borrow_mut().remove(&(node, event));
-            return;
+        {
+            let mut feedback = self.feedback.borrow_mut();
+            if let Some(expected) = feedback.get_mut(&(node, event)) {
+                match expected {
+                    // Keep the expectation active until the setter returns so every synchronous
+                    // echo from the same native mutation is covered.
+                    FeedbackExpectation::Exact(expected) if expected == &payload => return,
+                    FeedbackExpectation::Normalized { observation } => {
+                        *observation =
+                            Some(QueuedEvent::observation(node, event, revision, payload));
+                        return;
+                    }
+                    FeedbackExpectation::Exact(_) => {}
+                }
+            }
         }
         self.queue.borrow_mut().push(NativeWork {
             identity: self.identity,
-            work: QueuedEvent {
-                node,
-                event,
-                revision,
-                payload,
-            },
+            work: QueuedEvent::new(node, event, revision, payload),
         });
         self.schedule();
     }

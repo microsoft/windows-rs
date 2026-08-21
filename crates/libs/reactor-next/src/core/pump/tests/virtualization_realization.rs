@@ -419,12 +419,12 @@ fn virtual_payload_change_reconciles_rows_without_resetting_source() {
 
     assert_eq!(pump.runtime().batches(), batches);
     assert_eq!(pump.tree.children(collection).unwrap(), &[child]);
-    pump.queue_event(QueuedEvent {
-        node: child,
-        event: EventId::ButtonClick,
+    pump.queue_event(QueuedEvent::new(
+        child,
+        EventId::ButtonClick,
         revision,
-        payload: EventPayload::Unit,
-    });
+        EventPayload::Unit,
+    ));
     assert_eq!(pump.dispatch_events(), Ok(1));
     assert_eq!(first.get(), 0);
     assert_eq!(second.get(), 1);

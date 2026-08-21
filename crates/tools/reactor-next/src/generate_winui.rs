@@ -221,7 +221,10 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                 }),
                 FeedbackContract::SynchronousNormalized => Some(quote! {
                     (PropertyId::#property_id, Some(_)) => {
-                        Some((EventId::#event_id, FeedbackExpectation::Any))
+                        Some((
+                            EventId::#event_id,
+                            FeedbackExpectation::Normalized { observation: None },
+                        ))
                     }
                 }),
                 _ => unreachable!(),
@@ -245,7 +248,10 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                 }),
                 FeedbackContract::SynchronousNormalized => Some(quote! {
                     (PropertyId::#property_id, None) => {
-                        Some((EventId::#event_id, FeedbackExpectation::Any))
+                        Some((
+                            EventId::#event_id,
+                            FeedbackExpectation::Normalized { observation: None },
+                        ))
                     }
                 }),
                 _ => unreachable!(),

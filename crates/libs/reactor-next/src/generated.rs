@@ -426,7 +426,10 @@ pub mod public {
                         orientation: mounted_orientation,
                         spacing: mounted_spacing,
                     },
-                ) => true && orientation == mounted_orientation && spacing == mounted_spacing,
+                ) => {
+                    true && orientation == mounted_orientation
+                        && f64_property_eq(spacing, mounted_spacing)
+                }
                 (
                     Self::TextBox(TextBox {
                         text,
@@ -464,9 +467,9 @@ pub mod public {
                         on_value_changed: mounted_on_value_changed,
                     },
                 ) => {
-                    true && minimum == mounted_minimum
-                        && maximum == mounted_maximum
-                        && value == mounted_value
+                    true && f64_property_eq(minimum, mounted_minimum)
+                        && f64_property_eq(maximum, mounted_maximum)
+                        && f64_property_eq(value, mounted_value)
                         && is_enabled == mounted_is_enabled
                         && on_value_changed == mounted_on_value_changed
                 }
@@ -728,7 +731,7 @@ pub enum MountedKind {
     ItemsRepeater,
     ScrollViewer,
 }
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug)]
 pub enum MountedProps {
     TextBlock {
         text: Property<String>,
@@ -757,6 +760,89 @@ pub enum MountedProps {
     },
     ItemsRepeater {},
     ScrollViewer {},
+}
+impl PartialEq for MountedProps {
+    fn eq(&self, other: &Self) -> bool {
+        match (self, other) {
+            (
+                Self::TextBlock {
+                    text: left_text,
+                    text_wrapping: left_text_wrapping,
+                },
+                Self::TextBlock {
+                    text: right_text,
+                    text_wrapping: right_text_wrapping,
+                },
+            ) => true && left_text == right_text && left_text_wrapping == right_text_wrapping,
+            (
+                Self::Button {
+                    is_enabled: left_is_enabled,
+                    on_click: left_on_click,
+                },
+                Self::Button {
+                    is_enabled: right_is_enabled,
+                    on_click: right_on_click,
+                },
+            ) => true && left_is_enabled == right_is_enabled && left_on_click == right_on_click,
+            (
+                Self::StackPanel {
+                    orientation: left_orientation,
+                    spacing: left_spacing,
+                },
+                Self::StackPanel {
+                    orientation: right_orientation,
+                    spacing: right_spacing,
+                },
+            ) => {
+                true && left_orientation == right_orientation
+                    && f64_property_eq(left_spacing, right_spacing)
+            }
+            (
+                Self::TextBox {
+                    text: left_text,
+                    placeholder_text: left_placeholder_text,
+                    is_enabled: left_is_enabled,
+                    on_text_changed: left_on_text_changed,
+                },
+                Self::TextBox {
+                    text: right_text,
+                    placeholder_text: right_placeholder_text,
+                    is_enabled: right_is_enabled,
+                    on_text_changed: right_on_text_changed,
+                },
+            ) => {
+                true && left_text == right_text
+                    && left_placeholder_text == right_placeholder_text
+                    && left_is_enabled == right_is_enabled
+                    && left_on_text_changed == right_on_text_changed
+            }
+            (
+                Self::NumberBox {
+                    minimum: left_minimum,
+                    maximum: left_maximum,
+                    value: left_value,
+                    is_enabled: left_is_enabled,
+                    on_value_changed: left_on_value_changed,
+                },
+                Self::NumberBox {
+                    minimum: right_minimum,
+                    maximum: right_maximum,
+                    value: right_value,
+                    is_enabled: right_is_enabled,
+                    on_value_changed: right_on_value_changed,
+                },
+            ) => {
+                true && f64_property_eq(left_minimum, right_minimum)
+                    && f64_property_eq(left_maximum, right_maximum)
+                    && f64_property_eq(left_value, right_value)
+                    && left_is_enabled == right_is_enabled
+                    && left_on_value_changed == right_on_value_changed
+            }
+            (Self::ItemsRepeater {}, Self::ItemsRepeater {}) => true,
+            (Self::ScrollViewer {}, Self::ScrollViewer {}) => true,
+            _ => false,
+        }
+    }
 }
 #[derive(Clone, Debug, PartialEq)]
 pub enum ElementStructure {
@@ -799,13 +885,25 @@ pub enum EventId {
     TextBoxTextChanged,
     NumberBoxValueChanged,
 }
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug)]
 pub enum PropertyValue {
     Bool(bool),
     F64(f64),
     Orientation(Orientation),
     Str(String),
     TextWrapping(TextWrapping),
+}
+impl PartialEq for PropertyValue {
+    fn eq(&self, other: &Self) -> bool {
+        match (self, other) {
+            (Self::Bool(left), Self::Bool(right)) => left == right,
+            (Self::F64(left), Self::F64(right)) => f64_eq(*left, *right),
+            (Self::Orientation(left), Self::Orientation(right)) => left == right,
+            (Self::Str(left), Self::Str(right)) => left == right,
+            (Self::TextWrapping(left), Self::TextWrapping(right)) => left == right,
+            _ => false,
+        }
+    }
 }
 impl From<bool> for PropertyValue {
     fn from(value: bool) -> Self {
@@ -832,11 +930,21 @@ impl From<TextWrapping> for PropertyValue {
         Self::TextWrapping(value)
     }
 }
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug)]
 pub enum EventPayload {
     F64(f64),
     Str(String),
     Unit,
+}
+impl PartialEq for EventPayload {
+    fn eq(&self, other: &Self) -> bool {
+        match (self, other) {
+            (Self::F64(left), Self::F64(right)) => f64_eq(*left, *right),
+            (Self::Str(left), Self::Str(right)) => left == right,
+            (Self::Unit, Self::Unit) => true,
+            _ => false,
+        }
+    }
 }
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ControlRole {

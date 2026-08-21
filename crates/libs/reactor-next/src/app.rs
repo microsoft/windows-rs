@@ -144,6 +144,10 @@ trait LivePump {
         false
     }
     #[cfg(feature = "test")]
+    fn live_number_box_restore(&mut self) -> bool {
+        false
+    }
+    #[cfg(feature = "test")]
     fn live_number_box_value(&self) -> Result<f64, RuntimeError> {
         Err(RuntimeError::UnsupportedKind)
     }
@@ -431,7 +435,24 @@ impl LivePump for ComponentLoop {
             )
         };
         self.pump.update_view(view(10.0, 7.0)).is_ok()
-            && self.pump.update_view(view(5.0, 5.0)).is_ok()
+            && self.pump.update_view(view(5.0, 7.0)).is_ok()
+    }
+
+    #[cfg(feature = "test")]
+    fn live_number_box_restore(&mut self) -> bool {
+        self.pump
+            .update_view(View::native(
+                NumberBox::new()
+                    .minimum(0.0)
+                    .maximum(10.0)
+                    .value(7.0)
+                    .on_value_changed(|_| {
+                        LIVE_NUMBER_BOX_EVENTS.with(|count| {
+                            count.set(count.get().saturating_add(1));
+                        });
+                    }),
+            ))
+            .is_ok()
     }
 
     #[cfg(feature = "test")]
@@ -1084,9 +1105,57 @@ fn queue_live_number_box_verification(
         }
         if attempts == 0 {
             if !matches!(value, Some(Ok(value)) if value == 5.0) {
-                eprintln!("NumberBox did not retain its coerced controlled value: {value:?}");
+                eprintln!("NumberBox did not report its tightened-bound value: {value:?}");
                 std::process::exit(1);
             }
+            let restored = HOST.with(|host| {
+                host.borrow_mut()
+                    .as_mut()
+                    .and_then(LiveHost::primary_mut)
+                    .is_some_and(LivePump::live_number_box_restore)
+            });
+            if !restored {
+                eprintln!("NumberBox did not apply its relaxed-bound update");
+                std::process::exit(1);
+            }
+            if queue_live_number_box_restore_verification(next_dispatcher.clone(), 8).is_err() {
+                std::process::exit(1);
+            }
+            return;
+        }
+        if queue_live_number_box_verification(next_dispatcher.clone(), attempts - 1).is_err() {
+            std::process::exit(1);
+        }
+    });
+    if dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Low, &verify)? {
+        Ok(())
+    } else {
+        Err(windows_core::Error::new(
+            E_FAIL,
+            "dispatcher rejected NumberBox feedback verification",
+        ))
+    }
+}
+
+#[cfg(feature = "test")]
+fn queue_live_number_box_restore_verification(
+    dispatcher: DispatcherQueue,
+    attempts: u8,
+) -> windows_core::Result<()> {
+    let next_dispatcher = dispatcher.clone();
+    let verify = DispatcherQueueHandler::new(move || {
+        let events = LIVE_NUMBER_BOX_EVENTS.with(std::cell::Cell::get);
+        let value = HOST.with(|host| {
+            host.borrow()
+                .as_ref()
+                .and_then(LiveHost::primary)
+                .map(LivePump::live_number_box_value)
+        });
+        if events != 0 {
+            eprintln!("NumberBox delivered {events} programmatic feedback events: value={value:?}");
+            std::process::exit(1);
+        }
+        if matches!(value, Some(Ok(value)) if value == 7.0) {
             let prepared = HOST.with(|host| {
                 host.borrow_mut()
                     .as_mut()
@@ -1102,7 +1171,13 @@ fn queue_live_number_box_verification(
             }
             return;
         }
-        if queue_live_number_box_verification(next_dispatcher.clone(), attempts - 1).is_err() {
+        if attempts == 0
+            || queue_live_number_box_restore_verification(next_dispatcher.clone(), attempts - 1)
+                .is_err()
+        {
+            eprintln!(
+                "NumberBox did not restore its desired value after relaxing bounds: {value:?}"
+            );
             std::process::exit(1);
         }
     });
@@ -1111,7 +1186,7 @@ fn queue_live_number_box_verification(
     } else {
         Err(windows_core::Error::new(
             E_FAIL,
-            "dispatcher rejected NumberBox feedback verification",
+            "dispatcher rejected NumberBox restore verification",
         ))
     }
 }

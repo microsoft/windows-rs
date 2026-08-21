@@ -194,6 +194,18 @@ impl<T> Property<T> {
     }
 }
 
+pub(crate) fn f64_eq(left: f64, right: f64) -> bool {
+    left == right || left.is_nan() && right.is_nan()
+}
+
+pub(crate) fn f64_property_eq(left: &Property<f64>, right: &Property<f64>) -> bool {
+    match (left, right) {
+        (Property::Inherited, Property::Inherited) => true,
+        (Property::Set(left), Property::Set(right)) => f64_eq(*left, *right),
+        _ => false,
+    }
+}
+
 pub struct Callback<T>(Rc<dyn Fn(T)>);
 
 impl<T> Callback<T> {

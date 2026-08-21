@@ -19,12 +19,12 @@ fn queued_event_uses_latest_callback_without_revision_change() {
     .unwrap();
     let root = pump.root().unwrap();
     let revision = pump.event_revision(root, EventId::ButtonClick).unwrap();
-    pump.queue_event(QueuedEvent {
-        node: root,
-        event: EventId::ButtonClick,
+    pump.queue_event(QueuedEvent::new(
+        root,
+        EventId::ButtonClick,
         revision,
-        payload: EventPayload::Unit,
-    });
+        EventPayload::Unit,
+    ));
 
     let second = Rc::new(Cell::new(0));
     let second_capture = Rc::clone(&second);
@@ -49,12 +49,12 @@ fn removed_callback_rejects_queued_revision() {
     pump.mount(Button::new().on_click(|| {}).into()).unwrap();
     let root = pump.root().unwrap();
     let revision = pump.event_revision(root, EventId::ButtonClick).unwrap();
-    pump.queue_event(QueuedEvent {
-        node: root,
-        event: EventId::ButtonClick,
+    pump.queue_event(QueuedEvent::new(
+        root,
+        EventId::ButtonClick,
         revision,
-        payload: EventPayload::Unit,
-    });
+        EventPayload::Unit,
+    ));
 
     pump.update(Button::new().into()).unwrap();
 
@@ -146,12 +146,12 @@ fn retired_node_rejects_queued_event() {
     let root = pump.root().unwrap();
     let button = pump.runtime().node(root).unwrap().children()[0];
     let revision = pump.event_revision(button, EventId::ButtonClick).unwrap();
-    pump.queue_event(QueuedEvent {
-        node: button,
-        event: EventId::ButtonClick,
+    pump.queue_event(QueuedEvent::new(
+        button,
+        EventId::ButtonClick,
         revision,
-        payload: EventPayload::Unit,
-    });
+        EventPayload::Unit,
+    ));
 
     pump.update(StackPanel::new().into()).unwrap();
 
@@ -174,12 +174,12 @@ fn generated_event_payload_reaches_callback() {
         .event_revision(root, EventId::TextBoxTextChanged)
         .unwrap();
 
-    pump.queue_event(QueuedEvent {
-        node: root,
-        event: EventId::TextBoxTextChanged,
+    pump.queue_event(QueuedEvent::new(
+        root,
+        EventId::TextBoxTextChanged,
         revision,
-        payload: EventPayload::Str("updated".into()),
-    });
+        EventPayload::Str("updated".into()),
+    ));
 
     assert_eq!(pump.dispatch_events(), Ok(1));
     assert_eq!(&*value.borrow(), "updated");
@@ -199,12 +199,12 @@ fn event_work_budget_preserves_and_reports_pending_work() {
     let root = pump.root().unwrap();
     let revision = pump.event_revision(root, EventId::ButtonClick).unwrap();
     for _ in 0..=EVENT_WORK_BUDGET {
-        pump.queue_event(QueuedEvent {
-            node: root,
-            event: EventId::ButtonClick,
+        pump.queue_event(QueuedEvent::new(
+            root,
+            EventId::ButtonClick,
             revision,
-            payload: EventPayload::Unit,
-        });
+            EventPayload::Unit,
+        ));
     }
 
     assert_eq!(pump.dispatch_events(), Ok(EVENT_WORK_BUDGET));
@@ -231,12 +231,12 @@ fn rejected_controlled_edit_restores_the_desired_value() {
     let revision = pump
         .event_revision(root, EventId::TextBoxTextChanged)
         .unwrap();
-    pump.queue_event(QueuedEvent {
-        node: root,
-        event: EventId::TextBoxTextChanged,
+    pump.queue_event(QueuedEvent::new(
+        root,
+        EventId::TextBoxTextChanged,
         revision,
-        payload: EventPayload::Str("native".into()),
-    });
+        EventPayload::Str("native".into()),
+    ));
 
     assert_eq!(pump.dispatch_events(), Ok(1));
     assert_eq!(&*observed.borrow(), "native");
@@ -299,12 +299,12 @@ fn component_rejected_controlled_edit_restores_the_desired_value() {
     let revision = pump
         .event_revision(root, EventId::TextBoxTextChanged)
         .unwrap();
-    pump.queue_event(QueuedEvent {
-        node: root,
-        event: EventId::TextBoxTextChanged,
+    pump.queue_event(QueuedEvent::new(
+        root,
+        EventId::TextBoxTextChanged,
         revision,
-        payload: EventPayload::Str("native".into()),
-    });
+        EventPayload::Str("native".into()),
+    ));
 
     assert_eq!(pump.dispatch_events(), Ok(1));
     assert_eq!(pump.dispatch_components(1), Ok(1));
@@ -355,12 +355,12 @@ fn number_box_orders_bounds_before_value_and_repairs_rejected_input() {
     let revision = pump
         .event_revision(root, EventId::NumberBoxValueChanged)
         .unwrap();
-    pump.queue_event(QueuedEvent {
-        node: root,
-        event: EventId::NumberBoxValueChanged,
+    pump.queue_event(QueuedEvent::new(
+        root,
+        EventId::NumberBoxValueChanged,
         revision,
-        payload: EventPayload::F64(12.0),
-    });
+        EventPayload::F64(12.0),
+    ));
     assert_eq!(pump.dispatch_events(), Ok(1));
     assert_eq!(observed.get(), 12.0);
 
@@ -380,4 +380,85 @@ fn number_box_orders_bounds_before_value_and_repairs_rejected_input() {
             .property(PropertyId::NumberBoxValue),
         Some(&PropertyValue::F64(5.0))
     );
+}
+
+#[test]
+fn normalized_feedback_updates_known_state_without_invoking_the_callback() {
+    let callbacks = Rc::new(Cell::new(0));
+    let initial_capture = Rc::clone(&callbacks);
+    let update_capture = Rc::clone(&callbacks);
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount(
+        NumberBox::new()
+            .minimum(0.0)
+            .maximum(100.0)
+            .value(50.0)
+            .on_value_changed(move |_| initial_capture.set(initial_capture.get() + 1))
+            .into(),
+    )
+    .unwrap();
+    let root = pump.root().unwrap();
+    let revision = pump
+        .event_revision(root, EventId::NumberBoxValueChanged)
+        .unwrap();
+
+    pump.update(
+        NumberBox::new()
+            .minimum(0.0)
+            .maximum(40.0)
+            .value(50.0)
+            .on_value_changed(move |_| update_capture.set(update_capture.get() + 1))
+            .into(),
+    )
+    .unwrap();
+    pump.queue_event(QueuedEvent::observation(
+        root,
+        EventId::NumberBoxValueChanged,
+        revision,
+        EventPayload::F64(40.0),
+    ));
+
+    assert_eq!(pump.dispatch_events(), Ok(0));
+    assert_eq!(callbacks.get(), 0);
+    assert!(!pump.native_work_pending());
+    assert_eq!(
+        pump.tree
+            .native(root)
+            .unwrap()
+            .properties
+            .get(&PropertyId::NumberBoxValue),
+        Some(&Some(PropertyValue::F64(40.0)))
+    );
+
+    pump.update(
+        NumberBox::new()
+            .minimum(0.0)
+            .maximum(100.0)
+            .value(50.0)
+            .into(),
+    )
+    .unwrap();
+    let commands = pump.runtime().commands().last().unwrap();
+    assert!(commands.iter().any(|command| matches!(
+        command,
+        Command::SetProperty {
+            property: PropertyId::NumberBoxValue,
+            value: PropertyValue::F64(50.0),
+            ..
+        }
+    )));
+}
+
+#[test]
+fn number_box_nan_value_is_idempotent() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount(NumberBox::new().value(f64::NAN).into()).unwrap();
+    let batches = pump.runtime().batches();
+
+    pump.update(NumberBox::new().value(f64::NAN).into())
+        .unwrap();
+
+    assert_eq!(pump.runtime().batches(), batches);
+    assert_eq!(PropertyValue::F64(f64::NAN), PropertyValue::F64(f64::NAN));
+    assert_eq!(EventPayload::F64(f64::NAN), EventPayload::F64(f64::NAN));
 }

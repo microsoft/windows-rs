@@ -26,6 +26,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         quote! { #name }
     });
     let mounted_props_variants = schema.controls.iter().map(generate_mounted_props_variant);
+    let mounted_props_equalities = schema.controls.iter().map(generate_mounted_props_equality);
     let mounted_props_visitors = schema.controls.iter().map(generate_mounted_props_visitor);
     let mounted_event_visitors = schema.controls.iter().map(generate_mounted_event_visitor);
     let mounted_event_dispatchers = schema.controls.iter().flat_map(generate_event_dispatchers);
@@ -175,9 +176,18 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             #(#mounted_variants),*
         }
 
-        #[derive(Clone, Debug, PartialEq)]
+        #[derive(Clone, Debug)]
         pub enum MountedProps {
             #(#mounted_props_variants),*
+        }
+
+        impl PartialEq for MountedProps {
+            fn eq(&self, other: &Self) -> bool {
+                match (self, other) {
+                    #(#mounted_props_equalities),*,
+                    _ => false,
+                }
+            }
         }
 
         #[derive(Clone, Debug, PartialEq)]
@@ -343,6 +353,43 @@ fn generate_mounted_props_variant(control: &ResolvedControl) -> TokenStream {
     }
 }
 
+fn generate_mounted_props_equality(control: &ResolvedControl) -> TokenStream {
+    let name = ident(&control.name);
+    let fields = control
+        .properties
+        .iter()
+        .map(|property| (&property.field, Some(property.value.as_str())))
+        .chain(control.events.iter().map(|event| (&event.field, None)))
+        .collect::<Vec<_>>();
+    let left = fields
+        .iter()
+        .map(|(field, _)| ident(&format!("left_{field}")))
+        .collect::<Vec<_>>();
+    let right = fields
+        .iter()
+        .map(|(field, _)| ident(&format!("right_{field}")))
+        .collect::<Vec<_>>();
+    let patterns = fields.iter().zip(&left).map(|((field, _), value)| {
+        let field = ident(field);
+        quote! { #field: #value }
+    });
+    let other_patterns = fields.iter().zip(&right).map(|((field, _), value)| {
+        let field = ident(field);
+        quote! { #field: #value }
+    });
+    let comparisons = fields
+        .iter()
+        .zip(left.iter().zip(&right))
+        .map(|((_, value), (left, right))| value_equality(*value, left, right));
+
+    quote! {
+        (
+            Self::#name { #(#patterns),* },
+            Self::#name { #(#other_patterns),* },
+        ) => true #(&& #comparisons)*
+    }
+}
+
 fn generate_element_parts(control: &ResolvedControl) -> TokenStream {
     let name = ident(&control.name);
     let fields = control
@@ -386,22 +433,26 @@ fn generate_element_props_match(control: &ResolvedControl) -> TokenStream {
     let fields = control
         .properties
         .iter()
-        .map(|property| ident(&property.field))
-        .chain(control.events.iter().map(|event| ident(&event.field)))
+        .map(|property| (&property.field, Some(property.value.as_str())))
+        .chain(control.events.iter().map(|event| (&event.field, None)))
         .collect::<Vec<_>>();
     let mounted = fields
         .iter()
-        .map(|field| ident(&format!("mounted_{field}")))
+        .map(|(field, _)| ident(&format!("mounted_{field}")))
+        .collect::<Vec<_>>();
+    let field_patterns = fields
+        .iter()
+        .map(|(field, _)| ident(field))
         .collect::<Vec<_>>();
     let comparisons = fields
         .iter()
         .zip(&mounted)
-        .map(|(field, mounted)| quote! { #field == #mounted });
+        .map(|((field, value), mounted)| value_equality(*value, &ident(field), mounted));
 
     quote! {
         (
-            Self::#name(#name { #(#fields,)* .. }),
-            MountedProps::#name { #(#fields: #mounted),* },
+            Self::#name(#name { #(#field_patterns,)* .. }),
+            MountedProps::#name { #(#field_patterns: #mounted),* },
         ) => true #(&& #comparisons)*
     }
 }
@@ -611,11 +662,32 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
             }
         }
     });
+    let equalities = values.keys().map(|name| {
+        let variant = ident(name);
+        if name == "F64" {
+            quote! {
+                (Self::#variant(left), Self::#variant(right)) => f64_eq(*left, *right)
+            }
+        } else {
+            quote! {
+                (Self::#variant(left), Self::#variant(right)) => left == right
+            }
+        }
+    });
 
     quote! {
-        #[derive(Clone, Debug, PartialEq)]
+        #[derive(Clone, Debug)]
         pub enum PropertyValue {
             #(#variants),*
+        }
+
+        impl PartialEq for PropertyValue {
+            fn eq(&self, other: &Self) -> bool {
+                match (self, other) {
+                    #(#equalities),*,
+                    _ => false,
+                }
+            }
         }
 
         #(#conversions)*
@@ -629,19 +701,42 @@ fn generate_event_payloads(schema: &ResolvedSchema) -> TokenStream {
             .entry(event.payload.clone())
             .or_insert_with(|| value_type(&event.payload));
     }
-    let variants = payloads.into_iter().map(|(name, value)| {
+    let variants = payloads.iter().map(|(name, value)| {
         let is_unit = name == "Unit";
-        let name = ident(&name);
+        let name = ident(name);
         if is_unit {
             quote! { #name }
         } else {
             quote! { #name(#value) }
         }
     });
+    let equalities = payloads.keys().map(|name| {
+        let variant = ident(name);
+        if name == "Unit" {
+            quote! { (Self::#variant, Self::#variant) => true }
+        } else if name == "F64" {
+            quote! {
+                (Self::#variant(left), Self::#variant(right)) => f64_eq(*left, *right)
+            }
+        } else {
+            quote! {
+                (Self::#variant(left), Self::#variant(right)) => left == right
+            }
+        }
+    });
     quote! {
-        #[derive(Clone, Debug, PartialEq)]
+        #[derive(Clone, Debug)]
         pub enum EventPayload {
             #(#variants),*
+        }
+
+        impl PartialEq for EventPayload {
+            fn eq(&self, other: &Self) -> bool {
+                match (self, other) {
+                    #(#equalities),*,
+                    _ => false,
+                }
+            }
         }
     }
 }
@@ -807,7 +902,6 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         });
         quote! { impl #capability for #name {} }
     });
-
     quote! {
         #[derive(Clone, Debug, Default, PartialEq)]
         pub struct #name {
@@ -828,6 +922,18 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
 
         impl sealed::Sealed for #name {}
         #(#capability_impls)*
+    }
+}
+
+fn value_equality(
+    value: Option<&str>,
+    left: &impl quote::ToTokens,
+    right: &impl quote::ToTokens,
+) -> TokenStream {
+    if value == Some("F64") {
+        quote! { f64_property_eq(#left, #right) }
+    } else {
+        quote! { #left == #right }
     }
 }
 

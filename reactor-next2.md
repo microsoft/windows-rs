@@ -136,10 +136,16 @@ There is no divergent state, retry counter, or repair scheduler. If the restorin
 unexpectedly fails, the native failure is fatal.
 
 The generated slice accepts synchronous exact and synchronous normalized feedback. Exact feedback
-suppresses only the setter's expected payload. Normalized feedback suppresses any matching event
-during that setter because WinUI may coerce the value. NumberBox declares `Minimum` and `Maximum`
-as coercers of `ValueChanged`, orders both before `Value`, and observes only `Value`. Deferred and
-unknown feedback contracts fail generation rather than guessing.
+suppresses only the setter's expected payload. Normalized feedback captures the last matching event
+during the setter because WinUI may coerce the value. Reactor records that payload as known native
+state without invoking the application callback or scheduling an immediate retry. A later
+application update can then restore the desired value when the coercing constraint changes without
+looping while the desired value is impossible.
+
+NumberBox declares `Minimum` and `Maximum` as coercers of `ValueChanged`, orders both before
+`Value`, and observes only `Value`. Floating property and event comparisons treat two NaN values as
+the same empty numeric state. Deferred and unknown feedback contracts fail generation rather than
+guessing.
 
 ## Turn and lifecycle order
 
@@ -205,6 +211,9 @@ and WebView own only behavior that cannot be expressed by the ordinary schema.
 | Thin counter clean compile ratio | 0.40x current reactor |
 | Thin counter source-only rebuild ratio | 0.18x current reactor |
 | Thin counter release executable ratio | 0.29x current reactor |
+| NumberBox source-only rebuild delta | Within measurement noise: 1.228 -> 1.237 seconds |
+| NumberBox thin release delta | 828,928 -> 847,360 bytes: +18,432 bytes, +2.22% |
+| NumberBox retained core layouts | Unchanged: `Node` 416, `MountedProps` 72, `Element` 80 bytes |
 | Isolated component leaf at 512 scopes | 0.51 us, 430 bytes, 9 allocations |
 | Isolated component leaf at 16,384 scopes | 0.51 us, 430 bytes, 9 allocations |
 | Idle component memory | About 2,440 bytes per scope |
@@ -272,7 +281,7 @@ implemented. The remaining guidance is the gate for growing beyond the initial A
 | Multiple slots | NavigationView or TabView uses generated roles rather than control branches |
 | Templates | ItemsRepeater passes recycling, local-value, selection, move, and key tests |
 | Third-party controls | Extension contracts add native behavior without a runtime type registry |
-| Generated scale | Compile time and binary size remain within their gates after broad coverage |
+| Generated scale | Each difficult slice records compile, binary, and core-layout deltas |
 | Multi-window failure | Process-fatal native failure remains an explicit product decision |
 | Large composition | A practical render bound is documented or a small continuation is proven |
 
@@ -285,11 +294,34 @@ The stop condition is concrete: if a feature requires new Pump state, a handwrit
 path, another authoritative side table, or generic recovery machinery, stop and revise the
 contract before adding it. Difficult vertical slices come before dozens of ordinary controls.
 
-NumberBox passes the coercing-control gate through schema and generated backend contracts. Its live
-fixture changes the bound and controlled value, waits through eight dispatcher rounds, confirms
-that no programmatic callback escapes, and reads back the coerced native value. This added no Pump
-state or control-specific reconciliation path. The next expansion gate is a generated multi-slot
-control.
+NumberBox passes the coercing-control correctness gate through schema and generated backend
+contracts. Its live fixture tightens a bound below the retained desired value, confirms the
+coerced value and zero application callbacks, relaxes the bound, and confirms that the desired
+value is restored. Headless tests prove silent known-native observation and NaN idempotency. This
+added no Pump state or control-specific reconciliation path.
+
+The control-cost gate remains open. NumberBox did not change source-only rebuild time or retained
+core layouts, but it added 18,432 bytes to the thin release counter. The PE sections grew by 12,256
+bytes of executable code and 4,680 bytes of read-only data. Generated backend dispatch is
+centralized over runtime control and property IDs, so the linker cannot discard every unused-control
+branch.
+Do not extrapolate broad coverage from the favorable compile result alone. Measure a
+representative control batch and decide whether control feature partitioning is needed before
+adding dozens of controls. The generated multi-slot gate follows that decision.
+
+For each difficult control slice:
+
+1. Compare the parent and candidate with isolated targets and `CARGO_INCREMENTAL=0`.
+2. Record source-only rebuild time for the thin counter.
+3. Record the release executable and `.text`, `.rdata`, `.pdata`, and `.reloc` deltas.
+4. Run the core-layout test; growth in `Node`, `MountedProps`, or `Element` requires an explicit
+   design review.
+5. Recalculate the projected cost of the curated control set against the equivalent current
+   reactor application.
+
+One control does not justify feature partitioning. A representative batch must show whether the
+slope remains roughly linear and whether optional control groups would save enough to offset their
+generator, documentation, and user-facing complexity.
 
 ### Structural composition decision
 

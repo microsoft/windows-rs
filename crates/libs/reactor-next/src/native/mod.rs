@@ -1,10 +1,9 @@
 use super::*;
 use crate::core::*;
 
-#[derive(Clone)]
 pub(crate) enum FeedbackExpectation {
-    Any,
     Exact(EventPayload),
+    Normalized { observation: Option<QueuedEvent> },
 }
 
 #[cfg(any(test, feature = "test"))]

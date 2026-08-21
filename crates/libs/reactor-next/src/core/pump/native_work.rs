@@ -86,22 +86,26 @@ impl<R: NativeRuntime> Pump<R> {
                     .native_mut(event.node)?
                     .properties
                     .insert(property, Some(value));
-                self.native_observation_pending = true;
-                let mut current = event.node;
-                while let Some(parent) = self.tree.parent(current)? {
-                    current = parent;
-                    if self.tree.kind(current)? == NodeKind::Component {
-                        let token = self.components.token(self.tree.component_scope(current)?)?;
-                        self.dirty_components.insert(token);
-                        break;
+                if event.invokes_callback() {
+                    self.native_observation_pending = true;
+                    let mut current = event.node;
+                    while let Some(parent) = self.tree.parent(current)? {
+                        current = parent;
+                        if self.tree.kind(current)? == NodeKind::Component {
+                            let token =
+                                self.components.token(self.tree.component_scope(current)?)?;
+                            self.dirty_components.insert(token);
+                            break;
+                        }
                     }
                 }
             }
-            if self
-                .tree
-                .native(event.node)?
-                .desired
-                .dispatch_event(event.event, &event.payload)
+            if event.invokes_callback()
+                && self
+                    .tree
+                    .native(event.node)?
+                    .desired
+                    .dispatch_event(event.event, &event.payload)
             {
                 dispatched += 1;
             }

@@ -110,8 +110,10 @@ the fatal native policy.
 Generated controls distinguish synchronous exact feedback from synchronous normalized feedback.
 TextBox suppresses only the exact payload expected from its setter. NumberBox suppresses a
 programmatic `ValueChanged` during `Minimum`, `Maximum`, or `Value` writes because WinUI may coerce
-the numeric payload. Bounds are generated before `Value`, and only `Value` observes user feedback.
-Deferred and unknown feedback contracts still fail generation.
+the numeric payload. The last suppressed normalized payload updates known native state without
+invoking the application callback or scheduling an immediate retry. Bounds are generated before
+`Value`, and only `Value` observes user feedback. Two NaN values compare as the same empty numeric
+state during reconciliation. Deferred and unknown feedback contracts still fail generation.
 
 ## Fragments and collections
 
@@ -170,12 +172,19 @@ cargo check -p windows-reactor-next --quiet
 ## Current evidence
 
 The component frontend measured about 0.5 us, 430 allocated bytes, and 9 allocations for an
-isolated leaf at both 512 and 16,384 unrelated scopes. Idle storage was about 2,448 bytes per scope.
+isolated leaf at both 512 and 16,384 unrelated scopes. Idle storage was about 2,440 bytes per scope.
 A standalone thin counter compiled clean in about 5.1 seconds, compared with 12.7-13.0 seconds for
 the equivalent current-reactor counter. A source-only rebuild took 0.55 seconds, compared with 3.0
 seconds. The release executables were 856 KB and 2.99 MB. These ratios are provisional because the
 current crate carries much broader generated control coverage. Repeat the comparison after broad
 reactor-next generation.
+
+Adding NumberBox left a source-only thin-counter rebuild within measurement noise
+(1.228 -> 1.237 seconds) and did not enlarge `Node`, `MountedProps`, or `Element`. The release
+counter grew from 828,928 to 847,360 bytes (+18,432 bytes, +2.22%), mostly in executable code.
+Generated backend dispatch remains reachable through runtime IDs even when the application does
+not construct NumberBox. Measure a representative control batch before deciding whether generated
+controls need feature partitioning.
 
 Removing fine-grained recovery reduced `core/pump/publish.rs` from 396 lines to 57 and removed
 per-command outcome vectors, divergent properties, retries, remount recovery, recovery

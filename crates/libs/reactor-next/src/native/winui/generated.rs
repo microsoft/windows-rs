@@ -198,28 +198,34 @@ pub fn expected_feedback(
             EventId::TextBoxTextChanged,
             FeedbackExpectation::Exact(EventPayload::Str(value.clone())),
         )),
-        (PropertyId::NumberBoxMinimum, Some(_)) => {
-            Some((EventId::NumberBoxValueChanged, FeedbackExpectation::Any))
-        }
-        (PropertyId::NumberBoxMaximum, Some(_)) => {
-            Some((EventId::NumberBoxValueChanged, FeedbackExpectation::Any))
-        }
-        (PropertyId::NumberBoxValue, Some(_)) => {
-            Some((EventId::NumberBoxValueChanged, FeedbackExpectation::Any))
-        }
+        (PropertyId::NumberBoxMinimum, Some(_)) => Some((
+            EventId::NumberBoxValueChanged,
+            FeedbackExpectation::Normalized { observation: None },
+        )),
+        (PropertyId::NumberBoxMaximum, Some(_)) => Some((
+            EventId::NumberBoxValueChanged,
+            FeedbackExpectation::Normalized { observation: None },
+        )),
+        (PropertyId::NumberBoxValue, Some(_)) => Some((
+            EventId::NumberBoxValueChanged,
+            FeedbackExpectation::Normalized { observation: None },
+        )),
         (PropertyId::TextBoxText, None) => Some((
             EventId::TextBoxTextChanged,
             FeedbackExpectation::Exact(EventPayload::Str(Default::default())),
         )),
-        (PropertyId::NumberBoxMinimum, None) => {
-            Some((EventId::NumberBoxValueChanged, FeedbackExpectation::Any))
-        }
-        (PropertyId::NumberBoxMaximum, None) => {
-            Some((EventId::NumberBoxValueChanged, FeedbackExpectation::Any))
-        }
-        (PropertyId::NumberBoxValue, None) => {
-            Some((EventId::NumberBoxValueChanged, FeedbackExpectation::Any))
-        }
+        (PropertyId::NumberBoxMinimum, None) => Some((
+            EventId::NumberBoxValueChanged,
+            FeedbackExpectation::Normalized { observation: None },
+        )),
+        (PropertyId::NumberBoxMaximum, None) => Some((
+            EventId::NumberBoxValueChanged,
+            FeedbackExpectation::Normalized { observation: None },
+        )),
+        (PropertyId::NumberBoxValue, None) => Some((
+            EventId::NumberBoxValueChanged,
+            FeedbackExpectation::Normalized { observation: None },
+        )),
         _ => None,
     }
 }

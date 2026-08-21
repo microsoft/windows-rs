@@ -495,6 +495,7 @@ impl Tree {
 mod tests {
     use super::*;
     use crate::core::scope::ScopeArena;
+    use std::mem::size_of;
 
     fn identity() -> WindowToken {
         WindowToken::new(WindowId::allocate())
@@ -511,6 +512,14 @@ mod tests {
                 .wrapping_add(1);
             (self.0 >> 32) as usize
         }
+    }
+
+    #[test]
+    #[cfg(target_pointer_width = "64")]
+    fn generated_control_growth_preserves_core_layouts() {
+        assert_eq!(size_of::<Node>(), 416);
+        assert_eq!(size_of::<MountedProps>(), 72);
+        assert_eq!(size_of::<Element>(), 80);
     }
 
     #[test]
