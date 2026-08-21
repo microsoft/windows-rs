@@ -269,6 +269,83 @@ pub type COINIT = i32;
 pub const COINIT_APARTMENTTHREADED: COINIT = 2;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ColumnDefinition(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ColumnDefinition,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(ColumnDefinition, DependencyObject);
+impl ColumnDefinition {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            ColumnDefinition,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for ColumnDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IColumnDefinition>();
+}
+unsafe impl windows_core::Interface for ColumnDefinition {
+    type Vtable = <IColumnDefinition as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IColumnDefinition as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ColumnDefinition {
+    type Target = IColumnDefinition;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ColumnDefinition {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.ColumnDefinition";
+}
+unsafe impl Send for ColumnDefinition {}
+unsafe impl Sync for ColumnDefinition {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ColumnDefinitionCollection(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ColumnDefinitionCollection,
+    windows_core::IUnknown,
+    windows_core::IInspectable,
+    windows_collections::IVector<ColumnDefinition>
+);
+impl windows_core::RuntimeType for ColumnDefinitionCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
+        Self,
+        windows_collections::IVector<ColumnDefinition>,
+    >();
+}
+unsafe impl windows_core::Interface for ColumnDefinitionCollection {
+    type Vtable =
+        <windows_collections::IVector<ColumnDefinition> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID =
+        <windows_collections::IVector<ColumnDefinition> as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ColumnDefinitionCollection {
+    type Target = windows_collections::IVector<ColumnDefinition>;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ColumnDefinitionCollection {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.ColumnDefinitionCollection";
+}
+unsafe impl Send for ColumnDefinitionCollection {}
+unsafe impl Sync for ColumnDefinitionCollection {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionTarget(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     CompositionTarget,
@@ -788,6 +865,255 @@ impl windows_core::RuntimeName for FrameworkElement {
 }
 unsafe impl Send for FrameworkElement {}
 unsafe impl Sync for FrameworkElement {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct Grid(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(Grid, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(Grid, Panel, FrameworkElement, UIElement, DependencyObject);
+impl Grid {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IGridFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn RowSpacingProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RowSpacingProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn ColumnSpacingProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ColumnSpacingProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn RowProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RowProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn GetRow<P0>(element: P0) -> windows_core::Result<i32>
+    where
+        P0: windows_core::Param<FrameworkElement>,
+    {
+        Self::IGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetRow)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        })
+    }
+    pub(crate) fn SetRow<P0>(element: P0, value: i32) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<FrameworkElement>,
+    {
+        Self::IGridStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetRow)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value,
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn ColumnProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ColumnProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn GetColumn<P0>(element: P0) -> windows_core::Result<i32>
+    where
+        P0: windows_core::Param<FrameworkElement>,
+    {
+        Self::IGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetColumn)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        })
+    }
+    pub(crate) fn SetColumn<P0>(element: P0, value: i32) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<FrameworkElement>,
+    {
+        Self::IGridStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetColumn)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value,
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn RowSpanProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RowSpanProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn GetRowSpan<P0>(element: P0) -> windows_core::Result<i32>
+    where
+        P0: windows_core::Param<FrameworkElement>,
+    {
+        Self::IGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetRowSpan)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        })
+    }
+    pub(crate) fn SetRowSpan<P0>(element: P0, value: i32) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<FrameworkElement>,
+    {
+        Self::IGridStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetRowSpan)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value,
+            )
+            .ok()
+        })
+    }
+    pub(crate) fn ColumnSpanProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ColumnSpanProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn GetColumnSpan<P0>(element: P0) -> windows_core::Result<i32>
+    where
+        P0: windows_core::Param<FrameworkElement>,
+    {
+        Self::IGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetColumnSpan)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        })
+    }
+    pub(crate) fn SetColumnSpan<P0>(element: P0, value: i32) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<FrameworkElement>,
+    {
+        Self::IGridStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetColumnSpan)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                value,
+            )
+            .ok()
+        })
+    }
+    fn IGridFactory<R, F: FnOnce(&IGridFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Grid, IGridFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IGridStatics<R, F: FnOnce(&IGridStatics) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Grid, IGridStatics> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for Grid {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IGrid>();
+}
+unsafe impl windows_core::Interface for Grid {
+    type Vtable = <IGrid as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IGrid as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for Grid {
+    type Target = IGrid;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for Grid {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.Grid";
+}
+unsafe impl Send for Grid {}
+unsafe impl Sync for Grid {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct GridLength {
+    pub value: f64,
+    pub grid_unit_type: GridUnitType,
+}
+impl windows_core::TypeKind for GridLength {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GridLength {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"struct(Microsoft.UI.Xaml.GridLength;f8;enum(Microsoft.UI.Xaml.GridUnitType;i4))",
+    );
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GridUnitType(pub i32);
+impl GridUnitType {
+    pub const Auto: Self = Self(0);
+    pub const Pixel: Self = Self(1);
+    pub const Star: Self = Self(2);
+}
+impl windows_core::TypeKind for GridUnitType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GridUnitType {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"enum(Microsoft.UI.Xaml.GridUnitType;i4)");
+}
 windows_core::imp::define_interface!(
     IApplication,
     IApplication_Vtbl,
@@ -1012,6 +1338,44 @@ pub struct IButtonFactory_Vtbl {
         *mut *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IColumnDefinition,
+    IColumnDefinition_Vtbl,
+    0x454cea14_87ec_5890_bb62_f1d82a94758e
+);
+impl windows_core::RuntimeType for IColumnDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IColumnDefinition {
+    pub(crate) fn Width(&self) -> windows_core::Result<GridLength> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Width)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetWidth(&self, value: GridLength) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetWidth)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IColumnDefinition_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Width:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut GridLength) -> windows_core::HRESULT,
+    pub SetWidth:
+        unsafe extern "system" fn(*mut core::ffi::c_void, GridLength) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICompositionTarget,
@@ -1545,6 +1909,180 @@ pub struct IFrameworkElement_Vtbl {
     MinHeight: usize,
     pub SetMinHeight:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IGrid, IGrid_Vtbl, 0xc4496219_9014_58a1_b4ad_c5044913a5bb);
+impl windows_core::RuntimeType for IGrid {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IGrid {
+    pub(crate) fn RowDefinitions(&self) -> windows_core::Result<RowDefinitionCollection> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RowDefinitions)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub(crate) fn ColumnDefinitions(&self) -> windows_core::Result<ColumnDefinitionCollection> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ColumnDefinitions)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub(crate) fn SetRowSpacing(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetRowSpacing)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetColumnSpacing(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetColumnSpacing)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IGrid_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub RowDefinitions: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub ColumnDefinitions: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    BackgroundSizing: usize,
+    SetBackgroundSizing: usize,
+    BorderBrush: usize,
+    SetBorderBrush: usize,
+    BorderThickness: usize,
+    SetBorderThickness: usize,
+    CornerRadius: usize,
+    SetCornerRadius: usize,
+    Padding: usize,
+    SetPadding: usize,
+    RowSpacing: usize,
+    pub SetRowSpacing:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    ColumnSpacing: usize,
+    pub SetColumnSpacing:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IGridFactory,
+    IGridFactory_Vtbl,
+    0xb16bf561_fc6c_57c6_8ebc_0b06ce4513aa
+);
+impl windows_core::RuntimeType for IGridFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IGridFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IGridStatics,
+    IGridStatics_Vtbl,
+    0xef9cf81d_a431_50f4_abf5_3023fe447704
+);
+impl windows_core::RuntimeType for IGridStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IGridStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    BackgroundSizingProperty: usize,
+    BorderBrushProperty: usize,
+    BorderThicknessProperty: usize,
+    CornerRadiusProperty: usize,
+    PaddingProperty: usize,
+    pub RowSpacingProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub ColumnSpacingProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub RowProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub GetRow: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i32,
+    ) -> windows_core::HRESULT,
+    pub SetRow: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        i32,
+    ) -> windows_core::HRESULT,
+    pub ColumnProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub GetColumn: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i32,
+    ) -> windows_core::HRESULT,
+    pub SetColumn: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        i32,
+    ) -> windows_core::HRESULT,
+    pub RowSpanProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub GetRowSpan: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i32,
+    ) -> windows_core::HRESULT,
+    pub SetRowSpan: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        i32,
+    ) -> windows_core::HRESULT,
+    pub ColumnSpanProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub GetColumnSpan: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i32,
+    ) -> windows_core::HRESULT,
+    pub SetColumnSpan: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        i32,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IItemsRepeater,
@@ -2258,6 +2796,44 @@ impl windows_core::RuntimeType for IRoutedEventArgs {
 #[repr(C)]
 pub struct IRoutedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IRowDefinition,
+    IRowDefinition_Vtbl,
+    0xfe870f2f_89ef_5dac_9f33_968d0dc577c3
+);
+impl windows_core::RuntimeType for IRowDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IRowDefinition {
+    pub(crate) fn Height(&self) -> windows_core::Result<GridLength> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Height)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetHeight(&self, value: GridLength) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetHeight)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IRowDefinition_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Height:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut GridLength) -> windows_core::HRESULT,
+    pub SetHeight:
+        unsafe extern "system" fn(*mut core::ffi::c_void, GridLength) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IScrollViewer,
@@ -4108,6 +4684,82 @@ impl<
         }
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RowDefinition(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    RowDefinition,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(RowDefinition, DependencyObject);
+impl RowDefinition {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            RowDefinition,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for RowDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IRowDefinition>();
+}
+unsafe impl windows_core::Interface for RowDefinition {
+    type Vtable = <IRowDefinition as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IRowDefinition as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for RowDefinition {
+    type Target = IRowDefinition;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for RowDefinition {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.RowDefinition";
+}
+unsafe impl Send for RowDefinition {}
+unsafe impl Sync for RowDefinition {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RowDefinitionCollection(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    RowDefinitionCollection,
+    windows_core::IUnknown,
+    windows_core::IInspectable,
+    windows_collections::IVector<RowDefinition>
+);
+impl windows_core::RuntimeType for RowDefinitionCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
+        Self,
+        windows_collections::IVector<RowDefinition>,
+    >();
+}
+unsafe impl windows_core::Interface for RowDefinitionCollection {
+    type Vtable = <windows_collections::IVector<RowDefinition> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID =
+        <windows_collections::IVector<RowDefinition> as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for RowDefinitionCollection {
+    type Target = windows_collections::IVector<RowDefinition>;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for RowDefinitionCollection {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.RowDefinitionCollection";
+}
+unsafe impl Send for RowDefinitionCollection {}
+unsafe impl Sync for RowDefinitionCollection {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ScrollViewer(windows_core::IUnknown);

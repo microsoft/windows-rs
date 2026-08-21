@@ -54,6 +54,7 @@ pub(crate) enum Capability {
     ControlledText,
     Items,
     Focus,
+    GridDefinitions,
 }
 
 #[derive(Deserialize)]
@@ -442,6 +443,15 @@ impl Schema {
 
 fn validate_role(control: &Control) -> Result<(), String> {
     let has = |capability| control.capabilities.contains(&capability);
+    if has(Capability::GridDefinitions)
+        && (control.type_name != "Microsoft.UI.Xaml.Controls.Grid"
+            || !matches!(control.role, Role::Children))
+    {
+        return Err(format!(
+            "{} grid_definitions capability requires the Grid children role",
+            control.type_name
+        ));
+    }
     if !matches!(control.role, Role::Slots) && !control.slot.is_empty() {
         return Err(format!(
             "{} slot declarations need the slots role",
@@ -544,30 +554,27 @@ mod tests {
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
         let resolved = schema.resolve(&metadata).unwrap();
 
-        assert_eq!(resolved.controls.len(), 11);
+        assert_eq!(resolved.controls.len(), 12);
         assert_eq!(resolved.controls[0].name, "TextBlock");
         assert_eq!(resolved.controls[0].properties[0].value, "Str");
         assert_eq!(resolved.controls[1].events[0].payload, "Unit");
         assert_eq!(
-            resolved.controls[3].properties[0].feedback.as_deref(),
+            resolved.controls[4].properties[0].feedback.as_deref(),
             Some("TextChanged")
         );
-        assert_eq!(resolved.controls[3].events[0].payload, "Str");
-        assert!(!resolved.controls[3].properties[0].copy);
+        assert_eq!(resolved.controls[3].name, "Grid");
+        assert!(
+            resolved.controls[3]
+                .capabilities
+                .contains(&Capability::GridDefinitions)
+        );
+        assert_eq!(resolved.controls[4].events[0].payload, "Str");
+        assert!(!resolved.controls[4].properties[0].copy);
         assert!(matches!(
-            resolved.controls[3].events[0].source,
+            resolved.controls[4].events[0].source,
             EventPayloadSource::SenderProperty { .. }
         ));
-        assert_eq!(resolved.controls[4].name, "NumberBox");
-        assert_eq!(
-            resolved.controls[4].properties[0]
-                .feedback_contract
-                .unwrap(),
-            FeedbackContract::SynchronousNormalized
-        );
-        assert!(!resolved.controls[4].properties[0].observes_feedback);
-        assert!(resolved.controls[4].properties[2].observes_feedback);
-        assert_eq!(resolved.controls[5].name, "Slider");
+        assert_eq!(resolved.controls[5].name, "NumberBox");
         assert_eq!(
             resolved.controls[5].properties[0]
                 .feedback_contract
@@ -576,44 +583,53 @@ mod tests {
         );
         assert!(!resolved.controls[5].properties[0].observes_feedback);
         assert!(resolved.controls[5].properties[2].observes_feedback);
-        assert_eq!(resolved.controls[6].name, "NavigationView");
-        assert!(matches!(resolved.controls[6].role, Role::Slots));
-        assert_eq!(resolved.controls[6].slots.len(), 2);
-        assert_eq!(resolved.controls[6].slots[0].name, "Content");
+        assert_eq!(resolved.controls[6].name, "Slider");
+        assert_eq!(
+            resolved.controls[6].properties[0]
+                .feedback_contract
+                .unwrap(),
+            FeedbackContract::SynchronousNormalized
+        );
+        assert!(!resolved.controls[6].properties[0].observes_feedback);
+        assert!(resolved.controls[6].properties[2].observes_feedback);
+        assert_eq!(resolved.controls[7].name, "NavigationView");
+        assert!(matches!(resolved.controls[7].role, Role::Slots));
+        assert_eq!(resolved.controls[7].slots.len(), 2);
+        assert_eq!(resolved.controls[7].slots[0].name, "Content");
         assert!(
-            resolved.controls[6].slots[0]
+            resolved.controls[7].slots[0]
                 .interface
                 .ends_with("IContentControl")
         );
-        assert_eq!(resolved.controls[6].slots[1].name, "Header");
+        assert_eq!(resolved.controls[7].slots[1].name, "Header");
         assert!(
-            resolved.controls[6].slots[1]
+            resolved.controls[7].slots[1]
                 .interface
                 .ends_with("INavigationView")
         );
-        assert_eq!(resolved.controls[7].name, "ProgressBar");
-        assert_eq!(resolved.controls[7].properties.len(), 7);
-        assert_eq!(resolved.controls[7].properties[0].value, "F64");
-        assert_eq!(resolved.controls[7].properties[3].value, "Bool");
-        assert_eq!(resolved.controls[8].name, "ToggleSwitch");
-        assert_eq!(resolved.controls[8].properties[0].value, "Bool");
-        assert!(resolved.controls[8].properties[0].copy);
+        assert_eq!(resolved.controls[8].name, "ProgressBar");
+        assert_eq!(resolved.controls[8].properties.len(), 7);
+        assert_eq!(resolved.controls[8].properties[0].value, "F64");
+        assert_eq!(resolved.controls[8].properties[3].value, "Bool");
+        assert_eq!(resolved.controls[9].name, "ToggleSwitch");
+        assert_eq!(resolved.controls[9].properties[0].value, "Bool");
+        assert!(resolved.controls[9].properties[0].copy);
         assert_eq!(
-            resolved.controls[8].properties[0].feedback.as_deref(),
+            resolved.controls[9].properties[0].feedback.as_deref(),
             Some("Toggled")
         );
         assert_eq!(
-            resolved.controls[8].properties[0]
+            resolved.controls[9].properties[0]
                 .feedback_contract
                 .unwrap(),
             FeedbackContract::SynchronousExact
         );
-        assert_eq!(resolved.controls[8].events[0].payload, "Bool");
+        assert_eq!(resolved.controls[9].events[0].payload, "Bool");
         assert!(matches!(
-            resolved.controls[8].events[0].source,
+            resolved.controls[9].events[0].source,
             EventPayloadSource::SenderProperty { .. }
         ));
-        assert!(matches!(resolved.controls[9].role, Role::Virtual));
+        assert!(matches!(resolved.controls[10].role, Role::Virtual));
     }
 
     #[test]
@@ -681,6 +697,23 @@ capabilities = ["layout", "content"]
             .err()
             .unwrap();
         assert!(error.contains("content role requires metadata interface IContentControl"));
+    }
+
+    #[test]
+    fn rejects_grid_definitions_on_non_grid_control() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.StackPanel"
+role = "children"
+capabilities = ["layout", "children", "grid_definitions"]
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let error = Schema::parse(source)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+        assert!(error.contains("grid_definitions capability requires the Grid children role"));
     }
 
     #[test]

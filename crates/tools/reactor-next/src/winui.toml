@@ -37,6 +37,19 @@ name = "Spacing"
 clearable = true
 
 [[control]]
+type = "Microsoft.UI.Xaml.Controls.Grid"
+role = "children"
+capabilities = ["layout", "children", "grid_definitions"]
+
+[[control.property]]
+name = "RowSpacing"
+clearable = true
+
+[[control.property]]
+name = "ColumnSpacing"
+clearable = true
+
+[[control]]
 type = "Microsoft.UI.Xaml.Controls.TextBox"
 role = "controlled"
 capabilities = ["layout", "enabled", "text_style", "controlled_text", "focus"]
@@ -191,7 +204,7 @@ property = "IsOn"
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.ItemsRepeater"
 role = "virtual"
-capabilities = ["layout", "items"]
+capabilities = ["items"]
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.ScrollViewer"

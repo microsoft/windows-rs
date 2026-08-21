@@ -19,6 +19,7 @@ pub mod public {
     pub struct TextBlock {
         text: Property<String>,
         text_wrapping: Property<TextWrapping>,
+        grid_placement: Option<std::rc::Rc<GridPlacement>>,
     }
     impl TextBlock {
         pub fn new() -> Self {
@@ -40,13 +41,18 @@ pub mod public {
         }
     }
     impl sealed::Sealed for TextBlock {}
-    impl LayoutControl for TextBlock {}
+    impl LayoutControl for TextBlock {
+        fn grid_placement_mut(&mut self) -> &mut Option<std::rc::Rc<GridPlacement>> {
+            &mut self.grid_placement
+        }
+    }
     impl TextStyleControl for TextBlock {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Button {
         is_enabled: Property<bool>,
         on_click: Option<Callback<()>>,
         reference: Option<NativeElementRef>,
+        grid_placement: Option<std::rc::Rc<GridPlacement>>,
         content: Option<Box<Element>>,
     }
     impl Button {
@@ -80,7 +86,11 @@ pub mod public {
     impl sealed::Sealed for Button {}
     impl crate::reference::sealed::Sealed for Button {}
     impl crate::reference::ReferenceType for Button {}
-    impl LayoutControl for Button {}
+    impl LayoutControl for Button {
+        fn grid_placement_mut(&mut self) -> &mut Option<std::rc::Rc<GridPlacement>> {
+            &mut self.grid_placement
+        }
+    }
     impl EnabledControl for Button {}
     impl ContentControl for Button {}
     impl FocusControl for Button {}
@@ -88,6 +98,7 @@ pub mod public {
     pub struct StackPanel {
         orientation: Property<Orientation>,
         spacing: Property<f64>,
+        grid_placement: Option<std::rc::Rc<GridPlacement>>,
         children: std::rc::Rc<Vec<KeyedElement>>,
     }
     impl StackPanel {
@@ -127,8 +138,79 @@ pub mod public {
         }
     }
     impl sealed::Sealed for StackPanel {}
-    impl LayoutControl for StackPanel {}
+    impl LayoutControl for StackPanel {
+        fn grid_placement_mut(&mut self) -> &mut Option<std::rc::Rc<GridPlacement>> {
+            &mut self.grid_placement
+        }
+    }
     impl ChildrenControl for StackPanel {}
+    #[derive(Clone, Debug, Default, PartialEq)]
+    pub struct Grid {
+        row_spacing: Property<f64>,
+        column_spacing: Property<f64>,
+        grid_placement: Option<std::rc::Rc<GridPlacement>>,
+        rows: Property<std::rc::Rc<Vec<GridLength>>>,
+        columns: Property<std::rc::Rc<Vec<GridLength>>>,
+        children: std::rc::Rc<Vec<KeyedElement>>,
+    }
+    impl Grid {
+        pub fn new() -> Self {
+            Self::default()
+        }
+        pub fn row_spacing(mut self, value: f64) -> Self {
+            self.row_spacing = Property::Set(value);
+            self
+        }
+        pub fn row_spacing_property(&self) -> &Property<f64> {
+            &self.row_spacing
+        }
+        pub fn column_spacing(mut self, value: f64) -> Self {
+            self.column_spacing = Property::Set(value);
+            self
+        }
+        pub fn column_spacing_property(&self) -> &Property<f64> {
+            &self.column_spacing
+        }
+        pub fn rows(mut self, values: impl IntoIterator<Item = GridLength>) -> Self {
+            self.rows = Property::Set(std::rc::Rc::new(values.into_iter().collect()));
+            self
+        }
+        pub fn rows_property(&self) -> &Property<std::rc::Rc<Vec<GridLength>>> {
+            &self.rows
+        }
+        pub fn columns(mut self, values: impl IntoIterator<Item = GridLength>) -> Self {
+            self.columns = Property::Set(std::rc::Rc::new(values.into_iter().collect()));
+            self
+        }
+        pub fn columns_property(&self) -> &Property<std::rc::Rc<Vec<GridLength>>> {
+            &self.columns
+        }
+        #[allow(dead_code)]
+        pub(crate) fn native_child(
+            mut self,
+            key: impl Into<Key>,
+            child: impl Into<Element>,
+        ) -> Self {
+            std::rc::Rc::make_mut(&mut self.children).push(KeyedElement::new(key, child));
+            self
+        }
+        #[allow(dead_code)]
+        pub(crate) fn native_children(
+            mut self,
+            children: impl IntoIterator<Item = KeyedElement>,
+        ) -> Self {
+            self.children = std::rc::Rc::new(children.into_iter().collect());
+            self
+        }
+    }
+    impl sealed::Sealed for Grid {}
+    impl LayoutControl for Grid {
+        fn grid_placement_mut(&mut self) -> &mut Option<std::rc::Rc<GridPlacement>> {
+            &mut self.grid_placement
+        }
+    }
+    impl ChildrenControl for Grid {}
+    impl GridDefinitionsControl for Grid {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct TextBox {
         text: Property<String>,
@@ -136,6 +218,7 @@ pub mod public {
         is_enabled: Property<bool>,
         on_text_changed: Option<Callback<String>>,
         reference: Option<NativeElementRef>,
+        grid_placement: Option<std::rc::Rc<GridPlacement>>,
     }
     impl TextBox {
         pub fn new() -> Self {
@@ -177,7 +260,11 @@ pub mod public {
     impl sealed::Sealed for TextBox {}
     impl crate::reference::sealed::Sealed for TextBox {}
     impl crate::reference::ReferenceType for TextBox {}
-    impl LayoutControl for TextBox {}
+    impl LayoutControl for TextBox {
+        fn grid_placement_mut(&mut self) -> &mut Option<std::rc::Rc<GridPlacement>> {
+            &mut self.grid_placement
+        }
+    }
     impl EnabledControl for TextBox {}
     impl TextStyleControl for TextBox {}
     impl ControlledTextControl for TextBox {}
@@ -190,6 +277,7 @@ pub mod public {
         is_enabled: Property<bool>,
         on_value_changed: Option<Callback<f64>>,
         reference: Option<NativeElementRef>,
+        grid_placement: Option<std::rc::Rc<GridPlacement>>,
     }
     impl NumberBox {
         pub fn new() -> Self {
@@ -238,7 +326,11 @@ pub mod public {
     impl sealed::Sealed for NumberBox {}
     impl crate::reference::sealed::Sealed for NumberBox {}
     impl crate::reference::ReferenceType for NumberBox {}
-    impl LayoutControl for NumberBox {}
+    impl LayoutControl for NumberBox {
+        fn grid_placement_mut(&mut self) -> &mut Option<std::rc::Rc<GridPlacement>> {
+            &mut self.grid_placement
+        }
+    }
     impl EnabledControl for NumberBox {}
     impl FocusControl for NumberBox {}
     #[derive(Clone, Debug, Default, PartialEq)]
@@ -249,6 +341,7 @@ pub mod public {
         is_enabled: Property<bool>,
         on_value_changed: Option<Callback<f64>>,
         reference: Option<NativeElementRef>,
+        grid_placement: Option<std::rc::Rc<GridPlacement>>,
     }
     impl Slider {
         pub fn new() -> Self {
@@ -297,12 +390,17 @@ pub mod public {
     impl sealed::Sealed for Slider {}
     impl crate::reference::sealed::Sealed for Slider {}
     impl crate::reference::ReferenceType for Slider {}
-    impl LayoutControl for Slider {}
+    impl LayoutControl for Slider {
+        fn grid_placement_mut(&mut self) -> &mut Option<std::rc::Rc<GridPlacement>> {
+            &mut self.grid_placement
+        }
+    }
     impl EnabledControl for Slider {}
     impl FocusControl for Slider {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct NavigationView {
         is_enabled: Property<bool>,
+        grid_placement: Option<std::rc::Rc<GridPlacement>>,
     }
     impl NavigationView {
         pub fn new() -> Self {
@@ -317,7 +415,11 @@ pub mod public {
         }
     }
     impl sealed::Sealed for NavigationView {}
-    impl LayoutControl for NavigationView {}
+    impl LayoutControl for NavigationView {
+        fn grid_placement_mut(&mut self) -> &mut Option<std::rc::Rc<GridPlacement>> {
+            &mut self.grid_placement
+        }
+    }
     impl EnabledControl for NavigationView {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
@@ -340,6 +442,7 @@ pub mod public {
         show_error: Property<bool>,
         show_paused: Property<bool>,
         is_enabled: Property<bool>,
+        grid_placement: Option<std::rc::Rc<GridPlacement>>,
     }
     impl ProgressBar {
         pub fn new() -> Self {
@@ -396,7 +499,11 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ProgressBar {}
-    impl LayoutControl for ProgressBar {}
+    impl LayoutControl for ProgressBar {
+        fn grid_placement_mut(&mut self) -> &mut Option<std::rc::Rc<GridPlacement>> {
+            &mut self.grid_placement
+        }
+    }
     impl EnabledControl for ProgressBar {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ToggleSwitch {
@@ -404,6 +511,7 @@ pub mod public {
         is_enabled: Property<bool>,
         on_toggled: Option<Callback<bool>>,
         reference: Option<NativeElementRef>,
+        grid_placement: Option<std::rc::Rc<GridPlacement>>,
     }
     impl ToggleSwitch {
         pub fn new() -> Self {
@@ -438,7 +546,11 @@ pub mod public {
     impl sealed::Sealed for ToggleSwitch {}
     impl crate::reference::sealed::Sealed for ToggleSwitch {}
     impl crate::reference::ReferenceType for ToggleSwitch {}
-    impl LayoutControl for ToggleSwitch {}
+    impl LayoutControl for ToggleSwitch {
+        fn grid_placement_mut(&mut self) -> &mut Option<std::rc::Rc<GridPlacement>> {
+            &mut self.grid_placement
+        }
+    }
     impl EnabledControl for ToggleSwitch {}
     impl FocusControl for ToggleSwitch {}
     #[derive(Clone, Debug, Default, PartialEq)]
@@ -459,10 +571,10 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ItemsRepeater {}
-    impl LayoutControl for ItemsRepeater {}
     impl ItemsControl for ItemsRepeater {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ScrollViewer {
+        grid_placement: Option<std::rc::Rc<GridPlacement>>,
         content: Option<Box<Element>>,
     }
     impl ScrollViewer {
@@ -476,13 +588,18 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ScrollViewer {}
-    impl LayoutControl for ScrollViewer {}
+    impl LayoutControl for ScrollViewer {
+        fn grid_placement_mut(&mut self) -> &mut Option<std::rc::Rc<GridPlacement>> {
+            &mut self.grid_placement
+        }
+    }
     impl ContentControl for ScrollViewer {}
     #[derive(Clone, Debug, PartialEq)]
     pub enum Element {
         TextBlock(TextBlock),
         Button(Button),
         StackPanel(StackPanel),
+        Grid(Grid),
         TextBox(TextBox),
         NumberBox(NumberBox),
         Slider(Slider),
@@ -519,6 +636,16 @@ pub mod public {
     }
     impl From<StackPanel> for View {
         fn from(value: StackPanel) -> Self {
+            Self::native(value)
+        }
+    }
+    impl From<Grid> for Element {
+        fn from(value: Grid) -> Self {
+            Self::Grid(value)
+        }
+    }
+    impl From<Grid> for View {
+        fn from(value: Grid) -> Self {
             Self::native(value)
         }
     }
@@ -608,6 +735,7 @@ pub mod public {
                 Self::TextBlock(_) => MountedKind::TextBlock,
                 Self::Button(_) => MountedKind::Button,
                 Self::StackPanel(_) => MountedKind::StackPanel,
+                Self::Grid(_) => MountedKind::Grid,
                 Self::TextBox(_) => MountedKind::TextBox,
                 Self::NumberBox(_) => MountedKind::NumberBox,
                 Self::Slider(_) => MountedKind::Slider,
@@ -623,6 +751,7 @@ pub mod public {
                 Self::TextBlock(TextBlock {
                     text,
                     text_wrapping,
+                    grid_placement,
                 }) => ElementParts {
                     kind: MountedKind::TextBlock,
                     props: MountedProps::TextBlock {
@@ -630,12 +759,14 @@ pub mod public {
                         text_wrapping,
                     },
                     reference: None,
+                    grid_placement,
                     structure: ElementStructure::None,
                 },
                 Self::Button(Button {
                     is_enabled,
                     on_click,
                     reference,
+                    grid_placement,
                     content,
                 }) => ElementParts {
                     kind: MountedKind::Button,
@@ -644,11 +775,13 @@ pub mod public {
                         on_click,
                     },
                     reference,
+                    grid_placement,
                     structure: ElementStructure::Content(content.map(|element| *element)),
                 },
                 Self::StackPanel(StackPanel {
                     orientation,
                     spacing,
+                    grid_placement,
                     children,
                 }) => ElementParts {
                     kind: MountedKind::StackPanel,
@@ -657,6 +790,26 @@ pub mod public {
                         spacing,
                     },
                     reference: None,
+                    grid_placement,
+                    structure: ElementStructure::Children(children),
+                },
+                Self::Grid(Grid {
+                    row_spacing,
+                    column_spacing,
+                    rows,
+                    columns,
+                    grid_placement,
+                    children,
+                }) => ElementParts {
+                    kind: MountedKind::Grid,
+                    props: MountedProps::Grid {
+                        row_spacing,
+                        column_spacing,
+                        rows,
+                        columns,
+                    },
+                    reference: None,
+                    grid_placement,
                     structure: ElementStructure::Children(children),
                 },
                 Self::TextBox(TextBox {
@@ -665,6 +818,7 @@ pub mod public {
                     is_enabled,
                     on_text_changed,
                     reference,
+                    grid_placement,
                 }) => ElementParts {
                     kind: MountedKind::TextBox,
                     props: MountedProps::TextBox {
@@ -674,6 +828,7 @@ pub mod public {
                         on_text_changed,
                     },
                     reference,
+                    grid_placement,
                     structure: ElementStructure::None,
                 },
                 Self::NumberBox(NumberBox {
@@ -683,6 +838,7 @@ pub mod public {
                     is_enabled,
                     on_value_changed,
                     reference,
+                    grid_placement,
                 }) => ElementParts {
                     kind: MountedKind::NumberBox,
                     props: MountedProps::NumberBox {
@@ -693,6 +849,7 @@ pub mod public {
                         on_value_changed,
                     },
                     reference,
+                    grid_placement,
                     structure: ElementStructure::None,
                 },
                 Self::Slider(Slider {
@@ -702,6 +859,7 @@ pub mod public {
                     is_enabled,
                     on_value_changed,
                     reference,
+                    grid_placement,
                 }) => ElementParts {
                     kind: MountedKind::Slider,
                     props: MountedProps::Slider {
@@ -712,12 +870,17 @@ pub mod public {
                         on_value_changed,
                     },
                     reference,
+                    grid_placement,
                     structure: ElementStructure::None,
                 },
-                Self::NavigationView(NavigationView { is_enabled }) => ElementParts {
+                Self::NavigationView(NavigationView {
+                    is_enabled,
+                    grid_placement,
+                }) => ElementParts {
                     kind: MountedKind::NavigationView,
                     props: MountedProps::NavigationView { is_enabled },
                     reference: None,
+                    grid_placement,
                     structure: ElementStructure::None,
                 },
                 Self::ProgressBar(ProgressBar {
@@ -728,6 +891,7 @@ pub mod public {
                     show_error,
                     show_paused,
                     is_enabled,
+                    grid_placement,
                 }) => ElementParts {
                     kind: MountedKind::ProgressBar,
                     props: MountedProps::ProgressBar {
@@ -740,6 +904,7 @@ pub mod public {
                         is_enabled,
                     },
                     reference: None,
+                    grid_placement,
                     structure: ElementStructure::None,
                 },
                 Self::ToggleSwitch(ToggleSwitch {
@@ -747,6 +912,7 @@ pub mod public {
                     is_enabled,
                     on_toggled,
                     reference,
+                    grid_placement,
                 }) => ElementParts {
                     kind: MountedKind::ToggleSwitch,
                     props: MountedProps::ToggleSwitch {
@@ -755,18 +921,24 @@ pub mod public {
                         on_toggled,
                     },
                     reference,
+                    grid_placement,
                     structure: ElementStructure::None,
                 },
                 Self::ItemsRepeater(ItemsRepeater { items }) => ElementParts {
                     kind: MountedKind::ItemsRepeater,
                     props: MountedProps::ItemsRepeater {},
                     reference: None,
+                    grid_placement: None,
                     structure: ElementStructure::Virtual(items),
                 },
-                Self::ScrollViewer(ScrollViewer { content }) => ElementParts {
+                Self::ScrollViewer(ScrollViewer {
+                    grid_placement,
+                    content,
+                }) => ElementParts {
                     kind: MountedKind::ScrollViewer,
                     props: MountedProps::ScrollViewer {},
                     reference: None,
+                    grid_placement,
                     structure: ElementStructure::Content(content.map(|element| *element)),
                 },
             }
@@ -808,6 +980,26 @@ pub mod public {
                 ) => {
                     true && orientation == mounted_orientation
                         && f64_property_eq(spacing, mounted_spacing)
+                }
+                (
+                    Self::Grid(Grid {
+                        row_spacing,
+                        column_spacing,
+                        rows,
+                        columns,
+                        ..
+                    }),
+                    MountedProps::Grid {
+                        row_spacing: mounted_row_spacing,
+                        column_spacing: mounted_column_spacing,
+                        rows: mounted_rows,
+                        columns: mounted_columns,
+                    },
+                ) => {
+                    true && f64_property_eq(row_spacing, mounted_row_spacing)
+                        && f64_property_eq(column_spacing, mounted_column_spacing)
+                        && rows == mounted_rows
+                        && columns == mounted_columns
                 }
                 (
                     Self::TextBox(TextBox {
@@ -937,6 +1129,7 @@ pub mod public {
                 Self::TextBlock(_) => None,
                 Self::Button(value) => value.reference.as_ref(),
                 Self::StackPanel(_) => None,
+                Self::Grid(_) => None,
                 Self::TextBox(value) => value.reference.as_ref(),
                 Self::NumberBox(value) => value.reference.as_ref(),
                 Self::Slider(value) => value.reference.as_ref(),
@@ -947,11 +1140,28 @@ pub mod public {
                 Self::ScrollViewer(_) => None,
             }
         }
+        fn grid_placement(&self) -> Option<&GridPlacement> {
+            match self {
+                Self::TextBlock(value) => value.grid_placement.as_deref(),
+                Self::Button(value) => value.grid_placement.as_deref(),
+                Self::StackPanel(value) => value.grid_placement.as_deref(),
+                Self::Grid(value) => value.grid_placement.as_deref(),
+                Self::TextBox(value) => value.grid_placement.as_deref(),
+                Self::NumberBox(value) => value.grid_placement.as_deref(),
+                Self::Slider(value) => value.grid_placement.as_deref(),
+                Self::NavigationView(value) => value.grid_placement.as_deref(),
+                Self::ProgressBar(value) => value.grid_placement.as_deref(),
+                Self::ToggleSwitch(value) => value.grid_placement.as_deref(),
+                Self::ItemsRepeater(_) => None,
+                Self::ScrollViewer(value) => value.grid_placement.as_deref(),
+            }
+        }
         fn structure(&self) -> ElementStructureRef<'_> {
             match self {
                 Self::TextBlock(_) => ElementStructureRef::None,
                 Self::Button(value) => ElementStructureRef::Content(value.content.as_deref()),
                 Self::StackPanel(value) => ElementStructureRef::Children(value.children.as_slice()),
+                Self::Grid(value) => ElementStructureRef::Children(value.children.as_slice()),
                 Self::TextBox(_) => ElementStructureRef::None,
                 Self::NumberBox(_) => ElementStructureRef::None,
                 Self::Slider(_) => ElementStructureRef::None,
@@ -969,6 +1179,7 @@ pub mod public {
                     visit(EventId::ButtonClick, on_click.is_some());
                 }
                 Self::StackPanel(_) => {}
+                Self::Grid(_) => {}
                 Self::TextBox(_) => {
                     visit(EventId::TextBoxTextChanged, true);
                 }
@@ -995,6 +1206,7 @@ pub trait ElementPartsExt {
     fn into_parts(self) -> ElementParts;
     fn props_match(&self, props: &MountedProps) -> bool;
     fn reference(&self) -> Option<&NativeElementRef>;
+    fn grid_placement(&self) -> Option<&GridPlacement>;
     fn structure(&self) -> ElementStructureRef<'_>;
     fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool));
 }
@@ -1060,6 +1272,39 @@ impl MountedPropsExt for MountedProps {
                         Property::Inherited => None,
                         Property::Set(value) => Some((*value).into()),
                     },
+                );
+            }
+            Self::Grid {
+                row_spacing,
+                column_spacing,
+                rows,
+                columns,
+                ..
+            } => {
+                visit(
+                    PropertyId::GridRowSpacing,
+                    match row_spacing {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+                visit(
+                    PropertyId::GridColumnSpacing,
+                    match column_spacing {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+                visit(
+                    PropertyId::GridRows,
+                    rows.as_set()
+                        .map(|value| PropertyValue::GridLengths(value.clone())),
+                );
+                visit(
+                    PropertyId::GridColumns,
+                    columns
+                        .as_set()
+                        .map(|value| PropertyValue::GridLengths(value.clone())),
                 );
             }
             Self::TextBox {
@@ -1262,6 +1507,7 @@ impl MountedEventsExt for MountedProps {
                 visit(EventId::ButtonClick, on_click.is_some());
             }
             Self::StackPanel { .. } => {}
+            Self::Grid { .. } => {}
             Self::TextBox { .. } => {
                 visit(EventId::TextBoxTextChanged, true);
             }
@@ -1354,6 +1600,7 @@ pub enum MountedKind {
     TextBlock,
     Button,
     StackPanel,
+    Grid,
     TextBox,
     NumberBox,
     Slider,
@@ -1383,6 +1630,7 @@ pub fn slots(kind: MountedKind) -> &'static [SlotId] {
         MountedKind::TextBlock => &[],
         MountedKind::Button => &[],
         MountedKind::StackPanel => &[],
+        MountedKind::Grid => &[],
         MountedKind::TextBox => &[],
         MountedKind::NumberBox => &[],
         MountedKind::Slider => &[],
@@ -1408,6 +1656,12 @@ pub enum MountedProps {
     StackPanel {
         orientation: Property<Orientation>,
         spacing: Property<f64>,
+    },
+    Grid {
+        row_spacing: Property<f64>,
+        column_spacing: Property<f64>,
+        rows: Property<std::rc::Rc<Vec<GridLength>>>,
+        columns: Property<std::rc::Rc<Vec<GridLength>>>,
     },
     TextBox {
         text: Property<String>,
@@ -1484,6 +1738,25 @@ impl PartialEq for MountedProps {
             ) => {
                 true && left_orientation == right_orientation
                     && f64_property_eq(left_spacing, right_spacing)
+            }
+            (
+                Self::Grid {
+                    row_spacing: left_row_spacing,
+                    column_spacing: left_column_spacing,
+                    rows: left_rows,
+                    columns: left_columns,
+                },
+                Self::Grid {
+                    row_spacing: right_row_spacing,
+                    column_spacing: right_column_spacing,
+                    rows: right_rows,
+                    columns: right_columns,
+                },
+            ) => {
+                true && f64_property_eq(left_row_spacing, right_row_spacing)
+                    && f64_property_eq(left_column_spacing, right_column_spacing)
+                    && left_rows == right_rows
+                    && left_columns == right_columns
             }
             (
                 Self::TextBox {
@@ -1625,15 +1898,24 @@ pub struct ElementParts {
     pub kind: MountedKind,
     pub props: MountedProps,
     pub reference: Option<NativeElementRef>,
+    pub grid_placement: Option<std::rc::Rc<GridPlacement>>,
     pub structure: ElementStructure,
 }
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum PropertyId {
+    GridRow,
+    GridColumn,
+    GridRowSpan,
+    GridColumnSpan,
+    GridRows,
+    GridColumns,
     TextBlockText,
     TextBlockTextWrapping,
     ButtonIsEnabled,
     StackPanelOrientation,
     StackPanelSpacing,
+    GridRowSpacing,
+    GridColumnSpacing,
     TextBoxText,
     TextBoxPlaceholderText,
     TextBoxIsEnabled,
@@ -1668,6 +1950,8 @@ pub enum EventId {
 pub enum PropertyValue {
     Bool(bool),
     F64(f64),
+    GridLengths(std::rc::Rc<Vec<GridLength>>),
+    I32(i32),
     Orientation(Orientation),
     Str(String),
     TextWrapping(TextWrapping),
@@ -1677,6 +1961,8 @@ impl PartialEq for PropertyValue {
         match (self, other) {
             (Self::Bool(left), Self::Bool(right)) => left == right,
             (Self::F64(left), Self::F64(right)) => f64_eq(*left, *right),
+            (Self::GridLengths(left), Self::GridLengths(right)) => left == right,
+            (Self::I32(left), Self::I32(right)) => left == right,
             (Self::Orientation(left), Self::Orientation(right)) => left == right,
             (Self::Str(left), Self::Str(right)) => left == right,
             (Self::TextWrapping(left), Self::TextWrapping(right)) => left == right,
@@ -1692,6 +1978,16 @@ impl From<bool> for PropertyValue {
 impl From<f64> for PropertyValue {
     fn from(value: f64) -> Self {
         Self::F64(value)
+    }
+}
+impl From<std::rc::Rc<Vec<GridLength>>> for PropertyValue {
+    fn from(value: std::rc::Rc<Vec<GridLength>>) -> Self {
+        Self::GridLengths(value)
+    }
+}
+impl From<i32> for PropertyValue {
+    fn from(value: i32) -> Self {
+        Self::I32(value)
     }
 }
 impl From<Orientation> for PropertyValue {
@@ -1746,6 +2042,7 @@ pub enum Capability {
     ControlledText,
     Items,
     Focus,
+    GridDefinitions,
 }
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PropertyDescriptor {
@@ -1856,6 +2153,32 @@ const STACK_PANEL_PROPERTIES: &[PropertyDescriptor] = &[
 ];
 const STACK_PANEL_EVENTS: &[EventDescriptor] = &[];
 const STACK_PANEL_SLOTS: &[SlotDescriptor] = &[];
+const GRID_PROPERTIES: &[PropertyDescriptor] = &[
+    PropertyDescriptor {
+        id: PropertyId::GridRowSpacing,
+        name: "RowSpacing",
+        field: "row_spacing",
+        value: "F64",
+        interface: "Microsoft.UI.Xaml.Controls.IGrid",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::GridColumnSpacing,
+        name: "ColumnSpacing",
+        field: "column_spacing",
+        value: "F64",
+        interface: "Microsoft.UI.Xaml.Controls.IGrid",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+];
+const GRID_EVENTS: &[EventDescriptor] = &[];
+const GRID_SLOTS: &[SlotDescriptor] = &[];
 const TEXT_BOX_PROPERTIES: &[PropertyDescriptor] = &[
     PropertyDescriptor {
         id: PropertyId::TextBoxText,
@@ -2189,6 +2512,20 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         slots: STACK_PANEL_SLOTS,
     },
     ControlDescriptor {
+        kind: MountedKind::Grid,
+        name: "Grid",
+        type_name: "Microsoft.UI.Xaml.Controls.Grid",
+        role: ControlRole::Children,
+        capabilities: &[
+            Capability::Layout,
+            Capability::Children,
+            Capability::GridDefinitions,
+        ],
+        properties: GRID_PROPERTIES,
+        events: GRID_EVENTS,
+        slots: GRID_SLOTS,
+    },
+    ControlDescriptor {
         kind: MountedKind::TextBox,
         name: "TextBox",
         type_name: "Microsoft.UI.Xaml.Controls.TextBox",
@@ -2259,7 +2596,7 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         name: "ItemsRepeater",
         type_name: "Microsoft.UI.Xaml.Controls.ItemsRepeater",
         role: ControlRole::Virtual,
-        capabilities: &[Capability::Layout, Capability::Items],
+        capabilities: &[Capability::Items],
         properties: ITEMS_REPEATER_PROPERTIES,
         events: ITEMS_REPEATER_EVENTS,
         slots: ITEMS_REPEATER_SLOTS,

@@ -313,6 +313,38 @@ impl_into_views_tuple!(
     A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9, K 10, L 11, M 12, N 13, O 14, P 15
 );
 
+#[derive(Clone, Copy, Debug)]
+pub enum GridLength {
+    Auto,
+    Pixel(f64),
+    Star(f64),
+}
+
+impl GridLength {
+    pub const STAR: Self = Self::Star(1.0);
+}
+
+impl PartialEq for GridLength {
+    fn eq(&self, other: &Self) -> bool {
+        match (self, other) {
+            (Self::Auto, Self::Auto) => true,
+            (Self::Pixel(left), Self::Pixel(right)) | (Self::Star(left), Self::Star(right)) => {
+                f64_eq(*left, *right)
+            }
+            _ => false,
+        }
+    }
+}
+
+#[doc(hidden)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub struct GridPlacement {
+    row: Option<i32>,
+    column: Option<i32>,
+    row_span: Option<i32>,
+    column_span: Option<i32>,
+}
+
 #[derive(Clone, Debug, Default, PartialEq)]
 pub enum Property<T> {
     #[default]
@@ -422,7 +454,10 @@ impl IntoUnitCallback for Callback<()> {
     }
 }
 
-pub trait LayoutControl: sealed::Sealed {}
+pub trait LayoutControl: sealed::Sealed {
+    #[doc(hidden)]
+    fn grid_placement_mut(&mut self) -> &mut Option<Rc<GridPlacement>>;
+}
 pub trait TextStyleControl: sealed::Sealed {}
 /// Marks controls that support enabled state.
 ///
@@ -482,3 +517,95 @@ pub trait SlotsControl: sealed::Sealed + Into<Element> + Sized {
 }
 pub trait ControlledTextControl: sealed::Sealed {}
 pub trait ItemsControl: sealed::Sealed {}
+pub trait GridDefinitionsControl: sealed::Sealed {}
+
+/// Places a concrete native control in its parent Grid.
+///
+/// Components and fragments can produce more than one native root, so place a native wrapper when
+/// a composed view needs Grid placement.
+///
+/// ```compile_fail
+/// use windows_reactor_next::*;
+///
+/// struct Child;
+/// # impl Component for Child {
+/// #     type Message = ();
+/// #     type Props = ();
+/// #     fn create(_: &(), _: &mut ComponentContext<Self>) -> Self { Self }
+/// #     fn update(&mut self, _: (), _: &mut ComponentContext<Self>) {}
+/// #     fn view(&self, _: &(), _: &mut ViewContext<Self>) -> View { View::empty() }
+/// # }
+/// let _ = View::component::<Child>(()).grid_row(0);
+/// ```
+///
+/// ```compile_fail
+/// use windows_reactor_next::*;
+///
+/// let _ = View::fragment((TextBlock::new(), TextBlock::new())).grid_column(0);
+/// ```
+pub trait GridChildExt: LayoutControl + Sized {
+    fn grid_row(mut self, row: i32) -> Self {
+        assert!(row >= 0, "Grid row must be non-negative");
+        Rc::make_mut(
+            self.grid_placement_mut()
+                .get_or_insert_with(|| Rc::new(GridPlacement::default())),
+        )
+        .row = Some(row);
+        self
+    }
+
+    fn grid_column(mut self, column: i32) -> Self {
+        assert!(column >= 0, "Grid column must be non-negative");
+        Rc::make_mut(
+            self.grid_placement_mut()
+                .get_or_insert_with(|| Rc::new(GridPlacement::default())),
+        )
+        .column = Some(column);
+        self
+    }
+
+    fn grid_row_span(mut self, span: i32) -> Self {
+        assert!(span > 0, "Grid row span must be positive");
+        Rc::make_mut(
+            self.grid_placement_mut()
+                .get_or_insert_with(|| Rc::new(GridPlacement::default())),
+        )
+        .row_span = Some(span);
+        self
+    }
+
+    fn grid_column_span(mut self, span: i32) -> Self {
+        assert!(span > 0, "Grid column span must be positive");
+        Rc::make_mut(
+            self.grid_placement_mut()
+                .get_or_insert_with(|| Rc::new(GridPlacement::default())),
+        )
+        .column_span = Some(span);
+        self
+    }
+}
+
+impl<T: LayoutControl> GridChildExt for T {}
+
+pub(crate) fn visit_grid_placement(
+    placement: Option<&GridPlacement>,
+    visit: &mut dyn FnMut(PropertyId, Option<PropertyValue>),
+) {
+    let value = |value: Option<i32>| value.map(PropertyValue::I32);
+    visit(
+        PropertyId::GridRow,
+        value(placement.and_then(|value| value.row)),
+    );
+    visit(
+        PropertyId::GridColumn,
+        value(placement.and_then(|value| value.column)),
+    );
+    visit(
+        PropertyId::GridRowSpan,
+        value(placement.and_then(|value| value.row_span)),
+    );
+    visit(
+        PropertyId::GridColumnSpan,
+        value(placement.and_then(|value| value.column_span)),
+    );
+}

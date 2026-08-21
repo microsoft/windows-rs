@@ -628,7 +628,7 @@ mod tests {
     fn generated_control_growth_preserves_core_layouts() {
         assert_eq!(size_of::<Node>(), 432);
         assert_eq!(size_of::<MountedProps>(), 72);
-        assert_eq!(size_of::<Element>(), 88);
+        assert_eq!(size_of::<Element>(), 96);
     }
 
     #[test]

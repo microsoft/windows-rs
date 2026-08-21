@@ -7,6 +7,7 @@ pub windows_reactor_next::ComponentTaskStatus::Rejected
 pub windows_reactor_next::ComponentTaskStatus::Running
 pub enum windows_reactor_next::Element
 pub windows_reactor_next::Element::Button(windows_reactor_next::Button)
+pub windows_reactor_next::Element::Grid(windows_reactor_next::Grid)
 pub windows_reactor_next::Element::ItemsRepeater(windows_reactor_next::ItemsRepeater)
 pub windows_reactor_next::Element::NavigationView(windows_reactor_next::NavigationView)
 pub windows_reactor_next::Element::NumberBox(windows_reactor_next::NumberBox)
@@ -21,6 +22,8 @@ impl core::convert::From<windows_reactor_next::Button> for windows_reactor_next:
 pub fn windows_reactor_next::Element::from(windows_reactor_next::Button) -> Self
 impl core::convert::From<windows_reactor_next::Element> for windows_reactor_next::View
 pub fn windows_reactor_next::View::from(windows_reactor_next::Element) -> Self
+impl core::convert::From<windows_reactor_next::Grid> for windows_reactor_next::Element
+pub fn windows_reactor_next::Element::from(windows_reactor_next::Grid) -> Self
 impl core::convert::From<windows_reactor_next::ItemsRepeater> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::ItemsRepeater) -> Self
 impl core::convert::From<windows_reactor_next::NavigationView> for windows_reactor_next::Element
@@ -41,6 +44,14 @@ impl core::convert::From<windows_reactor_next::TextBox> for windows_reactor_next
 pub fn windows_reactor_next::Element::from(windows_reactor_next::TextBox) -> Self
 impl core::convert::From<windows_reactor_next::ToggleSwitch> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::ToggleSwitch) -> Self
+pub enum windows_reactor_next::GridLength
+pub windows_reactor_next::GridLength::Auto
+pub windows_reactor_next::GridLength::Pixel(f64)
+pub windows_reactor_next::GridLength::Star(f64)
+impl windows_reactor_next::GridLength
+pub const windows_reactor_next::GridLength::STAR: Self
+impl core::cmp::PartialEq for windows_reactor_next::GridLength
+pub fn windows_reactor_next::GridLength::eq(&self, &Self) -> bool
 #[repr(u8)] pub enum windows_reactor_next::NavigationViewSlot
 pub windows_reactor_next::NavigationViewSlot::Content
 pub windows_reactor_next::NavigationViewSlot::Header
@@ -144,6 +155,26 @@ impl<T> core::cmp::PartialEq for windows_reactor_next::ElementRef<T>
 pub fn windows_reactor_next::ElementRef<T>::eq(&self, &Self) -> bool
 impl<T> core::fmt::Debug for windows_reactor_next::ElementRef<T>
 pub fn windows_reactor_next::ElementRef<T>::fmt(&self, &mut core::fmt::Formatter<'_>) -> core::fmt::Result
+pub struct windows_reactor_next::Grid
+impl windows_reactor_next::Grid
+pub fn windows_reactor_next::Grid::column_spacing(self, f64) -> Self
+pub fn windows_reactor_next::Grid::column_spacing_property(&self) -> &windows_reactor_next::Property<f64>
+pub fn windows_reactor_next::Grid::columns(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::GridLength>) -> Self
+pub fn windows_reactor_next::Grid::columns_property(&self) -> &windows_reactor_next::Property<alloc::rc::Rc<alloc::vec::Vec<windows_reactor_next::GridLength>>>
+pub fn windows_reactor_next::Grid::new() -> Self
+pub fn windows_reactor_next::Grid::row_spacing(self, f64) -> Self
+pub fn windows_reactor_next::Grid::row_spacing_property(&self) -> &windows_reactor_next::Property<f64>
+pub fn windows_reactor_next::Grid::rows(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::GridLength>) -> Self
+pub fn windows_reactor_next::Grid::rows_property(&self) -> &windows_reactor_next::Property<alloc::rc::Rc<alloc::vec::Vec<windows_reactor_next::GridLength>>>
+impl core::convert::From<windows_reactor_next::Grid> for windows_reactor_next::Element
+pub fn windows_reactor_next::Element::from(windows_reactor_next::Grid) -> Self
+impl core::convert::From<windows_reactor_next::Grid> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::Grid) -> Self
+impl windows_reactor_next::ChildrenControl for windows_reactor_next::Grid
+pub fn windows_reactor_next::Grid::children(self, impl windows_reactor_next::IntoViews) -> windows_reactor_next::View
+pub fn windows_reactor_next::Grid::keyed_children(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::KeyedView>) -> windows_reactor_next::View
+impl windows_reactor_next::GridDefinitionsControl for windows_reactor_next::Grid
+impl windows_reactor_next::LayoutControl for windows_reactor_next::Grid
 pub struct windows_reactor_next::ItemsRepeater
 impl windows_reactor_next::ItemsRepeater
 pub fn windows_reactor_next::ItemsRepeater::item(self, impl core::convert::Into<windows_reactor_next::Key>, impl core::convert::Into<windows_reactor_next::View>) -> Self
@@ -154,7 +185,6 @@ pub fn windows_reactor_next::Element::from(windows_reactor_next::ItemsRepeater) 
 impl core::convert::From<windows_reactor_next::ItemsRepeater> for windows_reactor_next::View
 pub fn windows_reactor_next::View::from(windows_reactor_next::ItemsRepeater) -> Self
 impl windows_reactor_next::ItemsControl for windows_reactor_next::ItemsRepeater
-impl windows_reactor_next::LayoutControl for windows_reactor_next::ItemsRepeater
 pub struct windows_reactor_next::Key(_)
 impl core::convert::From<&str> for windows_reactor_next::Key
 pub fn windows_reactor_next::Key::from(&str) -> Self
@@ -353,6 +383,8 @@ impl core::convert::From<windows_reactor_next::Button> for windows_reactor_next:
 pub fn windows_reactor_next::View::from(windows_reactor_next::Button) -> Self
 impl core::convert::From<windows_reactor_next::Element> for windows_reactor_next::View
 pub fn windows_reactor_next::View::from(windows_reactor_next::Element) -> Self
+impl core::convert::From<windows_reactor_next::Grid> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::Grid) -> Self
 impl core::convert::From<windows_reactor_next::ItemsRepeater> for windows_reactor_next::View
 pub fn windows_reactor_next::View::from(windows_reactor_next::ItemsRepeater) -> Self
 impl core::convert::From<windows_reactor_next::NavigationView> for windows_reactor_next::View
@@ -389,6 +421,9 @@ pub fn windows_reactor_next::WindowRef::fmt(&self, &mut core::fmt::Formatter<'_>
 pub trait windows_reactor_next::ChildrenControl: windows_reactor_next::element::sealed::Sealed + core::convert::Into<windows_reactor_next::Element> + core::marker::Sized
 pub fn windows_reactor_next::ChildrenControl::children(self, impl windows_reactor_next::IntoViews) -> windows_reactor_next::View
 pub fn windows_reactor_next::ChildrenControl::keyed_children(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::KeyedView>) -> windows_reactor_next::View
+impl windows_reactor_next::ChildrenControl for windows_reactor_next::Grid
+pub fn windows_reactor_next::Grid::children(self, impl windows_reactor_next::IntoViews) -> windows_reactor_next::View
+pub fn windows_reactor_next::Grid::keyed_children(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::KeyedView>) -> windows_reactor_next::View
 impl windows_reactor_next::ChildrenControl for windows_reactor_next::StackPanel
 pub fn windows_reactor_next::StackPanel::children(self, impl windows_reactor_next::IntoViews) -> windows_reactor_next::View
 pub fn windows_reactor_next::StackPanel::keyed_children(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::KeyedView>) -> windows_reactor_next::View
@@ -421,6 +456,18 @@ impl windows_reactor_next::FocusControl for windows_reactor_next::NumberBox
 impl windows_reactor_next::FocusControl for windows_reactor_next::Slider
 impl windows_reactor_next::FocusControl for windows_reactor_next::TextBox
 impl windows_reactor_next::FocusControl for windows_reactor_next::ToggleSwitch
+pub trait windows_reactor_next::GridChildExt: windows_reactor_next::LayoutControl + core::marker::Sized
+pub fn windows_reactor_next::GridChildExt::grid_column(self, i32) -> Self
+pub fn windows_reactor_next::GridChildExt::grid_column_span(self, i32) -> Self
+pub fn windows_reactor_next::GridChildExt::grid_row(self, i32) -> Self
+pub fn windows_reactor_next::GridChildExt::grid_row_span(self, i32) -> Self
+impl<T: windows_reactor_next::LayoutControl> windows_reactor_next::GridChildExt for T
+pub fn T::grid_column(self, i32) -> Self
+pub fn T::grid_column_span(self, i32) -> Self
+pub fn T::grid_row(self, i32) -> Self
+pub fn T::grid_row_span(self, i32) -> Self
+pub trait windows_reactor_next::GridDefinitionsControl: windows_reactor_next::element::sealed::Sealed
+impl windows_reactor_next::GridDefinitionsControl for windows_reactor_next::Grid
 pub trait windows_reactor_next::IntoPayloadCallback<T>
 pub fn windows_reactor_next::IntoPayloadCallback::into_payload_callback(self) -> windows_reactor_next::Callback<T>
 impl<T, F> windows_reactor_next::IntoPayloadCallback<T> for F where F: core::ops::function::Fn(T) + 'static
@@ -456,7 +503,7 @@ pub trait windows_reactor_next::ItemsControl: windows_reactor_next::element::sea
 impl windows_reactor_next::ItemsControl for windows_reactor_next::ItemsRepeater
 pub trait windows_reactor_next::LayoutControl: windows_reactor_next::element::sealed::Sealed
 impl windows_reactor_next::LayoutControl for windows_reactor_next::Button
-impl windows_reactor_next::LayoutControl for windows_reactor_next::ItemsRepeater
+impl windows_reactor_next::LayoutControl for windows_reactor_next::Grid
 impl windows_reactor_next::LayoutControl for windows_reactor_next::NavigationView
 impl windows_reactor_next::LayoutControl for windows_reactor_next::NumberBox
 impl windows_reactor_next::LayoutControl for windows_reactor_next::ProgressBar

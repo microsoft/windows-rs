@@ -151,6 +151,10 @@ trait LivePump {
         false
     }
     #[cfg(feature = "test")]
+    fn live_grid(&mut self) -> bool {
+        false
+    }
+    #[cfg(feature = "test")]
     fn live_range_feedback(&mut self, _control: LiveRangeControl) -> bool {
         false
     }
@@ -526,6 +530,40 @@ impl LivePump for ComponentLoop {
         self.pump.update_view(View::empty()).is_ok()
             && self.pump.update_view(fragment(false)).is_ok()
             && self.pump.update_view(fragment(true)).is_ok()
+    }
+
+    #[cfg(feature = "test")]
+    fn live_grid(&mut self) -> bool {
+        let populated = Grid::new()
+            .rows([GridLength::Auto, GridLength::STAR])
+            .columns([GridLength::Pixel(120.0), GridLength::STAR])
+            .children((TextBlock::new()
+                .text("grid")
+                .grid_row(1)
+                .grid_column(2)
+                .grid_row_span(3)
+                .grid_column_span(4),));
+        if self.pump.update_view(populated).is_err() {
+            return false;
+        }
+        let Some(grid) = self.pump.root_native() else {
+            return false;
+        };
+        let child = match self.pump.live_native_children(grid) {
+            Ok([child]) => *child,
+            _ => return false,
+        };
+        if self.pump.runtime().live_grid_matches(grid, child, true) != Ok(true) {
+            return false;
+        }
+        if self
+            .pump
+            .update_view(Grid::new().children((TextBlock::new().text("grid"),)))
+            .is_err()
+        {
+            return false;
+        }
+        self.pump.runtime().live_grid_matches(grid, child, false) == Ok(true)
     }
 
     #[cfg(feature = "test")]
@@ -1639,6 +1677,16 @@ fn queue_live_range_restore_verification(
                         eprintln!(
                             "live backend fixture did not suppress ToggleSwitch setter feedback"
                         );
+                        std::process::exit(1);
+                    }
+                    let grid_passed = HOST.with(|host| {
+                        host.borrow_mut()
+                            .as_mut()
+                            .and_then(LiveHost::primary_mut)
+                            .is_some_and(LivePump::live_grid)
+                    });
+                    if !grid_passed {
+                        eprintln!("live backend fixture did not apply or clear Grid state");
                         std::process::exit(1);
                     }
                     let prepared = HOST.with(|host| {

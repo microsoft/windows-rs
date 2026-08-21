@@ -6,9 +6,9 @@ performance are proven.
 
 See [`reactor-next.md`](../../../reactor-next.md) for the current plan and gates.
 
-The current slice generates `TextBlock`, `Button`, `StackPanel`, `TextBox`, `NumberBox`, `Slider`,
-`NavigationView`, `ProgressBar`, `ToggleSwitch`, `ScrollViewer`, and `ItemsRepeater` from WinUI
-metadata plus a small curation schema. `ToggleSwitch` adds typed boolean controlled feedback.
+The current slice generates `TextBlock`, `Button`, `StackPanel`, `Grid`, `TextBox`, `NumberBox`,
+`Slider`, `NavigationView`, `ProgressBar`, `ToggleSwitch`, `ScrollViewer`, and `ItemsRepeater` from
+WinUI metadata plus a small curation schema. `ToggleSwitch` adds typed boolean controlled feedback.
 `NavigationView` exposes typed `Content` and `Header` slots through `SlotsControl::slots`. The
 private WinUI backend applies properties and keyed structure and queues native work. The recording
 runtime remains the failure-injection and randomized-test backend.
@@ -70,6 +70,24 @@ cannot collide with public numeric or string keys.
 
 These methods construct the core `View` variants consumed by the existing planner. They are not a
 wrapper frontend and do not add another tree or reconciliation path.
+
+`Grid` exposes row and column definitions as value-like properties. Concrete native controls use
+`GridChildExt` for attached placement:
+
+```rust,ignore
+Grid::new()
+    .row_spacing(8.0)
+    .column_spacing(12.0)
+    .rows([GridLength::Auto, GridLength::STAR])
+    .columns([GridLength::Pixel(100.0), GridLength::STAR])
+    .children((
+        TextBlock::new().text("Name").grid_row(1),
+        TextBox::new().grid_row(1).grid_column(1),
+    ))
+```
+
+Components and fragments can flatten to more than one native root, so they do not expose attached
+placement. Put such a view inside a concrete native layout control and place that wrapper.
 
 `ItemsRepeater` accepts explicitly keyed `View` rows:
 

@@ -23,16 +23,30 @@ pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
         "Microsoft::UI::Xaml::IFrameworkElement::put_MinHeight".to_string(),
         "Microsoft::UI::Xaml::IUIElement::{Focus, StartBringIntoView}".to_string(),
         "Microsoft::UI::Xaml::Media::CompositionTarget::Rendering".to_string(),
+        "Microsoft::UI::Xaml::GridLength".to_string(),
+        "Microsoft::UI::Xaml::GridUnitType".to_string(),
         "Microsoft::UI::Xaml::FocusState".to_string(),
         "Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries".to_string(),
         "Microsoft::UI::Xaml::IWindow::{Activate, Close, Closed, put_Content, put_Title}"
             .to_string(),
         "Microsoft::UI::Xaml::LaunchActivatedEventArgs".to_string(),
         "Microsoft::UI::Xaml::Controls::ContentControl::CreateInstance".to_string(),
+        "Microsoft::UI::Xaml::Controls::ColumnDefinition::CreateInstance".to_string(),
+        "Microsoft::UI::Xaml::Controls::ColumnDefinitionCollection".to_string(),
+        "Microsoft::UI::Xaml::Controls::Grid::{ColumnProperty, ColumnSpanProperty, GetColumn, \
+         GetColumnSpan, GetRow, GetRowSpan, RowProperty, RowSpanProperty, SetColumn, SetColumnSpan, \
+         SetRow, SetRowSpan}"
+            .to_string(),
+        "Microsoft::UI::Xaml::Controls::IColumnDefinition::{get_Width, put_Width}".to_string(),
+        "Microsoft::UI::Xaml::Controls::IGrid::{get_ColumnDefinitions, get_RowDefinitions}"
+            .to_string(),
         "Microsoft::UI::Xaml::Controls::IItemsRepeater::{GetOrCreateElement, put_ItemsSource, \
          put_ItemTemplate}"
             .to_string(),
+        "Microsoft::UI::Xaml::Controls::IRowDefinition::{get_Height, put_Height}".to_string(),
         "Microsoft::UI::Xaml::Controls::ItemsRepeater::CreateInstance".to_string(),
+        "Microsoft::UI::Xaml::Controls::RowDefinition::CreateInstance".to_string(),
+        "Microsoft::UI::Xaml::Controls::RowDefinitionCollection".to_string(),
         "Microsoft::UI::Xaml::IElementFactoryGetArgs::{get_Data, get_Parent}".to_string(),
         "Microsoft::UI::Xaml::IElementFactoryRecycleArgs::{get_Element, get_Parent}".to_string(),
         "Microsoft::UI::Xaml::Markup::IXamlMetadataProvider".to_string(),
@@ -649,7 +663,13 @@ mod tests {
         assert!(filter.contains("ITextBox::{add_TextChanged, remove_TextChanged}"));
         assert!(filter.contains("Control::IsEnabledProperty"));
         assert!(filter.contains("IElementFactoryGetArgs"));
-        assert!(filter.contains("IItemsRepeater::{put_ItemsSource, put_ItemTemplate}"));
+        assert!(
+            filter.contains(
+                "IItemsRepeater::{GetOrCreateElement, put_ItemsSource, put_ItemTemplate}"
+            )
+        );
+        assert!(filter.contains("Grid::{ColumnProperty"));
+        assert!(filter.contains("IGrid::{get_ColumnDefinitions, get_RowDefinitions}"));
     }
 
     #[test]

@@ -5,6 +5,7 @@ pub enum Handle {
     TextBlock(bindings::TextBlock),
     Button(bindings::Button),
     StackPanel(bindings::StackPanel),
+    Grid(bindings::Grid),
     TextBox(bindings::TextBox),
     NumberBox(bindings::NumberBox),
     Slider(bindings::Slider),
@@ -23,6 +24,7 @@ impl Handle {
             MountedKind::StackPanel => {
                 Self::StackPanel(bindings::StackPanel::new().map_err(native_error)?)
             }
+            MountedKind::Grid => Self::Grid(bindings::Grid::new().map_err(native_error)?),
             MountedKind::TextBox => Self::TextBox(bindings::TextBox::new().map_err(native_error)?),
             MountedKind::NumberBox => {
                 Self::NumberBox(bindings::NumberBox::new().map_err(native_error)?)
@@ -48,6 +50,7 @@ impl Handle {
             Self::TextBlock(value) => value.cast(),
             Self::Button(value) => value.cast(),
             Self::StackPanel(value) => value.cast(),
+            Self::Grid(value) => value.cast(),
             Self::TextBox(value) => value.cast(),
             Self::NumberBox(value) => value.cast(),
             Self::Slider(value) => value.cast(),
@@ -62,6 +65,7 @@ impl Handle {
             Self::TextBlock(value) => value.cast(),
             Self::Button(value) => value.cast(),
             Self::StackPanel(value) => value.cast(),
+            Self::Grid(value) => value.cast(),
             Self::TextBox(value) => value.cast(),
             Self::NumberBox(value) => value.cast(),
             Self::Slider(value) => value.cast(),
@@ -83,6 +87,13 @@ impl Handle {
     pub fn child_collection(&self) -> Result<Option<UIElementCollection>, RuntimeError> {
         Ok(match self {
             Self::StackPanel(value) => Some(
+                value
+                    .cast::<IPanel>()
+                    .map_err(native_error)?
+                    .Children()
+                    .map_err(native_error)?,
+            ),
+            Self::Grid(value) => Some(
                 value
                     .cast::<IPanel>()
                     .map_err(native_error)?
@@ -132,6 +143,12 @@ pub fn set_property(
             .map_err(native_error),
         (Handle::StackPanel(control), PropertyId::StackPanelSpacing, PropertyValue::F64(value)) => {
             control.SetSpacing(*value).map_err(native_error)
+        }
+        (Handle::Grid(control), PropertyId::GridRowSpacing, PropertyValue::F64(value)) => {
+            control.SetRowSpacing(*value).map_err(native_error)
+        }
+        (Handle::Grid(control), PropertyId::GridColumnSpacing, PropertyValue::F64(value)) => {
+            control.SetColumnSpacing(*value).map_err(native_error)
         }
         (Handle::TextBox(control), PropertyId::TextBoxText, PropertyValue::Str(value)) => {
             control.SetText(value).map_err(native_error)
@@ -280,6 +297,12 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
             .map_err(native_error),
         (Handle::StackPanel(_), PropertyId::StackPanelSpacing) => dependency_object
             .ClearValue(&bindings::StackPanel::SpacingProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::Grid(_), PropertyId::GridRowSpacing) => dependency_object
+            .ClearValue(&bindings::Grid::RowSpacingProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::Grid(_), PropertyId::GridColumnSpacing) => dependency_object
+            .ClearValue(&bindings::Grid::ColumnSpacingProperty().map_err(native_error)?)
             .map_err(native_error),
         (Handle::TextBox(_), PropertyId::TextBoxText) => dependency_object
             .ClearValue(&bindings::TextBox::TextProperty().map_err(native_error)?)

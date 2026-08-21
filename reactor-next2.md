@@ -705,6 +705,59 @@ and rare native realization outliers remain performance watches during control e
 - [ ] Re-run compile-time, binary-size, and generated-surface measurements after each control
       tranche.
 
+#### Grid tranche
+
+- [x] Add schema-driven Grid generation with row and column spacing.
+- [x] Represent row and column definitions as value properties rather than definition nodes.
+- [x] Route attached row, column, and span values through the existing property transaction.
+- [x] Keep attached placement on concrete native controls; require a native wrapper around
+      components and fragments.
+- [x] Qualify mount, update, clear, no-op, keyed reorder, failed publication, and live WinUI
+      readback.
+- [x] Convert the form sample to a two-column Grid.
+- [x] Measure the tranche against the exact pre-Grid branch state.
+
+The Grid tranche keeps `Node` and `MountedProps` at 432 and 72 bytes. `Element` grows from 88 to 96
+bytes for the optional `Rc<GridPlacement>` carried by layout-capable incoming controls. This is
+transient candidate data; published attached values use the existing native property map.
+
+In isolated target directories, five source-only thin-counter rebuilds moved from a 0.791-second
+median to 0.813 seconds (+2.8%, 22 ms). The release thin counter moved from 1,041,920 to 1,098,752
+bytes (+56,832 bytes, +5.45%). Grid adds a WinUI control, two definition classes and collections,
+GridLength conversion, and attached-property statics, so its binary cost is above an ordinary
+single-control tranche. The resulting thin executable remains about 37% of the measured
+`windows-reactor` counter. Keep the recurring binary slope in the control-expansion watch; this
+tranche does not justify feature partitioning or another runtime path.
+
+The iterator-based `rows` and `columns` builders allocate owned definition values on each render.
+The post-expansion allocation pass should measure this in Grid-heavy forms and add a shared-value
+builder only if those allocations are material; do not add a retained layout cache in Pump.
+
+### 7. Performance-optimization gate
+
+Run this gate after representative layout and application-shell controls exist, and before deciding
+that `windows-reactor-next` can replace `windows-reactor`. Rust's performance and memory advantages
+must be visible in realistic applications, not only in isolated component operations.
+
+- [ ] Build matched application workloads for `windows-reactor`, `windows-reactor-next`, and the C#
+      Reactor where their semantics overlap.
+- [ ] Measure wall time, median/p95/p99 frame intervals, allocator traffic, retained Rust memory,
+      process working set, compile time, and release binary size on the same machine.
+- [ ] Reduce the 1,000-item controlled-edit allocation volume from the current 784 KB and 5,422
+      allocations without weakening durable edit ownership.
+- [ ] Investigate repeated key/view construction, unchanged parent reconciliation, candidate-tree
+      copy-on-write granularity, and virtual-row command construction with profiles and allocation
+      traces.
+- [ ] Investigate rare native realization outliers separately from Rust planning so native layout
+      work does not drive frontend caching or ownership changes.
+- [ ] Define replacement targets from the matched workloads. At minimum, next must retain its
+      compile-time, binary-size, and retained-memory advantages and avoid a material sustained
+      runtime regression.
+- [ ] Reject optimizations that add a second mutable UI tree, make rollback stateful, bypass
+      transactional publication, or leave cache invalidation implicit.
+- [ ] Re-run the full correctness, live, compile-time, binary-size, and application-performance
+      gates after optimization.
+
 ## Architecture audit record
 
 ### Authoritative ownership

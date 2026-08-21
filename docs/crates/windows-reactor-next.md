@@ -65,6 +65,20 @@ bug. Dynamic `Vec`, slice, and iterator inputs must use `keyed_children` with `K
 Explicit keys follow items through insertion and reordering. Public numeric and string keys cannot
 collide with the private positional-key domain.
 
+Grid definitions and attached placement use the ordinary property transaction. `Grid::rows` and
+`Grid::columns` store `Rc<Vec<GridLength>>` values in Grid's generated `MountedProps` variant. The
+WinUI Grid adapter clears and rebuilds the corresponding definition collection only when planning
+detects a changed value. Controlled-input observation reconciliation may conservatively resend
+properties; the adapter compares existing definition lengths and values before rebuilding, so an
+unrelated input event does not replace Grid definitions or force layout work.
+
+Attached row, column, and span values live on incoming concrete native `Element` values. Property
+visitation merges them into the existing `NativeState.properties` map and command stream; there is
+no retained attachment table or second desired tree. Clearing a placement clears the WinUI
+dependency property and restores its platform default. Components and fragments do not implement
+`GridChildExt` because either may flatten to zero or multiple native roots. A concrete native
+wrapper provides an unambiguous placement boundary.
+
 Component sends are queue-only. Each window accepts at most 4,096 queued messages, and each
 dispatcher turn drains at most 64 messages. Dirty scopes compose parent-first. Parent props apply
 before queued child messages, and retiring a child removes its queued work.

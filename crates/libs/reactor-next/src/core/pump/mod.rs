@@ -388,6 +388,11 @@ impl<R: NativeRuntime> Pump<R> {
         Self::native_root(&self.tree, self.root?).ok()
     }
 
+    #[cfg(feature = "test")]
+    pub(crate) fn live_native_children(&self, node: NodeId) -> Result<&[NodeId], TreeError> {
+        self.tree.children(node)
+    }
+
     #[cfg(any(test, feature = "test"))]
     pub fn version(&self) -> u64 {
         self.version

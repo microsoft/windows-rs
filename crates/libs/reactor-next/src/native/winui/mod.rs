@@ -33,6 +33,7 @@ mod element_factory;
 #[allow(unused_qualifications)]
 mod generated;
 pub use generated::*;
+mod grid;
 
 #[derive(Default)]
 pub struct WinUiRuntime {
@@ -100,6 +101,49 @@ impl WinUiRuntime {
             Some(Handle::ToggleSwitch(toggle)) => toggle.IsOn().map_err(native_error),
             _ => Err(RuntimeError::UnsupportedKind),
         }
+    }
+
+    #[cfg(feature = "test")]
+    pub fn live_grid_matches(
+        &self,
+        grid: NodeId,
+        child: NodeId,
+        populated: bool,
+    ) -> Result<bool, RuntimeError> {
+        let Some(Handle::Grid(grid)) = self.handles.get(&grid) else {
+            return Err(RuntimeError::UnsupportedKind);
+        };
+        let child = self
+            .ui_element(child)?
+            .cast::<FrameworkElement>()
+            .map_err(native_error)?;
+        let rows = grid.RowDefinitions().map_err(native_error)?;
+        let columns = grid.ColumnDefinitions().map_err(native_error)?;
+        if !populated {
+            return Ok(rows.Size().map_err(native_error)? == 0
+                && columns.Size().map_err(native_error)? == 0
+                && bindings::Grid::GetRow(&child).map_err(native_error)? == 0
+                && bindings::Grid::GetColumn(&child).map_err(native_error)? == 0
+                && bindings::Grid::GetRowSpan(&child).map_err(native_error)? == 1
+                && bindings::Grid::GetColumnSpan(&child).map_err(native_error)? == 1);
+        }
+        let first_row = rows.GetAt(0).map_err(native_error)?;
+        let second_row = rows.GetAt(1).map_err(native_error)?;
+        let first_column = columns.GetAt(0).map_err(native_error)?;
+        let first_height = first_row.Height().map_err(native_error)?;
+        let second_height = second_row.Height().map_err(native_error)?;
+        let first_width = first_column.Width().map_err(native_error)?;
+        Ok(rows.Size().map_err(native_error)? == 2
+            && columns.Size().map_err(native_error)? == 2
+            && first_height.grid_unit_type == GridUnitType::Auto
+            && second_height.grid_unit_type == GridUnitType::Star
+            && second_height.value == 1.0
+            && first_width.grid_unit_type == GridUnitType::Pixel
+            && first_width.value == 120.0
+            && bindings::Grid::GetRow(&child).map_err(native_error)? == 1
+            && bindings::Grid::GetColumn(&child).map_err(native_error)? == 2
+            && bindings::Grid::GetRowSpan(&child).map_err(native_error)? == 3
+            && bindings::Grid::GetColumnSpan(&child).map_err(native_error)? == 4)
     }
 
     #[cfg(feature = "test")]
@@ -273,10 +317,18 @@ impl WinUiRuntime {
                 property,
                 value,
             } => {
-                let handle = self
-                    .handles
-                    .get(node)
-                    .ok_or(RuntimeError::MissingNode(*node))?;
+                let element = grid::is_attached(*property)
+                    .then(|| self.ui_element(*node))
+                    .transpose()?;
+                let handle = if element.is_none() {
+                    Some(
+                        self.handles
+                            .get(node)
+                            .ok_or(RuntimeError::MissingNode(*node))?,
+                    )
+                } else {
+                    None
+                };
                 let feedback = expected_feedback(*property, Some(value));
                 let feedback_event = feedback.as_ref().map(|(event, _)| *event);
                 if let Some((event, expectation)) = feedback {
@@ -284,7 +336,16 @@ impl WinUiRuntime {
                         .borrow_mut()
                         .insert((*node, event), expectation);
                 }
-                let result = set_property(handle, *property, value);
+                let result = if let Some(element) = element {
+                    grid::set_attached(&element, *property, value)
+                } else {
+                    let handle = handle.unwrap();
+                    if grid::is_definitions(*property) {
+                        grid::set_definitions(handle, *property, value)
+                    } else {
+                        set_property(handle, *property, value)
+                    }
+                };
                 let observation = feedback_event.and_then(|event| {
                     self.feedback
                         .borrow_mut()
@@ -304,10 +365,18 @@ impl WinUiRuntime {
                 }
             }
             Command::ClearProperty { node, property } => {
-                let handle = self
-                    .handles
-                    .get(node)
-                    .ok_or(RuntimeError::MissingNode(*node))?;
+                let element = grid::is_attached(*property)
+                    .then(|| self.ui_element(*node))
+                    .transpose()?;
+                let handle = if element.is_none() {
+                    Some(
+                        self.handles
+                            .get(node)
+                            .ok_or(RuntimeError::MissingNode(*node))?,
+                    )
+                } else {
+                    None
+                };
                 let feedback = expected_feedback(*property, None);
                 let feedback_event = feedback.as_ref().map(|(event, _)| *event);
                 if let Some((event, expectation)) = feedback {
@@ -315,7 +384,16 @@ impl WinUiRuntime {
                         .borrow_mut()
                         .insert((*node, event), expectation);
                 }
-                let result = clear_property(handle, *property);
+                let result = if let Some(element) = element {
+                    grid::clear_attached(&element, *property)
+                } else {
+                    let handle = handle.unwrap();
+                    if grid::is_definitions(*property) {
+                        grid::clear_definitions(handle, *property)
+                    } else {
+                        clear_property(handle, *property)
+                    }
+                };
                 if let Some(event) = feedback_event {
                     self.feedback.borrow_mut().remove(&(*node, event));
                 }

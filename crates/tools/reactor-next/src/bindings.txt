@@ -5,10 +5,20 @@ Microsoft::UI::Dispatching::IDispatcherQueue::TryEnqueueWithPriority
 Microsoft::UI::Xaml::Application::{CreateInstance, Current, Start}
 Microsoft::UI::Xaml::ApplicationInitializationCallback
 Microsoft::UI::Xaml::Controls::Button::CreateInstance
+Microsoft::UI::Xaml::Controls::ColumnDefinition::CreateInstance
+Microsoft::UI::Xaml::Controls::ColumnDefinitionCollection
 Microsoft::UI::Xaml::Controls::ContentControl::CreateInstance
 Microsoft::UI::Xaml::Controls::Control::IsEnabledProperty
+Microsoft::UI::Xaml::Controls::Grid::ColumnSpacingProperty
+Microsoft::UI::Xaml::Controls::Grid::CreateInstance
+Microsoft::UI::Xaml::Controls::Grid::RowSpacingProperty
+Microsoft::UI::Xaml::Controls::Grid::{ColumnProperty, ColumnSpanProperty, GetColumn, GetColumnSpan, GetRow, GetRowSpan, RowProperty, RowSpanProperty, SetColumn, SetColumnSpan, SetRow, SetRowSpan}
+Microsoft::UI::Xaml::Controls::IColumnDefinition::{get_Width, put_Width}
 Microsoft::UI::Xaml::Controls::IContentControl::put_Content
 Microsoft::UI::Xaml::Controls::IControl::put_IsEnabled
+Microsoft::UI::Xaml::Controls::IGrid::put_ColumnSpacing
+Microsoft::UI::Xaml::Controls::IGrid::put_RowSpacing
+Microsoft::UI::Xaml::Controls::IGrid::{get_ColumnDefinitions, get_RowDefinitions}
 Microsoft::UI::Xaml::Controls::IItemsRepeater::{GetOrCreateElement, put_ItemsSource, put_ItemTemplate}
 Microsoft::UI::Xaml::Controls::INavigationView::put_Header
 Microsoft::UI::Xaml::Controls::INumberBox::get_Value
@@ -21,6 +31,7 @@ Microsoft::UI::Xaml::Controls::IPanel::Children
 Microsoft::UI::Xaml::Controls::IProgressBar::put_IsIndeterminate
 Microsoft::UI::Xaml::Controls::IProgressBar::put_ShowError
 Microsoft::UI::Xaml::Controls::IProgressBar::put_ShowPaused
+Microsoft::UI::Xaml::Controls::IRowDefinition::{get_Height, put_Height}
 Microsoft::UI::Xaml::Controls::IStackPanel::put_Orientation
 Microsoft::UI::Xaml::Controls::IStackPanel::put_Spacing
 Microsoft::UI::Xaml::Controls::ITextBlock::put_Text
@@ -53,6 +64,8 @@ Microsoft::UI::Xaml::Controls::ProgressBar::CreateInstance
 Microsoft::UI::Xaml::Controls::ProgressBar::IsIndeterminateProperty
 Microsoft::UI::Xaml::Controls::ProgressBar::ShowErrorProperty
 Microsoft::UI::Xaml::Controls::ProgressBar::ShowPausedProperty
+Microsoft::UI::Xaml::Controls::RowDefinition::CreateInstance
+Microsoft::UI::Xaml::Controls::RowDefinitionCollection
 Microsoft::UI::Xaml::Controls::ScrollViewer::CreateInstance
 Microsoft::UI::Xaml::Controls::Slider::CreateInstance
 Microsoft::UI::Xaml::Controls::StackPanel::CreateInstance
@@ -69,6 +82,8 @@ Microsoft::UI::Xaml::Controls::ToggleSwitch::IsOnProperty
 Microsoft::UI::Xaml::Controls::UIElementCollection
 Microsoft::UI::Xaml::Controls::XamlControlsResources::CreateInstance
 Microsoft::UI::Xaml::FocusState
+Microsoft::UI::Xaml::GridLength
+Microsoft::UI::Xaml::GridUnitType
 Microsoft::UI::Xaml::IApplication::get_Resources
 Microsoft::UI::Xaml::IApplicationOverrides
 Microsoft::UI::Xaml::IDependencyObject::ClearValue

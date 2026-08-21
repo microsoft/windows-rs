@@ -98,42 +98,72 @@ impl Component for Form {
             Status::Submitted => "Submitted",
         };
 
-        StackPanel::new().spacing(8.0).children((
-            TextBlock::new()
-                .text("Payment")
-                .text_wrapping(TextWrapping::Wrap),
-            TextBox::new()
-                .element_ref(&self.name_ref)
-                .text(self.name.clone())
-                .placeholder_text("Name")
-                .is_enabled(self.status != Status::Submitting)
-                .on_text_changed(context.callback(Message::NameChanged)),
-            NumberBox::new()
-                .element_ref(&self.amount_ref)
-                .minimum(0.0)
-                .maximum(10_000.0)
-                .value(self.amount)
-                .is_enabled(self.status != Status::Submitting)
-                .on_value_changed(context.callback(Message::AmountChanged)),
-            TextBlock::new().text(status),
-            ProgressBar::new()
-                .minimum(0.0)
-                .maximum(1.0)
-                .value(if self.status == Status::Submitted {
-                    1.0
-                } else {
-                    0.0
-                })
-                .is_indeterminate(self.status == Status::Submitting),
-            View::component::<Summary>(SummaryProps {
-                amount: self.amount,
-                name: self.name.clone(),
-            }),
-            Button::new()
-                .is_enabled(self.status == Status::Editing)
-                .on_click(context.message(Message::Submit))
-                .content(TextBlock::new().text("Submit")),
-        ))
+        Grid::new()
+            .row_spacing(8.0)
+            .column_spacing(12.0)
+            .rows([
+                GridLength::Auto,
+                GridLength::Auto,
+                GridLength::Auto,
+                GridLength::Auto,
+                GridLength::Auto,
+                GridLength::Auto,
+                GridLength::Auto,
+            ])
+            .columns([GridLength::Pixel(100.0), GridLength::STAR])
+            .children((
+                TextBlock::new()
+                    .text("Payment")
+                    .text_wrapping(TextWrapping::Wrap)
+                    .grid_column_span(2),
+                TextBlock::new().text("Name").grid_row(1),
+                TextBox::new()
+                    .element_ref(&self.name_ref)
+                    .text(self.name.clone())
+                    .placeholder_text("Name")
+                    .is_enabled(self.status != Status::Submitting)
+                    .on_text_changed(context.callback(Message::NameChanged))
+                    .grid_row(1)
+                    .grid_column(1),
+                TextBlock::new().text("Amount").grid_row(2),
+                NumberBox::new()
+                    .element_ref(&self.amount_ref)
+                    .minimum(0.0)
+                    .maximum(10_000.0)
+                    .value(self.amount)
+                    .is_enabled(self.status != Status::Submitting)
+                    .on_value_changed(context.callback(Message::AmountChanged))
+                    .grid_row(2)
+                    .grid_column(1),
+                TextBlock::new()
+                    .text(status)
+                    .grid_row(3)
+                    .grid_column_span(2),
+                ProgressBar::new()
+                    .minimum(0.0)
+                    .maximum(1.0)
+                    .value(if self.status == Status::Submitted {
+                        1.0
+                    } else {
+                        0.0
+                    })
+                    .is_indeterminate(self.status == Status::Submitting)
+                    .grid_row(4)
+                    .grid_column_span(2),
+                StackPanel::new()
+                    .grid_row(5)
+                    .grid_column_span(2)
+                    .children((View::component::<Summary>(SummaryProps {
+                        amount: self.amount,
+                        name: self.name.clone(),
+                    }),)),
+                Button::new()
+                    .is_enabled(self.status == Status::Editing)
+                    .on_click(context.message(Message::Submit))
+                    .grid_row(6)
+                    .grid_column(1)
+                    .content(TextBlock::new().text("Submit")),
+            ))
     }
 }
 
