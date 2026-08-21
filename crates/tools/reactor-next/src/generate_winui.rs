@@ -3,8 +3,8 @@ use quote::quote;
 use std::collections::BTreeSet;
 
 use crate::schema::{
-    EventPayloadConversion, EventPayloadSource, ResolvedControl, ResolvedEvent, ResolvedProperty,
-    ResolvedSchema, Role,
+    EventPayloadConversion, EventPayloadSource, FeedbackContract, ResolvedControl, ResolvedEvent,
+    ResolvedProperty, ResolvedSchema, Role,
 };
 
 pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
@@ -81,6 +81,13 @@ pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
                 filter_path(&property.interface),
                 property.name
             ));
+            if property.observes_feedback {
+                entries.insert(format!(
+                    "{}::get_{}",
+                    filter_path(&property.interface),
+                    property.name
+                ));
+            }
             entries.insert(format!(
                 "{}::{}Property",
                 static_owner(&property.interface),
@@ -202,12 +209,23 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             let property_id = ident(&format!("{}{}", control.name, property.name));
             let event_id = ident(&format!("{}{}", control.name, feedback));
             let value_variant = ident(&property.value);
-            Some(quote! {
-                (
-                    PropertyId::#property_id,
-                    Some(PropertyValue::#value_variant(value)),
-                ) => Some((EventId::#event_id, EventPayload::#value_variant(value.clone())))
-            })
+            match property.feedback_contract.unwrap() {
+                FeedbackContract::SynchronousExact => Some(quote! {
+                    (
+                        PropertyId::#property_id,
+                        Some(PropertyValue::#value_variant(value)),
+                    ) => Some((
+                        EventId::#event_id,
+                        FeedbackExpectation::Exact(EventPayload::#value_variant(value.clone())),
+                    ))
+                }),
+                FeedbackContract::SynchronousNormalized => Some(quote! {
+                    (PropertyId::#property_id, Some(_)) => {
+                        Some((EventId::#event_id, FeedbackExpectation::Any))
+                    }
+                }),
+                _ => unreachable!(),
+            }
         })
     });
     let feedback_defaults = schema.controls.iter().flat_map(|control| {
@@ -216,11 +234,22 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             let property_id = ident(&format!("{}{}", control.name, property.name));
             let event_id = ident(&format!("{}{}", control.name, feedback));
             let value_variant = ident(&property.value);
-            Some(quote! {
-                (PropertyId::#property_id, None) => {
-                    Some((EventId::#event_id, EventPayload::#value_variant(Default::default())))
-                }
-            })
+            match property.feedback_contract.unwrap() {
+                FeedbackContract::SynchronousExact => Some(quote! {
+                    (PropertyId::#property_id, None) => Some((
+                        EventId::#event_id,
+                        FeedbackExpectation::Exact(EventPayload::#value_variant(
+                            Default::default(),
+                        )),
+                    ))
+                }),
+                FeedbackContract::SynchronousNormalized => Some(quote! {
+                    (PropertyId::#property_id, None) => {
+                        Some((EventId::#event_id, FeedbackExpectation::Any))
+                    }
+                }),
+                _ => unreachable!(),
+            }
         })
     });
 
@@ -293,7 +322,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         pub fn expected_feedback(
             property: PropertyId,
             value: Option<&PropertyValue>,
-        ) -> Option<(EventId, EventPayload)> {
+        ) -> Option<(EventId, FeedbackExpectation)> {
             match (property, value) {
                 #(#feedback_values,)*
                 #(#feedback_defaults,)*

@@ -6,6 +6,7 @@ pub enum Handle {
     Button(bindings::Button),
     StackPanel(bindings::StackPanel),
     TextBox(bindings::TextBox),
+    NumberBox(bindings::NumberBox),
     ScrollViewer(bindings::ScrollViewer),
 }
 impl Handle {
@@ -19,6 +20,9 @@ impl Handle {
                 Self::StackPanel(bindings::StackPanel::new().map_err(native_error)?)
             }
             MountedKind::TextBox => Self::TextBox(bindings::TextBox::new().map_err(native_error)?),
+            MountedKind::NumberBox => {
+                Self::NumberBox(bindings::NumberBox::new().map_err(native_error)?)
+            }
             MountedKind::ScrollViewer => {
                 Self::ScrollViewer(bindings::ScrollViewer::new().map_err(native_error)?)
             }
@@ -31,6 +35,7 @@ impl Handle {
             Self::Button(value) => value.cast(),
             Self::StackPanel(value) => value.cast(),
             Self::TextBox(value) => value.cast(),
+            Self::NumberBox(value) => value.cast(),
             Self::ScrollViewer(value) => value.cast(),
         }
     }
@@ -40,6 +45,7 @@ impl Handle {
             Self::Button(value) => value.cast(),
             Self::StackPanel(value) => value.cast(),
             Self::TextBox(value) => value.cast(),
+            Self::NumberBox(value) => value.cast(),
             Self::ScrollViewer(value) => value.cast(),
         }
     }
@@ -120,6 +126,24 @@ pub fn set_property(
                 .SetIsEnabled(*value)
                 .map_err(native_error)
         }
+        (Handle::NumberBox(control), PropertyId::NumberBoxMinimum, PropertyValue::F64(value)) => {
+            control.SetMinimum(*value).map_err(native_error)
+        }
+        (Handle::NumberBox(control), PropertyId::NumberBoxMaximum, PropertyValue::F64(value)) => {
+            control.SetMaximum(*value).map_err(native_error)
+        }
+        (Handle::NumberBox(control), PropertyId::NumberBoxValue, PropertyValue::F64(value)) => {
+            control.SetValue(*value).map_err(native_error)
+        }
+        (
+            Handle::NumberBox(control),
+            PropertyId::NumberBoxIsEnabled,
+            PropertyValue::Bool(value),
+        ) => control
+            .cast::<IControl>()
+            .map_err(native_error)?
+            .SetIsEnabled(*value)
+            .map_err(native_error),
         _ => Err(RuntimeError::UnsupportedKind),
     }
 }
@@ -150,22 +174,52 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
         (Handle::TextBox(_), PropertyId::TextBoxIsEnabled) => dependency_object
             .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
             .map_err(native_error),
+        (Handle::NumberBox(_), PropertyId::NumberBoxMinimum) => dependency_object
+            .ClearValue(&bindings::NumberBox::MinimumProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::NumberBox(_), PropertyId::NumberBoxMaximum) => dependency_object
+            .ClearValue(&bindings::NumberBox::MaximumProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::NumberBox(_), PropertyId::NumberBoxValue) => dependency_object
+            .ClearValue(&bindings::NumberBox::ValueProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::NumberBox(_), PropertyId::NumberBoxIsEnabled) => dependency_object
+            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
+            .map_err(native_error),
         _ => Err(RuntimeError::UnsupportedKind),
     }
 }
 pub fn expected_feedback(
     property: PropertyId,
     value: Option<&PropertyValue>,
-) -> Option<(EventId, EventPayload)> {
+) -> Option<(EventId, FeedbackExpectation)> {
     match (property, value) {
         (PropertyId::TextBoxText, Some(PropertyValue::Str(value))) => Some((
             EventId::TextBoxTextChanged,
-            EventPayload::Str(value.clone()),
+            FeedbackExpectation::Exact(EventPayload::Str(value.clone())),
         )),
+        (PropertyId::NumberBoxMinimum, Some(_)) => {
+            Some((EventId::NumberBoxValueChanged, FeedbackExpectation::Any))
+        }
+        (PropertyId::NumberBoxMaximum, Some(_)) => {
+            Some((EventId::NumberBoxValueChanged, FeedbackExpectation::Any))
+        }
+        (PropertyId::NumberBoxValue, Some(_)) => {
+            Some((EventId::NumberBoxValueChanged, FeedbackExpectation::Any))
+        }
         (PropertyId::TextBoxText, None) => Some((
             EventId::TextBoxTextChanged,
-            EventPayload::Str(Default::default()),
+            FeedbackExpectation::Exact(EventPayload::Str(Default::default())),
         )),
+        (PropertyId::NumberBoxMinimum, None) => {
+            Some((EventId::NumberBoxValueChanged, FeedbackExpectation::Any))
+        }
+        (PropertyId::NumberBoxMaximum, None) => {
+            Some((EventId::NumberBoxValueChanged, FeedbackExpectation::Any))
+        }
+        (PropertyId::NumberBoxValue, None) => {
+            Some((EventId::NumberBoxValueChanged, FeedbackExpectation::Any))
+        }
         _ => None,
     }
 }
@@ -203,6 +257,32 @@ pub fn subscribe_event(
                             revision,
                             native_error(error),
                         ),
+                    }
+                })
+                .map_err(native_error)
+        }
+        (Handle::NumberBox(value), EventId::NumberBoxValueChanged) => {
+            let source = value.cast::<INumberBox>().map_err(native_error)?;
+            source
+                .ValueChanged(move |_, args| {
+                    if let Some(args) = args.as_ref() {
+                        match args
+                            .cast::<INumberBoxValueChangedEventArgs>()
+                            .and_then(|args| args.NewValue())
+                        {
+                            Ok(value) => sink.enqueue(
+                                node,
+                                EventId::NumberBoxValueChanged,
+                                revision,
+                                EventPayload::F64(value),
+                            ),
+                            Err(error) => sink.error(
+                                node,
+                                EventId::NumberBoxValueChanged,
+                                revision,
+                                native_error(error),
+                            ),
+                        }
                     }
                 })
                 .map_err(native_error)

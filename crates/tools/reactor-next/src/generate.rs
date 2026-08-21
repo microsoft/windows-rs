@@ -2,7 +2,7 @@ use proc_macro2::{Ident, Span, TokenStream};
 use quote::quote;
 use std::collections::BTreeMap;
 
-use crate::schema::{Capability, ResolvedControl, ResolvedSchema, Role};
+use crate::schema::{Capability, FeedbackContract, ResolvedControl, ResolvedSchema, Role};
 
 pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     let value_enums = generate_value_enums(schema);
@@ -245,6 +245,8 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             pub interface: &'static str,
             pub clearable: bool,
             pub feedback: Option<&'static str>,
+            pub feedback_contract: Option<&'static str>,
+            pub observes_feedback: bool,
         }
 
         #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -296,6 +298,8 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                         property.interface,
                         property.clearable,
                         property.feedback,
+                        property.feedback_contract,
+                        property.observes_feedback,
                     );
                     property_index += 1;
                 }
@@ -525,8 +529,10 @@ fn generate_event_dispatchers(control: &ResolvedControl) -> Vec<TokenStream> {
             let payload = ident(&event.payload);
             let call = if event.payload == "Unit" {
                 quote! { callback.call(()) }
-            } else {
+            } else if event.payload == "Str" {
                 quote! { callback.call(value.clone()) }
+            } else {
+                quote! { callback.call(*value) }
             };
             let payload_pattern = if event.payload == "Unit" {
                 quote! { EventPayload::#payload }
@@ -552,6 +558,7 @@ fn generate_event_observers(control: &ResolvedControl) -> Vec<TokenStream> {
     control
         .properties
         .iter()
+        .filter(|property| property.observes_feedback)
         .filter_map(|property| {
             let feedback = property.feedback.as_ref()?;
             let event = control
@@ -562,12 +569,17 @@ fn generate_event_observers(control: &ResolvedControl) -> Vec<TokenStream> {
             let event_id = ident(&format!("{}{}", control.name, event.name));
             let property_id = ident(&format!("{}{}", control.name, property.name));
             let payload = ident(&event.payload);
+            let value = if event.payload == "Str" {
+                quote! { value.clone() }
+            } else {
+                quote! { *value }
+            };
             Some(quote! {
                 (
                     Self::#name { .. },
                     EventId::#event_id,
                     EventPayload::#payload(value),
-                ) => Some((PropertyId::#property_id, value.clone().into()))
+                ) => Some((PropertyId::#property_id, (#value).into()))
             })
         })
         .collect()
@@ -833,6 +845,20 @@ fn generate_descriptors(control: &ResolvedControl) -> TokenStream {
             .feedback
             .as_deref()
             .map_or_else(|| quote! { None }, |value| quote! { Some(#value) });
+        let observes_feedback = property.observes_feedback;
+        let feedback_contract = property.feedback_contract.map_or_else(
+            || quote! { None },
+            |value| {
+                let value = match value {
+                    FeedbackContract::SynchronousExact => "synchronous_exact",
+                    FeedbackContract::SynchronousNormalized => "synchronous_normalized",
+                    FeedbackContract::DeferredOrdered => "deferred_ordered",
+                    FeedbackContract::DeferredCoalesced => "deferred_coalesced",
+                    FeedbackContract::Unknown => "unknown",
+                };
+                quote! { Some(#value) }
+            },
+        );
         quote! {
             PropertyDescriptor {
                 id: PropertyId::#id,
@@ -842,6 +868,8 @@ fn generate_descriptors(control: &ResolvedControl) -> TokenStream {
                 interface: #interface,
                 clearable: #clearable,
                 feedback: #feedback,
+                feedback_contract: #feedback_contract,
+                observes_feedback: #observes_feedback,
             }
         }
     });
@@ -956,8 +984,10 @@ mod tests {
         let resolved = schema.resolve(&metadata).unwrap();
         let output = generate(&resolved);
 
-        assert_eq!(output.matches("ControlDescriptor").count(), 8);
+        assert_eq!(output.matches("ControlDescriptor").count(), 9);
         assert!(output.contains("feedback : Some"));
+        assert!(output.contains("feedback_contract : Some (\"synchronous_normalized\")"));
+        assert!(output.contains("pub struct NumberBox"));
         assert!(output.contains("ControlRole :: Children"));
         assert!(output.contains("pub struct TextBox"));
         assert!(output.contains("impl ControlledTextControl for TextBox"));

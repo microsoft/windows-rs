@@ -10,6 +10,12 @@ Microsoft::UI::Xaml::Controls::Control::IsEnabledProperty
 Microsoft::UI::Xaml::Controls::IContentControl::put_Content
 Microsoft::UI::Xaml::Controls::IControl::put_IsEnabled
 Microsoft::UI::Xaml::Controls::IItemsRepeater::{put_ItemsSource, put_ItemTemplate}
+Microsoft::UI::Xaml::Controls::INumberBox::get_Value
+Microsoft::UI::Xaml::Controls::INumberBox::put_Maximum
+Microsoft::UI::Xaml::Controls::INumberBox::put_Minimum
+Microsoft::UI::Xaml::Controls::INumberBox::put_Value
+Microsoft::UI::Xaml::Controls::INumberBox::{add_ValueChanged, remove_ValueChanged}
+Microsoft::UI::Xaml::Controls::INumberBoxValueChangedEventArgs::get_NewValue
 Microsoft::UI::Xaml::Controls::IPanel::Children
 Microsoft::UI::Xaml::Controls::IStackPanel::put_Orientation
 Microsoft::UI::Xaml::Controls::IStackPanel::put_Spacing
@@ -20,6 +26,10 @@ Microsoft::UI::Xaml::Controls::ITextBox::put_PlaceholderText
 Microsoft::UI::Xaml::Controls::ITextBox::put_Text
 Microsoft::UI::Xaml::Controls::ITextBox::{add_TextChanged, remove_TextChanged}
 Microsoft::UI::Xaml::Controls::ItemsRepeater::CreateInstance
+Microsoft::UI::Xaml::Controls::NumberBox::CreateInstance
+Microsoft::UI::Xaml::Controls::NumberBox::MaximumProperty
+Microsoft::UI::Xaml::Controls::NumberBox::MinimumProperty
+Microsoft::UI::Xaml::Controls::NumberBox::ValueProperty
 Microsoft::UI::Xaml::Controls::Orientation
 Microsoft::UI::Xaml::Controls::Primitives::IButtonBase::{add_Click, remove_Click}
 Microsoft::UI::Xaml::Controls::ScrollViewer::CreateInstance

@@ -162,6 +162,57 @@ pub mod public {
     impl TextStyleControl for TextBox {}
     impl ControlledTextControl for TextBox {}
     #[derive(Clone, Debug, Default, PartialEq)]
+    pub struct NumberBox {
+        minimum: Property<f64>,
+        maximum: Property<f64>,
+        value: Property<f64>,
+        is_enabled: Property<bool>,
+        on_value_changed: Option<Callback<f64>>,
+    }
+    impl NumberBox {
+        pub fn new() -> Self {
+            Self::default()
+        }
+        pub fn minimum(mut self, value: f64) -> Self {
+            self.minimum = Property::Set(value);
+            self
+        }
+        pub fn minimum_property(&self) -> &Property<f64> {
+            &self.minimum
+        }
+        pub fn maximum(mut self, value: f64) -> Self {
+            self.maximum = Property::Set(value);
+            self
+        }
+        pub fn maximum_property(&self) -> &Property<f64> {
+            &self.maximum
+        }
+        pub fn value(mut self, value: f64) -> Self {
+            self.value = Property::Set(value);
+            self
+        }
+        pub fn value_property(&self) -> &Property<f64> {
+            &self.value
+        }
+        pub fn is_enabled(mut self, value: bool) -> Self {
+            self.is_enabled = Property::Set(value);
+            self
+        }
+        pub fn is_enabled_property(&self) -> &Property<bool> {
+            &self.is_enabled
+        }
+        pub fn on_value_changed(mut self, callback: impl Fn(f64) + 'static) -> Self {
+            self.on_value_changed = Some(Callback::new(callback));
+            self
+        }
+        pub fn on_value_changed_callback(&self) -> Option<&Callback<f64>> {
+            self.on_value_changed.as_ref()
+        }
+    }
+    impl sealed::Sealed for NumberBox {}
+    impl LayoutControl for NumberBox {}
+    impl EnabledControl for NumberBox {}
+    #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ItemsRepeater {
         items: std::rc::Rc<Vec<KeyedElement>>,
     }
@@ -209,6 +260,7 @@ pub mod public {
         Button(Button),
         StackPanel(StackPanel),
         TextBox(TextBox),
+        NumberBox(NumberBox),
         ItemsRepeater(ItemsRepeater),
         ScrollViewer(ScrollViewer),
     }
@@ -232,6 +284,11 @@ pub mod public {
             Self::TextBox(value)
         }
     }
+    impl From<NumberBox> for Element {
+        fn from(value: NumberBox) -> Self {
+            Self::NumberBox(value)
+        }
+    }
     impl From<ItemsRepeater> for Element {
         fn from(value: ItemsRepeater) -> Self {
             Self::ItemsRepeater(value)
@@ -249,6 +306,7 @@ pub mod public {
                 Self::Button(_) => MountedKind::Button,
                 Self::StackPanel(_) => MountedKind::StackPanel,
                 Self::TextBox(_) => MountedKind::TextBox,
+                Self::NumberBox(_) => MountedKind::NumberBox,
                 Self::ItemsRepeater(_) => MountedKind::ItemsRepeater,
                 Self::ScrollViewer(_) => MountedKind::ScrollViewer,
             }
@@ -302,6 +360,23 @@ pub mod public {
                         placeholder_text,
                         is_enabled,
                         on_text_changed,
+                    },
+                    structure: ElementStructure::None,
+                },
+                Self::NumberBox(NumberBox {
+                    minimum,
+                    maximum,
+                    value,
+                    is_enabled,
+                    on_value_changed,
+                }) => ElementParts {
+                    kind: MountedKind::NumberBox,
+                    props: MountedProps::NumberBox {
+                        minimum,
+                        maximum,
+                        value,
+                        is_enabled,
+                        on_value_changed,
                     },
                     structure: ElementStructure::None,
                 },
@@ -372,6 +447,29 @@ pub mod public {
                         && is_enabled == mounted_is_enabled
                         && on_text_changed == mounted_on_text_changed
                 }
+                (
+                    Self::NumberBox(NumberBox {
+                        minimum,
+                        maximum,
+                        value,
+                        is_enabled,
+                        on_value_changed,
+                        ..
+                    }),
+                    MountedProps::NumberBox {
+                        minimum: mounted_minimum,
+                        maximum: mounted_maximum,
+                        value: mounted_value,
+                        is_enabled: mounted_is_enabled,
+                        on_value_changed: mounted_on_value_changed,
+                    },
+                ) => {
+                    true && minimum == mounted_minimum
+                        && maximum == mounted_maximum
+                        && value == mounted_value
+                        && is_enabled == mounted_is_enabled
+                        && on_value_changed == mounted_on_value_changed
+                }
                 (Self::ItemsRepeater(ItemsRepeater { .. }), MountedProps::ItemsRepeater {}) => true,
                 (Self::ScrollViewer(ScrollViewer { .. }), MountedProps::ScrollViewer {}) => true,
                 _ => false,
@@ -383,6 +481,7 @@ pub mod public {
                 Self::Button(value) => ElementStructureRef::Content(value.content.as_deref()),
                 Self::StackPanel(value) => ElementStructureRef::Children(value.children.as_slice()),
                 Self::TextBox(_) => ElementStructureRef::None,
+                Self::NumberBox(_) => ElementStructureRef::None,
                 Self::ItemsRepeater(value) => ElementStructureRef::Virtual(value.items.as_slice()),
                 Self::ScrollViewer(value) => ElementStructureRef::Content(value.content.as_deref()),
             }
@@ -396,6 +495,9 @@ pub mod public {
                 Self::StackPanel(_) => {}
                 Self::TextBox(_) => {
                     visit(EventId::TextBoxTextChanged, true);
+                }
+                Self::NumberBox(_) => {
+                    visit(EventId::NumberBoxValueChanged, true);
                 }
                 Self::ItemsRepeater(_) => {}
                 Self::ScrollViewer(_) => {}
@@ -503,6 +605,42 @@ impl MountedPropsExt for MountedProps {
                     },
                 );
             }
+            Self::NumberBox {
+                minimum,
+                maximum,
+                value,
+                is_enabled,
+                ..
+            } => {
+                visit(
+                    PropertyId::NumberBoxMinimum,
+                    match minimum {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+                visit(
+                    PropertyId::NumberBoxMaximum,
+                    match maximum {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+                visit(
+                    PropertyId::NumberBoxValue,
+                    match value {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+                visit(
+                    PropertyId::NumberBoxIsEnabled,
+                    match is_enabled {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+            }
             Self::ItemsRepeater { .. } => {}
             Self::ScrollViewer { .. } => {}
         }
@@ -518,6 +656,9 @@ impl MountedEventsExt for MountedProps {
             Self::StackPanel { .. } => {}
             Self::TextBox { .. } => {
                 visit(EventId::TextBoxTextChanged, true);
+            }
+            Self::NumberBox { .. } => {
+                visit(EventId::NumberBoxValueChanged, true);
             }
             Self::ItemsRepeater { .. } => {}
             Self::ScrollViewer { .. } => {}
@@ -547,6 +688,17 @@ impl MountedEventsExt for MountedProps {
                 callback.call(value.clone());
                 true
             }
+            (
+                Self::NumberBox {
+                    on_value_changed: Some(callback),
+                    ..
+                },
+                EventId::NumberBoxValueChanged,
+                EventPayload::F64(value),
+            ) => {
+                callback.call(*value);
+                true
+            }
             _ => false,
         }
     }
@@ -557,7 +709,10 @@ impl MountedEventsExt for MountedProps {
     ) -> Option<(PropertyId, PropertyValue)> {
         match (self, event, payload) {
             (Self::TextBox { .. }, EventId::TextBoxTextChanged, EventPayload::Str(value)) => {
-                Some((PropertyId::TextBoxText, value.clone().into()))
+                Some((PropertyId::TextBoxText, (value.clone()).into()))
+            }
+            (Self::NumberBox { .. }, EventId::NumberBoxValueChanged, EventPayload::F64(value)) => {
+                Some((PropertyId::NumberBoxValue, (*value).into()))
             }
             _ => None,
         }
@@ -569,6 +724,7 @@ pub enum MountedKind {
     Button,
     StackPanel,
     TextBox,
+    NumberBox,
     ItemsRepeater,
     ScrollViewer,
 }
@@ -591,6 +747,13 @@ pub enum MountedProps {
         placeholder_text: Property<String>,
         is_enabled: Property<bool>,
         on_text_changed: Option<Callback<String>>,
+    },
+    NumberBox {
+        minimum: Property<f64>,
+        maximum: Property<f64>,
+        value: Property<f64>,
+        is_enabled: Property<bool>,
+        on_value_changed: Option<Callback<f64>>,
     },
     ItemsRepeater {},
     ScrollViewer {},
@@ -625,11 +788,16 @@ pub enum PropertyId {
     TextBoxText,
     TextBoxPlaceholderText,
     TextBoxIsEnabled,
+    NumberBoxMinimum,
+    NumberBoxMaximum,
+    NumberBoxValue,
+    NumberBoxIsEnabled,
 }
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum EventId {
     ButtonClick,
     TextBoxTextChanged,
+    NumberBoxValueChanged,
 }
 #[derive(Clone, Debug, PartialEq)]
 pub enum PropertyValue {
@@ -666,6 +834,7 @@ impl From<TextWrapping> for PropertyValue {
 }
 #[derive(Clone, Debug, PartialEq)]
 pub enum EventPayload {
+    F64(f64),
     Str(String),
     Unit,
 }
@@ -696,6 +865,8 @@ pub struct PropertyDescriptor {
     pub interface: &'static str,
     pub clearable: bool,
     pub feedback: Option<&'static str>,
+    pub feedback_contract: Option<&'static str>,
+    pub observes_feedback: bool,
 }
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EventDescriptor {
@@ -724,6 +895,8 @@ const TEXT_BLOCK_PROPERTIES: &[PropertyDescriptor] = &[
         interface: "Microsoft.UI.Xaml.Controls.ITextBlock",
         clearable: true,
         feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
     },
     PropertyDescriptor {
         id: PropertyId::TextBlockTextWrapping,
@@ -733,6 +906,8 @@ const TEXT_BLOCK_PROPERTIES: &[PropertyDescriptor] = &[
         interface: "Microsoft.UI.Xaml.Controls.ITextBlock",
         clearable: true,
         feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
     },
 ];
 const TEXT_BLOCK_EVENTS: &[EventDescriptor] = &[];
@@ -744,6 +919,8 @@ const BUTTON_PROPERTIES: &[PropertyDescriptor] = &[PropertyDescriptor {
     interface: "Microsoft.UI.Xaml.Controls.IControl",
     clearable: true,
     feedback: None,
+    feedback_contract: None,
+    observes_feedback: false,
 }];
 const BUTTON_EVENTS: &[EventDescriptor] = &[EventDescriptor {
     id: EventId::ButtonClick,
@@ -761,6 +938,8 @@ const STACK_PANEL_PROPERTIES: &[PropertyDescriptor] = &[
         interface: "Microsoft.UI.Xaml.Controls.IStackPanel",
         clearable: true,
         feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
     },
     PropertyDescriptor {
         id: PropertyId::StackPanelSpacing,
@@ -770,6 +949,8 @@ const STACK_PANEL_PROPERTIES: &[PropertyDescriptor] = &[
         interface: "Microsoft.UI.Xaml.Controls.IStackPanel",
         clearable: true,
         feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
     },
 ];
 const STACK_PANEL_EVENTS: &[EventDescriptor] = &[];
@@ -782,6 +963,8 @@ const TEXT_BOX_PROPERTIES: &[PropertyDescriptor] = &[
         interface: "Microsoft.UI.Xaml.Controls.ITextBox",
         clearable: true,
         feedback: Some("TextChanged"),
+        feedback_contract: Some("synchronous_exact"),
+        observes_feedback: true,
     },
     PropertyDescriptor {
         id: PropertyId::TextBoxPlaceholderText,
@@ -791,6 +974,8 @@ const TEXT_BOX_PROPERTIES: &[PropertyDescriptor] = &[
         interface: "Microsoft.UI.Xaml.Controls.ITextBox",
         clearable: true,
         feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
     },
     PropertyDescriptor {
         id: PropertyId::TextBoxIsEnabled,
@@ -800,6 +985,8 @@ const TEXT_BOX_PROPERTIES: &[PropertyDescriptor] = &[
         interface: "Microsoft.UI.Xaml.Controls.IControl",
         clearable: true,
         feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
     },
 ];
 const TEXT_BOX_EVENTS: &[EventDescriptor] = &[EventDescriptor {
@@ -808,6 +995,59 @@ const TEXT_BOX_EVENTS: &[EventDescriptor] = &[EventDescriptor {
     field: "on_text_changed",
     payload: "Str",
     interface: "Microsoft.UI.Xaml.Controls.ITextBox",
+}];
+const NUMBER_BOX_PROPERTIES: &[PropertyDescriptor] = &[
+    PropertyDescriptor {
+        id: PropertyId::NumberBoxMinimum,
+        name: "Minimum",
+        field: "minimum",
+        value: "F64",
+        interface: "Microsoft.UI.Xaml.Controls.INumberBox",
+        clearable: true,
+        feedback: Some("ValueChanged"),
+        feedback_contract: Some("synchronous_normalized"),
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::NumberBoxMaximum,
+        name: "Maximum",
+        field: "maximum",
+        value: "F64",
+        interface: "Microsoft.UI.Xaml.Controls.INumberBox",
+        clearable: true,
+        feedback: Some("ValueChanged"),
+        feedback_contract: Some("synchronous_normalized"),
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::NumberBoxValue,
+        name: "Value",
+        field: "value",
+        value: "F64",
+        interface: "Microsoft.UI.Xaml.Controls.INumberBox",
+        clearable: true,
+        feedback: Some("ValueChanged"),
+        feedback_contract: Some("synchronous_normalized"),
+        observes_feedback: true,
+    },
+    PropertyDescriptor {
+        id: PropertyId::NumberBoxIsEnabled,
+        name: "IsEnabled",
+        field: "is_enabled",
+        value: "Bool",
+        interface: "Microsoft.UI.Xaml.Controls.IControl",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+];
+const NUMBER_BOX_EVENTS: &[EventDescriptor] = &[EventDescriptor {
+    id: EventId::NumberBoxValueChanged,
+    name: "ValueChanged",
+    field: "on_value_changed",
+    payload: "F64",
+    interface: "Microsoft.UI.Xaml.Controls.INumberBox",
 }];
 const ITEMS_REPEATER_PROPERTIES: &[PropertyDescriptor] = &[];
 const ITEMS_REPEATER_EVENTS: &[EventDescriptor] = &[];
@@ -856,6 +1096,15 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         events: TEXT_BOX_EVENTS,
     },
     ControlDescriptor {
+        kind: MountedKind::NumberBox,
+        name: "NumberBox",
+        type_name: "Microsoft.UI.Xaml.Controls.NumberBox",
+        role: ControlRole::Controlled,
+        capabilities: &[Capability::Layout, Capability::Enabled],
+        properties: NUMBER_BOX_PROPERTIES,
+        events: NUMBER_BOX_EVENTS,
+    },
+    ControlDescriptor {
         kind: MountedKind::ItemsRepeater,
         name: "ItemsRepeater",
         type_name: "Microsoft.UI.Xaml.Controls.ItemsRepeater",
@@ -897,6 +1146,8 @@ const _: () = {
                 property.interface,
                 property.clearable,
                 property.feedback,
+                property.feedback_contract,
+                property.observes_feedback,
             );
             property_index += 1;
         }

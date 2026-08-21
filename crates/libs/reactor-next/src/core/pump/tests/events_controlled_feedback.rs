@@ -316,3 +316,68 @@ fn component_rejected_controlled_edit_restores_the_desired_value() {
         Some(&PropertyValue::Str("desired".into()))
     );
 }
+
+#[test]
+fn number_box_orders_bounds_before_value_and_repairs_rejected_input() {
+    let observed = Rc::new(Cell::new(0.0));
+    let capture = Rc::clone(&observed);
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount(
+        NumberBox::new()
+            .minimum(0.0)
+            .maximum(10.0)
+            .value(5.0)
+            .on_value_changed(move |value| capture.set(value))
+            .into(),
+    )
+    .unwrap();
+    let root = pump.root().unwrap();
+    let commands = pump.runtime().commands().last().unwrap();
+    let position = |property| {
+        commands
+            .iter()
+            .position(|command| {
+                matches!(
+                    command,
+                    Command::SetProperty {
+                        property: current,
+                        ..
+                    } if *current == property
+                )
+            })
+            .unwrap()
+    };
+    assert!(
+        position(PropertyId::NumberBoxMinimum) < position(PropertyId::NumberBoxMaximum)
+            && position(PropertyId::NumberBoxMaximum) < position(PropertyId::NumberBoxValue)
+    );
+
+    let revision = pump
+        .event_revision(root, EventId::NumberBoxValueChanged)
+        .unwrap();
+    pump.queue_event(QueuedEvent {
+        node: root,
+        event: EventId::NumberBoxValueChanged,
+        revision,
+        payload: EventPayload::F64(12.0),
+    });
+    assert_eq!(pump.dispatch_events(), Ok(1));
+    assert_eq!(observed.get(), 12.0);
+
+    pump.update(
+        NumberBox::new()
+            .minimum(0.0)
+            .maximum(10.0)
+            .value(5.0)
+            .on_value_changed(|_| {})
+            .into(),
+    )
+    .unwrap();
+    assert_eq!(
+        pump.runtime()
+            .node(root)
+            .unwrap()
+            .property(PropertyId::NumberBoxValue),
+        Some(&PropertyValue::F64(5.0))
+    );
+}

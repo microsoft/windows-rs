@@ -1442,6 +1442,208 @@ impl windows_core::RuntimeType for ILaunchActivatedEventArgs {
 pub struct ILaunchActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
+windows_core::imp::define_interface!(
+    INumberBox,
+    INumberBox_Vtbl,
+    0xc18eb0e9_29fb_525d_abbc_d6b2110f542e
+);
+impl windows_core::RuntimeType for INumberBox {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl INumberBox {
+    pub(crate) fn SetMinimum(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMinimum)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetMaximum(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMaximum)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn Value(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Value)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn SetValue(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetValue)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn ValueChanged<F>(
+        &self,
+        handler: F,
+    ) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<NumberBox>, windows_core::Ref<NumberBoxValueChangedEventArgs>)
+            + 'static,
+    {
+        let handler: TypedEventHandler<NumberBox, NumberBoxValueChangedEventArgs> = {
+            let com = windows_core::imp::DelegateBox::<
+                TypedEventHandler<NumberBox, NumberBoxValueChangedEventArgs>,
+                F,
+            >::new(
+                &TypedEventHandlerBox::<NumberBox, NumberBoxValueChangedEventArgs, F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).ValueChanged)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveValueChanged,
+            ))
+        }
+    }
+}
+#[repr(C)]
+pub struct INumberBox_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    Minimum: usize,
+    pub SetMinimum: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    Maximum: usize,
+    pub SetMaximum: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    SmallChange: usize,
+    SetSmallChange: usize,
+    LargeChange: usize,
+    SetLargeChange: usize,
+    Text: usize,
+    SetText: usize,
+    Header: usize,
+    SetHeader: usize,
+    HeaderTemplate: usize,
+    SetHeaderTemplate: usize,
+    PlaceholderText: usize,
+    SetPlaceholderText: usize,
+    SelectionFlyout: usize,
+    SetSelectionFlyout: usize,
+    SelectionHighlightColor: usize,
+    SetSelectionHighlightColor: usize,
+    TextReadingOrder: usize,
+    SetTextReadingOrder: usize,
+    PreventKeyboardDisplayOnProgrammaticFocus: usize,
+    SetPreventKeyboardDisplayOnProgrammaticFocus: usize,
+    Description: usize,
+    SetDescription: usize,
+    ValidationMode: usize,
+    SetValidationMode: usize,
+    SpinButtonPlacementMode: usize,
+    SetSpinButtonPlacementMode: usize,
+    IsWrapEnabled: usize,
+    SetIsWrapEnabled: usize,
+    AcceptsExpression: usize,
+    SetAcceptsExpression: usize,
+    NumberFormatter: usize,
+    SetNumberFormatter: usize,
+    pub ValueChanged: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveValueChanged:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    INumberBoxFactory,
+    INumberBoxFactory_Vtbl,
+    0x6b81f3cb_45a4_5d19_9bbb_a9fe4656ac4d
+);
+impl windows_core::RuntimeType for INumberBoxFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct INumberBoxFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    INumberBoxStatics,
+    INumberBoxStatics_Vtbl,
+    0x251ec05c_a77c_5540_be39_6053f797cde7
+);
+impl windows_core::RuntimeType for INumberBoxStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct INumberBoxStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub MinimumProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub MaximumProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub ValueProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    INumberBoxValueChangedEventArgs,
+    INumberBoxValueChangedEventArgs_Vtbl,
+    0xc66cf16e_7c8a_532e_9d23_058c1c98dd50
+);
+impl windows_core::RuntimeType for INumberBoxValueChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl INumberBoxValueChangedEventArgs {
+    pub(crate) fn NewValue(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).NewValue)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+pub struct INumberBoxValueChangedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    OldValue: usize,
+    pub NewValue:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IPanel, IPanel_Vtbl, 0x27a1b418_56f3_525e_b883_cefed905eed3);
 impl windows_core::RuntimeType for IPanel {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -2346,6 +2548,126 @@ unsafe impl Sync for LaunchActivatedEventArgs {}
 pub type MddBootstrapInitializeOptions = i32;
 pub const MddBootstrapInitializeOptions_OnNoMatch_ShowUI: MddBootstrapInitializeOptions = 8;
 pub const MddBootstrapInitializeOptions_OnPackageIdentity_NOOP: MddBootstrapInitializeOptions = 16;
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NumberBox(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    NumberBox,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    NumberBox,
+    Control,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
+impl NumberBox {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::INumberBoxFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn MinimumProperty() -> windows_core::Result<DependencyProperty> {
+        Self::INumberBoxStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MinimumProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn MaximumProperty() -> windows_core::Result<DependencyProperty> {
+        Self::INumberBoxStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MaximumProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn ValueProperty() -> windows_core::Result<DependencyProperty> {
+        Self::INumberBoxStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ValueProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn INumberBoxFactory<R, F: FnOnce(&INumberBoxFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NumberBox, INumberBoxFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn INumberBoxStatics<R, F: FnOnce(&INumberBoxStatics) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NumberBox, INumberBoxStatics> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for NumberBox {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, INumberBox>();
+}
+unsafe impl windows_core::Interface for NumberBox {
+    type Vtable = <INumberBox as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <INumberBox as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for NumberBox {
+    type Target = INumberBox;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for NumberBox {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.NumberBox";
+}
+unsafe impl Send for NumberBox {}
+unsafe impl Sync for NumberBox {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct NumberBoxValueChangedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    NumberBoxValueChangedEventArgs,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for NumberBoxValueChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, INumberBoxValueChangedEventArgs>();
+}
+unsafe impl windows_core::Interface for NumberBoxValueChangedEventArgs {
+    type Vtable = <INumberBoxValueChangedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID =
+        <INumberBoxValueChangedEventArgs as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for NumberBoxValueChangedEventArgs {
+    type Target = INumberBoxValueChangedEventArgs;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for NumberBoxValueChangedEventArgs {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.NumberBoxValueChangedEventArgs";
+}
+unsafe impl Send for NumberBoxValueChangedEventArgs {}
+unsafe impl Sync for NumberBoxValueChangedEventArgs {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Orientation(pub i32);

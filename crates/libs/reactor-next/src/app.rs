@@ -26,6 +26,7 @@ thread_local! {
     static LIVE_COMPONENT_EFFECT_CLEANUPS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_COMPONENT_BACKGROUND: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
     static LIVE_CLOSED_TASK_DELIVERED: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
+    static LIVE_NUMBER_BOX_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_PRIMARY_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_PRIMARY_NATIVE_PAYLOAD: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
     static LIVE_SECONDARY_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
@@ -137,6 +138,14 @@ trait LivePump {
     #[cfg(feature = "test")]
     fn live_fragment_anchor(&mut self) -> bool {
         false
+    }
+    #[cfg(feature = "test")]
+    fn live_number_box_feedback(&mut self) -> bool {
+        false
+    }
+    #[cfg(feature = "test")]
+    fn live_number_box_value(&self) -> Result<f64, RuntimeError> {
+        Err(RuntimeError::UnsupportedKind)
     }
 }
 
@@ -403,6 +412,35 @@ impl LivePump for ComponentLoop {
         self.pump.update_view(View::empty()).is_ok()
             && self.pump.update_view(fragment(false)).is_ok()
             && self.pump.update_view(fragment(true)).is_ok()
+    }
+
+    #[cfg(feature = "test")]
+    fn live_number_box_feedback(&mut self) -> bool {
+        LIVE_NUMBER_BOX_EVENTS.with(|count| count.set(0));
+        let view = |maximum, value| {
+            View::native(
+                NumberBox::new()
+                    .minimum(0.0)
+                    .maximum(maximum)
+                    .value(value)
+                    .on_value_changed(|_| {
+                        LIVE_NUMBER_BOX_EVENTS.with(|count| {
+                            count.set(count.get().saturating_add(1));
+                        });
+                    }),
+            )
+        };
+        self.pump.update_view(view(10.0, 7.0)).is_ok()
+            && self.pump.update_view(view(5.0, 5.0)).is_ok()
+    }
+
+    #[cfg(feature = "test")]
+    fn live_number_box_value(&self) -> Result<f64, RuntimeError> {
+        let native = self
+            .pump
+            .root_native()
+            .ok_or(RuntimeError::UnsupportedKind)?;
+        self.pump.runtime().live_number_value(native)
     }
 }
 
@@ -1008,9 +1046,9 @@ fn continue_live_backend_test() {
     }
     if !live
         .primary_mut()
-        .is_some_and(LivePump::live_component_update)
+        .is_some_and(LivePump::live_number_box_feedback)
     {
-        eprintln!("live backend fixture did not apply a component structural update");
+        eprintln!("live backend fixture did not apply NumberBox feedback updates");
         std::process::exit(1);
     }
     let dispatcher = match DispatcherQueue::GetForCurrentThread() {
@@ -1021,8 +1059,60 @@ fn continue_live_backend_test() {
         }
     };
     HOST.with(|host| *host.borrow_mut() = Some(live));
-    if queue_live_component_verification(dispatcher, 8).is_err() {
+    if queue_live_number_box_verification(dispatcher, 8).is_err() {
         std::process::exit(1);
+    }
+}
+
+#[cfg(feature = "test")]
+fn queue_live_number_box_verification(
+    dispatcher: DispatcherQueue,
+    attempts: u8,
+) -> windows_core::Result<()> {
+    let next_dispatcher = dispatcher.clone();
+    let verify = DispatcherQueueHandler::new(move || {
+        let events = LIVE_NUMBER_BOX_EVENTS.with(std::cell::Cell::get);
+        let value = HOST.with(|host| {
+            host.borrow()
+                .as_ref()
+                .and_then(LiveHost::primary)
+                .map(LivePump::live_number_box_value)
+        });
+        if events != 0 {
+            eprintln!("NumberBox delivered {events} programmatic feedback events: value={value:?}");
+            std::process::exit(1);
+        }
+        if attempts == 0 {
+            if !matches!(value, Some(Ok(value)) if value == 5.0) {
+                eprintln!("NumberBox did not retain its coerced controlled value: {value:?}");
+                std::process::exit(1);
+            }
+            let prepared = HOST.with(|host| {
+                host.borrow_mut()
+                    .as_mut()
+                    .and_then(LiveHost::primary_mut)
+                    .is_some_and(LivePump::live_component_update)
+            });
+            if !prepared {
+                eprintln!("live backend fixture did not apply a component structural update");
+                std::process::exit(1);
+            }
+            if queue_live_component_verification(next_dispatcher.clone(), 8).is_err() {
+                std::process::exit(1);
+            }
+            return;
+        }
+        if queue_live_number_box_verification(next_dispatcher.clone(), attempts - 1).is_err() {
+            std::process::exit(1);
+        }
+    });
+    if dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Low, &verify)? {
+        Ok(())
+    } else {
+        Err(windows_core::Error::new(
+            E_FAIL,
+            "dispatcher rejected NumberBox feedback verification",
+        ))
     }
 }
 

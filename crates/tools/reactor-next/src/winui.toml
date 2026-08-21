@@ -60,6 +60,37 @@ name = "TextChanged"
 property = "Text"
 
 [[control]]
+type = "Microsoft.UI.Xaml.Controls.NumberBox"
+role = "controlled"
+capabilities = ["layout", "enabled"]
+
+[[control.property]]
+name = "Minimum"
+clearable = true
+coerces = "ValueChanged"
+feedback_contract = "synchronous_normalized"
+
+[[control.property]]
+name = "Maximum"
+clearable = true
+coerces = "ValueChanged"
+feedback_contract = "synchronous_normalized"
+
+[[control.property]]
+name = "Value"
+clearable = true
+controlled = "ValueChanged"
+feedback_contract = "synchronous_normalized"
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "ValueChanged"
+property = "NewValue"
+
+[[control]]
 type = "Microsoft.UI.Xaml.Controls.ItemsRepeater"
 role = "virtual"
 capabilities = ["layout", "items"]

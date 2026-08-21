@@ -135,8 +135,11 @@ application keeps the old desired value, normal reconciliation emits a restoring
 There is no divergent state, retry counter, or repair scheduler. If the restoring WinUI setter
 unexpectedly fails, the native failure is fatal.
 
-The initial generated slice accepts synchronous exact feedback. Unsupported feedback contracts
-fail generation rather than guessing.
+The generated slice accepts synchronous exact and synchronous normalized feedback. Exact feedback
+suppresses only the setter's expected payload. Normalized feedback suppresses any matching event
+during that setter because WinUI may coerce the value. NumberBox declares `Minimum` and `Maximum`
+as coercers of `ValueChanged`, orders both before `Value`, and observes only `Value`. Deferred and
+unknown feedback contracts fail generation rather than guessing.
 
 ## Turn and lifecycle order
 
@@ -281,6 +284,12 @@ control-specific WinUI behavior, not as a runtime design to copy.
 The stop condition is concrete: if a feature requires new Pump state, a handwritten reconciliation
 path, another authoritative side table, or generic recovery machinery, stop and revise the
 contract before adding it. Difficult vertical slices come before dozens of ordinary controls.
+
+NumberBox passes the coercing-control gate through schema and generated backend contracts. Its live
+fixture changes the bound and controlled value, waits through eight dispatcher rounds, confirms
+that no programmatic callback escapes, and reads back the coerced native value. This added no Pump
+state or control-specific reconciliation path. The next expansion gate is a generated multi-slot
+control.
 
 ### Structural composition decision
 

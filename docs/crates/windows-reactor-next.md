@@ -107,8 +107,11 @@ the application rejects the edit, ordinary reconciliation writes the desired val
 is no divergent-property state or retry scheduler. An unexpected restoring-setter failure follows
 the fatal native policy.
 
-The generated slice currently accepts synchronous exact feedback. Unsupported feedback contracts
-fail generation.
+Generated controls distinguish synchronous exact feedback from synchronous normalized feedback.
+TextBox suppresses only the exact payload expected from its setter. NumberBox suppresses a
+programmatic `ValueChanged` during `Minimum`, `Maximum`, or `Value` writes because WinUI may coerce
+the numeric payload. Bounds are generated before `Value`, and only `Value` observes user feedback.
+Deferred and unknown feedback contracts still fail generation.
 
 ## Fragments and collections
 

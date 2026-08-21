@@ -35,7 +35,7 @@ pub struct WinUiRuntime {
     event_errors: Rc<RefCell<Vec<NativeWork<QueuedEventError>>>>,
     handles: HashMap<NodeId, Handle>,
     events: Rc<RefCell<Vec<NativeWork<QueuedEvent>>>>,
-    feedback: Rc<RefCell<HashMap<(NodeId, EventId), EventPayload>>>,
+    feedback: Rc<RefCell<HashMap<(NodeId, EventId), FeedbackExpectation>>>,
     identity: Rc<Cell<Option<WindowToken>>>,
     realizations: Rc<RefCell<Vec<NativeWork<RealizationRequest>>>>,
     scheduler: Rc<RefCell<SchedulerState>>,
@@ -71,6 +71,14 @@ impl WinUiRuntime {
             return Err(RuntimeError::UnsupportedKind);
         };
         text_box.Text().map_err(native_error)
+    }
+
+    #[cfg(feature = "test")]
+    pub fn live_number_value(&self, node: NodeId) -> Result<f64, RuntimeError> {
+        let Some(Handle::NumberBox(number_box)) = self.handles.get(&node) else {
+            return Err(RuntimeError::UnsupportedKind);
+        };
+        number_box.Value().map_err(native_error)
     }
 
     #[cfg(feature = "test")]
@@ -195,10 +203,10 @@ impl WinUiRuntime {
                     .get(node)
                     .ok_or(RuntimeError::MissingNode(*node))?;
                 let feedback = expected_feedback(*property, Some(value));
-                if let Some((event, value)) = &feedback {
+                if let Some((event, expectation)) = &feedback {
                     self.feedback
                         .borrow_mut()
-                        .insert((*node, *event), value.clone());
+                        .insert((*node, *event), expectation.clone());
                 }
                 let result = set_property(handle, *property, value);
                 if let Some((event, _)) = feedback {
@@ -212,10 +220,10 @@ impl WinUiRuntime {
                     .get(node)
                     .ok_or(RuntimeError::MissingNode(*node))?;
                 let feedback = expected_feedback(*property, None);
-                if let Some((event, value)) = &feedback {
+                if let Some((event, expectation)) = &feedback {
                     self.feedback
                         .borrow_mut()
-                        .insert((*node, *event), value.clone());
+                        .insert((*node, *event), expectation.clone());
                 }
                 let result = clear_property(handle, *property);
                 if let Some((event, _)) = feedback {
@@ -421,7 +429,7 @@ impl WinUiRuntime {
 pub struct EventSink {
     queue: Rc<RefCell<Vec<NativeWork<QueuedEvent>>>>,
     errors: Rc<RefCell<Vec<NativeWork<QueuedEventError>>>>,
-    feedback: Rc<RefCell<HashMap<(NodeId, EventId), EventPayload>>>,
+    feedback: Rc<RefCell<HashMap<(NodeId, EventId), FeedbackExpectation>>>,
     dispatcher: DispatcherQueue,
     identity: WindowToken,
     current_identity: Rc<Cell<Option<WindowToken>>>,
@@ -436,7 +444,10 @@ impl EventSink {
             .feedback
             .borrow()
             .get(&(node, event))
-            .is_some_and(|expected| expected == &payload);
+            .is_some_and(|expected| match expected {
+                FeedbackExpectation::Any => true,
+                FeedbackExpectation::Exact(expected) => expected == &payload,
+            });
         if expected {
             self.feedback.borrow_mut().remove(&(node, event));
             return;

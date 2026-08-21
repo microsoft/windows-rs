@@ -63,10 +63,12 @@ pub(crate) struct Property {
     #[serde(default)]
     pub(crate) controlled: Option<String>,
     #[serde(default)]
+    pub(crate) coerces: Option<String>,
+    #[serde(default)]
     pub(crate) feedback_contract: Option<FeedbackContract>,
 }
 
-#[derive(Clone, Copy, Deserialize, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
 #[serde(rename_all = "snake_case")]
 pub(crate) enum FeedbackContract {
     SynchronousExact,
@@ -106,6 +108,8 @@ pub(crate) struct ResolvedProperty {
     pub(crate) interface: String,
     pub(crate) clearable: bool,
     pub(crate) feedback: Option<String>,
+    pub(crate) feedback_contract: Option<FeedbackContract>,
+    pub(crate) observes_feedback: bool,
     pub(crate) enum_variants: Vec<String>,
     pub(crate) native_value: Option<String>,
 }
@@ -161,8 +165,32 @@ impl Schema {
             let mut field_names = HashSet::new();
 
             for property in control.property {
-                match (property.controlled.as_ref(), property.feedback_contract) {
-                    (Some(_), Some(FeedbackContract::SynchronousExact)) => {}
+                let feedback = match (&property.controlled, &property.coerces) {
+                    (Some(_), Some(_)) => {
+                        return Err(format!(
+                            "{}.{} cannot be controlled and coercing",
+                            control.type_name, property.name
+                        ));
+                    }
+                    (Some(event), None) | (None, Some(event)) => Some(event.clone()),
+                    (None, None) => None,
+                };
+                if property.coerces.is_some()
+                    && property.feedback_contract != Some(FeedbackContract::SynchronousNormalized)
+                {
+                    return Err(format!(
+                        "{}.{} coercion needs synchronous_normalized feedback",
+                        control.type_name, property.name
+                    ));
+                }
+                match (feedback.as_ref(), property.feedback_contract) {
+                    (
+                        Some(_),
+                        Some(
+                            FeedbackContract::SynchronousExact
+                            | FeedbackContract::SynchronousNormalized,
+                        ),
+                    ) => {}
                     (Some(_), Some(_)) => {
                         return Err(format!(
                             "{}.{} uses an unsupported feedback contract",
@@ -223,7 +251,9 @@ impl Schema {
                     value,
                     interface: interface.full_path(),
                     clearable: property.clearable,
-                    feedback: property.controlled,
+                    feedback,
+                    feedback_contract: property.feedback_contract,
+                    observes_feedback: property.controlled.is_some(),
                     enum_variants,
                     native_value,
                 });
@@ -301,13 +331,26 @@ impl Schema {
                 });
             }
 
-            let mut feedback_events = HashSet::new();
+            let coercing_events = properties
+                .iter()
+                .filter(|property| !property.observes_feedback)
+                .filter_map(|property| property.feedback.as_deref())
+                .collect::<HashSet<_>>();
+            let mut observed_feedback_events = HashSet::new();
             for property in properties
                 .iter()
                 .filter(|property| property.feedback.is_some())
             {
                 let feedback = property.feedback.as_deref().unwrap();
-                if !feedback_events.insert(feedback) {
+                if coercing_events.contains(feedback)
+                    && property.feedback_contract != Some(FeedbackContract::SynchronousNormalized)
+                {
+                    return Err(format!(
+                        "{} feedback event {} is coercing and requires synchronous_normalized",
+                        control.type_name, feedback
+                    ));
+                }
+                if property.observes_feedback && !observed_feedback_events.insert(feedback) {
                     return Err(format!(
                         "{} assigns feedback event {} to multiple controlled properties",
                         control.type_name, feedback
@@ -319,7 +362,7 @@ impl Schema {
                         control.type_name, property.name, feedback
                     ));
                 };
-                if event.payload != property.value {
+                if property.observes_feedback && event.payload != property.value {
                     return Err(format!(
                         "{}.{} value {} does not match {} payload {}",
                         control.type_name, property.name, property.value, feedback, event.payload
@@ -398,7 +441,7 @@ mod tests {
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
         let resolved = schema.resolve(&metadata).unwrap();
 
-        assert_eq!(resolved.controls.len(), 6);
+        assert_eq!(resolved.controls.len(), 7);
         assert_eq!(resolved.controls[0].name, "TextBlock");
         assert_eq!(resolved.controls[0].properties[0].value, "Str");
         assert_eq!(resolved.controls[1].events[0].payload, "Unit");
@@ -411,7 +454,16 @@ mod tests {
             resolved.controls[3].events[0].source,
             EventPayloadSource::SenderProperty { .. }
         ));
-        assert!(matches!(resolved.controls[4].role, Role::Virtual));
+        assert_eq!(resolved.controls[4].name, "NumberBox");
+        assert_eq!(
+            resolved.controls[4].properties[0]
+                .feedback_contract
+                .unwrap(),
+            FeedbackContract::SynchronousNormalized
+        );
+        assert!(!resolved.controls[4].properties[0].observes_feedback);
+        assert!(resolved.controls[4].properties[2].observes_feedback);
+        assert!(matches!(resolved.controls[5].role, Role::Virtual));
     }
 
     #[test]
@@ -612,6 +664,66 @@ feedback_contract = "deferred_coalesced"
             .unwrap();
 
         assert!(error.contains("unsupported feedback contract"));
+    }
+
+    #[test]
+    fn rejects_exact_coercion_feedback() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.NumberBox"
+role = "leaf"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Minimum"
+clearable = true
+coerces = "ValueChanged"
+feedback_contract = "synchronous_exact"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let error = Schema::parse(source)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+
+        assert!(error.contains("coercion needs synchronous_normalized feedback"));
+    }
+
+    #[test]
+    fn rejects_exact_observer_for_coercing_event() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.NumberBox"
+role = "controlled"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Minimum"
+clearable = true
+coerces = "ValueChanged"
+feedback_contract = "synchronous_normalized"
+
+[[control.property]]
+name = "Value"
+clearable = true
+controlled = "ValueChanged"
+feedback_contract = "synchronous_exact"
+
+[[control.event]]
+name = "ValueChanged"
+property = "NewValue"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let error = Schema::parse(source)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+
+        assert!(error.contains(
+            "feedback event ValueChanged is coercing and requires synchronous_normalized"
+        ));
     }
 
     #[test]
