@@ -18,6 +18,34 @@ Run it with:
 cargo run -p sample_reactor_next_virtual
 ```
 
+The same component model has a feature-gated `RecordingRuntime` performance driver. Run it in
+release mode:
+
+```powershell
+cargo run -p sample_reactor_next_virtual --bin reactor-next-virtual-perf `
+    --features perf --release -- --samples 500
+```
+
+The driver measures local editing, broad and redundant parent messages, an identical full-root
+update, 32-row recycle/realize batches, background completion, and a mixed virtual cycle. It
+reports allocator traffic and median, p95, and p99 Rust-side turn time. It does not include WinUI
+control work, layout, rendering, or presentation.
+
+The live driver adds `CompositionTarget::Rendering` frame intervals and host/native phase timing:
+
+```powershell
+cargo run -p sample_reactor_next_virtual --bin reactor-next-virtual-live-perf `
+    --features perf --release -- --samples 300
+cargo run -p sample_reactor_next_virtual --bin reactor-next-virtual-live-perf `
+    --features perf --release -- --baseline --samples 300
+```
+
+The active run moves by 32 virtual indices per frame, alternates selection context, edits a
+controlled row every six frames, and delivers a background completion every 30 frames. The
+baseline opens the same 1,000-item editor without scheduling those actions. Each command writes a
+report next to the executable. A machine that emits no composition frames writes an explicit
+failure report and exits unsuccessfully after 20 seconds.
+
 The durable task title belongs to `TaskEditor`, not the realized row component. A row component is
 retained across key-stable payload updates, but native virtualization or a source reset may recycle
 it. Non-empty controlled drafts update that model immediately; a blank validation draft remains

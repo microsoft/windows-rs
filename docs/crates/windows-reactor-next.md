@@ -256,13 +256,18 @@ virtual source also has a `u64` revision. Key changes increment it in the candid
 the reset command, and make callbacks from an older source revision stale. Key-stable payload
 updates preserve the revision and realized rows. A queued recycle supersedes an earlier unprocessed
 realization for the same lifetime token. Valid realization resolves its row by index and verifies
-that the indexed key matches the lease key before composition.
+that the indexed key matches the lease key before composition. WinUI clears and retires the shell
+synchronously in `RecycleElement`, before the queued Pump recycle runs. The later native detach
+therefore clears a still-live shell but accepts an already-retired lifetime token. Native attach
+still requires a live token.
 
 The virtual task editor in `crates/samples/reactor-next/virtual` is the integrated qualification
 slice. Durable task data remains in the parent model because WinUI may recycle a realized row and a
 key-changing source reset intentionally retires all current row scopes. A key-stable payload update
 reuses the row component. The recording-runtime test edits a row, reverses the source, re-realizes
-the same key, and verifies data survival plus one-time effect cleanup and setup.
+the same key, and verifies data survival plus one-time effect cleanup and setup. Feature-gated
+release drivers reuse this component model for Rust-side allocation/turn distributions and live
+composition-frame, host-dispatch, and native-apply distributions.
 
 ## Scheduling and lifecycle
 

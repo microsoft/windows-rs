@@ -12,6 +12,11 @@ thread_local! {
     static LIVE_TEST_CLEANUP: Cell<u8> = const { Cell::new(0) };
 }
 
+#[cfg(feature = "test")]
+pub struct LiveRendering {
+    _revoker: windows_core::EventRevoker,
+}
+
 #[allow(
     clippy::missing_transmute_annotations,
     clippy::upper_case_acronyms,
@@ -49,6 +54,8 @@ pub struct WinUiRuntime {
     reject_next_enqueue: Rc<Cell<bool>>,
     #[cfg(feature = "test")]
     applied_commands: usize,
+    #[cfg(feature = "test")]
+    native_apply_times_us: Vec<f64>,
 }
 
 impl WinUiRuntime {
@@ -103,6 +110,26 @@ impl WinUiRuntime {
     #[cfg(feature = "test")]
     pub fn live_applied_commands(&self) -> usize {
         self.applied_commands
+    }
+
+    #[cfg(feature = "test")]
+    pub fn take_live_native_apply_times(&mut self) -> Vec<f64> {
+        std::mem::take(&mut self.native_apply_times_us)
+    }
+
+    #[cfg(feature = "test")]
+    pub fn live_bring_virtual_index(&self, index: usize) -> Result<(), RuntimeError> {
+        let virtual_handle = self
+            .virtuals
+            .values()
+            .next()
+            .ok_or(RuntimeError::UnsupportedKind)?;
+        let index = i32::try_from(index).map_err(|_| RuntimeError::IndexOutOfBounds)?;
+        virtual_handle
+            .repeater
+            .GetOrCreateElement(index)
+            .and_then(|element| element.StartBringIntoView())
+            .map_err(native_error)
     }
 
     fn apply_one(&mut self, command: &Command) -> Result<(), RuntimeError> {
@@ -211,7 +238,7 @@ impl WinUiRuntime {
                 self.virtuals
                     .get(collection)
                     .ok_or(RuntimeError::MissingNode(*collection))?
-                    .set_content(*container, None)
+                    .clear_content(*container)
                     .map_err(native_error)?;
             }
             Command::Destroy { node } => {
@@ -681,16 +708,25 @@ fn index32(index: usize) -> Result<u32, RuntimeError> {
 impl NativeRuntime for WinUiRuntime {
     fn apply(&mut self, commands: &[Command]) -> Result<(), NativeApplyError> {
         #[cfg(feature = "test")]
+        let started = std::time::Instant::now();
+        #[cfg(feature = "test")]
         {
             self.applied_commands += commands.len();
         }
 
         for (index, command) in commands.iter().enumerate() {
-            self.apply_one(command).map_err(|error| NativeApplyError {
-                command: index,
-                error,
-            })?;
+            if let Err(error) = self.apply_one(command) {
+                #[cfg(feature = "test")]
+                eprintln!("windows-reactor-next failed command {index}: {command:?}: {error:?}");
+                return Err(NativeApplyError {
+                    command: index,
+                    error,
+                });
+            }
         }
+        #[cfg(feature = "test")]
+        self.native_apply_times_us
+            .push(started.elapsed().as_secs_f64() * 1_000_000.0);
         Ok(())
     }
 
@@ -832,6 +868,19 @@ pub fn exit_ui_thread() {
     unsafe {
         PostQuitMessage(0);
     }
+}
+
+#[cfg(feature = "test")]
+pub fn subscribe_live_rendering<F>(rendering: F) -> windows_core::Result<LiveRendering>
+where
+    F: Fn() + 'static,
+{
+    let revoker = CompositionTarget::Rendering(move |_, _| {
+        if std::panic::catch_unwind(std::panic::AssertUnwindSafe(&rendering)).is_err() {
+            std::process::abort();
+        }
+    })?;
+    Ok(LiveRendering { _revoker: revoker })
 }
 
 #[cfg(feature = "test")]

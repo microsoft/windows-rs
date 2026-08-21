@@ -184,7 +184,9 @@ The [`form sample`](../../samples/reactor-next/form/src/main.rs) exercises contr
 focus-first-invalid validation, a nested component, and scope-owned background submission.
 The [`virtual task editor`](../../samples/reactor-next/virtual/readme.md) exercises keyed row
 components, durable controlled edits, selection context, focus, effects, source reordering,
-background loading, recycling, and a 1,000-row stress path.
+background loading, recycling, and a 1,000-row stress path. Its feature-gated performance drivers
+measure the same component model through `RecordingRuntime` and live WinUI instead of maintaining a
+benchmark-only editor.
 The [`navigation and multi-window workspace`](../../samples/reactor-next/navigation/readme.md)
 exercises retained page models, context propagation, independent window queues and references,
 component-derived titles, shared application updates, background cancellation, and peer cleanup.

@@ -1,4 +1,5 @@
 use super::*;
+use std::collections::HashSet;
 use windows_core::*;
 use windows_reference::IReference;
 
@@ -90,6 +91,10 @@ impl VirtualHandle {
             shell.SetContent(None::<&IInspectable>)
         }
     }
+
+    pub fn clear_content(&self, container: RealizedContainer) -> Result<()> {
+        self._shells.clear_content(container)
+    }
 }
 
 fn item_values(item_count: usize) -> Result<Vec<Option<IInspectable>>> {
@@ -110,6 +115,7 @@ pub struct RealizedShells {
 struct ShellPool<T> {
     available: Vec<T>,
     next: u64,
+    retired: HashSet<RealizedContainer>,
     shells: HashMap<RealizedContainer, T>,
 }
 
@@ -118,6 +124,7 @@ impl<T> Default for ShellPool<T> {
         Self {
             available: Vec::new(),
             next: 0,
+            retired: HashSet::new(),
             shells: HashMap::new(),
         }
     }
@@ -152,7 +159,12 @@ impl<T: Clone> ShellPool<T> {
             return false;
         };
         self.available.push(shell);
+        self.retired.insert(container);
         true
+    }
+
+    fn take_retired(&mut self, container: RealizedContainer) -> bool {
+        self.retired.remove(&container)
     }
 }
 
@@ -191,6 +203,19 @@ impl RealizedShells {
 
     pub fn len(&self) -> usize {
         self.pool.borrow().shells.len()
+    }
+
+    fn clear_content(&self, container: RealizedContainer) -> Result<()> {
+        let mut pool = self.pool.borrow_mut();
+        if let Some(shell) = pool.shell(container) {
+            return shell.SetContent(None::<&IInspectable>);
+        }
+        // RecycleElement clears and retires the shell before the queued Pump work runs.
+        if pool.take_retired(container) {
+            Ok(())
+        } else {
+            Err(Error::new(E_FAIL, "missing realized container"))
+        }
     }
 
     fn borrow(&self) -> std::cell::Ref<'_, ShellPool<bindings::ContentControl>> {
@@ -287,6 +312,8 @@ mod tests {
 
         assert!(shells.retire(old));
         assert_eq!(shells.shell(old), None);
+        assert!(shells.take_retired(old));
+        assert!(!shells.take_retired(old));
 
         let (new, reused) = shells
             .take(|| panic!("available shell was not reused"))

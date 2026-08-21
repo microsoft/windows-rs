@@ -9,7 +9,7 @@ Microsoft::UI::Xaml::Controls::ContentControl::CreateInstance
 Microsoft::UI::Xaml::Controls::Control::IsEnabledProperty
 Microsoft::UI::Xaml::Controls::IContentControl::put_Content
 Microsoft::UI::Xaml::Controls::IControl::put_IsEnabled
-Microsoft::UI::Xaml::Controls::IItemsRepeater::{put_ItemsSource, put_ItemTemplate}
+Microsoft::UI::Xaml::Controls::IItemsRepeater::{GetOrCreateElement, put_ItemsSource, put_ItemTemplate}
 Microsoft::UI::Xaml::Controls::INavigationView::put_Header
 Microsoft::UI::Xaml::Controls::INumberBox::get_Value
 Microsoft::UI::Xaml::Controls::INumberBox::put_Maximum
@@ -77,12 +77,13 @@ Microsoft::UI::Xaml::IElementFactoryGetArgs::{get_Data, get_Parent}
 Microsoft::UI::Xaml::IElementFactoryRecycleArgs::{get_Element, get_Parent}
 Microsoft::UI::Xaml::IFrameworkElement::put_MinHeight
 Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
-Microsoft::UI::Xaml::IUIElement::Focus
+Microsoft::UI::Xaml::IUIElement::{Focus, StartBringIntoView}
 Microsoft::UI::Xaml::IWindow::{Activate, Close, Closed, put_Content, put_Title}
 Microsoft::UI::Xaml::LaunchActivatedEventArgs
 Microsoft::UI::Xaml::Markup::IXamlMetadataProvider
 Microsoft::UI::Xaml::Markup::IXamlType::{}
 Microsoft::UI::Xaml::Markup::XmlnsDefinition
+Microsoft::UI::Xaml::Media::CompositionTarget::Rendering
 Microsoft::UI::Xaml::TextWrapping
 Microsoft::UI::Xaml::UIElement
 Microsoft::UI::Xaml::Window::CreateInstance

@@ -4,6 +4,9 @@ version = "0.0.0"
 edition = "2024"
 publish = false
 
+[features]
+perf = ["windows-reactor-next/test"]
+
 [dependencies]
 windows-reactor-next = { workspace = true }
 
@@ -12,6 +15,16 @@ windows-reactor-next = { workspace = true, features = ["test"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }
+
+[[bin]]
+name = "reactor-next-virtual-perf"
+path = "src/perf_main.rs"
+required-features = ["perf"]
+
+[[bin]]
+name = "reactor-next-virtual-live-perf"
+path = "src/perf_live_main.rs"
+required-features = ["perf"]
 
 [lints]
 workspace = true

@@ -661,17 +661,39 @@ scales acceptably.
 
 ### 5. Application performance gate
 
-- [ ] Measure a local edit in one realized virtual row.
-- [ ] Measure a broad parent update whose rows are mostly unchanged.
-- [ ] Measure a deliberately redundant component message and full-root update separately.
-- [ ] Measure sustained scrolling and realize/recycle traffic with controlled input, focus, effects,
+- [x] Measure a local edit in one realized virtual row.
+- [x] Measure a broad parent update whose rows are mostly unchanged.
+- [x] Measure a deliberately redundant component message and full-root update separately.
+- [x] Measure sustained scrolling and realize/recycle traffic with controlled input, focus, effects,
       contexts, and background completions active.
-- [ ] Separate Rust planning time from WinUI layout, rendering, and presentation time.
-- [ ] Record allocation volume plus median, p95, and p99 frame times rather than only best-case
+- [x] Separate Rust planning time from WinUI layout, rendering, and presentation time.
+- [x] Record allocation volume plus median, p95, and p99 frame times rather than only best-case
       microbenchmark time.
-- [ ] Profile before changing architecture if Rust planning approaches 4 ms or sustained p95 frame
+- [x] Profile before changing architecture if Rust planning approaches 4 ms or sustained p95 frame
       time exceeds 16.7 ms on the checkpoint machine.
-- [ ] Preserve one-tree ownership and transactional publication in any optimization.
+- [x] Preserve one-tree ownership and transactional publication in any optimization.
+
+The shared virtual-editor recording driver covers the Rust half of this gate without duplicating
+the sample model. On the August 21, 2026 checkpoint machine, 500 release-mode samples put the mixed
+background/context/32-row recycle-and-realize cycle at 1.26 ms median, 1.67 ms p95, and 2.47 ms p99.
+A local controlled edit was 344 us median and 608 us p99. The latency results do not trigger
+profiling, but the local edit allocated 784 KB across 5,422 allocations because its durable
+write-through rebuilds the 1,000-item parent source. Allocation volume was the main watch entering
+the live WinUI run.
+
+The live run then forced a new virtual index on every frame while alternating context, editing
+controlled rows, and delivering background completions. Its 300-frame p95 was 17.79 ms versus
+17.16 ms for the idle editor; two active frames exceeded 33.4 ms, while the baseline had none.
+Instrumented active host turns were 1.41 ms median and 1.78 ms p95. Native apply batches were
+199 us median and 1.13 ms p95; the worst dropped frame coincided with an 18.47 ms native apply.
+The raw p95 threshold therefore triggered phase measurement, but the 0.63 ms baseline-relative p95
+increase and low steady-state host cost do not justify an architecture change.
+
+Forced scrolling also exposed and fixed a live recycle-order bug. WinUI's element factory clears
+and retires a shell synchronously before the queued Pump recycle runs, so a later
+`DetachRealized` must accept that the shell is already absent. Attaching content and clearing a
+still-live shell remain strict. The application-performance gate is complete; allocation reduction
+and rare native realization outliers remain performance watches during control expansion.
 
 ### 6. Control-expansion gate
 

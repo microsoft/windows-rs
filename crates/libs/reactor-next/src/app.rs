@@ -36,6 +36,7 @@ thread_local! {
     static LIVE_PRIMARY_NATIVE_PAYLOAD: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
     static LIVE_SECONDARY_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_SECONDARY_NATIVE_PAYLOAD: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
+    static LIVE_DISPATCH_TIMES_US: RefCell<Vec<f64>> = const { RefCell::new(Vec::new()) };
 }
 
 struct LiveHost {
@@ -112,6 +113,14 @@ trait LivePump {
     #[cfg(feature = "test")]
     fn live_window(&self) -> Result<Window, RuntimeError> {
         Err(RuntimeError::UnsupportedKind)
+    }
+    #[cfg(feature = "test")]
+    fn live_bring_virtual_index(&self, _index: usize) -> Result<(), RuntimeError> {
+        Err(RuntimeError::UnsupportedKind)
+    }
+    #[cfg(feature = "test")]
+    fn take_live_native_apply_times(&mut self) -> Vec<f64> {
+        Vec::new()
     }
     #[cfg(feature = "test")]
     fn live_rejection_then_retry(&self) -> bool {
@@ -403,6 +412,16 @@ impl LivePump for ComponentLoop {
     }
 
     #[cfg(feature = "test")]
+    fn live_bring_virtual_index(&self, index: usize) -> Result<(), RuntimeError> {
+        self.pump.runtime().live_bring_virtual_index(index)
+    }
+
+    #[cfg(feature = "test")]
+    fn take_live_native_apply_times(&mut self) -> Vec<f64> {
+        self.pump.runtime_mut().take_live_native_apply_times()
+    }
+
+    #[cfg(feature = "test")]
     fn live_rejection_then_retry(&self) -> bool {
         self.pump.runtime().live_reject_next_enqueue();
         self.pump.runtime().schedule_dispatch() == Err(RuntimeError::DispatcherRejected)
@@ -672,6 +691,29 @@ fn record_live_toggle_event(_: bool) {
 
 pub fn bootstrap() -> windows_core::Result<()> {
     bootstrap_runtime()
+}
+
+#[cfg(feature = "test")]
+pub fn bring_live_virtual_index(index: usize) -> Result<(), RuntimeError> {
+    HOST.with(|host| {
+        host.borrow()
+            .as_ref()
+            .and_then(LiveHost::primary)
+            .ok_or(RuntimeError::UnsupportedKind)?
+            .live_bring_virtual_index(index)
+    })
+}
+
+#[cfg(feature = "test")]
+pub fn take_live_performance_times() -> (Vec<f64>, Vec<f64>) {
+    let dispatch = LIVE_DISPATCH_TIMES_US.with(|times| std::mem::take(&mut *times.borrow_mut()));
+    let native = HOST.with(|host| {
+        host.borrow_mut()
+            .as_mut()
+            .and_then(LiveHost::primary_mut)
+            .map_or_else(Vec::new, LivePump::take_live_native_apply_times)
+    });
+    (dispatch, native)
 }
 
 pub struct App;
@@ -991,6 +1033,8 @@ pub(crate) fn dispatch_native_events(token: WindowToken) {
         LIVE_TEST_DISPATCHES.with(|count| count.set(count.get().saturating_add(1)));
         let mut retry = false;
         let mut fault = None;
+        #[cfg(feature = "test")]
+        let dispatch_started = std::time::Instant::now();
         match live.dispatch_events() {
             Ok(()) => retry = live.native_work_pending(),
             Err(error) => {
@@ -1001,6 +1045,12 @@ pub(crate) fn dispatch_native_events(token: WindowToken) {
                 exit_ui_thread();
             }
         }
+        #[cfg(feature = "test")]
+        LIVE_DISPATCH_TIMES_US.with(|times| {
+            times
+                .borrow_mut()
+                .push(dispatch_started.elapsed().as_secs_f64() * 1_000_000.0);
+        });
         for diagnostic in live.drain_diagnostics() {
             match diagnostic {
                 PumpDiagnostic::VirtualRowRootCount {
