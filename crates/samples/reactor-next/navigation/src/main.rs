@@ -105,6 +105,7 @@ struct Workspace {
 
 #[derive(Clone)]
 enum Message {
+    CloseWindow,
     Increment,
     Navigate(Page),
     NoteChanged(String),
@@ -169,6 +170,11 @@ impl Component for Workspace {
 
     fn update(&mut self, message: Message, context: &mut ComponentContext<Self>) {
         match message {
+            Message::CloseWindow => {
+                if !context.window().request_close() {
+                    self.status = "Window close request was rejected".to_string();
+                }
+            }
             Message::Increment => self.count += 1,
             Message::Navigate(page) => self.page = page,
             Message::NoteChanged(note) => self.note = note,
@@ -257,6 +263,9 @@ impl Component for Workspace {
                 .is_enabled(!self.working)
                 .on_click(context.message(Message::StartWork))
                 .content(TextBlock::new().text("Start background work")),
+            Button::new()
+                .on_click(context.message(Message::CloseWindow))
+                .content(TextBlock::new().text("Close this window")),
         ));
 
         View::provide(
@@ -479,6 +488,9 @@ mod tests {
 
         assert!(secondary_sender.send(Message::StartWork));
         assert_eq!(secondary.dispatch_components(1), Ok(1));
+        assert!(secondary_sender.send(Message::CloseWindow));
+        assert_eq!(secondary.dispatch_components(1), Ok(1));
+        assert_eq!(secondary.runtime().close_requests().len(), 1);
         secondary.shutdown();
         assert!(!secondary_sender.send(Message::Increment));
         wait_until(|| shared.cancellations.load(Ordering::Acquire) == 1);

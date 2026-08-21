@@ -50,6 +50,9 @@ impl<R: NativeRuntime> Pump<R> {
                 }
                 let token = components.token(tree.component_scope(node)?)?;
                 let changed = component.apply_props(components, token)?;
+                changes
+                    .host_requests
+                    .extend(components.take_host_requests());
                 if changed {
                     changes.touched.insert(token);
                 }
@@ -744,6 +747,9 @@ impl<R: NativeRuntime> Pump<R> {
             }
             ViewKind::Component(component) => {
                 let token = component.reserve(components)?;
+                changes
+                    .host_requests
+                    .extend(components.take_host_requests());
                 changes.reserved.push(token);
                 let node = tree.insert_component(
                     logical_parent,

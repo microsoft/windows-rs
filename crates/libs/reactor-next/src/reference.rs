@@ -8,6 +8,115 @@ use crate::core::{NativeWork, NodeId, WindowToken};
 
 const IMPERATIVE_QUEUE_CAPACITY: usize = 4_096;
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum HostRequest {
+    CloseWindow { identity: WindowToken },
+}
+
+struct WindowRequestState {
+    active: bool,
+    close_requested: bool,
+    open: bool,
+    staged_close: bool,
+}
+
+#[derive(Clone)]
+pub(crate) struct WindowEndpoint {
+    identity: WindowToken,
+    state: Rc<RefCell<WindowRequestState>>,
+}
+
+impl WindowEndpoint {
+    pub(crate) fn new(identity: WindowToken) -> Self {
+        Self {
+            identity,
+            state: Rc::new(RefCell::new(WindowRequestState {
+                active: false,
+                close_requested: false,
+                open: true,
+                staged_close: false,
+            })),
+        }
+    }
+
+    pub(crate) fn begin(&self) {
+        let mut state = self.state.borrow_mut();
+        assert!(!state.active, "component lifecycle invocation reentered");
+        state.active = true;
+        state.close_requested = false;
+    }
+
+    pub(crate) fn finish(&self) {
+        let mut state = self.state.borrow_mut();
+        assert!(
+            state.active,
+            "component lifecycle invocation was not active"
+        );
+        state.active = false;
+        state.staged_close |= state.close_requested;
+        state.close_requested = false;
+    }
+
+    pub(crate) fn take_requests(&self) -> Vec<HostRequest> {
+        let mut state = self.state.borrow_mut();
+        if state.staged_close {
+            state.staged_close = false;
+            vec![HostRequest::CloseWindow {
+                identity: self.identity,
+            }]
+        } else {
+            Vec::new()
+        }
+    }
+
+    pub(crate) fn close(&self) {
+        let mut state = self.state.borrow_mut();
+        state.open = false;
+        state.active = false;
+        state.close_requested = false;
+        state.staged_close = false;
+    }
+
+    pub(crate) fn reference(&self) -> WindowRef {
+        WindowRef {
+            endpoint: self.clone(),
+        }
+    }
+}
+
+/// A token-bound capability for the component's owning window.
+///
+/// Requests are accepted only while the owning component is running `create`, `changed`, or
+/// `update`. The Pump commits accepted requests after the resulting candidate publishes.
+#[derive(Clone)]
+pub struct WindowRef {
+    endpoint: WindowEndpoint,
+}
+
+impl WindowRef {
+    /// Requests that the owning window close after the current component turn publishes.
+    #[must_use = "false means there is no active component publication"]
+    pub fn request_close(&self) -> bool {
+        let mut state = self.endpoint.state.borrow_mut();
+        if !state.open || !state.active {
+            return false;
+        }
+        state.close_requested = true;
+        true
+    }
+}
+
+impl fmt::Debug for WindowRef {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let state = self.endpoint.state.borrow();
+        formatter
+            .debug_struct("WindowRef")
+            .field("active", &state.active)
+            .field("open", &state.open)
+            .finish()
+    }
+}
+
 #[doc(hidden)]
 pub trait ReferenceType: sealed::Sealed + 'static {}
 

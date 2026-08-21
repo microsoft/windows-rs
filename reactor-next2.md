@@ -659,7 +659,21 @@ scales acceptably.
 - [x] Prove queues, references, events, and background completions remain window-isolated.
 - [ ] Let sample evidence define navigation and window APIs.
 
-### 5. Control-expansion gate
+### 5. Application performance gate
+
+- [ ] Measure a local edit in one realized virtual row.
+- [ ] Measure a broad parent update whose rows are mostly unchanged.
+- [ ] Measure a deliberately redundant component message and full-root update separately.
+- [ ] Measure sustained scrolling and realize/recycle traffic with controlled input, focus, effects,
+      contexts, and background completions active.
+- [ ] Separate Rust planning time from WinUI layout, rendering, and presentation time.
+- [ ] Record allocation volume plus median, p95, and p99 frame times rather than only best-case
+      microbenchmark time.
+- [ ] Profile before changing architecture if Rust planning approaches 4 ms or sustained p95 frame
+      time exceeds 16.7 ms on the checkpoint machine.
+- [ ] Preserve one-tree ownership and transactional publication in any optimization.
+
+### 6. Control-expansion gate
 
 - [ ] Add a control only when a qualification sample requires it.
 - [ ] Prioritize layout and application-shell gaps such as Grid and row/column definitions.
@@ -900,16 +914,18 @@ window.
 
 Window lifetime should instead be an app-owned host resource:
 
-1. Add a cloneable, token-bound `WindowRef` whose `request_close()` operation enters a bounded
-   queue. It must use request-shaped naming because close cancellation is a separate future
-   contract.
-2. Drain close through the existing Pump turn after frontend publication. A stale `WindowToken`
-   rejects the request without touching another window.
+1. A cloneable, token-bound `WindowRef` now exposes `request_close()`. It uses request-shaped naming
+   because close cancellation is a separate future contract.
+2. Close is accepted only during `create`, `changed`, or `update`. The lifecycle endpoint stages at
+   most one close with the candidate, and publication applies it in a separate native batch after
+   frontend state and effects commit. Planning failure discards it. An inactive or stale reference
+   returns false without touching another window.
 3. Add runtime open later as a committed host request carrying an independent window root. The
    opener's component scope must not own the new window. Cross-window data continues to use an
    application-owned sender registry rather than a typed message channel on the window handle.
-4. Track pending opens before supporting replacement of the last window, so a close followed by an
-   open cannot exit the UI thread between requests.
+4. `LiveHost` now pre-registers startup Pumps as in-flight and counts pending opens before mount.
+   This prevents a `create`-time close from being lost and prevents exit while another startup
+   window remains. Runtime open must join the same accounting before it enters the dispatcher.
 
 Configuration and lifetime need different rules. A title is safe declarative state. Size,
 position, and presenter state can change outside the framework and need create-time semantics or
@@ -917,7 +933,8 @@ controlled native feedback. A static startup descriptor is useful for create-tim
 cannot by itself express a component-derived title. Do not add size or presenter setters until
 their observation contract is defined.
 
-Host requests issued by `create`, `update`, or effect setup must commit with the candidate. A
-planning failure must not open or close a window for an unpublished component turn. Native apply
-failure remains process-fatal; a planning failure while preparing a new independent root must
-reject that open without shutting down existing windows.
+Host requests issued by `create`, `changed`, or `update` must commit with the candidate. Effect
+setup runs after publication and is not currently a window-request context. A planning failure must
+not open or close a window for an unpublished component turn. Native apply failure remains
+process-fatal; a planning failure while preparing a new independent root must reject that open
+without shutting down existing windows.

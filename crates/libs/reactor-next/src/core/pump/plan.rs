@@ -19,6 +19,7 @@ pub(super) struct UpdatePlan {
     pub(super) reference_commits: Vec<ReferenceCommit>,
     pub(super) identity: WindowToken,
     pub(super) reconcile_observations: bool,
+    pub(super) post_publish_commands: Vec<Command>,
 }
 
 #[derive(Default)]
@@ -30,6 +31,7 @@ pub(super) struct ComponentChanges {
     pub(super) reserved: Vec<ComponentToken>,
     pub(super) retired: Vec<ComponentToken>,
     pub(super) touched: HashSet<ComponentToken>,
+    pub(super) host_requests: Vec<HostRequest>,
 }
 
 pub(super) enum LocalComponentUpdate {
@@ -81,6 +83,7 @@ impl UpdatePlan {
             reference_commits: Vec::new(),
             identity,
             reconcile_observations: false,
+            post_publish_commands: Vec::new(),
         }
     }
 

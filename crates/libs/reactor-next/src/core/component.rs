@@ -2,6 +2,7 @@ use super::arena::NodeId;
 use super::runtime::WindowToken;
 use super::scope::{ScopeArena, ScopeError, ScopeId, ScopeState};
 use crate::element::{Callback, View};
+use crate::reference::{HostRequest, WindowEndpoint, WindowRef};
 use std::any::{Any, TypeId};
 use std::cell::RefCell;
 use std::collections::{HashMap, HashSet, VecDeque};
@@ -569,6 +570,7 @@ impl<M: 'static> LocalSender<M> {
 pub struct ComponentContext<C: Component> {
     sender: LocalSender<C::Message>,
     tasks: TaskSpawner,
+    window: WindowRef,
 }
 
 impl<C: Component> ComponentContext<C> {
@@ -582,6 +584,11 @@ impl<C: Component> ComponentContext<C> {
         F: FnOnce(CancellationToken) -> C::Message + Send + 'static,
     {
         self.tasks.spawn(work)
+    }
+
+    /// Returns a token-bound capability for the component's owning window.
+    pub fn window(&self) -> WindowRef {
+        self.window.clone()
     }
 }
 
@@ -893,9 +900,9 @@ struct TypedScope<C, P, M> {
     context_dependencies: Option<Rc<HashSet<ContextDependency>>>,
     effects: Rc<RefCell<ComponentEffects>>,
     props: P,
-    changed: fn(&mut C, &P, LocalSender<M>, TaskSpawner),
+    changed: fn(&mut C, &P, LocalSender<M>, TaskSpawner, WindowRef),
     sender: LocalSender<M>,
-    update: fn(&mut C, M, LocalSender<M>, TaskSpawner),
+    update: fn(&mut C, M, LocalSender<M>, TaskSpawner, WindowRef),
     view: fn(
         &C,
         &P,
@@ -903,6 +910,7 @@ struct TypedScope<C, P, M> {
         Rc<RefCell<ComponentEffects>>,
         ContextSnapshot,
     ) -> ComponentRender,
+    window: WindowEndpoint,
 }
 
 impl<C, P, M> Drop for TypedScope<C, P, M> {
@@ -933,7 +941,15 @@ where
             return Ok(false);
         }
         self.props = *props;
-        (self.changed)(&mut self.component, &self.props, self.sender.clone(), tasks);
+        self.window.begin();
+        (self.changed)(
+            &mut self.component,
+            &self.props,
+            self.sender.clone(),
+            tasks,
+            self.window.reference(),
+        );
+        self.window.finish();
         Ok(true)
     }
 
@@ -963,7 +979,15 @@ where
                     expected: TypeId::of::<M>(),
                     actual,
                 })?;
-        (self.update)(&mut self.component, *message, self.sender.clone(), tasks);
+        self.window.begin();
+        (self.update)(
+            &mut self.component,
+            *message,
+            self.sender.clone(),
+            tasks,
+            self.window.reference(),
+        );
+        self.window.finish();
         Ok(())
     }
 
@@ -1019,6 +1043,7 @@ pub struct ComponentStore {
     scopes: ScopeArena<Box<dyn ErasedScope>>,
     task_limiter: Arc<TaskLimiter>,
     queue: Rc<RefCell<ComponentQueue>>,
+    window_endpoint: WindowEndpoint,
 }
 
 impl ComponentStore {
@@ -1047,6 +1072,7 @@ impl ComponentStore {
                 open: true,
                 wake: None,
             })),
+            window_endpoint: WindowEndpoint::new(window),
         }
     }
 
@@ -1059,8 +1085,16 @@ impl ComponentStore {
             props: &C::Props,
             sender: LocalSender<C::Message>,
             tasks: TaskSpawner,
+            window: WindowRef,
         ) {
-            component.changed(props, &mut ComponentContext { sender, tasks });
+            component.changed(
+                props,
+                &mut ComponentContext {
+                    sender,
+                    tasks,
+                    window,
+                },
+            );
         }
 
         fn update<C: Component>(
@@ -1068,8 +1102,16 @@ impl ComponentStore {
             message: C::Message,
             sender: LocalSender<C::Message>,
             tasks: TaskSpawner,
+            window: WindowRef,
         ) {
-            component.update(message, &mut ComponentContext { sender, tasks });
+            component.update(
+                message,
+                &mut ComponentContext {
+                    sender,
+                    tasks,
+                    window,
+                },
+            );
         }
 
         fn view<C: Component>(
@@ -1096,6 +1138,7 @@ impl ComponentStore {
         let queue = Rc::clone(&self.queue);
         let task_limiter = Arc::clone(&self.task_limiter);
         let window = self.window;
+        let window_endpoint = self.window_endpoint.clone();
         let scope = self.scopes.reserve_with(move |scope| {
             queue.borrow_mut().active.insert(scope);
             let sender = LocalSender {
@@ -1108,13 +1151,16 @@ impl ComponentStore {
                 queue: Arc::clone(&background),
                 token: ComponentToken { window, scope },
             };
+            window_endpoint.begin();
             let component = C::create(
                 &props,
                 &mut ComponentContext {
                     sender: sender.clone(),
                     tasks,
+                    window: window_endpoint.reference(),
                 },
             );
+            window_endpoint.finish();
             Box::new(TypedScope {
                 component,
                 context_dependencies: None,
@@ -1124,6 +1170,7 @@ impl ComponentStore {
                 sender,
                 update: update::<C>,
                 view: view::<C>,
+                window: window_endpoint,
             }) as Box<dyn ErasedScope>
         })?;
         Ok(ComponentToken {
@@ -1140,6 +1187,10 @@ impl ComponentStore {
 
     pub(crate) fn restarted(&self, window: WindowToken) -> Self {
         Self::with_task_limiter(window, Arc::clone(&self.task_limiter))
+    }
+
+    pub(crate) fn take_host_requests(&self) -> Vec<HostRequest> {
+        self.window_endpoint.take_requests()
     }
 
     pub fn remove(&mut self, token: ComponentToken) -> Result<(), ComponentStoreError> {
@@ -1433,6 +1484,7 @@ impl ComponentStore {
     }
 
     pub(crate) fn close(&mut self) {
+        self.window_endpoint.close();
         {
             let mut queue = self.queue.borrow_mut();
             queue.open = false;

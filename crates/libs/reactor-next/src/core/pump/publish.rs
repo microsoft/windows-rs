@@ -53,7 +53,7 @@ impl<R: NativeRuntime> Pump<R> {
         self.diagnostics.extend(plan.diagnostics);
         self.native_observation_pending = false;
         self.version = next_version;
-        Ok(())
+        self.apply_native_commands(&plan.post_publish_commands)
     }
 
     fn publish_frontend(

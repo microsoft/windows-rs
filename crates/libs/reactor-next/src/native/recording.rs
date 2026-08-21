@@ -17,6 +17,7 @@ pub struct RecordingRuntime {
     nodes: HashMap<NodeId, RecordedNode>,
     batches: usize,
     commands: Vec<Vec<Command>>,
+    close_requests: Vec<NodeId>,
     record_commands: bool,
     fail_at: HashSet<(usize, usize)>,
     identity: Option<WindowToken>,
@@ -34,6 +35,7 @@ impl Default for RecordingRuntime {
             nodes: HashMap::new(),
             batches: 0,
             commands: Vec::new(),
+            close_requests: Vec::new(),
             record_commands: true,
             fail_at: HashSet::new(),
             identity: None,
@@ -72,6 +74,11 @@ impl RecordingRuntime {
 
     pub fn commands(&self) -> &[Vec<Command>] {
         &self.commands
+    }
+
+    #[cfg(any(test, feature = "test"))]
+    pub fn close_requests(&self) -> &[NodeId] {
+        &self.close_requests
     }
 
     pub fn is_empty(&self) -> bool {
@@ -183,6 +190,12 @@ impl RecordingRuntime {
                 self.nodes
                     .get(node)
                     .ok_or(RuntimeError::MissingNode(*node))?;
+            }
+            Command::CloseWindow { node } => {
+                if !self.windows.contains(node) {
+                    return Err(RuntimeError::MissingNode(*node));
+                }
+                self.close_requests.push(*node);
             }
             Command::Create { node, kind } => {
                 if self.nodes.contains_key(node) {
@@ -532,6 +545,7 @@ impl NativeRuntime for RecordingRuntime {
     fn reset(&mut self) {
         self.application = None;
         self.attachments.clear();
+        self.close_requests.clear();
         self.nodes.clear();
         self.realizations.clear();
         self.source_revisions.clear();

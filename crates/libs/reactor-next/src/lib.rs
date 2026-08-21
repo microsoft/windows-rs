@@ -17,6 +17,6 @@ pub use element::*;
 pub use generated::public::*;
 #[doc(hidden)]
 pub use reference::ReferenceType;
-pub use reference::{ElementRef, FocusControl};
+pub use reference::{ElementRef, FocusControl, WindowRef};
 #[cfg(feature = "test")]
 pub use test_support::*;

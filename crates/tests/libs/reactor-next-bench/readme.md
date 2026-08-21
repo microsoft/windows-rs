@@ -86,3 +86,15 @@ The 2.5-3.9x relative cost of changed or reordered broad reconciliation, the rou
 ratio, and their transient allocation volume remain the main performance watch. Do not add a second
 mutable tree or rollback system to improve these numbers. Optimize repeated key/view collection or
 copy-on-write mutation only when a measured application turn exceeds the absolute bounds.
+
+## Future application gate
+
+The microbenchmark does not predict full frame cost. After the navigation/window gate, measure the
+virtual editor under local editing, mostly unchanged parent updates, a redundant message, and
+sustained realize/recycle traffic. Keep Rust planning separate from WinUI layout and rendering, and
+record allocation volume plus median, p95, and p99 frame times.
+
+Profile before changing architecture if Rust planning approaches 4 ms or sustained p95 frame time
+exceeds 16.7 ms on the checkpoint machine. Start with repeated key/view collection, avoidable
+subtree reconciliation, copy-on-write mutation granularity, unchanged child/property cloning, and
+component boundaries. Preserve one-tree ownership and transactional publication.

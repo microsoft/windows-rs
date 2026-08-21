@@ -140,6 +140,13 @@ impl WinUiRuntime {
                     .Activate()
                     .map_err(native_error)?;
             }
+            Command::CloseWindow { node } => {
+                self.windows
+                    .get(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?
+                    .Close()
+                    .map_err(native_error)?;
+            }
             Command::Create { node, kind } => {
                 if self.contains(*node) {
                     return Err(RuntimeError::DuplicateNode(*node));

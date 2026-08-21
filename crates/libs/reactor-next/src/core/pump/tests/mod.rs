@@ -15,3 +15,4 @@ mod mount_update_publication;
 mod properties_native_failure;
 mod slots;
 mod virtualization_realization;
+mod window_requests;

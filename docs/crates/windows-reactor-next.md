@@ -108,6 +108,13 @@ Raw WinUI handles are intentionally not exposed or cloned. Render, update, event
 callbacks remain queue-only. Canvas, WebView, and other specialized subsystems need adapters with
 their own ownership and documented-failure contracts.
 
+`ComponentContext::window` returns a token-bound `WindowRef`. `request_close` is accepted only
+during `create`, `changed`, or `update`, where the component lifecycle invocation provides the
+candidate transaction. One accepted close is staged with that candidate and applied in a separate
+native batch after frontend publication and effect setup. Planning failure discards it. Shutdown
+closes the endpoint, and references from another Pump or an inactive lifecycle call return false.
+The live `Window.Closed` callback then follows the ordinary in-flight close path.
+
 `ViewContext::use_effect(key, dependency, setup)` identifies each effect with an opaque
 `EffectKey`. Numeric and string conversions make keys concise without exposing an internal
 positional form. Each key must be unique within one component view. Omitted keys clean their
@@ -275,6 +282,10 @@ reinsert it or make another close appear to be the last window. A stale queued c
 no matching Pump. Closing the last window exits the UI thread; closing a secondary leaves the
 other Pumps running.
 
+Startup Pumps are registered as in-flight before `mount`, and `LiveHost` counts pending opens.
+A close requested by `Component::create` is therefore retained until mount returns, and closing an
+early startup window cannot exit while another startup Pump still needs to mount.
+
 This is ownership and lifecycle isolation, not native fault isolation. An unexpected native
 failure in any Pump follows the process-fatal policy above.
 
@@ -284,9 +295,9 @@ A shared application coordinator broadcasts theme changes by sending an ordinary
 each registered window. Closing one window retires its effects and tasks, removes its sender, and
 notifies the remaining window without sharing Pump state.
 
-`App::run_windows` currently fixes the complete window set at startup. Runtime creation,
-declarative title or size configuration, and component-requested close are not public contracts.
-The sample leaves those operations unresolved rather than calling private WinUI objects directly.
+`App::run_windows` currently fixes the complete window set at startup. Runtime creation and
+declarative title or size configuration are not public contracts. Component-requested close uses
+the transactional `WindowRef` contract above.
 
 ## Generation
 

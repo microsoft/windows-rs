@@ -13,12 +13,34 @@ fn main() -> Result<()> {
 
     App::run_windows([
         View::component::<Primary>(()),
+        View::component::<InitialClose>(()),
         View::component::<Secondary>(()),
     ])?;
     Err(Error::new(
         HRESULT(0x80004005_u32 as _),
         "windows-reactor-next self-test returned before its completion marker",
     ))
+}
+
+struct InitialClose;
+
+impl Component for InitialClose {
+    type Props = ();
+    type Message = ();
+
+    fn create(_props: &(), context: &mut ComponentContext<Self>) -> Self {
+        if !context.window().request_close() {
+            eprintln!("initial-close fixture could not request close");
+            std::process::exit(1);
+        }
+        Self
+    }
+
+    fn update(&mut self, _message: (), _context: &mut ComponentContext<Self>) {}
+
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
+        TextBlock::new().text("initial close").into()
+    }
 }
 
 struct Primary {

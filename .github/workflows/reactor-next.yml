@@ -32,19 +32,30 @@ jobs:
         run: |
           cargo fmt -p windows-reactor-next -p tool_reactor_next `
             -p test_reactor_next -p test_reactor_next_bench `
-            -p sample_reactor_next_counter -p sample_reactor_next_controlled -- --check
+            -p test_reactor_next_selftest `
+            -p sample_reactor_next_counter -p sample_reactor_next_controlled `
+            -p sample_reactor_next_form -p sample_reactor_next_virtual `
+            -p sample_reactor_next_navigation -- --check
 
       - name: Check and test
         shell: pwsh
         run: |
           cargo test -p windows-reactor-next -p tool_reactor_next `
-            -p test_reactor_next --quiet
+            -p test_reactor_next -p sample_reactor_next_virtual `
+            -p sample_reactor_next_navigation --quiet
           cargo check -p test_reactor_next_bench `
-            -p sample_reactor_next_counter -p sample_reactor_next_controlled --quiet
+            -p sample_reactor_next_counter -p sample_reactor_next_controlled `
+            -p sample_reactor_next_form --quiet
           cargo clippy -p windows-reactor-next -p tool_reactor_next `
             -p test_reactor_next -p test_reactor_next_bench `
+            -p test_reactor_next_selftest `
             -p sample_reactor_next_counter -p sample_reactor_next_controlled `
+            -p sample_reactor_next_form -p sample_reactor_next_virtual `
+            -p sample_reactor_next_navigation `
             --all-targets --quiet
+
+      - name: Live headless self-test
+        run: cargo run -p test_reactor_next_selftest --quiet -- --headless
 
       - name: Generated output
         shell: pwsh

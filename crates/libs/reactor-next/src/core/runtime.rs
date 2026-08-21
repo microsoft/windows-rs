@@ -176,6 +176,9 @@ pub enum Command {
     ActivateWindow {
         node: NodeId,
     },
+    CloseWindow {
+        node: NodeId,
+    },
     Create {
         node: NodeId,
         kind: MountedKind,

@@ -26,6 +26,7 @@ thread_local! {
     static LIVE_COMPONENT_EFFECT_CLEANUPS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_COMPONENT_BACKGROUND: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
     static LIVE_CLOSED_TASK_DELIVERED: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
+    static LIVE_CLOSE_SENDER: RefCell<Option<LocalSender<LiveClosingMessage>>> = const { RefCell::new(None) };
     static LIVE_RANGE_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_TOGGLE_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_PRIMARY_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
@@ -39,12 +40,17 @@ struct LiveHost {
     closed_in_flight: HashSet<WindowToken>,
     fault: Option<windows_core::Error>,
     in_flight: HashSet<WindowToken>,
+    pending_opens: usize,
     #[cfg(feature = "test")]
     primary: WindowToken,
     windows: HashMap<WindowToken, Box<dyn LivePump>>,
 }
 
 impl LiveHost {
+    fn is_empty(&self) -> bool {
+        self.windows.is_empty() && self.in_flight.is_empty() && self.pending_opens == 0
+    }
+
     #[cfg(feature = "test")]
     fn primary(&self) -> Option<&dyn LivePump> {
         self.windows.get(&self.primary).map(Box::as_ref)
@@ -79,15 +85,6 @@ impl LiveHost {
             }
         }
         None
-    }
-
-    #[cfg(feature = "test")]
-    fn secondary_window_for_test(&self) -> Option<Window> {
-        let pump = self.secondary()?;
-        if pump.live_root_text().as_deref() != Ok("second") || pump.schedule_dispatch().is_err() {
-            return None;
-        }
-        pump.live_window().ok()
     }
 }
 
@@ -262,23 +259,42 @@ impl Component for LiveTestComponent {
 struct LiveClosingTask;
 
 #[cfg(feature = "test")]
+#[derive(Clone)]
+enum LiveClosingMessage {
+    Background,
+    Close,
+}
+
+#[cfg(feature = "test")]
 impl Component for LiveClosingTask {
     type Props = ();
-    type Message = ();
+    type Message = LiveClosingMessage;
 
     fn create(_props: &Self::Props, context: &mut ComponentContext<Self>) -> Self {
         LIVE_CLOSED_TASK_FINISHED.store(false, std::sync::atomic::Ordering::Release);
+        LIVE_CLOSE_SENDER.with(|sender| *sender.borrow_mut() = Some(context.sender()));
         context.spawn_background(|_| {
             std::thread::sleep(std::time::Duration::from_millis(300));
             LIVE_CLOSED_TASK_FINISHED.store(true, std::sync::atomic::Ordering::Release);
+            LiveClosingMessage::Background
         });
         Self
     }
 
     fn changed(&mut self, _props: &Self::Props, _context: &mut ComponentContext<Self>) {}
 
-    fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {
-        LIVE_CLOSED_TASK_DELIVERED.with(|delivered| delivered.set(true));
+    fn update(&mut self, message: LiveClosingMessage, context: &mut ComponentContext<Self>) {
+        match message {
+            LiveClosingMessage::Background => {
+                LIVE_CLOSED_TASK_DELIVERED.with(|delivered| delivered.set(true));
+            }
+            LiveClosingMessage::Close => {
+                if !context.window().request_close() {
+                    eprintln!("live component could not request its window close");
+                    std::process::exit(1);
+                }
+            }
+        }
     }
 
     fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
@@ -405,9 +421,17 @@ impl LivePump for ComponentLoop {
     #[cfg(feature = "test")]
     fn live_closing_task(&mut self) -> bool {
         LIVE_CLOSED_TASK_DELIVERED.with(|delivered| delivered.set(false));
-        self.pump
+        let mounted = self
+            .pump
             .update_view(View::component::<LiveClosingTask>(()))
-            .is_ok()
+            .is_ok();
+        mounted
+            && LIVE_CLOSE_SENDER.with(|sender| {
+                sender
+                    .borrow()
+                    .as_ref()
+                    .is_some_and(|sender| sender.send(LiveClosingMessage::Close))
+            })
     }
 
     #[cfg(feature = "test")]
@@ -680,22 +704,27 @@ impl App {
                     let mut primary_pump = pumps.next().ok_or_else(|| {
                         windows_core::Error::new(E_INVALIDARG, "at least one window is required")
                     })?;
-                    primary_pump.mount().map_err(pump_error)?;
                     let primary = primary_pump.window_token();
-                    let mut windows = HashMap::with_capacity(pumps.len() + 1);
-                    assert!(windows.insert(primary, primary_pump).is_none());
+                    let pumps = pumps.collect::<Vec<_>>();
+                    let mut in_flight = pumps
+                        .iter()
+                        .map(|pump| pump.window_token())
+                        .collect::<HashSet<_>>();
+                    assert!(in_flight.insert(primary));
                     HOST.with(|host| {
                         *host.borrow_mut() = Some(LiveHost {
                             _application: application,
                             closed_in_flight: HashSet::new(),
                             fault: None,
-                            in_flight: HashSet::new(),
+                            in_flight,
+                            pending_opens: pumps.len() + 1,
                             #[cfg(feature = "test")]
                             primary,
-                            windows,
+                            windows: HashMap::with_capacity(pumps.len() + 1),
                         });
                     });
-                    let pumps = pumps.collect::<Vec<_>>();
+                    primary_pump.mount().map_err(pump_error)?;
+                    publish_mounted_window(primary_pump);
                     if !pumps.is_empty() {
                         let dispatcher = DispatcherQueue::GetForCurrentThread()?;
                         let pumps = Rc::new(RefCell::new(Some(pumps)));
@@ -717,12 +746,7 @@ impl App {
                                     exit_ui_thread();
                                     return;
                                 }
-                                let token = pump.window_token();
-                                HOST.with(|host| {
-                                    if let Some(host) = host.borrow_mut().as_mut() {
-                                        assert!(host.windows.insert(token, pump).is_none());
-                                    }
-                                });
+                                publish_mounted_window(pump);
                             }
                         });
                         if !dispatcher
@@ -768,6 +792,28 @@ impl App {
             .and(callback_result)
             .and(host_result)
             .and(scheduler_result)
+    }
+}
+
+fn publish_mounted_window(pump: Box<dyn LivePump>) {
+    let token = pump.window_token();
+    let mut pump = Some(pump);
+    let finalize = HOST.with(|host| {
+        let mut host = host.borrow_mut();
+        let host = host
+            .as_mut()
+            .expect("missing live host during window mount");
+        assert!(host.in_flight.remove(&token));
+        host.pending_opens = host.pending_opens.checked_sub(1).unwrap();
+        if host.closed_in_flight.remove(&token) {
+            Some((pump.take().unwrap(), host.is_empty()))
+        } else {
+            assert!(host.windows.insert(token, pump.take().unwrap()).is_none());
+            None
+        }
+    });
+    if let Some((pump, empty)) = finalize {
+        finalize_closed_window(pump, empty);
     }
 }
 
@@ -842,7 +888,7 @@ pub(crate) fn dispatch_native_events(token: WindowToken) {
             if let Some(error) = fault {
                 host.fault = Some(error);
             } else if closed {
-                finalize = Some((live, host.windows.is_empty() && host.in_flight.is_empty()));
+                finalize = Some((live, host.is_empty()));
             } else {
                 host.windows.insert(token, live);
             }
@@ -864,7 +910,7 @@ pub(crate) fn dispatch_window_closed(token: WindowToken) {
             return (None, false);
         }
         let live = host.windows.remove(&token);
-        (live, host.windows.is_empty() && host.in_flight.is_empty())
+        (live, host.is_empty())
     });
     if let Some(live) = live {
         finalize_closed_window(live, empty);
@@ -1140,11 +1186,6 @@ fn queue_live_reentrancy_verification(
 
 #[cfg(feature = "test")]
 fn finish_live_backend_test() {
-    let window = HOST.with(|host| {
-        host.borrow()
-            .as_ref()
-            .and_then(LiveHost::secondary_window_for_test)
-    });
     let prepared = HOST.with(|host| {
         host.borrow_mut()
             .as_mut()
@@ -1153,10 +1194,6 @@ fn finish_live_backend_test() {
     });
     if !prepared {
         eprintln!("live backend fixture could not start a secondary background task");
-        std::process::exit(1);
-    }
-    if window.is_none_or(|window| window.Close().is_err()) {
-        eprintln!("live backend fixture did not isolate and close its second window");
         std::process::exit(1);
     }
     let dispatcher = match DispatcherQueue::GetForCurrentThread() {

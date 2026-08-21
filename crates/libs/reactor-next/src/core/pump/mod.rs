@@ -1,4 +1,4 @@
-use crate::reference::{ImperativeEndpoint, ImperativeRequest, NativeElementRef};
+use crate::reference::{HostRequest, ImperativeEndpoint, ImperativeRequest, NativeElementRef};
 use std::collections::{HashMap, HashSet, VecDeque};
 use std::rc::Rc;
 
@@ -199,6 +199,7 @@ impl<R: NativeRuntime> Pump<R> {
             }
         }
         plan.push(Command::ActivateWindow { node: window });
+        Self::plan_host_requests(window, &changes.host_requests, &mut plan);
 
         self.publish_candidate(
             CandidateState::Tree {
@@ -586,10 +587,12 @@ impl<R: NativeRuntime> Pump<R> {
         &mut self,
         candidate: Tree,
         candidate_root: NodeId,
-        plan: UpdatePlan,
+        mut plan: UpdatePlan,
         changes: ComponentChanges,
         next_version: u64,
     ) -> Result<(), PumpError> {
+        let window = self.window.ok_or(PumpError::NotMounted)?;
+        Self::plan_host_requests(window, &changes.host_requests, &mut plan);
         let resolved = changes
             .composed
             .iter()
@@ -608,6 +611,15 @@ impl<R: NativeRuntime> Pump<R> {
         self.planning_dirty
             .retain(|token| !resolved.contains(token));
         Ok(())
+    }
+
+    fn plan_host_requests(window: NodeId, requests: &[HostRequest], plan: &mut UpdatePlan) {
+        if requests.iter().any(
+            |request| matches!(request, HostRequest::CloseWindow { identity } if *identity == plan.identity),
+        ) {
+            plan.post_publish_commands
+                .push(Command::CloseWindow { node: window });
+        }
     }
 }
 

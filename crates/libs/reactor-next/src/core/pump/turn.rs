@@ -44,13 +44,16 @@ impl<R: NativeRuntime> Pump<R> {
         deferred: HashSet<ComponentToken>,
     ) -> Result<(), PumpError> {
         let next_version = self.next_version()?;
+        let staged_host_requests = self.components.take_host_requests();
         let mut composed_view = None;
         if self.dirty_components.len() == 1 {
             let Some(token) = self.dirty_components.iter().next().copied() else {
                 return Ok(());
             };
             match self.try_local_component_update(token)? {
-                LocalComponentUpdate::Plan(plan) => {
+                LocalComponentUpdate::Plan(mut plan) => {
+                    let window = self.window.ok_or(PumpError::NotMounted)?;
+                    Self::plan_host_requests(window, &staged_host_requests, &mut plan.plan);
                     self.publish_candidate(
                         CandidateState::Native {
                             node: plan.node,
@@ -80,6 +83,7 @@ impl<R: NativeRuntime> Pump<R> {
         };
         let mut changes = ComponentChanges {
             deferred,
+            host_requests: staged_host_requests,
             retry: self.planning_dirty.clone(),
             ..ComponentChanges::default()
         };

@@ -133,6 +133,21 @@ Raw native handles remain intentionally absent. Specialized Canvas, WebView, and
 adapters need separate ownership and documented-failure designs rather than cloned COM handles in
 render, update, event, or effect callbacks.
 
+Components can request that their owning window close:
+
+```rust,ignore
+fn update(&mut self, message: Message, context: &mut ComponentContext<Self>) {
+    if matches!(message, Message::Close) {
+        _ = context.window().request_close();
+    }
+}
+```
+
+`WindowRef` is token-bound and accepts requests only during `create`, `changed`, or `update`.
+Accepted close requests are staged with that component turn and applied after candidate
+publication. A failed turn discards the request; a stale reference returns `false`. Native window
+objects are not exposed.
+
 The [`form sample`](../../samples/reactor-next/form/src/main.rs) exercises controlled input,
 focus-first-invalid validation, a nested component, and scope-owned background submission.
 The [`virtual task editor`](../../samples/reactor-next/virtual/readme.md) exercises keyed row
