@@ -21,8 +21,6 @@ impl Component for Controlled {
         }
     }
 
-    fn changed(&mut self, _props: &(), _context: &mut ComponentContext<Self>) {}
-
     fn update(&mut self, message: Message, _context: &mut ComponentContext<Self>) {
         match message {
             Message::Number(value) => self.number = value,
@@ -30,7 +28,7 @@ impl Component for Controlled {
         }
     }
 
-    fn view(&self, context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
         let changed = context.sender();
         let number_changed = changed.clone();
         View::children(

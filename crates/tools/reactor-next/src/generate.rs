@@ -19,6 +19,12 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                     Self::#name(value)
                 }
             }
+
+            impl From<#name> for View {
+                fn from(value: #name) -> Self {
+                    Self::native(value)
+                }
+            }
         }
     });
     let mounted_variants = schema.controls.iter().map(|control| {
@@ -1214,6 +1220,7 @@ mod tests {
         assert!(output.contains("pub struct NavigationView"));
         assert!(output.contains("pub struct ProgressBar"));
         assert!(output.contains("pub struct ToggleSwitch"));
+        assert!(output.contains("impl From < TextBlock > for View"));
         assert!(output.contains("pub enum NavigationViewSlot"));
         assert!(output.contains("impl SlotsControl for NavigationView"));
         assert!(output.contains("NavigationViewContent"));

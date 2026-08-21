@@ -142,7 +142,7 @@ fn named_slots_preserve_context_and_component_effect_lifecycle() {
 
         fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
-        fn view(&self, context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
             let value = context.use_context(&self.0.context);
             let log = Rc::clone(&self.0.log);
             let effect_value = value.clone();

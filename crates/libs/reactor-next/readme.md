@@ -28,11 +28,9 @@ impl Component for Root {
         Self
     }
 
-    fn changed(&mut self, _: &(), _: &mut ComponentContext<Self>) {}
-
     fn update(&mut self, _: (), _: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _: &mut ViewContext<Self>) -> View {
+    fn view(&self, _: &Self::Props, _: &mut ViewContext<Self>) -> View {
         View::native(TextBlock::new().text("Hello"))
     }
 }
@@ -40,6 +38,14 @@ impl Component for Root {
 App::run_component::<Root>(())?;
 # Ok::<(), windows_core::Error>(())
 ```
+
+Generated controls convert directly into `View` when passed to composition APIs. The
+[`form sample`](../../samples/reactor-next/form/src/main.rs) exercises controlled input,
+validation, a nested component, and scope-owned background submission.
+
+The component store owns current props and passes them by reference to `Component::view`.
+Components can render from that argument without copying props into their own fields.
+`Component::changed` defaults to a no-op and is only needed for prop-driven state updates.
 
 Local component messages stay on the UI thread. Each window queues at most 4,096 messages.
 `LocalSender::send` returns `false` when the owning scope has retired, the window has closed, or

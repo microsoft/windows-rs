@@ -94,7 +94,7 @@ impl Component for BackgroundComponent {
         }
     }
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::native(TextBlock::new().text(self.text.clone()))
     }
 }

@@ -457,9 +457,19 @@ pub mod public {
             Self::TextBlock(value)
         }
     }
+    impl From<TextBlock> for View {
+        fn from(value: TextBlock) -> Self {
+            Self::native(value)
+        }
+    }
     impl From<Button> for Element {
         fn from(value: Button) -> Self {
             Self::Button(value)
+        }
+    }
+    impl From<Button> for View {
+        fn from(value: Button) -> Self {
+            Self::native(value)
         }
     }
     impl From<StackPanel> for Element {
@@ -467,9 +477,19 @@ pub mod public {
             Self::StackPanel(value)
         }
     }
+    impl From<StackPanel> for View {
+        fn from(value: StackPanel) -> Self {
+            Self::native(value)
+        }
+    }
     impl From<TextBox> for Element {
         fn from(value: TextBox) -> Self {
             Self::TextBox(value)
+        }
+    }
+    impl From<TextBox> for View {
+        fn from(value: TextBox) -> Self {
+            Self::native(value)
         }
     }
     impl From<NumberBox> for Element {
@@ -477,9 +497,19 @@ pub mod public {
             Self::NumberBox(value)
         }
     }
+    impl From<NumberBox> for View {
+        fn from(value: NumberBox) -> Self {
+            Self::native(value)
+        }
+    }
     impl From<Slider> for Element {
         fn from(value: Slider) -> Self {
             Self::Slider(value)
+        }
+    }
+    impl From<Slider> for View {
+        fn from(value: Slider) -> Self {
+            Self::native(value)
         }
     }
     impl From<NavigationView> for Element {
@@ -487,9 +517,19 @@ pub mod public {
             Self::NavigationView(value)
         }
     }
+    impl From<NavigationView> for View {
+        fn from(value: NavigationView) -> Self {
+            Self::native(value)
+        }
+    }
     impl From<ProgressBar> for Element {
         fn from(value: ProgressBar) -> Self {
             Self::ProgressBar(value)
+        }
+    }
+    impl From<ProgressBar> for View {
+        fn from(value: ProgressBar) -> Self {
+            Self::native(value)
         }
     }
     impl From<ToggleSwitch> for Element {
@@ -497,14 +537,29 @@ pub mod public {
             Self::ToggleSwitch(value)
         }
     }
+    impl From<ToggleSwitch> for View {
+        fn from(value: ToggleSwitch) -> Self {
+            Self::native(value)
+        }
+    }
     impl From<ItemsRepeater> for Element {
         fn from(value: ItemsRepeater) -> Self {
             Self::ItemsRepeater(value)
         }
     }
+    impl From<ItemsRepeater> for View {
+        fn from(value: ItemsRepeater) -> Self {
+            Self::native(value)
+        }
+    }
     impl From<ScrollViewer> for Element {
         fn from(value: ScrollViewer) -> Self {
             Self::ScrollViewer(value)
+        }
+    }
+    impl From<ScrollViewer> for View {
+        fn from(value: ScrollViewer) -> Self {
+            Self::native(value)
         }
     }
     impl ElementPartsExt for Element {

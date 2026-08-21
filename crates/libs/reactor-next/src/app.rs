@@ -238,7 +238,7 @@ impl Component for LiveTestComponent {
         }
     }
 
-    fn view(&self, context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
         context.use_effect((), || {
             LIVE_COMPONENT_EFFECT_SETUPS.with(|count| count.set(count.get().saturating_add(1)));
             Some(Box::new(|| {
@@ -282,7 +282,7 @@ impl Component for LiveClosingTask {
         LIVE_CLOSED_TASK_DELIVERED.with(|delivered| delivered.set(true));
     }
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::native(TextBlock::new().text("closing"))
     }
 }

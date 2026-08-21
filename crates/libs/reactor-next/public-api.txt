@@ -85,6 +85,8 @@ pub fn windows_reactor_next::Button::on_click(self, impl core::ops::function::Fn
 pub fn windows_reactor_next::Button::on_click_callback(&self) -> core::option::Option<&windows_reactor_next::Callback<()>>
 impl core::convert::From<windows_reactor_next::Button> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::Button) -> Self
+impl core::convert::From<windows_reactor_next::Button> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::Button) -> Self
 impl windows_reactor_next::ContentControl for windows_reactor_next::Button
 impl windows_reactor_next::EnabledControl for windows_reactor_next::Button
 impl windows_reactor_next::LayoutControl for windows_reactor_next::Button
@@ -126,6 +128,8 @@ pub fn windows_reactor_next::ItemsRepeater::items(self, impl core::iter::traits:
 pub fn windows_reactor_next::ItemsRepeater::new() -> Self
 impl core::convert::From<windows_reactor_next::ItemsRepeater> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::ItemsRepeater) -> Self
+impl core::convert::From<windows_reactor_next::ItemsRepeater> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::ItemsRepeater) -> Self
 impl windows_reactor_next::ItemsControl for windows_reactor_next::ItemsRepeater
 impl windows_reactor_next::LayoutControl for windows_reactor_next::ItemsRepeater
 pub struct windows_reactor_next::KeyedElement
@@ -150,6 +154,8 @@ pub fn windows_reactor_next::NavigationView::is_enabled_property(&self) -> &wind
 pub fn windows_reactor_next::NavigationView::new() -> Self
 impl core::convert::From<windows_reactor_next::NavigationView> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::NavigationView) -> Self
+impl core::convert::From<windows_reactor_next::NavigationView> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::NavigationView) -> Self
 impl windows_reactor_next::EnabledControl for windows_reactor_next::NavigationView
 impl windows_reactor_next::LayoutControl for windows_reactor_next::NavigationView
 impl windows_reactor_next::SlotsControl for windows_reactor_next::NavigationView
@@ -169,6 +175,8 @@ pub fn windows_reactor_next::NumberBox::value(self, f64) -> Self
 pub fn windows_reactor_next::NumberBox::value_property(&self) -> &windows_reactor_next::Property<f64>
 impl core::convert::From<windows_reactor_next::NumberBox> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::NumberBox) -> Self
+impl core::convert::From<windows_reactor_next::NumberBox> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::NumberBox) -> Self
 impl windows_reactor_next::EnabledControl for windows_reactor_next::NumberBox
 impl windows_reactor_next::LayoutControl for windows_reactor_next::NumberBox
 pub struct windows_reactor_next::ProgressBar
@@ -190,6 +198,8 @@ pub fn windows_reactor_next::ProgressBar::value(self, f64) -> Self
 pub fn windows_reactor_next::ProgressBar::value_property(&self) -> &windows_reactor_next::Property<f64>
 impl core::convert::From<windows_reactor_next::ProgressBar> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::ProgressBar) -> Self
+impl core::convert::From<windows_reactor_next::ProgressBar> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::ProgressBar) -> Self
 impl windows_reactor_next::EnabledControl for windows_reactor_next::ProgressBar
 impl windows_reactor_next::LayoutControl for windows_reactor_next::ProgressBar
 pub struct windows_reactor_next::ScrollViewer
@@ -199,6 +209,8 @@ pub fn windows_reactor_next::ScrollViewer::content_element(&self) -> core::optio
 pub fn windows_reactor_next::ScrollViewer::new() -> Self
 impl core::convert::From<windows_reactor_next::ScrollViewer> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::ScrollViewer) -> Self
+impl core::convert::From<windows_reactor_next::ScrollViewer> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::ScrollViewer) -> Self
 impl windows_reactor_next::ContentControl for windows_reactor_next::ScrollViewer
 impl windows_reactor_next::LayoutControl for windows_reactor_next::ScrollViewer
 pub struct windows_reactor_next::Slider
@@ -216,6 +228,8 @@ pub fn windows_reactor_next::Slider::value(self, f64) -> Self
 pub fn windows_reactor_next::Slider::value_property(&self) -> &windows_reactor_next::Property<f64>
 impl core::convert::From<windows_reactor_next::Slider> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::Slider) -> Self
+impl core::convert::From<windows_reactor_next::Slider> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::Slider) -> Self
 impl windows_reactor_next::EnabledControl for windows_reactor_next::Slider
 impl windows_reactor_next::LayoutControl for windows_reactor_next::Slider
 pub struct windows_reactor_next::SlotView<S>
@@ -233,6 +247,8 @@ pub fn windows_reactor_next::StackPanel::spacing(self, f64) -> Self
 pub fn windows_reactor_next::StackPanel::spacing_property(&self) -> &windows_reactor_next::Property<f64>
 impl core::convert::From<windows_reactor_next::StackPanel> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::StackPanel) -> Self
+impl core::convert::From<windows_reactor_next::StackPanel> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::StackPanel) -> Self
 impl windows_reactor_next::ChildrenControl for windows_reactor_next::StackPanel
 impl windows_reactor_next::LayoutControl for windows_reactor_next::StackPanel
 pub struct windows_reactor_next::TextBlock
@@ -244,6 +260,8 @@ pub fn windows_reactor_next::TextBlock::text_wrapping(self, windows_reactor_next
 pub fn windows_reactor_next::TextBlock::text_wrapping_property(&self) -> &windows_reactor_next::Property<windows_reactor_next::TextWrapping>
 impl core::convert::From<windows_reactor_next::TextBlock> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::TextBlock) -> Self
+impl core::convert::From<windows_reactor_next::TextBlock> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::TextBlock) -> Self
 impl windows_reactor_next::LayoutControl for windows_reactor_next::TextBlock
 impl windows_reactor_next::TextStyleControl for windows_reactor_next::TextBlock
 pub struct windows_reactor_next::TextBox
@@ -259,6 +277,8 @@ pub fn windows_reactor_next::TextBox::text(self, impl core::convert::Into<alloc:
 pub fn windows_reactor_next::TextBox::text_property(&self) -> &windows_reactor_next::Property<alloc::string::String>
 impl core::convert::From<windows_reactor_next::TextBox> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::TextBox) -> Self
+impl core::convert::From<windows_reactor_next::TextBox> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::TextBox) -> Self
 impl windows_reactor_next::ControlledTextControl for windows_reactor_next::TextBox
 impl windows_reactor_next::EnabledControl for windows_reactor_next::TextBox
 impl windows_reactor_next::LayoutControl for windows_reactor_next::TextBox
@@ -274,6 +294,8 @@ pub fn windows_reactor_next::ToggleSwitch::on_toggled(self, impl core::ops::func
 pub fn windows_reactor_next::ToggleSwitch::on_toggled_callback(&self) -> core::option::Option<&windows_reactor_next::Callback<bool>>
 impl core::convert::From<windows_reactor_next::ToggleSwitch> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::ToggleSwitch) -> Self
+impl core::convert::From<windows_reactor_next::ToggleSwitch> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::ToggleSwitch) -> Self
 impl windows_reactor_next::EnabledControl for windows_reactor_next::ToggleSwitch
 impl windows_reactor_next::LayoutControl for windows_reactor_next::ToggleSwitch
 pub struct windows_reactor_next::View(_)
@@ -286,8 +308,30 @@ pub fn windows_reactor_next::View::fragment(impl core::iter::traits::collect::In
 pub fn windows_reactor_next::View::native(impl core::convert::Into<windows_reactor_next::Element>) -> Self
 pub fn windows_reactor_next::View::provide<T>(&windows_reactor_next::Context<T>, T, impl core::convert::Into<Self>) -> Self where T: core::clone::Clone + core::cmp::PartialEq + 'static
 pub fn windows_reactor_next::View::slots<C>(C, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor_next::SlotView<<C as windows_reactor_next::SlotsControl>::Slot>>) -> Self where C: windows_reactor_next::SlotsControl + core::convert::Into<windows_reactor_next::Element>
+impl core::convert::From<windows_reactor_next::Button> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::Button) -> Self
 impl core::convert::From<windows_reactor_next::Element> for windows_reactor_next::View
 pub fn windows_reactor_next::View::from(windows_reactor_next::Element) -> Self
+impl core::convert::From<windows_reactor_next::ItemsRepeater> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::ItemsRepeater) -> Self
+impl core::convert::From<windows_reactor_next::NavigationView> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::NavigationView) -> Self
+impl core::convert::From<windows_reactor_next::NumberBox> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::NumberBox) -> Self
+impl core::convert::From<windows_reactor_next::ProgressBar> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::ProgressBar) -> Self
+impl core::convert::From<windows_reactor_next::ScrollViewer> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::ScrollViewer) -> Self
+impl core::convert::From<windows_reactor_next::Slider> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::Slider) -> Self
+impl core::convert::From<windows_reactor_next::StackPanel> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::StackPanel) -> Self
+impl core::convert::From<windows_reactor_next::TextBlock> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::TextBlock) -> Self
+impl core::convert::From<windows_reactor_next::TextBox> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::TextBox) -> Self
+impl core::convert::From<windows_reactor_next::ToggleSwitch> for windows_reactor_next::View
+pub fn windows_reactor_next::View::from(windows_reactor_next::ToggleSwitch) -> Self
 pub struct windows_reactor_next::ViewContext<C: windows_reactor_next::Component>
 impl<C: windows_reactor_next::Component> windows_reactor_next::ViewContext<C>
 pub fn windows_reactor_next::ViewContext<C>::sender(&self) -> windows_reactor_next::LocalSender<<C as windows_reactor_next::Component>::Message>
@@ -301,7 +345,7 @@ pub type windows_reactor_next::Component::Props: core::clone::Clone + core::cmp:
 pub fn windows_reactor_next::Component::changed(&mut self, &Self::Props, &mut windows_reactor_next::ComponentContext<Self>)
 pub fn windows_reactor_next::Component::create(&Self::Props, &mut windows_reactor_next::ComponentContext<Self>) -> Self
 pub fn windows_reactor_next::Component::update(&mut self, Self::Message, &mut windows_reactor_next::ComponentContext<Self>)
-pub fn windows_reactor_next::Component::view(&self, &mut windows_reactor_next::ViewContext<Self>) -> windows_reactor_next::View
+pub fn windows_reactor_next::Component::view(&self, &Self::Props, &mut windows_reactor_next::ViewContext<Self>) -> windows_reactor_next::View
 pub trait windows_reactor_next::ContentControl: windows_reactor_next::element::sealed::Sealed
 impl windows_reactor_next::ContentControl for windows_reactor_next::Button
 impl windows_reactor_next::ContentControl for windows_reactor_next::ScrollViewer

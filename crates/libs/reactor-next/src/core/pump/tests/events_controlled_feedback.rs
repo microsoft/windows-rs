@@ -281,7 +281,7 @@ fn component_rejected_controlled_edit_restores_the_desired_value() {
 
         fn update(&mut self, _message: String, _context: &mut ComponentContext<Self>) {}
 
-        fn view(&self, context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
             let sender = context.sender();
             View::native(
                 TextBox::new()

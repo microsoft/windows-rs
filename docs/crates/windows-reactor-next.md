@@ -46,6 +46,8 @@ adapter concerns because those APIs document those failure modes.
 The owned-component frontend stores stable generational scopes outside cloned candidates. Scope
 reservation, publication, replacement, and retirement follow the structural tree transaction.
 Same-key, same-type children retain scopes across prop updates and keyed movement.
+The component store owns current props and borrows them into `Component::view`. Components that
+render directly from props do not need duplicate fields or a `changed` implementation.
 
 Component sends are queue-only. Each window accepts at most 4,096 queued messages, and each
 dispatcher turn drains at most 64 messages. Dirty scopes compose parent-first. Parent props apply

@@ -50,7 +50,7 @@ fn app(cx: &mut RenderCx) -> Element {
 ```
 
 The equivalent reactor-next application requires a component type, state field, message type,
-four trait methods, a sender, and explicit keyed views:
+three required trait methods, a sender, and explicit keyed views:
 
 ```rust
 struct Counter {
@@ -65,13 +65,11 @@ impl Component for Counter {
         Self { count: 0 }
     }
 
-    fn changed(&mut self, _: &(), _: &mut ComponentContext<Self>) {}
-
     fn update(&mut self, _: (), _: &mut ComponentContext<Self>) {
         self.count += 1;
     }
 
-    fn view(&self, cx: &mut ViewContext<Self>) -> View {
+    fn view(&self, _: &Self::Props, cx: &mut ViewContext<Self>) -> View {
         let sender = cx.sender();
 
         View::children(
@@ -167,11 +165,10 @@ two tree languages.
 
 Several current rough edges can be addressed by a thin frontend layer:
 
-- `View::native(...)` around every ordinary control.
 - `View::children(control, [KeyedView::new(...)])`.
 - No `vstack`, `text_block`, or `button` convenience constructors.
 - No tuple or array child conversion comparable to `IntoChildren`.
-- Repetitive empty `create`, `changed`, and `update` methods.
+- Repetitive empty `create` and `update` methods.
 - Event closures that manually discard the `bool` from `sender.send`.
 - No component derive or macro for common cases.
 - No concise child-component syntax.
@@ -191,12 +188,39 @@ vstack((
 This would remain syntax over `View`, `KeyedView`, and typed senders rather than creating another
 ownership or state model.
 
-A component derive or macro could supply common defaults for `create` and `changed`. The main
-constraint is to avoid turning convenience APIs into a second reconciliation frontend.
+A component derive or macro could reduce common `create` boilerplate. The main constraint is to
+avoid turning convenience APIs into a second reconciliation frontend.
 
 The first iteration should prefer ordinary traits, conversions, and methods over procedural
 macros. Macros can hide poor underlying types and produce worse diagnostics. Add them only after
 the non-macro API is proven by realistic applications.
+
+### Initial form baseline
+
+The first form slice is
+`crates/samples/reactor-next/form/src/main.rs`. It includes controlled text and numeric input,
+validation, disabled state, progress, background submission, and an extracted summary component.
+The initial public-API baseline is:
+
+| Measure | Current result |
+| --- | ---: |
+| Source lines | 176 |
+| Explicit child keys | 7 |
+| Sender handles | 3 |
+| Event forwarding closures | 3 |
+| Empty component lifecycle methods | 1 |
+
+The first attempted version also required six `View::native(...)` calls because Rust does not chain
+the generated control-to-`Element` and `Element`-to-`View` conversions. Generated controls now
+convert directly to `View`. This removes ceremony without adding a frontend or changing the tree:
+the conversion calls the existing `View::native`.
+
+The component store now borrows its authoritative current props into `view`. The read-only summary
+therefore remains a unit struct and needs no duplicate props field or `changed` synchronization.
+All seven children are static but require keys. Three events repeat sender capture, message
+construction, send, and ignored-result handling. The summary still requires `create` and an empty
+`update`. Focus cannot be expressed, so the form cannot implement focus-first-invalid or
+post-submit focus behavior yet.
 
 ## Current flexibility
 

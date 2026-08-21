@@ -49,7 +49,7 @@ fn dropping_component_pump_cleans_effects_before_native_reset() {
 
         fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
 
-        fn view(&self, context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
             let log = Rc::clone(&self.0.0);
             context.use_effect((), move || {
                 Some(Box::new(move || log.borrow_mut().push("cleanup")))
@@ -107,7 +107,7 @@ fn component_effects_commit_after_mount_and_cleanup_once() {
 
         fn changed(&mut self, _props: &Props, _cx: &mut ComponentContext<Self>) {}
 
-        fn view(&self, cx: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, cx: &mut ViewContext<Self>) -> View {
             let log = Rc::clone(&self.log);
             let value = self.value;
             cx.use_effect(value, move || {
@@ -185,7 +185,7 @@ fn full_tree_recomposition_preserves_unchanged_effects_and_replaces_changed_effe
             self.value = value;
         }
 
-        fn view(&self, context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
             let stable_log = Rc::clone(&self.props.log);
             context.use_effect((), move || {
                 stable_log.borrow_mut().push("stable setup".to_string());
@@ -278,7 +278,7 @@ fn component_effect_setup_follows_parent_first_tree_order() {
 
         fn update(&mut self, (): (), _cx: &mut ComponentContext<Self>) {}
 
-        fn view(&self, cx: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, cx: &mut ViewContext<Self>) -> View {
             let label = self.0.label;
             let log = Rc::clone(&self.0.log);
             cx.use_effect((), move || {
@@ -305,7 +305,7 @@ fn component_effect_setup_follows_parent_first_tree_order() {
 
         fn update(&mut self, (): (), _cx: &mut ComponentContext<Self>) {}
 
-        fn view(&self, cx: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, cx: &mut ViewContext<Self>) -> View {
             let log = Rc::clone(&self.0);
             cx.use_effect((), move || {
                 log.borrow_mut().push("parent");
@@ -393,7 +393,7 @@ fn fatal_component_apply_does_not_commit_pending_effects() {
             self.0 = props.clone();
         }
 
-        fn view(&self, cx: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, cx: &mut ViewContext<Self>) -> View {
             let alternate = self.0.alternate;
             let log = Rc::clone(&self.0.log);
             cx.use_effect(alternate, move || {
@@ -463,7 +463,7 @@ fn retired_component_effects_cleanup_child_first() {
             self.0 = props.clone();
         }
 
-        fn view(&self, cx: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, cx: &mut ViewContext<Self>) -> View {
             let cleanup = self.0.name;
             let log = Rc::clone(&self.0.log);
             cx.use_effect((), move || {

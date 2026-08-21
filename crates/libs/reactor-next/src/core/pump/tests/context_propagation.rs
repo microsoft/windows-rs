@@ -39,7 +39,7 @@ impl Component for Consumer {
 
     fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
         self.0.views.set(self.0.views.get() + 1);
         View::native(TextBlock::new().text(context.use_context(&self.0.context)))
     }
@@ -80,7 +80,7 @@ impl Component for ProviderRoot {
 
     fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::provide(
             &self.0.context,
             self.0.value.clone(),
@@ -190,7 +190,7 @@ fn provider_key_changes_do_not_recompose_shadowed_consumers() {
 
         fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
-        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
             let child = View::children(
                 StackPanel::new(),
                 [
@@ -304,7 +304,7 @@ fn broad_provider_update_skips_non_consuming_component_boundary() {
 
         fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
-        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
             self.0.subtree_views.set(self.0.subtree_views.get() + 1);
             let mut children = (0..1_024_usize)
                 .map(|index| {
@@ -356,7 +356,7 @@ fn broad_provider_update_skips_non_consuming_component_boundary() {
 
         fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
-        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
             View::provide(
                 &self.0.context,
                 self.0.value.clone(),
@@ -436,7 +436,7 @@ fn component_message_provider_update_recomposes_consumer() {
             self.value = message;
         }
 
-        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
             View::provide(
                 &self.props.context,
                 self.value.clone(),
@@ -525,7 +525,7 @@ fn stopped_context_reads_are_not_invalidated() {
 
         fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
-        fn view(&self, context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
             self.0.views.set(self.0.views.get() + 1);
             let value = if self.0.enabled {
                 context.use_context(&self.0.context)
@@ -569,7 +569,7 @@ fn stopped_context_reads_are_not_invalidated() {
 
         fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
-        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
             View::provide(
                 &self.0.context,
                 self.0.value.clone(),
@@ -632,7 +632,7 @@ impl Component for ProviderList {
 
     fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::children(
             StackPanel::new(),
             self.0.entries.iter().map(|(key, value)| {
@@ -708,7 +708,7 @@ impl Component for InvalidConsumer {
 
     fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
         self.0.views.set(self.0.views.get() + 1);
         if context.use_context(&self.0.context) == "bad" {
             View::fragment([
@@ -752,7 +752,7 @@ impl Component for InvalidRoot {
 
     fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::provide(
             &self.0.context,
             self.0.value.clone(),

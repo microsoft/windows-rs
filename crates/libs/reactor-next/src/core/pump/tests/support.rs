@@ -101,7 +101,7 @@ impl Component for Leaf {
 
     fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::native(TextBlock::new().text(self.text.clone()))
     }
 }
@@ -129,7 +129,7 @@ impl Component for Root {
         self.text = message;
     }
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::component::<Leaf>(self.text.clone())
     }
 }
@@ -154,7 +154,7 @@ impl Component for List {
 
     fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::children(
             StackPanel::new(),
             self.items
@@ -184,7 +184,7 @@ impl Component for AltLeaf {
 
     fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::native(TextBlock::new().text(format!("alt:{}", self.text)))
     }
 }
@@ -209,7 +209,7 @@ impl Component for MixedList {
         self.alt = message;
     }
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         let child = if self.alt {
             View::component::<AltLeaf>("value".to_string())
         } else {
@@ -251,7 +251,7 @@ impl Component for CountingChild {
 
     fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         self.views.set(self.views.get() + 1);
         View::native(TextBlock::new())
     }
@@ -277,7 +277,7 @@ impl Component for CountingParent {
 
     fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         self.counts.parent.set(self.counts.parent.get() + 1);
         View::component::<CountingChild>(Rc::clone(&self.counts.child))
     }

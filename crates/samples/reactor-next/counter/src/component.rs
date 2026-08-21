@@ -14,13 +14,11 @@ impl Component for Counter {
         Self { count: 0 }
     }
 
-    fn changed(&mut self, _props: &(), _context: &mut ComponentContext<Self>) {}
-
     fn update(&mut self, _message: (), _context: &mut ComponentContext<Self>) {
         self.count += 1;
     }
 
-    fn view(&self, context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
         let increment = context.sender();
         View::children(
             StackPanel::new().spacing(8.0),

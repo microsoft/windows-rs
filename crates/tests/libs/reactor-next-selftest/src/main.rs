@@ -37,7 +37,7 @@ impl Component for Primary {
         record_live_primary_event(message);
     }
 
-    fn view(&self, context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
         context.use_effect((), move || {
             let passed = live_resources_installed().unwrap_or(false);
             if let Err(error) = schedule_live_controlled_repair_test(passed) {
@@ -69,7 +69,7 @@ impl Component for Secondary {
         record_live_secondary_event(message);
     }
 
-    fn view(&self, context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
         let sender = context.sender();
         View::native(TextBox::new().text("second").on_text_changed(move |value| {
             sender.send(value);

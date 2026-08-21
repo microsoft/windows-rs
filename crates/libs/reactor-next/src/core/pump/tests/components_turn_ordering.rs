@@ -35,7 +35,7 @@ impl Component for PlanningFailureComponent {
 
     fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         match self.mode {
             PlanningMode::Valid => View::native(TextBlock::new().text("valid")),
             PlanningMode::InvalidArity => View::fragment([
@@ -118,7 +118,7 @@ fn component_turn_retry_recomposes_touched_child_after_planning_failure() {
             self.mode = message;
         }
 
-        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
             View::component::<PlanningFailureComponent>(self.mode.clone())
         }
     }
@@ -243,7 +243,7 @@ fn component_can_toggle_between_empty_and_one_native_root() {
             self.visible = visible;
         }
 
-        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
             if self.visible {
                 View::native(TextBlock::new().text("visible"))
             } else {
@@ -311,7 +311,7 @@ fn local_probe_fallback_composes_once() {
             self.expanded = expanded;
         }
 
-        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
             self.views.set(self.views.get() + 1);
             if self.expanded {
                 View::children(
@@ -370,7 +370,7 @@ fn failed_component_candidate_is_fatal() {
             self.0 = changed;
         }
 
-        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
             if self.0 {
                 View::native(Button::new())
             } else {
@@ -653,7 +653,7 @@ fn parent_props_apply_before_a_queued_child_message() {
             self.observed.set(Some(self.value));
         }
 
-        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
             View::native(TextBlock::new().text(self.value.to_string()))
         }
     }
@@ -698,7 +698,7 @@ fn parent_props_apply_before_a_queued_child_message() {
             self.value = value;
         }
 
-        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
             View::component::<Child>(ChildProps {
                 observed: Rc::clone(&self.props.observed),
                 sender: Rc::clone(&self.props.child_sender),

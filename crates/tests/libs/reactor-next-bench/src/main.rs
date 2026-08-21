@@ -126,7 +126,7 @@ impl Component for BackgroundLeaf {
         }
     }
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::native(TextBlock::new().text(self.0.to_string()))
     }
 }
@@ -159,7 +159,7 @@ impl Component for BackgroundRoot {
 
     fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::children(
             StackPanel::new(),
             (0..self.0.count).map(|index| {
@@ -193,7 +193,7 @@ impl Component for BenchLeaf {
         }
     }
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::native(TextBlock::new().text(if self.active { "on" } else { "off" }))
     }
 }
@@ -227,7 +227,7 @@ impl Component for BenchRoot {
 
     fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::children(
             StackPanel::new(),
             self.senders.iter().enumerate().map(|(index, sender)| {
@@ -258,7 +258,7 @@ impl Component for BenchFragmentRoot {
 
     fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         let fragment = self.0.0.iter().enumerate().map(|(index, sender)| {
             KeyedView::new(
                 index,
@@ -302,7 +302,7 @@ impl Component for ContextConsumer {
 
     fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
         View::native(TextBlock::new().text(context.use_context(&self.0).to_string()))
     }
 }
@@ -332,7 +332,7 @@ impl Component for ContextOwner {
         self.value = value;
     }
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::provide(
             &self.props.context,
             self.value,
@@ -372,7 +372,7 @@ impl Component for ContextSubtree {
 
     fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::children(
             StackPanel::new(),
             (0..self.0.count).map(|index| {
@@ -427,7 +427,7 @@ impl Component for ContextBroadOwner {
         self.value = value;
     }
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::provide(
             &self.props.context,
             self.value,
@@ -467,7 +467,7 @@ impl Component for ContextRoot {
 
     fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         let middle = self.0.senders.len() / 2;
         View::children(
             StackPanel::new(),
@@ -516,7 +516,7 @@ impl Component for ManyProviderRoot {
 
     fn update(&mut self, (): (), _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::children(
             StackPanel::new(),
             self.0.owners.iter().enumerate().map(|(index, owner)| {
@@ -557,7 +557,7 @@ impl Component for KeyedRoot {
 
     fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::children(
             StackPanel::new(),
             self.0
@@ -584,7 +584,7 @@ impl Component for KeyedLeaf {
 
     fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
 
-    fn view(&self, _context: &mut ViewContext<Self>) -> View {
+    fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
         View::native(TextBlock::new().text(self.0.to_string()))
     }
 }

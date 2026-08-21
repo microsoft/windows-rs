@@ -86,9 +86,9 @@ trait Component: 'static {
     type Message: 'static;
 
     fn create(props: &Self::Props, context: &mut ComponentContext<Self>) -> Self;
-    fn changed(&mut self, props: &Self::Props, context: &mut ComponentContext<Self>);
+    fn changed(&mut self, _props: &Self::Props, _context: &mut ComponentContext<Self>) {}
     fn update(&mut self, message: Self::Message, context: &mut ComponentContext<Self>);
-    fn view(&self, context: &mut ViewContext<Self>) -> View;
+    fn view(&self, props: &Self::Props, context: &mut ViewContext<Self>) -> View;
 }
 ```
 
@@ -97,6 +97,7 @@ Rules:
 - Component identity is parent boundary plus key plus component type.
 - Same key and type retain the scope across props and movement.
 - Same key and different type replace the scope.
+- The component store owns current props and borrows them into `view`.
 - Sends enqueue typed messages and never call component code reentrantly.
 - Props apply parent-first before surviving descendant messages.
 - Retirement drops queued work for removed descendants.
@@ -531,3 +532,15 @@ diagnostics, compile time, and edit/rebuild time after each API change.
 Convenience constructors, component macros, broad styling helpers, resource abstractions, and
 migration shims follow application evidence. They must remain syntax and services over the single
 `View` and owned-component model, not introduce another reconciliation frontend or state engine.
+
+The initial form baseline is `crates/samples/reactor-next/form`. Its first compile exposed that
+generated controls converted to `Element` but not directly to `View`, forcing `View::native` at
+every logical child boundary because Rust does not chain `Into` conversions. The generator now
+emits direct control-to-`View` conversions that call the existing `View::native`; this adds no tree
+type or reconciliation path.
+
+Passing store-owned props to `view` lets the read-only summary render without duplicating its props
+or synchronizing them in `changed`. The form still has seven mandatory keys for seven static
+children, three sender handles and forwarding closures, and one empty `update` in the read-only
+child component. Focus is not expressible. These are the next UX inputs; do not solve them all with
+a parallel wrapper DSL.

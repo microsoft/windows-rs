@@ -570,9 +570,9 @@ pub trait Component: Sized + 'static {
     type Message: 'static;
 
     fn create(props: &Self::Props, context: &mut ComponentContext<Self>) -> Self;
-    fn changed(&mut self, props: &Self::Props, context: &mut ComponentContext<Self>);
+    fn changed(&mut self, _props: &Self::Props, _context: &mut ComponentContext<Self>) {}
     fn update(&mut self, message: Self::Message, context: &mut ComponentContext<Self>);
-    fn view(&self, context: &mut ViewContext<Self>) -> View;
+    fn view(&self, props: &Self::Props, context: &mut ViewContext<Self>) -> View;
 }
 
 trait ErasedComponentFactory {
@@ -802,7 +802,13 @@ struct TypedScope<C, P, M> {
     changed: fn(&mut C, &P, LocalSender<M>, TaskSpawner),
     sender: LocalSender<M>,
     update: fn(&mut C, M, LocalSender<M>, TaskSpawner),
-    view: fn(&C, LocalSender<M>, Rc<RefCell<ComponentEffects>>, ContextSnapshot) -> ComponentRender,
+    view: fn(
+        &C,
+        &P,
+        LocalSender<M>,
+        Rc<RefCell<ComponentEffects>>,
+        ContextSnapshot,
+    ) -> ComponentRender,
 }
 
 impl<C, P, M> Drop for TypedScope<C, P, M> {
@@ -880,6 +886,7 @@ where
         self.effects.borrow_mut().begin_view();
         Ok((self.view)(
             &self.component,
+            &self.props,
             self.sender.clone(),
             Rc::clone(&self.effects),
             contexts,
@@ -971,6 +978,7 @@ impl ComponentStore {
 
         fn view<C: Component>(
             component: &C,
+            props: &C::Props,
             sender: LocalSender<C::Message>,
             effects: Rc<RefCell<ComponentEffects>>,
             contexts: ContextSnapshot,
@@ -981,7 +989,7 @@ impl ComponentStore {
                 reads: HashSet::new(),
                 sender,
             };
-            let view = component.view(&mut context);
+            let view = component.view(props, &mut context);
             ComponentRender {
                 dependencies: context.reads,
                 view,
@@ -1479,7 +1487,7 @@ mod tests {
             }
         }
 
-        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
             View::empty()
         }
     }
@@ -1490,6 +1498,42 @@ mod tests {
 
     fn reserve_state(store: &mut ComponentStore, props: &str) -> ComponentToken {
         store.reserve_component::<State>(props.to_string()).unwrap()
+    }
+
+    struct DirectProps;
+
+    impl Component for DirectProps {
+        type Props = String;
+        type Message = ();
+
+        fn create(_props: &Self::Props, _context: &mut ComponentContext<Self>) -> Self {
+            Self
+        }
+
+        fn update(&mut self, _message: Self::Message, _context: &mut ComponentContext<Self>) {}
+
+        fn view(&self, props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
+            View::native(TextBlock::new().text(props.clone()))
+        }
+    }
+
+    #[test]
+    fn view_receives_current_store_owned_props() {
+        let mut store = store();
+        let token = store
+            .reserve_component::<DirectProps>("first".to_string())
+            .unwrap();
+        store.publish(token).unwrap();
+
+        assert_eq!(
+            store.view(token, ContextSnapshot::default()).unwrap().view,
+            View::native(TextBlock::new().text("first"))
+        );
+        assert!(store.apply_props(token, "second".to_string()).unwrap());
+        assert_eq!(
+            store.view(token, ContextSnapshot::default()).unwrap().view,
+            View::native(TextBlock::new().text("second"))
+        );
     }
 
     fn wait_for_status(task: &ComponentTask, status: ComponentTaskStatus) {
@@ -1832,7 +1876,7 @@ mod tests {
             self.value += message;
         }
 
-        fn view(&self, _context: &mut ViewContext<Self>) -> View {
+        fn view(&self, _props: &Self::Props, _context: &mut ViewContext<Self>) -> View {
             View::native(TextBlock::new().text(self.value.to_string()))
         }
     }
