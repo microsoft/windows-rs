@@ -6,7 +6,7 @@ performance are proven.
 
 See [`reactor-next.md`](../../../reactor-next.md) for the current plan and gates.
 
-The current slice generates `TextBlock`, `Button`, `StackPanel`, `TextBox`, `NumberBox`,
+The current slice generates `TextBlock`, `Button`, `StackPanel`, `TextBox`, `NumberBox`, `Slider`,
 `ScrollViewer`, and `ItemsRepeater` from WinUI metadata plus a small curation schema. The private
 WinUI backend applies properties and keyed structure and queues native work. The recording runtime
 remains the failure-injection and randomized-test backend.

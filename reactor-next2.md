@@ -214,6 +214,10 @@ and WebView own only behavior that cannot be expressed by the ordinary schema.
 | NumberBox source-only rebuild delta | Within measurement noise: 1.228 -> 1.237 seconds |
 | NumberBox thin release delta | 828,928 -> 847,360 bytes: +18,432 bytes, +2.22% |
 | NumberBox retained core layouts | Unchanged: `Node` 416, `MountedProps` 72, `Element` 80 bytes |
+| Slider median source-only rebuild delta | 1.290 -> 1.330 seconds: +3.1% |
+| Slider thin release delta | 847,360 -> 858,624 bytes: +11,264 bytes, +1.33% |
+| Slider PE section delta | `.text` +8,416 bytes; `.rdata` +3,008 bytes |
+| Slider retained core layouts | Unchanged: `Node` 416, `MountedProps` 72, `Element` 80 bytes |
 | Isolated component leaf at 512 scopes | 0.51 us, 430 bytes, 9 allocations |
 | Isolated component leaf at 16,384 scopes | 0.51 us, 430 bytes, 9 allocations |
 | Idle component memory | About 2,440 bytes per scope |
@@ -322,6 +326,13 @@ For each difficult control slice:
 One control does not justify feature partitioning. A representative batch must show whether the
 slope remains roughly linear and whether optional control groups would save enough to offset their
 generator, documentation, and user-facing complexity.
+
+Slider provides the second controlled cost point. It reused the normalized range contract through
+schema alone and passed the same live tighten/coerce/relax/restore sequence as NumberBox. It added
+11,264 bytes to the thin release counter, compared with NumberBox's 18,432 bytes, and did not change
+retained core layouts. This confirms a recurring per-control binary cost but does not justify
+feature partitioning yet. The next difficult slice should proceed while preserving the same
+measurement gate; a varied control batch remains necessary before projecting broad coverage.
 
 ### Structural composition decision
 

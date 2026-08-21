@@ -26,7 +26,7 @@ thread_local! {
     static LIVE_COMPONENT_EFFECT_CLEANUPS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_COMPONENT_BACKGROUND: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
     static LIVE_CLOSED_TASK_DELIVERED: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
-    static LIVE_NUMBER_BOX_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
+    static LIVE_RANGE_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_PRIMARY_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_PRIMARY_NATIVE_PAYLOAD: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
     static LIVE_SECONDARY_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
@@ -140,15 +140,15 @@ trait LivePump {
         false
     }
     #[cfg(feature = "test")]
-    fn live_number_box_feedback(&mut self) -> bool {
+    fn live_range_feedback(&mut self, _control: LiveRangeControl) -> bool {
         false
     }
     #[cfg(feature = "test")]
-    fn live_number_box_restore(&mut self) -> bool {
+    fn live_range_restore(&mut self, _control: LiveRangeControl) -> bool {
         false
     }
     #[cfg(feature = "test")]
-    fn live_number_box_value(&self) -> Result<f64, RuntimeError> {
+    fn live_range_value(&self) -> Result<f64, RuntimeError> {
         Err(RuntimeError::UnsupportedKind)
     }
 }
@@ -168,6 +168,23 @@ struct LiveTestComponent {
 enum LiveTestMessage {
     Background,
     Native(String),
+}
+
+#[cfg(feature = "test")]
+#[derive(Clone, Copy)]
+enum LiveRangeControl {
+    NumberBox,
+    Slider,
+}
+
+#[cfg(feature = "test")]
+impl LiveRangeControl {
+    fn name(self) -> &'static str {
+        match self {
+            Self::NumberBox => "NumberBox",
+            Self::Slider => "Slider",
+        }
+    }
 }
 
 #[cfg(feature = "test")]
@@ -419,50 +436,62 @@ impl LivePump for ComponentLoop {
     }
 
     #[cfg(feature = "test")]
-    fn live_number_box_feedback(&mut self) -> bool {
-        LIVE_NUMBER_BOX_EVENTS.with(|count| count.set(0));
-        let view = |maximum, value| {
-            View::native(
+    fn live_range_feedback(&mut self, control: LiveRangeControl) -> bool {
+        LIVE_RANGE_EVENTS.with(|count| count.set(0));
+        let view = |maximum, value| match control {
+            LiveRangeControl::NumberBox => View::native(
                 NumberBox::new()
                     .minimum(0.0)
                     .maximum(maximum)
                     .value(value)
-                    .on_value_changed(|_| {
-                        LIVE_NUMBER_BOX_EVENTS.with(|count| {
-                            count.set(count.get().saturating_add(1));
-                        });
-                    }),
-            )
+                    .on_value_changed(record_live_range_event),
+            ),
+            LiveRangeControl::Slider => View::native(
+                Slider::new()
+                    .minimum(0.0)
+                    .maximum(maximum)
+                    .value(value)
+                    .on_value_changed(record_live_range_event),
+            ),
         };
         self.pump.update_view(view(10.0, 7.0)).is_ok()
             && self.pump.update_view(view(5.0, 7.0)).is_ok()
     }
 
     #[cfg(feature = "test")]
-    fn live_number_box_restore(&mut self) -> bool {
-        self.pump
-            .update_view(View::native(
+    fn live_range_restore(&mut self, control: LiveRangeControl) -> bool {
+        let view = match control {
+            LiveRangeControl::NumberBox => View::native(
                 NumberBox::new()
                     .minimum(0.0)
                     .maximum(10.0)
                     .value(7.0)
-                    .on_value_changed(|_| {
-                        LIVE_NUMBER_BOX_EVENTS.with(|count| {
-                            count.set(count.get().saturating_add(1));
-                        });
-                    }),
-            ))
-            .is_ok()
+                    .on_value_changed(record_live_range_event),
+            ),
+            LiveRangeControl::Slider => View::native(
+                Slider::new()
+                    .minimum(0.0)
+                    .maximum(10.0)
+                    .value(7.0)
+                    .on_value_changed(record_live_range_event),
+            ),
+        };
+        self.pump.update_view(view).is_ok()
     }
 
     #[cfg(feature = "test")]
-    fn live_number_box_value(&self) -> Result<f64, RuntimeError> {
+    fn live_range_value(&self) -> Result<f64, RuntimeError> {
         let native = self
             .pump
             .root_native()
             .ok_or(RuntimeError::UnsupportedKind)?;
-        self.pump.runtime().live_number_value(native)
+        self.pump.runtime().live_range_value(native)
     }
+}
+
+#[cfg(feature = "test")]
+fn record_live_range_event(_: f64) {
+    LIVE_RANGE_EVENTS.with(|count| count.set(count.get().saturating_add(1)));
 }
 
 pub fn bootstrap() -> windows_core::Result<()> {
@@ -1065,9 +1094,10 @@ fn continue_live_backend_test() {
         eprintln!("live backend fixture did not apply empty and fragment transitions");
         std::process::exit(1);
     }
+    let control = LiveRangeControl::NumberBox;
     if !live
         .primary_mut()
-        .is_some_and(LivePump::live_number_box_feedback)
+        .is_some_and(|pump| pump.live_range_feedback(control))
     {
         eprintln!("live backend fixture did not apply NumberBox feedback updates");
         std::process::exit(1);
@@ -1080,50 +1110,52 @@ fn continue_live_backend_test() {
         }
     };
     HOST.with(|host| *host.borrow_mut() = Some(live));
-    if queue_live_number_box_verification(dispatcher, 8).is_err() {
+    if queue_live_range_verification(dispatcher, control, 8).is_err() {
         std::process::exit(1);
     }
 }
 
 #[cfg(feature = "test")]
-fn queue_live_number_box_verification(
+fn queue_live_range_verification(
     dispatcher: DispatcherQueue,
+    control: LiveRangeControl,
     attempts: u8,
 ) -> windows_core::Result<()> {
     let next_dispatcher = dispatcher.clone();
     let verify = DispatcherQueueHandler::new(move || {
-        let events = LIVE_NUMBER_BOX_EVENTS.with(std::cell::Cell::get);
+        let name = control.name();
+        let events = LIVE_RANGE_EVENTS.with(std::cell::Cell::get);
         let value = HOST.with(|host| {
             host.borrow()
                 .as_ref()
                 .and_then(LiveHost::primary)
-                .map(LivePump::live_number_box_value)
+                .map(LivePump::live_range_value)
         });
         if events != 0 {
-            eprintln!("NumberBox delivered {events} programmatic feedback events: value={value:?}");
+            eprintln!("{name} delivered {events} programmatic feedback events: value={value:?}");
             std::process::exit(1);
         }
         if attempts == 0 {
             if !matches!(value, Some(Ok(value)) if value == 5.0) {
-                eprintln!("NumberBox did not report its tightened-bound value: {value:?}");
+                eprintln!("{name} did not report its tightened-bound value: {value:?}");
                 std::process::exit(1);
             }
             let restored = HOST.with(|host| {
                 host.borrow_mut()
                     .as_mut()
                     .and_then(LiveHost::primary_mut)
-                    .is_some_and(LivePump::live_number_box_restore)
+                    .is_some_and(|pump| pump.live_range_restore(control))
             });
             if !restored {
-                eprintln!("NumberBox did not apply its relaxed-bound update");
+                eprintln!("{name} did not apply its relaxed-bound update");
                 std::process::exit(1);
             }
-            if queue_live_number_box_restore_verification(next_dispatcher.clone(), 8).is_err() {
+            if queue_live_range_restore_verification(next_dispatcher.clone(), control, 8).is_err() {
                 std::process::exit(1);
             }
             return;
         }
-        if queue_live_number_box_verification(next_dispatcher.clone(), attempts - 1).is_err() {
+        if queue_live_range_verification(next_dispatcher.clone(), control, attempts - 1).is_err() {
             std::process::exit(1);
         }
     });
@@ -1132,52 +1164,74 @@ fn queue_live_number_box_verification(
     } else {
         Err(windows_core::Error::new(
             E_FAIL,
-            "dispatcher rejected NumberBox feedback verification",
+            "dispatcher rejected range feedback verification",
         ))
     }
 }
 
 #[cfg(feature = "test")]
-fn queue_live_number_box_restore_verification(
+fn queue_live_range_restore_verification(
     dispatcher: DispatcherQueue,
+    control: LiveRangeControl,
     attempts: u8,
 ) -> windows_core::Result<()> {
     let next_dispatcher = dispatcher.clone();
     let verify = DispatcherQueueHandler::new(move || {
-        let events = LIVE_NUMBER_BOX_EVENTS.with(std::cell::Cell::get);
+        let name = control.name();
+        let events = LIVE_RANGE_EVENTS.with(std::cell::Cell::get);
         let value = HOST.with(|host| {
             host.borrow()
                 .as_ref()
                 .and_then(LiveHost::primary)
-                .map(LivePump::live_number_box_value)
+                .map(LivePump::live_range_value)
         });
         if events != 0 {
-            eprintln!("NumberBox delivered {events} programmatic feedback events: value={value:?}");
+            eprintln!("{name} delivered {events} programmatic feedback events: value={value:?}");
             std::process::exit(1);
         }
         if matches!(value, Some(Ok(value)) if value == 7.0) {
-            let prepared = HOST.with(|host| {
-                host.borrow_mut()
-                    .as_mut()
-                    .and_then(LiveHost::primary_mut)
-                    .is_some_and(LivePump::live_component_update)
-            });
-            if !prepared {
-                eprintln!("live backend fixture did not apply a component structural update");
-                std::process::exit(1);
-            }
-            if queue_live_component_verification(next_dispatcher.clone(), 8).is_err() {
-                std::process::exit(1);
+            match control {
+                LiveRangeControl::NumberBox => {
+                    let slider = LiveRangeControl::Slider;
+                    let started = HOST.with(|host| {
+                        host.borrow_mut()
+                            .as_mut()
+                            .and_then(LiveHost::primary_mut)
+                            .is_some_and(|pump| pump.live_range_feedback(slider))
+                    });
+                    if !started {
+                        eprintln!("live backend fixture did not apply Slider feedback updates");
+                        std::process::exit(1);
+                    }
+                    if queue_live_range_verification(next_dispatcher.clone(), slider, 8).is_err() {
+                        std::process::exit(1);
+                    }
+                }
+                LiveRangeControl::Slider => {
+                    let prepared = HOST.with(|host| {
+                        host.borrow_mut()
+                            .as_mut()
+                            .and_then(LiveHost::primary_mut)
+                            .is_some_and(LivePump::live_component_update)
+                    });
+                    if !prepared {
+                        eprintln!(
+                            "live backend fixture did not apply a component structural update"
+                        );
+                        std::process::exit(1);
+                    }
+                    if queue_live_component_verification(next_dispatcher.clone(), 8).is_err() {
+                        std::process::exit(1);
+                    }
+                }
             }
             return;
         }
         if attempts == 0
-            || queue_live_number_box_restore_verification(next_dispatcher.clone(), attempts - 1)
+            || queue_live_range_restore_verification(next_dispatcher.clone(), control, attempts - 1)
                 .is_err()
         {
-            eprintln!(
-                "NumberBox did not restore its desired value after relaxing bounds: {value:?}"
-            );
+            eprintln!("{name} did not restore its desired value after relaxing bounds: {value:?}");
             std::process::exit(1);
         }
     });
@@ -1186,7 +1240,7 @@ fn queue_live_number_box_restore_verification(
     } else {
         Err(windows_core::Error::new(
             E_FAIL,
-            "dispatcher rejected NumberBox restore verification",
+            "dispatcher rejected range restore verification",
         ))
     }
 }

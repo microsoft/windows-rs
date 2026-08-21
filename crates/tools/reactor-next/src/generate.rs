@@ -1090,10 +1090,11 @@ mod tests {
         let resolved = schema.resolve(&metadata).unwrap();
         let output = generate(&resolved);
 
-        assert_eq!(output.matches("ControlDescriptor").count(), 9);
+        assert_eq!(output.matches("ControlDescriptor").count(), 10);
         assert!(output.contains("feedback : Some"));
         assert!(output.contains("feedback_contract : Some (\"synchronous_normalized\")"));
         assert!(output.contains("pub struct NumberBox"));
+        assert!(output.contains("pub struct Slider"));
         assert!(output.contains("ControlRole :: Children"));
         assert!(output.contains("pub struct TextBox"));
         assert!(output.contains("impl ControlledTextControl for TextBox"));

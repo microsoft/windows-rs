@@ -74,11 +74,15 @@ impl WinUiRuntime {
     }
 
     #[cfg(feature = "test")]
-    pub fn live_number_value(&self, node: NodeId) -> Result<f64, RuntimeError> {
-        let Some(Handle::NumberBox(number_box)) = self.handles.get(&node) else {
-            return Err(RuntimeError::UnsupportedKind);
-        };
-        number_box.Value().map_err(native_error)
+    pub fn live_range_value(&self, node: NodeId) -> Result<f64, RuntimeError> {
+        match self.handles.get(&node) {
+            Some(Handle::NumberBox(number_box)) => number_box.Value().map_err(native_error),
+            Some(Handle::Slider(slider)) => slider
+                .cast::<IRangeBase>()
+                .and_then(|slider| slider.Value())
+                .map_err(native_error),
+            _ => Err(RuntimeError::UnsupportedKind),
+        }
     }
 
     #[cfg(feature = "test")]

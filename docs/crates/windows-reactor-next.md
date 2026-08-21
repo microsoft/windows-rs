@@ -108,7 +108,7 @@ is no divergent-property state or retry scheduler. An unexpected restoring-sette
 the fatal native policy.
 
 Generated controls distinguish synchronous exact feedback from synchronous normalized feedback.
-TextBox suppresses only the exact payload expected from its setter. NumberBox suppresses a
+TextBox suppresses only the exact payload expected from its setter. NumberBox and Slider suppress a
 programmatic `ValueChanged` during `Minimum`, `Maximum`, or `Value` writes because WinUI may coerce
 the numeric payload. The last suppressed normalized payload updates known native state without
 invoking the application callback or scheduling an immediate retry. Bounds are generated before
@@ -185,6 +185,12 @@ counter grew from 828,928 to 847,360 bytes (+18,432 bytes, +2.22%), mostly in ex
 Generated backend dispatch remains reachable through runtime IDs even when the application does
 not construct NumberBox. Measure a representative control batch before deciding whether generated
 controls need feature partitioning.
+
+Slider reused the NumberBox range contract without new generator or runtime behavior. Relative to
+the corrected NumberBox baseline, median source-only rebuild time changed from 1.290 to 1.330
+seconds (+3.1%). The thin release counter grew from 847,360 to 858,624 bytes (+11,264 bytes,
++1.33%), including 8,416 bytes of executable code and 3,008 bytes of read-only data. Core layouts
+did not change.
 
 Removing fine-grained recovery reduced `core/pump/publish.rs` from 396 lines to 57 and removed
 per-command outcome vectors, divergent properties, retries, remount recovery, recovery

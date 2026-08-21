@@ -441,7 +441,7 @@ mod tests {
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
         let resolved = schema.resolve(&metadata).unwrap();
 
-        assert_eq!(resolved.controls.len(), 7);
+        assert_eq!(resolved.controls.len(), 8);
         assert_eq!(resolved.controls[0].name, "TextBlock");
         assert_eq!(resolved.controls[0].properties[0].value, "Str");
         assert_eq!(resolved.controls[1].events[0].payload, "Unit");
@@ -463,7 +463,16 @@ mod tests {
         );
         assert!(!resolved.controls[4].properties[0].observes_feedback);
         assert!(resolved.controls[4].properties[2].observes_feedback);
-        assert!(matches!(resolved.controls[5].role, Role::Virtual));
+        assert_eq!(resolved.controls[5].name, "Slider");
+        assert_eq!(
+            resolved.controls[5].properties[0]
+                .feedback_contract
+                .unwrap(),
+            FeedbackContract::SynchronousNormalized
+        );
+        assert!(!resolved.controls[5].properties[0].observes_feedback);
+        assert!(resolved.controls[5].properties[2].observes_feedback);
+        assert!(matches!(resolved.controls[6].role, Role::Virtual));
     }
 
     #[test]

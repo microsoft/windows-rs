@@ -7,6 +7,7 @@ pub enum Handle {
     StackPanel(bindings::StackPanel),
     TextBox(bindings::TextBox),
     NumberBox(bindings::NumberBox),
+    Slider(bindings::Slider),
     ScrollViewer(bindings::ScrollViewer),
 }
 impl Handle {
@@ -23,6 +24,7 @@ impl Handle {
             MountedKind::NumberBox => {
                 Self::NumberBox(bindings::NumberBox::new().map_err(native_error)?)
             }
+            MountedKind::Slider => Self::Slider(bindings::Slider::new().map_err(native_error)?),
             MountedKind::ScrollViewer => {
                 Self::ScrollViewer(bindings::ScrollViewer::new().map_err(native_error)?)
             }
@@ -36,6 +38,7 @@ impl Handle {
             Self::StackPanel(value) => value.cast(),
             Self::TextBox(value) => value.cast(),
             Self::NumberBox(value) => value.cast(),
+            Self::Slider(value) => value.cast(),
             Self::ScrollViewer(value) => value.cast(),
         }
     }
@@ -46,6 +49,7 @@ impl Handle {
             Self::StackPanel(value) => value.cast(),
             Self::TextBox(value) => value.cast(),
             Self::NumberBox(value) => value.cast(),
+            Self::Slider(value) => value.cast(),
             Self::ScrollViewer(value) => value.cast(),
         }
     }
@@ -144,6 +148,28 @@ pub fn set_property(
             .map_err(native_error)?
             .SetIsEnabled(*value)
             .map_err(native_error),
+        (Handle::Slider(control), PropertyId::SliderMinimum, PropertyValue::F64(value)) => control
+            .cast::<IRangeBase>()
+            .map_err(native_error)?
+            .SetMinimum(*value)
+            .map_err(native_error),
+        (Handle::Slider(control), PropertyId::SliderMaximum, PropertyValue::F64(value)) => control
+            .cast::<IRangeBase>()
+            .map_err(native_error)?
+            .SetMaximum(*value)
+            .map_err(native_error),
+        (Handle::Slider(control), PropertyId::SliderValue, PropertyValue::F64(value)) => control
+            .cast::<IRangeBase>()
+            .map_err(native_error)?
+            .SetValue(*value)
+            .map_err(native_error),
+        (Handle::Slider(control), PropertyId::SliderIsEnabled, PropertyValue::Bool(value)) => {
+            control
+                .cast::<IControl>()
+                .map_err(native_error)?
+                .SetIsEnabled(*value)
+                .map_err(native_error)
+        }
         _ => Err(RuntimeError::UnsupportedKind),
     }
 }
@@ -186,6 +212,18 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
         (Handle::NumberBox(_), PropertyId::NumberBoxIsEnabled) => dependency_object
             .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
             .map_err(native_error),
+        (Handle::Slider(_), PropertyId::SliderMinimum) => dependency_object
+            .ClearValue(&bindings::RangeBase::MinimumProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::Slider(_), PropertyId::SliderMaximum) => dependency_object
+            .ClearValue(&bindings::RangeBase::MaximumProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::Slider(_), PropertyId::SliderValue) => dependency_object
+            .ClearValue(&bindings::RangeBase::ValueProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::Slider(_), PropertyId::SliderIsEnabled) => dependency_object
+            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
+            .map_err(native_error),
         _ => Err(RuntimeError::UnsupportedKind),
     }
 }
@@ -210,6 +248,18 @@ pub fn expected_feedback(
             EventId::NumberBoxValueChanged,
             FeedbackExpectation::Normalized { observation: None },
         )),
+        (PropertyId::SliderMinimum, Some(_)) => Some((
+            EventId::SliderValueChanged,
+            FeedbackExpectation::Normalized { observation: None },
+        )),
+        (PropertyId::SliderMaximum, Some(_)) => Some((
+            EventId::SliderValueChanged,
+            FeedbackExpectation::Normalized { observation: None },
+        )),
+        (PropertyId::SliderValue, Some(_)) => Some((
+            EventId::SliderValueChanged,
+            FeedbackExpectation::Normalized { observation: None },
+        )),
         (PropertyId::TextBoxText, None) => Some((
             EventId::TextBoxTextChanged,
             FeedbackExpectation::Exact(EventPayload::Str(Default::default())),
@@ -224,6 +274,18 @@ pub fn expected_feedback(
         )),
         (PropertyId::NumberBoxValue, None) => Some((
             EventId::NumberBoxValueChanged,
+            FeedbackExpectation::Normalized { observation: None },
+        )),
+        (PropertyId::SliderMinimum, None) => Some((
+            EventId::SliderValueChanged,
+            FeedbackExpectation::Normalized { observation: None },
+        )),
+        (PropertyId::SliderMaximum, None) => Some((
+            EventId::SliderValueChanged,
+            FeedbackExpectation::Normalized { observation: None },
+        )),
+        (PropertyId::SliderValue, None) => Some((
+            EventId::SliderValueChanged,
             FeedbackExpectation::Normalized { observation: None },
         )),
         _ => None,
@@ -285,6 +347,32 @@ pub fn subscribe_event(
                             Err(error) => sink.error(
                                 node,
                                 EventId::NumberBoxValueChanged,
+                                revision,
+                                native_error(error),
+                            ),
+                        }
+                    }
+                })
+                .map_err(native_error)
+        }
+        (Handle::Slider(value), EventId::SliderValueChanged) => {
+            let source = value.cast::<IRangeBase>().map_err(native_error)?;
+            source
+                .ValueChanged(move |_, args| {
+                    if let Some(args) = args.as_ref() {
+                        match args
+                            .cast::<IRangeBaseValueChangedEventArgs>()
+                            .and_then(|args| args.NewValue())
+                        {
+                            Ok(value) => sink.enqueue(
+                                node,
+                                EventId::SliderValueChanged,
+                                revision,
+                                EventPayload::F64(value),
+                            ),
+                            Err(error) => sink.error(
+                                node,
+                                EventId::SliderValueChanged,
                                 revision,
                                 native_error(error),
                             ),

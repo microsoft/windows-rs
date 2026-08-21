@@ -462,3 +462,86 @@ fn number_box_nan_value_is_idempotent() {
     assert_eq!(PropertyValue::F64(f64::NAN), PropertyValue::F64(f64::NAN));
     assert_eq!(EventPayload::F64(f64::NAN), EventPayload::F64(f64::NAN));
 }
+
+#[test]
+fn slider_reuses_the_normalized_range_contract() {
+    let callbacks = Rc::new(Cell::new(0));
+    let initial_capture = Rc::clone(&callbacks);
+    let update_capture = Rc::clone(&callbacks);
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount(
+        Slider::new()
+            .minimum(0.0)
+            .maximum(100.0)
+            .value(50.0)
+            .on_value_changed(move |_| initial_capture.set(initial_capture.get() + 1))
+            .into(),
+    )
+    .unwrap();
+    let root = pump.root().unwrap();
+    let commands = pump.runtime().commands().last().unwrap();
+    let position = |property| {
+        commands
+            .iter()
+            .position(|command| {
+                matches!(
+                    command,
+                    Command::SetProperty {
+                        property: current,
+                        ..
+                    } if *current == property
+                )
+            })
+            .unwrap()
+    };
+    assert!(
+        position(PropertyId::SliderMinimum) < position(PropertyId::SliderMaximum)
+            && position(PropertyId::SliderMaximum) < position(PropertyId::SliderValue)
+    );
+    let revision = pump
+        .event_revision(root, EventId::SliderValueChanged)
+        .unwrap();
+
+    pump.update(
+        Slider::new()
+            .minimum(0.0)
+            .maximum(40.0)
+            .value(50.0)
+            .on_value_changed(move |_| update_capture.set(update_capture.get() + 1))
+            .into(),
+    )
+    .unwrap();
+    pump.queue_event(QueuedEvent::observation(
+        root,
+        EventId::SliderValueChanged,
+        revision,
+        EventPayload::F64(40.0),
+    ));
+
+    assert_eq!(pump.dispatch_events(), Ok(0));
+    assert_eq!(callbacks.get(), 0);
+    assert!(!pump.native_work_pending());
+
+    pump.update(Slider::new().minimum(0.0).maximum(100.0).value(50.0).into())
+        .unwrap();
+    let commands = pump.runtime().commands().last().unwrap();
+    assert!(commands.iter().any(|command| matches!(
+        command,
+        Command::SetProperty {
+            property: PropertyId::SliderValue,
+            value: PropertyValue::F64(50.0),
+            ..
+        }
+    )));
+}
+
+#[test]
+fn slider_nan_value_is_idempotent() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount(Slider::new().value(f64::NAN).into()).unwrap();
+    let batches = pump.runtime().batches();
+
+    pump.update(Slider::new().value(f64::NAN).into()).unwrap();
+
+    assert_eq!(pump.runtime().batches(), batches);
+}

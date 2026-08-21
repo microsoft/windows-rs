@@ -10,6 +10,7 @@ pub windows_reactor_next::Element::Button(windows_reactor_next::Button)
 pub windows_reactor_next::Element::ItemsRepeater(windows_reactor_next::ItemsRepeater)
 pub windows_reactor_next::Element::NumberBox(windows_reactor_next::NumberBox)
 pub windows_reactor_next::Element::ScrollViewer(windows_reactor_next::ScrollViewer)
+pub windows_reactor_next::Element::Slider(windows_reactor_next::Slider)
 pub windows_reactor_next::Element::StackPanel(windows_reactor_next::StackPanel)
 pub windows_reactor_next::Element::TextBlock(windows_reactor_next::TextBlock)
 pub windows_reactor_next::Element::TextBox(windows_reactor_next::TextBox)
@@ -23,6 +24,8 @@ impl core::convert::From<windows_reactor_next::NumberBox> for windows_reactor_ne
 pub fn windows_reactor_next::Element::from(windows_reactor_next::NumberBox) -> Self
 impl core::convert::From<windows_reactor_next::ScrollViewer> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::ScrollViewer) -> Self
+impl core::convert::From<windows_reactor_next::Slider> for windows_reactor_next::Element
+pub fn windows_reactor_next::Element::from(windows_reactor_next::Slider) -> Self
 impl core::convert::From<windows_reactor_next::StackPanel> for windows_reactor_next::Element
 pub fn windows_reactor_next::Element::from(windows_reactor_next::StackPanel) -> Self
 impl core::convert::From<windows_reactor_next::TextBlock> for windows_reactor_next::Element
@@ -154,6 +157,23 @@ impl core::convert::From<windows_reactor_next::ScrollViewer> for windows_reactor
 pub fn windows_reactor_next::Element::from(windows_reactor_next::ScrollViewer) -> Self
 impl windows_reactor_next::ContentControl for windows_reactor_next::ScrollViewer
 impl windows_reactor_next::LayoutControl for windows_reactor_next::ScrollViewer
+pub struct windows_reactor_next::Slider
+impl windows_reactor_next::Slider
+pub fn windows_reactor_next::Slider::is_enabled(self, bool) -> Self
+pub fn windows_reactor_next::Slider::is_enabled_property(&self) -> &windows_reactor_next::Property<bool>
+pub fn windows_reactor_next::Slider::maximum(self, f64) -> Self
+pub fn windows_reactor_next::Slider::maximum_property(&self) -> &windows_reactor_next::Property<f64>
+pub fn windows_reactor_next::Slider::minimum(self, f64) -> Self
+pub fn windows_reactor_next::Slider::minimum_property(&self) -> &windows_reactor_next::Property<f64>
+pub fn windows_reactor_next::Slider::new() -> Self
+pub fn windows_reactor_next::Slider::on_value_changed(self, impl core::ops::function::Fn(f64) + 'static) -> Self
+pub fn windows_reactor_next::Slider::on_value_changed_callback(&self) -> core::option::Option<&windows_reactor_next::Callback<f64>>
+pub fn windows_reactor_next::Slider::value(self, f64) -> Self
+pub fn windows_reactor_next::Slider::value_property(&self) -> &windows_reactor_next::Property<f64>
+impl core::convert::From<windows_reactor_next::Slider> for windows_reactor_next::Element
+pub fn windows_reactor_next::Element::from(windows_reactor_next::Slider) -> Self
+impl windows_reactor_next::EnabledControl for windows_reactor_next::Slider
+impl windows_reactor_next::LayoutControl for windows_reactor_next::Slider
 pub struct windows_reactor_next::StackPanel
 impl windows_reactor_next::StackPanel
 pub fn windows_reactor_next::StackPanel::child(self, impl core::convert::Into<windows_reactor_next::Key>, impl core::convert::Into<windows_reactor_next::Element>) -> Self
@@ -229,6 +249,7 @@ impl windows_reactor_next::ControlledTextControl for windows_reactor_next::TextB
 pub trait windows_reactor_next::EnabledControl: windows_reactor_next::element::sealed::Sealed
 impl windows_reactor_next::EnabledControl for windows_reactor_next::Button
 impl windows_reactor_next::EnabledControl for windows_reactor_next::NumberBox
+impl windows_reactor_next::EnabledControl for windows_reactor_next::Slider
 impl windows_reactor_next::EnabledControl for windows_reactor_next::TextBox
 pub trait windows_reactor_next::ItemsControl: windows_reactor_next::element::sealed::Sealed
 impl windows_reactor_next::ItemsControl for windows_reactor_next::ItemsRepeater
@@ -237,6 +258,7 @@ impl windows_reactor_next::LayoutControl for windows_reactor_next::Button
 impl windows_reactor_next::LayoutControl for windows_reactor_next::ItemsRepeater
 impl windows_reactor_next::LayoutControl for windows_reactor_next::NumberBox
 impl windows_reactor_next::LayoutControl for windows_reactor_next::ScrollViewer
+impl windows_reactor_next::LayoutControl for windows_reactor_next::Slider
 impl windows_reactor_next::LayoutControl for windows_reactor_next::StackPanel
 impl windows_reactor_next::LayoutControl for windows_reactor_next::TextBlock
 impl windows_reactor_next::LayoutControl for windows_reactor_next::TextBox
