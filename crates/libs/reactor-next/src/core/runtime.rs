@@ -179,6 +179,10 @@ pub enum Command {
     CloseWindow {
         node: NodeId,
     },
+    SetWindowTitle {
+        node: NodeId,
+        title: String,
+    },
     Create {
         node: NodeId,
         kind: MountedKind,

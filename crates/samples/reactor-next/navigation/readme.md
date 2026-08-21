@@ -14,12 +14,13 @@ Try this sequence:
 
 1. Open the editor in each window and enter different text.
 2. Move between Home and Editor and confirm each window retains its own text.
+   The window title follows the current page.
 3. Change the shared theme and confirm both windows update.
 4. Start background work in the secondary window, then choose **Close this window**.
 5. Confirm the primary window remains responsive and reports the secondary closure.
 
 The sample uses `App::run_windows`, which creates all windows at startup. Component close requests
 are token-bound, staged with the current component publication, and applied only after it succeeds.
-The current host does not yet expose runtime window creation or declarative title and size
-configuration. Those APIs remain part of this qualification gate rather than being hidden in the
-sample with direct WinUI calls.
+Each workspace declares its native title from component state. The current host does not yet expose
+runtime window creation or declarative size configuration. Those APIs remain part of this
+qualification gate rather than being hidden in the sample with direct WinUI calls.

@@ -2875,6 +2875,15 @@ impl IWindow {
             .ok()
         }
     }
+    pub(crate) fn SetTitle(&self, value: &str) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetTitle)(
+                windows_core::Interface::as_raw(self),
+                core::mem::transmute_copy(&windows_core::HSTRING::from(value)),
+            )
+            .ok()
+        }
+    }
     pub(crate) fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<WindowEventArgs>)
@@ -2933,7 +2942,10 @@ pub struct IWindow_Vtbl {
     Dispatcher: usize,
     DispatcherQueue: usize,
     Title: usize,
-    SetTitle: usize,
+    pub SetTitle: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     ExtendsContentIntoTitleBar: usize,
     SetExtendsContentIntoTitleBar: usize,
     Activated: usize,

@@ -16,3 +16,4 @@ mod properties_native_failure;
 mod slots;
 mod virtualization_realization;
 mod window_requests;
+mod window_titles;

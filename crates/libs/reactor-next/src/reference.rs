@@ -15,6 +15,7 @@ pub(crate) enum HostRequest {
 
 struct WindowRequestState {
     active: bool,
+    close_committed: bool,
     close_requested: bool,
     open: bool,
     staged_close: bool,
@@ -32,6 +33,7 @@ impl WindowEndpoint {
             identity,
             state: Rc::new(RefCell::new(WindowRequestState {
                 active: false,
+                close_committed: false,
                 close_requested: false,
                 open: true,
                 staged_close: false,
@@ -77,6 +79,10 @@ impl WindowEndpoint {
         state.staged_close = false;
     }
 
+    pub(crate) fn commit_close(&self) {
+        self.state.borrow_mut().close_committed = true;
+    }
+
     pub(crate) fn reference(&self) -> WindowRef {
         WindowRef {
             endpoint: self.clone(),
@@ -84,10 +90,10 @@ impl WindowEndpoint {
     }
 }
 
-/// A token-bound capability for the component's owning window.
+/// A token-bound capability for a component's owning window.
 ///
-/// Requests are accepted only while the owning component is running `create`, `changed`, or
-/// `update`. The Pump commits accepted requests after the resulting candidate publishes.
+/// Requests are accepted only during `create`, `changed`, or `update` on the owning window. The
+/// Pump commits an accepted request after the resulting candidate publishes.
 #[derive(Clone)]
 pub struct WindowRef {
     endpoint: WindowEndpoint,
@@ -98,7 +104,7 @@ impl WindowRef {
     #[must_use = "false means there is no active component publication"]
     pub fn request_close(&self) -> bool {
         let mut state = self.endpoint.state.borrow_mut();
-        if !state.open || !state.active {
+        if !state.open || !state.active || state.close_committed {
             return false;
         }
         state.close_requested = true;
@@ -112,6 +118,7 @@ impl fmt::Debug for WindowRef {
         formatter
             .debug_struct("WindowRef")
             .field("active", &state.active)
+            .field("close_committed", &state.close_committed)
             .field("open", &state.open)
             .finish()
     }

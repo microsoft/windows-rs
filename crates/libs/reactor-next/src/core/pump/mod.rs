@@ -26,6 +26,7 @@ pub enum PumpError {
     DuplicateEffectKey(EffectKey),
     DuplicateElementRef,
     DuplicateKey(Key),
+    DuplicateWindowTitle,
     EventReadFailed(RuntimeError),
     NativeApplyFailed(NativeApplyError),
     Poisoned,
@@ -44,6 +45,7 @@ impl From<ComponentStoreError> for PumpError {
     fn from(value: ComponentStoreError) -> Self {
         match value {
             ComponentStoreError::DuplicateEffectKey(key) => Self::DuplicateEffectKey(key),
+            ComponentStoreError::DuplicateWindowTitle => Self::DuplicateWindowTitle,
             value => Self::Component(value),
         }
     }
@@ -198,6 +200,7 @@ impl<R: NativeRuntime> Pump<R> {
                 return Err(PumpError::StructureUnsupported);
             }
         }
+        Self::plan_window_title(window, &self.tree, &candidate, &mut plan);
         plan.push(Command::ActivateWindow { node: window });
         Self::plan_host_requests(window, &changes.host_requests, &mut plan);
 
@@ -592,6 +595,7 @@ impl<R: NativeRuntime> Pump<R> {
         next_version: u64,
     ) -> Result<(), PumpError> {
         let window = self.window.ok_or(PumpError::NotMounted)?;
+        Self::plan_window_title(window, &self.tree, &candidate, &mut plan);
         Self::plan_host_requests(window, &changes.host_requests, &mut plan);
         let resolved = changes
             .composed
@@ -619,6 +623,17 @@ impl<R: NativeRuntime> Pump<R> {
         ) {
             plan.post_publish_commands
                 .push(Command::CloseWindow { node: window });
+        }
+    }
+
+    fn plan_window_title(window: NodeId, current: &Tree, candidate: &Tree, plan: &mut UpdatePlan) {
+        let current = current.window_title().map(|title| title.title.as_ref());
+        let candidate = candidate.window_title().map(|title| title.title.as_ref());
+        if current != candidate {
+            plan.push(Command::SetWindowTitle {
+                node: window,
+                title: candidate.unwrap_or_default().to_string(),
+            });
         }
     }
 }

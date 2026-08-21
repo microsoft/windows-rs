@@ -21,6 +21,10 @@ impl<R: NativeRuntime> Pump<R> {
         mut changes: FrontendChanges,
         next_version: u64,
     ) -> Result<(), PumpError> {
+        let commits_window_close = plan
+            .post_publish_commands
+            .iter()
+            .any(|command| matches!(command, Command::CloseWindow { .. }));
         if let Err(error) = self.validate_candidate_references(&candidate, &plan.reference_commits)
         {
             if let FrontendChanges::Component(changes) = &changes {
@@ -53,6 +57,9 @@ impl<R: NativeRuntime> Pump<R> {
         self.diagnostics.extend(plan.diagnostics);
         self.native_observation_pending = false;
         self.version = next_version;
+        if commits_window_close {
+            self.components.commit_window_close();
+        }
         self.apply_native_commands(&plan.post_publish_commands)
     }
 

@@ -78,7 +78,7 @@ Microsoft::UI::Xaml::IElementFactoryRecycleArgs::{get_Element, get_Parent}
 Microsoft::UI::Xaml::IFrameworkElement::put_MinHeight
 Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
 Microsoft::UI::Xaml::IUIElement::Focus
-Microsoft::UI::Xaml::IWindow::{Activate, Close, Closed, put_Content}
+Microsoft::UI::Xaml::IWindow::{Activate, Close, Closed, put_Content, put_Title}
 Microsoft::UI::Xaml::LaunchActivatedEventArgs
 Microsoft::UI::Xaml::Markup::IXamlMetadataProvider
 Microsoft::UI::Xaml::Markup::IXamlType::{}

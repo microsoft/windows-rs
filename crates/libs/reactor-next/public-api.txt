@@ -379,6 +379,7 @@ pub fn windows_reactor_next::ViewContext<C>::message(&self, <C as windows_reacto
 pub fn windows_reactor_next::ViewContext<C>::sender(&self) -> windows_reactor_next::LocalSender<<C as windows_reactor_next::Component>::Message>
 pub fn windows_reactor_next::ViewContext<C>::use_context<T: core::clone::Clone + 'static>(&mut self, &windows_reactor_next::Context<T>) -> T
 pub fn windows_reactor_next::ViewContext<C>::use_effect<D>(&mut self, impl core::convert::Into<windows_reactor_next::EffectKey>, D, impl core::ops::function::FnOnce() -> core::option::Option<alloc::boxed::Box<dyn core::ops::function::FnOnce()>> + 'static) where D: core::cmp::PartialEq + 'static
+pub fn windows_reactor_next::ViewContext<C>::window_title(&mut self, impl core::convert::Into<alloc::string::String>)
 pub struct windows_reactor_next::WindowRef
 impl windows_reactor_next::WindowRef
 pub fn windows_reactor_next::WindowRef::request_close(&self) -> bool

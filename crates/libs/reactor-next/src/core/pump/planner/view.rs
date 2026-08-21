@@ -679,18 +679,26 @@ impl<R: NativeRuntime> Pump<R> {
     }
 
     pub(in super::super) fn collect_retired_components(
-        tree: &Tree,
+        tree: &mut Tree,
         root: NodeId,
         components: &ComponentStore,
         changes: &mut ComponentChanges,
     ) -> Result<(), PumpError> {
+        let mut retired_title_owner = false;
         for node in tree.subtree_postorder(root)? {
             if tree.kind(node)? == NodeKind::Component {
-                let token = components.token(tree.component_scope(node)?)?;
+                let scope = tree.component_scope(node)?;
+                let token = components.token(scope)?;
                 if !changes.retired.contains(&token) {
                     changes.retired.push(token);
                 }
+                retired_title_owner |= tree
+                    .window_title()
+                    .is_some_and(|title| title.owner == scope);
             }
+        }
+        if retired_title_owner {
+            tree.set_window_title(None);
         }
         Ok(())
     }
@@ -706,9 +714,47 @@ impl<R: NativeRuntime> Pump<R> {
         if !changes.composed.insert(token) {
             return Ok(());
         }
-        let render = components.view(token, tree.context_snapshot(node)?)?;
-        changes.context_reads.insert(token, render.dependencies);
-        Self::recompose_component_view(tree, node, render.view, components, changes, plan)
+        let ComponentRender {
+            dependencies,
+            duplicate_window_title,
+            view,
+            window_title,
+        } = components.view(token, tree.context_snapshot(node)?)?;
+        Self::reconcile_component_window_title(tree, token, duplicate_window_title, window_title)?;
+        changes.context_reads.insert(token, dependencies);
+        Self::recompose_component_view(tree, node, view, components, changes, plan)
+    }
+
+    pub(in super::super) fn reconcile_component_window_title(
+        tree: &mut Tree,
+        token: ComponentToken,
+        duplicate: bool,
+        title: Option<String>,
+    ) -> Result<(), PumpError> {
+        if duplicate {
+            return Err(PumpError::DuplicateWindowTitle);
+        }
+        let scope = token.scope();
+        match tree.window_title() {
+            Some(current) if current.owner != scope => {
+                if title.is_some() {
+                    return Err(PumpError::DuplicateWindowTitle);
+                }
+            }
+            Some(_) => tree.set_window_title(title.map(|title| WindowTitleState {
+                owner: scope,
+                title: title.into(),
+            })),
+            None => {
+                if let Some(title) = title {
+                    tree.set_window_title(Some(WindowTitleState {
+                        owner: scope,
+                        title: title.into(),
+                    }));
+                }
+            }
+        }
+        Ok(())
     }
 
     pub(in super::super) fn recompose_component_view(
@@ -758,13 +804,24 @@ impl<R: NativeRuntime> Pump<R> {
                     component.component_type(),
                 )?;
                 let slot = tree.insert(Some(node), NodeKind::Slot)?;
-                let render = components.view(token, tree.context_snapshot(node)?)?;
-                changes.context_reads.insert(token, render.dependencies);
+                let ComponentRender {
+                    dependencies,
+                    duplicate_window_title,
+                    view,
+                    window_title,
+                } = components.view(token, tree.context_snapshot(node)?)?;
+                Self::reconcile_component_window_title(
+                    tree,
+                    token,
+                    duplicate_window_title,
+                    window_title,
+                )?;
+                changes.context_reads.insert(token, dependencies);
                 let (_, native) = Self::mount_planned_view(
                     tree,
                     Some(slot),
                     None,
-                    render.view,
+                    view,
                     components,
                     changes,
                     plan,

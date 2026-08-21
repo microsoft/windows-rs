@@ -175,6 +175,7 @@ pub enum ComponentStoreError {
         actual: TypeId,
     },
     DuplicateEffectKey(EffectKey),
+    DuplicateWindowTitle,
     MessageTypeMismatch {
         expected: TypeId,
         actual: TypeId,
@@ -594,12 +595,23 @@ impl<C: Component> ComponentContext<C> {
 
 pub struct ViewContext<C: Component> {
     contexts: ContextSnapshot,
+    duplicate_window_title: bool,
     effects: Rc<RefCell<ComponentEffects>>,
     reads: HashSet<ContextDependency>,
     sender: LocalSender<C::Message>,
+    window_title: Option<String>,
 }
 
 impl<C: Component> ViewContext<C> {
+    /// Declares the owning window's title for this component publication.
+    pub fn window_title(&mut self, title: impl Into<String>) {
+        if self.window_title.is_some() {
+            self.duplicate_window_title = true;
+        } else {
+            self.window_title = Some(title.into());
+        }
+    }
+
     pub fn sender(&self) -> LocalSender<C::Message> {
         self.sender.clone()
     }
@@ -772,7 +784,9 @@ trait ErasedScope {
 
 pub(crate) struct ComponentRender {
     pub(crate) dependencies: HashSet<ContextDependency>,
+    pub(crate) duplicate_window_title: bool,
     pub(crate) view: View,
+    pub(crate) window_title: Option<String>,
 }
 
 type EffectCleanup = Box<dyn FnOnce()>;
@@ -1009,6 +1023,9 @@ where
             Rc::clone(&self.effects),
             contexts,
         );
+        if render.duplicate_window_title {
+            return Err(ComponentStoreError::DuplicateWindowTitle);
+        }
         self.effects.borrow().finish_view()?;
         Ok(render)
     }
@@ -1123,14 +1140,18 @@ impl ComponentStore {
         ) -> ComponentRender {
             let mut context = ViewContext {
                 contexts,
+                duplicate_window_title: false,
                 effects,
                 reads: HashSet::new(),
                 sender,
+                window_title: None,
             };
             let view = component.view(props, &mut context);
             ComponentRender {
                 dependencies: context.reads,
+                duplicate_window_title: context.duplicate_window_title,
                 view,
+                window_title: context.window_title,
             }
         }
 
@@ -1191,6 +1212,10 @@ impl ComponentStore {
 
     pub(crate) fn take_host_requests(&self) -> Vec<HostRequest> {
         self.window_endpoint.take_requests()
+    }
+
+    pub(crate) fn commit_window_close(&self) {
+        self.window_endpoint.commit_close();
     }
 
     pub fn remove(&mut self, token: ComponentToken) -> Result<(), ComponentStoreError> {

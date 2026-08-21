@@ -265,7 +265,7 @@ impl<R: NativeRuntime> Pump<R> {
                             .collect::<Vec<_>>();
                         for old in stale {
                             Self::collect_retired_components(
-                                &candidate,
+                                &mut candidate,
                                 old,
                                 &self.components,
                                 &mut changes,
@@ -316,7 +316,7 @@ impl<R: NativeRuntime> Pump<R> {
                             continue;
                         };
                         Self::collect_retired_components(
-                            &candidate,
+                            &mut candidate,
                             row.logical_root,
                             &self.components,
                             &mut changes,
@@ -366,10 +366,12 @@ impl<R: NativeRuntime> Pump<R> {
     fn apply_realization(
         &mut self,
         candidate: Tree,
-        plan: UpdatePlan,
+        mut plan: UpdatePlan,
         changes: ComponentChanges,
     ) -> Result<(), PumpError> {
         let root = self.root.ok_or(PumpError::NotMounted)?;
+        let window = self.window.ok_or(PumpError::NotMounted)?;
+        Self::plan_window_title(window, &self.tree, &candidate, &mut plan);
         self.publish_candidate(
             CandidateState::Tree {
                 tree: candidate,

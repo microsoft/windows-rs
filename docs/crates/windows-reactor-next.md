@@ -112,8 +112,10 @@ their own ownership and documented-failure contracts.
 during `create`, `changed`, or `update`, where the component lifecycle invocation provides the
 candidate transaction. One accepted close is staged with that candidate and applied in a separate
 native batch after frontend publication and effect setup. Planning failure discards it. Shutdown
-closes the endpoint, and references from another Pump or an inactive lifecycle call return false.
-The live `Window.Closed` callback then follows the ordinary in-flight close path.
+closes the endpoint. A committed close latches the window endpoint, so later component turns cannot
+issue a second native close while the `Closed` callback is pending. References from another Pump or
+an inactive lifecycle call return false. The live callback then follows the ordinary in-flight
+close path.
 
 `ViewContext::use_effect(key, dependency, setup)` identifies each effect with an opaque
 `EffectKey`. Numeric and string conversions make keys concise without exposing an internal
@@ -293,11 +295,14 @@ The navigation sample in `crates/samples/reactor-next/navigation` qualifies two 
 Each window owns its page model, controlled editor, typed reference, queue, and background work.
 A shared application coordinator broadcasts theme changes by sending an ordinary local message to
 each registered window. Closing one window retires its effects and tasks, removes its sender, and
-notifies the remaining window without sharing Pump state.
+notifies the remaining window without sharing Pump state. Each root component declares a
+page-derived title through `ViewContext::window_title`.
 
-`App::run_windows` currently fixes the complete window set at startup. Runtime creation and
-declarative title or size configuration are not public contracts. Component-requested close uses
-the transactional `WindowRef` contract above.
+One live component owns the title declaration for a Pump. A changed declaration is planned with
+the candidate, omission or owner retirement clears it, and ownership may transfer after retirement.
+Duplicate declarations fail planning before native mutation. `App::run_windows` still fixes the
+complete window set at startup, and declarative size configuration is not a public contract.
+Component-requested close uses the transactional `WindowRef` contract above.
 
 ## Generation
 

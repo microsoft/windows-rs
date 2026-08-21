@@ -84,6 +84,13 @@ pub struct Tree {
     components: Rc<HashMap<ScopeId, NodeId>>,
     providers: ProviderStore,
     root: Option<NodeId>,
+    window_title: Option<WindowTitleState>,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct WindowTitleState {
+    pub(crate) owner: ScopeId,
+    pub(crate) title: Rc<str>,
 }
 
 #[derive(Clone, Default)]
@@ -133,6 +140,7 @@ impl Tree {
             components: Rc::new(HashMap::new()),
             providers: ProviderStore::default(),
             root: None,
+            window_title: None,
         }
     }
 
@@ -493,6 +501,14 @@ impl Tree {
 
     pub fn kind(&self, id: NodeId) -> Result<NodeKind, TreeError> {
         Ok(self.arena.get(id)?.kind)
+    }
+
+    pub(crate) fn window_title(&self) -> Option<&WindowTitleState> {
+        self.window_title.as_ref()
+    }
+
+    pub(crate) fn set_window_title(&mut self, value: Option<WindowTitleState>) {
+        self.window_title = value;
     }
 
     pub fn children(&self, id: NodeId) -> Result<&[NodeId], TreeError> {

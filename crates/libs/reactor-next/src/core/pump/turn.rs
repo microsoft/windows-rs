@@ -118,6 +118,12 @@ impl<R: NativeRuntime> Pump<R> {
             {
                 let (_, render) = composed_view.take().unwrap();
                 changes.composed.insert(token);
+                Self::reconcile_component_window_title(
+                    &mut candidate,
+                    token,
+                    render.duplicate_window_title,
+                    render.window_title,
+                )?;
                 changes.context_reads.insert(token, render.dependencies);
                 Self::recompose_component_view(
                     &mut candidate,
@@ -184,15 +190,39 @@ impl<R: NativeRuntime> Pump<R> {
         {
             return Ok(LocalComponentUpdate::Unavailable);
         }
-        let ComponentRender { dependencies, view } = self
+        let render = self
             .components
             .view(token, self.tree.context_snapshot(node)?)?;
+        if render.duplicate_window_title {
+            return Err(PumpError::DuplicateWindowTitle);
+        }
+        let title_matches = match self.tree.window_title() {
+            Some(current) if current.owner != token.scope() => {
+                if render.window_title.is_some() {
+                    return Err(PumpError::DuplicateWindowTitle);
+                }
+                true
+            }
+            Some(current) => render.window_title.as_deref() == Some(current.title.as_ref()),
+            None => render.window_title.is_none(),
+        };
+        if !title_matches {
+            return Ok(LocalComponentUpdate::Fallback(render));
+        }
+        let ComponentRender {
+            dependencies,
+            duplicate_window_title,
+            view,
+            window_title,
+        } = render;
         let element = match view.into_kind() {
             ViewKind::Native(element) => element,
             kind => {
                 return Ok(LocalComponentUpdate::Fallback(ComponentRender {
                     dependencies,
+                    duplicate_window_title,
                     view: View::from_kind(kind),
+                    window_title,
                 }));
             }
         };
@@ -202,7 +232,9 @@ impl<R: NativeRuntime> Pump<R> {
         {
             return Ok(LocalComponentUpdate::Fallback(ComponentRender {
                 dependencies,
+                duplicate_window_title,
                 view: View::native(element),
+                window_title,
             }));
         }
         let mut event_activity_matches = true;
@@ -217,7 +249,9 @@ impl<R: NativeRuntime> Pump<R> {
         if !event_activity_matches {
             return Ok(LocalComponentUpdate::Fallback(ComponentRender {
                 dependencies,
+                duplicate_window_title,
                 view: View::native(element),
+                window_title,
             }));
         }
         let mut plan = UpdatePlan {

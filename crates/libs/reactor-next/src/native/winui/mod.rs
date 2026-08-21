@@ -147,6 +147,13 @@ impl WinUiRuntime {
                     .Close()
                     .map_err(native_error)?;
             }
+            Command::SetWindowTitle { node, title } => {
+                self.windows
+                    .get(node)
+                    .ok_or(RuntimeError::MissingNode(*node))?
+                    .SetTitle(title)
+                    .map_err(native_error)?;
+            }
             Command::Create { node, kind } => {
                 if self.contains(*node) {
                     return Err(RuntimeError::DuplicateNode(*node));

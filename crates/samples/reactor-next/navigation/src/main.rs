@@ -29,6 +29,15 @@ enum Page {
     Editor,
 }
 
+impl Page {
+    fn label(self) -> &'static str {
+        match self {
+            Self::Home => "Home",
+            Self::Editor => "Editor",
+        }
+    }
+}
+
 #[derive(Default)]
 struct LifecycleMetrics {
     cleanups: Cell<usize>,
@@ -214,6 +223,11 @@ impl Component for Workspace {
     }
 
     fn view(&self, _props: &Self::Props, context: &mut ViewContext<Self>) -> View {
+        context.window_title(format!(
+            "{} workspace - {}",
+            self.role.label(),
+            self.page.label()
+        ));
         let shared = Rc::clone(&self.shared);
         let role = self.role;
         let sender = self.sender.clone();
@@ -435,8 +449,22 @@ mod tests {
 
         let primary_sender = sender(&shared, WindowRole::Primary);
         let secondary_sender = sender(&shared, WindowRole::Secondary);
+        assert_eq!(
+            primary.runtime().window_title(primary.window().unwrap()),
+            Some("Primary workspace - Home")
+        );
+        assert_eq!(
+            secondary
+                .runtime()
+                .window_title(secondary.window().unwrap()),
+            Some("Secondary workspace - Home")
+        );
         assert!(primary_sender.send(Message::Navigate(Page::Editor)));
         assert_eq!(primary.dispatch_components(1), Ok(1));
+        assert_eq!(
+            primary.runtime().window_title(primary.window().unwrap()),
+            Some("Primary workspace - Editor")
+        );
         let input = editor_input(&primary);
         assert_eq!(primary.process_imperatives(), Ok(1));
 

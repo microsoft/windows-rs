@@ -145,8 +145,23 @@ fn update(&mut self, message: Message, context: &mut ComponentContext<Self>) {
 
 `WindowRef` is token-bound and accepts requests only during `create`, `changed`, or `update`.
 Accepted close requests are staged with that component turn and applied after candidate
-publication. A failed turn discards the request; a stale reference returns `false`. Native window
-objects are not exposed.
+publication. A failed turn discards the request. Once one close commits, later requests return
+`false` for that window lifetime; stale references also return `false`. Native window objects are
+not exposed.
+
+Components declare the owning window title while rendering:
+
+```rust,ignore
+fn view(&self, _: &Self::Props, context: &mut ViewContext<Self>) -> View {
+    context.window_title(format!("Editor - {}", self.document_name));
+    self.content()
+}
+```
+
+One live component owns the declaration. Changing its value updates the native title with the same
+candidate as its view; omitting the declaration or retiring the owner clears it. A second live
+owner or two declarations from one render return `PumpError::DuplicateWindowTitle` before native
+mutation. The title is declarative Pump state rather than an imperative `WindowRef` setter.
 
 The [`form sample`](../../samples/reactor-next/form/src/main.rs) exercises controlled input,
 focus-first-invalid validation, a nested component, and scope-owned background submission.
@@ -155,7 +170,7 @@ components, durable controlled edits, selection context, focus, effects, source 
 background loading, recycling, and a 1,000-row stress path.
 The [`navigation and multi-window workspace`](../../samples/reactor-next/navigation/readme.md)
 exercises retained page models, context propagation, independent window queues and references,
-shared application updates, background cancellation, and peer cleanup.
+component-derived titles, shared application updates, background cancellation, and peer cleanup.
 
 The component store owns current props and passes them by reference to `Component::view`.
 Components can render from that argument without copying props into their own fields.

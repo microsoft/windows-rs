@@ -120,6 +120,23 @@ fn close_request_runs_after_component_publication() {
 }
 
 #[test]
+fn committed_close_rejects_requests_from_later_turns() {
+    let props = props();
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<ClosingComponent>(props.clone()))
+        .unwrap();
+
+    assert!(props.sender.borrow().as_ref().unwrap().send(Message::Close));
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+    assert!(props.accepted.get());
+    assert!(props.sender.borrow().as_ref().unwrap().send(Message::Close));
+    assert_eq!(pump.dispatch_components(1), Ok(1));
+
+    assert!(!props.accepted.get());
+    assert_eq!(pump.runtime().close_requests().len(), 1);
+}
+
+#[test]
 fn native_failure_before_publication_does_not_close() {
     let props = props();
     let mut pump = Pump::new(RecordingRuntime::default());

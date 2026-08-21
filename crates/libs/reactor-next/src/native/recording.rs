@@ -24,6 +24,7 @@ pub struct RecordingRuntime {
     realizations: Vec<NativeWork<RealizationRequest>>,
     source_revisions: HashMap<NodeId, u64>,
     subscriptions: HashSet<(NodeId, EventId)>,
+    window_titles: HashMap<NodeId, String>,
     windows: HashSet<NodeId>,
 }
 
@@ -42,6 +43,7 @@ impl Default for RecordingRuntime {
             realizations: Vec::new(),
             source_revisions: HashMap::new(),
             subscriptions: HashSet::new(),
+            window_titles: HashMap::new(),
             windows: HashSet::new(),
         }
     }
@@ -79,6 +81,11 @@ impl RecordingRuntime {
     #[cfg(any(test, feature = "test"))]
     pub fn close_requests(&self) -> &[NodeId] {
         &self.close_requests
+    }
+
+    #[cfg(any(test, feature = "test"))]
+    pub fn window_title(&self, node: NodeId) -> Option<&str> {
+        self.window_titles.get(&node).map(String::as_str)
     }
 
     pub fn is_empty(&self) -> bool {
@@ -196,6 +203,12 @@ impl RecordingRuntime {
                     return Err(RuntimeError::MissingNode(*node));
                 }
                 self.close_requests.push(*node);
+            }
+            Command::SetWindowTitle { node, title } => {
+                if !self.windows.contains(node) {
+                    return Err(RuntimeError::MissingNode(*node));
+                }
+                self.window_titles.insert(*node, title.clone());
             }
             Command::Create { node, kind } => {
                 if self.nodes.contains_key(node) {
@@ -320,6 +333,7 @@ impl RecordingRuntime {
                 self.source_revisions.remove(node);
                 self.subscriptions
                     .retain(|(subscription_node, _)| subscription_node != node);
+                self.window_titles.remove(node);
                 self.windows.remove(node);
                 if self.application == Some(*node) {
                     self.application = None;

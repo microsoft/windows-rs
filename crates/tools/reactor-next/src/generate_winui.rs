@@ -24,7 +24,8 @@ pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
         "Microsoft::UI::Xaml::IUIElement::Focus".to_string(),
         "Microsoft::UI::Xaml::FocusState".to_string(),
         "Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries".to_string(),
-        "Microsoft::UI::Xaml::IWindow::{Activate, Close, Closed, put_Content}".to_string(),
+        "Microsoft::UI::Xaml::IWindow::{Activate, Close, Closed, put_Content, put_Title}"
+            .to_string(),
         "Microsoft::UI::Xaml::LaunchActivatedEventArgs".to_string(),
         "Microsoft::UI::Xaml::Controls::ContentControl::CreateInstance".to_string(),
         "Microsoft::UI::Xaml::Controls::IItemsRepeater::{put_ItemsSource, put_ItemTemplate}"
