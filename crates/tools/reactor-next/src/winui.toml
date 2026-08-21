@@ -137,6 +137,39 @@ name = "Content"
 name = "Header"
 
 [[control]]
+type = "Microsoft.UI.Xaml.Controls.ProgressBar"
+role = "leaf"
+capabilities = ["layout", "enabled"]
+
+[[control.property]]
+name = "Minimum"
+clearable = true
+
+[[control.property]]
+name = "Maximum"
+clearable = true
+
+[[control.property]]
+name = "Value"
+clearable = true
+
+[[control.property]]
+name = "IsIndeterminate"
+clearable = true
+
+[[control.property]]
+name = "ShowError"
+clearable = true
+
+[[control.property]]
+name = "ShowPaused"
+clearable = true
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control]]
 type = "Microsoft.UI.Xaml.Controls.ItemsRepeater"
 role = "virtual"
 capabilities = ["layout", "items"]

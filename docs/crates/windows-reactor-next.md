@@ -209,6 +209,17 @@ thin release counter grew from 886,784 to 905,216 bytes (+18,432 bytes, +2.08%).
 grew by 17,136 bytes in `.text`, 880 bytes in `.rdata`, 792 bytes in `.pdata`, and 28 bytes in
 `.reloc`. `Node`, `MountedProps`, and `Element` remain 416, 72, and 80 bytes.
 
+ProgressBar added seven ordinary generated properties without new runtime or generator behavior.
+The source-only thin-counter rebuild median changed from 0.471 to 0.503 seconds (+7.0%, 33 ms).
+The native thin release counter grew from 905,216 to 916,992 bytes (+11,776 bytes, +1.30%).
+PE virtual sizes grew by 8,768 bytes in `.text`, 2,928 bytes in `.rdata`, 288 bytes in `.pdata`,
+and 84 bytes in `.reloc`. Core layouts did not change.
+
+An attempted Viewbox slice was rejected by the live gate because Viewbox owns a typed `Child`
+property and does not implement `IContentControl`. Schema resolution now proves `content` and
+`children` roles against their metadata interfaces, so this mismatch fails generation instead of
+reaching native apply.
+
 Removing fine-grained recovery reduced `core/pump/publish.rs` from 396 lines to 57 and removed
 per-command outcome vectors, divergent properties, retries, remount recovery, recovery
 continuations, and their specialized tests.

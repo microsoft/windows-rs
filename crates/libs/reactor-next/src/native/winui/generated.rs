@@ -9,6 +9,7 @@ pub enum Handle {
     NumberBox(bindings::NumberBox),
     Slider(bindings::Slider),
     NavigationView(bindings::NavigationView),
+    ProgressBar(bindings::ProgressBar),
     ScrollViewer(bindings::ScrollViewer),
 }
 impl Handle {
@@ -29,6 +30,9 @@ impl Handle {
             MountedKind::NavigationView => {
                 Self::NavigationView(bindings::NavigationView::new().map_err(native_error)?)
             }
+            MountedKind::ProgressBar => {
+                Self::ProgressBar(bindings::ProgressBar::new().map_err(native_error)?)
+            }
             MountedKind::ScrollViewer => {
                 Self::ScrollViewer(bindings::ScrollViewer::new().map_err(native_error)?)
             }
@@ -44,6 +48,7 @@ impl Handle {
             Self::NumberBox(value) => value.cast(),
             Self::Slider(value) => value.cast(),
             Self::NavigationView(value) => value.cast(),
+            Self::ProgressBar(value) => value.cast(),
             Self::ScrollViewer(value) => value.cast(),
         }
     }
@@ -56,6 +61,7 @@ impl Handle {
             Self::NumberBox(value) => value.cast(),
             Self::Slider(value) => value.cast(),
             Self::NavigationView(value) => value.cast(),
+            Self::ProgressBar(value) => value.cast(),
             Self::ScrollViewer(value) => value.cast(),
         }
     }
@@ -185,6 +191,55 @@ pub fn set_property(
             .map_err(native_error)?
             .SetIsEnabled(*value)
             .map_err(native_error),
+        (
+            Handle::ProgressBar(control),
+            PropertyId::ProgressBarMinimum,
+            PropertyValue::F64(value),
+        ) => control
+            .cast::<IRangeBase>()
+            .map_err(native_error)?
+            .SetMinimum(*value)
+            .map_err(native_error),
+        (
+            Handle::ProgressBar(control),
+            PropertyId::ProgressBarMaximum,
+            PropertyValue::F64(value),
+        ) => control
+            .cast::<IRangeBase>()
+            .map_err(native_error)?
+            .SetMaximum(*value)
+            .map_err(native_error),
+        (Handle::ProgressBar(control), PropertyId::ProgressBarValue, PropertyValue::F64(value)) => {
+            control
+                .cast::<IRangeBase>()
+                .map_err(native_error)?
+                .SetValue(*value)
+                .map_err(native_error)
+        }
+        (
+            Handle::ProgressBar(control),
+            PropertyId::ProgressBarIsIndeterminate,
+            PropertyValue::Bool(value),
+        ) => control.SetIsIndeterminate(*value).map_err(native_error),
+        (
+            Handle::ProgressBar(control),
+            PropertyId::ProgressBarShowError,
+            PropertyValue::Bool(value),
+        ) => control.SetShowError(*value).map_err(native_error),
+        (
+            Handle::ProgressBar(control),
+            PropertyId::ProgressBarShowPaused,
+            PropertyValue::Bool(value),
+        ) => control.SetShowPaused(*value).map_err(native_error),
+        (
+            Handle::ProgressBar(control),
+            PropertyId::ProgressBarIsEnabled,
+            PropertyValue::Bool(value),
+        ) => control
+            .cast::<IControl>()
+            .map_err(native_error)?
+            .SetIsEnabled(*value)
+            .map_err(native_error),
         _ => Err(RuntimeError::UnsupportedKind),
     }
 }
@@ -240,6 +295,27 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
             .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
             .map_err(native_error),
         (Handle::NavigationView(_), PropertyId::NavigationViewIsEnabled) => dependency_object
+            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::ProgressBar(_), PropertyId::ProgressBarMinimum) => dependency_object
+            .ClearValue(&bindings::RangeBase::MinimumProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::ProgressBar(_), PropertyId::ProgressBarMaximum) => dependency_object
+            .ClearValue(&bindings::RangeBase::MaximumProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::ProgressBar(_), PropertyId::ProgressBarValue) => dependency_object
+            .ClearValue(&bindings::RangeBase::ValueProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::ProgressBar(_), PropertyId::ProgressBarIsIndeterminate) => dependency_object
+            .ClearValue(&bindings::ProgressBar::IsIndeterminateProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::ProgressBar(_), PropertyId::ProgressBarShowError) => dependency_object
+            .ClearValue(&bindings::ProgressBar::ShowErrorProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::ProgressBar(_), PropertyId::ProgressBarShowPaused) => dependency_object
+            .ClearValue(&bindings::ProgressBar::ShowPausedProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::ProgressBar(_), PropertyId::ProgressBarIsEnabled) => dependency_object
             .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
             .map_err(native_error),
         _ => Err(RuntimeError::UnsupportedKind),

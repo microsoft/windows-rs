@@ -222,6 +222,10 @@ and WebView own only behavior that cannot be expressed by the ordinary schema.
 | NavigationView slots thin release delta | 886,784 -> 905,216 bytes: +18,432 bytes, +2.08% |
 | NavigationView slots PE section delta | `.text` +17,136; `.rdata` +880; `.pdata` +792 bytes |
 | NavigationView slots retained layouts | Unchanged: `Node` 416, `MountedProps` 72, `Element` 80 |
+| ProgressBar source-only rebuild | 0.471 -> 0.503 seconds: +7.0%, 33 ms |
+| ProgressBar thin release delta | 905,216 -> 916,992 bytes: +11,776 bytes, +1.30% |
+| ProgressBar PE section delta | `.text` +8,768; `.rdata` +2,928; `.pdata` +288 bytes |
+| ProgressBar retained layouts | Unchanged: `Node` 416, `MountedProps` 72, `Element` 80 |
 | Isolated component leaf at 512 scopes | 0.51 us, 430 bytes, 9 allocations |
 | Isolated component leaf at 16,384 scopes | 0.51 us, 430 bytes, 9 allocations |
 | Idle component memory | About 2,440 bytes per scope |
@@ -354,6 +358,18 @@ Normalized clear feedback now has a separate semantic from normalized setter fee
 successful `ClearValue` suppresses its synchronous echo but does not turn the known-native local
 value from `None` into `Some(default)`. NumberBox and Slider live gates clear `Value`, drain native
 events, rerender the same cleared control, and verify that no native command is emitted.
+
+ProgressBar supplies the first unrelated ordinary-control cost point after the range and slot
+slices. Seven metadata-derived floating and boolean properties required only schema rows,
+generated output, and qualification code. The thin native counter added 11,776 bytes (+1.30%);
+core layouts remained fixed. The 33 ms source-rebuild increase is small in absolute terms but
+keeps compile cost in the watch set.
+
+The live gate rejected an attempted Viewbox-as-content slice with `E_NOINTERFACE`. Viewbox owns a
+typed `Child` property rather than implementing `IContentControl`; recording tests alone could not
+expose that false role. The schema resolver now verifies `content` against `IContentControl` and
+`children` against `IPanel` metadata. A future Viewbox slice must use a generated typed single-child
+slot contract rather than pretending it is generic content.
 
 ### Structural composition decision
 

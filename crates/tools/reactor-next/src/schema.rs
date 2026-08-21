@@ -180,6 +180,7 @@ impl Schema {
                 return Err(format!("duplicate control {}", control.type_name));
             }
             validate_role(&control)?;
+            validate_native_role(&control, &name, metadata)?;
 
             let mut properties = Vec::with_capacity(control.property.len());
             let mut events = Vec::with_capacity(control.event.len());
@@ -481,6 +482,38 @@ fn validate_role(control: &Control) -> Result<(), String> {
     }
 }
 
+fn validate_native_role(
+    control: &Control,
+    name: &str,
+    metadata: &MetadataResolver,
+) -> Result<(), String> {
+    let expected = match control.role {
+        Role::Content => Some(("put_Content", "IContentControl")),
+        Role::Children => Some(("get_Children", "IPanel")),
+        Role::Leaf | Role::Controlled | Role::Slots | Role::Virtual => None,
+    };
+    let Some((method, interface)) = expected else {
+        return Ok(());
+    };
+    if metadata
+        .resolve(name, method)
+        .is_some_and(|resolved| resolved.short_name() == interface)
+    {
+        Ok(())
+    } else {
+        Err(format!(
+            "{} {} role requires metadata interface {}",
+            control.type_name,
+            match control.role {
+                Role::Content => "content",
+                Role::Children => "children",
+                _ => unreachable!(),
+            },
+            interface
+        ))
+    }
+}
+
 fn validate_member(
     control: &str,
     member: &str,
@@ -508,7 +541,7 @@ mod tests {
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
         let resolved = schema.resolve(&metadata).unwrap();
 
-        assert_eq!(resolved.controls.len(), 9);
+        assert_eq!(resolved.controls.len(), 10);
         assert_eq!(resolved.controls[0].name, "TextBlock");
         assert_eq!(resolved.controls[0].properties[0].value, "Str");
         assert_eq!(resolved.controls[1].events[0].payload, "Unit");
@@ -554,7 +587,11 @@ mod tests {
                 .interface
                 .ends_with("INavigationView")
         );
-        assert!(matches!(resolved.controls[7].role, Role::Virtual));
+        assert_eq!(resolved.controls[7].name, "ProgressBar");
+        assert_eq!(resolved.controls[7].properties.len(), 7);
+        assert_eq!(resolved.controls[7].properties[0].value, "F64");
+        assert_eq!(resolved.controls[7].properties[3].value, "Bool");
+        assert!(matches!(resolved.controls[8].role, Role::Virtual));
     }
 
     #[test]
@@ -605,6 +642,23 @@ name = "IsEnabled"
             .err()
             .unwrap();
         assert!(error.contains("slot declarations need the slots role"));
+    }
+
+    #[test]
+    fn rejects_structural_role_not_supported_by_metadata() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.Viewbox"
+role = "content"
+capabilities = ["layout", "content"]
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let error = Schema::parse(source)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+        assert!(error.contains("content role requires metadata interface IContentControl"));
     }
 
     #[test]

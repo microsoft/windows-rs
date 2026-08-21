@@ -18,6 +18,9 @@ Microsoft::UI::Xaml::Controls::INumberBox::put_Value
 Microsoft::UI::Xaml::Controls::INumberBox::{add_ValueChanged, remove_ValueChanged}
 Microsoft::UI::Xaml::Controls::INumberBoxValueChangedEventArgs::get_NewValue
 Microsoft::UI::Xaml::Controls::IPanel::Children
+Microsoft::UI::Xaml::Controls::IProgressBar::put_IsIndeterminate
+Microsoft::UI::Xaml::Controls::IProgressBar::put_ShowError
+Microsoft::UI::Xaml::Controls::IProgressBar::put_ShowPaused
 Microsoft::UI::Xaml::Controls::IStackPanel::put_Orientation
 Microsoft::UI::Xaml::Controls::IStackPanel::put_Spacing
 Microsoft::UI::Xaml::Controls::ITextBlock::put_Text
@@ -43,6 +46,10 @@ Microsoft::UI::Xaml::Controls::Primitives::IRangeBaseValueChangedEventArgs::get_
 Microsoft::UI::Xaml::Controls::Primitives::RangeBase::MaximumProperty
 Microsoft::UI::Xaml::Controls::Primitives::RangeBase::MinimumProperty
 Microsoft::UI::Xaml::Controls::Primitives::RangeBase::ValueProperty
+Microsoft::UI::Xaml::Controls::ProgressBar::CreateInstance
+Microsoft::UI::Xaml::Controls::ProgressBar::IsIndeterminateProperty
+Microsoft::UI::Xaml::Controls::ProgressBar::ShowErrorProperty
+Microsoft::UI::Xaml::Controls::ProgressBar::ShowPausedProperty
 Microsoft::UI::Xaml::Controls::ScrollViewer::CreateInstance
 Microsoft::UI::Xaml::Controls::Slider::CreateInstance
 Microsoft::UI::Xaml::Controls::StackPanel::CreateInstance

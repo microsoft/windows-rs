@@ -29,6 +29,65 @@ fn multi_root_fragment_is_rejected_in_window_and_content_slots() {
 }
 
 #[test]
+fn generated_ordinary_control_updates_without_replacement() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::native(
+        ProgressBar::new()
+            .minimum(0.0)
+            .maximum(100.0)
+            .value(25.0)
+            .is_indeterminate(false)
+            .show_error(false)
+            .show_paused(false)
+            .is_enabled(true),
+    ))
+    .unwrap();
+    let root = pump.root().unwrap();
+    assert_eq!(
+        pump.runtime()
+            .node(root)
+            .unwrap()
+            .property(PropertyId::ProgressBarValue),
+        Some(&PropertyValue::F64(25.0))
+    );
+
+    pump.update_view(View::native(
+        ProgressBar::new()
+            .minimum(10.0)
+            .maximum(200.0)
+            .value(75.0)
+            .is_indeterminate(true)
+            .show_error(true)
+            .show_paused(true)
+            .is_enabled(false),
+    ))
+    .unwrap();
+
+    assert_eq!(pump.root(), Some(root));
+    assert_eq!(
+        pump.runtime()
+            .node(root)
+            .unwrap()
+            .property(PropertyId::ProgressBarValue),
+        Some(&PropertyValue::F64(75.0))
+    );
+    assert_eq!(
+        pump.runtime()
+            .node(root)
+            .unwrap()
+            .property(PropertyId::ProgressBarShowError),
+        Some(&PropertyValue::Bool(true))
+    );
+    assert_eq!(
+        pump.runtime()
+            .node(root)
+            .unwrap()
+            .property(PropertyId::ProgressBarIsEnabled),
+        Some(&PropertyValue::Bool(false))
+    );
+}
+
+#[test]
 fn fragment_splices_into_children_and_retains_keyed_component_scope() {
     let view = |reverse: bool| {
         let fragment = if reverse {

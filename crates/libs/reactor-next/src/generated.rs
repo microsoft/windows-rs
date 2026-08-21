@@ -295,6 +295,73 @@ pub mod public {
         }
     }
     #[derive(Clone, Debug, Default, PartialEq)]
+    pub struct ProgressBar {
+        minimum: Property<f64>,
+        maximum: Property<f64>,
+        value: Property<f64>,
+        is_indeterminate: Property<bool>,
+        show_error: Property<bool>,
+        show_paused: Property<bool>,
+        is_enabled: Property<bool>,
+    }
+    impl ProgressBar {
+        pub fn new() -> Self {
+            Self::default()
+        }
+        pub fn minimum(mut self, value: f64) -> Self {
+            self.minimum = Property::Set(value);
+            self
+        }
+        pub fn minimum_property(&self) -> &Property<f64> {
+            &self.minimum
+        }
+        pub fn maximum(mut self, value: f64) -> Self {
+            self.maximum = Property::Set(value);
+            self
+        }
+        pub fn maximum_property(&self) -> &Property<f64> {
+            &self.maximum
+        }
+        pub fn value(mut self, value: f64) -> Self {
+            self.value = Property::Set(value);
+            self
+        }
+        pub fn value_property(&self) -> &Property<f64> {
+            &self.value
+        }
+        pub fn is_indeterminate(mut self, value: bool) -> Self {
+            self.is_indeterminate = Property::Set(value);
+            self
+        }
+        pub fn is_indeterminate_property(&self) -> &Property<bool> {
+            &self.is_indeterminate
+        }
+        pub fn show_error(mut self, value: bool) -> Self {
+            self.show_error = Property::Set(value);
+            self
+        }
+        pub fn show_error_property(&self) -> &Property<bool> {
+            &self.show_error
+        }
+        pub fn show_paused(mut self, value: bool) -> Self {
+            self.show_paused = Property::Set(value);
+            self
+        }
+        pub fn show_paused_property(&self) -> &Property<bool> {
+            &self.show_paused
+        }
+        pub fn is_enabled(mut self, value: bool) -> Self {
+            self.is_enabled = Property::Set(value);
+            self
+        }
+        pub fn is_enabled_property(&self) -> &Property<bool> {
+            &self.is_enabled
+        }
+    }
+    impl sealed::Sealed for ProgressBar {}
+    impl LayoutControl for ProgressBar {}
+    impl EnabledControl for ProgressBar {}
+    #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ItemsRepeater {
         items: std::rc::Rc<Vec<KeyedElement>>,
     }
@@ -345,6 +412,7 @@ pub mod public {
         NumberBox(NumberBox),
         Slider(Slider),
         NavigationView(NavigationView),
+        ProgressBar(ProgressBar),
         ItemsRepeater(ItemsRepeater),
         ScrollViewer(ScrollViewer),
     }
@@ -383,6 +451,11 @@ pub mod public {
             Self::NavigationView(value)
         }
     }
+    impl From<ProgressBar> for Element {
+        fn from(value: ProgressBar) -> Self {
+            Self::ProgressBar(value)
+        }
+    }
     impl From<ItemsRepeater> for Element {
         fn from(value: ItemsRepeater) -> Self {
             Self::ItemsRepeater(value)
@@ -403,6 +476,7 @@ pub mod public {
                 Self::NumberBox(_) => MountedKind::NumberBox,
                 Self::Slider(_) => MountedKind::Slider,
                 Self::NavigationView(_) => MountedKind::NavigationView,
+                Self::ProgressBar(_) => MountedKind::ProgressBar,
                 Self::ItemsRepeater(_) => MountedKind::ItemsRepeater,
                 Self::ScrollViewer(_) => MountedKind::ScrollViewer,
             }
@@ -496,6 +570,27 @@ pub mod public {
                 Self::NavigationView(NavigationView { is_enabled }) => ElementParts {
                     kind: MountedKind::NavigationView,
                     props: MountedProps::NavigationView { is_enabled },
+                    structure: ElementStructure::None,
+                },
+                Self::ProgressBar(ProgressBar {
+                    minimum,
+                    maximum,
+                    value,
+                    is_indeterminate,
+                    show_error,
+                    show_paused,
+                    is_enabled,
+                }) => ElementParts {
+                    kind: MountedKind::ProgressBar,
+                    props: MountedProps::ProgressBar {
+                        minimum,
+                        maximum,
+                        value,
+                        is_indeterminate,
+                        show_error,
+                        show_paused,
+                        is_enabled,
+                    },
                     structure: ElementStructure::None,
                 },
                 Self::ItemsRepeater(ItemsRepeater { items }) => ElementParts {
@@ -620,6 +715,35 @@ pub mod public {
                         is_enabled: mounted_is_enabled,
                     },
                 ) => true && is_enabled == mounted_is_enabled,
+                (
+                    Self::ProgressBar(ProgressBar {
+                        minimum,
+                        maximum,
+                        value,
+                        is_indeterminate,
+                        show_error,
+                        show_paused,
+                        is_enabled,
+                        ..
+                    }),
+                    MountedProps::ProgressBar {
+                        minimum: mounted_minimum,
+                        maximum: mounted_maximum,
+                        value: mounted_value,
+                        is_indeterminate: mounted_is_indeterminate,
+                        show_error: mounted_show_error,
+                        show_paused: mounted_show_paused,
+                        is_enabled: mounted_is_enabled,
+                    },
+                ) => {
+                    true && f64_property_eq(minimum, mounted_minimum)
+                        && f64_property_eq(maximum, mounted_maximum)
+                        && f64_property_eq(value, mounted_value)
+                        && is_indeterminate == mounted_is_indeterminate
+                        && show_error == mounted_show_error
+                        && show_paused == mounted_show_paused
+                        && is_enabled == mounted_is_enabled
+                }
                 (Self::ItemsRepeater(ItemsRepeater { .. }), MountedProps::ItemsRepeater {}) => true,
                 (Self::ScrollViewer(ScrollViewer { .. }), MountedProps::ScrollViewer {}) => true,
                 _ => false,
@@ -634,6 +758,7 @@ pub mod public {
                 Self::NumberBox(_) => ElementStructureRef::None,
                 Self::Slider(_) => ElementStructureRef::None,
                 Self::NavigationView(_) => ElementStructureRef::None,
+                Self::ProgressBar(_) => ElementStructureRef::None,
                 Self::ItemsRepeater(value) => ElementStructureRef::Virtual(value.items.as_slice()),
                 Self::ScrollViewer(value) => ElementStructureRef::Content(value.content.as_deref()),
             }
@@ -655,6 +780,7 @@ pub mod public {
                     visit(EventId::SliderValueChanged, true);
                 }
                 Self::NavigationView(_) => {}
+                Self::ProgressBar(_) => {}
                 Self::ItemsRepeater(_) => {}
                 Self::ScrollViewer(_) => {}
             }
@@ -842,6 +968,66 @@ impl MountedPropsExt for MountedProps {
                     },
                 );
             }
+            Self::ProgressBar {
+                minimum,
+                maximum,
+                value,
+                is_indeterminate,
+                show_error,
+                show_paused,
+                is_enabled,
+                ..
+            } => {
+                visit(
+                    PropertyId::ProgressBarMinimum,
+                    match minimum {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+                visit(
+                    PropertyId::ProgressBarMaximum,
+                    match maximum {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+                visit(
+                    PropertyId::ProgressBarValue,
+                    match value {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+                visit(
+                    PropertyId::ProgressBarIsIndeterminate,
+                    match is_indeterminate {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+                visit(
+                    PropertyId::ProgressBarShowError,
+                    match show_error {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+                visit(
+                    PropertyId::ProgressBarShowPaused,
+                    match show_paused {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+                visit(
+                    PropertyId::ProgressBarIsEnabled,
+                    match is_enabled {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+            }
             Self::ItemsRepeater { .. } => {}
             Self::ScrollViewer { .. } => {}
         }
@@ -865,6 +1051,7 @@ impl MountedEventsExt for MountedProps {
                 visit(EventId::SliderValueChanged, true);
             }
             Self::NavigationView { .. } => {}
+            Self::ProgressBar { .. } => {}
             Self::ItemsRepeater { .. } => {}
             Self::ScrollViewer { .. } => {}
         }
@@ -946,6 +1133,7 @@ pub enum MountedKind {
     NumberBox,
     Slider,
     NavigationView,
+    ProgressBar,
     ItemsRepeater,
     ScrollViewer,
 }
@@ -975,6 +1163,7 @@ pub fn slots(kind: MountedKind) -> &'static [SlotId] {
         MountedKind::NavigationView => {
             &[SlotId::NavigationViewContent, SlotId::NavigationViewHeader]
         }
+        MountedKind::ProgressBar => &[],
         MountedKind::ItemsRepeater => &[],
         MountedKind::ScrollViewer => &[],
     }
@@ -1014,6 +1203,15 @@ pub enum MountedProps {
         on_value_changed: Option<Callback<f64>>,
     },
     NavigationView {
+        is_enabled: Property<bool>,
+    },
+    ProgressBar {
+        minimum: Property<f64>,
+        maximum: Property<f64>,
+        value: Property<f64>,
+        is_indeterminate: Property<bool>,
+        show_error: Property<bool>,
+        show_paused: Property<bool>,
         is_enabled: Property<bool>,
     },
     ItemsRepeater {},
@@ -1126,6 +1324,34 @@ impl PartialEq for MountedProps {
                     is_enabled: right_is_enabled,
                 },
             ) => true && left_is_enabled == right_is_enabled,
+            (
+                Self::ProgressBar {
+                    minimum: left_minimum,
+                    maximum: left_maximum,
+                    value: left_value,
+                    is_indeterminate: left_is_indeterminate,
+                    show_error: left_show_error,
+                    show_paused: left_show_paused,
+                    is_enabled: left_is_enabled,
+                },
+                Self::ProgressBar {
+                    minimum: right_minimum,
+                    maximum: right_maximum,
+                    value: right_value,
+                    is_indeterminate: right_is_indeterminate,
+                    show_error: right_show_error,
+                    show_paused: right_show_paused,
+                    is_enabled: right_is_enabled,
+                },
+            ) => {
+                true && f64_property_eq(left_minimum, right_minimum)
+                    && f64_property_eq(left_maximum, right_maximum)
+                    && f64_property_eq(left_value, right_value)
+                    && left_is_indeterminate == right_is_indeterminate
+                    && left_show_error == right_show_error
+                    && left_show_paused == right_show_paused
+                    && left_is_enabled == right_is_enabled
+            }
             (Self::ItemsRepeater {}, Self::ItemsRepeater {}) => true,
             (Self::ScrollViewer {}, Self::ScrollViewer {}) => true,
             _ => false,
@@ -1171,6 +1397,13 @@ pub enum PropertyId {
     SliderValue,
     SliderIsEnabled,
     NavigationViewIsEnabled,
+    ProgressBarMinimum,
+    ProgressBarMaximum,
+    ProgressBarValue,
+    ProgressBarIsIndeterminate,
+    ProgressBarShowError,
+    ProgressBarShowPaused,
+    ProgressBarIsEnabled,
 }
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum EventId {
@@ -1545,6 +1778,87 @@ const NAVIGATION_VIEW_SLOTS: &[SlotDescriptor] = &[
         target: "inspectable",
     },
 ];
+const PROGRESS_BAR_PROPERTIES: &[PropertyDescriptor] = &[
+    PropertyDescriptor {
+        id: PropertyId::ProgressBarMinimum,
+        name: "Minimum",
+        field: "minimum",
+        value: "F64",
+        interface: "Microsoft.UI.Xaml.Controls.Primitives.IRangeBase",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::ProgressBarMaximum,
+        name: "Maximum",
+        field: "maximum",
+        value: "F64",
+        interface: "Microsoft.UI.Xaml.Controls.Primitives.IRangeBase",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::ProgressBarValue,
+        name: "Value",
+        field: "value",
+        value: "F64",
+        interface: "Microsoft.UI.Xaml.Controls.Primitives.IRangeBase",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::ProgressBarIsIndeterminate,
+        name: "IsIndeterminate",
+        field: "is_indeterminate",
+        value: "Bool",
+        interface: "Microsoft.UI.Xaml.Controls.IProgressBar",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::ProgressBarShowError,
+        name: "ShowError",
+        field: "show_error",
+        value: "Bool",
+        interface: "Microsoft.UI.Xaml.Controls.IProgressBar",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::ProgressBarShowPaused,
+        name: "ShowPaused",
+        field: "show_paused",
+        value: "Bool",
+        interface: "Microsoft.UI.Xaml.Controls.IProgressBar",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::ProgressBarIsEnabled,
+        name: "IsEnabled",
+        field: "is_enabled",
+        value: "Bool",
+        interface: "Microsoft.UI.Xaml.Controls.IControl",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+];
+const PROGRESS_BAR_EVENTS: &[EventDescriptor] = &[];
+const PROGRESS_BAR_SLOTS: &[SlotDescriptor] = &[];
 const ITEMS_REPEATER_PROPERTIES: &[PropertyDescriptor] = &[];
 const ITEMS_REPEATER_EVENTS: &[EventDescriptor] = &[];
 const ITEMS_REPEATER_SLOTS: &[SlotDescriptor] = &[];
@@ -1626,6 +1940,16 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         properties: NAVIGATION_VIEW_PROPERTIES,
         events: NAVIGATION_VIEW_EVENTS,
         slots: NAVIGATION_VIEW_SLOTS,
+    },
+    ControlDescriptor {
+        kind: MountedKind::ProgressBar,
+        name: "ProgressBar",
+        type_name: "Microsoft.UI.Xaml.Controls.ProgressBar",
+        role: ControlRole::Leaf,
+        capabilities: &[Capability::Layout, Capability::Enabled],
+        properties: PROGRESS_BAR_PROPERTIES,
+        events: PROGRESS_BAR_EVENTS,
+        slots: PROGRESS_BAR_SLOTS,
     },
     ControlDescriptor {
         kind: MountedKind::ItemsRepeater,

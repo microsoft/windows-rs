@@ -159,6 +159,10 @@ trait LivePump {
     fn live_named_slots(&mut self) -> bool {
         false
     }
+    #[cfg(feature = "test")]
+    fn live_progress_bar(&mut self) -> bool {
+        false
+    }
 }
 
 struct ComponentLoop {
@@ -544,6 +548,31 @@ impl LivePump for ComponentLoop {
                 .update_view(view(Some("content 2"), "header 1"))
                 .is_ok()
             && self.pump.update_view(view(None, "header 2")).is_ok()
+    }
+
+    #[cfg(feature = "test")]
+    fn live_progress_bar(&mut self) -> bool {
+        let view = |value, error, paused| {
+            View::native(
+                ProgressBar::new()
+                    .minimum(0.0)
+                    .maximum(100.0)
+                    .value(value)
+                    .is_indeterminate(false)
+                    .show_error(error)
+                    .show_paused(paused)
+                    .is_enabled(true),
+            )
+        };
+        if let Err(error) = self.pump.update_view(view(25.0, false, false)) {
+            eprintln!("ProgressBar initial update failed: {error:?}");
+            return false;
+        }
+        if let Err(error) = self.pump.update_view(view(75.0, true, true)) {
+            eprintln!("ProgressBar second update failed: {error:?}");
+            return false;
+        }
+        true
     }
 }
 
@@ -1294,6 +1323,16 @@ fn queue_live_range_restore_verification(
                     });
                     if !slots_passed {
                         eprintln!("live backend fixture did not update NavigationView named slots");
+                        std::process::exit(1);
+                    }
+                    let progress_bar_passed = HOST.with(|host| {
+                        host.borrow_mut()
+                            .as_mut()
+                            .and_then(LiveHost::primary_mut)
+                            .is_some_and(LivePump::live_progress_bar)
+                    });
+                    if !progress_bar_passed {
+                        eprintln!("live backend fixture did not update ProgressBar properties");
                         std::process::exit(1);
                     }
                     let prepared = HOST.with(|host| {

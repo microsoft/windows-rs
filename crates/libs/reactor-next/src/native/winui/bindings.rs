@@ -1732,6 +1732,101 @@ pub struct IPanel_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IProgressBar,
+    IProgressBar_Vtbl,
+    0x87555c8c_0aaf_52c1_8390_0db17f40438e
+);
+impl windows_core::RuntimeType for IProgressBar {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IProgressBar {
+    pub(crate) fn SetIsIndeterminate(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsIndeterminate)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetShowError(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetShowError)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetShowPaused(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetShowPaused)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IProgressBar_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    IsIndeterminate: usize,
+    pub SetIsIndeterminate:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    ShowError: usize,
+    pub SetShowError:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    ShowPaused: usize,
+    pub SetShowPaused:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IProgressBarFactory,
+    IProgressBarFactory_Vtbl,
+    0x189826ad_f6f2_533e_9ddb_b6600e88675b
+);
+impl windows_core::RuntimeType for IProgressBarFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IProgressBarFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IProgressBarStatics,
+    IProgressBarStatics_Vtbl,
+    0x61bbb127_e4c4_5e22_a8dc_cfcf957236d0
+);
+impl windows_core::RuntimeType for IProgressBarStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IProgressBarStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsIndeterminateProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub ShowErrorProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub ShowPausedProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IRangeBase,
     IRangeBase_Vtbl,
     0x540d6d61_8fac_5d5c_b5b0_e172a7dde103
@@ -3061,6 +3156,99 @@ impl windows_core::RuntimeName for Panel {
 }
 unsafe impl Send for Panel {}
 unsafe impl Sync for Panel {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ProgressBar(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ProgressBar,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    ProgressBar,
+    RangeBase,
+    Control,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
+impl ProgressBar {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IProgressBarFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(
+                windows_core::Interface::as_raw(this),
+                core::ptr::null_mut(),
+                core::ptr::null_mut(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn IsIndeterminateProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IProgressBarStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsIndeterminateProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn ShowErrorProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IProgressBarStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ShowErrorProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn ShowPausedProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IProgressBarStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ShowPausedProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IProgressBarFactory<R, F: FnOnce(&IProgressBarFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ProgressBar, IProgressBarFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IProgressBarStatics<R, F: FnOnce(&IProgressBarStatics) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ProgressBar, IProgressBarStatics> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for ProgressBar {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IProgressBar>();
+}
+unsafe impl windows_core::Interface for ProgressBar {
+    type Vtable = <IProgressBar as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IProgressBar as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ProgressBar {
+    type Target = IProgressBar;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ProgressBar {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.ProgressBar";
+}
+unsafe impl Send for ProgressBar {}
+unsafe impl Sync for ProgressBar {}
 pub const RPC_E_CHANGED_MODE: windows_core::HRESULT = windows_core::HRESULT(0x80010106_u32 as _);
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
