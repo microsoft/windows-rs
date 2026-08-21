@@ -38,6 +38,7 @@ use windows_reactor::{
 
 static BYTES: AtomicU64 = AtomicU64::new(0);
 static ALLOCS: AtomicU64 = AtomicU64::new(0);
+static CURRENT_BYTES: AtomicU64 = AtomicU64::new(0);
 static BENCH_CONTEXT: LazyLock<Context<u8>> = LazyLock::new(|| Context::new(0));
 
 /// Global allocator that counts bytes and allocation calls. Wraps `System`;
@@ -51,11 +52,13 @@ unsafe impl GlobalAlloc for Counting {
         if !p.is_null() {
             BYTES.fetch_add(layout.size() as u64, Ordering::Relaxed);
             ALLOCS.fetch_add(1, Ordering::Relaxed);
+            CURRENT_BYTES.fetch_add(layout.size() as u64, Ordering::Relaxed);
         }
         p
     }
 
     unsafe fn dealloc(&self, ptr: *mut u8, layout: Layout) {
+        CURRENT_BYTES.fetch_sub(layout.size() as u64, Ordering::Relaxed);
         unsafe { System.dealloc(ptr, layout) };
     }
 
@@ -64,6 +67,9 @@ unsafe impl GlobalAlloc for Counting {
         if !p.is_null() && new_size > layout.size() {
             BYTES.fetch_add((new_size - layout.size()) as u64, Ordering::Relaxed);
             ALLOCS.fetch_add(1, Ordering::Relaxed);
+            CURRENT_BYTES.fetch_add((new_size - layout.size()) as u64, Ordering::Relaxed);
+        } else if !p.is_null() {
+            CURRENT_BYTES.fetch_sub((layout.size() - new_size) as u64, Ordering::Relaxed);
         }
         p
     }
@@ -325,6 +331,23 @@ fn bench_dirty_component(
     }
 }
 
+fn measure_idle_component_memory(count: usize) -> u64 {
+    let tree = vstack(
+        (0..count)
+            .map(|_| component(component_leaf, ()))
+            .collect::<Vec<_>>(),
+    )
+    .into();
+    let mut reconciler = Reconciler::new(RecordingBackend::new());
+    let before = CURRENT_BYTES.load(Ordering::Relaxed);
+    let id = reconciler
+        .reconcile(None, &tree, None, no_rerender())
+        .unwrap();
+    let bytes = CURRENT_BYTES.load(Ordering::Relaxed) - before;
+    reconciler.unmount(id);
+    bytes
+}
+
 fn parse_arg(name: &str, default: u64) -> u64 {
     let args: Vec<String> = std::env::args().collect();
     for w in args.windows(2) {
@@ -518,6 +541,20 @@ fn main() {
     }
 
     print_table(&rows);
+
+    println!("\nidle component memory");
+    println!(
+        "{:>8} {:>16} {:>18}",
+        "scopes", "retained bytes", "bytes/scope"
+    );
+    println!("{}", "-".repeat(46));
+    for count in [512, 4_096, 16_384] {
+        let bytes = measure_idle_component_memory(count);
+        println!(
+            "{count:>8} {bytes:>16} {:>18.1}",
+            bytes as f64 / count as f64
+        );
+    }
 }
 
 fn print_table(rows: &[Row]) {

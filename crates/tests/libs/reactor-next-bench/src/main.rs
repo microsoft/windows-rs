@@ -686,6 +686,30 @@ fn bench_update(name: &'static str, n: usize, a: View, b: View, iters: u64, reps
     Row { name, n, perf }
 }
 
+fn bench_mount_shutdown(name: &'static str, n: usize, view: View, iters: u64, reps: u32) -> Row {
+    let perf = measure(iters, reps, || {
+        let mut pump = Pump::new(runtime());
+        pump.mount_view(view.clone()).unwrap();
+        pump.shutdown();
+    });
+    Row { name, n, perf }
+}
+
+fn bench_reference_mount(n: usize, iters: u64, reps: u32) -> Row {
+    let references = (0..n).map(|_| ElementRef::new()).collect::<Vec<_>>();
+    let view =
+        StackPanel::new().keyed_children(references.iter().enumerate().map(
+            |(index, reference)| KeyedView::new(index, TextBox::new().element_ref(reference)),
+        ));
+    bench_mount_shutdown("reference_mount", n, view, iters, reps)
+}
+
+fn bench_textbox_mount(n: usize, iters: u64, reps: u32) -> Row {
+    let view =
+        StackPanel::new().keyed_children((0..n).map(|index| KeyedView::new(index, TextBox::new())));
+    bench_mount_shutdown("textbox_mount", n, view, iters, reps)
+}
+
 fn bench_component_keyed(
     name: &'static str,
     n: usize,
@@ -985,6 +1009,9 @@ fn main() {
     changed[0] = "changed".to_string();
     let mut reversed = labels.clone();
     reversed.reverse();
+    let mut rotated = labels.clone();
+    rotated.rotate_left(1);
+    let all_changed: Vec<_> = (0..512).map(|index| format!("changed-{index}")).collect();
     let labels_4k: Vec<_> = (0..4_096).map(|index| format!("cell-{index}")).collect();
     let mut reversed_4k = labels_4k.clone();
     reversed_4k.reverse();
@@ -1014,6 +1041,15 @@ fn main() {
     component_moved_25_4k.rotate_left(1_024);
 
     let rows = vec![
+        bench_mount_shutdown(
+            "mount_shutdown",
+            512,
+            indexed_stack(&labels),
+            (iters / 16).max(1),
+            reps,
+        ),
+        bench_textbox_mount(512, (iters / 16).max(1), reps),
+        bench_reference_mount(512, (iters / 16).max(1), reps),
         bench_update(
             "update_no_change",
             512,
@@ -1031,11 +1067,27 @@ fn main() {
             reps,
         ),
         bench_update(
+            "update_all_changed",
+            512,
+            indexed_stack(&labels),
+            indexed_stack(&all_changed),
+            iters,
+            reps,
+        ),
+        bench_update(
             "keyed_reverse",
             512,
             keyed_stack(&labels),
             keyed_stack(&reversed),
             (iters / 4).max(1),
+            reps,
+        ),
+        bench_update(
+            "keyed_rotate1",
+            512,
+            keyed_stack(&labels),
+            keyed_stack(&rotated),
+            iters,
             reps,
         ),
         bench_update(

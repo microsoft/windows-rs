@@ -520,6 +520,13 @@ impl<R: NativeRuntime> Pump<R> {
         if tree.kind(node)? != NodeKind::Native(parts.kind) {
             return Err(PumpError::StructureUnsupported);
         }
+        let native = tree.native(node)?;
+        if !plan.reconcile_observations
+            && native.desired == parts.props
+            && native.reference == parts.reference
+        {
+            return Ok(());
+        }
         Self::reconcile_native_state(tree.native_mut(node)?, node, parts, plan)
     }
 

@@ -504,7 +504,9 @@ impl Tree {
     }
 
     pub fn set_children(&mut self, id: NodeId, children: Vec<NodeId>) -> Result<(), TreeError> {
-        self.arena.get_mut(id)?.children = children;
+        if self.arena.get(id)?.children != children {
+            self.arena.get_mut(id)?.children = children;
+        }
         Ok(())
     }
 

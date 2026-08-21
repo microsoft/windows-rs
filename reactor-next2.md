@@ -631,15 +631,15 @@ scales acceptably.
 
 ### 2. Performance checkpoint
 
-- [ ] Select equivalent incumbent and reactor-next applications.
-- [ ] Record clean compile time and representative incremental edit time.
-- [ ] Record release binary size and generated binding growth.
-- [ ] Measure mount and unchanged-update work.
-- [ ] Measure keyed insertion, removal, reorder, and replacement.
-- [ ] Measure component message throughput and local-update hit rate.
-- [ ] Measure virtual source update, realization, recycle, and row-component overhead.
-- [ ] Measure candidate-tree cloning and reference-validation cost at realistic and stress sizes.
-- [ ] Compare against the current reactor baseline and define acceptable regression bounds.
+- [x] Select equivalent incumbent and reactor-next applications.
+- [x] Record clean compile time and representative incremental edit time.
+- [x] Record release binary size and generated binding growth.
+- [x] Measure mount and unchanged-update work.
+- [x] Measure keyed insertion, removal, reorder, and replacement.
+- [x] Measure component message throughput and local-update hit rate.
+- [x] Measure virtual source update, realization, recycle, and row-component overhead.
+- [x] Measure candidate-tree cloning and reference-validation cost at realistic and stress sizes.
+- [x] Compare against the current reactor baseline and define acceptable regression bounds.
 
 ### 3. Integrated virtual task/editor sample
 
@@ -735,11 +735,6 @@ component-store failures poison because native state has already changed.
   hash set of stable reference-cell identities when a scan is required.
 - A full local-message queue turned ordinary native input backpressure into a fatal host fault.
   Rejected adapted callbacks now retain the event and retry after component work frees capacity.
-- General virtual rows could change from one native root to zero or multiple roots, turning an
-  ordinary component update into a fatal host fault. Realized rows now retain their logical
-  subtree with an optional shell attachment. Zero roots leave the shell empty. Multiple roots
-  leave it empty and commit a non-fatal diagnostic. Returning to one root reattaches the same
-  component and effect state.
 - Same-key virtual payload reconciliation scanned the source and realized-container ownership once
   per realized row. It now builds temporary key and logical-owner maps once per update, while
   direct realization uses its validated index.
@@ -756,12 +751,14 @@ imperative work, cross-window reference ownership, and the shared publication pa
   state is not rolled back. `Component::changed` can also send messages or start background work.
   This follows from the decision not to clone component instances and needs an explicit application
   contract or a narrower `changed` context.
-- Full updates clone the `Tree`. This keeps candidate ownership simple, but its cost must be
-  measured with deep component trees and large realized collections.
+- Full updates clone the `Tree`. This keeps candidate ownership simple. Broad reconciliation is
+  slower and allocates more than the incumbent, but the measured absolute cost remains within the
+  performance bounds below.
 - Effect key lookup is linear within each component. The intended case has few effects; measure
   before adding a map and another allocation.
 - Reference validation scans the candidate tree only when a new binding is introduced and uses a
-  hash set for duplicate detection. The performance gate will still test a reference-heavy tree.
+  hash set for duplicate detection. At 512 referenced controls, validation adds 39% mount time and
+  5% transient bytes over the same controls without references.
 - Typed references increased `Element` from 80 to 88 bytes and `Node` from 416 to 424 bytes.
   Virtual source revisions then increased `Node` to 432 bytes. The retained per-node cost is
   accepted because reference ownership and stale source rejection belong to authoritative tree
@@ -787,6 +784,40 @@ budgets, and ordinary local-message backpressure defers rather than faults.
 The remaining risks are measured-design questions rather than known correctness defects: full
 Tree cloning, retained node size, effect lookup at unusually high counts, reference-heavy initial
 publication, and the cost of detached virtual rows. These move to the performance checkpoint.
-- Content and named-slot views retain their existing zero-or-one native-root contracts. Whether
-  those APIs need a recoverable multi-root policy is a separate audit decision; virtual-row
-  attachment does not change their ownership or arity rules.
+
+## Performance checkpoint
+
+The August 21, 2026 checkpoint is recorded in
+`crates/tests/libs/reactor-next-bench/readme.md`. The same machine and release toolchain measured:
+
+| Measure | Incumbent | Reactor next |
+| --- | ---: | ---: |
+| Clean library check | 5.134 s | 2.712 s |
+| Source-only library check | 3.601 s | 1.502 s |
+| Thin counter executable | 2,975,744 bytes | 991,232 bytes |
+| Local component message | 593 ns, 457 bytes | 700 ns, 430 bytes |
+| Retained component scope | 3,628 bytes | 2,552 bytes |
+| Change all 512 leaves | 164 us | 410 us |
+| Reverse 512 keyed leaves | 105 us | 278 us |
+| Rotate 512 keyed leaves | 70 us | 271 us |
+
+The primary path passes: a local message is 1.18x incumbent time, uses fewer bytes, and remains
+flat from 512 through 16,384 unrelated scopes. Compile time is 0.42-0.53x, the thin executable is
+0.33x, and retained component memory is 0.70x.
+
+Broad reconciliation remains the main watch. It is 2.5-3.9x incumbent time with higher transient
+allocation, but stays below 1 ms at 512 rows and below 5 ms at 4,096 rows. A 10,000-item virtual
+source update stays below 1.5 ms, and realizing plus recycling 32 rows takes 63 us. The checkpoint
+accepts these absolute costs for the next integrated sample rather than weakening candidate
+publication or adding a second mutable tree.
+
+Until application evidence replaces them, the gates are:
+
+- local component messages <= 1.5x incumbent time and flat with unrelated scope count;
+- compile time, retained component memory, and thin binary size <= the incumbent;
+- broad reconciliation < 1 ms at 512 rows and < 8 ms at 4,096 rows;
+- 10,000-item virtual source updates < 2 ms and 32-row realize/recycle < 100 us;
+- reference-heavy mount overhead < 50% time and < 10% bytes over identical controls.
+
+The integrated virtual editor is the next gate. If it exceeds these bounds, profile repeated
+key/view collection and copy-on-write chunk mutation before changing ownership or publication.
