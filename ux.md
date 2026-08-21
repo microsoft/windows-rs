@@ -15,6 +15,12 @@ The incumbent is substantially more approachable and flexible today. Reactor-nex
 advantage is reliability, auditability, and clearer ownership rather than API polish or feature
 breadth.
 
+Developer UX should become the next qualification gate. This does not mean polishing every helper
+or recreating the incumbent API now. It means settling the public composition, identity, event,
+effect, and imperative-access contracts before broad control generation makes them expensive to
+change. Convenience constructors, derives, and broad styling helpers should follow evidence from
+real application slices.
+
 ## Developer experience
 
 | Area | `windows-reactor` | `windows-reactor-next` |
@@ -22,12 +28,12 @@ breadth.
 | State model | Render functions and hooks | Owned component structs and typed messages |
 | Small component | Very concise | Considerably more boilerplate |
 | State transitions | Setter and reducer handles | `Message` enum plus `update` |
-| Composition | Helpers, tuples, and implicit child conversion | `View::native`, `View::children`, and explicit `KeyedView` |
+| Composition | Helpers, tuples, implicit conversion | Explicit `View` and `KeyedView` |
 | Effects | Rich hook API | `ViewContext::use_effect` |
-| Async | Async state, resources, mutations, and UI marshalling | Scope-owned background thread returning a message |
+| Async | State, resources, mutations, marshalling | Owned thread returning a message |
 | Imperative access | Typed element references and handles | Not present in the public slice |
-| Control coverage | Dozens of practical controls and behaviors | Eight generated controls |
-| Styling and interaction | Broad modifiers, resources, animation, pointer, focus, and accessibility | Narrow current slice |
+| Control coverage | Dozens of practical controls and behaviors | Eleven generated controls |
+| Styling and interaction | Broad modifier and behavior coverage | Narrow current slice |
 
 The incumbent counter is close to a React-style Rust API:
 
@@ -131,6 +137,32 @@ safer than silently assigning positional identity, but it is noisy for static la
 string key for every child in a two-item `StackPanel` is likely prototype UX rather than a necessary
 final requirement.
 
+### Positional effects remain
+
+Owned component fields remove state-hook ordering, but `ViewContext::use_effect` still assigns
+effect identity by call position. Conditional insertion or reordering can therefore replace a
+different effect slot. This is a smaller constraint than a complete hook runtime, but it is still
+a hook-order rule and should be documented or replaced before the API settles.
+
+## Current composition split
+
+Reactor-next currently has two similar-looking composition paths with different capabilities:
+
+| Path | Accepted descendants | Purpose |
+| --- | --- | --- |
+| Generated structural methods | Native `Element` only | Compact native-only trees |
+| `View` structural methods | General `View` | All logical descendants |
+
+For example, `Button::content(TextBlock::new())` works, but putting a component in the same content
+position requires changing to `View::content(Button::new(), View::component::<C>(props))`.
+`StackPanel::children` and `View::children` have the same distinction. The names do not explain the
+semantic boundary, and extracting a native subtree into a component changes its construction form.
+
+This is the highest-priority UX issue because it affects generated APIs and the mental model.
+Reactor-next should expose one obvious composition model. A native-only fast path may remain
+internally or as an advanced API, but ordinary application code should not need to choose between
+two tree languages.
+
 ## UX that can improve without changing the architecture
 
 Several current rough edges can be addressed by a thin frontend layer:
@@ -143,7 +175,6 @@ Several current rough edges can be addressed by a thin frontend layer:
 - Event closures that manually discard the `bool` from `sender.send`.
 - No component derive or macro for common cases.
 - No concise child-component syntax.
-- Test-only live read-back helpers that require handwritten control branches.
 
 A frontend could make the same component model more concise:
 
@@ -162,6 +193,10 @@ ownership or state model.
 
 A component derive or macro could supply common defaults for `create` and `changed`. The main
 constraint is to avoid turning convenience APIs into a second reconciliation frontend.
+
+The first iteration should prefer ordinary traits, conversions, and methods over procedural
+macros. Macros can hide poor underlying types and produce worse diagnostics. Add them only after
+the non-macro API is proven by realistic applications.
 
 ## Current flexibility
 
@@ -187,6 +222,9 @@ generates only:
 - `TextBox`;
 - `NumberBox`;
 - `Slider`;
+- `NavigationView`;
+- `ProgressBar`;
+- `ToggleSwitch`;
 - `ScrollViewer`;
 - `ItemsRepeater`.
 
@@ -243,6 +281,22 @@ The authoritative plan identifies API consolidation and replacement qualificatio
 phase, which is appropriate. Broad generation should not freeze the current surface before that
 work happens.
 
+## What to decide now and what to defer
+
+UX work should start now, but it should be split into contract work and polish.
+
+| Decide now | Defer until application evidence |
+| --- | --- |
+| One composition model for all view kinds | Convenience constructor names |
+| Positional versus explicit effect identity | Component derive and procedural macros |
+| Static positional children versus explicit keyed children | Full styling and modifier vocabulary |
+| Sender adapters and observable send rejection | Async resource and mutation conveniences |
+| Imperative references and mount lifetime | Broad migration shims |
+| Public error and unsupported-control diagnostics | Optional control feature groups |
+
+The "now" work changes foundational types or generated signatures. The deferred work can be added
+without changing reconciliation or ownership.
+
 ## What should remain and what should change
 
 The following should remain:
@@ -259,6 +313,7 @@ The following should be treated as open UX work:
 
 - child and content construction syntax;
 - key requirements for static versus dynamic children;
+- effect identity and conditional-effect rules;
 - component boilerplate;
 - sender-to-message adapters;
 - imperative focus and native-handle access;
@@ -270,16 +325,16 @@ The following should be treated as open UX work:
 
 ## Recommended UX qualification
 
-Before broad control generation locks in the surface, port several realistic incumbent
-applications rather than more counters:
+Start with one realistic form before broad control generation:
 
 1. A form with controlled text, numeric input, validation, focus, and async submission.
-2. A navigation application with multiple windows and retained page state.
-3. A virtualized collection with row components, selection, templates, and background loading.
-4. A Canvas or WebView application requiring imperative handles and subsystem failure handling.
-5. An animation and pointer-interaction sample.
 
-For each port, measure:
+This slice is small enough to finish but exercises the unresolved contracts: nested composition,
+controlled values, messages, effects, focus, background work, disabled and error states, and
+component extraction. Build it first with the current API and retain that version as the baseline.
+Then make the smallest API changes that materially improve it.
+
+Measure:
 
 - application source size and boilerplate;
 - number of explicit keys;
@@ -291,14 +346,24 @@ For each port, measure:
 - diagnostics for unsupported shapes;
 - reliability differences found during the port.
 
-The project should then settle:
+The initial UX gate should settle:
 
 1. How much explicit keying normal layouts require.
-2. Whether component boilerplate needs derives or macros.
-3. Which child and content conversions are accepted.
-4. How imperative focus and native handles fit the ownership model.
-5. What replaces the incumbent's resource, async, window, and host-context hooks.
-6. Whether users accept typed-message components as the only state model.
+2. Which child and content conversions form the one normal composition path.
+3. Whether effect identity remains positional.
+4. How sender-to-message adapters expose queue rejection.
+5. How imperative focus and native handles fit the ownership model.
+6. Whether the owned typed-message model remains acceptable in a realistic component.
+
+After this gate, qualify broader facilities with:
+
+1. A navigation application with multiple windows and retained page state.
+2. A virtualized collection with row components, selection, templates, and background loading.
+3. A Canvas or WebView application requiring imperative handles and subsystem failure handling.
+4. An animation and pointer-interaction sample.
+
+Those later slices should drive async helpers, window context, templates, specialized adapters, and
+styling APIs. They should not block fixing the foundational composition and identity contracts.
 
 ## Final assessment
 
@@ -311,5 +376,6 @@ removed with an ergonomic layer while retaining owned components and typed messa
 
 **The architecture can support a better UX than it currently presents, but the incumbent remains
 substantially more approachable and flexible today. Reactor-next's present advantage is reliability
-and auditability, not user-facing API polish or feature breadth.**
-
+and auditability, not user-facing API polish or feature breadth. Begin UX qualification now, before
+broad control generation, but focus first on foundational contracts rather than convenience
+syntax.**

@@ -510,3 +510,24 @@ Scope-owned background tasks are implemented:
   allocated bytes through 16,384 unrelated scopes.
 
 The next phase is API consolidation and replacement qualification.
+
+### Developer UX gate
+
+Begin developer UX qualification before broad control generation. The goal is not to recreate the
+current reactor's helpers or add macros speculatively. It is to settle public contracts that become
+costly to change once generated coverage expands:
+
+1. One normal composition path for native controls, components, fragments, providers, and slots.
+2. Explicit rules for positional and keyed child identity.
+3. Effect identity, which is currently positional even though component state is not hook-based.
+4. Typed sender adapters and how callback code handles queue rejection.
+5. Typed imperative references for focus and other native operations without a second owner.
+
+Use a realistic form with controlled text and numeric input, validation, focus, and background
+submission as the first qualification slice. Preserve the current implementation as a baseline,
+then measure source size, explicit keys, forwarding closures, extraction into child components,
+diagnostics, compile time, and edit/rebuild time after each API change.
+
+Convenience constructors, component macros, broad styling helpers, resource abstractions, and
+migration shims follow application evidence. They must remain syntax and services over the single
+`View` and owned-component model, not introduce another reconciliation frontend or state engine.
