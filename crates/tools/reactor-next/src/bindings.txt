@@ -29,6 +29,9 @@ Microsoft::UI::Xaml::Controls::ITextBox::get_Text
 Microsoft::UI::Xaml::Controls::ITextBox::put_PlaceholderText
 Microsoft::UI::Xaml::Controls::ITextBox::put_Text
 Microsoft::UI::Xaml::Controls::ITextBox::{add_TextChanged, remove_TextChanged}
+Microsoft::UI::Xaml::Controls::IToggleSwitch::get_IsOn
+Microsoft::UI::Xaml::Controls::IToggleSwitch::put_IsOn
+Microsoft::UI::Xaml::Controls::IToggleSwitch::{add_Toggled, remove_Toggled}
 Microsoft::UI::Xaml::Controls::ItemsRepeater::CreateInstance
 Microsoft::UI::Xaml::Controls::NavigationView::CreateInstance
 Microsoft::UI::Xaml::Controls::NumberBox::CreateInstance
@@ -61,6 +64,8 @@ Microsoft::UI::Xaml::Controls::TextBlock::TextWrappingProperty
 Microsoft::UI::Xaml::Controls::TextBox::CreateInstance
 Microsoft::UI::Xaml::Controls::TextBox::PlaceholderTextProperty
 Microsoft::UI::Xaml::Controls::TextBox::TextProperty
+Microsoft::UI::Xaml::Controls::ToggleSwitch::CreateInstance
+Microsoft::UI::Xaml::Controls::ToggleSwitch::IsOnProperty
 Microsoft::UI::Xaml::Controls::UIElementCollection
 Microsoft::UI::Xaml::Controls::XamlControlsResources::CreateInstance
 Microsoft::UI::Xaml::IApplication::get_Resources

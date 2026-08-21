@@ -27,6 +27,7 @@ thread_local! {
     static LIVE_COMPONENT_BACKGROUND: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
     static LIVE_CLOSED_TASK_DELIVERED: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
     static LIVE_RANGE_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
+    static LIVE_TOGGLE_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_PRIMARY_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
     static LIVE_PRIMARY_NATIVE_PAYLOAD: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
     static LIVE_SECONDARY_EVENTS: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
@@ -161,6 +162,10 @@ trait LivePump {
     }
     #[cfg(feature = "test")]
     fn live_progress_bar(&mut self) -> bool {
+        false
+    }
+    #[cfg(feature = "test")]
+    fn live_toggle_switch(&mut self) -> bool {
         false
     }
 }
@@ -574,11 +579,38 @@ impl LivePump for ComponentLoop {
         }
         true
     }
+
+    #[cfg(feature = "test")]
+    fn live_toggle_switch(&mut self) -> bool {
+        LIVE_TOGGLE_EVENTS.with(|count| count.set(0));
+        let view = |is_on| {
+            View::native(
+                ToggleSwitch::new()
+                    .is_on(is_on)
+                    .is_enabled(true)
+                    .on_toggled(record_live_toggle_event),
+            )
+        };
+        self.pump.update_view(view(false)).is_ok()
+            && self.pump.update_view(view(true)).is_ok()
+            && self.pump.update_view(view(false)).is_ok()
+            && LIVE_TOGGLE_EVENTS.with(std::cell::Cell::get) == 0
+            && self
+                .pump
+                .root_native()
+                .and_then(|node| self.pump.runtime().live_toggle_value(node).ok())
+                == Some(false)
+    }
 }
 
 #[cfg(feature = "test")]
 fn record_live_range_event(_: f64) {
     LIVE_RANGE_EVENTS.with(|count| count.set(count.get().saturating_add(1)));
+}
+
+#[cfg(feature = "test")]
+fn record_live_toggle_event(_: bool) {
+    LIVE_TOGGLE_EVENTS.with(|count| count.set(count.get().saturating_add(1)));
 }
 
 pub fn bootstrap() -> windows_core::Result<()> {
@@ -1333,6 +1365,18 @@ fn queue_live_range_restore_verification(
                     });
                     if !progress_bar_passed {
                         eprintln!("live backend fixture did not update ProgressBar properties");
+                        std::process::exit(1);
+                    }
+                    let toggle_passed = HOST.with(|host| {
+                        host.borrow_mut()
+                            .as_mut()
+                            .and_then(LiveHost::primary_mut)
+                            .is_some_and(LivePump::live_toggle_switch)
+                    });
+                    if !toggle_passed {
+                        eprintln!(
+                            "live backend fixture did not suppress ToggleSwitch setter feedback"
+                        );
                         std::process::exit(1);
                     }
                     let prepared = HOST.with(|host| {

@@ -223,15 +223,22 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             let event_id = ident(&format!("{}{}", control.name, feedback));
             let value_variant = ident(&property.value);
             match property.feedback_contract.unwrap() {
-                FeedbackContract::SynchronousExact => Some(quote! {
-                    (
-                        PropertyId::#property_id,
-                        Some(PropertyValue::#value_variant(value)),
-                    ) => Some((
-                        EventId::#event_id,
-                        FeedbackExpectation::Exact(EventPayload::#value_variant(value.clone())),
-                    ))
-                }),
+                FeedbackContract::SynchronousExact => {
+                    let value = if property.copy {
+                        quote! { *value }
+                    } else {
+                        quote! { value.clone() }
+                    };
+                    Some(quote! {
+                        (
+                            PropertyId::#property_id,
+                            Some(PropertyValue::#value_variant(value)),
+                        ) => Some((
+                            EventId::#event_id,
+                            FeedbackExpectation::Exact(EventPayload::#value_variant(#value)),
+                        ))
+                    })
+                }
                 FeedbackContract::SynchronousNormalized => Some(quote! {
                     (PropertyId::#property_id, Some(_)) => {
                         Some((

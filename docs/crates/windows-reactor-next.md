@@ -108,12 +108,13 @@ is no divergent-property state or retry scheduler. An unexpected restoring-sette
 the fatal native policy.
 
 Generated controls distinguish synchronous exact feedback from synchronous normalized feedback.
-TextBox suppresses only the exact payload expected from its setter. NumberBox and Slider suppress a
-programmatic `ValueChanged` during `Minimum`, `Maximum`, or `Value` writes because WinUI may coerce
-the numeric payload. The last suppressed normalized payload updates known native state without
-invoking the application callback or scheduling an immediate retry. Bounds are generated before
-`Value`, and only `Value` observes user feedback. Two NaN values compare as the same empty numeric
-state during reconciliation. Deferred and unknown feedback contracts still fail generation.
+TextBox and ToggleSwitch suppress only the exact payload expected from their setters. NumberBox
+and Slider suppress a programmatic `ValueChanged` during `Minimum`, `Maximum`, or `Value` writes
+because WinUI may coerce the numeric payload. The last suppressed normalized payload updates known
+native state without invoking the application callback or scheduling an immediate retry. Bounds
+are generated before `Value`, and only `Value` observes user feedback. Two NaN values compare as
+the same empty numeric state during reconciliation. Deferred and unknown feedback contracts still
+fail generation.
 Clear operations suppress the same synchronous event but do not retain its concrete default as a
 native observation. The known-native state remains `None`, which represents a cleared local value
 and keeps clear-then-rerender idempotent.
@@ -219,6 +220,14 @@ An attempted Viewbox slice was rejected by the live gate because Viewbox owns a 
 property and does not implement `IContentControl`. Schema resolution now proves `content` and
 `children` roles against their metadata interfaces, so this mismatch fails generation instead of
 reaching native apply.
+
+ToggleSwitch adds a controlled boolean property and a boolean event payload through schema alone.
+The live gate changes `IsOn` in both directions, confirms the native read-back, and verifies that
+programmatic `Toggled` feedback does not escape to the application callback. The source-only
+thin-counter rebuild median changed from 0.466 to 0.469 seconds (+0.5%). The native thin release
+counter grew from 916,992 to 929,792 bytes (+12,800 bytes, +1.40%). PE virtual sizes grew by 9,152
+bytes in `.text`, 3,112 bytes in `.rdata`, 468 bytes in `.pdata`, and 48 bytes in `.reloc`. Core
+layouts did not change.
 
 Removing fine-grained recovery reduced `core/pump/publish.rs` from 396 lines to 57 and removed
 per-command outcome vectors, divergent properties, retries, remount recovery, recovery

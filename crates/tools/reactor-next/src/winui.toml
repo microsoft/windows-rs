@@ -170,6 +170,25 @@ name = "IsEnabled"
 clearable = true
 
 [[control]]
+type = "Microsoft.UI.Xaml.Controls.ToggleSwitch"
+role = "controlled"
+capabilities = ["layout", "enabled"]
+
+[[control.property]]
+name = "IsOn"
+clearable = true
+controlled = "Toggled"
+feedback_contract = "synchronous_exact"
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "Toggled"
+property = "IsOn"
+
+[[control]]
 type = "Microsoft.UI.Xaml.Controls.ItemsRepeater"
 role = "virtual"
 capabilities = ["layout", "items"]

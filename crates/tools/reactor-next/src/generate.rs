@@ -1206,13 +1206,14 @@ mod tests {
         let resolved = schema.resolve(&metadata).unwrap();
         let output = generate(&resolved);
 
-        assert_eq!(output.matches("ControlDescriptor").count(), 12);
+        assert_eq!(output.matches("ControlDescriptor").count(), 13);
         assert!(output.contains("feedback : Some"));
         assert!(output.contains("feedback_contract : Some (\"synchronous_normalized\")"));
         assert!(output.contains("pub struct NumberBox"));
         assert!(output.contains("pub struct Slider"));
         assert!(output.contains("pub struct NavigationView"));
         assert!(output.contains("pub struct ProgressBar"));
+        assert!(output.contains("pub struct ToggleSwitch"));
         assert!(output.contains("pub enum NavigationViewSlot"));
         assert!(output.contains("impl SlotsControl for NavigationView"));
         assert!(output.contains("NavigationViewContent"));

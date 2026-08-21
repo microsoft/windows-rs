@@ -362,6 +362,41 @@ pub mod public {
     impl LayoutControl for ProgressBar {}
     impl EnabledControl for ProgressBar {}
     #[derive(Clone, Debug, Default, PartialEq)]
+    pub struct ToggleSwitch {
+        is_on: Property<bool>,
+        is_enabled: Property<bool>,
+        on_toggled: Option<Callback<bool>>,
+    }
+    impl ToggleSwitch {
+        pub fn new() -> Self {
+            Self::default()
+        }
+        pub fn is_on(mut self, value: bool) -> Self {
+            self.is_on = Property::Set(value);
+            self
+        }
+        pub fn is_on_property(&self) -> &Property<bool> {
+            &self.is_on
+        }
+        pub fn is_enabled(mut self, value: bool) -> Self {
+            self.is_enabled = Property::Set(value);
+            self
+        }
+        pub fn is_enabled_property(&self) -> &Property<bool> {
+            &self.is_enabled
+        }
+        pub fn on_toggled(mut self, callback: impl Fn(bool) + 'static) -> Self {
+            self.on_toggled = Some(Callback::new(callback));
+            self
+        }
+        pub fn on_toggled_callback(&self) -> Option<&Callback<bool>> {
+            self.on_toggled.as_ref()
+        }
+    }
+    impl sealed::Sealed for ToggleSwitch {}
+    impl LayoutControl for ToggleSwitch {}
+    impl EnabledControl for ToggleSwitch {}
+    #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ItemsRepeater {
         items: std::rc::Rc<Vec<KeyedElement>>,
     }
@@ -413,6 +448,7 @@ pub mod public {
         Slider(Slider),
         NavigationView(NavigationView),
         ProgressBar(ProgressBar),
+        ToggleSwitch(ToggleSwitch),
         ItemsRepeater(ItemsRepeater),
         ScrollViewer(ScrollViewer),
     }
@@ -456,6 +492,11 @@ pub mod public {
             Self::ProgressBar(value)
         }
     }
+    impl From<ToggleSwitch> for Element {
+        fn from(value: ToggleSwitch) -> Self {
+            Self::ToggleSwitch(value)
+        }
+    }
     impl From<ItemsRepeater> for Element {
         fn from(value: ItemsRepeater) -> Self {
             Self::ItemsRepeater(value)
@@ -477,6 +518,7 @@ pub mod public {
                 Self::Slider(_) => MountedKind::Slider,
                 Self::NavigationView(_) => MountedKind::NavigationView,
                 Self::ProgressBar(_) => MountedKind::ProgressBar,
+                Self::ToggleSwitch(_) => MountedKind::ToggleSwitch,
                 Self::ItemsRepeater(_) => MountedKind::ItemsRepeater,
                 Self::ScrollViewer(_) => MountedKind::ScrollViewer,
             }
@@ -590,6 +632,19 @@ pub mod public {
                         show_error,
                         show_paused,
                         is_enabled,
+                    },
+                    structure: ElementStructure::None,
+                },
+                Self::ToggleSwitch(ToggleSwitch {
+                    is_on,
+                    is_enabled,
+                    on_toggled,
+                }) => ElementParts {
+                    kind: MountedKind::ToggleSwitch,
+                    props: MountedProps::ToggleSwitch {
+                        is_on,
+                        is_enabled,
+                        on_toggled,
                     },
                     structure: ElementStructure::None,
                 },
@@ -744,6 +799,23 @@ pub mod public {
                         && show_paused == mounted_show_paused
                         && is_enabled == mounted_is_enabled
                 }
+                (
+                    Self::ToggleSwitch(ToggleSwitch {
+                        is_on,
+                        is_enabled,
+                        on_toggled,
+                        ..
+                    }),
+                    MountedProps::ToggleSwitch {
+                        is_on: mounted_is_on,
+                        is_enabled: mounted_is_enabled,
+                        on_toggled: mounted_on_toggled,
+                    },
+                ) => {
+                    true && is_on == mounted_is_on
+                        && is_enabled == mounted_is_enabled
+                        && on_toggled == mounted_on_toggled
+                }
                 (Self::ItemsRepeater(ItemsRepeater { .. }), MountedProps::ItemsRepeater {}) => true,
                 (Self::ScrollViewer(ScrollViewer { .. }), MountedProps::ScrollViewer {}) => true,
                 _ => false,
@@ -759,6 +831,7 @@ pub mod public {
                 Self::Slider(_) => ElementStructureRef::None,
                 Self::NavigationView(_) => ElementStructureRef::None,
                 Self::ProgressBar(_) => ElementStructureRef::None,
+                Self::ToggleSwitch(_) => ElementStructureRef::None,
                 Self::ItemsRepeater(value) => ElementStructureRef::Virtual(value.items.as_slice()),
                 Self::ScrollViewer(value) => ElementStructureRef::Content(value.content.as_deref()),
             }
@@ -781,6 +854,9 @@ pub mod public {
                 }
                 Self::NavigationView(_) => {}
                 Self::ProgressBar(_) => {}
+                Self::ToggleSwitch(_) => {
+                    visit(EventId::ToggleSwitchToggled, true);
+                }
                 Self::ItemsRepeater(_) => {}
                 Self::ScrollViewer(_) => {}
             }
@@ -1028,6 +1104,24 @@ impl MountedPropsExt for MountedProps {
                     },
                 );
             }
+            Self::ToggleSwitch {
+                is_on, is_enabled, ..
+            } => {
+                visit(
+                    PropertyId::ToggleSwitchIsOn,
+                    match is_on {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+                visit(
+                    PropertyId::ToggleSwitchIsEnabled,
+                    match is_enabled {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some((*value).into()),
+                    },
+                );
+            }
             Self::ItemsRepeater { .. } => {}
             Self::ScrollViewer { .. } => {}
         }
@@ -1052,6 +1146,9 @@ impl MountedEventsExt for MountedProps {
             }
             Self::NavigationView { .. } => {}
             Self::ProgressBar { .. } => {}
+            Self::ToggleSwitch { .. } => {
+                visit(EventId::ToggleSwitchToggled, true);
+            }
             Self::ItemsRepeater { .. } => {}
             Self::ScrollViewer { .. } => {}
         }
@@ -1102,6 +1199,17 @@ impl MountedEventsExt for MountedProps {
                 callback.call(*value);
                 true
             }
+            (
+                Self::ToggleSwitch {
+                    on_toggled: Some(callback),
+                    ..
+                },
+                EventId::ToggleSwitchToggled,
+                EventPayload::Bool(value),
+            ) => {
+                callback.call(*value);
+                true
+            }
             _ => false,
         }
     }
@@ -1120,6 +1228,11 @@ impl MountedEventsExt for MountedProps {
             (Self::Slider { .. }, EventId::SliderValueChanged, EventPayload::F64(value)) => {
                 Some((PropertyId::SliderValue, (*value).into()))
             }
+            (
+                Self::ToggleSwitch { .. },
+                EventId::ToggleSwitchToggled,
+                EventPayload::Bool(value),
+            ) => Some((PropertyId::ToggleSwitchIsOn, (*value).into())),
             _ => None,
         }
     }
@@ -1134,6 +1247,7 @@ pub enum MountedKind {
     Slider,
     NavigationView,
     ProgressBar,
+    ToggleSwitch,
     ItemsRepeater,
     ScrollViewer,
 }
@@ -1164,6 +1278,7 @@ pub fn slots(kind: MountedKind) -> &'static [SlotId] {
             &[SlotId::NavigationViewContent, SlotId::NavigationViewHeader]
         }
         MountedKind::ProgressBar => &[],
+        MountedKind::ToggleSwitch => &[],
         MountedKind::ItemsRepeater => &[],
         MountedKind::ScrollViewer => &[],
     }
@@ -1213,6 +1328,11 @@ pub enum MountedProps {
         show_error: Property<bool>,
         show_paused: Property<bool>,
         is_enabled: Property<bool>,
+    },
+    ToggleSwitch {
+        is_on: Property<bool>,
+        is_enabled: Property<bool>,
+        on_toggled: Option<Callback<bool>>,
     },
     ItemsRepeater {},
     ScrollViewer {},
@@ -1352,6 +1472,22 @@ impl PartialEq for MountedProps {
                     && left_show_paused == right_show_paused
                     && left_is_enabled == right_is_enabled
             }
+            (
+                Self::ToggleSwitch {
+                    is_on: left_is_on,
+                    is_enabled: left_is_enabled,
+                    on_toggled: left_on_toggled,
+                },
+                Self::ToggleSwitch {
+                    is_on: right_is_on,
+                    is_enabled: right_is_enabled,
+                    on_toggled: right_on_toggled,
+                },
+            ) => {
+                true && left_is_on == right_is_on
+                    && left_is_enabled == right_is_enabled
+                    && left_on_toggled == right_on_toggled
+            }
             (Self::ItemsRepeater {}, Self::ItemsRepeater {}) => true,
             (Self::ScrollViewer {}, Self::ScrollViewer {}) => true,
             _ => false,
@@ -1404,6 +1540,8 @@ pub enum PropertyId {
     ProgressBarShowError,
     ProgressBarShowPaused,
     ProgressBarIsEnabled,
+    ToggleSwitchIsOn,
+    ToggleSwitchIsEnabled,
 }
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum EventId {
@@ -1411,6 +1549,7 @@ pub enum EventId {
     TextBoxTextChanged,
     NumberBoxValueChanged,
     SliderValueChanged,
+    ToggleSwitchToggled,
 }
 #[derive(Clone, Debug)]
 pub enum PropertyValue {
@@ -1459,6 +1598,7 @@ impl From<TextWrapping> for PropertyValue {
 }
 #[derive(Clone, Debug)]
 pub enum EventPayload {
+    Bool(bool),
     F64(f64),
     Str(String),
     Unit,
@@ -1466,6 +1606,7 @@ pub enum EventPayload {
 impl PartialEq for EventPayload {
     fn eq(&self, other: &Self) -> bool {
         match (self, other) {
+            (Self::Bool(left), Self::Bool(right)) => left == right,
             (Self::F64(left), Self::F64(right)) => f64_eq(*left, *right),
             (Self::Str(left), Self::Str(right)) => left == right,
             (Self::Unit, Self::Unit) => true,
@@ -1859,6 +2000,38 @@ const PROGRESS_BAR_PROPERTIES: &[PropertyDescriptor] = &[
 ];
 const PROGRESS_BAR_EVENTS: &[EventDescriptor] = &[];
 const PROGRESS_BAR_SLOTS: &[SlotDescriptor] = &[];
+const TOGGLE_SWITCH_PROPERTIES: &[PropertyDescriptor] = &[
+    PropertyDescriptor {
+        id: PropertyId::ToggleSwitchIsOn,
+        name: "IsOn",
+        field: "is_on",
+        value: "Bool",
+        interface: "Microsoft.UI.Xaml.Controls.IToggleSwitch",
+        clearable: true,
+        feedback: Some("Toggled"),
+        feedback_contract: Some("synchronous_exact"),
+        observes_feedback: true,
+    },
+    PropertyDescriptor {
+        id: PropertyId::ToggleSwitchIsEnabled,
+        name: "IsEnabled",
+        field: "is_enabled",
+        value: "Bool",
+        interface: "Microsoft.UI.Xaml.Controls.IControl",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+];
+const TOGGLE_SWITCH_EVENTS: &[EventDescriptor] = &[EventDescriptor {
+    id: EventId::ToggleSwitchToggled,
+    name: "Toggled",
+    field: "on_toggled",
+    payload: "Bool",
+    interface: "Microsoft.UI.Xaml.Controls.IToggleSwitch",
+}];
+const TOGGLE_SWITCH_SLOTS: &[SlotDescriptor] = &[];
 const ITEMS_REPEATER_PROPERTIES: &[PropertyDescriptor] = &[];
 const ITEMS_REPEATER_EVENTS: &[EventDescriptor] = &[];
 const ITEMS_REPEATER_SLOTS: &[SlotDescriptor] = &[];
@@ -1950,6 +2123,16 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         properties: PROGRESS_BAR_PROPERTIES,
         events: PROGRESS_BAR_EVENTS,
         slots: PROGRESS_BAR_SLOTS,
+    },
+    ControlDescriptor {
+        kind: MountedKind::ToggleSwitch,
+        name: "ToggleSwitch",
+        type_name: "Microsoft.UI.Xaml.Controls.ToggleSwitch",
+        role: ControlRole::Controlled,
+        capabilities: &[Capability::Layout, Capability::Enabled],
+        properties: TOGGLE_SWITCH_PROPERTIES,
+        events: TOGGLE_SWITCH_EVENTS,
+        slots: TOGGLE_SWITCH_SLOTS,
     },
     ControlDescriptor {
         kind: MountedKind::ItemsRepeater,

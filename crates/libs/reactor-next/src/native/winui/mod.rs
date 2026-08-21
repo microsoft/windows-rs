@@ -88,6 +88,14 @@ impl WinUiRuntime {
     }
 
     #[cfg(feature = "test")]
+    pub fn live_toggle_value(&self, node: NodeId) -> Result<bool, RuntimeError> {
+        match self.handles.get(&node) {
+            Some(Handle::ToggleSwitch(toggle)) => toggle.IsOn().map_err(native_error),
+            _ => Err(RuntimeError::UnsupportedKind),
+        }
+    }
+
+    #[cfg(feature = "test")]
     pub fn live_reject_next_enqueue(&self) {
         self.reject_next_enqueue.set(true);
     }

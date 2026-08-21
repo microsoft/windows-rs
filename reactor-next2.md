@@ -226,6 +226,10 @@ and WebView own only behavior that cannot be expressed by the ordinary schema.
 | ProgressBar thin release delta | 905,216 -> 916,992 bytes: +11,776 bytes, +1.30% |
 | ProgressBar PE section delta | `.text` +8,768; `.rdata` +2,928; `.pdata` +288 bytes |
 | ProgressBar retained layouts | Unchanged: `Node` 416, `MountedProps` 72, `Element` 80 |
+| ToggleSwitch source-only rebuild | 0.466 -> 0.469 seconds: +0.5% |
+| ToggleSwitch thin release delta | 916,992 -> 929,792 bytes: +12,800 bytes, +1.40% |
+| ToggleSwitch PE section delta | `.text` +9,152; `.rdata` +3,112; `.pdata` +468 bytes |
+| ToggleSwitch retained layouts | Unchanged: `Node` 416, `MountedProps` 72, `Element` 80 |
 | Isolated component leaf at 512 scopes | 0.51 us, 430 bytes, 9 allocations |
 | Isolated component leaf at 16,384 scopes | 0.51 us, 430 bytes, 9 allocations |
 | Idle component memory | About 2,440 bytes per scope |
@@ -370,6 +374,21 @@ typed `Child` property rather than implementing `IContentControl`; recording tes
 expose that false role. The schema resolver now verifies `content` against `IContentControl` and
 `children` against `IPanel` metadata. A future Viewbox slice must use a generated typed single-child
 slot contract rather than pretending it is generic content.
+
+ToggleSwitch supplies the next controlled shape: `IsOn` observes a typed boolean payload from
+`Toggled` under the existing synchronous-exact contract. It required no production schema,
+generator, Pump, or WinUI branch. The live fixture proves native true/false read-back and zero
+escaped programmatic callbacks. Its 12,800-byte (+1.40%) thin-binary cost matches the recurring
+ordinary generated-control slope, while source rebuild and core layouts remain stable.
+
+The measured varied batch now spans normalized floating feedback, exact string and boolean
+feedback, a seven-property ordinary control, and generated named slots. Excluding the one-time slot
+infrastructure, recent controls add about 11-13 KB each. At the current slope, a curated set of
+roughly 50 controls would add about 0.6 MB before specialized adapters. Do not add feature
+partitioning now: the projected native thin binary remains well below the current reactor baseline,
+and optional control groups would add generator, documentation, testing, and user-facing
+complexity. Revisit the decision with actual broad generated coverage rather than another small
+sample.
 
 ### Structural composition decision
 

@@ -10,6 +10,7 @@ pub enum Handle {
     Slider(bindings::Slider),
     NavigationView(bindings::NavigationView),
     ProgressBar(bindings::ProgressBar),
+    ToggleSwitch(bindings::ToggleSwitch),
     ScrollViewer(bindings::ScrollViewer),
 }
 impl Handle {
@@ -33,6 +34,9 @@ impl Handle {
             MountedKind::ProgressBar => {
                 Self::ProgressBar(bindings::ProgressBar::new().map_err(native_error)?)
             }
+            MountedKind::ToggleSwitch => {
+                Self::ToggleSwitch(bindings::ToggleSwitch::new().map_err(native_error)?)
+            }
             MountedKind::ScrollViewer => {
                 Self::ScrollViewer(bindings::ScrollViewer::new().map_err(native_error)?)
             }
@@ -49,6 +53,7 @@ impl Handle {
             Self::Slider(value) => value.cast(),
             Self::NavigationView(value) => value.cast(),
             Self::ProgressBar(value) => value.cast(),
+            Self::ToggleSwitch(value) => value.cast(),
             Self::ScrollViewer(value) => value.cast(),
         }
     }
@@ -62,6 +67,7 @@ impl Handle {
             Self::Slider(value) => value.cast(),
             Self::NavigationView(value) => value.cast(),
             Self::ProgressBar(value) => value.cast(),
+            Self::ToggleSwitch(value) => value.cast(),
             Self::ScrollViewer(value) => value.cast(),
         }
     }
@@ -240,6 +246,20 @@ pub fn set_property(
             .map_err(native_error)?
             .SetIsEnabled(*value)
             .map_err(native_error),
+        (
+            Handle::ToggleSwitch(control),
+            PropertyId::ToggleSwitchIsOn,
+            PropertyValue::Bool(value),
+        ) => control.SetIsOn(*value).map_err(native_error),
+        (
+            Handle::ToggleSwitch(control),
+            PropertyId::ToggleSwitchIsEnabled,
+            PropertyValue::Bool(value),
+        ) => control
+            .cast::<IControl>()
+            .map_err(native_error)?
+            .SetIsEnabled(*value)
+            .map_err(native_error),
         _ => Err(RuntimeError::UnsupportedKind),
     }
 }
@@ -318,6 +338,12 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
         (Handle::ProgressBar(_), PropertyId::ProgressBarIsEnabled) => dependency_object
             .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
             .map_err(native_error),
+        (Handle::ToggleSwitch(_), PropertyId::ToggleSwitchIsOn) => dependency_object
+            .ClearValue(&bindings::ToggleSwitch::IsOnProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::ToggleSwitch(_), PropertyId::ToggleSwitchIsEnabled) => dependency_object
+            .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
+            .map_err(native_error),
         _ => Err(RuntimeError::UnsupportedKind),
     }
 }
@@ -378,6 +404,10 @@ pub fn expected_feedback(
             EventId::SliderValueChanged,
             FeedbackExpectation::Normalized { observation: None },
         )),
+        (PropertyId::ToggleSwitchIsOn, Some(PropertyValue::Bool(value))) => Some((
+            EventId::ToggleSwitchToggled,
+            FeedbackExpectation::Exact(EventPayload::Bool(*value)),
+        )),
         (PropertyId::TextBoxText, None) => Some((
             EventId::TextBoxTextChanged,
             FeedbackExpectation::Exact(EventPayload::Str(Default::default())),
@@ -405,6 +435,10 @@ pub fn expected_feedback(
         (PropertyId::SliderValue, None) => Some((
             EventId::SliderValueChanged,
             FeedbackExpectation::Normalized { observation: None },
+        )),
+        (PropertyId::ToggleSwitchIsOn, None) => Some((
+            EventId::ToggleSwitchToggled,
+            FeedbackExpectation::Exact(EventPayload::Bool(Default::default())),
         )),
         _ => None,
     }
@@ -495,6 +529,28 @@ pub fn subscribe_event(
                                 native_error(error),
                             ),
                         }
+                    }
+                })
+                .map_err(native_error)
+        }
+        (Handle::ToggleSwitch(value), EventId::ToggleSwitchToggled) => {
+            let source = value.cast::<IToggleSwitch>().map_err(native_error)?;
+            source
+                .Toggled({
+                    let event_source = value.cast::<IToggleSwitch>().map_err(native_error)?;
+                    move |_, _| match event_source.IsOn() {
+                        Ok(value) => sink.enqueue(
+                            node,
+                            EventId::ToggleSwitchToggled,
+                            revision,
+                            EventPayload::Bool(value),
+                        ),
+                        Err(error) => sink.error(
+                            node,
+                            EventId::ToggleSwitchToggled,
+                            revision,
+                            native_error(error),
+                        ),
                     }
                 })
                 .map_err(native_error)

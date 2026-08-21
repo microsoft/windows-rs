@@ -121,6 +121,7 @@ pub(crate) struct ResolvedProperty {
     pub(crate) name: String,
     pub(crate) field: String,
     pub(crate) value: String,
+    pub(crate) copy: bool,
     pub(crate) interface: String,
     pub(crate) clearable: bool,
     pub(crate) feedback: Option<String>,
@@ -255,7 +256,7 @@ impl Schema {
                         control.type_name, property.name
                     )
                 })?;
-                let (value, _) = metadata.infer_value_type(&name, &method).ok_or_else(|| {
+                let (value, copy) = metadata.infer_value_type(&name, &method).ok_or_else(|| {
                     format!(
                         "{}.{} has an unsupported metadata type",
                         control.type_name, property.name
@@ -273,6 +274,7 @@ impl Schema {
                         .unwrap_or_else(|| to_snake_case(&property.name)),
                     name: property.name,
                     value,
+                    copy,
                     interface: interface.full_path(),
                     clearable: property.clearable,
                     feedback,
@@ -541,7 +543,7 @@ mod tests {
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
         let resolved = schema.resolve(&metadata).unwrap();
 
-        assert_eq!(resolved.controls.len(), 10);
+        assert_eq!(resolved.controls.len(), 11);
         assert_eq!(resolved.controls[0].name, "TextBlock");
         assert_eq!(resolved.controls[0].properties[0].value, "Str");
         assert_eq!(resolved.controls[1].events[0].payload, "Unit");
@@ -550,6 +552,7 @@ mod tests {
             Some("TextChanged")
         );
         assert_eq!(resolved.controls[3].events[0].payload, "Str");
+        assert!(!resolved.controls[3].properties[0].copy);
         assert!(matches!(
             resolved.controls[3].events[0].source,
             EventPayloadSource::SenderProperty { .. }
@@ -591,7 +594,25 @@ mod tests {
         assert_eq!(resolved.controls[7].properties.len(), 7);
         assert_eq!(resolved.controls[7].properties[0].value, "F64");
         assert_eq!(resolved.controls[7].properties[3].value, "Bool");
-        assert!(matches!(resolved.controls[8].role, Role::Virtual));
+        assert_eq!(resolved.controls[8].name, "ToggleSwitch");
+        assert_eq!(resolved.controls[8].properties[0].value, "Bool");
+        assert!(resolved.controls[8].properties[0].copy);
+        assert_eq!(
+            resolved.controls[8].properties[0].feedback.as_deref(),
+            Some("Toggled")
+        );
+        assert_eq!(
+            resolved.controls[8].properties[0]
+                .feedback_contract
+                .unwrap(),
+            FeedbackContract::SynchronousExact
+        );
+        assert_eq!(resolved.controls[8].events[0].payload, "Bool");
+        assert!(matches!(
+            resolved.controls[8].events[0].source,
+            EventPayloadSource::SenderProperty { .. }
+        ));
+        assert!(matches!(resolved.controls[9].role, Role::Virtual));
     }
 
     #[test]

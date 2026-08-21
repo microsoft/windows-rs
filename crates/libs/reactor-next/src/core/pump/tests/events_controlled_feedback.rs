@@ -594,3 +594,79 @@ fn normalized_range_value_clears_are_idempotent() {
     slider.update(Slider::new().into()).unwrap();
     assert_eq!(slider.runtime().batches(), batches);
 }
+
+#[test]
+fn toggle_switch_routes_bool_feedback_and_restores_desired_state() {
+    let observed = Rc::new(Cell::new(false));
+    let capture = Rc::clone(&observed);
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount(
+        ToggleSwitch::new()
+            .is_on(false)
+            .is_enabled(true)
+            .on_toggled(move |value| capture.set(value))
+            .into(),
+    )
+    .unwrap();
+    let root = pump.root().unwrap();
+    let commands = &pump.runtime().commands()[0];
+    let position = |property| {
+        commands
+            .iter()
+            .position(|command| {
+                matches!(
+                    command,
+                    Command::SetProperty {
+                        property: current,
+                        ..
+                    } if *current == property
+                )
+            })
+            .unwrap()
+    };
+    assert!(position(PropertyId::ToggleSwitchIsOn) < position(PropertyId::ToggleSwitchIsEnabled));
+
+    let revision = pump
+        .event_revision(root, EventId::ToggleSwitchToggled)
+        .unwrap();
+    pump.queue_event(QueuedEvent::new(
+        root,
+        EventId::ToggleSwitchToggled,
+        revision,
+        EventPayload::Bool(true),
+    ));
+    assert_eq!(pump.dispatch_events(), Ok(1));
+    assert!(observed.get());
+    assert_eq!(
+        pump.tree
+            .native(root)
+            .unwrap()
+            .properties
+            .get(&PropertyId::ToggleSwitchIsOn),
+        Some(&Some(PropertyValue::Bool(true)))
+    );
+
+    pump.update(
+        ToggleSwitch::new()
+            .is_on(false)
+            .is_enabled(true)
+            .on_toggled(|_| {})
+            .into(),
+    )
+    .unwrap();
+    assert!(
+        pump.runtime()
+            .commands()
+            .last()
+            .unwrap()
+            .iter()
+            .any(|command| matches!(
+                command,
+                Command::SetProperty {
+                    property: PropertyId::ToggleSwitchIsOn,
+                    value: PropertyValue::Bool(false),
+                    ..
+                }
+            ))
+    );
+}
