@@ -11,6 +11,11 @@ clearable = true
 name = "TextWrapping"
 clearable = true
 
+[[control.property]]
+name = "FontSize"
+clearable = true
+validation = "finite_positive"
+
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.Button"
 role = "content"
@@ -22,6 +27,27 @@ clearable = true
 
 [[control.event]]
 name = "Click"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.Border"
+role = "content"
+content = "Child"
+capabilities = ["layout", "content"]
+
+[[control.property]]
+name = "Padding"
+clearable = true
+validation = "finite_non_negative"
+
+[[control.property]]
+name = "BorderThickness"
+clearable = true
+validation = "finite_non_negative"
+
+[[control.property]]
+name = "CornerRadius"
+clearable = true
+validation = "finite_non_negative"
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.StackPanel"

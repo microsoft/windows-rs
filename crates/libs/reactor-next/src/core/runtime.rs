@@ -188,6 +188,10 @@ pub enum Command {
         node: NodeId,
         title: String,
     },
+    SetWindowVisuals {
+        node: NodeId,
+        visuals: WindowVisuals,
+    },
     Create {
         node: NodeId,
         kind: MountedKind,

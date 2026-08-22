@@ -23,6 +23,8 @@ pub(crate) struct Control {
     pub(crate) type_name: String,
     pub(crate) role: Role,
     #[serde(default)]
+    pub(crate) content: Option<String>,
+    #[serde(default)]
     pub(crate) capabilities: Vec<Capability>,
     #[serde(default)]
     pub(crate) property: Vec<Property>,
@@ -71,6 +73,15 @@ pub(crate) struct Property {
     pub(crate) coerces: Option<String>,
     #[serde(default)]
     pub(crate) feedback_contract: Option<FeedbackContract>,
+    #[serde(default)]
+    pub(crate) validation: Option<ValueValidation>,
+}
+
+#[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
+#[serde(rename_all = "snake_case")]
+pub(crate) enum ValueValidation {
+    FiniteNonNegative,
+    FinitePositive,
 }
 
 #[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
@@ -114,6 +125,7 @@ pub(crate) struct ResolvedControl {
     pub(crate) name: String,
     pub(crate) type_name: String,
     pub(crate) role: Role,
+    pub(crate) content: Option<ResolvedContent>,
     pub(crate) capabilities: Vec<Capability>,
     pub(crate) properties: Vec<ResolvedProperty>,
     pub(crate) events: Vec<ResolvedEvent>,
@@ -132,6 +144,13 @@ pub(crate) struct ResolvedProperty {
     pub(crate) observes_feedback: bool,
     pub(crate) enum_variants: Vec<String>,
     pub(crate) native_value: Option<String>,
+    pub(crate) validation: Option<ValueValidation>,
+}
+
+pub(crate) struct ResolvedContent {
+    pub(crate) name: String,
+    pub(crate) interface: String,
+    pub(crate) target: SlotTarget,
 }
 
 pub(crate) struct ResolvedEvent {
@@ -185,6 +204,39 @@ impl Schema {
             }
             validate_role(&control)?;
             validate_native_role(&control, &name, metadata)?;
+
+            let content = if matches!(control.role, Role::Content) {
+                let content = control.content.as_deref().unwrap_or("Content");
+                let method = format!("put_{content}");
+                let interface = metadata.resolve(&name, &method).ok_or_else(|| {
+                    format!(
+                        "{}.{} is not a metadata content property",
+                        control.type_name, content
+                    )
+                })?;
+                let target = match metadata.classify_param(&name, &method) {
+                    Some(ParamClass::IInspectable) => SlotTarget::Inspectable,
+                    Some(ParamClass::Complex)
+                        if metadata.param_class_name(&name, &method).as_deref()
+                            == Some("Microsoft.UI.Xaml.UIElement") =>
+                    {
+                        SlotTarget::UiElement
+                    }
+                    _ => {
+                        return Err(format!(
+                            "{}.{} has an unsupported content parameter",
+                            control.type_name, content
+                        ));
+                    }
+                };
+                Some(ResolvedContent {
+                    name: content.to_string(),
+                    interface: interface.full_path(),
+                    target,
+                })
+            } else {
+                None
+            };
 
             let mut properties = Vec::with_capacity(control.property.len());
             let mut events = Vec::with_capacity(control.event.len());
@@ -270,6 +322,12 @@ impl Schema {
                     .map(|(_, variants)| variants.to_vec())
                     .unwrap_or_default();
                 let native_value = metadata.enum_path(&name, &method);
+                validate_property_value(
+                    &control.type_name,
+                    &property.name,
+                    &value,
+                    property.validation,
+                )?;
 
                 properties.push(ResolvedProperty {
                     field: property
@@ -285,6 +343,7 @@ impl Schema {
                     observes_feedback: property.controlled.is_some(),
                     enum_variants,
                     native_value,
+                    validation: property.validation,
                 });
             }
 
@@ -440,6 +499,7 @@ impl Schema {
                 name,
                 type_name: control.type_name,
                 role: control.role,
+                content,
                 capabilities: control.capabilities,
                 properties,
                 events,
@@ -465,6 +525,12 @@ fn validate_role(control: &Control) -> Result<(), String> {
     if !matches!(control.role, Role::Slots) && !control.slot.is_empty() {
         return Err(format!(
             "{} slot declarations need the slots role",
+            control.type_name
+        ));
+    }
+    if !matches!(control.role, Role::Content) && control.content.is_some() {
+        return Err(format!(
+            "{} content declaration needs the content role",
             control.type_name
         ));
     }
@@ -511,9 +577,8 @@ fn validate_native_role(
     metadata: &MetadataResolver,
 ) -> Result<(), String> {
     let expected = match control.role {
-        Role::Content => Some(("put_Content", "IContentControl")),
         Role::Children => Some(("get_Children", "IPanel")),
-        Role::Leaf | Role::Controlled | Role::Slots | Role::Virtual => None,
+        Role::Leaf | Role::Content | Role::Controlled | Role::Slots | Role::Virtual => None,
     };
     let Some((method, interface)) = expected else {
         return Ok(());
@@ -528,11 +593,32 @@ fn validate_native_role(
             "{} {} role requires metadata interface {}",
             control.type_name,
             match control.role {
-                Role::Content => "content",
                 Role::Children => "children",
                 _ => unreachable!(),
             },
             interface
+        ))
+    }
+}
+
+fn validate_property_value(
+    control: &str,
+    property: &str,
+    value: &str,
+    validation: Option<ValueValidation>,
+) -> Result<(), String> {
+    let valid = match validation {
+        None => true,
+        Some(ValueValidation::FinitePositive) => value == "F64",
+        Some(ValueValidation::FiniteNonNegative) => {
+            matches!(value, "F64" | "Thickness" | "CornerRadius")
+        }
+    };
+    if valid {
+        Ok(())
+    } else {
+        Err(format!(
+            "{control}.{property} value {value} does not support {validation:?}"
         ))
     }
 }
@@ -564,36 +650,38 @@ mod tests {
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
         let resolved = schema.resolve(&metadata).unwrap();
 
-        assert_eq!(resolved.controls.len(), 13);
+        assert_eq!(resolved.controls.len(), 14);
         assert_eq!(resolved.controls[0].name, "TextBlock");
         assert_eq!(resolved.controls[0].properties[0].value, "Str");
         assert_eq!(resolved.controls[1].events[0].payload, "Unit");
+        assert_eq!(resolved.controls[2].name, "Border");
+        assert_eq!(resolved.controls[2].content.as_ref().unwrap().name, "Child");
+        assert!(matches!(
+            resolved.controls[2].content.as_ref().unwrap().target,
+            SlotTarget::UiElement
+        ));
+        assert_eq!(resolved.controls[2].properties[0].value, "Thickness");
         assert_eq!(
-            resolved.controls[4].properties[0].feedback.as_deref(),
+            resolved.controls[2].properties[2].validation,
+            Some(ValueValidation::FiniteNonNegative)
+        );
+        assert_eq!(
+            resolved.controls[5].properties[0].feedback.as_deref(),
             Some("TextChanged")
         );
-        assert_eq!(resolved.controls[3].name, "Grid");
+        assert_eq!(resolved.controls[4].name, "Grid");
         assert!(
-            resolved.controls[3]
+            resolved.controls[4]
                 .capabilities
                 .contains(&Capability::GridDefinitions)
         );
-        assert_eq!(resolved.controls[4].events[0].payload, "Str");
-        assert!(!resolved.controls[4].properties[0].copy);
+        assert_eq!(resolved.controls[5].events[0].payload, "Str");
+        assert!(!resolved.controls[5].properties[0].copy);
         assert!(matches!(
-            resolved.controls[4].events[0].source,
+            resolved.controls[5].events[0].source,
             EventPayloadSource::SenderProperty { .. }
         ));
-        assert_eq!(resolved.controls[5].name, "NumberBox");
-        assert_eq!(
-            resolved.controls[5].properties[0]
-                .feedback_contract
-                .unwrap(),
-            FeedbackContract::SynchronousNormalized
-        );
-        assert!(!resolved.controls[5].properties[0].observes_feedback);
-        assert!(resolved.controls[5].properties[2].observes_feedback);
-        assert_eq!(resolved.controls[6].name, "Slider");
+        assert_eq!(resolved.controls[6].name, "NumberBox");
         assert_eq!(
             resolved.controls[6].properties[0]
                 .feedback_contract
@@ -602,58 +690,67 @@ mod tests {
         );
         assert!(!resolved.controls[6].properties[0].observes_feedback);
         assert!(resolved.controls[6].properties[2].observes_feedback);
-        assert_eq!(resolved.controls[7].name, "NavigationView");
-        assert!(matches!(resolved.controls[7].role, Role::Slots));
-        assert_eq!(resolved.controls[7].slots.len(), 2);
-        assert_eq!(resolved.controls[7].slots[0].name, "Content");
+        assert_eq!(resolved.controls[7].name, "Slider");
+        assert_eq!(
+            resolved.controls[7].properties[0]
+                .feedback_contract
+                .unwrap(),
+            FeedbackContract::SynchronousNormalized
+        );
+        assert!(!resolved.controls[7].properties[0].observes_feedback);
+        assert!(resolved.controls[7].properties[2].observes_feedback);
+        assert_eq!(resolved.controls[8].name, "NavigationView");
+        assert!(matches!(resolved.controls[8].role, Role::Slots));
+        assert_eq!(resolved.controls[8].slots.len(), 2);
+        assert_eq!(resolved.controls[8].slots[0].name, "Content");
         assert!(
-            resolved.controls[7].slots[0]
+            resolved.controls[8].slots[0]
                 .interface
                 .ends_with("IContentControl")
         );
-        assert_eq!(resolved.controls[7].slots[1].name, "Header");
+        assert_eq!(resolved.controls[8].slots[1].name, "Header");
         assert!(
-            resolved.controls[7].slots[1]
+            resolved.controls[8].slots[1]
                 .interface
                 .ends_with("INavigationView")
         );
-        assert_eq!(resolved.controls[8].name, "SplitView");
+        assert_eq!(resolved.controls[9].name, "SplitView");
         assert_eq!(
-            resolved.controls[8].properties[2].value,
+            resolved.controls[9].properties[2].value,
             "SplitViewDisplayMode"
         );
-        assert_eq!(resolved.controls[8].slots.len(), 2);
+        assert_eq!(resolved.controls[9].slots.len(), 2);
         assert!(matches!(
-            resolved.controls[8].slots[0].target,
+            resolved.controls[9].slots[0].target,
             SlotTarget::UiElement
         ));
         assert!(matches!(
-            resolved.controls[8].slots[1].target,
+            resolved.controls[9].slots[1].target,
             SlotTarget::UiElement
         ));
-        assert_eq!(resolved.controls[9].name, "ProgressBar");
-        assert_eq!(resolved.controls[9].properties.len(), 7);
-        assert_eq!(resolved.controls[9].properties[0].value, "F64");
-        assert_eq!(resolved.controls[9].properties[3].value, "Bool");
-        assert_eq!(resolved.controls[10].name, "ToggleSwitch");
-        assert_eq!(resolved.controls[10].properties[0].value, "Bool");
-        assert!(resolved.controls[10].properties[0].copy);
+        assert_eq!(resolved.controls[10].name, "ProgressBar");
+        assert_eq!(resolved.controls[10].properties.len(), 7);
+        assert_eq!(resolved.controls[10].properties[0].value, "F64");
+        assert_eq!(resolved.controls[10].properties[3].value, "Bool");
+        assert_eq!(resolved.controls[11].name, "ToggleSwitch");
+        assert_eq!(resolved.controls[11].properties[0].value, "Bool");
+        assert!(resolved.controls[11].properties[0].copy);
         assert_eq!(
-            resolved.controls[10].properties[0].feedback.as_deref(),
+            resolved.controls[11].properties[0].feedback.as_deref(),
             Some("Toggled")
         );
         assert_eq!(
-            resolved.controls[10].properties[0]
+            resolved.controls[11].properties[0]
                 .feedback_contract
                 .unwrap(),
             FeedbackContract::SynchronousExact
         );
-        assert_eq!(resolved.controls[10].events[0].payload, "Bool");
+        assert_eq!(resolved.controls[11].events[0].payload, "Bool");
         assert!(matches!(
-            resolved.controls[10].events[0].source,
+            resolved.controls[11].events[0].source,
             EventPayloadSource::SenderProperty { .. }
         ));
-        assert!(matches!(resolved.controls[11].role, Role::Virtual));
+        assert!(matches!(resolved.controls[12].role, Role::Virtual));
     }
 
     #[test]
@@ -720,7 +817,7 @@ capabilities = ["layout", "content"]
             .resolve(&metadata)
             .err()
             .unwrap();
-        assert!(error.contains("content role requires metadata interface IContentControl"));
+        assert!(error.contains("not a metadata content property"));
     }
 
     #[test]

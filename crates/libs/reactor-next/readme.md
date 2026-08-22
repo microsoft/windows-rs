@@ -226,16 +226,26 @@ Components declare the owning window title while rendering:
 ```rust,ignore
 fn view(&self, _: &Self::Props, context: &mut ViewContext<Self>) -> View {
     context.window_title(format!("Editor - {}", self.document_name));
+    context.window_visuals(
+        WindowVisuals::new()
+            .theme(WindowTheme::System)
+            .backdrop(WindowBackdrop::Mica)
+            .client_size(1000.0, 700.0),
+    );
     self.content()
 }
 ```
 
-One live component owns the declaration. Changing its value updates the native title with the same
-candidate as its view; omitting the declaration or retiring the owner clears it. A second live
-owner or two declarations from one render return `PumpError::DuplicateWindowTitle` before native
-mutation. Candidate planning collects declarations by component scope and validates the completed
-set, so surviving siblings can hand ownership off without depending on traversal order. The title
-is declarative Pump state rather than an imperative `WindowRef` setter.
+One live component owns each window declaration. Changing a value updates the native window with
+the same candidate as its view; omitting a declaration or retiring the owner clears it. Duplicate
+owners fail before native mutation. Candidate planning collects declarations by component scope
+and validates the completed set, so surviving siblings can hand ownership off without depending on
+traversal order. These are declarative Pump state rather than imperative `WindowRef` setters.
+
+Window visuals apply backdrop and client size at the window, requested theme at the current root,
+and preferred theme at the system title bar. Replacing the root reapplies its requested theme.
+System mode leaves the title bar in `UseDefaultAppMode`, so an operating-system theme change is not
+pinned to the theme that was active during publication.
 
 The [`form sample`](../../samples/reactor-next/form/src/main.rs) exercises controlled input,
 focus-first-invalid validation, a nested component, and scope-owned background submission.
@@ -247,6 +257,12 @@ benchmark-only editor.
 The [`navigation and multi-window workspace`](../../samples/reactor-next/navigation/readme.md)
 exercises retained page models, context propagation, independent window queues and references,
 component-derived titles, shared application updates, background cancellation, and peer cleanup.
+The [`gallery adoption slice`](../../samples/reactor-next/gallery/readme.md) ports Home, Text input,
+and Numeric input pages from the incumbent gallery. It exercises page routing and durable
+controlled values without another state model. Its first visual slice adds generated Border
+content, padding, border thickness, corner radius, and TextBlock font size. `Thickness` and
+`CornerRadius` keep uniform values inline and share uncommon four-value forms, so adding these
+properties does not enlarge every retained node.
 
 The component store owns current props and passes them by reference to `Component::view`.
 Components can render from that argument without copying props into their own fields.

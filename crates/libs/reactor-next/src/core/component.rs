@@ -1,7 +1,7 @@
 use super::arena::NodeId;
 use super::runtime::WindowToken;
 use super::scope::{ScopeArena, ScopeError, ScopeId, ScopeState};
-use crate::element::{Callback, View};
+use crate::element::{Callback, View, WindowVisuals};
 use crate::reference::{HostRequest, WindowEndpoint, WindowRef};
 use std::any::{Any, TypeId};
 use std::cell::RefCell;
@@ -176,6 +176,7 @@ pub enum ComponentStoreError {
     },
     DuplicateEffectKey(EffectKey),
     DuplicateWindowTitle,
+    DuplicateWindowVisuals,
     MessageTypeMismatch {
         expected: TypeId,
         actual: TypeId,
@@ -602,10 +603,12 @@ impl<C: Component> ComponentContext<C> {
 pub struct ViewContext<C: Component> {
     contexts: ContextSnapshot,
     duplicate_window_title: bool,
+    duplicate_window_visuals: bool,
     effects: Rc<RefCell<ComponentEffects>>,
     reads: HashSet<ContextDependency>,
     sender: LocalSender<C::Message>,
     window_title: Option<String>,
+    window_visuals: Option<WindowVisuals>,
 }
 
 impl<C: Component> ViewContext<C> {
@@ -615,6 +618,15 @@ impl<C: Component> ViewContext<C> {
             self.duplicate_window_title = true;
         } else {
             self.window_title = Some(title.into());
+        }
+    }
+
+    /// Declares the owning window's visual environment for this publication.
+    pub fn window_visuals(&mut self, visuals: WindowVisuals) {
+        if self.window_visuals.is_some() {
+            self.duplicate_window_visuals = true;
+        } else {
+            self.window_visuals = Some(visuals);
         }
     }
 
@@ -791,8 +803,10 @@ trait ErasedScope {
 pub(crate) struct ComponentRender {
     pub(crate) dependencies: HashSet<ContextDependency>,
     pub(crate) duplicate_window_title: bool,
+    pub(crate) duplicate_window_visuals: bool,
     pub(crate) view: View,
     pub(crate) window_title: Option<String>,
+    pub(crate) window_visuals: Option<WindowVisuals>,
 }
 
 type EffectCleanup = Box<dyn FnOnce()>;
@@ -1032,6 +1046,9 @@ where
         if render.duplicate_window_title {
             return Err(ComponentStoreError::DuplicateWindowTitle);
         }
+        if render.duplicate_window_visuals {
+            return Err(ComponentStoreError::DuplicateWindowVisuals);
+        }
         self.effects.borrow().finish_view()?;
         Ok(render)
     }
@@ -1147,17 +1164,21 @@ impl ComponentStore {
             let mut context = ViewContext {
                 contexts,
                 duplicate_window_title: false,
+                duplicate_window_visuals: false,
                 effects,
                 reads: HashSet::new(),
                 sender,
                 window_title: None,
+                window_visuals: None,
             };
             let view = component.view(props, &mut context);
             ComponentRender {
                 dependencies: context.reads,
                 duplicate_window_title: context.duplicate_window_title,
+                duplicate_window_visuals: context.duplicate_window_visuals,
                 view,
                 window_title: context.window_title,
+                window_visuals: context.window_visuals,
             }
         }
 

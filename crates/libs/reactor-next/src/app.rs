@@ -1140,6 +1140,7 @@ fn reject_pending_window(mut pump: Box<dyn LivePump>, error: PumpError) {
             | PumpError::DuplicateElementRef
             | PumpError::DuplicateKey(_)
             | PumpError::DuplicateWindowTitle
+            | PumpError::DuplicateWindowVisuals
             | PumpError::StructureUnsupported
     );
     pump.shutdown();

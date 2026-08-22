@@ -48,7 +48,9 @@ pub struct WinUiRuntime {
     subscriptions: HashMap<(NodeId, EventId), windows_core::EventRevoker>,
     virtuals: HashMap<NodeId, element_factory::VirtualHandle>,
     window_closed: Rc<Cell<bool>>,
+    window_roots: HashMap<NodeId, NodeId>,
     window_subscriptions: HashMap<NodeId, windows_core::EventRevoker>,
+    window_visuals: HashMap<NodeId, WindowVisuals>,
     windows: HashMap<NodeId, Window>,
     pending_application: Option<Application>,
     #[cfg(feature = "test")]
@@ -211,6 +213,101 @@ impl WinUiRuntime {
         }
     }
 
+    fn apply_window_visuals(
+        &mut self,
+        node: NodeId,
+        visuals: WindowVisuals,
+    ) -> Result<(), RuntimeError> {
+        let window = self
+            .windows
+            .get(&node)
+            .ok_or(RuntimeError::MissingNode(node))?;
+        let window_2 = window.cast::<IWindow2>().map_err(native_error)?;
+
+        match visuals.backdrop {
+            WindowBackdrop::None => window_2
+                .SetSystemBackdrop(None::<&SystemBackdrop>)
+                .map_err(native_error)?,
+            WindowBackdrop::Mica | WindowBackdrop::MicaAlt => {
+                let mica = MicaBackdrop::new().map_err(native_error)?;
+                mica.SetKind(match visuals.backdrop {
+                    WindowBackdrop::Mica => MicaKind::Base,
+                    WindowBackdrop::MicaAlt => MicaKind::BaseAlt,
+                    _ => unreachable!(),
+                })
+                .map_err(native_error)?;
+                let backdrop: SystemBackdrop = mica.cast().map_err(native_error)?;
+                window_2
+                    .SetSystemBackdrop(&backdrop)
+                    .map_err(native_error)?;
+            }
+            WindowBackdrop::Acrylic => {
+                let backdrop: SystemBackdrop = DesktopAcrylicBackdrop::new()
+                    .and_then(|backdrop| backdrop.cast())
+                    .map_err(native_error)?;
+                window_2
+                    .SetSystemBackdrop(&backdrop)
+                    .map_err(native_error)?;
+            }
+        }
+
+        let title_bar = window_2
+            .AppWindow()
+            .and_then(|window| window.TitleBar())
+            .and_then(|title_bar| title_bar.cast::<IAppWindowTitleBar3>())
+            .map_err(native_error)?;
+        title_bar
+            .SetPreferredTheme(match visuals.theme {
+                WindowTheme::System => TitleBarTheme::UseDefaultAppMode,
+                WindowTheme::Light => TitleBarTheme::Light,
+                WindowTheme::Dark => TitleBarTheme::Dark,
+            })
+            .map_err(native_error)?;
+
+        if let Some(root) = self.window_roots.get(&node).copied() {
+            self.apply_root_theme(root, visuals.theme)?;
+        }
+
+        if let Some((width, height)) = visuals.client_size {
+            let mut hwnd = std::ptr::null_mut();
+            unsafe {
+                window
+                    .cast::<IWindowNative>()
+                    .map_err(native_error)?
+                    .WindowHandle(&mut hwnd)
+                    .ok()
+                    .map_err(native_error)?;
+            }
+            let dpi = unsafe { GetDpiForWindow(hwnd) }.max(96);
+            let pixels = |dips: f64| (dips * f64::from(dpi) / 96.0).round() as i32;
+            window_2
+                .AppWindow()
+                .and_then(|window| window.cast::<IAppWindow2>())
+                .and_then(|window| {
+                    window.ResizeClient(SizeInt32 {
+                        width: pixels(width),
+                        height: pixels(height),
+                    })
+                })
+                .map_err(native_error)?;
+        }
+        self.window_visuals.insert(node, visuals);
+        Ok(())
+    }
+
+    fn apply_root_theme(&self, root: NodeId, theme: WindowTheme) -> Result<(), RuntimeError> {
+        self.ui_element(root)?
+            .cast::<FrameworkElement>()
+            .and_then(|root| {
+                root.SetRequestedTheme(match theme {
+                    WindowTheme::System => ElementTheme::Default,
+                    WindowTheme::Light => ElementTheme::Light,
+                    WindowTheme::Dark => ElementTheme::Dark,
+                })
+            })
+            .map_err(native_error)
+    }
+
     fn apply_one(&mut self, command: &Command) -> Result<(), RuntimeError> {
         match command {
             Command::CreateApplication { node } => {
@@ -259,6 +356,9 @@ impl WinUiRuntime {
                     .ok_or(RuntimeError::MissingNode(*node))?
                     .SetTitle(title)
                     .map_err(native_error)?;
+            }
+            Command::SetWindowVisuals { node, visuals } => {
+                self.apply_window_visuals(*node, *visuals)?;
             }
             Command::Create { node, kind } => {
                 if self.contains(*node) {
@@ -337,6 +437,8 @@ impl WinUiRuntime {
                 self.subscriptions
                     .retain(|(subscription_node, _), _| subscription_node != node);
                 self.window_subscriptions.remove(node);
+                self.window_roots.remove(node);
+                self.window_visuals.remove(node);
                 if self.handles.remove(node).is_some()
                     || self.virtuals.remove(node).is_some()
                     || self.windows.remove(node).is_some()
@@ -512,27 +614,33 @@ impl WinUiRuntime {
     }
 
     fn insert_child(
-        &self,
+        &mut self,
         parent: NodeId,
         child: NodeId,
         index: usize,
     ) -> Result<(), RuntimeError> {
+        let child_id = child;
         let child = self.ui_element(child)?;
         if let Some(window) = self.windows.get(&parent) {
             if index != 0 {
                 return Err(RuntimeError::IndexOutOfBounds);
             }
-            window.SetContent(&child).map_err(native_error)
+            window.SetContent(&child).map_err(native_error)?;
+            self.window_roots.insert(parent, child_id);
+            if let Some(visuals) = self.window_visuals.get(&parent) {
+                self.apply_root_theme(child_id, visuals.theme)?;
+            }
+            Ok(())
         } else {
             let parent = self
                 .handles
                 .get(&parent)
                 .ok_or(RuntimeError::MissingNode(parent))?;
-            if let Some(content) = parent.content_control()? {
+            if parent.is_content() {
                 if index != 0 {
                     return Err(RuntimeError::IndexOutOfBounds);
                 }
-                content.SetContent(&child).map_err(native_error)
+                set_content(parent, Some(&child))
             } else if let Some(children) = parent.child_collection()? {
                 children
                     .InsertAt(index32(index)?, &child)
@@ -543,20 +651,22 @@ impl WinUiRuntime {
         }
     }
 
-    fn remove_child(&self, parent: NodeId, child: NodeId) -> Result<(), RuntimeError> {
+    fn remove_child(&mut self, parent: NodeId, child: NodeId) -> Result<(), RuntimeError> {
         let child_id = child;
         let child = self.ui_element(child)?;
         if let Some(window) = self.windows.get(&parent) {
-            window.SetContent(None::<&UIElement>).map_err(native_error)
+            window
+                .SetContent(None::<&UIElement>)
+                .map_err(native_error)?;
+            self.window_roots.remove(&parent);
+            Ok(())
         } else {
             let parent = self
                 .handles
                 .get(&parent)
                 .ok_or(RuntimeError::MissingNode(parent))?;
-            if let Some(content) = parent.content_control()? {
-                content
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error)
+            if parent.is_content() {
+                set_content(parent, None)
             } else if let Some(children) = parent.child_collection()? {
                 let index = child_index(&children, child_id, &child)?;
                 children.RemoveAt(index).map_err(native_error)
@@ -566,18 +676,20 @@ impl WinUiRuntime {
         }
     }
 
-    fn reset_children(&self, parent: NodeId) -> Result<(), RuntimeError> {
+    fn reset_children(&mut self, parent: NodeId) -> Result<(), RuntimeError> {
         if let Some(window) = self.windows.get(&parent) {
-            window.SetContent(None::<&UIElement>).map_err(native_error)
+            window
+                .SetContent(None::<&UIElement>)
+                .map_err(native_error)?;
+            self.window_roots.remove(&parent);
+            Ok(())
         } else {
             let parent = self
                 .handles
                 .get(&parent)
                 .ok_or(RuntimeError::MissingNode(parent))?;
-            if let Some(content) = parent.content_control()? {
-                content
-                    .SetContent(None::<&windows_core::IInspectable>)
-                    .map_err(native_error)
+            if parent.is_content() {
+                set_content(parent, None)
             } else if let Some(children) = parent.child_collection()? {
                 children.Clear().map_err(native_error)
             } else {
@@ -599,7 +711,7 @@ impl WinUiRuntime {
                 .handles
                 .get(&parent)
                 .ok_or(RuntimeError::MissingNode(parent))?;
-            if parent.content_control()?.is_some() {
+            if parent.is_content() {
                 if index == 0 {
                     Ok(())
                 } else {
@@ -870,6 +982,8 @@ impl NativeRuntime for WinUiRuntime {
             }
         }
         self.windows.clear();
+        self.window_roots.clear();
+        self.window_visuals.clear();
         self.handles.clear();
         self.virtuals.clear();
         self.application = None;

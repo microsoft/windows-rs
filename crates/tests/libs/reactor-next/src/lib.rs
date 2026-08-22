@@ -8,6 +8,7 @@ mod tests {
         let optional_enabled = Some(true);
         let text = TextBlock::new()
             .text("hello")
+            .font_size(28.0)
             .text_wrapping(TextWrapping::Wrap);
         let stack = StackPanel::new()
             .orientation(Orientation::Horizontal)
@@ -23,6 +24,10 @@ mod tests {
         let grid = Grid::new()
             .rows_optional(Some([GridLength::Auto, GridLength::STAR]))
             .columns_optional(None::<[GridLength; 0]>);
+        let border = Border::new()
+            .padding(Thickness::uniform(24.0))
+            .border_thickness(1.0)
+            .corner_radius(CornerRadius::uniform(8.0));
 
         assert!(matches!(Element::from(text), Element::TextBlock(_)));
         assert!(matches!(Element::from(stack), Element::StackPanel(_)));
@@ -32,11 +37,13 @@ mod tests {
         assert!(matches!(Element::from(slider), Element::Slider(_)));
         assert!(matches!(Element::from(toggle), Element::ToggleSwitch(_)));
         assert!(matches!(Element::from(grid), Element::Grid(_)));
+        assert!(matches!(Element::from(border), Element::Border(_)));
     }
 
     #[test]
     fn generated_structural_capabilities_compose_views() {
         let _: View = Button::new().content(TextBlock::new().text("button"));
+        let _: View = Border::new().content(TextBlock::new().text("card"));
         let _: View = StackPanel::new().keyed_children([
             KeyedView::new("first", TextBlock::new().text("one")),
             KeyedView::new(2_u64, TextBlock::new().text("two")),
@@ -86,5 +93,33 @@ mod tests {
             TextBlock::new().text("first"),
             TextBlock::new().text("second"),
         ]);
+    }
+
+    struct WindowVisualComponent;
+
+    impl Component for WindowVisualComponent {
+        type Message = ();
+        type Props = ();
+
+        fn create(_props: &(), _context: &mut ComponentContext<Self>) -> Self {
+            Self
+        }
+
+        fn update(&mut self, _message: (), _context: &mut ComponentContext<Self>) {}
+
+        fn view(&self, _props: &(), context: &mut ViewContext<Self>) -> View {
+            context.window_visuals(
+                WindowVisuals::new()
+                    .theme(WindowTheme::Dark)
+                    .backdrop(WindowBackdrop::Mica)
+                    .client_size(1400.0, 900.0),
+            );
+            TextBlock::new().into()
+        }
+    }
+
+    #[test]
+    fn window_visual_environment_is_public() {
+        let _: View = View::component::<WindowVisualComponent>(());
     }
 }

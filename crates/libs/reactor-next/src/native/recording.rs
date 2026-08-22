@@ -27,6 +27,7 @@ pub struct RecordingRuntime {
     source_revisions: HashMap<NodeId, u64>,
     subscriptions: HashSet<(NodeId, EventId)>,
     window_titles: HashMap<NodeId, String>,
+    window_visuals: HashMap<NodeId, WindowVisuals>,
     windows: HashSet<NodeId>,
 }
 
@@ -48,6 +49,7 @@ impl Default for RecordingRuntime {
             source_revisions: HashMap::new(),
             subscriptions: HashSet::new(),
             window_titles: HashMap::new(),
+            window_visuals: HashMap::new(),
             windows: HashSet::new(),
         }
     }
@@ -95,6 +97,11 @@ impl RecordingRuntime {
     #[cfg(any(test, feature = "test"))]
     pub fn window_title(&self, node: NodeId) -> Option<&str> {
         self.window_titles.get(&node).map(String::as_str)
+    }
+
+    #[cfg(any(test, feature = "test"))]
+    pub fn window_visuals(&self, node: NodeId) -> Option<WindowVisuals> {
+        self.window_visuals.get(&node).copied()
     }
 
     pub fn is_empty(&self) -> bool {
@@ -223,6 +230,12 @@ impl RecordingRuntime {
                     return Err(RuntimeError::MissingNode(*node));
                 }
                 self.window_titles.insert(*node, title.clone());
+            }
+            Command::SetWindowVisuals { node, visuals } => {
+                if !self.windows.contains(node) {
+                    return Err(RuntimeError::MissingNode(*node));
+                }
+                self.window_visuals.insert(*node, *visuals);
             }
             Command::Create { node, kind } => {
                 if self.nodes.contains_key(node) {
@@ -353,6 +366,7 @@ impl RecordingRuntime {
                 self.subscriptions
                     .retain(|(subscription_node, _)| subscription_node != node);
                 self.window_titles.remove(node);
+                self.window_visuals.remove(node);
                 self.windows.remove(node);
                 if self.application == Some(*node) {
                     self.application = None;
@@ -591,6 +605,8 @@ impl NativeRuntime for RecordingRuntime {
         self.realizations.clear();
         self.source_revisions.clear();
         self.subscriptions.clear();
+        self.window_titles.clear();
+        self.window_visuals.clear();
         self.windows.clear();
     }
 

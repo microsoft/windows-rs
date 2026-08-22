@@ -20,7 +20,8 @@ pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
         "Microsoft::UI::Xaml::IApplication::get_Resources".to_string(),
         "Microsoft::UI::Xaml::IDependencyObject::ClearValue".to_string(),
         "Microsoft::UI::Xaml::IElementFactory".to_string(),
-        "Microsoft::UI::Xaml::IFrameworkElement::put_MinHeight".to_string(),
+        "Microsoft::UI::Xaml::IFrameworkElement::{put_MinHeight, put_RequestedTheme}"
+            .to_string(),
         "Microsoft::UI::Xaml::IUIElement::{Focus, StartBringIntoView}".to_string(),
         "Microsoft::UI::Xaml::Media::CompositionTarget::Rendering".to_string(),
         "Microsoft::UI::Xaml::GridLength".to_string(),
@@ -29,6 +30,7 @@ pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
         "Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries".to_string(),
         "Microsoft::UI::Xaml::IWindow::{Activate, Close, Closed, put_Content, put_Title}"
             .to_string(),
+        "Microsoft::UI::Xaml::IWindow2::{get_AppWindow, put_SystemBackdrop}".to_string(),
         "Microsoft::UI::Xaml::LaunchActivatedEventArgs".to_string(),
         "Microsoft::UI::Xaml::Controls::ContentControl::CreateInstance".to_string(),
         "Microsoft::UI::Xaml::Controls::ColumnDefinition::CreateInstance".to_string(),
@@ -60,14 +62,23 @@ pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
         "Microsoft::UI::Xaml::XamlTypeInfo::XamlControlsXamlMetaDataProvider::CreateInstance"
             .to_string(),
         "Windows::UI::Xaml::Interop::TypeName".to_string(),
+        "Microsoft::UI::Windowing::IAppWindow::get_TitleBar".to_string(),
+        "Microsoft::UI::Windowing::IAppWindow2::ResizeClient".to_string(),
+        "Microsoft::UI::Windowing::IAppWindowTitleBar3::put_PreferredTheme".to_string(),
+        "Microsoft::UI::Xaml::Media::DesktopAcrylicBackdrop::CreateInstance".to_string(),
+        "Microsoft::UI::Xaml::Media::IMicaBackdrop::put_Kind".to_string(),
+        "Microsoft::UI::Xaml::Media::MicaBackdrop::CreateInstance".to_string(),
+        "Windows::Graphics::SizeInt32".to_string(),
         "Windows::Win32::COINIT_APARTMENTTHREADED".to_string(),
         "Windows::Win32::CoInitializeEx".to_string(),
         "Windows::Win32::DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2".to_string(),
         "Windows::Win32::E_FAIL".to_string(),
+        "Windows::Win32::GetDpiForWindow".to_string(),
         "Windows::Win32::RPC_E_CHANGED_MODE".to_string(),
         "Windows::Win32::SetProcessDpiAwarenessContext".to_string(),
         "Windows::Win32::PostQuitMessage".to_string(),
         "extras::MddBootstrapInitialize2".to_string(),
+        "extras::IWindowNative::get_WindowHandle".to_string(),
         "extras::MddBootstrapInitializeOptions::{}".to_string(),
         "extras::MddBootstrapInitializeOptions_OnNoMatch_ShowUI".to_string(),
         "extras::MddBootstrapInitializeOptions_OnPackageIdentity_NOOP".to_string(),
@@ -85,16 +96,18 @@ pub(crate) fn generate_bindings_filter(schema: &ResolvedSchema) -> String {
             filter_path(&control.type_name)
         ));
         match control.role {
-            Role::Content => {
-                entries.insert(
-                    "Microsoft::UI::Xaml::Controls::IContentControl::put_Content".to_string(),
-                );
-            }
             Role::Children => {
                 entries.insert("Microsoft::UI::Xaml::Controls::IPanel::Children".to_string());
                 entries.insert("Microsoft::UI::Xaml::Controls::UIElementCollection".to_string());
             }
-            Role::Leaf | Role::Controlled | Role::Slots | Role::Virtual => {}
+            Role::Leaf | Role::Content | Role::Controlled | Role::Slots | Role::Virtual => {}
+        }
+        if let Some(content) = &control.content {
+            entries.insert(format!(
+                "{}::put_{}",
+                filter_path(&content.interface),
+                content.name
+            ));
         }
 
         for property in &control.properties {
@@ -185,18 +198,20 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         let name = ident(&control.name);
         quote! { Self::#name(value) => value.cast() }
     });
-    let content_controls = schema
+    let content_kinds = schema
         .controls
         .iter()
-        .filter(|control| matches!(control.role, Role::Content))
+        .filter(|control| control.content.is_some())
         .map(|control| {
             let name = ident(&control.name);
-            quote! {
-                Self::#name(value) => {
-                    Some(value.cast::<IContentControl>().map_err(native_error)?)
-                }
-            }
+            quote! { Self::#name(_) }
         });
+    let contents = schema.controls.iter().filter_map(|control| {
+        control
+            .content
+            .as_ref()
+            .map(|content| generate_set_content(control, content))
+    });
     let child_collections = schema
         .controls
         .iter()
@@ -328,11 +343,8 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                 }
             }
 
-            pub fn content_control(&self) -> Result<Option<IContentControl>, RuntimeError> {
-                Ok(match self {
-                    #(#content_controls,)*
-                    _ => None,
-                })
+            pub fn is_content(&self) -> bool {
+                matches!(self, #(#content_kinds)|*)
             }
 
             pub fn child_collection(
@@ -342,6 +354,16 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                     #(#child_collections,)*
                     _ => None,
                 })
+            }
+        }
+
+        pub fn set_content(
+            handle: &Handle,
+            child: Option<&UIElement>,
+        ) -> Result<(), RuntimeError> {
+            match handle {
+                #(#contents,)*
+                _ => Err(RuntimeError::UnsupportedKind),
             }
         }
 
@@ -404,6 +426,42 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     };
 
     format!("// Generated by `tool_reactor_next`. Do not edit.\n\n{tokens}\n")
+}
+
+fn generate_set_content(
+    control: &ResolvedControl,
+    content: &crate::schema::ResolvedContent,
+) -> TokenStream {
+    let control_name = ident(&control.name);
+    let interface = path_ident(&content.interface);
+    let setter = ident(&format!("Set{}", content.name));
+    let value = match content.target {
+        SlotTarget::Inspectable => quote! {
+            match child {
+                Some(child) => control.#setter(child).map_err(native_error),
+                None => control
+                    .#setter(None::<&windows_core::IInspectable>)
+                    .map_err(native_error),
+            }
+        },
+        SlotTarget::UiElement => quote! {
+            match child {
+                Some(child) => control.#setter(child).map_err(native_error),
+                None => control.#setter(None::<&UIElement>).map_err(native_error),
+            }
+        },
+    };
+    let set = if content.interface.ends_with(&format!(".I{}", control.name)) {
+        value
+    } else {
+        quote! {
+            {
+                let control = control.cast::<#interface>().map_err(native_error)?;
+                #value
+            }
+        }
+    };
+    quote! { Handle::#control_name(control) => #set }
 }
 
 fn generate_set_slot(control: &ResolvedControl, slot: &crate::schema::ResolvedSlot) -> TokenStream {
@@ -545,6 +603,30 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
     let setter = ident(&format!("Set{}", property.name));
     let value = if property.value == "Str" {
         quote! { value }
+    } else if property.value == "Thickness" {
+        quote! {
+            {
+                let [left, top, right, bottom] = value.values();
+                bindings::Thickness {
+                    left,
+                    top,
+                    right,
+                    bottom,
+                }
+            }
+        }
+    } else if property.value == "CornerRadius" {
+        quote! {
+            {
+                let [top_left, top_right, bottom_right, bottom_left] = value.values();
+                bindings::CornerRadius {
+                    top_left,
+                    top_right,
+                    bottom_right,
+                    bottom_left,
+                }
+            }
+        }
     } else if property.enum_variants.is_empty() {
         quote! { *value }
     } else {
@@ -668,6 +750,13 @@ mod tests {
         let filter = generate_bindings_filter(&schema());
 
         assert!(filter.contains("TextBox::CreateInstance"));
+        assert!(filter.contains("Border::CreateInstance"));
+        assert!(filter.contains("MicaBackdrop::CreateInstance"));
+        assert!(filter.contains("IWindow2::{get_AppWindow, put_SystemBackdrop}"));
+        assert!(filter.contains("IAppWindowTitleBar3::put_PreferredTheme"));
+        assert!(filter.contains("IAppWindow2::ResizeClient"));
+        assert!(filter.contains("IBorder::put_Child"));
+        assert!(filter.contains("IBorder::put_Padding"));
         assert!(filter.contains("ITextBox::put_PlaceholderText"));
         assert!(filter.contains("ITextBox::{add_TextChanged, remove_TextChanged}"));
         assert!(filter.contains("Control::IsEnabledProperty"));
@@ -687,6 +776,10 @@ mod tests {
         let generated = generate(&schema());
 
         assert!(generated.contains("Handle :: TextBox"));
+        assert!(generated.contains("Handle :: Border"));
+        assert!(generated.contains("control . SetChild"));
+        assert!(generated.contains("bindings :: Thickness"));
+        assert!(generated.contains("bindings :: CornerRadius"));
         assert!(generated.contains("PropertyId :: TextBoxPlaceholderText"));
         assert!(generated.contains("EventId :: ButtonClick"));
         assert!(generated.contains("EventId :: TextBoxTextChanged"));

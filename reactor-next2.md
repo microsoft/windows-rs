@@ -347,6 +347,36 @@ templates, collections, and multi-window behavior. Keep Reactor2's generational 
 work, controlled observations, and explicit ownership. Use the C# Reactor as evidence for
 control-specific WinUI behavior, not as a runtime design to copy.
 
+### Gallery-led rollover program
+
+The incumbent gallery is the primary replacement acceptance application. It covers visual
+composition, application chrome, navigation, ordinary controls, collections, popups, theme
+resources, assets, and specialized adapters in one inspectable program. Parity proceeds in bounded
+vertical slices rather than by importing the incumbent API or adding controls by count.
+
+| Stage | Scope | Exit gate |
+| --- | --- | --- |
+| Window visual environment | Requested theme, backdrop, title-bar integration, fixed sizing | Light and dark captures have a coherent title bar and client surface |
+| Visual foundation | Border, struct values, spacing, sizing, typography, theme brushes | Incumbent page header, card, and page-content helpers have the same visible hierarchy |
+| Gallery chrome | Title bar, navigation menu, search, history, pane, theme, assets | Fixed-size light and dark captures match the incumbent shell structure and visual hierarchy |
+| Basic pages | Input, range, toggle, progress, and button families | The first category matches behavior and visual states |
+| Standard controls | Layout, text, status, date/time, navigation, collections | Every gallery category has qualified representative coverage |
+| Complex ownership | Menus, flyouts, dialogs, templates, selection, deferrals | Each family has an explicit lifetime and failure contract before implementation |
+| Specialized adapters | Canvas, composition, WebView, media | Each subsystem owns documented failure and recovery outside the core reconciler |
+| Rollover | First-party samples, docs, tests, package, migration guide | Public API freezes and all replacement gates pass |
+
+Every tranche records generated API growth, clean and source-only compile time, release binary
+size, transient and retained allocation, live process memory, and interaction cadence. Visual
+checkpoints use fixed window dimensions and DPI in light and dark themes; structural recording
+tests cannot establish visual parity by themselves.
+
+The new component API does not emulate the incumbent hook API. First-party applications migrate to
+owned components before package cutover. A migration guide maps old patterns to new ownership,
+effects, references, controlled values, windows, and virtualization. Do not add a compatibility
+frontend, legacy tree, or adapter layer to the runtime. Replace the workspace `windows-reactor`
+package only after gallery qualification, first-party migration, reliability soaks, performance
+remeasurement, documentation, and release packaging are complete.
+
 The stop condition is concrete: if a feature requires new Pump state, a handwritten reconciliation
 path, another authoritative side table, or generic recovery machinery, stop and revise the
 contract before adding it. Difficult vertical slices come before dozens of ordinary controls.
@@ -954,6 +984,66 @@ mounted matcher with reconciliation if profiles show its double walk is material
 virtual source remains conditional on a real application needing roughly 100,000 rows. Native tail
 latency must stay correlated with host and native phases rather than driving frontend caches.
 General retained declaration caches remain out of scope.
+
+## Gallery adoption qualification
+
+The first adoption slice ports the incumbent gallery's Home, Text input, and Numeric input concepts
+into `crates/samples/reactor-next/gallery`. A `SplitView` shell routes replaceable page components,
+while the shell owns the name, amount, volume, enabled state, and current page. This preserves
+values across page retirement without another store or retained page tree.
+
+The slice uses only the existing generated controls: Button, TextBlock, TextBox, NumberBox, Slider,
+ProgressBar, ToggleSwitch, StackPanel, ScrollViewer, and SplitView. It therefore adds no schema
+rows, bindings, generated methods, planner branches, or native adapters. That is useful adoption
+evidence: a functional multi-page basic-input application fits the existing component, slot,
+controlled-event, and window-title contracts.
+
+The application portion is 252 lines before its recording test. Its release executable is
+1,230,848 bytes, about 12% above the 1,098,752-byte post-Grid thin counter and 41% of the measured
+2,975,744-byte incumbent counter. This is not a matched application comparison, but it confirms
+that composing the existing control set does not create another generated or linking step. A
+bounded release launch created the native gallery window through the ordinary WinUI host.
+
+The recording qualification drives navigation clicks and TextBox, NumberBox, Slider, and
+ToggleSwitch events through native event revisions and component queues. It verifies that page
+replacement retains the edited values, disabled state reaches the numeric controls, progress
+tracks the controlled slider, and the declarative window title follows routing. Controlled
+feedback subscriptions exist even when a control has no application callback, so the test selects
+the editable TextBox by authoritative property state rather than relying on subscription order.
+
+The first visual slice added metadata-resolved Border content, compact `Thickness` and
+`CornerRadius` values, Border padding/thickness/radius, TextBlock font size, and real page-header,
+sample-card, and page-content helper structure. Uniform four-value types remain inline; uncommon
+four-value forms share one allocation. The generated visitor borrows them through planning, and
+the retained `Node` layout remains 432 bytes. The rejected inline representation would have made
+every node 480 bytes.
+
+Against the isolated pre-visual baseline, the clean gallery check moved from 3,211 ms to 3,309 ms
+(+3.05%), and the release executable moved from 1,230,848 to 1,296,896 bytes (+5.37%). Generated
+public Rust moved from 104,277 to 116,639 bytes, generated native Rust from 29,512 to 33,156 bytes,
+and WinUI bindings from 215,079 to 223,483 bytes.
+
+A 1,920 x 1,025 live capture confirmed the new spacing and typography, but rejected visual parity:
+the client used a dark opaque surface under a light system title bar, no Mica backdrop was active,
+and Border geometry had no visible card surface without theme brushes. Window requested theme,
+backdrop, title-bar theme integration, and fixed gallery sizing therefore move ahead of theme brush
+and NavigationView work. Do not approximate this with fixed light/dark colors.
+
+The window visual environment is now one scope-owned `WindowVisuals` declaration. It publishes
+requested theme, Mica/Mica Alt/Acrylic/none, and optional client size with the component candidate.
+Duplicate owners fail during planning, failed native apply does not publish candidate state, and
+unchanged values emit no command. Title and visual declarations share one copy-on-write scope map.
+
+The WinUI runtime keeps applied visuals with the native window handle, not as another logical
+authority. Theme is reapplied whenever window content is replaced; empty windows can still apply
+window-level settings. System theme uses `TitleBarTheme::UseDefaultAppMode` rather than pinning the
+caption to its current color. A live 1,415 x 937 outer-window capture confirmed a 1,400 x 900 client
+area, dark-matched system title bar, and Mica configuration.
+
+Against the immediately preceding visual baseline, the isolated clean check moved from 3,309 ms to
+3,097 ms (measurement noise), the release gallery moved from 1,296,896 to 1,314,816 bytes (+1.38%),
+and bindings moved from 223,483 to 242,955 bytes (+8.71%). Public and generated native control Rust
+did not grow. The retained `Node` remains 432 bytes.
 
 ## API polish record
 

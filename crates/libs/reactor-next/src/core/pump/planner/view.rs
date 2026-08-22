@@ -834,6 +834,7 @@ impl<R: NativeRuntime> Pump<R> {
                     changes.retired.push(token);
                 }
                 tree.set_window_title(scope, None);
+                tree.set_window_visuals(scope, None);
             }
         }
         Ok(())
@@ -853,10 +854,18 @@ impl<R: NativeRuntime> Pump<R> {
         let ComponentRender {
             dependencies,
             duplicate_window_title,
+            duplicate_window_visuals,
             view,
             window_title,
+            window_visuals,
         } = components.view(token, tree.context_snapshot(node)?)?;
         Self::reconcile_component_window_title(tree, token, duplicate_window_title, window_title)?;
+        Self::reconcile_component_window_visuals(
+            tree,
+            token,
+            duplicate_window_visuals,
+            window_visuals,
+        )?;
         changes.context_reads.insert(token, dependencies);
         Self::recompose_component_view(tree, node, view, components, changes, plan)
     }
@@ -872,6 +881,19 @@ impl<R: NativeRuntime> Pump<R> {
         }
         let scope = token.scope();
         tree.set_window_title(scope, title.map(Into::into));
+        Ok(())
+    }
+
+    pub(in super::super) fn reconcile_component_window_visuals(
+        tree: &mut Tree,
+        token: ComponentToken,
+        duplicate: bool,
+        visuals: Option<WindowVisuals>,
+    ) -> Result<(), PumpError> {
+        if duplicate {
+            return Err(PumpError::DuplicateWindowVisuals);
+        }
+        tree.set_window_visuals(token.scope(), visuals);
         Ok(())
     }
 
@@ -925,14 +947,22 @@ impl<R: NativeRuntime> Pump<R> {
                 let ComponentRender {
                     dependencies,
                     duplicate_window_title,
+                    duplicate_window_visuals,
                     view,
                     window_title,
+                    window_visuals,
                 } = components.view(token, tree.context_snapshot(node)?)?;
                 Self::reconcile_component_window_title(
                     tree,
                     token,
                     duplicate_window_title,
                     window_title,
+                )?;
+                Self::reconcile_component_window_visuals(
+                    tree,
+                    token,
+                    duplicate_window_visuals,
+                    window_visuals,
                 )?;
                 changes.context_reads.insert(token, dependencies);
                 let (_, native) = Self::mount_planned_view(

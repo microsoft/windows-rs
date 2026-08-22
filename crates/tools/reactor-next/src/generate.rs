@@ -2,7 +2,9 @@ use proc_macro2::{Ident, Span, TokenStream};
 use quote::quote;
 use std::collections::BTreeMap;
 
-use crate::schema::{Capability, FeedbackContract, ResolvedControl, ResolvedSchema, Role};
+use crate::schema::{
+    Capability, FeedbackContract, ResolvedControl, ResolvedSchema, Role, ValueValidation,
+};
 
 pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     let value_enums = generate_value_enums(schema);
@@ -708,10 +710,10 @@ fn generate_mounted_props_visitor(control: &ResolvedControl) -> TokenStream {
         let field = ident(&property.field);
         let id = ident(&format!("{}{}", control.name, property.name));
         let variant = ident(&property.value);
-        let value = if property.value == "Str" {
-            quote! { value.as_str() }
-        } else {
-            quote! { *value }
+        let value = match property.value.as_str() {
+            "Str" => quote! { value.as_str() },
+            "Thickness" | "CornerRadius" => quote! { value },
+            _ => quote! { *value },
         };
         quote! {
             visit(
@@ -866,6 +868,8 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
         let value = match name.as_str() {
             "GridLengths" => quote! { &'a std::rc::Rc<Vec<GridLength>> },
             "Str" => quote! { &'a str },
+            "Thickness" => quote! { &'a Thickness },
+            "CornerRadius" => quote! { &'a CornerRadius },
             _ => value.clone(),
         };
         quote! { #variant(#value) }
@@ -898,7 +902,10 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
             quote! {
                 (Self::#variant(left), PropertyValue::#variant(right)) => f64_eq(left, *right)
             }
-        } else if matches!(name.as_str(), "GridLengths" | "Str") {
+        } else if matches!(
+            name.as_str(),
+            "GridLengths" | "Str" | "Thickness" | "CornerRadius"
+        ) {
             quote! {
                 (Self::#variant(left), PropertyValue::#variant(right)) => left == right
             }
@@ -916,6 +923,9 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
             },
             "Str" => quote! {
                 Self::#variant(value) => PropertyValue::#variant(value.to_string())
+            },
+            "Thickness" | "CornerRadius" => quote! {
+                Self::#variant(value) => PropertyValue::#variant(value.clone())
             },
             _ => quote! {
                 Self::#variant(value) => PropertyValue::#variant(value)
@@ -1082,6 +1092,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
     let property_methods = control.properties.iter().map(|property| {
         let field = ident(&property.field);
         let value = value_type(&property.value);
+        let validation = generate_value_validation(control, property);
         if property.value == "Str" {
             let optional = ident(&format!("{}_optional", property.field));
             quote! {
@@ -1098,10 +1109,33 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                     self
                 }
             }
+        } else if matches!(property.value.as_str(), "Thickness" | "CornerRadius") {
+            let optional = ident(&format!("{}_optional", property.field));
+            let direct_validation = generate_direct_value_validation(control, property);
+            quote! {
+                pub fn #field(mut self, value: impl Into<#value>) -> Self {
+                    let value = value.into();
+                    #direct_validation
+                    self.#field = Property::Set(value);
+                    self
+                }
+
+                pub fn #optional<T>(mut self, value: Option<T>) -> Self
+                where
+                    T: Into<#value>,
+                {
+                    let value = value.map(Into::into);
+                    #validation
+                    self.#field = Property::from(value);
+                    self
+                }
+            }
         } else {
             quote! {
                 pub fn #field(mut self, value: impl Into<Option<#value>>) -> Self {
-                    self.#field = Property::from(value.into());
+                    let value = value.into();
+                    #validation
+                    self.#field = Property::from(value);
                     self
                 }
             }
@@ -1311,6 +1345,81 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
     }
 }
 
+fn generate_direct_value_validation(
+    control: &ResolvedControl,
+    property: &crate::schema::ResolvedProperty,
+) -> TokenStream {
+    let Some(validation) = property.validation else {
+        return TokenStream::new();
+    };
+    let message = match validation {
+        ValueValidation::FiniteNonNegative => format!(
+            "{} {} must contain finite non-negative values",
+            control.name, property.name
+        ),
+        ValueValidation::FinitePositive => {
+            format!(
+                "{} {} must be finite and positive",
+                control.name, property.name
+            )
+        }
+    };
+    match (validation, property.value.as_str()) {
+        (ValueValidation::FiniteNonNegative, "Thickness" | "CornerRadius") => quote! {
+            assert!(value.is_finite_non_negative(), #message);
+        },
+        _ => unreachable!(),
+    }
+}
+
+fn generate_value_validation(
+    control: &ResolvedControl,
+    property: &crate::schema::ResolvedProperty,
+) -> TokenStream {
+    let Some(validation) = property.validation else {
+        return TokenStream::new();
+    };
+    let message = match validation {
+        ValueValidation::FiniteNonNegative => format!(
+            "{} {} must contain finite non-negative values",
+            control.name, property.name
+        ),
+        ValueValidation::FinitePositive => {
+            format!(
+                "{} {} must be finite and positive",
+                control.name, property.name
+            )
+        }
+    };
+    match (validation, property.value.as_str()) {
+        (ValueValidation::FinitePositive, "F64") => quote! {
+            assert!(
+                value
+                    .as_ref()
+                    .is_none_or(|value| value.is_finite() && *value > 0.0),
+                #message,
+            );
+        },
+        (ValueValidation::FiniteNonNegative, "F64") => quote! {
+            assert!(
+                value
+                    .as_ref()
+                    .is_none_or(|value| value.is_finite() && *value >= 0.0),
+                #message,
+            );
+        },
+        (ValueValidation::FiniteNonNegative, "Thickness" | "CornerRadius") => quote! {
+            assert!(
+                value
+                    .as_ref()
+                    .is_none_or(|value| value.is_finite_non_negative()),
+                #message,
+            );
+        },
+        _ => unreachable!(),
+    }
+}
+
 fn value_equality(
     value: Option<&str>,
     left: &impl quote::ToTokens,
@@ -1502,7 +1611,7 @@ mod tests {
         let resolved = schema.resolve(&metadata).unwrap();
         let output = generate(&resolved);
 
-        assert_eq!(output.matches("ControlDescriptor").count(), 15);
+        assert_eq!(output.matches("ControlDescriptor").count(), 16);
         assert!(output.contains("feedback : Some"));
         assert!(output.contains("feedback_contract : Some (\"synchronous_normalized\")"));
         assert!(output.contains("pub struct NumberBox"));
@@ -1523,6 +1632,12 @@ mod tests {
         assert!(output.contains("NavigationViewHeader"));
         assert!(output.contains("ControlRole :: Children"));
         assert!(output.contains("pub struct TextBox"));
+        assert!(output.contains("pub struct Border"));
+        assert!(output.contains("padding"));
+        assert!(output.contains("Property < Thickness >"));
+        assert!(output.contains("Property < CornerRadius >"));
+        assert!(output.contains("value . is_finite_non_negative"));
+        assert!(output.contains("TextBlock FontSize must be finite and positive"));
         assert!(!output.contains("impl ControlledTextControl for TextBox"));
         assert!(!output.contains("impl ItemsControl for ItemsRepeater"));
         assert!(output.contains("item : impl Into < View >"));

@@ -26,6 +26,7 @@ pub mod public {
     pub struct TextBlock {
         text: Property<String>,
         text_wrapping: Property<TextWrapping>,
+        font_size: Property<f64>,
         grid_placement: Option<std::rc::Rc<GridPlacement>>,
     }
     impl TextBlock {
@@ -44,7 +45,19 @@ pub mod public {
             self
         }
         pub fn text_wrapping(mut self, value: impl Into<Option<TextWrapping>>) -> Self {
-            self.text_wrapping = Property::from(value.into());
+            let value = value.into();
+            self.text_wrapping = Property::from(value);
+            self
+        }
+        pub fn font_size(mut self, value: impl Into<Option<f64>>) -> Self {
+            let value = value.into();
+            assert!(
+                value
+                    .as_ref()
+                    .is_none_or(|value| value.is_finite() && *value > 0.0),
+                "TextBlock FontSize must be finite and positive",
+            );
+            self.font_size = Property::from(value);
             self
         }
     }
@@ -71,7 +84,8 @@ pub mod public {
             self
         }
         pub fn is_enabled(mut self, value: impl Into<Option<bool>>) -> Self {
-            self.is_enabled = Property::from(value.into());
+            let value = value.into();
+            self.is_enabled = Property::from(value);
             self
         }
         pub fn on_click(mut self, callback: impl IntoUnitCallback) -> Self {
@@ -95,6 +109,100 @@ pub mod public {
     impl ContentControl for Button {}
     impl FocusControl for Button {}
     #[derive(Clone, Debug, Default, PartialEq)]
+    pub struct Border {
+        padding: Property<Thickness>,
+        border_thickness: Property<Thickness>,
+        corner_radius: Property<CornerRadius>,
+        grid_placement: Option<std::rc::Rc<GridPlacement>>,
+        content: Option<Box<Element>>,
+    }
+    impl Border {
+        pub fn new() -> Self {
+            Self::default()
+        }
+        pub fn padding(mut self, value: impl Into<Thickness>) -> Self {
+            let value = value.into();
+            assert!(
+                value.is_finite_non_negative(),
+                "Border Padding must contain finite non-negative values"
+            );
+            self.padding = Property::Set(value);
+            self
+        }
+        pub fn padding_optional<T>(mut self, value: Option<T>) -> Self
+        where
+            T: Into<Thickness>,
+        {
+            let value = value.map(Into::into);
+            assert!(
+                value
+                    .as_ref()
+                    .is_none_or(|value| value.is_finite_non_negative()),
+                "Border Padding must contain finite non-negative values",
+            );
+            self.padding = Property::from(value);
+            self
+        }
+        pub fn border_thickness(mut self, value: impl Into<Thickness>) -> Self {
+            let value = value.into();
+            assert!(
+                value.is_finite_non_negative(),
+                "Border BorderThickness must contain finite non-negative values"
+            );
+            self.border_thickness = Property::Set(value);
+            self
+        }
+        pub fn border_thickness_optional<T>(mut self, value: Option<T>) -> Self
+        where
+            T: Into<Thickness>,
+        {
+            let value = value.map(Into::into);
+            assert!(
+                value
+                    .as_ref()
+                    .is_none_or(|value| value.is_finite_non_negative()),
+                "Border BorderThickness must contain finite non-negative values",
+            );
+            self.border_thickness = Property::from(value);
+            self
+        }
+        pub fn corner_radius(mut self, value: impl Into<CornerRadius>) -> Self {
+            let value = value.into();
+            assert!(
+                value.is_finite_non_negative(),
+                "Border CornerRadius must contain finite non-negative values"
+            );
+            self.corner_radius = Property::Set(value);
+            self
+        }
+        pub fn corner_radius_optional<T>(mut self, value: Option<T>) -> Self
+        where
+            T: Into<CornerRadius>,
+        {
+            let value = value.map(Into::into);
+            assert!(
+                value
+                    .as_ref()
+                    .is_none_or(|value| value.is_finite_non_negative()),
+                "Border CornerRadius must contain finite non-negative values",
+            );
+            self.corner_radius = Property::from(value);
+            self
+        }
+        #[allow(dead_code)]
+        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+    }
+    impl sealed::Sealed for Border {}
+    impl LayoutControl for Border {
+        fn grid_placement_mut(&mut self) -> &mut Option<std::rc::Rc<GridPlacement>> {
+            &mut self.grid_placement
+        }
+    }
+    impl ContentControl for Border {}
+    #[derive(Clone, Debug, Default, PartialEq)]
     pub struct StackPanel {
         orientation: Property<Orientation>,
         spacing: Property<f64>,
@@ -106,11 +214,13 @@ pub mod public {
             Self::default()
         }
         pub fn orientation(mut self, value: impl Into<Option<Orientation>>) -> Self {
-            self.orientation = Property::from(value.into());
+            let value = value.into();
+            self.orientation = Property::from(value);
             self
         }
         pub fn spacing(mut self, value: impl Into<Option<f64>>) -> Self {
-            self.spacing = Property::from(value.into());
+            let value = value.into();
+            self.spacing = Property::from(value);
             self
         }
         #[allow(dead_code)]
@@ -152,11 +262,13 @@ pub mod public {
             Self::default()
         }
         pub fn row_spacing(mut self, value: impl Into<Option<f64>>) -> Self {
-            self.row_spacing = Property::from(value.into());
+            let value = value.into();
+            self.row_spacing = Property::from(value);
             self
         }
         pub fn column_spacing(mut self, value: impl Into<Option<f64>>) -> Self {
-            self.column_spacing = Property::from(value.into());
+            let value = value.into();
+            self.column_spacing = Property::from(value);
             self
         }
         pub fn rows(mut self, values: impl IntoIterator<Item = GridLength>) -> Self {
@@ -270,7 +382,8 @@ pub mod public {
             self
         }
         pub fn is_enabled(mut self, value: impl Into<Option<bool>>) -> Self {
-            self.is_enabled = Property::from(value.into());
+            let value = value.into();
+            self.is_enabled = Property::from(value);
             self
         }
         pub fn on_text_changed(mut self, callback: impl IntoPayloadCallback<String>) -> Self {
@@ -306,19 +419,23 @@ pub mod public {
             self
         }
         pub fn minimum(mut self, value: impl Into<Option<f64>>) -> Self {
-            self.minimum = Property::from(value.into());
+            let value = value.into();
+            self.minimum = Property::from(value);
             self
         }
         pub fn maximum(mut self, value: impl Into<Option<f64>>) -> Self {
-            self.maximum = Property::from(value.into());
+            let value = value.into();
+            self.maximum = Property::from(value);
             self
         }
         pub fn value(mut self, value: impl Into<Option<f64>>) -> Self {
-            self.value = Property::from(value.into());
+            let value = value.into();
+            self.value = Property::from(value);
             self
         }
         pub fn is_enabled(mut self, value: impl Into<Option<bool>>) -> Self {
-            self.is_enabled = Property::from(value.into());
+            let value = value.into();
+            self.is_enabled = Property::from(value);
             self
         }
         pub fn on_value_changed(mut self, callback: impl IntoPayloadCallback<f64>) -> Self {
@@ -354,19 +471,23 @@ pub mod public {
             self
         }
         pub fn minimum(mut self, value: impl Into<Option<f64>>) -> Self {
-            self.minimum = Property::from(value.into());
+            let value = value.into();
+            self.minimum = Property::from(value);
             self
         }
         pub fn maximum(mut self, value: impl Into<Option<f64>>) -> Self {
-            self.maximum = Property::from(value.into());
+            let value = value.into();
+            self.maximum = Property::from(value);
             self
         }
         pub fn value(mut self, value: impl Into<Option<f64>>) -> Self {
-            self.value = Property::from(value.into());
+            let value = value.into();
+            self.value = Property::from(value);
             self
         }
         pub fn is_enabled(mut self, value: impl Into<Option<bool>>) -> Self {
-            self.is_enabled = Property::from(value.into());
+            let value = value.into();
+            self.is_enabled = Property::from(value);
             self
         }
         pub fn on_value_changed(mut self, callback: impl IntoPayloadCallback<f64>) -> Self {
@@ -393,7 +514,8 @@ pub mod public {
             Self::default()
         }
         pub fn is_enabled(mut self, value: impl Into<Option<bool>>) -> Self {
-            self.is_enabled = Property::from(value.into());
+            let value = value.into();
+            self.is_enabled = Property::from(value);
             self
         }
     }
@@ -428,19 +550,23 @@ pub mod public {
             Self::default()
         }
         pub fn open_pane_length(mut self, value: impl Into<Option<f64>>) -> Self {
-            self.open_pane_length = Property::from(value.into());
+            let value = value.into();
+            self.open_pane_length = Property::from(value);
             self
         }
         pub fn compact_pane_length(mut self, value: impl Into<Option<f64>>) -> Self {
-            self.compact_pane_length = Property::from(value.into());
+            let value = value.into();
+            self.compact_pane_length = Property::from(value);
             self
         }
         pub fn display_mode(mut self, value: impl Into<Option<SplitViewDisplayMode>>) -> Self {
-            self.display_mode = Property::from(value.into());
+            let value = value.into();
+            self.display_mode = Property::from(value);
             self
         }
         pub fn is_pane_open(mut self, value: impl Into<Option<bool>>) -> Self {
-            self.is_pane_open = Property::from(value.into());
+            let value = value.into();
+            self.is_pane_open = Property::from(value);
             self
         }
     }
@@ -478,31 +604,38 @@ pub mod public {
             Self::default()
         }
         pub fn minimum(mut self, value: impl Into<Option<f64>>) -> Self {
-            self.minimum = Property::from(value.into());
+            let value = value.into();
+            self.minimum = Property::from(value);
             self
         }
         pub fn maximum(mut self, value: impl Into<Option<f64>>) -> Self {
-            self.maximum = Property::from(value.into());
+            let value = value.into();
+            self.maximum = Property::from(value);
             self
         }
         pub fn value(mut self, value: impl Into<Option<f64>>) -> Self {
-            self.value = Property::from(value.into());
+            let value = value.into();
+            self.value = Property::from(value);
             self
         }
         pub fn is_indeterminate(mut self, value: impl Into<Option<bool>>) -> Self {
-            self.is_indeterminate = Property::from(value.into());
+            let value = value.into();
+            self.is_indeterminate = Property::from(value);
             self
         }
         pub fn show_error(mut self, value: impl Into<Option<bool>>) -> Self {
-            self.show_error = Property::from(value.into());
+            let value = value.into();
+            self.show_error = Property::from(value);
             self
         }
         pub fn show_paused(mut self, value: impl Into<Option<bool>>) -> Self {
-            self.show_paused = Property::from(value.into());
+            let value = value.into();
+            self.show_paused = Property::from(value);
             self
         }
         pub fn is_enabled(mut self, value: impl Into<Option<bool>>) -> Self {
-            self.is_enabled = Property::from(value.into());
+            let value = value.into();
+            self.is_enabled = Property::from(value);
             self
         }
     }
@@ -529,11 +662,13 @@ pub mod public {
             self
         }
         pub fn is_on(mut self, value: impl Into<Option<bool>>) -> Self {
-            self.is_on = Property::from(value.into());
+            let value = value.into();
+            self.is_on = Property::from(value);
             self
         }
         pub fn is_enabled(mut self, value: impl Into<Option<bool>>) -> Self {
-            self.is_enabled = Property::from(value.into());
+            let value = value.into();
+            self.is_enabled = Property::from(value);
             self
         }
         pub fn on_toggled(mut self, callback: impl IntoPayloadCallback<bool>) -> Self {
@@ -600,6 +735,7 @@ pub mod public {
     pub enum Element {
         TextBlock(TextBlock),
         Button(Button),
+        Border(Border),
         StackPanel(StackPanel),
         Grid(Grid),
         TextBox(TextBox),
@@ -629,6 +765,16 @@ pub mod public {
     }
     impl From<Button> for View {
         fn from(value: Button) -> Self {
+            Self::native(value)
+        }
+    }
+    impl From<Border> for Element {
+        fn from(value: Border) -> Self {
+            Self::Border(value)
+        }
+    }
+    impl From<Border> for View {
+        fn from(value: Border) -> Self {
             Self::native(value)
         }
     }
@@ -747,6 +893,7 @@ pub mod public {
             match self {
                 Self::TextBlock(_) => MountedKind::TextBlock,
                 Self::Button(_) => MountedKind::Button,
+                Self::Border(_) => MountedKind::Border,
                 Self::StackPanel(_) => MountedKind::StackPanel,
                 Self::Grid(_) => MountedKind::Grid,
                 Self::TextBox(_) => MountedKind::TextBox,
@@ -765,12 +912,14 @@ pub mod public {
                 Self::TextBlock(TextBlock {
                     text,
                     text_wrapping,
+                    font_size,
                     grid_placement,
                 }) => ElementParts {
                     kind: MountedKind::TextBlock,
                     props: MountedProps::TextBlock {
                         text,
                         text_wrapping,
+                        font_size,
                     },
                     reference: None,
                     grid_placement,
@@ -789,6 +938,23 @@ pub mod public {
                         on_click,
                     },
                     reference,
+                    grid_placement,
+                    structure: ElementStructure::Content(content.map(|element| *element)),
+                },
+                Self::Border(Border {
+                    padding,
+                    border_thickness,
+                    corner_radius,
+                    grid_placement,
+                    content,
+                }) => ElementParts {
+                    kind: MountedKind::Border,
+                    props: MountedProps::Border {
+                        padding,
+                        border_thickness,
+                        corner_radius,
+                    },
+                    reference: None,
                     grid_placement,
                     structure: ElementStructure::Content(content.map(|element| *element)),
                 },
@@ -984,13 +1150,19 @@ pub mod public {
                     Self::TextBlock(TextBlock {
                         text,
                         text_wrapping,
+                        font_size,
                         ..
                     }),
                     MountedProps::TextBlock {
                         text: mounted_text,
                         text_wrapping: mounted_text_wrapping,
+                        font_size: mounted_font_size,
                     },
-                ) => true && text == mounted_text && text_wrapping == mounted_text_wrapping,
+                ) => {
+                    true && text == mounted_text
+                        && text_wrapping == mounted_text_wrapping
+                        && f64_property_eq(font_size, mounted_font_size)
+                }
                 (
                     Self::Button(Button {
                         is_enabled,
@@ -1002,6 +1174,23 @@ pub mod public {
                         on_click: mounted_on_click,
                     },
                 ) => true && is_enabled == mounted_is_enabled && on_click == mounted_on_click,
+                (
+                    Self::Border(Border {
+                        padding,
+                        border_thickness,
+                        corner_radius,
+                        ..
+                    }),
+                    MountedProps::Border {
+                        padding: mounted_padding,
+                        border_thickness: mounted_border_thickness,
+                        corner_radius: mounted_corner_radius,
+                    },
+                ) => {
+                    true && padding == mounted_padding
+                        && border_thickness == mounted_border_thickness
+                        && corner_radius == mounted_corner_radius
+                }
                 (
                     Self::StackPanel(StackPanel {
                         orientation,
@@ -1183,6 +1372,7 @@ pub mod public {
             match self {
                 Self::TextBlock(_) => None,
                 Self::Button(value) => value.reference.as_ref(),
+                Self::Border(_) => None,
                 Self::StackPanel(_) => None,
                 Self::Grid(_) => None,
                 Self::TextBox(value) => value.reference.as_ref(),
@@ -1200,6 +1390,7 @@ pub mod public {
             match self {
                 Self::TextBlock(value) => value.grid_placement.as_deref(),
                 Self::Button(value) => value.grid_placement.as_deref(),
+                Self::Border(value) => value.grid_placement.as_deref(),
                 Self::StackPanel(value) => value.grid_placement.as_deref(),
                 Self::Grid(value) => value.grid_placement.as_deref(),
                 Self::TextBox(value) => value.grid_placement.as_deref(),
@@ -1217,6 +1408,7 @@ pub mod public {
             match self {
                 Self::TextBlock(_) => ElementStructureRef::None,
                 Self::Button(value) => ElementStructureRef::Content(value.content.as_deref()),
+                Self::Border(value) => ElementStructureRef::Content(value.content.as_deref()),
                 Self::StackPanel(value) => ElementStructureRef::Children(value.children.as_slice()),
                 Self::Grid(value) => ElementStructureRef::Children(value.children.as_slice()),
                 Self::TextBox(_) => ElementStructureRef::None,
@@ -1236,6 +1428,7 @@ pub mod public {
                 Self::Button(Button { on_click, .. }) => {
                     visit(EventId::ButtonClick, on_click.is_some());
                 }
+                Self::Border(_) => {}
                 Self::StackPanel(_) => {}
                 Self::Grid(_) => {}
                 Self::TextBox(_) => {
@@ -1287,6 +1480,7 @@ impl MountedPropsExt for MountedProps {
             Self::TextBlock {
                 text,
                 text_wrapping,
+                font_size,
                 ..
             } => {
                 visit(
@@ -1303,6 +1497,13 @@ impl MountedPropsExt for MountedProps {
                         Property::Set(value) => Some(PropertyValueRef::TextWrapping(*value)),
                     },
                 );
+                visit(
+                    PropertyId::TextBlockFontSize,
+                    match font_size {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
+                    },
+                );
             }
             Self::Button { is_enabled, .. } => {
                 visit(
@@ -1310,6 +1511,34 @@ impl MountedPropsExt for MountedProps {
                     match is_enabled {
                         Property::Inherited => None,
                         Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
+                    },
+                );
+            }
+            Self::Border {
+                padding,
+                border_thickness,
+                corner_radius,
+                ..
+            } => {
+                visit(
+                    PropertyId::BorderPadding,
+                    match padding {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some(PropertyValueRef::Thickness(value)),
+                    },
+                );
+                visit(
+                    PropertyId::BorderBorderThickness,
+                    match border_thickness {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some(PropertyValueRef::Thickness(value)),
+                    },
+                );
+                visit(
+                    PropertyId::BorderCornerRadius,
+                    match corner_radius {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some(PropertyValueRef::CornerRadius(value)),
                     },
                 );
             }
@@ -1600,6 +1829,7 @@ impl MountedEventsExt for MountedProps {
             Self::Button { on_click, .. } => {
                 visit(EventId::ButtonClick, on_click.is_some());
             }
+            Self::Border { .. } => {}
             Self::StackPanel { .. } => {}
             Self::Grid { .. } => {}
             Self::TextBox { .. } => {
@@ -1694,6 +1924,7 @@ impl MountedEventsExt for MountedProps {
 pub enum MountedKind {
     TextBlock,
     Button,
+    Border,
     StackPanel,
     Grid,
     TextBox,
@@ -1732,6 +1963,7 @@ pub fn slots(kind: MountedKind) -> &'static [SlotId] {
     match kind {
         MountedKind::TextBlock => &[],
         MountedKind::Button => &[],
+        MountedKind::Border => &[],
         MountedKind::StackPanel => &[],
         MountedKind::Grid => &[],
         MountedKind::TextBox => &[],
@@ -1752,10 +1984,16 @@ pub enum MountedProps {
     TextBlock {
         text: Property<String>,
         text_wrapping: Property<TextWrapping>,
+        font_size: Property<f64>,
     },
     Button {
         is_enabled: Property<bool>,
         on_click: Option<Callback<()>>,
+    },
+    Border {
+        padding: Property<Thickness>,
+        border_thickness: Property<Thickness>,
+        corner_radius: Property<CornerRadius>,
     },
     StackPanel {
         orientation: Property<Orientation>,
@@ -1820,12 +2058,18 @@ impl PartialEq for MountedProps {
                 Self::TextBlock {
                     text: left_text,
                     text_wrapping: left_text_wrapping,
+                    font_size: left_font_size,
                 },
                 Self::TextBlock {
                     text: right_text,
                     text_wrapping: right_text_wrapping,
+                    font_size: right_font_size,
                 },
-            ) => true && left_text == right_text && left_text_wrapping == right_text_wrapping,
+            ) => {
+                true && left_text == right_text
+                    && left_text_wrapping == right_text_wrapping
+                    && f64_property_eq(left_font_size, right_font_size)
+            }
             (
                 Self::Button {
                     is_enabled: left_is_enabled,
@@ -1836,6 +2080,22 @@ impl PartialEq for MountedProps {
                     on_click: right_on_click,
                 },
             ) => true && left_is_enabled == right_is_enabled && left_on_click == right_on_click,
+            (
+                Self::Border {
+                    padding: left_padding,
+                    border_thickness: left_border_thickness,
+                    corner_radius: left_corner_radius,
+                },
+                Self::Border {
+                    padding: right_padding,
+                    border_thickness: right_border_thickness,
+                    corner_radius: right_corner_radius,
+                },
+            ) => {
+                true && left_padding == right_padding
+                    && left_border_thickness == right_border_thickness
+                    && left_corner_radius == right_corner_radius
+            }
             (
                 Self::StackPanel {
                     orientation: left_orientation,
@@ -2040,7 +2300,11 @@ pub enum PropertyId {
     GridColumns,
     TextBlockText,
     TextBlockTextWrapping,
+    TextBlockFontSize,
     ButtonIsEnabled,
+    BorderPadding,
+    BorderBorderThickness,
+    BorderCornerRadius,
     StackPanelOrientation,
     StackPanelSpacing,
     GridRowSpacing,
@@ -2082,6 +2346,7 @@ pub enum EventId {
 #[derive(Clone, Debug)]
 pub enum PropertyValue {
     Bool(bool),
+    CornerRadius(CornerRadius),
     F64(f64),
     GridLengths(std::rc::Rc<Vec<GridLength>>),
     I32(i32),
@@ -2089,11 +2354,13 @@ pub enum PropertyValue {
     SplitViewDisplayMode(SplitViewDisplayMode),
     Str(String),
     TextWrapping(TextWrapping),
+    Thickness(Thickness),
 }
 impl PartialEq for PropertyValue {
     fn eq(&self, other: &Self) -> bool {
         match (self, other) {
             (Self::Bool(left), Self::Bool(right)) => left == right,
+            (Self::CornerRadius(left), Self::CornerRadius(right)) => left == right,
             (Self::F64(left), Self::F64(right)) => f64_eq(*left, *right),
             (Self::GridLengths(left), Self::GridLengths(right)) => left == right,
             (Self::I32(left), Self::I32(right)) => left == right,
@@ -2101,6 +2368,7 @@ impl PartialEq for PropertyValue {
             (Self::SplitViewDisplayMode(left), Self::SplitViewDisplayMode(right)) => left == right,
             (Self::Str(left), Self::Str(right)) => left == right,
             (Self::TextWrapping(left), Self::TextWrapping(right)) => left == right,
+            (Self::Thickness(left), Self::Thickness(right)) => left == right,
             _ => false,
         }
     }
@@ -2108,6 +2376,7 @@ impl PartialEq for PropertyValue {
 #[derive(Clone, Copy, Debug)]
 pub enum PropertyValueRef<'a> {
     Bool(bool),
+    CornerRadius(&'a CornerRadius),
     F64(f64),
     GridLengths(&'a std::rc::Rc<Vec<GridLength>>),
     I32(i32),
@@ -2115,11 +2384,13 @@ pub enum PropertyValueRef<'a> {
     SplitViewDisplayMode(SplitViewDisplayMode),
     Str(&'a str),
     TextWrapping(TextWrapping),
+    Thickness(&'a Thickness),
 }
 impl PropertyValueRef<'_> {
     pub fn equals_owned(self, value: &PropertyValue) -> bool {
         match (self, value) {
             (Self::Bool(left), PropertyValue::Bool(right)) => left == *right,
+            (Self::CornerRadius(left), PropertyValue::CornerRadius(right)) => left == right,
             (Self::F64(left), PropertyValue::F64(right)) => f64_eq(left, *right),
             (Self::GridLengths(left), PropertyValue::GridLengths(right)) => left == right,
             (Self::I32(left), PropertyValue::I32(right)) => left == *right,
@@ -2129,12 +2400,14 @@ impl PropertyValueRef<'_> {
             }
             (Self::Str(left), PropertyValue::Str(right)) => left == right,
             (Self::TextWrapping(left), PropertyValue::TextWrapping(right)) => left == *right,
+            (Self::Thickness(left), PropertyValue::Thickness(right)) => left == right,
             _ => false,
         }
     }
     pub fn into_owned(self) -> PropertyValue {
         match self {
             Self::Bool(value) => PropertyValue::Bool(value),
+            Self::CornerRadius(value) => PropertyValue::CornerRadius(value.clone()),
             Self::F64(value) => PropertyValue::F64(value),
             Self::GridLengths(value) => PropertyValue::GridLengths(value.clone()),
             Self::I32(value) => PropertyValue::I32(value),
@@ -2142,12 +2415,18 @@ impl PropertyValueRef<'_> {
             Self::SplitViewDisplayMode(value) => PropertyValue::SplitViewDisplayMode(value),
             Self::Str(value) => PropertyValue::Str(value.to_string()),
             Self::TextWrapping(value) => PropertyValue::TextWrapping(value),
+            Self::Thickness(value) => PropertyValue::Thickness(value.clone()),
         }
     }
 }
 impl From<bool> for PropertyValue {
     fn from(value: bool) -> Self {
         Self::Bool(value)
+    }
+}
+impl From<CornerRadius> for PropertyValue {
+    fn from(value: CornerRadius) -> Self {
+        Self::CornerRadius(value)
     }
 }
 impl From<f64> for PropertyValue {
@@ -2183,6 +2462,11 @@ impl From<String> for PropertyValue {
 impl From<TextWrapping> for PropertyValue {
     fn from(value: TextWrapping) -> Self {
         Self::TextWrapping(value)
+    }
+}
+impl From<Thickness> for PropertyValue {
+    fn from(value: Thickness) -> Self {
+        Self::Thickness(value)
     }
 }
 #[derive(Clone, Debug)]
@@ -2285,6 +2569,17 @@ const TEXT_BLOCK_PROPERTIES: &[PropertyDescriptor] = &[
         feedback_contract: None,
         observes_feedback: false,
     },
+    PropertyDescriptor {
+        id: PropertyId::TextBlockFontSize,
+        name: "FontSize",
+        field: "font_size",
+        value: "F64",
+        interface: "Microsoft.UI.Xaml.Controls.ITextBlock",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
 ];
 const TEXT_BLOCK_EVENTS: &[EventDescriptor] = &[];
 const TEXT_BLOCK_SLOTS: &[SlotDescriptor] = &[];
@@ -2307,6 +2602,43 @@ const BUTTON_EVENTS: &[EventDescriptor] = &[EventDescriptor {
     interface: "Microsoft.UI.Xaml.Controls.Primitives.IButtonBase",
 }];
 const BUTTON_SLOTS: &[SlotDescriptor] = &[];
+const BORDER_PROPERTIES: &[PropertyDescriptor] = &[
+    PropertyDescriptor {
+        id: PropertyId::BorderPadding,
+        name: "Padding",
+        field: "padding",
+        value: "Thickness",
+        interface: "Microsoft.UI.Xaml.Controls.IBorder",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::BorderBorderThickness,
+        name: "BorderThickness",
+        field: "border_thickness",
+        value: "Thickness",
+        interface: "Microsoft.UI.Xaml.Controls.IBorder",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::BorderCornerRadius,
+        name: "CornerRadius",
+        field: "corner_radius",
+        value: "CornerRadius",
+        interface: "Microsoft.UI.Xaml.Controls.IBorder",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+];
+const BORDER_EVENTS: &[EventDescriptor] = &[];
+const BORDER_SLOTS: &[SlotDescriptor] = &[];
 const STACK_PANEL_PROPERTIES: &[PropertyDescriptor] = &[
     PropertyDescriptor {
         id: PropertyId::StackPanelOrientation,
@@ -2741,6 +3073,16 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         properties: BUTTON_PROPERTIES,
         events: BUTTON_EVENTS,
         slots: BUTTON_SLOTS,
+    },
+    ControlDescriptor {
+        kind: MountedKind::Border,
+        name: "Border",
+        type_name: "Microsoft.UI.Xaml.Controls.Border",
+        role: ControlRole::Content,
+        capabilities: &[Capability::Layout, Capability::Content],
+        properties: BORDER_PROPERTIES,
+        events: BORDER_EVENTS,
+        slots: BORDER_SLOTS,
     },
     ControlDescriptor {
         kind: MountedKind::StackPanel,

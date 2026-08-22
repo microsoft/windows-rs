@@ -61,6 +61,27 @@ message-bearing component to compile while discarding messages. Stable Rust also
 the associated `Props` and `Message` types. The small saving for zero-sized render-only components
 does not justify a derive macro or a second stateless-component trait.
 
+The gallery adoption slice keeps page data in its shell component and passes values and callbacks
+to replaceable page components. This is the same durable-state boundary used by navigation and
+virtual rows: component-local state follows the component lifetime, while application data that
+must survive page replacement belongs to the parent model.
+
+The visual foundation resolves content setters from metadata instead of assuming every content
+control uses `IContentControl::Content`. Button and ScrollViewer keep inspectable `Content`, while
+Border maps the same structural `content` capability to `IBorder::Child`. The planner still has one
+content path.
+
+`Thickness` and `CornerRadius` use a compact immutable representation. Uniform values stay inline;
+non-uniform four-value forms use shared storage. Generated mounted-property visitation borrows both
+types, and command ownership clones only their small inline or shared handle. This restored the
+432-byte `Node` layout after storing three 32-byte Border values inline increased it to 480 bytes.
+
+`ViewContext::window_visuals` declares requested theme, system backdrop, and optional client size
+with the same scope ownership and candidate publication rules as `window_title`. Title and visual
+declarations share one copy-on-write scope map. Native state stores the applied visual declaration
+with its window handle so a replacement root receives the same requested theme without another
+planner command. Empty windows still apply backdrop, title-bar mode, and size.
+
 Generated controls convert directly to `View`. Structural capabilities are terminal methods on
 the controls: `content`, `children`, `keyed_children`, and `slots` all return the same core `View`
 used by components and the planner. This is not a wrapper frontend. Property and event builders

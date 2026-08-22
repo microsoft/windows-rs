@@ -4,6 +4,7 @@ use super::*;
 pub enum Handle {
     TextBlock(bindings::TextBlock),
     Button(bindings::Button),
+    Border(bindings::Border),
     StackPanel(bindings::StackPanel),
     Grid(bindings::Grid),
     TextBox(bindings::TextBox),
@@ -22,6 +23,7 @@ impl Handle {
                 Self::TextBlock(bindings::TextBlock::new().map_err(native_error)?)
             }
             MountedKind::Button => Self::Button(bindings::Button::new().map_err(native_error)?),
+            MountedKind::Border => Self::Border(bindings::Border::new().map_err(native_error)?),
             MountedKind::StackPanel => {
                 Self::StackPanel(bindings::StackPanel::new().map_err(native_error)?)
             }
@@ -53,6 +55,7 @@ impl Handle {
         match self {
             Self::TextBlock(value) => value.cast(),
             Self::Button(value) => value.cast(),
+            Self::Border(value) => value.cast(),
             Self::StackPanel(value) => value.cast(),
             Self::Grid(value) => value.cast(),
             Self::TextBox(value) => value.cast(),
@@ -69,6 +72,7 @@ impl Handle {
         match self {
             Self::TextBlock(value) => value.cast(),
             Self::Button(value) => value.cast(),
+            Self::Border(value) => value.cast(),
             Self::StackPanel(value) => value.cast(),
             Self::Grid(value) => value.cast(),
             Self::TextBox(value) => value.cast(),
@@ -81,14 +85,11 @@ impl Handle {
             Self::ScrollViewer(value) => value.cast(),
         }
     }
-    pub fn content_control(&self) -> Result<Option<IContentControl>, RuntimeError> {
-        Ok(match self {
-            Self::Button(value) => Some(value.cast::<IContentControl>().map_err(native_error)?),
-            Self::ScrollViewer(value) => {
-                Some(value.cast::<IContentControl>().map_err(native_error)?)
-            }
-            _ => None,
-        })
+    pub fn is_content(&self) -> bool {
+        matches!(
+            self,
+            Self::Button(_) | Self::Border(_) | Self::ScrollViewer(_)
+        )
     }
     pub fn child_collection(&self) -> Result<Option<UIElementCollection>, RuntimeError> {
         Ok(match self {
@@ -108,6 +109,33 @@ impl Handle {
             ),
             _ => None,
         })
+    }
+}
+pub fn set_content(handle: &Handle, child: Option<&UIElement>) -> Result<(), RuntimeError> {
+    match handle {
+        Handle::Button(control) => {
+            let control = control.cast::<IContentControl>().map_err(native_error)?;
+            match child {
+                Some(child) => control.SetContent(child).map_err(native_error),
+                None => control
+                    .SetContent(None::<&windows_core::IInspectable>)
+                    .map_err(native_error),
+            }
+        }
+        Handle::Border(control) => match child {
+            Some(child) => control.SetChild(child).map_err(native_error),
+            None => control.SetChild(None::<&UIElement>).map_err(native_error),
+        },
+        Handle::ScrollViewer(control) => {
+            let control = control.cast::<IContentControl>().map_err(native_error)?;
+            match child {
+                Some(child) => control.SetContent(child).map_err(native_error),
+                None => control
+                    .SetContent(None::<&windows_core::IInspectable>)
+                    .map_err(native_error),
+            }
+        }
+        _ => Err(RuntimeError::UnsupportedKind),
     }
 }
 pub fn set_property(
@@ -130,6 +158,9 @@ pub fn set_property(
                 crate::TextWrapping::WrapWholeWords => bindings::TextWrapping::WrapWholeWords,
             })
             .map_err(native_error),
+        (Handle::TextBlock(control), PropertyId::TextBlockFontSize, PropertyValue::F64(value)) => {
+            control.SetFontSize(*value).map_err(native_error)
+        }
         (Handle::Button(control), PropertyId::ButtonIsEnabled, PropertyValue::Bool(value)) => {
             control
                 .cast::<IControl>()
@@ -137,6 +168,49 @@ pub fn set_property(
                 .SetIsEnabled(*value)
                 .map_err(native_error)
         }
+        (Handle::Border(control), PropertyId::BorderPadding, PropertyValue::Thickness(value)) => {
+            control
+                .SetPadding({
+                    let [left, top, right, bottom] = value.values();
+                    bindings::Thickness {
+                        left,
+                        top,
+                        right,
+                        bottom,
+                    }
+                })
+                .map_err(native_error)
+        }
+        (
+            Handle::Border(control),
+            PropertyId::BorderBorderThickness,
+            PropertyValue::Thickness(value),
+        ) => control
+            .SetBorderThickness({
+                let [left, top, right, bottom] = value.values();
+                bindings::Thickness {
+                    left,
+                    top,
+                    right,
+                    bottom,
+                }
+            })
+            .map_err(native_error),
+        (
+            Handle::Border(control),
+            PropertyId::BorderCornerRadius,
+            PropertyValue::CornerRadius(value),
+        ) => control
+            .SetCornerRadius({
+                let [top_left, top_right, bottom_right, bottom_left] = value.values();
+                bindings::CornerRadius {
+                    top_left,
+                    top_right,
+                    bottom_right,
+                    bottom_left,
+                }
+            })
+            .map_err(native_error),
         (
             Handle::StackPanel(control),
             PropertyId::StackPanelOrientation,
@@ -326,8 +400,20 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
         (Handle::TextBlock(_), PropertyId::TextBlockTextWrapping) => dependency_object
             .ClearValue(&bindings::TextBlock::TextWrappingProperty().map_err(native_error)?)
             .map_err(native_error),
+        (Handle::TextBlock(_), PropertyId::TextBlockFontSize) => dependency_object
+            .ClearValue(&bindings::TextBlock::FontSizeProperty().map_err(native_error)?)
+            .map_err(native_error),
         (Handle::Button(_), PropertyId::ButtonIsEnabled) => dependency_object
             .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::Border(_), PropertyId::BorderPadding) => dependency_object
+            .ClearValue(&bindings::Border::PaddingProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::Border(_), PropertyId::BorderBorderThickness) => dependency_object
+            .ClearValue(&bindings::Border::BorderThicknessProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::Border(_), PropertyId::BorderCornerRadius) => dependency_object
+            .ClearValue(&bindings::Border::CornerRadiusProperty().map_err(native_error)?)
             .map_err(native_error),
         (Handle::StackPanel(_), PropertyId::StackPanelOrientation) => dependency_object
             .ClearValue(&bindings::StackPanel::OrientationProperty().map_err(native_error)?)

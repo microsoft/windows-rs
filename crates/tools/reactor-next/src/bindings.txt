@@ -2,8 +2,15 @@ Microsoft::UI::Dispatching::DispatcherQueue::GetForCurrentThread
 Microsoft::UI::Dispatching::DispatcherQueueHandler
 Microsoft::UI::Dispatching::DispatcherQueuePriority
 Microsoft::UI::Dispatching::IDispatcherQueue::TryEnqueueWithPriority
+Microsoft::UI::Windowing::IAppWindow2::ResizeClient
+Microsoft::UI::Windowing::IAppWindow::get_TitleBar
+Microsoft::UI::Windowing::IAppWindowTitleBar3::put_PreferredTheme
 Microsoft::UI::Xaml::Application::{CreateInstance, Current, Start}
 Microsoft::UI::Xaml::ApplicationInitializationCallback
+Microsoft::UI::Xaml::Controls::Border::BorderThicknessProperty
+Microsoft::UI::Xaml::Controls::Border::CornerRadiusProperty
+Microsoft::UI::Xaml::Controls::Border::CreateInstance
+Microsoft::UI::Xaml::Controls::Border::PaddingProperty
 Microsoft::UI::Xaml::Controls::Button::CreateInstance
 Microsoft::UI::Xaml::Controls::ColumnDefinition::CreateInstance
 Microsoft::UI::Xaml::Controls::ColumnDefinitionCollection
@@ -13,6 +20,10 @@ Microsoft::UI::Xaml::Controls::Grid::ColumnSpacingProperty
 Microsoft::UI::Xaml::Controls::Grid::CreateInstance
 Microsoft::UI::Xaml::Controls::Grid::RowSpacingProperty
 Microsoft::UI::Xaml::Controls::Grid::{ColumnProperty, ColumnSpanProperty, GetColumn, GetColumnSpan, GetRow, GetRowSpan, RowProperty, RowSpanProperty, SetColumn, SetColumnSpan, SetRow, SetRowSpan}
+Microsoft::UI::Xaml::Controls::IBorder::put_BorderThickness
+Microsoft::UI::Xaml::Controls::IBorder::put_Child
+Microsoft::UI::Xaml::Controls::IBorder::put_CornerRadius
+Microsoft::UI::Xaml::Controls::IBorder::put_Padding
 Microsoft::UI::Xaml::Controls::IColumnDefinition::{get_Width, put_Width}
 Microsoft::UI::Xaml::Controls::IContentControl::put_Content
 Microsoft::UI::Xaml::Controls::IControl::put_IsEnabled
@@ -41,6 +52,7 @@ Microsoft::UI::Xaml::Controls::ISplitView::put_Pane
 Microsoft::UI::Xaml::Controls::ISplitView::{get_CompactPaneLength, get_Content, get_DisplayMode, get_IsPaneOpen, get_OpenPaneLength, get_Pane}
 Microsoft::UI::Xaml::Controls::IStackPanel::put_Orientation
 Microsoft::UI::Xaml::Controls::IStackPanel::put_Spacing
+Microsoft::UI::Xaml::Controls::ITextBlock::put_FontSize
 Microsoft::UI::Xaml::Controls::ITextBlock::put_Text
 Microsoft::UI::Xaml::Controls::ITextBlock::put_TextWrapping
 Microsoft::UI::Xaml::Controls::ITextBox::get_Text
@@ -85,6 +97,7 @@ Microsoft::UI::Xaml::Controls::StackPanel::CreateInstance
 Microsoft::UI::Xaml::Controls::StackPanel::OrientationProperty
 Microsoft::UI::Xaml::Controls::StackPanel::SpacingProperty
 Microsoft::UI::Xaml::Controls::TextBlock::CreateInstance
+Microsoft::UI::Xaml::Controls::TextBlock::FontSizeProperty
 Microsoft::UI::Xaml::Controls::TextBlock::TextProperty
 Microsoft::UI::Xaml::Controls::TextBlock::TextWrappingProperty
 Microsoft::UI::Xaml::Controls::TextBox::CreateInstance
@@ -103,27 +116,34 @@ Microsoft::UI::Xaml::IDependencyObject::ClearValue
 Microsoft::UI::Xaml::IElementFactory
 Microsoft::UI::Xaml::IElementFactoryGetArgs::{get_Data, get_Parent}
 Microsoft::UI::Xaml::IElementFactoryRecycleArgs::{get_Element, get_Parent}
-Microsoft::UI::Xaml::IFrameworkElement::put_MinHeight
+Microsoft::UI::Xaml::IFrameworkElement::{put_MinHeight, put_RequestedTheme}
 Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
 Microsoft::UI::Xaml::IUIElement::{Focus, StartBringIntoView}
+Microsoft::UI::Xaml::IWindow2::{get_AppWindow, put_SystemBackdrop}
 Microsoft::UI::Xaml::IWindow::{Activate, Close, Closed, put_Content, put_Title}
 Microsoft::UI::Xaml::LaunchActivatedEventArgs
 Microsoft::UI::Xaml::Markup::IXamlMetadataProvider
 Microsoft::UI::Xaml::Markup::IXamlType::{}
 Microsoft::UI::Xaml::Markup::XmlnsDefinition
 Microsoft::UI::Xaml::Media::CompositionTarget::Rendering
+Microsoft::UI::Xaml::Media::DesktopAcrylicBackdrop::CreateInstance
+Microsoft::UI::Xaml::Media::IMicaBackdrop::put_Kind
+Microsoft::UI::Xaml::Media::MicaBackdrop::CreateInstance
 Microsoft::UI::Xaml::TextWrapping
 Microsoft::UI::Xaml::UIElement
 Microsoft::UI::Xaml::Window::CreateInstance
 Microsoft::UI::Xaml::XamlTypeInfo::XamlControlsXamlMetaDataProvider::CreateInstance
+Windows::Graphics::SizeInt32
 Windows::UI::Xaml::Interop::TypeName
 Windows::Win32::COINIT_APARTMENTTHREADED
 Windows::Win32::CoInitializeEx
 Windows::Win32::DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2
 Windows::Win32::E_FAIL
+Windows::Win32::GetDpiForWindow
 Windows::Win32::PostQuitMessage
 Windows::Win32::RPC_E_CHANGED_MODE
 Windows::Win32::SetProcessDpiAwarenessContext
+extras::IWindowNative::get_WindowHandle
 extras::MddBootstrapInitialize2
 extras::MddBootstrapInitializeOptions::{}
 extras::MddBootstrapInitializeOptions_OnNoMatch_ShowUI

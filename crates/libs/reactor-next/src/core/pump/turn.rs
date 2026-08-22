@@ -125,6 +125,12 @@ impl<R: NativeRuntime> Pump<R> {
                     render.duplicate_window_title,
                     render.window_title,
                 )?;
+                Self::reconcile_component_window_visuals(
+                    &mut candidate,
+                    token,
+                    render.duplicate_window_visuals,
+                    render.window_visuals,
+                )?;
                 changes.context_reads.insert(token, render.dependencies);
                 Self::recompose_component_view(
                     &mut candidate,
@@ -196,6 +202,9 @@ impl<R: NativeRuntime> Pump<R> {
         if render.duplicate_window_title {
             return Err(PumpError::DuplicateWindowTitle);
         }
+        if render.duplicate_window_visuals {
+            return Err(PumpError::DuplicateWindowVisuals);
+        }
         let title_matches = match self.tree.window_title() {
             Some(current) if current.owner != token.scope() => {
                 if render.window_title.is_some() {
@@ -209,11 +218,26 @@ impl<R: NativeRuntime> Pump<R> {
         if !title_matches {
             return Ok(LocalComponentUpdate::Fallback(render));
         }
+        let visuals_match = match self.tree.window_visuals() {
+            Some(current) if current.owner != token.scope() => {
+                if render.window_visuals.is_some() {
+                    return Err(PumpError::DuplicateWindowVisuals);
+                }
+                true
+            }
+            Some(current) => render.window_visuals == Some(current.visuals),
+            None => render.window_visuals.is_none(),
+        };
+        if !visuals_match {
+            return Ok(LocalComponentUpdate::Fallback(render));
+        }
         let ComponentRender {
             dependencies,
             duplicate_window_title,
+            duplicate_window_visuals,
             view,
             window_title,
+            window_visuals,
         } = render;
         let element = match view.into_kind() {
             ViewKind::Native(element) => element,
@@ -221,8 +245,10 @@ impl<R: NativeRuntime> Pump<R> {
                 return Ok(LocalComponentUpdate::Fallback(ComponentRender {
                     dependencies,
                     duplicate_window_title,
+                    duplicate_window_visuals,
                     view: View::from_kind(kind),
                     window_title,
+                    window_visuals,
                 }));
             }
         };
@@ -233,8 +259,10 @@ impl<R: NativeRuntime> Pump<R> {
             return Ok(LocalComponentUpdate::Fallback(ComponentRender {
                 dependencies,
                 duplicate_window_title,
+                duplicate_window_visuals,
                 view: View::native(element),
                 window_title,
+                window_visuals,
             }));
         }
         let mut event_activity_matches = true;
@@ -250,8 +278,10 @@ impl<R: NativeRuntime> Pump<R> {
             return Ok(LocalComponentUpdate::Fallback(ComponentRender {
                 dependencies,
                 duplicate_window_title,
+                duplicate_window_visuals,
                 view: View::native(element),
                 window_title,
+                window_visuals,
             }));
         }
         let mut plan = UpdatePlan {

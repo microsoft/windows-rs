@@ -107,13 +107,25 @@ pub struct Tree {
     components: Rc<HashMap<ScopeId, NodeId>>,
     providers: ProviderStore,
     root: Option<NodeId>,
-    window_titles: Rc<HashMap<ScopeId, Rc<str>>>,
+    window_declarations: Rc<HashMap<ScopeId, WindowDeclarations>>,
+}
+
+#[derive(Clone, Default)]
+struct WindowDeclarations {
+    title: Option<Rc<str>>,
+    visuals: Option<WindowVisuals>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct WindowTitleState {
     pub(crate) owner: ScopeId,
     pub(crate) title: Rc<str>,
+}
+
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub(crate) struct WindowVisualsState {
+    pub(crate) owner: ScopeId,
+    pub(crate) visuals: WindowVisuals,
 }
 
 #[derive(Clone, Default)]
@@ -163,7 +175,7 @@ impl Tree {
             components: Rc::new(HashMap::new()),
             providers: ProviderStore::default(),
             root: None,
-            window_titles: Rc::new(HashMap::new()),
+            window_declarations: Rc::new(HashMap::new()),
         }
     }
 
@@ -512,27 +524,62 @@ impl Tree {
     }
 
     pub(crate) fn window_title(&self) -> Option<WindowTitleState> {
-        let (owner, title) = self.window_titles.iter().next()?;
-        (self.window_titles.len() == 1).then(|| WindowTitleState {
-            owner: *owner,
+        let mut titles = self
+            .window_declarations
+            .iter()
+            .filter_map(|(owner, declaration)| Some((*owner, declaration.title.as_ref()?)));
+        let (owner, title) = titles.next()?;
+        titles.next().is_none().then(|| WindowTitleState {
+            owner,
             title: Rc::clone(title),
         })
     }
 
     pub(crate) fn validate_window_title(&self) -> Result<Option<WindowTitleState>, ()> {
-        if self.window_titles.len() > 1 {
-            Err(())
-        } else {
-            Ok(self.window_title())
-        }
+        let count = self
+            .window_declarations
+            .values()
+            .filter(|declaration| declaration.title.is_some())
+            .count();
+        (count <= 1).then(|| self.window_title()).ok_or(())
     }
 
     pub(crate) fn set_window_title(&mut self, owner: ScopeId, title: Option<Rc<str>>) {
-        let titles = Rc::make_mut(&mut self.window_titles);
-        if let Some(title) = title {
-            titles.insert(owner, title);
-        } else {
-            titles.remove(&owner);
+        let declarations = Rc::make_mut(&mut self.window_declarations);
+        let declaration = declarations.entry(owner).or_default();
+        declaration.title = title;
+        if declaration.title.is_none() && declaration.visuals.is_none() {
+            declarations.remove(&owner);
+        }
+    }
+
+    pub(crate) fn window_visuals(&self) -> Option<WindowVisualsState> {
+        let mut declarations = self
+            .window_declarations
+            .iter()
+            .filter_map(|(owner, declaration)| Some((*owner, declaration.visuals?)));
+        let (owner, visuals) = declarations.next()?;
+        declarations
+            .next()
+            .is_none()
+            .then_some(WindowVisualsState { owner, visuals })
+    }
+
+    pub(crate) fn validate_window_visuals(&self) -> Result<Option<WindowVisualsState>, ()> {
+        let count = self
+            .window_declarations
+            .values()
+            .filter(|declaration| declaration.visuals.is_some())
+            .count();
+        (count <= 1).then(|| self.window_visuals()).ok_or(())
+    }
+
+    pub(crate) fn set_window_visuals(&mut self, owner: ScopeId, visuals: Option<WindowVisuals>) {
+        let declarations = Rc::make_mut(&mut self.window_declarations);
+        let declaration = declarations.entry(owner).or_default();
+        declaration.visuals = visuals;
+        if declaration.title.is_none() && declaration.visuals.is_none() {
+            declarations.remove(&owner);
         }
     }
 

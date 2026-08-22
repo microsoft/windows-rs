@@ -317,6 +317,237 @@ impl_into_views_tuple!(
     A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9, K 10, L 11, M 12, N 13, O 14, P 15
 );
 
+#[derive(Clone, Debug)]
+enum FourValues {
+    Uniform(f64),
+    Values(Rc<[f64; 4]>),
+}
+
+impl FourValues {
+    fn new(values: [f64; 4]) -> Self {
+        if values.iter().all(|value| *value == values[0]) {
+            Self::Uniform(values[0])
+        } else {
+            Self::Values(Rc::new(values))
+        }
+    }
+
+    fn values(&self) -> [f64; 4] {
+        match self {
+            Self::Uniform(value) => [*value; 4],
+            Self::Values(values) => **values,
+        }
+    }
+}
+
+#[derive(Clone, Debug)]
+pub struct Thickness(FourValues);
+
+impl Thickness {
+    pub fn uniform(value: f64) -> Self {
+        Self(FourValues::Uniform(value))
+    }
+
+    pub fn xy(horizontal: f64, vertical: f64) -> Self {
+        Self::new(horizontal, vertical, horizontal, vertical)
+    }
+
+    pub fn new(left: f64, top: f64, right: f64, bottom: f64) -> Self {
+        Self(FourValues::new([left, top, right, bottom]))
+    }
+
+    pub fn left(&self) -> f64 {
+        self.values()[0]
+    }
+
+    pub fn top(&self) -> f64 {
+        self.values()[1]
+    }
+
+    pub fn right(&self) -> f64 {
+        self.values()[2]
+    }
+
+    pub fn bottom(&self) -> f64 {
+        self.values()[3]
+    }
+
+    pub(crate) fn values(&self) -> [f64; 4] {
+        self.0.values()
+    }
+
+    pub(crate) fn is_finite_non_negative(&self) -> bool {
+        self.values()
+            .into_iter()
+            .all(|value| value.is_finite() && value >= 0.0)
+    }
+}
+
+impl Default for Thickness {
+    fn default() -> Self {
+        Self::uniform(0.0)
+    }
+}
+
+impl From<f64> for Thickness {
+    fn from(value: f64) -> Self {
+        Self::uniform(value)
+    }
+}
+
+impl PartialEq for Thickness {
+    fn eq(&self, other: &Self) -> bool {
+        self.values() == other.values()
+    }
+}
+
+#[derive(Clone, Debug)]
+pub struct CornerRadius(FourValues);
+
+impl CornerRadius {
+    pub fn uniform(value: f64) -> Self {
+        Self(FourValues::Uniform(value))
+    }
+
+    pub fn new(top_left: f64, top_right: f64, bottom_right: f64, bottom_left: f64) -> Self {
+        Self(FourValues::new([
+            top_left,
+            top_right,
+            bottom_right,
+            bottom_left,
+        ]))
+    }
+
+    pub fn top_left(&self) -> f64 {
+        self.values()[0]
+    }
+
+    pub fn top_right(&self) -> f64 {
+        self.values()[1]
+    }
+
+    pub fn bottom_right(&self) -> f64 {
+        self.values()[2]
+    }
+
+    pub fn bottom_left(&self) -> f64 {
+        self.values()[3]
+    }
+
+    pub(crate) fn values(&self) -> [f64; 4] {
+        self.0.values()
+    }
+
+    pub(crate) fn is_finite_non_negative(&self) -> bool {
+        self.values()
+            .into_iter()
+            .all(|value| value.is_finite() && value >= 0.0)
+    }
+}
+
+impl Default for CornerRadius {
+    fn default() -> Self {
+        Self::uniform(0.0)
+    }
+}
+
+impl From<f64> for CornerRadius {
+    fn from(value: f64) -> Self {
+        Self::uniform(value)
+    }
+}
+
+impl PartialEq for CornerRadius {
+    fn eq(&self, other: &Self) -> bool {
+        self.values() == other.values()
+    }
+}
+
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum WindowTheme {
+    #[default]
+    System,
+    Light,
+    Dark,
+}
+
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum WindowBackdrop {
+    #[default]
+    None,
+    Mica,
+    MicaAlt,
+    Acrylic,
+}
+
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WindowVisuals {
+    pub(crate) backdrop: WindowBackdrop,
+    pub(crate) client_size: Option<(f64, f64)>,
+    pub(crate) theme: WindowTheme,
+}
+
+impl WindowVisuals {
+    pub fn new() -> Self {
+        Self::default()
+    }
+
+    pub fn backdrop(mut self, backdrop: WindowBackdrop) -> Self {
+        self.backdrop = backdrop;
+        self
+    }
+
+    pub fn client_size(mut self, width: f64, height: f64) -> Self {
+        assert!(
+            width.is_finite() && width > 0.0 && height.is_finite() && height > 0.0,
+            "window client size must be finite and positive"
+        );
+        self.client_size = Some((width, height));
+        self
+    }
+
+    pub fn theme(mut self, theme: WindowTheme) -> Self {
+        self.theme = theme;
+        self
+    }
+}
+
+#[cfg(test)]
+mod visual_value_tests {
+    use super::*;
+    use std::mem::size_of;
+
+    #[test]
+    fn four_value_types_keep_compact_layout_and_semantic_equality() {
+        assert_eq!(size_of::<Thickness>(), 16);
+        assert_eq!(size_of::<CornerRadius>(), 16);
+
+        assert_eq!(Thickness::uniform(3.0), Thickness::new(3.0, 3.0, 3.0, 3.0));
+        assert_eq!(
+            CornerRadius::uniform(4.0),
+            CornerRadius::new(4.0, 4.0, 4.0, 4.0)
+        );
+        assert_eq!(Thickness::xy(2.0, 5.0).values(), [2.0, 5.0, 2.0, 5.0]);
+    }
+
+    #[test]
+    fn window_client_size_rejects_invalid_values() {
+        for (width, height) in [
+            (0.0, 1.0),
+            (1.0, -1.0),
+            (f64::NAN, 1.0),
+            (1.0, f64::INFINITY),
+        ] {
+            assert!(
+                std::panic::catch_unwind(|| {
+                    WindowVisuals::new().client_size(width, height);
+                })
+                .is_err()
+            );
+        }
+    }
+}
+
 #[derive(Clone, Copy, Debug)]
 pub enum GridLength {
     Auto,

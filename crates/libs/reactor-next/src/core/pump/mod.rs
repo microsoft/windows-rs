@@ -27,6 +27,7 @@ pub enum PumpError {
     DuplicateElementRef,
     DuplicateKey(Key),
     DuplicateWindowTitle,
+    DuplicateWindowVisuals,
     EventReadFailed(RuntimeError),
     NativeApplyFailed(NativeApplyError),
     Poisoned,
@@ -46,6 +47,7 @@ impl From<ComponentStoreError> for PumpError {
         match value {
             ComponentStoreError::DuplicateEffectKey(key) => Self::DuplicateEffectKey(key),
             ComponentStoreError::DuplicateWindowTitle => Self::DuplicateWindowTitle,
+            ComponentStoreError::DuplicateWindowVisuals => Self::DuplicateWindowVisuals,
             value => Self::Component(value),
         }
     }
@@ -202,6 +204,10 @@ impl<R: NativeRuntime> Pump<R> {
             }
         }
         if let Err(error) = Self::plan_window_title(window, &self.tree, &candidate, &mut plan) {
+            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
+            return Err(error);
+        }
+        if let Err(error) = Self::plan_window_visuals(window, &self.tree, &candidate, &mut plan) {
             self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
             return Err(error);
         }
@@ -614,6 +620,10 @@ impl<R: NativeRuntime> Pump<R> {
             self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
             return Err(error);
         }
+        if let Err(error) = Self::plan_window_visuals(window, &self.tree, &candidate, &mut plan) {
+            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
+            return Err(error);
+        }
         Self::plan_host_requests(window, &mut changes.host_requests, &mut plan);
         let resolved = changes
             .composed
@@ -671,6 +681,29 @@ impl<R: NativeRuntime> Pump<R> {
             plan.push(Command::SetWindowTitle {
                 node: window,
                 title: candidate.unwrap_or_default().to_string(),
+            });
+        }
+        Ok(())
+    }
+
+    fn plan_window_visuals(
+        window: NodeId,
+        current: &Tree,
+        candidate: &Tree,
+        plan: &mut UpdatePlan,
+    ) -> Result<(), PumpError> {
+        let current = current
+            .validate_window_visuals()
+            .map_err(|()| PumpError::DuplicateWindowVisuals)?;
+        let candidate = candidate
+            .validate_window_visuals()
+            .map_err(|()| PumpError::DuplicateWindowVisuals)?;
+        let current = current.map(|state| state.visuals).unwrap_or_default();
+        let candidate = candidate.map(|state| state.visuals).unwrap_or_default();
+        if current != candidate {
+            plan.push(Command::SetWindowVisuals {
+                node: window,
+                visuals: candidate,
             });
         }
         Ok(())
