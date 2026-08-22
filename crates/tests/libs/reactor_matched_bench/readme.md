@@ -61,3 +61,9 @@ client size, frame intervals and misses, and the timing phases exposed by each h
 reports tree-build, reconcile, and effect timing. Next reports full host dispatch and native apply
 timing. These phase boundaries differ, so compare whole-frame behavior and process measurements
 before interpreting individual phase values.
+
+The matching C# M15 benchmark lives in the `microsoft-ui-reactor` repository under
+`tests\perf_bench\PerfBench.ControlModel`. Run its apphost executable, not `dotnet` with the DLL, so
+its Per-Monitor-V2 manifest is active and client dimensions are physical pixels. M15 uses the same
+warmup, operation sequence, frame cadence, settle period, and process measurements. Managed and
+Rust allocation counters remain runtime-specific.

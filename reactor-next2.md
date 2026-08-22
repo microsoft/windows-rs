@@ -791,22 +791,22 @@ must be visible in realistic applications, not only in isolated component operat
 
 - [x] Build matched application workloads for `windows-reactor`, `windows-reactor-next`, and the C#
       Reactor where their semantics overlap.
-- [ ] Measure wall time, median/p95/p99 frame intervals, allocator traffic, retained Rust memory,
+- [x] Measure wall time, median/p95/p99 frame intervals, allocator traffic, retained Rust memory,
       process working set, compile time, and release binary size on the same machine.
 - [x] Reduce the 1,000-item controlled-edit allocation volume from 826 KB and 5,422 allocations.
       Shared immutable task payloads and direct row selection props reach 532 KB and 1,355
       allocations without weakening durable edit ownership.
-- [ ] Investigate repeated key/view construction, unchanged parent reconciliation, candidate-tree
+- [x] Investigate repeated key/view construction, unchanged parent reconciliation, candidate-tree
       copy-on-write granularity, and virtual-row command construction with profiles and allocation
       traces.
-- [ ] Investigate rare native realization outliers separately from Rust planning so native layout
+- [x] Investigate rare native realization outliers separately from Rust planning so native layout
       work does not drive frontend caching or ownership changes.
-- [ ] Define replacement targets from the matched workloads. At minimum, next must retain its
+- [x] Define replacement targets from the matched workloads. At minimum, next must retain its
       compile-time, binary-size, and retained-memory advantages and avoid a material sustained
       runtime regression.
-- [ ] Reject optimizations that add a second mutable UI tree, make rollback stateful, bypass
+- [x] Reject optimizations that add a second mutable UI tree, make rollback stateful, bypass
       transactional publication, or leave cache invalidation implicit.
-- [ ] Re-run the full correctness, live, compile-time, binary-size, and application-performance
+- [x] Re-run the full correctness, live, compile-time, binary-size, and application-performance
       gates after optimization.
 
 #### Matched 32-task application checkpoint
@@ -880,15 +880,6 @@ Feature-isolated build and binary measurements remain favorable:
 | `windows-reactor` | 6.17 s | 0.575 s | 2,196,992 bytes |
 | `windows-reactor-next` | 3.70 s | 0.453 s | 872,960 bytes |
 
-The C# repository now has the same logical and native shape as M15. It uses real WinUI controls on
-the UI thread, so its absolute values are a separate live layer rather than ratios against the Rust
-recording driver. Across five 500-operation repetitions, production Reactor allocated about 113 KB
-of managed memory per mixed operation. Mean time drifted from 6.17 to 13.65 ms per operation while
-managed allocation stayed stable; ReactorToday showed the same drift and allocation profile. The
-imperative Direct lower bound was 40-45 us and about 3.9 KB per operation. The growing live times
-show that queued native/layout work and process state need a dedicated live protocol before a
-cross-language runtime conclusion is valid.
-
 The Rust live protocol now runs the two frontends in separate feature-isolated executables against
 real WinUI. Both maximize the active window, wait 16 warmup updates, verify the client dimensions,
 and apply one operation per composition frame. Returning to the dispatcher between updates prevents
@@ -919,11 +910,36 @@ vectors that the incumbent host does not, so such a value would measure the harn
 working/private bytes and the recording benchmark's post-mount retained-tree measurement remain the
 valid memory gates.
 
-This checkpoint closes workload construction, the first frontend profile-led optimizations, and the
-matched live Rust gate. Performance remains a remeasurement gate as control coverage grows rather
-than an open architecture task. Current evidence supports continuing: next retains memory,
-compile-time, and binary-size advantages, while its remaining cheap-update CPU and allocation-call
-gaps are localized and do not require an architectural rewrite.
+The C# M15 benchmark now uses the same five-operation sequence, 16 warmup updates, one update per
+composition frame, eight settle frames, maximized `3840x2054` client area, and three 500-update
+repetitions. `CompositionTarget.Rendering` supplies cadence and queues mutation at normal dispatcher
+priority, matching next's component scheduler. The executable has the WinUI control resources and
+Per-Monitor-V2 manifest required to render the exact TextBox and SplitView topology.
+
+| Metric | C# Direct range | C# ReactorToday range | C# Reactor range |
+| --- | ---: | ---: | ---: |
+| Frame median | 22.12-22.66 ms | 24.60-25.25 ms | 24.80-25.27 ms |
+| Frame p95 | 35.47-35.92 ms | 38.04-38.73 ms | 38.17-38.97 ms |
+| Frames over 25 ms | 177-187 / 500 | 243-252 / 500 | 244-254 / 500 |
+| Frames over 33.4 ms | 47-50 / 500 | 60-65 / 500 | 58-61 / 500 |
+| Managed bytes/update | 2.5-3.5 KB | 112.4-113.7 KB | 112.6 KB |
+| Ending working set | 166.4-178.7 MB | 187.2-189.5 MB | 189.9-192.2 MB |
+| Ending private bytes | 119.4-131.7 MB | 133.2-136.2 MB | 135.5-139.8 MB |
+
+C# Reactor and ReactorToday are indistinguishable at this scale. Next's frame median is about
+7-8 ms lower, its frame p95 is about 10-11 ms lower, it has about one fifth as many frames over
+25 ms, and it ends roughly 74-76 MB lower in working set and 34-40 MB lower in private bytes. Next
+also allocates about 65.5 KB of Rust heap per update versus C# Reactor's 112.6 KB of managed heap.
+Managed and Rust allocation counters describe different runtimes, so that last comparison is
+directional rather than a direct retained-memory ratio. The imperative C# path remains an
+implementation lower bound, not a competing declarative architecture.
+
+This checkpoint closes workload construction, the first profile-led optimizations, and the matched
+replacement-readiness performance gate. Current evidence supports continuing: next retains its
+memory, compile-time, and binary-size advantages and has better live cadence than both the incumbent
+Rust frontend and C# Reactor in this workload. Its remaining cheap-update CPU and allocation-call
+gaps are localized and do not require an architectural rewrite. Performance remains a planned
+remeasurement and optimization phase as control coverage and API design grow.
 
 ## Architecture audit record
 
