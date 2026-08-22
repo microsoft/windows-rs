@@ -824,16 +824,16 @@ hundred release samples after 16 warmups produced:
 
 | Operation | Inc. median | Next median | Inc. bytes | Next bytes | Inc. allocs | Next allocs |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Local edit | 25.5 us | 72.0 us | 111,064 | 56,046 | 201 | 856 |
-| Selection | 19.0 us | 59.5 us | 113,148 | 57,758 | 216 | 805 |
-| Broad toggle | 35.8 us | 120.8 us | 163,557 | 106,952 | 445 | 1,699 |
-| Reverse keys | 20.2 us | 61.2 us | 123,273 | 64,469 | 198 | 779 |
-| Value equal | 15.1 us | 30.5 us | 108,223 | 41,594 | 177 | 486 |
+| Local edit | 25.5 us | 53.5 us | 111,064 | 54,805 | 201 | 681 |
+| Selection | 19.0 us | 47.0 us | 113,148 | 57,202 | 216 | 723 |
+| Broad toggle | 35.8 us | 100.3 us | 163,557 | 106,098 | 445 | 1,580 |
+| Reverse keys | 20.2 us | 51.9 us | 123,273 | 63,860 | 198 | 695 |
+| Value equal | 15.1 us | 26.6 us | 108,223 | 41,103 | 177 | 414 |
 
-Next is 2.0-3.4x slower in this frontend-only workload, but allocates 35-62% fewer bytes per
-operation. Its remaining weakness is allocation count: it makes about 3.8-4.3x as many calls on
-local, selection, reverse, and equal updates. Retained allocator deltas after mount are 304,733
-bytes for the incumbent and 213,331 bytes for next, a 30% reduction.
+Next is 1.8-2.8x slower in this frontend-only workload, but allocates 35-62% fewer bytes per
+operation. Its remaining weakness is allocation count: it makes about 2.3-3.6x as many calls.
+Retained allocator deltas after mount are 304,733 bytes for the incumbent and 213,331 bytes for
+next, a 30% reduction.
 
 The phase split identified unchanged native-backed child planning as the first target. Before the
 change, next publication made 1,129 allocations even for the value-equal case because each
@@ -856,13 +856,22 @@ In a controlled run with command recording disabled before and after the optimiz
 The broad case remains flat because every row changes. The fast path preserves one-tree ownership,
 performs no native mutation, and adds no retained cache or invalidation protocol.
 
-The remaining equal rebuild spends about 14 us and 414 allocations declaring the view, then about
-13-15 us and 72 allocations publishing it. Those 72 calls align with the workload's string-valued
-properties: the generated property visitor materializes owned `PropertyValue::Str` values while
-checking desired values against authoritative known-native values. That comparison cannot be
-dropped because silent native normalization and coercion may make known-native state differ from
-the last desired state. A borrowed generated property visitor is the next bounded investigation;
-do not replace the comparison with an unchecked desired-props memo.
+The remaining equal rebuild originally spent about 14 us and 414 allocations declaring the view,
+then about 13-15 us and 72 allocations publishing it. Those 72 calls aligned with string-valued
+properties: the generated property visitor materialized owned `PropertyValue::Str` values while
+checking desired values against authoritative known-native values.
+
+The generated visitor now yields `PropertyValueRef` values. Strings and Grid definitions remain
+borrowed during inspection; scalar values stay copied. Comparison still reads
+`NativeState.properties`, so silent native normalization and coercion are repaired exactly as
+before. A changed value becomes owned only when it enters a native command and property commit.
+There is no retained cache or invalidation protocol.
+
+Across three 500-sample repetitions, equal publication fell from 72 allocations and about 13-15 us
+to zero allocations and 10.5-11.6 us. Total allocation calls fell 20% for local edits, 10% for
+selection, 7% for broad toggles, and 11% for keyed reversal. The mixed live workload fell from
+941.0 to 828.2 Rust allocations per update and from 66,334 to 65,542 bytes per update. Retained
+post-mount bytes stayed at 213,331.
 
 Feature-isolated build and binary measurements remain favorable:
 
@@ -892,14 +901,15 @@ repetitions used the same `3840x2054` client area throughout:
 | Frame p95 | 27.12-27.80 ms | 27.57-27.87 ms |
 | Frames over 25 ms | 43-49 / 500 | 48-50 / 500 |
 | Frames over 33.4 ms | 0-5 / 500 | 3-4 / 500 |
-| Rust bytes/update | 119,732 | 66,334 |
-| Rust allocations/update | 250.6 | 941.0 |
+| Rust bytes/update | 119,732 | 65,542 |
+| Rust allocations/update | 250.6 | 828.2 |
 | Ending working set | 115.2-116.3 MB | 115.2-116.1 MB |
 | Ending private bytes | 100.7-102.1 MB | 99.8-101.6 MB |
 
 An additional corrected run after removing warmup-buffer extraction from allocator accounting
-reported the same allocation rates. Next uses 44.6% fewer Rust allocation bytes but makes 3.75x
-more allocation calls. Frame cadence, missed-frame counts, and ending process memory are close
+reported the same allocation rates before the borrowed visitor change. With that change, next uses
+45.3% fewer Rust allocation bytes but makes 3.30x more allocation calls. Frame cadence,
+missed-frame counts, and ending process memory are close
 enough that there is no evidence of a material live runtime or memory regression. The incumbent's
 cheap-update tree-build plus reconcile median is about 72-80 us; next's host-dispatch median is
 about 143-152 us. Broad native mutation dominates both p95 paths at about 8.7-8.9 ms.
@@ -909,12 +919,11 @@ vectors that the incumbent host does not, so such a value would measure the harn
 working/private bytes and the recording benchmark's post-mount retained-tree measurement remain the
 valid memory gates.
 
-This checkpoint closes workload construction, the first frontend profile-led optimization, and the
-matched live Rust gate. The performance-optimization gate remains open for the bounded borrowed
-property visitor experiment and later remeasurement as control coverage grows. Current evidence
-supports continuing: next retains memory, compile-time, and binary-size advantages, while its
-remaining cheap-update CPU and allocation-call gaps are localized and do not require an
-architectural rewrite.
+This checkpoint closes workload construction, the first frontend profile-led optimizations, and the
+matched live Rust gate. Performance remains a remeasurement gate as control coverage grows rather
+than an open architecture task. Current evidence supports continuing: next retains memory,
+compile-time, and binary-size advantages, while its remaining cheap-update CPU and allocation-call
+gaps are localized and do not require an architectural rewrite.
 
 ## Architecture audit record
 

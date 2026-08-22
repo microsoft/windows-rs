@@ -600,9 +600,9 @@ impl<T: LayoutControl> GridChildExt for T {}
 
 pub(crate) fn visit_grid_placement(
     placement: Option<&GridPlacement>,
-    visit: &mut dyn FnMut(PropertyId, Option<PropertyValue>),
+    visit: &mut dyn FnMut(PropertyId, Option<PropertyValueRef<'_>>),
 ) {
-    let value = |value: Option<i32>| value.map(PropertyValue::I32);
+    let value = |value: Option<i32>| value.map(PropertyValueRef::I32);
     visit(
         PropertyId::GridRow,
         value(placement.and_then(|value| value.row)),

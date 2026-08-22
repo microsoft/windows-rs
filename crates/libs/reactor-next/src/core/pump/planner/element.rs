@@ -7,7 +7,7 @@ impl<R: NativeRuntime> Pump<R> {
     fn visit_element_properties(
         props: &MountedProps,
         grid_placement: Option<&GridPlacement>,
-        visit: &mut dyn FnMut(PropertyId, Option<PropertyValue>),
+        visit: &mut dyn FnMut(PropertyId, Option<PropertyValueRef<'_>>),
     ) {
         props.visit_properties(visit);
         visit_grid_placement(grid_placement, visit);
@@ -20,10 +20,14 @@ impl<R: NativeRuntime> Pump<R> {
     ) -> bool {
         let mut matches = true;
         Self::visit_element_properties(props, grid_placement, &mut |property, value| {
-            matches &= native
-                .properties
-                .get(&property)
-                .map_or_else(|| value.is_none(), |current| current == &value);
+            matches &= native.properties.get(&property).map_or_else(
+                || value.is_none(),
+                |current| match (current.as_ref(), value) {
+                    (Some(current), Some(value)) => value.equals_owned(current),
+                    (None, None) => true,
+                    _ => false,
+                },
+            );
         });
         matches
     }
@@ -37,13 +41,18 @@ impl<R: NativeRuntime> Pump<R> {
     ) {
         Self::visit_element_properties(props, grid_placement, &mut |property, value| {
             let changed = plan.reconcile_observations
-                || native
-                    .properties
-                    .get(&property)
-                    .map_or_else(|| value.is_some(), |current| current != &value);
+                || native.properties.get(&property).map_or_else(
+                    || value.is_some(),
+                    |current| match (current.as_ref(), value) {
+                        (Some(current), Some(value)) => !value.equals_owned(current),
+                        (None, None) => false,
+                        _ => true,
+                    },
+                );
             if !changed {
                 return;
             }
+            let value = value.map(PropertyValueRef::into_owned);
             let command = match &value {
                 Some(value) => Command::SetProperty {
                     node,
@@ -601,6 +610,7 @@ impl<R: NativeRuntime> Pump<R> {
         }
         Self::visit_element_properties(props, grid_placement, &mut |property, value| {
             if let Some(value) = value {
+                let value = value.into_owned();
                 plan.push(Command::SetProperty {
                     node,
                     property,

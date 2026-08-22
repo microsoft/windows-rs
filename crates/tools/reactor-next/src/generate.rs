@@ -189,7 +189,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         pub trait MountedPropsExt {
             fn visit_properties(
                 &self,
-                visit: &mut dyn FnMut(PropertyId, Option<PropertyValue>),
+                visit: &mut dyn FnMut(PropertyId, Option<PropertyValueRef<'_>>),
             );
         }
 
@@ -206,7 +206,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         impl MountedPropsExt for MountedProps {
             fn visit_properties(
                 &self,
-                visit: &mut dyn FnMut(PropertyId, Option<PropertyValue>),
+                visit: &mut dyn FnMut(PropertyId, Option<PropertyValueRef<'_>>),
             ) {
                 match self {
                     #(#mounted_props_visitors),*
@@ -707,8 +707,9 @@ fn generate_mounted_props_visitor(control: &ResolvedControl) -> TokenStream {
     let properties = control.properties.iter().map(|property| {
         let field = ident(&property.field);
         let id = ident(&format!("{}{}", control.name, property.name));
+        let variant = ident(&property.value);
         let value = if property.value == "Str" {
-            quote! { value.clone() }
+            quote! { value.as_str() }
         } else {
             quote! { *value }
         };
@@ -717,7 +718,7 @@ fn generate_mounted_props_visitor(control: &ResolvedControl) -> TokenStream {
                 PropertyId::#id,
                 match #field {
                     Property::Inherited => None,
-                    Property::Set(value) => Some((#value).into()),
+                    Property::Set(value) => Some(PropertyValueRef::#variant(#value)),
                 },
             );
         }
@@ -726,13 +727,13 @@ fn generate_mounted_props_visitor(control: &ResolvedControl) -> TokenStream {
         quote! {
             visit(
                 PropertyId::GridRows,
-                rows.as_set().map(|value| PropertyValue::GridLengths(value.clone())),
+                rows.as_set().map(PropertyValueRef::GridLengths),
             );
             visit(
                 PropertyId::GridColumns,
                 columns
                     .as_set()
-                    .map(|value| PropertyValue::GridLengths(value.clone())),
+                    .map(PropertyValueRef::GridLengths),
             );
         }
     });
@@ -860,6 +861,15 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
         let name = ident(name);
         quote! { #name(#value) }
     });
+    let ref_variants = values.iter().map(|(name, value)| {
+        let variant = ident(name);
+        let value = match name.as_str() {
+            "GridLengths" => quote! { &'a std::rc::Rc<Vec<GridLength>> },
+            "Str" => quote! { &'a str },
+            _ => value.clone(),
+        };
+        quote! { #variant(#value) }
+    });
     let conversions = values.iter().map(|(name, value)| {
         let name = ident(name);
         quote! {
@@ -882,6 +892,36 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
             }
         }
     });
+    let ref_equalities = values.keys().map(|name| {
+        let variant = ident(name);
+        if name == "F64" {
+            quote! {
+                (Self::#variant(left), PropertyValue::#variant(right)) => f64_eq(left, *right)
+            }
+        } else if matches!(name.as_str(), "GridLengths" | "Str") {
+            quote! {
+                (Self::#variant(left), PropertyValue::#variant(right)) => left == right
+            }
+        } else {
+            quote! {
+                (Self::#variant(left), PropertyValue::#variant(right)) => left == *right
+            }
+        }
+    });
+    let ref_to_owned = values.keys().map(|name| {
+        let variant = ident(name);
+        match name.as_str() {
+            "GridLengths" => quote! {
+                Self::#variant(value) => PropertyValue::#variant(value.clone())
+            },
+            "Str" => quote! {
+                Self::#variant(value) => PropertyValue::#variant(value.to_string())
+            },
+            _ => quote! {
+                Self::#variant(value) => PropertyValue::#variant(value)
+            },
+        }
+    });
 
     quote! {
         #[derive(Clone, Debug)]
@@ -894,6 +934,26 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
                 match (self, other) {
                     #(#equalities),*,
                     _ => false,
+                }
+            }
+        }
+
+        #[derive(Clone, Copy, Debug)]
+        pub enum PropertyValueRef<'a> {
+            #(#ref_variants),*
+        }
+
+        impl PropertyValueRef<'_> {
+            pub fn equals_owned(self, value: &PropertyValue) -> bool {
+                match (self, value) {
+                    #(#ref_equalities),*,
+                    _ => false,
+                }
+            }
+
+            pub fn into_owned(self) -> PropertyValue {
+                match self {
+                    #(#ref_to_owned),*
                 }
             }
         }

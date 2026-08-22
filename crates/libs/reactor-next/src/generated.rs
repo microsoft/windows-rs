@@ -1350,7 +1350,7 @@ pub trait ElementPartsExt {
     fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool));
 }
 pub trait MountedPropsExt {
-    fn visit_properties(&self, visit: &mut dyn FnMut(PropertyId, Option<PropertyValue>));
+    fn visit_properties(&self, visit: &mut dyn FnMut(PropertyId, Option<PropertyValueRef<'_>>));
 }
 pub trait MountedEventsExt {
     fn visit_events(&self, visit: &mut dyn FnMut(EventId, bool));
@@ -1362,7 +1362,7 @@ pub trait MountedEventsExt {
     ) -> Option<(PropertyId, PropertyValue)>;
 }
 impl MountedPropsExt for MountedProps {
-    fn visit_properties(&self, visit: &mut dyn FnMut(PropertyId, Option<PropertyValue>)) {
+    fn visit_properties(&self, visit: &mut dyn FnMut(PropertyId, Option<PropertyValueRef<'_>>)) {
         match self {
             Self::TextBlock {
                 text,
@@ -1373,14 +1373,14 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::TextBlockText,
                     match text {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((value.clone()).into()),
+                        Property::Set(value) => Some(PropertyValueRef::Str(value.as_str())),
                     },
                 );
                 visit(
                     PropertyId::TextBlockTextWrapping,
                     match text_wrapping {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::TextWrapping(*value)),
                     },
                 );
             }
@@ -1389,7 +1389,7 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::ButtonIsEnabled,
                     match is_enabled {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
                     },
                 );
             }
@@ -1402,14 +1402,14 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::StackPanelOrientation,
                     match orientation {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::Orientation(*value)),
                     },
                 );
                 visit(
                     PropertyId::StackPanelSpacing,
                     match spacing {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
                     },
                 );
             }
@@ -1424,26 +1424,23 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::GridRowSpacing,
                     match row_spacing {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
                     },
                 );
                 visit(
                     PropertyId::GridColumnSpacing,
                     match column_spacing {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
                     },
                 );
                 visit(
                     PropertyId::GridRows,
-                    rows.as_set()
-                        .map(|value| PropertyValue::GridLengths(value.clone())),
+                    rows.as_set().map(PropertyValueRef::GridLengths),
                 );
                 visit(
                     PropertyId::GridColumns,
-                    columns
-                        .as_set()
-                        .map(|value| PropertyValue::GridLengths(value.clone())),
+                    columns.as_set().map(PropertyValueRef::GridLengths),
                 );
             }
             Self::TextBox {
@@ -1456,21 +1453,21 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::TextBoxText,
                     match text {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((value.clone()).into()),
+                        Property::Set(value) => Some(PropertyValueRef::Str(value.as_str())),
                     },
                 );
                 visit(
                     PropertyId::TextBoxPlaceholderText,
                     match placeholder_text {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((value.clone()).into()),
+                        Property::Set(value) => Some(PropertyValueRef::Str(value.as_str())),
                     },
                 );
                 visit(
                     PropertyId::TextBoxIsEnabled,
                     match is_enabled {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
                     },
                 );
             }
@@ -1485,28 +1482,28 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::NumberBoxMinimum,
                     match minimum {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
                     },
                 );
                 visit(
                     PropertyId::NumberBoxMaximum,
                     match maximum {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
                     },
                 );
                 visit(
                     PropertyId::NumberBoxValue,
                     match value {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
                     },
                 );
                 visit(
                     PropertyId::NumberBoxIsEnabled,
                     match is_enabled {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
                     },
                 );
             }
@@ -1521,28 +1518,28 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::SliderMinimum,
                     match minimum {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
                     },
                 );
                 visit(
                     PropertyId::SliderMaximum,
                     match maximum {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
                     },
                 );
                 visit(
                     PropertyId::SliderValue,
                     match value {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
                     },
                 );
                 visit(
                     PropertyId::SliderIsEnabled,
                     match is_enabled {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
                     },
                 );
             }
@@ -1551,7 +1548,7 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::NavigationViewIsEnabled,
                     match is_enabled {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
                     },
                 );
             }
@@ -1566,28 +1563,30 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::SplitViewOpenPaneLength,
                     match open_pane_length {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
                     },
                 );
                 visit(
                     PropertyId::SplitViewCompactPaneLength,
                     match compact_pane_length {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
                     },
                 );
                 visit(
                     PropertyId::SplitViewDisplayMode,
                     match display_mode {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => {
+                            Some(PropertyValueRef::SplitViewDisplayMode(*value))
+                        }
                     },
                 );
                 visit(
                     PropertyId::SplitViewIsPaneOpen,
                     match is_pane_open {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
                     },
                 );
             }
@@ -1605,49 +1604,49 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::ProgressBarMinimum,
                     match minimum {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
                     },
                 );
                 visit(
                     PropertyId::ProgressBarMaximum,
                     match maximum {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
                     },
                 );
                 visit(
                     PropertyId::ProgressBarValue,
                     match value {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
                     },
                 );
                 visit(
                     PropertyId::ProgressBarIsIndeterminate,
                     match is_indeterminate {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
                     },
                 );
                 visit(
                     PropertyId::ProgressBarShowError,
                     match show_error {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
                     },
                 );
                 visit(
                     PropertyId::ProgressBarShowPaused,
                     match show_paused {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
                     },
                 );
                 visit(
                     PropertyId::ProgressBarIsEnabled,
                     match is_enabled {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
                     },
                 );
             }
@@ -1658,14 +1657,14 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::ToggleSwitchIsOn,
                     match is_on {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
                     },
                 );
                 visit(
                     PropertyId::ToggleSwitchIsEnabled,
                     match is_enabled {
                         Property::Inherited => None,
-                        Property::Set(value) => Some((*value).into()),
+                        Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
                     },
                 );
             }
@@ -2183,6 +2182,46 @@ impl PartialEq for PropertyValue {
             (Self::Str(left), Self::Str(right)) => left == right,
             (Self::TextWrapping(left), Self::TextWrapping(right)) => left == right,
             _ => false,
+        }
+    }
+}
+#[derive(Clone, Copy, Debug)]
+pub enum PropertyValueRef<'a> {
+    Bool(bool),
+    F64(f64),
+    GridLengths(&'a std::rc::Rc<Vec<GridLength>>),
+    I32(i32),
+    Orientation(Orientation),
+    SplitViewDisplayMode(SplitViewDisplayMode),
+    Str(&'a str),
+    TextWrapping(TextWrapping),
+}
+impl PropertyValueRef<'_> {
+    pub fn equals_owned(self, value: &PropertyValue) -> bool {
+        match (self, value) {
+            (Self::Bool(left), PropertyValue::Bool(right)) => left == *right,
+            (Self::F64(left), PropertyValue::F64(right)) => f64_eq(left, *right),
+            (Self::GridLengths(left), PropertyValue::GridLengths(right)) => left == right,
+            (Self::I32(left), PropertyValue::I32(right)) => left == *right,
+            (Self::Orientation(left), PropertyValue::Orientation(right)) => left == *right,
+            (Self::SplitViewDisplayMode(left), PropertyValue::SplitViewDisplayMode(right)) => {
+                left == *right
+            }
+            (Self::Str(left), PropertyValue::Str(right)) => left == right,
+            (Self::TextWrapping(left), PropertyValue::TextWrapping(right)) => left == *right,
+            _ => false,
+        }
+    }
+    pub fn into_owned(self) -> PropertyValue {
+        match self {
+            Self::Bool(value) => PropertyValue::Bool(value),
+            Self::F64(value) => PropertyValue::F64(value),
+            Self::GridLengths(value) => PropertyValue::GridLengths(value.clone()),
+            Self::I32(value) => PropertyValue::I32(value),
+            Self::Orientation(value) => PropertyValue::Orientation(value),
+            Self::SplitViewDisplayMode(value) => PropertyValue::SplitViewDisplayMode(value),
+            Self::Str(value) => PropertyValue::Str(value.to_string()),
+            Self::TextWrapping(value) => PropertyValue::TextWrapping(value),
         }
     }
 }

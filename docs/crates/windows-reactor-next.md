@@ -232,6 +232,12 @@ Clear operations suppress the same synchronous event but do not retain its concr
 native observation. The known-native state remains `None`, which represents a cleared local value
 and keeps clear-then-rerender idempotent.
 
+Generated desired-property visits borrow strings and Grid definitions through `PropertyValueRef`.
+Planning compares those values with the authoritative owned values in `NativeState.properties`.
+Only a changed value becomes owned when it enters a native command and property commit. This avoids
+allocating while inspecting unchanged properties without adding a desired-property cache or
+weakening repair after native normalization.
+
 ## Fragments and collections
 
 Logical fragments create no hidden WinUI control. They flatten zero or more native roots into
