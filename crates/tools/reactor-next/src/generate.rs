@@ -1079,11 +1079,10 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         Role::Virtual => quote! { items: std::rc::Rc<Vec<KeyedView>> },
         Role::Leaf | Role::Controlled | Role::Slots => TokenStream::new(),
     };
-    let property_methods = control.properties.iter().flat_map(|property| {
+    let property_methods = control.properties.iter().map(|property| {
         let field = ident(&property.field);
-        let getter = ident(&format!("{}_property", property.field));
         let value = value_type(&property.value);
-        let setter = if property.value == "Str" {
+        if property.value == "Str" {
             quote! {
                 pub fn #field(mut self, value: impl Into<String>) -> Self {
                     self.#field = Property::Set(value.into());
@@ -1097,21 +1096,12 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                     self
                 }
             }
-        };
-        [
-            setter,
-            quote! {
-                pub fn #getter(&self) -> &Property<#value> {
-                    &self.#field
-                }
-            },
-        ]
+        }
     });
-    let event_methods = control.events.iter().flat_map(|event| {
+    let event_methods = control.events.iter().map(|event| {
         let field = ident(&event.field);
-        let getter = ident(&format!("{}_callback", event.field));
         let payload = value_type(&event.payload);
-        let setter = if event.payload == "Unit" {
+        if event.payload == "Unit" {
             quote! {
                 pub fn #field(mut self, callback: impl IntoUnitCallback) -> Self {
                     self.#field = Some(callback.into_unit_callback());
@@ -1125,15 +1115,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                     self
                 }
             }
-        };
-        [
-            setter,
-            quote! {
-                pub fn #getter(&self) -> Option<&Callback<#payload>> {
-                    self.#field.as_ref()
-                }
-            },
-        ]
+        }
     });
     let grid_definition_methods = has_grid_definitions(control).then(|| {
         quote! {
@@ -1150,10 +1132,6 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                 self
             }
 
-            pub fn rows_property(&self) -> &Property<std::rc::Rc<Vec<GridLength>>> {
-                &self.rows
-            }
-
             pub fn columns(
                 mut self,
                 values: impl IntoIterator<Item = GridLength>,
@@ -1165,10 +1143,6 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                 );
                 self.columns = Property::Set(std::rc::Rc::new(values));
                 self
-            }
-
-            pub fn columns_property(&self) -> &Property<std::rc::Rc<Vec<GridLength>>> {
-                &self.columns
             }
         }
     });
@@ -1513,6 +1487,10 @@ mod tests {
         assert!(output.contains("pub enum Orientation"));
         assert!(output.contains("callback : impl IntoUnitCallback"));
         assert!(output.contains("callback : impl IntoPayloadCallback < String >"));
+        assert!(!output.contains("pub fn text_property"));
+        assert!(!output.contains("pub fn on_click_callback"));
+        assert!(!output.contains("pub fn rows_property"));
+        assert!(!output.contains("pub fn columns_property"));
     }
 
     #[test]

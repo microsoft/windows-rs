@@ -357,14 +357,14 @@ pub struct GridPlacement {
 }
 
 #[derive(Clone, Debug, Default, PartialEq)]
-pub enum Property<T> {
+pub(crate) enum Property<T> {
     #[default]
     Inherited,
     Set(T),
 }
 
 impl<T> Property<T> {
-    pub fn as_set(&self) -> Option<&T> {
+    pub(crate) fn as_set(&self) -> Option<&T> {
         match self {
             Self::Inherited => None,
             Self::Set(value) => Some(value),

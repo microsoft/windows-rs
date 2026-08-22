@@ -941,6 +941,25 @@ Rust frontend and C# Reactor in this workload. Its remaining cheap-update CPU an
 gaps are localized and do not require an architectural rewrite. Performance remains a planned
 remeasurement and optimization phase as control coverage and API design grow.
 
+## API polish record
+
+### Generated declaration surface
+
+The first public-surface audit removed generated `*_property()` and `*_callback()` getters. No
+application or sample used them; one integration test inspected declaration storage through them.
+Property values and callback wiring are already covered at the generated visitor, Pump, recording
+runtime, and live WinUI boundaries. Keeping public getters only for tests exposed `Property<T>` and
+control storage details without supporting a declarative application task.
+
+`Property<T>` and its inspection helper are now crate-private. Generated controls expose builders,
+structural capabilities, references, and typed events, but not their backing representation. This
+removed 117 generated public methods without changing declaration layout, planning, or runtime
+behavior. Generator tests reject reintroducing property, Grid-definition, and callback getters.
+
+The next API tranche must define conditional property reset semantics before adding a public
+abstraction. It should prove the contract on TextBox, ToggleSwitch, Slider, and NumberBox and must
+not expose `Property<T>` as an escape hatch.
+
 ## Architecture audit record
 
 ### Authoritative ownership

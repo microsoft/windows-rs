@@ -419,6 +419,11 @@ counter grew from 916,992 to 929,792 bytes (+12,800 bytes, +1.40%). PE virtual s
 bytes in `.text`, 3,112 bytes in `.rdata`, 468 bytes in `.pdata`, and 48 bytes in `.reloc`. Core
 layouts did not change.
 
+Generated controls expose setters and typed event builders, not getters for their declaration
+storage. The generated `*_property()` and `*_callback()` methods were test-only implementation
+leakage and have been removed. `Property<T>` is crate-private. Generator and Pump tests inspect
+values through the same property visitor and event-dispatch boundaries used at runtime.
+
 Removing fine-grained recovery reduced `core/pump/publish.rs` from 396 lines to 57 and removed
 per-command outcome vectors, divergent properties, retries, remount recovery, recovery
 continuations, and their specialized tests.
