@@ -49,6 +49,29 @@ pub struct NativeState {
     pub events: BTreeMap<EventId, EventState>,
 }
 
+impl NativeState {
+    fn new(desired: MountedProps) -> Self {
+        let mut events = BTreeMap::new();
+        desired.visit_events(&mut |event, active| {
+            if active {
+                events.insert(
+                    event,
+                    EventState {
+                        revision: 1,
+                        active: true,
+                    },
+                );
+            }
+        });
+        Self {
+            desired,
+            reference: None,
+            properties: BTreeMap::new(),
+            events,
+        }
+    }
+}
+
 #[derive(Clone, Copy)]
 pub struct EventState {
     pub revision: u32,
@@ -182,24 +205,7 @@ impl Tree {
         let id = self.insert(parent, NodeKind::Native(kind))?;
         let node = self.arena.get_mut(id)?;
         node.key = key;
-        let mut events = BTreeMap::new();
-        desired.visit_events(&mut |event, active| {
-            if active {
-                events.insert(
-                    event,
-                    EventState {
-                        revision: 1,
-                        active: true,
-                    },
-                );
-            }
-        });
-        node.native = Some(NativeState {
-            desired,
-            reference: None,
-            properties: BTreeMap::new(),
-            events,
-        });
+        node.native = Some(NativeState::new(desired));
         Ok(id)
     }
 
@@ -332,12 +338,14 @@ impl Tree {
         identity: WindowToken,
         parent: Option<NodeId>,
         key: Option<Key>,
+        desired: MountedProps,
         items: Rc<Vec<KeyedView>>,
     ) -> Result<NodeId, TreeError> {
         let keys = items.iter().map(|item| item.key().clone());
         let id = self.insert_virtual(identity, parent, keys)?;
         let node = self.arena.get_mut(id)?;
         node.key = key;
+        node.native = Some(NativeState::new(desired));
         node.virtual_items = Some(items);
         Ok(id)
     }

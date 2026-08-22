@@ -73,6 +73,7 @@ collide with the private positional-key domain.
 
 Grid definitions and attached placement use the ordinary property transaction. `Grid::rows` and
 `Grid::columns` store `Rc<Vec<GridLength>>` values in Grid's generated `MountedProps` variant. The
+builders reject non-finite or negative pixel and star lengths before planning. The
 WinUI Grid adapter clears and rebuilds the corresponding definition collection only when planning
 detects a changed value. Controlled-input observation reconciliation may conservatively resend
 properties; the adapter compares existing definition lengths and values before rebuilding, so an
@@ -84,6 +85,10 @@ no retained attachment table or second desired tree. Clearing a placement clears
 dependency property and restores its platform default. Components and fragments do not implement
 `GridChildExt` because either may flatten to zero or multiple native roots. A concrete native
 wrapper provides an unambiguous placement boundary.
+
+Virtual collections are also single concrete native controls. They retain the same `NativeState`
+property map as ordinary native nodes, so `ItemsRepeater` placement mounts, updates, clears, and
+publishes through the shared property path before source-specific planning.
 
 Component sends are queue-only. Each window accepts at most 4,096 queued messages, and each
 dispatcher turn drains at most 64 messages. Dirty scopes compose parent-first. Parent props apply
@@ -253,7 +258,9 @@ which bounds repeated vector search and movement for dense and adversarial spars
 
 `ItemsRepeater::item` accepts a key and any `Into<View>`. `ItemsRepeater::items` accepts
 `IntoIterator<Item = KeyedView>`. Rows stay as keyed desired views until native realization asks
-for one, so unrealized components are not created and their effects do not run.
+for one, so unrealized components are not created and their effects do not run. `ItemsRepeater`
+implements `LayoutControl` because the collection itself has one native root; it can carry attached
+Grid placement without a wrapper.
 
 Each realization entry stores the row's logical ownership root and an optional native attachment
 root. The logical root may be a component, provider, fragment, or native node. Mount and key-stable

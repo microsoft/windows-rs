@@ -179,14 +179,24 @@ pub mod public {
             &self.column_spacing
         }
         pub fn rows(mut self, values: impl IntoIterator<Item = GridLength>) -> Self {
-            self.rows = Property::Set(std::rc::Rc::new(values.into_iter().collect()));
+            let values = values.into_iter().collect::<Vec<_>>();
+            assert!(
+                values.iter().all(|value| value.is_valid()),
+                "Grid lengths must be finite and non-negative",
+            );
+            self.rows = Property::Set(std::rc::Rc::new(values));
             self
         }
         pub fn rows_property(&self) -> &Property<std::rc::Rc<Vec<GridLength>>> {
             &self.rows
         }
         pub fn columns(mut self, values: impl IntoIterator<Item = GridLength>) -> Self {
-            self.columns = Property::Set(std::rc::Rc::new(values.into_iter().collect()));
+            let values = values.into_iter().collect::<Vec<_>>();
+            assert!(
+                values.iter().all(|value| value.is_valid()),
+                "Grid lengths must be finite and non-negative",
+            );
+            self.columns = Property::Set(std::rc::Rc::new(values));
             self
         }
         pub fn columns_property(&self) -> &Property<std::rc::Rc<Vec<GridLength>>> {
@@ -621,6 +631,7 @@ pub mod public {
     impl FocusControl for ToggleSwitch {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ItemsRepeater {
+        grid_placement: Option<std::rc::Rc<GridPlacement>>,
         items: std::rc::Rc<Vec<KeyedView>>,
     }
     impl ItemsRepeater {
@@ -637,6 +648,11 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ItemsRepeater {}
+    impl LayoutControl for ItemsRepeater {
+        fn grid_placement_mut(&mut self) -> &mut Option<std::rc::Rc<GridPlacement>> {
+            &mut self.grid_placement
+        }
+    }
     impl ItemsControl for ItemsRepeater {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ScrollViewer {
@@ -1020,11 +1036,14 @@ pub mod public {
                     grid_placement,
                     structure: ElementStructure::None,
                 },
-                Self::ItemsRepeater(ItemsRepeater { items }) => ElementParts {
+                Self::ItemsRepeater(ItemsRepeater {
+                    grid_placement,
+                    items,
+                }) => ElementParts {
                     kind: MountedKind::ItemsRepeater,
                     props: MountedProps::ItemsRepeater {},
                     reference: None,
-                    grid_placement: None,
+                    grid_placement,
                     structure: ElementStructure::Virtual(items),
                 },
                 Self::ScrollViewer(ScrollViewer {
@@ -1270,7 +1289,7 @@ pub mod public {
                 Self::SplitView(value) => value.grid_placement.as_deref(),
                 Self::ProgressBar(value) => value.grid_placement.as_deref(),
                 Self::ToggleSwitch(value) => value.grid_placement.as_deref(),
-                Self::ItemsRepeater(_) => None,
+                Self::ItemsRepeater(value) => value.grid_placement.as_deref(),
                 Self::ScrollViewer(value) => value.grid_placement.as_deref(),
             }
         }
@@ -2869,7 +2888,7 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         name: "ItemsRepeater",
         type_name: "Microsoft.UI.Xaml.Controls.ItemsRepeater",
         role: ControlRole::Virtual,
-        capabilities: &[Capability::Items],
+        capabilities: &[Capability::Layout, Capability::Items],
         properties: ITEMS_REPEATER_PROPERTIES,
         events: ITEMS_REPEATER_EVENTS,
         slots: ITEMS_REPEATER_SLOTS,

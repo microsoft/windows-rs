@@ -13,7 +13,7 @@ impl<R: NativeRuntime> Pump<R> {
         visit_grid_placement(grid_placement, visit);
     }
 
-    fn native_properties_match(
+    pub(in super::super) fn native_properties_match(
         native: &NativeState,
         props: &MountedProps,
         grid_placement: Option<&GridPlacement>,
@@ -541,29 +541,31 @@ impl<R: NativeRuntime> Pump<R> {
         {
             return Ok(());
         }
-        Self::reconcile_native_state(tree.native_mut(node)?, node, parts, plan)
+        Self::reconcile_native_state(
+            tree.native_mut(node)?,
+            node,
+            parts.props,
+            parts.reference,
+            parts.grid_placement,
+            plan,
+        )
     }
 
     fn reconcile_native_state(
         native: &mut NativeState,
         node: NodeId,
-        parts: ElementParts,
+        props: MountedProps,
+        reference: Option<NativeElementRef>,
+        grid_placement: Option<Rc<GridPlacement>>,
         plan: &mut UpdatePlan,
     ) -> Result<(), PumpError> {
-        let props_changed = native.desired != parts.props;
-        let desired_reference = parts.reference.clone();
-        Self::plan_native_properties(
-            native,
-            node,
-            &parts.props,
-            parts.grid_placement.as_deref(),
-            plan,
-        );
+        let props_changed = native.desired != props;
+        Self::plan_native_properties(native, node, &props, grid_placement.as_deref(), plan);
         if props_changed {
-            Self::update_event_states(native, node, &parts.props, plan)?;
-            native.desired = parts.props;
+            Self::update_event_states(native, node, &props, plan)?;
+            native.desired = props;
         }
-        Self::plan_reference(native, node, desired_reference, plan);
+        Self::plan_reference(native, node, reference, plan);
         Ok(())
     }
 
@@ -582,6 +584,73 @@ impl<R: NativeRuntime> Pump<R> {
         }
     }
 
+    fn plan_initial_native_state(
+        tree: &Tree,
+        node: NodeId,
+        props: &MountedProps,
+        reference: &Option<NativeElementRef>,
+        grid_placement: Option<&GridPlacement>,
+        plan: &mut UpdatePlan,
+    ) -> Result<(), PumpError> {
+        if reference.is_some() {
+            plan.reference_commits.push(ReferenceCommit {
+                node,
+                old: None,
+                new: reference.clone(),
+            });
+        }
+        Self::visit_element_properties(props, grid_placement, &mut |property, value| {
+            if let Some(value) = value {
+                plan.push(Command::SetProperty {
+                    node,
+                    property,
+                    value: value.clone(),
+                });
+                plan.commits.push(PropertyCommit {
+                    node,
+                    property,
+                    value: Some(value),
+                });
+            }
+        });
+        for (event, state) in &tree.native(node)?.events {
+            if state.active {
+                plan.push(Command::SubscribeEvent {
+                    node,
+                    event: *event,
+                    revision: state.revision,
+                });
+            }
+        }
+        Ok(())
+    }
+
+    pub(in super::super) fn reconcile_native_values(
+        tree: &mut Tree,
+        node: NodeId,
+        props: MountedProps,
+        reference: Option<NativeElementRef>,
+        grid_placement: Option<Rc<GridPlacement>>,
+        plan: &mut UpdatePlan,
+    ) -> Result<(), PumpError> {
+        let native = tree.native(node)?;
+        if !plan.reconcile_observations
+            && native.desired == props
+            && native.reference == reference
+            && Self::native_properties_match(native, &props, grid_placement.as_deref())
+        {
+            return Ok(());
+        }
+        Self::reconcile_native_state(
+            tree.native_mut(node)?,
+            node,
+            props,
+            reference,
+            grid_placement,
+            plan,
+        )
+    }
+
     pub(in super::super) fn mount_planned_element(
         tree: &mut Tree,
         parent: Option<NodeId>,
@@ -595,12 +664,21 @@ impl<R: NativeRuntime> Pump<R> {
                 return Err(PumpError::StructureUnsupported);
             }
             let item_count = items.len();
-            let node = tree.insert_virtual_items(plan.identity, parent, key, items)?;
+            let node =
+                tree.insert_virtual_items(plan.identity, parent, key, parts.props.clone(), items)?;
             plan.push(Command::CreateVirtualCollection {
                 node,
                 item_count,
                 source_revision: 0,
             });
+            Self::plan_initial_native_state(
+                tree,
+                node,
+                &parts.props,
+                &parts.reference,
+                parts.grid_placement.as_deref(),
+                plan,
+            )?;
             return Ok(node);
         }
         let node = tree.insert_native(parent, parts.kind, key, parts.props.clone())?;
@@ -608,40 +686,14 @@ impl<R: NativeRuntime> Pump<R> {
             node,
             kind: parts.kind,
         });
-        if parts.reference.is_some() {
-            plan.reference_commits.push(ReferenceCommit {
-                node,
-                old: None,
-                new: parts.reference.clone(),
-            });
-        }
-        Self::visit_element_properties(
+        Self::plan_initial_native_state(
+            tree,
+            node,
             &parts.props,
+            &parts.reference,
             parts.grid_placement.as_deref(),
-            &mut |property, value| {
-                if let Some(value) = value {
-                    plan.push(Command::SetProperty {
-                        node,
-                        property,
-                        value: value.clone(),
-                    });
-                    plan.commits.push(PropertyCommit {
-                        node,
-                        property,
-                        value: Some(value),
-                    });
-                }
-            },
-        );
-        for (event, state) in &tree.native(node)?.events {
-            if state.active {
-                plan.push(Command::SubscribeEvent {
-                    node,
-                    event: *event,
-                    revision: state.revision,
-                });
-            }
-        }
+            plan,
+        )?;
 
         match parts.structure {
             ElementStructure::None => {}

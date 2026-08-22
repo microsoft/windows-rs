@@ -576,7 +576,56 @@ impl LivePump for ComponentLoop {
         {
             return false;
         }
-        self.pump.runtime().live_grid_matches(grid, child, false) == Ok(true)
+        if self.pump.runtime().live_grid_matches(grid, child, false) != Ok(true) {
+            return false;
+        }
+
+        let repeater = || {
+            ItemsRepeater::new()
+                .item("row", TextBlock::new().text("row"))
+                .grid_row(1)
+                .grid_column(2)
+                .grid_row_span(3)
+                .grid_column_span(4)
+        };
+        if self
+            .pump
+            .update_view(
+                Grid::new()
+                    .rows([GridLength::Auto, GridLength::STAR])
+                    .columns([GridLength::Pixel(120.0), GridLength::STAR])
+                    .children((repeater(),)),
+            )
+            .is_err()
+        {
+            return false;
+        }
+        let collection = match self.pump.live_native_children(grid) {
+            Ok([collection]) => *collection,
+            _ => return false,
+        };
+        if self
+            .pump
+            .runtime()
+            .live_grid_matches(grid, collection, true)
+            != Ok(true)
+        {
+            return false;
+        }
+        if self
+            .pump
+            .update_view(
+                Grid::new()
+                    .children((ItemsRepeater::new().item("row", TextBlock::new().text("row")),)),
+            )
+            .is_err()
+        {
+            return false;
+        }
+        self.pump
+            .runtime()
+            .live_grid_matches(grid, collection, false)
+            == Ok(true)
     }
 
     #[cfg(feature = "test")]

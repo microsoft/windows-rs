@@ -231,7 +231,7 @@ property = "IsOn"
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.ItemsRepeater"
 role = "virtual"
-capabilities = ["items"]
+capabilities = ["layout", "items"]
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.ScrollViewer"

@@ -734,6 +734,13 @@ The iterator-based `rows` and `columns` builders allocate owned definition value
 The post-expansion allocation pass should measure this in Grid-heavy forms and add a shared-value
 builder only if those allocations are material; do not add a retained layout cache in Pump.
 
+The follow-up review closed two property-boundary gaps. Pixel and star lengths now reject negative,
+NaN, and infinite values in the generated builders, before invalid application input can reach the
+fatal native boundary. Virtual collections now retain ordinary `NativeState` and use the shared
+initial/update property planners before source-specific work. `ItemsRepeater` therefore implements
+`LayoutControl` again and supports direct Grid placement, update, clear, and transactional failure
+without a ScrollViewer wrapper or a virtual-only property branch.
+
 #### SplitView tranche
 
 - [x] Add schema-driven SplitView properties and `Pane`/`Content` slots.
@@ -782,7 +789,7 @@ Run this gate after representative layout and application-shell controls exist, 
 that `windows-reactor-next` can replace `windows-reactor`. Rust's performance and memory advantages
 must be visible in realistic applications, not only in isolated component operations.
 
-- [ ] Build matched application workloads for `windows-reactor`, `windows-reactor-next`, and the C#
+- [x] Build matched application workloads for `windows-reactor`, `windows-reactor-next`, and the C#
       Reactor where their semantics overlap.
 - [ ] Measure wall time, median/p95/p99 frame intervals, allocator traffic, retained Rust memory,
       process working set, compile time, and release binary size on the same machine.
@@ -801,6 +808,83 @@ must be visible in realistic applications, not only in isolated component operat
       transactional publication, or leave cache invalidation implicit.
 - [ ] Re-run the full correctness, live, compile-time, binary-size, and application-performance
       gates after optimization.
+
+#### Matched 32-task application checkpoint
+
+The first matched workload uses only controls shared by all three frontends: SplitView, Grid,
+StackPanel, TextBox, TextBlock, and ToggleSwitch. It mounts an inline application shell with 32
+keyed task rows, then exercises a local title edit, selection change, broad done toggle, and keyed
+reversal. The Rust driver also measures a value-equal declaration rebuild. Initial mount is outside
+the timed loop.
+
+The two Rust variants run against their in-memory recording backends. Both backends retain recorded
+native operations, so the measurement includes declaration, reconciliation, publication, and
+recording work but excludes WinUI control mutation, layout, rendering, and presentation. Five
+hundred release samples after 16 warmups produced:
+
+| Operation | Inc. median | Next median | Inc. bytes | Next bytes | Inc. allocs | Next allocs |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Local edit | 25.5 us | 72.0 us | 111,064 | 56,046 | 201 | 856 |
+| Selection | 19.0 us | 59.5 us | 113,148 | 57,758 | 216 | 805 |
+| Broad toggle | 35.8 us | 120.8 us | 163,557 | 106,952 | 445 | 1,699 |
+| Reverse keys | 20.2 us | 61.2 us | 123,273 | 64,469 | 198 | 779 |
+| Value equal | 15.1 us | 30.5 us | 108,223 | 41,594 | 177 | 486 |
+
+Next is 2.0-3.4x slower in this frontend-only workload, but allocates 35-62% fewer bytes per
+operation. Its remaining weakness is allocation count: it makes about 3.8-4.3x as many calls on
+local, selection, reverse, and equal updates. Retained allocator deltas after mount are 304,733
+bytes for the incumbent and 213,331 bytes for next, a 30% reduction.
+
+The phase split identified unchanged native-backed child planning as the first target. Before the
+change, next publication made 1,129 allocations even for the value-equal case because each
+`Children` control rebuilt key vectors, sets, maps, and order vectors. A read-only mounted-view
+matcher now skips an exact native-backed subtree before allocating those collections. It does not
+skip components or virtual collections, and it is disabled while a native observation is pending.
+A nested-repeater regression proves that an equal virtual source still recomposes a dirty realized
+component.
+
+In a controlled run with command recording disabled before and after the optimization:
+
+| Operation | Before | After | Allocations before | Allocations after |
+| --- | ---: | ---: | ---: | ---: |
+| Local edit | 90.4 us | 59.7 us | 1,557 | 854 |
+| Selection | 85.9 us | 49.6 us | 1,570 | 801 |
+| Broad toggle | 97.3 us | 103.4 us | 1,683 | 1,698 |
+| Reverse keys | 97.8 us | 52.7 us | 1,598 | 778 |
+| Value equal | 88.4 us | 26.6 us | 1,543 | 486 |
+
+The broad case remains flat because every row changes. The fast path preserves one-tree ownership,
+performs no native mutation, and adds no retained cache or invalidation protocol.
+
+The remaining equal rebuild spends about 14 us and 414 allocations declaring the view, then about
+13-15 us and 72 allocations publishing it. Those 72 calls align with the workload's string-valued
+properties: the generated property visitor materializes owned `PropertyValue::Str` values while
+checking desired values against authoritative known-native values. That comparison cannot be
+dropped because silent native normalization and coercion may make known-native state differ from
+the last desired state. A borrowed generated property visitor is the next bounded investigation;
+do not replace the comparison with an unchecked desired-props memo.
+
+Feature-isolated build and binary measurements remain favorable:
+
+| Frontend | Clean check | Source-only check median | Release executable |
+| --- | ---: | ---: | ---: |
+| `windows-reactor` | 6.17 s | 0.575 s | 2,196,992 bytes |
+| `windows-reactor-next` | 3.70 s | 0.453 s | 872,960 bytes |
+
+The C# repository now has the same logical and native shape as M15. It uses real WinUI controls on
+the UI thread, so its absolute values are a separate live layer rather than ratios against the Rust
+recording driver. Across five 500-operation repetitions, production Reactor allocated about 113 KB
+of managed memory per mixed operation. Mean time drifted from 6.17 to 13.65 ms per operation while
+managed allocation stayed stable; ReactorToday showed the same drift and allocation profile. The
+imperative Direct lower bound was 40-45 us and about 3.9 KB per operation. The growing live times
+show that queued native/layout work and process state need a dedicated live protocol before a
+cross-language runtime conclusion is valid.
+
+This checkpoint closes workload construction and the first frontend profile-led optimization. The
+performance-optimization gate remains open for a matched live Rust workload, process working set,
+frame misses, and a borrowed-property comparison experiment. The current evidence supports
+continuing: next retains clear memory, compile-time, and binary-size advantages, while its remaining
+frontend runtime gap is localized and no longer requires an architectural rewrite.
 
 ## Architecture audit record
 

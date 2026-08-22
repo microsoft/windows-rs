@@ -27,6 +27,32 @@ fn grid_view(first_row: i32, include_definitions: bool) -> View {
     ])
 }
 
+fn virtual_grid_child(row: Option<i32>) -> View {
+    let repeater = ItemsRepeater::new().item("row", TextBlock::new().text("row"));
+    let repeater = if let Some(row) = row {
+        repeater.grid_row(row)
+    } else {
+        repeater
+    };
+    Grid::new().children((repeater,))
+}
+
+#[test]
+fn grid_definitions_reject_invalid_lengths_before_mount() {
+    for invalid in [-1.0, f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
+        assert!(
+            std::panic::catch_unwind(|| Grid::new().rows([GridLength::Pixel(invalid)])).is_err()
+        );
+        assert!(
+            std::panic::catch_unwind(|| Grid::new().columns([GridLength::Star(invalid)])).is_err()
+        );
+    }
+
+    let _ = Grid::new()
+        .rows([GridLength::Pixel(0.0)])
+        .columns([GridLength::Star(0.0)]);
+}
+
 #[test]
 fn grid_mount_records_definitions_spacing_and_child_placement() {
     let mut pump = Pump::new(RecordingRuntime::default());
@@ -195,4 +221,87 @@ fn keyed_grid_child_replacement_applies_placement_to_the_new_node() {
             .property(PropertyId::GridColumn),
         Some(&PropertyValue::I32(4))
     );
+}
+
+#[test]
+fn virtual_grid_child_mounts_updates_and_clears_placement() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(virtual_grid_child(Some(1))).unwrap();
+    let root = pump.root().unwrap();
+    let collection = pump.runtime().node(root).unwrap().children()[0];
+    let commands = &pump.runtime().commands()[0];
+    let create = commands
+        .iter()
+        .position(|command| {
+            matches!(
+                command,
+                Command::CreateVirtualCollection { node, .. } if *node == collection
+            )
+        })
+        .unwrap();
+    let placement = commands
+        .iter()
+        .position(|command| {
+            matches!(
+                command,
+                Command::SetProperty {
+                    node,
+                    property: PropertyId::GridRow,
+                    ..
+                } if *node == collection
+            )
+        })
+        .unwrap();
+    assert!(create < placement);
+    assert_eq!(
+        pump.runtime()
+            .node(collection)
+            .unwrap()
+            .property(PropertyId::GridRow),
+        Some(&PropertyValue::I32(1))
+    );
+
+    pump.update_view(virtual_grid_child(Some(2))).unwrap();
+    assert_eq!(
+        pump.runtime()
+            .node(collection)
+            .unwrap()
+            .property(PropertyId::GridRow),
+        Some(&PropertyValue::I32(2))
+    );
+
+    pump.update_view(virtual_grid_child(None)).unwrap();
+    assert_eq!(
+        pump.runtime()
+            .node(collection)
+            .unwrap()
+            .property(PropertyId::GridRow),
+        None
+    );
+}
+
+#[test]
+fn failed_virtual_grid_placement_does_not_publish_candidate_state() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(virtual_grid_child(Some(1))).unwrap();
+    let collection = pump
+        .runtime()
+        .node(pump.root().unwrap())
+        .unwrap()
+        .children()[0];
+    pump.runtime_mut().fail_at(0);
+
+    assert!(matches!(
+        pump.update_view(virtual_grid_child(Some(2))),
+        Err(PumpError::NativeApplyFailed(_))
+    ));
+    assert_eq!(
+        pump.tree
+            .native(collection)
+            .unwrap()
+            .properties
+            .get(&PropertyId::GridRow),
+        Some(&Some(PropertyValue::I32(1)))
+    );
+    assert!(pump.poisoned());
 }

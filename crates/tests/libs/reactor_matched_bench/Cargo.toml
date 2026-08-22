@@ -1,0 +1,18 @@
+[package]
+name = "test_reactor_matched_bench"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[features]
+default = ["incumbent", "next"]
+incumbent = ["dep:test_reactor", "dep:windows-reactor"]
+next = ["dep:windows-reactor-next"]
+
+[dependencies]
+test_reactor = { path = "../reactor", optional = true }
+windows-reactor = { workspace = true, features = ["test"], optional = true }
+windows-reactor-next = { workspace = true, features = ["test"], optional = true }
+
+[lints]
+workspace = true

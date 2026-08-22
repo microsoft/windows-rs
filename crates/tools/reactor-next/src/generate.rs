@@ -452,7 +452,7 @@ fn has_grid_definitions(control: &ResolvedControl) -> bool {
 }
 
 fn has_grid_placement(control: &ResolvedControl) -> bool {
-    control.capabilities.contains(&Capability::Layout) && !matches!(control.role, Role::Virtual)
+    control.capabilities.contains(&Capability::Layout)
 }
 
 fn generate_mounted_props_variant(control: &ResolvedControl) -> TokenStream {
@@ -1081,7 +1081,12 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                 mut self,
                 values: impl IntoIterator<Item = GridLength>,
             ) -> Self {
-                self.rows = Property::Set(std::rc::Rc::new(values.into_iter().collect()));
+                let values = values.into_iter().collect::<Vec<_>>();
+                assert!(
+                    values.iter().all(|value| value.is_valid()),
+                    "Grid lengths must be finite and non-negative",
+                );
+                self.rows = Property::Set(std::rc::Rc::new(values));
                 self
             }
 
@@ -1093,7 +1098,12 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                 mut self,
                 values: impl IntoIterator<Item = GridLength>,
             ) -> Self {
-                self.columns = Property::Set(std::rc::Rc::new(values.into_iter().collect()));
+                let values = values.into_iter().collect::<Vec<_>>();
+                assert!(
+                    values.iter().all(|value| value.is_valid()),
+                    "Grid lengths must be finite and non-negative",
+                );
+                self.columns = Property::Set(std::rc::Rc::new(values));
                 self
             }
 

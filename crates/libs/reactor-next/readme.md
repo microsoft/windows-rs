@@ -86,6 +86,9 @@ Grid::new()
     ))
 ```
 
+Pixel and star definitions must be finite and non-negative. The builders reject invalid values
+before the declaration reaches candidate planning or native apply.
+
 Components and fragments can flatten to more than one native root, so they do not expose attached
 placement. Put such a view inside a concrete native layout control and place that wrapper.
 
@@ -112,6 +115,7 @@ ItemsRepeater::new()
     .items(records.map(|record| {
         KeyedView::new(record.id, Row::new().content(TextBlock::new().text(record.name)))
     }))
+    .grid_row(1)
 ```
 
 Rows are realized lazily. A row may contain native controls, components, providers, fragments, and
@@ -122,6 +126,8 @@ shell. Zero roots leave it empty. Multiple roots leave it empty and publish
 without stopping the window. A later update that returns to one root reattaches the same logical
 row. Recycling always retires the full logical subtree and detaches only its optional shell root.
 Test and custom hosts can inspect committed diagnostics with `Pump::drain_diagnostics`.
+The repeater itself is one concrete native control, so it supports Grid placement directly without
+a ScrollViewer or other wrapper.
 
 Event setters accept ordinary unit-returning closures and typed message callbacks:
 

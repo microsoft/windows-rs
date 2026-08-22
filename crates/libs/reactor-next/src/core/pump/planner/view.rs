@@ -13,6 +13,12 @@ impl<R: NativeRuntime> Pump<R> {
         changes: &mut ComponentChanges,
         plan: &mut UpdatePlan,
     ) -> Result<NodeId, PumpError> {
+        if !plan.reconcile_observations
+            && !matches!(view.as_kind(), ViewKind::Native(_))
+            && Self::node_matches_view_kind(tree, node, view.as_kind())?
+        {
+            return Ok(node);
+        }
         match view.into_kind() {
             ViewKind::Native(element) => {
                 if matches!(element.structure(), ElementStructureRef::Virtual(_)) {
@@ -402,6 +408,134 @@ impl<R: NativeRuntime> Pump<R> {
         }
     }
 
+    fn node_matches_view_kind(
+        tree: &Tree,
+        node: NodeId,
+        view: &ViewKind,
+    ) -> Result<bool, PumpError> {
+        match view {
+            ViewKind::Native(element) => {
+                if tree.kind(node)? == NodeKind::VirtualCollection {
+                    Ok(false)
+                } else {
+                    Self::node_matches_element(tree, node, element)
+                }
+            }
+            ViewKind::Component(_) => Ok(false),
+            ViewKind::Fragment(children) => {
+                if tree.kind(node)? != NodeKind::Fragment {
+                    return Ok(false);
+                }
+                Self::keyed_views_match(tree, tree.children(node)?, children)
+            }
+            ViewKind::Provider { provision, child } => {
+                if tree.kind(node)? != NodeKind::Provider || tree.provision(node)? != provision {
+                    return Ok(false);
+                }
+                let [current] = tree.children(node)? else {
+                    return Ok(false);
+                };
+                Self::node_matches_view_kind(tree, *current, child)
+            }
+            ViewKind::Content { control, content } => {
+                if !Self::control_has_role(control.kind(), ControlRole::Content)
+                    || !Self::shallow_control_matches(tree, node, control)?
+                {
+                    return Ok(false);
+                }
+                let [current] = tree.children(node)? else {
+                    return Ok(false);
+                };
+                Self::node_matches_view_kind(tree, *current, content)
+            }
+            ViewKind::Children { control, children } => {
+                if !Self::control_has_role(control.kind(), ControlRole::Children)
+                    || !Self::shallow_control_matches(tree, node, control)?
+                {
+                    return Ok(false);
+                }
+                Self::keyed_views_match(tree, tree.children(node)?, children)
+            }
+            ViewKind::Slots {
+                control,
+                slots: desired,
+            } => {
+                if !Self::control_has_role(control.kind(), ControlRole::Slots)
+                    || !Self::shallow_control_matches(tree, node, control)?
+                {
+                    return Ok(false);
+                }
+                let slot_ids = slots(control.kind());
+                let children = tree.children(node)?;
+                if children.len() != slot_ids.len()
+                    || desired.iter().any(|candidate| {
+                        !slot_ids.contains(&candidate.slot)
+                            || desired
+                                .iter()
+                                .filter(|other| other.slot == candidate.slot)
+                                .count()
+                                != 1
+                    })
+                {
+                    return Ok(false);
+                }
+                for (slot_node, slot) in children.iter().zip(slot_ids) {
+                    if tree.kind(*slot_node)? != NodeKind::NamedSlot(*slot) {
+                        return Ok(false);
+                    }
+                    let [current] = tree.children(*slot_node)? else {
+                        return Ok(false);
+                    };
+                    if let Some(desired) = desired.iter().find(|candidate| candidate.slot == *slot)
+                    {
+                        if !Self::node_matches_view_kind(tree, *current, desired.view.as_kind())? {
+                            return Ok(false);
+                        }
+                    } else if tree.kind(*current)? != NodeKind::Fragment
+                        || !tree.children(*current)?.is_empty()
+                    {
+                        return Ok(false);
+                    }
+                }
+                Ok(true)
+            }
+        }
+    }
+
+    fn shallow_control_matches(
+        tree: &Tree,
+        node: NodeId,
+        control: &Element,
+    ) -> Result<bool, PumpError> {
+        if tree.kind(node)? != NodeKind::Native(control.kind())
+            || !Self::element_structure_is_empty(control)
+        {
+            return Ok(false);
+        }
+        let native = tree.native(node)?;
+        Ok(control.props_match(&native.desired)
+            && native.reference.as_ref() == control.reference()
+            && Self::native_properties_match(native, &native.desired, control.grid_placement()))
+    }
+
+    fn keyed_views_match(
+        tree: &Tree,
+        mounted: &[NodeId],
+        desired: &[KeyedView],
+    ) -> Result<bool, PumpError> {
+        if mounted.len() != desired.len() {
+            return Ok(false);
+        }
+        for (mounted, desired) in mounted.iter().zip(desired) {
+            if tree.key(*mounted)? != Some(desired.key())
+                || !Self::node_matches_view_kind(tree, *mounted, desired.view().as_kind())?
+            {
+                return Ok(false);
+            }
+        }
+        Ok(true)
+    }
+
     fn reconcile_virtual_collection(
         tree: &mut Tree,
         node: NodeId,
@@ -422,9 +556,17 @@ impl<R: NativeRuntime> Pump<R> {
                 plan,
             );
         }
-        let ElementStructure::Virtual(items) = element.into_parts().structure else {
+        let ElementParts {
+            props,
+            reference,
+            grid_placement,
+            structure: ElementStructure::Virtual(items),
+            ..
+        } = element.into_parts()
+        else {
             return Err(PumpError::StructureUnsupported);
         };
+        Self::reconcile_native_values(tree, node, props, reference, grid_placement, plan)?;
         let old_keys = tree.virtual_model(node)?.keys();
         let keys_changed = old_keys.len() != items.len()
             || old_keys

@@ -171,6 +171,10 @@ impl View {
         Self(kind)
     }
 
+    pub(crate) fn as_kind(&self) -> &ViewKind {
+        &self.0
+    }
+
     pub(crate) fn into_kind(self) -> ViewKind {
         self.0
     }
@@ -322,6 +326,13 @@ pub enum GridLength {
 
 impl GridLength {
     pub const STAR: Self = Self::Star(1.0);
+
+    pub(crate) fn is_valid(self) -> bool {
+        match self {
+            Self::Auto => true,
+            Self::Pixel(value) | Self::Star(value) => value.is_finite() && value >= 0.0,
+        }
+    }
 }
 
 impl PartialEq for GridLength {

@@ -344,6 +344,36 @@ fn component_row_is_created_lazily_and_recycle_cleans_it_once() {
 }
 
 #[test]
+fn equal_virtual_source_retries_a_dirty_realized_component() {
+    let props = row_props("A");
+    let source = || {
+        StackPanel::new().children((
+            ItemsRepeater::new().item("a", View::component::<ComponentRow>(props.clone())),
+        ))
+    };
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(source()).unwrap();
+    let collection = pump.tree.children(pump.root().unwrap()).unwrap()[0];
+    pump.runtime_mut()
+        .queue_realize(collection, RealizedContainer(1), 0);
+    pump.process_realizations().unwrap();
+    let row = pump
+        .tree
+        .realized(collection, RealizedContainer(1))
+        .unwrap()
+        .unwrap();
+    let token = pump
+        .components
+        .token(pump.tree.component_scope(row.logical_root).unwrap())
+        .unwrap();
+    pump.planning_dirty.insert(token);
+
+    pump.update_view(source()).unwrap();
+
+    assert!(pump.planning_dirty.is_empty());
+}
+
+#[test]
 fn row_effect_setup_and_cleanup_straddle_native_publication() {
     struct OrderedRuntime {
         inner: RecordingRuntime,
