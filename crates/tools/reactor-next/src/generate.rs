@@ -1233,9 +1233,9 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         },
         Role::Leaf | Role::Controlled | Role::Slots => TokenStream::new(),
     };
-    let capability_impls = control.capabilities.iter().map(|capability| {
+    let capability_impls = control.capabilities.iter().filter_map(|capability| {
         if *capability == Capability::Layout && has_grid_placement(control) {
-            return quote! {
+            return Some(quote! {
                 impl LayoutControl for #name {
                     fn grid_placement_mut(
                         &mut self,
@@ -1243,20 +1243,21 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                         &mut self.grid_placement
                     }
                 }
-            };
+            });
         }
-        let capability = ident(match capability {
-            Capability::Layout => "LayoutControl",
-            Capability::TextStyle => "TextStyleControl",
-            Capability::Enabled => "EnabledControl",
+        let capability = match capability {
             Capability::Content => "ContentControl",
             Capability::Children => "ChildrenControl",
-            Capability::ControlledText => "ControlledTextControl",
-            Capability::Items => "ItemsControl",
             Capability::Focus => "FocusControl",
-            Capability::GridDefinitions => "GridDefinitionsControl",
-        });
-        quote! { impl #capability for #name {} }
+            Capability::Layout
+            | Capability::TextStyle
+            | Capability::Enabled
+            | Capability::ControlledText
+            | Capability::Items
+            | Capability::GridDefinitions => return None,
+        };
+        let capability = ident(capability);
+        Some(quote! { impl #capability for #name {} })
     });
     let slots = if control.slots.is_empty() {
         TokenStream::new()
@@ -1522,8 +1523,8 @@ mod tests {
         assert!(output.contains("NavigationViewHeader"));
         assert!(output.contains("ControlRole :: Children"));
         assert!(output.contains("pub struct TextBox"));
-        assert!(output.contains("impl ControlledTextControl for TextBox"));
-        assert!(output.contains("impl ItemsControl for ItemsRepeater"));
+        assert!(!output.contains("impl ControlledTextControl for TextBox"));
+        assert!(!output.contains("impl ItemsControl for ItemsRepeater"));
         assert!(output.contains("item : impl Into < View >"));
         assert!(output.contains("Item = KeyedView"));
         assert!(!output.contains("item_elements"));

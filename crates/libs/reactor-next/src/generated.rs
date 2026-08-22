@@ -54,7 +54,6 @@ pub mod public {
             &mut self.grid_placement
         }
     }
-    impl TextStyleControl for TextBlock {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Button {
         is_enabled: Property<bool>,
@@ -93,7 +92,6 @@ pub mod public {
             &mut self.grid_placement
         }
     }
-    impl EnabledControl for Button {}
     impl ContentControl for Button {}
     impl FocusControl for Button {}
     #[derive(Clone, Debug, Default, PartialEq)]
@@ -232,7 +230,6 @@ pub mod public {
         }
     }
     impl ChildrenControl for Grid {}
-    impl GridDefinitionsControl for Grid {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct TextBox {
         text: Property<String>,
@@ -289,9 +286,6 @@ pub mod public {
             &mut self.grid_placement
         }
     }
-    impl EnabledControl for TextBox {}
-    impl TextStyleControl for TextBox {}
-    impl ControlledTextControl for TextBox {}
     impl FocusControl for TextBox {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct NumberBox {
@@ -340,7 +334,6 @@ pub mod public {
             &mut self.grid_placement
         }
     }
-    impl EnabledControl for NumberBox {}
     impl FocusControl for NumberBox {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Slider {
@@ -389,7 +382,6 @@ pub mod public {
             &mut self.grid_placement
         }
     }
-    impl EnabledControl for Slider {}
     impl FocusControl for Slider {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct NavigationView {
@@ -411,7 +403,6 @@ pub mod public {
             &mut self.grid_placement
         }
     }
-    impl EnabledControl for NavigationView {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum NavigationViewSlot {
@@ -521,7 +512,6 @@ pub mod public {
             &mut self.grid_placement
         }
     }
-    impl EnabledControl for ProgressBar {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ToggleSwitch {
         is_on: Property<bool>,
@@ -559,7 +549,6 @@ pub mod public {
             &mut self.grid_placement
         }
     }
-    impl EnabledControl for ToggleSwitch {}
     impl FocusControl for ToggleSwitch {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ItemsRepeater {
@@ -585,7 +574,6 @@ pub mod public {
             &mut self.grid_placement
         }
     }
-    impl ItemsControl for ItemsRepeater {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ScrollViewer {
         grid_placement: Option<std::rc::Rc<GridPlacement>>,

@@ -55,10 +55,21 @@ Same-key, same-type children retain scopes across prop updates and keyed movemen
 The component store owns current props and borrows them into `Component::view`. Components that
 render directly from props do not need duplicate fields or a `changed` implementation.
 
+`create` and `update` remain required. Defaulting `create` would require `Default` even when
+component state comes from props or lifecycle capabilities. Defaulting `update` would allow a
+message-bearing component to compile while discarding messages. Stable Rust also cannot default
+the associated `Props` and `Message` types. The small saving for zero-sized render-only components
+does not justify a derive macro or a second stateless-component trait.
+
 Generated controls convert directly to `View`. Structural capabilities are terminal methods on
 the controls: `content`, `children`, `keyed_children`, and `slots` all return the same core `View`
 used by components and the planner. This is not a wrapper frontend. Property and event builders
 must run before a terminal structural method.
+
+Only capabilities with application behavior generate Rust traits. Text style, enabled state,
+controlled text, item sources, and Grid definitions remain schema capabilities without empty
+marker traits. Native-only children use private `KeyedElement`; application-owned dynamic
+structure uses `KeyedView`.
 
 Clearable scalar and enum setters accept `T` or `Option<T>` through the same generated method.
 String and Grid-definition setters use `*_optional` variants because a nested generic conversion

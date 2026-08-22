@@ -59,24 +59,24 @@ impl From<&str> for Key {
 }
 
 #[derive(Clone, Debug, PartialEq)]
-pub struct KeyedElement {
+pub(crate) struct KeyedElement {
     key: Key,
     element: Element,
 }
 
 impl KeyedElement {
-    pub fn new(key: impl Into<Key>, element: impl Into<Element>) -> Self {
+    pub(crate) fn new(key: impl Into<Key>, element: impl Into<Element>) -> Self {
         Self {
             key: key.into(),
             element: element.into(),
         }
     }
 
-    pub fn key(&self) -> &Key {
+    pub(crate) fn key(&self) -> &Key {
         &self.key
     }
 
-    pub fn element(&self) -> &Element {
+    pub(crate) fn element(&self) -> &Element {
         &self.element
     }
 
@@ -478,15 +478,6 @@ pub trait LayoutControl: sealed::Sealed {
     #[doc(hidden)]
     fn grid_placement_mut(&mut self) -> &mut Option<Rc<GridPlacement>>;
 }
-pub trait TextStyleControl: sealed::Sealed {}
-/// Marks controls that support enabled state.
-///
-/// ```compile_fail
-/// use windows_reactor_next::TextBlock;
-///
-/// let _ = TextBlock::new().is_enabled(false);
-/// ```
-pub trait EnabledControl: sealed::Sealed {}
 pub trait ContentControl: sealed::Sealed + Into<Element> + Sized {
     fn content(self, content: impl Into<View>) -> View {
         View(ViewKind::Content {
@@ -535,9 +526,6 @@ pub trait SlotsControl: sealed::Sealed + Into<Element> + Sized {
     #[doc(hidden)]
     fn slot_index(slot: Self::Slot) -> u8;
 }
-pub trait ControlledTextControl: sealed::Sealed {}
-pub trait ItemsControl: sealed::Sealed {}
-pub trait GridDefinitionsControl: sealed::Sealed {}
 
 /// Places a concrete native control in its parent Grid.
 ///

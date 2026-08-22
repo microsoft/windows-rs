@@ -941,6 +941,20 @@ Rust frontend and C# Reactor in this workload. Its remaining cheap-update CPU an
 gaps are localized and do not require an architectural rewrite. Performance remains a planned
 remeasurement and optimization phase as control coverage and API design grow.
 
+The C# measurements are a reported checkpoint until the external M15 source and raw output are
+committed and linked by exact revision. The local harness and result artifact produced the table,
+but the cited repository's default branch does not yet make that evidence independently
+reproducible. This provenance task does not reopen the reproducible Rust replacement gate or block
+API work.
+
+Future performance work should begin with allocation profiles for fresh declaration construction
+and broad changed trees. Bounded candidates are shared immutable model values, eliminating a
+measured duplicate ownership clone between changed-property commands and commits, and combining the
+mounted matcher with reconciliation if profiles show its double walk is material. A lazy indexed
+virtual source remains conditional on a real application needing roughly 100,000 rows. Native tail
+latency must stay correlated with host and native phases rather than driving frontend caches.
+General retained declaration caches remain out of scope.
+
 ## API polish record
 
 ### Generated declaration surface
@@ -956,6 +970,12 @@ structural capabilities, references, and typed events, but not their backing rep
 removed 117 generated public methods without changing declaration layout, planning, or runtime
 behavior. Generator tests reject reintroducing property, Grid-definition, and callback getters.
 
+The final consistency pass also made `KeyedElement` private and removed empty generated capability
+markers. `KeyedElement` belongs to native-only construction; dynamic application composition uses
+`KeyedView`. Text style, enabled state, controlled text, item sources, and Grid definitions remain
+schema capabilities but do not generate empty Rust traits. Public capability traits remain only
+where they expose behavior: content, children, slots, Grid placement, and focus.
+
 Conditional property reset now uses the generated setter surface without exposing `Property<T>`.
 Scalar and enum setters accept either `T` or `Option<T>`. String properties and Grid definitions
 retain their inference-friendly ordinary setter and add `*_optional` methods. `Some` follows the
@@ -967,6 +987,25 @@ Recording tests prove set-to-`None` and repeated-`None` behavior for TextBox, Nu
 and ToggleSwitch. The existing controlled-feedback boundary suppresses native echoes during clear
 and commits the authoritative cleared state. Grid optional definitions validate only present
 values. This adds no planner command, public wrapper, retained state, or alternate control path.
+
+### Component boilerplate
+
+The component API remains unchanged after auditing the integrated samples. Eleven sample component
+implementations contain five empty `update` methods, and only four pair an empty update with a
+zero-sized `create` that returns `Self`. Stateful roots need `create` for props, references,
+senders, background work, or live subscriptions, and their `update` methods contain application
+behavior.
+
+Stable Rust cannot provide default associated `Props` and `Message` types. A usable default
+`create` would require every component to implement `Default`, including components whose state
+must come from props or `ComponentContext`. A default no-op `update` would let a message-bearing
+component compile while silently discarding events. A derive macro or separate stateless-component
+trait would save two short methods on four current leaves at the cost of another public model and
+more generated or blanket-implementation behavior.
+
+Keep one explicit `Component` trait. `changed` already defaults to no-op, and store-owned props
+already avoid copying props into render-only components. Revisit boilerplate only if stable Rust
+adds associated type defaults or application evidence shows substantially more repetition.
 
 ## Architecture audit record
 
