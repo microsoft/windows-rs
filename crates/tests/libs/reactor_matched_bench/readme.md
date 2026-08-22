@@ -37,3 +37,27 @@ owned by each phase. The phase medians are marginal distributions and are not ex
 the total median. Retained bytes measure the model, frontend state, published tree, and recording
 runtime after the initial mount. They are allocator deltas in one process, so use them as a relative
 Rust comparison rather than a process working-set measurement.
+
+## Live WinUI protocol
+
+Two feature-isolated binaries mount the same model and tree through real WinUI. Keeping the
+frontends in separate executables avoids linking two application hosts into one measured process.
+Both binaries maximize the active window before 16 warmup updates and record the actual client
+dimensions at the start and end of measurement. Each composition frame applies one operation from
+the five-operation sequence. The next update does not begin until the dispatcher and compositor
+return for another frame.
+
+Run the live binaries separately:
+
+```powershell
+cargo run --release -p test_reactor_matched_bench --no-default-features `
+    --features incumbent,live --bin reactor-matched-live-incumbent -- --samples 500
+cargo run --release -p test_reactor_matched_bench --no-default-features `
+    --features next,live --bin reactor-matched-live-next -- --samples 500
+```
+
+The live report includes Rust allocation calls and bytes, process working/private bytes, verified
+client size, frame intervals and misses, and the timing phases exposed by each host. The incumbent
+reports tree-build, reconcile, and effect timing. Next reports full host dispatch and native apply
+timing. These phase boundaries differ, so compare whole-frame behavior and process measurements
+before interpreting individual phase values.

@@ -176,6 +176,11 @@ impl WinUiRuntime {
     }
 
     #[cfg(feature = "test")]
+    pub fn clear_live_native_apply_times(&mut self) {
+        self.native_apply_times_us.clear();
+    }
+
+    #[cfg(feature = "test")]
     pub fn live_bring_virtual_index(&self, index: usize) -> Result<(), RuntimeError> {
         let virtual_handle = self
             .virtuals

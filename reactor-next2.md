@@ -880,11 +880,41 @@ imperative Direct lower bound was 40-45 us and about 3.9 KB per operation. The g
 show that queued native/layout work and process state need a dedicated live protocol before a
 cross-language runtime conclusion is valid.
 
-This checkpoint closes workload construction and the first frontend profile-led optimization. The
-performance-optimization gate remains open for a matched live Rust workload, process working set,
-frame misses, and a borrowed-property comparison experiment. The current evidence supports
-continuing: next retains clear memory, compile-time, and binary-size advantages, while its remaining
-frontend runtime gap is localized and no longer requires an architectural rewrite.
+The Rust live protocol now runs the two frontends in separate feature-isolated executables against
+real WinUI. Both maximize the active window, wait 16 warmup updates, verify the client dimensions,
+and apply one operation per composition frame. Returning to the dispatcher between updates prevents
+the unbounded queued-layout drift seen in the first C# run. Three paired 500-update release
+repetitions used the same `3840x2054` client area throughout:
+
+| Metric | Incumbent range | Next range |
+| --- | ---: | ---: |
+| Frame median | 17.17-17.36 ms | 17.35-17.60 ms |
+| Frame p95 | 27.12-27.80 ms | 27.57-27.87 ms |
+| Frames over 25 ms | 43-49 / 500 | 48-50 / 500 |
+| Frames over 33.4 ms | 0-5 / 500 | 3-4 / 500 |
+| Rust bytes/update | 119,732 | 66,334 |
+| Rust allocations/update | 250.6 | 941.0 |
+| Ending working set | 115.2-116.3 MB | 115.2-116.1 MB |
+| Ending private bytes | 100.7-102.1 MB | 99.8-101.6 MB |
+
+An additional corrected run after removing warmup-buffer extraction from allocator accounting
+reported the same allocation rates. Next uses 44.6% fewer Rust allocation bytes but makes 3.75x
+more allocation calls. Frame cadence, missed-frame counts, and ending process memory are close
+enough that there is no evidence of a material live runtime or memory regression. The incumbent's
+cheap-update tree-build plus reconcile median is about 72-80 us; next's host-dispatch median is
+about 143-152 us. Broad native mutation dominates both p95 paths at about 8.7-8.9 ms.
+
+The live reports do not claim a Rust retained-heap delta: next's test instrumentation owns timing
+vectors that the incumbent host does not, so such a value would measure the harness. Process
+working/private bytes and the recording benchmark's post-mount retained-tree measurement remain the
+valid memory gates.
+
+This checkpoint closes workload construction, the first frontend profile-led optimization, and the
+matched live Rust gate. The performance-optimization gate remains open for the bounded borrowed
+property visitor experiment and later remeasurement as control coverage grows. Current evidence
+supports continuing: next retains memory, compile-time, and binary-size advantages, while its
+remaining cheap-update CPU and allocation-call gaps are localized and do not require an
+architectural rewrite.
 
 ## Architecture audit record
 

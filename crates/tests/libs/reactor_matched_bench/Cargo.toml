@@ -8,11 +8,27 @@ publish = false
 default = ["incumbent", "next"]
 incumbent = ["dep:test_reactor", "dep:windows-reactor"]
 next = ["dep:windows-reactor-next"]
+live = ["dep:windows", "dep:windows-core"]
 
 [dependencies]
 test_reactor = { path = "../reactor", optional = true }
 windows-reactor = { workspace = true, features = ["test"], optional = true }
 windows-reactor-next = { workspace = true, features = ["test"], optional = true }
+windows = { workspace = true, features = ["processthreadsapi", "psapi", "winuser"], optional = true }
+windows-core = { workspace = true, optional = true }
+
+[build-dependencies]
+windows-reactor-setup = { workspace = true }
+
+[[bin]]
+name = "reactor-matched-live-incumbent"
+path = "src/live_incumbent.rs"
+required-features = ["incumbent", "live"]
+
+[[bin]]
+name = "reactor-matched-live-next"
+path = "src/live_next.rs"
+required-features = ["next", "live"]
 
 [lints]
 workspace = true

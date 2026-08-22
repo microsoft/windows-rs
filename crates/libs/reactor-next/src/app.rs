@@ -127,6 +127,8 @@ trait LivePump {
         Vec::new()
     }
     #[cfg(feature = "test")]
+    fn clear_live_native_apply_times(&mut self) {}
+    #[cfg(feature = "test")]
     fn live_rejection_then_retry(&self) -> bool {
         false
     }
@@ -436,6 +438,11 @@ impl LivePump for ComponentLoop {
     #[cfg(feature = "test")]
     fn take_live_native_apply_times(&mut self) -> Vec<f64> {
         self.pump.runtime_mut().take_live_native_apply_times()
+    }
+
+    #[cfg(feature = "test")]
+    fn clear_live_native_apply_times(&mut self) {
+        self.pump.runtime_mut().clear_live_native_apply_times();
     }
 
     #[cfg(feature = "test")]
@@ -850,6 +857,16 @@ pub fn take_live_performance_times() -> (Vec<f64>, Vec<f64>) {
             .map_or_else(Vec::new, LivePump::take_live_native_apply_times)
     });
     (dispatch, native)
+}
+
+#[cfg(feature = "test")]
+pub fn clear_live_performance_times() {
+    LIVE_DISPATCH_TIMES_US.with(|times| times.borrow_mut().clear());
+    HOST.with(|host| {
+        if let Some(primary) = host.borrow_mut().as_mut().and_then(LiveHost::primary_mut) {
+            primary.clear_live_native_apply_times();
+        }
+    });
 }
 
 pub struct App;

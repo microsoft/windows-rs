@@ -437,3 +437,6 @@ fixture. It edits one window at a time, verifies window-specific callback payloa
 secondary with a background task in flight, verifies that its completion is discarded, and
 continues background delivery, updates, and final effect cleanup in the surviving window. An
 explicit completion marker prevents an early `App::run_windows` return from passing.
+The feature also exposes live dispatch and native-apply timing buffers. Benchmarks can clear these
+buffers after warmup without discarding their reserved storage, then take the measured samples when
+the run finishes.
