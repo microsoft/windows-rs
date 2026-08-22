@@ -956,9 +956,17 @@ structural capabilities, references, and typed events, but not their backing rep
 removed 117 generated public methods without changing declaration layout, planning, or runtime
 behavior. Generator tests reject reintroducing property, Grid-definition, and callback getters.
 
-The next API tranche must define conditional property reset semantics before adding a public
-abstraction. It should prove the contract on TextBox, ToggleSwitch, Slider, and NumberBox and must
-not expose `Property<T>` as an escape hatch.
+Conditional property reset now uses the generated setter surface without exposing `Property<T>`.
+Scalar and enum setters accept either `T` or `Option<T>`. String properties and Grid definitions
+retain their inference-friendly ordinary setter and add `*_optional` methods. `Some` follows the
+existing set path; `None` produces the same inherited declaration as omission. A published set
+therefore transitions through the existing `ClearProperty` command and WinUI `ClearValue`, while a
+repeated `None` emits no native work.
+
+Recording tests prove set-to-`None` and repeated-`None` behavior for TextBox, NumberBox, Slider,
+and ToggleSwitch. The existing controlled-feedback boundary suppresses native echoes during clear
+and commits the authoritative cleared state. Grid optional definitions validate only present
+values. This adds no planner command, public wrapper, retained state, or alternate control path.
 
 ## Architecture audit record
 

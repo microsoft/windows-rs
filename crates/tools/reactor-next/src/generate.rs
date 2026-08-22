@@ -1083,16 +1083,25 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         let field = ident(&property.field);
         let value = value_type(&property.value);
         if property.value == "Str" {
+            let optional = ident(&format!("{}_optional", property.field));
             quote! {
                 pub fn #field(mut self, value: impl Into<String>) -> Self {
                     self.#field = Property::Set(value.into());
                     self
                 }
+
+                pub fn #optional<T>(mut self, value: Option<T>) -> Self
+                where
+                    T: Into<String>,
+                {
+                    self.#field = Property::from(value.map(Into::into));
+                    self
+                }
             }
         } else {
             quote! {
-                pub fn #field(mut self, value: #value) -> Self {
-                    self.#field = Property::Set(value);
+                pub fn #field(mut self, value: impl Into<Option<#value>>) -> Self {
+                    self.#field = Property::from(value.into());
                     self
                 }
             }
@@ -1132,6 +1141,23 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                 self
             }
 
+            pub fn rows_optional<T>(mut self, values: Option<T>) -> Self
+            where
+                T: IntoIterator<Item = GridLength>,
+            {
+                self.rows = Property::from(
+                    values.map(|values| {
+                        let values = values.into_iter().collect::<Vec<_>>();
+                        assert!(
+                            values.iter().all(|value| value.is_valid()),
+                            "Grid lengths must be finite and non-negative",
+                        );
+                        std::rc::Rc::new(values)
+                    }),
+                );
+                self
+            }
+
             pub fn columns(
                 mut self,
                 values: impl IntoIterator<Item = GridLength>,
@@ -1142,6 +1168,23 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                     "Grid lengths must be finite and non-negative",
                 );
                 self.columns = Property::Set(std::rc::Rc::new(values));
+                self
+            }
+
+            pub fn columns_optional<T>(mut self, values: Option<T>) -> Self
+            where
+                T: IntoIterator<Item = GridLength>,
+            {
+                self.columns = Property::from(
+                    values.map(|values| {
+                        let values = values.into_iter().collect::<Vec<_>>();
+                        assert!(
+                            values.iter().all(|value| value.is_valid()),
+                            "Grid lengths must be finite and non-negative",
+                        );
+                        std::rc::Rc::new(values)
+                    }),
+                );
                 self
             }
         }
@@ -1487,6 +1530,10 @@ mod tests {
         assert!(output.contains("pub enum Orientation"));
         assert!(output.contains("callback : impl IntoUnitCallback"));
         assert!(output.contains("callback : impl IntoPayloadCallback < String >"));
+        assert!(output.contains("value : impl Into < Option < bool >"));
+        assert!(output.contains("pub fn text_optional"));
+        assert!(output.contains("pub fn rows_optional"));
+        assert!(output.contains("pub fn columns_optional"));
         assert!(!output.contains("pub fn text_property"));
         assert!(!output.contains("pub fn on_click_callback"));
         assert!(!output.contains("pub fn rows_property"));
@@ -1512,6 +1559,7 @@ clearable = true
 
         assert!(output.contains("pub struct ProgressBar"));
         assert!(output.contains("value : Property < f64 >"));
+        assert!(output.contains("value : impl Into < Option < f64 >"));
         assert!(
             output.contains("interface : \"Microsoft.UI.Xaml.Controls.Primitives.IRangeBase\"")
         );

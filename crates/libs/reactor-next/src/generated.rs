@@ -36,8 +36,15 @@ pub mod public {
             self.text = Property::Set(value.into());
             self
         }
-        pub fn text_wrapping(mut self, value: TextWrapping) -> Self {
-            self.text_wrapping = Property::Set(value);
+        pub fn text_optional<T>(mut self, value: Option<T>) -> Self
+        where
+            T: Into<String>,
+        {
+            self.text = Property::from(value.map(Into::into));
+            self
+        }
+        pub fn text_wrapping(mut self, value: impl Into<Option<TextWrapping>>) -> Self {
+            self.text_wrapping = Property::from(value.into());
             self
         }
     }
@@ -64,8 +71,8 @@ pub mod public {
             self.reference = Some(reference.binding());
             self
         }
-        pub fn is_enabled(mut self, value: bool) -> Self {
-            self.is_enabled = Property::Set(value);
+        pub fn is_enabled(mut self, value: impl Into<Option<bool>>) -> Self {
+            self.is_enabled = Property::from(value.into());
             self
         }
         pub fn on_click(mut self, callback: impl IntoUnitCallback) -> Self {
@@ -100,12 +107,12 @@ pub mod public {
         pub fn new() -> Self {
             Self::default()
         }
-        pub fn orientation(mut self, value: Orientation) -> Self {
-            self.orientation = Property::Set(value);
+        pub fn orientation(mut self, value: impl Into<Option<Orientation>>) -> Self {
+            self.orientation = Property::from(value.into());
             self
         }
-        pub fn spacing(mut self, value: f64) -> Self {
-            self.spacing = Property::Set(value);
+        pub fn spacing(mut self, value: impl Into<Option<f64>>) -> Self {
+            self.spacing = Property::from(value.into());
             self
         }
         #[allow(dead_code)]
@@ -146,12 +153,12 @@ pub mod public {
         pub fn new() -> Self {
             Self::default()
         }
-        pub fn row_spacing(mut self, value: f64) -> Self {
-            self.row_spacing = Property::Set(value);
+        pub fn row_spacing(mut self, value: impl Into<Option<f64>>) -> Self {
+            self.row_spacing = Property::from(value.into());
             self
         }
-        pub fn column_spacing(mut self, value: f64) -> Self {
-            self.column_spacing = Property::Set(value);
+        pub fn column_spacing(mut self, value: impl Into<Option<f64>>) -> Self {
+            self.column_spacing = Property::from(value.into());
             self
         }
         pub fn rows(mut self, values: impl IntoIterator<Item = GridLength>) -> Self {
@@ -163,6 +170,20 @@ pub mod public {
             self.rows = Property::Set(std::rc::Rc::new(values));
             self
         }
+        pub fn rows_optional<T>(mut self, values: Option<T>) -> Self
+        where
+            T: IntoIterator<Item = GridLength>,
+        {
+            self.rows = Property::from(values.map(|values| {
+                let values = values.into_iter().collect::<Vec<_>>();
+                assert!(
+                    values.iter().all(|value| value.is_valid()),
+                    "Grid lengths must be finite and non-negative",
+                );
+                std::rc::Rc::new(values)
+            }));
+            self
+        }
         pub fn columns(mut self, values: impl IntoIterator<Item = GridLength>) -> Self {
             let values = values.into_iter().collect::<Vec<_>>();
             assert!(
@@ -170,6 +191,20 @@ pub mod public {
                 "Grid lengths must be finite and non-negative",
             );
             self.columns = Property::Set(std::rc::Rc::new(values));
+            self
+        }
+        pub fn columns_optional<T>(mut self, values: Option<T>) -> Self
+        where
+            T: IntoIterator<Item = GridLength>,
+        {
+            self.columns = Property::from(values.map(|values| {
+                let values = values.into_iter().collect::<Vec<_>>();
+                assert!(
+                    values.iter().all(|value| value.is_valid()),
+                    "Grid lengths must be finite and non-negative",
+                );
+                std::rc::Rc::new(values)
+            }));
             self
         }
         #[allow(dead_code)]
@@ -219,12 +254,26 @@ pub mod public {
             self.text = Property::Set(value.into());
             self
         }
+        pub fn text_optional<T>(mut self, value: Option<T>) -> Self
+        where
+            T: Into<String>,
+        {
+            self.text = Property::from(value.map(Into::into));
+            self
+        }
         pub fn placeholder_text(mut self, value: impl Into<String>) -> Self {
             self.placeholder_text = Property::Set(value.into());
             self
         }
-        pub fn is_enabled(mut self, value: bool) -> Self {
-            self.is_enabled = Property::Set(value);
+        pub fn placeholder_text_optional<T>(mut self, value: Option<T>) -> Self
+        where
+            T: Into<String>,
+        {
+            self.placeholder_text = Property::from(value.map(Into::into));
+            self
+        }
+        pub fn is_enabled(mut self, value: impl Into<Option<bool>>) -> Self {
+            self.is_enabled = Property::from(value.into());
             self
         }
         pub fn on_text_changed(mut self, callback: impl IntoPayloadCallback<String>) -> Self {
@@ -262,20 +311,20 @@ pub mod public {
             self.reference = Some(reference.binding());
             self
         }
-        pub fn minimum(mut self, value: f64) -> Self {
-            self.minimum = Property::Set(value);
+        pub fn minimum(mut self, value: impl Into<Option<f64>>) -> Self {
+            self.minimum = Property::from(value.into());
             self
         }
-        pub fn maximum(mut self, value: f64) -> Self {
-            self.maximum = Property::Set(value);
+        pub fn maximum(mut self, value: impl Into<Option<f64>>) -> Self {
+            self.maximum = Property::from(value.into());
             self
         }
-        pub fn value(mut self, value: f64) -> Self {
-            self.value = Property::Set(value);
+        pub fn value(mut self, value: impl Into<Option<f64>>) -> Self {
+            self.value = Property::from(value.into());
             self
         }
-        pub fn is_enabled(mut self, value: bool) -> Self {
-            self.is_enabled = Property::Set(value);
+        pub fn is_enabled(mut self, value: impl Into<Option<bool>>) -> Self {
+            self.is_enabled = Property::from(value.into());
             self
         }
         pub fn on_value_changed(mut self, callback: impl IntoPayloadCallback<f64>) -> Self {
@@ -311,20 +360,20 @@ pub mod public {
             self.reference = Some(reference.binding());
             self
         }
-        pub fn minimum(mut self, value: f64) -> Self {
-            self.minimum = Property::Set(value);
+        pub fn minimum(mut self, value: impl Into<Option<f64>>) -> Self {
+            self.minimum = Property::from(value.into());
             self
         }
-        pub fn maximum(mut self, value: f64) -> Self {
-            self.maximum = Property::Set(value);
+        pub fn maximum(mut self, value: impl Into<Option<f64>>) -> Self {
+            self.maximum = Property::from(value.into());
             self
         }
-        pub fn value(mut self, value: f64) -> Self {
-            self.value = Property::Set(value);
+        pub fn value(mut self, value: impl Into<Option<f64>>) -> Self {
+            self.value = Property::from(value.into());
             self
         }
-        pub fn is_enabled(mut self, value: bool) -> Self {
-            self.is_enabled = Property::Set(value);
+        pub fn is_enabled(mut self, value: impl Into<Option<bool>>) -> Self {
+            self.is_enabled = Property::from(value.into());
             self
         }
         pub fn on_value_changed(mut self, callback: impl IntoPayloadCallback<f64>) -> Self {
@@ -351,8 +400,8 @@ pub mod public {
         pub fn new() -> Self {
             Self::default()
         }
-        pub fn is_enabled(mut self, value: bool) -> Self {
-            self.is_enabled = Property::Set(value);
+        pub fn is_enabled(mut self, value: impl Into<Option<bool>>) -> Self {
+            self.is_enabled = Property::from(value.into());
             self
         }
     }
@@ -387,20 +436,20 @@ pub mod public {
         pub fn new() -> Self {
             Self::default()
         }
-        pub fn open_pane_length(mut self, value: f64) -> Self {
-            self.open_pane_length = Property::Set(value);
+        pub fn open_pane_length(mut self, value: impl Into<Option<f64>>) -> Self {
+            self.open_pane_length = Property::from(value.into());
             self
         }
-        pub fn compact_pane_length(mut self, value: f64) -> Self {
-            self.compact_pane_length = Property::Set(value);
+        pub fn compact_pane_length(mut self, value: impl Into<Option<f64>>) -> Self {
+            self.compact_pane_length = Property::from(value.into());
             self
         }
-        pub fn display_mode(mut self, value: SplitViewDisplayMode) -> Self {
-            self.display_mode = Property::Set(value);
+        pub fn display_mode(mut self, value: impl Into<Option<SplitViewDisplayMode>>) -> Self {
+            self.display_mode = Property::from(value.into());
             self
         }
-        pub fn is_pane_open(mut self, value: bool) -> Self {
-            self.is_pane_open = Property::Set(value);
+        pub fn is_pane_open(mut self, value: impl Into<Option<bool>>) -> Self {
+            self.is_pane_open = Property::from(value.into());
             self
         }
     }
@@ -437,32 +486,32 @@ pub mod public {
         pub fn new() -> Self {
             Self::default()
         }
-        pub fn minimum(mut self, value: f64) -> Self {
-            self.minimum = Property::Set(value);
+        pub fn minimum(mut self, value: impl Into<Option<f64>>) -> Self {
+            self.minimum = Property::from(value.into());
             self
         }
-        pub fn maximum(mut self, value: f64) -> Self {
-            self.maximum = Property::Set(value);
+        pub fn maximum(mut self, value: impl Into<Option<f64>>) -> Self {
+            self.maximum = Property::from(value.into());
             self
         }
-        pub fn value(mut self, value: f64) -> Self {
-            self.value = Property::Set(value);
+        pub fn value(mut self, value: impl Into<Option<f64>>) -> Self {
+            self.value = Property::from(value.into());
             self
         }
-        pub fn is_indeterminate(mut self, value: bool) -> Self {
-            self.is_indeterminate = Property::Set(value);
+        pub fn is_indeterminate(mut self, value: impl Into<Option<bool>>) -> Self {
+            self.is_indeterminate = Property::from(value.into());
             self
         }
-        pub fn show_error(mut self, value: bool) -> Self {
-            self.show_error = Property::Set(value);
+        pub fn show_error(mut self, value: impl Into<Option<bool>>) -> Self {
+            self.show_error = Property::from(value.into());
             self
         }
-        pub fn show_paused(mut self, value: bool) -> Self {
-            self.show_paused = Property::Set(value);
+        pub fn show_paused(mut self, value: impl Into<Option<bool>>) -> Self {
+            self.show_paused = Property::from(value.into());
             self
         }
-        pub fn is_enabled(mut self, value: bool) -> Self {
-            self.is_enabled = Property::Set(value);
+        pub fn is_enabled(mut self, value: impl Into<Option<bool>>) -> Self {
+            self.is_enabled = Property::from(value.into());
             self
         }
     }
@@ -489,12 +538,12 @@ pub mod public {
             self.reference = Some(reference.binding());
             self
         }
-        pub fn is_on(mut self, value: bool) -> Self {
-            self.is_on = Property::Set(value);
+        pub fn is_on(mut self, value: impl Into<Option<bool>>) -> Self {
+            self.is_on = Property::from(value.into());
             self
         }
-        pub fn is_enabled(mut self, value: bool) -> Self {
-            self.is_enabled = Property::Set(value);
+        pub fn is_enabled(mut self, value: impl Into<Option<bool>>) -> Self {
+            self.is_enabled = Property::from(value.into());
             self
         }
         pub fn on_toggled(mut self, callback: impl IntoPayloadCallback<bool>) -> Self {

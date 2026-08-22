@@ -372,6 +372,15 @@ impl<T> Property<T> {
     }
 }
 
+impl<T> From<Option<T>> for Property<T> {
+    fn from(value: Option<T>) -> Self {
+        match value {
+            Some(value) => Self::Set(value),
+            None => Self::Inherited,
+        }
+    }
+}
+
 pub(crate) fn f64_eq(left: f64, right: f64) -> bool {
     left == right || left.is_nan() && right.is_nan()
 }

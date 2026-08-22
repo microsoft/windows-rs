@@ -71,6 +71,24 @@ cannot collide with public numeric or string keys.
 These methods construct the core `View` variants consumed by the existing planner. They are not a
 wrapper frontend and do not add another tree or reconciliation path.
 
+Clearable scalar and enum properties accept either a value or `Option<T>`. String properties and
+Grid definitions retain their existing inference-friendly setters and add `*_optional` variants:
+
+```rust,ignore
+TextBox::new()
+    .text_optional(initial_name.as_deref())
+    .is_enabled(editable);
+ToggleSwitch::new().is_on(saved_state);
+Slider::new().value(restored_value);
+Grid::new().rows_optional(layout_rows);
+```
+
+`Some(value)` declares the property. `None` leaves it inherited; if the published declaration
+previously set the property, the next update calls WinUI `ClearValue` and returns it to the
+platform value. Repeating `None` is a no-op. Controlled TextBox, NumberBox, Slider, and
+ToggleSwitch clears use the same feedback suppression and authoritative native-state update as
+ordinary declaration omission.
+
 `Grid` exposes row and column definitions as value-like properties. Concrete native controls use
 `GridChildExt` for attached placement:
 

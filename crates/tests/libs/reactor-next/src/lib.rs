@@ -4,6 +4,8 @@ mod tests {
 
     #[test]
     fn generated_builders_compose_elements() {
+        let optional_text = Some("value");
+        let optional_enabled = Some(true);
         let text = TextBlock::new()
             .text("hello")
             .text_wrapping(TextWrapping::Wrap);
@@ -12,14 +14,24 @@ mod tests {
             .spacing(8.0);
         let button = Button::new().is_enabled(false);
         let text_box = TextBox::new()
-            .text("value")
+            .text_optional(optional_text)
             .placeholder_text("hint")
-            .is_enabled(true);
+            .is_enabled(optional_enabled);
+        let number_box = NumberBox::new().value(None);
+        let slider = Slider::new().value(Some(10.0));
+        let toggle = ToggleSwitch::new().is_on(None);
+        let grid = Grid::new()
+            .rows_optional(Some([GridLength::Auto, GridLength::STAR]))
+            .columns_optional(None::<[GridLength; 0]>);
 
         assert!(matches!(Element::from(text), Element::TextBlock(_)));
         assert!(matches!(Element::from(stack), Element::StackPanel(_)));
         assert!(matches!(Element::from(button), Element::Button(_)));
         assert!(matches!(Element::from(text_box), Element::TextBox(_)));
+        assert!(matches!(Element::from(number_box), Element::NumberBox(_)));
+        assert!(matches!(Element::from(slider), Element::Slider(_)));
+        assert!(matches!(Element::from(toggle), Element::ToggleSwitch(_)));
+        assert!(matches!(Element::from(grid), Element::Grid(_)));
     }
 
     #[test]

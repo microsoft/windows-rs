@@ -616,12 +616,40 @@ fn slider_nan_value_is_idempotent() {
 }
 
 #[test]
-fn normalized_range_value_clears_are_idempotent() {
+fn optional_controlled_values_clear_and_remain_idempotent() {
+    let mut text_box = Pump::new(RecordingRuntime::default());
+    text_box.mount(TextBox::new().text("value").into()).unwrap();
+    text_box
+        .update(TextBox::new().text_optional(None::<String>).into())
+        .unwrap();
+    assert!(
+        text_box
+            .runtime()
+            .commands()
+            .last()
+            .unwrap()
+            .iter()
+            .any(|command| matches!(
+                command,
+                Command::ClearProperty {
+                    property: PropertyId::TextBoxText,
+                    ..
+                }
+            ))
+    );
+    let batches = text_box.runtime().batches();
+    text_box
+        .update(TextBox::new().text_optional(None::<String>).into())
+        .unwrap();
+    assert_eq!(text_box.runtime().batches(), batches);
+
     let mut number_box = Pump::new(RecordingRuntime::default());
     number_box
         .mount(NumberBox::new().value(5.0).into())
         .unwrap();
-    number_box.update(NumberBox::new().into()).unwrap();
+    number_box
+        .update(NumberBox::new().value(None).into())
+        .unwrap();
     assert!(
         number_box
             .runtime()
@@ -638,12 +666,14 @@ fn normalized_range_value_clears_are_idempotent() {
             ))
     );
     let batches = number_box.runtime().batches();
-    number_box.update(NumberBox::new().into()).unwrap();
+    number_box
+        .update(NumberBox::new().value(None).into())
+        .unwrap();
     assert_eq!(number_box.runtime().batches(), batches);
 
     let mut slider = Pump::new(RecordingRuntime::default());
     slider.mount(Slider::new().value(5.0).into()).unwrap();
-    slider.update(Slider::new().into()).unwrap();
+    slider.update(Slider::new().value(None).into()).unwrap();
     assert!(
         slider
             .runtime()
@@ -660,8 +690,36 @@ fn normalized_range_value_clears_are_idempotent() {
             ))
     );
     let batches = slider.runtime().batches();
-    slider.update(Slider::new().into()).unwrap();
+    slider.update(Slider::new().value(None).into()).unwrap();
     assert_eq!(slider.runtime().batches(), batches);
+
+    let mut toggle = Pump::new(RecordingRuntime::default());
+    toggle
+        .mount(ToggleSwitch::new().is_on(true).into())
+        .unwrap();
+    toggle
+        .update(ToggleSwitch::new().is_on(None).into())
+        .unwrap();
+    assert!(
+        toggle
+            .runtime()
+            .commands()
+            .last()
+            .unwrap()
+            .iter()
+            .any(|command| matches!(
+                command,
+                Command::ClearProperty {
+                    property: PropertyId::ToggleSwitchIsOn,
+                    ..
+                }
+            ))
+    );
+    let batches = toggle.runtime().batches();
+    toggle
+        .update(ToggleSwitch::new().is_on(None).into())
+        .unwrap();
+    assert_eq!(toggle.runtime().batches(), batches);
 }
 
 #[test]

@@ -60,6 +60,13 @@ the controls: `content`, `children`, `keyed_children`, and `slots` all return th
 used by components and the planner. This is not a wrapper frontend. Property and event builders
 must run before a terminal structural method.
 
+Clearable scalar and enum setters accept `T` or `Option<T>` through the same generated method.
+String and Grid-definition setters use `*_optional` variants because a nested generic conversion
+does not infer reliably for `Option<&str>` and arrays. `Some` stores the ordinary private
+`Property::Set`; `None` stores `Property::Inherited`. Planning therefore uses its existing
+set-to-clear transition, known-native comparison, controlled-feedback suppression, and idempotent
+clear behavior. The convenience adds no planner command or public property wrapper.
+
 `children` assigns positional identity only through the sealed `IntoViews` trait. `()` supplies an
 empty shape, fixed arrays supply homogeneous shapes, and tuples of up to 16 elements supply
 heterogeneous shapes whose leaves each implement `Into<View>`. The tuple syntax therefore accepts
