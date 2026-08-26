@@ -125,11 +125,7 @@ impl TypeMap {
                 }
             }
 
-            if covered.contains(tn) {
-                return true;
-            }
-
-            false
+            covered.contains(tn)
         })
     }
 

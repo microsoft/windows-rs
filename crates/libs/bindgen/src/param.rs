@@ -117,11 +117,7 @@ impl Param {
 
         // Void-pointee and size limits are only heuristics for unmarked trailing pointers. An
         // explicit retval preserves its existing value projection.
-        if !explicit && self.ty.deref().size(reader) > 16 {
-            return false;
-        }
-
-        true
+        !(!explicit && self.ty.deref().size(reader) > 16)
     }
 
     pub fn write_ident(&self) -> TokenStream {
