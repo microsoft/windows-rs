@@ -82,7 +82,7 @@ impl Component for DashboardPage {
             TextBlock::new()
                 .text("Dashboard")
                 .font_size(28.0)
-                .font_weight(700),
+                .font_weight(FontWeight::BOLD),
             "Live stats (loaded in a component task):",
             content,
         ))
@@ -122,7 +122,7 @@ impl Component for SettingsPage {
             TextBlock::new()
                 .text("Settings")
                 .font_size(28.0)
-                .font_weight(700),
+                .font_weight(FontWeight::BOLD),
             ToggleSwitch::new()
                 .is_on(self.dark_mode)
                 .on_toggled(context.callback(SettingsMessage::DarkMode))
@@ -182,7 +182,7 @@ impl Component for NavigationSample {
                 TextBlock::new()
                     .text("Welcome Home")
                     .font_size(28.0)
-                    .font_weight(700),
+                    .font_weight(FontWeight::BOLD),
                 "This is the landing page of the app.",
                 TextBlock::new()
                     .text("Use the navigation pane to switch between pages.")

@@ -37,11 +37,11 @@ external edge. It does not clear internal slots or collections that are destroye
 batch. This keeps stateful controls intact while WinUI drains deferred visual-state callbacks.
 `RecordingRuntime` still applies every logical detach and checks the complete command sequence.
 
-Debug builds print a reconciliation trace before applying each nonempty component update. Each
-line identifies the composed component types, the native event that triggered observation
-reconciliation, and counts for property, topology, subscription, creation, and destruction
-commands. The trace is emitted before calling WinUI, so the last line remains useful if native
-application does not return. Release builds omit this output.
+Set `WINDOWS_REACTOR_TRACE=1` in a debug build to print a reconciliation trace before applying each
+nonempty component update. Each line identifies the composed component types, the native event that
+triggered observation reconciliation, and counts for property, topology, subscription, creation,
+and destruction commands. The trace is emitted before calling WinUI, so the last line remains
+useful if native application does not return. Release builds omit this output.
 
 ### Component model
 
@@ -83,6 +83,12 @@ handle `-1`, `NaN`, nullable WinRT references, or signed-to-unsigned index conve
 Omitting one of these property builders inherits the native default. Calling the builder with
 `None` sets an explicit empty value, so controls such as `Pivot` and `TabView` can distinguish their
 default first-item selection from no selection.
+
+Properties with native range requirements reject invalid values in their builders. `FontWeight`
+accepts named constants such as `FontWeight::BOLD` and custom values from `FontWeight::new` in the
+range 1 through 999. `TextBlock::max_lines` accepts non-negative values, and
+`TimePicker::minute_increment` accepts values from 0 through 59. Passing `None` still inherits the
+native default.
 
 ### Migration from the render-and-hook API
 

@@ -584,4 +584,3 @@ Windows::Foundation::IUriRuntimeClass::get_AbsoluteUri
 Windows::Foundation::Uri::CreateUri
 Windows::Storage::IStorageItem::{get_Name, get_Path}
 Windows::UI::Color
-Windows::UI::Text::FontWeight

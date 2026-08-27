@@ -50,7 +50,9 @@ impl Component for GridViewPage {
                                         item.clone(),
                                         GridViewItem::new().tag(item).content(
                                             Border::new().padding(16.0).corner_radius(4.0).content(
-                                                TextBlock::new().text(item).font_weight(700),
+                                                TextBlock::new()
+                                                    .text(item)
+                                                    .font_weight(FontWeight::BOLD),
                                             ),
                                         ),
                                     )

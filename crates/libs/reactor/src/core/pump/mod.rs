@@ -95,6 +95,7 @@ pub struct Pump<R: NativeRuntime> {
     poisoned: bool,
     realizations: VecDeque<NativeWork<RealizationRequest>>,
     reset_on_drop: bool,
+    trace_component_plans: bool,
     version: u64,
     window: Option<NodeId>,
 }
@@ -131,6 +132,9 @@ impl<R: NativeRuntime> Pump<R> {
             poisoned: false,
             realizations: VecDeque::new(),
             reset_on_drop: true,
+            trace_component_plans: cfg!(debug_assertions)
+                && std::env::var("WINDOWS_REACTOR_TRACE")
+                    .is_ok_and(|value| value == "1" || value.eq_ignore_ascii_case("true")),
             version: 0,
             window: None,
         }

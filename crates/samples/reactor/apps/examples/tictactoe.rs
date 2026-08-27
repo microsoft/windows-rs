@@ -180,7 +180,7 @@ impl Component for Game {
             .children((
                 TextBlock::new()
                     .text(status_line(self))
-                    .font_weight(700)
+                    .font_weight(FontWeight::BOLD)
                     .font_size(24.0)
                     .horizontal_alignment(HorizontalAlignment::Center),
                 Button::new()

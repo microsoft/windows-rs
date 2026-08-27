@@ -49,7 +49,9 @@ impl Component for ThemePage {
                     sample_card(
                         "Text Hierarchy",
                         StackPanel::new().spacing(4.0).children((
-                            TextBlock::new().text("Primary text").font_weight(700),
+                            TextBlock::new()
+                                .text("Primary text")
+                                .font_weight(FontWeight::BOLD),
                             TextBlock::new().text("Secondary text").opacity(0.7),
                             TextBlock::new().text("Tertiary text").opacity(0.5),
                         )),

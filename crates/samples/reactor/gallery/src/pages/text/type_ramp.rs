@@ -26,16 +26,16 @@ impl Component for TypeRampPage {
                             TextBlock::new()
                                 .text("Title - 28px semibold")
                                 .font_size(28.0)
-                                .font_weight(600),
+                                .font_weight(FontWeight::SEMI_BOLD),
                             TextBlock::new()
                                 .text("Subtitle - 20px semibold")
                                 .font_size(20.0)
-                                .font_weight(600),
+                                .font_weight(FontWeight::SEMI_BOLD),
                             TextBlock::new().text("Body large - 18px").font_size(18.0),
                             TextBlock::new()
                                 .text("Body strong - 14px semibold")
                                 .font_size(14.0)
-                                .font_weight(600),
+                                .font_weight(FontWeight::SEMI_BOLD),
                             TextBlock::new().text("Body - 14px").font_size(14.0),
                             TextBlock::new().text("Caption - 12px").font_size(12.0),
                         )),
@@ -51,11 +51,11 @@ impl Component for TypeRampPage {
                                 TextBlock::new()
                                     .text("Release Notes")
                                     .font_size(28.0)
-                                    .font_weight(600),
+                                    .font_weight(FontWeight::SEMI_BOLD),
                                 TextBlock::new()
                                     .text("Version 2.5")
                                     .font_size(20.0)
-                                    .font_weight(600),
+                                    .font_weight(FontWeight::SEMI_BOLD),
                                 "This release includes performance improvements and fixes.",
                             )),
                         ),

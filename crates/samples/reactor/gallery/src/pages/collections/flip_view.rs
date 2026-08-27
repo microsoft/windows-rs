@@ -36,7 +36,7 @@ impl Component for FlipViewPage {
                             TextBlock::new()
                                 .text(label)
                                 .font_size(24.0)
-                                .font_weight(700),
+                                .font_weight(FontWeight::BOLD),
                             TextBlock::new()
                                 .text(format!("Slide {} of 4", index + 1))
                                 .opacity(0.6),

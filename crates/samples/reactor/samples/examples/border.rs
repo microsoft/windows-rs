@@ -21,7 +21,7 @@ fn main() {
                 .content(
                     TextBlock::new()
                         .text("Margined + width-capped")
-                        .font_weight(700)
+                        .font_weight(FontWeight::BOLD)
                         .foreground(Color::rgb(255, 255, 255)),
                 ),
         ))

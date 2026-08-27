@@ -54,7 +54,9 @@ impl Component for GeometryPage {
                             .border_thickness(1.0)
                             .content(
                                 StackPanel::new().spacing(4.0).children((
-                                    TextBlock::new().text("Dialog title").font_weight(700),
+                                    TextBlock::new()
+                                        .text("Dialog title")
+                                        .font_weight(FontWeight::BOLD),
                                     TextBlock::new()
                                         .text("Overlay surfaces use a larger radius.")
                                         .opacity(0.6),

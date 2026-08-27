@@ -31,7 +31,7 @@ pub fn page_header(title: &str, description: &str) -> View {
         TextBlock::new()
             .text(title)
             .font_size(28.0)
-            .font_weight(700),
+            .font_weight(FontWeight::BOLD),
         description,
     ))
 }
@@ -42,7 +42,7 @@ pub fn sample_card(title: &str, sample: impl Into<View>, source: &str) -> View {
         TextBlock::new()
             .text(title)
             .font_size(14.0)
-            .font_weight(600),
+            .font_weight(FontWeight::SEMI_BOLD),
         Border::new()
             .border_thickness(1.0)
             .corner_radius(8.0)
@@ -128,7 +128,7 @@ pub fn card_grid(items: &[CardItem], on_click: impl Fn(String) + Clone + 'static
                                         TextBlock::new()
                                             .text(item.title.clone())
                                             .font_size(14.0)
-                                            .font_weight(600),
+                                            .font_weight(FontWeight::SEMI_BOLD),
                                         TextBlock::new().text(item.subtitle.clone()).opacity(0.6),
                                     )),
                                 )),

@@ -81,6 +81,7 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                     );
                 }
                 Some(PropertyAdapter::ContentDialogResult)
+                | Some(PropertyAdapter::FontWeight)
                 | Some(PropertyAdapter::ImageUri)
                 | Some(PropertyAdapter::InspectableString)
                 | Some(PropertyAdapter::InspectableStringList)
@@ -1733,6 +1734,19 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
     let value_variant = ident(&property.value);
     let interface = path_ident(&property.interface);
     let setter = ident(&format!("Set{}", property.name));
+    if property.adapter == Some(PropertyAdapter::FontWeight) {
+        return quote! {
+            (
+                Handle::#control_name(control),
+                PropertyId::#property_id,
+                PropertyValue::FontWeight(value),
+            ) => control
+                .cast::<#interface>()
+                .map_err(native_error)?
+                .#setter(bindings::FontWeight { weight: value.get() })
+                .map_err(native_error)
+        };
+    }
     if property.adapter == Some(PropertyAdapter::SelectionIndex) {
         return quote! {
             (
@@ -2212,6 +2226,19 @@ fn generate_read_property(control: &ResolvedControl, property: &ResolvedProperty
     let value_variant = ident(&property.value);
     let interface = path_ident(&property.interface);
     let getter = ident(&property.name);
+    if property.adapter == Some(PropertyAdapter::FontWeight) {
+        return quote! {
+            (Handle::#control_name(control), PropertyId::#property_id) => {
+                let value = control
+                    .cast::<#interface>()
+                    .and_then(|control| control.#getter())
+                    .map_err(native_error)?;
+                let value = crate::FontWeight::new(value.weight)
+                    .ok_or(RuntimeError::UnsupportedKind)?;
+                Ok(PropertyValue::FontWeight(value))
+            }
+        };
+    }
     if property.adapter == Some(PropertyAdapter::SelectionIndex) {
         return quote! {
             (Handle::#control_name(control), PropertyId::#property_id) => {

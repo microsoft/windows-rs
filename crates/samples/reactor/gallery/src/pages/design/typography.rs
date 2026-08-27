@@ -2,7 +2,7 @@ use crate::controls::*;
 use windows_reactor::*;
 
 /// One row of the type ramp: a named style rendered at its font size/weight next to a label.
-fn type_sample(name: &str, size: f64, weight: u16) -> View {
+fn type_sample(name: &str, size: f64, weight: FontWeight) -> View {
     StackPanel::new()
         .orientation(Orientation::Horizontal)
         .spacing(12.0)
@@ -12,7 +12,7 @@ fn type_sample(name: &str, size: f64, weight: u16) -> View {
                 .font_size(size)
                 .font_weight(weight),
             TextBlock::new()
-                .text(format!("{size}px / weight {weight}"))
+                .text(format!("{size}px / weight {}", weight.get()))
                 .font_size(12.0)
                 .opacity(0.6),
         ))
@@ -39,13 +39,13 @@ impl Component for TypographyPage {
                 sample_card(
                     "Type ramp",
                     StackPanel::new().spacing(12.0).children((
-                        type_sample("Caption", 12.0, 400),
-                        type_sample("Body", 14.0, 400),
-                        type_sample("Body Strong", 14.0, 700),
-                        type_sample("Subtitle", 20.0, 700),
-                        type_sample("Title", 28.0, 700),
-                        type_sample("Title Large", 40.0, 700),
-                        type_sample("Display", 68.0, 700),
+                        type_sample("Caption", 12.0, FontWeight::NORMAL),
+                        type_sample("Body", 14.0, FontWeight::NORMAL),
+                        type_sample("Body Strong", 14.0, FontWeight::BOLD),
+                        type_sample("Subtitle", 20.0, FontWeight::BOLD),
+                        type_sample("Title", 28.0, FontWeight::BOLD),
+                        type_sample("Title Large", 40.0, FontWeight::BOLD),
+                        type_sample("Display", 68.0, FontWeight::BOLD),
                     )),
                     "TextBlock::new().text(name).font_size(size).font_weight(weight)",
                 ),

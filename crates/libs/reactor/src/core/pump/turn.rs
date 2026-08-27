@@ -6,7 +6,7 @@ impl<R: NativeRuntime> Pump<R> {
         components: impl IntoIterator<Item = ComponentToken>,
         plan: &UpdatePlan,
     ) {
-        if !cfg!(debug_assertions) || plan.commands.is_empty() {
+        if !self.trace_component_plans || plan.commands.is_empty() {
             return;
         }
         let mut names = components

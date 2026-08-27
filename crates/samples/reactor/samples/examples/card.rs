@@ -17,7 +17,7 @@ fn card(title: &str, body: &str, radius: f64, stroke: f64, column: i32) -> View 
                 TextBlock::new()
                     .text(title)
                     .font_size(16.0)
-                    .font_weight(700),
+                    .font_weight(FontWeight::BOLD),
                 TextBlock::new().text(body).font_size(13.0),
             )),
         )

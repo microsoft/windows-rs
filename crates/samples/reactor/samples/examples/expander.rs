@@ -27,7 +27,9 @@ fn main() {
                         .spacing(8.0)
                         .children((
                             TextBlock::new().text("[*]").font_size(18.0),
-                            TextBlock::new().text("Settings").font_weight(700),
+                            TextBlock::new()
+                                .text("Settings")
+                                .font_weight(FontWeight::BOLD),
                         )),
                 ),
                 SlotView::new(

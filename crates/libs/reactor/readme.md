@@ -75,3 +75,6 @@ arm.
 Selection indices, empty numeric controls, and nullable date or time picker events use `Option<T>`
 instead of native `-1`, `NaN`, or null sentinels. Omitting a property builder inherits the native
 default; passing `None` sets an explicit empty value.
+
+Constrained values are checked by their builders. For example, text weights use constants such as
+`FontWeight::BOLD`, with custom values available through `FontWeight::new`.

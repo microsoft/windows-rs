@@ -36,7 +36,7 @@ impl Component for ColorPage {
                         .grid_column((index % 3) as i32)
                         .content(
                             StackPanel::new().spacing(4.0).children((
-                                TextBlock::new().text(name).font_weight(700),
+                                TextBlock::new().text(name).font_weight(FontWeight::BOLD),
                                 TextBlock::new()
                                     .text(format!("#{:02X}{:02X}{:02X}", color.r, color.g, color.b))
                                     .font_size(12.0),

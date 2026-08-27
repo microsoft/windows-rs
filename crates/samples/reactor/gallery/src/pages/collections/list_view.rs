@@ -68,7 +68,9 @@ impl Component for ListViewPage {
                                     subject,
                                     ListViewItem::new().tag(subject).content(
                                         StackPanel::new().spacing(2.0).children((
-                                            TextBlock::new().text(subject).font_weight(700),
+                                            TextBlock::new()
+                                                .text(subject)
+                                                .font_weight(FontWeight::BOLD),
                                             TextBlock::new()
                                                 .text(format!(
                                                     "Message #{} - Updated just now",
@@ -126,7 +128,9 @@ impl Component for ListViewPage {
                                             name,
                                             ListViewItem::new().tag(name).content(
                                                 StackPanel::new().spacing(2.0).children((
-                                                    TextBlock::new().text(name).font_weight(700),
+                                                    TextBlock::new()
+                                                        .text(name)
+                                                        .font_weight(FontWeight::BOLD),
                                                     TextBlock::new()
                                                         .text(format!(
                                                             "{} tracks ready to play",

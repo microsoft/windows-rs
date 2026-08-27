@@ -18,6 +18,7 @@ validation = "finite_positive"
 [[control.property]]
 name = "FontWeight"
 clearable = true
+adapter = "font_weight"
 
 [[control.property]]
 name = "IsTextSelectionEnabled"
@@ -26,6 +27,7 @@ clearable = true
 [[control.property]]
 name = "MaxLines"
 clearable = true
+validation = "non_negative"
 
 [[control.property]]
 name = "TextTrimming"
@@ -1505,6 +1507,7 @@ clearable = true
 [[control.property]]
 name = "MinuteIncrement"
 clearable = true
+validation = "zero_to_fifty_nine"
 
 [[control.property]]
 name = "IsEnabled"

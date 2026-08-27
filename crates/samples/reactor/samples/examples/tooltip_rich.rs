@@ -15,7 +15,9 @@ impl Component for RichTooltipSample {
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         context.window_title("TooltipRich");
         let rich_panel = StackPanel::new().spacing(4.0).children((
-            TextBlock::new().text("Action: Save").font_weight(700),
+            TextBlock::new()
+                .text("Action: Save")
+                .font_weight(FontWeight::BOLD),
             "Writes the current document to disk.",
         ));
 

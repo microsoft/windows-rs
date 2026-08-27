@@ -545,9 +545,11 @@ struct ClosingWindowInput {
 
 enum ClosingWindowMessage {
     Close,
+    Retitle,
 }
 
 struct ClosingWindow {
+    retitled: bool,
     task_cancelled: Arc<AtomicBool>,
 }
 
@@ -565,21 +567,40 @@ impl Component for ClosingWindow {
             cancelled.store(true, Ordering::Release);
             ClosingWindowMessage::Close
         });
-        Self { task_cancelled }
+        Self {
+            retitled: false,
+            task_cancelled,
+        }
     }
 
-    fn update(&mut self, _message: Self::Message, context: &ComponentContext<Self>) {
-        if !context.window().request_close() {
-            eprintln!("secondary window close was rejected");
-            std::process::exit(1);
+    fn update(&mut self, message: Self::Message, context: &ComponentContext<Self>) {
+        match message {
+            ClosingWindowMessage::Close => {
+                if !context.window().request_close() {
+                    eprintln!("secondary window close was rejected");
+                    std::process::exit(1);
+                }
+            }
+            ClosingWindowMessage::Retitle => self.retitled = true,
         }
     }
 
     fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title(if self.retitled {
+            "closing child window - latest"
+        } else {
+            "closing child window - initial"
+        });
         let sender = context.sender();
-        context.use_effect("request-close", (), move || {
-            if !sender.send(ClosingWindowMessage::Close) {
-                eprintln!("secondary window close message was rejected");
+        let retitled = self.retitled;
+        context.use_effect("advance-window", retitled, move || {
+            let message = if retitled {
+                ClosingWindowMessage::Close
+            } else {
+                ClosingWindowMessage::Retitle
+            };
+            if !sender.send(message) {
+                eprintln!("secondary window update was rejected");
                 std::process::exit(1);
             }
             None
@@ -594,7 +615,12 @@ impl Component for ClosingWindow {
                 }
             }))
         });
-        TextBlock::new().text("closing child window").into()
+        StackPanel::new()
+            .children((
+                TitleBar::new().title("Closing child window"),
+                TextBlock::new().text("closing child window"),
+            ))
+            .into()
     }
 }
 

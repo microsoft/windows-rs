@@ -607,7 +607,7 @@ fn led_display(value: i32) -> View {
             TextBlock::new()
                 .text(text)
                 .font_size(22.0)
-                .font_weight(700)
+                .font_weight(FontWeight::BOLD)
                 .foreground(Color::rgb(0xFF, 0x3B, 0x30))
                 .horizontal_alignment(HorizontalAlignment::Center)
                 .vertical_alignment(VerticalAlignment::Center),

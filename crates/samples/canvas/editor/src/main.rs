@@ -2,6 +2,7 @@
 
 use std::cell::RefCell;
 use std::rc::Rc;
+use windows_canvas::FontWeight as CanvasFontWeight;
 use windows_canvas::*;
 use windows_reactor::*;
 
@@ -243,7 +244,7 @@ fn draw(ctx: &DrawContext<'_>, model: &RefCell<Model>) -> Result<()> {
         }
     }
 
-    let format = TextFormat::with_weight("Segoe UI", 16.0, FontWeight::BOLD)?;
+    let format = TextFormat::with_weight("Segoe UI", 16.0, CanvasFontWeight::BOLD)?;
     let brush = ctx.create_solid_brush(ColorF::WHITE)?;
     let label = format!(
         "{} shape(s)  ·  tool: {}  ·  click to add, left-drag to move, right-click to delete",

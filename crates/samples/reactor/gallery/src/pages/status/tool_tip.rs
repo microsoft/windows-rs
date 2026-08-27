@@ -34,7 +34,7 @@ impl Component for ToolTipPage {
                                     StackPanel::new().spacing(4.0).children((
                                         TextBlock::new()
                                             .text("Interactive tooltip")
-                                            .font_weight(700),
+                                            .font_weight(FontWeight::BOLD),
                                         "Click the target to update the count.",
                                         format!("Click count: {}", self.clicks),
                                     )),

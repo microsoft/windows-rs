@@ -9,7 +9,7 @@ fn main() {
             TextBlock::new().text("Larger text").font_size(20.0),
             TextBlock::new()
                 .text("Bold + larger")
-                .font_weight(700)
+                .font_weight(FontWeight::BOLD)
                 .font_size(28.0),
             TextBlock::new()
                 .text("Selectable text - try selecting this with your mouse")

@@ -38,7 +38,7 @@ impl Component for FlipViewSample {
                         TextBlock::new()
                             .text(label)
                             .font_size(20.0)
-                            .font_weight(700),
+                            .font_weight(FontWeight::BOLD),
                     ),
             )
         };

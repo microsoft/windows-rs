@@ -21,14 +21,16 @@ impl Component for SettingsPage {
                         TextBlock::new()
                             .text("Settings")
                             .font_size(28.0)
-                            .font_weight(700),
+                            .font_weight(FontWeight::BOLD),
                         Border::new().padding(20.0).content(
                             StackPanel::new().spacing(12.0).children((
-                                TextBlock::new().text("About this app").font_weight(700),
+                                TextBlock::new()
+                                    .text("About this app")
+                                    .font_weight(FontWeight::BOLD),
                                 StackPanel::new().spacing(2.0).children((
                                     TextBlock::new()
                                         .text("WinUI Gallery (Reactor)")
-                                        .font_weight(700),
+                                        .font_weight(FontWeight::BOLD),
                                     TextBlock::new()
                                         .text("Version 0.1.0")
                                         .font_size(12.0)
@@ -47,7 +49,9 @@ impl Component for SettingsPage {
                         ),
                         Border::new().padding(20.0).content(
                             StackPanel::new().spacing(8.0).children((
-                                TextBlock::new().text("Built with Reactor").font_weight(700),
+                                TextBlock::new()
+                                    .text("Built with Reactor")
+                                    .font_weight(FontWeight::BOLD),
                                 TextBlock::new()
                                     .text("Framework: Reactor (typed Rust component model)")
                                     .font_size(13.0),

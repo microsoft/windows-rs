@@ -2,6 +2,7 @@
 
 use std::cell::Cell;
 use std::rc::Rc;
+use windows_canvas::FontWeight as CanvasFontWeight;
 use windows_canvas::*;
 use windows_canvas::{Ellipse as CanvasEllipse, Rect as CanvasRect};
 use windows_reactor::*;
@@ -62,7 +63,7 @@ impl Component for Sample {
                 ));
                 ctx.fill_ellipse(&CanvasEllipse::circle(Vector2::new(x, y), radius), &brush);
             }
-            let format = TextFormat::with_weight("Segoe UI", 20.0, FontWeight::BOLD)?
+            let format = TextFormat::with_weight("Segoe UI", 20.0, CanvasFontWeight::BOLD)?
                 .with_alignment(TextAlignment::Center);
             brush.set_color(ColorF::WHITE);
             ctx.draw_text(

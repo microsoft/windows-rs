@@ -942,6 +942,13 @@ mod tests {
         let revision = pump
             .event_revision(input, EventId::TextBoxTextChanged)
             .unwrap();
+        pump.runtime_mut()
+            .record_property_observation(
+                input,
+                PropertyId::TextBoxText,
+                PropertyValue::Str("Edited task".into()),
+            )
+            .unwrap();
         pump.queue_event(QueuedEvent::new(
             input,
             EventId::TextBoxTextChanged,

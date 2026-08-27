@@ -31,7 +31,7 @@ impl Component for ColorSchemeSample {
             TextBlock::new()
                 .text(format!("is_dark_theme = {is_dark}"))
                 .font_size(20.0)
-                .font_weight(700),
+                .font_weight(FontWeight::BOLD),
             TextBlock::new()
                 .text(format!("color_scheme  = {label}"))
                 .font_size(16.0),

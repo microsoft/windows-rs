@@ -21,7 +21,7 @@ impl Component for Greeting {
         TextBlock::new()
             .text(format!("Hello, {}!", input.name))
             .font_size(20.0)
-            .font_weight(700)
+            .font_weight(FontWeight::BOLD)
             .into()
     }
 }
@@ -47,7 +47,7 @@ impl Component for Counter {
             TextBlock::new()
                 .text(format!("count = {}", self.count))
                 .font_size(24.0)
-                .font_weight(700),
+                .font_weight(FontWeight::BOLD),
             Button::new()
                 .on_click(context.forward())
                 .content("Increment"),

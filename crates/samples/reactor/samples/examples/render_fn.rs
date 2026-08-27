@@ -33,7 +33,7 @@ impl Component for RenderFnSample {
             TextBlock::new()
                 .text(format!("Count: {}", self.count))
                 .font_size(24.0)
-                .font_weight(700),
+                .font_weight(FontWeight::BOLD),
             StackPanel::new()
                 .orientation(Orientation::Horizontal)
                 .spacing(8.0)

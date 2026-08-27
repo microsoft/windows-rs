@@ -11,13 +11,13 @@ fn main() {
                 .font_weight(weight)
         };
         StackPanel::new().spacing(8.0).children((
-            text("Title - 28px Semibold", 28.0, 600),
-            text("Subtitle - 20px Semibold", 20.0, 600),
-            text("BodyLarge - 18px Normal", 18.0, 400),
-            text("BodyStrong - 14px Semibold", 14.0, 600),
-            text("Body - 14px Normal", 14.0, 400),
-            text("Caption - 12px Normal", 12.0, 400),
-            text("Custom weight", 14.0, 300),
+            text("Title - 28px Semibold", 28.0, FontWeight::SEMI_BOLD),
+            text("Subtitle - 20px Semibold", 20.0, FontWeight::SEMI_BOLD),
+            text("BodyLarge - 18px Normal", 18.0, FontWeight::NORMAL),
+            text("BodyStrong - 14px Semibold", 14.0, FontWeight::SEMI_BOLD),
+            text("Body - 14px Normal", 14.0, FontWeight::NORMAL),
+            text("Caption - 12px Normal", 12.0, FontWeight::NORMAL),
+            text("Custom weight", 14.0, FontWeight::new(325).unwrap()),
         ))
     })
     .unwrap();

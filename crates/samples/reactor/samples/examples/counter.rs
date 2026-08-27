@@ -33,7 +33,7 @@ impl Component for Counter {
             "Phase 1 demo",
             TextBlock::new()
                 .text(format!("Count: {}", self.count))
-                .font_weight(700)
+                .font_weight(FontWeight::BOLD)
                 .font_size(28.0)
                 .automation_heading_level(AutomationHeadingLevel::Level1)
                 .automation_id("count-label"),

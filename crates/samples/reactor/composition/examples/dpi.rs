@@ -77,7 +77,7 @@ impl Component for Sample {
                 TextBlock::new()
                     .text(format!("rasterization scale: {:.2}x", self.scale))
                     .font_size(20.0)
-                    .font_weight(700)
+                    .font_weight(FontWeight::BOLD)
                     .margin(Thickness::uniform(16.0))
                     .grid_row(0),
                 Grid::new().element_ref(&self.host).grid_row(1),

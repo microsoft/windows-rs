@@ -837,9 +837,13 @@ pub fn set_property(
         (
             Handle::TextBlock(control),
             PropertyId::TextBlockFontWeight,
-            PropertyValue::U16(value),
+            PropertyValue::FontWeight(value),
         ) => control
-            .SetFontWeight(bindings::FontWeight { weight: *value })
+            .cast::<ITextBlock>()
+            .map_err(native_error)?
+            .SetFontWeight(bindings::FontWeight {
+                weight: value.get(),
+            })
             .map_err(native_error),
         (
             Handle::TextBlock(control),

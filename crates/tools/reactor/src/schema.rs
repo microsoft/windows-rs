@@ -114,6 +114,7 @@ pub(crate) enum PropertyAdapter {
     DragInfo,
     DropData,
     DropPolicy,
+    FontWeight,
     ResourceOverrides,
     ResourceStyle,
     RatingValue,
@@ -137,6 +138,8 @@ pub(crate) enum ValueValidation {
     Finite,
     FiniteNonNegative,
     FinitePositive,
+    NonNegative,
+    ZeroToFiftyNine,
 }
 
 #[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
@@ -660,6 +663,22 @@ impl Schema {
                             ));
                         }
                         ("DragDropPolicy".to_string(), false)
+                    }
+                    Some(PropertyAdapter::FontWeight) => {
+                        if control.type_name != "Microsoft.UI.Xaml.Controls.TextBlock"
+                            || property.name != "FontWeight"
+                            || metadata.single_field_param(&name, &method)
+                                != Some((
+                                    "Windows.UI.Text.FontWeight".to_string(),
+                                    "weight".to_string(),
+                                ))
+                        {
+                            return Err(format!(
+                                "{}.{} font_weight requires TextBlock.FontWeight",
+                                control.type_name, property.name
+                            ));
+                        }
+                        ("FontWeight".to_string(), true)
                     }
                     Some(PropertyAdapter::PointerCapture) => {
                         if control.type_name != "Microsoft.UI.Xaml.Controls.Border"
@@ -1731,6 +1750,7 @@ fn validate_property_value(
         Some(ValueValidation::FiniteNonNegative) => {
             matches!(value, "F64" | "Thickness" | "CornerRadius")
         }
+        Some(ValueValidation::NonNegative | ValueValidation::ZeroToFiftyNine) => value == "I32",
     };
     if valid {
         Ok(())
@@ -2482,5 +2502,30 @@ capabilities = ["typo"]
 "#;
 
         assert!(Schema::parse(source).is_err());
+    }
+
+    #[test]
+    fn rejects_font_weight_adapter_on_other_properties() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TextBlock"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Text"
+clearable = true
+adapter = "font_weight"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let error = Schema::parse(source)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+
+        assert!(
+            error.contains("TextBlock.Text font_weight requires TextBlock.FontWeight"),
+            "{error}"
+        );
     }
 }

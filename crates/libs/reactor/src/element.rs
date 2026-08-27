@@ -87,6 +87,55 @@ pub enum ThemeBrush {
     SystemCriticalBackground,
 }
 
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct FontWeight(u16);
+
+impl FontWeight {
+    pub const BLACK: Self = Self(900);
+    pub const BOLD: Self = Self(700);
+    pub const EXTRA_BLACK: Self = Self(950);
+    pub const EXTRA_BOLD: Self = Self(800);
+    pub const EXTRA_LIGHT: Self = Self(200);
+    pub const LIGHT: Self = Self(300);
+    pub const MEDIUM: Self = Self(500);
+    pub const NORMAL: Self = Self(400);
+    pub const SEMI_BOLD: Self = Self(600);
+    pub const SEMI_LIGHT: Self = Self(350);
+    pub const THIN: Self = Self(100);
+
+    pub const fn new(weight: u16) -> Option<Self> {
+        if weight >= 1 && weight <= 999 {
+            Some(Self(weight))
+        } else {
+            None
+        }
+    }
+
+    pub const fn get(self) -> u16 {
+        self.0
+    }
+}
+
+impl Default for FontWeight {
+    fn default() -> Self {
+        Self::NORMAL
+    }
+}
+
+#[cfg(test)]
+mod font_weight_tests {
+    use super::*;
+
+    #[test]
+    fn validates_open_type_weight_range() {
+        assert_eq!(FontWeight::new(0), None);
+        assert_eq!(FontWeight::new(1).unwrap().get(), 1);
+        assert_eq!(FontWeight::new(999).unwrap().get(), 999);
+        assert_eq!(FontWeight::new(1000), None);
+        assert_eq!(FontWeight::default(), FontWeight::NORMAL);
+    }
+}
+
 impl ThemeBrush {
     pub(crate) fn resource_key(self) -> &'static str {
         match self {

@@ -117,6 +117,7 @@ pub struct WinUiRuntime {
     window_observation_subscriptions: HashMap<NodeId, Vec<windows_core::EventRevoker>>,
     window_subscriptions: HashMap<NodeId, windows_core::EventRevoker>,
     window_title_bars: HashMap<NodeId, (NodeId, WindowTitleBarHeight)>,
+    window_title_revisions: Rc<RefCell<HashMap<NodeId, u64>>>,
     window_visuals: HashMap<NodeId, WindowVisuals>,
     webview_initializations: Rc<RefCell<HashMap<NodeId, WebViewInitialization>>>,
     windows: HashMap<NodeId, Window>,
@@ -880,6 +881,14 @@ impl WinUiRuntime {
             .windows
             .get(&node)
             .ok_or(RuntimeError::MissingNode(node))?;
+        let revision = {
+            let mut revisions = self.window_title_revisions.borrow_mut();
+            let revision = revisions
+                .get_mut(&node)
+                .ok_or(RuntimeError::MissingNode(node))?;
+            *revision = revision.wrapping_add(1);
+            *revision
+        };
         window.SetTitle(title).map_err(native_error)?;
         if !self.window_title_bars.contains_key(&node) {
             return Ok(());
@@ -887,9 +896,13 @@ impl WinUiRuntime {
 
         let window = window.clone();
         let title = title.to_string();
+        let title_revisions = Rc::clone(&self.window_title_revisions);
         let identity = Rc::clone(&self.identity);
         let host_events = Rc::clone(&self.host_events);
         let handler = DispatcherQueueHandler::new(move || {
+            if title_revisions.borrow().get(&node) != Some(&revision) {
+                return;
+            }
             if let Err(error) = window.SetTitle(&title).map_err(native_error)
                 && let Some(identity) = identity.get()
             {
@@ -1258,6 +1271,7 @@ impl WinUiRuntime {
                     .map_err(native_error)?;
                 self.window_subscriptions.insert(*node, subscription);
                 self.window_hosts.insert(*node, host);
+                self.window_title_revisions.borrow_mut().insert(*node, 0);
                 self.windows.insert(*node, window);
             }
             Command::ActivateWindow { node } => {
@@ -3942,6 +3956,7 @@ impl NativeRuntime for WinUiRuntime {
         self.window_hosts.clear();
         self.window_observation_subscriptions.clear();
         self.window_title_bars.clear();
+        self.window_title_revisions.borrow_mut().clear();
         self.window_visuals.clear();
         self.theme_styles.clear();
         self.handles.clear();
@@ -3966,6 +3981,7 @@ impl NativeRuntime for WinUiRuntime {
         }
         self.clear_async_ingress();
         self.window_observation_subscriptions.clear();
+        self.window_title_revisions.borrow_mut().clear();
         for (_, subscription) in self.window_subscriptions.drain() {
             subscription.into_token();
         }
@@ -4185,6 +4201,7 @@ impl WinUiRuntime {
         self.window_observations.remove(&node);
         self.window_hosts.remove(&node);
         self.window_title_bars.remove(&node);
+        self.window_title_revisions.borrow_mut().remove(&node);
         self.window_visuals.remove(&node);
         complete_webview_initialization(
             &self.webview_initializations,

@@ -2038,6 +2038,15 @@ fn generate_direct_value_validation(
                 control.name, property.name
             )
         }
+        ValueValidation::NonNegative => {
+            format!("{} {} must be non-negative", control.name, property.name)
+        }
+        ValueValidation::ZeroToFiftyNine => {
+            format!(
+                "{} {} must be between 0 and 59",
+                control.name, property.name
+            )
+        }
     };
     match (validation, property.value.as_str()) {
         (ValueValidation::Finite, "Thickness") => quote! {
@@ -2074,6 +2083,15 @@ fn generate_value_validation(
                 control.name, property.name
             )
         }
+        ValueValidation::NonNegative => {
+            format!("{} {} must be non-negative", control.name, property.name)
+        }
+        ValueValidation::ZeroToFiftyNine => {
+            format!(
+                "{} {} must be between 0 and 59",
+                control.name, property.name
+            )
+        }
     };
     match (validation, property.value.as_str()) {
         (ValueValidation::Finite, "F64") => quote! {
@@ -2093,6 +2111,17 @@ fn generate_value_validation(
                 value
                     .as_ref()
                     .is_none_or(|value| value.is_finite() && *value > 0.0),
+                #message,
+            );
+        },
+        (ValueValidation::NonNegative, "I32") => quote! {
+            assert!(value.as_ref().is_none_or(|value| *value >= 0), #message);
+        },
+        (ValueValidation::ZeroToFiftyNine, "I32") => quote! {
+            assert!(
+                value
+                    .as_ref()
+                    .is_none_or(|value| (0..=59).contains(value)),
                 #message,
             );
         },
@@ -2446,6 +2475,26 @@ property = "NewValue"
             output.contains("callback:implIntoPayloadCallback<Option<windows_time::TimeSpan>>")
         );
         assert!(!output.contains("selected_index_optional"));
+    }
+
+    #[test]
+    fn constrained_properties_generate_checked_setters() {
+        let source =
+            std::fs::read_to_string(workspace_path("crates/tools/reactor/src/winui.toml")).unwrap();
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let resolved = Schema::parse(&source).unwrap().resolve(&metadata).unwrap();
+        let output: String = generate(&resolved)
+            .chars()
+            .filter(|character| !character.is_whitespace())
+            .collect();
+
+        assert!(output.contains(
+            "value.as_ref().is_none_or(|value|*value>=0),\"TextBlockMaxLinesmustbenon-negative\""
+        ));
+        assert!(output.contains(
+            "value.as_ref().is_none_or(|value|(0..=59).contains(value)),\"TimePickerMinuteIncrementmustbebetween0and59\""
+        ));
+        assert!(output.contains("pubfnfont_weight(mutself,value:implInto<Option<FontWeight>>"));
     }
 
     #[test]

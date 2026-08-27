@@ -395,7 +395,7 @@ pub mod public {
         text: Property<String>,
         text_wrapping: Property<TextWrapping>,
         font_size: Property<f64>,
-        font_weight: Property<u16>,
+        font_weight: Property<FontWeight>,
         is_text_selection_enabled: Property<bool>,
         max_lines: Property<i32>,
         text_trimming: Property<TextTrimming>,
@@ -433,7 +433,7 @@ pub mod public {
             self.font_size = Property::from(value);
             self
         }
-        pub fn font_weight(mut self, value: impl Into<Option<u16>>) -> Self {
+        pub fn font_weight(mut self, value: impl Into<Option<FontWeight>>) -> Self {
             let value = value.into();
             self.font_weight = Property::from(value);
             self
@@ -445,6 +445,10 @@ pub mod public {
         }
         pub fn max_lines(mut self, value: impl Into<Option<i32>>) -> Self {
             let value = value.into();
+            assert!(
+                value.as_ref().is_none_or(|value| *value >= 0),
+                "TextBlock MaxLines must be non-negative"
+            );
             self.max_lines = Property::from(value);
             self
         }
@@ -4438,6 +4442,10 @@ pub mod public {
         }
         pub fn minute_increment(mut self, value: impl Into<Option<i32>>) -> Self {
             let value = value.into();
+            assert!(
+                value.as_ref().is_none_or(|value| (0..=59).contains(value)),
+                "TimePicker MinuteIncrement must be between 0 and 59",
+            );
             self.minute_increment = Property::from(value);
             self
         }
@@ -9128,7 +9136,7 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::TextBlockFontWeight,
                     match &values.font_weight {
                         Property::Inherited => None,
-                        Property::Set(value) => Some(PropertyValueRef::U16(*value)),
+                        Property::Set(value) => Some(PropertyValueRef::FontWeight(*value)),
                     },
                 );
                 visit(
@@ -12258,7 +12266,7 @@ pub(crate) struct TextBlockMountedProps {
     text: Property<String>,
     text_wrapping: Property<TextWrapping>,
     font_size: Property<f64>,
-    font_weight: Property<u16>,
+    font_weight: Property<FontWeight>,
     is_text_selection_enabled: Property<bool>,
     max_lines: Property<i32>,
     text_trimming: Property<TextTrimming>,
@@ -13764,6 +13772,7 @@ pub enum PropertyValue {
     DragDropPolicy(DragDropPolicy),
     Duration(std::time::Duration),
     F64(f64),
+    FontWeight(FontWeight),
     GridLengths(std::rc::Rc<Vec<GridLength>>),
     HorizontalAlignment(HorizontalAlignment),
     I32(i32),
@@ -13790,7 +13799,6 @@ pub enum PropertyValue {
     TextWrapping(TextWrapping),
     Thickness(Thickness),
     TreeViewSelectionMode(TreeViewSelectionMode),
-    U16(u16),
     VerticalAlignment(VerticalAlignment),
 }
 impl PartialEq for PropertyValue {
@@ -13804,6 +13812,7 @@ impl PartialEq for PropertyValue {
             (Self::DragDropPolicy(left), Self::DragDropPolicy(right)) => left == right,
             (Self::Duration(left), Self::Duration(right)) => left == right,
             (Self::F64(left), Self::F64(right)) => f64_eq(*left, *right),
+            (Self::FontWeight(left), Self::FontWeight(right)) => left == right,
             (Self::GridLengths(left), Self::GridLengths(right)) => left == right,
             (Self::HorizontalAlignment(left), Self::HorizontalAlignment(right)) => left == right,
             (Self::I32(left), Self::I32(right)) => left == right,
@@ -13849,7 +13858,6 @@ impl PartialEq for PropertyValue {
             (Self::TreeViewSelectionMode(left), Self::TreeViewSelectionMode(right)) => {
                 left == right
             }
-            (Self::U16(left), Self::U16(right)) => left == right,
             (Self::VerticalAlignment(left), Self::VerticalAlignment(right)) => left == right,
             _ => false,
         }
@@ -13865,6 +13873,7 @@ pub enum PropertyValueRef<'a> {
     DragDropPolicy(&'a DragDropPolicy),
     Duration(std::time::Duration),
     F64(f64),
+    FontWeight(FontWeight),
     GridLengths(&'a std::rc::Rc<Vec<GridLength>>),
     HorizontalAlignment(HorizontalAlignment),
     I32(i32),
@@ -13891,7 +13900,6 @@ pub enum PropertyValueRef<'a> {
     TextWrapping(TextWrapping),
     Thickness(&'a Thickness),
     TreeViewSelectionMode(TreeViewSelectionMode),
-    U16(u16),
     VerticalAlignment(VerticalAlignment),
 }
 impl PropertyValueRef<'_> {
@@ -13905,6 +13913,7 @@ impl PropertyValueRef<'_> {
             (Self::DragDropPolicy(left), PropertyValue::DragDropPolicy(right)) => left == right,
             (Self::Duration(left), PropertyValue::Duration(right)) => left == *right,
             (Self::F64(left), PropertyValue::F64(right)) => f64_eq(left, *right),
+            (Self::FontWeight(left), PropertyValue::FontWeight(right)) => left == *right,
             (Self::GridLengths(left), PropertyValue::GridLengths(right)) => left == right,
             (Self::HorizontalAlignment(left), PropertyValue::HorizontalAlignment(right)) => {
                 left == *right
@@ -13961,7 +13970,6 @@ impl PropertyValueRef<'_> {
             (Self::TreeViewSelectionMode(left), PropertyValue::TreeViewSelectionMode(right)) => {
                 left == *right
             }
-            (Self::U16(left), PropertyValue::U16(right)) => left == *right,
             (Self::VerticalAlignment(left), PropertyValue::VerticalAlignment(right)) => {
                 left == *right
             }
@@ -13978,6 +13986,7 @@ impl PropertyValueRef<'_> {
             Self::DragDropPolicy(value) => PropertyValue::DragDropPolicy(value.clone()),
             Self::Duration(value) => PropertyValue::Duration(value),
             Self::F64(value) => PropertyValue::F64(value),
+            Self::FontWeight(value) => PropertyValue::FontWeight(value),
             Self::GridLengths(value) => PropertyValue::GridLengths(value.clone()),
             Self::HorizontalAlignment(value) => PropertyValue::HorizontalAlignment(value),
             Self::I32(value) => PropertyValue::I32(value),
@@ -14010,7 +14019,6 @@ impl PropertyValueRef<'_> {
             Self::TextWrapping(value) => PropertyValue::TextWrapping(value),
             Self::Thickness(value) => PropertyValue::Thickness(value.clone()),
             Self::TreeViewSelectionMode(value) => PropertyValue::TreeViewSelectionMode(value),
-            Self::U16(value) => PropertyValue::U16(value),
             Self::VerticalAlignment(value) => PropertyValue::VerticalAlignment(value),
         }
     }
@@ -14053,6 +14061,11 @@ impl From<std::time::Duration> for PropertyValue {
 impl From<f64> for PropertyValue {
     fn from(value: f64) -> Self {
         Self::F64(value)
+    }
+}
+impl From<FontWeight> for PropertyValue {
+    fn from(value: FontWeight) -> Self {
+        Self::FontWeight(value)
     }
 }
 impl From<std::rc::Rc<Vec<GridLength>>> for PropertyValue {
@@ -14183,11 +14196,6 @@ impl From<Thickness> for PropertyValue {
 impl From<TreeViewSelectionMode> for PropertyValue {
     fn from(value: TreeViewSelectionMode) -> Self {
         Self::TreeViewSelectionMode(value)
-    }
-}
-impl From<u16> for PropertyValue {
-    fn from(value: u16) -> Self {
-        Self::U16(value)
     }
 }
 impl From<VerticalAlignment> for PropertyValue {
@@ -14365,7 +14373,7 @@ const TEXT_BLOCK_PROPERTIES: &[PropertyDescriptor] = &[
         id: PropertyId::TextBlockFontWeight,
         name: "FontWeight",
         field: "font_weight",
-        value: "U16",
+        value: "FontWeight",
         interface: "Microsoft.UI.Xaml.Controls.ITextBlock",
         clearable: true,
         feedback: None,

@@ -167,6 +167,21 @@ impl RecordingRuntime {
         self.nodes.get(&id)
     }
 
+    #[cfg(any(test, feature = "test"))]
+    pub fn record_property_observation(
+        &mut self,
+        node: NodeId,
+        property: PropertyId,
+        value: PropertyValue,
+    ) -> Result<(), RuntimeError> {
+        self.nodes
+            .get_mut(&node)
+            .ok_or(RuntimeError::MissingNode(node))?
+            .properties
+            .insert(property, value);
+        Ok(())
+    }
+
     pub fn batches(&self) -> usize {
         self.batches
     }
@@ -1349,6 +1364,35 @@ mod tests {
 
         assert!(runtime.commands().is_empty());
         assert!(runtime.node(ROOT).is_some());
+    }
+
+    #[test]
+    fn records_native_property_observations_without_commands() {
+        let mut runtime = RecordingRuntime::default();
+        runtime
+            .apply(&[Command::Create {
+                node: ROOT,
+                kind: MountedKind::TextBox,
+            }])
+            .unwrap();
+        let batches = runtime.batches();
+
+        runtime
+            .record_property_observation(
+                ROOT,
+                PropertyId::TextBoxText,
+                PropertyValue::Str("edited".into()),
+            )
+            .unwrap();
+
+        assert_eq!(runtime.batches(), batches);
+        assert_eq!(
+            runtime
+                .node(ROOT)
+                .unwrap()
+                .property(PropertyId::TextBoxText),
+            Some(&PropertyValue::Str("edited".into()))
+        );
     }
 
     #[test]

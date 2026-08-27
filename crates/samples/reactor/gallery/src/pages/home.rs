@@ -51,7 +51,7 @@ impl Component for HomePage {
                             TextBlock::new()
                                 .text("Browse by category")
                                 .font_size(14.0)
-                                .font_weight(600),
+                                .font_weight(FontWeight::SEMI_BOLD),
                             card_grid(&items, move |tag| {
                                 let _ = on_navigate.call(tag);
                             }),
