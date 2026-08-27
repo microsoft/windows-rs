@@ -890,6 +890,34 @@ pub fn set_property(
                 .SetIsEnabled(*value)
                 .map_err(native_error)
         }
+        (
+            Handle::Button(control),
+            PropertyId::ButtonHorizontalContentAlignment,
+            PropertyValue::HorizontalAlignment(value),
+        ) => control
+            .cast::<IControl>()
+            .map_err(native_error)?
+            .SetHorizontalContentAlignment(match value {
+                crate::HorizontalAlignment::Left => bindings::HorizontalAlignment::Left,
+                crate::HorizontalAlignment::Center => bindings::HorizontalAlignment::Center,
+                crate::HorizontalAlignment::Right => bindings::HorizontalAlignment::Right,
+                crate::HorizontalAlignment::Stretch => bindings::HorizontalAlignment::Stretch,
+            })
+            .map_err(native_error),
+        (
+            Handle::Button(control),
+            PropertyId::ButtonVerticalContentAlignment,
+            PropertyValue::VerticalAlignment(value),
+        ) => control
+            .cast::<IControl>()
+            .map_err(native_error)?
+            .SetVerticalContentAlignment(match value {
+                crate::VerticalAlignment::Top => bindings::VerticalAlignment::Top,
+                crate::VerticalAlignment::Center => bindings::VerticalAlignment::Center,
+                crate::VerticalAlignment::Bottom => bindings::VerticalAlignment::Bottom,
+                crate::VerticalAlignment::Stretch => bindings::VerticalAlignment::Stretch,
+            })
+            .map_err(native_error),
         (Handle::Button(_), PropertyId::ButtonResources, PropertyValue::ResourceOverrides(_)) => {
             Err(RuntimeError::UnsupportedKind)
         }
@@ -2987,6 +3015,16 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
             .map_err(native_error),
         (Handle::Button(_), PropertyId::ButtonIsEnabled) => dependency_object
             .ClearValue(&bindings::Control::IsEnabledProperty().map_err(native_error)?)
+            .map_err(native_error),
+        (Handle::Button(_), PropertyId::ButtonHorizontalContentAlignment) => dependency_object
+            .ClearValue(
+                &bindings::Control::HorizontalContentAlignmentProperty().map_err(native_error)?,
+            )
+            .map_err(native_error),
+        (Handle::Button(_), PropertyId::ButtonVerticalContentAlignment) => dependency_object
+            .ClearValue(
+                &bindings::Control::VerticalContentAlignmentProperty().map_err(native_error)?,
+            )
             .map_err(native_error),
         (Handle::Button(_), PropertyId::ButtonResources) => Err(RuntimeError::UnsupportedKind),
         (Handle::Button(_), PropertyId::ButtonStyle) => dependency_object

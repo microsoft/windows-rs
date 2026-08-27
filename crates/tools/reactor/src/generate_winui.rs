@@ -82,6 +82,7 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                 }
                 Some(PropertyAdapter::ContentDialogResult)
                 | Some(PropertyAdapter::FontWeight)
+                | Some(PropertyAdapter::HorizontalContentAlignment)
                 | Some(PropertyAdapter::ImageUri)
                 | Some(PropertyAdapter::InspectableString)
                 | Some(PropertyAdapter::InspectableStringList)
@@ -103,6 +104,7 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                 | Some(PropertyAdapter::SelectionIndex)
                 | Some(PropertyAdapter::TreeNodeContent)
                 | Some(PropertyAdapter::Uri)
+                | Some(PropertyAdapter::VerticalContentAlignment)
                 | None => {}
             }
             if !matches!(
@@ -1744,6 +1746,42 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
                 .cast::<#interface>()
                 .map_err(native_error)?
                 .#setter(bindings::FontWeight { weight: value.get() })
+                .map_err(native_error)
+        };
+    }
+    if property.adapter == Some(PropertyAdapter::HorizontalContentAlignment) {
+        return quote! {
+            (
+                Handle::#control_name(control),
+                PropertyId::#property_id,
+                PropertyValue::HorizontalAlignment(value),
+            ) => control
+                .cast::<#interface>()
+                .map_err(native_error)?
+                .#setter(match value {
+                    crate::HorizontalAlignment::Left => bindings::HorizontalAlignment::Left,
+                    crate::HorizontalAlignment::Center => bindings::HorizontalAlignment::Center,
+                    crate::HorizontalAlignment::Right => bindings::HorizontalAlignment::Right,
+                    crate::HorizontalAlignment::Stretch => bindings::HorizontalAlignment::Stretch,
+                })
+                .map_err(native_error)
+        };
+    }
+    if property.adapter == Some(PropertyAdapter::VerticalContentAlignment) {
+        return quote! {
+            (
+                Handle::#control_name(control),
+                PropertyId::#property_id,
+                PropertyValue::VerticalAlignment(value),
+            ) => control
+                .cast::<#interface>()
+                .map_err(native_error)?
+                .#setter(match value {
+                    crate::VerticalAlignment::Top => bindings::VerticalAlignment::Top,
+                    crate::VerticalAlignment::Center => bindings::VerticalAlignment::Center,
+                    crate::VerticalAlignment::Bottom => bindings::VerticalAlignment::Bottom,
+                    crate::VerticalAlignment::Stretch => bindings::VerticalAlignment::Stretch,
+                })
                 .map_err(native_error)
         };
     }

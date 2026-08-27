@@ -2495,6 +2495,14 @@ property = "NewValue"
             "value.as_ref().is_none_or(|value|(0..=59).contains(value)),\"TimePickerMinuteIncrementmustbebetween0and59\""
         ));
         assert!(output.contains("pubfnfont_weight(mutself,value:implInto<Option<FontWeight>>"));
+        assert!(output.contains(
+            "pubfnhorizontal_content_alignment(mutself,value:implInto<Option<HorizontalAlignment>>"
+        ));
+        assert!(output.contains(
+            "pubfnvertical_content_alignment(mutself,value:implInto<Option<VerticalAlignment>>"
+        ));
+        assert!(!output.contains("pubenumHorizontalAlignment"));
+        assert!(!output.contains("pubenumVerticalAlignment"));
     }
 
     #[test]

@@ -50,6 +50,16 @@ capabilities = ["layout", "enabled", "content", "focus"]
 name = "IsEnabled"
 clearable = true
 
+[[control.property]]
+name = "HorizontalContentAlignment"
+clearable = true
+adapter = "horizontal_content_alignment"
+
+[[control.property]]
+name = "VerticalContentAlignment"
+clearable = true
+adapter = "vertical_content_alignment"
+
 
 
 [[control.property]]
@@ -250,6 +260,24 @@ clearable = true
 
 [[control.property]]
 name = "Spacing"
+clearable = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.VariableSizedWrapGrid"
+capabilities = ["layout", "children"]
+
+[[control.property]]
+name = "ItemWidth"
+clearable = true
+validation = "finite_positive"
+
+[[control.property]]
+name = "ItemHeight"
+clearable = true
+validation = "finite_positive"
+
+[[control.property]]
+name = "Orientation"
 clearable = true
 
 

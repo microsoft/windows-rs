@@ -722,12 +722,14 @@ pub fn windows_reactor::BreadcrumbBar::width(self, impl core::convert::Into<core
 pub struct windows_reactor::Button
 impl windows_reactor::Button
 pub fn windows_reactor::Button::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
+pub fn windows_reactor::Button::horizontal_content_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::HorizontalAlignment>>) -> Self
 pub fn windows_reactor::Button::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::Button::key_accelerators(self, impl core::convert::Into<core::option::Option<windows_reactor::KeyAccelerators>>) -> Self
 pub fn windows_reactor::Button::new() -> Self
 pub fn windows_reactor::Button::on_click(self, impl windows_reactor::IntoUnitCallback) -> Self
 pub fn windows_reactor::Button::resource_overrides(self, impl core::convert::Into<core::option::Option<windows_reactor::ResourceOverrides>>) -> Self
 pub fn windows_reactor::Button::style(self, impl core::convert::Into<core::option::Option<windows_reactor::ButtonStyle>>) -> Self
+pub fn windows_reactor::Button::vertical_content_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self
 impl core::convert::From<windows_reactor::Button> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Button) -> Self
 impl windows_reactor::ContentControl for windows_reactor::Button

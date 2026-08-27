@@ -2,7 +2,7 @@ use crate::controls::*;
 use windows_reactor::*;
 
 pub struct ListBoxPage {
-    selected: i32,
+    selected: Option<usize>,
 }
 
 #[derive(Clone)]
@@ -17,30 +17,30 @@ impl Component for ListBoxPage {
     type Input = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
-        Self { selected: -1 }
+        Self { selected: None }
     }
 
     fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
         match message {
             Message::Selected(tag) => {
-                self.selected = tag.and_then(|tag| tag.parse().ok()).unwrap_or(-1);
+                self.selected = tag.and_then(|tag| tag.parse().ok());
             }
         }
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
-        let label = if self.selected >= 0 {
-            FRUITS.get(self.selected as usize).copied().unwrap_or("?")
-        } else {
-            "(none)"
-        };
+        let label = self
+            .selected
+            .and_then(|index| FRUITS.get(index))
+            .copied()
+            .unwrap_or("(none)");
         let items = FRUITS.into_iter().enumerate().map(|(index, name)| {
             let tag = index.to_string();
             KeyedView::new(
                 tag.clone(),
                 ListBoxItem::new()
                     .tag(tag)
-                    .is_selected(self.selected == index as i32)
+                    .is_selected(self.selected == Some(index))
                     .content(name),
             )
         });

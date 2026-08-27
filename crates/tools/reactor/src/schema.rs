@@ -115,6 +115,7 @@ pub(crate) enum PropertyAdapter {
     DropData,
     DropPolicy,
     FontWeight,
+    HorizontalContentAlignment,
     ResourceOverrides,
     ResourceStyle,
     RatingValue,
@@ -122,6 +123,7 @@ pub(crate) enum PropertyAdapter {
     RichTextBlocks,
     TreeNodeContent,
     Uri,
+    VerticalContentAlignment,
     SelectionIndex,
 }
 
@@ -680,6 +682,19 @@ impl Schema {
                         }
                         ("FontWeight".to_string(), true)
                     }
+                    Some(PropertyAdapter::HorizontalContentAlignment) => {
+                        if control.type_name != "Microsoft.UI.Xaml.Controls.Button"
+                            || property.name != "HorizontalContentAlignment"
+                            || metadata.infer_value_type(&name, &method)
+                                != Some(("HorizontalAlignment".to_string(), true))
+                        {
+                            return Err(format!(
+                                "{}.{} horizontal_content_alignment requires Button.HorizontalContentAlignment",
+                                control.type_name, property.name
+                            ));
+                        }
+                        ("HorizontalAlignment".to_string(), true)
+                    }
                     Some(PropertyAdapter::PointerCapture) => {
                         if control.type_name != "Microsoft.UI.Xaml.Controls.Border"
                             || property.name != "CapturePointerOnPress"
@@ -770,6 +785,19 @@ impl Schema {
                             ));
                         }
                         ("Str".to_string(), false)
+                    }
+                    Some(PropertyAdapter::VerticalContentAlignment) => {
+                        if control.type_name != "Microsoft.UI.Xaml.Controls.Button"
+                            || property.name != "VerticalContentAlignment"
+                            || metadata.infer_value_type(&name, &method)
+                                != Some(("VerticalAlignment".to_string(), true))
+                        {
+                            return Err(format!(
+                                "{}.{} vertical_content_alignment requires Button.VerticalContentAlignment",
+                                control.type_name, property.name
+                            ));
+                        }
+                        ("VerticalAlignment".to_string(), true)
                     }
                     Some(PropertyAdapter::SelectionIndex) => {
                         if property.name != "SelectedIndex"

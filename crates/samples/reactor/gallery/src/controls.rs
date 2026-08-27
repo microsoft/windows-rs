@@ -88,36 +88,30 @@ pub struct CardItem {
     pub key: String,
 }
 
-const CARD_COLUMNS: usize = 3;
 const CARD_WIDTH: f64 = 300.0;
 const CARD_HEIGHT: f64 = 88.0;
+const CARD_GAP: f64 = 12.0;
 
-/// Arranges `items` in a fixed-column grid of clickable cards. Reactor has no wrap panel, so
-/// the grid dimensions are computed from the item count, matching the manual grid layout already
-/// used by the design pages.
+/// Arranges `items` in a wrapping grid of clickable cards.
 pub fn card_grid(items: &[CardItem], on_click: impl Fn(String) + Clone + 'static) -> View {
-    let rows = items.len().div_ceil(CARD_COLUMNS).max(1);
-    let children = items.iter().enumerate().map(|(index, item)| {
+    let children = items.iter().map(|item| {
         let on_click = on_click.clone();
         let key = item.key.clone();
         KeyedView::new(
             item.key.clone(),
             Button::new()
                 .style(ButtonStyle::Subtle)
-                .width(CARD_WIDTH)
-                .height(CARD_HEIGHT)
-                .grid_row((index / CARD_COLUMNS) as i32)
-                .grid_column((index % CARD_COLUMNS) as i32)
+                .margin(CARD_GAP / 2.0)
+                .horizontal_content_alignment(HorizontalAlignment::Stretch)
+                .vertical_content_alignment(VerticalAlignment::Stretch)
                 .on_click(move || on_click(key.clone()))
                 .content(
                     Border::new()
                         .background(ThemeBrush::CardBackground)
-                        .border_brush(Color::argb(38, 0, 0, 0))
+                        .border_brush(ThemeBrush::CardStroke)
                         .border_thickness(1.0)
                         .corner_radius(8.0)
                         .padding(16.0)
-                        .width(CARD_WIDTH)
-                        .height(CARD_HEIGHT)
                         .content(
                             StackPanel::new()
                                 .orientation(Orientation::Horizontal)
@@ -137,11 +131,10 @@ pub fn card_grid(items: &[CardItem], on_click: impl Fn(String) + Clone + 'static
         )
     });
 
-    Grid::new()
-        .rows(vec![GridLength::Auto; rows])
-        .columns(vec![GridLength::Star(1.0); CARD_COLUMNS])
-        .row_spacing(12.0)
-        .column_spacing(12.0)
+    VariableSizedWrapGrid::new()
+        .orientation(Orientation::Horizontal)
+        .item_width(CARD_WIDTH + CARD_GAP)
+        .item_height(CARD_HEIGHT + CARD_GAP)
         .keyed_children(children)
 }
 

@@ -45,7 +45,9 @@ Microsoft::UI::Xaml::Controls::ContentDialog::TitleProperty
 Microsoft::UI::Xaml::Controls::Control::BackgroundProperty
 Microsoft::UI::Xaml::Controls::Control::BorderBrushProperty
 Microsoft::UI::Xaml::Controls::Control::BorderThicknessProperty
+Microsoft::UI::Xaml::Controls::Control::HorizontalContentAlignmentProperty
 Microsoft::UI::Xaml::Controls::Control::IsEnabledProperty
+Microsoft::UI::Xaml::Controls::Control::VerticalContentAlignmentProperty
 Microsoft::UI::Xaml::Controls::DatePicker::CreateInstance
 Microsoft::UI::Xaml::Controls::DatePicker::DayVisibleProperty
 Microsoft::UI::Xaml::Controls::DatePicker::MonthVisibleProperty
@@ -117,7 +119,9 @@ Microsoft::UI::Xaml::Controls::IContentDialogClosedEventArgs::get_Result
 Microsoft::UI::Xaml::Controls::IControl::put_Background
 Microsoft::UI::Xaml::Controls::IControl::put_BorderBrush
 Microsoft::UI::Xaml::Controls::IControl::put_BorderThickness
+Microsoft::UI::Xaml::Controls::IControl::put_HorizontalContentAlignment
 Microsoft::UI::Xaml::Controls::IControl::put_IsEnabled
+Microsoft::UI::Xaml::Controls::IControl::put_VerticalContentAlignment
 Microsoft::UI::Xaml::Controls::IDatePicker::put_DayVisible
 Microsoft::UI::Xaml::Controls::IDatePicker::put_Header
 Microsoft::UI::Xaml::Controls::IDatePicker::put_MonthVisible

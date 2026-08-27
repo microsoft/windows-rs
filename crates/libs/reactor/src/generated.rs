@@ -484,6 +484,8 @@ pub mod public {
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Button {
         is_enabled: Property<bool>,
+        horizontal_content_alignment: Property<HorizontalAlignment>,
+        vertical_content_alignment: Property<VerticalAlignment>,
         resource_overrides: Property<ResourceOverrides>,
         style: Property<ButtonStyle>,
         key_accelerators: Property<KeyAccelerators>,
@@ -503,6 +505,22 @@ pub mod public {
         pub fn is_enabled(mut self, value: impl Into<Option<bool>>) -> Self {
             let value = value.into();
             self.is_enabled = Property::from(value);
+            self
+        }
+        pub fn horizontal_content_alignment(
+            mut self,
+            value: impl Into<Option<HorizontalAlignment>>,
+        ) -> Self {
+            let value = value.into();
+            self.horizontal_content_alignment = Property::from(value);
+            self
+        }
+        pub fn vertical_content_alignment(
+            mut self,
+            value: impl Into<Option<VerticalAlignment>>,
+        ) -> Self {
+            let value = value.into();
+            self.vertical_content_alignment = Property::from(value);
             self
         }
         pub fn resource_overrides(mut self, value: impl Into<Option<ResourceOverrides>>) -> Self {
@@ -6293,6 +6311,8 @@ pub mod public {
                 Self::Button(value) => {
                     let Button {
                         is_enabled,
+                        horizontal_content_alignment,
+                        vertical_content_alignment,
                         resource_overrides,
                         style,
                         key_accelerators,
@@ -6305,6 +6325,8 @@ pub mod public {
                         kind: MountedKind::Button,
                         props: MountedProps::Button(std::rc::Rc::new(ButtonMountedProps {
                             is_enabled,
+                            horizontal_content_alignment,
+                            vertical_content_alignment,
                             resource_overrides,
                             style,
                             key_accelerators,
@@ -7992,6 +8014,9 @@ pub mod public {
                 }
                 (Self::Button(value), MountedProps::Button(mounted)) => {
                     true && value.is_enabled == mounted.is_enabled
+                        && value.horizontal_content_alignment
+                            == mounted.horizontal_content_alignment
+                        && value.vertical_content_alignment == mounted.vertical_content_alignment
                         && value.resource_overrides == mounted.resource_overrides
                         && value.style == mounted.style
                         && value.key_accelerators == mounted.key_accelerators
@@ -9176,6 +9201,20 @@ impl MountedPropsExt for MountedProps {
                     match &values.is_enabled {
                         Property::Inherited => None,
                         Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
+                    },
+                );
+                visit(
+                    PropertyId::ButtonHorizontalContentAlignment,
+                    match &values.horizontal_content_alignment {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some(PropertyValueRef::HorizontalAlignment(*value)),
+                    },
+                );
+                visit(
+                    PropertyId::ButtonVerticalContentAlignment,
+                    match &values.vertical_content_alignment {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some(PropertyValueRef::VerticalAlignment(*value)),
                     },
                 );
                 visit(
@@ -12287,6 +12326,8 @@ impl PartialEq for TextBlockMountedProps {
 #[derive(Clone, Debug)]
 pub(crate) struct ButtonMountedProps {
     is_enabled: Property<bool>,
+    horizontal_content_alignment: Property<HorizontalAlignment>,
+    vertical_content_alignment: Property<VerticalAlignment>,
     resource_overrides: Property<ResourceOverrides>,
     style: Property<ButtonStyle>,
     key_accelerators: Property<KeyAccelerators>,
@@ -12295,6 +12336,8 @@ pub(crate) struct ButtonMountedProps {
 impl PartialEq for ButtonMountedProps {
     fn eq(&self, other: &Self) -> bool {
         true && self.is_enabled == other.is_enabled
+            && self.horizontal_content_alignment == other.horizontal_content_alignment
+            && self.vertical_content_alignment == other.vertical_content_alignment
             && self.resource_overrides == other.resource_overrides
             && self.style == other.style
             && self.key_accelerators == other.key_accelerators
@@ -13479,6 +13522,8 @@ pub enum PropertyId {
     TextBlockTextTrimming,
     TextBlockForeground,
     ButtonIsEnabled,
+    ButtonHorizontalContentAlignment,
+    ButtonVerticalContentAlignment,
     ButtonResources,
     ButtonStyle,
     ButtonKeyboardAccelerators,
@@ -14433,6 +14478,28 @@ const BUTTON_PROPERTIES: &[PropertyDescriptor] = &[
         name: "IsEnabled",
         field: "is_enabled",
         value: "Bool",
+        interface: "Microsoft.UI.Xaml.Controls.IControl",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::ButtonHorizontalContentAlignment,
+        name: "HorizontalContentAlignment",
+        field: "horizontal_content_alignment",
+        value: "HorizontalAlignment",
+        interface: "Microsoft.UI.Xaml.Controls.IControl",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::ButtonVerticalContentAlignment,
+        name: "VerticalContentAlignment",
+        field: "vertical_content_alignment",
+        value: "VerticalAlignment",
         interface: "Microsoft.UI.Xaml.Controls.IControl",
         clearable: true,
         feedback: None,
