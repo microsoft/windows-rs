@@ -100,7 +100,7 @@ impl Component for UseMutationSample {
             TextBox::new()
                 .text(self.name.clone())
                 .on_text_changed(context.callback(Message::NameChanged))
-                .slots([SlotView::new(TextBoxSlot::Header, "Name")]),
+                .slot(TextBoxSlot::Header, "Name"),
             StackPanel::new()
                 .orientation(Orientation::Horizontal)
                 .children((

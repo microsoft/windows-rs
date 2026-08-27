@@ -79,7 +79,7 @@ impl Component for Sample {
             .children((
                 Grid::new().element_ref(&self.host).grid_row(0),
                 Button::new()
-                    .on_click(context.message(()))
+                    .on_click(context.forward())
                     .grid_row(1)
                     .margin(Thickness::uniform(16.0))
                     .content(if shown { "Hide visual" } else { "Show visual" }),

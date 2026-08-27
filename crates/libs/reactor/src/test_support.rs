@@ -2,7 +2,9 @@ pub use crate::app::{
     bring_live_virtual_index, clear_live_performance_times, live_virtual_shell_counts,
     take_live_performance_times,
 };
-pub use crate::core::{Command, NodeId, Pump, QueuedEvent, RealizationRequest, RealizedContainer};
+pub use crate::core::{
+    Command, NodeId, Pump, QueuedEvent, RealizationRequest, RealizedContainer, ThemeStyle,
+};
 pub use crate::generated::{
     EventId, EventPayload, PropertyId, PropertyValue, SelectionChange, SlotId,
 };

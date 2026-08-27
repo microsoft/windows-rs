@@ -50,11 +50,8 @@ impl Component for RelativePanelPage {
                     StackPanel::new().spacing(12.0).children((
                         ToggleSwitch::new()
                             .is_on(self.bottom)
-                            .on_toggled(context.callback(std::convert::identity))
-                            .slots([SlotView::new(
-                                ToggleSwitchSlot::Header,
-                                "Show bottom corners",
-                            )]),
+                            .on_toggled(context.forward())
+                            .slot(ToggleSwitchSlot::Header, "Show bottom corners"),
                         RelativePanel::new().height(200.0).children((
                             left,
                             right,

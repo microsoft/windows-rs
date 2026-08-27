@@ -36,8 +36,8 @@ impl Component for InfoBarPage {
                         StackPanel::new().spacing(8.0).children((
                             ToggleSwitch::new()
                                 .is_on(self.visible)
-                                .on_toggled(context.callback(std::convert::identity))
-                                .slots([SlotView::new(ToggleSwitchSlot::Header, "Show InfoBar")]),
+                                .on_toggled(context.forward())
+                                .slot(ToggleSwitchSlot::Header, "Show InfoBar"),
                             InfoBar::new()
                                 .title("Update available")
                                 .message("A new version is ready to install.")

@@ -22,8 +22,8 @@ impl Component for DatePickerSample {
         context.window_title("DatePicker");
         StackPanel::new().spacing(8.0).children((
             DatePicker::new()
-                .on_selected_date_changed(context.callback(std::convert::identity))
-                .slots([SlotView::new(DatePickerSlot::Header, "Pick a date")]),
+                .on_selected_date_changed(context.forward())
+                .slot(DatePickerSlot::Header, "Pick a date"),
             self.label.as_str(),
         ))
     }

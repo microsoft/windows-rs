@@ -51,7 +51,7 @@ impl Component for UseCallbackSample {
                         .on_click(self.callback.clone())
                         .content("Fire (B)"),
                     Button::new()
-                        .on_click(context.message(()))
+                        .on_click(context.forward())
                         .content("Force rerender"),
                 )),
         ))

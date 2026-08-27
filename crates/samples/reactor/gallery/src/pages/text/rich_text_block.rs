@@ -54,7 +54,7 @@ impl Component for RichTextBlockPage {
                                 .minimum(10.0)
                                 .maximum(28.0)
                                 .value(self.font_size)
-                                .on_value_changed(context.callback(std::convert::identity)),
+                                .on_value_changed(context.forward()),
                         )),
                         "RichTextBlock::new().paragraphs(rich_text).font_size(size)",
                     ),

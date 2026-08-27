@@ -147,6 +147,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     let controls = schema.controls.iter().map(generate_control);
 
     let tokens = quote! {
+        use crate::core::ThemeStyle;
         use crate::element::*;
         use crate::reference::{ElementRef, FocusControl, NativeElementRef};
 
@@ -1135,7 +1136,9 @@ fn generate_event_dispatchers(control: &ResolvedControl) -> Vec<TokenStream> {
                 quote! { callback.call(()) }
             } else if event.conversion == EventPayloadConversion::Selection {
                 quote! { callback.call(value.tag.clone()) }
-            } else if matches!(event.payload.as_str(), "Str" | "StrList" | "DroppedData") {
+            } else if event.payload == "StrList" {
+                quote! { callback.call(value.as_ref().clone()) }
+            } else if matches!(event.payload.as_str(), "Str" | "DroppedData") {
                 quote! { callback.call(value.clone()) }
             } else {
                 quote! { callback.call(*value) }
@@ -1432,6 +1435,7 @@ fn generate_value_enums(schema: &ResolvedSchema) -> TokenStream {
         let name = ident(&name);
         let variants = variants.iter().map(|variant| ident(variant));
         quote! {
+            #[non_exhaustive]
             #[derive(Clone, Copy, Debug, Eq, PartialEq)]
             pub enum #name {
                 #(#variants),*
@@ -1444,6 +1448,7 @@ fn generate_value_enums(schema: &ResolvedSchema) -> TokenStream {
         .any(|control| control.lifecycle == Some(Lifecycle::ContentDialog))
         .then(|| {
             quote! {
+                #[non_exhaustive]
                 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
                 pub enum ContentDialogResult {
                     #[default]
@@ -1828,11 +1833,15 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                     self
                 }
 
-                pub fn items(
+                pub fn items<T>(
                     mut self,
-                    items: impl IntoIterator<Item = KeyedView>,
-                ) -> Self {
-                    self.items = std::rc::Rc::new(items.into_iter().collect());
+                    items: impl IntoIterator<Item = T>,
+                ) -> Self
+                where
+                    T: Into<KeyedView>,
+                {
+                    self.items =
+                        std::rc::Rc::new(items.into_iter().map(Into::into).collect());
                     self
                 }
             },
@@ -1895,6 +1904,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         let slot_name = ident(&format!("{}Slot", control.name));
         let variants = control.slots.iter().map(|slot| ident(&slot.name));
         quote! {
+            #[non_exhaustive]
             #[repr(u8)]
             #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
             pub enum #slot_name {
@@ -2304,6 +2314,8 @@ fn value_type(value: &str) -> TokenStream {
 fn event_callback_type(event: &crate::schema::ResolvedEvent) -> TokenStream {
     if event.conversion == EventPayloadConversion::Selection {
         quote! { Option<String> }
+    } else if event.payload == "StrList" {
+        quote! { Vec<String> }
     } else {
         value_type(&event.payload)
     }
@@ -2356,5 +2368,23 @@ property = "NewValue"
 
         assert!(output.contains("EventId :: NumberBoxValueChanged"));
         assert!(!output.contains("PropertyId :: NumberBoxNewValue"));
+    }
+
+    #[test]
+    fn generated_public_enums_are_non_exhaustive() {
+        let source =
+            std::fs::read_to_string(workspace_path("crates/tools/reactor/src/winui.toml")).unwrap();
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let resolved = Schema::parse(&source).unwrap().resolve(&metadata).unwrap();
+        let output = generate(&resolved);
+
+        for name in ["Orientation", "ContentDialogResult", "NavigationViewSlot"] {
+            let enum_start = output.find(&format!("pub enum {name}")).unwrap();
+            let attributes = &output[enum_start.saturating_sub(160)..enum_start];
+            assert!(
+                attributes.contains("# [non_exhaustive]"),
+                "{name} must be non-exhaustive"
+            );
+        }
     }
 }

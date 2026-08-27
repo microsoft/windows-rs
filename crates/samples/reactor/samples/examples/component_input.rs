@@ -60,7 +60,7 @@ impl Component for ComponentInputSample {
                     name: self.name.clone(),
                 }),
                 Button::new()
-                    .on_click(context.message(()))
+                    .on_click(context.forward())
                     .content("Click me"),
             )),
         )

@@ -36,7 +36,7 @@ impl Component for MenuBarPage {
                 sample_card(
                     "Basic MenuBar",
                     StackPanel::new().spacing(8.0).children((
-                        MenuBar::new().slots([SlotView::collection(
+                        MenuBar::new().collection_slot(
                             MenuBarSlot::Items,
                             [
                                 KeyedView::new(
@@ -63,12 +63,12 @@ impl Component for MenuBarPage {
                                     )),
                                 ),
                             ],
-                        )]),
+                        ),
                         TextBlock::new()
                             .text(format!("Last clicked: {}", self.last_click))
                             .opacity(0.6),
                     )),
-                    r#"MenuBar::new().slots([SlotView::collection(MenuBarSlot::Items, [...])])"#,
+                    r#"MenuBar::new().collection_slot(MenuBarSlot::Items, [...])"#,
                 ),
             )],
         )

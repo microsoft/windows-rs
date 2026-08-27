@@ -49,14 +49,14 @@ impl Component for FlipViewSample {
                 .selected_index(self.page)
                 .on_selection_changed(context.callback(Message::Selected))
                 .height(180.0)
-                .slots([SlotView::collection(
+                .collection_slot(
                     FlipViewSlot::Items,
                     [
                         item("red", "Red"),
                         item("green", "Green"),
                         item("blue", "Blue"),
                     ],
-                )]),
+                ),
             StackPanel::new()
                 .orientation(Orientation::Horizontal)
                 .spacing(8.0)

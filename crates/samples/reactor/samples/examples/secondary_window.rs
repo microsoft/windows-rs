@@ -78,7 +78,7 @@ impl Component for SecondaryWindowSample {
                 "Each opened window hosts its own independent counter.",
                 "Closing the last remaining window exits the app.",
                 Button::new()
-                    .on_click(context.message(()))
+                    .on_click(context.forward())
                     .content("Open counter window"),
                 format!("Windows opened: {}", self.opened),
             )),

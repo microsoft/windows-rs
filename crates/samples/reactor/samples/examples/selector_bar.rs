@@ -26,10 +26,9 @@ impl Component for SelectorBarSample {
                 .text(text)
                 .is_selected(self.selected == text);
             let item = match symbol {
-                Some(symbol) => item.slots([SlotView::new(
-                    SelectorBarItemSlot::Icon,
-                    SymbolIcon::new().symbol(symbol),
-                )]),
+                Some(symbol) => {
+                    item.slot(SelectorBarItemSlot::Icon, SymbolIcon::new().symbol(symbol))
+                }
                 None => item.into(),
             };
             KeyedView::new(text, item)
@@ -38,15 +37,15 @@ impl Component for SelectorBarSample {
         context.window_title("SelectorBar");
         StackPanel::new().spacing(12.0).children((
             SelectorBar::new()
-                .on_selected_text_changed(context.callback(std::convert::identity))
-                .slots([SlotView::collection(
+                .on_selected_text_changed(context.forward())
+                .collection_slot(
                     SelectorBarSlot::Items,
                     [
                         item("Recent", None),
                         item("Shared", Some(Symbol::People)),
                         item("Favorites", Some(Symbol::Favorite)),
                     ],
-                )]),
+                ),
             format!("Selected: {}", self.selected),
         ))
     }

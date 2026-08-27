@@ -48,7 +48,7 @@ impl Component for NavigationPaneSample {
             .pane_title("Account")
             .open_pane_length(400.0)
             .is_settings_visible(false)
-            .on_selected_tag_changed(context.callback(std::convert::identity))
+            .on_selected_tag_changed(context.forward())
             .slots([
                 SlotView::collection(
                     NavigationViewSlot::MenuItems,

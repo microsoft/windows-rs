@@ -41,6 +41,7 @@ impl Component for ContentDialogSample {
             Some(ContentDialogResult::Primary) => "You picked: Delete".to_string(),
             Some(ContentDialogResult::Secondary) => "You picked: Archive".to_string(),
             Some(ContentDialogResult::None) => "You picked: Cancel".to_string(),
+            Some(_) => "You picked: Unknown".to_string(),
         };
 
         StackPanel::new().spacing(8.0).max_width(320.0).children((

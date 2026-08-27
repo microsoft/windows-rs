@@ -1,10 +1,9 @@
-use std::rc::Rc;
 use windows_reactor::*;
 
 enum Message {
     Select(i32),
     SelectMode(i32),
-    Reorder(Rc<Vec<String>>),
+    Reorder(Vec<String>),
 }
 
 struct ListViewSample {
@@ -31,7 +30,7 @@ impl Component for ListViewSample {
         match message {
             Message::Select(index) => self.selected = index,
             Message::SelectMode(index) => self.mode_index = index,
-            Message::Reorder(items) => self.items.clone_from(items.as_ref()),
+            Message::Reorder(items) => self.items = items,
         }
     }
 
@@ -55,7 +54,7 @@ impl Component for ListViewSample {
                 .height(120.0)
                 .selected_index(self.mode_index)
                 .on_selection_changed(context.callback(Message::SelectMode))
-                .slots([SlotView::collection(
+                .collection_slot(
                     ListViewSlot::Items,
                     mode_names.into_iter().map(|name| {
                         KeyedView::new(
@@ -67,7 +66,7 @@ impl Component for ListViewSample {
                             ),
                         )
                     }),
-                )]),
+                ),
             "Items (drag to reorder):",
             ListView::new()
                 .height(180.0)
@@ -78,7 +77,7 @@ impl Component for ListViewSample {
                 .allow_drop(true)
                 .on_selection_changed(context.callback(Message::Select))
                 .on_reordered(context.callback(Message::Reorder))
-                .slots([SlotView::collection(
+                .collection_slot(
                     ListViewSlot::Items,
                     self.items.iter().map(|item| {
                         KeyedView::new(
@@ -90,7 +89,7 @@ impl Component for ListViewSample {
                             ),
                         )
                     }),
-                )]),
+                ),
             format!(
                 "selected_index = {} ({label}) | mode = {:?}",
                 self.selected, modes[self.mode_index as usize]

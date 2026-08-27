@@ -33,7 +33,7 @@ impl Component for CommandBarFlyoutSample {
                         CommandBarCommand::button("select-all", "Select All"),
                         CommandBarCommand::button("print", "Print"),
                     ],
-                    context.callback(std::convert::identity),
+                    context.forward(),
                 )),
             format!("Last action: {}", self.last_action),
         ))

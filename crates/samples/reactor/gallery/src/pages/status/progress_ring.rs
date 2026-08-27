@@ -44,7 +44,7 @@ impl Component for ProgressRingPage {
                                 .minimum(0.0)
                                 .maximum(100.0)
                                 .value(self.value)
-                                .on_value_changed(context.callback(std::convert::identity)),
+                                .on_value_changed(context.forward()),
                             TextBlock::new()
                                 .text(format!("{:.0}%", self.value))
                                 .opacity(0.6),

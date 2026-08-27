@@ -33,7 +33,7 @@ impl Component for CommandBarSample {
                     CommandBarCommand::button("select-all", "Select All"),
                     CommandBarCommand::button("share", "Share"),
                 ],
-                context.callback(std::convert::identity),
+                context.forward(),
             ),
             format!("Last clicked: {}", self.last_click),
         ))

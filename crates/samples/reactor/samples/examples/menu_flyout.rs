@@ -37,7 +37,7 @@ impl Component for MenuFlyoutSample {
                         ],
                     ),
                 ],
-                context.callback(std::convert::identity),
+                context.forward(),
             )),
             format!("Last action: {}", self.last_action),
         ))

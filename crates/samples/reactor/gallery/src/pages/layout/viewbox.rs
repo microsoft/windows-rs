@@ -43,7 +43,7 @@ impl Component for ViewboxPage {
                             .minimum(60.0)
                             .maximum(220.0)
                             .value(self.size)
-                            .on_value_changed(context.callback(std::convert::identity)),
+                            .on_value_changed(context.forward()),
                     )),
                     r#"Viewbox::new()
     .width(viewport_width)

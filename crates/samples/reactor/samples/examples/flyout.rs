@@ -27,7 +27,7 @@ impl Component for FlyoutSample {
                     .placement(FlyoutPlacement::Bottom),
             ),
             Button::new()
-                .on_click(context.message(()))
+                .on_click(context.forward())
                 .content("Increment"),
         ))
     }

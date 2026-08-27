@@ -102,11 +102,9 @@ impl Component for TabViewPage {
                             .height(200.0)
                             .on_selection_changed(context.callback(Message::BasicSelected))
                             .on_close_requested(context.callback(Message::CloseBasic))
-                            .slots([SlotView::collection(
-                                TabViewSlot::TabItems,
-                                tabs(&self.basic_tabs, true),
-                            )]),
-                        "TabView::new().selected_index(index).slots([tab_items])",
+                            .collection_slot(TabViewSlot::TabItems, tabs(&self.basic_tabs, true)),
+                        "TabView::new().selected_index(index)\n    \
+                         .collection_slot(TabViewSlot::TabItems, tab_items)",
                     ),
                 ),
                 KeyedView::new(
@@ -119,10 +117,10 @@ impl Component for TabViewPage {
                                 .height(180.0)
                                 .on_selection_changed(context.callback(Message::DynamicSelected))
                                 .on_close_requested(context.callback(Message::CloseDynamic))
-                                .slots([SlotView::collection(
+                                .collection_slot(
                                     TabViewSlot::TabItems,
                                     tabs(&self.dynamic_tabs, true),
-                                )]),
+                                ),
                             StackPanel::new()
                                 .orientation(Orientation::Horizontal)
                                 .spacing(8.0)
@@ -143,10 +141,9 @@ impl Component for TabViewPage {
                     "fixed",
                     sample_card(
                         "Non-closable Tabs",
-                        TabView::new().height(150.0).slots([SlotView::collection(
-                            TabViewSlot::TabItems,
-                            tabs(&[1, 2], false),
-                        )]),
+                        TabView::new()
+                            .height(150.0)
+                            .collection_slot(TabViewSlot::TabItems, tabs(&[1, 2], false)),
                         "TabViewItem::new().is_closable(false)",
                     ),
                 ),

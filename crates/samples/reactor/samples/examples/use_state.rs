@@ -21,7 +21,7 @@ impl Component for UseStateSample {
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         context.window_title("UseState");
         StackPanel::new().children((
-            Button::new().on_click(context.message(())).content("Click"),
+            Button::new().on_click(context.forward()).content("Click"),
             TextBlock::new()
                 .text(format!("count = {}", self.count))
                 .font_size(18.0),

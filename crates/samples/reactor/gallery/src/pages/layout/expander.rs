@@ -29,7 +29,7 @@ impl Component for ExpanderPage {
                         StackPanel::new().spacing(8.0).children((
                             Expander::new()
                                 .is_expanded(self.expanded)
-                                .on_is_expanded_changed(context.callback(std::convert::identity))
+                                .on_is_expanded_changed(context.forward())
                                 .slots([
                                     SlotView::new(
                                         ExpanderSlot::Header,

@@ -1550,8 +1550,8 @@ fn tab_view_reorder_routes_item_tags() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(
         TabView::new()
-            .on_reordered(move |order: Rc<Vec<String>>| {
-                *capture.borrow_mut() = order.as_ref().clone();
+            .on_reordered(move |order: Vec<String>| {
+                *capture.borrow_mut() = order;
             })
             .slots([SlotView::collection(
                 TabViewSlot::TabItems,
@@ -1777,8 +1777,8 @@ fn list_and_grid_views_route_selection_and_reordered_tags() {
         ListView::new()
             .selected_index(-1)
             .on_selection_changed(move |index| selected_capture.set(index))
-            .on_reordered(move |items: Rc<Vec<String>>| {
-                *reordered_capture.borrow_mut() = items.as_ref().clone();
+            .on_reordered(move |items: Vec<String>| {
+                *reordered_capture.borrow_mut() = items;
             })
             .slots([SlotView::collection(
                 ListViewSlot::Items,
@@ -1817,8 +1817,8 @@ fn list_and_grid_views_route_selection_and_reordered_tags() {
     let mut grid = Pump::new(RecordingRuntime::default());
     grid.mount_view(
         GridView::new()
-            .on_reordered(move |items: Rc<Vec<String>>| {
-                *capture.borrow_mut() = items.as_ref().clone();
+            .on_reordered(move |items: Vec<String>| {
+                *capture.borrow_mut() = items;
             })
             .slots([SlotView::collection(
                 GridViewSlot::Items,

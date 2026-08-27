@@ -20,7 +20,7 @@ impl Component for DropDownButtonSample {
         context.window_title("DropDownButton");
         StackPanel::new().spacing(8.0).children((
             DropDownButton::new()
-                .on_click(context.message(()))
+                .on_click(context.forward())
                 .content("Options"),
             format!("Clicked {} time(s)", self.clicks),
         ))

@@ -26,7 +26,7 @@ impl Component for HyperlinkButtonSample {
                 .unwrap()
                 .content("Open Microsoft Docs"),
             HyperlinkButton::new()
-                .on_click(context.message(()))
+                .on_click(context.forward())
                 .content(format!("Clicked {} times", self.clicks)),
             HyperlinkButton::new()
                 .navigate_uri("https://example.com/")

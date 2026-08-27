@@ -26,7 +26,7 @@ impl Component for Notepad {
             .text(self.text.clone())
             .accepts_return(true)
             .placeholder_text("Start typing…")
-            .on_text_changed(context.callback(std::convert::identity))
+            .on_text_changed(context.forward())
             .horizontal_alignment(HorizontalAlignment::Stretch)
             .vertical_alignment(VerticalAlignment::Stretch)
             .into()

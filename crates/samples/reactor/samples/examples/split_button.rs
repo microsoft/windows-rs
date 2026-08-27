@@ -20,7 +20,7 @@ impl Component for SplitButtonSample {
         context.window_title("SplitButton");
         StackPanel::new().spacing(8.0).children((
             SplitButton::new()
-                .on_click(context.message(()))
+                .on_click(context.forward())
                 .content(format!("Primary action ({})", self.clicks)),
             SplitButton::new().is_enabled(false).content("Disabled"),
         ))

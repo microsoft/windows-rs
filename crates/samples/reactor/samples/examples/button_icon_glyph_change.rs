@@ -24,7 +24,7 @@ impl Component for GlyphChangeSample {
         };
         context.window_title("ButtonIconGlyphChange");
         StackPanel::new().spacing(12.0).children((
-            Button::new().on_click(context.message(())).content(
+            Button::new().on_click(context.forward()).content(
                 StackPanel::new()
                     .orientation(Orientation::Horizontal)
                     .spacing(6.0)

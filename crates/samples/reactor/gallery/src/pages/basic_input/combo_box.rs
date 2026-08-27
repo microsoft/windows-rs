@@ -36,8 +36,8 @@ impl Component for ComboBoxPage {
                                 .items_source(colors)
                                 .selected_index(self.selected)
                                 .placeholder_text("Pick a color")
-                                .on_selection_changed(context.callback(std::convert::identity))
-                                .slots([SlotView::new(ComboBoxSlot::Header, "Color")]),
+                                .on_selection_changed(context.forward())
+                                .slot(ComboBoxSlot::Header, "Color"),
                             TextBlock::new()
                                 .text(format!("Selected: {label}"))
                                 .opacity(0.6),
@@ -53,7 +53,7 @@ impl Component for ComboBoxPage {
                             .items_source(["Cat", "Dog", "Fox"])
                             .placeholder_text("Type or pick")
                             .is_editable(true)
-                            .slots([SlotView::new(ComboBoxSlot::Header, "Animal")]),
+                            .slot(ComboBoxSlot::Header, "Animal"),
                         "ComboBox::new().items_source(items).is_editable(true)",
                     ),
                 ),

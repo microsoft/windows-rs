@@ -38,7 +38,7 @@ impl Component for DropDownButtonPage {
                                         MenuItem::separator("separator"),
                                         MenuItem::item("exit", "Exit"),
                                     ],
-                                    context.callback(std::convert::identity),
+                                    context.forward(),
                                 )),
                             TextBlock::new()
                                 .text(format!("Last action: {}", self.selected))

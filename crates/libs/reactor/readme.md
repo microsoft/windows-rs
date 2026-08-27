@@ -66,3 +66,8 @@ fn main() {
 `ViewContext::message` maps a payload-free event to a fixed message. Generated control builders
 expose typed properties, events, content, and child collections. `ElementRef` provides typed
 imperative operations for focus and integration points that must run after publication.
+
+Use ordinary functions returning `View` for stateless presentation. Use a `Component` when a
+subtree owns state, handles messages, uses lifecycle work, or needs its own recomposition boundary.
+Generated metadata value enums and slot enums are non-exhaustive, so matches must include a wildcard
+arm.

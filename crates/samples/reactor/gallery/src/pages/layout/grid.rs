@@ -96,8 +96,8 @@ impl Component for GridPage {
                         StackPanel::new().spacing(12.0).children((
                             ToggleSwitch::new()
                                 .is_on(self.wide)
-                                .on_toggled(context.callback(std::convert::identity))
-                                .slots([SlotView::new(ToggleSwitchSlot::Header, "Wide layout")]),
+                                .on_toggled(context.forward())
+                                .slot(ToggleSwitchSlot::Header, "Wide layout"),
                             dynamic,
                         )),
                         "if wide { three columns } else { two by two }",

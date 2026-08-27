@@ -20,9 +20,9 @@ impl Component for MenuBarSample {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("MenuBar");
-        let callback = context.callback(std::convert::identity);
+        let callback = context.forward();
         StackPanel::new().spacing(12.0).children((
-            MenuBar::new().slots([SlotView::collection(
+            MenuBar::new().collection_slot(
                 MenuBarSlot::Items,
                 [
                     KeyedView::new(
@@ -65,7 +65,7 @@ impl Component for MenuBarSample {
                         )),
                     ),
                 ],
-            )]),
+            ),
             DropDownButton::new().content("Actions").menu(Menu::new(
                 [
                     MenuItem::item("action-a", "Action A"),

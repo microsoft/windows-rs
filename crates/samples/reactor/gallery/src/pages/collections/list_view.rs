@@ -61,7 +61,7 @@ impl Component for ListViewPage {
                     "basic-list-view",
                     sample_card(
                         "Basic ListView",
-                        ListView::new().height(220.0).slots([SlotView::collection(
+                        ListView::new().height(220.0).collection_slot(
                             ListViewSlot::Items,
                             INBOX_ITEMS.into_iter().enumerate().map(|(index, subject)| {
                                 KeyedView::new(
@@ -79,8 +79,8 @@ impl Component for ListViewPage {
                                     ),
                                 )
                             }),
-                        )]),
-                        r#"ListView::new().slots([SlotView::collection(ListViewSlot::Items, items)])"#,
+                        ),
+                        r#"ListView::new().collection_slot(ListViewSlot::Items, items)"#,
                     ),
                 ),
                 KeyedView::new(
@@ -92,7 +92,7 @@ impl Component for ListViewPage {
                                 .height(180.0)
                                 .selected_index(self.selected_contact)
                                 .on_selection_changed(context.callback(Message::SelectContact))
-                                .slots([SlotView::collection(
+                                .collection_slot(
                                     ListViewSlot::Items,
                                     CONTACTS.into_iter().map(|name| {
                                         KeyedView::new(
@@ -100,14 +100,14 @@ impl Component for ListViewPage {
                                             ListViewItem::new().tag(name).content(name),
                                         )
                                     }),
-                                )]),
+                                ),
                             TextBlock::new()
                                 .text(format!("Selected contact: {contact_label}"))
                                 .opacity(0.6),
                         )),
                         r#"ListView::new().selected_index(selected_contact)
     .on_selection_changed(...)
-    .slots([SlotView::collection(ListViewSlot::Items, contacts)])"#,
+    .collection_slot(ListViewSlot::Items, contacts)"#,
                     ),
                 ),
                 KeyedView::new(
@@ -119,7 +119,7 @@ impl Component for ListViewPage {
                                 .height(200.0)
                                 .selected_index(self.selected_playlist)
                                 .on_selection_changed(context.callback(Message::SelectPlaylist))
-                                .slots([SlotView::collection(
+                                .collection_slot(
                                     ListViewSlot::Items,
                                     PLAYLISTS.into_iter().enumerate().map(|(index, name)| {
                                         KeyedView::new(
@@ -137,14 +137,14 @@ impl Component for ListViewPage {
                                             ),
                                         )
                                     }),
-                                )]),
+                                ),
                             TextBlock::new()
                                 .text(format!("Now browsing: {playlist_label}"))
                                 .opacity(0.6),
                         )),
                         r#"ListView::new().selected_index(selected_playlist)
     .on_selection_changed(...)
-    .slots([SlotView::collection(ListViewSlot::Items, playlists)])"#,
+    .collection_slot(ListViewSlot::Items, playlists)"#,
                     ),
                 ),
             ],

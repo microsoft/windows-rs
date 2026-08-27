@@ -172,26 +172,6 @@ impl From<Color> for Brush {
     }
 }
 
-#[doc(hidden)]
-#[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq)]
-pub struct ThemeStyle {
-    values: [Option<ThemeBrush>; 4],
-}
-
-impl ThemeStyle {
-    pub(crate) const fn new(values: [Option<ThemeBrush>; 4]) -> Self {
-        Self { values }
-    }
-
-    pub(crate) fn is_empty(self) -> bool {
-        self.values.iter().all(Option::is_none)
-    }
-
-    pub(crate) fn values(self) -> [Option<ThemeBrush>; 4] {
-        self.values
-    }
-}
-
 pub(crate) mod sealed {
     pub trait Sealed {}
 
@@ -827,8 +807,13 @@ impl View {
         Self(ViewKind::Fragment(positioned(children)))
     }
 
-    pub fn keyed_fragment(children: impl IntoIterator<Item = KeyedView>) -> Self {
-        Self(ViewKind::Fragment(Rc::new(children.into_iter().collect())))
+    pub fn keyed_fragment<T>(children: impl IntoIterator<Item = T>) -> Self
+    where
+        T: Into<KeyedView>,
+    {
+        Self(ViewKind::Fragment(Rc::new(
+            children.into_iter().map(Into::into).collect(),
+        )))
     }
 
     pub fn provide<T>(context: &Context<T>, value: T, child: impl Into<Self>) -> Self
@@ -882,10 +867,15 @@ impl<S> SlotView<S> {
         }
     }
 
-    pub fn collection(slot: S, children: impl IntoIterator<Item = KeyedView>) -> Self {
+    pub fn collection<T>(slot: S, children: impl IntoIterator<Item = T>) -> Self
+    where
+        T: Into<KeyedView>,
+    {
         Self {
             slot,
-            content: SlotContent::Collection(Rc::new(children.into_iter().collect())),
+            content: SlotContent::Collection(Rc::new(
+                children.into_iter().map(Into::into).collect(),
+            )),
         }
     }
 
@@ -955,6 +945,16 @@ impl KeyedView {
             key: Key::position(position),
             view,
         }
+    }
+}
+
+impl<K, V> From<(K, V)> for KeyedView
+where
+    K: Into<Key>,
+    V: Into<View>,
+{
+    fn from((key, view): (K, V)) -> Self {
+        Self::new(key, view)
     }
 }
 
@@ -1443,6 +1443,7 @@ impl WindowVisuals {
 #[cfg(test)]
 mod visual_value_tests {
     use super::*;
+    use crate::core::ThemeStyle;
     use std::mem::size_of;
 
     #[test]
@@ -2038,10 +2039,13 @@ pub trait ChildrenControl: sealed::NativeControl + Sized {
         })
     }
 
-    fn keyed_children(self, children: impl IntoIterator<Item = KeyedView>) -> View {
+    fn keyed_children<T>(self, children: impl IntoIterator<Item = T>) -> View
+    where
+        T: Into<KeyedView>,
+    {
         View(ViewKind::Children {
             control: sealed::NativeControl::into_element(self),
-            children: Rc::new(children.into_iter().collect()),
+            children: Rc::new(children.into_iter().map(Into::into).collect()),
         })
     }
 }
@@ -2053,11 +2057,10 @@ pub trait SlotsControl: sealed::NativeControl + sealed::SlotIndex<Self::Slot> + 
         self.slots([SlotView::new(slot, view)])
     }
 
-    fn collection_slot(
-        self,
-        slot: Self::Slot,
-        children: impl IntoIterator<Item = KeyedView>,
-    ) -> View {
+    fn collection_slot<T>(self, slot: Self::Slot, children: impl IntoIterator<Item = T>) -> View
+    where
+        T: Into<KeyedView>,
+    {
         self.slots([SlotView::collection(slot, children)])
     }
 

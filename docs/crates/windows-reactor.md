@@ -58,6 +58,23 @@ Generated controls convert directly into `View`. The internal `Element` represen
 structural state remain private so applications depend on builders and capability traits rather
 than generated enum variants or reconciliation storage.
 
+Use an ordinary function returning `View` for stateless presentation:
+
+```rust,ignore
+fn status_card(title: &str, value: String) -> View {
+    StackPanel::new().spacing(4.0).children((
+        TextBlock::new().text(title),
+        TextBlock::new().text(value),
+    ))
+}
+```
+
+The function is recomposed with its caller. Use a `Component` instead when the subtree owns state,
+handles messages, uses lifecycle work, or needs its own recomposition boundary.
+
+Generated metadata value enums and slot enums are non-exhaustive. Matches outside the crate must
+include a wildcard arm so a newly projected WinUI value or slot does not break source compatibility.
+
 ### Migration from the render-and-hook API
 
 The Component/View API replaces the earlier render-function and hook frontend:
@@ -110,6 +127,13 @@ preserves an HRESULT, while `Unavailable` means the published target retired or 
 the request. Focus, WebView2, swap-chain, image-source, and Composition error names remain aliases
 for this shared contract. Higher-level integrations use a result-bearing readiness callback for a
 one-shot operation and `on_error` for a recurring surface.
+
+### Test support
+
+The `test` Cargo feature exposes `Pump`, `RecordingRuntime`, command payloads, and related retained
+tree details for Reactor's deterministic tests and benchmarks. This feature is unstable testing
+infrastructure, not part of the stable application API. Its types and command shapes may change
+between releases as the reconciler changes.
 
 ## Code generation
 

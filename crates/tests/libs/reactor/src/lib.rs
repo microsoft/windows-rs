@@ -47,20 +47,48 @@ mod tests {
         let _: View = Button::new().content(TextBlock::new().text("button"));
         let _: View = Border::new().content(TextBlock::new().text("card"));
         let _: View = StackPanel::new().keyed_children([
-            KeyedView::new("first", TextBlock::new().text("one")),
-            KeyedView::new(2_u64, TextBlock::new().text("two")),
+            ("first", TextBlock::new().text("one")),
+            ("second", TextBlock::new().text("two")),
         ]);
         let repeater = ItemsRepeater::new()
             .item("first", TextBlock::new().text("one"))
-            .items([KeyedView::new(
-                2_u64,
-                View::component::<TestComponent>("two".to_string()),
-            )]);
+            .items([(2_u64, View::component::<TestComponent>("two".to_string()))]);
         let _: View = ScrollViewer::new().content(repeater);
         let _: View = NavigationView::new().slots([
             SlotView::new(NavigationViewSlot::Content, TextBlock::new()),
             SlotView::new(NavigationViewSlot::Header, Button::new()),
         ]);
+        let _: View = NavigationView::new().collection_slot(
+            NavigationViewSlot::MenuItems,
+            [
+                (
+                    "first",
+                    NavigationViewItem::new().slot(NavigationViewItemSlot::Content, "one"),
+                ),
+                (
+                    "second",
+                    NavigationViewItem::new().slot(NavigationViewItemSlot::Content, "two"),
+                ),
+            ],
+        );
+        let _: SlotView<NavigationViewSlot> = SlotView::collection(
+            NavigationViewSlot::MenuItems,
+            [
+                (
+                    "first",
+                    NavigationViewItem::new().slot(NavigationViewItemSlot::Content, "one"),
+                ),
+                (
+                    "second",
+                    NavigationViewItem::new().slot(NavigationViewItemSlot::Content, "two"),
+                ),
+            ],
+        );
+        let _: View = View::keyed_fragment([
+            ("first", TextBlock::new().text("one")),
+            ("second", TextBlock::new().text("two")),
+        ]);
+        let _: KeyedView = ("key", TextBlock::new().text("value")).into();
         let _: View = TitleBar::new()
             .preferred_height(WindowTitleBarHeight::Tall)
             .slots(std::iter::empty::<SlotView<TitleBarSlot>>());

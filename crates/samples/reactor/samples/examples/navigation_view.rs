@@ -38,7 +38,7 @@ impl Component for NavigationViewSample {
                 NavigationViewItem::new()
                     .tag(tag)
                     .is_selected(self.page == tag)
-                    .slots([SlotView::new(NavigationViewItemSlot::Content, label)]),
+                    .slot(NavigationViewItemSlot::Content, label),
             )
         });
         let body = match self.page.as_str() {

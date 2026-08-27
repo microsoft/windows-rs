@@ -27,7 +27,7 @@ impl Component for Counter {
                     .text(format!("count = {}", self.count))
                     .font_size(20.0),
                 Button::new()
-                    .on_click(context.message(()))
+                    .on_click(context.forward())
                     .content("Increment"),
             ))
     }

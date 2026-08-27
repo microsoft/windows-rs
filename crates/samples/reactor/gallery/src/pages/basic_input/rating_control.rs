@@ -29,7 +29,7 @@ impl Component for RatingControlPage {
                         StackPanel::new().spacing(8.0).children((
                             RatingControl::new()
                                 .value(self.rating)
-                                .on_value_changed(context.callback(std::convert::identity)),
+                                .on_value_changed(context.forward()),
                             TextBlock::new()
                                 .text(format!("Rating: {:.1} / 5", self.rating))
                                 .opacity(0.6),

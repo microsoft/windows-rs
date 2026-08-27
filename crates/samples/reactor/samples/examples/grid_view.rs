@@ -1,4 +1,3 @@
-use std::rc::Rc;
 use windows_reactor::*;
 
 struct GridViewSample {
@@ -6,7 +5,7 @@ struct GridViewSample {
 }
 
 impl Component for GridViewSample {
-    type Message = Rc<Vec<String>>;
+    type Message = Vec<String>;
     type Input = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
@@ -17,8 +16,8 @@ impl Component for GridViewSample {
         }
     }
 
-    fn update(&mut self, items: Rc<Vec<String>>, _context: &ComponentContext<Self>) {
-        self.items.clone_from(items.as_ref());
+    fn update(&mut self, items: Vec<String>, _context: &ComponentContext<Self>) {
+        self.items = items;
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
@@ -28,8 +27,8 @@ impl Component for GridViewSample {
             .can_drag_items(true)
             .can_reorder_items(true)
             .allow_drop(true)
-            .on_reordered(context.callback(std::convert::identity))
-            .slots([SlotView::collection(
+            .on_reordered(context.forward())
+            .collection_slot(
                 GridViewSlot::Items,
                 self.items.iter().map(|item| {
                     KeyedView::new(
@@ -44,7 +43,7 @@ impl Component for GridViewSample {
                         ),
                     )
                 }),
-            )])
+            )
     }
 }
 

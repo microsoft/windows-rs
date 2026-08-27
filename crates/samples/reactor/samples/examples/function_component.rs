@@ -49,7 +49,7 @@ impl Component for Counter {
                 .font_size(24.0)
                 .font_weight(700),
             Button::new()
-                .on_click(context.message(()))
+                .on_click(context.forward())
                 .content("Increment"),
         ))
     }
@@ -82,8 +82,8 @@ impl Component for FunctionComponentSample {
             TextBox::new()
                 .text(self.name.clone())
                 .placeholder_text("Type a name...")
-                .on_text_changed(context.callback(std::convert::identity))
-                .slots([SlotView::new(TextBoxSlot::Header, "Your name")]),
+                .on_text_changed(context.forward())
+                .slot(TextBoxSlot::Header, "Your name"),
             View::component::<Counter>(()),
         ))
     }

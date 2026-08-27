@@ -6,6 +6,26 @@ use std::sync::atomic::{AtomicU64, Ordering};
 
 static NEXT_WINDOW_ID: AtomicU64 = AtomicU64::new(1);
 
+/// Theme-resource selections recorded by the test runtime.
+#[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq)]
+pub struct ThemeStyle {
+    values: [Option<ThemeBrush>; 4],
+}
+
+impl ThemeStyle {
+    pub(crate) const fn new(values: [Option<ThemeBrush>; 4]) -> Self {
+        Self { values }
+    }
+
+    pub(crate) fn is_empty(self) -> bool {
+        self.values.iter().all(Option::is_none)
+    }
+
+    pub(crate) fn values(self) -> [Option<ThemeBrush>; 4] {
+        self.values
+    }
+}
+
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct WindowId(u64);
 

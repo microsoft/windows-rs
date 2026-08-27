@@ -126,11 +126,11 @@ impl Component for SettingsPage {
             ToggleSwitch::new()
                 .is_on(self.dark_mode)
                 .on_toggled(context.callback(SettingsMessage::DarkMode))
-                .slots([SlotView::new(ToggleSwitchSlot::Header, "Dark mode")]),
+                .slot(ToggleSwitchSlot::Header, "Dark mode"),
             ToggleSwitch::new()
                 .is_on(self.notifications)
                 .on_toggled(context.callback(SettingsMessage::Notifications))
-                .slots([SlotView::new(ToggleSwitchSlot::Header, "Notifications")]),
+                .slot(ToggleSwitchSlot::Header, "Notifications"),
             TextBlock::new()
                 .text(format!(
                     "Dark: {} | Notifications: {}",
@@ -196,7 +196,7 @@ impl Component for NavigationSample {
             .pane_display_mode(NavigationViewPaneDisplayMode::Left)
             .pane_title("My App")
             .is_settings_visible(false)
-            .on_selected_tag_changed(context.callback(std::convert::identity))
+            .on_selected_tag_changed(context.forward())
             .slots([
                 SlotView::collection(
                     NavigationViewSlot::MenuItems,

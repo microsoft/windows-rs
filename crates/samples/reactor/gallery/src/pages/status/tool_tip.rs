@@ -28,7 +28,7 @@ impl Component for ToolTipPage {
                         "Interactive ToolTip",
                         StackPanel::new().spacing(8.0).children((
                             Button::new()
-                                .on_click(context.message(()))
+                                .on_click(context.forward())
                                 .content("Hover target")
                                 .tooltip_with(Tooltip::rich(
                                     StackPanel::new().spacing(4.0).children((

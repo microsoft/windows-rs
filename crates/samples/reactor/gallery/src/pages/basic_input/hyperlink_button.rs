@@ -39,7 +39,7 @@ impl Component for HyperlinkButtonPage {
                         "Click Handler",
                         StackPanel::new().spacing(8.0).children((
                             HyperlinkButton::new()
-                                .on_click(context.message(()))
+                                .on_click(context.forward())
                                 .content("Click me"),
                             TextBlock::new()
                                 .text(format!("Clicked: {} times", self.clicks))

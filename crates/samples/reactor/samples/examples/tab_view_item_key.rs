@@ -53,13 +53,13 @@ impl Component for TabViewItemKeySample {
                     }),
                 TabView::new()
                     .on_close_requested(context.callback(Message::Close))
-                    .slots([SlotView::collection(
+                    .collection_slot(
                         TabViewSlot::TabItems,
                         [KeyedView::new(
                             "doc",
                             item.content("Close the tab to inspect its key."),
                         )],
-                    )]),
+                    ),
                 format!(
                     "configured key: {}; last close request: {}",
                     if self.keyed { "document" } else { "<none>" },

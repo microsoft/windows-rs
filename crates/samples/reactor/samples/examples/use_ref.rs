@@ -35,7 +35,7 @@ impl Component for UseRefSample {
                 .text(format!("renders (Cell) = {}", self.renders.get()))
                 .font_size(18.0),
             Button::new()
-                .on_click(context.message(()))
+                .on_click(context.forward())
                 .content("Click me"),
             TextBlock::new()
                 .text(

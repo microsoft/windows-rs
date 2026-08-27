@@ -25,13 +25,13 @@ impl Component for DynamicIconSample {
         };
         context.window_title("ButtonIconDynamic");
         StackPanel::new().spacing(12.0).children((
-            Button::new().on_click(context.message(())).content(content(
+            Button::new().on_click(context.forward()).content(content(
                 Symbol::Favorite,
                 format!("Clicked {} times", self.count),
             )),
             Button::new()
                 .style(ButtonStyle::Accent)
-                .on_click(context.message(()))
+                .on_click(context.forward())
                 .content(content(
                     Symbol::Save,
                     if self.count == 0 { "Save" } else { "Saved!" }.to_string(),

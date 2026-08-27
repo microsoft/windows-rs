@@ -36,18 +36,18 @@ impl Component for ComboBoxSample {
                 .placeholder_text("Pick a color")
                 .selected_index(self.selected)
                 .on_selection_changed(context.callback(|index| index))
-                .slots([SlotView::new(ComboBoxSlot::Header, "Color")]),
+                .slot(ComboBoxSlot::Header, "Color"),
             format!("selected_index = {} ({label})", self.selected),
             ComboBox::new()
                 .items_source(["Cat", "Dog", "Fox"])
                 .placeholder_text("Type or pick an animal")
                 .is_editable(true)
-                .slots([SlotView::new(ComboBoxSlot::Header, "Editable")]),
+                .slot(ComboBoxSlot::Header, "Editable"),
             ComboBox::new()
                 .items_source(["A", "B", "C"])
                 .selected_index(0)
                 .is_enabled(false)
-                .slots([SlotView::new(ComboBoxSlot::Header, "Disabled")]),
+                .slot(ComboBoxSlot::Header, "Disabled"),
         ))
     }
 }

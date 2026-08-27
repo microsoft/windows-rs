@@ -28,8 +28,8 @@ impl Component for SplitViewPage {
                     StackPanel::new().spacing(8.0).children((
                         ToggleSwitch::new()
                             .is_on(self.open)
-                            .on_toggled(context.callback(std::convert::identity))
-                            .slots([SlotView::new(ToggleSwitchSlot::Header, "Pane open")]),
+                            .on_toggled(context.forward())
+                            .slot(ToggleSwitchSlot::Header, "Pane open"),
                         SplitView::new()
                             .is_pane_open(self.open)
                             .open_pane_length(180.0)

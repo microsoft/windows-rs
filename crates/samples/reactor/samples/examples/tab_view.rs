@@ -1,4 +1,3 @@
-use std::rc::Rc;
 use windows_reactor::*;
 
 struct TabViewSample {
@@ -10,7 +9,7 @@ struct TabViewSample {
 enum Message {
     Selected(i32),
     Close(String),
-    Reordered(Rc<Vec<String>>),
+    Reordered(Vec<String>),
 }
 
 impl Component for TabViewSample {
@@ -78,7 +77,7 @@ impl Component for TabViewSample {
                 .on_selection_changed(context.callback(Message::Selected))
                 .on_close_requested(context.callback(Message::Close))
                 .on_reordered(context.callback(Message::Reordered))
-                .slots([SlotView::collection(TabViewSlot::TabItems, items)]),
+                .collection_slot(TabViewSlot::TabItems, items),
             format!(
                 "selected_index = {}, tabs remaining = {}",
                 self.selected,

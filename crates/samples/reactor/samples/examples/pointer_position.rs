@@ -31,7 +31,7 @@ impl Component for PointerPosition {
                 .padding(40.0)
                 .width(360.0)
                 .height(240.0)
-                .on_pointer_pressed(context.callback(std::convert::identity))
+                .on_pointer_pressed(context.forward())
                 .content(
                     TextBlock::new()
                         .text("Click to read the pointer position")

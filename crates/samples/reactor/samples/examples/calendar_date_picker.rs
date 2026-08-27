@@ -34,11 +34,8 @@ impl Component for CalendarDatePickerSample {
         StackPanel::new().spacing(8.0).children((
             CalendarDatePicker::new()
                 .placeholder_text("Choose...")
-                .on_date_changed(context.callback(std::convert::identity))
-                .slots([SlotView::new(
-                    CalendarDatePickerSlot::Header,
-                    "Select a date",
-                )]),
+                .on_date_changed(context.forward())
+                .slot(CalendarDatePickerSlot::Header, "Select a date"),
             self.label.as_str(),
         ))
     }

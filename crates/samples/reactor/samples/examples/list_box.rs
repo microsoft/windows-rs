@@ -42,7 +42,7 @@ impl Component for ListBoxSample {
         StackPanel::new().spacing(8.0).children((
             ListBox::new()
                 .on_selected_tag_changed(context.callback(|tag| tag))
-                .slots([SlotView::collection(ListBoxSlot::Items, items)]),
+                .collection_slot(ListBoxSlot::Items, items),
             label,
         ))
     }

@@ -47,7 +47,7 @@ impl Component for NavigationIconsSample {
         context.window_title("NavigationViewIcons");
         NavigationView::new()
             .is_settings_visible(false)
-            .on_selected_tag_changed(context.callback(std::convert::identity))
+            .on_selected_tag_changed(context.forward())
             .slots([
                 SlotView::collection(
                     NavigationViewSlot::MenuItems,

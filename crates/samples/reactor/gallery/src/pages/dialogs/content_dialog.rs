@@ -45,6 +45,7 @@ impl Component for ContentDialogPage {
             Some(ContentDialogResult::Primary) => "Primary (Yes)".to_string(),
             Some(ContentDialogResult::Secondary) => "Secondary".to_string(),
             Some(ContentDialogResult::None) => "Closed (No)".to_string(),
+            Some(_) => "Unknown result".to_string(),
         };
 
         page_content(

@@ -44,7 +44,7 @@ impl Component for GridViewPage {
                             .height(300.0)
                             .selected_index(self.selected)
                             .on_selection_changed(context.callback(Message::Selected))
-                            .slots([SlotView::collection(
+                            .collection_slot(
                                 GridViewSlot::Items,
                                 items.iter().map(|item| {
                                     KeyedView::new(
@@ -56,16 +56,13 @@ impl Component for GridViewPage {
                                         ),
                                     )
                                 }),
-                            )]),
+                            ),
                         TextBlock::new().text(label).opacity(0.6),
                     )),
                     r#"GridView::new()
     .selected_index(selected)
     .on_selection_changed(handler)
-    .slots([SlotView::collection(
-    GridViewSlot::Items,
-    selectable_items,
-)])"#,
+    .collection_slot(GridViewSlot::Items, selectable_items)"#,
                 ),
             )],
         )

@@ -36,14 +36,14 @@ impl Component for PivotSample {
                 .title("Demo")
                 .selected_index(self.selected)
                 .on_selection_changed(context.callback(|index| index))
-                .slots([SlotView::collection(
+                .collection_slot(
                     PivotSlot::Items,
                     [
                         item("First", "Pivot - first tab"),
                         item("Second", "Pivot - second tab"),
                         item("Third", "Pivot - third tab"),
                     ],
-                )]),
+                ),
             format!("selected_index = {}", self.selected),
         ))
     }

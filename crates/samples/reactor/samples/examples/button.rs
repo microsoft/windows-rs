@@ -22,7 +22,7 @@ impl Component for ButtonSample {
         context.window_title("Button");
         StackPanel::new().spacing(8.0).children((
             Button::new()
-                .on_click(context.message(()))
+                .on_click(context.forward())
                 .content(format!("Clicked {} times", self.clicks)),
             Button::new().is_enabled(false).content("Disabled"),
             Button::new()

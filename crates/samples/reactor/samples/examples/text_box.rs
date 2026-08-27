@@ -37,7 +37,7 @@ impl Component for TextBoxSample {
                 .text(self.name.clone())
                 .placeholder_text("Type your name...")
                 .on_text_changed(context.callback(Message::NameChanged))
-                .slots([SlotView::new(TextBoxSlot::Header, "Display name")]),
+                .slot(TextBoxSlot::Header, "Display name"),
             format!(
                 "Hello, {}!",
                 if self.name.is_empty() {
@@ -53,11 +53,11 @@ impl Component for TextBoxSample {
                 .text_wrapping(TextWrapping::Wrap)
                 .height(100.0)
                 .on_text_changed(context.callback(Message::NotesChanged))
-                .slots([SlotView::new(TextBoxSlot::Header, "Notes")]),
+                .slot(TextBoxSlot::Header, "Notes"),
             TextBox::new()
                 .text("read-only")
                 .is_enabled(false)
-                .slots([SlotView::new(TextBoxSlot::Header, "Disabled")]),
+                .slot(TextBoxSlot::Header, "Disabled"),
         ))
     }
 }

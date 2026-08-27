@@ -37,10 +37,7 @@ impl Component for ToggleSwitchSample {
             ToggleSwitch::new()
                 .is_on(true)
                 .is_enabled(false)
-                .slots([SlotView::new(
-                    ToggleSwitchSlot::Header,
-                    "Disabled (always on)",
-                )]),
+                .slot(ToggleSwitchSlot::Header, "Disabled (always on)"),
         ))
     }
 }

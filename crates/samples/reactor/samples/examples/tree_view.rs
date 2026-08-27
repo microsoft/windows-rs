@@ -39,7 +39,7 @@ impl Component for TreeViewSample {
 
         StackPanel::new().spacing(12.0).children((
             TreeView::new()
-                .on_item_invoked(context.callback(std::convert::identity))
+                .on_item_invoked(context.forward())
                 .nodes(nodes),
             format!("Last invoked: {}", self.last_invoked),
         ))

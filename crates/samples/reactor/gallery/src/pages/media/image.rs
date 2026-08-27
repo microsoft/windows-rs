@@ -32,6 +32,7 @@ impl Component for ImagePage {
             Stretch::UniformToFill => "UniformToFill",
             Stretch::Fill => "Fill",
             Stretch::None => "None",
+            _ => "Unknown",
         };
 
         page_content(

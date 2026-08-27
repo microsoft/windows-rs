@@ -31,11 +31,8 @@ impl Component for CalendarDatePickerPage {
                         StackPanel::new().spacing(8.0).children((
                             CalendarDatePicker::new()
                                 .placeholder_text("Select a date")
-                                .on_date_changed(context.callback(std::convert::identity))
-                                .slots([SlotView::new(
-                                    CalendarDatePickerSlot::Header,
-                                    "Appointment Date",
-                                )]),
+                                .on_date_changed(context.forward())
+                                .slot(CalendarDatePickerSlot::Header, "Appointment Date"),
                             TextBlock::new().text(&self.label).opacity(0.6),
                         )),
                         "CalendarDatePicker::new()\n    .placeholder_text(\"Select a date\")\n    .on_date_changed(|date| ...)",
@@ -48,7 +45,7 @@ impl Component for CalendarDatePickerPage {
                         CalendarDatePicker::new()
                             .placeholder_text("Cannot change")
                             .is_enabled(false)
-                            .slots([SlotView::new(CalendarDatePickerSlot::Header, "Locked Date")]),
+                            .slot(CalendarDatePickerSlot::Header, "Locked Date"),
                         "CalendarDatePicker::new().is_enabled(false)",
                     ),
                 ),

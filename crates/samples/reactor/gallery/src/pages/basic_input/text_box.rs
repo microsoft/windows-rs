@@ -44,7 +44,7 @@ impl Component for TextBoxPage {
                                 .text(&self.text)
                                 .placeholder_text("Type here...")
                                 .on_text_changed(context.callback(Message::Text))
-                                .slots([SlotView::new(TextBoxSlot::Header, "Name")]),
+                                .slot(TextBoxSlot::Header, "Name"),
                             TextBlock::new()
                                 .text(format!("Characters: {}", self.text.len()))
                                 .opacity(0.6),

@@ -32,7 +32,7 @@ impl Component for ColorPickerPage {
                             ColorPicker::new()
                                 .color(self.color)
                                 .is_alpha_enabled(true)
-                                .on_color_changed(context.callback(std::convert::identity)),
+                                .on_color_changed(context.forward()),
                             TextBlock::new()
                                 .text(format!(
                                     "ARGB({}, {}, {}, {})",

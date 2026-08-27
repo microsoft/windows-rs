@@ -31,7 +31,7 @@ impl Component for BreadcrumbBarPage {
                         StackPanel::new().spacing(8.0).children((
                             BreadcrumbBar::new()
                                 .items_source(["Home", "Documents", "Report"])
-                                .on_item_clicked(context.callback(std::convert::identity)),
+                                .on_item_clicked(context.forward()),
                             TextBlock::new().text(self.clicked.clone()).opacity(0.6),
                         )),
                         r#"BreadcrumbBar::new()
@@ -45,7 +45,7 @@ impl Component for BreadcrumbBarPage {
                         "Deeper Path",
                         BreadcrumbBar::new()
                             .items_source(["Root", "Users", "Settings", "Profile"])
-                            .on_item_clicked(context.callback(std::convert::identity)),
+                            .on_item_clicked(context.forward()),
                         "BreadcrumbBar::new().items_source(path)",
                     ),
                 ),

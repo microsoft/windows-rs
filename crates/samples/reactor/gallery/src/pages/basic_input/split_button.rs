@@ -28,7 +28,7 @@ impl Component for SplitButtonPage {
                         "Basic SplitButton",
                         StackPanel::new().spacing(8.0).children((
                             SplitButton::new()
-                                .on_click(context.message(()))
+                                .on_click(context.forward())
                                 .content("Paste")
                                 .flyout_with(Flyout::rich(
                                     StackPanel::new().spacing(8.0).children((

@@ -43,10 +43,7 @@ impl Component for CalendarViewPage {
                             ToggleSwitch::new()
                                 .is_on(self.today_highlighted)
                                 .on_toggled(context.callback(Message::HighlightTodayToggled))
-                                .slots([SlotView::new(
-                                    ToggleSwitchSlot::Header,
-                                    "Highlight today",
-                                )]),
+                                .slot(ToggleSwitchSlot::Header, "Highlight today"),
                             CalendarView::new()
                                 .is_today_highlighted(self.today_highlighted)
                                 .on_selected_dates_changed(

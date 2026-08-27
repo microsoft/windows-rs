@@ -24,7 +24,7 @@ impl Component for TextBoxBorderSample {
             TextBox::new()
                 .text(self.text.clone())
                 .placeholder_text(placeholder)
-                .on_text_changed(context.callback(std::convert::identity))
+                .on_text_changed(context.forward())
         };
         StackPanel::new().spacing(8.0).children((
             "1. Default TextBox",

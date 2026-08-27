@@ -70,13 +70,13 @@ impl Component for ListBoxPage {
                         StackPanel::new().spacing(8.0).children((
                             ListBox::new()
                                 .on_selected_tag_changed(context.callback(Message::Selected))
-                                .slots([SlotView::collection(ListBoxSlot::Items, items)]),
+                                .collection_slot(ListBoxSlot::Items, items),
                             TextBlock::new()
                                 .text(format!("Selected: {label}"))
                                 .opacity(0.6),
                         )),
                         r#"ListBox::new().on_selected_tag_changed(...)
-    .slots([SlotView::collection(ListBoxSlot::Items, items)])"#,
+    .collection_slot(ListBoxSlot::Items, items)"#,
                     ),
                 ),
                 KeyedView::new(
@@ -85,9 +85,9 @@ impl Component for ListBoxPage {
                         "Disabled ListBox",
                         ListBox::new()
                             .is_enabled(false)
-                            .slots([SlotView::collection(ListBoxSlot::Items, disabled_items)]),
+                            .collection_slot(ListBoxSlot::Items, disabled_items),
                         r#"ListBox::new().is_enabled(false)
-    .slots([SlotView::collection(ListBoxSlot::Items, items)])"#,
+    .collection_slot(ListBoxSlot::Items, items)"#,
                     ),
                 ),
             ],

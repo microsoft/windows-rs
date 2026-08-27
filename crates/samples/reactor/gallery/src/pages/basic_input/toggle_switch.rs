@@ -101,10 +101,7 @@ impl Component for ToggleSwitchPage {
                                 .is_on(self.overnight)
                                 .is_enabled(self.automation)
                                 .on_toggled(context.callback(Message::Overnight))
-                                .slots([SlotView::new(
-                                    ToggleSwitchSlot::Header,
-                                    "Install updates overnight",
-                                )]),
+                                .slot(ToggleSwitchSlot::Header, "Install updates overnight"),
                         )),
                         "ToggleSwitch::new().is_enabled(parent_enabled)",
                     ),

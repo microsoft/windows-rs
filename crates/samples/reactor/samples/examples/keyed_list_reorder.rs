@@ -31,7 +31,7 @@ impl Component for Row {
                 .children((
                     format!("{}: {}", input.name, self.clicks),
                     Button::new()
-                        .on_click(context.message(()))
+                        .on_click(context.forward())
                         .content(format!("Increment {}", input.name)),
                 )),
         )
@@ -66,15 +66,13 @@ impl Component for KeyedListReorderSample {
                 View::component::<Row>(RowInput { name: name.clone() }),
             )
         });
-        Border::new().padding(16.0).content(
-            StackPanel::new().spacing(12.0).children((
+        Border::new()
+            .padding(16.0)
+            .content(StackPanel::new().spacing(12.0).children((
                 "Increment a row, then rotate the list. The count stays with its name.",
-                Button::new()
-                    .on_click(context.message(()))
-                    .content("Rotate"),
+                Button::new().on_click(context.forward()).content("Rotate"),
                 StackPanel::new().spacing(8.0).keyed_children(rows),
-            )),
-        )
+            )))
     }
 }
 

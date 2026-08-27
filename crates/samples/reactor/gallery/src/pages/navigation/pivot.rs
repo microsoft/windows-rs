@@ -40,9 +40,10 @@ impl Component for PivotPage {
                         "Basic Pivot",
                         Pivot::new()
                             .selected_index(self.selected)
-                            .on_selection_changed(context.callback(std::convert::identity))
-                            .slots([SlotView::collection(PivotSlot::Items, items("basic"))]),
-                        "Pivot::new().selected_index(index).slots([items])",
+                            .on_selection_changed(context.forward())
+                            .collection_slot(PivotSlot::Items, items("basic")),
+                        "Pivot::new().selected_index(index)\n    \
+                         .collection_slot(PivotSlot::Items, items)",
                     ),
                 ),
                 KeyedView::new(
@@ -52,8 +53,8 @@ impl Component for PivotPage {
                         StackPanel::new().spacing(8.0).children((
                             Pivot::new()
                                 .selected_index(self.selected)
-                                .on_selection_changed(context.callback(std::convert::identity))
-                                .slots([SlotView::collection(PivotSlot::Items, items("tracking"))]),
+                                .on_selection_changed(context.forward())
+                                .collection_slot(PivotSlot::Items, items("tracking")),
                             TextBlock::new()
                                 .text(format!("Active tab index: {}", self.selected))
                                 .opacity(0.6),

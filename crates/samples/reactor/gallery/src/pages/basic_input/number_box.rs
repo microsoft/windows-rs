@@ -43,7 +43,7 @@ impl Component for NumberBoxPage {
                             NumberBox::new()
                                 .value(self.value)
                                 .on_value_changed(context.callback(Message::Value))
-                                .slots([SlotView::new(NumberBoxSlot::Header, "Quantity")]),
+                                .slot(NumberBoxSlot::Header, "Quantity"),
                             format!("Value: {}", self.value),
                         )),
                         "NumberBox::new().value(value).on_value_changed(handler)",
