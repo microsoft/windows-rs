@@ -84,7 +84,7 @@ impl<R: NativeRuntime> Pump<R> {
             FrontendChanges::Local { token, .. } => {
                 self.components.prepare_effects(*token).map_err(Into::into)
             }
-            #[cfg(any(test, feature = "test"))]
+            #[cfg(test)]
             FrontendChanges::Element(_) => Ok(()),
         };
         if let Err(error) = prepared {
@@ -150,7 +150,7 @@ impl<R: NativeRuntime> Pump<R> {
         }
         self.apply_reference_bindings(reference_commits);
         match changes {
-            #[cfg(any(test, feature = "test"))]
+            #[cfg(test)]
             FrontendChanges::Element(element) => self.element = Some(element.clone()),
             FrontendChanges::Component(changes) => self.commit_component_effects(changes)?,
             FrontendChanges::Local {

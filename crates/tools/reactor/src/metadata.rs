@@ -347,7 +347,6 @@ impl MetadataResolver {
             .then(|| format!("{}.{}", type_name.namespace, type_name.name))
     }
 
-    #[allow(dead_code)]
     pub fn single_field_param(
         &self,
         class_name: &str,
@@ -455,7 +454,6 @@ impl MetadataResolver {
             .map(|method| method.interface.full_path())
     }
 
-    #[allow(dead_code)]
     pub fn resolve_event_args_object_property(
         &self,
         class_name: &str,
@@ -482,7 +480,6 @@ impl MetadataResolver {
 
     /// Resolves an event-args property that returns a class type (not a primitive or
     /// IInspectable). Returns the interface path for the getter on the event args.
-    #[allow(dead_code)]
     pub fn resolve_event_args_class_property(
         &self,
         class_name: &str,
@@ -508,7 +505,6 @@ impl MetadataResolver {
             .then(|| getter_ref.interface.full_path())
     }
 
-    #[allow(dead_code)]
     pub fn resolve_property_read(
         &self,
         class_name: &str,
@@ -669,7 +665,6 @@ impl MetadataResolver {
         Some(Self::classify_type(param))
     }
 
-    #[allow(dead_code)]
     pub fn param_class_name(&self, class_name: &str, method_name: &str) -> Option<String> {
         let mref = self
             .lookup
@@ -680,7 +675,6 @@ impl MetadataResolver {
         Some(format!("{}.{}", name.namespace, name.name))
     }
 
-    #[allow(dead_code)]
     pub fn returns_inspectable_vector(&self, class_name: &str, method_name: &str) -> bool {
         let Some(mref) = self
             .lookup
@@ -697,7 +691,6 @@ impl MetadataResolver {
         )
     }
 
-    #[allow(dead_code)]
     pub fn return_vector_element_class_name(
         &self,
         class_name: &str,
@@ -720,7 +713,6 @@ impl MetadataResolver {
         Some(format!("{}.{}", element.namespace, element.name))
     }
 
-    #[allow(dead_code)]
     pub fn returns_observable_vector(&self, class_name: &str, method_name: &str) -> bool {
         let Some(method) = self
             .lookup
@@ -736,14 +728,12 @@ impl MetadataResolver {
         )
     }
 
-    #[allow(dead_code)]
     pub fn returns_object(&self, class_name: &str, method_name: &str) -> bool {
         self.lookup
             .get(&(class_name.to_string(), method_name.to_string()))
             .is_some_and(|method| method.return_type == Type::Object)
     }
 
-    #[allow(dead_code)]
     pub fn return_class_name(&self, class_name: &str, method_name: &str) -> Option<String> {
         let method = self
             .lookup

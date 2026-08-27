@@ -77,7 +77,7 @@ pub(super) enum CandidateState {
     reason = "boxing component changes would allocate on every component publication"
 )]
 pub(super) enum FrontendChanges {
-    #[cfg(any(test, feature = "test"))]
+    #[cfg(test)]
     Element(Element),
     Component(ComponentChanges),
     Local {

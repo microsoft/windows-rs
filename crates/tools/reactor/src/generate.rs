@@ -160,7 +160,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             #(#elements)*
 
             #[derive(Clone, Debug, PartialEq)]
-            pub enum Element {
+            pub(crate) enum Element {
                 #(#element_variants),*
             }
 
@@ -1472,7 +1472,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
             },
             quote! {
                 impl crate::reference::sealed::Sealed for #name {}
-                impl crate::reference::ReferenceType for #name {}
+                impl crate::reference::ReferenceControl for #name {}
             },
         )
     } else {
@@ -1783,60 +1783,75 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
             }
         }
     });
-    let structural_methods = match control.role {
-        Role::Content => quote! {
-            #[allow(dead_code)]
-            pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-                self.content = Some(Box::new(content.into()));
-                self
-            }
-        },
-        Role::Children => quote! {
-            #[allow(dead_code)]
-            pub(crate) fn native_child(
-                mut self,
-                key: impl Into<Key>,
-                child: impl Into<Element>,
-            ) -> Self {
-                std::rc::Rc::make_mut(&mut self.children).push(KeyedElement::new(key, child));
-                self
-            }
+    let (structural_methods, structural_test_impl) = match control.role {
+        Role::Content => (
+            TokenStream::new(),
+            quote! {
+                #[cfg(test)]
+                impl NativeContentTestExt for #name {
+                    fn native_content(mut self, content: impl Into<Element>) -> Self {
+                        self.content = Some(Box::new(content.into()));
+                        self
+                    }
+                }
+            },
+        ),
+        Role::Children => (
+            TokenStream::new(),
+            quote! {
+                #[cfg(test)]
+                impl NativeChildrenTestExt for #name {
+                    fn native_child(
+                        mut self,
+                        key: impl Into<Key>,
+                        child: impl Into<Element>,
+                    ) -> Self {
+                        std::rc::Rc::make_mut(&mut self.children)
+                            .push(KeyedElement::new(key, child));
+                        self
+                    }
 
-            #[allow(dead_code)]
-            pub(crate) fn native_children(
-                mut self,
-                children: impl IntoIterator<Item = KeyedElement>,
-            ) -> Self {
-                self.children = std::rc::Rc::new(children.into_iter().collect());
-                self
-            }
-        },
-        Role::Virtual => quote! {
-            pub fn item(mut self, key: impl Into<Key>, item: impl Into<View>) -> Self {
-                std::rc::Rc::make_mut(&mut self.items).push(KeyedView::new(key, item));
-                self
-            }
+                    fn native_children(
+                        mut self,
+                        children: impl IntoIterator<Item = KeyedElement>,
+                    ) -> Self {
+                        self.children = std::rc::Rc::new(children.into_iter().collect());
+                        self
+                    }
+                }
+            },
+        ),
+        Role::Virtual => (
+            quote! {
+                pub fn item(mut self, key: impl Into<Key>, item: impl Into<View>) -> Self {
+                    std::rc::Rc::make_mut(&mut self.items).push(KeyedView::new(key, item));
+                    self
+                }
 
-            pub fn items(
-                mut self,
-                items: impl IntoIterator<Item = KeyedView>,
-            ) -> Self {
-                self.items = std::rc::Rc::new(items.into_iter().collect());
-                self
-            }
-        },
-        Role::Leaf | Role::Slots => TokenStream::new(),
+                pub fn items(
+                    mut self,
+                    items: impl IntoIterator<Item = KeyedView>,
+                ) -> Self {
+                    self.items = std::rc::Rc::new(items.into_iter().collect());
+                    self
+                }
+            },
+            TokenStream::new(),
+        ),
+        Role::Leaf | Role::Slots => (TokenStream::new(), TokenStream::new()),
     };
     let capability_impls = control.capabilities.iter().filter_map(|capability| {
         if *capability == Capability::Layout && has_element_state(control) {
             return Some(quote! {
-                impl LayoutControl for #name {
+                impl sealed::LayoutControl for #name {
                     fn element_state_mut(
                         &mut self,
                     ) -> &mut Option<std::rc::Rc<ElementState>> {
                         &mut self.element_state
                     }
                 }
+
+                impl LayoutControl for #name {}
             });
         }
         let content_capability = *capability == Capability::Content;
@@ -1856,12 +1871,19 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         let capability = ident(capability);
         if content_capability && control.lifecycle == Some(Lifecycle::ContentDialog) {
             Some(quote! {
-                impl ContentControl for #name {
+                impl sealed::ContentControl for #name {
                     fn into_content_view(self, content: View) -> View {
                         let open = self.is_open;
                         View::content_dialog(self.into(), Some(content), open)
                     }
                 }
+
+                impl ContentControl for #name {}
+            })
+        } else if content_capability {
+            Some(quote! {
+                impl sealed::ContentControl for #name {}
+                impl ContentControl for #name {}
             })
         } else {
             Some(quote! { impl #capability for #name {} })
@@ -1879,12 +1901,14 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                 #(#variants),*
             }
 
-            impl SlotsControl for #name {
-                type Slot = #slot_name;
-
-                fn slot_index(slot: Self::Slot) -> u8 {
+            impl sealed::SlotIndex<#slot_name> for #name {
+                fn slot_index(slot: #slot_name) -> u8 {
                     slot as u8
                 }
+            }
+
+            impl SlotsControl for #name {
+                type Slot = #slot_name;
             }
         }
     };
@@ -1917,9 +1941,15 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         }
 
         impl sealed::Sealed for #name {}
+        impl sealed::NativeControl for #name {
+            fn into_element(self) -> Element {
+                self.into()
+            }
+        }
         #reference_impls
         #(#capability_impls)*
         #slots
+        #structural_test_impl
     }
 }
 
@@ -2374,10 +2404,24 @@ mod tests {
         assert!(output.contains("pub fn rows"));
         assert!(output.contains("PropertyId :: GridRows"));
         assert!(output.contains("impl From < TextBlock > for View"));
+        assert!(output.contains("pub (crate) enum Element"));
+        assert!(output.contains("impl sealed :: NativeControl for TextBlock"));
+        assert!(output.contains("impl sealed :: LayoutControl for TextBlock"));
+        assert!(output.contains("impl sealed :: ContentControl for Button"));
+        assert!(output.contains("impl sealed :: ContentControl for ContentDialog"));
+        assert!(output.contains("impl ContentControl for ContentDialog"));
+        assert!(output.contains("# [cfg (test)]"));
+        assert!(output.contains("impl NativeContentTestExt for Button"));
+        assert!(output.contains("impl NativeChildrenTestExt for StackPanel"));
+        assert!(output.contains("fn native_content"));
+        assert!(output.contains("fn native_child"));
+        assert!(output.contains("fn native_children"));
+        assert!(!output.contains("allow (dead_code)"));
         assert!(output.contains("pub enum NavigationViewSlot"));
         assert!(output.contains("impl SlotsControl for NavigationView"));
+        assert!(output.contains("impl sealed :: SlotIndex < NavigationViewSlot >"));
         assert!(output.contains("impl SlotsControl for TitleBar"));
-        assert!(!output.contains("impl crate :: reference :: ReferenceType for TitleBar"));
+        assert!(!output.contains("impl crate :: reference :: ReferenceControl for TitleBar"));
         assert!(output.contains("NavigationViewContent"));
         assert!(output.contains("NavigationViewHeader"));
         assert!(output.contains("ControlRole :: Children"));

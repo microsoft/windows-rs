@@ -157,12 +157,15 @@ impl fmt::Debug for WindowRef {
     }
 }
 
-#[doc(hidden)]
-pub trait ReferenceType: sealed::Sealed + 'static {}
-
 pub(crate) mod sealed {
     pub trait Sealed {}
 }
+
+/// A native control that can be bound to an [`ElementRef`].
+///
+/// This trait is sealed and implemented only for controls whose generated schema supports native
+/// references.
+pub trait ReferenceControl: sealed::Sealed + 'static {}
 
 /// A stable typed reference to a published native element.
 ///
@@ -181,12 +184,18 @@ pub(crate) mod sealed {
 /// let button = ElementRef::<Button>::new();
 /// let _ = TextBox::new().element_ref(&button);
 /// ```
+///
+/// ```compile_fail
+/// use windows_reactor::ElementRef;
+///
+/// let _ = ElementRef::<u32>::new();
+/// ```
 pub struct ElementRef<T> {
     target: Rc<RefCell<ReferenceTarget>>,
     marker: PhantomData<fn() -> T>,
 }
 
-impl<T: ReferenceType> ElementRef<T> {
+impl<T: ReferenceControl> ElementRef<T> {
     pub fn new() -> Self {
         Self {
             target: Rc::new(RefCell::new(ReferenceTarget::default())),
@@ -441,7 +450,7 @@ impl<T> Clone for ElementRef<T> {
     }
 }
 
-impl<T: ReferenceType> Default for ElementRef<T> {
+impl<T: ReferenceControl> Default for ElementRef<T> {
     fn default() -> Self {
         Self::new()
     }
@@ -468,7 +477,7 @@ impl<T> Eq for ElementRef<T> {}
 ///
 /// This trait is sealed and implemented only for controls whose generated schema declares focus
 /// support.
-pub trait FocusControl: ReferenceType {}
+pub trait FocusControl: ReferenceControl {}
 
 #[derive(Clone)]
 pub(crate) struct NativeElementRef(Rc<RefCell<ReferenceTarget>>);

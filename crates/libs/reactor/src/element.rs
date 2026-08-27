@@ -195,6 +195,27 @@ impl ThemeStyle {
 pub(crate) mod sealed {
     pub trait Sealed {}
 
+    pub(crate) trait NativeControl: Sealed + Sized {
+        fn into_element(self) -> super::Element;
+    }
+
+    pub(crate) trait LayoutControl: NativeControl {
+        fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<super::ElementState>>;
+    }
+
+    pub(crate) trait ContentControl: NativeControl {
+        fn into_content_view(self, content: super::View) -> super::View {
+            super::View(super::ViewKind::Content {
+                control: self.into_element(),
+                content: Box::new(content.into_kind()),
+            })
+        }
+    }
+
+    pub(crate) trait SlotIndex<S> {
+        fn slot_index(slot: S) -> u8;
+    }
+
     pub trait StaticViews {
         fn into_views(self) -> Vec<super::View>;
     }
@@ -253,6 +274,7 @@ pub(crate) struct KeyedElement {
 }
 
 impl KeyedElement {
+    #[cfg(test)]
     pub(crate) fn new(key: impl Into<Key>, element: impl Into<Element>) -> Self {
         Self {
             key: key.into(),
@@ -271,6 +293,17 @@ impl KeyedElement {
     pub(crate) fn into_parts(self) -> (Key, Element) {
         (self.key, self.element)
     }
+}
+
+#[cfg(test)]
+pub(crate) trait NativeContentTestExt: Sized {
+    fn native_content(self, content: impl Into<Element>) -> Self;
+}
+
+#[cfg(test)]
+pub(crate) trait NativeChildrenTestExt: Sized {
+    fn native_child(self, key: impl Into<Key>, child: impl Into<Element>) -> Self;
+    fn native_children(self, children: impl IntoIterator<Item = KeyedElement>) -> Self;
 }
 
 #[derive(Clone, Debug, PartialEq)]
@@ -782,7 +815,7 @@ impl View {
         Self::fragment(())
     }
 
-    pub fn native(control: impl Into<Element>) -> Self {
+    pub(crate) fn native(control: impl Into<Element>) -> Self {
         Self(ViewKind::Native(control.into()))
     }
 
@@ -1490,9 +1523,8 @@ pub enum VerticalAlignment {
     Stretch,
 }
 
-#[doc(hidden)]
 #[derive(Clone, Debug, Default, PartialEq)]
-pub struct ElementState {
+pub(crate) struct ElementState {
     width: Property<f64>,
     height: Property<f64>,
     min_width: Property<f64>,
@@ -1796,10 +1828,8 @@ impl KeyAccelerators {
     }
 }
 
-pub trait LayoutControl: sealed::Sealed {
-    #[doc(hidden)]
-    fn element_state_mut(&mut self) -> &mut Option<Rc<ElementState>>;
-
+#[allow(private_bounds)]
+pub trait LayoutControl: sealed::LayoutControl {
     fn width(mut self, value: impl Into<Option<f64>>) -> Self
     where
         Self: Sized,
@@ -1810,7 +1840,7 @@ pub trait LayoutControl: sealed::Sealed {
             "Width must be finite and non-negative",
         );
         Rc::make_mut(
-            self.element_state_mut()
+            sealed::LayoutControl::element_state_mut(&mut self)
                 .get_or_insert_with(|| Rc::new(ElementState::default())),
         )
         .width = Property::from(value);
@@ -1827,7 +1857,7 @@ pub trait LayoutControl: sealed::Sealed {
             "Height must be finite and non-negative",
         );
         Rc::make_mut(
-            self.element_state_mut()
+            sealed::LayoutControl::element_state_mut(&mut self)
                 .get_or_insert_with(|| Rc::new(ElementState::default())),
         )
         .height = Property::from(value);
@@ -1844,7 +1874,7 @@ pub trait LayoutControl: sealed::Sealed {
             "Minimum width must be finite and non-negative",
         );
         Rc::make_mut(
-            self.element_state_mut()
+            sealed::LayoutControl::element_state_mut(&mut self)
                 .get_or_insert_with(|| Rc::new(ElementState::default())),
         )
         .min_width = Property::from(value);
@@ -1861,7 +1891,7 @@ pub trait LayoutControl: sealed::Sealed {
             "Maximum width must be finite and non-negative",
         );
         Rc::make_mut(
-            self.element_state_mut()
+            sealed::LayoutControl::element_state_mut(&mut self)
                 .get_or_insert_with(|| Rc::new(ElementState::default())),
         )
         .max_width = Property::from(value);
@@ -1878,7 +1908,7 @@ pub trait LayoutControl: sealed::Sealed {
             "Minimum height must be finite and non-negative",
         );
         Rc::make_mut(
-            self.element_state_mut()
+            sealed::LayoutControl::element_state_mut(&mut self)
                 .get_or_insert_with(|| Rc::new(ElementState::default())),
         )
         .min_height = Property::from(value);
@@ -1895,7 +1925,7 @@ pub trait LayoutControl: sealed::Sealed {
             "Maximum height must be finite and non-negative",
         );
         Rc::make_mut(
-            self.element_state_mut()
+            sealed::LayoutControl::element_state_mut(&mut self)
                 .get_or_insert_with(|| Rc::new(ElementState::default())),
         )
         .max_height = Property::from(value);
@@ -1912,7 +1942,7 @@ pub trait LayoutControl: sealed::Sealed {
             "Opacity must be finite and non-negative",
         );
         Rc::make_mut(
-            self.element_state_mut()
+            sealed::LayoutControl::element_state_mut(&mut self)
                 .get_or_insert_with(|| Rc::new(ElementState::default())),
         )
         .opacity = Property::from(value);
@@ -1924,7 +1954,7 @@ pub trait LayoutControl: sealed::Sealed {
         Self: Sized,
     {
         Rc::make_mut(
-            self.element_state_mut()
+            sealed::LayoutControl::element_state_mut(&mut self)
                 .get_or_insert_with(|| Rc::new(ElementState::default())),
         )
         .horizontal_alignment = Property::from(value.into());
@@ -1936,7 +1966,7 @@ pub trait LayoutControl: sealed::Sealed {
         Self: Sized,
     {
         Rc::make_mut(
-            self.element_state_mut()
+            sealed::LayoutControl::element_state_mut(&mut self)
                 .get_or_insert_with(|| Rc::new(ElementState::default())),
         )
         .vertical_alignment = Property::from(value.into());
@@ -1950,7 +1980,7 @@ pub trait LayoutControl: sealed::Sealed {
         let value = value.into();
         assert!(value.is_finite(), "Margin must be finite");
         Rc::make_mut(
-            self.element_state_mut()
+            sealed::LayoutControl::element_state_mut(&mut self)
                 .get_or_insert_with(|| Rc::new(ElementState::default())),
         )
         .margin = Property::Set(value);
@@ -1968,7 +1998,7 @@ pub trait LayoutControl: sealed::Sealed {
             "Margin must be finite",
         );
         Rc::make_mut(
-            self.element_state_mut()
+            sealed::LayoutControl::element_state_mut(&mut self)
                 .get_or_insert_with(|| Rc::new(ElementState::default())),
         )
         .margin = Property::from(value);
@@ -1980,7 +2010,7 @@ pub trait LayoutControl: sealed::Sealed {
         Self: Sized,
     {
         Rc::make_mut(
-            self.element_state_mut()
+            sealed::LayoutControl::element_state_mut(&mut self)
                 .get_or_insert_with(|| Rc::new(ElementState::default())),
         )
         .exit_transition = Some(transition);
@@ -1993,35 +2023,30 @@ impl ElementState {
         self.exit_transition
     }
 }
-pub trait ContentControl: sealed::Sealed + Into<Element> + Sized {
+#[allow(private_bounds)]
+pub trait ContentControl: sealed::ContentControl + Sized {
     fn content(self, content: impl Into<View>) -> View {
-        self.into_content_view(content.into())
-    }
-
-    #[doc(hidden)]
-    fn into_content_view(self, content: View) -> View {
-        View(ViewKind::Content {
-            control: self.into(),
-            content: Box::new(content.into_kind()),
-        })
+        sealed::ContentControl::into_content_view(self, content.into())
     }
 }
-pub trait ChildrenControl: sealed::Sealed + Into<Element> + Sized {
+#[allow(private_bounds)]
+pub trait ChildrenControl: sealed::NativeControl + Sized {
     fn children(self, children: impl IntoViews) -> View {
         View(ViewKind::Children {
-            control: self.into(),
+            control: sealed::NativeControl::into_element(self),
             children: positioned(children),
         })
     }
 
     fn keyed_children(self, children: impl IntoIterator<Item = KeyedView>) -> View {
         View(ViewKind::Children {
-            control: self.into(),
+            control: sealed::NativeControl::into_element(self),
             children: Rc::new(children.into_iter().collect()),
         })
     }
 }
-pub trait SlotsControl: sealed::Sealed + Into<Element> + Sized {
+#[allow(private_bounds)]
+pub trait SlotsControl: sealed::NativeControl + sealed::SlotIndex<Self::Slot> + Sized {
     type Slot: Copy;
 
     fn slot(self, slot: Self::Slot, view: impl Into<View>) -> View {
@@ -2037,14 +2062,18 @@ pub trait SlotsControl: sealed::Sealed + Into<Element> + Sized {
     }
 
     fn slots(self, slots: impl IntoIterator<Item = SlotView<Self::Slot>>) -> View {
-        let control = self.into();
+        let control = sealed::NativeControl::into_element(self);
         let kind = control.kind();
         let slots = slots
             .into_iter()
             .map(|slot| {
                 let (slot, content) = slot.into_parts();
                 SlottedView {
-                    slot: slot_id(kind, Self::slot_index(slot)).unwrap(),
+                    slot: slot_id(
+                        kind,
+                        <Self as sealed::SlotIndex<Self::Slot>>::slot_index(slot),
+                    )
+                    .unwrap(),
                     content,
                 }
             })
@@ -2054,9 +2083,6 @@ pub trait SlotsControl: sealed::Sealed + Into<Element> + Sized {
             slots: Rc::new(slots),
         })
     }
-
-    #[doc(hidden)]
-    fn slot_index(slot: Self::Slot) -> u8;
 }
 
 /// Places a concrete native control in its parent Grid.

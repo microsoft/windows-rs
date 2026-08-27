@@ -3,7 +3,7 @@ mod tests {
     use windows_reactor::*;
 
     #[test]
-    fn generated_builders_compose_elements() {
+    fn generated_builders_convert_to_views() {
         let optional_text = Some("value");
         let optional_enabled = Some(true);
         let text = TextBlock::new()
@@ -31,15 +31,15 @@ mod tests {
             .background(ThemeBrush::CardBackground)
             .border_brush(ThemeBrush::CardStroke);
 
-        assert!(matches!(Element::from(text), Element::TextBlock(_)));
-        assert!(matches!(Element::from(stack), Element::StackPanel(_)));
-        assert!(matches!(Element::from(button), Element::Button(_)));
-        assert!(matches!(Element::from(text_box), Element::TextBox(_)));
-        assert!(matches!(Element::from(number_box), Element::NumberBox(_)));
-        assert!(matches!(Element::from(slider), Element::Slider(_)));
-        assert!(matches!(Element::from(toggle), Element::ToggleSwitch(_)));
-        assert!(matches!(Element::from(grid), Element::Grid(_)));
-        assert!(matches!(Element::from(border), Element::Border(_)));
+        let _: View = text.into();
+        let _: View = stack.into();
+        let _: View = button.into();
+        let _: View = text_box.into();
+        let _: View = number_box.into();
+        let _: View = slider.into();
+        let _: View = toggle.into();
+        let _: View = grid.into();
+        let _: View = border.into();
     }
 
     #[test]

@@ -448,11 +448,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for TextBlock {}
-    impl LayoutControl for TextBlock {
+    impl sealed::NativeControl for TextBlock {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for TextBlock {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for TextBlock {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Button {
         is_enabled: Property<bool>,
@@ -496,22 +502,31 @@ pub mod public {
             self.on_click = Some(callback.into_unit_callback());
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-            self.content = Some(Box::new(content.into()));
-            self
-        }
     }
     impl sealed::Sealed for Button {}
+    impl sealed::NativeControl for Button {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for Button {}
-    impl crate::reference::ReferenceType for Button {}
-    impl LayoutControl for Button {
+    impl crate::reference::ReferenceControl for Button {}
+    impl sealed::LayoutControl for Button {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for Button {}
+    impl sealed::ContentControl for Button {}
     impl ContentControl for Button {}
     impl FocusControl for Button {}
+    #[cfg(test)]
+    impl NativeContentTestExt for Button {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct HyperlinkButton {
         navigate_uri: Property<String>,
@@ -558,22 +573,31 @@ pub mod public {
             self.on_click = Some(callback.into_unit_callback());
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-            self.content = Some(Box::new(content.into()));
-            self
-        }
     }
     impl sealed::Sealed for HyperlinkButton {}
+    impl sealed::NativeControl for HyperlinkButton {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for HyperlinkButton {}
-    impl crate::reference::ReferenceType for HyperlinkButton {}
-    impl LayoutControl for HyperlinkButton {
+    impl crate::reference::ReferenceControl for HyperlinkButton {}
+    impl sealed::LayoutControl for HyperlinkButton {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for HyperlinkButton {}
+    impl sealed::ContentControl for HyperlinkButton {}
     impl ContentControl for HyperlinkButton {}
     impl FocusControl for HyperlinkButton {}
+    #[cfg(test)]
+    impl NativeContentTestExt for HyperlinkButton {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct RepeatButton {
         delay: Property<i32>,
@@ -606,19 +630,28 @@ pub mod public {
             self.on_click = Some(callback.into_unit_callback());
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-            self.content = Some(Box::new(content.into()));
-            self
-        }
     }
     impl sealed::Sealed for RepeatButton {}
-    impl LayoutControl for RepeatButton {
+    impl sealed::NativeControl for RepeatButton {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for RepeatButton {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for RepeatButton {}
+    impl sealed::ContentControl for RepeatButton {}
     impl ContentControl for RepeatButton {}
+    #[cfg(test)]
+    impl NativeContentTestExt for RepeatButton {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Border {
         padding: Property<Thickness>,
@@ -864,19 +897,28 @@ pub mod public {
             .on_pointer_canceled = Some(callback.into_unit_callback());
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-            self.content = Some(Box::new(content.into()));
-            self
-        }
     }
     impl sealed::Sealed for Border {}
-    impl LayoutControl for Border {
+    impl sealed::NativeControl for Border {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for Border {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for Border {}
+    impl sealed::ContentControl for Border {}
     impl ContentControl for Border {}
+    #[cfg(test)]
+    impl NativeContentTestExt for Border {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct BreadcrumbBar {
         items_source: Property<std::rc::Rc<Vec<String>>>,
@@ -913,11 +955,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for BreadcrumbBar {}
-    impl LayoutControl for BreadcrumbBar {
+    impl sealed::NativeControl for BreadcrumbBar {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for BreadcrumbBar {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for BreadcrumbBar {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct StackPanel {
         orientation: Property<Orientation>,
@@ -939,31 +987,31 @@ pub mod public {
             self.spacing = Property::from(value);
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_child(
-            mut self,
-            key: impl Into<Key>,
-            child: impl Into<Element>,
-        ) -> Self {
-            std::rc::Rc::make_mut(&mut self.children).push(KeyedElement::new(key, child));
-            self
-        }
-        #[allow(dead_code)]
-        pub(crate) fn native_children(
-            mut self,
-            children: impl IntoIterator<Item = KeyedElement>,
-        ) -> Self {
-            self.children = std::rc::Rc::new(children.into_iter().collect());
-            self
-        }
     }
     impl sealed::Sealed for StackPanel {}
-    impl LayoutControl for StackPanel {
+    impl sealed::NativeControl for StackPanel {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for StackPanel {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for StackPanel {}
     impl ChildrenControl for StackPanel {}
+    #[cfg(test)]
+    impl NativeChildrenTestExt for StackPanel {
+        fn native_child(mut self, key: impl Into<Key>, child: impl Into<Element>) -> Self {
+            std::rc::Rc::make_mut(&mut self.children).push(KeyedElement::new(key, child));
+            self
+        }
+        fn native_children(mut self, children: impl IntoIterator<Item = KeyedElement>) -> Self {
+            self.children = std::rc::Rc::new(children.into_iter().collect());
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Grid {
         row_spacing: Property<f64>,
@@ -1056,33 +1104,33 @@ pub mod public {
             }));
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_child(
-            mut self,
-            key: impl Into<Key>,
-            child: impl Into<Element>,
-        ) -> Self {
-            std::rc::Rc::make_mut(&mut self.children).push(KeyedElement::new(key, child));
-            self
-        }
-        #[allow(dead_code)]
-        pub(crate) fn native_children(
-            mut self,
-            children: impl IntoIterator<Item = KeyedElement>,
-        ) -> Self {
-            self.children = std::rc::Rc::new(children.into_iter().collect());
-            self
-        }
     }
     impl sealed::Sealed for Grid {}
+    impl sealed::NativeControl for Grid {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for Grid {}
-    impl crate::reference::ReferenceType for Grid {}
-    impl LayoutControl for Grid {
+    impl crate::reference::ReferenceControl for Grid {}
+    impl sealed::LayoutControl for Grid {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for Grid {}
     impl ChildrenControl for Grid {}
+    #[cfg(test)]
+    impl NativeChildrenTestExt for Grid {
+        fn native_child(mut self, key: impl Into<Key>, child: impl Into<Element>) -> Self {
+            std::rc::Rc::make_mut(&mut self.children).push(KeyedElement::new(key, child));
+            self
+        }
+        fn native_children(mut self, children: impl IntoIterator<Item = KeyedElement>) -> Self {
+            self.children = std::rc::Rc::new(children.into_iter().collect());
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct TextBox {
         text: Property<String>,
@@ -1193,24 +1241,32 @@ pub mod public {
         }
     }
     impl sealed::Sealed for TextBox {}
+    impl sealed::NativeControl for TextBox {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for TextBox {}
-    impl crate::reference::ReferenceType for TextBox {}
-    impl LayoutControl for TextBox {
+    impl crate::reference::ReferenceControl for TextBox {}
+    impl sealed::LayoutControl for TextBox {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for TextBox {}
     impl FocusControl for TextBox {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum TextBoxSlot {
         Header,
     }
-    impl SlotsControl for TextBox {
-        type Slot = TextBoxSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<TextBoxSlot> for TextBox {
+        fn slot_index(slot: TextBoxSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for TextBox {
+        type Slot = TextBoxSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct AutoSuggestBox {
@@ -1295,24 +1351,32 @@ pub mod public {
         }
     }
     impl sealed::Sealed for AutoSuggestBox {}
+    impl sealed::NativeControl for AutoSuggestBox {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for AutoSuggestBox {}
-    impl crate::reference::ReferenceType for AutoSuggestBox {}
-    impl LayoutControl for AutoSuggestBox {
+    impl crate::reference::ReferenceControl for AutoSuggestBox {}
+    impl sealed::LayoutControl for AutoSuggestBox {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for AutoSuggestBox {}
     impl FocusControl for AutoSuggestBox {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum AutoSuggestBoxSlot {
         Header,
     }
-    impl SlotsControl for AutoSuggestBox {
-        type Slot = AutoSuggestBoxSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<AutoSuggestBoxSlot> for AutoSuggestBox {
+        fn slot_index(slot: AutoSuggestBoxSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for AutoSuggestBox {
+        type Slot = AutoSuggestBoxSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct PasswordBox {
@@ -1373,24 +1437,32 @@ pub mod public {
         }
     }
     impl sealed::Sealed for PasswordBox {}
+    impl sealed::NativeControl for PasswordBox {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for PasswordBox {}
-    impl crate::reference::ReferenceType for PasswordBox {}
-    impl LayoutControl for PasswordBox {
+    impl crate::reference::ReferenceControl for PasswordBox {}
+    impl sealed::LayoutControl for PasswordBox {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for PasswordBox {}
     impl FocusControl for PasswordBox {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum PasswordBoxSlot {
         Header,
     }
-    impl SlotsControl for PasswordBox {
-        type Slot = PasswordBoxSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<PasswordBoxSlot> for PasswordBox {
+        fn slot_index(slot: PasswordBoxSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for PasswordBox {
+        type Slot = PasswordBoxSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct NumberBox {
@@ -1436,24 +1508,32 @@ pub mod public {
         }
     }
     impl sealed::Sealed for NumberBox {}
+    impl sealed::NativeControl for NumberBox {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for NumberBox {}
-    impl crate::reference::ReferenceType for NumberBox {}
-    impl LayoutControl for NumberBox {
+    impl crate::reference::ReferenceControl for NumberBox {}
+    impl sealed::LayoutControl for NumberBox {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for NumberBox {}
     impl FocusControl for NumberBox {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum NumberBoxSlot {
         Header,
     }
-    impl SlotsControl for NumberBox {
-        type Slot = NumberBoxSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<NumberBoxSlot> for NumberBox {
+        fn slot_index(slot: NumberBoxSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for NumberBox {
+        type Slot = NumberBoxSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Slider {
@@ -1517,24 +1597,32 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Slider {}
+    impl sealed::NativeControl for Slider {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for Slider {}
-    impl crate::reference::ReferenceType for Slider {}
-    impl LayoutControl for Slider {
+    impl crate::reference::ReferenceControl for Slider {}
+    impl sealed::LayoutControl for Slider {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for Slider {}
     impl FocusControl for Slider {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum SliderSlot {
         Header,
     }
-    impl SlotsControl for Slider {
-        type Slot = SliderSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<SliderSlot> for Slider {
+        fn slot_index(slot: SliderSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for Slider {
+        type Slot = SliderSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct TitleBar {
@@ -1610,22 +1698,30 @@ pub mod public {
         }
     }
     impl sealed::Sealed for TitleBar {}
-    impl LayoutControl for TitleBar {
+    impl sealed::NativeControl for TitleBar {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for TitleBar {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for TitleBar {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum TitleBarSlot {
         Content,
         RightHeader,
     }
-    impl SlotsControl for TitleBar {
-        type Slot = TitleBarSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<TitleBarSlot> for TitleBar {
+        fn slot_index(slot: TitleBarSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for TitleBar {
+        type Slot = TitleBarSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct NavigationView {
@@ -1740,11 +1836,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for NavigationView {}
-    impl LayoutControl for NavigationView {
+    impl sealed::NativeControl for NavigationView {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for NavigationView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for NavigationView {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum NavigationViewSlot {
@@ -1754,11 +1856,13 @@ pub mod public {
         PaneFooter,
         MenuItems,
     }
-    impl SlotsControl for NavigationView {
-        type Slot = NavigationViewSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<NavigationViewSlot> for NavigationView {
+        fn slot_index(slot: NavigationViewSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for NavigationView {
+        type Slot = NavigationViewSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct NavigationViewItem {
@@ -1800,11 +1904,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for NavigationViewItem {}
-    impl LayoutControl for NavigationViewItem {
+    impl sealed::NativeControl for NavigationViewItem {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for NavigationViewItem {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for NavigationViewItem {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum NavigationViewItemSlot {
@@ -1812,11 +1922,13 @@ pub mod public {
         Icon,
         MenuItems,
     }
-    impl SlotsControl for NavigationViewItem {
-        type Slot = NavigationViewItemSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<NavigationViewItemSlot> for NavigationViewItem {
+        fn slot_index(slot: NavigationViewItemSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for NavigationViewItem {
+        type Slot = NavigationViewItemSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct SplitView {
@@ -1857,22 +1969,30 @@ pub mod public {
         }
     }
     impl sealed::Sealed for SplitView {}
-    impl LayoutControl for SplitView {
+    impl sealed::NativeControl for SplitView {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for SplitView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for SplitView {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum SplitViewSlot {
         Pane,
         Content,
     }
-    impl SlotsControl for SplitView {
-        type Slot = SplitViewSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<SplitViewSlot> for SplitView {
+        fn slot_index(slot: SplitViewSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for SplitView {
+        type Slot = SplitViewSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ProgressBar {
@@ -1926,11 +2046,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ProgressBar {}
-    impl LayoutControl for ProgressBar {
+    impl sealed::NativeControl for ProgressBar {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for ProgressBar {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for ProgressBar {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ToggleSwitch {
         is_on: Property<bool>,
@@ -1963,13 +2089,19 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ToggleSwitch {}
+    impl sealed::NativeControl for ToggleSwitch {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for ToggleSwitch {}
-    impl crate::reference::ReferenceType for ToggleSwitch {}
-    impl LayoutControl for ToggleSwitch {
+    impl crate::reference::ReferenceControl for ToggleSwitch {}
+    impl sealed::LayoutControl for ToggleSwitch {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for ToggleSwitch {}
     impl FocusControl for ToggleSwitch {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
@@ -1978,11 +2110,13 @@ pub mod public {
         OnContent,
         OffContent,
     }
-    impl SlotsControl for ToggleSwitch {
-        type Slot = ToggleSwitchSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<ToggleSwitchSlot> for ToggleSwitch {
+        fn slot_index(slot: ToggleSwitchSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for ToggleSwitch {
+        type Slot = ToggleSwitchSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct CheckBox {
@@ -2015,22 +2149,31 @@ pub mod public {
             self.on_is_checked_changed = Some(callback.into_payload_callback());
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-            self.content = Some(Box::new(content.into()));
-            self
-        }
     }
     impl sealed::Sealed for CheckBox {}
+    impl sealed::NativeControl for CheckBox {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for CheckBox {}
-    impl crate::reference::ReferenceType for CheckBox {}
-    impl LayoutControl for CheckBox {
+    impl crate::reference::ReferenceControl for CheckBox {}
+    impl sealed::LayoutControl for CheckBox {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for CheckBox {}
+    impl sealed::ContentControl for CheckBox {}
     impl ContentControl for CheckBox {}
     impl FocusControl for CheckBox {}
+    #[cfg(test)]
+    impl NativeContentTestExt for CheckBox {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ToggleButton {
         is_checked: Property<bool>,
@@ -2062,22 +2205,31 @@ pub mod public {
             self.on_is_checked_changed = Some(callback.into_payload_callback());
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-            self.content = Some(Box::new(content.into()));
-            self
-        }
     }
     impl sealed::Sealed for ToggleButton {}
+    impl sealed::NativeControl for ToggleButton {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for ToggleButton {}
-    impl crate::reference::ReferenceType for ToggleButton {}
-    impl LayoutControl for ToggleButton {
+    impl crate::reference::ReferenceControl for ToggleButton {}
+    impl sealed::LayoutControl for ToggleButton {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for ToggleButton {}
+    impl sealed::ContentControl for ToggleButton {}
     impl ContentControl for ToggleButton {}
     impl FocusControl for ToggleButton {}
+    #[cfg(test)]
+    impl NativeContentTestExt for ToggleButton {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct RadioButton {
         group_name: Property<String>,
@@ -2121,22 +2273,31 @@ pub mod public {
             self.on_checked = Some(callback.into_payload_callback());
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-            self.content = Some(Box::new(content.into()));
-            self
-        }
     }
     impl sealed::Sealed for RadioButton {}
+    impl sealed::NativeControl for RadioButton {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for RadioButton {}
-    impl crate::reference::ReferenceType for RadioButton {}
-    impl LayoutControl for RadioButton {
+    impl crate::reference::ReferenceControl for RadioButton {}
+    impl sealed::LayoutControl for RadioButton {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for RadioButton {}
+    impl sealed::ContentControl for RadioButton {}
     impl ContentControl for RadioButton {}
     impl FocusControl for RadioButton {}
+    #[cfg(test)]
+    impl NativeContentTestExt for RadioButton {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct RadioButtons {
         items_source: Property<std::rc::Rc<Vec<String>>>,
@@ -2185,21 +2346,29 @@ pub mod public {
         }
     }
     impl sealed::Sealed for RadioButtons {}
-    impl LayoutControl for RadioButtons {
+    impl sealed::NativeControl for RadioButtons {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for RadioButtons {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for RadioButtons {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum RadioButtonsSlot {
         Header,
     }
-    impl SlotsControl for RadioButtons {
-        type Slot = RadioButtonsSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<RadioButtonsSlot> for RadioButtons {
+        fn slot_index(slot: RadioButtonsSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for RadioButtons {
+        type Slot = RadioButtonsSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ItemsRepeater {
@@ -2220,11 +2389,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ItemsRepeater {}
-    impl LayoutControl for ItemsRepeater {
+    impl sealed::NativeControl for ItemsRepeater {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for ItemsRepeater {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for ItemsRepeater {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct InfoBadge {
         value: Property<i32>,
@@ -2241,11 +2416,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for InfoBadge {}
-    impl LayoutControl for InfoBadge {
+    impl sealed::NativeControl for InfoBadge {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for InfoBadge {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for InfoBadge {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct InfoBar {
         title: Property<String>,
@@ -2303,11 +2484,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for InfoBar {}
-    impl LayoutControl for InfoBar {
+    impl sealed::NativeControl for InfoBar {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for InfoBar {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for InfoBar {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct PersonPicture {
         display_name: Property<String>,
@@ -2342,11 +2529,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for PersonPicture {}
-    impl LayoutControl for PersonPicture {
+    impl sealed::NativeControl for PersonPicture {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for PersonPicture {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for PersonPicture {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ScrollViewer {
         horizontal_scroll_bar_visibility: Property<ScrollBarVisibility>,
@@ -2374,19 +2567,28 @@ pub mod public {
             self.vertical_scroll_bar_visibility = Property::from(value);
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-            self.content = Some(Box::new(content.into()));
-            self
-        }
     }
     impl sealed::Sealed for ScrollViewer {}
-    impl LayoutControl for ScrollViewer {
+    impl sealed::NativeControl for ScrollViewer {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for ScrollViewer {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for ScrollViewer {}
+    impl sealed::ContentControl for ScrollViewer {}
     impl ContentControl for ScrollViewer {}
+    #[cfg(test)]
+    impl NativeContentTestExt for ScrollViewer {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ScrollView {
         horizontal_scroll_bar_visibility: Property<ScrollingScrollBarVisibility>,
@@ -2414,19 +2616,28 @@ pub mod public {
             self.vertical_scroll_bar_visibility = Property::from(value);
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-            self.content = Some(Box::new(content.into()));
-            self
-        }
     }
     impl sealed::Sealed for ScrollView {}
-    impl LayoutControl for ScrollView {
+    impl sealed::NativeControl for ScrollView {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for ScrollView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for ScrollView {}
+    impl sealed::ContentControl for ScrollView {}
     impl ContentControl for ScrollView {}
+    #[cfg(test)]
+    impl NativeContentTestExt for ScrollView {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Image {
         source: Property<String>,
@@ -2472,13 +2683,19 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Image {}
+    impl sealed::NativeControl for Image {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for Image {}
-    impl crate::reference::ReferenceType for Image {}
-    impl LayoutControl for Image {
+    impl crate::reference::ReferenceControl for Image {}
+    impl sealed::LayoutControl for Image {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for Image {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ProgressRing {
         minimum: Property<f64>,
@@ -2525,11 +2742,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ProgressRing {}
-    impl LayoutControl for ProgressRing {
+    impl sealed::NativeControl for ProgressRing {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for ProgressRing {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for ProgressRing {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ListBox {
         is_enabled: Property<bool>,
@@ -2554,21 +2777,29 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ListBox {}
-    impl LayoutControl for ListBox {
+    impl sealed::NativeControl for ListBox {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for ListBox {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for ListBox {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum ListBoxSlot {
         Items,
     }
-    impl SlotsControl for ListBox {
-        type Slot = ListBoxSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<ListBoxSlot> for ListBox {
+        fn slot_index(slot: ListBoxSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for ListBox {
+        type Slot = ListBoxSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Rectangle {
@@ -2640,11 +2871,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Rectangle {}
-    impl LayoutControl for Rectangle {
+    impl sealed::NativeControl for Rectangle {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for Rectangle {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for Rectangle {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Ellipse {
         fill: Property<Brush>,
@@ -2691,11 +2928,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Ellipse {}
-    impl LayoutControl for Ellipse {
+    impl sealed::NativeControl for Ellipse {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for Ellipse {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for Ellipse {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Line {
         stroke: Property<Brush>,
@@ -2770,11 +3013,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Line {}
-    impl LayoutControl for Line {
+    impl sealed::NativeControl for Line {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for Line {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for Line {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct SymbolIcon {
         symbol: Property<Symbol>,
@@ -2791,11 +3040,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for SymbolIcon {}
-    impl LayoutControl for SymbolIcon {
+    impl sealed::NativeControl for SymbolIcon {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for SymbolIcon {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for SymbolIcon {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ImageIcon {
         source: Property<String>,
@@ -2830,11 +3085,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ImageIcon {}
-    impl LayoutControl for ImageIcon {
+    impl sealed::NativeControl for ImageIcon {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for ImageIcon {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for ImageIcon {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct FontIcon {
         glyph: Property<String>,
@@ -2857,11 +3118,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for FontIcon {}
-    impl LayoutControl for FontIcon {
+    impl sealed::NativeControl for FontIcon {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for FontIcon {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for FontIcon {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct BitmapIcon {
         uri_source: Property<String>,
@@ -2899,11 +3166,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for BitmapIcon {}
-    impl LayoutControl for BitmapIcon {
+    impl sealed::NativeControl for BitmapIcon {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for BitmapIcon {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for BitmapIcon {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct PathIcon {
         data: Property<String>,
@@ -2926,11 +3199,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for PathIcon {}
-    impl LayoutControl for PathIcon {
+    impl sealed::NativeControl for PathIcon {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for PathIcon {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for PathIcon {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ListBoxItem {
         tag: Property<String>,
@@ -2958,19 +3237,28 @@ pub mod public {
             self.is_selected = Property::from(value);
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-            self.content = Some(Box::new(content.into()));
-            self
-        }
     }
     impl sealed::Sealed for ListBoxItem {}
-    impl LayoutControl for ListBoxItem {
+    impl sealed::NativeControl for ListBoxItem {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for ListBoxItem {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for ListBoxItem {}
+    impl sealed::ContentControl for ListBoxItem {}
     impl ContentControl for ListBoxItem {}
+    #[cfg(test)]
+    impl NativeContentTestExt for ListBoxItem {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct RatingControl {
         max_rating: Property<i32>,
@@ -3021,13 +3309,19 @@ pub mod public {
         }
     }
     impl sealed::Sealed for RatingControl {}
+    impl sealed::NativeControl for RatingControl {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for RatingControl {}
-    impl crate::reference::ReferenceType for RatingControl {}
-    impl LayoutControl for RatingControl {
+    impl crate::reference::ReferenceControl for RatingControl {}
+    impl sealed::LayoutControl for RatingControl {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for RatingControl {}
     impl FocusControl for RatingControl {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Expander {
@@ -3050,22 +3344,30 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Expander {}
-    impl LayoutControl for Expander {
+    impl sealed::NativeControl for Expander {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for Expander {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for Expander {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum ExpanderSlot {
         Header,
         Content,
     }
-    impl SlotsControl for Expander {
-        type Slot = ExpanderSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<ExpanderSlot> for Expander {
+        fn slot_index(slot: ExpanderSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for Expander {
+        type Slot = ExpanderSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ComboBox {
@@ -3138,24 +3440,32 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ComboBox {}
+    impl sealed::NativeControl for ComboBox {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for ComboBox {}
-    impl crate::reference::ReferenceType for ComboBox {}
-    impl LayoutControl for ComboBox {
+    impl crate::reference::ReferenceControl for ComboBox {}
+    impl sealed::LayoutControl for ComboBox {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for ComboBox {}
     impl FocusControl for ComboBox {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum ComboBoxSlot {
         Header,
     }
-    impl SlotsControl for ComboBox {
-        type Slot = ComboBoxSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<ComboBoxSlot> for ComboBox {
+        fn slot_index(slot: ComboBoxSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for ComboBox {
+        type Slot = ComboBoxSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Pivot {
@@ -3190,21 +3500,29 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Pivot {}
-    impl LayoutControl for Pivot {
+    impl sealed::NativeControl for Pivot {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for Pivot {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for Pivot {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum PivotSlot {
         Items,
     }
-    impl SlotsControl for Pivot {
-        type Slot = PivotSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<PivotSlot> for Pivot {
+        fn slot_index(slot: PivotSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for Pivot {
+        type Slot = PivotSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct PivotItem {
@@ -3227,19 +3545,28 @@ pub mod public {
             self.header = Property::from(value.map(Into::into));
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-            self.content = Some(Box::new(content.into()));
-            self
-        }
     }
     impl sealed::Sealed for PivotItem {}
-    impl LayoutControl for PivotItem {
+    impl sealed::NativeControl for PivotItem {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for PivotItem {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for PivotItem {}
+    impl sealed::ContentControl for PivotItem {}
     impl ContentControl for PivotItem {}
+    #[cfg(test)]
+    impl NativeContentTestExt for PivotItem {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct FlipView {
         selected_index: Property<i32>,
@@ -3261,21 +3588,29 @@ pub mod public {
         }
     }
     impl sealed::Sealed for FlipView {}
-    impl LayoutControl for FlipView {
+    impl sealed::NativeControl for FlipView {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for FlipView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for FlipView {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum FlipViewSlot {
         Items,
     }
-    impl SlotsControl for FlipView {
-        type Slot = FlipViewSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<FlipViewSlot> for FlipView {
+        fn slot_index(slot: FlipViewSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for FlipView {
+        type Slot = FlipViewSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct SelectorBar {
@@ -3295,21 +3630,29 @@ pub mod public {
         }
     }
     impl sealed::Sealed for SelectorBar {}
-    impl LayoutControl for SelectorBar {
+    impl sealed::NativeControl for SelectorBar {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for SelectorBar {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for SelectorBar {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum SelectorBarSlot {
         Items,
     }
-    impl SlotsControl for SelectorBar {
-        type Slot = SelectorBarSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<SelectorBarSlot> for SelectorBar {
+        fn slot_index(slot: SelectorBarSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for SelectorBar {
+        type Slot = SelectorBarSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct SelectorBarItem {
@@ -3339,21 +3682,29 @@ pub mod public {
         }
     }
     impl sealed::Sealed for SelectorBarItem {}
-    impl LayoutControl for SelectorBarItem {
+    impl sealed::NativeControl for SelectorBarItem {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for SelectorBarItem {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for SelectorBarItem {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum SelectorBarItemSlot {
         Icon,
     }
-    impl SlotsControl for SelectorBarItem {
-        type Slot = SelectorBarItemSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<SelectorBarItemSlot> for SelectorBarItem {
+        fn slot_index(slot: SelectorBarItemSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for SelectorBarItem {
+        type Slot = SelectorBarItemSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct TabView {
@@ -3419,21 +3770,29 @@ pub mod public {
         }
     }
     impl sealed::Sealed for TabView {}
-    impl LayoutControl for TabView {
+    impl sealed::NativeControl for TabView {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for TabView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for TabView {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum TabViewSlot {
         TabItems,
     }
-    impl SlotsControl for TabView {
-        type Slot = TabViewSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<TabViewSlot> for TabView {
+        fn slot_index(slot: TabViewSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for TabView {
+        type Slot = TabViewSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct TabViewItem {
@@ -3474,19 +3833,28 @@ pub mod public {
             self.tag = Property::from(value.map(Into::into));
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-            self.content = Some(Box::new(content.into()));
-            self
-        }
     }
     impl sealed::Sealed for TabViewItem {}
-    impl LayoutControl for TabViewItem {
+    impl sealed::NativeControl for TabViewItem {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for TabViewItem {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for TabViewItem {}
+    impl sealed::ContentControl for TabViewItem {}
     impl ContentControl for TabViewItem {}
+    #[cfg(test)]
+    impl NativeContentTestExt for TabViewItem {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct TeachingTip {
         title: Property<String>,
@@ -3583,11 +3951,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for TeachingTip {}
-    impl LayoutControl for TeachingTip {
+    impl sealed::NativeControl for TeachingTip {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for TeachingTip {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for TeachingTip {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct DropDownButton {
         is_enabled: Property<bool>,
@@ -3608,19 +3982,28 @@ pub mod public {
             self.on_click = Some(callback.into_unit_callback());
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-            self.content = Some(Box::new(content.into()));
-            self
-        }
     }
     impl sealed::Sealed for DropDownButton {}
-    impl LayoutControl for DropDownButton {
+    impl sealed::NativeControl for DropDownButton {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for DropDownButton {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for DropDownButton {}
+    impl sealed::ContentControl for DropDownButton {}
     impl ContentControl for DropDownButton {}
+    #[cfg(test)]
+    impl NativeContentTestExt for DropDownButton {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct CommandBar {
         element_state: Option<std::rc::Rc<ElementState>>,
@@ -3631,22 +4014,30 @@ pub mod public {
         }
     }
     impl sealed::Sealed for CommandBar {}
-    impl LayoutControl for CommandBar {
+    impl sealed::NativeControl for CommandBar {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for CommandBar {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for CommandBar {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum CommandBarSlot {
         PrimaryCommands,
         SecondaryCommands,
     }
-    impl SlotsControl for CommandBar {
-        type Slot = CommandBarSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<CommandBarSlot> for CommandBar {
+        fn slot_index(slot: CommandBarSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for CommandBar {
+        type Slot = CommandBarSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct AppBarButton {
@@ -3681,21 +4072,29 @@ pub mod public {
         }
     }
     impl sealed::Sealed for AppBarButton {}
-    impl LayoutControl for AppBarButton {
+    impl sealed::NativeControl for AppBarButton {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for AppBarButton {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for AppBarButton {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum AppBarButtonSlot {
         Icon,
     }
-    impl SlotsControl for AppBarButton {
-        type Slot = AppBarButtonSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<AppBarButtonSlot> for AppBarButton {
+        fn slot_index(slot: AppBarButtonSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for AppBarButton {
+        type Slot = AppBarButtonSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct AppBarSeparator {
@@ -3707,11 +4106,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for AppBarSeparator {}
-    impl LayoutControl for AppBarSeparator {
+    impl sealed::NativeControl for AppBarSeparator {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for AppBarSeparator {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for AppBarSeparator {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct MenuBar {
         element_state: Option<std::rc::Rc<ElementState>>,
@@ -3722,21 +4127,29 @@ pub mod public {
         }
     }
     impl sealed::Sealed for MenuBar {}
-    impl LayoutControl for MenuBar {
+    impl sealed::NativeControl for MenuBar {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for MenuBar {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for MenuBar {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum MenuBarSlot {
         Items,
     }
-    impl SlotsControl for MenuBar {
-        type Slot = MenuBarSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<MenuBarSlot> for MenuBar {
+        fn slot_index(slot: MenuBarSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for MenuBar {
+        type Slot = MenuBarSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct MenuBarItem {
@@ -3760,11 +4173,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for MenuBarItem {}
-    impl LayoutControl for MenuBarItem {
+    impl sealed::NativeControl for MenuBarItem {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for MenuBarItem {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for MenuBarItem {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct SplitButton {
         is_enabled: Property<bool>,
@@ -3785,19 +4204,28 @@ pub mod public {
             self.on_click = Some(callback.into_unit_callback());
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-            self.content = Some(Box::new(content.into()));
-            self
-        }
     }
     impl sealed::Sealed for SplitButton {}
-    impl LayoutControl for SplitButton {
+    impl sealed::NativeControl for SplitButton {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for SplitButton {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for SplitButton {}
+    impl sealed::ContentControl for SplitButton {}
     impl ContentControl for SplitButton {}
+    #[cfg(test)]
+    impl NativeContentTestExt for SplitButton {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ColorPicker {
         color: Property<Color>,
@@ -3852,11 +4280,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ColorPicker {}
-    impl LayoutControl for ColorPicker {
+    impl sealed::NativeControl for ColorPicker {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for ColorPicker {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for ColorPicker {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct DatePicker {
         day_visible: Property<bool>,
@@ -3899,21 +4333,29 @@ pub mod public {
         }
     }
     impl sealed::Sealed for DatePicker {}
-    impl LayoutControl for DatePicker {
+    impl sealed::NativeControl for DatePicker {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for DatePicker {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for DatePicker {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum DatePickerSlot {
         Header,
     }
-    impl SlotsControl for DatePicker {
-        type Slot = DatePickerSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<DatePickerSlot> for DatePicker {
+        fn slot_index(slot: DatePickerSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for DatePicker {
+        type Slot = DatePickerSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct TimePicker {
@@ -3957,21 +4399,29 @@ pub mod public {
         }
     }
     impl sealed::Sealed for TimePicker {}
-    impl LayoutControl for TimePicker {
+    impl sealed::NativeControl for TimePicker {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for TimePicker {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for TimePicker {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum TimePickerSlot {
         Header,
     }
-    impl SlotsControl for TimePicker {
-        type Slot = TimePickerSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<TimePickerSlot> for TimePicker {
+        fn slot_index(slot: TimePickerSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for TimePicker {
+        type Slot = TimePickerSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct CalendarDatePicker {
@@ -4021,21 +4471,29 @@ pub mod public {
         }
     }
     impl sealed::Sealed for CalendarDatePicker {}
-    impl LayoutControl for CalendarDatePicker {
+    impl sealed::NativeControl for CalendarDatePicker {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for CalendarDatePicker {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for CalendarDatePicker {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum CalendarDatePickerSlot {
         Header,
     }
-    impl SlotsControl for CalendarDatePicker {
-        type Slot = CalendarDatePickerSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<CalendarDatePickerSlot> for CalendarDatePicker {
+        fn slot_index(slot: CalendarDatePickerSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for CalendarDatePicker {
+        type Slot = CalendarDatePickerSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ToolTip {
@@ -4045,14 +4503,22 @@ pub mod public {
         pub fn new() -> Self {
             Self::default()
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
+    }
+    impl sealed::Sealed for ToolTip {}
+    impl sealed::NativeControl for ToolTip {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::ContentControl for ToolTip {}
+    impl ContentControl for ToolTip {}
+    #[cfg(test)]
+    impl NativeContentTestExt for ToolTip {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
             self.content = Some(Box::new(content.into()));
             self
         }
     }
-    impl sealed::Sealed for ToolTip {}
-    impl ContentControl for ToolTip {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ContentDialog {
         title: Property<String>,
@@ -4134,17 +4600,25 @@ pub mod public {
             self.on_closed = Some(callback.into_payload_callback());
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-            self.content = Some(Box::new(content.into()));
-            self
-        }
     }
     impl sealed::Sealed for ContentDialog {}
-    impl ContentControl for ContentDialog {
+    impl sealed::NativeControl for ContentDialog {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::ContentControl for ContentDialog {
         fn into_content_view(self, content: View) -> View {
             let open = self.is_open;
             View::content_dialog(self.into(), Some(content), open)
+        }
+    }
+    impl ContentControl for ContentDialog {}
+    #[cfg(test)]
+    impl NativeContentTestExt for ContentDialog {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
         }
     }
     #[derive(Clone, Debug, Default, PartialEq)]
@@ -4180,11 +4654,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for CalendarView {}
-    impl LayoutControl for CalendarView {
+    impl sealed::NativeControl for CalendarView {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for CalendarView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for CalendarView {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ListView {
         selected_index: Property<i32>,
@@ -4245,21 +4725,29 @@ pub mod public {
         }
     }
     impl sealed::Sealed for ListView {}
-    impl LayoutControl for ListView {
+    impl sealed::NativeControl for ListView {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for ListView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for ListView {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum ListViewSlot {
         Items,
     }
-    impl SlotsControl for ListView {
-        type Slot = ListViewSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<ListViewSlot> for ListView {
+        fn slot_index(slot: ListViewSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for ListView {
+        type Slot = ListViewSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ListViewItem {
@@ -4282,19 +4770,28 @@ pub mod public {
             self.tag = Property::from(value.map(Into::into));
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-            self.content = Some(Box::new(content.into()));
-            self
-        }
     }
     impl sealed::Sealed for ListViewItem {}
-    impl LayoutControl for ListViewItem {
+    impl sealed::NativeControl for ListViewItem {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for ListViewItem {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for ListViewItem {}
+    impl sealed::ContentControl for ListViewItem {}
     impl ContentControl for ListViewItem {}
+    #[cfg(test)]
+    impl NativeContentTestExt for ListViewItem {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct TreeView {
         selection_mode: Property<TreeViewSelectionMode>,
@@ -4316,11 +4813,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for TreeView {}
-    impl LayoutControl for TreeView {
+    impl sealed::NativeControl for TreeView {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for TreeView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for TreeView {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct GridView {
         selected_index: Property<i32>,
@@ -4375,21 +4878,29 @@ pub mod public {
         }
     }
     impl sealed::Sealed for GridView {}
-    impl LayoutControl for GridView {
+    impl sealed::NativeControl for GridView {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for GridView {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for GridView {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum GridViewSlot {
         Items,
     }
-    impl SlotsControl for GridView {
-        type Slot = GridViewSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<GridViewSlot> for GridView {
+        fn slot_index(slot: GridViewSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for GridView {
+        type Slot = GridViewSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct GridViewItem {
@@ -4412,19 +4923,28 @@ pub mod public {
             self.tag = Property::from(value.map(Into::into));
             self
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_content(mut self, content: impl Into<Element>) -> Self {
-            self.content = Some(Box::new(content.into()));
-            self
-        }
     }
     impl sealed::Sealed for GridViewItem {}
-    impl LayoutControl for GridViewItem {
+    impl sealed::NativeControl for GridViewItem {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for GridViewItem {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for GridViewItem {}
+    impl sealed::ContentControl for GridViewItem {}
     impl ContentControl for GridViewItem {}
+    #[cfg(test)]
+    impl NativeContentTestExt for GridViewItem {
+        fn native_content(mut self, content: impl Into<Element>) -> Self {
+            self.content = Some(Box::new(content.into()));
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct RelativePanel {
         element_state: Option<std::rc::Rc<ElementState>>,
@@ -4434,31 +4954,31 @@ pub mod public {
         pub fn new() -> Self {
             Self::default()
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_child(
-            mut self,
-            key: impl Into<Key>,
-            child: impl Into<Element>,
-        ) -> Self {
-            std::rc::Rc::make_mut(&mut self.children).push(KeyedElement::new(key, child));
-            self
-        }
-        #[allow(dead_code)]
-        pub(crate) fn native_children(
-            mut self,
-            children: impl IntoIterator<Item = KeyedElement>,
-        ) -> Self {
-            self.children = std::rc::Rc::new(children.into_iter().collect());
-            self
-        }
     }
     impl sealed::Sealed for RelativePanel {}
-    impl LayoutControl for RelativePanel {
+    impl sealed::NativeControl for RelativePanel {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for RelativePanel {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for RelativePanel {}
     impl ChildrenControl for RelativePanel {}
+    #[cfg(test)]
+    impl NativeChildrenTestExt for RelativePanel {
+        fn native_child(mut self, key: impl Into<Key>, child: impl Into<Element>) -> Self {
+            std::rc::Rc::make_mut(&mut self.children).push(KeyedElement::new(key, child));
+            self
+        }
+        fn native_children(mut self, children: impl IntoIterator<Item = KeyedElement>) -> Self {
+            self.children = std::rc::Rc::new(children.into_iter().collect());
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Canvas {
         element_state: Option<std::rc::Rc<ElementState>>,
@@ -4468,31 +4988,31 @@ pub mod public {
         pub fn new() -> Self {
             Self::default()
         }
-        #[allow(dead_code)]
-        pub(crate) fn native_child(
-            mut self,
-            key: impl Into<Key>,
-            child: impl Into<Element>,
-        ) -> Self {
-            std::rc::Rc::make_mut(&mut self.children).push(KeyedElement::new(key, child));
-            self
-        }
-        #[allow(dead_code)]
-        pub(crate) fn native_children(
-            mut self,
-            children: impl IntoIterator<Item = KeyedElement>,
-        ) -> Self {
-            self.children = std::rc::Rc::new(children.into_iter().collect());
-            self
-        }
     }
     impl sealed::Sealed for Canvas {}
-    impl LayoutControl for Canvas {
+    impl sealed::NativeControl for Canvas {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for Canvas {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for Canvas {}
     impl ChildrenControl for Canvas {}
+    #[cfg(test)]
+    impl NativeChildrenTestExt for Canvas {
+        fn native_child(mut self, key: impl Into<Key>, child: impl Into<Element>) -> Self {
+            std::rc::Rc::make_mut(&mut self.children).push(KeyedElement::new(key, child));
+            self
+        }
+        fn native_children(mut self, children: impl IntoIterator<Item = KeyedElement>) -> Self {
+            self.children = std::rc::Rc::new(children.into_iter().collect());
+            self
+        }
+    }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct RichEditBox {
         text: Property<String>,
@@ -4549,24 +5069,32 @@ pub mod public {
         }
     }
     impl sealed::Sealed for RichEditBox {}
+    impl sealed::NativeControl for RichEditBox {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for RichEditBox {}
-    impl crate::reference::ReferenceType for RichEditBox {}
-    impl LayoutControl for RichEditBox {
+    impl crate::reference::ReferenceControl for RichEditBox {}
+    impl sealed::LayoutControl for RichEditBox {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for RichEditBox {}
     impl FocusControl for RichEditBox {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum RichEditBoxSlot {
         Header,
     }
-    impl SlotsControl for RichEditBox {
-        type Slot = RichEditBoxSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<RichEditBoxSlot> for RichEditBox {
+        fn slot_index(slot: RichEditBoxSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for RichEditBox {
+        type Slot = RichEditBoxSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct RichTextBlock {
@@ -4608,11 +5136,17 @@ pub mod public {
         }
     }
     impl sealed::Sealed for RichTextBlock {}
-    impl LayoutControl for RichTextBlock {
+    impl sealed::NativeControl for RichTextBlock {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for RichTextBlock {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for RichTextBlock {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Viewbox {
         stretch: Property<Stretch>,
@@ -4629,21 +5163,29 @@ pub mod public {
         }
     }
     impl sealed::Sealed for Viewbox {}
-    impl LayoutControl for Viewbox {
+    impl sealed::NativeControl for Viewbox {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for Viewbox {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for Viewbox {}
     #[repr(u8)]
     #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
     pub enum ViewboxSlot {
         Child,
     }
-    impl SlotsControl for Viewbox {
-        type Slot = ViewboxSlot;
-        fn slot_index(slot: Self::Slot) -> u8 {
+    impl sealed::SlotIndex<ViewboxSlot> for Viewbox {
+        fn slot_index(slot: ViewboxSlot) -> u8 {
             slot as u8
         }
+    }
+    impl SlotsControl for Viewbox {
+        type Slot = ViewboxSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct WebView2 {
@@ -4660,13 +5202,19 @@ pub mod public {
         }
     }
     impl sealed::Sealed for WebView2 {}
+    impl sealed::NativeControl for WebView2 {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for WebView2 {}
-    impl crate::reference::ReferenceType for WebView2 {}
-    impl LayoutControl for WebView2 {
+    impl crate::reference::ReferenceControl for WebView2 {}
+    impl sealed::LayoutControl for WebView2 {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for WebView2 {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct SwapChainPanel {
         reference: Option<NativeElementRef>,
@@ -4682,15 +5230,21 @@ pub mod public {
         }
     }
     impl sealed::Sealed for SwapChainPanel {}
+    impl sealed::NativeControl for SwapChainPanel {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
     impl crate::reference::sealed::Sealed for SwapChainPanel {}
-    impl crate::reference::ReferenceType for SwapChainPanel {}
-    impl LayoutControl for SwapChainPanel {
+    impl crate::reference::ReferenceControl for SwapChainPanel {}
+    impl sealed::LayoutControl for SwapChainPanel {
         fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
             &mut self.element_state
         }
     }
+    impl LayoutControl for SwapChainPanel {}
     #[derive(Clone, Debug, PartialEq)]
-    pub enum Element {
+    pub(crate) enum Element {
         TextBlock(Box<TextBlock>),
         Button(Box<Button>),
         HyperlinkButton(Box<HyperlinkButton>),

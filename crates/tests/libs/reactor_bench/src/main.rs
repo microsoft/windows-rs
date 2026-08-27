@@ -89,7 +89,7 @@ impl Component for BackgroundLeaf {
     }
 
     fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        View::native(TextBlock::new().text(self.0.to_string()))
+        TextBlock::new().text(self.0.to_string()).into()
     }
 }
 
@@ -128,7 +128,7 @@ impl Component for BackgroundRoot {
                     sender: Rc::clone(&self.0.sender),
                 })
             } else {
-                View::native(TextBlock::new().text("static"))
+                TextBlock::new().text("static").into()
             };
             KeyedView::new(index, view)
         }))
@@ -153,7 +153,9 @@ impl Component for BenchLeaf {
     }
 
     fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        View::native(TextBlock::new().text(if self.active { "on" } else { "off" }))
+        TextBlock::new()
+            .text(if self.active { "on" } else { "off" })
+            .into()
     }
 }
 
@@ -256,7 +258,9 @@ impl Component for ContextConsumer {
     fn update(&mut self, (): (), _context: &ComponentContext<Self>) {}
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        View::native(TextBlock::new().text(context.use_context(&self.0).to_string()))
+        TextBlock::new()
+            .text(context.use_context(&self.0).to_string())
+            .into()
     }
 }
 
@@ -330,7 +334,7 @@ impl Component for ContextSubtree {
             let view = if self.0.all_consumers || index == self.0.count / 2 {
                 View::component::<ContextConsumer>(Rc::clone(&self.0.context))
             } else {
-                View::native(TextBlock::new().text("static"))
+                TextBlock::new().text("static").into()
             };
             KeyedView::new(index, view)
         }))
@@ -530,7 +534,7 @@ impl Component for KeyedLeaf {
     fn update(&mut self, _message: Self::Message, _context: &ComponentContext<Self>) {}
 
     fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        View::native(TextBlock::new().text(self.0.to_string()))
+        TextBlock::new().text(self.0.to_string()).into()
     }
 }
 
@@ -625,7 +629,7 @@ fn keyed_stack(keys: &[String]) -> View {
     )
 }
 
-fn virtual_list(key_prefix: &str, text_prefix: &str, count: usize) -> Element {
+fn virtual_list(key_prefix: &str, text_prefix: &str, count: usize) -> View {
     ItemsRepeater::new()
         .items((0..count).map(|index| {
             KeyedView::new(
@@ -717,11 +721,11 @@ fn bench_virtual_payload(count: usize, realized: usize, iters: u64, reps: u32) -
     let a = virtual_list("key-", "a-", count);
     let b = virtual_list("key-", "b-", count);
     let mut pump = Pump::new(runtime());
-    pump.mount(a.clone()).unwrap();
+    pump.mount_view(a.clone()).unwrap();
     queue_realize(&mut pump, realized);
     let mut flip = false;
     let perf = measure(iters, reps, || {
-        pump.update(if flip { a.clone() } else { b.clone() })
+        pump.update_view(if flip { a.clone() } else { b.clone() })
             .unwrap();
         flip = !flip;
     });
@@ -736,11 +740,11 @@ fn bench_virtual_reset(count: usize, realized: usize, iters: u64, reps: u32) -> 
     let a = virtual_list("a-", "row-", count);
     let b = virtual_list("b-", "row-", count);
     let mut pump = Pump::new(runtime());
-    pump.mount(a.clone()).unwrap();
+    pump.mount_view(a.clone()).unwrap();
     queue_realize(&mut pump, realized);
     let mut flip = false;
     let perf = measure(iters, reps, || {
-        pump.update(if flip { a.clone() } else { b.clone() })
+        pump.update_view(if flip { a.clone() } else { b.clone() })
             .unwrap();
         queue_realize(&mut pump, realized);
         flip = !flip;
@@ -754,7 +758,8 @@ fn bench_virtual_reset(count: usize, realized: usize, iters: u64, reps: u32) -> 
 
 fn bench_realize_cycle(count: usize, realized: usize, iters: u64, reps: u32) -> Row {
     let mut pump = Pump::new(runtime());
-    pump.mount(virtual_list("key-", "row-", count)).unwrap();
+    pump.mount_view(virtual_list("key-", "row-", count))
+        .unwrap();
     let perf = measure(iters, reps, || {
         queue_realize(&mut pump, realized);
         queue_recycle(&mut pump, realized);
@@ -1079,8 +1084,8 @@ fn main() {
         bench_update(
             "virtual_no_change",
             10_000,
-            virtual_list("key-", "row-", 10_000).into(),
-            virtual_list("key-", "row-", 10_000).into(),
+            virtual_list("key-", "row-", 10_000),
+            virtual_list("key-", "row-", 10_000),
             iters,
             reps,
         ),

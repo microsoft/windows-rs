@@ -80,6 +80,7 @@ pub struct Pump<R: NativeRuntime> {
     components: ComponentStore,
     diagnostics: VecDeque<PumpDiagnostic>,
     dirty_components: HashSet<ComponentToken>,
+    #[cfg(test)]
     element: Option<Element>,
     tree: Tree,
     runtime: R,
@@ -115,6 +116,7 @@ impl<R: NativeRuntime> Pump<R> {
             components,
             diagnostics: VecDeque::new(),
             dirty_components: HashSet::new(),
+            #[cfg(test)]
             element: None,
             tree: Tree::new(),
             runtime,
@@ -134,8 +136,8 @@ impl<R: NativeRuntime> Pump<R> {
         }
     }
 
-    #[cfg(any(test, feature = "test"))]
-    pub fn mount(&mut self, element: Element) -> Result<(), PumpError> {
+    #[cfg(test)]
+    pub(crate) fn mount(&mut self, element: Element) -> Result<(), PumpError> {
         if self.poisoned {
             return Err(PumpError::Poisoned);
         }
@@ -301,8 +303,8 @@ impl<R: NativeRuntime> Pump<R> {
         self.apply_component_candidate(candidate, candidate_root, plan, changes, next_version)
     }
 
-    #[cfg(any(test, feature = "test"))]
-    pub fn update(&mut self, element: Element) -> Result<(), PumpError> {
+    #[cfg(test)]
+    pub(crate) fn update(&mut self, element: Element) -> Result<(), PumpError> {
         if matches!(element.structure(), ElementStructureRef::Virtual(_)) {
             let desired_element = element.clone();
             self.update_view(View::native(element))?;
@@ -371,7 +373,10 @@ impl<R: NativeRuntime> Pump<R> {
         self.imperative.complete_unavailable();
         self.runtime.reset();
         self.application = None;
-        self.element = None;
+        #[cfg(test)]
+        {
+            self.element = None;
+        }
         self.dirty_components.clear();
         self.diagnostics.clear();
         self.events.clear();

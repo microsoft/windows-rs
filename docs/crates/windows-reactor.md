@@ -54,6 +54,10 @@ background tasks, and window requests. `view` receives a mutable `ViewContext<Se
 rendering records declarations, dependencies, observations, and effects. Inputs remain explicit
 arguments to `create`, `input_changed`, and `view`.
 
+Generated controls convert directly into `View`. The internal `Element` representation and
+structural state remain private so applications depend on builders and capability traits rather
+than generated enum variants or reconciliation storage.
+
 ### Migration from the render-and-hook API
 
 The Component/View API replaces the earlier render-function and hook frontend:
@@ -83,6 +87,9 @@ An integration may add a narrow typed command when the operation is part of a pu
 The command may carry an application-owned native payload, such as a swap chain, but it must
 target a typed `ElementRef`, define its lifetime behavior, and remain observable in the recording
 runtime. Sample compatibility alone does not justify a new public command.
+
+`ReferenceControl` is the sealed capability implemented by generated controls that support
+`ElementRef`. `FocusControl` narrows that set to controls that accept focus requests.
 
 The `observe_surface`, `observe_rasterization_scale`, and `observe_composition_host` methods
 register against an `ElementRef`, not one native node. Registration may happen before publication.

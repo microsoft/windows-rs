@@ -104,243 +104,6 @@ pub enum windows_reactor::DroppedData
 pub windows_reactor::DroppedData::StorageItems(alloc::vec::Vec<windows_reactor::DroppedStorageItem>)
 pub windows_reactor::DroppedData::Text(alloc::string::String)
 pub windows_reactor::DroppedData::Unsupported
-pub enum windows_reactor::Element
-pub windows_reactor::Element::AppBarButton(alloc::boxed::Box<windows_reactor::AppBarButton>)
-pub windows_reactor::Element::AppBarSeparator(alloc::boxed::Box<windows_reactor::AppBarSeparator>)
-pub windows_reactor::Element::AutoSuggestBox(alloc::boxed::Box<windows_reactor::AutoSuggestBox>)
-pub windows_reactor::Element::BitmapIcon(alloc::boxed::Box<windows_reactor::BitmapIcon>)
-pub windows_reactor::Element::Border(alloc::boxed::Box<windows_reactor::Border>)
-pub windows_reactor::Element::BreadcrumbBar(alloc::boxed::Box<windows_reactor::BreadcrumbBar>)
-pub windows_reactor::Element::Button(alloc::boxed::Box<windows_reactor::Button>)
-pub windows_reactor::Element::CalendarDatePicker(alloc::boxed::Box<windows_reactor::CalendarDatePicker>)
-pub windows_reactor::Element::CalendarView(alloc::boxed::Box<windows_reactor::CalendarView>)
-pub windows_reactor::Element::Canvas(alloc::boxed::Box<windows_reactor::Canvas>)
-pub windows_reactor::Element::CheckBox(alloc::boxed::Box<windows_reactor::CheckBox>)
-pub windows_reactor::Element::ColorPicker(alloc::boxed::Box<windows_reactor::ColorPicker>)
-pub windows_reactor::Element::ComboBox(alloc::boxed::Box<windows_reactor::ComboBox>)
-pub windows_reactor::Element::CommandBar(alloc::boxed::Box<windows_reactor::CommandBar>)
-pub windows_reactor::Element::ContentDialog(alloc::boxed::Box<windows_reactor::ContentDialog>)
-pub windows_reactor::Element::DatePicker(alloc::boxed::Box<windows_reactor::DatePicker>)
-pub windows_reactor::Element::DropDownButton(alloc::boxed::Box<windows_reactor::DropDownButton>)
-pub windows_reactor::Element::Ellipse(alloc::boxed::Box<windows_reactor::Ellipse>)
-pub windows_reactor::Element::Expander(alloc::boxed::Box<windows_reactor::Expander>)
-pub windows_reactor::Element::FlipView(alloc::boxed::Box<windows_reactor::FlipView>)
-pub windows_reactor::Element::FontIcon(alloc::boxed::Box<windows_reactor::FontIcon>)
-pub windows_reactor::Element::Grid(alloc::boxed::Box<windows_reactor::Grid>)
-pub windows_reactor::Element::GridView(alloc::boxed::Box<windows_reactor::GridView>)
-pub windows_reactor::Element::GridViewItem(alloc::boxed::Box<windows_reactor::GridViewItem>)
-pub windows_reactor::Element::HyperlinkButton(alloc::boxed::Box<windows_reactor::HyperlinkButton>)
-pub windows_reactor::Element::Image(alloc::boxed::Box<windows_reactor::Image>)
-pub windows_reactor::Element::ImageIcon(alloc::boxed::Box<windows_reactor::ImageIcon>)
-pub windows_reactor::Element::InfoBadge(alloc::boxed::Box<windows_reactor::InfoBadge>)
-pub windows_reactor::Element::InfoBar(alloc::boxed::Box<windows_reactor::InfoBar>)
-pub windows_reactor::Element::ItemsRepeater(alloc::boxed::Box<windows_reactor::ItemsRepeater>)
-pub windows_reactor::Element::Line(alloc::boxed::Box<windows_reactor::Line>)
-pub windows_reactor::Element::ListBox(alloc::boxed::Box<windows_reactor::ListBox>)
-pub windows_reactor::Element::ListBoxItem(alloc::boxed::Box<windows_reactor::ListBoxItem>)
-pub windows_reactor::Element::ListView(alloc::boxed::Box<windows_reactor::ListView>)
-pub windows_reactor::Element::ListViewItem(alloc::boxed::Box<windows_reactor::ListViewItem>)
-pub windows_reactor::Element::MenuBar(alloc::boxed::Box<windows_reactor::MenuBar>)
-pub windows_reactor::Element::MenuBarItem(alloc::boxed::Box<windows_reactor::MenuBarItem>)
-pub windows_reactor::Element::NavigationView(alloc::boxed::Box<windows_reactor::NavigationView>)
-pub windows_reactor::Element::NavigationViewItem(alloc::boxed::Box<windows_reactor::NavigationViewItem>)
-pub windows_reactor::Element::NumberBox(alloc::boxed::Box<windows_reactor::NumberBox>)
-pub windows_reactor::Element::PasswordBox(alloc::boxed::Box<windows_reactor::PasswordBox>)
-pub windows_reactor::Element::PathIcon(alloc::boxed::Box<windows_reactor::PathIcon>)
-pub windows_reactor::Element::PersonPicture(alloc::boxed::Box<windows_reactor::PersonPicture>)
-pub windows_reactor::Element::Pivot(alloc::boxed::Box<windows_reactor::Pivot>)
-pub windows_reactor::Element::PivotItem(alloc::boxed::Box<windows_reactor::PivotItem>)
-pub windows_reactor::Element::ProgressBar(alloc::boxed::Box<windows_reactor::ProgressBar>)
-pub windows_reactor::Element::ProgressRing(alloc::boxed::Box<windows_reactor::ProgressRing>)
-pub windows_reactor::Element::RadioButton(alloc::boxed::Box<windows_reactor::RadioButton>)
-pub windows_reactor::Element::RadioButtons(alloc::boxed::Box<windows_reactor::RadioButtons>)
-pub windows_reactor::Element::RatingControl(alloc::boxed::Box<windows_reactor::RatingControl>)
-pub windows_reactor::Element::Rectangle(alloc::boxed::Box<windows_reactor::Rectangle>)
-pub windows_reactor::Element::RelativePanel(alloc::boxed::Box<windows_reactor::RelativePanel>)
-pub windows_reactor::Element::RepeatButton(alloc::boxed::Box<windows_reactor::RepeatButton>)
-pub windows_reactor::Element::RichEditBox(alloc::boxed::Box<windows_reactor::RichEditBox>)
-pub windows_reactor::Element::RichTextBlock(alloc::boxed::Box<windows_reactor::RichTextBlock>)
-pub windows_reactor::Element::ScrollView(alloc::boxed::Box<windows_reactor::ScrollView>)
-pub windows_reactor::Element::ScrollViewer(alloc::boxed::Box<windows_reactor::ScrollViewer>)
-pub windows_reactor::Element::SelectorBar(alloc::boxed::Box<windows_reactor::SelectorBar>)
-pub windows_reactor::Element::SelectorBarItem(alloc::boxed::Box<windows_reactor::SelectorBarItem>)
-pub windows_reactor::Element::Slider(alloc::boxed::Box<windows_reactor::Slider>)
-pub windows_reactor::Element::SplitButton(alloc::boxed::Box<windows_reactor::SplitButton>)
-pub windows_reactor::Element::SplitView(alloc::boxed::Box<windows_reactor::SplitView>)
-pub windows_reactor::Element::StackPanel(alloc::boxed::Box<windows_reactor::StackPanel>)
-pub windows_reactor::Element::SwapChainPanel(alloc::boxed::Box<windows_reactor::SwapChainPanel>)
-pub windows_reactor::Element::SymbolIcon(alloc::boxed::Box<windows_reactor::SymbolIcon>)
-pub windows_reactor::Element::TabView(alloc::boxed::Box<windows_reactor::TabView>)
-pub windows_reactor::Element::TabViewItem(alloc::boxed::Box<windows_reactor::TabViewItem>)
-pub windows_reactor::Element::TeachingTip(alloc::boxed::Box<windows_reactor::TeachingTip>)
-pub windows_reactor::Element::TextBlock(alloc::boxed::Box<windows_reactor::TextBlock>)
-pub windows_reactor::Element::TextBox(alloc::boxed::Box<windows_reactor::TextBox>)
-pub windows_reactor::Element::TimePicker(alloc::boxed::Box<windows_reactor::TimePicker>)
-pub windows_reactor::Element::TitleBar(alloc::boxed::Box<windows_reactor::TitleBar>)
-pub windows_reactor::Element::ToggleButton(alloc::boxed::Box<windows_reactor::ToggleButton>)
-pub windows_reactor::Element::ToggleSwitch(alloc::boxed::Box<windows_reactor::ToggleSwitch>)
-pub windows_reactor::Element::ToolTip(alloc::boxed::Box<windows_reactor::ToolTip>)
-pub windows_reactor::Element::TreeView(alloc::boxed::Box<windows_reactor::TreeView>)
-pub windows_reactor::Element::Viewbox(alloc::boxed::Box<windows_reactor::Viewbox>)
-pub windows_reactor::Element::WebView2(alloc::boxed::Box<windows_reactor::WebView2>)
-impl core::convert::From<windows_reactor::AppBarButton> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::AppBarButton) -> Self
-impl core::convert::From<windows_reactor::AppBarSeparator> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::AppBarSeparator) -> Self
-impl core::convert::From<windows_reactor::AutoSuggestBox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::AutoSuggestBox) -> Self
-impl core::convert::From<windows_reactor::BitmapIcon> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::BitmapIcon) -> Self
-impl core::convert::From<windows_reactor::Border> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Border) -> Self
-impl core::convert::From<windows_reactor::BreadcrumbBar> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::BreadcrumbBar) -> Self
-impl core::convert::From<windows_reactor::Button> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Button) -> Self
-impl core::convert::From<windows_reactor::CalendarDatePicker> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::CalendarDatePicker) -> Self
-impl core::convert::From<windows_reactor::CalendarView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::CalendarView) -> Self
-impl core::convert::From<windows_reactor::Canvas> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Canvas) -> Self
-impl core::convert::From<windows_reactor::CheckBox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::CheckBox) -> Self
-impl core::convert::From<windows_reactor::ColorPicker> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ColorPicker) -> Self
-impl core::convert::From<windows_reactor::ComboBox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ComboBox) -> Self
-impl core::convert::From<windows_reactor::CommandBar> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::CommandBar) -> Self
-impl core::convert::From<windows_reactor::ContentDialog> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ContentDialog) -> Self
-impl core::convert::From<windows_reactor::DatePicker> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::DatePicker) -> Self
-impl core::convert::From<windows_reactor::DropDownButton> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::DropDownButton) -> Self
-impl core::convert::From<windows_reactor::Element> for windows_reactor::View
-pub fn windows_reactor::View::from(windows_reactor::Element) -> Self
-impl core::convert::From<windows_reactor::Ellipse> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Ellipse) -> Self
-impl core::convert::From<windows_reactor::Expander> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Expander) -> Self
-impl core::convert::From<windows_reactor::FlipView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::FlipView) -> Self
-impl core::convert::From<windows_reactor::FontIcon> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::FontIcon) -> Self
-impl core::convert::From<windows_reactor::Grid> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Grid) -> Self
-impl core::convert::From<windows_reactor::GridView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::GridView) -> Self
-impl core::convert::From<windows_reactor::GridViewItem> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::GridViewItem) -> Self
-impl core::convert::From<windows_reactor::HyperlinkButton> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::HyperlinkButton) -> Self
-impl core::convert::From<windows_reactor::Image> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Image) -> Self
-impl core::convert::From<windows_reactor::ImageIcon> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ImageIcon) -> Self
-impl core::convert::From<windows_reactor::InfoBadge> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::InfoBadge) -> Self
-impl core::convert::From<windows_reactor::InfoBar> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::InfoBar) -> Self
-impl core::convert::From<windows_reactor::ItemsRepeater> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ItemsRepeater) -> Self
-impl core::convert::From<windows_reactor::Line> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Line) -> Self
-impl core::convert::From<windows_reactor::ListBox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ListBox) -> Self
-impl core::convert::From<windows_reactor::ListBoxItem> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ListBoxItem) -> Self
-impl core::convert::From<windows_reactor::ListView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ListView) -> Self
-impl core::convert::From<windows_reactor::ListViewItem> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ListViewItem) -> Self
-impl core::convert::From<windows_reactor::MenuBar> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::MenuBar) -> Self
-impl core::convert::From<windows_reactor::MenuBarItem> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::MenuBarItem) -> Self
-impl core::convert::From<windows_reactor::NavigationView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::NavigationView) -> Self
-impl core::convert::From<windows_reactor::NavigationViewItem> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::NavigationViewItem) -> Self
-impl core::convert::From<windows_reactor::NumberBox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::NumberBox) -> Self
-impl core::convert::From<windows_reactor::PasswordBox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::PasswordBox) -> Self
-impl core::convert::From<windows_reactor::PathIcon> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::PathIcon) -> Self
-impl core::convert::From<windows_reactor::PersonPicture> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::PersonPicture) -> Self
-impl core::convert::From<windows_reactor::Pivot> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Pivot) -> Self
-impl core::convert::From<windows_reactor::PivotItem> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::PivotItem) -> Self
-impl core::convert::From<windows_reactor::ProgressBar> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ProgressBar) -> Self
-impl core::convert::From<windows_reactor::ProgressRing> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ProgressRing) -> Self
-impl core::convert::From<windows_reactor::RadioButton> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::RadioButton) -> Self
-impl core::convert::From<windows_reactor::RadioButtons> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::RadioButtons) -> Self
-impl core::convert::From<windows_reactor::RatingControl> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::RatingControl) -> Self
-impl core::convert::From<windows_reactor::Rectangle> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Rectangle) -> Self
-impl core::convert::From<windows_reactor::RelativePanel> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::RelativePanel) -> Self
-impl core::convert::From<windows_reactor::RepeatButton> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::RepeatButton) -> Self
-impl core::convert::From<windows_reactor::RichEditBox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::RichEditBox) -> Self
-impl core::convert::From<windows_reactor::RichTextBlock> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::RichTextBlock) -> Self
-impl core::convert::From<windows_reactor::ScrollView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ScrollView) -> Self
-impl core::convert::From<windows_reactor::ScrollViewer> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ScrollViewer) -> Self
-impl core::convert::From<windows_reactor::SelectorBar> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::SelectorBar) -> Self
-impl core::convert::From<windows_reactor::SelectorBarItem> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::SelectorBarItem) -> Self
-impl core::convert::From<windows_reactor::Slider> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Slider) -> Self
-impl core::convert::From<windows_reactor::SplitButton> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::SplitButton) -> Self
-impl core::convert::From<windows_reactor::SplitView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::SplitView) -> Self
-impl core::convert::From<windows_reactor::StackPanel> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::StackPanel) -> Self
-impl core::convert::From<windows_reactor::SwapChainPanel> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::SwapChainPanel) -> Self
-impl core::convert::From<windows_reactor::SymbolIcon> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::SymbolIcon) -> Self
-impl core::convert::From<windows_reactor::TabView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::TabView) -> Self
-impl core::convert::From<windows_reactor::TabViewItem> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::TabViewItem) -> Self
-impl core::convert::From<windows_reactor::TeachingTip> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::TeachingTip) -> Self
-impl core::convert::From<windows_reactor::TextBlock> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::TextBlock) -> Self
-impl core::convert::From<windows_reactor::TextBox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::TextBox) -> Self
-impl core::convert::From<windows_reactor::TimePicker> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::TimePicker) -> Self
-impl core::convert::From<windows_reactor::TitleBar> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::TitleBar) -> Self
-impl core::convert::From<windows_reactor::ToggleButton> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ToggleButton) -> Self
-impl core::convert::From<windows_reactor::ToggleSwitch> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ToggleSwitch) -> Self
-impl core::convert::From<windows_reactor::ToolTip> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ToolTip) -> Self
-impl core::convert::From<windows_reactor::TreeView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::TreeView) -> Self
-impl core::convert::From<windows_reactor::Viewbox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Viewbox) -> Self
-impl core::convert::From<windows_reactor::WebView2> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::WebView2) -> Self
 #[repr(u8)] pub enum windows_reactor::ExpanderSlot
 pub windows_reactor::ExpanderSlot::Content
 pub windows_reactor::ExpanderSlot::Header
@@ -795,8 +558,6 @@ pub fn windows_reactor::AppBarButton::label(self, impl core::convert::Into<alloc
 pub fn windows_reactor::AppBarButton::label_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::AppBarButton::new() -> Self
 pub fn windows_reactor::AppBarButton::on_click(self, impl windows_reactor::IntoUnitCallback) -> Self
-impl core::convert::From<windows_reactor::AppBarButton> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::AppBarButton) -> Self
 impl core::convert::From<windows_reactor::AppBarButton> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::AppBarButton) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::AppBarButton
@@ -820,8 +581,6 @@ pub fn windows_reactor::AppBarButton::slots(self, impl core::iter::traits::colle
 pub struct windows_reactor::AppBarSeparator
 impl windows_reactor::AppBarSeparator
 pub fn windows_reactor::AppBarSeparator::new() -> Self
-impl core::convert::From<windows_reactor::AppBarSeparator> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::AppBarSeparator) -> Self
 impl core::convert::From<windows_reactor::AppBarSeparator> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::AppBarSeparator) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::AppBarSeparator
@@ -850,8 +609,6 @@ pub fn windows_reactor::AutoSuggestBox::placeholder_text(self, impl core::conver
 pub fn windows_reactor::AutoSuggestBox::placeholder_text_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::AutoSuggestBox::text(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::AutoSuggestBox::text_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::AutoSuggestBox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::AutoSuggestBox) -> Self
 impl core::convert::From<windows_reactor::AutoSuggestBox> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::AutoSuggestBox) -> Self
 impl windows_reactor::FocusControl for windows_reactor::AutoSuggestBox
@@ -868,6 +625,7 @@ pub fn windows_reactor::AutoSuggestBox::min_width(self, impl core::convert::Into
 pub fn windows_reactor::AutoSuggestBox::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::AutoSuggestBox::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::AutoSuggestBox::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::AutoSuggestBox
 impl windows_reactor::SlotsControl for windows_reactor::AutoSuggestBox
 pub type windows_reactor::AutoSuggestBox::Slot = windows_reactor::AutoSuggestBoxSlot
 pub fn windows_reactor::AutoSuggestBox::collection_slot(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> windows_reactor::View
@@ -879,8 +637,6 @@ pub fn windows_reactor::BitmapIcon::new() -> Self
 pub fn windows_reactor::BitmapIcon::show_as_monochrome(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::BitmapIcon::uri_source(self, impl core::convert::Into<alloc::string::String>) -> windows_result::Result<Self>
 pub fn windows_reactor::BitmapIcon::uri_source_optional<T>(self, core::option::Option<T>) -> windows_result::Result<Self> where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::BitmapIcon> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::BitmapIcon) -> Self
 impl core::convert::From<windows_reactor::BitmapIcon> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::BitmapIcon) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::BitmapIcon
@@ -925,8 +681,6 @@ pub fn windows_reactor::Border::padding(self, impl core::convert::Into<windows_r
 pub fn windows_reactor::Border::padding_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<windows_reactor::Thickness>
 pub fn windows_reactor::Border::scale(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
 pub fn windows_reactor::Border::scale_transition(self, impl core::convert::Into<core::option::Option<core::time::Duration>>) -> Self
-impl core::convert::From<windows_reactor::Border> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Border) -> Self
 impl core::convert::From<windows_reactor::Border> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Border) -> Self
 impl windows_reactor::ContentControl for windows_reactor::Border
@@ -950,8 +704,6 @@ pub fn windows_reactor::BreadcrumbBar::items_source<I, S>(self, I) -> Self where
 pub fn windows_reactor::BreadcrumbBar::items_source_optional<I, S>(self, core::option::Option<I>) -> Self where I: core::iter::traits::collect::IntoIterator<Item = S>, S: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::BreadcrumbBar::new() -> Self
 pub fn windows_reactor::BreadcrumbBar::on_item_clicked(self, impl windows_reactor::IntoPayloadCallback<alloc::string::String>) -> Self
-impl core::convert::From<windows_reactor::BreadcrumbBar> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::BreadcrumbBar) -> Self
 impl core::convert::From<windows_reactor::BreadcrumbBar> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::BreadcrumbBar) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::BreadcrumbBar
@@ -976,8 +728,6 @@ pub fn windows_reactor::Button::new() -> Self
 pub fn windows_reactor::Button::on_click(self, impl windows_reactor::IntoUnitCallback) -> Self
 pub fn windows_reactor::Button::resource_overrides(self, impl core::convert::Into<core::option::Option<windows_reactor::ResourceOverrides>>) -> Self
 pub fn windows_reactor::Button::style(self, impl core::convert::Into<core::option::Option<windows_reactor::ButtonStyle>>) -> Self
-impl core::convert::From<windows_reactor::Button> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Button) -> Self
 impl core::convert::From<windows_reactor::Button> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Button) -> Self
 impl windows_reactor::ContentControl for windows_reactor::Button
@@ -996,6 +746,7 @@ pub fn windows_reactor::Button::min_width(self, impl core::convert::Into<core::o
 pub fn windows_reactor::Button::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Button::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Button::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::Button
 pub struct windows_reactor::CalendarDatePicker
 impl windows_reactor::CalendarDatePicker
 pub fn windows_reactor::CalendarDatePicker::is_calendar_open(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
@@ -1005,8 +756,6 @@ pub fn windows_reactor::CalendarDatePicker::new() -> Self
 pub fn windows_reactor::CalendarDatePicker::on_date_changed(self, impl windows_reactor::IntoPayloadCallback<windows_time::bindings::DateTime>) -> Self
 pub fn windows_reactor::CalendarDatePicker::placeholder_text(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::CalendarDatePicker::placeholder_text_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::CalendarDatePicker> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::CalendarDatePicker) -> Self
 impl core::convert::From<windows_reactor::CalendarDatePicker> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::CalendarDatePicker) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::CalendarDatePicker
@@ -1034,8 +783,6 @@ pub fn windows_reactor::CalendarView::is_group_label_visible(self, impl core::co
 pub fn windows_reactor::CalendarView::is_today_highlighted(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::CalendarView::new() -> Self
 pub fn windows_reactor::CalendarView::on_selected_dates_changed(self, impl windows_reactor::IntoUnitCallback) -> Self
-impl core::convert::From<windows_reactor::CalendarView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::CalendarView) -> Self
 impl core::convert::From<windows_reactor::CalendarView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::CalendarView) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::CalendarView
@@ -1071,8 +818,6 @@ pub fn windows_reactor::CancellationToken::is_cancelled(&self) -> bool
 pub struct windows_reactor::Canvas
 impl windows_reactor::Canvas
 pub fn windows_reactor::Canvas::new() -> Self
-impl core::convert::From<windows_reactor::Canvas> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Canvas) -> Self
 impl core::convert::From<windows_reactor::Canvas> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Canvas) -> Self
 impl windows_reactor::ChildrenControl for windows_reactor::Canvas
@@ -1098,8 +843,6 @@ pub fn windows_reactor::CheckBox::is_checked(self, impl core::convert::Into<core
 pub fn windows_reactor::CheckBox::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::CheckBox::new() -> Self
 pub fn windows_reactor::CheckBox::on_is_checked_changed(self, impl windows_reactor::IntoPayloadCallback<bool>) -> Self
-impl core::convert::From<windows_reactor::CheckBox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::CheckBox) -> Self
 impl core::convert::From<windows_reactor::CheckBox> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::CheckBox) -> Self
 impl windows_reactor::ContentControl for windows_reactor::CheckBox
@@ -1118,6 +861,7 @@ pub fn windows_reactor::CheckBox::min_width(self, impl core::convert::Into<core:
 pub fn windows_reactor::CheckBox::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::CheckBox::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::CheckBox::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::CheckBox
 #[repr(C)] pub struct windows_reactor::Color
 pub windows_reactor::Color::a: u8
 pub windows_reactor::Color::b: u8
@@ -1141,8 +885,6 @@ pub fn windows_reactor::ColorPicker::is_enabled(self, impl core::convert::Into<c
 pub fn windows_reactor::ColorPicker::is_hex_input_visible(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::ColorPicker::new() -> Self
 pub fn windows_reactor::ColorPicker::on_color_changed(self, impl windows_reactor::IntoPayloadCallback<windows_reactor::Color>) -> Self
-impl core::convert::From<windows_reactor::ColorPicker> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ColorPicker) -> Self
 impl core::convert::From<windows_reactor::ColorPicker> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ColorPicker) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::ColorPicker
@@ -1170,8 +912,6 @@ pub fn windows_reactor::ComboBox::on_selection_changed(self, impl windows_reacto
 pub fn windows_reactor::ComboBox::placeholder_text(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::ComboBox::placeholder_text_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::ComboBox::selected_index(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
-impl core::convert::From<windows_reactor::ComboBox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ComboBox) -> Self
 impl core::convert::From<windows_reactor::ComboBox> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ComboBox) -> Self
 impl windows_reactor::FocusControl for windows_reactor::ComboBox
@@ -1188,6 +928,7 @@ pub fn windows_reactor::ComboBox::min_width(self, impl core::convert::Into<core:
 pub fn windows_reactor::ComboBox::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::ComboBox::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::ComboBox::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::ComboBox
 impl windows_reactor::SlotsControl for windows_reactor::ComboBox
 pub type windows_reactor::ComboBox::Slot = windows_reactor::ComboBoxSlot
 pub fn windows_reactor::ComboBox::collection_slot(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> windows_reactor::View
@@ -1198,8 +939,6 @@ impl windows_reactor::CommandBar
 pub fn windows_reactor::CommandBar::new() -> Self
 impl windows_reactor::CommandBar
 pub fn windows_reactor::CommandBar::owned_commands(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::CommandBarCommand>, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::CommandBarCommand>, impl windows_reactor::IntoPayloadCallback<alloc::string::String>) -> windows_reactor::View
-impl core::convert::From<windows_reactor::CommandBar> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::CommandBar) -> Self
 impl core::convert::From<windows_reactor::CommandBar> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::CommandBar) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::CommandBar
@@ -1252,8 +991,6 @@ pub fn windows_reactor::ContentDialog::secondary_button_text(self, impl core::co
 pub fn windows_reactor::ContentDialog::secondary_button_text_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::ContentDialog::title(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::ContentDialog::title_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::ContentDialog> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ContentDialog) -> Self
 impl core::convert::From<windows_reactor::ContentDialog> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ContentDialog) -> Self
 impl windows_reactor::ContentControl for windows_reactor::ContentDialog
@@ -1288,8 +1025,6 @@ pub fn windows_reactor::DatePicker::month_visible(self, impl core::convert::Into
 pub fn windows_reactor::DatePicker::new() -> Self
 pub fn windows_reactor::DatePicker::on_selected_date_changed(self, impl windows_reactor::IntoPayloadCallback<windows_time::bindings::DateTime>) -> Self
 pub fn windows_reactor::DatePicker::year_visible(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
-impl core::convert::From<windows_reactor::DatePicker> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::DatePicker) -> Self
 impl core::convert::From<windows_reactor::DatePicker> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::DatePicker) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::DatePicker
@@ -1328,8 +1063,6 @@ impl windows_reactor::DropDownButton
 pub fn windows_reactor::DropDownButton::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::DropDownButton::new() -> Self
 pub fn windows_reactor::DropDownButton::on_click(self, impl windows_reactor::IntoUnitCallback) -> Self
-impl core::convert::From<windows_reactor::DropDownButton> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::DropDownButton) -> Self
 impl core::convert::From<windows_reactor::DropDownButton> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::DropDownButton) -> Self
 impl windows_reactor::ContentControl for windows_reactor::DropDownButton
@@ -1377,12 +1110,12 @@ pub fn windows_reactor::ElementRef<windows_reactor::SwapChainPanel>::request_cle
 pub fn windows_reactor::ElementRef<windows_reactor::SwapChainPanel>::request_set_swap_chain(&self, windows_core::unknown::IUnknown, impl core::ops::function::Fn(core::result::Result<(), windows_reactor::SwapChainPanelError>) + 'static) -> bool
 impl windows_reactor::ElementRef<windows_reactor::WebView2>
 pub fn windows_reactor::ElementRef<windows_reactor::WebView2>::request_core_web_view2(&self, impl core::ops::function::Fn(core::result::Result<windows_core::unknown::IUnknown, windows_reactor::WebView2Error>) + 'static) -> bool
-impl<T: ReferenceType> windows_reactor::ElementRef<T>
-pub fn windows_reactor::ElementRef<T>::new() -> Self
 impl<T: windows_reactor::FocusControl> windows_reactor::ElementRef<T>
 pub fn windows_reactor::ElementRef<T>::request_focus(&self) -> bool
 pub fn windows_reactor::ElementRef<T>::request_focus_result(&self, impl core::ops::function::Fn(core::result::Result<bool, windows_reactor::FocusError>) + 'static) -> bool
-impl<T: ReferenceType> core::default::Default for windows_reactor::ElementRef<T>
+impl<T: windows_reactor::ReferenceControl> windows_reactor::ElementRef<T>
+pub fn windows_reactor::ElementRef<T>::new() -> Self
+impl<T: windows_reactor::ReferenceControl> core::default::Default for windows_reactor::ElementRef<T>
 pub fn windows_reactor::ElementRef<T>::default() -> Self
 impl<T> core::clone::Clone for windows_reactor::ElementRef<T>
 pub fn windows_reactor::ElementRef<T>::clone(&self) -> Self
@@ -1399,8 +1132,6 @@ pub fn windows_reactor::Ellipse::new() -> Self
 pub fn windows_reactor::Ellipse::stroke(self, impl core::convert::Into<windows_reactor::Brush>) -> Self
 pub fn windows_reactor::Ellipse::stroke_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<windows_reactor::Brush>
 pub fn windows_reactor::Ellipse::stroke_thickness(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
-impl core::convert::From<windows_reactor::Ellipse> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Ellipse) -> Self
 impl core::convert::From<windows_reactor::Ellipse> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Ellipse) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::Ellipse
@@ -1425,8 +1156,6 @@ impl windows_reactor::Expander
 pub fn windows_reactor::Expander::is_expanded(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::Expander::new() -> Self
 pub fn windows_reactor::Expander::on_is_expanded_changed(self, impl windows_reactor::IntoPayloadCallback<bool>) -> Self
-impl core::convert::From<windows_reactor::Expander> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Expander) -> Self
 impl core::convert::From<windows_reactor::Expander> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Expander) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::Expander
@@ -1452,8 +1181,6 @@ impl windows_reactor::FlipView
 pub fn windows_reactor::FlipView::new() -> Self
 pub fn windows_reactor::FlipView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<i32>) -> Self
 pub fn windows_reactor::FlipView::selected_index(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
-impl core::convert::From<windows_reactor::FlipView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::FlipView) -> Self
 impl core::convert::From<windows_reactor::FlipView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::FlipView) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::FlipView
@@ -1484,8 +1211,6 @@ impl windows_reactor::FontIcon
 pub fn windows_reactor::FontIcon::glyph(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::FontIcon::glyph_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::FontIcon::new() -> Self
-impl core::convert::From<windows_reactor::FontIcon> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::FontIcon) -> Self
 impl core::convert::From<windows_reactor::FontIcon> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::FontIcon) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::FontIcon
@@ -1514,8 +1239,6 @@ pub fn windows_reactor::Grid::new() -> Self
 pub fn windows_reactor::Grid::row_spacing(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
 pub fn windows_reactor::Grid::rows(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::GridLength>) -> Self
 pub fn windows_reactor::Grid::rows_optional<T>(self, core::option::Option<T>) -> Self where T: core::iter::traits::collect::IntoIterator<Item = windows_reactor::GridLength>
-impl core::convert::From<windows_reactor::Grid> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Grid) -> Self
 impl core::convert::From<windows_reactor::Grid> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Grid) -> Self
 impl windows_reactor::ChildrenControl for windows_reactor::Grid
@@ -1534,6 +1257,7 @@ pub fn windows_reactor::Grid::min_width(self, impl core::convert::Into<core::opt
 pub fn windows_reactor::Grid::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Grid::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Grid::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::Grid
 pub struct windows_reactor::GridView
 impl windows_reactor::GridView
 pub fn windows_reactor::GridView::allow_drop(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
@@ -1543,8 +1267,6 @@ pub fn windows_reactor::GridView::new() -> Self
 pub fn windows_reactor::GridView::on_reordered(self, impl windows_reactor::IntoPayloadCallback<alloc::rc::Rc<alloc::vec::Vec<alloc::string::String>>>) -> Self
 pub fn windows_reactor::GridView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<i32>) -> Self
 pub fn windows_reactor::GridView::selected_index(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
-impl core::convert::From<windows_reactor::GridView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::GridView) -> Self
 impl core::convert::From<windows_reactor::GridView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::GridView) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::GridView
@@ -1570,8 +1292,6 @@ impl windows_reactor::GridViewItem
 pub fn windows_reactor::GridViewItem::new() -> Self
 pub fn windows_reactor::GridViewItem::tag(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::GridViewItem::tag_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::GridViewItem> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::GridViewItem) -> Self
 impl core::convert::From<windows_reactor::GridViewItem> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::GridViewItem) -> Self
 impl windows_reactor::ContentControl for windows_reactor::GridViewItem
@@ -1597,8 +1317,6 @@ pub fn windows_reactor::HyperlinkButton::navigate_uri(self, impl core::convert::
 pub fn windows_reactor::HyperlinkButton::navigate_uri_optional<T>(self, core::option::Option<T>) -> windows_result::Result<Self> where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::HyperlinkButton::new() -> Self
 pub fn windows_reactor::HyperlinkButton::on_click(self, impl windows_reactor::IntoUnitCallback) -> Self
-impl core::convert::From<windows_reactor::HyperlinkButton> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::HyperlinkButton) -> Self
 impl core::convert::From<windows_reactor::HyperlinkButton> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::HyperlinkButton) -> Self
 impl windows_reactor::ContentControl for windows_reactor::HyperlinkButton
@@ -1617,6 +1335,7 @@ pub fn windows_reactor::HyperlinkButton::min_width(self, impl core::convert::Int
 pub fn windows_reactor::HyperlinkButton::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::HyperlinkButton::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::HyperlinkButton::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::HyperlinkButton
 pub struct windows_reactor::Image
 impl windows_reactor::Image
 pub fn windows_reactor::Image::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
@@ -1625,8 +1344,6 @@ pub fn windows_reactor::Image::source(self, impl core::convert::Into<alloc::stri
 pub fn windows_reactor::Image::source_file(self, impl core::convert::AsRef<std::path::Path>) -> windows_result::Result<Self>
 pub fn windows_reactor::Image::source_optional<T>(self, core::option::Option<T>) -> windows_result::Result<Self> where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::Image::stretch(self, impl core::convert::Into<core::option::Option<windows_reactor::Stretch>>) -> Self
-impl core::convert::From<windows_reactor::Image> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Image) -> Self
 impl core::convert::From<windows_reactor::Image> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Image) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::Image
@@ -1642,14 +1359,13 @@ pub fn windows_reactor::Image::min_width(self, impl core::convert::Into<core::op
 pub fn windows_reactor::Image::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Image::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Image::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::Image
 pub struct windows_reactor::ImageIcon
 impl windows_reactor::ImageIcon
 pub fn windows_reactor::ImageIcon::new() -> Self
 pub fn windows_reactor::ImageIcon::source(self, impl core::convert::Into<alloc::string::String>) -> windows_result::Result<Self>
 pub fn windows_reactor::ImageIcon::source_file(self, impl core::convert::AsRef<std::path::Path>) -> windows_result::Result<Self>
 pub fn windows_reactor::ImageIcon::source_optional<T>(self, core::option::Option<T>) -> windows_result::Result<Self> where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::ImageIcon> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ImageIcon) -> Self
 impl core::convert::From<windows_reactor::ImageIcon> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ImageIcon) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::ImageIcon
@@ -1669,8 +1385,6 @@ pub struct windows_reactor::InfoBadge
 impl windows_reactor::InfoBadge
 pub fn windows_reactor::InfoBadge::new() -> Self
 pub fn windows_reactor::InfoBadge::value(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
-impl core::convert::From<windows_reactor::InfoBadge> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::InfoBadge) -> Self
 impl core::convert::From<windows_reactor::InfoBadge> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::InfoBadge) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::InfoBadge
@@ -1697,8 +1411,6 @@ pub fn windows_reactor::InfoBar::on_closed(self, impl windows_reactor::IntoUnitC
 pub fn windows_reactor::InfoBar::severity(self, impl core::convert::Into<core::option::Option<windows_reactor::InfoBarSeverity>>) -> Self
 pub fn windows_reactor::InfoBar::title(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::InfoBar::title_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::InfoBar> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::InfoBar) -> Self
 impl core::convert::From<windows_reactor::InfoBar> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::InfoBar) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::InfoBar
@@ -1719,8 +1431,6 @@ impl windows_reactor::ItemsRepeater
 pub fn windows_reactor::ItemsRepeater::item(self, impl core::convert::Into<windows_reactor::Key>, impl core::convert::Into<windows_reactor::View>) -> Self
 pub fn windows_reactor::ItemsRepeater::items(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
 pub fn windows_reactor::ItemsRepeater::new() -> Self
-impl core::convert::From<windows_reactor::ItemsRepeater> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ItemsRepeater) -> Self
 impl core::convert::From<windows_reactor::ItemsRepeater> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ItemsRepeater) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::ItemsRepeater
@@ -1768,8 +1478,6 @@ pub fn windows_reactor::Line::x1(self, impl core::convert::Into<core::option::Op
 pub fn windows_reactor::Line::x2(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
 pub fn windows_reactor::Line::y1(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
 pub fn windows_reactor::Line::y2(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
-impl core::convert::From<windows_reactor::Line> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Line) -> Self
 impl core::convert::From<windows_reactor::Line> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Line) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::Line
@@ -1790,8 +1498,6 @@ impl windows_reactor::ListBox
 pub fn windows_reactor::ListBox::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::ListBox::new() -> Self
 pub fn windows_reactor::ListBox::on_selected_tag_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<alloc::string::String>>) -> Self
-impl core::convert::From<windows_reactor::ListBox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ListBox) -> Self
 impl core::convert::From<windows_reactor::ListBox> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ListBox) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::ListBox
@@ -1818,8 +1524,6 @@ pub fn windows_reactor::ListBoxItem::is_selected(self, impl core::convert::Into<
 pub fn windows_reactor::ListBoxItem::new() -> Self
 pub fn windows_reactor::ListBoxItem::tag(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::ListBoxItem::tag_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::ListBoxItem> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ListBoxItem) -> Self
 impl core::convert::From<windows_reactor::ListBoxItem> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ListBoxItem) -> Self
 impl windows_reactor::ContentControl for windows_reactor::ListBoxItem
@@ -1847,8 +1551,6 @@ pub fn windows_reactor::ListView::on_reordered(self, impl windows_reactor::IntoP
 pub fn windows_reactor::ListView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<i32>) -> Self
 pub fn windows_reactor::ListView::selected_index(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
 pub fn windows_reactor::ListView::selection_mode(self, impl core::convert::Into<core::option::Option<windows_reactor::ListViewSelectionMode>>) -> Self
-impl core::convert::From<windows_reactor::ListView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ListView) -> Self
 impl core::convert::From<windows_reactor::ListView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ListView) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::ListView
@@ -1874,8 +1576,6 @@ impl windows_reactor::ListViewItem
 pub fn windows_reactor::ListViewItem::new() -> Self
 pub fn windows_reactor::ListViewItem::tag(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::ListViewItem::tag_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::ListViewItem> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ListViewItem) -> Self
 impl core::convert::From<windows_reactor::ListViewItem> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ListViewItem) -> Self
 impl windows_reactor::ContentControl for windows_reactor::ListViewItem
@@ -1906,8 +1606,6 @@ pub fn windows_reactor::Menu::new(impl core::iter::traits::collect::IntoIterator
 pub struct windows_reactor::MenuBar
 impl windows_reactor::MenuBar
 pub fn windows_reactor::MenuBar::new() -> Self
-impl core::convert::From<windows_reactor::MenuBar> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::MenuBar) -> Self
 impl core::convert::From<windows_reactor::MenuBar> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::MenuBar) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::MenuBar
@@ -1933,8 +1631,6 @@ impl windows_reactor::MenuBarItem
 pub fn windows_reactor::MenuBarItem::new() -> Self
 pub fn windows_reactor::MenuBarItem::title(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::MenuBarItem::title_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::MenuBarItem> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::MenuBarItem) -> Self
 impl core::convert::From<windows_reactor::MenuBarItem> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::MenuBarItem) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::MenuBarItem
@@ -1966,8 +1662,6 @@ pub fn windows_reactor::NavigationView::open_pane_length(self, impl core::conver
 pub fn windows_reactor::NavigationView::pane_display_mode(self, impl core::convert::Into<core::option::Option<windows_reactor::NavigationViewPaneDisplayMode>>) -> Self
 pub fn windows_reactor::NavigationView::pane_title(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::NavigationView::pane_title_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::NavigationView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::NavigationView) -> Self
 impl core::convert::From<windows_reactor::NavigationView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::NavigationView) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::NavigationView
@@ -1996,8 +1690,6 @@ pub fn windows_reactor::NavigationViewItem::new() -> Self
 pub fn windows_reactor::NavigationViewItem::selects_on_invoked(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::NavigationViewItem::tag(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::NavigationViewItem::tag_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::NavigationViewItem> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::NavigationViewItem) -> Self
 impl core::convert::From<windows_reactor::NavigationViewItem> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::NavigationViewItem) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::NavigationViewItem
@@ -2027,8 +1719,6 @@ pub fn windows_reactor::NumberBox::minimum(self, impl core::convert::Into<core::
 pub fn windows_reactor::NumberBox::new() -> Self
 pub fn windows_reactor::NumberBox::on_value_changed(self, impl windows_reactor::IntoPayloadCallback<f64>) -> Self
 pub fn windows_reactor::NumberBox::value(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
-impl core::convert::From<windows_reactor::NumberBox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::NumberBox) -> Self
 impl core::convert::From<windows_reactor::NumberBox> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::NumberBox) -> Self
 impl windows_reactor::FocusControl for windows_reactor::NumberBox
@@ -2045,6 +1735,7 @@ pub fn windows_reactor::NumberBox::min_width(self, impl core::convert::Into<core
 pub fn windows_reactor::NumberBox::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::NumberBox::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::NumberBox::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::NumberBox
 impl windows_reactor::SlotsControl for windows_reactor::NumberBox
 pub type windows_reactor::NumberBox::Slot = windows_reactor::NumberBoxSlot
 pub fn windows_reactor::NumberBox::collection_slot(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> windows_reactor::View
@@ -2061,8 +1752,6 @@ pub fn windows_reactor::PasswordBox::password_optional<T>(self, core::option::Op
 pub fn windows_reactor::PasswordBox::password_reveal_mode(self, impl core::convert::Into<core::option::Option<windows_reactor::PasswordRevealMode>>) -> Self
 pub fn windows_reactor::PasswordBox::placeholder_text(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::PasswordBox::placeholder_text_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::PasswordBox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::PasswordBox) -> Self
 impl core::convert::From<windows_reactor::PasswordBox> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::PasswordBox) -> Self
 impl windows_reactor::FocusControl for windows_reactor::PasswordBox
@@ -2079,6 +1768,7 @@ pub fn windows_reactor::PasswordBox::min_width(self, impl core::convert::Into<co
 pub fn windows_reactor::PasswordBox::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::PasswordBox::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::PasswordBox::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::PasswordBox
 impl windows_reactor::SlotsControl for windows_reactor::PasswordBox
 pub type windows_reactor::PasswordBox::Slot = windows_reactor::PasswordBoxSlot
 pub fn windows_reactor::PasswordBox::collection_slot(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> windows_reactor::View
@@ -2089,8 +1779,6 @@ impl windows_reactor::PathIcon
 pub fn windows_reactor::PathIcon::data(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::PathIcon::data_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::PathIcon::new() -> Self
-impl core::convert::From<windows_reactor::PathIcon> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::PathIcon) -> Self
 impl core::convert::From<windows_reactor::PathIcon> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::PathIcon) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::PathIcon
@@ -2113,8 +1801,6 @@ pub fn windows_reactor::PersonPicture::display_name_optional<T>(self, core::opti
 pub fn windows_reactor::PersonPicture::initials(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::PersonPicture::initials_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::PersonPicture::new() -> Self
-impl core::convert::From<windows_reactor::PersonPicture> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::PersonPicture) -> Self
 impl core::convert::From<windows_reactor::PersonPicture> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::PersonPicture) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::PersonPicture
@@ -2137,8 +1823,6 @@ pub fn windows_reactor::Pivot::on_selection_changed(self, impl windows_reactor::
 pub fn windows_reactor::Pivot::selected_index(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
 pub fn windows_reactor::Pivot::title(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::Pivot::title_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::Pivot> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Pivot) -> Self
 impl core::convert::From<windows_reactor::Pivot> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Pivot) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::Pivot
@@ -2164,8 +1848,6 @@ impl windows_reactor::PivotItem
 pub fn windows_reactor::PivotItem::header(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::PivotItem::header_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::PivotItem::new() -> Self
-impl core::convert::From<windows_reactor::PivotItem> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::PivotItem) -> Self
 impl core::convert::From<windows_reactor::PivotItem> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::PivotItem) -> Self
 impl windows_reactor::ContentControl for windows_reactor::PivotItem
@@ -2202,8 +1884,6 @@ pub fn windows_reactor::ProgressBar::new() -> Self
 pub fn windows_reactor::ProgressBar::show_error(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::ProgressBar::show_paused(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::ProgressBar::value(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
-impl core::convert::From<windows_reactor::ProgressBar> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ProgressBar) -> Self
 impl core::convert::From<windows_reactor::ProgressBar> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ProgressBar) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::ProgressBar
@@ -2228,8 +1908,6 @@ pub fn windows_reactor::ProgressRing::maximum(self, impl core::convert::Into<cor
 pub fn windows_reactor::ProgressRing::minimum(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
 pub fn windows_reactor::ProgressRing::new() -> Self
 pub fn windows_reactor::ProgressRing::value(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
-impl core::convert::From<windows_reactor::ProgressRing> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ProgressRing) -> Self
 impl core::convert::From<windows_reactor::ProgressRing> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ProgressRing) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::ProgressRing
@@ -2254,8 +1932,6 @@ pub fn windows_reactor::RadioButton::is_checked(self, impl core::convert::Into<c
 pub fn windows_reactor::RadioButton::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::RadioButton::new() -> Self
 pub fn windows_reactor::RadioButton::on_checked(self, impl windows_reactor::IntoPayloadCallback<bool>) -> Self
-impl core::convert::From<windows_reactor::RadioButton> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::RadioButton) -> Self
 impl core::convert::From<windows_reactor::RadioButton> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::RadioButton) -> Self
 impl windows_reactor::ContentControl for windows_reactor::RadioButton
@@ -2274,6 +1950,7 @@ pub fn windows_reactor::RadioButton::min_width(self, impl core::convert::Into<co
 pub fn windows_reactor::RadioButton::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::RadioButton::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::RadioButton::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::RadioButton
 pub struct windows_reactor::RadioButtons
 impl windows_reactor::RadioButtons
 pub fn windows_reactor::RadioButtons::items_source<I, S>(self, I) -> Self where I: core::iter::traits::collect::IntoIterator<Item = S>, S: core::convert::Into<alloc::string::String>
@@ -2282,8 +1959,6 @@ pub fn windows_reactor::RadioButtons::max_columns(self, impl core::convert::Into
 pub fn windows_reactor::RadioButtons::new() -> Self
 pub fn windows_reactor::RadioButtons::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<i32>) -> Self
 pub fn windows_reactor::RadioButtons::selected_index(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
-impl core::convert::From<windows_reactor::RadioButtons> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::RadioButtons) -> Self
 impl core::convert::From<windows_reactor::RadioButtons> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::RadioButtons) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::RadioButtons
@@ -2314,8 +1989,6 @@ pub fn windows_reactor::RatingControl::max_rating(self, impl core::convert::Into
 pub fn windows_reactor::RatingControl::new() -> Self
 pub fn windows_reactor::RatingControl::on_value_changed(self, impl windows_reactor::IntoPayloadCallback<f64>) -> Self
 pub fn windows_reactor::RatingControl::value(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
-impl core::convert::From<windows_reactor::RatingControl> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::RatingControl) -> Self
 impl core::convert::From<windows_reactor::RatingControl> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::RatingControl) -> Self
 impl windows_reactor::FocusControl for windows_reactor::RatingControl
@@ -2332,6 +2005,7 @@ pub fn windows_reactor::RatingControl::min_width(self, impl core::convert::Into<
 pub fn windows_reactor::RatingControl::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::RatingControl::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::RatingControl::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::RatingControl
 pub struct windows_reactor::Rectangle
 impl windows_reactor::Rectangle
 pub fn windows_reactor::Rectangle::fill(self, impl core::convert::Into<windows_reactor::Brush>) -> Self
@@ -2342,8 +2016,6 @@ pub fn windows_reactor::Rectangle::radius_y(self, impl core::convert::Into<core:
 pub fn windows_reactor::Rectangle::stroke(self, impl core::convert::Into<windows_reactor::Brush>) -> Self
 pub fn windows_reactor::Rectangle::stroke_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<windows_reactor::Brush>
 pub fn windows_reactor::Rectangle::stroke_thickness(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
-impl core::convert::From<windows_reactor::Rectangle> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Rectangle) -> Self
 impl core::convert::From<windows_reactor::Rectangle> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Rectangle) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::Rectangle
@@ -2362,8 +2034,6 @@ pub fn windows_reactor::Rectangle::width(self, impl core::convert::Into<core::op
 pub struct windows_reactor::RelativePanel
 impl windows_reactor::RelativePanel
 pub fn windows_reactor::RelativePanel::new() -> Self
-impl core::convert::From<windows_reactor::RelativePanel> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::RelativePanel) -> Self
 impl core::convert::From<windows_reactor::RelativePanel> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::RelativePanel) -> Self
 impl windows_reactor::ChildrenControl for windows_reactor::RelativePanel
@@ -2389,8 +2059,6 @@ pub fn windows_reactor::RepeatButton::interval(self, impl core::convert::Into<co
 pub fn windows_reactor::RepeatButton::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::RepeatButton::new() -> Self
 pub fn windows_reactor::RepeatButton::on_click(self, impl windows_reactor::IntoUnitCallback) -> Self
-impl core::convert::From<windows_reactor::RepeatButton> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::RepeatButton) -> Self
 impl core::convert::From<windows_reactor::RepeatButton> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::RepeatButton) -> Self
 impl windows_reactor::ContentControl for windows_reactor::RepeatButton
@@ -2423,8 +2091,6 @@ pub fn windows_reactor::RichEditBox::placeholder_text(self, impl core::convert::
 pub fn windows_reactor::RichEditBox::placeholder_text_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::RichEditBox::text(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::RichEditBox::text_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::RichEditBox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::RichEditBox) -> Self
 impl core::convert::From<windows_reactor::RichEditBox> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::RichEditBox) -> Self
 impl windows_reactor::FocusControl for windows_reactor::RichEditBox
@@ -2441,6 +2107,7 @@ pub fn windows_reactor::RichEditBox::min_width(self, impl core::convert::Into<co
 pub fn windows_reactor::RichEditBox::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::RichEditBox::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::RichEditBox::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::RichEditBox
 impl windows_reactor::SlotsControl for windows_reactor::RichEditBox
 pub type windows_reactor::RichEditBox::Slot = windows_reactor::RichEditBoxSlot
 pub fn windows_reactor::RichEditBox::collection_slot(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> windows_reactor::View
@@ -2457,8 +2124,6 @@ pub fn windows_reactor::RichTextBlock::is_text_selection_enabled(self, impl core
 pub fn windows_reactor::RichTextBlock::new() -> Self
 pub fn windows_reactor::RichTextBlock::paragraphs(self, impl core::convert::Into<core::option::Option<windows_reactor::RichText>>) -> Self
 pub fn windows_reactor::RichTextBlock::text_wrapping(self, impl core::convert::Into<core::option::Option<windows_reactor::TextWrapping>>) -> Self
-impl core::convert::From<windows_reactor::RichTextBlock> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::RichTextBlock) -> Self
 impl core::convert::From<windows_reactor::RichTextBlock> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::RichTextBlock) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::RichTextBlock
@@ -2491,8 +2156,6 @@ impl windows_reactor::ScrollView
 pub fn windows_reactor::ScrollView::horizontal_scroll_bar_visibility(self, impl core::convert::Into<core::option::Option<windows_reactor::ScrollingScrollBarVisibility>>) -> Self
 pub fn windows_reactor::ScrollView::new() -> Self
 pub fn windows_reactor::ScrollView::vertical_scroll_bar_visibility(self, impl core::convert::Into<core::option::Option<windows_reactor::ScrollingScrollBarVisibility>>) -> Self
-impl core::convert::From<windows_reactor::ScrollView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ScrollView) -> Self
 impl core::convert::From<windows_reactor::ScrollView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ScrollView) -> Self
 impl windows_reactor::ContentControl for windows_reactor::ScrollView
@@ -2515,8 +2178,6 @@ impl windows_reactor::ScrollViewer
 pub fn windows_reactor::ScrollViewer::horizontal_scroll_bar_visibility(self, impl core::convert::Into<core::option::Option<windows_reactor::ScrollBarVisibility>>) -> Self
 pub fn windows_reactor::ScrollViewer::new() -> Self
 pub fn windows_reactor::ScrollViewer::vertical_scroll_bar_visibility(self, impl core::convert::Into<core::option::Option<windows_reactor::ScrollBarVisibility>>) -> Self
-impl core::convert::From<windows_reactor::ScrollViewer> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ScrollViewer) -> Self
 impl core::convert::From<windows_reactor::ScrollViewer> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ScrollViewer) -> Self
 impl windows_reactor::ContentControl for windows_reactor::ScrollViewer
@@ -2538,8 +2199,6 @@ pub struct windows_reactor::SelectorBar
 impl windows_reactor::SelectorBar
 pub fn windows_reactor::SelectorBar::new() -> Self
 pub fn windows_reactor::SelectorBar::on_selected_text_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<alloc::string::String>>) -> Self
-impl core::convert::From<windows_reactor::SelectorBar> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::SelectorBar) -> Self
 impl core::convert::From<windows_reactor::SelectorBar> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::SelectorBar) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::SelectorBar
@@ -2566,8 +2225,6 @@ pub fn windows_reactor::SelectorBarItem::is_selected(self, impl core::convert::I
 pub fn windows_reactor::SelectorBarItem::new() -> Self
 pub fn windows_reactor::SelectorBarItem::text(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::SelectorBarItem::text_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::SelectorBarItem> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::SelectorBarItem) -> Self
 impl core::convert::From<windows_reactor::SelectorBarItem> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::SelectorBarItem) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::SelectorBarItem
@@ -2599,8 +2256,6 @@ pub fn windows_reactor::Slider::on_value_changed(self, impl windows_reactor::Int
 pub fn windows_reactor::Slider::orientation(self, impl core::convert::Into<core::option::Option<windows_reactor::Orientation>>) -> Self
 pub fn windows_reactor::Slider::step_frequency(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
 pub fn windows_reactor::Slider::value(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
-impl core::convert::From<windows_reactor::Slider> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Slider) -> Self
 impl core::convert::From<windows_reactor::Slider> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Slider) -> Self
 impl windows_reactor::FocusControl for windows_reactor::Slider
@@ -2617,6 +2272,7 @@ pub fn windows_reactor::Slider::min_width(self, impl core::convert::Into<core::o
 pub fn windows_reactor::Slider::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Slider::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Slider::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::Slider
 impl windows_reactor::SlotsControl for windows_reactor::Slider
 pub type windows_reactor::Slider::Slot = windows_reactor::SliderSlot
 pub fn windows_reactor::Slider::collection_slot(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> windows_reactor::View
@@ -2631,8 +2287,6 @@ impl windows_reactor::SplitButton
 pub fn windows_reactor::SplitButton::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::SplitButton::new() -> Self
 pub fn windows_reactor::SplitButton::on_click(self, impl windows_reactor::IntoUnitCallback) -> Self
-impl core::convert::From<windows_reactor::SplitButton> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::SplitButton) -> Self
 impl core::convert::From<windows_reactor::SplitButton> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::SplitButton) -> Self
 impl windows_reactor::ContentControl for windows_reactor::SplitButton
@@ -2658,8 +2312,6 @@ pub fn windows_reactor::SplitView::is_pane_open(self, impl core::convert::Into<c
 pub fn windows_reactor::SplitView::new() -> Self
 pub fn windows_reactor::SplitView::on_pane_closed(self, impl windows_reactor::IntoPayloadCallback<bool>) -> Self
 pub fn windows_reactor::SplitView::open_pane_length(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
-impl core::convert::From<windows_reactor::SplitView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::SplitView) -> Self
 impl core::convert::From<windows_reactor::SplitView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::SplitView) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::SplitView
@@ -2685,8 +2337,6 @@ impl windows_reactor::StackPanel
 pub fn windows_reactor::StackPanel::new() -> Self
 pub fn windows_reactor::StackPanel::orientation(self, impl core::convert::Into<core::option::Option<windows_reactor::Orientation>>) -> Self
 pub fn windows_reactor::StackPanel::spacing(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
-impl core::convert::From<windows_reactor::StackPanel> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::StackPanel) -> Self
 impl core::convert::From<windows_reactor::StackPanel> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::StackPanel) -> Self
 impl windows_reactor::ChildrenControl for windows_reactor::StackPanel
@@ -2709,8 +2359,6 @@ pub struct windows_reactor::SwapChainPanel
 impl windows_reactor::SwapChainPanel
 pub fn windows_reactor::SwapChainPanel::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
 pub fn windows_reactor::SwapChainPanel::new() -> Self
-impl core::convert::From<windows_reactor::SwapChainPanel> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::SwapChainPanel) -> Self
 impl core::convert::From<windows_reactor::SwapChainPanel> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::SwapChainPanel) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::SwapChainPanel
@@ -2726,12 +2374,11 @@ pub fn windows_reactor::SwapChainPanel::min_width(self, impl core::convert::Into
 pub fn windows_reactor::SwapChainPanel::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::SwapChainPanel::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::SwapChainPanel::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::SwapChainPanel
 pub struct windows_reactor::SymbolIcon
 impl windows_reactor::SymbolIcon
 pub fn windows_reactor::SymbolIcon::new() -> Self
 pub fn windows_reactor::SymbolIcon::symbol(self, impl core::convert::Into<core::option::Option<windows_reactor::Symbol>>) -> Self
-impl core::convert::From<windows_reactor::SymbolIcon> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::SymbolIcon) -> Self
 impl core::convert::From<windows_reactor::SymbolIcon> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::SymbolIcon) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::SymbolIcon
@@ -2757,8 +2404,6 @@ pub fn windows_reactor::TabView::on_close_requested(self, impl windows_reactor::
 pub fn windows_reactor::TabView::on_reordered(self, impl windows_reactor::IntoPayloadCallback<alloc::rc::Rc<alloc::vec::Vec<alloc::string::String>>>) -> Self
 pub fn windows_reactor::TabView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<i32>) -> Self
 pub fn windows_reactor::TabView::selected_index(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
-impl core::convert::From<windows_reactor::TabView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::TabView) -> Self
 impl core::convert::From<windows_reactor::TabView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::TabView) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::TabView
@@ -2787,8 +2432,6 @@ pub fn windows_reactor::TabViewItem::is_closable(self, impl core::convert::Into<
 pub fn windows_reactor::TabViewItem::new() -> Self
 pub fn windows_reactor::TabViewItem::tag(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::TabViewItem::tag_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::TabViewItem> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::TabViewItem) -> Self
 impl core::convert::From<windows_reactor::TabViewItem> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::TabViewItem) -> Self
 impl windows_reactor::ContentControl for windows_reactor::TabViewItem
@@ -2822,8 +2465,6 @@ pub fn windows_reactor::TeachingTip::subtitle(self, impl core::convert::Into<all
 pub fn windows_reactor::TeachingTip::subtitle_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::TeachingTip::title(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::TeachingTip::title_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::TeachingTip> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::TeachingTip) -> Self
 impl core::convert::From<windows_reactor::TeachingTip> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::TeachingTip) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::TeachingTip
@@ -2852,8 +2493,6 @@ pub fn windows_reactor::TextBlock::text(self, impl core::convert::Into<alloc::st
 pub fn windows_reactor::TextBlock::text_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::TextBlock::text_trimming(self, impl core::convert::Into<core::option::Option<windows_reactor::TextTrimming>>) -> Self
 pub fn windows_reactor::TextBlock::text_wrapping(self, impl core::convert::Into<core::option::Option<windows_reactor::TextWrapping>>) -> Self
-impl core::convert::From<windows_reactor::TextBlock> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::TextBlock) -> Self
 impl core::convert::From<windows_reactor::TextBlock> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::TextBlock) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::TextBlock
@@ -2887,8 +2526,6 @@ pub fn windows_reactor::TextBox::placeholder_text_optional<T>(self, core::option
 pub fn windows_reactor::TextBox::text(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::TextBox::text_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::TextBox::text_wrapping(self, impl core::convert::Into<core::option::Option<windows_reactor::TextWrapping>>) -> Self
-impl core::convert::From<windows_reactor::TextBox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::TextBox) -> Self
 impl core::convert::From<windows_reactor::TextBox> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::TextBox) -> Self
 impl windows_reactor::FocusControl for windows_reactor::TextBox
@@ -2905,6 +2542,7 @@ pub fn windows_reactor::TextBox::min_width(self, impl core::convert::Into<core::
 pub fn windows_reactor::TextBox::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::TextBox::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::TextBox::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::TextBox
 impl windows_reactor::SlotsControl for windows_reactor::TextBox
 pub type windows_reactor::TextBox::Slot = windows_reactor::TextBoxSlot
 pub fn windows_reactor::TextBox::collection_slot(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> windows_reactor::View
@@ -2935,8 +2573,6 @@ pub fn windows_reactor::TimePicker::is_enabled(self, impl core::convert::Into<co
 pub fn windows_reactor::TimePicker::minute_increment(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
 pub fn windows_reactor::TimePicker::new() -> Self
 pub fn windows_reactor::TimePicker::on_selected_time_changed(self, impl windows_reactor::IntoPayloadCallback<windows_time::bindings::TimeSpan>) -> Self
-impl core::convert::From<windows_reactor::TimePicker> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::TimePicker) -> Self
 impl core::convert::From<windows_reactor::TimePicker> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::TimePicker) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::TimePicker
@@ -2970,8 +2606,6 @@ pub fn windows_reactor::TitleBar::subtitle(self, impl core::convert::Into<alloc:
 pub fn windows_reactor::TitleBar::subtitle_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::TitleBar::title(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::TitleBar::title_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-impl core::convert::From<windows_reactor::TitleBar> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::TitleBar) -> Self
 impl core::convert::From<windows_reactor::TitleBar> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::TitleBar) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::TitleBar
@@ -2999,8 +2633,6 @@ pub fn windows_reactor::ToggleButton::is_checked(self, impl core::convert::Into<
 pub fn windows_reactor::ToggleButton::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::ToggleButton::new() -> Self
 pub fn windows_reactor::ToggleButton::on_is_checked_changed(self, impl windows_reactor::IntoPayloadCallback<bool>) -> Self
-impl core::convert::From<windows_reactor::ToggleButton> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ToggleButton) -> Self
 impl core::convert::From<windows_reactor::ToggleButton> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ToggleButton) -> Self
 impl windows_reactor::ContentControl for windows_reactor::ToggleButton
@@ -3019,6 +2651,7 @@ pub fn windows_reactor::ToggleButton::min_width(self, impl core::convert::Into<c
 pub fn windows_reactor::ToggleButton::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::ToggleButton::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::ToggleButton::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::ToggleButton
 pub struct windows_reactor::ToggleSwitch
 impl windows_reactor::ToggleSwitch
 pub fn windows_reactor::ToggleSwitch::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
@@ -3026,8 +2659,6 @@ pub fn windows_reactor::ToggleSwitch::is_enabled(self, impl core::convert::Into<
 pub fn windows_reactor::ToggleSwitch::is_on(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::ToggleSwitch::new() -> Self
 pub fn windows_reactor::ToggleSwitch::on_toggled(self, impl windows_reactor::IntoPayloadCallback<bool>) -> Self
-impl core::convert::From<windows_reactor::ToggleSwitch> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ToggleSwitch) -> Self
 impl core::convert::From<windows_reactor::ToggleSwitch> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ToggleSwitch) -> Self
 impl windows_reactor::FocusControl for windows_reactor::ToggleSwitch
@@ -3044,6 +2675,7 @@ pub fn windows_reactor::ToggleSwitch::min_width(self, impl core::convert::Into<c
 pub fn windows_reactor::ToggleSwitch::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::ToggleSwitch::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::ToggleSwitch::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::ToggleSwitch
 impl windows_reactor::SlotsControl for windows_reactor::ToggleSwitch
 pub type windows_reactor::ToggleSwitch::Slot = windows_reactor::ToggleSwitchSlot
 pub fn windows_reactor::ToggleSwitch::collection_slot(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> windows_reactor::View
@@ -3052,8 +2684,6 @@ pub fn windows_reactor::ToggleSwitch::slots(self, impl core::iter::traits::colle
 pub struct windows_reactor::ToolTip
 impl windows_reactor::ToolTip
 pub fn windows_reactor::ToolTip::new() -> Self
-impl core::convert::From<windows_reactor::ToolTip> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::ToolTip) -> Self
 impl core::convert::From<windows_reactor::ToolTip> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ToolTip) -> Self
 impl windows_reactor::ContentControl for windows_reactor::ToolTip
@@ -3074,8 +2704,6 @@ impl windows_reactor::TreeView
 pub fn windows_reactor::TreeView::new() -> Self
 pub fn windows_reactor::TreeView::on_item_invoked(self, impl windows_reactor::IntoPayloadCallback<alloc::string::String>) -> Self
 pub fn windows_reactor::TreeView::selection_mode(self, impl core::convert::Into<core::option::Option<windows_reactor::TreeViewSelectionMode>>) -> Self
-impl core::convert::From<windows_reactor::TreeView> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::TreeView) -> Self
 impl core::convert::From<windows_reactor::TreeView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::TreeView) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::TreeView
@@ -3097,7 +2725,6 @@ pub fn windows_reactor::View::component<C: windows_reactor::Component>(<C as win
 pub fn windows_reactor::View::empty() -> Self
 pub fn windows_reactor::View::fragment(impl windows_reactor::IntoViews) -> Self
 pub fn windows_reactor::View::keyed_fragment(impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> Self
-pub fn windows_reactor::View::native(impl core::convert::Into<windows_reactor::Element>) -> Self
 pub fn windows_reactor::View::provide<T>(&windows_reactor::Context<T>, T, impl core::convert::Into<Self>) -> Self where T: core::clone::Clone + core::cmp::PartialEq + 'static
 impl core::convert::From<&str> for windows_reactor::View
 pub fn windows_reactor::View::from(&str) -> Self
@@ -3137,8 +2764,6 @@ impl core::convert::From<windows_reactor::DatePicker> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::DatePicker) -> Self
 impl core::convert::From<windows_reactor::DropDownButton> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::DropDownButton) -> Self
-impl core::convert::From<windows_reactor::Element> for windows_reactor::View
-pub fn windows_reactor::View::from(windows_reactor::Element) -> Self
 impl core::convert::From<windows_reactor::Ellipse> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Ellipse) -> Self
 impl core::convert::From<windows_reactor::Expander> for windows_reactor::View
@@ -3277,8 +2902,6 @@ pub struct windows_reactor::Viewbox
 impl windows_reactor::Viewbox
 pub fn windows_reactor::Viewbox::new() -> Self
 pub fn windows_reactor::Viewbox::stretch(self, impl core::convert::Into<core::option::Option<windows_reactor::Stretch>>) -> Self
-impl core::convert::From<windows_reactor::Viewbox> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::Viewbox) -> Self
 impl core::convert::From<windows_reactor::Viewbox> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Viewbox) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::Viewbox
@@ -3303,8 +2926,6 @@ pub struct windows_reactor::WebView2
 impl windows_reactor::WebView2
 pub fn windows_reactor::WebView2::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
 pub fn windows_reactor::WebView2::new() -> Self
-impl core::convert::From<windows_reactor::WebView2> for windows_reactor::Element
-pub fn windows_reactor::Element::from(windows_reactor::WebView2) -> Self
 impl core::convert::From<windows_reactor::WebView2> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::WebView2) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::WebView2
@@ -3320,6 +2941,7 @@ pub fn windows_reactor::WebView2::min_width(self, impl core::convert::Into<core:
 pub fn windows_reactor::WebView2::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::WebView2::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::WebView2::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::ReferenceControl for windows_reactor::WebView2
 pub struct windows_reactor::WindowConstraints
 pub windows_reactor::WindowConstraints::max_height: core::option::Option<f64>
 pub windows_reactor::WindowConstraints::max_width: core::option::Option<f64>
@@ -3355,7 +2977,7 @@ pub fn windows_reactor::CanvasChildExt::canvas_top(self, f64) -> Self
 impl<T: windows_reactor::LayoutControl> windows_reactor::CanvasChildExt for T
 pub fn T::canvas_left(self, f64) -> Self
 pub fn T::canvas_top(self, f64) -> Self
-pub trait windows_reactor::ChildrenControl: windows_reactor::element::sealed::Sealed + core::convert::Into<windows_reactor::Element> + core::marker::Sized
+pub trait windows_reactor::ChildrenControl: sealed::NativeControl + core::marker::Sized
 pub fn windows_reactor::ChildrenControl::children(self, impl windows_reactor::IntoViews) -> windows_reactor::View
 pub fn windows_reactor::ChildrenControl::keyed_children(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> windows_reactor::View
 impl windows_reactor::ChildrenControl for windows_reactor::Canvas
@@ -3381,7 +3003,7 @@ pub fn windows_reactor::Component::create(&Self::Input, &windows_reactor::Compon
 pub fn windows_reactor::Component::input_changed(&mut self, &Self::Input, &windows_reactor::ComponentContext<Self>)
 pub fn windows_reactor::Component::update(&mut self, Self::Message, &windows_reactor::ComponentContext<Self>)
 pub fn windows_reactor::Component::view(&self, &Self::Input, &mut windows_reactor::ViewContext<Self>) -> windows_reactor::View
-pub trait windows_reactor::ContentControl: windows_reactor::element::sealed::Sealed + core::convert::Into<windows_reactor::Element> + core::marker::Sized
+pub trait windows_reactor::ContentControl: sealed::ContentControl + core::marker::Sized
 pub fn windows_reactor::ContentControl::content(self, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
 impl windows_reactor::ContentControl for windows_reactor::Border
 pub fn windows_reactor::Border::content(self, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
@@ -3425,7 +3047,7 @@ pub fn windows_reactor::FlyoutExt::flyout_with(self, windows_reactor::Flyout) ->
 impl<T> windows_reactor::FlyoutExt for T where T: core::convert::Into<windows_reactor::View>
 pub fn T::flyout(self, impl core::convert::Into<alloc::string::String>) -> windows_reactor::View
 pub fn T::flyout_with(self, windows_reactor::Flyout) -> windows_reactor::View
-pub trait windows_reactor::FocusControl: ReferenceType
+pub trait windows_reactor::FocusControl: windows_reactor::ReferenceControl
 impl windows_reactor::FocusControl for windows_reactor::AutoSuggestBox
 impl windows_reactor::FocusControl for windows_reactor::Button
 impl windows_reactor::FocusControl for windows_reactor::CheckBox
@@ -3481,7 +3103,7 @@ impl<A, B, C> windows_reactor::IntoViews for (A, B, C) where A: core::convert::I
 impl<A, B> windows_reactor::IntoViews for (A, B) where A: core::convert::Into<windows_reactor::View>, B: core::convert::Into<windows_reactor::View>
 impl<A> windows_reactor::IntoViews for (A) where A: core::convert::Into<windows_reactor::View>
 impl<T, const N: usize> windows_reactor::IntoViews for [T; N] where T: core::convert::Into<windows_reactor::View>
-pub trait windows_reactor::LayoutControl: windows_reactor::element::sealed::Sealed
+pub trait windows_reactor::LayoutControl: sealed::LayoutControl
 pub fn windows_reactor::LayoutControl::exit_transition(self, windows_reactor::ExitTransition) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::LayoutControl::height(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::LayoutControl::horizontal_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::HorizontalAlignment>>) -> Self where Self: core::marker::Sized
@@ -4486,6 +4108,25 @@ pub trait windows_reactor::MenuExt: core::convert::Into<windows_reactor::View> +
 pub fn windows_reactor::MenuExt::menu(self, windows_reactor::Menu) -> windows_reactor::View
 impl<T> windows_reactor::MenuExt for T where T: core::convert::Into<windows_reactor::View>
 pub fn T::menu(self, windows_reactor::Menu) -> windows_reactor::View
+pub trait windows_reactor::ReferenceControl: windows_reactor::reference::sealed::Sealed + 'static
+impl windows_reactor::ReferenceControl for windows_reactor::AutoSuggestBox
+impl windows_reactor::ReferenceControl for windows_reactor::Button
+impl windows_reactor::ReferenceControl for windows_reactor::CheckBox
+impl windows_reactor::ReferenceControl for windows_reactor::ComboBox
+impl windows_reactor::ReferenceControl for windows_reactor::Grid
+impl windows_reactor::ReferenceControl for windows_reactor::HyperlinkButton
+impl windows_reactor::ReferenceControl for windows_reactor::Image
+impl windows_reactor::ReferenceControl for windows_reactor::NumberBox
+impl windows_reactor::ReferenceControl for windows_reactor::PasswordBox
+impl windows_reactor::ReferenceControl for windows_reactor::RadioButton
+impl windows_reactor::ReferenceControl for windows_reactor::RatingControl
+impl windows_reactor::ReferenceControl for windows_reactor::RichEditBox
+impl windows_reactor::ReferenceControl for windows_reactor::Slider
+impl windows_reactor::ReferenceControl for windows_reactor::SwapChainPanel
+impl windows_reactor::ReferenceControl for windows_reactor::TextBox
+impl windows_reactor::ReferenceControl for windows_reactor::ToggleButton
+impl windows_reactor::ReferenceControl for windows_reactor::ToggleSwitch
+impl windows_reactor::ReferenceControl for windows_reactor::WebView2
 pub trait windows_reactor::RelativePanelChildExt: windows_reactor::LayoutControl + core::marker::Sized
 pub fn windows_reactor::RelativePanelChildExt::relative_align_bottom(self) -> Self
 pub fn windows_reactor::RelativePanelChildExt::relative_align_horizontal_center(self) -> Self
@@ -4500,7 +4141,7 @@ pub fn T::relative_align_left(self) -> Self
 pub fn T::relative_align_right(self) -> Self
 pub fn T::relative_align_top(self) -> Self
 pub fn T::relative_align_vertical_center(self) -> Self
-pub trait windows_reactor::SlotsControl: windows_reactor::element::sealed::Sealed + core::convert::Into<windows_reactor::Element> + core::marker::Sized
+pub trait windows_reactor::SlotsControl: sealed::NativeControl + sealed::SlotIndex<Self::Slot> + core::marker::Sized
 pub type windows_reactor::SlotsControl::Slot: core::marker::Copy
 pub fn windows_reactor::SlotsControl::collection_slot(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::KeyedView>) -> windows_reactor::View
 pub fn windows_reactor::SlotsControl::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View

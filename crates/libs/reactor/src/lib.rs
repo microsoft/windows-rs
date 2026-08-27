@@ -15,12 +15,10 @@ pub use app::*;
 pub use core::public::*;
 pub use element::*;
 pub use generated::public::*;
-#[doc(hidden)]
-pub use reference::ReferenceType;
 pub use reference::{
     CompositionHostError, CompositionHostEvent, ElementObservation, ElementRef, FocusControl,
-    FocusError, ImageSourceError, IntegrationError, SwapChainPanelError, SwapChainPanelEvent,
-    WebView2Error, WindowRef,
+    FocusError, ImageSourceError, IntegrationError, ReferenceControl, SwapChainPanelError,
+    SwapChainPanelEvent, WebView2Error, WindowRef,
 };
 #[cfg(feature = "test")]
 pub use test_support::*;
