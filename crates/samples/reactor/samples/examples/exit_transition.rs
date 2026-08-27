@@ -37,7 +37,7 @@ impl Component for ExitTransitionSample {
         let content = StackPanel::new().spacing(16.0).children((
             Button::new()
                 .on_click(context.message(()))
-                .content(TextBlock::new().text(if self.visible { "Remove" } else { "Restore" })),
+                .content(if self.visible { "Remove" } else { "Restore" }),
             card.unwrap_or_else(View::empty),
         ));
         Border::new()

@@ -28,10 +28,7 @@ impl Component for GlyphChangeSample {
                 StackPanel::new()
                     .orientation(Orientation::Horizontal)
                     .spacing(6.0)
-                    .children((
-                        SymbolIcon::new().symbol(icon),
-                        TextBlock::new().text("Toggle Icon"),
-                    )),
+                    .children((SymbolIcon::new().symbol(icon), "Toggle Icon")),
             ),
             TextBlock::new()
                 .text(format!("Current icon: {status}"))

@@ -44,9 +44,9 @@ impl Component for ToggleSwitchPage {
                 .is_on(is_on)
                 .on_toggled(context.callback(message))
                 .slots([
-                    SlotView::new(ToggleSwitchSlot::Header, TextBlock::new().text(header)),
-                    SlotView::new(ToggleSwitchSlot::OnContent, TextBlock::new().text("On")),
-                    SlotView::new(ToggleSwitchSlot::OffContent, TextBlock::new().text("Off")),
+                    SlotView::new(ToggleSwitchSlot::Header, header),
+                    SlotView::new(ToggleSwitchSlot::OnContent, "On"),
+                    SlotView::new(ToggleSwitchSlot::OffContent, "Off"),
                 ])
         };
         page_content(
@@ -103,7 +103,7 @@ impl Component for ToggleSwitchPage {
                                 .on_toggled(context.callback(Message::Overnight))
                                 .slots([SlotView::new(
                                     ToggleSwitchSlot::Header,
-                                    TextBlock::new().text("Install updates overnight"),
+                                    "Install updates overnight",
                                 )]),
                         )),
                         "ToggleSwitch::new().is_enabled(parent_enabled)",

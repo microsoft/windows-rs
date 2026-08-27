@@ -3,7 +3,7 @@ use windows_reactor::*;
 fn main() {
     sample_reactor_controls::run("RelativePanel", || {
         RelativePanel::new().width(300.0).height(200.0).children((
-            TextBlock::new().text("Top Left"),
+            "Top Left",
             TextBlock::new()
                 .text("Top Right")
                 .relative_align_right()

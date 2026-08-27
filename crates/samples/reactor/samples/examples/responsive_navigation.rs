@@ -56,10 +56,7 @@ impl Component for ResponsiveNavigation {
             KeyedView::new(
                 tag,
                 NavigationViewItem::new().tag(tag).slots([
-                    SlotView::new(
-                        NavigationViewItemSlot::Content,
-                        TextBlock::new().text(label),
-                    ),
+                    SlotView::new(NavigationViewItemSlot::Content, label),
                     SlotView::new(
                         NavigationViewItemSlot::Icon,
                         SymbolIcon::new().symbol(symbol),
@@ -79,26 +76,22 @@ impl Component for ResponsiveNavigation {
                 SlotView::new(
                     NavigationViewSlot::Content,
                     StackPanel::new().spacing(12.0).children((
-                        TextBlock::new().text(format!(
+                        format!(
                             "Actual display mode: {}",
                             display_mode_name(self.display_mode)
-                        )),
-                        TextBlock::new().text(if self.pane_open {
+                        ),
+                        if self.pane_open {
                             "Pane is open"
                         } else {
                             "Pane is closed"
-                        }),
+                        },
                         Button::new()
                             .on_click(context.callback(|_| NavigationMessage::TogglePane))
-                            .content(TextBlock::new().text("Toggle pane")),
-                        TextBlock::new()
-                            .text("Resize the window to cross compact and minimal thresholds."),
+                            .content("Toggle pane"),
+                        "Resize the window to cross compact and minimal thresholds.",
                     )),
                 ),
-                SlotView::new(
-                    NavigationViewSlot::PaneFooter,
-                    TextBlock::new().text(footer),
-                ),
+                SlotView::new(NavigationViewSlot::PaneFooter, footer),
             ])
     }
 }

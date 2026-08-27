@@ -35,7 +35,7 @@ impl Component for CommandBarSample {
                 ],
                 context.callback(std::convert::identity),
             ),
-            TextBlock::new().text(format!("Last clicked: {}", self.last_click)),
+            format!("Last clicked: {}", self.last_click),
         ))
     }
 }

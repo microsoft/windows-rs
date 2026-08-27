@@ -55,9 +55,7 @@ impl Component for CheckBoxPage {
                             CheckBox::new()
                                 .is_checked(self.accepted)
                                 .on_is_checked_changed(context.callback(Message::Accepted))
-                                .content(
-                                    TextBlock::new().text("I accept the terms and conditions"),
-                                ),
+                                .content("I accept the terms and conditions"),
                             TextBlock::new()
                                 .text(if self.accepted {
                                     "Accepted"
@@ -77,15 +75,15 @@ impl Component for CheckBoxPage {
                             CheckBox::new()
                                 .is_checked(self.email)
                                 .on_is_checked_changed(context.callback(Message::Email))
-                                .content(TextBlock::new().text("Email notifications")),
+                                .content("Email notifications"),
                             CheckBox::new()
                                 .is_checked(self.sms)
                                 .on_is_checked_changed(context.callback(Message::Sms))
-                                .content(TextBlock::new().text("SMS notifications")),
+                                .content("SMS notifications"),
                             CheckBox::new()
                                 .is_checked(self.push)
                                 .on_is_checked_changed(context.callback(Message::Push))
-                                .content(TextBlock::new().text("Push notifications")),
+                                .content("Push notifications"),
                             TextBlock::new()
                                 .text(format!("{active} channel(s) active"))
                                 .opacity(0.6),
@@ -101,11 +99,11 @@ impl Component for CheckBoxPage {
                             CheckBox::new()
                                 .is_checked(true)
                                 .is_enabled(false)
-                                .content(TextBlock::new().text("Locked on")),
+                                .content("Locked on"),
                             CheckBox::new()
                                 .is_checked(false)
                                 .is_enabled(false)
-                                .content(TextBlock::new().text("Locked off")),
+                                .content("Locked off"),
                         )),
                         "CheckBox::new().is_checked(true).is_enabled(false)",
                     ),

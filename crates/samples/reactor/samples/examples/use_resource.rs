@@ -95,12 +95,10 @@ impl Component for UseResourceSample {
             ResourceState::Ready(items) => StackPanel::new().keyed_children(
                 items
                     .iter()
-                    .map(|item| KeyedView::new(item.clone(), TextBlock::new().text(item))),
+                    .map(|item| KeyedView::new(item.clone(), item.as_str())),
             ),
-            ResourceState::Error(error) => TextBlock::new().text(format!("Error: {error}")).into(),
-            ResourceState::Rejected => TextBlock::new()
-                .text("Error: background task rejected")
-                .into(),
+            ResourceState::Error(error) => format!("Error: {error}").into(),
+            ResourceState::Rejected => "Error: background task rejected".into(),
         };
 
         StackPanel::new().spacing(12.0).children((
@@ -114,10 +112,10 @@ impl Component for UseResourceSample {
                     Button::new()
                         .is_enabled(self.page > 0)
                         .on_click(context.message(Message::Previous))
-                        .content(TextBlock::new().text("Previous")),
+                        .content("Previous"),
                     Button::new()
                         .on_click(context.message(Message::Next))
-                        .content(TextBlock::new().text("Next")),
+                        .content("Next"),
                 )),
         ))
     }

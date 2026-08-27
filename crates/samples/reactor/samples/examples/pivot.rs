@@ -25,7 +25,7 @@ impl Component for PivotSample {
                 PivotItem::new().header(header).content(
                     Border::new()
                         .padding(Thickness::uniform(12.0))
-                        .content(TextBlock::new().text(text)),
+                        .content(text),
                 ),
             )
         };
@@ -44,7 +44,7 @@ impl Component for PivotSample {
                         item("Third", "Pivot - third tab"),
                     ],
                 )]),
-            TextBlock::new().text(format!("selected_index = {}", self.selected)),
+            format!("selected_index = {}", self.selected),
         ))
     }
 }

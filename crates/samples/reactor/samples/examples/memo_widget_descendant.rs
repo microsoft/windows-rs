@@ -28,7 +28,7 @@ impl Component for Counter {
                     .font_size(20.0),
                 Button::new()
                     .on_click(context.message(()))
-                    .content(TextBlock::new().text("Increment")),
+                    .content("Increment"),
             ))
     }
 }
@@ -65,10 +65,8 @@ impl Component for MemoWidgetDescendantSample {
         Border::new()
             .padding(16.0)
             .content(StackPanel::new().spacing(12.0).children((
-                TextBlock::new().text(
-                    "A dirty child must update through a memoized component with a widget root.",
-                ),
-                TextBlock::new().text("Click Increment. The count must advance on every click."),
+                "A dirty child must update through a memoized component with a widget root.",
+                "Click Increment. The count must advance on every click.",
                 View::component::<MemoizedFrame>(()),
             )))
     }

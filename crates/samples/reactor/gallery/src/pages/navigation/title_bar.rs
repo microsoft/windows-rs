@@ -22,10 +22,8 @@ impl Component for TitleBarPage {
                     "preview",
                     sample_card(
                         "Live TitleBar",
-                        TextBlock::new().text(
-                            "The gallery title bar above is the live control. Its buttons, search \
-                             box, title, and subtitle are all declarative.",
-                        ),
+                        "The gallery title bar above is the live control. Its buttons, search box, \
+                         title, and subtitle are all declarative.",
                         "TitleBar::new().title(title).subtitle(subtitle).slots(content)",
                     ),
                 ),
@@ -33,10 +31,8 @@ impl Component for TitleBarPage {
                     "window",
                     sample_card(
                         "Preferred Height",
-                        TextBlock::new().text(
-                            "TitleBar automatically replaces the system title bar. Standard height \
-                             is the default; the gallery requests tall system chrome.",
-                        ),
+                        "TitleBar automatically replaces the system title bar. Standard height is \
+                         the default; the gallery requests tall system chrome.",
                         "TitleBar::new().preferred_height(WindowTitleBarHeight::Tall)",
                     ),
                 ),

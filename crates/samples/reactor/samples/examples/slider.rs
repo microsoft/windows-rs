@@ -27,30 +27,21 @@ impl Component for SliderSample {
                 .value(self.volume)
                 .step_frequency(1.0)
                 .on_value_changed(context.callback(|value| value))
-                .slots([SlotView::new(
-                    SliderSlot::Header,
-                    TextBlock::new().text("Volume"),
-                )]),
-            TextBlock::new().text(format!("Volume = {:.0}", self.volume)),
+                .slots([SlotView::new(SliderSlot::Header, "Volume")]),
+            format!("Volume = {:.0}", self.volume),
             Slider::new()
                 .minimum(0.0)
                 .maximum(100.0)
                 .value(50.0)
                 .orientation(Orientation::Vertical)
                 .height(120.0)
-                .slots([SlotView::new(
-                    SliderSlot::Header,
-                    TextBlock::new().text("Vertical"),
-                )]),
+                .slots([SlotView::new(SliderSlot::Header, "Vertical")]),
             Slider::new()
                 .minimum(0.0)
                 .maximum(100.0)
                 .value(50.0)
                 .is_enabled(false)
-                .slots([SlotView::new(
-                    SliderSlot::Header,
-                    TextBlock::new().text("Disabled"),
-                )]),
+                .slots([SlotView::new(SliderSlot::Header, "Disabled")]),
         ))
     }
 }

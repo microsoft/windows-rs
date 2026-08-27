@@ -23,7 +23,7 @@ impl Component for CalendarViewSample {
                 .is_today_highlighted(true)
                 .is_group_label_visible(true)
                 .on_selected_dates_changed(context.message(())),
-            TextBlock::new().text(format!("Selection changed {} time(s)", self.changes)),
+            format!("Selection changed {} time(s)", self.changes),
         ))
     }
 }

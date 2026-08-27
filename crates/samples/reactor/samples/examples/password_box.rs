@@ -27,25 +27,15 @@ impl Component for PasswordBoxSample {
                 .password(self.password.clone())
                 .placeholder_text("Type a password...")
                 .on_password_changed(context.callback(|password| password))
-                .slots([SlotView::new(
-                    PasswordBoxSlot::Header,
-                    TextBlock::new().text("Password"),
-                )]),
-            TextBlock::new().text(format!(
-                "captured length = {}",
-                self.password.chars().count()
-            )),
+                .slots([SlotView::new(PasswordBoxSlot::Header, "Password")]),
+            format!("captured length = {}", self.password.chars().count()),
             PasswordBox::new()
                 .placeholder_text("Reveal hidden")
                 .password_reveal_mode(PasswordRevealMode::Hidden)
-                .slots([SlotView::new(
-                    PasswordBoxSlot::Header,
-                    TextBlock::new().text("No reveal button"),
-                )]),
-            PasswordBox::new().is_enabled(false).slots([SlotView::new(
-                PasswordBoxSlot::Header,
-                TextBlock::new().text("Disabled"),
-            )]),
+                .slots([SlotView::new(PasswordBoxSlot::Header, "No reveal button")]),
+            PasswordBox::new()
+                .is_enabled(false)
+                .slots([SlotView::new(PasswordBoxSlot::Header, "Disabled")]),
         ))
     }
 }

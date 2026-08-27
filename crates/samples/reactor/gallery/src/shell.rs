@@ -60,10 +60,7 @@ fn destination_title(tag: &str) -> String {
 }
 
 fn nav_item(tag: &str, label: &str, icon: Option<Symbol>, selected: bool) -> KeyedView {
-    let mut slots = vec![SlotView::new(
-        NavigationViewItemSlot::Content,
-        TextBlock::new().text(label),
-    )];
+    let mut slots = vec![SlotView::new(NavigationViewItemSlot::Content, label)];
     if let Some(symbol) = icon {
         slots.push(SlotView::new(
             NavigationViewItemSlot::Icon,
@@ -272,9 +269,7 @@ impl Component for Gallery {
                     TitleBarSlot::RightHeader,
                     Button::new()
                         .on_click(context.message(Message::CycleTheme))
-                        .content(
-                            TextBlock::new().text(format!("Theme: {}", theme_name(self.theme))),
-                        ),
+                        .content(format!("Theme: {}", theme_name(self.theme))),
                 ),
             ]);
 

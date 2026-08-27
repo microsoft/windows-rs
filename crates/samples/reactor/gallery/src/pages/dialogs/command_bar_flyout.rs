@@ -29,9 +29,8 @@ impl Component for CommandBarFlyoutPage {
                     sample_card(
                         "Basic CommandBarFlyout",
                         StackPanel::new().spacing(8.0).children((
-                            Button::new()
-                                .content(TextBlock::new().text("Show Commands"))
-                                .command_bar_flyout(CommandBarFlyout::new(
+                            Button::new().content("Show Commands").command_bar_flyout(
+                                CommandBarFlyout::new(
                                     [
                                         CommandBarCommand::button_with_icon(
                                             "cut",
@@ -51,13 +50,14 @@ impl Component for CommandBarFlyoutPage {
                                     ],
                                     [],
                                     context.callback(std::convert::identity),
-                                )),
+                                ),
+                            ),
                             TextBlock::new()
                                 .text(format!("Last action: {}", self.last_action))
                                 .opacity(0.6),
                         )),
                         r#"Button::new()
-    .content(TextBlock::new().text("Show Commands"))
+    .content("Show Commands")
     .command_bar_flyout(CommandBarFlyout::new(
         [
             CommandBarCommand::button_with_icon("cut", "Cut", Symbol::Cut),
@@ -73,9 +73,8 @@ impl Component for CommandBarFlyoutPage {
                     "secondary",
                     sample_card(
                         "CommandBarFlyout with Secondary Commands",
-                        Button::new()
-                            .content(TextBlock::new().text("More Options"))
-                            .command_bar_flyout(CommandBarFlyout::new(
+                        Button::new().content("More Options").command_bar_flyout(
+                            CommandBarFlyout::new(
                                 [CommandBarCommand::button_with_icon(
                                     "share",
                                     "Share",
@@ -87,9 +86,10 @@ impl Component for CommandBarFlyoutPage {
                                     CommandBarCommand::button("print", "Print"),
                                 ],
                                 context.callback(std::convert::identity),
-                            )),
+                            ),
+                        ),
                         r#"Button::new()
-    .content(TextBlock::new().text("More Options"))
+    .content("More Options")
     .command_bar_flyout(CommandBarFlyout::new(
         [CommandBarCommand::button_with_icon("share", "Share", Symbol::Send)],
         [

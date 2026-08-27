@@ -60,7 +60,7 @@ impl Component for AsyncStateSample {
             Button::new()
                 .is_enabled(!self.busy)
                 .on_click(context.message(Message::Bump))
-                .content(TextBlock::new().text("Bump (off-thread)")),
+                .content("Bump (off-thread)"),
         ))
     }
 }

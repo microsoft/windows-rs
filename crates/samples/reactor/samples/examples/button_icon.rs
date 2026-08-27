@@ -11,13 +11,11 @@ enum Message {
 }
 
 fn icon_content(symbol: Symbol, label: impl Into<String>) -> View {
+    let label: String = label.into();
     StackPanel::new()
         .orientation(Orientation::Horizontal)
         .spacing(6.0)
-        .children((
-            SymbolIcon::new().symbol(symbol),
-            TextBlock::new().text(label),
-        ))
+        .children((SymbolIcon::new().symbol(symbol), label))
 }
 
 impl Component for ButtonIconSample {
@@ -40,7 +38,7 @@ impl Component for ButtonIconSample {
         StackPanel::new().spacing(8.0).children((
             Button::new()
                 .on_click(context.message(Message::Add))
-                .content(TextBlock::new().text("Plain Button")),
+                .content("Plain Button"),
             Button::new()
                 .on_click(context.message(Message::Add))
                 .content(icon_content(Symbol::Add, "Add Item")),
@@ -50,7 +48,7 @@ impl Component for ButtonIconSample {
             Button::new()
                 .style(ButtonStyle::Accent)
                 .content(icon_content(Symbol::Save, "Save")),
-            TextBlock::new().text(format!("Count: {}", self.count)),
+            format!("Count: {}", self.count),
         ))
     }
 }

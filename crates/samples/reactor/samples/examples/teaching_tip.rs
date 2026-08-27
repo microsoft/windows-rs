@@ -39,8 +39,8 @@ impl Component for TeachingTipSample {
         StackPanel::new().spacing(12.0).children((
             Button::new()
                 .on_click(context.message(Message::Open))
-                .content(TextBlock::new().text("Show Teaching Tip")),
-            TextBlock::new().text(format!("Status: {}", self.status)),
+                .content("Show Teaching Tip"),
+            format!("Status: {}", self.status),
             TeachingTip::new()
                 .title("Welcome!")
                 .subtitle("This is a teaching tip with action and close buttons.")

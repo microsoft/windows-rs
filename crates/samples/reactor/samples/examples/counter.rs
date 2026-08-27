@@ -30,7 +30,7 @@ impl Component for Counter {
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("windows_reactor - counter");
         StackPanel::new().spacing(12.0).children((
-            TextBlock::new().text("Phase 1 demo"),
+            "Phase 1 demo",
             TextBlock::new()
                 .text(format!("Count: {}", self.count))
                 .font_weight(700)
@@ -45,12 +45,12 @@ impl Component for Counter {
                         .on_click(context.message(Message::Decrement))
                         .automation_name("Decrement")
                         .automation_id("decrement-button")
-                        .content(TextBlock::new().text("-")),
+                        .content("-"),
                     Button::new()
                         .on_click(context.message(Message::Increment))
                         .automation_name("Increment")
                         .automation_id("increment-button")
-                        .content(TextBlock::new().text("+")),
+                        .content("+"),
                     Button::new()
                         .on_click(context.message(Message::Reset))
                         .key_accelerators(KeyAccelerators::new([KeyAccelerator::new(
@@ -59,7 +59,7 @@ impl Component for Counter {
                             context.message(Message::Reset),
                         )]))
                         .automation_id("reset-button")
-                        .content(TextBlock::new().text("reset (Ctrl+R)")),
+                        .content("reset (Ctrl+R)"),
                 )),
         ))
     }

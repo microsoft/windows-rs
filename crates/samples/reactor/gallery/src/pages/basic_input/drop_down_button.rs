@@ -30,7 +30,7 @@ impl Component for DropDownButtonPage {
                         "DropDownButton with Menu",
                         StackPanel::new().spacing(8.0).children((
                             DropDownButton::new()
-                                .content(TextBlock::new().text("File Actions"))
+                                .content("File Actions")
                                 .menu(Menu::new(
                                     [
                                         MenuItem::item("open", "Open"),
@@ -51,9 +51,7 @@ impl Component for DropDownButtonPage {
                     "disabled",
                     sample_card(
                         "Disabled DropDownButton",
-                        DropDownButton::new()
-                            .is_enabled(false)
-                            .content(TextBlock::new().text("Disabled")),
+                        DropDownButton::new().is_enabled(false).content("Disabled"),
                         "DropDownButton::new().is_enabled(false)",
                     ),
                 ),

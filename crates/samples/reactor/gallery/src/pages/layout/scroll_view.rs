@@ -27,8 +27,7 @@ impl Component for ScrollViewPage {
     }
 
     fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
-        let items = (1..=self.count)
-            .map(|index| KeyedView::new(index, TextBlock::new().text(format!("Item {index}"))));
+        let items = (1..=self.count).map(|index| KeyedView::new(index, format!("Item {index}")));
         page_content(
             "ScrollView",
             "A scrollable container for overflowing content.",
@@ -43,10 +42,10 @@ impl Component for ScrollViewPage {
                             .children((
                                 Button::new()
                                     .on_click(context.message(Message::More))
-                                    .content(TextBlock::new().text("More items")),
+                                    .content("More items"),
                                 Button::new()
                                     .on_click(context.message(Message::Fewer))
-                                    .content(TextBlock::new().text("Fewer items")),
+                                    .content("Fewer items"),
                                 TextBlock::new()
                                     .text(format!("{} items", self.count))
                                     .opacity(0.6),

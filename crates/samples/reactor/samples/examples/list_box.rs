@@ -30,7 +30,7 @@ impl Component for ListBoxSample {
                     ListBoxItem::new()
                         .tag(tag)
                         .is_selected(self.selected == index as i32)
-                        .content(TextBlock::new().text(label)),
+                        .content(label),
                 )
             });
         let label = if self.selected >= 0 {
@@ -43,7 +43,7 @@ impl Component for ListBoxSample {
             ListBox::new()
                 .on_selected_tag_changed(context.callback(|tag| tag))
                 .slots([SlotView::collection(ListBoxSlot::Items, items)]),
-            TextBlock::new().text(label),
+            label,
         ))
     }
 }

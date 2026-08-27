@@ -88,10 +88,10 @@ impl Component for Sample {
                     .children((
                         Button::new()
                             .on_click(context.message(Message::Add))
-                            .content(TextBlock::new().text("Add circle")),
+                            .content("Add circle"),
                         Button::new()
                             .on_click(context.message(Message::Remove))
-                            .content(TextBlock::new().text("Remove circle")),
+                            .content("Remove circle"),
                     )),
             ))
     }

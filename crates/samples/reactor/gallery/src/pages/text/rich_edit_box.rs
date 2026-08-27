@@ -34,10 +34,7 @@ impl Component for RichEditBoxPage {
                                 .placeholder_text("Start typing...")
                                 .height(200.0)
                                 .on_text_changed(context.callback(std::convert::identity))
-                                .slots([SlotView::new(
-                                    RichEditBoxSlot::Header,
-                                    TextBlock::new().text("Document"),
-                                )]),
+                                .slots([SlotView::new(RichEditBoxSlot::Header, "Document")]),
                             TextBlock::new()
                                 .text(if self.text.is_empty() {
                                     "No changes yet".to_string()

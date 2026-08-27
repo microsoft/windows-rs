@@ -166,7 +166,7 @@ impl Component for Sample {
         let tool = |kind| {
             Button::new()
                 .on_click(context.message(Message::Select(kind)))
-                .content(TextBlock::new().text(kind.label()))
+                .content(kind.label())
         };
         Grid::new()
             .rows([GridLength::STAR, GridLength::Auto])
@@ -183,7 +183,7 @@ impl Component for Sample {
                         tool(Kind::Star),
                         Button::new()
                             .on_click(context.message(Message::Clear))
-                            .content(TextBlock::new().text("Clear")),
+                            .content("Clear"),
                     )),
             ))
     }

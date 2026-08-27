@@ -42,7 +42,7 @@ impl Component for RadioButtonSample {
                 .group_name("size")
                 .is_checked(self.size == size)
                 .on_checked(context.callback(move |checked| Message::Checked(size, checked)))
-                .content(TextBlock::new().text(label))
+                .content(label)
         };
         let label = match self.size {
             Size::Small => "Small",
@@ -54,12 +54,12 @@ impl Component for RadioButtonSample {
             radio("Small", Size::Small),
             radio("Medium", Size::Medium),
             radio("Large", Size::Large),
-            TextBlock::new().text(format!("size = {label}")),
+            format!("size = {label}"),
             RadioButton::new()
                 .group_name("other")
                 .is_checked(true)
                 .is_enabled(false)
-                .content(TextBlock::new().text("Disabled")),
+                .content("Disabled"),
         ))
     }
 }

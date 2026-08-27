@@ -731,7 +731,7 @@ impl Component for Dotsweeper {
             .on_click(context.message(Message::Reset))
             .width(56.0)
             .height(40.0)
-            .content(TextBlock::new().text(smiley(self.state.board.phase)));
+            .content(smiley(self.state.board.phase));
 
         let status_panel = StackPanel::new()
             .orientation(Orientation::Horizontal)
@@ -757,10 +757,13 @@ impl Component for Dotsweeper {
             .content(status_panel);
 
         let difficulty_button = |label: &'static str, difficulty: Difficulty| {
-            let text = if self.state.board.difficulty.kind == difficulty.kind {
-                TextBlock::new().text(label).foreground(ThemeBrush::Accent)
+            let text: View = if self.state.board.difficulty.kind == difficulty.kind {
+                TextBlock::new()
+                    .text(label)
+                    .foreground(ThemeBrush::Accent)
+                    .into()
             } else {
-                TextBlock::new().text(label)
+                label.into()
             };
             Button::new()
                 .on_click(context.message(Message::NewGame(difficulty)))

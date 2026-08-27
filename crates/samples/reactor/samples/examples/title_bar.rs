@@ -43,10 +43,10 @@ impl Component for Sample {
                 .is_pane_toggle_button_visible(true)
                 .on_back_requested(context.message(Message::Back))
                 .on_pane_toggle_requested(context.message(Message::Pane)),
-            TextBlock::new().text(format!(
+            format!(
                 "back_clicks = {}, pane_toggle_clicks = {}",
                 self.back_clicks, self.pane_clicks
-            )),
+            ),
         ))
     }
 }

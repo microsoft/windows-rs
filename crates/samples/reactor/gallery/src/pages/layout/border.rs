@@ -45,7 +45,7 @@ impl Component for BorderPage {
                                 .border_thickness(if self.thick { 4.0 } else { 1.0 })
                                 .padding(16.0)
                                 .corner_radius(self.radius)
-                                .content(TextBlock::new().text("Adjustable border")),
+                                .content("Adjustable border"),
                             Slider::new()
                                 .minimum(0.0)
                                 .maximum(32.0)
@@ -54,10 +54,7 @@ impl Component for BorderPage {
                             ToggleSwitch::new()
                                 .is_on(self.thick)
                                 .on_toggled(context.callback(Message::Thick))
-                                .slots([SlotView::new(
-                                    ToggleSwitchSlot::Header,
-                                    TextBlock::new().text("Thick border"),
-                                )]),
+                                .slots([SlotView::new(ToggleSwitchSlot::Header, "Thick border")]),
                         )),
                         "Border::new().corner_radius(radius).border_thickness(thickness)",
                     ),
@@ -70,7 +67,7 @@ impl Component for BorderPage {
                             .background(Color::rgb(60, 100, 180))
                             .padding(16.0)
                             .corner_radius(4.0)
-                            .content(TextBlock::new().text("Styled border")),
+                            .content("Styled border"),
                         "Border::new().background(color).corner_radius(4.0)",
                     ),
                 ),

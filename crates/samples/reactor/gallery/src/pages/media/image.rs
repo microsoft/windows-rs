@@ -62,24 +62,24 @@ impl Component for ImagePage {
                                         .on_click(
                                             context.message(Message::SetStretch(Stretch::Uniform)),
                                         )
-                                        .content(TextBlock::new().text("Uniform")),
+                                        .content("Uniform"),
                                     Button::new()
                                         .on_click(
                                             context.message(Message::SetStretch(
                                                 Stretch::UniformToFill,
                                             )),
                                         )
-                                        .content(TextBlock::new().text("UniformToFill")),
+                                        .content("UniformToFill"),
                                     Button::new()
                                         .on_click(
                                             context.message(Message::SetStretch(Stretch::Fill)),
                                         )
-                                        .content(TextBlock::new().text("Fill")),
+                                        .content("Fill"),
                                     Button::new()
                                         .on_click(
                                             context.message(Message::SetStretch(Stretch::None)),
                                         )
-                                        .content(TextBlock::new().text("None")),
+                                        .content("None"),
                                 )),
                             TextBlock::new()
                                 .text(format!("Current: {stretch_name}"))

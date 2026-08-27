@@ -24,7 +24,7 @@ impl Component for GridPage {
                 .padding(12.0)
                 .grid_row(row)
                 .grid_column(column)
-                .content(TextBlock::new().text(text))
+                .content(text)
         };
         let dynamic = if self.wide {
             Grid::new()
@@ -97,10 +97,7 @@ impl Component for GridPage {
                             ToggleSwitch::new()
                                 .is_on(self.wide)
                                 .on_toggled(context.callback(std::convert::identity))
-                                .slots([SlotView::new(
-                                    ToggleSwitchSlot::Header,
-                                    TextBlock::new().text("Wide layout"),
-                                )]),
+                                .slots([SlotView::new(ToggleSwitchSlot::Header, "Wide layout")]),
                             dynamic,
                         )),
                         "if wide { three columns } else { two by two }",

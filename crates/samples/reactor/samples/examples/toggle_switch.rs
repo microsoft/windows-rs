@@ -25,24 +25,21 @@ impl Component for ToggleSwitchSample {
                 .is_on(self.on)
                 .on_toggled(context.callback(|on| on))
                 .slots([
-                    SlotView::new(
-                        ToggleSwitchSlot::Header,
-                        TextBlock::new().text("Notifications"),
-                    ),
-                    SlotView::new(ToggleSwitchSlot::OnContent, TextBlock::new().text("On")),
-                    SlotView::new(ToggleSwitchSlot::OffContent, TextBlock::new().text("Off")),
+                    SlotView::new(ToggleSwitchSlot::Header, "Notifications"),
+                    SlotView::new(ToggleSwitchSlot::OnContent, "On"),
+                    SlotView::new(ToggleSwitchSlot::OffContent, "Off"),
                 ]),
-            TextBlock::new().text(if self.on {
+            if self.on {
                 "Notifications enabled"
             } else {
                 "Notifications muted"
-            }),
+            },
             ToggleSwitch::new()
                 .is_on(true)
                 .is_enabled(false)
                 .slots([SlotView::new(
                     ToggleSwitchSlot::Header,
-                    TextBlock::new().text("Disabled (always on)"),
+                    "Disabled (always on)",
                 )]),
         ))
     }

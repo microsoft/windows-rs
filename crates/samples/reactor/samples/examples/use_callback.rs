@@ -46,13 +46,13 @@ impl Component for UseCallbackSample {
                 .children((
                     Button::new()
                         .on_click(self.callback.clone())
-                        .content(TextBlock::new().text("Fire (A)")),
+                        .content("Fire (A)"),
                     Button::new()
                         .on_click(self.callback.clone())
-                        .content(TextBlock::new().text("Fire (B)")),
+                        .content("Fire (B)"),
                     Button::new()
                         .on_click(context.message(()))
-                        .content(TextBlock::new().text("Force rerender")),
+                        .content("Force rerender"),
                 )),
         ))
     }

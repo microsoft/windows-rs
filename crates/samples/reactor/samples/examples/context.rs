@@ -52,11 +52,7 @@ impl Component for ContextSample {
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         context.window_title("Context");
-        let pick = |name| {
-            Button::new()
-                .on_click(context.message(name))
-                .content(TextBlock::new().text(name))
-        };
+        let pick = |name| Button::new().on_click(context.message(name)).content(name);
         View::provide(
             &THEME,
             self.theme.clone(),

@@ -8,39 +8,39 @@ fn main() {
         let svg = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("examples/image.svg");
 
         StackPanel::new().spacing(8.0).children((
-            TextBlock::new().text("PNG"),
+            "PNG",
             Image::new()
                 .width(120.0)
                 .height(60.0)
                 .source_file(&bitmap)
                 .unwrap(),
-            TextBlock::new().text("SVG"),
+            "SVG",
             Image::new()
                 .width(120.0)
                 .height(60.0)
                 .source_file(&svg)
                 .unwrap(),
-            TextBlock::new().text("Uniform (default)"),
+            "Uniform (default)",
             Image::new()
                 .width(120.0)
                 .height(60.0)
                 .source_file(&bitmap)
                 .unwrap(),
-            TextBlock::new().text("UniformToFill"),
+            "UniformToFill",
             Image::new()
                 .stretch(Stretch::UniformToFill)
                 .width(120.0)
                 .height(60.0)
                 .source_file(&bitmap)
                 .unwrap(),
-            TextBlock::new().text("Fill"),
+            "Fill",
             Image::new()
                 .stretch(Stretch::Fill)
                 .width(120.0)
                 .height(60.0)
                 .source_file(&bitmap)
                 .unwrap(),
-            TextBlock::new().text("None"),
+            "None",
             Image::new()
                 .stretch(Stretch::None)
                 .width(120.0)

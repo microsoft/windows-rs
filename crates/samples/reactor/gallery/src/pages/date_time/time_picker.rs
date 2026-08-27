@@ -33,10 +33,7 @@ impl Component for TimePickerPage {
                         StackPanel::new().spacing(8.0).children((
                             TimePicker::new()
                                 .on_selected_time_changed(context.callback(std::convert::identity))
-                                .slots([SlotView::new(
-                                    TimePickerSlot::Header,
-                                    TextBlock::new().text("Select time"),
-                                )]),
+                                .slots([SlotView::new(TimePickerSlot::Header, "Select time")]),
                             TextBlock::new().text(&self.label).opacity(0.6),
                         )),
                         "TimePicker::new()\n    .on_selected_time_changed(|time| ...)",
@@ -46,10 +43,9 @@ impl Component for TimePickerPage {
                     "15-minute-time-picker",
                     sample_card(
                         "15-Minute Increments",
-                        TimePicker::new().minute_increment(15).slots([SlotView::new(
-                            TimePickerSlot::Header,
-                            TextBlock::new().text("Meeting time"),
-                        )]),
+                        TimePicker::new()
+                            .minute_increment(15)
+                            .slots([SlotView::new(TimePickerSlot::Header, "Meeting time")]),
                         "TimePicker::new().minute_increment(15)",
                     ),
                 ),

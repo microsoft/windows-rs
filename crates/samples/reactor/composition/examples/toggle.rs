@@ -82,11 +82,7 @@ impl Component for Sample {
                     .on_click(context.message(()))
                     .grid_row(1)
                     .margin(Thickness::uniform(16.0))
-                    .content(TextBlock::new().text(if shown {
-                        "Hide visual"
-                    } else {
-                        "Show visual"
-                    })),
+                    .content(if shown { "Hide visual" } else { "Show visual" }),
             ))
     }
 }

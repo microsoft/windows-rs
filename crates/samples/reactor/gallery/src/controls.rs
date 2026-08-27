@@ -32,7 +32,7 @@ pub fn page_header(title: &str, description: &str) -> View {
             .text(title)
             .font_size(28.0)
             .font_weight(700),
-        TextBlock::new().text(description),
+        description,
     ))
 }
 

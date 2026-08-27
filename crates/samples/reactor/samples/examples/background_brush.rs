@@ -6,7 +6,7 @@ fn main() {
     sample_reactor_controls::run("BackgroundBrush", || {
         Grid::new()
             .background(Color::rgb(255, 0, 0))
-            .children([TextBlock::new().text("Sample")])
+            .children(["Sample"])
     })
     .unwrap();
 }

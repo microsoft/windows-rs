@@ -66,25 +66,23 @@ impl Component for MenuBarSample {
                     ),
                 ],
             )]),
-            DropDownButton::new()
-                .content(TextBlock::new().text("Actions"))
-                .menu(Menu::new(
-                    [
-                        MenuItem::item("action-a", "Action A"),
-                        MenuItem::item("action-b", "Action B"),
-                        MenuItem::separator("action-separator"),
-                        MenuItem::submenu(
-                            "more",
-                            "More",
-                            [
-                                MenuItem::item("action-c", "Action C"),
-                                MenuItem::item("action-d", "Action D"),
-                            ],
-                        ),
-                    ],
-                    callback,
-                )),
-            TextBlock::new().text(format!("Last clicked: {}", self.last_click)),
+            DropDownButton::new().content("Actions").menu(Menu::new(
+                [
+                    MenuItem::item("action-a", "Action A"),
+                    MenuItem::item("action-b", "Action B"),
+                    MenuItem::separator("action-separator"),
+                    MenuItem::submenu(
+                        "more",
+                        "More",
+                        [
+                            MenuItem::item("action-c", "Action C"),
+                            MenuItem::item("action-d", "Action D"),
+                        ],
+                    ),
+                ],
+                callback,
+            )),
+            format!("Last clicked: {}", self.last_click),
         ))
     }
 }

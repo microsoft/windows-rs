@@ -20,10 +20,7 @@ fn item(tag: &str, label: &str, icon: Symbol, selected: bool) -> KeyedView {
             .is_selected(selected)
             .selects_on_invoked(true)
             .slots([
-                SlotView::new(
-                    NavigationViewItemSlot::Content,
-                    TextBlock::new().text(label),
-                ),
+                SlotView::new(NavigationViewItemSlot::Content, label),
                 SlotView::new(NavigationViewItemSlot::Icon, SymbolIcon::new().symbol(icon)),
             ]),
     )
@@ -93,9 +90,7 @@ impl Component for NavigationViewPage {
                                 ),
                                 SlotView::new(
                                     NavigationViewSlot::Content,
-                                    Border::new()
-                                        .padding(20.0)
-                                        .content(TextBlock::new().text(left_body)),
+                                    Border::new().padding(20.0).content(left_body),
                                 ),
                             ]),
                         "NavigationView::new().slots([menu_items, content])",
@@ -136,9 +131,7 @@ impl Component for NavigationViewPage {
                                 ),
                                 SlotView::new(
                                     NavigationViewSlot::Content,
-                                    Border::new()
-                                        .padding(20.0)
-                                        .content(TextBlock::new().text(top_body)),
+                                    Border::new().padding(20.0).content(top_body),
                                 ),
                             ]),
                         "NavigationView::new().pane_display_mode(NavigationViewPaneDisplayMode::Top)",

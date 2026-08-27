@@ -26,19 +26,13 @@ impl Component for RichEditBoxSample {
                 .placeholder_text("Type rich text here...")
                 .on_text_changed(context.callback(std::convert::identity))
                 .height(200.0)
-                .slots([SlotView::new(
-                    RichEditBoxSlot::Header,
-                    TextBlock::new().text("Rich Editor"),
-                )]),
-            TextBlock::new().text(format!("Plain text: {}", self.text)),
+                .slots([SlotView::new(RichEditBoxSlot::Header, "Rich Editor")]),
+            format!("Plain text: {}", self.text),
             RichEditBox::new()
                 .text("Read-only content.")
                 .is_read_only(true)
                 .height(100.0)
-                .slots([SlotView::new(
-                    RichEditBoxSlot::Header,
-                    TextBlock::new().text("Read Only"),
-                )]),
+                .slots([SlotView::new(RichEditBoxSlot::Header, "Read Only")]),
         ))
     }
 }

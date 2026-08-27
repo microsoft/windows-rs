@@ -66,7 +66,7 @@ impl Component for TabViewSample {
                     .content(
                         Border::new()
                             .padding(Thickness::uniform(12.0))
-                            .content(TextBlock::new().text(format!("Tab content - {header}"))),
+                            .content(format!("Tab content - {header}")),
                     ),
             )
         });
@@ -79,11 +79,11 @@ impl Component for TabViewSample {
                 .on_close_requested(context.callback(Message::Close))
                 .on_reordered(context.callback(Message::Reordered))
                 .slots([SlotView::collection(TabViewSlot::TabItems, items)]),
-            TextBlock::new().text(format!(
+            format!(
                 "selected_index = {}, tabs remaining = {}",
                 self.selected,
                 self.tabs.len()
-            )),
+            ),
         ))
     }
 }

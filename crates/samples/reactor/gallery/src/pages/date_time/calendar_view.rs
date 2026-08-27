@@ -45,7 +45,7 @@ impl Component for CalendarViewPage {
                                 .on_toggled(context.callback(Message::HighlightTodayToggled))
                                 .slots([SlotView::new(
                                     ToggleSwitchSlot::Header,
-                                    TextBlock::new().text("Highlight today"),
+                                    "Highlight today",
                                 )]),
                             CalendarView::new()
                                 .is_today_highlighted(self.today_highlighted)

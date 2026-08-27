@@ -69,13 +69,13 @@ impl Component for UseMemoSample {
                 .children((
                     Button::new()
                         .on_click(context.message(Message::Decrement))
-                        .content(TextBlock::new().text("-")),
+                        .content("-"),
                     Button::new()
                         .on_click(context.message(Message::Increment))
-                        .content(TextBlock::new().text("+")),
+                        .content("+"),
                     Button::new()
                         .on_click(context.message(Message::ToggleHint))
-                        .content(TextBlock::new().text("toggle unrelated state")),
+                        .content("toggle unrelated state"),
                 )),
             if self.show_hint {
                 TextBlock::new()

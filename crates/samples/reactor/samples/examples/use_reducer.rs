@@ -52,13 +52,13 @@ impl Component for UseReducerSample {
                 .children((
                     Button::new()
                         .on_click(context.message(Action::Decrement))
-                        .content(TextBlock::new().text("-")),
+                        .content("-"),
                     Button::new()
                         .on_click(context.message(Action::Increment))
-                        .content(TextBlock::new().text("+")),
+                        .content("+"),
                     Button::new()
                         .on_click(context.message(Action::Reset))
-                        .content(TextBlock::new().text("reset")),
+                        .content("reset"),
                 )),
         ))
     }

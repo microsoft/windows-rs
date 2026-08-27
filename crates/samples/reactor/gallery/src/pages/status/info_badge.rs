@@ -42,10 +42,10 @@ impl Component for InfoBadgePage {
                                 .children((
                                     Button::new()
                                         .on_click(context.message(Message::Add))
-                                        .content(TextBlock::new().text("Add notification")),
+                                        .content("Add notification"),
                                     Button::new()
                                         .on_click(context.message(Message::Clear))
-                                        .content(TextBlock::new().text("Clear")),
+                                        .content("Clear"),
                                 )),
                             StackPanel::new()
                                 .orientation(Orientation::Horizontal)

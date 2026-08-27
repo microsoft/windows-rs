@@ -25,7 +25,7 @@ impl Component for Counter {
                 .font_size(20.0),
             Button::new()
                 .on_click(context.message(()))
-                .content(TextBlock::new().text("Increment")),
+                .content("Increment"),
         ))
     }
 }
@@ -60,8 +60,8 @@ impl Component for PassThroughSample {
         Border::new()
             .padding(16.0)
             .content(StackPanel::new().spacing(12.0).children((
-                TextBlock::new().text("The wrapper returns the stateful component directly."),
-                TextBlock::new().text("Clicking Increment must continue to update the count."),
+                "The wrapper returns the stateful component directly.",
+                "Clicking Increment must continue to update the count.",
                 View::component::<PassThrough>(()),
             )))
     }

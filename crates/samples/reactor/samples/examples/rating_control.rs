@@ -30,7 +30,7 @@ impl Component for RatingControlSample {
             RatingControl::new()
                 .value(self.rating)
                 .on_value_changed(context.callback(Message::RatingChanged)),
-            TextBlock::new().text(format!("Rating: {:.1} / 5", self.rating)),
+            format!("Rating: {:.1} / 5", self.rating),
             RatingControl::new()
                 .value(4.0)
                 .max_rating(10)

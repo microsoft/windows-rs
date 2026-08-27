@@ -5,9 +5,9 @@ use windows_reactor::*;
 fn main() {
     sample_reactor_controls::run("PersonPicture", || {
         StackPanel::new().spacing(8.0).children((
-            TextBlock::new().text("Default (placeholder glyph)"),
+            "Default (placeholder glyph)",
             PersonPicture::new(),
-            TextBlock::new().text("display_name (initials auto-derived)"),
+            "display_name (initials auto-derived)",
             StackPanel::new()
                 .orientation(Orientation::Horizontal)
                 .spacing(12.0)
@@ -16,7 +16,7 @@ fn main() {
                     PersonPicture::new().display_name("Grace Hopper"),
                     PersonPicture::new().display_name("Alan Turing"),
                 )),
-            TextBlock::new().text("initials (explicit)"),
+            "initials (explicit)",
             PersonPicture::new().initials("WR"),
         ))
     })

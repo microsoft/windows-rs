@@ -16,7 +16,7 @@ impl Component for HelloWorld {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Reactor app");
-        TextBlock::new().text("Hello, world!").into()
+        "Hello, world!".into()
     }
 }
 

@@ -47,7 +47,7 @@ impl Component for SelectorBarSample {
                         item("Favorites", Some(Symbol::Favorite)),
                     ],
                 )]),
-            TextBlock::new().text(format!("Selected: {}", self.selected)),
+            format!("Selected: {}", self.selected),
         ))
     }
 }

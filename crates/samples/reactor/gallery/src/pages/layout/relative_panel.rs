@@ -53,7 +53,7 @@ impl Component for RelativePanelPage {
                             .on_toggled(context.callback(std::convert::identity))
                             .slots([SlotView::new(
                                 ToggleSwitchSlot::Header,
-                                TextBlock::new().text("Show bottom corners"),
+                                "Show bottom corners",
                             )]),
                         RelativePanel::new().height(200.0).children((
                             left,

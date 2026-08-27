@@ -36,10 +36,7 @@ impl Component for IconElementsSample {
                     .tag(tag)
                     .is_selected(self.page == tag)
                     .slots([
-                        SlotView::new(
-                            NavigationViewItemSlot::Content,
-                            TextBlock::new().text(label),
-                        ),
+                        SlotView::new(NavigationViewItemSlot::Content, label),
                         SlotView::new(NavigationViewItemSlot::Icon, icon),
                     ]),
             )
@@ -94,7 +91,7 @@ impl Component for IconElementsSample {
                         ),
                     ],
                 ),
-                SlotView::new(NavigationViewSlot::Content, TextBlock::new().text(content)),
+                SlotView::new(NavigationViewSlot::Content, content),
             ])
     }
 }

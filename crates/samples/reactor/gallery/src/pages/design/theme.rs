@@ -32,14 +32,14 @@ impl Component for ThemePage {
                                     .border_thickness(1.0)
                                     .padding(16.0)
                                     .corner_radius(8.0)
-                                    .content(TextBlock::new().text("Card background")),
+                                    .content("Card background"),
                                 Border::new()
                                     .background(ThemeBrush::SolidBackground)
                                     .border_brush(ThemeBrush::CardStroke)
                                     .border_thickness(1.0)
                                     .padding(16.0)
                                     .corner_radius(8.0)
-                                    .content(TextBlock::new().text("Solid background")),
+                                    .content("Solid background"),
                             )),
                         "Border::new().background(ThemeBrush::CardBackground)",
                     ),

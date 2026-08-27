@@ -97,9 +97,7 @@ impl Component for ListViewPage {
                                     CONTACTS.into_iter().map(|name| {
                                         KeyedView::new(
                                             name,
-                                            ListViewItem::new()
-                                                .tag(name)
-                                                .content(TextBlock::new().text(name)),
+                                            ListViewItem::new().tag(name).content(name),
                                         )
                                     }),
                                 )]),

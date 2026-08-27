@@ -23,10 +23,7 @@ impl Component for Greeting {
             TextBlock::new()
                 .text(format!("Hello, {}!", input.name))
                 .font_size(20.0),
-            TextBlock::new().text(format!(
-                "You have clicked the button {} times.",
-                input.clicks
-            )),
+            format!("You have clicked the button {} times.", input.clicks),
         ))
     }
 }
@@ -64,7 +61,7 @@ impl Component for ComponentInputSample {
                 }),
                 Button::new()
                     .on_click(context.message(()))
-                    .content(TextBlock::new().text("Click me")),
+                    .content("Click me"),
             )),
         )
     }

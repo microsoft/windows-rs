@@ -42,15 +42,13 @@ impl Component for TypedElementReference {
         context.window_title("Typed Element Reference");
         Border::new().padding(Thickness::uniform(16.0)).content(
             StackPanel::new().spacing(8.0).children((
-                TextBlock::new().text(
-                    "The typed reference exists across renders, points at the TextBox only while \
-                     mounted, and cannot be attached to a different widget type.",
-                ),
+                "The typed reference exists across renders, points at the TextBox only while \
+                 mounted, and cannot be attached to a different widget type.",
                 TextBox::new().text("Focus target").element_ref(&self.input),
                 Button::new()
                     .on_click(context.message(Message::Focus))
-                    .content(TextBlock::new().text("Focus TextBox")),
-                TextBlock::new().text(self.status),
+                    .content("Focus TextBox"),
+                self.status,
             )),
         )
     }

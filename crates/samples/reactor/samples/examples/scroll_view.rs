@@ -22,9 +22,9 @@ fn main() {
             .font_size(13.0);
 
         StackPanel::new().spacing(8.0).children((
-            TextBlock::new().text("Default (vertical-only, auto)"),
+            "Default (vertical-only, auto)",
             ScrollView::new().max_height(120.0).content(tall_body),
-            TextBlock::new().text("Both axes, always visible"),
+            "Both axes, always visible",
             ScrollView::new()
                 .horizontal_scroll_bar_visibility(ScrollingScrollBarVisibility::Visible)
                 .vertical_scroll_bar_visibility(ScrollingScrollBarVisibility::Visible)

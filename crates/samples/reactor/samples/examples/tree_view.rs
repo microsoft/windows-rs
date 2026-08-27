@@ -41,7 +41,7 @@ impl Component for TreeViewSample {
             TreeView::new()
                 .on_item_invoked(context.callback(std::convert::identity))
                 .nodes(nodes),
-            TextBlock::new().text(format!("Last invoked: {}", self.last_invoked)),
+            format!("Last invoked: {}", self.last_invoked),
         ))
     }
 }

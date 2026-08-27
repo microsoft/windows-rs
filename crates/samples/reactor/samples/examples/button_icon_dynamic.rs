@@ -21,10 +21,7 @@ impl Component for DynamicIconSample {
             StackPanel::new()
                 .orientation(Orientation::Horizontal)
                 .spacing(6.0)
-                .children((
-                    SymbolIcon::new().symbol(symbol),
-                    TextBlock::new().text(label),
-                ))
+                .children((SymbolIcon::new().symbol(symbol), label))
         };
         context.window_title("ButtonIconDynamic");
         StackPanel::new().spacing(12.0).children((

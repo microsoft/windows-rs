@@ -27,13 +27,13 @@ impl Component for TextBoxBorderSample {
                 .on_text_changed(context.callback(std::convert::identity))
         };
         StackPanel::new().spacing(8.0).children((
-            TextBlock::new().text("1. Default TextBox"),
+            "1. Default TextBox",
             text_box("Default style"),
-            TextBlock::new().text("2. Custom border (brush + thickness)"),
+            "2. Custom border (brush + thickness)",
             text_box("Thick blue border")
                 .border_brush(Color::rgb(60, 120, 220))
                 .border_thickness(Thickness::uniform(2.0)),
-            TextBlock::new().text("3. Borderless + transparent (chat/search bar)"),
+            "3. Borderless + transparent (chat/search bar)",
             text_box("Type a message...")
                 .background(Color::transparent())
                 .border_thickness(Thickness::uniform(0.0)),

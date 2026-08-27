@@ -67,11 +67,11 @@ impl Component for AutoSuggestBoxSample {
                 .placeholder_text("Search fruits...")
                 .on_text_changed(context.callback(Message::TextChanged))
                 .on_suggestion_chosen(context.callback(Message::SuggestionChosen)),
-            TextBlock::new().text(if self.chosen.is_empty() {
+            if self.chosen.is_empty() {
                 "No selection".to_string()
             } else {
                 format!("Chosen: {}", self.chosen)
-            }),
+            },
         ))
     }
 }

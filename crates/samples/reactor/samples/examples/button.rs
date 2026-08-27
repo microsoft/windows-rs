@@ -23,13 +23,11 @@ impl Component for ButtonSample {
         StackPanel::new().spacing(8.0).children((
             Button::new()
                 .on_click(context.message(()))
-                .content(TextBlock::new().text(format!("Clicked {} times", self.clicks))),
-            Button::new()
-                .is_enabled(false)
-                .content(TextBlock::new().text("Disabled")),
+                .content(format!("Clicked {} times", self.clicks)),
+            Button::new().is_enabled(false).content("Disabled"),
             Button::new()
                 .style(ButtonStyle::Accent)
-                .content(TextBlock::new().text("Accent (Primary Action)")),
+                .content("Accent (Primary Action)"),
         ))
     }
 }

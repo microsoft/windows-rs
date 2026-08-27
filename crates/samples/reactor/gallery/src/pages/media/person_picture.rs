@@ -57,10 +57,7 @@ impl Component for PersonPicturePage {
                         ToggleSwitch::new()
                             .is_on(self.show_display_names)
                             .on_toggled(context.callback(Message::SetShowDisplayNames))
-                            .slots([SlotView::new(
-                                ToggleSwitchSlot::Header,
-                                TextBlock::new().text("Use display names"),
-                            )]),
+                            .slots([SlotView::new(ToggleSwitchSlot::Header, "Use display names")]),
                         pictures,
                         TextBlock::new()
                             .text(if self.show_display_names {
@@ -71,7 +68,7 @@ impl Component for PersonPicturePage {
                             .opacity(0.6),
                     )),
                     r#"ToggleSwitch::new().is_on(value).on_toggled(...).slots([SlotView::new(
-    ToggleSwitchSlot::Header, TextBlock::new().text("Use display names"))])
+    ToggleSwitchSlot::Header, "Use display names")])
 PersonPicture::new().display_name("Alice Smith")
 PersonPicture::new().initials("AS")"#,
                 ),

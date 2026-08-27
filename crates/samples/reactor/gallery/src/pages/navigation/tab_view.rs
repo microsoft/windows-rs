@@ -29,7 +29,7 @@ fn tabs(tabs: &[u32], closable: bool) -> Vec<KeyedView> {
                     .tag(tag)
                     .header(format!("Tab {index}"))
                     .is_closable(closable)
-                    .content(TextBlock::new().text(format!("Content of tab {index}"))),
+                    .content(format!("Content of tab {index}")),
             )
         })
         .collect()
@@ -129,11 +129,11 @@ impl Component for TabViewPage {
                                 .children((
                                     Button::new()
                                         .on_click(context.message(Message::Add))
-                                        .content(TextBlock::new().text("Add tab")),
+                                        .content("Add tab"),
                                     Button::new()
                                         .is_enabled(self.dynamic_tabs.len() > 1)
                                         .on_click(context.message(Message::Remove))
-                                        .content(TextBlock::new().text("Remove tab")),
+                                        .content("Remove tab"),
                                 )),
                         )),
                         "Build keyed TabViewItem values from component state.",

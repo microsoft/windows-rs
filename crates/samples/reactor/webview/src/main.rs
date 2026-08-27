@@ -68,7 +68,7 @@ impl Component for Browser {
             Button::new()
                 .on_click(context.message(message))
                 .grid_column(column)
-                .content(TextBlock::new().text(label))
+                .content(label)
         };
         let toolbar = Grid::new()
             .columns([

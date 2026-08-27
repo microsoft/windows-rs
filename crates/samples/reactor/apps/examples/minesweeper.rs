@@ -343,7 +343,7 @@ impl Component for Game {
                 Button::new()
                     .on_click(context.message(Message::Reset))
                     .horizontal_alignment(HorizontalAlignment::Center)
-                    .content(TextBlock::new().text("New Game")),
+                    .content("New Game"),
             ));
 
         let board = build_board(self, context);

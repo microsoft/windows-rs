@@ -20,17 +20,15 @@ impl Component for FlyoutSample {
         context.window_title("Flyout");
         StackPanel::new().spacing(8.0).children((
             Button::new()
-                .content(TextBlock::new().text("Show Flyout"))
+                .content("Show Flyout")
                 .flyout("Hello from the flyout!"),
-            Button::new()
-                .content(TextBlock::new().text("Bottom Flyout"))
-                .flyout_with(
-                    Flyout::text(format!("Clicked {} times", self.0))
-                        .placement(FlyoutPlacement::Bottom),
-                ),
+            Button::new().content("Bottom Flyout").flyout_with(
+                Flyout::text(format!("Clicked {} times", self.0))
+                    .placement(FlyoutPlacement::Bottom),
+            ),
             Button::new()
                 .on_click(context.message(()))
-                .content(TextBlock::new().text("Increment")),
+                .content("Increment"),
         ))
     }
 }

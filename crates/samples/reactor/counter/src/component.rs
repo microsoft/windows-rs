@@ -20,7 +20,7 @@ impl Component for Counter {
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         StackPanel::new().spacing(8.0).children((
-            TextBlock::new().text(self.count.to_string()),
+            self.count.to_string(),
             Button::new().on_click(context.forward()).content("+"),
         ))
     }

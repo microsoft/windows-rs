@@ -35,10 +35,10 @@ impl Component for OpacityTransition {
 
         Border::new().padding(Thickness::uniform(16.0)).content(
             StackPanel::new().spacing(12.0).children((
-                TextBlock::new().text("Toggle to drive opacity through an implicit transition."),
-                Button::new().on_click(context.callback(|_| ())).content(
-                    TextBlock::new().text(if self.visible { "Fade out" } else { "Fade in" }),
-                ),
+                "Toggle to drive opacity through an implicit transition.",
+                Button::new()
+                    .on_click(context.callback(|_| ()))
+                    .content(if self.visible { "Fade out" } else { "Fade in" }),
                 swatch,
             )),
         )

@@ -26,11 +26,8 @@ impl Component for TimePickerSample {
             TimePicker::new()
                 .minute_increment(15)
                 .on_selected_time_changed(context.callback(std::convert::identity))
-                .slots([SlotView::new(
-                    TimePickerSlot::Header,
-                    TextBlock::new().text("Pick a time"),
-                )]),
-            TextBlock::new().text(&self.label),
+                .slots([SlotView::new(TimePickerSlot::Header, "Pick a time")]),
+            self.label.as_str(),
         ))
     }
 }

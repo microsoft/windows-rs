@@ -162,7 +162,7 @@ impl Component for Form {
                     .on_click(context.message(Message::Submit))
                     .grid_row(6)
                     .grid_column(1)
-                    .content(TextBlock::new().text("Submit")),
+                    .content("Submit"),
             ))
     }
 }
@@ -178,9 +178,7 @@ impl Component for Summary {
     fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {}
 
     fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        TextBlock::new()
-            .text(format!("{}: {:.2}", input.name.trim(), input.amount))
-            .into()
+        format!("{}: {:.2}", input.name.trim(), input.amount).into()
     }
 }
 

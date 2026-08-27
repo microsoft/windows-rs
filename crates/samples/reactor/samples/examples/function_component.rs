@@ -50,7 +50,7 @@ impl Component for Counter {
                 .font_weight(700),
             Button::new()
                 .on_click(context.message(()))
-                .content(TextBlock::new().text("Increment")),
+                .content("Increment"),
         ))
     }
 }
@@ -83,10 +83,7 @@ impl Component for FunctionComponentSample {
                 .text(self.name.clone())
                 .placeholder_text("Type a name...")
                 .on_text_changed(context.callback(std::convert::identity))
-                .slots([SlotView::new(
-                    TextBoxSlot::Header,
-                    TextBlock::new().text("Your name"),
-                )]),
+                .slots([SlotView::new(TextBoxSlot::Header, "Your name")]),
             View::component::<Counter>(()),
         ))
     }

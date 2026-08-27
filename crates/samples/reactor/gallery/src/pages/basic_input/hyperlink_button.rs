@@ -29,7 +29,7 @@ impl Component for HyperlinkButtonPage {
                         HyperlinkButton::new()
                             .navigate_uri("https://www.microsoft.com")
                             .unwrap()
-                            .content(TextBlock::new().text("Visit Microsoft")),
+                            .content("Visit Microsoft"),
                         "HyperlinkButton::new().navigate_uri(uri)?.content(label)",
                     ),
                 ),
@@ -40,7 +40,7 @@ impl Component for HyperlinkButtonPage {
                         StackPanel::new().spacing(8.0).children((
                             HyperlinkButton::new()
                                 .on_click(context.message(()))
-                                .content(TextBlock::new().text("Click me")),
+                                .content("Click me"),
                             TextBlock::new()
                                 .text(format!("Clicked: {} times", self.clicks))
                                 .opacity(0.6),

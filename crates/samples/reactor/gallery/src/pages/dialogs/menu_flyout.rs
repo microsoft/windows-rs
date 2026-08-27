@@ -36,22 +36,20 @@ impl Component for MenuFlyoutPage {
                     sample_card(
                         "Basic MenuFlyout",
                         StackPanel::new().spacing(8.0).children((
-                            Button::new()
-                                .content(TextBlock::new().text("Open Menu"))
-                                .menu(Menu::new(
-                                    [
-                                        MenuItem::item("cut", "Cut"),
-                                        MenuItem::item("copy", "Copy"),
-                                        MenuItem::item("paste", "Paste"),
-                                    ],
-                                    context.callback(|label| ("action".to_string(), label)),
-                                )),
+                            Button::new().content("Open Menu").menu(Menu::new(
+                                [
+                                    MenuItem::item("cut", "Cut"),
+                                    MenuItem::item("copy", "Copy"),
+                                    MenuItem::item("paste", "Paste"),
+                                ],
+                                context.callback(|label| ("action".to_string(), label)),
+                            )),
                             TextBlock::new()
                                 .text(format!("Last action: {}", self.last_action))
                                 .opacity(0.6),
                         )),
                         r#"Button::new()
-    .content(TextBlock::new().text("Open Menu"))
+    .content("Open Menu")
     .menu(Menu::new(
         [
             MenuItem::item("cut", "Cut"),
@@ -67,24 +65,22 @@ impl Component for MenuFlyoutPage {
                     sample_card(
                         "MenuFlyout with Separators",
                         StackPanel::new().spacing(8.0).children((
-                            Button::new()
-                                .content(TextBlock::new().text("Format"))
-                                .menu(Menu::new(
-                                    [
-                                        MenuItem::item("bold", "Bold"),
-                                        MenuItem::item("italic", "Italic"),
-                                        MenuItem::separator("separator"),
-                                        MenuItem::item("underline", "Underline"),
-                                        MenuItem::item("strikethrough", "Strikethrough"),
-                                    ],
-                                    context.callback(|label| ("format".to_string(), label)),
-                                )),
+                            Button::new().content("Format").menu(Menu::new(
+                                [
+                                    MenuItem::item("bold", "Bold"),
+                                    MenuItem::item("italic", "Italic"),
+                                    MenuItem::separator("separator"),
+                                    MenuItem::item("underline", "Underline"),
+                                    MenuItem::item("strikethrough", "Strikethrough"),
+                                ],
+                                context.callback(|label| ("format".to_string(), label)),
+                            )),
                             TextBlock::new()
                                 .text(format!("Last format: {}", self.last_format))
                                 .opacity(0.6),
                         )),
                         r#"Button::new()
-    .content(TextBlock::new().text("Format"))
+    .content("Format")
     .menu(Menu::new(
         [
             MenuItem::item("bold", "Bold"),

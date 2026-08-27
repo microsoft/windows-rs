@@ -30,20 +30,18 @@ impl Component for RepeatButtonSample {
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         context.window_title("RepeatButton");
         StackPanel::new().spacing(8.0).children((
-            TextBlock::new().text(format!("Count: {}", self.count)),
+            format!("Count: {}", self.count),
             RepeatButton::new()
                 .on_click(context.message(Message::Increment))
                 .delay(300)
                 .interval(50)
-                .content(TextBlock::new().text("+1 (hold to repeat)")),
+                .content("+1 (hold to repeat)"),
             RepeatButton::new()
                 .on_click(context.message(Message::Decrement))
                 .delay(300)
                 .interval(50)
-                .content(TextBlock::new().text("-1 (hold to repeat)")),
-            RepeatButton::new()
-                .is_enabled(false)
-                .content(TextBlock::new().text("Disabled")),
+                .content("-1 (hold to repeat)"),
+            RepeatButton::new().is_enabled(false).content("Disabled"),
         ))
     }
 }

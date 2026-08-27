@@ -63,10 +63,10 @@ impl Component for FlipViewSample {
                 .children((
                     Button::new()
                         .on_click(context.message(Message::Previous))
-                        .content(TextBlock::new().text("Prev")),
+                        .content("Prev"),
                     Button::new()
                         .on_click(context.message(Message::Next))
-                        .content(TextBlock::new().text("Next")),
+                        .content("Next"),
                     TextBlock::new()
                         .text(format!("page = {}", self.page))
                         .opacity(0.7),

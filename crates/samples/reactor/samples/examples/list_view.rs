@@ -50,7 +50,7 @@ impl Component for ListViewSample {
             .map_or("(none)", String::as_str);
 
         StackPanel::new().spacing(8.0).max_width(320.0).children((
-            TextBlock::new().text("Selection Mode:"),
+            "Selection Mode:",
             ListView::new()
                 .height(120.0)
                 .selected_index(self.mode_index)
@@ -63,12 +63,12 @@ impl Component for ListViewSample {
                             ListViewItem::new().tag(name).content(
                                 Border::new()
                                     .padding(Thickness::xy(12.0, 4.0))
-                                    .content(TextBlock::new().text(name)),
+                                    .content(name),
                             ),
                         )
                     }),
                 )]),
-            TextBlock::new().text("Items (drag to reorder):"),
+            "Items (drag to reorder):",
             ListView::new()
                 .height(180.0)
                 .selected_index(self.selected)
@@ -86,15 +86,15 @@ impl Component for ListViewSample {
                             ListViewItem::new().tag(item).content(
                                 Border::new()
                                     .padding(Thickness::xy(12.0, 6.0))
-                                    .content(TextBlock::new().text(item)),
+                                    .content(item.as_str()),
                             ),
                         )
                     }),
                 )]),
-            TextBlock::new().text(format!(
+            format!(
                 "selected_index = {} ({label}) | mode = {:?}",
                 self.selected, modes[self.mode_index as usize]
-            )),
+            ),
         ))
     }
 }

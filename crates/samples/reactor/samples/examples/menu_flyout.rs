@@ -21,27 +21,25 @@ impl Component for MenuFlyoutSample {
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("MenuFlyout");
         StackPanel::new().spacing(8.0).children((
-            Button::new()
-                .content(TextBlock::new().text("Open Menu"))
-                .menu(Menu::new(
-                    [
-                        MenuItem::item("cut", "Cut"),
-                        MenuItem::item("copy", "Copy"),
-                        MenuItem::item("paste", "Paste"),
-                        MenuItem::separator("separator"),
-                        MenuItem::submenu(
-                            "font-size",
-                            "Font Size",
-                            [
-                                MenuItem::item("small", "Small"),
-                                MenuItem::item("medium", "Medium"),
-                                MenuItem::item("large", "Large"),
-                            ],
-                        ),
-                    ],
-                    context.callback(std::convert::identity),
-                )),
-            TextBlock::new().text(format!("Last action: {}", self.last_action)),
+            Button::new().content("Open Menu").menu(Menu::new(
+                [
+                    MenuItem::item("cut", "Cut"),
+                    MenuItem::item("copy", "Copy"),
+                    MenuItem::item("paste", "Paste"),
+                    MenuItem::separator("separator"),
+                    MenuItem::submenu(
+                        "font-size",
+                        "Font Size",
+                        [
+                            MenuItem::item("small", "Small"),
+                            MenuItem::item("medium", "Medium"),
+                            MenuItem::item("large", "Large"),
+                        ],
+                    ),
+                ],
+                context.callback(std::convert::identity),
+            )),
+            format!("Last action: {}", self.last_action),
         ))
     }
 }

@@ -92,18 +92,18 @@ impl Component for UseResourceRetrySample {
         context.window_title("UseResourceRetry");
         let content: View = match &self.state {
             ResourceState::Loading => ProgressRing::new().is_indeterminate(true).into(),
-            ResourceState::Ready(weather) => TextBlock::new().text(weather).into(),
+            ResourceState::Ready(weather) => weather.clone().into(),
             ResourceState::Error(error) => StackPanel::new().children((
-                TextBlock::new().text(format!("Error: {error}")),
+                format!("Error: {error}"),
                 Button::new()
                     .on_click(context.message(Message::Refresh))
-                    .content(TextBlock::new().text("Retry")),
+                    .content("Retry"),
             )),
             ResourceState::Rejected => StackPanel::new().children((
-                TextBlock::new().text("Error: background task rejected"),
+                "Error: background task rejected",
                 Button::new()
                     .on_click(context.message(Message::Refresh))
-                    .content(TextBlock::new().text("Retry")),
+                    .content("Retry"),
             )),
         };
 
@@ -111,11 +111,11 @@ impl Component for UseResourceRetrySample {
             TextBlock::new()
                 .text("Weather Service (flaky API demo)")
                 .font_size(20.0),
-            TextBlock::new().text(format!("Attempt: {}", self.attempt + 1)),
+            format!("Attempt: {}", self.attempt + 1),
             content,
             Button::new()
                 .on_click(context.message(Message::Refresh))
-                .content(TextBlock::new().text("Refresh")),
+                .content("Refresh"),
         ))
     }
 }

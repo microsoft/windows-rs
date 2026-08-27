@@ -38,7 +38,7 @@ impl Component for Sample {
             .spacing(12.0)
             .margin(Thickness::uniform(16.0))
             .children((
-                TextBlock::new().text("On-demand canvas redraws only when the data changes:"),
+                "On-demand canvas redraws only when the data changes:",
                 Border::new()
                     .width(WIDTH)
                     .height(HEIGHT)
@@ -51,8 +51,8 @@ impl Component for Sample {
                     .children((
                         Button::new()
                             .on_click(context.message(()))
-                            .content(TextBlock::new().text("New data")),
-                        TextBlock::new().text(format!("revision {}", self.seed)),
+                            .content("New data"),
+                        format!("revision {}", self.seed),
                     )),
             ))
     }

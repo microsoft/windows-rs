@@ -30,8 +30,8 @@ impl Component for ColorPickerSample {
                 .is_color_slider_visible(true)
                 .is_color_channel_text_input_visible(true)
                 .on_color_changed(context.callback(std::convert::identity)),
-            TextBlock::new().text(format!("ARGB: ({a}, {r}, {g}, {b})")),
-            TextBlock::new().text(format!("Hex: #{r:02X}{g:02X}{b:02X}")),
+            format!("ARGB: ({a}, {r}, {g}, {b})"),
+            format!("Hex: #{r:02X}{g:02X}{b:02X}"),
         ))
     }
 }

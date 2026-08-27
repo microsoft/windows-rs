@@ -34,13 +34,13 @@ impl Component for Controlled {
                 .text(self.text.clone())
                 .placeholder_text("Type here")
                 .on_text_changed(context.callback(Message::Text)),
-            TextBlock::new().text(self.text.clone()),
+            self.text.clone(),
             NumberBox::new()
                 .minimum(0.0)
                 .maximum(10.0)
                 .value(self.number)
                 .on_value_changed(context.callback(Message::Number)),
-            TextBlock::new().text(self.number.to_string()),
+            self.number.to_string(),
         ))
     }
 }

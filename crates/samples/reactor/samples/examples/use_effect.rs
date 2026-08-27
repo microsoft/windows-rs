@@ -50,23 +50,20 @@ impl Component for UseEffectSample {
             TextBlock::new()
                 .text(format!("count = {}", self.count))
                 .font_size(24.0),
-            TextBlock::new().text(format!(
-                "use_effect last observed: {}",
-                self.last_seen.get()
-            )),
+            format!("use_effect last observed: {}", self.last_seen.get()),
             StackPanel::new()
                 .orientation(Orientation::Horizontal)
                 .spacing(8.0)
                 .children((
                     Button::new()
                         .on_click(context.message(Message::Decrement))
-                        .content(TextBlock::new().text("-")),
+                        .content("-"),
                     Button::new()
                         .on_click(context.message(Message::Increment))
-                        .content(TextBlock::new().text("+")),
+                        .content("+"),
                     Button::new()
                         .on_click(context.message(Message::Toggle))
-                        .content(TextBlock::new().text("toggle unrelated state")),
+                        .content("toggle unrelated state"),
                 )),
             TextBlock::new()
                 .text(format!("unrelated flag = {}", self.flag))

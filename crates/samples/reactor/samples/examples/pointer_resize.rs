@@ -47,7 +47,7 @@ impl Component for PointerResize {
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         context.window_title("Pointer Resize");
         StackPanel::new().spacing(12.0).children((
-            TextBlock::new().text(format!("Left pane width: {:.0} DIPs", self.width)),
+            format!("Left pane width: {:.0} DIPs", self.width),
             Border::new().height(240.0).content(
                 StackPanel::new()
                     .orientation(Orientation::Horizontal)
@@ -56,7 +56,7 @@ impl Component for PointerResize {
                             .width(self.width)
                             .background(Color::rgb(35, 90, 150))
                             .padding(16.0)
-                            .content(TextBlock::new().text("Resizable pane")),
+                            .content("Resizable pane"),
                         Border::new()
                             .width(44.0)
                             .background(Color::rgb(90, 90, 100))
@@ -71,9 +71,9 @@ impl Component for PointerResize {
                                     .text("Drag")
                                     .foreground(Color::rgb(255, 255, 255)),
                             ),
-                        Border::new().padding(16.0).content(
-                            TextBlock::new().text("The handle moves, but window_x remains stable."),
-                        ),
+                        Border::new()
+                            .padding(16.0)
+                            .content("The handle moves, but window_x remains stable."),
                     )),
             ),
         ))

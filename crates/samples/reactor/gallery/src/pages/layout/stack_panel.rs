@@ -27,8 +27,7 @@ impl Component for StackPanelPage {
     }
 
     fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
-        let items = (1..=self.count)
-            .map(|index| KeyedView::new(index, TextBlock::new().text(format!("Item {index}"))));
+        let items = (1..=self.count).map(|index| KeyedView::new(index, format!("Item {index}")));
         page_content(
             "StackPanel",
             "Arranges children in a single horizontal or vertical line.",
@@ -44,11 +43,11 @@ impl Component for StackPanelPage {
                                 .children((
                                     Button::new()
                                         .on_click(context.message(Message::Add))
-                                        .content(TextBlock::new().text("Add")),
+                                        .content("Add"),
                                     Button::new()
                                         .is_enabled(self.count > 0)
                                         .on_click(context.message(Message::Remove))
-                                        .content(TextBlock::new().text("Remove")),
+                                        .content("Remove"),
                                 )),
                             StackPanel::new().spacing(4.0).keyed_children(items),
                         )),
@@ -63,9 +62,9 @@ impl Component for StackPanelPage {
                             .orientation(Orientation::Horizontal)
                             .spacing(8.0)
                             .children((
-                                Button::new().content(TextBlock::new().text("A")),
-                                Button::new().content(TextBlock::new().text("B")),
-                                Button::new().content(TextBlock::new().text("C")),
+                                Button::new().content("A"),
+                                Button::new().content("B"),
+                                Button::new().content("C"),
                             )),
                         "StackPanel::new().orientation(Orientation::Horizontal)",
                     ),

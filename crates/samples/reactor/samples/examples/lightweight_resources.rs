@@ -29,23 +29,22 @@ impl Component for LightweightResources {
                         .set("ButtonBorderThemeThickness", Thickness::uniform(0.0))
                         .set("ControlCornerRadius", CornerRadius::uniform(8.0)),
                 )
-                .content(TextBlock::new().text("Delete"))
+                .content("Delete")
         } else {
-            Button::new().content(TextBlock::new().text("Delete"))
+            Button::new().content("Delete")
         };
 
         Border::new().padding(Thickness::uniform(16.0)).content(
             StackPanel::new().spacing(12.0).children((
-                TextBlock::new()
-                    .text("Element resources override WinUI lightweight styling values."),
+                "Element resources override WinUI lightweight styling values.",
                 target,
                 Button::new()
                     .on_click(context.callback(|_| ()))
-                    .content(TextBlock::new().text(if self.styled {
+                    .content(if self.styled {
                         "Clear resources"
                     } else {
                         "Apply resources"
-                    })),
+                    }),
             )),
         )
     }

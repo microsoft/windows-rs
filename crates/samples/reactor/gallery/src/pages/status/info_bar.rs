@@ -37,10 +37,7 @@ impl Component for InfoBarPage {
                             ToggleSwitch::new()
                                 .is_on(self.visible)
                                 .on_toggled(context.callback(std::convert::identity))
-                                .slots([SlotView::new(
-                                    ToggleSwitchSlot::Header,
-                                    TextBlock::new().text("Show InfoBar"),
-                                )]),
+                                .slots([SlotView::new(ToggleSwitchSlot::Header, "Show InfoBar")]),
                             InfoBar::new()
                                 .title("Update available")
                                 .message("A new version is ready to install.")

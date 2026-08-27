@@ -153,7 +153,7 @@ impl Component for Calculator {
             } else {
                 button
             };
-            button.content(TextBlock::new().text(label))
+            button.content(label)
         };
         let buttons = [
             button("%", Message::Percent, 0, 0, false),

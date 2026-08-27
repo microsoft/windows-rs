@@ -21,19 +21,18 @@ fn main() {
                     StackPanel::new()
                         .orientation(Orientation::Horizontal)
                         .spacing(6.0)
-                        .children((image, TextBlock::new().text(label))),
+                        .children((image, label)),
                 )
             }
         };
 
         Border::new().padding(Thickness::uniform(16.0)).content(
             StackPanel::new().spacing(12.0).children((
-                TextBlock::new().text("The source SVG has a 120x60 view box."),
-                TextBlock::new()
-                    .text("As an ImageIcon it stays inside the standard 20-DIP icon box."),
+                "The source SVG has a 120x60 view box.",
+                "As an ImageIcon it stays inside the standard 20-DIP icon box.",
                 icon("SVG image icon"),
                 icon(""),
-                TextBlock::new().text("The same source in an Image control:"),
+                "The same source in an Image control:",
                 Image::new()
                     .width(120.0)
                     .height(60.0)

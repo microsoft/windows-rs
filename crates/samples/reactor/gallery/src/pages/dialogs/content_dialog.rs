@@ -58,23 +58,21 @@ impl Component for ContentDialogPage {
                         StackPanel::new().spacing(8.0).children((
                             Button::new()
                                 .on_click(context.message(Message::Open))
-                                .content(TextBlock::new().text("Show Dialog")),
+                                .content("Show Dialog"),
                             ContentDialog::new()
                                 .title("Confirm Action")
                                 .primary_button_text("Yes")
                                 .close_button_text("No")
                                 .is_open(self.open)
                                 .on_closed(context.callback(Message::Closed))
-                                .content(
-                                    TextBlock::new().text("Are you sure you want to proceed?"),
-                                ),
+                                .content("Are you sure you want to proceed?"),
                             TextBlock::new()
                                 .text(format!("Last result: {result_text}"))
                                 .opacity(0.6),
                         )),
                         r#"ContentDialog::new()
     .title("Confirm Action")
-    .content(TextBlock::new().text("Are you sure you want to proceed?"))
+    .content("Are you sure you want to proceed?")
     .primary_button_text("Yes")
     .close_button_text("No")
     .is_open(open)
@@ -88,7 +86,7 @@ impl Component for ContentDialogPage {
                         StackPanel::new().spacing(8.0).children((
                             Button::new()
                                 .on_click(context.message(Message::OpenThree))
-                                .content(TextBlock::new().text("Show Three-Button")),
+                                .content("Show Three-Button"),
                             ContentDialog::new()
                                 .title("Save Changes?")
                                 .primary_button_text("Save")
@@ -96,11 +94,7 @@ impl Component for ContentDialogPage {
                                 .close_button_text("Cancel")
                                 .is_open(self.open_three)
                                 .on_closed(context.callback(|_| Message::ClosedThree))
-                                .content(
-                                    TextBlock::new().text(
-                                        "You have unsaved changes. What would you like to do?",
-                                    ),
-                                ),
+                                .content("You have unsaved changes. What would you like to do?"),
                         )),
                         r#"ContentDialog::new()
     .title("Save Changes?")

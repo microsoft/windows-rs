@@ -16,7 +16,7 @@ impl Component for TooltipSample {
         context.window_title("Tooltip");
         StackPanel::new().spacing(12.0).children((
             Button::new()
-                .content(TextBlock::new().text("Hover me"))
+                .content("Hover me")
                 .tooltip("This is a tooltip"),
             TextBlock::new()
                 .text("Plain text also tips")

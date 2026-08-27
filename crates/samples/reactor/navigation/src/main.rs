@@ -279,31 +279,31 @@ impl Component for Workspace {
                 context: Rc::clone(&self.shared.theme),
                 role: self.role,
             }),
-            TextBlock::new().text(self.status.clone()),
+            self.status.clone(),
             Button::new()
                 .on_click(context.message(Message::Navigate(Page::Home)))
-                .content(TextBlock::new().text("Home")),
+                .content("Home"),
             Button::new()
                 .on_click(context.message(Message::Navigate(Page::Editor)))
-                .content(TextBlock::new().text("Editor")),
+                .content("Editor"),
             Button::new()
                 .on_click(context.message(Message::ToggleTheme))
-                .content(TextBlock::new().text("Toggle shared theme")),
+                .content("Toggle shared theme"),
             if self.role == WindowRole::Primary {
                 Button::new()
                     .is_enabled(!self.secondary_open)
                     .on_click(context.message(Message::OpenSecondary))
-                    .content(TextBlock::new().text("Open secondary window"))
+                    .content("Open secondary window")
             } else {
                 View::empty()
             },
             Button::new()
                 .is_enabled(!self.working)
                 .on_click(context.message(Message::StartWork))
-                .content(TextBlock::new().text("Start background work")),
+                .content("Start background work"),
             Button::new()
                 .on_click(context.message(Message::CloseWindow))
-                .content(TextBlock::new().text("Close this window")),
+                .content("Close this window"),
         ));
 
         View::provide(
@@ -334,14 +334,10 @@ impl Component for HomePage {
 
     fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
         StackPanel::new().spacing(4.0).children((
-            TextBlock::new().text(format!(
-                "{} home count: {}",
-                input.role.label(),
-                input.count
-            )),
+            format!("{} home count: {}", input.role.label(), input.count),
             Button::new()
                 .on_click(input.increment.clone())
-                .content(TextBlock::new().text("Increment local count")),
+                .content("Increment local count"),
         ))
     }
 }
@@ -358,7 +354,7 @@ impl Component for EditorPage {
 
     fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
         StackPanel::new().spacing(4.0).children((
-            TextBlock::new().text(format!("{} editor", input.role.label())),
+            format!("{} editor", input.role.label()),
             TextBox::new()
                 .element_ref(&input.editor_ref)
                 .text(input.note.clone())
@@ -379,13 +375,12 @@ impl Component for ThemeBanner {
 
     fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         let dark = context.use_context(&input.context);
-        TextBlock::new()
-            .text(format!(
-                "{} workspace - {} theme",
-                input.role.label(),
-                if dark { "dark" } else { "light" }
-            ))
-            .into()
+        format!(
+            "{} workspace - {} theme",
+            input.role.label(),
+            if dark { "dark" } else { "light" }
+        )
+        .into()
     }
 }
 

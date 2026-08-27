@@ -42,10 +42,10 @@ impl Component for CounterWindow {
                     .children((
                         Button::new()
                             .on_click(context.message(CounterMessage::Decrement))
-                            .content(TextBlock::new().text("-")),
+                            .content("-"),
                         Button::new()
                             .on_click(context.message(CounterMessage::Increment))
-                            .content(TextBlock::new().text("+")),
+                            .content("+"),
                     )),
             )),
         )
@@ -75,12 +75,12 @@ impl Component for SecondaryWindowSample {
         context.window_title("Secondary windows");
         Border::new().padding(24.0).content(
             StackPanel::new().spacing(12.0).children((
-                TextBlock::new().text("Each opened window hosts its own independent counter."),
-                TextBlock::new().text("Closing the last remaining window exits the app."),
+                "Each opened window hosts its own independent counter.",
+                "Closing the last remaining window exits the app.",
                 Button::new()
                     .on_click(context.message(()))
-                    .content(TextBlock::new().text("Open counter window")),
-                TextBlock::new().text(format!("Windows opened: {}", self.opened)),
+                    .content("Open counter window"),
+                format!("Windows opened: {}", self.opened),
             )),
         )
     }

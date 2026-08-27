@@ -9,15 +9,15 @@ fn main() {
     sample_reactor_controls::run("TextTrimming", || {
         Border::new().padding(Thickness::uniform(16.0)).content(
             StackPanel::new().spacing(8.0).children((
-                TextBlock::new().text("No trimming:"),
+                "No trimming:",
                 TextBlock::new().text(LONG_TEXT).width(240.0),
-                TextBlock::new().text("One line with character ellipsis:"),
+                "One line with character ellipsis:",
                 TextBlock::new()
                     .text(LONG_TEXT)
                     .width(240.0)
                     .max_lines(1)
                     .text_trimming(TextTrimming::CharacterEllipsis),
-                TextBlock::new().text("Two lines with word ellipsis:"),
+                "Two lines with word ellipsis:",
                 TextBlock::new()
                     .text(LONG_TEXT)
                     .width(240.0)

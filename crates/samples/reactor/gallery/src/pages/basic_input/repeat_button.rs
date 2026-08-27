@@ -42,7 +42,7 @@ impl Component for RepeatButtonPage {
                         StackPanel::new().spacing(8.0).children((
                             RepeatButton::new()
                                 .on_click(context.message(Message::Basic))
-                                .content(TextBlock::new().text("Hold me")),
+                                .content("Hold me"),
                             TextBlock::new()
                                 .text(format!("Count: {}", self.count))
                                 .opacity(0.6),
@@ -59,7 +59,7 @@ impl Component for RepeatButtonPage {
                                 .delay(200)
                                 .interval(50)
                                 .on_click(context.message(Message::Fast))
-                                .content(TextBlock::new().text("Fast +1")),
+                                .content("Fast +1"),
                             TextBlock::new()
                                 .text(format!("Fast count: {}", self.fast_count))
                                 .opacity(0.6),

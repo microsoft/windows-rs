@@ -16,16 +16,14 @@ impl Component for RichTooltipSample {
         context.window_title("TooltipRich");
         let rich_panel = StackPanel::new().spacing(4.0).children((
             TextBlock::new().text("Action: Save").font_weight(700),
-            TextBlock::new().text("Writes the current document to disk."),
+            "Writes the current document to disk.",
         ));
 
         StackPanel::new().spacing(8.0).children((
             Button::new()
-                .content(TextBlock::new().text("Save"))
+                .content("Save")
                 .tooltip_with(Tooltip::rich(rich_panel)),
-            Button::new()
-                .content(TextBlock::new().text("Open"))
-                .tooltip("Opens a document"),
+            Button::new().content("Open").tooltip("Opens a document"),
         ))
     }
 }

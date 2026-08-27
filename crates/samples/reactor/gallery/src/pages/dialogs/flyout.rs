@@ -35,14 +35,14 @@ impl Component for FlyoutPage {
                         "Confirmation Flyout",
                         StackPanel::new().spacing(8.0).children((
                             Button::new()
-                                .content(TextBlock::new().text("Delete item"))
+                                .content("Delete item")
                                 .flyout_with(Flyout::rich(
                                     StackPanel::new().spacing(8.0).children((
-                                        TextBlock::new().text("Are you sure?"),
-                                        TextBlock::new().text("This cannot be undone."),
+                                        "Are you sure?",
+                                        "This cannot be undone.",
                                         Button::new()
                                             .on_click(context.message(Message::Deleted))
-                                            .content(TextBlock::new().text("Confirm delete")),
+                                            .content("Confirm delete"),
                                     )),
                                 )),
                             TextBlock::new()
@@ -54,10 +54,10 @@ impl Component for FlyoutPage {
                                 .opacity(0.6),
                         )),
                         r#"Button::new()
-    .content(TextBlock::new().text("Delete item"))
+    .content("Delete item")
     .flyout_with(Flyout::rich(
         Button::new()
-            .content(TextBlock::new().text("Confirm delete"))
+            .content("Confirm delete")
             .on_click(context.message(Message::Deleted)),
     ))"#,
                     ),
@@ -67,10 +67,10 @@ impl Component for FlyoutPage {
                     sample_card(
                         "Button with Flyout",
                         Button::new()
-                            .content(TextBlock::new().text("Click for flyout"))
+                            .content("Click for flyout")
                             .flyout("This is a flyout!"),
                         r#"Button::new()
-    .content(TextBlock::new().text("Click for flyout"))
+    .content("Click for flyout")
     .flyout("This is a flyout!")"#,
                     ),
                 ),
@@ -83,18 +83,16 @@ impl Component for FlyoutPage {
                             .spacing(8.0)
                             .children((
                                 Button::new()
-                                    .content(TextBlock::new().text("Help"))
+                                    .content("Help")
                                     .flyout("Press F1 for more help."),
-                                Button::new()
-                                    .content(TextBlock::new().text("Info"))
-                                    .flyout_with(
-                                        Flyout::text("This operation cannot be undone.")
-                                            .placement(FlyoutPlacement::Bottom),
-                                    ),
+                                Button::new().content("Info").flyout_with(
+                                    Flyout::text("This operation cannot be undone.")
+                                        .placement(FlyoutPlacement::Bottom),
+                                ),
                             )),
-                        r#"Button::new().content(TextBlock::new().text("Help")).flyout("Press F1 for more help."),
+                        r#"Button::new().content("Help").flyout("Press F1 for more help."),
 Button::new()
-    .content(TextBlock::new().text("Info"))
+    .content("Info")
     .flyout_with(Flyout::text("This operation cannot be undone.").placement(FlyoutPlacement::Bottom))"#,
                     ),
                 ),

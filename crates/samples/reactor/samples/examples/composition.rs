@@ -3,11 +3,11 @@
 use windows_reactor::*;
 
 fn labeled_row(label: &str, value: impl Into<View>) -> View {
-    View::fragment((TextBlock::new().text(label), value.into()))
+    View::fragment((label, value.into()))
 }
 
 fn badge_button(label: &str, count: u32) -> View {
-    Button::new().content(TextBlock::new().text(format!("{label} ({count})")))
+    Button::new().content(format!("{label} ({count})"))
 }
 
 #[derive(Clone, Copy)]
@@ -47,9 +47,9 @@ impl Component for CompositionSample {
                     .text("Settings (labeled_row returns a Fragment)")
                     .font_size(20.0),
                 StackPanel::new().spacing(6.0).children((
-                    labeled_row("Username", TextBlock::new().text("alice")),
-                    labeled_row("Theme", TextBlock::new().text("Dark")),
-                    labeled_row("Notifications", TextBlock::new().text("Enabled")),
+                    labeled_row("Username", "alice"),
+                    labeled_row("Theme", "Dark"),
+                    labeled_row("Notifications", "Enabled"),
                 )),
                 TextBlock::new()
                     .text("Reusable widgets (badge_button composes a Button)")
@@ -62,10 +62,10 @@ impl Component for CompositionSample {
                         badge_button("Drafts", self.drafts),
                         Button::new()
                             .on_click(context.message(Message::IncrementInbox))
-                            .content(TextBlock::new().text("+ Inbox")),
+                            .content("+ Inbox"),
                         Button::new()
                             .on_click(context.message(Message::IncrementDrafts))
-                            .content(TextBlock::new().text("+ Drafts")),
+                            .content("+ Drafts"),
                     )),
             )),
         )

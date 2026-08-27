@@ -29,10 +29,10 @@ impl Component for Row {
                 .orientation(Orientation::Horizontal)
                 .spacing(8.0)
                 .children((
-                    TextBlock::new().text(format!("{}: {}", input.name, self.clicks)),
+                    format!("{}: {}", input.name, self.clicks),
                     Button::new()
                         .on_click(context.message(()))
-                        .content(TextBlock::new().text(format!("Increment {}", input.name))),
+                        .content(format!("Increment {}", input.name)),
                 )),
         )
     }
@@ -68,11 +68,10 @@ impl Component for KeyedListReorderSample {
         });
         Border::new().padding(16.0).content(
             StackPanel::new().spacing(12.0).children((
-                TextBlock::new()
-                    .text("Increment a row, then rotate the list. The count stays with its name."),
+                "Increment a row, then rotate the list. The count stays with its name.",
                 Button::new()
                     .on_click(context.message(()))
-                    .content(TextBlock::new().text("Rotate")),
+                    .content("Rotate"),
                 StackPanel::new().spacing(8.0).keyed_children(rows),
             )),
         )

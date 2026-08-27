@@ -473,7 +473,7 @@ impl Component for Solitaire {
             .children((
                 Button::new()
                     .on_click(context.message(Message::NewGame))
-                    .content(TextBlock::new().text("New Game")),
+                    .content("New Game"),
                 TextBlock::new()
                     .text(status_line(&self.game))
                     .vertical_alignment(VerticalAlignment::Center)

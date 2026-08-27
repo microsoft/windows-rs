@@ -40,10 +40,10 @@ impl Component for RenderFnSample {
                 .children((
                     Button::new()
                         .on_click(context.message(Message::Decrement))
-                        .content(TextBlock::new().text("-")),
+                        .content("-"),
                     Button::new()
                         .on_click(context.message(Message::Increment))
-                        .content(TextBlock::new().text("+")),
+                        .content("+"),
                 )),
         ))
     }

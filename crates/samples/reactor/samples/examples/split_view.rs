@@ -38,22 +38,19 @@ impl Component for SplitViewSample {
                 SlotView::new(
                     SplitViewSlot::Content,
                     StackPanel::new().spacing(12.0).children((
-                        TextBlock::new().text(format!(
-                            "Pane is {}",
-                            if self.open { "open" } else { "closed" }
-                        )),
+                        format!("Pane is {}", if self.open { "open" } else { "closed" }),
                         Button::new()
                             .on_click(context.message(Message::Toggle))
-                            .content(TextBlock::new().text("Toggle Pane")),
+                            .content("Toggle Pane"),
                     )),
                 ),
                 SlotView::new(
                     SplitViewSlot::Pane,
                     StackPanel::new().spacing(8.0).children((
-                        TextBlock::new().text("Pane Content"),
-                        TextBlock::new().text("Item A"),
-                        TextBlock::new().text("Item B"),
-                        TextBlock::new().text("Item C"),
+                        "Pane Content",
+                        "Item A",
+                        "Item B",
+                        "Item C",
                     )),
                 ),
             ])

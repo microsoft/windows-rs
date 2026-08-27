@@ -28,10 +28,7 @@ impl Component for NavigationIconsSample {
                     .tag(tag)
                     .is_selected(self.page == tag)
                     .slots([
-                        SlotView::new(
-                            NavigationViewItemSlot::Content,
-                            TextBlock::new().text(label),
-                        ),
+                        SlotView::new(NavigationViewItemSlot::Content, label),
                         SlotView::new(
                             NavigationViewItemSlot::Icon,
                             SymbolIcon::new().symbol(symbol),
@@ -61,7 +58,7 @@ impl Component for NavigationIconsSample {
                         item("settings", "Settings", Symbol::Setting),
                     ],
                 ),
-                SlotView::new(NavigationViewSlot::Content, TextBlock::new().text(content)),
+                SlotView::new(NavigationViewSlot::Content, content),
             ])
     }
 }

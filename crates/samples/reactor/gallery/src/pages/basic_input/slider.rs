@@ -73,8 +73,7 @@ impl Component for SliderPage {
                                     .orientation(Orientation::Vertical)
                                     .height(140.0)
                                     .on_value_changed(context.callback(Message::Brightness)),
-                                TextBlock::new()
-                                    .text(format!("Brightness: {:.0}%", self.brightness)),
+                                format!("Brightness: {:.0}%", self.brightness),
                             )),
                         "Slider::new().orientation(Orientation::Vertical).height(140.0)",
                     ),

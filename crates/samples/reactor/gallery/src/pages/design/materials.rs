@@ -31,7 +31,7 @@ impl Component for MaterialsPage {
                 .on_click(Callback::new(move |_| {
                     let _ = callback.call(backdrop);
                 }))
-                .content(TextBlock::new().text(label))
+                .content(label)
         };
         let description = match input.backdrop {
             WindowBackdrop::Mica => "Mica samples the desktop wallpaper with a subtle tint.",
@@ -67,10 +67,10 @@ impl Component for MaterialsPage {
                     sample_card(
                         "Usage Guidance",
                         StackPanel::new().spacing(6.0).children((
-                            TextBlock::new().text("Use Mica for primary app windows."),
-                            TextBlock::new().text("Use Mica Alt for prominent tabs or sections."),
-                            TextBlock::new().text("Use Acrylic for transient surfaces."),
-                            TextBlock::new().text("Use None for a solid window background."),
+                            "Use Mica for primary app windows.",
+                            "Use Mica Alt for prominent tabs or sections.",
+                            "Use Acrylic for transient surfaces.",
+                            "Use None for a solid window background.",
                         )),
                         "WindowBackdrop::{Mica, MicaAlt, Acrylic, None}",
                     ),

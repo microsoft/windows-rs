@@ -269,24 +269,24 @@ impl Component for TaskEditor {
             TextBlock::new()
                 .text("Virtual task editor")
                 .text_wrapping(TextWrapping::Wrap),
-            TextBlock::new().text(self.status.clone()),
+            self.status.clone(),
             StackPanel::new().spacing(4.0).children((
                 Button::new()
                     .on_click(context.message(Message::Add))
-                    .content(TextBlock::new().text("Add at front")),
+                    .content("Add at front"),
                 Button::new()
                     .on_click(context.message(Message::MoveFirstToEnd))
-                    .content(TextBlock::new().text("Move first to end")),
+                    .content("Move first to end"),
                 Button::new()
                     .on_click(context.message(Message::Reverse))
-                    .content(TextBlock::new().text("Reverse")),
+                    .content("Reverse"),
                 Button::new()
                     .is_enabled(!self.loading)
                     .on_click(context.message(Message::Load))
-                    .content(TextBlock::new().text("Load 100")),
+                    .content("Load 100"),
                 Button::new()
                     .on_click(context.message(Message::Stress))
-                    .content(TextBlock::new().text("Reset to 1,000")),
+                    .content("Reset to 1,000"),
             )),
             ProgressBar::new()
                 .minimum(0.0)
@@ -377,19 +377,17 @@ impl Component for TaskRow {
             }))
         });
         let edit_status = if editing {
-            TextBlock::new()
-                .text("Editing; title must not be empty")
-                .into()
+            "Editing; title must not be empty".into()
         } else {
             View::empty()
         };
 
         StackPanel::new().spacing(4.0).children((
-            TextBlock::new().text(format!(
+            format!(
                 "#{}{}",
                 input.item.id,
                 if input.selected { " selected" } else { "" }
-            )),
+            ),
             ToggleSwitch::new()
                 .is_on(input.item.done)
                 .on_toggled(context.callback(RowMessage::SetDone)),
@@ -402,18 +400,18 @@ impl Component for TaskRow {
             StackPanel::new().spacing(2.0).children((
                 Button::new()
                     .on_click(context.message(RowMessage::Select))
-                    .content(TextBlock::new().text("Select")),
+                    .content("Select"),
                 Button::new()
                     .is_enabled(!editing)
                     .on_click(context.message(RowMessage::Edit))
-                    .content(TextBlock::new().text("Edit")),
+                    .content("Edit"),
                 Button::new()
                     .is_enabled(editing)
                     .on_click(context.message(RowMessage::Save))
-                    .content(TextBlock::new().text("Save")),
+                    .content("Save"),
                 Button::new()
                     .on_click(context.message(RowMessage::Remove))
-                    .content(TextBlock::new().text("Remove")),
+                    .content("Remove"),
             )),
         ))
     }

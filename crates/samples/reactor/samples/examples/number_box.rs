@@ -26,18 +26,12 @@ impl Component for NumberBoxSample {
                 .maximum(10.0)
                 .value(self.quantity)
                 .on_value_changed(context.callback(|value| value))
-                .slots([SlotView::new(
-                    NumberBoxSlot::Header,
-                    TextBlock::new().text("Quantity"),
-                )]),
-            TextBlock::new().text(format!("Quantity = {:.0}", self.quantity)),
+                .slots([SlotView::new(NumberBoxSlot::Header, "Quantity")]),
+            format!("Quantity = {:.0}", self.quantity),
             NumberBox::new()
                 .value(42.0)
                 .is_enabled(false)
-                .slots([SlotView::new(
-                    NumberBoxSlot::Header,
-                    TextBlock::new().text("Disabled"),
-                )]),
+                .slots([SlotView::new(NumberBoxSlot::Header, "Disabled")]),
         ))
     }
 }

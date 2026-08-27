@@ -186,7 +186,7 @@ impl Component for Game {
                 Button::new()
                     .on_click(context.message(Message::Reset))
                     .horizontal_alignment(HorizontalAlignment::Center)
-                    .content(TextBlock::new().text("New Game")),
+                    .content("New Game"),
             ));
 
         let board = build_board(self, context.callback(Message::Play));
@@ -242,7 +242,7 @@ fn build_cells(game: &Game, click_handler: Callback<usize>) -> Vec<KeyedView> {
                 pos,
                 btn.grid_row(row as i32)
                     .grid_column(col as i32)
-                    .content(TextBlock::new().text(label)),
+                    .content(label),
             )
         })
         .collect()

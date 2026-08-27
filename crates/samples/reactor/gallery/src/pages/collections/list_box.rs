@@ -41,7 +41,7 @@ impl Component for ListBoxPage {
                 ListBoxItem::new()
                     .tag(tag)
                     .is_selected(self.selected == index as i32)
-                    .content(TextBlock::new().text(name)),
+                    .content(name),
             )
         });
         let disabled_items =
@@ -55,7 +55,7 @@ impl Component for ListBoxPage {
                         ListBoxItem::new()
                             .tag(tag)
                             .is_selected(index == 0)
-                            .content(TextBlock::new().text(name)),
+                            .content(name),
                     )
                 });
 

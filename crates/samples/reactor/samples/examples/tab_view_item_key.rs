@@ -46,23 +46,21 @@ impl Component for TabViewItemKeySample {
             StackPanel::new().spacing(8.0).children((
                 Button::new()
                     .on_click(context.message(Message::ToggleKey))
-                    .content(TextBlock::new().text(if self.keyed {
+                    .content(if self.keyed {
                         "Remove item key"
                     } else {
                         "Restore item key"
-                    })),
+                    }),
                 TabView::new()
                     .on_close_requested(context.callback(Message::Close))
                     .slots([SlotView::collection(
                         TabViewSlot::TabItems,
                         [KeyedView::new(
                             "doc",
-                            item.content(
-                                TextBlock::new().text("Close the tab to inspect its key."),
-                            ),
+                            item.content("Close the tab to inspect its key."),
                         )],
                     )]),
-                TextBlock::new().text(format!(
+                format!(
                     "configured key: {}; last close request: {}",
                     if self.keyed { "document" } else { "<none>" },
                     if self.last_close_key.is_empty() {
@@ -70,7 +68,7 @@ impl Component for TabViewItemKeySample {
                     } else {
                         &self.last_close_key
                     }
-                )),
+                ),
             )),
         )
     }

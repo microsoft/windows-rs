@@ -93,7 +93,7 @@ impl Component for TabViewAddButtonSample {
                     .content(
                         Border::new()
                             .padding(Thickness::uniform(12.0))
-                            .content(TextBlock::new().text(format!("Content for {}", tab.label))),
+                            .content(format!("Content for {}", tab.label)),
                     ),
             )
         });
@@ -107,11 +107,11 @@ impl Component for TabViewAddButtonSample {
                 .on_close_requested(context.callback(Message::Close))
                 .on_reordered(context.callback(Message::Reordered))
                 .slots([SlotView::collection(TabViewSlot::TabItems, items)]),
-            TextBlock::new().text(format!(
+            format!(
                 "selected = {}, total tabs = {}",
                 self.selected,
                 self.tabs.len()
-            )),
+            ),
         ))
     }
 }

@@ -22,7 +22,7 @@ impl Component for CommandBarFlyoutSample {
         context.window_title("CommandBarFlyout");
         StackPanel::new().spacing(8.0).children((
             Button::new()
-                .content(TextBlock::new().text("Show Commands"))
+                .content("Show Commands")
                 .command_bar_flyout(CommandBarFlyout::new(
                     [
                         CommandBarCommand::button_with_icon("cut", "Cut", Symbol::Cut),
@@ -35,7 +35,7 @@ impl Component for CommandBarFlyoutSample {
                     ],
                     context.callback(std::convert::identity),
                 )),
-            TextBlock::new().text(format!("Last action: {}", self.last_action)),
+            format!("Last action: {}", self.last_action),
         ))
     }
 }

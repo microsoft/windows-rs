@@ -26,7 +26,7 @@ impl Component for PivotPage {
                         format!("{prefix}-{header}"),
                         PivotItem::new()
                             .header(header)
-                            .content(TextBlock::new().text(format!("{header} content"))),
+                            .content(format!("{header} content")),
                     )
                 })
         };

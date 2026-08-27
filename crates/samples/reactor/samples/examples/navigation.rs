@@ -74,16 +74,16 @@ impl Component for DashboardPage {
             DashboardState::Ready(stats) => StackPanel::new().spacing(4.0).keyed_children(
                 stats
                     .iter()
-                    .map(|stat| KeyedView::new(stat.clone(), TextBlock::new().text(stat))),
+                    .map(|stat| KeyedView::new(stat.clone(), stat.as_str())),
             ),
-            DashboardState::Error(error) => TextBlock::new().text(format!("Error: {error}")).into(),
+            DashboardState::Error(error) => format!("Error: {error}").into(),
         };
         StackPanel::new().spacing(8.0).children((
             TextBlock::new()
                 .text("Dashboard")
                 .font_size(28.0)
                 .font_weight(700),
-            TextBlock::new().text("Live stats (loaded in a component task):"),
+            "Live stats (loaded in a component task):",
             content,
         ))
     }
@@ -126,17 +126,11 @@ impl Component for SettingsPage {
             ToggleSwitch::new()
                 .is_on(self.dark_mode)
                 .on_toggled(context.callback(SettingsMessage::DarkMode))
-                .slots([SlotView::new(
-                    ToggleSwitchSlot::Header,
-                    TextBlock::new().text("Dark mode"),
-                )]),
+                .slots([SlotView::new(ToggleSwitchSlot::Header, "Dark mode")]),
             ToggleSwitch::new()
                 .is_on(self.notifications)
                 .on_toggled(context.callback(SettingsMessage::Notifications))
-                .slots([SlotView::new(
-                    ToggleSwitchSlot::Header,
-                    TextBlock::new().text("Notifications"),
-                )]),
+                .slots([SlotView::new(ToggleSwitchSlot::Header, "Notifications")]),
             TextBlock::new()
                 .text(format!(
                     "Dark: {} | Notifications: {}",
@@ -175,10 +169,7 @@ impl Component for NavigationSample {
                     .tag(page.tag())
                     .is_selected(self.page == page)
                     .slots([
-                        SlotView::new(
-                            NavigationViewItemSlot::Content,
-                            TextBlock::new().text(label),
-                        ),
+                        SlotView::new(NavigationViewItemSlot::Content, label),
                         SlotView::new(
                             NavigationViewItemSlot::Icon,
                             SymbolIcon::new().symbol(symbol),
@@ -192,7 +183,7 @@ impl Component for NavigationSample {
                     .text("Welcome Home")
                     .font_size(28.0)
                     .font_weight(700),
-                TextBlock::new().text("This is the landing page of the app."),
+                "This is the landing page of the app.",
                 TextBlock::new()
                     .text("Use the navigation pane to switch between pages.")
                     .opacity(0.6),

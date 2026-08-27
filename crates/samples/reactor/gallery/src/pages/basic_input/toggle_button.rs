@@ -47,11 +47,11 @@ impl Component for ToggleButtonPage {
                                     ToggleButton::new()
                                         .is_checked(self.bold)
                                         .on_is_checked_changed(context.callback(Message::Bold))
-                                        .content(TextBlock::new().text("Bold")),
+                                        .content("Bold"),
                                     ToggleButton::new()
                                         .is_checked(self.italic)
                                         .on_is_checked_changed(context.callback(Message::Italic))
-                                        .content(TextBlock::new().text("Italic")),
+                                        .content("Italic"),
                                 )),
                             TextBlock::new()
                                 .text(format!("Bold: {}, Italic: {}", self.bold, self.italic))
@@ -67,7 +67,7 @@ impl Component for ToggleButtonPage {
                         ToggleButton::new()
                             .is_checked(true)
                             .is_enabled(false)
-                            .content(TextBlock::new().text("Locked")),
+                            .content("Locked"),
                         "ToggleButton::new().is_checked(true).is_enabled(false)",
                     ),
                 ),

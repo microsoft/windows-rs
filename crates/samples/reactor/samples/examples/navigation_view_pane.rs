@@ -28,10 +28,7 @@ impl Component for NavigationPaneSample {
                     .tag(tag)
                     .is_selected(self.page == tag)
                     .slots([
-                        SlotView::new(
-                            NavigationViewItemSlot::Content,
-                            TextBlock::new().text(label),
-                        ),
+                        SlotView::new(NavigationViewItemSlot::Content, label),
                         SlotView::new(
                             NavigationViewItemSlot::Icon,
                             SymbolIcon::new().symbol(symbol),
@@ -60,12 +57,12 @@ impl Component for NavigationPaneSample {
                         item("docs", "Documents", Symbol::Document),
                     ],
                 ),
-                SlotView::new(NavigationViewSlot::Content, TextBlock::new().text(body)),
+                SlotView::new(NavigationViewSlot::Content, body),
                 SlotView::new(
                     NavigationViewSlot::PaneFooter,
                     Button::new()
                         .on_click(|| println!("signed out"))
-                        .content(TextBlock::new().text("Sign out")),
+                        .content("Sign out"),
                 ),
             ])
     }

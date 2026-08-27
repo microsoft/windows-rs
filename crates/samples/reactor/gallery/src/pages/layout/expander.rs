@@ -33,12 +33,11 @@ impl Component for ExpanderPage {
                                 .slots([
                                     SlotView::new(
                                         ExpanderSlot::Header,
-                                        TextBlock::new().text("Click to expand or collapse"),
+                                        "Click to expand or collapse",
                                     ),
                                     SlotView::new(
                                         ExpanderSlot::Content,
-                                        TextBlock::new()
-                                            .text("This content can be shown or hidden."),
+                                        "This content can be shown or hidden.",
                                     ),
                                 ]),
                             TextBlock::new()
@@ -57,11 +56,8 @@ impl Component for ExpanderPage {
                     sample_card(
                         "Collapsed by Default",
                         Expander::new().is_expanded(false).slots([
-                            SlotView::new(ExpanderSlot::Header, TextBlock::new().text("More info")),
-                            SlotView::new(
-                                ExpanderSlot::Content,
-                                TextBlock::new().text("Hidden by default."),
-                            ),
+                            SlotView::new(ExpanderSlot::Header, "More info"),
+                            SlotView::new(ExpanderSlot::Content, "Hidden by default."),
                         ]),
                         "Expander::new().is_expanded(false)",
                     ),

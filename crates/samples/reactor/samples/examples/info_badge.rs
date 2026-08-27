@@ -5,9 +5,9 @@ use windows_reactor::*;
 fn main() {
     sample_reactor_controls::run("InfoBadge", || {
         StackPanel::new().spacing(8.0).children((
-            TextBlock::new().text("Dot (attention indicator)"),
+            "Dot (attention indicator)",
             InfoBadge::new(),
-            TextBlock::new().text("Numeric (small / large counts)"),
+            "Numeric (small / large counts)",
             StackPanel::new()
                 .orientation(Orientation::Horizontal)
                 .spacing(12.0)

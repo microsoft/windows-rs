@@ -16,26 +16,20 @@ impl Component for TooltipPlacementSample {
         context.window_title("TooltipPlacement");
         StackPanel::new().spacing(8.0).children((
             Button::new()
-                .content(TextBlock::new().text("Top"))
+                .content("Top")
                 .tooltip_with(Tooltip::text("Anchored above").placement(TooltipPlacement::Top)),
             Button::new()
-                .content(TextBlock::new().text("Bottom"))
+                .content("Bottom")
                 .tooltip_with(Tooltip::text("Anchored below").placement(TooltipPlacement::Bottom)),
-            Button::new()
-                .content(TextBlock::new().text("Left"))
-                .tooltip_with(
-                    Tooltip::text("Anchored to the left").placement(TooltipPlacement::Left),
-                ),
-            Button::new()
-                .content(TextBlock::new().text("Right"))
-                .tooltip_with(
-                    Tooltip::text("Anchored to the right").placement(TooltipPlacement::Right),
-                ),
-            Button::new()
-                .content(TextBlock::new().text("Mouse"))
-                .tooltip_with(
-                    Tooltip::text("Follows the cursor").placement(TooltipPlacement::Mouse),
-                ),
+            Button::new().content("Left").tooltip_with(
+                Tooltip::text("Anchored to the left").placement(TooltipPlacement::Left),
+            ),
+            Button::new().content("Right").tooltip_with(
+                Tooltip::text("Anchored to the right").placement(TooltipPlacement::Right),
+            ),
+            Button::new().content("Mouse").tooltip_with(
+                Tooltip::text("Follows the cursor").placement(TooltipPlacement::Mouse),
+            ),
         ))
     }
 }

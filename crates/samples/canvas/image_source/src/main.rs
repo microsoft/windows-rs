@@ -93,11 +93,11 @@ impl Component for Sample {
                     .children((
                         Button::new()
                             .on_click(context.message(Message::Add))
-                            .content(TextBlock::new().text("Add dot")),
+                            .content("Add dot"),
                         Button::new()
                             .on_click(context.message(Message::Remove))
-                            .content(TextBlock::new().text("Remove dot")),
-                        TextBlock::new().text(format!("{count} dots")),
+                            .content("Remove dot"),
+                        format!("{count} dots"),
                     )),
             ))
     }

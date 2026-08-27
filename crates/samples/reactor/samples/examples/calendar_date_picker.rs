@@ -37,9 +37,9 @@ impl Component for CalendarDatePickerSample {
                 .on_date_changed(context.callback(std::convert::identity))
                 .slots([SlotView::new(
                     CalendarDatePickerSlot::Header,
-                    TextBlock::new().text("Select a date"),
+                    "Select a date",
                 )]),
-            TextBlock::new().text(&self.label),
+            self.label.as_str(),
         ))
     }
 }

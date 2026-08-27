@@ -56,9 +56,7 @@ impl Component for TypeRampPage {
                                     .text("Version 2.5")
                                     .font_size(20.0)
                                     .font_weight(600),
-                                TextBlock::new().text(
-                                    "This release includes performance improvements and fixes.",
-                                ),
+                                "This release includes performance improvements and fixes.",
                             )),
                         ),
                         "Compose title, subtitle, and body styles in a card.",

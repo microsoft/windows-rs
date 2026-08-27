@@ -92,9 +92,7 @@ impl Component for Sample {
             .spacing(12.0)
             .margin(Thickness::uniform(16.0))
             .children((
-                TextBlock::new().text(format!(
-                    "{TILES} on-demand surfaces - all sharing one GpuDevice:"
-                )),
+                format!("{TILES} on-demand surfaces - all sharing one GpuDevice:"),
                 StackPanel::new()
                     .spacing(8.0)
                     .children((View::keyed_fragment(rows),)),

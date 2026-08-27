@@ -47,7 +47,7 @@ impl Component for CanvasPage {
                                 .corner_radius(4.0)
                                 .canvas_left(self.x)
                                 .canvas_top(self.y)
-                                .content(TextBlock::new().text("Move me")),
+                                .content("Move me"),
                         )),
                         Slider::new()
                             .minimum(0.0)

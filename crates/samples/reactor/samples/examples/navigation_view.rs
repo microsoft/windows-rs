@@ -38,16 +38,13 @@ impl Component for NavigationViewSample {
                 NavigationViewItem::new()
                     .tag(tag)
                     .is_selected(self.page == tag)
-                    .slots([SlotView::new(
-                        NavigationViewItemSlot::Content,
-                        TextBlock::new().text(label),
-                    )]),
+                    .slots([SlotView::new(NavigationViewItemSlot::Content, label)]),
             )
         });
         let body = match self.page.as_str() {
-            "settings" => TextBlock::new().text("Settings page"),
-            "about" => TextBlock::new().text("About page"),
-            _ => TextBlock::new().text("Home page"),
+            "settings" => "Settings page",
+            "about" => "About page",
+            _ => "Home page",
         };
 
         NavigationView::new()
@@ -58,10 +55,7 @@ impl Component for NavigationViewSample {
             .slots([
                 SlotView::collection(NavigationViewSlot::MenuItems, items),
                 SlotView::new(NavigationViewSlot::Content, body),
-                SlotView::new(
-                    NavigationViewSlot::Header,
-                    TextBlock::new().text(format!("page: {}", self.page)),
-                ),
+                SlotView::new(NavigationViewSlot::Header, format!("page: {}", self.page)),
             ])
     }
 }

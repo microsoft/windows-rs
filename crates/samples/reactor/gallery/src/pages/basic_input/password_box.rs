@@ -33,10 +33,7 @@ impl Component for PasswordBoxPage {
                                 .password(&self.password)
                                 .placeholder_text("Enter password")
                                 .on_password_changed(context.callback(std::convert::identity))
-                                .slots([SlotView::new(
-                                    PasswordBoxSlot::Header,
-                                    TextBlock::new().text("Password"),
-                                )]),
+                                .slots([SlotView::new(PasswordBoxSlot::Header, "Password")]),
                             TextBlock::new()
                                 .text(format!("Length: {} chars", self.password.len()))
                                 .opacity(0.6),

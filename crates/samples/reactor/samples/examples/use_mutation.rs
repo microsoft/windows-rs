@@ -88,13 +88,11 @@ impl Component for UseMutationSample {
         context.window_title("UseMutation");
         let loading = matches!(self.save_state, SaveState::Loading);
         let status: View = match &self.save_state {
-            SaveState::Idle => TextBlock::new().text("Ready to save").into(),
+            SaveState::Idle => "Ready to save".into(),
             SaveState::Loading => ProgressRing::new().is_indeterminate(true).into(),
-            SaveState::Success(message) => TextBlock::new().text(message).into(),
-            SaveState::Error(error) => TextBlock::new().text(format!("Error: {error}")).into(),
-            SaveState::Rejected => TextBlock::new()
-                .text("Error: background task rejected")
-                .into(),
+            SaveState::Success(message) => message.clone().into(),
+            SaveState::Error(error) => format!("Error: {error}").into(),
+            SaveState::Rejected => "Error: background task rejected".into(),
         };
 
         StackPanel::new().spacing(12.0).children((
@@ -102,21 +100,18 @@ impl Component for UseMutationSample {
             TextBox::new()
                 .text(self.name.clone())
                 .on_text_changed(context.callback(Message::NameChanged))
-                .slots([SlotView::new(
-                    TextBoxSlot::Header,
-                    TextBlock::new().text("Name"),
-                )]),
+                .slots([SlotView::new(TextBoxSlot::Header, "Name")]),
             StackPanel::new()
                 .orientation(Orientation::Horizontal)
                 .children((
                     Button::new()
                         .is_enabled(!loading)
                         .on_click(context.message(Message::Save))
-                        .content(TextBlock::new().text("Save")),
+                        .content("Save"),
                     Button::new()
                         .is_enabled(!loading)
                         .on_click(context.message(Message::SaveEmpty))
-                        .content(TextBlock::new().text("Save Empty (error)")),
+                        .content("Save Empty (error)"),
                 )),
             status,
         ))

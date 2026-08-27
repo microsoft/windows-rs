@@ -29,12 +29,12 @@ impl Component for SplitButtonPage {
                         StackPanel::new().spacing(8.0).children((
                             SplitButton::new()
                                 .on_click(context.message(()))
-                                .content(TextBlock::new().text("Paste"))
+                                .content("Paste")
                                 .flyout_with(Flyout::rich(
                                     StackPanel::new().spacing(8.0).children((
-                                        TextBlock::new().text("Paste options"),
-                                        TextBlock::new().text("Keep source formatting"),
-                                        TextBlock::new().text("Keep text only"),
+                                        "Paste options",
+                                        "Keep source formatting",
+                                        "Keep text only",
                                     )),
                                 )),
                             TextBlock::new()
@@ -53,7 +53,7 @@ impl Component for SplitButtonPage {
                         "Disabled SplitButton",
                         SplitButton::new()
                             .is_enabled(false)
-                            .content(TextBlock::new().text("Disabled Action")),
+                            .content("Disabled Action"),
                         "SplitButton::new().is_enabled(false)",
                     ),
                 ),

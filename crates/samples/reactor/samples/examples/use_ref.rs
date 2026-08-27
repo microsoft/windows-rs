@@ -36,7 +36,7 @@ impl Component for UseRefSample {
                 .font_size(18.0),
             Button::new()
                 .on_click(context.message(()))
-                .content(TextBlock::new().text("Click me")),
+                .content("Click me"),
             TextBlock::new()
                 .text(
                     "The Cell counter increments every render; the state counter only on button \

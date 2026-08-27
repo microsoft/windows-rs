@@ -43,12 +43,12 @@ impl Component for ToggleButtonSample {
             ToggleButton::new()
                 .is_checked(self.bold)
                 .on_is_checked_changed(context.callback(Message::Bold))
-                .content(TextBlock::new().text("Bold")),
+                .content("Bold"),
             ToggleButton::new()
                 .is_checked(self.italic)
                 .on_is_checked_changed(context.callback(Message::Italic))
-                .content(TextBlock::new().text("Italic")),
-            TextBlock::new().text(format!("Style: {style}")),
+                .content("Italic"),
+            format!("Style: {style}"),
         ))
     }
 }

@@ -34,7 +34,7 @@ impl Component for CalendarDatePickerPage {
                                 .on_date_changed(context.callback(std::convert::identity))
                                 .slots([SlotView::new(
                                     CalendarDatePickerSlot::Header,
-                                    TextBlock::new().text("Appointment Date"),
+                                    "Appointment Date",
                                 )]),
                             TextBlock::new().text(&self.label).opacity(0.6),
                         )),
@@ -48,10 +48,7 @@ impl Component for CalendarDatePickerPage {
                         CalendarDatePicker::new()
                             .placeholder_text("Cannot change")
                             .is_enabled(false)
-                            .slots([SlotView::new(
-                                CalendarDatePickerSlot::Header,
-                                TextBlock::new().text("Locked Date"),
-                            )]),
+                            .slots([SlotView::new(CalendarDatePickerSlot::Header, "Locked Date")]),
                         "CalendarDatePicker::new().is_enabled(false)",
                     ),
                 ),

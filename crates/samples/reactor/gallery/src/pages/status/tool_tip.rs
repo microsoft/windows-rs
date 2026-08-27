@@ -29,16 +29,14 @@ impl Component for ToolTipPage {
                         StackPanel::new().spacing(8.0).children((
                             Button::new()
                                 .on_click(context.message(()))
-                                .content(TextBlock::new().text("Hover target"))
+                                .content("Hover target")
                                 .tooltip_with(Tooltip::rich(
                                     StackPanel::new().spacing(4.0).children((
                                         TextBlock::new()
                                             .text("Interactive tooltip")
                                             .font_weight(700),
-                                        TextBlock::new()
-                                            .text("Click the target to update the count."),
-                                        TextBlock::new()
-                                            .text(format!("Click count: {}", self.clicks)),
+                                        "Click the target to update the count.",
+                                        format!("Click count: {}", self.clicks),
                                     )),
                                 )),
                             TextBlock::new()
@@ -53,7 +51,7 @@ impl Component for ToolTipPage {
                     sample_card(
                         "Button with ToolTip",
                         Button::new()
-                            .content(TextBlock::new().text("Hover me"))
+                            .content("Hover me")
                             .tooltip("This is a helpful tooltip"),
                         "control.tooltip(\"Helpful text\")",
                     ),

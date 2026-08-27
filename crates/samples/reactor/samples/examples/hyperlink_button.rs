@@ -24,15 +24,15 @@ impl Component for HyperlinkButtonSample {
             HyperlinkButton::new()
                 .navigate_uri("https://learn.microsoft.com/windows/apps/")
                 .unwrap()
-                .content(TextBlock::new().text("Open Microsoft Docs")),
+                .content("Open Microsoft Docs"),
             HyperlinkButton::new()
                 .on_click(context.message(()))
-                .content(TextBlock::new().text(format!("Clicked {} times", self.clicks))),
+                .content(format!("Clicked {} times", self.clicks)),
             HyperlinkButton::new()
                 .navigate_uri("https://example.com/")
                 .unwrap()
                 .is_enabled(false)
-                .content(TextBlock::new().text("Disabled")),
+                .content("Disabled"),
         ))
     }
 }

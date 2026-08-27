@@ -44,10 +44,10 @@ impl Component for ContentDialogSample {
         };
 
         StackPanel::new().spacing(8.0).max_width(320.0).children((
-            TextBlock::new().text(label),
+            label,
             Button::new()
                 .on_click(context.message(Message::Open))
-                .content(TextBlock::new().text("Open dialog")),
+                .content("Open dialog"),
             ContentDialog::new()
                 .title("Delete this item?")
                 .primary_button_text("Delete")
@@ -57,7 +57,7 @@ impl Component for ContentDialogSample {
                 .is_secondary_button_enabled(true)
                 .is_open(self.open)
                 .on_closed(context.callback(Message::Closed))
-                .content(TextBlock::new().text("This action cannot be undone.")),
+                .content("This action cannot be undone."),
         ))
     }
 }

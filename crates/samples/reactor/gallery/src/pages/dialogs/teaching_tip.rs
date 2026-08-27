@@ -50,7 +50,7 @@ impl Component for TeachingTipPage {
                         StackPanel::new().spacing(8.0).children((
                             Button::new()
                                 .on_click(context.message(Message::OpenBasic))
-                                .content(TextBlock::new().text("Show Tip")),
+                                .content("Show Tip"),
                             TeachingTip::new()
                                 .title("Did you know?")
                                 .subtitle("You can customize this teaching tip with a subtitle.")
@@ -71,7 +71,7 @@ impl Component for TeachingTipPage {
                         StackPanel::new().spacing(8.0).children((
                             Button::new()
                                 .on_click(context.message(Message::OpenAction))
-                                .content(TextBlock::new().text("Show Action Tip")),
+                                .content("Show Action Tip"),
                             TeachingTip::new()
                                 .title("Take Action")
                                 .subtitle("Click the action button to increment the counter.")

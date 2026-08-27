@@ -32,13 +32,13 @@ fn main() {
         ]);
 
         StackPanel::new().spacing(8.0).children((
-            TextBlock::new().text("Single paragraph with mixed inlines:"),
+            "Single paragraph with mixed inlines:",
             RichTextBlock::new()
                 .paragraphs(mixed)
                 .font_size(14.0)
                 .is_text_selection_enabled(true)
                 .text_wrapping(TextWrapping::Wrap),
-            TextBlock::new().text("Multi-paragraph block:"),
+            "Multi-paragraph block:",
             RichTextBlock::new().paragraphs(multi),
         ))
     })

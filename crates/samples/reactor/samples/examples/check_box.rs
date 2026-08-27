@@ -24,16 +24,16 @@ impl Component for CheckBoxSample {
             CheckBox::new()
                 .is_checked(self.checked)
                 .on_is_checked_changed(context.callback(|checked| checked))
-                .content(TextBlock::new().text("I accept the terms")),
-            TextBlock::new().text(if self.checked {
+                .content("I accept the terms"),
+            if self.checked {
                 "Accepted"
             } else {
                 "Not yet accepted"
-            }),
+            },
             CheckBox::new()
                 .is_checked(true)
                 .is_enabled(false)
-                .content(TextBlock::new().text("Disabled (always on)")),
+                .content("Disabled (always on)"),
         ))
     }
 }
