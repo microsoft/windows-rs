@@ -87,9 +87,11 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                 | Some(PropertyAdapter::ItemTag)
                 | Some(PropertyAdapter::ItemTags)
                 | Some(PropertyAdapter::NavigationDisplayMode)
+                | Some(PropertyAdapter::NumberBoxValue)
                 | Some(PropertyAdapter::PathData)
                 | Some(PropertyAdapter::PointerCapture)
                 | Some(PropertyAdapter::PointerEvent)
+                | Some(PropertyAdapter::RatingValue)
                 | Some(PropertyAdapter::DragInfo)
                 | Some(PropertyAdapter::DropData)
                 | Some(PropertyAdapter::DropPolicy)
@@ -97,6 +99,7 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                 | Some(PropertyAdapter::ResourceStyle)
                 | Some(PropertyAdapter::RichEditText)
                 | Some(PropertyAdapter::RichTextBlocks)
+                | Some(PropertyAdapter::SelectionIndex)
                 | Some(PropertyAdapter::TreeNodeContent)
                 | Some(PropertyAdapter::Uri)
                 | None => {}
@@ -486,6 +489,14 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             let value_variant = ident(&property.value);
             match property.feedback_contract.unwrap() {
                 FeedbackContract::SynchronousExact => {
+                    if property.adapter == Some(PropertyAdapter::SelectionIndex) {
+                        return Some(quote! {
+                            (PropertyId::#property_id, None) => Some((
+                                EventId::#event_id,
+                                FeedbackExpectation::Normalized { observation: None },
+                            ))
+                        });
+                    }
                     let value = property
                         .clear_feedback
                         .map_or_else(|| quote! { Default::default() }, |value| quote! { #value });
@@ -996,14 +1007,26 @@ fn generate_set_slot(control: &ResolvedControl, slot: &crate::schema::ResolvedSl
     }
 }
 
-fn generate_payload_value(conversion: &EventPayloadConversion) -> TokenStream {
+fn generate_payload_value(conversion: &EventPayloadConversion, event_id: &Ident) -> TokenStream {
     match conversion {
         EventPayloadConversion::Identity => quote! { value },
         EventPayloadConversion::Field(field) => {
             let field = ident(field);
             quote! { value.#field }
         }
+        EventPayloadConversion::Nullable => quote! { Some(value) },
+        EventPayloadConversion::NumberBoxValue => quote! { number_box_value(value) },
+        EventPayloadConversion::RatingValue => quote! { rating_value(value) },
         EventPayloadConversion::Selection => quote! { value },
+        EventPayloadConversion::SelectionIndex => quote! {
+            match selection_index(value) {
+                Ok(value) => value,
+                Err(error) => {
+                    sink.error(node, EventId::#event_id, revision, error);
+                    return;
+                }
+            }
+        },
     }
 }
 
@@ -1131,7 +1154,7 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
             }
         }
     } else {
-        generate_payload_value(&event.conversion)
+        generate_payload_value(&event.conversion, &event_id)
     };
     let content_dialog_closed = control.lifecycle == Some(crate::schema::Lifecycle::ContentDialog)
         && event.name == "Closed";
@@ -1166,6 +1189,16 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
             )
         }
     };
+    let nullable_error = (event.conversion == EventPayloadConversion::Nullable).then(|| {
+        quote! {
+            Err(error) if error.code().is_ok() => sink.enqueue(
+                node,
+                EventId::#event_id,
+                revision,
+                EventPayload::#payload(None),
+            ),
+        }
+    });
     let callback = match &event.source {
         EventPayloadSource::Unit => quote! {
             move |_, _| {
@@ -1378,6 +1411,7 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                         move |_, _| {
                             match event_source.#property() {
                                 Ok(value) => #enqueue_payload,
+                                #nullable_error
                                 Err(error) => sink.error(
                                     node,
                                     EventId::#event_id,
@@ -1417,6 +1451,7 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                                 .and_then(|args| args.#property())
                             {
                                 Ok(value) => #enqueue_payload,
+                                #nullable_error
                                 Err(error) => sink.error(
                                     node,
                                     EventId::#event_id,
@@ -1698,6 +1733,43 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
     let value_variant = ident(&property.value);
     let interface = path_ident(&property.interface);
     let setter = ident(&format!("Set{}", property.name));
+    if property.adapter == Some(PropertyAdapter::SelectionIndex) {
+        return quote! {
+            (
+                Handle::#control_name(control),
+                PropertyId::#property_id,
+                PropertyValue::SelectionIndex(value),
+            ) => {
+                let value = native_selection_index(*value)?;
+                control
+                    .cast::<#interface>()
+                    .map_err(native_error)?
+                    .#setter(value)
+                    .map_err(native_error)
+            }
+        };
+    }
+    if matches!(
+        property.adapter,
+        Some(PropertyAdapter::NumberBoxValue | PropertyAdapter::RatingValue)
+    ) {
+        let conversion = if property.adapter == Some(PropertyAdapter::NumberBoxValue) {
+            quote! { native_number_box_value(*value) }
+        } else {
+            quote! { native_rating_value(*value) }
+        };
+        return quote! {
+            (
+                Handle::#control_name(control),
+                PropertyId::#property_id,
+                PropertyValue::OptionalF64(value),
+            ) => control
+                .cast::<#interface>()
+                .map_err(native_error)?
+                .#setter(#conversion)
+                .map_err(native_error)
+        };
+    }
     if property.adapter == Some(PropertyAdapter::ImplicitOpacityTransition) {
         return quote! {
             (
@@ -2140,6 +2212,35 @@ fn generate_read_property(control: &ResolvedControl, property: &ResolvedProperty
     let value_variant = ident(&property.value);
     let interface = path_ident(&property.interface);
     let getter = ident(&property.name);
+    if property.adapter == Some(PropertyAdapter::SelectionIndex) {
+        return quote! {
+            (Handle::#control_name(control), PropertyId::#property_id) => {
+                let value = control
+                    .cast::<#interface>()
+                    .and_then(|control| control.#getter())
+                    .map_err(native_error)?;
+                let value = selection_index(value)?;
+                Ok(PropertyValue::SelectionIndex(value))
+            }
+        };
+    }
+    if matches!(
+        property.adapter,
+        Some(PropertyAdapter::NumberBoxValue | PropertyAdapter::RatingValue)
+    ) {
+        let conversion = if property.adapter == Some(PropertyAdapter::NumberBoxValue) {
+            quote! { number_box_value(value) }
+        } else {
+            quote! { rating_value(value) }
+        };
+        return quote! {
+            (Handle::#control_name(control), PropertyId::#property_id) => control
+                .cast::<#interface>()
+                .and_then(|control| control.#getter())
+                .map(|value| PropertyValue::OptionalF64(#conversion))
+                .map_err(native_error)
+        };
+    }
     if matches!(
         property.adapter,
         Some(
@@ -2464,8 +2565,9 @@ property = "FontWeight"
 "#;
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
         let schema = Schema::parse(source).unwrap().resolve(&metadata).unwrap();
-        let number = generate_payload_value(&schema.controls[0].events[0].conversion);
-        let weight = generate_payload_value(&schema.controls[1].events[0].conversion);
+        let event_id = ident("Other");
+        let number = generate_payload_value(&schema.controls[0].events[0].conversion, &event_id);
+        let weight = generate_payload_value(&schema.controls[1].events[0].conversion, &event_id);
 
         assert_compiles(quote! {
             struct FontWeight {

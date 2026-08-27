@@ -5,7 +5,7 @@ struct DatePickerSample {
 }
 
 impl Component for DatePickerSample {
-    type Message = DateTime;
+    type Message = Option<DateTime>;
     type Input = ();
 
     fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
@@ -14,8 +14,11 @@ impl Component for DatePickerSample {
         }
     }
 
-    fn update(&mut self, date: DateTime, _context: &ComponentContext<Self>) {
-        self.label = format!("Picked: {date}");
+    fn update(&mut self, date: Option<DateTime>, _context: &ComponentContext<Self>) {
+        self.label = date.map_or_else(
+            || "No date picked".to_string(),
+            |date| format!("Picked: {date}"),
+        );
     }
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {

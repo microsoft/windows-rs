@@ -2,12 +2,12 @@ use crate::controls::*;
 use windows_reactor::*;
 
 pub struct FlipViewPage {
-    selected: i32,
+    selected: Option<usize>,
 }
 
 #[derive(Clone)]
 pub enum Message {
-    Selected(i32),
+    Selected(Option<usize>),
 }
 
 impl Component for FlipViewPage {
@@ -15,7 +15,7 @@ impl Component for FlipViewPage {
     type Input = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
-        Self { selected: 0 }
+        Self { selected: Some(0) }
     }
 
     fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
@@ -67,7 +67,10 @@ impl Component for FlipViewPage {
                                 ],
                             ),
                         TextBlock::new()
-                            .text(format!("Current slide: {}", self.selected + 1))
+                            .text(format!(
+                                "Current slide: {}",
+                                self.selected.map_or(0, |index| index + 1)
+                            ))
                             .opacity(0.6),
                     )),
                     r#"FlipView::new().selected_index(selected).on_selection_changed(...)

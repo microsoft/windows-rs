@@ -753,7 +753,7 @@ pub fn windows_reactor::CalendarDatePicker::is_calendar_open(self, impl core::co
 pub fn windows_reactor::CalendarDatePicker::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::CalendarDatePicker::is_today_highlighted(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::CalendarDatePicker::new() -> Self
-pub fn windows_reactor::CalendarDatePicker::on_date_changed(self, impl windows_reactor::IntoPayloadCallback<windows_time::bindings::DateTime>) -> Self
+pub fn windows_reactor::CalendarDatePicker::on_date_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<windows_time::bindings::DateTime>>) -> Self
 pub fn windows_reactor::CalendarDatePicker::placeholder_text(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::CalendarDatePicker::placeholder_text_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 impl core::convert::From<windows_reactor::CalendarDatePicker> for windows_reactor::View
@@ -908,10 +908,10 @@ pub fn windows_reactor::ComboBox::is_enabled(self, impl core::convert::Into<core
 pub fn windows_reactor::ComboBox::items_source<I, S>(self, I) -> Self where I: core::iter::traits::collect::IntoIterator<Item = S>, S: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::ComboBox::items_source_optional<I, S>(self, core::option::Option<I>) -> Self where I: core::iter::traits::collect::IntoIterator<Item = S>, S: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::ComboBox::new() -> Self
-pub fn windows_reactor::ComboBox::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<i32>) -> Self
+pub fn windows_reactor::ComboBox::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<usize>>) -> Self
 pub fn windows_reactor::ComboBox::placeholder_text(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::ComboBox::placeholder_text_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
-pub fn windows_reactor::ComboBox::selected_index(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
+pub fn windows_reactor::ComboBox::selected_index(self, impl core::convert::Into<core::option::Option<usize>>) -> Self
 impl core::convert::From<windows_reactor::ComboBox> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ComboBox) -> Self
 impl windows_reactor::FocusControl for windows_reactor::ComboBox
@@ -1023,7 +1023,7 @@ pub fn windows_reactor::DatePicker::day_visible(self, impl core::convert::Into<c
 pub fn windows_reactor::DatePicker::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::DatePicker::month_visible(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::DatePicker::new() -> Self
-pub fn windows_reactor::DatePicker::on_selected_date_changed(self, impl windows_reactor::IntoPayloadCallback<windows_time::bindings::DateTime>) -> Self
+pub fn windows_reactor::DatePicker::on_selected_date_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<windows_time::bindings::DateTime>>) -> Self
 pub fn windows_reactor::DatePicker::year_visible(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 impl core::convert::From<windows_reactor::DatePicker> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::DatePicker) -> Self
@@ -1179,8 +1179,8 @@ pub fn windows_reactor::Expander::slots(self, impl core::iter::traits::collect::
 pub struct windows_reactor::FlipView
 impl windows_reactor::FlipView
 pub fn windows_reactor::FlipView::new() -> Self
-pub fn windows_reactor::FlipView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<i32>) -> Self
-pub fn windows_reactor::FlipView::selected_index(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
+pub fn windows_reactor::FlipView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<usize>>) -> Self
+pub fn windows_reactor::FlipView::selected_index(self, impl core::convert::Into<core::option::Option<usize>>) -> Self
 impl core::convert::From<windows_reactor::FlipView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::FlipView) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::FlipView
@@ -1265,8 +1265,8 @@ pub fn windows_reactor::GridView::can_drag_items(self, impl core::convert::Into<
 pub fn windows_reactor::GridView::can_reorder_items(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::GridView::new() -> Self
 pub fn windows_reactor::GridView::on_reordered(self, impl windows_reactor::IntoPayloadCallback<alloc::vec::Vec<alloc::string::String>>) -> Self
-pub fn windows_reactor::GridView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<i32>) -> Self
-pub fn windows_reactor::GridView::selected_index(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
+pub fn windows_reactor::GridView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<usize>>) -> Self
+pub fn windows_reactor::GridView::selected_index(self, impl core::convert::Into<core::option::Option<usize>>) -> Self
 impl core::convert::From<windows_reactor::GridView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::GridView) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::GridView
@@ -1550,8 +1550,8 @@ pub fn windows_reactor::ListView::can_drag_items(self, impl core::convert::Into<
 pub fn windows_reactor::ListView::can_reorder_items(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::ListView::new() -> Self
 pub fn windows_reactor::ListView::on_reordered(self, impl windows_reactor::IntoPayloadCallback<alloc::vec::Vec<alloc::string::String>>) -> Self
-pub fn windows_reactor::ListView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<i32>) -> Self
-pub fn windows_reactor::ListView::selected_index(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
+pub fn windows_reactor::ListView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<usize>>) -> Self
+pub fn windows_reactor::ListView::selected_index(self, impl core::convert::Into<core::option::Option<usize>>) -> Self
 pub fn windows_reactor::ListView::selection_mode(self, impl core::convert::Into<core::option::Option<windows_reactor::ListViewSelectionMode>>) -> Self
 impl core::convert::From<windows_reactor::ListView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ListView) -> Self
@@ -1719,7 +1719,7 @@ pub fn windows_reactor::NumberBox::is_enabled(self, impl core::convert::Into<cor
 pub fn windows_reactor::NumberBox::maximum(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
 pub fn windows_reactor::NumberBox::minimum(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
 pub fn windows_reactor::NumberBox::new() -> Self
-pub fn windows_reactor::NumberBox::on_value_changed(self, impl windows_reactor::IntoPayloadCallback<f64>) -> Self
+pub fn windows_reactor::NumberBox::on_value_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<f64>>) -> Self
 pub fn windows_reactor::NumberBox::value(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
 impl core::convert::From<windows_reactor::NumberBox> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::NumberBox) -> Self
@@ -1821,8 +1821,8 @@ pub fn windows_reactor::PersonPicture::width(self, impl core::convert::Into<core
 pub struct windows_reactor::Pivot
 impl windows_reactor::Pivot
 pub fn windows_reactor::Pivot::new() -> Self
-pub fn windows_reactor::Pivot::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<i32>) -> Self
-pub fn windows_reactor::Pivot::selected_index(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
+pub fn windows_reactor::Pivot::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<usize>>) -> Self
+pub fn windows_reactor::Pivot::selected_index(self, impl core::convert::Into<core::option::Option<usize>>) -> Self
 pub fn windows_reactor::Pivot::title(self, impl core::convert::Into<alloc::string::String>) -> Self
 pub fn windows_reactor::Pivot::title_optional<T>(self, core::option::Option<T>) -> Self where T: core::convert::Into<alloc::string::String>
 impl core::convert::From<windows_reactor::Pivot> for windows_reactor::View
@@ -1959,8 +1959,8 @@ pub fn windows_reactor::RadioButtons::items_source<I, S>(self, I) -> Self where 
 pub fn windows_reactor::RadioButtons::items_source_optional<I, S>(self, core::option::Option<I>) -> Self where I: core::iter::traits::collect::IntoIterator<Item = S>, S: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::RadioButtons::max_columns(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
 pub fn windows_reactor::RadioButtons::new() -> Self
-pub fn windows_reactor::RadioButtons::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<i32>) -> Self
-pub fn windows_reactor::RadioButtons::selected_index(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
+pub fn windows_reactor::RadioButtons::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<usize>>) -> Self
+pub fn windows_reactor::RadioButtons::selected_index(self, impl core::convert::Into<core::option::Option<usize>>) -> Self
 impl core::convert::From<windows_reactor::RadioButtons> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::RadioButtons) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::RadioButtons
@@ -1989,7 +1989,7 @@ pub fn windows_reactor::RatingControl::element_ref(self, &windows_reactor::Eleme
 pub fn windows_reactor::RatingControl::is_read_only(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::RatingControl::max_rating(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
 pub fn windows_reactor::RatingControl::new() -> Self
-pub fn windows_reactor::RatingControl::on_value_changed(self, impl windows_reactor::IntoPayloadCallback<f64>) -> Self
+pub fn windows_reactor::RatingControl::on_value_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<f64>>) -> Self
 pub fn windows_reactor::RatingControl::value(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
 impl core::convert::From<windows_reactor::RatingControl> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::RatingControl) -> Self
@@ -2404,8 +2404,8 @@ pub fn windows_reactor::TabView::new() -> Self
 pub fn windows_reactor::TabView::on_add_tab_button_click(self, impl windows_reactor::IntoUnitCallback) -> Self
 pub fn windows_reactor::TabView::on_close_requested(self, impl windows_reactor::IntoPayloadCallback<alloc::string::String>) -> Self
 pub fn windows_reactor::TabView::on_reordered(self, impl windows_reactor::IntoPayloadCallback<alloc::vec::Vec<alloc::string::String>>) -> Self
-pub fn windows_reactor::TabView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<i32>) -> Self
-pub fn windows_reactor::TabView::selected_index(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
+pub fn windows_reactor::TabView::on_selection_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<usize>>) -> Self
+pub fn windows_reactor::TabView::selected_index(self, impl core::convert::Into<core::option::Option<usize>>) -> Self
 impl core::convert::From<windows_reactor::TabView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::TabView) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::TabView
@@ -2574,7 +2574,7 @@ pub fn windows_reactor::TimePicker::clock_identifier_optional<T>(self, core::opt
 pub fn windows_reactor::TimePicker::is_enabled(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::TimePicker::minute_increment(self, impl core::convert::Into<core::option::Option<i32>>) -> Self
 pub fn windows_reactor::TimePicker::new() -> Self
-pub fn windows_reactor::TimePicker::on_selected_time_changed(self, impl windows_reactor::IntoPayloadCallback<windows_time::bindings::TimeSpan>) -> Self
+pub fn windows_reactor::TimePicker::on_selected_time_changed(self, impl windows_reactor::IntoPayloadCallback<core::option::Option<windows_time::bindings::TimeSpan>>) -> Self
 impl core::convert::From<windows_reactor::TimePicker> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::TimePicker) -> Self
 impl windows_reactor::LayoutControl for windows_reactor::TimePicker

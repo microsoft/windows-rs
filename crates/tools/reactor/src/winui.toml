@@ -406,6 +406,7 @@ feedback_contract = "synchronous_normalized"
 [[control.property]]
 name = "Value"
 clearable = true
+adapter = "number_box_value"
 controlled = "ValueChanged"
 feedback_contract = "synchronous_normalized"
 
@@ -778,6 +779,7 @@ adapter = "inspectable_string_list"
 [[control.property]]
 name = "SelectedIndex"
 clearable = true
+adapter = "selection_index"
 controlled = "SelectionChanged"
 feedback_contract = "synchronous_normalized"
 
@@ -1096,6 +1098,7 @@ feedback_contract = "synchronous_normalized"
 [[control.property]]
 name = "Value"
 clearable = true
+adapter = "rating_value"
 controlled = "ValueChanged"
 feedback_contract = "synchronous_normalized"
 
@@ -1144,6 +1147,7 @@ adapter = "inspectable_string_list"
 [[control.property]]
 name = "SelectedIndex"
 clearable = true
+adapter = "selection_index"
 controlled = "SelectionChanged"
 feedback_contract = "synchronous_exact"
 
@@ -1173,6 +1177,7 @@ capabilities = ["layout"]
 [[control.property]]
 name = "SelectedIndex"
 clearable = true
+adapter = "selection_index"
 controlled = "SelectionChanged"
 feedback_contract = "synchronous_exact"
 
@@ -1207,6 +1212,7 @@ capabilities = ["layout"]
 [[control.property]]
 name = "SelectedIndex"
 clearable = true
+adapter = "selection_index"
 controlled = "SelectionChanged"
 feedback_contract = "synchronous_exact"
 
@@ -1260,6 +1266,7 @@ capabilities = ["layout"]
 [[control.property]]
 name = "SelectedIndex"
 clearable = true
+adapter = "selection_index"
 controlled = "SelectionChanged"
 feedback_contract = "synchronous_exact"
 
@@ -1605,6 +1612,7 @@ capabilities = ["layout", "enabled"]
 [[control.property]]
 name = "SelectedIndex"
 clearable = true
+adapter = "selection_index"
 controlled = "SelectionChanged"
 feedback_contract = "synchronous_exact"
 
@@ -1668,6 +1676,7 @@ capabilities = ["layout", "enabled"]
 [[control.property]]
 name = "SelectedIndex"
 clearable = true
+adapter = "selection_index"
 controlled = "SelectionChanged"
 feedback_contract = "synchronous_exact"
 

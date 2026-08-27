@@ -6,7 +6,7 @@ pub struct DatePickerPage {
 }
 
 impl Component for DatePickerPage {
-    type Message = DateTime;
+    type Message = Option<DateTime>;
     type Input = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
@@ -15,8 +15,11 @@ impl Component for DatePickerPage {
         }
     }
 
-    fn update(&mut self, date: DateTime, _context: &ComponentContext<Self>) {
-        self.label = format!("Selected: {date}");
+    fn update(&mut self, date: Option<DateTime>, _context: &ComponentContext<Self>) {
+        self.label = date.map_or_else(
+            || "No date selected".to_string(),
+            |date| format!("Selected: {date}"),
+        );
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {

@@ -2,18 +2,18 @@ use crate::controls::*;
 use windows_reactor::*;
 
 pub struct PivotPage {
-    selected: i32,
+    selected: Option<usize>,
 }
 
 impl Component for PivotPage {
-    type Message = i32;
+    type Message = Option<usize>;
     type Input = ();
 
     fn create(_: &(), _: &ComponentContext<Self>) -> Self {
-        Self { selected: 0 }
+        Self { selected: Some(0) }
     }
 
-    fn update(&mut self, selected: i32, _: &ComponentContext<Self>) {
+    fn update(&mut self, selected: Option<usize>, _: &ComponentContext<Self>) {
         self.selected = selected;
     }
 
@@ -56,7 +56,7 @@ impl Component for PivotPage {
                                 .on_selection_changed(context.forward())
                                 .collection_slot(PivotSlot::Items, items("tracking")),
                             TextBlock::new()
-                                .text(format!("Active tab index: {}", self.selected))
+                                .text(format!("Active tab index: {:?}", self.selected))
                                 .opacity(0.6),
                         )),
                         "Pivot::new().on_selection_changed(handler)",

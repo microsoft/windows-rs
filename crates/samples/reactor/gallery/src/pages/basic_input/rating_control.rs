@@ -2,18 +2,18 @@ use crate::controls::*;
 use windows_reactor::*;
 
 pub struct RatingControlPage {
-    rating: f64,
+    rating: Option<f64>,
 }
 
 impl Component for RatingControlPage {
-    type Message = f64;
+    type Message = Option<f64>;
     type Input = ();
 
     fn create(_: &(), _: &ComponentContext<Self>) -> Self {
-        Self { rating: 3.0 }
+        Self { rating: Some(3.0) }
     }
 
-    fn update(&mut self, rating: f64, _: &ComponentContext<Self>) {
+    fn update(&mut self, rating: Option<f64>, _: &ComponentContext<Self>) {
         self.rating = rating;
     }
 
@@ -31,7 +31,13 @@ impl Component for RatingControlPage {
                                 .value(self.rating)
                                 .on_value_changed(context.forward()),
                             TextBlock::new()
-                                .text(format!("Rating: {:.1} / 5", self.rating))
+                                .text(format!(
+                                    "Rating: {} / 5",
+                                    self.rating.map_or_else(
+                                        || "(none)".to_string(),
+                                        |value| format!("{value:.1}")
+                                    )
+                                ))
                                 .opacity(0.6),
                         )),
                         "RatingControl::new().value(rating).on_value_changed(handler)",

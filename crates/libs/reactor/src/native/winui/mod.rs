@@ -579,6 +579,7 @@ impl WinUiRuntime {
         };
         match self.live_read_property(node, property)? {
             PropertyValue::F64(value) => Ok(value),
+            PropertyValue::OptionalF64(value) => Ok(native_number_box_value(value)),
             _ => Err(RuntimeError::UnsupportedKind),
         }
     }
@@ -3641,7 +3642,8 @@ mod tests {
     use super::{
         AsyncIngressQueue, AsyncIngressSender, Command, DroppedData, NodeId, RuntimeError, SlotId,
         WindowId, WindowToken, is_internal_detach, merge_retained_identities,
-        physical_retained_index, retained_subsequence,
+        native_number_box_value, native_rating_value, native_selection_index, number_box_value,
+        physical_retained_index, rating_value, retained_subsequence, selection_index,
     };
     use std::collections::HashSet;
     use std::marker::PhantomData;
@@ -3772,6 +3774,27 @@ mod tests {
         assert!(!rejected.complete(Err::<DroppedData, _>(RuntimeError::Injected)));
         assert!(ingress.lock().unwrap().completions.is_empty());
     }
+
+    #[test]
+    fn semantic_values_round_trip_native_sentinels() {
+        assert_eq!(native_selection_index(None), Ok(-1));
+        assert_eq!(native_selection_index(Some(2)), Ok(2));
+        assert_eq!(selection_index(-1), Ok(None));
+        assert_eq!(selection_index(2), Ok(Some(2)));
+        assert_eq!(selection_index(-2), Err(RuntimeError::IndexOutOfBounds));
+        assert_eq!(
+            native_selection_index(Some(i32::MAX as usize + 1)),
+            Err(RuntimeError::IndexOutOfBounds)
+        );
+
+        assert!(native_number_box_value(None).is_nan());
+        assert_eq!(number_box_value(f64::NAN), None);
+        assert_eq!(number_box_value(2.5), Some(2.5));
+
+        assert_eq!(native_rating_value(None), -1.0);
+        assert_eq!(rating_value(-1.0), None);
+        assert_eq!(rating_value(2.5), Some(2.5));
+    }
 }
 
 fn inspectable_child_index(
@@ -3787,6 +3810,36 @@ fn inspectable_child_index(
 
 fn index32(index: usize) -> Result<u32, RuntimeError> {
     index.try_into().map_err(|_| RuntimeError::IndexOutOfBounds)
+}
+
+fn native_selection_index(value: Option<usize>) -> Result<i32, RuntimeError> {
+    value.map_or(Ok(-1), |value| {
+        value.try_into().map_err(|_| RuntimeError::IndexOutOfBounds)
+    })
+}
+
+fn selection_index(value: i32) -> Result<Option<usize>, RuntimeError> {
+    match value {
+        -1 => Ok(None),
+        0.. => Ok(Some(value as usize)),
+        _ => Err(RuntimeError::IndexOutOfBounds),
+    }
+}
+
+fn native_number_box_value(value: Option<f64>) -> f64 {
+    value.unwrap_or(f64::NAN)
+}
+
+fn number_box_value(value: f64) -> Option<f64> {
+    (!value.is_nan()).then_some(value)
+}
+
+fn native_rating_value(value: Option<f64>) -> f64 {
+    value.unwrap_or(-1.0)
+}
+
+fn rating_value(value: f64) -> Option<f64> {
+    (value != -1.0).then_some(value)
 }
 
 fn is_internal_detach(command: &Command, destroyed: &HashSet<NodeId>) -> bool {

@@ -1293,9 +1293,15 @@ pub fn set_property(
         (Handle::NumberBox(control), PropertyId::NumberBoxMaximum, PropertyValue::F64(value)) => {
             control.SetMaximum(*value).map_err(native_error)
         }
-        (Handle::NumberBox(control), PropertyId::NumberBoxValue, PropertyValue::F64(value)) => {
-            control.SetValue(*value).map_err(native_error)
-        }
+        (
+            Handle::NumberBox(control),
+            PropertyId::NumberBoxValue,
+            PropertyValue::OptionalF64(value),
+        ) => control
+            .cast::<INumberBox>()
+            .map_err(native_error)?
+            .SetValue(native_number_box_value(*value))
+            .map_err(native_error),
         (
             Handle::NumberBox(control),
             PropertyId::NumberBoxIsEnabled,
@@ -1655,8 +1661,15 @@ pub fn set_property(
         (
             Handle::RadioButtons(control),
             PropertyId::RadioButtonsSelectedIndex,
-            PropertyValue::I32(value),
-        ) => control.SetSelectedIndex(*value).map_err(native_error),
+            PropertyValue::SelectionIndex(value),
+        ) => {
+            let value = native_selection_index(*value)?;
+            control
+                .cast::<IRadioButtons>()
+                .map_err(native_error)?
+                .SetSelectedIndex(value)
+                .map_err(native_error)
+        }
         (
             Handle::RadioButtons(control),
             PropertyId::RadioButtonsMaxColumns,
@@ -2241,8 +2254,12 @@ pub fn set_property(
         (
             Handle::RatingControl(control),
             PropertyId::RatingControlValue,
-            PropertyValue::F64(value),
-        ) => control.SetValue(*value).map_err(native_error),
+            PropertyValue::OptionalF64(value),
+        ) => control
+            .cast::<IRatingControl>()
+            .map_err(native_error)?
+            .SetValue(native_rating_value(*value))
+            .map_err(native_error),
         (
             Handle::RatingControl(control),
             PropertyId::RatingControlCaption,
@@ -2275,12 +2292,15 @@ pub fn set_property(
         (
             Handle::ComboBox(control),
             PropertyId::ComboBoxSelectedIndex,
-            PropertyValue::I32(value),
-        ) => control
-            .cast::<ISelector>()
-            .map_err(native_error)?
-            .SetSelectedIndex(*value)
-            .map_err(native_error),
+            PropertyValue::SelectionIndex(value),
+        ) => {
+            let value = native_selection_index(*value)?;
+            control
+                .cast::<ISelector>()
+                .map_err(native_error)?
+                .SetSelectedIndex(value)
+                .map_err(native_error)
+        }
         (
             Handle::ComboBox(control),
             PropertyId::ComboBoxPlaceholderText,
@@ -2296,8 +2316,17 @@ pub fn set_property(
                 .SetIsEnabled(*value)
                 .map_err(native_error)
         }
-        (Handle::Pivot(control), PropertyId::PivotSelectedIndex, PropertyValue::I32(value)) => {
-            control.SetSelectedIndex(*value).map_err(native_error)
+        (
+            Handle::Pivot(control),
+            PropertyId::PivotSelectedIndex,
+            PropertyValue::SelectionIndex(value),
+        ) => {
+            let value = native_selection_index(*value)?;
+            control
+                .cast::<IPivot>()
+                .map_err(native_error)?
+                .SetSelectedIndex(value)
+                .map_err(native_error)
         }
         (Handle::Pivot(control), PropertyId::PivotTitle, PropertyValue::Str(value)) => {
             let value = windows_reference::IReference::from(value.as_str());
@@ -2318,12 +2347,15 @@ pub fn set_property(
         (
             Handle::FlipView(control),
             PropertyId::FlipViewSelectedIndex,
-            PropertyValue::I32(value),
-        ) => control
-            .cast::<ISelector>()
-            .map_err(native_error)?
-            .SetSelectedIndex(*value)
-            .map_err(native_error),
+            PropertyValue::SelectionIndex(value),
+        ) => {
+            let value = native_selection_index(*value)?;
+            control
+                .cast::<ISelector>()
+                .map_err(native_error)?
+                .SetSelectedIndex(value)
+                .map_err(native_error)
+        }
         (
             Handle::SelectorBarItem(control),
             PropertyId::SelectorBarItemText,
@@ -2338,8 +2370,17 @@ pub fn set_property(
             .map_err(native_error)?
             .SetIsSelected(*value)
             .map_err(native_error),
-        (Handle::TabView(control), PropertyId::TabViewSelectedIndex, PropertyValue::I32(value)) => {
-            control.SetSelectedIndex(*value).map_err(native_error)
+        (
+            Handle::TabView(control),
+            PropertyId::TabViewSelectedIndex,
+            PropertyValue::SelectionIndex(value),
+        ) => {
+            let value = native_selection_index(*value)?;
+            control
+                .cast::<ITabView>()
+                .map_err(native_error)?
+                .SetSelectedIndex(value)
+                .map_err(native_error)
         }
         (
             Handle::TabView(control),
@@ -2675,12 +2716,15 @@ pub fn set_property(
         (
             Handle::ListView(control),
             PropertyId::ListViewSelectedIndex,
-            PropertyValue::I32(value),
-        ) => control
-            .cast::<ISelector>()
-            .map_err(native_error)?
-            .SetSelectedIndex(*value)
-            .map_err(native_error),
+            PropertyValue::SelectionIndex(value),
+        ) => {
+            let value = native_selection_index(*value)?;
+            control
+                .cast::<ISelector>()
+                .map_err(native_error)?
+                .SetSelectedIndex(value)
+                .map_err(native_error)
+        }
         (
             Handle::ListView(control),
             PropertyId::ListViewSelectionMode,
@@ -2742,12 +2786,15 @@ pub fn set_property(
         (
             Handle::GridView(control),
             PropertyId::GridViewSelectedIndex,
-            PropertyValue::I32(value),
-        ) => control
-            .cast::<ISelector>()
-            .map_err(native_error)?
-            .SetSelectedIndex(*value)
-            .map_err(native_error),
+            PropertyValue::SelectionIndex(value),
+        ) => {
+            let value = native_selection_index(*value)?;
+            control
+                .cast::<ISelector>()
+                .map_err(native_error)?
+                .SetSelectedIndex(value)
+                .map_err(native_error)
+        }
         (
             Handle::GridView(control),
             PropertyId::GridViewCanDragItems,
@@ -3724,7 +3771,7 @@ pub fn read_property(handle: &Handle, property: PropertyId) -> Result<PropertyVa
         (Handle::NumberBox(control), PropertyId::NumberBoxValue) => control
             .cast::<INumberBox>()
             .and_then(|control| control.Value())
-            .map(PropertyValue::F64)
+            .map(|value| PropertyValue::OptionalF64(number_box_value(value)))
             .map_err(native_error),
         (Handle::Slider(control), PropertyId::SliderValue) => control
             .cast::<IRangeBase>()
@@ -3761,41 +3808,56 @@ pub fn read_property(handle: &Handle, property: PropertyId) -> Result<PropertyVa
             .and_then(|control| control.IsChecked())
             .map(PropertyValue::Bool)
             .map_err(native_error),
-        (Handle::RadioButtons(control), PropertyId::RadioButtonsSelectedIndex) => control
-            .cast::<IRadioButtons>()
-            .and_then(|control| control.SelectedIndex())
-            .map(PropertyValue::I32)
-            .map_err(native_error),
+        (Handle::RadioButtons(control), PropertyId::RadioButtonsSelectedIndex) => {
+            let value = control
+                .cast::<IRadioButtons>()
+                .and_then(|control| control.SelectedIndex())
+                .map_err(native_error)?;
+            let value = selection_index(value)?;
+            Ok(PropertyValue::SelectionIndex(value))
+        }
         (Handle::RatingControl(control), PropertyId::RatingControlValue) => control
             .cast::<IRatingControl>()
             .and_then(|control| control.Value())
-            .map(PropertyValue::F64)
+            .map(|value| PropertyValue::OptionalF64(rating_value(value)))
             .map_err(native_error),
         (Handle::Expander(control), PropertyId::ExpanderIsExpanded) => control
             .cast::<IExpander>()
             .and_then(|control| control.IsExpanded())
             .map(PropertyValue::Bool)
             .map_err(native_error),
-        (Handle::ComboBox(control), PropertyId::ComboBoxSelectedIndex) => control
-            .cast::<ISelector>()
-            .and_then(|control| control.SelectedIndex())
-            .map(PropertyValue::I32)
-            .map_err(native_error),
-        (Handle::Pivot(control), PropertyId::PivotSelectedIndex) => control
-            .cast::<IPivot>()
-            .and_then(|control| control.SelectedIndex())
-            .map(PropertyValue::I32)
-            .map_err(native_error),
-        (Handle::FlipView(control), PropertyId::FlipViewSelectedIndex) => control
-            .cast::<ISelector>()
-            .and_then(|control| control.SelectedIndex())
-            .map(PropertyValue::I32)
-            .map_err(native_error),
-        (Handle::TabView(control), PropertyId::TabViewSelectedIndex) => control
-            .cast::<ITabView>()
-            .and_then(|control| control.SelectedIndex())
-            .map(PropertyValue::I32)
-            .map_err(native_error),
+        (Handle::ComboBox(control), PropertyId::ComboBoxSelectedIndex) => {
+            let value = control
+                .cast::<ISelector>()
+                .and_then(|control| control.SelectedIndex())
+                .map_err(native_error)?;
+            let value = selection_index(value)?;
+            Ok(PropertyValue::SelectionIndex(value))
+        }
+        (Handle::Pivot(control), PropertyId::PivotSelectedIndex) => {
+            let value = control
+                .cast::<IPivot>()
+                .and_then(|control| control.SelectedIndex())
+                .map_err(native_error)?;
+            let value = selection_index(value)?;
+            Ok(PropertyValue::SelectionIndex(value))
+        }
+        (Handle::FlipView(control), PropertyId::FlipViewSelectedIndex) => {
+            let value = control
+                .cast::<ISelector>()
+                .and_then(|control| control.SelectedIndex())
+                .map_err(native_error)?;
+            let value = selection_index(value)?;
+            Ok(PropertyValue::SelectionIndex(value))
+        }
+        (Handle::TabView(control), PropertyId::TabViewSelectedIndex) => {
+            let value = control
+                .cast::<ITabView>()
+                .and_then(|control| control.SelectedIndex())
+                .map_err(native_error)?;
+            let value = selection_index(value)?;
+            Ok(PropertyValue::SelectionIndex(value))
+        }
         (Handle::ColorPicker(control), PropertyId::ColorPickerColor) => control
             .cast::<IColorPicker>()
             .and_then(|control| control.Color())
@@ -3808,16 +3870,22 @@ pub fn read_property(handle: &Handle, property: PropertyId) -> Result<PropertyVa
                 })
             })
             .map_err(native_error),
-        (Handle::ListView(control), PropertyId::ListViewSelectedIndex) => control
-            .cast::<ISelector>()
-            .and_then(|control| control.SelectedIndex())
-            .map(PropertyValue::I32)
-            .map_err(native_error),
-        (Handle::GridView(control), PropertyId::GridViewSelectedIndex) => control
-            .cast::<ISelector>()
-            .and_then(|control| control.SelectedIndex())
-            .map(PropertyValue::I32)
-            .map_err(native_error),
+        (Handle::ListView(control), PropertyId::ListViewSelectedIndex) => {
+            let value = control
+                .cast::<ISelector>()
+                .and_then(|control| control.SelectedIndex())
+                .map_err(native_error)?;
+            let value = selection_index(value)?;
+            Ok(PropertyValue::SelectionIndex(value))
+        }
+        (Handle::GridView(control), PropertyId::GridViewSelectedIndex) => {
+            let value = control
+                .cast::<ISelector>()
+                .and_then(|control| control.SelectedIndex())
+                .map_err(native_error)?;
+            let value = selection_index(value)?;
+            Ok(PropertyValue::SelectionIndex(value))
+        }
         (Handle::RichEditBox(control), PropertyId::RichEditBoxDocument) => control
             .Document()
             .and_then(|document| {
@@ -4317,33 +4385,33 @@ pub fn expected_feedback(
             EventId::ExpanderIsExpandedChanged,
             FeedbackExpectation::Exact(EventPayload::Bool(*value)),
         )),
-        (PropertyId::ComboBoxSelectedIndex, Some(PropertyValue::I32(value))) => Some((
+        (PropertyId::ComboBoxSelectedIndex, Some(PropertyValue::SelectionIndex(value))) => Some((
             EventId::ComboBoxSelectionChanged,
-            FeedbackExpectation::Exact(EventPayload::I32(*value)),
+            FeedbackExpectation::Exact(EventPayload::SelectionIndex(*value)),
         )),
-        (PropertyId::PivotSelectedIndex, Some(PropertyValue::I32(value))) => Some((
+        (PropertyId::PivotSelectedIndex, Some(PropertyValue::SelectionIndex(value))) => Some((
             EventId::PivotSelectionChanged,
-            FeedbackExpectation::Exact(EventPayload::I32(*value)),
+            FeedbackExpectation::Exact(EventPayload::SelectionIndex(*value)),
         )),
-        (PropertyId::FlipViewSelectedIndex, Some(PropertyValue::I32(value))) => Some((
+        (PropertyId::FlipViewSelectedIndex, Some(PropertyValue::SelectionIndex(value))) => Some((
             EventId::FlipViewSelectionChanged,
-            FeedbackExpectation::Exact(EventPayload::I32(*value)),
+            FeedbackExpectation::Exact(EventPayload::SelectionIndex(*value)),
         )),
-        (PropertyId::TabViewSelectedIndex, Some(PropertyValue::I32(value))) => Some((
+        (PropertyId::TabViewSelectedIndex, Some(PropertyValue::SelectionIndex(value))) => Some((
             EventId::TabViewSelectionChanged,
-            FeedbackExpectation::Exact(EventPayload::I32(*value)),
+            FeedbackExpectation::Exact(EventPayload::SelectionIndex(*value)),
         )),
         (PropertyId::ColorPickerColor, Some(PropertyValue::Color(value))) => Some((
             EventId::ColorPickerColorChanged,
             FeedbackExpectation::Exact(EventPayload::Color(*value)),
         )),
-        (PropertyId::ListViewSelectedIndex, Some(PropertyValue::I32(value))) => Some((
+        (PropertyId::ListViewSelectedIndex, Some(PropertyValue::SelectionIndex(value))) => Some((
             EventId::ListViewSelectionChanged,
-            FeedbackExpectation::Exact(EventPayload::I32(*value)),
+            FeedbackExpectation::Exact(EventPayload::SelectionIndex(*value)),
         )),
-        (PropertyId::GridViewSelectedIndex, Some(PropertyValue::I32(value))) => Some((
+        (PropertyId::GridViewSelectedIndex, Some(PropertyValue::SelectionIndex(value))) => Some((
             EventId::GridViewSelectionChanged,
-            FeedbackExpectation::Exact(EventPayload::I32(*value)),
+            FeedbackExpectation::Exact(EventPayload::SelectionIndex(*value)),
         )),
         (PropertyId::RichEditBoxDocument, Some(PropertyValue::Str(value))) => Some((
             EventId::RichEditBoxTextChanged,
@@ -4427,19 +4495,19 @@ pub fn expected_feedback(
         )),
         (PropertyId::ComboBoxSelectedIndex, None) => Some((
             EventId::ComboBoxSelectionChanged,
-            FeedbackExpectation::Exact(EventPayload::I32(Default::default())),
+            FeedbackExpectation::Normalized { observation: None },
         )),
         (PropertyId::PivotSelectedIndex, None) => Some((
             EventId::PivotSelectionChanged,
-            FeedbackExpectation::Exact(EventPayload::I32(Default::default())),
+            FeedbackExpectation::Normalized { observation: None },
         )),
         (PropertyId::FlipViewSelectedIndex, None) => Some((
             EventId::FlipViewSelectionChanged,
-            FeedbackExpectation::Exact(EventPayload::I32(Default::default())),
+            FeedbackExpectation::Normalized { observation: None },
         )),
         (PropertyId::TabViewSelectedIndex, None) => Some((
             EventId::TabViewSelectionChanged,
-            FeedbackExpectation::Exact(EventPayload::I32(Default::default())),
+            FeedbackExpectation::Normalized { observation: None },
         )),
         (PropertyId::ColorPickerColor, None) => Some((
             EventId::ColorPickerColorChanged,
@@ -4447,11 +4515,11 @@ pub fn expected_feedback(
         )),
         (PropertyId::ListViewSelectedIndex, None) => Some((
             EventId::ListViewSelectionChanged,
-            FeedbackExpectation::Exact(EventPayload::I32(Default::default())),
+            FeedbackExpectation::Normalized { observation: None },
         )),
         (PropertyId::GridViewSelectedIndex, None) => Some((
             EventId::GridViewSelectionChanged,
-            FeedbackExpectation::Exact(EventPayload::I32(Default::default())),
+            FeedbackExpectation::Normalized { observation: None },
         )),
         (PropertyId::RichEditBoxDocument, None) => Some((
             EventId::RichEditBoxTextChanged,
@@ -5141,7 +5209,7 @@ pub fn subscribe_event(
                                 node,
                                 EventId::NumberBoxValueChanged,
                                 revision,
-                                EventPayload::F64(value),
+                                EventPayload::OptionalF64(number_box_value(value)),
                             ),
                             Err(error) => sink.error(
                                 node,
@@ -5480,7 +5548,18 @@ pub fn subscribe_event(
                             node,
                             EventId::RadioButtonsSelectionChanged,
                             revision,
-                            EventPayload::I32(value),
+                            EventPayload::SelectionIndex(match selection_index(value) {
+                                Ok(value) => value,
+                                Err(error) => {
+                                    sink.error(
+                                        node,
+                                        EventId::RadioButtonsSelectionChanged,
+                                        revision,
+                                        error,
+                                    );
+                                    return;
+                                }
+                            }),
                         ),
                         Err(error) => sink.error(
                             node,
@@ -5564,7 +5643,7 @@ pub fn subscribe_event(
                             node,
                             EventId::RatingControlValueChanged,
                             revision,
-                            EventPayload::F64(value),
+                            EventPayload::OptionalF64(rating_value(value)),
                         ),
                         Err(error) => sink.error(
                             node,
@@ -5616,7 +5695,18 @@ pub fn subscribe_event(
                             node,
                             EventId::ComboBoxSelectionChanged,
                             revision,
-                            EventPayload::I32(value),
+                            EventPayload::SelectionIndex(match selection_index(value) {
+                                Ok(value) => value,
+                                Err(error) => {
+                                    sink.error(
+                                        node,
+                                        EventId::ComboBoxSelectionChanged,
+                                        revision,
+                                        error,
+                                    );
+                                    return;
+                                }
+                            }),
                         ),
                         Err(error) => sink.error(
                             node,
@@ -5639,7 +5729,18 @@ pub fn subscribe_event(
                             node,
                             EventId::PivotSelectionChanged,
                             revision,
-                            EventPayload::I32(value),
+                            EventPayload::SelectionIndex(match selection_index(value) {
+                                Ok(value) => value,
+                                Err(error) => {
+                                    sink.error(
+                                        node,
+                                        EventId::PivotSelectionChanged,
+                                        revision,
+                                        error,
+                                    );
+                                    return;
+                                }
+                            }),
                         ),
                         Err(error) => sink.error(
                             node,
@@ -5662,7 +5763,18 @@ pub fn subscribe_event(
                             node,
                             EventId::FlipViewSelectionChanged,
                             revision,
-                            EventPayload::I32(value),
+                            EventPayload::SelectionIndex(match selection_index(value) {
+                                Ok(value) => value,
+                                Err(error) => {
+                                    sink.error(
+                                        node,
+                                        EventId::FlipViewSelectionChanged,
+                                        revision,
+                                        error,
+                                    );
+                                    return;
+                                }
+                            }),
                         ),
                         Err(error) => sink.error(
                             node,
@@ -5750,7 +5862,18 @@ pub fn subscribe_event(
                             node,
                             EventId::TabViewSelectionChanged,
                             revision,
-                            EventPayload::I32(value),
+                            EventPayload::SelectionIndex(match selection_index(value) {
+                                Ok(value) => value,
+                                Err(error) => {
+                                    sink.error(
+                                        node,
+                                        EventId::TabViewSelectionChanged,
+                                        revision,
+                                        error,
+                                    );
+                                    return;
+                                }
+                            }),
                         ),
                         Err(error) => sink.error(
                             node,
@@ -5975,7 +6098,13 @@ pub fn subscribe_event(
                                 node,
                                 EventId::DatePickerSelectedDateChanged,
                                 revision,
-                                EventPayload::DateTime(value),
+                                EventPayload::OptionalDateTime(Some(value)),
+                            ),
+                            Err(error) if error.code().is_ok() => sink.enqueue(
+                                node,
+                                EventId::DatePickerSelectedDateChanged,
+                                revision,
+                                EventPayload::OptionalDateTime(None),
                             ),
                             Err(error) => sink.error(
                                 node,
@@ -6002,7 +6131,13 @@ pub fn subscribe_event(
                                 node,
                                 EventId::TimePickerSelectedTimeChanged,
                                 revision,
-                                EventPayload::TimeSpan(value),
+                                EventPayload::OptionalTimeSpan(Some(value)),
+                            ),
+                            Err(error) if error.code().is_ok() => sink.enqueue(
+                                node,
+                                EventId::TimePickerSelectedTimeChanged,
+                                revision,
+                                EventPayload::OptionalTimeSpan(None),
                             ),
                             Err(error) => sink.error(
                                 node,
@@ -6029,7 +6164,13 @@ pub fn subscribe_event(
                                 node,
                                 EventId::CalendarDatePickerDateChanged,
                                 revision,
-                                EventPayload::DateTime(value),
+                                EventPayload::OptionalDateTime(Some(value)),
+                            ),
+                            Err(error) if error.code().is_ok() => sink.enqueue(
+                                node,
+                                EventId::CalendarDatePickerDateChanged,
+                                revision,
+                                EventPayload::OptionalDateTime(None),
                             ),
                             Err(error) => sink.error(
                                 node,
@@ -6106,7 +6247,18 @@ pub fn subscribe_event(
                             node,
                             EventId::ListViewSelectionChanged,
                             revision,
-                            EventPayload::I32(value),
+                            EventPayload::SelectionIndex(match selection_index(value) {
+                                Ok(value) => value,
+                                Err(error) => {
+                                    sink.error(
+                                        node,
+                                        EventId::ListViewSelectionChanged,
+                                        revision,
+                                        error,
+                                    );
+                                    return;
+                                }
+                            }),
                         ),
                         Err(error) => sink.error(
                             node,
@@ -6250,7 +6402,18 @@ pub fn subscribe_event(
                             node,
                             EventId::GridViewSelectionChanged,
                             revision,
-                            EventPayload::I32(value),
+                            EventPayload::SelectionIndex(match selection_index(value) {
+                                Ok(value) => value,
+                                Err(error) => {
+                                    sink.error(
+                                        node,
+                                        EventId::GridViewSelectionChanged,
+                                        revision,
+                                        error,
+                                    );
+                                    return;
+                                }
+                            }),
                         ),
                         Err(error) => sink.error(
                             node,

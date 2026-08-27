@@ -4,7 +4,7 @@ use std::time::Duration;
 use windows_reactor::*;
 
 struct Form {
-    amount: f64,
+    amount: Option<f64>,
     amount_ref: ElementRef<NumberBox>,
     name: String,
     name_ref: ElementRef<TextBox>,
@@ -13,7 +13,7 @@ struct Form {
 
 #[derive(Clone, PartialEq)]
 struct SummaryInput {
-    amount: f64,
+    amount: Option<f64>,
     name: String,
 }
 
@@ -21,7 +21,7 @@ struct Summary;
 
 #[derive(Clone)]
 enum Message {
-    AmountChanged(f64),
+    AmountChanged(Option<f64>),
     Cancelled,
     NameChanged(String),
     Submit,
@@ -37,7 +37,10 @@ enum Status {
 
 impl Form {
     fn is_valid(&self) -> bool {
-        !self.name.trim().is_empty() && self.amount.is_finite() && self.amount > 0.0
+        !self.name.trim().is_empty()
+            && self
+                .amount
+                .is_some_and(|amount| amount.is_finite() && amount > 0.0)
     }
 }
 
@@ -47,7 +50,7 @@ impl Component for Form {
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
         Self {
-            amount: 1.0,
+            amount: Some(1.0),
             amount_ref: ElementRef::new(),
             name: String::new(),
             name_ref: ElementRef::new(),
@@ -178,7 +181,10 @@ impl Component for Summary {
     fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {}
 
     fn view(&self, input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
-        format!("{}: {:.2}", input.name.trim(), input.amount).into()
+        let amount = input
+            .amount
+            .map_or_else(|| "(empty)".to_string(), |amount| format!("{amount:.2}"));
+        format!("{}: {amount}", input.name.trim()).into()
     }
 }
 

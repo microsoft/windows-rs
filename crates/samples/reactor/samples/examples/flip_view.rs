@@ -1,14 +1,14 @@
 use windows_reactor::*;
 
 struct FlipViewSample {
-    page: i32,
+    page: Option<usize>,
 }
 
 #[derive(Clone)]
 enum Message {
     Previous,
     Next,
-    Selected(i32),
+    Selected(Option<usize>),
 }
 
 impl Component for FlipViewSample {
@@ -16,13 +16,13 @@ impl Component for FlipViewSample {
     type Input = ();
 
     fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self { page: 0 }
+        Self { page: Some(0) }
     }
 
     fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
         self.page = match message {
-            Message::Previous => (self.page - 1).max(0),
-            Message::Next => (self.page + 1).min(2),
+            Message::Previous => Some(self.page.unwrap_or_default().saturating_sub(1)),
+            Message::Next => Some((self.page.unwrap_or_default() + 1).min(2)),
             Message::Selected(page) => page,
         };
     }
@@ -68,7 +68,7 @@ impl Component for FlipViewSample {
                         .on_click(context.message(Message::Next))
                         .content("Next"),
                     TextBlock::new()
-                        .text(format!("page = {}", self.page))
+                        .text(format!("page = {:?}", self.page))
                         .opacity(0.7),
                 )),
         ))

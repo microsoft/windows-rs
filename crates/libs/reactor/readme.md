@@ -71,3 +71,7 @@ Use ordinary functions returning `View` for stateless presentation. Use a `Compo
 subtree owns state, handles messages, uses lifecycle work, or needs its own recomposition boundary.
 Generated metadata value enums and slot enums are non-exhaustive, so matches must include a wildcard
 arm.
+
+Selection indices, empty numeric controls, and nullable date or time picker events use `Option<T>`
+instead of native `-1`, `NaN`, or null sentinels. Omitting a property builder inherits the native
+default; passing `None` sets an explicit empty value.

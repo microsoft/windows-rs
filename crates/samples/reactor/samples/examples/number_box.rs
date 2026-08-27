@@ -3,15 +3,17 @@
 use windows_reactor::*;
 
 struct NumberBoxSample {
-    quantity: f64,
+    quantity: Option<f64>,
 }
 
 impl Component for NumberBoxSample {
-    type Message = f64;
+    type Message = Option<f64>;
     type Input = ();
 
     fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self { quantity: 3.0 }
+        Self {
+            quantity: Some(3.0),
+        }
     }
 
     fn update(&mut self, quantity: Self::Message, _context: &ComponentContext<Self>) {
@@ -20,6 +22,9 @@ impl Component for NumberBoxSample {
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         context.window_title("NumberBox");
+        let quantity = self
+            .quantity
+            .map_or_else(|| "(empty)".to_string(), |value| format!("{value:.0}"));
         StackPanel::new().max_width(320.0).spacing(8.0).children((
             NumberBox::new()
                 .minimum(0.0)
@@ -27,7 +32,7 @@ impl Component for NumberBoxSample {
                 .value(self.quantity)
                 .on_value_changed(context.callback(|value| value))
                 .slot(NumberBoxSlot::Header, "Quantity"),
-            format!("Quantity = {:.0}", self.quantity),
+            format!("Quantity = {quantity}"),
             NumberBox::new()
                 .value(42.0)
                 .is_enabled(false)

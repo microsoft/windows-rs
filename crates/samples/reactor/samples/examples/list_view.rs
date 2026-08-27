@@ -1,14 +1,14 @@
 use windows_reactor::*;
 
 enum Message {
-    Select(i32),
-    SelectMode(i32),
+    Select(Option<usize>),
+    SelectMode(Option<usize>),
     Reorder(Vec<String>),
 }
 
 struct ListViewSample {
-    selected: i32,
-    mode_index: i32,
+    selected: Option<usize>,
+    mode_index: Option<usize>,
     items: Vec<String>,
 }
 
@@ -18,8 +18,8 @@ impl Component for ListViewSample {
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
         Self {
-            selected: -1,
-            mode_index: 1,
+            selected: None,
+            mode_index: Some(1),
             items: ["Red", "Green", "Blue", "Yellow", "Magenta"]
                 .map(str::to_string)
                 .to_vec(),
@@ -43,8 +43,8 @@ impl Component for ListViewSample {
             ListViewSelectionMode::Extended,
         ];
         let mode_names = ["None", "Single", "Multiple", "Extended"];
-        let label = usize::try_from(self.selected)
-            .ok()
+        let label = self
+            .selected
             .and_then(|index| self.items.get(index))
             .map_or("(none)", String::as_str);
 
@@ -71,7 +71,7 @@ impl Component for ListViewSample {
             ListView::new()
                 .height(180.0)
                 .selected_index(self.selected)
-                .selection_mode(modes[self.mode_index as usize])
+                .selection_mode(modes[self.mode_index.unwrap_or_default()])
                 .can_drag_items(true)
                 .can_reorder_items(true)
                 .allow_drop(true)
@@ -91,8 +91,9 @@ impl Component for ListViewSample {
                     }),
                 ),
             format!(
-                "selected_index = {} ({label}) | mode = {:?}",
-                self.selected, modes[self.mode_index as usize]
+                "selected_index = {:?} ({label}) | mode = {:?}",
+                self.selected,
+                modes[self.mode_index.unwrap_or_default()]
             ),
         ))
     }

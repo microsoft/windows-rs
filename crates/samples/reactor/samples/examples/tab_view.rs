@@ -2,12 +2,12 @@ use windows_reactor::*;
 
 struct TabViewSample {
     tabs: Vec<(&'static str, &'static str)>,
-    selected: i32,
+    selected: Option<usize>,
 }
 
 #[derive(Clone)]
 enum Message {
-    Selected(i32),
+    Selected(Option<usize>),
     Close(String),
     Reordered(Vec<String>),
 }
@@ -23,7 +23,7 @@ impl Component for TabViewSample {
                 ("badges", "Badges"),
                 ("notice", "Notice"),
             ],
-            selected: 0,
+            selected: Some(0),
         }
     }
 
@@ -32,11 +32,10 @@ impl Component for TabViewSample {
             Message::Selected(index) => self.selected = index,
             Message::Close(key) => {
                 self.tabs.retain(|(k, _)| *k != key);
-                self.selected = if self.tabs.is_empty() {
-                    -1
-                } else {
-                    self.selected.min(self.tabs.len() as i32 - 1).max(0)
-                };
+                self.selected = self
+                    .selected
+                    .map(|selected| selected.min(self.tabs.len().saturating_sub(1)))
+                    .filter(|_| !self.tabs.is_empty());
             }
             Message::Reordered(order) => {
                 if order.len() == self.tabs.len()
@@ -79,7 +78,7 @@ impl Component for TabViewSample {
                 .on_reordered(context.callback(Message::Reordered))
                 .collection_slot(TabViewSlot::TabItems, items),
             format!(
-                "selected_index = {}, tabs remaining = {}",
+                "selected_index = {:?}, tabs remaining = {}",
                 self.selected,
                 self.tabs.len()
             ),

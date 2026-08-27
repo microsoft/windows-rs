@@ -1271,6 +1271,14 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
             quote! {
                 (Self::#variant(left), Self::#variant(right)) => f64_eq(*left, *right)
             }
+        } else if name == "OptionalF64" {
+            quote! {
+                (Self::#variant(left), Self::#variant(right)) => match (left, right) {
+                    (Some(left), Some(right)) => f64_eq(*left, *right),
+                    (None, None) => true,
+                    _ => false,
+                }
+            }
         } else {
             quote! {
                 (Self::#variant(left), Self::#variant(right)) => left == right
@@ -1282,6 +1290,14 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
         if name == "F64" {
             quote! {
                 (Self::#variant(left), PropertyValue::#variant(right)) => f64_eq(left, *right)
+            }
+        } else if name == "OptionalF64" {
+            quote! {
+                (Self::#variant(left), PropertyValue::#variant(right)) => match (left, right) {
+                    (Some(left), Some(right)) => f64_eq(left, *right),
+                    (None, None) => true,
+                    _ => false,
+                }
             }
         } else if matches!(
             name.as_str(),
@@ -1388,6 +1404,14 @@ fn generate_event_payloads(schema: &ResolvedSchema) -> TokenStream {
         } else if name == "F64" {
             quote! {
                 (Self::#variant(left), Self::#variant(right)) => f64_eq(*left, *right)
+            }
+        } else if name == "OptionalF64" {
+            quote! {
+                (Self::#variant(left), Self::#variant(right)) => match (left, right) {
+                    (Some(left), Some(right)) => f64_eq(*left, *right),
+                    (None, None) => true,
+                    _ => false,
+                }
             }
         } else {
             quote! {
@@ -1660,6 +1684,33 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                     T: Into<String>,
                 {
                     self.#field = Property::from(value.map(Into::into));
+                    self
+                }
+            }
+        } else if property.adapter == Some(PropertyAdapter::NumberBoxValue) {
+            quote! {
+                pub fn #field(mut self, value: impl Into<#value>) -> Self {
+                    let value = value.into().filter(|value| !value.is_nan());
+                    #validation
+                    self.#field = Property::Set(value);
+                    self
+                }
+            }
+        } else if property.adapter == Some(PropertyAdapter::RatingValue) {
+            quote! {
+                pub fn #field(mut self, value: impl Into<#value>) -> Self {
+                    let value = value.into().filter(|value| *value != -1.0);
+                    #validation
+                    self.#field = Property::Set(value);
+                    self
+                }
+            }
+        } else if property.adapter == Some(PropertyAdapter::SelectionIndex) {
+            quote! {
+                pub fn #field(mut self, value: impl Into<#value>) -> Self {
+                    let value = value.into();
+                    #validation
+                    self.#field = Property::Set(value);
                     self
                 }
             }
@@ -2243,7 +2294,7 @@ fn generate_control(control: &ResolvedControl) -> TokenStream {
     let controlled_indices = control
         .properties
         .iter()
-        .filter(|property| property.value == "I32" && property.feedback.is_some())
+        .filter(|property| property.value == "SelectionIndex" && property.feedback.is_some())
         .collect::<Vec<_>>();
     let controlled_collection = if collection_slots.len() == 1 && controlled_indices.len() == 1 {
         let slot = ident(&format!("{}{}", control.name, collection_slots[0].name));
@@ -2296,8 +2347,12 @@ fn value_type(value: &str) -> TokenStream {
         "StrList" => quote! { std::rc::Rc<Vec<String>> },
         "SelectionChange" => quote! { SelectionChange },
         "DateTime" => quote! { windows_time::DateTime },
+        "OptionalDateTime" => quote! { Option<windows_time::DateTime> },
         "Duration" => quote! { std::time::Duration },
+        "OptionalF64" => quote! { Option<f64> },
+        "SelectionIndex" => quote! { Option<usize> },
         "TimeSpan" => quote! { windows_time::TimeSpan },
+        "OptionalTimeSpan" => quote! { Option<windows_time::TimeSpan> },
         "Bool" => quote! { bool },
         "F64" => quote! { f64 },
         "I32" => quote! { i32 },
@@ -2368,6 +2423,29 @@ property = "NewValue"
 
         assert!(output.contains("EventId :: NumberBoxValueChanged"));
         assert!(!output.contains("PropertyId :: NumberBoxNewValue"));
+    }
+
+    #[test]
+    fn semantic_absence_is_exposed_as_option() {
+        let source =
+            std::fs::read_to_string(workspace_path("crates/tools/reactor/src/winui.toml")).unwrap();
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let resolved = Schema::parse(&source).unwrap().resolve(&metadata).unwrap();
+        let output: String = generate(&resolved)
+            .chars()
+            .filter(|character| !character.is_whitespace())
+            .collect();
+
+        assert!(output.contains("pubfnselected_index(mutself,value:implInto<Option<usize>>"));
+        assert!(output.contains("callback:implIntoPayloadCallback<Option<usize>>"));
+        assert!(output.contains("pubfnvalue(mutself,value:implInto<Option<f64>>"));
+        assert!(
+            output.contains("callback:implIntoPayloadCallback<Option<windows_time::DateTime>>")
+        );
+        assert!(
+            output.contains("callback:implIntoPayloadCallback<Option<windows_time::TimeSpan>>")
+        );
+        assert!(!output.contains("selected_index_optional"));
     }
 
     #[test]

@@ -2,25 +2,25 @@ use crate::controls::*;
 use windows_reactor::*;
 
 pub struct RadioButtonPage {
-    selected: i32,
+    selected: Option<usize>,
 }
 
 impl Component for RadioButtonPage {
-    type Message = i32;
+    type Message = Option<usize>;
     type Input = ();
 
     fn create(_: &(), _: &ComponentContext<Self>) -> Self {
-        Self { selected: 0 }
+        Self { selected: Some(0) }
     }
 
-    fn update(&mut self, selected: i32, _: &ComponentContext<Self>) {
+    fn update(&mut self, selected: Option<usize>, _: &ComponentContext<Self>) {
         self.selected = selected;
     }
 
     fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
         let options = ["Option A", "Option B", "Option C"];
-        let label = usize::try_from(self.selected)
-            .ok()
+        let label = self
+            .selected
             .and_then(|index| options.get(index))
             .unwrap_or(&"?");
         page_content(

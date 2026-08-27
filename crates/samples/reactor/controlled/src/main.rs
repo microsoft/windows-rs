@@ -1,12 +1,12 @@
 use windows_reactor::*;
 
 struct Controlled {
-    number: f64,
+    number: Option<f64>,
     text: String,
 }
 
 enum Message {
-    Number(f64),
+    Number(Option<f64>),
     Text(String),
 }
 
@@ -16,7 +16,7 @@ impl Component for Controlled {
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
         Self {
-            number: 5.0,
+            number: Some(5.0),
             text: String::new(),
         }
     }
@@ -40,7 +40,8 @@ impl Component for Controlled {
                 .maximum(10.0)
                 .value(self.number)
                 .on_value_changed(context.callback(Message::Number)),
-            self.number.to_string(),
+            self.number
+                .map_or_else(|| "(empty)".to_string(), |number| number.to_string()),
         ))
     }
 }

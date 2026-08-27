@@ -2,19 +2,19 @@ use crate::controls::*;
 use windows_reactor::*;
 
 pub struct TabViewPage {
-    basic_selected: i32,
+    basic_selected: Option<usize>,
     basic_tabs: Vec<u32>,
-    dynamic_selected: i32,
+    dynamic_selected: Option<usize>,
     dynamic_tabs: Vec<u32>,
     next_tab: u32,
 }
 
 #[derive(Clone)]
 pub enum Message {
-    BasicSelected(i32),
+    BasicSelected(Option<usize>),
     CloseBasic(String),
     CloseDynamic(String),
-    DynamicSelected(i32),
+    DynamicSelected(Option<usize>),
     Add,
     Remove,
 }
@@ -35,18 +35,17 @@ fn tabs(tabs: &[u32], closable: bool) -> Vec<KeyedView> {
         .collect()
 }
 
-fn remove_tab(tabs: &mut Vec<u32>, selected: &mut i32, tag: &str) {
+fn remove_tab(tabs: &mut Vec<u32>, selected: &mut Option<usize>, tag: &str) {
     let Some(index) = tabs.iter().position(|tab| tag == format!("tab-{tab}")) else {
         return;
     };
     tabs.remove(index);
-    if tabs.is_empty() {
-        *selected = -1;
-    } else if index < *selected as usize {
-        *selected -= 1;
-    } else if index == *selected as usize {
-        *selected = (index.min(tabs.len() - 1)) as i32;
-    }
+    *selected = match *selected {
+        _ if tabs.is_empty() => None,
+        Some(current) if index < current => Some(current - 1),
+        Some(current) if index == current => Some(index.min(tabs.len() - 1)),
+        current => current,
+    };
 }
 
 impl Component for TabViewPage {
@@ -55,9 +54,9 @@ impl Component for TabViewPage {
 
     fn create(_: &(), _: &ComponentContext<Self>) -> Self {
         Self {
-            basic_selected: 0,
+            basic_selected: Some(0),
             basic_tabs: vec![1, 2, 3],
-            dynamic_selected: 0,
+            dynamic_selected: Some(0),
             dynamic_tabs: vec![1, 2, 3],
             next_tab: 4,
         }
@@ -75,12 +74,14 @@ impl Component for TabViewPage {
             Message::DynamicSelected(value) => self.dynamic_selected = value,
             Message::Add => {
                 self.dynamic_tabs.push(self.next_tab);
-                self.dynamic_selected = self.dynamic_tabs.len() as i32 - 1;
+                self.dynamic_selected = Some(self.dynamic_tabs.len() - 1);
                 self.next_tab += 1;
             }
             Message::Remove => {
-                if self.dynamic_tabs.len() > 1 {
-                    let tag = format!("tab-{}", self.dynamic_tabs[self.dynamic_selected as usize]);
+                if self.dynamic_tabs.len() > 1
+                    && let Some(selected) = self.dynamic_selected
+                {
+                    let tag = format!("tab-{}", self.dynamic_tabs[selected]);
                     remove_tab(&mut self.dynamic_tabs, &mut self.dynamic_selected, &tag);
                 }
             }

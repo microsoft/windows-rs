@@ -3,7 +3,7 @@ use windows_reactor::*;
 struct TabViewAddButtonSample {
     tabs: Vec<Tab>,
     next_id: u32,
-    selected: i32,
+    selected: Option<usize>,
 }
 
 #[derive(Clone)]
@@ -14,7 +14,7 @@ struct Tab {
 
 #[derive(Clone)]
 enum Message {
-    Selected(i32),
+    Selected(Option<usize>),
     Add,
     Close(String),
     Reordered(Vec<String>),
@@ -37,7 +37,7 @@ impl Component for TabViewAddButtonSample {
                 },
             ],
             next_id: 3,
-            selected: 0,
+            selected: Some(0),
         }
     }
 
@@ -50,15 +50,14 @@ impl Component for TabViewAddButtonSample {
                     label: format!("Tab {}", self.next_id),
                 });
                 self.next_id += 1;
-                self.selected = self.tabs.len() as i32 - 1;
+                self.selected = Some(self.tabs.len() - 1);
             }
             Message::Close(key) => {
                 self.tabs.retain(|tab| tab.id.to_string() != key);
-                self.selected = if self.tabs.is_empty() {
-                    -1
-                } else {
-                    self.selected.min(self.tabs.len() as i32 - 1).max(0)
-                };
+                self.selected = self
+                    .selected
+                    .map(|selected| selected.min(self.tabs.len().saturating_sub(1)))
+                    .filter(|_| !self.tabs.is_empty());
             }
             Message::Reordered(order) => {
                 if order.len() == self.tabs.len()
@@ -107,7 +106,7 @@ impl Component for TabViewAddButtonSample {
                 .on_reordered(context.callback(Message::Reordered))
                 .collection_slot(TabViewSlot::TabItems, items),
             format!(
-                "selected = {}, total tabs = {}",
+                "selected = {:?}, total tabs = {}",
                 self.selected,
                 self.tabs.len()
             ),

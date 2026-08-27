@@ -823,7 +823,7 @@ fn component_rejected_controlled_edit_restores_the_desired_value() {
 
 #[test]
 fn number_box_orders_bounds_before_value_and_repairs_rejected_input() {
-    let observed = Rc::new(Cell::new(0.0));
+    let observed = Rc::new(Cell::new(None));
     let capture = Rc::clone(&observed);
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount(
@@ -863,10 +863,19 @@ fn number_box_orders_bounds_before_value_and_repairs_rejected_input() {
         root,
         EventId::NumberBoxValueChanged,
         revision,
-        EventPayload::F64(12.0),
+        EventPayload::OptionalF64(Some(12.0)),
     ));
     assert_eq!(pump.dispatch_events(), Ok(1));
-    assert_eq!(observed.get(), 12.0);
+    assert_eq!(observed.get(), Some(12.0));
+
+    pump.queue_event(QueuedEvent::new(
+        root,
+        EventId::NumberBoxValueChanged,
+        revision,
+        EventPayload::OptionalF64(None),
+    ));
+    assert_eq!(pump.dispatch_events(), Ok(1));
+    assert_eq!(observed.get(), None);
 
     pump.update(
         NumberBox::new()
@@ -882,7 +891,7 @@ fn number_box_orders_bounds_before_value_and_repairs_rejected_input() {
             .node(root)
             .unwrap()
             .property(PropertyId::NumberBoxValue),
-        Some(&PropertyValue::F64(5.0))
+        Some(&PropertyValue::OptionalF64(Some(5.0)))
     );
 }
 
@@ -919,7 +928,7 @@ fn normalized_feedback_updates_known_state_without_invoking_the_callback() {
         root,
         EventId::NumberBoxValueChanged,
         revision,
-        EventPayload::F64(40.0),
+        EventPayload::OptionalF64(Some(40.0)),
     ));
 
     assert_eq!(pump.dispatch_events(), Ok(0));
@@ -931,7 +940,7 @@ fn normalized_feedback_updates_known_state_without_invoking_the_callback() {
             .unwrap()
             .properties
             .get(&PropertyId::NumberBoxValue),
-        Some(&Some(PropertyValue::F64(40.0)))
+        Some(&Some(PropertyValue::OptionalF64(Some(40.0))))
     );
 
     pump.update(
@@ -947,7 +956,7 @@ fn normalized_feedback_updates_known_state_without_invoking_the_callback() {
         command,
         Command::SetProperty {
             property: PropertyId::NumberBoxValue,
-            value: PropertyValue::F64(50.0),
+            value: PropertyValue::OptionalF64(Some(50.0)),
             ..
         }
     )));
@@ -959,12 +968,28 @@ fn number_box_nan_value_is_idempotent() {
     pump.mount(NumberBox::new().value(f64::NAN).into()).unwrap();
     let batches = pump.runtime().batches();
 
-    pump.update(NumberBox::new().value(f64::NAN).into())
+    pump.update(NumberBox::new().value(None).into()).unwrap();
+
+    assert_eq!(pump.runtime().batches(), batches);
+    assert_eq!(
+        pump.runtime()
+            .node(pump.root().unwrap())
+            .unwrap()
+            .property(PropertyId::NumberBoxValue),
+        Some(&PropertyValue::OptionalF64(None))
+    );
+}
+
+#[test]
+fn rating_control_sentinel_is_canonicalized() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount(RatingControl::new().value(-1.0).into()).unwrap();
+    let batches = pump.runtime().batches();
+
+    pump.update(RatingControl::new().value(None).into())
         .unwrap();
 
     assert_eq!(pump.runtime().batches(), batches);
-    assert_eq!(PropertyValue::F64(f64::NAN), PropertyValue::F64(f64::NAN));
-    assert_eq!(EventPayload::F64(f64::NAN), EventPayload::F64(f64::NAN));
 }
 
 #[test]
@@ -1052,7 +1077,7 @@ fn slider_nan_value_is_idempotent() {
 
 #[test]
 fn rating_control_routes_normalized_value_feedback() {
-    let observed = Rc::new(Cell::new(0.0));
+    let observed = Rc::new(Cell::new(None));
     let capture = Rc::clone(&observed);
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount(
@@ -1072,16 +1097,16 @@ fn rating_control_routes_normalized_value_feedback() {
         root,
         EventId::RatingControlValueChanged,
         revision,
-        EventPayload::F64(4.5),
+        EventPayload::OptionalF64(Some(4.5)),
     ));
 
     assert_eq!(pump.dispatch_events(), Ok(1));
-    assert_eq!(observed.get(), 4.5);
+    assert_eq!(observed.get(), Some(4.5));
 }
 
 #[test]
 fn combo_box_routes_selected_index_feedback() {
-    let observed = Rc::new(Cell::new(-1));
+    let observed = Rc::new(Cell::new(None));
     let capture = Rc::clone(&observed);
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount(
@@ -1101,16 +1126,25 @@ fn combo_box_routes_selected_index_feedback() {
         root,
         EventId::ComboBoxSelectionChanged,
         revision,
-        EventPayload::I32(2),
+        EventPayload::SelectionIndex(Some(2)),
     ));
 
     assert_eq!(pump.dispatch_events(), Ok(1));
-    assert_eq!(observed.get(), 2);
+    assert_eq!(observed.get(), Some(2));
+
+    pump.queue_event(QueuedEvent::new(
+        root,
+        EventId::ComboBoxSelectionChanged,
+        revision,
+        EventPayload::SelectionIndex(None),
+    ));
+    assert_eq!(pump.dispatch_events(), Ok(1));
+    assert_eq!(observed.get(), None);
 }
 
 #[test]
 fn radio_buttons_routes_selected_index_feedback() {
-    let observed = Rc::new(Cell::new(-1));
+    let observed = Rc::new(Cell::new(None));
     let capture = Rc::clone(&observed);
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount(
@@ -1129,11 +1163,11 @@ fn radio_buttons_routes_selected_index_feedback() {
         root,
         EventId::RadioButtonsSelectionChanged,
         revision,
-        EventPayload::I32(2),
+        EventPayload::SelectionIndex(Some(2)),
     ));
 
     assert_eq!(pump.dispatch_events(), Ok(1));
-    assert_eq!(observed.get(), 2);
+    assert_eq!(observed.get(), Some(2));
 
     pump.update(
         RadioButtons::new()
@@ -1152,7 +1186,7 @@ fn radio_buttons_routes_selected_index_feedback() {
                 command,
                 Command::SetProperty {
                     property: PropertyId::RadioButtonsSelectedIndex,
-                    value: PropertyValue::I32(0),
+                    value: PropertyValue::SelectionIndex(Some(0)),
                     ..
                 }
             ))
@@ -1306,8 +1340,9 @@ fn optional_controlled_values_clear_and_remain_idempotent() {
             .iter()
             .any(|command| matches!(
                 command,
-                Command::ClearProperty {
+                Command::SetProperty {
                     property: PropertyId::NumberBoxValue,
+                    value: PropertyValue::OptionalF64(None),
                     ..
                 }
             ))
@@ -1317,6 +1352,22 @@ fn optional_controlled_values_clear_and_remain_idempotent() {
         .update(NumberBox::new().value(None).into())
         .unwrap();
     assert_eq!(number_box.runtime().batches(), batches);
+    number_box.update(NumberBox::new().into()).unwrap();
+    assert!(
+        number_box
+            .runtime()
+            .commands()
+            .last()
+            .unwrap()
+            .iter()
+            .any(|command| matches!(
+                command,
+                Command::ClearProperty {
+                    property: PropertyId::NumberBoxValue,
+                    ..
+                }
+            ))
+    );
 
     let mut slider = Pump::new(RecordingRuntime::default());
     slider.mount(Slider::new().value(5.0).into()).unwrap();
@@ -1367,6 +1418,37 @@ fn optional_controlled_values_clear_and_remain_idempotent() {
         .update(ToggleSwitch::new().is_on(None).into())
         .unwrap();
     assert_eq!(toggle.runtime().batches(), batches);
+}
+
+#[test]
+fn selection_distinguishes_inherited_from_explicit_none() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount(ComboBox::new().selected_index(None).into())
+        .unwrap();
+    let root = pump.root().unwrap();
+    assert_eq!(
+        pump.runtime()
+            .node(root)
+            .unwrap()
+            .property(PropertyId::ComboBoxSelectedIndex),
+        Some(&PropertyValue::SelectionIndex(None))
+    );
+
+    pump.update(ComboBox::new().into()).unwrap();
+    assert!(
+        pump.runtime()
+            .commands()
+            .last()
+            .unwrap()
+            .iter()
+            .any(|command| matches!(
+                command,
+                Command::ClearProperty {
+                    property: PropertyId::ComboBoxSelectedIndex,
+                    ..
+                }
+            ))
+    );
 }
 
 #[test]
@@ -1447,7 +1529,7 @@ fn toggle_switch_routes_bool_feedback_and_restores_desired_state() {
 
 #[test]
 fn tab_view_routes_selected_index_feedback() {
-    let observed = Rc::new(Cell::new(-1));
+    let observed = Rc::new(Cell::new(None));
     let capture = Rc::clone(&observed);
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(
@@ -1472,11 +1554,11 @@ fn tab_view_routes_selected_index_feedback() {
         root,
         EventId::TabViewSelectionChanged,
         revision,
-        EventPayload::I32(1),
+        EventPayload::SelectionIndex(Some(1)),
     ));
 
     assert_eq!(pump.dispatch_events(), Ok(1));
-    assert_eq!(observed.get(), 1);
+    assert_eq!(observed.get(), Some(1));
 }
 
 #[test]
@@ -1584,9 +1666,9 @@ fn date_and_time_pickers_route_typed_values() {
         universal_time: 123,
     };
     let time = TimeSpan { duration: 456 };
-    let selected_date = Rc::new(Cell::new(DateTime::default()));
-    let selected_time = Rc::new(Cell::new(TimeSpan::default()));
-    let calendar_date = Rc::new(Cell::new(DateTime::default()));
+    let selected_date = Rc::new(Cell::new(None));
+    let selected_time = Rc::new(Cell::new(None));
+    let calendar_date = Rc::new(Cell::new(None));
 
     let date_capture = Rc::clone(&selected_date);
     let mut date_pump = Pump::new(RecordingRuntime::default());
@@ -1605,10 +1687,18 @@ fn date_and_time_pickers_route_typed_values() {
         root,
         EventId::DatePickerSelectedDateChanged,
         revision,
-        EventPayload::DateTime(date),
+        EventPayload::OptionalDateTime(Some(date)),
     ));
     assert_eq!(date_pump.dispatch_events(), Ok(1));
-    assert_eq!(selected_date.get(), date);
+    assert_eq!(selected_date.get(), Some(date));
+    date_pump.queue_event(QueuedEvent::new(
+        root,
+        EventId::DatePickerSelectedDateChanged,
+        revision,
+        EventPayload::OptionalDateTime(None),
+    ));
+    assert_eq!(date_pump.dispatch_events(), Ok(1));
+    assert_eq!(selected_date.get(), None);
 
     let time_capture = Rc::clone(&selected_time);
     let mut time_pump = Pump::new(RecordingRuntime::default());
@@ -1627,10 +1717,10 @@ fn date_and_time_pickers_route_typed_values() {
         root,
         EventId::TimePickerSelectedTimeChanged,
         revision,
-        EventPayload::TimeSpan(time),
+        EventPayload::OptionalTimeSpan(Some(time)),
     ));
     assert_eq!(time_pump.dispatch_events(), Ok(1));
-    assert_eq!(selected_time.get(), time);
+    assert_eq!(selected_time.get(), Some(time));
 
     let calendar_capture = Rc::clone(&calendar_date);
     let mut calendar_pump = Pump::new(RecordingRuntime::default());
@@ -1649,10 +1739,10 @@ fn date_and_time_pickers_route_typed_values() {
         root,
         EventId::CalendarDatePickerDateChanged,
         revision,
-        EventPayload::DateTime(date),
+        EventPayload::OptionalDateTime(Some(date)),
     ));
     assert_eq!(calendar_pump.dispatch_events(), Ok(1));
-    assert_eq!(calendar_date.get(), date);
+    assert_eq!(calendar_date.get(), Some(date));
 }
 
 #[test]
@@ -1768,14 +1858,14 @@ fn calendar_view_routes_selected_dates_changed() {
 
 #[test]
 fn list_and_grid_views_route_selection_and_reordered_tags() {
-    let selected = Rc::new(Cell::new(-1));
+    let selected = Rc::new(Cell::new(None));
     let selected_capture = Rc::clone(&selected);
     let reordered = Rc::new(RefCell::new(Vec::new()));
     let reordered_capture = Rc::clone(&reordered);
     let mut list = Pump::new(RecordingRuntime::default());
     list.mount_view(
         ListView::new()
-            .selected_index(-1)
+            .selected_index(None)
             .on_selection_changed(move |index| selected_capture.set(index))
             .on_reordered(move |items: Vec<String>| {
                 *reordered_capture.borrow_mut() = items;
@@ -1800,7 +1890,7 @@ fn list_and_grid_views_route_selection_and_reordered_tags() {
         root,
         EventId::ListViewSelectionChanged,
         selection_revision,
-        EventPayload::I32(1),
+        EventPayload::SelectionIndex(Some(1)),
     ));
     list.queue_event(QueuedEvent::new(
         root,
@@ -1809,7 +1899,7 @@ fn list_and_grid_views_route_selection_and_reordered_tags() {
         EventPayload::StrList(Rc::new(vec!["b".to_string(), "a".to_string()])),
     ));
     assert_eq!(list.dispatch_events(), Ok(2));
-    assert_eq!(selected.get(), 1);
+    assert_eq!(selected.get(), Some(1));
     assert_eq!(&*reordered.borrow(), &["b", "a"]);
 
     let grid_order = Rc::new(RefCell::new(Vec::new()));

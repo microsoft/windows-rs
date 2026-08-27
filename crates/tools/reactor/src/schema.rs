@@ -107,6 +107,7 @@ pub(crate) enum PropertyAdapter {
     ItemTag,
     ItemTags,
     NavigationDisplayMode,
+    NumberBoxValue,
     PathData,
     PointerCapture,
     PointerEvent,
@@ -115,10 +116,12 @@ pub(crate) enum PropertyAdapter {
     DropPolicy,
     ResourceOverrides,
     ResourceStyle,
+    RatingValue,
     RichEditText,
     RichTextBlocks,
     TreeNodeContent,
     Uri,
+    SelectionIndex,
 }
 
 #[derive(Clone, Deserialize)]
@@ -304,7 +307,11 @@ pub(crate) enum EventSubscription {
 pub(crate) enum EventPayloadConversion {
     Identity,
     Field(String),
+    Nullable,
+    NumberBoxValue,
+    RatingValue,
     Selection,
+    SelectionIndex,
 }
 
 impl Schema {
@@ -468,7 +475,13 @@ impl Schema {
                 if property.adapter.is_some()
                     && !matches!(
                         property.adapter,
-                        Some(PropertyAdapter::ImplicitScale | PropertyAdapter::RichEditText)
+                        Some(
+                            PropertyAdapter::ImplicitScale
+                                | PropertyAdapter::NumberBoxValue
+                                | PropertyAdapter::RatingValue
+                                | PropertyAdapter::RichEditText
+                                | PropertyAdapter::SelectionIndex
+                        )
                     )
                     && (property.theme_style
                         || feedback.is_some()
@@ -508,6 +521,19 @@ impl Schema {
                             "{}.{} content_dialog_result is an event-only adapter",
                             control.type_name, property.name
                         ));
+                    }
+                    Some(PropertyAdapter::NumberBoxValue) => {
+                        if control.type_name != "Microsoft.UI.Xaml.Controls.NumberBox"
+                            || property.name != "Value"
+                            || metadata.infer_value_type(&name, &method)
+                                != Some(("F64".to_string(), true))
+                        {
+                            return Err(format!(
+                                "{}.{} number_box_value requires NumberBox.Value",
+                                control.type_name, property.name
+                            ));
+                        }
+                        ("OptionalF64".to_string(), true)
                     }
                     Some(PropertyAdapter::InspectableString) => {
                         if metadata.classify_param(&name, &method) != Some(ParamClass::IInspectable)
@@ -646,6 +672,19 @@ impl Schema {
                         }
                         ("Bool".to_string(), true)
                     }
+                    Some(PropertyAdapter::RatingValue) => {
+                        if control.type_name != "Microsoft.UI.Xaml.Controls.RatingControl"
+                            || property.name != "Value"
+                            || metadata.infer_value_type(&name, &method)
+                                != Some(("F64".to_string(), true))
+                        {
+                            return Err(format!(
+                                "{}.{} rating_value requires RatingControl.Value",
+                                control.type_name, property.name
+                            ));
+                        }
+                        ("OptionalF64".to_string(), true)
+                    }
                     Some(PropertyAdapter::ResourceStyle) => {
                         if metadata.param_class_name(&name, &method).as_deref()
                             != Some("Microsoft.UI.Xaml.Style")
@@ -712,6 +751,18 @@ impl Schema {
                             ));
                         }
                         ("Str".to_string(), false)
+                    }
+                    Some(PropertyAdapter::SelectionIndex) => {
+                        if property.name != "SelectedIndex"
+                            || metadata.infer_value_type(&name, &method)
+                                != Some(("I32".to_string(), true))
+                        {
+                            return Err(format!(
+                                "{}.{} selection_index requires an I32 SelectedIndex property",
+                                control.type_name, property.name
+                            ));
+                        }
+                        ("SelectionIndex".to_string(), true)
                     }
                     None if property.theme_style => ("Brush".to_string(), true),
                     None => metadata.infer_value_type(&name, &method).ok_or_else(|| {
@@ -1224,14 +1275,38 @@ impl Schema {
                         EventSubscription::Metadata,
                     )
                 };
-                let conversion = if selection.is_some() {
+                let mut conversion = if selection.is_some() {
                     EventPayloadConversion::Selection
                 } else {
                     match conversion {
                         ReadValueConversion::Identity => EventPayloadConversion::Identity,
                         ReadValueConversion::Field(field) => EventPayloadConversion::Field(field),
+                        ReadValueConversion::Nullable => EventPayloadConversion::Nullable,
                     }
                 };
+                let mut payload = payload;
+                if let Some(property) = properties.iter().find(|property| {
+                    property.observes_feedback
+                        && property.feedback.as_deref() == Some(event.name.as_str())
+                }) {
+                    match property.adapter {
+                        Some(PropertyAdapter::NumberBoxValue) => {
+                            payload = "OptionalF64".to_string();
+                            conversion = EventPayloadConversion::NumberBoxValue;
+                        }
+                        Some(PropertyAdapter::RatingValue) => {
+                            payload = "OptionalF64".to_string();
+                            conversion = EventPayloadConversion::RatingValue;
+                        }
+                        Some(PropertyAdapter::SelectionIndex) => {
+                            payload = "SelectionIndex".to_string();
+                            conversion = EventPayloadConversion::SelectionIndex;
+                        }
+                        _ => {}
+                    }
+                } else if conversion == EventPayloadConversion::Nullable {
+                    payload = format!("Optional{payload}");
+                }
 
                 events.push(ResolvedEvent {
                     field: event
@@ -1833,6 +1908,41 @@ adapter = "inspectable_string_list"
             .err()
             .unwrap();
         assert!(error.contains("inspectable_string_list requires an IInspectable property"));
+    }
+
+    #[test]
+    fn rejects_semantic_value_adapters_on_unrelated_properties() {
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        for (adapter, expected) in [
+            (
+                "number_box_value",
+                "number_box_value requires NumberBox.Value",
+            ),
+            ("rating_value", "rating_value requires RatingControl.Value"),
+            (
+                "selection_index",
+                "selection_index requires an I32 SelectedIndex property",
+            ),
+        ] {
+            let source = format!(
+                r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TextBlock"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Text"
+clearable = true
+adapter = "{adapter}"
+"#
+            );
+            let error = Schema::parse(&source)
+                .unwrap()
+                .resolve(&metadata)
+                .err()
+                .unwrap();
+            assert!(error.contains(expected), "{error}");
+        }
     }
 
     #[test]

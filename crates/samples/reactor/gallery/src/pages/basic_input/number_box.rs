@@ -2,14 +2,14 @@ use crate::controls::*;
 use windows_reactor::*;
 
 pub struct NumberBoxPage {
-    value: f64,
-    clamped: f64,
+    value: Option<f64>,
+    clamped: Option<f64>,
 }
 
 #[derive(Clone)]
 pub enum Message {
-    Value(f64),
-    Clamped(f64),
+    Value(Option<f64>),
+    Clamped(Option<f64>),
 }
 
 impl Component for NumberBoxPage {
@@ -18,8 +18,8 @@ impl Component for NumberBoxPage {
 
     fn create(_: &(), _: &ComponentContext<Self>) -> Self {
         Self {
-            value: 42.0,
-            clamped: 5.0,
+            value: Some(42.0),
+            clamped: Some(5.0),
         }
     }
 
@@ -44,7 +44,7 @@ impl Component for NumberBoxPage {
                                 .value(self.value)
                                 .on_value_changed(context.callback(Message::Value))
                                 .slot(NumberBoxSlot::Header, "Quantity"),
-                            format!("Value: {}", self.value),
+                            format!("Value: {:?}", self.value),
                         )),
                         "NumberBox::new().value(value).on_value_changed(handler)",
                     ),
@@ -60,7 +60,7 @@ impl Component for NumberBoxPage {
                                 .value(self.clamped)
                                 .on_value_changed(context.callback(Message::Clamped)),
                             TextBlock::new()
-                                .text(format!("Clamped value: {}", self.clamped))
+                                .text(format!("Clamped value: {:?}", self.clamped))
                                 .opacity(0.6),
                         )),
                         "NumberBox::new().minimum(1.0).maximum(10.0).value(value)",

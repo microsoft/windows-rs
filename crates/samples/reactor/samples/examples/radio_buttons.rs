@@ -3,25 +3,25 @@
 use windows_reactor::*;
 
 struct RadioButtonsSample {
-    selected: i32,
+    selected: Option<usize>,
 }
 
 impl Component for RadioButtonsSample {
-    type Message = i32;
+    type Message = Option<usize>;
     type Input = ();
 
     fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self { selected: 0 }
+        Self { selected: Some(0) }
     }
 
-    fn update(&mut self, message: i32, _context: &ComponentContext<Self>) {
+    fn update(&mut self, message: Option<usize>, _context: &ComponentContext<Self>) {
         self.selected = message;
     }
 
     fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
         const OPTIONS: [&str; 3] = ["Email", "SMS", "None"];
-        let label = usize::try_from(self.selected)
-            .ok()
+        let label = self
+            .selected
             .and_then(|index| OPTIONS.get(index))
             .copied()
             .unwrap_or("(none)");
@@ -34,7 +34,7 @@ impl Component for RadioButtonsSample {
                 .max_columns(3)
                 .on_selection_changed(context.callback(|index| index))
                 .slot(RadioButtonsSlot::Header, "Notifications"),
-            format!("selected_index = {} ({label})", self.selected),
+            format!("selected_index = {:?} ({label})", self.selected),
         ))
     }
 }

@@ -3,11 +3,11 @@
 use windows_reactor::*;
 
 struct RatingControlSample {
-    rating: f64,
+    rating: Option<f64>,
 }
 
 enum Message {
-    RatingChanged(f64),
+    RatingChanged(Option<f64>),
 }
 
 impl Component for RatingControlSample {
@@ -15,7 +15,7 @@ impl Component for RatingControlSample {
     type Input = ();
 
     fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self { rating: 3.0 }
+        Self { rating: Some(3.0) }
     }
 
     fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
@@ -30,7 +30,11 @@ impl Component for RatingControlSample {
             RatingControl::new()
                 .value(self.rating)
                 .on_value_changed(context.callback(Message::RatingChanged)),
-            format!("Rating: {:.1} / 5", self.rating),
+            format!(
+                "Rating: {} / 5",
+                self.rating
+                    .map_or_else(|| "(none)".to_string(), |value| format!("{value:.1}"))
+            ),
             RatingControl::new()
                 .value(4.0)
                 .max_rating(10)

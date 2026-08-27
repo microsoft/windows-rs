@@ -75,6 +75,15 @@ handles messages, uses lifecycle work, or needs its own recomposition boundary.
 Generated metadata value enums and slot enums are non-exhaustive. Matches outside the crate must
 include a wildcard arm so a newly projected WinUI value or slot does not break source compatibility.
 
+Native sentinel values and nullable event values are represented as `Option<T>`. Selection indices
+use `Option<usize>`, while empty `NumberBox` and `RatingControl` values use `Option<f64>`. Date and
+time picker callbacks receive `Option<DateTime>` or `Option<TimeSpan>`. Applications do not need to
+handle `-1`, `NaN`, nullable WinRT references, or signed-to-unsigned index conversions.
+
+Omitting one of these property builders inherits the native default. Calling the builder with
+`None` sets an explicit empty value, so controls such as `Pivot` and `TabView` can distinguish their
+default first-item selection from no selection.
+
 ### Migration from the render-and-hook API
 
 The Component/View API replaces the earlier render-function and hook frontend:

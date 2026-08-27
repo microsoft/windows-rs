@@ -5,7 +5,7 @@ struct CalendarDatePickerSample {
 }
 
 impl Component for CalendarDatePickerSample {
-    type Message = DateTime;
+    type Message = Option<DateTime>;
     type Input = ();
 
     fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
@@ -14,18 +14,21 @@ impl Component for CalendarDatePickerSample {
         }
     }
 
-    fn update(&mut self, selected: DateTime, _context: &ComponentContext<Self>) {
+    fn update(&mut self, selected: Option<DateTime>, _context: &ComponentContext<Self>) {
         let now = DateTime::now();
-        self.label = match selected.checked_duration_since(now) {
-            Some(span) => {
-                let days = span.whole_days();
-                match days.cmp(&0) {
-                    std::cmp::Ordering::Greater => format!("{days} day(s) from now"),
-                    std::cmp::Ordering::Less => format!("{} day(s) ago", days.abs()),
-                    std::cmp::Ordering::Equal => "That's today!".to_string(),
+        self.label = match selected {
+            Some(selected) => match selected.checked_duration_since(now) {
+                Some(span) => {
+                    let days = span.whole_days();
+                    match days.cmp(&0) {
+                        std::cmp::Ordering::Greater => format!("{days} day(s) from now"),
+                        std::cmp::Ordering::Less => format!("{} day(s) ago", days.abs()),
+                        std::cmp::Ordering::Equal => "That's today!".to_string(),
+                    }
                 }
-            }
-            None => "Date too far away to compute".to_string(),
+                None => "Date too far away to compute".to_string(),
+            },
+            None => "No date selected".to_string(),
         };
     }
 

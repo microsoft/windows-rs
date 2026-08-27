@@ -2,25 +2,25 @@ use crate::controls::*;
 use windows_reactor::*;
 
 pub struct ComboBoxPage {
-    selected: i32,
+    selected: Option<usize>,
 }
 
 impl Component for ComboBoxPage {
-    type Message = i32;
+    type Message = Option<usize>;
     type Input = ();
 
     fn create(_: &(), _: &ComponentContext<Self>) -> Self {
-        Self { selected: -1 }
+        Self { selected: None }
     }
 
-    fn update(&mut self, selected: i32, _: &ComponentContext<Self>) {
+    fn update(&mut self, selected: Option<usize>, _: &ComponentContext<Self>) {
         self.selected = selected;
     }
 
     fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
         let colors = ["Red", "Green", "Blue", "Yellow"];
-        let label = usize::try_from(self.selected)
-            .ok()
+        let label = self
+            .selected
             .and_then(|index| colors.get(index))
             .unwrap_or(&"(none)");
         page_content(

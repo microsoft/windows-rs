@@ -2,14 +2,14 @@ use crate::controls::*;
 use windows_reactor::*;
 
 pub struct ListViewPage {
-    selected_contact: i32,
-    selected_playlist: i32,
+    selected_contact: Option<usize>,
+    selected_playlist: Option<usize>,
 }
 
 #[derive(Clone)]
 pub enum Message {
-    SelectContact(i32),
-    SelectPlaylist(i32),
+    SelectContact(Option<usize>),
+    SelectPlaylist(Option<usize>),
 }
 
 const INBOX_ITEMS: [&str; 6] = [
@@ -31,8 +31,8 @@ impl Component for ListViewPage {
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
         Self {
-            selected_contact: 1,
-            selected_playlist: 0,
+            selected_contact: Some(1),
+            selected_playlist: Some(0),
         }
     }
 
@@ -45,11 +45,11 @@ impl Component for ListViewPage {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         let contact_label = CONTACTS
-            .get(self.selected_contact.max(0) as usize)
+            .get(self.selected_contact.unwrap_or(usize::MAX))
             .copied()
             .unwrap_or("(none)");
         let playlist_label = PLAYLISTS
-            .get(self.selected_playlist.max(0) as usize)
+            .get(self.selected_playlist.unwrap_or(usize::MAX))
             .copied()
             .unwrap_or("(none)");
 

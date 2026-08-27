@@ -2,12 +2,12 @@ use crate::controls::*;
 use windows_reactor::*;
 
 pub struct GridViewPage {
-    selected: i32,
+    selected: Option<usize>,
 }
 
 #[derive(Clone)]
 pub enum Message {
-    Selected(i32),
+    Selected(Option<usize>),
 }
 
 impl Component for GridViewPage {
@@ -15,7 +15,7 @@ impl Component for GridViewPage {
     type Input = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
-        Self { selected: -1 }
+        Self { selected: None }
     }
 
     fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
@@ -26,11 +26,10 @@ impl Component for GridViewPage {
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
         let items: Vec<String> = (1..=12).map(|i| format!("Item {i}")).collect();
-        let label = if self.selected >= 0 {
-            format!("Selected: Item {}", self.selected + 1)
-        } else {
-            "No selection".to_string()
-        };
+        let label = self.selected.map_or_else(
+            || "No selection".to_string(),
+            |index| format!("Selected: Item {}", index + 1),
+        );
 
         page_content(
             "GridView",

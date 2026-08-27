@@ -3,18 +3,18 @@
 use windows_reactor::*;
 
 struct PivotSample {
-    selected: i32,
+    selected: Option<usize>,
 }
 
 impl Component for PivotSample {
-    type Message = i32;
+    type Message = Option<usize>;
     type Input = ();
 
     fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self { selected: 0 }
+        Self { selected: Some(0) }
     }
 
-    fn update(&mut self, message: i32, _context: &ComponentContext<Self>) {
+    fn update(&mut self, message: Option<usize>, _context: &ComponentContext<Self>) {
         self.selected = message;
     }
 
@@ -44,7 +44,7 @@ impl Component for PivotSample {
                         item("Third", "Pivot - third tab"),
                     ],
                 ),
-            format!("selected_index = {}", self.selected),
+            format!("selected_index = {:?}", self.selected),
         ))
     }
 }

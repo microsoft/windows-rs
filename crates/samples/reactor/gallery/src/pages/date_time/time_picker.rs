@@ -6,7 +6,7 @@ pub struct TimePickerPage {
 }
 
 impl Component for TimePickerPage {
-    type Message = TimeSpan;
+    type Message = Option<TimeSpan>;
     type Input = ();
 
     fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
@@ -15,10 +15,15 @@ impl Component for TimePickerPage {
         }
     }
 
-    fn update(&mut self, time: TimeSpan, _context: &ComponentContext<Self>) {
-        let hours = time.whole_hours();
-        let minutes = time.whole_minutes() % 60;
-        self.label = format!("Selected: {hours:02}:{minutes:02}");
+    fn update(&mut self, time: Option<TimeSpan>, _context: &ComponentContext<Self>) {
+        self.label = time.map_or_else(
+            || "No time selected".to_string(),
+            |time| {
+                let hours = time.whole_hours();
+                let minutes = time.whole_minutes() % 60;
+                format!("Selected: {hours:02}:{minutes:02}")
+            },
+        );
     }
 
     fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {

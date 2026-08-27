@@ -55,6 +55,7 @@ pub enum ParamClass {
 pub enum ReadValueConversion {
     Identity,
     Field(String),
+    Nullable,
 }
 
 /// Pre-built lookup: `(class_short_name, method_name) → MethodRef`.
@@ -613,7 +614,7 @@ impl MetadataResolver {
                     return None;
                 };
                 matches!(value.name.as_str(), "DateTime" | "TimeSpan")
-                    .then(|| (value.name.clone(), ReadValueConversion::Identity))
+                    .then(|| (value.name.clone(), ReadValueConversion::Nullable))
             }
             Type::Object | Type::ClassName(_) => None,
             Type::ValueName(type_name) => {

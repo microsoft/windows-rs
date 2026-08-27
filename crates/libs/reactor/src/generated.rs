@@ -35,7 +35,7 @@ pub(crate) struct NavigationViewEvents {
 }
 #[derive(Clone, Debug, Default, PartialEq)]
 pub(crate) struct TabViewEvents {
-    on_selection_changed: Option<Callback<i32>>,
+    on_selection_changed: Option<Callback<Option<usize>>>,
     on_close_requested: Option<Callback<String>>,
     on_add_tab_button_click: Option<Callback<()>>,
     on_reordered: Option<Callback<Vec<String>>>,
@@ -47,13 +47,13 @@ pub(crate) struct TeachingTipEvents {
 }
 #[derive(Clone, Debug, Default, PartialEq)]
 pub(crate) struct ListViewEvents {
-    on_selection_changed: Option<Callback<i32>>,
+    on_selection_changed: Option<Callback<Option<usize>>>,
     on_reordered: Option<Callback<Vec<String>>>,
 }
 #[derive(Clone, Debug, Default, PartialEq)]
 pub(crate) struct GridViewEvents {
     on_reordered: Option<Callback<Vec<String>>>,
-    on_selection_changed: Option<Callback<i32>>,
+    on_selection_changed: Option<Callback<Option<usize>>>,
 }
 pub mod public {
     use super::*;
@@ -1489,9 +1489,9 @@ pub mod public {
     pub struct NumberBox {
         minimum: Property<f64>,
         maximum: Property<f64>,
-        value: Property<f64>,
+        value: Property<Option<f64>>,
         is_enabled: Property<bool>,
-        on_value_changed: Option<Callback<f64>>,
+        on_value_changed: Option<Callback<Option<f64>>>,
         reference: Option<NativeElementRef>,
         element_state: Option<std::rc::Rc<ElementState>>,
     }
@@ -1514,8 +1514,8 @@ pub mod public {
             self
         }
         pub fn value(mut self, value: impl Into<Option<f64>>) -> Self {
-            let value = value.into();
-            self.value = Property::from(value);
+            let value = value.into().filter(|value| !value.is_nan());
+            self.value = Property::Set(value);
             self
         }
         pub fn is_enabled(mut self, value: impl Into<Option<bool>>) -> Self {
@@ -1523,7 +1523,7 @@ pub mod public {
             self.is_enabled = Property::from(value);
             self
         }
-        pub fn on_value_changed(mut self, callback: impl IntoPayloadCallback<f64>) -> Self {
+        pub fn on_value_changed(mut self, callback: impl IntoPayloadCallback<Option<f64>>) -> Self {
             self.on_value_changed = Some(callback.into_payload_callback());
             self
         }
@@ -2329,9 +2329,9 @@ pub mod public {
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct RadioButtons {
         items_source: Property<std::rc::Rc<Vec<String>>>,
-        selected_index: Property<i32>,
+        selected_index: Property<Option<usize>>,
         max_columns: Property<i32>,
-        on_selection_changed: Option<Callback<i32>>,
+        on_selection_changed: Option<Callback<Option<usize>>>,
         element_state: Option<std::rc::Rc<ElementState>>,
     }
     impl RadioButtons {
@@ -2358,9 +2358,9 @@ pub mod public {
             );
             self
         }
-        pub fn selected_index(mut self, value: impl Into<Option<i32>>) -> Self {
+        pub fn selected_index(mut self, value: impl Into<Option<usize>>) -> Self {
             let value = value.into();
-            self.selected_index = Property::from(value);
+            self.selected_index = Property::Set(value);
             self
         }
         pub fn max_columns(mut self, value: impl Into<Option<i32>>) -> Self {
@@ -2368,7 +2368,10 @@ pub mod public {
             self.max_columns = Property::from(value);
             self
         }
-        pub fn on_selection_changed(mut self, callback: impl IntoPayloadCallback<i32>) -> Self {
+        pub fn on_selection_changed(
+            mut self,
+            callback: impl IntoPayloadCallback<Option<usize>>,
+        ) -> Self {
             self.on_selection_changed = Some(callback.into_payload_callback());
             self
         }
@@ -3295,10 +3298,10 @@ pub mod public {
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct RatingControl {
         max_rating: Property<i32>,
-        value: Property<f64>,
+        value: Property<Option<f64>>,
         caption: Property<String>,
         is_read_only: Property<bool>,
-        on_value_changed: Option<Callback<f64>>,
+        on_value_changed: Option<Callback<Option<f64>>>,
         reference: Option<NativeElementRef>,
         element_state: Option<std::rc::Rc<ElementState>>,
     }
@@ -3316,8 +3319,8 @@ pub mod public {
             self
         }
         pub fn value(mut self, value: impl Into<Option<f64>>) -> Self {
-            let value = value.into();
-            self.value = Property::from(value);
+            let value = value.into().filter(|value| *value != -1.0);
+            self.value = Property::Set(value);
             self
         }
         pub fn caption(mut self, value: impl Into<String>) -> Self {
@@ -3336,7 +3339,7 @@ pub mod public {
             self.is_read_only = Property::from(value);
             self
         }
-        pub fn on_value_changed(mut self, callback: impl IntoPayloadCallback<f64>) -> Self {
+        pub fn on_value_changed(mut self, callback: impl IntoPayloadCallback<Option<f64>>) -> Self {
             self.on_value_changed = Some(callback.into_payload_callback());
             self
         }
@@ -3406,11 +3409,11 @@ pub mod public {
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ComboBox {
         items_source: Property<std::rc::Rc<Vec<String>>>,
-        selected_index: Property<i32>,
+        selected_index: Property<Option<usize>>,
         placeholder_text: Property<String>,
         is_editable: Property<bool>,
         is_enabled: Property<bool>,
-        on_selection_changed: Option<Callback<i32>>,
+        on_selection_changed: Option<Callback<Option<usize>>>,
         reference: Option<NativeElementRef>,
         element_state: Option<std::rc::Rc<ElementState>>,
     }
@@ -3442,9 +3445,9 @@ pub mod public {
             );
             self
         }
-        pub fn selected_index(mut self, value: impl Into<Option<i32>>) -> Self {
+        pub fn selected_index(mut self, value: impl Into<Option<usize>>) -> Self {
             let value = value.into();
-            self.selected_index = Property::from(value);
+            self.selected_index = Property::Set(value);
             self
         }
         pub fn placeholder_text(mut self, value: impl Into<String>) -> Self {
@@ -3468,7 +3471,10 @@ pub mod public {
             self.is_enabled = Property::from(value);
             self
         }
-        pub fn on_selection_changed(mut self, callback: impl IntoPayloadCallback<i32>) -> Self {
+        pub fn on_selection_changed(
+            mut self,
+            callback: impl IntoPayloadCallback<Option<usize>>,
+        ) -> Self {
             self.on_selection_changed = Some(callback.into_payload_callback());
             self
         }
@@ -3504,18 +3510,18 @@ pub mod public {
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Pivot {
-        selected_index: Property<i32>,
+        selected_index: Property<Option<usize>>,
         title: Property<String>,
-        on_selection_changed: Option<Callback<i32>>,
+        on_selection_changed: Option<Callback<Option<usize>>>,
         element_state: Option<std::rc::Rc<ElementState>>,
     }
     impl Pivot {
         pub fn new() -> Self {
             Self::default()
         }
-        pub fn selected_index(mut self, value: impl Into<Option<i32>>) -> Self {
+        pub fn selected_index(mut self, value: impl Into<Option<usize>>) -> Self {
             let value = value.into();
-            self.selected_index = Property::from(value);
+            self.selected_index = Property::Set(value);
             self
         }
         pub fn title(mut self, value: impl Into<String>) -> Self {
@@ -3529,7 +3535,10 @@ pub mod public {
             self.title = Property::from(value.map(Into::into));
             self
         }
-        pub fn on_selection_changed(mut self, callback: impl IntoPayloadCallback<i32>) -> Self {
+        pub fn on_selection_changed(
+            mut self,
+            callback: impl IntoPayloadCallback<Option<usize>>,
+        ) -> Self {
             self.on_selection_changed = Some(callback.into_payload_callback());
             self
         }
@@ -3605,20 +3614,23 @@ pub mod public {
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct FlipView {
-        selected_index: Property<i32>,
-        on_selection_changed: Option<Callback<i32>>,
+        selected_index: Property<Option<usize>>,
+        on_selection_changed: Option<Callback<Option<usize>>>,
         element_state: Option<std::rc::Rc<ElementState>>,
     }
     impl FlipView {
         pub fn new() -> Self {
             Self::default()
         }
-        pub fn selected_index(mut self, value: impl Into<Option<i32>>) -> Self {
+        pub fn selected_index(mut self, value: impl Into<Option<usize>>) -> Self {
             let value = value.into();
-            self.selected_index = Property::from(value);
+            self.selected_index = Property::Set(value);
             self
         }
-        pub fn on_selection_changed(mut self, callback: impl IntoPayloadCallback<i32>) -> Self {
+        pub fn on_selection_changed(
+            mut self,
+            callback: impl IntoPayloadCallback<Option<usize>>,
+        ) -> Self {
             self.on_selection_changed = Some(callback.into_payload_callback());
             self
         }
@@ -3747,7 +3759,7 @@ pub mod public {
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct TabView {
-        selected_index: Property<i32>,
+        selected_index: Property<Option<usize>>,
         can_reorder_tabs: Property<bool>,
         is_add_tab_button_visible: Property<bool>,
         events: Option<std::rc::Rc<TabViewEvents>>,
@@ -3757,9 +3769,9 @@ pub mod public {
         pub fn new() -> Self {
             Self::default()
         }
-        pub fn selected_index(mut self, value: impl Into<Option<i32>>) -> Self {
+        pub fn selected_index(mut self, value: impl Into<Option<usize>>) -> Self {
             let value = value.into();
-            self.selected_index = Property::from(value);
+            self.selected_index = Property::Set(value);
             self
         }
         pub fn can_reorder_tabs(mut self, value: impl Into<Option<bool>>) -> Self {
@@ -3772,7 +3784,10 @@ pub mod public {
             self.is_add_tab_button_visible = Property::from(value);
             self
         }
-        pub fn on_selection_changed(mut self, callback: impl IntoPayloadCallback<i32>) -> Self {
+        pub fn on_selection_changed(
+            mut self,
+            callback: impl IntoPayloadCallback<Option<usize>>,
+        ) -> Self {
             std::rc::Rc::make_mut(
                 self.events
                     .get_or_insert_with(|| std::rc::Rc::new(Default::default())),
@@ -4337,7 +4352,7 @@ pub mod public {
         month_visible: Property<bool>,
         year_visible: Property<bool>,
         is_enabled: Property<bool>,
-        on_selected_date_changed: Option<Callback<windows_time::DateTime>>,
+        on_selected_date_changed: Option<Callback<Option<windows_time::DateTime>>>,
         element_state: Option<std::rc::Rc<ElementState>>,
     }
     impl DatePicker {
@@ -4366,7 +4381,7 @@ pub mod public {
         }
         pub fn on_selected_date_changed(
             mut self,
-            callback: impl IntoPayloadCallback<windows_time::DateTime>,
+            callback: impl IntoPayloadCallback<Option<windows_time::DateTime>>,
         ) -> Self {
             self.on_selected_date_changed = Some(callback.into_payload_callback());
             self
@@ -4403,7 +4418,7 @@ pub mod public {
         clock_identifier: Property<String>,
         minute_increment: Property<i32>,
         is_enabled: Property<bool>,
-        on_selected_time_changed: Option<Callback<windows_time::TimeSpan>>,
+        on_selected_time_changed: Option<Callback<Option<windows_time::TimeSpan>>>,
         element_state: Option<std::rc::Rc<ElementState>>,
     }
     impl TimePicker {
@@ -4433,7 +4448,7 @@ pub mod public {
         }
         pub fn on_selected_time_changed(
             mut self,
-            callback: impl IntoPayloadCallback<windows_time::TimeSpan>,
+            callback: impl IntoPayloadCallback<Option<windows_time::TimeSpan>>,
         ) -> Self {
             self.on_selected_time_changed = Some(callback.into_payload_callback());
             self
@@ -4471,7 +4486,7 @@ pub mod public {
         is_today_highlighted: Property<bool>,
         is_calendar_open: Property<bool>,
         is_enabled: Property<bool>,
-        on_date_changed: Option<Callback<windows_time::DateTime>>,
+        on_date_changed: Option<Callback<Option<windows_time::DateTime>>>,
         element_state: Option<std::rc::Rc<ElementState>>,
     }
     impl CalendarDatePicker {
@@ -4506,7 +4521,7 @@ pub mod public {
         }
         pub fn on_date_changed(
             mut self,
-            callback: impl IntoPayloadCallback<windows_time::DateTime>,
+            callback: impl IntoPayloadCallback<Option<windows_time::DateTime>>,
         ) -> Self {
             self.on_date_changed = Some(callback.into_payload_callback());
             self
@@ -4710,7 +4725,7 @@ pub mod public {
     impl LayoutControl for CalendarView {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ListView {
-        selected_index: Property<i32>,
+        selected_index: Property<Option<usize>>,
         selection_mode: Property<ListViewSelectionMode>,
         can_drag_items: Property<bool>,
         can_reorder_items: Property<bool>,
@@ -4722,9 +4737,9 @@ pub mod public {
         pub fn new() -> Self {
             Self::default()
         }
-        pub fn selected_index(mut self, value: impl Into<Option<i32>>) -> Self {
+        pub fn selected_index(mut self, value: impl Into<Option<usize>>) -> Self {
             let value = value.into();
-            self.selected_index = Property::from(value);
+            self.selected_index = Property::Set(value);
             self
         }
         pub fn selection_mode(mut self, value: impl Into<Option<ListViewSelectionMode>>) -> Self {
@@ -4747,7 +4762,10 @@ pub mod public {
             self.allow_drop = Property::from(value);
             self
         }
-        pub fn on_selection_changed(mut self, callback: impl IntoPayloadCallback<i32>) -> Self {
+        pub fn on_selection_changed(
+            mut self,
+            callback: impl IntoPayloadCallback<Option<usize>>,
+        ) -> Self {
             std::rc::Rc::make_mut(
                 self.events
                     .get_or_insert_with(|| std::rc::Rc::new(Default::default())),
@@ -4867,7 +4885,7 @@ pub mod public {
     impl LayoutControl for TreeView {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct GridView {
-        selected_index: Property<i32>,
+        selected_index: Property<Option<usize>>,
         can_drag_items: Property<bool>,
         can_reorder_items: Property<bool>,
         allow_drop: Property<bool>,
@@ -4878,9 +4896,9 @@ pub mod public {
         pub fn new() -> Self {
             Self::default()
         }
-        pub fn selected_index(mut self, value: impl Into<Option<i32>>) -> Self {
+        pub fn selected_index(mut self, value: impl Into<Option<usize>>) -> Self {
             let value = value.into();
-            self.selected_index = Property::from(value);
+            self.selected_index = Property::Set(value);
             self
         }
         pub fn can_drag_items(mut self, value: impl Into<Option<bool>>) -> Self {
@@ -4906,7 +4924,10 @@ pub mod public {
             .on_reordered = Some(callback.into_payload_callback());
             self
         }
-        pub fn on_selection_changed(mut self, callback: impl IntoPayloadCallback<i32>) -> Self {
+        pub fn on_selection_changed(
+            mut self,
+            callback: impl IntoPayloadCallback<Option<usize>>,
+        ) -> Self {
             std::rc::Rc::make_mut(
                 self.events
                     .get_or_insert_with(|| std::rc::Rc::new(Default::default())),
@@ -8036,7 +8057,7 @@ pub mod public {
                 (Self::NumberBox(value), MountedProps::NumberBox(mounted)) => {
                     true && f64_property_eq(&value.minimum, &mounted.minimum)
                         && f64_property_eq(&value.maximum, &mounted.maximum)
-                        && f64_property_eq(&value.value, &mounted.value)
+                        && value.value == mounted.value
                         && value.is_enabled == mounted.is_enabled
                         && value.on_value_changed == mounted.on_value_changed
                 }
@@ -8204,7 +8225,7 @@ pub mod public {
                 }
                 (Self::RatingControl(value), MountedProps::RatingControl(mounted)) => {
                     true && value.max_rating == mounted.max_rating
-                        && f64_property_eq(&value.value, &mounted.value)
+                        && value.value == mounted.value
                         && value.caption == mounted.caption
                         && value.is_read_only == mounted.is_read_only
                         && value.on_value_changed == mounted.on_value_changed
@@ -9492,7 +9513,7 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::NumberBoxValue,
                     match &values.value {
                         Property::Inherited => None,
-                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
+                        Property::Set(value) => Some(PropertyValueRef::OptionalF64(*value)),
                     },
                 );
                 visit(
@@ -9849,7 +9870,7 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::RadioButtonsSelectedIndex,
                     match &values.selected_index {
                         Property::Inherited => None,
-                        Property::Set(value) => Some(PropertyValueRef::I32(*value)),
+                        Property::Set(value) => Some(PropertyValueRef::SelectionIndex(*value)),
                     },
                 );
                 visit(
@@ -10222,7 +10243,7 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::RatingControlValue,
                     match &values.value {
                         Property::Inherited => None,
-                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
+                        Property::Set(value) => Some(PropertyValueRef::OptionalF64(*value)),
                     },
                 );
                 visit(
@@ -10261,7 +10282,7 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::ComboBoxSelectedIndex,
                     match &values.selected_index {
                         Property::Inherited => None,
-                        Property::Set(value) => Some(PropertyValueRef::I32(*value)),
+                        Property::Set(value) => Some(PropertyValueRef::SelectionIndex(*value)),
                     },
                 );
                 visit(
@@ -10291,7 +10312,7 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::PivotSelectedIndex,
                     match &values.selected_index {
                         Property::Inherited => None,
-                        Property::Set(value) => Some(PropertyValueRef::I32(*value)),
+                        Property::Set(value) => Some(PropertyValueRef::SelectionIndex(*value)),
                     },
                 );
                 visit(
@@ -10316,7 +10337,7 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::FlipViewSelectedIndex,
                     match &values.selected_index {
                         Property::Inherited => None,
-                        Property::Set(value) => Some(PropertyValueRef::I32(*value)),
+                        Property::Set(value) => Some(PropertyValueRef::SelectionIndex(*value)),
                     },
                 );
             }
@@ -10342,7 +10363,7 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::TabViewSelectedIndex,
                     match &values.selected_index {
                         Property::Inherited => None,
-                        Property::Set(value) => Some(PropertyValueRef::I32(*value)),
+                        Property::Set(value) => Some(PropertyValueRef::SelectionIndex(*value)),
                     },
                 );
                 visit(
@@ -10682,7 +10703,7 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::ListViewSelectedIndex,
                     match &values.selected_index {
                         Property::Inherited => None,
-                        Property::Set(value) => Some(PropertyValueRef::I32(*value)),
+                        Property::Set(value) => Some(PropertyValueRef::SelectionIndex(*value)),
                     },
                 );
                 visit(
@@ -10741,7 +10762,7 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::GridViewSelectedIndex,
                     match &values.selected_index {
                         Property::Inherited => None,
-                        Property::Set(value) => Some(PropertyValueRef::I32(*value)),
+                        Property::Set(value) => Some(PropertyValueRef::SelectionIndex(*value)),
                     },
                 );
                 visit(
@@ -11442,12 +11463,14 @@ impl MountedEventsExt for MountedProps {
                 .on_password_changed
                 .as_ref()
                 .map(|callback| callback.call(value.clone())),
-            (Self::NumberBox(values), EventId::NumberBoxValueChanged, EventPayload::F64(value)) => {
-                values
-                    .on_value_changed
-                    .as_ref()
-                    .map(|callback| callback.call(*value))
-            }
+            (
+                Self::NumberBox(values),
+                EventId::NumberBoxValueChanged,
+                EventPayload::OptionalF64(value),
+            ) => values
+                .on_value_changed
+                .as_ref()
+                .map(|callback| callback.call(*value)),
             (Self::Slider(values), EventId::SliderValueChanged, EventPayload::F64(value)) => values
                 .on_value_changed
                 .as_ref()
@@ -11530,7 +11553,7 @@ impl MountedEventsExt for MountedProps {
             (
                 Self::RadioButtons(values),
                 EventId::RadioButtonsSelectionChanged,
-                EventPayload::I32(value),
+                EventPayload::SelectionIndex(value),
             ) => values
                 .on_selection_changed
                 .as_ref()
@@ -11549,7 +11572,7 @@ impl MountedEventsExt for MountedProps {
             (
                 Self::RatingControl(values),
                 EventId::RatingControlValueChanged,
-                EventPayload::F64(value),
+                EventPayload::OptionalF64(value),
             ) => values
                 .on_value_changed
                 .as_ref()
@@ -11565,21 +11588,23 @@ impl MountedEventsExt for MountedProps {
             (
                 Self::ComboBox(values),
                 EventId::ComboBoxSelectionChanged,
-                EventPayload::I32(value),
+                EventPayload::SelectionIndex(value),
             ) => values
                 .on_selection_changed
                 .as_ref()
                 .map(|callback| callback.call(*value)),
-            (Self::Pivot(values), EventId::PivotSelectionChanged, EventPayload::I32(value)) => {
-                values
-                    .on_selection_changed
-                    .as_ref()
-                    .map(|callback| callback.call(*value))
-            }
+            (
+                Self::Pivot(values),
+                EventId::PivotSelectionChanged,
+                EventPayload::SelectionIndex(value),
+            ) => values
+                .on_selection_changed
+                .as_ref()
+                .map(|callback| callback.call(*value)),
             (
                 Self::FlipView(values),
                 EventId::FlipViewSelectionChanged,
-                EventPayload::I32(value),
+                EventPayload::SelectionIndex(value),
             ) => values
                 .on_selection_changed
                 .as_ref()
@@ -11592,13 +11617,15 @@ impl MountedEventsExt for MountedProps {
                 .on_selected_text_changed
                 .as_ref()
                 .map(|callback| callback.call(value.tag.clone())),
-            (Self::TabView(values), EventId::TabViewSelectionChanged, EventPayload::I32(value)) => {
-                values
-                    .events
-                    .as_ref()
-                    .and_then(|events| events.on_selection_changed.as_ref())
-                    .map(|callback| callback.call(*value))
-            }
+            (
+                Self::TabView(values),
+                EventId::TabViewSelectionChanged,
+                EventPayload::SelectionIndex(value),
+            ) => values
+                .events
+                .as_ref()
+                .and_then(|events| events.on_selection_changed.as_ref())
+                .map(|callback| callback.call(*value)),
             (
                 Self::TabView(values),
                 EventId::TabViewTabCloseRequested,
@@ -11658,7 +11685,7 @@ impl MountedEventsExt for MountedProps {
             (
                 Self::DatePicker(values),
                 EventId::DatePickerSelectedDateChanged,
-                EventPayload::DateTime(value),
+                EventPayload::OptionalDateTime(value),
             ) => values
                 .on_selected_date_changed
                 .as_ref()
@@ -11666,7 +11693,7 @@ impl MountedEventsExt for MountedProps {
             (
                 Self::TimePicker(values),
                 EventId::TimePickerSelectedTimeChanged,
-                EventPayload::TimeSpan(value),
+                EventPayload::OptionalTimeSpan(value),
             ) => values
                 .on_selected_time_changed
                 .as_ref()
@@ -11674,7 +11701,7 @@ impl MountedEventsExt for MountedProps {
             (
                 Self::CalendarDatePicker(values),
                 EventId::CalendarDatePickerDateChanged,
-                EventPayload::DateTime(value),
+                EventPayload::OptionalDateTime(value),
             ) => values
                 .on_date_changed
                 .as_ref()
@@ -11698,7 +11725,7 @@ impl MountedEventsExt for MountedProps {
             (
                 Self::ListView(values),
                 EventId::ListViewSelectionChanged,
-                EventPayload::I32(value),
+                EventPayload::SelectionIndex(value),
             ) => values
                 .events
                 .as_ref()
@@ -11731,7 +11758,7 @@ impl MountedEventsExt for MountedProps {
             (
                 Self::GridView(values),
                 EventId::GridViewSelectionChanged,
-                EventPayload::I32(value),
+                EventPayload::SelectionIndex(value),
             ) => values
                 .events
                 .as_ref()
@@ -11767,9 +11794,11 @@ impl MountedEventsExt for MountedProps {
                 EventId::PasswordBoxPasswordChanged,
                 EventPayload::Str(value),
             ) => Some((PropertyId::PasswordBoxPassword, (value.clone()).into())),
-            (Self::NumberBox(_), EventId::NumberBoxValueChanged, EventPayload::F64(value)) => {
-                Some((PropertyId::NumberBoxValue, (*value).into()))
-            }
+            (
+                Self::NumberBox(_),
+                EventId::NumberBoxValueChanged,
+                EventPayload::OptionalF64(value),
+            ) => Some((PropertyId::NumberBoxValue, (*value).into())),
             (Self::Slider(_), EventId::SliderValueChanged, EventPayload::F64(value)) => {
                 Some((PropertyId::SliderValue, (*value).into()))
             }
@@ -11798,39 +11827,51 @@ impl MountedEventsExt for MountedProps {
             (
                 Self::RadioButtons(_),
                 EventId::RadioButtonsSelectionChanged,
-                EventPayload::I32(value),
+                EventPayload::SelectionIndex(value),
             ) => Some((PropertyId::RadioButtonsSelectedIndex, (*value).into())),
             (
                 Self::RatingControl(_),
                 EventId::RatingControlValueChanged,
-                EventPayload::F64(value),
+                EventPayload::OptionalF64(value),
             ) => Some((PropertyId::RatingControlValue, (*value).into())),
             (Self::Expander(_), EventId::ExpanderIsExpandedChanged, EventPayload::Bool(value)) => {
                 Some((PropertyId::ExpanderIsExpanded, (*value).into()))
             }
-            (Self::ComboBox(_), EventId::ComboBoxSelectionChanged, EventPayload::I32(value)) => {
-                Some((PropertyId::ComboBoxSelectedIndex, (*value).into()))
-            }
-            (Self::Pivot(_), EventId::PivotSelectionChanged, EventPayload::I32(value)) => {
-                Some((PropertyId::PivotSelectedIndex, (*value).into()))
-            }
-            (Self::FlipView(_), EventId::FlipViewSelectionChanged, EventPayload::I32(value)) => {
-                Some((PropertyId::FlipViewSelectedIndex, (*value).into()))
-            }
-            (Self::TabView(_), EventId::TabViewSelectionChanged, EventPayload::I32(value)) => {
-                Some((PropertyId::TabViewSelectedIndex, (*value).into()))
-            }
+            (
+                Self::ComboBox(_),
+                EventId::ComboBoxSelectionChanged,
+                EventPayload::SelectionIndex(value),
+            ) => Some((PropertyId::ComboBoxSelectedIndex, (*value).into())),
+            (
+                Self::Pivot(_),
+                EventId::PivotSelectionChanged,
+                EventPayload::SelectionIndex(value),
+            ) => Some((PropertyId::PivotSelectedIndex, (*value).into())),
+            (
+                Self::FlipView(_),
+                EventId::FlipViewSelectionChanged,
+                EventPayload::SelectionIndex(value),
+            ) => Some((PropertyId::FlipViewSelectedIndex, (*value).into())),
+            (
+                Self::TabView(_),
+                EventId::TabViewSelectionChanged,
+                EventPayload::SelectionIndex(value),
+            ) => Some((PropertyId::TabViewSelectedIndex, (*value).into())),
             (
                 Self::ColorPicker(_),
                 EventId::ColorPickerColorChanged,
                 EventPayload::Color(value),
             ) => Some((PropertyId::ColorPickerColor, (*value).into())),
-            (Self::ListView(_), EventId::ListViewSelectionChanged, EventPayload::I32(value)) => {
-                Some((PropertyId::ListViewSelectedIndex, (*value).into()))
-            }
-            (Self::GridView(_), EventId::GridViewSelectionChanged, EventPayload::I32(value)) => {
-                Some((PropertyId::GridViewSelectedIndex, (*value).into()))
-            }
+            (
+                Self::ListView(_),
+                EventId::ListViewSelectionChanged,
+                EventPayload::SelectionIndex(value),
+            ) => Some((PropertyId::ListViewSelectedIndex, (*value).into())),
+            (
+                Self::GridView(_),
+                EventId::GridViewSelectionChanged,
+                EventPayload::SelectionIndex(value),
+            ) => Some((PropertyId::GridViewSelectedIndex, (*value).into())),
             (Self::RichEditBox(_), EventId::RichEditBoxTextChanged, EventPayload::Str(value)) => {
                 Some((PropertyId::RichEditBoxDocument, (value.clone()).into()))
             }
@@ -12413,15 +12454,15 @@ impl PartialEq for PasswordBoxMountedProps {
 pub(crate) struct NumberBoxMountedProps {
     minimum: Property<f64>,
     maximum: Property<f64>,
-    value: Property<f64>,
+    value: Property<Option<f64>>,
     is_enabled: Property<bool>,
-    on_value_changed: Option<Callback<f64>>,
+    on_value_changed: Option<Callback<Option<f64>>>,
 }
 impl PartialEq for NumberBoxMountedProps {
     fn eq(&self, other: &Self) -> bool {
         true && f64_property_eq(&self.minimum, &other.minimum)
             && f64_property_eq(&self.maximum, &other.maximum)
-            && f64_property_eq(&self.value, &other.value)
+            && self.value == other.value
             && self.is_enabled == other.is_enabled
             && self.on_value_changed == other.on_value_changed
     }
@@ -12603,9 +12644,9 @@ impl PartialEq for RadioButtonMountedProps {
 #[derive(Clone, Debug)]
 pub(crate) struct RadioButtonsMountedProps {
     items_source: Property<std::rc::Rc<Vec<String>>>,
-    selected_index: Property<i32>,
+    selected_index: Property<Option<usize>>,
     max_columns: Property<i32>,
-    on_selection_changed: Option<Callback<i32>>,
+    on_selection_changed: Option<Callback<Option<usize>>>,
 }
 impl PartialEq for RadioButtonsMountedProps {
     fn eq(&self, other: &Self) -> bool {
@@ -12831,15 +12872,15 @@ impl PartialEq for ListBoxItemMountedProps {
 #[derive(Clone, Debug)]
 pub(crate) struct RatingControlMountedProps {
     max_rating: Property<i32>,
-    value: Property<f64>,
+    value: Property<Option<f64>>,
     caption: Property<String>,
     is_read_only: Property<bool>,
-    on_value_changed: Option<Callback<f64>>,
+    on_value_changed: Option<Callback<Option<f64>>>,
 }
 impl PartialEq for RatingControlMountedProps {
     fn eq(&self, other: &Self) -> bool {
         true && self.max_rating == other.max_rating
-            && f64_property_eq(&self.value, &other.value)
+            && self.value == other.value
             && self.caption == other.caption
             && self.is_read_only == other.is_read_only
             && self.on_value_changed == other.on_value_changed
@@ -12859,11 +12900,11 @@ impl PartialEq for ExpanderMountedProps {
 #[derive(Clone, Debug)]
 pub(crate) struct ComboBoxMountedProps {
     items_source: Property<std::rc::Rc<Vec<String>>>,
-    selected_index: Property<i32>,
+    selected_index: Property<Option<usize>>,
     placeholder_text: Property<String>,
     is_editable: Property<bool>,
     is_enabled: Property<bool>,
-    on_selection_changed: Option<Callback<i32>>,
+    on_selection_changed: Option<Callback<Option<usize>>>,
 }
 impl PartialEq for ComboBoxMountedProps {
     fn eq(&self, other: &Self) -> bool {
@@ -12877,9 +12918,9 @@ impl PartialEq for ComboBoxMountedProps {
 }
 #[derive(Clone, Debug)]
 pub(crate) struct PivotMountedProps {
-    selected_index: Property<i32>,
+    selected_index: Property<Option<usize>>,
     title: Property<String>,
-    on_selection_changed: Option<Callback<i32>>,
+    on_selection_changed: Option<Callback<Option<usize>>>,
 }
 impl PartialEq for PivotMountedProps {
     fn eq(&self, other: &Self) -> bool {
@@ -12899,8 +12940,8 @@ impl PartialEq for PivotItemMountedProps {
 }
 #[derive(Clone, Debug)]
 pub(crate) struct FlipViewMountedProps {
-    selected_index: Property<i32>,
-    on_selection_changed: Option<Callback<i32>>,
+    selected_index: Property<Option<usize>>,
+    on_selection_changed: Option<Callback<Option<usize>>>,
 }
 impl PartialEq for FlipViewMountedProps {
     fn eq(&self, other: &Self) -> bool {
@@ -12929,7 +12970,7 @@ impl PartialEq for SelectorBarItemMountedProps {
 }
 #[derive(Clone, Debug)]
 pub(crate) struct TabViewMountedProps {
-    selected_index: Property<i32>,
+    selected_index: Property<Option<usize>>,
     can_reorder_tabs: Property<bool>,
     is_add_tab_button_visible: Property<bool>,
     events: Option<std::rc::Rc<TabViewEvents>>,
@@ -13068,7 +13109,7 @@ pub(crate) struct DatePickerMountedProps {
     month_visible: Property<bool>,
     year_visible: Property<bool>,
     is_enabled: Property<bool>,
-    on_selected_date_changed: Option<Callback<windows_time::DateTime>>,
+    on_selected_date_changed: Option<Callback<Option<windows_time::DateTime>>>,
 }
 impl PartialEq for DatePickerMountedProps {
     fn eq(&self, other: &Self) -> bool {
@@ -13084,7 +13125,7 @@ pub(crate) struct TimePickerMountedProps {
     clock_identifier: Property<String>,
     minute_increment: Property<i32>,
     is_enabled: Property<bool>,
-    on_selected_time_changed: Option<Callback<windows_time::TimeSpan>>,
+    on_selected_time_changed: Option<Callback<Option<windows_time::TimeSpan>>>,
 }
 impl PartialEq for TimePickerMountedProps {
     fn eq(&self, other: &Self) -> bool {
@@ -13100,7 +13141,7 @@ pub(crate) struct CalendarDatePickerMountedProps {
     is_today_highlighted: Property<bool>,
     is_calendar_open: Property<bool>,
     is_enabled: Property<bool>,
-    on_date_changed: Option<Callback<windows_time::DateTime>>,
+    on_date_changed: Option<Callback<Option<windows_time::DateTime>>>,
 }
 impl PartialEq for CalendarDatePickerMountedProps {
     fn eq(&self, other: &Self) -> bool {
@@ -13156,7 +13197,7 @@ impl PartialEq for CalendarViewMountedProps {
 }
 #[derive(Clone, Debug)]
 pub(crate) struct ListViewMountedProps {
-    selected_index: Property<i32>,
+    selected_index: Property<Option<usize>>,
     selection_mode: Property<ListViewSelectionMode>,
     can_drag_items: Property<bool>,
     can_reorder_items: Property<bool>,
@@ -13195,7 +13236,7 @@ impl PartialEq for TreeViewMountedProps {
 }
 #[derive(Clone, Debug)]
 pub(crate) struct GridViewMountedProps {
-    selected_index: Property<i32>,
+    selected_index: Property<Option<usize>>,
     can_drag_items: Property<bool>,
     can_reorder_items: Property<bool>,
     allow_drop: Property<bool>,
@@ -13731,12 +13772,14 @@ pub enum PropertyValue {
     ListViewSelectionMode(ListViewSelectionMode),
     NavigationViewBackButtonVisible(NavigationViewBackButtonVisible),
     NavigationViewPaneDisplayMode(NavigationViewPaneDisplayMode),
+    OptionalF64(Option<f64>),
     Orientation(Orientation),
     PasswordRevealMode(PasswordRevealMode),
     ResourceOverrides(ResourceOverrides),
     RichText(RichText),
     ScrollBarVisibility(ScrollBarVisibility),
     ScrollingScrollBarVisibility(ScrollingScrollBarVisibility),
+    SelectionIndex(Option<usize>),
     SplitViewDisplayMode(SplitViewDisplayMode),
     Str(String),
     StrList(std::rc::Rc<Vec<String>>),
@@ -13777,6 +13820,11 @@ impl PartialEq for PropertyValue {
                 Self::NavigationViewPaneDisplayMode(left),
                 Self::NavigationViewPaneDisplayMode(right),
             ) => left == right,
+            (Self::OptionalF64(left), Self::OptionalF64(right)) => match (left, right) {
+                (Some(left), Some(right)) => f64_eq(*left, *right),
+                (None, None) => true,
+                _ => false,
+            },
             (Self::Orientation(left), Self::Orientation(right)) => left == right,
             (Self::PasswordRevealMode(left), Self::PasswordRevealMode(right)) => left == right,
             (Self::ResourceOverrides(left), Self::ResourceOverrides(right)) => left == right,
@@ -13786,6 +13834,7 @@ impl PartialEq for PropertyValue {
                 Self::ScrollingScrollBarVisibility(left),
                 Self::ScrollingScrollBarVisibility(right),
             ) => left == right,
+            (Self::SelectionIndex(left), Self::SelectionIndex(right)) => left == right,
             (Self::SplitViewDisplayMode(left), Self::SplitViewDisplayMode(right)) => left == right,
             (Self::Str(left), Self::Str(right)) => left == right,
             (Self::StrList(left), Self::StrList(right)) => left == right,
@@ -13824,12 +13873,14 @@ pub enum PropertyValueRef<'a> {
     ListViewSelectionMode(ListViewSelectionMode),
     NavigationViewBackButtonVisible(NavigationViewBackButtonVisible),
     NavigationViewPaneDisplayMode(NavigationViewPaneDisplayMode),
+    OptionalF64(Option<f64>),
     Orientation(Orientation),
     PasswordRevealMode(PasswordRevealMode),
     ResourceOverrides(&'a ResourceOverrides),
     RichText(&'a RichText),
     ScrollBarVisibility(ScrollBarVisibility),
     ScrollingScrollBarVisibility(ScrollingScrollBarVisibility),
+    SelectionIndex(Option<usize>),
     SplitViewDisplayMode(SplitViewDisplayMode),
     Str(&'a str),
     StrList(&'a std::rc::Rc<Vec<String>>),
@@ -13872,6 +13923,11 @@ impl PropertyValueRef<'_> {
                 Self::NavigationViewPaneDisplayMode(left),
                 PropertyValue::NavigationViewPaneDisplayMode(right),
             ) => left == *right,
+            (Self::OptionalF64(left), PropertyValue::OptionalF64(right)) => match (left, right) {
+                (Some(left), Some(right)) => f64_eq(left, *right),
+                (None, None) => true,
+                _ => false,
+            },
             (Self::Orientation(left), PropertyValue::Orientation(right)) => left == *right,
             (Self::PasswordRevealMode(left), PropertyValue::PasswordRevealMode(right)) => {
                 left == *right
@@ -13887,6 +13943,7 @@ impl PropertyValueRef<'_> {
                 Self::ScrollingScrollBarVisibility(left),
                 PropertyValue::ScrollingScrollBarVisibility(right),
             ) => left == *right,
+            (Self::SelectionIndex(left), PropertyValue::SelectionIndex(right)) => left == *right,
             (Self::SplitViewDisplayMode(left), PropertyValue::SplitViewDisplayMode(right)) => {
                 left == *right
             }
@@ -13933,6 +13990,7 @@ impl PropertyValueRef<'_> {
             Self::NavigationViewPaneDisplayMode(value) => {
                 PropertyValue::NavigationViewPaneDisplayMode(value)
             }
+            Self::OptionalF64(value) => PropertyValue::OptionalF64(value),
             Self::Orientation(value) => PropertyValue::Orientation(value),
             Self::PasswordRevealMode(value) => PropertyValue::PasswordRevealMode(value),
             Self::ResourceOverrides(value) => PropertyValue::ResourceOverrides(value.clone()),
@@ -13941,6 +13999,7 @@ impl PropertyValueRef<'_> {
             Self::ScrollingScrollBarVisibility(value) => {
                 PropertyValue::ScrollingScrollBarVisibility(value)
             }
+            Self::SelectionIndex(value) => PropertyValue::SelectionIndex(value),
             Self::SplitViewDisplayMode(value) => PropertyValue::SplitViewDisplayMode(value),
             Self::Str(value) => PropertyValue::Str(value.to_string()),
             Self::StrList(value) => PropertyValue::StrList(value.clone()),
@@ -14036,6 +14095,11 @@ impl From<NavigationViewPaneDisplayMode> for PropertyValue {
         Self::NavigationViewPaneDisplayMode(value)
     }
 }
+impl From<Option<f64>> for PropertyValue {
+    fn from(value: Option<f64>) -> Self {
+        Self::OptionalF64(value)
+    }
+}
 impl From<Orientation> for PropertyValue {
     fn from(value: Orientation) -> Self {
         Self::Orientation(value)
@@ -14064,6 +14128,11 @@ impl From<ScrollBarVisibility> for PropertyValue {
 impl From<ScrollingScrollBarVisibility> for PropertyValue {
     fn from(value: ScrollingScrollBarVisibility) -> Self {
         Self::ScrollingScrollBarVisibility(value)
+    }
+}
+impl From<Option<usize>> for PropertyValue {
+    fn from(value: Option<usize>) -> Self {
+        Self::SelectionIndex(value)
     }
 }
 impl From<SplitViewDisplayMode> for PropertyValue {
@@ -14136,18 +14205,19 @@ pub enum EventPayload {
     Bool(bool),
     Color(Color),
     ContentDialogResult(ContentDialogResult),
-    DateTime(windows_time::DateTime),
     DragKind(DragKind),
     DroppedData(DroppedData),
     F64(f64),
-    I32(i32),
     NavigationViewDisplayMode(NavigationViewDisplayMode),
+    OptionalDateTime(Option<windows_time::DateTime>),
+    OptionalF64(Option<f64>),
+    OptionalTimeSpan(Option<windows_time::TimeSpan>),
     PointerEventInfo(PointerEventInfo),
     SelectionChange(SelectionChange),
+    SelectionIndex(Option<usize>),
     Str(String),
     StrList(std::rc::Rc<Vec<String>>),
     String(String),
-    TimeSpan(windows_time::TimeSpan),
     Unit,
 }
 impl PartialEq for EventPayload {
@@ -14156,20 +14226,25 @@ impl PartialEq for EventPayload {
             (Self::Bool(left), Self::Bool(right)) => left == right,
             (Self::Color(left), Self::Color(right)) => left == right,
             (Self::ContentDialogResult(left), Self::ContentDialogResult(right)) => left == right,
-            (Self::DateTime(left), Self::DateTime(right)) => left == right,
             (Self::DragKind(left), Self::DragKind(right)) => left == right,
             (Self::DroppedData(left), Self::DroppedData(right)) => left == right,
             (Self::F64(left), Self::F64(right)) => f64_eq(*left, *right),
-            (Self::I32(left), Self::I32(right)) => left == right,
             (Self::NavigationViewDisplayMode(left), Self::NavigationViewDisplayMode(right)) => {
                 left == right
             }
+            (Self::OptionalDateTime(left), Self::OptionalDateTime(right)) => left == right,
+            (Self::OptionalF64(left), Self::OptionalF64(right)) => match (left, right) {
+                (Some(left), Some(right)) => f64_eq(*left, *right),
+                (None, None) => true,
+                _ => false,
+            },
+            (Self::OptionalTimeSpan(left), Self::OptionalTimeSpan(right)) => left == right,
             (Self::PointerEventInfo(left), Self::PointerEventInfo(right)) => left == right,
             (Self::SelectionChange(left), Self::SelectionChange(right)) => left == right,
+            (Self::SelectionIndex(left), Self::SelectionIndex(right)) => left == right,
             (Self::Str(left), Self::Str(right)) => left == right,
             (Self::StrList(left), Self::StrList(right)) => left == right,
             (Self::String(left), Self::String(right)) => left == right,
-            (Self::TimeSpan(left), Self::TimeSpan(right)) => left == right,
             (Self::Unit, Self::Unit) => true,
             _ => false,
         }
@@ -15018,7 +15093,7 @@ const NUMBER_BOX_PROPERTIES: &[PropertyDescriptor] = &[
         id: PropertyId::NumberBoxValue,
         name: "Value",
         field: "value",
-        value: "F64",
+        value: "OptionalF64",
         interface: "Microsoft.UI.Xaml.Controls.INumberBox",
         clearable: true,
         feedback: Some("ValueChanged"),
@@ -15041,7 +15116,7 @@ const NUMBER_BOX_EVENTS: &[EventDescriptor] = &[EventDescriptor {
     id: EventId::NumberBoxValueChanged,
     name: "ValueChanged",
     field: "on_value_changed",
-    payload: "F64",
+    payload: "OptionalF64",
     interface: "Microsoft.UI.Xaml.Controls.INumberBox",
 }];
 const NUMBER_BOX_SLOTS: &[SlotDescriptor] = &[SlotDescriptor {
@@ -15780,7 +15855,7 @@ const RADIO_BUTTONS_PROPERTIES: &[PropertyDescriptor] = &[
         id: PropertyId::RadioButtonsSelectedIndex,
         name: "SelectedIndex",
         field: "selected_index",
-        value: "I32",
+        value: "SelectionIndex",
         interface: "Microsoft.UI.Xaml.Controls.IRadioButtons",
         clearable: true,
         feedback: Some("SelectionChanged"),
@@ -15803,7 +15878,7 @@ const RADIO_BUTTONS_EVENTS: &[EventDescriptor] = &[EventDescriptor {
     id: EventId::RadioButtonsSelectionChanged,
     name: "SelectionChanged",
     field: "on_selection_changed",
-    payload: "I32",
+    payload: "SelectionIndex",
     interface: "Microsoft.UI.Xaml.Controls.IRadioButtons",
 }];
 const RADIO_BUTTONS_SLOTS: &[SlotDescriptor] = &[SlotDescriptor {
@@ -16379,7 +16454,7 @@ const RATING_CONTROL_PROPERTIES: &[PropertyDescriptor] = &[
         id: PropertyId::RatingControlValue,
         name: "Value",
         field: "value",
-        value: "F64",
+        value: "OptionalF64",
         interface: "Microsoft.UI.Xaml.Controls.IRatingControl",
         clearable: true,
         feedback: Some("ValueChanged"),
@@ -16413,7 +16488,7 @@ const RATING_CONTROL_EVENTS: &[EventDescriptor] = &[EventDescriptor {
     id: EventId::RatingControlValueChanged,
     name: "ValueChanged",
     field: "on_value_changed",
-    payload: "F64",
+    payload: "OptionalF64",
     interface: "Microsoft.UI.Xaml.Controls.IRatingControl",
 }];
 const RATING_CONTROL_SLOTS: &[SlotDescriptor] = &[];
@@ -16467,7 +16542,7 @@ const COMBO_BOX_PROPERTIES: &[PropertyDescriptor] = &[
         id: PropertyId::ComboBoxSelectedIndex,
         name: "SelectedIndex",
         field: "selected_index",
-        value: "I32",
+        value: "SelectionIndex",
         interface: "Microsoft.UI.Xaml.Controls.Primitives.ISelector",
         clearable: true,
         feedback: Some("SelectionChanged"),
@@ -16512,7 +16587,7 @@ const COMBO_BOX_EVENTS: &[EventDescriptor] = &[EventDescriptor {
     id: EventId::ComboBoxSelectionChanged,
     name: "SelectionChanged",
     field: "on_selection_changed",
-    payload: "I32",
+    payload: "SelectionIndex",
     interface: "Microsoft.UI.Xaml.Controls.Primitives.ISelector",
 }];
 const COMBO_BOX_SLOTS: &[SlotDescriptor] = &[SlotDescriptor {
@@ -16527,7 +16602,7 @@ const PIVOT_PROPERTIES: &[PropertyDescriptor] = &[
         id: PropertyId::PivotSelectedIndex,
         name: "SelectedIndex",
         field: "selected_index",
-        value: "I32",
+        value: "SelectionIndex",
         interface: "Microsoft.UI.Xaml.Controls.IPivot",
         clearable: true,
         feedback: Some("SelectionChanged"),
@@ -16550,7 +16625,7 @@ const PIVOT_EVENTS: &[EventDescriptor] = &[EventDescriptor {
     id: EventId::PivotSelectionChanged,
     name: "SelectionChanged",
     field: "on_selection_changed",
-    payload: "I32",
+    payload: "SelectionIndex",
     interface: "Microsoft.UI.Xaml.Controls.IPivot",
 }];
 const PIVOT_SLOTS: &[SlotDescriptor] = &[SlotDescriptor {
@@ -16577,7 +16652,7 @@ const FLIP_VIEW_PROPERTIES: &[PropertyDescriptor] = &[PropertyDescriptor {
     id: PropertyId::FlipViewSelectedIndex,
     name: "SelectedIndex",
     field: "selected_index",
-    value: "I32",
+    value: "SelectionIndex",
     interface: "Microsoft.UI.Xaml.Controls.Primitives.ISelector",
     clearable: true,
     feedback: Some("SelectionChanged"),
@@ -16588,7 +16663,7 @@ const FLIP_VIEW_EVENTS: &[EventDescriptor] = &[EventDescriptor {
     id: EventId::FlipViewSelectionChanged,
     name: "SelectionChanged",
     field: "on_selection_changed",
-    payload: "I32",
+    payload: "SelectionIndex",
     interface: "Microsoft.UI.Xaml.Controls.Primitives.ISelector",
 }];
 const FLIP_VIEW_SLOTS: &[SlotDescriptor] = &[SlotDescriptor {
@@ -16650,7 +16725,7 @@ const TAB_VIEW_PROPERTIES: &[PropertyDescriptor] = &[
         id: PropertyId::TabViewSelectedIndex,
         name: "SelectedIndex",
         field: "selected_index",
-        value: "I32",
+        value: "SelectionIndex",
         interface: "Microsoft.UI.Xaml.Controls.ITabView",
         clearable: true,
         feedback: Some("SelectionChanged"),
@@ -16685,7 +16760,7 @@ const TAB_VIEW_EVENTS: &[EventDescriptor] = &[
         id: EventId::TabViewSelectionChanged,
         name: "SelectionChanged",
         field: "on_selection_changed",
-        payload: "I32",
+        payload: "SelectionIndex",
         interface: "Microsoft.UI.Xaml.Controls.ITabView",
     },
     EventDescriptor {
@@ -17095,7 +17170,7 @@ const DATE_PICKER_EVENTS: &[EventDescriptor] = &[EventDescriptor {
     id: EventId::DatePickerSelectedDateChanged,
     name: "SelectedDateChanged",
     field: "on_selected_date_changed",
-    payload: "DateTime",
+    payload: "OptionalDateTime",
     interface: "Microsoft.UI.Xaml.Controls.IDatePicker",
 }];
 const DATE_PICKER_SLOTS: &[SlotDescriptor] = &[SlotDescriptor {
@@ -17144,7 +17219,7 @@ const TIME_PICKER_EVENTS: &[EventDescriptor] = &[EventDescriptor {
     id: EventId::TimePickerSelectedTimeChanged,
     name: "SelectedTimeChanged",
     field: "on_selected_time_changed",
-    payload: "TimeSpan",
+    payload: "OptionalTimeSpan",
     interface: "Microsoft.UI.Xaml.Controls.ITimePicker",
 }];
 const TIME_PICKER_SLOTS: &[SlotDescriptor] = &[SlotDescriptor {
@@ -17204,7 +17279,7 @@ const CALENDAR_DATE_PICKER_EVENTS: &[EventDescriptor] = &[EventDescriptor {
     id: EventId::CalendarDatePickerDateChanged,
     name: "DateChanged",
     field: "on_date_changed",
-    payload: "DateTime",
+    payload: "OptionalDateTime",
     interface: "Microsoft.UI.Xaml.Controls.ICalendarDatePicker",
 }];
 const CALENDAR_DATE_PICKER_SLOTS: &[SlotDescriptor] = &[SlotDescriptor {
@@ -17341,7 +17416,7 @@ const LIST_VIEW_PROPERTIES: &[PropertyDescriptor] = &[
         id: PropertyId::ListViewSelectedIndex,
         name: "SelectedIndex",
         field: "selected_index",
-        value: "I32",
+        value: "SelectionIndex",
         interface: "Microsoft.UI.Xaml.Controls.Primitives.ISelector",
         clearable: true,
         feedback: Some("SelectionChanged"),
@@ -17398,7 +17473,7 @@ const LIST_VIEW_EVENTS: &[EventDescriptor] = &[
         id: EventId::ListViewSelectionChanged,
         name: "SelectionChanged",
         field: "on_selection_changed",
-        payload: "I32",
+        payload: "SelectionIndex",
         interface: "Microsoft.UI.Xaml.Controls.Primitives.ISelector",
     },
     EventDescriptor {
@@ -17453,7 +17528,7 @@ const GRID_VIEW_PROPERTIES: &[PropertyDescriptor] = &[
         id: PropertyId::GridViewSelectedIndex,
         name: "SelectedIndex",
         field: "selected_index",
-        value: "I32",
+        value: "SelectionIndex",
         interface: "Microsoft.UI.Xaml.Controls.Primitives.ISelector",
         clearable: true,
         feedback: Some("SelectionChanged"),
@@ -17506,7 +17581,7 @@ const GRID_VIEW_EVENTS: &[EventDescriptor] = &[
         id: EventId::GridViewSelectionChanged,
         name: "SelectionChanged",
         field: "on_selection_changed",
-        payload: "I32",
+        payload: "SelectionIndex",
         interface: "Microsoft.UI.Xaml.Controls.Primitives.ISelector",
     },
 ];
