@@ -113,6 +113,7 @@ impl<R: NativeRuntime> Pump<R> {
         }
         self.diagnostics.extend(plan.diagnostics);
         self.native_observation_pending = false;
+        self.last_native_observation = None;
         self.version = next_version;
         self.apply_window_opens(plan.post_publish_windows)?;
         if commits_window_close {

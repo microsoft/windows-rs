@@ -211,6 +211,8 @@ Microsoft::UI::Xaml::Controls::INavigationView::{add_DisplayModeChanged, remove_
 Microsoft::UI::Xaml::Controls::INavigationView::{add_SelectionChanged, remove_SelectionChanged}
 Microsoft::UI::Xaml::Controls::INavigationView::{get_SelectedItem, put_SelectedItem}
 Microsoft::UI::Xaml::Controls::INavigationViewDisplayModeChangedEventArgs::get_DisplayMode
+Microsoft::UI::Xaml::Controls::INavigationViewItem2::get_MenuItems
+Microsoft::UI::Xaml::Controls::INavigationViewItem2::put_IsExpanded
 Microsoft::UI::Xaml::Controls::INavigationViewItem2::put_SelectsOnInvoked
 Microsoft::UI::Xaml::Controls::INavigationViewItem::put_Icon
 Microsoft::UI::Xaml::Controls::INavigationViewItemBase2::get_IsSelected
@@ -409,6 +411,7 @@ Microsoft::UI::Xaml::Controls::NavigationView::PaneDisplayModeProperty
 Microsoft::UI::Xaml::Controls::NavigationView::PaneTitleProperty
 Microsoft::UI::Xaml::Controls::NavigationViewBackButtonVisible
 Microsoft::UI::Xaml::Controls::NavigationViewItem::CreateInstance
+Microsoft::UI::Xaml::Controls::NavigationViewItem::IsExpandedProperty
 Microsoft::UI::Xaml::Controls::NavigationViewItem::SelectsOnInvokedProperty
 Microsoft::UI::Xaml::Controls::NavigationViewItemBase::IsSelectedProperty
 Microsoft::UI::Xaml::Controls::NavigationViewPaneDisplayMode

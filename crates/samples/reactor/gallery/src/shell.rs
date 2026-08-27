@@ -2,11 +2,9 @@
 //! `NavigationView` that hosts Home, Settings, the 11 category listing pages, and the 65 leaf
 //! control pages resolved through [`crate::router`].
 //!
-//! `NavigationViewItem` has no child-item slot in windows-reactor, so the pane is flat: it
-//! lists Home plus one item per category. Typing in the title bar's search box swaps the pane to
-//! the matching leaf destinations (falling back to keeping the current selection visible), which
-//! preserves direct search-driven navigation to every one of the 65 controls without a
-//! hierarchical tree.
+//! The pane lists Home, expandable categories with their control pages, and Settings. Typing in the
+//! title bar's search box temporarily swaps the hierarchy for matching leaf destinations so every
+//! control remains directly reachable from search.
 
 use crate::controls::{CardItem, card_grid, category_icon, page_header};
 use crate::registry::{self, ALL_CONTROLS, CATEGORIES, ControlInfo};
@@ -59,7 +57,15 @@ fn destination_title(tag: &str) -> String {
         .map_or_else(|| tag.to_string(), |c| c.title.to_string())
 }
 
-fn nav_item(tag: &str, label: &str, icon: Option<Symbol>, selected: bool) -> KeyedView {
+fn nav_item(
+    tag: &str,
+    label: &str,
+    icon: Option<Symbol>,
+    selected: bool,
+    expanded: bool,
+    children: Vec<KeyedView>,
+) -> KeyedView {
+    let has_children = !children.is_empty();
     let mut slots = vec![SlotView::new(NavigationViewItemSlot::Content, label)];
     if let Some(symbol) = icon {
         slots.push(SlotView::new(
@@ -67,14 +73,20 @@ fn nav_item(tag: &str, label: &str, icon: Option<Symbol>, selected: bool) -> Key
             SymbolIcon::new().symbol(symbol),
         ));
     }
-    KeyedView::new(
-        tag.to_string(),
-        NavigationViewItem::new()
-            .tag(tag)
-            .is_selected(selected)
-            .selects_on_invoked(true)
-            .slots(slots),
-    )
+    if has_children {
+        slots.push(SlotView::collection(
+            NavigationViewItemSlot::MenuItems,
+            children,
+        ));
+    }
+    let mut item = NavigationViewItem::new()
+        .tag(tag)
+        .is_selected(selected)
+        .selects_on_invoked(true);
+    if has_children {
+        item = item.is_expanded(expanded);
+    }
+    KeyedView::new(tag.to_string(), item.slots(slots))
 }
 
 /// Renders a category's control list as a card grid, matching the incumbent gallery's category
@@ -148,7 +160,9 @@ impl Component for Gallery {
             Message::PaneOpenChanged(value) => self.pane_open = value,
             Message::SearchChanged(value) => self.search = value,
             Message::SelectedTagChanged(tag) => {
-                self.navigate(tag.unwrap_or_else(|| "settings".to_string()));
+                if let Some(tag) = tag {
+                    self.navigate(tag);
+                }
             }
             Message::TogglePane => self.pane_open = !self.pane_open,
         }
@@ -165,11 +179,6 @@ impl Component for Gallery {
                 .backdrop(self.backdrop)
                 .client_size(1400.0, 900.0),
         );
-
-        let category_tags: Vec<String> = CATEGORIES
-            .iter()
-            .map(|c| registry::category_tag(c))
-            .collect();
 
         let content: View = if self.selected_tag == "home" {
             View::component::<crate::pages::home::HomePage>(crate::pages::home::HomeInput {
@@ -193,21 +202,49 @@ impl Component for Gallery {
             router::route(&self.selected_tag)
         };
 
+        let selected_menu_tag = if self.search.trim().is_empty() {
+            ALL_CONTROLS
+                .iter()
+                .find(|control| control.tag == self.selected_tag)
+                .map_or_else(
+                    || self.selected_tag.clone(),
+                    |control| registry::category_tag(control.category),
+                )
+        } else {
+            self.selected_tag.clone()
+        };
         let mut menu_items: Vec<KeyedView> = vec![nav_item(
             "home",
             "Home",
             Some(Symbol::Home),
-            self.selected_tag == "home",
+            selected_menu_tag == "home",
+            false,
+            Vec::new(),
         )];
         if self.search.trim().is_empty() {
             for &category in CATEGORIES {
                 let tag = registry::category_tag(category);
-                let selected = self.selected_tag == tag;
+                let selected = selected_menu_tag == tag;
+                let children = registry::controls_in_category(category)
+                    .into_iter()
+                    .map(|control| {
+                        nav_item(
+                            control.tag,
+                            control.title,
+                            None,
+                            self.selected_tag == control.tag,
+                            false,
+                            Vec::new(),
+                        )
+                    })
+                    .collect();
                 menu_items.push(nav_item(
                     &tag,
                     category,
                     Some(category_icon(category)),
+                    self.selected_tag == tag,
                     selected,
+                    children,
                 ));
             }
         } else {
@@ -218,24 +255,38 @@ impl Component for Gallery {
                     info.title,
                     None,
                     self.selected_tag == info.tag,
+                    false,
+                    Vec::new(),
                 ));
             }
             let already_shown = matches.iter().any(|info| info.tag == self.selected_tag);
             if !already_shown
-                && !category_tags.contains(&self.selected_tag)
-                && self.selected_tag != "home"
-                && self.selected_tag != "settings"
                 && let Some(info) = ALL_CONTROLS.iter().find(|c| c.tag == self.selected_tag)
             {
-                menu_items.push(nav_item(info.tag, info.title, None, true));
+                menu_items.push(nav_item(
+                    info.tag,
+                    info.title,
+                    None,
+                    true,
+                    false,
+                    Vec::new(),
+                ));
             }
         }
+        menu_items.push(nav_item(
+            "settings",
+            "Settings",
+            Some(Symbol::Setting),
+            selected_menu_tag == "settings",
+            false,
+            Vec::new(),
+        ));
 
         let navigation = NavigationView::new()
             .pane_display_mode(NavigationViewPaneDisplayMode::Left)
             .is_pane_toggle_button_visible(false)
             .is_back_button_visible(NavigationViewBackButtonVisible::Collapsed)
-            .is_settings_visible(true)
+            .is_settings_visible(false)
             .always_show_header(false)
             .pane_title("Reactor gallery")
             .is_pane_open(self.pane_open)

@@ -874,6 +874,42 @@ impl WinUiRuntime {
         Ok(())
     }
 
+    fn set_window_title(&mut self, node: NodeId, title: &str) -> Result<(), RuntimeError> {
+        let window = self
+            .windows
+            .get(&node)
+            .ok_or(RuntimeError::MissingNode(node))?;
+        window.SetTitle(title).map_err(native_error)?;
+        if !self.window_title_bars.contains_key(&node) {
+            return Ok(());
+        }
+
+        let window = window.clone();
+        let title = title.to_string();
+        let identity = Rc::clone(&self.identity);
+        let host_events = Rc::clone(&self.host_events);
+        let handler = DispatcherQueueHandler::new(move || {
+            if let Err(error) = window.SetTitle(&title).map_err(native_error)
+                && let Some(identity) = identity.get()
+            {
+                host_events.borrow_mut().push(NativeWork {
+                    identity,
+                    work: HostEvent::Error(error),
+                });
+            }
+        });
+        let accepted = DispatcherQueue::GetForCurrentThread()
+            .and_then(|dispatcher| {
+                dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Low, &handler)
+            })
+            .map_err(native_error)?;
+        if accepted {
+            Ok(())
+        } else {
+            Err(RuntimeError::DispatcherRejected)
+        }
+    }
+
     fn apply_theme_style(&mut self, node: NodeId, style: ThemeStyle) -> Result<(), RuntimeError> {
         let handle = self
             .handles
@@ -1238,11 +1274,7 @@ impl WinUiRuntime {
                     .map_err(native_error)?;
             }
             Command::SetWindowTitle { node, title } => {
-                self.windows
-                    .get(node)
-                    .ok_or(RuntimeError::MissingNode(*node))?
-                    .SetTitle(title)
-                    .map_err(native_error)?;
+                self.set_window_title(*node, title)?;
             }
             Command::ClearWindowTitleBar { node } => {
                 self.clear_window_title_bar(*node)?;
@@ -3607,13 +3639,55 @@ fn child_index(
 #[cfg(test)]
 mod tests {
     use super::{
-        AsyncIngressQueue, AsyncIngressSender, DroppedData, RuntimeError, WindowId, WindowToken,
-        merge_retained_identities, physical_retained_index, retained_subsequence,
+        AsyncIngressQueue, AsyncIngressSender, Command, DroppedData, NodeId, RuntimeError, SlotId,
+        WindowId, WindowToken, is_internal_detach, merge_retained_identities,
+        physical_retained_index, retained_subsequence,
     };
     use std::collections::HashSet;
     use std::marker::PhantomData;
     use std::sync::atomic::{AtomicUsize, Ordering};
     use std::sync::{Arc, Mutex};
+
+    #[test]
+    fn skips_only_internal_detaches_for_destroyed_subtrees() {
+        let parent = NodeId::from_parts(1, 0);
+        let child = NodeId::from_parts(2, 0);
+        let survivor = NodeId::from_parts(3, 0);
+        let destroyed = HashSet::from([parent, child]);
+
+        assert!(is_internal_detach(
+            &Command::RemoveChild {
+                parent,
+                slot: Some(SlotId::PivotItems),
+                child,
+            },
+            &destroyed,
+        ));
+        assert!(!is_internal_detach(
+            &Command::RemoveChild {
+                parent,
+                slot: Some(SlotId::PivotItems),
+                child: survivor,
+            },
+            &destroyed,
+        ));
+        assert!(is_internal_detach(
+            &Command::SetSlot {
+                parent,
+                slot: SlotId::ExpanderContent,
+                child: None,
+            },
+            &destroyed,
+        ));
+        assert!(!is_internal_detach(
+            &Command::SetSlot {
+                parent,
+                slot: SlotId::ExpanderContent,
+                child: Some(survivor),
+            },
+            &destroyed,
+        ));
+    }
 
     #[test]
     fn retained_subsequence_preserves_longest_native_order() {
@@ -3715,11 +3789,37 @@ fn index32(index: usize) -> Result<u32, RuntimeError> {
     index.try_into().map_err(|_| RuntimeError::IndexOutOfBounds)
 }
 
+fn is_internal_detach(command: &Command, destroyed: &HashSet<NodeId>) -> bool {
+    match command {
+        Command::RemoveChild { parent, child, .. } => {
+            destroyed.contains(parent) && destroyed.contains(child)
+        }
+        Command::SetSlot {
+            parent,
+            child: None,
+            ..
+        } => destroyed.contains(parent),
+        _ => false,
+    }
+}
+
 impl NativeRuntime for WinUiRuntime {
     fn apply(&mut self, commands: &[Command]) -> Result<(), NativeApplyError> {
         #[cfg(feature = "test")]
         let started = std::time::Instant::now();
+        // Detach only the external edge of a subtree so WinUI cannot run deferred callbacks
+        // against a control whose internal children have already been removed.
+        let destroyed = commands
+            .iter()
+            .filter_map(|command| match command {
+                Command::Destroy { node } => Some(*node),
+                _ => None,
+            })
+            .collect::<HashSet<_>>();
         for (index, command) in commands.iter().enumerate() {
+            if is_internal_detach(command, &destroyed) {
+                continue;
+            }
             if let Err(error) = self.apply_one(command) {
                 eprintln!("windows-reactor failed command {index}: {command:?}: {error:?}");
                 return Err(NativeApplyError {

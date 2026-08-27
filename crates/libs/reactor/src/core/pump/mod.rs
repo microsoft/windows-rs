@@ -89,6 +89,7 @@ pub struct Pump<R: NativeRuntime> {
     imperative: ImperativeEndpoint,
     identity: WindowToken,
     native_observation_pending: bool,
+    last_native_observation: Option<(NodeId, EventId)>,
     planning_dirty: HashSet<ComponentToken>,
     poisoned: bool,
     realizations: VecDeque<NativeWork<RealizationRequest>>,
@@ -123,6 +124,7 @@ impl<R: NativeRuntime> Pump<R> {
             imperative,
             identity,
             native_observation_pending: false,
+            last_native_observation: None,
             planning_dirty: HashSet::new(),
             poisoned: false,
             realizations: VecDeque::new(),
@@ -221,11 +223,11 @@ impl<R: NativeRuntime> Pump<R> {
                 return Err(PumpError::StructureUnsupported);
             }
         }
-        if let Err(error) = Self::plan_window_title(window, &self.tree, &candidate, &mut plan) {
+        if let Err(error) = Self::plan_window_title_bar(window, &self.tree, &candidate, &mut plan) {
             self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
             return Err(error);
         }
-        if let Err(error) = Self::plan_window_title_bar(window, &self.tree, &candidate, &mut plan) {
+        if let Err(error) = Self::plan_window_title(window, &self.tree, &candidate, &mut plan) {
             self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
             return Err(error);
         }
@@ -376,6 +378,7 @@ impl<R: NativeRuntime> Pump<R> {
         self.host_events.clear();
         self.realizations.clear();
         self.native_observation_pending = false;
+        self.last_native_observation = None;
         self.planning_dirty.clear();
         self.root = None;
         self.tree = Tree::new();
@@ -647,11 +650,11 @@ impl<R: NativeRuntime> Pump<R> {
         next_version: u64,
     ) -> Result<(), PumpError> {
         let window = self.window.ok_or(PumpError::NotMounted)?;
-        if let Err(error) = Self::plan_window_title(window, &self.tree, &candidate, &mut plan) {
+        if let Err(error) = Self::plan_window_title_bar(window, &self.tree, &candidate, &mut plan) {
             self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
             return Err(error);
         }
-        if let Err(error) = Self::plan_window_title_bar(window, &self.tree, &candidate, &mut plan) {
+        if let Err(error) = Self::plan_window_title(window, &self.tree, &candidate, &mut plan) {
             self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
             return Err(error);
         }

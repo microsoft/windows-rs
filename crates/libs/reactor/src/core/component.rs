@@ -949,6 +949,7 @@ trait ErasedScope {
     #[cfg(test)]
     fn message_type(&self) -> TypeId;
     fn input_type(&self) -> TypeId;
+    fn type_name(&self) -> &'static str;
     fn context_dependencies(&self) -> Option<&HashSet<ContextDependency>>;
     fn set_context_dependencies(&mut self, dependencies: HashSet<ContextDependency>);
     fn view(&self, contexts: ContextSnapshot) -> Result<ComponentRender, ComponentStoreError>;
@@ -1193,6 +1194,10 @@ where
 
     fn input_type(&self) -> TypeId {
         TypeId::of::<I>()
+    }
+
+    fn type_name(&self) -> &'static str {
+        std::any::type_name::<C>()
     }
 
     fn view(&self, contexts: ContextSnapshot) -> Result<ComponentRender, ComponentStoreError> {
@@ -1695,6 +1700,14 @@ impl ComponentStore {
     ) -> Result<ComponentRender, ComponentStoreError> {
         self.validate_window(token)?;
         self.scopes.get(token.scope)?.view(contexts)
+    }
+
+    pub(crate) fn type_name(
+        &self,
+        token: ComponentToken,
+    ) -> Result<&'static str, ComponentStoreError> {
+        self.validate_window(token)?;
+        Ok(self.scopes.get(token.scope)?.type_name())
     }
 
     pub fn cleanup_effects(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {

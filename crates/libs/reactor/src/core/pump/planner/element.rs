@@ -40,15 +40,14 @@ impl<R: NativeRuntime> Pump<R> {
         plan: &mut UpdatePlan,
     ) {
         Self::visit_element_properties(props, element_state, &mut |property, value| {
-            let changed = plan.reconcile_observations
-                || native.properties.get(&property).map_or_else(
-                    || value.is_some(),
-                    |current| match (current.as_ref(), value) {
-                        (Some(current), Some(value)) => !value.equals_owned(current),
-                        (None, None) => false,
-                        _ => true,
-                    },
-                );
+            let changed = native.properties.get(&property).map_or_else(
+                || value.is_some(),
+                |current| match (current.as_ref(), value) {
+                    (Some(current), Some(value)) => !value.equals_owned(current),
+                    (None, None) => false,
+                    _ => true,
+                },
+            );
             if !changed {
                 return;
             }
@@ -78,9 +77,7 @@ impl<R: NativeRuntime> Pump<R> {
         plan: &mut UpdatePlan,
     ) {
         let style = props.theme_style();
-        if native.desired.theme_style() != style
-            || (plan.reconcile_observations && !style.is_empty())
-        {
+        if native.desired.theme_style() != style {
             plan.push(Command::SetThemeStyle { node, style });
         }
     }

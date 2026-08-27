@@ -80,7 +80,20 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
         Some(&Some(PropertyValue::Bool(true)))
     );
 
+    let batches = pump.runtime().commands().len();
     pump.update_view(view).unwrap();
+    let commands = pump.runtime().commands()[batches..]
+        .iter()
+        .flatten()
+        .collect::<Vec<_>>();
+    assert_eq!(commands.len(), 2);
+    assert!(commands.iter().all(|command| matches!(
+        command,
+        Command::SetProperty {
+            property: PropertyId::NavigationViewItemIsSelected,
+            ..
+        }
+    )));
     pump.queue_event(QueuedEvent::new(
         navigation,
         EventId::NavigationViewSelectionChanged,
@@ -405,7 +418,7 @@ fn observed_dependency_property_feedback_updates_known_state() {
                 )
             })
             .count(),
-        setter_count + 1
+        setter_count
     );
 }
 

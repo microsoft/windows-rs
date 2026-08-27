@@ -352,6 +352,7 @@ impl<R: NativeRuntime> Pump<R> {
             }
             if (selection_observation || property_observation) && event.invokes_callback() {
                 self.native_observation_pending = true;
+                self.last_native_observation = Some((event.node, event.event));
                 let mut current = event.node;
                 while let Some(parent) = self.tree.parent(current)? {
                     current = parent;
@@ -687,11 +688,11 @@ impl<R: NativeRuntime> Pump<R> {
     ) -> Result<(), PumpError> {
         let root = self.root.ok_or(PumpError::NotMounted)?;
         let window = self.window.ok_or(PumpError::NotMounted)?;
-        if let Err(error) = Self::plan_window_title(window, &self.tree, &candidate, &mut plan) {
+        if let Err(error) = Self::plan_window_title_bar(window, &self.tree, &candidate, &mut plan) {
             self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
             return Err(error);
         }
-        if let Err(error) = Self::plan_window_title_bar(window, &self.tree, &candidate, &mut plan) {
+        if let Err(error) = Self::plan_window_title(window, &self.tree, &candidate, &mut plan) {
             self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
             return Err(error);
         }

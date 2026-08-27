@@ -1483,6 +1483,15 @@ pub fn set_property(
             .SetSelectsOnInvoked(*value)
             .map_err(native_error),
         (
+            Handle::NavigationViewItem(control),
+            PropertyId::NavigationViewItemIsExpanded,
+            PropertyValue::Bool(value),
+        ) => control
+            .cast::<INavigationViewItem2>()
+            .map_err(native_error)?
+            .SetIsExpanded(*value)
+            .map_err(native_error),
+        (
             Handle::SplitView(control),
             PropertyId::SplitViewOpenPaneLength,
             PropertyValue::F64(value),
@@ -3167,6 +3176,13 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
                 )
                 .map_err(native_error)
         }
+        (Handle::NavigationViewItem(_), PropertyId::NavigationViewItemIsExpanded) => {
+            dependency_object
+                .ClearValue(
+                    &bindings::NavigationViewItem::IsExpandedProperty().map_err(native_error)?,
+                )
+                .map_err(native_error)
+        }
         (Handle::SplitView(_), PropertyId::SplitViewOpenPaneLength) => dependency_object
             .ClearValue(&bindings::SplitView::OpenPaneLengthProperty().map_err(native_error)?)
             .map_err(native_error),
@@ -4008,6 +4024,15 @@ pub fn slot_collection(handle: &Handle, slot: SlotId) -> Result<SlotCollection, 
         (Handle::NavigationView(control), SlotId::NavigationViewMenuItems) => Ok(
             SlotCollection::Inspectable(control.MenuItems().map_err(native_error)?),
         ),
+        (Handle::NavigationViewItem(control), SlotId::NavigationViewItemMenuItems) => {
+            Ok(SlotCollection::Inspectable(
+                control
+                    .cast::<INavigationViewItem2>()
+                    .map_err(native_error)?
+                    .MenuItems()
+                    .map_err(native_error)?,
+            ))
+        }
         (Handle::ListBox(control), SlotId::ListBoxItems) => Ok(SlotCollection::Inspectable(
             control
                 .cast::<IItemsControl>()

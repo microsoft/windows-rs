@@ -422,6 +422,7 @@ pub windows_reactor::NavigationViewDisplayMode::Minimal
 #[repr(u8)] pub enum windows_reactor::NavigationViewItemSlot
 pub windows_reactor::NavigationViewItemSlot::Content
 pub windows_reactor::NavigationViewItemSlot::Icon
+pub windows_reactor::NavigationViewItemSlot::MenuItems
 pub enum windows_reactor::NavigationViewPaneDisplayMode
 pub windows_reactor::NavigationViewPaneDisplayMode::Auto
 pub windows_reactor::NavigationViewPaneDisplayMode::Left
@@ -1989,6 +1990,7 @@ pub fn windows_reactor::NavigationView::slot(self, Self::Slot, impl core::conver
 pub fn windows_reactor::NavigationView::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
 pub struct windows_reactor::NavigationViewItem
 impl windows_reactor::NavigationViewItem
+pub fn windows_reactor::NavigationViewItem::is_expanded(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::NavigationViewItem::is_selected(self, impl core::convert::Into<core::option::Option<bool>>) -> Self
 pub fn windows_reactor::NavigationViewItem::new() -> Self
 pub fn windows_reactor::NavigationViewItem::selects_on_invoked(self, impl core::convert::Into<core::option::Option<bool>>) -> Self

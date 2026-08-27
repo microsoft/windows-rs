@@ -12090,6 +12090,27 @@ impl INavigationViewItem2 {
             .ok()
         }
     }
+    pub(crate) fn SetIsExpanded(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsExpanded)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn MenuItems(
+        &self,
+    ) -> windows_core::Result<windows_collections::IVector<windows_core::IInspectable>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).MenuItems)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[repr(C)]
 pub struct INavigationViewItem2_Vtbl {
@@ -12097,6 +12118,17 @@ pub struct INavigationViewItem2_Vtbl {
     SelectsOnInvoked: usize,
     pub SetSelectsOnInvoked:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    IsExpanded: usize,
+    pub SetIsExpanded:
+        unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    HasUnrealizedChildren: usize,
+    SetHasUnrealizedChildren: usize,
+    IsChildSelected: usize,
+    SetIsChildSelected: usize,
+    pub MenuItems: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     INavigationViewItemBase,
@@ -12211,6 +12243,10 @@ impl windows_core::RuntimeType for INavigationViewItemStatics2 {
 pub struct INavigationViewItemStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SelectsOnInvokedProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub IsExpandedProperty: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -22865,6 +22901,16 @@ impl NavigationViewItem {
         Self::INavigationViewItemStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectsOnInvokedProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn IsExpandedProperty() -> windows_core::Result<DependencyProperty> {
+        Self::INavigationViewItemStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsExpandedProperty)(
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )

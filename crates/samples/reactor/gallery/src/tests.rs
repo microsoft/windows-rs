@@ -2,11 +2,11 @@ use crate::registry::ALL_CONTROLS;
 use crate::shell::Gallery;
 use windows_reactor::*;
 
-fn active_property_node(
+fn find_active_property_node(
     pump: &Pump<RecordingRuntime>,
     property: PropertyId,
     value: &PropertyValue,
-) -> NodeId {
+) -> Option<NodeId> {
     pump.runtime()
         .commands()
         .iter()
@@ -28,6 +28,14 @@ fn active_property_node(
             }
             _ => None,
         })
+}
+
+fn active_property_node(
+    pump: &Pump<RecordingRuntime>,
+    property: PropertyId,
+    value: &PropertyValue,
+) -> NodeId {
+    find_active_property_node(pump, property, value)
         .unwrap_or_else(|| panic!("active {property:?} with value {value:?} not found"))
 }
 
@@ -126,6 +134,16 @@ fn gallery_mounts_and_replaces_every_registered_page() {
             .map(|(_, height)| height),
         Some(WindowTitleBarHeight::Tall)
     );
+    let initial = pump.runtime().commands().last().unwrap();
+    let title_bar = initial
+        .iter()
+        .position(|command| matches!(command, Command::SetWindowTitleBar { .. }))
+        .unwrap();
+    let title = initial
+        .iter()
+        .position(|command| matches!(command, Command::SetWindowTitle { .. }))
+        .unwrap();
+    assert!(title_bar < title);
 
     let home_heading = active_property_node(
         &pump,
@@ -180,6 +198,115 @@ fn gallery_mounts_and_replaces_every_registered_page() {
 }
 
 #[test]
+fn empty_navigation_selection_does_not_replace_a_leaf_with_settings() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<Gallery>(())).unwrap();
+    let window = pump.window().unwrap();
+    let navigation = active_event_node(&pump, EventId::NavigationViewSelectionChanged);
+
+    navigate(&mut pump, navigation, "flip-view");
+    let selected_leaf = active_property_node(
+        &pump,
+        PropertyId::NavigationViewItemTag,
+        &PropertyValue::Str("flip-view".into()),
+    );
+    let parent_category = active_property_node(
+        &pump,
+        PropertyId::NavigationViewItemTag,
+        &PropertyValue::Str("collections".into()),
+    );
+    assert_eq!(
+        pump.runtime()
+            .node(selected_leaf)
+            .and_then(|node| node.property(PropertyId::NavigationViewItemIsSelected)),
+        Some(&PropertyValue::Bool(true))
+    );
+    assert!(
+        pump.runtime()
+            .node(parent_category)
+            .unwrap()
+            .slot_children(SlotId::NavigationViewItemMenuItems)
+            .contains(&selected_leaf)
+    );
+    assert!(
+        !pump
+            .runtime()
+            .node(navigation)
+            .unwrap()
+            .slot_children(SlotId::NavigationViewMenuItems)
+            .contains(&selected_leaf)
+    );
+    queue_event(
+        &mut pump,
+        navigation,
+        EventId::NavigationViewSelectionChanged,
+        EventPayload::SelectionChange(SelectionChange {
+            item: None,
+            tag: None,
+        }),
+    );
+    assert_eq!(
+        pump.runtime().window_title(window),
+        Some("Reactor gallery - FlipView")
+    );
+
+    navigate(&mut pump, navigation, "settings");
+    assert_eq!(
+        pump.runtime().window_title(window),
+        Some("Reactor gallery - Settings")
+    );
+}
+
+#[test]
+fn navigation_view_page_updates_controlled_selection_without_replacing_the_page() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<Gallery>(())).unwrap();
+    let shell_navigation = active_event_node(&pump, EventId::NavigationViewSelectionChanged);
+
+    navigate(&mut pump, shell_navigation, "navigation-view");
+    let navigation = active_property_node(
+        &pump,
+        PropertyId::NavigationViewPaneTitle,
+        &PropertyValue::Str("Navigation demo".into()),
+    );
+    let browse = active_property_node(
+        &pump,
+        PropertyId::NavigationViewItemTag,
+        &PropertyValue::Str("browse".into()),
+    );
+    let commands_before = pump
+        .runtime()
+        .commands()
+        .iter()
+        .map(Vec::len)
+        .sum::<usize>();
+
+    queue_event(
+        &mut pump,
+        navigation,
+        EventId::NavigationViewSelectionChanged,
+        EventPayload::SelectionChange(SelectionChange {
+            item: Some(browse),
+            tag: Some("browse".into()),
+        }),
+    );
+
+    active_property_node(
+        &pump,
+        PropertyId::TextBlockText,
+        &PropertyValue::Str("Browse page content".into()),
+    );
+    assert!(!pump.native_work_pending());
+    let commands_after = pump
+        .runtime()
+        .commands()
+        .iter()
+        .map(Vec::len)
+        .sum::<usize>();
+    assert_eq!(commands_after - commands_before, 1);
+}
+
+#[test]
 fn controlled_slider_updates_and_page_retirement_recreates_state() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(View::component::<Gallery>(())).unwrap();
@@ -195,12 +322,6 @@ fn controlled_slider_updates_and_page_retirement_recreates_state() {
         slider,
         EventId::SliderValueChanged,
         EventPayload::F64(72.0),
-    );
-    assert_eq!(
-        pump.runtime()
-            .node(slider)
-            .and_then(|node| node.property(PropertyId::SliderValue)),
-        Some(&PropertyValue::F64(72.0))
     );
     active_property_node(
         &pump,

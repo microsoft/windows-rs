@@ -1,6 +1,53 @@
 use super::*;
 
 impl<R: NativeRuntime> Pump<R> {
+    fn trace_component_plan(
+        &self,
+        components: impl IntoIterator<Item = ComponentToken>,
+        plan: &UpdatePlan,
+    ) {
+        if !cfg!(debug_assertions) || plan.commands.is_empty() {
+            return;
+        }
+        let mut names = components
+            .into_iter()
+            .filter_map(|token| self.components.type_name(token).ok())
+            .collect::<Vec<_>>();
+        names.sort_unstable();
+        names.dedup();
+
+        let mut creates = 0;
+        let mut destroys = 0;
+        let mut property_sets = 0;
+        let mut property_clears = 0;
+        let mut subscriptions = 0;
+        let mut topology = 0;
+        for command in &plan.commands {
+            match command {
+                Command::Create { .. } | Command::CreateVirtualCollection { .. } => creates += 1,
+                Command::Destroy { .. } | Command::RetireSubtree { .. } => destroys += 1,
+                Command::SetProperty { .. } => property_sets += 1,
+                Command::ClearProperty { .. } => property_clears += 1,
+                Command::SubscribeEvent { .. } | Command::UnsubscribeEvent { .. } => {
+                    subscriptions += 1;
+                }
+                Command::SetSlot { .. }
+                | Command::InsertChild { .. }
+                | Command::RemoveChild { .. }
+                | Command::SynchronizeChildren { .. }
+                | Command::MoveChild { .. } => topology += 1,
+                _ => {}
+            }
+        }
+        eprintln!(
+            "windows-reactor trace: components={names:?} observation={:?} commands={} \
+             create={creates} destroy={destroys} set_property={property_sets} \
+             clear_property={property_clears} subscriptions={subscriptions} topology={topology}",
+            self.last_native_observation,
+            plan.commands.len(),
+        );
+    }
+
     pub fn dispatch_components(&mut self, budget: usize) -> Result<usize, PumpError> {
         if self.poisoned {
             return Err(PumpError::Poisoned);
@@ -54,6 +101,7 @@ impl<R: NativeRuntime> Pump<R> {
                 LocalComponentUpdate::Plan(mut plan) => {
                     let window = self.window.ok_or(PumpError::NotMounted)?;
                     Self::plan_host_requests(window, &mut staged_host_requests, &mut plan.plan);
+                    self.trace_component_plan([token], &plan.plan);
                     self.publish_candidate(
                         CandidateState::Native {
                             node: plan.node,
@@ -161,6 +209,7 @@ impl<R: NativeRuntime> Pump<R> {
             }
         }
         let root = self.root.ok_or(PumpError::NotMounted)?;
+        self.trace_component_plan(changes.composed.iter().copied(), &plan);
         self.apply_component_candidate(candidate, root, plan, changes, next_version)?;
         self.dirty_components.clear();
         Ok(())

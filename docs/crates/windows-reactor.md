@@ -32,6 +32,17 @@ integration boundaries.
 Unexpected native command failures are fatal. Continuing after a partially applied WinUI update
 would leave the retained and native trees out of sync.
 
+When one command batch destroys a native subtree, the WinUI runtime detaches only the subtree's
+external edge. It does not clear internal slots or collections that are destroyed in the same
+batch. This keeps stateful controls intact while WinUI drains deferred visual-state callbacks.
+`RecordingRuntime` still applies every logical detach and checks the complete command sequence.
+
+Debug builds print a reconciliation trace before applying each nonempty component update. Each
+line identifies the composed component types, the native event that triggered observation
+reconciliation, and counts for property, topology, subscription, creation, and destruction
+commands. The trace is emitted before calling WinUI, so the last line remains useful if native
+application does not return. Release builds omit this output.
+
 ### Component model
 
 `Component::Input` is parent-owned declarative data. The runtime compares it with the retained

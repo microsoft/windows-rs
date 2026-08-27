@@ -1765,6 +1765,7 @@ pub mod public {
         tag: Property<String>,
         is_selected: Property<bool>,
         selects_on_invoked: Property<bool>,
+        is_expanded: Property<bool>,
         element_state: Option<std::rc::Rc<ElementState>>,
     }
     impl NavigationViewItem {
@@ -1792,6 +1793,11 @@ pub mod public {
             self.selects_on_invoked = Property::from(value);
             self
         }
+        pub fn is_expanded(mut self, value: impl Into<Option<bool>>) -> Self {
+            let value = value.into();
+            self.is_expanded = Property::from(value);
+            self
+        }
     }
     impl sealed::Sealed for NavigationViewItem {}
     impl LayoutControl for NavigationViewItem {
@@ -1804,6 +1810,7 @@ pub mod public {
     pub enum NavigationViewItemSlot {
         Content,
         Icon,
+        MenuItems,
     }
     impl SlotsControl for NavigationViewItem {
         type Slot = NavigationViewItemSlot;
@@ -6047,6 +6054,7 @@ pub mod public {
                         tag,
                         is_selected,
                         selects_on_invoked,
+                        is_expanded,
                         element_state,
                     } = *value;
                     ElementParts {
@@ -6056,6 +6064,7 @@ pub mod public {
                                 tag,
                                 is_selected,
                                 selects_on_invoked,
+                                is_expanded,
                             },
                         )),
                         reference: None,
@@ -7471,6 +7480,7 @@ pub mod public {
                     true && value.tag == mounted.tag
                         && value.is_selected == mounted.is_selected
                         && value.selects_on_invoked == mounted.selects_on_invoked
+                        && value.is_expanded == mounted.is_expanded
                 }
                 (Self::SplitView(value), MountedProps::SplitView(mounted)) => {
                     true && f64_property_eq(&value.open_pane_length, &mounted.open_pane_length)
@@ -9066,6 +9076,13 @@ impl MountedPropsExt for MountedProps {
                 visit(
                     PropertyId::NavigationViewItemSelectsOnInvoked,
                     match &values.selects_on_invoked {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
+                    },
+                );
+                visit(
+                    PropertyId::NavigationViewItemIsExpanded,
+                    match &values.is_expanded {
                         Property::Inherited => None,
                         Property::Set(value) => Some(PropertyValueRef::Bool(*value)),
                     },
@@ -11323,6 +11340,7 @@ pub enum SlotId {
     NavigationViewMenuItems,
     NavigationViewItemContent,
     NavigationViewItemIcon,
+    NavigationViewItemMenuItems,
     SplitViewPane,
     SplitViewContent,
     ToggleSwitchHeader,
@@ -11388,6 +11406,7 @@ pub fn slot_id(kind: MountedKind, index: u8) -> Option<SlotId> {
         MountedKind::NavigationViewItem => match index {
             0u8 => Some(SlotId::NavigationViewItemContent),
             1u8 => Some(SlotId::NavigationViewItemIcon),
+            2u8 => Some(SlotId::NavigationViewItemMenuItems),
             _ => None,
         },
         MountedKind::SplitView => match index {
@@ -11508,6 +11527,7 @@ pub fn slots(kind: MountedKind) -> &'static [SlotId] {
         MountedKind::NavigationViewItem => &[
             SlotId::NavigationViewItemContent,
             SlotId::NavigationViewItemIcon,
+            SlotId::NavigationViewItemMenuItems,
         ],
         MountedKind::SplitView => &[SlotId::SplitViewPane, SlotId::SplitViewContent],
         MountedKind::ProgressBar => &[],
@@ -11584,6 +11604,7 @@ pub fn slot_is_collection(slot: SlotId) -> bool {
     matches!(
         slot,
         SlotId::NavigationViewMenuItems
+            | SlotId::NavigationViewItemMenuItems
             | SlotId::ListBoxItems
             | SlotId::PivotItems
             | SlotId::FlipViewItems
@@ -11882,12 +11903,14 @@ pub(crate) struct NavigationViewItemMountedProps {
     tag: Property<String>,
     is_selected: Property<bool>,
     selects_on_invoked: Property<bool>,
+    is_expanded: Property<bool>,
 }
 impl PartialEq for NavigationViewItemMountedProps {
     fn eq(&self, other: &Self) -> bool {
         true && self.tag == other.tag
             && self.is_selected == other.is_selected
             && self.selects_on_invoked == other.selects_on_invoked
+            && self.is_expanded == other.is_expanded
     }
 }
 #[derive(Clone, Debug)]
@@ -12880,6 +12903,7 @@ pub enum PropertyId {
     NavigationViewItemTag,
     NavigationViewItemIsSelected,
     NavigationViewItemSelectsOnInvoked,
+    NavigationViewItemIsExpanded,
     SplitViewOpenPaneLength,
     SplitViewCompactPaneLength,
     SplitViewDisplayMode,
@@ -14798,6 +14822,17 @@ const NAVIGATION_VIEW_ITEM_PROPERTIES: &[PropertyDescriptor] = &[
         feedback_contract: None,
         observes_feedback: false,
     },
+    PropertyDescriptor {
+        id: PropertyId::NavigationViewItemIsExpanded,
+        name: "IsExpanded",
+        field: "is_expanded",
+        value: "Bool",
+        interface: "Microsoft.UI.Xaml.Controls.INavigationViewItem2",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
 ];
 const NAVIGATION_VIEW_ITEM_EVENTS: &[EventDescriptor] = &[];
 const NAVIGATION_VIEW_ITEM_SLOTS: &[SlotDescriptor] = &[
@@ -14814,6 +14849,13 @@ const NAVIGATION_VIEW_ITEM_SLOTS: &[SlotDescriptor] = &[
         interface: "Microsoft.UI.Xaml.Controls.INavigationViewItem",
         target: "icon_element",
         collection: false,
+    },
+    SlotDescriptor {
+        id: SlotId::NavigationViewItemMenuItems,
+        name: "MenuItems",
+        interface: "Microsoft.UI.Xaml.Controls.INavigationViewItem2",
+        target: "inspectable",
+        collection: true,
     },
 ];
 const SPLIT_VIEW_PROPERTIES: &[PropertyDescriptor] = &[

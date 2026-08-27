@@ -598,11 +598,19 @@ clearable = true
 name = "SelectsOnInvoked"
 clearable = true
 
+[[control.property]]
+name = "IsExpanded"
+clearable = true
+
 [[control.slot]]
 name = "Content"
 
 [[control.slot]]
 name = "Icon"
+
+[[control.slot]]
+name = "MenuItems"
+collection = true
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.SplitView"
