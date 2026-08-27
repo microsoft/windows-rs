@@ -13,7 +13,8 @@ use windows_clang::nuget_package;
 
 const OUTPUT: &str = "crates/libs/reactor/src/generated.rs";
 const BINDINGS: &str = "crates/libs/reactor/src/native/winui/bindings.rs";
-const BINDINGS_FILTER: &str = "crates/tools/reactor/src/bindings.txt";
+const RUNTIME_BINDINGS_FILTER: &str = "crates/tools/reactor/src/bindings.txt";
+const CONTROL_BINDINGS_FILTER: &str = "crates/tools/reactor/src/control_bindings.txt";
 const CANVAS_BINDINGS: &str = "crates/libs/canvas/src/reactor_bindings.rs";
 const CANVAS_FILTER: &str = "crates/tools/reactor/src/canvas.txt";
 const WINUI_OUTPUT: &str = "crates/libs/reactor/src/native/winui/generated.rs";
@@ -41,14 +42,10 @@ fn main() {
     let resolved = schema.resolve(&metadata).unwrap();
     let generated = helpers::rustfmt(&generate::generate(&resolved));
 
-    let path = workspace_path(OUTPUT);
-    if !matches!(fs::read_to_string(path).as_deref(), Ok(current) if current == generated) {
-        fs::write(workspace_path(OUTPUT), generated).unwrap();
-    }
-
+    write_if_changed(OUTPUT, &generated);
     write_if_changed(
-        BINDINGS_FILTER,
-        &generate_winui::generate_bindings_filter(&resolved),
+        CONTROL_BINDINGS_FILTER,
+        &generate_winui::generate_control_bindings_filter(&resolved),
     );
     write_if_changed(
         WINUI_OUTPUT,
@@ -69,7 +66,10 @@ fn main() {
         .minimal()
         .dead_code()
         .flat()
-        .filter_file(workspace_path(BINDINGS_FILTER))
+        .filter_files([
+            workspace_path(RUNTIME_BINDINGS_FILTER),
+            workspace_path(CONTROL_BINDINGS_FILTER),
+        ])
         .write();
 
     windows_bindgen::builder()

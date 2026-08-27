@@ -124,6 +124,9 @@ the `windows-reactor-setup` bootstrap DLLs from pinned NuGet packages. It then r
 | `crates/libs/reactor/src/native/winui/bindings.rs` | Minimal WinUI bindings |
 | `crates/libs/canvas/src/reactor_bindings.rs` | Minimal Canvas integration bindings |
 
+`crates/tools/reactor/src/bindings.txt` contains the hand-maintained runtime binding filter.
+`control_bindings.txt` is generated from `winui.toml` and supplies control-specific entries.
+
 These Rust files are committed generated output. Do not edit them by hand. After changing
 `winui.toml`, the schema resolver, or either generator, run:
 
