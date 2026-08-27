@@ -9,6 +9,7 @@ pub enum Handle {
     Border(bindings::Border),
     BreadcrumbBar(bindings::BreadcrumbBar),
     StackPanel(bindings::StackPanel),
+    VariableSizedWrapGrid(bindings::VariableSizedWrapGrid),
     Grid(bindings::Grid),
     TextBox(bindings::TextBox),
     AutoSuggestBox(bindings::AutoSuggestBox),
@@ -169,6 +170,9 @@ impl Handle {
             MountedKind::StackPanel => {
                 Self::StackPanel(bindings::StackPanel::new().map_err(native_error)?)
             }
+            MountedKind::VariableSizedWrapGrid => Self::VariableSizedWrapGrid(
+                bindings::VariableSizedWrapGrid::new().map_err(native_error)?,
+            ),
             MountedKind::Grid => Self::Grid(bindings::Grid::new().map_err(native_error)?),
             MountedKind::TextBox => Self::TextBox(bindings::TextBox::new().map_err(native_error)?),
             MountedKind::AutoSuggestBox => {
@@ -363,6 +367,7 @@ impl Handle {
             Self::Border(value) => value.cast(),
             Self::BreadcrumbBar(value) => value.cast(),
             Self::StackPanel(value) => value.cast(),
+            Self::VariableSizedWrapGrid(value) => value.cast(),
             Self::Grid(value) => value.cast(),
             Self::TextBox(value) => value.cast(),
             Self::AutoSuggestBox(value) => value.cast(),
@@ -444,6 +449,7 @@ impl Handle {
             Self::Border(value) => value.cast(),
             Self::BreadcrumbBar(value) => value.cast(),
             Self::StackPanel(value) => value.cast(),
+            Self::VariableSizedWrapGrid(value) => value.cast(),
             Self::Grid(value) => value.cast(),
             Self::TextBox(value) => value.cast(),
             Self::AutoSuggestBox(value) => value.cast(),
@@ -525,6 +531,7 @@ impl Handle {
             Self::Border(_) => MountedKind::Border,
             Self::BreadcrumbBar(_) => MountedKind::BreadcrumbBar,
             Self::StackPanel(_) => MountedKind::StackPanel,
+            Self::VariableSizedWrapGrid(_) => MountedKind::VariableSizedWrapGrid,
             Self::Grid(_) => MountedKind::Grid,
             Self::TextBox(_) => MountedKind::TextBox,
             Self::AutoSuggestBox(_) => MountedKind::AutoSuggestBox,
@@ -623,6 +630,13 @@ impl Handle {
     pub fn child_collection(&self) -> Result<Option<UIElementCollection>, RuntimeError> {
         Ok(match self {
             Self::StackPanel(value) => Some(
+                value
+                    .cast::<IPanel>()
+                    .map_err(native_error)?
+                    .Children()
+                    .map_err(native_error)?,
+            ),
+            Self::VariableSizedWrapGrid(value) => Some(
                 value
                     .cast::<IPanel>()
                     .map_err(native_error)?
@@ -1135,6 +1149,26 @@ pub fn set_property(
         (Handle::StackPanel(control), PropertyId::StackPanelSpacing, PropertyValue::F64(value)) => {
             control.SetSpacing(*value).map_err(native_error)
         }
+        (
+            Handle::VariableSizedWrapGrid(control),
+            PropertyId::VariableSizedWrapGridItemWidth,
+            PropertyValue::F64(value),
+        ) => control.SetItemWidth(*value).map_err(native_error),
+        (
+            Handle::VariableSizedWrapGrid(control),
+            PropertyId::VariableSizedWrapGridItemHeight,
+            PropertyValue::F64(value),
+        ) => control.SetItemHeight(*value).map_err(native_error),
+        (
+            Handle::VariableSizedWrapGrid(control),
+            PropertyId::VariableSizedWrapGridOrientation,
+            PropertyValue::Orientation(value),
+        ) => control
+            .SetOrientation(match value {
+                crate::Orientation::Vertical => bindings::Orientation::Vertical,
+                crate::Orientation::Horizontal => bindings::Orientation::Horizontal,
+            })
+            .map_err(native_error),
         (Handle::Grid(control), PropertyId::GridRowSpacing, PropertyValue::F64(value)) => {
             control.SetRowSpacing(*value).map_err(native_error)
         }
@@ -3094,6 +3128,28 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
         (Handle::StackPanel(_), PropertyId::StackPanelSpacing) => dependency_object
             .ClearValue(&bindings::StackPanel::SpacingProperty().map_err(native_error)?)
             .map_err(native_error),
+        (Handle::VariableSizedWrapGrid(_), PropertyId::VariableSizedWrapGridItemWidth) => {
+            dependency_object
+                .ClearValue(
+                    &bindings::VariableSizedWrapGrid::ItemWidthProperty().map_err(native_error)?,
+                )
+                .map_err(native_error)
+        }
+        (Handle::VariableSizedWrapGrid(_), PropertyId::VariableSizedWrapGridItemHeight) => {
+            dependency_object
+                .ClearValue(
+                    &bindings::VariableSizedWrapGrid::ItemHeightProperty().map_err(native_error)?,
+                )
+                .map_err(native_error)
+        }
+        (Handle::VariableSizedWrapGrid(_), PropertyId::VariableSizedWrapGridOrientation) => {
+            dependency_object
+                .ClearValue(
+                    &bindings::VariableSizedWrapGrid::OrientationProperty()
+                        .map_err(native_error)?,
+                )
+                .map_err(native_error)
+        }
         (Handle::Grid(_), PropertyId::GridRowSpacing) => dependency_object
             .ClearValue(&bindings::Grid::RowSpacingProperty().map_err(native_error)?)
             .map_err(native_error),

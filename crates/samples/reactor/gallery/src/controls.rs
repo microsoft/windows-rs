@@ -101,6 +101,8 @@ pub fn card_grid(items: &[CardItem], on_click: impl Fn(String) + Clone + 'static
             item.key.clone(),
             Button::new()
                 .style(ButtonStyle::Subtle)
+                .width(CARD_WIDTH)
+                .height(CARD_HEIGHT)
                 .margin(CARD_GAP / 2.0)
                 .horizontal_content_alignment(HorizontalAlignment::Stretch)
                 .vertical_content_alignment(VerticalAlignment::Stretch)

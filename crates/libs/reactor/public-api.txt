@@ -2740,6 +2740,30 @@ pub fn windows_reactor::TreeView::min_width(self, impl core::convert::Into<core:
 pub fn windows_reactor::TreeView::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::TreeView::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::TreeView::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub struct windows_reactor::VariableSizedWrapGrid
+impl windows_reactor::VariableSizedWrapGrid
+pub fn windows_reactor::VariableSizedWrapGrid::item_height(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
+pub fn windows_reactor::VariableSizedWrapGrid::item_width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self
+pub fn windows_reactor::VariableSizedWrapGrid::new() -> Self
+pub fn windows_reactor::VariableSizedWrapGrid::orientation(self, impl core::convert::Into<core::option::Option<windows_reactor::Orientation>>) -> Self
+impl core::convert::From<windows_reactor::VariableSizedWrapGrid> for windows_reactor::View
+pub fn windows_reactor::View::from(windows_reactor::VariableSizedWrapGrid) -> Self
+impl windows_reactor::ChildrenControl for windows_reactor::VariableSizedWrapGrid
+pub fn windows_reactor::VariableSizedWrapGrid::children(self, impl windows_reactor::IntoViews) -> windows_reactor::View
+pub fn windows_reactor::VariableSizedWrapGrid::keyed_children<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
+impl windows_reactor::LayoutControl for windows_reactor::VariableSizedWrapGrid
+pub fn windows_reactor::VariableSizedWrapGrid::exit_transition(self, windows_reactor::ExitTransition) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::height(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::horizontal_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::HorizontalAlignment>>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::margin_optional<T>(self, core::option::Option<T>) -> Self where Self: core::marker::Sized, T: core::convert::Into<windows_reactor::Thickness>
+pub fn windows_reactor::VariableSizedWrapGrid::max_height(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::max_width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::min_height(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::min_width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub struct windows_reactor::View(_)
 impl windows_reactor::View
 pub fn windows_reactor::View::component<C: windows_reactor::Component>(<C as windows_reactor::Component>::Input) -> Self
@@ -2903,6 +2927,8 @@ impl core::convert::From<windows_reactor::ToolTip> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ToolTip) -> Self
 impl core::convert::From<windows_reactor::TreeView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::TreeView) -> Self
+impl core::convert::From<windows_reactor::VariableSizedWrapGrid> for windows_reactor::View
+pub fn windows_reactor::View::from(windows_reactor::VariableSizedWrapGrid) -> Self
 impl core::convert::From<windows_reactor::Viewbox> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::Viewbox) -> Self
 impl core::convert::From<windows_reactor::WebView2> for windows_reactor::View
@@ -3013,6 +3039,9 @@ pub fn windows_reactor::RelativePanel::keyed_children<T>(self, impl core::iter::
 impl windows_reactor::ChildrenControl for windows_reactor::StackPanel
 pub fn windows_reactor::StackPanel::children(self, impl windows_reactor::IntoViews) -> windows_reactor::View
 pub fn windows_reactor::StackPanel::keyed_children<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
+impl windows_reactor::ChildrenControl for windows_reactor::VariableSizedWrapGrid
+pub fn windows_reactor::VariableSizedWrapGrid::children(self, impl windows_reactor::IntoViews) -> windows_reactor::View
+pub fn windows_reactor::VariableSizedWrapGrid::keyed_children<T>(self, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
 pub trait windows_reactor::CommandBarFlyoutExt: core::convert::Into<windows_reactor::View> + core::marker::Sized
 pub fn windows_reactor::CommandBarFlyoutExt::command_bar_flyout(self, windows_reactor::CommandBarFlyout) -> windows_reactor::View
 impl<T> windows_reactor::CommandBarFlyoutExt for T where T: core::convert::Into<windows_reactor::View>
@@ -4099,6 +4128,19 @@ pub fn windows_reactor::TreeView::min_width(self, impl core::convert::Into<core:
 pub fn windows_reactor::TreeView::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::TreeView::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::TreeView::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+impl windows_reactor::LayoutControl for windows_reactor::VariableSizedWrapGrid
+pub fn windows_reactor::VariableSizedWrapGrid::exit_transition(self, windows_reactor::ExitTransition) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::height(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::horizontal_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::HorizontalAlignment>>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::margin(self, impl core::convert::Into<windows_reactor::Thickness>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::margin_optional<T>(self, core::option::Option<T>) -> Self where Self: core::marker::Sized, T: core::convert::Into<windows_reactor::Thickness>
+pub fn windows_reactor::VariableSizedWrapGrid::max_height(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::max_width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::min_height(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::min_width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
+pub fn windows_reactor::VariableSizedWrapGrid::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 impl windows_reactor::LayoutControl for windows_reactor::Viewbox
 pub fn windows_reactor::Viewbox::exit_transition(self, windows_reactor::ExitTransition) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Viewbox::height(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized

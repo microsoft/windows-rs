@@ -1053,6 +1053,70 @@ pub mod public {
         }
     }
     #[derive(Clone, Debug, Default, PartialEq)]
+    pub struct VariableSizedWrapGrid {
+        item_width: Property<f64>,
+        item_height: Property<f64>,
+        orientation: Property<Orientation>,
+        element_state: Option<std::rc::Rc<ElementState>>,
+        children: std::rc::Rc<Vec<KeyedElement>>,
+    }
+    impl VariableSizedWrapGrid {
+        pub fn new() -> Self {
+            Self::default()
+        }
+        pub fn item_width(mut self, value: impl Into<Option<f64>>) -> Self {
+            let value = value.into();
+            assert!(
+                value
+                    .as_ref()
+                    .is_none_or(|value| value.is_finite() && *value > 0.0),
+                "VariableSizedWrapGrid ItemWidth must be finite and positive",
+            );
+            self.item_width = Property::from(value);
+            self
+        }
+        pub fn item_height(mut self, value: impl Into<Option<f64>>) -> Self {
+            let value = value.into();
+            assert!(
+                value
+                    .as_ref()
+                    .is_none_or(|value| value.is_finite() && *value > 0.0),
+                "VariableSizedWrapGrid ItemHeight must be finite and positive",
+            );
+            self.item_height = Property::from(value);
+            self
+        }
+        pub fn orientation(mut self, value: impl Into<Option<Orientation>>) -> Self {
+            let value = value.into();
+            self.orientation = Property::from(value);
+            self
+        }
+    }
+    impl sealed::Sealed for VariableSizedWrapGrid {}
+    impl sealed::NativeControl for VariableSizedWrapGrid {
+        fn into_element(self) -> Element {
+            self.into()
+        }
+    }
+    impl sealed::LayoutControl for VariableSizedWrapGrid {
+        fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<ElementState>> {
+            &mut self.element_state
+        }
+    }
+    impl LayoutControl for VariableSizedWrapGrid {}
+    impl ChildrenControl for VariableSizedWrapGrid {}
+    #[cfg(test)]
+    impl NativeChildrenTestExt for VariableSizedWrapGrid {
+        fn native_child(mut self, key: impl Into<Key>, child: impl Into<Element>) -> Self {
+            std::rc::Rc::make_mut(&mut self.children).push(KeyedElement::new(key, child));
+            self
+        }
+        fn native_children(mut self, children: impl IntoIterator<Item = KeyedElement>) -> Self {
+            self.children = std::rc::Rc::new(children.into_iter().collect());
+            self
+        }
+    }
+    #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Grid {
         row_spacing: Property<f64>,
         column_spacing: Property<f64>,
@@ -5340,6 +5404,7 @@ pub mod public {
         Border(Box<Border>),
         BreadcrumbBar(Box<BreadcrumbBar>),
         StackPanel(Box<StackPanel>),
+        VariableSizedWrapGrid(Box<VariableSizedWrapGrid>),
         Grid(Box<Grid>),
         TextBox(Box<TextBox>),
         AutoSuggestBox(Box<AutoSuggestBox>),
@@ -5479,6 +5544,16 @@ pub mod public {
     }
     impl From<StackPanel> for View {
         fn from(value: StackPanel) -> Self {
+            Self::native(value)
+        }
+    }
+    impl From<VariableSizedWrapGrid> for Element {
+        fn from(value: VariableSizedWrapGrid) -> Self {
+            Self::VariableSizedWrapGrid(Box::new(value))
+        }
+    }
+    impl From<VariableSizedWrapGrid> for View {
+        fn from(value: VariableSizedWrapGrid) -> Self {
             Self::native(value)
         }
     }
@@ -6203,6 +6278,7 @@ pub mod public {
                 Self::Border(_) => MountedKind::Border,
                 Self::BreadcrumbBar(_) => MountedKind::BreadcrumbBar,
                 Self::StackPanel(_) => MountedKind::StackPanel,
+                Self::VariableSizedWrapGrid(_) => MountedKind::VariableSizedWrapGrid,
                 Self::Grid(_) => MountedKind::Grid,
                 Self::TextBox(_) => MountedKind::TextBox,
                 Self::AutoSuggestBox(_) => MountedKind::AutoSuggestBox,
@@ -6457,6 +6533,29 @@ pub mod public {
                             orientation,
                             spacing,
                         })),
+                        reference: None,
+                        element_state,
+                        window_title_bar: None,
+                        structure: ElementStructure::Children(children),
+                    }
+                }
+                Self::VariableSizedWrapGrid(value) => {
+                    let VariableSizedWrapGrid {
+                        item_width,
+                        item_height,
+                        orientation,
+                        element_state,
+                        children,
+                    } = *value;
+                    ElementParts {
+                        kind: MountedKind::VariableSizedWrapGrid,
+                        props: MountedProps::VariableSizedWrapGrid(std::rc::Rc::new(
+                            VariableSizedWrapGridMountedProps {
+                                item_width,
+                                item_height,
+                                orientation,
+                            },
+                        )),
                         reference: None,
                         element_state,
                         window_title_bar: None,
@@ -8054,6 +8153,14 @@ pub mod public {
                     true && value.orientation == mounted.orientation
                         && f64_property_eq(&value.spacing, &mounted.spacing)
                 }
+                (
+                    Self::VariableSizedWrapGrid(value),
+                    MountedProps::VariableSizedWrapGrid(mounted),
+                ) => {
+                    true && f64_property_eq(&value.item_width, &mounted.item_width)
+                        && f64_property_eq(&value.item_height, &mounted.item_height)
+                        && value.orientation == mounted.orientation
+                }
                 (Self::Grid(value), MountedProps::Grid(mounted)) => {
                     true && f64_property_eq(&value.row_spacing, &mounted.row_spacing)
                         && f64_property_eq(&value.column_spacing, &mounted.column_spacing)
@@ -8436,6 +8543,7 @@ pub mod public {
                 Self::Border(_) => None,
                 Self::BreadcrumbBar(_) => None,
                 Self::StackPanel(_) => None,
+                Self::VariableSizedWrapGrid(_) => None,
                 Self::Grid(value) => value.reference.as_ref(),
                 Self::TextBox(value) => value.reference.as_ref(),
                 Self::AutoSuggestBox(value) => value.reference.as_ref(),
@@ -8518,6 +8626,7 @@ pub mod public {
                 Self::Border(value) => value.element_state.as_deref(),
                 Self::BreadcrumbBar(value) => value.element_state.as_deref(),
                 Self::StackPanel(value) => value.element_state.as_deref(),
+                Self::VariableSizedWrapGrid(value) => value.element_state.as_deref(),
                 Self::Grid(value) => value.element_state.as_deref(),
                 Self::TextBox(value) => value.element_state.as_deref(),
                 Self::AutoSuggestBox(value) => value.element_state.as_deref(),
@@ -8600,6 +8709,7 @@ pub mod public {
                 Self::Border(_) => None,
                 Self::BreadcrumbBar(_) => None,
                 Self::StackPanel(_) => None,
+                Self::VariableSizedWrapGrid(_) => None,
                 Self::Grid(_) => None,
                 Self::TextBox(_) => None,
                 Self::AutoSuggestBox(_) => None,
@@ -8684,6 +8794,9 @@ pub mod public {
                 Self::Border(value) => ElementStructureRef::Content(value.content.as_deref()),
                 Self::BreadcrumbBar(_) => ElementStructureRef::None,
                 Self::StackPanel(value) => ElementStructureRef::Children(value.children.as_slice()),
+                Self::VariableSizedWrapGrid(value) => {
+                    ElementStructureRef::Children(value.children.as_slice())
+                }
                 Self::Grid(value) => ElementStructureRef::Children(value.children.as_slice()),
                 Self::TextBox(_) => ElementStructureRef::None,
                 Self::AutoSuggestBox(_) => ElementStructureRef::None,
@@ -8864,6 +8977,7 @@ pub mod public {
                     );
                 }
                 Self::StackPanel(_) => {}
+                Self::VariableSizedWrapGrid(_) => {}
                 Self::Grid(_) => {}
                 Self::TextBox(_) => {
                     visit(EventId::TextBoxTextChanged, true);
@@ -9376,6 +9490,29 @@ impl MountedPropsExt for MountedProps {
                     match &values.spacing {
                         Property::Inherited => None,
                         Property::Set(value) => Some(PropertyValueRef::F64(*value)),
+                    },
+                );
+            }
+            Self::VariableSizedWrapGrid(values) => {
+                visit(
+                    PropertyId::VariableSizedWrapGridItemWidth,
+                    match &values.item_width {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
+                    },
+                );
+                visit(
+                    PropertyId::VariableSizedWrapGridItemHeight,
+                    match &values.item_height {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some(PropertyValueRef::F64(*value)),
+                    },
+                );
+                visit(
+                    PropertyId::VariableSizedWrapGridOrientation,
+                    match &values.orientation {
+                        Property::Inherited => None,
+                        Property::Set(value) => Some(PropertyValueRef::Orientation(*value)),
                     },
                 );
             }
@@ -10937,6 +11074,7 @@ impl MountedPropsExt for MountedProps {
             ]),
             Self::BreadcrumbBar(_) => ThemeStyle::default(),
             Self::StackPanel(_) => ThemeStyle::default(),
+            Self::VariableSizedWrapGrid(_) => ThemeStyle::default(),
             Self::Grid(values) => ThemeStyle::new([
                 values.background.as_set().copied().and_then(Brush::theme),
                 None,
@@ -11138,6 +11276,7 @@ impl MountedEventsExt for MountedProps {
                 );
             }
             Self::StackPanel(_) => {}
+            Self::VariableSizedWrapGrid(_) => {}
             Self::Grid(_) => {}
             Self::TextBox(_) => {
                 visit(EventId::TextBoxTextChanged, true);
@@ -11935,6 +12074,7 @@ pub enum MountedKind {
     Border,
     BreadcrumbBar,
     StackPanel,
+    VariableSizedWrapGrid,
     Grid,
     TextBox,
     AutoSuggestBox,
@@ -12193,6 +12333,7 @@ pub fn slots(kind: MountedKind) -> &'static [SlotId] {
         MountedKind::Border => &[],
         MountedKind::BreadcrumbBar => &[],
         MountedKind::StackPanel => &[],
+        MountedKind::VariableSizedWrapGrid => &[],
         MountedKind::Grid => &[],
         MountedKind::TextBox => &[SlotId::TextBoxHeader],
         MountedKind::AutoSuggestBox => &[SlotId::AutoSuggestBoxHeader],
@@ -12421,6 +12562,19 @@ impl PartialEq for StackPanelMountedProps {
     fn eq(&self, other: &Self) -> bool {
         true && self.orientation == other.orientation
             && f64_property_eq(&self.spacing, &other.spacing)
+    }
+}
+#[derive(Clone, Debug)]
+pub(crate) struct VariableSizedWrapGridMountedProps {
+    item_width: Property<f64>,
+    item_height: Property<f64>,
+    orientation: Property<Orientation>,
+}
+impl PartialEq for VariableSizedWrapGridMountedProps {
+    fn eq(&self, other: &Self) -> bool {
+        true && f64_property_eq(&self.item_width, &other.item_width)
+            && f64_property_eq(&self.item_height, &other.item_height)
+            && self.orientation == other.orientation
     }
 }
 #[derive(Clone, Debug)]
@@ -13389,6 +13543,7 @@ pub enum MountedProps {
     Border(std::rc::Rc<BorderMountedProps>),
     BreadcrumbBar(std::rc::Rc<BreadcrumbBarMountedProps>),
     StackPanel(std::rc::Rc<StackPanelMountedProps>),
+    VariableSizedWrapGrid(std::rc::Rc<VariableSizedWrapGridMountedProps>),
     Grid(std::rc::Rc<GridMountedProps>),
     TextBox(std::rc::Rc<TextBoxMountedProps>),
     AutoSuggestBox(std::rc::Rc<AutoSuggestBoxMountedProps>),
@@ -13545,6 +13700,9 @@ pub enum PropertyId {
     BreadcrumbBarItemsSource,
     StackPanelOrientation,
     StackPanelSpacing,
+    VariableSizedWrapGridItemWidth,
+    VariableSizedWrapGridItemHeight,
+    VariableSizedWrapGridOrientation,
     GridRowSpacing,
     GridColumnSpacing,
     GridKeyboardAccelerators,
@@ -14860,6 +15018,43 @@ const STACK_PANEL_PROPERTIES: &[PropertyDescriptor] = &[
 ];
 const STACK_PANEL_EVENTS: &[EventDescriptor] = &[];
 const STACK_PANEL_SLOTS: &[SlotDescriptor] = &[];
+const VARIABLE_SIZED_WRAP_GRID_PROPERTIES: &[PropertyDescriptor] = &[
+    PropertyDescriptor {
+        id: PropertyId::VariableSizedWrapGridItemWidth,
+        name: "ItemWidth",
+        field: "item_width",
+        value: "F64",
+        interface: "Microsoft.UI.Xaml.Controls.IVariableSizedWrapGrid",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::VariableSizedWrapGridItemHeight,
+        name: "ItemHeight",
+        field: "item_height",
+        value: "F64",
+        interface: "Microsoft.UI.Xaml.Controls.IVariableSizedWrapGrid",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+    PropertyDescriptor {
+        id: PropertyId::VariableSizedWrapGridOrientation,
+        name: "Orientation",
+        field: "orientation",
+        value: "Orientation",
+        interface: "Microsoft.UI.Xaml.Controls.IVariableSizedWrapGrid",
+        clearable: true,
+        feedback: None,
+        feedback_contract: None,
+        observes_feedback: false,
+    },
+];
+const VARIABLE_SIZED_WRAP_GRID_EVENTS: &[EventDescriptor] = &[];
+const VARIABLE_SIZED_WRAP_GRID_SLOTS: &[SlotDescriptor] = &[];
 const GRID_PROPERTIES: &[PropertyDescriptor] = &[
     PropertyDescriptor {
         id: PropertyId::GridRowSpacing,
@@ -17911,6 +18106,18 @@ pub const CONTROLS: &[ControlDescriptor] = &[
         properties: STACK_PANEL_PROPERTIES,
         events: STACK_PANEL_EVENTS,
         slots: STACK_PANEL_SLOTS,
+        selection: None,
+        controlled_collection: None,
+    },
+    ControlDescriptor {
+        kind: MountedKind::VariableSizedWrapGrid,
+        name: "VariableSizedWrapGrid",
+        type_name: "Microsoft.UI.Xaml.Controls.VariableSizedWrapGrid",
+        role: ControlRole::Children,
+        capabilities: &[Capability::Layout, Capability::Children],
+        properties: VARIABLE_SIZED_WRAP_GRID_PROPERTIES,
+        events: VARIABLE_SIZED_WRAP_GRID_EVENTS,
+        slots: VARIABLE_SIZED_WRAP_GRID_SLOTS,
         selection: None,
         controlled_collection: None,
     },

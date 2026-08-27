@@ -20127,6 +20127,82 @@ pub struct IUriRuntimeClassFactory_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IVariableSizedWrapGrid,
+    IVariableSizedWrapGrid_Vtbl,
+    0xbfecd12b_e16a_58a0_af5f_4672627462d5
+);
+impl windows_core::RuntimeType for IVariableSizedWrapGrid {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IVariableSizedWrapGrid {
+    pub(crate) fn SetItemHeight(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetItemHeight)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetItemWidth(&self, value: f64) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetItemWidth)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetOrientation(&self, value: Orientation) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetOrientation)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IVariableSizedWrapGrid_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    ItemHeight: usize,
+    pub SetItemHeight:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    ItemWidth: usize,
+    pub SetItemWidth:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    Orientation: usize,
+    pub SetOrientation:
+        unsafe extern "system" fn(*mut core::ffi::c_void, Orientation) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IVariableSizedWrapGridStatics,
+    IVariableSizedWrapGridStatics_Vtbl,
+    0x0d979fe6_64af_5af5_914a_dd38f2ccf2d7
+);
+impl windows_core::RuntimeType for IVariableSizedWrapGridStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IVariableSizedWrapGridStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ItemHeightProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub ItemWidthProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub OrientationProperty: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IVector3Transition,
     IVector3Transition_Vtbl,
     0x0c408bb9_f9a2_55d7_8aed_143d36d603f2
@@ -28934,6 +29010,99 @@ impl windows_core::RuntimeName for Uri {
 }
 unsafe impl Send for Uri {}
 unsafe impl Sync for Uri {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VariableSizedWrapGrid(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    VariableSizedWrapGrid,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    VariableSizedWrapGrid,
+    Panel,
+    FrameworkElement,
+    UIElement,
+    DependencyObject
+);
+impl VariableSizedWrapGrid {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            VariableSizedWrapGrid,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub(crate) fn ItemHeightProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IVariableSizedWrapGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ItemHeightProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn ItemWidthProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IVariableSizedWrapGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ItemWidthProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn OrientationProperty() -> windows_core::Result<DependencyProperty> {
+        Self::IVariableSizedWrapGridStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OrientationProperty)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IVariableSizedWrapGridStatics<
+        R,
+        F: FnOnce(&IVariableSizedWrapGridStatics) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            VariableSizedWrapGrid,
+            IVariableSizedWrapGridStatics,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for VariableSizedWrapGrid {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IVariableSizedWrapGrid>();
+}
+unsafe impl windows_core::Interface for VariableSizedWrapGrid {
+    type Vtable = <IVariableSizedWrapGrid as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVariableSizedWrapGrid as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for VariableSizedWrapGrid {
+    type Target = IVariableSizedWrapGrid;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for VariableSizedWrapGrid {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.VariableSizedWrapGrid";
+}
+unsafe impl Send for VariableSizedWrapGrid {}
+unsafe impl Sync for VariableSizedWrapGrid {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Vector3Transition(windows_core::IUnknown);
