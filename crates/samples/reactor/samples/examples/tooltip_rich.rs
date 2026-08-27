@@ -1,20 +1,35 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> Element {
-    let rich_panel = vstack((
-        text_block("Action: Save").bold(),
-        text_block("Writes the current document to disk."),
-    ))
-    .spacing(4.0);
+struct RichTooltipSample;
 
-    vstack((
-        button("Save").tooltip_with(Tooltip::rich(rich_panel)),
-        button("Open").tooltip("Opens a document"),
-    ))
-    .spacing(8.0)
-    .into()
+impl Component for RichTooltipSample {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("TooltipRich");
+        let rich_panel = StackPanel::new().spacing(4.0).children((
+            TextBlock::new().text("Action: Save").font_weight(700),
+            TextBlock::new().text("Writes the current document to disk."),
+        ));
+
+        StackPanel::new().spacing(8.0).children((
+            Button::new()
+                .content(TextBlock::new().text("Save"))
+                .tooltip_with(Tooltip::rich(rich_panel)),
+            Button::new()
+                .content(TextBlock::new().text("Open"))
+                .tooltip("Opens a document"),
+        ))
+    }
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("TooltipRich", app)
+fn main() {
+    App::run_component::<RichTooltipSample>(()).unwrap();
 }

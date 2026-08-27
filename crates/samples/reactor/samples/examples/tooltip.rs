@@ -1,14 +1,30 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> Element {
-    vstack((
-        button("Hover me").tooltip("This is a tooltip"),
-        text_block("Plain text also tips").tooltip("Even on TextBlock"),
-    ))
-    .spacing(12.0)
-    .into()
+struct TooltipSample;
+
+impl Component for TooltipSample {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("Tooltip");
+        StackPanel::new().spacing(12.0).children((
+            Button::new()
+                .content(TextBlock::new().text("Hover me"))
+                .tooltip("This is a tooltip"),
+            TextBlock::new()
+                .text("Plain text also tips")
+                .tooltip("Even on TextBlock"),
+        ))
+    }
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("Tooltip", app)
+fn main() {
+    App::run_component::<TooltipSample>(()).unwrap();
 }

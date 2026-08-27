@@ -1,28 +1,55 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn breadcrumb_bar_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (clicked, set_clicked) = cx.use_state(-1_i32);
+pub struct BreadcrumbBarPage {
+    clicked: String,
+}
 
-    page_content(
-        "BreadcrumbBar",
-        "A trail showing the navigation path.",
-        vec![
-            sample_card(
-                "Basic BreadcrumbBar",
-                BreadcrumbBar::new(["Home", "Documents", "Report"]),
-                r#"BreadcrumbBar::new(["Home", "Documents", "Report"])"#,
-            ),
-            sample_card(
-                "Interactive BreadcrumbBar",
-                vstack((
-                    BreadcrumbBar::new(["Root", "Users", "Settings", "Profile"])
-                        .on_item_clicked(set_clicked),
-                    text_block(format!("Clicked index: {clicked}")).opacity(0.6),
-                ))
-                .spacing(8.0),
-                r#"BreadcrumbBar::new(items).on_item_clicked(|idx| handler(idx))"#,
-            ),
-        ],
-    )
+impl Component for BreadcrumbBarPage {
+    type Message = String;
+    type Input = ();
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            clicked: "No item clicked".to_string(),
+        }
+    }
+
+    fn update(&mut self, item: String, _: &ComponentContext<Self>) {
+        self.clicked = format!("Clicked: {item}");
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        page_content(
+            "BreadcrumbBar",
+            "A trail showing the current navigation path.",
+            [
+                KeyedView::new(
+                    "basic",
+                    sample_card(
+                        "Basic BreadcrumbBar",
+                        StackPanel::new().spacing(8.0).children((
+                            BreadcrumbBar::new()
+                                .items_source(["Home", "Documents", "Report"])
+                                .on_item_clicked(context.callback(std::convert::identity)),
+                            TextBlock::new().text(self.clicked.clone()).opacity(0.6),
+                        )),
+                        r#"BreadcrumbBar::new()
+    .items_source(["Home", "Documents", "Report"])
+    .on_item_clicked(handler)"#,
+                    ),
+                ),
+                KeyedView::new(
+                    "deep",
+                    sample_card(
+                        "Deeper Path",
+                        BreadcrumbBar::new()
+                            .items_source(["Root", "Users", "Settings", "Profile"])
+                            .on_item_clicked(context.callback(std::convert::identity)),
+                        "BreadcrumbBar::new().items_source(path)",
+                    ),
+                ),
+            ],
+        )
+    }
 }

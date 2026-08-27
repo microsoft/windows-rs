@@ -1,7 +1,6 @@
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
-use windows_reactor::DrawContext;
 
 fn draw(ctx: &DrawContext) -> Result<()> {
     ctx.clear(ColorF::DARK_SLATE_BLUE);

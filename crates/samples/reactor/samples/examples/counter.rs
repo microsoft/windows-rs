@@ -1,57 +1,70 @@
-#![windows_subsystem = "windows"]
-
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0_i32);
-
-    let dec = {
-        let s = set_count.clone();
-        move || s.call(count - 1)
-    };
-    let inc = {
-        let s = set_count.clone();
-        move || s.call(count + 1)
-    };
-    let reset = {
-        let s = set_count.clone();
-        move || s.call(0)
-    };
-
-    let reset_accel = {
-        let s = set_count;
-        KeyboardAccelerator::new(VirtualKey::R, VirtualKeyModifiers::Control, move || {
-            s.call(0);
-        })
-    };
-
-    vstack((
-        TitleBar::new("windows_reactor — counter").subtitle("Phase 1 demo"),
-        text_block(format!("Count: {count}"))
-            .bold()
-            .font_size(28.0)
-            .heading_level(AutomationHeadingLevel::Level1)
-            .automation_id("count-label"),
-        hstack((
-            button("-")
-                .on_click(dec)
-                .automation_name("Decrement")
-                .automation_id("decrement-button"),
-            button("+")
-                .on_click(inc)
-                .automation_name("Increment")
-                .automation_id("increment-button"),
-            button("reset (Ctrl+R)")
-                .on_click(reset)
-                .automation_id("reset-button")
-                .keyboard_accelerator(reset_accel),
-        ))
-        .spacing(8.0),
-    ))
-    .spacing(12.0)
-    .into()
+#[derive(Clone)]
+enum Message {
+    Decrement,
+    Increment,
+    Reset,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("Counter", app)
+struct Counter {
+    count: i32,
+}
+
+impl Component for Counter {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self { count: 0 }
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Decrement => self.count -= 1,
+            Message::Increment => self.count += 1,
+            Message::Reset => self.count = 0,
+        }
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("windows_reactor - counter");
+        StackPanel::new().spacing(12.0).children((
+            TextBlock::new().text("Phase 1 demo"),
+            TextBlock::new()
+                .text(format!("Count: {}", self.count))
+                .font_weight(700)
+                .font_size(28.0)
+                .automation_heading_level(AutomationHeadingLevel::Level1)
+                .automation_id("count-label"),
+            StackPanel::new()
+                .orientation(Orientation::Horizontal)
+                .spacing(8.0)
+                .children((
+                    Button::new()
+                        .on_click(context.message(Message::Decrement))
+                        .automation_name("Decrement")
+                        .automation_id("decrement-button")
+                        .content(TextBlock::new().text("-")),
+                    Button::new()
+                        .on_click(context.message(Message::Increment))
+                        .automation_name("Increment")
+                        .automation_id("increment-button")
+                        .content(TextBlock::new().text("+")),
+                    Button::new()
+                        .on_click(context.message(Message::Reset))
+                        .key_accelerators(KeyAccelerators::new([KeyAccelerator::new(
+                            AcceleratorKey::R,
+                            AcceleratorModifiers::Control,
+                            context.message(Message::Reset),
+                        )]))
+                        .automation_id("reset-button")
+                        .content(TextBlock::new().text("reset (Ctrl+R)")),
+                )),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<Counter>(()).unwrap();
 }

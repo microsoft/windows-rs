@@ -1,37 +1,57 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn viewbox_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (content_size, set_content_size) = cx.use_state(120.0_f64);
+pub struct ViewboxPage {
+    size: f64,
+}
 
-    page_content(
-        "Viewbox",
-        "Scales its child to fill available space.",
-        vec![sample_card(
-            "Resizable Content",
-            vstack((
-                viewbox(
-                    border(
-                        text_block(format!("{} px", content_size.round() as i32))
-                            .font_size((content_size / 4.0).max(12.0))
-                            .bold(),
-                    )
-                    .width(content_size)
-                    .height(content_size / 2.0)
-                    .padding(Thickness::uniform(12.0))
-                    .corner_radius(8.0),
-                )
-                .width(200.0)
-                .height(100.0),
-                Slider::new(content_size)
-                    .range(60.0, 220.0)
-                    .header("Content size")
-                    .on_value_changed(move |value: f64| set_content_size.call(value)),
-                text_block("The Viewbox stays fixed while its child grows or shrinks.")
-                    .opacity(0.6),
-            ))
-            .spacing(8.0),
-            r#"viewbox(content).width(200.0).height(100.0) // content size comes from state"#,
-        )],
-    )
+impl Component for ViewboxPage {
+    type Message = f64;
+    type Input = ();
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self { size: 120.0 }
+    }
+
+    fn update(&mut self, size: f64, _: &ComponentContext<Self>) {
+        self.size = size;
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        page_content(
+            "Viewbox",
+            "Scales a child to fit the available space.",
+            [KeyedView::new(
+                "resizable",
+                sample_card(
+                    "Resizable Content",
+                    StackPanel::new().spacing(8.0).children((
+                        Viewbox::new()
+                            .width(self.size)
+                            .height(100.0)
+                            .stretch(Stretch::Uniform)
+                            .slot(
+                                ViewboxSlot::Child,
+                                Border::new()
+                                    .width(200.0)
+                                    .height(100.0)
+                                    .background(Color::rgb(0, 120, 212))
+                                    .corner_radius(8.0)
+                                    .content(TextBlock::new().text("200 x 100").font_size(24.0)),
+                            ),
+                        Slider::new()
+                            .minimum(60.0)
+                            .maximum(220.0)
+                            .value(self.size)
+                            .on_value_changed(context.callback(std::convert::identity)),
+                    )),
+                    r#"Viewbox::new()
+    .width(viewport_width)
+    .height(100.0)
+    .stretch(Stretch::Uniform)
+    .slot(ViewboxSlot::Child, content)"#,
+                ),
+            )],
+        )
+    }
 }

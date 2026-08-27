@@ -1,0 +1,3 @@
+Microsoft.UI.Xaml.Media.ImageSource
+Microsoft.UI.Xaml.Media.Imaging.SurfaceImageSource::CreateInstanceWithDimensions
+extras::ISurfaceImageSourceNativeWithD2D::{SetDevice, BeginDraw, EndDraw}

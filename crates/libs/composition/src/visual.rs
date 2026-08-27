@@ -77,12 +77,6 @@ impl Visual {
         self.0.clone().into()
     }
 
-    /// Adopts a lifted composition visual from a WinUI host element.
-    #[cfg(feature = "reactor")]
-    pub fn from_host(visual: windows_core::IInspectable) -> Result<Self> {
-        Ok(Self(visual.cast()?))
-    }
-
     /// Sets the visual's scale factor about its [center point](Self::set_center_point).
     pub fn set_scale(&self, scale: Vector3) {
         self.0.SetScale(scale).unwrap();

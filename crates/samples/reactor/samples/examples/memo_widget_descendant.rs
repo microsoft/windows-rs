@@ -2,34 +2,78 @@
 
 use windows_reactor::*;
 
-fn counter(_props: &(), cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0_u32);
-
-    hstack((
-        text_block(format!("count = {count}")).font_size(20.0),
-        button("Increment").on_click(move || set_count.call(count + 1)),
-    ))
-    .spacing(12.0)
-    .into()
+struct Counter {
+    count: u32,
 }
 
-fn memoized_frame(_props: &(), _cx: &mut RenderCx) -> Element {
-    border(component(counter, ()))
-        .padding(Thickness::uniform(12.0))
-        .into()
+impl Component for Counter {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { count: 0 }
+    }
+
+    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {
+        self.count += 1;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        StackPanel::new()
+            .orientation(Orientation::Horizontal)
+            .spacing(12.0)
+            .children((
+                TextBlock::new()
+                    .text(format!("count = {}", self.count))
+                    .font_size(20.0),
+                Button::new()
+                    .on_click(context.message(()))
+                    .content(TextBlock::new().text("Increment")),
+            ))
+    }
 }
 
-fn app(_cx: &mut RenderCx) -> Element {
-    vstack((
-        text_block("A dirty child must update through a memoized component with a widget root."),
-        text_block("Click Increment. The count must advance on every click."),
-        memo(memoized_frame, ()),
-    ))
-    .spacing(12.0)
-    .padding(Thickness::uniform(16.0))
-    .into()
+struct MemoizedFrame;
+
+impl Component for MemoizedFrame {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        Border::new()
+            .padding(12.0)
+            .content(View::component::<Counter>(()))
+    }
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("MemoWidgetDescendant", app)
+struct MemoWidgetDescendantSample;
+
+impl Component for MemoWidgetDescendantSample {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("MemoWidgetDescendant");
+        Border::new()
+            .padding(16.0)
+            .content(StackPanel::new().spacing(12.0).children((
+                TextBlock::new().text(
+                    "A dirty child must update through a memoized component with a widget root.",
+                ),
+                TextBlock::new().text("Click Increment. The count must advance on every click."),
+                View::component::<MemoizedFrame>(()),
+            )))
+    }
+}
+
+fn main() {
+    App::run_component::<MemoWidgetDescendantSample>(()).unwrap();
 }

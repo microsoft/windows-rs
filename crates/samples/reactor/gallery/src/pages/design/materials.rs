@@ -1,76 +1,81 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn materials_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (selected, set_selected) = cx.use_state(0_i32);
+#[derive(Clone, PartialEq)]
+pub struct MaterialsInput {
+    pub backdrop: WindowBackdrop,
+    pub on_backdrop_changed: Callback<WindowBackdrop>,
+}
 
-    let options: Vec<String> = ["Mica", "Mica Alt", "Acrylic", "None (solid)"]
-        .into_iter()
-        .map(String::from)
-        .collect();
+pub struct MaterialsPage;
 
-    let description = match selected {
-        0 => {
-            "Mica samples the desktop wallpaper and applies a subtle tint. Default for app windows."
-        }
-        1 => "Mica Alt uses a stronger tint - ideal for tab-based UIs and title bar regions.",
-        2 => "Acrylic provides translucent blur with noise. Falls back to solid when inactive.",
-        _ => "No system backdrop - solid color background.",
-    };
+impl Component for MaterialsPage {
+    type Message = ();
+    type Input = MaterialsInput;
 
-    page_content(
-        "Materials",
-        "Window backdrop materials that provide depth and visual hierarchy using translucent surfaces.",
-        vec![
-            sample_card(
-                "Live Backdrop Switcher",
-                vstack((
-                    text_block("Select a backdrop material to apply it to this window:"),
-                    list_view(options, |item, _idx| {
-                        text_block(item.clone()).padding(Thickness::uniform(10.0))
-                    })
-                    .with_key_selector(|item| item.clone())
-                    .selected_index(selected)
-                    .on_selection_changed({
-                        let set_selected = set_selected;
-                        move |index: i32| {
-                            let backdrop = match index {
-                                0 => Some(Backdrop::Mica),
-                                1 => Some(Backdrop::MicaAlt),
-                                2 => Some(Backdrop::Acrylic),
-                                _ => None,
-                            };
-                            set_backdrop(backdrop);
-                            set_selected.call(index);
-                        }
-                    })
-                    .height(170.0),
-                    text_block(description).opacity(0.7),
-                ))
-                .spacing(8.0),
-                r#"set_backdrop(Some(Backdrop::Mica));
-set_backdrop(Some(Backdrop::MicaAlt));
-set_backdrop(Some(Backdrop::Acrylic));
-set_backdrop(None); // remove backdrop"#,
-            ),
-            sample_card(
-                "Usage Guidance",
-                vstack((
-                    text_block("� Use Mica for primary app windows (default material)")
-                        .font_size(13.0),
-                    text_block("� Use Mica Alt for windows with prominent tabs or sections")
-                        .font_size(13.0),
-                    text_block("� Use Acrylic for transient surfaces (flyouts, dialogs)")
-                        .font_size(13.0),
-                    text_block("� All materials degrade gracefully on unsupported hardware")
-                        .font_size(13.0),
-                ))
-                .spacing(6.0),
-                r#"// At app level:
-App::new(root).backdrop(Backdrop::Mica).run()
+    fn create(_: &Self::Input, _: &ComponentContext<Self>) -> Self {
+        Self
+    }
 
-set_backdrop(Some(Backdrop::Acrylic));"#,
-            ),
-        ],
-    )
+    fn update(&mut self, _: (), _: &ComponentContext<Self>) {}
+
+    fn view(&self, input: &Self::Input, _: &mut ViewContext<Self>) -> View {
+        let choice = |label: &'static str, backdrop| {
+            let callback = input.on_backdrop_changed.clone();
+            Button::new()
+                .style(if input.backdrop == backdrop {
+                    ButtonStyle::Accent
+                } else {
+                    ButtonStyle::Default
+                })
+                .on_click(Callback::new(move |_| {
+                    let _ = callback.call(backdrop);
+                }))
+                .content(TextBlock::new().text(label))
+        };
+        let description = match input.backdrop {
+            WindowBackdrop::Mica => "Mica samples the desktop wallpaper with a subtle tint.",
+            WindowBackdrop::MicaAlt => "Mica Alt uses a stronger tint for tabbed interfaces.",
+            WindowBackdrop::Acrylic => "Acrylic provides a translucent blurred material.",
+            WindowBackdrop::None => "No system backdrop; the window uses a solid background.",
+        };
+        page_content(
+            "Materials",
+            "Window backdrop materials provide depth and hierarchy.",
+            [
+                KeyedView::new(
+                    "switcher",
+                    sample_card(
+                        "Live Backdrop Switcher",
+                        StackPanel::new().spacing(8.0).children((
+                            StackPanel::new()
+                                .orientation(Orientation::Horizontal)
+                                .spacing(8.0)
+                                .children((
+                                    choice("Mica", WindowBackdrop::Mica),
+                                    choice("Mica Alt", WindowBackdrop::MicaAlt),
+                                    choice("Acrylic", WindowBackdrop::Acrylic),
+                                    choice("None", WindowBackdrop::None),
+                                )),
+                            TextBlock::new().text(description).opacity(0.7),
+                        )),
+                        "WindowVisuals::new().backdrop(WindowBackdrop::Mica)",
+                    ),
+                ),
+                KeyedView::new(
+                    "guidance",
+                    sample_card(
+                        "Usage Guidance",
+                        StackPanel::new().spacing(6.0).children((
+                            TextBlock::new().text("Use Mica for primary app windows."),
+                            TextBlock::new().text("Use Mica Alt for prominent tabs or sections."),
+                            TextBlock::new().text("Use Acrylic for transient surfaces."),
+                            TextBlock::new().text("Use None for a solid window background."),
+                        )),
+                        "WindowBackdrop::{Mica, MicaAlt, Acrylic, None}",
+                    ),
+                ),
+            ],
+        )
+    }
 }

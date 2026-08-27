@@ -1,27 +1,51 @@
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0u32);
-    let label = format!("Clicked {count} times");
-
-    vstack((
-        Button::new(&*label).icon(Symbol::Favorite).on_click({
-            let set_count = set_count.clone();
-            move || set_count.call(count + 1)
-        }),
-        Button::new(if count == 0 { "Save" } else { "Saved!" })
-            .icon(Symbol::Save)
-            .accent()
-            .on_click({
-                let set_count = set_count;
-                move || set_count.call(count + 1)
-            }),
-        text_block("Click the buttons — the icons should remain visible.").opacity(0.6),
-    ))
-    .spacing(12.0)
-    .into()
+struct DynamicIconSample {
+    count: u32,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("ButtonIconDynamic", app)
+impl Component for DynamicIconSample {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { count: 0 }
+    }
+
+    fn update(&mut self, (): (), _context: &ComponentContext<Self>) {
+        self.count += 1;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        let content = |symbol, label| {
+            StackPanel::new()
+                .orientation(Orientation::Horizontal)
+                .spacing(6.0)
+                .children((
+                    SymbolIcon::new().symbol(symbol),
+                    TextBlock::new().text(label),
+                ))
+        };
+        context.window_title("ButtonIconDynamic");
+        StackPanel::new().spacing(12.0).children((
+            Button::new().on_click(context.message(())).content(content(
+                Symbol::Favorite,
+                format!("Clicked {} times", self.count),
+            )),
+            Button::new()
+                .style(ButtonStyle::Accent)
+                .on_click(context.message(()))
+                .content(content(
+                    Symbol::Save,
+                    if self.count == 0 { "Save" } else { "Saved!" }.to_string(),
+                )),
+            TextBlock::new()
+                .text("Click the buttons - the icons should remain visible.")
+                .opacity(0.6),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<DynamicIconSample>(()).unwrap();
 }

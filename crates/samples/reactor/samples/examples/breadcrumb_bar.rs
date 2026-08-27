@@ -1,16 +1,20 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> Element {
-    vstack((
-        text_block("Multi-segment trail"),
-        BreadcrumbBar::new(["Home", "Documents", "Projects", "windows-reactor-rs"]),
-        text_block("Two-segment trail"),
-        BreadcrumbBar::new(["Home", "Settings"]),
-    ))
-    .spacing(8.0)
-    .into()
-}
-
-fn main() -> Result<()> {
-    reactor_samples::run("BreadcrumbBar", app)
+fn main() {
+    sample_reactor_controls::run("BreadcrumbBar", || {
+        StackPanel::new().spacing(8.0).children((
+            TextBlock::new().text("Multi-segment trail"),
+            BreadcrumbBar::new().items_source([
+                "Home",
+                "Documents",
+                "Projects",
+                "windows-reactor-rs",
+            ]),
+            TextBlock::new().text("Two-segment trail"),
+            BreadcrumbBar::new().items_source(["Home", "Settings"]),
+        ))
+    })
+    .unwrap();
 }

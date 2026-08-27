@@ -3,13 +3,22 @@ name = "test_reactor_bench"
 version = "0.0.0"
 edition = "2024"
 publish = false
+default-run = "test_reactor_bench"
 
 [dependencies]
-test_reactor = { path = "../reactor" }
 windows-reactor = { workspace = true, features = ["test"] }
+windows = { workspace = true, features = ["processthreadsapi", "psapi", "winnt"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }
+
+[[bin]]
+name = "test_reactor_bench"
+path = "src/main.rs"
+
+[[bin]]
+name = "reactor-live-grid"
+path = "src/live.rs"
 
 [lints]
 workspace = true

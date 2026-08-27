@@ -1,42 +1,69 @@
 use windows_reactor::*;
 
-pub fn settings_page(_: &(), _cx: &mut RenderCx) -> Element {
-    let content: Element = vstack((
-        text_block("Settings").font_size(28.0).bold(),
-        vstack((
-            text_block("About this app").bold(),
-            vstack((
-                text_block("WinUI Gallery (Reactor)").bold(),
-                text_block("Version 0.1.0").font_size(12.0).opacity(0.6),
-            ))
-            .spacing(2.0),
-            text_block(
-                "This app is built with Reactor, a declarative component-based UI framework for WinUI 3. It demonstrates how to recreate the WinUI Gallery experience using reactive hooks and a composable element DSL."
-            )
-            .font_size(13.0)
-            .wrap()
-            .opacity(0.6)
-        ))
-        .spacing(12.0)
-        .padding(20.0),
-        vstack((
-            text_block("Built with Reactor").bold(),
-            text_block("Framework: Reactor (declarative Rust DSL)").font_size(13.0),
-            text_block("Platform: WinUI 3 / Windows App SDK").font_size(13.0),
-            text_block("Rendering: Virtual DOM reconciler").font_size(13.0),
-            text_block("State: Hook-based state management").font_size(13.0)
-        ))
-        .spacing(8.0)
-        .padding(20.0)
-    ))
-    .spacing(24.0)
-    .margin(Thickness {
-        left: 36.0,
-        top: 24.0,
-        right: 36.0,
-        bottom: 36.0,
-    })
-    .horizontal_alignment(HorizontalAlignment::Stretch)
-    .into();
-    scroll_view(content).into()
+pub struct SettingsPage;
+
+impl Component for SettingsPage {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {}
+
+    fn view(&self, _input: &(), _context: &mut ViewContext<Self>) -> View {
+        ScrollViewer::new().content(
+            Border::new()
+                .padding(Thickness::new(36.0, 24.0, 36.0, 36.0))
+                .content(
+                    StackPanel::new().spacing(24.0).children((
+                        TextBlock::new()
+                            .text("Settings")
+                            .font_size(28.0)
+                            .font_weight(700),
+                        Border::new().padding(20.0).content(
+                            StackPanel::new().spacing(12.0).children((
+                                TextBlock::new().text("About this app").font_weight(700),
+                                StackPanel::new().spacing(2.0).children((
+                                    TextBlock::new()
+                                        .text("WinUI Gallery (Reactor)")
+                                        .font_weight(700),
+                                    TextBlock::new()
+                                        .text("Version 0.1.0")
+                                        .font_size(12.0)
+                                        .opacity(0.6),
+                                )),
+                                TextBlock::new()
+                                    .text(
+                                        "This app is built with Reactor, a declarative \
+                                     component-based UI framework for WinUI 3. It recreates the \
+                                     WinUI Gallery experience using the Reactor component \
+                                     model and a generated, typed element tree.",
+                                    )
+                                    .font_size(13.0)
+                                    .opacity(0.6),
+                            )),
+                        ),
+                        Border::new().padding(20.0).content(
+                            StackPanel::new().spacing(8.0).children((
+                                TextBlock::new().text("Built with Reactor").font_weight(700),
+                                TextBlock::new()
+                                    .text("Framework: Reactor (typed Rust component model)")
+                                    .font_size(13.0),
+                                TextBlock::new()
+                                    .text("Platform: WinUI 3 / Windows App SDK")
+                                    .font_size(13.0),
+                                TextBlock::new()
+                                    .text("Rendering: generated element tree reconciler")
+                                    .font_size(13.0),
+                                TextBlock::new()
+                                    .text("State: component-owned Message/update state machine")
+                                    .font_size(13.0),
+                            )),
+                        ),
+                    )),
+                ),
+        )
+    }
 }

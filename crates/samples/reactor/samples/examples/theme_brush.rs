@@ -1,41 +1,41 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> Element {
-    let swatch = |label: &str, bg: ThemeRef, fg: ThemeRef| -> Element {
-        border(
-            text_block(label)
-                .font_size(13.0)
-                .foreground(fg)
-                .padding(Thickness::uniform(10.0)),
-        )
-        .background(bg)
-        .padding(Thickness::uniform(4.0))
-        .min_width(200.0)
-        .into()
-    };
+fn main() {
+    sample_reactor_controls::run("ThemeBrush", || {
+        let swatch = |label, background, foreground| {
+            Border::new()
+                .background(background)
+                .padding(Thickness::uniform(4.0))
+                .min_width(200.0)
+                .content(
+                    Border::new().padding(Thickness::uniform(10.0)).content(
+                        TextBlock::new()
+                            .text(label)
+                            .font_size(13.0)
+                            .foreground(foreground),
+                    ),
+                )
+        };
 
-    vstack((
-        swatch(
-            "Accent / AccentText",
-            ThemeRef::Accent,
-            ThemeRef::AccentText,
-        ),
-        swatch(
-            "Card / Primary text",
-            ThemeRef::CardBackground,
-            ThemeRef::PrimaryText,
-        ),
-        swatch(
-            "SystemCritical background / foreground",
-            ThemeRef::SystemCriticalBackground,
-            ThemeRef::SystemCritical,
-        ),
-    ))
-    .spacing(6.0)
-    .max_width(420.0)
-    .into()
-}
-
-fn main() -> Result<()> {
-    reactor_samples::run("ThemeBrush", app)
+        StackPanel::new().spacing(6.0).max_width(420.0).children((
+            swatch(
+                "Accent / AccentText",
+                ThemeBrush::Accent,
+                ThemeBrush::AccentText,
+            ),
+            swatch(
+                "Card / Primary text",
+                ThemeBrush::CardBackground,
+                ThemeBrush::PrimaryText,
+            ),
+            swatch(
+                "SystemCritical background / foreground",
+                ThemeBrush::SystemCriticalBackground,
+                ThemeBrush::SystemCritical,
+            ),
+        ))
+    })
+    .unwrap();
 }

@@ -2,100 +2,101 @@
 
 use windows_reactor::*;
 
-#[derive(Clone, Copy, PartialEq)]
-enum HoverKind {
-    None,
-    File,
-    Text,
-    Rejected,
+#[derive(Clone)]
+enum Message {
+    Hover(DragKind),
+    Leave,
+    Drop(DroppedData),
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (hover, set_hover) = cx.use_async_state(HoverKind::None);
-    let (dropped, set_dropped) = cx.use_async_state(Option::<String>::None);
+struct DragDrop {
+    hover: Option<DragKind>,
+    dropped: Option<String>,
+}
 
-    let background_color = match hover {
-        HoverKind::None => Color::rgb(255, 255, 255),
-        HoverKind::File => Color::rgb(92, 202, 221),
-        HoverKind::Text => Color::rgb(155, 219, 90),
-        HoverKind::Rejected => Color::rgb(255, 180, 180),
-    };
+impl Component for DragDrop {
+    type Message = Message;
+    type Input = ();
 
-    let label = dropped.as_deref().unwrap_or("Drop files or some text here");
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            hover: None,
+            dropped: None,
+        }
+    }
 
-    border(
-        text_block(label)
-            .wrap()
-            .font_size(24.0)
-            .horizontal_alignment(HorizontalAlignment::Center)
-            .vertical_alignment(VerticalAlignment::Center),
-    )
-    .background(background_color)
-    .border_brush(Color::rgb(224, 224, 224))
-    .border_thickness(Thickness::uniform(1.5))
-    .corner_radius(12.0)
-    .padding(Thickness::uniform(20.0))
-    .horizontal_alignment(HorizontalAlignment::Stretch)
-    .vertical_alignment(VerticalAlignment::Stretch)
-    .margin(Thickness::uniform(40.0))
-    .allow_drop(true)
-    .drag_enter({
-        let set_hover = set_hover.clone();
-        move |ctx| accept(ctx, &set_hover)
-    })
-    .drag_leave({
-        let set_hover = set_hover.clone();
-        move |_ctx| set_hover.call(HoverKind::None)
-    })
-    .drag_over({
-        let set_hover = set_hover.clone();
-        move |ctx| accept(ctx, &set_hover)
-    })
-    .drag_drop({
-        move |ctx| {
-            set_hover.call(HoverKind::None);
-            let items = ctx.storage_items();
-            if !items.is_empty() {
-                let label = if items.len() == 1 {
-                    items[0].path.clone()
-                } else {
-                    let names: Vec<_> = items.iter().map(|i| i.name.clone()).collect();
-                    format!("{} files dropped: {}", items.len(), names.join(", "))
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Hover(kind) => self.hover = Some(kind),
+            Message::Leave => self.hover = None,
+            Message::Drop(data) => {
+                self.hover = None;
+                self.dropped = match data {
+                    DroppedData::StorageItems(items) if items.len() == 1 => {
+                        Some(items[0].path.clone())
+                    }
+                    DroppedData::StorageItems(items) => Some(format!(
+                        "{} files dropped: {}",
+                        items.len(),
+                        items
+                            .iter()
+                            .map(|item| item.name.as_str())
+                            .collect::<Vec<_>>()
+                            .join(", ")
+                    )),
+                    DroppedData::Text(text) => Some(text),
+                    DroppedData::Unsupported => None,
                 };
-                set_dropped.call(Some(label));
-                DragOperation::Link
-            } else if let Some(text) = ctx.text() {
-                set_dropped.call(Some(text));
-                DragOperation::Copy
-            } else {
-                DragOperation::None
             }
         }
-    })
-    .into()
-}
+    }
 
-fn accept(ctx: &mut DragContext, set_hover: &AsyncSetState<HoverKind>) -> DragOperation {
-    if ctx.has_storage_items {
-        set_hover.call(HoverKind::File);
-        ctx.caption = Some("Drop to link file(s)".into());
-        DragOperation::Link
-    } else if ctx.has_text {
-        set_hover.call(HoverKind::Text);
-        ctx.caption = Some("Drop to paste text".into());
-        DragOperation::Copy
-    } else {
-        set_hover.call(HoverKind::Rejected);
-        ctx.caption = Some("Not supported".into());
-        DragOperation::None
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("Drag & Drop Example");
+        context.window_visuals(WindowVisuals::new().client_size(800.0, 600.0));
+        let background = match self.hover {
+            None => Color::rgb(255, 255, 255),
+            Some(DragKind::StorageItems) => Color::rgb(92, 202, 221),
+            Some(DragKind::Text) => Color::rgb(155, 219, 90),
+            Some(DragKind::Unsupported) => Color::rgb(255, 180, 180),
+        };
+
+        Border::new()
+            .background(background)
+            .border_brush(Color::rgb(224, 224, 224))
+            .border_thickness(Thickness::uniform(1.5))
+            .corner_radius(CornerRadius::uniform(12.0))
+            .padding(Thickness::uniform(20.0))
+            .margin(Thickness::uniform(40.0))
+            .drop_policy(
+                DragDropPolicy::new()
+                    .storage_items(
+                        DragDropAction::new(DragDropOperation::Link)
+                            .caption("Drop to link file(s)"),
+                    )
+                    .text(
+                        DragDropAction::new(DragDropOperation::Copy).caption("Drop to paste text"),
+                    ),
+            )
+            .on_drag_enter(context.callback(Message::Hover))
+            .on_drag_over(context.callback(Message::Hover))
+            .on_drag_leave(context.message(Message::Leave))
+            .on_drop(context.callback(Message::Drop))
+            .content(
+                TextBlock::new()
+                    .text(
+                        self.dropped
+                            .as_deref()
+                            .unwrap_or("Drop files or some text here"),
+                    )
+                    .text_wrapping(TextWrapping::Wrap)
+                    .font_size(24.0)
+                    .horizontal_alignment(HorizontalAlignment::Center)
+                    .vertical_alignment(VerticalAlignment::Center),
+            )
     }
 }
 
-fn main() -> Result<()> {
-    bootstrap()?;
-
-    App::new()
-        .title("Drag & Drop Example")
-        .inner_size(800.0, 600.0)
-        .render(app)
+fn main() {
+    App::run_component::<DragDrop>(()).unwrap();
 }

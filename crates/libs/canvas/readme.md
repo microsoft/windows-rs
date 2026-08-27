@@ -25,11 +25,10 @@ fn main() -> Result<()> {
 ```
 
 Core types include `GpuDevice`, `SwapChain`, `DrawingSession`, `PathBuilder`, `TextFormat`, and
-`Bitmap`. To host a canvas in
-[`windows-reactor`][reactor-guide], enable reactor's `canvas` feature. `animated_canvas()` draws
-each frame on the UI thread and recovers from device loss. `CanvasImageSource` draws on demand. See
-the [canvas
-guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-canvas.md) for the
-API and samples.
+`Bitmap`. To host a canvas in [`windows-reactor`][reactor-guide], enable this crate's `reactor`
+feature. `animated_canvas()` draws each frame on the UI thread and recovers from device loss. See
+the [canvas guide][canvas-guide] for demand-driven surfaces, recoverable errors, and
+`CanvasImageSource` integration.
 
+[canvas-guide]: https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-canvas.md
 [reactor-guide]: https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md

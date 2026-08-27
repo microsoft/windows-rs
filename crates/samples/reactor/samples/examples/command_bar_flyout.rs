@@ -1,28 +1,45 @@
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (last_action, set_action) = cx.use_state("(none)".to_string());
-
-    let on_cmd = move |label: String| set_action.call(label);
-
-    vstack((
-        button("Show Commands")
-            .command_bar_flyout(vec![
-                app_bar_button_icon("Cut", Symbol::Cut),
-                app_bar_button_icon("Copy", Symbol::Copy),
-                app_bar_button_icon("Paste", Symbol::Paste),
-            ])
-            .command_bar_flyout_secondary(vec![
-                app_bar_button("Select All"),
-                app_bar_button("Print"),
-            ])
-            .on_command_bar_flyout_click(on_cmd),
-        text_block(format!("Last action: {last_action}")),
-    ))
-    .spacing(8.0)
-    .into()
+struct CommandBarFlyoutSample {
+    last_action: String,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("CommandBarFlyout", app)
+impl Component for CommandBarFlyoutSample {
+    type Message = String;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            last_action: "(none)".to_string(),
+        }
+    }
+
+    fn update(&mut self, message: String, _context: &ComponentContext<Self>) {
+        self.last_action = message;
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("CommandBarFlyout");
+        StackPanel::new().spacing(8.0).children((
+            Button::new()
+                .content(TextBlock::new().text("Show Commands"))
+                .command_bar_flyout(CommandBarFlyout::new(
+                    [
+                        CommandBarCommand::button_with_icon("cut", "Cut", Symbol::Cut),
+                        CommandBarCommand::button_with_icon("copy", "Copy", Symbol::Copy),
+                        CommandBarCommand::button_with_icon("paste", "Paste", Symbol::Paste),
+                    ],
+                    [
+                        CommandBarCommand::button("select-all", "Select All"),
+                        CommandBarCommand::button("print", "Print"),
+                    ],
+                    context.callback(std::convert::identity),
+                )),
+            TextBlock::new().text(format!("Last action: {}", self.last_action)),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<CommandBarFlyoutSample>(()).unwrap();
 }

@@ -1,11 +1,10 @@
 mod breadcrumb_bar;
+pub use breadcrumb_bar::BreadcrumbBarPage;
 mod navigation_view;
+pub use navigation_view::NavigationViewPage;
 mod pivot;
+pub use pivot::PivotPage;
 mod tab_view;
+pub use tab_view::TabViewPage;
 mod title_bar;
-
-pub use breadcrumb_bar::breadcrumb_bar_page;
-pub use navigation_view::navigation_view_page;
-pub use pivot::pivot_page;
-pub use tab_view::tab_view_page;
-pub use title_bar::title_bar_page;
+pub use title_bar::TitleBarPage;

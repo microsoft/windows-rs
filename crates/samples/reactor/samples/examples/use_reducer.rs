@@ -1,56 +1,69 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-#[derive(Clone, PartialEq, Default)]
+#[derive(Default)]
 struct CounterState {
     count: i32,
 }
 
+#[derive(Clone, Copy)]
 enum Action {
-    Increment,
     Decrement,
+    Increment,
     Reset,
 }
 
-fn reducer(state: CounterState, action: Action) -> CounterState {
+fn reducer(state: &mut CounterState, action: Action) {
     match action {
-        Action::Increment => CounterState {
-            count: state.count + 1,
-        },
-        Action::Decrement => CounterState {
-            count: state.count - 1,
-        },
-        Action::Reset => CounterState::default(),
+        Action::Decrement => state.count -= 1,
+        Action::Increment => state.count += 1,
+        Action::Reset => *state = CounterState::default(),
     }
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (state, dispatch) = cx.use_reducer_fn(reducer, CounterState::default());
-
-    let inc = {
-        let d = dispatch.clone();
-        move || d.call(Action::Increment)
-    };
-    let dec = {
-        let d = dispatch.clone();
-        move || d.call(Action::Decrement)
-    };
-    let reset = move || dispatch.call(Action::Reset);
-
-    vstack((
-        text_block(format!("count = {}", state.count))
-            .font_size(24.0)
-            .bold(),
-        hstack((
-            button("-").on_click(dec),
-            button("+").on_click(inc),
-            button("reset").on_click(reset),
-        ))
-        .spacing(8.0),
-    ))
-    .spacing(8.0)
-    .into()
+struct UseReducerSample {
+    state: CounterState,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("UseReducer", app)
+impl Component for UseReducerSample {
+    type Message = Action;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            state: CounterState::default(),
+        }
+    }
+
+    fn update(&mut self, action: Action, _context: &ComponentContext<Self>) {
+        reducer(&mut self.state, action);
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("UseReducer");
+        StackPanel::new().spacing(8.0).children((
+            TextBlock::new()
+                .text(format!("count = {}", self.state.count))
+                .font_size(24.0),
+            StackPanel::new()
+                .orientation(Orientation::Horizontal)
+                .spacing(8.0)
+                .children((
+                    Button::new()
+                        .on_click(context.message(Action::Decrement))
+                        .content(TextBlock::new().text("-")),
+                    Button::new()
+                        .on_click(context.message(Action::Increment))
+                        .content(TextBlock::new().text("+")),
+                    Button::new()
+                        .on_click(context.message(Action::Reset))
+                        .content(TextBlock::new().text("reset")),
+                )),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<UseReducerSample>(()).unwrap();
 }

@@ -31,10 +31,10 @@ mod extras {
         minVersion: Windows::Win32::PACKAGE_VERSION,
         options: MddBootstrapInitializeOptions,
     ) -> HRESULT;
-    
+
     #[library("Microsoft.WindowsAppRuntime.Bootstrap.dll")]
     extern fn MddBootstrapShutdown();
-    
+
     #[repr(i32)]
     enum MddBootstrapInitializeOptions {
         MddBootstrapInitializeOptions_None = 0,
@@ -55,8 +55,7 @@ mod extras {
     const WINDOWSAPPSDK_RUNTIME_VERSION_BUILD: u32 = 0;
     const WINDOWSAPPSDK_RUNTIME_VERSION_REVISION: u32 = 0;
     const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 0x0002_0004_0000_0000;
-    
+
     #[encoding("utf-16")]
     const WINDOWSAPPSDK_RELEASE_VERSION_TAG_W: String = "";
 }
-

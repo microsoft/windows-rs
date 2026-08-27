@@ -19,9 +19,9 @@ impl Compositor {
         Ok(Self(bindings::Compositor::new()?))
     }
 
-    /// Wraps a lifted compositor obtained from a WinUI host element.
+    /// Wraps a lifted compositor reported by a Reactor composition host.
     #[cfg(feature = "reactor")]
-    pub fn from_host(compositor: windows_core::IInspectable) -> Result<Self> {
+    pub fn from_host(compositor: windows_core::IUnknown) -> Result<Self> {
         Ok(Self(compositor.cast()?))
     }
 

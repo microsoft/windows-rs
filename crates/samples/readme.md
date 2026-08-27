@@ -45,12 +45,13 @@ samples for a published release, use its tag - for example
 
 | Crate | Sample | Run |
 | --- | --- | --- |
-| [windows-reactor](../../docs/crates/windows-reactor.md) | `reactor_samples` - one demo per WinUI control plus the reactor hooks (97 examples) | `cargo run -p reactor_samples --example <name>` |
-| | `reactor_apps` - complete apps: dotsweeper, minesweeper, notepad, solitaire, tictactoe | `cargo run -p reactor_apps --example <name>` |
-| | `reactor_gallery` / `reactor_direct2d` / `reactor_webview` / `reactor_swap_chain_panel` / `reactor_self_contained` / `reactor_framework_dependent` | `cargo run -p <crate>` |
-| | `reactor_startup_perf` - blank app demonstrating startup TraceLogging events | `cargo run -p reactor_startup_perf --release` |
+| [windows-reactor](../../docs/crates/windows-reactor.md) | `sample_reactor_controls` - focused WinUI and component examples | `cargo run -p sample_reactor_controls --example <name>` |
+| | `sample_reactor_apps` - complete apps: dotsweeper, minesweeper, notepad, solitaire, tictactoe | `cargo run -p sample_reactor_apps --example <name>` |
+| | `sample_reactor_gallery` / `sample_reactor_composition` / `sample_reactor_webview` / `sample_reactor_self_contained` / `sample_reactor_framework_dependent` | `cargo run -p <crate>` |
+| | `sample_reactor_controlled` / `sample_reactor_counter` / `sample_reactor_form` / `sample_reactor_navigation` / `sample_reactor_virtual` | `cargo run -p <crate>` |
+| | `sample_reactor_startup_perf` - blank app demonstrating startup TraceLogging events | `cargo run -p sample_reactor_startup_perf --release` |
 | [windows-canvas](../../docs/crates/windows-canvas.md) | `canvas_samples` - Direct2D drawing: bitmap, brush, color, curves, draw_text, gradient, hello, lines, path, shapes, stroke, transform | `cargo run -p canvas_samples --example <name>` |
-| | `canvas_circles` / `canvas_clock` / `canvas_editor` / `canvas_hit_test` / `canvas_standalone` | `cargo run -p <crate>` |
+| | `canvas_chart` / `canvas_circles` / `canvas_clock` / `canvas_editor` / `canvas_hit_test` / `canvas_image_source` / `canvas_shared_device` / `canvas_standalone` / `canvas_text_layout` | `cargo run -p <crate>` |
 | [windows-animation](../../docs/crates/windows-animation.md) | `animation_samples` - the Windows Animation Manager, headless: variable, storyboard | `cargo run -p animation_samples --example <name>` |
 | [windows-webview](../../docs/crates/windows-webview.md) | `webview_samples` - WebView2 hosting: cookies, custom_protocol, downloads, events, ipc, local_files, minimal, profile, script | `cargo run -p webview_samples --example <name>` |
 

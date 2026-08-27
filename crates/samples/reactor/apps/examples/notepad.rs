@@ -2,19 +2,37 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (text, set_text) = cx.use_state(String::new());
-
-    text_box(text)
-        .multiline()
-        .placeholder_text("Start typing…")
-        .on_text_changed(set_text)
-        .horizontal_alignment(HorizontalAlignment::Stretch)
-        .vertical_alignment(VerticalAlignment::Stretch)
-        .into()
+struct Notepad {
+    text: String,
 }
 
-fn main() -> Result<()> {
-    bootstrap()?;
-    App::new().title("windows_reactor — notepad").render(app)
+impl Component for Notepad {
+    type Message = String;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            text: String::new(),
+        }
+    }
+
+    fn update(&mut self, message: String, _context: &ComponentContext<Self>) {
+        self.text = message;
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("windows_reactor — notepad");
+        TextBox::new()
+            .text(self.text.clone())
+            .accepts_return(true)
+            .placeholder_text("Start typing…")
+            .on_text_changed(context.callback(std::convert::identity))
+            .horizontal_alignment(HorizontalAlignment::Stretch)
+            .vertical_alignment(VerticalAlignment::Stretch)
+            .into()
+    }
+}
+
+fn main() {
+    App::run_component::<Notepad>(()).unwrap();
 }

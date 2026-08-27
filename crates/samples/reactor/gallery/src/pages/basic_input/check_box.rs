@@ -1,82 +1,116 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn check_box_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (accepted, set_accepted) = cx.use_state(false);
-    let (email_opt_in, set_email) = cx.use_state(true);
-    let (sms_opt_in, set_sms) = cx.use_state(false);
-    let (push_opt_in, set_push) = cx.use_state(true);
+pub struct CheckBoxPage {
+    accepted: bool,
+    email: bool,
+    sms: bool,
+    push: bool,
+}
 
-    let active_count = [email_opt_in, sms_opt_in, push_opt_in]
-        .iter()
-        .filter(|&&v| v)
-        .count();
+#[derive(Clone)]
+pub enum Message {
+    Accepted(bool),
+    Email(bool),
+    Sms(bool),
+    Push(bool),
+}
 
-    page_content(
-        "CheckBox",
-        "A control that a user can select or clear.",
-        vec![
-            sample_card(
-                "Basic CheckBox",
-                vstack((
-                    check_box(accepted)
-                        .content("I accept the terms and conditions")
-                        .on_checked({
-                            let set_accepted = set_accepted;
-                            move |v| set_accepted.call(v)
-                        }),
-                    text_block(if accepted {
-                        "Accepted ✓"
-                    } else {
-                        "Not yet accepted"
-                    })
-                    .opacity(0.6),
-                ))
-                .spacing(8.0),
-                r#"check_box(checked).content("I accept").on_checked(move |v| set(v))"#,
-            ),
-            sample_card(
-                "Notification Preferences",
-                vstack((
-                    text_block("Choose your notification channels:").bold(),
-                    check_box(email_opt_in)
-                        .content("Email notifications")
-                        .on_checked({
-                            let set_email = set_email;
-                            move |v| set_email.call(v)
-                        }),
-                    check_box(sms_opt_in)
-                        .content("SMS notifications")
-                        .on_checked({
-                            let set_sms = set_sms;
-                            move |v| set_sms.call(v)
-                        }),
-                    check_box(push_opt_in)
-                        .content("Push notifications")
-                        .on_checked({
-                            let set_push = set_push;
-                            move |v| set_push.call(v)
-                        }),
-                    text_block(format!("{active_count} channel(s) active")).opacity(0.6),
-                ))
-                .spacing(6.0),
-                r#"check_box(email).content("Email").on_checked(handler)
-check_box(sms).content("SMS").on_checked(handler)
-check_box(push).content("Push").on_checked(handler)"#,
-            ),
-            sample_card(
-                "Disabled States",
-                vstack((
-                    check_box(true)
-                        .content("Always enabled (checked, disabled)")
-                        .enabled(false),
-                    check_box(false)
-                        .content("Always disabled (unchecked, disabled)")
-                        .enabled(false),
-                ))
-                .spacing(6.0),
-                r#"check_box(true).content("Locked on").enabled(false)"#,
-            ),
-        ],
-    )
+impl Component for CheckBoxPage {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            accepted: false,
+            email: true,
+            sms: false,
+            push: true,
+        }
+    }
+
+    fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
+        match message {
+            Message::Accepted(value) => self.accepted = value,
+            Message::Email(value) => self.email = value,
+            Message::Sms(value) => self.sms = value,
+            Message::Push(value) => self.push = value,
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        let active = [self.email, self.sms, self.push]
+            .into_iter()
+            .filter(|value| *value)
+            .count();
+        page_content(
+            "CheckBox",
+            "A control that a user can select or clear.",
+            [
+                KeyedView::new(
+                    "basic",
+                    sample_card(
+                        "Basic CheckBox",
+                        StackPanel::new().spacing(8.0).children((
+                            CheckBox::new()
+                                .is_checked(self.accepted)
+                                .on_is_checked_changed(context.callback(Message::Accepted))
+                                .content(
+                                    TextBlock::new().text("I accept the terms and conditions"),
+                                ),
+                            TextBlock::new()
+                                .text(if self.accepted {
+                                    "Accepted"
+                                } else {
+                                    "Not yet accepted"
+                                })
+                                .opacity(0.6),
+                        )),
+                        "CheckBox::new().is_checked(accepted).on_is_checked_changed(handler)",
+                    ),
+                ),
+                KeyedView::new(
+                    "preferences",
+                    sample_card(
+                        "Notification Preferences",
+                        StackPanel::new().spacing(6.0).children((
+                            CheckBox::new()
+                                .is_checked(self.email)
+                                .on_is_checked_changed(context.callback(Message::Email))
+                                .content(TextBlock::new().text("Email notifications")),
+                            CheckBox::new()
+                                .is_checked(self.sms)
+                                .on_is_checked_changed(context.callback(Message::Sms))
+                                .content(TextBlock::new().text("SMS notifications")),
+                            CheckBox::new()
+                                .is_checked(self.push)
+                                .on_is_checked_changed(context.callback(Message::Push))
+                                .content(TextBlock::new().text("Push notifications")),
+                            TextBlock::new()
+                                .text(format!("{active} channel(s) active"))
+                                .opacity(0.6),
+                        )),
+                        "CheckBox::new().is_checked(value).on_is_checked_changed(handler)",
+                    ),
+                ),
+                KeyedView::new(
+                    "disabled",
+                    sample_card(
+                        "Disabled States",
+                        StackPanel::new().spacing(6.0).children((
+                            CheckBox::new()
+                                .is_checked(true)
+                                .is_enabled(false)
+                                .content(TextBlock::new().text("Locked on")),
+                            CheckBox::new()
+                                .is_checked(false)
+                                .is_enabled(false)
+                                .content(TextBlock::new().text("Locked off")),
+                        )),
+                        "CheckBox::new().is_checked(true).is_enabled(false)",
+                    ),
+                ),
+            ],
+        )
+    }
 }

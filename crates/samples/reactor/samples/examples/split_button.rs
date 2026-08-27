@@ -1,18 +1,34 @@
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (clicks, set_clicks) = cx.use_state(0_u32);
-
-    let bump = move || set_clicks.call(clicks + 1);
-
-    vstack((
-        split_button(format!("Primary action ({clicks})")).on_click(bump),
-        split_button("Disabled").enabled(false),
-    ))
-    .spacing(8.0)
-    .into()
+struct SplitButtonSample {
+    clicks: u32,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("SplitButton", app)
+impl Component for SplitButtonSample {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { clicks: 0 }
+    }
+
+    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {
+        self.clicks += 1;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("SplitButton");
+        StackPanel::new().spacing(8.0).children((
+            SplitButton::new()
+                .on_click(context.message(()))
+                .content(TextBlock::new().text(format!("Primary action ({})", self.clicks))),
+            SplitButton::new()
+                .is_enabled(false)
+                .content(TextBlock::new().text("Disabled")),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<SplitButtonSample>(()).unwrap();
 }

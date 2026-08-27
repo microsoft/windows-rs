@@ -6,14 +6,21 @@ $ErrorActionPreference = "Stop"
 $report = Get-Content $Path -Raw | ConvertFrom-Json
 $files = $report.data[0].files
 $requirements = @(
-    @{ Suffix = "src\engine.rs"; Branches = 70; Lines = 82 },
-    @{ Suffix = "reconciler\mod.rs"; Branches = 62; Lines = 79 },
-    @{ Suffix = "reconciler\logical_tree.rs"; Branches = 67; Lines = 85 },
-    @{ Suffix = "reconciler\mounted_tree.rs"; Branches = 61; Lines = 93 },
-    @{ Suffix = "reconciler\child.rs"; Branches = 75; Lines = 90 },
-    @{ Suffix = "reconciler\templated.rs"; Branches = 65; Lines = 90 },
-    @{ Suffix = "reconciler\widget_dispatch.rs"; Branches = 55; Lines = 65 },
-    @{ Suffix = "reconciler\wrappers.rs"; Branches = 55; Lines = 79 }
+    @{ Suffix = "core\component.rs"; Branches = 65; Lines = 89 },
+    @{ Suffix = "core\engine.rs"; Branches = 65; Lines = 93 },
+    @{ Suffix = "core\pump\lifecycle.rs"; Branches = 55; Lines = 91 },
+    @{ Suffix = "core\pump\mod.rs"; Branches = 78; Lines = 92 },
+    @{ Suffix = "core\pump\native_work.rs"; Branches = 65; Lines = 80 },
+    @{ Suffix = "core\pump\plan.rs"; Branches = 64; Lines = 98 },
+    @{ Suffix = "core\pump\planner\element.rs"; Branches = 70; Lines = 88 },
+    @{ Suffix = "core\pump\planner\topology.rs"; Branches = 64; Lines = 80 },
+    @{ Suffix = "core\pump\planner\view.rs"; Branches = 68; Lines = 83 },
+    @{ Suffix = "core\pump\publish.rs"; Branches = 82; Lines = 91 },
+    @{ Suffix = "core\pump\turn.rs"; Branches = 54; Lines = 80 },
+    @{ Suffix = "core\scheduler.rs"; Branches = 62; Lines = 87 },
+    @{ Suffix = "core\virtual_model.rs"; Branches = 70; Lines = 97 },
+    @{ Suffix = "native\recording.rs"; Branches = 63; Lines = 91 },
+    @{ Suffix = "src\reference.rs"; Branches = 65; Lines = 87 }
 )
 
 $failed = $false

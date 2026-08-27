@@ -1,58 +1,93 @@
+use std::rc::Rc;
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (tabs, set_tabs) = cx.use_state(vec![
-        ("overview", "Overview"),
-        ("badges", "Badges"),
-        ("notice", "Notice"),
-    ]);
-    let (selected, set_selected) = cx.use_state(0i32);
-
-    let items: Vec<TabItem> = tabs
-        .iter()
-        .map(|(key, header)| {
-            let closable = *key != "overview";
-            TabItem::new(
-                *header,
-                text_block(format!("Tab content — {header}")).padding(Thickness::uniform(12.0)),
-            )
-            .with_key(*key)
-            .closable(closable)
-        })
-        .collect();
-
-    let tabs_for_close = tabs.clone();
-    let selected_for_close = selected;
-    let set_tabs_close = set_tabs.clone();
-    let set_selected_close = set_selected.clone();
-
-    vstack((
-        TabView::new(items)
-            .selected_index(selected)
-            .can_reorder_tabs(true)
-            .on_selection_changed(set_selected)
-            .on_close_requested(move |key| {
-                let next: Vec<_> = tabs_for_close
-                    .iter()
-                    .filter(|(k, _)| *k != key)
-                    .copied()
-                    .collect();
-                let max_index = next.len().saturating_sub(1) as i32;
-                let clamped = selected_for_close.min(max_index).max(0);
-                set_tabs_close.call(next);
-                if clamped != selected_for_close {
-                    set_selected_close.call(clamped);
-                }
-            }),
-        text_block(format!(
-            "selected_index = {selected}, tabs remaining = {}",
-            tabs.len()
-        )),
-    ))
-    .spacing(8.0)
-    .into()
+struct TabViewSample {
+    tabs: Vec<(&'static str, &'static str)>,
+    selected: i32,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("TabView", app)
+#[derive(Clone)]
+enum Message {
+    Selected(i32),
+    Close(String),
+    Reordered(Rc<Vec<String>>),
+}
+
+impl Component for TabViewSample {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            tabs: vec![
+                ("overview", "Overview"),
+                ("badges", "Badges"),
+                ("notice", "Notice"),
+            ],
+            selected: 0,
+        }
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Selected(index) => self.selected = index,
+            Message::Close(key) => {
+                self.tabs.retain(|(k, _)| *k != key);
+                self.selected = if self.tabs.is_empty() {
+                    -1
+                } else {
+                    self.selected.min(self.tabs.len() as i32 - 1).max(0)
+                };
+            }
+            Message::Reordered(order) => {
+                if order.len() == self.tabs.len()
+                    && order
+                        .iter()
+                        .all(|key| self.tabs.iter().any(|(candidate, _)| candidate == key))
+                {
+                    self.tabs.sort_by_key(|(key, _)| {
+                        order.iter().position(|candidate| candidate == key).unwrap()
+                    });
+                }
+            }
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("TabView");
+        let items = self.tabs.iter().map(|(key, header)| {
+            let closable = *key != "overview";
+            KeyedView::new(
+                *key,
+                TabViewItem::new()
+                    .header(*header)
+                    .tag(*key)
+                    .is_closable(closable)
+                    .content(
+                        Border::new()
+                            .padding(Thickness::uniform(12.0))
+                            .content(TextBlock::new().text(format!("Tab content - {header}"))),
+                    ),
+            )
+        });
+
+        StackPanel::new().spacing(8.0).children((
+            TabView::new()
+                .selected_index(self.selected)
+                .can_reorder_tabs(true)
+                .on_selection_changed(context.callback(Message::Selected))
+                .on_close_requested(context.callback(Message::Close))
+                .on_reordered(context.callback(Message::Reordered))
+                .slots([SlotView::collection(TabViewSlot::TabItems, items)]),
+            TextBlock::new().text(format!(
+                "selected_index = {}, tabs remaining = {}",
+                self.selected,
+                self.tabs.len()
+            )),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<TabViewSample>(()).unwrap();
 }

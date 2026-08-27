@@ -1,59 +1,117 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn content_dialog_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (open, set_open) = cx.use_state(false);
-    let (result_text, set_result) = cx.use_state(String::from("(none)"));
-    let (open2, set_open2) = cx.use_state(false);
+#[derive(Clone)]
+pub enum Message {
+    Open,
+    Closed(ContentDialogResult),
+    OpenThree,
+    ClosedThree,
+}
 
-    let close = set_open.clone();
-    let close2 = set_open2.clone();
+pub struct ContentDialogPage {
+    open: bool,
+    result: Option<ContentDialogResult>,
+    open_three: bool,
+}
 
-    page_content(
-        "ContentDialog",
-        "A modal dialog box with content and action buttons.",
-        vec![
-            sample_card(
-                "Basic Confirmation Dialog",
-                vstack((
-                    button("Show Dialog").on_click(move || set_open.call(true)),
-                    ContentDialog::new("Confirm Action")
-                        .content("Are you sure you want to proceed?")
-                        .primary_button_text("Yes")
-                        .close_button_text("No")
-                        .is_open(open)
-                        .on_closed({
-                            let set_result = set_result;
-                            move |r| {
-                                close.call(false);
-                                let s = match r {
-                                    ContentDialogResult::Primary => "Primary (Yes)",
-                                    ContentDialogResult::Secondary => "Secondary",
-                                    _ => "Closed (No)",
-                                };
-                                set_result.call(s.to_string());
-                            }
-                        }),
-                    text_block(format!("Last result: {result_text}")).opacity(0.6),
-                ))
-                .spacing(8.0),
-                r#"ContentDialog::new("Title").content("...").primary_button_text("Yes").is_open(open)"#,
-            ),
-            sample_card(
-                "Three-Button Dialog",
-                vstack((
-                    button("Show Three-Button").on_click(move || set_open2.call(true)),
-                    ContentDialog::new("Save Changes?")
-                        .content("You have unsaved changes. What would you like to do?")
-                        .primary_button_text("Save")
-                        .secondary_button_text("Don't Save")
-                        .close_button_text("Cancel")
-                        .is_open(open2)
-                        .on_closed(move |_| close2.call(false)),
-                ))
-                .spacing(8.0),
-                r#"ContentDialog::new("Save?").primary_button_text("Save").secondary_button_text("Don't Save")"#,
-            ),
-        ],
-    )
+impl Component for ContentDialogPage {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            open: false,
+            result: None,
+            open_three: false,
+        }
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Open => self.open = true,
+            Message::Closed(result) => {
+                self.result = Some(result);
+                self.open = false;
+            }
+            Message::OpenThree => self.open_three = true,
+            Message::ClosedThree => self.open_three = false,
+        }
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        let result_text = match self.result {
+            None => "(none)".to_string(),
+            Some(ContentDialogResult::Primary) => "Primary (Yes)".to_string(),
+            Some(ContentDialogResult::Secondary) => "Secondary".to_string(),
+            Some(ContentDialogResult::None) => "Closed (No)".to_string(),
+        };
+
+        page_content(
+            "ContentDialog",
+            "A modal dialog box with content and actions.",
+            [
+                KeyedView::new(
+                    "basic",
+                    sample_card(
+                        "Basic Confirmation Dialog",
+                        StackPanel::new().spacing(8.0).children((
+                            Button::new()
+                                .on_click(context.message(Message::Open))
+                                .content(TextBlock::new().text("Show Dialog")),
+                            ContentDialog::new()
+                                .title("Confirm Action")
+                                .primary_button_text("Yes")
+                                .close_button_text("No")
+                                .is_open(self.open)
+                                .on_closed(context.callback(Message::Closed))
+                                .content(
+                                    TextBlock::new().text("Are you sure you want to proceed?"),
+                                ),
+                            TextBlock::new()
+                                .text(format!("Last result: {result_text}"))
+                                .opacity(0.6),
+                        )),
+                        r#"ContentDialog::new()
+    .title("Confirm Action")
+    .content(TextBlock::new().text("Are you sure you want to proceed?"))
+    .primary_button_text("Yes")
+    .close_button_text("No")
+    .is_open(open)
+    .on_closed(context.callback(Message::Closed))"#,
+                    ),
+                ),
+                KeyedView::new(
+                    "three-button",
+                    sample_card(
+                        "Three-Button Dialog",
+                        StackPanel::new().spacing(8.0).children((
+                            Button::new()
+                                .on_click(context.message(Message::OpenThree))
+                                .content(TextBlock::new().text("Show Three-Button")),
+                            ContentDialog::new()
+                                .title("Save Changes?")
+                                .primary_button_text("Save")
+                                .secondary_button_text("Don't Save")
+                                .close_button_text("Cancel")
+                                .is_open(self.open_three)
+                                .on_closed(context.callback(|_| Message::ClosedThree))
+                                .content(
+                                    TextBlock::new().text(
+                                        "You have unsaved changes. What would you like to do?",
+                                    ),
+                                ),
+                        )),
+                        r#"ContentDialog::new()
+    .title("Save Changes?")
+    .primary_button_text("Save")
+    .secondary_button_text("Don't Save")
+    .close_button_text("Cancel")
+    .is_open(open)
+    .on_closed(context.callback(Message::ClosedThree))"#,
+                    ),
+                ),
+            ],
+        )
+    }
 }

@@ -1,68 +1,72 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn relative_panel_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (show_alt_layout, set_show_alt_layout) = cx.use_state(false);
+pub struct RelativePanelPage {
+    bottom: bool,
+}
 
-    let dynamic_items: Vec<Element> = if show_alt_layout {
-        vec![
-            text_block("Bottom Left")
+impl Component for RelativePanelPage {
+    type Message = bool;
+    type Input = ();
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self { bottom: false }
+    }
+
+    fn update(&mut self, bottom: bool, _: &ComponentContext<Self>) {
+        self.bottom = bottom;
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        let left = if self.bottom {
+            TextBlock::new()
+                .text("Bottom left")
                 .relative_align_left()
                 .relative_align_bottom()
-                .into(),
-            text_block("Bottom Right")
+        } else {
+            TextBlock::new()
+                .text("Top left")
+                .relative_align_left()
+                .relative_align_top()
+        };
+        let right = if self.bottom {
+            TextBlock::new()
+                .text("Bottom right")
                 .relative_align_right()
                 .relative_align_bottom()
-                .into(),
-            text_block("Center")
-                .relative_align_h_center()
-                .relative_align_v_center()
-                .into(),
-        ]
-    } else {
-        vec![
-            text_block("Top Left").into(),
-            text_block("Top Right")
+        } else {
+            TextBlock::new()
+                .text("Top right")
                 .relative_align_right()
                 .relative_align_top()
-                .into(),
-            text_block("Center")
-                .relative_align_h_center()
-                .relative_align_v_center()
-                .into(),
-        ]
-    };
-
-    page_content(
-        "RelativePanel",
-        "Positions children relative to each other.",
-        vec![
-            sample_card(
-                "Switch Layouts",
-                vstack((
-                    ToggleSwitch::new(show_alt_layout)
-                        .header("Show bottom corners")
-                        .on_toggled(move |value: bool| set_show_alt_layout.call(value)),
-                    border(relative_panel(dynamic_items).height(200.0))
-                        .padding(Thickness::uniform(16.0)),
-                ))
-                .spacing(12.0),
-                r#"relative_panel(items).height(200.0) // items swap based on state"#,
-            ),
-            sample_card(
-                "Basic RelativePanel",
-                relative_panel([
-                    text_block("Top Left"),
-                    text_block("Top Right")
-                        .relative_align_right()
-                        .relative_align_top(),
-                    text_block("Center")
-                        .relative_align_h_center()
-                        .relative_align_v_center(),
-                ])
-                .height(200.0),
-                r#"relative_panel([el.relative_align_right(), ...]).height(200.0)"#,
-            ),
-        ],
-    )
+        };
+        page_content(
+            "RelativePanel",
+            "Positions children relative to the panel edges and center.",
+            [KeyedView::new(
+                "layout",
+                sample_card(
+                    "Switch Layouts",
+                    StackPanel::new().spacing(12.0).children((
+                        ToggleSwitch::new()
+                            .is_on(self.bottom)
+                            .on_toggled(context.callback(std::convert::identity))
+                            .slots([SlotView::new(
+                                ToggleSwitchSlot::Header,
+                                TextBlock::new().text("Show bottom corners"),
+                            )]),
+                        RelativePanel::new().height(200.0).children((
+                            left,
+                            right,
+                            TextBlock::new()
+                                .text("Center")
+                                .relative_align_horizontal_center()
+                                .relative_align_vertical_center(),
+                        )),
+                    )),
+                    "RelativePanel::new().children((child.relative_align_right(), ...))",
+                ),
+            )],
+        )
+    }
 }

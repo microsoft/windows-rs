@@ -1,41 +1,63 @@
+#![windows_subsystem = "windows"]
+
+use std::cell::Cell;
+use std::rc::Rc;
+
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (rerenders, set_rerenders) = cx.use_state(0_u32);
-
-    let fires = cx.use_ref(0_u32);
-    let fires_for_cb = fires.clone();
-
-    let on_fire: Callback<()> = cx.use_callback((), move |()| {
-        *fires_for_cb.borrow_mut() += 1;
-    });
-
-    let fire_a = {
-        let cb = on_fire.clone();
-        move || cb.invoke(())
-    };
-    let fire_b = {
-        let cb = on_fire;
-        move || cb.invoke(())
-    };
-    let rerender = move || set_rerenders.call(rerenders + 1);
-
-    vstack((
-        text_block(format!("callback fired {} time(s)", *fires.borrow())).font_size(18.0),
-        text_block(format!("forced rerenders = {rerenders}"))
-            .font_size(12.0)
-            .opacity(0.7),
-        hstack((
-            button("Fire (A)").on_click(fire_a),
-            button("Fire (B)").on_click(fire_b),
-            button("Force rerender").on_click(rerender),
-        ))
-        .spacing(8.0),
-    ))
-    .spacing(8.0)
-    .into()
+struct UseCallbackSample {
+    callback: Callback<()>,
+    fires: Rc<Cell<u32>>,
+    rerenders: u32,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("UseCallback", app)
+impl Component for UseCallbackSample {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        let fires = Rc::new(Cell::new(0_u32));
+        let callback_fires = Rc::clone(&fires);
+        Self {
+            callback: Callback::new(move |()| {
+                callback_fires.set(callback_fires.get() + 1);
+            }),
+            fires,
+            rerenders: 0,
+        }
+    }
+
+    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {
+        self.rerenders += 1;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("UseCallback");
+        StackPanel::new().spacing(8.0).children((
+            TextBlock::new()
+                .text(format!("callback fired {} time(s)", self.fires.get()))
+                .font_size(18.0),
+            TextBlock::new()
+                .text(format!("forced rerenders = {}", self.rerenders))
+                .font_size(12.0),
+            StackPanel::new()
+                .orientation(Orientation::Horizontal)
+                .spacing(8.0)
+                .children((
+                    Button::new()
+                        .on_click(self.callback.clone())
+                        .content(TextBlock::new().text("Fire (A)")),
+                    Button::new()
+                        .on_click(self.callback.clone())
+                        .content(TextBlock::new().text("Fire (B)")),
+                    Button::new()
+                        .on_click(context.message(()))
+                        .content(TextBlock::new().text("Force rerender")),
+                )),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<UseCallbackSample>(()).unwrap();
 }

@@ -2,63 +2,84 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (width, set_width) = cx.use_state(260.0_f64);
-    let width_ref = cx.use_ref(width);
-    width_ref.set(width);
-    let drag_start = cx.use_ref(None::<(f64, f64)>);
-
-    let on_pressed = cx.use_callback((), {
-        let drag_start = drag_start.clone();
-        move |info: PointerEventInfo| {
-            if info.is_left_button_pressed && info.capture_succeeded {
-                drag_start.set(Some((info.window_x, width_ref.get_cloned())));
-            }
-        }
-    });
-    let on_moved = cx.use_callback((), {
-        let drag_start = drag_start.clone();
-        move |info: PointerEventInfo| {
-            if !info.is_left_button_pressed {
-                drag_start.set(None);
-                return;
-            }
-            if let Some((start_x, start_width)) = drag_start.get_cloned() {
-                set_width.call((start_width + info.window_x - start_x).clamp(140.0, 520.0));
-            }
-        }
-    });
-    let on_released = cx.use_callback((), {
-        let drag_start = drag_start.clone();
-        move |_: PointerEventInfo| drag_start.set(None)
-    });
-    let on_capture_ended = cx.use_callback((), move |()| drag_start.set(None));
-
-    vstack((
-        TitleBar::new("windows_reactor - pointer resize"),
-        text_block(format!("Left pane width: {width:.0} DIPs")),
-        hstack((
-            border(text_block("Resizable pane").padding(Thickness::uniform(16.0)))
-                .width(width)
-                .background(Color::rgb(35, 90, 150)),
-            border(text_block("Drag").foreground(Color::rgb(255, 255, 255)))
-                .width(44.0)
-                .background(Color::rgb(90, 90, 100))
-                .on_pointer_pressed(on_pressed)
-                .on_pointer_moved(on_moved)
-                .on_pointer_released(on_released)
-                .on_pointer_capture_lost(on_capture_ended.clone())
-                .on_pointer_canceled(on_capture_ended)
-                .capture_pointer_on_press(),
-            border(text_block("The handle moves, but window_x remains stable."))
-                .padding(Thickness::uniform(16.0)),
-        ))
-        .height(240.0),
-    ))
-    .spacing(12.0)
-    .into()
+enum PointerMessage {
+    Pressed(PointerEventInfo),
+    Moved(PointerEventInfo),
+    Released,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("Pointer Resize", app)
+struct PointerResize {
+    width: f64,
+    drag_start: Option<(f64, f64)>,
+}
+
+impl Component for PointerResize {
+    type Message = PointerMessage;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            width: 260.0,
+            drag_start: None,
+        }
+    }
+
+    fn update(&mut self, message: PointerMessage, _context: &ComponentContext<Self>) {
+        match message {
+            PointerMessage::Pressed(info) => {
+                if info.is_left_button_pressed && info.capture_succeeded {
+                    self.drag_start = Some((info.window_x, self.width));
+                }
+            }
+            PointerMessage::Moved(info) => {
+                if !info.is_left_button_pressed {
+                    self.drag_start = None;
+                } else if let Some((start_x, start_width)) = self.drag_start {
+                    self.width = (start_width + info.window_x - start_x).clamp(140.0, 520.0);
+                }
+            }
+            PointerMessage::Released => {
+                self.drag_start = None;
+            }
+        }
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("Pointer Resize");
+        StackPanel::new().spacing(12.0).children((
+            TextBlock::new().text(format!("Left pane width: {:.0} DIPs", self.width)),
+            Border::new().height(240.0).content(
+                StackPanel::new()
+                    .orientation(Orientation::Horizontal)
+                    .children((
+                        Border::new()
+                            .width(self.width)
+                            .background(Color::rgb(35, 90, 150))
+                            .padding(16.0)
+                            .content(TextBlock::new().text("Resizable pane")),
+                        Border::new()
+                            .width(44.0)
+                            .background(Color::rgb(90, 90, 100))
+                            .capture_pointer_on_press(true)
+                            .on_pointer_pressed(context.callback(PointerMessage::Pressed))
+                            .on_pointer_moved(context.callback(PointerMessage::Moved))
+                            .on_pointer_released(context.callback(|_| PointerMessage::Released))
+                            .on_pointer_capture_lost(context.callback(|_| PointerMessage::Released))
+                            .on_pointer_canceled(context.callback(|_| PointerMessage::Released))
+                            .content(
+                                TextBlock::new()
+                                    .text("Drag")
+                                    .foreground(Color::rgb(255, 255, 255)),
+                            ),
+                        Border::new().padding(16.0).content(
+                            TextBlock::new().text("The handle moves, but window_x remains stable."),
+                        ),
+                    )),
+            ),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<PointerResize>(()).unwrap();
 }

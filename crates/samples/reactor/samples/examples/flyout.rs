@@ -1,22 +1,40 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0_u32);
+struct FlyoutSample(u32);
 
-    let bump = move || set_count.call(count + 1);
+impl Component for FlyoutSample {
+    type Message = ();
+    type Input = ();
 
-    vstack((
-        button("Show Flyout").flyout("Hello from the flyout!"),
-        button("Bottom Flyout").flyout_with_placement(
-            format!("Clicked {count} times"),
-            FlyoutPlacementMode::Bottom,
-        ),
-        button("Increment").on_click(bump),
-    ))
-    .spacing(8.0)
-    .into()
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self(0)
+    }
+
+    fn update(&mut self, _message: Self::Message, _context: &ComponentContext<Self>) {
+        self.0 += 1;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("Flyout");
+        StackPanel::new().spacing(8.0).children((
+            Button::new()
+                .content(TextBlock::new().text("Show Flyout"))
+                .flyout("Hello from the flyout!"),
+            Button::new()
+                .content(TextBlock::new().text("Bottom Flyout"))
+                .flyout_with(
+                    Flyout::text(format!("Clicked {} times", self.0))
+                        .placement(FlyoutPlacement::Bottom),
+                ),
+            Button::new()
+                .on_click(context.message(()))
+                .content(TextBlock::new().text("Increment")),
+        ))
+    }
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("Flyout", app)
+fn main() {
+    App::run_component::<FlyoutSample>(()).unwrap();
 }

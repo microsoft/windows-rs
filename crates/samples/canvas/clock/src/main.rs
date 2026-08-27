@@ -1,10 +1,14 @@
 #![windows_subsystem = "windows"]
 
+use std::cell::RefCell;
+use std::rc::Rc;
 use std::time::Instant;
 use windows_animation::*;
 use windows_canvas::Brush;
 use windows_canvas::*;
-use windows_reactor::*;
+use windows_reactor::{
+    App, Component, ComponentContext, View, ViewContext, WindowBackdrop, WindowVisuals,
+};
 use windows_time::DateTime;
 
 struct Resources {
@@ -23,11 +27,16 @@ struct Startup {
     hour: f32,
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let res = cx.use_ref::<Option<Resources>>(None);
-    let anim = cx.use_ref::<Option<Startup>>(None);
+struct Sample {
+    resources: Rc<RefCell<Option<Resources>>>,
+    startup: Rc<RefCell<Startup>>,
+}
 
-    if anim.borrow().is_none() {
+impl Component for Sample {
+    type Input = ();
+    type Message = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
         let manager = Manager::new().unwrap();
         let library = TransitionLibrary::new().unwrap();
         let variable = manager.create_variable(0.0).unwrap();
@@ -39,65 +48,75 @@ fn app(cx: &mut RenderCx) -> Element {
 
         let (second, minute, hour) = angles_now();
 
-        *anim.borrow_mut() = Some(Startup {
-            manager,
-            variable,
-            start: Instant::now(),
-            second,
-            minute,
-            hour,
-        });
+        Self {
+            resources: Rc::new(RefCell::new(None)),
+            startup: Rc::new(RefCell::new(Startup {
+                manager,
+                variable,
+                start: Instant::now(),
+                second,
+                minute,
+                hour,
+            })),
+        }
     }
 
-    animated_canvas(move |ctx| {
-        ctx.clear(ColorF::WHITE);
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("Clock");
+        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
+        let resources = Rc::clone(&self.resources);
+        let startup = Rc::clone(&self.startup);
+        animated_canvas(move |ctx| {
+            ctx.clear(ColorF::WHITE);
 
-        if ctx.device_changed() {
-            let style = ctx
-                .device()
-                .create_stroke_style(
-                    &StrokeStyleBuilder::new()
-                        .start_cap(CapStyle::Round)
-                        .end_cap(CapStyle::Triangle),
-                )
+            if ctx.device_changed() {
+                let style = ctx
+                    .device()
+                    .create_stroke_style(
+                        &StrokeStyleBuilder::new()
+                            .start_cap(CapStyle::Round)
+                            .end_cap(CapStyle::Triangle),
+                    )
+                    .unwrap();
+
+                let brush = ctx
+                    .create_solid_brush(ColorF::new(0.92, 0.38, 0.208, 0.8))
+                    .unwrap();
+
+                let target = ctx.create_bitmap_target().unwrap();
+                let shadow = ctx.create_shadow(&target).unwrap();
+
+                *resources.borrow_mut() = Some(Resources {
+                    style,
+                    brush,
+                    target,
+                    shadow,
+                });
+            }
+
+            let resources = resources.borrow();
+            let resources = resources.as_ref().unwrap();
+
+            let startup = startup.borrow();
+            startup
+                .manager
+                .update(startup.start.elapsed().as_secs_f64())
                 .unwrap();
+            let swing = startup.variable.value().unwrap() as f32;
 
-            let brush = ctx
-                .create_solid_brush(ColorF::new(0.92, 0.38, 0.208, 0.8))
-                .unwrap();
-
-            let target = ctx.create_bitmap_target().unwrap();
-            let shadow = ctx.create_shadow(&target).unwrap();
-
-            *res.borrow_mut() = Some(Resources {
-                style,
-                brush,
-                target,
-                shadow,
+            ctx.with_target(&resources.target, || {
+                ctx.clear(ColorF::TRANSPARENT);
+                draw_clock(ctx, &resources.brush, &resources.style, swing, &startup);
             });
-        }
 
-        let r = res.borrow();
-        let r = r.as_ref().unwrap();
+            ctx.with_transform(&Matrix3x2::translation(5.0, 5.0), || {
+                ctx.draw_effect(&resources.shadow);
+            });
 
-        let a = anim.borrow();
-        let a = a.as_ref().unwrap();
-        a.manager.update(a.start.elapsed().as_secs_f64()).unwrap();
-        let swing = a.variable.value().unwrap() as f32;
-
-        ctx.with_target(&r.target, || {
-            ctx.clear(ColorF::TRANSPARENT);
-            draw_clock(ctx, &r.brush, &r.style, swing, a);
-        });
-
-        ctx.with_transform(&Matrix3x2::translation(5.0, 5.0), || {
-            ctx.draw_effect(&r.shadow);
-        });
-
-        ctx.draw_image(&r.target);
-        Ok(())
-    })
-    .into()
+            ctx.draw_image(&resources.target);
+            Ok(())
+        })
+    }
 }
 
 fn draw_clock(
@@ -176,8 +195,5 @@ fn angles_now() -> (f32, f32, f32) {
 }
 
 fn main() -> Result<()> {
-    App::new()
-        .title("Clock")
-        .backdrop(Backdrop::Mica)
-        .render(app)
+    App::run_component::<Sample>(())
 }

@@ -146,38 +146,68 @@ fn status_line(game: &Game) -> String {
     }
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (game, set_game) = cx.use_state(Game::new());
-
-    let reset_handler = make_reset_handler(set_game.clone());
-    let click_handler = make_click_handler(set_game, game.clone());
-
-    let header = vstack((
-        text_block(status_line(&game))
-            .bold()
-            .font_size(24.0)
-            .horizontal_alignment(HorizontalAlignment::Center),
-        button("New Game")
-            .on_click(reset_handler)
-            .horizontal_alignment(HorizontalAlignment::Center),
-    ))
-    .spacing(8.0)
-    .margin(Thickness {
-        top: 12.0,
-        bottom: 4.0,
-        ..Thickness::default()
-    });
-
-    let board = build_board(&game, click_handler);
-
-    let title_bar = TitleBar::new("windows_reactor — tictactoe");
-
-    vstack((title_bar, vstack((header, board)).spacing(12.0))).into()
+#[derive(Clone)]
+enum Message {
+    Play(usize),
+    Reset,
 }
 
-fn build_board(game: &Game, click_handler: impl Fn(usize) + Clone + 'static) -> Element {
+impl Component for Game {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self::new()
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Play(pos) => {
+                if let Some(next) = apply_move(self, pos) {
+                    *self = next;
+                }
+            }
+            Message::Reset => *self = Self::new(),
+        }
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("windows_reactor — tictactoe");
+        let header = StackPanel::new()
+            .orientation(Orientation::Vertical)
+            .spacing(8.0)
+            .margin(Thickness::new(0.0, 12.0, 0.0, 4.0))
+            .children((
+                TextBlock::new()
+                    .text(status_line(self))
+                    .font_weight(700)
+                    .font_size(24.0)
+                    .horizontal_alignment(HorizontalAlignment::Center),
+                Button::new()
+                    .on_click(context.message(Message::Reset))
+                    .horizontal_alignment(HorizontalAlignment::Center)
+                    .content(TextBlock::new().text("New Game")),
+            ));
+
+        let board = build_board(self, context.callback(Message::Play));
+
+        let title_bar = TitleBar::new().title("windows_reactor — tictactoe");
+
+        StackPanel::new()
+            .orientation(Orientation::Vertical)
+            .children((
+                title_bar,
+                StackPanel::new()
+                    .orientation(Orientation::Vertical)
+                    .spacing(12.0)
+                    .children((header, board)),
+            ))
+    }
+}
+
+fn build_board(game: &Game, click_handler: Callback<usize>) -> View {
     let cells = build_cells(game, click_handler);
-    grid(cells)
+    Grid::new()
         .rows([GridLength::STAR; SIZE])
         .columns([GridLength::STAR; SIZE])
         .row_spacing(4.0)
@@ -185,48 +215,41 @@ fn build_board(game: &Game, click_handler: impl Fn(usize) + Clone + 'static) -> 
         .width(360.0)
         .height(360.0)
         .horizontal_alignment(HorizontalAlignment::Center)
-        .into()
+        .keyed_children(cells)
 }
 
-fn build_cells(game: &Game, click_handler: impl Fn(usize) + Clone + 'static) -> Vec<Element> {
+fn build_cells(game: &Game, click_handler: Callback<usize>) -> Vec<KeyedView> {
     let game_over = game.status != Status::Playing;
     (0..TOTAL)
         .map(|pos| {
             let cell = game.cells[pos];
             let row = pos / SIZE;
             let col = pos % SIZE;
-            let cb = click_handler.clone();
             let label = cell.label().to_string();
-            let mut btn = button(label)
-                .on_click(move || cb(pos))
-                .background(ThemeRef::SubtleFill)
-                .foreground(ThemeRef::PrimaryText)
-                .with_key(format!("cell-{pos}"))
+            let mut btn = Button::new()
+                .on_click({
+                    let click_handler = click_handler.clone();
+                    move || {
+                        _ = click_handler.call(pos);
+                    }
+                })
                 .horizontal_alignment(HorizontalAlignment::Stretch)
                 .vertical_alignment(VerticalAlignment::Stretch);
             if game_over || cell != Cell::Empty {
-                btn = btn.enabled(false);
+                btn = btn.is_enabled(false);
             }
-            btn.grid_row(row as i32).grid_column(col as i32).into()
+            KeyedView::new(
+                pos,
+                btn.grid_row(row as i32)
+                    .grid_column(col as i32)
+                    .content(TextBlock::new().text(label)),
+            )
         })
         .collect()
 }
 
-fn make_reset_handler(set: SetState<Game>) -> impl Fn() + 'static {
-    move || set.call(Game::new())
-}
-
-fn make_click_handler(set: SetState<Game>, current: Game) -> impl Fn(usize) + Clone + 'static {
-    move |pos| {
-        if let Some(next) = apply_move(&current, pos) {
-            set.call(next);
-        }
-    }
-}
-
-fn main() -> Result<()> {
-    bootstrap()?;
-    App::new().title("windows_reactor — tictactoe").render(app)
+fn main() {
+    App::run_component::<Game>(()).unwrap();
 }
 
 #[cfg(test)]

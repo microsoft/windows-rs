@@ -412,7 +412,6 @@ const FACE_DOWN_OFFSET: f64 = 8.0;
 const TOP_ROW_Y: f64 = 20.0;
 const TABLEAU_Y: f64 = 130.0;
 const BOARD_LEFT: f64 = 20.0;
-const TOP_ROW_Z: i32 = 200;
 const BOARD_W: f64 = BOARD_LEFT + (CARD_W + CARD_GAP_X) * PILES as f64 + 20.0;
 const BOARD_H: f64 = 620.0;
 
@@ -430,49 +429,79 @@ fn foundation_x(f: usize) -> f64 {
     pile_x(PILES - FOUNDATIONS + f)
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (game, update) = cx.use_reducer(Game::new(current_seed()));
+#[derive(Clone)]
+enum Message {
+    Click(Click),
+    NewGame,
+}
 
-    let click_handler = {
-        let update = update.clone();
-        move |c: Click| {
-            update.call(move |prev| handle_click(&prev, c));
+struct Solitaire {
+    game: Game,
+}
+
+impl Component for Solitaire {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            game: Game::new(current_seed()),
         }
-    };
+    }
 
-    let new_game_handler = {
-        let update = update;
-        move || {
-            let seed = current_seed();
-            update.call(move |_prev| Game::new(seed));
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Click(click) => self.game = handle_click(&self.game, click),
+            Message::NewGame => self.game = Game::new(current_seed()),
         }
-    };
+    }
 
-    let header = hstack((
-        button("New Game").on_click(new_game_handler),
-        text_block(status_line(&game))
-            .vertical_alignment(VerticalAlignment::Center)
-            .foreground(ThemeRef::PrimaryText),
-    ))
-    .spacing(12.0)
-    .margin(Thickness {
-        top: 8.0,
-        left: 12.0,
-        right: 12.0,
-        bottom: 4.0,
-    });
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("Solitaire");
+        context.window_visuals(WindowVisuals::new().client_size(800.0, 600.0).constraints(
+            WindowConstraints {
+                min_width: Some(800.0),
+                min_height: Some(600.0),
+                ..Default::default()
+            },
+        ));
 
-    let title_bar = TitleBar::new("Solitaire").subtitle(if game.is_won() {
-        "🎉 You win!".to_string()
-    } else {
-        String::new()
-    });
+        let header = StackPanel::new()
+            .orientation(Orientation::Horizontal)
+            .spacing(12.0)
+            .margin(Thickness::new(12.0, 8.0, 12.0, 4.0))
+            .children((
+                Button::new()
+                    .on_click(context.message(Message::NewGame))
+                    .content(TextBlock::new().text("New Game")),
+                TextBlock::new()
+                    .text(status_line(&self.game))
+                    .vertical_alignment(VerticalAlignment::Center)
+                    .foreground(ThemeBrush::PrimaryText),
+            ));
 
-    let board = viewbox(build_board(&game, click_handler));
+        let title_bar = TitleBar::new()
+            .preferred_height(WindowTitleBarHeight::Tall)
+            .title("Solitaire")
+            .subtitle(if self.game.is_won() {
+                "🎉 You win!".to_string()
+            } else {
+                String::new()
+            });
 
-    vstack((title_bar, header, board))
-        .background(Color::rgb(20, 100, 60))
-        .into()
+        Border::new().background(Color::rgb(20, 100, 60)).content(
+            StackPanel::new()
+                .orientation(Orientation::Vertical)
+                .children((
+                    title_bar,
+                    header,
+                    Viewbox::new().slots([SlotView::new(
+                        ViewboxSlot::Child,
+                        build_board(&self.game, context.callback(Message::Click)),
+                    )]),
+                )),
+        )
+    }
 }
 
 fn status_line(game: &Game) -> String {
@@ -488,156 +517,156 @@ fn status_line(game: &Game) -> String {
     }
 }
 
-fn build_board(game: &Game, click: impl Fn(Click) + Clone + 'static) -> Element {
-    let mut children: Vec<Element> = Vec::new();
+fn build_board(game: &Game, click: Callback<Click>) -> View {
+    let mut children: Vec<KeyedView> = Vec::new();
 
-    children.push(stock_view(game, click.clone()));
-    children.push(waste_view(game, click.clone()));
+    children.push(KeyedView::new("stock", stock_view(game, click.clone())));
+    children.push(KeyedView::new("waste", waste_view(game, click.clone())));
     for f in 0..FOUNDATIONS {
-        children.push(foundation_view(game, f, click.clone()));
+        children.push(KeyedView::new(
+            format!("foundation-{f}"),
+            foundation_view(game, f, click.clone()),
+        ));
     }
     for p in 0..PILES {
-        children.push(tableau_pile_view(game, p, click.clone()));
+        children.push(KeyedView::new(
+            format!("tableau-{p}"),
+            tableau_pile_view(game, p, click.clone()),
+        ));
     }
 
-    Canvas::new(children)
+    Canvas::new()
         .width(BOARD_W)
         .height(BOARD_H)
-        .background(Color::rgb(20, 100, 60))
         .horizontal_alignment(HorizontalAlignment::Center)
-        .into()
+        .keyed_children(children)
 }
 
-fn stock_view(game: &Game, click: impl Fn(Click) + 'static) -> Element {
+fn stock_view(game: &Game, click: Callback<Click>) -> View {
     let x = pile_x(0);
     if game.stock.is_empty() && game.waste.is_empty() {
-        empty_slot(
-            "·",
-            "stock".to_string(),
-            Color::rgb(220, 230, 220),
-            move || click(Click::Stock),
+        positioned(
+            empty_slot("·", Color::rgb(220, 230, 220), move || {
+                _ = click.call(Click::Stock);
+            }),
+            x,
+            TOP_ROW_Y,
         )
-        .canvas_left(x)
-        .canvas_top(TOP_ROW_Y)
-        .canvas_z_index(TOP_ROW_Z)
-        .into()
     } else if game.stock.is_empty() {
-        let label = text_block("↻")
+        let label = TextBlock::new()
+            .text("↻")
             .font_size(22.0)
             .foreground(Color::rgb(255, 255, 255))
             .vertical_alignment(VerticalAlignment::Center)
             .horizontal_alignment(HorizontalAlignment::Center);
-        border(label)
+        Border::new()
             .corner_radius(4.0)
             .border_brush(Color::rgb(50, 90, 60))
             .border_thickness(Thickness::uniform(1.5))
             .background(Color::rgb(70, 110, 80))
             .width(CARD_W)
             .height(CARD_H)
-            .with_key("stock")
-            .on_pointer_released(move |_| click(Click::Stock))
+            .on_pointer_released(move |_| {
+                _ = click.call(Click::Stock);
+            })
             .canvas_left(x)
             .canvas_top(TOP_ROW_Y)
-            .canvas_z_index(TOP_ROW_Z)
-            .into()
+            .content(label)
     } else {
-        card_back("stock".to_string(), move || click(Click::Stock))
-            .canvas_left(x)
-            .canvas_top(TOP_ROW_Y)
-            .canvas_z_index(TOP_ROW_Z)
-            .into()
+        positioned(
+            card_back(move || {
+                _ = click.call(Click::Stock);
+            }),
+            x,
+            TOP_ROW_Y,
+        )
     }
 }
 
-fn waste_view(game: &Game, click: impl Fn(Click) + 'static) -> Element {
+fn waste_view(game: &Game, click: Callback<Click>) -> View {
     let top = game.waste.last().copied();
     let x = pile_x(1);
     let failed = matches!(game.failed_move, Some(FailedMove::Waste));
-    (match top {
-        Some(card) => card_face(card, false, failed, "waste".to_string(), move || {
-            click(Click::Waste);
-        })
-        .canvas_left(x)
-        .canvas_top(TOP_ROW_Y)
-        .canvas_z_index(TOP_ROW_Z),
-        None => empty_slot(
-            "·",
-            "waste".to_string(),
-            Color::rgb(220, 230, 220),
-            move || click(Click::Waste),
-        )
-        .canvas_left(x)
-        .canvas_top(TOP_ROW_Y)
-        .canvas_z_index(TOP_ROW_Z),
-    })
-    .into()
+    positioned(
+        match top {
+            Some(card) => card_face(card, false, failed, move || {
+                _ = click.call(Click::Waste);
+            }),
+            None => empty_slot("·", Color::rgb(220, 230, 220), move || {
+                _ = click.call(Click::Waste);
+            }),
+        },
+        x,
+        TOP_ROW_Y,
+    )
 }
 
-fn foundation_view(game: &Game, f: usize, click: impl Fn(Click) + 'static) -> Element {
+fn foundation_view(game: &Game, f: usize, click: Callback<Click>) -> View {
     let highlighted = matches!(game.last_move, Some(LastMove::ToFoundation(s)) if s == f);
     let top = game.foundations[f].last().copied();
     let suit = Suit::all()[f];
     let x = foundation_x(f);
-    let key = format!("foundation-{f}");
     if let Some(card) = top {
-        card_face(card, highlighted, false, key, move || {
-            click(Click::Foundation(f));
-        })
-        .canvas_left(x)
-        .canvas_top(TOP_ROW_Y)
-        .canvas_z_index(TOP_ROW_Z)
-        .into()
+        positioned(
+            card_face(card, highlighted, false, move || {
+                _ = click.call(Click::Foundation(f));
+            }),
+            x,
+            TOP_ROW_Y,
+        )
     } else {
         let fg = if suit.is_red() {
             Color::rgb(180, 120, 120)
         } else {
             Color::rgb(180, 180, 180)
         };
-        empty_slot(suit.symbol(), key, fg, move || click(Click::Foundation(f)))
-            .canvas_left(x)
-            .canvas_top(TOP_ROW_Y)
-            .canvas_z_index(TOP_ROW_Z)
-            .into()
+        positioned(
+            empty_slot(suit.symbol(), fg, move || {
+                _ = click.call(Click::Foundation(f));
+            }),
+            x,
+            TOP_ROW_Y,
+        )
     }
 }
 
-fn tableau_pile_view(game: &Game, p: usize, click: impl Fn(Click) + Clone + 'static) -> Element {
+fn tableau_pile_view(game: &Game, p: usize, click: Callback<Click>) -> View {
     let pile = &game.tableau[p];
     let x = pile_x(p);
 
-    let mut cards: Vec<Element> = Vec::new();
+    let mut cards: Vec<KeyedView> = Vec::new();
 
     if pile.is_empty() {
-        let cb = click;
-        cards.push(
-            empty_slot("K", "0".to_string(), Color::rgb(180, 200, 180), move || {
-                cb(Click::Tableau(p, 0));
-            })
-            .into(),
-        );
+        cards.push(KeyedView::new(
+            0_usize,
+            empty_slot("K", Color::rgb(180, 200, 180), move || {
+                _ = click.call(Click::Tableau(p, 0));
+            }),
+        ));
     } else {
         let mut y = 0.0_f64;
         for (i, card) in pile.iter().enumerate() {
             let is_face_up = i >= game.face_up[p];
-            let z = (i as i32) + 1;
-            let slot_key = i.to_string();
             let element = if is_face_up {
                 let highlighted = matches!(game.last_move, Some(LastMove::ToTableau(tp)) if tp == p)
                     && i == pile.len() - 1;
                 let failed = matches!(game.failed_move, Some(FailedMove::Tableau(fp, fi)) if fp == p && fi == i);
                 let cb = click.clone();
-                card_face(*card, highlighted, failed, slot_key, move || {
-                    cb(Click::Tableau(p, i));
-                })
-                .canvas_top(y)
-                .canvas_z_index(z)
+                Border::new().canvas_top(y).content(card_face(
+                    *card,
+                    highlighted,
+                    failed,
+                    move || {
+                        _ = cb.call(Click::Tableau(p, i));
+                    },
+                ))
             } else {
                 let cb = click.clone();
-                card_back(slot_key, move || cb(Click::Tableau(p, i)))
-                    .canvas_top(y)
-                    .canvas_z_index(z)
+                Border::new().canvas_top(y).content(card_back(move || {
+                    _ = cb.call(Click::Tableau(p, i));
+                }))
             };
-            cards.push(element.into());
+            cards.push(KeyedView::new(i, element));
             y += if is_face_up {
                 FACE_UP_OFFSET
             } else {
@@ -646,22 +675,15 @@ fn tableau_pile_view(game: &Game, p: usize, click: impl Fn(Click) + Clone + 'sta
         }
     }
 
-    Canvas::new(cards)
+    Canvas::new()
         .width(CARD_W)
         .height(BOARD_H - TABLEAU_Y)
-        .with_key(format!("pile-{p}"))
         .canvas_left(x)
         .canvas_top(TABLEAU_Y)
-        .into()
+        .keyed_children(cards)
 }
 
-fn card_face(
-    card: Card,
-    highlighted: bool,
-    failed: bool,
-    key: String,
-    on_click: impl Fn() + 'static,
-) -> Border {
+fn card_face(card: Card, highlighted: bool, failed: bool, on_click: impl Fn() + 'static) -> View {
     let fg = if card.is_red() {
         Color::rgb(192, 0, 32)
     } else {
@@ -679,57 +701,58 @@ fn card_face(
     } else {
         Color::rgb(180, 180, 180)
     };
-    let top_label = text_block(card.label())
+    let top_label = TextBlock::new()
+        .text(card.label())
         .font_size(13.0)
         .foreground(fg)
         .horizontal_alignment(HorizontalAlignment::Left);
-    let center_suit = text_block(card.suit.symbol())
+    let center_suit = TextBlock::new()
+        .text(card.suit.symbol())
         .font_size(22.0)
         .foreground(fg)
         .horizontal_alignment(HorizontalAlignment::Center)
         .vertical_alignment(VerticalAlignment::Center);
-    let content = vstack((top_label, center_suit));
-    border(content)
+    let content = StackPanel::new()
+        .orientation(Orientation::Vertical)
+        .children((top_label, center_suit));
+    Border::new()
         .corner_radius(4.0)
         .border_brush(border_color)
         .border_thickness(Thickness::uniform(1.0))
         .background(bg)
         .width(CARD_W)
         .height(CARD_H)
-        .padding(Thickness {
-            top: 3.0,
-            left: 4.0,
-            right: 2.0,
-            bottom: 2.0,
-        })
-        .with_key(key)
+        .padding(Thickness::new(4.0, 3.0, 2.0, 2.0))
         .on_pointer_released(move |_| on_click())
+        .content(content)
 }
 
-fn card_back(key: String, on_click: impl Fn() + 'static) -> Border {
-    let label = text_block("🂠")
+fn card_back(on_click: impl Fn() + 'static) -> View {
+    let label = TextBlock::new()
+        .text("🂠")
         .font_size(18.0)
         .foreground(Color::rgb(240, 240, 255))
         .vertical_alignment(VerticalAlignment::Center)
         .horizontal_alignment(HorizontalAlignment::Center);
-    border(label)
+    Border::new()
         .corner_radius(4.0)
         .border_brush(Color::rgb(30, 60, 130))
         .border_thickness(Thickness::uniform(1.0))
         .background(Color::rgb(40, 80, 160))
         .width(CARD_W)
         .height(CARD_H)
-        .with_key(key)
         .on_pointer_released(move |_| on_click())
+        .content(label)
 }
 
-fn empty_slot(label: &str, key: String, fg: Color, on_click: impl Fn() + 'static) -> Border {
-    let tb = text_block(label)
+fn empty_slot(label: &str, fg: Color, on_click: impl Fn() + 'static) -> View {
+    let tb = TextBlock::new()
+        .text(label)
         .font_size(16.0)
         .foreground(fg)
         .vertical_alignment(VerticalAlignment::Center)
         .horizontal_alignment(HorizontalAlignment::Center);
-    border(tb)
+    Border::new()
         .corner_radius(4.0)
         .border_brush(Color::rgb(50, 110, 70))
         .border_thickness(Thickness::uniform(1.5))
@@ -737,21 +760,16 @@ fn empty_slot(label: &str, key: String, fg: Color, on_click: impl Fn() + 'static
         .width(CARD_W)
         .height(CARD_H)
         .opacity(0.7)
-        .with_key(key)
         .on_pointer_released(move |_| on_click())
+        .content(tb)
 }
 
-fn main() -> Result<()> {
-    bootstrap()?;
-    App::new()
-        .title("Solitaire")
-        .inner_size(800.0, 600.0)
-        .inner_constraints(InnerConstraints {
-            min_width: Some(800.0),
-            min_height: Some(600.0),
-            ..Default::default()
-        })
-        .render(app)
+fn positioned(content: View, x: f64, y: f64) -> View {
+    Border::new().canvas_left(x).canvas_top(y).content(content)
+}
+
+fn main() {
+    App::run_component::<Solitaire>(()).unwrap();
 }
 
 #[cfg(test)]

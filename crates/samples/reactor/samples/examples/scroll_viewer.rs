@@ -1,33 +1,37 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> Element {
-    let tall_body = vstack(
-        (1..=30)
-            .map(|i| text_block(format!("Line {i}")).font_size(13.0).into())
-            .collect::<Vec<Element>>(),
-    )
-    .spacing(4.0);
+fn main() {
+    sample_reactor_controls::run("ScrollViewer", || {
+        let tall_body = StackPanel::new()
+            .spacing(4.0)
+            .keyed_children((1_u32..=30).map(|index| {
+                KeyedView::new(
+                    index,
+                    TextBlock::new()
+                        .text(format!("Line {index}"))
+                        .font_size(13.0),
+                )
+            }));
+        let wide_body = TextBlock::new()
+            .text(
+                "This line is intentionally long so the ScrollViewer scrolls horizontally to \
+                 reveal the full content.",
+            )
+            .font_size(13.0);
 
-    let wide_body = text_block(
-        "This line is intentionally long so the ScrollViewer scrolls \
-             horizontally to reveal the full content.",
-    )
-    .font_size(13.0);
-
-    vstack((
-        text_block("Default (vertical-only, auto)").bold(),
-        scroll_viewer(tall_body).max_height(120.0),
-        text_block("Both axes, always visible").bold(),
-        scroll_viewer(wide_body)
-            .horizontal_scroll_bar_visibility(ScrollBarVisibility::Visible)
-            .vertical_scroll_bar_visibility(ScrollBarVisibility::Visible)
-            .max_width(280.0)
-            .max_height(80.0),
-    ))
-    .spacing(8.0)
-    .into()
-}
-
-fn main() -> Result<()> {
-    reactor_samples::run("ScrollViewer", app)
+        StackPanel::new().spacing(8.0).children((
+            TextBlock::new().text("Default (vertical-only, auto)"),
+            ScrollViewer::new().max_height(120.0).content(tall_body),
+            TextBlock::new().text("Both axes, always visible"),
+            ScrollViewer::new()
+                .horizontal_scroll_bar_visibility(ScrollBarVisibility::Visible)
+                .vertical_scroll_bar_visibility(ScrollBarVisibility::Visible)
+                .max_width(280.0)
+                .max_height(80.0)
+                .content(wide_body),
+        ))
+    })
+    .unwrap();
 }

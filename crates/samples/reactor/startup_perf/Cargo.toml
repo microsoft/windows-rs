@@ -1,5 +1,5 @@
 [package]
-name = "reactor_startup_perf"
+name = "sample_reactor_startup_perf"
 version = "0.0.0"
 edition = "2024"
 publish = false
@@ -10,9 +10,11 @@ path = "src/main.rs"
 
 [dependencies]
 tracelogging = "1.2.4"
+windows-core = { workspace = true }
 windows-reactor = { workspace = true }
 
 [build-dependencies]
+windows-bindgen = { workspace = true }
 windows-reactor-setup = { workspace = true }
 
 [lints]

@@ -1,8 +1,11 @@
 #![windows_subsystem = "windows"]
 
+use std::cell::RefCell;
 use std::f32::consts::TAU;
+use std::rc::Rc;
 use std::time::Duration;
 use windows_composition::{Color, Compositor, ContainerVisual, SpriteVisual};
+use windows_core::Result;
 use windows_numerics::Vector3;
 use windows_reactor::*;
 
@@ -19,16 +22,21 @@ struct Scene {
 }
 
 impl Scene {
-    fn new(host: &CompositionHostHandle) -> Result<Self> {
-        let compositor = host.compositor()?;
+    fn new(
+        compositor: windows_core::IUnknown,
+        host: &ElementRef<Grid>,
+        width: f32,
+        height: f32,
+    ) -> Result<Self> {
+        let compositor = Compositor::from_host(compositor)?;
         let root = compositor.create_container_visual();
-        host.set_child_visual(&root)?;
+        let _ = host.request_set_child_visual(Some(root.as_raw().into()), |_| {});
         Ok(Self {
             compositor,
             root,
             circles: Vec::new(),
-            width: 400.0,
-            height: 300.0,
+            width,
+            height,
         })
     }
 
@@ -127,71 +135,101 @@ fn ring_color(i: usize, count: usize) -> Color {
     Color::rgb(r, g, b)
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(6_u32);
-    let scene = cx.use_ref::<Option<Scene>>(None);
-    let first_effect = cx.use_ref(true);
+struct Sample {
+    count: u32,
+    host: ElementRef<Grid>,
+    scene: Rc<RefCell<Option<Scene>>>,
+}
 
-    {
-        let scene = scene.clone();
-        cx.use_effect((count,), move || {
-            if std::mem::replace(&mut *first_effect.borrow_mut(), false) {
-                return;
-            }
+#[derive(Clone)]
+enum Message {
+    Add,
+    Remove,
+}
+
+impl Component for Sample {
+    type Input = ();
+    type Message = Message;
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            count: 6,
+            host: ElementRef::new(),
+            scene: Rc::new(RefCell::new(None)),
+        }
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Add => self.count = (self.count + 1).min(MAX_CIRCLES),
+            Message::Remove => self.count = self.count.saturating_sub(1).max(MIN_CIRCLES),
+        }
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("Composition Circles");
+        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
+
+        let scene = Rc::clone(&self.scene);
+        let count = self.count;
+        context.use_effect("circle-count", count, move || {
             if let Some(scene) = scene.borrow_mut().as_mut() {
                 scene.set_count(count as usize).unwrap();
             }
+            None
         });
-    }
 
-    let add = {
-        let set_count = set_count.clone();
-        move || set_count.call((count + 1).min(MAX_CIRCLES))
-    };
-    let remove = move || {
-        if count > MIN_CIRCLES {
-            set_count.call(count - 1);
-        }
-    };
-
-    let margin = 16.0;
-    grid((
-        composition_host()
-            .on_mounted({
-                let scene = scene.clone();
-                move |host| match Scene::new(&host) {
+        let host = self.host.clone();
+        let scene = Rc::clone(&self.scene);
+        context.use_effect("composition-host", (), move || {
+            let event_host = host.clone();
+            let observation = host.observe_composition_host(move |event| match event {
+                CompositionHostEvent::Ready {
+                    compositor,
+                    width,
+                    height,
+                    ..
+                } => match Scene::new(compositor, &event_host, width as f32, height as f32) {
                     Ok(mut built) => {
                         built.set_count(count as usize).unwrap();
-                        scene.set(Some(built));
+                        *scene.borrow_mut() = Some(built);
                     }
-                    Err(e) => eprintln!("composition init failed: {e}"),
+                    Err(error) => eprintln!("composition init failed: {error}"),
+                },
+                CompositionHostEvent::Metrics { width, height, .. } => {
+                    if let Some(scene) = scene.borrow_mut().as_mut() {
+                        scene.resize(width as f32, height as f32).unwrap();
+                    }
                 }
-            })
-            .on_resize(move |w, h| {
-                if let Some(scene) = scene.borrow_mut().as_mut() {
-                    scene.resize(w as f32, h as f32).unwrap();
-                }
-            })
-            .grid_row(0),
-        hstack((
-            button("Add circle").on_click(add),
-            button("Remove circle").on_click(remove),
-            text_block(format!("{count} circles"))
-                .font_size(16.0)
-                .opacity(0.75),
-        ))
-        .spacing(8.0)
-        .margin(Thickness::uniform(margin))
-        .grid_row(1),
-    ))
-    .rows([GridLength::STAR, GridLength::Auto])
-    .into()
+            });
+            Some(Box::new(move || drop(observation)))
+        });
+
+        Grid::new()
+            .rows([GridLength::STAR, GridLength::Auto])
+            .children((
+                Grid::new().element_ref(&self.host).grid_row(0),
+                StackPanel::new()
+                    .orientation(Orientation::Horizontal)
+                    .spacing(8.0)
+                    .margin(Thickness::uniform(16.0))
+                    .grid_row(1)
+                    .children((
+                        Button::new()
+                            .on_click(context.message(Message::Add))
+                            .content(TextBlock::new().text("Add circle")),
+                        Button::new()
+                            .on_click(context.message(Message::Remove))
+                            .content(TextBlock::new().text("Remove circle")),
+                        TextBlock::new()
+                            .text(format!("{} circles", self.count))
+                            .font_size(16.0)
+                            .opacity(0.75),
+                    )),
+            ))
+    }
 }
 
 fn main() -> Result<()> {
-    bootstrap()?;
-    App::new()
-        .title("Composition Circles")
-        .backdrop(Backdrop::Mica)
-        .render(app)
+    App::run_component::<Sample>(())
 }

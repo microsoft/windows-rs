@@ -1,30 +1,46 @@
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (text, set_text) = cx.use_state(String::new());
-
-    vstack((
-        text_block("1. Default TextBox"),
-        text_box(text.clone())
-            .placeholder_text("Default style")
-            .on_text_changed(set_text.clone()),
-        text_block("2. Custom border (brush + thickness)"),
-        text_box(text.clone())
-            .placeholder_text("Thick blue border")
-            .border_brush(Color::rgb(60, 120, 220))
-            .border_thickness(Thickness::uniform(2.0))
-            .on_text_changed(set_text.clone()),
-        text_block("3. Borderless + transparent (chat/search bar)"),
-        text_box(text)
-            .placeholder_text("Type a message…")
-            .background(Color::transparent())
-            .border_thickness(Thickness::uniform(0.0))
-            .on_text_changed(set_text),
-    ))
-    .spacing(8.0)
-    .into()
+struct TextBoxBorderSample {
+    text: String,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("TextBox border", app)
+impl Component for TextBoxBorderSample {
+    type Message = String;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            text: String::new(),
+        }
+    }
+
+    fn update(&mut self, text: String, _context: &ComponentContext<Self>) {
+        self.text = text;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("TextBox border");
+        let text_box = |placeholder| {
+            TextBox::new()
+                .text(self.text.clone())
+                .placeholder_text(placeholder)
+                .on_text_changed(context.callback(std::convert::identity))
+        };
+        StackPanel::new().spacing(8.0).children((
+            TextBlock::new().text("1. Default TextBox"),
+            text_box("Default style"),
+            TextBlock::new().text("2. Custom border (brush + thickness)"),
+            text_box("Thick blue border")
+                .border_brush(Color::rgb(60, 120, 220))
+                .border_thickness(Thickness::uniform(2.0)),
+            TextBlock::new().text("3. Borderless + transparent (chat/search bar)"),
+            text_box("Type a message...")
+                .background(Color::transparent())
+                .border_thickness(Thickness::uniform(0.0)),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<TextBoxBorderSample>(()).unwrap();
 }

@@ -1,6 +1,9 @@
 #![windows_subsystem = "windows"]
 
+use std::cell::RefCell;
+use std::rc::Rc;
 use windows_canvas::*;
+use windows_canvas::{Ellipse as CanvasEllipse, Rect as CanvasRect};
 use windows_reactor::*;
 
 const COLS: usize = 4;
@@ -8,113 +11,141 @@ const ROWS: usize = 3;
 const TILES: usize = COLS * ROWS;
 const TILE: f32 = 132.0;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let device = cx.use_ref::<Option<GpuDevice>>(None);
-    let surfaces = cx.use_ref::<Vec<CanvasImageSource>>(Vec::new());
-    let (images, set_images) = cx.use_state::<Vec<ImageSource>>(Vec::new());
-    let (scale, set_scale) = cx.use_state(1.0_f64);
-    let scale_sub = cx.use_ref::<Option<windows_core::EventRevoker>>(None);
+#[derive(Default)]
+struct Graphics {
+    device: Option<GpuDevice>,
+    surfaces: Vec<CanvasImageSource>,
+}
 
-    let scale_sub_effect = scale_sub.clone();
-    cx.use_effect((scale,), move || {
-        let stale = surfaces
-            .borrow()
-            .first()
-            .is_some_and(|s| s.scale() != scale as f32);
-        if stale {
-            surfaces.set(Vec::new());
+struct Sample {
+    scale: f64,
+    graphics: Rc<RefCell<Graphics>>,
+    images: Vec<ElementRef<Image>>,
+}
+
+impl Component for Sample {
+    type Input = ();
+    type Message = f64;
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            scale: 1.0,
+            graphics: Rc::new(RefCell::new(Graphics::default())),
+            images: (0..TILES).map(|_| ElementRef::new()).collect(),
         }
+    }
 
-        for attempt in 0..2 {
-            if device.borrow().is_none() {
-                match GpuDevice::new_or_warp() {
-                    Ok(d) => device.set(Some(d)),
-                    Err(e) => return eprintln!("failed to create shared device: {e}"),
-                }
+    fn update(&mut self, scale: f64, _context: &ComponentContext<Self>) {
+        self.scale = scale;
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("Canvas Shared Device");
+        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
+
+        let image = self.images[0].clone();
+        let sender = context.sender();
+        context.use_effect("image-scale", (), move || {
+            let observation = image.observe_rasterization_scale(move |scale| {
+                sender.send(scale);
+            });
+            Some(Box::new(move || drop(observation)))
+        });
+
+        let graphics = Rc::clone(&self.graphics);
+        let images = self.images.clone();
+        let scale = self.scale;
+        context.use_effect("draw", scale, move || {
+            if let Err(error) = rebuild(&graphics, &images, scale as f32) {
+                eprintln!("failed to build surfaces: {error}");
             }
+            None
+        });
 
-            if surfaces.borrow().is_empty() {
-                let mut built = Vec::new();
-                let mut sources = Vec::new();
-                let mut lost = false;
-                {
-                    let device = device.borrow();
-                    let device = device.as_ref().unwrap();
-                    for i in 0..TILES {
-                        let surface = match CanvasImageSource::new(device, TILE, TILE, scale as f32)
-                        {
-                            Ok(s) => s,
-                            Err(e) => return eprintln!("failed to create surface: {e}"),
-                        };
-                        match surface.draw(background(i), |session| draw_tile(session, i)) {
-                            Ok(true) => {}
-                            Ok(false) => {
-                                lost = true;
-                                break;
-                            }
-                            Err(e) => return eprintln!("failed to draw surface: {e}"),
-                        }
-                        sources.push(surface.image_source());
-                        built.push(surface);
-                    }
-                }
+        let rows = self
+            .images
+            .chunks(COLS)
+            .enumerate()
+            .map(|row| {
+                let (row_index, row) = row;
+                KeyedView::new(
+                    row_index,
+                    StackPanel::new()
+                        .orientation(Orientation::Horizontal)
+                        .spacing(8.0)
+                        .children((View::keyed_fragment(row.iter().enumerate().map(
+                            |(column, image)| {
+                                KeyedView::new(
+                                    column,
+                                    Image::new()
+                                        .element_ref(image)
+                                        .width(TILE as f64)
+                                        .height(TILE as f64),
+                                )
+                            },
+                        )),)),
+                )
+            })
+            .collect::<Vec<_>>();
 
-                if lost {
-                    device.set(None);
-                    surfaces.set(Vec::new());
-                    set_images.call(Vec::new());
-                    scale_sub_effect.set(None);
-                    if attempt == 0 {
-                        continue;
-                    }
-                    return eprintln!("device lost while building surfaces");
-                }
+        StackPanel::new()
+            .spacing(12.0)
+            .margin(Thickness::uniform(16.0))
+            .children((
+                TextBlock::new().text(format!(
+                    "{TILES} on-demand surfaces - all sharing one GpuDevice:"
+                )),
+                StackPanel::new()
+                    .spacing(8.0)
+                    .children((View::keyed_fragment(rows),)),
+            ))
+    }
+}
 
-                set_images.call(sources);
-                surfaces.set(built);
-            }
-            return;
+fn rebuild(graphics: &RefCell<Graphics>, images: &[ElementRef<Image>], scale: f32) -> Result<()> {
+    let mut graphics = graphics.borrow_mut();
+    if graphics
+        .surfaces
+        .first()
+        .is_some_and(|surface| surface.scale() != scale)
+    {
+        graphics.surfaces.clear();
+    }
+
+    for attempt in 0..2 {
+        if graphics.device.is_none() {
+            graphics.device = Some(GpuDevice::new_or_warp()?);
         }
-    });
-
-    let content: Element = if images.is_empty() {
-        text_block("Preparing surfaces\u{2026}").into()
-    } else {
-        let mut rows: Vec<Element> = Vec::new();
-        for (r, chunk) in images.chunks(COLS).enumerate() {
-            let mut tiles: Vec<Element> = Vec::new();
-            for (c, source) in chunk.iter().enumerate() {
-                let mut tile = Image::new(source.clone())
-                    .width(TILE as f64)
-                    .height(TILE as f64);
-                if r == 0 && c == 0 {
-                    let set_scale = set_scale.clone();
-                    let scale_sub = scale_sub.clone();
-                    tile = tile.on_mounted(move |handle| {
-                        let set_scale = set_scale.clone();
-                        if let Ok(revoker) =
-                            handle.on_rasterization_scale_changed(move |s| set_scale.call(s))
-                        {
-                            scale_sub.set(Some(revoker));
-                        }
-                    });
+        if graphics.surfaces.is_empty() {
+            let mut surfaces = Vec::with_capacity(TILES);
+            let mut lost = false;
+            for (index, image) in images.iter().enumerate() {
+                let surface =
+                    CanvasImageSource::new(graphics.device.as_ref().unwrap(), TILE, TILE, scale)?;
+                if !surface.draw(background(index), |session| draw_tile(session, index))? {
+                    lost = true;
+                    break;
                 }
-                tiles.push(tile.into());
+                let _ = surface.attach(image);
+                surfaces.push(surface);
             }
-            rows.push(hstack(tiles).spacing(8.0).into());
+            if lost {
+                for image in images {
+                    let _ = image.request_set_native_source(None, |_| {});
+                }
+                graphics.device = None;
+                if attempt == 0 {
+                    continue;
+                }
+                return Err(windows_core::Error::from_hresult(windows_core::HRESULT(
+                    0x80004005_u32 as _,
+                )));
+            }
+            graphics.surfaces = surfaces;
         }
-        vstack(rows).spacing(8.0).into()
-    };
-
-    vstack((
-        text_block(format!(
-            "{TILES} on-demand surfaces \u{2014} all sharing one GpuDevice:"
-        )),
-        content,
-    ))
-    .spacing(12.0)
-    .margin(Thickness::uniform(16.0))
-    .into()
+        return Ok(());
+    }
+    unreachable!()
 }
 
 fn background(i: usize) -> ColorF {
@@ -128,9 +159,9 @@ fn draw_tile(session: &DrawingSession, i: usize) -> Result<()> {
     let brush = session.create_solid_brush(ColorF::WHITE)?;
 
     match i % 4 {
-        0 => session.fill_ellipse(&Ellipse::circle(center, radius), &brush),
+        0 => session.fill_ellipse(&CanvasEllipse::circle(center, radius), &brush),
         1 => session.fill_rect(
-            &Rect::new(
+            &CanvasRect::new(
                 center.x - radius,
                 center.y - radius,
                 center.x + radius,
@@ -138,12 +169,12 @@ fn draw_tile(session: &DrawingSession, i: usize) -> Result<()> {
             ),
             &brush,
         ),
-        2 => session.draw_ellipse(&Ellipse::circle(center, radius), &brush, 8.0),
+        2 => session.draw_ellipse(&CanvasEllipse::circle(center, radius), &brush, 8.0),
         _ => {
             let arm = radius;
             let thick = radius * 0.34;
             session.fill_rect(
-                &Rect::new(
+                &CanvasRect::new(
                     center.x - arm,
                     center.y - thick,
                     center.x + arm,
@@ -152,7 +183,7 @@ fn draw_tile(session: &DrawingSession, i: usize) -> Result<()> {
                 &brush,
             );
             session.fill_rect(
-                &Rect::new(
+                &CanvasRect::new(
                     center.x - thick,
                     center.y - arm,
                     center.x + thick,
@@ -167,15 +198,12 @@ fn draw_tile(session: &DrawingSession, i: usize) -> Result<()> {
     session.draw_text(
         &format!("{i}"),
         &format,
-        &Rect::new(0.0, TILE - 28.0, TILE, TILE),
+        &CanvasRect::new(0.0, TILE - 28.0, TILE, TILE),
         &brush,
     );
     Ok(())
 }
 
 fn main() -> Result<()> {
-    App::new()
-        .title("Canvas Shared Device")
-        .backdrop(Backdrop::Mica)
-        .render(app)
+    App::run_component::<Sample>(())
 }

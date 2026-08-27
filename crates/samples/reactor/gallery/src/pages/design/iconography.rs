@@ -1,61 +1,65 @@
-use crate::controls::page_content;
+use crate::controls::*;
 use windows_reactor::*;
 
-pub fn iconography_page(_: &(), _cx: &mut RenderCx) -> Element {
-    let icons: Vec<(&str, Symbol)> = vec![
-        ("Home", Symbol::Home),
-        ("Setting", Symbol::Setting),
-        ("Find", Symbol::Find),
-        ("Mail", Symbol::Mail),
-        ("Camera", Symbol::Camera),
-        ("Edit", Symbol::Edit),
-        ("Favorite", Symbol::Favorite),
-        ("Flag", Symbol::Flag),
-        ("World", Symbol::World),
-        ("Help", Symbol::Help),
-        ("More", Symbol::More),
-        ("People", Symbol::People),
-        ("Add", Symbol::Add),
-        ("Delete", Symbol::Delete),
-        ("Save", Symbol::Save),
-        ("Back", Symbol::Back),
-    ];
+pub struct IconographyPage;
 
-    let mut cards: Vec<Element> = Vec::new();
-    for (index, (name, glyph)) in icons.iter().enumerate() {
-        let card = border(
-            vstack((
-                Button::new(*name).icon(*glyph),
-                text_block(*name).font_size(11.0).opacity(0.7),
-            ))
-            .spacing(8.0),
-        )
-        .background(ThemeRef::CardBackground)
-        .border_brush(Color::rgb(160, 160, 160))
-        .border_thickness(Thickness::uniform(1.0))
-        .padding(Thickness::uniform(16.0))
-        .corner_radius(8.0)
-        .grid_row((index / 4) as i32)
-        .grid_column((index % 4) as i32);
-        cards.push(card.into());
+impl Component for IconographyPage {
+    type Message = ();
+    type Input = ();
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self
     }
 
-    let rows = vec![GridLength::Auto; icons.len().div_ceil(4)];
-    let mut icons_grid = grid(())
-        .rows(rows)
-        .columns([
-            GridLength::Star(1.0),
-            GridLength::Star(1.0),
-            GridLength::Star(1.0),
-            GridLength::Star(1.0),
-        ])
-        .row_spacing(8.0)
-        .column_spacing(8.0);
-    icons_grid.children = cards;
+    fn update(&mut self, _: (), _: &ComponentContext<Self>) {}
 
-    page_content(
-        "Iconography",
-        "Segoe MDL2 Assets icons available through the Symbol enum.",
-        vec![icons_grid.into()],
-    )
+    fn view(&self, _: &(), _: &mut ViewContext<Self>) -> View {
+        let icons = [
+            ("Home", Symbol::Home),
+            ("Setting", Symbol::Setting),
+            ("Find", Symbol::Find),
+            ("Mail", Symbol::Mail),
+            ("Camera", Symbol::Camera),
+            ("Edit", Symbol::Edit),
+            ("Favorite", Symbol::Favorite),
+            ("Flag", Symbol::Flag),
+            ("World", Symbol::World),
+            ("Help", Symbol::Help),
+            ("More", Symbol::More),
+            ("People", Symbol::People),
+        ];
+        let cards = icons
+            .into_iter()
+            .enumerate()
+            .map(|(index, (name, symbol))| {
+                KeyedView::new(
+                    name,
+                    Border::new()
+                        .background(ThemeBrush::CardBackground)
+                        .border_brush(ThemeBrush::CardStroke)
+                        .border_thickness(1.0)
+                        .padding(16.0)
+                        .corner_radius(8.0)
+                        .grid_row((index / 4) as i32)
+                        .grid_column((index % 4) as i32)
+                        .content(StackPanel::new().spacing(8.0).children((
+                            SymbolIcon::new().symbol(symbol),
+                            TextBlock::new().text(name).font_size(11.0).opacity(0.7),
+                        ))),
+                )
+            });
+        page_content(
+            "Iconography",
+            "Segoe Fluent Icons symbols available through the Symbol enum.",
+            [KeyedView::new(
+                "symbols",
+                Grid::new()
+                    .rows([GridLength::Auto; 3])
+                    .columns([GridLength::STAR; 4])
+                    .row_spacing(8.0)
+                    .column_spacing(8.0)
+                    .keyed_children(cards),
+            )],
+        )
+    }
 }

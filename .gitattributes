@@ -12,3 +12,7 @@
 *.woff2 binary
 *.dll   binary
 *.pri   binary
+crates/libs/reactor/public-api.txt linguist-generated=true
+crates/libs/reactor/src/generated.rs linguist-generated=true
+crates/libs/reactor/src/native/winui/bindings.rs linguist-generated=true
+crates/libs/reactor/src/native/winui/generated.rs linguist-generated=true

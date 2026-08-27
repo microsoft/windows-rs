@@ -16,6 +16,11 @@ mod device;
 mod device_lost;
 mod effect;
 mod geometry;
+#[cfg(feature = "reactor")]
+mod reactor;
+#[cfg(feature = "reactor")]
+#[expect(non_snake_case, clippy::upper_case_acronyms)]
+mod reactor_bindings;
 mod render_target;
 mod session;
 mod swap_chain;
@@ -36,6 +41,8 @@ pub use composition::CanvasCompositionExt;
 pub use device::GpuDevice;
 pub use effect::Effect;
 pub use geometry::*;
+#[cfg(feature = "reactor")]
+pub use reactor::*;
 pub use render_target::RenderTarget;
 pub use session::DrawingSession;
 pub use swap_chain::SwapChain;

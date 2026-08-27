@@ -1,11 +1,14 @@
 [package]
-name = "reactor_gallery"
+name = "sample_reactor_gallery"
 version = "0.0.0"
 edition = "2024"
 publish = false
 
 [dependencies]
 windows-reactor = { workspace = true }
+
+[dev-dependencies]
+windows-reactor = { workspace = true, features = ["test"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }

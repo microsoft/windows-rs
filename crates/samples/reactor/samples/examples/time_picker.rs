@@ -1,25 +1,40 @@
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (label, set_label) = cx.use_state(String::from("No time picked"));
-
-    let on_time = move |ts: TimeSpan| {
-        let hours = ts.whole_hours();
-        let minutes = ts.whole_minutes() % 60;
-        set_label.call(format!("Picked: {hours:02}:{minutes:02}"));
-    };
-
-    vstack((
-        time_picker()
-            .header("Pick a time")
-            .minute_increment(15)
-            .on_selected_time_changed(on_time),
-        text_block(&*label),
-    ))
-    .spacing(8.0)
-    .into()
+struct TimePickerSample {
+    label: String,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("TimePicker", app)
+impl Component for TimePickerSample {
+    type Message = TimeSpan;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            label: "No time picked".to_string(),
+        }
+    }
+
+    fn update(&mut self, time: TimeSpan, _context: &ComponentContext<Self>) {
+        let hours = time.whole_hours();
+        let minutes = time.whole_minutes() % 60;
+        self.label = format!("Picked: {hours:02}:{minutes:02}");
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("TimePicker");
+        StackPanel::new().spacing(8.0).children((
+            TimePicker::new()
+                .minute_increment(15)
+                .on_selected_time_changed(context.callback(std::convert::identity))
+                .slots([SlotView::new(
+                    TimePickerSlot::Header,
+                    TextBlock::new().text("Pick a time"),
+                )]),
+            TextBlock::new().text(&self.label),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<TimePickerSample>(()).unwrap();
 }

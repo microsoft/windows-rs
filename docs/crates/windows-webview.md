@@ -231,8 +231,11 @@ Run one with `cargo run -p webview_samples --example <name>`:
 ## Reactor integration
 
 With the optional `reactor` feature, `windows-webview` can host a browser inside a
-[`windows-reactor`](windows-reactor.md) UI tree. The feature adds `webview`, which returns a reactor
-`WebView2` control element. It hands you a ready [`WebView`] when the browser initializes.
+[`windows-reactor`](windows-reactor.md) UI tree. The feature adds `webview`, which returns a
+component view, accepts either a closure or Reactor `Callback<WebView>`, and fails fast on native
+initialization errors. Use `webview_result` to receive `Result<WebView, IntegrationError>` instead.
+Initialization, target retirement, and the WinRT-to-COM bridge therefore cannot leave the
+application waiting without a result.
 
 Enable the `reactor` feature to host WebView2 as a reactor widget.
 
@@ -301,37 +304,29 @@ This bridge lets the WinUI XAML `WebView2` control use the same COM wrappers. Th
 `ICoreWebView2Interop2` and reuses the crate instead of adding a separate WinRT wrapper.
 
 The canonical WinRT metadata, `winmd/Microsoft.Web.WebView2.Core.winmd`, lives in the shared
-`winmd/` directory with the WinUI metadata. `tool_webview` and `tool_reactor` use it to resolve the
-WinRT `CoreWebView2` type when generating reactor-facing bindings.
+`winmd/` directory with the WinUI metadata. `tool_reactor` uses it to resolve the WinRT
+`CoreWebView2` type for the typed initialization command.
 
 ### Reactor hosting (the `reactor` feature)
 
 The optional `reactor` feature is behind `#[cfg(feature = "reactor")]`. The default crate does not
-depend on WinUI or `windows-reactor`. It has three parts:
+depend on WinUI or `windows-reactor`. It has two parts:
 
-- A reactor widget. `windows-reactor` exposes a native-handle `WebView2` control in
-  `crates/libs/reactor/src/widgets/web_view2.rs`. It mirrors `SwapChainPanel`. It wraps
-  `Microsoft.UI.Xaml.Controls.WebView2` and exposes the raw control as an `IInspectable` through
-  `WebView2Handle::as_inspectable`.
-- A second bindgen pass. `tool_webview` runs another `windows_bindgen` pass over the shared `winmd/`
-  directory with `crates/tools/webview/src/reactor.txt`. It emits
-  `crates/libs/webview/src/reactor_bindings.rs`. This minimal WinRT surface has `IWebView2`
-  (`EnsureCoreWebView2Async`, `CoreWebView2`, `CoreWebView2Initialized`), `IFrameworkElement`
-  (`Loaded`, `IsLoaded`), and the opaque `CoreWebView2` and `WebView2` types. It references
-  `windows_future::IAsyncAction` instead of re-emitting the async machinery.
-- The bridge. `src/reactor.rs` configures the reactor widget's `on_mounted` callback. It casts the
-  control to `IWebView2`, calls `EnsureCoreWebView2Async`, and handles `CoreWebView2Initialized`. It
-  converts the WinRT `CoreWebView2` to COM through `ICoreWebView2Interop2::GetComICoreWebView2` and
-  wraps it with `WebView::from_core`.
+- Reactor generates a typed `WebView2` control and exposes
+  `ElementRef<WebView2>::request_core_web_view2`. The request travels through the native command
+  path. Reactor owns the XAML control, loaded-event registration, initialization event, and async
+  action. The completion receives only the application-facing CoreWebView2 COM object.
+- `src/reactor.rs` implements a private hosting component. An effect requests initialization after
+  the element is published, converts the WinRT core through
+  `ICoreWebView2Interop2::GetComICoreWebView2`, and wraps it with `WebView::from_core`. The callback
+  receives the ready wrapper or the shared Reactor `IntegrationError` exactly once.
 
 Two runtime details matter:
 
 - Deferred to `Loaded`. The XAML `WebView2` control can create its `CoreWebView2` only after it is
-  attached to a live visual tree. Reactor calls `on_mounted` before the control is parented. The
-  bridge defers creation to the control's `Loaded` event. It runs immediately if `IsLoaded()` is
-  already true. The `Loaded` revoker, the `CoreWebView2Initialized` revoker, and the in-flight
-  `IAsyncAction` are kept alive in a per-control `Mounted` struct. They are dropped in
-  `on_unmounted`. Dropping the action early can cancel initialization.
+  attached to a live visual tree. The native command runs immediately when `IsLoaded()` is true
+  and otherwise waits for `Loaded`. Reactor retains both event revokers and the in-flight
+  `IAsyncAction` until the element is removed. Dropping the action early can cancel initialization.
 - `Microsoft.Web.WebView2.Core.dll` must be deployed. The COM-only path uses `webview2loader.dll`
   from the Evergreen runtime. The XAML control also loads the WinRT projection assembly
   `Microsoft.Web.WebView2.Core.dll`, which ships in the `Microsoft.Web.WebView2` NuGet package.

@@ -1,0 +1,148 @@
+use std::cell::RefCell;
+
+use super::*;
+
+thread_local! {
+    static DIAGNOSTICS: RefCell<Vec<String>> = const { RefCell::new(Vec::new()) };
+}
+
+pub(super) fn record_live_diagnostic(message: String) {
+    DIAGNOSTICS.with(|diagnostics| diagnostics.borrow_mut().push(message));
+}
+
+pub fn take_live_diagnostics() -> Vec<String> {
+    DIAGNOSTICS.with(|diagnostics| diagnostics.take())
+}
+
+pub fn schedule_live_window_handle(
+    completion: impl FnOnce(Result<isize, String>) + 'static,
+) -> windows_core::Result<()> {
+    let dispatcher = DispatcherQueue::GetForCurrentThread()?;
+    let completion = RefCell::new(Some(completion));
+    let handler = DispatcherQueueHandler::new(move || {
+        let result = HOST.with(|host| {
+            let window = host
+                .borrow()
+                .as_ref()
+                .and_then(LiveHost::primary)
+                .and_then(|live| live.live_window().ok())
+                .ok_or_else(|| "live primary window is unavailable".to_string())?;
+            native_window_handle(&window).map_err(|error| error.to_string())
+        });
+        if let Some(completion) = completion.take() {
+            completion(result);
+        }
+    });
+    if dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Low, &handler)? {
+        Ok(())
+    } else {
+        Err(windows_core::Error::new(
+            E_FAIL,
+            "dispatcher rejected live window handle request",
+        ))
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum LiveProbe {
+    ControlledFeedback,
+    EventRevokers,
+}
+
+pub fn schedule_live_probe(
+    probe: LiveProbe,
+    completion: impl Fn(Result<(), String>) + 'static,
+) -> windows_core::Result<()> {
+    let dispatcher = DispatcherQueue::GetForCurrentThread()?;
+    let verify_dispatcher = dispatcher.clone();
+    let completion: Rc<dyn Fn(Result<(), String>)> = Rc::new(completion);
+    let handler = DispatcherQueueHandler::new(move || {
+        let result = HOST.with(|host| {
+            let mut host = host.borrow_mut();
+            let Some(live) = host.as_mut().and_then(LiveHost::secondary_mut) else {
+                return Err("live probe window is unavailable".to_string());
+            };
+            let passed = match probe {
+                LiveProbe::ControlledFeedback => live.live_controlled_feedback_start(),
+                LiveProbe::EventRevokers => live.live_event_revokers(),
+            };
+            if !passed {
+                return Err(format!("{probe:?} probe failed"));
+            }
+            Ok(())
+        });
+        if result.is_err() || probe == LiveProbe::EventRevokers {
+            finish_live_probe(probe, result, Rc::clone(&completion));
+            return;
+        }
+
+        let input_dispatcher = verify_dispatcher.clone();
+        let input_completion = Rc::clone(&completion);
+        let input = move || {
+            let applied = HOST.with(|host| {
+                host.borrow_mut()
+                    .as_mut()
+                    .and_then(LiveHost::secondary_mut)
+                    .is_some_and(LivePump::live_controlled_feedback_input)
+            });
+            if !applied {
+                finish_live_probe(
+                    probe,
+                    Err(format!("{probe:?} native input failed")),
+                    Rc::clone(&input_completion),
+                );
+                return;
+            }
+            let verify_completion = Rc::clone(&input_completion);
+            let verify = move || {
+                let passed = HOST.with(|host| {
+                    host.borrow_mut()
+                        .as_mut()
+                        .and_then(LiveHost::secondary_mut)
+                        .is_some_and(LivePump::live_controlled_feedback_finish)
+                });
+                finish_live_probe(
+                    probe,
+                    passed
+                        .then_some(())
+                        .ok_or_else(|| format!("{probe:?} probe failed")),
+                    Rc::clone(&verify_completion),
+                );
+            };
+            if let Err(error) = queue_live_delayed(input_dispatcher.clone(), verify) {
+                input_completion(Err(format!("{probe:?} verification failed: {error}")));
+            }
+        };
+        if let Err(error) = queue_live_delayed(verify_dispatcher.clone(), input) {
+            completion(Err(format!("{probe:?} input scheduling failed: {error}")));
+        }
+    });
+    if dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Low, &handler)? {
+        Ok(())
+    } else {
+        Err(windows_core::Error::new(
+            E_FAIL,
+            "dispatcher rejected live probe",
+        ))
+    }
+}
+
+fn finish_live_probe(
+    probe: LiveProbe,
+    result: Result<(), String>,
+    completion: Rc<dyn Fn(Result<(), String>)>,
+) {
+    let window = HOST.with(|host| {
+        host.borrow()
+            .as_ref()
+            .and_then(LiveHost::secondary)
+            .and_then(|live| live.live_window().ok())
+    });
+    let result = result.and_then(|()| {
+        window
+            .ok_or_else(|| format!("{probe:?} window is unavailable"))?
+            .Close()
+            .map_err(|error| format!("{probe:?} window close failed: {error}"))
+    });
+    completion(result);
+}

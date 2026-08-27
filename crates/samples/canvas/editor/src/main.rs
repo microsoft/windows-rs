@@ -1,5 +1,7 @@
 #![windows_subsystem = "windows"]
 
+use std::cell::RefCell;
+use std::rc::Rc;
 use windows_canvas::*;
 use windows_reactor::*;
 
@@ -75,116 +77,119 @@ impl Model {
     }
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let model = cx.use_ref(Model::new());
-    let inv = cx.use_invalidator();
-
-    let on_pressed = cx.use_callback((), {
-        let (model, inv) = (model.clone(), inv.clone());
-        move |info: PointerEventInfo| {
-            let (x, y) = (info.x as f32, info.y as f32);
-            let mut m = model.borrow_mut();
-            let hit = m.hit(x, y);
-
-            if info.is_right_button_pressed {
-                if let Some(i) = hit {
-                    m.shapes.remove(i);
-                    m.selected = None;
-                    m.drag_offset = None;
-                }
-                inv.invalidate();
-                return;
-            }
-
-            if let Some(i) = hit {
-                let (sx, sy) = (m.shapes[i].x, m.shapes[i].y);
-                m.selected = Some(i);
-                m.drag_offset = Some((x - sx, y - sy));
-            } else {
-                let kind = m.kind;
-                let color = palette(m.next_color);
-                m.next_color += 1;
-                m.shapes.push(Shape::new(kind, x, y, color));
-                m.selected = Some(m.shapes.len() - 1);
-                m.drag_offset = Some((0.0, 0.0));
-            }
-            inv.invalidate();
-        }
-    });
-
-    let on_moved = cx.use_callback((), {
-        let (model, inv) = (model.clone(), inv.clone());
-        move |info: PointerEventInfo| {
-            if !info.is_left_button_pressed {
-                return;
-            }
-            let mut m = model.borrow_mut();
-            if let (Some(i), Some((ox, oy))) = (m.selected, m.drag_offset)
-                && let Some(s) = m.shapes.get_mut(i)
-            {
-                s.x = info.x as f32 - ox;
-                s.y = info.y as f32 - oy;
-                drop(m);
-                inv.invalidate();
-            }
-        }
-    });
-
-    let on_released = cx.use_callback((), {
-        let model = model.clone();
-        move |_: PointerEventInfo| model.borrow_mut().drag_offset = None
-    });
-
-    let margin = 16.0;
-
-    grid((
-        canvas_invalidated(&inv, {
-            let model = model.clone();
-            move |ctx| draw(ctx, &model)
-        })
-        .on_pointer_pressed(on_pressed)
-        .on_pointer_moved(on_moved)
-        .on_pointer_released(on_released)
-        .margin(Thickness {
-            left: margin,
-            top: margin,
-            right: margin,
-            bottom: 0.0,
-        })
-        .grid_row(0),
-        hstack((
-            tool_button(&model, &inv, Kind::Rectangle),
-            tool_button(&model, &inv, Kind::Triangle),
-            tool_button(&model, &inv, Kind::Star),
-            button("Clear").on_click({
-                let (model, inv) = (model.clone(), inv.clone());
-                move || {
-                    let mut m = model.borrow_mut();
-                    m.shapes.clear();
-                    m.selected = None;
-                    m.drag_offset = None;
-                    drop(m);
-                    inv.invalidate();
-                }
-            }),
-        ))
-        .spacing(8.0)
-        .margin(Thickness::uniform(margin))
-        .grid_row(1),
-    ))
-    .rows([GridLength::STAR, GridLength::Auto])
-    .into()
+struct Sample {
+    model: Rc<RefCell<Model>>,
+    invalidator: Invalidator,
 }
 
-fn tool_button(model: &HookRef<Model>, inv: &Invalidator, kind: Kind) -> Button {
-    let (model, inv) = (model.clone(), inv.clone());
-    button(kind.label()).on_click(move || {
-        model.borrow_mut().kind = kind;
-        inv.invalidate();
-    })
+#[derive(Clone)]
+enum Message {
+    Pressed(PointerEventInfo),
+    Moved(PointerEventInfo),
+    Released,
+    Select(Kind),
+    Clear,
 }
 
-fn draw(ctx: &DrawContext<'_>, model: &HookRef<Model>) -> Result<()> {
+impl Component for Sample {
+    type Input = ();
+    type Message = Message;
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            model: Rc::new(RefCell::new(Model::new())),
+            invalidator: Invalidator::new(),
+        }
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        let mut model = self.model.borrow_mut();
+        match message {
+            Message::Pressed(info) => {
+                let (x, y) = (info.x as f32, info.y as f32);
+                let hit = model.hit(x, y);
+                if info.is_right_button_pressed {
+                    if let Some(index) = hit {
+                        model.shapes.remove(index);
+                        model.selected = None;
+                        model.drag_offset = None;
+                    }
+                } else if let Some(index) = hit {
+                    let shape = &model.shapes[index];
+                    let (shape_x, shape_y) = (shape.x, shape.y);
+                    model.selected = Some(index);
+                    model.drag_offset = Some((x - shape_x, y - shape_y));
+                } else {
+                    let kind = model.kind;
+                    let color = palette(model.next_color);
+                    model.next_color += 1;
+                    model.shapes.push(Shape::new(kind, x, y, color));
+                    model.selected = Some(model.shapes.len() - 1);
+                    model.drag_offset = Some((0.0, 0.0));
+                }
+            }
+            Message::Moved(info) if info.is_left_button_pressed => {
+                if let (Some(index), Some((offset_x, offset_y))) =
+                    (model.selected, model.drag_offset)
+                    && let Some(shape) = model.shapes.get_mut(index)
+                {
+                    shape.x = info.x as f32 - offset_x;
+                    shape.y = info.y as f32 - offset_y;
+                }
+            }
+            Message::Moved(_) => {}
+            Message::Released => model.drag_offset = None,
+            Message::Select(kind) => model.kind = kind,
+            Message::Clear => {
+                model.shapes.clear();
+                model.selected = None;
+                model.drag_offset = None;
+            }
+        }
+        drop(model);
+        self.invalidator.invalidate();
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("Canvas editor");
+        context.window_visuals(WindowVisuals::new().backdrop(WindowBackdrop::Mica));
+        let model = Rc::clone(&self.model);
+        let surface = Border::new()
+            .on_pointer_pressed(context.callback(Message::Pressed))
+            .on_pointer_moved(context.callback(Message::Moved))
+            .on_pointer_released(context.callback(|_| Message::Released))
+            .margin(Thickness::new(16.0, 16.0, 16.0, 0.0))
+            .grid_row(0)
+            .content(canvas_invalidated(&self.invalidator, move |ctx| {
+                draw(ctx, &model)
+            }));
+        let tool = |kind| {
+            Button::new()
+                .on_click(context.message(Message::Select(kind)))
+                .content(TextBlock::new().text(kind.label()))
+        };
+        Grid::new()
+            .rows([GridLength::STAR, GridLength::Auto])
+            .children((
+                surface,
+                StackPanel::new()
+                    .orientation(Orientation::Horizontal)
+                    .spacing(8.0)
+                    .margin(Thickness::uniform(16.0))
+                    .grid_row(1)
+                    .children((
+                        tool(Kind::Rectangle),
+                        tool(Kind::Triangle),
+                        tool(Kind::Star),
+                        Button::new()
+                            .on_click(context.message(Message::Clear))
+                            .content(TextBlock::new().text("Clear")),
+                    )),
+            ))
+    }
+}
+
+fn draw(ctx: &DrawContext<'_>, model: &RefCell<Model>) -> Result<()> {
     ctx.clear(ColorF::new(0.11, 0.12, 0.16, 1.0));
 
     let grid_brush = ctx.create_solid_brush(ColorF::new(1.0, 1.0, 1.0, 0.06))?;
@@ -296,8 +301,5 @@ fn palette(i: usize) -> ColorF {
 }
 
 fn main() -> Result<()> {
-    App::new()
-        .title("Canvas editor")
-        .backdrop(Backdrop::Mica)
-        .render(app)
+    App::run_component::<Sample>(())
 }

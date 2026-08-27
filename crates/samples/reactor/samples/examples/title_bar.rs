@@ -1,25 +1,56 @@
+use windows_core::Result;
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (back_clicks, set_back) = cx.use_state(0i32);
-    let (pane_clicks, set_pane) = cx.use_state(0i32);
+struct Sample {
+    back_clicks: i32,
+    pane_clicks: i32,
+}
 
-    vstack((
-        TitleBar::new("windows_reactor — title_bar sample")
-            .subtitle("Minimal demo")
-            .back_button_visible(true)
-            .back_button_enabled(true)
-            .pane_toggle_button_visible(true)
-            .on_back_requested(move || set_back.call(back_clicks + 1))
-            .on_pane_toggle_requested(move || set_pane.call(pane_clicks + 1)),
-        text_block(format!(
-            "back_clicks = {back_clicks}, pane_toggle_clicks = {pane_clicks}"
-        )),
-    ))
-    .spacing(8.0)
-    .into()
+#[derive(Clone)]
+enum Message {
+    Back,
+    Pane,
+}
+
+impl Component for Sample {
+    type Input = ();
+    type Message = Message;
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            back_clicks: 0,
+            pane_clicks: 0,
+        }
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Back => self.back_clicks += 1,
+            Message::Pane => self.pane_clicks += 1,
+        }
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("TitleBar");
+
+        StackPanel::new().spacing(8.0).children((
+            TitleBar::new()
+                .preferred_height(WindowTitleBarHeight::Tall)
+                .title("windows_reactor - title_bar sample")
+                .subtitle("Minimal demo")
+                .is_back_button_visible(true)
+                .is_back_button_enabled(true)
+                .is_pane_toggle_button_visible(true)
+                .on_back_requested(context.message(Message::Back))
+                .on_pane_toggle_requested(context.message(Message::Pane)),
+            TextBlock::new().text(format!(
+                "back_clicks = {}, pane_toggle_clicks = {}",
+                self.back_clicks, self.pane_clicks
+            )),
+        ))
+    }
 }
 
 fn main() -> Result<()> {
-    reactor_samples::run("TitleBar", app)
+    App::run_component::<Sample>(())
 }

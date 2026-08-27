@@ -4,15 +4,16 @@ version = "0.0.0"
 edition = "2024"
 publish = false
 
-[dependencies]
-windows-reactor = { workspace = true }
+[features]
+self-contained = []
 
-windows-core = { workspace = true }
+[dependencies]
+windows-canvas = { workspace = true, features = ["reactor"] }
+windows-composition = { workspace = true, features = ["reactor"] }
 windows-collections = { workspace = true }
-windows-future = { workspace = true }
-windows-numerics = { workspace = true }
-windows-reference = { workspace = true, features = ["std"] }
-windows-time = { workspace = true }
+windows-core = { workspace = true }
+windows-reactor = { workspace = true, features = ["test"] }
+windows = { workspace = true, features = ["UI_Input_Preview_Injection", "winuser"] }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }

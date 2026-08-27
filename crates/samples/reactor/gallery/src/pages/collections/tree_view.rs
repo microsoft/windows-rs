@@ -1,40 +1,86 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn tree_view_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (invoked, set_invoked) = cx.use_state(String::from("(none)"));
+pub struct TreeViewPage {
+    last_invoked: String,
+}
 
-    let file_system = vec![
-        tree_node("Documents").expanded().children(vec![
-            tree_node("Work").children(vec![tree_node("Report.docx"), tree_node("Budget.xlsx")]),
-            tree_node("Personal").children(vec![tree_node("Resume.pdf")]),
-        ]),
-        tree_node("Pictures").children(vec![tree_node("Vacation.jpg"), tree_node("Family.png")]),
-        tree_node("Music").children(vec![tree_node("Song1.mp3"), tree_node("Song2.mp3")]),
-    ];
+#[derive(Clone)]
+pub enum Message {
+    Invoked(String),
+}
 
-    page_content(
-        "TreeView",
-        "A hierarchical list with expanding and collapsing nodes.",
-        vec![
-            sample_card(
-                "File Explorer TreeView",
-                vstack((
-                    tree_view(file_system).on_item_invoked(set_invoked),
-                    text_block(format!("Last invoked: {invoked}")).opacity(0.6),
-                ))
-                .spacing(8.0),
-                r#"tree_view(nodes).on_item_invoked(|s| set(s))"#,
-            ),
-            sample_card(
-                "Flat TreeView",
-                tree_view(vec![
-                    tree_node("Item A"),
-                    tree_node("Item B"),
-                    tree_node("Item C"),
+impl Component for TreeViewPage {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            last_invoked: "(none)".to_string(),
+        }
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Invoked(text) => self.last_invoked = text,
+        }
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        let file_system = [
+            TreeNode::new("documents", "Documents")
+                .expanded(true)
+                .children([
+                    TreeNode::new("work", "Work").children([
+                        TreeNode::new("report", "Report.docx"),
+                        TreeNode::new("budget", "Budget.xlsx"),
+                    ]),
+                    TreeNode::new("personal", "Personal")
+                        .child(TreeNode::new("resume", "Resume.pdf")),
                 ]),
-                r#"tree_view(vec![tree_node("A"), tree_node("B")])"#,
-            ),
-        ],
-    )
+            TreeNode::new("pictures", "Pictures").children([
+                TreeNode::new("vacation", "Vacation.jpg"),
+                TreeNode::new("family", "Family.png"),
+            ]),
+            TreeNode::new("music", "Music").children([
+                TreeNode::new("song1", "Song1.mp3"),
+                TreeNode::new("song2", "Song2.mp3"),
+            ]),
+        ];
+        let flat = [
+            TreeNode::new("item-a", "Item A"),
+            TreeNode::new("item-b", "Item B"),
+            TreeNode::new("item-c", "Item C"),
+        ];
+
+        page_content(
+            "TreeView",
+            "A hierarchical list with expanding and collapsing nodes.",
+            [
+                KeyedView::new(
+                    "file-explorer-tree-view",
+                    sample_card(
+                        "File Explorer TreeView",
+                        StackPanel::new().spacing(8.0).children((
+                            TreeView::new()
+                                .on_item_invoked(context.callback(Message::Invoked))
+                                .nodes(file_system),
+                            TextBlock::new()
+                                .text(format!("Last invoked: {}", self.last_invoked))
+                                .opacity(0.6),
+                        )),
+                        r#"TreeView::new().on_item_invoked(...).nodes(nodes)"#,
+                    ),
+                ),
+                KeyedView::new(
+                    "flat-tree-view",
+                    sample_card(
+                        "Flat TreeView",
+                        TreeView::new().nodes(flat),
+                        r#"TreeView::new().nodes([TreeNode::new("a", "Item A"), ...])"#,
+                    ),
+                ),
+            ],
+        )
+    }
 }

@@ -1,5 +1,5 @@
 [package]
-name = "reactor_composition"
+name = "sample_reactor_composition"
 version = "0.0.0"
 edition = "2024"
 publish = false

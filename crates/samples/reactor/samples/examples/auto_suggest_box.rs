@@ -1,3 +1,5 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
 const FRUITS: &[&str] = &[
@@ -17,39 +19,63 @@ const FRUITS: &[&str] = &[
     "Watermelon",
 ];
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (query, set_query) = cx.use_state(String::new());
-    let (chosen, set_chosen) = cx.use_state(String::new());
-
-    let suggestions: Vec<String> = if query.is_empty() {
-        Vec::new()
-    } else {
-        FRUITS
-            .iter()
-            .filter(|f| f.to_lowercase().contains(&query.to_lowercase()))
-            .map(|s| s.to_string())
-            .collect()
-    };
-
-    let on_text = move |text: String| set_query.call(text);
-    let on_chosen = move |item: String| set_chosen.call(item);
-
-    vstack((
-        auto_suggest_box(query)
-            .items(suggestions)
-            .placeholder_text("Search fruits…")
-            .on_text_changed(on_text)
-            .on_suggestion_chosen(on_chosen),
-        text_block(if chosen.is_empty() {
-            "No selection".to_string()
-        } else {
-            format!("Chosen: {chosen}")
-        }),
-    ))
-    .spacing(12.0)
-    .into()
+enum Message {
+    TextChanged(String),
+    SuggestionChosen(String),
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("AutoSuggestBox", app)
+struct AutoSuggestBoxSample {
+    query: String,
+    chosen: String,
+}
+
+impl Component for AutoSuggestBoxSample {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            query: String::new(),
+            chosen: String::new(),
+        }
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::TextChanged(query) => self.query = query,
+            Message::SuggestionChosen(chosen) => self.chosen = chosen,
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        let query = self.query.to_lowercase();
+        let suggestions = if query.is_empty() {
+            Vec::new()
+        } else {
+            FRUITS
+                .iter()
+                .filter(|fruit| fruit.to_lowercase().contains(&query))
+                .copied()
+                .collect()
+        };
+
+        context.window_title("AutoSuggestBox");
+        StackPanel::new().spacing(12.0).children((
+            AutoSuggestBox::new()
+                .text(self.query.clone())
+                .items_source(suggestions)
+                .placeholder_text("Search fruits...")
+                .on_text_changed(context.callback(Message::TextChanged))
+                .on_suggestion_chosen(context.callback(Message::SuggestionChosen)),
+            TextBlock::new().text(if self.chosen.is_empty() {
+                "No selection".to_string()
+            } else {
+                format!("Chosen: {}", self.chosen)
+            }),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<AutoSuggestBoxSample>(()).unwrap();
 }

@@ -1,43 +1,83 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn number_box_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (value, set_value) = cx.use_state(42.0_f64);
-    let (clamped, set_clamped) = cx.use_state(5.0_f64);
+pub struct NumberBoxPage {
+    value: f64,
+    clamped: f64,
+}
 
-    page_content(
-        "NumberBox",
-        "A text control for entering numeric values with validation.",
-        vec![
-            sample_card(
-                "Basic NumberBox",
-                vstack((
-                    NumberBox::new(value).header("Quantity").on_value_changed({
-                        let set_value = set_value;
-                        move |v| set_value.call(v)
-                    }),
-                    text_block(format!("Value: {value}")),
-                ))
-                .spacing(8.0),
-                r#"NumberBox::new(value).header("Quantity").on_value_changed(handler)"#,
-            ),
-            sample_card(
-                "NumberBox with Range",
-                vstack((
-                    NumberBox::new(clamped)
-                        .header("Rating (1-10)")
-                        .range(1.0, 10.0)
-                        .on_value_changed(set_clamped),
-                    text_block(format!("Clamped value: {clamped}")).opacity(0.6),
-                ))
-                .spacing(8.0),
-                r#"NumberBox::new(val).header("Rating").range(1.0, 10.0)"#,
-            ),
-            sample_card(
-                "Disabled NumberBox",
-                NumberBox::new(99.0).header("Fixed").enabled(false),
-                r#"NumberBox::new(99.0).enabled(false)"#,
-            ),
-        ],
-    )
+#[derive(Clone)]
+pub enum Message {
+    Value(f64),
+    Clamped(f64),
+}
+
+impl Component for NumberBoxPage {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            value: 42.0,
+            clamped: 5.0,
+        }
+    }
+
+    fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
+        match message {
+            Message::Value(value) => self.value = value,
+            Message::Clamped(value) => self.clamped = value,
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        page_content(
+            "NumberBox",
+            "A text control for entering numeric values with validation.",
+            [
+                KeyedView::new(
+                    "basic",
+                    sample_card(
+                        "Basic NumberBox",
+                        StackPanel::new().spacing(8.0).children((
+                            NumberBox::new()
+                                .value(self.value)
+                                .on_value_changed(context.callback(Message::Value))
+                                .slots([SlotView::new(
+                                    NumberBoxSlot::Header,
+                                    TextBlock::new().text("Quantity"),
+                                )]),
+                            TextBlock::new().text(format!("Value: {}", self.value)),
+                        )),
+                        "NumberBox::new().value(value).on_value_changed(handler)",
+                    ),
+                ),
+                KeyedView::new(
+                    "range",
+                    sample_card(
+                        "NumberBox with Range",
+                        StackPanel::new().spacing(8.0).children((
+                            NumberBox::new()
+                                .minimum(1.0)
+                                .maximum(10.0)
+                                .value(self.clamped)
+                                .on_value_changed(context.callback(Message::Clamped)),
+                            TextBlock::new()
+                                .text(format!("Clamped value: {}", self.clamped))
+                                .opacity(0.6),
+                        )),
+                        "NumberBox::new().minimum(1.0).maximum(10.0).value(value)",
+                    ),
+                ),
+                KeyedView::new(
+                    "disabled",
+                    sample_card(
+                        "Disabled NumberBox",
+                        NumberBox::new().value(99.0).is_enabled(false),
+                        "NumberBox::new().value(99.0).is_enabled(false)",
+                    ),
+                ),
+            ],
+        )
+    }
 }

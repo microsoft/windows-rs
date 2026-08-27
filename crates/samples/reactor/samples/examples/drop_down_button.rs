@@ -1,18 +1,32 @@
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (clicks, set_clicks) = cx.use_state(0_u32);
-
-    let bump = move || set_clicks.call(clicks + 1);
-
-    vstack((
-        drop_down_button("Options").on_click(bump),
-        text_block(format!("Clicked {clicks} time(s)")),
-    ))
-    .spacing(8.0)
-    .into()
+struct DropDownButtonSample {
+    clicks: u32,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("DropDownButton", app)
+impl Component for DropDownButtonSample {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { clicks: 0 }
+    }
+
+    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {
+        self.clicks += 1;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("DropDownButton");
+        StackPanel::new().spacing(8.0).children((
+            DropDownButton::new()
+                .on_click(context.message(()))
+                .content(TextBlock::new().text("Options")),
+            TextBlock::new().text(format!("Clicked {} time(s)", self.clicks)),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<DropDownButtonSample>(()).unwrap();
 }

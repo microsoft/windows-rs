@@ -135,7 +135,8 @@ This family has three animation technologies with distinct roles:
 - **`windows-animation` (UIAnimation Manager)** computes interpolated values that you sample each
   frame (`update(time)` then `value()`). This matches immediate-mode rendering, such as
   `windows-canvas`'s `animated_canvas` per-frame draw loop. It is the animation engine for canvas
-  and raw Win32 or DirectComposition.
+  and raw Win32 or DirectComposition. Its failures are immediate `windows_core::Result` values; it
+  does not own an asynchronous Reactor integration lifecycle.
 - **`windows-reactor` implicit transitions** use Windows.UI.Composition. It runs animations
   off-thread on retained visuals. This is the model for a declarative, re-rendering UI, where you do
   not re-render every frame to animate.

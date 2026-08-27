@@ -14,18 +14,18 @@ The app uses the ETW team's `tracelogging` crate to emit TraceLogging events fro
 | Event | Location |
 | --- | --- |
 | `wWinMainEntry` | Before Windows App SDK bootstrap |
-| `XamlAppLoaded` | First render-function entry |
+| `XamlAppLoaded` | Root component creation |
 | `WindowLoaded` | First post-commit effect |
 | `FirstRender` | First `CompositionTarget::Rendering` callback after commit |
 | `FirstIdle` | Low-priority dispatcher callback after `FirstRender` |
-| `ProcessStop` | Immediately before process exit after the final window closes |
+| `ProcessStop` | Immediately after the final window closes |
 
 Every event includes `AppName`, `Seq`, and `Pid` fields.
 
 Run the framework-dependent app with:
 
 ```powershell
-cargo run -p reactor_startup_perf --release
+cargo run -p sample_reactor_startup_perf --release
 ```
 
 The build script stages `Microsoft.WindowsAppRuntime.Bootstrap.dll` beside the executable.
@@ -49,7 +49,7 @@ Run these commands from the repository root:
 2. Build the app and prepare the package layout:
 
     ```powershell
-    cargo build -p reactor_startup_perf --release --quiet
+    cargo build -p sample_reactor_startup_perf --release --quiet
     $work = "target\reactor-startup-msix"
     $layout = "$work\layout"
     Remove-Item $layout -Recurse -Force -ErrorAction Ignore

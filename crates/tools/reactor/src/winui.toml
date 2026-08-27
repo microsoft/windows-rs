@@ -1,331 +1,1784 @@
-# Reactor widget declarations — metadata-driven format.
-#
-# Section keys are full WinUI type names. Member keys are metadata
-# property or event names. The tool resolves put_/add_ methods, value
-# types, and interfaces from .winmd metadata automatically.
-#
-# ── Property overrides ──────────────────────────────────────────────
-#   (no overrides)       Field is T, binding always emitted.
-#   type = "Type"        Explicit PropValue variant (Str/F64/Bool/I32/etc).
-#                        For Object (IInspectable) params, selects IReference<T>
-#                        wrapping instead of the default TextBlock wrapping.
-#   getter = true        Include the property getter in generated WinUI bindings.
-#
-# Textblock and IReference setters use a trait-based binding that works
-# with both T and Option<T> widget struct fields. The struct author
-# decides whether the field is optional — no TOML override needed.
-#
-# ── Event overrides ─────────────────────────────────────────────────
-#   (no overrides)       Auto-inferred: add_{Name}, invoke pattern, etc.
-#   type = "Type"        EventHandler payload type (Unit/Bool/Str/F64/I32/Color/DateTime/TimeSpan).
-#   manual = true        Skip codegen; hand-written attach_event in backend.
-#   property = "Name"    Property on sender/args (e.g. "IsOn"); codegen calls get_Name.
-#   false_event = "Name" Complement event for bool-dual (e.g. "Unchecked").
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TextBlock"
+capabilities = ["layout", "text_style"]
 
-["Microsoft.UI.Xaml.Controls.AutoSuggestBox"]
-PlaceholderText = {}
-Header = { type = "Str" }
-IsEnabled = {}
-TextChanged = { manual = true, type = "Str" }
-QuerySubmitted = { manual = true, type = "Str" }
-SuggestionChosen = { manual = true, type = "Str" }
+[[control.property]]
+name = "Text"
+clearable = true
 
-["Microsoft.UI.Xaml.Controls.Border"]
+[[control.property]]
+name = "TextWrapping"
+clearable = true
 
-["Microsoft.UI.Xaml.Controls.BreadcrumbBar"]
-ItemClicked = { property = "Index" }
+[[control.property]]
+name = "FontSize"
+clearable = true
+validation = "finite_positive"
 
-["Microsoft.UI.Xaml.Controls.Button"]
-IsEnabled = {}
-Click = {}
-ItemClicked = { manual = true, type = "Str" }
-CommandBarFlyoutClick = { manual = true, type = "Str" }
+[[control.property]]
+name = "FontWeight"
+clearable = true
 
-["Microsoft.UI.Xaml.Controls.CalendarDatePicker"]
-Header = {}
-PlaceholderText = {}
-IsTodayHighlighted = {}
-IsCalendarOpen = {}
-IsEnabled = {}
-DateChanged = { manual = true, type = "DateTime" }
+[[control.property]]
+name = "IsTextSelectionEnabled"
+clearable = true
 
-["Microsoft.UI.Xaml.Controls.CalendarView"]
-IsTodayHighlighted = {}
-IsGroupLabelVisible = {}
-IsEnabled = {}
-SelectedDatesChanged = {}
+[[control.property]]
+name = "MaxLines"
+clearable = true
 
-["Microsoft.UI.Xaml.Controls.Canvas"]
+[[control.property]]
+name = "TextTrimming"
+clearable = true
 
-["Microsoft.UI.Xaml.Controls.CheckBox"]
-IsChecked = {}
-Content = {}
-IsEnabled = {}
-Checked = { false_event = "Unchecked" }
+[[control.property]]
+name = "Foreground"
+clearable = true
+theme_style = true
 
-["Microsoft.UI.Xaml.Controls.ColorPicker"]
-IsAlphaEnabled = {}
-IsHexInputVisible = {}
-IsColorSliderVisible = {}
-IsColorChannelTextInputVisible = {}
-ColorChanged = { manual = true, type = "Color" }
 
-["Microsoft.UI.Xaml.Controls.ComboBox"]
-SelectedIndex = {}
-Header = {}
-PlaceholderText = {}
-IsEditable = {}
-IsEnabled = {}
-SelectionChanged = { manual = true, type = "I32" }
 
-["Microsoft.UI.Xaml.Controls.CommandBar"]
-DefaultLabelPosition = {}
-Click = { manual = true, type = "Str" }
 
-["Microsoft.UI.Xaml.Controls.ContentDialog"]
-Title = { type = "Str" }
-Content = {}
-PrimaryButtonText = {}
-SecondaryButtonText = {}
-CloseButtonText = {}
-IsPrimaryButtonEnabled = {}
-IsSecondaryButtonEnabled = {}
 
-["Microsoft.UI.Xaml.Controls.DatePicker"]
-Header = {}
-DayVisible = {}
-MonthVisible = {}
-YearVisible = {}
-IsEnabled = {}
-SelectedDateChanged = { manual = true, type = "DateTime" }
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.Button"
+capabilities = ["layout", "enabled", "content", "focus"]
 
-["Microsoft.UI.Xaml.Controls.DropDownButton"]
-Content = { type = "Str" }
-IsEnabled = {}
-ItemClicked = { manual = true, type = "Str" }
-Click = {}
+[[control.property]]
+name = "IsEnabled"
+clearable = true
 
-["Microsoft.UI.Xaml.Controls.Expander"]
-IsExpanded = {}
-Expanding = { false_event = "Collapsed" }
 
-["Microsoft.UI.Xaml.Controls.Grid"]
-RowSpacing = {}
-ColumnSpacing = {}
 
-["Microsoft.UI.Xaml.Controls.HyperlinkButton"]
-Content = {}
-IsEnabled = {}
-Click = {}
+[[control.property]]
+name = "Resources"
+field = "resource_overrides"
+clearable = true
+adapter = "resource_overrides"
 
-["Microsoft.UI.Xaml.Controls.Image"]
-Stretch = {}
+[[control.property]]
+name = "Style"
+clearable = true
+adapter = "resource_style"
 
-["Microsoft.UI.Xaml.Controls.InfoBadge"]
+variants = [
+    { name = "Default" },
+    { name = "Accent", resource = "AccentButtonStyle" },
+    { name = "Subtle", resource = "SubtleButtonStyle" },
+    { name = "TextLink", resource = "TextBlockButtonStyle" },
+]
 
-["Microsoft.UI.Xaml.Controls.InfoBar"]
-Title = {}
-Message = {}
-Severity = {}
-IsOpen = {}
-IsClosable = {}
-Closed = {}
+[[control.property]]
+name = "KeyboardAccelerators"
+field = "key_accelerators"
+clearable = true
+adapter = "key_accelerators"
 
-["Microsoft.UI.Xaml.Controls.ListBox"]
-SelectedIndex = {}
-IsEnabled = {}
-SelectionChanged = { manual = true, type = "I32" }
+[[control.event]]
+name = "Click"
 
-["Microsoft.UI.Xaml.Controls.MenuBar"]
-ItemClicked = { manual = true, type = "Str" }
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.HyperlinkButton"
+capabilities = ["layout", "enabled", "content", "focus"]
 
-["Microsoft.UI.Xaml.Controls.NavigationView"]
-IsPaneOpen = {}
-OpenPaneLength = {}
-PaneDisplayMode = {}
-IsBackEnabled = {}
-IsSettingsVisible = {}
-IsPaneToggleButtonVisible = {}
-PaneTitle = {}
-Header = {}
-SelectionChanged = { manual = true, type = "Str" }
-BackRequested = {}
-QuerySubmitted = { manual = true, type = "Str" }
-TextChanged = { manual = true, type = "Str" }
-SuggestionChosen = { manual = true, type = "Str" }
+[[control.property]]
+name = "NavigateUri"
+clearable = true
+adapter = "uri"
 
-["Microsoft.UI.Xaml.Controls.NumberBox"]
-Value = {}
-Minimum = {}
-Maximum = {}
-Header = {}
-IsEnabled = {}
-ValueChanged = { property = "NewValue" }
+[[control.property]]
+name = "IsEnabled"
+clearable = true
 
-["Microsoft.UI.Xaml.Controls.PasswordBox"]
-PlaceholderText = {}
-Header = {}
-IsEnabled = {}
-PasswordRevealMode = {}
-IsPasswordRevealButtonEnabled = {}
-PasswordChanged = { property = "Password" }
+[[control.event]]
+name = "Click"
 
-["Microsoft.UI.Xaml.Controls.PersonPicture"]
-DisplayName = {}
-Initials = {}
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.Primitives.RepeatButton"
+capabilities = ["layout", "enabled", "content"]
 
-["Microsoft.UI.Xaml.Controls.Pivot"]
-SelectedIndex = {}
-Title = {}
-SelectionChanged = { manual = true, type = "I32", property = "SelectedIndex" }
+[[control.property]]
+name = "Delay"
+clearable = true
 
-["Microsoft.UI.Xaml.Controls.ProgressBar"]
-Value = {}
-Minimum = {}
-Maximum = {}
-IsIndeterminate = {}
+[[control.property]]
+name = "Interval"
+clearable = true
 
-["Microsoft.UI.Xaml.Controls.ProgressRing"]
-Value = {}
-Minimum = {}
-Maximum = {}
-IsActive = {}
-IsIndeterminate = {}
+[[control.property]]
+name = "IsEnabled"
+clearable = true
 
-["Microsoft.UI.Xaml.Controls.RadioButton"]
-Content = {}
-IsChecked = {}
-GroupName = {}
-IsEnabled = {}
-Checked = {}
+[[control.event]]
+name = "Click"
 
-["Microsoft.UI.Xaml.Controls.RadioButtons"]
-Header = {}
-SelectedIndex = {}
-MaxColumns = {}
-SelectionChanged = { property = "SelectedIndex" }
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.Border"
+content = "Child"
+capabilities = ["layout", "content"]
 
-["Microsoft.UI.Xaml.Controls.RatingControl"]
-Value = {}
-MaxRating = {}
-Caption = {}
-PlaceholderValue = {}
-IsReadOnly = {}
-ValueChanged = { property = "Value" }
+[[control.property]]
+name = "Padding"
+clearable = true
+validation = "finite_non_negative"
 
-["Microsoft.UI.Xaml.Controls.RelativePanel"]
+[[control.property]]
+name = "BorderThickness"
+clearable = true
+validation = "finite_non_negative"
 
-["Microsoft.UI.Xaml.Controls.Primitives.RepeatButton"]
-Content = {}
-IsEnabled = {}
-Delay = {}
-Interval = {}
-Click = {}
+[[control.property]]
+name = "CornerRadius"
+clearable = true
+validation = "finite_non_negative"
 
-["Microsoft.UI.Xaml.Controls.RichEditBox"]
-PlaceholderText = {}
-Header = {}
-IsReadOnly = { getter = true }
-TextChanged = { manual = true, type = "Str" }
+[[control.property]]
+name = "Background"
+clearable = true
+theme_style = true
 
-["Microsoft.UI.Xaml.Controls.ScrollView"]
-HorizontalScrollBarVisibility = {}
-VerticalScrollBarVisibility = {}
+[[control.property]]
+name = "BorderBrush"
+clearable = true
+theme_style = true
 
-["Microsoft.UI.Xaml.Controls.ScrollViewer"]
-HorizontalScrollBarVisibility = {}
-VerticalScrollBarVisibility = {}
 
-["Microsoft.UI.Xaml.Controls.SelectorBar"]
-SelectionChanged = { manual = true, type = "Str" }
 
-["Microsoft.UI.Xaml.Controls.Slider"]
-Minimum = {}
-Maximum = {}
-Value = {}
-Header = {}
-Orientation = {}
-IsEnabled = {}
-ValueChanged = { property = "NewValue" }
 
-["Microsoft.UI.Xaml.Controls.SplitButton"]
-Content = { type = "Str" }
-IsEnabled = {}
-Click = {}
 
-["Microsoft.UI.Xaml.Controls.SplitView"]
-IsPaneOpen = {}
-OpenPaneLength = {}
-CompactPaneLength = {}
-PaneClosed = {}
 
-["Microsoft.UI.Xaml.Controls.StackPanel"]
-Orientation = {}
-Spacing = {}
+[[control.property]]
+name = "OpacityTransition"
+field = "opacity_transition"
+clearable = true
+adapter = "implicit_opacity_transition"
 
-["Microsoft.UI.Xaml.Controls.TabView"]
-SelectedIndex = {}
-CanReorderTabs = {}
-IsAddTabButtonVisible = {}
-SelectionChanged = { manual = true, type = "I32" }
-CloseRequested = { manual = true, type = "Str" }
-AddTabButtonClick = {}
+[[control.property]]
+name = "Scale"
+clearable = true
+adapter = "implicit_scale"
+validation = "finite_non_negative"
 
-["Microsoft.UI.Xaml.Controls.TeachingTip"]
-Title = {}
-Subtitle = {}
-IsOpen = {}
-IsLightDismissEnabled = {}
-PreferredPlacement = {}
-Closed = {}
-ActionButtonClick = {}
+[[control.property]]
+name = "ScaleTransition"
+field = "scale_transition"
+clearable = true
+adapter = "implicit_scale_transition"
 
-["Microsoft.UI.Xaml.Controls.TextBlock"]
-Text = {}
-TextWrapping = {}
-IsTextSelectionEnabled = {}
+[[control.property]]
+name = "CapturePointerOnPress"
+clearable = true
+adapter = "pointer_capture"
 
-["Microsoft.UI.Xaml.Controls.TextBox"]
-PlaceholderText = {}
-Header = {}
-IsEnabled = {}
-AcceptsReturn = {}
-TextWrapping = {}
-TextChanged = { property = "Text" }
+[[control.property]]
+name = "AllowDrop"
+field = "drop_policy"
+clearable = true
+adapter = "drop_policy"
 
-["Microsoft.UI.Xaml.Controls.TimePicker"]
-Header = {}
-ClockIdentifier = {}
-MinuteIncrement = {}
-IsEnabled = {}
-SelectedTimeChanged = { manual = true, type = "TimeSpan" }
+[[control.event]]
+name = "DragEnter"
+field = "on_drag_enter"
+adapter = "drag_info"
+active_property = "drop_policy"
 
-["Microsoft.UI.Xaml.Controls.TitleBar"]
-Title = {}
-Subtitle = {}
-IsBackButtonVisible = {}
-IsBackButtonEnabled = {}
-IsPaneToggleButtonVisible = {}
-BackRequested = {}
-PaneToggleRequested = {}
+[[control.event]]
+name = "DragOver"
+field = "on_drag_over"
+adapter = "drag_info"
+active_property = "drop_policy"
 
-["Microsoft.UI.Xaml.Controls.Primitives.ToggleButton"]
-IsChecked = {}
-Content = {}
-IsEnabled = {}
-Checked = { false_event = "Unchecked" }
+[[control.event]]
+name = "DragLeave"
+field = "on_drag_leave"
 
-["Microsoft.UI.Xaml.Controls.ToggleSwitch"]
-IsOn = {}
-OnContent = {}
-OffContent = {}
-Header = {}
-IsEnabled = {}
-Toggled = { property = "IsOn" }
+[[control.event]]
+name = "Drop"
+field = "on_drop"
+adapter = "drop_data"
 
-["Microsoft.UI.Xaml.Controls.TreeView"]
-SelectionMode = {}
-ItemInvoked = { manual = true, type = "Str" }
+[[control.event]]
+name = "PointerPressed"
+adapter = "pointer_event"
+active_property = "capture_pointer_on_press"
 
-["Microsoft.UI.Xaml.Controls.Viewbox"]
-Stretch = {}
+[[control.event]]
+name = "PointerMoved"
+adapter = "pointer_event"
+
+[[control.event]]
+name = "PointerEntered"
+adapter = "pointer_event"
+
+[[control.event]]
+name = "PointerExited"
+adapter = "pointer_event"
+
+[[control.event]]
+name = "PointerReleased"
+adapter = "pointer_event"
+
+[[control.event]]
+name = "PointerCaptureLost"
+
+[[control.event]]
+name = "PointerCanceled"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.BreadcrumbBar"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "ItemsSource"
+clearable = true
+adapter = "inspectable_string_list"
+
+[[control.event]]
+name = "ItemClicked"
+property = "Item"
+adapter = "inspectable_string"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.StackPanel"
+capabilities = ["layout", "children"]
+
+[[control.property]]
+name = "Orientation"
+clearable = true
+
+[[control.property]]
+name = "Spacing"
+clearable = true
+
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.Grid"
+capabilities = ["layout", "children", "grid_definitions", "reference"]
+
+[[control.property]]
+name = "RowSpacing"
+clearable = true
+
+[[control.property]]
+name = "ColumnSpacing"
+clearable = true
+
+[[control.property]]
+name = "KeyboardAccelerators"
+field = "key_accelerators"
+clearable = true
+adapter = "key_accelerators"
+
+[[control.property]]
+name = "Background"
+clearable = true
+theme_style = true
+
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TextBox"
+capabilities = ["layout", "enabled", "text_style", "controlled_text", "focus"]
+
+[[control.property]]
+name = "Text"
+clearable = true
+controlled = "TextChanged"
+feedback_contract = "synchronous_exact"
+
+[[control.property]]
+name = "PlaceholderText"
+clearable = true
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.property]]
+name = "AcceptsReturn"
+clearable = true
+
+[[control.property]]
+name = "TextWrapping"
+clearable = true
+
+[[control.property]]
+name = "Background"
+clearable = true
+theme_style = true
+
+[[control.property]]
+name = "BorderBrush"
+clearable = true
+theme_style = true
+
+[[control.property]]
+name = "BorderThickness"
+clearable = true
+validation = "finite_non_negative"
+
+[[control.event]]
+name = "TextChanged"
+property = "Text"
+
+[[control.slot]]
+name = "Header"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.AutoSuggestBox"
+capabilities = ["layout", "enabled", "focus"]
+
+[[control.property]]
+name = "Text"
+clearable = true
+controlled = "TextChanged"
+feedback_contract = "synchronous_exact"
+
+[[control.property]]
+name = "ItemsSource"
+clearable = true
+adapter = "inspectable_string_list"
+
+[[control.property]]
+name = "PlaceholderText"
+clearable = true
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "TextChanged"
+property = "Text"
+
+[[control.event]]
+name = "SuggestionChosen"
+property = "SelectedItem"
+adapter = "inspectable_string"
+
+[[control.slot]]
+name = "Header"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.PasswordBox"
+capabilities = ["layout", "enabled", "focus"]
+
+[[control.property]]
+name = "Password"
+clearable = true
+controlled = "PasswordChanged"
+feedback_contract = "synchronous_exact"
+
+[[control.property]]
+name = "PlaceholderText"
+clearable = true
+
+[[control.property]]
+name = "PasswordRevealMode"
+clearable = true
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "PasswordChanged"
+property = "Password"
+
+[[control.slot]]
+name = "Header"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.NumberBox"
+capabilities = ["layout", "enabled", "focus"]
+
+[[control.property]]
+name = "Minimum"
+clearable = true
+coerces = "ValueChanged"
+feedback_contract = "synchronous_normalized"
+
+[[control.property]]
+name = "Maximum"
+clearable = true
+coerces = "ValueChanged"
+feedback_contract = "synchronous_normalized"
+
+[[control.property]]
+name = "Value"
+clearable = true
+controlled = "ValueChanged"
+feedback_contract = "synchronous_normalized"
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "ValueChanged"
+property = "NewValue"
+
+[[control.slot]]
+name = "Header"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.Slider"
+capabilities = ["layout", "enabled", "focus"]
+
+[[control.property]]
+name = "Minimum"
+clearable = true
+coerces = "ValueChanged"
+feedback_contract = "synchronous_normalized"
+
+[[control.property]]
+name = "Maximum"
+clearable = true
+coerces = "ValueChanged"
+feedback_contract = "synchronous_normalized"
+
+[[control.property]]
+name = "Value"
+clearable = true
+controlled = "ValueChanged"
+feedback_contract = "synchronous_normalized"
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.property]]
+name = "StepFrequency"
+clearable = true
+validation = "finite_positive"
+
+[[control.property]]
+name = "Orientation"
+clearable = true
+
+
+[[control.event]]
+name = "ValueChanged"
+property = "NewValue"
+
+[[control.slot]]
+name = "Header"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TitleBar"
+capabilities = ["layout", "window_title_bar"]
+
+[[control.property]]
+name = "Title"
+clearable = true
+
+[[control.property]]
+name = "Subtitle"
+clearable = true
+
+[[control.property]]
+name = "IsBackButtonVisible"
+clearable = true
+
+[[control.property]]
+name = "IsBackButtonEnabled"
+clearable = true
+
+[[control.property]]
+name = "IsPaneToggleButtonVisible"
+clearable = true
+
+[[control.event]]
+name = "BackRequested"
+
+[[control.event]]
+name = "PaneToggleRequested"
+
+[[control.slot]]
+name = "Content"
+
+[[control.slot]]
+name = "RightHeader"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.NavigationView"
+capabilities = ["layout", "enabled"]
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.property]]
+name = "PaneDisplayMode"
+clearable = true
+
+[[control.property]]
+name = "IsPaneToggleButtonVisible"
+clearable = true
+
+[[control.property]]
+name = "IsBackButtonVisible"
+clearable = true
+
+[[control.property]]
+name = "IsSettingsVisible"
+clearable = true
+
+[[control.property]]
+name = "AlwaysShowHeader"
+clearable = true
+
+[[control.property]]
+name = "PaneTitle"
+clearable = true
+
+[[control.property]]
+name = "OpenPaneLength"
+clearable = true
+validation = "finite_non_negative"
+
+[[control.property]]
+name = "IsPaneOpen"
+clearable = true
+controlled = "IsPaneOpenChanged"
+feedback_contract = "synchronous_exact"
+clear_feedback = true
+
+[[control.event]]
+name = "IsPaneOpenChanged"
+observe = "IsPaneOpen"
+
+[[control.event]]
+name = "DisplayModeChanged"
+property = "DisplayMode"
+adapter = "navigation_display_mode"
+
+[[control.event]]
+name = "SelectionChanged"
+field = "on_selected_tag_changed"
+
+[control.selection]
+slot = "MenuItems"
+item = "NavigationViewItem"
+selected_property = "IsSelected"
+selected_item_property = "SelectedItem"
+event = "SelectionChanged"
+event_args = "NavigationViewSelectionChangedEventArgs"
+payload_property = "Tag"
+
+[[control.slot]]
+name = "Content"
+
+[[control.slot]]
+name = "Header"
+
+[[control.slot]]
+name = "PaneCustomContent"
+
+[[control.slot]]
+name = "PaneFooter"
+
+[[control.slot]]
+name = "MenuItems"
+collection = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.NavigationViewItem"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Tag"
+clearable = true
+adapter = "inspectable_string"
+
+[[control.property]]
+name = "IsSelected"
+clearable = true
+
+[[control.property]]
+name = "SelectsOnInvoked"
+clearable = true
+
+[[control.slot]]
+name = "Content"
+
+[[control.slot]]
+name = "Icon"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.SplitView"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "OpenPaneLength"
+clearable = true
+
+[[control.property]]
+name = "CompactPaneLength"
+clearable = true
+
+[[control.property]]
+name = "DisplayMode"
+clearable = true
+
+[[control.property]]
+name = "IsPaneOpen"
+clearable = true
+controlled = "PaneClosed"
+feedback_contract = "synchronous_exact"
+clear_feedback = false
+
+[[control.event]]
+name = "PaneClosed"
+observe = "IsPaneOpen"
+
+[[control.slot]]
+name = "Pane"
+
+[[control.slot]]
+name = "Content"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ProgressBar"
+capabilities = ["layout", "enabled"]
+
+[[control.property]]
+name = "Minimum"
+clearable = true
+
+[[control.property]]
+name = "Maximum"
+clearable = true
+
+[[control.property]]
+name = "Value"
+clearable = true
+
+[[control.property]]
+name = "IsIndeterminate"
+clearable = true
+
+[[control.property]]
+name = "ShowError"
+clearable = true
+
+[[control.property]]
+name = "ShowPaused"
+clearable = true
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ToggleSwitch"
+capabilities = ["layout", "enabled", "focus"]
+
+[[control.property]]
+name = "IsOn"
+clearable = true
+controlled = "Toggled"
+feedback_contract = "synchronous_exact"
+clear_feedback = false
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "Toggled"
+property = "IsOn"
+
+[[control.slot]]
+name = "Header"
+
+[[control.slot]]
+name = "OnContent"
+
+[[control.slot]]
+name = "OffContent"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.CheckBox"
+capabilities = ["layout", "enabled", "content", "focus"]
+
+[[control.property]]
+name = "IsChecked"
+clearable = true
+controlled = "IsCheckedChanged"
+feedback_contract = "synchronous_exact"
+clear_feedback = false
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "IsCheckedChanged"
+observe = "IsChecked"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.Primitives.ToggleButton"
+capabilities = ["layout", "enabled", "content", "focus"]
+
+[[control.property]]
+name = "IsChecked"
+clearable = true
+controlled = "IsCheckedChanged"
+feedback_contract = "synchronous_exact"
+clear_feedback = false
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "IsCheckedChanged"
+observe = "IsChecked"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.RadioButton"
+capabilities = ["layout", "enabled", "content", "focus"]
+
+[[control.property]]
+name = "GroupName"
+clearable = true
+
+[[control.property]]
+name = "IsChecked"
+clearable = true
+controlled = "Checked"
+feedback_contract = "synchronous_exact"
+clear_feedback = false
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "Checked"
+observe = "IsChecked"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.RadioButtons"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "ItemsSource"
+clearable = true
+adapter = "inspectable_string_list"
+
+[[control.property]]
+name = "SelectedIndex"
+clearable = true
+controlled = "SelectionChanged"
+feedback_contract = "synchronous_normalized"
+
+[[control.property]]
+name = "MaxColumns"
+clearable = true
+
+[[control.event]]
+name = "SelectionChanged"
+property = "SelectedIndex"
+
+[[control.slot]]
+name = "Header"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ItemsRepeater"
+capabilities = ["layout", "items"]
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.InfoBadge"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Value"
+clearable = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.InfoBar"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Title"
+clearable = true
+
+[[control.property]]
+name = "Message"
+clearable = true
+
+[[control.property]]
+name = "Severity"
+clearable = true
+
+[[control.property]]
+name = "IsOpen"
+clearable = true
+
+[[control.property]]
+name = "IsClosable"
+clearable = true
+
+[[control.event]]
+name = "Closed"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.PersonPicture"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "DisplayName"
+clearable = true
+
+[[control.property]]
+name = "Initials"
+clearable = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ScrollViewer"
+capabilities = ["layout", "content"]
+
+[[control.property]]
+name = "HorizontalScrollBarVisibility"
+clearable = true
+
+[[control.property]]
+name = "VerticalScrollBarVisibility"
+clearable = true
+
+
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ScrollView"
+capabilities = ["layout", "content"]
+
+[[control.property]]
+name = "HorizontalScrollBarVisibility"
+clearable = true
+
+[[control.property]]
+name = "VerticalScrollBarVisibility"
+clearable = true
+
+
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.Image"
+capabilities = ["layout", "reference"]
+
+[[control.property]]
+name = "Source"
+clearable = true
+adapter = "image_uri"
+
+
+[[control.property]]
+name = "Stretch"
+clearable = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ProgressRing"
+capabilities = ["layout", "enabled"]
+
+[[control.property]]
+name = "Minimum"
+clearable = true
+
+[[control.property]]
+name = "Maximum"
+clearable = true
+
+[[control.property]]
+name = "Value"
+clearable = true
+
+[[control.property]]
+name = "IsIndeterminate"
+clearable = true
+
+[[control.property]]
+name = "IsActive"
+clearable = true
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ListBox"
+capabilities = ["layout", "enabled"]
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "SelectionChanged"
+field = "on_selected_tag_changed"
+
+[control.selection]
+slot = "Items"
+item = "ListBoxItem"
+selected_property = "IsSelected"
+selected_item_property = "SelectedItem"
+event = "SelectionChanged"
+payload_property = "Tag"
+
+[[control.slot]]
+name = "Items"
+collection = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Shapes.Rectangle"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Fill"
+clearable = true
+theme_style = true
+
+[[control.property]]
+name = "Stroke"
+clearable = true
+theme_style = true
+
+[[control.property]]
+name = "StrokeThickness"
+clearable = true
+validation = "finite_non_negative"
+
+
+[[control.property]]
+name = "RadiusX"
+clearable = true
+validation = "finite_non_negative"
+
+[[control.property]]
+name = "RadiusY"
+clearable = true
+validation = "finite_non_negative"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Shapes.Ellipse"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Fill"
+clearable = true
+theme_style = true
+
+[[control.property]]
+name = "Stroke"
+clearable = true
+theme_style = true
+
+[[control.property]]
+name = "StrokeThickness"
+clearable = true
+validation = "finite_non_negative"
+
+
+[[control]]
+type = "Microsoft.UI.Xaml.Shapes.Line"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Stroke"
+clearable = true
+theme_style = true
+
+[[control.property]]
+name = "StrokeThickness"
+clearable = true
+validation = "finite_non_negative"
+
+[[control.property]]
+name = "X1"
+clearable = true
+validation = "finite"
+
+[[control.property]]
+name = "Y1"
+clearable = true
+validation = "finite"
+
+[[control.property]]
+name = "X2"
+clearable = true
+validation = "finite"
+
+[[control.property]]
+name = "Y2"
+clearable = true
+validation = "finite"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.SymbolIcon"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Symbol"
+clearable = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ImageIcon"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Source"
+clearable = true
+adapter = "image_uri"
+
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.FontIcon"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Glyph"
+clearable = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.BitmapIcon"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "UriSource"
+clearable = true
+adapter = "uri"
+
+[[control.property]]
+name = "ShowAsMonochrome"
+clearable = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.PathIcon"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Data"
+clearable = true
+adapter = "path_data"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ListBoxItem"
+content = "Content"
+capabilities = ["layout", "content"]
+
+[[control.property]]
+name = "Tag"
+clearable = true
+adapter = "inspectable_string"
+
+[[control.property]]
+name = "IsSelected"
+clearable = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.RatingControl"
+capabilities = ["layout", "focus"]
+
+[[control.property]]
+name = "MaxRating"
+clearable = true
+coerces = "ValueChanged"
+feedback_contract = "synchronous_normalized"
+
+[[control.property]]
+name = "Value"
+clearable = true
+controlled = "ValueChanged"
+feedback_contract = "synchronous_normalized"
+
+[[control.property]]
+name = "Caption"
+clearable = true
+
+[[control.property]]
+name = "IsReadOnly"
+clearable = true
+
+[[control.event]]
+name = "ValueChanged"
+property = "Value"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.Expander"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "IsExpanded"
+clearable = true
+controlled = "IsExpandedChanged"
+feedback_contract = "synchronous_exact"
+clear_feedback = false
+
+[[control.event]]
+name = "IsExpandedChanged"
+observe = "IsExpanded"
+
+[[control.slot]]
+name = "Header"
+
+[[control.slot]]
+name = "Content"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ComboBox"
+capabilities = ["layout", "enabled", "focus"]
+
+[[control.property]]
+name = "ItemsSource"
+clearable = true
+adapter = "inspectable_string_list"
+
+[[control.property]]
+name = "SelectedIndex"
+clearable = true
+controlled = "SelectionChanged"
+feedback_contract = "synchronous_exact"
+
+[[control.property]]
+name = "PlaceholderText"
+clearable = true
+
+[[control.property]]
+name = "IsEditable"
+clearable = true
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "SelectionChanged"
+property = "SelectedIndex"
+
+[[control.slot]]
+name = "Header"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.Pivot"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "SelectedIndex"
+clearable = true
+controlled = "SelectionChanged"
+feedback_contract = "synchronous_exact"
+
+[[control.property]]
+name = "Title"
+clearable = true
+adapter = "inspectable_string"
+
+[[control.event]]
+name = "SelectionChanged"
+property = "SelectedIndex"
+
+[[control.slot]]
+name = "Items"
+collection = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.PivotItem"
+content = "Content"
+capabilities = ["layout", "content"]
+
+[[control.property]]
+name = "Header"
+clearable = true
+adapter = "inspectable_string"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.FlipView"
+capabilities = ["layout"]
+
+
+[[control.property]]
+name = "SelectedIndex"
+clearable = true
+controlled = "SelectionChanged"
+feedback_contract = "synchronous_exact"
+
+[[control.event]]
+name = "SelectionChanged"
+property = "SelectedIndex"
+
+[[control.slot]]
+name = "Items"
+collection = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.SelectorBar"
+capabilities = ["layout"]
+
+[[control.event]]
+name = "SelectionChanged"
+field = "on_selected_text_changed"
+
+[control.selection]
+slot = "Items"
+item = "SelectorBarItem"
+selected_property = "IsSelected"
+selected_item_property = "SelectedItem"
+event = "SelectionChanged"
+payload_property = "Text"
+
+[[control.slot]]
+name = "Items"
+collection = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.SelectorBarItem"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Text"
+clearable = true
+
+[[control.property]]
+name = "IsSelected"
+clearable = true
+
+[[control.slot]]
+name = "Icon"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TabView"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "SelectedIndex"
+clearable = true
+controlled = "SelectionChanged"
+feedback_contract = "synchronous_exact"
+
+[[control.property]]
+name = "CanReorderTabs"
+clearable = true
+
+[[control.property]]
+name = "IsAddTabButtonVisible"
+clearable = true
+
+[[control.event]]
+name = "SelectionChanged"
+property = "SelectedIndex"
+
+[[control.event]]
+name = "TabCloseRequested"
+field = "on_close_requested"
+property = "Tab"
+adapter = "item_tag"
+
+[[control.event]]
+name = "AddTabButtonClick"
+
+[[control.event]]
+name = "TabItemsChanged"
+field = "on_reordered"
+adapter = "item_tags"
+
+[[control.slot]]
+name = "TabItems"
+collection = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TabViewItem"
+content = "Content"
+capabilities = ["layout", "content"]
+
+[[control.property]]
+name = "Header"
+clearable = true
+adapter = "inspectable_string"
+
+[[control.property]]
+name = "IsClosable"
+clearable = true
+
+[[control.property]]
+name = "Tag"
+clearable = true
+adapter = "inspectable_string"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TeachingTip"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Title"
+clearable = true
+
+[[control.property]]
+name = "Subtitle"
+clearable = true
+
+[[control.property]]
+name = "IsOpen"
+clearable = true
+
+[[control.property]]
+name = "IsLightDismissEnabled"
+clearable = true
+
+[[control.property]]
+name = "PreferredPlacement"
+clearable = true
+
+[[control.property]]
+name = "ActionButtonContent"
+clearable = true
+adapter = "inspectable_string"
+
+[[control.property]]
+name = "CloseButtonContent"
+clearable = true
+adapter = "inspectable_string"
+
+[[control.event]]
+name = "Closed"
+
+[[control.event]]
+name = "ActionButtonClick"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.DropDownButton"
+content = "Content"
+capabilities = ["layout", "content", "enabled"]
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "Click"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.CommandBar"
+capabilities = ["layout"]
+
+[[control.slot]]
+name = "PrimaryCommands"
+collection = true
+
+[[control.slot]]
+name = "SecondaryCommands"
+collection = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.AppBarButton"
+capabilities = ["layout", "enabled"]
+
+[[control.property]]
+name = "Label"
+clearable = true
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "Click"
+
+[[control.slot]]
+name = "Icon"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.AppBarSeparator"
+capabilities = ["layout"]
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.MenuBar"
+capabilities = ["layout"]
+
+[[control.slot]]
+name = "Items"
+collection = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.MenuBarItem"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Title"
+clearable = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.SplitButton"
+content = "Content"
+capabilities = ["layout", "content", "enabled"]
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "Click"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ColorPicker"
+capabilities = ["layout", "enabled"]
+
+[[control.property]]
+name = "Color"
+clearable = true
+controlled = "ColorChanged"
+feedback_contract = "synchronous_exact"
+
+[[control.property]]
+name = "IsAlphaEnabled"
+clearable = true
+
+[[control.property]]
+name = "IsHexInputVisible"
+clearable = true
+
+[[control.property]]
+name = "IsColorSliderVisible"
+clearable = true
+
+[[control.property]]
+name = "IsColorChannelTextInputVisible"
+clearable = true
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "ColorChanged"
+property = "NewColor"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.DatePicker"
+capabilities = ["layout", "enabled"]
+
+[[control.property]]
+name = "DayVisible"
+clearable = true
+
+[[control.property]]
+name = "MonthVisible"
+clearable = true
+
+[[control.property]]
+name = "YearVisible"
+clearable = true
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "SelectedDateChanged"
+property = "NewDate"
+
+[[control.slot]]
+name = "Header"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TimePicker"
+capabilities = ["layout", "enabled"]
+
+[[control.property]]
+name = "ClockIdentifier"
+clearable = true
+
+[[control.property]]
+name = "MinuteIncrement"
+clearable = true
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "SelectedTimeChanged"
+property = "NewTime"
+
+[[control.slot]]
+name = "Header"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.CalendarDatePicker"
+capabilities = ["layout", "enabled"]
+
+[[control.property]]
+name = "PlaceholderText"
+clearable = true
+
+[[control.property]]
+name = "IsTodayHighlighted"
+clearable = true
+
+[[control.property]]
+name = "IsCalendarOpen"
+clearable = true
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "DateChanged"
+property = "NewDate"
+
+[[control.slot]]
+name = "Header"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ToolTip"
+content = "Content"
+capabilities = ["content"]
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ContentDialog"
+content = "Content"
+capabilities = ["content"]
+lifecycle = "content_dialog"
+
+[[control.property]]
+name = "Title"
+clearable = true
+adapter = "inspectable_string"
+
+[[control.property]]
+name = "PrimaryButtonText"
+clearable = true
+
+[[control.property]]
+name = "SecondaryButtonText"
+clearable = true
+
+[[control.property]]
+name = "CloseButtonText"
+clearable = true
+
+[[control.property]]
+name = "IsPrimaryButtonEnabled"
+clearable = true
+
+[[control.property]]
+name = "IsSecondaryButtonEnabled"
+clearable = true
+
+[[control.event]]
+name = "Closed"
+property = "Result"
+adapter = "content_dialog_result"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.CalendarView"
+capabilities = ["layout", "enabled"]
+
+[[control.property]]
+name = "IsTodayHighlighted"
+clearable = true
+
+[[control.property]]
+name = "IsGroupLabelVisible"
+clearable = true
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+[[control.event]]
+name = "SelectedDatesChanged"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ListView"
+capabilities = ["layout", "enabled"]
+
+
+[[control.property]]
+name = "SelectedIndex"
+clearable = true
+controlled = "SelectionChanged"
+feedback_contract = "synchronous_exact"
+
+[[control.property]]
+name = "SelectionMode"
+clearable = true
+
+[[control.property]]
+name = "CanDragItems"
+clearable = true
+
+[[control.property]]
+name = "CanReorderItems"
+clearable = true
+
+[[control.property]]
+name = "AllowDrop"
+clearable = true
+
+[[control.event]]
+name = "SelectionChanged"
+property = "SelectedIndex"
+
+[[control.event]]
+name = "DragItemsCompleted"
+field = "on_reordered"
+property = "Items"
+adapter = "item_tags"
+
+[[control.slot]]
+name = "Items"
+collection = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.ListViewItem"
+content = "Content"
+capabilities = ["layout", "content", "enabled"]
+
+[[control.property]]
+name = "Tag"
+clearable = true
+adapter = "inspectable_string"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TreeView"
+capabilities = ["layout", "enabled"]
+
+[[control.property]]
+name = "SelectionMode"
+clearable = true
+
+[[control.event]]
+name = "ItemInvoked"
+property = "InvokedItem"
+adapter = "tree_node_content"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.GridView"
+capabilities = ["layout", "enabled"]
+
+[[control.property]]
+name = "SelectedIndex"
+clearable = true
+controlled = "SelectionChanged"
+feedback_contract = "synchronous_exact"
+
+[[control.property]]
+name = "CanDragItems"
+clearable = true
+
+[[control.property]]
+name = "CanReorderItems"
+clearable = true
+
+[[control.property]]
+name = "AllowDrop"
+clearable = true
+
+[[control.event]]
+name = "DragItemsCompleted"
+field = "on_reordered"
+property = "Items"
+adapter = "item_tags"
+
+[[control.event]]
+name = "SelectionChanged"
+property = "SelectedIndex"
+
+[[control.slot]]
+name = "Items"
+collection = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.GridViewItem"
+content = "Content"
+capabilities = ["layout", "content", "enabled"]
+
+[[control.property]]
+name = "Tag"
+clearable = true
+adapter = "inspectable_string"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.RelativePanel"
+capabilities = ["layout", "children"]
+
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.Canvas"
+capabilities = ["layout", "children"]
+
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.RichEditBox"
+capabilities = ["layout", "enabled", "controlled_text", "focus"]
+
+[[control.property]]
+name = "Document"
+field = "text"
+clearable = true
+controlled = "TextChanged"
+feedback_contract = "synchronous_exact"
+adapter = "rich_edit_text"
+
+[[control.property]]
+name = "PlaceholderText"
+clearable = true
+
+[[control.property]]
+name = "IsReadOnly"
+clearable = true
+
+[[control.property]]
+name = "IsEnabled"
+clearable = true
+
+
+[[control.event]]
+name = "TextChanged"
+property = "Document"
+adapter = "rich_edit_text"
+
+[[control.slot]]
+name = "Header"
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.RichTextBlock"
+capabilities = ["layout", "text_style"]
+
+[[control.property]]
+name = "Blocks"
+field = "paragraphs"
+clearable = true
+adapter = "rich_text_blocks"
+
+[[control.property]]
+name = "FontSize"
+clearable = true
+validation = "finite_positive"
+
+[[control.property]]
+name = "IsTextSelectionEnabled"
+clearable = true
+
+[[control.property]]
+name = "TextWrapping"
+clearable = true
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.Viewbox"
+capabilities = ["layout"]
+
+[[control.property]]
+name = "Stretch"
+clearable = true
+
+[[control.slot]]
+name = "Child"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.WebView2"
+capabilities = ["layout", "reference"]
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.SwapChainPanel"
+capabilities = ["layout", "reference"]

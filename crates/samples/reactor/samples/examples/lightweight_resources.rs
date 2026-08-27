@@ -2,38 +2,55 @@
 
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (styled, set_styled) = cx.use_state(true);
-
-    let target: Element = if styled {
-        button("Delete")
-            .resource_overrides(|resources| {
-                resources
-                    .set("ButtonBackground", Color::rgb(178, 34, 34))
-                    .set("ButtonForeground", Color::rgb(255, 255, 255))
-                    .set("ButtonBorderThemeThickness", Thickness::uniform(0.0))
-                    .set("ControlCornerRadius", CornerRadius::uniform(8.0))
-            })
-            .into()
-    } else {
-        button("Delete").into()
-    };
-
-    vstack((
-        text_block("Element resources override WinUI lightweight styling values."),
-        target,
-        button(if styled {
-            "Clear resources"
-        } else {
-            "Apply resources"
-        })
-        .on_click(move || set_styled.call(!styled)),
-    ))
-    .spacing(12.0)
-    .padding(Thickness::uniform(16.0))
-    .into()
+struct LightweightResources {
+    styled: bool,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("LightweightResources", app)
+impl Component for LightweightResources {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self { styled: true }
+    }
+
+    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {
+        self.styled = !self.styled;
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("Lightweight Resources");
+        let target = if self.styled {
+            Button::new()
+                .resource_overrides(
+                    ResourceOverrides::new()
+                        .set("ButtonBackground", Color::rgb(178, 34, 34))
+                        .set("ButtonForeground", Color::rgb(255, 255, 255))
+                        .set("ButtonBorderThemeThickness", Thickness::uniform(0.0))
+                        .set("ControlCornerRadius", CornerRadius::uniform(8.0)),
+                )
+                .content(TextBlock::new().text("Delete"))
+        } else {
+            Button::new().content(TextBlock::new().text("Delete"))
+        };
+
+        Border::new().padding(Thickness::uniform(16.0)).content(
+            StackPanel::new().spacing(12.0).children((
+                TextBlock::new()
+                    .text("Element resources override WinUI lightweight styling values."),
+                target,
+                Button::new()
+                    .on_click(context.callback(|_| ()))
+                    .content(TextBlock::new().text(if self.styled {
+                        "Clear resources"
+                    } else {
+                        "Apply resources"
+                    })),
+            )),
+        )
+    }
+}
+
+fn main() {
+    App::run_component::<LightweightResources>(()).unwrap();
 }

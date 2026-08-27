@@ -1,29 +1,52 @@
+#![windows_subsystem = "windows"]
+
+use std::cell::Cell;
+
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (clicks, set_clicks) = cx.use_state(0_u32);
-
-    let render_count = cx.use_ref(0_u64);
-    *render_count.borrow_mut() += 1;
-    let renders = *render_count.borrow();
-
-    let bump = move || set_clicks.call(clicks + 1);
-
-    vstack((
-        text_block(format!("clicks (use_state) = {clicks}")).font_size(18.0),
-        text_block(format!("renders (use_ref)  = {renders}")).font_size(18.0),
-        button("Click me").on_click(bump),
-        text_block(
-            "The ref counter increments every render; the state counter \
-                 only on button click. Ref mutation never schedules a rerender.",
-        )
-        .font_size(12.0)
-        .opacity(0.7),
-    ))
-    .spacing(8.0)
-    .into()
+struct UseRefSample {
+    clicks: u32,
+    renders: Cell<u64>,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("UseRef", app)
+impl Component for UseRefSample {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            clicks: 0,
+            renders: Cell::new(0),
+        }
+    }
+
+    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {
+        self.clicks += 1;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("UseRef");
+        self.renders.set(self.renders.get() + 1);
+        StackPanel::new().spacing(8.0).children((
+            TextBlock::new()
+                .text(format!("clicks (component state) = {}", self.clicks))
+                .font_size(18.0),
+            TextBlock::new()
+                .text(format!("renders (Cell) = {}", self.renders.get()))
+                .font_size(18.0),
+            Button::new()
+                .on_click(context.message(()))
+                .content(TextBlock::new().text("Click me")),
+            TextBlock::new()
+                .text(
+                    "The Cell counter increments every render; the state counter only on button \
+                     click. Cell mutation never schedules a render.",
+                )
+                .font_size(12.0),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<UseRefSample>(()).unwrap();
 }

@@ -1,11 +1,10 @@
 mod command_bar_flyout;
+pub use command_bar_flyout::CommandBarFlyoutPage;
 mod content_dialog;
+pub use content_dialog::ContentDialogPage;
 mod flyout;
+pub use flyout::FlyoutPage;
 mod menu_flyout;
+pub use menu_flyout::MenuFlyoutPage;
 mod teaching_tip;
-
-pub use command_bar_flyout::command_bar_flyout_page;
-pub use content_dialog::content_dialog_page;
-pub use flyout::flyout_page;
-pub use menu_flyout::menu_flyout_page;
-pub use teaching_tip::teaching_tip_page;
+pub use teaching_tip::TeachingTipPage;

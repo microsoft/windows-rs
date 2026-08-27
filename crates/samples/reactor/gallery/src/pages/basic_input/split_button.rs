@@ -1,30 +1,63 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn split_button_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (clicks, set_clicks) = cx.use_state(0_u32);
+pub struct SplitButtonPage {
+    clicks: u32,
+}
 
-    page_content(
-        "SplitButton",
-        "A button with a primary action and a flyout menu.",
-        vec![
-            sample_card(
-                "Basic SplitButton",
-                vstack((
-                    split_button("Paste").on_click({
-                        let set_clicks = set_clicks;
-                        move || set_clicks.call(clicks + 1)
-                    }),
-                    text_block(format!("Primary clicked: {clicks} times")).opacity(0.6),
-                ))
-                .spacing(8.0),
-                r#"split_button("Paste").on_click(handler)"#,
-            ),
-            sample_card(
-                "Disabled SplitButton",
-                split_button("Disabled Action").enabled(false),
-                r#"split_button("Disabled").enabled(false)"#,
-            ),
-        ],
-    )
+impl Component for SplitButtonPage {
+    type Message = ();
+    type Input = ();
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self { clicks: 0 }
+    }
+
+    fn update(&mut self, _: (), _: &ComponentContext<Self>) {
+        self.clicks += 1;
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        page_content(
+            "SplitButton",
+            "A button with a primary action and a flyout menu.",
+            [
+                KeyedView::new(
+                    "basic",
+                    sample_card(
+                        "Basic SplitButton",
+                        StackPanel::new().spacing(8.0).children((
+                            SplitButton::new()
+                                .on_click(context.message(()))
+                                .content(TextBlock::new().text("Paste"))
+                                .flyout_with(Flyout::rich(
+                                    StackPanel::new().spacing(8.0).children((
+                                        TextBlock::new().text("Paste options"),
+                                        TextBlock::new().text("Keep source formatting"),
+                                        TextBlock::new().text("Keep text only"),
+                                    )),
+                                )),
+                            TextBlock::new()
+                                .text(format!("Primary clicked: {} times", self.clicks))
+                                .opacity(0.6),
+                        )),
+                        r#"SplitButton::new()
+    .on_click(handler)
+    .content(label)
+    .flyout_with(Flyout::rich(options))"#,
+                    ),
+                ),
+                KeyedView::new(
+                    "disabled",
+                    sample_card(
+                        "Disabled SplitButton",
+                        SplitButton::new()
+                            .is_enabled(false)
+                            .content(TextBlock::new().text("Disabled Action")),
+                        "SplitButton::new().is_enabled(false)",
+                    ),
+                ),
+            ],
+        )
+    }
 }

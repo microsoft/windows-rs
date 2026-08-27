@@ -1,80 +1,103 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn slider_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (volume, set_volume) = cx.use_state(35.0_f64);
-    let (brightness, set_brightness) = cx.use_state(60.0_f64);
-    let (temperature, set_temperature) = cx.use_state(21.0_f64);
+pub struct SliderPage {
+    volume: f64,
+    brightness: f64,
+    temperature: f64,
+}
 
-    page_content(
-        "Slider",
-        "Select a value from a range with precise, touch-friendly input.",
-        vec![
-            sample_card(
-                "Basic Slider",
-                vstack((
-                    Slider::new(volume)
-                        .range(0.0, 100.0)
-                        .step(1.0)
-                        .header("Volume")
-                        .on_value_changed({
-                            let set_volume = set_volume;
-                            move |value| set_volume.call(value)
-                        }),
-                    text_block(format!("Volume: {volume:.0}%")).opacity(0.6),
-                ))
-                .spacing(8.0),
-                r#"Slider::new(volume)
-    .range(0.0, 100.0)
-    .step(1.0)
-    .on_value_changed(...)"#,
-            ),
-            sample_card(
-                "Vertical Slider",
-                hstack((
-                    Slider::new(brightness)
-                        .range(0.0, 100.0)
-                        .step(5.0)
-                        .header("Brightness")
-                        .vertical()
-                        .height(140.0)
-                        .on_value_changed({
-                            let set_brightness = set_brightness;
-                            move |value| set_brightness.call(value)
-                        }),
-                    vstack((
-                        text_block("Screen brightness").bold(),
-                        text_block(format!("{brightness:.0}%")).font_size(18.0),
-                        text_block("Drag the thumb to preview a stronger or softer look.")
-                            .opacity(0.6),
-                    ))
-                    .spacing(4.0),
-                ))
-                .spacing(16.0),
-                r#"Slider::new(brightness)
-    .vertical()
-    .height(140.0)
-    .on_value_changed(...)"#,
-            ),
-            sample_card(
-                "Range with Value Label",
-                vstack((
-                    Slider::new(temperature)
-                        .range(16.0, 30.0)
-                        .step(0.5)
-                        .header("Room temperature")
-                        .on_value_changed({
-                            let set_temperature = set_temperature;
-                            move |value| set_temperature.call(value)
-                        }),
-                    text_block(format!("Target: {temperature:.1} °C")).opacity(0.6),
-                ))
-                .spacing(8.0),
-                r#"Slider::new(temperature)
-    .range(16.0, 30.0)
-    .step(0.5)
-    .on_value_changed(...)"#,
-            ),
-        ],
-    )
+#[derive(Clone)]
+pub enum Message {
+    Volume(f64),
+    Brightness(f64),
+    Temperature(f64),
+}
+
+impl Component for SliderPage {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            volume: 35.0,
+            brightness: 60.0,
+            temperature: 21.0,
+        }
+    }
+
+    fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
+        match message {
+            Message::Volume(value) => self.volume = value,
+            Message::Brightness(value) => self.brightness = value,
+            Message::Temperature(value) => self.temperature = value,
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        page_content(
+            "Slider",
+            "Select a value from a range with touch-friendly input.",
+            [
+                KeyedView::new(
+                    "basic",
+                    sample_card(
+                        "Basic Slider",
+                        StackPanel::new().spacing(8.0).children((
+                            Slider::new()
+                                .minimum(0.0)
+                                .maximum(100.0)
+                                .step_frequency(1.0)
+                                .value(self.volume)
+                                .on_value_changed(context.callback(Message::Volume)),
+                            TextBlock::new()
+                                .text(format!("Volume: {:.0}%", self.volume))
+                                .opacity(0.6),
+                        )),
+                        "Slider::new().minimum(0.0).maximum(100.0).value(volume)",
+                    ),
+                ),
+                KeyedView::new(
+                    "vertical",
+                    sample_card(
+                        "Vertical Slider",
+                        StackPanel::new()
+                            .orientation(Orientation::Horizontal)
+                            .spacing(16.0)
+                            .children((
+                                Slider::new()
+                                    .minimum(0.0)
+                                    .maximum(100.0)
+                                    .step_frequency(5.0)
+                                    .value(self.brightness)
+                                    .orientation(Orientation::Vertical)
+                                    .height(140.0)
+                                    .on_value_changed(context.callback(Message::Brightness)),
+                                TextBlock::new()
+                                    .text(format!("Brightness: {:.0}%", self.brightness)),
+                            )),
+                        "Slider::new().orientation(Orientation::Vertical).height(140.0)",
+                    ),
+                ),
+                KeyedView::new(
+                    "temperature",
+                    sample_card(
+                        "Range with Value Label",
+                        StackPanel::new().spacing(8.0).children((
+                            Slider::new()
+                                .minimum(16.0)
+                                .maximum(30.0)
+                                .step_frequency(0.5)
+                                .value(self.temperature)
+                                .on_value_changed(context.callback(Message::Temperature)),
+                            TextBlock::new()
+                                .text(format!("Target: {:.1} C", self.temperature))
+                                .opacity(0.6),
+                        )),
+                        "Slider::new().minimum(16.0).maximum(30.0).step_frequency(0.5)",
+                    ),
+                ),
+            ],
+        )
+    }
 }

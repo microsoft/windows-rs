@@ -1,51 +1,81 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn info_badge_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(3_i32);
+pub struct InfoBadgePage {
+    count: i32,
+}
 
-    page_content(
-        "InfoBadge",
-        "A small indicator conveying status on another element.",
-        vec![
-            sample_card(
-                "Dynamic Counter",
-                vstack((
-                    hstack((
-                        button("Add notification").on_click({
-                            let set_count = set_count.clone();
-                            move || set_count.call(count + 1)
-                        }),
-                        button("Clear").on_click({
-                            let set_count = set_count;
-                            move || set_count.call(0)
-                        }),
-                    ))
-                    .spacing(8.0),
-                    hstack((
-                        InfoBadge::numeric(count),
-                        text_block(format!("{count} unread")).opacity(0.6),
-                    ))
-                    .spacing(8.0),
-                ))
-                .spacing(12.0),
-                r#"InfoBadge::numeric(count) // updates reactively"#,
-            ),
-            sample_card(
-                "Numeric InfoBadge",
-                hstack((
-                    InfoBadge::numeric(1),
-                    InfoBadge::numeric(12),
-                    InfoBadge::numeric(99),
-                ))
-                .spacing(16.0),
-                r#"InfoBadge::numeric(1), InfoBadge::numeric(99)"#,
-            ),
-            sample_card(
-                "Dot InfoBadge",
-                hstack((button("Notifications").icon(Symbol::Mail), InfoBadge::dot())).spacing(8.0),
-                r#"InfoBadge::dot() // compact presence indicator"#,
-            ),
-        ],
-    )
+#[derive(Clone)]
+pub enum Message {
+    Add,
+    Clear,
+}
+
+impl Component for InfoBadgePage {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self { count: 3 }
+    }
+
+    fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
+        match message {
+            Message::Add => self.count += 1,
+            Message::Clear => self.count = 0,
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        page_content(
+            "InfoBadge",
+            "A small indicator conveying status on another element.",
+            [
+                KeyedView::new(
+                    "dynamic",
+                    sample_card(
+                        "Dynamic Counter",
+                        StackPanel::new().spacing(12.0).children((
+                            StackPanel::new()
+                                .orientation(Orientation::Horizontal)
+                                .spacing(8.0)
+                                .children((
+                                    Button::new()
+                                        .on_click(context.message(Message::Add))
+                                        .content(TextBlock::new().text("Add notification")),
+                                    Button::new()
+                                        .on_click(context.message(Message::Clear))
+                                        .content(TextBlock::new().text("Clear")),
+                                )),
+                            StackPanel::new()
+                                .orientation(Orientation::Horizontal)
+                                .spacing(8.0)
+                                .children((
+                                    InfoBadge::new().value(self.count),
+                                    TextBlock::new()
+                                        .text(format!("{} unread", self.count))
+                                        .opacity(0.6),
+                                )),
+                        )),
+                        "InfoBadge::new().value(count)",
+                    ),
+                ),
+                KeyedView::new(
+                    "numeric",
+                    sample_card(
+                        "Numeric InfoBadges",
+                        StackPanel::new()
+                            .orientation(Orientation::Horizontal)
+                            .spacing(16.0)
+                            .children((
+                                InfoBadge::new().value(1),
+                                InfoBadge::new().value(12),
+                                InfoBadge::new().value(99),
+                            )),
+                        "InfoBadge::new().value(12)",
+                    ),
+                ),
+            ],
+        )
+    }
 }

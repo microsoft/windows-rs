@@ -29,7 +29,8 @@ surface and selects the stack at compile time.
 - `system` is the default feature. It targets `Windows.UI.Composition` and enables
   `DispatcherQueueController`, `DesktopWindowTarget`, and the `windows-window` dependency.
 - `reactor` targets `Microsoft.UI.Composition`. It selects the lifted bindings and adds no
-  dependency. Reactor enables this feature and hosts lifted visuals through `CompositionHost`.
+  dependency. Reactor enables this feature and hosts lifted visuals through a typed `Grid`
+  reference.
 
 The features are mutually exclusive. Enabling neither feature or both features is a compile error.
 Both binding sets are generated from one filter by `tool_composition`. The shared wrapper modules
@@ -105,8 +106,9 @@ the raw ABI struct.
 ### Wrapper model
 
 Every safe type is a newtype over one owned COM interface. There is no boxing and no per-call
-allocation. Methods call one COM method and return `windows_core::Result`. Safe callers do not use
-`unsafe`.
+allocation. Constructors and operations with recoverable immediate failures return
+`windows_core::Result`. Retained-object property and factory convenience methods fail fast on COM
+failure. Safe callers do not use `unsafe`.
 
 Class wrappers store the most-derived interface and cast internally when needed. Each wrapper is
 `Clone`. A clone is a cheap COM `AddRef`, so handles can be stored and shared.
@@ -183,21 +185,21 @@ together. Add a new system-stack crate to both the exclusion list and the second
 
 ### Reactor host bridge
 
-Lifted composition is hosted inside a WinUI element. Reactor owns that element tree. Reactor depends
-on `windows-composition` with the `reactor` feature.
-
-Reactor's `CompositionHost` widget exposes typed methods on `CompositionHostHandle`:
-
-The host exposes its compositor and accepts a root child visual.
+Lifted composition is hosted inside a WinUI element owned by Reactor. A typed
+`ElementRef<Grid>` reports `CompositionHostEvent` values containing the compositor and layout
+metrics. The Reactor-owned XAML element and its visual remain private. `request_set_child_visual`
+attaches or clears an application-owned root visual without exposing either object. Accepted
+attachment requests complete exactly once with `Result<(), CompositionHostError>`;
+`CompositionHostError` is an alias for Reactor's shared `IntegrationError`.
 
 This crate provides the lifted binding set and seam helpers for that bridge.
-`Compositor::from_host(&IInspectable)` adopts the element's compositor.
-`Visual::{from_host, as_raw}` adopts or exposes a visual's interop `IInspectable`.
+`Compositor::from_host` adopts the reported compositor, and `Visual::as_raw` exposes an
+application-owned visual for attachment.
 
-Both crates use the same `Microsoft.UI.winmd` input for lifted bindings. The `IInspectable` values
-have matching IIDs, so the casts in the seam helpers are ABI-safe. Reactor's animation engine also uses this crate's key-frame, animation-group, easing, and
-implicit-animation wrappers. Element lifecycle transitions use one group when opacity and scale
-must animate together.
+Both crates use the same `Microsoft.UI.winmd` input for lifted bindings. The compositor and visual
+interfaces have matching IIDs, so the casts in the seam helpers are ABI-safe. Reactor's
+animation engine also uses this crate's key-frame, animation-group, easing, and implicit-animation
+wrappers. Element lifecycle transitions use one group when opacity and scale must animate together.
 
 ### Canvas bridge
 

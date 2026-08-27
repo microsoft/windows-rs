@@ -1,19 +1,39 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (clicks, set_clicks) = cx.use_state(0_u32);
-
-    let bump = set_clicks.setter(clicks + 1);
-
-    vstack((
-        button(format!("Clicked {clicks} times")).on_click(bump),
-        button("Disabled").enabled(false),
-        button("Accent (Primary Action)").accent(),
-    ))
-    .spacing(8.0)
-    .into()
+struct ButtonSample {
+    clicks: u32,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("Button", app)
+impl Component for ButtonSample {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { clicks: 0 }
+    }
+
+    fn update(&mut self, _message: Self::Message, _context: &ComponentContext<Self>) {
+        self.clicks += 1;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("Button");
+        StackPanel::new().spacing(8.0).children((
+            Button::new()
+                .on_click(context.message(()))
+                .content(TextBlock::new().text(format!("Clicked {} times", self.clicks))),
+            Button::new()
+                .is_enabled(false)
+                .content(TextBlock::new().text("Disabled")),
+            Button::new()
+                .style(ButtonStyle::Accent)
+                .content(TextBlock::new().text("Accent (Primary Action)")),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<ButtonSample>(()).unwrap();
 }

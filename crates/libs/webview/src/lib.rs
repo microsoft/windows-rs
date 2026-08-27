@@ -21,9 +21,6 @@ mod protocol;
 mod pump;
 #[cfg(feature = "reactor")]
 mod reactor;
-#[cfg(feature = "reactor")]
-#[expect(non_snake_case)]
-mod reactor_bindings;
 mod script;
 mod settings;
 mod string;
@@ -50,7 +47,7 @@ pub use options::{EnvironmentOptions, ScrollBarStyle};
 pub use profile::{PreferredColorScheme, Profile};
 pub use protocol::{WebResourceRequest, WebResourceResponse};
 #[cfg(feature = "reactor")]
-pub use reactor::webview;
+pub use reactor::{webview, webview_result};
 pub use script::ScriptId;
 pub use settings::Settings;
 pub use webview::{HostResourceAccessKind, MemoryUsageTargetLevel, NavigationRequest, WebView};

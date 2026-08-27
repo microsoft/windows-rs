@@ -1,35 +1,49 @@
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (label, set_label) = cx.use_state(String::from("Pick a date to see days from today"));
+struct CalendarDatePickerSample {
+    label: String,
+}
 
-    let on_date = move |selected: DateTime| {
+impl Component for CalendarDatePickerSample {
+    type Message = DateTime;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            label: "Pick a date to see days from today".to_string(),
+        }
+    }
+
+    fn update(&mut self, selected: DateTime, _context: &ComponentContext<Self>) {
         let now = DateTime::now();
-        let text = match selected.checked_duration_since(now) {
+        self.label = match selected.checked_duration_since(now) {
             Some(span) => {
                 let days = span.whole_days();
                 match days.cmp(&0) {
                     std::cmp::Ordering::Greater => format!("{days} day(s) from now"),
                     std::cmp::Ordering::Less => format!("{} day(s) ago", days.abs()),
-                    std::cmp::Ordering::Equal => String::from("That's today!"),
+                    std::cmp::Ordering::Equal => "That's today!".to_string(),
                 }
             }
-            None => String::from("Date too far away to compute"),
+            None => "Date too far away to compute".to_string(),
         };
-        set_label.call(text);
-    };
+    }
 
-    vstack((
-        calendar_date_picker()
-            .header("Select a date")
-            .placeholder_text("Choose...")
-            .on_date_changed(on_date),
-        text_block(&*label),
-    ))
-    .spacing(8.0)
-    .into()
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("CalendarDatePicker");
+        StackPanel::new().spacing(8.0).children((
+            CalendarDatePicker::new()
+                .placeholder_text("Choose...")
+                .on_date_changed(context.callback(std::convert::identity))
+                .slots([SlotView::new(
+                    CalendarDatePickerSlot::Header,
+                    TextBlock::new().text("Select a date"),
+                )]),
+            TextBlock::new().text(&self.label),
+        ))
+    }
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("CalendarDatePicker", app)
+fn main() {
+    App::run_component::<CalendarDatePickerSample>(()).unwrap();
 }
