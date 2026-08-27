@@ -8,6 +8,49 @@ use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 
 #[test]
+fn trace_component_plan_handles_a_non_empty_local_update() {
+    #[derive(Clone)]
+    struct TraceInput(Rc<RefCell<Option<LocalSender<()>>>>);
+
+    impl PartialEq for TraceInput {
+        fn eq(&self, other: &Self) -> bool {
+            Rc::ptr_eq(&self.0, &other.0)
+        }
+    }
+
+    struct TracedComponent(u32);
+
+    impl Component for TracedComponent {
+        type Message = ();
+        type Input = TraceInput;
+
+        fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
+            *input.0.borrow_mut() = Some(context.sender());
+            Self(0)
+        }
+
+        fn update(&mut self, (): (), _context: &ComponentContext<Self>) {
+            self.0 += 1;
+        }
+
+        fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+            TextBlock::new().text(self.0.to_string()).into()
+        }
+    }
+
+    let sender = Rc::new(RefCell::new(None));
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<TracedComponent>(TraceInput(Rc::clone(
+        &sender,
+    ))))
+    .unwrap();
+    pump.trace_component_plans = true;
+
+    assert!(sender.borrow().as_ref().unwrap().send(()));
+    assert_eq!(pump.dispatch_components(1).unwrap(), 1);
+}
+
+#[test]
 fn stable_sender_callback_input_skip_unrelated_child_recomposition() {
     #[derive(Clone)]
     struct ChildInput {

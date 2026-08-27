@@ -615,12 +615,10 @@ impl Component for ClosingWindow {
                 }
             }))
         });
-        StackPanel::new()
-            .children((
-                TitleBar::new().title("Closing child window"),
-                TextBlock::new().text("closing child window"),
-            ))
-            .into()
+        StackPanel::new().children((
+            TitleBar::new().title("Closing child window"),
+            TextBlock::new().text("closing child window"),
+        ))
     }
 }
 
