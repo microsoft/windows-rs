@@ -53,5 +53,8 @@ fn post_planning_failures_remove_reservations_and_fail_stop() {
 
         assert!(pump.components.publish(token).is_err());
         assert!(pump.poisoned());
+        pump.dirty_components.insert(token);
+        pump.native_observation_pending = true;
+        assert!(!pump.native_work_pending());
     }
 }

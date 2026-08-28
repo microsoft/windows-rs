@@ -950,18 +950,16 @@ impl WinUiRuntime {
         let title = title.to_string();
         let title_revisions = Rc::clone(&self.window_title_revisions);
         let identity = Rc::clone(&self.identity);
-        let host_events = Rc::clone(&self.host_events);
+        let window_identity = identity.get().unwrap();
+        let sink = self.event_sink()?;
         let handler = DispatcherQueueHandler::new(move || {
-            if title_revisions.borrow().get(&node) != Some(&revision) {
+            if identity.get() != Some(window_identity)
+                || title_revisions.borrow().get(&node) != Some(&revision)
+            {
                 return;
             }
-            if let Err(error) = window.SetTitle(&title).map_err(native_error)
-                && let Some(identity) = identity.get()
-            {
-                host_events.borrow_mut().push(NativeWork {
-                    identity,
-                    work: HostEvent::Error(error),
-                });
+            if let Err(error) = window.SetTitle(&title).map_err(native_error) {
+                sink.enqueue_host(HostEvent::Error(error));
             }
         });
         let accepted = DispatcherQueue::GetForCurrentThread()
@@ -1730,16 +1728,20 @@ impl WinUiRuntime {
                 let element = control.cast::<UIElement>().map_err(native_error)?;
                 let framework = control.cast::<IFrameworkElement>().map_err(native_error)?;
                 let changed = Rc::new(RefCell::new(None));
-                observe_image_scale(&element, callback, &changed)?;
+                let sink = self.event_sink()?;
+                observe_image_scale(&element, callback, &changed, &sink)?;
                 let loaded_element = element;
                 let loaded_callback = callback.clone();
                 let loaded_changed = changed.clone();
                 let loaded = framework
                     .Loaded(move |_, _| {
-                        if observe_image_scale(&loaded_element, &loaded_callback, &loaded_changed)
-                            .is_err()
-                        {
-                            std::process::abort();
+                        if let Err(error) = observe_image_scale(
+                            &loaded_element,
+                            &loaded_callback,
+                            &loaded_changed,
+                            &sink,
+                        ) {
+                            sink.enqueue_host(HostEvent::Error(error));
                         }
                     })
                     .map_err(native_error)?;
@@ -1782,12 +1784,20 @@ impl WinUiRuntime {
 
                 let size_callback = callback.clone();
                 let size_element = element.clone();
+                let sink = self.event_sink()?;
+                let size_sink = sink.clone();
                 let size = framework
                     .SizeChanged(move |_, args| {
                         if let Some(args) = args.as_ref()
                             && let Ok(value) = args.NewSize()
                         {
-                            let scale = xaml_scale(&size_element).unwrap_or(1.0);
+                            let scale = match xaml_scale(&size_element) {
+                                Ok(scale) => scale,
+                                Err(error) => {
+                                    size_sink.enqueue_host(HostEvent::Error(error));
+                                    return;
+                                }
+                            };
                             invoke_composition_host_callback(
                                 &size_callback,
                                 CompositionHostEvent::Metrics {
@@ -1801,7 +1811,7 @@ impl WinUiRuntime {
                     .map_err(native_error)?;
 
                 let changed = Rc::new(RefCell::new(None));
-                observe_composition_root(&element, &framework, callback, &changed)?;
+                observe_composition_root(&element, &framework, callback, &changed, &sink)?;
                 let loaded_element = element;
                 let loaded_framework = framework;
                 let loaded_callback = callback.clone();
@@ -1809,15 +1819,14 @@ impl WinUiRuntime {
                 let loaded = loaded_framework
                     .clone()
                     .Loaded(move |_, _| {
-                        if observe_composition_root(
+                        if let Err(error) = observe_composition_root(
                             &loaded_element,
                             &loaded_framework,
                             &loaded_callback,
                             &loaded_changed,
-                        )
-                        .is_err()
-                        {
-                            std::process::abort();
+                            &sink,
+                        ) {
+                            sink.enqueue_host(HostEvent::Error(error));
                         }
                     })
                     .map_err(native_error)?;
@@ -3972,7 +3981,23 @@ impl NativeRuntime for WinUiRuntime {
             _ = self.cancel_retirement(root);
         }
         self.clear_async_ingress();
+        for node in self
+            .webview_initializations
+            .borrow()
+            .keys()
+            .copied()
+            .collect::<Vec<_>>()
+        {
+            complete_webview_initialization(
+                &self.webview_initializations,
+                node,
+                Err(RuntimeError::MissingNode(node)),
+            );
+        }
         self.subscriptions.clear();
+        self.swap_chain_panel_subscriptions.clear();
+        self.image_scale_subscriptions.clear();
+        self.composition_host_subscriptions.clear();
         self.owned_menus.clear();
         self.command_bar_flyouts.clear();
         for state in self
@@ -4030,6 +4055,8 @@ impl NativeRuntime for WinUiRuntime {
         self.host_events.borrow_mut().clear();
         self.feedback.borrow_mut().clear();
         self.drop_policies.borrow_mut().clear();
+        self.pointer_capture.borrow_mut().clear();
+        self.resource_override_keys.clear();
         self.controlled_collection_indices.clear();
         self.selection_owners.clear();
         self.selection_items.borrow_mut().clear();
@@ -4452,6 +4479,7 @@ fn observe_image_scale(
     element: &UIElement,
     callback: &Callback<f64>,
     changed: &Rc<RefCell<Option<windows_core::EventRevoker>>>,
+    sink: &EventSink,
 ) -> Result<(), RuntimeError> {
     let root = match element.XamlRoot() {
         Ok(root) => root,
@@ -4461,12 +4489,15 @@ fn observe_image_scale(
     let scale = root.RasterizationScale().map_err(native_error)?;
     invoke_image_scale_callback(callback, scale);
     let changed_callback = callback.clone();
+    let changed_sink = sink.clone();
     let revoker = root
         .Changed(move |sender, _| {
             if let Some(sender) = sender.as_ref() {
                 match sender.RasterizationScale() {
                     Ok(scale) => invoke_image_scale_callback(&changed_callback, scale),
-                    Err(_) => std::process::abort(),
+                    Err(error) => {
+                        changed_sink.enqueue_host(HostEvent::Error(native_error(error)));
+                    }
                 }
             }
         })
@@ -4488,6 +4519,7 @@ fn observe_composition_root(
     framework: &IFrameworkElement,
     callback: &Callback<CompositionHostEvent>,
     changed: &Rc<RefCell<Option<windows_core::EventRevoker>>>,
+    sink: &EventSink,
 ) -> Result<(), RuntimeError> {
     let root = match element.XamlRoot() {
         Ok(root) => root,
@@ -4505,6 +4537,7 @@ fn observe_composition_root(
     );
     let changed_callback = callback.clone();
     let changed_framework = framework.clone();
+    let changed_sink = sink.clone();
     let revoker = root
         .Changed(move |sender, _| {
             if let Some(sender) = sender.as_ref() {
@@ -4517,7 +4550,9 @@ fn observe_composition_root(
                             scale,
                         },
                     ),
-                    Err(_) => std::process::abort(),
+                    Err(error) => {
+                        changed_sink.enqueue_host(HostEvent::Error(native_error(error)));
+                    }
                 }
             }
         })

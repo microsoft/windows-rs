@@ -140,6 +140,11 @@ impl WindowRef {
         true
     }
 
+    #[cfg(test)]
+    pub(crate) fn close_committed(&self) -> bool {
+        self.endpoint.state.borrow().close_committed
+    }
+
     pub(crate) fn request_open(&self, root: View) -> bool {
         self.endpoint.request_open(root)
     }

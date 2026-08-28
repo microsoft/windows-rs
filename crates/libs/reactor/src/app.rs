@@ -942,6 +942,8 @@ fn reject_pending_window(mut pump: Box<dyn LivePump>, error: PumpError) {
         PumpError::DuplicateEffectKey(_)
             | PumpError::DuplicateElementRef
             | PumpError::DuplicateKey(_)
+            | PumpError::DuplicateColorSchemeObservation
+            | PumpError::DuplicateWindowSizeObservation
             | PumpError::DuplicateWindowTitle
             | PumpError::DuplicateWindowTitleBar
             | PumpError::DuplicateWindowVisuals

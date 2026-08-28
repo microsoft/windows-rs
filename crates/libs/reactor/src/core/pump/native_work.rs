@@ -6,13 +6,14 @@ pub(super) const REALIZATION_WORK_BUDGET: usize = 32;
 
 impl<R: NativeRuntime> Pump<R> {
     pub fn native_work_pending(&self) -> bool {
-        !self.events.is_empty()
-            || !self.host_events.is_empty()
-            || !self.imperative.is_empty()
-            || !self.realizations.is_empty()
-            || self.components.pending() != 0
-            || !self.dirty_components.is_empty()
-            || self.native_observation_pending
+        !self.poisoned
+            && (!self.events.is_empty()
+                || !self.host_events.is_empty()
+                || !self.imperative.is_empty()
+                || !self.realizations.is_empty()
+                || self.components.pending() != 0
+                || !self.dirty_components.is_empty()
+                || self.native_observation_pending)
     }
 
     /// Processes queued imperative element work after frontend publication.

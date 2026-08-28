@@ -137,6 +137,31 @@ fn committed_close_rejects_requests_from_later_turns() {
 }
 
 #[test]
+fn failed_post_publication_close_keeps_local_native_state_committed() {
+    let input = input();
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(View::component::<ClosingComponent>(input.clone()))
+        .unwrap();
+    pump.runtime_mut().fail_after(1, 0);
+
+    assert!(input.sender.borrow().as_ref().unwrap().send(Message::Close));
+    assert!(matches!(
+        pump.dispatch_components(1),
+        Err(PumpError::NativeApplyFailed(_))
+    ));
+    assert!(pump.poisoned());
+    assert!(!pump.native_work_pending());
+    assert!(input.window.borrow().as_ref().unwrap().close_committed());
+    let native = Pump::<RecordingRuntime>::native_root(&pump.tree, pump.root().unwrap()).unwrap();
+    assert_eq!(
+        pump.tree.native(native).unwrap().desired,
+        Element::from(TextBlock::new().text("closing"))
+            .into_parts()
+            .props
+    );
+}
+
+#[test]
 fn native_failure_before_publication_does_not_close() {
     let input = input();
     let mut pump = Pump::new(RecordingRuntime::default());
