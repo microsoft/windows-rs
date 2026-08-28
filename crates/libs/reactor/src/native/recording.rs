@@ -276,24 +276,18 @@ impl RecordingRuntime {
         }
         let invoke_callback = !state.suppress_callback;
         let retired = state.retired;
-        let reopen = state.reopen;
         state.pending = false;
         state.suppress_callback = false;
-        state.reopen = false;
 
         let candidate = self
             .content_dialogs
             .iter()
-            .filter(|(candidate, state)| {
-                ((**candidate == node && reopen) || state.waiting)
-                    && state.desired_open
-                    && !state.retired
-            })
+            .filter(|(_, state)| state.queued && state.desired_open && !state.retired)
             .min_by_key(|(_, state)| state.request_order)
             .map(|(node, _)| *node);
         if let Some(candidate) = candidate {
             let state = self.content_dialogs.get_mut(&candidate).unwrap();
-            state.waiting = false;
+            state.queued = false;
             state.pending = true;
             state.show_count += 1;
         }
@@ -1044,12 +1038,8 @@ impl RecordingRuntime {
                 }
                 state.desired_open = *open;
                 if *open {
-                    if state.pending {
-                        state.reopen = true;
-                        self.content_dialog_request_order += 1;
-                        state.request_order = self.content_dialog_request_order;
-                    } else if occupied {
-                        state.waiting = true;
+                    if state.pending || occupied {
+                        state.queued = true;
                         self.content_dialog_request_order += 1;
                         state.request_order = self.content_dialog_request_order;
                     } else {
@@ -1057,8 +1047,7 @@ impl RecordingRuntime {
                         state.show_count += 1;
                     }
                 } else {
-                    state.reopen = false;
-                    state.waiting = false;
+                    state.queued = false;
                     if state.pending {
                         state.suppress_callback = true;
                         state.hide_count += 1;
@@ -1335,8 +1324,7 @@ impl NativeRuntime for RecordingRuntime {
 pub struct RecordedContentDialog {
     pub desired_open: bool,
     pub pending: bool,
-    pub reopen: bool,
-    pub waiting: bool,
+    pub queued: bool,
     pub show_count: usize,
     pub hide_count: usize,
     request_order: u64,

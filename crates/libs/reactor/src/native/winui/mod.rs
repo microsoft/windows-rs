@@ -134,14 +134,23 @@ struct ContentDialogLifecycle {
     desired_open: bool,
     generation: u64,
     pending: bool,
+    queued: bool,
     request_order: u64,
-    reopen: bool,
     retired: bool,
     revision: u32,
     root_loaded: Option<windows_core::EventRevoker>,
     suppress_callback: bool,
-    waiting: bool,
     xaml_root: Option<XamlRoot>,
+}
+
+#[cfg(feature = "test")]
+#[derive(Debug)]
+pub(crate) struct LiveContentDialogState {
+    pub(crate) desired_open: bool,
+    pub(crate) generation: u64,
+    pub(crate) node: NodeId,
+    pub(crate) pending: bool,
+    pub(crate) queued: bool,
 }
 
 struct WebViewInitialization {
@@ -688,6 +697,36 @@ impl WinUiRuntime {
     #[cfg(feature = "test")]
     pub fn live_event_subscription_count(&self) -> usize {
         self.subscriptions.len() + self.content_dialog_subscriptions.borrow().len()
+    }
+
+    #[cfg(feature = "test")]
+    pub(crate) fn live_content_dialog_states(&self) -> Vec<LiveContentDialogState> {
+        let mut states = self
+            .content_dialogs
+            .borrow()
+            .iter()
+            .map(|(node, state)| LiveContentDialogState {
+                desired_open: state.desired_open,
+                generation: state.generation,
+                node: *node,
+                pending: state.pending,
+                queued: state.queued,
+            })
+            .collect::<Vec<_>>();
+        states.sort_unstable_by_key(|state| state.generation);
+        states
+    }
+
+    #[cfg(feature = "test")]
+    pub(crate) fn live_hide_content_dialog(&self, node: NodeId) -> Result<(), RuntimeError> {
+        let dialog = self
+            .content_dialogs
+            .borrow()
+            .get(&node)
+            .ok_or(RuntimeError::MissingNode(node))?
+            .dialog
+            .clone();
+        dialog.Hide().map_err(native_error)
     }
 
     #[cfg(feature = "test")]
@@ -1367,13 +1406,12 @@ impl WinUiRuntime {
                             desired_open: false,
                             generation: self.next_content_dialog_generation,
                             pending: false,
+                            queued: false,
                             request_order: 0,
-                            reopen: false,
                             retired: false,
                             revision: 0,
                             root_loaded: None,
                             suppress_callback: false,
-                            waiting: false,
                             xaml_root: None,
                         },
                     );
@@ -2490,12 +2528,8 @@ impl WinUiRuntime {
                             .get_mut(node)
                             .ok_or(RuntimeError::MissingNode(*node))?;
                         state.root_loaded = Some(loaded);
-                    } else if state.pending {
-                        state.reopen = true;
-                        self.content_dialog_request_order += 1;
-                        state.request_order = self.content_dialog_request_order;
-                    } else if occupied {
-                        state.waiting = true;
+                    } else if state.pending || occupied {
+                        state.queued = true;
                         self.content_dialog_request_order += 1;
                         state.request_order = self.content_dialog_request_order;
                     } else {
@@ -2503,8 +2537,7 @@ impl WinUiRuntime {
                         state.pending = true;
                     }
                 } else {
-                    state.reopen = false;
-                    state.waiting = false;
+                    state.queued = false;
                     state.root_loaded = None;
                     if state.pending {
                         state.suppress_callback = true;
@@ -3324,7 +3357,7 @@ impl EventSink {
             .and_then(|dialog| dialog.SetXamlRoot(&xaml_root))
             .map_err(native_error)?;
         if occupied {
-            state.waiting = true;
+            state.queued = true;
         } else {
             show_content_dialog(&state.dialog)?;
             state.pending = true;
@@ -3356,7 +3389,7 @@ impl EventSink {
                 .borrow()
                 .iter()
                 .filter(|(_, state)| {
-                    (state.reopen || state.waiting)
+                    state.queued
                         && state.desired_open
                         && !state.retired
                         && state
@@ -3394,7 +3427,7 @@ impl EventSink {
                                 && state.desired_open
                                 && !state.retired
                                 && !state.pending
-                                && (state.reopen || state.waiting)
+                                && state.queued
                                 && state
                                     .xaml_root
                                     .as_ref()
@@ -3408,7 +3441,7 @@ impl EventSink {
                                     state.desired_open
                                         && !state.retired
                                         && !state.pending
-                                        && (state.reopen || state.waiting)
+                                        && state.queued
                                         && state
                                             .xaml_root
                                             .as_ref()
@@ -3421,8 +3454,7 @@ impl EventSink {
                         return;
                     };
                     let state = dialogs.get_mut(&candidate).unwrap();
-                    state.reopen = false;
-                    state.waiting = false;
+                    state.queued = false;
                     (
                         candidate,
                         state.dialog.ShowAsync().map(|_| {

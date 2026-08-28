@@ -16,7 +16,7 @@ fn candidate_with_reservation(
 }
 
 #[test]
-fn planning_discard_removes_reservations_without_retry_or_poison() {
+fn planning_discard_removes_reservations_without_rearming_or_poison() {
     let mut pump = Pump::new(RecordingRuntime::default());
     let (changes, token) = candidate_with_reservation(&mut pump);
 
@@ -28,11 +28,11 @@ fn planning_discard_removes_reservations_without_retry_or_poison() {
 }
 
 #[test]
-fn planning_retry_removes_reservations_and_retains_touched_scopes() {
+fn planning_rearm_removes_reservations_and_retains_touched_scopes() {
     let mut pump = Pump::new(RecordingRuntime::default());
     let (changes, token) = candidate_with_reservation(&mut pump);
 
-    pump.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
+    pump.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
 
     assert!(pump.components.publish(token).is_err());
     assert!(pump.planning_dirty.contains(&token));

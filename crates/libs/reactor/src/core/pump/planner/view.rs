@@ -132,7 +132,7 @@ impl<R: NativeRuntime> Pump<R> {
                 if changed {
                     changes.touched.insert(token);
                 }
-                if changed || changes.retry.contains(&token) {
+                if changed || changes.recompose.contains(&token) {
                     if changes.deferred.contains(&token) {
                         Ok(node)
                     } else {

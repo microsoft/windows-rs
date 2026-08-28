@@ -115,7 +115,7 @@ impl<R: NativeRuntime> Pump<R> {
                             token,
                         },
                         next_version,
-                        CandidateFailureStage::PlanningRetry,
+                        CandidateFailureStage::PlanningRearm,
                     )?;
                     self.planning_dirty.remove(&token);
                     self.dirty_components.clear();
@@ -134,7 +134,7 @@ impl<R: NativeRuntime> Pump<R> {
         let mut changes = ComponentChanges {
             deferred,
             host_requests: staged_host_requests,
-            retry: self.planning_dirty.clone(),
+            recompose: self.planning_dirty.clone(),
             ..ComponentChanges::default()
         };
         let mut dirty = self
@@ -159,7 +159,7 @@ impl<R: NativeRuntime> Pump<R> {
                 if changes.retired.contains(&token) {
                     continue;
                 }
-                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
+                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
                 return Err(PumpError::StructureUnsupported);
             };
             let result = if composed_view
@@ -204,7 +204,7 @@ impl<R: NativeRuntime> Pump<R> {
                 )
             };
             if let Err(error) = result {
-                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
+                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
                 return Err(error);
             }
         }

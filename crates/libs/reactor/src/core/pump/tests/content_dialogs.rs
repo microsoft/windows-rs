@@ -50,6 +50,25 @@ fn host(open: bool) -> View {
     StackPanel::new().children((TextBlock::new().text("Page"), dialog(open)))
 }
 
+fn dialog_pair(first_open: bool, second_open: bool) -> View {
+    StackPanel::new().keyed_children([
+        KeyedView::new(
+            "first",
+            ContentDialog::new()
+                .title("First")
+                .is_open(first_open)
+                .on_closed(|_| {}),
+        ),
+        KeyedView::new(
+            "second",
+            ContentDialog::new()
+                .title("Second")
+                .is_open(second_open)
+                .on_closed(|_| {}),
+        ),
+    ])
+}
+
 #[test]
 fn mounts_closed_without_showing_and_owns_rich_content() {
     let mut pump = Pump::new(RecordingRuntime::default());
@@ -136,7 +155,7 @@ fn declarative_close_hides_and_pending_reopen_waits_for_completion() {
     )
     .unwrap();
     let reopening = pump.runtime().content_dialog(dialog).unwrap();
-    assert!(reopening.reopen);
+    assert!(reopening.queued);
     assert_eq!(reopening.show_count, 1);
 
     pump.runtime_mut()
@@ -144,7 +163,7 @@ fn declarative_close_hides_and_pending_reopen_waits_for_completion() {
     assert_eq!(pump.dispatch_events().unwrap(), 0);
     let reopened = pump.runtime().content_dialog(dialog).unwrap();
     assert!(reopened.pending);
-    assert!(!reopened.reopen);
+    assert!(!reopened.queued);
     assert_eq!(reopened.show_count, 2);
 }
 
@@ -373,7 +392,7 @@ fn replacing_open_native_dialog_hides_old_and_serializes_replacement_show() {
         .unwrap();
     assert!(hide < destroy);
     assert!(destroy < show);
-    assert!(pump.runtime().content_dialog(replacement).unwrap().waiting);
+    assert!(pump.runtime().content_dialog(replacement).unwrap().queued);
     assert_eq!(
         pump.runtime()
             .content_dialog(replacement)
@@ -410,7 +429,7 @@ fn serializes_two_open_dialogs_owned_by_the_same_native_root() {
         1
     );
     assert_eq!(
-        usize::from(first_state.waiting) + usize::from(second_state.waiting),
+        usize::from(first_state.queued) + usize::from(second_state.queued),
         1
     );
     let (active, waiting) = if first_state.pending {
@@ -429,6 +448,71 @@ fn serializes_two_open_dialogs_owned_by_the_same_native_root() {
         pump.runtime().content_dialog(waiting).unwrap().show_count,
         1
     );
+}
+
+#[test]
+fn preserves_a_reopen_queued_behind_an_older_dialog_request() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(dialog_pair(true, false)).unwrap();
+    let dialogs = dialog_nodes(pump.runtime());
+    let [first, second] = dialogs.as_slice() else {
+        panic!("expected two dialogs");
+    };
+
+    pump.update_view(dialog_pair(true, true)).unwrap();
+    pump.update_view(dialog_pair(false, true)).unwrap();
+    pump.update_view(dialog_pair(true, true)).unwrap();
+
+    let first_revision = pump
+        .event_revision(*first, EventId::ContentDialogClosed)
+        .unwrap();
+    pump.runtime_mut()
+        .complete_content_dialog(*first, first_revision, ContentDialogResult::None);
+    assert_eq!(pump.dispatch_events().unwrap(), 0);
+    let first_state = pump.runtime().content_dialog(*first).unwrap();
+    let second_state = pump.runtime().content_dialog(*second).unwrap();
+    assert!(first_state.desired_open);
+    assert!(first_state.queued);
+    assert!(!first_state.pending);
+    assert!(second_state.pending);
+
+    let second_revision = pump
+        .event_revision(*second, EventId::ContentDialogClosed)
+        .unwrap();
+    pump.runtime_mut()
+        .complete_content_dialog(*second, second_revision, ContentDialogResult::None);
+    assert_eq!(pump.dispatch_events().unwrap(), 1);
+    let first_state = pump.runtime().content_dialog(*first).unwrap();
+    assert!(first_state.pending);
+    assert!(!first_state.queued);
+    assert_eq!(first_state.show_count, 2);
+}
+
+#[test]
+fn cancels_a_queued_dialog_before_the_active_dialog_completes() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(dialog_pair(true, false)).unwrap();
+    let dialogs = dialog_nodes(pump.runtime());
+    let [first, second] = dialogs.as_slice() else {
+        panic!("expected two dialogs");
+    };
+
+    pump.update_view(dialog_pair(true, true)).unwrap();
+    assert!(pump.runtime().content_dialog(*second).unwrap().queued);
+    pump.update_view(dialog_pair(true, false)).unwrap();
+    let second_state = pump.runtime().content_dialog(*second).unwrap();
+    assert!(!second_state.desired_open);
+    assert!(!second_state.queued);
+
+    let first_revision = pump
+        .event_revision(*first, EventId::ContentDialogClosed)
+        .unwrap();
+    pump.runtime_mut()
+        .complete_content_dialog(*first, first_revision, ContentDialogResult::None);
+    assert_eq!(pump.dispatch_events().unwrap(), 1);
+    let second_state = pump.runtime().content_dialog(*second).unwrap();
+    assert!(!second_state.pending);
+    assert_eq!(second_state.show_count, 0);
 }
 
 #[test]

@@ -13,7 +13,7 @@ impl<R: NativeRuntime> Pump<R> {
         changes: &ComponentChanges,
         stage: CandidateFailureStage,
     ) {
-        if matches!(stage, CandidateFailureStage::PlanningRetry) {
+        if matches!(stage, CandidateFailureStage::PlanningRearm) {
             self.planning_dirty.extend(changes.touched.iter().copied());
         }
         Self::remove_reservations(&mut self.components, &changes.reserved);
