@@ -184,7 +184,9 @@ the `windows-reactor-setup` bootstrap DLLs from pinned NuGet packages. It then r
 `crates/tools/reactor/src/bindings.txt` contains the hand-maintained runtime binding filter.
 `control_bindings.txt` is generated from `winui.toml` and supplies control-specific entries. The
 filters name only APIs used by the runtime or live test hooks. Feedback events obtain values from
-their event payloads rather than generating property readers for the full schema.
+their event payloads rather than generating property readers for the full schema. Content controls
+take their content property name from WinUI's `ContentPropertyAttribute`, including inherited
+properties.
 
 Bindings used only by the `test` feature are dead in a normal library build. The bindings module
 allows dead code only when that feature is disabled. Building with the feature removes the

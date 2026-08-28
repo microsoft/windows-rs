@@ -126,7 +126,6 @@ name = "Click"
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.Border"
-content = "Child"
 capabilities = ["layout", "content"]
 
 [[control.property]]
@@ -1111,7 +1110,6 @@ adapter = "path_data"
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.ListBoxItem"
-content = "Content"
 capabilities = ["layout", "content"]
 
 [[control.property]]
@@ -1235,7 +1233,6 @@ item_controls = ["PivotItem"]
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.PivotItem"
-content = "Content"
 capabilities = ["layout", "content"]
 
 [[control.property]]
@@ -1341,7 +1338,6 @@ collection = true
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.TabViewItem"
-content = "Content"
 capabilities = ["layout", "content"]
 
 [[control.property]]
@@ -1400,7 +1396,6 @@ name = "ActionButtonClick"
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.DropDownButton"
-content = "Content"
 capabilities = ["layout", "content", "enabled"]
 
 [[control.property]]
@@ -1464,7 +1459,6 @@ clearable = true
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.SplitButton"
-content = "Content"
 capabilities = ["layout", "content", "enabled"]
 
 [[control.property]]
@@ -1590,12 +1584,10 @@ name = "Header"
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.ToolTip"
 placement = "tooltip_attachment"
-content = "Content"
 capabilities = ["content"]
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.ContentDialog"
-content = "Content"
 capabilities = ["content"]
 lifecycle = "content_dialog"
 
@@ -1692,7 +1684,6 @@ collection = true
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.ListViewItem"
-content = "Content"
 capabilities = ["layout", "content", "enabled"]
 
 [[control.property]]
@@ -1752,7 +1743,6 @@ collection = true
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.GridViewItem"
-content = "Content"
 capabilities = ["layout", "content", "enabled"]
 
 [[control.property]]

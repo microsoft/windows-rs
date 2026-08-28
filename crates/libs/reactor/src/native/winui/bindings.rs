@@ -19811,6 +19811,32 @@ pub struct IUIElement_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IUIElementCollection,
+    IUIElementCollection_Vtbl,
+    0x23050cb1_db88_54ed_9083_5ecfb12512fd
+);
+impl windows_core::RuntimeType for IUIElementCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IUIElementCollection {
+    pub(crate) fn Move(&self, oldindex: u32, newindex: u32) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Move)(
+                windows_core::Interface::as_raw(self),
+                oldindex,
+                newindex,
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IUIElementCollection_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IUIElementStatics,
     IUIElementStatics_Vtbl,
     0xd2921d87_3584_5e22_8a3a_c2c78dab4f6e

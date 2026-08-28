@@ -3045,9 +3045,10 @@ impl WinUiRuntime {
                         .collect::<Vec<_>>();
                     physical_retained_index(&current, &retained, index)?
                 };
-                children.RemoveAt(from).map_err(native_error)?;
+                let index = index32(index)?;
                 children
-                    .InsertAt(index32(index)?, &child)
+                    .cast::<IUIElementCollection>()
+                    .and_then(|children| children.Move(from, index))
                     .map_err(native_error)
             } else {
                 Err(RuntimeError::UnsupportedKind)
