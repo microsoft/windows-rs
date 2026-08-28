@@ -90,6 +90,23 @@ range 1 through 999. `TextBlock::max_lines` accepts non-negative values, and
 `TimePicker::minute_increment` accepts values from 0 through 59. Passing `None` still inherits the
 native default.
 
+`Image::source_data` and `ImageIcon::source_data` accept an `EncodedImage` containing PNG or other
+bitmap data supported by WinUI. SVG remains available through the URI-based `source` and
+`source_file` methods. `EncodedImage::from_static` retains a static slice without copying;
+`EncodedImage::new` owns shared runtime data. The encoded data is compared declaratively, while
+decoding runs asynchronously on the native runtime. Replacing or clearing the source, retiring the
+node, and resetting the runtime cancel pending work. Late completions are rejected by the window
+identity and native async ticket.
+
+A native source accepted by `ElementRef<Image>::request_set_native_source` ends encoded-source
+ownership and cancels any pending encoded load. A successfully assigned native source remains
+authoritative until the declarative source changes.
+
+`Image::on_opened` and `Image::on_failed` report URI load events and completion of encoded loads.
+Malformed encoded data produces `on_failed` when a failure callback is registered. `ImageIcon`
+does not expose image-load events, matching the underlying WinUI control. Failures while
+constructing or writing the stream or scheduling native work are reported as host errors.
+
 ### Migration from the render-and-hook API
 
 The Component/View API replaces the earlier render-function and hook frontend:

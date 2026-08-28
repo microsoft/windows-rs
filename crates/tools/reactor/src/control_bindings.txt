@@ -138,6 +138,8 @@ Microsoft::UI::Xaml::Controls::IHyperlinkButton::put_NavigateUri
 Microsoft::UI::Xaml::Controls::IImage::get_Source
 Microsoft::UI::Xaml::Controls::IImage::put_Source
 Microsoft::UI::Xaml::Controls::IImage::put_Stretch
+Microsoft::UI::Xaml::Controls::IImage::{add_ImageFailed, remove_ImageFailed}
+Microsoft::UI::Xaml::Controls::IImage::{add_ImageOpened, remove_ImageOpened}
 Microsoft::UI::Xaml::Controls::IImageIcon::put_Source
 Microsoft::UI::Xaml::Controls::IInfoBadge::put_Value
 Microsoft::UI::Xaml::Controls::IInfoBar::put_IsClosable
@@ -560,6 +562,7 @@ Microsoft::UI::Xaml::Media::ISolidColorBrush::put_Color
 Microsoft::UI::Xaml::Media::ImageSource
 Microsoft::UI::Xaml::Media::Imaging::BitmapImage::CreateInstance
 Microsoft::UI::Xaml::Media::Imaging::IBitmapImage::{get_UriSource, put_UriSource}
+Microsoft::UI::Xaml::Media::Imaging::IBitmapSource::SetSourceAsync
 Microsoft::UI::Xaml::Media::Imaging::ISvgImageSource::put_UriSource
 Microsoft::UI::Xaml::Media::Imaging::SvgImageSource::CreateInstance
 Microsoft::UI::Xaml::Media::SolidColorBrush::CreateInstance
@@ -594,4 +597,8 @@ Windows::ApplicationModel::DataTransfer::IDataPackageView::{Contains, GetTextAsy
 Windows::Foundation::IUriRuntimeClass::get_AbsoluteUri
 Windows::Foundation::Uri::CreateUri
 Windows::Storage::IStorageItem::{get_Name, get_Path}
+Windows::Storage::Streams::DataWriter::CreateDataWriter
+Windows::Storage::Streams::IDataWriter::{WriteBytes, StoreAsync, DetachStream}
+Windows::Storage::Streams::IRandomAccessStream::{GetOutputStreamAt, Seek}
+Windows::Storage::Streams::InMemoryRandomAccessStream::CreateInstance
 Windows::UI::Color

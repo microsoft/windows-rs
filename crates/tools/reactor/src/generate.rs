@@ -929,6 +929,22 @@ fn generate_mounted_props_visitor(control: &ResolvedControl) -> TokenStream {
     let properties = control.properties.iter().map(|property| {
         let field = ident(&property.field);
         let id = ident(&format!("{}{}", control.name, property.name));
+        if property.adapter == Some(PropertyAdapter::ImageUri) {
+            return quote! {
+                visit(
+                    PropertyId::#id,
+                    match &values.#field {
+                        Property::Inherited => None,
+                        Property::Set(ImageValue::Uri(value)) => {
+                            Some(PropertyValueRef::Str(value.as_str()))
+                        }
+                        Property::Set(ImageValue::Encoded(value)) => {
+                            Some(PropertyValueRef::EncodedImage(value))
+                        }
+                    },
+                );
+            };
+        }
         let variant = ident(&property.value);
         if property.theme_style {
             return quote! {
@@ -1169,6 +1185,7 @@ fn generate_event_observers(control: &ResolvedControl) -> Vec<TokenStream> {
 
 fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
     let mut values = BTreeMap::from([
+        ("EncodedImage".to_string(), quote! { EncodedImage }),
         ("F64".to_string(), quote! { f64 }),
         (
             "GridLengths".to_string(),
@@ -1190,6 +1207,7 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
         .controls
         .iter()
         .flat_map(|control| &control.properties)
+        .filter(|property| property.adapter != Some(PropertyAdapter::ImageUri))
         .filter(|property| !property.theme_style || property.value == "Brush")
     {
         values
@@ -1210,6 +1228,7 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
             "ResourceOverrides" => quote! { &'a ResourceOverrides },
             "KeyAccelerators" => quote! { &'a KeyAccelerators },
             "DragDropPolicy" => quote! { &'a DragDropPolicy },
+            "EncodedImage" => quote! { &'a EncodedImage },
             "Str" => quote! { &'a str },
             "Thickness" => quote! { &'a Thickness },
             "CornerRadius" => quote! { &'a CornerRadius },
@@ -1272,6 +1291,7 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
                 | "Thickness"
                 | "CornerRadius"
                 | "DragDropPolicy"
+                | "EncodedImage"
         ) {
             quote! {
                 (Self::#variant(left), PropertyValue::#variant(right)) => left == right
@@ -1292,7 +1312,7 @@ fn generate_property_values(schema: &ResolvedSchema) -> TokenStream {
                 Self::#variant(value) => PropertyValue::#variant(value.to_string())
             },
             "KeyAccelerators" | "ResourceOverrides" | "RichText" | "Thickness" | "CornerRadius"
-            | "DragDropPolicy" => {
+            | "DragDropPolicy" | "EncodedImage" => {
                 quote! {
                     Self::#variant(value) => PropertyValue::#variant(value.clone())
                 }
@@ -1547,6 +1567,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         } else if property.adapter == Some(PropertyAdapter::ImageUri) {
             let optional = ident(&format!("{}_optional", property.field));
             let file = ident(&format!("{}_file", property.field));
+            let data = ident(&format!("{}_data", property.field));
             quote! {
                 pub fn #field(
                     mut self,
@@ -1554,7 +1575,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                 ) -> windows_core::Result<Self> {
                     let value = value.into();
                     validate_image_uri(&value)?;
-                    self.#field = Property::Set(value);
+                    self.#field = Property::Set(ImageValue::Uri(value));
                     Ok(self)
                 }
 
@@ -1569,7 +1590,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                         Some(value) => {
                             let value = value.into();
                             validate_image_uri(&value)?;
-                            Property::Set(value)
+                            Property::Set(ImageValue::Uri(value))
                         }
                         None => Property::Inherited,
                     };
@@ -1581,6 +1602,11 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                     value: impl AsRef<std::path::Path>,
                 ) -> windows_core::Result<Self> {
                     self.#field(file_uri(value.as_ref())?)
+                }
+
+                pub fn #data(mut self, value: EncodedImage) -> Self {
+                    self.#field = Property::Set(ImageValue::Encoded(value));
+                    self
                 }
             }
         } else if property.adapter == Some(PropertyAdapter::Uri) {

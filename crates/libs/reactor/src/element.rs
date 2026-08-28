@@ -1,6 +1,7 @@
 use std::any::Any;
 use std::fmt;
 use std::rc::Rc;
+use std::sync::Arc;
 use std::time::Duration;
 
 use super::*;
@@ -12,6 +13,86 @@ pub(crate) fn validate_image_uri(value: &str) -> windows_core::Result<()> {
 
 pub(crate) fn validate_uri(value: &str) -> windows_core::Result<()> {
     native::validate_native_uri(value)
+}
+
+/// Immutable encoded bitmap data for an [`Image`] or [`ImageIcon`] source.
+#[derive(Clone)]
+pub struct EncodedImage(EncodedImageBytes);
+
+#[derive(Clone)]
+enum EncodedImageBytes {
+    Static(&'static [u8]),
+    Shared(Arc<[u8]>),
+}
+
+impl EncodedImage {
+    /// Owns encoded bitmap data that may be shared across views.
+    ///
+    /// # Panics
+    ///
+    /// Panics if the data exceeds the WinRT buffer limit of 4 GiB.
+    pub fn new(bytes: impl Into<Arc<[u8]>>) -> Self {
+        let bytes = bytes.into();
+        assert!(
+            bytes.len() <= u32::MAX as usize,
+            "encoded image data cannot exceed 4 GiB"
+        );
+        Self(EncodedImageBytes::Shared(bytes))
+    }
+
+    /// Retains encoded bitmap data with static storage without copying it.
+    ///
+    /// # Panics
+    ///
+    /// Panics if the data exceeds the WinRT buffer limit of 4 GiB.
+    pub fn from_static(bytes: &'static [u8]) -> Self {
+        assert!(
+            bytes.len() <= u32::MAX as usize,
+            "encoded image data cannot exceed 4 GiB"
+        );
+        Self(EncodedImageBytes::Static(bytes))
+    }
+
+    /// Returns the encoded bitmap data.
+    pub fn as_bytes(&self) -> &[u8] {
+        match &self.0 {
+            EncodedImageBytes::Static(bytes) => bytes,
+            EncodedImageBytes::Shared(bytes) => bytes,
+        }
+    }
+}
+
+impl fmt::Debug for EncodedImage {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter
+            .debug_struct("EncodedImage")
+            .field("len", &self.as_bytes().len())
+            .finish()
+    }
+}
+
+impl PartialEq for EncodedImage {
+    fn eq(&self, other: &Self) -> bool {
+        match (&self.0, &other.0) {
+            (EncodedImageBytes::Static(left), EncodedImageBytes::Static(right))
+                if std::ptr::eq(*left, *right) =>
+            {
+                true
+            }
+            (EncodedImageBytes::Shared(left), EncodedImageBytes::Shared(right))
+                if Arc::ptr_eq(left, right) =>
+            {
+                true
+            }
+            _ => self.as_bytes() == other.as_bytes(),
+        }
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) enum ImageValue {
+    Uri(String),
+    Encoded(EncodedImage),
 }
 
 pub(crate) fn file_uri(path: &std::path::Path) -> windows_core::Result<String> {

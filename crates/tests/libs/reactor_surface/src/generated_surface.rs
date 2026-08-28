@@ -47,7 +47,7 @@ pub struct ExtensionSurface {
 }
 pub(crate) const PROJECTED_CONTROL_COUNT: usize = 79usize;
 pub(crate) const PROJECTED_PROPERTY_COUNT: usize = 230usize;
-pub(crate) const PROJECTED_EVENT_COUNT: usize = 61usize;
+pub(crate) const PROJECTED_EVENT_COUNT: usize = 63usize;
 pub(crate) const CAPABILITY_PROPERTY_COUNT: usize = 27usize;
 pub(crate) const STRUCTURAL_COUNT: usize = 64usize;
 pub(crate) const EXTENSION_COUNT: usize = 5;
@@ -2603,6 +2603,30 @@ fn event_info_bar_on_closed(stage: usize) -> View {
             let _ = 0u8;
         }),)),
         2 => Grid::new().children((InfoBar::new().on_closed(move || {
+            let _ = 1u8;
+        }),)),
+        _ => unreachable!(),
+    }
+}
+fn event_image_on_opened(stage: usize) -> View {
+    match stage {
+        0 | 3 => Grid::new().children((Image::new(),)),
+        1 => Grid::new().children((Image::new().on_opened(move || {
+            let _ = 0u8;
+        }),)),
+        2 => Grid::new().children((Image::new().on_opened(move || {
+            let _ = 1u8;
+        }),)),
+        _ => unreachable!(),
+    }
+}
+fn event_image_on_failed(stage: usize) -> View {
+    match stage {
+        0 | 3 => Grid::new().children((Image::new(),)),
+        1 => Grid::new().children((Image::new().on_failed(move || {
+            let _ = 0u8;
+        }),)),
+        2 => Grid::new().children((Image::new().on_failed(move || {
             let _ = 1u8;
         }),)),
         _ => unreachable!(),
@@ -5826,6 +5850,20 @@ pub(crate) static SURFACE_CASES: &[SurfaceCase] = &[
         build: property_image_stretch,
     },
     SurfaceCase {
+        name: "event.Image.ImageOpened",
+        kind: SurfaceKind::Event,
+        stages: 4,
+        subscription_delta: Some(1usize),
+        build: event_image_on_opened,
+    },
+    SurfaceCase {
+        name: "event.Image.ImageFailed",
+        kind: SurfaceKind::Event,
+        stages: 4,
+        subscription_delta: Some(1usize),
+        build: event_image_on_failed,
+    },
+    SurfaceCase {
         name: "control.ProgressRing.construct",
         kind: SurfaceKind::Control,
         stages: 1,
@@ -8474,7 +8512,7 @@ pub static PROJECTED_PROPERTIES: &[PropertySurface] = &[
     PropertySurface {
         control: "Image",
         property: "Source",
-        value: "Str",
+        value: "ImageValue",
         adapter: "ImageUri",
         validation: None,
         clearable: true,
@@ -8690,7 +8728,7 @@ pub static PROJECTED_PROPERTIES: &[PropertySurface] = &[
     PropertySurface {
         control: "ImageIcon",
         property: "Source",
-        value: "Str",
+        value: "ImageValue",
         adapter: "ImageUri",
         validation: None,
         clearable: true,
@@ -9772,6 +9810,24 @@ pub static PROJECTED_EVENTS: &[EventSurface] = &[
     EventSurface {
         control: "InfoBar",
         event: "Closed",
+        payload: "Unit",
+        conversion: "Identity",
+        subscription: "callback",
+        delivery: "registration+deterministic",
+        active_property: None,
+    },
+    EventSurface {
+        control: "Image",
+        event: "ImageOpened",
+        payload: "Unit",
+        conversion: "Identity",
+        subscription: "callback",
+        delivery: "registration+deterministic",
+        active_property: None,
+    },
+    EventSurface {
+        control: "Image",
+        event: "ImageFailed",
         payload: "Unit",
         conversion: "Identity",
         subscription: "callback",

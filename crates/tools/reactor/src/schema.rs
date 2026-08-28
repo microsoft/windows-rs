@@ -578,7 +578,7 @@ impl Schema {
                                 control.type_name, property.name
                             ));
                         }
-                        ("Str".to_string(), false)
+                        ("ImageValue".to_string(), false)
                     }
                     Some(PropertyAdapter::ContentDialogResult) => {
                         return Err(format!(

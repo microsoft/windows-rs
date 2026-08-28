@@ -3,9 +3,9 @@ use std::time::Duration;
 use windows_reactor::*;
 
 use crate::fixtures::{
-    CompositionLifecycle, FixtureInput, FixtureResult, FocusPublication, ImageSourceLifecycle,
-    KeyedNativeMutations, PointerInjection, ProbeFixture, ProbeInput, SwapChainLifecycle,
-    ThemeResources, WindowLifecycle,
+    CompositionLifecycle, EncodedImageLifecycle, FixtureInput, FixtureResult, FocusPublication,
+    ImageSourceLifecycle, KeyedNativeMutations, PointerInjection, ProbeFixture, ProbeInput,
+    SwapChainLifecycle, ThemeResources, WindowLifecycle,
 };
 
 const FIXTURE_TIMEOUT: Duration = Duration::from_secs(15);
@@ -19,6 +19,7 @@ enum FixtureKind {
     EventRevokers,
     ControlledFeedback,
     WindowLifecycle,
+    EncodedImageLifecycle,
     ImageSourceLifecycle,
     CompositionLifecycle,
     SwapChainLifecycle,
@@ -56,6 +57,10 @@ const FIXTURES: &[Fixture] = &[
     Fixture {
         name: "ImageSource_DpiAttachClearRetire",
         kind: FixtureKind::ImageSourceLifecycle,
+    },
+    Fixture {
+        name: "Image_EncodedLoadReplaceAndFailure",
+        kind: FixtureKind::EncodedImageLifecycle,
     },
     Fixture {
         name: "Composition_AttachReplaceClearRetire",
@@ -201,6 +206,9 @@ impl Component for FixtureRunner {
             Some(FixtureKind::WindowLifecycle) => View::component::<WindowLifecycle>(input),
             Some(FixtureKind::ImageSourceLifecycle) => {
                 View::component::<ImageSourceLifecycle>(input)
+            }
+            Some(FixtureKind::EncodedImageLifecycle) => {
+                View::component::<EncodedImageLifecycle>(input)
             }
             Some(FixtureKind::CompositionLifecycle) => {
                 View::component::<CompositionLifecycle>(input)

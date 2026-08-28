@@ -1149,6 +1149,15 @@ pub fn windows_reactor::Ellipse::min_width(self, impl core::convert::Into<core::
 pub fn windows_reactor::Ellipse::opacity(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Ellipse::vertical_alignment(self, impl core::convert::Into<core::option::Option<windows_reactor::VerticalAlignment>>) -> Self where Self: core::marker::Sized
 pub fn windows_reactor::Ellipse::width(self, impl core::convert::Into<core::option::Option<f64>>) -> Self where Self: core::marker::Sized
+pub struct windows_reactor::EncodedImage(_)
+impl windows_reactor::EncodedImage
+pub fn windows_reactor::EncodedImage::as_bytes(&self) -> &[u8]
+pub fn windows_reactor::EncodedImage::from_static(&'static [u8]) -> Self
+pub fn windows_reactor::EncodedImage::new(impl core::convert::Into<alloc::sync::Arc<[u8]>>) -> Self
+impl core::cmp::PartialEq for windows_reactor::EncodedImage
+pub fn windows_reactor::EncodedImage::eq(&self, &Self) -> bool
+impl core::fmt::Debug for windows_reactor::EncodedImage
+pub fn windows_reactor::EncodedImage::fmt(&self, &mut core::fmt::Formatter<'_>) -> core::fmt::Result
 pub struct windows_reactor::ExitTransition
 impl windows_reactor::ExitTransition
 pub fn windows_reactor::ExitTransition::duration(self) -> core::time::Duration
@@ -1359,7 +1368,10 @@ pub struct windows_reactor::Image
 impl windows_reactor::Image
 pub fn windows_reactor::Image::element_ref(self, &windows_reactor::ElementRef<Self>) -> Self
 pub fn windows_reactor::Image::new() -> Self
+pub fn windows_reactor::Image::on_failed(self, impl windows_reactor::IntoUnitCallback) -> Self
+pub fn windows_reactor::Image::on_opened(self, impl windows_reactor::IntoUnitCallback) -> Self
 pub fn windows_reactor::Image::source(self, impl core::convert::Into<alloc::string::String>) -> windows_result::Result<Self>
+pub fn windows_reactor::Image::source_data(self, windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::Image::source_file(self, impl core::convert::AsRef<std::path::Path>) -> windows_result::Result<Self>
 pub fn windows_reactor::Image::source_optional<T>(self, core::option::Option<T>) -> windows_result::Result<Self> where T: core::convert::Into<alloc::string::String>
 pub fn windows_reactor::Image::stretch(self, impl core::convert::Into<core::option::Option<windows_reactor::Stretch>>) -> Self
@@ -1383,6 +1395,7 @@ pub struct windows_reactor::ImageIcon
 impl windows_reactor::ImageIcon
 pub fn windows_reactor::ImageIcon::new() -> Self
 pub fn windows_reactor::ImageIcon::source(self, impl core::convert::Into<alloc::string::String>) -> windows_result::Result<Self>
+pub fn windows_reactor::ImageIcon::source_data(self, windows_reactor::EncodedImage) -> Self
 pub fn windows_reactor::ImageIcon::source_file(self, impl core::convert::AsRef<std::path::Path>) -> windows_result::Result<Self>
 pub fn windows_reactor::ImageIcon::source_optional<T>(self, core::option::Option<T>) -> windows_result::Result<Self> where T: core::convert::Into<alloc::string::String>
 impl core::convert::From<windows_reactor::ImageIcon> for windows_reactor::View

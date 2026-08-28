@@ -679,6 +679,140 @@ pub(crate) enum ImageMessage {
     Cleared(Result<(), ImageSourceError>),
 }
 
+pub(crate) enum EncodedImageMessage {
+    Advance(u8),
+    AwaitOverride,
+    NativeCleared(Result<(), ImageSourceError>),
+    Opened(u8),
+    Failed(u8),
+}
+
+pub(crate) struct EncodedImageLifecycle {
+    error: Option<&'static str>,
+    image: ElementRef<Image>,
+    stage: u8,
+}
+
+impl Component for EncodedImageLifecycle {
+    type Input = FixtureInput;
+    type Message = EncodedImageMessage;
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            error: None,
+            image: ElementRef::new(),
+            stage: 0,
+        }
+    }
+
+    fn update(&mut self, message: Self::Message, context: &ComponentContext<Self>) {
+        match message {
+            EncodedImageMessage::NativeCleared(Ok(())) if self.stage == 0 => {
+                context.spawn_background(|_| {
+                    std::thread::sleep(Duration::from_millis(250));
+                    EncodedImageMessage::AwaitOverride
+                });
+            }
+            EncodedImageMessage::AwaitOverride if self.stage == 0 => {
+                self.stage = 1;
+            }
+            EncodedImageMessage::NativeCleared(Err(_)) => {
+                self.error = Some("native image source clear failed");
+            }
+            EncodedImageMessage::NativeCleared(Ok(())) => {
+                self.error = Some("received an unexpected native image source completion");
+            }
+            EncodedImageMessage::AwaitOverride => {
+                self.error = Some("received an unexpected native image source wait");
+            }
+            EncodedImageMessage::Advance(stage) if stage == self.stage => {
+                self.stage += 1;
+            }
+            EncodedImageMessage::Opened(stage) if stage == self.stage && stage == 1 => {
+                self.stage += 1;
+            }
+            EncodedImageMessage::Failed(2) if self.stage == 2 => {
+                self.stage = 3;
+            }
+            EncodedImageMessage::Opened(_) => {
+                self.error = Some("received an unexpected or duplicate ImageOpened event");
+            }
+            EncodedImageMessage::Failed(_) => {
+                self.error = Some("received an unexpected or duplicate ImageFailed event");
+            }
+            EncodedImageMessage::Advance(_) => {}
+        }
+    }
+
+    fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        if let Some(error) = self.error {
+            let complete = input.complete.clone();
+            context.use_effect("fail-encoded-image", (), move || {
+                if !complete.call(Err(error.to_string())) {
+                    eprintln!("encoded image fixture completion was rejected");
+                    std::process::exit(1);
+                }
+                None
+            });
+            return TextBlock::new().text(error).into();
+        }
+        if self.stage == 4 {
+            let complete = input.complete.clone();
+            context.use_effect("complete-encoded-image", (), move || {
+                if !complete.call(Ok(())) {
+                    eprintln!("encoded image fixture completion was rejected");
+                    std::process::exit(1);
+                }
+                None
+            });
+            return TextBlock::new().text("encoded image complete").into();
+        }
+
+        if self.stage == 0 {
+            let image = self.image.clone();
+            let sender = context.sender();
+            context.use_effect("override-encoded-image", (), move || {
+                if !image.request_set_native_source(None, move |result| {
+                    sender.send(EncodedImageMessage::NativeCleared(result));
+                }) {
+                    eprintln!("native image source clear was rejected");
+                    std::process::exit(1);
+                }
+                None
+            });
+        } else if self.stage == 3 {
+            let stage = self.stage;
+            let sender = context.sender();
+            context.use_effect("advance-encoded-image", stage, move || {
+                sender.send(EncodedImageMessage::Advance(stage));
+                None
+            });
+        }
+        let source = match self.stage {
+            0 => EncodedImage::from_static(include_bytes!(
+                "../../../../samples/reactor/samples/examples/image.png"
+            )),
+            1 => EncodedImage::from_static(include_bytes!(
+                "../../../../samples/reactor/gallery/assets/Image.png"
+            )),
+            2 => EncodedImage::from_static(b"not an encoded image"),
+            3 => EncodedImage::from_static(include_bytes!(
+                "../../../../samples/reactor/gallery/assets/Image.png"
+            )),
+            _ => unreachable!(),
+        };
+        let stage = self.stage;
+        Image::new()
+            .source_data(source)
+            .element_ref(&self.image)
+            .on_opened(context.callback(move |()| EncodedImageMessage::Opened(stage)))
+            .on_failed(context.callback(move |()| EncodedImageMessage::Failed(stage)))
+            .width(64.0)
+            .height(64.0)
+            .into()
+    }
+}
+
 pub(crate) struct ImageSourceLifecycle {
     device: Option<GpuDevice>,
     image: ElementRef<Image>,

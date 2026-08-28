@@ -57,6 +57,7 @@ mod grid;
 pub enum NativeSubscription {
     Event {
         _revoker: windows_core::EventRevoker,
+        revision: u32,
     },
     Property {
         object: DependencyObject,
@@ -87,6 +88,7 @@ pub struct WinUiRuntime {
     host_events: Rc<RefCell<Vec<NativeWork<HostEvent>>>>,
     async_ingress: Arc<Mutex<AsyncIngressQueue>>,
     async_state: Rc<RefCell<AsyncIngressState>>,
+    encoded_image_nodes: Rc<RefCell<HashSet<NodeId>>>,
     feedback: Rc<RefCell<HashMap<(NodeId, EventId), FeedbackExpectation>>>,
     controlled_collection_indices: HashMap<NodeId, i32>,
     content_dialogs: Rc<RefCell<HashMap<NodeId, ContentDialogLifecycle>>>,
@@ -106,6 +108,7 @@ pub struct WinUiRuntime {
     realizations: Rc<RefCell<Vec<NativeWork<RealizationRequest>>>>,
     retained_subtrees: HashMap<NodeId, NativeRetainedSubtree>,
     scheduler: Rc<RefCell<SchedulerState>>,
+    image_decode_tickets: HashMap<NodeId, u64>,
     image_scale_subscriptions: HashMap<(NodeId, u64), ImageScaleSubscriptions>,
     swap_chain_panel_subscriptions: HashMap<(NodeId, u64), SwapChainPanelSubscriptions>,
     subscriptions: HashMap<(NodeId, EventId), NativeSubscription>,
@@ -1700,19 +1703,21 @@ impl WinUiRuntime {
                 source,
                 completion,
             } => {
-                let result = match self.handles.get(node) {
-                    Some(Handle::Image(control)) => {
-                        let source = source
-                            .as_ref()
-                            .map(|source| source.cast::<ImageSource>().map_err(native_error))
-                            .transpose();
-                        source.and_then(|source| {
-                            control.SetSource(source.as_ref()).map_err(native_error)
-                        })
-                    }
+                let control = match self.handles.get(node) {
+                    Some(Handle::Image(control)) => Ok(control.clone()),
                     Some(_) => Err(RuntimeError::UnsupportedKind),
                     None => Err(RuntimeError::MissingNode(*node)),
                 };
+                let source = source
+                    .as_ref()
+                    .map(|source| source.cast::<ImageSource>().map_err(native_error))
+                    .transpose();
+                let result = control.and_then(|control| {
+                    source.and_then(|source| {
+                        self.release_encoded_image_source(*node);
+                        control.SetSource(source.as_ref()).map_err(native_error)
+                    })
+                });
                 _ = completion.call(result);
             }
             Command::ObserveImageScale {
@@ -1877,6 +1882,24 @@ impl WinUiRuntime {
             } => {
                 if matches!(
                     property,
+                    PropertyId::ImageSource | PropertyId::ImageIconSource
+                ) {
+                    self.release_encoded_image_source(*node);
+                    if let PropertyValue::EncodedImage(value) = value {
+                        self.encoded_image_nodes.borrow_mut().insert(*node);
+                        let handle = self
+                            .handles
+                            .get(node)
+                            .ok_or(RuntimeError::MissingNode(*node))?;
+                        clear_property(handle, *property)?;
+                        if let Err(error) = self.start_encoded_image(*node, value) {
+                            self.report_image_decode_error(error);
+                        }
+                        return Ok(());
+                    }
+                }
+                if matches!(
+                    property,
                     PropertyId::ButtonKeyboardAccelerators | PropertyId::GridKeyboardAccelerators
                 ) {
                     return match value {
@@ -1994,6 +2017,12 @@ impl WinUiRuntime {
                 }
             }
             Command::ClearProperty { node, property } => {
+                if matches!(
+                    property,
+                    PropertyId::ImageSource | PropertyId::ImageIconSource
+                ) {
+                    self.release_encoded_image_source(*node);
+                }
                 if matches!(
                     property,
                     PropertyId::ButtonKeyboardAccelerators | PropertyId::GridKeyboardAccelerators
@@ -3068,6 +3097,7 @@ impl WinUiRuntime {
             async_ingress: Arc::clone(&self.async_ingress),
             async_state: Rc::clone(&self.async_state),
             drop_policies: Rc::clone(&self.drop_policies),
+            encoded_image_nodes: Rc::clone(&self.encoded_image_nodes),
             feedback: Rc::clone(&self.feedback),
             content_dialogs: Rc::clone(&self.content_dialogs),
             content_dialog_subscriptions: Rc::clone(&self.content_dialog_subscriptions),
@@ -3150,6 +3180,7 @@ pub struct EventSink {
     async_ingress: Arc<Mutex<AsyncIngressQueue>>,
     async_state: Rc<RefCell<AsyncIngressState>>,
     drop_policies: Rc<RefCell<HashMap<NodeId, DragDropPolicy>>>,
+    encoded_image_nodes: Rc<RefCell<HashSet<NodeId>>>,
     feedback: Rc<RefCell<HashMap<(NodeId, EventId), FeedbackExpectation>>>,
     content_dialogs: Rc<RefCell<HashMap<NodeId, ContentDialogLifecycle>>>,
     content_dialog_subscriptions: Rc<RefCell<HashMap<NodeId, NativeSubscription>>>,
@@ -3447,6 +3478,11 @@ impl EventSink {
     }
 
     pub fn enqueue(&self, node: NodeId, event: EventId, revision: u32, payload: EventPayload) {
+        if self.encoded_image_nodes.borrow().contains(&node)
+            && matches!(event, EventId::ImageImageOpened | EventId::ImageImageFailed)
+        {
+            return;
+        }
         {
             let mut feedback = self.feedback.borrow_mut();
             if let Some(expected) = feedback.get_mut(&(node, event)) {
@@ -3725,15 +3761,44 @@ fn child_index(
 #[cfg(test)]
 mod tests {
     use super::{
-        AsyncIngressQueue, AsyncIngressSender, Command, DroppedData, NodeId, RuntimeError, SlotId,
-        WindowId, WindowToken, is_internal_detach, merge_retained_identities,
-        native_number_box_value, native_rating_value, native_selection_index, number_box_value,
-        physical_retained_index, rating_value, retained_subsequence, selection_index,
+        AsyncIngressQueue, AsyncIngressSender, Command, DroppedData, NodeId, PendingAsync,
+        RuntimeError, SlotId, WinUiRuntime, WindowId, WindowToken, is_internal_detach,
+        merge_retained_identities, native_number_box_value, native_rating_value,
+        native_selection_index, number_box_value, physical_retained_index, rating_value,
+        retained_subsequence, selection_index,
     };
+    use std::cell::Cell;
     use std::collections::HashSet;
     use std::marker::PhantomData;
+    use std::rc::Rc;
     use std::sync::atomic::{AtomicUsize, Ordering};
     use std::sync::{Arc, Mutex};
+
+    #[test]
+    fn releasing_encoded_image_source_cancels_pending_decode_and_ownership() {
+        let node = NodeId::from_parts(1, 0);
+        let ticket = 7;
+        let canceled = Rc::new(Cell::new(false));
+        let canceled_capture = Rc::clone(&canceled);
+        let mut runtime = WinUiRuntime::default();
+        runtime.encoded_image_nodes.borrow_mut().insert(node);
+        runtime.image_decode_tickets.insert(node, ticket);
+        runtime.async_state.borrow_mut().pending.insert(
+            ticket,
+            PendingAsync {
+                node,
+                cancel: Box::new(move || canceled_capture.set(true)),
+                finalize: Box::new(|_, _| {}),
+            },
+        );
+
+        runtime.release_encoded_image_source(node);
+
+        assert!(canceled.get());
+        assert!(!runtime.encoded_image_nodes.borrow().contains(&node));
+        assert!(!runtime.image_decode_tickets.contains_key(&node));
+        assert!(!runtime.async_state.borrow().pending.contains_key(&ticket));
+    }
 
     #[test]
     fn skips_only_internal_detaches_for_destroyed_subtrees() {
@@ -3995,6 +4060,8 @@ impl NativeRuntime for WinUiRuntime {
             );
         }
         self.subscriptions.clear();
+        self.encoded_image_nodes.borrow_mut().clear();
+        self.image_decode_tickets.clear();
         self.swap_chain_panel_subscriptions.clear();
         self.image_scale_subscriptions.clear();
         self.composition_host_subscriptions.clear();
@@ -4163,6 +4230,155 @@ impl WinUiRuntime {
         ))
     }
 
+    fn start_encoded_image(
+        &mut self,
+        node: NodeId,
+        image: &EncodedImage,
+    ) -> Result<(), RuntimeError> {
+        match self.handles.get(&node) {
+            Some(Handle::Image(_) | Handle::ImageIcon(_)) => {}
+            Some(_) => return Err(RuntimeError::UnsupportedKind),
+            None => return Err(RuntimeError::MissingNode(node)),
+        }
+
+        let stream = InMemoryRandomAccessStream::new().map_err(native_error)?;
+        let output = stream.GetOutputStreamAt(0).map_err(native_error)?;
+        let writer = DataWriter::CreateDataWriter(&output).map_err(native_error)?;
+        writer.WriteBytes(image.as_bytes()).map_err(native_error)?;
+        let operation = writer.StoreAsync().map_err(native_error)?;
+        let cancel_operation = operation.clone();
+        let (ticket, sender) = self.register_async_completion(
+            node,
+            move || {
+                _ = cancel_operation.Cancel();
+            },
+            move |runtime, result: Result<u32, RuntimeError>| {
+                runtime.image_decode_tickets.remove(&node);
+                if let Err(error) = result {
+                    runtime.report_image_decode_error(error);
+                    return;
+                }
+                if let Err(error) = runtime.start_bitmap_decode(node, stream, writer) {
+                    runtime.report_image_decode_error(error);
+                }
+            },
+        )?;
+        self.image_decode_tickets.insert(node, ticket);
+        if let Err(error) = operation.when(move |result| {
+            _ = sender.complete(result.map_err(native_error));
+        }) {
+            self.cancel_image_decode(node);
+            return Err(native_error(error));
+        }
+        Ok(())
+    }
+
+    fn start_bitmap_decode(
+        &mut self,
+        node: NodeId,
+        stream: InMemoryRandomAccessStream,
+        writer: DataWriter,
+    ) -> Result<(), RuntimeError> {
+        _ = writer.DetachStream().map_err(native_error)?;
+        stream.Seek(0).map_err(native_error)?;
+        let bitmap = BitmapImage::new().map_err(native_error)?;
+        let operation = bitmap
+            .cast::<IBitmapSource>()
+            .map_err(native_error)?
+            .SetSourceAsync(&stream)
+            .map_err(native_error)?;
+        let cancel_operation = operation.clone();
+        let (ticket, sender) = self.register_async_completion(
+            node,
+            move || {
+                _ = cancel_operation.Cancel();
+            },
+            move |runtime, result: Result<(), RuntimeError>| {
+                runtime.image_decode_tickets.remove(&node);
+                match result {
+                    Ok(()) => {
+                        if let Err(error) = runtime.set_decoded_image(node, &bitmap) {
+                            runtime.report_image_decode_error(error);
+                        } else {
+                            runtime.enqueue_image_decode_event(node, EventId::ImageImageOpened);
+                        }
+                    }
+                    Err(_) => {
+                        runtime.enqueue_image_decode_event(node, EventId::ImageImageFailed);
+                    }
+                }
+                drop(stream);
+            },
+        )?;
+        self.image_decode_tickets.insert(node, ticket);
+        if let Err(error) = operation.when(move |result| {
+            _ = sender.complete(result.map_err(native_error));
+        }) {
+            self.cancel_image_decode(node);
+            return Err(native_error(error));
+        }
+        Ok(())
+    }
+
+    fn set_decoded_image(&self, node: NodeId, bitmap: &BitmapImage) -> Result<(), RuntimeError> {
+        let source = bitmap.cast::<ImageSource>().map_err(native_error)?;
+        match self.handles.get(&node) {
+            Some(Handle::Image(control)) => control.SetSource(&source).map_err(native_error),
+            Some(Handle::ImageIcon(control)) => control.SetSource(&source).map_err(native_error),
+            Some(_) => Err(RuntimeError::UnsupportedKind),
+            None => Err(RuntimeError::MissingNode(node)),
+        }
+    }
+
+    fn cancel_image_decode(&mut self, node: NodeId) {
+        let Some(ticket) = self.image_decode_tickets.remove(&node) else {
+            return;
+        };
+        let pending = self.async_state.borrow_mut().pending.remove(&ticket);
+        if let Some(pending) = pending {
+            (pending.cancel)();
+        }
+    }
+
+    fn release_encoded_image_source(&mut self, node: NodeId) {
+        self.cancel_image_decode(node);
+        self.purge_image_events(node);
+        self.encoded_image_nodes.borrow_mut().remove(&node);
+    }
+
+    fn report_image_decode_error(&mut self, error: RuntimeError) {
+        let Some(identity) = self.identity.get() else {
+            return;
+        };
+        self.host_events.borrow_mut().push(NativeWork {
+            identity,
+            work: HostEvent::Error(error),
+        });
+    }
+
+    fn enqueue_image_decode_event(&mut self, node: NodeId, event: EventId) -> bool {
+        let Some(NativeSubscription::Event { revision, .. }) =
+            self.subscriptions.get(&(node, event))
+        else {
+            return false;
+        };
+        self.events.borrow_mut().push(NativeWork {
+            identity: self.identity.get().unwrap(),
+            work: QueuedEvent::new(node, event, *revision, EventPayload::Unit),
+        });
+        true
+    }
+
+    fn purge_image_events(&mut self, node: NodeId) {
+        self.events.borrow_mut().retain(|event| {
+            event.work.node != node
+                || !matches!(
+                    event.work.event,
+                    EventId::ImageImageOpened | EventId::ImageImageFailed
+                )
+        });
+    }
+
     fn start_retirement(
         &mut self,
         root: NodeId,
@@ -4175,6 +4391,10 @@ impl WinUiRuntime {
             || nodes.iter().any(|node| !self.contains(*node))
         {
             return Err(RuntimeError::MissingNode(root));
+        }
+        for node in &nodes {
+            self.cancel_image_decode(*node);
+            self.purge_image_events(*node);
         }
         let duration =
             TimeSpan::try_from(transition.duration()).map_err(|_| RuntimeError::UnsupportedKind)?;
@@ -4282,6 +4502,7 @@ impl WinUiRuntime {
     }
 
     fn remove_node_state(&mut self, node: NodeId) -> Result<(), RuntimeError> {
+        self.release_encoded_image_source(node);
         self.subscriptions
             .retain(|(subscription_node, _), _| *subscription_node != node);
         self.cancel_async_for_node(node);
@@ -4382,6 +4603,8 @@ impl WinUiRuntime {
         for pending in pending {
             (pending.cancel)();
         }
+        self.image_decode_tickets.clear();
+        self.encoded_image_nodes.borrow_mut().clear();
     }
 
     fn flush_async_ingress(&mut self) {
