@@ -1,60 +1,107 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn command_bar_flyout_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (last_action, set_last_action) = cx.use_state(String::from("(none)"));
+pub struct CommandBarFlyoutPage {
+    last_action: String,
+}
 
-    page_content(
-        "CommandBarFlyout",
-        "A flyout that provides quick access to common commands.",
-        vec![
-            sample_card(
-                "Basic CommandBarFlyout",
-                vstack((
-                    button("Show Commands")
-                        .command_bar_flyout(vec![
-                            app_bar_button_icon("Cut", Symbol::Cut),
-                            app_bar_button_icon("Copy", Symbol::Copy),
-                            app_bar_button_icon("Paste", Symbol::Paste),
-                        ])
-                        .on_command_bar_flyout_click({
-                            let set_last_action = set_last_action.clone();
-                            move |label| set_last_action.call(label)
-                        }),
-                    text_block(format!("Last action: {last_action}")).opacity(0.6),
-                ))
-                .spacing(8.0),
-                r#"button("Show Commands")
-    .command_bar_flyout(vec![
-        app_bar_button_icon("Cut", Symbol::Cut),
-        app_bar_button_icon("Copy", Symbol::Copy),
-        app_bar_button_icon("Paste", Symbol::Paste),
-    ])
-    .on_command_bar_flyout_click(|label| set_action.call(label))"#,
-            ),
-            sample_card(
-                "CommandBarFlyout with Secondary Commands",
-                button("More Options")
-                    .command_bar_flyout(vec![app_bar_button_icon("Share", Symbol::Send)])
-                    .command_bar_flyout_secondary(vec![
-                        app_bar_button("Select All"),
-                        app_bar_separator(),
-                        app_bar_button("Print"),
-                    ])
-                    .on_command_bar_flyout_click({
-                        let set_last_action = set_last_action;
-                        move |label| set_last_action.call(label)
-                    }),
-                r#"button("More Options")
-    .command_bar_flyout(vec![
-        app_bar_button_icon("Share", Symbol::Send),
-    ])
-    .command_bar_flyout_secondary(vec![
-        app_bar_button("Select All"),
-        app_bar_separator(),
-        app_bar_button("Print"),
-    ])"#,
-            ),
+impl Component for CommandBarFlyoutPage {
+    type Message = String;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            last_action: "(none)".to_string(),
+        }
+    }
+
+    fn update(&mut self, message: String, _context: &ComponentContext<Self>) {
+        self.last_action = message;
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        page_content(
+            "CommandBarFlyout",
+            "A flyout that provides quick access to common commands.",
+            [
+                KeyedView::new(
+                    "basic",
+                    sample_card(
+                        "Basic CommandBarFlyout",
+                        StackPanel::new().spacing(8.0).children((
+                            Button::new().content("Show Commands").command_bar_flyout(
+                                CommandBarFlyout::new(
+                                    [
+                                        CommandBarCommand::button_with_icon(
+                                            "cut",
+                                            "Cut",
+                                            Symbol::Cut,
+                                        ),
+                                        CommandBarCommand::button_with_icon(
+                                            "copy",
+                                            "Copy",
+                                            Symbol::Copy,
+                                        ),
+                                        CommandBarCommand::button_with_icon(
+                                            "paste",
+                                            "Paste",
+                                            Symbol::Paste,
+                                        ),
+                                    ],
+                                    [],
+                                    context.forward(),
+                                ),
+                            ),
+                            TextBlock::new()
+                                .text(format!("Last action: {}", self.last_action))
+                                .opacity(0.6),
+                        )),
+                        r#"Button::new()
+    .content("Show Commands")
+    .command_bar_flyout(CommandBarFlyout::new(
+        [
+            CommandBarCommand::button_with_icon("cut", "Cut", Symbol::Cut),
+            CommandBarCommand::button_with_icon("copy", "Copy", Symbol::Copy),
+            CommandBarCommand::button_with_icon("paste", "Paste", Symbol::Paste),
         ],
-    )
+        [],
+        context.forward(),
+    ))"#,
+                    ),
+                ),
+                KeyedView::new(
+                    "secondary",
+                    sample_card(
+                        "CommandBarFlyout with Secondary Commands",
+                        Button::new().content("More Options").command_bar_flyout(
+                            CommandBarFlyout::new(
+                                [CommandBarCommand::button_with_icon(
+                                    "share",
+                                    "Share",
+                                    Symbol::Send,
+                                )],
+                                [
+                                    CommandBarCommand::button("select-all", "Select All"),
+                                    CommandBarCommand::separator("separator"),
+                                    CommandBarCommand::button("print", "Print"),
+                                ],
+                                context.forward(),
+                            ),
+                        ),
+                        r#"Button::new()
+    .content("More Options")
+    .command_bar_flyout(CommandBarFlyout::new(
+        [CommandBarCommand::button_with_icon("share", "Share", Symbol::Send)],
+        [
+            CommandBarCommand::button("select-all", "Select All"),
+            CommandBarCommand::separator("separator"),
+            CommandBarCommand::button("print", "Print"),
+        ],
+        context.forward(),
+    ))"#,
+                    ),
+                ),
+            ],
+        )
+    }
 }

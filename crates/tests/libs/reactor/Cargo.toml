@@ -5,13 +5,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
-rustc-hash = { workspace = true }
-windows-core = { workspace = true }
-windows-reactor = { workspace = true, features = ["test", "canvas"] }
-windows-reference = { workspace = true, features = ["std"] }
-
-[build-dependencies]
-windows-reactor-setup = { workspace = true }
+windows-reactor = { workspace = true }
 
 [lints]
 workspace = true

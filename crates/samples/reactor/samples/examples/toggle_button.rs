@@ -1,28 +1,58 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (is_bold, set_bold) = cx.use_state(false);
-    let (is_italic, set_italic) = cx.use_state(false);
-
-    let on_bold = move |v: bool| set_bold.call(v);
-    let on_italic = move |v: bool| set_italic.call(v);
-
-    let style_label = match (is_bold, is_italic) {
-        (true, true) => "Bold + Italic",
-        (true, false) => "Bold",
-        (false, true) => "Italic",
-        (false, false) => "Normal",
-    };
-
-    vstack((
-        toggle_button("Bold", is_bold).on_checked(on_bold),
-        toggle_button("Italic", is_italic).on_checked(on_italic),
-        text_block(format!("Style: {style_label}")),
-    ))
-    .spacing(8.0)
-    .into()
+#[derive(Clone, Copy)]
+enum Message {
+    Bold(bool),
+    Italic(bool),
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("ToggleButton", app)
+struct ToggleButtonSample {
+    bold: bool,
+    italic: bool,
+}
+
+impl Component for ToggleButtonSample {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            bold: false,
+            italic: false,
+        }
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Bold(value) => self.bold = value,
+            Message::Italic(value) => self.italic = value,
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("ToggleButton");
+        let style = match (self.bold, self.italic) {
+            (true, true) => "Bold + Italic",
+            (true, false) => "Bold",
+            (false, true) => "Italic",
+            (false, false) => "Normal",
+        };
+        StackPanel::new().spacing(8.0).children((
+            ToggleButton::new()
+                .is_checked(self.bold)
+                .on_is_checked_changed(context.callback(Message::Bold))
+                .content("Bold"),
+            ToggleButton::new()
+                .is_checked(self.italic)
+                .on_is_checked_changed(context.callback(Message::Italic))
+                .content("Italic"),
+            format!("Style: {style}"),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<ToggleButtonSample>(()).unwrap();
 }

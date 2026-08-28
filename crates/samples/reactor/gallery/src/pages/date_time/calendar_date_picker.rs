@@ -1,40 +1,58 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn calendar_date_picker_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (selected_date, set_selected_date) = cx.use_state(String::from("No date selected"));
+pub struct CalendarDatePickerPage {
+    label: String,
+}
 
-    page_content(
-        "CalendarDatePicker",
-        "Pick a date from a calendar dropdown.",
-        vec![
-            sample_card(
-                "Basic CalendarDatePicker",
-                vstack((
-                    calendar_date_picker()
-                        .header("Appointment Date")
-                        .placeholder_text("Select a date")
-                        .on_date_changed({
-                            let set_selected_date = set_selected_date;
-                            move |date| {
-                                set_selected_date.call(format!("Selected: {date}"));
-                            }
-                        }),
-                    text_block(selected_date).opacity(0.6),
-                ))
-                .spacing(8.0),
-                r#"calendar_date_picker()
-    .header(\"Appointment Date\")
-    .on_date_changed(|date| set_selected_date.call(...))"#,
-            ),
-            sample_card(
-                "Disabled CalendarDatePicker",
-                calendar_date_picker()
-                    .header("Locked Date")
-                    .placeholder_text("Cannot change")
-                    .enabled(false),
-                r#"calendar_date_picker().enabled(false)"#,
-            ),
-        ],
-    )
+impl Component for CalendarDatePickerPage {
+    type Message = Option<DateTime>;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            label: "No date selected".to_string(),
+        }
+    }
+
+    fn update(&mut self, date: Option<DateTime>, _context: &ComponentContext<Self>) {
+        self.label = date.map_or_else(
+            || "No date selected".to_string(),
+            |date| format!("Selected: {date}"),
+        );
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        page_content(
+            "CalendarDatePicker",
+            "Pick a date from a calendar dropdown.",
+            [
+                KeyedView::new(
+                    "basic-calendar-date-picker",
+                    sample_card(
+                        "Basic CalendarDatePicker",
+                        StackPanel::new().spacing(8.0).children((
+                            CalendarDatePicker::new()
+                                .placeholder_text("Select a date")
+                                .on_date_changed(context.forward())
+                                .slot(CalendarDatePickerSlot::Header, "Appointment Date"),
+                            TextBlock::new().text(&self.label).opacity(0.6),
+                        )),
+                        "CalendarDatePicker::new()\n    .placeholder_text(\"Select a date\")\n    .on_date_changed(|date| ...)",
+                    ),
+                ),
+                KeyedView::new(
+                    "disabled-calendar-date-picker",
+                    sample_card(
+                        "Disabled CalendarDatePicker",
+                        CalendarDatePicker::new()
+                            .placeholder_text("Cannot change")
+                            .is_enabled(false)
+                            .slot(CalendarDatePickerSlot::Header, "Locked Date"),
+                        "CalendarDatePicker::new().is_enabled(false)",
+                    ),
+                ),
+            ],
+        )
+    }
 }

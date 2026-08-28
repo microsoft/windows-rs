@@ -1,0 +1,30 @@
+[package]
+name = "sample_reactor_virtual"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[features]
+perf = ["windows-reactor/test"]
+
+[dependencies]
+windows-reactor = { workspace = true }
+
+[dev-dependencies]
+windows-reactor = { workspace = true, features = ["test"] }
+
+[build-dependencies]
+windows-reactor-setup = { workspace = true }
+
+[[bin]]
+name = "reactor-virtual-perf"
+path = "src/perf_main.rs"
+required-features = ["perf"]
+
+[[bin]]
+name = "reactor-virtual-live-perf"
+path = "src/perf_live_main.rs"
+required-features = ["perf"]
+
+[lints]
+workspace = true

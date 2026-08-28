@@ -1,186 +1,109 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn grid_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (wide, set_wide) = cx.use_state(false);
+pub struct GridPage {
+    wide: bool,
+}
 
-    let basic_grid = {
-        let mut g = grid(())
-            .rows([GridLength::Auto, GridLength::Auto])
-            .columns([
-                GridLength::Star(1.0),
-                GridLength::Star(1.0),
-                GridLength::Star(1.0),
-            ])
-            .row_spacing(4.0)
-            .column_spacing(4.0)
-            .width(400.0);
-        g.children = vec![
-            text_block("1,1")
-                .padding(Thickness::uniform(12.0))
-                .grid_row(0)
-                .grid_column(0)
-                .into(),
-            text_block("1,2")
-                .padding(Thickness::uniform(12.0))
-                .grid_row(0)
-                .grid_column(1)
-                .into(),
-            text_block("1,3")
-                .padding(Thickness::uniform(12.0))
-                .grid_row(0)
-                .grid_column(2)
-                .into(),
-            text_block("2,1")
-                .padding(Thickness::uniform(12.0))
-                .grid_row(1)
-                .grid_column(0)
-                .into(),
-            text_block("2,2")
-                .padding(Thickness::uniform(12.0))
-                .grid_row(1)
-                .grid_column(1)
-                .into(),
-            text_block("2,3")
-                .padding(Thickness::uniform(12.0))
-                .grid_row(1)
-                .grid_column(2)
-                .into(),
-        ];
-        g
-    };
+impl Component for GridPage {
+    type Message = bool;
+    type Input = ();
 
-    let spanning_grid = {
-        let mut g = grid(())
-            .rows([GridLength::Auto, GridLength::Auto, GridLength::Auto])
-            .columns([
-                GridLength::Star(1.0),
-                GridLength::Star(1.0),
-                GridLength::Star(1.0),
-            ])
-            .row_spacing(4.0)
-            .column_spacing(4.0)
-            .width(400.0);
-        g.children = vec![
-            text_block("Header (spans 3 columns)")
-                .bold()
-                .padding(Thickness::uniform(12.0))
-                .grid_row(0)
-                .grid_column(0)
-                .grid_column_span(3)
-                .into(),
-            text_block("Left")
-                .padding(Thickness::uniform(12.0))
-                .grid_row(1)
-                .grid_column(0)
-                .into(),
-            text_block("Center (spans 2)")
-                .padding(Thickness::uniform(12.0))
-                .grid_row(1)
-                .grid_column(1)
-                .grid_column_span(2)
-                .into(),
-            text_block("Footer (spans 3)")
-                .padding(Thickness::uniform(12.0))
-                .grid_row(2)
-                .grid_column(0)
-                .grid_column_span(3)
-                .into(),
-        ];
-        g
-    };
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self { wide: false }
+    }
 
-    let mixed_grid = {
-        let mut g = grid(())
-            .rows([GridLength::Auto])
-            .columns([
-                GridLength::Pixel(100.0),
-                GridLength::Star(1.0),
-                GridLength::Star(2.0),
-            ])
-            .column_spacing(4.0)
-            .width(400.0);
-        g.children = vec![
-            text_block("100px")
-                .padding(Thickness::uniform(8.0))
-                .grid_row(0)
-                .grid_column(0)
-                .into(),
-            text_block("1*")
-                .padding(Thickness::uniform(8.0))
-                .grid_row(0)
-                .grid_column(1)
-                .into(),
-            text_block("2*")
-                .padding(Thickness::uniform(8.0))
-                .grid_row(0)
-                .grid_column(2)
-                .into(),
-        ];
-        g
-    };
+    fn update(&mut self, wide: bool, _: &ComponentContext<Self>) {
+        self.wide = wide;
+    }
 
-    let switchable_grid = if wide {
-        let mut g = grid(())
-            .rows([GridLength::Auto])
-            .columns([
-                GridLength::Star(1.0),
-                GridLength::Star(1.0),
-                GridLength::Star(1.0),
-            ])
-            .column_spacing(8.0);
-        g.children = vec![
-            text_block("Col 1").grid_column(0).into(),
-            text_block("Col 2").grid_column(1).into(),
-            text_block("Col 3").grid_column(2).into(),
-        ];
-        g
-    } else {
-        let mut g = grid(())
-            .rows([GridLength::Auto, GridLength::Auto])
-            .columns([GridLength::Star(1.0), GridLength::Star(1.0)])
-            .row_spacing(8.0)
-            .column_spacing(8.0);
-        g.children = vec![
-            text_block("Row 0, Col 0").grid_row(0).grid_column(0).into(),
-            text_block("Row 0, Col 1").grid_row(0).grid_column(1).into(),
-            text_block("Row 1, Col 0").grid_row(1).grid_column(0).into(),
-            text_block("Row 1, Col 1").grid_row(1).grid_column(1).into(),
-        ];
-        g
-    };
-
-    page_content(
-        "Grid",
-        "Arranges children in rows and columns with star/pixel/auto sizing.",
-        vec![
-            sample_card(
-                "Basic Grid (2×3)",
-                basic_grid,
-                r#"grid(()).rows([Auto, Auto]).columns([Star(1.0), Star(1.0), Star(1.0)])"#,
-            ),
-            sample_card(
-                "Column & Row Spanning",
-                spanning_grid,
-                r#"text_block("Header").grid_column_span(3)
-text_block("Center").grid_column(1).grid_column_span(2)"#,
-            ),
-            sample_card(
-                "Mixed Sizing (Pixel + Star)",
-                mixed_grid,
-                r#"grid(()).columns([Pixel(100.0), Star(1.0), Star(2.0)])"#,
-            ),
-            sample_card(
-                "Switchable Layout",
-                vstack((
-                    ToggleSwitch::new(wide)
-                        .header("Wide layout (3 columns)")
-                        .on_toggled(move |v: bool| set_wide.call(v)),
-                    switchable_grid,
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        let cell = |text, row, column| {
+            Border::new()
+                .background(ThemeBrush::CardBackground)
+                .padding(12.0)
+                .grid_row(row)
+                .grid_column(column)
+                .content(text)
+        };
+        let dynamic = if self.wide {
+            Grid::new()
+                .rows([GridLength::Auto])
+                .columns([GridLength::STAR; 3])
+                .column_spacing(8.0)
+                .children((
+                    cell("Column 1", 0, 0),
+                    cell("Column 2", 0, 1),
+                    cell("Column 3", 0, 2),
                 ))
-                .spacing(12.0),
-                r#"if wide { grid with 3 columns } else { grid with 2×2 }"#,
-            ),
-        ],
-    )
+        } else {
+            Grid::new()
+                .rows([GridLength::Auto; 2])
+                .columns([GridLength::STAR; 2])
+                .row_spacing(8.0)
+                .column_spacing(8.0)
+                .children((
+                    cell("Row 1, column 1", 0, 0),
+                    cell("Row 1, column 2", 0, 1),
+                    cell("Row 2, column 1", 1, 0),
+                    cell("Row 2, column 2", 1, 1),
+                ))
+        };
+        page_content(
+            "Grid",
+            "Arranges children in rows and columns with star, pixel, and auto sizing.",
+            [
+                KeyedView::new(
+                    "basic",
+                    sample_card(
+                        "Basic Grid",
+                        Grid::new()
+                            .rows([GridLength::Auto; 2])
+                            .columns([GridLength::STAR; 3])
+                            .row_spacing(4.0)
+                            .column_spacing(4.0)
+                            .children((
+                                cell("1,1", 0, 0),
+                                cell("1,2", 0, 1),
+                                cell("1,3", 0, 2),
+                                cell("2,1", 1, 0),
+                                cell("2,2", 1, 1),
+                                cell("2,3", 1, 2),
+                            )),
+                        "Grid::new().rows(rows).columns(columns).children(items)",
+                    ),
+                ),
+                KeyedView::new(
+                    "mixed",
+                    sample_card(
+                        "Mixed Sizing",
+                        Grid::new()
+                            .rows([GridLength::Auto])
+                            .columns([
+                                GridLength::Pixel(100.0),
+                                GridLength::Star(1.0),
+                                GridLength::Star(2.0),
+                            ])
+                            .column_spacing(4.0)
+                            .children((cell("100px", 0, 0), cell("1*", 0, 1), cell("2*", 0, 2))),
+                        "Grid::new().columns([Pixel(100.0), Star(1.0), Star(2.0)])",
+                    ),
+                ),
+                KeyedView::new(
+                    "switch",
+                    sample_card(
+                        "Switchable Layout",
+                        StackPanel::new().spacing(12.0).children((
+                            ToggleSwitch::new()
+                                .is_on(self.wide)
+                                .on_toggled(context.forward())
+                                .slot(ToggleSwitchSlot::Header, "Wide layout"),
+                            dynamic,
+                        )),
+                        "if wide { three columns } else { two by two }",
+                    ),
+                ),
+            ],
+        )
+    }
 }

@@ -1,0 +1,18 @@
+[package]
+name = "test_reactor_surface"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[features]
+self-contained = []
+
+[dependencies]
+windows-core = { workspace = true }
+windows-reactor = { workspace = true, features = ["test"] }
+
+[build-dependencies]
+windows-reactor-setup = { workspace = true }
+
+[lints]
+workspace = true

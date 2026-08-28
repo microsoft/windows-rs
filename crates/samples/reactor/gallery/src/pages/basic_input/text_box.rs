@@ -1,45 +1,79 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn text_box_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (text, set_text) = cx.use_state(String::new());
-    let (multi_text, set_multi) = cx.use_state(String::from("Hello\nWorld"));
+pub struct TextBoxPage {
+    text: String,
+    notes: String,
+}
 
-    page_content(
-        "TextBox",
-        "A single-line or multi-line text input field.",
-        vec![
-            sample_card(
-                "Basic TextBox",
-                vstack((
-                    text_box(&text)
-                        .header("Name")
-                        .placeholder_text("Type here...")
-                        .on_text_changed({
-                            let set_text = set_text;
-                            move |s: String| set_text.call(s)
-                        }),
-                    text_block(format!("Characters: {}", text.len())).opacity(0.6),
-                ))
-                .spacing(8.0),
-                r#"text_box(&text).header("Name").placeholder_text("Type here...").on_text_changed(handler)"#,
-            ),
-            sample_card(
-                "Multi-line TextBox",
-                text_box(&multi_text)
-                    .header("Notes")
-                    .multiline()
-                    .on_text_changed(move |s: String| set_multi.call(s))
-                    .height(120.0),
-                r#"text_box(&text).header("Notes").multiline()"#,
-            ),
-            sample_card(
-                "Disabled TextBox",
-                text_box("Read-only content")
-                    .header("Status")
-                    .enabled(false),
-                r#"text_box("content").enabled(false)"#,
-            ),
-        ],
-    )
+#[derive(Clone)]
+pub enum Message {
+    Text(String),
+    Notes(String),
+}
+
+impl Component for TextBoxPage {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            text: String::new(),
+            notes: "Hello\nWorld".to_string(),
+        }
+    }
+
+    fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
+        match message {
+            Message::Text(value) => self.text = value,
+            Message::Notes(value) => self.notes = value,
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        page_content(
+            "TextBox",
+            "A single-line or multi-line text input field.",
+            [
+                KeyedView::new(
+                    "basic",
+                    sample_card(
+                        "Basic TextBox",
+                        StackPanel::new().spacing(8.0).children((
+                            TextBox::new()
+                                .text(&self.text)
+                                .placeholder_text("Type here...")
+                                .on_text_changed(context.callback(Message::Text))
+                                .slot(TextBoxSlot::Header, "Name"),
+                            TextBlock::new()
+                                .text(format!("Characters: {}", self.text.len()))
+                                .opacity(0.6),
+                        )),
+                        "TextBox::new().text(value).on_text_changed(handler)",
+                    ),
+                ),
+                KeyedView::new(
+                    "multiline",
+                    sample_card(
+                        "Multi-line TextBox",
+                        TextBox::new()
+                            .text(&self.notes)
+                            .accepts_return(true)
+                            .text_wrapping(TextWrapping::Wrap)
+                            .height(120.0)
+                            .on_text_changed(context.callback(Message::Notes)),
+                        "TextBox::new().accepts_return(true).text_wrapping(TextWrapping::Wrap)",
+                    ),
+                ),
+                KeyedView::new(
+                    "disabled",
+                    sample_card(
+                        "Disabled TextBox",
+                        TextBox::new().text("Read-only content").is_enabled(false),
+                        "TextBox::new().text(content).is_enabled(false)",
+                    ),
+                ),
+            ],
+        )
+    }
 }

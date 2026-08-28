@@ -1,41 +1,54 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (selected, set_selected) = cx.use_state(-1_i32);
-
-    let update_selected = move |i: i32| set_selected.call(i);
-
-    let colors = ["Red", "Green", "Blue"];
-    let label = if selected >= 0 {
-        colors
-            .get(selected as usize)
-            .copied()
-            .unwrap_or("(out of range)")
-    } else {
-        "(none)"
-    };
-
-    vstack((
-        ComboBox::new(colors)
-            .header("Color")
-            .placeholder_text("Pick a color")
-            .selected_index(selected)
-            .on_selection_changed(update_selected),
-        text_block(format!("selected_index = {selected} ({label})")),
-        ComboBox::new(["Cat", "Dog", "Fox"])
-            .header("Editable")
-            .placeholder_text("Type or pick an animal")
-            .editable(true),
-        ComboBox::new(["A", "B", "C"])
-            .header("Disabled")
-            .selected_index(0)
-            .enabled(false),
-    ))
-    .spacing(8.0)
-    .max_width(320.0)
-    .into()
+struct ComboBoxSample {
+    selected: Option<usize>,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("ComboBox", app)
+impl Component for ComboBoxSample {
+    type Message = Option<usize>;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { selected: None }
+    }
+
+    fn update(&mut self, message: Option<usize>, _context: &ComponentContext<Self>) {
+        self.selected = message;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        let colors = ["Red", "Green", "Blue"];
+        let label = self
+            .selected
+            .and_then(|index| colors.get(index))
+            .copied()
+            .unwrap_or("(none)");
+
+        context.window_title("ComboBox");
+        StackPanel::new().spacing(8.0).max_width(320.0).children((
+            ComboBox::new()
+                .items_source(colors)
+                .placeholder_text("Pick a color")
+                .selected_index(self.selected)
+                .on_selection_changed(context.callback(|index| index))
+                .slot(ComboBoxSlot::Header, "Color"),
+            format!("selected_index = {:?} ({label})", self.selected),
+            ComboBox::new()
+                .items_source(["Cat", "Dog", "Fox"])
+                .placeholder_text("Type or pick an animal")
+                .is_editable(true)
+                .slot(ComboBoxSlot::Header, "Editable"),
+            ComboBox::new()
+                .items_source(["A", "B", "C"])
+                .selected_index(0)
+                .is_enabled(false)
+                .slot(ComboBoxSlot::Header, "Disabled"),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<ComboBoxSample>(()).unwrap();
 }

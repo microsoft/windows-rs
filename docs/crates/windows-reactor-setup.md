@@ -40,6 +40,10 @@ the executable. The XAML `WebView2` control used by [`windows-webview`](windows-
 default. Bundling it unconditionally keeps reactor apps that host a WebView2 working with no extra
 build step. The allow-list of WindowsAppSDK runtime files lives in `assets/runtime.txt`.
 
+The self-contained manifest includes a deployment marker. Reactor uses the marker, rather than the
+presence of staged DLLs, to choose between private activation and framework bootstrap. This keeps
+cached framework-dependent and self-contained executables usable from one Cargo target directory.
+
 The framework-dependent bootstrap DLLs committed under `bootstrap/<arch>/` are **not hand-copied** -
 `tool_reactor` refreshes them from the same pinned `Microsoft.WindowsAppSDK.Foundation` package it
 uses for the `.winmd` metadata, and `gen.yml` fails on any drift. See

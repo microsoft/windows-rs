@@ -1,35 +1,49 @@
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (label, set_label) = cx.use_state(String::from("Pick a date to see days from today"));
-
-    let on_date = move |selected: DateTime| {
-        let now = DateTime::now();
-        let text = match selected.checked_duration_since(now) {
-            Some(span) => {
-                let days = span.whole_days();
-                match days.cmp(&0) {
-                    std::cmp::Ordering::Greater => format!("{days} day(s) from now"),
-                    std::cmp::Ordering::Less => format!("{} day(s) ago", days.abs()),
-                    std::cmp::Ordering::Equal => String::from("That's today!"),
-                }
-            }
-            None => String::from("Date too far away to compute"),
-        };
-        set_label.call(text);
-    };
-
-    vstack((
-        calendar_date_picker()
-            .header("Select a date")
-            .placeholder_text("Choose...")
-            .on_date_changed(on_date),
-        text_block(&*label),
-    ))
-    .spacing(8.0)
-    .into()
+struct CalendarDatePickerSample {
+    label: String,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("CalendarDatePicker", app)
+impl Component for CalendarDatePickerSample {
+    type Message = Option<DateTime>;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            label: "Pick a date to see days from today".to_string(),
+        }
+    }
+
+    fn update(&mut self, selected: Option<DateTime>, _context: &ComponentContext<Self>) {
+        let now = DateTime::now();
+        self.label = match selected {
+            Some(selected) => match selected.checked_duration_since(now) {
+                Some(span) => {
+                    let days = span.whole_days();
+                    match days.cmp(&0) {
+                        std::cmp::Ordering::Greater => format!("{days} day(s) from now"),
+                        std::cmp::Ordering::Less => format!("{} day(s) ago", days.abs()),
+                        std::cmp::Ordering::Equal => "That's today!".to_string(),
+                    }
+                }
+                None => "Date too far away to compute".to_string(),
+            },
+            None => "No date selected".to_string(),
+        };
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("CalendarDatePicker");
+        StackPanel::new().spacing(8.0).children((
+            CalendarDatePicker::new()
+                .placeholder_text("Choose...")
+                .on_date_changed(context.forward())
+                .slot(CalendarDatePickerSlot::Header, "Select a date"),
+            self.label.as_str(),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<CalendarDatePickerSample>(()).unwrap();
 }

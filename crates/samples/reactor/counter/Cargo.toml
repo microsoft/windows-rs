@@ -1,0 +1,18 @@
+[package]
+name = "sample_reactor_counter"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[[bin]]
+name = "component"
+path = "src/component.rs"
+
+[dependencies]
+windows-reactor = { workspace = true }
+
+[build-dependencies]
+windows-reactor-setup = { workspace = true }
+
+[lints]
+workspace = true

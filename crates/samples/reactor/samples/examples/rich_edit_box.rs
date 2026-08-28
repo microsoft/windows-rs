@@ -1,26 +1,42 @@
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (text, set_text) = cx.use_state(String::new());
-
-    let on_changed = move |v: String| set_text.call(v);
-
-    vstack((
-        rich_edit_box(String::new())
-            .header("Rich Editor")
-            .placeholder_text("Type rich text here…")
-            .on_text_changed(on_changed)
-            .height(200.0),
-        text_block(format!("Plain text: {text}")),
-        rich_edit_box("Read-only content.".to_string())
-            .header("Read Only")
-            .read_only()
-            .height(100.0),
-    ))
-    .spacing(8.0)
-    .into()
+struct RichEditBoxSample {
+    text: String,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("RichEditBox", app)
+impl Component for RichEditBoxSample {
+    type Message = String;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            text: String::new(),
+        }
+    }
+
+    fn update(&mut self, text: String, _context: &ComponentContext<Self>) {
+        self.text = text;
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("RichEditBox");
+        StackPanel::new().spacing(8.0).children((
+            RichEditBox::new()
+                .text(self.text.clone())
+                .placeholder_text("Type rich text here...")
+                .on_text_changed(context.forward())
+                .height(200.0)
+                .slot(RichEditBoxSlot::Header, "Rich Editor"),
+            format!("Plain text: {}", self.text),
+            RichEditBox::new()
+                .text("Read-only content.")
+                .is_read_only(true)
+                .height(100.0)
+                .slot(RichEditBoxSlot::Header, "Read Only"),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<RichEditBoxSample>(()).unwrap();
 }

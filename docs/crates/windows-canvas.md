@@ -12,21 +12,25 @@
 Direct3D and Direct2D devices. From it, you create a `SwapChain` to present frames. Each frame,
 `begin_draw` returns a `DrawingSession`. Use it to clear, draw shapes and text, and fill regions.
 
-Use it inside a [`windows-reactor`](windows-reactor.md) window, or use it with your own `HWND`.
+Use it inside a [`windows-reactor`](windows-reactor.md) window, or use it with your own
+`HWND`.
 
 ## Getting started inside a reactor window
 
-Enable the reactor `canvas` feature. Then call `animated_canvas(draw)`. It returns a
-`SwapChainPanel` element. The element creates the device and swap chain. It handles resize, DPI
-changes, and device loss.
+Enable the Canvas `reactor` feature. Then call `animated_canvas(draw)`. It returns a component view
+that owns a typed `SwapChainPanel` reference. The component creates the device and swap chain and
+handles resize, DPI changes, unmount cleanup, and device loss.
 
 The closure receives a `DrawContext` and returns `Result<()>`, so resource creation inside it can
 use `?`. It derefs to the frame `DrawingSession`, so all drawing methods are available on `ctx`.
+The convenience functions fail fast on non-device-loss errors instead of leaving a blank surface.
+Applications that can recover use `Canvas::animated`, `Canvas::animated_with_device`, or
+`Canvas::invalidated`, then add `on_error` before converting the builder into a `View`.
 
 ```toml
 [dependencies]
-windows-reactor = { version = "0.100", features = ["canvas"] }
-windows-canvas = "0.100"
+windows-canvas = { version = "0.100", features = ["reactor"] }
+windows-reactor = "0.100"
 ```
 
 See the reactor canvas samples for a complete animated drawing loop.
@@ -46,9 +50,8 @@ client area can be shaped once and cached in a `use_ref`, then rebuilt only when
 reports a resize or device loss. See the `text_layout` sample.
 
 When content changes with app state rather than size, drive repaints with
-`canvas_invalidated(&inv, draw)`. Keep drawing state in a `use_ref`, mutate it in an event handler,
-then call `inv.invalidate()` to schedule one repaint. Mutating a `use_ref` does not reconcile the
-tree. Get a stable invalidator from `cx.use_invalidator()`:
+`canvas_invalidated(&inv, draw)`. Store an `Invalidator` and drawing state in the owning component,
+mutate the state in `Component::update`, then call `inv.invalidate()` to schedule one repaint.
 
 Use `canvas_invalidated` when event handlers mutate drawing state between renders.
 
@@ -72,21 +75,25 @@ On resize, call `chain.resize(width, height)`. Use `chain.set_dpi(..)` and
 `animated_canvas` presents a new frame each vsync. Use `CanvasImageSource` for static content. It
 redraws only when you call `draw`.
 
-Enable the reactor `canvas` feature. Create a `CanvasImageSource` from a device that you own.
-Display it with a reactor `Image` widget.
+Enable the Canvas `reactor` feature. Create a `CanvasImageSource` from a device that you own.
+Display it with a Reactor `Image` that has a typed `ElementRef<Image>`, then call
+`CanvasImageSource::attach`.
 
 `CanvasImageSource` draws on demand and exposes an image source for reactor's `Image` widget.
+`attach` fails fast when an accepted native attachment fails; `attach_result` reports the same
+`IntegrationError` to an application callback. Both return `false` without accepting a request when
+the image reference is unbound.
 
 `new(device, width, height, scale)` takes a size in DIPs. It uses the host DPI scale to allocate
 physical pixels. Drawing inside `draw` uses DIPs and origin `(0, 0)`.
 
-`draw` returns `Ok(false)` on device loss. Create a new `GpuDevice`, call `set_device`, and draw
-again.
+`draw` returns `Ok(false)` when `BeginDraw`, the drawing closure, or `EndDraw` reports device loss.
+Create a new `GpuDevice` and `CanvasImageSource`, attach the replacement source, and draw again.
 
-Get the `scale` from the reactor `Image`. `Image::on_mounted` returns an `ImageHandle`.
-`ImageHandle::on_rasterization_scale_changed` reports the host DPI scale. Rebuild the surface when
-the scale changes. See the `image_source` sample. For a full-window surface that resizes with the
-window, prefer `canvas`, which handles the device, swap chain, resize, and DPI for you.
+Call `ElementRef<Image>::observe_rasterization_scale` to receive the host DPI scale without
+exposing the native XAML object. Rebuild and reattach the surface when the scale changes. See the
+`image_source` sample. For a full-window surface that resizes with the window, prefer `canvas`,
+which handles the device, swap chain, resize, and DPI for you.
 
 ## Getting started with a composition surface
 
@@ -102,8 +109,9 @@ windows-composition = { version = "0.100", features = ["system"] }
 
 The composition bridge creates a graphics device and drawing surface from an existing compositor.
 
-`draw` runs inside the surface native `BeginDraw` and `EndDraw` bracket. It returns `Ok(false)` on
-device loss. Recreate the device, graphics device, and surface. Then draw again.
+`draw` runs inside the surface native `BeginDraw` and `EndDraw` bracket. It returns `Ok(false)` when
+`BeginDraw`, the drawing closure, or `EndDraw` reports device loss. Recreate the device, graphics
+device, and surface. Then draw again.
 
 There is no implicit clear. Clear or draw over the full surface. Coordinates are pixels with origin
 `(0, 0)`. The backing-atlas offset is applied for you. This path is system-only. See the
@@ -216,8 +224,8 @@ the reference `Windows.winmd` for WinRT numerics types.
 The safe wrappers are hand-written. They include `GpuDevice`, `SwapChain`, `DrawingSession`,
 geometry, text, bitmaps, brushes, effects, and render targets.
 
-The reactor integration lives in [`windows-reactor`](windows-reactor.md). It is behind the reactor
-`canvas` feature. The optional `composition` feature connects this crate to
+The reactor integration lives in this crate behind its `reactor` feature and depends on
+[`windows-reactor`](windows-reactor.md). The optional `composition` feature connects to
 [`windows-composition`](windows-composition.md).
 
 ### Design
@@ -242,17 +250,29 @@ The reactor integration lives in [`windows-reactor`](windows-reactor.md). It is 
 
 ### Reactor integration
 
-The reactor harness lives in [`windows-reactor`](windows-reactor.md). It exports `animated_canvas`,
-`canvas`, `canvas_invalidated`, `Invalidator`, `CanvasImageSource`, `CanvasSwapChain`, and
-`DrawContext` under the reactor `canvas` feature.
+The harness lives in `windows-canvas` under its `reactor` feature. It exports `Canvas`,
+`animated_canvas`, `animated_canvas_with_device`, `canvas`, `canvas_invalidated`,
+`CanvasImageSource`, `Invalidator`, and `DrawContext`.
 
-The dependency direction is `windows-reactor[canvas]` to `windows-canvas`. Reactor owns the WinUI
-element harness. That includes `SwapChainPanel`, `SurfaceImageSource`, the render loop, resize, DPI,
-and unmount cleanup.
+The dependency direction is `windows-canvas[reactor] -> windows-reactor`. Reactor generates a
+typed `SwapChainPanel` and `Image` references. Its commands accept application-owned swap chains
+and image sources, report surface metrics and frame notifications, and observe image
+rasterization scale. The XAML controls remain private. Canvas owns the device, swap chain, render
+loop, resize and DPI handling, device-loss recovery, image surfaces, and unmount cleanup.
 
-This crate exposes the drawing surface that the bridge needs. It includes `GpuDevice`, `SwapChain`,
-borrowed `DrawingSession` constructors, and the `ID2D1DeviceContext` interop type. This crate has no
-`windows-reactor` dependency.
+Canvas marks a swap chain ready only after Reactor reports that native attachment completed. Initial
+attachment, reference reattachment, and device-loss rebuild each use a new generation so stale
+completion callbacks cannot ready a newer surface. A failed attachment remains unattached and
+retries on a later rendering callback. Demand rendering stays invalidated while unattached, and
+Canvas does not draw or present until attachment succeeds.
+
+`Canvas::on_error` receives Reactor's shared `IntegrationError` for initialization, attachment,
+resize, draw, present, and failed-recovery errors. Repeated frames do not repeat the same error;
+successful attachment or presentation starts a new failure episode. Device loss remains an
+automatic recovery signal and is reported only when rebuilding the surface fails.
+
+The old manually managed `CanvasSwapChain` sample was expressible with `canvas_invalidated`, so the
+Reactor bridge does not add a second low-level wrapper for it.
 
 Input belongs to reactor. Geometry queries belong to canvas. Pointer events use DIPs. Apps map those
 DIPs into canvas space with their own transform.

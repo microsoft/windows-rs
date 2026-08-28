@@ -1,6 +1,5 @@
 #![windows_subsystem = "windows"]
 
-use std::rc::Rc;
 use std::time::Duration;
 
 use windows_reactor::*;
@@ -389,6 +388,7 @@ struct AppState {
     elapsed_seconds: u32,
     chord_preview: Option<(usize, usize)>,
     rng_seed: u64,
+    timer_generation: u64,
 }
 
 impl AppState {
@@ -398,6 +398,7 @@ impl AppState {
             elapsed_seconds: 0,
             chord_preview: None,
             rng_seed: seed,
+            timer_generation: 0,
         }
     }
 }
@@ -485,23 +486,14 @@ fn smiley(phase: GamePhase) -> &'static str {
     }
 }
 
-#[derive(Clone)]
-struct CellHandlers {
-    on_reveal: Rc<dyn Fn(usize, usize)>,
-    on_flag: Rc<dyn Fn(usize, usize)>,
-    on_chord: Rc<dyn Fn(usize, usize)>,
-    on_begin_chord_preview: Rc<dyn Fn(usize, usize)>,
-    on_end_chord_preview: Rc<dyn Fn(bool)>,
-}
-
 fn build_cell(
     board: &Board,
     chord_preview_center: Option<(usize, usize)>,
     r: usize,
     c: usize,
     size: f64,
-    handlers: CellHandlers,
-) -> Element {
+    context: &ViewContext<Dotsweeper>,
+) -> KeyedView {
     let cell = board.cell(r, c);
     let is_exploded = board.exploded_at == Some((r, c));
     let is_lost = board.phase == GamePhase::Lost;
@@ -515,117 +507,74 @@ fn build_cell(
     let skin = compute_skin(cell, is_lost, is_exploded, is_preview);
     let glyph = cell_glyph(skin, cell);
 
-    let fg: BrushBinding = match skin {
+    let fg: Brush = match skin {
         CellSkin::ExplodedMine => Color::rgb(0xFF, 0xFF, 0xFF).into(),
         CellSkin::WrongFlag => EXPLOSION_RED.into(),
         CellSkin::Revealed if cell.adjacent_mines > 0 => number_color(cell.adjacent_mines).into(),
         CellSkin::Covered | CellSkin::CoveredPreview if cell.mark == CellMark::Question => {
-            ThemeRef::Accent.into()
+            ThemeBrush::Accent.into()
         }
-        _ => ThemeRef::PrimaryText.into(),
+        _ => ThemeBrush::PrimaryText.into(),
     };
-    let bg: BrushBinding = match skin {
+    let bg: Brush = match skin {
         CellSkin::ExplodedMine => EXPLOSION_RED.into(),
-        CellSkin::RevealedMine | CellSkin::WrongFlag => ThemeRef::SubtleFill.into(),
-        CellSkin::Revealed => ThemeRef::LayerFill.into(),
+        CellSkin::RevealedMine | CellSkin::WrongFlag => ThemeBrush::CardBackground.into(),
+        CellSkin::Revealed => ThemeBrush::SolidBackground.into(),
         CellSkin::CoveredPreview => COVERED_PREVIEW_FILL.into(),
         CellSkin::Covered => COVERED_FILL.into(),
     };
 
     let chordable_here = cell.is_revealed && cell.adjacent_mines > 0;
-    let covered_here = !cell.is_revealed && cell.mark != CellMark::Flag;
-
-    let pp_handler = {
-        let begin = handlers.on_begin_chord_preview.clone();
-        move |info: PointerEventInfo| {
-            if is_lost || is_won {
-                return;
-            }
-            if info.is_right_button_pressed && chordable_here {
-                begin(r, c);
-            }
-        }
+    let action = if chordable_here {
+        Message::Chord(r, c)
+    } else {
+        Message::Reveal(r, c)
     };
-
-    let pr_handler = {
-        let end = handlers.on_end_chord_preview.clone();
-        move |info: PointerEventInfo| {
-            if is_lost || is_won {
-                return;
-            }
-            if !info.is_right_button_pressed {
-                end(true);
-            }
-        }
-    };
-
-    let pe_handler = {
-        let end = handlers.on_end_chord_preview.clone();
-        move || end(false)
-    };
-
-    let tap_handler = {
-        let reveal_cb = handlers.on_reveal.clone();
-        let chord_cb = handlers.on_chord.clone();
-        move || {
-            if is_lost || is_won {
-                return;
-            }
-            if chordable_here {
-                chord_cb(r, c);
-            } else if !cell.is_revealed {
-                reveal_cb(r, c);
-            }
-        }
-    };
-
-    let rtap_handler = {
-        let flag_cb = handlers.on_flag.clone();
-        move || {
-            if is_lost || is_won || chordable_here {
-                return;
-            }
-            if covered_here || matches!(cell.mark, CellMark::Flag | CellMark::Question) {
-                flag_cb(r, c);
-            }
-        }
-    };
-
-    let btn = button(glyph)
-        .with_key(format!("cell-{r}-{c}"))
+    let resources = ResourceOverrides::new()
+        .set("ButtonBackground", Color::transparent())
+        .set("ButtonBackgroundPointerOver", Color::transparent())
+        .set("ButtonBackgroundPressed", Color::transparent());
+    let button = Button::new()
         .width(size)
         .height(size)
         .horizontal_alignment(HorizontalAlignment::Stretch)
         .vertical_alignment(VerticalAlignment::Stretch)
-        .foreground(fg)
-        .background(bg)
-        .on_tapped(tap_handler)
-        .on_right_tapped(rtap_handler)
-        .on_pointer_pressed(pp_handler)
-        .on_pointer_released(pr_handler)
-        .on_pointer_exited(pe_handler);
+        .resource_overrides(resources)
+        .is_enabled(!is_lost && !is_won)
+        .on_click(context.message(action))
+        .content(TextBlock::new().text(glyph).foreground(fg));
 
-    btn.grid_row(r as i32).grid_column(c as i32).into()
+    KeyedView::new(
+        format!("cell-{r}-{c}"),
+        Border::new()
+            .background(bg)
+            .grid_row(r as i32)
+            .grid_column(c as i32)
+            .on_pointer_pressed(context.callback(move |info| Message::PointerPressed(r, c, info)))
+            .on_pointer_released(context.callback(Message::PointerReleased))
+            .on_pointer_exited(context.callback(|_| Message::PointerExited))
+            .content(button),
+    )
 }
 
 fn build_board(
     board: &Board,
     chord_preview_center: Option<(usize, usize)>,
-    handlers: CellHandlers,
-) -> Border {
+    context: &ViewContext<Dotsweeper>,
+) -> View {
     let size = cell_size(board.difficulty);
     let rows = board.rows();
     let cols = board.cols();
 
-    let children: Vec<Element> = (0..(rows * cols))
+    let children: Vec<KeyedView> = (0..(rows * cols))
         .map(|pos| {
             let r = pos / cols;
             let c = pos % cols;
-            build_cell(board, chord_preview_center, r, c, size, handlers.clone())
+            build_cell(board, chord_preview_center, r, c, size, context)
         })
         .collect();
 
-    let mut g = grid(children);
+    let mut g = Grid::new();
     let mut row_tracks: Vec<GridLength> = Vec::with_capacity(rows);
     for _ in 0..rows {
         row_tracks.push(GridLength::Pixel(size));
@@ -636,30 +585,33 @@ fn build_board(
     }
     g = g.rows(row_tracks).columns(col_tracks);
 
-    border(g)
-        .background(ThemeRef::LayerFill)
+    Border::new()
+        .background(ThemeBrush::SolidBackground)
         .padding(Thickness::uniform(1.0))
         .horizontal_alignment(HorizontalAlignment::Center)
+        .content(g.keyed_children(children))
 }
 
-fn led_display(value: i32) -> Border {
+fn led_display(value: i32) -> View {
     let clamped = value.clamp(-99, 999);
     let text = if clamped < 0 {
         format!("-{:02}", -clamped)
     } else {
         format!("{clamped:03}")
     };
-    border(
-        text_block(text)
-            .font_size(22.0)
-            .bold()
-            .foreground(Color::rgb(0xFF, 0x3B, 0x30))
-            .horizontal_alignment(HorizontalAlignment::Center)
-            .vertical_alignment(VerticalAlignment::Center),
-    )
-    .background(Color::rgb(0x1A, 0x00, 0x00))
-    .padding(Thickness::xy(8.0, 2.0))
-    .min_width(64.0)
+    Border::new()
+        .background(Color::rgb(0x1A, 0x00, 0x00))
+        .padding(Thickness::xy(8.0, 2.0))
+        .min_width(64.0)
+        .content(
+            TextBlock::new()
+                .text(text)
+                .font_size(22.0)
+                .font_weight(FontWeight::BOLD)
+                .foreground(Color::rgb(0xFF, 0x3B, 0x30))
+                .horizontal_alignment(HorizontalAlignment::Center)
+                .vertical_alignment(VerticalAlignment::Center),
+        )
 }
 
 fn status_subtitle(state: &AppState) -> String {
@@ -675,187 +627,181 @@ fn status_subtitle(state: &AppState) -> String {
     }
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (state, update) = cx.use_reducer(AppState::initial(Difficulty::BEGINNER, fresh_seed()));
-
-    let on_reveal: Rc<dyn Fn(usize, usize)> = {
-        let u = update.clone();
-        Rc::new(move |r: usize, c: usize| {
-            u.call(move |mut s| {
-                let mut rng = Lcg::new(s.rng_seed);
-                s.board = reveal(s.board, r, c, &mut rng);
-                s.rng_seed = rng.state;
-                s.chord_preview = None;
-                s
-            });
-        })
-    };
-
-    let on_flag: Rc<dyn Fn(usize, usize)> = {
-        let u = update.clone();
-        Rc::new(move |r: usize, c: usize| {
-            u.call(move |mut s| {
-                s.board = toggle_flag(s.board, r, c);
-                s
-            });
-        })
-    };
-
-    let on_chord: Rc<dyn Fn(usize, usize)> = {
-        let u = update.clone();
-        Rc::new(move |r: usize, c: usize| {
-            u.call(move |mut s| {
-                let mut rng = Lcg::new(s.rng_seed);
-                s.board = chord(s.board, r, c, &mut rng);
-                s.rng_seed = rng.state;
-                s.chord_preview = None;
-                s
-            });
-        })
-    };
-
-    let on_begin_chord_preview: Rc<dyn Fn(usize, usize)> = {
-        let u = update.clone();
-        Rc::new(move |r: usize, c: usize| {
-            u.call(move |mut s| {
-                s.chord_preview = Some((r, c));
-                s
-            });
-        })
-    };
-
-    let on_end_chord_preview: Rc<dyn Fn(bool)> = {
-        let u = update.clone();
-        Rc::new(move |commit: bool| {
-            u.call(move |mut s| {
-                if let Some((r, c)) = s.chord_preview.take()
-                    && commit
-                {
-                    let mut rng = Lcg::new(s.rng_seed);
-                    s.board = chord(s.board, r, c, &mut rng);
-                    s.rng_seed = rng.state;
-                }
-                s
-            });
-        })
-    };
-
-    let on_reset = {
-        let u = update.clone();
-        move || {
-            u.call(move |s| {
-                let diff = s.board.difficulty;
-                AppState {
-                    board: Board::new_game(diff),
-                    elapsed_seconds: 0,
-                    chord_preview: None,
-                    rng_seed: s.rng_seed.wrapping_add(RNG_SEED_INCREMENT),
-                }
-            });
-        }
-    };
-
-    let on_new_game = {
-        let u = update.clone();
-        move |d: Difficulty| {
-            u.call(move |s| AppState {
-                board: Board::new_game(d),
-                elapsed_seconds: 0,
-                chord_preview: None,
-                rng_seed: s.rng_seed.wrapping_add(RNG_SEED_INCREMENT),
-            });
-        }
-    };
-
-    let should_tick = state.board.phase == GamePhase::Playing;
-    let timer_update = update;
-    cx.use_effect_with_cleanup((should_tick,), move || {
-        if !should_tick {
-            return None;
-        }
-        let u = timer_update;
-        let timer = DispatcherTimer::new(Duration::from_secs(1), move || {
-            u.call(|mut s| {
-                if s.board.phase == GamePhase::Playing {
-                    s.elapsed_seconds = s.elapsed_seconds.saturating_add(1).min(999);
-                }
-                s
-            });
-        })
-        .ok();
-        Some(move || drop(timer))
-    });
-
-    let smiley_button = button(smiley(state.board.phase))
-        .on_click(on_reset)
-        .width(56.0)
-        .height(40.0);
-
-    let status_panel = hstack((
-        led_display(state.board.mines_remaining()).horizontal_alignment(HorizontalAlignment::Left),
-        smiley_button.horizontal_alignment(HorizontalAlignment::Center),
-        led_display(state.elapsed_seconds as i32).horizontal_alignment(HorizontalAlignment::Right),
-    ))
-    .spacing(16.0)
-    .padding(Thickness::xy(12.0, 8.0))
-    .horizontal_alignment(HorizontalAlignment::Center);
-
-    let status_card = border(status_panel)
-        .background(ThemeRef::LayerFill)
-        .padding(Thickness::xy(2.0, 2.0))
-        .horizontal_alignment(HorizontalAlignment::Center);
-
-    let mk_diff = |label: &'static str, d: Difficulty| -> Element {
-        let h = on_new_game.clone();
-        let mut b = button(label).on_click(move || h(d));
-        if state.board.difficulty.kind == d.kind {
-            b = b.foreground(ThemeRef::Accent);
-        }
-        b.into()
-    };
-
-    let toolbar = hstack((
-        mk_diff("Beginner", Difficulty::BEGINNER),
-        mk_diff("Intermediate", Difficulty::INTERMEDIATE),
-        mk_diff("Expert", Difficulty::EXPERT),
-    ))
-    .spacing(8.0)
-    .horizontal_alignment(HorizontalAlignment::Center);
-
-    let cell_handlers = CellHandlers {
-        on_reveal,
-        on_flag,
-        on_chord,
-        on_begin_chord_preview,
-        on_end_chord_preview,
-    };
-    let board_view = build_board(&state.board, state.chord_preview, cell_handlers);
-
-    let title_bar = TitleBar::new("windows_reactor — dotsweeper").subtitle(status_subtitle(&state));
-
-    vstack((
-        title_bar,
-        vstack((
-            status_card.margin(Thickness {
-                top: 12.0,
-                bottom: 4.0,
-                ..Thickness::default()
-            }),
-            toolbar,
-            board_view.margin(Thickness {
-                top: 8.0,
-                bottom: 12.0,
-                ..Thickness::default()
-            }),
-        ))
-        .spacing(8.0),
-    ))
-    .into()
+#[derive(Clone)]
+enum Message {
+    Reveal(usize, usize),
+    Chord(usize, usize),
+    PointerPressed(usize, usize, PointerEventInfo),
+    PointerReleased(PointerEventInfo),
+    PointerExited,
+    Reset,
+    NewGame(Difficulty),
+    Tick(u64),
 }
 
-fn main() -> Result<()> {
-    bootstrap()?;
-    App::new().title("windows_reactor — dotsweeper").render(app)
+struct Dotsweeper {
+    state: AppState,
+}
+
+impl Dotsweeper {
+    fn schedule_tick(&self, context: &ComponentContext<Self>) {
+        let generation = self.state.timer_generation;
+        context.spawn_background(move |cancellation| {
+            std::thread::sleep(Duration::from_secs(1));
+            if cancellation.is_cancelled() {
+                Message::PointerExited
+            } else {
+                Message::Tick(generation)
+            }
+        });
+    }
+
+    fn reset(&mut self, difficulty: Difficulty) {
+        self.state.board = Board::new_game(difficulty);
+        self.state.elapsed_seconds = 0;
+        self.state.chord_preview = None;
+        self.state.rng_seed = self.state.rng_seed.wrapping_add(RNG_SEED_INCREMENT);
+        self.state.timer_generation = self.state.timer_generation.wrapping_add(1);
+    }
+}
+
+impl Component for Dotsweeper {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            state: AppState::initial(Difficulty::BEGINNER, fresh_seed()),
+        }
+    }
+
+    fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
+        match message {
+            Message::Reveal(r, c) => {
+                let start_timer = self.state.board.phase == GamePhase::NotStarted;
+                let mut rng = Lcg::new(self.state.rng_seed);
+                self.state.board = reveal(self.state.board.clone(), r, c, &mut rng);
+                self.state.rng_seed = rng.state;
+                self.state.chord_preview = None;
+                if start_timer && self.state.board.phase == GamePhase::Playing {
+                    self.schedule_tick(context);
+                }
+            }
+            Message::Chord(r, c) => {
+                let mut rng = Lcg::new(self.state.rng_seed);
+                self.state.board = chord(self.state.board.clone(), r, c, &mut rng);
+                self.state.rng_seed = rng.state;
+                self.state.chord_preview = None;
+            }
+            Message::PointerPressed(r, c, info) if info.is_right_button_pressed => {
+                let cell = self.state.board.cell(r, c);
+                if cell.is_revealed && cell.adjacent_mines > 0 {
+                    self.state.chord_preview = Some((r, c));
+                } else {
+                    self.state.board = toggle_flag(self.state.board.clone(), r, c);
+                }
+            }
+            Message::PointerPressed(_, _, _) => {}
+            Message::PointerReleased(info) => {
+                if !info.is_right_button_pressed
+                    && let Some((r, c)) = self.state.chord_preview.take()
+                {
+                    let mut rng = Lcg::new(self.state.rng_seed);
+                    self.state.board = chord(self.state.board.clone(), r, c, &mut rng);
+                    self.state.rng_seed = rng.state;
+                }
+            }
+            Message::PointerExited => self.state.chord_preview = None,
+            Message::Reset => self.reset(self.state.board.difficulty),
+            Message::NewGame(difficulty) => self.reset(difficulty),
+            Message::Tick(generation)
+                if generation == self.state.timer_generation
+                    && self.state.board.phase == GamePhase::Playing =>
+            {
+                self.state.elapsed_seconds = self.state.elapsed_seconds.saturating_add(1).min(999);
+                self.schedule_tick(context);
+            }
+            Message::Tick(_) => {}
+        }
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("windows_reactor — dotsweeper");
+        let smiley_button = Button::new()
+            .on_click(context.message(Message::Reset))
+            .width(56.0)
+            .height(40.0)
+            .content(smiley(self.state.board.phase));
+
+        let status_panel = StackPanel::new()
+            .orientation(Orientation::Horizontal)
+            .spacing(16.0)
+            .horizontal_alignment(HorizontalAlignment::Center)
+            .children((
+                Border::new()
+                    .horizontal_alignment(HorizontalAlignment::Left)
+                    .content(led_display(self.state.board.mines_remaining())),
+                Border::new()
+                    .horizontal_alignment(HorizontalAlignment::Center)
+                    .content(smiley_button),
+                Border::new()
+                    .horizontal_alignment(HorizontalAlignment::Right)
+                    .content(led_display(self.state.elapsed_seconds as i32)),
+            ));
+
+        let status_card = Border::new()
+            .background(ThemeBrush::SolidBackground)
+            .padding(Thickness::xy(14.0, 10.0))
+            .margin(Thickness::new(0.0, 12.0, 0.0, 4.0))
+            .horizontal_alignment(HorizontalAlignment::Center)
+            .content(status_panel);
+
+        let difficulty_button = |label: &'static str, difficulty: Difficulty| {
+            let text: View = if self.state.board.difficulty.kind == difficulty.kind {
+                TextBlock::new()
+                    .text(label)
+                    .foreground(ThemeBrush::Accent)
+                    .into()
+            } else {
+                label.into()
+            };
+            Button::new()
+                .on_click(context.message(Message::NewGame(difficulty)))
+                .content(text)
+        };
+        let toolbar = StackPanel::new()
+            .orientation(Orientation::Horizontal)
+            .spacing(8.0)
+            .horizontal_alignment(HorizontalAlignment::Center)
+            .children((
+                difficulty_button("Beginner", Difficulty::BEGINNER),
+                difficulty_button("Intermediate", Difficulty::INTERMEDIATE),
+                difficulty_button("Expert", Difficulty::EXPERT),
+            ));
+        let board = Border::new()
+            .margin(Thickness::new(0.0, 8.0, 0.0, 12.0))
+            .content(build_board(
+                &self.state.board,
+                self.state.chord_preview,
+                context,
+            ));
+
+        StackPanel::new()
+            .orientation(Orientation::Vertical)
+            .children((
+                TitleBar::new()
+                    .title("windows_reactor — dotsweeper")
+                    .subtitle(status_subtitle(&self.state)),
+                StackPanel::new()
+                    .orientation(Orientation::Vertical)
+                    .spacing(8.0)
+                    .children((status_card, toolbar, board)),
+            ))
+    }
+}
+
+fn main() {
+    App::run_component::<Dotsweeper>(()).unwrap();
 }
 
 #[cfg(test)]

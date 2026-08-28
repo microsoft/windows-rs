@@ -297,60 +297,71 @@ fn tile_automation_name(game: &Game, idx: usize) -> String {
     format!("Tile {position}, {state}")
 }
 
-enum Action {
+#[derive(Clone)]
+enum Message {
     Reveal(usize, usize),
     Flag(usize, usize),
     Reset,
 }
 
-fn reduce(state: Game, action: Action) -> Game {
-    match action {
-        Action::Reveal(x, y) => apply_reveal(&state, x, y).unwrap_or(state),
-        Action::Flag(x, y) => apply_flag(&state, x, y).unwrap_or(state),
-        Action::Reset => Game::new(),
+impl Component for Game {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self::new()
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Reveal(x, y) => {
+                if let Some(next) = apply_reveal(self, x, y) {
+                    *self = next;
+                }
+            }
+            Message::Flag(x, y) => {
+                if let Some(next) = apply_flag(self, x, y) {
+                    *self = next;
+                }
+            }
+            Message::Reset => *self = Self::new(),
+        }
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("windows_reactor — minesweeper");
+        let header = StackPanel::new()
+            .orientation(Orientation::Vertical)
+            .spacing(8.0)
+            .margin(Thickness::new(0.0, 12.0, 0.0, 4.0))
+            .children((
+                TextBlock::new()
+                    .text(status_line(self))
+                    .font_weight(FontWeight::BOLD)
+                    .font_size(20.0)
+                    .horizontal_alignment(HorizontalAlignment::Center),
+                Button::new()
+                    .on_click(context.message(Message::Reset))
+                    .horizontal_alignment(HorizontalAlignment::Center)
+                    .content("New Game"),
+            ));
+
+        let board = build_board(self, context);
+        StackPanel::new()
+            .orientation(Orientation::Vertical)
+            .children((
+                TitleBar::new().title("windows_reactor — minesweeper"),
+                StackPanel::new()
+                    .orientation(Orientation::Vertical)
+                    .spacing(12.0)
+                    .children((header, board)),
+            ))
     }
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (game, dispatch) = cx.use_reducer_fn(reduce, Game::new());
-
-    let reset_handler = {
-        let d = dispatch.clone();
-        move || d.call(Action::Reset)
-    };
-
-    let reveal_handler = make_reveal_handler(dispatch.clone());
-    let flag_handler = make_flag_handler(dispatch);
-
-    let header = vstack((
-        text_block(status_line(&game))
-            .bold()
-            .font_size(20.0)
-            .horizontal_alignment(HorizontalAlignment::Center),
-        button("New Game")
-            .on_click(reset_handler)
-            .horizontal_alignment(HorizontalAlignment::Center),
-    ))
-    .spacing(8.0)
-    .margin(Thickness {
-        top: 12.0,
-        bottom: 4.0,
-        ..Thickness::default()
-    });
-
-    let board = build_board(&game, reveal_handler, flag_handler);
-
-    let title_bar = TitleBar::new("windows_reactor — minesweeper");
-    vstack((title_bar, vstack((header, board)).spacing(12.0))).into()
-}
-
-fn build_board(
-    game: &Game,
-    reveal_handler: impl Fn(usize, usize) + Clone + 'static,
-    flag_handler: impl Fn(usize, usize) + Clone + 'static,
-) -> Element {
-    let cells = build_cells(game, reveal_handler, flag_handler);
-    grid(cells)
+fn build_board(game: &Game, context: &ViewContext<Game>) -> View {
+    let cells = build_cells(game, context);
+    Grid::new()
         .rows([GridLength::STAR; HEIGHT])
         .columns([GridLength::STAR; WIDTH])
         .row_spacing(2.0)
@@ -358,14 +369,10 @@ fn build_board(
         .width(420.0)
         .height(420.0)
         .horizontal_alignment(HorizontalAlignment::Center)
-        .into()
+        .keyed_children(cells)
 }
 
-fn build_cells(
-    game: &Game,
-    reveal_handler: impl Fn(usize, usize) + Clone + 'static,
-    flag_handler: impl Fn(usize, usize) + Clone + 'static,
-) -> Vec<Element> {
+fn build_cells(game: &Game, context: &ViewContext<Game>) -> Vec<KeyedView> {
     let game_over = game.status != Status::Playing;
     (0..TOTAL)
         .map(|idx| {
@@ -373,49 +380,53 @@ fn build_cells(
             let tile = game.tiles[idx];
             let label = tile_label(game, idx);
             let automation = tile_automation_name(game, idx);
-            let reveal = reveal_handler.clone();
-            let flag = flag_handler.clone();
-
-            let mut btn = button(label)
-                .on_click(move || reveal(x, y))
-                .with_key(format!("tile-{idx}"))
+            let mut btn = Button::new()
+                .on_click(context.message(Message::Reveal(x, y)))
                 .horizontal_alignment(HorizontalAlignment::Stretch)
                 .vertical_alignment(VerticalAlignment::Stretch);
 
+            let mut text = TextBlock::new().text(label);
             if tile == TileState::Revealed && !game.mines[idx] && game.neighbors[idx] > 0 {
-                btn = btn.foreground(number_color(game.neighbors[idx]));
+                text = text.foreground(number_color(game.neighbors[idx]));
             }
             if game.hit_mine == Some(idx) {
-                btn = btn.background(Color::rgb(220, 80, 80));
+                let red = Color::rgb(220, 80, 80);
+                btn = btn.resource_overrides(
+                    ResourceOverrides::new()
+                        .set("ButtonBackground", red)
+                        .set("ButtonBackgroundPointerOver", red)
+                        .set("ButtonBackgroundPressed", red),
+                );
             }
 
             let is_inert_revealed = tile == TileState::Revealed;
             if game_over || is_inert_revealed {
-                btn = btn.enabled(false);
+                btn = btn.is_enabled(false);
             }
 
-            btn.automation_name(automation)
-                .on_right_tapped(move || flag(x, y))
-                .grid_row(y as i32)
-                .grid_column(x as i32)
-                .into()
+            KeyedView::new(
+                idx,
+                btn.automation_name(automation)
+                    .grid_row(y as i32)
+                    .grid_column(x as i32)
+                    .content(
+                        Border::new()
+                            .on_pointer_pressed(context.callback(move |info: PointerEventInfo| {
+                                if info.is_right_button_pressed {
+                                    Message::Flag(x, y)
+                                } else {
+                                    Message::Reveal(x, y)
+                                }
+                            }))
+                            .content(text),
+                    ),
+            )
         })
         .collect()
 }
 
-fn make_reveal_handler(dispatch: Dispatch<Action>) -> impl Fn(usize, usize) + Clone + 'static {
-    move |x, y| dispatch.call(Action::Reveal(x, y))
-}
-
-fn make_flag_handler(dispatch: Dispatch<Action>) -> impl Fn(usize, usize) + Clone + 'static {
-    move |x, y| dispatch.call(Action::Flag(x, y))
-}
-
-fn main() -> Result<()> {
-    bootstrap()?;
-    App::new()
-        .title("windows_reactor — minesweeper")
-        .render(app)
+fn main() {
+    App::run_component::<Game>(()).unwrap();
 }
 
 #[cfg(test)]

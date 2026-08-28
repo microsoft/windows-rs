@@ -6,45 +6,144 @@ on:
   pull_request:
     branches: [master, main]
   workflow_dispatch:
+  schedule:
+    - cron: "0 8 * * 1"
 
 concurrency:
-  group: selftest-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 env:
   CARGO_TERM_COLOR: always
   CARGO_INCREMENTAL: "0"
-  RUST_BACKTRACE: "1"
-  CARGO_REGISTRIES_CRATES_IO_PROTOCOL: sparse
 
 jobs:
   selftest:
     name: cargo run -p test_reactor_selftest
     runs-on: windows-2025-vs2026
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v7
 
       - name: Update toolchain
-        run: rustup update --no-self-update stable && rustup default stable
+        run: rustup update --no-self-update stable nightly && rustup default stable
 
       - uses: Swatinem/rust-cache@v2
+
+      - name: Install public API tool
+        run: cargo install cargo-public-api --locked --version 0.52.0
+
+      - name: Check and test
+        shell: pwsh
+        env:
+          RUSTFLAGS: "-D warnings"
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          cargo test -p windows-reactor -p tool_reactor `
+            -p test_reactor -p sample_reactor_virtual `
+            -p sample_reactor_navigation -p sample_reactor_gallery --quiet
+          cargo check -p test_reactor_bench `
+            -p sample_reactor_counter -p sample_reactor_controlled `
+            -p sample_reactor_form -p sample_reactor_apps `
+            -p sample_reactor_composition -p sample_reactor_framework_dependent `
+            -p sample_reactor_self_contained -p sample_reactor_startup_perf `
+            -p sample_reactor_webview --all-targets --quiet
+          cargo check -p sample_reactor_controls --examples --quiet
+          cargo check -p sample_reactor_virtual --features perf --all-targets --quiet
+          cargo check -p windows-canvas --features reactor --all-targets --quiet
+          cargo check -p windows-composition --no-default-features `
+            --features reactor --all-targets --quiet
+          cargo check -p windows-webview --features reactor --all-targets --quiet
+          cargo check -p canvas_chart -p canvas_circles -p canvas_clock `
+            -p canvas_editor -p canvas_hit_test -p canvas_image_source `
+            -p canvas_samples -p canvas_shared_device -p canvas_text_layout `
+            --all-targets --quiet
+          cargo clippy -p sample_reactor_virtual --features perf `
+            --all-targets --quiet
+          cargo clippy -p windows-canvas --features reactor --all-targets --quiet
+          cargo clippy -p windows-composition --no-default-features `
+            --features reactor --all-targets --quiet
+          cargo clippy -p windows-webview --features reactor --all-targets --quiet
+          cargo build -p test_reactor_selftest -p test_reactor_surface --quiet
+
+      - name: Generated output
+        shell: pwsh
+        env:
+          RUSTFLAGS: "-D warnings"
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          cargo run -p tool_reactor --quiet
+          cargo run -p tool_reactor --quiet
+          $status = git status --porcelain --untracked-files=all
+          if ($status) {
+            $status | Write-Output
+            throw "Reactor generation changed tracked or untracked files"
+          }
+
+      - name: Public API
+        shell: pwsh
+        env:
+          RUSTFLAGS: "-D warnings"
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          $actual = (cargo public-api -p windows-reactor -sss --color never |
+            Out-String).Replace("`r`n", "`n").Trim()
+          $expected = (Get-Content crates\libs\reactor\public-api.txt -Raw).
+            Replace("`r`n", "`n").Trim()
+          if ($actual -ne $expected) {
+            $actualPath = Join-Path $env:RUNNER_TEMP "reactor-public-api.txt"
+            Set-Content -Path $actualPath -Value $actual
+            $PSNativeCommandUseErrorActionPreference = $false
+            git --no-pager diff --no-index -- `
+              crates\libs\reactor\public-api.txt $actualPath
+            throw "windows-reactor public API changed"
+          }
+
+      - name: Live self-contained headless self-test
+        shell: pwsh
+        env:
+          RUSTFLAGS: "-D warnings"
+          CARGO_TARGET_DIR: "${{ runner.temp }}\\reactor-self-contained"
+          LOCALAPPDATA: "${{ runner.temp }}\\reactor-self-contained-appdata"
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          cargo run -p test_reactor_selftest --features self-contained `
+            --quiet -- --headless
+          cargo run -p test_reactor_surface --features self-contained `
+            --quiet -- --headless
+
       - name: Install Windows App Runtime
         shell: pwsh
         run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
           $installerUrl = "https://aka.ms/windowsappsdk/2.4/2.4.0/windowsappruntimeinstall-x64.exe"
-          $installerPath = "$env:TEMP\WindowsAppRuntimeInstall.exe"
+          $installerPath = Join-Path $env:RUNNER_TEMP "WindowsAppRuntimeInstall.exe"
           Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
-          Start-Process -FilePath $installerPath -ArgumentList "--quiet" -Wait -PassThru | Out-Null
+          $installer = Start-Process -FilePath $installerPath -ArgumentList "--quiet" `
+            -Wait -PassThru
+          if ($installer.ExitCode -ne 0) {
+            throw "Windows App Runtime installer exited with code $($installer.ExitCode)"
+          }
 
-      - name: cargo run -p test_reactor_selftest -- --headless
-        run: cargo run -p test_reactor_selftest -- --headless
+      - name: Live framework-dependent headless self-test
         shell: pwsh
+        env:
+          RUSTFLAGS: "-D warnings"
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          cargo run -p test_reactor_selftest --quiet -- --headless
+          cargo run -p test_reactor_surface --quiet -- --headless
 
   reconciler-quality:
     name: reconciler coverage and performance
     runs-on: windows-2025-vs2026
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v7
         with:
@@ -65,11 +164,14 @@ jobs:
 
       - name: Reconciler branch coverage
         shell: pwsh
+        env:
+          RUSTFLAGS: "-D warnings"
         run: |
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
           cargo +nightly llvm-cov clean --workspace
-          cargo +nightly llvm-cov -p test_reactor --branch --no-report
+          cargo +nightly llvm-cov -p windows-reactor -p test_reactor `
+            --branch --no-report
           cargo +nightly llvm-cov report -p windows-reactor --branch --json `
             --output-path target\reactor-coverage.json
           crates\tests\libs\reactor\coverage.ps1
@@ -80,3 +182,70 @@ jobs:
         run: |
           crates\tests\libs\reactor_bench\compare.ps1 `
             -BaseRef "${{ github.event.pull_request.base.sha }}"
+
+  live-performance:
+    name: live grid performance
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: windows-2025-vs2026
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Install Windows App Runtime
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          $installerUrl = "https://aka.ms/windowsappsdk/2.4/2.4.0/windowsappruntimeinstall-x64.exe"
+          $installerPath = Join-Path $env:RUNNER_TEMP "WindowsAppRuntimeInstall.exe"
+          Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
+          $installer = Start-Process -FilePath $installerPath -ArgumentList "--quiet" `
+            -Wait -PassThru
+          if ($installer.ExitCode -ne 0) {
+            throw "Windows App Runtime installer exited with code $($installer.ExitCode)"
+          }
+
+      - name: Run update and churn workloads
+        shell: pwsh
+        env:
+          RUSTFLAGS: "-D warnings"
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          $outputDirectory = "target\reactor-performance"
+          New-Item -ItemType Directory -Force -Path $outputDirectory | Out-Null
+          cargo run -p test_reactor_bench --bin reactor-live-grid `
+            --release --quiet -- --headless --percent 10 --duration 10 --churn-count 0 |
+            Tee-Object -FilePath "$outputDirectory\live-grid-update.json"
+          cargo run -p test_reactor_bench --bin reactor-live-grid `
+            --release --quiet -- --headless --percent 10 --duration 10 --churn-count 400 |
+            Tee-Object -FilePath "$outputDirectory\live-grid-churn.json"
+          cargo run -p sample_reactor_virtual --bin reactor-virtual-perf `
+            --features perf --release --quiet |
+            Tee-Object -FilePath "$outputDirectory\virtual-recording.txt"
+          cargo run -p sample_reactor_virtual --bin reactor-virtual-live-perf `
+            --features perf --release --quiet -- --samples 300 --baseline
+          Copy-Item target\release\reactor-virtual-live-baseline.txt `
+            "$outputDirectory\virtual-live-baseline.txt"
+          cargo run -p sample_reactor_virtual --bin reactor-virtual-live-perf `
+            --features perf --release --quiet -- --samples 300
+          Copy-Item target\release\reactor-virtual-live-perf.txt `
+            "$outputDirectory\virtual-live-active.txt"
+          "## Reactor live performance" | Out-File $env:GITHUB_STEP_SUMMARY -Append
+          foreach ($file in Get-ChildItem "$outputDirectory\*") {
+            "### $($file.BaseName)" | Out-File $env:GITHUB_STEP_SUMMARY -Append
+            '```text' | Out-File $env:GITHUB_STEP_SUMMARY -Append
+            Get-Content $file | Out-File $env:GITHUB_STEP_SUMMARY -Append
+            '```' | Out-File $env:GITHUB_STEP_SUMMARY -Append
+          }
+
+      - name: Upload performance results
+        uses: actions/upload-artifact@v4
+        with:
+          name: reactor-performance
+          path: target\reactor-performance\*

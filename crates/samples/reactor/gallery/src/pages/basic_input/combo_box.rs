@@ -1,41 +1,63 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn combo_box_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (selected, set_selected) = cx.use_state(-1_i32);
+pub struct ComboBoxPage {
+    selected: Option<usize>,
+}
 
-    let colors = ["Red", "Green", "Blue", "Yellow"];
-    let label = if selected >= 0 {
-        colors.get(selected as usize).copied().unwrap_or("?")
-    } else {
-        "(none)"
-    };
+impl Component for ComboBoxPage {
+    type Message = Option<usize>;
+    type Input = ();
 
-    page_content(
-        "ComboBox",
-        "A drop-down list of items a user can select from.",
-        vec![
-            sample_card(
-                "Basic ComboBox",
-                vstack((
-                    ComboBox::new(colors)
-                        .header("Color")
-                        .placeholder_text("Pick a color")
-                        .selected_index(selected)
-                        .on_selection_changed(set_selected),
-                    text_block(format!("Selected: {label}")).opacity(0.6),
-                ))
-                .spacing(8.0),
-                r#"ComboBox::new(colors).header("Color").on_selection_changed(handler)"#,
-            ),
-            sample_card(
-                "Editable ComboBox",
-                ComboBox::new(["Cat", "Dog", "Fox"])
-                    .header("Animal")
-                    .placeholder_text("Type or pick")
-                    .editable(true),
-                r#"ComboBox::new(items).editable(true)"#,
-            ),
-        ],
-    )
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self { selected: None }
+    }
+
+    fn update(&mut self, selected: Option<usize>, _: &ComponentContext<Self>) {
+        self.selected = selected;
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        let colors = ["Red", "Green", "Blue", "Yellow"];
+        let label = self
+            .selected
+            .and_then(|index| colors.get(index))
+            .unwrap_or(&"(none)");
+        page_content(
+            "ComboBox",
+            "A drop-down list of items a user can select from.",
+            [
+                KeyedView::new(
+                    "basic",
+                    sample_card(
+                        "Basic ComboBox",
+                        StackPanel::new().spacing(8.0).children((
+                            ComboBox::new()
+                                .items_source(colors)
+                                .selected_index(self.selected)
+                                .placeholder_text("Pick a color")
+                                .on_selection_changed(context.forward())
+                                .slot(ComboBoxSlot::Header, "Color"),
+                            TextBlock::new()
+                                .text(format!("Selected: {label}"))
+                                .opacity(0.6),
+                        )),
+                        "ComboBox::new().items_source(colors).on_selection_changed(handler)",
+                    ),
+                ),
+                KeyedView::new(
+                    "editable",
+                    sample_card(
+                        "Editable ComboBox",
+                        ComboBox::new()
+                            .items_source(["Cat", "Dog", "Fox"])
+                            .placeholder_text("Type or pick")
+                            .is_editable(true)
+                            .slot(ComboBoxSlot::Header, "Animal"),
+                        "ComboBox::new().items_source(items).is_editable(true)",
+                    ),
+                ),
+            ],
+        )
+    }
 }

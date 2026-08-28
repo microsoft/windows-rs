@@ -1,6 +1,8 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-#[derive(Copy, Clone, PartialEq, Eq, Default)]
+#[derive(Copy, Clone, Default, Eq, PartialEq)]
 enum Size {
     Small,
     #[default]
@@ -8,43 +10,60 @@ enum Size {
     Large,
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (size, set_size) = cx.use_state(Size::default());
-
-    let choose = |value: Size| {
-        let set_size = set_size.clone();
-        move || set_size.call(value)
-    };
-
-    let label = match size {
-        Size::Small => "Small",
-        Size::Medium => "Medium",
-        Size::Large => "Large",
-    };
-
-    vstack((
-        RadioButton::new("Small")
-            .group("size")
-            .checked(size == Size::Small)
-            .on_checked(choose(Size::Small)),
-        RadioButton::new("Medium")
-            .group("size")
-            .checked(size == Size::Medium)
-            .on_checked(choose(Size::Medium)),
-        RadioButton::new("Large")
-            .group("size")
-            .checked(size == Size::Large)
-            .on_checked(choose(Size::Large)),
-        text_block(format!("size = {label}")),
-        RadioButton::new("Disabled")
-            .group("other")
-            .checked(true)
-            .enabled(false),
-    ))
-    .spacing(4.0)
-    .into()
+struct RadioButtonSample {
+    size: Size,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("RadioButton", app)
+enum Message {
+    Checked(Size, bool),
+}
+
+impl Component for RadioButtonSample {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            size: Size::default(),
+        }
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        let Message::Checked(size, true) = message else {
+            return;
+        };
+        self.size = size;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("RadioButton");
+        let radio = |label: &'static str, size| {
+            RadioButton::new()
+                .group_name("size")
+                .is_checked(self.size == size)
+                .on_checked(context.callback(move |checked| Message::Checked(size, checked)))
+                .content(label)
+        };
+        let label = match self.size {
+            Size::Small => "Small",
+            Size::Medium => "Medium",
+            Size::Large => "Large",
+        };
+
+        StackPanel::new().spacing(4.0).children((
+            radio("Small", Size::Small),
+            radio("Medium", Size::Medium),
+            radio("Large", Size::Large),
+            format!("size = {label}"),
+            RadioButton::new()
+                .group_name("other")
+                .is_checked(true)
+                .is_enabled(false)
+                .content("Disabled"),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<RadioButtonSample>(()).unwrap();
 }

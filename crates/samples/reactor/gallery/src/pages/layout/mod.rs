@@ -1,19 +1,18 @@
 mod border;
+pub use border::BorderPage;
 mod canvas;
+pub use canvas::CanvasPage;
 mod expander;
+pub use expander::ExpanderPage;
 mod grid;
+pub use grid::GridPage;
 mod relative_panel;
+pub use relative_panel::RelativePanelPage;
 mod scroll_view;
+pub use scroll_view::ScrollViewPage;
 mod split_view;
+pub use split_view::SplitViewPage;
 mod stack_panel;
+pub use stack_panel::StackPanelPage;
 mod viewbox;
-
-pub use border::border_page;
-pub use canvas::canvas_page;
-pub use expander::expander_page;
-pub use grid::grid_page;
-pub use relative_panel::relative_panel_page;
-pub use scroll_view::scroll_view_page;
-pub use split_view::split_view_page;
-pub use stack_panel::stack_panel_page;
-pub use viewbox::viewbox_page;
+pub use viewbox::ViewboxPage;

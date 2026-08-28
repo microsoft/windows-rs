@@ -1,0 +1,138 @@
+Microsoft::UI::Composition::ICompositionObject::get_Compositor
+Microsoft::UI::Dispatching::DispatcherQueue::GetForCurrentThread
+Microsoft::UI::Dispatching::DispatcherQueueHandler
+Microsoft::UI::Dispatching::DispatcherQueuePriority
+Microsoft::UI::Dispatching::IDispatcherQueue::CreateTimer
+Microsoft::UI::Dispatching::IDispatcherQueue::TryEnqueueWithPriority
+Microsoft::UI::Dispatching::IDispatcherQueueTimer::{put_Interval, put_IsRepeating, add_Tick, remove_Tick, Start, Stop}
+Microsoft::UI::Input::IPointerPoint::{get_Position, get_Properties}
+Microsoft::UI::Input::IPointerPointProperties::{get_IsLeftButtonPressed, get_IsMiddleButtonPressed, get_IsRightButtonPressed}
+Microsoft::UI::Text::ITextDocument::{GetText, SetText}
+Microsoft::UI::Text::TextGetOptions::None
+Microsoft::UI::Text::TextSetOptions::None
+Microsoft::UI::Windowing::IAppWindow2::{get_ClientSize, ResizeClient}
+Microsoft::UI::Windowing::IAppWindow::{get_TitleBar, get_Presenter, get_Size, SetIcon}
+Microsoft::UI::Windowing::IAppWindowTitleBar2::put_PreferredHeightOption
+Microsoft::UI::Windowing::IAppWindowTitleBar3::put_PreferredTheme
+Microsoft::UI::Windowing::IOverlappedPresenter3::{put_PreferredMinimumWidth, put_PreferredMinimumHeight, put_PreferredMaximumWidth, put_PreferredMaximumHeight}
+Microsoft::UI::Xaml::Application::{CreateInstance, Current, Start}
+Microsoft::UI::Xaml::ApplicationInitializationCallback
+Microsoft::UI::Xaml::Automation::AutomationProperties::{SetAutomationId, SetHeadingLevel, SetName}
+Microsoft::UI::Xaml::Controls::Canvas::{LeftProperty, SetLeft, SetTop, TopProperty}
+Microsoft::UI::Xaml::Controls::ColumnDefinition::CreateInstance
+Microsoft::UI::Xaml::Controls::ColumnDefinitionCollection
+Microsoft::UI::Xaml::Controls::CommandBarFlyout::CreateInstance
+Microsoft::UI::Xaml::Controls::ContentControl::CreateInstance
+Microsoft::UI::Xaml::Controls::Flyout::CreateInstance
+Microsoft::UI::Xaml::Controls::Grid::{ColumnProperty, ColumnSpanProperty, GetColumn, GetColumnSpan, GetRow, GetRowSpan, RowProperty, RowSpanProperty, SetColumn, SetColumnSpan, SetRow, SetRowSpan}
+Microsoft::UI::Xaml::Controls::IBorder::{get_Background, get_BorderBrush}
+Microsoft::UI::Xaml::Controls::IButton::{get_Flyout, put_Flyout}
+Microsoft::UI::Xaml::Controls::ICalendarDatePicker::{get_Date, put_Date}
+Microsoft::UI::Xaml::Controls::IColorPicker::{get_Color, put_Color}
+Microsoft::UI::Xaml::Controls::IColumnDefinition::{get_Width, put_Width}
+Microsoft::UI::Xaml::Controls::ICommandBarFlyout::{get_PrimaryCommands, get_SecondaryCommands}
+Microsoft::UI::Xaml::Controls::IContentDialog::{Hide, ShowAsync}
+Microsoft::UI::Xaml::Controls::IDatePicker::{get_SelectedDate, put_SelectedDate}
+Microsoft::UI::Xaml::Controls::IFlyout::put_Content
+Microsoft::UI::Xaml::Controls::IGrid::{get_ColumnDefinitions, get_RowDefinitions}
+Microsoft::UI::Xaml::Controls::IItemsRepeater::{GetOrCreateElement, put_ItemsSource, put_ItemTemplate}
+Microsoft::UI::Xaml::Controls::IMenuBarItem::get_Items
+Microsoft::UI::Xaml::Controls::IMenuFlyout::get_Items
+Microsoft::UI::Xaml::Controls::IMenuFlyoutItem::{put_Text, add_Click, remove_Click}
+Microsoft::UI::Xaml::Controls::IMenuFlyoutSubItem::{get_Items, put_Text}
+Microsoft::UI::Xaml::Controls::IRichEditBox::{get_Document, get_IsReadOnly}
+Microsoft::UI::Xaml::Controls::IRichTextBlock::get_Blocks
+Microsoft::UI::Xaml::Controls::IRowDefinition::{get_Height, put_Height}
+Microsoft::UI::Xaml::Controls::ISplitButton::{get_Flyout, put_Flyout}
+Microsoft::UI::Xaml::Controls::ISplitView::{get_CompactPaneLength, get_Content, get_DisplayMode, get_IsPaneOpen, get_OpenPaneLength, get_Pane}
+Microsoft::UI::Xaml::Controls::ISwapChainPanel::{get_CompositionScaleX, get_CompositionScaleY, add_CompositionScaleChanged, remove_CompositionScaleChanged}
+Microsoft::UI::Xaml::Controls::ITeachingTip::{get_IsOpen, put_IsOpen}
+Microsoft::UI::Xaml::Controls::ITimePicker::{get_SelectedTime, put_SelectedTime}
+Microsoft::UI::Xaml::Controls::ITreeView::get_RootNodes
+Microsoft::UI::Xaml::Controls::ITreeViewNode::{get_Children, get_Content, put_Content, put_IsExpanded}
+Microsoft::UI::Xaml::Controls::IWebView2::{EnsureCoreWebView2Async, get_CoreWebView2, add_CoreWebView2Initialized, remove_CoreWebView2Initialized}
+Microsoft::UI::Xaml::Controls::ItemsRepeater::CreateInstance
+Microsoft::UI::Xaml::Controls::MenuFlyout::CreateInstance
+Microsoft::UI::Xaml::Controls::MenuFlyoutItem::CreateInstance
+Microsoft::UI::Xaml::Controls::MenuFlyoutSeparator::CreateInstance
+Microsoft::UI::Xaml::Controls::MenuFlyoutSubItem::CreateInstance
+Microsoft::UI::Xaml::Controls::Primitives::FlyoutPlacementMode
+Microsoft::UI::Xaml::Controls::Primitives::IButtonBase::{add_Click, remove_Click}
+Microsoft::UI::Xaml::Controls::Primitives::IFlyoutBase::{get_Placement, put_Placement}
+Microsoft::UI::Xaml::Controls::Primitives::PlacementMode
+Microsoft::UI::Xaml::Controls::RelativePanel::{AlignBottomWithPanelProperty, AlignHorizontalCenterWithPanelProperty, AlignLeftWithPanelProperty, AlignRightWithPanelProperty, AlignTopWithPanelProperty, AlignVerticalCenterWithPanelProperty, SetAlignBottomWithPanel, SetAlignHorizontalCenterWithPanel, SetAlignLeftWithPanel, SetAlignRightWithPanel, SetAlignTopWithPanel, SetAlignVerticalCenterWithPanel}
+Microsoft::UI::Xaml::Controls::RowDefinition::CreateInstance
+Microsoft::UI::Xaml::Controls::RowDefinitionCollection
+Microsoft::UI::Xaml::Controls::ToolTipService::{GetPlacement, GetToolTip, SetPlacement, SetToolTip}
+Microsoft::UI::Xaml::Controls::TreeViewNode::CreateInstance
+Microsoft::UI::Xaml::Controls::XamlControlsResources::CreateInstance
+Microsoft::UI::Xaml::Documents::Block
+Microsoft::UI::Xaml::Documents::Hyperlink::CreateInstance
+Microsoft::UI::Xaml::Documents::IHyperlink::put_NavigateUri
+Microsoft::UI::Xaml::Documents::IParagraph::get_Inlines
+Microsoft::UI::Xaml::Documents::IRun::put_Text
+Microsoft::UI::Xaml::Documents::ISpan::get_Inlines
+Microsoft::UI::Xaml::Documents::ITextElement::{put_FontStyle, put_FontWeight}
+Microsoft::UI::Xaml::Documents::Inline
+Microsoft::UI::Xaml::Documents::LineBreak::CreateInstance
+Microsoft::UI::Xaml::Documents::Paragraph::CreateInstance
+Microsoft::UI::Xaml::Documents::Run::CreateInstance
+Microsoft::UI::Xaml::FocusState
+Microsoft::UI::Xaml::GridLength
+Microsoft::UI::Xaml::GridUnitType
+Microsoft::UI::Xaml::Hosting::ElementCompositionPreview::{GetElementVisual, SetElementChildVisual}
+Microsoft::UI::Xaml::IApplication::get_Resources
+Microsoft::UI::Xaml::IApplicationOverrides
+Microsoft::UI::Xaml::IDependencyObject::ClearValue
+Microsoft::UI::Xaml::IElementFactory
+Microsoft::UI::Xaml::IElementFactoryGetArgs::{get_Data, get_Parent}
+Microsoft::UI::Xaml::IElementFactoryRecycleArgs::{get_Element, get_Parent}
+Microsoft::UI::Xaml::IFrameworkElement::{get_ActualTheme, get_Resources, put_RequestedTheme, put_Width, put_Height, put_MinWidth, put_MaxWidth, put_MinHeight, put_MaxHeight, put_HorizontalAlignment, put_VerticalAlignment, put_Margin}
+Microsoft::UI::Xaml::IFrameworkElement::{get_IsLoaded, get_ActualWidth, get_ActualHeight, add_ActualThemeChanged, remove_ActualThemeChanged, add_SizeChanged, remove_SizeChanged, add_Loaded, remove_Loaded}
+Microsoft::UI::Xaml::IFrameworkElement::{get_Style, put_Style}
+Microsoft::UI::Xaml::IFrameworkElementStatics::{get_WidthProperty, get_HeightProperty, get_MinWidthProperty, get_MaxWidthProperty, get_MinHeightProperty, get_MaxHeightProperty, get_HorizontalAlignmentProperty, get_VerticalAlignmentProperty, get_MarginProperty}
+Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
+Microsoft::UI::Xaml::ISizeChangedEventArgs::get_NewSize
+Microsoft::UI::Xaml::IUIElement::{CapturePointer, Focus, ReleasePointerCapture, ReleasePointerCaptures, get_XamlRoot, put_XamlRoot, put_Opacity, StartBringIntoView}
+Microsoft::UI::Xaml::IUIElement::{add_PointerEntered, add_PointerExited, add_PointerMoved, add_PointerPressed, add_PointerReleased, remove_PointerEntered, remove_PointerExited, remove_PointerMoved, remove_PointerPressed, remove_PointerReleased}
+Microsoft::UI::Xaml::IUIElementStatics::get_OpacityProperty
+Microsoft::UI::Xaml::IWindow2::{get_AppWindow, put_SystemBackdrop}
+Microsoft::UI::Xaml::IWindow::{Activate, Close, Closed, put_Content, put_Title}
+Microsoft::UI::Xaml::IWindow::{put_ExtendsContentIntoTitleBar, SetTitleBar}
+Microsoft::UI::Xaml::IXamlRoot::{get_RasterizationScale, add_Changed, remove_Changed}
+Microsoft::UI::Xaml::Input::IPointerRoutedEventArgs::{GetCurrentPoint, get_Pointer}
+Microsoft::UI::Xaml::LaunchActivatedEventArgs
+Microsoft::UI::Xaml::Markup::IXamlMetadataProvider
+Microsoft::UI::Xaml::Markup::IXamlType::{}
+Microsoft::UI::Xaml::Markup::XamlBindingHelper::ConvertValue
+Microsoft::UI::Xaml::Markup::XamlReader::Load
+Microsoft::UI::Xaml::Markup::XmlnsDefinition
+Microsoft::UI::Xaml::Media::CompositionTarget::Rendering
+Microsoft::UI::Xaml::Media::DesktopAcrylicBackdrop::CreateInstance
+Microsoft::UI::Xaml::Media::IMicaBackdrop::put_Kind
+Microsoft::UI::Xaml::Media::ISolidColorBrush::get_Color
+Microsoft::UI::Xaml::Media::MicaBackdrop::CreateInstance
+Microsoft::UI::Xaml::Style
+Microsoft::UI::Xaml::UIElement
+Microsoft::UI::Xaml::Window::CreateInstance
+Microsoft::UI::Xaml::XamlTypeInfo::XamlControlsXamlMetaDataProvider::CreateInstance
+Windows::Graphics::SizeInt32
+Windows::UI::Text::FontStyle
+Windows::UI::Text::FontWeight
+Windows::UI::Xaml::Interop::TypeName
+Windows::Win32::COINIT_APARTMENTTHREADED
+Windows::Win32::CoInitializeEx
+Windows::Win32::DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2
+Windows::Win32::E_FAIL
+Windows::Win32::GetDpiForWindow
+Windows::Win32::PostQuitMessage
+Windows::Win32::RPC_E_CHANGED_MODE
+Windows::Win32::SetProcessDpiAwarenessContext
+extras::ISwapChainPanelNative::SetSwapChain
+extras::IWindowNative::get_WindowHandle
+extras::MddBootstrapInitializeOptions::{}
+extras::MddBootstrapInitializeOptions_OnNoMatch_ShowUI
+extras::MddBootstrapInitializeOptions_OnPackageIdentity_NOOP
+extras::WINDOWSAPPSDK_RELEASE_MAJORMINOR
+extras::WINDOWSAPPSDK_RELEASE_VERSION_TAG_W
+extras::WINDOWSAPPSDK_RUNTIME_VERSION_UINT64

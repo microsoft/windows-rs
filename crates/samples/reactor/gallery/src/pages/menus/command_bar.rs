@@ -1,57 +1,64 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn command_bar_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (status, set_status) = cx.use_state(String::from("Choose a command"));
+pub struct CommandBarPage {
+    last_command: String,
+}
 
-    page_content(
-        "CommandBar",
-        "A toolbar for app commands and actions.",
-        vec![
-            sample_card(
-                "Interactive CommandBar",
-                vstack((
-                    command_bar(vec![
-                        CommandBarCommandDef::Button {
-                            label: "Add".into(),
-                            icon: Some(Symbol::Add.into()),
-                        },
-                        CommandBarCommandDef::Button {
-                            label: "Edit".into(),
-                            icon: Some(Symbol::Edit.into()),
-                        },
-                        CommandBarCommandDef::Button {
-                            label: "Delete".into(),
-                            icon: Some(Symbol::Delete.into()),
-                        },
-                    ])
-                    .on_click({
-                        let set_status = set_status;
-                        move |label| set_status.call(format!("Last command: {label}"))
-                    }),
-                    text_block(status).opacity(0.6),
-                ))
-                .spacing(8.0),
-                r#"command_bar(commands).on_click(|label| set_status.call(format!("Last command: {label}")))"#,
-            ),
-            sample_card(
-                "Basic CommandBar",
-                command_bar(vec![
-                    CommandBarCommandDef::Button {
-                        label: "Add".into(),
-                        icon: Some(Symbol::Add.into()),
-                    },
-                    CommandBarCommandDef::Button {
-                        label: "Edit".into(),
-                        icon: Some(Symbol::Edit.into()),
-                    },
-                    CommandBarCommandDef::Button {
-                        label: "Delete".into(),
-                        icon: Some(Symbol::Delete.into()),
-                    },
-                ]),
-                r#"command_bar(vec![CommandBarCommandDef::Button { label, icon }])"#,
-            ),
-        ],
-    )
+#[derive(Clone)]
+pub enum Message {
+    CommandClicked(String),
+}
+
+impl Component for CommandBarPage {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            last_command: "(none)".to_string(),
+        }
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::CommandClicked(label) => self.last_command = label,
+        }
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        page_content(
+            "CommandBar",
+            "A toolbar for app commands and actions.",
+            [KeyedView::new(
+                "interactive-command-bar",
+                sample_card(
+                    "Interactive CommandBar",
+                    StackPanel::new().spacing(8.0).children((
+                        CommandBar::new().owned_commands(
+                            [
+                                CommandBarCommand::button_with_icon("add", "Add", Symbol::Add),
+                                CommandBarCommand::button_with_icon("edit", "Edit", Symbol::Edit),
+                                CommandBarCommand::separator("separator"),
+                                CommandBarCommand::button_with_icon(
+                                    "delete",
+                                    "Delete",
+                                    Symbol::Delete,
+                                ),
+                            ],
+                            [
+                                CommandBarCommand::button("select-all", "Select All"),
+                                CommandBarCommand::button("share", "Share"),
+                            ],
+                            context.callback(Message::CommandClicked),
+                        ),
+                        TextBlock::new()
+                            .text(format!("Last command: {}", self.last_command))
+                            .opacity(0.6),
+                    )),
+                    r#"CommandBar::new().owned_commands(primary, secondary, |label| ...)"#,
+                ),
+            )],
+        )
+    }
 }

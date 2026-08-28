@@ -1,19 +1,17 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> Element {
-    vstack((
-        text_block("Determinate (65%)"),
-        ProgressBar::new(65.0).range(0.0, 100.0),
-        text_block("Determinate, custom range (3 / 5 steps)"),
-        ProgressBar::new(3.0).range(0.0, 5.0),
-        text_block("Indeterminate (busy)"),
-        ProgressBar::indeterminate(),
-    ))
-    .spacing(8.0)
-    .max_width(320.0)
-    .into()
-}
-
-fn main() -> Result<()> {
-    reactor_samples::run("ProgressBar", app)
+fn main() {
+    sample_reactor_controls::run("ProgressBar", || {
+        StackPanel::new().spacing(8.0).children((
+            "Determinate (65%)",
+            ProgressBar::new().minimum(0.0).maximum(100.0).value(65.0),
+            "Determinate, custom range (3 / 5 steps)",
+            ProgressBar::new().minimum(0.0).maximum(5.0).value(3.0),
+            "Indeterminate (busy)",
+            ProgressBar::new().is_indeterminate(true),
+        ))
+    })
+    .unwrap();
 }

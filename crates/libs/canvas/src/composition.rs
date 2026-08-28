@@ -67,15 +67,7 @@ impl CanvasCompositionExt for CompositionDrawingSurface {
         };
         std::mem::forget(guard);
 
-        match self.end_draw() {
-            Ok(()) => match draw_result {
-                Ok(()) => Ok(true),
-                Err(e) if is_device_lost(e.code()) => Ok(false),
-                Err(e) => Err(e),
-            },
-            Err(e) if is_device_lost(e.code()) => Ok(false),
-            Err(e) => Err(e),
-        }
+        device_lost::classify_draw_results(draw_result, self.end_draw())
     }
 }
 

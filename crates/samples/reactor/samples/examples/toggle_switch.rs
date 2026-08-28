@@ -1,29 +1,47 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (on, set_on) = cx.use_state(true);
-
-    let toggle = move |v| set_on.call(v);
-
-    vstack((
-        ToggleSwitch::new(on)
-            .header("Notifications")
-            .on_content("On")
-            .off_content("Off")
-            .on_toggled(toggle),
-        text_block(if on {
-            "Notifications enabled"
-        } else {
-            "Notifications muted"
-        }),
-        ToggleSwitch::new(true)
-            .header("Disabled (always on)")
-            .enabled(false),
-    ))
-    .spacing(8.0)
-    .into()
+struct ToggleSwitchSample {
+    on: bool,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("ToggleSwitch", app)
+impl Component for ToggleSwitchSample {
+    type Message = bool;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { on: true }
+    }
+
+    fn update(&mut self, on: bool, _context: &ComponentContext<Self>) {
+        self.on = on;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("ToggleSwitch");
+        StackPanel::new().spacing(8.0).children((
+            ToggleSwitch::new()
+                .is_on(self.on)
+                .on_toggled(context.callback(|on| on))
+                .slots([
+                    SlotView::new(ToggleSwitchSlot::Header, "Notifications"),
+                    SlotView::new(ToggleSwitchSlot::OnContent, "On"),
+                    SlotView::new(ToggleSwitchSlot::OffContent, "Off"),
+                ]),
+            if self.on {
+                "Notifications enabled"
+            } else {
+                "Notifications muted"
+            },
+            ToggleSwitch::new()
+                .is_on(true)
+                .is_enabled(false)
+                .slot(ToggleSwitchSlot::Header, "Disabled (always on)"),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<ToggleSwitchSample>(()).unwrap();
 }

@@ -39,7 +39,7 @@ pub fn yml() {
             "      - name: Check windows-canvas (composition)\n        run: cargo doc --no-deps -p windows-canvas --features composition\n",
         );
         yml.push_str(
-            "      - name: Check reactor features\n        run: cargo doc --no-deps -p windows-reactor -p windows-webview --features windows-reactor/canvas,windows-webview/reactor\n",
+            "      - name: Check reactor features\n        run: cargo doc --no-deps -p windows-reactor -p windows-webview --features windows-webview/reactor\n",
         );
     });
 }

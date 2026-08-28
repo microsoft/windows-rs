@@ -12,6 +12,7 @@ readme = "readme.md"
 [features]
 default = []
 composition = ["dep:windows-composition", "windows-composition/system"]
+reactor = ["dep:windows-reactor"]
 
 [dependencies]
 windows-core = { workspace = true }
@@ -22,10 +23,14 @@ windows-window = { workspace = true }
 workspace = true
 optional = true
 
+[dependencies.windows-reactor]
+workspace = true
+optional = true
+
 [lints]
 workspace = true
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []
-features = ["composition"]
+features = ["composition", "reactor"]

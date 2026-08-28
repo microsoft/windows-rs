@@ -1,23 +1,46 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (quantity, set_quantity) = cx.use_state(3.0_f64);
-
-    let update_quantity = move |v: f64| set_quantity.call(v);
-
-    vstack((
-        NumberBox::new(quantity)
-            .range(0.0, 10.0)
-            .header("Quantity")
-            .on_value_changed(update_quantity),
-        text_block(format!("Quantity = {quantity:.0}")),
-        NumberBox::new(42.0).header("Disabled").enabled(false),
-    ))
-    .spacing(8.0)
-    .max_width(320.0)
-    .into()
+struct NumberBoxSample {
+    quantity: Option<f64>,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("NumberBox", app)
+impl Component for NumberBoxSample {
+    type Message = Option<f64>;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            quantity: Some(3.0),
+        }
+    }
+
+    fn update(&mut self, quantity: Self::Message, _context: &ComponentContext<Self>) {
+        self.quantity = quantity;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("NumberBox");
+        let quantity = self
+            .quantity
+            .map_or_else(|| "(empty)".to_string(), |value| format!("{value:.0}"));
+        StackPanel::new().max_width(320.0).spacing(8.0).children((
+            NumberBox::new()
+                .minimum(0.0)
+                .maximum(10.0)
+                .value(self.quantity)
+                .on_value_changed(context.callback(|value| value))
+                .slot(NumberBoxSlot::Header, "Quantity"),
+            format!("Quantity = {quantity}"),
+            NumberBox::new()
+                .value(42.0)
+                .is_enabled(false)
+                .slot(NumberBoxSlot::Header, "Disabled"),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<NumberBoxSample>(()).unwrap();
 }

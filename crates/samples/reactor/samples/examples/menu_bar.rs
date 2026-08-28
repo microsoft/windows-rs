@@ -1,47 +1,92 @@
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (last_click, set_last_click) = cx.use_state(String::from("(none)"));
-
-    let on_item = {
-        let set_last_click = set_last_click;
-        move |text: String| set_last_click.call(text)
-    };
-
-    vstack((
-        menu_bar(vec![
-            menu_bar_item(
-                "File",
-                vec![
-                    menu_item("New"),
-                    menu_item("Open"),
-                    menu_separator(),
-                    menu_sub_item("Recent", vec![menu_item("doc1.txt"), menu_item("doc2.txt")]),
-                    menu_separator(),
-                    menu_item("Exit"),
-                ],
-            ),
-            menu_bar_item(
-                "Edit",
-                vec![menu_item("Cut"), menu_item("Copy"), menu_item("Paste")],
-            ),
-            menu_bar_item("Help", vec![menu_item("About")]),
-        ])
-        .on_item_clicked(on_item.clone()),
-        drop_down_button("Actions")
-            .menu_flyout(vec![
-                menu_item("Action A"),
-                menu_item("Action B"),
-                menu_separator(),
-                menu_sub_item("More", vec![menu_item("Action C"), menu_item("Action D")]),
-            ])
-            .on_item_clicked(on_item),
-        text_block(format!("Last clicked: {last_click}")),
-    ))
-    .spacing(12.0)
-    .into()
+struct MenuBarSample {
+    last_click: String,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("MenuBar", app)
+impl Component for MenuBarSample {
+    type Message = String;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            last_click: "(none)".to_string(),
+        }
+    }
+
+    fn update(&mut self, message: String, _context: &ComponentContext<Self>) {
+        self.last_click = message;
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("MenuBar");
+        let callback = context.forward();
+        StackPanel::new().spacing(12.0).children((
+            MenuBar::new().collection_slot(
+                MenuBarSlot::Items,
+                [
+                    KeyedView::new(
+                        "file",
+                        MenuBarItem::new().title("File").menu(Menu::new(
+                            [
+                                MenuItem::item("new", "New"),
+                                MenuItem::item("open", "Open"),
+                                MenuItem::separator("file-separator-1"),
+                                MenuItem::submenu(
+                                    "recent",
+                                    "Recent",
+                                    [
+                                        MenuItem::item("doc1", "doc1.txt"),
+                                        MenuItem::item("doc2", "doc2.txt"),
+                                    ],
+                                ),
+                                MenuItem::separator("file-separator-2"),
+                                MenuItem::item("exit", "Exit"),
+                            ],
+                            callback.clone(),
+                        )),
+                    ),
+                    KeyedView::new(
+                        "edit",
+                        MenuBarItem::new().title("Edit").menu(Menu::new(
+                            [
+                                MenuItem::item("cut", "Cut"),
+                                MenuItem::item("copy", "Copy"),
+                                MenuItem::item("paste", "Paste"),
+                            ],
+                            callback.clone(),
+                        )),
+                    ),
+                    KeyedView::new(
+                        "help",
+                        MenuBarItem::new().title("Help").menu(Menu::new(
+                            [MenuItem::item("about", "About")],
+                            callback.clone(),
+                        )),
+                    ),
+                ],
+            ),
+            DropDownButton::new().content("Actions").menu(Menu::new(
+                [
+                    MenuItem::item("action-a", "Action A"),
+                    MenuItem::item("action-b", "Action B"),
+                    MenuItem::separator("action-separator"),
+                    MenuItem::submenu(
+                        "more",
+                        "More",
+                        [
+                            MenuItem::item("action-c", "Action C"),
+                            MenuItem::item("action-d", "Action D"),
+                        ],
+                    ),
+                ],
+                callback,
+            )),
+            format!("Last clicked: {}", self.last_click),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<MenuBarSample>(()).unwrap();
 }

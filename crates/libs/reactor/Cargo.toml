@@ -4,30 +4,21 @@ version = "0.100.0"
 edition = "2024"
 rust-version = "1.95"
 license = "MIT OR Apache-2.0"
-description = "Windows UI library"
+description = "Declarative Windows UI library for Rust"
 repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
 readme = "readme.md"
 
 [features]
-default = []
 test = []
-canvas = ["dep:windows-canvas"]
 
 [dependencies]
-rustc-hash = { workspace = true }
-windows-core = { workspace = true }
-windows-numerics = { workspace = true }
 windows-collections = { workspace = true, features = ["std"] }
+windows-core = { workspace = true }
 windows-future = { workspace = true }
+windows-numerics = { workspace = true }
 windows-reference = { workspace = true, features = ["std"] }
-windows-threading = { workspace = true }
 windows-time = { workspace = true }
-windows-composition = { workspace = true, default-features = false, features = ["reactor"] }
-
-[dependencies.windows-canvas]
-workspace = true
-optional = true
 
 [lints]
 workspace = true
@@ -35,4 +26,3 @@ workspace = true
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []
-features = ["canvas"]

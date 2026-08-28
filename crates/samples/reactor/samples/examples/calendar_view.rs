@@ -1,18 +1,33 @@
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0_u32);
-
-    let bump = move || set_count.call(count + 1);
-
-    vstack((
-        calendar_view().on_selected_dates_changed(bump),
-        text_block(format!("Selection changed {count} time(s)")),
-    ))
-    .spacing(8.0)
-    .into()
+struct CalendarViewSample {
+    changes: u32,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("CalendarView", app)
+impl Component for CalendarViewSample {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { changes: 0 }
+    }
+
+    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {
+        self.changes += 1;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("CalendarView");
+        StackPanel::new().spacing(8.0).children((
+            CalendarView::new()
+                .is_today_highlighted(true)
+                .is_group_label_visible(true)
+                .on_selected_dates_changed(context.forward()),
+            format!("Selection changed {} time(s)", self.changes),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<CalendarViewSample>(()).unwrap();
 }

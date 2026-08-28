@@ -1,1221 +1,2468 @@
-use super::*;
+use std::any::Any;
+use std::fmt;
+use std::rc::Rc;
 use std::time::Duration;
 
-/// One item accepted by a multi-child builder.
-#[doc(hidden)]
-pub trait IntoChild {
-    fn append_to(self, children: &mut Vec<Element>);
+use super::*;
+use crate::core::{ComponentToken, ComponentView, ContextProvision};
+
+pub(crate) fn validate_image_uri(value: &str) -> windows_core::Result<()> {
+    native::validate_native_image_uri(value)
 }
 
-impl<T: Into<Element>> IntoChild for T {
-    fn append_to(self, children: &mut Vec<Element>) {
-        let element = self.into();
-        if !matches!(element, Element::Empty) {
-            children.push(element);
-        }
+pub(crate) fn validate_uri(value: &str) -> windows_core::Result<()> {
+    native::validate_native_uri(value)
+}
+
+pub(crate) fn file_uri(path: &std::path::Path) -> windows_core::Result<String> {
+    if !path.is_absolute() {
+        return Err(windows_core::Error::new(
+            windows_core::HRESULT(0x80070057_u32 as _),
+            "Image::source_file requires an absolute path",
+        ));
     }
-}
-
-/// A child-only fragment flattened by multi-child builders.
-#[derive(Clone, Default, Debug, PartialEq)]
-pub struct Fragment {
-    children: Vec<Element>,
-}
-
-impl IntoChild for Fragment {
-    fn append_to(self, children: &mut Vec<Element>) {
-        children.extend(self.children);
-    }
-}
-
-/// Converts tuples, arrays, vectors, and fragments into a flat child list.
-pub trait IntoChildren {
-    fn into_children(self) -> Vec<Element>;
-}
-
-impl IntoChildren for Vec<Element> {
-    fn into_children(mut self) -> Vec<Element> {
-        self.retain(|element| !matches!(element, Element::Empty));
-        self
-    }
-}
-
-impl IntoChildren for Fragment {
-    fn into_children(self) -> Vec<Element> {
-        self.children
-    }
-}
-
-impl IntoChildren for () {
-    fn into_children(self) -> Vec<Element> {
-        Vec::new()
-    }
-}
-
-impl<T: IntoChild, const N: usize> IntoChildren for [T; N] {
-    fn into_children(self) -> Vec<Element> {
-        let mut children = Vec::with_capacity(N);
-        for child in self {
-            child.append_to(&mut children);
-        }
-        children
-    }
-}
-
-macro_rules! impl_into_children_for_tuple {
-    ($($idx:tt : $T:ident),+) => {
-        impl<$($T: IntoChild),+> IntoChildren for ($($T,)+) {
-            fn into_children(self) -> Vec<Element> {
-                let capacity = 0 $(+ {
-                    let _ = stringify!($T);
-                    1
-                })+;
-                let mut children = Vec::with_capacity(capacity);
-                $(self.$idx.append_to(&mut children);)+
-                children
-            }
-        }
+    let path = path.to_string_lossy();
+    let path = if let Some(path) = path.strip_prefix(r"\\?\UNC\") {
+        format!(r"\\{path}")
+    } else {
+        path.strip_prefix(r"\\?\").unwrap_or(&path).to_string()
     };
-}
-
-impl_into_children_for_tuple!(0: A);
-impl_into_children_for_tuple!(0: A, 1: B);
-impl_into_children_for_tuple!(0: A, 1: B, 2: C);
-impl_into_children_for_tuple!(0: A, 1: B, 2: C, 3: D);
-impl_into_children_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E);
-impl_into_children_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F);
-impl_into_children_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F, 6: G);
-impl_into_children_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F, 6: G, 7: H);
-impl_into_children_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F, 6: G, 7: H, 8: I2);
-impl_into_children_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F, 6: G, 7: H, 8: I2, 9: J);
-impl_into_children_for_tuple!(0: A, 1: B, 2: C, 3: D, 4: E, 5: F, 6: G, 7: H, 8: I2, 9: J, 10: K);
-impl_into_children_for_tuple!(
-    0: A,
-    1: B,
-    2: C,
-    3: D,
-    4: E,
-    5: F,
-    6: G,
-    7: H,
-    8: I2,
-    9: J,
-    10: K,
-    11: L
-);
-
-/// Creates a child-only fragment for use inside a multi-child builder.
-///
-/// ```compile_fail
-/// use windows_reactor::{Element, fragment, text_block};
-///
-/// let _: Element = fragment((text_block("a"), text_block("b"))).into();
-/// ```
-///
-/// ```compile_fail
-/// use windows_reactor::{border, fragment, text_block};
-///
-/// let _ = border(fragment((text_block("a"), text_block("b"))));
-/// ```
-pub fn fragment(children: impl IntoChildren) -> Fragment {
-    Fragment {
-        children: children.into_children(),
-    }
-}
-
-/// Built-in widget variants live here so enum arms and dispatch stay aligned.
-macro_rules! impl_styling_capabilities {
-    ($variant:ident, Control) => {
-        impl_styling_capabilities!($variant, Padding);
-        impl_styling_capabilities!($variant, Background);
-        impl_styling_capabilities!($variant, TextStyle);
-    };
-    ($variant:ident, PaddedPanel) => {
-        impl_styling_capabilities!($variant, Padding);
-        impl_styling_capabilities!($variant, Background);
-    };
-    ($variant:ident, Panel) => {
-        impl_styling_capabilities!($variant, Background);
-    };
-    ($variant:ident, Text) => {
-        impl_styling_capabilities!($variant, Padding);
-        impl_styling_capabilities!($variant, TextStyle);
-    };
-    ($variant:ident, Border) => {
-        impl_styling_capabilities!($variant, Padding);
-        impl_styling_capabilities!($variant, Background);
-    };
-    ($variant:ident, Visual) => {};
-    ($variant:ident, Padding) => {
-        impl capability::Padding for $variant {}
-    };
-    ($variant:ident, Background) => {
-        impl capability::Background for $variant {}
-    };
-    ($variant:ident, TextStyle) => {
-        impl capability::TextStyle for $variant {}
-    };
-}
-
-macro_rules! define_element {
-    ( $( $variant:ident : $styling:ident ),* $(,)? ) => {
-        /// Element tree node the reconciler can mount.
-        #[derive(Clone, Debug, PartialEq, Default)]
-        pub enum Element {
-            $( $variant($variant), )*
-            Component(ComponentElement),
-            Provider(ProviderElement),
-            TemplatedList(TemplatedListElement),
-            #[default]
-            Empty,
-        }
-
-        $(
-            impl From<$variant> for Element {
-                fn from(v: $variant) -> Self {
-                    Element::$variant(v)
-                }
-            }
-
-            impl KeyExt for $variant {
-                fn with_key(mut self, key: impl Into<String>) -> Self {
-                    self.key = Some(key.into());
-                    self
-                }
-            }
-
-            impl capability::Native for $variant {
-                fn native_modifiers_mut(&mut self) -> &mut Modifiers {
-                    &mut self.modifiers
-                }
-            }
-
-            impl capability::Resources for $variant {}
-
-            impl capability::Layout for $variant {}
-
-            impl capability::Input for $variant {}
-
-            impl capability::Accessibility for $variant {}
-
-            impl capability::Tooltip for $variant {}
-
-            impl capability::GridChild for $variant {}
-
-            impl capability::CanvasChild for $variant {}
-
-            impl capability::RelativePanelChild for $variant {}
-
-            impl capability::Visual for $variant {}
-
-            impl_styling_capabilities!($variant, $styling);
-        )*
-
-        impl Element {
-            pub fn as_widget(&self) -> Option<&dyn Widget> {
-                Some(match self {
-                    $( Element::$variant(v) => v, )*
-                    Element::Component(_)
-                    | Element::Provider(_)
-                    | Element::TemplatedList(_)
-                    | Element::Empty => return None,
-                })
-            }
-            pub fn kind_name(&self) -> &'static str {
-                match self {
-                    $( Element::$variant(_) => stringify!($variant), )*
-                    Element::Component(_) => "Component",
-                    Element::Provider(_) => "Provider",
-                    Element::TemplatedList(_) => "TemplatedList",
-                    Element::Empty => "Empty",
-                }
-            }
-        }
-
-        impl KeyExt for Element {
-            fn with_key(mut self, key: impl Into<String>) -> Self {
-                let key = key.into();
-                match &mut self {
-                    $( Element::$variant(v) => v.key = Some(key), )*
-                    Element::Component(c) => c.key = Some(key),
-                    Element::Provider(pe) => pe.key = Some(key),
-                    Element::TemplatedList(tl) => tl.key = Some(key),
-                    Element::Empty => {}
-                }
-                self
-            }
-        }
-    };
-}
-
-define_element! {
-    TextBlock: Text,
-    Button: Control,
-    StackPanel: PaddedPanel,
-    Border: Border,
-    CheckBox: Control,
-    TextBox: Control,
-    Grid: PaddedPanel,
-    ScrollViewer: Control,
-    ToggleSwitch: Control,
-    Slider: Control,
-    RadioButton: Control,
-    NumberBox: Control,
-    ProgressBar: Control,
-    ProgressRing: Control,
-    Expander: Control,
-    HyperlinkButton: Control,
-    InfoBar: Control,
-    InfoBadge: Control,
-    PersonPicture: Control,
-    Shape: Visual,
-    Image: Visual,
-    TabView: Control,
-    NavigationView: Control,
-    TitleBar: Control,
-    Pivot: Control,
-    BreadcrumbBar: Control,
-    PasswordBox: Control,
-    RadioButtons: Control,
-    ComboBox: Control,
-    Canvas: Panel,
-    RichTextBlock: Text,
-    ContentDialog: Control,
-    Viewbox: Visual,
-    RepeatButton: Control,
-    RatingControl: Control,
-    ColorPicker: Control,
-    DatePicker: Control,
-    TimePicker: Control,
-    CalendarDatePicker: Control,
-    CalendarView: Control,
-    ListBox: Control,
-    DropDownButton: Control,
-    SplitButton: Control,
-    AutoSuggestBox: Control,
-    SplitView: Control,
-    MenuBar: Control,
-    ScrollView: Control,
-    TreeView: Control,
-    CommandBar: Control,
-    TeachingTip: Control,
-    SelectorBar: Control,
-    RichEditBox: Control,
-    RelativePanel: Panel,
-    ToggleButton: Control,
-    SwapChainPanel: PaddedPanel,
-    CompositionHost: Visual,
-    WebView2: Visual,
-}
-
-macro_rules! non_widget_from_table {
-    ( $( $variant:ident : $ty:ty ),* $(,)? ) => {
-        $(
-            impl From<$ty> for Element {
-                fn from(v: $ty) -> Self { Element::$variant(v) }
-            }
-        )*
-    };
-}
-
-non_widget_from_table! {
-    Component:     ComponentElement,
-    Provider:      ProviderElement,
-    TemplatedList: TemplatedListElement,
-}
-
-impl Element {
-    pub fn key(&self) -> Option<&str> {
-        if let Some(w) = self.as_widget() {
-            return w.key();
-        }
-        match self {
-            Self::Component(c) => c.key.as_deref(),
-            Self::Provider(p) => p.key.as_deref(),
-            Self::TemplatedList(tl) => tl.key.as_deref(),
-            Self::Empty => None,
-            _ => unreachable!("covered by as_widget"),
-        }
-    }
-    pub fn modifiers(&self) -> Option<&Modifiers> {
-        if let Some(w) = self.as_widget() {
-            return Some(w.modifiers());
-        }
-        match self {
-            Self::TemplatedList(tl) => Some(&tl.modifiers),
-            Self::Component(_) | Self::Provider(_) | Self::Empty => None,
-            _ => unreachable!("covered by as_widget"),
-        }
-    }
-    pub fn attached(&self) -> Option<&AttachedProps> {
-        self.modifiers().and_then(|m| m.attached.as_ref())
-    }
-    pub fn accessibility(&self) -> Option<&AccessibilityModifiers> {
-        self.modifiers().and_then(|m| m.accessibility.as_deref())
-    }
-    /// `true` when both elements are the same variant and shape, so an update can be considered.
-    pub fn kind_matches(&self, other: &Self) -> bool {
-        if std::mem::discriminant(self) != std::mem::discriminant(other) {
-            return false;
-        }
-        if let (Self::Shape(a), Self::Shape(b)) = (self, other) {
-            return a.kind == b.kind;
-        }
-        true
-    }
-    /// `true` when the reconciler may diff `self` against `other` in place
-    /// rather than unmounting and remounting.
-    pub fn can_update(&self, other: &Self) -> bool {
-        if !self.kind_matches(other) {
-            return false;
-        }
-        match (self, other) {
-            (Self::Component(a), Self::Component(b)) => {
-                a.obj.component_type_id() == b.obj.component_type_id()
-            }
-            _ => true,
-        }
-    }
-}
-
-/// `true` when the reconciler can skip diffing entirely - old/new are
-/// equal and there are no theme bindings that need re-resolving.
-pub fn can_skip_update(old: &Element, new: &Element) -> bool {
-    if old != new {
-        return false;
-    }
-    match new.modifiers() {
-        Some(m) => m.theme_bindings.as_ref().is_none_or(|map| map.is_empty()),
-        None => true,
-    }
-}
-
-/// Stable reconciliation identity for concrete widgets and erased elements.
-///
-/// Keys should be unique among siblings. Duplicate keys are tolerated, but each old child can be
-/// reused only once.
-pub trait KeyExt: Sized {
-    fn with_key(self, key: impl Into<String>) -> Self;
-}
-
-/// Context provision for anything convertible into an [`Element`].
-pub trait ProvideExt: Into<Element> + Sized {
-    fn provide<T>(self, context: &Context<T>, value: T) -> Element
-    where
-        T: Clone + PartialEq + 'static,
-    {
-        let mut el = self.into();
-        let provision = ContextProvision::new(context.id, value);
-        if let Element::Provider(ref mut existing) = el {
-            existing.provisions.push(provision);
-            el
+    let path = path.replace('\\', "/");
+    let mut encoded = String::with_capacity(path.len());
+    const HEX: &[u8; 16] = b"0123456789ABCDEF";
+    for byte in path.bytes() {
+        if byte.is_ascii_alphanumeric() || matches!(byte, b'-' | b'.' | b'_' | b'~' | b'/' | b':') {
+            encoded.push(char::from(byte));
         } else {
-            Element::Provider(ProviderElement {
-                key: None,
-                provisions: vec![provision],
-                child: Box::new(el),
+            encoded.push('%');
+            encoded.push(char::from(HEX[usize::from(byte >> 4)]));
+            encoded.push(char::from(HEX[usize::from(byte & 0x0f)]));
+        }
+    }
+    if let Some(path) = encoded.strip_prefix("//") {
+        Ok(format!("file://{path}"))
+    } else if encoded.starts_with('/') {
+        Ok(format!("file://{encoded}"))
+    } else {
+        Ok(format!("file:///{encoded}"))
+    }
+}
+
+#[cfg(test)]
+mod file_uri_tests {
+    use super::*;
+
+    #[test]
+    fn encodes_drive_paths_and_reserved_characters() {
+        assert_eq!(
+            file_uri(std::path::Path::new(r"\\?\C:\work dir\a#b%20.png")).unwrap(),
+            "file:///C:/work%20dir/a%23b%2520.png"
+        );
+    }
+
+    #[test]
+    fn encodes_extended_unc_paths_with_an_authority() {
+        assert_eq!(
+            file_uri(std::path::Path::new(r"\\?\UNC\server\share dir\asset.png")).unwrap(),
+            "file://server/share%20dir/asset.png"
+        );
+    }
+
+    #[test]
+    fn rejects_relative_paths() {
+        assert!(file_uri(std::path::Path::new(r"images\asset.png")).is_err());
+    }
+}
+
+#[repr(u8)]
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub enum ThemeBrush {
+    Accent,
+    AccentText,
+    PrimaryText,
+    SolidBackground,
+    CardBackground,
+    CardStroke,
+    SystemCritical,
+    SystemCriticalBackground,
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub struct FontWeight(u16);
+
+impl FontWeight {
+    pub const BLACK: Self = Self(900);
+    pub const BOLD: Self = Self(700);
+    pub const EXTRA_BLACK: Self = Self(950);
+    pub const EXTRA_BOLD: Self = Self(800);
+    pub const EXTRA_LIGHT: Self = Self(200);
+    pub const LIGHT: Self = Self(300);
+    pub const MEDIUM: Self = Self(500);
+    pub const NORMAL: Self = Self(400);
+    pub const SEMI_BOLD: Self = Self(600);
+    pub const SEMI_LIGHT: Self = Self(350);
+    pub const THIN: Self = Self(100);
+
+    pub const fn new(weight: u16) -> Option<Self> {
+        if weight >= 1 && weight <= 999 {
+            Some(Self(weight))
+        } else {
+            None
+        }
+    }
+
+    pub const fn get(self) -> u16 {
+        self.0
+    }
+}
+
+impl Default for FontWeight {
+    fn default() -> Self {
+        Self::NORMAL
+    }
+}
+
+#[cfg(test)]
+mod font_weight_tests {
+    use super::*;
+
+    #[test]
+    fn validates_open_type_weight_range() {
+        assert_eq!(FontWeight::new(0), None);
+        assert_eq!(FontWeight::new(1).unwrap().get(), 1);
+        assert_eq!(FontWeight::new(999).unwrap().get(), 999);
+        assert_eq!(FontWeight::new(1000), None);
+        assert_eq!(FontWeight::default(), FontWeight::NORMAL);
+    }
+}
+
+impl ThemeBrush {
+    pub(crate) fn resource_key(self) -> &'static str {
+        match self {
+            Self::Accent => "AccentFillColorDefaultBrush",
+            Self::AccentText => "AccentTextFillColorPrimaryBrush",
+            Self::PrimaryText => "TextFillColorPrimaryBrush",
+            Self::SolidBackground => "SolidBackgroundFillColorBaseBrush",
+            Self::CardBackground => "CardBackgroundFillColorDefaultBrush",
+            Self::CardStroke => "CardStrokeColorDefaultBrush",
+            Self::SystemCritical => "SystemFillColorCriticalBrush",
+            Self::SystemCriticalBackground => "SystemFillColorCriticalBackgroundBrush",
+        }
+    }
+}
+
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq)]
+pub struct Color {
+    pub a: u8,
+    pub r: u8,
+    pub g: u8,
+    pub b: u8,
+}
+
+impl Color {
+    pub const fn argb(a: u8, r: u8, g: u8, b: u8) -> Self {
+        Self { a, r, g, b }
+    }
+
+    pub const fn rgb(r: u8, g: u8, b: u8) -> Self {
+        Self::argb(255, r, g, b)
+    }
+
+    pub const fn transparent() -> Self {
+        Self::argb(0, 0, 0, 0)
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub enum Brush {
+    Theme(ThemeBrush),
+    Solid(Color),
+}
+
+/// Pointer state in element-local and window-relative device-independent pixels.
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct PointerEventInfo {
+    pub x: f64,
+    pub y: f64,
+    pub window_x: f64,
+    pub window_y: f64,
+    pub capture_succeeded: bool,
+    pub is_left_button_pressed: bool,
+    pub is_right_button_pressed: bool,
+    pub is_middle_button_pressed: bool,
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub enum NavigationViewDisplayMode {
+    Minimal,
+    Compact,
+    Expanded,
+}
+
+impl Brush {
+    pub(crate) const fn theme(self) -> Option<ThemeBrush> {
+        match self {
+            Self::Theme(value) => Some(value),
+            Self::Solid(_) => None,
+        }
+    }
+}
+
+impl From<ThemeBrush> for Brush {
+    fn from(value: ThemeBrush) -> Self {
+        Self::Theme(value)
+    }
+}
+
+impl From<Color> for Brush {
+    fn from(value: Color) -> Self {
+        Self::Solid(value)
+    }
+}
+
+pub(crate) mod sealed {
+    pub trait Sealed {}
+
+    pub(crate) trait NativeControl: Sealed + Sized {
+        fn into_element(self) -> super::Element;
+    }
+
+    pub(crate) trait LayoutControl: NativeControl {
+        fn element_state_mut(&mut self) -> &mut Option<std::rc::Rc<super::ElementState>>;
+    }
+
+    pub(crate) trait ContentControl: NativeControl {
+        fn into_content_view(self, content: super::View) -> super::View {
+            super::View(super::ViewKind::Content {
+                control: self.into_element(),
+                content: Box::new(content.into_kind()),
             })
         }
     }
+
+    pub(crate) trait SlotIndex<S> {
+        fn slot_index(slot: S) -> u8;
+    }
+
+    pub trait StaticViews {
+        fn into_views(self) -> Vec<super::View>;
+    }
 }
 
-impl<T: Into<Element>> ProvideExt for T {}
+#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+pub struct Key(KeyKind);
 
-/// Attaches a typed reference to a native widget.
+#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+enum KeyKind {
+    Integer(u64),
+    String(Rc<str>),
+    Position(usize),
+}
+
+impl Key {
+    pub(crate) fn position(value: usize) -> Self {
+        Self(KeyKind::Position(value))
+    }
+}
+
+impl From<u64> for Key {
+    fn from(value: u64) -> Self {
+        Self(KeyKind::Integer(value))
+    }
+}
+
+impl From<u32> for Key {
+    fn from(value: u32) -> Self {
+        Self(KeyKind::Integer(value.into()))
+    }
+}
+
+impl From<usize> for Key {
+    fn from(value: usize) -> Self {
+        Self(KeyKind::Integer(u64::try_from(value).unwrap()))
+    }
+}
+
+impl From<String> for Key {
+    fn from(value: String) -> Self {
+        Self(KeyKind::String(value.into()))
+    }
+}
+
+impl From<&str> for Key {
+    fn from(value: &str) -> Self {
+        Self(KeyKind::String(value.into()))
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) struct KeyedElement {
+    key: Key,
+    element: Element,
+}
+
+impl KeyedElement {
+    #[cfg(test)]
+    pub(crate) fn new(key: impl Into<Key>, element: impl Into<Element>) -> Self {
+        Self {
+            key: key.into(),
+            element: element.into(),
+        }
+    }
+
+    pub(crate) fn key(&self) -> &Key {
+        &self.key
+    }
+
+    pub(crate) fn element(&self) -> &Element {
+        &self.element
+    }
+
+    pub(crate) fn into_parts(self) -> (Key, Element) {
+        (self.key, self.element)
+    }
+}
+
+#[cfg(test)]
+pub(crate) trait NativeContentTestExt: Sized {
+    fn native_content(self, content: impl Into<Element>) -> Self;
+}
+
+#[cfg(test)]
+pub(crate) trait NativeChildrenTestExt: Sized {
+    fn native_child(self, key: impl Into<Key>, child: impl Into<Element>) -> Self;
+    fn native_children(self, children: impl IntoIterator<Item = KeyedElement>) -> Self;
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub struct View(ViewKind);
+
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) enum ViewKind {
+    Native(Element),
+    Component(ComponentView),
+    Fragment(Rc<Vec<KeyedView>>),
+    Provider {
+        provision: ContextProvision,
+        child: Box<Self>,
+    },
+    Content {
+        control: Element,
+        content: Box<Self>,
+    },
+    Children {
+        control: Element,
+        children: Rc<Vec<KeyedView>>,
+    },
+    Slots {
+        control: Element,
+        slots: Rc<Vec<SlottedView>>,
+    },
+    Tooltip {
+        target: Box<Self>,
+        tooltip: Tooltip,
+    },
+    Flyout {
+        target: Box<Self>,
+        flyout: Flyout,
+    },
+    Menu {
+        target: Box<Self>,
+        menu: Menu,
+    },
+    CommandBarFlyout {
+        target: Box<Self>,
+        flyout: CommandBarFlyout,
+    },
+    TreeNodes {
+        tree: Box<Self>,
+        nodes: Rc<Vec<TreeNode>>,
+    },
+    ContentDialog {
+        dialog: Box<Self>,
+        open: bool,
+    },
+}
+
+/// Converts a statically shaped expression into positional views.
 ///
-/// The associated handle type prevents references from being attached to incompatible widgets.
+/// This trait is sealed. `()` represents no views, fixed-size arrays represent homogeneous
+/// shapes, and tuples represent heterogeneous shapes. Dynamic collections require
+/// [`ChildrenControl::keyed_children`] or [`View::keyed_fragment`].
+///
+/// A `Vec` cannot supply positional children:
 ///
 /// ```compile_fail
 /// use windows_reactor::*;
 ///
-/// let image = ElementRef::<ImageHandle>::new();
-/// let _ = text_box("").element_ref(&image);
+/// let dynamic: Vec<View> = vec![TextBlock::new().into()];
+/// let _ = StackPanel::new().children(dynamic);
 /// ```
-pub trait ElementRefExt: capability::Native + Sized {
-    type Handle: ElementHandle;
+///
+/// Iterator adapters cannot supply positional children:
+///
+/// ```compile_fail
+/// use windows_reactor::*;
+///
+/// let dynamic = (0..3).map(|index| TextBlock::new().text(index.to_string()));
+/// let _ = StackPanel::new().children(dynamic);
+/// ```
+pub trait IntoViews: sealed::StaticViews {}
 
-    fn element_ref(mut self, reference: &ElementRef<Self::Handle>) -> Self {
-        let modifiers = self.native_modifiers_mut();
-        modifiers
-            .attached
-            .get_or_insert_with(AttachedProps::default)
-            .set(reference.binding());
+#[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq)]
+pub enum TooltipPlacement {
+    #[default]
+    Top,
+    Bottom,
+    Left,
+    Right,
+    Mouse,
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub struct Tooltip {
+    pub(crate) content: Box<View>,
+    pub(crate) placement: TooltipPlacement,
+}
+
+impl Tooltip {
+    pub fn text(value: impl Into<String>) -> Self {
+        Self::rich(TextBlock::new().text(value))
+    }
+
+    pub fn rich(content: impl Into<View>) -> Self {
+        Self {
+            content: Box::new(content.into()),
+            placement: TooltipPlacement::Top,
+        }
+    }
+
+    pub fn placement(mut self, placement: TooltipPlacement) -> Self {
+        self.placement = placement;
         self
     }
 }
 
-pub(crate) mod capability {
-    use super::Modifiers;
-
-    pub trait Native {
-        fn native_modifiers_mut(&mut self) -> &mut Modifiers;
+pub trait TooltipExt: Into<View> + Sized {
+    fn tooltip(self, value: impl Into<String>) -> View {
+        self.tooltip_with(Tooltip::text(value))
     }
 
-    pub trait Accessibility: Native {
-        fn accessibility_modifiers_mut(&mut self) -> &mut Modifiers {
-            self.native_modifiers_mut()
+    fn tooltip_with(self, tooltip: Tooltip) -> View {
+        View(ViewKind::Tooltip {
+            target: Box::new(self.into().into_kind()),
+            tooltip,
+        })
+    }
+}
+
+impl<T> TooltipExt for T where T: Into<View> {}
+
+#[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq)]
+pub enum FlyoutPlacement {
+    #[default]
+    Top,
+    Bottom,
+    Left,
+    Right,
+    Full,
+    TopEdgeAlignedLeft,
+    TopEdgeAlignedRight,
+    BottomEdgeAlignedLeft,
+    BottomEdgeAlignedRight,
+    LeftEdgeAlignedTop,
+    LeftEdgeAlignedBottom,
+    RightEdgeAlignedTop,
+    RightEdgeAlignedBottom,
+    Auto,
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub struct Flyout {
+    pub(crate) content: Box<View>,
+    pub(crate) placement: FlyoutPlacement,
+}
+
+impl Flyout {
+    pub fn text(value: impl Into<String>) -> Self {
+        Self::rich(TextBlock::new().text(value))
+    }
+
+    pub fn rich(content: impl Into<View>) -> Self {
+        Self {
+            content: Box::new(content.into()),
+            placement: FlyoutPlacement::Top,
         }
     }
 
-    pub trait Background: Native {
-        fn background_modifiers_mut(&mut self) -> &mut Modifiers {
-            self.native_modifiers_mut()
+    pub fn placement(mut self, placement: FlyoutPlacement) -> Self {
+        self.placement = placement;
+        self
+    }
+}
+
+pub trait FlyoutExt: Into<View> + Sized {
+    fn flyout(self, value: impl Into<String>) -> View {
+        self.flyout_with(Flyout::text(value))
+    }
+
+    fn flyout_with(self, flyout: Flyout) -> View {
+        View(ViewKind::Flyout {
+            target: Box::new(self.into().into_kind()),
+            flyout,
+        })
+    }
+}
+
+impl<T> FlyoutExt for T where T: Into<View> {}
+
+#[derive(Clone, Debug, PartialEq)]
+pub enum MenuItem {
+    Item {
+        key: Key,
+        label: String,
+        enabled: bool,
+    },
+    Separator {
+        key: Key,
+    },
+    Submenu {
+        key: Key,
+        label: String,
+        items: Vec<Self>,
+    },
+}
+
+impl MenuItem {
+    pub fn item(key: impl Into<Key>, label: impl Into<String>) -> Self {
+        Self::Item {
+            key: key.into(),
+            label: label.into(),
+            enabled: true,
         }
     }
 
-    pub trait Input: Native {
-        fn input_modifiers_mut(&mut self) -> &mut Modifiers {
-            self.native_modifiers_mut()
+    pub fn disabled(key: impl Into<Key>, label: impl Into<String>) -> Self {
+        Self::Item {
+            key: key.into(),
+            label: label.into(),
+            enabled: false,
         }
     }
 
-    pub trait GridChild: Native {
-        fn grid_child_modifiers_mut(&mut self) -> &mut Modifiers {
-            self.native_modifiers_mut()
+    pub fn separator(key: impl Into<Key>) -> Self {
+        Self::Separator { key: key.into() }
+    }
+
+    pub fn submenu(
+        key: impl Into<Key>,
+        label: impl Into<String>,
+        items: impl IntoIterator<Item = Self>,
+    ) -> Self {
+        Self::Submenu {
+            key: key.into(),
+            label: label.into(),
+            items: items.into_iter().collect(),
         }
     }
 
-    pub trait CanvasChild: Native {
-        fn canvas_child_modifiers_mut(&mut self) -> &mut Modifiers {
-            self.native_modifiers_mut()
-        }
-    }
-
-    pub trait RelativePanelChild: Native {
-        fn relative_panel_child_modifiers_mut(&mut self) -> &mut Modifiers {
-            self.native_modifiers_mut()
-        }
-    }
-
-    pub trait Layout: Native {
-        fn layout_modifiers_mut(&mut self) -> &mut Modifiers {
-            self.native_modifiers_mut()
-        }
-    }
-
-    pub trait Padding: Native {
-        fn padding_modifiers_mut(&mut self) -> &mut Modifiers {
-            self.native_modifiers_mut()
-        }
-    }
-
-    pub trait Resources: Native {
-        fn resource_modifiers_mut(&mut self) -> &mut Modifiers {
-            self.native_modifiers_mut()
-        }
-    }
-
-    pub trait TextStyle: Native {
-        fn text_style_modifiers_mut(&mut self) -> &mut Modifiers {
-            self.native_modifiers_mut()
-        }
-    }
-
-    pub trait Tooltip: Native {
-        fn tooltip_modifiers_mut(&mut self) -> &mut Modifiers {
-            self.native_modifiers_mut()
-        }
-    }
-
-    pub trait Visual: Native {
-        fn visual_modifiers_mut(&mut self) -> &mut Modifiers {
-            self.native_modifiers_mut()
+    pub(crate) fn key(&self) -> &Key {
+        match self {
+            Self::Item { key, .. } | Self::Separator { key } | Self::Submenu { key, .. } => key,
         }
     }
 }
 
-/// Background styling for controls, panels, and borders.
-///
-/// ```compile_fail
-/// use windows_reactor::{BackgroundExt, text_block};
-///
-/// let _ = text_block("Label").background("#202020");
-/// ```
-///
-/// ```compile_fail
-/// use windows_reactor::{BackgroundExt, Element, button};
-///
-/// let element: Element = button("Save").into();
-/// let _ = element.background("#202020");
-/// ```
-pub trait BackgroundExt: capability::Background + Sized {
-    fn background(mut self, value: impl Into<BrushBinding>) -> Self {
-        apply_brush_binding(
-            capability::Background::background_modifiers_mut(&mut self),
-            Prop::Background,
-            value.into(),
-            true,
+#[derive(Clone, Debug, PartialEq)]
+pub struct Menu {
+    pub(crate) items: Vec<MenuItem>,
+    pub(crate) on_click: Callback<String>,
+}
+
+impl Menu {
+    pub fn new(
+        items: impl IntoIterator<Item = MenuItem>,
+        on_click: impl IntoPayloadCallback<String>,
+    ) -> Self {
+        Self {
+            items: items.into_iter().collect(),
+            on_click: on_click.into_payload_callback(),
+        }
+    }
+}
+
+pub trait MenuExt: Into<View> + Sized {
+    fn menu(self, menu: Menu) -> View {
+        View(ViewKind::Menu {
+            target: Box::new(self.into().into_kind()),
+            menu,
+        })
+    }
+}
+
+impl<T> MenuExt for T where T: Into<View> {}
+
+#[derive(Clone, Debug, PartialEq)]
+pub enum CommandBarCommand {
+    Button {
+        key: Key,
+        label: String,
+        icon: Option<Symbol>,
+        enabled: bool,
+    },
+    Separator {
+        key: Key,
+    },
+}
+
+impl CommandBarCommand {
+    pub fn button(key: impl Into<Key>, label: impl Into<String>) -> Self {
+        Self::Button {
+            key: key.into(),
+            label: label.into(),
+            icon: None,
+            enabled: true,
+        }
+    }
+
+    pub fn button_with_icon(key: impl Into<Key>, label: impl Into<String>, icon: Symbol) -> Self {
+        Self::Button {
+            key: key.into(),
+            label: label.into(),
+            icon: Some(icon),
+            enabled: true,
+        }
+    }
+
+    pub fn separator(key: impl Into<Key>) -> Self {
+        Self::Separator { key: key.into() }
+    }
+
+    pub(crate) fn key(&self) -> &Key {
+        match self {
+            Self::Button { key, .. } | Self::Separator { key } => key,
+        }
+    }
+
+    fn into_keyed_view(self, on_click: &Callback<String>) -> KeyedView {
+        match self {
+            Self::Button {
+                key,
+                label,
+                icon,
+                enabled,
+            } => {
+                let callback = on_click.clone();
+                let clicked = label.clone();
+                let button = AppBarButton::new()
+                    .label(label)
+                    .is_enabled(enabled)
+                    .on_click(move || {
+                        let _ = callback.call(clicked.clone());
+                    });
+                let view = match icon {
+                    Some(icon) => button.slots([SlotView::new(
+                        AppBarButtonSlot::Icon,
+                        SymbolIcon::new().symbol(icon),
+                    )]),
+                    None => button.into(),
+                };
+                KeyedView { key, view }
+            }
+            Self::Separator { key } => KeyedView {
+                key,
+                view: AppBarSeparator::new().into(),
+            },
+        }
+    }
+}
+
+impl CommandBar {
+    pub fn owned_commands(
+        self,
+        primary: impl IntoIterator<Item = CommandBarCommand>,
+        secondary: impl IntoIterator<Item = CommandBarCommand>,
+        on_click: impl IntoPayloadCallback<String>,
+    ) -> View {
+        let on_click = on_click.into_payload_callback();
+        self.slots([
+            SlotView::collection(
+                CommandBarSlot::PrimaryCommands,
+                primary
+                    .into_iter()
+                    .map(|command| command.into_keyed_view(&on_click)),
+            ),
+            SlotView::collection(
+                CommandBarSlot::SecondaryCommands,
+                secondary
+                    .into_iter()
+                    .map(|command| command.into_keyed_view(&on_click)),
+            ),
+        ])
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub struct CommandBarFlyout {
+    pub(crate) primary: Vec<CommandBarCommand>,
+    pub(crate) secondary: Vec<CommandBarCommand>,
+    pub(crate) on_click: Callback<String>,
+}
+
+impl CommandBarFlyout {
+    pub fn new(
+        primary: impl IntoIterator<Item = CommandBarCommand>,
+        secondary: impl IntoIterator<Item = CommandBarCommand>,
+        on_click: impl IntoPayloadCallback<String>,
+    ) -> Self {
+        Self {
+            primary: primary.into_iter().collect(),
+            secondary: secondary.into_iter().collect(),
+            on_click: on_click.into_payload_callback(),
+        }
+    }
+}
+
+pub trait CommandBarFlyoutExt: Into<View> + Sized {
+    fn command_bar_flyout(self, flyout: CommandBarFlyout) -> View {
+        View(ViewKind::CommandBarFlyout {
+            target: Box::new(self.into().into_kind()),
+            flyout,
+        })
+    }
+}
+
+impl<T> CommandBarFlyoutExt for T where T: Into<View> {}
+
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub struct RichText {
+    pub(crate) paragraphs: Rc<Vec<RichTextParagraph>>,
+}
+
+impl RichText {
+    pub fn new(paragraphs: impl IntoIterator<Item = RichTextParagraph>) -> Self {
+        Self {
+            paragraphs: Rc::new(paragraphs.into_iter().collect()),
+        }
+    }
+
+    pub fn single_paragraph(inlines: impl IntoIterator<Item = RichTextInline>) -> Self {
+        Self::new([RichTextParagraph::new(inlines)])
+    }
+}
+
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub struct RichTextParagraph {
+    pub(crate) inlines: Vec<RichTextInline>,
+}
+
+impl RichTextParagraph {
+    pub fn new(inlines: impl IntoIterator<Item = RichTextInline>) -> Self {
+        Self {
+            inlines: inlines.into_iter().collect(),
+        }
+    }
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub enum RichTextInline {
+    Run(RichTextRun),
+    Hyperlink(RichTextHyperlink),
+    LineBreak,
+}
+
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub struct RichTextRun {
+    pub text: String,
+    pub is_bold: bool,
+    pub is_italic: bool,
+}
+
+impl RichTextRun {
+    pub fn plain(text: impl Into<String>) -> Self {
+        Self {
+            text: text.into(),
+            ..Self::default()
+        }
+    }
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RichTextHyperlink {
+    pub text: String,
+    pub uri: String,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct TreeNode {
+    pub(crate) key: Key,
+    pub(crate) text: String,
+    pub(crate) expanded: bool,
+    pub(crate) children: Vec<Self>,
+}
+
+impl TreeNode {
+    pub fn new(key: impl Into<Key>, text: impl Into<String>) -> Self {
+        Self {
+            key: key.into(),
+            text: text.into(),
+            expanded: false,
+            children: Vec::new(),
+        }
+    }
+
+    pub fn expanded(mut self, value: bool) -> Self {
+        self.expanded = value;
+        self
+    }
+
+    pub fn children(mut self, children: impl IntoIterator<Item = Self>) -> Self {
+        self.children = children.into_iter().collect();
+        self
+    }
+
+    pub fn child(mut self, child: Self) -> Self {
+        self.children.push(child);
+        self
+    }
+}
+
+pub trait TreeViewExt: Into<View> + Sized {
+    fn nodes(self, nodes: impl IntoIterator<Item = TreeNode>) -> View {
+        View(ViewKind::TreeNodes {
+            tree: Box::new(self.into().into_kind()),
+            nodes: Rc::new(nodes.into_iter().collect()),
+        })
+    }
+}
+
+impl<T> TreeViewExt for T where T: Into<View> {}
+
+impl View {
+    pub fn empty() -> Self {
+        Self::fragment(())
+    }
+
+    pub(crate) fn native(control: impl Into<Element>) -> Self {
+        Self(ViewKind::Native(control.into()))
+    }
+
+    pub fn component<C: Component>(input: C::Input) -> Self {
+        Self(ViewKind::Component(ComponentView::new::<C>(input)))
+    }
+
+    pub fn fragment(children: impl IntoViews) -> Self {
+        Self(ViewKind::Fragment(positioned(children)))
+    }
+
+    pub fn keyed_fragment<T>(children: impl IntoIterator<Item = T>) -> Self
+    where
+        T: Into<KeyedView>,
+    {
+        Self(ViewKind::Fragment(Rc::new(
+            children.into_iter().map(Into::into).collect(),
+        )))
+    }
+
+    pub fn provide<T>(context: &Context<T>, value: T, child: impl Into<Self>) -> Self
+    where
+        T: Clone + PartialEq + 'static,
+    {
+        Self(ViewKind::Provider {
+            provision: ContextProvision::new(context, value),
+            child: Box::new(child.into().into_kind()),
+        })
+    }
+
+    pub(crate) fn from_kind(kind: ViewKind) -> Self {
+        Self(kind)
+    }
+
+    pub(crate) fn content_dialog(dialog: Element, content: Option<Self>, open: bool) -> Self {
+        let dialog = match content {
+            Some(content) => Self(ViewKind::Content {
+                control: dialog,
+                content: Box::new(content.into_kind()),
+            }),
+            None => Self::native(dialog),
+        };
+        Self(ViewKind::ContentDialog {
+            dialog: Box::new(dialog.into_kind()),
+            open,
+        })
+    }
+
+    pub(crate) fn as_kind(&self) -> &ViewKind {
+        &self.0
+    }
+
+    pub(crate) fn into_kind(self) -> ViewKind {
+        self.0
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub struct SlotView<S> {
+    slot: S,
+    content: SlotContent,
+}
+
+impl<S> SlotView<S> {
+    pub fn new(slot: S, view: impl Into<View>) -> Self {
+        Self {
+            slot,
+            content: SlotContent::Single(view.into()),
+        }
+    }
+
+    pub fn collection<T>(slot: S, children: impl IntoIterator<Item = T>) -> Self
+    where
+        T: Into<KeyedView>,
+    {
+        Self {
+            slot,
+            content: SlotContent::Collection(Rc::new(
+                children.into_iter().map(Into::into).collect(),
+            )),
+        }
+    }
+
+    fn into_parts(self) -> (S, SlotContent) {
+        (self.slot, self.content)
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) enum SlotContent {
+    Single(View),
+    Collection(Rc<Vec<KeyedView>>),
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) struct SlottedView {
+    pub(crate) slot: SlotId,
+    pub(crate) content: SlotContent,
+}
+
+impl From<Element> for View {
+    fn from(value: Element) -> Self {
+        Self(ViewKind::Native(value))
+    }
+}
+
+impl From<String> for View {
+    fn from(value: String) -> Self {
+        TextBlock::new().text(value).into()
+    }
+}
+
+impl From<&str> for View {
+    fn from(value: &str) -> Self {
+        value.to_string().into()
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub struct KeyedView {
+    key: Key,
+    view: View,
+}
+
+impl KeyedView {
+    pub fn new(key: impl Into<Key>, view: impl Into<View>) -> Self {
+        Self {
+            key: key.into(),
+            view: view.into(),
+        }
+    }
+
+    pub fn key(&self) -> &Key {
+        &self.key
+    }
+
+    pub fn view(&self) -> &View {
+        &self.view
+    }
+
+    pub(crate) fn into_parts(self) -> (Key, View) {
+        (self.key, self.view)
+    }
+
+    fn position(position: usize, view: View) -> Self {
+        Self {
+            key: Key::position(position),
+            view,
+        }
+    }
+}
+
+impl<K, V> From<(K, V)> for KeyedView
+where
+    K: Into<Key>,
+    V: Into<View>,
+{
+    fn from((key, view): (K, V)) -> Self {
+        Self::new(key, view)
+    }
+}
+
+fn positioned(children: impl IntoViews) -> Rc<Vec<KeyedView>> {
+    let children = sealed::StaticViews::into_views(children);
+    Rc::new(
+        children
+            .into_iter()
+            .enumerate()
+            .map(|(position, view)| KeyedView::position(position, view))
+            .collect(),
+    )
+}
+
+impl sealed::StaticViews for () {
+    fn into_views(self) -> Vec<View> {
+        Vec::new()
+    }
+}
+
+impl IntoViews for () {}
+
+impl<T, const N: usize> sealed::StaticViews for [T; N]
+where
+    T: Into<View>,
+{
+    fn into_views(self) -> Vec<View> {
+        self.into_iter().map(Into::into).collect()
+    }
+}
+
+impl<T, const N: usize> IntoViews for [T; N] where T: Into<View> {}
+
+macro_rules! impl_into_views_tuple {
+    ($($type:ident $index:tt),+ $(,)?) => {
+        impl<$($type),+> sealed::StaticViews for ($($type,)+)
+        where
+            $($type: Into<View>,)+
+        {
+            fn into_views(self) -> Vec<View> {
+                vec![$(self.$index.into()),+]
+            }
+        }
+
+        impl<$($type),+> IntoViews for ($($type,)+)
+        where
+            $($type: Into<View>,)+
+        {
+        }
+    };
+}
+
+impl_into_views_tuple!(A 0);
+impl_into_views_tuple!(A 0, B 1);
+impl_into_views_tuple!(A 0, B 1, C 2);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4, F 5);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4, F 5, G 6);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9, K 10);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9, K 10, L 11);
+impl_into_views_tuple!(A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9, K 10, L 11, M 12);
+impl_into_views_tuple!(
+    A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9, K 10, L 11, M 12, N 13
+);
+impl_into_views_tuple!(
+    A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9, K 10, L 11, M 12, N 13, O 14
+);
+impl_into_views_tuple!(
+    A 0, B 1, C 2, D 3, E 4, F 5, G 6, H 7, I 8, J 9, K 10, L 11, M 12, N 13, O 14, P 15
+);
+
+#[derive(Clone, Debug)]
+enum FourValues {
+    Uniform(f64),
+    Values(Rc<[f64; 4]>),
+}
+
+impl FourValues {
+    fn new(values: [f64; 4]) -> Self {
+        if values.iter().all(|value| *value == values[0]) {
+            Self::Uniform(values[0])
+        } else {
+            Self::Values(Rc::new(values))
+        }
+    }
+
+    fn values(&self) -> [f64; 4] {
+        match self {
+            Self::Uniform(value) => [*value; 4],
+            Self::Values(values) => **values,
+        }
+    }
+}
+
+#[derive(Clone, Debug)]
+pub struct Thickness(FourValues);
+
+impl Thickness {
+    pub fn uniform(value: f64) -> Self {
+        Self(FourValues::Uniform(value))
+    }
+
+    pub fn xy(horizontal: f64, vertical: f64) -> Self {
+        Self::new(horizontal, vertical, horizontal, vertical)
+    }
+
+    pub fn new(left: f64, top: f64, right: f64, bottom: f64) -> Self {
+        Self(FourValues::new([left, top, right, bottom]))
+    }
+
+    pub fn left(&self) -> f64 {
+        self.values()[0]
+    }
+
+    pub fn top(&self) -> f64 {
+        self.values()[1]
+    }
+
+    pub fn right(&self) -> f64 {
+        self.values()[2]
+    }
+
+    pub fn bottom(&self) -> f64 {
+        self.values()[3]
+    }
+
+    pub(crate) fn values(&self) -> [f64; 4] {
+        self.0.values()
+    }
+
+    pub(crate) fn is_finite_non_negative(&self) -> bool {
+        self.values()
+            .into_iter()
+            .all(|value| value.is_finite() && value >= 0.0)
+    }
+
+    pub(crate) fn is_finite(&self) -> bool {
+        self.values().into_iter().all(f64::is_finite)
+    }
+}
+
+impl Default for Thickness {
+    fn default() -> Self {
+        Self::uniform(0.0)
+    }
+}
+
+impl From<f64> for Thickness {
+    fn from(value: f64) -> Self {
+        Self::uniform(value)
+    }
+}
+
+impl PartialEq for Thickness {
+    fn eq(&self, other: &Self) -> bool {
+        self.values() == other.values()
+    }
+}
+
+#[derive(Clone, Debug)]
+pub struct CornerRadius(FourValues);
+
+impl CornerRadius {
+    pub fn uniform(value: f64) -> Self {
+        Self(FourValues::Uniform(value))
+    }
+
+    pub fn new(top_left: f64, top_right: f64, bottom_right: f64, bottom_left: f64) -> Self {
+        Self(FourValues::new([
+            top_left,
+            top_right,
+            bottom_right,
+            bottom_left,
+        ]))
+    }
+
+    pub fn top_left(&self) -> f64 {
+        self.values()[0]
+    }
+
+    pub fn top_right(&self) -> f64 {
+        self.values()[1]
+    }
+
+    pub fn bottom_right(&self) -> f64 {
+        self.values()[2]
+    }
+
+    pub fn bottom_left(&self) -> f64 {
+        self.values()[3]
+    }
+
+    pub(crate) fn values(&self) -> [f64; 4] {
+        self.0.values()
+    }
+
+    pub(crate) fn is_finite_non_negative(&self) -> bool {
+        self.values()
+            .into_iter()
+            .all(|value| value.is_finite() && value >= 0.0)
+    }
+}
+
+impl Default for CornerRadius {
+    fn default() -> Self {
+        Self::uniform(0.0)
+    }
+}
+
+impl From<f64> for CornerRadius {
+    fn from(value: f64) -> Self {
+        Self::uniform(value)
+    }
+}
+
+impl PartialEq for CornerRadius {
+    fn eq(&self, other: &Self) -> bool {
+        self.values() == other.values()
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub enum ResourceValue {
+    Color(Color),
+    Thickness(Thickness),
+    CornerRadius(CornerRadius),
+}
+
+impl From<Color> for ResourceValue {
+    fn from(value: Color) -> Self {
+        Self::Color(value)
+    }
+}
+
+impl From<Thickness> for ResourceValue {
+    fn from(value: Thickness) -> Self {
+        Self::Thickness(value)
+    }
+}
+
+impl From<CornerRadius> for ResourceValue {
+    fn from(value: CornerRadius) -> Self {
+        Self::CornerRadius(value)
+    }
+}
+
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct ResourceOverrides {
+    values: std::collections::BTreeMap<String, ResourceValue>,
+}
+
+impl ResourceOverrides {
+    pub fn new() -> Self {
+        Self::default()
+    }
+
+    pub fn set(mut self, key: impl Into<String>, value: impl Into<ResourceValue>) -> Self {
+        let key = key.into();
+        assert!(!key.is_empty(), "resource override key must not be empty");
+        let value = value.into();
+        match &value {
+            ResourceValue::Color(_) => {}
+            ResourceValue::Thickness(value) => {
+                assert!(
+                    value.is_finite_non_negative(),
+                    "resource override thickness must be finite and non-negative"
+                );
+            }
+            ResourceValue::CornerRadius(value) => {
+                assert!(
+                    value.is_finite_non_negative(),
+                    "resource override corner radius must be finite and non-negative"
+                );
+            }
+        }
+        self.values.insert(key, value);
+        self
+    }
+
+    pub(crate) fn values(&self) -> impl Iterator<Item = (&str, &ResourceValue)> {
+        self.values.iter().map(|(key, value)| (key.as_str(), value))
+    }
+}
+
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum WindowTheme {
+    #[default]
+    System,
+    Light,
+    Dark,
+}
+
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WindowSize {
+    pub width: f64,
+    pub height: f64,
+}
+
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum ColorScheme {
+    #[default]
+    Light,
+    Dark,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum DragKind {
+    StorageItems,
+    Text,
+    Unsupported,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum DragDropOperation {
+    Copy,
+    Move,
+    Link,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct DragDropAction {
+    pub operation: DragDropOperation,
+    pub caption: Option<String>,
+}
+
+impl DragDropAction {
+    pub fn new(operation: DragDropOperation) -> Self {
+        Self {
+            operation,
+            caption: None,
+        }
+    }
+
+    pub fn caption(mut self, caption: impl Into<String>) -> Self {
+        self.caption = Some(caption.into());
+        self
+    }
+}
+
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub struct DragDropPolicy {
+    pub storage_items: Option<DragDropAction>,
+    pub text: Option<DragDropAction>,
+}
+
+impl DragDropPolicy {
+    pub fn new() -> Self {
+        Self::default()
+    }
+
+    pub fn storage_items(mut self, action: impl Into<Option<DragDropAction>>) -> Self {
+        self.storage_items = action.into();
+        self
+    }
+
+    pub fn text(mut self, action: impl Into<Option<DragDropAction>>) -> Self {
+        self.text = action.into();
+        self
+    }
+
+    pub(crate) fn accepts(&self, kind: DragKind) -> bool {
+        match kind {
+            DragKind::StorageItems => self.storage_items.is_some(),
+            DragKind::Text => self.text.is_some(),
+            DragKind::Unsupported => false,
+        }
+    }
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct DroppedStorageItem {
+    pub name: String,
+    pub path: String,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub enum DroppedData {
+    StorageItems(Vec<DroppedStorageItem>),
+    Text(String),
+    Unsupported,
+}
+
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum WindowBackdrop {
+    #[default]
+    None,
+    Mica,
+    MicaAlt,
+    Acrylic,
+}
+
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum WindowTitleBarHeight {
+    #[default]
+    Standard,
+    Tall,
+}
+
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WindowConstraints {
+    pub min_width: Option<f64>,
+    pub min_height: Option<f64>,
+    pub max_width: Option<f64>,
+    pub max_height: Option<f64>,
+}
+
+impl WindowConstraints {
+    fn validate(self) {
+        for value in [
+            self.min_width,
+            self.min_height,
+            self.max_width,
+            self.max_height,
+        ]
+        .into_iter()
+        .flatten()
+        {
+            assert!(
+                value.is_finite() && value > 0.0,
+                "window constraints must be finite and positive"
+            );
+        }
+        assert!(
+            self.min_width
+                .zip(self.max_width)
+                .is_none_or(|(min, max)| min <= max)
+                && self
+                    .min_height
+                    .zip(self.max_height)
+                    .is_none_or(|(min, max)| min <= max),
+            "window minimum constraints must not exceed maximum constraints"
         );
-        self
     }
 }
 
-impl<T: capability::Background> BackgroundExt for T {}
-
-/// Padding for controls, text blocks, borders, and panels that expose padding.
-///
-/// ```compile_fail
-/// use windows_reactor::{Image, PaddingExt};
-///
-/// let _ = Image::new("asset.png").padding(8.0);
-/// ```
-pub trait PaddingExt: capability::Padding + Sized {
-    fn padding(mut self, value: impl Into<Thickness>) -> Self {
-        capability::Padding::padding_modifiers_mut(&mut self).padding = Some(value.into());
-        self
-    }
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WindowVisuals {
+    pub(crate) backdrop: WindowBackdrop,
+    pub(crate) client_size: Option<(f64, f64)>,
+    pub(crate) constraints: Option<WindowConstraints>,
+    pub(crate) icon: Option<&'static str>,
+    pub(crate) theme: WindowTheme,
 }
 
-impl<T: capability::Padding> PaddingExt for T {}
+impl WindowVisuals {
+    pub fn new() -> Self {
+        Self::default()
+    }
 
-/// Foreground and font styling for controls and text blocks.
-///
-/// ```compile_fail
-/// use windows_reactor::{TextStyleExt, border, text_block};
-///
-/// let _ = border(text_block("Panel")).font_size(16.0);
-/// ```
-///
-/// ```compile_fail
-/// use windows_reactor::{Shape, TextStyleExt};
-///
-/// let _ = Shape::rectangle().foreground("#ffffff");
-/// ```
-pub trait TextStyleExt: capability::TextStyle + Sized {
-    fn foreground(mut self, value: impl Into<BrushBinding>) -> Self {
-        apply_brush_binding(
-            capability::TextStyle::text_style_modifiers_mut(&mut self),
-            Prop::Foreground,
-            value.into(),
-            false,
+    pub fn backdrop(mut self, backdrop: WindowBackdrop) -> Self {
+        self.backdrop = backdrop;
+        self
+    }
+
+    pub fn client_size(mut self, width: f64, height: f64) -> Self {
+        assert!(
+            width.is_finite() && width > 0.0 && height.is_finite() && height > 0.0,
+            "window client size must be finite and positive"
         );
+        self.client_size = Some((width, height));
         self
     }
 
-    fn font_family(mut self, value: impl Into<String>) -> Self {
-        capability::TextStyle::text_style_modifiers_mut(&mut self).font_family = Some(value.into());
+    pub fn icon(mut self, path: &'static str) -> Self {
+        assert!(!path.is_empty(), "window icon path must not be empty");
+        self.icon = Some(path);
         self
     }
 
-    fn font_size(mut self, value: f64) -> Self {
-        capability::TextStyle::text_style_modifiers_mut(&mut self).font_size = Some(value);
-        self
-    }
-}
-
-impl<T: capability::TextStyle> TextStyleExt for T {}
-
-/// UI Automation modifiers for concrete native widgets.
-///
-/// ```compile_fail
-/// use windows_reactor::{AccessibilityExt, Element, button};
-///
-/// let element: Element = button("Save").into();
-/// let _ = element.automation_name("Save document");
-/// ```
-pub trait AccessibilityExt: capability::Accessibility + Sized {
-    fn automation_name(mut self, name: impl Into<String>) -> Self {
-        accessibility_modifiers_mut(&mut self).automation_name = Some(name.into());
+    pub fn constraints(mut self, constraints: WindowConstraints) -> Self {
+        constraints.validate();
+        self.constraints = Some(constraints);
         self
     }
 
-    fn automation_id(mut self, id: impl Into<String>) -> Self {
-        accessibility_modifiers_mut(&mut self).automation_id = Some(id.into());
-        self
-    }
-
-    fn help_text(mut self, text: impl Into<String>) -> Self {
-        accessibility_modifiers_mut(&mut self).help_text = Some(text.into());
-        self
-    }
-
-    fn heading_level(mut self, level: AutomationHeadingLevel) -> Self {
-        accessibility_modifiers_mut(&mut self).heading_level = Some(level);
-        self
-    }
-
-    fn accessibility_live_setting(mut self, setting: AutomationLiveSetting) -> Self {
-        accessibility_modifiers_mut(&mut self).live_setting = Some(setting);
+    pub fn theme(mut self, theme: WindowTheme) -> Self {
+        self.theme = theme;
         self
     }
 }
 
-impl<T: capability::Accessibility> AccessibilityExt for T {}
+#[cfg(test)]
+mod visual_value_tests {
+    use super::*;
+    use crate::core::ThemeStyle;
+    use std::mem::size_of;
 
-/// Grid row, column, and span placement for concrete native children.
+    #[test]
+    fn four_value_types_keep_compact_layout_and_semantic_equality() {
+        assert_eq!(size_of::<Thickness>(), 16);
+        assert_eq!(size_of::<CornerRadius>(), 16);
+        assert_eq!(size_of::<ThemeStyle>(), 4);
+
+        assert_eq!(Thickness::uniform(3.0), Thickness::new(3.0, 3.0, 3.0, 3.0));
+        assert_eq!(
+            CornerRadius::uniform(4.0),
+            CornerRadius::new(4.0, 4.0, 4.0, 4.0)
+        );
+        assert_eq!(Thickness::xy(2.0, 5.0).values(), [2.0, 5.0, 2.0, 5.0]);
+    }
+
+    #[test]
+    fn window_client_size_rejects_invalid_values() {
+        for (width, height) in [
+            (0.0, 1.0),
+            (1.0, -1.0),
+            (f64::NAN, 1.0),
+            (1.0, f64::INFINITY),
+        ] {
+            assert!(
+                std::panic::catch_unwind(|| {
+                    WindowVisuals::new().client_size(width, height);
+                })
+                .is_err()
+            );
+        }
+    }
+}
+
+#[derive(Clone, Copy, Debug)]
+pub enum GridLength {
+    Auto,
+    Pixel(f64),
+    Star(f64),
+}
+
+impl GridLength {
+    pub const STAR: Self = Self::Star(1.0);
+
+    pub(crate) fn is_valid(self) -> bool {
+        match self {
+            Self::Auto => true,
+            Self::Pixel(value) | Self::Star(value) => value.is_finite() && value >= 0.0,
+        }
+    }
+}
+
+impl PartialEq for GridLength {
+    fn eq(&self, other: &Self) -> bool {
+        match (self, other) {
+            (Self::Auto, Self::Auto) => true,
+            (Self::Pixel(left), Self::Pixel(right)) | (Self::Star(left), Self::Star(right)) => {
+                f64_eq(*left, *right)
+            }
+            _ => false,
+        }
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum HorizontalAlignment {
+    Left,
+    Center,
+    Right,
+    Stretch,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum VerticalAlignment {
+    Top,
+    Center,
+    Bottom,
+    Stretch,
+}
+
+#[derive(Clone, Debug, Default, PartialEq)]
+pub(crate) struct ElementState {
+    width: Property<f64>,
+    height: Property<f64>,
+    min_width: Property<f64>,
+    max_width: Property<f64>,
+    min_height: Property<f64>,
+    max_height: Property<f64>,
+    opacity: Property<f64>,
+    horizontal_alignment: Property<HorizontalAlignment>,
+    vertical_alignment: Property<VerticalAlignment>,
+    margin: Property<Thickness>,
+    row: Option<i32>,
+    column: Option<i32>,
+    row_span: Option<i32>,
+    column_span: Option<i32>,
+    relative_align_left: bool,
+    relative_align_top: bool,
+    relative_align_right: bool,
+    relative_align_bottom: bool,
+    relative_align_horizontal_center: bool,
+    relative_align_vertical_center: bool,
+    canvas_left: Option<f64>,
+    canvas_top: Option<f64>,
+    automation_name: Option<String>,
+    automation_id: Option<String>,
+    automation_heading_level: Option<AutomationHeadingLevel>,
+    exit_transition: Option<ExitTransition>,
+}
+
+#[derive(Clone, Debug, Default, PartialEq)]
+pub(crate) enum Property<T> {
+    #[default]
+    Inherited,
+    Set(T),
+}
+
+impl<T> Property<T> {
+    pub(crate) fn as_set(&self) -> Option<&T> {
+        match self {
+            Self::Inherited => None,
+            Self::Set(value) => Some(value),
+        }
+    }
+}
+
+impl<T> From<Option<T>> for Property<T> {
+    fn from(value: Option<T>) -> Self {
+        match value {
+            Some(value) => Self::Set(value),
+            None => Self::Inherited,
+        }
+    }
+}
+
+pub(crate) fn f64_eq(left: f64, right: f64) -> bool {
+    left == right || left.is_nan() && right.is_nan()
+}
+
+pub(crate) fn f64_property_eq(left: &Property<f64>, right: &Property<f64>) -> bool {
+    match (left, right) {
+        (Property::Inherited, Property::Inherited) => true,
+        (Property::Set(left), Property::Set(right)) => f64_eq(*left, *right),
+        _ => false,
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct CallbackSource {
+    queue: usize,
+    token: ComponentToken,
+}
+
+impl CallbackSource {
+    pub(crate) fn new(queue: usize, token: ComponentToken) -> Self {
+        Self { queue, token }
+    }
+}
+
+trait ErasedCallbackIdentity {
+    fn as_any(&self) -> &dyn Any;
+    fn equals(&self, other: &dyn ErasedCallbackIdentity) -> bool;
+}
+
+struct TypedCallbackIdentity<K> {
+    key: K,
+    source: CallbackSource,
+}
+
+impl<K: PartialEq + 'static> ErasedCallbackIdentity for TypedCallbackIdentity<K> {
+    fn as_any(&self) -> &dyn Any {
+        self
+    }
+
+    fn equals(&self, other: &dyn ErasedCallbackIdentity) -> bool {
+        other
+            .as_any()
+            .downcast_ref::<Self>()
+            .is_some_and(|other| self.source == other.source && self.key == other.key)
+    }
+}
+
+pub struct Callback<T> {
+    callback: Rc<dyn Fn(T) -> bool>,
+    identity: Option<Rc<dyn ErasedCallbackIdentity>>,
+}
+
+impl<T> Callback<T> {
+    pub fn new(callback: impl Fn(T) + 'static) -> Self {
+        Self::new_with_acceptance(move |value| {
+            callback(value);
+            true
+        })
+    }
+
+    pub(crate) fn new_with_acceptance(callback: impl Fn(T) -> bool + 'static) -> Self {
+        Self {
+            callback: Rc::new(callback),
+            identity: None,
+        }
+    }
+
+    pub(crate) fn new_identified<K>(
+        source: CallbackSource,
+        key: K,
+        callback: impl Fn(T) -> bool + 'static,
+    ) -> Self
+    where
+        K: PartialEq + 'static,
+    {
+        Self {
+            callback: Rc::new(callback),
+            identity: Some(Rc::new(TypedCallbackIdentity { key, source })),
+        }
+    }
+
+    #[must_use = "false means the adapted message was rejected"]
+    pub fn call(&self, value: T) -> bool {
+        (self.callback)(value)
+    }
+}
+
+impl<T> Clone for Callback<T> {
+    fn clone(&self) -> Self {
+        Self {
+            callback: Rc::clone(&self.callback),
+            identity: self.identity.clone(),
+        }
+    }
+}
+
+impl<T> fmt::Debug for Callback<T> {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter
+            .debug_tuple("Callback")
+            .field(&Rc::as_ptr(&self.callback))
+            .finish()
+    }
+}
+
+impl<T> PartialEq for Callback<T> {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.callback, &other.callback)
+            || self
+                .identity
+                .as_deref()
+                .zip(other.identity.as_deref())
+                .is_some_and(|(left, right)| left.equals(right))
+    }
+}
+
+/// Converts a payload handler or typed message callback into an event callback.
+pub trait IntoPayloadCallback<T> {
+    fn into_payload_callback(self) -> Callback<T>;
+}
+
+impl<T, F> IntoPayloadCallback<T> for F
+where
+    F: Fn(T) + 'static,
+{
+    fn into_payload_callback(self) -> Callback<T> {
+        Callback::new(self)
+    }
+}
+
+impl<T> IntoPayloadCallback<T> for Callback<T> {
+    fn into_payload_callback(self) -> Self {
+        self
+    }
+}
+
+/// Converts a zero-argument handler or typed message callback into an event callback.
+pub trait IntoUnitCallback {
+    fn into_unit_callback(self) -> Callback<()>;
+}
+
+impl<F> IntoUnitCallback for F
+where
+    F: Fn() + 'static,
+{
+    fn into_unit_callback(self) -> Callback<()> {
+        Callback::new(move |()| self())
+    }
+}
+
+impl IntoUnitCallback for Callback<()> {
+    fn into_unit_callback(self) -> Self {
+        self
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub enum AcceleratorKey {
+    R,
+    NumberPad0,
+    NumberPad1,
+    NumberPad2,
+    NumberPad3,
+    NumberPad4,
+    NumberPad5,
+    NumberPad6,
+    NumberPad7,
+    NumberPad8,
+    NumberPad9,
+    Divide,
+    Multiply,
+    Subtract,
+    Add,
+    Decimal,
+    Enter,
+}
+
+#[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq)]
+pub enum AcceleratorModifiers {
+    #[default]
+    None,
+    Control,
+}
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub enum AutomationHeadingLevel {
+    Level1,
+    Level2,
+    Level3,
+    Level4,
+    Level5,
+    Level6,
+    Level7,
+    Level8,
+    Level9,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct ExitTransition {
+    duration: Duration,
+}
+
+impl ExitTransition {
+    pub fn fade(duration: Duration) -> Self {
+        assert!(
+            !duration.is_zero(),
+            "Exit transition duration must be positive"
+        );
+        Self { duration }
+    }
+
+    pub fn duration(self) -> Duration {
+        self.duration
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub struct KeyAccelerator {
+    pub(crate) key: AcceleratorKey,
+    pub(crate) modifiers: AcceleratorModifiers,
+    pub(crate) callback: Callback<()>,
+}
+
+impl KeyAccelerator {
+    pub fn new(
+        key: AcceleratorKey,
+        modifiers: AcceleratorModifiers,
+        callback: impl IntoUnitCallback,
+    ) -> Self {
+        Self {
+            key,
+            modifiers,
+            callback: callback.into_unit_callback(),
+        }
+    }
+}
+
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct KeyAccelerators {
+    pub(crate) values: Vec<KeyAccelerator>,
+}
+
+impl KeyAccelerators {
+    pub fn new(values: impl IntoIterator<Item = KeyAccelerator>) -> Self {
+        Self {
+            values: values.into_iter().collect(),
+        }
+    }
+}
+
+#[allow(private_bounds)]
+pub trait LayoutControl: sealed::LayoutControl {
+    fn width(mut self, value: impl Into<Option<f64>>) -> Self
+    where
+        Self: Sized,
+    {
+        let value = value.into();
+        assert!(
+            value.is_none_or(|value| value.is_finite() && value >= 0.0),
+            "Width must be finite and non-negative",
+        );
+        Rc::make_mut(
+            sealed::LayoutControl::element_state_mut(&mut self)
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .width = Property::from(value);
+        self
+    }
+
+    fn height(mut self, value: impl Into<Option<f64>>) -> Self
+    where
+        Self: Sized,
+    {
+        let value = value.into();
+        assert!(
+            value.is_none_or(|value| value.is_finite() && value >= 0.0),
+            "Height must be finite and non-negative",
+        );
+        Rc::make_mut(
+            sealed::LayoutControl::element_state_mut(&mut self)
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .height = Property::from(value);
+        self
+    }
+
+    fn min_width(mut self, value: impl Into<Option<f64>>) -> Self
+    where
+        Self: Sized,
+    {
+        let value = value.into();
+        assert!(
+            value.is_none_or(|value| value.is_finite() && value >= 0.0),
+            "Minimum width must be finite and non-negative",
+        );
+        Rc::make_mut(
+            sealed::LayoutControl::element_state_mut(&mut self)
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .min_width = Property::from(value);
+        self
+    }
+
+    fn max_width(mut self, value: impl Into<Option<f64>>) -> Self
+    where
+        Self: Sized,
+    {
+        let value = value.into();
+        assert!(
+            value.is_none_or(|value| value.is_finite() && value >= 0.0),
+            "Maximum width must be finite and non-negative",
+        );
+        Rc::make_mut(
+            sealed::LayoutControl::element_state_mut(&mut self)
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .max_width = Property::from(value);
+        self
+    }
+
+    fn min_height(mut self, value: impl Into<Option<f64>>) -> Self
+    where
+        Self: Sized,
+    {
+        let value = value.into();
+        assert!(
+            value.is_none_or(|value| value.is_finite() && value >= 0.0),
+            "Minimum height must be finite and non-negative",
+        );
+        Rc::make_mut(
+            sealed::LayoutControl::element_state_mut(&mut self)
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .min_height = Property::from(value);
+        self
+    }
+
+    fn max_height(mut self, value: impl Into<Option<f64>>) -> Self
+    where
+        Self: Sized,
+    {
+        let value = value.into();
+        assert!(
+            value.is_none_or(|value| value.is_finite() && value >= 0.0),
+            "Maximum height must be finite and non-negative",
+        );
+        Rc::make_mut(
+            sealed::LayoutControl::element_state_mut(&mut self)
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .max_height = Property::from(value);
+        self
+    }
+
+    fn opacity(mut self, value: impl Into<Option<f64>>) -> Self
+    where
+        Self: Sized,
+    {
+        let value = value.into();
+        assert!(
+            value.is_none_or(|value| value.is_finite() && value >= 0.0),
+            "Opacity must be finite and non-negative",
+        );
+        Rc::make_mut(
+            sealed::LayoutControl::element_state_mut(&mut self)
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .opacity = Property::from(value);
+        self
+    }
+
+    fn horizontal_alignment(mut self, value: impl Into<Option<HorizontalAlignment>>) -> Self
+    where
+        Self: Sized,
+    {
+        Rc::make_mut(
+            sealed::LayoutControl::element_state_mut(&mut self)
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .horizontal_alignment = Property::from(value.into());
+        self
+    }
+
+    fn vertical_alignment(mut self, value: impl Into<Option<VerticalAlignment>>) -> Self
+    where
+        Self: Sized,
+    {
+        Rc::make_mut(
+            sealed::LayoutControl::element_state_mut(&mut self)
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .vertical_alignment = Property::from(value.into());
+        self
+    }
+
+    fn margin(mut self, value: impl Into<Thickness>) -> Self
+    where
+        Self: Sized,
+    {
+        let value = value.into();
+        assert!(value.is_finite(), "Margin must be finite");
+        Rc::make_mut(
+            sealed::LayoutControl::element_state_mut(&mut self)
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .margin = Property::Set(value);
+        self
+    }
+
+    fn margin_optional<T>(mut self, value: Option<T>) -> Self
+    where
+        Self: Sized,
+        T: Into<Thickness>,
+    {
+        let value = value.map(Into::into);
+        assert!(
+            value.as_ref().is_none_or(Thickness::is_finite),
+            "Margin must be finite",
+        );
+        Rc::make_mut(
+            sealed::LayoutControl::element_state_mut(&mut self)
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .margin = Property::from(value);
+        self
+    }
+
+    fn exit_transition(mut self, transition: ExitTransition) -> Self
+    where
+        Self: Sized,
+    {
+        Rc::make_mut(
+            sealed::LayoutControl::element_state_mut(&mut self)
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .exit_transition = Some(transition);
+        self
+    }
+}
+
+impl ElementState {
+    pub(crate) fn exit_transition(&self) -> Option<ExitTransition> {
+        self.exit_transition
+    }
+}
+#[allow(private_bounds)]
+pub trait ContentControl: sealed::ContentControl + Sized {
+    fn content(self, content: impl Into<View>) -> View {
+        sealed::ContentControl::into_content_view(self, content.into())
+    }
+}
+#[allow(private_bounds)]
+pub trait ChildrenControl: sealed::NativeControl + Sized {
+    fn children(self, children: impl IntoViews) -> View {
+        View(ViewKind::Children {
+            control: sealed::NativeControl::into_element(self),
+            children: positioned(children),
+        })
+    }
+
+    fn keyed_children<T>(self, children: impl IntoIterator<Item = T>) -> View
+    where
+        T: Into<KeyedView>,
+    {
+        View(ViewKind::Children {
+            control: sealed::NativeControl::into_element(self),
+            children: Rc::new(children.into_iter().map(Into::into).collect()),
+        })
+    }
+}
+#[allow(private_bounds)]
+pub trait SlotsControl: sealed::NativeControl + sealed::SlotIndex<Self::Slot> + Sized {
+    type Slot: Copy;
+
+    fn slot(self, slot: Self::Slot, view: impl Into<View>) -> View {
+        self.slots([SlotView::new(slot, view)])
+    }
+
+    fn collection_slot<T>(self, slot: Self::Slot, children: impl IntoIterator<Item = T>) -> View
+    where
+        T: Into<KeyedView>,
+    {
+        self.slots([SlotView::collection(slot, children)])
+    }
+
+    fn slots(self, slots: impl IntoIterator<Item = SlotView<Self::Slot>>) -> View {
+        let control = sealed::NativeControl::into_element(self);
+        let kind = control.kind();
+        let slots = slots
+            .into_iter()
+            .map(|slot| {
+                let (slot, content) = slot.into_parts();
+                SlottedView {
+                    slot: slot_id(
+                        kind,
+                        <Self as sealed::SlotIndex<Self::Slot>>::slot_index(slot),
+                    )
+                    .unwrap(),
+                    content,
+                }
+            })
+            .collect();
+        View(ViewKind::Slots {
+            control,
+            slots: Rc::new(slots),
+        })
+    }
+}
+
+/// Places a concrete native control in its parent Grid.
+///
+/// Components and fragments can produce more than one native root, so place a native wrapper when
+/// a composed view needs Grid placement.
 ///
 /// ```compile_fail
-/// use windows_reactor::{Element, GridChildExt, text_block};
+/// use windows_reactor::*;
 ///
-/// let element: Element = text_block("Cell").into();
-/// let _ = element.grid_row(1);
+/// struct Child;
+/// # impl Component for Child {
+/// #     type Message = ();
+/// #     type Input = ();
+/// #     fn create(_: &(), _: &ComponentContext<Self>) -> Self { Self }
+/// #     fn update(&mut self, _: (), _: &ComponentContext<Self>) {}
+/// #     fn view(&self, _: &(), _: &mut ViewContext<Self>) -> View { View::empty() }
+/// # }
+/// let _ = View::component::<Child>(()).grid_row(0);
 /// ```
-pub trait GridChildExt: capability::GridChild + Sized {
+///
+/// ```compile_fail
+/// use windows_reactor::*;
+///
+/// let _ = View::fragment((TextBlock::new(), TextBlock::new())).grid_column(0);
+/// ```
+pub trait GridChildExt: LayoutControl + Sized {
     fn grid_row(mut self, row: i32) -> Self {
-        let modifiers = capability::GridChild::grid_child_modifiers_mut(&mut self);
-        let mut placement = modifiers.grid.unwrap_or_default();
-        placement.row = row;
-        modifiers.grid = Some(placement);
+        assert!(row >= 0, "Grid row must be non-negative");
+        Rc::make_mut(
+            self.element_state_mut()
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .row = Some(row);
         self
     }
 
     fn grid_column(mut self, column: i32) -> Self {
-        let modifiers = capability::GridChild::grid_child_modifiers_mut(&mut self);
-        let mut placement = modifiers.grid.unwrap_or_default();
-        placement.column = column;
-        modifiers.grid = Some(placement);
+        assert!(column >= 0, "Grid column must be non-negative");
+        Rc::make_mut(
+            self.element_state_mut()
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .column = Some(column);
         self
     }
 
-    fn grid_row_span(mut self, row_span: i32) -> Self {
-        let modifiers = capability::GridChild::grid_child_modifiers_mut(&mut self);
-        let mut placement = modifiers.grid.unwrap_or_default();
-        placement.row_span = row_span;
-        modifiers.grid = Some(placement);
+    fn grid_row_span(mut self, span: i32) -> Self {
+        assert!(span > 0, "Grid row span must be positive");
+        Rc::make_mut(
+            self.element_state_mut()
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .row_span = Some(span);
         self
     }
 
-    fn grid_column_span(mut self, column_span: i32) -> Self {
-        let modifiers = capability::GridChild::grid_child_modifiers_mut(&mut self);
-        let mut placement = modifiers.grid.unwrap_or_default();
-        placement.column_span = column_span;
-        modifiers.grid = Some(placement);
-        self
-    }
-}
-
-impl<T: capability::GridChild> GridChildExt for T {}
-
-/// Canvas positioning for concrete native children.
-///
-/// ```compile_fail
-/// use windows_reactor::{CanvasChildExt, Element, text_block};
-///
-/// let element: Element = text_block("Marker").into();
-/// let _ = element.canvas_left(40.0);
-/// ```
-pub trait CanvasChildExt: capability::CanvasChild + Sized {
-    fn canvas_left(mut self, left: f64) -> Self {
-        update_canvas_position(&mut self, |position| position.left = left);
-        self
-    }
-
-    fn canvas_top(mut self, top: f64) -> Self {
-        update_canvas_position(&mut self, |position| position.top = top);
-        self
-    }
-
-    fn canvas_z_index(mut self, z_index: i32) -> Self {
-        update_canvas_position(&mut self, |position| position.z_index = z_index);
+    fn grid_column_span(mut self, span: i32) -> Self {
+        assert!(span > 0, "Grid column span must be positive");
+        Rc::make_mut(
+            self.element_state_mut()
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .column_span = Some(span);
         self
     }
 }
 
-impl<T: capability::CanvasChild> CanvasChildExt for T {}
+impl<T: LayoutControl> GridChildExt for T {}
 
-/// Pointer, keyboard, capture, and drag/drop modifiers for concrete native widgets.
-///
-/// ```compile_fail
-/// use windows_reactor::{Element, InputExt, button};
-///
-/// let element: Element = button("Open").into();
-/// let _ = element.on_tapped(|| {});
-/// ```
-///
-/// ```compile_fail
-/// use windows_reactor::{Element, InputExt, KeyboardAccelerator, VirtualKey, VirtualKeyModifiers,
-///     button};
-///
-/// let element: Element = button("Save").into();
-/// let accelerator =
-///     KeyboardAccelerator::new(VirtualKey::S, VirtualKeyModifiers::Control, || {});
-/// let _ = element.keyboard_accelerator(accelerator);
-/// ```
-pub trait InputExt: capability::Input + Sized {
-    fn on_tapped(mut self, f: impl IntoUnitCallback) -> Self {
-        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self)).on_tapped =
-            Some(f.into_unit_callback());
-        self
-    }
-
-    fn on_right_tapped(mut self, f: impl IntoUnitCallback) -> Self {
-        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
-            .on_right_tapped = Some(f.into_unit_callback());
-        self
-    }
-
-    fn on_pointer_pressed(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
-        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
-            .on_pointer_pressed = Some(f.into_callback());
-        self
-    }
-
-    fn on_pointer_released(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
-        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
-            .on_pointer_released = Some(f.into_callback());
-        self
-    }
-
-    fn on_pointer_moved(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
-        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
-            .on_pointer_moved = Some(f.into_callback());
-        self
-    }
-
-    fn on_pointer_entered(mut self, f: impl IntoCallback<PointerEventInfo>) -> Self {
-        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
-            .on_pointer_entered = Some(f.into_callback());
-        self
-    }
-
-    fn on_pointer_exited(mut self, f: impl IntoUnitCallback) -> Self {
-        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
-            .on_pointer_exited = Some(f.into_unit_callback());
-        self
-    }
-
-    fn capture_pointer_on_press(mut self) -> Self {
-        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
-            .capture_pointer_on_press = true;
-        self
-    }
-
-    fn on_pointer_capture_lost(mut self, f: impl IntoUnitCallback) -> Self {
-        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
-            .on_pointer_capture_lost = Some(f.into_unit_callback());
-        self
-    }
-
-    fn on_pointer_canceled(mut self, f: impl IntoUnitCallback) -> Self {
-        ensure_pointer_handlers(capability::Input::input_modifiers_mut(&mut self))
-            .on_pointer_canceled = Some(f.into_unit_callback());
-        self
-    }
-
-    fn keyboard_accelerator(mut self, accel: KeyboardAccelerator) -> Self {
-        capability::Input::input_modifiers_mut(&mut self)
-            .keyboard_accelerators
-            .push(accel);
-        self
-    }
-
-    fn allow_drop(mut self, value: bool) -> Self {
-        capability::Input::input_modifiers_mut(&mut self).allow_drop = Some(value);
-        self
-    }
-
-    fn drag_enter<F: Fn(&mut DragContext) -> DragOperation + Send + Sync + 'static>(
-        mut self,
-        f: F,
-    ) -> Self {
-        ensure_drag_handlers(capability::Input::input_modifiers_mut(&mut self)).on_drag_enter =
-            Some(DragAsyncCallback::new(f));
-        self
-    }
-
-    fn drag_leave<F: Fn(&DragContext) + 'static>(mut self, f: F) -> Self {
-        ensure_drag_handlers(capability::Input::input_modifiers_mut(&mut self)).on_drag_leave =
-            Some(DragNotifyCallback::new(f));
-        self
-    }
-
-    fn drag_over<F: Fn(&mut DragContext) -> DragOperation + 'static>(mut self, f: F) -> Self {
-        ensure_drag_handlers(capability::Input::input_modifiers_mut(&mut self)).on_drag_over =
-            Some(DragCallback::new(f));
-        self
-    }
-
-    fn drag_drop<F: Fn(&mut DragContext) -> DragOperation + Send + Sync + 'static>(
-        mut self,
-        f: F,
-    ) -> Self {
-        ensure_drag_handlers(capability::Input::input_modifiers_mut(&mut self)).on_drag_drop =
-            Some(DragAsyncCallback::new(f));
-        self
-    }
-}
-
-impl<T: capability::Input> InputExt for T {}
-
-/// RelativePanel alignment for concrete native children.
-///
-/// These methods identify valid attached-property targets. The child must still be inserted into a
-/// `RelativePanel` for WinUI to use the values.
-///
-/// ```compile_fail
-/// use windows_reactor::{Element, RelativePanelChildExt, text_block};
-///
-/// let element: Element = text_block("Centered").into();
-/// let _ = element.relative_align_h_center();
-/// ```
-pub trait RelativePanelChildExt: capability::RelativePanelChild + Sized {
+/// Places a concrete native control in its parent RelativePanel.
+pub trait RelativePanelChildExt: LayoutControl + Sized {
     fn relative_align_left(mut self) -> Self {
-        update_relative_panel_alignment(&mut self, |alignment| {
-            alignment.align_left_with_panel = true;
-        });
-        self
-    }
-
-    fn relative_align_right(mut self) -> Self {
-        update_relative_panel_alignment(&mut self, |alignment| {
-            alignment.align_right_with_panel = true;
-        });
+        Rc::make_mut(
+            self.element_state_mut()
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .relative_align_left = true;
         self
     }
 
     fn relative_align_top(mut self) -> Self {
-        update_relative_panel_alignment(&mut self, |alignment| {
-            alignment.align_top_with_panel = true;
-        });
+        Rc::make_mut(
+            self.element_state_mut()
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .relative_align_top = true;
+        self
+    }
+
+    fn relative_align_right(mut self) -> Self {
+        Rc::make_mut(
+            self.element_state_mut()
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .relative_align_right = true;
         self
     }
 
     fn relative_align_bottom(mut self) -> Self {
-        update_relative_panel_alignment(&mut self, |alignment| {
-            alignment.align_bottom_with_panel = true;
-        });
+        Rc::make_mut(
+            self.element_state_mut()
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .relative_align_bottom = true;
         self
     }
 
-    fn relative_align_h_center(mut self) -> Self {
-        update_relative_panel_alignment(&mut self, |alignment| {
-            alignment.align_h_center_with_panel = true;
-        });
+    fn relative_align_horizontal_center(mut self) -> Self {
+        Rc::make_mut(
+            self.element_state_mut()
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .relative_align_horizontal_center = true;
         self
     }
 
-    fn relative_align_v_center(mut self) -> Self {
-        update_relative_panel_alignment(&mut self, |alignment| {
-            alignment.align_v_center_with_panel = true;
-        });
-        self
-    }
-}
-
-impl<T: capability::RelativePanelChild> RelativePanelChildExt for T {}
-
-/// Opacity and composition animations for concrete native widgets.
-///
-/// ```compile_fail
-/// use windows_reactor::{Element, VisualExt, text_block};
-///
-/// let element: Element = text_block("Faded").into();
-/// let _ = element.opacity(0.5);
-/// ```
-///
-/// ```compile_fail
-/// use std::time::Duration;
-/// use windows_reactor::{Element, VisualExt, button};
-///
-/// let element: Element = button("Open").into();
-/// let _ = element.with_opacity_transition(Duration::from_millis(100));
-/// ```
-pub trait VisualExt: capability::Visual + Sized {
-    fn opacity(mut self, opacity: f64) -> Self {
-        capability::Visual::visual_modifiers_mut(&mut self).opacity = Some(opacity);
-        self
-    }
-
-    fn with_opacity_transition(mut self, duration: Duration) -> Self {
-        with_implicit_transition(
-            capability::Visual::visual_modifiers_mut(&mut self),
-            |transitions| {
-                transitions.opacity = Some(ScalarTransition::new(duration));
-            },
-        );
-        self
-    }
-
-    fn with_scale_transition(mut self, duration: Duration) -> Self {
-        with_implicit_transition(
-            capability::Visual::visual_modifiers_mut(&mut self),
-            |transitions| {
-                transitions.scale = Some(Vector3Transition::new(duration));
-            },
-        );
-        self
-    }
-
-    fn with_translation_transition(mut self, duration: Duration) -> Self {
-        with_implicit_transition(
-            capability::Visual::visual_modifiers_mut(&mut self),
-            |transitions| {
-                transitions.translation = Some(Vector3Transition::new(duration));
-            },
-        );
-        self
-    }
-
-    fn with_layout_animation(mut self, config: LayoutAnimationConfig) -> Self {
-        ensure_animations(capability::Visual::visual_modifiers_mut(&mut self)).layout_animation =
-            Some(config);
-        self
-    }
-
-    fn animate(mut self, config: AnimationConfig) -> Self {
-        ensure_animations(capability::Visual::visual_modifiers_mut(&mut self)).property_animation =
-            Some(config);
-        self
-    }
-
-    fn transition(mut self, enter: Option<AnimationConfig>, exit: Option<AnimationConfig>) -> Self {
-        let animations = ensure_animations(capability::Visual::visual_modifiers_mut(&mut self));
-        animations.enter_transition = enter;
-        animations.exit_transition = exit;
+    fn relative_align_vertical_center(mut self) -> Self {
+        Rc::make_mut(
+            self.element_state_mut()
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .relative_align_vertical_center = true;
         self
     }
 }
 
-impl<T: capability::Visual> VisualExt for T {}
+impl<T: LayoutControl> RelativePanelChildExt for T {}
 
-/// Tooltip modifiers for concrete native widgets.
-///
-/// ```compile_fail
-/// use windows_reactor::{Element, TooltipExt, button};
-///
-/// let element: Element = button("Save").into();
-/// let _ = element.tooltip("Save the document");
-/// ```
-pub trait TooltipExt: capability::Tooltip + Sized {
-    /// Plain-text tooltip applied via WinUI `ToolTipService`. For rich content or custom
-    /// placement, use [`tooltip_with`](Self::tooltip_with).
-    fn tooltip(mut self, text: impl Into<String>) -> Self {
-        capability::Tooltip::tooltip_modifiers_mut(&mut self).tooltip =
-            Some(Box::new(Tooltip::text(text)));
+/// Places a concrete native control in its parent Canvas.
+pub trait CanvasChildExt: LayoutControl + Sized {
+    fn canvas_left(mut self, value: f64) -> Self {
+        assert!(value.is_finite(), "Canvas left must be finite");
+        Rc::make_mut(
+            self.element_state_mut()
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .canvas_left = Some(value);
         self
     }
 
-    /// Tooltip setter accepting anything convertible into [`Tooltip`].
-    fn tooltip_with(mut self, tooltip: impl Into<Tooltip>) -> Self {
-        capability::Tooltip::tooltip_modifiers_mut(&mut self).tooltip =
-            Some(Box::new(tooltip.into()));
-        self
-    }
-}
-
-impl<T: capability::Tooltip> TooltipExt for T {}
-
-/// Framework layout modifiers for concrete native widget builders.
-///
-/// ```compile_fail
-/// use windows_reactor::{Element, LayoutExt, button};
-///
-/// let element: Element = button("Save").into();
-/// let _ = element.width(100.0);
-/// ```
-pub trait LayoutExt: capability::Layout + Sized {
-    fn margin(mut self, value: impl Into<Thickness>) -> Self {
-        capability::Layout::layout_modifiers_mut(&mut self).margin = Some(value.into());
-        self
-    }
-
-    fn width(mut self, value: f64) -> Self {
-        capability::Layout::layout_modifiers_mut(&mut self).width = Some(value);
-        self
-    }
-
-    fn height(mut self, value: f64) -> Self {
-        capability::Layout::layout_modifiers_mut(&mut self).height = Some(value);
-        self
-    }
-
-    fn min_width(mut self, value: f64) -> Self {
-        capability::Layout::layout_modifiers_mut(&mut self).min_width = Some(value);
-        self
-    }
-
-    fn max_width(mut self, value: f64) -> Self {
-        capability::Layout::layout_modifiers_mut(&mut self).max_width = Some(value);
-        self
-    }
-
-    fn min_height(mut self, value: f64) -> Self {
-        capability::Layout::layout_modifiers_mut(&mut self).min_height = Some(value);
-        self
-    }
-
-    fn max_height(mut self, value: f64) -> Self {
-        capability::Layout::layout_modifiers_mut(&mut self).max_height = Some(value);
-        self
-    }
-
-    fn horizontal_alignment(mut self, value: HorizontalAlignment) -> Self {
-        capability::Layout::layout_modifiers_mut(&mut self).horizontal_alignment = Some(value);
-        self
-    }
-
-    fn vertical_alignment(mut self, value: VerticalAlignment) -> Self {
-        capability::Layout::layout_modifiers_mut(&mut self).vertical_alignment = Some(value);
+    fn canvas_top(mut self, value: f64) -> Self {
+        assert!(value.is_finite(), "Canvas top must be finite");
+        Rc::make_mut(
+            self.element_state_mut()
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .canvas_top = Some(value);
         self
     }
 }
 
-impl<T: capability::Layout> LayoutExt for T {}
+impl<T: LayoutControl> CanvasChildExt for T {}
 
-/// Resource-dictionary modifiers for concrete native widget builders.
-///
-/// Apply resources before converting a widget into [`Element`]. Logical wrappers and erased
-/// elements do not implement this capability.
-///
-/// ```compile_fail
-/// use windows_reactor::{Element, ResourceExt, button};
-///
-/// let element: Element = button("Delete").into();
-/// let _ = element.resources([("ButtonBackground", "Red")]);
-/// ```
-pub trait ResourceExt: capability::Resources + Sized {
-    fn resources<K, V>(mut self, entries: impl IntoIterator<Item = (K, V)>) -> Self
-    where
-        K: Into<String>,
-        V: Into<ResourceValue>,
-    {
-        capability::Resources::resource_modifiers_mut(&mut self).resources = entries
-            .into_iter()
-            .map(|(key, value)| (key.into(), value.into()))
-            .collect();
+pub trait AutomationExt: LayoutControl + Sized {
+    fn automation_name(mut self, value: impl Into<String>) -> Self {
+        Rc::make_mut(
+            self.element_state_mut()
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .automation_name = Some(value.into());
         self
     }
 
-    fn resource_overrides(
-        mut self,
-        configure: impl FnOnce(ResourceBuilder) -> ResourceBuilder,
-    ) -> Self {
-        capability::Resources::resource_modifiers_mut(&mut self).resources =
-            configure(ResourceBuilder::default()).entries;
+    fn automation_id(mut self, value: impl Into<String>) -> Self {
+        Rc::make_mut(
+            self.element_state_mut()
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .automation_id = Some(value.into());
+        self
+    }
+
+    fn automation_heading_level(mut self, value: AutomationHeadingLevel) -> Self {
+        Rc::make_mut(
+            self.element_state_mut()
+                .get_or_insert_with(|| Rc::new(ElementState::default())),
+        )
+        .automation_heading_level = Some(value);
         self
     }
 }
 
-impl<T: capability::Resources> ResourceExt for T {}
+impl<T: LayoutControl> AutomationExt for T {}
 
-fn ensure_drag_handlers(m: &mut Modifiers) -> &mut DragHandlers {
-    if m.allow_drop.is_none() {
-        m.allow_drop = Some(true);
-    }
-
-    m.drag_handlers
-        .get_or_insert_with(|| Box::new(DragHandlers::default()))
-}
-
-fn ensure_pointer_handlers(m: &mut Modifiers) -> &mut PointerHandlers {
-    m.pointer_handlers
-        .get_or_insert_with(|| Box::new(PointerHandlers::default()))
-}
-
-fn ensure_accessibility(m: &mut Modifiers) -> &mut AccessibilityModifiers {
-    m.accessibility
-        .get_or_insert_with(|| Box::new(AccessibilityModifiers::default()))
-}
-
-fn accessibility_modifiers_mut<T: capability::Accessibility>(
-    value: &mut T,
-) -> &mut AccessibilityModifiers {
-    ensure_accessibility(capability::Accessibility::accessibility_modifiers_mut(
-        value,
-    ))
-}
-
-fn update_canvas_position<T: capability::CanvasChild>(
-    value: &mut T,
-    update: impl FnOnce(&mut CanvasPosition),
+pub(crate) fn visit_element_state(
+    placement: Option<&ElementState>,
+    visit: &mut dyn FnMut(PropertyId, Option<PropertyValueRef<'_>>),
 ) {
-    let attached = attached_props_mut(capability::CanvasChild::canvas_child_modifiers_mut(value));
-    let mut position = attached
-        .get::<CanvasPosition>()
-        .copied()
-        .unwrap_or_default();
-    update(&mut position);
-    attached.set(position);
-}
-
-fn update_relative_panel_alignment<T: capability::RelativePanelChild>(
-    value: &mut T,
-    update: impl FnOnce(&mut RelativePanelAlignment),
-) {
-    let attached = attached_props_mut(
-        capability::RelativePanelChild::relative_panel_child_modifiers_mut(value),
+    visit(
+        PropertyId::Width,
+        placement
+            .and_then(|value| value.width.as_set())
+            .copied()
+            .map(PropertyValueRef::F64),
     );
-    let mut alignment = attached
-        .get::<RelativePanelAlignment>()
-        .copied()
-        .unwrap_or_default();
-    update(&mut alignment);
-    attached.set(alignment);
-}
-
-fn attached_props_mut(modifiers: &mut Modifiers) -> &mut AttachedProps {
-    modifiers
-        .attached
-        .get_or_insert_with(AttachedProps::default)
-}
-
-fn apply_brush_binding(m: &mut Modifiers, prop: Prop, binding: BrushBinding, is_background: bool) {
-    if let Some(map) = m.theme_bindings.as_deref_mut() {
-        map.remove(&prop);
-    }
-    match binding {
-        BrushBinding::Direct(b) => {
-            if is_background {
-                m.background = Some(b);
-            } else {
-                m.foreground = Some(b);
-            }
-        }
-        BrushBinding::Theme(t) => {
-            if is_background {
-                m.background = None;
-            } else {
-                m.foreground = None;
-            }
-            m.theme_bindings
-                .get_or_insert_with(|| Box::new(rustc_hash::FxHashMap::default()))
-                .insert(prop, t);
-        }
-    }
-
-    if m.theme_bindings.as_deref().is_some_and(|m| m.is_empty()) {
-        m.theme_bindings = None;
-    }
-}
-
-/// Applies a [`BrushBinding`] to a widget-owned brush slot (e.g. a border
-/// brush stored on the widget struct rather than in [`Modifiers`]). A direct
-/// color is stored in `slot` and any prior theme binding for `prop` is cleared;
-/// a theme reference clears `slot` and records the binding. This keeps
-/// "last call wins" holding regardless of the direct/theme call order.
-pub(crate) fn apply_widget_brush_binding(
-    slot: &mut Option<BrushBinding>,
-    m: &mut Modifiers,
-    prop: Prop,
-    binding: BrushBinding,
-) {
-    if let Some(map) = m.theme_bindings.as_deref_mut() {
-        map.remove(&prop);
-    }
-    match binding {
-        BrushBinding::Direct(b) => *slot = Some(BrushBinding::Direct(b)),
-        BrushBinding::Theme(t) => {
-            *slot = None;
-            m.theme_bindings
-                .get_or_insert_with(|| Box::new(rustc_hash::FxHashMap::default()))
-                .insert(prop, t);
-        }
-    }
-
-    if m.theme_bindings.as_deref().is_some_and(|m| m.is_empty()) {
-        m.theme_bindings = None;
-    }
-}
-
-fn ensure_animations(m: &mut Modifiers) -> &mut AnimationModifiers {
-    m.animations
-        .get_or_insert_with(|| Box::new(AnimationModifiers::default()))
-}
-
-fn with_implicit_transition(m: &mut Modifiers, f: impl FnOnce(&mut ImplicitTransitions)) {
-    let anim = ensure_animations(m);
-    let it = anim
-        .implicit_transitions
-        .get_or_insert_with(Default::default);
-    f(it);
+    visit(
+        PropertyId::Height,
+        placement
+            .and_then(|value| value.height.as_set())
+            .copied()
+            .map(PropertyValueRef::F64),
+    );
+    visit(
+        PropertyId::MinWidth,
+        placement
+            .and_then(|value| value.min_width.as_set())
+            .copied()
+            .map(PropertyValueRef::F64),
+    );
+    visit(
+        PropertyId::MaxWidth,
+        placement
+            .and_then(|value| value.max_width.as_set())
+            .copied()
+            .map(PropertyValueRef::F64),
+    );
+    visit(
+        PropertyId::MinHeight,
+        placement
+            .and_then(|value| value.min_height.as_set())
+            .copied()
+            .map(PropertyValueRef::F64),
+    );
+    visit(
+        PropertyId::MaxHeight,
+        placement
+            .and_then(|value| value.max_height.as_set())
+            .copied()
+            .map(PropertyValueRef::F64),
+    );
+    visit(
+        PropertyId::Opacity,
+        placement
+            .and_then(|value| value.opacity.as_set())
+            .copied()
+            .map(PropertyValueRef::F64),
+    );
+    visit(
+        PropertyId::HorizontalAlignment,
+        placement
+            .and_then(|value| value.horizontal_alignment.as_set())
+            .copied()
+            .map(PropertyValueRef::HorizontalAlignment),
+    );
+    visit(
+        PropertyId::VerticalAlignment,
+        placement
+            .and_then(|value| value.vertical_alignment.as_set())
+            .copied()
+            .map(PropertyValueRef::VerticalAlignment),
+    );
+    visit(
+        PropertyId::Margin,
+        placement
+            .and_then(|value| value.margin.as_set())
+            .map(PropertyValueRef::Thickness),
+    );
+    let value = |value: Option<i32>| value.map(PropertyValueRef::I32);
+    visit(
+        PropertyId::GridRow,
+        value(placement.and_then(|value| value.row)),
+    );
+    visit(
+        PropertyId::GridColumn,
+        value(placement.and_then(|value| value.column)),
+    );
+    visit(
+        PropertyId::GridRowSpan,
+        value(placement.and_then(|value| value.row_span)),
+    );
+    visit(
+        PropertyId::GridColumnSpan,
+        value(placement.and_then(|value| value.column_span)),
+    );
+    let relative = |value: bool| value.then_some(PropertyValueRef::Bool(true));
+    visit(
+        PropertyId::RelativeAlignLeft,
+        relative(placement.is_some_and(|value| value.relative_align_left)),
+    );
+    visit(
+        PropertyId::RelativeAlignTop,
+        relative(placement.is_some_and(|value| value.relative_align_top)),
+    );
+    visit(
+        PropertyId::RelativeAlignRight,
+        relative(placement.is_some_and(|value| value.relative_align_right)),
+    );
+    visit(
+        PropertyId::RelativeAlignBottom,
+        relative(placement.is_some_and(|value| value.relative_align_bottom)),
+    );
+    visit(
+        PropertyId::RelativeAlignHorizontalCenter,
+        relative(placement.is_some_and(|value| value.relative_align_horizontal_center)),
+    );
+    visit(
+        PropertyId::RelativeAlignVerticalCenter,
+        relative(placement.is_some_and(|value| value.relative_align_vertical_center)),
+    );
+    visit(
+        PropertyId::CanvasLeft,
+        placement
+            .and_then(|value| value.canvas_left)
+            .map(PropertyValueRef::F64),
+    );
+    visit(
+        PropertyId::CanvasTop,
+        placement
+            .and_then(|value| value.canvas_top)
+            .map(PropertyValueRef::F64),
+    );
+    visit(
+        PropertyId::AutomationName,
+        placement
+            .and_then(|value| value.automation_name.as_deref())
+            .map(PropertyValueRef::Str),
+    );
+    visit(
+        PropertyId::AutomationId,
+        placement
+            .and_then(|value| value.automation_id.as_deref())
+            .map(PropertyValueRef::Str),
+    );
+    visit(
+        PropertyId::AutomationHeadingLevel,
+        placement
+            .and_then(|value| value.automation_heading_level)
+            .map(|value| PropertyValueRef::I32(value as i32 + 1)),
+    );
 }

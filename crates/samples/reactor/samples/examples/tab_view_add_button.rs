@@ -1,68 +1,119 @@
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (tabs, set_tabs) = cx.use_state(vec!["Tab 1".to_string(), "Tab 2".to_string()]);
-    let (selected, set_selected) = cx.use_state(0i32);
-
-    let items: Vec<TabItem> = tabs
-        .iter()
-        .enumerate()
-        .map(|(i, header)| {
-            TabItem::new(
-                header.as_str(),
-                text_block(format!("Content for {header}")).padding(Thickness::uniform(12.0)),
-            )
-            .with_key(format!("{i}"))
-            .closable(true)
-        })
-        .collect();
-
-    let tabs_for_add = tabs.clone();
-    let set_tabs_add = set_tabs.clone();
-    let set_selected_add = set_selected.clone();
-
-    let tabs_for_close = tabs.clone();
-    let selected_for_close = selected;
-    let set_tabs_close = set_tabs;
-    let set_selected_close = set_selected.clone();
-
-    vstack((
-        TabView::new(items)
-            .selected_index(selected)
-            .is_add_tab_button_visible(true)
-            .on_selection_changed(set_selected)
-            .on_add_tab_button_click(move |()| {
-                let mut next = tabs_for_add.clone();
-                let new_name = format!("Tab {}", next.len() + 1);
-                next.push(new_name);
-                let new_idx = next.len() as i32 - 1;
-                set_tabs_add.call(next);
-                set_selected_add.call(new_idx);
-            })
-            .on_close_requested(move |key: String| {
-                let idx: usize = key.parse().unwrap_or(0);
-                let next: Vec<_> = tabs_for_close
-                    .iter()
-                    .enumerate()
-                    .filter(|(i, _)| *i != idx)
-                    .map(|(_, h)| h.clone())
-                    .collect();
-                let max_index = next.len().saturating_sub(1) as i32;
-                let clamped = selected_for_close.min(max_index).max(0);
-                set_tabs_close.call(next);
-                if clamped != selected_for_close {
-                    set_selected_close.call(clamped);
-                }
-            }),
-        text_block(format!(
-            "selected = {selected}, total tabs = {}",
-            tabs.len()
-        )),
-    ))
-    .spacing(8.0)
-    .into()
+struct TabViewAddButtonSample {
+    tabs: Vec<Tab>,
+    next_id: u32,
+    selected: Option<usize>,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("TabView Add Button", app)
+#[derive(Clone)]
+struct Tab {
+    id: u32,
+    label: String,
+}
+
+#[derive(Clone)]
+enum Message {
+    Selected(Option<usize>),
+    Add,
+    Close(String),
+    Reordered(Vec<String>),
+}
+
+impl Component for TabViewAddButtonSample {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            tabs: vec![
+                Tab {
+                    id: 1,
+                    label: "Tab 1".to_string(),
+                },
+                Tab {
+                    id: 2,
+                    label: "Tab 2".to_string(),
+                },
+            ],
+            next_id: 3,
+            selected: Some(0),
+        }
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Selected(index) => self.selected = index,
+            Message::Add => {
+                self.tabs.push(Tab {
+                    id: self.next_id,
+                    label: format!("Tab {}", self.next_id),
+                });
+                self.next_id += 1;
+                self.selected = Some(self.tabs.len() - 1);
+            }
+            Message::Close(key) => {
+                self.tabs.retain(|tab| tab.id.to_string() != key);
+                self.selected = self
+                    .selected
+                    .map(|selected| selected.min(self.tabs.len().saturating_sub(1)))
+                    .filter(|_| !self.tabs.is_empty());
+            }
+            Message::Reordered(order) => {
+                if order.len() == self.tabs.len()
+                    && order.iter().all(|key| {
+                        self.tabs
+                            .iter()
+                            .any(|candidate| candidate.id.to_string() == *key)
+                    })
+                {
+                    self.tabs.sort_by_key(|tab| {
+                        order
+                            .iter()
+                            .position(|candidate| *candidate == tab.id.to_string())
+                            .unwrap()
+                    });
+                }
+            }
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("TabView Add Button");
+        let items = self.tabs.iter().map(|tab| {
+            let key = tab.id.to_string();
+            KeyedView::new(
+                key.clone(),
+                TabViewItem::new()
+                    .header(tab.label.as_str())
+                    .tag(key)
+                    .is_closable(true)
+                    .content(
+                        Border::new()
+                            .padding(Thickness::uniform(12.0))
+                            .content(format!("Content for {}", tab.label)),
+                    ),
+            )
+        });
+
+        StackPanel::new().spacing(8.0).children((
+            TabView::new()
+                .selected_index(self.selected)
+                .is_add_tab_button_visible(true)
+                .on_selection_changed(context.callback(Message::Selected))
+                .on_add_tab_button_click(context.message(Message::Add))
+                .on_close_requested(context.callback(Message::Close))
+                .on_reordered(context.callback(Message::Reordered))
+                .collection_slot(TabViewSlot::TabItems, items),
+            format!(
+                "selected = {:?}, total tabs = {}",
+                self.selected,
+                self.tabs.len()
+            ),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<TabViewAddButtonSample>(()).unwrap();
 }

@@ -1,10 +1,12 @@
-use std::thread;
+#![windows_subsystem = "windows"]
+
+use std::result::Result as StdResult;
 use std::time::Duration;
 
 use windows_reactor::*;
 
-fn save_data(name: &str) -> std::result::Result<String, String> {
-    thread::sleep(Duration::from_millis(800));
+fn save_data(name: &str) -> StdResult<String, String> {
+    std::thread::sleep(Duration::from_millis(800));
     if name.is_empty() {
         Err("Name cannot be empty".to_string())
     } else {
@@ -12,54 +14,110 @@ fn save_data(name: &str) -> std::result::Result<String, String> {
     }
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (name, set_name) = cx.use_state("Hello".to_string());
-    let (save_state, save_trigger) = cx.use_mutation::<String>();
-
-    let on_save = {
-        let trigger = save_trigger.clone();
-        let name = name.clone();
-        move || {
-            let n = name.clone();
-            trigger.fire(move || save_data(&n));
-        }
-    };
-
-    let on_save_empty = {
-        let trigger = save_trigger;
-        move || {
-            trigger.fire(|| save_data(""));
-        }
-    };
-
-    let on_name_changed = move |v: String| set_name.call(v);
-
-    let status: Element = match &save_state {
-        MutationState::Idle => text_block("Ready to save").into(),
-        MutationState::Loading => ProgressRing::indeterminate().into(),
-        MutationState::Success(msg) => text_block(msg).into(),
-        MutationState::Error(e) => text_block(format!("Error: {e}")).into(),
-    };
-
-    vstack((
-        text_block("use_mutation Demo").font_size(24.0),
-        text_box(name)
-            .header("Name")
-            .on_text_changed(on_name_changed),
-        hstack((
-            button("Save")
-                .enabled(!save_state.is_loading())
-                .on_click(on_save),
-            button("Save Empty (error)")
-                .enabled(!save_state.is_loading())
-                .on_click(on_save_empty),
-        )),
-        status,
-    ))
-    .spacing(12.0)
-    .into()
+enum SaveState {
+    Idle,
+    Loading,
+    Success(String),
+    Error(String),
+    Rejected,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("UseMutation", app)
+struct UseMutationSample {
+    name: String,
+    save_state: SaveState,
+    task: Option<ComponentTask>,
+}
+
+#[derive(Clone)]
+enum Message {
+    NameChanged(String),
+    Save,
+    SaveEmpty,
+    Completed(StdResult<String, String>),
+    Rejected,
+}
+
+impl Component for UseMutationSample {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            name: "Hello".into(),
+            save_state: SaveState::Idle,
+            task: None,
+        }
+    }
+
+    fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
+        match message {
+            Message::NameChanged(name) => self.name = name,
+            Message::Save | Message::SaveEmpty if matches!(self.save_state, SaveState::Loading) => {
+            }
+            Message::Save => {
+                self.save_state = SaveState::Loading;
+                let name = self.name.clone();
+                self.task = Some(context.spawn_background_with_rejection(
+                    move |_| Message::Completed(save_data(&name)),
+                    Message::Rejected,
+                ));
+            }
+            Message::SaveEmpty => {
+                self.save_state = SaveState::Loading;
+                self.task = Some(context.spawn_background_with_rejection(
+                    move |_| Message::Completed(save_data("")),
+                    Message::Rejected,
+                ));
+            }
+            Message::Completed(Ok(message)) => {
+                drop(self.task.take());
+                self.save_state = SaveState::Success(message);
+            }
+            Message::Completed(Err(error)) => {
+                drop(self.task.take());
+                self.save_state = SaveState::Error(error);
+            }
+            Message::Rejected => {
+                drop(self.task.take());
+                self.save_state = SaveState::Rejected;
+            }
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("UseMutation");
+        let loading = matches!(self.save_state, SaveState::Loading);
+        let status: View = match &self.save_state {
+            SaveState::Idle => "Ready to save".into(),
+            SaveState::Loading => ProgressRing::new().is_indeterminate(true).into(),
+            SaveState::Success(message) => message.clone().into(),
+            SaveState::Error(error) => format!("Error: {error}").into(),
+            SaveState::Rejected => "Error: background task rejected".into(),
+        };
+
+        StackPanel::new().spacing(12.0).children((
+            TextBlock::new().text("use_mutation Demo").font_size(24.0),
+            TextBox::new()
+                .text(self.name.clone())
+                .on_text_changed(context.callback(Message::NameChanged))
+                .slot(TextBoxSlot::Header, "Name"),
+            StackPanel::new()
+                .orientation(Orientation::Horizontal)
+                .children((
+                    Button::new()
+                        .is_enabled(!loading)
+                        .on_click(context.message(Message::Save))
+                        .content("Save"),
+                    Button::new()
+                        .is_enabled(!loading)
+                        .on_click(context.message(Message::SaveEmpty))
+                        .content("Save Empty (error)"),
+                )),
+            status,
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<UseMutationSample>(()).unwrap();
 }

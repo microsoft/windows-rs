@@ -1,41 +1,68 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (open, set_open) = cx.use_state(false);
-    let (result, set_result) = cx.use_state::<Option<ContentDialogResult>>(None);
-
-    let close = set_open.clone();
-    let record = set_result;
-    let on_closed = move |r: ContentDialogResult| {
-        record.call(Some(r));
-        close.call(false);
-    };
-
-    let show = move || set_open.call(true);
-
-    let label = match result {
-        None => "No choice yet.".to_string(),
-        Some(ContentDialogResult::Primary) => "You picked: Delete".to_string(),
-        Some(ContentDialogResult::Secondary) => "You picked: Archive".to_string(),
-        Some(ContentDialogResult::None) => "You picked: Cancel".to_string(),
-    };
-
-    vstack((
-        text_block(label),
-        button("Open dialog").on_click(show),
-        ContentDialog::new("Delete this item?")
-            .content("This action cannot be undone.")
-            .primary_button_text("Delete")
-            .secondary_button_text("Archive")
-            .close_button_text("Cancel")
-            .is_open(open)
-            .on_closed(on_closed),
-    ))
-    .spacing(8.0)
-    .max_width(320.0)
-    .into()
+#[derive(Clone)]
+enum Message {
+    Open,
+    Closed(ContentDialogResult),
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("ContentDialog", app)
+struct ContentDialogSample {
+    open: bool,
+    result: Option<ContentDialogResult>,
+}
+
+impl Component for ContentDialogSample {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            open: false,
+            result: None,
+        }
+    }
+
+    fn update(&mut self, message: Self::Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Open => self.open = true,
+            Message::Closed(result) => {
+                self.result = Some(result);
+                self.open = false;
+            }
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("ContentDialog");
+        let label = match self.result {
+            None => "No choice yet.".to_string(),
+            Some(ContentDialogResult::Primary) => "You picked: Delete".to_string(),
+            Some(ContentDialogResult::Secondary) => "You picked: Archive".to_string(),
+            Some(ContentDialogResult::None) => "You picked: Cancel".to_string(),
+            Some(_) => "You picked: Unknown".to_string(),
+        };
+
+        StackPanel::new().spacing(8.0).max_width(320.0).children((
+            label,
+            Button::new()
+                .on_click(context.message(Message::Open))
+                .content("Open dialog"),
+            ContentDialog::new()
+                .title("Delete this item?")
+                .primary_button_text("Delete")
+                .secondary_button_text("Archive")
+                .close_button_text("Cancel")
+                .is_primary_button_enabled(true)
+                .is_secondary_button_enabled(true)
+                .is_open(self.open)
+                .on_closed(context.callback(Message::Closed))
+                .content("This action cannot be undone."),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<ContentDialogSample>(()).unwrap();
 }

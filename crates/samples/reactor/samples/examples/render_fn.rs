@@ -1,23 +1,54 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0_i32);
-
-    vstack((
-        text_block(format!("Count: {count}")).font_size(24.0).bold(),
-        hstack((
-            button("-").on_click({
-                let set_count = set_count.clone();
-                move || set_count.call(count - 1)
-            }),
-            button("+").on_click(move || set_count.call(count + 1)),
-        ))
-        .spacing(8.0),
-    ))
-    .spacing(12.0)
-    .into()
+struct RenderFnSample {
+    count: i32,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("RenderFn", app)
+#[derive(Clone, Copy)]
+enum Message {
+    Decrement,
+    Increment,
+}
+
+impl Component for RenderFnSample {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { count: 0 }
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Decrement => self.count -= 1,
+            Message::Increment => self.count += 1,
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("RenderFn");
+        StackPanel::new().spacing(12.0).children((
+            TextBlock::new()
+                .text(format!("Count: {}", self.count))
+                .font_size(24.0)
+                .font_weight(FontWeight::BOLD),
+            StackPanel::new()
+                .orientation(Orientation::Horizontal)
+                .spacing(8.0)
+                .children((
+                    Button::new()
+                        .on_click(context.message(Message::Decrement))
+                        .content("-"),
+                    Button::new()
+                        .on_click(context.message(Message::Increment))
+                        .content("+"),
+                )),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<RenderFnSample>(()).unwrap();
 }

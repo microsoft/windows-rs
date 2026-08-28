@@ -1,9 +1,22 @@
 #![windows_subsystem = "windows"]
 
+use std::cell::{Cell, RefCell};
+use std::rc::Rc;
 use std::sync::atomic::{AtomicU64, Ordering};
 
 use tracelogging as tlg;
+use windows_core::Result;
 use windows_reactor::*;
+
+#[allow(
+    non_snake_case,
+    non_upper_case_globals,
+    non_camel_case_types,
+    clippy::upper_case_acronyms
+)]
+mod bindings {
+    include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+}
 
 const APP_NAME: &str = "blank_windows_reactor";
 const STARTUP_KEYWORD: u64 = 0x0000_4000_0000_0000;
@@ -36,20 +49,6 @@ fn register_provider() -> std::io::Result<ProviderRegistration> {
 
 fn event_payload() -> (u64, u32) {
     (SEQUENCE.fetch_add(1, Ordering::Relaxed), std::process::id())
-}
-
-fn trace_win_main_entry() {
-    let (sequence, process_id) = event_payload();
-    let _ = tlg::write_event!(
-        STARTUP_PROVIDER,
-        "wWinMainEntry",
-        level(Informational),
-        keyword(STARTUP_KEYWORD),
-        id_version(1, 0),
-        str8("AppName", APP_NAME),
-        u64("Seq", &sequence),
-        u32("Pid", &process_id),
-    );
 }
 
 fn trace_xaml_app_loaded() {
@@ -108,6 +107,20 @@ fn trace_first_idle() {
     );
 }
 
+fn trace_win_main_entry() {
+    let (sequence, process_id) = event_payload();
+    let _ = tlg::write_event!(
+        STARTUP_PROVIDER,
+        "wWinMainEntry",
+        level(Informational),
+        keyword(STARTUP_KEYWORD),
+        id_version(1, 0),
+        str8("AppName", APP_NAME),
+        u64("Seq", &sequence),
+        u32("Pid", &process_id),
+    );
+}
+
 fn trace_process_stop() {
     let (sequence, process_id) = event_payload();
     let _ = tlg::write_event!(
@@ -122,67 +135,66 @@ fn trace_process_stop() {
     );
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let xaml_app_loaded = cx.use_ref(false);
-    if !*xaml_app_loaded.borrow() {
-        xaml_app_loaded.set(true);
+struct Sample {
+    rendering: Rc<RefCell<Option<windows_core::EventRevoker>>>,
+}
+
+impl Component for Sample {
+    type Input = ();
+    type Message = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
         trace_xaml_app_loaded();
+        Self {
+            rendering: Rc::new(RefCell::new(None)),
+        }
     }
 
-    let first_rendered = cx.use_ref(false);
-    let rendering = cx.use_ref::<Option<Rendering>>(None);
-    cx.use_effect((), {
-        let rendering_for_callback = rendering.clone();
-        move || {
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("BlankWindowsReactor");
+        context.window_visuals(WindowVisuals::new().client_size(1000.0, 1000.0));
+        let rendering = Rc::clone(&self.rendering);
+        context.use_effect("startup-tracing", (), move || {
             trace_window_loaded();
-
-            rendering.set(Some(
-                on_rendering(move || {
-                    if first_rendered.replace(true) {
-                        return;
-                    }
-
-                    trace_first_render();
-
-                    let dispatcher = WinUIDispatcher::for_current_thread().unwrap();
-                    let rendering = rendering_for_callback.clone();
-                    assert!(
-                        dispatcher.enqueue(
-                            DispatcherQueuePriority::Low,
-                            Box::new(move || {
-                                trace_first_idle();
-                                rendering.set(None);
-                            }),
-                        ),
-                        "failed to enqueue the FirstIdle marker"
-                    );
-                })
-                .unwrap(),
-            ));
-        }
-    });
-
-    text_block("Blank Windows Reactor")
-        .font_size(14.0)
-        .padding(12.0)
-        .into()
+            let first_rendered = Rc::new(Cell::new(false));
+            let rendering_for_callback = Rc::clone(&rendering);
+            let revoker = bindings::CompositionTarget::Rendering(move |_, _| {
+                if first_rendered.replace(true) {
+                    return;
+                }
+                trace_first_render();
+                let rendering = Rc::clone(&rendering_for_callback);
+                let idle = bindings::DispatcherQueueHandler::new(move || {
+                    trace_first_idle();
+                    rendering.borrow_mut().take();
+                });
+                let dispatcher = bindings::DispatcherQueue::GetForCurrentThread().unwrap();
+                assert!(
+                    dispatcher
+                        .TryEnqueueWithPriority(bindings::DispatcherQueuePriority::Low, &idle)
+                        .unwrap(),
+                    "failed to enqueue the FirstIdle marker"
+                );
+            })
+            .unwrap();
+            *rendering.borrow_mut() = Some(revoker);
+            Some(Box::new(move || {
+                rendering.borrow_mut().take();
+            }))
+        });
+        Border::new().padding(Thickness::uniform(12.0)).content(
+            TextBlock::new()
+                .text("Blank Windows Reactor")
+                .font_size(14.0),
+        )
+    }
 }
 
 fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {
     let _provider = register_provider()?;
     trace_win_main_entry();
-
-    let result = bootstrap().and_then(|()| {
-        App::new()
-            .title("BlankWindowsReactor")
-            .inner_size(1000.0, 1000.0)
-            .on_exit(trace_process_stop)
-            .render(app)
-    });
-
-    if result.is_err() {
-        trace_process_stop();
-    }
+    let result: Result<()> = App::run_component::<Sample>(());
+    trace_process_stop();
     result?;
     Ok(())
 }

@@ -1,10 +1,11 @@
 [package]
-name = "reactor_samples"
+name = "sample_reactor_controls"
 version = "0.0.0"
 edition = "2024"
 publish = false
 
 [dependencies]
+windows-core = { workspace = true }
 windows-reactor = { workspace = true }
 
 [build-dependencies]

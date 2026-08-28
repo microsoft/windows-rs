@@ -1,672 +1,1168 @@
 use std::cell::RefCell;
-use std::marker::PhantomData;
-use std::sync::{Arc, Mutex};
+use std::collections::{HashMap, HashSet};
+use std::rc::Rc;
 
 use super::*;
+use crate::core::*;
+use crate::native::*;
 
-use super::app_shim::*;
-use super::bindings::*;
+const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);
+const MAX_PENDING_WINDOW_OPENS: usize = 64;
 
-/// Per-thread registry of open reactor windows keyed by monotonic id.
-struct WindowRegistry<T> {
-    next_key: u64,
-    entries: Vec<(u64, T)>,
-}
-
-impl<T> WindowRegistry<T> {
-    const fn new() -> Self {
-        Self {
-            next_key: 0,
-            entries: Vec::new(),
-        }
-    }
-
-    fn insert(&mut self, value: T) -> u64 {
-        let key = self.next_key;
-        self.next_key += 1;
-        self.entries.push((key, value));
-        key
-    }
-
-    fn get(&self, key: u64) -> Option<&T> {
-        self.entries
-            .iter()
-            .find(|(k, _)| *k == key)
-            .map(|(_, value)| value)
-    }
-
-    fn first(&self) -> Option<&T> {
-        self.entries.first().map(|(_, value)| value)
-    }
-
-    fn remove(&mut self, key: u64) -> (Option<T>, bool) {
-        let removed = self
-            .entries
-            .iter()
-            .position(|(k, _)| *k == key)
-            .map(|pos| self.entries.remove(pos).1);
-        (removed, self.entries.is_empty())
-    }
-}
+#[cfg(feature = "test")]
+mod test_support;
+#[cfg(feature = "test")]
+pub use test_support::{
+    LiveProbe, schedule_live_event_subscription_count, schedule_live_probe,
+    schedule_live_window_handle, take_live_diagnostics,
+};
 
 thread_local! {
-    static WINDOW_REGISTRY: RefCell<WindowRegistry<ReactorHost>> =
-        const { RefCell::new(WindowRegistry::new()) };
-    static APP_SLOT: RefCell<Option<Application>> = const { RefCell::new(None) };
-    static ON_EXIT: RefCell<Option<Box<dyn FnOnce() + Send>>> = const { RefCell::new(None) };
+    static HOST: RefCell<Option<LiveHost>> = const { RefCell::new(None) };
+    static SCHEDULER_FAULT: RefCell<Option<windows_core::Error>> = const { RefCell::new(None) };
 }
 
-/// Run `f` with the first window opened on the current UI thread.
-pub fn with_active_host<F, R>(f: F) -> Option<R>
-where
-    F: FnOnce(&ReactorHost) -> R,
-{
-    WINDOW_REGISTRY.with(|reg| reg.borrow().first().map(f))
+#[cfg(feature = "test")]
+thread_local! {
+    static LIVE_DISPATCH_TIMES_US: RefCell<Vec<f64>> = const { RefCell::new(Vec::new()) };
 }
 
-/// A handle to an open reactor window. The window registry owns the host, so
-/// this is purely an identifier used to control the window (e.g.
-/// [`WindowHandle::close`]) - it is not the owner, and dropping it neither
-/// closes the window nor affects its lifetime.
-///
-/// The handle is `!Send`/`!Sync`: WinUI is single-threaded-apartment and the
-/// registry is thread-local, so a window can only be controlled from the UI
-/// thread that opened it.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WindowHandle {
-    key: u64,
-    _not_send: PhantomData<*const ()>,
+struct LiveHost {
+    _application: Application,
+    closed_in_flight: HashSet<WindowToken>,
+    fault: Option<windows_core::Error>,
+    in_flight: HashSet<WindowToken>,
+    pending_opens: usize,
+    #[cfg(feature = "test")]
+    primary: WindowToken,
+    windows: HashMap<WindowToken, Box<dyn LivePump>>,
 }
 
-impl WindowHandle {
-    /// Close this window. The window's `Closed` event removes it from the
-    /// registry; if it was the last open window the process exits (matching
-    /// [`App::run`] semantics). A no-op if the window has already closed.
-    pub fn close(&self) {
-        let window = WINDOW_REGISTRY
-            .with(|reg| reg.borrow().get(self.key).map(|host| host.window().clone()));
-        if let Some(window) = window {
-            let _ = window.Close();
+impl LiveHost {
+    fn is_empty(&self) -> bool {
+        self.windows.is_empty() && self.in_flight.is_empty() && self.pending_opens == 0
+    }
+
+    #[cfg(feature = "test")]
+    fn primary(&self) -> Option<&dyn LivePump> {
+        self.windows.get(&self.primary).map(Box::as_ref)
+    }
+
+    #[cfg(feature = "test")]
+    fn primary_mut(&mut self) -> Option<&mut (dyn LivePump + '_)> {
+        match self.windows.get_mut(&self.primary) {
+            Some(pump) => Some(pump.as_mut()),
+            None => None,
         }
     }
-}
 
-/// Register `host` and wire last-window-close process exit.
-pub(crate) fn register_host(host: ReactorHost) -> Result<WindowHandle> {
-    let window = host.window().clone();
-    let key = WINDOW_REGISTRY.with(|reg| reg.borrow_mut().insert(host));
-    // The Closed token is owned by WinUI after this call.
-    match window.Closed(move |_, _| on_window_closed(key)) {
-        Ok(revoker) => {
-            revoker.into_token();
-            Ok(WindowHandle {
-                key,
-                _not_send: PhantomData,
-            })
+    #[cfg(feature = "test")]
+    fn secondary(&self) -> Option<&dyn LivePump> {
+        self.windows
+            .iter()
+            .find(|(token, _)| **token != self.primary)
+            .map(|(_, pump)| pump.as_ref())
+    }
+
+    #[cfg(feature = "test")]
+    fn secondary_mut(&mut self) -> Option<&mut (dyn LivePump + '_)> {
+        for (token, pump) in &mut self.windows {
+            if *token != self.primary {
+                return Some(pump.as_mut());
+            }
         }
-        Err(err) => {
-            // No Closed handler was registered, so this cannot re-enter cleanup.
-            let (removed, empty) = WINDOW_REGISTRY.with(|reg| reg.borrow_mut().remove(key));
-            drop(removed);
-            let _ = empty;
-            let _ = window.Close();
-            Err(err)
+        None
+    }
+}
+
+trait LivePump {
+    fn mount(&mut self) -> Result<(), PumpError>;
+    fn dispatch_events(&mut self) -> Result<(), PumpError>;
+    fn drain_diagnostics(&mut self) -> Vec<PumpDiagnostic>;
+    fn native_work_pending(&self) -> bool;
+    fn schedule_dispatch(&self) -> Result<(), RuntimeError>;
+    fn close_scheduler(&self);
+    fn native_window_closed(&mut self);
+    fn shutdown(&mut self);
+    fn window_token(&self) -> WindowToken;
+    #[cfg(feature = "test")]
+    fn live_window(&self) -> Result<Window, RuntimeError> {
+        Err(RuntimeError::UnsupportedKind)
+    }
+    #[cfg(feature = "test")]
+    fn live_bring_virtual_index(&self, _index: usize) -> Result<(), RuntimeError> {
+        Err(RuntimeError::UnsupportedKind)
+    }
+    #[cfg(feature = "test")]
+    fn live_virtual_shell_counts(&self) -> Result<(usize, usize), RuntimeError> {
+        Err(RuntimeError::UnsupportedKind)
+    }
+    #[cfg(feature = "test")]
+    fn live_event_subscription_count(&self) -> Result<usize, RuntimeError> {
+        Err(RuntimeError::UnsupportedKind)
+    }
+    #[cfg(feature = "test")]
+    fn take_live_native_apply_times(&mut self) -> Vec<f64> {
+        Vec::new()
+    }
+    #[cfg(feature = "test")]
+    fn clear_live_native_apply_times(&mut self) {}
+    #[cfg(feature = "test")]
+    fn live_event_revokers(&mut self) -> bool {
+        false
+    }
+    #[cfg(feature = "test")]
+    fn live_event_delivery_step(&mut self) -> Result<bool, String> {
+        Err("live event delivery is unsupported".to_string())
+    }
+    #[cfg(feature = "test")]
+    fn live_controlled_feedback_start(&mut self) -> bool {
+        false
+    }
+    #[cfg(feature = "test")]
+    fn live_controlled_feedback_input(&mut self) -> bool {
+        false
+    }
+    #[cfg(feature = "test")]
+    fn live_controlled_feedback_finish(&mut self) -> bool {
+        false
+    }
+}
+
+struct ComponentLoop {
+    pump: Pump<WinUiRuntime>,
+    root: Option<View>,
+    #[cfg(feature = "test")]
+    event_delivery_stage: usize,
+    #[cfg(feature = "test")]
+    event_delivery_observed: Option<Rc<std::cell::Cell<bool>>>,
+    #[cfg(feature = "test")]
+    event_delivery_waits: usize,
+}
+
+#[cfg(feature = "test")]
+impl ComponentLoop {
+    fn begin_live_event_stage(
+        &mut self,
+        view: impl Into<View>,
+        name: &str,
+        observed: Rc<std::cell::Cell<bool>>,
+        apply: impl FnOnce(&WinUiRuntime, NodeId) -> Result<(), RuntimeError>,
+    ) -> Result<(), String> {
+        self.pump
+            .update_view(view.into())
+            .map_err(|error| format!("{name} event target update failed: {error:?}"))?;
+        let node = self
+            .pump
+            .root_native()
+            .ok_or_else(|| format!("{name} event target is unavailable"))?;
+        apply(self.pump.runtime(), node)
+            .map_err(|error| format!("{name} native input failed: {error:?}"))?;
+        self.event_delivery_observed = Some(observed);
+        self.event_delivery_waits = 0;
+        Ok(())
+    }
+
+    fn live_event_delivery_step_impl(&mut self) -> Result<bool, String> {
+        if let Some(observed) = self.event_delivery_observed.take() {
+            self.pump
+                .dispatch_events()
+                .map_err(|error| format!("event dispatch failed: {error:?}"))?;
+            if !observed.get() {
+                self.event_delivery_waits += 1;
+                if self.event_delivery_waits == 100 {
+                    return Err(format!(
+                        "event delivery stage {} produced no matching payload",
+                        self.event_delivery_stage
+                    ));
+                }
+                self.event_delivery_observed = Some(observed);
+                return Ok(false);
+            }
+            self.event_delivery_stage += 1;
         }
+
+        let observed = Rc::new(std::cell::Cell::new(false));
+        let callback = Rc::clone(&observed);
+        match self.event_delivery_stage {
+            0 => self.begin_live_event_stage(
+                ToggleSwitch::new()
+                    .is_on(false)
+                    .on_toggled(move |value| callback.set(value)),
+                "bool",
+                observed,
+                |runtime, node| {
+                    runtime.live_write_test_property(
+                        node,
+                        PropertyId::ToggleSwitchIsOn,
+                        &PropertyValue::Bool(true),
+                    )
+                },
+            )?,
+            1 => self.begin_live_event_stage(
+                PasswordBox::new()
+                    .password("initial")
+                    .on_password_changed(move |value| callback.set(value == "native")),
+                "string",
+                observed,
+                |runtime, node| {
+                    runtime.live_write_test_property(
+                        node,
+                        PropertyId::PasswordBoxPassword,
+                        &PropertyValue::Str("native".to_string()),
+                    )
+                },
+            )?,
+            2 => self.begin_live_event_stage(
+                Slider::new()
+                    .minimum(0.0)
+                    .maximum(10.0)
+                    .value(1.0)
+                    .on_value_changed(move |value| callback.set(value == 4.5)),
+                "f64",
+                observed,
+                |runtime, node| {
+                    runtime.live_write_test_property(
+                        node,
+                        PropertyId::SliderValue,
+                        &PropertyValue::F64(4.5),
+                    )
+                },
+            )?,
+            3 => self.begin_live_event_stage(
+                NumberBox::new()
+                    .minimum(0.0)
+                    .maximum(10.0)
+                    .value(1.0)
+                    .on_value_changed(move |value| callback.set(value == Some(4.5))),
+                "NumberBox optional f64",
+                observed,
+                |runtime, node| {
+                    runtime.live_write_test_property(
+                        node,
+                        PropertyId::NumberBoxValue,
+                        &PropertyValue::OptionalF64(Some(4.5)),
+                    )
+                },
+            )?,
+            4 => {
+                let color = Color {
+                    a: 255,
+                    r: 12,
+                    g: 34,
+                    b: 56,
+                };
+                self.begin_live_event_stage(
+                    ColorPicker::new()
+                        .color(Color::default())
+                        .on_color_changed(move |value| callback.set(value == color)),
+                    "color",
+                    observed,
+                    move |runtime, node| {
+                        runtime.live_write_test_property(
+                            node,
+                            PropertyId::ColorPickerColor,
+                            &PropertyValue::Color(color),
+                        )
+                    },
+                )?;
+            }
+            5 => self.begin_live_event_stage(
+                ListView::new()
+                    .selected_index(None)
+                    .on_selection_changed(move |value| callback.set(value == Some(1)))
+                    .collection_slot(
+                        ListViewSlot::Items,
+                        [
+                            KeyedView::new(
+                                "first",
+                                ListViewItem::new()
+                                    .tag("first")
+                                    .content(TextBlock::new().text("First")),
+                            ),
+                            KeyedView::new(
+                                "second",
+                                ListViewItem::new()
+                                    .tag("second")
+                                    .content(TextBlock::new().text("Second")),
+                            ),
+                        ],
+                    ),
+                "selection index",
+                observed,
+                |runtime, node| {
+                    runtime.live_write_test_property(
+                        node,
+                        PropertyId::ListViewSelectedIndex,
+                        &PropertyValue::SelectionIndex(Some(1)),
+                    )
+                },
+            )?,
+            6 => {
+                let date = DateTime::from_unix_secs(1_700_000_000);
+                self.begin_live_event_stage(
+                    CalendarDatePicker::new()
+                        .on_date_changed(move |value| callback.set(value == Some(date))),
+                    "optional date",
+                    observed,
+                    move |runtime, node| runtime.live_set_test_date(node, date),
+                )?;
+            }
+            7 => {
+                let time = TimeSpan::from_hours(14) + TimeSpan::from_minutes(30);
+                self.begin_live_event_stage(
+                    TimePicker::new()
+                        .on_selected_time_changed(move |value| callback.set(value == Some(time))),
+                    "optional time",
+                    observed,
+                    move |runtime, node| runtime.live_set_test_time(node, time),
+                )?;
+            }
+            8 => return Ok(true),
+            _ => return Err("event delivery stage is invalid".to_string()),
+        }
+        Ok(false)
     }
 }
 
-/// Drop the host and terminate once the last window closes.
-fn on_window_closed(key: u64) {
-    // Drop outside the registry borrow so teardown can re-enter safely.
-    let (removed, empty) = WINDOW_REGISTRY.with(|reg| reg.borrow_mut().remove(key));
-    drop(removed);
-    if empty {
-        run_exit_callback();
-        std::process::exit(0);
+impl LivePump for ComponentLoop {
+    fn mount(&mut self) -> Result<(), PumpError> {
+        self.pump
+            .mount_view(self.root.take().ok_or(PumpError::AlreadyMounted)?)
+            .map(|_| ())
+    }
+
+    fn dispatch_events(&mut self) -> Result<(), PumpError> {
+        self.pump.dispatch_events()?;
+        self.pump.dispatch_components(64)?;
+        self.pump.process_imperatives().map(|_| ())
+    }
+
+    fn drain_diagnostics(&mut self) -> Vec<PumpDiagnostic> {
+        self.pump.drain_diagnostics()
+    }
+
+    fn native_work_pending(&self) -> bool {
+        self.pump.native_work_pending()
+    }
+
+    fn schedule_dispatch(&self) -> Result<(), RuntimeError> {
+        self.pump.runtime().schedule_dispatch()
+    }
+
+    fn close_scheduler(&self) {
+        self.pump.runtime().close_scheduler();
+    }
+
+    fn native_window_closed(&mut self) {
+        self.pump.native_window_closed();
+    }
+
+    fn shutdown(&mut self) {
+        self.pump.shutdown();
+        self.pump.runtime().close_scheduler();
+    }
+
+    fn window_token(&self) -> WindowToken {
+        self.pump.window_token()
+    }
+
+    #[cfg(feature = "test")]
+    fn live_window(&self) -> Result<Window, RuntimeError> {
+        self.pump.runtime().live_window()
+    }
+
+    #[cfg(feature = "test")]
+    fn live_bring_virtual_index(&self, index: usize) -> Result<(), RuntimeError> {
+        self.pump.runtime().live_bring_virtual_index(index)
+    }
+
+    #[cfg(feature = "test")]
+    fn live_virtual_shell_counts(&self) -> Result<(usize, usize), RuntimeError> {
+        self.pump.runtime().live_virtual_shell_counts()
+    }
+
+    #[cfg(feature = "test")]
+    fn live_event_subscription_count(&self) -> Result<usize, RuntimeError> {
+        Ok(self.pump.runtime().live_event_subscription_count())
+    }
+
+    #[cfg(feature = "test")]
+    fn take_live_native_apply_times(&mut self) -> Vec<f64> {
+        self.pump.runtime_mut().take_live_native_apply_times()
+    }
+
+    #[cfg(feature = "test")]
+    fn clear_live_native_apply_times(&mut self) {
+        self.pump.runtime_mut().clear_live_native_apply_times();
+    }
+
+    #[cfg(feature = "test")]
+    fn live_event_revokers(&mut self) -> bool {
+        let first = Rc::new(std::cell::Cell::new(0_u8));
+        let second = Rc::new(std::cell::Cell::new(0_u8));
+        let first_callback = Rc::clone(&first);
+        if self
+            .pump
+            .update_view(
+                CheckBox::new()
+                    .is_checked(false)
+                    .on_is_checked_changed(move |_| first_callback.set(first_callback.get() + 1))
+                    .content(TextBlock::new().text("event target")),
+            )
+            .is_err()
+        {
+            return false;
+        }
+        let Some(node) = self.pump.root_native() else {
+            return false;
+        };
+        if !matches!(self.pump.live_native_children(node), Ok([_]))
+            || self.pump.runtime().live_set_checked(node, true).is_err()
+            || self.pump.dispatch_events() != Ok(1)
+            || first.get() != 1
+        {
+            return false;
+        }
+
+        let second_callback = Rc::clone(&second);
+        if self
+            .pump
+            .update_view(
+                CheckBox::new()
+                    .is_checked(true)
+                    .on_is_checked_changed(move |_| second_callback.set(second_callback.get() + 1))
+                    .content(TextBlock::new().text("event target")),
+            )
+            .is_err()
+            || self.pump.runtime().live_set_checked(node, false).is_err()
+            || self.pump.dispatch_events() != Ok(1)
+            || first.get() != 1
+            || second.get() != 1
+        {
+            return false;
+        }
+
+        self.pump
+            .update_view(
+                CheckBox::new()
+                    .is_checked(false)
+                    .content(TextBlock::new().text("event target")),
+            )
+            .is_ok()
+            && self.pump.runtime().live_set_checked(node, true).is_ok()
+            && self.pump.dispatch_events() == Ok(0)
+            && first.get() == 1
+            && second.get() == 1
+    }
+
+    #[cfg(feature = "test")]
+    fn live_event_delivery_step(&mut self) -> Result<bool, String> {
+        self.live_event_delivery_step_impl()
+    }
+
+    #[cfg(feature = "test")]
+    fn live_controlled_feedback_start(&mut self) -> bool {
+        true
+    }
+
+    #[cfg(feature = "test")]
+    fn live_controlled_feedback_input(&mut self) -> bool {
+        true
+    }
+
+    #[cfg(feature = "test")]
+    fn live_controlled_feedback_finish(&mut self) -> bool {
+        let text_events = Rc::new(std::cell::Cell::new(0_u8));
+        let callback = Rc::clone(&text_events);
+        let text_view = |value| {
+            let callback = Rc::clone(&callback);
+            TextBox::new()
+                .text(value)
+                .on_text_changed(move |_| callback.set(callback.get() + 1))
+        };
+        if self.pump.update_view(text_view("first").into()).is_err()
+            || self.pump.update_view(text_view("second").into()).is_err()
+            || text_events.get() != 0
+        {
+            eprintln!("controlled TextBox setter echoed to the application");
+            return false;
+        }
+
+        let number_events = Rc::new(std::cell::Cell::new(0_u8));
+        let number_view = |maximum| {
+            let events = Rc::clone(&number_events);
+            NumberBox::new()
+                .minimum(0.0)
+                .maximum(maximum)
+                .value(7.0)
+                .on_value_changed(move |_| events.set(events.get() + 1))
+        };
+        if self.pump.update_view(number_view(10.0).into()).is_err()
+            || self.pump.update_view(number_view(5.0).into()).is_err()
+            || number_events.get() != 0
+            || self
+                .pump
+                .root_native()
+                .is_none_or(|node| self.pump.runtime().live_range_value(node) != Ok(5.0))
+        {
+            eprintln!("controlled NumberBox feedback failed");
+            return false;
+        }
+
+        let slider_events = Rc::new(std::cell::Cell::new(0_u8));
+        let slider_view = |maximum| {
+            let events = Rc::clone(&slider_events);
+            Slider::new()
+                .minimum(0.0)
+                .maximum(maximum)
+                .value(7.0)
+                .on_value_changed(move |_| events.set(events.get() + 1))
+        };
+        if self.pump.update_view(slider_view(10.0).into()).is_err()
+            || self.pump.update_view(slider_view(5.0).into()).is_err()
+            || slider_events.get() != 0
+            || self
+                .pump
+                .root_native()
+                .is_none_or(|node| self.pump.runtime().live_range_value(node) != Ok(5.0))
+        {
+            eprintln!("controlled Slider feedback failed");
+            return false;
+        }
+
+        let toggle_events = Rc::new(std::cell::Cell::new(0_u8));
+        let check_box = |checked| {
+            let events = Rc::clone(&toggle_events);
+            CheckBox::new()
+                .is_checked(checked)
+                .on_is_checked_changed(move |_| events.set(events.get() + 1))
+                .content(TextBlock::new().text("Check"))
+        };
+        if self.pump.update_view(check_box(false)).is_err()
+            || self.pump.update_view(check_box(true)).is_err()
+            || toggle_events.get() != 0
+        {
+            eprintln!("controlled CheckBox setter echoed to the application");
+            return false;
+        }
+        let Some(check_box) = self.pump.root_native() else {
+            return false;
+        };
+        if self
+            .pump
+            .runtime()
+            .live_set_checked(check_box, false)
+            .is_err()
+            || self.pump.dispatch_events() != Ok(1)
+            || toggle_events.get() != 1
+            || self.pump.runtime().live_checked_value(check_box) != Ok(false)
+        {
+            eprintln!("CheckBox native feedback failed");
+            return false;
+        }
+
+        let selected = Rc::new(RefCell::new(None));
+        let selected_callback = Rc::clone(&selected);
+        let list = ListBox::new()
+            .on_selected_tag_changed(move |tag| *selected_callback.borrow_mut() = tag)
+            .slots([SlotView::collection(
+                ListBoxSlot::Items,
+                [
+                    KeyedView::new(
+                        "one",
+                        ListBoxItem::new()
+                            .tag("one")
+                            .is_selected(true)
+                            .content(TextBlock::new().text("One")),
+                    ),
+                    KeyedView::new(
+                        "two",
+                        ListBoxItem::new()
+                            .tag("two")
+                            .is_selected(false)
+                            .content(TextBlock::new().text("Two")),
+                    ),
+                ],
+            )]);
+        if self.pump.update_view(list).is_err() || self.pump.dispatch_events() != Ok(0) {
+            eprintln!("controlled selection feedback failed");
+            return false;
+        }
+        let Some(list_box) = self.pump.root_native() else {
+            return false;
+        };
+        if self
+            .pump
+            .runtime()
+            .live_select_list_box_item(list_box, 1)
+            .is_err()
+            || self.pump.dispatch_events() != Ok(1)
+            || selected.borrow().as_deref() != Some("two")
+        {
+            eprintln!("ListBox native feedback failed");
+            return false;
+        }
+
+        let progress = |value| {
+            ProgressBar::new()
+                .minimum(0.0)
+                .maximum(100.0)
+                .value(value)
+                .is_indeterminate(false)
+        };
+        if self.pump.update_view(progress(25.0).into()).is_err()
+            || self.pump.update_view(progress(75.0).into()).is_err()
+        {
+            eprintln!("controlled range update failed");
+            return false;
+        }
+        true
     }
 }
 
-fn set_exit_callback(callback: Option<Box<dyn FnOnce() + Send>>) {
-    ON_EXIT.with(|slot| *slot.borrow_mut() = callback);
+pub fn bootstrap() -> windows_core::Result<()> {
+    bootstrap_runtime()
 }
 
-fn run_exit_callback() {
-    if let Some(callback) = ON_EXIT.with(|slot| slot.borrow_mut().take()) {
-        fault::abort_on_panic("app exit", callback);
-    }
+#[cfg(feature = "test")]
+pub fn bring_live_virtual_index(index: usize) -> Result<(), RuntimeError> {
+    HOST.with(|host| {
+        host.borrow()
+            .as_ref()
+            .and_then(LiveHost::primary)
+            .ok_or(RuntimeError::UnsupportedKind)?
+            .live_bring_virtual_index(index)
+    })
 }
 
-/// Top-level reactor application; hosts a single root [`Component`].
-pub struct App {
-    title: Option<String>,
-    inner_size: Option<WindowSize>,
-    inner_constraints: InnerConstraints,
-    presenter: PresenterKind,
-    backdrop: Option<Backdrop>,
-    icon: Option<String>,
-    on_exit: Option<Box<dyn FnOnce() + Send>>,
+#[cfg(feature = "test")]
+pub fn live_virtual_shell_counts() -> Result<(usize, usize), RuntimeError> {
+    HOST.with(|host| {
+        host.borrow()
+            .as_ref()
+            .and_then(LiveHost::primary)
+            .ok_or(RuntimeError::UnsupportedKind)?
+            .live_virtual_shell_counts()
+    })
 }
 
-impl Default for App {
-    fn default() -> Self {
-        Self::new()
-    }
+#[cfg(feature = "test")]
+pub fn take_live_performance_times() -> (Vec<f64>, Vec<f64>) {
+    let dispatch = LIVE_DISPATCH_TIMES_US.with(|times| std::mem::take(&mut *times.borrow_mut()));
+    let native = HOST.with(|host| {
+        host.borrow_mut()
+            .as_mut()
+            .and_then(LiveHost::primary_mut)
+            .map_or_else(Vec::new, LivePump::take_live_native_apply_times)
+    });
+    (dispatch, native)
 }
+
+#[cfg(feature = "test")]
+pub fn clear_live_performance_times() {
+    LIVE_DISPATCH_TIMES_US.with(|times| times.borrow_mut().clear());
+    HOST.with(|host| {
+        if let Some(primary) = host.borrow_mut().as_mut().and_then(LiveHost::primary_mut) {
+            primary.clear_live_native_apply_times();
+        }
+    });
+}
+
+pub struct App;
 
 impl App {
-    pub fn new() -> Self {
-        Self {
-            title: None,
-            inner_size: None,
-            inner_constraints: InnerConstraints::default(),
-            presenter: PresenterKind::Default,
-            backdrop: None,
-            icon: None,
-            on_exit: None,
-        }
-    }
-
-    pub fn title(mut self, title: impl Into<String>) -> Self {
-        self.title = Some(title.into());
-        self
-    }
-
-    pub fn inner_size(mut self, width: f64, height: f64) -> Self {
-        self.inner_size = Some(WindowSize { width, height });
-        self
-    }
-
-    pub fn inner_constraints(mut self, constraints: InnerConstraints) -> Self {
-        self.inner_constraints = constraints;
-        self
-    }
-
-    /// Set the top-level window presenter (defaults to overlapped window).
-    pub fn presenter(mut self, kind: PresenterKind) -> Self {
-        self.presenter = kind;
-        self
-    }
-
-    /// Shortcut for `presenter(PresenterKind::FullScreen)`.
-    pub fn fullscreen(self, on: bool) -> Self {
-        self.presenter(if on {
-            PresenterKind::FullScreen
-        } else {
-            PresenterKind::Default
+    pub fn run(root: View) -> windows_core::Result<()> {
+        Self::run_with(move |application| {
+            vec![Box::new(ComponentLoop {
+                pump: Pump::new(WinUiRuntime::with_application(application)),
+                root: Some(root),
+                #[cfg(feature = "test")]
+                event_delivery_stage: 0,
+                #[cfg(feature = "test")]
+                event_delivery_observed: None,
+                #[cfg(feature = "test")]
+                event_delivery_waits: 0,
+            })]
         })
     }
 
-    /// Set the system backdrop for the window created by [`App::run`].
-    pub fn backdrop(mut self, backdrop: Backdrop) -> Self {
-        self.backdrop = Some(backdrop);
-        self
-    }
-
-    /// Set the window icon from a path to an `.ico` file. WinUI 3 does not adopt
-    /// the executable's embedded icon for the window, so set it explicitly to
-    /// control the title-bar and taskbar icon. [`App::run`] returns an error if
-    /// the file does not exist.
-    pub fn icon(mut self, path: impl Into<String>) -> Self {
-        self.icon = Some(path.into());
-        self
-    }
-
-    /// Set a callback invoked on the UI thread immediately before the process exits after the
-    /// final reactor window closes.
-    pub fn on_exit<F>(mut self, f: F) -> Self
+    pub fn run_windows<I>(roots: I) -> windows_core::Result<()>
     where
-        F: FnOnce() + Send + 'static,
+        I: IntoIterator<Item = View>,
     {
-        self.on_exit = Some(Box::new(f));
-        self
-    }
-
-    /// Run with custom WinUI setup; the caller manages windows and content.
-    pub fn run_custom<F>(self, setup: F) -> Result<()>
-    where
-        F: FnOnce(&Application) -> Result<()> + Send + 'static,
-    {
-        init_app_platform()?;
-        let setup = Mutex::new(Some(setup));
-        let on_exit = Mutex::new(self.on_exit);
-        let result_slot: Arc<Mutex<Result<()>>> = Arc::new(Mutex::new(Ok(())));
-        let result_slot_cb = Arc::clone(&result_slot);
-        let start_result =
-            Application::Start(&ApplicationInitializationCallback::new(move |_params| {
-                let inner = || -> Result<()> {
-                    let setup = setup.lock().unwrap().take().unwrap();
-                    let on_exit = on_exit.lock().unwrap().take();
-
-                    let on_launched: Box<dyn FnOnce() -> Result<()>> = Box::new(move || {
-                        set_exit_callback(on_exit);
-                        let app = APP_SLOT.with(|slot| slot.borrow().clone()).unwrap();
-                        install_xaml_controls_resources(&app)?;
-                        run_callback("setup", || setup(&app))
-                    });
-
-                    let app = create_reactor_application(on_launched)?;
-                    APP_SLOT.with(|slot| {
-                        *slot.borrow_mut() = Some(app);
-                    });
-                    Ok(())
-                };
-                if let Err(err) = inner() {
-                    *result_slot_cb.lock().unwrap() = Err(err);
-                }
-            }));
-
-        let result =
-            start_result.and_then(|_| std::mem::replace(&mut *result_slot.lock().unwrap(), Ok(())));
-        report_app_start_result(result)
-    }
-
-    /// Run the app, building the root component on the UI thread.
-    pub fn run<F, C>(self, root_factory: F) -> Result<()>
-    where
-        F: FnOnce() -> C + Send + 'static,
-        C: Component + 'static,
-    {
-        init_app_platform()?;
-        let title = self.title.unwrap_or_default();
-        let size = self.inner_size;
-        let constraints = self.inner_constraints;
-        let presenter = self.presenter;
-        let backdrop = self.backdrop;
-        let icon = self.icon;
-        let on_exit = Mutex::new(self.on_exit);
-        if let Some(icon) = &icon
-            && !std::path::Path::new(icon).is_file()
-        {
-            return Err(Error::new(
-                E_FAIL,
-                format!("windows_reactor::App::icon: icon file not found: {icon}"),
+        let roots = roots.into_iter().collect::<Vec<_>>();
+        if roots.is_empty() {
+            return Err(windows_core::Error::new(
+                E_INVALIDARG,
+                "at least one window is required",
             ));
         }
-        let factory = Mutex::new(Some(root_factory));
-        let result_slot: Arc<Mutex<Result<()>>> = Arc::new(Mutex::new(Ok(())));
-        let result_slot_cb = Arc::clone(&result_slot);
-        let start_result =
-            Application::Start(&ApplicationInitializationCallback::new(move |_params| {
-                let inner = || -> Result<()> {
-                    let factory = factory.lock().unwrap().take().unwrap();
-                    let on_exit = on_exit.lock().unwrap().take();
-
-                    let title = title.clone();
-                    let icon = icon.clone();
-                    let on_launched: Box<dyn FnOnce() -> Result<()>> = Box::new(move || {
-                        set_exit_callback(on_exit);
-                        let app = APP_SLOT.with(|slot| slot.borrow().clone()).unwrap();
-                        install_xaml_controls_resources(&app)?;
-
-                        run_callback("OnLaunched", move || {
-                            let root: Box<dyn Component> = Box::new(factory());
-                            let host = ReactorHost::new_with_window_options(
-                                &title,
-                                size,
-                                constraints,
-                                root,
-                                |_recon| {},
-                            )?;
-                            host.set_presenter(presenter);
-                            if let Some(bd) = backdrop {
-                                host.set_backdrop(bd);
-                            }
-                            if let Some(icon) = icon {
-                                host.set_icon(icon);
-                            }
-                            host.activate()?;
-                            register_host(host)?;
-                            Ok(())
-                        })
-                    });
-
-                    let app = create_reactor_application(on_launched)?;
-                    APP_SLOT.with(|slot| {
-                        *slot.borrow_mut() = Some(app);
-                    });
-                    Ok(())
-                };
-                if let Err(err) = inner() {
-                    *result_slot_cb.lock().unwrap() = Err(err);
-                }
-            }));
-
-        let result =
-            start_result.and_then(|_| std::mem::replace(&mut *result_slot.lock().unwrap(), Ok(())));
-        report_app_start_result(result)
-    }
-
-    /// Runs the app with a render function instead of a [`Component`] type.
-    ///
-    /// The render function should return `Element`. Use `.into()` to convert
-    /// widget builders into `Element`:
-    ///
-    /// ```no_run
-    /// use windows_reactor::*;
-    ///
-    /// fn app(cx: &mut RenderCx) -> Element {
-    ///     let (count, set_count) = cx.use_state(0);
-    ///     button(format!("Clicks: {count}"))
-    ///         .on_click(move || set_count.call(count + 1))
-    ///         .into()
-    /// }
-    ///
-    /// fn main() -> Result<()> {
-    ///     App::new().render(app)
-    /// }
-    /// ```
-    pub fn render<F>(self, f: F) -> Result<()>
-    where
-        F: Fn(&mut RenderCx) -> Element + Send + 'static,
-    {
-        self.run(move || RenderFn(f))
-    }
-}
-
-struct RenderFn<F>(F);
-
-impl<F> Component for RenderFn<F>
-where
-    F: Fn(&mut RenderCx) -> Element + 'static,
-{
-    fn render(&self, _props: &(), cx: &mut RenderCx) -> Element {
-        (self.0)(cx)
-    }
-}
-
-/// Builder for a secondary reactor window opened on the current UI thread.
-///
-/// It opens another window in the running application. The process exits after
-/// the last window closes.
-pub struct ReactorWindow {
-    title: Option<String>,
-    inner_size: Option<WindowSize>,
-    inner_constraints: InnerConstraints,
-    presenter: PresenterKind,
-    backdrop: Option<Backdrop>,
-    icon: Option<String>,
-}
-
-impl Default for ReactorWindow {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
-impl ReactorWindow {
-    pub fn new() -> Self {
-        Self {
-            title: None,
-            inner_size: None,
-            inner_constraints: InnerConstraints::default(),
-            presenter: PresenterKind::Default,
-            backdrop: None,
-            icon: None,
-        }
-    }
-
-    pub fn title(mut self, title: impl Into<String>) -> Self {
-        self.title = Some(title.into());
-        self
-    }
-
-    pub fn inner_size(mut self, width: f64, height: f64) -> Self {
-        self.inner_size = Some(WindowSize { width, height });
-        self
-    }
-
-    pub fn inner_constraints(mut self, constraints: InnerConstraints) -> Self {
-        self.inner_constraints = constraints;
-        self
-    }
-
-    /// Set the window presenter (defaults to overlapped window).
-    pub fn presenter(mut self, kind: PresenterKind) -> Self {
-        self.presenter = kind;
-        self
-    }
-
-    /// Shortcut for `presenter(PresenterKind::FullScreen)`.
-    pub fn fullscreen(self, on: bool) -> Self {
-        self.presenter(if on {
-            PresenterKind::FullScreen
-        } else {
-            PresenterKind::Default
+        Self::run_with(move |application| {
+            roots
+                .into_iter()
+                .map(|root| {
+                    Box::new(ComponentLoop {
+                        pump: Pump::new(WinUiRuntime::with_application(application.clone())),
+                        root: Some(root),
+                        #[cfg(feature = "test")]
+                        event_delivery_stage: 0,
+                        #[cfg(feature = "test")]
+                        event_delivery_observed: None,
+                        #[cfg(feature = "test")]
+                        event_delivery_waits: 0,
+                    }) as Box<dyn LivePump>
+                })
+                .collect()
         })
     }
 
-    /// Set the system backdrop for the window.
-    pub fn backdrop(mut self, backdrop: Backdrop) -> Self {
-        self.backdrop = Some(backdrop);
-        self
+    pub fn run_component<C: Component>(input: C::Input) -> windows_core::Result<()> {
+        Self::run(View::component::<C>(input))
     }
 
-    /// Set the window icon from a path to an `.ico` file. [`ReactorWindow::open`]
-    /// returns an error if the file does not exist.
-    pub fn icon(mut self, path: impl Into<String>) -> Self {
-        self.icon = Some(path.into());
-        self
+    fn run_with(
+        create_pumps: impl FnOnce(Application) -> Vec<Box<dyn LivePump>> + 'static,
+    ) -> windows_core::Result<()> {
+        bootstrap_runtime()?;
+        initialize_ui_thread()?;
+        let create_pumps = Rc::new(RefCell::new(Some(create_pumps)));
+        let result = Rc::new(RefCell::new(Ok(())));
+        let callback_result = Rc::clone(&result);
+
+        let start = Application::Start(&ApplicationInitializationCallback::new(move |_| {
+            let application = Rc::new(RefCell::new(None));
+            let launch_application = Rc::clone(&application);
+            let launch_result = Rc::clone(&callback_result);
+            let launch_create_pumps = Rc::clone(&create_pumps);
+            let on_launched = Box::new(move || {
+                let launched: windows_core::Result<()> = (|| {
+                    let application = launch_application
+                        .borrow_mut()
+                        .take()
+                        .ok_or_else(|| windows_core::Error::new(E_FAIL, "missing application"))?;
+                    install_xaml_controls_resources(&application)?;
+                    let create_pumps = launch_create_pumps.borrow_mut().take().unwrap();
+                    let mut pumps = create_pumps(application.clone()).into_iter();
+                    let mut primary_pump = pumps.next().ok_or_else(|| {
+                        windows_core::Error::new(E_INVALIDARG, "at least one window is required")
+                    })?;
+                    let primary = primary_pump.window_token();
+                    let pumps = pumps.collect::<Vec<_>>();
+                    let mut in_flight = pumps
+                        .iter()
+                        .map(|pump| pump.window_token())
+                        .collect::<HashSet<_>>();
+                    assert!(in_flight.insert(primary));
+                    HOST.with(|host| {
+                        *host.borrow_mut() = Some(LiveHost {
+                            _application: application,
+                            closed_in_flight: HashSet::new(),
+                            fault: None,
+                            in_flight,
+                            pending_opens: pumps.len() + 1,
+                            #[cfg(feature = "test")]
+                            primary,
+                            windows: HashMap::with_capacity(pumps.len() + 1),
+                        });
+                    });
+                    primary_pump.mount().map_err(pump_error)?;
+                    publish_mounted_window(primary_pump);
+                    if !pumps.is_empty() {
+                        let dispatcher = DispatcherQueue::GetForCurrentThread()?;
+                        let pumps = Rc::new(RefCell::new(Some(pumps)));
+                        let mount = DispatcherQueueHandler::new(move || {
+                            let Some(pumps) = pumps.borrow_mut().take() else {
+                                return;
+                            };
+                            for mut pump in pumps {
+                                if let Err(error) = pump.mount() {
+                                    let error = pump_error(error);
+                                    eprintln!("windows-reactor additional window fault: {error}");
+                                    HOST.with(|host| {
+                                        if let Some(host) = host.borrow_mut().as_mut() {
+                                            host.fault = Some(error);
+                                        }
+                                    });
+                                    exit_ui_thread();
+                                    return;
+                                }
+                                publish_mounted_window(pump);
+                            }
+                        });
+                        if !dispatcher
+                            .TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &mount)?
+                        {
+                            return Err(windows_core::Error::new(
+                                E_FAIL,
+                                "dispatcher rejected additional window mounting",
+                            ));
+                        }
+                    }
+                    Ok(())
+                })();
+                if let Err(error) = &launched {
+                    *launch_result.borrow_mut() = Err(error.clone());
+                    exit_ui_thread();
+                }
+                launched
+            });
+            match create_application(on_launched) {
+                Ok(created) => *application.borrow_mut() = Some(created),
+                Err(error) => {
+                    *callback_result.borrow_mut() = Err(error);
+                    exit_ui_thread();
+                }
+            }
+        }));
+
+        let callback_result = std::mem::replace(&mut *result.borrow_mut(), Ok(()));
+        let host = HOST.with(|host| host.borrow_mut().take());
+        let host_result = host
+            .and_then(|mut host| {
+                for pump in host.windows.values_mut() {
+                    pump.shutdown();
+                }
+                host.fault
+            })
+            .map_or(Ok(()), Err);
+        let scheduler_result = SCHEDULER_FAULT
+            .with(|fault| fault.borrow_mut().take())
+            .map_or(Ok(()), Err);
+        start
+            .and(callback_result)
+            .and(host_result)
+            .and(scheduler_result)
+    }
+}
+
+fn publish_mounted_window(pump: Box<dyn LivePump>) {
+    let token = pump.window_token();
+    let mut pump = Some(pump);
+    let finalize = HOST.with(|host| {
+        let mut host = host.borrow_mut();
+        let host = host
+            .as_mut()
+            .expect("missing live host during window mount");
+        assert!(host.in_flight.remove(&token));
+        host.pending_opens = host.pending_opens.checked_sub(1).unwrap();
+        if host.closed_in_flight.remove(&token) {
+            Some((pump.take().unwrap(), host.is_empty()))
+        } else {
+            assert!(host.windows.insert(token, pump.take().unwrap()).is_none());
+            None
+        }
+    });
+    if let Some((pump, empty)) = finalize {
+        finalize_closed_window(pump, empty);
+    }
+}
+
+pub(crate) fn open_live_windows(roots: Vec<View>) -> Result<(), RuntimeError> {
+    if roots.is_empty() {
+        return Ok(());
+    }
+    let application =
+        HOST.with(|host| host.borrow().as_ref().map(|host| host._application.clone()));
+    let application = application.ok_or(RuntimeError::MissingApplication)?;
+    let pumps = roots
+        .into_iter()
+        .map(|root| {
+            Box::new(ComponentLoop {
+                pump: Pump::new(WinUiRuntime::with_application(application.clone())),
+                root: Some(root),
+                #[cfg(feature = "test")]
+                event_delivery_stage: 0,
+                #[cfg(feature = "test")]
+                event_delivery_observed: None,
+                #[cfg(feature = "test")]
+                event_delivery_waits: 0,
+            }) as Box<dyn LivePump>
+        })
+        .collect::<Vec<_>>();
+    let tokens = pumps
+        .iter()
+        .map(|pump| pump.window_token())
+        .collect::<Vec<_>>();
+    let registered = HOST.with(|host| {
+        let mut host = host.borrow_mut();
+        let Some(host) = host.as_mut() else {
+            return false;
+        };
+        if host.pending_opens.saturating_add(pumps.len()) > MAX_PENDING_WINDOW_OPENS {
+            return false;
+        }
+        host.pending_opens += pumps.len();
+        for token in &tokens {
+            assert!(host.in_flight.insert(*token));
+        }
+        true
+    });
+    if !registered {
+        return Err(RuntimeError::WindowOpenCapacity);
     }
 
-    /// Open the window, building its root [`Component`] on the current UI thread.
-    /// Returns a [`WindowHandle`] that can close the window programmatically.
-    pub fn open<F, C>(self, root_factory: F) -> Result<WindowHandle>
-    where
-        F: FnOnce() -> C,
-        C: Component + 'static,
-    {
-        if let Some(icon) = &self.icon
-            && !std::path::Path::new(icon).is_file()
+    let pending = Rc::new(RefCell::new(Some(pumps)));
+    let pending_mount = Rc::clone(&pending);
+    let mount = DispatcherQueueHandler::new(move || {
+        let Some(pumps) = pending_mount.borrow_mut().take() else {
+            return;
+        };
+        for mut pump in pumps {
+            match pump.mount() {
+                Ok(()) => publish_mounted_window(pump),
+                Err(error) => reject_pending_window(pump, error),
+            }
+        }
+    });
+    let queued = DispatcherQueue::GetForCurrentThread()
+        .map_err(winui_runtime_error)
+        .and_then(|dispatcher| {
+            dispatcher
+                .TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &mount)
+                .map_err(winui_runtime_error)
+        });
+    match queued {
+        Ok(true) => Ok(()),
+        Ok(false) => {
+            rollback_pending_windows(&tokens);
+            Err(RuntimeError::DispatcherRejected)
+        }
+        Err(error) => {
+            rollback_pending_windows(&tokens);
+            Err(error)
+        }
+    }
+}
+
+fn rollback_pending_windows(tokens: &[WindowToken]) {
+    HOST.with(|host| {
+        let mut host = host.borrow_mut();
+        let Some(host) = host.as_mut() else {
+            return;
+        };
+        for token in tokens {
+            assert!(host.in_flight.remove(token));
+            host.closed_in_flight.remove(token);
+        }
+        host.pending_opens = host.pending_opens.checked_sub(tokens.len()).unwrap();
+    });
+}
+
+fn reject_pending_window(mut pump: Box<dyn LivePump>, error: PumpError) {
+    let token = pump.window_token();
+    let rejected = matches!(
+        error,
+        PumpError::DuplicateEffectKey(_)
+            | PumpError::DuplicateElementRef
+            | PumpError::DuplicateKey(_)
+            | PumpError::DuplicateColorSchemeObservation
+            | PumpError::DuplicateWindowSizeObservation
+            | PumpError::DuplicateWindowTitle
+            | PumpError::DuplicateWindowTitleBar
+            | PumpError::DuplicateWindowVisuals
+            | PumpError::StructureUnsupported
+    );
+    pump.shutdown();
+    let empty = HOST.with(|host| {
+        let mut host = host.borrow_mut();
+        let host = host
+            .as_mut()
+            .expect("missing live host during window rejection");
+        assert!(host.in_flight.remove(&token));
+        host.closed_in_flight.remove(&token);
+        host.pending_opens = host.pending_opens.checked_sub(1).unwrap();
+        if !rejected {
+            host.fault = Some(pump_error(error.clone()));
+        }
+        host.is_empty()
+    });
+    if rejected {
+        eprintln!("windows-reactor rejected a runtime window: {error:?}");
+    } else {
+        eprintln!("windows-reactor runtime window fault: {error:?}");
+        exit_ui_thread();
+    }
+    if empty {
+        exit_ui_thread();
+    }
+}
+
+pub(crate) fn dispatch_native_events(token: WindowToken) {
+    HOST.with(|host| {
+        let Some(mut live) = ({
+            let mut host = host.borrow_mut();
+            let Some(host) = host.as_mut() else {
+                return;
+            };
+            let live = host.windows.remove(&token);
+            if live.is_some() {
+                host.in_flight.insert(token);
+            }
+            live
+        }) else {
+            return;
+        };
+        let mut retry = false;
+        let mut fault = None;
+        #[cfg(feature = "test")]
+        let dispatch_started = std::time::Instant::now();
+        match live.dispatch_events() {
+            Ok(()) => retry = live.native_work_pending(),
+            Err(error) => {
+                let error = pump_error(error);
+                eprintln!("windows-reactor fault: {error}");
+                fault = Some(error);
+                live.shutdown();
+                exit_ui_thread();
+            }
+        }
+        #[cfg(feature = "test")]
+        LIVE_DISPATCH_TIMES_US.with(|times| {
+            times
+                .borrow_mut()
+                .push(dispatch_started.elapsed().as_secs_f64() * 1_000_000.0);
+        });
+        for diagnostic in live.drain_diagnostics() {
+            match diagnostic {
+                PumpDiagnostic::WindowOpenRejected { error } => {
+                    let message = format!("runtime window open was rejected: {error:?}");
+                    #[cfg(feature = "test")]
+                    test_support::record_live_diagnostic(message.clone());
+                    eprintln!("windows-reactor warning: {message}");
+                }
+                PumpDiagnostic::VirtualRowRootCount {
+                    collection,
+                    key,
+                    actual,
+                } => {
+                    let message = format!(
+                        "virtual row {key:?} in {collection:?} has {actual} native roots; \
+                         shell left empty"
+                    );
+                    #[cfg(feature = "test")]
+                    test_support::record_live_diagnostic(message.clone());
+                    eprintln!("windows-reactor warning: {message}");
+                }
+            }
+        }
+        let closed = host
+            .borrow()
+            .as_ref()
+            .is_some_and(|host| host.closed_in_flight.contains(&token));
+        if !closed
+            && retry
+            && let Err(error) = live.schedule_dispatch()
         {
-            return Err(Error::new(
-                E_FAIL,
-                format!("windows_reactor::ReactorWindow::icon: icon file not found: {icon}"),
-            ));
+            fault = Some(runtime_error(error));
+            live.shutdown();
+            exit_ui_thread();
         }
-        let root: Box<dyn Component> = Box::new(root_factory());
-        let host = ReactorHost::new_with_window_options(
-            self.title.unwrap_or_default(),
-            self.inner_size,
-            self.inner_constraints,
-            root,
-            |_recon| {},
-        )?;
-        host.set_presenter(self.presenter);
-        if let Some(bd) = self.backdrop {
-            host.set_backdrop(bd);
+        let mut finalize = None;
+        if let Some(host) = host.borrow_mut().as_mut() {
+            host.in_flight.remove(&token);
+            let closed = host.closed_in_flight.remove(&token);
+            if let Some(error) = fault {
+                host.fault = Some(error);
+            } else if closed {
+                finalize = Some((live, host.is_empty()));
+            } else {
+                host.windows.insert(token, live);
+            }
         }
-        if let Some(icon) = self.icon {
-            host.set_icon(icon);
+        if let Some((live, empty)) = finalize {
+            finalize_closed_window(live, empty);
         }
-        host.activate()?;
-        register_host(host)
-    }
-
-    /// Convenience form of [`ReactorWindow::open`] that accepts a render function
-    /// directly, avoiding the empty-struct `Component` pattern (mirrors
-    /// [`App::render`]).
-    pub fn render<F>(self, f: F) -> Result<WindowHandle>
-    where
-        F: Fn(&mut RenderCx) -> Element + 'static,
-    {
-        self.open(move || RenderFn(f))
-    }
+    });
 }
 
-/// Opener returned by [`RenderCx::use_open_window`]. A lightweight, copyable
-/// handle that launches a secondary window with default options from within a
-/// component's event handlers. Use [`ReactorWindow`] directly to configure the
-/// title, size, backdrop, and so on.
-#[derive(Clone, Copy)]
-pub struct OpenWindow;
-
-impl OpenWindow {
-    /// Open a default-configured secondary window hosting `root`.
-    pub fn open<F, C>(self, root_factory: F) -> Result<WindowHandle>
-    where
-        F: FnOnce() -> C,
-        C: Component + 'static,
-    {
-        ReactorWindow::new().open(root_factory)
-    }
-
-    /// Open a default-configured secondary window from a render function.
-    pub fn render<F>(self, f: F) -> Result<WindowHandle>
-    where
-        F: Fn(&mut RenderCx) -> Element + 'static,
-    {
-        ReactorWindow::new().render(f)
-    }
-}
-
-impl RenderCx {
-    /// Returns an [`OpenWindow`] opener for launching secondary windows from a
-    /// component's event handlers. The opener is copyable and can be moved into
-    /// multiple closures.
-    pub fn use_open_window(&self) -> OpenWindow {
-        OpenWindow
-    }
-}
-
-fn run_callback<F>(label: &'static str, f: F) -> Result<()>
-where
-    F: FnOnce() -> Result<()>,
-{
-    match fault::abort_on_panic(label, f) {
-        Ok(()) => Ok(()),
-        Err(err) => {
-            diagnostics::emit(&format!(
-                "windows_reactor: {label} callback returned error: {err:?}"
-            ));
-            Err(err)
+pub(crate) fn dispatch_window_closed(token: WindowToken) {
+    let (live, empty) = HOST.with(|host| {
+        let mut host = host.borrow_mut();
+        let Some(host) = host.as_mut() else {
+            return (None, false);
+        };
+        if host.in_flight.contains(&token) {
+            host.closed_in_flight.insert(token);
+            return (None, false);
         }
+        let live = host.windows.remove(&token);
+        (live, host.is_empty())
+    });
+    if let Some(live) = live {
+        finalize_closed_window(live, empty);
     }
 }
 
-fn report_app_start_result(result: Result<()>) -> Result<()> {
-    set_exit_callback(None);
-    if let Err(err) = &result {
-        diagnostics::emit(&format!(
-            "windows_reactor: Application::Start failed: {err:?}"
-        ));
+fn finalize_closed_window(mut live: Box<dyn LivePump>, empty: bool) {
+    live.close_scheduler();
+    live.native_window_closed();
+    let pending = Rc::new(RefCell::new(Some(live)));
+    let pending_drop = Rc::clone(&pending);
+    let drop_window = DispatcherQueueHandler::new(move || {
+        drop(pending_drop.borrow_mut().take());
+        if empty {
+            exit_ui_thread();
+        }
+    });
+    let queued = DispatcherQueue::GetForCurrentThread().and_then(|dispatcher| {
+        dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::High, &drop_window)
+    });
+    if !matches!(queued, Ok(true)) {
+        eprintln!("windows-reactor could not finalize a closed window");
+        std::process::abort();
     }
-    result
 }
 
-fn init_app_platform() -> Result<()> {
-    // SAFETY: FFI call into user32; returns HRESULT and has no aliasing requirements.
-    unsafe {
-        _ = SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
-    }
-
-    // SAFETY: FFI call into ole32; null reserved arg is documented as required.
-    let coinit_hr = unsafe { CoInitializeEx(std::ptr::null(), COINIT_APARTMENTTHREADED as u32) };
-    if coinit_hr == RPC_E_CHANGED_MODE {
-        return Err(Error::new(
-            RPC_E_CHANGED_MODE,
-            "windows_reactor::App: the calling thread is already initialized for COM in an \
-             apartment incompatible with STA (likely MTA). WinUI 3 requires STA. \
-             Call App::run / App::run_custom from `main` (or another thread you fully \
-             own) and do not call CoInitializeEx(COINIT_MULTITHREADED) before this call.",
-        ));
-    }
-    coinit_hr.ok()
+#[cfg(feature = "test")]
+fn queue_live_delayed(
+    dispatcher: DispatcherQueue,
+    continuation: impl FnOnce() + 'static,
+) -> windows_core::Result<()> {
+    let timer = dispatcher.CreateTimer()?;
+    timer.SetInterval(TimeSpan { duration: 100_000 })?;
+    timer.SetIsRepeating(false)?;
+    let continuation = Rc::new(RefCell::new(Some(continuation)));
+    let revoker = Rc::new(RefCell::new(None));
+    let tick_timer = timer.clone();
+    let tick_continuation = Rc::clone(&continuation);
+    let tick_revoker = Rc::clone(&revoker);
+    *revoker.borrow_mut() = Some(timer.Tick(move |_, _| {
+        _ = tick_timer.Stop();
+        tick_revoker.borrow_mut().take();
+        if let Some(continuation) = tick_continuation.borrow_mut().take() {
+            continuation();
+        }
+    })?);
+    timer.Start()
 }
 
-#[cfg(test)]
-mod tests {
-    use std::sync::Arc;
-    use std::sync::atomic::{AtomicUsize, Ordering};
-
-    use super::{WindowRegistry, report_app_start_result, run_exit_callback, set_exit_callback};
-
-    #[test]
-    fn insert_assigns_unique_increasing_keys() {
-        let mut reg = WindowRegistry::<&str>::new();
-        let a = reg.insert("a");
-        let b = reg.insert("b");
-        let c = reg.insert("c");
-        assert_eq!((a, b, c), (0, 1, 2));
+fn pump_error(error: PumpError) -> windows_core::Error {
+    match error {
+        PumpError::NativeApplyFailed(error) => {
+            eprintln!(
+                "windows-reactor fatal native command failure at {}: {:?}",
+                error.command, error.error
+            );
+            std::process::abort();
+        }
+        error => windows_core::Error::new(E_FAIL, format!("{error:?}")),
     }
+}
 
-    #[test]
-    fn get_resolves_by_key() {
-        let mut reg = WindowRegistry::<i32>::new();
-        let k0 = reg.insert(10);
-        let k1 = reg.insert(20);
-        assert_eq!(reg.get(k0), Some(&10));
-        assert_eq!(reg.get(k1), Some(&20));
-        assert_eq!(reg.get(999), None);
-    }
+fn runtime_error(error: RuntimeError) -> windows_core::Error {
+    windows_core::Error::new(E_FAIL, format!("{error:?}"))
+}
 
-    #[test]
-    fn first_returns_the_primary_window() {
-        let mut reg = WindowRegistry::<&str>::new();
-        assert_eq!(reg.first(), None);
-        reg.insert("primary");
-        reg.insert("secondary");
-        assert_eq!(reg.first(), Some(&"primary"));
-    }
+fn winui_runtime_error(error: windows_core::Error) -> RuntimeError {
+    RuntimeError::Native(error.code().0)
+}
 
-    #[test]
-    fn remove_reports_emptiness_only_when_last_window_closes() {
-        let mut reg = WindowRegistry::<i32>::new();
-        let k0 = reg.insert(1);
-        let k1 = reg.insert(2);
-
-        // Closing a non-last window: value returned, registry not yet empty.
-        assert_eq!(reg.remove(k0), (Some(1), false));
-        // Closing the last window: value returned, registry now empty (exit).
-        assert_eq!(reg.remove(k1), (Some(2), true));
-    }
-
-    #[test]
-    fn removing_the_primary_promotes_the_next_window() {
-        let mut reg = WindowRegistry::<&str>::new();
-        let primary = reg.insert("primary");
-        reg.insert("secondary");
-        assert_eq!(reg.remove(primary), (Some("primary"), false));
-        // The surviving window becomes the active/primary target.
-        assert_eq!(reg.first(), Some(&"secondary"));
-    }
-
-    #[test]
-    fn removing_a_missing_key_is_a_no_op_and_reports_current_emptiness() {
-        let mut reg = WindowRegistry::<i32>::new();
-        let k0 = reg.insert(1);
-        // Unknown key: nothing removed, still non-empty.
-        assert_eq!(reg.remove(42), (None, false));
-        assert_eq!(reg.get(k0), Some(&1));
-        // Remove the real one, then a stale double-remove on an empty registry.
-        assert_eq!(reg.remove(k0), (Some(1), true));
-        assert_eq!(reg.remove(k0), (None, true));
-    }
-
-    #[test]
-    fn exit_callback_runs_once() {
-        let calls = Arc::new(AtomicUsize::new(0));
-        let callback_calls = Arc::clone(&calls);
-        set_exit_callback(Some(Box::new(move || {
-            callback_calls.fetch_add(1, Ordering::Relaxed);
-        })));
-
-        run_exit_callback();
-        run_exit_callback();
-
-        assert_eq!(calls.load(Ordering::Relaxed), 1);
-    }
-
-    #[test]
-    fn returning_from_app_start_discards_exit_callback() {
-        let calls = Arc::new(AtomicUsize::new(0));
-        let callback_calls = Arc::clone(&calls);
-        set_exit_callback(Some(Box::new(move || {
-            callback_calls.fetch_add(1, Ordering::Relaxed);
-        })));
-
-        report_app_start_result(Ok(())).unwrap();
-        run_exit_callback();
-
-        assert_eq!(calls.load(Ordering::Relaxed), 0);
-    }
+pub(crate) fn fail_native_scheduler(error: RuntimeError) {
+    SCHEDULER_FAULT.with(|fault| {
+        if fault.borrow().is_none() {
+            *fault.borrow_mut() = Some(runtime_error(error));
+        }
+    });
+    exit_ui_thread();
 }

@@ -3,49 +3,79 @@
 use windows_reactor::*;
 
 #[derive(Clone, PartialEq)]
-struct RowProps {
+struct RowInput {
     name: String,
 }
 
-fn row(props: &RowProps, cx: &mut RenderCx) -> Element {
-    let (clicks, set_clicks) = cx.use_state(0_u32);
-
-    hstack((
-        text_block(format!("{}: {clicks}", props.name)).width(120.0),
-        button(format!("Increment {}", props.name)).on_click(move || set_clicks.call(clicks + 1)),
-    ))
-    .spacing(8.0)
-    .padding(Thickness::uniform(6.0))
-    .into()
+struct Row {
+    clicks: u32,
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (items, set_items) = cx.use_state(vec![
-        "Alpha".to_string(),
-        "Beta".to_string(),
-        "Gamma".to_string(),
-        "Delta".to_string(),
-    ]);
-    let shuffled = {
-        let mut items = items.clone();
-        items.rotate_left(1);
-        items
-    };
+impl Component for Row {
+    type Message = ();
+    type Input = RowInput;
 
-    vstack((
-        text_block("Increment a row, then rotate the list. The count stays with its name."),
-        button("Rotate").on_click(move || set_items.call(shuffled.clone())),
-        list_view(items, |name, _| {
-            component(row, RowProps { name: name.clone() })
-        })
-        .with_key_selector(|name| name.clone())
-        .height(240.0),
-    ))
-    .spacing(12.0)
-    .padding(Thickness::uniform(16.0))
-    .into()
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { clicks: 0 }
+    }
+
+    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {
+        self.clicks += 1;
+    }
+
+    fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        Border::new().padding(6.0).content(
+            StackPanel::new()
+                .orientation(Orientation::Horizontal)
+                .spacing(8.0)
+                .children((
+                    format!("{}: {}", input.name, self.clicks),
+                    Button::new()
+                        .on_click(context.forward())
+                        .content(format!("Increment {}", input.name)),
+                )),
+        )
+    }
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("KeyedListReorder", app)
+struct KeyedListReorderSample {
+    items: Vec<String>,
+}
+
+impl Component for KeyedListReorderSample {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            items: ["Alpha", "Beta", "Gamma", "Delta"]
+                .map(ToOwned::to_owned)
+                .into(),
+        }
+    }
+
+    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {
+        self.items.rotate_left(1);
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("KeyedListReorder");
+        let rows = self.items.iter().map(|name| {
+            KeyedView::new(
+                name.clone(),
+                View::component::<Row>(RowInput { name: name.clone() }),
+            )
+        });
+        Border::new()
+            .padding(16.0)
+            .content(StackPanel::new().spacing(12.0).children((
+                "Increment a row, then rotate the list. The count stays with its name.",
+                Button::new().on_click(context.forward()).content("Rotate"),
+                StackPanel::new().spacing(8.0).keyed_children(rows),
+            )))
+    }
+}
+
+fn main() {
+    App::run_component::<KeyedListReorderSample>(()).unwrap();
 }

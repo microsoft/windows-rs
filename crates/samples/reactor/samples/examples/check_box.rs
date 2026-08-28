@@ -1,27 +1,43 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (checked, set_checked) = cx.use_state(false);
-
-    let toggle = move |v| set_checked.call(v);
-
-    vstack((
-        check_box(checked)
-            .content("I accept the terms")
-            .on_checked(toggle),
-        text_block(if checked {
-            "Accepted ✓"
-        } else {
-            "Not yet accepted"
-        }),
-        check_box(true)
-            .content("Disabled (always on)")
-            .enabled(false),
-    ))
-    .spacing(8.0)
-    .into()
+struct CheckBoxSample {
+    checked: bool,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("CheckBox", app)
+impl Component for CheckBoxSample {
+    type Message = bool;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { checked: false }
+    }
+
+    fn update(&mut self, checked: bool, _context: &ComponentContext<Self>) {
+        self.checked = checked;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("CheckBox");
+        StackPanel::new().spacing(8.0).children((
+            CheckBox::new()
+                .is_checked(self.checked)
+                .on_is_checked_changed(context.callback(|checked| checked))
+                .content("I accept the terms"),
+            if self.checked {
+                "Accepted"
+            } else {
+                "Not yet accepted"
+            },
+            CheckBox::new()
+                .is_checked(true)
+                .is_enabled(false)
+                .content("Disabled (always on)"),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<CheckBoxSample>(()).unwrap();
 }

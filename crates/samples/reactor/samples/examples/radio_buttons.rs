@@ -1,25 +1,44 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (selected, set_selected) = cx.use_state(0_i32);
-
-    let update_selected = move |i: i32| set_selected.call(i);
-
-    let options = ["Email", "SMS", "None"];
-    let label = options.get(selected as usize).copied().unwrap_or("(none)");
-
-    vstack((
-        RadioButtons::new(options)
-            .header("Notifications")
-            .selected_index(selected)
-            .max_columns(3)
-            .on_selection_changed(update_selected),
-        text_block(format!("selected_index = {selected} ({label})")),
-    ))
-    .spacing(8.0)
-    .into()
+struct RadioButtonsSample {
+    selected: Option<usize>,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("RadioButtons", app)
+impl Component for RadioButtonsSample {
+    type Message = Option<usize>;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { selected: Some(0) }
+    }
+
+    fn update(&mut self, message: Option<usize>, _context: &ComponentContext<Self>) {
+        self.selected = message;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        const OPTIONS: [&str; 3] = ["Email", "SMS", "None"];
+        let label = self
+            .selected
+            .and_then(|index| OPTIONS.get(index))
+            .copied()
+            .unwrap_or("(none)");
+
+        context.window_title("RadioButtons");
+        StackPanel::new().spacing(8.0).children((
+            RadioButtons::new()
+                .items_source(OPTIONS)
+                .selected_index(self.selected)
+                .max_columns(3)
+                .on_selection_changed(context.callback(|index| index))
+                .slot(RadioButtonsSlot::Header, "Notifications"),
+            format!("selected_index = {:?} ({label})", self.selected),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<RadioButtonsSample>(()).unwrap();
 }

@@ -2,60 +2,90 @@
 
 use windows_reactor::*;
 
-fn counter_view(cx: &mut RenderCx, heading: &str) -> Element {
-    let (count, set_count) = cx.use_state(0_i32);
-
-    let dec = {
-        let s = set_count.clone();
-        move || s.call(count - 1)
-    };
-    let inc = {
-        let s = set_count;
-        move || s.call(count + 1)
-    };
-
-    vstack((
-        text_block(heading).bold().font_size(20.0),
-        text_block(format!("Count: {count}")).font_size(28.0),
-        hstack((button("-").on_click(dec), button("+").on_click(inc))).spacing(8.0),
-    ))
-    .spacing(12.0)
-    .margin(Thickness::uniform(24.0))
-    .into()
+#[derive(Clone, Copy)]
+enum CounterMessage {
+    Decrement,
+    Increment,
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (opened, set_opened) = cx.use_state(0_u32);
+struct CounterWindow {
+    count: i32,
+}
 
-    let open = {
-        let set_opened = set_opened;
-        move || {
-            let n = opened + 1;
-            match ReactorWindow::new()
-                .title(format!("Counter window #{n}"))
-                .inner_size(320.0, 220.0)
-                .render(move |cx| counter_view(cx, "Independent counter"))
-            {
-                Ok(_handle) => set_opened.call(n),
-                Err(err) => eprintln!("failed to open secondary window: {err}"),
-            }
+impl Component for CounterWindow {
+    type Message = CounterMessage;
+    type Input = u32;
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { count: 0 }
+    }
+
+    fn update(&mut self, message: CounterMessage, _context: &ComponentContext<Self>) {
+        match message {
+            CounterMessage::Decrement => self.count -= 1,
+            CounterMessage::Increment => self.count += 1,
         }
-    };
+    }
 
-    vstack((
-        TitleBar::new("windows_reactor - secondary windows"),
-        text_block("Each window you open hosts its own independent counter.").opacity(0.75),
-        text_block("Closing the last remaining window exits the app.").opacity(0.75),
-        button("Open counter window")
-            .on_click(open)
-            .automation_id("open-window-button"),
-        text_block(format!("Windows opened: {opened}")).opacity(0.6),
-    ))
-    .spacing(12.0)
-    .margin(Thickness::uniform(24.0))
-    .into()
+    fn view(&self, number: &u32, context: &mut ViewContext<Self>) -> View {
+        context.window_title(format!("Counter window #{number}"));
+        context.window_visuals(WindowVisuals::new().client_size(320.0, 220.0));
+        Border::new().padding(24.0).content(
+            StackPanel::new().spacing(12.0).children((
+                TextBlock::new().text("Independent counter").font_size(20.0),
+                TextBlock::new()
+                    .text(format!("Count: {}", self.count))
+                    .font_size(28.0),
+                StackPanel::new()
+                    .orientation(Orientation::Horizontal)
+                    .spacing(8.0)
+                    .children((
+                        Button::new()
+                            .on_click(context.message(CounterMessage::Decrement))
+                            .content("-"),
+                        Button::new()
+                            .on_click(context.message(CounterMessage::Increment))
+                            .content("+"),
+                    )),
+            )),
+        )
+    }
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("Secondary windows", app)
+struct SecondaryWindowSample {
+    opened: u32,
+}
+
+impl Component for SecondaryWindowSample {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { opened: 0 }
+    }
+
+    fn update(&mut self, _message: (), context: &ComponentContext<Self>) {
+        let number = self.opened + 1;
+        if context.open_window(View::component::<CounterWindow>(number)) {
+            self.opened = number;
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("Secondary windows");
+        Border::new().padding(24.0).content(
+            StackPanel::new().spacing(12.0).children((
+                "Each opened window hosts its own independent counter.",
+                "Closing the last remaining window exits the app.",
+                Button::new()
+                    .on_click(context.forward())
+                    .content("Open counter window"),
+                format!("Windows opened: {}", self.opened),
+            )),
+        )
+    }
+}
+
+fn main() {
+    App::run_component::<SecondaryWindowSample>(()).unwrap();
 }

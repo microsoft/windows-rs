@@ -1,25 +1,51 @@
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (last_invoked, set_last_invoked) = cx.use_state(String::from("(none)"));
-
-    let nodes = vec![
-        tree_node("Documents").expanded().children(vec![
-            tree_node("Work").child(tree_node("report.docx")),
-            tree_node("Personal").children(vec![tree_node("budget.xlsx"), tree_node("notes.txt")]),
-        ]),
-        tree_node("Pictures").children(vec![tree_node("vacation.jpg"), tree_node("family.png")]),
-        tree_node("Music").child(tree_node("playlist.m3u")),
-    ];
-
-    vstack((
-        tree_view(nodes).on_item_invoked(set_last_invoked),
-        text_block(format!("Last invoked: {last_invoked}")),
-    ))
-    .spacing(12.0)
-    .into()
+struct TreeViewSample {
+    last_invoked: String,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("TreeView", app)
+impl Component for TreeViewSample {
+    type Message = String;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            last_invoked: "(none)".to_string(),
+        }
+    }
+
+    fn update(&mut self, message: String, _context: &ComponentContext<Self>) {
+        self.last_invoked = message;
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("TreeView");
+        let nodes = [
+            TreeNode::new("documents", "Documents")
+                .expanded(true)
+                .children([
+                    TreeNode::new("work", "Work").child(TreeNode::new("report", "report.docx")),
+                    TreeNode::new("personal", "Personal").children([
+                        TreeNode::new("budget", "budget.xlsx"),
+                        TreeNode::new("notes", "notes.txt"),
+                    ]),
+                ]),
+            TreeNode::new("pictures", "Pictures").children([
+                TreeNode::new("vacation", "vacation.jpg"),
+                TreeNode::new("family", "family.png"),
+            ]),
+            TreeNode::new("music", "Music").child(TreeNode::new("playlist", "playlist.m3u")),
+        ];
+
+        StackPanel::new().spacing(12.0).children((
+            TreeView::new()
+                .on_item_invoked(context.forward())
+                .nodes(nodes),
+            format!("Last invoked: {}", self.last_invoked),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<TreeViewSample>(()).unwrap();
 }

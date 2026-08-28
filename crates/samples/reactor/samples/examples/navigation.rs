@@ -1,9 +1,11 @@
-use std::thread;
+#![windows_subsystem = "windows"]
+
+use std::result::Result as StdResult;
 use std::time::Duration;
 
 use windows_reactor::*;
 
-#[derive(Clone, PartialEq)]
+#[derive(Clone, Copy, PartialEq)]
 enum Page {
     Home,
     Dashboard,
@@ -11,7 +13,7 @@ enum Page {
 }
 
 impl Page {
-    fn tag(&self) -> &'static str {
+    fn tag(self) -> &'static str {
         match self {
             Self::Home => "home",
             Self::Dashboard => "dashboard",
@@ -28,18 +30,8 @@ impl Page {
     }
 }
 
-fn home_page(_: &(), _cx: &mut RenderCx) -> Element {
-    vstack((
-        text_block("Welcome Home").font_size(28.0).bold(),
-        text_block("This is the landing page of the app."),
-        text_block("Use the navigation pane to switch between pages.").opacity(0.6),
-    ))
-    .spacing(8.0)
-    .into()
-}
-
-fn fetch_stats(_: ()) -> std::result::Result<Vec<String>, String> {
-    thread::sleep(Duration::from_millis(500));
+fn fetch_stats() -> StdResult<Vec<String>, String> {
+    std::thread::sleep(Duration::from_millis(500));
     Ok(vec![
         "Users online: 1,234".to_string(),
         "CPU usage: 42%".to_string(),
@@ -48,79 +40,177 @@ fn fetch_stats(_: ()) -> std::result::Result<Vec<String>, String> {
     ])
 }
 
-fn dashboard_page(_: &(), cx: &mut RenderCx) -> Element {
-    let stats = cx.use_resource(fetch_stats, ());
-
-    let content: Element = stats
-        .view(|data| {
-            vstack(
-                data.iter()
-                    .map(|s| text_block(s).into())
-                    .collect::<Vec<Element>>(),
-            )
-            .spacing(4.0)
-        })
-        .into();
-
-    vstack((
-        text_block("Dashboard").font_size(28.0).bold(),
-        text_block("Live stats (loaded via use_resource):"),
-        content,
-    ))
-    .spacing(8.0)
-    .into()
+enum DashboardState {
+    Loading,
+    Ready(Vec<String>),
+    Error(String),
 }
 
-fn settings_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (dark_mode, set_dark) = cx.use_state(false);
-    let (notifications, set_notif) = cx.use_state(true);
+struct DashboardPage {
+    state: DashboardState,
+}
 
-    vstack((
-        text_block("Settings").font_size(28.0).bold(),
-        ToggleSwitch::new(dark_mode)
-            .header("Dark mode")
-            .on_toggled(set_dark),
-        ToggleSwitch::new(notifications)
-            .header("Notifications")
-            .on_toggled(set_notif),
-        text_block(format!(
-            "Dark: {} | Notifications: {}",
-            if dark_mode { "on" } else { "off" },
-            if notifications { "on" } else { "off" }
+impl Component for DashboardPage {
+    type Message = StdResult<Vec<String>, String>;
+    type Input = ();
+
+    fn create(_input: &Self::Input, context: &ComponentContext<Self>) -> Self {
+        _ = context.spawn_background(|_| fetch_stats());
+        Self {
+            state: DashboardState::Loading,
+        }
+    }
+
+    fn update(&mut self, result: Self::Message, _context: &ComponentContext<Self>) {
+        self.state = match result {
+            Ok(stats) => DashboardState::Ready(stats),
+            Err(error) => DashboardState::Error(error),
+        };
+    }
+
+    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        let content: View = match &self.state {
+            DashboardState::Loading => ProgressRing::new().is_indeterminate(true).into(),
+            DashboardState::Ready(stats) => StackPanel::new().spacing(4.0).keyed_children(
+                stats
+                    .iter()
+                    .map(|stat| KeyedView::new(stat.clone(), stat.as_str())),
+            ),
+            DashboardState::Error(error) => format!("Error: {error}").into(),
+        };
+        StackPanel::new().spacing(8.0).children((
+            TextBlock::new()
+                .text("Dashboard")
+                .font_size(28.0)
+                .font_weight(FontWeight::BOLD),
+            "Live stats (loaded in a component task):",
+            content,
         ))
-        .opacity(0.6),
-    ))
-    .spacing(12.0)
-    .into()
+    }
 }
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (page, set_page) = cx.use_state(Page::Home);
-
-    let menu_items = [
-        NavViewItem::new("Home").tag("home").icon(Symbol::Home),
-        NavViewItem::new("Dashboard")
-            .tag("dashboard")
-            .icon(Symbol::World),
-        NavViewItem::new("Settings")
-            .tag("settings")
-            .icon(Symbol::Setting),
-    ];
-
-    let body: Element = match &page {
-        Page::Home => component(home_page, ()),
-        Page::Dashboard => component(dashboard_page, ()),
-        Page::Settings => component(settings_page, ()),
-    };
-
-    NavigationView::new(menu_items, body)
-        .selected_tag(page.tag())
-        .on_selection_changed(move |tag: String| set_page.call(Page::from_tag(&tag)))
-        .pane_display_mode(NavigationViewPaneDisplayMode::Left)
-        .pane_title("My App")
-        .into()
+struct SettingsPage {
+    dark_mode: bool,
+    notifications: bool,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("Navigation", app)
+enum SettingsMessage {
+    DarkMode(bool),
+    Notifications(bool),
+}
+
+impl Component for SettingsPage {
+    type Message = SettingsMessage;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            dark_mode: false,
+            notifications: true,
+        }
+    }
+
+    fn update(&mut self, message: Self::Message, _context: &ComponentContext<Self>) {
+        match message {
+            SettingsMessage::DarkMode(value) => self.dark_mode = value,
+            SettingsMessage::Notifications(value) => self.notifications = value,
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        StackPanel::new().spacing(12.0).children((
+            TextBlock::new()
+                .text("Settings")
+                .font_size(28.0)
+                .font_weight(FontWeight::BOLD),
+            ToggleSwitch::new()
+                .is_on(self.dark_mode)
+                .on_toggled(context.callback(SettingsMessage::DarkMode))
+                .slot(ToggleSwitchSlot::Header, "Dark mode"),
+            ToggleSwitch::new()
+                .is_on(self.notifications)
+                .on_toggled(context.callback(SettingsMessage::Notifications))
+                .slot(ToggleSwitchSlot::Header, "Notifications"),
+            TextBlock::new()
+                .text(format!(
+                    "Dark: {} | Notifications: {}",
+                    if self.dark_mode { "on" } else { "off" },
+                    if self.notifications { "on" } else { "off" }
+                ))
+                .opacity(0.6),
+        ))
+    }
+}
+
+struct NavigationSample {
+    page: Page,
+}
+
+impl Component for NavigationSample {
+    type Message = Option<String>;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { page: Page::Home }
+    }
+
+    fn update(&mut self, tag: Self::Message, _context: &ComponentContext<Self>) {
+        if let Some(tag) = tag {
+            self.page = Page::from_tag(&tag);
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("Navigation");
+        let item = |page: Page, label, symbol| {
+            KeyedView::new(
+                page.tag(),
+                NavigationViewItem::new()
+                    .tag(page.tag())
+                    .is_selected(self.page == page)
+                    .slots([
+                        SlotView::new(NavigationViewItemSlot::Content, label),
+                        SlotView::new(
+                            NavigationViewItemSlot::Icon,
+                            SymbolIcon::new().symbol(symbol),
+                        ),
+                    ]),
+            )
+        };
+        let body = match self.page {
+            Page::Home => StackPanel::new().spacing(8.0).children((
+                TextBlock::new()
+                    .text("Welcome Home")
+                    .font_size(28.0)
+                    .font_weight(FontWeight::BOLD),
+                "This is the landing page of the app.",
+                TextBlock::new()
+                    .text("Use the navigation pane to switch between pages.")
+                    .opacity(0.6),
+            )),
+            Page::Dashboard => View::component::<DashboardPage>(()),
+            Page::Settings => View::component::<SettingsPage>(()),
+        };
+
+        NavigationView::new()
+            .pane_display_mode(NavigationViewPaneDisplayMode::Left)
+            .pane_title("My App")
+            .is_settings_visible(false)
+            .on_selected_tag_changed(context.forward())
+            .slots([
+                SlotView::collection(
+                    NavigationViewSlot::MenuItems,
+                    [
+                        item(Page::Home, "Home", Symbol::Home),
+                        item(Page::Dashboard, "Dashboard", Symbol::World),
+                        item(Page::Settings, "Settings", Symbol::Setting),
+                    ],
+                ),
+                SlotView::new(NavigationViewSlot::Content, body),
+            ])
+    }
+}
+
+fn main() {
+    App::run_component::<NavigationSample>(()).unwrap();
 }

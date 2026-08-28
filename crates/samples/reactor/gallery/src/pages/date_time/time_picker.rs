@@ -1,39 +1,60 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn time_picker_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (selected_time, set_selected_time) = cx.use_state(String::from("No time selected"));
+pub struct TimePickerPage {
+    label: String,
+}
 
-    page_content(
-        "TimePicker",
-        "Pick a time using spinners.",
-        vec![
-            sample_card(
-                "Basic TimePicker",
-                vstack((
-                    time_picker()
-                        .header("Select time")
-                        .on_selected_time_changed({
-                            let set_selected_time = set_selected_time;
-                            move |time: TimeSpan| {
-                                let hours = time.whole_hours();
-                                let minutes = time.whole_minutes() % 60;
-                                set_selected_time
-                                    .call(format!("Selected: {hours:02}:{minutes:02}"));
-                            }
-                        }),
-                    text_block(selected_time).opacity(0.6),
-                ))
-                .spacing(8.0),
-                r#"time_picker()
-    .header(\"Select time\")
-    .on_selected_time_changed(|time| set_selected_time.call(...))"#,
-            ),
-            sample_card(
-                "15-Minute Increments",
-                time_picker().header("Meeting time").minute_increment(15),
-                r#"time_picker().header("Meeting time").minute_increment(15)"#,
-            ),
-        ],
-    )
+impl Component for TimePickerPage {
+    type Message = Option<TimeSpan>;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            label: "No time selected".to_string(),
+        }
+    }
+
+    fn update(&mut self, time: Option<TimeSpan>, _context: &ComponentContext<Self>) {
+        self.label = time.map_or_else(
+            || "No time selected".to_string(),
+            |time| {
+                let hours = time.whole_hours();
+                let minutes = time.whole_minutes() % 60;
+                format!("Selected: {hours:02}:{minutes:02}")
+            },
+        );
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        page_content(
+            "TimePicker",
+            "Pick a time using spinners.",
+            [
+                KeyedView::new(
+                    "basic-time-picker",
+                    sample_card(
+                        "Basic TimePicker",
+                        StackPanel::new().spacing(8.0).children((
+                            TimePicker::new()
+                                .on_selected_time_changed(context.forward())
+                                .slot(TimePickerSlot::Header, "Select time"),
+                            TextBlock::new().text(&self.label).opacity(0.6),
+                        )),
+                        "TimePicker::new()\n    .on_selected_time_changed(|time| ...)",
+                    ),
+                ),
+                KeyedView::new(
+                    "15-minute-time-picker",
+                    sample_card(
+                        "15-Minute Increments",
+                        TimePicker::new()
+                            .minute_increment(15)
+                            .slot(TimePickerSlot::Header, "Meeting time"),
+                        "TimePicker::new().minute_increment(15)",
+                    ),
+                ),
+            ],
+        )
+    }
 }

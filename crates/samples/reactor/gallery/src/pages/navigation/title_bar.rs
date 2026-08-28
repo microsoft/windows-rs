@@ -1,16 +1,42 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn title_bar_page(_: &(), _cx: &mut RenderCx) -> Element {
-    page_content(
-        "TitleBar",
-        "A customizable application title bar.",
-        vec![sample_card(
-            "Basic TitleBar",
-            text_block(
-                "TitleBar is automatically configured via App::new().title(...).\nSee the gallery shell for a live example.",
-            ),
-            r#"App::new().title("My App").run(|| Shell)"#,
-        )],
-    )
+pub struct TitleBarPage;
+
+impl Component for TitleBarPage {
+    type Message = ();
+    type Input = ();
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn update(&mut self, _: (), _: &ComponentContext<Self>) {}
+
+    fn view(&self, _: &(), _: &mut ViewContext<Self>) -> View {
+        page_content(
+            "TitleBar",
+            "A customizable application title bar.",
+            [
+                KeyedView::new(
+                    "preview",
+                    sample_card(
+                        "Live TitleBar",
+                        "The gallery title bar above is the live control. Its buttons, search box, \
+                         title, and subtitle are all declarative.",
+                        "TitleBar::new().title(title).subtitle(subtitle).slots(content)",
+                    ),
+                ),
+                KeyedView::new(
+                    "window",
+                    sample_card(
+                        "Preferred Height",
+                        "TitleBar automatically replaces the system title bar. Standard height is \
+                         the default; the gallery requests tall system chrome.",
+                        "TitleBar::new().preferred_height(WindowTitleBarHeight::Tall)",
+                    ),
+                ),
+            ],
+        )
+    }
 }

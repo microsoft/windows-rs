@@ -1,35 +1,62 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn scroll_view_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(30_i32);
+pub struct ScrollViewPage {
+    count: u32,
+}
 
-    let items: Vec<Element> = (1..=count)
-        .map(|i| text_block(format!("Scrollable item {i}")).into())
-        .collect();
+#[derive(Clone)]
+pub enum Message {
+    More,
+    Fewer,
+}
 
-    page_content(
-        "ScrollView",
-        "A scrollable container for overflowing content.",
-        vec![sample_card(
-            "Dynamic ScrollView",
-            vstack((
-                hstack((
-                    button("More items").on_click({
-                        let set = set_count.clone();
-                        move || set.call(count + 10)
-                    }),
-                    button("Fewer items").on_click({
-                        let set = set_count;
-                        move || set.call((count - 10).max(5))
-                    }),
-                    text_block(format!("{count} items")).opacity(0.6),
-                ))
-                .spacing(8.0),
-                scroll_view(vstack(items).spacing(4.0)).height(200.0),
-            ))
-            .spacing(12.0),
-            r#"scroll_view(vstack(items).spacing(4.0)).height(200.0)"#,
-        )],
-    )
+impl Component for ScrollViewPage {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self { count: 30 }
+    }
+
+    fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
+        match message {
+            Message::More => self.count += 10,
+            Message::Fewer => self.count = self.count.saturating_sub(10).max(5),
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        let items = (1..=self.count).map(|index| KeyedView::new(index, format!("Item {index}")));
+        page_content(
+            "ScrollView",
+            "A scrollable container for overflowing content.",
+            [KeyedView::new(
+                "dynamic",
+                sample_card(
+                    "Dynamic ScrollView",
+                    StackPanel::new().spacing(12.0).children((
+                        StackPanel::new()
+                            .orientation(Orientation::Horizontal)
+                            .spacing(8.0)
+                            .children((
+                                Button::new()
+                                    .on_click(context.message(Message::More))
+                                    .content("More items"),
+                                Button::new()
+                                    .on_click(context.message(Message::Fewer))
+                                    .content("Fewer items"),
+                                TextBlock::new()
+                                    .text(format!("{} items", self.count))
+                                    .opacity(0.6),
+                            )),
+                        ScrollView::new()
+                            .height(200.0)
+                            .content(StackPanel::new().spacing(4.0).keyed_children(items)),
+                    )),
+                    "ScrollView::new().height(200.0).content(items)",
+                ),
+            )],
+        )
+    }
 }

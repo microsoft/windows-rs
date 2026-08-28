@@ -1,28 +1,58 @@
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0u32);
-
-    vstack((
-        button("Plain Button").on_click({
-            let set_count = set_count.clone();
-            move || set_count.call(count + 1)
-        }),
-        button("Add Item").icon(Symbol::Add).on_click({
-            let set_count = set_count.clone();
-            move || set_count.call(count + 1)
-        }),
-        button("Delete").icon(Symbol::Delete).on_click({
-            let set_count = set_count;
-            move || set_count.call(count.saturating_sub(1))
-        }),
-        button("Save").icon(Symbol::Save).accent(),
-        text_block(format!("Count: {count}")),
-    ))
-    .spacing(8.0)
-    .into()
+struct ButtonIconSample {
+    count: u32,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("ButtonIcon", app)
+#[derive(Clone)]
+enum Message {
+    Add,
+    Delete,
+}
+
+fn icon_content(symbol: Symbol, label: impl Into<String>) -> View {
+    let label: String = label.into();
+    StackPanel::new()
+        .orientation(Orientation::Horizontal)
+        .spacing(6.0)
+        .children((SymbolIcon::new().symbol(symbol), label))
+}
+
+impl Component for ButtonIconSample {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { count: 0 }
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Add => self.count += 1,
+            Message::Delete => self.count = self.count.saturating_sub(1),
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("ButtonIcon");
+        StackPanel::new().spacing(8.0).children((
+            Button::new()
+                .on_click(context.message(Message::Add))
+                .content("Plain Button"),
+            Button::new()
+                .on_click(context.message(Message::Add))
+                .content(icon_content(Symbol::Add, "Add Item")),
+            Button::new()
+                .on_click(context.message(Message::Delete))
+                .content(icon_content(Symbol::Delete, "Delete")),
+            Button::new()
+                .style(ButtonStyle::Accent)
+                .content(icon_content(Symbol::Save, "Save")),
+            format!("Count: {}", self.count),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<ButtonIconSample>(()).unwrap();
 }

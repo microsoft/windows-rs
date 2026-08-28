@@ -1,7 +1,6 @@
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
-use windows_reactor::DrawContext;
 
 fn checkerboard() -> ([u8; 64 * 64 * 4], u32, u32) {
     const SIZE: u32 = 64;

@@ -1,20 +1,24 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> Element {
-    vstack((
-        text_block("Plain text"),
-        text_block("Larger text").font_size(20.0),
-        text_block("Bold + larger").bold().font_size(28.0),
-        text_block("Selectable text — try selecting this with your mouse")
-            .selectable(),
-        text_block("Selectable + wrapped text that demonstrates both features working together on a TextBlock element")
-            .selectable()
-            .wrap(),
-    ))
-    .spacing(8.0)
-    .into()
-}
-
-fn main() -> Result<()> {
-    reactor_samples::run("Text Block", app)
+fn main() {
+    sample_reactor_controls::run("Text Block", || {
+        StackPanel::new().spacing(8.0).children((
+            TextBlock::new().text("Plain text"),
+            TextBlock::new().text("Larger text").font_size(20.0),
+            TextBlock::new()
+                .text("Bold + larger")
+                .font_weight(FontWeight::BOLD)
+                .font_size(28.0),
+            TextBlock::new()
+                .text("Selectable text - try selecting this with your mouse")
+                .is_text_selection_enabled(true),
+            TextBlock::new()
+                .text("Selectable + wrapped text that demonstrates both features working together on a TextBlock element")
+                .is_text_selection_enabled(true)
+                .text_wrapping(TextWrapping::Wrap),
+        ))
+    })
+    .unwrap();
 }

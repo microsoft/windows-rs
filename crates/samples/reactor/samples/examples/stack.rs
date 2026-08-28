@@ -1,20 +1,17 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(_cx: &mut RenderCx) -> Element {
-    vstack((
-        text_block("vstack — vertical orientation"),
-        hstack((
-            text_block("left"),
-            text_block("middle"),
-            text_block("right"),
+fn main() {
+    sample_reactor_controls::run("Stack", || {
+        StackPanel::new().spacing(12.0).children((
+            "Vertical orientation",
+            StackPanel::new()
+                .orientation(Orientation::Horizontal)
+                .spacing(8.0)
+                .children(("left", "middle", "right")),
+            "Back to the vertical stack",
         ))
-        .spacing(8.0),
-        text_block("…back to the vstack"),
-    ))
-    .spacing(12.0)
-    .into()
-}
-
-fn main() -> Result<()> {
-    reactor_samples::run("Stack", app)
+    })
+    .unwrap();
 }

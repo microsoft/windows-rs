@@ -1,45 +1,65 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn password_box_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (password, set_password) = cx.use_state(String::new());
+pub struct PasswordBoxPage {
+    password: String,
+}
 
-    page_content(
-        "PasswordBox",
-        "A text input that conceals typed characters for secure entry.",
-        vec![
-            sample_card(
-                "Basic PasswordBox",
-                vstack((
-                    PasswordBox::new()
-                        .value(password.clone())
-                        .header("Password")
-                        .placeholder_text("Enter password")
-                        .on_password_changed({
-                            let set_password = set_password;
-                            move |s: String| set_password.call(s)
-                        }),
-                    text_block(format!("Length: {} chars", password.len())).opacity(0.6),
-                ))
-                .spacing(8.0),
-                r#"PasswordBox::new().header("Password").placeholder_text("...").on_password_changed(handler)"#,
-            ),
-            sample_card(
-                "PasswordBox with Reveal Button",
-                PasswordBox::new()
-                    .header("Secret Key")
-                    .placeholder_text("Enter secret")
-                    .reveal_button_enabled(true),
-                r#"PasswordBox::new().reveal_button_enabled(true)"#,
-            ),
-            sample_card(
-                "Disabled PasswordBox",
-                PasswordBox::new()
-                    .value("hunter2")
-                    .header("Saved")
-                    .enabled(false),
-                r#"PasswordBox::new().value("***").enabled(false)"#,
-            ),
-        ],
-    )
+impl Component for PasswordBoxPage {
+    type Message = String;
+    type Input = ();
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            password: String::new(),
+        }
+    }
+
+    fn update(&mut self, password: String, _: &ComponentContext<Self>) {
+        self.password = password;
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        page_content(
+            "PasswordBox",
+            "A text input that conceals typed characters.",
+            [
+                KeyedView::new(
+                    "basic",
+                    sample_card(
+                        "Basic PasswordBox",
+                        StackPanel::new().spacing(8.0).children((
+                            PasswordBox::new()
+                                .password(&self.password)
+                                .placeholder_text("Enter password")
+                                .on_password_changed(context.forward())
+                                .slot(PasswordBoxSlot::Header, "Password"),
+                            TextBlock::new()
+                                .text(format!("Length: {} chars", self.password.len()))
+                                .opacity(0.6),
+                        )),
+                        "PasswordBox::new().password(value).on_password_changed(handler)",
+                    ),
+                ),
+                KeyedView::new(
+                    "reveal",
+                    sample_card(
+                        "PasswordBox with Reveal Button",
+                        PasswordBox::new()
+                            .placeholder_text("Enter secret")
+                            .password_reveal_mode(PasswordRevealMode::Peek),
+                        "PasswordBox::new().password_reveal_mode(PasswordRevealMode::Peek)",
+                    ),
+                ),
+                KeyedView::new(
+                    "disabled",
+                    sample_card(
+                        "Disabled PasswordBox",
+                        PasswordBox::new().password("hunter2").is_enabled(false),
+                        "PasswordBox::new().password(value).is_enabled(false)",
+                    ),
+                ),
+            ],
+        )
+    }
 }

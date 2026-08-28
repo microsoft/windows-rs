@@ -1,33 +1,82 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn flip_view_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (selected, set_selected) = cx.use_state(0_i32);
-    let items = vec!["Welcome", "Features", "Getting Started", "Resources"];
+pub struct FlipViewPage {
+    selected: Option<usize>,
+}
 
-    page_content(
-        "FlipView",
-        "Presents one item at a time with flipping navigation.",
-        vec![sample_card(
-            "Interactive FlipView",
-            vstack((
-                flip_view(items.clone(), |item, idx| {
-                    border(
-                        vstack((
-                            text_block(*item).font_size(24.0).bold(),
-                            text_block(format!("Slide {} of 4", idx + 1)).opacity(0.6),
-                        ))
-                        .spacing(8.0),
-                    )
+#[derive(Clone)]
+pub enum Message {
+    Selected(Option<usize>),
+}
+
+impl Component for FlipViewPage {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self { selected: Some(0) }
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::Selected(index) => self.selected = index,
+        }
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        let slide = |key: &'static str, label: &'static str, index: i32| {
+            KeyedView::new(
+                key,
+                Border::new()
                     .padding(Thickness::uniform(24.0))
                     .corner_radius(8.0)
-                })
-                .on_selection_changed(set_selected)
-                .height(200.0),
-                text_block(format!("Current slide: {}", selected + 1)).opacity(0.6),
-            ))
-            .spacing(8.0),
-            r#"flip_view(items, |item, idx| ...).on_selection_changed(set_selected)"#,
-        )],
-    )
+                    .content(
+                        StackPanel::new().spacing(8.0).children((
+                            TextBlock::new()
+                                .text(label)
+                                .font_size(24.0)
+                                .font_weight(FontWeight::BOLD),
+                            TextBlock::new()
+                                .text(format!("Slide {} of 4", index + 1))
+                                .opacity(0.6),
+                        )),
+                    ),
+            )
+        };
+
+        page_content(
+            "FlipView",
+            "Presents one item at a time with flipping navigation.",
+            [KeyedView::new(
+                "interactive-flip-view",
+                sample_card(
+                    "Interactive FlipView",
+                    StackPanel::new().spacing(8.0).children((
+                        FlipView::new()
+                            .selected_index(self.selected)
+                            .on_selection_changed(context.callback(Message::Selected))
+                            .height(200.0)
+                            .collection_slot(
+                                FlipViewSlot::Items,
+                                [
+                                    slide("welcome", "Welcome", 0),
+                                    slide("features", "Features", 1),
+                                    slide("getting-started", "Getting Started", 2),
+                                    slide("resources", "Resources", 3),
+                                ],
+                            ),
+                        TextBlock::new()
+                            .text(format!(
+                                "Current slide: {}",
+                                self.selected.map_or(0, |index| index + 1)
+                            ))
+                            .opacity(0.6),
+                    )),
+                    r#"FlipView::new().selected_index(selected).on_selection_changed(...)
+    .collection_slot(FlipViewSlot::Items, [...])"#,
+                ),
+            )],
+        )
+    }
 }

@@ -1,29 +1,49 @@
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (last_action, set_action) = cx.use_state("(none)".to_string());
-
-    let on_item = move |text: String| set_action.call(text);
-
-    vstack((
-        button("Open Menu")
-            .menu_flyout(vec![
-                menu_item("Cut"),
-                menu_item("Copy"),
-                menu_item("Paste"),
-                menu_separator(),
-                menu_sub_item(
-                    "Font Size",
-                    vec![menu_item("Small"), menu_item("Medium"), menu_item("Large")],
-                ),
-            ])
-            .on_item_clicked(on_item),
-        text_block(format!("Last action: {last_action}")),
-    ))
-    .spacing(8.0)
-    .into()
+struct MenuFlyoutSample {
+    last_action: String,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("MenuFlyout", app)
+impl Component for MenuFlyoutSample {
+    type Message = String;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            last_action: "(none)".to_string(),
+        }
+    }
+
+    fn update(&mut self, message: String, _context: &ComponentContext<Self>) {
+        self.last_action = message;
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("MenuFlyout");
+        StackPanel::new().spacing(8.0).children((
+            Button::new().content("Open Menu").menu(Menu::new(
+                [
+                    MenuItem::item("cut", "Cut"),
+                    MenuItem::item("copy", "Copy"),
+                    MenuItem::item("paste", "Paste"),
+                    MenuItem::separator("separator"),
+                    MenuItem::submenu(
+                        "font-size",
+                        "Font Size",
+                        [
+                            MenuItem::item("small", "Small"),
+                            MenuItem::item("medium", "Medium"),
+                            MenuItem::item("large", "Large"),
+                        ],
+                    ),
+                ],
+                context.forward(),
+            )),
+            format!("Last action: {}", self.last_action),
+        ))
+    }
+}
+
+fn main() {
+    App::run_component::<MenuFlyoutSample>(()).unwrap();
 }

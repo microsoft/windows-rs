@@ -1,59 +1,107 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn image_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (stretch_idx, set_stretch) = cx.use_state(0_i32);
+pub struct ImagePage {
+    stretch: Stretch,
+}
 
-    let stretch = match stretch_idx {
-        1 => Stretch::UniformToFill,
-        2 => Stretch::Fill,
-        3 => Stretch::None,
-        _ => Stretch::Uniform,
-    };
-    let stretch_name = match stretch_idx {
-        1 => "UniformToFill",
-        2 => "Fill",
-        3 => "None",
-        _ => "Uniform",
-    };
+#[derive(Clone)]
+pub enum Message {
+    SetStretch(Stretch),
+}
 
-    page_content(
-        "Image",
-        "Displays an image from a file or URI.",
-        vec![sample_card(
-            "Stretch Modes",
-            vstack((
-                border(
-                    Image::new_with_uri("https://picsum.photos/id/237/400/200")
-                        .stretch(stretch)
-                        .width(300.0)
-                        .height(150.0),
-                )
-                .border_brush(Color::rgb(200, 200, 200))
-                .border_thickness(Thickness::uniform(1.0)),
-                hstack((
-                    button("Uniform").on_click({
-                        let set = set_stretch.clone();
-                        move || set.call(0)
-                    }),
-                    button("UniformToFill").on_click({
-                        let set = set_stretch.clone();
-                        move || set.call(1)
-                    }),
-                    button("Fill").on_click({
-                        let set = set_stretch.clone();
-                        move || set.call(2)
-                    }),
-                    button("None").on_click({
-                        let set = set_stretch;
-                        move || set.call(3)
-                    }),
-                ))
-                .spacing(4.0),
-                text_block(format!("Current: {stretch_name}")).opacity(0.6),
-            ))
-            .spacing(8.0),
-            r#"Image::new_with_uri(uri).stretch(Stretch::Uniform).width(300.0).height(150.0)"#,
-        )],
-    )
+impl Component for ImagePage {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            stretch: Stretch::Uniform,
+        }
+    }
+
+    fn update(&mut self, message: Message, _context: &ComponentContext<Self>) {
+        match message {
+            Message::SetStretch(stretch) => self.stretch = stretch,
+        }
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        let stretch_name = match self.stretch {
+            Stretch::Uniform => "Uniform",
+            Stretch::UniformToFill => "UniformToFill",
+            Stretch::Fill => "Fill",
+            Stretch::None => "None",
+            _ => "Unknown",
+        };
+
+        page_content(
+            "Image",
+            "Displays an image from a file or URI.",
+            [
+                KeyedView::new(
+                    "stretch-modes",
+                    sample_card(
+                        "Stretch Modes",
+                        StackPanel::new().spacing(8.0).children((
+                            Border::new()
+                                .border_brush(Color::rgb(200, 200, 200))
+                                .border_thickness(1.0)
+                                .content(
+                                    Image::new()
+                                        .source_file(asset_path("Image.png"))
+                                        .unwrap()
+                                        .stretch(self.stretch)
+                                        .width(300.0)
+                                        .height(150.0),
+                                ),
+                            StackPanel::new()
+                                .orientation(Orientation::Horizontal)
+                                .spacing(4.0)
+                                .children((
+                                    Button::new()
+                                        .on_click(
+                                            context.message(Message::SetStretch(Stretch::Uniform)),
+                                        )
+                                        .content("Uniform"),
+                                    Button::new()
+                                        .on_click(
+                                            context.message(Message::SetStretch(
+                                                Stretch::UniformToFill,
+                                            )),
+                                        )
+                                        .content("UniformToFill"),
+                                    Button::new()
+                                        .on_click(
+                                            context.message(Message::SetStretch(Stretch::Fill)),
+                                        )
+                                        .content("Fill"),
+                                    Button::new()
+                                        .on_click(
+                                            context.message(Message::SetStretch(Stretch::None)),
+                                        )
+                                        .content("None"),
+                                )),
+                            TextBlock::new()
+                                .text(format!("Current: {stretch_name}"))
+                                .opacity(0.6),
+                        )),
+                        r#"Image::new().source_file(path).unwrap().stretch(Stretch::Uniform).width(300.0).height(150.0)"#,
+                    ),
+                ),
+                KeyedView::new(
+                    "fixed-size",
+                    sample_card(
+                        "Fixed Dimensions",
+                        Image::new()
+                            .source_file(asset_path("Image.png"))
+                            .unwrap()
+                            .width(64.0)
+                            .height(64.0),
+                        r#"Image::new().source_file(path).unwrap().width(64.0).height(64.0)"#,
+                    ),
+                ),
+            ],
+        )
+    }
 }

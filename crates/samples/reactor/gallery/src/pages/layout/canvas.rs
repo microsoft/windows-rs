@@ -1,42 +1,71 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn canvas_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (x, set_x) = cx.use_state(100.0_f64);
-    let (y, set_y) = cx.use_state(80.0_f64);
+pub struct CanvasPage {
+    x: f64,
+    y: f64,
+}
 
-    let children: Vec<Element> = vec![
-        text_block("Fixed")
-            .canvas_left(10.0)
-            .canvas_top(10.0)
-            .into(),
-        border(text_block("Move me!"))
-            .background(ThemeRef::CardBackground)
-            .padding(Thickness::uniform(8.0))
-            .corner_radius(4.0)
-            .canvas_left(x)
-            .canvas_top(y)
-            .into(),
-    ];
+#[derive(Clone)]
+pub enum Message {
+    X(f64),
+    Y(f64),
+}
 
-    page_content(
-        "Canvas",
-        "Absolute positioning of child elements.",
-        vec![sample_card(
-            "Draggable Position",
-            vstack((
-                Canvas::new(children).width(320.0).height(200.0),
-                Slider::new(x)
-                    .range(0.0, 250.0)
-                    .header("X position")
-                    .on_value_changed(move |v: f64| set_x.call(v)),
-                Slider::new(y)
-                    .range(0.0, 160.0)
-                    .header("Y position")
-                    .on_value_changed(move |v: f64| set_y.call(v)),
-            ))
-            .spacing(8.0),
-            r#"Canvas::new([el.canvas_left(x).canvas_top(y)]) // x, y from sliders"#,
-        )],
-    )
+impl Component for CanvasPage {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self { x: 100.0, y: 80.0 }
+    }
+
+    fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
+        match message {
+            Message::X(value) => self.x = value,
+            Message::Y(value) => self.y = value,
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        page_content(
+            "Canvas",
+            "Absolute positioning of child elements.",
+            [KeyedView::new(
+                "position",
+                sample_card(
+                    "Adjustable Position",
+                    StackPanel::new().spacing(8.0).children((
+                        Canvas::new().width(320.0).height(200.0).children((
+                            TextBlock::new()
+                                .text("Fixed")
+                                .canvas_left(10.0)
+                                .canvas_top(10.0),
+                            Border::new()
+                                .background(ThemeBrush::CardBackground)
+                                .padding(8.0)
+                                .corner_radius(4.0)
+                                .canvas_left(self.x)
+                                .canvas_top(self.y)
+                                .content("Move me"),
+                        )),
+                        Slider::new()
+                            .minimum(0.0)
+                            .maximum(250.0)
+                            .value(self.x)
+                            .on_value_changed(context.callback(Message::X)),
+                        Slider::new()
+                            .minimum(0.0)
+                            .maximum(160.0)
+                            .value(self.y)
+                            .on_value_changed(context.callback(Message::Y)),
+                        TextBlock::new()
+                            .text(format!("Position: {:.0}, {:.0}", self.x, self.y))
+                            .opacity(0.6),
+                    )),
+                    "Canvas::new().children((child.canvas_left(x).canvas_top(y),))",
+                ),
+            )],
+        )
+    }
 }

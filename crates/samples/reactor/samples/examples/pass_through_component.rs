@@ -2,32 +2,71 @@
 
 use windows_reactor::*;
 
-fn counter(_props: &(), cx: &mut RenderCx) -> Element {
-    let (count, set_count) = cx.use_state(0_u32);
-
-    vstack((
-        text_block(format!("count = {count}")).font_size(20.0),
-        button("Increment").on_click(move || set_count.call(count + 1)),
-    ))
-    .spacing(8.0)
-    .into()
+struct Counter {
+    count: u32,
 }
 
-fn pass_through(_props: &(), _cx: &mut RenderCx) -> Element {
-    component(counter, ())
+impl Component for Counter {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self { count: 0 }
+    }
+
+    fn update(&mut self, _message: (), _context: &ComponentContext<Self>) {
+        self.count += 1;
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        StackPanel::new().spacing(8.0).children((
+            TextBlock::new()
+                .text(format!("count = {}", self.count))
+                .font_size(20.0),
+            Button::new()
+                .on_click(context.forward())
+                .content("Increment"),
+        ))
+    }
 }
 
-fn app(_cx: &mut RenderCx) -> Element {
-    vstack((
-        text_block("The memoized wrapper returns the stateful component directly."),
-        text_block("Clicking Increment must continue to update the count."),
-        memo(pass_through, ()),
-    ))
-    .spacing(12.0)
-    .padding(Thickness::uniform(16.0))
-    .into()
+struct PassThrough;
+
+impl Component for PassThrough {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        View::component::<Counter>(())
+    }
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("PassThroughComponent", app)
+struct PassThroughSample;
+
+impl Component for PassThroughSample {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("PassThroughComponent");
+        Border::new()
+            .padding(16.0)
+            .content(StackPanel::new().spacing(12.0).children((
+                "The wrapper returns the stateful component directly.",
+                "Clicking Increment must continue to update the count.",
+                View::component::<PassThrough>(()),
+            )))
+    }
+}
+
+fn main() {
+    App::run_component::<PassThroughSample>(()).unwrap();
 }

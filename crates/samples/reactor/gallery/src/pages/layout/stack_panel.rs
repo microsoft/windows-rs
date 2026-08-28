@@ -1,55 +1,75 @@
 use crate::controls::*;
 use windows_reactor::*;
 
-pub fn stack_panel_page(_: &(), cx: &mut RenderCx) -> Element {
-    let (item_count, set_count) = cx.use_state(3_i32);
+pub struct StackPanelPage {
+    count: u32,
+}
 
-    let items: Vec<Element> = (1..=item_count)
-        .map(|index| text_block(format!("Item {index}")).into())
-        .collect();
+#[derive(Clone)]
+pub enum Message {
+    Add,
+    Remove,
+}
 
-    page_content(
-        "StackPanel",
-        "Arranges children in a single horizontal or vertical line.",
-        vec![
-            sample_card(
-                "Dynamic Items",
-                vstack((
-                    hstack((
-                        button("Add").icon(Symbol::Add).on_click({
-                            let set_count = set_count.clone();
-                            move || set_count.call(item_count + 1)
-                        }),
-                        button("Remove")
-                            .icon(Symbol::Delete)
-                            .enabled(item_count > 0)
-                            .on_click({
-                                let set_count = set_count;
-                                move || set_count.call(item_count.saturating_sub(1))
-                            }),
-                        text_block(format!("{item_count} items")).opacity(0.6),
-                    ))
-                    .spacing(8.0),
-                    vstack(items).spacing(4.0),
-                ))
-                .spacing(12.0),
-                r#"vstack(items).spacing(4.0) // items generated from state"#,
-            ),
-            sample_card(
-                "Vertical Stack",
-                vstack((
-                    text_block("Item 1"),
-                    text_block("Item 2"),
-                    text_block("Item 3"),
-                ))
-                .spacing(8.0),
-                r#"vstack((text_block("1"), text_block("2"), text_block("3"))).spacing(8.0)"#,
-            ),
-            sample_card(
-                "Horizontal Stack",
-                hstack((button("A"), button("B"), button("C"))).spacing(8.0),
-                r#"hstack((button("A"), button("B"), button("C"))).spacing(8.0)"#,
-            ),
-        ],
-    )
+impl Component for StackPanelPage {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self { count: 3 }
+    }
+
+    fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
+        match message {
+            Message::Add => self.count += 1,
+            Message::Remove => self.count = self.count.saturating_sub(1),
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        let items = (1..=self.count).map(|index| KeyedView::new(index, format!("Item {index}")));
+        page_content(
+            "StackPanel",
+            "Arranges children in a single horizontal or vertical line.",
+            [
+                KeyedView::new(
+                    "dynamic",
+                    sample_card(
+                        "Dynamic Items",
+                        StackPanel::new().spacing(12.0).children((
+                            StackPanel::new()
+                                .orientation(Orientation::Horizontal)
+                                .spacing(8.0)
+                                .children((
+                                    Button::new()
+                                        .on_click(context.message(Message::Add))
+                                        .content("Add"),
+                                    Button::new()
+                                        .is_enabled(self.count > 0)
+                                        .on_click(context.message(Message::Remove))
+                                        .content("Remove"),
+                                )),
+                            StackPanel::new().spacing(4.0).keyed_children(items),
+                        )),
+                        "StackPanel::new().spacing(4.0).keyed_children(items)",
+                    ),
+                ),
+                KeyedView::new(
+                    "horizontal",
+                    sample_card(
+                        "Horizontal Stack",
+                        StackPanel::new()
+                            .orientation(Orientation::Horizontal)
+                            .spacing(8.0)
+                            .children((
+                                Button::new().content("A"),
+                                Button::new().content("B"),
+                                Button::new().content("C"),
+                            )),
+                        "StackPanel::new().orientation(Orientation::Horizontal)",
+                    ),
+                ),
+            ],
+        )
+    }
 }

@@ -1,31 +1,59 @@
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let input = cx.use_element_ref::<TextBoxHandle>();
-    let input_for_focus = input.clone();
-    let (status, set_status) = cx.use_state("Not focused");
-
-    vstack((
-        text_block(
-            "The typed reference exists across renders, points at the TextBox only while mounted, \
-             and cannot be attached to a different widget type.",
-        ),
-        text_box("Focus target").element_ref(&input),
-        button("Focus TextBox").on_click(move || {
-            let status = match input_for_focus.focus() {
-                Ok(true) => "Focused",
-                Ok(false) => "Focus rejected",
-                Err(_) => "Focus failed",
-            };
-            set_status.call(status);
-        }),
-        text_block(status),
-    ))
-    .spacing(8.0)
-    .padding(16.0)
-    .into()
+#[derive(Clone)]
+enum Message {
+    Focus,
+    Focused(Result<bool, FocusError>),
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("Typed Element Reference", app)
+struct TypedElementReference {
+    input: ElementRef<TextBox>,
+    status: &'static str,
+}
+
+impl Component for TypedElementReference {
+    type Message = Message;
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self {
+            input: ElementRef::new(),
+            status: "Not focused",
+        }
+    }
+
+    fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
+        match message {
+            Message::Focus => {
+                let sender = context.sender();
+                if !self.input.request_focus_result(move |result| {
+                    sender.send(Message::Focused(result));
+                }) {
+                    self.status = "Focus failed";
+                }
+            }
+            Message::Focused(Ok(true)) => self.status = "Focused",
+            Message::Focused(Ok(false)) => self.status = "Focus rejected",
+            Message::Focused(Err(_)) => self.status = "Focus failed",
+        }
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("Typed Element Reference");
+        Border::new().padding(Thickness::uniform(16.0)).content(
+            StackPanel::new().spacing(8.0).children((
+                "The typed reference exists across renders, points at the TextBox only while \
+                 mounted, and cannot be attached to a different widget type.",
+                TextBox::new().text("Focus target").element_ref(&self.input),
+                Button::new()
+                    .on_click(context.message(Message::Focus))
+                    .content("Focus TextBox"),
+                self.status,
+            )),
+        )
+    }
+}
+
+fn main() {
+    App::run_component::<TypedElementReference>(()).unwrap();
 }

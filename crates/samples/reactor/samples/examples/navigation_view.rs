@@ -1,30 +1,65 @@
+#![windows_subsystem = "windows"]
+
 use windows_reactor::*;
 
-fn app(cx: &mut RenderCx) -> Element {
-    let (page, set_page) = cx.use_state("home".to_string());
-
-    let menu_items = [
-        NavViewItem::new("Home").tag("home"),
-        NavViewItem::new("Settings").tag("settings"),
-        NavViewItem::new("About").tag("about"),
-    ];
-
-    let body: Element = match page.as_str() {
-        "settings" => text_block("Settings page").into(),
-        "about" => text_block("About page").into(),
-        _ => text_block("Home page").into(),
-    };
-
-    NavigationView::new(menu_items, body)
-        .selected_tag(page.clone())
-        .on_selection_changed(set_page)
-        .pane_display_mode(NavigationViewPaneDisplayMode::Left)
-        .pane_title("Demo")
-        .header(format!("page: {page}"))
-        .settings_visible(false)
-        .into()
+struct NavigationViewSample {
+    page: String,
 }
 
-fn main() -> Result<()> {
-    reactor_samples::run("NavigationView", app)
+impl Component for NavigationViewSample {
+    type Message = Option<String>;
+    type Input = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            page: "home".into(),
+        }
+    }
+
+    fn update(&mut self, page: Option<String>, _context: &ComponentContext<Self>) {
+        if let Some(page) = page
+            && matches!(page.as_str(), "home" | "settings" | "about")
+        {
+            self.page = page;
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.window_title("NavigationView");
+        let items = [
+            ("home", "Home"),
+            ("settings", "Settings"),
+            ("about", "About"),
+        ]
+        .into_iter()
+        .map(|(tag, label)| {
+            KeyedView::new(
+                tag,
+                NavigationViewItem::new()
+                    .tag(tag)
+                    .is_selected(self.page == tag)
+                    .slot(NavigationViewItemSlot::Content, label),
+            )
+        });
+        let body = match self.page.as_str() {
+            "settings" => "Settings page",
+            "about" => "About page",
+            _ => "Home page",
+        };
+
+        NavigationView::new()
+            .pane_display_mode(NavigationViewPaneDisplayMode::Left)
+            .pane_title("Demo")
+            .is_settings_visible(false)
+            .on_selected_tag_changed(context.callback(|page| page))
+            .slots([
+                SlotView::collection(NavigationViewSlot::MenuItems, items),
+                SlotView::new(NavigationViewSlot::Content, body),
+                SlotView::new(NavigationViewSlot::Header, format!("page: {}", self.page)),
+            ])
+    }
+}
+
+fn main() {
+    App::run_component::<NavigationViewSample>(()).unwrap();
 }

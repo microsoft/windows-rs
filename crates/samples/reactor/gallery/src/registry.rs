@@ -1,3 +1,6 @@
+//! Static catalog of every gallery destination: the category list and the per-control metadata
+//! used to build the navigation pane, the home and category card grids, and search.
+
 #[derive(Clone)]
 pub struct ControlInfo {
     pub title: &'static str,
