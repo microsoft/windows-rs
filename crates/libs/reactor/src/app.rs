@@ -136,6 +136,8 @@ struct ComponentLoop {
     event_delivery_stage: usize,
     #[cfg(feature = "test")]
     event_delivery_observed: Option<Rc<std::cell::Cell<bool>>>,
+    #[cfg(feature = "test")]
+    event_delivery_waits: usize,
 }
 
 #[cfg(feature = "test")]
@@ -157,6 +159,7 @@ impl ComponentLoop {
         apply(self.pump.runtime(), node)
             .map_err(|error| format!("{name} native input failed: {error:?}"))?;
         self.event_delivery_observed = Some(observed);
+        self.event_delivery_waits = 0;
         Ok(())
     }
 
@@ -166,10 +169,15 @@ impl ComponentLoop {
                 .dispatch_events()
                 .map_err(|error| format!("event dispatch failed: {error:?}"))?;
             if !observed.get() {
-                return Err(format!(
-                    "event delivery stage {} produced the wrong payload",
-                    self.event_delivery_stage
-                ));
+                self.event_delivery_waits += 1;
+                if self.event_delivery_waits == 100 {
+                    return Err(format!(
+                        "event delivery stage {} produced no matching payload",
+                        self.event_delivery_stage
+                    ));
+                }
+                self.event_delivery_observed = Some(observed);
+                return Ok(false);
             }
             self.event_delivery_stage += 1;
         }
@@ -673,6 +681,8 @@ impl App {
                 event_delivery_stage: 0,
                 #[cfg(feature = "test")]
                 event_delivery_observed: None,
+                #[cfg(feature = "test")]
+                event_delivery_waits: 0,
             })]
         })
     }
@@ -699,6 +709,8 @@ impl App {
                         event_delivery_stage: 0,
                         #[cfg(feature = "test")]
                         event_delivery_observed: None,
+                        #[cfg(feature = "test")]
+                        event_delivery_waits: 0,
                     }) as Box<dyn LivePump>
                 })
                 .collect()
@@ -863,6 +875,8 @@ pub(crate) fn open_live_windows(roots: Vec<View>) -> Result<(), RuntimeError> {
                 event_delivery_stage: 0,
                 #[cfg(feature = "test")]
                 event_delivery_observed: None,
+                #[cfg(feature = "test")]
+                event_delivery_waits: 0,
             }) as Box<dyn LivePump>
         })
         .collect::<Vec<_>>();

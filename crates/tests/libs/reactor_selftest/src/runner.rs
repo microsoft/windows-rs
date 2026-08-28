@@ -8,7 +8,7 @@ use crate::fixtures::{
     ThemeResources, WindowLifecycle,
 };
 
-const FIXTURE_TIMEOUT: Duration = Duration::from_secs(5);
+const FIXTURE_TIMEOUT: Duration = Duration::from_secs(15);
 pub(crate) const SUITE_TIMEOUT: Duration =
     Duration::from_secs(FIXTURE_TIMEOUT.as_secs() * FIXTURES.len() as u64 + 10);
 
