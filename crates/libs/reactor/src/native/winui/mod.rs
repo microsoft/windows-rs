@@ -2539,9 +2539,15 @@ impl WinUiRuntime {
                 } else {
                     state.queued = false;
                     state.root_loaded = None;
-                    if state.pending {
+                    let hide = if state.pending {
                         state.suppress_callback = true;
-                        state.dialog.Hide().map_err(native_error)?;
+                        Some(state.dialog.clone())
+                    } else {
+                        None
+                    };
+                    drop(dialogs);
+                    if let Some(dialog) = hide {
+                        dialog.Hide().map_err(native_error)?;
                     }
                 }
             }
@@ -4089,17 +4095,18 @@ impl NativeRuntime for WinUiRuntime {
         self.composition_host_subscriptions.clear();
         self.owned_menus.clear();
         self.command_bar_flyouts.clear();
-        for state in self
+        let dialogs = self
             .content_dialogs
             .borrow_mut()
             .drain()
             .map(|(_, state)| state)
-        {
+            .collect::<Vec<_>>();
+        self.content_dialog_subscriptions.borrow_mut().clear();
+        self.content_dialog_request_order = 0;
+        for state in dialogs {
             if state.pending {
                 _ = state.dialog.Hide();
             }
-            self.content_dialog_subscriptions.borrow_mut().clear();
-            self.content_dialog_request_order = 0;
         }
         for (target, (flyout, _)) in self.flyouts.drain() {
             _ = flyout.SetContent(None::<&UIElement>);
