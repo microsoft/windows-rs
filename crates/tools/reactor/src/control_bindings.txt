@@ -95,7 +95,6 @@ Microsoft::UI::Xaml::Controls::ICalendarView::put_IsGroupLabelVisible
 Microsoft::UI::Xaml::Controls::ICalendarView::put_IsTodayHighlighted
 Microsoft::UI::Xaml::Controls::ICalendarView::{add_SelectedDatesChanged, remove_SelectedDatesChanged}
 Microsoft::UI::Xaml::Controls::IColorChangedEventArgs::get_NewColor
-Microsoft::UI::Xaml::Controls::IColorPicker::get_Color
 Microsoft::UI::Xaml::Controls::IColorPicker::put_Color
 Microsoft::UI::Xaml::Controls::IColorPicker::put_IsAlphaEnabled
 Microsoft::UI::Xaml::Controls::IColorPicker::put_IsColorChannelTextInputVisible
@@ -135,7 +134,6 @@ Microsoft::UI::Xaml::Controls::IFontIcon::put_Glyph
 Microsoft::UI::Xaml::Controls::IGrid::put_ColumnSpacing
 Microsoft::UI::Xaml::Controls::IGrid::put_RowSpacing
 Microsoft::UI::Xaml::Controls::IHyperlinkButton::put_NavigateUri
-Microsoft::UI::Xaml::Controls::IImage::get_Source
 Microsoft::UI::Xaml::Controls::IImage::put_Source
 Microsoft::UI::Xaml::Controls::IImage::put_Stretch
 Microsoft::UI::Xaml::Controls::IImage::{add_ImageFailed, remove_ImageFailed}
@@ -182,7 +180,6 @@ Microsoft::UI::Xaml::Controls::INavigationViewItem::put_Icon
 Microsoft::UI::Xaml::Controls::INavigationViewItemBase2::get_IsSelected
 Microsoft::UI::Xaml::Controls::INavigationViewItemBase2::put_IsSelected
 Microsoft::UI::Xaml::Controls::INavigationViewSelectionChangedEventArgs::get_SelectedItem
-Microsoft::UI::Xaml::Controls::INumberBox::get_Value
 Microsoft::UI::Xaml::Controls::INumberBox::put_Header
 Microsoft::UI::Xaml::Controls::INumberBox::put_Maximum
 Microsoft::UI::Xaml::Controls::INumberBox::put_Minimum
@@ -388,7 +385,6 @@ Microsoft::UI::Xaml::Controls::Pivot::TitleProperty
 Microsoft::UI::Xaml::Controls::PivotItem::CreateInstance
 Microsoft::UI::Xaml::Controls::PivotItem::HeaderProperty
 Microsoft::UI::Xaml::Controls::Primitives::IButtonBase::{add_Click, remove_Click}
-Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::get_Value
 Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::put_Maximum
 Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::put_Minimum
 Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::put_Value
@@ -517,7 +513,7 @@ Microsoft::UI::Xaml::Controls::ToolTip::CreateInstance
 Microsoft::UI::Xaml::Controls::TreeView::CreateInstance
 Microsoft::UI::Xaml::Controls::TreeView::SelectionModeProperty
 Microsoft::UI::Xaml::Controls::TreeViewSelectionMode
-Microsoft::UI::Xaml::Controls::UIElementCollection
+Microsoft::UI::Xaml::Controls::UIElementCollection::{}
 Microsoft::UI::Xaml::Controls::VariableSizedWrapGrid::CreateInstance
 Microsoft::UI::Xaml::Controls::VariableSizedWrapGrid::ItemHeightProperty
 Microsoft::UI::Xaml::Controls::VariableSizedWrapGrid::ItemWidthProperty
@@ -561,7 +557,7 @@ Microsoft::UI::Xaml::Input::KeyboardAccelerator::CreateInstance
 Microsoft::UI::Xaml::Media::ISolidColorBrush::put_Color
 Microsoft::UI::Xaml::Media::ImageSource
 Microsoft::UI::Xaml::Media::Imaging::BitmapImage::CreateInstance
-Microsoft::UI::Xaml::Media::Imaging::IBitmapImage::{get_UriSource, put_UriSource}
+Microsoft::UI::Xaml::Media::Imaging::IBitmapImage::put_UriSource
 Microsoft::UI::Xaml::Media::Imaging::IBitmapSource::SetSourceAsync
 Microsoft::UI::Xaml::Media::Imaging::ISvgImageSource::put_UriSource
 Microsoft::UI::Xaml::Media::Imaging::SvgImageSource::CreateInstance
@@ -594,7 +590,6 @@ Microsoft::UI::Xaml::TextWrapping
 Microsoft::UI::Xaml::UIElement::AllowDropProperty
 Microsoft::UI::Xaml::Vector3Transition::CreateInstance
 Windows::ApplicationModel::DataTransfer::IDataPackageView::{Contains, GetTextAsync, GetStorageItemsAsync}
-Windows::Foundation::IUriRuntimeClass::get_AbsoluteUri
 Windows::Foundation::Uri::CreateUri
 Windows::Storage::IStorageItem::{get_Name, get_Path}
 Windows::Storage::Streams::DataWriter::CreateDataWriter

@@ -1,0 +1,53 @@
+//! --filter Test.MemberOnly::Value --filter Test.Constructed::CreateInstance
+//! --filter Test.Callable --filter Test.Implemented::{} --implement Test.Implemented
+//! --minimal --flat
+#[winrt]
+mod Windows {
+    mod Foundation {
+        mod Metadata {
+            #[repr(i32)]
+            enum CompositionType {
+                Protected = 1,
+                Public = 2,
+            }
+            attribute ComposableAttribute {
+                fn(factory_type: Type, composition_type: CompositionType, version: u32);
+            }
+        }
+    }
+}
+#[winrt]
+mod Test {
+    #[Windows::Foundation::Metadata::Composable(IMemberOnlyFactory, Public, 1)]
+    class MemberOnly {
+        IMemberOnly,
+    }
+    interface IMemberOnly {
+        Value: i32;
+    }
+    interface IMemberOnlyFactory {
+        fn CreateInstance(&self, outer: Object, inner: &mut Object) -> MemberOnly;
+    }
+
+    #[Windows::Foundation::Metadata::Composable(IConstructedFactory, Public, 1)]
+    class Constructed {
+        IConstructed,
+    }
+    interface IConstructed {}
+    interface IConstructedFactory {
+        fn CreateInstance(&self, outer: Object, inner: &mut Object) -> Constructed;
+        fn CreateInstanceWithValue(
+            &self,
+            value: i32,
+            outer: Object,
+            inner: &mut Object,
+        ) -> Constructed;
+    }
+
+    interface Callable {
+        fn Invoke(&self) -> i32;
+    }
+    interface Implemented {
+        fn Invoke(&self) -> i32;
+    }
+}

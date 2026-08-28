@@ -360,11 +360,14 @@ impl Interface {
                     let interfaces: Vec<_> = required_interfaces
                         .iter()
                         .filter(|ty| {
-                            if config.filter.uses_closure {
-                                let tn = Type::Interface((*ty).clone()).type_name();
-                                config.types.contains_key(&tn)
-                            } else {
-                                true
+                            !config.filter.uses_closure || {
+                                let name = Type::Interface((*ty).clone()).type_name();
+                                config.types.contains_key(&name)
+                                    && config.filter.includes_hierarchy(
+                                        type_name.namespace(),
+                                        type_name.name(),
+                                        ty,
+                                    )
                             }
                         })
                         .map(|ty| ty.write_name(config))
@@ -377,7 +380,21 @@ impl Interface {
                         });
                     }
                 } else {
-                    let interfaces = required_interfaces.iter().map(|ty| {
+                    let interfaces = required_interfaces
+                        .iter()
+                        .filter(|ty| {
+                            !config.filter.uses_closure
+                                || {
+                                    let name = Type::Interface((*ty).clone()).type_name();
+                                    config.types.contains_key(&name)
+                                        && config.filter.includes_hierarchy(
+                                            type_name.namespace(),
+                                            type_name.name(),
+                                            ty,
+                                        )
+                                }
+                        })
+                        .map(|ty| {
                     let ty = ty.write_name(config);
                     quote!{
                         impl<#constraints> windows_core::imp::CanInto<#ty> for #name { const QUERY: bool = true; }
@@ -390,12 +407,13 @@ impl Interface {
                 }
             }
 
-            // Minimal mode keeps callable wrappers only for exclusive instance interfaces.
+            // Implementation-only interfaces need ABI slots and `_Impl`, not callable wrappers.
             let minimal = config.bindgen.style.is_minimal();
-            let suppress_methods = is_exclusive
-                && minimal
-                && (self.is_factory(config.reader) || config.should_implement(type_name, false));
-            if !is_exclusive || (minimal && !suppress_methods) {
+            let implementation_only = config.should_implement(type_name, false)
+                && matches!(config.filter.type_role(type_name), TypeRole::Shell);
+            let suppress_methods = minimal
+                && ((is_exclusive && self.is_factory(config.reader)) || implementation_only);
+            if !suppress_methods && (!is_exclusive || minimal) {
                 let method_names = &mut MethodNames::new();
                 let virtual_names = &mut MethodNames::new();
                 let mut method_tokens = TokenStream::new();

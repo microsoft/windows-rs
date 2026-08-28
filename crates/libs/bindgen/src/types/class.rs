@@ -210,12 +210,14 @@ impl Class {
                     .iter()
                     .filter(|ty| !ty.is_exclusive() && ty.kind != InterfaceKind::Default)
                     .filter(|ty| {
-                        // Closure builds must not reference interfaces pruned from the closure.
-                        if config.filter.uses_closure {
-                            let tn = Type::Interface((*ty).clone()).type_name();
-                            config.types.contains_key(&tn)
-                        } else {
-                            true
+                        !config.filter.uses_closure || {
+                            let name = Type::Interface((*ty).clone()).type_name();
+                            config.types.contains_key(&name)
+                                && config.filter.includes_hierarchy(
+                                    self.def.namespace(),
+                                    self.def.name(),
+                                    ty,
+                                )
                         }
                     })
                     .map(|ty| ty.write_name(config))

@@ -109,8 +109,10 @@ Style:
   through `link!` macros. Add `--extern` or `.extern_fns()` to emit `extern { fn ... }` blocks
   instead of `link!`. The `windows-sys` crate uses this style.
 - `--minimal` or `.minimal()` starts from default style. It omits per-class wrappers, inherited
-  forwarders, handle helpers, and free-function wrappers. Use it for small binding sets.
-  `windows-canvas` and `windows-reactor` use it. It is mutually exclusive with `--sys`.
+  forwarders, handle helpers, implementation-only callable wrappers, and free-function wrappers.
+  A class `CreateInstance` filter retains only the constructor factory method it needs. Use minimal
+  style for small binding sets. `windows-canvas` and `windows-reactor` use it. It is mutually
+  exclusive with `--sys`.
 
 WinRT event accessors are always collapsed into an `Event` wrapper. This applies to all styles and
 layouts. See [Event accessors](#event-accessors).
@@ -314,7 +316,13 @@ Repeated layout helpers also live on `Config`:
 
 For precise filters, `TypeClosure::build` starts from the selected types and walks signature
 dependencies. It emits selected entry points as full types. It emits dependency types as shells
-unless they are selected directly.
+unless they are selected directly. A whole-type filter retains that type's hierarchy. A class
+member filter retains the class-to-interface edge that provides the member. Signature-only
+dependencies do not add hierarchy edges to unrelated types.
+
+An interface selected as a shell can still supply `_Impl` scaffolding through `--implement`.
+Implementation closure retains every method signature needed by the ABI without emitting callable
+wrappers. Select the whole interface as well when the same binding must call and implement it.
 
 For broad filters and package generation, `TypeMap::filter` scans namespaces from the top down. This
 is used for full namespace and package output.
