@@ -261,7 +261,7 @@ impl Component for PlanningFailureComponent {
 }
 
 #[test]
-fn identical_input_retry_recomposes_after_planning_failure() {
+fn identical_input_recomposes_after_planning_failure() {
     for (mode, expected) in [
         (PlanningMode::InvalidArity, PumpError::StructureUnsupported),
         (
@@ -293,7 +293,7 @@ fn identical_input_retry_recomposes_after_planning_failure() {
 }
 
 #[test]
-fn component_turn_retry_recomposes_touched_child_after_planning_failure() {
+fn component_turn_recomposes_touched_child_after_planning_failure() {
     #[derive(Clone)]
     struct ParentInput(Rc<RefCell<Option<LocalSender<PlanningMode>>>>);
 

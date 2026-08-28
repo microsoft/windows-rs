@@ -116,6 +116,10 @@ trait LivePump {
         Err("live event delivery is unsupported".to_string())
     }
     #[cfg(feature = "test")]
+    fn live_content_dialog_lifecycle_step(&mut self) -> Result<bool, String> {
+        Err("live ContentDialog lifecycle is unsupported".to_string())
+    }
+    #[cfg(feature = "test")]
     fn live_controlled_feedback_start(&mut self) -> bool {
         false
     }
@@ -138,6 +142,10 @@ struct ComponentLoop {
     event_delivery_observed: Option<Rc<std::cell::Cell<bool>>>,
     #[cfg(feature = "test")]
     event_delivery_waits: usize,
+    #[cfg(feature = "test")]
+    content_dialog_stage: usize,
+    #[cfg(feature = "test")]
+    content_dialog_waits: usize,
 }
 
 #[cfg(feature = "test")]
@@ -323,6 +331,105 @@ impl ComponentLoop {
         }
         Ok(false)
     }
+
+    fn live_content_dialog_lifecycle_step_impl(&mut self) -> Result<bool, String> {
+        let view = |first_open, second_open| {
+            StackPanel::new().keyed_children([
+                KeyedView::new(
+                    "first",
+                    ContentDialog::new().title("First").is_open(first_open),
+                ),
+                KeyedView::new(
+                    "second",
+                    ContentDialog::new().title("Second").is_open(second_open),
+                ),
+            ])
+        };
+        let mut wait = |states: &[LiveContentDialogState]| {
+            self.content_dialog_waits += 1;
+            if self.content_dialog_waits == 250 {
+                Err(format!(
+                    "ContentDialog probe stalled at stage {}: {states:?}",
+                    self.content_dialog_stage
+                ))
+            } else {
+                Ok(false)
+            }
+        };
+        match self.content_dialog_stage {
+            0 => {
+                self.pump
+                    .update_view(view(true, false))
+                    .map_err(|error| format!("ContentDialog mount failed: {error:?}"))?;
+                self.content_dialog_stage = 1;
+                self.content_dialog_waits = 0;
+            }
+            1 => {
+                let states = self.pump.runtime().live_content_dialog_states();
+                let [first, second] = states.as_slice() else {
+                    return Err("ContentDialog probe expected two dialogs".to_string());
+                };
+                if !first.pending || second.pending {
+                    return wait(&states);
+                }
+                self.pump
+                    .update_view(view(true, true))
+                    .and_then(|_| self.pump.update_view(view(false, true)))
+                    .and_then(|_| self.pump.update_view(view(true, true)))
+                    .map_err(|error| format!("ContentDialog queue setup failed: {error:?}"))?;
+                self.content_dialog_stage = 2;
+                self.content_dialog_waits = 0;
+            }
+            2 => {
+                let states = self.pump.runtime().live_content_dialog_states();
+                let [first, second] = states.as_slice() else {
+                    return Err("ContentDialog probe lost a dialog".to_string());
+                };
+                if first.pending || !first.queued || !second.pending {
+                    return wait(&states);
+                }
+                self.pump
+                    .runtime()
+                    .live_hide_content_dialog(second.node)
+                    .map_err(|error| format!("second ContentDialog hide failed: {error:?}"))?;
+                self.content_dialog_stage = 3;
+                self.content_dialog_waits = 0;
+            }
+            3 => {
+                let states = self.pump.runtime().live_content_dialog_states();
+                let [first, second] = states.as_slice() else {
+                    return Err("ContentDialog probe lost a dialog".to_string());
+                };
+                if first.pending && !first.queued && !second.pending {
+                    self.pump
+                        .update_view(view(false, false))
+                        .map_err(|error| format!("ContentDialog cleanup failed: {error:?}"))?;
+                    self.content_dialog_stage = 4;
+                    self.content_dialog_waits = 0;
+                    return Ok(false);
+                }
+                return wait(&states);
+            }
+            4 => {
+                let states = self.pump.runtime().live_content_dialog_states();
+                let [first, second] = states.as_slice() else {
+                    return Err("ContentDialog probe lost a dialog".to_string());
+                };
+                if !first.desired_open
+                    && !first.pending
+                    && !first.queued
+                    && !second.desired_open
+                    && !second.pending
+                    && !second.queued
+                {
+                    return Ok(true);
+                }
+                return wait(&states);
+            }
+            _ => return Err("ContentDialog probe stage is invalid".to_string()),
+        }
+        Ok(false)
+    }
 }
 
 impl LivePump for ComponentLoop {
@@ -459,6 +566,11 @@ impl LivePump for ComponentLoop {
     #[cfg(feature = "test")]
     fn live_event_delivery_step(&mut self) -> Result<bool, String> {
         self.live_event_delivery_step_impl()
+    }
+
+    #[cfg(feature = "test")]
+    fn live_content_dialog_lifecycle_step(&mut self) -> Result<bool, String> {
+        self.live_content_dialog_lifecycle_step_impl()
     }
 
     #[cfg(feature = "test")]
@@ -683,6 +795,10 @@ impl App {
                 event_delivery_observed: None,
                 #[cfg(feature = "test")]
                 event_delivery_waits: 0,
+                #[cfg(feature = "test")]
+                content_dialog_stage: 0,
+                #[cfg(feature = "test")]
+                content_dialog_waits: 0,
             })]
         })
     }
@@ -711,6 +827,10 @@ impl App {
                         event_delivery_observed: None,
                         #[cfg(feature = "test")]
                         event_delivery_waits: 0,
+                        #[cfg(feature = "test")]
+                        content_dialog_stage: 0,
+                        #[cfg(feature = "test")]
+                        content_dialog_waits: 0,
                     }) as Box<dyn LivePump>
                 })
                 .collect()
@@ -877,6 +997,10 @@ pub(crate) fn open_live_windows(roots: Vec<View>) -> Result<(), RuntimeError> {
                 event_delivery_observed: None,
                 #[cfg(feature = "test")]
                 event_delivery_waits: 0,
+                #[cfg(feature = "test")]
+                content_dialog_stage: 0,
+                #[cfg(feature = "test")]
+                content_dialog_waits: 0,
             }) as Box<dyn LivePump>
         })
         .collect::<Vec<_>>();
@@ -1003,12 +1127,12 @@ pub(crate) fn dispatch_native_events(token: WindowToken) {
         }) else {
             return;
         };
-        let mut retry = false;
+        let mut rearm = false;
         let mut fault = None;
         #[cfg(feature = "test")]
         let dispatch_started = std::time::Instant::now();
         match live.dispatch_events() {
-            Ok(()) => retry = live.native_work_pending(),
+            Ok(()) => rearm = live.native_work_pending(),
             Err(error) => {
                 let error = pump_error(error);
                 eprintln!("windows-reactor fault: {error}");
@@ -1051,7 +1175,7 @@ pub(crate) fn dispatch_native_events(token: WindowToken) {
             .as_ref()
             .is_some_and(|host| host.closed_in_flight.contains(&token));
         if !closed
-            && retry
+            && rearm
             && let Err(error) = live.schedule_dispatch()
         {
             fault = Some(runtime_error(error));
