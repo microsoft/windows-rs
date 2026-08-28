@@ -78,3 +78,16 @@ default; passing `None` sets an explicit empty value.
 
 Constrained values are checked by their builders. For example, text weights use constants such as
 `FontWeight::BOLD`, with custom values available through `FontWeight::new`.
+
+Images can load encoded PNG and other WinUI-supported bitmap data without a file or URI:
+
+```rust,ignore
+Image::new()
+    .source_data(EncodedImage::from_static(include_bytes!("logo.png")))
+    .on_opened(|| println!("image ready"))
+    .on_failed(|| eprintln!("image could not be decoded"))
+```
+
+`EncodedImage::from_static` borrows static data without copying it. `EncodedImage::new` owns shared
+data supplied at runtime. Decoding is asynchronous; replacing or removing the image cancels its
+pending load.

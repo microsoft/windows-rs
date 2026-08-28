@@ -679,6 +679,105 @@ pub(crate) enum ImageMessage {
     Cleared(Result<(), ImageSourceError>),
 }
 
+pub(crate) enum EncodedImageMessage {
+    Advance(u8),
+    Opened(u8),
+    Failed(u8),
+}
+
+pub(crate) struct EncodedImageLifecycle {
+    error: Option<&'static str>,
+    stage: u8,
+}
+
+impl Component for EncodedImageLifecycle {
+    type Input = FixtureInput;
+    type Message = EncodedImageMessage;
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            error: None,
+            stage: 0,
+        }
+    }
+
+    fn update(&mut self, message: Self::Message, _context: &ComponentContext<Self>) {
+        match message {
+            EncodedImageMessage::Advance(stage) if stage == self.stage => {
+                self.stage += 1;
+            }
+            EncodedImageMessage::Opened(stage) if stage == self.stage && stage == 1 => {
+                self.stage += 1;
+            }
+            EncodedImageMessage::Failed(2) if self.stage == 2 => {
+                self.stage = 3;
+            }
+            EncodedImageMessage::Opened(_) => {
+                self.error = Some("received an unexpected or duplicate ImageOpened event");
+            }
+            EncodedImageMessage::Failed(_) => {
+                self.error = Some("received an unexpected or duplicate ImageFailed event");
+            }
+            EncodedImageMessage::Advance(_) => {}
+        }
+    }
+
+    fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        if let Some(error) = self.error {
+            let complete = input.complete.clone();
+            context.use_effect("fail-encoded-image", (), move || {
+                if !complete.call(Err(error.to_string())) {
+                    eprintln!("encoded image fixture completion was rejected");
+                    std::process::exit(1);
+                }
+                None
+            });
+            return TextBlock::new().text(error).into();
+        }
+        if self.stage == 4 {
+            let complete = input.complete.clone();
+            context.use_effect("complete-encoded-image", (), move || {
+                if !complete.call(Ok(())) {
+                    eprintln!("encoded image fixture completion was rejected");
+                    std::process::exit(1);
+                }
+                None
+            });
+            return TextBlock::new().text("encoded image complete").into();
+        }
+
+        if matches!(self.stage, 0 | 3) {
+            let stage = self.stage;
+            let sender = context.sender();
+            context.use_effect("advance-encoded-image", stage, move || {
+                sender.send(EncodedImageMessage::Advance(stage));
+                None
+            });
+        }
+        let source = match self.stage {
+            0 => EncodedImage::from_static(include_bytes!(
+                "../../../../samples/reactor/samples/examples/image.png"
+            )),
+            1 => EncodedImage::from_static(include_bytes!(
+                "../../../../samples/reactor/gallery/assets/Image.png"
+            )),
+            2 => EncodedImage::from_static(b"not an encoded image"),
+            3 => EncodedImage::from_static(include_bytes!(
+                "../../../../samples/reactor/gallery/assets/Image.png"
+            )),
+            _ => unreachable!(),
+        };
+        let stage = self.stage;
+        Image::new()
+            .source_data(source)
+            .on_opened(context.callback(move |()| EncodedImageMessage::Opened(stage)))
+            .on_failed(context.callback(move |()| EncodedImageMessage::Failed(stage)))
+            .width(64.0)
+            .height(64.0)
+            .into()
+    }
+}
+
 pub(crate) struct ImageSourceLifecycle {
     device: Option<GpuDevice>,
     image: ElementRef<Image>,

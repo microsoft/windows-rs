@@ -178,6 +178,10 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                         .to_string(),
                 );
                 entries.insert(
+                    "Microsoft::UI::Xaml::Media::Imaging::IBitmapSource::SetSourceAsync"
+                        .to_string(),
+                );
+                entries.insert(
                     "Microsoft::UI::Xaml::Media::Imaging::SvgImageSource::CreateInstance"
                         .to_string(),
                 );
@@ -186,6 +190,22 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                         .to_string(),
                 );
                 entries.insert("Microsoft::UI::Xaml::Controls::IImage::get_Source".to_string());
+                entries.insert(
+                    "Windows::Storage::Streams::InMemoryRandomAccessStream::CreateInstance"
+                        .to_string(),
+                );
+                entries.insert(
+                    "Windows::Storage::Streams::IRandomAccessStream::{\
+                     GetOutputStreamAt, Seek}"
+                        .to_string(),
+                );
+                entries
+                    .insert("Windows::Storage::Streams::DataWriter::CreateDataWriter".to_string());
+                entries.insert(
+                    "Windows::Storage::Streams::IDataWriter::{\
+                     WriteBytes, StoreAsync, DetachStream}"
+                        .to_string(),
+                );
             }
         }
         for event in &control.events {
@@ -1699,7 +1719,10 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                 let source = value.cast::<#interface>().map_err(native_error)?;
                 source
                     .#method(#callback)
-                    .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                    .map(|revoker| NativeSubscription::Event {
+                        _revoker: revoker,
+                        revision,
+                    })
                     .map_err(native_error)
             }
         },
@@ -2661,7 +2684,10 @@ property = "FontWeight"
             struct EventRevoker;
 
             enum NativeSubscription {
-                Event { _revoker: EventRevoker },
+                Event {
+                    _revoker: EventRevoker,
+                    revision: u32,
+                },
             }
 
             #[derive(Clone, Copy)]

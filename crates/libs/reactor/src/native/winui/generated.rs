@@ -4652,7 +4652,10 @@ pub fn subscribe_event(
                 .Click(move |_, _| {
                     sink.enqueue(node, EventId::ButtonClick, revision, EventPayload::Unit);
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::HyperlinkButton(value), EventId::HyperlinkButtonClick) => {
@@ -4666,7 +4669,10 @@ pub fn subscribe_event(
                         EventPayload::Unit,
                     );
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::RepeatButton(value), EventId::RepeatButtonClick) => {
@@ -4680,7 +4686,10 @@ pub fn subscribe_event(
                         EventPayload::Unit,
                     );
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::Border(value), EventId::BorderDragEnter) => {
@@ -4736,7 +4745,10 @@ pub fn subscribe_event(
                         }
                     };
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::Border(value), EventId::BorderDragOver) => {
@@ -4792,7 +4804,10 @@ pub fn subscribe_event(
                         }
                     };
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::Border(value), EventId::BorderDragLeave) => {
@@ -4801,7 +4816,10 @@ pub fn subscribe_event(
                 .DragLeave(move |_, _| {
                     sink.enqueue(node, EventId::BorderDragLeave, revision, EventPayload::Unit);
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::Border(value), EventId::BorderDrop) => {
@@ -4919,7 +4937,10 @@ pub fn subscribe_event(
                         }
                     };
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::Border(value), EventId::BorderPointerPressed) => {
@@ -4968,7 +4989,10 @@ pub fn subscribe_event(
                         );
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::Border(value), EventId::BorderPointerMoved) => {
@@ -5008,7 +5032,10 @@ pub fn subscribe_event(
                         );
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::Border(value), EventId::BorderPointerEntered) => {
@@ -5048,7 +5075,10 @@ pub fn subscribe_event(
                         );
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::Border(value), EventId::BorderPointerExited) => {
@@ -5088,7 +5118,10 @@ pub fn subscribe_event(
                         );
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::Border(value), EventId::BorderPointerReleased) => {
@@ -5132,7 +5165,10 @@ pub fn subscribe_event(
                         );
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::Border(value), EventId::BorderPointerCaptureLost) => {
@@ -5146,7 +5182,10 @@ pub fn subscribe_event(
                         EventPayload::Unit,
                     );
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::Border(value), EventId::BorderPointerCanceled) => {
@@ -5160,7 +5199,10 @@ pub fn subscribe_event(
                         EventPayload::Unit,
                     );
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::BreadcrumbBar(value), EventId::BreadcrumbBarItemClicked) => {
@@ -5191,7 +5233,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::TextBox(value), EventId::TextBoxTextChanged) => {
@@ -5214,7 +5259,10 @@ pub fn subscribe_event(
                         ),
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::AutoSuggestBox(value), EventId::AutoSuggestBoxTextChanged) => {
@@ -5237,7 +5285,10 @@ pub fn subscribe_event(
                         ),
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::AutoSuggestBox(value), EventId::AutoSuggestBoxSuggestionChosen) => {
@@ -5268,7 +5319,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::PasswordBox(value), EventId::PasswordBoxPasswordChanged) => {
@@ -5291,7 +5345,10 @@ pub fn subscribe_event(
                         ),
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::NumberBox(value), EventId::NumberBoxValueChanged) => {
@@ -5318,7 +5375,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::Slider(value), EventId::SliderValueChanged) => {
@@ -5345,7 +5405,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::TitleBar(value), EventId::TitleBarBackRequested) => {
@@ -5359,7 +5422,10 @@ pub fn subscribe_event(
                         EventPayload::Unit,
                     );
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::TitleBar(value), EventId::TitleBarPaneToggleRequested) => {
@@ -5373,7 +5439,10 @@ pub fn subscribe_event(
                         EventPayload::Unit,
                     );
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::NavigationView(value), EventId::NavigationViewIsPaneOpenChanged) => {
@@ -5440,7 +5509,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::NavigationView(value), EventId::NavigationViewSelectionChanged) => {
@@ -5494,7 +5566,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::SplitView(value), EventId::SplitViewPaneClosed) => {
@@ -5546,7 +5621,10 @@ pub fn subscribe_event(
                         ),
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::CheckBox(value), EventId::CheckBoxIsCheckedChanged) => {
@@ -5667,7 +5745,10 @@ pub fn subscribe_event(
                         ),
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::InfoBar(value), EventId::InfoBarClosed) => {
@@ -5676,7 +5757,44 @@ pub fn subscribe_event(
                 .Closed(move |_, _| {
                     sink.enqueue(node, EventId::InfoBarClosed, revision, EventPayload::Unit);
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
+                .map_err(native_error)
+        }
+        (Handle::Image(value), EventId::ImageImageOpened) => {
+            let source = value.cast::<IImage>().map_err(native_error)?;
+            source
+                .ImageOpened(move |_, _| {
+                    sink.enqueue(
+                        node,
+                        EventId::ImageImageOpened,
+                        revision,
+                        EventPayload::Unit,
+                    );
+                })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
+                .map_err(native_error)
+        }
+        (Handle::Image(value), EventId::ImageImageFailed) => {
+            let source = value.cast::<IImage>().map_err(native_error)?;
+            source
+                .ImageFailed(move |_, _| {
+                    sink.enqueue(
+                        node,
+                        EventId::ImageImageFailed,
+                        revision,
+                        EventPayload::Unit,
+                    );
+                })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::ListBox(value), EventId::ListBoxSelectionChanged) => {
@@ -5728,7 +5846,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::RatingControl(value), EventId::RatingControlValueChanged) => {
@@ -5751,7 +5872,10 @@ pub fn subscribe_event(
                         ),
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::Expander(value), EventId::ExpanderIsExpandedChanged) => {
@@ -5814,7 +5938,10 @@ pub fn subscribe_event(
                         ),
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::Pivot(value), EventId::PivotSelectionChanged) => {
@@ -5848,7 +5975,10 @@ pub fn subscribe_event(
                         ),
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::FlipView(value), EventId::FlipViewSelectionChanged) => {
@@ -5882,7 +6012,10 @@ pub fn subscribe_event(
                         ),
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::SelectorBar(value), EventId::SelectorBarSelectionChanged) => {
@@ -5947,7 +6080,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::TabView(value), EventId::TabViewSelectionChanged) => {
@@ -5981,7 +6117,10 @@ pub fn subscribe_event(
                         ),
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::TabView(value), EventId::TabViewTabCloseRequested) => {
@@ -6020,7 +6159,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::TabView(value), EventId::TabViewAddTabButtonClick) => {
@@ -6034,7 +6176,10 @@ pub fn subscribe_event(
                         EventPayload::Unit,
                     );
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::TabView(value), EventId::TabViewTabItemsChanged) => {
@@ -6078,7 +6223,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::TeachingTip(value), EventId::TeachingTipClosed) => {
@@ -6092,7 +6240,10 @@ pub fn subscribe_event(
                         EventPayload::Unit,
                     );
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::TeachingTip(value), EventId::TeachingTipActionButtonClick) => {
@@ -6106,7 +6257,10 @@ pub fn subscribe_event(
                         EventPayload::Unit,
                     );
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::DropDownButton(value), EventId::DropDownButtonClick) => {
@@ -6120,7 +6274,10 @@ pub fn subscribe_event(
                         EventPayload::Unit,
                     );
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::AppBarButton(value), EventId::AppBarButtonClick) => {
@@ -6134,7 +6291,10 @@ pub fn subscribe_event(
                         EventPayload::Unit,
                     );
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::SplitButton(value), EventId::SplitButtonClick) => {
@@ -6148,7 +6308,10 @@ pub fn subscribe_event(
                         EventPayload::Unit,
                     );
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::ColorPicker(value), EventId::ColorPickerColorChanged) => {
@@ -6180,7 +6343,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::DatePicker(value), EventId::DatePickerSelectedDateChanged) => {
@@ -6213,7 +6379,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::TimePicker(value), EventId::TimePickerSelectedTimeChanged) => {
@@ -6246,7 +6415,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::CalendarDatePicker(value), EventId::CalendarDatePickerDateChanged) => {
@@ -6279,7 +6451,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::ContentDialog(value), EventId::ContentDialogClosed) => {
@@ -6318,7 +6493,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::CalendarView(value), EventId::CalendarViewSelectedDatesChanged) => {
@@ -6332,7 +6510,10 @@ pub fn subscribe_event(
                         EventPayload::Unit,
                     );
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::ListView(value), EventId::ListViewSelectionChanged) => {
@@ -6366,7 +6547,10 @@ pub fn subscribe_event(
                         ),
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::ListView(value), EventId::ListViewDragItemsCompleted) => {
@@ -6410,7 +6594,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::TreeView(value), EventId::TreeViewItemInvoked) => {
@@ -6443,7 +6630,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::GridView(value), EventId::GridViewDragItemsCompleted) => {
@@ -6487,7 +6677,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::GridView(value), EventId::GridViewSelectionChanged) => {
@@ -6521,7 +6714,10 @@ pub fn subscribe_event(
                         ),
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         (Handle::RichEditBox(value), EventId::RichEditBoxTextChanged) => {
@@ -6552,7 +6748,10 @@ pub fn subscribe_event(
                         }
                     }
                 })
-                .map(|revoker| NativeSubscription::Event { _revoker: revoker })
+                .map(|revoker| NativeSubscription::Event {
+                    _revoker: revoker,
+                    revision,
+                })
                 .map_err(native_error)
         }
         _ => Err(RuntimeError::UnsupportedKind),

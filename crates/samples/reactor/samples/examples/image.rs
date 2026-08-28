@@ -14,6 +14,11 @@ fn main() {
                 .height(60.0)
                 .source_file(&bitmap)
                 .unwrap(),
+            "PNG from encoded bytes",
+            Image::new()
+                .width(120.0)
+                .height(60.0)
+                .source_data(EncodedImage::from_static(include_bytes!("image.png"))),
             "SVG",
             Image::new()
                 .width(120.0)

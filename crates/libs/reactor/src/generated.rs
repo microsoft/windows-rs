@@ -34,6 +34,11 @@ pub(crate) struct NavigationViewEvents {
     on_selected_tag_changed: Option<Callback<Option<String>>>,
 }
 #[derive(Clone, Debug, Default, PartialEq)]
+pub(crate) struct ImageEvents {
+    on_opened: Option<Callback<()>>,
+    on_failed: Option<Callback<()>>,
+}
+#[derive(Clone, Debug, Default, PartialEq)]
 pub(crate) struct TabViewEvents {
     on_selection_changed: Option<Callback<Option<usize>>>,
     on_close_requested: Option<Callback<String>>,
@@ -2761,8 +2766,9 @@ pub mod public {
     }
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct Image {
-        source: Property<String>,
+        source: Property<ImageValue>,
         stretch: Property<Stretch>,
+        events: Option<std::rc::Rc<ImageEvents>>,
         reference: Option<NativeElementRef>,
         element_state: Option<std::rc::Rc<ElementState>>,
     }
@@ -2777,7 +2783,7 @@ pub mod public {
         pub fn source(mut self, value: impl Into<String>) -> windows_core::Result<Self> {
             let value = value.into();
             validate_image_uri(&value)?;
-            self.source = Property::Set(value);
+            self.source = Property::Set(ImageValue::Uri(value));
             Ok(self)
         }
         pub fn source_optional<T>(mut self, value: Option<T>) -> windows_core::Result<Self>
@@ -2788,7 +2794,7 @@ pub mod public {
                 Some(value) => {
                     let value = value.into();
                     validate_image_uri(&value)?;
-                    Property::Set(value)
+                    Property::Set(ImageValue::Uri(value))
                 }
                 None => Property::Inherited,
             };
@@ -2797,9 +2803,29 @@ pub mod public {
         pub fn source_file(self, value: impl AsRef<std::path::Path>) -> windows_core::Result<Self> {
             self.source(file_uri(value.as_ref())?)
         }
+        pub fn source_data(mut self, value: EncodedImage) -> Self {
+            self.source = Property::Set(ImageValue::Encoded(value));
+            self
+        }
         pub fn stretch(mut self, value: impl Into<Option<Stretch>>) -> Self {
             let value = value.into();
             self.stretch = Property::from(value);
+            self
+        }
+        pub fn on_opened(mut self, callback: impl IntoUnitCallback) -> Self {
+            std::rc::Rc::make_mut(
+                self.events
+                    .get_or_insert_with(|| std::rc::Rc::new(Default::default())),
+            )
+            .on_opened = Some(callback.into_unit_callback());
+            self
+        }
+        pub fn on_failed(mut self, callback: impl IntoUnitCallback) -> Self {
+            std::rc::Rc::make_mut(
+                self.events
+                    .get_or_insert_with(|| std::rc::Rc::new(Default::default())),
+            )
+            .on_failed = Some(callback.into_unit_callback());
             self
         }
     }
@@ -3175,7 +3201,7 @@ pub mod public {
     impl LayoutControl for SymbolIcon {}
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ImageIcon {
-        source: Property<String>,
+        source: Property<ImageValue>,
         element_state: Option<std::rc::Rc<ElementState>>,
     }
     impl ImageIcon {
@@ -3185,7 +3211,7 @@ pub mod public {
         pub fn source(mut self, value: impl Into<String>) -> windows_core::Result<Self> {
             let value = value.into();
             validate_image_uri(&value)?;
-            self.source = Property::Set(value);
+            self.source = Property::Set(ImageValue::Uri(value));
             Ok(self)
         }
         pub fn source_optional<T>(mut self, value: Option<T>) -> windows_core::Result<Self>
@@ -3196,7 +3222,7 @@ pub mod public {
                 Some(value) => {
                     let value = value.into();
                     validate_image_uri(&value)?;
-                    Property::Set(value)
+                    Property::Set(ImageValue::Uri(value))
                 }
                 None => Property::Inherited,
             };
@@ -3204,6 +3230,10 @@ pub mod public {
         }
         pub fn source_file(self, value: impl AsRef<std::path::Path>) -> windows_core::Result<Self> {
             self.source(file_uri(value.as_ref())?)
+        }
+        pub fn source_data(mut self, value: EncodedImage) -> Self {
+            self.source = Property::Set(ImageValue::Encoded(value));
+            self
         }
     }
     impl sealed::Sealed for ImageIcon {}
@@ -7113,6 +7143,7 @@ pub mod public {
                     let Image {
                         source,
                         stretch,
+                        events,
                         reference,
                         element_state,
                     } = *value;
@@ -7121,6 +7152,7 @@ pub mod public {
                         props: MountedProps::Image(std::rc::Rc::new(ImageMountedProps {
                             source,
                             stretch,
+                            events,
                         })),
                         reference,
                         element_state,
@@ -8310,7 +8342,9 @@ pub mod public {
                             == mounted.vertical_scroll_bar_visibility
                 }
                 (Self::Image(value), MountedProps::Image(mounted)) => {
-                    true && value.source == mounted.source && value.stretch == mounted.stretch
+                    true && value.source == mounted.source
+                        && value.stretch == mounted.stretch
+                        && value.events == mounted.events
                 }
                 (Self::ProgressRing(value), MountedProps::ProgressRing(mounted)) => {
                     true && f64_property_eq(&value.minimum, &mounted.minimum)
@@ -9056,7 +9090,22 @@ pub mod public {
                 Self::PersonPicture(_) => {}
                 Self::ScrollViewer(_) => {}
                 Self::ScrollView(_) => {}
-                Self::Image(_) => {}
+                Self::Image(value) => {
+                    visit(
+                        EventId::ImageImageOpened,
+                        value
+                            .events
+                            .as_ref()
+                            .is_some_and(|events| events.on_opened.is_some()),
+                    );
+                    visit(
+                        EventId::ImageImageFailed,
+                        value
+                            .events
+                            .as_ref()
+                            .is_some_and(|events| events.on_failed.is_some()),
+                    );
+                }
                 Self::ProgressRing(_) => {}
                 Self::ListBox(_) => {
                     visit(EventId::ListBoxSelectionChanged, true);
@@ -10163,7 +10212,12 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::ImageSource,
                     match &values.source {
                         Property::Inherited => None,
-                        Property::Set(value) => Some(PropertyValueRef::Str(value.as_str())),
+                        Property::Set(ImageValue::Uri(value)) => {
+                            Some(PropertyValueRef::Str(value.as_str()))
+                        }
+                        Property::Set(ImageValue::Encoded(value)) => {
+                            Some(PropertyValueRef::EncodedImage(value))
+                        }
                     },
                 );
                 visit(
@@ -10355,7 +10409,12 @@ impl MountedPropsExt for MountedProps {
                     PropertyId::ImageIconSource,
                     match &values.source {
                         Property::Inherited => None,
-                        Property::Set(value) => Some(PropertyValueRef::Str(value.as_str())),
+                        Property::Set(ImageValue::Uri(value)) => {
+                            Some(PropertyValueRef::Str(value.as_str()))
+                        }
+                        Property::Set(ImageValue::Encoded(value)) => {
+                            Some(PropertyValueRef::EncodedImage(value))
+                        }
                     },
                 );
             }
@@ -11349,7 +11408,22 @@ impl MountedEventsExt for MountedProps {
             Self::PersonPicture(_) => {}
             Self::ScrollViewer(_) => {}
             Self::ScrollView(_) => {}
-            Self::Image(_) => {}
+            Self::Image(values) => {
+                visit(
+                    EventId::ImageImageOpened,
+                    values
+                        .events
+                        .as_ref()
+                        .is_some_and(|events| events.on_opened.is_some()),
+                );
+                visit(
+                    EventId::ImageImageFailed,
+                    values
+                        .events
+                        .as_ref()
+                        .is_some_and(|events| events.on_failed.is_some()),
+                );
+            }
             Self::ProgressRing(_) => {}
             Self::ListBox(_) => {
                 visit(EventId::ListBoxSelectionChanged, true);
@@ -11735,6 +11809,16 @@ impl MountedEventsExt for MountedProps {
             (Self::InfoBar(values), EventId::InfoBarClosed, EventPayload::Unit) => {
                 values.on_closed.as_ref().map(|callback| callback.call(()))
             }
+            (Self::Image(values), EventId::ImageImageOpened, EventPayload::Unit) => values
+                .events
+                .as_ref()
+                .and_then(|events| events.on_opened.as_ref())
+                .map(|callback| callback.call(())),
+            (Self::Image(values), EventId::ImageImageFailed, EventPayload::Unit) => values
+                .events
+                .as_ref()
+                .and_then(|events| events.on_failed.as_ref())
+                .map(|callback| callback.call(())),
             (
                 Self::ListBox(values),
                 EventId::ListBoxSelectionChanged,
@@ -12918,12 +13002,15 @@ impl PartialEq for ScrollViewMountedProps {
 }
 #[derive(Clone, Debug)]
 pub(crate) struct ImageMountedProps {
-    source: Property<String>,
+    source: Property<ImageValue>,
     stretch: Property<Stretch>,
+    events: Option<std::rc::Rc<ImageEvents>>,
 }
 impl PartialEq for ImageMountedProps {
     fn eq(&self, other: &Self) -> bool {
-        true && self.source == other.source && self.stretch == other.stretch
+        true && self.source == other.source
+            && self.stretch == other.stretch
+            && self.events == other.events
     }
 }
 #[derive(Clone, Debug)]
@@ -13016,7 +13103,7 @@ impl PartialEq for SymbolIconMountedProps {
 }
 #[derive(Clone, Debug)]
 pub(crate) struct ImageIconMountedProps {
-    source: Property<String>,
+    source: Property<ImageValue>,
 }
 impl PartialEq for ImageIconMountedProps {
     fn eq(&self, other: &Self) -> bool {
@@ -13924,6 +14011,8 @@ pub enum EventId {
     RadioButtonChecked,
     RadioButtonsSelectionChanged,
     InfoBarClosed,
+    ImageImageOpened,
+    ImageImageFailed,
     ListBoxSelectionChanged,
     RatingControlValueChanged,
     ExpanderIsExpandedChanged,
@@ -13962,6 +14051,7 @@ pub enum PropertyValue {
     CornerRadius(CornerRadius),
     DragDropPolicy(DragDropPolicy),
     Duration(std::time::Duration),
+    EncodedImage(EncodedImage),
     F64(f64),
     FontWeight(FontWeight),
     GridLengths(std::rc::Rc<Vec<GridLength>>),
@@ -14002,6 +14092,7 @@ impl PartialEq for PropertyValue {
             (Self::CornerRadius(left), Self::CornerRadius(right)) => left == right,
             (Self::DragDropPolicy(left), Self::DragDropPolicy(right)) => left == right,
             (Self::Duration(left), Self::Duration(right)) => left == right,
+            (Self::EncodedImage(left), Self::EncodedImage(right)) => left == right,
             (Self::F64(left), Self::F64(right)) => f64_eq(*left, *right),
             (Self::FontWeight(left), Self::FontWeight(right)) => left == right,
             (Self::GridLengths(left), Self::GridLengths(right)) => left == right,
@@ -14063,6 +14154,7 @@ pub enum PropertyValueRef<'a> {
     CornerRadius(&'a CornerRadius),
     DragDropPolicy(&'a DragDropPolicy),
     Duration(std::time::Duration),
+    EncodedImage(&'a EncodedImage),
     F64(f64),
     FontWeight(FontWeight),
     GridLengths(&'a std::rc::Rc<Vec<GridLength>>),
@@ -14103,6 +14195,7 @@ impl PropertyValueRef<'_> {
             (Self::CornerRadius(left), PropertyValue::CornerRadius(right)) => left == right,
             (Self::DragDropPolicy(left), PropertyValue::DragDropPolicy(right)) => left == right,
             (Self::Duration(left), PropertyValue::Duration(right)) => left == *right,
+            (Self::EncodedImage(left), PropertyValue::EncodedImage(right)) => left == right,
             (Self::F64(left), PropertyValue::F64(right)) => f64_eq(left, *right),
             (Self::FontWeight(left), PropertyValue::FontWeight(right)) => left == *right,
             (Self::GridLengths(left), PropertyValue::GridLengths(right)) => left == right,
@@ -14176,6 +14269,7 @@ impl PropertyValueRef<'_> {
             Self::CornerRadius(value) => PropertyValue::CornerRadius(value.clone()),
             Self::DragDropPolicy(value) => PropertyValue::DragDropPolicy(value.clone()),
             Self::Duration(value) => PropertyValue::Duration(value),
+            Self::EncodedImage(value) => PropertyValue::EncodedImage(value.clone()),
             Self::F64(value) => PropertyValue::F64(value),
             Self::FontWeight(value) => PropertyValue::FontWeight(value),
             Self::GridLengths(value) => PropertyValue::GridLengths(value.clone()),
@@ -14247,6 +14341,11 @@ impl From<DragDropPolicy> for PropertyValue {
 impl From<std::time::Duration> for PropertyValue {
     fn from(value: std::time::Duration) -> Self {
         Self::Duration(value)
+    }
+}
+impl From<EncodedImage> for PropertyValue {
+    fn from(value: EncodedImage) -> Self {
+        Self::EncodedImage(value)
     }
 }
 impl From<f64> for PropertyValue {
@@ -16310,7 +16409,7 @@ const IMAGE_PROPERTIES: &[PropertyDescriptor] = &[
         id: PropertyId::ImageSource,
         name: "Source",
         field: "source",
-        value: "Str",
+        value: "ImageValue",
         interface: "Microsoft.UI.Xaml.Controls.IImage",
         clearable: true,
         feedback: None,
@@ -16329,7 +16428,22 @@ const IMAGE_PROPERTIES: &[PropertyDescriptor] = &[
         observes_feedback: false,
     },
 ];
-const IMAGE_EVENTS: &[EventDescriptor] = &[];
+const IMAGE_EVENTS: &[EventDescriptor] = &[
+    EventDescriptor {
+        id: EventId::ImageImageOpened,
+        name: "ImageOpened",
+        field: "on_opened",
+        payload: "Unit",
+        interface: "Microsoft.UI.Xaml.Controls.IImage",
+    },
+    EventDescriptor {
+        id: EventId::ImageImageFailed,
+        name: "ImageFailed",
+        field: "on_failed",
+        payload: "Unit",
+        interface: "Microsoft.UI.Xaml.Controls.IImage",
+    },
+];
 const IMAGE_SLOTS: &[SlotDescriptor] = &[];
 const PROGRESS_RING_PROPERTIES: &[PropertyDescriptor] = &[
     PropertyDescriptor {
@@ -16609,7 +16723,7 @@ const IMAGE_ICON_PROPERTIES: &[PropertyDescriptor] = &[PropertyDescriptor {
     id: PropertyId::ImageIconSource,
     name: "Source",
     field: "source",
-    value: "Str",
+    value: "ImageValue",
     interface: "Microsoft.UI.Xaml.Controls.IImageIcon",
     clearable: true,
     feedback: None,

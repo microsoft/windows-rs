@@ -917,6 +917,14 @@ adapter = "image_uri"
 name = "Stretch"
 clearable = true
 
+[[control.event]]
+name = "ImageOpened"
+field = "on_opened"
+
+[[control.event]]
+name = "ImageFailed"
+field = "on_failed"
+
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.ProgressRing"
 capabilities = ["layout", "enabled"]
