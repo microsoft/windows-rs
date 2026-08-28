@@ -35,10 +35,10 @@ pub struct LiveRendering {
     _revoker: windows_core::EventRevoker,
 }
 
+#[cfg_attr(not(feature = "test"), allow(dead_code))]
 #[allow(
     clippy::missing_transmute_annotations,
     clippy::upper_case_acronyms,
-    dead_code,
     non_camel_case_types,
     non_snake_case,
     non_upper_case_globals
@@ -576,27 +576,30 @@ impl WinUiRuntime {
 
     #[cfg(feature = "test")]
     pub fn live_range_value(&self, node: NodeId) -> Result<f64, RuntimeError> {
-        let property = match self.handles.get(&node).map(Handle::kind) {
-            Some(MountedKind::NumberBox) => PropertyId::NumberBoxValue,
-            Some(MountedKind::Slider) => PropertyId::SliderValue,
-            _ => return Err(RuntimeError::UnsupportedKind),
-        };
-        match self.live_read_property(node, property)? {
-            PropertyValue::F64(value) => Ok(value),
-            PropertyValue::OptionalF64(value) => Ok(native_number_box_value(value)),
+        match self.handles.get(&node) {
+            Some(Handle::NumberBox(control)) => control
+                .cast::<INumberBox>()
+                .and_then(|control| control.Value())
+                .map_err(native_error),
+            Some(Handle::Slider(control)) => control
+                .cast::<IRangeBase>()
+                .and_then(|control| control.Value())
+                .map_err(native_error),
             _ => Err(RuntimeError::UnsupportedKind),
         }
     }
 
     #[cfg(feature = "test")]
     pub fn live_checked_value(&self, node: NodeId) -> Result<bool, RuntimeError> {
-        let property = match self.handles.get(&node).map(Handle::kind) {
-            Some(MountedKind::CheckBox) => PropertyId::CheckBoxIsChecked,
-            Some(MountedKind::ToggleButton) => PropertyId::ToggleButtonIsChecked,
-            _ => return Err(RuntimeError::UnsupportedKind),
-        };
-        match self.live_read_property(node, property)? {
-            PropertyValue::Bool(value) => Ok(value),
+        match self.handles.get(&node) {
+            Some(Handle::CheckBox(control)) => control
+                .cast::<IToggleButton>()
+                .and_then(|control| control.IsChecked())
+                .map_err(native_error),
+            Some(Handle::ToggleButton(control)) => control
+                .cast::<IToggleButton>()
+                .and_then(|control| control.IsChecked())
+                .map_err(native_error),
             _ => Err(RuntimeError::UnsupportedKind),
         }
     }
@@ -609,19 +612,6 @@ impl WinUiRuntime {
             _ => return Err(RuntimeError::UnsupportedKind),
         };
         self.live_write_property(node, property, &PropertyValue::Bool(value))
-    }
-
-    #[cfg(feature = "test")]
-    fn live_read_property(
-        &self,
-        node: NodeId,
-        property: PropertyId,
-    ) -> Result<PropertyValue, RuntimeError> {
-        let handle = self
-            .handles
-            .get(&node)
-            .ok_or(RuntimeError::MissingNode(node))?;
-        read_property(handle, property)
     }
 
     #[cfg(feature = "test")]

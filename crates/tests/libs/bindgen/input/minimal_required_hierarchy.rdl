@@ -1,0 +1,50 @@
+//! --filter Test.Explicit::Close --filter Test.Producer::GetClose --filter Test.Stream::Read
+//! --filter Test.Unrelated::Value --filter Test.IWhole --filter Test.IGeneric --flat --minimal
+// A required interface used as a signature dependency must not add hierarchy edges to unrelated
+// selected types. Required interfaces that were not selected remain omitted in precise minimal
+// mode.
+#[winrt]
+mod Test {
+    class Explicit {
+        IExplicit,
+        IClose,
+    }
+    class Producer {
+        IProducer,
+    }
+    class Stream {
+        IStream,
+    }
+    class Unrelated {
+        IUnrelated,
+        IClose,
+    }
+    interface IClose {
+        fn Close(&self);
+    }
+    interface IExplicit {}
+    interface IProducer {
+        fn GetClose(&self) -> IClose;
+    }
+    interface IStream: IClose {
+        fn Read(&self) -> i32;
+    }
+    interface IUnrelated {
+        fn Value(&self) -> i32;
+    }
+    interface IWhole: IWholeMiddle {
+        fn Derived(&self);
+    }
+    interface IWholeMiddle: IWholeBase {
+        fn Middle(&self);
+    }
+    interface IWholeBase {
+        fn Base(&self);
+    }
+    interface IGeneric<T>: IGenericBase<T> {
+        fn Derived(&self);
+    }
+    interface IGenericBase<T> {
+        fn Base(&self);
+    }
+}

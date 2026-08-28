@@ -182,7 +182,13 @@ the `windows-reactor-setup` bootstrap DLLs from pinned NuGet packages. It then r
 | `crates/tests/libs/reactor_surface/src/generated_surface.rs` | Live projected API cases |
 
 `crates/tools/reactor/src/bindings.txt` contains the hand-maintained runtime binding filter.
-`control_bindings.txt` is generated from `winui.toml` and supplies control-specific entries.
+`control_bindings.txt` is generated from `winui.toml` and supplies control-specific entries. The
+filters name only APIs used by the runtime or live test hooks. Feedback events obtain values from
+their event payloads rather than generating property readers for the full schema.
+
+Bindings used only by the `test` feature are dead in a normal library build. The bindings module
+allows dead code only when that feature is disabled. Building with the feature removes the
+allowance, so the live self-test build checks the complete generated surface for unused callables.
 
 These Rust files are committed generated output. Do not edit them by hand. After changing
 `winui.toml`, the schema resolver, or either generator, run:

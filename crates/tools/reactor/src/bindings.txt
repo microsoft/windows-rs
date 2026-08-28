@@ -15,24 +15,24 @@ Microsoft::UI::Windowing::IAppWindow::{get_TitleBar, get_Presenter, get_Size, Se
 Microsoft::UI::Windowing::IAppWindowTitleBar2::put_PreferredHeightOption
 Microsoft::UI::Windowing::IAppWindowTitleBar3::put_PreferredTheme
 Microsoft::UI::Windowing::IOverlappedPresenter3::{put_PreferredMinimumWidth, put_PreferredMinimumHeight, put_PreferredMaximumWidth, put_PreferredMaximumHeight}
+Microsoft::UI::Windowing::TitleBarHeightOption::{Standard, Tall}
+Microsoft::UI::Windowing::TitleBarTheme::{UseDefaultAppMode, Light, Dark}
 Microsoft::UI::Xaml::Application::{CreateInstance, Current, Start}
 Microsoft::UI::Xaml::ApplicationInitializationCallback
 Microsoft::UI::Xaml::Automation::AutomationProperties::{SetAutomationId, SetHeadingLevel, SetName}
 Microsoft::UI::Xaml::Controls::Canvas::{LeftProperty, SetLeft, SetTop, TopProperty}
 Microsoft::UI::Xaml::Controls::ColumnDefinition::CreateInstance
-Microsoft::UI::Xaml::Controls::ColumnDefinitionCollection
+Microsoft::UI::Xaml::Controls::ColumnDefinitionCollection::{}
 Microsoft::UI::Xaml::Controls::CommandBarFlyout::CreateInstance
 Microsoft::UI::Xaml::Controls::ContentControl::CreateInstance
 Microsoft::UI::Xaml::Controls::Flyout::CreateInstance
-Microsoft::UI::Xaml::Controls::Grid::{ColumnProperty, ColumnSpanProperty, GetColumn, GetColumnSpan, GetRow, GetRowSpan, RowProperty, RowSpanProperty, SetColumn, SetColumnSpan, SetRow, SetRowSpan}
-Microsoft::UI::Xaml::Controls::IBorder::{get_Background, get_BorderBrush}
-Microsoft::UI::Xaml::Controls::IButton::{get_Flyout, put_Flyout}
-Microsoft::UI::Xaml::Controls::ICalendarDatePicker::{get_Date, put_Date}
-Microsoft::UI::Xaml::Controls::IColorPicker::{get_Color, put_Color}
+Microsoft::UI::Xaml::Controls::Grid::{ColumnProperty, ColumnSpanProperty, RowProperty, RowSpanProperty, SetColumn, SetColumnSpan, SetRow, SetRowSpan}
+Microsoft::UI::Xaml::Controls::IButton::put_Flyout
+Microsoft::UI::Xaml::Controls::ICalendarDatePicker::put_Date
 Microsoft::UI::Xaml::Controls::IColumnDefinition::{get_Width, put_Width}
 Microsoft::UI::Xaml::Controls::ICommandBarFlyout::{get_PrimaryCommands, get_SecondaryCommands}
 Microsoft::UI::Xaml::Controls::IContentDialog::{Hide, ShowAsync}
-Microsoft::UI::Xaml::Controls::IDatePicker::{get_SelectedDate, put_SelectedDate}
+Microsoft::UI::Xaml::Controls::IDatePicker::put_SelectedDate
 Microsoft::UI::Xaml::Controls::IFlyout::put_Content
 Microsoft::UI::Xaml::Controls::IGrid::{get_ColumnDefinitions, get_RowDefinitions}
 Microsoft::UI::Xaml::Controls::IItemsRepeater::{GetOrCreateElement, put_ItemsSource, put_ItemTemplate}
@@ -40,14 +40,15 @@ Microsoft::UI::Xaml::Controls::IMenuBarItem::get_Items
 Microsoft::UI::Xaml::Controls::IMenuFlyout::get_Items
 Microsoft::UI::Xaml::Controls::IMenuFlyoutItem::{put_Text, add_Click, remove_Click}
 Microsoft::UI::Xaml::Controls::IMenuFlyoutSubItem::{get_Items, put_Text}
+Microsoft::UI::Xaml::Controls::INumberBox::get_Value
 Microsoft::UI::Xaml::Controls::IRichEditBox::{get_Document, get_IsReadOnly}
 Microsoft::UI::Xaml::Controls::IRichTextBlock::get_Blocks
 Microsoft::UI::Xaml::Controls::IRowDefinition::{get_Height, put_Height}
-Microsoft::UI::Xaml::Controls::ISplitButton::{get_Flyout, put_Flyout}
-Microsoft::UI::Xaml::Controls::ISplitView::{get_CompactPaneLength, get_Content, get_DisplayMode, get_IsPaneOpen, get_OpenPaneLength, get_Pane}
+Microsoft::UI::Xaml::Controls::ISplitButton::put_Flyout
+Microsoft::UI::Xaml::Controls::ISplitView::get_IsPaneOpen
 Microsoft::UI::Xaml::Controls::ISwapChainPanel::{get_CompositionScaleX, get_CompositionScaleY, add_CompositionScaleChanged, remove_CompositionScaleChanged}
-Microsoft::UI::Xaml::Controls::ITeachingTip::{get_IsOpen, put_IsOpen}
-Microsoft::UI::Xaml::Controls::ITimePicker::{get_SelectedTime, put_SelectedTime}
+Microsoft::UI::Xaml::Controls::ITeachingTip::put_IsOpen
+Microsoft::UI::Xaml::Controls::ITimePicker::put_SelectedTime
 Microsoft::UI::Xaml::Controls::ITreeView::get_RootNodes
 Microsoft::UI::Xaml::Controls::ITreeViewNode::{get_Children, get_Content, put_Content, put_IsExpanded}
 Microsoft::UI::Xaml::Controls::IWebView2::{EnsureCoreWebView2Async, get_CoreWebView2, add_CoreWebView2Initialized, remove_CoreWebView2Initialized}
@@ -58,22 +59,24 @@ Microsoft::UI::Xaml::Controls::MenuFlyoutSeparator::CreateInstance
 Microsoft::UI::Xaml::Controls::MenuFlyoutSubItem::CreateInstance
 Microsoft::UI::Xaml::Controls::Primitives::FlyoutPlacementMode
 Microsoft::UI::Xaml::Controls::Primitives::IButtonBase::{add_Click, remove_Click}
-Microsoft::UI::Xaml::Controls::Primitives::IFlyoutBase::{get_Placement, put_Placement}
+Microsoft::UI::Xaml::Controls::Primitives::IFlyoutBase::put_Placement
+Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::get_Value
+Microsoft::UI::Xaml::Controls::Primitives::IToggleButton::get_IsChecked
 Microsoft::UI::Xaml::Controls::Primitives::PlacementMode
 Microsoft::UI::Xaml::Controls::RelativePanel::{AlignBottomWithPanelProperty, AlignHorizontalCenterWithPanelProperty, AlignLeftWithPanelProperty, AlignRightWithPanelProperty, AlignTopWithPanelProperty, AlignVerticalCenterWithPanelProperty, SetAlignBottomWithPanel, SetAlignHorizontalCenterWithPanel, SetAlignLeftWithPanel, SetAlignRightWithPanel, SetAlignTopWithPanel, SetAlignVerticalCenterWithPanel}
 Microsoft::UI::Xaml::Controls::RowDefinition::CreateInstance
-Microsoft::UI::Xaml::Controls::RowDefinitionCollection
-Microsoft::UI::Xaml::Controls::ToolTipService::{GetPlacement, GetToolTip, SetPlacement, SetToolTip}
+Microsoft::UI::Xaml::Controls::RowDefinitionCollection::{}
+Microsoft::UI::Xaml::Controls::ToolTipService::{SetPlacement, SetToolTip}
 Microsoft::UI::Xaml::Controls::TreeViewNode::CreateInstance
 Microsoft::UI::Xaml::Controls::XamlControlsResources::CreateInstance
-Microsoft::UI::Xaml::Documents::Block
+Microsoft::UI::Xaml::Documents::Block::{}
 Microsoft::UI::Xaml::Documents::Hyperlink::CreateInstance
 Microsoft::UI::Xaml::Documents::IHyperlink::put_NavigateUri
 Microsoft::UI::Xaml::Documents::IParagraph::get_Inlines
 Microsoft::UI::Xaml::Documents::IRun::put_Text
 Microsoft::UI::Xaml::Documents::ISpan::get_Inlines
 Microsoft::UI::Xaml::Documents::ITextElement::{put_FontStyle, put_FontWeight}
-Microsoft::UI::Xaml::Documents::Inline
+Microsoft::UI::Xaml::Documents::Inline::{}
 Microsoft::UI::Xaml::Documents::LineBreak::CreateInstance
 Microsoft::UI::Xaml::Documents::Paragraph::CreateInstance
 Microsoft::UI::Xaml::Documents::Run::CreateInstance
@@ -82,14 +85,14 @@ Microsoft::UI::Xaml::GridLength
 Microsoft::UI::Xaml::GridUnitType
 Microsoft::UI::Xaml::Hosting::ElementCompositionPreview::{GetElementVisual, SetElementChildVisual}
 Microsoft::UI::Xaml::IApplication::get_Resources
-Microsoft::UI::Xaml::IApplicationOverrides
+Microsoft::UI::Xaml::IApplicationOverrides::{}
 Microsoft::UI::Xaml::IDependencyObject::ClearValue
-Microsoft::UI::Xaml::IElementFactory
-Microsoft::UI::Xaml::IElementFactoryGetArgs::{get_Data, get_Parent}
-Microsoft::UI::Xaml::IElementFactoryRecycleArgs::{get_Element, get_Parent}
+Microsoft::UI::Xaml::IElementFactory::{}
+Microsoft::UI::Xaml::IElementFactoryGetArgs::get_Data
+Microsoft::UI::Xaml::IElementFactoryRecycleArgs::get_Element
 Microsoft::UI::Xaml::IFrameworkElement::{get_ActualTheme, get_Resources, put_RequestedTheme, put_Width, put_Height, put_MinWidth, put_MaxWidth, put_MinHeight, put_MaxHeight, put_HorizontalAlignment, put_VerticalAlignment, put_Margin}
 Microsoft::UI::Xaml::IFrameworkElement::{get_IsLoaded, get_ActualWidth, get_ActualHeight, add_ActualThemeChanged, remove_ActualThemeChanged, add_SizeChanged, remove_SizeChanged, add_Loaded, remove_Loaded}
-Microsoft::UI::Xaml::IFrameworkElement::{get_Style, put_Style}
+Microsoft::UI::Xaml::IFrameworkElement::put_Style
 Microsoft::UI::Xaml::IFrameworkElementStatics::{get_WidthProperty, get_HeightProperty, get_MinWidthProperty, get_MaxWidthProperty, get_MinHeightProperty, get_MaxHeightProperty, get_HorizontalAlignmentProperty, get_VerticalAlignmentProperty, get_MarginProperty}
 Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
 Microsoft::UI::Xaml::ISizeChangedEventArgs::get_NewSize
@@ -110,10 +113,9 @@ Microsoft::UI::Xaml::Markup::XmlnsDefinition
 Microsoft::UI::Xaml::Media::CompositionTarget::Rendering
 Microsoft::UI::Xaml::Media::DesktopAcrylicBackdrop::CreateInstance
 Microsoft::UI::Xaml::Media::IMicaBackdrop::put_Kind
-Microsoft::UI::Xaml::Media::ISolidColorBrush::get_Color
 Microsoft::UI::Xaml::Media::MicaBackdrop::CreateInstance
 Microsoft::UI::Xaml::Style
-Microsoft::UI::Xaml::UIElement
+Microsoft::UI::Xaml::UIElement::{}
 Microsoft::UI::Xaml::Window::CreateInstance
 Microsoft::UI::Xaml::XamlTypeInfo::XamlControlsXamlMetaDataProvider::CreateInstance
 Windows::Graphics::SizeInt32

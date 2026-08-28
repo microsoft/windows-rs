@@ -15,7 +15,12 @@ pub struct TypeClosure;
 impl TypeClosure {
     /// Build the closure and add include rules for discovered types.
     #[track_caller]
-    pub fn build(reader: &Reader, filter: &mut Filter, references: &References) -> TypeMap {
+    pub fn build(
+        reader: &Reader,
+        filter: &mut Filter,
+        references: &References,
+        implements: Option<&Implements>,
+    ) -> TypeMap {
         let mut types = TypeMap::new();
 
         // Interface method seeds pull in only the requested signatures.
@@ -24,18 +29,12 @@ impl TypeClosure {
                 types.insert(ty.clone());
 
                 if let Type::Interface(iface) = &ty {
-                    for required in iface.required_interfaces(reader) {
-                        let req_tn = Type::Interface(required.clone()).type_name();
-                        if references.contains(req_tn).is_some() {
-                            for g in &required.generics {
-                                g.combine_closure(&mut types, reader, references);
-                            }
-                            continue;
+                    if filter.includes_full_hierarchy(namespace, name) {
+                        for required in iface.required_interfaces(reader) {
+                            Type::Interface(required.clone())
+                                .combine_closure(&mut types, reader, references);
                         }
-                        types.insert(Type::Interface(required.clone()));
-                        Type::Object.combine_closure(&mut types, reader, references);
                     }
-
                     for method in iface.def.methods() {
                         if method_included_by_set(method, method_set) {
                             let sig = method.method_signature(&iface.generics, reader);
@@ -64,6 +63,18 @@ impl TypeClosure {
             for ty in reader.with_full_name(namespace, name) {
                 ty.combine_closure(&mut types, reader, references);
                 types.insert(ty.clone());
+
+                if let Type::Interface(interface) = &ty
+                    && implements
+                        .is_some_and(|implements| implements.matches(interface.type_name()))
+                {
+                    for method in interface.def.methods() {
+                        let sig = method.method_signature(&interface.generics, reader);
+                        for dep_ty in sig.types() {
+                            dep_ty.combine_closure(&mut types, reader, references);
+                        }
+                    }
+                }
 
                 // Unscoped enum variants are standalone constants; include the requested set explicitly.
                 if let Type::CppEnum(e) = &ty

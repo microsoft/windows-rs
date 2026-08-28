@@ -22,7 +22,8 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
         match control.role {
             Role::Children => {
                 entries.insert("Microsoft::UI::Xaml::Controls::IPanel::Children".to_string());
-                entries.insert("Microsoft::UI::Xaml::Controls::UIElementCollection".to_string());
+                entries
+                    .insert("Microsoft::UI::Xaml::Controls::UIElementCollection::{}".to_string());
             }
             Role::Leaf | Role::Content | Role::Slots | Role::Virtual => {}
         }
@@ -126,13 +127,6 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                     property.name
                 ));
             }
-            if property.observes_feedback {
-                entries.insert(format!(
-                    "{}::get_{}",
-                    filter_path(&property.interface),
-                    property.name
-                ));
-            }
             if !matches!(
                 property.adapter,
                 Some(
@@ -166,16 +160,12 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
             }
             if property.adapter == Some(PropertyAdapter::ImageUri) {
                 entries.insert("Windows::Foundation::Uri::CreateUri".to_string());
-                entries
-                    .insert("Windows::Foundation::IUriRuntimeClass::get_AbsoluteUri".to_string());
                 entries.insert("Microsoft::UI::Xaml::Media::ImageSource".to_string());
                 entries.insert(
                     "Microsoft::UI::Xaml::Media::Imaging::BitmapImage::CreateInstance".to_string(),
                 );
                 entries.insert(
-                    "Microsoft::UI::Xaml::Media::Imaging::IBitmapImage::{\
-                     get_UriSource, put_UriSource}"
-                        .to_string(),
+                    "Microsoft::UI::Xaml::Media::Imaging::IBitmapImage::put_UriSource".to_string(),
                 );
                 entries.insert(
                     "Microsoft::UI::Xaml::Media::Imaging::IBitmapSource::SetSourceAsync"
@@ -189,7 +179,6 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                     "Microsoft::UI::Xaml::Media::Imaging::ISvgImageSource::put_UriSource"
                         .to_string(),
                 );
-                entries.insert("Microsoft::UI::Xaml::Controls::IImage::get_Source".to_string());
                 entries.insert(
                     "Windows::Storage::Streams::InMemoryRandomAccessStream::CreateInstance"
                         .to_string(),
@@ -404,13 +393,6 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             .iter()
             .filter(|property| property.clearable)
             .map(move |property| generate_clear_property(control, property))
-    });
-    let read_properties = schema.controls.iter().flat_map(|control| {
-        control
-            .properties
-            .iter()
-            .filter(|property| property.observes_feedback)
-            .map(move |property| generate_read_property(control, property))
     });
     let events = schema.controls.iter().flat_map(|control| {
         control
@@ -777,17 +759,6 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             let dependency_object = handle.dependency_object().map_err(native_error)?;
             match (handle, property) {
                 #(#clear_properties,)*
-                _ => Err(RuntimeError::UnsupportedKind),
-            }
-        }
-
-        #[cfg(feature = "test")]
-        pub fn read_property(
-            handle: &Handle,
-            property: PropertyId,
-        ) -> Result<PropertyValue, RuntimeError> {
-            match (handle, property) {
-                #(#read_properties,)*
                 _ => Err(RuntimeError::UnsupportedKind),
             }
         }
@@ -2279,169 +2250,6 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
             PropertyId::#property_id,
             PropertyValue::#value_variant(value),
         ) => #set
-    }
-}
-
-fn generate_read_property(control: &ResolvedControl, property: &ResolvedProperty) -> TokenStream {
-    let control_name = ident(&control.name);
-    let property_id = ident(&format!("{}{}", control.name, property.name));
-    let value_variant = ident(&property.value);
-    let interface = path_ident(&property.interface);
-    let getter = ident(&property.name);
-    if property.adapter == Some(PropertyAdapter::FontWeight) {
-        return quote! {
-            (Handle::#control_name(control), PropertyId::#property_id) => {
-                let value = control
-                    .cast::<#interface>()
-                    .and_then(|control| control.#getter())
-                    .map_err(native_error)?;
-                let value = crate::FontWeight::new(value.weight)
-                    .ok_or(RuntimeError::UnsupportedKind)?;
-                Ok(PropertyValue::FontWeight(value))
-            }
-        };
-    }
-    if property.adapter == Some(PropertyAdapter::SelectionIndex) {
-        return quote! {
-            (Handle::#control_name(control), PropertyId::#property_id) => {
-                let value = control
-                    .cast::<#interface>()
-                    .and_then(|control| control.#getter())
-                    .map_err(native_error)?;
-                let value = selection_index(value)?;
-                Ok(PropertyValue::SelectionIndex(value))
-            }
-        };
-    }
-    if matches!(
-        property.adapter,
-        Some(PropertyAdapter::NumberBoxValue | PropertyAdapter::RatingValue)
-    ) {
-        let conversion = if property.adapter == Some(PropertyAdapter::NumberBoxValue) {
-            quote! { number_box_value(value) }
-        } else {
-            quote! { rating_value(value) }
-        };
-        return quote! {
-            (Handle::#control_name(control), PropertyId::#property_id) => control
-                .cast::<#interface>()
-                .and_then(|control| control.#getter())
-                .map(|value| PropertyValue::OptionalF64(#conversion))
-                .map_err(native_error)
-        };
-    }
-    if matches!(
-        property.adapter,
-        Some(
-            PropertyAdapter::ImplicitOpacityTransition
-                | PropertyAdapter::ImplicitScale
-                | PropertyAdapter::ImplicitScaleTransition
-        )
-    ) {
-        return quote! {
-            (Handle::#control_name(_), PropertyId::#property_id) => {
-                Err(RuntimeError::UnsupportedKind)
-            }
-        };
-    }
-    if property.value == "Color" {
-        return quote! {
-            (Handle::#control_name(control), PropertyId::#property_id) => control
-                .cast::<#interface>()
-                .and_then(|control| control.#getter())
-                .map(|value| PropertyValue::Color(crate::Color {
-                    a: value.a,
-                    r: value.r,
-                    g: value.g,
-                    b: value.b,
-                }))
-                .map_err(native_error)
-        };
-    }
-    if property.adapter == Some(PropertyAdapter::RichEditText) {
-        return quote! {
-            (Handle::#control_name(control), PropertyId::#property_id) => control
-                .Document()
-                .and_then(|document| {
-                    let mut value = windows_core::HSTRING::new();
-                    document.GetText(bindings::TextGetOptions::None, &mut value)?;
-                    Ok(PropertyValue::Str(value.to_string_lossy()))
-                })
-                .map_err(native_error)
-        };
-    }
-    if property.adapter == Some(PropertyAdapter::PointerCapture) {
-        return quote! {
-            (Handle::#control_name(_), PropertyId::#property_id) => {
-                Err(RuntimeError::UnsupportedKind)
-            }
-        };
-    }
-    if property.adapter == Some(PropertyAdapter::DropPolicy) {
-        return quote! {
-            (Handle::#control_name(_), PropertyId::#property_id) => {
-                Err(RuntimeError::UnsupportedKind)
-            }
-        };
-    }
-    if property.adapter == Some(PropertyAdapter::ResourceOverrides) {
-        return quote! {
-            (Handle::#control_name(_), PropertyId::#property_id) => {
-                Err(RuntimeError::UnsupportedKind)
-            }
-        };
-    }
-    if property.adapter == Some(PropertyAdapter::KeyAccelerators) {
-        return quote! {
-            (Handle::#control_name(_), PropertyId::#property_id) => {
-                Err(RuntimeError::UnsupportedKind)
-            }
-        };
-    }
-    if property.adapter == Some(PropertyAdapter::RichTextBlocks) {
-        return quote! {
-            (Handle::#control_name(_), PropertyId::#property_id) => {
-                Err(RuntimeError::UnsupportedKind)
-            }
-        };
-    }
-    if !property.enum_variants.is_empty() {
-        let value_type = path_ident(&property.value);
-        let variants = property.enum_variants.iter().map(|variant| {
-            let variant = ident(variant);
-            quote! {
-                bindings::#value_type::#variant => crate::#value_type::#variant
-            }
-        });
-        return quote! {
-            (Handle::#control_name(control), PropertyId::#property_id) => {
-                let value = control
-                    .cast::<#interface>()
-                    .and_then(|control| control.#getter())
-                    .map_err(native_error)?;
-                Ok(PropertyValue::#value_variant(match value {
-                    #(#variants),*,
-                    _ => return Err(RuntimeError::UnsupportedKind),
-                }))
-            }
-        };
-    }
-    if let Some((_, field)) = &property.native_wrapper {
-        let field = ident(field);
-        return quote! {
-            (Handle::#control_name(control), PropertyId::#property_id) => control
-                .cast::<#interface>()
-                .and_then(|control| control.#getter())
-                .map(|value| PropertyValue::#value_variant(value.#field))
-                .map_err(native_error)
-        };
-    }
-    quote! {
-        (Handle::#control_name(control), PropertyId::#property_id) => control
-            .cast::<#interface>()
-            .and_then(|control| control.#getter())
-            .map(PropertyValue::#value_variant)
-            .map_err(native_error)
     }
 }
 
