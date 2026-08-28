@@ -316,6 +316,7 @@ Microsoft::UI::Xaml::Controls::IToggleSwitch::{add_Toggled, remove_Toggled}
 Microsoft::UI::Xaml::Controls::ITreeView::put_SelectionMode
 Microsoft::UI::Xaml::Controls::ITreeView::{add_ItemInvoked, remove_ItemInvoked}
 Microsoft::UI::Xaml::Controls::ITreeViewItemInvokedEventArgs::get_InvokedItem
+Microsoft::UI::Xaml::Controls::IUIElementCollection::Move
 Microsoft::UI::Xaml::Controls::IVariableSizedWrapGrid::put_ItemHeight
 Microsoft::UI::Xaml::Controls::IVariableSizedWrapGrid::put_ItemWidth
 Microsoft::UI::Xaml::Controls::IVariableSizedWrapGrid::put_Orientation

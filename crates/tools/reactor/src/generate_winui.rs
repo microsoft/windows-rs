@@ -24,6 +24,9 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                 entries.insert("Microsoft::UI::Xaml::Controls::IPanel::Children".to_string());
                 entries
                     .insert("Microsoft::UI::Xaml::Controls::UIElementCollection::{}".to_string());
+                entries.insert(
+                    "Microsoft::UI::Xaml::Controls::IUIElementCollection::Move".to_string(),
+                );
             }
             Role::Leaf | Role::Content | Role::Slots | Role::Virtual => {}
         }

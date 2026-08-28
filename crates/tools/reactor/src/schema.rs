@@ -402,7 +402,21 @@ impl Schema {
             };
 
             let content = if matches!(role, Role::Content) {
-                let content = control.content.as_deref().unwrap_or("Content");
+                let metadata_content =
+                    metadata
+                        .content_property(&control.type_name)
+                        .ok_or_else(|| {
+                            format!("{} has no metadata content property", control.type_name)
+                        })?;
+                if let Some(content) = control.content.as_deref()
+                    && content != metadata_content
+                {
+                    return Err(format!(
+                        "{} content property {} does not match metadata property {}",
+                        control.type_name, content, metadata_content
+                    ));
+                }
+                let content = metadata_content.as_str();
                 let method = format!("put_{content}");
                 let interface = metadata.resolve(&name, &method).ok_or_else(|| {
                     format!(
@@ -2307,7 +2321,7 @@ name = "Header"
     fn rejects_structural_role_not_supported_by_metadata() {
         let source = r#"
 [[control]]
-type = "Microsoft.UI.Xaml.Controls.Viewbox"
+type = "Microsoft.UI.Xaml.Controls.StackPanel"
 capabilities = ["layout", "content"]
 "#;
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));

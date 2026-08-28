@@ -67,11 +67,7 @@ impl VirtualHandle {
     pub fn reset(&self, item_count: usize, source_revision: u64) -> Result<()> {
         let values = item_values(item_count)?;
         self.source_revision.set(source_revision);
-        self.source.Clear()?;
-        for value in values {
-            self.source.Append(value.as_ref())?;
-        }
-        Ok(())
+        self.source.ReplaceAll(&values)
     }
 
     pub fn set_content(
@@ -311,6 +307,8 @@ impl IElementFactory_Impl for ReactorElementFactory_Impl {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::sync::Arc;
+    use std::sync::atomic::{AtomicUsize, Ordering};
 
     #[test]
     fn every_shell_lifetime_gets_a_fresh_token() {
@@ -361,5 +359,22 @@ mod tests {
 
         let (live, _) = shells.take(|| Ok(43)).unwrap();
         assert!(shells.acknowledge_recycle(live).is_err());
+    }
+
+    #[test]
+    fn replacing_virtual_items_raises_one_source_change() {
+        let source: windows_collections::IObservableVector<IInspectable> =
+            item_values(2).unwrap().into();
+        let changes = Arc::new(AtomicUsize::new(0));
+        let observed = Arc::clone(&changes);
+        let _changed = source
+            .VectorChanged(move |_, _| {
+                observed.fetch_add(1, Ordering::Relaxed);
+            })
+            .unwrap();
+
+        source.ReplaceAll(&item_values(100).unwrap()).unwrap();
+
+        assert_eq!(changes.load(Ordering::Relaxed), 1);
     }
 }

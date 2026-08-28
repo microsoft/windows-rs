@@ -5,8 +5,8 @@
 use std::collections::HashMap;
 use std::path::Path;
 
-use windows_metadata::Type;
 use windows_metadata::reader::{File, Index, TypeCategory, TypeDef, TypeDefOrRef};
+use windows_metadata::{HasAttributes, Type, Value};
 
 /// Resolved interface location: namespace + name.
 #[derive(Clone, Debug)]
@@ -72,6 +72,7 @@ pub struct MetadataResolver {
     /// Non-generic delegate → args class short name, resolved from the
     /// delegate's `Invoke` method signature.
     delegate_args: HashMap<String, String>,
+    content_properties: HashMap<(String, String), String>,
 }
 
 impl MetadataResolver {
@@ -108,6 +109,7 @@ impl MetadataResolver {
         let mut lookup = HashMap::new();
         let mut interface_owners = HashMap::new();
         let mut base_classes = HashMap::new();
+        let mut content_properties = HashMap::new();
 
         // Walk all types in the index, collecting method→interface for classes
         // in Microsoft.UI.Xaml namespaces.
@@ -128,6 +130,22 @@ impl MetadataResolver {
                     if let Some(base) = base {
                         base_classes.insert((namespace.to_string(), name.to_string()), base);
                     }
+                }
+                if let Some(content) =
+                    typedef
+                        .find_attribute("ContentPropertyAttribute")
+                        .and_then(|attribute| {
+                            attribute.value().into_iter().find_map(|(name, value)| {
+                                (name == "Name")
+                                    .then_some(value)
+                                    .and_then(|value| match value {
+                                        Value::Utf8(value) => Some(value),
+                                        _ => None,
+                                    })
+                            })
+                        })
+                {
+                    content_properties.insert((namespace.to_string(), name.to_string()), content);
                 }
                 for implementation in typedef.interface_impls() {
                     let interface = implementation.interface(&[]);
@@ -231,6 +249,7 @@ impl MetadataResolver {
             single_field_types,
             enum_variants,
             delegate_args,
+            content_properties,
         }
     }
 
@@ -249,6 +268,17 @@ impl MetadataResolver {
             current.clone_from(parent);
         }
         false
+    }
+
+    pub fn content_property(&self, class: &str) -> Option<String> {
+        let (namespace, name) = class.rsplit_once('.')?;
+        let mut current = (namespace.to_string(), name.to_string());
+        loop {
+            if let Some(content) = self.content_properties.get(&current) {
+                return Some(content.clone());
+            }
+            current = self.base_classes.get(&current)?.clone();
+        }
     }
 
     /// Walk a class's interface hierarchy and record every `put_*` / `get_*` /
@@ -845,6 +875,24 @@ mod tests {
                 .return_vector_element_class_name("SelectorBar", "get_Items")
                 .as_deref(),
             Some("Microsoft.UI.Xaml.Controls.SelectorBarItem")
+        );
+    }
+
+    #[test]
+    fn resolves_inherited_content_properties() {
+        let resolver = MetadataResolver::load(Path::new("winmd"));
+
+        assert_eq!(
+            resolver.content_property("Microsoft.UI.Xaml.Controls.Border"),
+            Some("Child".to_string())
+        );
+        assert_eq!(
+            resolver.content_property("Microsoft.UI.Xaml.Controls.Button"),
+            Some("Content".to_string())
+        );
+        assert_eq!(
+            resolver.content_property("Microsoft.UI.Xaml.Controls.TextBlock"),
+            Some("Inlines".to_string())
         );
     }
 
