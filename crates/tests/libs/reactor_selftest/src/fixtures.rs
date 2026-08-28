@@ -681,12 +681,15 @@ pub(crate) enum ImageMessage {
 
 pub(crate) enum EncodedImageMessage {
     Advance(u8),
+    AwaitOverride,
+    NativeCleared(Result<(), ImageSourceError>),
     Opened(u8),
     Failed(u8),
 }
 
 pub(crate) struct EncodedImageLifecycle {
     error: Option<&'static str>,
+    image: ElementRef<Image>,
     stage: u8,
 }
 
@@ -697,12 +700,31 @@ impl Component for EncodedImageLifecycle {
     fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
         Self {
             error: None,
+            image: ElementRef::new(),
             stage: 0,
         }
     }
 
-    fn update(&mut self, message: Self::Message, _context: &ComponentContext<Self>) {
+    fn update(&mut self, message: Self::Message, context: &ComponentContext<Self>) {
         match message {
+            EncodedImageMessage::NativeCleared(Ok(())) if self.stage == 0 => {
+                context.spawn_background(|_| {
+                    std::thread::sleep(Duration::from_millis(250));
+                    EncodedImageMessage::AwaitOverride
+                });
+            }
+            EncodedImageMessage::AwaitOverride if self.stage == 0 => {
+                self.stage = 1;
+            }
+            EncodedImageMessage::NativeCleared(Err(_)) => {
+                self.error = Some("native image source clear failed");
+            }
+            EncodedImageMessage::NativeCleared(Ok(())) => {
+                self.error = Some("received an unexpected native image source completion");
+            }
+            EncodedImageMessage::AwaitOverride => {
+                self.error = Some("received an unexpected native image source wait");
+            }
             EncodedImageMessage::Advance(stage) if stage == self.stage => {
                 self.stage += 1;
             }
@@ -746,7 +768,19 @@ impl Component for EncodedImageLifecycle {
             return TextBlock::new().text("encoded image complete").into();
         }
 
-        if matches!(self.stage, 0 | 3) {
+        if self.stage == 0 {
+            let image = self.image.clone();
+            let sender = context.sender();
+            context.use_effect("override-encoded-image", (), move || {
+                if !image.request_set_native_source(None, move |result| {
+                    sender.send(EncodedImageMessage::NativeCleared(result));
+                }) {
+                    eprintln!("native image source clear was rejected");
+                    std::process::exit(1);
+                }
+                None
+            });
+        } else if self.stage == 3 {
             let stage = self.stage;
             let sender = context.sender();
             context.use_effect("advance-encoded-image", stage, move || {
@@ -770,6 +804,7 @@ impl Component for EncodedImageLifecycle {
         let stage = self.stage;
         Image::new()
             .source_data(source)
+            .element_ref(&self.image)
             .on_opened(context.callback(move |()| EncodedImageMessage::Opened(stage)))
             .on_failed(context.callback(move |()| EncodedImageMessage::Failed(stage)))
             .width(64.0)

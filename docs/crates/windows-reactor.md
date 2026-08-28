@@ -98,6 +98,10 @@ decoding runs asynchronously on the native runtime. Replacing or clearing the so
 node, and resetting the runtime cancel pending work. Late completions are rejected by the window
 identity and native async ticket.
 
+A native source accepted by `ElementRef<Image>::request_set_native_source` ends encoded-source
+ownership and cancels any pending encoded load. A successfully assigned native source remains
+authoritative until the declarative source changes.
+
 `Image::on_opened` and `Image::on_failed` report URI load events and completion of encoded loads.
 Malformed encoded data produces `on_failed` when a failure callback is registered. `ImageIcon`
 does not expose image-load events, matching the underlying WinUI control. Failures while

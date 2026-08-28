@@ -1703,19 +1703,21 @@ impl WinUiRuntime {
                 source,
                 completion,
             } => {
-                let result = match self.handles.get(node) {
-                    Some(Handle::Image(control)) => {
-                        let source = source
-                            .as_ref()
-                            .map(|source| source.cast::<ImageSource>().map_err(native_error))
-                            .transpose();
-                        source.and_then(|source| {
-                            control.SetSource(source.as_ref()).map_err(native_error)
-                        })
-                    }
+                let control = match self.handles.get(node) {
+                    Some(Handle::Image(control)) => Ok(control.clone()),
                     Some(_) => Err(RuntimeError::UnsupportedKind),
                     None => Err(RuntimeError::MissingNode(*node)),
                 };
+                let source = source
+                    .as_ref()
+                    .map(|source| source.cast::<ImageSource>().map_err(native_error))
+                    .transpose();
+                let result = control.and_then(|control| {
+                    source.and_then(|source| {
+                        self.release_encoded_image_source(*node);
+                        control.SetSource(source.as_ref()).map_err(native_error)
+                    })
+                });
                 _ = completion.call(result);
             }
             Command::ObserveImageScale {
@@ -1882,8 +1884,7 @@ impl WinUiRuntime {
                     property,
                     PropertyId::ImageSource | PropertyId::ImageIconSource
                 ) {
-                    self.cancel_image_decode(*node);
-                    self.purge_image_events(*node);
+                    self.release_encoded_image_source(*node);
                     if let PropertyValue::EncodedImage(value) = value {
                         self.encoded_image_nodes.borrow_mut().insert(*node);
                         let handle = self
@@ -1896,7 +1897,6 @@ impl WinUiRuntime {
                         }
                         return Ok(());
                     }
-                    self.encoded_image_nodes.borrow_mut().remove(node);
                 }
                 if matches!(
                     property,
@@ -2021,9 +2021,7 @@ impl WinUiRuntime {
                     property,
                     PropertyId::ImageSource | PropertyId::ImageIconSource
                 ) {
-                    self.cancel_image_decode(*node);
-                    self.purge_image_events(*node);
-                    self.encoded_image_nodes.borrow_mut().remove(node);
+                    self.release_encoded_image_source(*node);
                 }
                 if matches!(
                     property,
@@ -3763,15 +3761,44 @@ fn child_index(
 #[cfg(test)]
 mod tests {
     use super::{
-        AsyncIngressQueue, AsyncIngressSender, Command, DroppedData, NodeId, RuntimeError, SlotId,
-        WindowId, WindowToken, is_internal_detach, merge_retained_identities,
-        native_number_box_value, native_rating_value, native_selection_index, number_box_value,
-        physical_retained_index, rating_value, retained_subsequence, selection_index,
+        AsyncIngressQueue, AsyncIngressSender, Command, DroppedData, NodeId, PendingAsync,
+        RuntimeError, SlotId, WinUiRuntime, WindowId, WindowToken, is_internal_detach,
+        merge_retained_identities, native_number_box_value, native_rating_value,
+        native_selection_index, number_box_value, physical_retained_index, rating_value,
+        retained_subsequence, selection_index,
     };
+    use std::cell::Cell;
     use std::collections::HashSet;
     use std::marker::PhantomData;
+    use std::rc::Rc;
     use std::sync::atomic::{AtomicUsize, Ordering};
     use std::sync::{Arc, Mutex};
+
+    #[test]
+    fn releasing_encoded_image_source_cancels_pending_decode_and_ownership() {
+        let node = NodeId::from_parts(1, 0);
+        let ticket = 7;
+        let canceled = Rc::new(Cell::new(false));
+        let canceled_capture = Rc::clone(&canceled);
+        let mut runtime = WinUiRuntime::default();
+        runtime.encoded_image_nodes.borrow_mut().insert(node);
+        runtime.image_decode_tickets.insert(node, ticket);
+        runtime.async_state.borrow_mut().pending.insert(
+            ticket,
+            PendingAsync {
+                node,
+                cancel: Box::new(move || canceled_capture.set(true)),
+                finalize: Box::new(|_, _| {}),
+            },
+        );
+
+        runtime.release_encoded_image_source(node);
+
+        assert!(canceled.get());
+        assert!(!runtime.encoded_image_nodes.borrow().contains(&node));
+        assert!(!runtime.image_decode_tickets.contains_key(&node));
+        assert!(!runtime.async_state.borrow().pending.contains_key(&ticket));
+    }
 
     #[test]
     fn skips_only_internal_detaches_for_destroyed_subtrees() {
@@ -4313,6 +4340,12 @@ impl WinUiRuntime {
         }
     }
 
+    fn release_encoded_image_source(&mut self, node: NodeId) {
+        self.cancel_image_decode(node);
+        self.purge_image_events(node);
+        self.encoded_image_nodes.borrow_mut().remove(&node);
+    }
+
     fn report_image_decode_error(&mut self, error: RuntimeError) {
         let Some(identity) = self.identity.get() else {
             return;
@@ -4469,9 +4502,7 @@ impl WinUiRuntime {
     }
 
     fn remove_node_state(&mut self, node: NodeId) -> Result<(), RuntimeError> {
-        self.cancel_image_decode(node);
-        self.encoded_image_nodes.borrow_mut().remove(&node);
-        self.purge_image_events(node);
+        self.release_encoded_image_source(node);
         self.subscriptions
             .retain(|(subscription_node, _), _| *subscription_node != node);
         self.cancel_async_for_node(node);
