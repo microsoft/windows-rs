@@ -28,7 +28,7 @@ pub(super) struct ComponentChanges {
     pub(super) composed: HashSet<ComponentToken>,
     pub(super) context_reads: HashMap<ComponentToken, HashSet<ContextDependency>>,
     pub(super) deferred: HashSet<ComponentToken>,
-    pub(super) retry: HashSet<ComponentToken>,
+    pub(super) recompose: HashSet<ComponentToken>,
     pub(super) reserved: Vec<ComponentToken>,
     pub(super) retired: Vec<ComponentToken>,
     pub(super) touched: HashSet<ComponentToken>,
@@ -38,7 +38,7 @@ pub(super) struct ComponentChanges {
 #[derive(Clone, Copy)]
 pub(super) enum CandidateFailureStage {
     PlanningDiscard,
-    PlanningRetry,
+    PlanningRearm,
     EffectPreparation,
     NativeApply,
     Publication,

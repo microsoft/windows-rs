@@ -73,6 +73,7 @@ pub fn schedule_live_window_handle(
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum LiveProbe {
+    ContentDialogLifecycle,
     ControlledFeedback,
     EventDelivery,
     EventRevokers,
@@ -86,17 +87,14 @@ pub fn schedule_live_probe(
     let verify_dispatcher = dispatcher.clone();
     let completion: Rc<dyn Fn(Result<(), String>)> = Rc::new(completion);
     let handler = DispatcherQueueHandler::new(move || {
-        if probe == LiveProbe::EventDelivery {
-            let result = HOST.with(|host| {
-                host.borrow_mut()
-                    .as_mut()
-                    .and_then(LiveHost::secondary_mut)
-                    .ok_or_else(|| "live probe window is unavailable".to_string())?
-                    .live_event_delivery_step()
-            });
+        if matches!(
+            probe,
+            LiveProbe::ContentDialogLifecycle | LiveProbe::EventDelivery
+        ) {
+            let result = live_staged_probe_step(probe);
             match result {
                 Ok(true) => finish_live_probe(probe, Ok(()), Rc::clone(&completion)),
-                Ok(false) => continue_live_event_delivery(
+                Ok(false) => continue_live_staged_probe(
                     verify_dispatcher.clone(),
                     probe,
                     Rc::clone(&completion),
@@ -111,6 +109,7 @@ pub fn schedule_live_probe(
                 return Err("live probe window is unavailable".to_string());
             };
             let passed = match probe {
+                LiveProbe::ContentDialogLifecycle => unreachable!(),
                 LiveProbe::ControlledFeedback => live.live_controlled_feedback_start(),
                 LiveProbe::EventDelivery => unreachable!(),
                 LiveProbe::EventRevokers => live.live_event_revokers(),
@@ -176,7 +175,22 @@ pub fn schedule_live_probe(
     }
 }
 
-fn continue_live_event_delivery(
+fn live_staged_probe_step(probe: LiveProbe) -> Result<bool, String> {
+    HOST.with(|host| {
+        let mut host = host.borrow_mut();
+        let live = host
+            .as_mut()
+            .and_then(LiveHost::secondary_mut)
+            .ok_or_else(|| "live probe window is unavailable".to_string())?;
+        match probe {
+            LiveProbe::ContentDialogLifecycle => live.live_content_dialog_lifecycle_step(),
+            LiveProbe::EventDelivery => live.live_event_delivery_step(),
+            _ => Err(format!("{probe:?} is not a staged probe")),
+        }
+    })
+}
+
+fn continue_live_staged_probe(
     dispatcher: DispatcherQueue,
     probe: LiveProbe,
     completion: Rc<dyn Fn(Result<(), String>)>,
@@ -184,16 +198,10 @@ fn continue_live_event_delivery(
     let next_dispatcher = dispatcher.clone();
     let next_completion = Rc::clone(&completion);
     let step = move || {
-        let result = HOST.with(|host| {
-            host.borrow_mut()
-                .as_mut()
-                .and_then(LiveHost::secondary_mut)
-                .ok_or_else(|| "live probe window is unavailable".to_string())?
-                .live_event_delivery_step()
-        });
+        let result = live_staged_probe_step(probe);
         match result {
             Ok(true) => finish_live_probe(probe, Ok(()), Rc::clone(&next_completion)),
-            Ok(false) => continue_live_event_delivery(
+            Ok(false) => continue_live_staged_probe(
                 next_dispatcher.clone(),
                 probe,
                 Rc::clone(&next_completion),

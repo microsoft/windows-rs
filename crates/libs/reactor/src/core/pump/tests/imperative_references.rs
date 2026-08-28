@@ -973,7 +973,7 @@ impl Component for PropReference {
 }
 
 #[test]
-fn duplicate_reference_retry_recomposes_staged_component_input() {
+fn duplicate_reference_recomposes_staged_component_input() {
     let shared = ElementRef::<TextBox>::new();
     let mut owner = Pump::new(RecordingRuntime::default());
     owner

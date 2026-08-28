@@ -278,7 +278,7 @@ impl<R: NativeRuntime> Pump<R> {
             ..UpdatePlan::new(self.identity)
         };
         let mut changes = ComponentChanges {
-            retry: self.planning_dirty.clone(),
+            recompose: self.planning_dirty.clone(),
             ..ComponentChanges::default()
         };
         if let Err(error) = Self::reconcile_planned_view(
@@ -289,18 +289,18 @@ impl<R: NativeRuntime> Pump<R> {
             &mut changes,
             &mut plan,
         ) {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
+            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
             return Err(error);
         }
         let window = self.window.ok_or(PumpError::NotMounted)?;
         let candidate_root = match candidate.children(window) {
             Ok([candidate_root]) => *candidate_root,
             Ok(_) => {
-                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
+                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
                 return Err(PumpError::StructureUnsupported);
             }
             Err(error) => {
-                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
+                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
                 return Err(error.into());
             }
         };
@@ -660,21 +660,21 @@ impl<R: NativeRuntime> Pump<R> {
     ) -> Result<(), PumpError> {
         let window = self.window.ok_or(PumpError::NotMounted)?;
         if let Err(error) = Self::plan_window_title_bar(window, &self.tree, &candidate, &mut plan) {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
+            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
             return Err(error);
         }
         if let Err(error) = Self::plan_window_title(window, &self.tree, &candidate, &mut plan) {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
+            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
             return Err(error);
         }
         if let Err(error) = Self::plan_window_visuals(window, &self.tree, &candidate, &mut plan) {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
+            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
             return Err(error);
         }
         if let Err(error) =
             Self::plan_window_observations(window, &self.tree, &candidate, &mut plan)
         {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRetry);
+            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
             return Err(error);
         }
         Self::plan_host_requests(window, &mut changes.host_requests, &mut plan);
@@ -692,7 +692,7 @@ impl<R: NativeRuntime> Pump<R> {
             plan,
             FrontendChanges::Component(changes),
             next_version,
-            CandidateFailureStage::PlanningRetry,
+            CandidateFailureStage::PlanningRearm,
         )?;
         self.planning_dirty
             .retain(|token| !resolved.contains(token));
