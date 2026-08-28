@@ -319,6 +319,62 @@ fn dense_keyed_reorder_synchronizes_without_recreating_children() {
 }
 
 #[test]
+fn dense_keyed_removal_uses_retirement_without_synchronization() {
+    let labels = (0..512).map(|index| index.to_string()).collect::<Vec<_>>();
+    let element = |labels: &[String]| {
+        StackPanel::new()
+            .native_children(
+                labels
+                    .iter()
+                    .map(|label| KeyedElement::new(label.clone(), TextBlock::new().text(label))),
+            )
+            .into()
+    };
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount(element(&labels)).unwrap();
+    let root = pump.root().unwrap();
+
+    pump.update(element(&labels[..112])).unwrap();
+
+    assert!(
+        !pump.runtime().commands()[1]
+            .iter()
+            .any(|command| matches!(command, Command::SynchronizeChildren { .. }))
+    );
+    assert_eq!(
+        pump.runtime().node(root).unwrap().children(),
+        pump.tree.children(root).unwrap()
+    );
+}
+
+#[test]
+fn dense_keyed_view_removal_uses_retirement_without_synchronization() {
+    let labels = (0..512).map(|index| index.to_string()).collect::<Vec<_>>();
+    let view = |labels: &[String]| {
+        StackPanel::new().keyed_children(
+            labels
+                .iter()
+                .map(|label| KeyedView::new(label.clone(), TextBlock::new().text(label))),
+        )
+    };
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(view(&labels)).unwrap();
+    let root = pump.root().unwrap();
+
+    pump.update_view(view(&labels[..112])).unwrap();
+
+    assert!(
+        !pump.runtime().commands()[1]
+            .iter()
+            .any(|command| matches!(command, Command::SynchronizeChildren { .. }))
+    );
+    assert_eq!(
+        pump.runtime().node(root).unwrap().children(),
+        pump.tree.children(root).unwrap()
+    );
+}
+
+#[test]
 fn retained_key_recurses_into_property_update() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount(

@@ -321,7 +321,7 @@ impl<R: NativeRuntime> Pump<R> {
                     .collect::<Result<Vec<_>, _>>()?;
                 tree.set_children(node, order)?;
                 let new_native = Self::native_children(tree, node)?;
-                if operations.len() >= 256 && old_native != new_native {
+                if super::is_dense_keyed_update(&operations) && old_native != new_native {
                     plan.synchronize_children(node, None, new_native);
                 } else {
                     Self::replay_keyed_child_list(

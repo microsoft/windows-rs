@@ -747,7 +747,7 @@ impl<R: NativeRuntime> Pump<R> {
             .collect::<Result<Vec<_>, _>>()?;
         tree.set_children(target.logical_parent, order)?;
         let new_native = Self::native_children(tree, target.logical_parent)?;
-        let dense = operations.len() >= 256;
+        let dense = super::is_dense_keyed_update(&operations);
         if (requires_sync || dense) && old_native != new_native {
             plan.synchronize_children(target.native_parent, target.slot, new_native);
         } else if !requires_sync {

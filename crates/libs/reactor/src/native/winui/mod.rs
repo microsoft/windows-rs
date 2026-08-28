@@ -2519,15 +2519,19 @@ impl WinUiRuntime {
                 set_content(parent, Some(&child))
             } else if let Some(children) = parent.child_collection()? {
                 let retained = self.retained_identities(parent_id, None)?;
-                let current = (0..children.Size().map_err(native_error)?)
-                    .map(|index| {
-                        children
-                            .GetAt(index)
-                            .map_err(native_error)
-                            .and_then(|child| com_identity(&child))
-                    })
-                    .collect::<Result<Vec<_>, RuntimeError>>()?;
-                let index = physical_retained_index(&current, &retained, index)?;
+                let index = if retained.is_empty() {
+                    index
+                } else {
+                    let current = (0..children.Size().map_err(native_error)?)
+                        .map(|index| {
+                            children
+                                .GetAt(index)
+                                .map_err(native_error)
+                                .and_then(|child| com_identity(&child))
+                        })
+                        .collect::<Result<Vec<_>, RuntimeError>>()?;
+                    physical_retained_index(&current, &retained, index)?
+                };
                 children
                     .InsertAt(index32(index)?, &child)
                     .map_err(native_error)
@@ -2557,13 +2561,17 @@ impl WinUiRuntime {
             .map_err(native_error)?;
         let selection = selection_for_slot(slot);
         let retained = self.retained_identities(parent_id, Some(slot))?;
-        let current = (0..collection.Size()?)
-            .map(|index| {
-                let child = collection.GetAt(index)?;
-                com_identity(&child)
-            })
-            .collect::<Result<Vec<_>, RuntimeError>>()?;
-        let index = physical_retained_index(&current, &retained, index)?;
+        let index = if retained.is_empty() {
+            index
+        } else {
+            let current = (0..collection.Size()?)
+                .map(|index| {
+                    let child = collection.GetAt(index)?;
+                    com_identity(&child)
+                })
+                .collect::<Result<Vec<_>, RuntimeError>>()?;
+            physical_retained_index(&current, &retained, index)?
+        };
         let result = self.with_controlled_collection_preserved(parent_id, parent, slot, || {
             self.with_selection_suppressed(selection.map(|_| (parent_id, slot)), || {
                 collection.InsertAt(index32(index)?, &child)?;
@@ -2644,18 +2652,22 @@ impl WinUiRuntime {
             }
             None => false,
         };
-        let child_identity = com_identity(&child)?;
         let retained = self.retained_identities(parent_id, Some(slot))?;
-        let current = (0..collection.Size()?)
-            .map(|index| {
-                let item = collection.GetAt(index)?;
-                com_identity(&item)
-            })
-            .collect::<Result<Vec<_>, RuntimeError>>()?
-            .into_iter()
-            .filter(|identity| *identity != child_identity)
-            .collect::<Vec<_>>();
-        let index = physical_retained_index(&current, &retained, index)?;
+        let index = if retained.is_empty() {
+            index
+        } else {
+            let child_identity = com_identity(&child)?;
+            let current = (0..collection.Size()?)
+                .map(|index| {
+                    let item = collection.GetAt(index)?;
+                    com_identity(&item)
+                })
+                .collect::<Result<Vec<_>, RuntimeError>>()?
+                .into_iter()
+                .filter(|identity| *identity != child_identity)
+                .collect::<Vec<_>>();
+            physical_retained_index(&current, &retained, index)?
+        };
         self.with_controlled_collection_preserved(parent_id, parent, slot, || {
             self.with_selection_suppressed(selection.map(|_| (parent_id, slot)), || {
                 let from = inspectable_child_index(&collection, child_id, &child)?;
@@ -2943,20 +2955,24 @@ impl WinUiRuntime {
                 }
             } else if let Some(children) = parent.child_collection()? {
                 let from = child_index(&children, child_id, &child)?;
-                let child_identity = com_identity(&child)?;
                 let retained = self.retained_identities(parent_id, None)?;
-                let current = (0..children.Size().map_err(native_error)?)
-                    .map(|current| {
-                        children
-                            .GetAt(current)
-                            .map_err(native_error)
-                            .and_then(|item| com_identity(&item))
-                    })
-                    .collect::<Result<Vec<_>, RuntimeError>>()?
-                    .into_iter()
-                    .filter(|identity| *identity != child_identity)
-                    .collect::<Vec<_>>();
-                let index = physical_retained_index(&current, &retained, index)?;
+                let index = if retained.is_empty() {
+                    index
+                } else {
+                    let child_identity = com_identity(&child)?;
+                    let current = (0..children.Size().map_err(native_error)?)
+                        .map(|current| {
+                            children
+                                .GetAt(current)
+                                .map_err(native_error)
+                                .and_then(|item| com_identity(&item))
+                        })
+                        .collect::<Result<Vec<_>, RuntimeError>>()?
+                        .into_iter()
+                        .filter(|identity| *identity != child_identity)
+                        .collect::<Vec<_>>();
+                    physical_retained_index(&current, &retained, index)?
+                };
                 children.RemoveAt(from).map_err(native_error)?;
                 children
                     .InsertAt(index32(index)?, &child)
@@ -3645,9 +3661,11 @@ fn child_index(
     child_id: NodeId,
     child: &UIElement,
 ) -> Result<u32, RuntimeError> {
-    let size = children.Size().map_err(native_error)?;
-    (0..size)
-        .find(|index| children.GetAt(*index).as_ref() == Ok(child))
+    let mut index = 0;
+    children
+        .IndexOf(child, &mut index)
+        .map_err(native_error)?
+        .then_some(index)
         .ok_or(RuntimeError::ChildNotFound(child_id))
 }
 

@@ -9,3 +9,13 @@
 mod element;
 mod topology;
 mod view;
+
+use crate::core::keyed::KeyedOperation;
+
+fn is_dense_keyed_update<K>(operations: &[KeyedOperation<K>]) -> bool {
+    operations
+        .iter()
+        .filter(|operation| !matches!(operation, KeyedOperation::Remove { .. }))
+        .count()
+        >= 256
+}
