@@ -15,6 +15,7 @@ pub(crate) const SUITE_TIMEOUT: Duration =
 #[derive(Clone, Copy)]
 enum FixtureKind {
     FocusPublication,
+    EventDelivery,
     EventRevokers,
     ControlledFeedback,
     WindowLifecycle,
@@ -35,6 +36,10 @@ const FIXTURES: &[Fixture] = &[
     Fixture {
         name: "Focus_PublicationAndRetirement",
         kind: FixtureKind::FocusPublication,
+    },
+    Fixture {
+        name: "Events_NativePayloadDelivery",
+        kind: FixtureKind::EventDelivery,
     },
     Fixture {
         name: "Events_ReplacementAndRevocation",
@@ -113,6 +118,7 @@ impl FixtureRunner {
 
     fn open_probe(&self, context: &ComponentContext<Self>) {
         let probe = match FIXTURES[self.current].kind {
+            FixtureKind::EventDelivery => LiveProbe::EventDelivery,
             FixtureKind::EventRevokers => LiveProbe::EventRevokers,
             FixtureKind::ControlledFeedback => LiveProbe::ControlledFeedback,
             _ => return,
@@ -185,6 +191,9 @@ impl Component for FixtureRunner {
         };
         match FIXTURES.get(self.current).map(|fixture| fixture.kind) {
             Some(FixtureKind::FocusPublication) => View::component::<FocusPublication>(input),
+            Some(FixtureKind::EventDelivery) => {
+                TextBlock::new().text("event delivery probe").into()
+            }
             Some(FixtureKind::EventRevokers) => TextBlock::new().text("event probe").into(),
             Some(FixtureKind::ControlledFeedback) => {
                 TextBlock::new().text("controlled probe").into()

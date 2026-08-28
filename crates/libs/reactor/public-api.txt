@@ -2702,13 +2702,6 @@ pub type windows_reactor::ToggleSwitch::Slot = windows_reactor::ToggleSwitchSlot
 pub fn windows_reactor::ToggleSwitch::collection_slot<T>(self, Self::Slot, impl core::iter::traits::collect::IntoIterator<Item = T>) -> windows_reactor::View where T: core::convert::Into<windows_reactor::KeyedView>
 pub fn windows_reactor::ToggleSwitch::slot(self, Self::Slot, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
 pub fn windows_reactor::ToggleSwitch::slots(self, impl core::iter::traits::collect::IntoIterator<Item = windows_reactor::SlotView<Self::Slot>>) -> windows_reactor::View
-pub struct windows_reactor::ToolTip
-impl windows_reactor::ToolTip
-pub fn windows_reactor::ToolTip::new() -> Self
-impl core::convert::From<windows_reactor::ToolTip> for windows_reactor::View
-pub fn windows_reactor::View::from(windows_reactor::ToolTip) -> Self
-impl windows_reactor::ContentControl for windows_reactor::ToolTip
-pub fn windows_reactor::ToolTip::content(self, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
 pub struct windows_reactor::Tooltip
 impl windows_reactor::Tooltip
 pub fn windows_reactor::Tooltip::placement(self, windows_reactor::TooltipPlacement) -> Self
@@ -2923,8 +2916,6 @@ impl core::convert::From<windows_reactor::ToggleButton> for windows_reactor::Vie
 pub fn windows_reactor::View::from(windows_reactor::ToggleButton) -> Self
 impl core::convert::From<windows_reactor::ToggleSwitch> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::ToggleSwitch) -> Self
-impl core::convert::From<windows_reactor::ToolTip> for windows_reactor::View
-pub fn windows_reactor::View::from(windows_reactor::ToolTip) -> Self
 impl core::convert::From<windows_reactor::TreeView> for windows_reactor::View
 pub fn windows_reactor::View::from(windows_reactor::TreeView) -> Self
 impl core::convert::From<windows_reactor::VariableSizedWrapGrid> for windows_reactor::View
@@ -3089,8 +3080,6 @@ impl windows_reactor::ContentControl for windows_reactor::TabViewItem
 pub fn windows_reactor::TabViewItem::content(self, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
 impl windows_reactor::ContentControl for windows_reactor::ToggleButton
 pub fn windows_reactor::ToggleButton::content(self, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
-impl windows_reactor::ContentControl for windows_reactor::ToolTip
-pub fn windows_reactor::ToolTip::content(self, impl core::convert::Into<windows_reactor::View>) -> windows_reactor::View
 pub trait windows_reactor::FlyoutExt: core::convert::Into<windows_reactor::View> + core::marker::Sized
 pub fn windows_reactor::FlyoutExt::flyout(self, impl core::convert::Into<alloc::string::String>) -> windows_reactor::View
 pub fn windows_reactor::FlyoutExt::flyout_with(self, windows_reactor::Flyout) -> windows_reactor::View

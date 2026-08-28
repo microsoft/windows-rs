@@ -197,9 +197,13 @@ The validation layers have separate owners:
 control and exercises explicit properties, shared and attached capability properties, content,
 children, virtual items, named slots, attachment APIs, and TreeView nodes through their live set,
 update, and clear lifecycles. Each projected event is checked through callback registration,
-replacement, and omission against the live native subscription count. Event delivery, imperative
-references, exit retirement, and OS interaction remain the responsibility of the handwritten
-`test_reactor_selftest` fixtures.
+replacement, and omission against the live native subscription count. The generated event
+inventory names the live delivery fixture for 15 events and marks the other 46 as registration plus
+deterministic payload coverage. Imperative references, exit retirement, and other OS interaction
+remain the responsibility of the handwritten `test_reactor_selftest` fixtures.
+
+The projected WinUI `ToolTip` type is an internal attachment implementation, not a public mountable
+control. Applications attach text or rich content through `TooltipExt` and `Tooltip`.
 
 `crates/libs/reactor/public-api.txt` is the checked public API snapshot. Regenerate it with the
 repository's pinned `cargo-public-api` process after an intentional API change.

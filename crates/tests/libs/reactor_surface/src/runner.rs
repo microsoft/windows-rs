@@ -194,12 +194,13 @@ impl Component for SurfaceRunner {
             }
             for event in PROJECTED_EVENTS {
                 println!(
-                    "event.{}.{} payload={} conversion={} subscription={} active_property={}",
+                    "event.{}.{} payload={} conversion={} subscription={} delivery={} active_property={}",
                     event.control,
                     event.event,
                     event.payload,
                     event.conversion,
                     event.subscription,
+                    event.delivery,
                     event.active_property.unwrap_or("none")
                 );
             }

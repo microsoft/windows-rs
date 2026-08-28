@@ -636,6 +636,53 @@ impl WinUiRuntime {
     }
 
     #[cfg(feature = "test")]
+    pub(crate) fn live_write_test_property(
+        &self,
+        node: NodeId,
+        property: PropertyId,
+        value: &PropertyValue,
+    ) -> Result<(), RuntimeError> {
+        self.live_write_property(node, property, value)
+    }
+
+    #[cfg(feature = "test")]
+    pub(crate) fn live_set_test_date(
+        &self,
+        node: NodeId,
+        value: DateTime,
+    ) -> Result<(), RuntimeError> {
+        match self.handles.get(&node) {
+            Some(Handle::DatePicker(control)) => control
+                .cast::<IDatePicker>()
+                .map_err(native_error)?
+                .SetSelectedDate(Some(value))
+                .map_err(native_error),
+            Some(Handle::CalendarDatePicker(control)) => control
+                .cast::<ICalendarDatePicker>()
+                .map_err(native_error)?
+                .SetDate(Some(value))
+                .map_err(native_error),
+            _ => Err(RuntimeError::UnsupportedKind),
+        }
+    }
+
+    #[cfg(feature = "test")]
+    pub(crate) fn live_set_test_time(
+        &self,
+        node: NodeId,
+        value: TimeSpan,
+    ) -> Result<(), RuntimeError> {
+        let Some(Handle::TimePicker(control)) = self.handles.get(&node) else {
+            return Err(RuntimeError::UnsupportedKind);
+        };
+        control
+            .cast::<ITimePicker>()
+            .map_err(native_error)?
+            .SetSelectedTime(Some(value))
+            .map_err(native_error)
+    }
+
+    #[cfg(feature = "test")]
     pub fn take_live_native_apply_times(&mut self) -> Vec<f64> {
         std::mem::take(&mut self.native_apply_times_us)
     }

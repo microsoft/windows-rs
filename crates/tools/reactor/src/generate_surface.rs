@@ -390,6 +390,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             } else {
                 "callback"
             };
+            let delivery = event_delivery_owner(control, event);
             let active_property = event
                 .active_property
                 .as_ref()
@@ -401,6 +402,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                     payload: #payload,
                     conversion: #conversion,
                     subscription: #subscription,
+                    delivery: #delivery,
                     active_property: #active_property,
                 }
             }
@@ -448,6 +450,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             pub payload: &'static str,
             pub conversion: &'static str,
             pub subscription: &'static str,
+            pub delivery: &'static str,
             pub active_property: Option<&'static str>,
         }
 
@@ -650,6 +653,27 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         const _: [(); EXTENSION_COUNT] = [(); EXTENSION_SURFACES.len()];
     }
     .to_string()
+}
+
+fn event_delivery_owner(control: &ResolvedControl, event: &ResolvedEvent) -> &'static str {
+    match (control.name.as_str(), event.name.as_str()) {
+        ("ToggleSwitch", "Toggled")
+        | ("PasswordBox", "PasswordChanged")
+        | ("Slider", "ValueChanged")
+        | ("NumberBox", "ValueChanged")
+        | ("ColorPicker", "ColorChanged")
+        | ("ListView", "SelectionChanged")
+        | ("CalendarDatePicker", "DateChanged")
+        | ("TimePicker", "SelectedTimeChanged") => "live:Events_NativePayloadDelivery",
+        ("CheckBox", "IsCheckedChanged") => "live:Events_ReplacementAndRevocation",
+        ("ListBox", "SelectionChanged") => "live:Controlled_NativeFeedback",
+        (
+            "Border",
+            "PointerEntered" | "PointerMoved" | "PointerPressed" | "PointerReleased"
+            | "PointerExited",
+        ) => "live:Pointer_RealInputGesture",
+        _ => "registration+deterministic",
+    }
 }
 
 #[allow(clippy::too_many_arguments)]

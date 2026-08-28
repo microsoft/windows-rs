@@ -112,6 +112,10 @@ trait LivePump {
         false
     }
     #[cfg(feature = "test")]
+    fn live_event_delivery_step(&mut self) -> Result<bool, String> {
+        Err("live event delivery is unsupported".to_string())
+    }
+    #[cfg(feature = "test")]
     fn live_controlled_feedback_start(&mut self) -> bool {
         false
     }
@@ -128,6 +132,189 @@ trait LivePump {
 struct ComponentLoop {
     pump: Pump<WinUiRuntime>,
     root: Option<View>,
+    #[cfg(feature = "test")]
+    event_delivery_stage: usize,
+    #[cfg(feature = "test")]
+    event_delivery_observed: Option<Rc<std::cell::Cell<bool>>>,
+}
+
+#[cfg(feature = "test")]
+impl ComponentLoop {
+    fn begin_live_event_stage(
+        &mut self,
+        view: impl Into<View>,
+        name: &str,
+        observed: Rc<std::cell::Cell<bool>>,
+        apply: impl FnOnce(&WinUiRuntime, NodeId) -> Result<(), RuntimeError>,
+    ) -> Result<(), String> {
+        self.pump
+            .update_view(view.into())
+            .map_err(|error| format!("{name} event target update failed: {error:?}"))?;
+        let node = self
+            .pump
+            .root_native()
+            .ok_or_else(|| format!("{name} event target is unavailable"))?;
+        apply(self.pump.runtime(), node)
+            .map_err(|error| format!("{name} native input failed: {error:?}"))?;
+        self.event_delivery_observed = Some(observed);
+        Ok(())
+    }
+
+    fn live_event_delivery_step_impl(&mut self) -> Result<bool, String> {
+        if let Some(observed) = self.event_delivery_observed.take() {
+            self.pump
+                .dispatch_events()
+                .map_err(|error| format!("event dispatch failed: {error:?}"))?;
+            if !observed.get() {
+                return Err(format!(
+                    "event delivery stage {} produced the wrong payload",
+                    self.event_delivery_stage
+                ));
+            }
+            self.event_delivery_stage += 1;
+        }
+
+        let observed = Rc::new(std::cell::Cell::new(false));
+        let callback = Rc::clone(&observed);
+        match self.event_delivery_stage {
+            0 => self.begin_live_event_stage(
+                ToggleSwitch::new()
+                    .is_on(false)
+                    .on_toggled(move |value| callback.set(value)),
+                "bool",
+                observed,
+                |runtime, node| {
+                    runtime.live_write_test_property(
+                        node,
+                        PropertyId::ToggleSwitchIsOn,
+                        &PropertyValue::Bool(true),
+                    )
+                },
+            )?,
+            1 => self.begin_live_event_stage(
+                PasswordBox::new()
+                    .password("initial")
+                    .on_password_changed(move |value| callback.set(value == "native")),
+                "string",
+                observed,
+                |runtime, node| {
+                    runtime.live_write_test_property(
+                        node,
+                        PropertyId::PasswordBoxPassword,
+                        &PropertyValue::Str("native".to_string()),
+                    )
+                },
+            )?,
+            2 => self.begin_live_event_stage(
+                Slider::new()
+                    .minimum(0.0)
+                    .maximum(10.0)
+                    .value(1.0)
+                    .on_value_changed(move |value| callback.set(value == 4.5)),
+                "f64",
+                observed,
+                |runtime, node| {
+                    runtime.live_write_test_property(
+                        node,
+                        PropertyId::SliderValue,
+                        &PropertyValue::F64(4.5),
+                    )
+                },
+            )?,
+            3 => self.begin_live_event_stage(
+                NumberBox::new()
+                    .minimum(0.0)
+                    .maximum(10.0)
+                    .value(1.0)
+                    .on_value_changed(move |value| callback.set(value == Some(4.5))),
+                "NumberBox optional f64",
+                observed,
+                |runtime, node| {
+                    runtime.live_write_test_property(
+                        node,
+                        PropertyId::NumberBoxValue,
+                        &PropertyValue::OptionalF64(Some(4.5)),
+                    )
+                },
+            )?,
+            4 => {
+                let color = Color {
+                    a: 255,
+                    r: 12,
+                    g: 34,
+                    b: 56,
+                };
+                self.begin_live_event_stage(
+                    ColorPicker::new()
+                        .color(Color::default())
+                        .on_color_changed(move |value| callback.set(value == color)),
+                    "color",
+                    observed,
+                    move |runtime, node| {
+                        runtime.live_write_test_property(
+                            node,
+                            PropertyId::ColorPickerColor,
+                            &PropertyValue::Color(color),
+                        )
+                    },
+                )?;
+            }
+            5 => self.begin_live_event_stage(
+                ListView::new()
+                    .selected_index(None)
+                    .on_selection_changed(move |value| callback.set(value == Some(1)))
+                    .collection_slot(
+                        ListViewSlot::Items,
+                        [
+                            KeyedView::new(
+                                "first",
+                                ListViewItem::new()
+                                    .tag("first")
+                                    .content(TextBlock::new().text("First")),
+                            ),
+                            KeyedView::new(
+                                "second",
+                                ListViewItem::new()
+                                    .tag("second")
+                                    .content(TextBlock::new().text("Second")),
+                            ),
+                        ],
+                    ),
+                "selection index",
+                observed,
+                |runtime, node| {
+                    runtime.live_write_test_property(
+                        node,
+                        PropertyId::ListViewSelectedIndex,
+                        &PropertyValue::SelectionIndex(Some(1)),
+                    )
+                },
+            )?,
+            6 => {
+                let date = DateTime::from_unix_secs(1_700_000_000);
+                self.begin_live_event_stage(
+                    CalendarDatePicker::new()
+                        .on_date_changed(move |value| callback.set(value == Some(date))),
+                    "optional date",
+                    observed,
+                    move |runtime, node| runtime.live_set_test_date(node, date),
+                )?;
+            }
+            7 => {
+                let time = TimeSpan::from_hours(14) + TimeSpan::from_minutes(30);
+                self.begin_live_event_stage(
+                    TimePicker::new()
+                        .on_selected_time_changed(move |value| callback.set(value == Some(time))),
+                    "optional time",
+                    observed,
+                    move |runtime, node| runtime.live_set_test_time(node, time),
+                )?;
+            }
+            8 => return Ok(true),
+            _ => return Err("event delivery stage is invalid".to_string()),
+        }
+        Ok(false)
+    }
 }
 
 impl LivePump for ComponentLoop {
@@ -259,6 +446,11 @@ impl LivePump for ComponentLoop {
             && self.pump.dispatch_events() == Ok(0)
             && first.get() == 1
             && second.get() == 1
+    }
+
+    #[cfg(feature = "test")]
+    fn live_event_delivery_step(&mut self) -> Result<bool, String> {
+        self.live_event_delivery_step_impl()
     }
 
     #[cfg(feature = "test")]
@@ -477,6 +669,10 @@ impl App {
             vec![Box::new(ComponentLoop {
                 pump: Pump::new(WinUiRuntime::with_application(application)),
                 root: Some(root),
+                #[cfg(feature = "test")]
+                event_delivery_stage: 0,
+                #[cfg(feature = "test")]
+                event_delivery_observed: None,
             })]
         })
     }
@@ -499,6 +695,10 @@ impl App {
                     Box::new(ComponentLoop {
                         pump: Pump::new(WinUiRuntime::with_application(application.clone())),
                         root: Some(root),
+                        #[cfg(feature = "test")]
+                        event_delivery_stage: 0,
+                        #[cfg(feature = "test")]
+                        event_delivery_observed: None,
                     }) as Box<dyn LivePump>
                 })
                 .collect()
@@ -659,6 +859,10 @@ pub(crate) fn open_live_windows(roots: Vec<View>) -> Result<(), RuntimeError> {
             Box::new(ComponentLoop {
                 pump: Pump::new(WinUiRuntime::with_application(application.clone())),
                 root: Some(root),
+                #[cfg(feature = "test")]
+                event_delivery_stage: 0,
+                #[cfg(feature = "test")]
+                event_delivery_observed: None,
             }) as Box<dyn LivePump>
         })
         .collect::<Vec<_>>();

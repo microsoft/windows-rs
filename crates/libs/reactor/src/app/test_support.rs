@@ -74,6 +74,7 @@ pub fn schedule_live_window_handle(
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum LiveProbe {
     ControlledFeedback,
+    EventDelivery,
     EventRevokers,
 }
 
@@ -85,6 +86,25 @@ pub fn schedule_live_probe(
     let verify_dispatcher = dispatcher.clone();
     let completion: Rc<dyn Fn(Result<(), String>)> = Rc::new(completion);
     let handler = DispatcherQueueHandler::new(move || {
+        if probe == LiveProbe::EventDelivery {
+            let result = HOST.with(|host| {
+                host.borrow_mut()
+                    .as_mut()
+                    .and_then(LiveHost::secondary_mut)
+                    .ok_or_else(|| "live probe window is unavailable".to_string())?
+                    .live_event_delivery_step()
+            });
+            match result {
+                Ok(true) => finish_live_probe(probe, Ok(()), Rc::clone(&completion)),
+                Ok(false) => continue_live_event_delivery(
+                    verify_dispatcher.clone(),
+                    probe,
+                    Rc::clone(&completion),
+                ),
+                Err(error) => finish_live_probe(probe, Err(error), Rc::clone(&completion)),
+            }
+            return;
+        }
         let result = HOST.with(|host| {
             let mut host = host.borrow_mut();
             let Some(live) = host.as_mut().and_then(LiveHost::secondary_mut) else {
@@ -92,6 +112,7 @@ pub fn schedule_live_probe(
             };
             let passed = match probe {
                 LiveProbe::ControlledFeedback => live.live_controlled_feedback_start(),
+                LiveProbe::EventDelivery => unreachable!(),
                 LiveProbe::EventRevokers => live.live_event_revokers(),
             };
             if !passed {
@@ -99,7 +120,7 @@ pub fn schedule_live_probe(
             }
             Ok(())
         });
-        if result.is_err() || probe == LiveProbe::EventRevokers {
+        if result.is_err() || matches!(probe, LiveProbe::EventDelivery | LiveProbe::EventRevokers) {
             finish_live_probe(probe, result, Rc::clone(&completion));
             return;
         }
@@ -152,6 +173,44 @@ pub fn schedule_live_probe(
             E_FAIL,
             "dispatcher rejected live probe",
         ))
+    }
+}
+
+fn continue_live_event_delivery(
+    dispatcher: DispatcherQueue,
+    probe: LiveProbe,
+    completion: Rc<dyn Fn(Result<(), String>)>,
+) {
+    let next_dispatcher = dispatcher.clone();
+    let next_completion = Rc::clone(&completion);
+    let step = move || {
+        let result = HOST.with(|host| {
+            host.borrow_mut()
+                .as_mut()
+                .and_then(LiveHost::secondary_mut)
+                .ok_or_else(|| "live probe window is unavailable".to_string())?
+                .live_event_delivery_step()
+        });
+        match result {
+            Ok(true) => finish_live_probe(probe, Ok(()), Rc::clone(&next_completion)),
+            Ok(false) => continue_live_event_delivery(
+                next_dispatcher.clone(),
+                probe,
+                Rc::clone(&next_completion),
+            ),
+            Err(error) => {
+                finish_live_probe(probe, Err(error), Rc::clone(&next_completion));
+            }
+        }
+    };
+    if let Err(error) = queue_live_delayed(dispatcher, step) {
+        finish_live_probe(
+            probe,
+            Err(format!(
+                "{probe:?} event delivery scheduling failed: {error}"
+            )),
+            completion,
+        );
     }
 }
 

@@ -4,7 +4,7 @@ use std::collections::BTreeMap;
 
 use crate::schema::{
     Capability, EventPayloadConversion, FeedbackContract, Lifecycle, PropertyAdapter,
-    ResolvedControl, ResolvedSchema, Role, ValueValidation,
+    ResolvedControl, ResolvedPlacement, ResolvedSchema, Role, ValueValidation,
 };
 
 pub(crate) fn generate(schema: &ResolvedSchema) -> String {
@@ -1452,6 +1452,11 @@ fn generate_value_enums(schema: &ResolvedSchema) -> TokenStream {
 
 fn generate_element(control: &ResolvedControl) -> TokenStream {
     let name = ident(&control.name);
+    let visibility = if control.placement == ResolvedPlacement::TooltipAttachment {
+        quote! { pub(crate) }
+    } else {
+        quote! { pub }
+    };
     let (reference_field, reference_method, reference_impls) = if has_reference(control) {
         (
             quote! { reference: Option<NativeElementRef>, },
@@ -1937,7 +1942,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
     };
     quote! {
         #[derive(Clone, Debug, Default, PartialEq)]
-        pub struct #name {
+        #visibility struct #name {
             #(#property_fields,)*
             #event_fields
             #reference_field
@@ -1949,7 +1954,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         }
 
         impl #name {
-            pub fn new() -> Self {
+            #visibility fn new() -> Self {
                 Self::default()
             }
 
@@ -2437,6 +2442,22 @@ property = "NewValue"
             output.contains("callback:implIntoPayloadCallback<Option<windows_time::TimeSpan>>")
         );
         assert!(!output.contains("selected_index_optional"));
+    }
+
+    #[test]
+    fn attachment_implementation_control_is_not_public() {
+        let source =
+            std::fs::read_to_string(workspace_path("crates/tools/reactor/src/winui.toml")).unwrap();
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let resolved = Schema::parse(&source).unwrap().resolve(&metadata).unwrap();
+        let output: String = generate(&resolved)
+            .chars()
+            .filter(|character| !character.is_whitespace())
+            .collect();
+
+        assert!(output.contains("pub(crate)structToolTip"));
+        assert!(output.contains("pub(crate)fnnew()->Self"));
+        assert!(!output.contains("pubstructToolTip"));
     }
 
     #[test]

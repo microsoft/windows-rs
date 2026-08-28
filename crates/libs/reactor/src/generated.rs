@@ -4644,11 +4644,11 @@ pub mod public {
         type Slot = CalendarDatePickerSlot;
     }
     #[derive(Clone, Debug, Default, PartialEq)]
-    pub struct ToolTip {
+    pub(crate) struct ToolTip {
         content: Option<Box<Element>>,
     }
     impl ToolTip {
-        pub fn new() -> Self {
+        pub(crate) fn new() -> Self {
             Self::default()
         }
     }
