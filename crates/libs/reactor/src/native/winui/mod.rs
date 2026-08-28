@@ -2561,17 +2561,13 @@ impl WinUiRuntime {
             .map_err(native_error)?;
         let selection = selection_for_slot(slot);
         let retained = self.retained_identities(parent_id, Some(slot))?;
-        let index = if retained.is_empty() {
-            index
-        } else {
-            let current = (0..collection.Size()?)
-                .map(|index| {
-                    let child = collection.GetAt(index)?;
-                    com_identity(&child)
-                })
-                .collect::<Result<Vec<_>, RuntimeError>>()?;
-            physical_retained_index(&current, &retained, index)?
-        };
+        let current = (0..collection.Size()?)
+            .map(|index| {
+                let child = collection.GetAt(index)?;
+                com_identity(&child)
+            })
+            .collect::<Result<Vec<_>, RuntimeError>>()?;
+        let index = physical_retained_index(&current, &retained, index)?;
         let result = self.with_controlled_collection_preserved(parent_id, parent, slot, || {
             self.with_selection_suppressed(selection.map(|_| (parent_id, slot)), || {
                 collection.InsertAt(index32(index)?, &child)?;
@@ -2652,22 +2648,18 @@ impl WinUiRuntime {
             }
             None => false,
         };
+        let child_identity = com_identity(&child)?;
         let retained = self.retained_identities(parent_id, Some(slot))?;
-        let index = if retained.is_empty() {
-            index
-        } else {
-            let child_identity = com_identity(&child)?;
-            let current = (0..collection.Size()?)
-                .map(|index| {
-                    let item = collection.GetAt(index)?;
-                    com_identity(&item)
-                })
-                .collect::<Result<Vec<_>, RuntimeError>>()?
-                .into_iter()
-                .filter(|identity| *identity != child_identity)
-                .collect::<Vec<_>>();
-            physical_retained_index(&current, &retained, index)?
-        };
+        let current = (0..collection.Size()?)
+            .map(|index| {
+                let item = collection.GetAt(index)?;
+                com_identity(&item)
+            })
+            .collect::<Result<Vec<_>, RuntimeError>>()?
+            .into_iter()
+            .filter(|identity| *identity != child_identity)
+            .collect::<Vec<_>>();
+        let index = physical_retained_index(&current, &retained, index)?;
         self.with_controlled_collection_preserved(parent_id, parent, slot, || {
             self.with_selection_suppressed(selection.map(|_| (parent_id, slot)), || {
                 let from = inspectable_child_index(&collection, child_id, &child)?;

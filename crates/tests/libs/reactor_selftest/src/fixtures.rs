@@ -185,6 +185,87 @@ impl Component for RepresentativeControls {
 }
 
 #[derive(Clone, Copy, PartialEq)]
+enum KeyedMutationStage {
+    Initial,
+    Removed,
+    Inserted,
+    Moved,
+    Retained,
+}
+
+pub(crate) struct KeyedNativeMutations {
+    stage: KeyedMutationStage,
+}
+
+impl Component for KeyedNativeMutations {
+    type Input = FixtureInput;
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self {
+            stage: KeyedMutationStage::Initial,
+        }
+    }
+
+    fn update(&mut self, (): Self::Message, _context: &ComponentContext<Self>) {
+        self.stage = match self.stage {
+            KeyedMutationStage::Initial => KeyedMutationStage::Removed,
+            KeyedMutationStage::Removed => KeyedMutationStage::Inserted,
+            KeyedMutationStage::Inserted => KeyedMutationStage::Moved,
+            KeyedMutationStage::Moved => KeyedMutationStage::Retained,
+            KeyedMutationStage::Retained => return,
+        };
+    }
+
+    fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        const EXITING_KEY: usize = usize::MAX;
+
+        let mut keys = match self.stage {
+            KeyedMutationStage::Initial => (0..320).collect::<Vec<_>>(),
+            KeyedMutationStage::Removed => (0..20).collect(),
+            KeyedMutationStage::Inserted => (0..220).collect(),
+            KeyedMutationStage::Moved | KeyedMutationStage::Retained => (0..220).rev().collect(),
+        };
+        if self.stage == KeyedMutationStage::Retained {
+            keys.push(1_000);
+        } else {
+            keys.push(EXITING_KEY);
+        }
+
+        if self.stage == KeyedMutationStage::Retained {
+            let complete = input.complete.clone();
+            context.use_effect("complete-keyed-mutations", (), move || {
+                if !complete.call(Ok(())) {
+                    eprintln!("keyed mutation fixture completion was rejected");
+                    std::process::exit(1);
+                }
+                None
+            });
+        } else {
+            let sender = context.sender();
+            context.use_effect("advance-keyed-mutations", self.stage, move || {
+                if !sender.send(()) {
+                    eprintln!("keyed mutation fixture update was rejected");
+                    std::process::exit(1);
+                }
+                None
+            });
+        }
+
+        Grid::new().keyed_children(keys.into_iter().map(|key| {
+            let child: View = if key == EXITING_KEY {
+                Border::new()
+                    .exit_transition(ExitTransition::fade(Duration::from_millis(200)))
+                    .content(TextBlock::new().text("exiting"))
+            } else {
+                TextBlock::new().text(key.to_string()).into()
+            };
+            KeyedView::new(key, child)
+        }))
+    }
+}
+
+#[derive(Clone, Copy, PartialEq)]
 pub(crate) enum PointerStage {
     Move,
     LeftDown,

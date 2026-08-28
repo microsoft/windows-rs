@@ -4,8 +4,8 @@ use windows_reactor::*;
 
 use crate::fixtures::{
     CompositionLifecycle, FixtureInput, FixtureResult, FocusPublication, ImageSourceLifecycle,
-    PointerInjection, ProbeFixture, ProbeInput, RepresentativeControls, SwapChainLifecycle,
-    ThemeResources, WindowLifecycle,
+    KeyedNativeMutations, PointerInjection, ProbeFixture, ProbeInput, RepresentativeControls,
+    SwapChainLifecycle, ThemeResources, WindowLifecycle,
 };
 
 const FIXTURE_TIMEOUT: Duration = Duration::from_secs(5);
@@ -24,6 +24,7 @@ enum FixtureKind {
     ThemeResources,
     PointerInjection,
     RepresentativeControls,
+    KeyedNativeMutations,
 }
 
 struct Fixture {
@@ -71,6 +72,10 @@ const FIXTURES: &[Fixture] = &[
     Fixture {
         name: "Generated_RepresentativeControls",
         kind: FixtureKind::RepresentativeControls,
+    },
+    Fixture {
+        name: "Reconcile_KeyedNativeMutations",
+        kind: FixtureKind::KeyedNativeMutations,
     },
 ];
 
@@ -201,6 +206,9 @@ impl Component for FixtureRunner {
             Some(FixtureKind::PointerInjection) => View::component::<PointerInjection>(input),
             Some(FixtureKind::RepresentativeControls) => {
                 View::component::<RepresentativeControls>(input)
+            }
+            Some(FixtureKind::KeyedNativeMutations) => {
+                View::component::<KeyedNativeMutations>(input)
             }
             None => TextBlock::new().text("fixtures complete").into(),
         }
