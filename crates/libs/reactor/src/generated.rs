@@ -9058,11 +9058,8 @@ pub mod public {
                 Self::ScrollView(_) => {}
                 Self::Image(_) => {}
                 Self::ProgressRing(_) => {}
-                Self::ListBox(value) => {
-                    visit(
-                        EventId::ListBoxSelectionChanged,
-                        value.on_selected_tag_changed.is_some(),
-                    );
+                Self::ListBox(_) => {
+                    visit(EventId::ListBoxSelectionChanged, true);
                 }
                 Self::Rectangle(_) => {}
                 Self::Ellipse(_) => {}
@@ -9089,11 +9086,8 @@ pub mod public {
                 Self::FlipView(_) => {
                     visit(EventId::FlipViewSelectionChanged, true);
                 }
-                Self::SelectorBar(value) => {
-                    visit(
-                        EventId::SelectorBarSelectionChanged,
-                        value.on_selected_text_changed.is_some(),
-                    );
+                Self::SelectorBar(_) => {
+                    visit(EventId::SelectorBarSelectionChanged, true);
                 }
                 Self::SelectorBarItem(_) => {}
                 Self::TabView(value) => {
@@ -11357,11 +11351,8 @@ impl MountedEventsExt for MountedProps {
             Self::ScrollView(_) => {}
             Self::Image(_) => {}
             Self::ProgressRing(_) => {}
-            Self::ListBox(values) => {
-                visit(
-                    EventId::ListBoxSelectionChanged,
-                    values.on_selected_tag_changed.is_some(),
-                );
+            Self::ListBox(_) => {
+                visit(EventId::ListBoxSelectionChanged, true);
             }
             Self::Rectangle(_) => {}
             Self::Ellipse(_) => {}
@@ -11388,11 +11379,8 @@ impl MountedEventsExt for MountedProps {
             Self::FlipView(_) => {
                 visit(EventId::FlipViewSelectionChanged, true);
             }
-            Self::SelectorBar(values) => {
-                visit(
-                    EventId::SelectorBarSelectionChanged,
-                    values.on_selected_text_changed.is_some(),
-                );
+            Self::SelectorBar(_) => {
+                visit(EventId::SelectorBarSelectionChanged, true);
             }
             Self::SelectorBarItem(_) => {}
             Self::TabView(values) => {

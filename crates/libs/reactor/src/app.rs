@@ -13,7 +13,8 @@ const MAX_PENDING_WINDOW_OPENS: usize = 64;
 mod test_support;
 #[cfg(feature = "test")]
 pub use test_support::{
-    LiveProbe, schedule_live_probe, schedule_live_window_handle, take_live_diagnostics,
+    LiveProbe, schedule_live_event_subscription_count, schedule_live_probe,
+    schedule_live_window_handle, take_live_diagnostics,
 };
 
 thread_local! {
@@ -94,6 +95,10 @@ trait LivePump {
     }
     #[cfg(feature = "test")]
     fn live_virtual_shell_counts(&self) -> Result<(usize, usize), RuntimeError> {
+        Err(RuntimeError::UnsupportedKind)
+    }
+    #[cfg(feature = "test")]
+    fn live_event_subscription_count(&self) -> Result<usize, RuntimeError> {
         Err(RuntimeError::UnsupportedKind)
     }
     #[cfg(feature = "test")]
@@ -180,6 +185,11 @@ impl LivePump for ComponentLoop {
     #[cfg(feature = "test")]
     fn live_virtual_shell_counts(&self) -> Result<(usize, usize), RuntimeError> {
         self.pump.runtime().live_virtual_shell_counts()
+    }
+
+    #[cfg(feature = "test")]
+    fn live_event_subscription_count(&self) -> Result<usize, RuntimeError> {
+        Ok(self.pump.runtime().live_event_subscription_count())
     }
 
     #[cfg(feature = "test")]

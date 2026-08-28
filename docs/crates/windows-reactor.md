@@ -162,6 +162,7 @@ the `windows-reactor-setup` bootstrap DLLs from pinned NuGet packages. It then r
 | `crates/libs/reactor/src/native/winui/generated.rs` | WinUI command application |
 | `crates/libs/reactor/src/native/winui/bindings.rs` | Minimal WinUI bindings |
 | `crates/libs/canvas/src/reactor_bindings.rs` | Minimal Canvas integration bindings |
+| `crates/tests/libs/reactor_surface/src/generated_surface.rs` | Live projected API cases |
 
 `crates/tools/reactor/src/bindings.txt` contains the hand-maintained runtime binding filter.
 `control_bindings.txt` is generated from `winui.toml` and supplies control-specific entries.
@@ -187,9 +188,18 @@ The validation layers have separate owners:
 | External API tests | `cargo test -p test_reactor` |
 | Generator tests | `cargo test -p tool_reactor` |
 | Live WinUI fixtures | `cargo run -p test_reactor_selftest -- --headless` |
+| Generated WinUI surface tests | `cargo run -p test_reactor_surface -- --headless` |
 | Planner benchmarks | `cargo run -p test_reactor_bench --release` |
 | Live grid benchmark | `cargo run -p test_reactor_bench --bin reactor-live-grid --release` |
 | Consumer coverage | `sample_reactor_virtual`, `sample_reactor_navigation`, and the gallery |
+
+`test_reactor_surface` is generated from the resolved schema. It constructs every projected
+control and exercises explicit properties, shared and attached capability properties, content,
+children, virtual items, named slots, attachment APIs, and TreeView nodes through their live set,
+update, and clear lifecycles. Each projected event is checked through callback registration,
+replacement, and omission against the live native subscription count. Event delivery, imperative
+references, exit retirement, and OS interaction remain the responsibility of the handwritten
+`test_reactor_selftest` fixtures.
 
 `crates/libs/reactor/public-api.txt` is the checked public API snapshot. Regenerate it with the
 repository's pinned `cargo-public-api` process after an intentional API change.

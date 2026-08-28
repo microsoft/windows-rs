@@ -198,6 +198,38 @@ fn content_transitions_support_insert_replace_and_remove() {
 }
 
 #[test]
+fn public_content_transitions_support_insert_update_and_remove() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(Button::new().into()).unwrap();
+
+    pump.update_view(Button::new().content("first")).unwrap();
+    let root = pump.root().unwrap();
+    let first = pump.tree.children(root).unwrap()[0];
+    assert_eq!(
+        pump.runtime()
+            .node(first)
+            .unwrap()
+            .property(PropertyId::TextBlockText),
+        Some(&PropertyValue::Str("first".into()))
+    );
+
+    pump.update_view(Button::new().content("second")).unwrap();
+    assert_eq!(pump.tree.children(root).unwrap(), &[first]);
+    assert_eq!(
+        pump.runtime()
+            .node(first)
+            .unwrap()
+            .property(PropertyId::TextBlockText),
+        Some(&PropertyValue::Str("second".into()))
+    );
+
+    pump.update_view(Button::new().into()).unwrap();
+    let root = pump.root().unwrap();
+    assert!(pump.tree.children(root).unwrap().is_empty());
+    assert!(pump.runtime().node(root).unwrap().children().is_empty());
+}
+
+#[test]
 fn string_views_mount_update_and_replace_like_explicit_text() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(Button::new().content("first")).unwrap();

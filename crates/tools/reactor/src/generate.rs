@@ -597,10 +597,6 @@ fn has_grouped_events(control: &ResolvedControl) -> bool {
     control.events.len() > 1
 }
 
-fn event_always_active(control: &ResolvedControl, event: &crate::schema::ResolvedEvent) -> bool {
-    control.lifecycle == Some(Lifecycle::ContentDialog) && event.name == "Closed"
-}
-
 fn generate_event_group(control: &ResolvedControl) -> TokenStream {
     let name = ident(&format!("{}Events", control.name));
     let fields = control.events.iter().map(|event| {
@@ -857,24 +853,14 @@ fn generate_element_structure(control: &ResolvedControl) -> TokenStream {
 fn generate_element_event_visitor(control: &ResolvedControl) -> TokenStream {
     let name = ident(&control.name);
     if has_grouped_events(control) {
-        let uses_events = control.events.iter().any(|event| {
-            !control
-                .properties
-                .iter()
-                .any(|property| property.feedback.as_deref() == Some(event.name.as_str()))
-                && event.conversion != EventPayloadConversion::Selection
-        });
+        let uses_events = control
+            .events
+            .iter()
+            .any(|event| !control.event_always_active(event));
         let events = control.events.iter().map(|event| {
             let field = ident(&event.field);
             let id = ident(&format!("{}{}", control.name, event.name));
-            let feedback = control
-                .properties
-                .iter()
-                .any(|property| property.feedback.as_deref() == Some(event.name.as_str()));
-            if feedback
-                || event.conversion == EventPayloadConversion::Selection
-                || event_always_active(control, event)
-            {
+            if control.event_always_active(event) {
                 quote! { visit(EventId::#id, true); }
             } else {
                 let active_property = event.active_property.as_ref().map(|property| {
@@ -910,23 +896,16 @@ fn generate_element_event_visitor(control: &ResolvedControl) -> TokenStream {
     let events = control.events.iter().map(|event| {
         let field = ident(&event.field);
         let id = ident(&format!("{}{}", control.name, event.name));
-        let feedback = control
-            .properties
-            .iter()
-            .any(|property| property.feedback.as_deref() == Some(event.name.as_str()));
-        if feedback || event_always_active(control, event) {
+        if control.event_always_active(event) {
             quote! { visit(EventId::#id, true); }
         } else {
             quote! { visit(EventId::#id, value.#field.is_some()); }
         }
     });
-    let uses_value = control.events.iter().any(|event| {
-        !control
-            .properties
-            .iter()
-            .any(|property| property.feedback.as_deref() == Some(event.name.as_str()))
-            && !event_always_active(control, event)
-    });
+    let uses_value = control
+        .events
+        .iter()
+        .any(|event| !control.event_always_active(event));
     let pattern = if uses_value {
         quote! { Self::#name(value) }
     } else {
@@ -1041,24 +1020,14 @@ fn generate_mounted_theme_style(control: &ResolvedControl) -> TokenStream {
 fn generate_mounted_event_visitor(control: &ResolvedControl) -> TokenStream {
     let name = ident(&control.name);
     if has_grouped_events(control) {
-        let uses_events = control.events.iter().any(|event| {
-            !control
-                .properties
-                .iter()
-                .any(|property| property.feedback.as_deref() == Some(event.name.as_str()))
-                && event.conversion != EventPayloadConversion::Selection
-        });
+        let uses_events = control
+            .events
+            .iter()
+            .any(|event| !control.event_always_active(event));
         let events = control.events.iter().map(|event| {
             let field = ident(&event.field);
             let id = ident(&format!("{}{}", control.name, event.name));
-            let feedback = control
-                .properties
-                .iter()
-                .any(|property| property.feedback.as_deref() == Some(event.name.as_str()));
-            if feedback
-                || event.conversion == EventPayloadConversion::Selection
-                || event_always_active(control, event)
-            {
+            if control.event_always_active(event) {
                 quote! { visit(EventId::#id, true); }
             } else {
                 let active_property = event.active_property.as_ref().map(|property| {
@@ -1094,23 +1063,16 @@ fn generate_mounted_event_visitor(control: &ResolvedControl) -> TokenStream {
     let events = control.events.iter().map(|event| {
         let field = ident(&event.field);
         let id = ident(&format!("{}{}", control.name, event.name));
-        let feedback = control
-            .properties
-            .iter()
-            .any(|property| property.feedback.as_deref() == Some(event.name.as_str()));
-        if feedback || event_always_active(control, event) {
+        if control.event_always_active(event) {
             quote! { visit(EventId::#id, true); }
         } else {
             quote! { visit(EventId::#id, values.#field.is_some()); }
         }
     });
-    let uses_values = control.events.iter().any(|event| {
-        !control
-            .properties
-            .iter()
-            .any(|property| property.feedback.as_deref() == Some(event.name.as_str()))
-            && !event_always_active(control, event)
-    });
+    let uses_values = control
+        .events
+        .iter()
+        .any(|event| !control.event_always_active(event));
     let values = if uses_values {
         quote! { values }
     } else {

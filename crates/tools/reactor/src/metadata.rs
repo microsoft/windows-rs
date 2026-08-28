@@ -61,6 +61,7 @@ pub enum ReadValueConversion {
 /// Pre-built lookup: `(class_short_name, method_name) → MethodRef`.
 pub struct MetadataResolver {
     lookup: HashMap<(String, String), MethodRef>,
+    base_classes: HashMap<(String, String), (String, String)>,
     /// Exclusive interface -> runtime class. Ambiguous non-exclusive interfaces map to `None`.
     interface_owners: HashMap<(String, String), Option<(String, String)>>,
     /// Value-type structs that wrap a single primitive field.
@@ -106,6 +107,7 @@ impl MetadataResolver {
         let index = Index::new(files);
         let mut lookup = HashMap::new();
         let mut interface_owners = HashMap::new();
+        let mut base_classes = HashMap::new();
 
         // Walk all types in the index, collecting method→interface for classes
         // in Microsoft.UI.Xaml namespaces.
@@ -113,6 +115,20 @@ impl MetadataResolver {
             if namespace.starts_with("Microsoft.UI.Xaml")
                 && typedef.category() == TypeCategory::Class
             {
+                if let Some(extends) = typedef.extends() {
+                    let base = match extends {
+                        TypeDefOrRef::TypeDef(base) => {
+                            Some((base.namespace().to_string(), base.name().to_string()))
+                        }
+                        TypeDefOrRef::TypeRef(base) => {
+                            Some((base.namespace().to_string(), base.name().to_string()))
+                        }
+                        _ => None,
+                    };
+                    if let Some(base) = base {
+                        base_classes.insert((namespace.to_string(), name.to_string()), base);
+                    }
+                }
                 for implementation in typedef.interface_impls() {
                     let interface = implementation.interface(&[]);
                     let (interface_namespace, interface_name) = match interface {
@@ -210,11 +226,29 @@ impl MetadataResolver {
 
         Self {
             lookup,
+            base_classes,
             interface_owners,
             single_field_types,
             enum_variants,
             delegate_args,
         }
+    }
+
+    pub fn class_derives_from(&self, class: &str, base: &str) -> bool {
+        let Some((class_namespace, class_name)) = class.rsplit_once('.') else {
+            return false;
+        };
+        let Some((base_namespace, base_name)) = base.rsplit_once('.') else {
+            return false;
+        };
+        let mut current = (class_namespace.to_string(), class_name.to_string());
+        while let Some(parent) = self.base_classes.get(&current) {
+            if parent.0 == base_namespace && parent.1 == base_name {
+                return true;
+            }
+            current.clone_from(parent);
+        }
+        false
     }
 
     /// Walk a class's interface hierarchy and record every `put_*` / `get_*` /

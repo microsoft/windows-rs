@@ -80,7 +80,8 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                             .to_string(),
                     );
                 }
-                Some(PropertyAdapter::ContentDialogResult)
+                Some(PropertyAdapter::ClockIdentifier)
+                | Some(PropertyAdapter::ContentDialogResult)
                 | Some(PropertyAdapter::FontWeight)
                 | Some(PropertyAdapter::HorizontalContentAlignment)
                 | Some(PropertyAdapter::ImageUri)

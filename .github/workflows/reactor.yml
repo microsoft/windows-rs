@@ -65,7 +65,7 @@ jobs:
           cargo clippy -p windows-composition --no-default-features `
             --features reactor --all-targets --quiet
           cargo clippy -p windows-webview --features reactor --all-targets --quiet
-          cargo build -p test_reactor_selftest --quiet
+          cargo build -p test_reactor_selftest -p test_reactor_surface --quiet
 
       - name: Generated output
         shell: pwsh
@@ -113,6 +113,8 @@ jobs:
           $PSNativeCommandUseErrorActionPreference = $true
           cargo run -p test_reactor_selftest --features self-contained `
             --quiet -- --headless
+          cargo run -p test_reactor_surface --features self-contained `
+            --quiet -- --headless
 
       - name: Install Windows App Runtime
         shell: pwsh
@@ -136,6 +138,7 @@ jobs:
           $ErrorActionPreference = "Stop"
           $PSNativeCommandUseErrorActionPreference = $true
           cargo run -p test_reactor_selftest --quiet -- --headless
+          cargo run -p test_reactor_surface --quiet -- --headless
 
   reconciler-quality:
     name: reconciler coverage and performance

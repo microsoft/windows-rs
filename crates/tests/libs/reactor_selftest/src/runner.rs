@@ -4,8 +4,8 @@ use windows_reactor::*;
 
 use crate::fixtures::{
     CompositionLifecycle, FixtureInput, FixtureResult, FocusPublication, ImageSourceLifecycle,
-    KeyedNativeMutations, PointerInjection, ProbeFixture, ProbeInput, RepresentativeControls,
-    SwapChainLifecycle, ThemeResources, WindowLifecycle,
+    KeyedNativeMutations, PointerInjection, ProbeFixture, ProbeInput, SwapChainLifecycle,
+    ThemeResources, WindowLifecycle,
 };
 
 const FIXTURE_TIMEOUT: Duration = Duration::from_secs(5);
@@ -23,7 +23,6 @@ enum FixtureKind {
     SwapChainLifecycle,
     ThemeResources,
     PointerInjection,
-    RepresentativeControls,
     KeyedNativeMutations,
 }
 
@@ -68,10 +67,6 @@ const FIXTURES: &[Fixture] = &[
     Fixture {
         name: "Pointer_RealInputGesture",
         kind: FixtureKind::PointerInjection,
-    },
-    Fixture {
-        name: "Generated_RepresentativeControls",
-        kind: FixtureKind::RepresentativeControls,
     },
     Fixture {
         name: "Reconcile_KeyedNativeMutations",
@@ -204,9 +199,6 @@ impl Component for FixtureRunner {
             Some(FixtureKind::SwapChainLifecycle) => View::component::<SwapChainLifecycle>(input),
             Some(FixtureKind::ThemeResources) => View::component::<ThemeResources>(input),
             Some(FixtureKind::PointerInjection) => View::component::<PointerInjection>(input),
-            Some(FixtureKind::RepresentativeControls) => {
-                View::component::<RepresentativeControls>(input)
-            }
             Some(FixtureKind::KeyedNativeMutations) => {
                 View::component::<KeyedNativeMutations>(input)
             }

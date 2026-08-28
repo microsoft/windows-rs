@@ -646,6 +646,11 @@ impl WinUiRuntime {
     }
 
     #[cfg(feature = "test")]
+    pub fn live_event_subscription_count(&self) -> usize {
+        self.subscriptions.len() + self.content_dialog_subscriptions.borrow().len()
+    }
+
+    #[cfg(feature = "test")]
     pub fn live_bring_virtual_index(&self, index: usize) -> Result<(), RuntimeError> {
         let virtual_handle = self
             .virtuals

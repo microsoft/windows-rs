@@ -1,4 +1,5 @@
 mod generate;
+mod generate_surface;
 mod generate_winui;
 mod helpers;
 mod metadata;
@@ -18,6 +19,7 @@ const CONTROL_BINDINGS_FILTER: &str = "crates/tools/reactor/src/control_bindings
 const CANVAS_BINDINGS: &str = "crates/libs/canvas/src/reactor_bindings.rs";
 const CANVAS_FILTER: &str = "crates/tools/reactor/src/canvas.txt";
 const WINUI_OUTPUT: &str = "crates/libs/reactor/src/native/winui/generated.rs";
+const SURFACE_OUTPUT: &str = "crates/tests/libs/reactor_surface/src/generated_surface.rs";
 const WINMD: &str = "crates/tools/reactor/winmd";
 const EXTRAS_RDL: &str = "crates/tools/reactor/src/extras.rdl";
 const EXTRAS_WINMD: &str = "crates/tools/reactor/winmd/extras.winmd";
@@ -43,6 +45,10 @@ fn main() {
     let generated = helpers::rustfmt(&generate::generate(&resolved));
 
     write_if_changed(OUTPUT, &generated);
+    write_if_changed(
+        SURFACE_OUTPUT,
+        &helpers::rustfmt(&generate_surface::generate(&resolved)),
+    );
     write_if_changed(
         CONTROL_BINDINGS_FILTER,
         &generate_winui::generate_control_bindings_filter(&resolved),

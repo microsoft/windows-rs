@@ -596,7 +596,9 @@ impl<R: NativeRuntime> Pump<R> {
                 if !Self::control_has_role(control.kind(), ControlRole::Content) {
                     return Err(PumpError::StructureUnsupported);
                 }
-                if tree.kind(node)? != NodeKind::Native(control.kind()) {
+                if tree.kind(node)? != NodeKind::Native(control.kind())
+                    || tree.children(node)?.len() != 1
+                {
                     return Self::replace_planned_view(
                         tree,
                         node,

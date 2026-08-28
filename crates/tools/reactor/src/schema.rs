@@ -22,6 +22,8 @@ pub(crate) struct Control {
     #[serde(rename = "type")]
     pub(crate) type_name: String,
     #[serde(default)]
+    pub(crate) placement: Option<Placement>,
+    #[serde(default)]
     pub(crate) lifecycle: Option<Lifecycle>,
     #[serde(default)]
     pub(crate) content: Option<String>,
@@ -34,6 +36,20 @@ pub(crate) struct Control {
     #[serde(default)]
     pub(crate) slot: Vec<Slot>,
     pub(crate) selection: Option<Selection>,
+}
+
+#[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
+#[serde(rename_all = "snake_case")]
+pub(crate) enum Placement {
+    TooltipAttachment,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum ResolvedPlacement {
+    Visual,
+    WindowLifetime,
+    TooltipAttachment,
+    Declaration,
 }
 
 #[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
@@ -96,6 +112,7 @@ pub(crate) struct Property {
 #[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
 #[serde(rename_all = "snake_case")]
 pub(crate) enum PropertyAdapter {
+    ClockIdentifier,
     ContentDialogResult,
     ImageUri,
     InspectableString,
@@ -176,6 +193,8 @@ pub(crate) struct Slot {
     pub(crate) name: String,
     #[serde(default)]
     pub(crate) collection: bool,
+    #[serde(default)]
+    pub(crate) item_controls: Vec<String>,
 }
 
 #[derive(Clone, Copy, Deserialize)]
@@ -202,10 +221,21 @@ pub(crate) struct ResolvedSchema {
     pub(crate) controls: Vec<ResolvedControl>,
 }
 
+impl ResolvedControl {
+    pub(crate) fn event_always_active(&self, event: &ResolvedEvent) -> bool {
+        self.properties
+            .iter()
+            .any(|property| property.feedback.as_deref() == Some(event.name.as_str()))
+            || event.conversion == EventPayloadConversion::Selection
+            || (self.lifecycle == Some(Lifecycle::ContentDialog) && event.name == "Closed")
+    }
+}
+
 pub(crate) struct ResolvedControl {
     pub(crate) name: String,
     pub(crate) type_name: String,
     pub(crate) role: Role,
+    pub(crate) placement: ResolvedPlacement,
     pub(crate) lifecycle: Option<Lifecycle>,
     pub(crate) content: Option<ResolvedContent>,
     pub(crate) capabilities: Vec<Capability>,
@@ -262,6 +292,7 @@ pub(crate) struct ResolvedSlot {
     pub(crate) collection_cast: bool,
     pub(crate) collection_observable: bool,
     pub(crate) collection_item: Option<String>,
+    pub(crate) item_controls: Vec<String>,
 }
 
 pub(crate) struct ResolvedSelection {
@@ -339,9 +370,36 @@ impl Schema {
             if !control_names.insert(control.type_name.clone()) {
                 return Err(format!("duplicate control {}", control.type_name));
             }
+            if (control.type_name == "Microsoft.UI.Xaml.Controls.ToolTip")
+                != (control.placement == Some(Placement::TooltipAttachment))
+            {
+                return Err(format!(
+                    "{} has no valid native placement contract",
+                    control.type_name
+                ));
+            }
             let role = derive_role(&control)?;
             validate_role(&control, role)?;
             validate_native_role(&control, role, &name, metadata)?;
+            let placement = match (
+                control.placement,
+                control.lifecycle,
+                control.capabilities.contains(&Capability::WindowTitleBar),
+                metadata.class_derives_from(&control.type_name, "Microsoft.UI.Xaml.UIElement"),
+            ) {
+                (Some(Placement::TooltipAttachment), None, false, _) => {
+                    ResolvedPlacement::TooltipAttachment
+                }
+                (None, Some(Lifecycle::ContentDialog), false, _) => ResolvedPlacement::Declaration,
+                (None, None, true, true) => ResolvedPlacement::WindowLifetime,
+                (None, None, false, true) => ResolvedPlacement::Visual,
+                _ => {
+                    return Err(format!(
+                        "{} has no valid native placement contract",
+                        control.type_name
+                    ));
+                }
+            };
 
             let content = if matches!(role, Role::Content) {
                 let content = control.content.as_deref().unwrap_or("Content");
@@ -382,6 +440,7 @@ impl Schema {
             let mut member_names = HashSet::new();
             let mut field_names = HashSet::new();
 
+            validate_required_property_adapters(&control.type_name, &control.property)?;
             for property in control.property {
                 let feedback = match (&property.controlled, &property.coerces) {
                     (Some(_), Some(_)) => {
@@ -605,6 +664,17 @@ impl Schema {
                             ));
                         }
                         ("KeyAccelerators".to_string(), false)
+                    }
+                    Some(PropertyAdapter::ClockIdentifier) => {
+                        if control.type_name != "Microsoft.UI.Xaml.Controls.TimePicker"
+                            || property.name != "ClockIdentifier"
+                        {
+                            return Err(format!(
+                                "{}.{} clock_identifier requires TimePicker.ClockIdentifier",
+                                control.type_name, property.name
+                            ));
+                        }
+                        ("Str".to_string(), false)
                     }
                     Some(PropertyAdapter::ItemTag) => {
                         return Err(format!(
@@ -898,7 +968,6 @@ impl Schema {
                     theme_style: property.theme_style,
                 });
             }
-
             if properties
                 .iter()
                 .filter(|property| property.theme_style)
@@ -1441,6 +1510,12 @@ impl Schema {
                         }
                     }
                 };
+                if !slot.collection && !slot.item_controls.is_empty() {
+                    return Err(format!(
+                        "{}.{} item_controls requires a collection slot",
+                        control.type_name, slot.name
+                    ));
+                }
                 slots.push(ResolvedSlot {
                     name: slot.name,
                     interface: interface.full_path(),
@@ -1449,6 +1524,7 @@ impl Schema {
                     collection_observable: slot.collection
                         && metadata.returns_observable_vector(&name, &method),
                     collection_item,
+                    item_controls: slot.item_controls,
                 });
             }
 
@@ -1566,6 +1642,7 @@ impl Schema {
                 name,
                 type_name: control.type_name,
                 role,
+                placement,
                 lifecycle: control.lifecycle,
                 content,
                 capabilities: control.capabilities,
@@ -1577,8 +1654,58 @@ impl Schema {
         }
 
         validate_selections(&controls)?;
+        validate_slot_item_controls(&controls)?;
         Ok(ResolvedSchema { controls })
     }
+}
+
+fn validate_required_property_adapters(
+    control: &str,
+    properties: &[Property],
+) -> Result<(), String> {
+    let required = [
+        (
+            "Microsoft.UI.Xaml.Controls.PathIcon",
+            "Data",
+            PropertyAdapter::PathData,
+            "path_data",
+        ),
+        (
+            "Microsoft.UI.Xaml.Controls.TimePicker",
+            "ClockIdentifier",
+            PropertyAdapter::ClockIdentifier,
+            "clock_identifier",
+        ),
+    ];
+    for (owner, property, adapter, adapter_name) in required {
+        if control == owner
+            && properties
+                .iter()
+                .find(|candidate| candidate.name == property)
+                .is_some_and(|candidate| candidate.adapter != Some(adapter))
+        {
+            return Err(format!(
+                "{control}.{property} must use the {adapter_name} adapter"
+            ));
+        }
+    }
+    Ok(())
+}
+
+fn validate_slot_item_controls(controls: &[ResolvedControl]) -> Result<(), String> {
+    for control in controls {
+        for slot in &control.slots {
+            for item in &slot.item_controls {
+                if !controls.iter().any(|candidate| candidate.name == *item) {
+                    return Err(format!(
+                        "{}.{} names missing item control {}",
+                        control.type_name, slot.name, item
+                    ));
+                }
+            }
+        }
+    }
+    Ok(())
 }
 
 fn validate_selections(controls: &[ResolvedControl]) -> Result<(), String> {
@@ -1963,6 +2090,10 @@ adapter = "inspectable_string_list"
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
         for (adapter, expected) in [
             (
+                "clock_identifier",
+                "clock_identifier requires TimePicker.ClockIdentifier",
+            ),
+            (
                 "number_box_value",
                 "number_box_value requires NumberBox.Value",
             ),
@@ -1991,6 +2122,93 @@ adapter = "{adapter}"
                 .unwrap();
             assert!(error.contains(expected), "{error}");
         }
+    }
+
+    #[test]
+    fn requires_native_string_semantic_adapters() {
+        let source = include_str!("winui.toml");
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        for (adapter, expected) in [
+            (
+                "adapter = \"path_data\"",
+                "Microsoft.UI.Xaml.Controls.PathIcon.Data must use the path_data adapter",
+            ),
+            (
+                "adapter = \"clock_identifier\"",
+                "Microsoft.UI.Xaml.Controls.TimePicker.ClockIdentifier must use the clock_identifier adapter",
+            ),
+        ] {
+            let changed = source.replacen(adapter, "# adapter removed", 1);
+            let error = Schema::parse(&changed)
+                .unwrap()
+                .resolve(&metadata)
+                .err()
+                .unwrap();
+            assert!(error.contains(expected), "{error}");
+        }
+    }
+
+    #[test]
+    fn resolves_event_subscription_lifetimes() {
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let schema = Schema::parse(include_str!("winui.toml"))
+            .unwrap()
+            .resolve(&metadata)
+            .unwrap();
+        for (control, event, expected) in [
+            ("Button", "Click", false),
+            ("TextBox", "TextChanged", true),
+            ("ListBox", "SelectionChanged", true),
+            ("ContentDialog", "Closed", true),
+        ] {
+            let control = schema
+                .controls
+                .iter()
+                .find(|candidate| candidate.name == control)
+                .unwrap();
+            let event = control
+                .events
+                .iter()
+                .find(|candidate| candidate.name == event)
+                .unwrap();
+            assert_eq!(control.event_always_active(event), expected);
+        }
+    }
+
+    #[test]
+    fn validates_collection_slot_item_controls() {
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let non_collection = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TextBox"
+capabilities = ["layout"]
+
+[[control.slot]]
+name = "Header"
+item_controls = ["TextBlock"]
+
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TextBlock"
+capabilities = ["layout"]
+"#;
+        let error = Schema::parse(non_collection)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+        assert!(error.contains("item_controls requires a collection slot"));
+
+        let source = include_str!("winui.toml").replacen(
+            "item_controls = [\"PivotItem\"]",
+            "item_controls = [\"Missing\"]",
+            1,
+        );
+        let error = Schema::parse(&source)
+            .unwrap()
+            .resolve(&metadata)
+            .err()
+            .unwrap();
+        assert!(error.contains("names missing item control Missing"));
     }
 
     #[test]
@@ -2554,6 +2772,40 @@ adapter = "font_weight"
         assert!(
             error.contains("TextBlock.Text font_weight requires TextBlock.FontWeight"),
             "{error}"
+        );
+    }
+
+    #[test]
+    fn resolves_native_placement_contracts() {
+        let source = include_str!("winui.toml");
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let resolved = Schema::parse(source).unwrap().resolve(&metadata).unwrap();
+        let placement = |name| {
+            resolved
+                .controls
+                .iter()
+                .find(|control| control.name == name)
+                .unwrap()
+                .placement
+        };
+
+        assert_eq!(placement("Button"), ResolvedPlacement::Visual);
+        assert_eq!(placement("TitleBar"), ResolvedPlacement::WindowLifetime);
+        assert_eq!(placement("ToolTip"), ResolvedPlacement::TooltipAttachment);
+        assert_eq!(placement("ContentDialog"), ResolvedPlacement::Declaration);
+    }
+
+    #[test]
+    fn rejects_non_visual_controls_without_a_placement_contract() {
+        let source = include_str!("winui.toml").replace("placement = \"tooltip_attachment\"", "");
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+
+        assert_eq!(
+            Schema::parse(&source).unwrap().resolve(&metadata).err(),
+            Some(
+                "Microsoft.UI.Xaml.Controls.ToolTip has no valid native placement contract"
+                    .to_string()
+            )
         );
     }
 }

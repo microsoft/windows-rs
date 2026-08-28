@@ -14,6 +14,34 @@ pub fn take_live_diagnostics() -> Vec<String> {
     DIAGNOSTICS.with(|diagnostics| diagnostics.take())
 }
 
+pub fn schedule_live_event_subscription_count(
+    completion: impl FnOnce(Result<usize, String>) + 'static,
+) -> windows_core::Result<()> {
+    let dispatcher = DispatcherQueue::GetForCurrentThread()?;
+    let completion = RefCell::new(Some(completion));
+    let handler = DispatcherQueueHandler::new(move || {
+        let result = HOST.with(|host| {
+            host.borrow()
+                .as_ref()
+                .and_then(LiveHost::primary)
+                .ok_or_else(|| "live primary window is unavailable".to_string())?
+                .live_event_subscription_count()
+                .map_err(|error| format!("{error:?}"))
+        });
+        if let Some(completion) = completion.take() {
+            completion(result);
+        }
+    });
+    if dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &handler)? {
+        Ok(())
+    } else {
+        Err(windows_core::Error::new(
+            E_FAIL,
+            "dispatcher rejected live event subscription count request",
+        ))
+    }
+}
+
 pub fn schedule_live_window_handle(
     completion: impl FnOnce(Result<isize, String>) + 'static,
 ) -> windows_core::Result<()> {

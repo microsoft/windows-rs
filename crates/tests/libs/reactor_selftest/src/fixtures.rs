@@ -155,35 +155,6 @@ impl Component for FocusPublication {
     }
 }
 
-pub(crate) struct RepresentativeControls;
-
-impl Component for RepresentativeControls {
-    type Input = FixtureInput;
-    type Message = ();
-
-    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
-        Self
-    }
-
-    fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        let complete = input.complete.clone();
-        context.use_effect("complete", (), move || {
-            if !complete.call(Ok(())) {
-                eprintln!("generated-control fixture completion was rejected");
-                std::process::exit(1);
-            }
-            None
-        });
-        StackPanel::new().children((
-            TextBox::new().text("text"),
-            ToggleSwitch::new().is_on(true),
-            Slider::new().minimum(0.0).maximum(10.0).value(5.0),
-            ProgressBar::new().minimum(0.0).maximum(10.0).value(5.0),
-            Button::new().content(TextBlock::new().text("button")),
-        ))
-    }
-}
-
 #[derive(Clone, Copy, PartialEq)]
 enum KeyedMutationStage {
     Initial,

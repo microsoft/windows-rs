@@ -1223,6 +1223,7 @@ property = "SelectedIndex"
 [[control.slot]]
 name = "Items"
 collection = true
+item_controls = ["PivotItem"]
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.PivotItem"
@@ -1408,10 +1409,12 @@ capabilities = ["layout"]
 [[control.slot]]
 name = "PrimaryCommands"
 collection = true
+item_controls = ["AppBarButton", "AppBarSeparator"]
 
 [[control.slot]]
 name = "SecondaryCommands"
 collection = true
+item_controls = ["AppBarButton", "AppBarSeparator"]
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.AppBarButton"
@@ -1530,6 +1533,7 @@ capabilities = ["layout", "enabled"]
 
 [[control.property]]
 name = "ClockIdentifier"
+adapter = "clock_identifier"
 clearable = true
 
 [[control.property]]
@@ -1577,6 +1581,7 @@ name = "Header"
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.ToolTip"
+placement = "tooltip_attachment"
 content = "Content"
 capabilities = ["content"]
 
