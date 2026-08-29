@@ -568,8 +568,10 @@ fn component_factory_creates_with_a_reserved_sender_and_composes() {
     let first = ComponentView::new::<Counter>(2);
     let same = ComponentView::new::<Counter>(2);
     let changed = ComponentView::new::<Counter>(3);
+    let different = ComponentView::new::<Passive>(());
     assert_eq!(first, same);
     assert_ne!(first, changed);
+    assert_ne!(first, different);
 
     let mut store = store();
     let token = first.reserve(&mut store).unwrap();
