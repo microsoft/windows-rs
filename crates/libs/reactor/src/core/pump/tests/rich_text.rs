@@ -1,5 +1,4 @@
 use super::super::*;
-use crate::native::*;
 
 #[test]
 fn rich_text_paragraphs_mount_update_and_clear() {

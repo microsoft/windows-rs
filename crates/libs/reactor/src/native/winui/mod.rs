@@ -430,9 +430,7 @@ fn set_rich_edit_text(control: &bindings::RichEditBox, value: &str) -> Result<()
 fn build_tree_node(definition: &TreeNode) -> Result<TreeViewNode, RuntimeError> {
     let node = TreeViewNode::new().map_err(native_error)?;
     let content: windows_core::IInspectable =
-        windows_reference::IReference::from(windows_core::HSTRING::from(&definition.text))
-            .cast()
-            .map_err(native_error)?;
+        windows_reference::IReference::from(windows_core::HSTRING::from(&definition.text)).into();
     node.SetContent(&content).map_err(native_error)?;
     node.SetIsExpanded(definition.expanded)
         .map_err(native_error)?;
@@ -549,10 +547,7 @@ impl WinUiRuntime {
     #[cfg(feature = "test")]
     pub fn live_range_value(&self, node: NodeId) -> Result<f64, RuntimeError> {
         match self.handles.get(&node) {
-            Some(Handle::NumberBox(control)) => control
-                .cast::<INumberBox>()
-                .and_then(|control| control.Value())
-                .map_err(native_error),
+            Some(Handle::NumberBox(control)) => control.Value().map_err(native_error),
             Some(Handle::Slider(control)) => control
                 .cast::<IRangeBase>()
                 .and_then(|control| control.Value())
@@ -568,10 +563,7 @@ impl WinUiRuntime {
                 .cast::<IToggleButton>()
                 .and_then(|control| control.IsChecked())
                 .map_err(native_error),
-            Some(Handle::ToggleButton(control)) => control
-                .cast::<IToggleButton>()
-                .and_then(|control| control.IsChecked())
-                .map_err(native_error),
+            Some(Handle::ToggleButton(control)) => control.IsChecked().map_err(native_error),
             _ => Err(RuntimeError::UnsupportedKind),
         }
     }
@@ -617,16 +609,12 @@ impl WinUiRuntime {
         value: DateTime,
     ) -> Result<(), RuntimeError> {
         match self.handles.get(&node) {
-            Some(Handle::DatePicker(control)) => control
-                .cast::<IDatePicker>()
-                .map_err(native_error)?
-                .SetSelectedDate(Some(value))
-                .map_err(native_error),
-            Some(Handle::CalendarDatePicker(control)) => control
-                .cast::<ICalendarDatePicker>()
-                .map_err(native_error)?
-                .SetDate(Some(value))
-                .map_err(native_error),
+            Some(Handle::DatePicker(control)) => {
+                control.SetSelectedDate(Some(value)).map_err(native_error)
+            }
+            Some(Handle::CalendarDatePicker(control)) => {
+                control.SetDate(Some(value)).map_err(native_error)
+            }
             _ => Err(RuntimeError::UnsupportedKind),
         }
     }
@@ -640,11 +628,7 @@ impl WinUiRuntime {
         let Some(Handle::TimePicker(control)) = self.handles.get(&node) else {
             return Err(RuntimeError::UnsupportedKind);
         };
-        control
-            .cast::<ITimePicker>()
-            .map_err(native_error)?
-            .SetSelectedTime(Some(value))
-            .map_err(native_error)
+        control.SetSelectedTime(Some(value)).map_err(native_error)
     }
 
     #[cfg(feature = "test")]
@@ -715,6 +699,23 @@ impl WinUiRuntime {
             .ok_or(RuntimeError::MissingNode(node))?;
         let window_2 = window.cast::<IWindow2>().map_err(native_error)?;
         let changes = window_visual_changes(self.window_visuals.get(&node).copied(), visuals);
+        let mut hwnd = None;
+        let mut window_handle = || {
+            if let Some(hwnd) = hwnd {
+                return Ok(hwnd);
+            }
+            let mut value = std::ptr::null_mut();
+            unsafe {
+                window
+                    .cast::<IWindowNative>()
+                    .map_err(native_error)?
+                    .WindowHandle(&mut value)
+                    .ok()
+                    .map_err(native_error)?;
+            }
+            hwnd = Some(value);
+            Ok(value)
+        };
 
         if changes.backdrop {
             match visuals.backdrop {
@@ -781,15 +782,7 @@ impl WinUiRuntime {
                 .map_err(native_error)?;
             let (min_width, min_height, max_width, max_height) =
                 if let Some(constraints) = visuals.constraints {
-                    let mut hwnd = std::ptr::null_mut();
-                    unsafe {
-                        window
-                            .cast::<IWindowNative>()
-                            .map_err(native_error)?
-                            .WindowHandle(&mut hwnd)
-                            .ok()
-                            .map_err(native_error)?;
-                    }
+                    let hwnd = window_handle()?;
                     let dpi = unsafe { GetDpiForWindow(hwnd) }.max(96);
                     let pixels = |dips: f64| (dips * f64::from(dpi) / 96.0).round() as i32;
                     let client_window = app_window.cast::<IAppWindow2>().map_err(native_error)?;
@@ -825,16 +818,7 @@ impl WinUiRuntime {
         if changes.client_size
             && let Some((width, height)) = visuals.client_size
         {
-            let mut hwnd = std::ptr::null_mut();
-            unsafe {
-                window
-                    .cast::<IWindowNative>()
-                    .map_err(native_error)?
-                    .WindowHandle(&mut hwnd)
-                    .ok()
-                    .map_err(native_error)?;
-            }
-
+            let hwnd = window_handle()?;
             let dpi = unsafe { GetDpiForWindow(hwnd) }.max(96);
             let pixels = |dips: f64| (dips * f64::from(dpi) / 96.0).round() as i32;
             window_2
@@ -1052,7 +1036,7 @@ impl WinUiRuntime {
                             b: value.b,
                         })
                         .map_err(native_error)?;
-                    brush.cast().map_err(native_error)?
+                    brush.into()
                 }
                 ResourceValue::Thickness(value) => {
                     windows_reference::IReference::from(bindings::Thickness {
@@ -1061,8 +1045,7 @@ impl WinUiRuntime {
                         right: value.right(),
                         bottom: value.bottom(),
                     })
-                    .cast()
-                    .map_err(native_error)?
+                    .into()
                 }
                 ResourceValue::CornerRadius(value) => {
                     windows_reference::IReference::from(bindings::CornerRadius {
@@ -1071,8 +1054,7 @@ impl WinUiRuntime {
                         bottom_right: value.bottom_right(),
                         bottom_left: value.bottom_left(),
                     })
-                    .cast()
-                    .map_err(native_error)?
+                    .into()
                 }
             };
             map.Insert(&key, &value).map_err(native_error)?;
@@ -1112,7 +1094,6 @@ impl WinUiRuntime {
                         let result = args
                             .as_ref()
                             .ok_or_else(windows_core::Error::empty)
-                            .and_then(|args| args.cast::<ISizeChangedEventArgs>())
                             .and_then(|args| args.NewSize());
                         match result {
                             Ok(value) => sink.enqueue_host(HostEvent::WindowSize {
@@ -1223,8 +1204,7 @@ impl WinUiRuntime {
 
         for accelerator in &accelerators.values {
             let value = KeyboardAccelerator::new().map_err(native_error)?;
-            let interface = value.cast::<IKeyboardAccelerator>().map_err(native_error)?;
-            interface
+            value
                 .SetKey(match accelerator.key {
                     AcceleratorKey::R => VirtualKey::R,
                     AcceleratorKey::NumberPad0 => VirtualKey::NumberPad0,
@@ -1245,14 +1225,14 @@ impl WinUiRuntime {
                     AcceleratorKey::Enter => VirtualKey::Enter,
                 })
                 .map_err(native_error)?;
-            interface
+            value
                 .SetModifiers(match accelerator.modifiers {
                     AcceleratorModifiers::None => VirtualKeyModifiers::None,
                     AcceleratorModifiers::Control => VirtualKeyModifiers::Control,
                 })
                 .map_err(native_error)?;
             let callback = accelerator.callback.clone();
-            interface
+            value
                 .Invoked(move |_, args| {
                     if let Some(args) = args.as_ref() {
                         _ = args.SetHandled(true);
@@ -2088,14 +2068,13 @@ impl WinUiRuntime {
                     .ui_element(*target)?
                     .cast::<DependencyObject>()
                     .map_err(native_error)?;
-                let tooltip = tooltip
-                    .map(|tooltip| {
-                        self.ui_element(tooltip)?
-                            .cast::<windows_core::IInspectable>()
-                            .map_err(native_error)
-                    })
-                    .transpose()?;
-                ToolTipService::SetToolTip(&target, tooltip.as_ref()).map_err(native_error)?;
+                if let Some(tooltip) = tooltip {
+                    ToolTipService::SetToolTip(&target, &self.ui_element(*tooltip)?)
+                        .map_err(native_error)?;
+                } else {
+                    ToolTipService::SetToolTip(&target, None::<&windows_core::IInspectable>)
+                        .map_err(native_error)?;
+                }
                 ToolTipService::SetPlacement(
                     &target,
                     match placement {
@@ -2137,12 +2116,8 @@ impl WinUiRuntime {
                     } else {
                         let flyout = bindings::Flyout::new().map_err(native_error)?;
                         match &target_handle {
-                            Handle::Button(target) => target
-                                .cast::<IButton>()
-                                .and_then(|target| target.SetFlyout(&flyout)),
-                            Handle::SplitButton(target) => target
-                                .cast::<ISplitButton>()
-                                .and_then(|target| target.SetFlyout(&flyout)),
+                            Handle::Button(target) => target.SetFlyout(&flyout),
+                            Handle::SplitButton(target) => target.SetFlyout(&flyout),
                             _ => return Err(RuntimeError::UnsupportedKind),
                         }
                         .map_err(native_error)?;
@@ -2194,12 +2169,8 @@ impl WinUiRuntime {
                             .map_err(native_error)?;
                     }
                     match &target_handle {
-                        Handle::Button(target) => target
-                            .cast::<IButton>()
-                            .and_then(|target| target.SetFlyout(None::<&FlyoutBase>)),
-                        Handle::SplitButton(target) => target
-                            .cast::<ISplitButton>()
-                            .and_then(|target| target.SetFlyout(None::<&FlyoutBase>)),
+                        Handle::Button(target) => target.SetFlyout(None::<&FlyoutBase>),
+                        Handle::SplitButton(target) => target.SetFlyout(None::<&FlyoutBase>),
                         _ => return Err(RuntimeError::UnsupportedKind),
                     }
                     .map_err(native_error)?;
@@ -2230,8 +2201,7 @@ impl WinUiRuntime {
                             else {
                                 return Err(RuntimeError::UnsupportedKind);
                             };
-                            item.cast::<IMenuBarItem>()
-                                .and_then(|item| item.Items())
+                            item.Items()
                                 .and_then(|items| items.Clear())
                                 .map_err(native_error)?;
                         }
@@ -2268,10 +2238,7 @@ impl WinUiRuntime {
                             *owner,
                             *revision,
                             &sink,
-                            &item
-                                .cast::<IMenuBarItem>()
-                                .and_then(|item| item.Items())
-                                .map_err(native_error)?,
+                            &item.Items().map_err(native_error)?,
                             &mut revokers,
                         )?;
                         None
@@ -2534,10 +2501,7 @@ impl WinUiRuntime {
             .get(&parent)
             .ok_or(RuntimeError::MissingNode(parent))?;
         let collection = slot_collection(parent, slot)?;
-        let child = self
-            .ui_element(child)?
-            .cast::<windows_core::IInspectable>()
-            .map_err(native_error)?;
+        let child: windows_core::IInspectable = self.ui_element(child)?.into();
         let selection = selection_for_slot(slot);
         let retained = self.retained_identities(parent_id, Some(slot))?;
         let current = (0..collection.Size()?)
@@ -2578,10 +2542,7 @@ impl WinUiRuntime {
             .get(&parent)
             .ok_or(RuntimeError::MissingNode(parent))?;
         let collection = slot_collection(parent, slot)?;
-        let child = self
-            .ui_element(child)?
-            .cast::<windows_core::IInspectable>()
-            .map_err(native_error)?;
+        let child: windows_core::IInspectable = self.ui_element(child)?.into();
         let selection = selection_for_slot(slot);
         let result = self.with_controlled_collection_preserved(parent_id, parent, slot, || {
             self.with_selection_suppressed(selection.map(|_| (parent_id, slot)), || {
@@ -2617,10 +2578,7 @@ impl WinUiRuntime {
             .transpose()?
             .flatten();
         let collection = slot_collection(parent, slot)?;
-        let child = self
-            .ui_element(child)?
-            .cast::<windows_core::IInspectable>()
-            .map_err(native_error)?;
+        let child: windows_core::IInspectable = self.ui_element(child)?.into();
         let restore_selection = match selection {
             Some(selection) => {
                 selected.as_ref() == Some(&child) || selection_item_is_selected(selection, &child)?
@@ -2672,10 +2630,7 @@ impl WinUiRuntime {
         let desired = children
             .iter()
             .map(|child| {
-                let item = self
-                    .ui_element(*child)?
-                    .cast::<windows_core::IInspectable>()
-                    .map_err(native_error)?;
+                let item: windows_core::IInspectable = self.ui_element(*child)?.into();
                 Ok((*child, com_identity(&item)?, item))
             })
             .collect::<Result<Vec<_>, RuntimeError>>()?;
@@ -3490,193 +3445,8 @@ fn child_index(
 }
 
 #[cfg(test)]
-mod tests {
-    use super::{
-        AsyncIngressQueue, AsyncIngressSender, Command, DroppedData, NodeId, PendingAsync,
-        RuntimeError, SlotId, WinUiRuntime, WindowId, WindowToken, is_internal_detach,
-        merge_retained_identities, native_number_box_value, native_rating_value,
-        native_selection_index, number_box_value, physical_retained_index, rating_value,
-        retained_subsequence, selection_index,
-    };
-    use std::cell::Cell;
-    use std::collections::HashSet;
-    use std::marker::PhantomData;
-    use std::rc::Rc;
-    use std::sync::atomic::{AtomicUsize, Ordering};
-    use std::sync::{Arc, Mutex};
-
-    #[test]
-    fn releasing_encoded_image_source_cancels_pending_decode_and_ownership() {
-        let node = NodeId::from_parts(1, 0);
-        let ticket = 7;
-        let canceled = Rc::new(Cell::new(false));
-        let canceled_capture = Rc::clone(&canceled);
-        let mut runtime = WinUiRuntime::default();
-        runtime.encoded_image_nodes.borrow_mut().insert(node);
-        runtime.image_decode_tickets.insert(node, ticket);
-        runtime.async_state.borrow_mut().pending.insert(
-            ticket,
-            PendingAsync {
-                node,
-                cancel: Box::new(move || canceled_capture.set(true)),
-                finalize: Box::new(|_, _| {}),
-            },
-        );
-
-        runtime.release_encoded_image_source(node);
-
-        assert!(canceled.get());
-        assert!(!runtime.encoded_image_nodes.borrow().contains(&node));
-        assert!(!runtime.image_decode_tickets.contains_key(&node));
-        assert!(!runtime.async_state.borrow().pending.contains_key(&ticket));
-    }
-
-    #[test]
-    fn skips_only_internal_detaches_for_destroyed_subtrees() {
-        let parent = NodeId::from_parts(1, 0);
-        let child = NodeId::from_parts(2, 0);
-        let survivor = NodeId::from_parts(3, 0);
-        let destroyed = HashSet::from([parent, child]);
-
-        assert!(is_internal_detach(
-            &Command::RemoveChild {
-                parent,
-                slot: Some(SlotId::PivotItems),
-                child,
-            },
-            &destroyed,
-        ));
-        assert!(!is_internal_detach(
-            &Command::RemoveChild {
-                parent,
-                slot: Some(SlotId::PivotItems),
-                child: survivor,
-            },
-            &destroyed,
-        ));
-        assert!(is_internal_detach(
-            &Command::SetSlot {
-                parent,
-                slot: SlotId::ExpanderContent,
-                child: None,
-            },
-            &destroyed,
-        ));
-        assert!(!is_internal_detach(
-            &Command::SetSlot {
-                parent,
-                slot: SlotId::ExpanderContent,
-                child: Some(survivor),
-            },
-            &destroyed,
-        ));
-    }
-
-    #[test]
-    fn retained_subsequence_preserves_longest_native_order() {
-        assert_eq!(
-            retained_subsequence(&[1, 2, 3, 4, 5], &[5, 2, 3, 1, 4]),
-            HashSet::from([2, 3, 4])
-        );
-        assert_eq!(
-            retained_subsequence(&[1, 2, 3, 4], &[4, 3, 2, 1]),
-            HashSet::from([1])
-        );
-        assert_eq!(
-            retained_subsequence(&[1, 2, 3], &[4, 2, 5]),
-            HashSet::from([2])
-        );
-    }
-
-    #[test]
-    fn retained_children_stay_anchored_during_semantic_changes() {
-        let retained = HashSet::from([2, 4]);
-        assert_eq!(
-            merge_retained_identities(&[1, 2, 3, 4, 5], &[3, 6, 5], &retained),
-            [2, 3, 6, 4, 5]
-        );
-        assert_eq!(physical_retained_index(&[2, 3, 4, 5], &retained, 0), Ok(1));
-        assert_eq!(physical_retained_index(&[2, 3, 4, 5], &retained, 1), Ok(3));
-        assert_eq!(physical_retained_index(&[2, 4], &retained, 0), Ok(2));
-    }
-
-    #[test]
-    fn async_ingress_rejects_stale_and_failed_wakes() {
-        let identity = WindowToken::new(WindowId::allocate());
-        let ingress = Arc::new(Mutex::new(AsyncIngressQueue {
-            identity: Some(identity),
-            ..Default::default()
-        }));
-        let wakes = Arc::new(AtomicUsize::new(0));
-        let wake_count = Arc::clone(&wakes);
-        let sender = AsyncIngressSender {
-            identity,
-            ticket: 7,
-            ingress: Arc::clone(&ingress),
-            wake: Arc::new(move || {
-                wake_count.fetch_add(1, Ordering::Relaxed);
-                true
-            }),
-            marker: PhantomData,
-        };
-
-        assert!(sender.complete(Ok::<_, RuntimeError>(DroppedData::Text("value".into()))));
-        let queued = ingress.lock().unwrap().completions.pop_front().unwrap();
-        assert_eq!(queued.identity, identity);
-        assert_eq!(queued.ticket, 7);
-        assert_eq!(
-            *queued
-                .payload
-                .downcast::<Result<DroppedData, RuntimeError>>()
-                .unwrap(),
-            Ok(DroppedData::Text("value".into()))
-        );
-        assert_eq!(wakes.load(Ordering::Relaxed), 1);
-
-        ingress.lock().unwrap().identity = identity.next();
-        let stale = AsyncIngressSender {
-            identity,
-            ticket: 8,
-            ingress: Arc::clone(&ingress),
-            wake: Arc::new(|| true),
-            marker: PhantomData,
-        };
-        assert!(!stale.complete(Ok::<_, RuntimeError>(DroppedData::Unsupported)));
-        assert!(ingress.lock().unwrap().completions.is_empty());
-
-        ingress.lock().unwrap().identity = Some(identity);
-        let rejected = AsyncIngressSender {
-            identity,
-            ticket: 9,
-            ingress: Arc::clone(&ingress),
-            wake: Arc::new(|| false),
-            marker: PhantomData,
-        };
-        assert!(!rejected.complete(Err::<DroppedData, _>(RuntimeError::Injected)));
-        assert!(ingress.lock().unwrap().completions.is_empty());
-    }
-
-    #[test]
-    fn semantic_values_round_trip_native_sentinels() {
-        assert_eq!(native_selection_index(None), Ok(-1));
-        assert_eq!(native_selection_index(Some(2)), Ok(2));
-        assert_eq!(selection_index(-1), Ok(None));
-        assert_eq!(selection_index(2), Ok(Some(2)));
-        assert_eq!(selection_index(-2), Err(RuntimeError::IndexOutOfBounds));
-        assert_eq!(
-            native_selection_index(Some(i32::MAX as usize + 1)),
-            Err(RuntimeError::IndexOutOfBounds)
-        );
-
-        assert!(native_number_box_value(None).is_nan());
-        assert_eq!(number_box_value(f64::NAN), None);
-        assert_eq!(number_box_value(2.5), Some(2.5));
-
-        assert_eq!(native_rating_value(None), -1.0);
-        assert_eq!(rating_value(-1.0), None);
-        assert_eq!(rating_value(2.5), Some(2.5));
-    }
-}
+#[path = "tests.rs"]
+mod tests;
 
 fn inspectable_child_index(
     children: &SlotCollection,
@@ -3803,14 +3573,10 @@ impl NativeRuntime for WinUiRuntime {
             _ = flyout.SetContent(None::<&UIElement>);
             match self.handles.get(&target) {
                 Some(Handle::Button(button)) => {
-                    if let Ok(button) = button.cast::<IButton>() {
-                        _ = button.SetFlyout(None::<&FlyoutBase>);
-                    }
+                    _ = button.SetFlyout(None::<&FlyoutBase>);
                 }
                 Some(Handle::SplitButton(button)) => {
-                    if let Ok(button) = button.cast::<ISplitButton>() {
-                        _ = button.SetFlyout(None::<&FlyoutBase>);
-                    }
+                    _ = button.SetFlyout(None::<&FlyoutBase>);
                 }
                 _ => {}
             }

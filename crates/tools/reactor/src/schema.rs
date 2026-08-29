@@ -537,7 +537,6 @@ pub(crate) struct ResolvedEvent {
     pub(crate) field: String,
     pub(crate) payload: String,
     pub(crate) interface: String,
-    pub(crate) property: Option<String>,
     pub(crate) source: EventPayloadSource,
     pub(crate) conversion: EventPayloadConversion,
     pub(crate) subscription: EventSubscription,
@@ -577,16 +576,56 @@ pub(crate) enum SlotShape {
 #[derive(Debug, Eq, PartialEq)]
 pub(crate) enum EventPayloadSource {
     Unit,
-    SenderProperty { interface: String },
-    EventArgsProperty { interface: String },
+    SenderProperty { interface: String, property: String },
+    EventArgsProperty { interface: String, property: String },
     DragInfo { interface: String },
     DropData { interface: String },
-    EventArgsInspectableString { interface: String },
-    EventArgsItemTag { interface: String },
-    EventArgsTreeNodeContent { interface: String },
-    SenderRichEditText { interface: String },
+    EventArgsInspectableString { interface: String, property: String },
+    EventArgsItemTag { interface: String, property: String },
+    EventArgsTreeNodeContent { interface: String, property: String },
+    SenderRichEditText { interface: String, property: String },
     PointerEvent,
     SenderItemTags { interface: String, property: String },
+}
+
+impl EventPayloadSource {
+    pub(crate) fn getter(&self) -> Option<(&str, &str)> {
+        match self {
+            Self::SenderProperty {
+                interface,
+                property,
+            }
+            | Self::EventArgsProperty {
+                interface,
+                property,
+            }
+            | Self::EventArgsInspectableString {
+                interface,
+                property,
+            }
+            | Self::EventArgsItemTag {
+                interface,
+                property,
+            }
+            | Self::EventArgsTreeNodeContent {
+                interface,
+                property,
+            }
+            | Self::SenderRichEditText {
+                interface,
+                property,
+            }
+            | Self::SenderItemTags {
+                interface,
+                property,
+            } => Some((interface, property)),
+            Self::Unit | Self::DragInfo { .. } | Self::DropData { .. } | Self::PointerEvent => None,
+        }
+    }
+
+    pub(crate) fn property(&self) -> Option<&str> {
+        self.getter().map(|(_, property)| property)
+    }
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -1010,10 +1049,9 @@ impl Schema {
                     .selection
                     .as_ref()
                     .filter(|selection| selection.event == event.name);
-                let (payload, interface, property, source, conversion, subscription) = if let Some(
+                let (payload, interface, source, conversion, subscription) = if let Some(
                     selection,
-                ) =
-                    selection
+                ) = selection
                 {
                     if event.property.is_some() || event.observe.is_some() {
                         return Err(format!(
@@ -1051,6 +1089,7 @@ impl Schema {
                             .full_path();
                         EventPayloadSource::EventArgsProperty {
                             interface: property_interface,
+                            property: selection.selected_item_property.clone(),
                         }
                     } else {
                         EventPayloadSource::SenderProperty {
@@ -1061,12 +1100,12 @@ impl Schema {
                                 )
                                 .unwrap()
                                 .full_path(),
+                            property: selection.selected_item_property.clone(),
                         }
                     };
                     (
                         "SelectionChange".to_string(),
                         interface.full_path(),
-                        Some(selection.selected_item_property.clone()),
                         source,
                         ReadValueConversion::Identity,
                         EventSubscription::Metadata,
@@ -1098,9 +1137,9 @@ impl Schema {
                     (
                         payload,
                         interface,
-                        Some(observe.to_string()),
                         EventPayloadSource::SenderProperty {
                             interface: observed.interface.clone(),
+                            property: observe.to_string(),
                         },
                         conversion,
                         EventSubscription::PropertyChanged {
@@ -1225,7 +1264,10 @@ impl Schema {
                                 .full_path();
                             (
                                 "NavigationViewDisplayMode".to_string(),
-                                EventPayloadSource::EventArgsProperty { interface },
+                                EventPayloadSource::EventArgsProperty {
+                                    interface,
+                                    property: property.to_string(),
+                                },
                                 ReadValueConversion::Identity,
                             )
                         } else if event.adapter == Some(PropertyAdapter::RichEditText) {
@@ -1249,7 +1291,10 @@ impl Schema {
                                 .full_path();
                             (
                                 "Str".to_string(),
-                                EventPayloadSource::SenderRichEditText { interface },
+                                EventPayloadSource::SenderRichEditText {
+                                    interface,
+                                    property: property.to_string(),
+                                },
                                 ReadValueConversion::Identity,
                             )
                         } else if metadata.has_method(&name, &sender_property) {
@@ -1263,7 +1308,10 @@ impl Schema {
                                 })?;
                             (
                                 payload,
-                                EventPayloadSource::SenderProperty { interface },
+                                EventPayloadSource::SenderProperty {
+                                    interface,
+                                    property: property.to_string(),
+                                },
                                 conversion,
                             )
                         } else if event.adapter == Some(PropertyAdapter::ContentDialogResult) {
@@ -1287,7 +1335,10 @@ impl Schema {
                                 .full_path();
                             (
                                 "ContentDialogResult".to_string(),
-                                EventPayloadSource::EventArgsProperty { interface },
+                                EventPayloadSource::EventArgsProperty {
+                                    interface,
+                                    property: property.to_string(),
+                                },
                                 ReadValueConversion::Identity,
                             )
                         } else if event.adapter == Some(PropertyAdapter::ItemTag) {
@@ -1301,7 +1352,10 @@ impl Schema {
                                 })?;
                             (
                                 "Str".to_string(),
-                                EventPayloadSource::EventArgsItemTag { interface },
+                                EventPayloadSource::EventArgsItemTag {
+                                    interface,
+                                    property: property.to_string(),
+                                },
                                 ReadValueConversion::Identity,
                             )
                         } else if event.adapter == Some(PropertyAdapter::InspectableString) {
@@ -1319,7 +1373,10 @@ impl Schema {
                                         })?;
                             (
                                 "Str".to_string(),
-                                EventPayloadSource::EventArgsInspectableString { interface },
+                                EventPayloadSource::EventArgsInspectableString {
+                                    interface,
+                                    property: property.to_string(),
+                                },
                                 ReadValueConversion::Identity,
                             )
                         } else if event.adapter == Some(PropertyAdapter::TreeNodeContent) {
@@ -1342,7 +1399,10 @@ impl Schema {
                                 })?;
                             (
                                 "Str".to_string(),
-                                EventPayloadSource::EventArgsTreeNodeContent { interface },
+                                EventPayloadSource::EventArgsTreeNodeContent {
+                                    interface,
+                                    property: property.to_string(),
+                                },
                                 ReadValueConversion::Identity,
                             )
                         } else {
@@ -1356,7 +1416,10 @@ impl Schema {
                                 })?;
                             (
                                 payload,
-                                EventPayloadSource::EventArgsProperty { interface },
+                                EventPayloadSource::EventArgsProperty {
+                                    interface,
+                                    property: property.to_string(),
+                                },
                                 conversion,
                             )
                         }
@@ -1370,7 +1433,6 @@ impl Schema {
                     (
                         payload,
                         interface.full_path(),
-                        event.property,
                         source,
                         conversion,
                         EventSubscription::Metadata,
@@ -1416,7 +1478,6 @@ impl Schema {
                     name: event.name,
                     payload,
                     interface,
-                    property,
                     source,
                     conversion,
                     subscription,
@@ -1555,7 +1616,7 @@ impl Schema {
                         event.subscription,
                         EventSubscription::PropertyChanged { .. }
                     )
-                    && event.property.as_deref() != Some(property.name.as_str())
+                    && event.source.property() != Some(property.name.as_str())
                 {
                     return Err(format!(
                         "{}.{} feedback event {} observes a different property",
@@ -2350,8 +2411,10 @@ property = "NewValue"
         assert_eq!(event.payload, "F64");
         assert!(matches!(
             &event.source,
-            EventPayloadSource::EventArgsProperty { interface }
-                if interface.ends_with("INumberBoxValueChangedEventArgs")
+            EventPayloadSource::EventArgsProperty {
+                interface,
+                property
+            } if interface.ends_with("INumberBoxValueChangedEventArgs") && property == "NewValue"
         ));
         assert_eq!(event.conversion, EventPayloadConversion::Identity);
     }

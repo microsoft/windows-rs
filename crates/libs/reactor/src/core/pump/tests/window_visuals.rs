@@ -1,5 +1,4 @@
 use super::super::*;
-use crate::native::*;
 
 #[derive(Clone, PartialEq)]
 struct VisualInput {

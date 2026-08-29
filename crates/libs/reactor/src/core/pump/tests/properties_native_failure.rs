@@ -2,7 +2,6 @@
 
 use super::super::*;
 use super::support::*;
-use crate::native::*;
 
 #[test]
 fn successful_property_updates_publish_known_values() {

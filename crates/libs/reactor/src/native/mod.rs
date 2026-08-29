@@ -7,10 +7,6 @@ pub(crate) enum FeedbackExpectation {
     Suppressed,
 }
 
-#[cfg(any(test, feature = "test"))]
-mod recording;
 mod winui;
 
-#[cfg(any(test, feature = "test"))]
-pub use recording::*;
 pub use winui::*;

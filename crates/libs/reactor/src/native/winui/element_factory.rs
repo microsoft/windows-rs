@@ -48,9 +48,8 @@ impl VirtualHandle {
         let values = item_values(item_count)?;
         let source: windows_collections::IObservableVector<IInspectable> = values.into();
         let repeater = bindings::ItemsRepeater::new()?;
-        let interface = repeater.cast::<IItemsRepeater>()?;
-        interface.SetItemTemplate(&factory)?;
-        interface.SetItemsSource(&source)?;
+        repeater.SetItemTemplate(&factory)?;
+        repeater.SetItemsSource(&source)?;
         Ok(Self {
             _factory: factory,
             repeater,
@@ -81,8 +80,7 @@ impl VirtualHandle {
             .shell(container)
             .ok_or_else(|| Error::new(E_FAIL, "missing realized container"))?;
         if let Some(content) = content {
-            let content = content.cast::<IInspectable>()?;
-            shell.SetContent(&content)
+            shell.SetContent(content)
         } else {
             shell.SetContent(None::<&IInspectable>)
         }

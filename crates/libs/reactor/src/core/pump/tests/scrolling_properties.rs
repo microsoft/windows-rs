@@ -1,7 +1,6 @@
 //! Scrolling control property reconciliation tests.
 
 use super::super::*;
-use crate::native::*;
 
 #[test]
 fn scroll_viewer_properties_update_and_clear() {

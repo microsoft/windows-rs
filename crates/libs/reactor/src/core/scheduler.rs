@@ -20,7 +20,7 @@ pub enum ScheduleAction {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 enum SchedulerPhase {
     Idle,
-    Scheduled,
+    Scheduled(ScheduleTicket),
     Dispatching,
     Closing,
 }
@@ -29,7 +29,6 @@ pub struct SchedulerState {
     generation: u64,
     pending: Option<WorkPriority>,
     phase: SchedulerPhase,
-    scheduled: Option<ScheduleTicket>,
 }
 
 impl Default for SchedulerState {
@@ -44,12 +43,11 @@ impl SchedulerState {
             generation: 0,
             pending: None,
             phase: SchedulerPhase::Idle,
-            scheduled: None,
         }
     }
 
     pub fn request(&mut self, priority: WorkPriority) -> ScheduleAction {
-        if self.phase == SchedulerPhase::Closing {
+        if matches!(self.phase, SchedulerPhase::Closing) {
             return ScheduleAction::Closed;
         }
         self.pending = Some(
@@ -58,30 +56,25 @@ impl SchedulerState {
         );
         match self.phase {
             SchedulerPhase::Idle => self.schedule(priority),
-            SchedulerPhase::Scheduled
-                if self
-                    .scheduled
-                    .is_some_and(|scheduled| priority > scheduled.priority) =>
-            {
+            SchedulerPhase::Scheduled(scheduled) if priority > scheduled.priority => {
                 self.schedule(priority)
             }
-            SchedulerPhase::Scheduled | SchedulerPhase::Dispatching => ScheduleAction::None,
+            SchedulerPhase::Scheduled(_) | SchedulerPhase::Dispatching => ScheduleAction::None,
             SchedulerPhase::Closing => ScheduleAction::Closed,
         }
     }
 
     pub fn begin_dispatch(&mut self, ticket: ScheduleTicket) -> bool {
-        if self.phase != SchedulerPhase::Scheduled || self.scheduled != Some(ticket) {
+        if self.phase != SchedulerPhase::Scheduled(ticket) {
             return false;
         }
         self.phase = SchedulerPhase::Dispatching;
-        self.scheduled = None;
         self.pending = None;
         true
     }
 
     pub fn finish_dispatch(&mut self) -> ScheduleAction {
-        if self.phase == SchedulerPhase::Closing {
+        if matches!(self.phase, SchedulerPhase::Closing) {
             return ScheduleAction::Closed;
         }
         assert_eq!(self.phase, SchedulerPhase::Dispatching);
@@ -94,22 +87,19 @@ impl SchedulerState {
     }
 
     pub fn enqueue_failed(&mut self, ticket: ScheduleTicket) {
-        if self.phase == SchedulerPhase::Scheduled && self.scheduled == Some(ticket) {
+        if self.phase == SchedulerPhase::Scheduled(ticket) {
             self.phase = SchedulerPhase::Idle;
-            self.scheduled = None;
         }
     }
 
     pub fn close(&mut self) {
         self.pending = None;
         self.phase = SchedulerPhase::Closing;
-        self.scheduled = None;
     }
 
     pub fn open(&mut self) {
         self.pending = None;
         self.phase = SchedulerPhase::Idle;
-        self.scheduled = None;
     }
 
     fn schedule(&mut self, priority: WorkPriority) -> ScheduleAction {
@@ -121,8 +111,7 @@ impl SchedulerState {
             generation: self.generation,
             priority,
         };
-        self.phase = SchedulerPhase::Scheduled;
-        self.scheduled = Some(ticket);
+        self.phase = SchedulerPhase::Scheduled(ticket);
         ScheduleAction::Enqueue(ticket)
     }
 }

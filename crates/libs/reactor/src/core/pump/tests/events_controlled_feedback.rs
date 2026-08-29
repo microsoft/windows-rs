@@ -2,7 +2,7 @@
 
 use super::super::*;
 use super::support::*;
-use crate::native::*;
+use crate::native::{FeedbackExpectation, expected_feedback};
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 

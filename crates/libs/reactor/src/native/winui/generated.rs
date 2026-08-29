@@ -100,18 +100,13 @@ impl SlotCollection {
     pub fn GetAt(&self, index: u32) -> Result<windows_core::IInspectable, RuntimeError> {
         match self {
             Self::Inspectable(value) => value.GetAt(index).map_err(native_error),
-            Self::ICommandBarElement(value) => value
-                .GetAt(index)
-                .and_then(|value| value.cast::<windows_core::IInspectable>())
-                .map_err(native_error),
-            Self::MenuBarItem(value) => value
-                .GetAt(index)
-                .and_then(|value| value.cast::<windows_core::IInspectable>())
-                .map_err(native_error),
-            Self::SelectorBarItem(value) => value
-                .GetAt(index)
-                .and_then(|value| value.cast::<windows_core::IInspectable>())
-                .map_err(native_error),
+            Self::ICommandBarElement(value) => {
+                value.GetAt(index).map(Into::into).map_err(native_error)
+            }
+            Self::MenuBarItem(value) => value.GetAt(index).map(Into::into).map_err(native_error),
+            Self::SelectorBarItem(value) => {
+                value.GetAt(index).map(Into::into).map_err(native_error)
+            }
         }
     }
     pub fn InsertAt(
@@ -853,8 +848,6 @@ pub fn set_property(
             PropertyId::TextBlockFontWeight,
             PropertyValue::FontWeight(value),
         ) => control
-            .cast::<ITextBlock>()
-            .map_err(native_error)?
             .SetFontWeight(bindings::FontWeight {
                 weight: value.get(),
             })
@@ -956,11 +949,7 @@ pub fn set_property(
             PropertyValue::Str(value),
         ) => {
             let value = Uri::CreateUri(value).map_err(native_error)?;
-            control
-                .cast::<IHyperlinkButton>()
-                .map_err(native_error)?
-                .SetNavigateUri(&value)
-                .map_err(native_error)
+            control.SetNavigateUri(&value).map_err(native_error)
         }
         (
             Handle::HyperlinkButton(control),
@@ -1076,7 +1065,8 @@ pub fn set_property(
             transition.SetDuration(duration).map_err(native_error)?;
             control
                 .cast::<IUIElement>()
-                .and_then(|control| control.SetOpacityTransition(&transition))
+                .map_err(native_error)?
+                .SetOpacityTransition(&transition)
                 .map_err(native_error)
         }
         (Handle::Border(control), PropertyId::BorderScale, PropertyValue::F64(value)) => {
@@ -1111,7 +1101,8 @@ pub fn set_property(
             transition.SetDuration(duration).map_err(native_error)?;
             control
                 .cast::<IUIElement>()
-                .and_then(|control| control.SetScaleTransition(&transition))
+                .map_err(native_error)?
+                .SetScaleTransition(&transition)
                 .map_err(native_error)
         }
         (Handle::Border(_), PropertyId::BorderCapturePointerOnPress, PropertyValue::Bool(_)) => {
@@ -1130,11 +1121,7 @@ pub fn set_property(
                 .map(|value| Some(windows_reference::IReference::from(value.as_str()).into()))
                 .collect();
             let values: windows_collections::IVector<windows_core::IInspectable> = values.into();
-            control
-                .cast::<IBreadcrumbBar>()
-                .map_err(native_error)?
-                .SetItemsSource(&values)
-                .map_err(native_error)
+            control.SetItemsSource(&values).map_err(native_error)
         }
         (
             Handle::StackPanel(control),
@@ -1364,8 +1351,6 @@ pub fn set_property(
             PropertyId::NumberBoxValue,
             PropertyValue::OptionalF64(value),
         ) => control
-            .cast::<INumberBox>()
-            .map_err(native_error)?
             .SetValue(native_number_box_value(*value))
             .map_err(native_error),
         (
@@ -1718,11 +1703,7 @@ pub fn set_property(
                 .map(|value| Some(windows_reference::IReference::from(value.as_str()).into()))
                 .collect();
             let values: windows_collections::IVector<windows_core::IInspectable> = values.into();
-            control
-                .cast::<IRadioButtons>()
-                .map_err(native_error)?
-                .SetItemsSource(&values)
-                .map_err(native_error)
+            control.SetItemsSource(&values).map_err(native_error)
         }
         (
             Handle::RadioButtons(control),
@@ -1730,11 +1711,7 @@ pub fn set_property(
             PropertyValue::SelectionIndex(value),
         ) => {
             let value = native_selection_index(*value)?;
-            control
-                .cast::<IRadioButtons>()
-                .map_err(native_error)?
-                .SetSelectedIndex(value)
-                .map_err(native_error)
+            control.SetSelectedIndex(value).map_err(native_error)
         }
         (
             Handle::RadioButtons(control),
@@ -2272,11 +2249,7 @@ pub fn set_property(
             PropertyValue::Str(value),
         ) => {
             let value = Uri::CreateUri(value).map_err(native_error)?;
-            control
-                .cast::<IBitmapIcon>()
-                .map_err(native_error)?
-                .SetUriSource(&value)
-                .map_err(native_error)
+            control.SetUriSource(&value).map_err(native_error)
         }
         (
             Handle::BitmapIcon(control),
@@ -2322,8 +2295,6 @@ pub fn set_property(
             PropertyId::RatingControlValue,
             PropertyValue::OptionalF64(value),
         ) => control
-            .cast::<IRatingControl>()
-            .map_err(native_error)?
             .SetValue(native_rating_value(*value))
             .map_err(native_error),
         (
@@ -2388,27 +2359,15 @@ pub fn set_property(
             PropertyValue::SelectionIndex(value),
         ) => {
             let value = native_selection_index(*value)?;
-            control
-                .cast::<IPivot>()
-                .map_err(native_error)?
-                .SetSelectedIndex(value)
-                .map_err(native_error)
+            control.SetSelectedIndex(value).map_err(native_error)
         }
         (Handle::Pivot(control), PropertyId::PivotTitle, PropertyValue::Str(value)) => {
             let value = windows_reference::IReference::from(value.as_str());
-            control
-                .cast::<IPivot>()
-                .map_err(native_error)?
-                .SetTitle(&value)
-                .map_err(native_error)
+            control.SetTitle(&value).map_err(native_error)
         }
         (Handle::PivotItem(control), PropertyId::PivotItemHeader, PropertyValue::Str(value)) => {
             let value = windows_reference::IReference::from(value.as_str());
-            control
-                .cast::<IPivotItem>()
-                .map_err(native_error)?
-                .SetHeader(&value)
-                .map_err(native_error)
+            control.SetHeader(&value).map_err(native_error)
         }
         (
             Handle::FlipView(control),
@@ -2442,11 +2401,7 @@ pub fn set_property(
             PropertyValue::SelectionIndex(value),
         ) => {
             let value = native_selection_index(*value)?;
-            control
-                .cast::<ITabView>()
-                .map_err(native_error)?
-                .SetSelectedIndex(value)
-                .map_err(native_error)
+            control.SetSelectedIndex(value).map_err(native_error)
         }
         (
             Handle::TabView(control),
@@ -2466,11 +2421,7 @@ pub fn set_property(
             PropertyValue::Str(value),
         ) => {
             let value = windows_reference::IReference::from(value.as_str());
-            control
-                .cast::<ITabViewItem>()
-                .map_err(native_error)?
-                .SetHeader(&value)
-                .map_err(native_error)
+            control.SetHeader(&value).map_err(native_error)
         }
         (
             Handle::TabViewItem(control),
@@ -2553,11 +2504,7 @@ pub fn set_property(
             PropertyValue::Str(value),
         ) => {
             let value = windows_reference::IReference::from(value.as_str());
-            control
-                .cast::<ITeachingTip>()
-                .map_err(native_error)?
-                .SetActionButtonContent(&value)
-                .map_err(native_error)
+            control.SetActionButtonContent(&value).map_err(native_error)
         }
         (
             Handle::TeachingTip(control),
@@ -2565,11 +2512,7 @@ pub fn set_property(
             PropertyValue::Str(value),
         ) => {
             let value = windows_reference::IReference::from(value.as_str());
-            control
-                .cast::<ITeachingTip>()
-                .map_err(native_error)?
-                .SetCloseButtonContent(&value)
-                .map_err(native_error)
+            control.SetCloseButtonContent(&value).map_err(native_error)
         }
         (
             Handle::DropDownButton(control),
@@ -2725,11 +2668,7 @@ pub fn set_property(
             PropertyValue::Str(value),
         ) => {
             let value = windows_reference::IReference::from(value.as_str());
-            control
-                .cast::<IContentDialog>()
-                .map_err(native_error)?
-                .SetTitle(&value)
-                .map_err(native_error)
+            control.SetTitle(&value).map_err(native_error)
         }
         (
             Handle::ContentDialog(control),
@@ -3099,21 +3038,22 @@ pub fn clear_property(handle: &Handle, property: PropertyId) -> Result<(), Runti
             .map_err(native_error),
         (Handle::Border(control), PropertyId::BorderOpacityTransition) => control
             .cast::<IUIElement>()
-            .and_then(|control| control.SetOpacityTransition(None::<&ScalarTransition>))
+            .map_err(native_error)?
+            .SetOpacityTransition(None::<&ScalarTransition>)
             .map_err(native_error),
         (Handle::Border(control), PropertyId::BorderScale) => control
             .cast::<IUIElement>()
-            .and_then(|control| {
-                control.SetScale(windows_numerics::Vector3 {
-                    x: 1.0,
-                    y: 1.0,
-                    z: 1.0,
-                })
+            .map_err(native_error)?
+            .SetScale(windows_numerics::Vector3 {
+                x: 1.0,
+                y: 1.0,
+                z: 1.0,
             })
             .map_err(native_error),
         (Handle::Border(control), PropertyId::BorderScaleTransition) => control
             .cast::<IUIElement>()
-            .and_then(|control| control.SetScaleTransition(None::<&Vector3Transition>))
+            .map_err(native_error)?
+            .SetScaleTransition(None::<&Vector3Transition>)
             .map_err(native_error),
         (Handle::Border(_), PropertyId::BorderCapturePointerOnPress) => {
             Err(RuntimeError::UnsupportedKind)
@@ -4133,10 +4073,7 @@ pub fn selected_item(
 ) -> Result<Option<windows_core::IInspectable>, RuntimeError> {
     match (handle, selection.slot) {
         (Handle::NavigationView(value), SlotId::NavigationViewMenuItems) => {
-            match value
-                .cast::<INavigationView>()
-                .and_then(|value| value.SelectedItem())
-            {
+            match value.SelectedItem() {
                 Ok(selected) => Ok(Some(selected)),
                 Err(error) if error.code().is_ok() => Ok(None),
                 Err(error) => Err(native_error(error)),
@@ -4152,19 +4089,11 @@ pub fn selected_item(
                 Err(error) => Err(native_error(error)),
             }
         }
-        (Handle::SelectorBar(value), SlotId::SelectorBarItems) => {
-            match value
-                .cast::<ISelectorBar>()
-                .and_then(|value| value.SelectedItem())
-            {
-                Ok(selected) => selected
-                    .cast::<windows_core::IInspectable>()
-                    .map(Some)
-                    .map_err(native_error),
-                Err(error) if error.code().is_ok() => Ok(None),
-                Err(error) => Err(native_error(error)),
-            }
-        }
+        (Handle::SelectorBar(value), SlotId::SelectorBarItems) => match value.SelectedItem() {
+            Ok(selected) => Ok(Some(selected.into())),
+            Err(error) if error.code().is_ok() => Ok(None),
+            Err(error) => Err(native_error(error)),
+        },
         _ => Ok(None),
     }
 }
@@ -4174,20 +4103,16 @@ pub fn set_selected_item(
     selected: &windows_core::IInspectable,
 ) -> Result<(), RuntimeError> {
     match (handle, selection.slot) {
-        (Handle::NavigationView(value), SlotId::NavigationViewMenuItems) => value
-            .cast::<INavigationView>()
-            .and_then(|value| value.SetSelectedItem(selected))
-            .map_err(native_error),
+        (Handle::NavigationView(value), SlotId::NavigationViewMenuItems) => {
+            value.SetSelectedItem(selected).map_err(native_error)
+        }
         (Handle::ListBox(value), SlotId::ListBoxItems) => value
             .cast::<ISelector>()
             .and_then(|value| value.SetSelectedItem(selected))
             .map_err(native_error),
-        (Handle::SelectorBar(value), SlotId::SelectorBarItems) => value
-            .cast::<ISelectorBar>()
-            .and_then(|value| {
-                let selected = selected.cast::<bindings::SelectorBarItem>()?;
-                value.SetSelectedItem(&selected)
-            })
+        (Handle::SelectorBar(value), SlotId::SelectorBarItems) => selected
+            .cast::<bindings::SelectorBarItem>()
+            .and_then(|selected| value.SetSelectedItem(&selected))
             .map_err(native_error),
         _ => Ok(()),
     }
@@ -4501,272 +4426,180 @@ pub fn subscribe_event(
     match (handle, event) {
         (Handle::Button(value), EventId::ButtonClick) => {
             let source = value.cast::<IButtonBase>().map_err(native_error)?;
-            source
-                .Click(move |_, _| {
-                    sink.enqueue(node, EventId::ButtonClick, revision, EventPayload::Unit);
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+            source.Click(move |_, _| {
+                sink.enqueue(node, EventId::ButtonClick, revision, EventPayload::Unit);
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::HyperlinkButton(value), EventId::HyperlinkButtonClick) => {
             let source = value.cast::<IButtonBase>().map_err(native_error)?;
-            source
-                .Click(move |_, _| {
-                    sink.enqueue(
-                        node,
-                        EventId::HyperlinkButtonClick,
-                        revision,
-                        EventPayload::Unit,
-                    );
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
+            source.Click(move |_, _| {
+                sink.enqueue(
+                    node,
+                    EventId::HyperlinkButtonClick,
                     revision,
-                })
-                .map_err(native_error)
+                    EventPayload::Unit,
+                );
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::RepeatButton(value), EventId::RepeatButtonClick) => {
             let source = value.cast::<IButtonBase>().map_err(native_error)?;
-            source
-                .Click(move |_, _| {
-                    sink.enqueue(
-                        node,
-                        EventId::RepeatButtonClick,
-                        revision,
-                        EventPayload::Unit,
-                    );
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
+            source.Click(move |_, _| {
+                sink.enqueue(
+                    node,
+                    EventId::RepeatButtonClick,
                     revision,
-                })
-                .map_err(native_error)
+                    EventPayload::Unit,
+                );
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::Border(value), EventId::BorderDragEnter) => {
             let source = value.cast::<IUIElement>().map_err(native_error)?;
-            source
-                .DragEnter(move |_, args| {
-                    let result = args
-                        .as_ref()
-                        .ok_or_else(windows_core::Error::empty)
-                        .and_then(|args| args.cast::<IDragEventArgs>())
-                        .and_then(|args| {
-                            let data = args.DataView()?;
-                            let kind = if data.Contains("Shell IDList Array")? {
-                                DragKind::StorageItems
-                            } else if data.Contains("Text")? {
-                                DragKind::Text
-                            } else {
-                                DragKind::Unsupported
-                            };
-                            let action = sink.drag_action(node, kind);
-                            args.SetAcceptedOperation(
-                                action
-                                    .as_ref()
-                                    .map_or(DataPackageOperation::None, |action| {
-                                        native_drag_operation(action.operation)
-                                    }),
-                            )?;
-                            let ui = args.DragUIOverride()?;
-                            if let Some(caption) =
-                                action.as_ref().and_then(|action| action.caption.as_deref())
-                            {
-                                ui.SetCaption(caption)?;
-                                ui.SetIsCaptionVisible(true)?;
-                            } else {
-                                ui.SetIsCaptionVisible(false)?;
-                            }
-                            Ok(action.map_or(DragKind::Unsupported, |_| kind))
-                        });
-                    match result {
-                        Ok(kind) => sink.enqueue(
+            source.DragEnter(move |_, args| {
+                let result = args
+                    .as_ref()
+                    .ok_or_else(windows_core::Error::empty)
+                    .and_then(|args| {
+                        let data = args.DataView()?;
+                        let kind = if data.Contains("Shell IDList Array")? {
+                            DragKind::StorageItems
+                        } else if data.Contains("Text")? {
+                            DragKind::Text
+                        } else {
+                            DragKind::Unsupported
+                        };
+                        let action = sink.drag_action(node, kind);
+                        args.SetAcceptedOperation(
+                            action
+                                .as_ref()
+                                .map_or(DataPackageOperation::None, |action| {
+                                    native_drag_operation(action.operation)
+                                }),
+                        )?;
+                        let ui = args.DragUIOverride()?;
+                        if let Some(caption) =
+                            action.as_ref().and_then(|action| action.caption.as_deref())
+                        {
+                            ui.SetCaption(caption)?;
+                            ui.SetIsCaptionVisible(true)?;
+                        } else {
+                            ui.SetIsCaptionVisible(false)?;
+                        }
+                        Ok(action.map_or(DragKind::Unsupported, |_| kind))
+                    });
+                match result {
+                    Ok(kind) => sink.enqueue(
+                        node,
+                        EventId::BorderDragEnter,
+                        revision,
+                        EventPayload::DragKind(kind),
+                    ),
+                    Err(error) => {
+                        sink.error(
                             node,
                             EventId::BorderDragEnter,
                             revision,
-                            EventPayload::DragKind(kind),
-                        ),
-                        Err(error) => {
-                            sink.error(
-                                node,
-                                EventId::BorderDragEnter,
-                                revision,
-                                native_error(error),
-                            );
-                        }
-                    };
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                            native_error(error),
+                        );
+                    }
+                };
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::Border(value), EventId::BorderDragOver) => {
             let source = value.cast::<IUIElement>().map_err(native_error)?;
-            source
-                .DragOver(move |_, args| {
-                    let result = args
-                        .as_ref()
-                        .ok_or_else(windows_core::Error::empty)
-                        .and_then(|args| args.cast::<IDragEventArgs>())
-                        .and_then(|args| {
-                            let data = args.DataView()?;
-                            let kind = if data.Contains("Shell IDList Array")? {
-                                DragKind::StorageItems
-                            } else if data.Contains("Text")? {
-                                DragKind::Text
-                            } else {
-                                DragKind::Unsupported
-                            };
-                            let action = sink.drag_action(node, kind);
-                            args.SetAcceptedOperation(
-                                action
-                                    .as_ref()
-                                    .map_or(DataPackageOperation::None, |action| {
-                                        native_drag_operation(action.operation)
-                                    }),
-                            )?;
-                            let ui = args.DragUIOverride()?;
-                            if let Some(caption) =
-                                action.as_ref().and_then(|action| action.caption.as_deref())
-                            {
-                                ui.SetCaption(caption)?;
-                                ui.SetIsCaptionVisible(true)?;
-                            } else {
-                                ui.SetIsCaptionVisible(false)?;
-                            }
-                            Ok(action.map_or(DragKind::Unsupported, |_| kind))
-                        });
-                    match result {
-                        Ok(kind) => sink.enqueue(
-                            node,
-                            EventId::BorderDragOver,
-                            revision,
-                            EventPayload::DragKind(kind),
-                        ),
-                        Err(error) => {
-                            sink.error(
-                                node,
-                                EventId::BorderDragOver,
-                                revision,
-                                native_error(error),
-                            );
+            source.DragOver(move |_, args| {
+                let result = args
+                    .as_ref()
+                    .ok_or_else(windows_core::Error::empty)
+                    .and_then(|args| {
+                        let data = args.DataView()?;
+                        let kind = if data.Contains("Shell IDList Array")? {
+                            DragKind::StorageItems
+                        } else if data.Contains("Text")? {
+                            DragKind::Text
+                        } else {
+                            DragKind::Unsupported
+                        };
+                        let action = sink.drag_action(node, kind);
+                        args.SetAcceptedOperation(
+                            action
+                                .as_ref()
+                                .map_or(DataPackageOperation::None, |action| {
+                                    native_drag_operation(action.operation)
+                                }),
+                        )?;
+                        let ui = args.DragUIOverride()?;
+                        if let Some(caption) =
+                            action.as_ref().and_then(|action| action.caption.as_deref())
+                        {
+                            ui.SetCaption(caption)?;
+                            ui.SetIsCaptionVisible(true)?;
+                        } else {
+                            ui.SetIsCaptionVisible(false)?;
                         }
-                    };
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                        Ok(action.map_or(DragKind::Unsupported, |_| kind))
+                    });
+                match result {
+                    Ok(kind) => sink.enqueue(
+                        node,
+                        EventId::BorderDragOver,
+                        revision,
+                        EventPayload::DragKind(kind),
+                    ),
+                    Err(error) => {
+                        sink.error(node, EventId::BorderDragOver, revision, native_error(error));
+                    }
+                };
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::Border(value), EventId::BorderDragLeave) => {
             let source = value.cast::<IUIElement>().map_err(native_error)?;
-            source
-                .DragLeave(move |_, _| {
-                    sink.enqueue(node, EventId::BorderDragLeave, revision, EventPayload::Unit);
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+            source.DragLeave(move |_, _| {
+                sink.enqueue(node, EventId::BorderDragLeave, revision, EventPayload::Unit);
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::Border(value), EventId::BorderDrop) => {
             let source = value.cast::<IUIElement>().map_err(native_error)?;
-            source
-                .Drop(move |_, args| {
-                    let result = args
-                        .as_ref()
-                        .ok_or_else(windows_core::Error::empty)
-                        .and_then(|args| args.cast::<IDragEventArgs>())
-                        .and_then(|args| {
-                            let deferral = args.GetDeferral()?;
-                            let result = (|| {
-                                let data = args.DataView()?;
-                                if data.Contains("Shell IDList Array")? {
-                                    let Some(action) =
-                                        sink.drag_action(node, DragKind::StorageItems)
-                                    else {
-                                        args.SetAcceptedOperation(DataPackageOperation::None)?;
-                                        deferral.Complete()?;
-                                        sink.enqueue(
-                                            node,
-                                            EventId::BorderDrop,
-                                            revision,
-                                            EventPayload::DroppedData(DroppedData::Unsupported),
-                                        );
-                                        return Ok(());
-                                    };
-                                    args.SetAcceptedOperation(native_drag_operation(
-                                        action.operation,
-                                    ))?;
-                                    let operation = data.GetStorageItemsAsync()?;
-                                    let sender = sink.begin_async_event(
-                                        node,
-                                        EventId::BorderDrop,
-                                        revision,
-                                        deferral.clone(),
-                                    );
-                                    let completion = sender.clone();
-                                    if let Err(error) = operation.when(move |result| {
-                                        let result = result.and_then(|items| {
-                                            let mut dropped =
-                                                Vec::with_capacity(items.Size()? as usize);
-                                            for index in 0..items.Size()? {
-                                                let item = items.GetAt(index)?;
-                                                dropped.push(DroppedStorageItem {
-                                                    name: item.Name()?,
-                                                    path: item.Path()?,
-                                                });
-                                            }
-                                            Ok(DroppedData::StorageItems(dropped))
-                                        });
-                                        _ = completion.complete(result.map_err(native_error));
-                                    }) {
-                                        _ = sender.complete(Err(native_error(error)));
-                                    }
-                                    Ok(())
-                                } else if data.Contains("Text")? {
-                                    let Some(action) = sink.drag_action(node, DragKind::Text)
-                                    else {
-                                        args.SetAcceptedOperation(DataPackageOperation::None)?;
-                                        deferral.Complete()?;
-                                        sink.enqueue(
-                                            node,
-                                            EventId::BorderDrop,
-                                            revision,
-                                            EventPayload::DroppedData(DroppedData::Unsupported),
-                                        );
-                                        return Ok(());
-                                    };
-                                    args.SetAcceptedOperation(native_drag_operation(
-                                        action.operation,
-                                    ))?;
-                                    let operation = data.GetTextAsync()?;
-                                    let sender = sink.begin_async_event(
-                                        node,
-                                        EventId::BorderDrop,
-                                        revision,
-                                        deferral.clone(),
-                                    );
-                                    let completion = sender.clone();
-                                    if let Err(error) = operation.when(move |result| {
-                                        _ = completion.complete(
-                                            result
-                                                .map(|text| {
-                                                    DroppedData::Text(text.to_string_lossy())
-                                                })
-                                                .map_err(native_error),
-                                        );
-                                    }) {
-                                        _ = sender.complete(Err(native_error(error)));
-                                    }
-                                    Ok(())
-                                } else {
+            source.Drop(move |_, args| {
+                let result = args
+                    .as_ref()
+                    .ok_or_else(windows_core::Error::empty)
+                    .and_then(|args| {
+                        let deferral = args.GetDeferral()?;
+                        let result = (|| {
+                            let data = args.DataView()?;
+                            if data.Contains("Shell IDList Array")? {
+                                let Some(action) = sink.drag_action(node, DragKind::StorageItems)
+                                else {
                                     args.SetAcceptedOperation(DataPackageOperation::None)?;
                                     deferral.Complete()?;
                                     sink.enqueue(
@@ -4775,534 +4608,570 @@ pub fn subscribe_event(
                                         revision,
                                         EventPayload::DroppedData(DroppedData::Unsupported),
                                     );
-                                    Ok(())
+                                    return Ok(());
+                                };
+                                args.SetAcceptedOperation(native_drag_operation(action.operation))?;
+                                let operation = data.GetStorageItemsAsync()?;
+                                let sender = sink.begin_async_event(
+                                    node,
+                                    EventId::BorderDrop,
+                                    revision,
+                                    deferral.clone(),
+                                );
+                                let completion = sender.clone();
+                                if let Err(error) = operation.when(move |result| {
+                                    let result = result.and_then(|items| {
+                                        let mut dropped =
+                                            Vec::with_capacity(items.Size()? as usize);
+                                        for index in 0..items.Size()? {
+                                            let item = items.GetAt(index)?;
+                                            dropped.push(DroppedStorageItem {
+                                                name: item.Name()?,
+                                                path: item.Path()?,
+                                            });
+                                        }
+                                        Ok(DroppedData::StorageItems(dropped))
+                                    });
+                                    _ = completion.complete(result.map_err(native_error));
+                                }) {
+                                    _ = sender.complete(Err(native_error(error)));
                                 }
-                            })();
-                            if result.is_err() {
+                                Ok(())
+                            } else if data.Contains("Text")? {
+                                let Some(action) = sink.drag_action(node, DragKind::Text) else {
+                                    args.SetAcceptedOperation(DataPackageOperation::None)?;
+                                    deferral.Complete()?;
+                                    sink.enqueue(
+                                        node,
+                                        EventId::BorderDrop,
+                                        revision,
+                                        EventPayload::DroppedData(DroppedData::Unsupported),
+                                    );
+                                    return Ok(());
+                                };
+                                args.SetAcceptedOperation(native_drag_operation(action.operation))?;
+                                let operation = data.GetTextAsync()?;
+                                let sender = sink.begin_async_event(
+                                    node,
+                                    EventId::BorderDrop,
+                                    revision,
+                                    deferral.clone(),
+                                );
+                                let completion = sender.clone();
+                                if let Err(error) = operation.when(move |result| {
+                                    _ = completion.complete(
+                                        result
+                                            .map(|text| DroppedData::Text(text.to_string_lossy()))
+                                            .map_err(native_error),
+                                    );
+                                }) {
+                                    _ = sender.complete(Err(native_error(error)));
+                                }
+                                Ok(())
+                            } else {
+                                args.SetAcceptedOperation(DataPackageOperation::None)?;
                                 deferral.Complete()?;
+                                sink.enqueue(
+                                    node,
+                                    EventId::BorderDrop,
+                                    revision,
+                                    EventPayload::DroppedData(DroppedData::Unsupported),
+                                );
+                                Ok(())
                             }
-                            result
-                        });
-                    match result {
-                        Ok(()) => {}
-                        Err(error) => {
-                            sink.error(node, EventId::BorderDrop, revision, native_error(error));
+                        })();
+                        if result.is_err() {
+                            deferral.Complete()?;
                         }
-                    };
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                        result
+                    });
+                match result {
+                    Ok(()) => {}
+                    Err(error) => {
+                        sink.error(node, EventId::BorderDrop, revision, native_error(error));
+                    }
+                };
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::Border(value), EventId::BorderPointerPressed) => {
             let source = value.cast::<IUIElement>().map_err(native_error)?;
-            source
-                .PointerPressed({
-                    let element = value.cast::<UIElement>().map_err(native_error)?;
-                    move |_, args| {
-                        let mut info = crate::PointerEventInfo::default();
-                        if let Some(args) = args.as_ref() {
-                            if let Ok(point) = args.GetCurrentPoint(&element) {
-                                if let Ok(position) = point.Position() {
-                                    info.x = f64::from(position.x);
-                                    info.y = f64::from(position.y);
-                                }
-                                if let Ok(properties) = point.Properties() {
-                                    info.is_left_button_pressed =
-                                        properties.IsLeftButtonPressed().unwrap_or(false);
-                                    info.is_right_button_pressed =
-                                        properties.IsRightButtonPressed().unwrap_or(false);
-                                    info.is_middle_button_pressed =
-                                        properties.IsMiddleButtonPressed().unwrap_or(false);
-                                }
+            source.PointerPressed({
+                let element = value.cast::<UIElement>().map_err(native_error)?;
+                move |_, args| {
+                    let mut info = crate::PointerEventInfo::default();
+                    if let Some(args) = args.as_ref() {
+                        if let Ok(point) = args.GetCurrentPoint(&element) {
+                            if let Ok(position) = point.Position() {
+                                info.x = f64::from(position.x);
+                                info.y = f64::from(position.y);
                             }
-                            if let Ok(point) = args.GetCurrentPoint(None::<&UIElement>)
-                                && let Ok(position) = point.Position()
-                            {
-                                info.window_x = f64::from(position.x);
-                                info.window_y = f64::from(position.y);
+                            if let Ok(properties) = point.Properties() {
+                                info.is_left_button_pressed =
+                                    properties.IsLeftButtonPressed().unwrap_or(false);
+                                info.is_right_button_pressed =
+                                    properties.IsRightButtonPressed().unwrap_or(false);
+                                info.is_middle_button_pressed =
+                                    properties.IsMiddleButtonPressed().unwrap_or(false);
                             }
                         }
-                        info.capture_succeeded = match sink
-                            .capture_pointer_on_press(node, &element, args)
+                        if let Ok(point) = args.GetCurrentPoint(None::<&UIElement>)
+                            && let Ok(position) = point.Position()
                         {
+                            info.window_x = f64::from(position.x);
+                            info.window_y = f64::from(position.y);
+                        }
+                    }
+                    info.capture_succeeded =
+                        match sink.capture_pointer_on_press(node, &element, args) {
                             Ok(value) => value,
                             Err(error) => {
                                 sink.error(node, EventId::BorderPointerPressed, revision, error);
                                 return;
                             }
                         };
-                        sink.enqueue(
-                            node,
-                            EventId::BorderPointerPressed,
-                            revision,
-                            EventPayload::PointerEventInfo(info),
-                        );
-                    }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                    sink.enqueue(
+                        node,
+                        EventId::BorderPointerPressed,
+                        revision,
+                        EventPayload::PointerEventInfo(info),
+                    );
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::Border(value), EventId::BorderPointerMoved) => {
             let source = value.cast::<IUIElement>().map_err(native_error)?;
-            source
-                .PointerMoved({
-                    let element = value.cast::<UIElement>().map_err(native_error)?;
-                    move |_, args| {
-                        let mut info = crate::PointerEventInfo::default();
-                        if let Some(args) = args.as_ref() {
-                            if let Ok(point) = args.GetCurrentPoint(&element) {
-                                if let Ok(position) = point.Position() {
-                                    info.x = f64::from(position.x);
-                                    info.y = f64::from(position.y);
-                                }
-                                if let Ok(properties) = point.Properties() {
-                                    info.is_left_button_pressed =
-                                        properties.IsLeftButtonPressed().unwrap_or(false);
-                                    info.is_right_button_pressed =
-                                        properties.IsRightButtonPressed().unwrap_or(false);
-                                    info.is_middle_button_pressed =
-                                        properties.IsMiddleButtonPressed().unwrap_or(false);
-                                }
+            source.PointerMoved({
+                let element = value.cast::<UIElement>().map_err(native_error)?;
+                move |_, args| {
+                    let mut info = crate::PointerEventInfo::default();
+                    if let Some(args) = args.as_ref() {
+                        if let Ok(point) = args.GetCurrentPoint(&element) {
+                            if let Ok(position) = point.Position() {
+                                info.x = f64::from(position.x);
+                                info.y = f64::from(position.y);
                             }
-                            if let Ok(point) = args.GetCurrentPoint(None::<&UIElement>)
-                                && let Ok(position) = point.Position()
-                            {
-                                info.window_x = f64::from(position.x);
-                                info.window_y = f64::from(position.y);
+                            if let Ok(properties) = point.Properties() {
+                                info.is_left_button_pressed =
+                                    properties.IsLeftButtonPressed().unwrap_or(false);
+                                info.is_right_button_pressed =
+                                    properties.IsRightButtonPressed().unwrap_or(false);
+                                info.is_middle_button_pressed =
+                                    properties.IsMiddleButtonPressed().unwrap_or(false);
                             }
                         }
-                        sink.enqueue(
-                            node,
-                            EventId::BorderPointerMoved,
-                            revision,
-                            EventPayload::PointerEventInfo(info),
-                        );
+                        if let Ok(point) = args.GetCurrentPoint(None::<&UIElement>)
+                            && let Ok(position) = point.Position()
+                        {
+                            info.window_x = f64::from(position.x);
+                            info.window_y = f64::from(position.y);
+                        }
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                    sink.enqueue(
+                        node,
+                        EventId::BorderPointerMoved,
+                        revision,
+                        EventPayload::PointerEventInfo(info),
+                    );
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::Border(value), EventId::BorderPointerEntered) => {
             let source = value.cast::<IUIElement>().map_err(native_error)?;
-            source
-                .PointerEntered({
-                    let element = value.cast::<UIElement>().map_err(native_error)?;
-                    move |_, args| {
-                        let mut info = crate::PointerEventInfo::default();
-                        if let Some(args) = args.as_ref() {
-                            if let Ok(point) = args.GetCurrentPoint(&element) {
-                                if let Ok(position) = point.Position() {
-                                    info.x = f64::from(position.x);
-                                    info.y = f64::from(position.y);
-                                }
-                                if let Ok(properties) = point.Properties() {
-                                    info.is_left_button_pressed =
-                                        properties.IsLeftButtonPressed().unwrap_or(false);
-                                    info.is_right_button_pressed =
-                                        properties.IsRightButtonPressed().unwrap_or(false);
-                                    info.is_middle_button_pressed =
-                                        properties.IsMiddleButtonPressed().unwrap_or(false);
-                                }
+            source.PointerEntered({
+                let element = value.cast::<UIElement>().map_err(native_error)?;
+                move |_, args| {
+                    let mut info = crate::PointerEventInfo::default();
+                    if let Some(args) = args.as_ref() {
+                        if let Ok(point) = args.GetCurrentPoint(&element) {
+                            if let Ok(position) = point.Position() {
+                                info.x = f64::from(position.x);
+                                info.y = f64::from(position.y);
                             }
-                            if let Ok(point) = args.GetCurrentPoint(None::<&UIElement>)
-                                && let Ok(position) = point.Position()
-                            {
-                                info.window_x = f64::from(position.x);
-                                info.window_y = f64::from(position.y);
+                            if let Ok(properties) = point.Properties() {
+                                info.is_left_button_pressed =
+                                    properties.IsLeftButtonPressed().unwrap_or(false);
+                                info.is_right_button_pressed =
+                                    properties.IsRightButtonPressed().unwrap_or(false);
+                                info.is_middle_button_pressed =
+                                    properties.IsMiddleButtonPressed().unwrap_or(false);
                             }
                         }
-                        sink.enqueue(
-                            node,
-                            EventId::BorderPointerEntered,
-                            revision,
-                            EventPayload::PointerEventInfo(info),
-                        );
+                        if let Ok(point) = args.GetCurrentPoint(None::<&UIElement>)
+                            && let Ok(position) = point.Position()
+                        {
+                            info.window_x = f64::from(position.x);
+                            info.window_y = f64::from(position.y);
+                        }
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                    sink.enqueue(
+                        node,
+                        EventId::BorderPointerEntered,
+                        revision,
+                        EventPayload::PointerEventInfo(info),
+                    );
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::Border(value), EventId::BorderPointerExited) => {
             let source = value.cast::<IUIElement>().map_err(native_error)?;
-            source
-                .PointerExited({
-                    let element = value.cast::<UIElement>().map_err(native_error)?;
-                    move |_, args| {
-                        let mut info = crate::PointerEventInfo::default();
-                        if let Some(args) = args.as_ref() {
-                            if let Ok(point) = args.GetCurrentPoint(&element) {
-                                if let Ok(position) = point.Position() {
-                                    info.x = f64::from(position.x);
-                                    info.y = f64::from(position.y);
-                                }
-                                if let Ok(properties) = point.Properties() {
-                                    info.is_left_button_pressed =
-                                        properties.IsLeftButtonPressed().unwrap_or(false);
-                                    info.is_right_button_pressed =
-                                        properties.IsRightButtonPressed().unwrap_or(false);
-                                    info.is_middle_button_pressed =
-                                        properties.IsMiddleButtonPressed().unwrap_or(false);
-                                }
+            source.PointerExited({
+                let element = value.cast::<UIElement>().map_err(native_error)?;
+                move |_, args| {
+                    let mut info = crate::PointerEventInfo::default();
+                    if let Some(args) = args.as_ref() {
+                        if let Ok(point) = args.GetCurrentPoint(&element) {
+                            if let Ok(position) = point.Position() {
+                                info.x = f64::from(position.x);
+                                info.y = f64::from(position.y);
                             }
-                            if let Ok(point) = args.GetCurrentPoint(None::<&UIElement>)
-                                && let Ok(position) = point.Position()
-                            {
-                                info.window_x = f64::from(position.x);
-                                info.window_y = f64::from(position.y);
+                            if let Ok(properties) = point.Properties() {
+                                info.is_left_button_pressed =
+                                    properties.IsLeftButtonPressed().unwrap_or(false);
+                                info.is_right_button_pressed =
+                                    properties.IsRightButtonPressed().unwrap_or(false);
+                                info.is_middle_button_pressed =
+                                    properties.IsMiddleButtonPressed().unwrap_or(false);
                             }
                         }
-                        sink.enqueue(
-                            node,
-                            EventId::BorderPointerExited,
-                            revision,
-                            EventPayload::PointerEventInfo(info),
-                        );
+                        if let Ok(point) = args.GetCurrentPoint(None::<&UIElement>)
+                            && let Ok(position) = point.Position()
+                        {
+                            info.window_x = f64::from(position.x);
+                            info.window_y = f64::from(position.y);
+                        }
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                    sink.enqueue(
+                        node,
+                        EventId::BorderPointerExited,
+                        revision,
+                        EventPayload::PointerEventInfo(info),
+                    );
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::Border(value), EventId::BorderPointerReleased) => {
             let source = value.cast::<IUIElement>().map_err(native_error)?;
-            source
-                .PointerReleased({
-                    let element = value.cast::<UIElement>().map_err(native_error)?;
-                    move |_, args| {
-                        let mut info = crate::PointerEventInfo::default();
-                        if let Some(args) = args.as_ref() {
-                            if let Ok(point) = args.GetCurrentPoint(&element) {
-                                if let Ok(position) = point.Position() {
-                                    info.x = f64::from(position.x);
-                                    info.y = f64::from(position.y);
-                                }
-                                if let Ok(properties) = point.Properties() {
-                                    info.is_left_button_pressed =
-                                        properties.IsLeftButtonPressed().unwrap_or(false);
-                                    info.is_right_button_pressed =
-                                        properties.IsRightButtonPressed().unwrap_or(false);
-                                    info.is_middle_button_pressed =
-                                        properties.IsMiddleButtonPressed().unwrap_or(false);
-                                }
+            source.PointerReleased({
+                let element = value.cast::<UIElement>().map_err(native_error)?;
+                move |_, args| {
+                    let mut info = crate::PointerEventInfo::default();
+                    if let Some(args) = args.as_ref() {
+                        if let Ok(point) = args.GetCurrentPoint(&element) {
+                            if let Ok(position) = point.Position() {
+                                info.x = f64::from(position.x);
+                                info.y = f64::from(position.y);
                             }
-                            if let Ok(point) = args.GetCurrentPoint(None::<&UIElement>)
-                                && let Ok(position) = point.Position()
-                            {
-                                info.window_x = f64::from(position.x);
-                                info.window_y = f64::from(position.y);
+                            if let Ok(properties) = point.Properties() {
+                                info.is_left_button_pressed =
+                                    properties.IsLeftButtonPressed().unwrap_or(false);
+                                info.is_right_button_pressed =
+                                    properties.IsRightButtonPressed().unwrap_or(false);
+                                info.is_middle_button_pressed =
+                                    properties.IsMiddleButtonPressed().unwrap_or(false);
                             }
                         }
-                        if let Err(error) = sink.release_pointer_after_event(node, &element, args) {
-                            sink.error(node, EventId::BorderPointerReleased, revision, error);
-                            return;
+                        if let Ok(point) = args.GetCurrentPoint(None::<&UIElement>)
+                            && let Ok(position) = point.Position()
+                        {
+                            info.window_x = f64::from(position.x);
+                            info.window_y = f64::from(position.y);
                         }
-                        sink.enqueue(
-                            node,
-                            EventId::BorderPointerReleased,
-                            revision,
-                            EventPayload::PointerEventInfo(info),
-                        );
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                    if let Err(error) = sink.release_pointer_after_event(node, &element, args) {
+                        sink.error(node, EventId::BorderPointerReleased, revision, error);
+                        return;
+                    }
+                    sink.enqueue(
+                        node,
+                        EventId::BorderPointerReleased,
+                        revision,
+                        EventPayload::PointerEventInfo(info),
+                    );
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::Border(value), EventId::BorderPointerCaptureLost) => {
             let source = value.cast::<IUIElement>().map_err(native_error)?;
-            source
-                .PointerCaptureLost(move |_, _| {
-                    sink.enqueue(
-                        node,
-                        EventId::BorderPointerCaptureLost,
-                        revision,
-                        EventPayload::Unit,
-                    );
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
+            source.PointerCaptureLost(move |_, _| {
+                sink.enqueue(
+                    node,
+                    EventId::BorderPointerCaptureLost,
                     revision,
-                })
-                .map_err(native_error)
+                    EventPayload::Unit,
+                );
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::Border(value), EventId::BorderPointerCanceled) => {
             let source = value.cast::<IUIElement>().map_err(native_error)?;
-            source
-                .PointerCanceled(move |_, _| {
-                    sink.enqueue(
-                        node,
-                        EventId::BorderPointerCanceled,
-                        revision,
-                        EventPayload::Unit,
-                    );
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
+            source.PointerCanceled(move |_, _| {
+                sink.enqueue(
+                    node,
+                    EventId::BorderPointerCanceled,
                     revision,
-                })
-                .map_err(native_error)
+                    EventPayload::Unit,
+                );
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::BreadcrumbBar(value), EventId::BreadcrumbBarItemClicked) => {
-            let source = value.cast::<IBreadcrumbBar>().map_err(native_error)?;
-            source
-                .ItemClicked(move |_, args| {
-                    if let Some(args) = args.as_ref() {
-                        match args
-                            .cast::<IBreadcrumbBarItemClickedEventArgs>()
-                            .and_then(|args| args.Item())
-                            .and_then(|value| {
-                                value.cast::<windows_reference::IReference<windows_core::HSTRING>>()
-                            })
-                            .and_then(|value| value.Value())
-                        {
-                            Ok(value) => sink.enqueue(
-                                node,
-                                EventId::BreadcrumbBarItemClicked,
-                                revision,
-                                EventPayload::Str(value.to_string_lossy()),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::BreadcrumbBarItemClicked,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
+            value.ItemClicked(move |_, args| {
+                if let Some(args) = args.as_ref() {
+                    match args
+                        .Item()
+                        .and_then(|value| {
+                            value.cast::<windows_reference::IReference<windows_core::HSTRING>>()
+                        })
+                        .and_then(|value| value.Value())
+                    {
+                        Ok(value) => sink.enqueue(
+                            node,
+                            EventId::BreadcrumbBarItemClicked,
+                            revision,
+                            EventPayload::Str(value.to_string_lossy()),
+                        ),
+                        Err(error) => sink.error(
+                            node,
+                            EventId::BreadcrumbBarItemClicked,
+                            revision,
+                            native_error(error),
+                        ),
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::TextBox(value), EventId::TextBoxTextChanged) => {
-            let source = value.cast::<ITextBox>().map_err(native_error)?;
-            source
-                .TextChanged({
-                    let event_source = value.cast::<ITextBox>().map_err(native_error)?;
-                    move |_, _| match event_source.Text() {
-                        Ok(value) => sink.enqueue(
-                            node,
-                            EventId::TextBoxTextChanged,
-                            revision,
-                            EventPayload::Str(value),
-                        ),
-                        Err(error) => sink.error(
-                            node,
-                            EventId::TextBoxTextChanged,
-                            revision,
-                            native_error(error),
-                        ),
-                    }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+            let event_source = (*value).clone();
+            value.TextChanged({
+                move |_, _| match event_source.Text() {
+                    Ok(value) => sink.enqueue(
+                        node,
+                        EventId::TextBoxTextChanged,
+                        revision,
+                        EventPayload::Str(value),
+                    ),
+                    Err(error) => sink.error(
+                        node,
+                        EventId::TextBoxTextChanged,
+                        revision,
+                        native_error(error),
+                    ),
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::AutoSuggestBox(value), EventId::AutoSuggestBoxTextChanged) => {
-            let source = value.cast::<IAutoSuggestBox>().map_err(native_error)?;
-            source
-                .TextChanged({
-                    let event_source = value.cast::<IAutoSuggestBox>().map_err(native_error)?;
-                    move |_, _| match event_source.Text() {
-                        Ok(value) => sink.enqueue(
-                            node,
-                            EventId::AutoSuggestBoxTextChanged,
-                            revision,
-                            EventPayload::Str(value),
-                        ),
-                        Err(error) => sink.error(
-                            node,
-                            EventId::AutoSuggestBoxTextChanged,
-                            revision,
-                            native_error(error),
-                        ),
-                    }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+            let event_source = (*value).clone();
+            value.TextChanged({
+                move |_, _| match event_source.Text() {
+                    Ok(value) => sink.enqueue(
+                        node,
+                        EventId::AutoSuggestBoxTextChanged,
+                        revision,
+                        EventPayload::Str(value),
+                    ),
+                    Err(error) => sink.error(
+                        node,
+                        EventId::AutoSuggestBoxTextChanged,
+                        revision,
+                        native_error(error),
+                    ),
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::AutoSuggestBox(value), EventId::AutoSuggestBoxSuggestionChosen) => {
-            let source = value.cast::<IAutoSuggestBox>().map_err(native_error)?;
-            source
-                .SuggestionChosen(move |_, args| {
-                    if let Some(args) = args.as_ref() {
-                        match args
-                            .cast::<IAutoSuggestBoxSuggestionChosenEventArgs>()
-                            .and_then(|args| args.SelectedItem())
-                            .and_then(|value| {
-                                value.cast::<windows_reference::IReference<windows_core::HSTRING>>()
-                            })
-                            .and_then(|value| value.Value())
-                        {
-                            Ok(value) => sink.enqueue(
-                                node,
-                                EventId::AutoSuggestBoxSuggestionChosen,
-                                revision,
-                                EventPayload::Str(value.to_string_lossy()),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::AutoSuggestBoxSuggestionChosen,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
-                    }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
-        }
-        (Handle::PasswordBox(value), EventId::PasswordBoxPasswordChanged) => {
-            let source = value.cast::<IPasswordBox>().map_err(native_error)?;
-            source
-                .PasswordChanged({
-                    let event_source = value.cast::<IPasswordBox>().map_err(native_error)?;
-                    move |_, _| match event_source.Password() {
+            value.SuggestionChosen(move |_, args| {
+                if let Some(args) = args.as_ref() {
+                    match args
+                        .SelectedItem()
+                        .and_then(|value| {
+                            value.cast::<windows_reference::IReference<windows_core::HSTRING>>()
+                        })
+                        .and_then(|value| value.Value())
+                    {
                         Ok(value) => sink.enqueue(
                             node,
-                            EventId::PasswordBoxPasswordChanged,
+                            EventId::AutoSuggestBoxSuggestionChosen,
                             revision,
-                            EventPayload::Str(value),
+                            EventPayload::Str(value.to_string_lossy()),
                         ),
                         Err(error) => sink.error(
                             node,
-                            EventId::PasswordBoxPasswordChanged,
+                            EventId::AutoSuggestBoxSuggestionChosen,
                             revision,
                             native_error(error),
                         ),
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
+        (Handle::PasswordBox(value), EventId::PasswordBoxPasswordChanged) => {
+            let event_source = (*value).clone();
+            value.PasswordChanged({
+                move |_, _| match event_source.Password() {
+                    Ok(value) => sink.enqueue(
+                        node,
+                        EventId::PasswordBoxPasswordChanged,
+                        revision,
+                        EventPayload::Str(value),
+                    ),
+                    Err(error) => sink.error(
+                        node,
+                        EventId::PasswordBoxPasswordChanged,
+                        revision,
+                        native_error(error),
+                    ),
+                }
+            })
+        }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::NumberBox(value), EventId::NumberBoxValueChanged) => {
-            let source = value.cast::<INumberBox>().map_err(native_error)?;
-            source
-                .ValueChanged(move |_, args| {
-                    if let Some(args) = args.as_ref() {
-                        match args
-                            .cast::<INumberBoxValueChangedEventArgs>()
-                            .and_then(|args| args.NewValue())
-                        {
-                            Ok(value) => sink.enqueue(
-                                node,
-                                EventId::NumberBoxValueChanged,
-                                revision,
-                                EventPayload::OptionalF64(number_box_value(value)),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::NumberBoxValueChanged,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
+            value.ValueChanged(move |_, args| {
+                if let Some(args) = args.as_ref() {
+                    match args.NewValue() {
+                        Ok(value) => sink.enqueue(
+                            node,
+                            EventId::NumberBoxValueChanged,
+                            revision,
+                            EventPayload::OptionalF64(number_box_value(value)),
+                        ),
+                        Err(error) => sink.error(
+                            node,
+                            EventId::NumberBoxValueChanged,
+                            revision,
+                            native_error(error),
+                        ),
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::Slider(value), EventId::SliderValueChanged) => {
             let source = value.cast::<IRangeBase>().map_err(native_error)?;
-            source
-                .ValueChanged(move |_, args| {
-                    if let Some(args) = args.as_ref() {
-                        match args
-                            .cast::<IRangeBaseValueChangedEventArgs>()
-                            .and_then(|args| args.NewValue())
-                        {
-                            Ok(value) => sink.enqueue(
-                                node,
-                                EventId::SliderValueChanged,
-                                revision,
-                                EventPayload::F64(value),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::SliderValueChanged,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
+            source.ValueChanged(move |_, args| {
+                if let Some(args) = args.as_ref() {
+                    match args.NewValue() {
+                        Ok(value) => sink.enqueue(
+                            node,
+                            EventId::SliderValueChanged,
+                            revision,
+                            EventPayload::F64(value),
+                        ),
+                        Err(error) => sink.error(
+                            node,
+                            EventId::SliderValueChanged,
+                            revision,
+                            native_error(error),
+                        ),
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::TitleBar(value), EventId::TitleBarBackRequested) => {
-            let source = value.cast::<ITitleBar>().map_err(native_error)?;
-            source
-                .BackRequested(move |_, _| {
-                    sink.enqueue(
-                        node,
-                        EventId::TitleBarBackRequested,
-                        revision,
-                        EventPayload::Unit,
-                    );
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
+            value.BackRequested(move |_, _| {
+                sink.enqueue(
+                    node,
+                    EventId::TitleBarBackRequested,
                     revision,
-                })
-                .map_err(native_error)
+                    EventPayload::Unit,
+                );
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::TitleBar(value), EventId::TitleBarPaneToggleRequested) => {
-            let source = value.cast::<ITitleBar>().map_err(native_error)?;
-            source
-                .PaneToggleRequested(move |_, _| {
-                    sink.enqueue(
-                        node,
-                        EventId::TitleBarPaneToggleRequested,
-                        revision,
-                        EventPayload::Unit,
-                    );
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
+            value.PaneToggleRequested(move |_, _| {
+                sink.enqueue(
+                    node,
+                    EventId::TitleBarPaneToggleRequested,
                     revision,
-                })
-                .map_err(native_error)
+                    EventPayload::Unit,
+                );
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::NavigationView(value), EventId::NavigationViewIsPaneOpenChanged) => {
             let object = value.cast::<DependencyObject>().map_err(native_error)?;
             let property = bindings::NavigationView::IsPaneOpenProperty().map_err(native_error)?;
             let callback = DependencyPropertyChangedCallback::new({
-                let event_source = value.cast::<INavigationView>().map_err(native_error)?;
+                let event_source = (*value).clone();
                 move |_, _| match event_source.IsPaneOpen() {
                     Ok(value) => sink.enqueue(
                         node,
@@ -5328,108 +5197,99 @@ pub fn subscribe_event(
             })
         }
         (Handle::NavigationView(value), EventId::NavigationViewDisplayModeChanged) => {
-            let source = value.cast::<INavigationView>().map_err(native_error)?;
-            source
-                .DisplayModeChanged(move |_, args| {
-                    if let Some(args) = args.as_ref() {
-                        match args
-                            .cast::<INavigationViewDisplayModeChangedEventArgs>()
-                            .and_then(|args| args.DisplayMode())
-                        {
-                            Ok(value) => sink.enqueue(
-                                node,
-                                EventId::NavigationViewDisplayModeChanged,
-                                revision,
-                                EventPayload::NavigationViewDisplayMode(match value {
-                                    bindings::NavigationViewDisplayMode::Minimal => {
-                                        crate::NavigationViewDisplayMode::Minimal
-                                    }
-                                    bindings::NavigationViewDisplayMode::Compact => {
-                                        crate::NavigationViewDisplayMode::Compact
-                                    }
-                                    bindings::NavigationViewDisplayMode::Expanded => {
-                                        crate::NavigationViewDisplayMode::Expanded
-                                    }
-                                    _ => return,
-                                }),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::NavigationViewDisplayModeChanged,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
-                    }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
-        }
-        (Handle::NavigationView(value), EventId::NavigationViewSelectionChanged) => {
-            let source = value.cast::<INavigationView>().map_err(native_error)?;
-            source
-                .SelectionChanged(move |_, args| {
-                    if let Some(args) = args.as_ref() {
-                        let value = args
-                            .cast::<INavigationViewSelectionChangedEventArgs>()
-                            .and_then(|args| args.SelectedItem());
-                        match value {
-                            Ok(item) => {
-                                let selected = sink.selection_item(&item);
-                                match selection_payload(
-                                    selection_for_event(EventId::NavigationViewSelectionChanged)
-                                        .unwrap(),
-                                    &item,
-                                ) {
-                                    Ok(tag) => sink.enqueue(
-                                        node,
-                                        EventId::NavigationViewSelectionChanged,
-                                        revision,
-                                        EventPayload::SelectionChange(SelectionChange {
-                                            item: selected,
-                                            tag,
-                                        }),
-                                    ),
-                                    Err(error) => sink.error(
-                                        node,
-                                        EventId::NavigationViewSelectionChanged,
-                                        revision,
-                                        error,
-                                    ),
+            value.DisplayModeChanged(move |_, args| {
+                if let Some(args) = args.as_ref() {
+                    match args.DisplayMode() {
+                        Ok(value) => sink.enqueue(
+                            node,
+                            EventId::NavigationViewDisplayModeChanged,
+                            revision,
+                            EventPayload::NavigationViewDisplayMode(match value {
+                                bindings::NavigationViewDisplayMode::Minimal => {
+                                    crate::NavigationViewDisplayMode::Minimal
                                 }
-                            }
-                            Err(error) if error.code().is_ok() => sink.enqueue(
-                                node,
-                                EventId::NavigationViewSelectionChanged,
-                                revision,
-                                EventPayload::SelectionChange(SelectionChange {
-                                    item: None,
-                                    tag: None,
-                                }),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::NavigationViewSelectionChanged,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
+                                bindings::NavigationViewDisplayMode::Compact => {
+                                    crate::NavigationViewDisplayMode::Compact
+                                }
+                                bindings::NavigationViewDisplayMode::Expanded => {
+                                    crate::NavigationViewDisplayMode::Expanded
+                                }
+                                _ => return,
+                            }),
+                        ),
+                        Err(error) => sink.error(
+                            node,
+                            EventId::NavigationViewDisplayModeChanged,
+                            revision,
+                            native_error(error),
+                        ),
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
+        (Handle::NavigationView(value), EventId::NavigationViewSelectionChanged) => {
+            value.SelectionChanged(move |_, args| {
+                if let Some(args) = args.as_ref() {
+                    let value = args.SelectedItem();
+                    match value {
+                        Ok(item) => {
+                            let selected = sink.selection_item(&item);
+                            match selection_payload(
+                                selection_for_event(EventId::NavigationViewSelectionChanged)
+                                    .unwrap(),
+                                &item,
+                            ) {
+                                Ok(tag) => sink.enqueue(
+                                    node,
+                                    EventId::NavigationViewSelectionChanged,
+                                    revision,
+                                    EventPayload::SelectionChange(SelectionChange {
+                                        item: selected,
+                                        tag,
+                                    }),
+                                ),
+                                Err(error) => sink.error(
+                                    node,
+                                    EventId::NavigationViewSelectionChanged,
+                                    revision,
+                                    error,
+                                ),
+                            }
+                        }
+                        Err(error) if error.code().is_ok() => sink.enqueue(
+                            node,
+                            EventId::NavigationViewSelectionChanged,
+                            revision,
+                            EventPayload::SelectionChange(SelectionChange {
+                                item: None,
+                                tag: None,
+                            }),
+                        ),
+                        Err(error) => sink.error(
+                            node,
+                            EventId::NavigationViewSelectionChanged,
+                            revision,
+                            native_error(error),
+                        ),
+                    }
+                }
+            })
+        }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::SplitView(value), EventId::SplitViewPaneClosed) => {
             let object = value.cast::<DependencyObject>().map_err(native_error)?;
             let property = bindings::SplitView::IsPaneOpenProperty().map_err(native_error)?;
             let callback = DependencyPropertyChangedCallback::new({
-                let event_source = value.cast::<ISplitView>().map_err(native_error)?;
+                let event_source = (*value).clone();
                 move |_, _| match event_source.IsPaneOpen() {
                     Ok(value) => sink.enqueue(
                         node,
@@ -5455,31 +5315,29 @@ pub fn subscribe_event(
             })
         }
         (Handle::ToggleSwitch(value), EventId::ToggleSwitchToggled) => {
-            let source = value.cast::<IToggleSwitch>().map_err(native_error)?;
-            source
-                .Toggled({
-                    let event_source = value.cast::<IToggleSwitch>().map_err(native_error)?;
-                    move |_, _| match event_source.IsOn() {
-                        Ok(value) => sink.enqueue(
-                            node,
-                            EventId::ToggleSwitchToggled,
-                            revision,
-                            EventPayload::Bool(value),
-                        ),
-                        Err(error) => sink.error(
-                            node,
-                            EventId::ToggleSwitchToggled,
-                            revision,
-                            native_error(error),
-                        ),
-                    }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+            let event_source = (*value).clone();
+            value.Toggled({
+                move |_, _| match event_source.IsOn() {
+                    Ok(value) => sink.enqueue(
+                        node,
+                        EventId::ToggleSwitchToggled,
+                        revision,
+                        EventPayload::Bool(value),
+                    ),
+                    Err(error) => sink.error(
+                        node,
+                        EventId::ToggleSwitchToggled,
+                        revision,
+                        native_error(error),
+                    ),
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::CheckBox(value), EventId::CheckBoxIsCheckedChanged) => {
             let object = value.cast::<DependencyObject>().map_err(native_error)?;
             let property = bindings::ToggleButton::IsCheckedProperty().map_err(native_error)?;
@@ -5513,7 +5371,7 @@ pub fn subscribe_event(
             let object = value.cast::<DependencyObject>().map_err(native_error)?;
             let property = bindings::ToggleButton::IsCheckedProperty().map_err(native_error)?;
             let callback = DependencyPropertyChangedCallback::new({
-                let event_source = value.cast::<IToggleButton>().map_err(native_error)?;
+                let event_source = (*value).clone();
                 move |_, _| match event_source.IsChecked() {
                     Ok(value) => sink.enqueue(
                         node,
@@ -5568,174 +5426,163 @@ pub fn subscribe_event(
             })
         }
         (Handle::RadioButtons(value), EventId::RadioButtonsSelectionChanged) => {
-            let source = value.cast::<IRadioButtons>().map_err(native_error)?;
-            source
-                .SelectionChanged({
-                    let event_source = value.cast::<IRadioButtons>().map_err(native_error)?;
-                    move |_, _| match event_source.SelectedIndex() {
-                        Ok(value) => sink.enqueue(
+            let event_source = (*value).clone();
+            value.SelectionChanged({
+                move |_, _| match event_source.SelectedIndex() {
+                    Ok(value) => sink.enqueue(
+                        node,
+                        EventId::RadioButtonsSelectionChanged,
+                        revision,
+                        EventPayload::SelectionIndex(match selection_index(value) {
+                            Ok(value) => value,
+                            Err(error) => {
+                                sink.error(
+                                    node,
+                                    EventId::RadioButtonsSelectionChanged,
+                                    revision,
+                                    error,
+                                );
+                                return;
+                            }
+                        }),
+                    ),
+                    Err(error) => sink.error(
+                        node,
+                        EventId::RadioButtonsSelectionChanged,
+                        revision,
+                        native_error(error),
+                    ),
+                }
+            })
+        }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
+        (Handle::InfoBar(value), EventId::InfoBarClosed) => {
+            value.Closed(move |_, _| {
+                sink.enqueue(node, EventId::InfoBarClosed, revision, EventPayload::Unit);
+            })
+        }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
+        (Handle::Image(value), EventId::ImageImageOpened) => {
+            value.ImageOpened(move |_, _| {
+                sink.enqueue(
+                    node,
+                    EventId::ImageImageOpened,
+                    revision,
+                    EventPayload::Unit,
+                );
+            })
+        }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
+        (Handle::Image(value), EventId::ImageImageFailed) => {
+            value.ImageFailed(move |_, _| {
+                sink.enqueue(
+                    node,
+                    EventId::ImageImageFailed,
+                    revision,
+                    EventPayload::Unit,
+                );
+            })
+        }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
+        (Handle::ListBox(value), EventId::ListBoxSelectionChanged) => {
+            let source = value.cast::<ISelector>().map_err(native_error)?;
+            let event_source = source.clone();
+            source.SelectionChanged({
+                move |_, _| {
+                    let value = event_source.SelectedItem();
+                    match value {
+                        Ok(item) => {
+                            let selected = sink.selection_item(&item);
+                            match selection_payload(
+                                selection_for_event(EventId::ListBoxSelectionChanged).unwrap(),
+                                &item,
+                            ) {
+                                Ok(tag) => sink.enqueue(
+                                    node,
+                                    EventId::ListBoxSelectionChanged,
+                                    revision,
+                                    EventPayload::SelectionChange(SelectionChange {
+                                        item: selected,
+                                        tag,
+                                    }),
+                                ),
+                                Err(error) => sink.error(
+                                    node,
+                                    EventId::ListBoxSelectionChanged,
+                                    revision,
+                                    error,
+                                ),
+                            }
+                        }
+                        Err(error) if error.code().is_ok() => sink.enqueue(
                             node,
-                            EventId::RadioButtonsSelectionChanged,
+                            EventId::ListBoxSelectionChanged,
                             revision,
-                            EventPayload::SelectionIndex(match selection_index(value) {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    sink.error(
-                                        node,
-                                        EventId::RadioButtonsSelectionChanged,
-                                        revision,
-                                        error,
-                                    );
-                                    return;
-                                }
+                            EventPayload::SelectionChange(SelectionChange {
+                                item: None,
+                                tag: None,
                             }),
                         ),
                         Err(error) => sink.error(
                             node,
-                            EventId::RadioButtonsSelectionChanged,
+                            EventId::ListBoxSelectionChanged,
                             revision,
                             native_error(error),
                         ),
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                }
+            })
         }
-        (Handle::InfoBar(value), EventId::InfoBarClosed) => {
-            let source = value.cast::<IInfoBar>().map_err(native_error)?;
-            source
-                .Closed(move |_, _| {
-                    sink.enqueue(node, EventId::InfoBarClosed, revision, EventPayload::Unit);
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
-        }
-        (Handle::Image(value), EventId::ImageImageOpened) => {
-            let source = value.cast::<IImage>().map_err(native_error)?;
-            source
-                .ImageOpened(move |_, _| {
-                    sink.enqueue(
-                        node,
-                        EventId::ImageImageOpened,
-                        revision,
-                        EventPayload::Unit,
-                    );
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
-        }
-        (Handle::Image(value), EventId::ImageImageFailed) => {
-            let source = value.cast::<IImage>().map_err(native_error)?;
-            source
-                .ImageFailed(move |_, _| {
-                    sink.enqueue(
-                        node,
-                        EventId::ImageImageFailed,
-                        revision,
-                        EventPayload::Unit,
-                    );
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
-        }
-        (Handle::ListBox(value), EventId::ListBoxSelectionChanged) => {
-            let source = value.cast::<ISelector>().map_err(native_error)?;
-            source
-                .SelectionChanged({
-                    let event_source = value.cast::<ISelector>().map_err(native_error)?;
-                    move |_, _| {
-                        let value = event_source.SelectedItem();
-                        match value {
-                            Ok(item) => {
-                                let selected = sink.selection_item(&item);
-                                match selection_payload(
-                                    selection_for_event(EventId::ListBoxSelectionChanged).unwrap(),
-                                    &item,
-                                ) {
-                                    Ok(tag) => sink.enqueue(
-                                        node,
-                                        EventId::ListBoxSelectionChanged,
-                                        revision,
-                                        EventPayload::SelectionChange(SelectionChange {
-                                            item: selected,
-                                            tag,
-                                        }),
-                                    ),
-                                    Err(error) => sink.error(
-                                        node,
-                                        EventId::ListBoxSelectionChanged,
-                                        revision,
-                                        error,
-                                    ),
-                                }
-                            }
-                            Err(error) if error.code().is_ok() => sink.enqueue(
-                                node,
-                                EventId::ListBoxSelectionChanged,
-                                revision,
-                                EventPayload::SelectionChange(SelectionChange {
-                                    item: None,
-                                    tag: None,
-                                }),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::ListBoxSelectionChanged,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
-                    }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
-        }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::RatingControl(value), EventId::RatingControlValueChanged) => {
-            let source = value.cast::<IRatingControl>().map_err(native_error)?;
-            source
-                .ValueChanged({
-                    let event_source = value.cast::<IRatingControl>().map_err(native_error)?;
-                    move |_, _| match event_source.Value() {
-                        Ok(value) => sink.enqueue(
-                            node,
-                            EventId::RatingControlValueChanged,
-                            revision,
-                            EventPayload::OptionalF64(rating_value(value)),
-                        ),
-                        Err(error) => sink.error(
-                            node,
-                            EventId::RatingControlValueChanged,
-                            revision,
-                            native_error(error),
-                        ),
-                    }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+            let event_source = (*value).clone();
+            value.ValueChanged({
+                move |_, _| match event_source.Value() {
+                    Ok(value) => sink.enqueue(
+                        node,
+                        EventId::RatingControlValueChanged,
+                        revision,
+                        EventPayload::OptionalF64(rating_value(value)),
+                    ),
+                    Err(error) => sink.error(
+                        node,
+                        EventId::RatingControlValueChanged,
+                        revision,
+                        native_error(error),
+                    ),
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::Expander(value), EventId::ExpanderIsExpandedChanged) => {
             let object = value.cast::<DependencyObject>().map_err(native_error)?;
             let property = bindings::Expander::IsExpandedProperty().map_err(native_error)?;
             let callback = DependencyPropertyChangedCallback::new({
-                let event_source = value.cast::<IExpander>().map_err(native_error)?;
+                let event_source = (*value).clone();
                 move |_, _| match event_source.IsExpanded() {
                     Ok(value) => sink.enqueue(
                         node,
@@ -5762,851 +5609,758 @@ pub fn subscribe_event(
         }
         (Handle::ComboBox(value), EventId::ComboBoxSelectionChanged) => {
             let source = value.cast::<ISelector>().map_err(native_error)?;
-            source
-                .SelectionChanged({
-                    let event_source = value.cast::<ISelector>().map_err(native_error)?;
-                    move |_, _| match event_source.SelectedIndex() {
-                        Ok(value) => sink.enqueue(
-                            node,
-                            EventId::ComboBoxSelectionChanged,
-                            revision,
-                            EventPayload::SelectionIndex(match selection_index(value) {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    sink.error(
-                                        node,
-                                        EventId::ComboBoxSelectionChanged,
-                                        revision,
-                                        error,
-                                    );
-                                    return;
-                                }
-                            }),
-                        ),
-                        Err(error) => sink.error(
-                            node,
-                            EventId::ComboBoxSelectionChanged,
-                            revision,
-                            native_error(error),
-                        ),
-                    }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+            let event_source = source.clone();
+            source.SelectionChanged({
+                move |_, _| match event_source.SelectedIndex() {
+                    Ok(value) => sink.enqueue(
+                        node,
+                        EventId::ComboBoxSelectionChanged,
+                        revision,
+                        EventPayload::SelectionIndex(match selection_index(value) {
+                            Ok(value) => value,
+                            Err(error) => {
+                                sink.error(
+                                    node,
+                                    EventId::ComboBoxSelectionChanged,
+                                    revision,
+                                    error,
+                                );
+                                return;
+                            }
+                        }),
+                    ),
+                    Err(error) => sink.error(
+                        node,
+                        EventId::ComboBoxSelectionChanged,
+                        revision,
+                        native_error(error),
+                    ),
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::Pivot(value), EventId::PivotSelectionChanged) => {
-            let source = value.cast::<IPivot>().map_err(native_error)?;
-            source
-                .SelectionChanged({
-                    let event_source = value.cast::<IPivot>().map_err(native_error)?;
-                    move |_, _| match event_source.SelectedIndex() {
-                        Ok(value) => sink.enqueue(
-                            node,
-                            EventId::PivotSelectionChanged,
-                            revision,
-                            EventPayload::SelectionIndex(match selection_index(value) {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    sink.error(
-                                        node,
-                                        EventId::PivotSelectionChanged,
-                                        revision,
-                                        error,
-                                    );
-                                    return;
-                                }
-                            }),
-                        ),
-                        Err(error) => sink.error(
-                            node,
-                            EventId::PivotSelectionChanged,
-                            revision,
-                            native_error(error),
-                        ),
-                    }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+            let event_source = (*value).clone();
+            value.SelectionChanged({
+                move |_, _| match event_source.SelectedIndex() {
+                    Ok(value) => sink.enqueue(
+                        node,
+                        EventId::PivotSelectionChanged,
+                        revision,
+                        EventPayload::SelectionIndex(match selection_index(value) {
+                            Ok(value) => value,
+                            Err(error) => {
+                                sink.error(node, EventId::PivotSelectionChanged, revision, error);
+                                return;
+                            }
+                        }),
+                    ),
+                    Err(error) => sink.error(
+                        node,
+                        EventId::PivotSelectionChanged,
+                        revision,
+                        native_error(error),
+                    ),
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::FlipView(value), EventId::FlipViewSelectionChanged) => {
             let source = value.cast::<ISelector>().map_err(native_error)?;
-            source
-                .SelectionChanged({
-                    let event_source = value.cast::<ISelector>().map_err(native_error)?;
-                    move |_, _| match event_source.SelectedIndex() {
-                        Ok(value) => sink.enqueue(
-                            node,
-                            EventId::FlipViewSelectionChanged,
-                            revision,
-                            EventPayload::SelectionIndex(match selection_index(value) {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    sink.error(
-                                        node,
-                                        EventId::FlipViewSelectionChanged,
-                                        revision,
-                                        error,
-                                    );
-                                    return;
-                                }
-                            }),
-                        ),
-                        Err(error) => sink.error(
-                            node,
-                            EventId::FlipViewSelectionChanged,
-                            revision,
-                            native_error(error),
-                        ),
-                    }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
-        }
-        (Handle::SelectorBar(value), EventId::SelectorBarSelectionChanged) => {
-            let source = value.cast::<ISelectorBar>().map_err(native_error)?;
-            source
-                .SelectionChanged({
-                    let event_source = value.cast::<ISelectorBar>().map_err(native_error)?;
-                    move |_, _| {
-                        let value = event_source.SelectedItem();
-                        match value {
-                            Ok(item) => {
-                                let item = match item.cast::<windows_core::IInspectable>() {
-                                    Ok(item) => item,
-                                    Err(error) => {
-                                        sink.error(
-                                            node,
-                                            EventId::SelectorBarSelectionChanged,
-                                            revision,
-                                            native_error(error),
-                                        );
-                                        return;
-                                    }
-                                };
-                                let selected = sink.selection_item(&item);
-                                match selection_payload(
-                                    selection_for_event(EventId::SelectorBarSelectionChanged)
-                                        .unwrap(),
-                                    &item,
-                                ) {
-                                    Ok(tag) => sink.enqueue(
-                                        node,
-                                        EventId::SelectorBarSelectionChanged,
-                                        revision,
-                                        EventPayload::SelectionChange(SelectionChange {
-                                            item: selected,
-                                            tag,
-                                        }),
-                                    ),
-                                    Err(error) => sink.error(
-                                        node,
-                                        EventId::SelectorBarSelectionChanged,
-                                        revision,
-                                        error,
-                                    ),
-                                }
+            let event_source = source.clone();
+            source.SelectionChanged({
+                move |_, _| match event_source.SelectedIndex() {
+                    Ok(value) => sink.enqueue(
+                        node,
+                        EventId::FlipViewSelectionChanged,
+                        revision,
+                        EventPayload::SelectionIndex(match selection_index(value) {
+                            Ok(value) => value,
+                            Err(error) => {
+                                sink.error(
+                                    node,
+                                    EventId::FlipViewSelectionChanged,
+                                    revision,
+                                    error,
+                                );
+                                return;
                             }
-                            Err(error) if error.code().is_ok() => sink.enqueue(
-                                node,
-                                EventId::SelectorBarSelectionChanged,
-                                revision,
-                                EventPayload::SelectionChange(SelectionChange {
-                                    item: None,
-                                    tag: None,
-                                }),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::SelectorBarSelectionChanged,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
-                    }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                        }),
+                    ),
+                    Err(error) => sink.error(
+                        node,
+                        EventId::FlipViewSelectionChanged,
+                        revision,
+                        native_error(error),
+                    ),
+                }
+            })
         }
-        (Handle::TabView(value), EventId::TabViewSelectionChanged) => {
-            let source = value.cast::<ITabView>().map_err(native_error)?;
-            source
-                .SelectionChanged({
-                    let event_source = value.cast::<ITabView>().map_err(native_error)?;
-                    move |_, _| match event_source.SelectedIndex() {
-                        Ok(value) => sink.enqueue(
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
+        (Handle::SelectorBar(value), EventId::SelectorBarSelectionChanged) => {
+            let event_source = (*value).clone();
+            value.SelectionChanged({
+                move |_, _| {
+                    let value = event_source.SelectedItem();
+                    match value {
+                        Ok(item) => {
+                            let item: windows_core::IInspectable = item.into();
+                            let selected = sink.selection_item(&item);
+                            match selection_payload(
+                                selection_for_event(EventId::SelectorBarSelectionChanged).unwrap(),
+                                &item,
+                            ) {
+                                Ok(tag) => sink.enqueue(
+                                    node,
+                                    EventId::SelectorBarSelectionChanged,
+                                    revision,
+                                    EventPayload::SelectionChange(SelectionChange {
+                                        item: selected,
+                                        tag,
+                                    }),
+                                ),
+                                Err(error) => sink.error(
+                                    node,
+                                    EventId::SelectorBarSelectionChanged,
+                                    revision,
+                                    error,
+                                ),
+                            }
+                        }
+                        Err(error) if error.code().is_ok() => sink.enqueue(
                             node,
-                            EventId::TabViewSelectionChanged,
+                            EventId::SelectorBarSelectionChanged,
                             revision,
-                            EventPayload::SelectionIndex(match selection_index(value) {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    sink.error(
-                                        node,
-                                        EventId::TabViewSelectionChanged,
-                                        revision,
-                                        error,
-                                    );
-                                    return;
-                                }
+                            EventPayload::SelectionChange(SelectionChange {
+                                item: None,
+                                tag: None,
                             }),
                         ),
                         Err(error) => sink.error(
                             node,
-                            EventId::TabViewSelectionChanged,
+                            EventId::SelectorBarSelectionChanged,
                             revision,
                             native_error(error),
                         ),
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
+        (Handle::TabView(value), EventId::TabViewSelectionChanged) => {
+            let event_source = (*value).clone();
+            value.SelectionChanged({
+                move |_, _| match event_source.SelectedIndex() {
+                    Ok(value) => sink.enqueue(
+                        node,
+                        EventId::TabViewSelectionChanged,
+                        revision,
+                        EventPayload::SelectionIndex(match selection_index(value) {
+                            Ok(value) => value,
+                            Err(error) => {
+                                sink.error(node, EventId::TabViewSelectionChanged, revision, error);
+                                return;
+                            }
+                        }),
+                    ),
+                    Err(error) => sink.error(
+                        node,
+                        EventId::TabViewSelectionChanged,
+                        revision,
+                        native_error(error),
+                    ),
+                }
+            })
+        }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::TabView(value), EventId::TabViewTabCloseRequested) => {
-            let source = value.cast::<ITabView>().map_err(native_error)?;
-            source
-                .TabCloseRequested(move |_, args| {
-                    if let Some(args) = args.as_ref() {
-                        match args
-                            .cast::<ITabViewTabCloseRequestedEventArgs>()
-                            .and_then(|args| args.Tab())
-                            .and_then(|item| item.cast::<IFrameworkElement>())
-                            .and_then(|item| item.Tag())
-                            .and_then(|value| {
-                                value.cast::<windows_reference::IReference<windows_core::HSTRING>>()
-                            })
-                            .and_then(|value| value.Value())
-                        {
-                            Ok(value) => sink.enqueue(
-                                node,
-                                EventId::TabViewTabCloseRequested,
-                                revision,
-                                EventPayload::Str(value.to_string_lossy()),
-                            ),
-                            Err(error) if error.code().is_ok() => sink.enqueue(
-                                node,
-                                EventId::TabViewTabCloseRequested,
-                                revision,
-                                EventPayload::Str(String::new()),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::TabViewTabCloseRequested,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
+            value.TabCloseRequested(move |_, args| {
+                if let Some(args) = args.as_ref() {
+                    match args
+                        .Tab()
+                        .and_then(|item| item.cast::<IFrameworkElement>())
+                        .and_then(|item| item.Tag())
+                        .and_then(|value| {
+                            value.cast::<windows_reference::IReference<windows_core::HSTRING>>()
+                        })
+                        .and_then(|value| value.Value())
+                    {
+                        Ok(value) => sink.enqueue(
+                            node,
+                            EventId::TabViewTabCloseRequested,
+                            revision,
+                            EventPayload::Str(value.to_string_lossy()),
+                        ),
+                        Err(error) if error.code().is_ok() => sink.enqueue(
+                            node,
+                            EventId::TabViewTabCloseRequested,
+                            revision,
+                            EventPayload::Str(String::new()),
+                        ),
+                        Err(error) => sink.error(
+                            node,
+                            EventId::TabViewTabCloseRequested,
+                            revision,
+                            native_error(error),
+                        ),
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::TabView(value), EventId::TabViewAddTabButtonClick) => {
-            let source = value.cast::<ITabView>().map_err(native_error)?;
-            source
-                .AddTabButtonClick(move |_, _| {
-                    sink.enqueue(
-                        node,
-                        EventId::TabViewAddTabButtonClick,
-                        revision,
-                        EventPayload::Unit,
-                    );
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
+            value.AddTabButtonClick(move |_, _| {
+                sink.enqueue(
+                    node,
+                    EventId::TabViewAddTabButtonClick,
                     revision,
-                })
-                .map_err(native_error)
+                    EventPayload::Unit,
+                );
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::TabView(value), EventId::TabViewTabItemsChanged) => {
-            let source = value.cast::<ITabView>().map_err(native_error)?;
-            source
-                .TabItemsChanged(move |sender, _| {
-                    if let Some(sender) = sender.as_ref() {
-                        let result = sender
-                            .cast::<ITabView>()
-                            .and_then(|sender| sender.TabItems())
-                            .and_then(|items| {
-                                let mut tags = Vec::with_capacity(items.Size()? as usize);
-                                for index in 0..items.Size()? {
-                                    let tag =
-                                            items
-                                                .GetAt(index)?
-                                                .cast::<IFrameworkElement>()?
-                                                .Tag()?
-                                                .cast::<windows_reference::IReference<
-                                                    windows_core::HSTRING,
-                                                >>(
-                                                )?
-                                                .Value()?;
-                                    tags.push(tag.to_string_lossy());
-                                }
-                                Ok(tags)
-                            });
-                        match result {
-                            Ok(value) => sink.enqueue(
-                                node,
-                                EventId::TabViewTabItemsChanged,
-                                revision,
-                                EventPayload::StrList(std::rc::Rc::new(value)),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::TabViewTabItemsChanged,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
+            value.TabItemsChanged(move |sender, _| {
+                if let Some(sender) = sender.as_ref() {
+                    let result = sender
+                        .cast::<ITabView>()
+                        .and_then(|sender| sender.TabItems())
+                        .and_then(|items| {
+                            let mut tags = Vec::with_capacity(items.Size()? as usize);
+                            for index in 0..items.Size()? {
+                                let tag = items
+                                    .GetAt(index)?
+                                    .cast::<IFrameworkElement>()?
+                                    .Tag()?
+                                    .cast::<windows_reference::IReference<windows_core::HSTRING>>()?
+                                    .Value()?;
+                                tags.push(tag.to_string_lossy());
+                            }
+                            Ok(tags)
+                        });
+                    match result {
+                        Ok(value) => sink.enqueue(
+                            node,
+                            EventId::TabViewTabItemsChanged,
+                            revision,
+                            EventPayload::StrList(std::rc::Rc::new(value)),
+                        ),
+                        Err(error) => sink.error(
+                            node,
+                            EventId::TabViewTabItemsChanged,
+                            revision,
+                            native_error(error),
+                        ),
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::TeachingTip(value), EventId::TeachingTipClosed) => {
-            let source = value.cast::<ITeachingTip>().map_err(native_error)?;
-            source
-                .Closed(move |_, _| {
-                    sink.enqueue(
-                        node,
-                        EventId::TeachingTipClosed,
-                        revision,
-                        EventPayload::Unit,
-                    );
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
+            value.Closed(move |_, _| {
+                sink.enqueue(
+                    node,
+                    EventId::TeachingTipClosed,
                     revision,
-                })
-                .map_err(native_error)
+                    EventPayload::Unit,
+                );
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::TeachingTip(value), EventId::TeachingTipActionButtonClick) => {
-            let source = value.cast::<ITeachingTip>().map_err(native_error)?;
-            source
-                .ActionButtonClick(move |_, _| {
-                    sink.enqueue(
-                        node,
-                        EventId::TeachingTipActionButtonClick,
-                        revision,
-                        EventPayload::Unit,
-                    );
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
+            value.ActionButtonClick(move |_, _| {
+                sink.enqueue(
+                    node,
+                    EventId::TeachingTipActionButtonClick,
                     revision,
-                })
-                .map_err(native_error)
+                    EventPayload::Unit,
+                );
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::DropDownButton(value), EventId::DropDownButtonClick) => {
             let source = value.cast::<IButtonBase>().map_err(native_error)?;
-            source
-                .Click(move |_, _| {
-                    sink.enqueue(
-                        node,
-                        EventId::DropDownButtonClick,
-                        revision,
-                        EventPayload::Unit,
-                    );
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
+            source.Click(move |_, _| {
+                sink.enqueue(
+                    node,
+                    EventId::DropDownButtonClick,
                     revision,
-                })
-                .map_err(native_error)
+                    EventPayload::Unit,
+                );
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::AppBarButton(value), EventId::AppBarButtonClick) => {
             let source = value.cast::<IButtonBase>().map_err(native_error)?;
-            source
-                .Click(move |_, _| {
-                    sink.enqueue(
-                        node,
-                        EventId::AppBarButtonClick,
-                        revision,
-                        EventPayload::Unit,
-                    );
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
+            source.Click(move |_, _| {
+                sink.enqueue(
+                    node,
+                    EventId::AppBarButtonClick,
                     revision,
-                })
-                .map_err(native_error)
+                    EventPayload::Unit,
+                );
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::SplitButton(value), EventId::SplitButtonClick) => {
-            let source = value.cast::<ISplitButton>().map_err(native_error)?;
-            source
-                .Click(move |_, _| {
-                    sink.enqueue(
-                        node,
-                        EventId::SplitButtonClick,
-                        revision,
-                        EventPayload::Unit,
-                    );
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
+            value.Click(move |_, _| {
+                sink.enqueue(
+                    node,
+                    EventId::SplitButtonClick,
                     revision,
-                })
-                .map_err(native_error)
+                    EventPayload::Unit,
+                );
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::ColorPicker(value), EventId::ColorPickerColorChanged) => {
-            let source = value.cast::<IColorPicker>().map_err(native_error)?;
-            source
-                .ColorChanged(move |_, args| {
-                    if let Some(args) = args.as_ref() {
-                        match args
-                            .cast::<IColorChangedEventArgs>()
-                            .and_then(|args| args.NewColor())
-                        {
-                            Ok(value) => sink.enqueue(
-                                node,
-                                EventId::ColorPickerColorChanged,
-                                revision,
-                                EventPayload::Color(crate::Color {
-                                    a: value.a,
-                                    r: value.r,
-                                    g: value.g,
-                                    b: value.b,
-                                }),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::ColorPickerColorChanged,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
+            value.ColorChanged(move |_, args| {
+                if let Some(args) = args.as_ref() {
+                    match args.NewColor() {
+                        Ok(value) => sink.enqueue(
+                            node,
+                            EventId::ColorPickerColorChanged,
+                            revision,
+                            EventPayload::Color(crate::Color {
+                                a: value.a,
+                                r: value.r,
+                                g: value.g,
+                                b: value.b,
+                            }),
+                        ),
+                        Err(error) => sink.error(
+                            node,
+                            EventId::ColorPickerColorChanged,
+                            revision,
+                            native_error(error),
+                        ),
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::DatePicker(value), EventId::DatePickerSelectedDateChanged) => {
-            let source = value.cast::<IDatePicker>().map_err(native_error)?;
-            source
-                .SelectedDateChanged(move |_, args| {
-                    if let Some(args) = args.as_ref() {
-                        match args
-                            .cast::<IDatePickerSelectedValueChangedEventArgs>()
-                            .and_then(|args| args.NewDate())
-                        {
-                            Ok(value) => sink.enqueue(
-                                node,
-                                EventId::DatePickerSelectedDateChanged,
-                                revision,
-                                EventPayload::OptionalDateTime(Some(value)),
-                            ),
-                            Err(error) if error.code().is_ok() => sink.enqueue(
-                                node,
-                                EventId::DatePickerSelectedDateChanged,
-                                revision,
-                                EventPayload::OptionalDateTime(None),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::DatePickerSelectedDateChanged,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
+            value.SelectedDateChanged(move |_, args| {
+                if let Some(args) = args.as_ref() {
+                    match args.NewDate() {
+                        Ok(value) => sink.enqueue(
+                            node,
+                            EventId::DatePickerSelectedDateChanged,
+                            revision,
+                            EventPayload::OptionalDateTime(Some(value)),
+                        ),
+                        Err(error) if error.code().is_ok() => sink.enqueue(
+                            node,
+                            EventId::DatePickerSelectedDateChanged,
+                            revision,
+                            EventPayload::OptionalDateTime(None),
+                        ),
+                        Err(error) => sink.error(
+                            node,
+                            EventId::DatePickerSelectedDateChanged,
+                            revision,
+                            native_error(error),
+                        ),
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::TimePicker(value), EventId::TimePickerSelectedTimeChanged) => {
-            let source = value.cast::<ITimePicker>().map_err(native_error)?;
-            source
-                .SelectedTimeChanged(move |_, args| {
-                    if let Some(args) = args.as_ref() {
-                        match args
-                            .cast::<ITimePickerSelectedValueChangedEventArgs>()
-                            .and_then(|args| args.NewTime())
-                        {
-                            Ok(value) => sink.enqueue(
-                                node,
-                                EventId::TimePickerSelectedTimeChanged,
-                                revision,
-                                EventPayload::OptionalTimeSpan(Some(value)),
-                            ),
-                            Err(error) if error.code().is_ok() => sink.enqueue(
-                                node,
-                                EventId::TimePickerSelectedTimeChanged,
-                                revision,
-                                EventPayload::OptionalTimeSpan(None),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::TimePickerSelectedTimeChanged,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
+            value.SelectedTimeChanged(move |_, args| {
+                if let Some(args) = args.as_ref() {
+                    match args.NewTime() {
+                        Ok(value) => sink.enqueue(
+                            node,
+                            EventId::TimePickerSelectedTimeChanged,
+                            revision,
+                            EventPayload::OptionalTimeSpan(Some(value)),
+                        ),
+                        Err(error) if error.code().is_ok() => sink.enqueue(
+                            node,
+                            EventId::TimePickerSelectedTimeChanged,
+                            revision,
+                            EventPayload::OptionalTimeSpan(None),
+                        ),
+                        Err(error) => sink.error(
+                            node,
+                            EventId::TimePickerSelectedTimeChanged,
+                            revision,
+                            native_error(error),
+                        ),
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::CalendarDatePicker(value), EventId::CalendarDatePickerDateChanged) => {
-            let source = value.cast::<ICalendarDatePicker>().map_err(native_error)?;
-            source
-                .DateChanged(move |_, args| {
-                    if let Some(args) = args.as_ref() {
-                        match args
-                            .cast::<ICalendarDatePickerDateChangedEventArgs>()
-                            .and_then(|args| args.NewDate())
-                        {
-                            Ok(value) => sink.enqueue(
-                                node,
-                                EventId::CalendarDatePickerDateChanged,
-                                revision,
-                                EventPayload::OptionalDateTime(Some(value)),
-                            ),
-                            Err(error) if error.code().is_ok() => sink.enqueue(
-                                node,
-                                EventId::CalendarDatePickerDateChanged,
-                                revision,
-                                EventPayload::OptionalDateTime(None),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::CalendarDatePickerDateChanged,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
+            value.DateChanged(move |_, args| {
+                if let Some(args) = args.as_ref() {
+                    match args.NewDate() {
+                        Ok(value) => sink.enqueue(
+                            node,
+                            EventId::CalendarDatePickerDateChanged,
+                            revision,
+                            EventPayload::OptionalDateTime(Some(value)),
+                        ),
+                        Err(error) if error.code().is_ok() => sink.enqueue(
+                            node,
+                            EventId::CalendarDatePickerDateChanged,
+                            revision,
+                            EventPayload::OptionalDateTime(None),
+                        ),
+                        Err(error) => sink.error(
+                            node,
+                            EventId::CalendarDatePickerDateChanged,
+                            revision,
+                            native_error(error),
+                        ),
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::ContentDialog(value), EventId::ContentDialogClosed) => {
-            let source = value.cast::<IContentDialog>().map_err(native_error)?;
-            source
-                .Closed(move |_, args| {
-                    let invoke_callback = match sink.content_dialog_closed(node, revision) {
-                        Ok(value) => value,
-                        Err(error) => {
-                            sink.error(node, EventId::ContentDialogClosed, revision, error);
-                            return;
-                        }
-                    };
-                    if let Some(args) = args.as_ref() {
-                        match args
-                            .cast::<IContentDialogClosedEventArgs>()
-                            .and_then(|args| args.Result())
-                        {
-                            Ok(value) => sink.enqueue_or_observe(
-                                node,
-                                EventId::ContentDialogClosed,
-                                revision,
-                                EventPayload::ContentDialogResult(match value.0 {
-                                    1 => crate::ContentDialogResult::Primary,
-                                    2 => crate::ContentDialogResult::Secondary,
-                                    _ => crate::ContentDialogResult::None,
-                                }),
-                                invoke_callback,
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::ContentDialogClosed,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
+            value.Closed(move |_, args| {
+                let invoke_callback = match sink.content_dialog_closed(node, revision) {
+                    Ok(value) => value,
+                    Err(error) => {
+                        sink.error(node, EventId::ContentDialogClosed, revision, error);
+                        return;
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                };
+                if let Some(args) = args.as_ref() {
+                    match args.Result() {
+                        Ok(value) => sink.enqueue_or_observe(
+                            node,
+                            EventId::ContentDialogClosed,
+                            revision,
+                            EventPayload::ContentDialogResult(match value.0 {
+                                1 => crate::ContentDialogResult::Primary,
+                                2 => crate::ContentDialogResult::Secondary,
+                                _ => crate::ContentDialogResult::None,
+                            }),
+                            invoke_callback,
+                        ),
+                        Err(error) => sink.error(
+                            node,
+                            EventId::ContentDialogClosed,
+                            revision,
+                            native_error(error),
+                        ),
+                    }
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::CalendarView(value), EventId::CalendarViewSelectedDatesChanged) => {
-            let source = value.cast::<ICalendarView>().map_err(native_error)?;
-            source
-                .SelectedDatesChanged(move |_, _| {
-                    sink.enqueue(
-                        node,
-                        EventId::CalendarViewSelectedDatesChanged,
-                        revision,
-                        EventPayload::Unit,
-                    );
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
+            value.SelectedDatesChanged(move |_, _| {
+                sink.enqueue(
+                    node,
+                    EventId::CalendarViewSelectedDatesChanged,
                     revision,
-                })
-                .map_err(native_error)
+                    EventPayload::Unit,
+                );
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::ListView(value), EventId::ListViewSelectionChanged) => {
             let source = value.cast::<ISelector>().map_err(native_error)?;
-            source
-                .SelectionChanged({
-                    let event_source = value.cast::<ISelector>().map_err(native_error)?;
-                    move |_, _| match event_source.SelectedIndex() {
-                        Ok(value) => sink.enqueue(
-                            node,
-                            EventId::ListViewSelectionChanged,
-                            revision,
-                            EventPayload::SelectionIndex(match selection_index(value) {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    sink.error(
-                                        node,
-                                        EventId::ListViewSelectionChanged,
-                                        revision,
-                                        error,
-                                    );
-                                    return;
-                                }
-                            }),
-                        ),
-                        Err(error) => sink.error(
-                            node,
-                            EventId::ListViewSelectionChanged,
-                            revision,
-                            native_error(error),
-                        ),
-                    }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+            let event_source = source.clone();
+            source.SelectionChanged({
+                move |_, _| match event_source.SelectedIndex() {
+                    Ok(value) => sink.enqueue(
+                        node,
+                        EventId::ListViewSelectionChanged,
+                        revision,
+                        EventPayload::SelectionIndex(match selection_index(value) {
+                            Ok(value) => value,
+                            Err(error) => {
+                                sink.error(
+                                    node,
+                                    EventId::ListViewSelectionChanged,
+                                    revision,
+                                    error,
+                                );
+                                return;
+                            }
+                        }),
+                    ),
+                    Err(error) => sink.error(
+                        node,
+                        EventId::ListViewSelectionChanged,
+                        revision,
+                        native_error(error),
+                    ),
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         (Handle::ListView(value), EventId::ListViewDragItemsCompleted) => {
             let source = value.cast::<IListViewBase>().map_err(native_error)?;
-            source
-                .DragItemsCompleted(move |sender, _| {
-                    if let Some(sender) = sender.as_ref() {
-                        let result = sender
-                            .cast::<IItemsControl>()
-                            .and_then(|sender| sender.Items())
-                            .and_then(|items| {
-                                let mut tags = Vec::with_capacity(items.Size()? as usize);
-                                for index in 0..items.Size()? {
-                                    let tag =
-                                            items
-                                                .GetAt(index)?
-                                                .cast::<IFrameworkElement>()?
-                                                .Tag()?
-                                                .cast::<windows_reference::IReference<
-                                                    windows_core::HSTRING,
-                                                >>(
-                                                )?
-                                                .Value()?;
-                                    tags.push(tag.to_string_lossy());
-                                }
-                                Ok(tags)
-                            });
-                        match result {
-                            Ok(value) => sink.enqueue(
-                                node,
-                                EventId::ListViewDragItemsCompleted,
-                                revision,
-                                EventPayload::StrList(std::rc::Rc::new(value)),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::ListViewDragItemsCompleted,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
-                    }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
-        }
-        (Handle::TreeView(value), EventId::TreeViewItemInvoked) => {
-            let source = value.cast::<ITreeView>().map_err(native_error)?;
-            source
-                .ItemInvoked(move |_, args| {
-                    if let Some(args) = args.as_ref() {
-                        match args
-                            .cast::<ITreeViewItemInvokedEventArgs>()
-                            .and_then(|args| args.InvokedItem())
-                            .and_then(|node| node.cast::<ITreeViewNode>())
-                            .and_then(|node| node.Content())
-                            .and_then(|value| {
-                                value.cast::<windows_reference::IReference<windows_core::HSTRING>>()
-                            })
-                            .and_then(|value| value.Value())
-                        {
-                            Ok(value) => sink.enqueue(
-                                node,
-                                EventId::TreeViewItemInvoked,
-                                revision,
-                                EventPayload::Str(value.to_string_lossy()),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::TreeViewItemInvoked,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
-                    }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
-        }
-        (Handle::GridView(value), EventId::GridViewDragItemsCompleted) => {
-            let source = value.cast::<IListViewBase>().map_err(native_error)?;
-            source
-                .DragItemsCompleted(move |sender, _| {
-                    if let Some(sender) = sender.as_ref() {
-                        let result = sender
-                            .cast::<IItemsControl>()
-                            .and_then(|sender| sender.Items())
-                            .and_then(|items| {
-                                let mut tags = Vec::with_capacity(items.Size()? as usize);
-                                for index in 0..items.Size()? {
-                                    let tag =
-                                            items
-                                                .GetAt(index)?
-                                                .cast::<IFrameworkElement>()?
-                                                .Tag()?
-                                                .cast::<windows_reference::IReference<
-                                                    windows_core::HSTRING,
-                                                >>(
-                                                )?
-                                                .Value()?;
-                                    tags.push(tag.to_string_lossy());
-                                }
-                                Ok(tags)
-                            });
-                        match result {
-                            Ok(value) => sink.enqueue(
-                                node,
-                                EventId::GridViewDragItemsCompleted,
-                                revision,
-                                EventPayload::StrList(std::rc::Rc::new(value)),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::GridViewDragItemsCompleted,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
-                    }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
-        }
-        (Handle::GridView(value), EventId::GridViewSelectionChanged) => {
-            let source = value.cast::<ISelector>().map_err(native_error)?;
-            source
-                .SelectionChanged({
-                    let event_source = value.cast::<ISelector>().map_err(native_error)?;
-                    move |_, _| match event_source.SelectedIndex() {
+            source.DragItemsCompleted(move |sender, _| {
+                if let Some(sender) = sender.as_ref() {
+                    let result = sender
+                        .cast::<IItemsControl>()
+                        .and_then(|sender| sender.Items())
+                        .and_then(|items| {
+                            let mut tags = Vec::with_capacity(items.Size()? as usize);
+                            for index in 0..items.Size()? {
+                                let tag = items
+                                    .GetAt(index)?
+                                    .cast::<IFrameworkElement>()?
+                                    .Tag()?
+                                    .cast::<windows_reference::IReference<windows_core::HSTRING>>()?
+                                    .Value()?;
+                                tags.push(tag.to_string_lossy());
+                            }
+                            Ok(tags)
+                        });
+                    match result {
                         Ok(value) => sink.enqueue(
                             node,
-                            EventId::GridViewSelectionChanged,
+                            EventId::ListViewDragItemsCompleted,
                             revision,
-                            EventPayload::SelectionIndex(match selection_index(value) {
-                                Ok(value) => value,
-                                Err(error) => {
-                                    sink.error(
-                                        node,
-                                        EventId::GridViewSelectionChanged,
-                                        revision,
-                                        error,
-                                    );
-                                    return;
-                                }
-                            }),
+                            EventPayload::StrList(std::rc::Rc::new(value)),
                         ),
                         Err(error) => sink.error(
                             node,
-                            EventId::GridViewSelectionChanged,
+                            EventId::ListViewDragItemsCompleted,
                             revision,
                             native_error(error),
                         ),
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                }
+            })
         }
-        (Handle::RichEditBox(value), EventId::RichEditBoxTextChanged) => {
-            let source = value.cast::<IRichEditBox>().map_err(native_error)?;
-            source
-                .TextChanged({
-                    let event_source = value.cast::<IRichEditBox>().map_err(native_error)?;
-                    move |_, _| {
-                        let value = event_source.Document().and_then(|document| {
-                            let mut value = windows_core::HSTRING::new();
-                            document
-                                .GetText(bindings::TextGetOptions::None, &mut value)
-                                .map(|_| value)
-                        });
-                        match value {
-                            Ok(value) => sink.enqueue(
-                                node,
-                                EventId::RichEditBoxTextChanged,
-                                revision,
-                                EventPayload::Str(value.to_string_lossy()),
-                            ),
-                            Err(error) => sink.error(
-                                node,
-                                EventId::RichEditBoxTextChanged,
-                                revision,
-                                native_error(error),
-                            ),
-                        }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
+        (Handle::TreeView(value), EventId::TreeViewItemInvoked) => {
+            value.ItemInvoked(move |_, args| {
+                if let Some(args) = args.as_ref() {
+                    match args
+                        .InvokedItem()
+                        .and_then(|node| node.cast::<ITreeViewNode>())
+                        .and_then(|node| node.Content())
+                        .and_then(|value| {
+                            value.cast::<windows_reference::IReference<windows_core::HSTRING>>()
+                        })
+                        .and_then(|value| value.Value())
+                    {
+                        Ok(value) => sink.enqueue(
+                            node,
+                            EventId::TreeViewItemInvoked,
+                            revision,
+                            EventPayload::Str(value.to_string_lossy()),
+                        ),
+                        Err(error) => sink.error(
+                            node,
+                            EventId::TreeViewItemInvoked,
+                            revision,
+                            native_error(error),
+                        ),
                     }
-                })
-                .map(|revoker| NativeSubscription::Event {
-                    _revoker: revoker,
-                    revision,
-                })
-                .map_err(native_error)
+                }
+            })
         }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
+        (Handle::GridView(value), EventId::GridViewDragItemsCompleted) => {
+            let source = value.cast::<IListViewBase>().map_err(native_error)?;
+            source.DragItemsCompleted(move |sender, _| {
+                if let Some(sender) = sender.as_ref() {
+                    let result = sender
+                        .cast::<IItemsControl>()
+                        .and_then(|sender| sender.Items())
+                        .and_then(|items| {
+                            let mut tags = Vec::with_capacity(items.Size()? as usize);
+                            for index in 0..items.Size()? {
+                                let tag = items
+                                    .GetAt(index)?
+                                    .cast::<IFrameworkElement>()?
+                                    .Tag()?
+                                    .cast::<windows_reference::IReference<windows_core::HSTRING>>()?
+                                    .Value()?;
+                                tags.push(tag.to_string_lossy());
+                            }
+                            Ok(tags)
+                        });
+                    match result {
+                        Ok(value) => sink.enqueue(
+                            node,
+                            EventId::GridViewDragItemsCompleted,
+                            revision,
+                            EventPayload::StrList(std::rc::Rc::new(value)),
+                        ),
+                        Err(error) => sink.error(
+                            node,
+                            EventId::GridViewDragItemsCompleted,
+                            revision,
+                            native_error(error),
+                        ),
+                    }
+                }
+            })
+        }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
+        (Handle::GridView(value), EventId::GridViewSelectionChanged) => {
+            let source = value.cast::<ISelector>().map_err(native_error)?;
+            let event_source = source.clone();
+            source.SelectionChanged({
+                move |_, _| match event_source.SelectedIndex() {
+                    Ok(value) => sink.enqueue(
+                        node,
+                        EventId::GridViewSelectionChanged,
+                        revision,
+                        EventPayload::SelectionIndex(match selection_index(value) {
+                            Ok(value) => value,
+                            Err(error) => {
+                                sink.error(
+                                    node,
+                                    EventId::GridViewSelectionChanged,
+                                    revision,
+                                    error,
+                                );
+                                return;
+                            }
+                        }),
+                    ),
+                    Err(error) => sink.error(
+                        node,
+                        EventId::GridViewSelectionChanged,
+                        revision,
+                        native_error(error),
+                    ),
+                }
+            })
+        }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
+        (Handle::RichEditBox(value), EventId::RichEditBoxTextChanged) => {
+            value.TextChanged({
+                let event_source = (*value).clone();
+                move |_, _| {
+                    let value = event_source.Document().and_then(|document| {
+                        let mut value = windows_core::HSTRING::new();
+                        document
+                            .GetText(bindings::TextGetOptions::None, &mut value)
+                            .map(|_| value)
+                    });
+                    match value {
+                        Ok(value) => sink.enqueue(
+                            node,
+                            EventId::RichEditBoxTextChanged,
+                            revision,
+                            EventPayload::Str(value.to_string_lossy()),
+                        ),
+                        Err(error) => sink.error(
+                            node,
+                            EventId::RichEditBoxTextChanged,
+                            revision,
+                            native_error(error),
+                        ),
+                    }
+                }
+            })
+        }
+        .map(|revoker| NativeSubscription::Event {
+            _revoker: revoker,
+            revision,
+        })
+        .map_err(native_error),
         _ => Err(RuntimeError::UnsupportedKind),
     }
 }

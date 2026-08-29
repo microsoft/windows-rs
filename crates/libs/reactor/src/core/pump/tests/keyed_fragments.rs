@@ -2,7 +2,6 @@
 
 use super::super::*;
 use super::support::*;
-use crate::native::*;
 use std::collections::HashSet;
 
 #[test]

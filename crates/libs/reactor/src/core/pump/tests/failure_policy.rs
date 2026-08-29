@@ -1,6 +1,6 @@
 use super::super::*;
 use super::support::Root;
-use crate::native::RecordingRuntime;
+use crate::test_support::RecordingRuntime;
 
 fn candidate_with_reservation(
     pump: &mut Pump<RecordingRuntime>,

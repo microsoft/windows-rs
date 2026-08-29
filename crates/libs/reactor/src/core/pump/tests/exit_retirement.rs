@@ -1,7 +1,7 @@
 use std::time::Duration;
 
 use super::super::*;
-use crate::native::RecordingRuntime;
+use crate::test_support::RecordingRuntime;
 
 fn collection_view(exiting: bool, replacement: bool) -> View {
     let mut children = Vec::new();

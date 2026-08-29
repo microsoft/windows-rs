@@ -1,7 +1,6 @@
 //! Hyperlink URI property reconciliation tests.
 
 use super::super::*;
-use crate::native::*;
 
 #[test]
 fn hyperlink_uri_rejects_invalid_declarations() {

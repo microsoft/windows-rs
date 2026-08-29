@@ -686,40 +686,20 @@ impl<R: NativeRuntime> Pump<R> {
     fn apply_realization(
         &mut self,
         candidate: Tree,
-        mut plan: UpdatePlan,
+        plan: UpdatePlan,
         changes: ComponentChanges,
     ) -> Result<(), PumpError> {
         let root = self.root.ok_or(PumpError::NotMounted)?;
         let window = self.window.ok_or(PumpError::NotMounted)?;
-        if let Err(error) = Self::plan_window_title_bar(window, &self.tree, &candidate, &mut plan) {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
-            return Err(error);
-        }
-        if let Err(error) = Self::plan_window_title(window, &self.tree, &candidate, &mut plan) {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
-            return Err(error);
-        }
-        if let Err(error) = Self::plan_window_visuals(window, &self.tree, &candidate, &mut plan) {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
-            return Err(error);
-        }
-        if let Err(error) =
-            Self::plan_window_observations(window, &self.tree, &candidate, &mut plan)
-        {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
-            return Err(error);
-        }
-        let mut changes = changes;
-        Self::plan_host_requests(window, &mut changes.host_requests, &mut plan);
-        self.publish_candidate(
-            CandidateState::Tree {
-                tree: candidate,
-                root,
-            },
+        self.finalize_component_candidate(ComponentCandidate {
+            activate_window: false,
+            changes,
+            next_version: self.version,
             plan,
-            FrontendChanges::Component(changes),
-            self.version,
-            CandidateFailureStage::PlanningDiscard,
-        )
+            planning_failure: CandidateFailureStage::PlanningDiscard,
+            root,
+            tree: candidate,
+            window,
+        })
     }
 }

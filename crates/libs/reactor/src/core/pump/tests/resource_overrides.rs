@@ -1,5 +1,4 @@
 use super::super::*;
-use crate::native::*;
 
 #[test]
 fn resource_overrides_mount_update_and_clear() {
