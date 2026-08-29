@@ -5,7 +5,6 @@ pub(super) struct ContentDialogScheduler {
     dialogs: HashMap<NodeId, ContentDialogLifecycle>,
     next_generation: u64,
     request_order: u64,
-    subscriptions: HashMap<NodeId, NativeSubscription>,
 }
 
 pub(super) enum ContentDialogAction {
@@ -24,6 +23,7 @@ struct ContentDialogLifecycle {
     retired: bool,
     revision: u32,
     root_loaded: Option<windows_core::EventRevoker>,
+    subscription: Option<NativeSubscription>,
     suppress_callback: bool,
     xaml_root: Option<XamlRoot>,
 }
@@ -57,6 +57,7 @@ impl ContentDialogScheduler {
                 retired: false,
                 revision: 0,
                 root_loaded: None,
+                subscription: None,
                 suppress_callback: false,
                 xaml_root: None,
             },
@@ -149,7 +150,9 @@ impl ContentDialogScheduler {
     }
 
     pub(super) fn has_subscription(&self, node: NodeId) -> bool {
-        self.subscriptions.contains_key(&node)
+        self.dialogs
+            .get(&node)
+            .is_some_and(|state| state.subscription.is_some())
     }
 
     pub(super) fn subscribe(
@@ -158,11 +161,12 @@ impl ContentDialogScheduler {
         revision: u32,
         subscription: NativeSubscription,
     ) -> Result<(), RuntimeError> {
-        self.dialogs
+        let state = self
+            .dialogs
             .get_mut(&node)
-            .ok_or(RuntimeError::MissingNode(node))?
-            .revision = revision;
-        self.subscriptions.insert(node, subscription);
+            .ok_or(RuntimeError::MissingNode(node))?;
+        state.revision = revision;
+        state.subscription = Some(subscription);
         Ok(())
     }
 
@@ -171,12 +175,13 @@ impl ContentDialogScheduler {
         node: NodeId,
         event: EventId,
     ) -> Result<bool, RuntimeError> {
-        let Some(state) = self.dialogs.get(&node) else {
+        let Some(state) = self.dialogs.get_mut(&node) else {
             return Ok(false);
         };
         if !state.pending {
-            self.subscriptions
-                .remove(&node)
+            state
+                .subscription
+                .take()
                 .ok_or(RuntimeError::MissingSubscription(node, event))?;
         }
         Ok(true)
@@ -184,7 +189,10 @@ impl ContentDialogScheduler {
 
     #[cfg(feature = "test")]
     pub(super) fn subscription_count(&self) -> usize {
-        self.subscriptions.len()
+        self.dialogs
+            .values()
+            .filter(|state| state.subscription.is_some())
+            .count()
     }
 
     #[cfg(feature = "test")]
@@ -278,17 +286,21 @@ impl ContentDialogScheduler {
 }
 
 pub(super) fn reset(scheduler: &Rc<RefCell<ContentDialogScheduler>>) {
-    let dialogs = {
+    let (dialogs, subscriptions) = {
         let mut scheduler = scheduler.borrow_mut();
-        let dialogs = scheduler
+        let mut dialogs = scheduler
             .dialogs
             .drain()
             .map(|(_, state)| state)
             .collect::<Vec<_>>();
-        scheduler.subscriptions.clear();
+        let subscriptions = dialogs
+            .iter_mut()
+            .filter_map(|state| state.subscription.take())
+            .collect::<Vec<_>>();
         scheduler.request_order = 0;
-        dialogs
+        (dialogs, subscriptions)
     };
+    drop(subscriptions);
     for state in dialogs {
         if state.pending {
             _ = state.dialog.Hide();
@@ -297,23 +309,20 @@ pub(super) fn reset(scheduler: &Rc<RefCell<ContentDialogScheduler>>) {
 }
 
 pub(super) fn retire(scheduler: &Rc<RefCell<ContentDialogScheduler>>, node: NodeId) {
-    let retain = {
+    let removed = {
         let mut scheduler = scheduler.borrow_mut();
         if let Some(dialog) = scheduler.dialogs.get_mut(&node) {
             if dialog.pending {
                 dialog.retired = true;
-                true
+                None
             } else {
-                scheduler.dialogs.remove(&node);
-                false
+                scheduler.dialogs.remove(&node)
             }
         } else {
-            false
+            None
         }
     };
-    if !retain {
-        scheduler.borrow_mut().subscriptions.remove(&node);
-    }
+    drop(removed);
 }
 
 pub(super) fn closed(
@@ -379,8 +388,8 @@ pub(super) fn closed(
         }
     }
     if retired {
-        scheduler.borrow_mut().dialogs.remove(&node);
-        scheduler.borrow_mut().subscriptions.remove(&node);
+        let removed = scheduler.borrow_mut().dialogs.remove(&node);
+        drop(removed);
     }
     Ok(invoke_callback)
 }

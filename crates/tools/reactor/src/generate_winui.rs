@@ -236,13 +236,6 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                 entries.insert("Microsoft::UI::Xaml::IDragOperationDeferral::Complete".to_string());
                 entries.insert("Windows::Storage::IStorageItem::{get_Name, get_Path}".to_string());
             }
-            if let EventPayloadSource::SenderItemTags {
-                interface,
-                property,
-            } = &event.source
-            {
-                entries.insert(format!("{}::get_{}", filter_path(interface), property));
-            }
         }
         if let Some(selection) = &control.selection {
             entries.insert(format!(
@@ -2330,6 +2323,23 @@ mod tests {
         let source = include_str!("winui.toml");
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
         Schema::parse(source).unwrap().resolve(&metadata).unwrap()
+    }
+
+    #[test]
+    fn item_tags_payload_adds_its_sender_getter_to_the_bindings_filter() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TabView"
+
+[[control.event]]
+name = "TabItemsChanged"
+adapter = "item_tags"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let schema = Schema::parse(source).unwrap().resolve(&metadata).unwrap();
+        let filter = generate_control_bindings_filter(&schema);
+
+        assert!(filter.contains("Microsoft::UI::Xaml::Controls::ITabView::get_TabItems"));
     }
 
     #[test]

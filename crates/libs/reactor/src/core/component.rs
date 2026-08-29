@@ -731,56 +731,64 @@ impl<C: Component> ComponentContext<C> {
     }
 }
 
+#[derive(Default)]
+enum SingleDeclaration<T> {
+    #[default]
+    Empty,
+    Value(T),
+    Duplicate,
+}
+
+impl<T> SingleDeclaration<T> {
+    fn declare(&mut self, value: T) {
+        *self = if matches!(self, Self::Empty) {
+            Self::Value(value)
+        } else {
+            Self::Duplicate
+        };
+    }
+
+    fn resolve<E>(self, duplicate: E) -> Result<Option<T>, E> {
+        match self {
+            Self::Empty => Ok(None),
+            Self::Value(value) => Ok(Some(value)),
+            Self::Duplicate => Err(duplicate),
+        }
+    }
+}
+
 pub struct ViewContext<C: Component> {
     contexts: ContextSnapshot,
-    duplicate_color_scheme_observation: bool,
-    duplicate_window_size_observation: bool,
-    duplicate_window_title: bool,
-    duplicate_window_visuals: bool,
     effects: Rc<RefCell<ComponentEffects>>,
     reads: HashSet<ContextDependency>,
     sender: LocalSender<C::Message>,
-    color_scheme_observation: Option<Callback<ColorScheme>>,
-    window_size_observation: Option<Callback<WindowSize>>,
-    window_title: Option<String>,
-    window_visuals: Option<WindowVisuals>,
+    color_scheme_observation: SingleDeclaration<Callback<ColorScheme>>,
+    window_size_observation: SingleDeclaration<Callback<WindowSize>>,
+    window_title: SingleDeclaration<String>,
+    window_visuals: SingleDeclaration<WindowVisuals>,
 }
 
 impl<C: Component> ViewContext<C> {
     /// Declares a queued color-scheme observation for the owning window.
     pub fn on_color_scheme(&mut self, callback: impl IntoPayloadCallback<ColorScheme>) {
-        if self.color_scheme_observation.is_some() {
-            self.duplicate_color_scheme_observation = true;
-        } else {
-            self.color_scheme_observation = Some(callback.into_payload_callback());
-        }
+        self.color_scheme_observation
+            .declare(callback.into_payload_callback());
     }
 
     /// Declares a queued client-size observation for the owning window.
     pub fn on_window_size(&mut self, callback: impl IntoPayloadCallback<WindowSize>) {
-        if self.window_size_observation.is_some() {
-            self.duplicate_window_size_observation = true;
-        } else {
-            self.window_size_observation = Some(callback.into_payload_callback());
-        }
+        self.window_size_observation
+            .declare(callback.into_payload_callback());
     }
 
     /// Declares the owning window's title for this component publication.
     pub fn window_title(&mut self, title: impl Into<String>) {
-        if self.window_title.is_some() {
-            self.duplicate_window_title = true;
-        } else {
-            self.window_title = Some(title.into());
-        }
+        self.window_title.declare(title.into());
     }
 
     /// Declares the owning window's visual environment for this publication.
     pub fn window_visuals(&mut self, visuals: WindowVisuals) {
-        if self.window_visuals.is_some() {
-            self.duplicate_window_visuals = true;
-        } else {
-            self.window_visuals = Some(visuals);
-        }
+        self.window_visuals.declare(visuals);
     }
 
     pub fn sender(&self) -> LocalSender<C::Message> {
@@ -1332,38 +1340,34 @@ impl ComponentStore {
         ) -> Result<ComponentRender, ComponentStoreError> {
             let mut context = ViewContext {
                 contexts,
-                duplicate_color_scheme_observation: false,
-                duplicate_window_size_observation: false,
-                duplicate_window_title: false,
-                duplicate_window_visuals: false,
                 effects,
                 reads: HashSet::new(),
                 sender,
-                color_scheme_observation: None,
-                window_size_observation: None,
-                window_title: None,
-                window_visuals: None,
+                color_scheme_observation: SingleDeclaration::default(),
+                window_size_observation: SingleDeclaration::default(),
+                window_title: SingleDeclaration::default(),
+                window_visuals: SingleDeclaration::default(),
             };
             let view = component.view(input, &mut context);
-            if context.duplicate_color_scheme_observation {
-                return Err(ComponentStoreError::DuplicateColorSchemeObservation);
-            }
-            if context.duplicate_window_size_observation {
-                return Err(ComponentStoreError::DuplicateWindowSizeObservation);
-            }
-            if context.duplicate_window_title {
-                return Err(ComponentStoreError::DuplicateWindowTitle);
-            }
-            if context.duplicate_window_visuals {
-                return Err(ComponentStoreError::DuplicateWindowVisuals);
-            }
+            let color_scheme_observation = context
+                .color_scheme_observation
+                .resolve(ComponentStoreError::DuplicateColorSchemeObservation)?;
+            let window_size_observation = context
+                .window_size_observation
+                .resolve(ComponentStoreError::DuplicateWindowSizeObservation)?;
+            let window_title = context
+                .window_title
+                .resolve(ComponentStoreError::DuplicateWindowTitle)?;
+            let window_visuals = context
+                .window_visuals
+                .resolve(ComponentStoreError::DuplicateWindowVisuals)?;
             Ok(ComponentRender {
-                color_scheme_observation: context.color_scheme_observation,
+                color_scheme_observation,
                 dependencies: context.reads,
                 view,
-                window_size_observation: context.window_size_observation,
-                window_title: context.window_title,
-                window_visuals: context.window_visuals,
+                window_size_observation,
+                window_title,
+                window_visuals,
             })
         }
 
