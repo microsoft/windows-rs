@@ -471,26 +471,7 @@ impl MetadataResolver {
         add_event: &str,
         property: &str,
     ) -> Option<(String, String, ReadValueConversion)> {
-        // Get the delegate type from the add method's first param.
-        let add_ref = self
-            .lookup
-            .get(&(class_name.to_string(), add_event.to_string()))?;
-        let delegate_type = add_ref.param_types.first()?;
-        // Extract the args class name from the delegate type.
-        let args_class = match delegate_type {
-            // TypedEventHandler<TSender, TArgs> - extract TArgs from generics.
-            Type::ClassName(tn) if tn.generics.len() == 2 => match &tn.generics[1] {
-                Type::ClassName(args_tn) => args_tn.name.clone(),
-                Type::ValueName(args_tn) => args_tn.name.clone(),
-                _ => return None,
-            },
-            // Non-generic delegate - look up args class from Invoke signature.
-            Type::ClassName(tn) => self.delegate_args.get(&tn.name)?.clone(),
-            _ => return None,
-        };
-        // Look up get_{property} on the args class.
-        let getter = format!("get_{property}");
-        let getter_ref = self.lookup.get(&(args_class, getter))?;
+        let getter_ref = self.resolve_event_args_getter(class_name, add_event, property)?;
         let (value, conversion) = self.read_value_for_type(&getter_ref.return_type)?;
         Some((value, getter_ref.interface.full_path(), conversion))
     }
@@ -501,21 +482,7 @@ impl MetadataResolver {
         add_event: &str,
         property: &str,
     ) -> Option<String> {
-        let add_ref = self
-            .lookup
-            .get(&(class_name.to_string(), add_event.to_string()))?;
-        let delegate_type = add_ref.param_types.first()?;
-        let args_class = match delegate_type {
-            Type::ClassName(tn) if tn.generics.len() == 2 => match &tn.generics[1] {
-                Type::ClassName(args_tn) => args_tn.name.clone(),
-                Type::ValueName(args_tn) => args_tn.name.clone(),
-                _ => return None,
-            },
-            Type::ClassName(tn) => self.delegate_args.get(&tn.name)?.clone(),
-            _ => return None,
-        };
-        self.lookup
-            .get(&(args_class, format!("get_{property}")))
+        self.resolve_event_args_getter(class_name, add_event, property)
             .map(|method| method.interface.full_path())
     }
 
@@ -525,21 +492,7 @@ impl MetadataResolver {
         add_event: &str,
         property: &str,
     ) -> Option<String> {
-        let add_ref = self
-            .lookup
-            .get(&(class_name.to_string(), add_event.to_string()))?;
-        let delegate_type = add_ref.param_types.first()?;
-        let args_class = match delegate_type {
-            Type::ClassName(tn) if tn.generics.len() == 2 => match &tn.generics[1] {
-                Type::ClassName(args_tn) => args_tn.name.clone(),
-                Type::ValueName(args_tn) => args_tn.name.clone(),
-                _ => return None,
-            },
-            Type::ClassName(tn) => self.delegate_args.get(&tn.name)?.clone(),
-            _ => return None,
-        };
-        let getter = format!("get_{property}");
-        let getter_ref = self.lookup.get(&(args_class, getter))?;
+        let getter_ref = self.resolve_event_args_getter(class_name, add_event, property)?;
         matches!(getter_ref.return_type, Type::Object).then(|| getter_ref.interface.full_path())
     }
 
@@ -551,6 +504,17 @@ impl MetadataResolver {
         add_event: &str,
         property: &str,
     ) -> Option<String> {
+        let getter_ref = self.resolve_event_args_getter(class_name, add_event, property)?;
+        matches!(getter_ref.return_type, Type::ClassName(_))
+            .then(|| getter_ref.interface.full_path())
+    }
+
+    fn resolve_event_args_getter(
+        &self,
+        class_name: &str,
+        add_event: &str,
+        property: &str,
+    ) -> Option<&MethodRef> {
         let add_ref = self
             .lookup
             .get(&(class_name.to_string(), add_event.to_string()))?;
@@ -565,9 +529,7 @@ impl MetadataResolver {
             _ => return None,
         };
         let getter = format!("get_{property}");
-        let getter_ref = self.lookup.get(&(args_class, getter))?;
-        matches!(getter_ref.return_type, Type::ClassName(_))
-            .then(|| getter_ref.interface.full_path())
+        self.lookup.get(&(args_class, getter))
     }
 
     pub fn resolve_property_read(
@@ -980,6 +942,32 @@ mod tests {
             result.as_deref(),
             Some("I32"),
             "BreadcrumbBar ItemClicked Index should be I32"
+        );
+    }
+
+    #[test]
+    fn resolves_event_args_getter_shapes() {
+        let resolver = MetadataResolver::load(Path::new("winmd"));
+
+        assert!(
+            resolver
+                .resolve_event_args_property_interface("Border", "add_Drop", "DataView")
+                .is_some()
+        );
+        assert!(
+            resolver
+                .resolve_event_args_class_property("TabView", "add_TabCloseRequested", "Tab")
+                .is_some()
+        );
+        assert!(
+            resolver
+                .resolve_event_args_object_property("TreeView", "add_ItemInvoked", "InvokedItem")
+                .is_some()
+        );
+        assert!(
+            resolver
+                .resolve_event_args_class_property("TreeView", "add_ItemInvoked", "InvokedItem")
+                .is_none()
         );
     }
 }

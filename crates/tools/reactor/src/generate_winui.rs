@@ -394,7 +394,6 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         control
             .properties
             .iter()
-            .filter(|property| property.clearable)
             .map(move |property| generate_clear_property(control, property))
     });
     let events = schema.controls.iter().flat_map(|control| {
@@ -486,7 +485,6 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                         ))
                     }
                 }),
-                _ => unreachable!(),
             }
         })
     });
@@ -524,7 +522,6 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                         ))
                     }
                 }),
-                _ => unreachable!(),
             }
         })
     });

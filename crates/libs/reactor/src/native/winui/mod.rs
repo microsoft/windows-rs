@@ -47,6 +47,10 @@ mod bindings;
 pub use bindings::*;
 mod app_shim;
 pub use app_shim::*;
+mod content_dialog;
+#[cfg(feature = "test")]
+pub(crate) use content_dialog::LiveContentDialogState;
+use content_dialog::{ContentDialogAction, ContentDialogScheduler};
 mod element_factory;
 #[allow(unused_qualifications)]
 mod generated;
@@ -91,10 +95,7 @@ pub struct WinUiRuntime {
     encoded_image_nodes: Rc<RefCell<HashSet<NodeId>>>,
     feedback: Rc<RefCell<HashMap<(NodeId, EventId), FeedbackExpectation>>>,
     controlled_collection_indices: HashMap<NodeId, i32>,
-    content_dialogs: Rc<RefCell<HashMap<NodeId, ContentDialogLifecycle>>>,
-    content_dialog_request_order: u64,
-    content_dialog_subscriptions: Rc<RefCell<HashMap<NodeId, NativeSubscription>>>,
-    next_content_dialog_generation: u64,
+    content_dialogs: Rc<RefCell<ContentDialogScheduler>>,
     drop_policies: Rc<RefCell<HashMap<NodeId, DragDropPolicy>>>,
     flyouts: HashMap<NodeId, (bindings::Flyout, NodeId)>,
     owned_menus: HashMap<NodeId, NativeOwnedMenu>,
@@ -109,7 +110,7 @@ pub struct WinUiRuntime {
     retained_subtrees: HashMap<NodeId, NativeRetainedSubtree>,
     scheduler: Rc<RefCell<SchedulerState>>,
     image_decode_tickets: HashMap<NodeId, u64>,
-    image_scale_subscriptions: HashMap<(NodeId, u64), ImageScaleSubscriptions>,
+    image_scale_subscriptions: HashMap<(NodeId, u64), XamlRootScaleSubscriptions>,
     swap_chain_panel_subscriptions: HashMap<(NodeId, u64), SwapChainPanelSubscriptions>,
     subscriptions: HashMap<(NodeId, EventId), NativeSubscription>,
     theme_styles: HashMap<(MountedKind, ThemeStyle), Style>,
@@ -127,30 +128,6 @@ pub struct WinUiRuntime {
     pending_application: Option<Application>,
     #[cfg(feature = "test")]
     native_apply_times_us: Vec<f64>,
-}
-
-struct ContentDialogLifecycle {
-    dialog: bindings::ContentDialog,
-    desired_open: bool,
-    generation: u64,
-    pending: bool,
-    queued: bool,
-    request_order: u64,
-    retired: bool,
-    revision: u32,
-    root_loaded: Option<windows_core::EventRevoker>,
-    suppress_callback: bool,
-    xaml_root: Option<XamlRoot>,
-}
-
-#[cfg(feature = "test")]
-#[derive(Debug)]
-pub(crate) struct LiveContentDialogState {
-    pub(crate) desired_open: bool,
-    pub(crate) generation: u64,
-    pub(crate) node: NodeId,
-    pub(crate) pending: bool,
-    pub(crate) queued: bool,
 }
 
 struct WebViewInitialization {
@@ -179,14 +156,13 @@ struct SwapChainPanelSubscriptions {
     _size: windows_core::EventRevoker,
 }
 
-struct ImageScaleSubscriptions {
+struct XamlRootScaleSubscriptions {
     _changed: Rc<RefCell<Option<windows_core::EventRevoker>>>,
     _loaded: windows_core::EventRevoker,
 }
 
 struct CompositionHostSubscriptions {
-    _changed: Rc<RefCell<Option<windows_core::EventRevoker>>>,
-    _loaded: windows_core::EventRevoker,
+    _root: XamlRootScaleSubscriptions,
     _size: windows_core::EventRevoker,
 }
 
@@ -425,19 +401,6 @@ fn build_menu_items(
         output.Append(&native).map_err(native_error)?;
     }
     Ok(())
-}
-
-fn show_content_dialog(dialog: &bindings::ContentDialog) -> Result<(), RuntimeError> {
-    match dialog.ShowAsync() {
-        Ok(operation) => {
-            drop(operation);
-            Ok(())
-        }
-        // WinUI may return S_OK without an async handle. The Closed event owns completion, so
-        // the runtime does not depend on that handle.
-        Err(error) if error.code().is_ok() => Ok(()),
-        Err(error) => Err(native_error(error)),
-    }
 }
 
 fn set_rich_edit_text(control: &bindings::RichEditBox, value: &str) -> Result<(), RuntimeError> {
@@ -696,36 +659,17 @@ impl WinUiRuntime {
 
     #[cfg(feature = "test")]
     pub fn live_event_subscription_count(&self) -> usize {
-        self.subscriptions.len() + self.content_dialog_subscriptions.borrow().len()
+        self.subscriptions.len() + self.content_dialogs.borrow().subscription_count()
     }
 
     #[cfg(feature = "test")]
     pub(crate) fn live_content_dialog_states(&self) -> Vec<LiveContentDialogState> {
-        let mut states = self
-            .content_dialogs
-            .borrow()
-            .iter()
-            .map(|(node, state)| LiveContentDialogState {
-                desired_open: state.desired_open,
-                generation: state.generation,
-                node: *node,
-                pending: state.pending,
-                queued: state.queued,
-            })
-            .collect::<Vec<_>>();
-        states.sort_unstable_by_key(|state| state.generation);
-        states
+        self.content_dialogs.borrow().states()
     }
 
     #[cfg(feature = "test")]
     pub(crate) fn live_hide_content_dialog(&self, node: NodeId) -> Result<(), RuntimeError> {
-        let dialog = self
-            .content_dialogs
-            .borrow()
-            .get(&node)
-            .ok_or(RuntimeError::MissingNode(node))?
-            .dialog
-            .clone();
+        let dialog = self.content_dialogs.borrow().dialog(node)?;
         dialog.Hide().map_err(native_error)
     }
 
@@ -1398,23 +1342,9 @@ impl WinUiRuntime {
                 }
                 let handle = Handle::create(*kind)?;
                 if let Handle::ContentDialog(dialog) = &handle {
-                    self.next_content_dialog_generation += 1;
-                    self.content_dialogs.borrow_mut().insert(
-                        *node,
-                        ContentDialogLifecycle {
-                            dialog: dialog.clone(),
-                            desired_open: false,
-                            generation: self.next_content_dialog_generation,
-                            pending: false,
-                            queued: false,
-                            request_order: 0,
-                            retired: false,
-                            revision: 0,
-                            root_loaded: None,
-                            suppress_callback: false,
-                            xaml_root: None,
-                        },
-                    );
+                    self.content_dialogs
+                        .borrow_mut()
+                        .create(*node, dialog.clone());
                 }
                 self.handles.insert(*node, handle);
             }
@@ -1649,7 +1579,7 @@ impl WinUiRuntime {
                         scale_x: control.CompositionScaleX().unwrap_or(1.0),
                         scale_y: control.CompositionScaleY().unwrap_or(1.0),
                     };
-                    invoke_surface_callback(callback, event);
+                    invoke_callback(callback, event);
                 };
                 emit_metrics(
                     element.ActualWidth().unwrap_or(0.0),
@@ -1663,7 +1593,7 @@ impl WinUiRuntime {
                         if let Some(args) = args.as_ref()
                             && let Ok(value) = args.NewSize()
                         {
-                            invoke_surface_callback(
+                            invoke_callback(
                                 &size_callback,
                                 SwapChainPanelEvent::Metrics {
                                     width: f64::from(value.width),
@@ -1680,7 +1610,7 @@ impl WinUiRuntime {
                 let scale = control
                     .CompositionScaleChanged(move |sender, _| {
                         if let Some(sender) = sender.as_ref() {
-                            invoke_surface_callback(
+                            invoke_callback(
                                 &scale_callback,
                                 SwapChainPanelEvent::Metrics {
                                     width: scale_element.ActualWidth().unwrap_or(0.0),
@@ -1694,7 +1624,7 @@ impl WinUiRuntime {
                     .map_err(native_error)?;
                 let rendering_callback = callback.clone();
                 let rendering = CompositionTarget::Rendering(move |_, _| {
-                    invoke_surface_callback(&rendering_callback, SwapChainPanelEvent::Rendering);
+                    invoke_callback(&rendering_callback, SwapChainPanelEvent::Rendering);
                 })
                 .map_err(native_error)?;
                 self.swap_chain_panel_subscriptions.insert(
@@ -1760,31 +1690,14 @@ impl WinUiRuntime {
                 };
                 let element = control.cast::<UIElement>().map_err(native_error)?;
                 let framework = control.cast::<IFrameworkElement>().map_err(native_error)?;
-                let changed = Rc::new(RefCell::new(None));
                 let sink = self.event_sink()?;
-                observe_image_scale(&element, callback, &changed, &sink)?;
-                let loaded_element = element;
-                let loaded_callback = callback.clone();
-                let loaded_changed = changed.clone();
-                let loaded = framework
-                    .Loaded(move |_, _| {
-                        if let Err(error) = observe_image_scale(
-                            &loaded_element,
-                            &loaded_callback,
-                            &loaded_changed,
-                            &sink,
-                        ) {
-                            sink.enqueue_host(HostEvent::Error(error));
-                        }
-                    })
-                    .map_err(native_error)?;
-                self.image_scale_subscriptions.insert(
-                    (*node, *observation),
-                    ImageScaleSubscriptions {
-                        _changed: changed,
-                        _loaded: loaded,
-                    },
-                );
+                let scale_callback = callback.clone();
+                let subscriptions =
+                    subscribe_xaml_root_scale(&element, &framework, &sink, move |scale| {
+                        invoke_callback(&scale_callback, scale);
+                    })?;
+                self.image_scale_subscriptions
+                    .insert((*node, *observation), subscriptions);
             }
             Command::ObserveCompositionHost {
                 node,
@@ -1805,7 +1718,7 @@ impl WinUiRuntime {
                     .map_err(native_error)?
                     .Compositor()
                     .map_err(native_error)?;
-                invoke_composition_host_callback(
+                invoke_callback(
                     callback,
                     CompositionHostEvent::Ready {
                         compositor: compositor.into(),
@@ -1831,7 +1744,7 @@ impl WinUiRuntime {
                                     return;
                                 }
                             };
-                            invoke_composition_host_callback(
+                            invoke_callback(
                                 &size_callback,
                                 CompositionHostEvent::Metrics {
                                     width: f64::from(value.width),
@@ -1843,31 +1756,22 @@ impl WinUiRuntime {
                     })
                     .map_err(native_error)?;
 
-                let changed = Rc::new(RefCell::new(None));
-                observe_composition_root(&element, &framework, callback, &changed, &sink)?;
-                let loaded_element = element;
-                let loaded_framework = framework;
-                let loaded_callback = callback.clone();
-                let loaded_changed = changed.clone();
-                let loaded = loaded_framework
-                    .clone()
-                    .Loaded(move |_, _| {
-                        if let Err(error) = observe_composition_root(
-                            &loaded_element,
-                            &loaded_framework,
-                            &loaded_callback,
-                            &loaded_changed,
-                            &sink,
-                        ) {
-                            sink.enqueue_host(HostEvent::Error(error));
-                        }
-                    })
-                    .map_err(native_error)?;
+                let scale_callback = callback.clone();
+                let scale_framework = framework.clone();
+                let root = subscribe_xaml_root_scale(&element, &framework, &sink, move |scale| {
+                    invoke_callback(
+                        &scale_callback,
+                        CompositionHostEvent::Metrics {
+                            width: scale_framework.ActualWidth().unwrap_or(0.0),
+                            height: scale_framework.ActualHeight().unwrap_or(0.0),
+                            scale,
+                        },
+                    );
+                })?;
                 self.composition_host_subscriptions.insert(
                     (*node, *observation),
                     CompositionHostSubscriptions {
-                        _changed: changed,
-                        _loaded: loaded,
+                        _root: root,
                         _size: size,
                     },
                 );
@@ -2127,13 +2031,10 @@ impl WinUiRuntime {
                 revision,
             } => {
                 let content_dialog_closed = *event == EventId::ContentDialogClosed
-                    && self.content_dialogs.borrow().contains_key(node);
+                    && self.content_dialogs.borrow().contains(*node);
                 if self.subscriptions.contains_key(&(*node, *event))
                     || content_dialog_closed
-                        && self
-                            .content_dialog_subscriptions
-                            .borrow()
-                            .contains_key(node)
+                        && self.content_dialogs.borrow().has_subscription(*node)
                 {
                     return Err(RuntimeError::DuplicateEvent(*node, *event));
                 }
@@ -2146,27 +2047,18 @@ impl WinUiRuntime {
                 if content_dialog_closed {
                     self.content_dialogs
                         .borrow_mut()
-                        .get_mut(node)
-                        .unwrap()
-                        .revision = *revision;
-                    self.content_dialog_subscriptions
-                        .borrow_mut()
-                        .insert(*node, revoker);
+                        .subscribe(*node, *revision, revoker)?;
                 } else {
                     self.subscriptions.insert((*node, *event), revoker);
                 }
             }
             Command::UnsubscribeEvent { node, event } => {
                 if *event == EventId::ContentDialogClosed
-                    && self.content_dialogs.borrow().contains_key(node)
+                    && self
+                        .content_dialogs
+                        .borrow_mut()
+                        .unsubscribe(*node, *event)?
                 {
-                    let pending = self.content_dialogs.borrow()[node].pending;
-                    if !pending {
-                        self.content_dialog_subscriptions
-                            .borrow_mut()
-                            .remove(node)
-                            .ok_or(RuntimeError::MissingSubscription(*node, *event))?;
-                    }
                     return Ok(());
                 }
                 let revoker = self
@@ -2467,38 +2359,13 @@ impl WinUiRuntime {
                     Err(error) if error.code().is_ok() => None,
                     Err(error) => return Err(native_error(error)),
                 };
-                let occupied = xaml_root.as_ref().is_some_and(|root| {
-                    self.content_dialogs.borrow().iter().any(|(other, state)| {
-                        other != node
-                            && state.pending
-                            && state
-                                .xaml_root
-                                .as_ref()
-                                .is_some_and(|current| current == root)
-                    })
-                });
-                let mut dialogs = self.content_dialogs.borrow_mut();
-                let state = dialogs
-                    .get_mut(node)
-                    .ok_or(RuntimeError::MissingNode(*node))?;
-                if state.desired_open == *open {
-                    return Ok(());
-                }
-                state.desired_open = *open;
-                if *open {
-                    if let Some(xaml_root) = xaml_root {
-                        state.xaml_root = Some(xaml_root.clone());
-                        state
-                            .dialog
-                            .cast::<IUIElement>()
-                            .and_then(|dialog| dialog.SetXamlRoot(&xaml_root))
-                            .map_err(native_error)?;
-                    }
-                    if state.xaml_root.is_none() {
-                        self.content_dialog_request_order += 1;
-                        state.request_order = self.content_dialog_request_order;
-                        let generation = state.generation;
-                        drop(dialogs);
+                let action = self
+                    .content_dialogs
+                    .borrow_mut()
+                    .set_open(*node, *open, xaml_root)?;
+                match action {
+                    ContentDialogAction::None => {}
+                    ContentDialogAction::WaitForRoot(generation) => {
                         let sink = self.event_sink()?;
                         let loaded_owner = owner.unwrap();
                         let owner = loaded_owner
@@ -2523,30 +2390,11 @@ impl WinUiRuntime {
                                 ),
                             })
                             .map_err(native_error)?;
-                        let mut dialogs = self.content_dialogs.borrow_mut();
-                        let state = dialogs
-                            .get_mut(node)
-                            .ok_or(RuntimeError::MissingNode(*node))?;
-                        state.root_loaded = Some(loaded);
-                    } else if state.pending || occupied {
-                        state.queued = true;
-                        self.content_dialog_request_order += 1;
-                        state.request_order = self.content_dialog_request_order;
-                    } else {
-                        show_content_dialog(&state.dialog)?;
-                        state.pending = true;
+                        self.content_dialogs
+                            .borrow_mut()
+                            .set_root_loaded(*node, loaded)?;
                     }
-                } else {
-                    state.queued = false;
-                    state.root_loaded = None;
-                    let hide = if state.pending {
-                        state.suppress_callback = true;
-                        Some(state.dialog.clone())
-                    } else {
-                        None
-                    };
-                    drop(dialogs);
-                    if let Some(dialog) = hide {
+                    ContentDialogAction::Hide(dialog) => {
                         dialog.Hide().map_err(native_error)?;
                     }
                 }
@@ -2599,6 +2447,24 @@ impl WinUiRuntime {
                 .is_some_and(|(application, _)| *application == node)
     }
 
+    fn window_children(
+        &self,
+        node: NodeId,
+    ) -> Result<Option<(&bindings::Grid, UIElementCollection)>, RuntimeError> {
+        if !self.windows.contains_key(&node) {
+            return Ok(None);
+        }
+        let host = self
+            .window_hosts
+            .get(&node)
+            .ok_or(RuntimeError::MissingNode(node))?;
+        let children = host
+            .cast::<IPanel>()
+            .and_then(|host| host.Children())
+            .map_err(native_error)?;
+        Ok(Some((host, children)))
+    }
+
     fn insert_child(
         &mut self,
         parent: NodeId,
@@ -2611,14 +2477,8 @@ impl WinUiRuntime {
             if index != 0 {
                 return Err(RuntimeError::IndexOutOfBounds);
             }
-            let host = self
-                .window_hosts
-                .get(&parent)
-                .ok_or(RuntimeError::MissingNode(parent))?;
-            host.cast::<IPanel>()
-                .and_then(|host| host.Children())
-                .and_then(|children| children.Append(&child))
-                .map_err(native_error)?;
+            let (host, children) = self.window_children(parent)?.unwrap();
+            children.Append(&child).map_err(native_error)?;
             if let Some(visuals) = self.window_visuals.get(&parent) {
                 Self::apply_window_theme(host, visuals.theme)?;
             }
@@ -2914,14 +2774,8 @@ impl WinUiRuntime {
     fn remove_child(&mut self, parent: NodeId, child: NodeId) -> Result<(), RuntimeError> {
         let child_id = child;
         let child = self.ui_element(child)?;
-        if self.windows.contains_key(&parent) {
-            self.window_hosts
-                .get(&parent)
-                .ok_or(RuntimeError::MissingNode(parent))?
-                .cast::<IPanel>()
-                .and_then(|host| host.Children())
-                .and_then(|children| children.Clear())
-                .map_err(native_error)?;
+        if let Some((_, children)) = self.window_children(parent)? {
+            children.Clear().map_err(native_error)?;
             Ok(())
         } else {
             let parent = self
@@ -2940,14 +2794,8 @@ impl WinUiRuntime {
     }
 
     fn reset_children(&mut self, parent: NodeId) -> Result<(), RuntimeError> {
-        if self.windows.contains_key(&parent) {
-            self.window_hosts
-                .get(&parent)
-                .ok_or(RuntimeError::MissingNode(parent))?
-                .cast::<IPanel>()
-                .and_then(|host| host.Children())
-                .and_then(|children| children.Clear())
-                .map_err(native_error)?;
+        if let Some((_, children)) = self.window_children(parent)? {
+            children.Clear().map_err(native_error)?;
             Ok(())
         } else {
             let parent = self
@@ -3130,7 +2978,6 @@ impl WinUiRuntime {
             encoded_image_nodes: Rc::clone(&self.encoded_image_nodes),
             feedback: Rc::clone(&self.feedback),
             content_dialogs: Rc::clone(&self.content_dialogs),
-            content_dialog_subscriptions: Rc::clone(&self.content_dialog_subscriptions),
             pointer_capture: Rc::clone(&self.pointer_capture),
             selection_items: Rc::clone(&self.selection_items),
             dispatcher,
@@ -3212,8 +3059,7 @@ pub struct EventSink {
     drop_policies: Rc<RefCell<HashMap<NodeId, DragDropPolicy>>>,
     encoded_image_nodes: Rc<RefCell<HashSet<NodeId>>>,
     feedback: Rc<RefCell<HashMap<(NodeId, EventId), FeedbackExpectation>>>,
-    content_dialogs: Rc<RefCell<HashMap<NodeId, ContentDialogLifecycle>>>,
-    content_dialog_subscriptions: Rc<RefCell<HashMap<NodeId, NativeSubscription>>>,
+    content_dialogs: Rc<RefCell<ContentDialogScheduler>>,
     pointer_capture: Rc<RefCell<HashMap<NodeId, bool>>>,
     selection_items: Rc<RefCell<Vec<(NodeId, windows_core::IInspectable)>>>,
     dispatcher: DispatcherQueue,
@@ -3342,34 +3188,9 @@ impl EventSink {
         generation: u64,
         xaml_root: XamlRoot,
     ) -> Result<(), RuntimeError> {
-        let occupied = self.content_dialogs.borrow().iter().any(|(other, state)| {
-            *other != node
-                && state.pending
-                && state
-                    .xaml_root
-                    .as_ref()
-                    .is_some_and(|current| current == &xaml_root)
-        });
-        let mut dialogs = self.content_dialogs.borrow_mut();
-        let Some(state) = dialogs.get_mut(&node) else {
-            return Ok(());
-        };
-        if state.generation != generation || !state.desired_open || state.retired {
-            return Ok(());
-        }
-        state.xaml_root = Some(xaml_root.clone());
-        state
-            .dialog
-            .cast::<IUIElement>()
-            .and_then(|dialog| dialog.SetXamlRoot(&xaml_root))
-            .map_err(native_error)?;
-        if occupied {
-            state.queued = true;
-        } else {
-            show_content_dialog(&state.dialog)?;
-            state.pending = true;
-        }
-        Ok(())
+        self.content_dialogs
+            .borrow_mut()
+            .root_ready(node, generation, xaml_root)
     }
 
     pub fn content_dialog_closed(
@@ -3377,126 +3198,7 @@ impl EventSink {
         node: NodeId,
         _revision: u32,
     ) -> Result<bool, RuntimeError> {
-        let (xaml_root, invoke_callback, retired) = {
-            let mut dialogs = self.content_dialogs.borrow_mut();
-            let Some(state) = dialogs.get_mut(&node) else {
-                return Ok(false);
-            };
-            if !state.pending {
-                return Ok(false);
-            }
-            state.pending = false;
-            let invoke_callback = !state.suppress_callback;
-            state.suppress_callback = false;
-            (state.xaml_root.clone(), invoke_callback, state.retired)
-        };
-
-        let candidate = if let Some(root) = xaml_root.as_ref() {
-            self.content_dialogs
-                .borrow()
-                .iter()
-                .filter(|(_, state)| {
-                    state.queued
-                        && state.desired_open
-                        && !state.retired
-                        && state
-                            .xaml_root
-                            .as_ref()
-                            .is_some_and(|current| current == root)
-                })
-                .min_by_key(|(_, state)| state.request_order)
-                .map(|(node, state)| (*node, state.generation))
-        } else {
-            None
-        };
-        if let Some((candidate, generation)) = candidate {
-            let sink = self.clone();
-            let candidate_root = xaml_root.unwrap();
-            let handler = DispatcherQueueHandler::new(move || {
-                if sink.current_identity.get() != Some(sink.identity) {
-                    return;
-                }
-                let (candidate, result) = {
-                    let mut dialogs = sink.content_dialogs.borrow_mut();
-                    if dialogs.iter().any(|(_, state)| {
-                        state.pending
-                            && state
-                                .xaml_root
-                                .as_ref()
-                                .is_some_and(|current| current == &candidate_root)
-                    }) {
-                        return;
-                    }
-                    let candidate = dialogs
-                        .get(&candidate)
-                        .filter(|state| {
-                            state.generation == generation
-                                && state.desired_open
-                                && !state.retired
-                                && !state.pending
-                                && state.queued
-                                && state
-                                    .xaml_root
-                                    .as_ref()
-                                    .is_some_and(|root| root == &candidate_root)
-                        })
-                        .map(|_| candidate)
-                        .or_else(|| {
-                            dialogs
-                                .iter()
-                                .filter(|(_, state)| {
-                                    state.desired_open
-                                        && !state.retired
-                                        && !state.pending
-                                        && state.queued
-                                        && state
-                                            .xaml_root
-                                            .as_ref()
-                                            .is_some_and(|root| root == &candidate_root)
-                                })
-                                .min_by_key(|(_, state)| state.request_order)
-                                .map(|(node, _)| *node)
-                        });
-                    let Some(candidate) = candidate else {
-                        return;
-                    };
-                    let state = dialogs.get_mut(&candidate).unwrap();
-                    state.queued = false;
-                    (
-                        candidate,
-                        state.dialog.ShowAsync().map(|_| {
-                            state.pending = true;
-                        }),
-                    )
-                };
-                if let Err(error) = result {
-                    let revision = sink
-                        .content_dialogs
-                        .borrow()
-                        .get(&candidate)
-                        .map_or(0, |state| state.revision);
-                    sink.error(
-                        candidate,
-                        EventId::ContentDialogClosed,
-                        revision,
-                        native_error(error),
-                    );
-                }
-            });
-            match self
-                .dispatcher
-                .TryEnqueueWithPriority(DispatcherQueuePriority::Normal, &handler)
-            {
-                Ok(true) => {}
-                Ok(false) => return Err(RuntimeError::DispatcherRejected),
-                Err(error) => return Err(native_error(error)),
-            }
-        }
-        if retired {
-            self.content_dialogs.borrow_mut().remove(&node);
-            self.content_dialog_subscriptions.borrow_mut().remove(&node);
-        }
-        Ok(invoke_callback)
+        content_dialog::closed(&self.content_dialogs, self, node)
     }
 
     pub fn selection_item(&self, selected: &windows_core::IInspectable) -> Option<NodeId> {
@@ -4096,19 +3798,7 @@ impl NativeRuntime for WinUiRuntime {
         self.composition_host_subscriptions.clear();
         self.owned_menus.clear();
         self.command_bar_flyouts.clear();
-        let dialogs = self
-            .content_dialogs
-            .borrow_mut()
-            .drain()
-            .map(|(_, state)| state)
-            .collect::<Vec<_>>();
-        self.content_dialog_subscriptions.borrow_mut().clear();
-        self.content_dialog_request_order = 0;
-        for state in dialogs {
-            if state.pending {
-                _ = state.dialog.Hide();
-            }
-        }
+        content_dialog::reset(&self.content_dialogs);
         for (target, (flyout, _)) in self.flyouts.drain() {
             _ = flyout.SetContent(None::<&UIElement>);
             match self.handles.get(&target) {
@@ -4560,23 +4250,7 @@ impl WinUiRuntime {
         if self.resource_override_keys.contains_key(&node) {
             self.clear_resource_overrides(node)?;
         }
-        let retain_dialog = {
-            let mut dialogs = self.content_dialogs.borrow_mut();
-            if let Some(dialog) = dialogs.get_mut(&node) {
-                if dialog.pending {
-                    dialog.retired = true;
-                    true
-                } else {
-                    dialogs.remove(&node);
-                    false
-                }
-            } else {
-                false
-            }
-        };
-        if !retain_dialog {
-            self.content_dialog_subscriptions.borrow_mut().remove(&node);
-        }
+        content_dialog::retire(&self.content_dialogs, node);
         self.selection_owners
             .retain(|child, (parent, _)| *child != node && *parent != node);
         self.selection_items
@@ -4722,32 +4396,66 @@ fn native_error(error: windows_core::Error) -> RuntimeError {
     RuntimeError::Native(error.code().0)
 }
 
-fn invoke_surface_callback(callback: &Callback<SwapChainPanelEvent>, event: SwapChainPanelEvent) {
-    if std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| callback.call(event))).is_err() {
+fn invoke_callback<T>(callback: &Callback<T>, value: T) {
+    if std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| callback.call(value))).is_err() {
         std::process::abort();
     }
 }
 
-fn observe_image_scale(
+fn subscribe_xaml_root_scale<F>(
     element: &UIElement,
-    callback: &Callback<f64>,
+    framework: &IFrameworkElement,
+    sink: &EventSink,
+    callback: F,
+) -> Result<XamlRootScaleSubscriptions, RuntimeError>
+where
+    F: Clone + Fn(f64) + 'static,
+{
+    let changed = Rc::new(RefCell::new(None));
+    observe_xaml_root_scale(element, &changed, sink, callback.clone())?;
+    let loaded_element = element.clone();
+    let loaded_changed = changed.clone();
+    let loaded_sink = sink.clone();
+    let loaded = framework
+        .Loaded(move |_, _| {
+            if let Err(error) = observe_xaml_root_scale(
+                &loaded_element,
+                &loaded_changed,
+                &loaded_sink,
+                callback.clone(),
+            ) {
+                loaded_sink.enqueue_host(HostEvent::Error(error));
+            }
+        })
+        .map_err(native_error)?;
+    Ok(XamlRootScaleSubscriptions {
+        _changed: changed,
+        _loaded: loaded,
+    })
+}
+
+fn observe_xaml_root_scale<F>(
+    element: &UIElement,
     changed: &Rc<RefCell<Option<windows_core::EventRevoker>>>,
     sink: &EventSink,
-) -> Result<(), RuntimeError> {
+    callback: F,
+) -> Result<(), RuntimeError>
+where
+    F: Fn(f64) + 'static,
+{
     let root = match element.XamlRoot() {
         Ok(root) => root,
         Err(error) if error.code().is_ok() => return Ok(()),
         Err(error) => return Err(native_error(error)),
     };
     let scale = root.RasterizationScale().map_err(native_error)?;
-    invoke_image_scale_callback(callback, scale);
-    let changed_callback = callback.clone();
+    callback(scale);
     let changed_sink = sink.clone();
     let revoker = root
         .Changed(move |sender, _| {
             if let Some(sender) = sender.as_ref() {
                 match sender.RasterizationScale() {
-                    Ok(scale) => invoke_image_scale_callback(&changed_callback, scale),
+                    Ok(scale) => callback(scale),
                     Err(error) => {
                         changed_sink.enqueue_host(HostEvent::Error(native_error(error)));
                     }
@@ -4764,68 +4472,6 @@ fn xaml_scale(element: &UIElement) -> Result<f64, RuntimeError> {
         Ok(root) => root.RasterizationScale().map_err(native_error),
         Err(error) if error.code().is_ok() => Ok(1.0),
         Err(error) => Err(native_error(error)),
-    }
-}
-
-fn observe_composition_root(
-    element: &UIElement,
-    framework: &IFrameworkElement,
-    callback: &Callback<CompositionHostEvent>,
-    changed: &Rc<RefCell<Option<windows_core::EventRevoker>>>,
-    sink: &EventSink,
-) -> Result<(), RuntimeError> {
-    let root = match element.XamlRoot() {
-        Ok(root) => root,
-        Err(error) if error.code().is_ok() => return Ok(()),
-        Err(error) => return Err(native_error(error)),
-    };
-    let scale = root.RasterizationScale().map_err(native_error)?;
-    invoke_composition_host_callback(
-        callback,
-        CompositionHostEvent::Metrics {
-            width: framework.ActualWidth().unwrap_or(0.0),
-            height: framework.ActualHeight().unwrap_or(0.0),
-            scale,
-        },
-    );
-    let changed_callback = callback.clone();
-    let changed_framework = framework.clone();
-    let changed_sink = sink.clone();
-    let revoker = root
-        .Changed(move |sender, _| {
-            if let Some(sender) = sender.as_ref() {
-                match sender.RasterizationScale() {
-                    Ok(scale) => invoke_composition_host_callback(
-                        &changed_callback,
-                        CompositionHostEvent::Metrics {
-                            width: changed_framework.ActualWidth().unwrap_or(0.0),
-                            height: changed_framework.ActualHeight().unwrap_or(0.0),
-                            scale,
-                        },
-                    ),
-                    Err(error) => {
-                        changed_sink.enqueue_host(HostEvent::Error(native_error(error)));
-                    }
-                }
-            }
-        })
-        .map_err(native_error)?;
-    changed.replace(Some(revoker));
-    Ok(())
-}
-
-fn invoke_composition_host_callback(
-    callback: &Callback<CompositionHostEvent>,
-    event: CompositionHostEvent,
-) {
-    if std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| callback.call(event))).is_err() {
-        std::process::abort();
-    }
-}
-
-fn invoke_image_scale_callback(callback: &Callback<f64>, scale: f64) {
-    if std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| callback.call(scale))).is_err() {
-        std::process::abort();
     }
 }
 

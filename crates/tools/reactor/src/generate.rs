@@ -2014,33 +2014,7 @@ fn generate_direct_value_validation(
     let Some(validation) = property.validation else {
         return TokenStream::new();
     };
-    let message = match validation {
-        ValueValidation::Finite => {
-            format!(
-                "{} {} must contain finite values",
-                control.name, property.name
-            )
-        }
-        ValueValidation::FiniteNonNegative => format!(
-            "{} {} must contain finite non-negative values",
-            control.name, property.name
-        ),
-        ValueValidation::FinitePositive => {
-            format!(
-                "{} {} must be finite and positive",
-                control.name, property.name
-            )
-        }
-        ValueValidation::NonNegative => {
-            format!("{} {} must be non-negative", control.name, property.name)
-        }
-        ValueValidation::ZeroToFiftyNine => {
-            format!(
-                "{} {} must be between 0 and 59",
-                control.name, property.name
-            )
-        }
-    };
+    let message = value_validation_message(control, property, validation);
     match (validation, property.value.as_str()) {
         (ValueValidation::Finite, "Thickness") => quote! {
             assert!(value.is_finite(), #message);
@@ -2059,33 +2033,7 @@ fn generate_value_validation(
     let Some(validation) = property.validation else {
         return TokenStream::new();
     };
-    let message = match validation {
-        ValueValidation::Finite => {
-            format!(
-                "{} {} must contain finite values",
-                control.name, property.name
-            )
-        }
-        ValueValidation::FiniteNonNegative => format!(
-            "{} {} must contain finite non-negative values",
-            control.name, property.name
-        ),
-        ValueValidation::FinitePositive => {
-            format!(
-                "{} {} must be finite and positive",
-                control.name, property.name
-            )
-        }
-        ValueValidation::NonNegative => {
-            format!("{} {} must be non-negative", control.name, property.name)
-        }
-        ValueValidation::ZeroToFiftyNine => {
-            format!(
-                "{} {} must be between 0 and 59",
-                control.name, property.name
-            )
-        }
-    };
+    let message = value_validation_message(control, property, validation);
     match (validation, property.value.as_str()) {
         (ValueValidation::Finite, "F64") => quote! {
             assert!(
@@ -2138,6 +2086,40 @@ fn generate_value_validation(
     }
 }
 
+fn value_validation_message(
+    control: &ResolvedControl,
+    property: &crate::schema::ResolvedProperty,
+    validation: ValueValidation,
+) -> String {
+    match validation {
+        ValueValidation::Finite => {
+            format!(
+                "{} {} must contain finite values",
+                control.name, property.name
+            )
+        }
+        ValueValidation::FiniteNonNegative => format!(
+            "{} {} must contain finite non-negative values",
+            control.name, property.name
+        ),
+        ValueValidation::FinitePositive => {
+            format!(
+                "{} {} must be finite and positive",
+                control.name, property.name
+            )
+        }
+        ValueValidation::NonNegative => {
+            format!("{} {} must be non-negative", control.name, property.name)
+        }
+        ValueValidation::ZeroToFiftyNine => {
+            format!(
+                "{} {} must be between 0 and 59",
+                control.name, property.name
+            )
+        }
+    }
+}
+
 fn value_equality(
     value: Option<&str>,
     left: &impl quote::ToTokens,
@@ -2160,7 +2142,6 @@ fn generate_descriptors(control: &ResolvedControl) -> TokenStream {
         let field = &property.field;
         let value = &property.value;
         let interface = &property.interface;
-        let clearable = property.clearable;
         let feedback = property
             .feedback
             .as_deref()
@@ -2172,9 +2153,6 @@ fn generate_descriptors(control: &ResolvedControl) -> TokenStream {
                 let value = match value {
                     FeedbackContract::SynchronousExact => "synchronous_exact",
                     FeedbackContract::SynchronousNormalized => "synchronous_normalized",
-                    FeedbackContract::DeferredOrdered => "deferred_ordered",
-                    FeedbackContract::DeferredCoalesced => "deferred_coalesced",
-                    FeedbackContract::Unknown => "unknown",
                 };
                 quote! { Some(#value) }
             },
@@ -2186,7 +2164,7 @@ fn generate_descriptors(control: &ResolvedControl) -> TokenStream {
                 field: #field,
                 value: #value,
                 interface: #interface,
-                clearable: #clearable,
+                clearable: true,
                 feedback: #feedback,
                 feedback_contract: #feedback_contract,
                 observes_feedback: #observes_feedback,
@@ -2413,7 +2391,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Value"
-clearable = true
 "#;
         let schema = Schema::parse(source).unwrap();
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
