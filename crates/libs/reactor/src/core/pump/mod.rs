@@ -176,7 +176,7 @@ impl<R: NativeRuntime> Pump<R> {
             plan,
             FrontendChanges::Element(desired),
             next_version,
-            CandidateFailureStage::PlanningDiscard,
+            PlanningFailure::Discard,
         )?;
         self.application = Some(application);
         self.window = Some(window);
@@ -210,7 +210,7 @@ impl<R: NativeRuntime> Pump<R> {
         let (root, native_roots) = match mounted {
             Ok(mounted) => mounted,
             Err(error) => {
-                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
+                self.fail_component_candidate(&changes, PlanningFailure::Discard);
                 return Err(error);
             }
         };
@@ -225,7 +225,7 @@ impl<R: NativeRuntime> Pump<R> {
                 });
             }
             _ => {
-                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
+                self.fail_component_candidate(&changes, PlanningFailure::Discard);
                 return Err(PumpError::StructureUnsupported);
             }
         }
@@ -234,7 +234,7 @@ impl<R: NativeRuntime> Pump<R> {
             changes,
             next_version,
             plan,
-            planning_failure: CandidateFailureStage::PlanningDiscard,
+            planning_failure: PlanningFailure::Discard,
             root,
             tree: candidate,
             window,
@@ -268,18 +268,18 @@ impl<R: NativeRuntime> Pump<R> {
             &mut changes,
             &mut plan,
         ) {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
+            self.fail_component_candidate(&changes, PlanningFailure::Rearm);
             return Err(error);
         }
         let window = self.window.ok_or(PumpError::NotMounted)?;
         let candidate_root = match candidate.children(window) {
             Ok([candidate_root]) => *candidate_root,
             Ok(_) => {
-                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
+                self.fail_component_candidate(&changes, PlanningFailure::Rearm);
                 return Err(PumpError::StructureUnsupported);
             }
             Err(error) => {
-                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
+                self.fail_component_candidate(&changes, PlanningFailure::Rearm);
                 return Err(error.into());
             }
         };
@@ -327,7 +327,7 @@ impl<R: NativeRuntime> Pump<R> {
             plan,
             FrontendChanges::Element(desired_element),
             next_version,
-            CandidateFailureStage::PlanningDiscard,
+            PlanningFailure::Discard,
         )
     }
 
@@ -649,7 +649,7 @@ impl<R: NativeRuntime> Pump<R> {
             changes,
             next_version,
             plan,
-            planning_failure: CandidateFailureStage::PlanningRearm,
+            planning_failure: PlanningFailure::Rearm,
             root: candidate_root,
             tree: candidate,
             window,

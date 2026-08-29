@@ -36,12 +36,9 @@ pub(super) struct ComponentChanges {
 }
 
 #[derive(Clone, Copy)]
-pub(super) enum CandidateFailureStage {
-    PlanningDiscard,
-    PlanningRearm,
-    EffectPreparation,
-    NativeApply,
-    Publication,
+pub(super) enum PlanningFailure {
+    Discard,
+    Rearm,
 }
 
 pub(super) enum LocalComponentUpdate {
@@ -64,7 +61,7 @@ pub(super) struct ComponentCandidate {
     pub(super) changes: ComponentChanges,
     pub(super) next_version: u64,
     pub(super) plan: UpdatePlan,
-    pub(super) planning_failure: CandidateFailureStage,
+    pub(super) planning_failure: PlanningFailure,
     pub(super) root: NodeId,
     pub(super) tree: Tree,
     pub(super) window: NodeId,

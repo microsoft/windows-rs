@@ -115,7 +115,7 @@ impl<R: NativeRuntime> Pump<R> {
                             token,
                         },
                         next_version,
-                        CandidateFailureStage::PlanningRearm,
+                        PlanningFailure::Rearm,
                     )?;
                     self.planning_dirty.remove(&token);
                     self.dirty_components.clear();
@@ -159,7 +159,7 @@ impl<R: NativeRuntime> Pump<R> {
                 if changes.retired.contains(&token) {
                     continue;
                 }
-                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
+                self.fail_component_candidate(&changes, PlanningFailure::Rearm);
                 return Err(PumpError::StructureUnsupported);
             };
             let result = if composed_view
@@ -198,7 +198,7 @@ impl<R: NativeRuntime> Pump<R> {
                 )
             };
             if let Err(error) = result {
-                self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
+                self.fail_component_candidate(&changes, PlanningFailure::Rearm);
                 return Err(error);
             }
         }
