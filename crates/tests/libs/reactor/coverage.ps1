@@ -19,7 +19,7 @@ $requirements = @(
     @{ Suffix = "core\pump\turn.rs"; Branches = 54; Lines = 80 },
     @{ Suffix = "core\scheduler.rs"; Branches = 62; Lines = 87 },
     @{ Suffix = "core\virtual_model.rs"; Branches = 70; Lines = 97 },
-    @{ Suffix = "native\recording.rs"; Branches = 63; Lines = 91 },
+    @{ Suffix = "test_support\recording.rs"; Branches = 63; Lines = 91 },
     @{ Suffix = "src\reference.rs"; Branches = 65; Lines = 87 }
 )
 
