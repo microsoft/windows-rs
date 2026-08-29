@@ -112,38 +112,20 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                 | Some(PropertyAdapter::VerticalContentAlignment)
                 | None => {}
             }
-            if !matches!(
-                property.adapter,
-                Some(
-                    PropertyAdapter::ResourceStyle
-                        | PropertyAdapter::RichEditText
-                        | PropertyAdapter::RichTextBlocks
-                        | PropertyAdapter::PointerCapture
-                        | PropertyAdapter::DropPolicy
-                        | PropertyAdapter::KeyAccelerators
-                        | PropertyAdapter::ResourceOverrides
-                )
-            ) {
+            if property
+                .adapter
+                .is_none_or(|adapter| adapter.capabilities().uses_property_setter)
+            {
                 entries.insert(format!(
                     "{}::put_{}",
                     filter_path(&property.interface),
                     property.name
                 ));
             }
-            if !matches!(
-                property.adapter,
-                Some(
-                    PropertyAdapter::ImplicitOpacityTransition
-                        | PropertyAdapter::ImplicitScale
-                        | PropertyAdapter::ImplicitScaleTransition
-                        | PropertyAdapter::RichEditText
-                        | PropertyAdapter::RichTextBlocks
-                        | PropertyAdapter::PointerCapture
-                        | PropertyAdapter::DropPolicy
-                        | PropertyAdapter::KeyAccelerators
-                        | PropertyAdapter::ResourceOverrides
-                )
-            ) {
+            if property
+                .adapter
+                .is_none_or(|adapter| adapter.capabilities().uses_dependency_property)
+            {
                 entries.insert(format!(
                     "{}::{}Property",
                     filter_path(&property.static_owner),

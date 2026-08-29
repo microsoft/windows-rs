@@ -143,6 +143,12 @@ pub(crate) enum PropertyAdapter {
 }
 
 #[derive(Clone, Copy)]
+pub(crate) struct PropertyAdapterCapabilities {
+    pub(crate) uses_dependency_property: bool,
+    pub(crate) uses_property_setter: bool,
+}
+
+#[derive(Clone, Copy)]
 enum PropertyAdapterTargets {
     Any,
     Property(&'static str),
@@ -174,6 +180,53 @@ enum PropertyAdapterKind {
 }
 
 impl PropertyAdapter {
+    pub(crate) fn capabilities(self) -> PropertyAdapterCapabilities {
+        match self {
+            Self::ResourceStyle => PropertyAdapterCapabilities {
+                uses_dependency_property: true,
+                uses_property_setter: false,
+            },
+            Self::DropPolicy
+            | Self::KeyAccelerators
+            | Self::PointerCapture
+            | Self::ResourceOverrides
+            | Self::RichEditText
+            | Self::RichTextBlocks => PropertyAdapterCapabilities {
+                uses_dependency_property: false,
+                uses_property_setter: false,
+            },
+            Self::ImplicitOpacityTransition
+            | Self::ImplicitScale
+            | Self::ImplicitScaleTransition => PropertyAdapterCapabilities {
+                uses_dependency_property: false,
+                uses_property_setter: true,
+            },
+            Self::ClockIdentifier
+            | Self::ContentDialogResult
+            | Self::DragInfo
+            | Self::DropData
+            | Self::FontWeight
+            | Self::HorizontalContentAlignment
+            | Self::ImageUri
+            | Self::InspectableString
+            | Self::InspectableStringList
+            | Self::ItemTag
+            | Self::ItemTags
+            | Self::NavigationDisplayMode
+            | Self::NumberBoxValue
+            | Self::PathData
+            | Self::PointerEvent
+            | Self::RatingValue
+            | Self::SelectionIndex
+            | Self::TreeNodeContent
+            | Self::Uri
+            | Self::VerticalContentAlignment => PropertyAdapterCapabilities {
+                uses_dependency_property: true,
+                uses_property_setter: true,
+            },
+        }
+    }
+
     fn property_kind(self) -> PropertyAdapterKind {
         use PropertyAdapterMetadata::{None, Param, ParamType, SingleField, ValueType};
         use PropertyAdapterTargets::{Any, OneOf, Property};
