@@ -8,6 +8,31 @@ fn identity() -> WindowToken {
 }
 use std::collections::{HashMap, HashSet};
 
+#[test]
+fn observation_slot_preserves_and_advances_revisions() {
+    let first = Callback::new(|_: ()| {});
+    let second = Callback::new(|_: ()| {});
+    let mut slot = ObservationSlot::default();
+
+    assert!(slot.get().is_none());
+    slot.set(Some(first.clone()));
+    assert_eq!(slot.get(), Some((&first, 1)));
+    slot.set(Some(first.clone()));
+    assert_eq!(slot.get(), Some((&first, 1)));
+    slot.set(Some(second.clone()));
+    assert_eq!(slot.get(), Some((&second, 2)));
+    slot.set(None);
+    assert!(slot.get().is_none());
+    assert_eq!(slot.revision, 2);
+    slot.set(None);
+    assert_eq!(slot.revision, 2);
+    slot.set(Some(second.clone()));
+    assert_eq!(slot.get(), Some((&second, 3)));
+    slot.revision = u32::MAX;
+    slot.set(Some(first.clone()));
+    assert_eq!(slot.get(), Some((&first, 0)));
+}
+
 struct Rng(u64);
 
 impl Rng {

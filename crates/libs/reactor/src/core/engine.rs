@@ -256,18 +256,31 @@ pub struct Tree {
 
 #[derive(Clone, Default)]
 struct WindowDeclarations {
-    color_scheme: Option<WindowObservation<ColorScheme>>,
-    color_scheme_revision: u32,
+    color_scheme: ObservationSlot<ColorScheme>,
     title: Option<Rc<str>>,
     visuals: Option<WindowVisuals>,
-    window_size: Option<WindowObservation<WindowSize>>,
-    window_size_revision: u32,
+    window_size: ObservationSlot<WindowSize>,
 }
 
-#[derive(Clone)]
-struct WindowObservation<T> {
-    callback: Callback<T>,
+#[derive(Clone, Default)]
+struct ObservationSlot<T> {
+    callback: Option<Callback<T>>,
     revision: u32,
+}
+
+impl<T> ObservationSlot<T> {
+    fn get(&self) -> Option<(&Callback<T>, u32)> {
+        self.callback
+            .as_ref()
+            .map(|callback| (callback, self.revision))
+    }
+
+    fn set(&mut self, callback: Option<Callback<T>>) {
+        if callback.is_some() && callback.as_ref() != self.callback.as_ref() {
+            self.revision = self.revision.wrapping_add(1);
+        }
+        self.callback = callback;
+    }
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1096,13 +1109,13 @@ impl Tree {
             self.window_declarations
                 .iter()
                 .filter_map(|(owner, declaration)| {
-                    let observation = declaration.color_scheme.as_ref()?;
+                    let (callback, revision) = declaration.color_scheme.get()?;
                     Some((
                         HostObservationId {
                             owner: *owner,
-                            revision: observation.revision,
+                            revision,
                         },
-                        observation.callback.clone(),
+                        callback.clone(),
                     ))
                 });
         let observation = declarations.next()?;
@@ -1115,7 +1128,7 @@ impl Tree {
         let count = self
             .window_declarations
             .values()
-            .filter(|declaration| declaration.color_scheme.is_some())
+            .filter(|declaration| declaration.color_scheme.get().is_some())
             .count();
         (count <= 1)
             .then(|| self.color_scheme_observation())
@@ -1129,20 +1142,7 @@ impl Tree {
     ) {
         let declarations = Rc::make_mut(&mut self.window_declarations);
         let declaration = declarations.entry(owner).or_default();
-        declaration.color_scheme = callback.map(|callback| {
-            let revision = declaration.color_scheme.as_ref().map_or_else(
-                || declaration.color_scheme_revision.wrapping_add(1),
-                |current| {
-                    if current.callback == callback {
-                        current.revision
-                    } else {
-                        declaration.color_scheme_revision.wrapping_add(1)
-                    }
-                },
-            );
-            declaration.color_scheme_revision = revision;
-            WindowObservation { callback, revision }
-        });
+        declaration.color_scheme.set(callback);
     }
 
     pub(crate) fn window_size_observation(
@@ -1152,13 +1152,13 @@ impl Tree {
             self.window_declarations
                 .iter()
                 .filter_map(|(owner, declaration)| {
-                    let observation = declaration.window_size.as_ref()?;
+                    let (callback, revision) = declaration.window_size.get()?;
                     Some((
                         HostObservationId {
                             owner: *owner,
-                            revision: observation.revision,
+                            revision,
                         },
-                        observation.callback.clone(),
+                        callback.clone(),
                     ))
                 });
         let observation = declarations.next()?;
@@ -1171,7 +1171,7 @@ impl Tree {
         let count = self
             .window_declarations
             .values()
-            .filter(|declaration| declaration.window_size.is_some())
+            .filter(|declaration| declaration.window_size.get().is_some())
             .count();
         (count <= 1)
             .then(|| self.window_size_observation())
@@ -1185,20 +1185,7 @@ impl Tree {
     ) {
         let declarations = Rc::make_mut(&mut self.window_declarations);
         let declaration = declarations.entry(owner).or_default();
-        declaration.window_size = callback.map(|callback| {
-            let revision = declaration.window_size.as_ref().map_or_else(
-                || declaration.window_size_revision.wrapping_add(1),
-                |current| {
-                    if current.callback == callback {
-                        current.revision
-                    } else {
-                        declaration.window_size_revision.wrapping_add(1)
-                    }
-                },
-            );
-            declaration.window_size_revision = revision;
-            WindowObservation { callback, revision }
-        });
+        declaration.window_size.set(callback);
     }
 
     pub(crate) fn remove_window_declarations(&mut self, owner: ScopeId) {
