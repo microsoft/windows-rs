@@ -436,7 +436,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         quote! {
             Self::#variant(value) => value
                 .GetAt(index)
-                .and_then(|value| value.cast::<windows_core::IInspectable>())
+                .map(Into::into)
                 .map_err(native_error)
         }
     });
@@ -547,19 +547,19 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         let slot = ident(&format!("{}{}", control.name, selection.slot));
         let interface = path_ident(&selection.owner_interface);
         let getter = ident(&selection.selected_item_property);
+        let get = if is_default_interface(control, &selection.owner_interface) {
+            quote! { value.#getter() }
+        } else {
+            quote! { value.cast::<#interface>().and_then(|value| value.#getter()) }
+        };
         let selected = if selection.selected_item.is_some() {
-            quote! {
-                selected
-                    .cast::<windows_core::IInspectable>()
-                    .map(Some)
-                    .map_err(native_error)
-            }
+            quote! { Ok(Some(selected.into())) }
         } else {
             quote! { Ok(Some(selected)) }
         };
         Some(quote! {
             (Handle::#control_name(value), SlotId::#slot) => {
-                match value.cast::<#interface>().and_then(|value| value.#getter()) {
+                match #get {
                     Ok(selected) => #selected,
                     Err(error) if error.code().is_ok() => Ok(None),
                     Err(error) => Err(native_error(error)),
@@ -575,12 +575,22 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         let setter = ident(&format!("Set{}", selection.selected_item_property));
         let set = if let Some(item) = selection.selected_item.as_deref() {
             let item = path_ident(item);
-            quote! {
-                value.cast::<#interface>().and_then(|value| {
-                    let selected = selected.cast::<bindings::#item>()?;
-                    value.#setter(&selected)
-                })
+            if is_default_interface(control, &selection.owner_interface) {
+                quote! {
+                    selected
+                        .cast::<bindings::#item>()
+                        .and_then(|selected| value.#setter(&selected))
+                }
+            } else {
+                quote! {
+                    value.cast::<#interface>().and_then(|value| {
+                        let selected = selected.cast::<bindings::#item>()?;
+                        value.#setter(&selected)
+                    })
+                }
             }
+        } else if is_default_interface(control, &selection.owner_interface) {
+            quote! { value.#setter(selected) }
         } else {
             quote! {
                 value
@@ -894,7 +904,7 @@ fn generate_set_content(
             }
         },
     };
-    let set = if content.interface.ends_with(&format!(".I{}", control.name)) {
+    let set = if is_default_interface(control, &content.interface) {
         value
     } else {
         quote! {
@@ -915,7 +925,7 @@ fn generate_slot_collection(
     let slot_id = ident(&format!("{}{}", control.name, slot.name));
     let interface = path_ident(&slot.interface);
     let getter = ident(&slot.name);
-    let get = if slot.interface.ends_with(&format!(".I{}", control.name)) {
+    let get = if is_default_interface(control, &slot.interface) {
         quote! { control.#getter().map_err(native_error) }
     } else {
         quote! {
@@ -987,7 +997,7 @@ fn generate_set_slot(control: &ResolvedControl, slot: &crate::schema::ResolvedSl
             }
         },
     };
-    let set = if slot.interface.ends_with(&format!(".I{}", control.name)) {
+    let set = if is_default_interface(control, &slot.interface) {
         value
     } else {
         quote! {
@@ -1030,18 +1040,7 @@ fn generate_selection_dispatch(control: &ResolvedControl, event: &ResolvedEvent)
     let payload = ident(&event.payload);
     let erase_item = if control.selection.as_ref().unwrap().selected_item.is_some() {
         quote! {
-            let item = match item.cast::<windows_core::IInspectable>() {
-                Ok(item) => item,
-                Err(error) => {
-                    sink.error(
-                        node,
-                        EventId::#event_id,
-                        revision,
-                        native_error(error),
-                    );
-                    return;
-                }
-            };
+            let item: windows_core::IInspectable = item.into();
         }
     } else {
         quote! {}
@@ -1194,6 +1193,11 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
             ),
         }
     });
+    let shared_event_source = matches!(&event.subscription, EventSubscription::Metadata)
+        && matches!(
+            &event.source,
+            EventPayloadSource::SenderProperty { interface } if interface == &event.interface
+        );
     let callback = match &event.source {
         EventPayloadSource::Unit => quote! {
             move |_, _| {
@@ -1205,16 +1209,12 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                 );
             }
         },
-        EventPayloadSource::DragInfo {
-            interface: property_interface,
-        } => {
-            let property_interface = path_ident(property_interface);
+        EventPayloadSource::DragInfo { interface: _ } => {
             quote! {
                 move |_, args| {
                     let result = args
                         .as_ref()
                         .ok_or_else(windows_core::Error::empty)
-                        .and_then(|args| args.cast::<#property_interface>())
                         .and_then(|args| {
                             let data = args.DataView()?;
                             let kind = if data.Contains("Shell IDList Array")? {
@@ -1259,16 +1259,12 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                 }
             }
         }
-        EventPayloadSource::DropData {
-            interface: property_interface,
-        } => {
-            let property_interface = path_ident(property_interface);
+        EventPayloadSource::DropData { interface: _ } => {
             quote! {
                 move |_, args| {
                     let result = args
                         .as_ref()
                         .ok_or_else(windows_core::Error::empty)
-                        .and_then(|args| args.cast::<#property_interface>())
                         .and_then(|args| {
                             let deferral = args.GetDeferral()?;
                             let result = (|| {
@@ -1383,14 +1379,26 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
             interface: property_interface,
         } => {
             let property = ident(event.property.as_deref().unwrap());
+            let default_property_interface = is_default_interface(control, property_interface);
             let property_interface = path_ident(property_interface);
+            let event_source = if shared_event_source {
+                None
+            } else if default_property_interface {
+                Some(quote! {
+                    let event_source = (*value).clone();
+                })
+            } else {
+                Some(quote! {
+                    let event_source = value
+                        .cast::<#property_interface>()
+                        .map_err(native_error)?;
+                })
+            };
             if event.conversion == EventPayloadConversion::Selection {
                 let dispatch = generate_selection_dispatch(control, event);
                 quote! {
                     {
-                        let event_source = value
-                            .cast::<#property_interface>()
-                            .map_err(native_error)?;
+                        #event_source
                         move |_, _| {
                             let value = event_source.#property();
                             #dispatch
@@ -1400,9 +1408,7 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
             } else {
                 quote! {
                     {
-                        let event_source = value
-                            .cast::<#property_interface>()
-                            .map_err(native_error)?;
+                        #event_source
                         move |_, _| {
                             match event_source.#property() {
                                 Ok(value) => #enqueue_payload,
@@ -1419,19 +1425,14 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                 }
             }
         }
-        EventPayloadSource::EventArgsProperty {
-            interface: property_interface,
-        } => {
+        EventPayloadSource::EventArgsProperty { interface: _ } => {
             let property = ident(event.property.as_deref().unwrap());
-            let property_interface = path_ident(property_interface);
             if event.conversion == EventPayloadConversion::Selection {
                 let dispatch = generate_selection_dispatch(control, event);
                 quote! {
                     move |_, args| {
                         if let Some(args) = args.as_ref() {
-                            let value = args
-                                .cast::<#property_interface>()
-                                .and_then(|args| args.#property());
+                            let value = args.#property();
                             #dispatch
                         }
                     }
@@ -1441,10 +1442,7 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                     move |_, args| {
                         #lifecycle_completion
                         if let Some(args) = args.as_ref() {
-                            match args
-                                .cast::<#property_interface>()
-                                .and_then(|args| args.#property())
-                            {
+                            match args.#property() {
                                 Ok(value) => #enqueue_payload,
                                 #nullable_error
                                 Err(error) => sink.error(
@@ -1459,17 +1457,13 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                 }
             }
         }
-        EventPayloadSource::EventArgsInspectableString {
-            interface: property_interface,
-        } => {
+        EventPayloadSource::EventArgsInspectableString { interface: _ } => {
             let property = ident(event.property.as_deref().unwrap());
-            let property_interface = path_ident(property_interface);
             quote! {
                 move |_, args| {
                     if let Some(args) = args.as_ref() {
                         match args
-                            .cast::<#property_interface>()
-                            .and_then(|args| args.#property())
+                            .#property()
                             .and_then(|value| {
                                 value.cast::<windows_reference::IReference<windows_core::HSTRING>>()
                             })
@@ -1495,12 +1489,19 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
         EventPayloadSource::SenderRichEditText {
             interface: property_interface,
         } => {
-            let property_interface = path_ident(property_interface);
-            quote! {
-                {
+            let event_source = if is_default_interface(control, property_interface) {
+                quote! { let event_source = (*value).clone(); }
+            } else {
+                let property_interface = path_ident(property_interface);
+                quote! {
                     let event_source = value
                         .cast::<#property_interface>()
                         .map_err(native_error)?;
+                }
+            };
+            quote! {
+                {
+                    #event_source
                     move |_, _| {
                         let value = event_source.Document().and_then(|document| {
                             let mut value = windows_core::HSTRING::new();
@@ -1564,17 +1565,13 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                 }
             }
         },
-        EventPayloadSource::EventArgsItemTag {
-            interface: property_interface,
-        } => {
+        EventPayloadSource::EventArgsItemTag { interface: _ } => {
             let property = ident(event.property.as_deref().unwrap());
-            let property_interface = path_ident(property_interface);
             quote! {
                 move |_, args| {
                     if let Some(args) = args.as_ref() {
                         match args
-                            .cast::<#property_interface>()
-                            .and_then(|args| args.#property())
+                            .#property()
                             .and_then(|item| item.cast::<IFrameworkElement>())
                             .and_then(|item| item.Tag())
                             .and_then(|value| {
@@ -1605,17 +1602,13 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                 }
             }
         }
-        EventPayloadSource::EventArgsTreeNodeContent {
-            interface: property_interface,
-        } => {
+        EventPayloadSource::EventArgsTreeNodeContent { interface: _ } => {
             let property = ident(event.property.as_deref().unwrap());
-            let property_interface = path_ident(property_interface);
             quote! {
                 move |_, args| {
                     if let Some(args) = args.as_ref() {
                         match args
-                            .cast::<#property_interface>()
-                            .and_then(|args| args.#property())
+                            .#property()
                             .and_then(|node| node.cast::<ITreeViewNode>())
                             .and_then(|node| node.Content())
                             .and_then(|value| {
@@ -1684,12 +1677,30 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
             }
         }
     };
+    let subscribe = if is_default_interface(control, &event.interface) {
+        let event_source =
+            shared_event_source.then(|| quote! { let event_source = (*value).clone(); });
+        quote! {
+            {
+                #event_source
+                value.#method(#callback)
+            }
+        }
+    } else {
+        let event_source =
+            shared_event_source.then(|| quote! { let event_source = source.clone(); });
+        quote! {
+            {
+                let source = value.cast::<#interface>().map_err(native_error)?;
+                #event_source
+                source.#method(#callback)
+            }
+        }
+    };
     match &event.subscription {
         EventSubscription::Metadata => quote! {
             (Handle::#control_name(value), EventId::#event_id) => {
-                let source = value.cast::<#interface>().map_err(native_error)?;
-                source
-                    .#method(#callback)
+                #subscribe
                     .map(|revoker| NativeSubscription::Event {
                         _revoker: revoker,
                         revision,
@@ -1725,11 +1736,24 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
     }
 }
 
+fn is_default_interface(control: &ResolvedControl, interface: &str) -> bool {
+    interface.ends_with(&format!(".I{}", control.name))
+}
+
+fn property_receiver(control: &ResolvedControl, property: &ResolvedProperty) -> TokenStream {
+    if is_default_interface(control, &property.interface) {
+        quote! { control }
+    } else {
+        let interface = path_ident(&property.interface);
+        quote! { control.cast::<#interface>().map_err(native_error)? }
+    }
+}
+
 fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty) -> TokenStream {
     let control_name = ident(&control.name);
     let property_id = ident(&format!("{}{}", control.name, property.name));
     let value_variant = ident(&property.value);
-    let interface = path_ident(&property.interface);
+    let receiver = property_receiver(control, property);
     let setter = ident(&format!("Set{}", property.name));
     if property.adapter == Some(PropertyAdapter::FontWeight) {
         return quote! {
@@ -1737,9 +1761,7 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
                 Handle::#control_name(control),
                 PropertyId::#property_id,
                 PropertyValue::FontWeight(value),
-            ) => control
-                .cast::<#interface>()
-                .map_err(native_error)?
+            ) => #receiver
                 .#setter(bindings::FontWeight { weight: value.get() })
                 .map_err(native_error)
         };
@@ -1750,9 +1772,7 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
                 Handle::#control_name(control),
                 PropertyId::#property_id,
                 PropertyValue::HorizontalAlignment(value),
-            ) => control
-                .cast::<#interface>()
-                .map_err(native_error)?
+            ) => #receiver
                 .#setter(match value {
                     crate::HorizontalAlignment::Left => bindings::HorizontalAlignment::Left,
                     crate::HorizontalAlignment::Center => bindings::HorizontalAlignment::Center,
@@ -1768,9 +1788,7 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
                 Handle::#control_name(control),
                 PropertyId::#property_id,
                 PropertyValue::VerticalAlignment(value),
-            ) => control
-                .cast::<#interface>()
-                .map_err(native_error)?
+            ) => #receiver
                 .#setter(match value {
                     crate::VerticalAlignment::Top => bindings::VerticalAlignment::Top,
                     crate::VerticalAlignment::Center => bindings::VerticalAlignment::Center,
@@ -1788,11 +1806,7 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
                 PropertyValue::SelectionIndex(value),
             ) => {
                 let value = native_selection_index(*value)?;
-                control
-                    .cast::<#interface>()
-                    .map_err(native_error)?
-                    .#setter(value)
-                    .map_err(native_error)
+                #receiver.#setter(value).map_err(native_error)
             }
         };
     }
@@ -1810,9 +1824,7 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
                 Handle::#control_name(control),
                 PropertyId::#property_id,
                 PropertyValue::OptionalF64(value),
-            ) => control
-                .cast::<#interface>()
-                .map_err(native_error)?
+            ) => #receiver
                 .#setter(#conversion)
                 .map_err(native_error)
         };
@@ -1828,10 +1840,7 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
                     .map_err(|_| RuntimeError::UnsupportedKind)?;
                 let transition = ScalarTransition::new().map_err(native_error)?;
                 transition.SetDuration(duration).map_err(native_error)?;
-                control
-                    .cast::<#interface>()
-                    .and_then(|control| control.#setter(&transition))
-                    .map_err(native_error)
+                #receiver.#setter(&transition).map_err(native_error)
             }
         };
     }
@@ -1842,7 +1851,7 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
                 PropertyId::#property_id,
                 PropertyValue::F64(value),
             ) => {
-                let control = control.cast::<#interface>().map_err(native_error)?;
+                let control = #receiver;
                 let element = control
                     .cast::<IFrameworkElement>()
                     .map_err(native_error)?;
@@ -1877,25 +1886,11 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
                     .map_err(|_| RuntimeError::UnsupportedKind)?;
                 let transition = Vector3Transition::new().map_err(native_error)?;
                 transition.SetDuration(duration).map_err(native_error)?;
-                control
-                    .cast::<#interface>()
-                    .and_then(|control| control.#setter(&transition))
-                    .map_err(native_error)
+                #receiver.#setter(&transition).map_err(native_error)
             }
         };
     }
     if property.value == "Color" {
-        let set = if property.interface.ends_with(&format!(".I{}", control.name)) {
-            quote! { control.#setter(value).map_err(native_error) }
-        } else {
-            quote! {
-                control
-                    .cast::<#interface>()
-                    .map_err(native_error)?
-                    .#setter(value)
-                    .map_err(native_error)
-            }
-        };
         return quote! {
             (
                 Handle::#control_name(control),
@@ -1908,7 +1903,7 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
                     g: value.g,
                     b: value.b,
                 };
-                #set
+                #receiver.#setter(value).map_err(native_error)
             }
         };
     }
@@ -2077,11 +2072,7 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
                 PropertyValue::Str(value),
             ) => {
                 let value = windows_reference::IReference::from(value.as_str());
-                control
-                    .cast::<#interface>()
-                    .map_err(native_error)?
-                    .#setter(&value)
-                    .map_err(native_error)
+                #receiver.#setter(&value).map_err(native_error)
             }
         };
     }
@@ -2100,11 +2091,7 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
                     .collect();
                 let values: windows_collections::IVector<windows_core::IInspectable> =
                     values.into();
-                control
-                    .cast::<#interface>()
-                    .map_err(native_error)?
-                    .#setter(&values)
-                    .map_err(native_error)
+                #receiver.#setter(&values).map_err(native_error)
             }
         };
     }
@@ -2116,11 +2103,7 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
                 PropertyValue::Str(value),
             ) => {
                 let value = Uri::CreateUri(value).map_err(native_error)?;
-                control
-                    .cast::<#interface>()
-                    .map_err(native_error)?
-                    .#setter(&value)
-                    .map_err(native_error)
+                #receiver.#setter(&value).map_err(native_error)
             }
         };
     }
@@ -2155,17 +2138,6 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
         };
     }
     if property.theme_style {
-        let set = if property.interface.ends_with(&format!(".I{}", control.name)) {
-            quote! { control.#setter(&brush).map_err(native_error) }
-        } else {
-            quote! {
-                control
-                    .cast::<#interface>()
-                    .map_err(native_error)?
-                    .#setter(&brush)
-                    .map_err(native_error)
-            }
-        };
         return quote! {
             (
                 Handle::#control_name(control),
@@ -2181,7 +2153,7 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
                         b: color.b,
                     })
                     .map_err(native_error)?;
-                #set
+                #receiver.#setter(&brush).map_err(native_error)
             }
         };
     }
@@ -2233,23 +2205,12 @@ fn generate_set_property(control: &ResolvedControl, property: &ResolvedProperty)
             }
         }
     };
-    let set = if property.interface.ends_with(&format!(".I{}", control.name)) {
-        quote! { control.#setter(#value).map_err(native_error) }
-    } else {
-        quote! {
-            control
-                .cast::<#interface>()
-                .map_err(native_error)?
-                .#setter(#value)
-                .map_err(native_error)
-        }
-    };
     quote! {
         (
             Handle::#control_name(control),
             PropertyId::#property_id,
             PropertyValue::#value_variant(value),
-        ) => #set
+        ) => #receiver.#setter(#value).map_err(native_error)
     }
 }
 
@@ -2258,10 +2219,10 @@ fn generate_clear_property(control: &ResolvedControl, property: &ResolvedPropert
     let property_id = ident(&format!("{}{}", control.name, property.name));
     let owner = path_ident(&property.static_owner);
     let property_method = ident(&format!("{}Property", property.name));
+    let receiver = property_receiver(control, property);
     if property.adapter == Some(PropertyAdapter::ImplicitOpacityTransition)
         || property.adapter == Some(PropertyAdapter::ImplicitScaleTransition)
     {
-        let interface = path_ident(&property.interface);
         let setter = ident(&format!("Set{}", property.name));
         let transition = if property.adapter == Some(PropertyAdapter::ImplicitOpacityTransition) {
             ident("ScalarTransition")
@@ -2269,24 +2230,19 @@ fn generate_clear_property(control: &ResolvedControl, property: &ResolvedPropert
             ident("Vector3Transition")
         };
         return quote! {
-            (Handle::#control_name(control), PropertyId::#property_id) => control
-                .cast::<#interface>()
-                .and_then(|control| control.#setter(None::<&#transition>))
+            (Handle::#control_name(control), PropertyId::#property_id) => #receiver
+                .#setter(None::<&#transition>)
                 .map_err(native_error)
         };
     }
     if property.adapter == Some(PropertyAdapter::ImplicitScale) {
-        let interface = path_ident(&property.interface);
         let setter = ident(&format!("Set{}", property.name));
         return quote! {
-            (Handle::#control_name(control), PropertyId::#property_id) => control
-                .cast::<#interface>()
-                .and_then(|control| {
-                    control.#setter(windows_numerics::Vector3 {
+            (Handle::#control_name(control), PropertyId::#property_id) => #receiver
+                .#setter(windows_numerics::Vector3 {
                         x: 1.0,
                         y: 1.0,
                         z: 1.0,
-                    })
                 })
                 .map_err(native_error)
         };
@@ -2437,7 +2393,7 @@ property = "FontWeight"
         let schema = Schema::parse(source).unwrap().resolve(&metadata).unwrap();
         let generated = generate(&schema);
 
-        assert!(generated.contains("cast :: < INumberBoxValueChangedEventArgs >"));
+        assert!(!generated.contains("cast :: < INumberBoxValueChangedEventArgs >"));
         assert!(generated.contains("EventPayload :: U16 (value . weight)"));
     }
 
@@ -2531,18 +2487,6 @@ property = "FontWeight"
                 }
             }
 
-            #[derive(Default)]
-            struct INumberBox;
-
-            impl INumberBox {
-                fn ValueChanged<F>(&self, _callback: F) -> Result<EventRevoker, RuntimeError>
-                where
-                    F: Fn((), EventArgsRef) + 'static,
-                {
-                    Ok(EventRevoker)
-                }
-            }
-
             struct EventArgsRef(Option<EventArgs>);
 
             impl EventArgsRef {
@@ -2554,15 +2498,6 @@ property = "FontWeight"
             struct EventArgs;
 
             impl EventArgs {
-                fn cast<T: Default>(&self) -> Result<T, RuntimeError> {
-                    Ok(T::default())
-                }
-            }
-
-            #[derive(Default)]
-            struct INumberBoxValueChangedEventArgs;
-
-            impl INumberBoxValueChangedEventArgs {
                 fn NewValue(&self) -> Result<f64, RuntimeError> {
                     Ok(1.0)
                 }
@@ -2571,8 +2506,11 @@ property = "FontWeight"
             struct NumberBox;
 
             impl NumberBox {
-                fn cast<T: Default>(&self) -> Result<T, RuntimeError> {
-                    Ok(T::default())
+                fn ValueChanged<F>(&self, _callback: F) -> Result<EventRevoker, RuntimeError>
+                where
+                    F: Fn((), EventArgsRef) + 'static,
+                {
+                    Ok(EventRevoker)
                 }
             }
 
