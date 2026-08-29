@@ -90,17 +90,13 @@ impl ContentDialogScheduler {
                     .map_err(native_error)?;
             }
             if state.xaml_root.is_none() {
-                self.request_order += 1;
-                state.request_order = self.request_order;
+                Self::assign_request_order(&mut self.request_order, state);
                 return Ok(ContentDialogAction::WaitForRoot(state.generation));
             }
             if state.pending || occupied {
-                state.queued = true;
-                self.request_order += 1;
-                state.request_order = self.request_order;
+                Self::enqueue(&mut self.request_order, state);
             } else {
-                show(&state.dialog)?;
-                state.pending = true;
+                Self::show_now(state)?;
             }
         } else {
             state.queued = false;
@@ -147,8 +143,7 @@ impl ContentDialogScheduler {
         if occupied {
             state.queued = true;
         } else {
-            show(&state.dialog)?;
-            state.pending = true;
+            Self::show_now(state)?;
         }
         Ok(())
     }
@@ -229,6 +224,57 @@ impl ContentDialogScheduler {
                     .is_some_and(|current| current == root)
         })
     }
+
+    fn next_queued(
+        &self,
+        root: &XamlRoot,
+        preferred: Option<(NodeId, u64)>,
+    ) -> Option<(NodeId, u64)> {
+        preferred
+            .and_then(|(node, generation)| {
+                self.dialogs
+                    .get(&node)
+                    .filter(|state| {
+                        state.generation == generation && Self::eligible_for_root(state, root)
+                    })
+                    .map(|_| (node, generation))
+            })
+            .or_else(|| {
+                self.dialogs
+                    .iter()
+                    .filter(|(_, state)| Self::eligible_for_root(state, root))
+                    .min_by_key(|(_, state)| state.request_order)
+                    .map(|(node, state)| (*node, state.generation))
+            })
+    }
+
+    fn eligible_for_root(state: &ContentDialogLifecycle, root: &XamlRoot) -> bool {
+        state.desired_open
+            && !state.retired
+            && !state.pending
+            && state.queued
+            && state
+                .xaml_root
+                .as_ref()
+                .is_some_and(|current| current == root)
+    }
+
+    fn assign_request_order(request_order: &mut u64, state: &mut ContentDialogLifecycle) {
+        *request_order += 1;
+        state.request_order = *request_order;
+    }
+
+    fn enqueue(request_order: &mut u64, state: &mut ContentDialogLifecycle) {
+        state.queued = true;
+        Self::assign_request_order(request_order, state);
+    }
+
+    fn show_now(state: &mut ContentDialogLifecycle) -> Result<(), RuntimeError> {
+        state.queued = false;
+        show(&state.dialog)?;
+        state.pending = true;
+        Ok(())
+    }
 }
 
 pub(super) fn reset(scheduler: &Rc<RefCell<ContentDialogScheduler>>) {
@@ -289,25 +335,9 @@ pub(super) fn closed(
         (state.xaml_root.clone(), invoke_callback, state.retired)
     };
 
-    let candidate = if let Some(root) = xaml_root.as_ref() {
-        scheduler
-            .borrow()
-            .dialogs
-            .iter()
-            .filter(|(_, state)| {
-                state.queued
-                    && state.desired_open
-                    && !state.retired
-                    && state
-                        .xaml_root
-                        .as_ref()
-                        .is_some_and(|current| current == root)
-            })
-            .min_by_key(|(_, state)| state.request_order)
-            .map(|(node, state)| (*node, state.generation))
-    } else {
-        None
-    };
+    let candidate = xaml_root
+        .as_ref()
+        .and_then(|root| scheduler.borrow().next_queued(root, None));
     if let Some((candidate, generation)) = candidate {
         let callback_sink = sink.clone();
         let candidate_root = xaml_root.unwrap();
@@ -321,48 +351,13 @@ pub(super) fn closed(
                     return;
                 }
                 let candidate = scheduler
-                    .dialogs
-                    .get(&candidate)
-                    .filter(|state| {
-                        state.generation == generation
-                            && state.desired_open
-                            && !state.retired
-                            && !state.pending
-                            && state.queued
-                            && state
-                                .xaml_root
-                                .as_ref()
-                                .is_some_and(|root| root == &candidate_root)
-                    })
-                    .map(|_| candidate)
-                    .or_else(|| {
-                        scheduler
-                            .dialogs
-                            .iter()
-                            .filter(|(_, state)| {
-                                state.desired_open
-                                    && !state.retired
-                                    && !state.pending
-                                    && state.queued
-                                    && state
-                                        .xaml_root
-                                        .as_ref()
-                                        .is_some_and(|root| root == &candidate_root)
-                            })
-                            .min_by_key(|(_, state)| state.request_order)
-                            .map(|(node, _)| *node)
-                    });
+                    .next_queued(&candidate_root, Some((candidate, generation)))
+                    .map(|(node, _)| node);
                 let Some(candidate) = candidate else {
                     return;
                 };
                 let state = scheduler.dialogs.get_mut(&candidate).unwrap();
-                state.queued = false;
-                (
-                    candidate,
-                    state.dialog.ShowAsync().map(|_| {
-                        state.pending = true;
-                    }),
-                )
+                (candidate, ContentDialogScheduler::show_now(state))
             };
             if let Err(error) = result {
                 let revision = callback_sink
@@ -371,12 +366,7 @@ pub(super) fn closed(
                     .dialogs
                     .get(&candidate)
                     .map_or(0, |state| state.revision);
-                callback_sink.error(
-                    candidate,
-                    EventId::ContentDialogClosed,
-                    revision,
-                    native_error(error),
-                );
+                callback_sink.error(candidate, EventId::ContentDialogClosed, revision, error);
             }
         });
         match sink
