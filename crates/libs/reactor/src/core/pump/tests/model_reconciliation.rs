@@ -1,7 +1,6 @@
 //! Generated transitions checked against an independent semantic model.
 
 use super::super::*;
-use crate::native::*;
 use std::cell::RefCell;
 use std::rc::Rc;
 

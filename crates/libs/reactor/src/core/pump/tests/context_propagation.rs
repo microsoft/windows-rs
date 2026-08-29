@@ -2,7 +2,6 @@
 
 use super::super::*;
 use super::support::*;
-use crate::native::*;
 use std::cell::Cell;
 use std::cell::RefCell;
 use std::rc::Rc;

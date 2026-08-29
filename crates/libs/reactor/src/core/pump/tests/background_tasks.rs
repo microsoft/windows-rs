@@ -1,7 +1,6 @@
 //! Scope-owned background task completion and cancellation tests.
 
 use super::super::*;
-use crate::native::*;
 use std::cell::RefCell;
 use std::rc::Rc;
 use std::sync::atomic::AtomicUsize;

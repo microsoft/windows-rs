@@ -1,5 +1,4 @@
 use super::super::*;
-use crate::native::*;
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 

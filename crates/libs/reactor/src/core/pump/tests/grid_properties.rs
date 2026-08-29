@@ -1,5 +1,5 @@
 use super::super::*;
-use crate::native::RecordingRuntime;
+use crate::test_support::RecordingRuntime;
 
 #[test]
 fn common_element_state_is_available_on_every_layout_control() {

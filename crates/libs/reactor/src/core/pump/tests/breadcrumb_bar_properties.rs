@@ -1,7 +1,6 @@
 //! Breadcrumb item-source reconciliation tests.
 
 use super::super::*;
-use crate::native::*;
 
 #[test]
 fn breadcrumb_items_update_clear_and_remain_idempotent() {

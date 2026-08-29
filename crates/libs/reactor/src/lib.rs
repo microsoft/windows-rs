@@ -6,10 +6,12 @@ mod element;
 mod generated;
 mod native;
 mod reference;
-#[cfg(feature = "test")]
+#[cfg(any(test, feature = "test"))]
 mod test_support;
 
 use generated::*;
+#[cfg(test)]
+pub(crate) use test_support::*;
 
 pub use app::*;
 pub use core::public::*;

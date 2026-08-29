@@ -1,7 +1,6 @@
 //! Mount, update, and publication contract tests for [`Pump`].
 
 use super::super::*;
-use crate::native::*;
 use std::rc::Rc;
 
 #[test]

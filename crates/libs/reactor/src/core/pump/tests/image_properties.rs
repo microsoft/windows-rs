@@ -1,7 +1,6 @@
 //! Image URI property reconciliation tests.
 
 use super::super::*;
-use crate::native::*;
 
 #[test]
 fn image_uri_source_rejects_invalid_declarations() {
