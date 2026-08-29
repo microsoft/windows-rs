@@ -58,6 +58,79 @@ pub use generated::*;
 mod framework;
 mod grid;
 
+enum PropertyTarget<'a> {
+    Framework(UIElement),
+    Attached(UIElement),
+    GridDefinitions(&'a Handle),
+    Generated(&'a Handle),
+}
+
+impl<'a> PropertyTarget<'a> {
+    fn resolve(
+        runtime: &'a WinUiRuntime,
+        node: NodeId,
+        property: PropertyId,
+    ) -> Result<Self, RuntimeError> {
+        Ok(match property {
+            PropertyId::Width
+            | PropertyId::Height
+            | PropertyId::MinWidth
+            | PropertyId::MaxWidth
+            | PropertyId::MinHeight
+            | PropertyId::MaxHeight
+            | PropertyId::Opacity
+            | PropertyId::HorizontalAlignment
+            | PropertyId::VerticalAlignment
+            | PropertyId::Margin => Self::Framework(runtime.ui_element(node)?),
+            PropertyId::GridRow
+            | PropertyId::GridColumn
+            | PropertyId::GridRowSpan
+            | PropertyId::GridColumnSpan
+            | PropertyId::RelativeAlignLeft
+            | PropertyId::RelativeAlignTop
+            | PropertyId::RelativeAlignRight
+            | PropertyId::RelativeAlignBottom
+            | PropertyId::RelativeAlignHorizontalCenter
+            | PropertyId::RelativeAlignVerticalCenter
+            | PropertyId::CanvasLeft
+            | PropertyId::CanvasTop
+            | PropertyId::AutomationName
+            | PropertyId::AutomationId
+            | PropertyId::AutomationHeadingLevel => Self::Attached(runtime.ui_element(node)?),
+            PropertyId::GridRows | PropertyId::GridColumns => Self::GridDefinitions(
+                runtime
+                    .handles
+                    .get(&node)
+                    .ok_or(RuntimeError::MissingNode(node))?,
+            ),
+            _ => Self::Generated(
+                runtime
+                    .handles
+                    .get(&node)
+                    .ok_or(RuntimeError::MissingNode(node))?,
+            ),
+        })
+    }
+
+    fn set(&self, property: PropertyId, value: &PropertyValue) -> Result<(), RuntimeError> {
+        match self {
+            Self::Framework(element) => framework::set(element, property, value),
+            Self::Attached(element) => grid::set_attached(element, property, value),
+            Self::GridDefinitions(handle) => grid::set_definitions(handle, property, value),
+            Self::Generated(handle) => set_property(handle, property, value),
+        }
+    }
+
+    fn clear(&self, property: PropertyId) -> Result<(), RuntimeError> {
+        match self {
+            Self::Framework(element) => framework::clear(element, property),
+            Self::Attached(element) => grid::clear_attached(element, property),
+            Self::GridDefinitions(handle) => grid::clear_definitions(handle, property),
+            Self::Generated(handle) => clear_property(handle, property),
+        }
+    }
+}
+
 pub enum NativeSubscription {
     Event {
         _revoker: windows_core::EventRevoker,
@@ -1829,18 +1902,7 @@ impl WinUiRuntime {
                         _ => Err(RuntimeError::UnsupportedKind),
                     };
                 }
-                let element = (framework::is_common(*property) || grid::is_attached(*property))
-                    .then(|| self.ui_element(*node))
-                    .transpose()?;
-                let handle = if element.is_none() {
-                    Some(
-                        self.handles
-                            .get(node)
-                            .ok_or(RuntimeError::MissingNode(*node))?,
-                    )
-                } else {
-                    None
-                };
+                let target = PropertyTarget::resolve(self, *node, *property)?;
                 let feedback = expected_feedback(*property, Some(value));
                 let selection_owner = self
                     .selection_owners
@@ -1888,19 +1950,8 @@ impl WinUiRuntime {
                                 }),
                             _ => Err(RuntimeError::UnsupportedKind),
                         }
-                    } else if let Some(element) = element {
-                        if framework::is_common(*property) {
-                            framework::set(&element, *property, value)
-                        } else {
-                            grid::set_attached(&element, *property, value)
-                        }
                     } else {
-                        let handle = handle.unwrap();
-                        if grid::is_definitions(*property) {
-                            grid::set_definitions(handle, *property, value)
-                        } else {
-                            set_property(handle, *property, value)
-                        }
+                        target.set(*property, value)
                     };
                     let observation =
                         feedback_event.and_then(|event| {
@@ -1944,18 +1995,7 @@ impl WinUiRuntime {
                 if *property == PropertyId::ButtonResources {
                     return self.clear_resource_overrides(*node);
                 }
-                let element = (framework::is_common(*property) || grid::is_attached(*property))
-                    .then(|| self.ui_element(*node))
-                    .transpose()?;
-                let handle = if element.is_none() {
-                    Some(
-                        self.handles
-                            .get(node)
-                            .ok_or(RuntimeError::MissingNode(*node))?,
-                    )
-                } else {
-                    None
-                };
+                let target = PropertyTarget::resolve(self, *node, *property)?;
                 let feedback = expected_feedback(*property, None);
                 let selection_owner = self
                     .selection_owners
@@ -1981,19 +2021,8 @@ impl WinUiRuntime {
                             .map_err(native_error)?;
                         self.drop_policies.borrow_mut().remove(node);
                         Ok(())
-                    } else if let Some(element) = element {
-                        if framework::is_common(*property) {
-                            framework::clear(&element, *property)
-                        } else {
-                            grid::clear_attached(&element, *property)
-                        }
                     } else {
-                        let handle = handle.unwrap();
-                        if grid::is_definitions(*property) {
-                            grid::clear_definitions(handle, *property)
-                        } else {
-                            clear_property(handle, *property)
-                        }
+                        target.clear(*property)
                     };
                     if let Some(event) = feedback_event {
                         self.feedback.borrow_mut().remove(&(*node, event));
