@@ -447,10 +447,27 @@ fn inject_pointer_stage(
         let _ = SetForegroundWindow(hwnd);
         let _ = BringWindowToTop(hwnd);
     }
+    if stage == PointerStage::Move {
+        let (x, y) = virtual_screen_origin();
+        inject_at(
+            injector,
+            x,
+            y,
+            InjectedInputMouseOptions::Move | InjectedInputMouseOptions::MoveNoCoalesce,
+        )
+        .map_err(|error| error.to_string())?;
+        inject_at(
+            injector,
+            x,
+            y,
+            InjectedInputMouseOptions::LeftUp | InjectedInputMouseOptions::RightUp,
+        )
+        .map_err(|error| error.to_string())?;
+    }
     let ((x, y), options) = match stage {
         PointerStage::Move => (
             client_screen_point(hwnd, 0.5, 0.1)?,
-            InjectedInputMouseOptions::Move,
+            InjectedInputMouseOptions::Move | InjectedInputMouseOptions::MoveNoCoalesce,
         ),
         PointerStage::LeftDown => (
             client_screen_point(hwnd, 0.5, 0.1)?,
@@ -458,7 +475,7 @@ fn inject_pointer_stage(
         ),
         PointerStage::MoveOutside => (
             client_screen_point(hwnd, 0.5, 0.75)?,
-            InjectedInputMouseOptions::Move,
+            InjectedInputMouseOptions::Move | InjectedInputMouseOptions::MoveNoCoalesce,
         ),
         PointerStage::LeftUp => (
             client_screen_point(hwnd, 0.5, 0.75)?,
@@ -472,7 +489,10 @@ fn inject_pointer_stage(
             client_screen_point(hwnd, 0.5, 0.1)?,
             InjectedInputMouseOptions::RightUp,
         ),
-        PointerStage::Exit => (virtual_screen_origin(), InjectedInputMouseOptions::Move),
+        PointerStage::Exit => (
+            virtual_screen_origin(),
+            InjectedInputMouseOptions::Move | InjectedInputMouseOptions::MoveNoCoalesce,
+        ),
     };
     inject_at(injector, x, y, options).map_err(|error| error.to_string())
 }
