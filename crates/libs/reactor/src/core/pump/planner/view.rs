@@ -54,12 +54,12 @@ impl<R: NativeRuntime> Pump<R> {
         changes: &mut ComponentChanges,
         plan: &mut UpdatePlan,
     ) -> Result<NodeId, PumpError> {
-        if Self::view_uses_native_tooltip(view.as_kind())
+        if Self::view_uses_native_control(view.as_kind(), MountedKind::ToolTip)
             && !Self::is_tooltip_implementation(tree, node)?
         {
             return Err(PumpError::StructureUnsupported);
         }
-        if Self::view_uses_native_content_dialog(view.as_kind())
+        if Self::view_uses_native_control(view.as_kind(), MountedKind::ContentDialog)
             && !Self::is_content_dialog_implementation(tree, node)?
         {
             return Err(PumpError::StructureUnsupported);
@@ -1270,30 +1270,12 @@ impl<R: NativeRuntime> Pump<R> {
         Ok(())
     }
 
-    fn view_uses_native_tooltip(view: &ViewKind) -> bool {
+    fn view_uses_native_control(view: &ViewKind, expected: MountedKind) -> bool {
         match view {
             ViewKind::Native(control)
             | ViewKind::Content { control, .. }
             | ViewKind::Children { control, .. }
-            | ViewKind::Slots { control, .. } => control.kind() == MountedKind::ToolTip,
-            ViewKind::Component(_)
-            | ViewKind::Fragment(_)
-            | ViewKind::Provider { .. }
-            | ViewKind::Tooltip { .. }
-            | ViewKind::Flyout { .. }
-            | ViewKind::Menu { .. }
-            | ViewKind::CommandBarFlyout { .. }
-            | ViewKind::TreeNodes { .. }
-            | ViewKind::ContentDialog { .. } => false,
-        }
-    }
-
-    fn view_uses_native_content_dialog(view: &ViewKind) -> bool {
-        match view {
-            ViewKind::Native(control)
-            | ViewKind::Content { control, .. }
-            | ViewKind::Children { control, .. }
-            | ViewKind::Slots { control, .. } => control.kind() == MountedKind::ContentDialog,
+            | ViewKind::Slots { control, .. } => control.kind() == expected,
             ViewKind::Component(_)
             | ViewKind::Fragment(_)
             | ViewKind::Provider { .. }
@@ -1806,22 +1788,13 @@ impl<R: NativeRuntime> Pump<R> {
         let ComponentRender {
             color_scheme_observation,
             dependencies,
-            duplicate_color_scheme_observation: _,
-            duplicate_window_size_observation: _,
-            duplicate_window_title,
-            duplicate_window_visuals,
             view,
             window_size_observation,
             window_title,
             window_visuals,
         } = components.view(token, tree.context_snapshot(node)?)?;
-        Self::reconcile_component_window_title(tree, token, duplicate_window_title, window_title)?;
-        Self::reconcile_component_window_visuals(
-            tree,
-            token,
-            duplicate_window_visuals,
-            window_visuals,
-        )?;
+        Self::reconcile_component_window_title(tree, token, window_title);
+        Self::reconcile_component_window_visuals(tree, token, window_visuals);
         tree.set_window_size_observation(token.scope(), window_size_observation);
         tree.set_color_scheme_observation(token.scope(), color_scheme_observation);
         changes.context_reads.insert(token, dependencies);
@@ -1831,28 +1804,18 @@ impl<R: NativeRuntime> Pump<R> {
     pub(in super::super) fn reconcile_component_window_title(
         tree: &mut Tree,
         token: ComponentToken,
-        duplicate: bool,
         title: Option<String>,
-    ) -> Result<(), PumpError> {
-        if duplicate {
-            return Err(PumpError::DuplicateWindowTitle);
-        }
+    ) {
         let scope = token.scope();
         tree.set_window_title(scope, title.map(Into::into));
-        Ok(())
     }
 
     pub(in super::super) fn reconcile_component_window_visuals(
         tree: &mut Tree,
         token: ComponentToken,
-        duplicate: bool,
         visuals: Option<WindowVisuals>,
-    ) -> Result<(), PumpError> {
-        if duplicate {
-            return Err(PumpError::DuplicateWindowVisuals);
-        }
+    ) {
         tree.set_window_visuals(token.scope(), visuals);
-        Ok(())
     }
 
     pub(in super::super) fn recompose_component_view(
@@ -1884,12 +1847,12 @@ impl<R: NativeRuntime> Pump<R> {
         changes: &mut ComponentChanges,
         plan: &mut UpdatePlan,
     ) -> Result<(NodeId, Vec<NodeId>), PumpError> {
-        if Self::view_uses_native_tooltip(view.as_kind())
+        if Self::view_uses_native_control(view.as_kind(), MountedKind::ToolTip)
             && !Self::tooltip_implementation_mount_allowed(tree, logical_parent)?
         {
             return Err(PumpError::StructureUnsupported);
         }
-        if Self::view_uses_native_content_dialog(view.as_kind())
+        if Self::view_uses_native_control(view.as_kind(), MountedKind::ContentDialog)
             && !Self::content_dialog_implementation_mount_allowed(tree, logical_parent)?
         {
             return Err(PumpError::StructureUnsupported);
@@ -1915,27 +1878,13 @@ impl<R: NativeRuntime> Pump<R> {
                 let ComponentRender {
                     color_scheme_observation,
                     dependencies,
-                    duplicate_color_scheme_observation: _,
-                    duplicate_window_size_observation: _,
-                    duplicate_window_title,
-                    duplicate_window_visuals,
                     view,
                     window_size_observation,
                     window_title,
                     window_visuals,
                 } = components.view(token, tree.context_snapshot(node)?)?;
-                Self::reconcile_component_window_title(
-                    tree,
-                    token,
-                    duplicate_window_title,
-                    window_title,
-                )?;
-                Self::reconcile_component_window_visuals(
-                    tree,
-                    token,
-                    duplicate_window_visuals,
-                    window_visuals,
-                )?;
+                Self::reconcile_component_window_title(tree, token, window_title);
+                Self::reconcile_component_window_visuals(tree, token, window_visuals);
                 tree.set_window_size_observation(token.scope(), window_size_observation);
                 tree.set_color_scheme_observation(token.scope(), color_scheme_observation);
                 changes.context_reads.insert(token, dependencies);

@@ -364,7 +364,6 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                     quote! { Some(#validation) }
                 },
             );
-            let clearable = property.clearable;
             let theme_style = property.theme_style;
             quote! {
                 PropertySurface {
@@ -373,7 +372,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                     value: #value,
                     adapter: #adapter,
                     validation: #validation,
-                    clearable: #clearable,
+                    clearable: true,
                     theme_style: #theme_style,
                 }
             }

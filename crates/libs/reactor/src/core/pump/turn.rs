@@ -168,18 +168,12 @@ impl<R: NativeRuntime> Pump<R> {
             {
                 let (_, render) = composed_view.take().unwrap();
                 changes.composed.insert(token);
-                Self::reconcile_component_window_title(
-                    &mut candidate,
-                    token,
-                    render.duplicate_window_title,
-                    render.window_title,
-                )?;
+                Self::reconcile_component_window_title(&mut candidate, token, render.window_title);
                 Self::reconcile_component_window_visuals(
                     &mut candidate,
                     token,
-                    render.duplicate_window_visuals,
                     render.window_visuals,
-                )?;
+                );
                 candidate
                     .set_window_size_observation(token.scope(), render.window_size_observation);
                 candidate
@@ -253,12 +247,6 @@ impl<R: NativeRuntime> Pump<R> {
         let render = self
             .components
             .view(token, self.tree.context_snapshot(node)?)?;
-        if render.duplicate_window_title {
-            return Err(PumpError::DuplicateWindowTitle);
-        }
-        if render.duplicate_window_visuals {
-            return Err(PumpError::DuplicateWindowVisuals);
-        }
         let title_matches = match self.tree.window_title() {
             Some(current) if current.owner != token.scope() => {
                 if render.window_title.is_some() {
@@ -316,34 +304,8 @@ impl<R: NativeRuntime> Pump<R> {
         if !window_size_matches || !color_scheme_matches {
             return Ok(LocalComponentUpdate::Fallback(render));
         }
-        let ComponentRender {
-            color_scheme_observation,
-            dependencies,
-            duplicate_color_scheme_observation,
-            duplicate_window_size_observation,
-            duplicate_window_title,
-            duplicate_window_visuals,
-            view,
-            window_size_observation,
-            window_title,
-            window_visuals,
-        } = render;
-        let element = match view.into_kind() {
-            ViewKind::Native(element) => element,
-            kind => {
-                return Ok(LocalComponentUpdate::Fallback(ComponentRender {
-                    color_scheme_observation,
-                    dependencies,
-                    duplicate_color_scheme_observation,
-                    duplicate_window_size_observation,
-                    duplicate_window_title,
-                    duplicate_window_visuals,
-                    view: View::from_kind(kind),
-                    window_size_observation,
-                    window_title,
-                    window_visuals,
-                }));
-            }
+        let ViewKind::Native(element) = render.view.as_kind() else {
+            return Ok(LocalComponentUpdate::Fallback(render));
         };
         if self.tree.kind(native)? != NodeKind::Native(element.kind())
             || !self.tree.children(native)?.is_empty()
@@ -351,18 +313,7 @@ impl<R: NativeRuntime> Pump<R> {
             || self.tree.node_window_title_bar(native).is_some()
             || element.window_title_bar().is_some()
         {
-            return Ok(LocalComponentUpdate::Fallback(ComponentRender {
-                color_scheme_observation,
-                dependencies,
-                duplicate_color_scheme_observation,
-                duplicate_window_size_observation,
-                duplicate_window_title,
-                duplicate_window_visuals,
-                view: View::native(element),
-                window_size_observation,
-                window_title,
-                window_visuals,
-            }));
+            return Ok(LocalComponentUpdate::Fallback(render));
         }
         let mut event_activity_matches = true;
         element.visit_events(&mut |event, active| {
@@ -374,19 +325,14 @@ impl<R: NativeRuntime> Pump<R> {
                 .is_some_and(|state| state.active == active);
         });
         if !event_activity_matches {
-            return Ok(LocalComponentUpdate::Fallback(ComponentRender {
-                color_scheme_observation,
-                dependencies,
-                duplicate_color_scheme_observation,
-                duplicate_window_size_observation,
-                duplicate_window_title,
-                duplicate_window_visuals,
-                view: View::native(element),
-                window_size_observation,
-                window_title,
-                window_visuals,
-            }));
+            return Ok(LocalComponentUpdate::Fallback(render));
         }
+        let ComponentRender {
+            dependencies, view, ..
+        } = render;
+        let ViewKind::Native(element) = view.into_kind() else {
+            unreachable!()
+        };
         let mut plan = UpdatePlan {
             reconcile_observations: self.native_observation_pending,
             ..UpdatePlan::new(self.identity)

@@ -90,8 +90,6 @@ pub(crate) struct Property {
     #[serde(default)]
     pub(crate) field: Option<String>,
     #[serde(default)]
-    pub(crate) clearable: bool,
-    #[serde(default)]
     pub(crate) theme_style: bool,
     #[serde(default)]
     pub(crate) controlled: Option<String>,
@@ -144,6 +142,271 @@ pub(crate) enum PropertyAdapter {
     SelectionIndex,
 }
 
+#[derive(Clone, Copy)]
+enum PropertyAdapterTargets {
+    Any,
+    Property(&'static str),
+    OneOf(&'static [(&'static str, &'static str)]),
+}
+
+#[derive(Clone, Copy)]
+enum PropertyAdapterMetadata {
+    None,
+    Param(ParamClass),
+    ParamType(&'static str),
+    ValueType(&'static str, bool),
+    SingleField(&'static str, &'static str),
+}
+
+#[derive(Clone, Copy)]
+struct PropertyAdapterContract {
+    targets: PropertyAdapterTargets,
+    metadata: PropertyAdapterMetadata,
+    value: &'static str,
+    copy: bool,
+    requirement: &'static str,
+}
+
+enum PropertyAdapterKind {
+    Property(PropertyAdapterContract),
+    ResourceStyle,
+    EventOnly(&'static str),
+}
+
+impl PropertyAdapter {
+    fn property_kind(self) -> PropertyAdapterKind {
+        use PropertyAdapterMetadata::{None, Param, ParamType, SingleField, ValueType};
+        use PropertyAdapterTargets::{Any, OneOf, Property};
+
+        const BORDER: &str = "Microsoft.UI.Xaml.Controls.Border";
+        const BUTTON: &str = "Microsoft.UI.Xaml.Controls.Button";
+        const GRID: &str = "Microsoft.UI.Xaml.Controls.Grid";
+        const IMAGE: &str = "Microsoft.UI.Xaml.Controls.Image";
+        const IMAGE_ICON: &str = "Microsoft.UI.Xaml.Controls.ImageIcon";
+        const NUMBER_BOX: &str = "Microsoft.UI.Xaml.Controls.NumberBox";
+        const PATH_ICON: &str = "Microsoft.UI.Xaml.Controls.PathIcon";
+        const RATING_CONTROL: &str = "Microsoft.UI.Xaml.Controls.RatingControl";
+        const RICH_EDIT_BOX: &str = "Microsoft.UI.Xaml.Controls.RichEditBox";
+        const RICH_TEXT_BLOCK: &str = "Microsoft.UI.Xaml.Controls.RichTextBlock";
+        const TEXT_BLOCK: &str = "Microsoft.UI.Xaml.Controls.TextBlock";
+        const TIME_PICKER: &str = "Microsoft.UI.Xaml.Controls.TimePicker";
+
+        let property = |targets, metadata, value, copy, requirement| {
+            PropertyAdapterKind::Property(PropertyAdapterContract {
+                targets,
+                metadata,
+                value,
+                copy,
+                requirement,
+            })
+        };
+        match self {
+            Self::ImageUri => property(
+                OneOf(&[(IMAGE, "Source"), (IMAGE_ICON, "Source")]),
+                None,
+                "ImageValue",
+                false,
+                "image_uri requires Image.Source or ImageIcon.Source",
+            ),
+            Self::NumberBoxValue => property(
+                OneOf(&[(NUMBER_BOX, "Value")]),
+                ValueType("F64", true),
+                "OptionalF64",
+                true,
+                "number_box_value requires NumberBox.Value",
+            ),
+            Self::InspectableString => property(
+                Any,
+                Param(ParamClass::IInspectable),
+                "Str",
+                false,
+                "inspectable_string requires an IInspectable property",
+            ),
+            Self::InspectableStringList => property(
+                Any,
+                Param(ParamClass::IInspectable),
+                "StrList",
+                false,
+                "inspectable_string_list requires an IInspectable property",
+            ),
+            Self::ImplicitOpacityTransition => property(
+                OneOf(&[(BORDER, "OpacityTransition")]),
+                None,
+                "Duration",
+                false,
+                "implicit_opacity_transition requires Border.OpacityTransition",
+            ),
+            Self::ImplicitScale => property(
+                OneOf(&[(BORDER, "Scale")]),
+                None,
+                "F64",
+                true,
+                "implicit_scale requires Border.Scale",
+            ),
+            Self::ImplicitScaleTransition => property(
+                OneOf(&[(BORDER, "ScaleTransition")]),
+                None,
+                "Duration",
+                false,
+                "implicit_scale_transition requires Border.ScaleTransition",
+            ),
+            Self::KeyAccelerators => property(
+                OneOf(&[
+                    (BUTTON, "KeyboardAccelerators"),
+                    (GRID, "KeyboardAccelerators"),
+                ]),
+                None,
+                "KeyAccelerators",
+                false,
+                "key_accelerators requires Button.KeyboardAccelerators or Grid.KeyboardAccelerators",
+            ),
+            Self::ClockIdentifier => property(
+                OneOf(&[(TIME_PICKER, "ClockIdentifier")]),
+                None,
+                "Str",
+                false,
+                "clock_identifier requires TimePicker.ClockIdentifier",
+            ),
+            Self::PathData => property(
+                OneOf(&[(PATH_ICON, "Data")]),
+                ParamType("Microsoft.UI.Xaml.Media.Geometry"),
+                "Str",
+                false,
+                "path_data requires PathIcon.Data",
+            ),
+            Self::DropPolicy => property(
+                OneOf(&[(BORDER, "AllowDrop")]),
+                None,
+                "DragDropPolicy",
+                false,
+                "drop_policy requires Border.AllowDrop",
+            ),
+            Self::FontWeight => property(
+                OneOf(&[(TEXT_BLOCK, "FontWeight")]),
+                SingleField("Windows.UI.Text.FontWeight", "weight"),
+                "FontWeight",
+                true,
+                "font_weight requires TextBlock.FontWeight",
+            ),
+            Self::HorizontalContentAlignment => property(
+                OneOf(&[(BUTTON, "HorizontalContentAlignment")]),
+                ValueType("HorizontalAlignment", true),
+                "HorizontalAlignment",
+                true,
+                "horizontal_content_alignment requires Button.HorizontalContentAlignment",
+            ),
+            Self::PointerCapture => property(
+                OneOf(&[(BORDER, "CapturePointerOnPress")]),
+                None,
+                "Bool",
+                true,
+                "pointer_capture requires Border.CapturePointerOnPress",
+            ),
+            Self::RatingValue => property(
+                OneOf(&[(RATING_CONTROL, "Value")]),
+                ValueType("F64", true),
+                "OptionalF64",
+                true,
+                "rating_value requires RatingControl.Value",
+            ),
+            Self::RichEditText => property(
+                OneOf(&[(RICH_EDIT_BOX, "Document")]),
+                None,
+                "Str",
+                false,
+                "rich_edit_text requires RichEditBox.Document",
+            ),
+            Self::RichTextBlocks => property(
+                OneOf(&[(RICH_TEXT_BLOCK, "Blocks")]),
+                None,
+                "RichText",
+                false,
+                "rich_text_blocks requires RichTextBlock.Blocks",
+            ),
+            Self::ResourceOverrides => property(
+                OneOf(&[(BUTTON, "Resources")]),
+                None,
+                "ResourceOverrides",
+                false,
+                "resource_overrides requires Button.Resources",
+            ),
+            Self::Uri => property(
+                Any,
+                ParamType("Windows.Foundation.Uri"),
+                "Str",
+                false,
+                "uri requires a Windows.Foundation.Uri property",
+            ),
+            Self::VerticalContentAlignment => property(
+                OneOf(&[(BUTTON, "VerticalContentAlignment")]),
+                ValueType("VerticalAlignment", true),
+                "VerticalAlignment",
+                true,
+                "vertical_content_alignment requires Button.VerticalContentAlignment",
+            ),
+            Self::SelectionIndex => property(
+                Property("SelectedIndex"),
+                ValueType("I32", true),
+                "SelectionIndex",
+                true,
+                "selection_index requires an I32 SelectedIndex property",
+            ),
+            Self::ResourceStyle => PropertyAdapterKind::ResourceStyle,
+            Self::ContentDialogResult => {
+                PropertyAdapterKind::EventOnly("content_dialog_result is an event-only adapter")
+            }
+            Self::ItemTag => PropertyAdapterKind::EventOnly("item_tag is an event-only adapter"),
+            Self::ItemTags => PropertyAdapterKind::EventOnly("item_tags is an event-only adapter"),
+            Self::TreeNodeContent => {
+                PropertyAdapterKind::EventOnly("tree_node_content is an event-only adapter")
+            }
+            Self::NavigationDisplayMode => {
+                PropertyAdapterKind::EventOnly("navigation_display_mode is an event-only adapter")
+            }
+            Self::PointerEvent => {
+                PropertyAdapterKind::EventOnly("pointer_event is an event-only adapter")
+            }
+            Self::DragInfo | Self::DropData => {
+                PropertyAdapterKind::EventOnly("drag adapters are event-only")
+            }
+        }
+    }
+}
+
+impl PropertyAdapterContract {
+    fn validate(
+        self,
+        control: &str,
+        property: &str,
+        metadata: &MetadataResolver,
+        class: &str,
+        method: &str,
+    ) -> bool {
+        let target_matches = match self.targets {
+            PropertyAdapterTargets::Any => true,
+            PropertyAdapterTargets::Property(expected) => property == expected,
+            PropertyAdapterTargets::OneOf(targets) => targets.contains(&(control, property)),
+        };
+        target_matches
+            && match self.metadata {
+                PropertyAdapterMetadata::None => true,
+                PropertyAdapterMetadata::Param(expected) => {
+                    metadata.classify_param(class, method) == Some(expected)
+                }
+                PropertyAdapterMetadata::ParamType(expected) => {
+                    metadata.param_class_name(class, method).as_deref() == Some(expected)
+                }
+                PropertyAdapterMetadata::ValueType(value, copy) => {
+                    metadata.infer_value_type(class, method) == Some((value.to_string(), copy))
+                }
+                PropertyAdapterMetadata::SingleField(path, field) => {
+                    metadata.single_field_param(class, method)
+                        == Some((path.to_string(), field.to_string()))
+                }
+            }
+    }
+}
+
 #[derive(Clone, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub(crate) struct ResourceStyleVariant {
@@ -166,9 +429,6 @@ pub(crate) enum ValueValidation {
 pub(crate) enum FeedbackContract {
     SynchronousExact,
     SynchronousNormalized,
-    DeferredOrdered,
-    DeferredCoalesced,
-    Unknown,
 }
 
 #[derive(Deserialize)]
@@ -252,7 +512,6 @@ pub(crate) struct ResolvedProperty {
     pub(crate) copy: bool,
     pub(crate) interface: String,
     pub(crate) static_owner: String,
-    pub(crate) clearable: bool,
     pub(crate) feedback: Option<String>,
     pub(crate) feedback_contract: Option<FeedbackContract>,
     pub(crate) clear_feedback: Option<bool>,
@@ -475,19 +734,7 @@ impl Schema {
                     ));
                 }
                 match (feedback.as_ref(), property.feedback_contract) {
-                    (
-                        Some(_),
-                        Some(
-                            FeedbackContract::SynchronousExact
-                            | FeedbackContract::SynchronousNormalized,
-                        ),
-                    ) => {}
-                    (Some(_), Some(_)) => {
-                        return Err(format!(
-                            "{}.{} uses an unsupported feedback contract",
-                            control.type_name, property.name
-                        ));
-                    }
+                    (Some(_), Some(_)) => {}
                     (Some(_), None) => {
                         return Err(format!(
                             "{}.{} needs a feedback contract",
@@ -501,12 +748,6 @@ impl Schema {
                         ));
                     }
                     (None, None) => {}
-                }
-                if !property.clearable {
-                    return Err(format!(
-                        "{}.{} must be clearable until required properties are supported",
-                        control.type_name, property.name
-                    ));
                 }
                 validate_member(
                     &control.type_name,
@@ -580,321 +821,52 @@ impl Schema {
                     ));
                 }
                 let (value, copy) = match property.adapter {
-                    Some(PropertyAdapter::ImageUri) => {
-                        if !matches!(
-                            control.type_name.as_str(),
-                            "Microsoft.UI.Xaml.Controls.Image"
-                                | "Microsoft.UI.Xaml.Controls.ImageIcon"
-                        ) || property.name != "Source"
-                        {
+                    Some(adapter) => match adapter.property_kind() {
+                        PropertyAdapterKind::Property(contract) => {
+                            if !contract.validate(
+                                &control.type_name,
+                                &property.name,
+                                metadata,
+                                &name,
+                                &method,
+                            ) {
+                                return Err(format!(
+                                    "{}.{} {}",
+                                    control.type_name, property.name, contract.requirement
+                                ));
+                            }
+                            (contract.value.to_string(), contract.copy)
+                        }
+                        PropertyAdapterKind::EventOnly(requirement) => {
                             return Err(format!(
-                                "{}.{} image_uri requires Image.Source or ImageIcon.Source",
+                                "{}.{} {requirement}",
                                 control.type_name, property.name
                             ));
                         }
-                        ("ImageValue".to_string(), false)
-                    }
-                    Some(PropertyAdapter::ContentDialogResult) => {
-                        return Err(format!(
-                            "{}.{} content_dialog_result is an event-only adapter",
-                            control.type_name, property.name
-                        ));
-                    }
-                    Some(PropertyAdapter::NumberBoxValue) => {
-                        if control.type_name != "Microsoft.UI.Xaml.Controls.NumberBox"
-                            || property.name != "Value"
-                            || metadata.infer_value_type(&name, &method)
-                                != Some(("F64".to_string(), true))
-                        {
-                            return Err(format!(
-                                "{}.{} number_box_value requires NumberBox.Value",
-                                control.type_name, property.name
-                            ));
+                        PropertyAdapterKind::ResourceStyle => {
+                            if metadata.param_class_name(&name, &method).as_deref()
+                                != Some("Microsoft.UI.Xaml.Style")
+                                || property.variants.is_empty()
+                            {
+                                return Err(format!(
+                                    "{}.{} resource_style requires a Style property and variants",
+                                    control.type_name, property.name
+                                ));
+                            }
+                            let mut names = HashSet::new();
+                            if property
+                                .variants
+                                .iter()
+                                .any(|variant| !names.insert(variant.name.clone()))
+                            {
+                                return Err(format!(
+                                    "{}.{} resource_style has duplicate variants",
+                                    control.type_name, property.name
+                                ));
+                            }
+                            (format!("{}{}", name, property.name), true)
                         }
-                        ("OptionalF64".to_string(), true)
-                    }
-                    Some(PropertyAdapter::InspectableString) => {
-                        if metadata.classify_param(&name, &method) != Some(ParamClass::IInspectable)
-                        {
-                            return Err(format!(
-                                "{}.{} inspectable_string requires an IInspectable property",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("Str".to_string(), false)
-                    }
-                    Some(PropertyAdapter::InspectableStringList) => {
-                        if metadata.classify_param(&name, &method) != Some(ParamClass::IInspectable)
-                        {
-                            return Err(format!(
-                                "{}.{} inspectable_string_list requires an IInspectable property",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("StrList".to_string(), false)
-                    }
-                    Some(PropertyAdapter::ImplicitOpacityTransition) => {
-                        if control.type_name != "Microsoft.UI.Xaml.Controls.Border"
-                            || property.name != "OpacityTransition"
-                        {
-                            return Err(format!(
-                                "{}.{} implicit_opacity_transition requires Border.OpacityTransition",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("Duration".to_string(), false)
-                    }
-                    Some(PropertyAdapter::ImplicitScale) => {
-                        if control.type_name != "Microsoft.UI.Xaml.Controls.Border"
-                            || property.name != "Scale"
-                        {
-                            return Err(format!(
-                                "{}.{} implicit_scale requires Border.Scale",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("F64".to_string(), true)
-                    }
-                    Some(PropertyAdapter::ImplicitScaleTransition) => {
-                        if control.type_name != "Microsoft.UI.Xaml.Controls.Border"
-                            || property.name != "ScaleTransition"
-                        {
-                            return Err(format!(
-                                "{}.{} implicit_scale_transition requires Border.ScaleTransition",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("Duration".to_string(), false)
-                    }
-                    Some(PropertyAdapter::KeyAccelerators) => {
-                        if !matches!(
-                            control.type_name.as_str(),
-                            "Microsoft.UI.Xaml.Controls.Button" | "Microsoft.UI.Xaml.Controls.Grid"
-                        ) || property.name != "KeyboardAccelerators"
-                        {
-                            return Err(format!(
-                                "{}.{} key_accelerators requires Button.KeyboardAccelerators or Grid.KeyboardAccelerators",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("KeyAccelerators".to_string(), false)
-                    }
-                    Some(PropertyAdapter::ClockIdentifier) => {
-                        if control.type_name != "Microsoft.UI.Xaml.Controls.TimePicker"
-                            || property.name != "ClockIdentifier"
-                        {
-                            return Err(format!(
-                                "{}.{} clock_identifier requires TimePicker.ClockIdentifier",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("Str".to_string(), false)
-                    }
-                    Some(PropertyAdapter::ItemTag) => {
-                        return Err(format!(
-                            "{}.{} item_tag is an event-only adapter",
-                            control.type_name, property.name
-                        ));
-                    }
-                    Some(PropertyAdapter::ItemTags) => {
-                        return Err(format!(
-                            "{}.{} item_tags is an event-only adapter",
-                            control.type_name, property.name
-                        ));
-                    }
-                    Some(PropertyAdapter::TreeNodeContent) => {
-                        return Err(format!(
-                            "{}.{} tree_node_content is an event-only adapter",
-                            control.type_name, property.name
-                        ));
-                    }
-                    Some(PropertyAdapter::PathData) => {
-                        if control.type_name != "Microsoft.UI.Xaml.Controls.PathIcon"
-                            || property.name != "Data"
-                            || metadata.param_class_name(&name, &method).as_deref()
-                                != Some("Microsoft.UI.Xaml.Media.Geometry")
-                        {
-                            return Err(format!(
-                                "{}.{} path_data requires PathIcon.Data",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("Str".to_string(), false)
-                    }
-                    Some(PropertyAdapter::NavigationDisplayMode) => {
-                        return Err(format!(
-                            "{}.{} navigation_display_mode is an event-only adapter",
-                            control.type_name, property.name
-                        ));
-                    }
-                    Some(PropertyAdapter::PointerEvent) => {
-                        return Err(format!(
-                            "{}.{} pointer_event is an event-only adapter",
-                            control.type_name, property.name
-                        ));
-                    }
-                    Some(PropertyAdapter::DragInfo | PropertyAdapter::DropData) => {
-                        return Err(format!(
-                            "{}.{} drag adapters are event-only",
-                            control.type_name, property.name
-                        ));
-                    }
-                    Some(PropertyAdapter::DropPolicy) => {
-                        if control.type_name != "Microsoft.UI.Xaml.Controls.Border"
-                            || property.name != "AllowDrop"
-                        {
-                            return Err(format!(
-                                "{}.{} drop_policy requires Border.AllowDrop",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("DragDropPolicy".to_string(), false)
-                    }
-                    Some(PropertyAdapter::FontWeight) => {
-                        if control.type_name != "Microsoft.UI.Xaml.Controls.TextBlock"
-                            || property.name != "FontWeight"
-                            || metadata.single_field_param(&name, &method)
-                                != Some((
-                                    "Windows.UI.Text.FontWeight".to_string(),
-                                    "weight".to_string(),
-                                ))
-                        {
-                            return Err(format!(
-                                "{}.{} font_weight requires TextBlock.FontWeight",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("FontWeight".to_string(), true)
-                    }
-                    Some(PropertyAdapter::HorizontalContentAlignment) => {
-                        if control.type_name != "Microsoft.UI.Xaml.Controls.Button"
-                            || property.name != "HorizontalContentAlignment"
-                            || metadata.infer_value_type(&name, &method)
-                                != Some(("HorizontalAlignment".to_string(), true))
-                        {
-                            return Err(format!(
-                                "{}.{} horizontal_content_alignment requires Button.HorizontalContentAlignment",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("HorizontalAlignment".to_string(), true)
-                    }
-                    Some(PropertyAdapter::PointerCapture) => {
-                        if control.type_name != "Microsoft.UI.Xaml.Controls.Border"
-                            || property.name != "CapturePointerOnPress"
-                        {
-                            return Err(format!(
-                                "{}.{} pointer_capture requires Border.CapturePointerOnPress",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("Bool".to_string(), true)
-                    }
-                    Some(PropertyAdapter::RatingValue) => {
-                        if control.type_name != "Microsoft.UI.Xaml.Controls.RatingControl"
-                            || property.name != "Value"
-                            || metadata.infer_value_type(&name, &method)
-                                != Some(("F64".to_string(), true))
-                        {
-                            return Err(format!(
-                                "{}.{} rating_value requires RatingControl.Value",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("OptionalF64".to_string(), true)
-                    }
-                    Some(PropertyAdapter::ResourceStyle) => {
-                        if metadata.param_class_name(&name, &method).as_deref()
-                            != Some("Microsoft.UI.Xaml.Style")
-                            || property.variants.is_empty()
-                        {
-                            return Err(format!(
-                                "{}.{} resource_style requires a Style property and variants",
-                                control.type_name, property.name
-                            ));
-                        }
-                        let mut names = HashSet::new();
-                        if property
-                            .variants
-                            .iter()
-                            .any(|variant| !names.insert(variant.name.clone()))
-                        {
-                            return Err(format!(
-                                "{}.{} resource_style has duplicate variants",
-                                control.type_name, property.name
-                            ));
-                        }
-                        (format!("{}{}", name, property.name), true)
-                    }
-                    Some(PropertyAdapter::RichEditText) => {
-                        if control.type_name != "Microsoft.UI.Xaml.Controls.RichEditBox"
-                            || property.name != "Document"
-                        {
-                            return Err(format!(
-                                "{}.{} rich_edit_text requires RichEditBox.Document",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("Str".to_string(), false)
-                    }
-                    Some(PropertyAdapter::RichTextBlocks) => {
-                        if control.type_name != "Microsoft.UI.Xaml.Controls.RichTextBlock"
-                            || property.name != "Blocks"
-                        {
-                            return Err(format!(
-                                "{}.{} rich_text_blocks requires RichTextBlock.Blocks",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("RichText".to_string(), false)
-                    }
-                    Some(PropertyAdapter::ResourceOverrides) => {
-                        if control.type_name != "Microsoft.UI.Xaml.Controls.Button"
-                            || property.name != "Resources"
-                        {
-                            return Err(format!(
-                                "{}.{} resource_overrides requires Button.Resources",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("ResourceOverrides".to_string(), false)
-                    }
-                    Some(PropertyAdapter::Uri) => {
-                        if metadata.param_class_name(&name, &method).as_deref()
-                            != Some("Windows.Foundation.Uri")
-                        {
-                            return Err(format!(
-                                "{}.{} uri requires a Windows.Foundation.Uri property",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("Str".to_string(), false)
-                    }
-                    Some(PropertyAdapter::VerticalContentAlignment) => {
-                        if control.type_name != "Microsoft.UI.Xaml.Controls.Button"
-                            || property.name != "VerticalContentAlignment"
-                            || metadata.infer_value_type(&name, &method)
-                                != Some(("VerticalAlignment".to_string(), true))
-                        {
-                            return Err(format!(
-                                "{}.{} vertical_content_alignment requires Button.VerticalContentAlignment",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("VerticalAlignment".to_string(), true)
-                    }
-                    Some(PropertyAdapter::SelectionIndex) => {
-                        if property.name != "SelectedIndex"
-                            || metadata.infer_value_type(&name, &method)
-                                != Some(("I32".to_string(), true))
-                        {
-                            return Err(format!(
-                                "{}.{} selection_index requires an I32 SelectedIndex property",
-                                control.type_name, property.name
-                            ));
-                        }
-                        ("SelectionIndex".to_string(), true)
-                    }
+                    },
                     None if property.theme_style => ("Brush".to_string(), true),
                     None => metadata.infer_value_type(&name, &method).ok_or_else(|| {
                         format!(
@@ -967,7 +939,6 @@ impl Schema {
                     copy,
                     interface: interface.full_path(),
                     static_owner,
-                    clearable: property.clearable,
                     feedback,
                     feedback_contract: property.feedback_contract,
                     clear_feedback: property.clear_feedback,
@@ -2045,7 +2016,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Text"
-clearable = true
 adapter = "image_uri"
 "#;
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
@@ -2066,7 +2036,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Text"
-clearable = true
 adapter = "uri"
 "#;
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
@@ -2087,7 +2056,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Text"
-clearable = true
 adapter = "inspectable_string_list"
 "#;
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
@@ -2125,7 +2093,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Text"
-clearable = true
 adapter = "{adapter}"
 "#
             );
@@ -2234,7 +2201,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Text"
-clearable = true
 adapter = "resource_style"
 variants = [{ name = "Accent", resource = "AccentButtonStyle" }]
 "#;
@@ -2463,7 +2429,6 @@ capabilities = ["controlled_text"]
 
 [[control.property]]
 name = "Text"
-clearable = true
 controlled = "Missing"
 feedback_contract = "synchronous_exact"
 "#;
@@ -2485,13 +2450,11 @@ capabilities = ["controlled_text"]
 
 [[control.property]]
 name = "Text"
-clearable = true
 controlled = "TextChanged"
 feedback_contract = "synchronous_exact"
 
 [[control.property]]
 name = "SelectedText"
-clearable = true
 controlled = "TextChanged"
 feedback_contract = "synchronous_exact"
 
@@ -2522,7 +2485,6 @@ capabilities = ["controlled_text"]
 
 [[control.property]]
 name = "Text"
-clearable = true
 controlled = "TextChanged"
 "#;
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
@@ -2536,7 +2498,7 @@ controlled = "TextChanged"
     }
 
     #[test]
-    fn rejects_unsupported_controlled_feedback_contract() {
+    fn rejects_unknown_feedback_contract() {
         let source = r#"
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.TextBox"
@@ -2544,18 +2506,12 @@ capabilities = ["controlled_text"]
 
 [[control.property]]
 name = "Text"
-clearable = true
 controlled = "TextChanged"
 feedback_contract = "deferred_coalesced"
 "#;
-        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
-        let error = Schema::parse(source)
-            .unwrap()
-            .resolve(&metadata)
-            .err()
-            .unwrap();
+        let error = Schema::parse(source).err().unwrap();
 
-        assert!(error.contains("unsupported feedback contract"));
+        assert!(error.contains("unknown variant `deferred_coalesced`"));
     }
 
     #[test]
@@ -2567,7 +2523,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Minimum"
-clearable = true
 coerces = "ValueChanged"
 feedback_contract = "synchronous_exact"
 "#;
@@ -2590,13 +2545,11 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Minimum"
-clearable = true
 coerces = "ValueChanged"
 feedback_contract = "synchronous_normalized"
 
 [[control.property]]
 name = "Value"
-clearable = true
 controlled = "ValueChanged"
 feedback_contract = "synchronous_exact"
 
@@ -2614,26 +2567,6 @@ property = "NewValue"
         assert!(error.contains(
             "feedback event ValueChanged is coercing and requires synchronous_normalized"
         ));
-    }
-
-    #[test]
-    fn rejects_non_clearable_property_without_required_value_contract() {
-        let source = r#"
-[[control]]
-type = "Microsoft.UI.Xaml.Controls.ProgressBar"
-capabilities = ["layout"]
-
-[[control.property]]
-name = "Value"
-"#;
-        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
-        let error = Schema::parse(source)
-            .unwrap()
-            .resolve(&metadata)
-            .err()
-            .unwrap();
-
-        assert!(error.contains("must be clearable"));
     }
 
     #[test]
@@ -2669,7 +2602,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "IsPaneOpen"
-clearable = true
 
 [[control.event]]
 name = "IsPaneOpenChanged"
@@ -2698,14 +2630,12 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "IsPaneOpen"
-clearable = true
 controlled = "IsPaneOpenChanged"
 feedback_contract = "synchronous_exact"
 clear_feedback = false
 
 [[control.property]]
 name = "IsSettingsVisible"
-clearable = true
 
 [[control.event]]
 name = "IsPaneOpenChanged"
@@ -2733,7 +2663,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "IsOn"
-clearable = true
 controlled = "Toggled"
 feedback_contract = "synchronous_exact"
 
@@ -2773,7 +2702,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Text"
-clearable = true
 adapter = "font_weight"
 "#;
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));

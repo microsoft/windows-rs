@@ -961,10 +961,6 @@ trait ErasedScope {
 pub(crate) struct ComponentRender {
     pub(crate) color_scheme_observation: Option<Callback<ColorScheme>>,
     pub(crate) dependencies: HashSet<ContextDependency>,
-    pub(crate) duplicate_color_scheme_observation: bool,
-    pub(crate) duplicate_window_size_observation: bool,
-    pub(crate) duplicate_window_title: bool,
-    pub(crate) duplicate_window_visuals: bool,
     pub(crate) view: View,
     pub(crate) window_size_observation: Option<Callback<WindowSize>>,
     pub(crate) window_title: Option<String>,
@@ -1105,7 +1101,7 @@ struct TypedScope<C, I, M> {
         LocalSender<M>,
         Rc<RefCell<ComponentEffects>>,
         ContextSnapshot,
-    ) -> ComponentRender,
+    ) -> Result<ComponentRender, ComponentStoreError>,
     window: WindowEndpoint,
 }
 
@@ -1208,19 +1204,7 @@ where
             self.sender.clone(),
             Rc::clone(&self.effects),
             contexts,
-        );
-        if render.duplicate_color_scheme_observation {
-            return Err(ComponentStoreError::DuplicateColorSchemeObservation);
-        }
-        if render.duplicate_window_size_observation {
-            return Err(ComponentStoreError::DuplicateWindowSizeObservation);
-        }
-        if render.duplicate_window_title {
-            return Err(ComponentStoreError::DuplicateWindowTitle);
-        }
-        if render.duplicate_window_visuals {
-            return Err(ComponentStoreError::DuplicateWindowVisuals);
-        }
+        )?;
         self.effects.borrow().finish_view()?;
         Ok(render)
     }
@@ -1332,7 +1316,7 @@ impl ComponentStore {
             sender: LocalSender<C::Message>,
             effects: Rc<RefCell<ComponentEffects>>,
             contexts: ContextSnapshot,
-        ) -> ComponentRender {
+        ) -> Result<ComponentRender, ComponentStoreError> {
             let mut context = ViewContext {
                 contexts,
                 duplicate_color_scheme_observation: false,
@@ -1348,18 +1332,26 @@ impl ComponentStore {
                 window_visuals: None,
             };
             let view = component.view(input, &mut context);
-            ComponentRender {
+            if context.duplicate_color_scheme_observation {
+                return Err(ComponentStoreError::DuplicateColorSchemeObservation);
+            }
+            if context.duplicate_window_size_observation {
+                return Err(ComponentStoreError::DuplicateWindowSizeObservation);
+            }
+            if context.duplicate_window_title {
+                return Err(ComponentStoreError::DuplicateWindowTitle);
+            }
+            if context.duplicate_window_visuals {
+                return Err(ComponentStoreError::DuplicateWindowVisuals);
+            }
+            Ok(ComponentRender {
                 color_scheme_observation: context.color_scheme_observation,
                 dependencies: context.reads,
-                duplicate_color_scheme_observation: context.duplicate_color_scheme_observation,
-                duplicate_window_size_observation: context.duplicate_window_size_observation,
-                duplicate_window_title: context.duplicate_window_title,
-                duplicate_window_visuals: context.duplicate_window_visuals,
                 view,
                 window_size_observation: context.window_size_observation,
                 window_title: context.window_title,
                 window_visuals: context.window_visuals,
-            }
+            })
         }
 
         let background = Arc::clone(&self.background);

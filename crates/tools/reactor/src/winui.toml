@@ -4,38 +4,30 @@ capabilities = ["layout", "text_style"]
 
 [[control.property]]
 name = "Text"
-clearable = true
 
 [[control.property]]
 name = "TextWrapping"
-clearable = true
 
 [[control.property]]
 name = "FontSize"
-clearable = true
 validation = "finite_positive"
 
 [[control.property]]
 name = "FontWeight"
-clearable = true
 adapter = "font_weight"
 
 [[control.property]]
 name = "IsTextSelectionEnabled"
-clearable = true
 
 [[control.property]]
 name = "MaxLines"
-clearable = true
 validation = "non_negative"
 
 [[control.property]]
 name = "TextTrimming"
-clearable = true
 
 [[control.property]]
 name = "Foreground"
-clearable = true
 theme_style = true
 
 
@@ -48,16 +40,13 @@ capabilities = ["layout", "enabled", "content", "focus"]
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.property]]
 name = "HorizontalContentAlignment"
-clearable = true
 adapter = "horizontal_content_alignment"
 
 [[control.property]]
 name = "VerticalContentAlignment"
-clearable = true
 adapter = "vertical_content_alignment"
 
 
@@ -65,12 +54,10 @@ adapter = "vertical_content_alignment"
 [[control.property]]
 name = "Resources"
 field = "resource_overrides"
-clearable = true
 adapter = "resource_overrides"
 
 [[control.property]]
 name = "Style"
-clearable = true
 adapter = "resource_style"
 
 variants = [
@@ -83,7 +70,6 @@ variants = [
 [[control.property]]
 name = "KeyboardAccelerators"
 field = "key_accelerators"
-clearable = true
 adapter = "key_accelerators"
 
 [[control.event]]
@@ -95,12 +81,10 @@ capabilities = ["layout", "enabled", "content", "focus"]
 
 [[control.property]]
 name = "NavigateUri"
-clearable = true
 adapter = "uri"
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "Click"
@@ -111,15 +95,12 @@ capabilities = ["layout", "enabled", "content"]
 
 [[control.property]]
 name = "Delay"
-clearable = true
 
 [[control.property]]
 name = "Interval"
-clearable = true
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "Click"
@@ -130,27 +111,22 @@ capabilities = ["layout", "content"]
 
 [[control.property]]
 name = "Padding"
-clearable = true
 validation = "finite_non_negative"
 
 [[control.property]]
 name = "BorderThickness"
-clearable = true
 validation = "finite_non_negative"
 
 [[control.property]]
 name = "CornerRadius"
-clearable = true
 validation = "finite_non_negative"
 
 [[control.property]]
 name = "Background"
-clearable = true
 theme_style = true
 
 [[control.property]]
 name = "BorderBrush"
-clearable = true
 theme_style = true
 
 
@@ -161,30 +137,25 @@ theme_style = true
 [[control.property]]
 name = "OpacityTransition"
 field = "opacity_transition"
-clearable = true
 adapter = "implicit_opacity_transition"
 
 [[control.property]]
 name = "Scale"
-clearable = true
 adapter = "implicit_scale"
 validation = "finite_non_negative"
 
 [[control.property]]
 name = "ScaleTransition"
 field = "scale_transition"
-clearable = true
 adapter = "implicit_scale_transition"
 
 [[control.property]]
 name = "CapturePointerOnPress"
-clearable = true
 adapter = "pointer_capture"
 
 [[control.property]]
 name = "AllowDrop"
 field = "drop_policy"
-clearable = true
 adapter = "drop_policy"
 
 [[control.event]]
@@ -241,7 +212,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "ItemsSource"
-clearable = true
 adapter = "inspectable_string_list"
 
 [[control.event]]
@@ -255,11 +225,9 @@ capabilities = ["layout", "children"]
 
 [[control.property]]
 name = "Orientation"
-clearable = true
 
 [[control.property]]
 name = "Spacing"
-clearable = true
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.VariableSizedWrapGrid"
@@ -267,17 +235,14 @@ capabilities = ["layout", "children"]
 
 [[control.property]]
 name = "ItemWidth"
-clearable = true
 validation = "finite_positive"
 
 [[control.property]]
 name = "ItemHeight"
-clearable = true
 validation = "finite_positive"
 
 [[control.property]]
 name = "Orientation"
-clearable = true
 
 
 [[control]]
@@ -286,21 +251,17 @@ capabilities = ["layout", "children", "grid_definitions", "reference"]
 
 [[control.property]]
 name = "RowSpacing"
-clearable = true
 
 [[control.property]]
 name = "ColumnSpacing"
-clearable = true
 
 [[control.property]]
 name = "KeyboardAccelerators"
 field = "key_accelerators"
-clearable = true
 adapter = "key_accelerators"
 
 [[control.property]]
 name = "Background"
-clearable = true
 theme_style = true
 
 
@@ -310,39 +271,31 @@ capabilities = ["layout", "enabled", "text_style", "controlled_text", "focus"]
 
 [[control.property]]
 name = "Text"
-clearable = true
 controlled = "TextChanged"
 feedback_contract = "synchronous_exact"
 
 [[control.property]]
 name = "PlaceholderText"
-clearable = true
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.property]]
 name = "AcceptsReturn"
-clearable = true
 
 [[control.property]]
 name = "TextWrapping"
-clearable = true
 
 [[control.property]]
 name = "Background"
-clearable = true
 theme_style = true
 
 [[control.property]]
 name = "BorderBrush"
-clearable = true
 theme_style = true
 
 [[control.property]]
 name = "BorderThickness"
-clearable = true
 validation = "finite_non_negative"
 
 [[control.event]]
@@ -358,22 +311,18 @@ capabilities = ["layout", "enabled", "focus"]
 
 [[control.property]]
 name = "Text"
-clearable = true
 controlled = "TextChanged"
 feedback_contract = "synchronous_exact"
 
 [[control.property]]
 name = "ItemsSource"
-clearable = true
 adapter = "inspectable_string_list"
 
 [[control.property]]
 name = "PlaceholderText"
-clearable = true
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "TextChanged"
@@ -393,21 +342,17 @@ capabilities = ["layout", "enabled", "focus"]
 
 [[control.property]]
 name = "Password"
-clearable = true
 controlled = "PasswordChanged"
 feedback_contract = "synchronous_exact"
 
 [[control.property]]
 name = "PlaceholderText"
-clearable = true
 
 [[control.property]]
 name = "PasswordRevealMode"
-clearable = true
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "PasswordChanged"
@@ -422,26 +367,22 @@ capabilities = ["layout", "enabled", "focus"]
 
 [[control.property]]
 name = "Minimum"
-clearable = true
 coerces = "ValueChanged"
 feedback_contract = "synchronous_normalized"
 
 [[control.property]]
 name = "Maximum"
-clearable = true
 coerces = "ValueChanged"
 feedback_contract = "synchronous_normalized"
 
 [[control.property]]
 name = "Value"
-clearable = true
 adapter = "number_box_value"
 controlled = "ValueChanged"
 feedback_contract = "synchronous_normalized"
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "ValueChanged"
@@ -456,34 +397,28 @@ capabilities = ["layout", "enabled", "focus"]
 
 [[control.property]]
 name = "Minimum"
-clearable = true
 coerces = "ValueChanged"
 feedback_contract = "synchronous_normalized"
 
 [[control.property]]
 name = "Maximum"
-clearable = true
 coerces = "ValueChanged"
 feedback_contract = "synchronous_normalized"
 
 [[control.property]]
 name = "Value"
-clearable = true
 controlled = "ValueChanged"
 feedback_contract = "synchronous_normalized"
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.property]]
 name = "StepFrequency"
-clearable = true
 validation = "finite_positive"
 
 [[control.property]]
 name = "Orientation"
-clearable = true
 
 
 [[control.event]]
@@ -499,23 +434,18 @@ capabilities = ["layout", "window_title_bar"]
 
 [[control.property]]
 name = "Title"
-clearable = true
 
 [[control.property]]
 name = "Subtitle"
-clearable = true
 
 [[control.property]]
 name = "IsBackButtonVisible"
-clearable = true
 
 [[control.property]]
 name = "IsBackButtonEnabled"
-clearable = true
 
 [[control.property]]
 name = "IsPaneToggleButtonVisible"
-clearable = true
 
 [[control.event]]
 name = "BackRequested"
@@ -535,40 +465,31 @@ capabilities = ["layout", "enabled"]
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.property]]
 name = "PaneDisplayMode"
-clearable = true
 
 [[control.property]]
 name = "IsPaneToggleButtonVisible"
-clearable = true
 
 [[control.property]]
 name = "IsBackButtonVisible"
-clearable = true
 
 [[control.property]]
 name = "IsSettingsVisible"
-clearable = true
 
 [[control.property]]
 name = "AlwaysShowHeader"
-clearable = true
 
 [[control.property]]
 name = "PaneTitle"
-clearable = true
 
 [[control.property]]
 name = "OpenPaneLength"
-clearable = true
 validation = "finite_non_negative"
 
 [[control.property]]
 name = "IsPaneOpen"
-clearable = true
 controlled = "IsPaneOpenChanged"
 feedback_contract = "synchronous_exact"
 clear_feedback = true
@@ -617,20 +538,16 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Tag"
-clearable = true
 adapter = "inspectable_string"
 
 [[control.property]]
 name = "IsSelected"
-clearable = true
 
 [[control.property]]
 name = "SelectsOnInvoked"
-clearable = true
 
 [[control.property]]
 name = "IsExpanded"
-clearable = true
 
 [[control.slot]]
 name = "Content"
@@ -648,19 +565,15 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "OpenPaneLength"
-clearable = true
 
 [[control.property]]
 name = "CompactPaneLength"
-clearable = true
 
 [[control.property]]
 name = "DisplayMode"
-clearable = true
 
 [[control.property]]
 name = "IsPaneOpen"
-clearable = true
 controlled = "PaneClosed"
 feedback_contract = "synchronous_exact"
 clear_feedback = false
@@ -681,31 +594,24 @@ capabilities = ["layout", "enabled"]
 
 [[control.property]]
 name = "Minimum"
-clearable = true
 
 [[control.property]]
 name = "Maximum"
-clearable = true
 
 [[control.property]]
 name = "Value"
-clearable = true
 
 [[control.property]]
 name = "IsIndeterminate"
-clearable = true
 
 [[control.property]]
 name = "ShowError"
-clearable = true
 
 [[control.property]]
 name = "ShowPaused"
-clearable = true
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.ToggleSwitch"
@@ -713,14 +619,12 @@ capabilities = ["layout", "enabled", "focus"]
 
 [[control.property]]
 name = "IsOn"
-clearable = true
 controlled = "Toggled"
 feedback_contract = "synchronous_exact"
 clear_feedback = false
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "Toggled"
@@ -741,14 +645,12 @@ capabilities = ["layout", "enabled", "content", "focus"]
 
 [[control.property]]
 name = "IsChecked"
-clearable = true
 controlled = "IsCheckedChanged"
 feedback_contract = "synchronous_exact"
 clear_feedback = false
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "IsCheckedChanged"
@@ -760,14 +662,12 @@ capabilities = ["layout", "enabled", "content", "focus"]
 
 [[control.property]]
 name = "IsChecked"
-clearable = true
 controlled = "IsCheckedChanged"
 feedback_contract = "synchronous_exact"
 clear_feedback = false
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "IsCheckedChanged"
@@ -779,18 +679,15 @@ capabilities = ["layout", "enabled", "content", "focus"]
 
 [[control.property]]
 name = "GroupName"
-clearable = true
 
 [[control.property]]
 name = "IsChecked"
-clearable = true
 controlled = "Checked"
 feedback_contract = "synchronous_exact"
 clear_feedback = false
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "Checked"
@@ -802,19 +699,16 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "ItemsSource"
-clearable = true
 adapter = "inspectable_string_list"
 
 [[control.property]]
 name = "SelectedIndex"
-clearable = true
 adapter = "selection_index"
 controlled = "SelectionChanged"
 feedback_contract = "synchronous_normalized"
 
 [[control.property]]
 name = "MaxColumns"
-clearable = true
 
 [[control.event]]
 name = "SelectionChanged"
@@ -833,7 +727,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Value"
-clearable = true
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.InfoBar"
@@ -841,23 +734,18 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Title"
-clearable = true
 
 [[control.property]]
 name = "Message"
-clearable = true
 
 [[control.property]]
 name = "Severity"
-clearable = true
 
 [[control.property]]
 name = "IsOpen"
-clearable = true
 
 [[control.property]]
 name = "IsClosable"
-clearable = true
 
 [[control.event]]
 name = "Closed"
@@ -868,11 +756,9 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "DisplayName"
-clearable = true
 
 [[control.property]]
 name = "Initials"
-clearable = true
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.ScrollViewer"
@@ -880,11 +766,9 @@ capabilities = ["layout", "content"]
 
 [[control.property]]
 name = "HorizontalScrollBarVisibility"
-clearable = true
 
 [[control.property]]
 name = "VerticalScrollBarVisibility"
-clearable = true
 
 
 
@@ -894,11 +778,9 @@ capabilities = ["layout", "content"]
 
 [[control.property]]
 name = "HorizontalScrollBarVisibility"
-clearable = true
 
 [[control.property]]
 name = "VerticalScrollBarVisibility"
-clearable = true
 
 
 
@@ -908,13 +790,11 @@ capabilities = ["layout", "reference"]
 
 [[control.property]]
 name = "Source"
-clearable = true
 adapter = "image_uri"
 
 
 [[control.property]]
 name = "Stretch"
-clearable = true
 
 [[control.event]]
 name = "ImageOpened"
@@ -930,27 +810,21 @@ capabilities = ["layout", "enabled"]
 
 [[control.property]]
 name = "Minimum"
-clearable = true
 
 [[control.property]]
 name = "Maximum"
-clearable = true
 
 [[control.property]]
 name = "Value"
-clearable = true
 
 [[control.property]]
 name = "IsIndeterminate"
-clearable = true
 
 [[control.property]]
 name = "IsActive"
-clearable = true
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.ListBox"
@@ -958,7 +832,6 @@ capabilities = ["layout", "enabled"]
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "SelectionChanged"
@@ -982,28 +855,23 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Fill"
-clearable = true
 theme_style = true
 
 [[control.property]]
 name = "Stroke"
-clearable = true
 theme_style = true
 
 [[control.property]]
 name = "StrokeThickness"
-clearable = true
 validation = "finite_non_negative"
 
 
 [[control.property]]
 name = "RadiusX"
-clearable = true
 validation = "finite_non_negative"
 
 [[control.property]]
 name = "RadiusY"
-clearable = true
 validation = "finite_non_negative"
 
 [[control]]
@@ -1012,17 +880,14 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Fill"
-clearable = true
 theme_style = true
 
 [[control.property]]
 name = "Stroke"
-clearable = true
 theme_style = true
 
 [[control.property]]
 name = "StrokeThickness"
-clearable = true
 validation = "finite_non_negative"
 
 
@@ -1032,32 +897,26 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Stroke"
-clearable = true
 theme_style = true
 
 [[control.property]]
 name = "StrokeThickness"
-clearable = true
 validation = "finite_non_negative"
 
 [[control.property]]
 name = "X1"
-clearable = true
 validation = "finite"
 
 [[control.property]]
 name = "Y1"
-clearable = true
 validation = "finite"
 
 [[control.property]]
 name = "X2"
-clearable = true
 validation = "finite"
 
 [[control.property]]
 name = "Y2"
-clearable = true
 validation = "finite"
 
 [[control]]
@@ -1066,7 +925,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Symbol"
-clearable = true
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.ImageIcon"
@@ -1074,7 +932,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Source"
-clearable = true
 adapter = "image_uri"
 
 
@@ -1084,7 +941,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Glyph"
-clearable = true
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.BitmapIcon"
@@ -1092,12 +948,10 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "UriSource"
-clearable = true
 adapter = "uri"
 
 [[control.property]]
 name = "ShowAsMonochrome"
-clearable = true
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.PathIcon"
@@ -1105,7 +959,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Data"
-clearable = true
 adapter = "path_data"
 
 [[control]]
@@ -1114,12 +967,10 @@ capabilities = ["layout", "content"]
 
 [[control.property]]
 name = "Tag"
-clearable = true
 adapter = "inspectable_string"
 
 [[control.property]]
 name = "IsSelected"
-clearable = true
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.RatingControl"
@@ -1127,24 +978,20 @@ capabilities = ["layout", "focus"]
 
 [[control.property]]
 name = "MaxRating"
-clearable = true
 coerces = "ValueChanged"
 feedback_contract = "synchronous_normalized"
 
 [[control.property]]
 name = "Value"
-clearable = true
 adapter = "rating_value"
 controlled = "ValueChanged"
 feedback_contract = "synchronous_normalized"
 
 [[control.property]]
 name = "Caption"
-clearable = true
 
 [[control.property]]
 name = "IsReadOnly"
-clearable = true
 
 [[control.event]]
 name = "ValueChanged"
@@ -1156,7 +1003,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "IsExpanded"
-clearable = true
 controlled = "IsExpandedChanged"
 feedback_contract = "synchronous_exact"
 clear_feedback = false
@@ -1177,27 +1023,22 @@ capabilities = ["layout", "enabled", "focus"]
 
 [[control.property]]
 name = "ItemsSource"
-clearable = true
 adapter = "inspectable_string_list"
 
 [[control.property]]
 name = "SelectedIndex"
-clearable = true
 adapter = "selection_index"
 controlled = "SelectionChanged"
 feedback_contract = "synchronous_exact"
 
 [[control.property]]
 name = "PlaceholderText"
-clearable = true
 
 [[control.property]]
 name = "IsEditable"
-clearable = true
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "SelectionChanged"
@@ -1212,14 +1053,12 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "SelectedIndex"
-clearable = true
 adapter = "selection_index"
 controlled = "SelectionChanged"
 feedback_contract = "synchronous_exact"
 
 [[control.property]]
 name = "Title"
-clearable = true
 adapter = "inspectable_string"
 
 [[control.event]]
@@ -1237,7 +1076,6 @@ capabilities = ["layout", "content"]
 
 [[control.property]]
 name = "Header"
-clearable = true
 adapter = "inspectable_string"
 
 [[control]]
@@ -1247,7 +1085,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "SelectedIndex"
-clearable = true
 adapter = "selection_index"
 controlled = "SelectionChanged"
 feedback_contract = "synchronous_exact"
@@ -1286,11 +1123,9 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Text"
-clearable = true
 
 [[control.property]]
 name = "IsSelected"
-clearable = true
 
 [[control.slot]]
 name = "Icon"
@@ -1301,18 +1136,15 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "SelectedIndex"
-clearable = true
 adapter = "selection_index"
 controlled = "SelectionChanged"
 feedback_contract = "synchronous_exact"
 
 [[control.property]]
 name = "CanReorderTabs"
-clearable = true
 
 [[control.property]]
 name = "IsAddTabButtonVisible"
-clearable = true
 
 [[control.event]]
 name = "SelectionChanged"
@@ -1342,16 +1174,13 @@ capabilities = ["layout", "content"]
 
 [[control.property]]
 name = "Header"
-clearable = true
 adapter = "inspectable_string"
 
 [[control.property]]
 name = "IsClosable"
-clearable = true
 
 [[control.property]]
 name = "Tag"
-clearable = true
 adapter = "inspectable_string"
 
 [[control]]
@@ -1360,32 +1189,25 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Title"
-clearable = true
 
 [[control.property]]
 name = "Subtitle"
-clearable = true
 
 [[control.property]]
 name = "IsOpen"
-clearable = true
 
 [[control.property]]
 name = "IsLightDismissEnabled"
-clearable = true
 
 [[control.property]]
 name = "PreferredPlacement"
-clearable = true
 
 [[control.property]]
 name = "ActionButtonContent"
-clearable = true
 adapter = "inspectable_string"
 
 [[control.property]]
 name = "CloseButtonContent"
-clearable = true
 adapter = "inspectable_string"
 
 [[control.event]]
@@ -1400,7 +1222,6 @@ capabilities = ["layout", "content", "enabled"]
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "Click"
@@ -1425,11 +1246,9 @@ capabilities = ["layout", "enabled"]
 
 [[control.property]]
 name = "Label"
-clearable = true
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "Click"
@@ -1455,7 +1274,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Title"
-clearable = true
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.SplitButton"
@@ -1463,7 +1281,6 @@ capabilities = ["layout", "content", "enabled"]
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "Click"
@@ -1474,29 +1291,23 @@ capabilities = ["layout", "enabled"]
 
 [[control.property]]
 name = "Color"
-clearable = true
 controlled = "ColorChanged"
 feedback_contract = "synchronous_exact"
 
 [[control.property]]
 name = "IsAlphaEnabled"
-clearable = true
 
 [[control.property]]
 name = "IsHexInputVisible"
-clearable = true
 
 [[control.property]]
 name = "IsColorSliderVisible"
-clearable = true
 
 [[control.property]]
 name = "IsColorChannelTextInputVisible"
-clearable = true
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "ColorChanged"
@@ -1508,19 +1319,15 @@ capabilities = ["layout", "enabled"]
 
 [[control.property]]
 name = "DayVisible"
-clearable = true
 
 [[control.property]]
 name = "MonthVisible"
-clearable = true
 
 [[control.property]]
 name = "YearVisible"
-clearable = true
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "SelectedDateChanged"
@@ -1536,16 +1343,13 @@ capabilities = ["layout", "enabled"]
 [[control.property]]
 name = "ClockIdentifier"
 adapter = "clock_identifier"
-clearable = true
 
 [[control.property]]
 name = "MinuteIncrement"
-clearable = true
 validation = "zero_to_fifty_nine"
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "SelectedTimeChanged"
@@ -1560,19 +1364,15 @@ capabilities = ["layout", "enabled"]
 
 [[control.property]]
 name = "PlaceholderText"
-clearable = true
 
 [[control.property]]
 name = "IsTodayHighlighted"
-clearable = true
 
 [[control.property]]
 name = "IsCalendarOpen"
-clearable = true
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "DateChanged"
@@ -1593,28 +1393,22 @@ lifecycle = "content_dialog"
 
 [[control.property]]
 name = "Title"
-clearable = true
 adapter = "inspectable_string"
 
 [[control.property]]
 name = "PrimaryButtonText"
-clearable = true
 
 [[control.property]]
 name = "SecondaryButtonText"
-clearable = true
 
 [[control.property]]
 name = "CloseButtonText"
-clearable = true
 
 [[control.property]]
 name = "IsPrimaryButtonEnabled"
-clearable = true
 
 [[control.property]]
 name = "IsSecondaryButtonEnabled"
-clearable = true
 
 [[control.event]]
 name = "Closed"
@@ -1627,15 +1421,12 @@ capabilities = ["layout", "enabled"]
 
 [[control.property]]
 name = "IsTodayHighlighted"
-clearable = true
 
 [[control.property]]
 name = "IsGroupLabelVisible"
-clearable = true
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 [[control.event]]
 name = "SelectedDatesChanged"
@@ -1647,26 +1438,21 @@ capabilities = ["layout", "enabled"]
 
 [[control.property]]
 name = "SelectedIndex"
-clearable = true
 adapter = "selection_index"
 controlled = "SelectionChanged"
 feedback_contract = "synchronous_exact"
 
 [[control.property]]
 name = "SelectionMode"
-clearable = true
 
 [[control.property]]
 name = "CanDragItems"
-clearable = true
 
 [[control.property]]
 name = "CanReorderItems"
-clearable = true
 
 [[control.property]]
 name = "AllowDrop"
-clearable = true
 
 [[control.event]]
 name = "SelectionChanged"
@@ -1688,7 +1474,6 @@ capabilities = ["layout", "content", "enabled"]
 
 [[control.property]]
 name = "Tag"
-clearable = true
 adapter = "inspectable_string"
 
 [[control]]
@@ -1697,7 +1482,6 @@ capabilities = ["layout", "enabled"]
 
 [[control.property]]
 name = "SelectionMode"
-clearable = true
 
 [[control.event]]
 name = "ItemInvoked"
@@ -1710,22 +1494,18 @@ capabilities = ["layout", "enabled"]
 
 [[control.property]]
 name = "SelectedIndex"
-clearable = true
 adapter = "selection_index"
 controlled = "SelectionChanged"
 feedback_contract = "synchronous_exact"
 
 [[control.property]]
 name = "CanDragItems"
-clearable = true
 
 [[control.property]]
 name = "CanReorderItems"
-clearable = true
 
 [[control.property]]
 name = "AllowDrop"
-clearable = true
 
 [[control.event]]
 name = "DragItemsCompleted"
@@ -1747,7 +1527,6 @@ capabilities = ["layout", "content", "enabled"]
 
 [[control.property]]
 name = "Tag"
-clearable = true
 adapter = "inspectable_string"
 
 [[control]]
@@ -1767,22 +1546,18 @@ capabilities = ["layout", "enabled", "controlled_text", "focus"]
 [[control.property]]
 name = "Document"
 field = "text"
-clearable = true
 controlled = "TextChanged"
 feedback_contract = "synchronous_exact"
 adapter = "rich_edit_text"
 
 [[control.property]]
 name = "PlaceholderText"
-clearable = true
 
 [[control.property]]
 name = "IsReadOnly"
-clearable = true
 
 [[control.property]]
 name = "IsEnabled"
-clearable = true
 
 
 [[control.event]]
@@ -1800,21 +1575,17 @@ capabilities = ["layout", "text_style"]
 [[control.property]]
 name = "Blocks"
 field = "paragraphs"
-clearable = true
 adapter = "rich_text_blocks"
 
 [[control.property]]
 name = "FontSize"
-clearable = true
 validation = "finite_positive"
 
 [[control.property]]
 name = "IsTextSelectionEnabled"
-clearable = true
 
 [[control.property]]
 name = "TextWrapping"
-clearable = true
 
 [[control]]
 type = "Microsoft.UI.Xaml.Controls.Viewbox"
@@ -1822,7 +1593,6 @@ capabilities = ["layout"]
 
 [[control.property]]
 name = "Stretch"
-clearable = true
 
 [[control.slot]]
 name = "Child"
