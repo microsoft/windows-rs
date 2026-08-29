@@ -18,13 +18,24 @@ pub(crate) enum HostRequest {
 }
 
 struct WindowRequestState {
-    active: bool,
-    close_committed: bool,
-    close_requested: bool,
-    open: bool,
-    open_requests: Vec<View>,
+    active: Option<ActiveWindowRequests>,
+    lifecycle: WindowRequestLifecycle,
     staged_close: bool,
     staged_opens: Vec<View>,
+}
+
+#[derive(Default)]
+struct ActiveWindowRequests {
+    close: bool,
+    opens: Vec<View>,
+}
+
+#[derive(Clone, Copy, Eq, PartialEq)]
+enum WindowRequestLifecycle {
+    Open,
+    CloseCommitted,
+    Closed,
+    ClosedCommitted,
 }
 
 #[derive(Clone)]
@@ -38,11 +49,8 @@ impl WindowEndpoint {
         Self {
             identity,
             state: Rc::new(RefCell::new(WindowRequestState {
-                active: false,
-                close_committed: false,
-                close_requested: false,
-                open: true,
-                open_requests: Vec::new(),
+                active: None,
+                lifecycle: WindowRequestLifecycle::Open,
                 staged_close: false,
                 staged_opens: Vec::new(),
             })),
@@ -51,23 +59,21 @@ impl WindowEndpoint {
 
     pub(crate) fn begin(&self) {
         let mut state = self.state.borrow_mut();
-        assert!(!state.active, "component lifecycle invocation reentered");
-        state.active = true;
-        state.close_requested = false;
-        state.open_requests.clear();
+        assert!(
+            state.active.is_none(),
+            "component lifecycle invocation reentered"
+        );
+        state.active = Some(ActiveWindowRequests::default());
     }
 
     pub(crate) fn finish(&self) {
         let mut state = self.state.borrow_mut();
-        assert!(
-            state.active,
-            "component lifecycle invocation was not active"
-        );
-        state.active = false;
-        state.staged_close |= state.close_requested;
-        state.close_requested = false;
-        let requests = std::mem::take(&mut state.open_requests);
-        state.staged_opens.extend(requests);
+        let active = state
+            .active
+            .take()
+            .expect("component lifecycle invocation was not active");
+        state.staged_close |= active.close;
+        state.staged_opens.extend(active.opens);
     }
 
     pub(crate) fn take_requests(&self) -> Vec<HostRequest> {
@@ -91,16 +97,29 @@ impl WindowEndpoint {
 
     pub(crate) fn close(&self) {
         let mut state = self.state.borrow_mut();
-        state.open = false;
-        state.active = false;
-        state.close_requested = false;
-        state.open_requests.clear();
+        state.lifecycle = match state.lifecycle {
+            WindowRequestLifecycle::Open | WindowRequestLifecycle::Closed => {
+                WindowRequestLifecycle::Closed
+            }
+            WindowRequestLifecycle::CloseCommitted | WindowRequestLifecycle::ClosedCommitted => {
+                WindowRequestLifecycle::ClosedCommitted
+            }
+        };
+        state.active = None;
         state.staged_close = false;
         state.staged_opens.clear();
     }
 
     pub(crate) fn commit_close(&self) {
-        self.state.borrow_mut().close_committed = true;
+        let mut state = self.state.borrow_mut();
+        state.lifecycle = match state.lifecycle {
+            WindowRequestLifecycle::Open | WindowRequestLifecycle::CloseCommitted => {
+                WindowRequestLifecycle::CloseCommitted
+            }
+            WindowRequestLifecycle::Closed | WindowRequestLifecycle::ClosedCommitted => {
+                WindowRequestLifecycle::ClosedCommitted
+            }
+        };
     }
 
     pub(crate) fn reference(&self) -> WindowRef {
@@ -111,10 +130,13 @@ impl WindowEndpoint {
 
     fn request_open(&self, root: View) -> bool {
         let mut state = self.state.borrow_mut();
-        if !state.open || !state.active || state.close_committed {
+        if state.lifecycle != WindowRequestLifecycle::Open {
             return false;
         }
-        state.open_requests.push(root);
+        let Some(active) = state.active.as_mut() else {
+            return false;
+        };
+        active.opens.push(root);
         true
     }
 }
@@ -133,16 +155,22 @@ impl WindowRef {
     #[must_use = "false means there is no active component publication"]
     pub fn request_close(&self) -> bool {
         let mut state = self.endpoint.state.borrow_mut();
-        if !state.open || !state.active || state.close_committed {
+        if state.lifecycle != WindowRequestLifecycle::Open {
             return false;
         }
-        state.close_requested = true;
+        let Some(active) = state.active.as_mut() else {
+            return false;
+        };
+        active.close = true;
         true
     }
 
     #[cfg(test)]
     pub(crate) fn close_committed(&self) -> bool {
-        self.endpoint.state.borrow().close_committed
+        matches!(
+            self.endpoint.state.borrow().lifecycle,
+            WindowRequestLifecycle::CloseCommitted | WindowRequestLifecycle::ClosedCommitted
+        )
     }
 
     pub(crate) fn request_open(&self, root: View) -> bool {
@@ -155,9 +183,22 @@ impl fmt::Debug for WindowRef {
         let state = self.endpoint.state.borrow();
         formatter
             .debug_struct("WindowRef")
-            .field("active", &state.active)
-            .field("close_committed", &state.close_committed)
-            .field("open", &state.open)
+            .field("active", &state.active.is_some())
+            .field(
+                "close_committed",
+                &matches!(
+                    state.lifecycle,
+                    WindowRequestLifecycle::CloseCommitted
+                        | WindowRequestLifecycle::ClosedCommitted
+                ),
+            )
+            .field(
+                "open",
+                &matches!(
+                    state.lifecycle,
+                    WindowRequestLifecycle::Open | WindowRequestLifecycle::CloseCommitted
+                ),
+            )
             .finish()
     }
 }

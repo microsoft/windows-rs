@@ -158,6 +158,9 @@ fn failed_post_publication_close_keeps_local_native_state_committed() {
             .into_parts()
             .props
     );
+    let window = input.window.borrow().as_ref().unwrap().clone();
+    pump.shutdown();
+    assert!(window.close_committed());
 }
 
 #[test]

@@ -229,22 +229,7 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                     ));
                 }
             }
-            if let Some(property) = &event.property {
-                let interface = match &event.source {
-                    EventPayloadSource::SenderProperty { interface }
-                    | EventPayloadSource::EventArgsProperty { interface }
-                    | EventPayloadSource::DragInfo { interface }
-                    | EventPayloadSource::DropData { interface }
-                    | EventPayloadSource::EventArgsInspectableString { interface }
-                    | EventPayloadSource::EventArgsItemTag { interface }
-                    | EventPayloadSource::EventArgsTreeNodeContent { interface }
-                    | EventPayloadSource::SenderRichEditText { interface } => interface,
-                    EventPayloadSource::PointerEvent
-                    | EventPayloadSource::SenderItemTags { .. } => {
-                        continue;
-                    }
-                    EventPayloadSource::Unit => continue,
-                };
+            if let Some((interface, property)) = event.source.getter() {
                 entries.insert(format!("{}::get_{}", filter_path(interface), property));
             }
             if matches!(
@@ -1196,7 +1181,7 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
     let shared_event_source = matches!(&event.subscription, EventSubscription::Metadata)
         && matches!(
             &event.source,
-            EventPayloadSource::SenderProperty { interface } if interface == &event.interface
+            EventPayloadSource::SenderProperty { interface, .. } if interface == &event.interface
         );
     let callback = match &event.source {
         EventPayloadSource::Unit => quote! {
@@ -1377,8 +1362,9 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
         }
         EventPayloadSource::SenderProperty {
             interface: property_interface,
+            property,
         } => {
-            let property = ident(event.property.as_deref().unwrap());
+            let property = ident(property);
             let default_property_interface = is_default_interface(control, property_interface);
             let property_interface = path_ident(property_interface);
             let event_source = if shared_event_source {
@@ -1425,8 +1411,11 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                 }
             }
         }
-        EventPayloadSource::EventArgsProperty { interface: _ } => {
-            let property = ident(event.property.as_deref().unwrap());
+        EventPayloadSource::EventArgsProperty {
+            interface: _,
+            property,
+        } => {
+            let property = ident(property);
             if event.conversion == EventPayloadConversion::Selection {
                 let dispatch = generate_selection_dispatch(control, event);
                 quote! {
@@ -1457,8 +1446,11 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                 }
             }
         }
-        EventPayloadSource::EventArgsInspectableString { interface: _ } => {
-            let property = ident(event.property.as_deref().unwrap());
+        EventPayloadSource::EventArgsInspectableString {
+            interface: _,
+            property,
+        } => {
+            let property = ident(property);
             quote! {
                 move |_, args| {
                     if let Some(args) = args.as_ref() {
@@ -1488,7 +1480,9 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
         }
         EventPayloadSource::SenderRichEditText {
             interface: property_interface,
+            property,
         } => {
+            let property = ident(property);
             let event_source = if is_default_interface(control, property_interface) {
                 quote! { let event_source = (*value).clone(); }
             } else {
@@ -1503,7 +1497,7 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                 {
                     #event_source
                     move |_, _| {
-                        let value = event_source.Document().and_then(|document| {
+                        let value = event_source.#property().and_then(|document| {
                             let mut value = windows_core::HSTRING::new();
                             document
                                 .GetText(bindings::TextGetOptions::None, &mut value)
@@ -1565,8 +1559,11 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                 }
             }
         },
-        EventPayloadSource::EventArgsItemTag { interface: _ } => {
-            let property = ident(event.property.as_deref().unwrap());
+        EventPayloadSource::EventArgsItemTag {
+            interface: _,
+            property,
+        } => {
+            let property = ident(property);
             quote! {
                 move |_, args| {
                     if let Some(args) = args.as_ref() {
@@ -1602,8 +1599,11 @@ fn generate_event_arm(control: &ResolvedControl, event: &ResolvedEvent) -> Token
                 }
             }
         }
-        EventPayloadSource::EventArgsTreeNodeContent { interface: _ } => {
-            let property = ident(event.property.as_deref().unwrap());
+        EventPayloadSource::EventArgsTreeNodeContent {
+            interface: _,
+            property,
+        } => {
+            let property = ident(property);
             quote! {
                 move |_, args| {
                     if let Some(args) = args.as_ref() {

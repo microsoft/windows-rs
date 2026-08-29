@@ -976,14 +976,23 @@ struct EffectSlot {
     key: EffectKey,
 }
 
-struct PendingEffect {
-    dependency: Box<dyn Any>,
-    setup: EffectSetup,
+enum EffectRegistration {
+    Retain {
+        key: EffectKey,
+    },
+    Replace {
+        dependency: Box<dyn Any>,
+        key: EffectKey,
+        setup: EffectSetup,
+    },
 }
 
-struct EffectRegistration {
-    key: EffectKey,
-    pending: Option<PendingEffect>,
+impl EffectRegistration {
+    fn key(&self) -> &EffectKey {
+        match self {
+            Self::Retain { key } | Self::Replace { key, .. } => key,
+        }
+    }
 }
 
 #[derive(Default)]
@@ -1010,7 +1019,7 @@ impl ComponentEffects {
         if self
             .registrations
             .iter()
-            .any(|registration| registration.key == key)
+            .any(|registration| registration.key() == &key)
         {
             if self.duplicate.is_none() {
                 self.duplicate = Some(key);
@@ -1023,15 +1032,15 @@ impl ComponentEffects {
             .find(|slot| slot.key == key)
             .and_then(|slot| slot.dependency.downcast_ref::<D>())
             != Some(&dependency);
-        let pending = if changed {
-            Some(PendingEffect {
+        self.registrations.push(if changed {
+            EffectRegistration::Replace {
                 dependency: Box::new(dependency),
+                key,
                 setup: Box::new(setup),
-            })
+            }
         } else {
-            None
-        };
-        self.registrations.push(EffectRegistration { key, pending });
+            EffectRegistration::Retain { key }
+        });
     }
 
     fn finish_view(&self) -> Result<(), ComponentStoreError> {
@@ -1046,8 +1055,10 @@ impl ComponentEffects {
             let cleanup_required = self
                 .registrations
                 .iter()
-                .find(|registration| registration.key == slot.key)
-                .is_none_or(|registration| registration.pending.is_some());
+                .find(|registration| registration.key() == &slot.key)
+                .is_none_or(|registration| {
+                    matches!(registration, EffectRegistration::Replace { .. })
+                });
             if cleanup_required && let Some(cleanup) = slot.cleanup.take() {
                 cleanup();
             }
@@ -1057,18 +1068,20 @@ impl ComponentEffects {
     fn commit(&mut self) {
         let mut published = std::mem::take(&mut self.slots);
         for registration in self.registrations.drain(..) {
-            let slot = if let Some(pending) = registration.pending {
-                EffectSlot {
-                    cleanup: (pending.setup)(),
-                    dependency: pending.dependency,
-                    key: registration.key,
+            let slot = match registration {
+                EffectRegistration::Replace {
+                    dependency,
+                    key,
+                    setup,
+                } => EffectSlot {
+                    cleanup: setup(),
+                    dependency,
+                    key,
+                },
+                EffectRegistration::Retain { key } => {
+                    let index = published.iter().position(|slot| slot.key == key).unwrap();
+                    published.remove(index)
                 }
-            } else {
-                let index = published
-                    .iter()
-                    .position(|slot| slot.key == registration.key)
-                    .unwrap();
-                published.remove(index)
             };
             self.slots.push(slot);
         }

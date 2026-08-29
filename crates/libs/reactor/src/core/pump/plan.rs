@@ -59,6 +59,17 @@ pub(super) struct LocalCandidate {
     pub(super) plan: UpdatePlan,
 }
 
+pub(super) struct ComponentCandidate {
+    pub(super) activate_window: bool,
+    pub(super) changes: ComponentChanges,
+    pub(super) next_version: u64,
+    pub(super) plan: UpdatePlan,
+    pub(super) planning_failure: CandidateFailureStage,
+    pub(super) root: NodeId,
+    pub(super) tree: Tree,
+    pub(super) window: NodeId,
+}
+
 pub(super) enum CandidateState {
     Tree {
         tree: Tree,

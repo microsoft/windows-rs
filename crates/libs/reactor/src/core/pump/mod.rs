@@ -229,37 +229,16 @@ impl<R: NativeRuntime> Pump<R> {
                 return Err(PumpError::StructureUnsupported);
             }
         }
-        if let Err(error) = Self::plan_window_title_bar(window, &self.tree, &candidate, &mut plan) {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
-            return Err(error);
-        }
-        if let Err(error) = Self::plan_window_title(window, &self.tree, &candidate, &mut plan) {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
-            return Err(error);
-        }
-        if let Err(error) = Self::plan_window_visuals(window, &self.tree, &candidate, &mut plan) {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
-            return Err(error);
-        }
-        if let Err(error) =
-            Self::plan_window_observations(window, &self.tree, &candidate, &mut plan)
-        {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
-            return Err(error);
-        }
-        plan.push(Command::ActivateWindow { node: window });
-        Self::plan_host_requests(window, &mut changes.host_requests, &mut plan);
-
-        self.publish_candidate(
-            CandidateState::Tree {
-                tree: candidate,
-                root,
-            },
-            plan,
-            FrontendChanges::Component(changes),
+        self.finalize_component_candidate(ComponentCandidate {
+            activate_window: true,
+            changes,
             next_version,
-            CandidateFailureStage::PlanningDiscard,
-        )?;
+            plan,
+            planning_failure: CandidateFailureStage::PlanningDiscard,
+            root,
+            tree: candidate,
+            window,
+        })?;
         self.application = Some(application);
         self.window = Some(window);
         Ok(())
@@ -654,49 +633,87 @@ impl<R: NativeRuntime> Pump<R> {
         &mut self,
         candidate: Tree,
         candidate_root: NodeId,
-        mut plan: UpdatePlan,
-        mut changes: ComponentChanges,
+        plan: UpdatePlan,
+        changes: ComponentChanges,
         next_version: u64,
     ) -> Result<(), PumpError> {
         let window = self.window.ok_or(PumpError::NotMounted)?;
-        if let Err(error) = Self::plan_window_title_bar(window, &self.tree, &candidate, &mut plan) {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
-            return Err(error);
-        }
-        if let Err(error) = Self::plan_window_title(window, &self.tree, &candidate, &mut plan) {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
-            return Err(error);
-        }
-        if let Err(error) = Self::plan_window_visuals(window, &self.tree, &candidate, &mut plan) {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
-            return Err(error);
-        }
-        if let Err(error) =
-            Self::plan_window_observations(window, &self.tree, &candidate, &mut plan)
-        {
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningRearm);
-            return Err(error);
-        }
-        Self::plan_host_requests(window, &mut changes.host_requests, &mut plan);
         let resolved = changes
             .composed
             .iter()
             .chain(changes.retired.iter())
             .copied()
             .collect::<HashSet<_>>();
-        self.publish_candidate(
-            CandidateState::Tree {
-                tree: candidate,
-                root: candidate_root,
-            },
-            plan,
-            FrontendChanges::Component(changes),
+        self.finalize_component_candidate(ComponentCandidate {
+            activate_window: false,
+            changes,
             next_version,
-            CandidateFailureStage::PlanningRearm,
-        )?;
+            plan,
+            planning_failure: CandidateFailureStage::PlanningRearm,
+            root: candidate_root,
+            tree: candidate,
+            window,
+        })?;
         self.planning_dirty
             .retain(|token| !resolved.contains(token));
         Ok(())
+    }
+
+    fn finalize_component_candidate(
+        &mut self,
+        mut candidate: ComponentCandidate,
+    ) -> Result<(), PumpError> {
+        let planning = (|| {
+            Self::plan_window_title_bar(
+                candidate.window,
+                &self.tree,
+                &candidate.tree,
+                &mut candidate.plan,
+            )?;
+            Self::plan_window_title(
+                candidate.window,
+                &self.tree,
+                &candidate.tree,
+                &mut candidate.plan,
+            )?;
+            Self::plan_window_visuals(
+                candidate.window,
+                &self.tree,
+                &candidate.tree,
+                &mut candidate.plan,
+            )?;
+            Self::plan_window_observations(
+                candidate.window,
+                &self.tree,
+                &candidate.tree,
+                &mut candidate.plan,
+            )?;
+            if candidate.activate_window {
+                candidate.plan.push(Command::ActivateWindow {
+                    node: candidate.window,
+                });
+            }
+            Self::plan_host_requests(
+                candidate.window,
+                &mut candidate.changes.host_requests,
+                &mut candidate.plan,
+            );
+            Ok::<(), PumpError>(())
+        })();
+        if let Err(error) = planning {
+            self.fail_component_candidate(&candidate.changes, candidate.planning_failure);
+            return Err(error);
+        }
+        self.publish_candidate(
+            CandidateState::Tree {
+                tree: candidate.tree,
+                root: candidate.root,
+            },
+            candidate.plan,
+            FrontendChanges::Component(candidate.changes),
+            candidate.next_version,
+            candidate.planning_failure,
+        )
     }
 
     fn plan_host_requests(window: NodeId, requests: &mut Vec<HostRequest>, plan: &mut UpdatePlan) {
