@@ -80,6 +80,21 @@ impl<T: Clone> Arena<T> {
         Ok(id)
     }
 
+    pub(crate) fn next_id(&self) -> Result<NodeId, ArenaError> {
+        if let Some(index) = self.free.last().copied() {
+            let slot = self.slot_index(index as usize).unwrap();
+            Ok(NodeId {
+                index,
+                generation: slot.generation,
+            })
+        } else {
+            Ok(NodeId {
+                index: u32::try_from(self.slots).map_err(|_| ArenaError::CapacityExceeded)?,
+                generation: 0,
+            })
+        }
+    }
+
     pub fn get(&self, id: NodeId) -> Result<&T, ArenaError> {
         let slot = self.slot(id)?;
         slot.value.as_deref().ok_or(ArenaError::Stale(id))
@@ -162,6 +177,20 @@ mod tests {
         assert_eq!(arena.get(first), Err(ArenaError::Stale(first)));
         assert_eq!(arena.get(second), Ok(&"second"));
         assert_eq!(arena.len(), 1);
+    }
+
+    #[test]
+    fn next_id_predicts_new_and_reused_slots() {
+        let mut arena = Arena::new();
+
+        let predicted = arena.next_id().unwrap();
+        let first = arena.insert("first").unwrap();
+        assert_eq!(predicted, first);
+
+        assert_eq!(arena.remove(first), Ok("first"));
+        let predicted = arena.next_id().unwrap();
+        let second = arena.insert("second").unwrap();
+        assert_eq!(predicted, second);
     }
 
     #[test]

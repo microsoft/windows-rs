@@ -23,24 +23,29 @@ impl Rng {
 #[test]
 #[cfg(target_pointer_width = "64")]
 fn generated_control_growth_preserves_core_layouts() {
-    assert_eq!(size_of::<Node>(), 376);
+    assert_eq!(size_of::<Node>(), 336);
     assert_eq!(size_of::<MountedProps>(), 16);
     assert_eq!(size_of::<Element>(), 16);
 }
 
 #[test]
 fn retires_children_before_parent() {
+    struct Component;
+
+    let mut scopes = ScopeArena::new();
+    let scope = scopes.reserve(Component).unwrap();
     let mut tree = Tree::new();
     let root = tree.insert(None, NodeKind::Application).unwrap();
     let window = tree.insert(Some(root), NodeKind::Window).unwrap();
-    let component = tree.insert(Some(window), NodeKind::Component).unwrap();
+    let component = tree
+        .insert_component(Some(window), None, scope, TypeId::of::<Component>())
+        .unwrap();
     let slot = tree.insert(Some(component), NodeKind::Slot).unwrap();
+    let parts = Element::from(TextBlock::new()).into_parts();
     let native = tree
-        .insert(Some(slot), NodeKind::Native(MountedKind::TextBlock))
+        .insert_native(Some(slot), parts.kind, None, parts.props, None)
         .unwrap();
-    let collection = tree
-        .insert(Some(window), NodeKind::VirtualCollection)
-        .unwrap();
+    let collection = tree.insert_virtual(identity(), Some(window), []).unwrap();
 
     assert_eq!(tree.parent(native), Ok(Some(slot)));
     assert_eq!(tree.children(root), Ok(&[window][..]));
@@ -109,6 +114,54 @@ fn rejects_second_root() {
 }
 
 #[test]
+fn generic_insert_rejects_payload_bearing_kinds() {
+    let mut tree = Tree::new();
+
+    assert_eq!(
+        tree.insert(None, NodeKind::Component),
+        Err(TreeError::IncompleteNode(NodeKind::Component))
+    );
+    assert_eq!(
+        tree.insert(None, NodeKind::Native(MountedKind::Button)),
+        Err(TreeError::IncompleteNode(NodeKind::Native(
+            MountedKind::Button
+        )))
+    );
+    assert_eq!(
+        tree.insert(None, NodeKind::VirtualCollection),
+        Err(TreeError::IncompleteNode(NodeKind::VirtualCollection))
+    );
+    assert_eq!(
+        tree.insert(None, NodeKind::Provider),
+        Err(TreeError::IncompleteNode(NodeKind::Provider))
+    );
+}
+
+#[test]
+fn set_kind_preserves_kind_specific_state() {
+    struct Component;
+
+    let mut scopes = ScopeArena::new();
+    let scope = scopes.reserve(Component).unwrap();
+    let mut tree = Tree::new();
+    let root = tree.insert(None, NodeKind::Application).unwrap();
+    let component = tree
+        .insert_component(Some(root), None, scope, TypeId::of::<Component>())
+        .unwrap();
+
+    assert_eq!(tree.set_kind(component, NodeKind::Component), Ok(()));
+    assert_eq!(
+        tree.set_kind(component, NodeKind::Fragment),
+        Err(TreeError::KindMismatch {
+            current: NodeKind::Component,
+            requested: NodeKind::Fragment,
+        })
+    );
+    assert_eq!(tree.component_node(scope), Ok(Some(component)));
+    assert_eq!(tree.component_scope(component), Ok(scope));
+}
+
+#[test]
 fn virtual_model_uses_its_arena_identity_for_leases() {
     let mut tree = Tree::new();
     let application = tree.insert(None, NodeKind::Application).unwrap();
@@ -137,11 +190,25 @@ fn realized_container_mapping_cannot_be_overwritten() {
     let collection = tree
         .insert_virtual(identity(), Some(application), [Key::from("a")])
         .unwrap();
+    let first_parts = Element::from(TextBlock::new()).into_parts();
     let first = tree
-        .insert(Some(collection), NodeKind::Native(MountedKind::TextBlock))
+        .insert_native(
+            Some(collection),
+            first_parts.kind,
+            None,
+            first_parts.props,
+            None,
+        )
         .unwrap();
+    let second_parts = Element::from(Button::new()).into_parts();
     let second = tree
-        .insert(Some(collection), NodeKind::Native(MountedKind::Button))
+        .insert_native(
+            Some(collection),
+            second_parts.kind,
+            None,
+            second_parts.props,
+            None,
+        )
         .unwrap();
     let container = RealizedContainer(1);
 
@@ -161,8 +228,9 @@ fn detached_realized_row_remains_addressable_by_logical_root() {
         .insert_virtual(identity(), None, [Key::from("row")])
         .unwrap();
     let logical = tree.insert(Some(collection), NodeKind::Fragment).unwrap();
+    let parts = Element::from(TextBlock::new()).into_parts();
     let native = tree
-        .insert(Some(logical), NodeKind::Native(MountedKind::TextBlock))
+        .insert_native(Some(logical), parts.kind, None, parts.props, None)
         .unwrap();
     let container = RealizedContainer(1);
 
