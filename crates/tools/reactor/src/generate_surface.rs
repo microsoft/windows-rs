@@ -230,7 +230,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                     .map(|selection| selection.item.as_str())
                     .or_else(|| slot.item_controls.first().map(String::as_str))
                     .or_else(|| {
-                        slot.collection_item.as_deref().and_then(|item| {
+                        slot.shape.collection_item().and_then(|item| {
                             schema
                                 .controls
                                 .iter()
@@ -245,31 +245,31 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
                         quote! { #item::new().width(80.0) },
                     )
                 } else {
-                    let target = match slot.shape {
-                        SlotShape::Single(target) => target,
-                        SlotShape::Collection => SlotTarget::UiElement,
+                    let target = match &slot.shape {
+                        SlotShape::Single(target) => *target,
+                        SlotShape::Collection(_) => SlotTarget::UiElement,
                     };
                     (
                         structural_child(target, "surface a", false),
                         structural_child(target, "surface b", true),
                     )
                 };
-                let initial = match slot.shape {
+                let initial = match &slot.shape {
                     SlotShape::Single(_) => quote! {
                         #control_name::new().slot(#slot_type::#slot_name, #initial_child)
                     },
-                    SlotShape::Collection => quote! {
+                    SlotShape::Collection(_) => quote! {
                         #control_name::new().collection_slot(
                             #slot_type::#slot_name,
                             [KeyedView::new("surface", #initial_child)],
                         )
                     },
                 };
-                let alternate = match slot.shape {
+                let alternate = match &slot.shape {
                     SlotShape::Single(_) => quote! {
                         #control_name::new().slot(#slot_type::#slot_name, #alternate_child)
                     },
-                    SlotShape::Collection => quote! {
+                    SlotShape::Collection(_) => quote! {
                         #control_name::new().collection_slot(
                             #slot_type::#slot_name,
                             [KeyedView::new("surface", #alternate_child)],

@@ -653,7 +653,7 @@ impl<R: NativeRuntime> Pump<R> {
             for queued in consumed.into_iter().rev() {
                 self.realizations.push_front(queued);
             }
-            self.fail_component_candidate(&changes, CandidateFailureStage::PlanningDiscard);
+            self.fail_component_candidate(&changes, PlanningFailure::Discard);
             return Err(error);
         }
         let has_work = !plan.commands.is_empty()
@@ -696,7 +696,7 @@ impl<R: NativeRuntime> Pump<R> {
             changes,
             next_version: self.version,
             plan,
-            planning_failure: CandidateFailureStage::PlanningDiscard,
+            planning_failure: PlanningFailure::Discard,
             root,
             tree: candidate,
             window,

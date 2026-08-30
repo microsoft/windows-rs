@@ -1,31 +1,6 @@
 use super::*;
 use crate::GridLength as ReactorGridLength;
 
-pub(super) fn is_attached(property: PropertyId) -> bool {
-    matches!(
-        property,
-        PropertyId::GridRow
-            | PropertyId::GridColumn
-            | PropertyId::GridRowSpan
-            | PropertyId::GridColumnSpan
-            | PropertyId::RelativeAlignLeft
-            | PropertyId::RelativeAlignTop
-            | PropertyId::RelativeAlignRight
-            | PropertyId::RelativeAlignBottom
-            | PropertyId::RelativeAlignHorizontalCenter
-            | PropertyId::RelativeAlignVerticalCenter
-            | PropertyId::CanvasLeft
-            | PropertyId::CanvasTop
-            | PropertyId::AutomationName
-            | PropertyId::AutomationId
-            | PropertyId::AutomationHeadingLevel
-    )
-}
-
-pub(super) fn is_definitions(property: PropertyId) -> bool {
-    matches!(property, PropertyId::GridRows | PropertyId::GridColumns)
-}
-
 pub(super) fn set_attached(
     element: &UIElement,
     property: PropertyId,

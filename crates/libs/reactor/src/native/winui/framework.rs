@@ -4,22 +4,6 @@ use crate::{
     VerticalAlignment as ReactorVerticalAlignment,
 };
 
-pub(super) fn is_common(property: PropertyId) -> bool {
-    matches!(
-        property,
-        PropertyId::Width
-            | PropertyId::Height
-            | PropertyId::MinWidth
-            | PropertyId::MaxWidth
-            | PropertyId::MinHeight
-            | PropertyId::MaxHeight
-            | PropertyId::Opacity
-            | PropertyId::HorizontalAlignment
-            | PropertyId::VerticalAlignment
-            | PropertyId::Margin
-    )
-}
-
 pub(super) fn set(
     element: &UIElement,
     property: PropertyId,

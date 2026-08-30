@@ -45,6 +45,27 @@ struct ChildListTarget {
     slot: Option<SlotId>,
 }
 
+struct KeyedChildReconciliation {
+    old_keys: Vec<Key>,
+    new_keys: Vec<Key>,
+    operations: Vec<KeyedOperation<Key>>,
+    nodes: HashMap<Key, NodeId>,
+}
+
+impl KeyedChildReconciliation {
+    fn order(&self) -> Result<Vec<NodeId>, PumpError> {
+        self.new_keys
+            .iter()
+            .map(|key| {
+                self.nodes
+                    .get(key)
+                    .copied()
+                    .ok_or(PumpError::StructureUnsupported)
+            })
+            .collect()
+    }
+}
+
 impl<R: NativeRuntime> Pump<R> {
     pub(in super::super) fn reconcile_planned_view(
         tree: &mut Tree,
@@ -670,35 +691,11 @@ impl<R: NativeRuntime> Pump<R> {
         if target.slot.is_some() && requires_sync {
             return Err(PumpError::StructureUnsupported);
         }
-        let old_keys = current
-            .iter()
-            .map(|child| {
-                tree.key(*child)?
-                    .cloned()
-                    .ok_or(PumpError::StructureUnsupported)
-            })
-            .collect::<Result<Vec<_>, PumpError>>()?;
-        let new_keys = desired
-            .iter()
-            .map(|child| child.key().clone())
-            .collect::<Vec<_>>();
-        let operations = diff(&old_keys, &new_keys)
-            .map_err(|KeyedError::DuplicateKey(key)| PumpError::DuplicateKey(key))?;
-        let new_key_set = new_keys.iter().cloned().collect::<HashSet<_>>();
-        let mut nodes = old_keys
-            .iter()
-            .cloned()
-            .zip(current.iter().copied())
-            .collect::<HashMap<_, _>>();
-
-        for (key, child) in old_keys.iter().zip(current.iter().copied()) {
-            if !new_key_set.contains(key) {
-                Self::collect_retired_components(tree, child, components, changes)?;
-                Self::retire_planned_subtree(tree, child, plan)?;
-            }
-        }
+        let mut reconciliation = Self::begin_keyed_child_reconciliation(
+            tree, current, desired, components, changes, plan,
+        )?;
         for child in desired {
-            if let Some(child_node) = nodes.get(child.key()).copied() {
+            if let Some(child_node) = reconciliation.nodes.get(child.key()).copied() {
                 let old_roots = Self::native_roots(tree, child_node)?;
                 let reconciled = Self::reconcile_planned_view(
                     tree,
@@ -715,12 +712,12 @@ impl<R: NativeRuntime> Pump<R> {
                 }
                 requires_sync |= invalid_roots;
                 if reconciled != child_node {
-                    nodes.insert(child.key().clone(), reconciled);
+                    reconciliation.nodes.insert(child.key().clone(), reconciled);
                 }
             }
         }
         for child in desired {
-            if !nodes.contains_key(child.key()) {
+            if !reconciliation.nodes.contains_key(child.key()) {
                 let (child_node, native) = Self::mount_planned_view(
                     tree,
                     Some(target.logical_parent),
@@ -734,22 +731,13 @@ impl<R: NativeRuntime> Pump<R> {
                     return Err(PumpError::StructureUnsupported);
                 }
                 requires_sync |= native.len() != 1;
-                nodes.insert(child.key().clone(), child_node);
+                reconciliation.nodes.insert(child.key().clone(), child_node);
             }
         }
 
-        let order = new_keys
-            .iter()
-            .map(|key| {
-                nodes
-                    .get(key)
-                    .copied()
-                    .ok_or(PumpError::StructureUnsupported)
-            })
-            .collect::<Result<Vec<_>, _>>()?;
-        tree.set_children(target.logical_parent, order)?;
+        tree.set_children(target.logical_parent, reconciliation.order()?)?;
         let new_native = Self::native_children(tree, target.logical_parent)?;
-        let dense = super::is_dense_keyed_update(&operations);
+        let dense = super::is_dense_keyed_update(&reconciliation.operations);
         if (requires_sync || dense) && old_native != new_native {
             plan.synchronize_children(target.native_parent, target.slot, new_native);
         } else if !requires_sync {
@@ -757,9 +745,9 @@ impl<R: NativeRuntime> Pump<R> {
                 tree,
                 target.native_parent,
                 target.slot,
-                old_keys,
-                operations,
-                &nodes,
+                reconciliation.old_keys,
+                reconciliation.operations,
+                &reconciliation.nodes,
                 plan,
             )?;
         }
@@ -1157,6 +1145,49 @@ impl<R: NativeRuntime> Pump<R> {
         Ok(node)
     }
 
+    fn begin_keyed_child_reconciliation(
+        tree: &mut Tree,
+        current: Vec<NodeId>,
+        desired: &[KeyedView],
+        components: &mut ComponentStore,
+        changes: &mut ComponentChanges,
+        plan: &mut UpdatePlan,
+    ) -> Result<KeyedChildReconciliation, PumpError> {
+        let old_keys = current
+            .iter()
+            .map(|child| {
+                tree.key(*child)?
+                    .cloned()
+                    .ok_or(PumpError::StructureUnsupported)
+            })
+            .collect::<Result<Vec<_>, PumpError>>()?;
+        let new_keys = desired
+            .iter()
+            .map(|child| child.key().clone())
+            .collect::<Vec<_>>();
+        let operations = diff(&old_keys, &new_keys)
+            .map_err(|KeyedError::DuplicateKey(key)| PumpError::DuplicateKey(key))?;
+        let new_key_set = new_keys.iter().cloned().collect::<HashSet<_>>();
+        let nodes = old_keys
+            .iter()
+            .cloned()
+            .zip(current.iter().copied())
+            .collect::<HashMap<_, _>>();
+
+        for (key, child) in old_keys.iter().zip(current) {
+            if !new_key_set.contains(key) {
+                Self::collect_retired_components(tree, child, components, changes)?;
+                Self::retire_planned_subtree(tree, child, plan)?;
+            }
+        }
+        Ok(KeyedChildReconciliation {
+            old_keys,
+            new_keys,
+            operations,
+            nodes,
+        })
+    }
+
     fn reconcile_fragment(
         tree: &mut Tree,
         node: NodeId,
@@ -1167,36 +1198,11 @@ impl<R: NativeRuntime> Pump<R> {
     ) -> Result<(), PumpError> {
         let old_native = Self::native_roots(tree, node)?;
         let current = tree.children(node)?.to_vec();
-        let old_keys = current
-            .iter()
-            .map(|child| {
-                tree.key(*child)?
-                    .cloned()
-                    .ok_or(PumpError::StructureUnsupported)
-            })
-            .collect::<Result<Vec<_>, PumpError>>()?;
-        let new_keys = children
-            .iter()
-            .map(|child| child.key().clone())
-            .collect::<Vec<_>>();
-        diff(&old_keys, &new_keys)
-            .map_err(|KeyedError::DuplicateKey(key)| PumpError::DuplicateKey(key))?;
-
-        let new_key_set = new_keys.iter().cloned().collect::<HashSet<_>>();
-        let mut nodes = old_keys
-            .iter()
-            .cloned()
-            .zip(current.iter().copied())
-            .collect::<HashMap<_, _>>();
-        for (key, child) in old_keys.iter().zip(current) {
-            if !new_key_set.contains(key) {
-                Self::collect_retired_components(tree, child, components, changes)?;
-                Self::retire_planned_subtree(tree, child, plan)?;
-            }
-        }
-        let mut order = Vec::with_capacity(children.len());
+        let mut reconciliation = Self::begin_keyed_child_reconciliation(
+            tree, current, children, components, changes, plan,
+        )?;
         for child in children {
-            let child_node = if let Some(child_node) = nodes.get(child.key()).copied() {
+            if let Some(child_node) = reconciliation.nodes.get(child.key()).copied() {
                 let reconciled = Self::reconcile_planned_view(
                     tree,
                     child_node,
@@ -1205,8 +1211,7 @@ impl<R: NativeRuntime> Pump<R> {
                     changes,
                     plan,
                 )?;
-                nodes.insert(child.key().clone(), reconciled);
-                reconciled
+                reconciliation.nodes.insert(child.key().clone(), reconciled);
             } else {
                 let mounted = Self::mount_planned_view(
                     tree,
@@ -1218,12 +1223,10 @@ impl<R: NativeRuntime> Pump<R> {
                     plan,
                 )?
                 .0;
-                nodes.insert(child.key().clone(), mounted);
-                mounted
-            };
-            order.push(child_node);
+                reconciliation.nodes.insert(child.key().clone(), mounted);
+            }
         }
-        tree.set_children(node, order)?;
+        tree.set_children(node, reconciliation.order()?)?;
 
         let new_native = Self::native_roots(tree, node)?;
         if old_native != new_native {

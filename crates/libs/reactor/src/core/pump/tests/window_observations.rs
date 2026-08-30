@@ -224,6 +224,32 @@ fn duplicate_host_observation_is_rejected() {
     );
 }
 
+struct DuplicateColorSchemeObservation;
+
+impl Component for DuplicateColorSchemeObservation {
+    type Message = ();
+    type Input = ();
+
+    fn create(_input: &(), _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, _input: &(), context: &mut ViewContext<Self>) -> View {
+        context.on_color_scheme(|_| ());
+        context.on_color_scheme(|_| ());
+        View::empty()
+    }
+}
+
+#[test]
+fn duplicate_color_scheme_observation_is_rejected() {
+    let mut pump = Pump::new(RecordingRuntime::default());
+    assert_eq!(
+        pump.mount_view(View::component::<DuplicateColorSchemeObservation>(())),
+        Err(PumpError::DuplicateColorSchemeObservation)
+    );
+}
+
 struct ObservationChild;
 
 impl Component for ObservationChild {

@@ -52,6 +52,14 @@ pub enum ParamClass {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
+pub enum CollectionType {
+    InspectableVector,
+    ItemCollection,
+    TypedVector(String),
+    ObservableVector(String),
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ReadValueConversion {
     Identity,
     Field(String),
@@ -702,57 +710,34 @@ impl MetadataResolver {
         Some(format!("{}.{}", name.namespace, name.name))
     }
 
-    pub fn returns_inspectable_vector(&self, class_name: &str, method_name: &str) -> bool {
-        let Some(mref) = self
-            .lookup
-            .get(&(class_name.to_string(), method_name.to_string()))
-        else {
-            return false;
-        };
-        matches!(
-            &mref.return_type,
-            Type::ClassName(name)
-                if name.namespace == "Windows.Foundation.Collections"
-                    && name.name == "IVector`1"
-                    && name.generics.as_slice() == [Type::Object]
-        )
-    }
-
-    pub fn return_vector_element_class_name(
+    pub fn classify_collection(
         &self,
         class_name: &str,
         method_name: &str,
-    ) -> Option<String> {
+    ) -> Option<CollectionType> {
         let method = self
             .lookup
             .get(&(class_name.to_string(), method_name.to_string()))?;
-        let Type::ClassName(vector) = &method.return_type else {
+        let Type::ClassName(name) = &method.return_type else {
             return None;
         };
-        if vector.namespace != "Windows.Foundation.Collections"
-            || !matches!(vector.name.as_str(), "IVector`1" | "IObservableVector`1")
-        {
+        if name.namespace == "Microsoft.UI.Xaml.Controls" && name.name == "ItemCollection" {
+            return Some(CollectionType::ItemCollection);
+        }
+        if name.namespace != "Windows.Foundation.Collections" {
             return None;
         }
-        let Type::ClassName(element) = vector.generics.first()? else {
-            return None;
-        };
-        Some(format!("{}.{}", element.namespace, element.name))
-    }
-
-    pub fn returns_observable_vector(&self, class_name: &str, method_name: &str) -> bool {
-        let Some(method) = self
-            .lookup
-            .get(&(class_name.to_string(), method_name.to_string()))
-        else {
-            return false;
-        };
-        matches!(
-            &method.return_type,
-            Type::ClassName(name)
-                if name.namespace == "Windows.Foundation.Collections"
-                    && name.name == "IObservableVector`1"
-        )
+        match (name.name.as_str(), name.generics.first()?) {
+            ("IVector`1", Type::Object) => Some(CollectionType::InspectableVector),
+            ("IVector`1", Type::ClassName(item)) => Some(CollectionType::TypedVector(format!(
+                "{}.{}",
+                item.namespace, item.name
+            ))),
+            ("IObservableVector`1", Type::ClassName(item)) => Some(
+                CollectionType::ObservableVector(format!("{}.{}", item.namespace, item.name)),
+            ),
+            _ => None,
+        }
     }
 
     pub fn returns_object(&self, class_name: &str, method_name: &str) -> bool {
@@ -826,17 +811,24 @@ mod tests {
         let resolver = MetadataResolver::load(Path::new("winmd"));
 
         assert_eq!(
-            resolver
-                .return_class_name("ListBox", "get_Items")
-                .as_deref(),
-            Some("Microsoft.UI.Xaml.Controls.ItemCollection")
+            resolver.classify_collection("ListBox", "get_Items"),
+            Some(CollectionType::ItemCollection)
         );
-        assert!(resolver.returns_inspectable_vector("NavigationView", "get_MenuItems"));
         assert_eq!(
-            resolver
-                .return_vector_element_class_name("SelectorBar", "get_Items")
-                .as_deref(),
-            Some("Microsoft.UI.Xaml.Controls.SelectorBarItem")
+            resolver.classify_collection("NavigationView", "get_MenuItems"),
+            Some(CollectionType::InspectableVector)
+        );
+        assert_eq!(
+            resolver.classify_collection("SelectorBar", "get_Items"),
+            Some(CollectionType::TypedVector(
+                "Microsoft.UI.Xaml.Controls.SelectorBarItem".to_string()
+            ))
+        );
+        assert_eq!(
+            resolver.classify_collection("CommandBar", "get_PrimaryCommands"),
+            Some(CollectionType::ObservableVector(
+                "Microsoft.UI.Xaml.Controls.ICommandBarElement".to_string()
+            ))
         );
     }
 

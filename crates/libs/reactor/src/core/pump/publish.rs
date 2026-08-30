@@ -11,33 +11,25 @@ impl<R: NativeRuntime> Pump<R> {
     pub(super) fn fail_component_candidate(
         &mut self,
         changes: &ComponentChanges,
-        stage: CandidateFailureStage,
+        failure: PlanningFailure,
     ) {
-        if matches!(stage, CandidateFailureStage::PlanningRearm) {
+        if matches!(failure, PlanningFailure::Rearm) {
             self.planning_dirty.extend(changes.touched.iter().copied());
         }
         Self::remove_reservations(&mut self.components, &changes.reserved);
-        if matches!(
-            stage,
-            CandidateFailureStage::EffectPreparation
-                | CandidateFailureStage::NativeApply
-                | CandidateFailureStage::Publication
-        ) {
-            self.fail_stop();
+    }
+
+    fn fail_frontend_planning(&mut self, changes: &FrontendChanges, failure: PlanningFailure) {
+        if let FrontendChanges::Component(changes) = changes {
+            self.fail_component_candidate(changes, failure);
         }
     }
 
-    fn fail_frontend_candidate(&mut self, changes: &FrontendChanges, stage: CandidateFailureStage) {
+    pub(super) fn abort_frontend_candidate(&mut self, changes: &FrontendChanges) {
         if let FrontendChanges::Component(changes) = changes {
-            self.fail_component_candidate(changes, stage);
-        } else if matches!(
-            stage,
-            CandidateFailureStage::EffectPreparation
-                | CandidateFailureStage::NativeApply
-                | CandidateFailureStage::Publication
-        ) {
-            self.fail_stop();
+            Self::remove_reservations(&mut self.components, &changes.reserved);
         }
+        self.fail_stop();
     }
 
     pub(super) fn apply_native_commands(&mut self, commands: &[Command]) -> Result<(), PumpError> {
@@ -68,7 +60,7 @@ impl<R: NativeRuntime> Pump<R> {
         plan: UpdatePlan,
         mut changes: FrontendChanges,
         next_version: u64,
-        planning_failure: CandidateFailureStage,
+        planning_failure: PlanningFailure,
     ) -> Result<(), PumpError> {
         let commits_window_close = plan
             .post_publish_commands
@@ -76,7 +68,7 @@ impl<R: NativeRuntime> Pump<R> {
             .any(|command| matches!(command, Command::CloseWindow { .. }));
         if let Err(error) = self.validate_candidate_references(&candidate, &plan.reference_commits)
         {
-            self.fail_frontend_candidate(&changes, planning_failure);
+            self.fail_frontend_planning(&changes, planning_failure);
             return Err(error);
         }
         let prepared = match &mut changes {
@@ -88,27 +80,27 @@ impl<R: NativeRuntime> Pump<R> {
             FrontendChanges::Element(_) => Ok(()),
         };
         if let Err(error) = prepared {
-            self.fail_frontend_candidate(&changes, CandidateFailureStage::EffectPreparation);
+            self.abort_frontend_candidate(&changes);
             return Err(error);
         }
 
         if let Err(error) = self.apply_native_commands(&plan.commands) {
-            self.fail_frontend_candidate(&changes, CandidateFailureStage::NativeApply);
+            self.abort_frontend_candidate(&changes);
             return Err(error);
         }
 
         if let Err(error) = self.commit_candidate_properties(&mut candidate, &plan.commits) {
-            self.fail_frontend_candidate(&changes, CandidateFailureStage::Publication);
+            self.abort_frontend_candidate(&changes);
             return Err(error);
         }
         if let Err(error) =
             self.commit_candidate_references(&mut candidate, &plan.reference_commits)
         {
-            self.fail_frontend_candidate(&changes, CandidateFailureStage::Publication);
+            self.abort_frontend_candidate(&changes);
             return Err(error);
         }
         if let Err(error) = self.publish_frontend(candidate, &changes, &plan.reference_commits) {
-            self.fail_frontend_candidate(&changes, CandidateFailureStage::Publication);
+            self.abort_frontend_candidate(&changes);
             return Err(error);
         }
         self.diagnostics.extend(plan.diagnostics);

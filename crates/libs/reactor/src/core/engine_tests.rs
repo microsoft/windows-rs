@@ -8,6 +8,31 @@ fn identity() -> WindowToken {
 }
 use std::collections::{HashMap, HashSet};
 
+#[test]
+fn observation_slot_preserves_and_advances_revisions() {
+    let first = Callback::new(|_: ()| {});
+    let second = Callback::new(|_: ()| {});
+    let mut slot = ObservationSlot::default();
+
+    assert!(slot.get().is_none());
+    slot.set(Some(first.clone()));
+    assert_eq!(slot.get(), Some((&first, 1)));
+    slot.set(Some(first.clone()));
+    assert_eq!(slot.get(), Some((&first, 1)));
+    slot.set(Some(second.clone()));
+    assert_eq!(slot.get(), Some((&second, 2)));
+    slot.set(None);
+    assert!(slot.get().is_none());
+    assert_eq!(slot.revision, 2);
+    slot.set(None);
+    assert_eq!(slot.revision, 2);
+    slot.set(Some(second.clone()));
+    assert_eq!(slot.get(), Some((&second, 3)));
+    slot.revision = u32::MAX;
+    slot.set(Some(first.clone()));
+    assert_eq!(slot.get(), Some((&first, 0)));
+}
+
 struct Rng(u64);
 
 impl Rng {
@@ -100,6 +125,68 @@ fn candidate_tree_clones_component_identity_without_component_state() {
         Ok(TypeId::of::<State>())
     );
     assert_eq!(scopes.get(scope).unwrap().value, 2);
+}
+
+#[test]
+fn candidate_tree_clones_owned_node_payloads_on_write() {
+    let mut tree = Tree::new();
+    let root = tree.insert(None, NodeKind::Application).unwrap();
+    let menu = Menu::new([MenuItem::item("old", "Old")], |_| {});
+    let menu_callback = menu.on_click.clone();
+    let menu_node = tree
+        .insert_menu(Some(root), None, OwnedMenuKind::ButtonFlyout, menu)
+        .unwrap();
+    let flyout = CommandBarFlyout::new([CommandBarCommand::button("old", "Old")], [], |_| {});
+    let flyout_callback = flyout.on_click.clone();
+    let flyout_node = tree
+        .insert_command_bar_flyout(Some(root), None, flyout)
+        .unwrap();
+    let tree_node = tree
+        .insert_tree_nodes(Some(root), None, Rc::new(vec![TreeNode::new("old", "Old")]))
+        .unwrap();
+
+    let mut candidate = tree.clone();
+    candidate
+        .update_menu(menu_node, Menu::new([MenuItem::item("new", "New")], |_| {}))
+        .unwrap();
+    candidate
+        .update_command_bar_flyout(
+            flyout_node,
+            CommandBarFlyout::new([CommandBarCommand::button("new", "New")], [], |_| {}),
+        )
+        .unwrap();
+    candidate
+        .update_tree_nodes(tree_node, Rc::new(vec![TreeNode::new("new", "New")]))
+        .unwrap();
+
+    assert_eq!(tree.owned_revision(menu_node), Ok(1));
+    assert_eq!(tree.owned_revision(flyout_node), Ok(1));
+    assert_eq!(tree.owned_callback(menu_node), Ok(&menu_callback));
+    assert_eq!(tree.owned_callback(flyout_node), Ok(&flyout_callback));
+    assert_eq!(
+        tree.owned_menu(menu_node).unwrap()[0].key(),
+        &Key::from("old")
+    );
+    assert_eq!(
+        tree.owned_commands(flyout_node).unwrap().0[0].key(),
+        &Key::from("old")
+    );
+    assert_eq!(tree.tree_nodes(tree_node).unwrap()[0].key, Key::from("old"));
+
+    assert_eq!(candidate.owned_revision(menu_node), Ok(2));
+    assert_eq!(candidate.owned_revision(flyout_node), Ok(2));
+    assert_eq!(
+        candidate.owned_menu(menu_node).unwrap()[0].key(),
+        &Key::from("new")
+    );
+    assert_eq!(
+        candidate.owned_commands(flyout_node).unwrap().0[0].key(),
+        &Key::from("new")
+    );
+    assert_eq!(
+        candidate.tree_nodes(tree_node).unwrap()[0].key,
+        Key::from("new")
+    );
 }
 
 #[test]

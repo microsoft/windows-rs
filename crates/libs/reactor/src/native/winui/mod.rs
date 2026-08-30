@@ -58,6 +58,79 @@ pub use generated::*;
 mod framework;
 mod grid;
 
+enum PropertyTarget<'a> {
+    Framework(UIElement),
+    Attached(UIElement),
+    GridDefinitions(&'a Handle),
+    Generated(&'a Handle),
+}
+
+impl<'a> PropertyTarget<'a> {
+    fn resolve(
+        runtime: &'a WinUiRuntime,
+        node: NodeId,
+        property: PropertyId,
+    ) -> Result<Self, RuntimeError> {
+        Ok(match property {
+            PropertyId::Width
+            | PropertyId::Height
+            | PropertyId::MinWidth
+            | PropertyId::MaxWidth
+            | PropertyId::MinHeight
+            | PropertyId::MaxHeight
+            | PropertyId::Opacity
+            | PropertyId::HorizontalAlignment
+            | PropertyId::VerticalAlignment
+            | PropertyId::Margin => Self::Framework(runtime.ui_element(node)?),
+            PropertyId::GridRow
+            | PropertyId::GridColumn
+            | PropertyId::GridRowSpan
+            | PropertyId::GridColumnSpan
+            | PropertyId::RelativeAlignLeft
+            | PropertyId::RelativeAlignTop
+            | PropertyId::RelativeAlignRight
+            | PropertyId::RelativeAlignBottom
+            | PropertyId::RelativeAlignHorizontalCenter
+            | PropertyId::RelativeAlignVerticalCenter
+            | PropertyId::CanvasLeft
+            | PropertyId::CanvasTop
+            | PropertyId::AutomationName
+            | PropertyId::AutomationId
+            | PropertyId::AutomationHeadingLevel => Self::Attached(runtime.ui_element(node)?),
+            PropertyId::GridRows | PropertyId::GridColumns => Self::GridDefinitions(
+                runtime
+                    .handles
+                    .get(&node)
+                    .ok_or(RuntimeError::MissingNode(node))?,
+            ),
+            _ => Self::Generated(
+                runtime
+                    .handles
+                    .get(&node)
+                    .ok_or(RuntimeError::MissingNode(node))?,
+            ),
+        })
+    }
+
+    fn set(&self, property: PropertyId, value: &PropertyValue) -> Result<(), RuntimeError> {
+        match self {
+            Self::Framework(element) => framework::set(element, property, value),
+            Self::Attached(element) => grid::set_attached(element, property, value),
+            Self::GridDefinitions(handle) => grid::set_definitions(handle, property, value),
+            Self::Generated(handle) => set_property(handle, property, value),
+        }
+    }
+
+    fn clear(&self, property: PropertyId) -> Result<(), RuntimeError> {
+        match self {
+            Self::Framework(element) => framework::clear(element, property),
+            Self::Attached(element) => grid::clear_attached(element, property),
+            Self::GridDefinitions(handle) => grid::clear_definitions(handle, property),
+            Self::Generated(handle) => clear_property(handle, property),
+        }
+    }
+}
+
 pub enum NativeSubscription {
     Event {
         _revoker: windows_core::EventRevoker,
@@ -102,7 +175,6 @@ pub struct WinUiRuntime {
     pointer_capture: Rc<RefCell<HashMap<NodeId, bool>>>,
     resource_override_keys: HashMap<NodeId, HashSet<String>>,
     command_bar_flyouts: HashMap<NodeId, NativeCommandBarFlyout>,
-    composition_host_subscriptions: HashMap<(NodeId, u64), CompositionHostSubscriptions>,
     identity: Rc<Cell<Option<WindowToken>>>,
     selection_items: Rc<RefCell<Vec<(NodeId, windows_core::IInspectable)>>>,
     selection_owners: HashMap<NodeId, (NodeId, SlotId)>,
@@ -110,8 +182,7 @@ pub struct WinUiRuntime {
     retained_subtrees: HashMap<NodeId, NativeRetainedSubtree>,
     scheduler: Rc<RefCell<SchedulerState>>,
     image_decode_tickets: HashMap<NodeId, u64>,
-    image_scale_subscriptions: HashMap<(NodeId, u64), XamlRootScaleSubscriptions>,
-    swap_chain_panel_subscriptions: HashMap<(NodeId, u64), SwapChainPanelSubscriptions>,
+    observation_subscriptions: HashMap<(NodeId, u64), ObservationSubscription>,
     subscriptions: HashMap<(NodeId, EventId), NativeSubscription>,
     theme_styles: HashMap<(MountedKind, ThemeStyle), Style>,
     virtuals: HashMap<NodeId, element_factory::VirtualHandle>,
@@ -150,20 +221,24 @@ fn complete_webview_initialization(
     }
 }
 
-struct SwapChainPanelSubscriptions {
-    _rendering: windows_core::EventRevoker,
-    _scale: windows_core::EventRevoker,
-    _size: windows_core::EventRevoker,
-}
-
 struct XamlRootScaleSubscriptions {
     _changed: Rc<RefCell<Option<windows_core::EventRevoker>>>,
     _loaded: windows_core::EventRevoker,
 }
 
-struct CompositionHostSubscriptions {
-    _root: XamlRootScaleSubscriptions,
-    _size: windows_core::EventRevoker,
+enum ObservationSubscription {
+    SwapChainPanel {
+        _rendering: windows_core::EventRevoker,
+        _scale: windows_core::EventRevoker,
+        _size: windows_core::EventRevoker,
+    },
+    ImageScale {
+        _root: XamlRootScaleSubscriptions,
+    },
+    CompositionHost {
+        _root: XamlRootScaleSubscriptions,
+        _size: windows_core::EventRevoker,
+    },
 }
 
 struct NativeRetainedSubtree {
@@ -1607,9 +1682,9 @@ impl WinUiRuntime {
                     invoke_callback(&rendering_callback, SwapChainPanelEvent::Rendering);
                 })
                 .map_err(native_error)?;
-                self.swap_chain_panel_subscriptions.insert(
+                self.observation_subscriptions.insert(
                     (*node, *observation),
-                    SwapChainPanelSubscriptions {
+                    ObservationSubscription::SwapChainPanel {
                         _rendering: rendering,
                         _scale: scale,
                         _size: size,
@@ -1676,8 +1751,12 @@ impl WinUiRuntime {
                     subscribe_xaml_root_scale(&element, &framework, &sink, move |scale| {
                         invoke_callback(&scale_callback, scale);
                     })?;
-                self.image_scale_subscriptions
-                    .insert((*node, *observation), subscriptions);
+                self.observation_subscriptions.insert(
+                    (*node, *observation),
+                    ObservationSubscription::ImageScale {
+                        _root: subscriptions,
+                    },
+                );
             }
             Command::ObserveCompositionHost {
                 node,
@@ -1748,19 +1827,17 @@ impl WinUiRuntime {
                         },
                     );
                 })?;
-                self.composition_host_subscriptions.insert(
+                self.observation_subscriptions.insert(
                     (*node, *observation),
-                    CompositionHostSubscriptions {
+                    ObservationSubscription::CompositionHost {
                         _root: root,
                         _size: size,
                     },
                 );
             }
             Command::RevokeObservation { node, observation } => {
-                let key = (*node, *observation);
-                self.swap_chain_panel_subscriptions.remove(&key);
-                self.image_scale_subscriptions.remove(&key);
-                self.composition_host_subscriptions.remove(&key);
+                self.observation_subscriptions
+                    .remove(&(*node, *observation));
             }
             Command::SetCompositionChildVisual {
                 node,
@@ -1829,18 +1906,7 @@ impl WinUiRuntime {
                         _ => Err(RuntimeError::UnsupportedKind),
                     };
                 }
-                let element = (framework::is_common(*property) || grid::is_attached(*property))
-                    .then(|| self.ui_element(*node))
-                    .transpose()?;
-                let handle = if element.is_none() {
-                    Some(
-                        self.handles
-                            .get(node)
-                            .ok_or(RuntimeError::MissingNode(*node))?,
-                    )
-                } else {
-                    None
-                };
+                let target = PropertyTarget::resolve(self, *node, *property)?;
                 let feedback = expected_feedback(*property, Some(value));
                 let selection_owner = self
                     .selection_owners
@@ -1888,19 +1954,8 @@ impl WinUiRuntime {
                                 }),
                             _ => Err(RuntimeError::UnsupportedKind),
                         }
-                    } else if let Some(element) = element {
-                        if framework::is_common(*property) {
-                            framework::set(&element, *property, value)
-                        } else {
-                            grid::set_attached(&element, *property, value)
-                        }
                     } else {
-                        let handle = handle.unwrap();
-                        if grid::is_definitions(*property) {
-                            grid::set_definitions(handle, *property, value)
-                        } else {
-                            set_property(handle, *property, value)
-                        }
+                        target.set(*property, value)
                     };
                     let observation =
                         feedback_event.and_then(|event| {
@@ -1944,18 +1999,7 @@ impl WinUiRuntime {
                 if *property == PropertyId::ButtonResources {
                     return self.clear_resource_overrides(*node);
                 }
-                let element = (framework::is_common(*property) || grid::is_attached(*property))
-                    .then(|| self.ui_element(*node))
-                    .transpose()?;
-                let handle = if element.is_none() {
-                    Some(
-                        self.handles
-                            .get(node)
-                            .ok_or(RuntimeError::MissingNode(*node))?,
-                    )
-                } else {
-                    None
-                };
+                let target = PropertyTarget::resolve(self, *node, *property)?;
                 let feedback = expected_feedback(*property, None);
                 let selection_owner = self
                     .selection_owners
@@ -1981,19 +2025,8 @@ impl WinUiRuntime {
                             .map_err(native_error)?;
                         self.drop_policies.borrow_mut().remove(node);
                         Ok(())
-                    } else if let Some(element) = element {
-                        if framework::is_common(*property) {
-                            framework::clear(&element, *property)
-                        } else {
-                            grid::clear_attached(&element, *property)
-                        }
                     } else {
-                        let handle = handle.unwrap();
-                        if grid::is_definitions(*property) {
-                            grid::clear_definitions(handle, *property)
-                        } else {
-                            clear_property(handle, *property)
-                        }
+                        target.clear(*property)
                     };
                     if let Some(event) = feedback_event {
                         self.feedback.borrow_mut().remove(&(*node, event));
@@ -3563,9 +3596,7 @@ impl NativeRuntime for WinUiRuntime {
         self.subscriptions.clear();
         self.encoded_image_nodes.borrow_mut().clear();
         self.image_decode_tickets.clear();
-        self.swap_chain_panel_subscriptions.clear();
-        self.image_scale_subscriptions.clear();
-        self.composition_host_subscriptions.clear();
+        self.observation_subscriptions.clear();
         self.owned_menus.clear();
         self.command_bar_flyouts.clear();
         content_dialog::reset(&self.content_dialogs);
@@ -4005,14 +4036,10 @@ impl WinUiRuntime {
             Err(RuntimeError::MissingNode(node)),
         );
         self.controlled_collection_indices.remove(&node);
-        self.composition_host_subscriptions
+        self.observation_subscriptions
             .retain(|(subscription_node, _), _| *subscription_node != node);
         self.drop_policies.borrow_mut().remove(&node);
         self.pointer_capture.borrow_mut().remove(&node);
-        self.image_scale_subscriptions
-            .retain(|(subscription_node, _), _| *subscription_node != node);
-        self.swap_chain_panel_subscriptions
-            .retain(|(subscription_node, _), _| *subscription_node != node);
         if self.resource_override_keys.contains_key(&node) {
             self.clear_resource_overrides(node)?;
         }

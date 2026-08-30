@@ -54,10 +54,11 @@ impl SchedulerState {
             self.pending
                 .map_or(priority, |current| current.max(priority)),
         );
+        let pending = self.pending.unwrap();
         match self.phase {
-            SchedulerPhase::Idle => self.schedule(priority),
-            SchedulerPhase::Scheduled(scheduled) if priority > scheduled.priority => {
-                self.schedule(priority)
+            SchedulerPhase::Idle => self.schedule(pending),
+            SchedulerPhase::Scheduled(scheduled) if pending > scheduled.priority => {
+                self.schedule(pending)
             }
             SchedulerPhase::Scheduled(_) | SchedulerPhase::Dispatching => ScheduleAction::None,
             SchedulerPhase::Closing => ScheduleAction::Closed,
@@ -174,6 +175,21 @@ mod tests {
         state.enqueue_failed(ticket);
 
         let ScheduleAction::Enqueue(retry) = state.request(WorkPriority::Normal) else {
+            panic!("expected retry");
+        };
+        assert_eq!(retry.priority, WorkPriority::Normal);
+    }
+
+    #[test]
+    fn lower_priority_request_does_not_downgrade_retained_work() {
+        let mut state = SchedulerState::new();
+        let ScheduleAction::Enqueue(ticket) = state.request(WorkPriority::Normal) else {
+            panic!("expected enqueue");
+        };
+
+        state.enqueue_failed(ticket);
+
+        let ScheduleAction::Enqueue(retry) = state.request(WorkPriority::Low) else {
             panic!("expected retry");
         };
         assert_eq!(retry.priority, WorkPriority::Normal);

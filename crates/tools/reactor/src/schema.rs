@@ -1,5 +1,5 @@
 use crate::helpers::to_snake_case;
-use crate::metadata::{MetadataResolver, ParamClass, ReadValueConversion};
+use crate::metadata::{CollectionType, MetadataResolver, ParamClass, ReadValueConversion};
 use serde::Deserialize;
 use std::collections::HashSet;
 use std::path::{Path, PathBuf};
@@ -143,6 +143,12 @@ pub(crate) enum PropertyAdapter {
 }
 
 #[derive(Clone, Copy)]
+pub(crate) struct PropertyAdapterCapabilities {
+    pub(crate) uses_dependency_property: bool,
+    pub(crate) uses_property_setter: bool,
+}
+
+#[derive(Clone, Copy)]
 enum PropertyAdapterTargets {
     Any,
     Property(&'static str),
@@ -174,6 +180,53 @@ enum PropertyAdapterKind {
 }
 
 impl PropertyAdapter {
+    pub(crate) fn capabilities(self) -> PropertyAdapterCapabilities {
+        match self {
+            Self::ResourceStyle => PropertyAdapterCapabilities {
+                uses_dependency_property: true,
+                uses_property_setter: false,
+            },
+            Self::DropPolicy
+            | Self::KeyAccelerators
+            | Self::PointerCapture
+            | Self::ResourceOverrides
+            | Self::RichEditText
+            | Self::RichTextBlocks => PropertyAdapterCapabilities {
+                uses_dependency_property: false,
+                uses_property_setter: false,
+            },
+            Self::ImplicitOpacityTransition
+            | Self::ImplicitScale
+            | Self::ImplicitScaleTransition => PropertyAdapterCapabilities {
+                uses_dependency_property: false,
+                uses_property_setter: true,
+            },
+            Self::ClockIdentifier
+            | Self::ContentDialogResult
+            | Self::DragInfo
+            | Self::DropData
+            | Self::FontWeight
+            | Self::HorizontalContentAlignment
+            | Self::ImageUri
+            | Self::InspectableString
+            | Self::InspectableStringList
+            | Self::ItemTag
+            | Self::ItemTags
+            | Self::NavigationDisplayMode
+            | Self::NumberBoxValue
+            | Self::PathData
+            | Self::PointerEvent
+            | Self::RatingValue
+            | Self::SelectionIndex
+            | Self::TreeNodeContent
+            | Self::Uri
+            | Self::VerticalContentAlignment => PropertyAdapterCapabilities {
+                uses_dependency_property: true,
+                uses_property_setter: true,
+            },
+        }
+    }
+
     fn property_kind(self) -> PropertyAdapterKind {
         use PropertyAdapterMetadata::{None, Param, ParamType, SingleField, ValueType};
         use PropertyAdapterTargets::{Any, OneOf, Property};
@@ -547,9 +600,6 @@ pub(crate) struct ResolvedSlot {
     pub(crate) name: String,
     pub(crate) interface: String,
     pub(crate) shape: SlotShape,
-    pub(crate) collection_cast: bool,
-    pub(crate) collection_observable: bool,
-    pub(crate) collection_item: Option<String>,
     pub(crate) item_controls: Vec<String>,
 }
 
@@ -567,10 +617,23 @@ pub(crate) struct ResolvedSelection {
     pub(crate) payload_inspectable: bool,
 }
 
-#[derive(Clone, Copy)]
+#[derive(Clone)]
 pub(crate) enum SlotShape {
     Single(SlotTarget),
-    Collection,
+    Collection(CollectionType),
+}
+
+impl SlotShape {
+    pub(crate) fn collection_item(&self) -> Option<&str> {
+        match self {
+            Self::Collection(CollectionType::TypedVector(item))
+            | Self::Collection(CollectionType::ObservableVector(item)) => Some(item),
+            Self::Single(_)
+            | Self::Collection(
+                CollectionType::InspectableVector | CollectionType::ItemCollection,
+            ) => None,
+        }
+    }
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -1510,27 +1573,16 @@ impl Schema {
                         }
                     )
                 })?;
-                let collection_cast = slot.collection
-                    && !metadata.returns_inspectable_vector(&name, &method)
-                    && metadata.return_class_name(&name, &method).as_deref()
-                        == Some("Microsoft.UI.Xaml.Controls.ItemCollection");
-                let collection_item = slot
-                    .collection
-                    .then(|| metadata.return_vector_element_class_name(&name, &method))
-                    .flatten();
-                if slot.collection
-                    && !collection_cast
-                    && collection_item.is_none()
-                    && !metadata.returns_inspectable_vector(&name, &method)
-                {
-                    return Err(format!(
-                        "{}.{} collection slot must return IVector<IInspectable>, a typed class \
-                         vector, or ItemCollection",
-                        control.type_name, slot.name
-                    ));
-                }
                 let shape = if slot.collection {
-                    SlotShape::Collection
+                    SlotShape::Collection(metadata.classify_collection(&name, &method).ok_or_else(
+                        || {
+                            format!(
+                                "{}.{} collection slot must return IVector<IInspectable>, a typed \
+                                 class vector, or ItemCollection",
+                                control.type_name, slot.name
+                            )
+                        },
+                    )?)
                 } else {
                     match metadata.classify_param(&name, &method) {
                         Some(ParamClass::IInspectable) => {
@@ -1566,10 +1618,6 @@ impl Schema {
                     name: slot.name,
                     interface: interface.full_path(),
                     shape,
-                    collection_cast,
-                    collection_observable: slot.collection
-                        && metadata.returns_observable_vector(&name, &method),
-                    collection_item,
                     item_controls: slot.item_controls,
                 });
             }
@@ -1769,7 +1817,7 @@ fn validate_selections(controls: &[ResolvedControl]) -> Result<(), String> {
                     control.type_name, selection.slot
                 )
             })?;
-        if !matches!(slot.shape, SlotShape::Collection) {
+        if !matches!(&slot.shape, SlotShape::Collection(_)) {
             return Err(format!(
                 "{} selection slot {} is not a collection",
                 control.type_name, selection.slot

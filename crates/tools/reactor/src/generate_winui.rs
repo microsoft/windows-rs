@@ -2,6 +2,7 @@ use proc_macro2::{Ident, Span, TokenStream};
 use quote::quote;
 use std::collections::BTreeSet;
 
+use crate::metadata::CollectionType;
 use crate::schema::{
     EventPayloadConversion, EventPayloadSource, EventSubscription, FeedbackContract,
     PropertyAdapter, ResolvedControl, ResolvedEvent, ResolvedProperty, ResolvedSchema, Role,
@@ -112,38 +113,20 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                 | Some(PropertyAdapter::VerticalContentAlignment)
                 | None => {}
             }
-            if !matches!(
-                property.adapter,
-                Some(
-                    PropertyAdapter::ResourceStyle
-                        | PropertyAdapter::RichEditText
-                        | PropertyAdapter::RichTextBlocks
-                        | PropertyAdapter::PointerCapture
-                        | PropertyAdapter::DropPolicy
-                        | PropertyAdapter::KeyAccelerators
-                        | PropertyAdapter::ResourceOverrides
-                )
-            ) {
+            if property
+                .adapter
+                .is_none_or(|adapter| adapter.capabilities().uses_property_setter)
+            {
                 entries.insert(format!(
                     "{}::put_{}",
                     filter_path(&property.interface),
                     property.name
                 ));
             }
-            if !matches!(
-                property.adapter,
-                Some(
-                    PropertyAdapter::ImplicitOpacityTransition
-                        | PropertyAdapter::ImplicitScale
-                        | PropertyAdapter::ImplicitScaleTransition
-                        | PropertyAdapter::RichEditText
-                        | PropertyAdapter::RichTextBlocks
-                        | PropertyAdapter::PointerCapture
-                        | PropertyAdapter::DropPolicy
-                        | PropertyAdapter::KeyAccelerators
-                        | PropertyAdapter::ResourceOverrides
-                )
-            ) {
+            if property
+                .adapter
+                .is_none_or(|adapter| adapter.capabilities().uses_dependency_property)
+            {
                 entries.insert(format!(
                     "{}::{}Property",
                     filter_path(&property.static_owner),
@@ -254,13 +237,6 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
                 entries.insert("Microsoft::UI::Xaml::IDragOperationDeferral::Complete".to_string());
                 entries.insert("Windows::Storage::IStorageItem::{get_Name, get_Path}".to_string());
             }
-            if let EventPayloadSource::SenderItemTags {
-                interface,
-                property,
-            } = &event.source
-            {
-                entries.insert(format!("{}::get_{}", filter_path(interface), property));
-            }
         }
         if let Some(selection) = &control.selection {
             entries.insert(format!(
@@ -281,9 +257,9 @@ pub(crate) fn generate_control_bindings_filter(schema: &ResolvedSchema) -> Strin
             ));
         }
         for slot in &control.slots {
-            let accessor = match slot.shape {
+            let accessor = match &slot.shape {
                 SlotShape::Single(_) => "put",
-                SlotShape::Collection => "get",
+                SlotShape::Collection(_) => "get",
             };
             entries.insert(format!(
                 "{}::{}_{}",
@@ -391,21 +367,21 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         control
             .slots
             .iter()
-            .filter(|slot| matches!(slot.shape, SlotShape::Single(_)))
+            .filter(|slot| matches!(&slot.shape, SlotShape::Single(_)))
             .map(move |slot| generate_set_slot(control, slot))
     });
     let collection_slots = schema.controls.iter().flat_map(|control| {
         control
             .slots
             .iter()
-            .filter(|slot| matches!(slot.shape, SlotShape::Collection))
+            .filter(|slot| matches!(&slot.shape, SlotShape::Collection(_)))
             .map(move |slot| generate_slot_collection(control, slot))
     });
     let collection_items = schema
         .controls
         .iter()
         .flat_map(|control| &control.slots)
-        .filter_map(|slot| slot.collection_item.as_deref())
+        .filter_map(|slot| slot.shape.collection_item())
         .collect::<BTreeSet<_>>();
     let collection_variants = collection_items.iter().map(|item| {
         let variant = ident(item.rsplit('.').next().unwrap());
@@ -921,30 +897,33 @@ fn generate_slot_collection(
                 .map_err(native_error)
         }
     };
-    let get = if slot.collection_cast {
-        quote! {
-            #get?
-                .cast::<windows_collections::IVector<windows_core::IInspectable>>()
-                .map_err(native_error)
+    let collection = match &slot.shape {
+        SlotShape::Collection(CollectionType::InspectableVector) => {
+            quote! { SlotCollection::Inspectable(#get?) }
         }
-    } else {
-        get
-    };
-    let get = if slot.collection_observable {
-        let item = path_ident(slot.collection_item.as_deref().unwrap());
-        quote! {
-            #get?
-                .cast::<windows_collections::IVector<bindings::#item>>()
-                .map_err(native_error)
+        SlotShape::Collection(CollectionType::ItemCollection) => quote! {
+            SlotCollection::Inspectable(
+                #get?
+                    .cast::<windows_collections::IVector<windows_core::IInspectable>>()
+                    .map_err(native_error)?
+            )
+        },
+        SlotShape::Collection(CollectionType::TypedVector(item)) => {
+            let variant = ident(item.rsplit('.').next().unwrap());
+            quote! { SlotCollection::#variant(#get?) }
         }
-    } else {
-        get
-    };
-    let collection = if let Some(item) = slot.collection_item.as_deref() {
-        let variant = ident(item.rsplit('.').next().unwrap());
-        quote! { SlotCollection::#variant(#get?) }
-    } else {
-        quote! { SlotCollection::Inspectable(#get?) }
+        SlotShape::Collection(CollectionType::ObservableVector(item)) => {
+            let variant = ident(item.rsplit('.').next().unwrap());
+            let item = path_ident(item);
+            quote! {
+                SlotCollection::#variant(
+                    #get?
+                        .cast::<windows_collections::IVector<bindings::#item>>()
+                        .map_err(native_error)?
+                )
+            }
+        }
+        SlotShape::Single(_) => unreachable!(),
     };
     quote! { (Handle::#control_name(control), SlotId::#slot_id) => Ok(#collection) }
 }
@@ -954,10 +933,10 @@ fn generate_set_slot(control: &ResolvedControl, slot: &crate::schema::ResolvedSl
     let slot_id = ident(&format!("{}{}", control.name, slot.name));
     let interface = path_ident(&slot.interface);
     let setter = ident(&format!("Set{}", slot.name));
-    let SlotShape::Single(target) = slot.shape else {
+    let SlotShape::Single(target) = &slot.shape else {
         unreachable!()
     };
-    let value = match target {
+    let value = match *target {
         SlotTarget::IconElement => quote! {
             match child {
                 Some(child) => {
@@ -2348,6 +2327,23 @@ mod tests {
         let source = include_str!("winui.toml");
         let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
         Schema::parse(source).unwrap().resolve(&metadata).unwrap()
+    }
+
+    #[test]
+    fn item_tags_payload_adds_its_sender_getter_to_the_bindings_filter() {
+        let source = r#"
+[[control]]
+type = "Microsoft.UI.Xaml.Controls.TabView"
+
+[[control.event]]
+name = "TabItemsChanged"
+adapter = "item_tags"
+"#;
+        let metadata = MetadataResolver::load(&workspace_path("crates/tools/reactor/winmd"));
+        let schema = Schema::parse(source).unwrap().resolve(&metadata).unwrap();
+        let filter = generate_control_bindings_filter(&schema);
+
+        assert!(filter.contains("Microsoft::UI::Xaml::Controls::ITabView::get_TabItems"));
     }
 
     #[test]

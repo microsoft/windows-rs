@@ -135,7 +135,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         control
             .slots
             .iter()
-            .filter(|slot| matches!(slot.shape, crate::schema::SlotShape::Collection))
+            .filter(|slot| matches!(&slot.shape, crate::schema::SlotShape::Collection(_)))
             .map(move |slot| {
                 let slot = ident(&format!("{}{}", control.name, slot.name));
                 quote! { SlotId::#slot }
@@ -2191,7 +2191,7 @@ fn generate_descriptors(control: &ResolvedControl) -> TokenStream {
         let id = ident(&format!("{}{}", control.name, slot.name));
         let name = &slot.name;
         let interface = &slot.interface;
-        let (target, collection) = match slot.shape {
+        let (target, collection) = match &slot.shape {
             crate::schema::SlotShape::Single(crate::schema::SlotTarget::Inspectable) => {
                 ("inspectable", false)
             }
@@ -2201,7 +2201,7 @@ fn generate_descriptors(control: &ResolvedControl) -> TokenStream {
             crate::schema::SlotShape::Single(crate::schema::SlotTarget::UiElement) => {
                 ("ui_element", false)
             }
-            crate::schema::SlotShape::Collection => ("inspectable", true),
+            crate::schema::SlotShape::Collection(_) => ("inspectable", true),
         };
         quote! {
             SlotDescriptor {
@@ -2289,7 +2289,7 @@ fn generate_control(control: &ResolvedControl) -> TokenStream {
     let collection_slots = control
         .slots
         .iter()
-        .filter(|slot| matches!(slot.shape, crate::schema::SlotShape::Collection))
+        .filter(|slot| matches!(&slot.shape, crate::schema::SlotShape::Collection(_)))
         .collect::<Vec<_>>();
     let controlled_indices = control
         .properties

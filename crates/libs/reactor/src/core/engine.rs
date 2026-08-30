@@ -46,9 +46,12 @@ enum NodeData {
     NamedSlot(SlotId),
     Tooltip(TooltipPlacement),
     Flyout(FlyoutPlacement),
-    Menu(OwnedMenuKind),
-    CommandBarFlyout,
-    TreeNodes,
+    Menu {
+        kind: OwnedMenuKind,
+        state: OwnedState<Vec<MenuItem>>,
+    },
+    CommandBarFlyout(OwnedState<(Vec<CommandBarCommand>, Vec<CommandBarCommand>)>),
+    TreeNodes(Rc<Vec<TreeNode>>),
     ContentDialog(bool),
     Native(NativeData),
     Virtual(VirtualData),
@@ -86,9 +89,9 @@ impl NodeData {
             Self::NamedSlot(slot) => NodeKind::NamedSlot(*slot),
             Self::Tooltip(placement) => NodeKind::Tooltip(*placement),
             Self::Flyout(placement) => NodeKind::Flyout(*placement),
-            Self::Menu(kind) => NodeKind::Menu(*kind),
-            Self::CommandBarFlyout => NodeKind::CommandBarFlyout,
-            Self::TreeNodes => NodeKind::TreeNodes,
+            Self::Menu { kind, .. } => NodeKind::Menu(*kind),
+            Self::CommandBarFlyout(_) => NodeKind::CommandBarFlyout,
+            Self::TreeNodes(_) => NodeKind::TreeNodes,
             Self::ContentDialog(open) => NodeKind::ContentDialog(*open),
             Self::Native(native) => NodeKind::Native(native.kind),
             Self::Virtual(_) => NodeKind::VirtualCollection,
@@ -150,16 +153,22 @@ impl VirtualData {
 }
 
 #[derive(Clone)]
-struct OwnedState {
+struct OwnedState<T> {
     callback: Callback<String>,
     revision: u32,
-    content: OwnedContent,
+    content: T,
 }
 
-#[derive(Clone)]
-enum OwnedContent {
-    Menu(Vec<MenuItem>),
-    Commands((Vec<CommandBarCommand>, Vec<CommandBarCommand>)),
+impl<T> OwnedState<T> {
+    fn replace(&mut self, callback: Callback<String>, content: T) -> Result<u32, TreeError> {
+        self.revision = self
+            .revision
+            .checked_add(1)
+            .ok_or(TreeError::NotComponent)?;
+        self.callback = callback;
+        self.content = content;
+        Ok(self.revision)
+    }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -241,26 +250,37 @@ pub struct Tree {
     providers: ProviderStore,
     root: Option<NodeId>,
     owned_attachments: Rc<HashMap<NodeId, (NodeId, NodeId)>>,
-    owned: Rc<HashMap<NodeId, OwnedState>>,
-    tree_nodes: Rc<HashMap<NodeId, Rc<Vec<TreeNode>>>>,
     window_declarations: Rc<HashMap<ScopeId, WindowDeclarations>>,
     window_title_bars: Rc<HashMap<NodeId, WindowTitleBarHeight>>,
 }
 
 #[derive(Clone, Default)]
 struct WindowDeclarations {
-    color_scheme: Option<WindowObservation<ColorScheme>>,
-    color_scheme_revision: u32,
+    color_scheme: ObservationSlot<ColorScheme>,
     title: Option<Rc<str>>,
     visuals: Option<WindowVisuals>,
-    window_size: Option<WindowObservation<WindowSize>>,
-    window_size_revision: u32,
+    window_size: ObservationSlot<WindowSize>,
 }
 
-#[derive(Clone)]
-struct WindowObservation<T> {
-    callback: Callback<T>,
+#[derive(Clone, Default)]
+struct ObservationSlot<T> {
+    callback: Option<Callback<T>>,
     revision: u32,
+}
+
+impl<T> ObservationSlot<T> {
+    fn get(&self) -> Option<(&Callback<T>, u32)> {
+        self.callback
+            .as_ref()
+            .map(|callback| (callback, self.revision))
+    }
+
+    fn set(&mut self, callback: Option<Callback<T>>) {
+        if callback.is_some() && callback.as_ref() != self.callback.as_ref() {
+            self.revision = self.revision.wrapping_add(1);
+        }
+        self.callback = callback;
+    }
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -330,8 +350,6 @@ impl Tree {
             providers: ProviderStore::default(),
             root: None,
             owned_attachments: Rc::new(HashMap::new()),
-            owned: Rc::new(HashMap::new()),
-            tree_nodes: Rc::new(HashMap::new()),
             window_declarations: Rc::new(HashMap::new()),
             window_title_bars: Rc::new(HashMap::new()),
         }
@@ -462,16 +480,18 @@ impl Tree {
         kind: OwnedMenuKind,
         menu: Menu,
     ) -> Result<NodeId, TreeError> {
-        let id = self.insert_data(parent, key, NodeData::Menu(kind))?;
-        Rc::make_mut(&mut self.owned).insert(
-            id,
-            OwnedState {
-                callback: menu.on_click,
-                revision: 1,
-                content: OwnedContent::Menu(menu.items),
+        self.insert_data(
+            parent,
+            key,
+            NodeData::Menu {
+                kind,
+                state: OwnedState {
+                    callback: menu.on_click,
+                    revision: 1,
+                    content: menu.items,
+                },
             },
-        );
-        Ok(id)
+        )
     }
 
     pub fn insert_command_bar_flyout(
@@ -480,16 +500,15 @@ impl Tree {
         key: Option<Key>,
         flyout: CommandBarFlyout,
     ) -> Result<NodeId, TreeError> {
-        let id = self.insert_data(parent, key, NodeData::CommandBarFlyout)?;
-        Rc::make_mut(&mut self.owned).insert(
-            id,
-            OwnedState {
+        self.insert_data(
+            parent,
+            key,
+            NodeData::CommandBarFlyout(OwnedState {
                 callback: flyout.on_click,
                 revision: 1,
-                content: OwnedContent::Commands((flyout.primary, flyout.secondary)),
-            },
-        );
-        Ok(id)
+                content: (flyout.primary, flyout.secondary),
+            }),
+        )
     }
 
     pub fn insert_tree_nodes(
@@ -498,16 +517,14 @@ impl Tree {
         key: Option<Key>,
         nodes: Rc<Vec<TreeNode>>,
     ) -> Result<NodeId, TreeError> {
-        let id = self.insert_data(parent, key, NodeData::TreeNodes)?;
-        Rc::make_mut(&mut self.tree_nodes).insert(id, nodes);
-        Ok(id)
+        self.insert_data(parent, key, NodeData::TreeNodes(nodes))
     }
 
     pub fn tree_nodes(&self, id: NodeId) -> Result<&Rc<Vec<TreeNode>>, TreeError> {
-        if !matches!(&self.arena.get(id)?.data, NodeData::TreeNodes) {
-            return Err(TreeError::NotComponent);
+        match &self.arena.get(id)?.data {
+            NodeData::TreeNodes(nodes) => Ok(nodes),
+            _ => Err(TreeError::NotComponent),
         }
-        self.tree_nodes.get(&id).ok_or(TreeError::NotComponent)
     }
 
     pub fn update_tree_nodes(
@@ -515,47 +532,36 @@ impl Tree {
         id: NodeId,
         nodes: Rc<Vec<TreeNode>>,
     ) -> Result<(), TreeError> {
-        if !matches!(&self.arena.get(id)?.data, NodeData::TreeNodes) {
-            return Err(TreeError::NotComponent);
+        match &mut self.arena.get_mut(id)?.data {
+            NodeData::TreeNodes(current) => {
+                *current = nodes;
+                Ok(())
+            }
+            _ => Err(TreeError::NotComponent),
         }
-        Rc::make_mut(&mut self.tree_nodes).insert(id, nodes);
-        Ok(())
     }
 
     pub fn owned_revision(&self, id: NodeId) -> Result<u32, TreeError> {
-        let node = self.arena.get(id)?;
-        if !matches!(&node.data, NodeData::Menu(_) | NodeData::CommandBarFlyout) {
-            return Err(TreeError::NotComponent);
+        match &self.arena.get(id)?.data {
+            NodeData::Menu { state, .. } => Ok(state.revision),
+            NodeData::CommandBarFlyout(state) => Ok(state.revision),
+            _ => Err(TreeError::NotComponent),
         }
-        self.owned
-            .get(&id)
-            .map(|owned| owned.revision)
-            .ok_or(TreeError::NotComponent)
     }
 
     pub fn owned_callback(&self, id: NodeId) -> Result<&Callback<String>, TreeError> {
-        self.arena.get(id)?;
-        self.owned
-            .get(&id)
-            .map(|owned| &owned.callback)
-            .ok_or(TreeError::NotComponent)
+        match &self.arena.get(id)?.data {
+            NodeData::Menu { state, .. } => Ok(&state.callback),
+            NodeData::CommandBarFlyout(state) => Ok(&state.callback),
+            _ => Err(TreeError::NotComponent),
+        }
     }
 
     pub fn update_menu(&mut self, id: NodeId, menu: Menu) -> Result<u32, TreeError> {
-        let node = self.arena.get_mut(id)?;
-        if !matches!(&node.data, NodeData::Menu(_)) {
-            return Err(TreeError::NotComponent);
+        match &mut self.arena.get_mut(id)?.data {
+            NodeData::Menu { state, .. } => state.replace(menu.on_click, menu.items),
+            _ => Err(TreeError::NotComponent),
         }
-        let owned = Rc::make_mut(&mut self.owned)
-            .get_mut(&id)
-            .ok_or(TreeError::NotComponent)?;
-        owned.revision = owned
-            .revision
-            .checked_add(1)
-            .ok_or(TreeError::NotComponent)?;
-        owned.callback = menu.on_click;
-        owned.content = OwnedContent::Menu(menu.items);
-        Ok(owned.revision)
     }
 
     pub fn update_command_bar_flyout(
@@ -563,20 +569,12 @@ impl Tree {
         id: NodeId,
         flyout: CommandBarFlyout,
     ) -> Result<u32, TreeError> {
-        let node = self.arena.get_mut(id)?;
-        if !matches!(&node.data, NodeData::CommandBarFlyout) {
-            return Err(TreeError::NotComponent);
+        match &mut self.arena.get_mut(id)?.data {
+            NodeData::CommandBarFlyout(state) => {
+                state.replace(flyout.on_click, (flyout.primary, flyout.secondary))
+            }
+            _ => Err(TreeError::NotComponent),
         }
-        let owned = Rc::make_mut(&mut self.owned)
-            .get_mut(&id)
-            .ok_or(TreeError::NotComponent)?;
-        owned.revision = owned
-            .revision
-            .checked_add(1)
-            .ok_or(TreeError::NotComponent)?;
-        owned.callback = flyout.on_click;
-        owned.content = OwnedContent::Commands((flyout.primary, flyout.secondary));
-        Ok(owned.revision)
     }
 
     pub fn set_kind(&mut self, id: NodeId, kind: NodeKind) -> Result<(), TreeError> {
@@ -590,7 +588,7 @@ impl Tree {
                 *current = placement;
                 Ok(())
             }
-            (NodeData::Menu(current), NodeKind::Menu(kind)) => {
+            (NodeData::Menu { kind: current, .. }, NodeKind::Menu(kind)) => {
                 *current = kind;
                 Ok(())
             }
@@ -607,10 +605,9 @@ impl Tree {
     }
 
     pub fn owned_menu(&self, id: NodeId) -> Result<&[MenuItem], TreeError> {
-        self.arena.get(id)?;
-        match &self.owned.get(&id).ok_or(TreeError::NotComponent)?.content {
-            OwnedContent::Menu(items) => Ok(items),
-            OwnedContent::Commands(_) => Err(TreeError::NotComponent),
+        match &self.arena.get(id)?.data {
+            NodeData::Menu { state, .. } => Ok(&state.content),
+            _ => Err(TreeError::NotComponent),
         }
     }
 
@@ -618,10 +615,9 @@ impl Tree {
         &self,
         id: NodeId,
     ) -> Result<&(Vec<CommandBarCommand>, Vec<CommandBarCommand>), TreeError> {
-        self.arena.get(id)?;
-        match &self.owned.get(&id).ok_or(TreeError::NotComponent)?.content {
-            OwnedContent::Commands(commands) => Ok(commands),
-            OwnedContent::Menu(_) => Err(TreeError::NotComponent),
+        match &self.arena.get(id)?.data {
+            NodeData::CommandBarFlyout(state) => Ok(&state.content),
+            _ => Err(TreeError::NotComponent),
         }
     }
 
@@ -1113,13 +1109,13 @@ impl Tree {
             self.window_declarations
                 .iter()
                 .filter_map(|(owner, declaration)| {
-                    let observation = declaration.color_scheme.as_ref()?;
+                    let (callback, revision) = declaration.color_scheme.get()?;
                     Some((
                         HostObservationId {
                             owner: *owner,
-                            revision: observation.revision,
+                            revision,
                         },
-                        observation.callback.clone(),
+                        callback.clone(),
                     ))
                 });
         let observation = declarations.next()?;
@@ -1132,7 +1128,7 @@ impl Tree {
         let count = self
             .window_declarations
             .values()
-            .filter(|declaration| declaration.color_scheme.is_some())
+            .filter(|declaration| declaration.color_scheme.get().is_some())
             .count();
         (count <= 1)
             .then(|| self.color_scheme_observation())
@@ -1146,20 +1142,7 @@ impl Tree {
     ) {
         let declarations = Rc::make_mut(&mut self.window_declarations);
         let declaration = declarations.entry(owner).or_default();
-        declaration.color_scheme = callback.map(|callback| {
-            let revision = declaration.color_scheme.as_ref().map_or_else(
-                || declaration.color_scheme_revision.wrapping_add(1),
-                |current| {
-                    if current.callback == callback {
-                        current.revision
-                    } else {
-                        declaration.color_scheme_revision.wrapping_add(1)
-                    }
-                },
-            );
-            declaration.color_scheme_revision = revision;
-            WindowObservation { callback, revision }
-        });
+        declaration.color_scheme.set(callback);
     }
 
     pub(crate) fn window_size_observation(
@@ -1169,13 +1152,13 @@ impl Tree {
             self.window_declarations
                 .iter()
                 .filter_map(|(owner, declaration)| {
-                    let observation = declaration.window_size.as_ref()?;
+                    let (callback, revision) = declaration.window_size.get()?;
                     Some((
                         HostObservationId {
                             owner: *owner,
-                            revision: observation.revision,
+                            revision,
                         },
-                        observation.callback.clone(),
+                        callback.clone(),
                     ))
                 });
         let observation = declarations.next()?;
@@ -1188,7 +1171,7 @@ impl Tree {
         let count = self
             .window_declarations
             .values()
-            .filter(|declaration| declaration.window_size.is_some())
+            .filter(|declaration| declaration.window_size.get().is_some())
             .count();
         (count <= 1)
             .then(|| self.window_size_observation())
@@ -1202,20 +1185,7 @@ impl Tree {
     ) {
         let declarations = Rc::make_mut(&mut self.window_declarations);
         let declaration = declarations.entry(owner).or_default();
-        declaration.window_size = callback.map(|callback| {
-            let revision = declaration.window_size.as_ref().map_or_else(
-                || declaration.window_size_revision.wrapping_add(1),
-                |current| {
-                    if current.callback == callback {
-                        current.revision
-                    } else {
-                        declaration.window_size_revision.wrapping_add(1)
-                    }
-                },
-            );
-            declaration.window_size_revision = revision;
-            WindowObservation { callback, revision }
-        });
+        declaration.window_size.set(callback);
     }
 
     pub(crate) fn remove_window_declarations(&mut self, owner: ScopeId) {
@@ -1306,12 +1276,6 @@ impl Tree {
             }
             if matches!(&node.data, NodeData::Tooltip(_) | NodeData::Flyout(_)) {
                 Rc::make_mut(&mut self.owned_attachments).remove(&id);
-            }
-            if matches!(&node.data, NodeData::Menu(_) | NodeData::CommandBarFlyout) {
-                Rc::make_mut(&mut self.owned).remove(&id);
-            }
-            if matches!(&node.data, NodeData::TreeNodes) {
-                Rc::make_mut(&mut self.tree_nodes).remove(&id);
             }
             retired.push((id, kind));
         }
