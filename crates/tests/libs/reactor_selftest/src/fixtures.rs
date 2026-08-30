@@ -8,8 +8,10 @@ use windows::UI::Input::Preview::Injection::{
     InjectedInputMouseInfo, InjectedInputMouseOptions, InputInjector,
 };
 use windows::Win32::winuser::{
-    BringWindowToTop, ClientToScreen, GetClientRect, GetSystemMetrics, SM_CXVIRTUALSCREEN,
-    SM_CYVIRTUALSCREEN, SM_XVIRTUALSCREEN, SM_YVIRTUALSCREEN, SetForegroundWindow,
+    BringWindowToTop, ClientToScreen, GetClientRect, GetMonitorInfoW, GetSystemMetrics,
+    GetWindowRect, MONITOR_DEFAULTTONEAREST, MONITORINFO, MonitorFromWindow, SM_CXVIRTUALSCREEN,
+    SM_CYVIRTUALSCREEN, SM_XVIRTUALSCREEN, SM_YVIRTUALSCREEN, SWP_NOSIZE, SWP_NOZORDER,
+    SetForegroundWindow, SetWindowPos,
 };
 use windows::Win32::{HWND, POINT, RECT};
 use windows_canvas::{CanvasImageSource, ColorF, GpuDevice, animated_canvas};
@@ -443,6 +445,9 @@ fn inject_pointer_stage(
     injector: &InputInjector,
 ) -> Result<(), String> {
     let hwnd = HWND(handle as *mut _);
+    if stage == PointerStage::Move {
+        fit_window_to_work_area(hwnd)?;
+    }
     unsafe {
         let _ = SetForegroundWindow(hwnd);
         let _ = BringWindowToTop(hwnd);
@@ -495,6 +500,38 @@ fn inject_pointer_stage(
         ),
     };
     inject_at(injector, x, y, options).map_err(|error| error.to_string())
+}
+
+fn fit_window_to_work_area(hwnd: HWND) -> Result<(), String> {
+    let mut window = RECT::default();
+    if !unsafe { GetWindowRect(hwnd, &mut window) }.as_bool() {
+        return Err("could not read the pointer fixture window rect".to_string());
+    }
+    let monitor = unsafe { MonitorFromWindow(hwnd, MONITOR_DEFAULTTONEAREST as u32) };
+    let mut monitor_info = MONITORINFO {
+        cbSize: size_of::<MONITORINFO>() as u32,
+        ..Default::default()
+    };
+    if !unsafe { GetMonitorInfoW(monitor, &mut monitor_info) }.as_bool() {
+        return Err("could not read the pointer fixture monitor work area".to_string());
+    }
+
+    let width = window.right - window.left;
+    let height = window.bottom - window.top;
+    let work = monitor_info.rcWork;
+    let x = window
+        .left
+        .clamp(work.left, (work.right - width).max(work.left));
+    let y = window
+        .top
+        .clamp(work.top, (work.bottom - height).max(work.top));
+    if (x != window.left || y != window.top)
+        && !unsafe { SetWindowPos(hwnd, None, x, y, 0, 0, (SWP_NOSIZE | SWP_NOZORDER) as u32) }
+            .as_bool()
+    {
+        return Err("could not move the pointer fixture into the monitor work area".to_string());
+    }
+    Ok(())
 }
 
 fn client_screen_point(hwnd: HWND, x_fraction: f64, y_fraction: f64) -> Result<(i32, i32), String> {
