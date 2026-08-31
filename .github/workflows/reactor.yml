@@ -245,7 +245,7 @@ jobs:
           }
 
       - name: Upload performance results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: reactor-performance
           path: target\reactor-performance\*
