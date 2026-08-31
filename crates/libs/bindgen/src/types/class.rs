@@ -70,25 +70,7 @@ impl Class {
             // (needed for static caching). Instance methods live on their interfaces.
             let mut method_names = MethodNames::new();
 
-            // Minimal mode emits `compose()` only for implemented/overridable interfaces.
-            let needs_compose = config.implement.is_some_and(|imp| {
-                required_interfaces
-                    .iter()
-                    .any(|i| imp.matches(i.def.type_name()))
-                    || self
-                        .def
-                        .attributes()
-                        .filter(|a| a.name() == "OverridableAttribute")
-                        .any(|a| {
-                            a.value().iter().any(|(_, arg)| {
-                                if let Value::TypeName(tn) = arg {
-                                    imp.matches_str(&tn.namespace, &tn.name)
-                                } else {
-                                    false
-                                }
-                            })
-                        })
-            });
+            let needs_compose = config.should_compose(type_name);
 
             for interface in required_interfaces
                 .iter()

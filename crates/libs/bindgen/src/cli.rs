@@ -25,6 +25,7 @@ use super::*;
 /// - `--extern`: Uses extern declarations with `--sys`.
 /// - `--minimal`: Omits class wrappers, inherited forwarders, and handle wrappers.
 /// - `--implement`: Emits implementation traits for selected WinRT interfaces.
+/// - `--compose`: Selects minimal-mode WinRT class composition targets.
 /// - `--dead-code`: Emits `pub(crate)` items for dead-code analysis.
 /// - `--etc`: Reads arguments from command files.
 /// - `--filter-file`: Reads filters from text files.
@@ -83,6 +84,7 @@ where
     let mut kind = ArgKind::None;
     let mut has_output = false;
     let mut implement = None::<Vec<String>>;
+    let mut compose = None::<Vec<String>>;
 
     for arg in args {
         if arg.starts_with('-') {
@@ -119,6 +121,10 @@ where
                     implement.get_or_insert_with(Vec::new);
                     kind = ArgKind::Implement;
                 }
+                "--compose" => {
+                    compose.get_or_insert_with(Vec::new);
+                    kind = ArgKind::Compose;
+                }
                 _ => panic!("invalid option `{arg}`"),
             },
             ArgKind::Output => {
@@ -145,6 +151,9 @@ where
             ArgKind::Implement => {
                 implement.as_mut().unwrap().push(arg.clone());
             }
+            ArgKind::Compose => {
+                compose.as_mut().unwrap().push(arg.clone());
+            }
             ArgKind::Rustfmt => {
                 builder.rustfmt(&arg);
             }
@@ -157,6 +166,10 @@ where
         } else {
             builder.implements(implement);
         }
+    }
+    if let Some(compose) = compose {
+        assert!(!compose.is_empty(), "`--compose` requires a class name");
+        builder.composes(compose);
     }
 
     builder.write();
@@ -171,6 +184,7 @@ enum ArgKind {
     Rustfmt,
     Derive,
     Implement,
+    Compose,
 }
 
 #[track_caller]

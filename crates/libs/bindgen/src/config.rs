@@ -53,6 +53,16 @@ impl Config<'_> {
         }
     }
 
+    /// Returns whether a class is an explicit minimal-mode composition target.
+    pub fn should_compose(&self, name: TypeName) -> bool {
+        self.bindgen.compose.iter().any(|target| {
+            target
+                .strip_prefix(name.namespace())
+                .and_then(|name| name.strip_prefix('.'))
+                == Some(name.name())
+        })
+    }
+
     /// Minimal bindings emit `RuntimeType::NAME` only for implemented interfaces.
     pub fn emit_runtime_name(&self, name: TypeName) -> bool {
         !self.bindgen.style.is_minimal() || self.should_implement(name, false)

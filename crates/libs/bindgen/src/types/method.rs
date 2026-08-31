@@ -1031,7 +1031,8 @@ impl Method {
                     quote! {}
                 };
 
-                // Minimal subclassing emits `compose()` instead of non-aggregating `new()`.
+                // An explicit minimal composition target emits `compose()` instead of the
+                // non-aggregating `new()`.
                 let suppress_new = emit_compose && config.bindgen.style.is_minimal();
                 let new = if !suppress_new {
                     quote! {
