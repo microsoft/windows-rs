@@ -759,7 +759,7 @@ impl<T> SingleDeclaration<T> {
 
 pub struct ViewContext<C: Component> {
     contexts: ContextSnapshot,
-    effects: Rc<RefCell<ComponentEffects>>,
+    effects: ComponentEffects,
     reads: HashSet<ContextDependency>,
     sender: LocalSender<C::Message>,
     color_scheme_observation: SingleDeclaration<Callback<ColorScheme>>,
@@ -827,9 +827,7 @@ impl<C: Component> ViewContext<C> {
     ) where
         D: PartialEq + 'static,
     {
-        self.effects
-            .borrow_mut()
-            .use_effect(key.into(), dependency, setup);
+        self.effects.use_effect(key.into(), dependency, setup);
     }
 }
 
@@ -975,6 +973,13 @@ pub(crate) struct ComponentRender {
     pub(crate) window_visuals: Option<WindowVisuals>,
 }
 
+// Boxing the successful render would add an allocation to every component view.
+#[allow(clippy::large_enum_variant)]
+enum ComponentViewOutcome {
+    Complete(Result<ComponentRender, ComponentStoreError>),
+    Panicked(Box<dyn Any + Send>),
+}
+
 type EffectCleanup = Box<dyn FnOnce()>;
 type EffectSetup = Box<dyn FnOnce() -> Option<EffectCleanup>>;
 
@@ -1004,16 +1009,22 @@ impl EffectRegistration {
 }
 
 #[derive(Default)]
-pub(crate) struct ComponentEffects {
-    duplicate: Option<EffectKey>,
+struct ComponentEffectState {
     registrations: Vec<EffectRegistration>,
     slots: Vec<EffectSlot>,
 }
 
-impl ComponentEffects {
+impl ComponentEffectState {
     fn begin_view(&mut self) {
-        self.duplicate = None;
         self.registrations.clear();
+    }
+
+    fn duplicate_key(&self) -> Option<&EffectKey> {
+        self.registrations
+            .windows(2)
+            .next_back()
+            .filter(|pair| pair[0].key() == pair[1].key())
+            .map(|pair| pair[0].key())
     }
 
     fn use_effect<D>(
@@ -1024,14 +1035,18 @@ impl ComponentEffects {
     ) where
         D: PartialEq + 'static,
     {
+        if self.duplicate_key().is_some() {
+            return;
+        }
         if self
             .registrations
             .iter()
             .any(|registration| registration.key() == &key)
         {
-            if self.duplicate.is_none() {
-                self.duplicate = Some(key);
-            }
+            // A repeated tail pair records the first duplicate without enlarging every state.
+            self.registrations
+                .push(EffectRegistration::Retain { key: key.clone() });
+            self.registrations.push(EffectRegistration::Retain { key });
             return;
         }
         let changed = self
@@ -1052,9 +1067,10 @@ impl ComponentEffects {
     }
 
     fn finish_view(&self) -> Result<(), ComponentStoreError> {
-        match &self.duplicate {
-            Some(key) => Err(ComponentStoreError::DuplicateEffectKey(key.clone())),
-            None => Ok(()),
+        if let Some(key) = self.duplicate_key() {
+            Err(ComponentStoreError::DuplicateEffectKey(key.clone()))
+        } else {
+            Ok(())
         }
     }
 
@@ -1074,6 +1090,7 @@ impl ComponentEffects {
     }
 
     fn commit(&mut self) {
+        debug_assert!(self.duplicate_key().is_none());
         let mut published = std::mem::take(&mut self.slots);
         for registration in self.registrations.drain(..) {
             let slot = match registration {
@@ -1093,7 +1110,6 @@ impl ComponentEffects {
             };
             self.slots.push(slot);
         }
-        self.duplicate = None;
     }
 
     fn cleanup(&mut self) {
@@ -1104,14 +1120,70 @@ impl ComponentEffects {
         }
         self.slots.clear();
         self.registrations.clear();
-        self.duplicate = None;
+    }
+
+    fn is_empty(&self) -> bool {
+        self.registrations.is_empty() && self.slots.is_empty()
+    }
+}
+
+#[derive(Default)]
+pub(crate) struct ComponentEffects(Option<Box<ComponentEffectState>>);
+
+impl ComponentEffects {
+    fn begin_view(&mut self) {
+        if let Some(state) = self.0.as_deref_mut() {
+            state.begin_view();
+        }
+    }
+
+    fn use_effect<D>(
+        &mut self,
+        key: EffectKey,
+        dependency: D,
+        setup: impl FnOnce() -> Option<EffectCleanup> + 'static,
+    ) where
+        D: PartialEq + 'static,
+    {
+        self.0
+            .get_or_insert_with(Box::default)
+            .use_effect(key, dependency, setup);
+    }
+
+    fn finish_view(&self) -> Result<(), ComponentStoreError> {
+        self.0
+            .as_deref()
+            .map_or(Ok(()), ComponentEffectState::finish_view)
+    }
+
+    fn prepare(&mut self) {
+        if let Some(state) = self.0.as_deref_mut() {
+            state.prepare();
+        }
+    }
+
+    fn commit(&mut self) {
+        let clear = self.0.as_deref_mut().is_some_and(|state| {
+            state.commit();
+            state.is_empty()
+        });
+        if clear {
+            self.0 = None;
+        }
+    }
+
+    fn cleanup(&mut self) {
+        if let Some(state) = self.0.as_deref_mut() {
+            state.cleanup();
+        }
+        self.0 = None;
     }
 }
 
 struct TypedScope<C, I, M> {
     component: C,
     context_dependencies: Option<Rc<HashSet<ContextDependency>>>,
-    effects: Rc<RefCell<ComponentEffects>>,
+    effects: RefCell<ComponentEffects>,
     input: I,
     input_changed: fn(&mut C, &I, LocalSender<M>, TaskSpawner, WindowRef),
     sender: LocalSender<M>,
@@ -1120,9 +1192,9 @@ struct TypedScope<C, I, M> {
         &C,
         &I,
         LocalSender<M>,
-        Rc<RefCell<ComponentEffects>>,
+        ComponentEffects,
         ContextSnapshot,
-    ) -> Result<ComponentRender, ComponentStoreError>,
+    ) -> (ComponentViewOutcome, ComponentEffects),
     window: WindowEndpoint,
 }
 
@@ -1218,16 +1290,20 @@ where
     }
 
     fn view(&self, contexts: ContextSnapshot) -> Result<ComponentRender, ComponentStoreError> {
-        self.effects.borrow_mut().begin_view();
-        let render = (self.view)(
+        let mut effects = self.effects.take();
+        effects.begin_view();
+        let (outcome, effects) = (self.view)(
             &self.component,
             &self.input,
             self.sender.clone(),
-            Rc::clone(&self.effects),
+            effects,
             contexts,
-        )?;
-        self.effects.borrow().finish_view()?;
-        Ok(render)
+        );
+        self.effects.replace(effects);
+        match outcome {
+            ComponentViewOutcome::Complete(render) => render,
+            ComponentViewOutcome::Panicked(payload) => std::panic::resume_unwind(payload),
+        }
     }
 
     fn cleanup_effects(&self) {
@@ -1335,9 +1411,9 @@ impl ComponentStore {
             component: &C,
             input: &C::Input,
             sender: LocalSender<C::Message>,
-            effects: Rc<RefCell<ComponentEffects>>,
+            effects: ComponentEffects,
             contexts: ContextSnapshot,
-        ) -> Result<ComponentRender, ComponentStoreError> {
+        ) -> (ComponentViewOutcome, ComponentEffects) {
             let mut context = ViewContext {
                 contexts,
                 effects,
@@ -1348,27 +1424,44 @@ impl ComponentStore {
                 window_title: SingleDeclaration::default(),
                 window_visuals: SingleDeclaration::default(),
             };
-            let view = component.view(input, &mut context);
-            let color_scheme_observation = context
-                .color_scheme_observation
-                .resolve(ComponentStoreError::DuplicateColorSchemeObservation)?;
-            let window_size_observation = context
-                .window_size_observation
-                .resolve(ComponentStoreError::DuplicateWindowSizeObservation)?;
-            let window_title = context
-                .window_title
-                .resolve(ComponentStoreError::DuplicateWindowTitle)?;
-            let window_visuals = context
-                .window_visuals
-                .resolve(ComponentStoreError::DuplicateWindowVisuals)?;
-            Ok(ComponentRender {
+            let view = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                component.view(input, &mut context)
+            }));
+            let view = match view {
+                Ok(view) => view,
+                Err(payload) => {
+                    return (ComponentViewOutcome::Panicked(payload), context.effects);
+                }
+            };
+            let ViewContext {
+                effects,
+                reads: dependencies,
                 color_scheme_observation,
-                dependencies: context.reads,
-                view,
                 window_size_observation,
                 window_title,
                 window_visuals,
-            })
+                ..
+            } = context;
+            let render = (|| {
+                let color_scheme_observation = color_scheme_observation
+                    .resolve(ComponentStoreError::DuplicateColorSchemeObservation)?;
+                let window_size_observation = window_size_observation
+                    .resolve(ComponentStoreError::DuplicateWindowSizeObservation)?;
+                let window_title =
+                    window_title.resolve(ComponentStoreError::DuplicateWindowTitle)?;
+                let window_visuals =
+                    window_visuals.resolve(ComponentStoreError::DuplicateWindowVisuals)?;
+                effects.finish_view()?;
+                Ok(ComponentRender {
+                    color_scheme_observation,
+                    dependencies,
+                    view,
+                    window_size_observation,
+                    window_title,
+                    window_visuals,
+                })
+            })();
+            (ComponentViewOutcome::Complete(render), effects)
         }
 
         let background = Arc::clone(&self.background);
@@ -1401,7 +1494,7 @@ impl ComponentStore {
             Box::new(TypedScope {
                 component,
                 context_dependencies: None,
-                effects: Rc::new(RefCell::new(ComponentEffects::default())),
+                effects: RefCell::default(),
                 input,
                 input_changed: input_changed::<C>,
                 sender,
