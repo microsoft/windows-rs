@@ -475,74 +475,72 @@ impl TaskSpawner {
         let token = self.token;
         let thread_control = Arc::clone(&control);
         let thread_rejection = Arc::clone(&rejection);
-        let spawn = std::thread::Builder::new()
-            .name("windows-reactor".to_string())
-            .spawn(move || {
-                let _slot = slot;
-                let message = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-                    work(CancellationToken {
-                        control: Arc::clone(&thread_control),
-                    })
-                }));
-                let wake = {
-                    let mut background = queue.lock().unwrap();
-                    let registered = background.tasks.get_mut(&token.scope).is_some_and(|tasks| {
-                        let before = tasks.len();
-                        tasks.retain(|task| {
-                            task.upgrade()
-                                .is_some_and(|task| !Arc::ptr_eq(&task, &thread_control))
-                        });
-                        tasks.len() != before
+        let submitted = windows_threading::try_submit(move || {
+            let _slot = slot;
+            let message = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                work(CancellationToken {
+                    control: Arc::clone(&thread_control),
+                })
+            }));
+            let wake = {
+                let mut background = queue.lock().unwrap();
+                let registered = background.tasks.get_mut(&token.scope).is_some_and(|tasks| {
+                    let before = tasks.len();
+                    tasks.retain(|task| {
+                        task.upgrade()
+                            .is_some_and(|task| !Arc::ptr_eq(&task, &thread_control))
                     });
-                    if background
-                        .tasks
-                        .get(&token.scope)
-                        .is_some_and(Vec::is_empty)
-                    {
-                        background.tasks.remove(&token.scope);
-                    }
-                    if !registered
-                        || thread_control.status() == ComponentTaskStatus::Cancelled
-                        || !background.open
-                    {
-                        thread_control.cancel();
-                        return;
-                    }
-                    let Ok(message) = message else {
-                        drop(background);
-                        Self::queue_rejection_shared(
-                            &queue,
-                            &thread_control,
-                            token,
-                            thread_rejection.lock().unwrap().take(),
-                        );
-                        return;
-                    };
-                    if background.envelopes.len() >= BACKGROUND_MESSAGE_QUEUE_CAPACITY {
-                        drop(background);
-                        Self::queue_rejection_shared(
-                            &queue,
-                            &thread_control,
-                            token,
-                            thread_rejection.lock().unwrap().take(),
-                        );
-                        return;
-                    }
-                    if !thread_control.queue() {
-                        return;
-                    }
-                    background.envelopes.push_back(BackgroundEnvelope {
-                        control: Arc::clone(&thread_control),
-                        delivery: BackgroundDelivery::Completion,
-                        payload: Box::new(message),
-                        rejection: thread_rejection.lock().unwrap().take(),
+                    tasks.len() != before
+                });
+                if background
+                    .tasks
+                    .get(&token.scope)
+                    .is_some_and(Vec::is_empty)
+                {
+                    background.tasks.remove(&token.scope);
+                }
+                if !registered
+                    || thread_control.status() == ComponentTaskStatus::Cancelled
+                    || !background.open
+                {
+                    thread_control.cancel();
+                    return;
+                }
+                let Ok(message) = message else {
+                    drop(background);
+                    Self::queue_rejection_shared(
+                        &queue,
+                        &thread_control,
                         token,
-                    });
-                    Self::background_wake(&mut background)
+                        thread_rejection.lock().unwrap().take(),
+                    );
+                    return;
                 };
-                Self::wake_or_reject(&queue, wake);
-            });
-        if spawn.is_err() {
+                if background.envelopes.len() >= BACKGROUND_MESSAGE_QUEUE_CAPACITY {
+                    drop(background);
+                    Self::queue_rejection_shared(
+                        &queue,
+                        &thread_control,
+                        token,
+                        thread_rejection.lock().unwrap().take(),
+                    );
+                    return;
+                }
+                if !thread_control.queue() {
+                    return;
+                }
+                background.envelopes.push_back(BackgroundEnvelope {
+                    control: Arc::clone(&thread_control),
+                    delivery: BackgroundDelivery::Completion,
+                    payload: Box::new(message),
+                    rejection: thread_rejection.lock().unwrap().take(),
+                    token,
+                });
+                Self::background_wake(&mut background)
+            };
+            Self::wake_or_reject(&queue, wake);
+        });
+        if submitted.is_err() {
             let mut queue = self.queue.lock().unwrap();
             if let Some(tasks) = queue.tasks.get_mut(&self.token.scope) {
                 tasks.retain(|task| {

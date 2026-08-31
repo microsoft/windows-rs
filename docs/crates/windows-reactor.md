@@ -50,9 +50,10 @@ input and calls `Component::input_changed` when it differs. `Component::Message`
 request channel for local updates.
 
 `create`, `input_changed`, and `update` receive a shared `ComponentContext<Self>` for senders,
-background tasks, and window requests. `view` receives a mutable `ViewContext<Self>` because
-rendering records declarations, dependencies, observations, and effects. Inputs remain explicit
-arguments to `create`, `input_changed`, and `view`.
+background tasks, and window requests. Background tasks run on the shared Windows thread pool;
+Reactor bounds active work and routes completion back to the owning component. `view` receives a
+mutable `ViewContext<Self>` because rendering records declarations, dependencies, observations, and
+effects. Inputs remain explicit arguments to `create`, `input_changed`, and `view`.
 
 Generated controls convert directly into `View`. The internal `Element` representation and
 structural state remain private so applications depend on builders and capability traits rather
