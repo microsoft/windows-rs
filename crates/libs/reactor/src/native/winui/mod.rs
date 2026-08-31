@@ -30,11 +30,6 @@ union BootstrapPackageVersionValue {
     version: u64,
 }
 
-#[cfg(feature = "test")]
-pub struct LiveRendering {
-    _revoker: windows_core::EventRevoker,
-}
-
 #[cfg_attr(not(feature = "test"), allow(dead_code))]
 #[allow(
     clippy::missing_transmute_annotations,
@@ -57,6 +52,10 @@ mod generated;
 pub use generated::*;
 mod framework;
 mod grid;
+#[cfg(feature = "test")]
+pub(crate) mod test;
+#[cfg(feature = "test")]
+pub(crate) use test::native_window_handle;
 
 enum PropertyTarget<'a> {
     Framework(UIElement),
@@ -4165,18 +4164,6 @@ fn background_dispatch_waker(
     })
 }
 
-#[cfg(feature = "test")]
-pub fn native_window_handle(window: &Window) -> windows_core::Result<isize> {
-    let mut hwnd = std::ptr::null_mut();
-    unsafe {
-        window
-            .cast::<IWindowNative>()?
-            .WindowHandle(&mut hwnd)
-            .ok()?;
-    }
-    Ok(hwnd as isize)
-}
-
 fn native_drag_operation(operation: DragDropOperation) -> DataPackageOperation {
     match operation {
         DragDropOperation::Copy => DataPackageOperation::Copy,
@@ -4375,31 +4362,5 @@ pub fn initialize_ui_thread() -> windows_core::Result<()> {
 pub fn exit_ui_thread() {
     unsafe {
         PostQuitMessage(0);
-    }
-}
-
-#[cfg(feature = "test")]
-pub fn subscribe_live_rendering<F>(rendering: F) -> windows_core::Result<LiveRendering>
-where
-    F: Fn() + 'static,
-{
-    let revoker = CompositionTarget::Rendering(move |_, _| {
-        if std::panic::catch_unwind(std::panic::AssertUnwindSafe(&rendering)).is_err() {
-            std::process::abort();
-        }
-    })?;
-    Ok(LiveRendering { _revoker: revoker })
-}
-
-#[cfg(feature = "test")]
-pub fn schedule_live_test_exit(success: bool) -> windows_core::Result<()> {
-    let dispatcher = DispatcherQueue::GetForCurrentThread()?;
-    let handler = DispatcherQueueHandler::new(move || {
-        std::process::exit(i32::from(!success));
-    });
-    if dispatcher.TryEnqueueWithPriority(DispatcherQueuePriority::Low, &handler)? {
-        Ok(())
-    } else {
-        std::process::exit(1);
     }
 }

@@ -10,12 +10,7 @@ const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32
 const MAX_PENDING_WINDOW_OPENS: usize = 64;
 
 #[cfg(feature = "test")]
-mod test_support;
-#[cfg(feature = "test")]
-pub use test_support::{
-    LiveProbe, schedule_live_event_subscription_count, schedule_live_probe,
-    schedule_live_window_handle, take_live_diagnostics,
-};
+pub(crate) mod test;
 
 thread_local! {
     static HOST: RefCell<Option<LiveHost>> = const { RefCell::new(None) };
@@ -137,15 +132,7 @@ struct ComponentLoop {
     pump: Pump<WinUiRuntime>,
     root: Option<View>,
     #[cfg(feature = "test")]
-    event_delivery_stage: usize,
-    #[cfg(feature = "test")]
-    event_delivery_observed: Option<Rc<std::cell::Cell<bool>>>,
-    #[cfg(feature = "test")]
-    event_delivery_waits: usize,
-    #[cfg(feature = "test")]
-    content_dialog_stage: usize,
-    #[cfg(feature = "test")]
-    content_dialog_waits: usize,
+    test: test::LiveTestState,
 }
 
 #[cfg(feature = "test")]
@@ -166,33 +153,33 @@ impl ComponentLoop {
             .ok_or_else(|| format!("{name} event target is unavailable"))?;
         apply(self.pump.runtime(), node)
             .map_err(|error| format!("{name} native input failed: {error:?}"))?;
-        self.event_delivery_observed = Some(observed);
-        self.event_delivery_waits = 0;
+        self.test.event_delivery_observed = Some(observed);
+        self.test.event_delivery_waits = 0;
         Ok(())
     }
 
     fn live_event_delivery_step_impl(&mut self) -> Result<bool, String> {
-        if let Some(observed) = self.event_delivery_observed.take() {
+        if let Some(observed) = self.test.event_delivery_observed.take() {
             self.pump
                 .dispatch_events()
                 .map_err(|error| format!("event dispatch failed: {error:?}"))?;
             if !observed.get() {
-                self.event_delivery_waits += 1;
-                if self.event_delivery_waits == 100 {
+                self.test.event_delivery_waits += 1;
+                if self.test.event_delivery_waits == 100 {
                     return Err(format!(
                         "event delivery stage {} produced no matching payload",
-                        self.event_delivery_stage
+                        self.test.event_delivery_stage
                     ));
                 }
-                self.event_delivery_observed = Some(observed);
+                self.test.event_delivery_observed = Some(observed);
                 return Ok(false);
             }
-            self.event_delivery_stage += 1;
+            self.test.event_delivery_stage += 1;
         }
 
         let observed = Rc::new(std::cell::Cell::new(false));
         let callback = Rc::clone(&observed);
-        match self.event_delivery_stage {
+        match self.test.event_delivery_stage {
             0 => self.begin_live_event_stage(
                 ToggleSwitch::new()
                     .is_on(false)
@@ -346,23 +333,23 @@ impl ComponentLoop {
             ])
         };
         let mut wait = |states: &[LiveContentDialogState]| {
-            self.content_dialog_waits += 1;
-            if self.content_dialog_waits == 250 {
+            self.test.content_dialog_waits += 1;
+            if self.test.content_dialog_waits == 250 {
                 Err(format!(
                     "ContentDialog probe stalled at stage {}: {states:?}",
-                    self.content_dialog_stage
+                    self.test.content_dialog_stage
                 ))
             } else {
                 Ok(false)
             }
         };
-        match self.content_dialog_stage {
+        match self.test.content_dialog_stage {
             0 => {
                 self.pump
                     .update_view(view(true, false))
                     .map_err(|error| format!("ContentDialog mount failed: {error:?}"))?;
-                self.content_dialog_stage = 1;
-                self.content_dialog_waits = 0;
+                self.test.content_dialog_stage = 1;
+                self.test.content_dialog_waits = 0;
             }
             1 => {
                 let states = self.pump.runtime().live_content_dialog_states();
@@ -377,8 +364,8 @@ impl ComponentLoop {
                     .and_then(|_| self.pump.update_view(view(false, true)))
                     .and_then(|_| self.pump.update_view(view(true, true)))
                     .map_err(|error| format!("ContentDialog queue setup failed: {error:?}"))?;
-                self.content_dialog_stage = 2;
-                self.content_dialog_waits = 0;
+                self.test.content_dialog_stage = 2;
+                self.test.content_dialog_waits = 0;
             }
             2 => {
                 let states = self.pump.runtime().live_content_dialog_states();
@@ -392,8 +379,8 @@ impl ComponentLoop {
                     .runtime()
                     .live_hide_content_dialog(second.node)
                     .map_err(|error| format!("second ContentDialog hide failed: {error:?}"))?;
-                self.content_dialog_stage = 3;
-                self.content_dialog_waits = 0;
+                self.test.content_dialog_stage = 3;
+                self.test.content_dialog_waits = 0;
             }
             3 => {
                 let states = self.pump.runtime().live_content_dialog_states();
@@ -404,8 +391,8 @@ impl ComponentLoop {
                     self.pump
                         .update_view(view(false, false))
                         .map_err(|error| format!("ContentDialog cleanup failed: {error:?}"))?;
-                    self.content_dialog_stage = 4;
-                    self.content_dialog_waits = 0;
+                    self.test.content_dialog_stage = 4;
+                    self.test.content_dialog_waits = 0;
                     return Ok(false);
                 }
                 return wait(&states);
@@ -737,50 +724,6 @@ pub fn bootstrap() -> windows_core::Result<()> {
     bootstrap_runtime()
 }
 
-#[cfg(feature = "test")]
-pub fn bring_live_virtual_index(index: usize) -> Result<(), RuntimeError> {
-    HOST.with(|host| {
-        host.borrow()
-            .as_ref()
-            .and_then(LiveHost::primary)
-            .ok_or(RuntimeError::UnsupportedKind)?
-            .live_bring_virtual_index(index)
-    })
-}
-
-#[cfg(feature = "test")]
-pub fn live_virtual_shell_counts() -> Result<(usize, usize), RuntimeError> {
-    HOST.with(|host| {
-        host.borrow()
-            .as_ref()
-            .and_then(LiveHost::primary)
-            .ok_or(RuntimeError::UnsupportedKind)?
-            .live_virtual_shell_counts()
-    })
-}
-
-#[cfg(feature = "test")]
-pub fn take_live_performance_times() -> (Vec<f64>, Vec<f64>) {
-    let dispatch = LIVE_DISPATCH_TIMES_US.with(|times| std::mem::take(&mut *times.borrow_mut()));
-    let native = HOST.with(|host| {
-        host.borrow_mut()
-            .as_mut()
-            .and_then(LiveHost::primary_mut)
-            .map_or_else(Vec::new, LivePump::take_live_native_apply_times)
-    });
-    (dispatch, native)
-}
-
-#[cfg(feature = "test")]
-pub fn clear_live_performance_times() {
-    LIVE_DISPATCH_TIMES_US.with(|times| times.borrow_mut().clear());
-    HOST.with(|host| {
-        if let Some(primary) = host.borrow_mut().as_mut().and_then(LiveHost::primary_mut) {
-            primary.clear_live_native_apply_times();
-        }
-    });
-}
-
 pub struct App;
 
 impl App {
@@ -790,15 +733,7 @@ impl App {
                 pump: Pump::new(WinUiRuntime::with_application(application)),
                 root: Some(root),
                 #[cfg(feature = "test")]
-                event_delivery_stage: 0,
-                #[cfg(feature = "test")]
-                event_delivery_observed: None,
-                #[cfg(feature = "test")]
-                event_delivery_waits: 0,
-                #[cfg(feature = "test")]
-                content_dialog_stage: 0,
-                #[cfg(feature = "test")]
-                content_dialog_waits: 0,
+                test: Default::default(),
             })]
         })
     }
@@ -822,15 +757,7 @@ impl App {
                         pump: Pump::new(WinUiRuntime::with_application(application.clone())),
                         root: Some(root),
                         #[cfg(feature = "test")]
-                        event_delivery_stage: 0,
-                        #[cfg(feature = "test")]
-                        event_delivery_observed: None,
-                        #[cfg(feature = "test")]
-                        event_delivery_waits: 0,
-                        #[cfg(feature = "test")]
-                        content_dialog_stage: 0,
-                        #[cfg(feature = "test")]
-                        content_dialog_waits: 0,
+                        test: Default::default(),
                     }) as Box<dyn LivePump>
                 })
                 .collect()
@@ -992,15 +919,7 @@ pub(crate) fn open_live_windows(roots: Vec<View>) -> Result<(), RuntimeError> {
                 pump: Pump::new(WinUiRuntime::with_application(application.clone())),
                 root: Some(root),
                 #[cfg(feature = "test")]
-                event_delivery_stage: 0,
-                #[cfg(feature = "test")]
-                event_delivery_observed: None,
-                #[cfg(feature = "test")]
-                event_delivery_waits: 0,
-                #[cfg(feature = "test")]
-                content_dialog_stage: 0,
-                #[cfg(feature = "test")]
-                content_dialog_waits: 0,
+                test: Default::default(),
             }) as Box<dyn LivePump>
         })
         .collect::<Vec<_>>();
@@ -1152,7 +1071,7 @@ pub(crate) fn dispatch_native_events(token: WindowToken) {
                 PumpDiagnostic::WindowOpenRejected { error } => {
                     let message = format!("runtime window open was rejected: {error:?}");
                     #[cfg(feature = "test")]
-                    test_support::record_live_diagnostic(message.clone());
+                    test::record_live_diagnostic(message.clone());
                     eprintln!("windows-reactor warning: {message}");
                 }
                 PumpDiagnostic::VirtualRowRootCount {
@@ -1165,7 +1084,7 @@ pub(crate) fn dispatch_native_events(token: WindowToken) {
                          shell left empty"
                     );
                     #[cfg(feature = "test")]
-                    test_support::record_live_diagnostic(message.clone());
+                    test::record_live_diagnostic(message.clone());
                     eprintln!("windows-reactor warning: {message}");
                 }
             }

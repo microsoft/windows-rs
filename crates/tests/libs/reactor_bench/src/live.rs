@@ -4,6 +4,10 @@ use std::time::{Duration, Instant};
 
 use windows::Win32::{FILETIME, GetCurrentProcess, GetProcessTimes};
 use windows::Win32::{GetProcessMemoryInfo, PROCESS_MEMORY_COUNTERS, PROCESS_MEMORY_COUNTERS_EX};
+use windows_core::EventRevoker;
+use windows_reactor::test::{
+    clear_live_performance_times, subscribe_live_rendering, take_live_performance_times,
+};
 use windows_reactor::*;
 
 mod allocator;
@@ -296,7 +300,7 @@ struct LiveGrid {
     pending_report: Option<PendingReport>,
     begin_pending: std::rc::Rc<Cell<bool>>,
     report_pending: std::rc::Rc<Cell<bool>>,
-    _rendering: LiveRendering,
+    _rendering: EventRevoker,
 }
 
 impl LiveGrid {

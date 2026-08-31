@@ -19,6 +19,7 @@ use windows_collections::IIterable;
 use windows_composition::{
     Color as CompositionColor, Compositor as CompositionCompositor, ContainerVisual, SpriteVisual,
 };
+use windows_reactor::test::{LiveProbe, schedule_live_probe, schedule_live_window_handle};
 use windows_reactor::*;
 
 pub type FixtureResult = Result<(), String>;

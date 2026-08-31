@@ -6,6 +6,7 @@ publish = false
 default-run = "test_reactor_bench"
 
 [dependencies]
+windows-core = { workspace = true }
 windows-reactor = { workspace = true, features = ["test"] }
 windows = { workspace = true, features = ["processthreadsapi", "psapi", "winnt"] }
 

@@ -397,6 +397,7 @@ fn main() {
 mod tests {
     use super::*;
     use std::time::Instant;
+    use windows_reactor::test::*;
 
     fn sender(shared: &SharedApp, role: WindowRole) -> LocalSender<Message> {
         shared.senders.borrow()[&role].clone()

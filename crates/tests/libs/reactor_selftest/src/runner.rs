@@ -1,5 +1,6 @@
 use std::time::Duration;
 
+use windows_reactor::test::{LiveProbe, take_live_diagnostics};
 use windows_reactor::*;
 
 use crate::fixtures::{

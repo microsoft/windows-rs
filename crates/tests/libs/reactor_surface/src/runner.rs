@@ -1,6 +1,7 @@
 use std::sync::{Arc, Mutex};
 use std::time::{Duration, Instant};
 
+use windows_reactor::test::{schedule_live_event_subscription_count, take_live_diagnostics};
 use windows_reactor::*;
 
 use crate::generated_surface::{

@@ -7,11 +7,11 @@ mod generated;
 mod native;
 mod reference;
 #[cfg(any(test, feature = "test"))]
-mod test_support;
+pub mod test;
 
 use generated::*;
 #[cfg(test)]
-pub(crate) use test_support::*;
+pub(crate) use test::*;
 
 pub use app::*;
 pub use core::public::*;
@@ -22,6 +22,4 @@ pub use reference::{
     FocusError, ImageSourceError, IntegrationError, ReferenceControl, SwapChainPanelError,
     SwapChainPanelEvent, WebView2Error, WindowRef,
 };
-#[cfg(feature = "test")]
-pub use test_support::*;
 pub use windows_time::{DateTime, TimeSpan};

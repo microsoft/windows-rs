@@ -1,5 +1,6 @@
 use crate::registry::ALL_CONTROLS;
 use crate::shell::Gallery;
+use windows_reactor::test::*;
 use windows_reactor::*;
 
 fn find_active_property_node(
