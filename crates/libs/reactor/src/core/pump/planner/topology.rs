@@ -35,48 +35,84 @@ impl<R: NativeRuntime> Pump<R> {
     }
 
     pub(in super::super) fn native_root(tree: &Tree, node: NodeId) -> Result<NodeId, PumpError> {
-        let roots = Self::native_roots(tree, node)?;
-        let [root] = roots.as_slice() else {
+        let mut root = None;
+        let mut multiple = false;
+        Self::visit_native_roots(tree, node, &mut |current| {
+            if root.replace(current).is_some() {
+                multiple = true;
+            }
+        })?;
+        if multiple {
             return Err(PumpError::StructureUnsupported);
-        };
-        Ok(*root)
+        }
+        root.ok_or(PumpError::StructureUnsupported)
     }
 
     pub(super) fn native_roots(tree: &Tree, node: NodeId) -> Result<Vec<NodeId>, PumpError> {
+        let mut roots = Vec::new();
+        Self::visit_native_roots(tree, node, &mut |root| roots.push(root))?;
+        Ok(roots)
+    }
+
+    fn visit_native_roots(
+        tree: &Tree,
+        node: NodeId,
+        visit: &mut impl FnMut(NodeId),
+    ) -> Result<(), PumpError> {
         match tree.kind(node)? {
-            NodeKind::Native(_) | NodeKind::VirtualCollection => Ok(vec![node]),
+            NodeKind::Native(_) | NodeKind::VirtualCollection => visit(node),
             NodeKind::Tooltip(_) => {
                 let [target, _tooltip] = tree.children(node)? else {
                     return Err(PumpError::StructureUnsupported);
                 };
-                Self::native_roots(tree, *target)
+                Self::visit_native_roots(tree, *target, visit)?;
             }
             NodeKind::Flyout(_) => {
                 let [target, _content] = tree.children(node)? else {
                     return Err(PumpError::StructureUnsupported);
                 };
-                Self::native_roots(tree, *target)
+                Self::visit_native_roots(tree, *target, visit)?;
             }
             NodeKind::Menu(_) | NodeKind::CommandBarFlyout | NodeKind::TreeNodes => {
                 let [target] = tree.children(node)? else {
                     return Err(PumpError::StructureUnsupported);
                 };
-                Self::native_roots(tree, *target)
+                Self::visit_native_roots(tree, *target, visit)?;
             }
-            NodeKind::ContentDialog(_) => Ok(Vec::new()),
+            NodeKind::ContentDialog(_) => {}
             NodeKind::Component
             | NodeKind::Fragment
             | NodeKind::Provider
             | NodeKind::Slot
             | NodeKind::NamedSlot(_) => {
-                let mut roots = Vec::new();
                 for child in tree.children(node)?.iter().copied() {
-                    roots.extend(Self::native_roots(tree, child)?);
+                    Self::visit_native_roots(tree, child, visit)?;
                 }
-                Ok(roots)
             }
-            NodeKind::Application | NodeKind::Window => Err(PumpError::StructureUnsupported),
+            NodeKind::Application | NodeKind::Window => {
+                return Err(PumpError::StructureUnsupported);
+            }
         }
+        Ok(())
+    }
+
+    pub(super) fn native_root_count(tree: &Tree, node: NodeId) -> Result<usize, PumpError> {
+        let mut count = 0;
+        Self::visit_native_roots(tree, node, &mut |_| count += 1)?;
+        Ok(count)
+    }
+
+    pub(super) fn native_roots_intersect(
+        tree: &Tree,
+        node: NodeId,
+        first: NodeId,
+        second: NodeId,
+    ) -> Result<bool, PumpError> {
+        let mut found = false;
+        Self::visit_native_roots(tree, node, &mut |root| {
+            found |= root == first || root == second;
+        })?;
+        Ok(found)
     }
 
     pub(super) fn native_container(tree: &Tree, node: NodeId) -> Result<NodeId, PumpError> {
@@ -120,7 +156,7 @@ impl<R: NativeRuntime> Pump<R> {
                 if *sibling == current {
                     break;
                 }
-                offset += Self::native_roots(tree, *sibling)?.len();
+                offset += Self::native_root_count(tree, *sibling)?;
             }
             match tree.kind(parent)? {
                 NodeKind::Native(_)
@@ -145,7 +181,7 @@ impl<R: NativeRuntime> Pump<R> {
                             index: offset,
                         });
                     }
-                    if offset != 0 || Self::native_roots(tree, parent)?.len() > 1 {
+                    if offset != 0 || Self::native_root_count(tree, parent)? > 1 {
                         return Err(PumpError::StructureUnsupported);
                     }
                     return Ok(NativeAttachment::Slot {
@@ -206,7 +242,7 @@ impl<R: NativeRuntime> Pump<R> {
             if matches!(tree.kind(child)?, NodeKind::NamedSlot(_)) {
                 continue;
             }
-            native.extend(Self::native_roots(tree, child)?);
+            Self::visit_native_roots(tree, child, &mut |root| native.push(root))?;
         }
         Ok(native)
     }

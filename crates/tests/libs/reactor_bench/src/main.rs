@@ -1,4 +1,5 @@
 use std::cell::RefCell;
+use std::hint::black_box;
 use std::rc::Rc;
 use std::sync::atomic::Ordering;
 use std::time::Instant;
@@ -667,6 +668,38 @@ fn bench_mount_shutdown(name: &'static str, n: usize, view: View, iters: u64, re
     Row { name, n, perf }
 }
 
+fn bench_positional_array(iters: u64, reps: u32) -> Row {
+    let perf = measure(iters, reps, || {
+        black_box(StackPanel::new().children([
+            TextBlock::new(),
+            TextBlock::new(),
+            TextBlock::new(),
+            TextBlock::new(),
+        ]));
+    });
+    Row {
+        name: "positional_array",
+        n: 4,
+        perf,
+    }
+}
+
+fn bench_positional_tuple(iters: u64, reps: u32) -> Row {
+    let perf = measure(iters, reps, || {
+        black_box(StackPanel::new().children((
+            TextBlock::new(),
+            Button::new(),
+            TextBox::new(),
+            ProgressBar::new(),
+        )));
+    });
+    Row {
+        name: "positional_tuple",
+        n: 4,
+        perf,
+    }
+}
+
 fn bench_reference_mount(n: usize, iters: u64, reps: u32) -> Row {
     let references = (0..n).map(|_| ElementRef::new()).collect::<Vec<_>>();
     let view =
@@ -1014,6 +1047,8 @@ fn main() {
     component_moved_25_4k.rotate_left(1_024);
 
     let rows = vec![
+        bench_positional_array(iters, reps),
+        bench_positional_tuple(iters, reps),
         bench_mount_shutdown(
             "mount_shutdown",
             512,

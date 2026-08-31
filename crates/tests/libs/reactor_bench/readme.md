@@ -2,6 +2,8 @@
 
 This crate measures the Rust-side `windows-reactor` planner and component frontend with
 `RecordingRuntime`. It does not include WinUI control creation, layout, rendering, or COM calls.
+Dedicated positional array and tuple rows include view construction so frontend allocation changes
+are not hidden by prebuilt planner inputs.
 
 Run the benchmark in release mode:
 

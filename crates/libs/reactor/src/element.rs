@@ -327,7 +327,7 @@ pub(crate) mod sealed {
     }
 
     pub trait StaticViews {
-        fn into_views(self) -> Vec<super::View>;
+        fn into_positioned(self) -> Vec<super::KeyedView>;
     }
 }
 
@@ -1216,18 +1216,11 @@ impl VirtualItems {
 }
 
 fn positioned(children: impl IntoViews) -> Rc<Vec<KeyedView>> {
-    let children = sealed::StaticViews::into_views(children);
-    Rc::new(
-        children
-            .into_iter()
-            .enumerate()
-            .map(|(position, view)| KeyedView::position(position, view))
-            .collect(),
-    )
+    Rc::new(sealed::StaticViews::into_positioned(children))
 }
 
 impl sealed::StaticViews for () {
-    fn into_views(self) -> Vec<View> {
+    fn into_positioned(self) -> Vec<KeyedView> {
         Vec::new()
     }
 }
@@ -1238,8 +1231,11 @@ impl<T, const N: usize> sealed::StaticViews for [T; N]
 where
     T: Into<View>,
 {
-    fn into_views(self) -> Vec<View> {
-        self.into_iter().map(Into::into).collect()
+    fn into_positioned(self) -> Vec<KeyedView> {
+        self.into_iter()
+            .enumerate()
+            .map(|(position, view)| KeyedView::position(position, view.into()))
+            .collect()
     }
 }
 
@@ -1251,8 +1247,8 @@ macro_rules! impl_into_views_tuple {
         where
             $($type: Into<View>,)+
         {
-            fn into_views(self) -> Vec<View> {
-                vec![$(self.$index.into()),+]
+            fn into_positioned(self) -> Vec<KeyedView> {
+                vec![$(KeyedView::position($index, self.$index.into())),+]
             }
         }
 

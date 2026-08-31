@@ -342,7 +342,7 @@ impl<R: NativeRuntime> Pump<R> {
                         let child = Self::reconcile_planned_view(
                             tree, *child, view, components, changes, plan,
                         )?;
-                        if Self::native_roots(tree, child)?.len() > 1 {
+                        if Self::native_root_count(tree, child)? > 1 {
                             return Err(PumpError::StructureUnsupported);
                         }
                     }
@@ -687,7 +687,7 @@ impl<R: NativeRuntime> Pump<R> {
         let current = tree.children(target.logical_parent)?.to_vec();
         let mut requires_sync = current
             .iter()
-            .any(|child| Self::native_roots(tree, *child).map_or(true, |roots| roots.len() != 1));
+            .any(|child| Self::native_root_count(tree, *child) != Ok(1));
         if target.slot.is_some() && requires_sync {
             return Err(PumpError::StructureUnsupported);
         }
@@ -696,7 +696,7 @@ impl<R: NativeRuntime> Pump<R> {
         )?;
         for child in desired {
             if let Some(child_node) = reconciliation.nodes.get(child.key()).copied() {
-                let old_roots = Self::native_roots(tree, child_node)?;
+                let old_root_count = Self::native_root_count(tree, child_node)?;
                 let reconciled = Self::reconcile_planned_view(
                     tree,
                     child_node,
@@ -706,7 +706,7 @@ impl<R: NativeRuntime> Pump<R> {
                     plan,
                 )?;
                 let invalid_roots =
-                    old_roots.len() != 1 || Self::native_roots(tree, reconciled)?.len() != 1;
+                    old_root_count != 1 || Self::native_root_count(tree, reconciled)? != 1;
                 if target.slot.is_some() && invalid_roots {
                     return Err(PumpError::StructureUnsupported);
                 }
@@ -1572,10 +1572,7 @@ impl<R: NativeRuntime> Pump<R> {
             let attachment = tree
                 .tooltip_attachment(owner)?
                 .ok_or(PumpError::StructureUnsupported)?;
-            Self::native_roots(tree, node)?
-                .iter()
-                .any(|root| *root == attachment.0 || *root == attachment.1)
-                .then_some(owner)
+            Self::native_roots_intersect(tree, node, attachment.0, attachment.1)?.then_some(owner)
         } else {
             None
         };
@@ -1583,10 +1580,7 @@ impl<R: NativeRuntime> Pump<R> {
             let attachment = tree
                 .flyout_attachment(owner)?
                 .ok_or(PumpError::StructureUnsupported)?;
-            Self::native_roots(tree, node)?
-                .iter()
-                .any(|root| *root == attachment.0 || *root == attachment.1)
-                .then_some(owner)
+            Self::native_roots_intersect(tree, node, attachment.0, attachment.1)?.then_some(owner)
         } else {
             None
         };
