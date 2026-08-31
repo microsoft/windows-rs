@@ -90,6 +90,12 @@ range 1 through 999. `TextBlock::max_lines` accepts non-negative values, and
 `TimePicker::minute_increment` accepts values from 0 through 59. Passing `None` still inherits the
 native default.
 
+`ItemsRepeater::virtual_source` accepts an indexed `VirtualSource`. Initial mount and key-revision
+changes enumerate keys to validate identity, but item views are constructed only when WinUI
+realizes their indices. An update with the same key revision invokes the view factory only for
+currently realized rows. Applications must increment the revision whenever source length, key
+values, or key order changes. Payload-only changes keep the revision stable.
+
 `Image::source_data` and `ImageIcon::source_data` accept an `EncodedImage` containing PNG or other
 bitmap data supported by WinUI. SVG remains available through the URI-based `source` and
 `source_file` methods. `EncodedImage::from_static` retains a static slice without copying;

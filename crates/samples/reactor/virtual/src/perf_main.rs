@@ -182,7 +182,7 @@ fn main() {
     }
 
     println!();
-    println!("eager virtual-source scaling ({scaling_samples} samples after 2 warmups)");
+    println!("lazy virtual-source scaling ({scaling_samples} samples after 2 warmups)");
     println!(
         "{:<28} {:>10} {:>10} {:>10} {:>12} {:>10}",
         "workload", "median us", "p95 us", "p99 us", "bytes/op", "allocs/op"

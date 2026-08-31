@@ -1088,6 +1088,133 @@ where
     }
 }
 
+#[derive(Clone)]
+pub struct VirtualSource {
+    key_revision: u64,
+    len: usize,
+    key: Rc<dyn Fn(usize) -> Key>,
+    view: Rc<dyn Fn(usize) -> View>,
+}
+
+impl VirtualSource {
+    /// Creates an indexed source whose item views are built only when needed.
+    ///
+    /// `key_revision` must change whenever the length, order, or value of any key changes. It may
+    /// remain unchanged when only item view data changes. The key and view functions are called
+    /// only with indices less than `len`.
+    pub fn new<K, V, KI, VI>(key_revision: u64, len: usize, key: K, view: V) -> Self
+    where
+        K: Fn(usize) -> KI + 'static,
+        V: Fn(usize) -> VI + 'static,
+        KI: Into<Key>,
+        VI: Into<View>,
+    {
+        Self {
+            key_revision,
+            len,
+            key: Rc::new(move |index| key(index).into()),
+            view: Rc::new(move |index| view(index).into()),
+        }
+    }
+
+    pub fn len(&self) -> usize {
+        self.len
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.len == 0
+    }
+
+    pub fn key_revision(&self) -> u64 {
+        self.key_revision
+    }
+
+    fn key(&self, index: usize) -> Key {
+        (self.key)(index)
+    }
+
+    fn view(&self, index: usize) -> View {
+        (self.view)(index)
+    }
+}
+
+impl fmt::Debug for VirtualSource {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter
+            .debug_struct("VirtualSource")
+            .field("key_revision", &self.key_revision)
+            .field("len", &self.len)
+            .finish_non_exhaustive()
+    }
+}
+
+impl PartialEq for VirtualSource {
+    fn eq(&self, other: &Self) -> bool {
+        self.key_revision == other.key_revision
+            && self.len == other.len
+            && Rc::ptr_eq(&self.key, &other.key)
+            && Rc::ptr_eq(&self.view, &other.view)
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) enum VirtualItems {
+    Eager(Rc<Vec<KeyedView>>),
+    Lazy(VirtualSource),
+}
+
+impl Default for VirtualItems {
+    fn default() -> Self {
+        Self::Eager(Rc::default())
+    }
+}
+
+impl VirtualItems {
+    pub(crate) fn len(&self) -> usize {
+        match self {
+            Self::Eager(items) => items.len(),
+            Self::Lazy(source) => source.len(),
+        }
+    }
+
+    pub(crate) fn key(&self, index: usize) -> Option<Key> {
+        match self {
+            Self::Eager(items) => items.get(index).map(|item| item.key().clone()),
+            Self::Lazy(source) => (index < source.len()).then(|| source.key(index)),
+        }
+    }
+
+    pub(crate) fn view(&self, index: usize) -> Option<View> {
+        match self {
+            Self::Eager(items) => items.get(index).map(|item| item.view().clone()),
+            Self::Lazy(source) => (index < source.len()).then(|| source.view(index)),
+        }
+    }
+
+    pub(crate) fn changed_keys(&self, previous: &Self, keys: &[Key]) -> Option<Vec<Key>> {
+        if let (Self::Lazy(current), Self::Lazy(previous)) = (self, previous)
+            && current.key_revision() == previous.key_revision()
+            && current.len() == previous.len()
+            && current.len() == keys.len()
+        {
+            return None;
+        }
+        if let Self::Eager(items) = self
+            && items.len() == keys.len()
+            && keys
+                .iter()
+                .zip(items.iter())
+                .all(|(key, item)| key == item.key())
+        {
+            return None;
+        }
+        let next = (0..self.len())
+            .map(|index| self.key(index).unwrap())
+            .collect::<Vec<_>>();
+        (next != keys).then_some(next)
+    }
+}
+
 fn positioned(children: impl IntoViews) -> Rc<Vec<KeyedView>> {
     let children = sealed::StaticViews::into_views(children);
     Rc::new(

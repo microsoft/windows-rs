@@ -2496,21 +2496,32 @@ pub mod public {
     #[derive(Clone, Debug, Default, PartialEq)]
     pub struct ItemsRepeater {
         element_state: Option<std::rc::Rc<ElementState>>,
-        items: std::rc::Rc<Vec<KeyedView>>,
+        items: VirtualItems,
     }
     impl ItemsRepeater {
         pub fn new() -> Self {
             Self::default()
         }
         pub fn item(mut self, key: impl Into<Key>, item: impl Into<View>) -> Self {
-            std::rc::Rc::make_mut(&mut self.items).push(KeyedView::new(key, item));
+            if let VirtualItems::Eager(items) = &mut self.items {
+                std::rc::Rc::make_mut(items).push(KeyedView::new(key, item));
+            } else {
+                self.items = VirtualItems::Eager(std::rc::Rc::new(vec![KeyedView::new(key, item)]));
+            }
             self
         }
         pub fn items<T>(mut self, items: impl IntoIterator<Item = T>) -> Self
         where
             T: Into<KeyedView>,
         {
-            self.items = std::rc::Rc::new(items.into_iter().map(Into::into).collect());
+            self.items = VirtualItems::Eager(std::rc::Rc::new(
+                items.into_iter().map(Into::into).collect(),
+            ));
+            self
+        }
+        #[doc = r" Uses an indexed source that constructs views only for realized items."]
+        pub fn virtual_source(mut self, source: VirtualSource) -> Self {
+            self.items = VirtualItems::Lazy(source);
             self
         }
     }
@@ -8847,7 +8858,7 @@ pub mod public {
                 Self::ToggleButton(value) => ElementStructureRef::Content(value.content.as_deref()),
                 Self::RadioButton(value) => ElementStructureRef::Content(value.content.as_deref()),
                 Self::RadioButtons(_) => ElementStructureRef::None,
-                Self::ItemsRepeater(value) => ElementStructureRef::Virtual(value.items.as_slice()),
+                Self::ItemsRepeater(value) => ElementStructureRef::Virtual(&value.items),
                 Self::InfoBadge(_) => ElementStructureRef::None,
                 Self::InfoBar(_) => ElementStructureRef::None,
                 Self::PersonPicture(_) => ElementStructureRef::None,
@@ -13696,14 +13707,14 @@ pub enum ElementStructure {
     None,
     Content(Option<Element>),
     Children(std::rc::Rc<Vec<KeyedElement>>),
-    Virtual(std::rc::Rc<Vec<KeyedView>>),
+    Virtual(VirtualItems),
 }
 #[derive(Clone, Copy)]
 pub enum ElementStructureRef<'a> {
     None,
     Content(Option<&'a Element>),
     Children(&'a [KeyedElement]),
-    Virtual(&'a [KeyedView]),
+    Virtual(&'a VirtualItems),
 }
 #[derive(Clone, Debug, PartialEq)]
 pub struct ElementParts {

@@ -553,11 +553,7 @@ impl<R: NativeRuntime> Pump<R> {
                             outcomes.push(RealizationOutcome::Rejected(request));
                             continue;
                         };
-                        let item = candidate.virtual_item_at(collection, index)?;
-                        if item.key() != &lease.key {
-                            return Err(PumpError::StructureUnsupported);
-                        }
-                        let view = item.view().clone();
+                        let view = candidate.virtual_view_at(collection, index)?;
                         let stale = candidate
                             .children(collection)?
                             .iter()
@@ -589,7 +585,7 @@ impl<R: NativeRuntime> Pump<R> {
                             &mut changes,
                             &mut plan,
                         )?;
-                        candidate.set_realized(collection, container, logical_root, None)?;
+                        candidate.set_realized(collection, container, index, logical_root, None)?;
                         Self::refresh_virtual_row_attachment(
                             &mut candidate,
                             collection,

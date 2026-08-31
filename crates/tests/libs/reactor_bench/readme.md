@@ -22,6 +22,32 @@ memory increase by more than 10%. Timing is displayed for diagnosis but is not a
 `mount_shutdown` includes cloning the input `View` and constructing `RecordingRuntime` inside each
 timed iteration. Run timing commands with `--release`.
 
+## Profiling
+
+The workspace `profiling` profile keeps release optimizations and emits symbols. Build the headless
+benchmark with it, capture CPU sampling with Windows Performance Recorder, and inspect the ETL in
+Windows Performance Analyzer:
+
+```powershell
+cargo build -p test_reactor_bench --bin test_reactor_bench --profile profiling
+wpr.exe -start CPU -filemode
+.\target\profiling\test_reactor_bench.exe --iters 500 --reps 12
+wpr.exe -stop .\target\reactor-cpu.etl
+```
+
+Use the Heap profile when allocation call stacks are needed:
+
+```powershell
+wpr.exe -start Heap -filemode
+.\target\profiling\test_reactor_bench.exe --iters 500 --reps 12
+wpr.exe -stop .\target\reactor-heap.etl
+```
+
+WPR may require an elevated terminal. The benchmark's counting allocator remains the regression
+metric for allocation count, allocated bytes, and retained bytes; ETW profiles explain where those
+costs originate. Use `reactor-live-grid` with the same profile when WinUI, COM, layout, and process
+memory need to be included.
+
 Benchmark output starts with `reactor-benchmark-format: 1`. The comparison requires this marker in
 both revisions. A merge base without the marker predates the final benchmark architecture, so the
 script warns and exits successfully instead of comparing unrelated rows and formats.

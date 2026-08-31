@@ -344,6 +344,94 @@ fn virtual_collection_mounts_without_eager_row_controls() {
     }));
 }
 
+fn lazy_source(
+    revision: u64,
+    rows: Rc<Vec<(&'static str, &'static str)>>,
+    key_calls: Rc<Cell<usize>>,
+    view_calls: Rc<Cell<usize>>,
+) -> VirtualSource {
+    let key_rows = Rc::clone(&rows);
+    VirtualSource::new(
+        revision,
+        rows.len(),
+        move |index| {
+            key_calls.set(key_calls.get() + 1);
+            key_rows[index].0
+        },
+        move |index| {
+            view_calls.set(view_calls.get() + 1);
+            TextBlock::new().text(rows[index].1)
+        },
+    )
+}
+
+#[test]
+fn lazy_source_builds_only_realized_views_and_skips_stable_keys() {
+    let initial_keys = Rc::new(Cell::new(0));
+    let initial_views = Rc::new(Cell::new(0));
+    let mut pump = Pump::new(RecordingRuntime::default());
+    pump.mount_view(
+        ItemsRepeater::new()
+            .virtual_source(lazy_source(
+                0,
+                Rc::new(vec![("a", "A"), ("b", "B")]),
+                Rc::clone(&initial_keys),
+                Rc::clone(&initial_views),
+            ))
+            .into(),
+    )
+    .unwrap();
+    let collection = pump.root().unwrap();
+    assert_eq!(initial_keys.get(), 2);
+    assert_eq!(initial_views.get(), 0);
+
+    pump.runtime_mut()
+        .queue_realize(collection, RealizedContainer(1), 1);
+    pump.process_realizations().unwrap();
+    assert_eq!(initial_views.get(), 1);
+    assert_eq!(
+        pump.tree
+            .realized(collection, RealizedContainer(1))
+            .unwrap()
+            .unwrap()
+            .index,
+        1
+    );
+
+    let update_keys = Rc::new(Cell::new(0));
+    let update_views = Rc::new(Cell::new(0));
+    pump.update_view(
+        ItemsRepeater::new()
+            .virtual_source(lazy_source(
+                0,
+                Rc::new(vec![("a", "A2"), ("b", "B2")]),
+                Rc::clone(&update_keys),
+                Rc::clone(&update_views),
+            ))
+            .into(),
+    )
+    .unwrap();
+    assert_eq!(update_keys.get(), 0);
+    assert_eq!(update_views.get(), 1);
+
+    let reset_keys = Rc::new(Cell::new(0));
+    let reset_views = Rc::new(Cell::new(0));
+    pump.update_view(
+        ItemsRepeater::new()
+            .virtual_source(lazy_source(
+                1,
+                Rc::new(vec![("b", "B3"), ("a", "A3")]),
+                Rc::clone(&reset_keys),
+                Rc::clone(&reset_views),
+            ))
+            .into(),
+    )
+    .unwrap();
+    assert_eq!(reset_keys.get(), 2);
+    assert_eq!(reset_views.get(), 0);
+    assert!(pump.tree.children(collection).unwrap().is_empty());
+}
+
 #[test]
 fn component_row_is_created_lazily_and_recycle_cleans_it_once() {
     let input = row_input("A");
@@ -707,6 +795,7 @@ fn initial_multi_root_row_is_realized_detached_with_a_diagnostic() {
             .unwrap()
             .unwrap(),
         RealizedRow {
+            index: 0,
             logical_root: *logical_root,
             native_root: None,
         }
@@ -761,6 +850,7 @@ fn initial_empty_row_is_realized_logically_without_attachment() {
             .unwrap()
             .unwrap(),
         RealizedRow {
+            index: 0,
             logical_root: *logical_root,
             native_root: None,
         }

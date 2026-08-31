@@ -332,7 +332,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             None,
             Content(Option<Element>),
             Children(std::rc::Rc<Vec<KeyedElement>>),
-            Virtual(std::rc::Rc<Vec<KeyedView>>),
+            Virtual(VirtualItems),
         }
 
         #[derive(Clone, Copy)]
@@ -340,7 +340,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             None,
             Content(Option<&'a Element>),
             Children(&'a [KeyedElement]),
-            Virtual(&'a [KeyedView]),
+            Virtual(&'a VirtualItems),
         }
 
         #[derive(Clone, Debug, PartialEq)]
@@ -842,7 +842,7 @@ fn generate_element_structure(control: &ResolvedControl) -> TokenStream {
             quote! { Self::#name(value) => ElementStructureRef::Children(value.children.as_slice()) }
         }
         Role::Virtual => {
-            quote! { Self::#name(value) => ElementStructureRef::Virtual(value.items.as_slice()) }
+            quote! { Self::#name(value) => ElementStructureRef::Virtual(&value.items) }
         }
         Role::Leaf | Role::Slots => {
             quote! { Self::#name(_) => ElementStructureRef::None }
@@ -1531,7 +1531,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
     let structural_field = match control.role {
         Role::Content => quote! { content: Option<Box<Element>> },
         Role::Children => quote! { children: std::rc::Rc<Vec<KeyedElement>> },
-        Role::Virtual => quote! { items: std::rc::Rc<Vec<KeyedView>> },
+        Role::Virtual => quote! { items: VirtualItems },
         Role::Leaf | Role::Slots => TokenStream::new(),
     };
     let lifecycle_field =
@@ -1873,7 +1873,13 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         Role::Virtual => (
             quote! {
                 pub fn item(mut self, key: impl Into<Key>, item: impl Into<View>) -> Self {
-                    std::rc::Rc::make_mut(&mut self.items).push(KeyedView::new(key, item));
+                    if let VirtualItems::Eager(items) = &mut self.items {
+                        std::rc::Rc::make_mut(items).push(KeyedView::new(key, item));
+                    } else {
+                        self.items = VirtualItems::Eager(std::rc::Rc::new(vec![
+                            KeyedView::new(key, item)
+                        ]));
+                    }
                     self
                 }
 
@@ -1884,8 +1890,15 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                 where
                     T: Into<KeyedView>,
                 {
-                    self.items =
-                        std::rc::Rc::new(items.into_iter().map(Into::into).collect());
+                    self.items = VirtualItems::Eager(std::rc::Rc::new(
+                        items.into_iter().map(Into::into).collect()
+                    ));
+                    self
+                }
+
+                /// Uses an indexed source that constructs views only for realized items.
+                pub fn virtual_source(mut self, source: VirtualSource) -> Self {
+                    self.items = VirtualItems::Lazy(source);
                     self
                 }
             },

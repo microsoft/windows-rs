@@ -122,7 +122,7 @@ enum VirtualData {
         model: VirtualModel,
         realized: HashMap<RealizedContainer, RealizedRow>,
         native: NativeState,
-        items: Rc<Vec<KeyedView>>,
+        items: Rc<VirtualItems>,
     },
 }
 
@@ -181,6 +181,7 @@ impl<T> OwnedState<T> {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RealizedRow {
+    pub index: usize,
     pub logical_root: NodeId,
     pub native_root: Option<NodeId>,
 }
@@ -834,9 +835,9 @@ impl Tree {
         parent: Option<NodeId>,
         key: Option<Key>,
         desired: MountedProps,
-        items: Rc<Vec<KeyedView>>,
+        items: VirtualItems,
     ) -> Result<NodeId, TreeError> {
-        let keys = items.iter().map(|item| item.key().clone());
+        let keys = (0..items.len()).map(|index| items.key(index).unwrap());
         let id = self.arena.next_id()?;
         let model = VirtualModel::new(identity, id, keys)?;
         let inserted = self.insert_data(
@@ -846,23 +847,23 @@ impl Tree {
                 model,
                 realized: HashMap::new(),
                 native: NativeState::new(desired),
-                items,
+                items: Rc::new(items),
             }),
         )?;
         debug_assert_eq!(inserted, id);
         Ok(inserted)
     }
 
-    pub fn virtual_items(&self, id: NodeId) -> Result<&[KeyedView], TreeError> {
+    pub fn virtual_items(&self, id: NodeId) -> Result<&VirtualItems, TreeError> {
         match &self.arena.get(id)?.data {
-            NodeData::Virtual(VirtualData::Items { items, .. }) => Ok(items),
+            NodeData::Virtual(VirtualData::Items { items, .. }) => Ok(items.as_ref()),
             _ => Err(TreeError::NotVirtual),
         }
     }
 
-    pub fn virtual_item_at(&self, id: NodeId, index: usize) -> Result<&KeyedView, TreeError> {
+    pub fn virtual_view_at(&self, id: NodeId, index: usize) -> Result<View, TreeError> {
         self.virtual_items(id)?
-            .get(index)
+            .view(index)
             .ok_or_else(|| VirtualModelError::MissingIndex(index).into())
     }
 
@@ -921,6 +922,7 @@ impl Tree {
         &mut self,
         id: NodeId,
         container: RealizedContainer,
+        index: usize,
         logical_root: NodeId,
         native_root: Option<NodeId>,
     ) -> Result<(), TreeError> {
@@ -943,6 +945,7 @@ impl Tree {
         realized.insert(
             container,
             RealizedRow {
+                index,
                 logical_root,
                 native_root,
             },
@@ -969,6 +972,7 @@ impl Tree {
             .get_mut(&container)
             .ok_or(TreeError::NotVirtual)?;
         *row = RealizedRow {
+            index: row.index,
             logical_root,
             native_root,
         };
@@ -978,11 +982,11 @@ impl Tree {
     pub fn update_virtual_items(
         &mut self,
         id: NodeId,
-        items: Rc<Vec<KeyedView>>,
+        items: VirtualItems,
     ) -> Result<(), TreeError> {
         match &mut self.arena.get_mut(id)?.data {
             NodeData::Virtual(VirtualData::Items { items: current, .. }) => {
-                *current = items;
+                *current = Rc::new(items);
                 Ok(())
             }
             _ => Err(TreeError::NotVirtual),

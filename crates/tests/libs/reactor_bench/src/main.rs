@@ -633,14 +633,16 @@ fn keyed_stack(keys: &[String]) -> View {
     )
 }
 
-fn virtual_list(key_prefix: &str, text_prefix: &str, count: usize) -> View {
+fn virtual_list(key_revision: u64, key_prefix: &str, text_prefix: &str, count: usize) -> View {
+    let key_prefix = key_prefix.to_string();
+    let text_prefix = text_prefix.to_string();
     ItemsRepeater::new()
-        .items((0..count).map(|index| {
-            KeyedView::new(
-                format!("{key_prefix}{index}"),
-                TextBlock::new().text(format!("{text_prefix}{index}")),
-            )
-        }))
+        .virtual_source(VirtualSource::new(
+            key_revision,
+            count,
+            move |index| format!("{key_prefix}{index}"),
+            move |index| TextBlock::new().text(format!("{text_prefix}{index}")),
+        ))
         .into()
 }
 
@@ -722,8 +724,8 @@ fn queue_recycle(pump: &mut Pump<RecordingRuntime>, count: usize) {
 }
 
 fn bench_virtual_payload(count: usize, realized: usize, iters: u64, reps: u32) -> Row {
-    let a = virtual_list("key-", "a-", count);
-    let b = virtual_list("key-", "b-", count);
+    let a = virtual_list(0, "key-", "a-", count);
+    let b = virtual_list(0, "key-", "b-", count);
     let mut pump = Pump::new(runtime());
     pump.mount_view(a.clone()).unwrap();
     queue_realize(&mut pump, realized);
@@ -741,8 +743,8 @@ fn bench_virtual_payload(count: usize, realized: usize, iters: u64, reps: u32) -
 }
 
 fn bench_virtual_reset(count: usize, realized: usize, iters: u64, reps: u32) -> Row {
-    let a = virtual_list("a-", "row-", count);
-    let b = virtual_list("b-", "row-", count);
+    let a = virtual_list(0, "a-", "row-", count);
+    let b = virtual_list(1, "b-", "row-", count);
     let mut pump = Pump::new(runtime());
     pump.mount_view(a.clone()).unwrap();
     queue_realize(&mut pump, realized);
@@ -762,7 +764,7 @@ fn bench_virtual_reset(count: usize, realized: usize, iters: u64, reps: u32) -> 
 
 fn bench_realize_cycle(count: usize, realized: usize, iters: u64, reps: u32) -> Row {
     let mut pump = Pump::new(runtime());
-    pump.mount_view(virtual_list("key-", "row-", count))
+    pump.mount_view(virtual_list(0, "key-", "row-", count))
         .unwrap();
     let perf = measure(iters, reps, || {
         queue_realize(&mut pump, realized);
@@ -1088,8 +1090,8 @@ fn main() {
         bench_update(
             "virtual_no_change",
             10_000,
-            virtual_list("key-", "row-", 10_000),
-            virtual_list("key-", "row-", 10_000),
+            virtual_list(0, "key-", "row-", 10_000),
+            virtual_list(0, "key-", "row-", 10_000),
             iters,
             reps,
         ),

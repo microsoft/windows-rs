@@ -11,6 +11,11 @@ members = [
 lto = "thin"
 strip = "debuginfo"
 
+[profile.profiling]
+inherits = "release"
+debug = 1
+strip = "none"
+
 [profile.dev.package."*"]
 opt-level = 2
 
