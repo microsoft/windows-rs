@@ -88,6 +88,7 @@ pub struct Bindgen {
     output: PathBuf,
     derive: Vec<String>,
     implement: Option<Vec<String>>,
+    compose: Vec<String>,
     rustfmt: Option<String>,
     layout: Layout,
     style: Style,
@@ -374,6 +375,32 @@ impl Bindgen {
         self
     }
 
+    /// Selects a composable WinRT class as a minimal-mode composition target.
+    ///
+    /// The class and its composable factory methods must also be selected by a filter.
+    #[track_caller]
+    pub fn compose(&mut self, name: &str) -> &mut Self {
+        assert!(
+            name.rsplit_once('.')
+                .is_some_and(|(namespace, name)| !namespace.is_empty() && !name.is_empty()),
+            "`compose` requires a fully qualified class name"
+        );
+        self.compose.push(name.to_string());
+        self
+    }
+
+    /// Selects multiple composable WinRT classes as minimal-mode composition targets.
+    pub fn composes<I, S>(&mut self, names: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for name in names {
+            self.compose(name.as_ref());
+        }
+        self
+    }
+
     /// Generate raw or sys-style Rust bindings.
     ///
     /// Mutually exclusive with [`Bindgen::minimal`]; panics if `minimal` was
@@ -431,6 +458,10 @@ impl Bindgen {
         assert!(
             !self.output.as_os_str().is_empty(),
             "output is required (call `.output()` or pass `--out`)"
+        );
+        assert!(
+            self.compose.is_empty() || self.style.is_minimal(),
+            "`compose` requires `minimal`"
         );
 
         let mut include: Vec<&str> = vec![];
@@ -606,12 +637,57 @@ impl Bindgen {
             self_generics: Vec::new(),
             prunable: std::sync::Arc::new(BTreeSet::new()),
         };
+        let filter_config = Config {
+            implement: None,
+            ..config.clone()
+        };
+
+        for target in &self.compose {
+            let class = composition_target(reader, target);
+            assert!(
+                types.contains_key(&class.type_name()),
+                "composition target `{target}` is not selected by the filter"
+            );
+            assert!(
+                class
+                    .required_interfaces(reader)
+                    .iter()
+                    .filter(|interface| interface.kind == InterfaceKind::Composable)
+                    .filter(|interface| types.contains_key(&interface.def.type_name()))
+                    .any(|interface| interface
+                        .get_methods(&filter_config)
+                        .iter()
+                        .any(|method| matches!(method, MethodOrName::Method(_)))),
+                "composition target `{target}` has no composable factory method selected by the \
+                 filter"
+            );
+        }
 
         let tree = TypeTree::new(&types);
         report_timing(&self.output, "planning", phase.elapsed());
         config.write(tree);
         report_timing(&self.output, "total", total.elapsed());
     }
+}
+
+#[track_caller]
+fn composition_target(reader: &Reader, target: &str) -> Class {
+    let (namespace, name) = target.rsplit_once('.').unwrap();
+    let class = reader
+        .with_full_name(namespace, name)
+        .find_map(|ty| match ty {
+            Type::Class(class) => Some(class),
+            _ => None,
+        })
+        .unwrap_or_else(|| panic!("composition target `{target}` is not a WinRT class"));
+    assert!(
+        class
+            .required_interfaces(reader)
+            .iter()
+            .any(|interface| interface.kind == InterfaceKind::Composable),
+        "composition target `{target}` is not composable"
+    );
+    class
 }
 
 fn default_reader() -> &'static Reader {
@@ -818,6 +894,22 @@ mod tests {
         let mut builder = Bindgen::new();
         builder.implements(std::iter::empty::<&str>());
         assert_eq!(builder.implement, None);
+    }
+
+    #[test]
+    fn composition_selection() {
+        let mut builder = Bindgen::new();
+        builder
+            .compose("Test.First")
+            .composes(["Test.Second", "Other.Third"]);
+        assert_eq!(
+            builder.compose,
+            vec![
+                "Test.First".to_string(),
+                "Test.Second".to_string(),
+                "Other.Third".to_string()
+            ]
+        );
     }
 
     #[test]

@@ -113,6 +113,10 @@ Style:
   A class `CreateInstance` filter retains only the constructor factory method it needs. Use minimal
   style for small binding sets. `windows-canvas` and `windows-reactor` use it. It is mutually
   exclusive with `--sys`.
+- `--compose Namespace.Class` or `.compose("Namespace.Class")` marks an explicitly filtered,
+  composable WinRT class as a minimal-mode composition target. It emits `compose()` instead of the
+  factory's non-aggregating `new()`. Composition targets are independent of `--implement`, which
+  selects interface implementation traits.
 
 WinRT event accessors are always collapsed into an `Event` wrapper. This applies to all styles and
 layouts. See [Event accessors](#event-accessors).
@@ -323,6 +327,11 @@ dependencies do not add hierarchy edges to unrelated types.
 An interface selected as a shell can still supply `_Impl` scaffolding through `--implement`.
 Implementation closure retains every method signature needed by the ABI without emitting callable
 wrappers. Select the whole interface as well when the same binding must call and implement it.
+
+Minimal composable bindings also require an explicit class target. Select the class's composable
+factory method with `--filter`, select the override interfaces with `--implement`, and select the
+class itself with `--compose`. This avoids treating every class that inherits an implemented
+override interface as a composition target.
 
 For broad filters and package generation, `TypeMap::filter` scans namespaces from the top down. This
 is used for full namespace and package output.

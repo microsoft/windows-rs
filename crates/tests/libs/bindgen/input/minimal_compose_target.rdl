@@ -1,0 +1,39 @@
+//! --filter Test.Base::CreateInstance --filter Test.Derived::CreateInstance
+//! --implement Test.IOverrides --compose Test.Base --minimal --flat
+#[winrt]
+mod Windows {
+    mod Foundation {
+        mod Metadata {
+            #[repr(i32)]
+            enum CompositionType {
+                Protected = 1,
+                Public = 2,
+            }
+            attribute ComposableAttribute {
+                fn(factory_type: Type, composition_type: CompositionType, version: u32);
+            }
+        }
+    }
+}
+#[winrt]
+mod Test {
+    #[Windows::Foundation::Metadata::Composable(IBaseFactory, Public, 1)]
+    class Base {
+        IOverrides,
+    }
+    interface IOverrides {
+        fn OnSomething(&self);
+    }
+    interface IBaseFactory {
+        fn CreateInstance(&self, outer: Object, inner: &mut Object) -> Base;
+    }
+
+    #[Windows::Foundation::Metadata::Composable(IDerivedFactory, Public, 1)]
+    class Derived: Base {
+        IDerived,
+    }
+    interface IDerived {}
+    interface IDerivedFactory {
+        fn CreateInstance(&self, outer: Object, inner: &mut Object) -> Derived;
+    }
+}

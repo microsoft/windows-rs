@@ -69,6 +69,7 @@ fn main() {
             "Microsoft.UI.Xaml.IApplicationOverrides",
             "Microsoft.UI.Xaml.Markup.IXamlMetadataProvider",
         ])
+        .compose("Microsoft.UI.Xaml.Application")
         .minimal()
         .dead_code()
         .flat()

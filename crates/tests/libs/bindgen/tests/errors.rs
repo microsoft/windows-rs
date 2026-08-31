@@ -45,6 +45,54 @@ fn conflicting_styles_panic() {
     ]);
 }
 
+#[test]
+#[should_panic(expected = "`compose` requires `minimal`")]
+fn compose_without_minimal_panics() {
+    windows_bindgen::builder()
+        .output("unused.rs")
+        .filter("GetTickCount")
+        .compose("Test.Class")
+        .write();
+}
+
+#[test]
+#[should_panic(expected = "`compose` requires a fully qualified class name")]
+fn unqualified_compose_target_panics() {
+    windows_bindgen::builder().compose("Class");
+}
+
+#[test]
+#[should_panic(expected = "`--compose` requires a class name")]
+fn missing_compose_target_panics() {
+    windows_bindgen::bindgen(["--compose", "--minimal"]);
+}
+
+#[test]
+#[should_panic(
+    expected = "composition target `Test.Base` has no composable factory method selected by the \
+                filter"
+)]
+fn implemented_factory_does_not_select_composition_factory() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("compose_filter");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("out.winmd");
+    windows_rdl::reader()
+        .input("input/minimal_compose_target.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+
+    windows_bindgen::builder()
+        .input(winmd)
+        .output(scratch.join("out.rs"))
+        .filter("Test.Base")
+        .implement("Test.IBaseFactory")
+        .compose("Test.Base")
+        .minimal()
+        .flat()
+        .write();
+}
+
 fn author_variadic(name: &str) -> (String, String) {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join(name);
     std::fs::create_dir_all(&scratch).unwrap();
