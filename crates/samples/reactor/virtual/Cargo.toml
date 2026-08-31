@@ -8,6 +8,7 @@ publish = false
 perf = ["windows-reactor/test"]
 
 [dependencies]
+windows-core = { workspace = true }
 windows-reactor = { workspace = true }
 
 [dev-dependencies]

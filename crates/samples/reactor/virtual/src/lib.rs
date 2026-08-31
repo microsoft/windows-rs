@@ -1,6 +1,10 @@
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 use std::time::Duration;
+#[cfg(feature = "perf")]
+use windows_core::EventRevoker;
+#[cfg(any(test, feature = "perf"))]
+use windows_reactor::test::*;
 use windows_reactor::*;
 
 const INITIAL_TASKS: usize = 100;
@@ -614,7 +618,7 @@ pub mod performance {
 
     struct LivePerformance {
         _editor: EditorInput,
-        _rendering: LiveRendering,
+        _rendering: EventRevoker,
     }
 
     struct LiveStats {

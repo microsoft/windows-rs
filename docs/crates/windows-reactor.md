@@ -162,8 +162,8 @@ one-shot operation and `on_error` for a recurring surface.
 
 ### Test support
 
-The `test` Cargo feature exposes `Pump`, `RecordingRuntime`, command payloads, and related retained
-tree details for Reactor's deterministic tests and benchmarks. This feature is unstable testing
+The `test` Cargo feature exposes `Pump`, `RecordingRuntime`, command payloads, live probes, and
+related retained-tree details under `windows_reactor::test`. This namespace is unstable testing
 infrastructure, not part of the stable application API. Its types and command shapes may change
 between releases as the reconciler changes.
 

@@ -1,6 +1,14 @@
+use super::*;
 use std::cell::RefCell;
 
-use super::*;
+#[derive(Default)]
+pub(super) struct LiveTestState {
+    pub(super) event_delivery_stage: usize,
+    pub(super) event_delivery_observed: Option<Rc<std::cell::Cell<bool>>>,
+    pub(super) event_delivery_waits: usize,
+    pub(super) content_dialog_stage: usize,
+    pub(super) content_dialog_waits: usize,
+}
 
 thread_local! {
     static DIAGNOSTICS: RefCell<Vec<String>> = const { RefCell::new(Vec::new()) };
@@ -8,6 +16,46 @@ thread_local! {
 
 pub(super) fn record_live_diagnostic(message: String) {
     DIAGNOSTICS.with(|diagnostics| diagnostics.borrow_mut().push(message));
+}
+
+pub fn bring_live_virtual_index(index: usize) -> Result<(), RuntimeError> {
+    HOST.with(|host| {
+        host.borrow()
+            .as_ref()
+            .and_then(LiveHost::primary)
+            .ok_or(RuntimeError::UnsupportedKind)?
+            .live_bring_virtual_index(index)
+    })
+}
+
+pub fn live_virtual_shell_counts() -> Result<(usize, usize), RuntimeError> {
+    HOST.with(|host| {
+        host.borrow()
+            .as_ref()
+            .and_then(LiveHost::primary)
+            .ok_or(RuntimeError::UnsupportedKind)?
+            .live_virtual_shell_counts()
+    })
+}
+
+pub fn take_live_performance_times() -> (Vec<f64>, Vec<f64>) {
+    let dispatch = LIVE_DISPATCH_TIMES_US.with(|times| std::mem::take(&mut *times.borrow_mut()));
+    let native = HOST.with(|host| {
+        host.borrow_mut()
+            .as_mut()
+            .and_then(LiveHost::primary_mut)
+            .map_or_else(Vec::new, LivePump::take_live_native_apply_times)
+    });
+    (dispatch, native)
+}
+
+pub fn clear_live_performance_times() {
+    LIVE_DISPATCH_TIMES_US.with(|times| times.borrow_mut().clear());
+    HOST.with(|host| {
+        if let Some(primary) = host.borrow_mut().as_mut().and_then(LiveHost::primary_mut) {
+            primary.clear_live_native_apply_times();
+        }
+    });
 }
 
 pub fn take_live_diagnostics() -> Vec<String> {

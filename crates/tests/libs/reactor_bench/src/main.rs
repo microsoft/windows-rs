@@ -2,6 +2,7 @@ use std::cell::RefCell;
 use std::rc::Rc;
 use std::time::Instant;
 
+use windows_reactor::test::*;
 use windows_reactor::*;
 
 mod allocator;
