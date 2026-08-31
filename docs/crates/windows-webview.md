@@ -455,10 +455,10 @@ freed. `allocate` is the reverse helper for `[out]` getters that the crate imple
 `mod bindings` carries
 `#[expect(non_snake_case, non_camel_case_types, clippy::upper_case_acronyms)]`. This is the exact
 set of casing lints the generated code fires. A warning surfaces if any expectation stops firing
-after a regenerate. It also carries `#[allow(dead_code)]`. With `--dead-code`, bindings are
-`pub(crate)`. The `reactor` bridge's `ICoreWebView2Interop2::GetComICoreWebView2` is reached only
-through the feature-gated `WebView::from_core`, so it would warn as unused in a default build
-without that allowance.
+after a regenerate. It allows dead code only without the `reactor` feature because
+`ICoreWebView2Interop2::GetComICoreWebView2` is reached through the feature-gated
+`WebView::from_core`. Builds with `reactor` enabled check the complete generated binding filter for
+unused callables.
 
 ### Testing
 

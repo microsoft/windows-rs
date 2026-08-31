@@ -51,8 +51,6 @@
     WebView2.COREWEBVIEW2_COLOR
     WebView2.ICoreWebView2MoveFocusRequestedEventArgs::{get_Reason, get_Handled, put_Handled}
     WebView2.ICoreWebView2AcceleratorKeyPressedEventArgs::{get_KeyEventKind, get_VirtualKey, get_Handled, put_Handled}
-    WebView2.COREWEBVIEW2_MOVE_FOCUS_REASON
-    WebView2.COREWEBVIEW2_KEY_EVENT_KIND
     WebView2.ICoreWebView2Environment::CreateCoreWebView2Controller
     WebView2.ICoreWebView2Environment10::{CreateCoreWebView2ControllerOptions, CreateCoreWebView2ControllerWithOptions}
     WebView2.ICoreWebView2ControllerOptions::{put_ProfileName, put_IsInPrivateModeEnabled}
@@ -66,24 +64,18 @@
     WebView2.ICoreWebView2_2::{get_Environment, get_CookieManager, NavigateWithWebResourceRequest}
     WebView2.ICoreWebView2_13::get_Profile
     WebView2.ICoreWebView2_19::{get_MemoryUsageTargetLevel, put_MemoryUsageTargetLevel}
-    WebView2.COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL
     WebView2.ICoreWebView2Controller4::{get_AllowExternalDrop, put_AllowExternalDrop}
     WebView2.ICoreWebView2Environment2::CreateWebResourceRequest
     WebView2.ICoreWebView2EnvironmentOptions6
     WebView2.ICoreWebView2EnvironmentOptions8
-    WebView2.COREWEBVIEW2_SCROLLBAR_STYLE
     WebView2.ICoreWebView2Profile::{get_ProfileName, get_IsInPrivateModeEnabled, get_ProfilePath, get_DefaultDownloadFolderPath, put_DefaultDownloadFolderPath, get_PreferredColorScheme, put_PreferredColorScheme}
     WebView2.ICoreWebView2Profile2::ClearBrowsingDataAll
-    WebView2.COREWEBVIEW2_PREFERRED_COLOR_SCHEME
     WebView2.ICoreWebView2CookieManager::{CreateCookie, GetCookies, AddOrUpdateCookie, DeleteCookies, DeleteCookiesWithDomainAndPath, DeleteAllCookies}
     WebView2.ICoreWebView2CookieList::{get_Count, GetValueAtIndex}
     WebView2.ICoreWebView2Cookie::{get_Name, get_Value, get_Domain, get_Path, get_IsHttpOnly, put_IsHttpOnly, get_SameSite, put_SameSite, get_IsSecure, put_IsSecure, get_IsSession, get_Expires, put_Expires}
-    WebView2.COREWEBVIEW2_COOKIE_SAME_SITE_KIND
     WebView2.ICoreWebView2_3::{SetVirtualHostNameToFolderMapping, ClearVirtualHostNameToFolderMapping}
-    WebView2.COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND
     WebView2.ICoreWebView2_4::{add_DownloadStarting, remove_DownloadStarting}
     WebView2.ICoreWebView2_22::{AddWebResourceRequestedFilterWithRequestSourceKinds, RemoveWebResourceRequestedFilterWithRequestSourceKinds}
-    WebView2.COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS
     WebView2.ICoreWebView2DownloadStartingEventArgs::{get_DownloadOperation, get_Cancel, put_Cancel, get_ResultFilePath, put_ResultFilePath, get_Handled, put_Handled, GetDeferral}
     WebView2.ICoreWebView2DownloadOperation::{add_BytesReceivedChanged, remove_BytesReceivedChanged, add_StateChanged, remove_StateChanged, get_Uri, get_ContentDisposition, get_MimeType, get_TotalBytesToReceive, get_BytesReceived, get_ResultFilePath, get_State, get_InterruptReason, get_CanResume, Cancel, Pause, Resume}
     WebView2.ICoreWebView2Deferral::Complete
@@ -93,9 +85,7 @@
     WebView2.ICoreWebView2WebResourceResponse::{}
     WebView2.ICoreWebView2HttpRequestHeaders::{GetIterator}
     WebView2.ICoreWebView2HttpHeadersCollectionIterator::{GetCurrentHeader, get_HasCurrentHeader, MoveNext}
-    WebView2.COREWEBVIEW2_WEB_RESOURCE_CONTEXT
     WebView2.ICoreWebView2ProcessFailedEventArgs::{get_ProcessFailedKind}
-    WebView2.COREWEBVIEW2_PROCESS_FAILED_KIND
     WebView2.ICoreWebView2Interop2::{GetComICoreWebView2}
 
     SHCreateMemStream

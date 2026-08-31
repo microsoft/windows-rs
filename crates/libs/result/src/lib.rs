@@ -13,7 +13,10 @@ extern crate alloc;
 
 use alloc::{string::String, vec::Vec};
 
-#[expect(dead_code)]
+#[expect(
+    dead_code,
+    reason = "IErrorInfo's generated IID accompanies the vtable but is not needed"
+)]
 mod bindings;
 use bindings::*;
 

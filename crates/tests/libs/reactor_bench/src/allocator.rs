@@ -2,8 +2,8 @@ use std::alloc::{GlobalAlloc, Layout, System};
 use std::sync::atomic::{AtomicU64, Ordering};
 
 static ALLOCATED_BYTES: AtomicU64 = AtomicU64::new(0);
-static ALLOCATIONS: AtomicU64 = AtomicU64::new(0);
-static CURRENT_BYTES: AtomicU64 = AtomicU64::new(0);
+pub(crate) static ALLOCATIONS: AtomicU64 = AtomicU64::new(0);
+pub(crate) static CURRENT_BYTES: AtomicU64 = AtomicU64::new(0);
 
 struct CountingAllocator;
 
@@ -41,14 +41,4 @@ static GLOBAL: CountingAllocator = CountingAllocator;
 
 pub(crate) fn allocated_bytes() -> u64 {
     ALLOCATED_BYTES.load(Ordering::Relaxed)
-}
-
-#[allow(dead_code)]
-pub(crate) fn allocations() -> u64 {
-    ALLOCATIONS.load(Ordering::Relaxed)
-}
-
-#[allow(dead_code)]
-pub(crate) fn current_bytes() -> u64 {
-    CURRENT_BYTES.load(Ordering::Relaxed)
 }

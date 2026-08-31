@@ -1,5 +1,6 @@
 use std::cell::RefCell;
 use std::rc::Rc;
+use std::sync::atomic::Ordering;
 use std::time::Instant;
 
 use windows_reactor::test::*;
@@ -553,7 +554,7 @@ fn measure(iters: u64, reps: u32, mut op: impl FnMut()) -> Perf {
     };
     for _ in 0..reps {
         let bytes = allocator::allocated_bytes();
-        let allocs = allocator::allocations();
+        let allocs = allocator::ALLOCATIONS.load(Ordering::Relaxed);
         let start = Instant::now();
         for _ in 0..iters {
             op();
@@ -562,7 +563,8 @@ fn measure(iters: u64, reps: u32, mut op: impl FnMut()) -> Perf {
         if ns < best.ns {
             best.ns = ns;
             best.bytes = (allocator::allocated_bytes() - bytes) as f64 / iters as f64;
-            best.allocs = (allocator::allocations() - allocs) as f64 / iters as f64;
+            best.allocs =
+                (allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocs) as f64 / iters as f64;
         }
     }
     best
@@ -583,7 +585,7 @@ fn measure_frontend(
     }
     let mut timings = Vec::with_capacity(samples);
     let bytes = allocator::allocated_bytes();
-    let allocs = allocator::allocations();
+    let allocs = allocator::ALLOCATIONS.load(Ordering::Relaxed);
     for _ in 0..samples {
         let start = Instant::now();
         for _ in 0..batch {
@@ -604,7 +606,8 @@ fn measure_frontend(
         p95_ns: percentile(0.95),
         p99_ns: percentile(0.99),
         bytes: (allocator::allocated_bytes() - bytes) as f64 / (samples * batch) as f64,
-        allocs: (allocator::allocations() - allocs) as f64 / (samples * batch) as f64,
+        allocs: (allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocs) as f64
+            / (samples * batch) as f64,
     }
 }
 
@@ -949,10 +952,10 @@ fn measure_idle_component_memory(count: usize) -> MemoryRow {
             .collect::<Vec<_>>(),
     );
     let mut pump = Pump::new(runtime());
-    let before = allocator::current_bytes();
+    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
     pump.mount_view(View::component::<BenchRoot>(RootInput(senders)))
         .unwrap();
-    let bytes = allocator::current_bytes() - before;
+    let bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before;
     pump.shutdown();
     MemoryRow {
         n: count + 1,

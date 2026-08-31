@@ -4,7 +4,7 @@ include!("windows.rs");
 use alloc::boxed::Box;
 
 mod agile;
-#[allow(dead_code)]
+#[cfg_attr(not(windows), allow(dead_code))]
 mod bindings;
 mod can_into;
 mod delegate_box;

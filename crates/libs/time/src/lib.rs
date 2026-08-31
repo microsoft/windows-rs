@@ -2,7 +2,6 @@
 #![cfg(windows)]
 #![cfg_attr(all(not(feature = "std")), no_std)]
 
-#[allow(dead_code)]
 #[expect(non_snake_case, clippy::upper_case_acronyms)]
 mod bindings;
 mod datetime;
