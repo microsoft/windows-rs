@@ -30,7 +30,6 @@ union BootstrapPackageVersionValue {
     version: u64,
 }
 
-#[cfg_attr(not(feature = "test"), allow(dead_code))]
 #[allow(
     clippy::missing_transmute_annotations,
     clippy::upper_case_acronyms,
@@ -38,6 +37,7 @@ union BootstrapPackageVersionValue {
     non_snake_case,
     non_upper_case_globals
 )]
+#[cfg_attr(feature = "test", path = "test_bindings.rs")]
 mod bindings;
 pub use bindings::*;
 mod app_shim;

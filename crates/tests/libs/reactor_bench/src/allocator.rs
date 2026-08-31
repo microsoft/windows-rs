@@ -43,12 +43,18 @@ pub(crate) fn allocated_bytes() -> u64 {
     ALLOCATED_BYTES.load(Ordering::Relaxed)
 }
 
-#[allow(dead_code)]
+#[allow(
+    dead_code,
+    reason = "used by the benchmark binary but not the live-grid binary"
+)]
 pub(crate) fn allocations() -> u64 {
     ALLOCATIONS.load(Ordering::Relaxed)
 }
 
-#[allow(dead_code)]
+#[allow(
+    dead_code,
+    reason = "used by the benchmark binary but not the live-grid binary"
+)]
 pub(crate) fn current_bytes() -> u64 {
     CURRENT_BYTES.load(Ordering::Relaxed)
 }

@@ -113,7 +113,7 @@ struct NativeData {
 
 #[derive(Clone)]
 enum VirtualData {
-    #[allow(dead_code)]
+    #[cfg(test)]
     Bare {
         model: VirtualModel,
         realized: HashMap<RealizedContainer, RealizedRow>,
@@ -129,25 +129,33 @@ enum VirtualData {
 impl VirtualData {
     fn model(&self) -> &VirtualModel {
         match self {
-            Self::Bare { model, .. } | Self::Items { model, .. } => model,
+            #[cfg(test)]
+            Self::Bare { model, .. } => model,
+            Self::Items { model, .. } => model,
         }
     }
 
     fn model_mut(&mut self) -> &mut VirtualModel {
         match self {
-            Self::Bare { model, .. } | Self::Items { model, .. } => model,
+            #[cfg(test)]
+            Self::Bare { model, .. } => model,
+            Self::Items { model, .. } => model,
         }
     }
 
     fn realized(&self) -> &HashMap<RealizedContainer, RealizedRow> {
         match self {
-            Self::Bare { realized, .. } | Self::Items { realized, .. } => realized,
+            #[cfg(test)]
+            Self::Bare { realized, .. } => realized,
+            Self::Items { realized, .. } => realized,
         }
     }
 
     fn realized_mut(&mut self) -> &mut HashMap<RealizedContainer, RealizedRow> {
         match self {
-            Self::Bare { realized, .. } | Self::Items { realized, .. } => realized,
+            #[cfg(test)]
+            Self::Bare { realized, .. } => realized,
+            Self::Items { realized, .. } => realized,
         }
     }
 }
@@ -799,7 +807,7 @@ impl Tree {
         Ok(())
     }
 
-    #[allow(dead_code)]
+    #[cfg(test)]
     pub fn insert_virtual(
         &mut self,
         identity: WindowToken,

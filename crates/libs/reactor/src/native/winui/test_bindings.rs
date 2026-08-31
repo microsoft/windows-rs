@@ -6022,6 +6022,20 @@ impl windows_core::RuntimeType for ICalendarDatePicker {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ICalendarDatePicker {
+    pub(crate) fn SetDate(
+        &self,
+        value: Option<windows_time::DateTime>,
+    ) -> windows_core::Result<()> {
+        let value__ =
+            value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
+        unsafe {
+            (windows_core::Interface::vtable(self).SetDate)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Param::param(value__.as_ref()).abi(),
+            )
+            .ok()
+        }
+    }
     pub(crate) fn SetIsCalendarOpen(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetIsCalendarOpen)(
@@ -6105,7 +6119,10 @@ impl ICalendarDatePicker {
 pub struct ICalendarDatePicker_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     Date: usize,
-    SetDate: usize,
+    pub SetDate: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     IsCalendarOpen: usize,
     pub SetIsCalendarOpen:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -8011,6 +8028,20 @@ impl IDatePicker {
             .ok()
         }
     }
+    pub(crate) fn SetSelectedDate(
+        &self,
+        value: Option<windows_time::DateTime>,
+    ) -> windows_core::Result<()> {
+        let value__ =
+            value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
+        unsafe {
+            (windows_core::Interface::vtable(self).SetSelectedDate)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Param::param(value__.as_ref()).abi(),
+            )
+            .ok()
+        }
+    }
     pub(crate) fn SelectedDateChanged<F>(
         &self,
         handler: F,
@@ -8079,7 +8110,10 @@ pub struct IDatePicker_Vtbl {
     LightDismissOverlayMode: usize,
     SetLightDismissOverlayMode: usize,
     SelectedDate: usize,
-    SetSelectedDate: usize,
+    pub SetSelectedDate: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     DateChanged: usize,
     RemoveDateChanged: usize,
     pub SelectedDateChanged: unsafe extern "system" fn(
@@ -10600,6 +10634,17 @@ impl IItemsRepeater {
             .ok()
         }
     }
+    pub(crate) fn GetOrCreateElement(&self, index: i32) -> windows_core::Result<UIElement> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetOrCreateElement)(
+                windows_core::Interface::as_raw(self),
+                index,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[repr(C)]
 pub struct IItemsRepeater_Vtbl {
@@ -10614,6 +10659,21 @@ pub struct IItemsRepeater_Vtbl {
     pub SetItemTemplate: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    Layout: usize,
+    SetLayout: usize,
+    HorizontalCacheLength: usize,
+    SetHorizontalCacheLength: usize,
+    VerticalCacheLength: usize,
+    SetVerticalCacheLength: usize,
+    Background: usize,
+    SetBackground: usize,
+    GetElementIndex: usize,
+    TryGetElement: usize,
+    pub GetOrCreateElement: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        i32,
+        *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
@@ -12317,6 +12377,16 @@ impl INumberBox {
             .ok()
         }
     }
+    pub(crate) fn Value(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Value)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn SetValue(&self, value: f64) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetValue)(
@@ -12379,7 +12449,7 @@ pub struct INumberBox_Vtbl {
     pub SetMinimum: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     Maximum: usize,
     pub SetMaximum: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    Value: usize,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     SmallChange: usize,
     SetSmallChange: usize,
@@ -13961,6 +14031,16 @@ impl IRangeBase {
             .ok()
         }
     }
+    pub(crate) fn Value(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Value)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn SetValue(&self, value: f64) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetValue)(
@@ -14014,7 +14094,7 @@ pub struct IRangeBase_Vtbl {
     SetSmallChange: usize,
     LargeChange: usize,
     SetLargeChange: usize,
-    Value: usize,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub ValueChanged: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -17940,6 +18020,20 @@ impl ITimePicker {
             .ok()
         }
     }
+    pub(crate) fn SetSelectedTime(
+        &self,
+        value: Option<windows_time::TimeSpan>,
+    ) -> windows_core::Result<()> {
+        let value__ =
+            value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
+        unsafe {
+            (windows_core::Interface::vtable(self).SetSelectedTime)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Param::param(value__.as_ref()).abi(),
+            )
+            .ok()
+        }
+    }
     pub(crate) fn SelectedTimeChanged<F>(
         &self,
         handler: F,
@@ -17993,7 +18087,10 @@ pub struct ITimePicker_Vtbl {
     LightDismissOverlayMode: usize,
     SetLightDismissOverlayMode: usize,
     SelectedTime: usize,
-    SetSelectedTime: usize,
+    pub SetSelectedTime: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     TimeChanged: usize,
     RemoveTimeChanged: usize,
     pub SelectedTimeChanged: unsafe extern "system" fn(
@@ -19375,6 +19472,14 @@ impl IUIElement {
             .ok()
         }
     }
+    pub(crate) fn StartBringIntoView(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).StartBringIntoView)(
+                windows_core::Interface::as_raw(self),
+            )
+            .ok()
+        }
+    }
     pub(crate) fn Focus(&self, value: FocusState) -> windows_core::Result<bool> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -19695,7 +19800,8 @@ pub struct IUIElement_Vtbl {
     UpdateLayout: usize,
     CancelDirectManipulations: usize,
     StartDragAsync: usize,
-    StartBringIntoView: usize,
+    pub StartBringIntoView:
+        unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     StartBringIntoViewWithOptions: usize,
     TryInvokeKeyboardAccelerator: usize,
     pub Focus: unsafe extern "system" fn(

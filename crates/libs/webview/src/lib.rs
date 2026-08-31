@@ -1,6 +1,6 @@
 #![doc = include_str!("../readme.md")]
 
-#[allow(dead_code)]
+#[cfg_attr(not(feature = "reactor"), allow(dead_code))]
 #[expect(
     non_snake_case,
     non_camel_case_types,
