@@ -29,6 +29,11 @@ handles properties, events, and windows, while `RecordingRuntime` records the sa
 for deterministic tests. Typed references expose the Canvas, Composition, WebView, and focus
 integration boundaries.
 
+Maps and sets keyed only by runtime-generated identities use `rustc_hash`. Collections keyed by
+application-provided `Key`, effect names, strings, or other external values keep randomized
+hashing. Besides reducing lookup cost, the zero-sized internal hasher keeps retained tree nodes
+smaller.
+
 Unexpected native command failures are fatal. Continuing after a partially applied WinUI update
 would leave the retained and native trees out of sync.
 

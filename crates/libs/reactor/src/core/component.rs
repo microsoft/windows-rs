@@ -5,9 +5,10 @@ use crate::element::{
     Callback, CallbackSource, ColorScheme, IntoPayloadCallback, View, WindowSize, WindowVisuals,
 };
 use crate::reference::{HostRequest, WindowEndpoint, WindowRef};
+use rustc_hash::{FxHashMap as HashMap, FxHashSet as HashSet};
 use std::any::{Any, TypeId};
 use std::cell::RefCell;
-use std::collections::{HashMap, HashSet, VecDeque};
+use std::collections::VecDeque;
 use std::fmt;
 use std::marker::PhantomData;
 use std::mem::size_of;
@@ -1347,18 +1348,18 @@ impl ComponentStore {
             background: Arc::new(Mutex::new(BackgroundQueue {
                 envelopes: VecDeque::new(),
                 open: true,
-                tasks: HashMap::new(),
+                tasks: HashMap::default(),
                 wake: None,
                 wake_pending: false,
             })),
-            context_consumers: HashMap::new(),
-            context_consumers_by_id: HashMap::new(),
+            context_consumers: HashMap::default(),
+            context_consumers_by_id: HashMap::default(),
             drain_background_next: false,
             window,
             scopes: ScopeArena::new(),
             task_limiter,
             queue: Rc::new(RefCell::new(ComponentQueue {
-                active: HashSet::new(),
+                active: HashSet::default(),
                 envelopes: VecDeque::new(),
                 open: true,
                 wake: None,
@@ -1415,7 +1416,7 @@ impl ComponentStore {
             let mut context = ViewContext {
                 contexts,
                 effects,
-                reads: HashSet::new(),
+                reads: HashSet::default(),
                 sender,
                 color_scheme_observation: SingleDeclaration::default(),
                 window_size_observation: SingleDeclaration::default(),
@@ -1924,7 +1925,7 @@ impl ComponentStore {
                 window: self.window,
                 scope,
             },
-            HashSet::new(),
+            HashSet::default(),
         )
     }
 

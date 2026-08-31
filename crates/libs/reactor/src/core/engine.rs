@@ -1,8 +1,9 @@
 use super::scope::ScopeId;
 use super::*;
 use crate::reference::NativeElementRef;
+use rustc_hash::FxHashMap as HashMap;
 use std::any::TypeId;
-use std::collections::{BTreeMap, HashMap};
+use std::collections::BTreeMap;
 use std::rc::Rc;
 
 const PROVIDER_CHUNK_CAPACITY: usize = 256;
@@ -333,7 +334,7 @@ impl ProviderStore {
         }
         let chunks = Rc::make_mut(&mut groups[group]);
         while chunks.len() <= chunk % PROVIDER_GROUP_CAPACITY {
-            chunks.push(Rc::new(HashMap::new()));
+            chunks.push(Rc::new(HashMap::default()));
         }
         Rc::make_mut(&mut chunks[chunk % PROVIDER_GROUP_CAPACITY]).insert(id, provision);
     }
@@ -354,13 +355,13 @@ impl Tree {
     pub fn new() -> Self {
         Self {
             arena: Arena::new(),
-            components: Rc::new(HashMap::new()),
-            exit_transitions: Rc::new(HashMap::new()),
+            components: Rc::new(HashMap::default()),
+            exit_transitions: Rc::new(HashMap::default()),
             providers: ProviderStore::default(),
             root: None,
-            owned_attachments: Rc::new(HashMap::new()),
-            window_declarations: Rc::new(HashMap::new()),
-            window_title_bars: Rc::new(HashMap::new()),
+            owned_attachments: Rc::new(HashMap::default()),
+            window_declarations: Rc::new(HashMap::default()),
+            window_title_bars: Rc::new(HashMap::default()),
         }
     }
 
@@ -822,7 +823,7 @@ impl Tree {
             None,
             NodeData::Virtual(VirtualData::Bare {
                 model,
-                realized: HashMap::new(),
+                realized: HashMap::default(),
             }),
         )?;
         debug_assert_eq!(inserted, id);
@@ -845,7 +846,7 @@ impl Tree {
             key,
             NodeData::Virtual(VirtualData::Items {
                 model,
-                realized: HashMap::new(),
+                realized: HashMap::default(),
                 native: NativeState::new(desired),
                 items: Rc::new(items),
             }),

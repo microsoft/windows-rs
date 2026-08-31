@@ -48,7 +48,7 @@ impl Rng {
 #[test]
 #[cfg(target_pointer_width = "64")]
 fn generated_control_growth_preserves_core_layouts() {
-    assert_eq!(size_of::<Node>(), 336);
+    assert_eq!(size_of::<Node>(), 304);
     assert_eq!(size_of::<NativeState>(), 72);
     assert_eq!(size_of::<MountedProps>(), 16);
     assert_eq!(size_of::<Element>(), 16);

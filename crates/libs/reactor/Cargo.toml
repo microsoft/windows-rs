@@ -13,6 +13,7 @@ readme = "readme.md"
 test = []
 
 [dependencies]
+rustc-hash = { workspace = true }
 windows-collections = { workspace = true, features = ["std"] }
 windows-core = { workspace = true }
 windows-future = { workspace = true }

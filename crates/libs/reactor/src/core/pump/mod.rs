@@ -1,8 +1,12 @@
 use crate::reference::{HostRequest, ImperativeEndpoint, ImperativeRequest, NativeElementRef};
+use rustc_hash::{FxHashMap, FxHashSet};
 use std::collections::{HashMap, HashSet, VecDeque};
 use std::rc::Rc;
 
 use super::*;
+
+type IdMap<K, V> = FxHashMap<K, V>;
+type IdSet<T> = FxHashSet<T>;
 
 mod lifecycle;
 mod native_work;
@@ -79,7 +83,7 @@ pub struct Pump<R: NativeRuntime> {
     application: Option<NodeId>,
     components: ComponentStore,
     diagnostics: VecDeque<PumpDiagnostic>,
-    dirty_components: HashSet<ComponentToken>,
+    dirty_components: IdSet<ComponentToken>,
     #[cfg(test)]
     element: Option<Element>,
     tree: Tree,
@@ -91,7 +95,7 @@ pub struct Pump<R: NativeRuntime> {
     identity: WindowToken,
     native_observation_pending: bool,
     last_native_observation: Option<(NodeId, EventId)>,
-    planning_dirty: HashSet<ComponentToken>,
+    planning_dirty: IdSet<ComponentToken>,
     poisoned: bool,
     realizations: VecDeque<NativeWork<RealizationRequest>>,
     reset_on_drop: bool,
@@ -116,7 +120,7 @@ impl<R: NativeRuntime> Pump<R> {
             application: None,
             components,
             diagnostics: VecDeque::new(),
-            dirty_components: HashSet::new(),
+            dirty_components: IdSet::default(),
             #[cfg(test)]
             element: None,
             tree: Tree::new(),
@@ -128,7 +132,7 @@ impl<R: NativeRuntime> Pump<R> {
             identity,
             native_observation_pending: false,
             last_native_observation: None,
-            planning_dirty: HashSet::new(),
+            planning_dirty: IdSet::default(),
             poisoned: false,
             realizations: VecDeque::new(),
             reset_on_drop: true,
