@@ -28,16 +28,19 @@ Microsoft::UI::Xaml::Controls::ContentControl::CreateInstance
 Microsoft::UI::Xaml::Controls::Flyout::CreateInstance
 Microsoft::UI::Xaml::Controls::Grid::{ColumnProperty, ColumnSpanProperty, RowProperty, RowSpanProperty, SetColumn, SetColumnSpan, SetRow, SetRowSpan}
 Microsoft::UI::Xaml::Controls::IButton::put_Flyout
+Microsoft::UI::Xaml::Controls::ICalendarDatePicker::put_Date
 Microsoft::UI::Xaml::Controls::IColumnDefinition::{get_Width, put_Width}
 Microsoft::UI::Xaml::Controls::ICommandBarFlyout::{get_PrimaryCommands, get_SecondaryCommands}
 Microsoft::UI::Xaml::Controls::IContentDialog::{Hide, ShowAsync}
+Microsoft::UI::Xaml::Controls::IDatePicker::put_SelectedDate
 Microsoft::UI::Xaml::Controls::IFlyout::put_Content
 Microsoft::UI::Xaml::Controls::IGrid::{get_ColumnDefinitions, get_RowDefinitions}
-Microsoft::UI::Xaml::Controls::IItemsRepeater::{put_ItemsSource, put_ItemTemplate}
+Microsoft::UI::Xaml::Controls::IItemsRepeater::{GetOrCreateElement, put_ItemsSource, put_ItemTemplate}
 Microsoft::UI::Xaml::Controls::IMenuBarItem::get_Items
 Microsoft::UI::Xaml::Controls::IMenuFlyout::get_Items
 Microsoft::UI::Xaml::Controls::IMenuFlyoutItem::{put_Text, add_Click, remove_Click}
 Microsoft::UI::Xaml::Controls::IMenuFlyoutSubItem::{get_Items, put_Text}
+Microsoft::UI::Xaml::Controls::INumberBox::get_Value
 Microsoft::UI::Xaml::Controls::IRichEditBox::{get_Document, get_IsReadOnly}
 Microsoft::UI::Xaml::Controls::IRichTextBlock::get_Blocks
 Microsoft::UI::Xaml::Controls::IRowDefinition::{get_Height, put_Height}
@@ -45,6 +48,7 @@ Microsoft::UI::Xaml::Controls::ISplitButton::put_Flyout
 Microsoft::UI::Xaml::Controls::ISplitView::get_IsPaneOpen
 Microsoft::UI::Xaml::Controls::ISwapChainPanel::{get_CompositionScaleX, get_CompositionScaleY, add_CompositionScaleChanged, remove_CompositionScaleChanged}
 Microsoft::UI::Xaml::Controls::ITeachingTip::put_IsOpen
+Microsoft::UI::Xaml::Controls::ITimePicker::put_SelectedTime
 Microsoft::UI::Xaml::Controls::ITreeView::get_RootNodes
 Microsoft::UI::Xaml::Controls::ITreeViewNode::{get_Children, get_Content, put_Content, put_IsExpanded}
 Microsoft::UI::Xaml::Controls::IWebView2::{EnsureCoreWebView2Async, get_CoreWebView2, add_CoreWebView2Initialized, remove_CoreWebView2Initialized}
@@ -56,6 +60,7 @@ Microsoft::UI::Xaml::Controls::MenuFlyoutSubItem::CreateInstance
 Microsoft::UI::Xaml::Controls::Primitives::FlyoutPlacementMode
 Microsoft::UI::Xaml::Controls::Primitives::IButtonBase::{add_Click, remove_Click}
 Microsoft::UI::Xaml::Controls::Primitives::IFlyoutBase::put_Placement
+Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::get_Value
 Microsoft::UI::Xaml::Controls::Primitives::IToggleButton::get_IsChecked
 Microsoft::UI::Xaml::Controls::Primitives::PlacementMode
 Microsoft::UI::Xaml::Controls::RelativePanel::{AlignBottomWithPanelProperty, AlignHorizontalCenterWithPanelProperty, AlignLeftWithPanelProperty, AlignRightWithPanelProperty, AlignTopWithPanelProperty, AlignVerticalCenterWithPanelProperty, SetAlignBottomWithPanel, SetAlignHorizontalCenterWithPanel, SetAlignLeftWithPanel, SetAlignRightWithPanel, SetAlignTopWithPanel, SetAlignVerticalCenterWithPanel}
@@ -91,7 +96,7 @@ Microsoft::UI::Xaml::IFrameworkElement::put_Style
 Microsoft::UI::Xaml::IFrameworkElementStatics::{get_WidthProperty, get_HeightProperty, get_MinWidthProperty, get_MaxWidthProperty, get_MinHeightProperty, get_MaxHeightProperty, get_HorizontalAlignmentProperty, get_VerticalAlignmentProperty, get_MarginProperty}
 Microsoft::UI::Xaml::IResourceDictionary::get_MergedDictionaries
 Microsoft::UI::Xaml::ISizeChangedEventArgs::get_NewSize
-Microsoft::UI::Xaml::IUIElement::{CapturePointer, Focus, ReleasePointerCapture, ReleasePointerCaptures, get_XamlRoot, put_XamlRoot, put_Opacity}
+Microsoft::UI::Xaml::IUIElement::{CapturePointer, Focus, ReleasePointerCapture, ReleasePointerCaptures, get_XamlRoot, put_XamlRoot, put_Opacity, StartBringIntoView}
 Microsoft::UI::Xaml::IUIElement::{add_PointerEntered, add_PointerExited, add_PointerMoved, add_PointerPressed, add_PointerReleased, remove_PointerEntered, remove_PointerExited, remove_PointerMoved, remove_PointerPressed, remove_PointerReleased}
 Microsoft::UI::Xaml::IUIElementStatics::get_OpacityProperty
 Microsoft::UI::Xaml::IWindow2::{get_AppWindow, put_SystemBackdrop}

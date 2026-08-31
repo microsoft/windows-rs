@@ -1,7 +1,0 @@
-Microsoft::UI::Xaml::Controls::ICalendarDatePicker::put_Date
-Microsoft::UI::Xaml::Controls::IDatePicker::put_SelectedDate
-Microsoft::UI::Xaml::Controls::IItemsRepeater::GetOrCreateElement
-Microsoft::UI::Xaml::Controls::INumberBox::get_Value
-Microsoft::UI::Xaml::Controls::Primitives::IRangeBase::get_Value
-Microsoft::UI::Xaml::Controls::ITimePicker::put_SelectedTime
-Microsoft::UI::Xaml::IUIElement::StartBringIntoView

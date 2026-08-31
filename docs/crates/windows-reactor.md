@@ -177,22 +177,20 @@ the `windows-reactor-setup` bootstrap DLLs from pinned NuGet packages. It then r
 | --- | --- |
 | `crates/libs/reactor/src/generated.rs` | Public builders and retained property/event data |
 | `crates/libs/reactor/src/native/winui/generated.rs` | WinUI command application |
-| `crates/libs/reactor/src/native/winui/bindings.rs` | Minimal production WinUI bindings |
-| `crates/libs/reactor/src/native/winui/test_bindings.rs` | Production bindings plus live-test APIs |
+| `crates/libs/reactor/src/native/winui/bindings.rs` | Minimal WinUI bindings |
 | `crates/libs/canvas/src/reactor_bindings.rs` | Minimal Canvas integration bindings |
 | `crates/tests/libs/reactor_surface/src/generated_surface.rs` | Live projected API cases |
 
 `crates/tools/reactor/src/bindings.txt` contains the hand-maintained runtime binding filter.
 `control_bindings.txt` is generated from `winui.toml` and supplies control-specific entries. The
-`test_bindings.txt` overlay contains methods used only by feature-gated live tests. The crate
-selects the production bindings normally and the test superset with the `test` feature. The
 filters name only APIs used by the runtime or live test hooks. Feedback events obtain values from
 their event payloads rather than generating property readers for the full schema. Content controls
 take their content property name from WinUI's `ContentPropertyAttribute`, including inherited
 properties.
 
-Both variants use `--dead-code`, which gives generated callables crate visibility so normal and
-live-test builds report unused filter entries.
+Bindings used only by the `test` feature are dead in a normal library build. The bindings module
+allows dead code only when that feature is disabled. Building with the feature removes the
+allowance, so the live self-test build checks the complete generated surface for unused callables.
 
 These Rust files are committed generated output. Do not edit them by hand. After changing
 `winui.toml`, the schema resolver, or either generator, run:

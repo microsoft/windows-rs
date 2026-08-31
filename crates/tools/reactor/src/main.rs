@@ -14,9 +14,7 @@ use windows_clang::nuget_package;
 
 const OUTPUT: &str = "crates/libs/reactor/src/generated.rs";
 const BINDINGS: &str = "crates/libs/reactor/src/native/winui/bindings.rs";
-const TEST_BINDINGS: &str = "crates/libs/reactor/src/native/winui/test_bindings.rs";
 const RUNTIME_BINDINGS_FILTER: &str = "crates/tools/reactor/src/bindings.txt";
-const TEST_BINDINGS_FILTER: &str = "crates/tools/reactor/src/test_bindings.txt";
 const CONTROL_BINDINGS_FILTER: &str = "crates/tools/reactor/src/control_bindings.txt";
 const CANVAS_BINDINGS: &str = "crates/libs/canvas/src/reactor_bindings.rs";
 const CANVAS_FILTER: &str = "crates/tools/reactor/src/canvas.txt";
@@ -62,35 +60,10 @@ fn main() {
     // A file-path pass stabilizes rustfmt's handling of deeply nested generated closures.
     format_file(WINUI_OUTPUT);
 
-    generate_reactor_bindings(
-        BINDINGS,
-        &[RUNTIME_BINDINGS_FILTER, CONTROL_BINDINGS_FILTER],
-    );
-    generate_reactor_bindings(
-        TEST_BINDINGS,
-        &[
-            RUNTIME_BINDINGS_FILTER,
-            CONTROL_BINDINGS_FILTER,
-            TEST_BINDINGS_FILTER,
-        ],
-    );
-
     windows_bindgen::builder()
         .input(workspace_path(WINMD))
         .input_default()
-        .minimal()
-        .dead_code()
-        .flat()
-        .output(workspace_path(CANVAS_BINDINGS))
-        .filter_file(workspace_path(CANVAS_FILTER))
-        .write();
-}
-
-fn generate_reactor_bindings(output: &str, filters: &[&str]) {
-    windows_bindgen::builder()
-        .input(workspace_path(WINMD))
-        .input_default()
-        .output(workspace_path(output))
+        .output(workspace_path(BINDINGS))
         .implements([
             "Microsoft.UI.Xaml.IElementFactory",
             "Microsoft.UI.Xaml.IApplicationOverrides",
@@ -100,7 +73,20 @@ fn generate_reactor_bindings(output: &str, filters: &[&str]) {
         .minimal()
         .dead_code()
         .flat()
-        .filter_files(filters.iter().map(workspace_path))
+        .filter_files([
+            workspace_path(RUNTIME_BINDINGS_FILTER),
+            workspace_path(CONTROL_BINDINGS_FILTER),
+        ])
+        .write();
+
+    windows_bindgen::builder()
+        .input(workspace_path(WINMD))
+        .input_default()
+        .output(workspace_path(CANVAS_BINDINGS))
+        .minimal()
+        .dead_code()
+        .flat()
+        .filter_file(workspace_path(CANVAS_FILTER))
         .write();
 }
 
