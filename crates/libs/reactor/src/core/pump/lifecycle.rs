@@ -18,10 +18,7 @@ impl<R: NativeRuntime> Pump<R> {
         let mut ordered = cleanup
             .into_iter()
             .map(|token| {
-                let node = self
-                    .tree
-                    .component_node(token.scope())?
-                    .ok_or(PumpError::StructureUnsupported)?;
+                let node = self.tree.component_node(token.scope())?.unwrap();
                 Ok((Reverse(self.tree.depth(node)?), node, token))
             })
             .collect::<Result<Vec<_>, PumpError>>()?;
@@ -51,10 +48,7 @@ impl<R: NativeRuntime> Pump<R> {
         let mut ordered = setup
             .into_iter()
             .map(|token| {
-                let node = self
-                    .tree
-                    .component_node(token.scope())?
-                    .ok_or(PumpError::StructureUnsupported)?;
+                let node = self.tree.component_node(token.scope())?.unwrap();
                 Ok((self.tree.depth(node)?, node, token))
             })
             .collect::<Result<Vec<_>, PumpError>>()?;

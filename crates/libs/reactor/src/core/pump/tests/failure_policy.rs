@@ -52,3 +52,30 @@ fn post_planning_abort_removes_reservations_and_fail_stops() {
     pump.native_observation_pending = true;
     assert!(!pump.native_work_pending());
 }
+
+#[test]
+fn declaration_rejections_are_classified_together() {
+    for error in [
+        PumpError::DuplicateEffectKey(EffectKey::from("effect")),
+        PumpError::DuplicateElementRef,
+        PumpError::DuplicateKey(Key::from("key")),
+        PumpError::DuplicateColorSchemeObservation,
+        PumpError::DuplicateWindowSizeObservation,
+        PumpError::DuplicateWindowTitle,
+        PumpError::DuplicateWindowTitleBar,
+        PumpError::DuplicateWindowVisuals,
+        PumpError::ExitTransitionUnsupported,
+        PumpError::StructureUnsupported,
+    ] {
+        assert!(error.is_declaration_rejection());
+    }
+
+    for error in [
+        PumpError::AlreadyMounted,
+        PumpError::NotMounted,
+        PumpError::Poisoned,
+        PumpError::RevisionExhausted,
+    ] {
+        assert!(!error.is_declaration_rejection());
+    }
+}

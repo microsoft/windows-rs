@@ -44,6 +44,24 @@ pub enum PumpError {
     Tree(TreeError),
 }
 
+impl PumpError {
+    pub(crate) fn is_declaration_rejection(&self) -> bool {
+        matches!(
+            self,
+            Self::DuplicateEffectKey(_)
+                | Self::DuplicateElementRef
+                | Self::DuplicateKey(_)
+                | Self::DuplicateColorSchemeObservation
+                | Self::DuplicateWindowSizeObservation
+                | Self::DuplicateWindowTitle
+                | Self::DuplicateWindowTitleBar
+                | Self::DuplicateWindowVisuals
+                | Self::ExitTransitionUnsupported
+                | Self::StructureUnsupported
+        )
+    }
+}
+
 impl From<TreeError> for PumpError {
     fn from(value: TreeError) -> Self {
         Self::Tree(value)
@@ -491,9 +509,7 @@ impl<R: NativeRuntime> Pump<R> {
             CandidateState::Native { node, .. } => {
                 let native = self.tree.native_mut(*node)?;
                 for commit in commits {
-                    if commit.node != *node {
-                        return Err(PumpError::StructureUnsupported);
-                    }
+                    assert_eq!(commit.node, *node);
                     native
                         .properties
                         .insert(commit.property, commit.value.clone());
@@ -513,8 +529,8 @@ impl<R: NativeRuntime> Pump<R> {
             CandidateState::Native {
                 node, reference, ..
             } => {
-                if commits.iter().any(|commit| commit.node != *node) {
-                    return Err(PumpError::StructureUnsupported);
+                for commit in commits {
+                    assert_eq!(commit.node, *node);
                 }
                 if let Some(commit) = commits.last() {
                     reference.clone_from(&commit.new);

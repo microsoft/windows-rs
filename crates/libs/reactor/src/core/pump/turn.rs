@@ -159,8 +159,7 @@ impl<R: NativeRuntime> Pump<R> {
                 if changes.retired.contains(&token) {
                     continue;
                 }
-                self.fail_component_candidate(&changes, PlanningFailure::Rearm);
-                return Err(PumpError::StructureUnsupported);
+                panic!("dirty component is missing from the candidate tree");
             };
             let result = if composed_view
                 .as_ref()
