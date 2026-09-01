@@ -309,6 +309,7 @@ fn realization_requests_are_checked_against_arena_and_container_generations() {
             source_revision: 0,
         })]
     );
+    pump.root = None;
 }
 
 #[test]

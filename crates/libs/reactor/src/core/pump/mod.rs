@@ -39,7 +39,6 @@ pub enum PumpError {
     NativeApplyFailed(NativeApplyError),
     Poisoned,
     StructureUnsupported,
-    Tree(TreeError),
 }
 
 impl PumpError {
@@ -62,7 +61,9 @@ impl PumpError {
 
 impl From<TreeError> for PumpError {
     fn from(value: TreeError) -> Self {
-        Self::Tree(value)
+        match value {
+            TreeError::Virtual(VirtualModelError::DuplicateKey(key)) => Self::DuplicateKey(key),
+        }
     }
 }
 
@@ -172,9 +173,9 @@ impl<R: NativeRuntime> Pump<R> {
         let desired = element.clone();
         let mut candidate = Tree::new();
         let mut plan = UpdatePlan::new(self.identity);
-        let application = candidate.insert(None, NodeKind::Application)?;
+        let application = candidate.insert(None, NodeKind::Application);
         plan.push(Command::CreateApplication { node: application });
-        let window = candidate.insert(Some(application), NodeKind::Window)?;
+        let window = candidate.insert(Some(application), NodeKind::Window);
         plan.push(Command::CreateWindow { node: window });
         let node =
             Self::mount_planned_element(&mut candidate, Some(window), None, element, &mut plan)?;
@@ -213,9 +214,9 @@ impl<R: NativeRuntime> Pump<R> {
         let mut candidate = Tree::new();
         let mut plan = UpdatePlan::new(self.identity);
         let mut changes = ComponentChanges::default();
-        let application = candidate.insert(None, NodeKind::Application)?;
+        let application = candidate.insert(None, NodeKind::Application);
         plan.push(Command::CreateApplication { node: application });
-        let window = candidate.insert(Some(application), NodeKind::Window)?;
+        let window = candidate.insert(Some(application), NodeKind::Window);
         plan.push(Command::CreateWindow { node: window });
         let mounted = Self::mount_planned_view(
             &mut candidate,

@@ -1379,7 +1379,7 @@ impl<R: NativeRuntime> Pump<R> {
         }
 
         let placement = tooltip.placement;
-        let owner = tree.insert_tooltip(Some(parent), key, placement)?;
+        let owner = tree.insert_tooltip(Some(parent), key, placement);
         tree.reparent(target, owner, None)?;
         let content = *tooltip.content;
         let (_, tooltip_native) = Self::mount_planned_view(
@@ -1477,7 +1477,7 @@ impl<R: NativeRuntime> Pump<R> {
         }
 
         let placement = flyout.placement;
-        let owner = tree.insert_flyout(Some(parent), key, placement)?;
+        let owner = tree.insert_flyout(Some(parent), key, placement);
         tree.reparent(target, owner, None)?;
         let (_, content_native) = Self::mount_planned_view(
             tree,
@@ -1845,8 +1845,8 @@ impl<R: NativeRuntime> Pump<R> {
                     key,
                     token.scope(),
                     component.component_type(),
-                )?;
-                let slot = tree.insert(Some(node), NodeKind::Slot)?;
+                );
+                let slot = tree.insert(Some(node), NodeKind::Slot);
                 let ComponentRender {
                     color_scheme_observation,
                     dependencies,
@@ -1872,7 +1872,7 @@ impl<R: NativeRuntime> Pump<R> {
                 Ok((node, native))
             }
             ViewKind::Fragment(children) => {
-                let node = tree.insert_fragment(logical_parent, key)?;
+                let node = tree.insert_fragment(logical_parent, key);
                 let children = Rc::unwrap_or_clone(children);
                 let keys = children
                     .iter()
@@ -1897,7 +1897,7 @@ impl<R: NativeRuntime> Pump<R> {
                 Ok((node, native))
             }
             ViewKind::Provider { provision, child } => {
-                let node = tree.insert_provider(logical_parent, key, provision)?;
+                let node = tree.insert_provider(logical_parent, key, provision);
                 let (_, native) = Self::mount_planned_view(
                     tree,
                     Some(node),
@@ -1921,7 +1921,7 @@ impl<R: NativeRuntime> Pump<R> {
                     current = tree.parent(parent)?;
                 }
                 let placement = tooltip.placement;
-                let node = tree.insert_tooltip(logical_parent, key, placement)?;
+                let node = tree.insert_tooltip(logical_parent, key, placement);
                 let (_, target_native) = Self::mount_planned_view(
                     tree,
                     Some(node),
@@ -1966,7 +1966,7 @@ impl<R: NativeRuntime> Pump<R> {
                     current = tree.parent(parent)?;
                 }
                 let placement = flyout.placement;
-                let node = tree.insert_flyout(logical_parent, key, placement)?;
+                let node = tree.insert_flyout(logical_parent, key, placement);
                 let (_, target_native) = Self::mount_planned_view(
                     tree,
                     Some(node),
@@ -2021,8 +2021,7 @@ impl<R: NativeRuntime> Pump<R> {
                     current = tree.parent(parent)?;
                 }
                 validate_menu_items(&menu.items)?;
-                let node =
-                    tree.insert_menu(logical_parent, key, OwnedMenuKind::ButtonFlyout, menu)?;
+                let node = tree.insert_menu(logical_parent, key, OwnedMenuKind::ButtonFlyout, menu);
                 let (_, target_native) = Self::mount_planned_view(
                     tree,
                     Some(node),
@@ -2059,7 +2058,7 @@ impl<R: NativeRuntime> Pump<R> {
                 validate_commands(&flyout.secondary)?;
                 let primary = flyout.primary.clone();
                 let secondary = flyout.secondary.clone();
-                let node = tree.insert_command_bar_flyout(logical_parent, key, flyout)?;
+                let node = tree.insert_command_bar_flyout(logical_parent, key, flyout);
                 let (_, target_native) = Self::mount_planned_view(
                     tree,
                     Some(node),
@@ -2089,7 +2088,7 @@ impl<R: NativeRuntime> Pump<R> {
                 nodes,
             } => {
                 validate_tree_nodes(&nodes)?;
-                let node = tree.insert_tree_nodes(logical_parent, key, Rc::clone(&nodes))?;
+                let node = tree.insert_tree_nodes(logical_parent, key, Rc::clone(&nodes));
                 let (_, native) = Self::mount_planned_view(
                     tree,
                     Some(node),
@@ -2125,7 +2124,7 @@ impl<R: NativeRuntime> Pump<R> {
                     }
                     current = tree.parent(parent)?;
                 }
-                let node = tree.insert_content_dialog(logical_parent, key, open)?;
+                let node = tree.insert_content_dialog(logical_parent, key, open);
                 let (_, dialog_native) = Self::mount_planned_view(
                     tree,
                     Some(node),
@@ -2170,7 +2169,7 @@ impl<R: NativeRuntime> Pump<R> {
                 }
                 let node = Self::mount_planned_element(tree, logical_parent, key, control, plan)?;
                 for slot in slot_ids {
-                    let slot_node = tree.insert(Some(node), NodeKind::NamedSlot(*slot))?;
+                    let slot_node = tree.insert(Some(node), NodeKind::NamedSlot(*slot));
                     if slot_is_collection(*slot) {
                         let children = match desired.remove(slot) {
                             Some(SlotContent::Collection(children)) => {

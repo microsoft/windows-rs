@@ -685,7 +685,7 @@ impl<R: NativeRuntime> Pump<R> {
             key,
             parts.props.clone(),
             parts.window_title_bar,
-        )?;
+        );
         tree.set_exit_transition(
             node,
             parts
