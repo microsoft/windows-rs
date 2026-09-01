@@ -18,16 +18,11 @@ use core::ffi::c_void;
 ///
 /// This uses `TrySubmitThreadpoolCallback` and reuses worker threads.
 pub fn submit<F: FnOnce() + Send + 'static>(f: F) {
-    assert!(try_submit(f).is_ok(), "allocation failed");
-}
-
-/// Attempts to submit a closure to the default thread pool.
-///
-/// The closure must be `Send + 'static`. If submission fails, the closure is returned without
-/// being called.
-pub fn try_submit<F: FnOnce() + Send + 'static>(f: F) -> Result<(), F> {
     // SAFETY: the closure has `'static` lifetime.
-    unsafe { try_submit_with_environment(core::ptr::null(), f) }
+    assert!(
+        unsafe { try_submit_with_environment(core::ptr::null(), f) }.is_ok(),
+        "allocation failed"
+    );
 }
 
 /// Calls the closure on each item in parallel and waits for completion.
