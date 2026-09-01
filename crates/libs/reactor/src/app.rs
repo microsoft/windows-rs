@@ -770,7 +770,7 @@ impl App {
         if !is_packaged_process()? {
             bootstrap_runtime()?;
         }
-        
+
         initialize_ui_thread()?;
         let create_pumps = Rc::new(RefCell::new(Some(create_pumps)));
         let result = Rc::new(RefCell::new(Ok(())));
