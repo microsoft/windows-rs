@@ -87,33 +87,27 @@ struct ProcessArchitecture {
 }
 
 fn process_architecture() -> ProcessArchitecture {
-    #[cfg(target_arch = "x86_64")]
-    {
-        ProcessArchitecture {
+    match std::env::consts::ARCH {
+        "x86_64" => ProcessArchitecture {
             display: "x64",
             flags: PackageDependencyProcessorArchitectures_X64,
-        }
-    }
-    #[cfg(target_arch = "x86")]
-    {
-        ProcessArchitecture {
-            display: "x86",
+        },
+        "x86" => ProcessArchitecture {
+            display: "x88",
             flags: PackageDependencyProcessorArchitectures_X86,
-        }
-    }
-    #[cfg(target_arch = "aarch64")]
-    {
-        ProcessArchitecture {
+        },
+        "aarch64" => ProcessArchitecture {
             display: "arm64",
             flags: PackageDependencyProcessorArchitectures_Arm64,
-        }
-    }
-    #[cfg(target_arch = "arm")]
-    {
-        ProcessArchitecture {
+        },
+        "arm" => ProcessArchitecture {
             display: "arm",
             flags: PackageDependencyProcessorArchitectures_Arm,
-        }
+        },
+        _ => ProcessArchitecture {
+            display: std::env::consts::ARCH,
+            flags: PackageDependencyProcessorArchitectures_None,
+        },
     }
 }
 

@@ -23167,8 +23167,6 @@ pub const PackageDependencyProcessorArchitectures_Neutral: PackageDependencyProc
 pub const PackageDependencyProcessorArchitectures_None: PackageDependencyProcessorArchitectures = 0;
 pub const PackageDependencyProcessorArchitectures_X64: PackageDependencyProcessorArchitectures = 4;
 pub const PackageDependencyProcessorArchitectures_X86: PackageDependencyProcessorArchitectures = 2;
-pub const PackageDependencyProcessorArchitectures_X86A64: PackageDependencyProcessorArchitectures =
-    32;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Panel(windows_core::IUnknown);

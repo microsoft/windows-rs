@@ -135,7 +135,12 @@ Windows::Win32::MB_ICONERROR
 Windows::Win32::MB_YESNO
 Windows::Win32::MessageBoxW
 Windows::Win32::PACKAGE_VERSION
-Windows::Win32::PackageDependencyProcessorArchitectures
+Windows::Win32::PackageDependencyProcessorArchitectures::PackageDependencyProcessorArchitectures_X86
+Windows::Win32::PackageDependencyProcessorArchitectures::PackageDependencyProcessorArchitectures_X64
+Windows::Win32::PackageDependencyProcessorArchitectures::PackageDependencyProcessorArchitectures_Arm64
+Windows::Win32::PackageDependencyProcessorArchitectures::PackageDependencyProcessorArchitectures_Arm
+Windows::Win32::PackageDependencyProcessorArchitectures::PackageDependencyProcessorArchitectures_Neutral
+Windows::Win32::PackageDependencyProcessorArchitectures::PackageDependencyProcessorArchitectures_None
 Windows::Win32::PostQuitMessage
 Windows::Win32::RPC_E_CHANGED_MODE
 Windows::Win32::SetProcessDpiAwarenessContext
