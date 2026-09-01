@@ -475,46 +475,38 @@ impl<R: NativeRuntime> Pump<R> {
         &mut self.components
     }
 
-    fn commit_tree_properties(
-        tree: &mut Tree,
-        commits: &[PropertyCommit],
-    ) -> Result<(), PumpError> {
+    fn commit_tree_properties(tree: &mut Tree, commits: &[PropertyCommit]) {
         for commit in commits {
-            tree.native_mut(commit.node)?
+            tree.native_mut(commit.node)
+                .unwrap()
                 .properties
                 .insert(commit.property, commit.value.clone());
         }
-        Ok(())
     }
 
-    fn commit_tree_references(
-        tree: &mut Tree,
-        commits: &[ReferenceCommit],
-    ) -> Result<(), PumpError> {
+    fn commit_tree_references(tree: &mut Tree, commits: &[ReferenceCommit]) {
         for commit in commits {
             if let Ok(native) = tree.native_mut(commit.node) {
                 native.reference.clone_from(&commit.new);
             }
         }
-        Ok(())
     }
 
     fn commit_candidate_properties(
         &mut self,
         candidate: &mut CandidateState,
         commits: &[PropertyCommit],
-    ) -> Result<(), PumpError> {
+    ) {
         match candidate {
             CandidateState::Tree { tree, .. } => Self::commit_tree_properties(tree, commits),
             CandidateState::Native { node, .. } => {
-                let native = self.tree.native_mut(*node)?;
+                let native = self.tree.native_mut(*node).unwrap();
                 for commit in commits {
                     assert_eq!(commit.node, *node);
                     native
                         .properties
                         .insert(commit.property, commit.value.clone());
                 }
-                Ok(())
             }
         }
     }
@@ -523,7 +515,7 @@ impl<R: NativeRuntime> Pump<R> {
         &mut self,
         candidate: &mut CandidateState,
         commits: &[ReferenceCommit],
-    ) -> Result<(), PumpError> {
+    ) {
         match candidate {
             CandidateState::Tree { tree, .. } => Self::commit_tree_references(tree, commits),
             CandidateState::Native {
@@ -535,7 +527,6 @@ impl<R: NativeRuntime> Pump<R> {
                 if let Some(commit) = commits.last() {
                     reference.clone_from(&commit.new);
                 }
-                Ok(())
             }
         }
     }

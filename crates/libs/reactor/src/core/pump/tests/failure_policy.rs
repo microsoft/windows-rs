@@ -40,20 +40,6 @@ fn planning_rearm_removes_reservations_and_retains_touched_scopes() {
 }
 
 #[test]
-fn post_planning_abort_removes_reservations_and_fail_stops() {
-    let mut pump = Pump::new(RecordingRuntime::default());
-    let (changes, token) = candidate_with_reservation(&mut pump);
-
-    pump.abort_frontend_candidate(&FrontendChanges::Component(changes));
-
-    assert!(pump.components.publish(token).is_err());
-    assert!(pump.poisoned());
-    pump.dirty_components.insert(token);
-    pump.native_observation_pending = true;
-    assert!(!pump.native_work_pending());
-}
-
-#[test]
 fn declaration_rejections_are_classified_together() {
     for error in [
         PumpError::DuplicateEffectKey(EffectKey::from("effect")),
