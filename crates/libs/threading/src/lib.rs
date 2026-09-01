@@ -20,7 +20,7 @@ use core::ffi::c_void;
 pub fn submit<F: FnOnce() + Send + 'static>(f: F) {
     // SAFETY: the closure has `'static` lifetime.
     assert!(
-        unsafe { try_submit_with_environment(core::ptr::null(), f) }.is_ok(),
+        unsafe { submit_with_environment(core::ptr::null(), f) },
         "allocation failed"
     );
 }
@@ -69,10 +69,10 @@ fn check_ptr<T>(result: *mut T) -> *mut T {
 
 // This function is `unsafe` as it cannot ensure that the lifetime of the closure is sufficient or
 // whether the `environment` pointer is valid.
-unsafe fn try_submit_with_environment<F: FnOnce() + Send>(
+unsafe fn submit_with_environment<F: FnOnce() + Send>(
     environment: *const TP_CALLBACK_ENVIRON_V3,
     f: F,
-) -> Result<(), F> {
+) -> bool {
     unsafe extern "system" fn callback<F: FnOnce() + Send>(
         _: *mut TP_CALLBACK_INSTANCE,
         callback: *mut c_void,
@@ -84,9 +84,10 @@ unsafe fn try_submit_with_environment<F: FnOnce() + Send>(
 
     let context = Box::into_raw(Box::new(f));
     if unsafe { TrySubmitThreadpoolCallback(Some(callback::<F>), context as _, environment) } != 0 {
-        Ok(())
+        true
     } else {
         // SAFETY: the thread pool rejected the callback and did not take ownership.
-        Err(unsafe { *Box::from_raw(context) })
+        drop(unsafe { Box::from_raw(context) });
+        false
     }
 }

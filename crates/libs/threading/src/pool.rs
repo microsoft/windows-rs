@@ -51,7 +51,7 @@ impl Pool {
         // (`self.0`) is kept alive until `Pool::drop` calls `join` to ensure all callbacks
         // have finished using it.
         assert!(
-            unsafe { try_submit_with_environment(&*self.0, f) }.is_ok(),
+            unsafe { submit_with_environment(&*self.0, f) },
             "allocation failed"
         );
     }
@@ -128,7 +128,7 @@ impl<'scope, 'env> Scope<'scope, 'env> {
     /// The closure cannot outlive the `Scope` it's run in.
     pub fn submit<F: FnOnce() + Send + 'scope>(&'scope self, f: F) {
         assert!(
-            unsafe { try_submit_with_environment(&*self.pool.0, f) }.is_ok(),
+            unsafe { submit_with_environment(&*self.pool.0, f) },
             "allocation failed"
         );
     }
