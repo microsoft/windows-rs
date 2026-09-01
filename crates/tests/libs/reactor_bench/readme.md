@@ -96,12 +96,21 @@ granularity, unchanged child/property cloning, and component boundaries.
 `reactor-live-grid` measures a live WinUI tree with a seeded 70x70 stock grid. Every update
 changes the configured percentage of stock prices. `--churn-count` alternately removes and restores
 that many trailing cells, so `0` measures property updates without native control churn.
+`--component-cells` wraps each cell in a component boundary while preserving the native control
+tree, which isolates component input and publication costs.
 
 Run an unattended ten-second update workload:
 
 ```powershell
 cargo run -p test_reactor_bench --bin reactor-live-grid `
     --release --quiet -- --headless --percent 10 --duration 10 --churn-count 0
+```
+
+Measure the same native grid with one component per cell:
+
+```powershell
+cargo run -p test_reactor_bench --bin reactor-live-grid `
+    --release --quiet -- --headless --component-cells --percent 10 --duration 10 --churn-count 0
 ```
 
 Run the same workload while removing and restoring 400 cells per update:
@@ -128,6 +137,7 @@ line:
   "headless": true,
   "dirty_percent": 10.000,
   "churn_count": 400,
+  "component_cells": false,
   "duration_ms": 1000.000,
   "updates": 30,
   "rust_alloc_bytes": 0,

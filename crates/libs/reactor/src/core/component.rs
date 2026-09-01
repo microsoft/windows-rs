@@ -1000,7 +1000,7 @@ impl<C: Component> ErasedComponentFactory for TypedComponentFactory<C> {
         store: &mut ComponentStore,
         token: ComponentToken,
     ) -> Result<bool, ComponentStoreError> {
-        store.apply_input(token, self.input.clone())
+        store.apply_input(token, &self.input)
     }
 
     fn as_any(&self) -> &dyn Any {
@@ -1078,7 +1078,7 @@ impl PartialEq for ComponentView {
 trait ErasedScope {
     fn apply_input(
         &mut self,
-        input: Box<dyn Any>,
+        input: &dyn Any,
         tasks: TaskSpawner,
     ) -> Result<bool, ComponentStoreError>;
     #[cfg(test)]
@@ -1348,20 +1348,20 @@ where
 {
     fn apply_input(
         &mut self,
-        input: Box<dyn Any>,
+        input: &dyn Any,
         tasks: TaskSpawner,
     ) -> Result<bool, ComponentStoreError> {
-        let actual = input.as_ref().type_id();
+        let actual = input.type_id();
         let input = input
-            .downcast::<I>()
-            .map_err(|_| ComponentStoreError::InputTypeMismatch {
+            .downcast_ref::<I>()
+            .ok_or(ComponentStoreError::InputTypeMismatch {
                 expected: TypeId::of::<I>(),
                 actual,
             })?;
         if self.input == *input {
             return Ok(false);
         }
-        self.input = *input;
+        self.input = input.clone();
         self.window.begin();
         (self.input_changed)(
             &mut self.component,
@@ -1694,7 +1694,7 @@ impl ComponentStore {
     pub fn apply_input<I: 'static>(
         &mut self,
         token: ComponentToken,
-        input: I,
+        input: &I,
     ) -> Result<bool, ComponentStoreError> {
         self.validate_window(token)?;
         let tasks = self.task_spawner(token);
@@ -1704,7 +1704,7 @@ impl ComponentStore {
         if actual != expected {
             return Err(ComponentStoreError::InputTypeMismatch { expected, actual });
         }
-        scope.apply_input(Box::new(input), tasks)
+        scope.apply_input(input, tasks)
     }
 
     #[cfg(test)]

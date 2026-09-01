@@ -267,7 +267,7 @@ fn view_receives_current_store_owned_input() {
         store.view(token, ContextSnapshot::default()).unwrap().view,
         View::native(TextBlock::new().text("first"))
     );
-    assert!(store.apply_input(token, "second".to_string()).unwrap());
+    assert!(store.apply_input(token, &"second".to_string()).unwrap());
     assert_eq!(
         store.view(token, ContextSnapshot::default()).unwrap().view,
         View::native(TextBlock::new().text("second"))
@@ -382,13 +382,71 @@ fn inputs_are_typed_coalesced_and_applied_before_messages() {
     let token = reserve_state(&mut store, "first");
     store.publish(token).unwrap();
 
-    assert_eq!(store.apply_input(token, "first".to_string()), Ok(false));
-    assert_eq!(store.apply_input(token, "second".to_string()), Ok(true));
+    assert_eq!(store.apply_input(token, &"first".to_string()), Ok(false));
+    assert_eq!(store.apply_input(token, &"second".to_string()), Ok(true));
     assert_eq!(store.component::<State>(token).unwrap().changed, 1);
     assert!(matches!(
-        store.apply_input(token, 1u32),
+        store.apply_input(token, &1u32),
         Err(ComponentStoreError::InputTypeMismatch { .. })
     ));
+}
+
+#[derive(PartialEq)]
+struct CloneTrackedInput {
+    clones: Rc<Cell<usize>>,
+    value: u32,
+}
+
+impl Clone for CloneTrackedInput {
+    fn clone(&self) -> Self {
+        self.clones.set(self.clones.get() + 1);
+        Self {
+            clones: Rc::clone(&self.clones),
+            value: self.value,
+        }
+    }
+}
+
+struct CloneTrackedComponent;
+
+impl Component for CloneTrackedComponent {
+    type Input = CloneTrackedInput;
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        View::empty()
+    }
+}
+
+#[test]
+fn component_factory_clones_input_only_when_it_changes() {
+    let clones = Rc::new(Cell::new(0));
+    let mut store = store();
+    let token = store
+        .reserve_component::<CloneTrackedComponent>(CloneTrackedInput {
+            clones: Rc::clone(&clones),
+            value: 1,
+        })
+        .unwrap();
+    store.publish(token).unwrap();
+
+    let unchanged = ComponentView::new::<CloneTrackedComponent>(CloneTrackedInput {
+        clones: Rc::clone(&clones),
+        value: 1,
+    });
+    assert!(!unchanged.apply_input(&mut store, token).unwrap());
+    assert_eq!(clones.get(), 0);
+
+    let changed = ComponentView::new::<CloneTrackedComponent>(CloneTrackedInput {
+        clones: Rc::clone(&clones),
+        value: 2,
+    });
+    assert!(changed.apply_input(&mut store, token).unwrap());
+    assert_eq!(clones.get(), 1);
 }
 
 #[test]

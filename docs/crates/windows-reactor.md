@@ -51,8 +51,9 @@ useful if native application does not return. Release builds omit this output.
 ### Component model
 
 `Component::Input` is parent-owned declarative data. The runtime compares it with the retained
-input and calls `Component::input_changed` when it differs. `Component::Message` is the typed
-request channel for local updates.
+input by reference and calls `Component::input_changed` when it differs. The input is cloned into
+retained state only after a changed comparison. `Component::Message` is the typed request channel
+for local updates.
 
 `create`, `input_changed`, and `update` receive a shared `ComponentContext<Self>` for senders,
 background tasks, and window requests. Background tasks run on the shared Windows thread pool;
