@@ -93,7 +93,7 @@ fn process_architecture() -> ProcessArchitecture {
             flags: PackageDependencyProcessorArchitectures_X64,
         },
         "x86" => ProcessArchitecture {
-            display: "x88",
+            display: "x86",
             flags: PackageDependencyProcessorArchitectures_X86,
         },
         "aarch64" => ProcessArchitecture {
