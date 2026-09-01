@@ -318,8 +318,7 @@ impl<R: NativeRuntime> Pump<R> {
         element.visit_events(&mut |event, active| {
             event_activity_matches &= self
                 .tree
-                .native(native)
-                .ok()
+                .try_native(native)
                 .and_then(|state| state.events.get(&event))
                 .is_some_and(|state| state.active == active);
         });

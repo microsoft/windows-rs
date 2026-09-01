@@ -41,14 +41,14 @@ impl<R: NativeRuntime> Pump<R> {
             }
             match queued.work {
                 ImperativeRequest::Focus { node, completion } => {
-                    if self.tree.native(node).is_err() {
+                    if self.tree.try_native(node).is_none() {
                         _ = completion.call(Err(RuntimeError::MissingNode(node)));
                         continue;
                     }
                     commands.push(Command::Focus { node, completion });
                 }
                 ImperativeRequest::InitializeWebView2 { node, completion } => {
-                    if self.tree.native(node).is_err() {
+                    if self.tree.try_native(node).is_none() {
                         _ = completion.call(Err(RuntimeError::MissingNode(node)));
                         continue;
                     }
@@ -59,7 +59,7 @@ impl<R: NativeRuntime> Pump<R> {
                     observation,
                     callback,
                 } => {
-                    if self.tree.native(node).is_err() {
+                    if self.tree.try_native(node).is_none() {
                         continue;
                     }
                     commands.push(Command::ObserveSwapChainPanel {
@@ -73,7 +73,7 @@ impl<R: NativeRuntime> Pump<R> {
                     swap_chain,
                     completion,
                 } => {
-                    if self.tree.native(node).is_err() {
+                    if self.tree.try_native(node).is_none() {
                         _ = completion.call(Err(RuntimeError::MissingNode(node)));
                         continue;
                     }
@@ -88,7 +88,7 @@ impl<R: NativeRuntime> Pump<R> {
                     source,
                     completion,
                 } => {
-                    if self.tree.native(node).is_err() {
+                    if self.tree.try_native(node).is_none() {
                         _ = completion.call(Err(RuntimeError::MissingNode(node)));
                         continue;
                     }
@@ -103,7 +103,7 @@ impl<R: NativeRuntime> Pump<R> {
                     observation,
                     callback,
                 } => {
-                    if self.tree.native(node).is_err() {
+                    if self.tree.try_native(node).is_none() {
                         continue;
                     }
                     commands.push(Command::ObserveImageScale {
@@ -117,7 +117,7 @@ impl<R: NativeRuntime> Pump<R> {
                     observation,
                     callback,
                 } => {
-                    if self.tree.native(node).is_err() {
+                    if self.tree.try_native(node).is_none() {
                         continue;
                     }
                     commands.push(Command::ObserveCompositionHost {
@@ -134,7 +134,7 @@ impl<R: NativeRuntime> Pump<R> {
                     visual,
                     completion,
                 } => {
-                    if self.tree.native(node).is_err() {
+                    if self.tree.try_native(node).is_none() {
                         _ = completion.call(Err(RuntimeError::MissingNode(node)));
                         continue;
                     }
@@ -165,11 +165,11 @@ impl<R: NativeRuntime> Pump<R> {
             event,
             EventId::OwnedCommandInvoked | EventId::OwnedMenuItemInvoked
         ) {
+            self.tree.try_kind(node)?;
             return self.tree.owned_revision(node).ok();
         }
         self.tree
-            .native(node)
-            .ok()?
+            .try_native(node)?
             .events
             .get(&event)
             .filter(|state| state.active)
@@ -270,7 +270,7 @@ impl<R: NativeRuntime> Pump<R> {
                 continue;
             }
             let error = queued.work;
-            let Ok(native) = self.tree.native(error.node) else {
+            let Some(native) = self.tree.try_native(error.node) else {
                 continue;
             };
             let Some(state) = native.events.get(&error.event) else {
@@ -296,16 +296,17 @@ impl<R: NativeRuntime> Pump<R> {
                 event.event,
                 EventId::OwnedCommandInvoked | EventId::OwnedMenuItemInvoked
             ) {
-                let expected_kind = match event.event {
-                    EventId::OwnedCommandInvoked => NodeKind::CommandBarFlyout,
-                    EventId::OwnedMenuItemInvoked => match self.tree.kind(event.node) {
-                        Ok(NodeKind::Menu(kind)) => NodeKind::Menu(kind),
-                        _ => continue,
-                    },
-                    _ => unreachable!(),
+                let Some(kind) = self.tree.try_kind(event.node) else {
+                    continue;
                 };
-                if self.tree.kind(event.node)? != expected_kind
-                    || self.tree.owned_revision(event.node)? != event.revision
+                let expected_kind = match (event.event, kind) {
+                    (EventId::OwnedCommandInvoked, NodeKind::CommandBarFlyout) => {
+                        NodeKind::CommandBarFlyout
+                    }
+                    (EventId::OwnedMenuItemInvoked, NodeKind::Menu(kind)) => NodeKind::Menu(kind),
+                    _ => continue,
+                };
+                if kind != expected_kind || self.tree.owned_revision(event.node)? != event.revision
                 {
                     continue;
                 }
@@ -324,7 +325,7 @@ impl<R: NativeRuntime> Pump<R> {
                 continue;
             }
             let observation = {
-                let Ok(native) = self.tree.native(event.node) else {
+                let Some(native) = self.tree.try_native(event.node) else {
                     continue;
                 };
                 let Some(state) = native.events.get(&event.event) else {
@@ -539,7 +540,7 @@ impl<R: NativeRuntime> Pump<R> {
                         index,
                         source_revision,
                     } => {
-                        let Ok(model) = candidate.virtual_model(collection) else {
+                        let Some(model) = candidate.try_virtual_model(collection) else {
                             outcomes.push(RealizationOutcome::Rejected(request));
                             continue;
                         };
@@ -547,9 +548,11 @@ impl<R: NativeRuntime> Pump<R> {
                             outcomes.push(RealizationOutcome::Rejected(request));
                             continue;
                         }
-                        let Ok(lease) = candidate.virtual_model_mut(collection).and_then(|model| {
-                            model.realize(index, container).map_err(TreeError::from)
-                        }) else {
+                        let Some(model) = candidate.try_virtual_model_mut(collection) else {
+                            outcomes.push(RealizationOutcome::Rejected(request));
+                            continue;
+                        };
+                        let Some(lease) = model.realize(index, container) else {
                             outcomes.push(RealizationOutcome::Rejected(request));
                             continue;
                         };
@@ -559,11 +562,10 @@ impl<R: NativeRuntime> Pump<R> {
                             .iter()
                             .copied()
                             .filter(|logical_root| {
-                                candidate.key(*logical_root).ok().flatten() == Some(&lease.key)
+                                candidate.key(*logical_root).unwrap() == Some(&lease.key)
                                     || candidate
                                         .realized(collection, container)
-                                        .ok()
-                                        .flatten()
+                                        .unwrap()
                                         .is_some_and(|row| row.logical_root == *logical_root)
                             })
                             .collect::<Vec<_>>();
@@ -599,7 +601,7 @@ impl<R: NativeRuntime> Pump<R> {
                         container,
                         source_revision,
                     } => {
-                        let Ok(model) = candidate.virtual_model(collection) else {
+                        let Some(model) = candidate.try_virtual_model(collection) else {
                             outcomes.push(RealizationOutcome::Rejected(request));
                             continue;
                         };
@@ -620,8 +622,7 @@ impl<R: NativeRuntime> Pump<R> {
                             continue;
                         };
                         let Some(lease) = candidate
-                            .virtual_model_mut(collection)
-                            .ok()
+                            .try_virtual_model_mut(collection)
                             .and_then(|model| model.recycle_container(container))
                         else {
                             plan.push(Command::AcknowledgeRecycle {

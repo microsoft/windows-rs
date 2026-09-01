@@ -479,7 +479,7 @@ impl<R: NativeRuntime> Pump<R> {
 
     fn commit_tree_references(tree: &mut Tree, commits: &[ReferenceCommit]) {
         for commit in commits {
-            if let Ok(native) = tree.native_mut(commit.node) {
+            if let Some(native) = tree.try_native_mut(commit.node) {
                 native.reference.clone_from(&commit.new);
             }
         }
@@ -546,7 +546,7 @@ impl<R: NativeRuntime> Pump<R> {
         }
         let mut references = HashSet::new();
         for node in tree.subtree_postorder(root)? {
-            let Ok(native) = tree.native(node) else {
+            let Some(native) = tree.try_native(node) else {
                 continue;
             };
             let desired = commits
@@ -599,8 +599,7 @@ impl<R: NativeRuntime> Pump<R> {
                     if current != *node
                         && self
                             .tree
-                            .native(current)
-                            .ok()
+                            .try_native(current)
                             .and_then(|native| native.reference.as_ref())
                             == Some(reference)
                     {
@@ -618,7 +617,7 @@ impl<R: NativeRuntime> Pump<R> {
         };
         if let Ok(nodes) = self.tree.subtree_postorder(root) {
             for node in nodes {
-                if let Ok(native) = self.tree.native(node)
+                if let Some(native) = self.tree.try_native(node)
                     && let Some(reference) = &native.reference
                 {
                     reference.unbind(self.identity, node);

@@ -206,9 +206,11 @@ fn rejects_second_root() {
     let mut tree = Tree::new();
     tree.insert(None, NodeKind::Application).unwrap();
 
-    assert_eq!(
-        tree.insert(None, NodeKind::Application),
-        Err(TreeError::RootAlreadyExists)
+    assert!(
+        std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            _ = tree.insert(None, NodeKind::Application);
+        }))
+        .is_err()
     );
 }
 
@@ -216,24 +218,19 @@ fn rejects_second_root() {
 fn generic_insert_rejects_payload_bearing_kinds() {
     let mut tree = Tree::new();
 
-    assert_eq!(
-        tree.insert(None, NodeKind::Component),
-        Err(TreeError::IncompleteNode(NodeKind::Component))
-    );
-    assert_eq!(
-        tree.insert(None, NodeKind::Native(MountedKind::Button)),
-        Err(TreeError::IncompleteNode(NodeKind::Native(
-            MountedKind::Button
-        )))
-    );
-    assert_eq!(
-        tree.insert(None, NodeKind::VirtualCollection),
-        Err(TreeError::IncompleteNode(NodeKind::VirtualCollection))
-    );
-    assert_eq!(
-        tree.insert(None, NodeKind::Provider),
-        Err(TreeError::IncompleteNode(NodeKind::Provider))
-    );
+    for kind in [
+        NodeKind::Component,
+        NodeKind::Native(MountedKind::Button),
+        NodeKind::VirtualCollection,
+        NodeKind::Provider,
+    ] {
+        assert!(
+            std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                _ = tree.insert(None, kind);
+            }))
+            .is_err()
+        );
+    }
 }
 
 #[test]
@@ -249,12 +246,11 @@ fn set_kind_preserves_kind_specific_state() {
         .unwrap();
 
     assert_eq!(tree.set_kind(component, NodeKind::Component), Ok(()));
-    assert_eq!(
-        tree.set_kind(component, NodeKind::Fragment),
-        Err(TreeError::KindMismatch {
-            current: NodeKind::Component,
-            requested: NodeKind::Fragment,
-        })
+    assert!(
+        std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            _ = tree.set_kind(component, NodeKind::Fragment);
+        }))
+        .is_err()
     );
     assert_eq!(tree.component_node(scope), Ok(Some(component)));
     assert_eq!(tree.component_scope(component), Ok(scope));
@@ -314,9 +310,11 @@ fn realized_container_mapping_cannot_be_overwritten() {
     tree.set_realized(collection, container, 0, first, Some(first))
         .unwrap();
 
-    assert_eq!(
-        tree.set_realized(collection, container, 0, second, Some(second)),
-        Err(TreeError::RealizedConflict(container))
+    assert!(
+        std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            _ = tree.set_realized(collection, container, 0, second, Some(second));
+        }))
+        .is_err()
     );
 }
 

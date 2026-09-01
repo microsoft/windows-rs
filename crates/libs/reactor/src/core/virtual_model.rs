@@ -19,7 +19,6 @@ pub struct RealizedContainer(pub u64);
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum VirtualModelError {
     DuplicateKey(Key),
-    MissingIndex(usize),
 }
 
 #[derive(Clone)]
@@ -73,12 +72,8 @@ impl VirtualModel {
         &mut self,
         index: usize,
         container: RealizedContainer,
-    ) -> Result<RealizationLease, VirtualModelError> {
-        let key = self
-            .keys
-            .get(index)
-            .cloned()
-            .ok_or(VirtualModelError::MissingIndex(index))?;
+    ) -> Option<RealizationLease> {
+        let key = self.keys.get(index).cloned()?;
         self.revision = self.revision.checked_add(1).unwrap();
         if let Some((old_key, old_revision)) = self.containers.remove(&container)
             && self.active.get(&old_key) == Some(&(old_revision, container))
@@ -91,7 +86,7 @@ impl VirtualModel {
         self.active.insert(key.clone(), (self.revision, container));
         self.containers
             .insert(container, (key.clone(), self.revision));
-        Ok(RealizationLease {
+        Some(RealizationLease {
             identity: self.identity,
             collection: self.collection,
             container,
@@ -253,16 +248,13 @@ mod tests {
     }
 
     #[test]
-    fn rejects_duplicate_keys_and_missing_indices() {
+    fn rejects_duplicate_keys_and_out_of_range_realizations() {
         assert_eq!(
             VirtualModel::new(identity(), COLLECTION, keys(&["a", "a"])).err(),
             Some(VirtualModelError::DuplicateKey(Key::from("a")))
         );
         let mut model = VirtualModel::new(identity(), COLLECTION, keys(&["a"])).unwrap();
-        assert_eq!(
-            model.realize(1, FIRST),
-            Err(VirtualModelError::MissingIndex(1))
-        );
+        assert_eq!(model.realize(1, FIRST), None);
         assert_eq!(
             model.update(keys(&["a", "a"])),
             Err(VirtualModelError::DuplicateKey(Key::from("a")))
