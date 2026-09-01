@@ -69,6 +69,11 @@ Generated controls convert directly into `View`. The internal `Element` represen
 structural state remain private so applications depend on builders and capability traits rather
 than generated enum variants or reconciliation storage.
 
+`Element` remains a 16-byte generated enum whose control payload is held by `Rc`. Cloning a view
+during reconciliation shares that payload rather than allocating and copying another control.
+Consuming a uniquely owned element moves the control out; consuming a shared element clones only
+the control value needed to construct retained properties and structure.
+
 Use an ordinary function returning `View` for stateless presentation:
 
 ```rust,ignore

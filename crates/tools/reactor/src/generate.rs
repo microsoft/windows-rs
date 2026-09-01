@@ -17,7 +17,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     let elements = schema.controls.iter().map(generate_element);
     let element_variants = schema.controls.iter().map(|control| {
         let name = ident(&control.name);
-        quote! { #name(Box<#name>) }
+        quote! { #name(std::rc::Rc<#name>) }
     });
     let element_conversions = schema.controls.iter().map(|control| {
         let name = ident(&control.name);
@@ -32,7 +32,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         quote! {
             impl From<#name> for Element {
                 fn from(value: #name) -> Self {
-                    Self::#name(Box::new(value))
+                    Self::#name(std::rc::Rc::new(value))
                 }
 
             }
@@ -762,6 +762,7 @@ fn generate_element_parts(control: &ResolvedControl) -> TokenStream {
 
     quote! {
         Self::#name(value) => {
+            let value = std::rc::Rc::unwrap_or_clone(value);
             let #name {
                 #(#fields,)*
                 #reference_pattern
@@ -769,7 +770,7 @@ fn generate_element_parts(control: &ResolvedControl) -> TokenStream {
                 #window_title_bar_pattern
                 #structural_pattern
                 #lifecycle_pattern
-            } = *value;
+            } = value;
             ElementParts {
                 kind: MountedKind::#name,
                 props: MountedProps::#name(std::rc::Rc::new(#props {

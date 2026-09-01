@@ -55,6 +55,17 @@ fn generated_control_growth_preserves_core_layouts() {
 }
 
 #[test]
+fn cloned_elements_share_generated_control_payloads() {
+    let first = Element::from(TextBlock::new());
+    let second = first.clone();
+    let (Element::TextBlock(first), Element::TextBlock(second)) = (&first, &second) else {
+        unreachable!()
+    };
+
+    assert!(Rc::ptr_eq(first, second));
+}
+
+#[test]
 fn retires_children_before_parent() {
     struct Component;
 

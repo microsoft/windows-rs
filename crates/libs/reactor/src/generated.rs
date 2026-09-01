@@ -5438,89 +5438,89 @@ pub mod public {
     impl LayoutControl for SwapChainPanel {}
     #[derive(Clone, Debug, PartialEq)]
     pub(crate) enum Element {
-        TextBlock(Box<TextBlock>),
-        Button(Box<Button>),
-        HyperlinkButton(Box<HyperlinkButton>),
-        RepeatButton(Box<RepeatButton>),
-        Border(Box<Border>),
-        BreadcrumbBar(Box<BreadcrumbBar>),
-        StackPanel(Box<StackPanel>),
-        VariableSizedWrapGrid(Box<VariableSizedWrapGrid>),
-        Grid(Box<Grid>),
-        TextBox(Box<TextBox>),
-        AutoSuggestBox(Box<AutoSuggestBox>),
-        PasswordBox(Box<PasswordBox>),
-        NumberBox(Box<NumberBox>),
-        Slider(Box<Slider>),
-        TitleBar(Box<TitleBar>),
-        NavigationView(Box<NavigationView>),
-        NavigationViewItem(Box<NavigationViewItem>),
-        SplitView(Box<SplitView>),
-        ProgressBar(Box<ProgressBar>),
-        ToggleSwitch(Box<ToggleSwitch>),
-        CheckBox(Box<CheckBox>),
-        ToggleButton(Box<ToggleButton>),
-        RadioButton(Box<RadioButton>),
-        RadioButtons(Box<RadioButtons>),
-        ItemsRepeater(Box<ItemsRepeater>),
-        InfoBadge(Box<InfoBadge>),
-        InfoBar(Box<InfoBar>),
-        PersonPicture(Box<PersonPicture>),
-        ScrollViewer(Box<ScrollViewer>),
-        ScrollView(Box<ScrollView>),
-        Image(Box<Image>),
-        ProgressRing(Box<ProgressRing>),
-        ListBox(Box<ListBox>),
-        Rectangle(Box<Rectangle>),
-        Ellipse(Box<Ellipse>),
-        Line(Box<Line>),
-        SymbolIcon(Box<SymbolIcon>),
-        ImageIcon(Box<ImageIcon>),
-        FontIcon(Box<FontIcon>),
-        BitmapIcon(Box<BitmapIcon>),
-        PathIcon(Box<PathIcon>),
-        ListBoxItem(Box<ListBoxItem>),
-        RatingControl(Box<RatingControl>),
-        Expander(Box<Expander>),
-        ComboBox(Box<ComboBox>),
-        Pivot(Box<Pivot>),
-        PivotItem(Box<PivotItem>),
-        FlipView(Box<FlipView>),
-        SelectorBar(Box<SelectorBar>),
-        SelectorBarItem(Box<SelectorBarItem>),
-        TabView(Box<TabView>),
-        TabViewItem(Box<TabViewItem>),
-        TeachingTip(Box<TeachingTip>),
-        DropDownButton(Box<DropDownButton>),
-        CommandBar(Box<CommandBar>),
-        AppBarButton(Box<AppBarButton>),
-        AppBarSeparator(Box<AppBarSeparator>),
-        MenuBar(Box<MenuBar>),
-        MenuBarItem(Box<MenuBarItem>),
-        SplitButton(Box<SplitButton>),
-        ColorPicker(Box<ColorPicker>),
-        DatePicker(Box<DatePicker>),
-        TimePicker(Box<TimePicker>),
-        CalendarDatePicker(Box<CalendarDatePicker>),
-        ToolTip(Box<ToolTip>),
-        ContentDialog(Box<ContentDialog>),
-        CalendarView(Box<CalendarView>),
-        ListView(Box<ListView>),
-        ListViewItem(Box<ListViewItem>),
-        TreeView(Box<TreeView>),
-        GridView(Box<GridView>),
-        GridViewItem(Box<GridViewItem>),
-        RelativePanel(Box<RelativePanel>),
-        Canvas(Box<Canvas>),
-        RichEditBox(Box<RichEditBox>),
-        RichTextBlock(Box<RichTextBlock>),
-        Viewbox(Box<Viewbox>),
-        WebView2(Box<WebView2>),
-        SwapChainPanel(Box<SwapChainPanel>),
+        TextBlock(std::rc::Rc<TextBlock>),
+        Button(std::rc::Rc<Button>),
+        HyperlinkButton(std::rc::Rc<HyperlinkButton>),
+        RepeatButton(std::rc::Rc<RepeatButton>),
+        Border(std::rc::Rc<Border>),
+        BreadcrumbBar(std::rc::Rc<BreadcrumbBar>),
+        StackPanel(std::rc::Rc<StackPanel>),
+        VariableSizedWrapGrid(std::rc::Rc<VariableSizedWrapGrid>),
+        Grid(std::rc::Rc<Grid>),
+        TextBox(std::rc::Rc<TextBox>),
+        AutoSuggestBox(std::rc::Rc<AutoSuggestBox>),
+        PasswordBox(std::rc::Rc<PasswordBox>),
+        NumberBox(std::rc::Rc<NumberBox>),
+        Slider(std::rc::Rc<Slider>),
+        TitleBar(std::rc::Rc<TitleBar>),
+        NavigationView(std::rc::Rc<NavigationView>),
+        NavigationViewItem(std::rc::Rc<NavigationViewItem>),
+        SplitView(std::rc::Rc<SplitView>),
+        ProgressBar(std::rc::Rc<ProgressBar>),
+        ToggleSwitch(std::rc::Rc<ToggleSwitch>),
+        CheckBox(std::rc::Rc<CheckBox>),
+        ToggleButton(std::rc::Rc<ToggleButton>),
+        RadioButton(std::rc::Rc<RadioButton>),
+        RadioButtons(std::rc::Rc<RadioButtons>),
+        ItemsRepeater(std::rc::Rc<ItemsRepeater>),
+        InfoBadge(std::rc::Rc<InfoBadge>),
+        InfoBar(std::rc::Rc<InfoBar>),
+        PersonPicture(std::rc::Rc<PersonPicture>),
+        ScrollViewer(std::rc::Rc<ScrollViewer>),
+        ScrollView(std::rc::Rc<ScrollView>),
+        Image(std::rc::Rc<Image>),
+        ProgressRing(std::rc::Rc<ProgressRing>),
+        ListBox(std::rc::Rc<ListBox>),
+        Rectangle(std::rc::Rc<Rectangle>),
+        Ellipse(std::rc::Rc<Ellipse>),
+        Line(std::rc::Rc<Line>),
+        SymbolIcon(std::rc::Rc<SymbolIcon>),
+        ImageIcon(std::rc::Rc<ImageIcon>),
+        FontIcon(std::rc::Rc<FontIcon>),
+        BitmapIcon(std::rc::Rc<BitmapIcon>),
+        PathIcon(std::rc::Rc<PathIcon>),
+        ListBoxItem(std::rc::Rc<ListBoxItem>),
+        RatingControl(std::rc::Rc<RatingControl>),
+        Expander(std::rc::Rc<Expander>),
+        ComboBox(std::rc::Rc<ComboBox>),
+        Pivot(std::rc::Rc<Pivot>),
+        PivotItem(std::rc::Rc<PivotItem>),
+        FlipView(std::rc::Rc<FlipView>),
+        SelectorBar(std::rc::Rc<SelectorBar>),
+        SelectorBarItem(std::rc::Rc<SelectorBarItem>),
+        TabView(std::rc::Rc<TabView>),
+        TabViewItem(std::rc::Rc<TabViewItem>),
+        TeachingTip(std::rc::Rc<TeachingTip>),
+        DropDownButton(std::rc::Rc<DropDownButton>),
+        CommandBar(std::rc::Rc<CommandBar>),
+        AppBarButton(std::rc::Rc<AppBarButton>),
+        AppBarSeparator(std::rc::Rc<AppBarSeparator>),
+        MenuBar(std::rc::Rc<MenuBar>),
+        MenuBarItem(std::rc::Rc<MenuBarItem>),
+        SplitButton(std::rc::Rc<SplitButton>),
+        ColorPicker(std::rc::Rc<ColorPicker>),
+        DatePicker(std::rc::Rc<DatePicker>),
+        TimePicker(std::rc::Rc<TimePicker>),
+        CalendarDatePicker(std::rc::Rc<CalendarDatePicker>),
+        ToolTip(std::rc::Rc<ToolTip>),
+        ContentDialog(std::rc::Rc<ContentDialog>),
+        CalendarView(std::rc::Rc<CalendarView>),
+        ListView(std::rc::Rc<ListView>),
+        ListViewItem(std::rc::Rc<ListViewItem>),
+        TreeView(std::rc::Rc<TreeView>),
+        GridView(std::rc::Rc<GridView>),
+        GridViewItem(std::rc::Rc<GridViewItem>),
+        RelativePanel(std::rc::Rc<RelativePanel>),
+        Canvas(std::rc::Rc<Canvas>),
+        RichEditBox(std::rc::Rc<RichEditBox>),
+        RichTextBlock(std::rc::Rc<RichTextBlock>),
+        Viewbox(std::rc::Rc<Viewbox>),
+        WebView2(std::rc::Rc<WebView2>),
+        SwapChainPanel(std::rc::Rc<SwapChainPanel>),
     }
     impl From<TextBlock> for Element {
         fn from(value: TextBlock) -> Self {
-            Self::TextBlock(Box::new(value))
+            Self::TextBlock(std::rc::Rc::new(value))
         }
     }
     impl From<TextBlock> for View {
@@ -5530,7 +5530,7 @@ pub mod public {
     }
     impl From<Button> for Element {
         fn from(value: Button) -> Self {
-            Self::Button(Box::new(value))
+            Self::Button(std::rc::Rc::new(value))
         }
     }
     impl From<Button> for View {
@@ -5540,7 +5540,7 @@ pub mod public {
     }
     impl From<HyperlinkButton> for Element {
         fn from(value: HyperlinkButton) -> Self {
-            Self::HyperlinkButton(Box::new(value))
+            Self::HyperlinkButton(std::rc::Rc::new(value))
         }
     }
     impl From<HyperlinkButton> for View {
@@ -5550,7 +5550,7 @@ pub mod public {
     }
     impl From<RepeatButton> for Element {
         fn from(value: RepeatButton) -> Self {
-            Self::RepeatButton(Box::new(value))
+            Self::RepeatButton(std::rc::Rc::new(value))
         }
     }
     impl From<RepeatButton> for View {
@@ -5560,7 +5560,7 @@ pub mod public {
     }
     impl From<Border> for Element {
         fn from(value: Border) -> Self {
-            Self::Border(Box::new(value))
+            Self::Border(std::rc::Rc::new(value))
         }
     }
     impl From<Border> for View {
@@ -5570,7 +5570,7 @@ pub mod public {
     }
     impl From<BreadcrumbBar> for Element {
         fn from(value: BreadcrumbBar) -> Self {
-            Self::BreadcrumbBar(Box::new(value))
+            Self::BreadcrumbBar(std::rc::Rc::new(value))
         }
     }
     impl From<BreadcrumbBar> for View {
@@ -5580,7 +5580,7 @@ pub mod public {
     }
     impl From<StackPanel> for Element {
         fn from(value: StackPanel) -> Self {
-            Self::StackPanel(Box::new(value))
+            Self::StackPanel(std::rc::Rc::new(value))
         }
     }
     impl From<StackPanel> for View {
@@ -5590,7 +5590,7 @@ pub mod public {
     }
     impl From<VariableSizedWrapGrid> for Element {
         fn from(value: VariableSizedWrapGrid) -> Self {
-            Self::VariableSizedWrapGrid(Box::new(value))
+            Self::VariableSizedWrapGrid(std::rc::Rc::new(value))
         }
     }
     impl From<VariableSizedWrapGrid> for View {
@@ -5600,7 +5600,7 @@ pub mod public {
     }
     impl From<Grid> for Element {
         fn from(value: Grid) -> Self {
-            Self::Grid(Box::new(value))
+            Self::Grid(std::rc::Rc::new(value))
         }
     }
     impl From<Grid> for View {
@@ -5610,7 +5610,7 @@ pub mod public {
     }
     impl From<TextBox> for Element {
         fn from(value: TextBox) -> Self {
-            Self::TextBox(Box::new(value))
+            Self::TextBox(std::rc::Rc::new(value))
         }
     }
     impl From<TextBox> for View {
@@ -5620,7 +5620,7 @@ pub mod public {
     }
     impl From<AutoSuggestBox> for Element {
         fn from(value: AutoSuggestBox) -> Self {
-            Self::AutoSuggestBox(Box::new(value))
+            Self::AutoSuggestBox(std::rc::Rc::new(value))
         }
     }
     impl From<AutoSuggestBox> for View {
@@ -5630,7 +5630,7 @@ pub mod public {
     }
     impl From<PasswordBox> for Element {
         fn from(value: PasswordBox) -> Self {
-            Self::PasswordBox(Box::new(value))
+            Self::PasswordBox(std::rc::Rc::new(value))
         }
     }
     impl From<PasswordBox> for View {
@@ -5640,7 +5640,7 @@ pub mod public {
     }
     impl From<NumberBox> for Element {
         fn from(value: NumberBox) -> Self {
-            Self::NumberBox(Box::new(value))
+            Self::NumberBox(std::rc::Rc::new(value))
         }
     }
     impl From<NumberBox> for View {
@@ -5650,7 +5650,7 @@ pub mod public {
     }
     impl From<Slider> for Element {
         fn from(value: Slider) -> Self {
-            Self::Slider(Box::new(value))
+            Self::Slider(std::rc::Rc::new(value))
         }
     }
     impl From<Slider> for View {
@@ -5660,7 +5660,7 @@ pub mod public {
     }
     impl From<TitleBar> for Element {
         fn from(value: TitleBar) -> Self {
-            Self::TitleBar(Box::new(value))
+            Self::TitleBar(std::rc::Rc::new(value))
         }
     }
     impl From<TitleBar> for View {
@@ -5670,7 +5670,7 @@ pub mod public {
     }
     impl From<NavigationView> for Element {
         fn from(value: NavigationView) -> Self {
-            Self::NavigationView(Box::new(value))
+            Self::NavigationView(std::rc::Rc::new(value))
         }
     }
     impl From<NavigationView> for View {
@@ -5680,7 +5680,7 @@ pub mod public {
     }
     impl From<NavigationViewItem> for Element {
         fn from(value: NavigationViewItem) -> Self {
-            Self::NavigationViewItem(Box::new(value))
+            Self::NavigationViewItem(std::rc::Rc::new(value))
         }
     }
     impl From<NavigationViewItem> for View {
@@ -5690,7 +5690,7 @@ pub mod public {
     }
     impl From<SplitView> for Element {
         fn from(value: SplitView) -> Self {
-            Self::SplitView(Box::new(value))
+            Self::SplitView(std::rc::Rc::new(value))
         }
     }
     impl From<SplitView> for View {
@@ -5700,7 +5700,7 @@ pub mod public {
     }
     impl From<ProgressBar> for Element {
         fn from(value: ProgressBar) -> Self {
-            Self::ProgressBar(Box::new(value))
+            Self::ProgressBar(std::rc::Rc::new(value))
         }
     }
     impl From<ProgressBar> for View {
@@ -5710,7 +5710,7 @@ pub mod public {
     }
     impl From<ToggleSwitch> for Element {
         fn from(value: ToggleSwitch) -> Self {
-            Self::ToggleSwitch(Box::new(value))
+            Self::ToggleSwitch(std::rc::Rc::new(value))
         }
     }
     impl From<ToggleSwitch> for View {
@@ -5720,7 +5720,7 @@ pub mod public {
     }
     impl From<CheckBox> for Element {
         fn from(value: CheckBox) -> Self {
-            Self::CheckBox(Box::new(value))
+            Self::CheckBox(std::rc::Rc::new(value))
         }
     }
     impl From<CheckBox> for View {
@@ -5730,7 +5730,7 @@ pub mod public {
     }
     impl From<ToggleButton> for Element {
         fn from(value: ToggleButton) -> Self {
-            Self::ToggleButton(Box::new(value))
+            Self::ToggleButton(std::rc::Rc::new(value))
         }
     }
     impl From<ToggleButton> for View {
@@ -5740,7 +5740,7 @@ pub mod public {
     }
     impl From<RadioButton> for Element {
         fn from(value: RadioButton) -> Self {
-            Self::RadioButton(Box::new(value))
+            Self::RadioButton(std::rc::Rc::new(value))
         }
     }
     impl From<RadioButton> for View {
@@ -5750,7 +5750,7 @@ pub mod public {
     }
     impl From<RadioButtons> for Element {
         fn from(value: RadioButtons) -> Self {
-            Self::RadioButtons(Box::new(value))
+            Self::RadioButtons(std::rc::Rc::new(value))
         }
     }
     impl From<RadioButtons> for View {
@@ -5760,7 +5760,7 @@ pub mod public {
     }
     impl From<ItemsRepeater> for Element {
         fn from(value: ItemsRepeater) -> Self {
-            Self::ItemsRepeater(Box::new(value))
+            Self::ItemsRepeater(std::rc::Rc::new(value))
         }
     }
     impl From<ItemsRepeater> for View {
@@ -5770,7 +5770,7 @@ pub mod public {
     }
     impl From<InfoBadge> for Element {
         fn from(value: InfoBadge) -> Self {
-            Self::InfoBadge(Box::new(value))
+            Self::InfoBadge(std::rc::Rc::new(value))
         }
     }
     impl From<InfoBadge> for View {
@@ -5780,7 +5780,7 @@ pub mod public {
     }
     impl From<InfoBar> for Element {
         fn from(value: InfoBar) -> Self {
-            Self::InfoBar(Box::new(value))
+            Self::InfoBar(std::rc::Rc::new(value))
         }
     }
     impl From<InfoBar> for View {
@@ -5790,7 +5790,7 @@ pub mod public {
     }
     impl From<PersonPicture> for Element {
         fn from(value: PersonPicture) -> Self {
-            Self::PersonPicture(Box::new(value))
+            Self::PersonPicture(std::rc::Rc::new(value))
         }
     }
     impl From<PersonPicture> for View {
@@ -5800,7 +5800,7 @@ pub mod public {
     }
     impl From<ScrollViewer> for Element {
         fn from(value: ScrollViewer) -> Self {
-            Self::ScrollViewer(Box::new(value))
+            Self::ScrollViewer(std::rc::Rc::new(value))
         }
     }
     impl From<ScrollViewer> for View {
@@ -5810,7 +5810,7 @@ pub mod public {
     }
     impl From<ScrollView> for Element {
         fn from(value: ScrollView) -> Self {
-            Self::ScrollView(Box::new(value))
+            Self::ScrollView(std::rc::Rc::new(value))
         }
     }
     impl From<ScrollView> for View {
@@ -5820,7 +5820,7 @@ pub mod public {
     }
     impl From<Image> for Element {
         fn from(value: Image) -> Self {
-            Self::Image(Box::new(value))
+            Self::Image(std::rc::Rc::new(value))
         }
     }
     impl From<Image> for View {
@@ -5830,7 +5830,7 @@ pub mod public {
     }
     impl From<ProgressRing> for Element {
         fn from(value: ProgressRing) -> Self {
-            Self::ProgressRing(Box::new(value))
+            Self::ProgressRing(std::rc::Rc::new(value))
         }
     }
     impl From<ProgressRing> for View {
@@ -5840,7 +5840,7 @@ pub mod public {
     }
     impl From<ListBox> for Element {
         fn from(value: ListBox) -> Self {
-            Self::ListBox(Box::new(value))
+            Self::ListBox(std::rc::Rc::new(value))
         }
     }
     impl From<ListBox> for View {
@@ -5850,7 +5850,7 @@ pub mod public {
     }
     impl From<Rectangle> for Element {
         fn from(value: Rectangle) -> Self {
-            Self::Rectangle(Box::new(value))
+            Self::Rectangle(std::rc::Rc::new(value))
         }
     }
     impl From<Rectangle> for View {
@@ -5860,7 +5860,7 @@ pub mod public {
     }
     impl From<Ellipse> for Element {
         fn from(value: Ellipse) -> Self {
-            Self::Ellipse(Box::new(value))
+            Self::Ellipse(std::rc::Rc::new(value))
         }
     }
     impl From<Ellipse> for View {
@@ -5870,7 +5870,7 @@ pub mod public {
     }
     impl From<Line> for Element {
         fn from(value: Line) -> Self {
-            Self::Line(Box::new(value))
+            Self::Line(std::rc::Rc::new(value))
         }
     }
     impl From<Line> for View {
@@ -5880,7 +5880,7 @@ pub mod public {
     }
     impl From<SymbolIcon> for Element {
         fn from(value: SymbolIcon) -> Self {
-            Self::SymbolIcon(Box::new(value))
+            Self::SymbolIcon(std::rc::Rc::new(value))
         }
     }
     impl From<SymbolIcon> for View {
@@ -5890,7 +5890,7 @@ pub mod public {
     }
     impl From<ImageIcon> for Element {
         fn from(value: ImageIcon) -> Self {
-            Self::ImageIcon(Box::new(value))
+            Self::ImageIcon(std::rc::Rc::new(value))
         }
     }
     impl From<ImageIcon> for View {
@@ -5900,7 +5900,7 @@ pub mod public {
     }
     impl From<FontIcon> for Element {
         fn from(value: FontIcon) -> Self {
-            Self::FontIcon(Box::new(value))
+            Self::FontIcon(std::rc::Rc::new(value))
         }
     }
     impl From<FontIcon> for View {
@@ -5910,7 +5910,7 @@ pub mod public {
     }
     impl From<BitmapIcon> for Element {
         fn from(value: BitmapIcon) -> Self {
-            Self::BitmapIcon(Box::new(value))
+            Self::BitmapIcon(std::rc::Rc::new(value))
         }
     }
     impl From<BitmapIcon> for View {
@@ -5920,7 +5920,7 @@ pub mod public {
     }
     impl From<PathIcon> for Element {
         fn from(value: PathIcon) -> Self {
-            Self::PathIcon(Box::new(value))
+            Self::PathIcon(std::rc::Rc::new(value))
         }
     }
     impl From<PathIcon> for View {
@@ -5930,7 +5930,7 @@ pub mod public {
     }
     impl From<ListBoxItem> for Element {
         fn from(value: ListBoxItem) -> Self {
-            Self::ListBoxItem(Box::new(value))
+            Self::ListBoxItem(std::rc::Rc::new(value))
         }
     }
     impl From<ListBoxItem> for View {
@@ -5940,7 +5940,7 @@ pub mod public {
     }
     impl From<RatingControl> for Element {
         fn from(value: RatingControl) -> Self {
-            Self::RatingControl(Box::new(value))
+            Self::RatingControl(std::rc::Rc::new(value))
         }
     }
     impl From<RatingControl> for View {
@@ -5950,7 +5950,7 @@ pub mod public {
     }
     impl From<Expander> for Element {
         fn from(value: Expander) -> Self {
-            Self::Expander(Box::new(value))
+            Self::Expander(std::rc::Rc::new(value))
         }
     }
     impl From<Expander> for View {
@@ -5960,7 +5960,7 @@ pub mod public {
     }
     impl From<ComboBox> for Element {
         fn from(value: ComboBox) -> Self {
-            Self::ComboBox(Box::new(value))
+            Self::ComboBox(std::rc::Rc::new(value))
         }
     }
     impl From<ComboBox> for View {
@@ -5970,7 +5970,7 @@ pub mod public {
     }
     impl From<Pivot> for Element {
         fn from(value: Pivot) -> Self {
-            Self::Pivot(Box::new(value))
+            Self::Pivot(std::rc::Rc::new(value))
         }
     }
     impl From<Pivot> for View {
@@ -5980,7 +5980,7 @@ pub mod public {
     }
     impl From<PivotItem> for Element {
         fn from(value: PivotItem) -> Self {
-            Self::PivotItem(Box::new(value))
+            Self::PivotItem(std::rc::Rc::new(value))
         }
     }
     impl From<PivotItem> for View {
@@ -5990,7 +5990,7 @@ pub mod public {
     }
     impl From<FlipView> for Element {
         fn from(value: FlipView) -> Self {
-            Self::FlipView(Box::new(value))
+            Self::FlipView(std::rc::Rc::new(value))
         }
     }
     impl From<FlipView> for View {
@@ -6000,7 +6000,7 @@ pub mod public {
     }
     impl From<SelectorBar> for Element {
         fn from(value: SelectorBar) -> Self {
-            Self::SelectorBar(Box::new(value))
+            Self::SelectorBar(std::rc::Rc::new(value))
         }
     }
     impl From<SelectorBar> for View {
@@ -6010,7 +6010,7 @@ pub mod public {
     }
     impl From<SelectorBarItem> for Element {
         fn from(value: SelectorBarItem) -> Self {
-            Self::SelectorBarItem(Box::new(value))
+            Self::SelectorBarItem(std::rc::Rc::new(value))
         }
     }
     impl From<SelectorBarItem> for View {
@@ -6020,7 +6020,7 @@ pub mod public {
     }
     impl From<TabView> for Element {
         fn from(value: TabView) -> Self {
-            Self::TabView(Box::new(value))
+            Self::TabView(std::rc::Rc::new(value))
         }
     }
     impl From<TabView> for View {
@@ -6030,7 +6030,7 @@ pub mod public {
     }
     impl From<TabViewItem> for Element {
         fn from(value: TabViewItem) -> Self {
-            Self::TabViewItem(Box::new(value))
+            Self::TabViewItem(std::rc::Rc::new(value))
         }
     }
     impl From<TabViewItem> for View {
@@ -6040,7 +6040,7 @@ pub mod public {
     }
     impl From<TeachingTip> for Element {
         fn from(value: TeachingTip) -> Self {
-            Self::TeachingTip(Box::new(value))
+            Self::TeachingTip(std::rc::Rc::new(value))
         }
     }
     impl From<TeachingTip> for View {
@@ -6050,7 +6050,7 @@ pub mod public {
     }
     impl From<DropDownButton> for Element {
         fn from(value: DropDownButton) -> Self {
-            Self::DropDownButton(Box::new(value))
+            Self::DropDownButton(std::rc::Rc::new(value))
         }
     }
     impl From<DropDownButton> for View {
@@ -6060,7 +6060,7 @@ pub mod public {
     }
     impl From<CommandBar> for Element {
         fn from(value: CommandBar) -> Self {
-            Self::CommandBar(Box::new(value))
+            Self::CommandBar(std::rc::Rc::new(value))
         }
     }
     impl From<CommandBar> for View {
@@ -6070,7 +6070,7 @@ pub mod public {
     }
     impl From<AppBarButton> for Element {
         fn from(value: AppBarButton) -> Self {
-            Self::AppBarButton(Box::new(value))
+            Self::AppBarButton(std::rc::Rc::new(value))
         }
     }
     impl From<AppBarButton> for View {
@@ -6080,7 +6080,7 @@ pub mod public {
     }
     impl From<AppBarSeparator> for Element {
         fn from(value: AppBarSeparator) -> Self {
-            Self::AppBarSeparator(Box::new(value))
+            Self::AppBarSeparator(std::rc::Rc::new(value))
         }
     }
     impl From<AppBarSeparator> for View {
@@ -6090,7 +6090,7 @@ pub mod public {
     }
     impl From<MenuBar> for Element {
         fn from(value: MenuBar) -> Self {
-            Self::MenuBar(Box::new(value))
+            Self::MenuBar(std::rc::Rc::new(value))
         }
     }
     impl From<MenuBar> for View {
@@ -6100,7 +6100,7 @@ pub mod public {
     }
     impl From<MenuBarItem> for Element {
         fn from(value: MenuBarItem) -> Self {
-            Self::MenuBarItem(Box::new(value))
+            Self::MenuBarItem(std::rc::Rc::new(value))
         }
     }
     impl From<MenuBarItem> for View {
@@ -6110,7 +6110,7 @@ pub mod public {
     }
     impl From<SplitButton> for Element {
         fn from(value: SplitButton) -> Self {
-            Self::SplitButton(Box::new(value))
+            Self::SplitButton(std::rc::Rc::new(value))
         }
     }
     impl From<SplitButton> for View {
@@ -6120,7 +6120,7 @@ pub mod public {
     }
     impl From<ColorPicker> for Element {
         fn from(value: ColorPicker) -> Self {
-            Self::ColorPicker(Box::new(value))
+            Self::ColorPicker(std::rc::Rc::new(value))
         }
     }
     impl From<ColorPicker> for View {
@@ -6130,7 +6130,7 @@ pub mod public {
     }
     impl From<DatePicker> for Element {
         fn from(value: DatePicker) -> Self {
-            Self::DatePicker(Box::new(value))
+            Self::DatePicker(std::rc::Rc::new(value))
         }
     }
     impl From<DatePicker> for View {
@@ -6140,7 +6140,7 @@ pub mod public {
     }
     impl From<TimePicker> for Element {
         fn from(value: TimePicker) -> Self {
-            Self::TimePicker(Box::new(value))
+            Self::TimePicker(std::rc::Rc::new(value))
         }
     }
     impl From<TimePicker> for View {
@@ -6150,7 +6150,7 @@ pub mod public {
     }
     impl From<CalendarDatePicker> for Element {
         fn from(value: CalendarDatePicker) -> Self {
-            Self::CalendarDatePicker(Box::new(value))
+            Self::CalendarDatePicker(std::rc::Rc::new(value))
         }
     }
     impl From<CalendarDatePicker> for View {
@@ -6160,7 +6160,7 @@ pub mod public {
     }
     impl From<ToolTip> for Element {
         fn from(value: ToolTip) -> Self {
-            Self::ToolTip(Box::new(value))
+            Self::ToolTip(std::rc::Rc::new(value))
         }
     }
     impl From<ToolTip> for View {
@@ -6170,7 +6170,7 @@ pub mod public {
     }
     impl From<ContentDialog> for Element {
         fn from(value: ContentDialog) -> Self {
-            Self::ContentDialog(Box::new(value))
+            Self::ContentDialog(std::rc::Rc::new(value))
         }
     }
     impl From<ContentDialog> for View {
@@ -6181,7 +6181,7 @@ pub mod public {
     }
     impl From<CalendarView> for Element {
         fn from(value: CalendarView) -> Self {
-            Self::CalendarView(Box::new(value))
+            Self::CalendarView(std::rc::Rc::new(value))
         }
     }
     impl From<CalendarView> for View {
@@ -6191,7 +6191,7 @@ pub mod public {
     }
     impl From<ListView> for Element {
         fn from(value: ListView) -> Self {
-            Self::ListView(Box::new(value))
+            Self::ListView(std::rc::Rc::new(value))
         }
     }
     impl From<ListView> for View {
@@ -6201,7 +6201,7 @@ pub mod public {
     }
     impl From<ListViewItem> for Element {
         fn from(value: ListViewItem) -> Self {
-            Self::ListViewItem(Box::new(value))
+            Self::ListViewItem(std::rc::Rc::new(value))
         }
     }
     impl From<ListViewItem> for View {
@@ -6211,7 +6211,7 @@ pub mod public {
     }
     impl From<TreeView> for Element {
         fn from(value: TreeView) -> Self {
-            Self::TreeView(Box::new(value))
+            Self::TreeView(std::rc::Rc::new(value))
         }
     }
     impl From<TreeView> for View {
@@ -6221,7 +6221,7 @@ pub mod public {
     }
     impl From<GridView> for Element {
         fn from(value: GridView) -> Self {
-            Self::GridView(Box::new(value))
+            Self::GridView(std::rc::Rc::new(value))
         }
     }
     impl From<GridView> for View {
@@ -6231,7 +6231,7 @@ pub mod public {
     }
     impl From<GridViewItem> for Element {
         fn from(value: GridViewItem) -> Self {
-            Self::GridViewItem(Box::new(value))
+            Self::GridViewItem(std::rc::Rc::new(value))
         }
     }
     impl From<GridViewItem> for View {
@@ -6241,7 +6241,7 @@ pub mod public {
     }
     impl From<RelativePanel> for Element {
         fn from(value: RelativePanel) -> Self {
-            Self::RelativePanel(Box::new(value))
+            Self::RelativePanel(std::rc::Rc::new(value))
         }
     }
     impl From<RelativePanel> for View {
@@ -6251,7 +6251,7 @@ pub mod public {
     }
     impl From<Canvas> for Element {
         fn from(value: Canvas) -> Self {
-            Self::Canvas(Box::new(value))
+            Self::Canvas(std::rc::Rc::new(value))
         }
     }
     impl From<Canvas> for View {
@@ -6261,7 +6261,7 @@ pub mod public {
     }
     impl From<RichEditBox> for Element {
         fn from(value: RichEditBox) -> Self {
-            Self::RichEditBox(Box::new(value))
+            Self::RichEditBox(std::rc::Rc::new(value))
         }
     }
     impl From<RichEditBox> for View {
@@ -6271,7 +6271,7 @@ pub mod public {
     }
     impl From<RichTextBlock> for Element {
         fn from(value: RichTextBlock) -> Self {
-            Self::RichTextBlock(Box::new(value))
+            Self::RichTextBlock(std::rc::Rc::new(value))
         }
     }
     impl From<RichTextBlock> for View {
@@ -6281,7 +6281,7 @@ pub mod public {
     }
     impl From<Viewbox> for Element {
         fn from(value: Viewbox) -> Self {
-            Self::Viewbox(Box::new(value))
+            Self::Viewbox(std::rc::Rc::new(value))
         }
     }
     impl From<Viewbox> for View {
@@ -6291,7 +6291,7 @@ pub mod public {
     }
     impl From<WebView2> for Element {
         fn from(value: WebView2) -> Self {
-            Self::WebView2(Box::new(value))
+            Self::WebView2(std::rc::Rc::new(value))
         }
     }
     impl From<WebView2> for View {
@@ -6301,7 +6301,7 @@ pub mod public {
     }
     impl From<SwapChainPanel> for Element {
         fn from(value: SwapChainPanel) -> Self {
-            Self::SwapChainPanel(Box::new(value))
+            Self::SwapChainPanel(std::rc::Rc::new(value))
         }
     }
     impl From<SwapChainPanel> for View {
@@ -6396,6 +6396,7 @@ pub mod public {
         fn into_parts(self) -> ElementParts {
             match self {
                 Self::TextBlock(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let TextBlock {
                         text,
                         text_wrapping,
@@ -6406,7 +6407,7 @@ pub mod public {
                         text_trimming,
                         foreground,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::TextBlock,
                         props: MountedProps::TextBlock(std::rc::Rc::new(TextBlockMountedProps {
@@ -6426,6 +6427,7 @@ pub mod public {
                     }
                 }
                 Self::Button(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let Button {
                         is_enabled,
                         horizontal_content_alignment,
@@ -6437,7 +6439,7 @@ pub mod public {
                         reference,
                         element_state,
                         content,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::Button,
                         props: MountedProps::Button(std::rc::Rc::new(ButtonMountedProps {
@@ -6456,6 +6458,7 @@ pub mod public {
                     }
                 }
                 Self::HyperlinkButton(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let HyperlinkButton {
                         navigate_uri,
                         is_enabled,
@@ -6463,7 +6466,7 @@ pub mod public {
                         reference,
                         element_state,
                         content,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::HyperlinkButton,
                         props: MountedProps::HyperlinkButton(std::rc::Rc::new(
@@ -6480,6 +6483,7 @@ pub mod public {
                     }
                 }
                 Self::RepeatButton(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let RepeatButton {
                         delay,
                         interval,
@@ -6487,7 +6491,7 @@ pub mod public {
                         on_click,
                         element_state,
                         content,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::RepeatButton,
                         props: MountedProps::RepeatButton(std::rc::Rc::new(
@@ -6505,6 +6509,7 @@ pub mod public {
                     }
                 }
                 Self::Border(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let Border {
                         padding,
                         border_thickness,
@@ -6519,7 +6524,7 @@ pub mod public {
                         events,
                         element_state,
                         content,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::Border,
                         props: MountedProps::Border(std::rc::Rc::new(BorderMountedProps {
@@ -6542,11 +6547,12 @@ pub mod public {
                     }
                 }
                 Self::BreadcrumbBar(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let BreadcrumbBar {
                         items_source,
                         on_item_clicked,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::BreadcrumbBar,
                         props: MountedProps::BreadcrumbBar(std::rc::Rc::new(
@@ -6562,12 +6568,13 @@ pub mod public {
                     }
                 }
                 Self::StackPanel(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let StackPanel {
                         orientation,
                         spacing,
                         element_state,
                         children,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::StackPanel,
                         props: MountedProps::StackPanel(std::rc::Rc::new(StackPanelMountedProps {
@@ -6581,13 +6588,14 @@ pub mod public {
                     }
                 }
                 Self::VariableSizedWrapGrid(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let VariableSizedWrapGrid {
                         item_width,
                         item_height,
                         orientation,
                         element_state,
                         children,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::VariableSizedWrapGrid,
                         props: MountedProps::VariableSizedWrapGrid(std::rc::Rc::new(
@@ -6604,6 +6612,7 @@ pub mod public {
                     }
                 }
                 Self::Grid(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let Grid {
                         row_spacing,
                         column_spacing,
@@ -6614,7 +6623,7 @@ pub mod public {
                         reference,
                         element_state,
                         children,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::Grid,
                         props: MountedProps::Grid(std::rc::Rc::new(GridMountedProps {
@@ -6632,6 +6641,7 @@ pub mod public {
                     }
                 }
                 Self::TextBox(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let TextBox {
                         text,
                         placeholder_text,
@@ -6644,7 +6654,7 @@ pub mod public {
                         on_text_changed,
                         reference,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::TextBox,
                         props: MountedProps::TextBox(std::rc::Rc::new(TextBoxMountedProps {
@@ -6665,6 +6675,7 @@ pub mod public {
                     }
                 }
                 Self::AutoSuggestBox(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let AutoSuggestBox {
                         text,
                         items_source,
@@ -6673,7 +6684,7 @@ pub mod public {
                         events,
                         reference,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::AutoSuggestBox,
                         props: MountedProps::AutoSuggestBox(std::rc::Rc::new(
@@ -6692,6 +6703,7 @@ pub mod public {
                     }
                 }
                 Self::PasswordBox(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let PasswordBox {
                         password,
                         placeholder_text,
@@ -6700,7 +6712,7 @@ pub mod public {
                         on_password_changed,
                         reference,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::PasswordBox,
                         props: MountedProps::PasswordBox(std::rc::Rc::new(
@@ -6719,6 +6731,7 @@ pub mod public {
                     }
                 }
                 Self::NumberBox(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let NumberBox {
                         minimum,
                         maximum,
@@ -6727,7 +6740,7 @@ pub mod public {
                         on_value_changed,
                         reference,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::NumberBox,
                         props: MountedProps::NumberBox(std::rc::Rc::new(NumberBoxMountedProps {
@@ -6744,6 +6757,7 @@ pub mod public {
                     }
                 }
                 Self::Slider(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let Slider {
                         minimum,
                         maximum,
@@ -6754,7 +6768,7 @@ pub mod public {
                         on_value_changed,
                         reference,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::Slider,
                         props: MountedProps::Slider(std::rc::Rc::new(SliderMountedProps {
@@ -6773,6 +6787,7 @@ pub mod public {
                     }
                 }
                 Self::TitleBar(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let TitleBar {
                         title,
                         subtitle,
@@ -6782,7 +6797,7 @@ pub mod public {
                         events,
                         element_state,
                         preferred_height,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::TitleBar,
                         props: MountedProps::TitleBar(std::rc::Rc::new(TitleBarMountedProps {
@@ -6800,6 +6815,7 @@ pub mod public {
                     }
                 }
                 Self::NavigationView(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let NavigationView {
                         is_enabled,
                         pane_display_mode,
@@ -6812,7 +6828,7 @@ pub mod public {
                         is_pane_open,
                         events,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::NavigationView,
                         props: MountedProps::NavigationView(std::rc::Rc::new(
@@ -6836,13 +6852,14 @@ pub mod public {
                     }
                 }
                 Self::NavigationViewItem(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let NavigationViewItem {
                         tag,
                         is_selected,
                         selects_on_invoked,
                         is_expanded,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::NavigationViewItem,
                         props: MountedProps::NavigationViewItem(std::rc::Rc::new(
@@ -6860,6 +6877,7 @@ pub mod public {
                     }
                 }
                 Self::SplitView(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let SplitView {
                         open_pane_length,
                         compact_pane_length,
@@ -6867,7 +6885,7 @@ pub mod public {
                         is_pane_open,
                         on_pane_closed,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::SplitView,
                         props: MountedProps::SplitView(std::rc::Rc::new(SplitViewMountedProps {
@@ -6884,6 +6902,7 @@ pub mod public {
                     }
                 }
                 Self::ProgressBar(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let ProgressBar {
                         minimum,
                         maximum,
@@ -6893,7 +6912,7 @@ pub mod public {
                         show_paused,
                         is_enabled,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::ProgressBar,
                         props: MountedProps::ProgressBar(std::rc::Rc::new(
@@ -6914,13 +6933,14 @@ pub mod public {
                     }
                 }
                 Self::ToggleSwitch(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let ToggleSwitch {
                         is_on,
                         is_enabled,
                         on_toggled,
                         reference,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::ToggleSwitch,
                         props: MountedProps::ToggleSwitch(std::rc::Rc::new(
@@ -6937,6 +6957,7 @@ pub mod public {
                     }
                 }
                 Self::CheckBox(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let CheckBox {
                         is_checked,
                         is_enabled,
@@ -6944,7 +6965,7 @@ pub mod public {
                         reference,
                         element_state,
                         content,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::CheckBox,
                         props: MountedProps::CheckBox(std::rc::Rc::new(CheckBoxMountedProps {
@@ -6959,6 +6980,7 @@ pub mod public {
                     }
                 }
                 Self::ToggleButton(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let ToggleButton {
                         is_checked,
                         is_enabled,
@@ -6966,7 +6988,7 @@ pub mod public {
                         reference,
                         element_state,
                         content,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::ToggleButton,
                         props: MountedProps::ToggleButton(std::rc::Rc::new(
@@ -6983,6 +7005,7 @@ pub mod public {
                     }
                 }
                 Self::RadioButton(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let RadioButton {
                         group_name,
                         is_checked,
@@ -6991,7 +7014,7 @@ pub mod public {
                         reference,
                         element_state,
                         content,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::RadioButton,
                         props: MountedProps::RadioButton(std::rc::Rc::new(
@@ -7009,13 +7032,14 @@ pub mod public {
                     }
                 }
                 Self::RadioButtons(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let RadioButtons {
                         items_source,
                         selected_index,
                         max_columns,
                         on_selection_changed,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::RadioButtons,
                         props: MountedProps::RadioButtons(std::rc::Rc::new(
@@ -7033,10 +7057,11 @@ pub mod public {
                     }
                 }
                 Self::ItemsRepeater(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let ItemsRepeater {
                         element_state,
                         items,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::ItemsRepeater,
                         props: MountedProps::ItemsRepeater(std::rc::Rc::new(
@@ -7049,10 +7074,11 @@ pub mod public {
                     }
                 }
                 Self::InfoBadge(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let InfoBadge {
                         value,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::InfoBadge,
                         props: MountedProps::InfoBadge(std::rc::Rc::new(InfoBadgeMountedProps {
@@ -7065,6 +7091,7 @@ pub mod public {
                     }
                 }
                 Self::InfoBar(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let InfoBar {
                         title,
                         message,
@@ -7073,7 +7100,7 @@ pub mod public {
                         is_closable,
                         on_closed,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::InfoBar,
                         props: MountedProps::InfoBar(std::rc::Rc::new(InfoBarMountedProps {
@@ -7091,11 +7118,12 @@ pub mod public {
                     }
                 }
                 Self::PersonPicture(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let PersonPicture {
                         display_name,
                         initials,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::PersonPicture,
                         props: MountedProps::PersonPicture(std::rc::Rc::new(
@@ -7111,12 +7139,13 @@ pub mod public {
                     }
                 }
                 Self::ScrollViewer(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let ScrollViewer {
                         horizontal_scroll_bar_visibility,
                         vertical_scroll_bar_visibility,
                         element_state,
                         content,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::ScrollViewer,
                         props: MountedProps::ScrollViewer(std::rc::Rc::new(
@@ -7132,12 +7161,13 @@ pub mod public {
                     }
                 }
                 Self::ScrollView(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let ScrollView {
                         horizontal_scroll_bar_visibility,
                         vertical_scroll_bar_visibility,
                         element_state,
                         content,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::ScrollView,
                         props: MountedProps::ScrollView(std::rc::Rc::new(ScrollViewMountedProps {
@@ -7151,13 +7181,14 @@ pub mod public {
                     }
                 }
                 Self::Image(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let Image {
                         source,
                         stretch,
                         events,
                         reference,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::Image,
                         props: MountedProps::Image(std::rc::Rc::new(ImageMountedProps {
@@ -7172,6 +7203,7 @@ pub mod public {
                     }
                 }
                 Self::ProgressRing(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let ProgressRing {
                         minimum,
                         maximum,
@@ -7180,7 +7212,7 @@ pub mod public {
                         is_active,
                         is_enabled,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::ProgressRing,
                         props: MountedProps::ProgressRing(std::rc::Rc::new(
@@ -7200,11 +7232,12 @@ pub mod public {
                     }
                 }
                 Self::ListBox(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let ListBox {
                         is_enabled,
                         on_selected_tag_changed,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::ListBox,
                         props: MountedProps::ListBox(std::rc::Rc::new(ListBoxMountedProps {
@@ -7218,6 +7251,7 @@ pub mod public {
                     }
                 }
                 Self::Rectangle(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let Rectangle {
                         fill,
                         stroke,
@@ -7225,7 +7259,7 @@ pub mod public {
                         radius_x,
                         radius_y,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::Rectangle,
                         props: MountedProps::Rectangle(std::rc::Rc::new(RectangleMountedProps {
@@ -7242,12 +7276,13 @@ pub mod public {
                     }
                 }
                 Self::Ellipse(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let Ellipse {
                         fill,
                         stroke,
                         stroke_thickness,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::Ellipse,
                         props: MountedProps::Ellipse(std::rc::Rc::new(EllipseMountedProps {
@@ -7262,6 +7297,7 @@ pub mod public {
                     }
                 }
                 Self::Line(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let Line {
                         stroke,
                         stroke_thickness,
@@ -7270,7 +7306,7 @@ pub mod public {
                         x2,
                         y2,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::Line,
                         props: MountedProps::Line(std::rc::Rc::new(LineMountedProps {
@@ -7288,10 +7324,11 @@ pub mod public {
                     }
                 }
                 Self::SymbolIcon(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let SymbolIcon {
                         symbol,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::SymbolIcon,
                         props: MountedProps::SymbolIcon(std::rc::Rc::new(SymbolIconMountedProps {
@@ -7304,10 +7341,11 @@ pub mod public {
                     }
                 }
                 Self::ImageIcon(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let ImageIcon {
                         source,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::ImageIcon,
                         props: MountedProps::ImageIcon(std::rc::Rc::new(ImageIconMountedProps {
@@ -7320,10 +7358,11 @@ pub mod public {
                     }
                 }
                 Self::FontIcon(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let FontIcon {
                         glyph,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::FontIcon,
                         props: MountedProps::FontIcon(std::rc::Rc::new(FontIconMountedProps {
@@ -7336,11 +7375,12 @@ pub mod public {
                     }
                 }
                 Self::BitmapIcon(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let BitmapIcon {
                         uri_source,
                         show_as_monochrome,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::BitmapIcon,
                         props: MountedProps::BitmapIcon(std::rc::Rc::new(BitmapIconMountedProps {
@@ -7354,10 +7394,11 @@ pub mod public {
                     }
                 }
                 Self::PathIcon(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let PathIcon {
                         data,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::PathIcon,
                         props: MountedProps::PathIcon(std::rc::Rc::new(PathIconMountedProps {
@@ -7370,12 +7411,13 @@ pub mod public {
                     }
                 }
                 Self::ListBoxItem(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let ListBoxItem {
                         tag,
                         is_selected,
                         element_state,
                         content,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::ListBoxItem,
                         props: MountedProps::ListBoxItem(std::rc::Rc::new(
@@ -7388,6 +7430,7 @@ pub mod public {
                     }
                 }
                 Self::RatingControl(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let RatingControl {
                         max_rating,
                         value,
@@ -7396,7 +7439,7 @@ pub mod public {
                         on_value_changed,
                         reference,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::RatingControl,
                         props: MountedProps::RatingControl(std::rc::Rc::new(
@@ -7415,11 +7458,12 @@ pub mod public {
                     }
                 }
                 Self::Expander(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let Expander {
                         is_expanded,
                         on_is_expanded_changed,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::Expander,
                         props: MountedProps::Expander(std::rc::Rc::new(ExpanderMountedProps {
@@ -7433,6 +7477,7 @@ pub mod public {
                     }
                 }
                 Self::ComboBox(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let ComboBox {
                         items_source,
                         selected_index,
@@ -7442,7 +7487,7 @@ pub mod public {
                         on_selection_changed,
                         reference,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::ComboBox,
                         props: MountedProps::ComboBox(std::rc::Rc::new(ComboBoxMountedProps {
@@ -7460,12 +7505,13 @@ pub mod public {
                     }
                 }
                 Self::Pivot(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let Pivot {
                         selected_index,
                         title,
                         on_selection_changed,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::Pivot,
                         props: MountedProps::Pivot(std::rc::Rc::new(PivotMountedProps {
@@ -7480,11 +7526,12 @@ pub mod public {
                     }
                 }
                 Self::PivotItem(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let PivotItem {
                         header,
                         element_state,
                         content,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::PivotItem,
                         props: MountedProps::PivotItem(std::rc::Rc::new(PivotItemMountedProps {
@@ -7497,11 +7544,12 @@ pub mod public {
                     }
                 }
                 Self::FlipView(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let FlipView {
                         selected_index,
                         on_selection_changed,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::FlipView,
                         props: MountedProps::FlipView(std::rc::Rc::new(FlipViewMountedProps {
@@ -7515,10 +7563,11 @@ pub mod public {
                     }
                 }
                 Self::SelectorBar(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let SelectorBar {
                         on_selected_text_changed,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::SelectorBar,
                         props: MountedProps::SelectorBar(std::rc::Rc::new(
@@ -7533,11 +7582,12 @@ pub mod public {
                     }
                 }
                 Self::SelectorBarItem(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let SelectorBarItem {
                         text,
                         is_selected,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::SelectorBarItem,
                         props: MountedProps::SelectorBarItem(std::rc::Rc::new(
@@ -7550,13 +7600,14 @@ pub mod public {
                     }
                 }
                 Self::TabView(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let TabView {
                         selected_index,
                         can_reorder_tabs,
                         is_add_tab_button_visible,
                         events,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::TabView,
                         props: MountedProps::TabView(std::rc::Rc::new(TabViewMountedProps {
@@ -7572,13 +7623,14 @@ pub mod public {
                     }
                 }
                 Self::TabViewItem(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let TabViewItem {
                         header,
                         is_closable,
                         tag,
                         element_state,
                         content,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::TabViewItem,
                         props: MountedProps::TabViewItem(std::rc::Rc::new(
@@ -7595,6 +7647,7 @@ pub mod public {
                     }
                 }
                 Self::TeachingTip(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let TeachingTip {
                         title,
                         subtitle,
@@ -7605,7 +7658,7 @@ pub mod public {
                         close_button_content,
                         events,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::TeachingTip,
                         props: MountedProps::TeachingTip(std::rc::Rc::new(
@@ -7627,12 +7680,13 @@ pub mod public {
                     }
                 }
                 Self::DropDownButton(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let DropDownButton {
                         is_enabled,
                         on_click,
                         element_state,
                         content,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::DropDownButton,
                         props: MountedProps::DropDownButton(std::rc::Rc::new(
@@ -7648,7 +7702,8 @@ pub mod public {
                     }
                 }
                 Self::CommandBar(value) => {
-                    let CommandBar { element_state } = *value;
+                    let value = std::rc::Rc::unwrap_or_clone(value);
+                    let CommandBar { element_state } = value;
                     ElementParts {
                         kind: MountedKind::CommandBar,
                         props: MountedProps::CommandBar(std::rc::Rc::new(
@@ -7661,12 +7716,13 @@ pub mod public {
                     }
                 }
                 Self::AppBarButton(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let AppBarButton {
                         label,
                         is_enabled,
                         on_click,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::AppBarButton,
                         props: MountedProps::AppBarButton(std::rc::Rc::new(
@@ -7683,7 +7739,8 @@ pub mod public {
                     }
                 }
                 Self::AppBarSeparator(value) => {
-                    let AppBarSeparator { element_state } = *value;
+                    let value = std::rc::Rc::unwrap_or_clone(value);
+                    let AppBarSeparator { element_state } = value;
                     ElementParts {
                         kind: MountedKind::AppBarSeparator,
                         props: MountedProps::AppBarSeparator(std::rc::Rc::new(
@@ -7696,7 +7753,8 @@ pub mod public {
                     }
                 }
                 Self::MenuBar(value) => {
-                    let MenuBar { element_state } = *value;
+                    let value = std::rc::Rc::unwrap_or_clone(value);
+                    let MenuBar { element_state } = value;
                     ElementParts {
                         kind: MountedKind::MenuBar,
                         props: MountedProps::MenuBar(std::rc::Rc::new(MenuBarMountedProps {})),
@@ -7707,10 +7765,11 @@ pub mod public {
                     }
                 }
                 Self::MenuBarItem(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let MenuBarItem {
                         title,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::MenuBarItem,
                         props: MountedProps::MenuBarItem(std::rc::Rc::new(
@@ -7723,12 +7782,13 @@ pub mod public {
                     }
                 }
                 Self::SplitButton(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let SplitButton {
                         is_enabled,
                         on_click,
                         element_state,
                         content,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::SplitButton,
                         props: MountedProps::SplitButton(std::rc::Rc::new(
@@ -7744,6 +7804,7 @@ pub mod public {
                     }
                 }
                 Self::ColorPicker(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let ColorPicker {
                         color,
                         is_alpha_enabled,
@@ -7753,7 +7814,7 @@ pub mod public {
                         is_enabled,
                         on_color_changed,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::ColorPicker,
                         props: MountedProps::ColorPicker(std::rc::Rc::new(
@@ -7774,6 +7835,7 @@ pub mod public {
                     }
                 }
                 Self::DatePicker(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let DatePicker {
                         day_visible,
                         month_visible,
@@ -7781,7 +7843,7 @@ pub mod public {
                         is_enabled,
                         on_selected_date_changed,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::DatePicker,
                         props: MountedProps::DatePicker(std::rc::Rc::new(DatePickerMountedProps {
@@ -7798,13 +7860,14 @@ pub mod public {
                     }
                 }
                 Self::TimePicker(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let TimePicker {
                         clock_identifier,
                         minute_increment,
                         is_enabled,
                         on_selected_time_changed,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::TimePicker,
                         props: MountedProps::TimePicker(std::rc::Rc::new(TimePickerMountedProps {
@@ -7820,6 +7883,7 @@ pub mod public {
                     }
                 }
                 Self::CalendarDatePicker(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let CalendarDatePicker {
                         placeholder_text,
                         is_today_highlighted,
@@ -7827,7 +7891,7 @@ pub mod public {
                         is_enabled,
                         on_date_changed,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::CalendarDatePicker,
                         props: MountedProps::CalendarDatePicker(std::rc::Rc::new(
@@ -7846,7 +7910,8 @@ pub mod public {
                     }
                 }
                 Self::ToolTip(value) => {
-                    let ToolTip { content } = *value;
+                    let value = std::rc::Rc::unwrap_or_clone(value);
+                    let ToolTip { content } = value;
                     ElementParts {
                         kind: MountedKind::ToolTip,
                         props: MountedProps::ToolTip(std::rc::Rc::new(ToolTipMountedProps {})),
@@ -7857,6 +7922,7 @@ pub mod public {
                     }
                 }
                 Self::ContentDialog(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let ContentDialog {
                         title,
                         primary_button_text,
@@ -7867,7 +7933,7 @@ pub mod public {
                         on_closed,
                         content,
                         is_open: _,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::ContentDialog,
                         props: MountedProps::ContentDialog(std::rc::Rc::new(
@@ -7888,13 +7954,14 @@ pub mod public {
                     }
                 }
                 Self::CalendarView(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let CalendarView {
                         is_today_highlighted,
                         is_group_label_visible,
                         is_enabled,
                         on_selected_dates_changed,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::CalendarView,
                         props: MountedProps::CalendarView(std::rc::Rc::new(
@@ -7912,6 +7979,7 @@ pub mod public {
                     }
                 }
                 Self::ListView(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let ListView {
                         selected_index,
                         selection_mode,
@@ -7920,7 +7988,7 @@ pub mod public {
                         allow_drop,
                         events,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::ListView,
                         props: MountedProps::ListView(std::rc::Rc::new(ListViewMountedProps {
@@ -7938,11 +8006,12 @@ pub mod public {
                     }
                 }
                 Self::ListViewItem(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let ListViewItem {
                         tag,
                         element_state,
                         content,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::ListViewItem,
                         props: MountedProps::ListViewItem(std::rc::Rc::new(
@@ -7955,11 +8024,12 @@ pub mod public {
                     }
                 }
                 Self::TreeView(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let TreeView {
                         selection_mode,
                         on_item_invoked,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::TreeView,
                         props: MountedProps::TreeView(std::rc::Rc::new(TreeViewMountedProps {
@@ -7973,6 +8043,7 @@ pub mod public {
                     }
                 }
                 Self::GridView(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let GridView {
                         selected_index,
                         can_drag_items,
@@ -7980,7 +8051,7 @@ pub mod public {
                         allow_drop,
                         events,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::GridView,
                         props: MountedProps::GridView(std::rc::Rc::new(GridViewMountedProps {
@@ -7997,11 +8068,12 @@ pub mod public {
                     }
                 }
                 Self::GridViewItem(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let GridViewItem {
                         tag,
                         element_state,
                         content,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::GridViewItem,
                         props: MountedProps::GridViewItem(std::rc::Rc::new(
@@ -8014,10 +8086,11 @@ pub mod public {
                     }
                 }
                 Self::RelativePanel(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let RelativePanel {
                         element_state,
                         children,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::RelativePanel,
                         props: MountedProps::RelativePanel(std::rc::Rc::new(
@@ -8030,10 +8103,11 @@ pub mod public {
                     }
                 }
                 Self::Canvas(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let Canvas {
                         element_state,
                         children,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::Canvas,
                         props: MountedProps::Canvas(std::rc::Rc::new(CanvasMountedProps {})),
@@ -8044,6 +8118,7 @@ pub mod public {
                     }
                 }
                 Self::RichEditBox(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let RichEditBox {
                         text,
                         placeholder_text,
@@ -8052,7 +8127,7 @@ pub mod public {
                         on_text_changed,
                         reference,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::RichEditBox,
                         props: MountedProps::RichEditBox(std::rc::Rc::new(
@@ -8071,13 +8146,14 @@ pub mod public {
                     }
                 }
                 Self::RichTextBlock(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let RichTextBlock {
                         paragraphs,
                         font_size,
                         is_text_selection_enabled,
                         text_wrapping,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::RichTextBlock,
                         props: MountedProps::RichTextBlock(std::rc::Rc::new(
@@ -8095,10 +8171,11 @@ pub mod public {
                     }
                 }
                 Self::Viewbox(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let Viewbox {
                         stretch,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::Viewbox,
                         props: MountedProps::Viewbox(std::rc::Rc::new(ViewboxMountedProps {
@@ -8111,10 +8188,11 @@ pub mod public {
                     }
                 }
                 Self::WebView2(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let WebView2 {
                         reference,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::WebView2,
                         props: MountedProps::WebView2(std::rc::Rc::new(WebView2MountedProps {})),
@@ -8125,10 +8203,11 @@ pub mod public {
                     }
                 }
                 Self::SwapChainPanel(value) => {
+                    let value = std::rc::Rc::unwrap_or_clone(value);
                     let SwapChainPanel {
                         reference,
                         element_state,
-                    } = *value;
+                    } = value;
                     ElementParts {
                         kind: MountedKind::SwapChainPanel,
                         props: MountedProps::SwapChainPanel(std::rc::Rc::new(

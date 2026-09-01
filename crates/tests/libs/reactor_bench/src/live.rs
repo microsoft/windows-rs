@@ -285,6 +285,7 @@ enum Message {
 
 struct PendingReport {
     elapsed: Duration,
+    allocations: u64,
     allocated_bytes: u64,
     cpu_time_100ns: u64,
 }
@@ -310,6 +311,7 @@ struct LiveGrid {
     cells: Vec<TextBlock>,
     visible: usize,
     started: Option<Instant>,
+    allocation_count_start: u64,
     allocation_start: u64,
     cpu_start_100ns: u64,
     updates: u64,
@@ -328,6 +330,8 @@ impl LiveGrid {
             return;
         }
         self.memory.sample();
+        self.allocation_count_start =
+            allocator::ALLOCATIONS.load(std::sync::atomic::Ordering::Relaxed);
         self.allocation_start = allocator::allocated_bytes();
         self.cpu_start_100ns = process_cpu_time_100ns().unwrap();
         self.started = Some(Instant::now());
@@ -371,12 +375,16 @@ impl LiveGrid {
         self.memory.sample();
         let allocation_end = allocator::allocated_bytes();
         let allocated_bytes = allocation_end.saturating_sub(self.allocation_start);
+        let allocations = allocator::ALLOCATIONS
+            .load(std::sync::atomic::Ordering::Relaxed)
+            .saturating_sub(self.allocation_count_start);
         let elapsed = self.started.map_or(Duration::ZERO, |start| start.elapsed());
         let cpu_time_100ns = process_cpu_time_100ns()
             .unwrap()
             .saturating_sub(self.cpu_start_100ns);
         self.pending_report = Some(PendingReport {
             elapsed,
+            allocations,
             allocated_bytes,
             cpu_time_100ns,
         });
@@ -397,6 +405,11 @@ impl LiveGrid {
         } else {
             pending.allocated_bytes as f64 / self.updates as f64
         };
+        let allocations_per_update = if self.updates == 0 {
+            0.0
+        } else {
+            pending.allocations as f64 / self.updates as f64
+        };
         let cpu_time_ms = pending.cpu_time_100ns as f64 / 10_000.0;
         let cpu_core_percent =
             pending.cpu_time_100ns as f64 / 10_000_000.0 / pending.elapsed.as_secs_f64() * 100.0;
@@ -405,7 +418,8 @@ impl LiveGrid {
             "{{\"benchmark\":\"reactor-live-grid\",\"headless\":{},\
              \"dirty_percent\":{:.3},\"churn_count\":{},\"component_cells\":{},\
              \"duration_ms\":{:.3},\
-             \"updates\":{},\"rust_alloc_bytes\":{},\"rust_alloc_bytes_per_update\":{:.3},\
+             \"updates\":{},\"rust_allocations\":{},\"rust_allocations_per_update\":{:.3},\
+             \"rust_alloc_bytes\":{},\"rust_alloc_bytes_per_update\":{:.3},\
              \"cpu_time_ms\":{:.3},\"cpu_core_percent\":{:.3},\
              \"working_set_avg_bytes\":{},\"working_set_peak_bytes\":{},\
              \"private_avg_bytes\":{},\"private_peak_bytes\":{},\
@@ -418,6 +432,8 @@ impl LiveGrid {
             self.options.component_cells,
             pending.elapsed.as_secs_f64() * 1_000.0,
             self.updates,
+            pending.allocations,
+            allocations_per_update,
             pending.allocated_bytes,
             allocated_per_update,
             cpu_time_ms,
@@ -492,6 +508,7 @@ impl Component for LiveGrid {
             cells,
             visible: TOTAL_CELLS,
             started: None,
+            allocation_count_start: 0,
             allocation_start: 0,
             cpu_start_100ns: 0,
             updates: 0,

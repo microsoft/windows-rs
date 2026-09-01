@@ -125,11 +125,11 @@ WinUI window because native control creation, property application, and destruct
 measurement.
 
 The process writes one JSON object to standard output. It contains the run configuration, update
-count, Rust allocator bytes, process CPU time, average and peak working set and private bytes, and
-average and p95 host-dispatch and native-apply times in microseconds. `cpu_core_percent` treats
-100% as one logical core. Host dispatch includes component reconciliation and command publication;
-native apply is the command-application portion. The object has this shape and is compacted to one
-line:
+count, Rust allocation count and bytes, process CPU time, average and peak working set and private
+bytes, and average and p95 host-dispatch and native-apply times in microseconds.
+`cpu_core_percent` treats 100% as one logical core. Host dispatch includes component reconciliation
+and command publication; native apply is the command-application portion. The object has this shape
+and is compacted to one line:
 
 ```json
 {
@@ -140,6 +140,8 @@ line:
   "component_cells": false,
   "duration_ms": 1000.000,
   "updates": 30,
+  "rust_allocations": 0,
+  "rust_allocations_per_update": 0.000,
   "rust_alloc_bytes": 0,
   "rust_alloc_bytes_per_update": 0.000,
   "cpu_time_ms": 0.000,
