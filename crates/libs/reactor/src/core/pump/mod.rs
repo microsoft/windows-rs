@@ -39,7 +39,6 @@ pub enum PumpError {
     EventReadFailed(RuntimeError),
     NativeApplyFailed(NativeApplyError),
     Poisoned,
-    RevisionExhausted,
     StructureUnsupported,
     Tree(TreeError),
 }
@@ -171,7 +170,7 @@ impl<R: NativeRuntime> Pump<R> {
         if self.root.is_some() {
             return Err(PumpError::AlreadyMounted);
         }
-        let next_version = self.next_version()?;
+        let next_version = self.next_version();
         let desired = element.clone();
         let mut candidate = Tree::new();
         let mut plan = UpdatePlan::new(self.identity);
@@ -212,7 +211,7 @@ impl<R: NativeRuntime> Pump<R> {
         if self.root.is_some() {
             return Err(PumpError::AlreadyMounted);
         }
-        let next_version = self.next_version()?;
+        let next_version = self.next_version();
         let mut candidate = Tree::new();
         let mut plan = UpdatePlan::new(self.identity);
         let mut changes = ComponentChanges::default();
@@ -271,7 +270,7 @@ impl<R: NativeRuntime> Pump<R> {
         if self.poisoned {
             return Err(PumpError::Poisoned);
         }
-        let next_version = self.next_version()?;
+        let next_version = self.next_version();
         let root = self.root.ok_or(PumpError::NotMounted)?;
         let mut candidate = self.tree.clone();
         let mut plan = UpdatePlan {
@@ -319,7 +318,7 @@ impl<R: NativeRuntime> Pump<R> {
         if self.poisoned {
             return Err(PumpError::Poisoned);
         }
-        let next_version = self.next_version()?;
+        let next_version = self.next_version();
         if !self.native_observation_pending
             && self.element.as_ref() == Some(&element)
             && Self::node_matches_element(
@@ -394,22 +393,18 @@ impl<R: NativeRuntime> Pump<R> {
         self.tree = Tree::new();
         self.version = 0;
         self.window = None;
-        if let Some(identity) = identity {
-            self.identity = identity;
-            self.runtime.set_identity(identity);
-            self.imperative = ImperativeEndpoint::new(self.runtime.component_waker());
-            let mut components = self.components.restarted(identity);
-            if let Some(wake) = self.runtime.component_waker() {
-                components.set_waker(wake);
-            }
-            if let Some(wake) = self.runtime.component_background_waker() {
-                components.set_background_waker(wake);
-            }
-            self.components = components;
-            self.poisoned = false;
-        } else {
-            self.poisoned = true;
+        self.identity = identity;
+        self.runtime.set_identity(identity);
+        self.imperative = ImperativeEndpoint::new(self.runtime.component_waker());
+        let mut components = self.components.restarted(identity);
+        if let Some(wake) = self.runtime.component_waker() {
+            components.set_waker(wake);
         }
+        if let Some(wake) = self.runtime.component_background_waker() {
+            components.set_background_waker(wake);
+        }
+        self.components = components;
+        self.poisoned = false;
     }
 
     fn cleanup_component_effects(&mut self) -> Result<(), PumpError> {
@@ -634,10 +629,8 @@ impl<R: NativeRuntime> Pump<R> {
         }
     }
 
-    fn next_version(&self) -> Result<u64, PumpError> {
-        self.version
-            .checked_add(1)
-            .ok_or(PumpError::RevisionExhausted)
+    fn next_version(&self) -> u64 {
+        self.version.checked_add(1).unwrap()
     }
 
     fn apply_component_candidate(

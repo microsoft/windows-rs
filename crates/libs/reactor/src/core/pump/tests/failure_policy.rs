@@ -60,7 +60,6 @@ fn declaration_rejections_are_classified_together() {
         PumpError::AlreadyMounted,
         PumpError::NotMounted,
         PumpError::Poisoned,
-        PumpError::RevisionExhausted,
     ] {
         assert!(!error.is_declaration_rejection());
     }

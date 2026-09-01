@@ -90,7 +90,7 @@ impl<R: NativeRuntime> Pump<R> {
         &mut self,
         deferred: IdSet<ComponentToken>,
     ) -> Result<(), PumpError> {
-        let next_version = self.next_version()?;
+        let next_version = self.next_version();
         let mut staged_host_requests = self.components.take_host_requests();
         let mut composed_view = None;
         if self.dirty_components.len() == 1 {

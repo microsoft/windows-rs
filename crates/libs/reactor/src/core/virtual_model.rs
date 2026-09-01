@@ -20,7 +20,6 @@ pub struct RealizedContainer(pub u64);
 pub enum VirtualModelError {
     DuplicateKey(Key),
     MissingIndex(usize),
-    RevisionExhausted,
 }
 
 #[derive(Clone)]
@@ -61,10 +60,7 @@ impl VirtualModel {
         let keys = keys.into_iter().collect::<Vec<_>>();
         let operations = diff(&self.keys, &keys)
             .map_err(|KeyedError::DuplicateKey(key)| VirtualModelError::DuplicateKey(key))?;
-        let source_revision = self
-            .source_revision
-            .checked_add(1)
-            .ok_or(VirtualModelError::RevisionExhausted)?;
+        let source_revision = self.source_revision.checked_add(1).unwrap();
         let retained = keys.iter().cloned().collect::<HashSet<_>>();
         self.active.retain(|key, _| retained.contains(key));
         self.containers.retain(|_, (key, _)| retained.contains(key));
@@ -83,10 +79,7 @@ impl VirtualModel {
             .get(index)
             .cloned()
             .ok_or(VirtualModelError::MissingIndex(index))?;
-        self.revision = self
-            .revision
-            .checked_add(1)
-            .ok_or(VirtualModelError::RevisionExhausted)?;
+        self.revision = self.revision.checked_add(1).unwrap();
         if let Some((old_key, old_revision)) = self.containers.remove(&container)
             && self.active.get(&old_key) == Some(&(old_revision, container))
         {
@@ -277,14 +270,15 @@ mod tests {
     }
 
     #[test]
-    fn source_revision_update_is_transactional_at_exhaustion() {
+    fn source_revision_exhaustion_panics_before_update() {
         let mut model = VirtualModel::new(identity(), COLLECTION, keys(&["a"])).unwrap();
         model.source_revision = u64::MAX;
 
-        assert_eq!(
-            model.update(keys(&["b"])),
-            Err(VirtualModelError::RevisionExhausted)
-        );
+        let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            _ = model.update(keys(&["b"]));
+        }));
+
+        assert!(result.is_err());
         assert_eq!(model.keys(), keys(&["a"]));
         assert_eq!(model.source_revision(), u64::MAX);
     }

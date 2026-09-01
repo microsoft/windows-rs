@@ -169,14 +169,11 @@ struct OwnedState<T> {
 }
 
 impl<T> OwnedState<T> {
-    fn replace(&mut self, callback: Callback<String>, content: T) -> Result<u32, TreeError> {
-        self.revision = self
-            .revision
-            .checked_add(1)
-            .ok_or(TreeError::NotComponent)?;
+    fn replace(&mut self, callback: Callback<String>, content: T) -> u32 {
+        self.revision = self.revision.checked_add(1).unwrap();
         self.callback = callback;
         self.content = content;
-        Ok(self.revision)
+        self.revision
     }
 }
 
@@ -569,7 +566,7 @@ impl Tree {
 
     pub fn update_menu(&mut self, id: NodeId, menu: Menu) -> Result<u32, TreeError> {
         match &mut self.arena.get_mut(id)?.data {
-            NodeData::Menu { state, .. } => state.replace(menu.on_click, menu.items),
+            NodeData::Menu { state, .. } => Ok(state.replace(menu.on_click, menu.items)),
             _ => Err(TreeError::NotComponent),
         }
     }
@@ -581,7 +578,7 @@ impl Tree {
     ) -> Result<u32, TreeError> {
         match &mut self.arena.get_mut(id)?.data {
             NodeData::CommandBarFlyout(state) => {
-                state.replace(flyout.on_click, (flyout.primary, flyout.secondary))
+                Ok(state.replace(flyout.on_click, (flyout.primary, flyout.secondary)))
             }
             _ => Err(TreeError::NotComponent),
         }

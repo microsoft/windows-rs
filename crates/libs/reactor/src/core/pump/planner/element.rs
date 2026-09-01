@@ -465,10 +465,7 @@ impl<R: NativeRuntime> Pump<R> {
                 active: false,
             });
             if state.active != active {
-                state.revision = state
-                    .revision
-                    .checked_add(1)
-                    .ok_or(PumpError::RevisionExhausted)?;
+                state.revision = state.revision.checked_add(1).unwrap();
                 state.active = active;
                 if active {
                     plan.push(Command::SubscribeEvent {

@@ -230,7 +230,7 @@ fn accepted_one_shot_request_completes_for_a_stale_window_identity() {
         count.set(count.get() + 1);
     }));
 
-    pump.identity = pump.identity.next().unwrap();
+    pump.identity = pump.identity.next();
     assert_eq!(pump.process_imperatives(), Ok(0));
     assert_eq!(completed.get(), 1);
     assert_eq!(pump.process_imperatives(), Ok(0));
