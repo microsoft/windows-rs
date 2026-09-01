@@ -11,7 +11,7 @@ impl<R: NativeRuntime> Pump<R> {
         }
         let mut names = components
             .into_iter()
-            .filter_map(|token| self.components.type_name(token).ok())
+            .map(|token| self.components.type_name(token))
             .collect::<Vec<_>>();
         names.sort_unstable();
         names.dedup();
@@ -69,7 +69,7 @@ impl<R: NativeRuntime> Pump<R> {
                     .collect::<Result<IdSet<_>, PumpError>>()?;
                 self.compose_dirty_components(deferred)?;
             }
-            let report = self.components.drain(1)?;
+            let report = self.components.drain(1);
             let processed = report.dispatched + report.dropped;
             dispatched += report.dispatched;
             for token in report.dirty {
@@ -215,7 +215,7 @@ impl<R: NativeRuntime> Pump<R> {
         while let Some(parent) = self.tree.parent(node)? {
             node = parent;
             if self.tree.kind(node)? == NodeKind::Component {
-                let ancestor = self.components.token(self.tree.component_scope(node)?)?;
+                let ancestor = self.components.token(self.tree.component_scope(node)?);
                 if self.dirty_components.contains(&ancestor) {
                     return Ok(Some(()));
                 }

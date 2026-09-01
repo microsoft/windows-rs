@@ -502,8 +502,7 @@ fn equal_virtual_source_retries_a_dirty_realized_component() {
         .unwrap();
     let token = pump
         .components
-        .token(pump.tree.component_scope(row.logical_root).unwrap())
-        .unwrap();
+        .token(pump.tree.component_scope(row.logical_root).unwrap());
     pump.planning_dirty.insert(token);
 
     pump.update_view(source()).unwrap();

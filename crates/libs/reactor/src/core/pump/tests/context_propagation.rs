@@ -791,7 +791,7 @@ fn failed_native_apply_does_not_publish_changed_context_dependency() {
         .unwrap();
     let root = pump.root().unwrap();
     let scope = pump.tree.component_scope(root).unwrap();
-    let token = pump.components.token(scope).unwrap();
+    let token = pump.components.token(scope);
     pump.runtime_mut().fail_at(0);
 
     assert!(matches!(
@@ -801,7 +801,6 @@ fn failed_native_apply_does_not_publish_changed_context_dependency() {
     assert!(
         pump.components
             .context_dependencies(token)
-            .unwrap()
             .unwrap()
             .contains(&ContextDependency {
                 id: first.id(),

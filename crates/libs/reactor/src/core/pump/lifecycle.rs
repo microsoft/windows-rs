@@ -22,9 +22,9 @@ impl<R: NativeRuntime> Pump<R> {
         ordered.sort_unstable_by(|left, right| (&left.0, &left.1).cmp(&(&right.0, &right.1)));
         for (_, _, token) in ordered {
             if retired.contains(&token) {
-                self.components.cleanup_effects(token).unwrap();
+                self.components.cleanup_effects(token);
             } else {
-                self.components.prepare_effects(token).unwrap();
+                self.components.prepare_effects(token);
             }
         }
     }
@@ -47,7 +47,7 @@ impl<R: NativeRuntime> Pump<R> {
             .collect::<Vec<_>>();
         ordered.sort_unstable_by(|left, right| (&left.0, &left.1).cmp(&(&right.0, &right.1)));
         for (_, _, token) in ordered {
-            self.components.commit_effects(token).unwrap();
+            self.components.commit_effects(token);
         }
     }
 
@@ -55,18 +55,17 @@ impl<R: NativeRuntime> Pump<R> {
         let retired = changes.retired.iter().copied().collect::<HashSet<_>>();
         for token in changes.reserved.iter().copied() {
             if !retired.contains(&token) {
-                self.components.publish(token).unwrap();
+                self.components.publish(token);
             }
         }
         for (token, dependencies) in &changes.context_reads {
             if !retired.contains(token) {
                 self.components
-                    .set_context_dependencies(*token, dependencies.clone())
-                    .unwrap();
+                    .set_context_dependencies(*token, dependencies.clone());
             }
         }
         for token in changes.retired.iter().copied() {
-            self.components.remove(token).unwrap();
+            self.components.remove(token);
         }
     }
 
@@ -75,7 +74,7 @@ impl<R: NativeRuntime> Pump<R> {
         reserved: &[ComponentToken],
     ) {
         for token in reserved.iter().rev().copied() {
-            _ = components.remove(token);
+            components.remove(token);
         }
     }
 }

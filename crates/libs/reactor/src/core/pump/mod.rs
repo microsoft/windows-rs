@@ -25,7 +25,6 @@ use native_work::{EVENT_WORK_BUDGET, REALIZATION_WORK_BUDGET};
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum PumpError {
     AlreadyMounted,
-    Component(ComponentStoreError),
     NotMounted,
     DuplicateEffectKey(EffectKey),
     DuplicateElementRef,
@@ -67,19 +66,18 @@ impl From<TreeError> for PumpError {
     }
 }
 
-impl From<ComponentStoreError> for PumpError {
-    fn from(value: ComponentStoreError) -> Self {
+impl From<ComponentDeclarationError> for PumpError {
+    fn from(value: ComponentDeclarationError) -> Self {
         match value {
-            ComponentStoreError::DuplicateEffectKey(key) => Self::DuplicateEffectKey(key),
-            ComponentStoreError::DuplicateColorSchemeObservation => {
+            ComponentDeclarationError::EffectKey(key) => Self::DuplicateEffectKey(key),
+            ComponentDeclarationError::ColorSchemeObservation => {
                 Self::DuplicateColorSchemeObservation
             }
-            ComponentStoreError::DuplicateWindowSizeObservation => {
+            ComponentDeclarationError::WindowSizeObservation => {
                 Self::DuplicateWindowSizeObservation
             }
-            ComponentStoreError::DuplicateWindowTitle => Self::DuplicateWindowTitle,
-            ComponentStoreError::DuplicateWindowVisuals => Self::DuplicateWindowVisuals,
-            value => Self::Component(value),
+            ComponentDeclarationError::WindowTitle => Self::DuplicateWindowTitle,
+            ComponentDeclarationError::WindowVisuals => Self::DuplicateWindowVisuals,
         }
     }
 }
@@ -414,8 +412,8 @@ impl<R: NativeRuntime> Pump<R> {
         for node in self.tree.subtree_postorder(root)? {
             if self.tree.kind(node)? == NodeKind::Component {
                 let scope = self.tree.component_scope(node)?;
-                let token = self.components.token(scope)?;
-                self.components.cleanup_effects(token)?;
+                let token = self.components.token(scope);
+                self.components.cleanup_effects(token);
             }
         }
         Ok(())

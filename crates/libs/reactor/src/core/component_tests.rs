@@ -60,7 +60,7 @@ fn duplicate_effect_marker_survives_later_registrations() {
 
     assert_eq!(
         effects.finish_view(),
-        Err(ComponentStoreError::DuplicateEffectKey(EffectKey::from(
+        Err(ComponentDeclarationError::EffectKey(EffectKey::from(
             "duplicate"
         )))
     );
@@ -160,7 +160,7 @@ fn panicking_view_preserves_effect_cleanup_state() {
         panic: Rc::clone(&panic),
     });
     store.view(token, ContextSnapshot::default()).unwrap();
-    store.commit_effects(token).unwrap();
+    store.commit_effects(token);
 
     panic.set(true);
     let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
@@ -168,7 +168,7 @@ fn panicking_view_preserves_effect_cleanup_state() {
     }));
 
     assert!(result.is_err());
-    store.cleanup_effects(token).unwrap();
+    store.cleanup_effects(token);
     assert_eq!(cleanup_count.get(), 1);
 }
 
@@ -223,8 +223,8 @@ fn zero_sized_sender_mappers_have_stable_component_identity() {
     let mut store = store();
     let first = reserve_state(&mut store, "first");
     let second = reserve_state(&mut store, "second");
-    let first_sender = store.sender::<u32>(first).unwrap();
-    let second_sender = store.sender::<u32>(second).unwrap();
+    let first_sender = store.sender::<u32>(first);
+    let second_sender = store.sender::<u32>(second);
 
     assert_eq!(first_sender.callback(map), first_sender.callback(map));
     assert_ne!(first_sender.callback(map), second_sender.callback(map));
@@ -257,13 +257,13 @@ impl Component for DirectProps {
 fn view_receives_current_store_owned_input() {
     let mut store = store();
     let token = store.reserve_component::<DirectProps>("first".to_string());
-    store.publish(token).unwrap();
+    store.publish(token);
 
     assert_eq!(
         store.view(token, ContextSnapshot::default()).unwrap().view,
         View::native(TextBlock::new().text("first"))
     );
-    assert!(store.apply_input(token, &"second".to_string()).unwrap());
+    assert!(store.apply_input(token, &"second".to_string()));
     assert_eq!(
         store.view(token, ContextSnapshot::default()).unwrap().view,
         View::native(TextBlock::new().text("second"))
@@ -282,37 +282,36 @@ fn wait_for_status(task: &ComponentTask, status: ComponentTaskStatus) {
 fn reserved_messages_wait_for_publication_and_reentrant_messages_queue() {
     let mut store = store();
     let token = reserve_state(&mut store, "first");
-    let sender = store.sender::<u32>(token).unwrap();
+    let sender = store.sender::<u32>(token);
     sender.send(1);
 
     assert_eq!(
         store.drain(10),
-        Ok(DrainReport {
+        DrainReport {
             blocked: true,
             dispatched: 0,
             dropped: 0,
             dirty: Vec::new(),
-        })
+        }
     );
-    store.publish(token).unwrap();
-    assert_eq!(store.drain(10).unwrap().dispatched, 2);
-    assert_eq!(store.component::<State>(token).unwrap().value, 3);
+    store.publish(token);
+    assert_eq!(store.drain(10).dispatched, 2);
+    assert_eq!(store.component::<State>(token).value, 3);
 }
 
 #[test]
 fn payload_callback_maps_into_the_component_queue() {
     let mut store = store();
     let token = reserve_state(&mut store, "");
-    store.publish(token).unwrap();
+    store.publish(token);
     let callback = store
         .sender::<u32>(token)
-        .unwrap()
         .callback(|value: String| value.len() as u32);
 
     assert!(callback.call("mapped".to_string()));
     assert_eq!(store.pending(), 1);
-    assert_eq!(store.drain(1).unwrap().dispatched, 1);
-    assert_eq!(store.component::<State>(token).unwrap().value, 6);
+    assert_eq!(store.drain(1).dispatched, 1);
+    assert_eq!(store.component::<State>(token).value, 6);
 }
 
 struct RepeatedMessage {
@@ -355,11 +354,10 @@ impl Component for RepeatedState {
 fn unit_message_callback_clones_for_every_delivery() {
     let mut store = store();
     let token = store.reserve_component::<RepeatedState>(());
-    store.publish(token).unwrap();
+    store.publish(token);
     let clones = Rc::new(Cell::new(0));
     let callback = store
         .sender::<RepeatedMessage>(token)
-        .unwrap()
         .message(RepeatedMessage {
             clones: Rc::clone(&clones),
             value: 7,
@@ -368,19 +366,19 @@ fn unit_message_callback_clones_for_every_delivery() {
     assert!(callback.call(()));
     assert!(callback.call(()));
     assert_eq!(clones.get(), 2);
-    assert_eq!(store.drain(2).unwrap().dispatched, 2);
-    assert_eq!(store.component::<RepeatedState>(token).unwrap().value, 14);
+    assert_eq!(store.drain(2).dispatched, 2);
+    assert_eq!(store.component::<RepeatedState>(token).value, 14);
 }
 
 #[test]
 fn inputs_are_typed_coalesced_and_applied_before_messages() {
     let mut store = store();
     let token = reserve_state(&mut store, "first");
-    store.publish(token).unwrap();
+    store.publish(token);
 
-    assert_eq!(store.apply_input(token, &"first".to_string()), Ok(false));
-    assert_eq!(store.apply_input(token, &"second".to_string()), Ok(true));
-    assert_eq!(store.component::<State>(token).unwrap().changed, 1);
+    assert!(!store.apply_input(token, &"first".to_string()));
+    assert!(store.apply_input(token, &"second".to_string()));
+    assert_eq!(store.component::<State>(token).changed, 1);
     assert!(
         std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
             _ = store.apply_input(token, &1u32);
@@ -428,20 +426,20 @@ fn component_factory_clones_input_only_when_it_changes() {
         clones: Rc::clone(&clones),
         value: 1,
     });
-    store.publish(token).unwrap();
+    store.publish(token);
 
     let unchanged = ComponentView::new::<CloneTrackedComponent>(CloneTrackedInput {
         clones: Rc::clone(&clones),
         value: 1,
     });
-    assert!(!unchanged.apply_input(&mut store, token).unwrap());
+    assert!(!unchanged.apply_input(&mut store, token));
     assert_eq!(clones.get(), 0);
 
     let changed = ComponentView::new::<CloneTrackedComponent>(CloneTrackedInput {
         clones: Rc::clone(&clones),
         value: 2,
     });
-    assert!(changed.apply_input(&mut store, token).unwrap());
+    assert!(changed.apply_input(&mut store, token));
     assert_eq!(clones.get(), 1);
 }
 
@@ -449,19 +447,19 @@ fn component_factory_clones_input_only_when_it_changes() {
 fn stale_tokens_cannot_reach_a_reused_slot() {
     let mut store = store();
     let first = reserve_state(&mut store, "");
-    store.publish(first).unwrap();
-    let old_sender = store.sender::<u32>(first).unwrap();
-    store.remove(first).unwrap();
+    store.publish(first);
+    let old_sender = store.sender::<u32>(first);
+    store.remove(first);
     old_sender.send(1);
-    assert_eq!(store.drain(10).unwrap().dropped, 0);
+    assert_eq!(store.drain(10).dropped, 0);
 
     let second = reserve_state(&mut store, "");
     assert_ne!(first, second);
-    store.publish(second).unwrap();
+    store.publish(second);
     old_sender.send(4);
 
-    assert_eq!(store.drain(10).unwrap().dropped, 0);
-    assert_eq!(store.component::<State>(second).unwrap().value, 0);
+    assert_eq!(store.drain(10).dropped, 0);
+    assert_eq!(store.component::<State>(second).value, 0);
 }
 
 #[test]
@@ -481,7 +479,7 @@ fn sender_creation_checks_the_message_type() {
 fn background_queue_capacity_rejects_excess_completion() {
     let mut store = store();
     let token = reserve_state(&mut store, "");
-    store.publish(token).unwrap();
+    store.publish(token);
     {
         let mut queue = store.background.lock().unwrap();
         for _ in 0..BACKGROUND_MESSAGE_QUEUE_CAPACITY {
@@ -509,18 +507,17 @@ fn background_queue_capacity_rejects_excess_completion() {
     assert_eq!(
         store
             .drain(BACKGROUND_MESSAGE_QUEUE_CAPACITY + 1)
-            .unwrap()
             .dispatched,
         1
     );
-    assert_eq!(store.component::<State>(token).unwrap().value, 7);
+    assert_eq!(store.component::<State>(token).value, 7);
 }
 
 #[test]
 fn dropping_task_handle_does_not_cancel_delivery() {
     let mut store = store();
     let token = reserve_state(&mut store, "");
-    store.publish(token).unwrap();
+    store.publish(token);
 
     drop(
         TaskSpawner {
@@ -535,15 +532,15 @@ fn dropping_task_handle_does_not_cancel_delivery() {
         assert!(Instant::now() < deadline, "background task timed out");
         std::thread::sleep(Duration::from_millis(1));
     }
-    assert_eq!(store.drain(1).unwrap().dispatched, 1);
-    assert_eq!(store.component::<State>(token).unwrap().value, 7);
+    assert_eq!(store.drain(1).dispatched, 1);
+    assert_eq!(store.component::<State>(token).value, 7);
 }
 
 #[test]
 fn failed_wake_rejects_every_completion_waiting_behind_it() {
     let mut store = store();
     let token = reserve_state(&mut store, "");
-    store.publish(token).unwrap();
+    store.publish(token);
     let wake_barrier = Arc::new(Barrier::new(2));
     let wakes = Arc::new(AtomicUsize::new(0));
     {
@@ -596,20 +593,20 @@ fn cancelled_reserved_completion_cannot_deliver_after_publication() {
     }
     .spawn::<u32, _>(|_| 4);
     wait_for_status(&task, ComponentTaskStatus::Queued);
-    assert!(store.drain(1).unwrap().blocked);
+    assert!(store.drain(1).blocked);
 
     task.cancel();
-    store.publish(token).unwrap();
-    assert_eq!(store.drain(1).unwrap().dispatched, 0);
-    assert_eq!(store.component::<State>(token).unwrap().value, 0);
+    store.publish(token);
+    assert_eq!(store.drain(1).dispatched, 0);
+    assert_eq!(store.component::<State>(token).value, 0);
 }
 
 #[test]
 fn local_and_background_messages_alternate() {
     let mut store = store();
     let token = reserve_state(&mut store, "");
-    store.publish(token).unwrap();
-    let sender = store.sender::<u32>(token).unwrap();
+    store.publish(token);
+    let sender = store.sender::<u32>(token);
     assert!(sender.send(3));
     let control = Arc::new(TaskControl::new());
     control.queue();
@@ -626,11 +623,11 @@ fn local_and_background_messages_alternate() {
             token,
         });
 
-    assert_eq!(store.drain(1).unwrap().dispatched, 1);
-    assert_eq!(store.component::<State>(token).unwrap().value, 3);
+    assert_eq!(store.drain(1).dispatched, 1);
+    assert_eq!(store.component::<State>(token).value, 3);
     assert!(sender.send(100));
-    assert_eq!(store.drain(1).unwrap().dispatched, 1);
-    assert_eq!(store.component::<State>(token).unwrap().value, 13);
+    assert_eq!(store.drain(1).dispatched, 1);
+    assert_eq!(store.component::<State>(token).value, 13);
     assert_eq!(store.pending(), 1);
 }
 
@@ -638,10 +635,10 @@ fn local_and_background_messages_alternate() {
 fn stale_background_completion_cannot_reach_a_reused_scope() {
     let mut store = store();
     let first = reserve_state(&mut store, "");
-    store.publish(first).unwrap();
-    store.remove(first).unwrap();
+    store.publish(first);
+    store.remove(first);
     let second = reserve_state(&mut store, "");
-    store.publish(second).unwrap();
+    store.publish(second);
     let control = Arc::new(TaskControl::new());
     control.queue();
     store
@@ -657,9 +654,9 @@ fn stale_background_completion_cannot_reach_a_reused_scope() {
             token: first,
         });
 
-    assert_eq!(store.drain(1).unwrap().dropped, 1);
+    assert_eq!(store.drain(1).dropped, 1);
     assert_eq!(control.status(), ComponentTaskStatus::Cancelled);
-    assert_eq!(store.component::<State>(second).unwrap().value, 0);
+    assert_eq!(store.component::<State>(second).value, 0);
 }
 
 #[test]
@@ -696,14 +693,14 @@ fn valid_sender_wakes_once_and_retirement_blocks_new_traffic() {
         wake_capture.set(wake_capture.get() + 1);
     }));
     let token = reserve_state(&mut store, "");
-    store.publish(token).unwrap();
-    let sender = store.sender::<u32>(token).unwrap();
+    store.publish(token);
+    let sender = store.sender::<u32>(token);
 
     sender.send(1);
     sender.send(2);
     assert_eq!(wakes.get(), 1);
     assert_eq!(store.pending(), 2);
-    store.remove(token).unwrap();
+    store.remove(token);
     assert_eq!(store.pending(), 0);
     sender.send(3);
     assert_eq!(store.pending(), 0);
@@ -714,8 +711,8 @@ fn valid_sender_wakes_once_and_retirement_blocks_new_traffic() {
 fn local_message_queue_reports_backpressure_at_its_fixed_capacity() {
     let mut store = store();
     let token = reserve_state(&mut store, "");
-    store.publish(token).unwrap();
-    let sender = store.sender::<u32>(token).unwrap();
+    store.publish(token);
+    let sender = store.sender::<u32>(token);
 
     for value in 0..LOCAL_MESSAGE_QUEUE_CAPACITY {
         assert!(sender.send(value as u32));
@@ -763,10 +760,10 @@ fn component_factory_creates_with_a_reserved_sender_and_composes() {
     let mut store = store();
     let token = first.reserve(&mut store);
     assert_eq!(store.pending(), 1);
-    assert!(store.drain(10).unwrap().blocked);
-    store.publish(token).unwrap();
-    assert_eq!(store.drain(10).unwrap().dispatched, 1);
-    assert_eq!(store.component::<Counter>(token).unwrap().value, 3);
+    assert!(store.drain(10).blocked);
+    store.publish(token);
+    assert_eq!(store.drain(10).dispatched, 1);
+    assert_eq!(store.component::<Counter>(token).value, 3);
     assert_eq!(
         store.view(token, ContextSnapshot::default()).unwrap().view,
         View::native(TextBlock::new().text("3"))

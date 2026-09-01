@@ -559,9 +559,8 @@ fn full_message_queue_defers_native_event_until_capacity_is_available() {
     let root = Pump::<RecordingRuntime>::native_root(&pump.tree, component).unwrap();
     let token = pump
         .components
-        .token(pump.tree.component_scope(component).unwrap())
-        .unwrap();
-    let sender = pump.components.sender::<()>(token).unwrap();
+        .token(pump.tree.component_scope(component).unwrap());
+    let sender = pump.components.sender::<()>(token);
     for _ in 0..component::LOCAL_MESSAGE_QUEUE_CAPACITY {
         assert!(sender.send(()));
     }

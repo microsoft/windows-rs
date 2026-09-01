@@ -21,7 +21,12 @@ fn planning_discard_removes_reservations_without_rearming_or_poison() {
 
     pump.fail_component_candidate(&changes, PlanningFailure::Discard);
 
-    assert!(pump.components.publish(token).is_err());
+    assert!(
+        std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            pump.components.publish(token);
+        }))
+        .is_err()
+    );
     assert!(pump.planning_dirty.is_empty());
     assert!(!pump.poisoned());
 }
@@ -33,7 +38,12 @@ fn planning_rearm_removes_reservations_and_retains_touched_scopes() {
 
     pump.fail_component_candidate(&changes, PlanningFailure::Rearm);
 
-    assert!(pump.components.publish(token).is_err());
+    assert!(
+        std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            pump.components.publish(token);
+        }))
+        .is_err()
+    );
     assert!(pump.planning_dirty.contains(&token));
     assert!(!pump.poisoned());
 }

@@ -145,8 +145,8 @@ impl<R: NativeRuntime> Pump<R> {
                         plan,
                     );
                 }
-                let token = components.token(tree.component_scope(node)?)?;
-                let changed = component.apply_input(components, token)?;
+                let token = components.token(tree.component_scope(node)?);
+                let changed = component.apply_input(components, token);
                 changes
                     .host_requests
                     .extend(components.take_host_requests());
@@ -205,9 +205,9 @@ impl<R: NativeRuntime> Pump<R> {
                             if !tree.is_descendant_of(consumer, node)? {
                                 continue;
                             }
-                            let token = components.token(scope)?;
+                            let token = components.token(scope);
                             let resolved = components
-                                .context_dependencies(token)?
+                                .context_dependencies(token)
                                 .and_then(|dependencies| {
                                     dependencies
                                         .iter()
@@ -256,7 +256,7 @@ impl<R: NativeRuntime> Pump<R> {
                             Self::recompose_component(
                                 tree,
                                 consumer,
-                                components.token(scope)?,
+                                components.token(scope),
                                 components,
                                 changes,
                                 plan,
@@ -1732,7 +1732,7 @@ impl<R: NativeRuntime> Pump<R> {
         for node in tree.subtree_postorder(root)? {
             if tree.kind(node)? == NodeKind::Component {
                 let scope = tree.component_scope(node)?;
-                let token = components.token(scope)?;
+                let token = components.token(scope);
                 if !changes.retired.contains(&token) {
                     changes.retired.push(token);
                 }

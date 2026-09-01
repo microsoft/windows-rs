@@ -360,7 +360,7 @@ impl<R: NativeRuntime> Pump<R> {
                 while let Some(parent) = self.tree.parent(current)? {
                     current = parent;
                     if self.tree.kind(current)? == NodeKind::Component {
-                        let token = self.components.token(self.tree.component_scope(current)?)?;
+                        let token = self.components.token(self.tree.component_scope(current)?);
                         self.dirty_components.insert(token);
                         break;
                     }
@@ -441,7 +441,7 @@ impl<R: NativeRuntime> Pump<R> {
                 while let Some(parent) = self.tree.parent(current)? {
                     current = parent;
                     if self.tree.kind(current)? == NodeKind::Component {
-                        let token = self.components.token(self.tree.component_scope(current)?)?;
+                        let token = self.components.token(self.tree.component_scope(current)?);
                         self.dirty_components.insert(token);
                         break;
                     }

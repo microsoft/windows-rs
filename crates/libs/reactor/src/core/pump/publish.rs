@@ -66,7 +66,7 @@ impl<R: NativeRuntime> Pump<R> {
         match &mut changes {
             FrontendChanges::Component(changes) => self.prepare_component_effects(changes),
             FrontendChanges::Local { token, .. } => {
-                self.components.prepare_effects(*token).unwrap();
+                self.components.prepare_effects(*token);
             }
             #[cfg(test)]
             FrontendChanges::Element(_) => {}
@@ -129,9 +129,8 @@ impl<R: NativeRuntime> Pump<R> {
                 token,
             } => {
                 self.components
-                    .set_context_dependencies(*token, context_reads.clone())
-                    .unwrap();
-                self.components.commit_effects(*token).unwrap();
+                    .set_context_dependencies(*token, context_reads.clone());
+                self.components.commit_effects(*token);
             }
         }
     }

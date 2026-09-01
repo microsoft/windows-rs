@@ -643,9 +643,8 @@ fn keyed_component_siblings_retain_scopes_across_prop_updates() {
 
     let removed = pump
         .components()
-        .token(pump.tree.component_scope(children[0]).unwrap())
-        .unwrap();
-    let removed_sender = pump.components().sender::<()>(removed).unwrap();
+        .token(pump.tree.component_scope(children[0]).unwrap());
+    let removed_sender = pump.components().sender::<()>(removed);
     pump.update_view(View::component::<List>(vec![
         (2, "second".to_string()),
         (3, "third".to_string()),
@@ -661,7 +660,7 @@ fn keyed_component_siblings_retain_scopes_across_prop_updates() {
         vec!["second".to_string(), "third".to_string()]
     );
     removed_sender.send(());
-    assert_eq!(pump.components_mut().drain(1).unwrap().dropped, 0);
+    assert_eq!(pump.components_mut().drain(1).dropped, 0);
 }
 
 #[test]
@@ -674,8 +673,8 @@ fn same_key_different_component_type_replaces_and_retires_scope() {
     let panel = pump.tree.children(slot).unwrap()[0];
     let old = pump.tree.children(panel).unwrap()[0];
     let old_scope = pump.tree.component_scope(old).unwrap();
-    let old_token = pump.components().token(old_scope).unwrap();
-    let old_sender = pump.components().sender::<()>(old_token).unwrap();
+    let old_token = pump.components().token(old_scope);
+    let old_sender = pump.components().sender::<()>(old_token);
 
     pump.update_view(View::component::<MixedList>(true))
         .unwrap();
@@ -691,7 +690,7 @@ fn same_key_different_component_type_replaces_and_retires_scope() {
         vec!["alt:value".to_string()]
     );
     old_sender.send(());
-    assert_eq!(pump.components_mut().drain(1).unwrap().dropped, 0);
+    assert_eq!(pump.components_mut().drain(1).dropped, 0);
 }
 
 #[test]
@@ -705,9 +704,8 @@ fn failed_type_replacement_is_fatal() {
     let old = pump.tree.children(panel).unwrap()[0];
     let old_token = pump
         .components()
-        .token(pump.tree.component_scope(old).unwrap())
-        .unwrap();
-    let old_sender = pump.components().sender::<()>(old_token).unwrap();
+        .token(pump.tree.component_scope(old).unwrap());
+    let old_sender = pump.components().sender::<()>(old_token);
     pump.runtime_mut().fail_after(0, 0);
 
     assert!(matches!(
@@ -748,17 +746,15 @@ fn parent_replacement_discards_dirty_work_for_the_retired_child() {
     let root = pump.root().unwrap();
     let root_token = pump
         .components()
-        .token(pump.tree.component_scope(root).unwrap())
-        .unwrap();
-    let root_sender = pump.components().sender::<bool>(root_token).unwrap();
+        .token(pump.tree.component_scope(root).unwrap());
+    let root_sender = pump.components().sender::<bool>(root_token);
     let slot = pump.tree.children(root).unwrap()[0];
     let panel = pump.tree.children(slot).unwrap()[0];
     let child = pump.tree.children(panel).unwrap()[0];
     let child_token = pump
         .components()
-        .token(pump.tree.component_scope(child).unwrap())
-        .unwrap();
-    let child_sender = pump.components().sender::<()>(child_token).unwrap();
+        .token(pump.tree.component_scope(child).unwrap());
+    let child_sender = pump.components().sender::<()>(child_token);
 
     root_sender.send(true);
     child_sender.send(());
@@ -769,7 +765,7 @@ fn parent_replacement_discards_dirty_work_for_the_retired_child() {
         vec!["alt:value".to_string()]
     );
     child_sender.send(());
-    assert_eq!(pump.components_mut().drain(1).unwrap().dropped, 0);
+    assert_eq!(pump.components_mut().drain(1).dropped, 0);
 }
 
 #[test]
@@ -784,23 +780,15 @@ fn dirty_parent_and_child_each_compose_once_parent_first() {
     let parent = pump.root().unwrap();
     let parent_token = pump
         .components()
-        .token(pump.tree.component_scope(parent).unwrap())
-        .unwrap();
+        .token(pump.tree.component_scope(parent).unwrap());
     let slot = pump.tree.children(parent).unwrap()[0];
     let child = pump.tree.children(slot).unwrap()[0];
     let child_token = pump
         .components()
-        .token(pump.tree.component_scope(child).unwrap())
-        .unwrap();
+        .token(pump.tree.component_scope(child).unwrap());
 
-    pump.components()
-        .sender::<()>(parent_token)
-        .unwrap()
-        .send(());
-    pump.components()
-        .sender::<()>(child_token)
-        .unwrap()
-        .send(());
+    pump.components().sender::<()>(parent_token).send(());
+    pump.components().sender::<()>(child_token).send(());
     assert_eq!(pump.dispatch_components(10), Ok(2));
     assert_eq!(counts.parent.get(), 2);
     assert_eq!(counts.child.get(), 2);
