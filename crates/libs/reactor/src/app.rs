@@ -720,10 +720,6 @@ impl LivePump for ComponentLoop {
     }
 }
 
-pub fn bootstrap() -> windows_core::Result<()> {
-    bootstrap_runtime()
-}
-
 pub struct App;
 
 impl App {

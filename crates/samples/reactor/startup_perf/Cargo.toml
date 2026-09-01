@@ -15,7 +15,6 @@ windows-reactor = { workspace = true }
 
 [build-dependencies]
 windows-bindgen = { workspace = true }
-windows-reactor-setup = { workspace = true }
 
 [lints]
 workspace = true

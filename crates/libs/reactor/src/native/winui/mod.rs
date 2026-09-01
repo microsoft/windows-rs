@@ -5,30 +5,16 @@ use std::fmt::Write;
 use std::marker::PhantomData;
 use std::rc::Rc;
 use std::sync::atomic::{AtomicBool, Ordering};
-use std::sync::{Arc, Mutex, OnceLock};
+use std::sync::{Arc, Mutex};
 
 use super::*;
 use windows_core::Interface;
 
-windows_core::link!("kernel32.dll" "system" fn GetProcAddress(module: *mut std::ffi::c_void, name: windows_core::PCSTR) -> *mut std::ffi::c_void);
 windows_core::link!("kernel32.dll" "system" fn FindResourceW(module: *mut std::ffi::c_void, name: *const u16, resource_type: *const u16) -> *mut std::ffi::c_void);
 windows_core::link!("kernel32.dll" "system" fn GetModuleHandleW(name: *const u16) -> *mut std::ffi::c_void);
 windows_core::link!("kernel32.dll" "system" fn LoadResource(module: *mut std::ffi::c_void, resource: *mut std::ffi::c_void) -> *mut std::ffi::c_void);
-windows_core::link!("kernel32.dll" "system" fn LoadLibraryExA(name: windows_core::PCSTR, file: *mut std::ffi::c_void, flags: u32) -> *mut std::ffi::c_void);
 windows_core::link!("kernel32.dll" "system" fn LockResource(resource: *mut std::ffi::c_void) -> *mut std::ffi::c_void);
 windows_core::link!("kernel32.dll" "system" fn SizeofResource(module: *mut std::ffi::c_void, resource: *mut std::ffi::c_void) -> u32);
-
-#[repr(C)]
-#[derive(Clone, Copy)]
-struct BootstrapPackageVersion {
-    value: BootstrapPackageVersionValue,
-}
-
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-union BootstrapPackageVersionValue {
-    version: u64,
-}
 
 #[cfg_attr(not(feature = "test"), allow(dead_code))]
 #[allow(
@@ -42,6 +28,7 @@ mod bindings;
 pub use bindings::*;
 mod app_shim;
 pub use app_shim::*;
+mod bootstrap;
 mod content_dialog;
 #[cfg(feature = "test")]
 pub(crate) use content_dialog::LiveContentDialogState;
@@ -4267,46 +4254,7 @@ pub fn bootstrap_runtime() -> windows_core::Result<()> {
         };
     }
 
-    static RESULT: OnceLock<windows_core::HRESULT> = OnceLock::new();
-    (*RESULT.get_or_init(|| {
-        type Initialize = unsafe extern "system" fn(
-            u32,
-            *const u16,
-            BootstrapPackageVersion,
-            MddBootstrapInitializeOptions,
-        ) -> windows_core::HRESULT;
-
-        let library = unsafe {
-            LoadLibraryExA(
-                windows_core::s!("microsoft.windowsappruntime.bootstrap.dll"),
-                std::ptr::null_mut(),
-                0x0000_1000,
-            )
-        };
-        if library.is_null() {
-            return windows_core::Error::from_thread().code();
-        }
-        let address =
-            unsafe { GetProcAddress(library, windows_core::s!("MddBootstrapInitialize2")) };
-        if address.is_null() {
-            return windows_core::Error::from_thread().code();
-        }
-        let initialize: Initialize = unsafe { std::mem::transmute(address) };
-        unsafe {
-            initialize(
-                WINDOWSAPPSDK_RELEASE_MAJORMINOR as u32,
-                WINDOWSAPPSDK_RELEASE_VERSION_TAG_W.as_ptr(),
-                BootstrapPackageVersion {
-                    value: BootstrapPackageVersionValue {
-                        version: WINDOWSAPPSDK_RUNTIME_VERSION_UINT64,
-                    },
-                },
-                MddBootstrapInitializeOptions_OnNoMatch_ShowUI
-                    | MddBootstrapInitializeOptions_OnPackageIdentity_NOOP,
-            )
-        }
-    }))
-    .ok()
+    bootstrap::bootstrap()
 }
 
 fn self_contained_runtime_present() -> bool {

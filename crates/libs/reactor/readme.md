@@ -7,21 +7,26 @@ with the native UI tree and applies the required WinUI changes.
 * [Guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md)
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor)
 
-Add Reactor and the Windows App Runtime setup helper:
+Add Reactor:
 
 ```toml
 [dependencies]
 windows-reactor = "0.100"
+```
 
+Framework-dependent apps need nothing else: Reactor detects the deployment mode at startup
+and either loads the staged runtime or resolves the installed Windows App Runtime framework
+package. For a self-contained deployment, add the Windows App Runtime setup helper and call `windows_reactor_setup::as_self_contained`
+from `build.rs`:
+
+```toml
 [build-dependencies]
 windows-reactor-setup = "0.100"
 ```
 
-For a framework-dependent application, stage the runtime from `build.rs`:
-
 ```rust,ignore
 fn main() {
-    windows_reactor_setup::as_framework_dependent();
+    windows_reactor_setup::as_self_contained();
 }
 ```
 

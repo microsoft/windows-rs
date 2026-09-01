@@ -144,9 +144,10 @@ The Component/View API replaces the earlier render-function and hook frontend:
 | `ReactorWindow` | `ComponentContext::open_window` and `WindowRef` |
 | `windows-reactor/canvas` | `windows-canvas` with its `reactor` feature |
 
-Applications now stage the Windows App Runtime from `build.rs` with `windows-reactor-setup`.
-Framework-dependent builds call `as_framework_dependent`; self-contained builds call
-`as_self_contained`.
+Self-contained applications stage the Windows App Runtime from `build.rs` with
+`windows_reactor_setup::as_self_contained`. Framework-dependent applications need no build
+helper: Reactor detects the deployment mode at startup and resolves the installed Windows App
+Runtime framework package.
 
 ### Native integration boundary
 
@@ -191,9 +192,9 @@ between releases as the reconciler changes.
 
 ## Code generation
 
-`crates/tools/reactor` refreshes the committed WinUI, Windows App SDK, and WebView2 metadata plus
-the `windows-reactor-setup` bootstrap DLLs from pinned NuGet packages. It then reads
-`src/winui.toml` and the metadata under `winmd` and generates:
+`crates/tools/reactor` refreshes the committed WinUI, Windows App SDK, and WebView2 metadata from
+pinned NuGet packages. It then reads `src/winui.toml` and the metadata under `winmd` and
+generates:
 
 | Output | Contents |
 | --- | --- |
@@ -257,9 +258,10 @@ repository's pinned `cargo-public-api` process after an intentional API change.
 
 ## Deployment
 
-Applications use `windows-reactor-setup` from `build.rs` to stage the Windows App Runtime.
-Framework-dependent and self-contained examples live in
-`crates/samples/reactor/framework_dependent` and `crates/samples/reactor/self_contained`.
+Self-contained applications use `windows-reactor-setup` from `build.rs` to stage the Windows App
+Runtime. Framework-dependent applications need no setup crate: Reactor resolves the installed
+Windows App Runtime framework package at startup. Framework-dependent and self-contained examples
+live in `crates/samples/reactor/framework_dependent` and `crates/samples/reactor/self_contained`.
 `windows-reactor-setup` is a separate crate and is not part of Reactor's generated API.
 
 ## Non-blocking API follow-ups

@@ -193,7 +193,7 @@ Two in-repo tools show both uses:
 - `tool_webview` runs the full path. WebView2 ships only a C/C++ header. `clang()` produces
   `WebView2.rdl`. `reader()` compiles it to `WebView2.winmd`. Then `windows_bindgen::bindgen`
   generates bindings for [`windows-webview`](windows-webview.md).
-- `tool_reactor` hand-writes COM interfaces and bootstrap functions in
+- `tool_reactor` hand-writes a few COM interfaces and version constants in
   `crates/tools/reactor/src/extras.rdl`. These declarations fill gaps in the WinUI and Windows App
   SDK metadata. The tool compiles them with the standard Win32 winmd into `extras.winmd`. Then it
   feeds that winmd to `windows_bindgen::bindgen` for [`windows-reactor`](windows-reactor.md).
