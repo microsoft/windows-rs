@@ -309,33 +309,12 @@ impl ComponentToken {
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub enum ComponentStoreError {
-    #[cfg(test)]
-    ComponentTypeMismatch {
-        expected: TypeId,
-        actual: TypeId,
-    },
-    DuplicateEffectKey(EffectKey),
-    DuplicateColorSchemeObservation,
-    DuplicateWindowSizeObservation,
-    DuplicateWindowTitle,
-    DuplicateWindowVisuals,
-    MessageTypeMismatch {
-        expected: TypeId,
-        actual: TypeId,
-    },
-    InputTypeMismatch {
-        expected: TypeId,
-        actual: TypeId,
-    },
-    Scope(ScopeError),
-    WindowMismatch,
-}
-
-impl From<ScopeError> for ComponentStoreError {
-    fn from(value: ScopeError) -> Self {
-        Self::Scope(value)
-    }
+pub enum ComponentDeclarationError {
+    EffectKey(EffectKey),
+    ColorSchemeObservation,
+    WindowSizeObservation,
+    WindowTitle,
+    WindowVisuals,
 }
 
 struct MessageEnvelope {
@@ -613,13 +592,11 @@ impl TaskSpawner {
         let token = self.token;
         let thread_control = Arc::clone(&control);
         let thread_rejection = Arc::clone(&rejection);
-        let submitted = windows_threading::try_submit(move || {
+        windows_threading::submit(move || {
             let _slot = slot;
-            let message = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-                work(CancellationToken {
-                    control: Arc::clone(&thread_control),
-                })
-            }));
+            let message = work(CancellationToken {
+                control: Arc::clone(&thread_control),
+            });
             let wake = {
                 let mut background = queue.lock().unwrap();
                 let registered = background.tasks.get_mut(&token.scope).is_some_and(|tasks| {
@@ -644,16 +621,6 @@ impl TaskSpawner {
                     thread_control.cancel();
                     return;
                 }
-                let Ok(message) = message else {
-                    drop(background);
-                    Self::queue_rejection_shared(
-                        &queue,
-                        &thread_control,
-                        token,
-                        thread_rejection.lock().unwrap().take(),
-                    );
-                    return;
-                };
                 if background.envelopes.len() >= BACKGROUND_MESSAGE_QUEUE_CAPACITY {
                     drop(background);
                     Self::queue_rejection_shared(
@@ -678,20 +645,6 @@ impl TaskSpawner {
             };
             Self::wake_or_reject(&queue, wake);
         });
-        if submitted.is_err() {
-            let mut queue = self.queue.lock().unwrap();
-            if let Some(tasks) = queue.tasks.get_mut(&self.token.scope) {
-                tasks.retain(|task| {
-                    task.upgrade()
-                        .is_some_and(|task| !Arc::ptr_eq(&task, &control))
-                });
-                if tasks.is_empty() {
-                    queue.tasks.remove(&self.token.scope);
-                }
-            }
-            drop(queue);
-            self.queue_rejection(&control, rejection.lock().unwrap().take());
-        }
         task
     }
 
@@ -842,6 +795,10 @@ impl<C: Component> ComponentContext<C> {
         self.sender.clone()
     }
 
+    /// Starts scope-owned work on the Windows thread pool.
+    ///
+    /// Expected application failures should be represented in the returned message. A panic in
+    /// `work` or failure to submit to the Windows thread pool is fatal.
     pub fn spawn_background<F>(&self, work: F) -> ComponentTask
     where
         C::Message: Send,
@@ -850,9 +807,10 @@ impl<C: Component> ComponentContext<C> {
         self.tasks.spawn(work)
     }
 
-    /// Starts scope-owned work and dispatches `rejected` if task infrastructure rejects it.
+    /// Starts scope-owned work and dispatches `rejected` if bounded delivery rejects it.
     ///
-    /// Cancellation and scope retirement do not dispatch `rejected`.
+    /// Cancellation and scope retirement do not dispatch `rejected`. A panic in `work` or failure
+    /// to submit to the Windows thread pool is fatal.
     pub fn spawn_background_with_rejection<F>(&self, work: F, rejected: C::Message) -> ComponentTask
     where
         C::Message: Send,
@@ -978,15 +936,11 @@ pub trait Component: Sized + 'static {
 }
 
 trait ErasedComponentFactory {
-    fn apply_input(
-        &self,
-        store: &mut ComponentStore,
-        token: ComponentToken,
-    ) -> Result<bool, ComponentStoreError>;
+    fn apply_input(&self, store: &mut ComponentStore, token: ComponentToken) -> bool;
     fn as_any(&self) -> &dyn Any;
     fn component_type(&self) -> TypeId;
     fn equals(&self, other: &dyn ErasedComponentFactory) -> bool;
-    fn reserve(&self, store: &mut ComponentStore) -> Result<ComponentToken, ComponentStoreError>;
+    fn reserve(&self, store: &mut ComponentStore) -> ComponentToken;
     fn type_name(&self) -> &'static str;
 }
 
@@ -995,11 +949,7 @@ struct TypedComponentFactory<C: Component> {
 }
 
 impl<C: Component> ErasedComponentFactory for TypedComponentFactory<C> {
-    fn apply_input(
-        &self,
-        store: &mut ComponentStore,
-        token: ComponentToken,
-    ) -> Result<bool, ComponentStoreError> {
+    fn apply_input(&self, store: &mut ComponentStore, token: ComponentToken) -> bool {
         store.apply_input(token, &self.input)
     }
 
@@ -1019,7 +969,7 @@ impl<C: Component> ErasedComponentFactory for TypedComponentFactory<C> {
                 .is_some_and(|other| self.input == other.input)
     }
 
-    fn reserve(&self, store: &mut ComponentStore) -> Result<ComponentToken, ComponentStoreError> {
+    fn reserve(&self, store: &mut ComponentStore) -> ComponentToken {
         store.reserve_component::<C>(self.input.clone())
     }
 
@@ -1044,18 +994,11 @@ impl ComponentView {
         self.factory.component_type()
     }
 
-    pub(crate) fn apply_input(
-        &self,
-        store: &mut ComponentStore,
-        token: ComponentToken,
-    ) -> Result<bool, ComponentStoreError> {
+    pub(crate) fn apply_input(&self, store: &mut ComponentStore, token: ComponentToken) -> bool {
         self.factory.apply_input(store, token)
     }
 
-    pub(crate) fn reserve(
-        &self,
-        store: &mut ComponentStore,
-    ) -> Result<ComponentToken, ComponentStoreError> {
+    pub(crate) fn reserve(&self, store: &mut ComponentStore) -> ComponentToken {
         self.factory.reserve(store)
     }
 }
@@ -1076,25 +1019,18 @@ impl PartialEq for ComponentView {
 }
 
 trait ErasedScope {
-    fn apply_input(
-        &mut self,
-        input: &dyn Any,
-        tasks: TaskSpawner,
-    ) -> Result<bool, ComponentStoreError>;
+    fn apply_input(&mut self, input: &dyn Any, tasks: TaskSpawner) -> bool;
     #[cfg(test)]
     fn component(&self) -> &dyn Any;
-    fn dispatch(
-        &mut self,
-        message: Box<dyn Any>,
-        tasks: TaskSpawner,
-    ) -> Result<(), ComponentStoreError>;
+    fn dispatch(&mut self, message: Box<dyn Any>, tasks: TaskSpawner);
     #[cfg(test)]
     fn message_type(&self) -> TypeId;
     fn input_type(&self) -> TypeId;
     fn type_name(&self) -> &'static str;
     fn context_dependencies(&self) -> Option<&ContextDependencies>;
     fn set_context_dependencies(&mut self, dependencies: ContextDependencies);
-    fn view(&self, contexts: ContextSnapshot) -> Result<ComponentRender, ComponentStoreError>;
+    fn view(&self, contexts: ContextSnapshot)
+    -> Result<ComponentRender, ComponentDeclarationError>;
     fn cleanup_effects(&self);
     fn commit_effects(&self);
     fn prepare_effects(&self);
@@ -1112,7 +1048,7 @@ pub(crate) struct ComponentRender {
 // Boxing the successful render would add an allocation to every component view.
 #[allow(clippy::large_enum_variant)]
 enum ComponentViewOutcome {
-    Complete(Result<ComponentRender, ComponentStoreError>),
+    Complete(Result<ComponentRender, ComponentDeclarationError>),
     Panicked(Box<dyn Any + Send>),
 }
 
@@ -1202,9 +1138,9 @@ impl ComponentEffectState {
         });
     }
 
-    fn finish_view(&self) -> Result<(), ComponentStoreError> {
+    fn finish_view(&self) -> Result<(), ComponentDeclarationError> {
         if let Some(key) = self.duplicate_key() {
-            Err(ComponentStoreError::DuplicateEffectKey(key.clone()))
+            Err(ComponentDeclarationError::EffectKey(key.clone()))
         } else {
             Ok(())
         }
@@ -1286,7 +1222,7 @@ impl ComponentEffects {
             .use_effect(key, dependency, setup);
     }
 
-    fn finish_view(&self) -> Result<(), ComponentStoreError> {
+    fn finish_view(&self) -> Result<(), ComponentDeclarationError> {
         self.0
             .as_deref()
             .map_or(Ok(()), ComponentEffectState::finish_view)
@@ -1346,20 +1282,10 @@ where
     I: Clone + PartialEq + 'static,
     M: 'static,
 {
-    fn apply_input(
-        &mut self,
-        input: &dyn Any,
-        tasks: TaskSpawner,
-    ) -> Result<bool, ComponentStoreError> {
-        let actual = input.type_id();
-        let input = input
-            .downcast_ref::<I>()
-            .ok_or(ComponentStoreError::InputTypeMismatch {
-                expected: TypeId::of::<I>(),
-                actual,
-            })?;
+    fn apply_input(&mut self, input: &dyn Any, tasks: TaskSpawner) -> bool {
+        let input = input.downcast_ref::<I>().unwrap();
         if self.input == *input {
-            return Ok(false);
+            return false;
         }
         self.input = input.clone();
         self.window.begin();
@@ -1371,7 +1297,7 @@ where
             self.window.reference(),
         );
         self.window.finish();
-        Ok(true)
+        true
     }
 
     #[cfg(test)]
@@ -1387,19 +1313,8 @@ where
         self.context_dependencies = (!dependencies.is_empty()).then(|| Rc::new(dependencies));
     }
 
-    fn dispatch(
-        &mut self,
-        message: Box<dyn Any>,
-        tasks: TaskSpawner,
-    ) -> Result<(), ComponentStoreError> {
-        let actual = message.as_ref().type_id();
-        let message =
-            message
-                .downcast::<M>()
-                .map_err(|_| ComponentStoreError::MessageTypeMismatch {
-                    expected: TypeId::of::<M>(),
-                    actual,
-                })?;
+    fn dispatch(&mut self, message: Box<dyn Any>, tasks: TaskSpawner) {
+        let message = message.downcast::<M>().unwrap();
         self.window.begin();
         (self.update)(
             &mut self.component,
@@ -1409,7 +1324,6 @@ where
             self.window.reference(),
         );
         self.window.finish();
-        Ok(())
     }
 
     #[cfg(test)]
@@ -1425,7 +1339,10 @@ where
         std::any::type_name::<C>()
     }
 
-    fn view(&self, contexts: ContextSnapshot) -> Result<ComponentRender, ComponentStoreError> {
+    fn view(
+        &self,
+        contexts: ContextSnapshot,
+    ) -> Result<ComponentRender, ComponentDeclarationError> {
         let mut effects = self.effects.take();
         effects.begin_view();
         let (outcome, effects) = (self.view)(
@@ -1505,10 +1422,7 @@ impl ComponentStore {
         }
     }
 
-    pub fn reserve_component<C: Component>(
-        &mut self,
-        input: C::Input,
-    ) -> Result<ComponentToken, ComponentStoreError> {
+    pub fn reserve_component<C: Component>(&mut self, input: C::Input) -> ComponentToken {
         fn input_changed<C: Component>(
             component: &mut C,
             input: &C::Input,
@@ -1580,13 +1494,12 @@ impl ComponentStore {
             } = context;
             let render = (|| {
                 let color_scheme_observation = color_scheme_observation
-                    .resolve(ComponentStoreError::DuplicateColorSchemeObservation)?;
+                    .resolve(ComponentDeclarationError::ColorSchemeObservation)?;
                 let window_size_observation = window_size_observation
-                    .resolve(ComponentStoreError::DuplicateWindowSizeObservation)?;
-                let window_title =
-                    window_title.resolve(ComponentStoreError::DuplicateWindowTitle)?;
+                    .resolve(ComponentDeclarationError::WindowSizeObservation)?;
+                let window_title = window_title.resolve(ComponentDeclarationError::WindowTitle)?;
                 let window_visuals =
-                    window_visuals.resolve(ComponentStoreError::DuplicateWindowVisuals)?;
+                    window_visuals.resolve(ComponentDeclarationError::WindowVisuals)?;
                 effects.finish_view()?;
                 Ok(ComponentRender {
                     color_scheme_observation,
@@ -1638,17 +1551,16 @@ impl ComponentStore {
                 view: view::<C>,
                 window: window_endpoint,
             }) as Box<dyn ErasedScope>
-        })?;
-        Ok(ComponentToken {
+        });
+        ComponentToken {
             window: self.window,
             scope,
-        })
+        }
     }
 
-    pub fn publish(&mut self, token: ComponentToken) -> Result<(), ComponentStoreError> {
-        self.validate_window(token)?;
-        self.scopes.publish(token.scope)?;
-        Ok(())
+    pub fn publish(&mut self, token: ComponentToken) {
+        self.validate_window(token);
+        self.scopes.publish(token.scope).unwrap();
     }
 
     pub(crate) fn restarted(&self, window: WindowToken) -> Self {
@@ -1663,64 +1575,46 @@ impl ComponentStore {
         self.window_endpoint.commit_close();
     }
 
-    pub fn remove(&mut self, token: ComponentToken) -> Result<(), ComponentStoreError> {
-        self.validate_window(token)?;
-        self.clear_context_dependencies(token.scope)?;
-        self.scopes.remove(token.scope)?;
+    pub fn remove(&mut self, token: ComponentToken) {
+        self.validate_window(token);
+        self.clear_context_dependencies(token.scope);
+        self.scopes.remove(token.scope).unwrap();
         self.cancel_scope_tasks(token.scope);
         self.remove_scope_messages(token.scope);
-        Ok(())
     }
 
     #[cfg(test)]
-    pub fn sender<M: 'static>(
-        &self,
-        token: ComponentToken,
-    ) -> Result<LocalSender<M>, ComponentStoreError> {
-        self.validate_window(token)?;
-        let scope = self.scopes.get(token.scope)?;
+    pub fn sender<M: 'static>(&self, token: ComponentToken) -> LocalSender<M> {
+        self.validate_window(token);
+        let scope = self.scopes.get(token.scope).unwrap();
         let actual = TypeId::of::<M>();
         let expected = scope.message_type();
-        if actual != expected {
-            return Err(ComponentStoreError::MessageTypeMismatch { expected, actual });
-        }
-        Ok(LocalSender {
+        assert_eq!(actual, expected);
+        LocalSender {
             queue: Rc::clone(&self.queue),
             token,
             marker: PhantomData,
-        })
+        }
     }
 
-    pub fn apply_input<I: 'static>(
-        &mut self,
-        token: ComponentToken,
-        input: &I,
-    ) -> Result<bool, ComponentStoreError> {
-        self.validate_window(token)?;
+    pub fn apply_input<I: 'static>(&mut self, token: ComponentToken, input: &I) -> bool {
+        self.validate_window(token);
         let tasks = self.task_spawner(token);
-        let scope = self.scopes.get_mut(token.scope)?;
+        let scope = self.scopes.get_mut(token.scope).unwrap();
         let actual = TypeId::of::<I>();
         let expected = scope.input_type();
-        if actual != expected {
-            return Err(ComponentStoreError::InputTypeMismatch { expected, actual });
-        }
+        assert_eq!(actual, expected);
         scope.apply_input(input, tasks)
     }
 
     #[cfg(test)]
-    pub fn component<C: 'static>(&self, token: ComponentToken) -> Result<&C, ComponentStoreError> {
-        self.validate_window(token)?;
-        let component = self.scopes.get(token.scope)?.component();
-        let actual = component.type_id();
-        component
-            .downcast_ref()
-            .ok_or(ComponentStoreError::ComponentTypeMismatch {
-                expected: TypeId::of::<C>(),
-                actual,
-            })
+    pub fn component<C: 'static>(&self, token: ComponentToken) -> &C {
+        self.validate_window(token);
+        let component = self.scopes.get(token.scope).unwrap().component();
+        component.downcast_ref().unwrap()
     }
 
-    pub fn drain(&mut self, budget: usize) -> Result<DrainReport, ComponentStoreError> {
+    pub fn drain(&mut self, budget: usize) -> DrainReport {
         let mut report = DrainReport::default();
         self.background.lock().unwrap().wake_pending = false;
         for _ in 0..budget {
@@ -1766,7 +1660,7 @@ impl ComponentStore {
                     report.dropped += 1;
                     continue;
                 }
-                Err(error) => return Err(error.into()),
+                Err(ScopeError::InvalidTransition(_, _)) => unreachable!(),
             };
             match state {
                 ScopeState::Reserved => {
@@ -1810,13 +1704,16 @@ impl ComponentStore {
                         PendingEnvelope::Local(envelope) => envelope.payload,
                     };
                     let tasks = self.task_spawner(token);
-                    self.scopes.get_mut(token.scope)?.dispatch(payload, tasks)?;
+                    self.scopes
+                        .get_mut(token.scope)
+                        .unwrap()
+                        .dispatch(payload, tasks);
                     report.dispatched += 1;
                     report.dirty.push(token);
                 }
             }
         }
-        Ok(report)
+        report
     }
 
     pub fn pending(&self) -> usize {
@@ -1873,31 +1770,33 @@ impl ComponentStore {
     pub(crate) fn context_dependencies(
         &self,
         token: ComponentToken,
-    ) -> Result<Option<&ContextDependencies>, ComponentStoreError> {
-        self.validate_window(token)?;
-        Ok(self.scopes.get(token.scope)?.context_dependencies())
+    ) -> Option<&ContextDependencies> {
+        self.validate_window(token);
+        self.scopes.get(token.scope).unwrap().context_dependencies()
     }
 
     pub(crate) fn set_context_dependencies(
         &mut self,
         token: ComponentToken,
         dependencies: ContextDependencies,
-    ) -> Result<(), ComponentStoreError> {
-        self.validate_window(token)?;
+    ) {
+        self.validate_window(token);
         let unchanged = self
             .scopes
-            .get(token.scope)?
+            .get(token.scope)
+            .unwrap()
             .context_dependencies()
             .map_or_else(
                 || dependencies.is_empty(),
                 |previous| previous == &dependencies,
             );
         if unchanged {
-            return Ok(());
+            return;
         }
         let previous = self
             .scopes
-            .get(token.scope)?
+            .get(token.scope)
+            .unwrap()
             .context_dependencies()
             .cloned()
             .unwrap_or_default();
@@ -1922,9 +1821,9 @@ impl ComponentStore {
                 .insert(token.scope);
         }
         self.scopes
-            .get_mut(token.scope)?
+            .get_mut(token.scope)
+            .unwrap()
             .set_context_dependencies(dependencies);
-        Ok(())
     }
 
     pub(crate) fn context_consumers(
@@ -1953,43 +1852,37 @@ impl ComponentStore {
         &self,
         token: ComponentToken,
         contexts: ContextSnapshot,
-    ) -> Result<ComponentRender, ComponentStoreError> {
-        self.validate_window(token)?;
-        self.scopes.get(token.scope)?.view(contexts)
+    ) -> Result<ComponentRender, ComponentDeclarationError> {
+        self.validate_window(token);
+        self.scopes.get(token.scope).unwrap().view(contexts)
     }
 
-    pub(crate) fn type_name(
-        &self,
-        token: ComponentToken,
-    ) -> Result<&'static str, ComponentStoreError> {
-        self.validate_window(token)?;
-        Ok(self.scopes.get(token.scope)?.type_name())
+    pub(crate) fn type_name(&self, token: ComponentToken) -> &'static str {
+        self.validate_window(token);
+        self.scopes.get(token.scope).unwrap().type_name()
     }
 
-    pub fn cleanup_effects(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {
-        self.validate_window(token)?;
-        self.scopes.get(token.scope)?.cleanup_effects();
-        Ok(())
+    pub fn cleanup_effects(&self, token: ComponentToken) {
+        self.validate_window(token);
+        self.scopes.get(token.scope).unwrap().cleanup_effects();
     }
 
-    pub fn commit_effects(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {
-        self.validate_window(token)?;
-        self.scopes.get(token.scope)?.commit_effects();
-        Ok(())
+    pub fn commit_effects(&self, token: ComponentToken) {
+        self.validate_window(token);
+        self.scopes.get(token.scope).unwrap().commit_effects();
     }
 
-    pub fn prepare_effects(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {
-        self.validate_window(token)?;
-        self.scopes.get(token.scope)?.prepare_effects();
-        Ok(())
+    pub fn prepare_effects(&self, token: ComponentToken) {
+        self.validate_window(token);
+        self.scopes.get(token.scope).unwrap().prepare_effects();
     }
 
-    pub(crate) fn token(&self, scope: ScopeId) -> Result<ComponentToken, ComponentStoreError> {
-        self.scopes.state(scope)?;
-        Ok(ComponentToken {
+    pub(crate) fn token(&self, scope: ScopeId) -> ComponentToken {
+        self.scopes.state(scope).unwrap();
+        ComponentToken {
             window: self.window,
             scope,
-        })
+        }
     }
 
     pub(crate) fn set_waker(&mut self, wake: Rc<dyn Fn()>) {
@@ -2074,14 +1967,14 @@ impl ComponentStore {
             .retain(|envelope| envelope.token.scope != scope);
     }
 
-    fn clear_context_dependencies(&mut self, scope: ScopeId) -> Result<(), ComponentStoreError> {
+    fn clear_context_dependencies(&mut self, scope: ScopeId) {
         self.set_context_dependencies(
             ComponentToken {
                 window: self.window,
                 scope,
             },
             ContextDependencies::default(),
-        )
+        );
     }
 
     fn remove_context_consumer(&mut self, dependency: ContextDependency, scope: ScopeId) {
@@ -2099,12 +1992,8 @@ impl ComponentStore {
         }
     }
 
-    fn validate_window(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {
-        if token.window == self.window {
-            Ok(())
-        } else {
-            Err(ComponentStoreError::WindowMismatch)
-        }
+    fn validate_window(&self, token: ComponentToken) {
+        assert_eq!(token.window, self.window);
     }
 }
 

@@ -27,9 +27,6 @@ windows_threading::submit(|| {
 });
 ```
 
-Use `try_submit` when submission failure is recoverable. It returns the closure without calling it
-if the Windows thread pool rejects the submission.
-
 Process an iterator in parallel:
 
 ```rust,no_run

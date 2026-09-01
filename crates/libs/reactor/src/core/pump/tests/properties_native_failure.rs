@@ -20,7 +20,6 @@ fn successful_property_updates_publish_known_values() {
     assert_eq!(
         pump.tree
             .native(root)
-            .unwrap()
             .properties
             .get(&PropertyId::TextBlockText),
         Some(&Some(PropertyValue::Str("second".into())))
@@ -54,7 +53,7 @@ fn native_failure_stops_the_batch_and_poisons_the_pump() {
     assert!(pump.poisoned());
     assert_eq!(pump.version(), version);
     assert_eq!(
-        pump.tree.native(root).unwrap().desired,
+        pump.tree.native(root).desired,
         Element::from(TextBlock::new().text("first"))
             .into_parts()
             .props

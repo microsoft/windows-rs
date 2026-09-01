@@ -221,7 +221,6 @@ fn failed_visual_update_does_not_publish_struct_values() {
     assert_eq!(
         pump.tree
             .native(border)
-            .unwrap()
             .properties
             .get(&PropertyId::BorderPadding),
         Some(&Some(PropertyValue::Thickness(Thickness::uniform(24.0))))
@@ -391,7 +390,7 @@ fn failed_theme_style_update_does_not_publish() {
     ))
     .unwrap();
     let border = pump.root().unwrap();
-    let original = pump.tree.native(border).unwrap().desired.theme_style();
+    let original = pump.tree.native(border).desired.theme_style();
     pump.runtime_mut().fail_at(0);
 
     assert!(matches!(
@@ -401,9 +400,6 @@ fn failed_theme_style_update_does_not_publish() {
         )),
         Err(PumpError::NativeApplyFailed(_))
     ));
-    assert_eq!(
-        pump.tree.native(border).unwrap().desired.theme_style(),
-        original
-    );
+    assert_eq!(pump.tree.native(border).desired.theme_style(), original);
     assert_eq!(pump.runtime().node(border).unwrap().theme_style(), original);
 }

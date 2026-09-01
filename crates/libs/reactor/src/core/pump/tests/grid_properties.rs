@@ -274,11 +274,7 @@ fn grid_update_and_clear_publish_only_after_native_success() {
         Err(PumpError::NativeApplyFailed(_))
     ));
     assert_eq!(
-        pump.tree
-            .native(child)
-            .unwrap()
-            .properties
-            .get(&PropertyId::GridRow),
+        pump.tree.native(child).properties.get(&PropertyId::GridRow),
         Some(&Some(PropertyValue::I32(2)))
     );
 }
@@ -496,7 +492,6 @@ fn failed_virtual_grid_placement_does_not_publish_candidate_state() {
     assert_eq!(
         pump.tree
             .native(collection)
-            .unwrap()
             .properties
             .get(&PropertyId::GridRow),
         Some(&Some(PropertyValue::I32(1)))

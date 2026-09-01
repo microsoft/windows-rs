@@ -12,7 +12,6 @@ pub enum ScopeState {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ScopeError {
-    CapacityExceeded,
     InvalidTransition(ScopeState, ScopeState),
     Stale(ScopeId),
 }
@@ -49,14 +48,11 @@ impl<T> ScopeArena<T> {
     }
 
     #[cfg(test)]
-    pub fn reserve(&mut self, value: T) -> Result<ScopeId, ScopeError> {
+    pub fn reserve(&mut self, value: T) -> ScopeId {
         self.reserve_with(|_| value)
     }
 
-    pub fn reserve_with(
-        &mut self,
-        create: impl FnOnce(ScopeId) -> T,
-    ) -> Result<ScopeId, ScopeError> {
+    pub fn reserve_with(&mut self, create: impl FnOnce(ScopeId) -> T) -> ScopeId {
         let id = if let Some(index) = self.free.pop() {
             let slot = &mut self.slots[index as usize];
             debug_assert!(slot.entry.is_none());
@@ -65,8 +61,7 @@ impl<T> ScopeArena<T> {
                 generation: slot.generation,
             }
         } else {
-            let index =
-                u32::try_from(self.slots.len()).map_err(|_| ScopeError::CapacityExceeded)?;
+            let index = u32::try_from(self.slots.len()).unwrap();
             self.slots.push(ScopeSlot {
                 generation: 0,
                 entry: None,
@@ -81,7 +76,7 @@ impl<T> ScopeArena<T> {
             value: create(id),
         });
         self.live += 1;
-        Ok(id)
+        id
     }
 
     pub fn publish(&mut self, id: ScopeId) -> Result<(), ScopeError> {
@@ -185,7 +180,7 @@ mod tests {
     #[test]
     fn enforces_scope_lifecycle() {
         let mut arena = ScopeArena::new();
-        let scope = arena.reserve("scope").unwrap();
+        let scope = arena.reserve("scope");
 
         assert_eq!(arena.state(scope), Ok(ScopeState::Reserved));
         arena.publish(scope).unwrap();
@@ -198,11 +193,9 @@ mod tests {
     fn failed_reservation_can_be_removed_without_publication() {
         let drops = Rc::new(Cell::new(0));
         let mut arena = ScopeArena::new();
-        let scope = arena
-            .reserve(NonCloneState {
-                drops: Rc::clone(&drops),
-            })
-            .unwrap();
+        let scope = arena.reserve(NonCloneState {
+            drops: Rc::clone(&drops),
+        });
 
         drop(arena.remove(scope).unwrap());
 
@@ -213,10 +206,10 @@ mod tests {
     #[test]
     fn reused_slot_rejects_old_generation() {
         let mut arena = ScopeArena::new();
-        let first = arena.reserve("first").unwrap();
+        let first = arena.reserve("first");
         arena.remove(first).unwrap();
 
-        let second = arena.reserve("second").unwrap();
+        let second = arena.reserve("second");
 
         assert_ne!(first, second);
         assert_eq!(arena.get(first), Err(ScopeError::Stale(first)));

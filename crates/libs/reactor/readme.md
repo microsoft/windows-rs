@@ -67,6 +67,9 @@ fn main() {
 expose typed properties, events, content, and child collections. `ElementRef` provides typed
 imperative operations for focus and integration points that must run after publication.
 
+Background work runs on the Windows thread pool. Expected application failures should be returned
+in the component message as `Result`; panics and thread-pool submission failures are fatal.
+
 Use ordinary functions returning `View` for stateless presentation. Use a `Component` when a
 subtree owns state, handles messages, uses lifecycle work, or needs its own recomposition boundary.
 Generated metadata value enums and slot enums are non-exhaustive, so matches must include a wildcard

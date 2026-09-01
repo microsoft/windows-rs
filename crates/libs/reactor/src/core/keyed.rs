@@ -9,11 +9,9 @@ pub enum KeyedOperation<K> {
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub enum KeyedError<K> {
-    DuplicateKey(K),
-}
+pub struct DuplicateKeyError<K>(pub K);
 
-pub fn diff<K>(previous: &[K], next: &[K]) -> Result<Vec<KeyedOperation<K>>, KeyedError<K>>
+pub fn diff<K>(previous: &[K], next: &[K]) -> Result<Vec<KeyedOperation<K>>, DuplicateKeyError<K>>
 where
     K: Clone + Eq + Hash,
 {
@@ -60,14 +58,14 @@ where
     Ok(operations)
 }
 
-fn unique_indices<K>(keys: &[K]) -> Result<HashMap<K, usize>, KeyedError<K>>
+fn unique_indices<K>(keys: &[K]) -> Result<HashMap<K, usize>, DuplicateKeyError<K>>
 where
     K: Clone + Eq + Hash,
 {
     let mut indices = HashMap::with_capacity(keys.len());
     for (index, key) in keys.iter().enumerate() {
         if indices.insert(key.clone(), index).is_some() {
-            return Err(KeyedError::DuplicateKey(key.clone()));
+            return Err(DuplicateKeyError(key.clone()));
         }
     }
     Ok(indices)
@@ -164,8 +162,8 @@ mod tests {
 
     #[test]
     fn rejects_duplicates_in_either_input() {
-        assert_eq!(diff(&[1, 1], &[1]), Err(KeyedError::DuplicateKey(1)));
-        assert_eq!(diff(&[1], &[1, 1]), Err(KeyedError::DuplicateKey(1)));
+        assert_eq!(diff(&[1, 1], &[1]), Err(DuplicateKeyError(1)));
+        assert_eq!(diff(&[1], &[1, 1]), Err(DuplicateKeyError(1)));
     }
 
     #[test]

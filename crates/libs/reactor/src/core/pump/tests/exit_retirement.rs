@@ -34,7 +34,7 @@ fn exit_retirement_owns_native_subtree_until_completion() {
     pump.update_view(collection_view(false, true)).unwrap();
 
     assert_eq!(pump.runtime().retained_subtrees(), 1);
-    assert!(pump.tree.native(old).is_err());
+    assert!(pump.tree.try_native(old).is_none());
     assert!(pump.runtime().node(old).is_some());
     assert!(pump.runtime().node(old_content).is_some());
     let children = pump.runtime().node(panel).unwrap().children();
