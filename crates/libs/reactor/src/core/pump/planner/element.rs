@@ -153,9 +153,7 @@ impl<R: NativeRuntime> Pump<R> {
                     let model = tree.virtual_model_mut(node);
                     model
                         .update(keys)
-                        .map_err(|VirtualModelError::DuplicateKey(key)| {
-                            PumpError::DuplicateKey(key)
-                        })?;
+                        .map_err(|DuplicateKeyError(key)| PumpError::DuplicateKey(key))?;
                     model.source_revision()
                 };
                 tree.update_virtual_items(node, items);
@@ -269,7 +267,7 @@ impl<R: NativeRuntime> Pump<R> {
                     .map(|child| child.key().clone())
                     .collect::<Vec<_>>();
                 let operations = diff(&old_keys, &new_keys)
-                    .map_err(|KeyedError::DuplicateKey(key)| PumpError::DuplicateKey(key))?;
+                    .map_err(|DuplicateKeyError(key)| PumpError::DuplicateKey(key))?;
                 let new_key_set = new_keys.iter().cloned().collect::<HashSet<_>>();
                 let mut nodes = old_keys
                     .iter()
@@ -659,7 +657,7 @@ impl<R: NativeRuntime> Pump<R> {
             let item_count = items.len();
             let node = tree
                 .insert_virtual_items(plan.identity, parent, key, parts.props.clone(), items)
-                .map_err(|VirtualModelError::DuplicateKey(key)| PumpError::DuplicateKey(key))?;
+                .map_err(|DuplicateKeyError(key)| PumpError::DuplicateKey(key))?;
             tree.set_exit_transition(
                 node,
                 parts
@@ -728,8 +726,7 @@ impl<R: NativeRuntime> Pump<R> {
                     .iter()
                     .map(|child| child.key().clone())
                     .collect::<Vec<_>>();
-                diff(&[], &keys)
-                    .map_err(|KeyedError::DuplicateKey(key)| PumpError::DuplicateKey(key))?;
+                diff(&[], &keys).map_err(|DuplicateKeyError(key)| PumpError::DuplicateKey(key))?;
                 for (index, child) in children.into_iter().enumerate() {
                     let (key, child) = child.into_parts();
                     let child =

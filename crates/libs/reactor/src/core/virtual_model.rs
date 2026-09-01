@@ -16,11 +16,6 @@ pub struct RealizationLease {
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct RealizedContainer(pub u64);
 
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub enum VirtualModelError {
-    DuplicateKey(Key),
-}
-
 #[derive(Clone)]
 pub struct VirtualModel {
     active: HashMap<Key, (u64, RealizedContainer)>,
@@ -37,10 +32,9 @@ impl VirtualModel {
         identity: WindowToken,
         collection: NodeId,
         keys: impl IntoIterator<Item = Key>,
-    ) -> Result<Self, VirtualModelError> {
+    ) -> Result<Self, DuplicateKeyError<Key>> {
         let keys = keys.into_iter().collect::<Vec<_>>();
-        diff(&[], &keys)
-            .map_err(|KeyedError::DuplicateKey(key)| VirtualModelError::DuplicateKey(key))?;
+        diff(&[], &keys)?;
         Ok(Self {
             active: HashMap::new(),
             collection,
@@ -55,10 +49,9 @@ impl VirtualModel {
     pub fn update(
         &mut self,
         keys: impl IntoIterator<Item = Key>,
-    ) -> Result<Vec<KeyedOperation<Key>>, VirtualModelError> {
+    ) -> Result<Vec<KeyedOperation<Key>>, DuplicateKeyError<Key>> {
         let keys = keys.into_iter().collect::<Vec<_>>();
-        let operations = diff(&self.keys, &keys)
-            .map_err(|KeyedError::DuplicateKey(key)| VirtualModelError::DuplicateKey(key))?;
+        let operations = diff(&self.keys, &keys)?;
         let source_revision = self.source_revision.checked_add(1).unwrap();
         let retained = keys.iter().cloned().collect::<HashSet<_>>();
         self.active.retain(|key, _| retained.contains(key));
@@ -251,13 +244,13 @@ mod tests {
     fn rejects_duplicate_keys_and_out_of_range_realizations() {
         assert_eq!(
             VirtualModel::new(identity(), COLLECTION, keys(&["a", "a"])).err(),
-            Some(VirtualModelError::DuplicateKey(Key::from("a")))
+            Some(DuplicateKeyError(Key::from("a")))
         );
         let mut model = VirtualModel::new(identity(), COLLECTION, keys(&["a"])).unwrap();
         assert_eq!(model.realize(1, FIRST), None);
         assert_eq!(
             model.update(keys(&["a", "a"])),
-            Err(VirtualModelError::DuplicateKey(Key::from("a")))
+            Err(DuplicateKeyError(Key::from("a")))
         );
     }
 

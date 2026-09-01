@@ -338,16 +338,16 @@ impl Tree {
     #[inline(always)]
     fn node(&self, id: NodeId) -> &Node {
         match self.arena.get(id) {
-            Ok(node) => node,
-            Err(ArenaError::Stale(_)) => panic!("stale node"),
+            Some(node) => node,
+            None => panic!("stale node"),
         }
     }
 
     #[inline(always)]
     fn node_mut(&mut self, id: NodeId) -> &mut Node {
         match self.arena.get_mut(id) {
-            Ok(node) => node,
-            Err(ArenaError::Stale(_)) => panic!("stale node"),
+            Some(node) => node,
+            None => panic!("stale node"),
         }
     }
 
@@ -713,11 +713,11 @@ impl Tree {
     }
 
     pub(crate) fn try_kind(&self, id: NodeId) -> Option<NodeKind> {
-        Some(self.arena.get(id).ok()?.data.kind())
+        Some(self.arena.get(id)?.data.kind())
     }
 
     pub(crate) fn try_native(&self, id: NodeId) -> Option<&NativeState> {
-        match &self.arena.get(id).ok()?.data {
+        match &self.arena.get(id)?.data {
             NodeData::Native(native) => Some(&native.state),
             NodeData::Virtual(VirtualData::Items { native, .. }) => Some(native),
             _ => None,
@@ -725,7 +725,7 @@ impl Tree {
     }
 
     pub(crate) fn try_native_mut(&mut self, id: NodeId) -> Option<&mut NativeState> {
-        match &mut self.arena.get_mut(id).ok()?.data {
+        match &mut self.arena.get_mut(id)?.data {
             NodeData::Native(native) => Some(&mut native.state),
             NodeData::Virtual(VirtualData::Items { native, .. }) => Some(native),
             _ => None,
@@ -771,7 +771,7 @@ impl Tree {
         identity: WindowToken,
         parent: Option<NodeId>,
         keys: impl IntoIterator<Item = Key>,
-    ) -> Result<NodeId, VirtualModelError> {
+    ) -> Result<NodeId, DuplicateKeyError<Key>> {
         let id = self.arena.next_id();
         let model = VirtualModel::new(identity, id, keys)?;
         let inserted = self.insert_data(
@@ -793,7 +793,7 @@ impl Tree {
         key: Option<Key>,
         desired: MountedProps,
         items: VirtualItems,
-    ) -> Result<NodeId, VirtualModelError> {
+    ) -> Result<NodeId, DuplicateKeyError<Key>> {
         let keys = (0..items.len()).map(|index| items.key(index).unwrap());
         let id = self.arena.next_id();
         let model = VirtualModel::new(identity, id, keys)?;
@@ -945,14 +945,14 @@ impl Tree {
     }
 
     pub(crate) fn try_virtual_model(&self, id: NodeId) -> Option<&VirtualModel> {
-        match &self.arena.get(id).ok()?.data {
+        match &self.arena.get(id)?.data {
             NodeData::Virtual(virtual_data) => Some(virtual_data.model()),
             _ => None,
         }
     }
 
     pub(crate) fn try_virtual_model_mut(&mut self, id: NodeId) -> Option<&mut VirtualModel> {
-        match &mut self.arena.get_mut(id).ok()?.data {
+        match &mut self.arena.get_mut(id)?.data {
             NodeData::Virtual(virtual_data) => Some(virtual_data.model_mut()),
             _ => None,
         }
@@ -1218,7 +1218,9 @@ impl Tree {
 
         let mut retired = Vec::with_capacity(order.len());
         for id in order {
-            let node = self.arena.remove(id).unwrap();
+            let Some(node) = self.arena.remove(id) else {
+                panic!("stale node");
+            };
             let kind = node.data.kind();
             Rc::make_mut(&mut self.exit_transitions).remove(&id);
             Rc::make_mut(&mut self.window_title_bars).remove(&id);
