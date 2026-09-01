@@ -1835,7 +1835,7 @@ impl<R: NativeRuntime> Pump<R> {
                 Ok((node, vec![node]))
             }
             ViewKind::Component(component) => {
-                let token = component.reserve(components)?;
+                let token = component.reserve(components);
                 changes
                     .host_requests
                     .extend(components.take_host_requests());

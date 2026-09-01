@@ -383,7 +383,7 @@ impl Tree {
             children: Vec::new(),
             key,
             data,
-        })?;
+        });
 
         if let Some(parent) = parent {
             self.arena.get_mut(parent)?.children.push(id);
@@ -813,7 +813,7 @@ impl Tree {
         parent: Option<NodeId>,
         keys: impl IntoIterator<Item = Key>,
     ) -> Result<NodeId, TreeError> {
-        let id = self.arena.next_id()?;
+        let id = self.arena.next_id();
         let model = VirtualModel::new(identity, id, keys)?;
         let inserted = self.insert_data(
             parent,
@@ -836,7 +836,7 @@ impl Tree {
         items: VirtualItems,
     ) -> Result<NodeId, TreeError> {
         let keys = (0..items.len()).map(|index| items.key(index).unwrap());
-        let id = self.arena.next_id()?;
+        let id = self.arena.next_id();
         let model = VirtualModel::new(identity, id, keys)?;
         let inserted = self.insert_data(
             parent,

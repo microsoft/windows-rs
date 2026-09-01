@@ -7,8 +7,7 @@ fn candidate_with_reservation(
 ) -> (ComponentChanges, ComponentToken) {
     let token = pump
         .components
-        .reserve_component::<Root>("reserved".to_string())
-        .unwrap();
+        .reserve_component::<Root>("reserved".to_string());
     let mut changes = ComponentChanges::default();
     changes.reserved.push(token);
     changes.touched.insert(token);

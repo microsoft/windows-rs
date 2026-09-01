@@ -21,7 +21,6 @@ impl NodeId {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ArenaError {
     Stale(NodeId),
-    CapacityExceeded,
 }
 
 #[derive(Clone)]
@@ -48,7 +47,7 @@ impl<T: Clone> Arena<T> {
         }
     }
 
-    pub fn insert(&mut self, value: T) -> Result<NodeId, ArenaError> {
+    pub fn insert(&mut self, value: T) -> NodeId {
         let id = if let Some(index) = Rc::make_mut(&mut self.free).pop() {
             let slot = self.slot_index_mut(index as usize);
             debug_assert!(slot.value.is_none());
@@ -58,7 +57,7 @@ impl<T: Clone> Arena<T> {
                 generation: slot.generation,
             }
         } else {
-            let index = u32::try_from(self.slots).map_err(|_| ArenaError::CapacityExceeded)?;
+            let index = u32::try_from(self.slots).unwrap();
             let chunks = Rc::make_mut(&mut self.chunks);
             if chunks
                 .last()
@@ -77,21 +76,21 @@ impl<T: Clone> Arena<T> {
             }
         };
         self.live += 1;
-        Ok(id)
+        id
     }
 
-    pub(crate) fn next_id(&self) -> Result<NodeId, ArenaError> {
+    pub(crate) fn next_id(&self) -> NodeId {
         if let Some(index) = self.free.last().copied() {
             let slot = self.slot_index(index as usize).unwrap();
-            Ok(NodeId {
+            NodeId {
                 index,
                 generation: slot.generation,
-            })
+            }
         } else {
-            Ok(NodeId {
-                index: u32::try_from(self.slots).map_err(|_| ArenaError::CapacityExceeded)?,
+            NodeId {
+                index: u32::try_from(self.slots).unwrap(),
                 generation: 0,
-            })
+            }
         }
     }
 
@@ -167,10 +166,10 @@ mod tests {
     #[test]
     fn reused_slot_rejects_old_generation() {
         let mut arena = Arena::new();
-        let first = arena.insert("first").unwrap();
+        let first = arena.insert("first");
         assert_eq!(arena.remove(first), Ok("first"));
 
-        let second = arena.insert("second").unwrap();
+        let second = arena.insert("second");
 
         assert_eq!(first.index, second.index);
         assert_ne!(first.generation, second.generation);
@@ -183,13 +182,13 @@ mod tests {
     fn next_id_predicts_new_and_reused_slots() {
         let mut arena = Arena::new();
 
-        let predicted = arena.next_id().unwrap();
-        let first = arena.insert("first").unwrap();
+        let predicted = arena.next_id();
+        let first = arena.insert("first");
         assert_eq!(predicted, first);
 
         assert_eq!(arena.remove(first), Ok("first"));
-        let predicted = arena.next_id().unwrap();
-        let second = arena.insert("second").unwrap();
+        let predicted = arena.next_id();
+        let second = arena.insert("second");
         assert_eq!(predicted, second);
     }
 
@@ -197,7 +196,7 @@ mod tests {
     fn cloned_chunks_isolate_mutation_and_reuse() {
         let mut original = Arena::new();
         let ids = (0..(CHUNK_CAPACITY + 1))
-            .map(|value| original.insert(value).unwrap())
+            .map(|value| original.insert(value))
             .collect::<Vec<_>>();
         let mut candidate = original.clone();
 
@@ -206,7 +205,7 @@ mod tests {
         assert_eq!(candidate.get(ids[CHUNK_CAPACITY]), Ok(&usize::MAX));
 
         assert_eq!(candidate.remove(ids[0]), Ok(0));
-        let replacement = candidate.insert(42).unwrap();
+        let replacement = candidate.insert(42);
         assert_eq!(replacement.index, ids[0].index);
         assert_ne!(replacement.generation, ids[0].generation);
         assert_eq!(original.get(ids[0]), Ok(&0));

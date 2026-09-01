@@ -70,7 +70,7 @@ fn retires_children_before_parent() {
     struct Component;
 
     let mut scopes = ScopeArena::new();
-    let scope = scopes.reserve(Component).unwrap();
+    let scope = scopes.reserve(Component);
     let mut tree = Tree::new();
     let root = tree.insert(None, NodeKind::Application).unwrap();
     let window = tree.insert(Some(root), NodeKind::Window).unwrap();
@@ -114,7 +114,7 @@ fn candidate_tree_clones_component_identity_without_component_state() {
     }
 
     let mut scopes = ScopeArena::new();
-    let scope = scopes.reserve(State { value: 1 }).unwrap();
+    let scope = scopes.reserve(State { value: 1 });
     scopes.publish(scope).unwrap();
     let mut tree = Tree::new();
     let root = tree.insert(None, NodeKind::Application).unwrap();
@@ -241,7 +241,7 @@ fn set_kind_preserves_kind_specific_state() {
     struct Component;
 
     let mut scopes = ScopeArena::new();
-    let scope = scopes.reserve(Component).unwrap();
+    let scope = scopes.reserve(Component);
     let mut tree = Tree::new();
     let root = tree.insert(None, NodeKind::Application).unwrap();
     let component = tree

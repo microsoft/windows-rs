@@ -155,12 +155,10 @@ fn panicking_view_preserves_effect_cleanup_state() {
     let cleanup_count = Rc::new(Cell::new(0));
     let panic = Rc::new(Cell::new(false));
     let mut store = store();
-    let token = store
-        .reserve_component::<PanickingEffect>(PanickingEffectInput {
-            cleanup_count: Rc::clone(&cleanup_count),
-            panic: Rc::clone(&panic),
-        })
-        .unwrap();
+    let token = store.reserve_component::<PanickingEffect>(PanickingEffectInput {
+        cleanup_count: Rc::clone(&cleanup_count),
+        panic: Rc::clone(&panic),
+    });
     store.view(token, ContextSnapshot::default()).unwrap();
     store.commit_effects(token).unwrap();
 
@@ -213,7 +211,7 @@ fn store() -> ComponentStore {
 }
 
 fn reserve_state(store: &mut ComponentStore, input: &str) -> ComponentToken {
-    store.reserve_component::<State>(input.to_string()).unwrap()
+    store.reserve_component::<State>(input.to_string())
 }
 
 #[test]
@@ -258,9 +256,7 @@ impl Component for DirectProps {
 #[test]
 fn view_receives_current_store_owned_input() {
     let mut store = store();
-    let token = store
-        .reserve_component::<DirectProps>("first".to_string())
-        .unwrap();
+    let token = store.reserve_component::<DirectProps>("first".to_string());
     store.publish(token).unwrap();
 
     assert_eq!(
@@ -358,7 +354,7 @@ impl Component for RepeatedState {
 #[test]
 fn unit_message_callback_clones_for_every_delivery() {
     let mut store = store();
-    let token = store.reserve_component::<RepeatedState>(()).unwrap();
+    let token = store.reserve_component::<RepeatedState>(());
     store.publish(token).unwrap();
     let clones = Rc::new(Cell::new(0));
     let callback = store
@@ -426,12 +422,10 @@ impl Component for CloneTrackedComponent {
 fn component_factory_clones_input_only_when_it_changes() {
     let clones = Rc::new(Cell::new(0));
     let mut store = store();
-    let token = store
-        .reserve_component::<CloneTrackedComponent>(CloneTrackedInput {
-            clones: Rc::clone(&clones),
-            value: 1,
-        })
-        .unwrap();
+    let token = store.reserve_component::<CloneTrackedComponent>(CloneTrackedInput {
+        clones: Rc::clone(&clones),
+        value: 1,
+    });
     store.publish(token).unwrap();
 
     let unchanged = ComponentView::new::<CloneTrackedComponent>(CloneTrackedInput {
@@ -763,7 +757,7 @@ fn component_factory_creates_with_a_reserved_sender_and_composes() {
     assert_ne!(first, different);
 
     let mut store = store();
-    let token = first.reserve(&mut store).unwrap();
+    let token = first.reserve(&mut store);
     assert_eq!(store.pending(), 1);
     assert!(store.drain(10).unwrap().blocked);
     store.publish(token).unwrap();

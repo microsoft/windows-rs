@@ -965,7 +965,7 @@ trait ErasedComponentFactory {
     fn as_any(&self) -> &dyn Any;
     fn component_type(&self) -> TypeId;
     fn equals(&self, other: &dyn ErasedComponentFactory) -> bool;
-    fn reserve(&self, store: &mut ComponentStore) -> Result<ComponentToken, ComponentStoreError>;
+    fn reserve(&self, store: &mut ComponentStore) -> ComponentToken;
     fn type_name(&self) -> &'static str;
 }
 
@@ -998,7 +998,7 @@ impl<C: Component> ErasedComponentFactory for TypedComponentFactory<C> {
                 .is_some_and(|other| self.input == other.input)
     }
 
-    fn reserve(&self, store: &mut ComponentStore) -> Result<ComponentToken, ComponentStoreError> {
+    fn reserve(&self, store: &mut ComponentStore) -> ComponentToken {
         store.reserve_component::<C>(self.input.clone())
     }
 
@@ -1031,10 +1031,7 @@ impl ComponentView {
         self.factory.apply_input(store, token)
     }
 
-    pub(crate) fn reserve(
-        &self,
-        store: &mut ComponentStore,
-    ) -> Result<ComponentToken, ComponentStoreError> {
+    pub(crate) fn reserve(&self, store: &mut ComponentStore) -> ComponentToken {
         self.factory.reserve(store)
     }
 }
@@ -1484,10 +1481,7 @@ impl ComponentStore {
         }
     }
 
-    pub fn reserve_component<C: Component>(
-        &mut self,
-        input: C::Input,
-    ) -> Result<ComponentToken, ComponentStoreError> {
+    pub fn reserve_component<C: Component>(&mut self, input: C::Input) -> ComponentToken {
         fn input_changed<C: Component>(
             component: &mut C,
             input: &C::Input,
@@ -1617,11 +1611,11 @@ impl ComponentStore {
                 view: view::<C>,
                 window: window_endpoint,
             }) as Box<dyn ErasedScope>
-        })?;
-        Ok(ComponentToken {
+        });
+        ComponentToken {
             window: self.window,
             scope,
-        })
+        }
     }
 
     pub fn publish(&mut self, token: ComponentToken) -> Result<(), ComponentStoreError> {
