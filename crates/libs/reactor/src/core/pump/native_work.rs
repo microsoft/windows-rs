@@ -348,7 +348,7 @@ impl<R: NativeRuntime> Pump<R> {
             let property_observation = observation.is_some();
             if let Some((property, value)) = observation {
                 self.tree
-                    .native_mut(event.node)?
+                    .native_mut(event.node)
                     .properties
                     .insert(property, Some(value));
             }
@@ -361,7 +361,7 @@ impl<R: NativeRuntime> Pump<R> {
                 while let Some(parent) = self.tree.parent(current)? {
                     current = parent;
                     if self.tree.kind(current)? == NodeKind::Component {
-                        let token = self.components.token(self.tree.component_scope(current)?);
+                        let token = self.components.token(self.tree.component_scope(current));
                         self.dirty_components.insert(token);
                         break;
                     }
@@ -370,7 +370,7 @@ impl<R: NativeRuntime> Pump<R> {
             if event.invokes_callback() {
                 match self
                     .tree
-                    .native(event.node)?
+                    .native(event.node)
                     .desired
                     .dispatch_event(event.event, &event.payload)
                 {
@@ -418,7 +418,7 @@ impl<R: NativeRuntime> Pump<R> {
         for item in items {
             let mut declared = false;
             self.tree
-                .native(item)?
+                .native(item)
                 .desired
                 .visit_properties(&mut |property, value| {
                     if property == selection.selected_property {
@@ -432,7 +432,7 @@ impl<R: NativeRuntime> Pump<R> {
             let value = Some(PropertyValue::Bool(selected));
             let item_changed = self
                 .tree
-                .native_mut(item)?
+                .native_mut(item)
                 .properties
                 .insert(selection.selected_property, value.clone())
                 != Some(value);
@@ -442,7 +442,7 @@ impl<R: NativeRuntime> Pump<R> {
                 while let Some(parent) = self.tree.parent(current)? {
                     current = parent;
                     if self.tree.kind(current)? == NodeKind::Component {
-                        let token = self.components.token(self.tree.component_scope(current)?);
+                        let token = self.components.token(self.tree.component_scope(current));
                         self.dirty_components.insert(token);
                         break;
                     }

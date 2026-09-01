@@ -738,22 +738,22 @@ impl Tree {
         Ok(snapshot)
     }
 
-    pub fn component_scope(&self, id: NodeId) -> Result<ScopeId, TreeError> {
+    pub fn component_scope(&self, id: NodeId) -> ScopeId {
         match &self.node(id).data {
-            NodeData::Component(component) => Ok(component.scope),
+            NodeData::Component(component) => component.scope,
             _ => panic!("node is not a component"),
         }
     }
 
-    pub fn component_type(&self, id: NodeId) -> Result<TypeId, TreeError> {
+    pub fn component_type(&self, id: NodeId) -> TypeId {
         match &self.node(id).data {
-            NodeData::Component(component) => Ok(component.component_type),
+            NodeData::Component(component) => component.component_type,
             _ => panic!("node is not a component"),
         }
     }
 
-    pub fn component_node(&self, scope: ScopeId) -> Result<Option<NodeId>, TreeError> {
-        Ok(self.components.get(&scope).copied())
+    pub fn component_node(&self, scope: ScopeId) -> Option<NodeId> {
+        self.components.get(&scope).copied()
     }
 
     pub(crate) fn try_kind(&self, id: NodeId) -> Option<NodeKind> {
@@ -776,18 +776,18 @@ impl Tree {
         }
     }
 
-    pub fn native(&self, id: NodeId) -> Result<&NativeState, TreeError> {
+    pub fn native(&self, id: NodeId) -> &NativeState {
         match &self.node(id).data {
-            NodeData::Native(native) => Ok(&native.state),
-            NodeData::Virtual(VirtualData::Items { native, .. }) => Ok(native),
+            NodeData::Native(native) => &native.state,
+            NodeData::Virtual(VirtualData::Items { native, .. }) => native,
             _ => panic!("node is not native"),
         }
     }
 
-    pub fn native_mut(&mut self, id: NodeId) -> Result<&mut NativeState, TreeError> {
+    pub fn native_mut(&mut self, id: NodeId) -> &mut NativeState {
         match &mut self.node_mut(id).data {
-            NodeData::Native(native) => Ok(&mut native.state),
-            NodeData::Virtual(VirtualData::Items { native, .. }) => Ok(native),
+            NodeData::Native(native) => &mut native.state,
+            NodeData::Virtual(VirtualData::Items { native, .. }) => native,
             _ => panic!("node is not native"),
         }
     }
@@ -801,7 +801,7 @@ impl Tree {
         id: NodeId,
         transition: Option<ExitTransition>,
     ) -> Result<(), TreeError> {
-        self.native(id)?;
+        self.native(id);
         let transitions = Rc::make_mut(&mut self.exit_transitions);
         match transition {
             Some(transition) => {
@@ -1088,7 +1088,7 @@ impl Tree {
         title_bar: NodeId,
         height: Option<WindowTitleBarHeight>,
     ) -> Result<(), TreeError> {
-        self.native(title_bar)?;
+        self.native(title_bar);
         let title_bars = Rc::make_mut(&mut self.window_title_bars);
         if let Some(height) = height {
             title_bars.insert(title_bar, height);
@@ -1227,19 +1227,13 @@ impl Tree {
         Ok(self.node(id).key.as_ref())
     }
 
-    pub fn set_children(&mut self, id: NodeId, children: Vec<NodeId>) -> Result<(), TreeError> {
+    pub fn set_children(&mut self, id: NodeId, children: Vec<NodeId>) {
         if self.node(id).children != children {
             self.node_mut(id).children = children;
         }
-        Ok(())
     }
 
-    pub fn reparent(
-        &mut self,
-        id: NodeId,
-        parent: NodeId,
-        key: Option<Key>,
-    ) -> Result<(), TreeError> {
+    pub fn reparent(&mut self, id: NodeId, parent: NodeId, key: Option<Key>) {
         self.node(parent);
         let previous = self.node(id).parent;
         if let Some(previous) = previous {
@@ -1253,7 +1247,6 @@ impl Tree {
         node.parent = Some(parent);
         node.key = key;
         self.node_mut(parent).children.push(id);
-        Ok(())
     }
 
     #[cfg(test)]
@@ -1271,9 +1264,9 @@ impl Tree {
         Ok(depth)
     }
 
-    pub fn retire_subtree(&mut self, id: NodeId) -> Result<Vec<(NodeId, NodeKind)>, TreeError> {
+    pub fn retire_subtree(&mut self, id: NodeId) -> Vec<(NodeId, NodeKind)> {
         let mut order = Vec::new();
-        self.collect_postorder(id, &mut order)?;
+        self.collect_postorder(id, &mut order);
 
         let parent = self.node(id).parent;
         if let Some(parent) = parent {
@@ -1305,21 +1298,20 @@ impl Tree {
             }
             retired.push((id, kind));
         }
-        Ok(retired)
+        retired
     }
 
-    pub fn subtree_postorder(&self, id: NodeId) -> Result<Vec<NodeId>, TreeError> {
+    pub fn subtree_postorder(&self, id: NodeId) -> Vec<NodeId> {
         let mut order = Vec::new();
-        self.collect_postorder(id, &mut order)?;
-        Ok(order)
+        self.collect_postorder(id, &mut order);
+        order
     }
 
-    fn collect_postorder(&self, id: NodeId, order: &mut Vec<NodeId>) -> Result<(), TreeError> {
+    fn collect_postorder(&self, id: NodeId, order: &mut Vec<NodeId>) {
         for child in self.node(id).children.iter().copied() {
-            self.collect_postorder(child, order)?;
+            self.collect_postorder(child, order);
         }
         order.push(id);
-        Ok(())
     }
 }
 

@@ -15,7 +15,7 @@ impl<R: NativeRuntime> Pump<R> {
         let mut ordered = cleanup
             .into_iter()
             .map(|token| {
-                let node = self.tree.component_node(token.scope()).unwrap().unwrap();
+                let node = self.tree.component_node(token.scope()).unwrap();
                 (Reverse(self.tree.depth(node).unwrap()), node, token)
             })
             .collect::<Vec<_>>();
@@ -41,7 +41,7 @@ impl<R: NativeRuntime> Pump<R> {
         let mut ordered = setup
             .into_iter()
             .map(|token| {
-                let node = self.tree.component_node(token.scope()).unwrap().unwrap();
+                let node = self.tree.component_node(token.scope()).unwrap();
                 (self.tree.depth(node).unwrap(), node, token)
             })
             .collect::<Vec<_>>();

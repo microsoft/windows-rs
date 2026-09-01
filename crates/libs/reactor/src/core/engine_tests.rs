@@ -83,7 +83,7 @@ fn retires_children_before_parent() {
     assert_eq!(tree.parent(native), Ok(Some(slot)));
     assert_eq!(tree.children(root), Ok(&[window][..]));
 
-    let retired = tree.retire_subtree(window).unwrap();
+    let retired = tree.retire_subtree(window);
 
     assert_eq!(
         retired,
@@ -123,12 +123,9 @@ fn candidate_tree_clones_component_identity_without_component_state() {
     let candidate = tree.clone();
     scopes.get_mut(scope).unwrap().value = 2;
 
-    assert_eq!(tree.component_scope(component), Ok(scope));
-    assert_eq!(candidate.component_scope(component), Ok(scope));
-    assert_eq!(
-        candidate.component_type(component),
-        Ok(TypeId::of::<State>())
-    );
+    assert_eq!(tree.component_scope(component), scope);
+    assert_eq!(candidate.component_scope(component), scope);
+    assert_eq!(candidate.component_type(component), TypeId::of::<State>());
     assert_eq!(scopes.get(scope).unwrap().value, 2);
 }
 
@@ -238,8 +235,8 @@ fn set_kind_preserves_kind_specific_state() {
         }))
         .is_err()
     );
-    assert_eq!(tree.component_node(scope), Ok(Some(component)));
-    assert_eq!(tree.component_scope(component), Ok(scope));
+    assert_eq!(tree.component_node(scope), Some(component));
+    assert_eq!(tree.component_scope(component), scope);
 }
 
 #[test]
@@ -257,7 +254,7 @@ fn virtual_model_uses_its_arena_identity_for_leases() {
         .unwrap();
 
     assert_eq!(lease.collection, collection);
-    tree.retire_subtree(collection).unwrap();
+    tree.retire_subtree(collection);
     assert!(
         std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
             tree.virtual_model(collection)
@@ -345,7 +342,7 @@ fn randomized_insert_and_retire_matches_tree_model() {
             assert_eq!(parents.insert(id, Some(parent)), None);
         } else {
             let victim = live[1 + rng.next() % (live.len() - 1)];
-            let retired = tree.retire_subtree(victim).unwrap();
+            let retired = tree.retire_subtree(victim);
             let retired_ids: HashSet<_> = retired.iter().map(|(id, _)| *id).collect();
             assert_eq!(retired.len(), retired_ids.len());
 

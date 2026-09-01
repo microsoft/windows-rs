@@ -111,7 +111,7 @@ impl<R: NativeRuntime> Pump<R> {
                 exit_transition,
                 reference,
             } => {
-                let native = self.tree.native_mut(node).unwrap();
+                let native = self.tree.native_mut(node);
                 native.desired = desired;
                 native.reference = reference;
                 self.tree

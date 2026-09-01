@@ -66,7 +66,6 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
     assert_eq!(
         pump.tree
             .native(items[0])
-            .unwrap()
             .properties
             .get(&PropertyId::NavigationViewItemIsSelected),
         Some(&Some(PropertyValue::Bool(false)))
@@ -74,7 +73,6 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
     assert_eq!(
         pump.tree
             .native(items[1])
-            .unwrap()
             .properties
             .get(&PropertyId::NavigationViewItemIsSelected),
         Some(&Some(PropertyValue::Bool(true)))
@@ -108,7 +106,6 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
     assert!(items.iter().all(|item| {
         pump.tree
             .native(*item)
-            .unwrap()
             .properties
             .get(&PropertyId::NavigationViewItemIsSelected)
             == Some(&Some(PropertyValue::Bool(false)))
@@ -147,7 +144,6 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
         passive
             .tree
             .native(item)
-            .unwrap()
             .properties
             .get(&PropertyId::NavigationViewItemIsSelected),
         Some(&Some(PropertyValue::Bool(true)))
@@ -186,7 +182,6 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
         !uncontrolled
             .tree
             .native(item)
-            .unwrap()
             .properties
             .contains_key(&PropertyId::NavigationViewItemIsSelected)
     );
@@ -250,7 +245,6 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
         nested
             .tree
             .native(items[0])
-            .unwrap()
             .properties
             .get(&PropertyId::NavigationViewItemIsSelected),
         Some(&Some(PropertyValue::Bool(true)))
@@ -259,7 +253,6 @@ fn navigation_selection_observes_item_state_and_preserves_missing_tags() {
         nested
             .tree
             .native(items[1])
-            .unwrap()
             .properties
             .get(&PropertyId::NavigationViewItemIsSelected),
         Some(&Some(PropertyValue::Bool(false)))
@@ -380,7 +373,6 @@ fn observed_dependency_property_feedback_updates_known_state() {
     assert_eq!(
         pump.tree
             .native(root)
-            .unwrap()
             .properties
             .get(&PropertyId::NavigationViewIsPaneOpen),
         Some(&Some(PropertyValue::Bool(false)))
@@ -557,9 +549,7 @@ fn full_message_queue_defers_native_event_until_capacity_is_available() {
         .unwrap();
     let component = pump.root().unwrap();
     let root = Pump::<RecordingRuntime>::native_root(&pump.tree, component).unwrap();
-    let token = pump
-        .components
-        .token(pump.tree.component_scope(component).unwrap());
+    let token = pump.components.token(pump.tree.component_scope(component));
     let sender = pump.components.sender::<()>(token);
     for _ in 0..component::LOCAL_MESSAGE_QUEUE_CAPACITY {
         assert!(sender.send(()));
@@ -749,7 +739,6 @@ fn rejected_controlled_edit_restores_the_desired_value() {
     assert_eq!(
         pump.tree
             .native(root)
-            .unwrap()
             .properties
             .get(&PropertyId::TextBoxText),
         Some(&Some(PropertyValue::Str("native".into())))
@@ -936,7 +925,6 @@ fn normalized_feedback_updates_known_state_without_invoking_the_callback() {
     assert_eq!(
         pump.tree
             .native(root)
-            .unwrap()
             .properties
             .get(&PropertyId::NumberBoxValue),
         Some(&Some(PropertyValue::OptionalF64(Some(40.0))))
@@ -1495,7 +1483,6 @@ fn toggle_switch_routes_bool_feedback_and_restores_desired_state() {
     assert_eq!(
         pump.tree
             .native(root)
-            .unwrap()
             .properties
             .get(&PropertyId::ToggleSwitchIsOn),
         Some(&Some(PropertyValue::Bool(true)))
@@ -1775,7 +1762,6 @@ fn color_picker_routes_controlled_argb_feedback() {
     assert_eq!(
         pump.tree
             .native(root)
-            .unwrap()
             .properties
             .get(&PropertyId::ColorPickerColor),
         Some(&Some(PropertyValue::Color(changed)))

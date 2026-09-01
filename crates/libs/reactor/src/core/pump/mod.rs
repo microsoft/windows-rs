@@ -410,9 +410,9 @@ impl<R: NativeRuntime> Pump<R> {
         let Some(root) = self.root else {
             return Ok(());
         };
-        for node in self.tree.subtree_postorder(root)? {
+        for node in self.tree.subtree_postorder(root) {
             if self.tree.kind(node)? == NodeKind::Component {
-                let scope = self.tree.component_scope(node)?;
+                let scope = self.tree.component_scope(node);
                 let token = self.components.token(scope);
                 self.components.cleanup_effects(token);
             }
@@ -472,7 +472,6 @@ impl<R: NativeRuntime> Pump<R> {
     fn commit_tree_properties(tree: &mut Tree, commits: &[PropertyCommit]) {
         for commit in commits {
             tree.native_mut(commit.node)
-                .unwrap()
                 .properties
                 .insert(commit.property, commit.value.clone());
         }
@@ -494,7 +493,7 @@ impl<R: NativeRuntime> Pump<R> {
         match candidate {
             CandidateState::Tree { tree, .. } => Self::commit_tree_properties(tree, commits),
             CandidateState::Native { node, .. } => {
-                let native = self.tree.native_mut(*node).unwrap();
+                let native = self.tree.native_mut(*node);
                 for commit in commits {
                     assert_eq!(commit.node, *node);
                     native
@@ -546,7 +545,7 @@ impl<R: NativeRuntime> Pump<R> {
             return Ok(());
         }
         let mut references = HashSet::new();
-        for node in tree.subtree_postorder(root)? {
+        for node in tree.subtree_postorder(root) {
             let Some(native) = tree.try_native(node) else {
                 continue;
             };
@@ -596,7 +595,7 @@ impl<R: NativeRuntime> Pump<R> {
                 let Some(root) = self.root else {
                     return Ok(());
                 };
-                for current in self.tree.subtree_postorder(root)? {
+                for current in self.tree.subtree_postorder(root) {
                     if current != *node
                         && self
                             .tree
@@ -616,13 +615,11 @@ impl<R: NativeRuntime> Pump<R> {
         let Some(root) = self.root else {
             return;
         };
-        if let Ok(nodes) = self.tree.subtree_postorder(root) {
-            for node in nodes {
-                if let Some(native) = self.tree.try_native(node)
-                    && let Some(reference) = &native.reference
-                {
-                    reference.unbind(self.identity, node);
-                }
+        for node in self.tree.subtree_postorder(root) {
+            if let Some(native) = self.tree.try_native(node)
+                && let Some(reference) = &native.reference
+            {
+                reference.unbind(self.identity, node);
             }
         }
     }

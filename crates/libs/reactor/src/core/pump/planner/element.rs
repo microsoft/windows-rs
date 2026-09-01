@@ -174,20 +174,20 @@ impl<R: NativeRuntime> Pump<R> {
         };
         debug_assert_eq!(kind, parts.kind);
 
-        let props_changed = tree.native(node)?.desired != parts.props;
+        let props_changed = tree.native(node).desired != parts.props;
         let desired_reference = parts.reference.clone();
         Self::plan_native_properties(
-            tree.native(node)?,
+            tree.native(node),
             node,
             &parts.props,
             parts.element_state.as_deref(),
             plan,
         );
         if props_changed {
-            Self::update_event_states(tree.native_mut(node)?, node, &parts.props, plan)?;
-            tree.native_mut(node)?.desired = parts.props;
+            Self::update_event_states(tree.native_mut(node), node, &parts.props, plan)?;
+            tree.native_mut(node).desired = parts.props;
         }
-        Self::plan_reference(tree.native(node)?, node, desired_reference, plan);
+        Self::plan_reference(tree.native(node), node, desired_reference, plan);
         tree.set_window_title_bar(node, parts.window_title_bar)?;
 
         let current_children = tree.children(node)?.to_vec();
@@ -248,7 +248,7 @@ impl<R: NativeRuntime> Pump<R> {
                         for (index, replacement) in replacements {
                             children[index] = replacement;
                         }
-                        tree.set_children(node, children)?;
+                        tree.set_children(node, children);
                     }
                     return Ok(node);
                 }
@@ -314,7 +314,7 @@ impl<R: NativeRuntime> Pump<R> {
                             .ok_or(PumpError::StructureUnsupported)
                     })
                     .collect::<Result<Vec<_>, _>>()?;
-                tree.set_children(node, order)?;
+                tree.set_children(node, order);
                 let new_native = Self::native_children(tree, node)?;
                 if super::is_dense_keyed_update(&operations) && old_native != new_native {
                     plan.synchronize_children(node, None, new_native);
@@ -344,7 +344,7 @@ impl<R: NativeRuntime> Pump<R> {
             return Ok(false);
         }
         if let NodeKind::Native(_) = kind
-            && tree.native(node)?.reference.as_ref() != element.reference()
+            && tree.native(node).reference.as_ref() != element.reference()
         {
             return Ok(false);
         }
@@ -359,10 +359,10 @@ impl<R: NativeRuntime> Pump<R> {
             };
             return Ok(tree.virtual_items(node)? == items);
         }
-        if !element.props_match(&tree.native(node)?.desired) {
+        if !element.props_match(&tree.native(node).desired) {
             return Ok(false);
         }
-        let native = tree.native(node)?;
+        let native = tree.native(node);
         if tree.exit_transition(node)
             != element
                 .element_state()
@@ -434,7 +434,7 @@ impl<R: NativeRuntime> Pump<R> {
             .ok_or(PumpError::StructureUnsupported)?;
         children.remove(appended);
         children.insert(index, replacement);
-        tree.set_children(parent, children)?;
+        tree.set_children(parent, children);
         if let Some((container, source_index)) = realized {
             tree.set_realized(parent, container, source_index, replacement, None)?;
             Self::refresh_virtual_row_attachment(tree, parent, container, plan)?;
@@ -503,7 +503,7 @@ impl<R: NativeRuntime> Pump<R> {
         if tree.kind(node)? != NodeKind::Native(parts.kind) {
             return Err(PumpError::StructureUnsupported);
         }
-        let native = tree.native(node)?;
+        let native = tree.native(node);
         let exit_transition = parts
             .element_state
             .as_deref()
@@ -520,7 +520,7 @@ impl<R: NativeRuntime> Pump<R> {
         tree.set_exit_transition(node, exit_transition)?;
         tree.set_window_title_bar(node, parts.window_title_bar)?;
         Self::reconcile_native_state(
-            tree.native_mut(node)?,
+            tree.native_mut(node),
             node,
             parts.props,
             parts.reference,
@@ -596,7 +596,7 @@ impl<R: NativeRuntime> Pump<R> {
         if !style.is_empty() {
             plan.push(Command::SetThemeStyle { node, style });
         }
-        for (event, state) in &tree.native(node)?.events {
+        for (event, state) in &tree.native(node).events {
             if state.active {
                 plan.push(Command::SubscribeEvent {
                     node,
@@ -617,7 +617,7 @@ impl<R: NativeRuntime> Pump<R> {
         window_title_bar: Option<WindowTitleBarHeight>,
         plan: &mut UpdatePlan,
     ) -> Result<(), PumpError> {
-        let native = tree.native(node)?;
+        let native = tree.native(node);
         let exit_transition = element_state
             .as_deref()
             .and_then(ElementState::exit_transition);
@@ -633,7 +633,7 @@ impl<R: NativeRuntime> Pump<R> {
         tree.set_exit_transition(node, exit_transition)?;
         tree.set_window_title_bar(node, window_title_bar)?;
         Self::reconcile_native_state(
-            tree.native_mut(node)?,
+            tree.native_mut(node),
             node,
             props,
             reference,

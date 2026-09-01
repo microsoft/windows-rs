@@ -790,7 +790,7 @@ fn failed_native_apply_does_not_publish_changed_context_dependency() {
     pump.mount_view(View::component::<Consumer>(input(&first)))
         .unwrap();
     let root = pump.root().unwrap();
-    let scope = pump.tree.component_scope(root).unwrap();
+    let scope = pump.tree.component_scope(root);
     let token = pump.components.token(scope);
     pump.runtime_mut().fail_at(0);
 

@@ -95,7 +95,7 @@ fn positional_component_children_retain_scopes_by_position() {
     let children = pump.tree.children(root).unwrap().to_vec();
     let scopes = children
         .iter()
-        .map(|child| pump.tree.component_scope(*child).unwrap())
+        .map(|child| pump.tree.component_scope(*child))
         .collect::<Vec<_>>();
 
     pump.update_view(view("first", "second")).unwrap();
@@ -104,7 +104,7 @@ fn positional_component_children_retain_scopes_by_position() {
     assert_eq!(
         children
             .iter()
-            .map(|child| pump.tree.component_scope(*child).unwrap())
+            .map(|child| pump.tree.component_scope(*child))
             .collect::<Vec<_>>(),
         scopes
     );
@@ -123,7 +123,7 @@ fn positional_front_insertion_reuses_existing_positions() {
     let original = pump.tree.children(root).unwrap().to_vec();
     let scopes = original
         .iter()
-        .map(|child| pump.tree.component_scope(*child).unwrap())
+        .map(|child| pump.tree.component_scope(*child))
         .collect::<Vec<_>>();
 
     pump.update_view(StackPanel::new().children((
@@ -135,9 +135,9 @@ fn positional_front_insertion_reuses_existing_positions() {
 
     let updated = pump.tree.children(root).unwrap();
     assert_eq!(&updated[..2], original.as_slice());
-    assert_eq!(pump.tree.component_scope(updated[0]), Ok(scopes[0]));
-    assert_eq!(pump.tree.component_scope(updated[1]), Ok(scopes[1]));
-    assert_ne!(pump.tree.component_scope(updated[2]), Ok(scopes[1]));
+    assert_eq!(pump.tree.component_scope(updated[0]), scopes[0]);
+    assert_eq!(pump.tree.component_scope(updated[1]), scopes[1]);
+    assert_ne!(pump.tree.component_scope(updated[2]), scopes[1]);
     assert_eq!(recorded_text(pump.runtime(), root), ["x", "a", "b"]);
 }
 
@@ -156,7 +156,7 @@ fn explicit_keys_retain_component_identity_across_reorder() {
     let original = pump.tree.children(root).unwrap().to_vec();
     let scopes = original
         .iter()
-        .map(|child| pump.tree.component_scope(*child).unwrap())
+        .map(|child| pump.tree.component_scope(*child))
         .collect::<Vec<_>>();
 
     pump.update_view(view(&["b", "a"])).unwrap();
@@ -165,8 +165,8 @@ fn explicit_keys_retain_component_identity_across_reorder() {
         pump.tree.children(root),
         Ok(&[original[1], original[0]][..])
     );
-    assert_eq!(pump.tree.component_scope(original[0]), Ok(scopes[0]));
-    assert_eq!(pump.tree.component_scope(original[1]), Ok(scopes[1]));
+    assert_eq!(pump.tree.component_scope(original[0]), scopes[0]);
+    assert_eq!(pump.tree.component_scope(original[1]), scopes[1]);
     assert_eq!(recorded_text(pump.runtime(), root), ["b", "a"]);
 }
 
@@ -202,14 +202,14 @@ fn fragment_splices_into_children_and_retains_keyed_component_scope() {
     let root = pump.root().unwrap();
     let fragment = pump.tree.children(root).unwrap()[1];
     let leaf = pump.tree.children(fragment).unwrap()[0];
-    let scope = pump.tree.component_scope(leaf).unwrap();
+    let scope = pump.tree.component_scope(leaf);
 
     assert_eq!(recorded_text(pump.runtime(), root), ["leaf", "text"]);
     pump.update_view(view(true)).unwrap();
 
     let fragment = pump.tree.children(root).unwrap()[1];
     let leaf = pump.tree.children(fragment).unwrap()[1];
-    assert_eq!(pump.tree.component_scope(leaf), Ok(scope));
+    assert_eq!(pump.tree.component_scope(leaf), scope);
     assert_eq!(recorded_text(pump.runtime(), root), ["text", "leaf"]);
 }
 

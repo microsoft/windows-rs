@@ -142,7 +142,7 @@ impl<R: NativeRuntime> Pump<R> {
             .iter()
             .copied()
             .map(|token| {
-                let depth = if let Some(node) = candidate.component_node(token.scope())? {
+                let depth = if let Some(node) = candidate.component_node(token.scope()) {
                     candidate.depth(node)?
                 } else {
                     usize::MAX
@@ -155,7 +155,7 @@ impl<R: NativeRuntime> Pump<R> {
             if changes.composed.contains(&token) {
                 continue;
             }
-            let Some(node) = candidate.component_node(token.scope())? else {
+            let Some(node) = candidate.component_node(token.scope()) else {
                 if changes.retired.contains(&token) {
                     continue;
                 }
@@ -209,13 +209,13 @@ impl<R: NativeRuntime> Pump<R> {
     }
 
     fn has_dirty_component_ancestor(&self, token: ComponentToken) -> Result<Option<()>, PumpError> {
-        let Some(mut node) = self.tree.component_node(token.scope())? else {
+        let Some(mut node) = self.tree.component_node(token.scope()) else {
             return Ok(None);
         };
         while let Some(parent) = self.tree.parent(node)? {
             node = parent;
             if self.tree.kind(node)? == NodeKind::Component {
-                let ancestor = self.components.token(self.tree.component_scope(node)?);
+                let ancestor = self.components.token(self.tree.component_scope(node));
                 if self.dirty_components.contains(&ancestor) {
                     return Ok(Some(()));
                 }
@@ -228,7 +228,7 @@ impl<R: NativeRuntime> Pump<R> {
         &mut self,
         token: ComponentToken,
     ) -> Result<LocalComponentUpdate, PumpError> {
-        let Some(node) = self.tree.component_node(token.scope())? else {
+        let Some(node) = self.tree.component_node(token.scope()) else {
             return Ok(LocalComponentUpdate::Unavailable);
         };
         let [slot] = self.tree.children(node)? else {
@@ -336,7 +336,7 @@ impl<R: NativeRuntime> Pump<R> {
             ..UpdatePlan::new(self.identity)
         };
         let (desired, exit_transition, reference) = Self::plan_local_native_state(
-            self.tree.native(native)?,
+            self.tree.native(native),
             native,
             element.into_parts(),
             &mut plan,

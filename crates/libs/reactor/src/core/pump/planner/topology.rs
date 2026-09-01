@@ -625,7 +625,7 @@ impl<R: NativeRuntime> Pump<R> {
         root: NodeId,
         plan: &mut UpdatePlan,
     ) -> Result<(), PumpError> {
-        let nodes = tree.subtree_postorder(root)?;
+        let nodes = tree.subtree_postorder(root);
         let node_set = nodes.iter().copied().collect::<HashSet<_>>();
         let mut retained_nodes = HashSet::new();
         let mut retirements = Vec::new();
@@ -657,7 +657,7 @@ impl<R: NativeRuntime> Pump<R> {
                 _ => return Err(PumpError::ExitTransitionUnsupported),
             };
             let retained = tree
-                .subtree_postorder(node)?
+                .subtree_postorder(node)
                 .into_iter()
                 .filter(|descendant| {
                     matches!(
@@ -699,7 +699,7 @@ impl<R: NativeRuntime> Pump<R> {
         for node in nodes.iter().copied() {
             match tree.kind(node)? {
                 NodeKind::Native(_) => {
-                    if let Some(reference) = tree.native(node)?.reference.clone() {
+                    if let Some(reference) = tree.native(node).reference.clone() {
                         plan.reference_commits.push(ReferenceCommit {
                             node,
                             old: Some(reference),
@@ -753,7 +753,7 @@ impl<R: NativeRuntime> Pump<R> {
                             NativeAttachment::ContentDialog => {}
                         }
                     }
-                    for (event, state) in &tree.native(node)?.events {
+                    for (event, state) in &tree.native(node).events {
                         if state.active {
                             plan.push(Command::UnsubscribeEvent {
                                 node,
@@ -820,7 +820,7 @@ impl<R: NativeRuntime> Pump<R> {
                 transition,
             });
         }
-        tree.retire_subtree(root)?;
+        tree.retire_subtree(root);
         Ok(())
     }
 }

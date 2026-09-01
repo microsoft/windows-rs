@@ -292,7 +292,7 @@ fn realization_requests_are_checked_against_arena_and_container_generations() {
         ]
     ));
 
-    pump.tree.retire_subtree(collection).unwrap();
+    pump.tree.retire_subtree(collection);
     pump.runtime_mut()
         .queue_realization(RealizationRequest::Realize {
             collection,
@@ -503,7 +503,7 @@ fn equal_virtual_source_retries_a_dirty_realized_component() {
         .unwrap();
     let token = pump
         .components
-        .token(pump.tree.component_scope(row.logical_root).unwrap());
+        .token(pump.tree.component_scope(row.logical_root));
     pump.planning_dirty.insert(token);
 
     pump.update_view(source()).unwrap();
