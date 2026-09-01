@@ -519,23 +519,6 @@ fn background_queue_capacity_rejects_excess_completion() {
 }
 
 #[test]
-fn panicking_background_work_is_rejected() {
-    let mut store = store();
-    let token = reserve_state(&mut store, "");
-    store.publish(token).unwrap();
-
-    let task = TaskSpawner {
-        limiter: Arc::clone(&store.task_limiter),
-        queue: Arc::clone(&store.background),
-        token,
-    }
-    .spawn_with_rejection::<u32, _>(|_| panic!("injected task panic"), 9);
-    wait_for_status(&task, ComponentTaskStatus::Rejected);
-    assert_eq!(store.drain(1).unwrap().dispatched, 1);
-    assert_eq!(store.component::<State>(token).unwrap().value, 9);
-}
-
-#[test]
 fn dropping_task_handle_does_not_cancel_delivery() {
     let mut store = store();
     let token = reserve_state(&mut store, "");

@@ -61,6 +61,11 @@ Reactor bounds active work and routes completion back to the owning component. `
 mutable `ViewContext<Self>` because rendering records declarations, dependencies, observations, and
 effects. Inputs remain explicit arguments to `create`, `input_changed`, and `view`.
 
+Expected application failures from background work belong in the returned component message,
+usually as `Result<T, E>`. Panics and Windows thread-pool submission failures are fatal. Reactor's
+active-task and completion-queue limits use typed task rejection; cancellation and scope retirement
+do not dispatch rejection messages.
+
 Context snapshots and dependency sets keep zero or one entry inline. Multiple distinct contexts
 fall back to an internal hash set or map. Publishing an unchanged dependency set retains the
 existing set rather than cloning and replacing it for every context-driven render.

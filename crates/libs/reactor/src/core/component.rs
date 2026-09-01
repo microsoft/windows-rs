@@ -613,13 +613,11 @@ impl TaskSpawner {
         let token = self.token;
         let thread_control = Arc::clone(&control);
         let thread_rejection = Arc::clone(&rejection);
-        let submitted = windows_threading::try_submit(move || {
+        windows_threading::submit(move || {
             let _slot = slot;
-            let message = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-                work(CancellationToken {
-                    control: Arc::clone(&thread_control),
-                })
-            }));
+            let message = work(CancellationToken {
+                control: Arc::clone(&thread_control),
+            });
             let wake = {
                 let mut background = queue.lock().unwrap();
                 let registered = background.tasks.get_mut(&token.scope).is_some_and(|tasks| {
@@ -644,16 +642,6 @@ impl TaskSpawner {
                     thread_control.cancel();
                     return;
                 }
-                let Ok(message) = message else {
-                    drop(background);
-                    Self::queue_rejection_shared(
-                        &queue,
-                        &thread_control,
-                        token,
-                        thread_rejection.lock().unwrap().take(),
-                    );
-                    return;
-                };
                 if background.envelopes.len() >= BACKGROUND_MESSAGE_QUEUE_CAPACITY {
                     drop(background);
                     Self::queue_rejection_shared(
@@ -678,20 +666,6 @@ impl TaskSpawner {
             };
             Self::wake_or_reject(&queue, wake);
         });
-        if submitted.is_err() {
-            let mut queue = self.queue.lock().unwrap();
-            if let Some(tasks) = queue.tasks.get_mut(&self.token.scope) {
-                tasks.retain(|task| {
-                    task.upgrade()
-                        .is_some_and(|task| !Arc::ptr_eq(&task, &control))
-                });
-                if tasks.is_empty() {
-                    queue.tasks.remove(&self.token.scope);
-                }
-            }
-            drop(queue);
-            self.queue_rejection(&control, rejection.lock().unwrap().take());
-        }
         task
     }
 
@@ -842,6 +816,10 @@ impl<C: Component> ComponentContext<C> {
         self.sender.clone()
     }
 
+    /// Starts scope-owned work on the Windows thread pool.
+    ///
+    /// Expected application failures should be represented in the returned message. A panic in
+    /// `work` or failure to submit to the Windows thread pool is fatal.
     pub fn spawn_background<F>(&self, work: F) -> ComponentTask
     where
         C::Message: Send,
@@ -850,9 +828,10 @@ impl<C: Component> ComponentContext<C> {
         self.tasks.spawn(work)
     }
 
-    /// Starts scope-owned work and dispatches `rejected` if task infrastructure rejects it.
+    /// Starts scope-owned work and dispatches `rejected` if bounded delivery rejects it.
     ///
-    /// Cancellation and scope retirement do not dispatch `rejected`.
+    /// Cancellation and scope retirement do not dispatch `rejected`. A panic in `work` or failure
+    /// to submit to the Windows thread pool is fatal.
     pub fn spawn_background_with_rejection<F>(&self, work: F, rejected: C::Message) -> ComponentTask
     where
         C::Message: Send,
