@@ -701,6 +701,17 @@ fn virtual_list(key_revision: u64, key_prefix: &str, text_prefix: &str, count: u
         .into()
 }
 
+fn bench_virtual_construction(count: usize, iters: u64, reps: u32) -> Row {
+    let perf = measure(iters, reps, || {
+        black_box(virtual_list(0, "key-", "row-", count));
+    });
+    Row {
+        name: "virtual_construct",
+        n: count,
+        perf,
+    }
+}
+
 fn bench_update(name: &'static str, n: usize, a: View, b: View, iters: u64, reps: u32) -> Row {
     let mut pump = Pump::new(runtime());
     pump.mount_view(a.clone()).unwrap();
@@ -1240,6 +1251,7 @@ fn main() {
             iters,
             reps,
         ),
+        bench_virtual_construction(10_000, (iters / 10).max(1), reps),
         bench_virtual_payload(10_000, 32, (iters / 4).max(1), reps),
         bench_virtual_reset(10_000, 32, (iters / 10).max(1), reps),
         bench_realize_cycle(10_000, 32, (iters / 4).max(1), reps),

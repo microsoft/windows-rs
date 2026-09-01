@@ -3,8 +3,9 @@
 This crate measures the Rust-side `windows-reactor` planner and component frontend with
 `RecordingRuntime`. It does not include WinUI control creation, layout, rendering, or COM calls.
 Dedicated positional array and tuple rows include view construction so frontend allocation changes
-are not hidden by prebuilt planner inputs. Separate component rows measure idle and effect-bearing
-retained memory, effect mount cost, and isolated effect updates.
+are not hidden by prebuilt planner inputs. The virtual construction row likewise measures source
+construction separately from reconciliation. Separate component rows measure idle and
+effect-bearing retained memory, effect mount cost, and isolated effect updates.
 
 Run the benchmark in release mode:
 

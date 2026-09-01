@@ -26,7 +26,7 @@ pub(super) struct UpdatePlan {
 #[derive(Default)]
 pub(super) struct ComponentChanges {
     pub(super) composed: IdSet<ComponentToken>,
-    pub(super) context_reads: IdMap<ComponentToken, IdSet<ContextDependency>>,
+    pub(super) context_reads: IdMap<ComponentToken, ContextDependencies>,
     pub(super) deferred: IdSet<ComponentToken>,
     pub(super) recompose: IdSet<ComponentToken>,
     pub(super) reserved: Vec<ComponentToken>,
@@ -48,7 +48,7 @@ pub(super) enum LocalComponentUpdate {
 }
 
 pub(super) struct LocalCandidate {
-    pub(super) context_reads: IdSet<ContextDependency>,
+    pub(super) context_reads: ContextDependencies,
     pub(super) node: NodeId,
     pub(super) desired: MountedProps,
     pub(super) exit_transition: Option<ExitTransition>,
@@ -89,7 +89,7 @@ pub(super) enum FrontendChanges {
     Element(Element),
     Component(ComponentChanges),
     Local {
-        context_reads: IdSet<ContextDependency>,
+        context_reads: ContextDependencies,
         token: ComponentToken,
     },
 }

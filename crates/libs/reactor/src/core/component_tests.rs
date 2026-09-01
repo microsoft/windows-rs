@@ -9,6 +9,49 @@ fn component_runtime_layouts_remain_compact() {
 }
 
 #[test]
+fn context_dependencies_compare_as_sets_across_inline_and_many_storage() {
+    let first = ContextDependency {
+        id: ContextId(1),
+        provider: Some(NodeId::from_parts(2, 3)),
+    };
+    let second = ContextDependency {
+        id: ContextId(4),
+        provider: None,
+    };
+    let mut left = ContextDependencies::default();
+    left.insert(first);
+    left.insert(second);
+    let mut right = ContextDependencies::default();
+    right.insert(second);
+    right.insert(first);
+
+    assert!(left == right);
+    assert!(left.contains(&first));
+    assert!(left.contains(&second));
+}
+
+#[test]
+fn context_snapshot_keeps_nearest_provider_and_multiple_contexts() {
+    let first = Context::new(0u32);
+    let second = Context::new("default");
+    let nearest = ContextProvision::new(&first, 1);
+    let shadowed = ContextProvision::new(&first, 2);
+    let other = ContextProvision::new(&second, "resolved");
+    let nearest_node = NodeId::from_parts(1, 0);
+    let mut snapshot = ContextSnapshot::default();
+
+    snapshot.insert(nearest_node, &nearest);
+    snapshot.insert(NodeId::from_parts(2, 0), &shadowed);
+    snapshot.insert(NodeId::from_parts(3, 0), &other);
+
+    assert_eq!(snapshot.get(&first), Some((nearest_node, 1)));
+    assert_eq!(
+        snapshot.get(&second).map(|(_, value)| value),
+        Some("resolved")
+    );
+}
+
+#[test]
 fn duplicate_effect_marker_survives_later_registrations() {
     let mut effects = ComponentEffects::default();
     effects.use_effect("duplicate".into(), 1, || None);

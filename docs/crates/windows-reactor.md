@@ -60,6 +60,10 @@ Reactor bounds active work and routes completion back to the owning component. `
 mutable `ViewContext<Self>` because rendering records declarations, dependencies, observations, and
 effects. Inputs remain explicit arguments to `create`, `input_changed`, and `view`.
 
+Context snapshots and dependency sets keep zero or one entry inline. Multiple distinct contexts
+fall back to an internal hash set or map. Publishing an unchanged dependency set retains the
+existing set rather than cloning and replacing it for every context-driven render.
+
 Generated controls convert directly into `View`. The internal `Element` representation and
 structural state remain private so applications depend on builders and capability traits rather
 than generated enum variants or reconciliation storage.

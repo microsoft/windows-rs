@@ -141,19 +141,156 @@ pub(crate) struct ContextDependency {
 }
 
 #[derive(Clone, Default)]
+pub(crate) enum ContextDependencies {
+    #[default]
+    Empty,
+    One(ContextDependency),
+    Many(HashSet<ContextDependency>),
+}
+
+impl ContextDependencies {
+    pub(crate) fn contains(&self, dependency: &ContextDependency) -> bool {
+        match self {
+            Self::Empty => false,
+            Self::One(value) => value == dependency,
+            Self::Many(values) => values.contains(dependency),
+        }
+    }
+
+    fn insert(&mut self, dependency: ContextDependency) {
+        match self {
+            Self::Empty => *self = Self::One(dependency),
+            Self::One(value) if *value == dependency => {}
+            Self::One(value) => {
+                let mut values = HashSet::default();
+                values.insert(*value);
+                values.insert(dependency);
+                *self = Self::Many(values);
+            }
+            Self::Many(values) => {
+                values.insert(dependency);
+            }
+        }
+    }
+
+    fn is_empty(&self) -> bool {
+        matches!(self, Self::Empty)
+    }
+
+    pub(crate) fn iter(&self) -> ContextDependencyIter<'_> {
+        match self {
+            Self::Empty => ContextDependencyIter::Empty,
+            Self::One(value) => ContextDependencyIter::One(Some(value)),
+            Self::Many(values) => ContextDependencyIter::Many(values.iter()),
+        }
+    }
+
+    fn len(&self) -> usize {
+        match self {
+            Self::Empty => 0,
+            Self::One(_) => 1,
+            Self::Many(values) => values.len(),
+        }
+    }
+}
+
+impl PartialEq for ContextDependencies {
+    fn eq(&self, other: &Self) -> bool {
+        self.len() == other.len() && self.iter().all(|value| other.contains(value))
+    }
+}
+
+impl Eq for ContextDependencies {}
+
+pub(crate) enum ContextDependencyIter<'a> {
+    Empty,
+    One(Option<&'a ContextDependency>),
+    Many(std::collections::hash_set::Iter<'a, ContextDependency>),
+}
+
+impl<'a> Iterator for ContextDependencyIter<'a> {
+    type Item = &'a ContextDependency;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        match self {
+            Self::Empty => None,
+            Self::One(value) => value.take(),
+            Self::Many(values) => values.next(),
+        }
+    }
+}
+
+#[derive(Clone, Default)]
+enum ContextValues {
+    #[default]
+    Empty,
+    One {
+        id: ContextId,
+        provider: NodeId,
+        value_type: TypeId,
+        value: Rc<dyn Any>,
+    },
+    Many(HashMap<ContextId, (NodeId, TypeId, Rc<dyn Any>)>),
+}
+
+#[derive(Clone, Default)]
 pub(crate) struct ContextSnapshot {
-    values: HashMap<ContextId, (NodeId, TypeId, Rc<dyn Any>)>,
+    values: ContextValues,
 }
 
 impl ContextSnapshot {
     pub(crate) fn insert(&mut self, provider: NodeId, provision: &ContextProvision) {
-        self.values
-            .entry(provision.id)
-            .or_insert_with(|| (provider, provision.value_type, Rc::clone(&provision.value)));
+        match &mut self.values {
+            ContextValues::Empty => {
+                self.values = ContextValues::One {
+                    id: provision.id,
+                    provider,
+                    value_type: provision.value_type,
+                    value: Rc::clone(&provision.value),
+                };
+            }
+            ContextValues::One { id, .. } if *id == provision.id => {}
+            ContextValues::One { .. } => {
+                let ContextValues::One {
+                    id,
+                    provider: previous_provider,
+                    value_type,
+                    value,
+                } = std::mem::take(&mut self.values)
+                else {
+                    unreachable!()
+                };
+                let mut values = HashMap::default();
+                values.insert(id, (previous_provider, value_type, value));
+                values.insert(
+                    provision.id,
+                    (provider, provision.value_type, Rc::clone(&provision.value)),
+                );
+                self.values = ContextValues::Many(values);
+            }
+            ContextValues::Many(values) => {
+                values.entry(provision.id).or_insert_with(|| {
+                    (provider, provision.value_type, Rc::clone(&provision.value))
+                });
+            }
+        }
     }
 
     fn get<T: Clone + 'static>(&self, context: &Context<T>) -> Option<(NodeId, T)> {
-        let (provider, value_type, value) = self.values.get(&context.id)?;
+        let (provider, value_type, value) = match &self.values {
+            ContextValues::Empty => return None,
+            ContextValues::One {
+                id,
+                provider,
+                value_type,
+                value,
+            } if *id == context.id => (provider, value_type, value),
+            ContextValues::One { .. } => return None,
+            ContextValues::Many(values) => {
+                let (provider, value_type, value) = values.get(&context.id)?;
+                (provider, value_type, value)
+            }
+        };
         assert_eq!(*value_type, TypeId::of::<T>(), "context type mismatch");
         Some((*provider, value.downcast_ref::<T>().unwrap().clone()))
     }
@@ -759,7 +896,7 @@ impl<T> SingleDeclaration<T> {
 pub struct ViewContext<C: Component> {
     contexts: ContextSnapshot,
     effects: ComponentEffects,
-    reads: HashSet<ContextDependency>,
+    reads: ContextDependencies,
     sender: LocalSender<C::Message>,
     color_scheme_observation: SingleDeclaration<Callback<ColorScheme>>,
     window_size_observation: SingleDeclaration<Callback<WindowSize>>,
@@ -955,8 +1092,8 @@ trait ErasedScope {
     fn message_type(&self) -> TypeId;
     fn input_type(&self) -> TypeId;
     fn type_name(&self) -> &'static str;
-    fn context_dependencies(&self) -> Option<&HashSet<ContextDependency>>;
-    fn set_context_dependencies(&mut self, dependencies: HashSet<ContextDependency>);
+    fn context_dependencies(&self) -> Option<&ContextDependencies>;
+    fn set_context_dependencies(&mut self, dependencies: ContextDependencies);
     fn view(&self, contexts: ContextSnapshot) -> Result<ComponentRender, ComponentStoreError>;
     fn cleanup_effects(&self);
     fn commit_effects(&self);
@@ -965,7 +1102,7 @@ trait ErasedScope {
 
 pub(crate) struct ComponentRender {
     pub(crate) color_scheme_observation: Option<Callback<ColorScheme>>,
-    pub(crate) dependencies: HashSet<ContextDependency>,
+    pub(crate) dependencies: ContextDependencies,
     pub(crate) view: View,
     pub(crate) window_size_observation: Option<Callback<WindowSize>>,
     pub(crate) window_title: Option<String>,
@@ -1181,7 +1318,7 @@ impl ComponentEffects {
 
 struct TypedScope<C, I, M> {
     component: C,
-    context_dependencies: Option<Rc<HashSet<ContextDependency>>>,
+    context_dependencies: Option<Rc<ContextDependencies>>,
     effects: RefCell<ComponentEffects>,
     input: I,
     input_changed: fn(&mut C, &I, LocalSender<M>, TaskSpawner, WindowRef),
@@ -1242,11 +1379,11 @@ where
         &self.component
     }
 
-    fn context_dependencies(&self) -> Option<&HashSet<ContextDependency>> {
+    fn context_dependencies(&self) -> Option<&ContextDependencies> {
         self.context_dependencies.as_deref()
     }
 
-    fn set_context_dependencies(&mut self, dependencies: HashSet<ContextDependency>) {
+    fn set_context_dependencies(&mut self, dependencies: ContextDependencies) {
         self.context_dependencies = (!dependencies.is_empty()).then(|| Rc::new(dependencies));
     }
 
@@ -1416,7 +1553,7 @@ impl ComponentStore {
             let mut context = ViewContext {
                 contexts,
                 effects,
-                reads: HashSet::default(),
+                reads: ContextDependencies::default(),
                 sender,
                 color_scheme_observation: SingleDeclaration::default(),
                 window_size_observation: SingleDeclaration::default(),
@@ -1736,7 +1873,7 @@ impl ComponentStore {
     pub(crate) fn context_dependencies(
         &self,
         token: ComponentToken,
-    ) -> Result<Option<&HashSet<ContextDependency>>, ComponentStoreError> {
+    ) -> Result<Option<&ContextDependencies>, ComponentStoreError> {
         self.validate_window(token)?;
         Ok(self.scopes.get(token.scope)?.context_dependencies())
     }
@@ -1744,19 +1881,37 @@ impl ComponentStore {
     pub(crate) fn set_context_dependencies(
         &mut self,
         token: ComponentToken,
-        dependencies: HashSet<ContextDependency>,
+        dependencies: ContextDependencies,
     ) -> Result<(), ComponentStoreError> {
         self.validate_window(token)?;
+        let unchanged = self
+            .scopes
+            .get(token.scope)?
+            .context_dependencies()
+            .map_or_else(
+                || dependencies.is_empty(),
+                |previous| previous == &dependencies,
+            );
+        if unchanged {
+            return Ok(());
+        }
         let previous = self
             .scopes
             .get(token.scope)?
             .context_dependencies()
             .cloned()
             .unwrap_or_default();
-        for dependency in previous.difference(&dependencies) {
+        for dependency in previous
+            .iter()
+            .filter(|dependency| !dependencies.contains(dependency))
+        {
             self.remove_context_consumer(*dependency, token.scope);
         }
-        for dependency in dependencies.difference(&previous).copied() {
+        for dependency in dependencies
+            .iter()
+            .filter(|dependency| !previous.contains(dependency))
+            .copied()
+        {
             self.context_consumers
                 .entry(dependency)
                 .or_default()
@@ -1925,7 +2080,7 @@ impl ComponentStore {
                 window: self.window,
                 scope,
             },
-            HashSet::default(),
+            ContextDependencies::default(),
         )
     }
 
