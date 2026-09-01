@@ -334,12 +334,21 @@ impl Tree {
         }
     }
 
+    // Avoid `unwrap` here: its caller tracking measurably slows these hot-path invariant lookups.
+    #[inline(always)]
     fn node(&self, id: NodeId) -> &Node {
-        self.arena.get(id).unwrap()
+        match self.arena.get(id) {
+            Ok(node) => node,
+            Err(ArenaError::Stale(_)) => panic!("stale node"),
+        }
     }
 
+    #[inline(always)]
     fn node_mut(&mut self, id: NodeId) -> &mut Node {
-        self.arena.get_mut(id).unwrap()
+        match self.arena.get_mut(id) {
+            Ok(node) => node,
+            Err(ArenaError::Stale(_)) => panic!("stale node"),
+        }
     }
 
     pub fn insert(&mut self, parent: Option<NodeId>, kind: NodeKind) -> NodeId {
