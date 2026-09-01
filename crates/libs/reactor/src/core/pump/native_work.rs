@@ -337,9 +337,7 @@ impl<R: NativeRuntime> Pump<R> {
             };
             let selection_observation = match &event.payload {
                 EventPayload::SelectionChange(selected) => match selection_for_event(event.event) {
-                    Some(selection) => {
-                        self.observe_selection(event.node, selection, selected.item)?
-                    }
+                    Some(selection) => self.observe_selection(event.node, selection, selected.item),
                     None => false,
                 },
                 _ => false,
@@ -393,7 +391,7 @@ impl<R: NativeRuntime> Pump<R> {
         owner: NodeId,
         selection: SelectionDescriptor,
         selected_item: Option<NodeId>,
-    ) -> Result<bool, PumpError> {
+    ) -> bool {
         let Some(slot) = self
             .tree
             .children(owner)
@@ -401,7 +399,7 @@ impl<R: NativeRuntime> Pump<R> {
             .copied()
             .find(|child| self.tree.kind(*child) == NodeKind::NamedSlot(selection.slot))
         else {
-            return Ok(false);
+            return false;
         };
         let mut items = Vec::new();
         for child in self.tree.children(slot).to_vec() {
@@ -448,7 +446,7 @@ impl<R: NativeRuntime> Pump<R> {
                 }
             }
         }
-        Ok(changed)
+        changed
     }
 
     fn collect_native_roots(tree: &Tree, node: NodeId, roots: &mut Vec<NodeId>) {
@@ -568,7 +566,7 @@ impl<R: NativeRuntime> Pump<R> {
                                 old,
                                 &self.components,
                                 &mut changes,
-                            )?;
+                            );
                             Self::retire_planned_subtree(&mut candidate, old, &mut plan)?;
                         }
                         let (logical_root, _) = Self::mount_planned_view(
@@ -630,7 +628,7 @@ impl<R: NativeRuntime> Pump<R> {
                             row.logical_root,
                             &self.components,
                             &mut changes,
-                        )?;
+                        );
                         Self::retire_planned_subtree(&mut candidate, row.logical_root, &mut plan)?;
                         RealizationOutcome::Recycled(lease)
                     }

@@ -55,18 +55,14 @@ impl<R: NativeRuntime> Pump<R> {
         let mut dispatched = 0;
         for _ in 0..budget {
             if let Some(token) = self.components.next_pending_token()
-                && self.has_dirty_component_ancestor(token)?.is_some()
+                && self.has_dirty_component_ancestor(token)
             {
                 let deferred = self
                     .components
                     .pending_tokens()
                     .into_iter()
-                    .filter_map(|token| {
-                        self.has_dirty_component_ancestor(token)
-                            .transpose()
-                            .map(|result| result.map(|()| token))
-                    })
-                    .collect::<Result<IdSet<_>, PumpError>>()?;
+                    .filter(|token| self.has_dirty_component_ancestor(*token))
+                    .collect::<IdSet<_>>();
                 self.compose_dirty_components(deferred)?;
             }
             let report = self.components.drain(1);
@@ -208,20 +204,20 @@ impl<R: NativeRuntime> Pump<R> {
         Ok(())
     }
 
-    fn has_dirty_component_ancestor(&self, token: ComponentToken) -> Result<Option<()>, PumpError> {
+    fn has_dirty_component_ancestor(&self, token: ComponentToken) -> bool {
         let Some(mut node) = self.tree.component_node(token.scope()) else {
-            return Ok(None);
+            return false;
         };
         while let Some(parent) = self.tree.parent(node) {
             node = parent;
             if self.tree.kind(node) == NodeKind::Component {
                 let ancestor = self.components.token(self.tree.component_scope(node));
                 if self.dirty_components.contains(&ancestor) {
-                    return Ok(Some(()));
+                    return true;
                 }
             }
         }
-        Ok(None)
+        false
     }
 
     fn try_local_component_update(

@@ -1085,7 +1085,7 @@ impl<R: NativeRuntime> Pump<R> {
             items.changed_keys(tree.virtual_items(node), tree.virtual_model(node).keys());
         if let Some(keys) = changed_keys {
             for row in tree.children(node).to_vec() {
-                Self::collect_retired_components(tree, row, components, changes)?;
+                Self::collect_retired_components(tree, row, components, changes);
                 Self::retire_planned_subtree(tree, row, plan)?;
             }
             let source_revision = {
@@ -1153,7 +1153,7 @@ impl<R: NativeRuntime> Pump<R> {
 
         for (key, child) in old_keys.iter().zip(current) {
             if !new_key_set.contains(key) {
-                Self::collect_retired_components(tree, child, components, changes)?;
+                Self::collect_retired_components(tree, child, components, changes);
                 Self::retire_planned_subtree(tree, child, plan)?;
             }
         }
@@ -1423,7 +1423,7 @@ impl<R: NativeRuntime> Pump<R> {
         let tooltip = *tooltip;
 
         Self::clear_tooltip_attachment(tree, node, plan)?;
-        Self::collect_retired_components(tree, tooltip, components, changes)?;
+        Self::collect_retired_components(tree, tooltip, components, changes);
         Self::retire_planned_subtree(tree, tooltip, plan)?;
         tree.reparent(target, parent, key);
         tree.retire_subtree(node);
@@ -1520,7 +1520,7 @@ impl<R: NativeRuntime> Pump<R> {
         let content = *content;
 
         Self::clear_flyout_attachment(tree, node, plan)?;
-        Self::collect_retired_components(tree, content, components, changes)?;
+        Self::collect_retired_components(tree, content, components, changes);
         Self::retire_planned_subtree(tree, content, plan)?;
         tree.reparent(target, parent, key);
         tree.retire_subtree(node);
@@ -1586,7 +1586,7 @@ impl<R: NativeRuntime> Pump<R> {
             Self::clear_owned_attachment(tree, owner, plan)?;
         }
 
-        Self::collect_retired_components(tree, node, components, changes)?;
+        Self::collect_retired_components(tree, node, components, changes);
         Self::retire_planned_subtree(tree, node, plan)?;
         let (replacement, native) =
             Self::mount_planned_view(tree, Some(parent), key, view, components, changes, plan)?;
@@ -1719,7 +1719,7 @@ impl<R: NativeRuntime> Pump<R> {
         root: NodeId,
         components: &ComponentStore,
         changes: &mut ComponentChanges,
-    ) -> Result<(), PumpError> {
+    ) {
         for node in tree.subtree_postorder(root) {
             if tree.kind(node) == NodeKind::Component {
                 let scope = tree.component_scope(node);
@@ -1734,7 +1734,6 @@ impl<R: NativeRuntime> Pump<R> {
                 tree.remove_window_declarations(scope);
             }
         }
-        Ok(())
     }
 
     pub(in super::super) fn recompose_component(
