@@ -310,26 +310,12 @@ impl ComponentToken {
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum ComponentStoreError {
-    #[cfg(test)]
-    ComponentTypeMismatch {
-        expected: TypeId,
-        actual: TypeId,
-    },
     DuplicateEffectKey(EffectKey),
     DuplicateColorSchemeObservation,
     DuplicateWindowSizeObservation,
     DuplicateWindowTitle,
     DuplicateWindowVisuals,
-    MessageTypeMismatch {
-        expected: TypeId,
-        actual: TypeId,
-    },
-    InputTypeMismatch {
-        expected: TypeId,
-        actual: TypeId,
-    },
     Scope(ScopeError),
-    WindowMismatch,
 }
 
 impl From<ScopeError> for ComponentStoreError {
@@ -1052,18 +1038,10 @@ impl PartialEq for ComponentView {
 }
 
 trait ErasedScope {
-    fn apply_input(
-        &mut self,
-        input: &dyn Any,
-        tasks: TaskSpawner,
-    ) -> Result<bool, ComponentStoreError>;
+    fn apply_input(&mut self, input: &dyn Any, tasks: TaskSpawner) -> bool;
     #[cfg(test)]
     fn component(&self) -> &dyn Any;
-    fn dispatch(
-        &mut self,
-        message: Box<dyn Any>,
-        tasks: TaskSpawner,
-    ) -> Result<(), ComponentStoreError>;
+    fn dispatch(&mut self, message: Box<dyn Any>, tasks: TaskSpawner);
     #[cfg(test)]
     fn message_type(&self) -> TypeId;
     fn input_type(&self) -> TypeId;
@@ -1322,20 +1300,10 @@ where
     I: Clone + PartialEq + 'static,
     M: 'static,
 {
-    fn apply_input(
-        &mut self,
-        input: &dyn Any,
-        tasks: TaskSpawner,
-    ) -> Result<bool, ComponentStoreError> {
-        let actual = input.type_id();
-        let input = input
-            .downcast_ref::<I>()
-            .ok_or(ComponentStoreError::InputTypeMismatch {
-                expected: TypeId::of::<I>(),
-                actual,
-            })?;
+    fn apply_input(&mut self, input: &dyn Any, tasks: TaskSpawner) -> bool {
+        let input = input.downcast_ref::<I>().unwrap();
         if self.input == *input {
-            return Ok(false);
+            return false;
         }
         self.input = input.clone();
         self.window.begin();
@@ -1347,7 +1315,7 @@ where
             self.window.reference(),
         );
         self.window.finish();
-        Ok(true)
+        true
     }
 
     #[cfg(test)]
@@ -1363,19 +1331,8 @@ where
         self.context_dependencies = (!dependencies.is_empty()).then(|| Rc::new(dependencies));
     }
 
-    fn dispatch(
-        &mut self,
-        message: Box<dyn Any>,
-        tasks: TaskSpawner,
-    ) -> Result<(), ComponentStoreError> {
-        let actual = message.as_ref().type_id();
-        let message =
-            message
-                .downcast::<M>()
-                .map_err(|_| ComponentStoreError::MessageTypeMismatch {
-                    expected: TypeId::of::<M>(),
-                    actual,
-                })?;
+    fn dispatch(&mut self, message: Box<dyn Any>, tasks: TaskSpawner) {
+        let message = message.downcast::<M>().unwrap();
         self.window.begin();
         (self.update)(
             &mut self.component,
@@ -1385,7 +1342,6 @@ where
             self.window.reference(),
         );
         self.window.finish();
-        Ok(())
     }
 
     #[cfg(test)]
@@ -1619,7 +1575,7 @@ impl ComponentStore {
     }
 
     pub fn publish(&mut self, token: ComponentToken) -> Result<(), ComponentStoreError> {
-        self.validate_window(token)?;
+        self.validate_window(token);
         self.scopes.publish(token.scope)?;
         Ok(())
     }
@@ -1637,7 +1593,7 @@ impl ComponentStore {
     }
 
     pub fn remove(&mut self, token: ComponentToken) -> Result<(), ComponentStoreError> {
-        self.validate_window(token)?;
+        self.validate_window(token);
         self.clear_context_dependencies(token.scope)?;
         self.scopes.remove(token.scope)?;
         self.cancel_scope_tasks(token.scope);
@@ -1650,13 +1606,11 @@ impl ComponentStore {
         &self,
         token: ComponentToken,
     ) -> Result<LocalSender<M>, ComponentStoreError> {
-        self.validate_window(token)?;
+        self.validate_window(token);
         let scope = self.scopes.get(token.scope)?;
         let actual = TypeId::of::<M>();
         let expected = scope.message_type();
-        if actual != expected {
-            return Err(ComponentStoreError::MessageTypeMismatch { expected, actual });
-        }
+        assert_eq!(actual, expected);
         Ok(LocalSender {
             queue: Rc::clone(&self.queue),
             token,
@@ -1669,28 +1623,20 @@ impl ComponentStore {
         token: ComponentToken,
         input: &I,
     ) -> Result<bool, ComponentStoreError> {
-        self.validate_window(token)?;
+        self.validate_window(token);
         let tasks = self.task_spawner(token);
         let scope = self.scopes.get_mut(token.scope)?;
         let actual = TypeId::of::<I>();
         let expected = scope.input_type();
-        if actual != expected {
-            return Err(ComponentStoreError::InputTypeMismatch { expected, actual });
-        }
-        scope.apply_input(input, tasks)
+        assert_eq!(actual, expected);
+        Ok(scope.apply_input(input, tasks))
     }
 
     #[cfg(test)]
     pub fn component<C: 'static>(&self, token: ComponentToken) -> Result<&C, ComponentStoreError> {
-        self.validate_window(token)?;
+        self.validate_window(token);
         let component = self.scopes.get(token.scope)?.component();
-        let actual = component.type_id();
-        component
-            .downcast_ref()
-            .ok_or(ComponentStoreError::ComponentTypeMismatch {
-                expected: TypeId::of::<C>(),
-                actual,
-            })
+        Ok(component.downcast_ref().unwrap())
     }
 
     pub fn drain(&mut self, budget: usize) -> Result<DrainReport, ComponentStoreError> {
@@ -1783,7 +1729,7 @@ impl ComponentStore {
                         PendingEnvelope::Local(envelope) => envelope.payload,
                     };
                     let tasks = self.task_spawner(token);
-                    self.scopes.get_mut(token.scope)?.dispatch(payload, tasks)?;
+                    self.scopes.get_mut(token.scope)?.dispatch(payload, tasks);
                     report.dispatched += 1;
                     report.dirty.push(token);
                 }
@@ -1847,7 +1793,7 @@ impl ComponentStore {
         &self,
         token: ComponentToken,
     ) -> Result<Option<&ContextDependencies>, ComponentStoreError> {
-        self.validate_window(token)?;
+        self.validate_window(token);
         Ok(self.scopes.get(token.scope)?.context_dependencies())
     }
 
@@ -1856,7 +1802,7 @@ impl ComponentStore {
         token: ComponentToken,
         dependencies: ContextDependencies,
     ) -> Result<(), ComponentStoreError> {
-        self.validate_window(token)?;
+        self.validate_window(token);
         let unchanged = self
             .scopes
             .get(token.scope)?
@@ -1927,7 +1873,7 @@ impl ComponentStore {
         token: ComponentToken,
         contexts: ContextSnapshot,
     ) -> Result<ComponentRender, ComponentStoreError> {
-        self.validate_window(token)?;
+        self.validate_window(token);
         self.scopes.get(token.scope)?.view(contexts)
     }
 
@@ -1935,24 +1881,24 @@ impl ComponentStore {
         &self,
         token: ComponentToken,
     ) -> Result<&'static str, ComponentStoreError> {
-        self.validate_window(token)?;
+        self.validate_window(token);
         Ok(self.scopes.get(token.scope)?.type_name())
     }
 
     pub fn cleanup_effects(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {
-        self.validate_window(token)?;
+        self.validate_window(token);
         self.scopes.get(token.scope)?.cleanup_effects();
         Ok(())
     }
 
     pub fn commit_effects(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {
-        self.validate_window(token)?;
+        self.validate_window(token);
         self.scopes.get(token.scope)?.commit_effects();
         Ok(())
     }
 
     pub fn prepare_effects(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {
-        self.validate_window(token)?;
+        self.validate_window(token);
         self.scopes.get(token.scope)?.prepare_effects();
         Ok(())
     }
@@ -2072,12 +2018,8 @@ impl ComponentStore {
         }
     }
 
-    fn validate_window(&self, token: ComponentToken) -> Result<(), ComponentStoreError> {
-        if token.window == self.window {
-            Ok(())
-        } else {
-            Err(ComponentStoreError::WindowMismatch)
-        }
+    fn validate_window(&self, token: ComponentToken) {
+        assert_eq!(token.window, self.window);
     }
 }
 

@@ -381,10 +381,12 @@ fn inputs_are_typed_coalesced_and_applied_before_messages() {
     assert_eq!(store.apply_input(token, &"first".to_string()), Ok(false));
     assert_eq!(store.apply_input(token, &"second".to_string()), Ok(true));
     assert_eq!(store.component::<State>(token).unwrap().changed, 1);
-    assert!(matches!(
-        store.apply_input(token, &1u32),
-        Err(ComponentStoreError::InputTypeMismatch { .. })
-    ));
+    assert!(
+        std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            _ = store.apply_input(token, &1u32);
+        }))
+        .is_err()
+    );
 }
 
 #[derive(PartialEq)]
@@ -467,10 +469,12 @@ fn sender_creation_checks_the_message_type() {
     let mut store = store();
     let token = reserve_state(&mut store, "");
 
-    assert!(matches!(
-        store.sender::<String>(token),
-        Err(ComponentStoreError::MessageTypeMismatch { .. })
-    ));
+    assert!(
+        std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            store.sender::<String>(token)
+        }))
+        .is_err()
+    );
 }
 
 #[test]
