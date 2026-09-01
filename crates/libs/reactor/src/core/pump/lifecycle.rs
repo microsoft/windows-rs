@@ -16,7 +16,7 @@ impl<R: NativeRuntime> Pump<R> {
             .into_iter()
             .map(|token| {
                 let node = self.tree.component_node(token.scope()).unwrap();
-                (Reverse(self.tree.depth(node).unwrap()), node, token)
+                (Reverse(self.tree.depth(node)), node, token)
             })
             .collect::<Vec<_>>();
         ordered.sort_unstable_by(|left, right| (&left.0, &left.1).cmp(&(&right.0, &right.1)));
@@ -42,7 +42,7 @@ impl<R: NativeRuntime> Pump<R> {
             .into_iter()
             .map(|token| {
                 let node = self.tree.component_node(token.scope()).unwrap();
-                (self.tree.depth(node).unwrap(), node, token)
+                (self.tree.depth(node), node, token)
             })
             .collect::<Vec<_>>();
         ordered.sort_unstable_by(|left, right| (&left.0, &left.1).cmp(&(&right.0, &right.1)));

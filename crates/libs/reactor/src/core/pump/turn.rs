@@ -143,13 +143,13 @@ impl<R: NativeRuntime> Pump<R> {
             .copied()
             .map(|token| {
                 let depth = if let Some(node) = candidate.component_node(token.scope()) {
-                    candidate.depth(node)?
+                    candidate.depth(node)
                 } else {
                     usize::MAX
                 };
-                Ok((depth, token))
+                (depth, token)
             })
-            .collect::<Result<Vec<_>, PumpError>>()?;
+            .collect::<Vec<_>>();
         dirty.sort_unstable_by_key(|(depth, _)| *depth);
         for (_, token) in dirty {
             if changes.composed.contains(&token) {
@@ -212,9 +212,9 @@ impl<R: NativeRuntime> Pump<R> {
         let Some(mut node) = self.tree.component_node(token.scope()) else {
             return Ok(None);
         };
-        while let Some(parent) = self.tree.parent(node)? {
+        while let Some(parent) = self.tree.parent(node) {
             node = parent;
-            if self.tree.kind(node)? == NodeKind::Component {
+            if self.tree.kind(node) == NodeKind::Component {
                 let ancestor = self.components.token(self.tree.component_scope(node));
                 if self.dirty_components.contains(&ancestor) {
                     return Ok(Some(()));
@@ -231,21 +231,21 @@ impl<R: NativeRuntime> Pump<R> {
         let Some(node) = self.tree.component_node(token.scope()) else {
             return Ok(LocalComponentUpdate::Unavailable);
         };
-        let [slot] = self.tree.children(node)? else {
+        let [slot] = self.tree.children(node) else {
             return Ok(LocalComponentUpdate::Unavailable);
         };
-        let native = match self.tree.children(*slot)? {
+        let native = match self.tree.children(*slot) {
             [native] => *native,
             _ => return Ok(LocalComponentUpdate::Unavailable),
         };
-        if !matches!(self.tree.kind(native)?, NodeKind::Native(_))
-            || !self.tree.children(native)?.is_empty()
+        if !matches!(self.tree.kind(native), NodeKind::Native(_))
+            || !self.tree.children(native).is_empty()
         {
             return Ok(LocalComponentUpdate::Unavailable);
         }
         let render = self
             .components
-            .view(token, self.tree.context_snapshot(node)?)?;
+            .view(token, self.tree.context_snapshot(node))?;
         let title_matches = match self.tree.window_title() {
             Some(current) if current.owner != token.scope() => {
                 if render.window_title.is_some() {
@@ -306,8 +306,8 @@ impl<R: NativeRuntime> Pump<R> {
         let ViewKind::Native(element) = render.view.as_kind() else {
             return Ok(LocalComponentUpdate::Fallback(render));
         };
-        if self.tree.kind(native)? != NodeKind::Native(element.kind())
-            || !self.tree.children(native)?.is_empty()
+        if self.tree.kind(native) != NodeKind::Native(element.kind())
+            || !self.tree.children(native).is_empty()
             || !matches!(element.structure(), ElementStructureRef::None)
             || self.tree.node_window_title_bar(native).is_some()
             || element.window_title_bar().is_some()

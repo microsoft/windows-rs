@@ -114,9 +114,7 @@ impl<R: NativeRuntime> Pump<R> {
                 let native = self.tree.native_mut(node);
                 native.desired = desired;
                 native.reference = reference;
-                self.tree
-                    .set_exit_transition(node, exit_transition)
-                    .unwrap();
+                self.tree.set_exit_transition(node, exit_transition);
             }
         }
         self.apply_reference_bindings(reference_commits);

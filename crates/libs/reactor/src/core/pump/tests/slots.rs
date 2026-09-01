@@ -635,15 +635,15 @@ fn named_slots_mount_update_replace_and_clear_independently() {
     );
 
     let header = recorded.slot(SlotId::NavigationViewHeader).unwrap();
-    let header_slot = pump.tree.children(root).unwrap()[1];
+    let header_slot = pump.tree.children(root)[1];
     assert_eq!(
         pump.tree.kind(header_slot),
-        Ok(NodeKind::NamedSlot(SlotId::NavigationViewHeader))
+        NodeKind::NamedSlot(SlotId::NavigationViewHeader)
     );
-    assert_eq!(pump.tree.children(header_slot).unwrap(), &[header]);
+    assert_eq!(pump.tree.children(header_slot), &[header]);
     assert_eq!(
         pump.tree.kind(header),
-        Ok(NodeKind::Native(MountedKind::Slider))
+        NodeKind::Native(MountedKind::Slider)
     );
     pump.update_view(navigation(
         None,
@@ -743,7 +743,7 @@ fn named_slots_preserve_context_and_component_effect_lifecycle() {
     .unwrap();
 
     assert_eq!(&*log.borrow(), &["setup provided"]);
-    let navigation_node = pump.tree.children(pump.root().unwrap()).unwrap()[0];
+    let navigation_node = pump.tree.children(pump.root().unwrap())[0];
     let content = pump
         .runtime()
         .node(navigation_node)

@@ -92,7 +92,7 @@ fn positional_component_children_retain_scopes_by_position() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(view("one", "two")).unwrap();
     let root = pump.root().unwrap();
-    let children = pump.tree.children(root).unwrap().to_vec();
+    let children = pump.tree.children(root).to_vec();
     let scopes = children
         .iter()
         .map(|child| pump.tree.component_scope(*child))
@@ -100,7 +100,7 @@ fn positional_component_children_retain_scopes_by_position() {
 
     pump.update_view(view("first", "second")).unwrap();
 
-    assert_eq!(pump.tree.children(root), Ok(children.as_slice()));
+    assert_eq!(pump.tree.children(root), children);
     assert_eq!(
         children
             .iter()
@@ -120,7 +120,7 @@ fn positional_front_insertion_reuses_existing_positions() {
     )))
     .unwrap();
     let root = pump.root().unwrap();
-    let original = pump.tree.children(root).unwrap().to_vec();
+    let original = pump.tree.children(root).to_vec();
     let scopes = original
         .iter()
         .map(|child| pump.tree.component_scope(*child))
@@ -133,7 +133,7 @@ fn positional_front_insertion_reuses_existing_positions() {
     )))
     .unwrap();
 
-    let updated = pump.tree.children(root).unwrap();
+    let updated = pump.tree.children(root);
     assert_eq!(&updated[..2], original.as_slice());
     assert_eq!(pump.tree.component_scope(updated[0]), scopes[0]);
     assert_eq!(pump.tree.component_scope(updated[1]), scopes[1]);
@@ -153,7 +153,7 @@ fn explicit_keys_retain_component_identity_across_reorder() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(view(&["a", "b"])).unwrap();
     let root = pump.root().unwrap();
-    let original = pump.tree.children(root).unwrap().to_vec();
+    let original = pump.tree.children(root).to_vec();
     let scopes = original
         .iter()
         .map(|child| pump.tree.component_scope(*child))
@@ -161,10 +161,7 @@ fn explicit_keys_retain_component_identity_across_reorder() {
 
     pump.update_view(view(&["b", "a"])).unwrap();
 
-    assert_eq!(
-        pump.tree.children(root),
-        Ok(&[original[1], original[0]][..])
-    );
+    assert_eq!(pump.tree.children(root), &[original[1], original[0]]);
     assert_eq!(pump.tree.component_scope(original[0]), scopes[0]);
     assert_eq!(pump.tree.component_scope(original[1]), scopes[1]);
     assert_eq!(recorded_text(pump.runtime(), root), ["b", "a"]);
@@ -200,15 +197,15 @@ fn fragment_splices_into_children_and_retains_keyed_component_scope() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(view(false)).unwrap();
     let root = pump.root().unwrap();
-    let fragment = pump.tree.children(root).unwrap()[1];
-    let leaf = pump.tree.children(fragment).unwrap()[0];
+    let fragment = pump.tree.children(root)[1];
+    let leaf = pump.tree.children(fragment)[0];
     let scope = pump.tree.component_scope(leaf);
 
     assert_eq!(recorded_text(pump.runtime(), root), ["leaf", "text"]);
     pump.update_view(view(true)).unwrap();
 
-    let fragment = pump.tree.children(root).unwrap()[1];
-    let leaf = pump.tree.children(fragment).unwrap()[1];
+    let fragment = pump.tree.children(root)[1];
+    let leaf = pump.tree.children(fragment)[1];
     assert_eq!(pump.tree.component_scope(leaf), scope);
     assert_eq!(recorded_text(pump.runtime(), root), ["text", "leaf"]);
 }
@@ -287,7 +284,6 @@ fn dense_keyed_reorder_synchronizes_without_recreating_children() {
     let original = pump
         .tree
         .children(root)
-        .unwrap()
         .iter()
         .copied()
         .collect::<HashSet<_>>();
@@ -305,7 +301,6 @@ fn dense_keyed_reorder_synchronizes_without_recreating_children() {
     assert_eq!(
         pump.tree
             .children(root)
-            .unwrap()
             .iter()
             .copied()
             .collect::<HashSet<_>>(),
@@ -313,7 +308,7 @@ fn dense_keyed_reorder_synchronizes_without_recreating_children() {
     );
     assert_eq!(
         pump.runtime().node(root).unwrap().children(),
-        pump.tree.children(root).unwrap()
+        pump.tree.children(root)
     );
 }
 
@@ -342,7 +337,7 @@ fn dense_keyed_removal_uses_retirement_without_synchronization() {
     );
     assert_eq!(
         pump.runtime().node(root).unwrap().children(),
-        pump.tree.children(root).unwrap()
+        pump.tree.children(root)
     );
 }
 
@@ -369,7 +364,7 @@ fn dense_keyed_view_removal_uses_retirement_without_synchronization() {
     );
     assert_eq!(
         pump.runtime().node(root).unwrap().children(),
-        pump.tree.children(root).unwrap()
+        pump.tree.children(root)
     );
 }
 
@@ -452,17 +447,14 @@ fn same_key_child_can_change_kind_without_replacing_panel() {
     )
     .unwrap();
     let root = pump.root().unwrap();
-    let old = pump.tree.children(root).unwrap()[0];
+    let old = pump.tree.children(root)[0];
 
     pump.update(StackPanel::new().native_child("item", Button::new()).into())
         .unwrap();
 
-    let child = pump.tree.children(root).unwrap()[0];
+    let child = pump.tree.children(root)[0];
     assert_eq!(pump.root(), Some(root));
     assert_ne!(child, old);
-    assert_eq!(
-        pump.tree.kind(child),
-        Ok(NodeKind::Native(MountedKind::Button))
-    );
+    assert_eq!(pump.tree.kind(child), NodeKind::Native(MountedKind::Button));
     assert_eq!(pump.runtime().node(root).unwrap().children(), &[child]);
 }

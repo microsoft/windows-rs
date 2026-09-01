@@ -126,7 +126,7 @@ impl<R: NativeRuntime> Pump<R> {
         plan: &mut UpdatePlan,
     ) -> Result<NodeId, PumpError> {
         let desired_kind = element.kind();
-        let compatible = match tree.kind(node)? {
+        let compatible = match tree.kind(node) {
             NodeKind::Native(kind) => kind == desired_kind,
             NodeKind::VirtualCollection => desired_kind == MountedKind::ItemsRepeater,
             _ => false,
@@ -139,37 +139,41 @@ impl<R: NativeRuntime> Pump<R> {
         }
 
         let parts = element.into_parts();
-        if tree.kind(node)? == NodeKind::VirtualCollection {
+        if tree.kind(node) == NodeKind::VirtualCollection {
             let ElementStructure::Virtual(items) = parts.structure else {
                 return Err(PumpError::StructureUnsupported);
             };
             let changed_keys =
-                items.changed_keys(tree.virtual_items(node)?, tree.virtual_model(node)?.keys());
+                items.changed_keys(tree.virtual_items(node), tree.virtual_model(node).keys());
             if let Some(keys) = changed_keys {
-                for child in tree.children(node)?.to_vec() {
+                for child in tree.children(node).to_vec() {
                     Self::retire_planned_subtree(tree, child, plan)?;
                 }
                 let source_revision = {
-                    let model = tree.virtual_model_mut(node)?;
-                    model.update(keys).map_err(TreeError::from)?;
+                    let model = tree.virtual_model_mut(node);
+                    model
+                        .update(keys)
+                        .map_err(|VirtualModelError::DuplicateKey(key)| {
+                            PumpError::DuplicateKey(key)
+                        })?;
                     model.source_revision()
                 };
-                tree.update_virtual_items(node, items)?;
-                tree.virtual_model_mut(node)?.clear();
+                tree.update_virtual_items(node, items);
+                tree.virtual_model_mut(node).clear();
                 plan.push(Command::ResetVirtualCollection {
                     node,
-                    item_count: tree.virtual_items(node)?.len(),
+                    item_count: tree.virtual_items(node).len(),
                     source_revision,
                 });
             } else {
-                tree.update_virtual_items(node, items)?;
-                if !tree.children(node)?.is_empty() {
+                tree.update_virtual_items(node, items);
+                if !tree.children(node).is_empty() {
                     return Err(PumpError::StructureUnsupported);
                 }
             }
             return Ok(node);
         }
-        let NodeKind::Native(kind) = tree.kind(node)? else {
+        let NodeKind::Native(kind) = tree.kind(node) else {
             return Err(PumpError::NotMounted);
         };
         debug_assert_eq!(kind, parts.kind);
@@ -188,9 +192,9 @@ impl<R: NativeRuntime> Pump<R> {
             tree.native_mut(node).desired = parts.props;
         }
         Self::plan_reference(tree.native(node), node, desired_reference, plan);
-        tree.set_window_title_bar(node, parts.window_title_bar)?;
+        tree.set_window_title_bar(node, parts.window_title_bar);
 
-        let current_children = tree.children(node)?.to_vec();
+        let current_children = tree.children(node).to_vec();
         match parts.structure {
             ElementStructure::None => {
                 if !current_children.is_empty() {
@@ -221,9 +225,7 @@ impl<R: NativeRuntime> Pump<R> {
                     && current_children
                         .iter()
                         .zip(children.iter())
-                        .all(|(child, desired)| {
-                            tree.key(*child).is_ok_and(|key| key == Some(desired.key()))
-                        })
+                        .all(|(child, desired)| tree.key(*child) == Some(desired.key()))
                 {
                     let mut replacements = Vec::new();
                     for (index, (child, desired)) in current_children
@@ -257,7 +259,7 @@ impl<R: NativeRuntime> Pump<R> {
                 let old_keys = current_children
                     .iter()
                     .map(|child| {
-                        tree.key(*child)?
+                        tree.key(*child)
                             .cloned()
                             .ok_or(PumpError::StructureUnsupported)
                     })
@@ -334,7 +336,7 @@ impl<R: NativeRuntime> Pump<R> {
         node: NodeId,
         element: &Element,
     ) -> Result<bool, PumpError> {
-        let kind = tree.kind(node)?;
+        let kind = tree.kind(node);
         let compatible = match kind {
             NodeKind::Native(mounted) => mounted == element.kind(),
             NodeKind::VirtualCollection => element.kind() == MountedKind::ItemsRepeater,
@@ -357,7 +359,7 @@ impl<R: NativeRuntime> Pump<R> {
             let ElementStructureRef::Virtual(items) = element.structure() else {
                 return Ok(false);
             };
-            return Ok(tree.virtual_items(node)? == items);
+            return Ok(tree.virtual_items(node) == items);
         }
         if !element.props_match(&tree.native(node).desired) {
             return Ok(false);
@@ -374,7 +376,7 @@ impl<R: NativeRuntime> Pump<R> {
             return Ok(false);
         }
 
-        let children = tree.children(node)?;
+        let children = tree.children(node);
         match element.structure() {
             ElementStructureRef::None => Ok(children.is_empty()),
             ElementStructureRef::Content(content) => match (children, content) {
@@ -387,7 +389,7 @@ impl<R: NativeRuntime> Pump<R> {
                     return Ok(false);
                 }
                 for (child, desired) in children.iter().zip(desired) {
-                    if tree.key(*child)? != Some(desired.key())
+                    if tree.key(*child) != Some(desired.key())
                         || !Self::node_matches_element(tree, *child, desired.element())?
                     {
                         return Ok(false);
@@ -405,15 +407,15 @@ impl<R: NativeRuntime> Pump<R> {
         element: Element,
         plan: &mut UpdatePlan,
     ) -> Result<NodeId, PumpError> {
-        let parent = tree.parent(node)?.ok_or(PumpError::StructureUnsupported)?;
-        let key = tree.key(node)?.cloned();
-        let realized = if tree.kind(parent)? == NodeKind::VirtualCollection {
+        let parent = tree.parent(node).ok_or(PumpError::StructureUnsupported)?;
+        let key = tree.key(node).cloned();
+        let realized = if tree.kind(parent) == NodeKind::VirtualCollection {
             let container = tree
-                .realized_container_for_logical(parent, node)?
+                .realized_container_for_logical(parent, node)
                 .ok_or(PumpError::StructureUnsupported)?;
             Some((
                 container,
-                tree.realized(parent, container)?
+                tree.realized(parent, container)
                     .ok_or(PumpError::StructureUnsupported)?
                     .index,
             ))
@@ -421,13 +423,13 @@ impl<R: NativeRuntime> Pump<R> {
             None
         };
         let index = tree
-            .children(parent)?
+            .children(parent)
             .iter()
             .position(|child| *child == node)
             .ok_or(PumpError::StructureUnsupported)?;
         Self::retire_planned_subtree(tree, node, plan)?;
         let replacement = Self::mount_planned_element(tree, Some(parent), key, element, plan)?;
-        let mut children = tree.children(parent)?.to_vec();
+        let mut children = tree.children(parent).to_vec();
         let appended = children
             .iter()
             .position(|child| *child == replacement)
@@ -436,7 +438,7 @@ impl<R: NativeRuntime> Pump<R> {
         children.insert(index, replacement);
         tree.set_children(parent, children);
         if let Some((container, source_index)) = realized {
-            tree.set_realized(parent, container, source_index, replacement, None)?;
+            tree.set_realized(parent, container, source_index, replacement, None);
             Self::refresh_virtual_row_attachment(tree, parent, container, plan)?;
         } else {
             plan.push(Command::InsertChild {
@@ -500,7 +502,7 @@ impl<R: NativeRuntime> Pump<R> {
         parts: ElementParts,
         plan: &mut UpdatePlan,
     ) -> Result<(), PumpError> {
-        if tree.kind(node)? != NodeKind::Native(parts.kind) {
+        if tree.kind(node) != NodeKind::Native(parts.kind) {
             return Err(PumpError::StructureUnsupported);
         }
         let native = tree.native(node);
@@ -517,8 +519,8 @@ impl<R: NativeRuntime> Pump<R> {
         {
             return Ok(());
         }
-        tree.set_exit_transition(node, exit_transition)?;
-        tree.set_window_title_bar(node, parts.window_title_bar)?;
+        tree.set_exit_transition(node, exit_transition);
+        tree.set_window_title_bar(node, parts.window_title_bar);
         Self::reconcile_native_state(
             tree.native_mut(node),
             node,
@@ -630,8 +632,8 @@ impl<R: NativeRuntime> Pump<R> {
         {
             return Ok(());
         }
-        tree.set_exit_transition(node, exit_transition)?;
-        tree.set_window_title_bar(node, window_title_bar)?;
+        tree.set_exit_transition(node, exit_transition);
+        tree.set_window_title_bar(node, window_title_bar);
         Self::reconcile_native_state(
             tree.native_mut(node),
             node,
@@ -655,15 +657,16 @@ impl<R: NativeRuntime> Pump<R> {
                 return Err(PumpError::StructureUnsupported);
             }
             let item_count = items.len();
-            let node =
-                tree.insert_virtual_items(plan.identity, parent, key, parts.props.clone(), items)?;
+            let node = tree
+                .insert_virtual_items(plan.identity, parent, key, parts.props.clone(), items)
+                .map_err(|VirtualModelError::DuplicateKey(key)| PumpError::DuplicateKey(key))?;
             tree.set_exit_transition(
                 node,
                 parts
                     .element_state
                     .as_deref()
                     .and_then(ElementState::exit_transition),
-            )?;
+            );
             plan.push(Command::CreateVirtualCollection {
                 node,
                 item_count,
@@ -692,7 +695,7 @@ impl<R: NativeRuntime> Pump<R> {
                 .element_state
                 .as_deref()
                 .and_then(ElementState::exit_transition),
-        )?;
+        );
         plan.push(Command::Create {
             node,
             kind: parts.kind,

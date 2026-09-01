@@ -166,7 +166,7 @@ impl<R: NativeRuntime> Pump<R> {
             EventId::OwnedCommandInvoked | EventId::OwnedMenuItemInvoked
         ) {
             self.tree.try_kind(node)?;
-            return self.tree.owned_revision(node).ok();
+            return Some(self.tree.owned_revision(node));
         }
         self.tree
             .try_native(node)?
@@ -306,14 +306,13 @@ impl<R: NativeRuntime> Pump<R> {
                     (EventId::OwnedMenuItemInvoked, NodeKind::Menu(kind)) => NodeKind::Menu(kind),
                     _ => continue,
                 };
-                if kind != expected_kind || self.tree.owned_revision(event.node)? != event.revision
-                {
+                if kind != expected_kind || self.tree.owned_revision(event.node) != event.revision {
                     continue;
                 }
                 let EventPayload::String(label) = &event.payload else {
                     continue;
                 };
-                if self.tree.owned_callback(event.node)?.call(label.clone()) {
+                if self.tree.owned_callback(event.node).call(label.clone()) {
                     dispatched += 1;
                 } else {
                     self.events.push_front(NativeWork {
@@ -358,9 +357,9 @@ impl<R: NativeRuntime> Pump<R> {
                     self.last_native_observation = Some((event.node, event.event));
                 }
                 let mut current = event.node;
-                while let Some(parent) = self.tree.parent(current)? {
+                while let Some(parent) = self.tree.parent(current) {
                     current = parent;
-                    if self.tree.kind(current)? == NodeKind::Component {
+                    if self.tree.kind(current) == NodeKind::Component {
                         let token = self.components.token(self.tree.component_scope(current));
                         self.dirty_components.insert(token);
                         break;
@@ -397,19 +396,19 @@ impl<R: NativeRuntime> Pump<R> {
     ) -> Result<bool, PumpError> {
         let Some(slot) = self
             .tree
-            .children(owner)?
+            .children(owner)
             .iter()
             .copied()
-            .find(|child| self.tree.kind(*child) == Ok(NodeKind::NamedSlot(selection.slot)))
+            .find(|child| self.tree.kind(*child) == NodeKind::NamedSlot(selection.slot))
         else {
             return Ok(false);
         };
         let mut items = Vec::new();
-        for child in self.tree.children(slot)?.to_vec() {
+        for child in self.tree.children(slot).to_vec() {
             let mut roots = Vec::new();
-            Self::collect_native_roots(&self.tree, child, &mut roots)?;
+            Self::collect_native_roots(&self.tree, child, &mut roots);
             if let [item] = roots.as_slice()
-                && self.tree.kind(*item) == Ok(NodeKind::Native(selection.item))
+                && self.tree.kind(*item) == NodeKind::Native(selection.item)
             {
                 items.push(*item);
             }
@@ -439,9 +438,9 @@ impl<R: NativeRuntime> Pump<R> {
             changed |= item_changed;
             if item_changed {
                 let mut current = item;
-                while let Some(parent) = self.tree.parent(current)? {
+                while let Some(parent) = self.tree.parent(current) {
                     current = parent;
-                    if self.tree.kind(current)? == NodeKind::Component {
+                    if self.tree.kind(current) == NodeKind::Component {
                         let token = self.components.token(self.tree.component_scope(current));
                         self.dirty_components.insert(token);
                         break;
@@ -452,20 +451,15 @@ impl<R: NativeRuntime> Pump<R> {
         Ok(changed)
     }
 
-    fn collect_native_roots(
-        tree: &Tree,
-        node: NodeId,
-        roots: &mut Vec<NodeId>,
-    ) -> Result<(), PumpError> {
-        match tree.kind(node)? {
+    fn collect_native_roots(tree: &Tree, node: NodeId, roots: &mut Vec<NodeId>) {
+        match tree.kind(node) {
             NodeKind::Native(_) | NodeKind::VirtualCollection => roots.push(node),
             _ => {
-                for child in tree.children(node)? {
-                    Self::collect_native_roots(tree, *child, roots)?;
+                for child in tree.children(node) {
+                    Self::collect_native_roots(tree, *child, roots);
                 }
             }
         }
-        Ok(())
     }
 
     pub fn process_realizations(&mut self) -> Result<Vec<RealizationOutcome>, PumpError> {
@@ -556,16 +550,15 @@ impl<R: NativeRuntime> Pump<R> {
                             outcomes.push(RealizationOutcome::Rejected(request));
                             continue;
                         };
-                        let view = candidate.virtual_view_at(collection, index)?;
+                        let view = candidate.virtual_view_at(collection, index);
                         let stale = candidate
-                            .children(collection)?
+                            .children(collection)
                             .iter()
                             .copied()
                             .filter(|logical_root| {
-                                candidate.key(*logical_root).unwrap() == Some(&lease.key)
+                                candidate.key(*logical_root) == Some(&lease.key)
                                     || candidate
                                         .realized(collection, container)
-                                        .unwrap()
                                         .is_some_and(|row| row.logical_root == *logical_root)
                             })
                             .collect::<Vec<_>>();
@@ -587,7 +580,7 @@ impl<R: NativeRuntime> Pump<R> {
                             &mut changes,
                             &mut plan,
                         )?;
-                        candidate.set_realized(collection, container, index, logical_root, None)?;
+                        candidate.set_realized(collection, container, index, logical_root, None);
                         Self::refresh_virtual_row_attachment(
                             &mut candidate,
                             collection,
@@ -613,7 +606,7 @@ impl<R: NativeRuntime> Pump<R> {
                             outcomes.push(RealizationOutcome::Rejected(request));
                             continue;
                         }
-                        let Some(row) = candidate.realized(collection, container)? else {
+                        let Some(row) = candidate.realized(collection, container) else {
                             plan.push(Command::AcknowledgeRecycle {
                                 collection,
                                 container,

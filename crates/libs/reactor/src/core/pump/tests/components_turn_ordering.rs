@@ -360,19 +360,19 @@ fn mounts_a_component_chain_into_the_authoritative_tree() {
         .unwrap();
 
     let root = pump.root().unwrap();
-    assert_eq!(pump.tree.kind(root), Ok(NodeKind::Component));
+    assert_eq!(pump.tree.kind(root), NodeKind::Component);
     assert_eq!(pump.tree.component_type(root), TypeId::of::<Root>());
     let root_scope = pump.tree.component_scope(root);
-    let root_slot = pump.tree.children(root).unwrap()[0];
-    assert_eq!(pump.tree.kind(root_slot), Ok(NodeKind::Slot));
-    let leaf = pump.tree.children(root_slot).unwrap()[0];
+    let root_slot = pump.tree.children(root)[0];
+    assert_eq!(pump.tree.kind(root_slot), NodeKind::Slot);
+    let leaf = pump.tree.children(root_slot)[0];
     assert_eq!(pump.tree.component_type(leaf), TypeId::of::<Leaf>());
     let leaf_scope = pump.tree.component_scope(leaf);
-    let leaf_slot = pump.tree.children(leaf).unwrap()[0];
-    let native = pump.tree.children(leaf_slot).unwrap()[0];
+    let leaf_slot = pump.tree.children(leaf)[0];
+    let native = pump.tree.children(leaf_slot)[0];
     assert_eq!(
         pump.tree.kind(native),
-        Ok(NodeKind::Native(MountedKind::TextBlock))
+        NodeKind::Native(MountedKind::TextBlock)
     );
     assert_eq!(
         pump.runtime()
@@ -597,9 +597,9 @@ fn keyed_component_siblings_retain_scopes_across_prop_updates() {
     .unwrap();
 
     let root = pump.root().unwrap();
-    let slot = pump.tree.children(root).unwrap()[0];
-    let panel = pump.tree.children(slot).unwrap()[0];
-    let children = pump.tree.children(panel).unwrap().to_vec();
+    let slot = pump.tree.children(root)[0];
+    let panel = pump.tree.children(slot)[0];
+    let children = pump.tree.children(panel).to_vec();
     let scopes = children
         .iter()
         .map(|node| pump.tree.component_scope(*node))
@@ -611,7 +611,7 @@ fn keyed_component_siblings_retain_scopes_across_prop_updates() {
     ]))
     .unwrap();
 
-    assert_eq!(pump.tree.children(panel), Ok(children.as_slice()));
+    assert_eq!(pump.tree.children(panel), children);
     assert_eq!(
         children
             .iter()
@@ -630,10 +630,7 @@ fn keyed_component_siblings_retain_scopes_across_prop_updates() {
     ]))
     .unwrap();
 
-    assert_eq!(
-        pump.tree.children(panel),
-        Ok(&[children[1], children[0]][..])
-    );
+    assert_eq!(pump.tree.children(panel), &[children[1], children[0]]);
     assert_eq!(pump.tree.component_scope(children[0]), scopes[0]);
     assert_eq!(pump.tree.component_scope(children[1]), scopes[1]);
     assert_eq!(
@@ -651,7 +648,7 @@ fn keyed_component_siblings_retain_scopes_across_prop_updates() {
     ]))
     .unwrap();
 
-    let updated = pump.tree.children(panel).unwrap();
+    let updated = pump.tree.children(panel);
     assert_eq!(updated.len(), 2);
     assert_eq!(pump.tree.component_scope(updated[0]), scopes[1]);
     assert_ne!(pump.tree.component_scope(updated[1]), scopes[0]);
@@ -669,9 +666,9 @@ fn same_key_different_component_type_replaces_and_retires_scope() {
     pump.mount_view(View::component::<MixedList>(false))
         .unwrap();
     let root = pump.root().unwrap();
-    let slot = pump.tree.children(root).unwrap()[0];
-    let panel = pump.tree.children(slot).unwrap()[0];
-    let old = pump.tree.children(panel).unwrap()[0];
+    let slot = pump.tree.children(root)[0];
+    let panel = pump.tree.children(slot)[0];
+    let old = pump.tree.children(panel)[0];
     let old_scope = pump.tree.component_scope(old);
     let old_token = pump.components().token(old_scope);
     let old_sender = pump.components().sender::<()>(old_token);
@@ -679,7 +676,7 @@ fn same_key_different_component_type_replaces_and_retires_scope() {
     pump.update_view(View::component::<MixedList>(true))
         .unwrap();
 
-    let replacement = pump.tree.children(panel).unwrap()[0];
+    let replacement = pump.tree.children(panel)[0];
     assert_eq!(
         pump.tree.component_type(replacement),
         TypeId::of::<AltLeaf>()
@@ -699,9 +696,9 @@ fn failed_type_replacement_is_fatal() {
     pump.mount_view(View::component::<MixedList>(false))
         .unwrap();
     let root = pump.root().unwrap();
-    let slot = pump.tree.children(root).unwrap()[0];
-    let panel = pump.tree.children(slot).unwrap()[0];
-    let old = pump.tree.children(panel).unwrap()[0];
+    let slot = pump.tree.children(root)[0];
+    let panel = pump.tree.children(slot)[0];
+    let old = pump.tree.children(panel)[0];
     let old_token = pump.components().token(pump.tree.component_scope(old));
     let old_sender = pump.components().sender::<()>(old_token);
     pump.runtime_mut().fail_after(0, 0);
@@ -744,9 +741,9 @@ fn parent_replacement_discards_dirty_work_for_the_retired_child() {
     let root = pump.root().unwrap();
     let root_token = pump.components().token(pump.tree.component_scope(root));
     let root_sender = pump.components().sender::<bool>(root_token);
-    let slot = pump.tree.children(root).unwrap()[0];
-    let panel = pump.tree.children(slot).unwrap()[0];
-    let child = pump.tree.children(panel).unwrap()[0];
+    let slot = pump.tree.children(root)[0];
+    let panel = pump.tree.children(slot)[0];
+    let child = pump.tree.children(panel)[0];
     let child_token = pump.components().token(pump.tree.component_scope(child));
     let child_sender = pump.components().sender::<()>(child_token);
 
@@ -773,8 +770,8 @@ fn dirty_parent_and_child_each_compose_once_parent_first() {
         .unwrap();
     let parent = pump.root().unwrap();
     let parent_token = pump.components().token(pump.tree.component_scope(parent));
-    let slot = pump.tree.children(parent).unwrap()[0];
-    let child = pump.tree.children(slot).unwrap()[0];
+    let slot = pump.tree.children(parent)[0];
+    let child = pump.tree.children(slot)[0];
     let child_token = pump.components().token(pump.tree.component_scope(child));
 
     pump.components().sender::<()>(parent_token).send(());

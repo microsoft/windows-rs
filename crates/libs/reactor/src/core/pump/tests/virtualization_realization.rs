@@ -324,8 +324,8 @@ fn virtual_collection_mounts_without_eager_row_controls() {
     .unwrap();
 
     let root = pump.root().unwrap();
-    assert_eq!(pump.tree.kind(root), Ok(NodeKind::VirtualCollection));
-    assert_eq!(pump.tree.virtual_items(root).unwrap().len(), 2);
+    assert_eq!(pump.tree.kind(root), NodeKind::VirtualCollection);
+    assert_eq!(pump.tree.virtual_items(root).len(), 2);
     assert!(pump.runtime().commands()[0].iter().any(|command| {
         *command
             == Command::CreateVirtualCollection {
@@ -394,7 +394,6 @@ fn lazy_source_builds_only_realized_views_and_skips_stable_keys() {
         pump.tree
             .realized(collection, RealizedContainer(1))
             .unwrap()
-            .unwrap()
             .index,
         1
     );
@@ -430,7 +429,7 @@ fn lazy_source_builds_only_realized_views_and_skips_stable_keys() {
     .unwrap();
     assert_eq!(reset_keys.get(), 2);
     assert_eq!(reset_views.get(), 0);
-    assert!(pump.tree.children(collection).unwrap().is_empty());
+    assert!(pump.tree.children(collection).is_empty());
 }
 
 #[test]
@@ -460,9 +459,8 @@ fn component_row_is_created_lazily_and_recycle_cleans_it_once() {
     let row = pump
         .tree
         .realized(collection, RealizedContainer(1))
-        .unwrap()
         .unwrap();
-    assert_eq!(pump.tree.kind(row.logical_root), Ok(NodeKind::Component));
+    assert_eq!(pump.tree.kind(row.logical_root), NodeKind::Component);
     assert_ne!(Some(row.logical_root), row.native_root);
     assert_eq!(input.created.get(), 1);
     assert_eq!(&*input.log.borrow(), &["setup A"]);
@@ -492,14 +490,13 @@ fn equal_virtual_source_retries_a_dirty_realized_component() {
     };
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(source()).unwrap();
-    let collection = pump.tree.children(pump.root().unwrap()).unwrap()[0];
+    let collection = pump.tree.children(pump.root().unwrap())[0];
     pump.runtime_mut()
         .queue_realize(collection, RealizedContainer(1), 0);
     pump.process_realizations().unwrap();
     let row = pump
         .tree
         .realized(collection, RealizedContainer(1))
-        .unwrap()
         .unwrap();
     let token = pump
         .components
@@ -602,7 +599,6 @@ fn key_stable_source_update_reconciles_component_row_in_place() {
     let before = pump
         .tree
         .realized(collection, RealizedContainer(1))
-        .unwrap()
         .unwrap();
 
     pump.update_view(
@@ -615,7 +611,6 @@ fn key_stable_source_update_reconciles_component_row_in_place() {
     let after = pump
         .tree
         .realized(collection, RealizedContainer(1))
-        .unwrap()
         .unwrap();
     assert_eq!(after.logical_root, before.logical_root);
     assert_eq!(after.native_root, before.native_root);
@@ -650,7 +645,6 @@ fn key_stable_component_row_can_replace_its_native_root() {
     let before = pump
         .tree
         .realized(collection, RealizedContainer(1))
-        .unwrap()
         .unwrap();
 
     pump.update_view(
@@ -666,7 +660,6 @@ fn key_stable_component_row_can_replace_its_native_root() {
     let after = pump
         .tree
         .realized(collection, RealizedContainer(1))
-        .unwrap()
         .unwrap();
     assert_eq!(after.logical_root, before.logical_root);
     assert_ne!(after.native_root, before.native_root);
@@ -705,7 +698,6 @@ fn key_stable_fragment_row_can_replace_its_native_root() {
     let before = pump
         .tree
         .realized(collection, RealizedContainer(1))
-        .unwrap()
         .unwrap();
 
     pump.update_view(
@@ -721,7 +713,6 @@ fn key_stable_fragment_row_can_replace_its_native_root() {
     let after = pump
         .tree
         .realized(collection, RealizedContainer(1))
-        .unwrap()
         .unwrap();
     assert_eq!(after.logical_root, before.logical_root);
     assert_ne!(after.native_root, before.native_root);
@@ -757,8 +748,8 @@ fn source_key_removal_retires_realized_component_row() {
     pump.update_view(ItemsRepeater::new().into()).unwrap();
 
     assert_eq!(&*input.log.borrow(), &["setup A", "cleanup A"]);
-    assert!(pump.tree.children(collection).unwrap().is_empty());
-    assert_eq!(pump.tree.virtual_model(collection).unwrap().active_len(), 0);
+    assert!(pump.tree.children(collection).is_empty());
+    assert_eq!(pump.tree.virtual_model(collection).active_len(), 0);
 }
 
 #[test]
@@ -786,13 +777,12 @@ fn initial_multi_root_row_is_realized_detached_with_a_diagnostic() {
         outcomes.as_slice(),
         [RealizationOutcome::Realized(_)]
     ));
-    let [logical_root] = pump.tree.children(collection).unwrap() else {
+    let [logical_root] = pump.tree.children(collection) else {
         panic!("expected logical row");
     };
     assert_eq!(
         pump.tree
             .realized(collection, RealizedContainer(1))
-            .unwrap()
             .unwrap(),
         RealizedRow {
             index: 0,
@@ -841,13 +831,12 @@ fn initial_empty_row_is_realized_logically_without_attachment() {
         pump.process_realizations().unwrap().as_slice(),
         [RealizationOutcome::Realized(_)]
     ));
-    let [logical_root] = pump.tree.children(collection).unwrap() else {
+    let [logical_root] = pump.tree.children(collection) else {
         panic!("expected logical row");
     };
     assert_eq!(
         pump.tree
             .realized(collection, RealizedContainer(1))
-            .unwrap()
             .unwrap(),
         RealizedRow {
             index: 0,
@@ -882,7 +871,7 @@ fn component_message_one_empty_one_reuses_and_reattaches_row() {
     pump.runtime_mut()
         .queue_realize(collection, RealizedContainer(1), 0);
     pump.process_realizations().unwrap();
-    let logical_root = pump.tree.children(collection).unwrap()[0];
+    let logical_root = pump.tree.children(collection)[0];
     assert!(input.first.request_focus());
 
     input.send(RowShape::Empty);
@@ -890,7 +879,6 @@ fn component_message_one_empty_one_reuses_and_reattaches_row() {
     let empty = pump
         .tree
         .realized(collection, RealizedContainer(1))
-        .unwrap()
         .unwrap();
     assert_eq!(empty.logical_root, logical_root);
     assert_eq!(empty.native_root, None);
@@ -908,7 +896,6 @@ fn component_message_one_empty_one_reuses_and_reattaches_row() {
     let one = pump
         .tree
         .realized(collection, RealizedContainer(1))
-        .unwrap()
         .unwrap();
     assert_eq!(one.logical_root, logical_root);
     assert!(one.native_root.is_some());
@@ -933,14 +920,13 @@ fn component_message_one_two_one_preserves_state_and_reports_shape() {
     pump.runtime_mut()
         .queue_realize(collection, RealizedContainer(1), 0);
     pump.process_realizations().unwrap();
-    let logical_root = pump.tree.children(collection).unwrap()[0];
+    let logical_root = pump.tree.children(collection)[0];
 
     input.send(RowShape::Two);
     assert_eq!(pump.dispatch_components(1), Ok(1));
     let two = pump
         .tree
         .realized(collection, RealizedContainer(1))
-        .unwrap()
         .unwrap();
     assert_eq!(two.logical_root, logical_root);
     assert_eq!(two.native_root, None);
@@ -967,7 +953,6 @@ fn component_message_one_two_one_preserves_state_and_reports_shape() {
     let one = pump
         .tree
         .realized(collection, RealizedContainer(1))
-        .unwrap()
         .unwrap();
     assert_eq!(one.logical_root, logical_root);
     assert!(one.native_root.is_some());
@@ -993,7 +978,7 @@ fn same_key_payload_shape_transitions_reuse_the_row_component() {
     pump.runtime_mut()
         .queue_realize(collection, RealizedContainer(1), 0);
     pump.process_realizations().unwrap();
-    let logical_root = pump.tree.children(collection).unwrap()[0];
+    let logical_root = pump.tree.children(collection)[0];
 
     for shape in [RowShape::Empty, RowShape::Two, RowShape::One] {
         pump.update_view(
@@ -1002,7 +987,7 @@ fn same_key_payload_shape_transitions_reuse_the_row_component() {
                 .into(),
         )
         .unwrap();
-        assert_eq!(pump.tree.children(collection).unwrap(), &[logical_root]);
+        assert_eq!(pump.tree.children(collection), &[logical_root]);
     }
 
     assert_eq!(input.created.get(), 1);
@@ -1011,7 +996,6 @@ fn same_key_payload_shape_transitions_reuse_the_row_component() {
     assert!(
         pump.tree
             .realized(collection, RealizedContainer(1))
-            .unwrap()
             .unwrap()
             .native_root
             .is_some()
@@ -1053,7 +1037,7 @@ fn recycle_and_reset_clean_detached_row_lifetimes_once() {
     assert_eq!(recycled.cleanups.get(), 1);
     assert!(!recycled.first.request_focus());
     assert!(!recycled.second.request_focus());
-    assert!(pump.tree.children(collection).unwrap().is_empty());
+    assert!(pump.tree.children(collection).is_empty());
 
     let reset = ShapeRowInput::new(RowShape::Two);
     let mut pump = Pump::new(RecordingRuntime::default());
@@ -1078,7 +1062,7 @@ fn recycle_and_reset_clean_detached_row_lifetimes_once() {
     assert_eq!(reset.cleanups.get(), 1);
     assert!(!reset.first.request_focus());
     assert!(!reset.second.request_focus());
-    assert!(pump.tree.children(collection).unwrap().is_empty());
+    assert!(pump.tree.children(collection).is_empty());
 }
 
 #[test]
@@ -1104,17 +1088,15 @@ fn unrelated_dirty_virtual_rows_publish_with_invalid_shape() {
     second.send(RowShape::Empty);
     assert_eq!(pump.dispatch_components(2), Ok(2));
 
-    let rows = pump.tree.children(collection).unwrap();
+    let rows = pump.tree.children(collection);
     assert_eq!(rows.len(), 2);
     assert!(rows.iter().all(|logical| {
         let container = pump
             .tree
             .realized_container_for_logical(collection, *logical)
-            .unwrap()
             .unwrap();
         pump.tree
             .realized(collection, container)
-            .unwrap()
             .unwrap()
             .native_root
             .is_none()
@@ -1146,7 +1128,6 @@ fn failed_native_shape_update_does_not_publish_diagnostic() {
     let published = pump
         .tree
         .realized(collection, RealizedContainer(1))
-        .unwrap()
         .unwrap();
 
     pump.runtime_mut().fail_after(0, 0);
@@ -1157,9 +1138,7 @@ fn failed_native_shape_update_does_not_publish_diagnostic() {
     ));
 
     assert_eq!(
-        pump.tree
-            .realized(collection, RealizedContainer(1))
-            .unwrap(),
+        pump.tree.realized(collection, RealizedContainer(1)),
         Some(published)
     );
     assert!(pump.drain_diagnostics().is_empty());
@@ -1187,7 +1166,7 @@ fn valid_and_empty_realizations_publish_in_one_batch() {
     }
 
     assert_eq!(pump.process_realizations().unwrap().len(), 2);
-    assert_eq!(pump.tree.children(collection).unwrap().len(), 2);
+    assert_eq!(pump.tree.children(collection).len(), 2);
     assert_eq!(recorded_text(pump.runtime(), collection), ["valid"]);
     assert!(pump.realizations.is_empty());
 
@@ -1234,7 +1213,7 @@ fn reference_validation_failure_retains_the_realization_request() {
         Err(PumpError::DuplicateElementRef)
     );
     assert_eq!(pump.realizations.len(), 1);
-    assert!(pump.tree.children(collection).unwrap().is_empty());
+    assert!(pump.tree.children(collection).is_empty());
 
     owner.shutdown();
     assert_eq!(pump.process_realizations().unwrap().len(), 1);
@@ -1280,7 +1259,6 @@ fn virtual_collection_update_resets_source_and_rejects_old_leases() {
     let old = pump
         .tree
         .virtual_model_mut(root)
-        .unwrap()
         .realize(0, RealizedContainer(1))
         .unwrap();
 
@@ -1292,7 +1270,7 @@ fn virtual_collection_update_resets_source_and_rejects_old_leases() {
     )
     .unwrap();
 
-    assert!(!pump.tree.virtual_model(root).unwrap().accepts(&old));
+    assert!(!pump.tree.virtual_model(root).accepts(&old));
     assert_eq!(
         pump.runtime().commands().last().unwrap(),
         &[Command::ResetVirtualCollection {
@@ -1335,7 +1313,7 @@ fn source_reset_rejects_a_queued_old_revision_request() {
         pump.process_realizations().unwrap(),
         [RealizationOutcome::Rejected(request)]
     );
-    assert!(pump.tree.children(collection).unwrap().is_empty());
+    assert!(pump.tree.children(collection).is_empty());
     assert_eq!(pump.runtime().source_revision(collection), Some(1));
 }
 
@@ -1404,7 +1382,7 @@ fn queued_recycle_supersedes_unprocessed_realization() {
             })
         ] if *container == dead && *recycled == dead
     ));
-    assert!(pump.tree.children(collection).unwrap().is_empty());
+    assert!(pump.tree.children(collection).is_empty());
 
     pump.runtime_mut()
         .queue_realize(collection, RealizedContainer(2), 0);
@@ -1432,8 +1410,8 @@ fn deep_index_realization_preserves_the_index_key() {
         panic!("expected deep row realization");
     };
     assert_eq!(lease.key, Key::from("9999"));
-    let row = pump.tree.children(collection).unwrap()[0];
-    assert_eq!(pump.tree.key(row), Ok(Some(&lease.key)));
+    let row = pump.tree.children(collection)[0];
+    assert_eq!(pump.tree.key(row), Some(&lease.key));
 }
 
 #[test]
@@ -1460,7 +1438,7 @@ fn every_realization_command_failure_poisoned_without_publication() {
             pump.process_realizations(),
             Err(PumpError::NativeApplyFailed(_))
         ));
-        assert!(pump.tree.children(collection).unwrap().is_empty());
+        assert!(pump.tree.children(collection).is_empty());
         assert_eq!(pump.process_realizations(), Err(PumpError::Poisoned));
     }
 }
@@ -1490,7 +1468,7 @@ fn component_row_native_failure_does_not_commit_effect_setup() {
         Err(PumpError::NativeApplyFailed(_))
     ));
     assert!(input.log.borrow().is_empty());
-    assert!(pump.tree.children(collection).unwrap().is_empty());
+    assert!(pump.tree.children(collection).is_empty());
     assert!(pump.poisoned());
 }
 
@@ -1628,7 +1606,7 @@ fn component_view_reuses_a_virtual_collection_shell_immediately() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(View::component::<VirtualRoot>(())).unwrap();
     let scroll = Pump::<RecordingRuntime>::native_root(&pump.tree, pump.root().unwrap()).unwrap();
-    let collection = pump.tree.children(scroll).unwrap()[0];
+    let collection = pump.tree.children(scroll)[0];
     let container = RealizedContainer(1);
     pump.runtime_mut()
         .queue_realization(RealizationRequest::Realize {
@@ -1638,7 +1616,7 @@ fn component_view_reuses_a_virtual_collection_shell_immediately() {
             source_revision: 0,
         });
     let first = pump.process_realizations().unwrap();
-    let first_child = pump.tree.children(collection).unwrap()[0];
+    let first_child = pump.tree.children(collection)[0];
     pump.runtime_mut()
         .queue_realization(RealizationRequest::Recycle {
             collection,
@@ -1665,8 +1643,8 @@ fn component_view_reuses_a_virtual_collection_shell_immediately() {
     assert_eq!(second.container, container);
     assert_eq!(first.key, Key::from("a"));
     assert_eq!(second.key, Key::from("b"));
-    assert_eq!(pump.tree.children(collection).unwrap().len(), 1);
-    assert_ne!(pump.tree.children(collection).unwrap()[0], first_child);
+    assert_eq!(pump.tree.children(collection).len(), 1);
+    assert_ne!(pump.tree.children(collection)[0], first_child);
     assert_eq!(recorded_text(pump.runtime(), collection), ["B"]);
 }
 
@@ -1691,7 +1669,7 @@ fn virtual_source_reset_retires_realized_rows_before_clearing_leases() {
             });
     }
     pump.process_realizations().unwrap();
-    let realized = pump.tree.children(collection).unwrap().to_vec();
+    let realized = pump.tree.children(collection).to_vec();
     assert_eq!(realized.len(), 2);
 
     pump.update(
@@ -1702,8 +1680,8 @@ fn virtual_source_reset_retires_realized_rows_before_clearing_leases() {
     )
     .unwrap();
 
-    assert!(pump.tree.children(collection).unwrap().is_empty());
-    assert_eq!(pump.tree.virtual_model(collection).unwrap().active_len(), 0);
+    assert!(pump.tree.children(collection).is_empty());
+    assert_eq!(pump.tree.virtual_model(collection).active_len(), 0);
     assert!(
         pump.runtime()
             .node(collection)
@@ -1740,7 +1718,7 @@ fn virtual_payload_change_reconciles_rows_without_resetting_source() {
             source_revision: 0,
         });
     pump.process_realizations().unwrap();
-    let child = pump.tree.children(collection).unwrap()[0];
+    let child = pump.tree.children(collection)[0];
     let revision = pump.event_revision(child, EventId::ButtonClick).unwrap();
     let batches = pump.runtime().batches();
     let source_revision = pump.runtime().source_revision(collection);
@@ -1759,13 +1737,10 @@ fn virtual_payload_change_reconciles_rows_without_resetting_source() {
     assert_eq!(pump.runtime().batches(), batches);
     assert_eq!(pump.runtime().source_revision(collection), source_revision);
     assert_eq!(
-        pump.tree
-            .virtual_model(collection)
-            .unwrap()
-            .source_revision(),
+        pump.tree.virtual_model(collection).source_revision(),
         source_revision.unwrap()
     );
-    assert_eq!(pump.tree.children(collection).unwrap(), &[child]);
+    assert_eq!(pump.tree.children(collection), &[child]);
     pump.queue_event(QueuedEvent::new(
         child,
         EventId::ButtonClick,
@@ -1807,12 +1782,12 @@ fn same_batch_container_reuse_retires_earlier_row() {
     let RealizationOutcome::Realized(second) = &outcomes[1] else {
         panic!("expected second lease");
     };
-    assert!(!pump.tree.virtual_model(collection).unwrap().accepts(first));
-    assert!(pump.tree.virtual_model(collection).unwrap().accepts(second));
-    assert_eq!(pump.tree.children(collection).unwrap().len(), 1);
+    assert!(!pump.tree.virtual_model(collection).accepts(first));
+    assert!(pump.tree.virtual_model(collection).accepts(second));
+    assert_eq!(pump.tree.children(collection).len(), 1);
     assert_eq!(
-        pump.tree.key(pump.tree.children(collection).unwrap()[0]),
-        Ok(Some(&Key::from("b")))
+        pump.tree.key(pump.tree.children(collection)[0]),
+        Some(&Key::from("b"))
     );
     assert_eq!(pump.runtime().node(collection).unwrap().children().len(), 1);
 }

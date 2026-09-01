@@ -59,14 +59,6 @@ impl PumpError {
     }
 }
 
-impl From<TreeError> for PumpError {
-    fn from(value: TreeError) -> Self {
-        match value {
-            TreeError::Virtual(VirtualModelError::DuplicateKey(key)) => Self::DuplicateKey(key),
-        }
-    }
-}
-
 impl From<ComponentDeclarationError> for PumpError {
     fn from(value: ComponentDeclarationError) -> Self {
         match value {
@@ -292,16 +284,11 @@ impl<R: NativeRuntime> Pump<R> {
             return Err(error);
         }
         let window = self.window.ok_or(PumpError::NotMounted)?;
-        let candidate_root = match candidate.children(window) {
-            Ok([candidate_root]) => *candidate_root,
-            Ok(_) => {
-                self.fail_component_candidate(&changes, PlanningFailure::Rearm);
-                return Err(PumpError::StructureUnsupported);
-            }
-            Err(error) => {
-                self.fail_component_candidate(&changes, PlanningFailure::Rearm);
-                return Err(error.into());
-            }
+        let candidate_root = if let [candidate_root] = candidate.children(window) {
+            *candidate_root
+        } else {
+            self.fail_component_candidate(&changes, PlanningFailure::Rearm);
+            return Err(PumpError::StructureUnsupported);
         };
         self.apply_component_candidate(candidate, candidate_root, plan, changes, next_version)
     }
@@ -371,7 +358,7 @@ impl<R: NativeRuntime> Pump<R> {
 
     pub fn shutdown(&mut self) {
         let identity = self.identity.next();
-        self.cleanup_component_effects().unwrap();
+        self.cleanup_component_effects();
         self.clear_published_references();
         self.imperative.complete_unavailable();
         self.runtime.reset();
@@ -406,22 +393,21 @@ impl<R: NativeRuntime> Pump<R> {
         self.poisoned = false;
     }
 
-    fn cleanup_component_effects(&mut self) -> Result<(), PumpError> {
+    fn cleanup_component_effects(&mut self) {
         let Some(root) = self.root else {
-            return Ok(());
+            return;
         };
         for node in self.tree.subtree_postorder(root) {
-            if self.tree.kind(node)? == NodeKind::Component {
+            if self.tree.kind(node) == NodeKind::Component {
                 let scope = self.tree.component_scope(node);
                 let token = self.components.token(scope);
                 self.components.cleanup_effects(token);
             }
         }
-        Ok(())
     }
 
     pub(crate) fn native_window_closed(&mut self) {
-        self.cleanup_component_effects().unwrap();
+        self.cleanup_component_effects();
         self.clear_published_references();
         self.imperative.complete_unavailable();
         self.components.close();
@@ -440,7 +426,7 @@ impl<R: NativeRuntime> Pump<R> {
     }
 
     #[cfg(feature = "test")]
-    pub(crate) fn live_native_children(&self, node: NodeId) -> Result<&[NodeId], TreeError> {
+    pub(crate) fn live_native_children(&self, node: NodeId) -> &[NodeId] {
         self.tree.children(node)
     }
 
@@ -848,7 +834,7 @@ impl<R: NativeRuntime> Pump<R> {
 
 impl<R: NativeRuntime> Drop for Pump<R> {
     fn drop(&mut self) {
-        _ = self.cleanup_component_effects();
+        self.cleanup_component_effects();
         self.clear_published_references();
         self.imperative.clear();
         if self.reset_on_drop {

@@ -511,7 +511,7 @@ impl LivePump for ComponentLoop {
         let Some(node) = self.pump.root_native() else {
             return false;
         };
-        if !matches!(self.pump.live_native_children(node), Ok([_]))
+        if !matches!(self.pump.live_native_children(node), [_])
             || self.pump.runtime().live_set_checked(node, true).is_err()
             || self.pump.dispatch_events() != Ok(1)
             || first.get() != 1
