@@ -74,6 +74,14 @@ unsafe fn bootstrap_inner() -> Result<()> {
             package_full_name.0 as *mut std::ffi::c_void,
         );
 
+        if add_result == STATEREPOSITORY_E_DEPENDENCY_NOT_RESOLVED {
+            show_install_dialog();
+            return Err(Error::new(
+                add_result,
+                "Microsoft.WindowsAppRuntime.2 framework package is not installed.",
+            ));
+        }
+
         add_result.ok()?;
     };
 
