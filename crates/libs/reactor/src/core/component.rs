@@ -5,9 +5,10 @@ use crate::element::{
     Callback, CallbackSource, ColorScheme, IntoPayloadCallback, View, WindowSize, WindowVisuals,
 };
 use crate::reference::{HostRequest, WindowEndpoint, WindowRef};
+use rustc_hash::{FxHashMap as HashMap, FxHashSet as HashSet};
 use std::any::{Any, TypeId};
 use std::cell::RefCell;
-use std::collections::{HashMap, HashSet, VecDeque};
+use std::collections::VecDeque;
 use std::fmt;
 use std::marker::PhantomData;
 use std::mem::size_of;
@@ -140,19 +141,156 @@ pub(crate) struct ContextDependency {
 }
 
 #[derive(Clone, Default)]
+pub(crate) enum ContextDependencies {
+    #[default]
+    Empty,
+    One(ContextDependency),
+    Many(HashSet<ContextDependency>),
+}
+
+impl ContextDependencies {
+    pub(crate) fn contains(&self, dependency: &ContextDependency) -> bool {
+        match self {
+            Self::Empty => false,
+            Self::One(value) => value == dependency,
+            Self::Many(values) => values.contains(dependency),
+        }
+    }
+
+    fn insert(&mut self, dependency: ContextDependency) {
+        match self {
+            Self::Empty => *self = Self::One(dependency),
+            Self::One(value) if *value == dependency => {}
+            Self::One(value) => {
+                let mut values = HashSet::default();
+                values.insert(*value);
+                values.insert(dependency);
+                *self = Self::Many(values);
+            }
+            Self::Many(values) => {
+                values.insert(dependency);
+            }
+        }
+    }
+
+    fn is_empty(&self) -> bool {
+        matches!(self, Self::Empty)
+    }
+
+    pub(crate) fn iter(&self) -> ContextDependencyIter<'_> {
+        match self {
+            Self::Empty => ContextDependencyIter::Empty,
+            Self::One(value) => ContextDependencyIter::One(Some(value)),
+            Self::Many(values) => ContextDependencyIter::Many(values.iter()),
+        }
+    }
+
+    fn len(&self) -> usize {
+        match self {
+            Self::Empty => 0,
+            Self::One(_) => 1,
+            Self::Many(values) => values.len(),
+        }
+    }
+}
+
+impl PartialEq for ContextDependencies {
+    fn eq(&self, other: &Self) -> bool {
+        self.len() == other.len() && self.iter().all(|value| other.contains(value))
+    }
+}
+
+impl Eq for ContextDependencies {}
+
+pub(crate) enum ContextDependencyIter<'a> {
+    Empty,
+    One(Option<&'a ContextDependency>),
+    Many(std::collections::hash_set::Iter<'a, ContextDependency>),
+}
+
+impl<'a> Iterator for ContextDependencyIter<'a> {
+    type Item = &'a ContextDependency;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        match self {
+            Self::Empty => None,
+            Self::One(value) => value.take(),
+            Self::Many(values) => values.next(),
+        }
+    }
+}
+
+#[derive(Clone, Default)]
+enum ContextValues {
+    #[default]
+    Empty,
+    One {
+        id: ContextId,
+        provider: NodeId,
+        value_type: TypeId,
+        value: Rc<dyn Any>,
+    },
+    Many(HashMap<ContextId, (NodeId, TypeId, Rc<dyn Any>)>),
+}
+
+#[derive(Clone, Default)]
 pub(crate) struct ContextSnapshot {
-    values: HashMap<ContextId, (NodeId, TypeId, Rc<dyn Any>)>,
+    values: ContextValues,
 }
 
 impl ContextSnapshot {
     pub(crate) fn insert(&mut self, provider: NodeId, provision: &ContextProvision) {
-        self.values
-            .entry(provision.id)
-            .or_insert_with(|| (provider, provision.value_type, Rc::clone(&provision.value)));
+        match &mut self.values {
+            ContextValues::Empty => {
+                self.values = ContextValues::One {
+                    id: provision.id,
+                    provider,
+                    value_type: provision.value_type,
+                    value: Rc::clone(&provision.value),
+                };
+            }
+            ContextValues::One { id, .. } if *id == provision.id => {}
+            ContextValues::One { .. } => {
+                let ContextValues::One {
+                    id,
+                    provider: previous_provider,
+                    value_type,
+                    value,
+                } = std::mem::take(&mut self.values)
+                else {
+                    unreachable!()
+                };
+                let mut values = HashMap::default();
+                values.insert(id, (previous_provider, value_type, value));
+                values.insert(
+                    provision.id,
+                    (provider, provision.value_type, Rc::clone(&provision.value)),
+                );
+                self.values = ContextValues::Many(values);
+            }
+            ContextValues::Many(values) => {
+                values.entry(provision.id).or_insert_with(|| {
+                    (provider, provision.value_type, Rc::clone(&provision.value))
+                });
+            }
+        }
     }
 
     fn get<T: Clone + 'static>(&self, context: &Context<T>) -> Option<(NodeId, T)> {
-        let (provider, value_type, value) = self.values.get(&context.id)?;
+        let (provider, value_type, value) = match &self.values {
+            ContextValues::Empty => return None,
+            ContextValues::One {
+                id,
+                provider,
+                value_type,
+                value,
+            } if *id == context.id => (provider, value_type, value),
+            ContextValues::One { .. } => return None,
+            ContextValues::Many(values) => {
+                let (provider, value_type, value) = values.get(&context.id)?;
+                (provider, value_type, value)
+            }
+        };
         assert_eq!(*value_type, TypeId::of::<T>(), "context type mismatch");
         Some((*provider, value.downcast_ref::<T>().unwrap().clone()))
     }
@@ -475,74 +613,72 @@ impl TaskSpawner {
         let token = self.token;
         let thread_control = Arc::clone(&control);
         let thread_rejection = Arc::clone(&rejection);
-        let spawn = std::thread::Builder::new()
-            .name("windows-reactor".to_string())
-            .spawn(move || {
-                let _slot = slot;
-                let message = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-                    work(CancellationToken {
-                        control: Arc::clone(&thread_control),
-                    })
-                }));
-                let wake = {
-                    let mut background = queue.lock().unwrap();
-                    let registered = background.tasks.get_mut(&token.scope).is_some_and(|tasks| {
-                        let before = tasks.len();
-                        tasks.retain(|task| {
-                            task.upgrade()
-                                .is_some_and(|task| !Arc::ptr_eq(&task, &thread_control))
-                        });
-                        tasks.len() != before
+        let submitted = windows_threading::try_submit(move || {
+            let _slot = slot;
+            let message = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                work(CancellationToken {
+                    control: Arc::clone(&thread_control),
+                })
+            }));
+            let wake = {
+                let mut background = queue.lock().unwrap();
+                let registered = background.tasks.get_mut(&token.scope).is_some_and(|tasks| {
+                    let before = tasks.len();
+                    tasks.retain(|task| {
+                        task.upgrade()
+                            .is_some_and(|task| !Arc::ptr_eq(&task, &thread_control))
                     });
-                    if background
-                        .tasks
-                        .get(&token.scope)
-                        .is_some_and(Vec::is_empty)
-                    {
-                        background.tasks.remove(&token.scope);
-                    }
-                    if !registered
-                        || thread_control.status() == ComponentTaskStatus::Cancelled
-                        || !background.open
-                    {
-                        thread_control.cancel();
-                        return;
-                    }
-                    let Ok(message) = message else {
-                        drop(background);
-                        Self::queue_rejection_shared(
-                            &queue,
-                            &thread_control,
-                            token,
-                            thread_rejection.lock().unwrap().take(),
-                        );
-                        return;
-                    };
-                    if background.envelopes.len() >= BACKGROUND_MESSAGE_QUEUE_CAPACITY {
-                        drop(background);
-                        Self::queue_rejection_shared(
-                            &queue,
-                            &thread_control,
-                            token,
-                            thread_rejection.lock().unwrap().take(),
-                        );
-                        return;
-                    }
-                    if !thread_control.queue() {
-                        return;
-                    }
-                    background.envelopes.push_back(BackgroundEnvelope {
-                        control: Arc::clone(&thread_control),
-                        delivery: BackgroundDelivery::Completion,
-                        payload: Box::new(message),
-                        rejection: thread_rejection.lock().unwrap().take(),
+                    tasks.len() != before
+                });
+                if background
+                    .tasks
+                    .get(&token.scope)
+                    .is_some_and(Vec::is_empty)
+                {
+                    background.tasks.remove(&token.scope);
+                }
+                if !registered
+                    || thread_control.status() == ComponentTaskStatus::Cancelled
+                    || !background.open
+                {
+                    thread_control.cancel();
+                    return;
+                }
+                let Ok(message) = message else {
+                    drop(background);
+                    Self::queue_rejection_shared(
+                        &queue,
+                        &thread_control,
                         token,
-                    });
-                    Self::background_wake(&mut background)
+                        thread_rejection.lock().unwrap().take(),
+                    );
+                    return;
                 };
-                Self::wake_or_reject(&queue, wake);
-            });
-        if spawn.is_err() {
+                if background.envelopes.len() >= BACKGROUND_MESSAGE_QUEUE_CAPACITY {
+                    drop(background);
+                    Self::queue_rejection_shared(
+                        &queue,
+                        &thread_control,
+                        token,
+                        thread_rejection.lock().unwrap().take(),
+                    );
+                    return;
+                }
+                if !thread_control.queue() {
+                    return;
+                }
+                background.envelopes.push_back(BackgroundEnvelope {
+                    control: Arc::clone(&thread_control),
+                    delivery: BackgroundDelivery::Completion,
+                    payload: Box::new(message),
+                    rejection: thread_rejection.lock().unwrap().take(),
+                    token,
+                });
+                Self::background_wake(&mut background)
+            };
+            Self::wake_or_reject(&queue, wake);
+        });
+        if submitted.is_err() {
             let mut queue = self.queue.lock().unwrap();
             if let Some(tasks) = queue.tasks.get_mut(&self.token.scope) {
                 tasks.retain(|task| {
@@ -759,8 +895,8 @@ impl<T> SingleDeclaration<T> {
 
 pub struct ViewContext<C: Component> {
     contexts: ContextSnapshot,
-    effects: Rc<RefCell<ComponentEffects>>,
-    reads: HashSet<ContextDependency>,
+    effects: ComponentEffects,
+    reads: ContextDependencies,
     sender: LocalSender<C::Message>,
     color_scheme_observation: SingleDeclaration<Callback<ColorScheme>>,
     window_size_observation: SingleDeclaration<Callback<WindowSize>>,
@@ -827,9 +963,7 @@ impl<C: Component> ViewContext<C> {
     ) where
         D: PartialEq + 'static,
     {
-        self.effects
-            .borrow_mut()
-            .use_effect(key.into(), dependency, setup);
+        self.effects.use_effect(key.into(), dependency, setup);
     }
 }
 
@@ -866,7 +1000,7 @@ impl<C: Component> ErasedComponentFactory for TypedComponentFactory<C> {
         store: &mut ComponentStore,
         token: ComponentToken,
     ) -> Result<bool, ComponentStoreError> {
-        store.apply_input(token, self.input.clone())
+        store.apply_input(token, &self.input)
     }
 
     fn as_any(&self) -> &dyn Any {
@@ -944,7 +1078,7 @@ impl PartialEq for ComponentView {
 trait ErasedScope {
     fn apply_input(
         &mut self,
-        input: Box<dyn Any>,
+        input: &dyn Any,
         tasks: TaskSpawner,
     ) -> Result<bool, ComponentStoreError>;
     #[cfg(test)]
@@ -958,8 +1092,8 @@ trait ErasedScope {
     fn message_type(&self) -> TypeId;
     fn input_type(&self) -> TypeId;
     fn type_name(&self) -> &'static str;
-    fn context_dependencies(&self) -> Option<&HashSet<ContextDependency>>;
-    fn set_context_dependencies(&mut self, dependencies: HashSet<ContextDependency>);
+    fn context_dependencies(&self) -> Option<&ContextDependencies>;
+    fn set_context_dependencies(&mut self, dependencies: ContextDependencies);
     fn view(&self, contexts: ContextSnapshot) -> Result<ComponentRender, ComponentStoreError>;
     fn cleanup_effects(&self);
     fn commit_effects(&self);
@@ -968,11 +1102,18 @@ trait ErasedScope {
 
 pub(crate) struct ComponentRender {
     pub(crate) color_scheme_observation: Option<Callback<ColorScheme>>,
-    pub(crate) dependencies: HashSet<ContextDependency>,
+    pub(crate) dependencies: ContextDependencies,
     pub(crate) view: View,
     pub(crate) window_size_observation: Option<Callback<WindowSize>>,
     pub(crate) window_title: Option<String>,
     pub(crate) window_visuals: Option<WindowVisuals>,
+}
+
+// Boxing the successful render would add an allocation to every component view.
+#[allow(clippy::large_enum_variant)]
+enum ComponentViewOutcome {
+    Complete(Result<ComponentRender, ComponentStoreError>),
+    Panicked(Box<dyn Any + Send>),
 }
 
 type EffectCleanup = Box<dyn FnOnce()>;
@@ -1004,16 +1145,22 @@ impl EffectRegistration {
 }
 
 #[derive(Default)]
-pub(crate) struct ComponentEffects {
-    duplicate: Option<EffectKey>,
+struct ComponentEffectState {
     registrations: Vec<EffectRegistration>,
     slots: Vec<EffectSlot>,
 }
 
-impl ComponentEffects {
+impl ComponentEffectState {
     fn begin_view(&mut self) {
-        self.duplicate = None;
         self.registrations.clear();
+    }
+
+    fn duplicate_key(&self) -> Option<&EffectKey> {
+        self.registrations
+            .windows(2)
+            .next_back()
+            .filter(|pair| pair[0].key() == pair[1].key())
+            .map(|pair| pair[0].key())
     }
 
     fn use_effect<D>(
@@ -1024,14 +1171,18 @@ impl ComponentEffects {
     ) where
         D: PartialEq + 'static,
     {
+        if self.duplicate_key().is_some() {
+            return;
+        }
         if self
             .registrations
             .iter()
             .any(|registration| registration.key() == &key)
         {
-            if self.duplicate.is_none() {
-                self.duplicate = Some(key);
-            }
+            // A repeated tail pair records the first duplicate without enlarging every state.
+            self.registrations
+                .push(EffectRegistration::Retain { key: key.clone() });
+            self.registrations.push(EffectRegistration::Retain { key });
             return;
         }
         let changed = self
@@ -1052,9 +1203,10 @@ impl ComponentEffects {
     }
 
     fn finish_view(&self) -> Result<(), ComponentStoreError> {
-        match &self.duplicate {
-            Some(key) => Err(ComponentStoreError::DuplicateEffectKey(key.clone())),
-            None => Ok(()),
+        if let Some(key) = self.duplicate_key() {
+            Err(ComponentStoreError::DuplicateEffectKey(key.clone()))
+        } else {
+            Ok(())
         }
     }
 
@@ -1074,6 +1226,7 @@ impl ComponentEffects {
     }
 
     fn commit(&mut self) {
+        debug_assert!(self.duplicate_key().is_none());
         let mut published = std::mem::take(&mut self.slots);
         for registration in self.registrations.drain(..) {
             let slot = match registration {
@@ -1093,7 +1246,6 @@ impl ComponentEffects {
             };
             self.slots.push(slot);
         }
-        self.duplicate = None;
     }
 
     fn cleanup(&mut self) {
@@ -1104,14 +1256,70 @@ impl ComponentEffects {
         }
         self.slots.clear();
         self.registrations.clear();
-        self.duplicate = None;
+    }
+
+    fn is_empty(&self) -> bool {
+        self.registrations.is_empty() && self.slots.is_empty()
+    }
+}
+
+#[derive(Default)]
+pub(crate) struct ComponentEffects(Option<Box<ComponentEffectState>>);
+
+impl ComponentEffects {
+    fn begin_view(&mut self) {
+        if let Some(state) = self.0.as_deref_mut() {
+            state.begin_view();
+        }
+    }
+
+    fn use_effect<D>(
+        &mut self,
+        key: EffectKey,
+        dependency: D,
+        setup: impl FnOnce() -> Option<EffectCleanup> + 'static,
+    ) where
+        D: PartialEq + 'static,
+    {
+        self.0
+            .get_or_insert_with(Box::default)
+            .use_effect(key, dependency, setup);
+    }
+
+    fn finish_view(&self) -> Result<(), ComponentStoreError> {
+        self.0
+            .as_deref()
+            .map_or(Ok(()), ComponentEffectState::finish_view)
+    }
+
+    fn prepare(&mut self) {
+        if let Some(state) = self.0.as_deref_mut() {
+            state.prepare();
+        }
+    }
+
+    fn commit(&mut self) {
+        let clear = self.0.as_deref_mut().is_some_and(|state| {
+            state.commit();
+            state.is_empty()
+        });
+        if clear {
+            self.0 = None;
+        }
+    }
+
+    fn cleanup(&mut self) {
+        if let Some(state) = self.0.as_deref_mut() {
+            state.cleanup();
+        }
+        self.0 = None;
     }
 }
 
 struct TypedScope<C, I, M> {
     component: C,
-    context_dependencies: Option<Rc<HashSet<ContextDependency>>>,
-    effects: Rc<RefCell<ComponentEffects>>,
+    context_dependencies: Option<Rc<ContextDependencies>>,
+    effects: RefCell<ComponentEffects>,
     input: I,
     input_changed: fn(&mut C, &I, LocalSender<M>, TaskSpawner, WindowRef),
     sender: LocalSender<M>,
@@ -1120,9 +1328,9 @@ struct TypedScope<C, I, M> {
         &C,
         &I,
         LocalSender<M>,
-        Rc<RefCell<ComponentEffects>>,
+        ComponentEffects,
         ContextSnapshot,
-    ) -> Result<ComponentRender, ComponentStoreError>,
+    ) -> (ComponentViewOutcome, ComponentEffects),
     window: WindowEndpoint,
 }
 
@@ -1140,20 +1348,20 @@ where
 {
     fn apply_input(
         &mut self,
-        input: Box<dyn Any>,
+        input: &dyn Any,
         tasks: TaskSpawner,
     ) -> Result<bool, ComponentStoreError> {
-        let actual = input.as_ref().type_id();
+        let actual = input.type_id();
         let input = input
-            .downcast::<I>()
-            .map_err(|_| ComponentStoreError::InputTypeMismatch {
+            .downcast_ref::<I>()
+            .ok_or(ComponentStoreError::InputTypeMismatch {
                 expected: TypeId::of::<I>(),
                 actual,
             })?;
         if self.input == *input {
             return Ok(false);
         }
-        self.input = *input;
+        self.input = input.clone();
         self.window.begin();
         (self.input_changed)(
             &mut self.component,
@@ -1171,11 +1379,11 @@ where
         &self.component
     }
 
-    fn context_dependencies(&self) -> Option<&HashSet<ContextDependency>> {
+    fn context_dependencies(&self) -> Option<&ContextDependencies> {
         self.context_dependencies.as_deref()
     }
 
-    fn set_context_dependencies(&mut self, dependencies: HashSet<ContextDependency>) {
+    fn set_context_dependencies(&mut self, dependencies: ContextDependencies) {
         self.context_dependencies = (!dependencies.is_empty()).then(|| Rc::new(dependencies));
     }
 
@@ -1218,16 +1426,20 @@ where
     }
 
     fn view(&self, contexts: ContextSnapshot) -> Result<ComponentRender, ComponentStoreError> {
-        self.effects.borrow_mut().begin_view();
-        let render = (self.view)(
+        let mut effects = self.effects.take();
+        effects.begin_view();
+        let (outcome, effects) = (self.view)(
             &self.component,
             &self.input,
             self.sender.clone(),
-            Rc::clone(&self.effects),
+            effects,
             contexts,
-        )?;
-        self.effects.borrow().finish_view()?;
-        Ok(render)
+        );
+        self.effects.replace(effects);
+        match outcome {
+            ComponentViewOutcome::Complete(render) => render,
+            ComponentViewOutcome::Panicked(payload) => std::panic::resume_unwind(payload),
+        }
     }
 
     fn cleanup_effects(&self) {
@@ -1273,18 +1485,18 @@ impl ComponentStore {
             background: Arc::new(Mutex::new(BackgroundQueue {
                 envelopes: VecDeque::new(),
                 open: true,
-                tasks: HashMap::new(),
+                tasks: HashMap::default(),
                 wake: None,
                 wake_pending: false,
             })),
-            context_consumers: HashMap::new(),
-            context_consumers_by_id: HashMap::new(),
+            context_consumers: HashMap::default(),
+            context_consumers_by_id: HashMap::default(),
             drain_background_next: false,
             window,
             scopes: ScopeArena::new(),
             task_limiter,
             queue: Rc::new(RefCell::new(ComponentQueue {
-                active: HashSet::new(),
+                active: HashSet::default(),
                 envelopes: VecDeque::new(),
                 open: true,
                 wake: None,
@@ -1335,40 +1547,57 @@ impl ComponentStore {
             component: &C,
             input: &C::Input,
             sender: LocalSender<C::Message>,
-            effects: Rc<RefCell<ComponentEffects>>,
+            effects: ComponentEffects,
             contexts: ContextSnapshot,
-        ) -> Result<ComponentRender, ComponentStoreError> {
+        ) -> (ComponentViewOutcome, ComponentEffects) {
             let mut context = ViewContext {
                 contexts,
                 effects,
-                reads: HashSet::new(),
+                reads: ContextDependencies::default(),
                 sender,
                 color_scheme_observation: SingleDeclaration::default(),
                 window_size_observation: SingleDeclaration::default(),
                 window_title: SingleDeclaration::default(),
                 window_visuals: SingleDeclaration::default(),
             };
-            let view = component.view(input, &mut context);
-            let color_scheme_observation = context
-                .color_scheme_observation
-                .resolve(ComponentStoreError::DuplicateColorSchemeObservation)?;
-            let window_size_observation = context
-                .window_size_observation
-                .resolve(ComponentStoreError::DuplicateWindowSizeObservation)?;
-            let window_title = context
-                .window_title
-                .resolve(ComponentStoreError::DuplicateWindowTitle)?;
-            let window_visuals = context
-                .window_visuals
-                .resolve(ComponentStoreError::DuplicateWindowVisuals)?;
-            Ok(ComponentRender {
+            let view = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                component.view(input, &mut context)
+            }));
+            let view = match view {
+                Ok(view) => view,
+                Err(payload) => {
+                    return (ComponentViewOutcome::Panicked(payload), context.effects);
+                }
+            };
+            let ViewContext {
+                effects,
+                reads: dependencies,
                 color_scheme_observation,
-                dependencies: context.reads,
-                view,
                 window_size_observation,
                 window_title,
                 window_visuals,
-            })
+                ..
+            } = context;
+            let render = (|| {
+                let color_scheme_observation = color_scheme_observation
+                    .resolve(ComponentStoreError::DuplicateColorSchemeObservation)?;
+                let window_size_observation = window_size_observation
+                    .resolve(ComponentStoreError::DuplicateWindowSizeObservation)?;
+                let window_title =
+                    window_title.resolve(ComponentStoreError::DuplicateWindowTitle)?;
+                let window_visuals =
+                    window_visuals.resolve(ComponentStoreError::DuplicateWindowVisuals)?;
+                effects.finish_view()?;
+                Ok(ComponentRender {
+                    color_scheme_observation,
+                    dependencies,
+                    view,
+                    window_size_observation,
+                    window_title,
+                    window_visuals,
+                })
+            })();
+            (ComponentViewOutcome::Complete(render), effects)
         }
 
         let background = Arc::clone(&self.background);
@@ -1401,7 +1630,7 @@ impl ComponentStore {
             Box::new(TypedScope {
                 component,
                 context_dependencies: None,
-                effects: Rc::new(RefCell::new(ComponentEffects::default())),
+                effects: RefCell::default(),
                 input,
                 input_changed: input_changed::<C>,
                 sender,
@@ -1465,7 +1694,7 @@ impl ComponentStore {
     pub fn apply_input<I: 'static>(
         &mut self,
         token: ComponentToken,
-        input: I,
+        input: &I,
     ) -> Result<bool, ComponentStoreError> {
         self.validate_window(token)?;
         let tasks = self.task_spawner(token);
@@ -1475,7 +1704,7 @@ impl ComponentStore {
         if actual != expected {
             return Err(ComponentStoreError::InputTypeMismatch { expected, actual });
         }
-        scope.apply_input(Box::new(input), tasks)
+        scope.apply_input(input, tasks)
     }
 
     #[cfg(test)]
@@ -1644,7 +1873,7 @@ impl ComponentStore {
     pub(crate) fn context_dependencies(
         &self,
         token: ComponentToken,
-    ) -> Result<Option<&HashSet<ContextDependency>>, ComponentStoreError> {
+    ) -> Result<Option<&ContextDependencies>, ComponentStoreError> {
         self.validate_window(token)?;
         Ok(self.scopes.get(token.scope)?.context_dependencies())
     }
@@ -1652,19 +1881,37 @@ impl ComponentStore {
     pub(crate) fn set_context_dependencies(
         &mut self,
         token: ComponentToken,
-        dependencies: HashSet<ContextDependency>,
+        dependencies: ContextDependencies,
     ) -> Result<(), ComponentStoreError> {
         self.validate_window(token)?;
+        let unchanged = self
+            .scopes
+            .get(token.scope)?
+            .context_dependencies()
+            .map_or_else(
+                || dependencies.is_empty(),
+                |previous| previous == &dependencies,
+            );
+        if unchanged {
+            return Ok(());
+        }
         let previous = self
             .scopes
             .get(token.scope)?
             .context_dependencies()
             .cloned()
             .unwrap_or_default();
-        for dependency in previous.difference(&dependencies) {
+        for dependency in previous
+            .iter()
+            .filter(|dependency| !dependencies.contains(dependency))
+        {
             self.remove_context_consumer(*dependency, token.scope);
         }
-        for dependency in dependencies.difference(&previous).copied() {
+        for dependency in dependencies
+            .iter()
+            .filter(|dependency| !previous.contains(dependency))
+            .copied()
+        {
             self.context_consumers
                 .entry(dependency)
                 .or_default()
@@ -1833,7 +2080,7 @@ impl ComponentStore {
                 window: self.window,
                 scope,
             },
-            HashSet::new(),
+            ContextDependencies::default(),
         )
     }
 

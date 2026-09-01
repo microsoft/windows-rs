@@ -66,7 +66,7 @@ impl<R: NativeRuntime> Pump<R> {
                             .transpose()
                             .map(|result| result.map(|()| token))
                     })
-                    .collect::<Result<HashSet<_>, PumpError>>()?;
+                    .collect::<Result<IdSet<_>, PumpError>>()?;
                 self.compose_dirty_components(deferred)?;
             }
             let report = self.components.drain(1)?;
@@ -82,13 +82,13 @@ impl<R: NativeRuntime> Pump<R> {
         if self.dirty_components.is_empty() {
             return Ok(dispatched);
         }
-        self.compose_dirty_components(HashSet::new())?;
+        self.compose_dirty_components(IdSet::default())?;
         Ok(dispatched)
     }
 
     fn compose_dirty_components(
         &mut self,
-        deferred: HashSet<ComponentToken>,
+        deferred: IdSet<ComponentToken>,
     ) -> Result<(), PumpError> {
         let next_version = self.next_version()?;
         let mut staged_host_requests = self.components.take_host_requests();

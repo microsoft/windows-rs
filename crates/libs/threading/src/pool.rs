@@ -50,9 +50,10 @@ impl Pool {
         // SAFETY: the closure has `'static` lifetime, and the boxed callback environment
         // (`self.0`) is kept alive until `Pool::drop` calls `join` to ensure all callbacks
         // have finished using it.
-        unsafe {
-            try_submit(&*self.0, f);
-        }
+        assert!(
+            unsafe { try_submit_with_environment(&*self.0, f) }.is_ok(),
+            "allocation failed"
+        );
     }
 
     /// Create a scope for submitting closures.
@@ -126,9 +127,10 @@ impl<'scope, 'env> Scope<'scope, 'env> {
     ///
     /// The closure cannot outlive the `Scope` it's run in.
     pub fn submit<F: FnOnce() + Send + 'scope>(&'scope self, f: F) {
-        unsafe {
-            try_submit(&*self.pool.0, f);
-        }
+        assert!(
+            unsafe { try_submit_with_environment(&*self.pool.0, f) }.is_ok(),
+            "allocation failed"
+        );
     }
 }
 

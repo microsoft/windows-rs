@@ -2,6 +2,10 @@
 
 This crate measures the Rust-side `windows-reactor` planner and component frontend with
 `RecordingRuntime`. It does not include WinUI control creation, layout, rendering, or COM calls.
+Dedicated positional array and tuple rows include view construction so frontend allocation changes
+are not hidden by prebuilt planner inputs. The virtual construction row likewise measures source
+construction separately from reconciliation. Separate component rows measure idle and
+effect-bearing retained memory, effect mount cost, and isolated effect updates.
 
 Run the benchmark in release mode:
 
@@ -21,6 +25,32 @@ The comparison fails when allocation count increases or bytes per operation or r
 memory increase by more than 10%. Timing is displayed for diagnosis but is not a hosted-runner gate.
 `mount_shutdown` includes cloning the input `View` and constructing `RecordingRuntime` inside each
 timed iteration. Run timing commands with `--release`.
+
+## Profiling
+
+The workspace `profiling` profile keeps release optimizations and emits symbols. Build the headless
+benchmark with it, capture CPU sampling with Windows Performance Recorder, and inspect the ETL in
+Windows Performance Analyzer:
+
+```powershell
+cargo build -p test_reactor_bench --bin test_reactor_bench --profile profiling
+wpr.exe -start CPU -filemode
+.\target\profiling\test_reactor_bench.exe --iters 500 --reps 12
+wpr.exe -stop .\target\reactor-cpu.etl
+```
+
+Use the Heap profile when allocation call stacks are needed:
+
+```powershell
+wpr.exe -start Heap -filemode
+.\target\profiling\test_reactor_bench.exe --iters 500 --reps 12
+wpr.exe -stop .\target\reactor-heap.etl
+```
+
+WPR may require an elevated terminal. The benchmark's counting allocator remains the regression
+metric for allocation count, allocated bytes, and retained bytes; ETW profiles explain where those
+costs originate. Use `reactor-live-grid` with the same profile when WinUI, COM, layout, and process
+memory need to be included.
 
 Benchmark output starts with `reactor-benchmark-format: 1`. The comparison requires this marker in
 both revisions. A merge base without the marker predates the final benchmark architecture, so the
@@ -66,12 +96,21 @@ granularity, unchanged child/property cloning, and component boundaries.
 `reactor-live-grid` measures a live WinUI tree with a seeded 70x70 stock grid. Every update
 changes the configured percentage of stock prices. `--churn-count` alternately removes and restores
 that many trailing cells, so `0` measures property updates without native control churn.
+`--component-cells` wraps each cell in a component boundary while preserving the native control
+tree, which isolates component input and publication costs.
 
 Run an unattended ten-second update workload:
 
 ```powershell
 cargo run -p test_reactor_bench --bin reactor-live-grid `
     --release --quiet -- --headless --percent 10 --duration 10 --churn-count 0
+```
+
+Measure the same native grid with one component per cell:
+
+```powershell
+cargo run -p test_reactor_bench --bin reactor-live-grid `
+    --release --quiet -- --headless --component-cells --percent 10 --duration 10 --churn-count 0
 ```
 
 Run the same workload while removing and restoring 400 cells per update:
@@ -86,11 +125,11 @@ WinUI window because native control creation, property application, and destruct
 measurement.
 
 The process writes one JSON object to standard output. It contains the run configuration, update
-count, Rust allocator bytes, process CPU time, average and peak working set and private bytes, and
-average and p95 host-dispatch and native-apply times in microseconds. `cpu_core_percent` treats
-100% as one logical core. Host dispatch includes component reconciliation and command publication;
-native apply is the command-application portion. The object has this shape and is compacted to one
-line:
+count, Rust allocation count and bytes, process CPU time, average and peak working set and private
+bytes, and average and p95 host-dispatch and native-apply times in microseconds.
+`cpu_core_percent` treats 100% as one logical core. Host dispatch includes component reconciliation
+and command publication; native apply is the command-application portion. The object has this shape
+and is compacted to one line:
 
 ```json
 {
@@ -98,8 +137,11 @@ line:
   "headless": true,
   "dirty_percent": 10.000,
   "churn_count": 400,
+  "component_cells": false,
   "duration_ms": 1000.000,
   "updates": 30,
+  "rust_allocations": 0,
+  "rust_allocations_per_update": 0.000,
   "rust_alloc_bytes": 0,
   "rust_alloc_bytes_per_update": 0.000,
   "cpu_time_ms": 0.000,

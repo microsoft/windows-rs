@@ -76,6 +76,10 @@ Selection indices, empty numeric controls, and nullable date or time picker even
 instead of native `-1`, `NaN`, or null sentinels. Omitting a property builder inherits the native
 default; passing `None` sets an explicit empty value.
 
+Large `ItemsRepeater` collections can use `VirtualSource` to construct views only for realized
+items. Its key revision changes when keys or their order change; view-only updates retain the
+revision and recompose only realized rows.
+
 Constrained values are checked by their builders. For example, text weights use constants such as
 `FontWeight::BOLD`, with custom values available through `FontWeight::new`.
 

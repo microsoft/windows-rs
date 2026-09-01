@@ -1,4 +1,5 @@
 use std::cell::RefCell;
+use std::hint::black_box;
 use std::rc::Rc;
 use std::sync::atomic::Ordering;
 use std::time::Instant;
@@ -32,6 +33,7 @@ struct FrontendRow {
 }
 
 struct MemoryRow {
+    allocations: u64,
     n: usize,
     bytes: u64,
     bytes_per_scope: f64,
@@ -165,6 +167,33 @@ struct BenchRoot {
     senders: Rc<Vec<Rc<RefCell<Option<LocalSender<bool>>>>>>,
 }
 
+struct EffectLeaf {
+    active: bool,
+}
+
+impl Component for EffectLeaf {
+    type Input = LeafInput;
+    type Message = bool;
+
+    fn create(input: &Self::Input, context: &ComponentContext<Self>) -> Self {
+        *input.sender.borrow_mut() = Some(context.sender());
+        Self { active: false }
+    }
+
+    fn update(&mut self, toggle: Self::Message, _context: &ComponentContext<Self>) {
+        if toggle {
+            self.active = !self.active;
+        }
+    }
+
+    fn view(&self, _input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        context.use_effect("bench", self.active, || None);
+        TextBlock::new()
+            .text(if self.active { "on" } else { "off" })
+            .into()
+    }
+}
+
 #[derive(Clone)]
 struct RootInput(Rc<Vec<Rc<RefCell<Option<LocalSender<bool>>>>>>);
 
@@ -195,6 +224,32 @@ impl Component for BenchRoot {
             KeyedView::new(
                 index,
                 View::component::<BenchLeaf>(LeafInput {
+                    sender: Rc::clone(sender),
+                }),
+            )
+        }))
+    }
+}
+
+struct EffectRoot(RootInput);
+
+impl Component for EffectRoot {
+    type Input = RootInput;
+    type Message = ();
+
+    fn create(input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self(input.clone())
+    }
+
+    fn input_changed(&mut self, input: &Self::Input, _context: &ComponentContext<Self>) {
+        self.0 = input.clone();
+    }
+
+    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        StackPanel::new().keyed_children(self.0.0.iter().enumerate().map(|(index, sender)| {
+            KeyedView::new(
+                index,
+                View::component::<EffectLeaf>(LeafInput {
                     sender: Rc::clone(sender),
                 }),
             )
@@ -633,15 +688,28 @@ fn keyed_stack(keys: &[String]) -> View {
     )
 }
 
-fn virtual_list(key_prefix: &str, text_prefix: &str, count: usize) -> View {
+fn virtual_list(key_revision: u64, key_prefix: &str, text_prefix: &str, count: usize) -> View {
+    let key_prefix = key_prefix.to_string();
+    let text_prefix = text_prefix.to_string();
     ItemsRepeater::new()
-        .items((0..count).map(|index| {
-            KeyedView::new(
-                format!("{key_prefix}{index}"),
-                TextBlock::new().text(format!("{text_prefix}{index}")),
-            )
-        }))
+        .virtual_source(VirtualSource::new(
+            key_revision,
+            count,
+            move |index| format!("{key_prefix}{index}"),
+            move |index| TextBlock::new().text(format!("{text_prefix}{index}")),
+        ))
         .into()
+}
+
+fn bench_virtual_construction(count: usize, iters: u64, reps: u32) -> Row {
+    let perf = measure(iters, reps, || {
+        black_box(virtual_list(0, "key-", "row-", count));
+    });
+    Row {
+        name: "virtual_construct",
+        n: count,
+        perf,
+    }
 }
 
 fn bench_update(name: &'static str, n: usize, a: View, b: View, iters: u64, reps: u32) -> Row {
@@ -663,6 +731,38 @@ fn bench_mount_shutdown(name: &'static str, n: usize, view: View, iters: u64, re
         pump.shutdown();
     });
     Row { name, n, perf }
+}
+
+fn bench_positional_array(iters: u64, reps: u32) -> Row {
+    let perf = measure(iters, reps, || {
+        black_box(StackPanel::new().children([
+            TextBlock::new(),
+            TextBlock::new(),
+            TextBlock::new(),
+            TextBlock::new(),
+        ]));
+    });
+    Row {
+        name: "positional_array",
+        n: 4,
+        perf,
+    }
+}
+
+fn bench_positional_tuple(iters: u64, reps: u32) -> Row {
+    let perf = measure(iters, reps, || {
+        black_box(StackPanel::new().children((
+            TextBlock::new(),
+            Button::new(),
+            TextBox::new(),
+            ProgressBar::new(),
+        )));
+    });
+    Row {
+        name: "positional_tuple",
+        n: 4,
+        perf,
+    }
 }
 
 fn bench_reference_mount(n: usize, iters: u64, reps: u32) -> Row {
@@ -722,8 +822,8 @@ fn queue_recycle(pump: &mut Pump<RecordingRuntime>, count: usize) {
 }
 
 fn bench_virtual_payload(count: usize, realized: usize, iters: u64, reps: u32) -> Row {
-    let a = virtual_list("key-", "a-", count);
-    let b = virtual_list("key-", "b-", count);
+    let a = virtual_list(0, "key-", "a-", count);
+    let b = virtual_list(0, "key-", "b-", count);
     let mut pump = Pump::new(runtime());
     pump.mount_view(a.clone()).unwrap();
     queue_realize(&mut pump, realized);
@@ -741,8 +841,8 @@ fn bench_virtual_payload(count: usize, realized: usize, iters: u64, reps: u32) -
 }
 
 fn bench_virtual_reset(count: usize, realized: usize, iters: u64, reps: u32) -> Row {
-    let a = virtual_list("a-", "row-", count);
-    let b = virtual_list("b-", "row-", count);
+    let a = virtual_list(0, "a-", "row-", count);
+    let b = virtual_list(1, "b-", "row-", count);
     let mut pump = Pump::new(runtime());
     pump.mount_view(a.clone()).unwrap();
     queue_realize(&mut pump, realized);
@@ -762,7 +862,7 @@ fn bench_virtual_reset(count: usize, realized: usize, iters: u64, reps: u32) -> 
 
 fn bench_realize_cycle(count: usize, realized: usize, iters: u64, reps: u32) -> Row {
     let mut pump = Pump::new(runtime());
-    pump.mount_view(virtual_list("key-", "row-", count))
+    pump.mount_view(virtual_list(0, "key-", "row-", count))
         .unwrap();
     let perf = measure(iters, reps, || {
         queue_realize(&mut pump, realized);
@@ -796,6 +896,22 @@ fn bench_component_leaf(count: usize, iters: u64, reps: u32) -> Row {
     }
 }
 
+fn effect_tree(count: usize) -> View {
+    View::component::<EffectRoot>(RootInput(effect_senders(count)))
+}
+
+fn effect_senders(count: usize) -> Rc<Vec<Rc<RefCell<Option<LocalSender<bool>>>>>> {
+    Rc::new(
+        (0..count)
+            .map(|_| Rc::new(RefCell::new(None)))
+            .collect::<Vec<_>>(),
+    )
+}
+
+fn bench_effect_mount(count: usize, iters: u64, reps: u32) -> Row {
+    bench_mount_shutdown("effect_mount", count, effect_tree(count), iters, reps)
+}
+
 fn bench_component_no_change(count: usize, samples: usize) -> FrontendRow {
     let senders = Rc::new(
         (0..count)
@@ -823,6 +939,24 @@ fn bench_component_isolated_leaf(count: usize, samples: usize) -> FrontendRow {
         .unwrap();
     let sender = senders[count / 2].borrow().as_ref().unwrap().clone();
     measure_frontend("components", "isolated_leaf", count, samples, 1, || {
+        _ = sender.send(true);
+        pump.dispatch_components(1).unwrap();
+    })
+}
+
+fn bench_component_effect_leaf(count: usize, samples: usize) -> FrontendRow {
+    let senders = Rc::new(
+        (0..count)
+            .map(|_| Rc::new(RefCell::new(None)))
+            .collect::<Vec<_>>(),
+    );
+    let mut pump = Pump::new(runtime());
+    pump.mount_view(View::component::<EffectRoot>(RootInput(Rc::clone(
+        &senders,
+    ))))
+    .unwrap();
+    let sender = senders[count / 2].borrow().as_ref().unwrap().clone();
+    measure_frontend("components", "effect_leaf", count, samples, 1, || {
         _ = sender.send(true);
         pump.dispatch_components(1).unwrap();
     })
@@ -953,11 +1087,32 @@ fn measure_idle_component_memory(count: usize) -> MemoryRow {
     );
     let mut pump = Pump::new(runtime());
     let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
     pump.mount_view(View::component::<BenchRoot>(RootInput(senders)))
         .unwrap();
     let bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before;
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations;
     pump.shutdown();
     MemoryRow {
+        allocations,
+        n: count + 1,
+        bytes,
+        bytes_per_scope: bytes as f64 / (count + 1) as f64,
+    }
+}
+
+fn measure_effect_component_memory(count: usize) -> MemoryRow {
+    let senders = effect_senders(count);
+    let mut pump = Pump::new(runtime());
+    let before = allocator::CURRENT_BYTES.load(Ordering::Relaxed);
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
+    pump.mount_view(View::component::<EffectRoot>(RootInput(senders)))
+        .unwrap();
+    let bytes = allocator::CURRENT_BYTES.load(Ordering::Relaxed) - before;
+    let allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed) - allocations;
+    pump.shutdown();
+    MemoryRow {
+        allocations,
         n: count + 1,
         bytes,
         bytes_per_scope: bytes as f64 / (count + 1) as f64,
@@ -1012,6 +1167,8 @@ fn main() {
     component_moved_25_4k.rotate_left(1_024);
 
     let rows = vec![
+        bench_positional_array(iters, reps),
+        bench_positional_tuple(iters, reps),
         bench_mount_shutdown(
             "mount_shutdown",
             512,
@@ -1021,6 +1178,7 @@ fn main() {
         ),
         bench_textbox_mount(512, (iters / 16).max(1), reps),
         bench_reference_mount(512, (iters / 16).max(1), reps),
+        bench_effect_mount(512, (iters / 16).max(1), reps),
         bench_update(
             "update_no_change",
             512,
@@ -1088,11 +1246,12 @@ fn main() {
         bench_update(
             "virtual_no_change",
             10_000,
-            virtual_list("key-", "row-", 10_000),
-            virtual_list("key-", "row-", 10_000),
+            virtual_list(0, "key-", "row-", 10_000),
+            virtual_list(0, "key-", "row-", 10_000),
             iters,
             reps,
         ),
+        bench_virtual_construction(10_000, (iters / 10).max(1), reps),
         bench_virtual_payload(10_000, 32, (iters / 4).max(1), reps),
         bench_virtual_reset(10_000, 32, (iters / 10).max(1), reps),
         bench_realize_cycle(10_000, 32, (iters / 4).max(1), reps),
@@ -1226,6 +1385,8 @@ fn main() {
         bench_component_isolated_leaf(512, samples),
         bench_component_isolated_leaf(4_096, samples),
         bench_component_isolated_leaf(16_384, samples),
+        bench_component_effect_leaf(512, samples),
+        bench_component_effect_leaf(16_384, samples),
         bench_component_fragment_leaf(512, samples),
         bench_component_fragment_leaf(16_384, samples),
         bench_context_isolated_provider(512, samples),
@@ -1269,6 +1430,19 @@ fn main() {
         println!(
             "{:>8} {:>16} {:>18.1}",
             row.n, row.bytes, row.bytes_per_scope
+        );
+    }
+
+    println!("\neffect component memory");
+    println!(
+        "{:>8} {:>8} {:>16} {:>18} {:>16}",
+        "kind", "scopes", "retained bytes", "bytes/scope", "allocations"
+    );
+    println!("{}", "-".repeat(72));
+    for row in [512, 4_096, 16_384].map(measure_effect_component_memory) {
+        println!(
+            "{:>8} {:>8} {:>16} {:>18.1} {:>16}",
+            "effect", row.n, row.bytes, row.bytes_per_scope, row.allocations
         );
     }
 }

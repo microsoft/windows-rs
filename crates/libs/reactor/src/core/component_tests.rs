@@ -1,4 +1,93 @@
 use super::*;
+
+#[test]
+#[cfg(target_pointer_width = "64")]
+fn component_runtime_layouts_remain_compact() {
+    assert_eq!(size_of::<ComponentEffects>(), 8);
+    assert_eq!(size_of::<ComponentEffectState>(), 48);
+    assert_eq!(size_of::<TypedScope<(), (), ()>>(), 104);
+}
+
+#[test]
+fn context_dependencies_compare_as_sets_across_inline_and_many_storage() {
+    let first = ContextDependency {
+        id: ContextId(1),
+        provider: Some(NodeId::from_parts(2, 3)),
+    };
+    let second = ContextDependency {
+        id: ContextId(4),
+        provider: None,
+    };
+    let mut left = ContextDependencies::default();
+    left.insert(first);
+    left.insert(second);
+    let mut right = ContextDependencies::default();
+    right.insert(second);
+    right.insert(first);
+
+    assert!(left == right);
+    assert!(left.contains(&first));
+    assert!(left.contains(&second));
+}
+
+#[test]
+fn context_snapshot_keeps_nearest_provider_and_multiple_contexts() {
+    let first = Context::new(0u32);
+    let second = Context::new("default");
+    let nearest = ContextProvision::new(&first, 1);
+    let shadowed = ContextProvision::new(&first, 2);
+    let other = ContextProvision::new(&second, "resolved");
+    let nearest_node = NodeId::from_parts(1, 0);
+    let mut snapshot = ContextSnapshot::default();
+
+    snapshot.insert(nearest_node, &nearest);
+    snapshot.insert(NodeId::from_parts(2, 0), &shadowed);
+    snapshot.insert(NodeId::from_parts(3, 0), &other);
+
+    assert_eq!(snapshot.get(&first), Some((nearest_node, 1)));
+    assert_eq!(
+        snapshot.get(&second).map(|(_, value)| value),
+        Some("resolved")
+    );
+}
+
+#[test]
+fn duplicate_effect_marker_survives_later_registrations() {
+    let mut effects = ComponentEffects::default();
+    effects.use_effect("duplicate".into(), 1, || None);
+    effects.use_effect("duplicate".into(), 2, || None);
+    effects.use_effect("later".into(), 3, || None);
+
+    assert_eq!(
+        effects.finish_view(),
+        Err(ComponentStoreError::DuplicateEffectKey(EffectKey::from(
+            "duplicate"
+        )))
+    );
+}
+
+#[test]
+fn panicking_effect_cleanup_preserves_remaining_cleanups() {
+    let cleanup_count = Rc::new(Cell::new(0));
+    let mut effects = ComponentEffects::default();
+    let count = Rc::clone(&cleanup_count);
+    effects.use_effect("remaining".into(), (), move || {
+        Some(Box::new(move || count.set(count.get() + 1)))
+    });
+    effects.use_effect("panicking".into(), (), || {
+        Some(Box::new(|| panic!("injected cleanup panic")))
+    });
+    effects.commit();
+
+    let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+        effects.cleanup();
+    }));
+
+    assert!(result.is_err());
+    effects.cleanup();
+    assert_eq!(cleanup_count.get(), 1);
+}
+
 use crate::TextBlock;
 use crate::core::{WindowId, WindowToken};
 use std::cell::Cell;
@@ -24,6 +113,65 @@ impl Component for Passive {
 #[test]
 fn component_update_defaults_to_no_op() {
     let _ = View::component::<Passive>(());
+}
+
+#[derive(Clone)]
+struct PanickingEffectInput {
+    cleanup_count: Rc<Cell<usize>>,
+    panic: Rc<Cell<bool>>,
+}
+
+impl PartialEq for PanickingEffectInput {
+    fn eq(&self, other: &Self) -> bool {
+        Rc::ptr_eq(&self.cleanup_count, &other.cleanup_count)
+            && Rc::ptr_eq(&self.panic, &other.panic)
+    }
+}
+
+struct PanickingEffect;
+
+impl Component for PanickingEffect {
+    type Input = PanickingEffectInput;
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
+        let cleanup_count = Rc::clone(&input.cleanup_count);
+        context.use_effect("effect", (), move || {
+            Some(Box::new(move || {
+                cleanup_count.set(cleanup_count.get() + 1);
+            }))
+        });
+        assert!(!input.panic.get(), "injected view panic");
+        View::empty()
+    }
+}
+
+#[test]
+fn panicking_view_preserves_effect_cleanup_state() {
+    let cleanup_count = Rc::new(Cell::new(0));
+    let panic = Rc::new(Cell::new(false));
+    let mut store = store();
+    let token = store
+        .reserve_component::<PanickingEffect>(PanickingEffectInput {
+            cleanup_count: Rc::clone(&cleanup_count),
+            panic: Rc::clone(&panic),
+        })
+        .unwrap();
+    store.view(token, ContextSnapshot::default()).unwrap();
+    store.commit_effects(token).unwrap();
+
+    panic.set(true);
+    let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+        store.view(token, ContextSnapshot::default()).unwrap();
+    }));
+
+    assert!(result.is_err());
+    store.cleanup_effects(token).unwrap();
+    assert_eq!(cleanup_count.get(), 1);
 }
 
 struct State {
@@ -119,7 +267,7 @@ fn view_receives_current_store_owned_input() {
         store.view(token, ContextSnapshot::default()).unwrap().view,
         View::native(TextBlock::new().text("first"))
     );
-    assert!(store.apply_input(token, "second".to_string()).unwrap());
+    assert!(store.apply_input(token, &"second".to_string()).unwrap());
     assert_eq!(
         store.view(token, ContextSnapshot::default()).unwrap().view,
         View::native(TextBlock::new().text("second"))
@@ -234,13 +382,71 @@ fn inputs_are_typed_coalesced_and_applied_before_messages() {
     let token = reserve_state(&mut store, "first");
     store.publish(token).unwrap();
 
-    assert_eq!(store.apply_input(token, "first".to_string()), Ok(false));
-    assert_eq!(store.apply_input(token, "second".to_string()), Ok(true));
+    assert_eq!(store.apply_input(token, &"first".to_string()), Ok(false));
+    assert_eq!(store.apply_input(token, &"second".to_string()), Ok(true));
     assert_eq!(store.component::<State>(token).unwrap().changed, 1);
     assert!(matches!(
-        store.apply_input(token, 1u32),
+        store.apply_input(token, &1u32),
         Err(ComponentStoreError::InputTypeMismatch { .. })
     ));
+}
+
+#[derive(PartialEq)]
+struct CloneTrackedInput {
+    clones: Rc<Cell<usize>>,
+    value: u32,
+}
+
+impl Clone for CloneTrackedInput {
+    fn clone(&self) -> Self {
+        self.clones.set(self.clones.get() + 1);
+        Self {
+            clones: Rc::clone(&self.clones),
+            value: self.value,
+        }
+    }
+}
+
+struct CloneTrackedComponent;
+
+impl Component for CloneTrackedComponent {
+    type Input = CloneTrackedInput;
+    type Message = ();
+
+    fn create(_input: &Self::Input, _context: &ComponentContext<Self>) -> Self {
+        Self
+    }
+
+    fn view(&self, _input: &Self::Input, _context: &mut ViewContext<Self>) -> View {
+        View::empty()
+    }
+}
+
+#[test]
+fn component_factory_clones_input_only_when_it_changes() {
+    let clones = Rc::new(Cell::new(0));
+    let mut store = store();
+    let token = store
+        .reserve_component::<CloneTrackedComponent>(CloneTrackedInput {
+            clones: Rc::clone(&clones),
+            value: 1,
+        })
+        .unwrap();
+    store.publish(token).unwrap();
+
+    let unchanged = ComponentView::new::<CloneTrackedComponent>(CloneTrackedInput {
+        clones: Rc::clone(&clones),
+        value: 1,
+    });
+    assert!(!unchanged.apply_input(&mut store, token).unwrap());
+    assert_eq!(clones.get(), 0);
+
+    let changed = ComponentView::new::<CloneTrackedComponent>(CloneTrackedInput {
+        clones: Rc::clone(&clones),
+        value: 2,
+    });
+    assert!(changed.apply_input(&mut store, token).unwrap());
+    assert_eq!(clones.get(), 1);
 }
 
 #[test]

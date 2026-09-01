@@ -29,6 +29,11 @@ handles properties, events, and windows, while `RecordingRuntime` records the sa
 for deterministic tests. Typed references expose the Canvas, Composition, WebView, and focus
 integration boundaries.
 
+Maps and sets keyed only by runtime-generated identities use `rustc_hash`. Collections keyed by
+application-provided `Key`, effect names, strings, or other external values keep randomized
+hashing. Besides reducing lookup cost, the zero-sized internal hasher keeps retained tree nodes
+smaller.
+
 Unexpected native command failures are fatal. Continuing after a partially applied WinUI update
 would leave the retained and native trees out of sync.
 
@@ -46,17 +51,28 @@ useful if native application does not return. Release builds omit this output.
 ### Component model
 
 `Component::Input` is parent-owned declarative data. The runtime compares it with the retained
-input and calls `Component::input_changed` when it differs. `Component::Message` is the typed
-request channel for local updates.
+input by reference and calls `Component::input_changed` when it differs. The input is cloned into
+retained state only after a changed comparison. `Component::Message` is the typed request channel
+for local updates.
 
 `create`, `input_changed`, and `update` receive a shared `ComponentContext<Self>` for senders,
-background tasks, and window requests. `view` receives a mutable `ViewContext<Self>` because
-rendering records declarations, dependencies, observations, and effects. Inputs remain explicit
-arguments to `create`, `input_changed`, and `view`.
+background tasks, and window requests. Background tasks run on the shared Windows thread pool;
+Reactor bounds active work and routes completion back to the owning component. `view` receives a
+mutable `ViewContext<Self>` because rendering records declarations, dependencies, observations, and
+effects. Inputs remain explicit arguments to `create`, `input_changed`, and `view`.
+
+Context snapshots and dependency sets keep zero or one entry inline. Multiple distinct contexts
+fall back to an internal hash set or map. Publishing an unchanged dependency set retains the
+existing set rather than cloning and replacing it for every context-driven render.
 
 Generated controls convert directly into `View`. The internal `Element` representation and
 structural state remain private so applications depend on builders and capability traits rather
 than generated enum variants or reconciliation storage.
+
+`Element` remains a 16-byte generated enum whose control payload is held by `Rc`. Cloning a view
+during reconciliation shares that payload rather than allocating and copying another control.
+Consuming a uniquely owned element moves the control out; consuming a shared element clones only
+the control value needed to construct retained properties and structure.
 
 Use an ordinary function returning `View` for stateless presentation:
 
@@ -89,6 +105,12 @@ accepts named constants such as `FontWeight::BOLD` and custom values from `FontW
 range 1 through 999. `TextBlock::max_lines` accepts non-negative values, and
 `TimePicker::minute_increment` accepts values from 0 through 59. Passing `None` still inherits the
 native default.
+
+`ItemsRepeater::virtual_source` accepts an indexed `VirtualSource`. Initial mount and key-revision
+changes enumerate keys to validate identity, but item views are constructed only when WinUI
+realizes their indices. An update with the same key revision invokes the view factory only for
+currently realized rows. Applications must increment the revision whenever source length, key
+values, or key order changes. Payload-only changes keep the revision stable.
 
 `Image::source_data` and `ImageIcon::source_data` accept an `EncodedImage` containing PNG or other
 bitmap data supported by WinUI. SVG remains available through the URI-based `source` and

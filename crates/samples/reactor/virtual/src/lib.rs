@@ -24,6 +24,7 @@ struct TaskEditor {
     next_id: u64,
     selected: Option<u64>,
     sender: LocalSender<Message>,
+    source_revision: u64,
     status: String,
     tasks: Vec<Rc<Task>>,
 }
@@ -138,6 +139,10 @@ impl TaskEditor {
             self.selected = self.tasks.first().map(|task| task.id);
         }
     }
+
+    fn bump_source_revision(&mut self) {
+        self.source_revision = self.source_revision.checked_add(1).unwrap();
+    }
 }
 
 impl Component for TaskEditor {
@@ -153,6 +158,7 @@ impl Component for TaskEditor {
             next_id: input.task_count as u64,
             selected: Some(0),
             sender,
+            source_revision: 0,
             status: format!("{} tasks", input.task_count),
             tasks: Self::tasks(0, input.task_count)
                 .into_iter()
@@ -175,6 +181,7 @@ impl Component for TaskEditor {
                     }),
                 );
                 self.selected = Some(id);
+                self.bump_source_revision();
                 self.status = format!("Inserted task {id} at the front");
             }
             Message::Load if !self.loading => {
@@ -200,6 +207,7 @@ impl Component for TaskEditor {
                 mut tasks,
             } if generation == self.load_generation => {
                 self.tasks.extend(tasks.drain(..).map(Rc::new));
+                self.bump_source_revision();
                 self.loading = false;
                 self.status = format!("Loaded; {} tasks", self.tasks.len());
             }
@@ -211,9 +219,11 @@ impl Component for TaskEditor {
                 let first = self.tasks.remove(0);
                 self.status = format!("Moved task {} to the end", first.id);
                 self.tasks.push(first);
+                self.bump_source_revision();
             }
             Message::Reverse => {
                 self.tasks.reverse();
+                self.bump_source_revision();
                 self.status = "Reversed all task keys".to_string();
             }
             Message::Stress => {
@@ -225,10 +235,15 @@ impl Component for TaskEditor {
                     .collect();
                 self.next_id += STRESS_TASKS as u64;
                 self.selected = self.tasks.first().map(|task| task.id);
+                self.bump_source_revision();
                 self.status = format!("Reset to {STRESS_TASKS} tasks");
             }
             Message::Row(RowAction::Remove(id)) => {
+                let old_len = self.tasks.len();
                 self.tasks.retain(|task| task.id != id);
+                if self.tasks.len() != old_len {
+                    self.bump_source_revision();
+                }
                 self.select_after_remove(id);
                 self.status = format!("Removed task {id}; {} remain", self.tasks.len());
             }
@@ -256,18 +271,26 @@ impl Component for TaskEditor {
     }
 
     fn view(&self, input: &Self::Input, context: &mut ViewContext<Self>) -> View {
-        let rows = self.tasks.iter().map(|item| {
-            let id = item.id;
-            KeyedView::new(
-                id,
+        let tasks = Rc::new(self.tasks.clone());
+        let key_tasks = Rc::clone(&tasks);
+        let metrics = Rc::clone(&input.metrics);
+        let selected = self.selected;
+        let sender = self.sender.clone();
+        let rows = VirtualSource::new(
+            self.source_revision,
+            tasks.len(),
+            move |index| key_tasks[index].id,
+            move |index| {
+                let item = Rc::clone(&tasks[index]);
+                let id = item.id;
                 View::component::<TaskRow>(RowInput {
-                    item: Rc::clone(item),
-                    metrics: Rc::clone(&input.metrics),
-                    selected: self.selected == Some(id),
-                    sender: self.sender.clone(),
-                }),
-            )
-        });
+                    item,
+                    metrics: Rc::clone(&metrics),
+                    selected: selected == Some(id),
+                    sender: sender.clone(),
+                })
+            },
+        );
 
         StackPanel::new().spacing(8.0).children((
             TextBlock::new()
@@ -296,7 +319,7 @@ impl Component for TaskEditor {
                 .minimum(0.0)
                 .maximum(1.0)
                 .is_indeterminate(self.loading),
-            ScrollViewer::new().content(ItemsRepeater::new().items(rows)),
+            ScrollViewer::new().content(ItemsRepeater::new().virtual_source(rows)),
         ))
     }
 }

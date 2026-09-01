@@ -1,3 +1,4 @@
+use rustc_hash::FxHashMap;
 use std::collections::{HashMap, HashSet};
 use std::rc::Rc;
 
@@ -26,7 +27,7 @@ pub enum VirtualModelError {
 pub struct VirtualModel {
     active: HashMap<Key, (u64, RealizedContainer)>,
     collection: NodeId,
-    containers: HashMap<RealizedContainer, (Key, u64)>,
+    containers: FxHashMap<RealizedContainer, (Key, u64)>,
     identity: WindowToken,
     keys: Rc<Vec<Key>>,
     revision: u64,
@@ -45,7 +46,7 @@ impl VirtualModel {
         Ok(Self {
             active: HashMap::new(),
             collection,
-            containers: HashMap::new(),
+            containers: FxHashMap::default(),
             identity,
             keys: Rc::new(keys),
             revision: 0,

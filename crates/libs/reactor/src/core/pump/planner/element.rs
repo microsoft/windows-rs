@@ -143,17 +143,12 @@ impl<R: NativeRuntime> Pump<R> {
             let ElementStructure::Virtual(items) = parts.structure else {
                 return Err(PumpError::StructureUnsupported);
             };
-            let old_keys = tree.virtual_model(node)?.keys();
-            let keys_changed = old_keys.len() != items.len()
-                || old_keys
-                    .iter()
-                    .zip(items.iter())
-                    .any(|(old, new)| old != new.key());
-            if keys_changed {
+            let changed_keys =
+                items.changed_keys(tree.virtual_items(node)?, tree.virtual_model(node)?.keys());
+            if let Some(keys) = changed_keys {
                 for child in tree.children(node)?.to_vec() {
                     Self::retire_planned_subtree(tree, child, plan)?;
                 }
-                let keys = items.iter().map(|item| item.key().clone());
                 let source_revision = {
                     let model = tree.virtual_model_mut(node)?;
                     model.update(keys).map_err(TreeError::from)?;
@@ -412,11 +407,16 @@ impl<R: NativeRuntime> Pump<R> {
     ) -> Result<NodeId, PumpError> {
         let parent = tree.parent(node)?.ok_or(PumpError::StructureUnsupported)?;
         let key = tree.key(node)?.cloned();
-        let container = if tree.kind(parent)? == NodeKind::VirtualCollection {
-            Some(
-                tree.realized_container_for_logical(parent, node)?
-                    .ok_or(PumpError::StructureUnsupported)?,
-            )
+        let realized = if tree.kind(parent)? == NodeKind::VirtualCollection {
+            let container = tree
+                .realized_container_for_logical(parent, node)?
+                .ok_or(PumpError::StructureUnsupported)?;
+            Some((
+                container,
+                tree.realized(parent, container)?
+                    .ok_or(PumpError::StructureUnsupported)?
+                    .index,
+            ))
         } else {
             None
         };
@@ -435,8 +435,8 @@ impl<R: NativeRuntime> Pump<R> {
         children.remove(appended);
         children.insert(index, replacement);
         tree.set_children(parent, children)?;
-        if let Some(container) = container {
-            tree.set_realized(parent, container, replacement, None)?;
+        if let Some((container, source_index)) = realized {
+            tree.set_realized(parent, container, source_index, replacement, None)?;
             Self::refresh_virtual_row_attachment(tree, parent, container, plan)?;
         } else {
             plan.push(Command::InsertChild {

@@ -17,7 +17,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
     let elements = schema.controls.iter().map(generate_element);
     let element_variants = schema.controls.iter().map(|control| {
         let name = ident(&control.name);
-        quote! { #name(Box<#name>) }
+        quote! { #name(std::rc::Rc<#name>) }
     });
     let element_conversions = schema.controls.iter().map(|control| {
         let name = ident(&control.name);
@@ -32,7 +32,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
         quote! {
             impl From<#name> for Element {
                 fn from(value: #name) -> Self {
-                    Self::#name(Box::new(value))
+                    Self::#name(std::rc::Rc::new(value))
                 }
 
             }
@@ -332,7 +332,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             None,
             Content(Option<Element>),
             Children(std::rc::Rc<Vec<KeyedElement>>),
-            Virtual(std::rc::Rc<Vec<KeyedView>>),
+            Virtual(VirtualItems),
         }
 
         #[derive(Clone, Copy)]
@@ -340,7 +340,7 @@ pub(crate) fn generate(schema: &ResolvedSchema) -> String {
             None,
             Content(Option<&'a Element>),
             Children(&'a [KeyedElement]),
-            Virtual(&'a [KeyedView]),
+            Virtual(&'a VirtualItems),
         }
 
         #[derive(Clone, Debug, PartialEq)]
@@ -762,6 +762,7 @@ fn generate_element_parts(control: &ResolvedControl) -> TokenStream {
 
     quote! {
         Self::#name(value) => {
+            let value = std::rc::Rc::unwrap_or_clone(value);
             let #name {
                 #(#fields,)*
                 #reference_pattern
@@ -769,7 +770,7 @@ fn generate_element_parts(control: &ResolvedControl) -> TokenStream {
                 #window_title_bar_pattern
                 #structural_pattern
                 #lifecycle_pattern
-            } = *value;
+            } = value;
             ElementParts {
                 kind: MountedKind::#name,
                 props: MountedProps::#name(std::rc::Rc::new(#props {
@@ -842,7 +843,7 @@ fn generate_element_structure(control: &ResolvedControl) -> TokenStream {
             quote! { Self::#name(value) => ElementStructureRef::Children(value.children.as_slice()) }
         }
         Role::Virtual => {
-            quote! { Self::#name(value) => ElementStructureRef::Virtual(value.items.as_slice()) }
+            quote! { Self::#name(value) => ElementStructureRef::Virtual(&value.items) }
         }
         Role::Leaf | Role::Slots => {
             quote! { Self::#name(_) => ElementStructureRef::None }
@@ -1531,7 +1532,7 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
     let structural_field = match control.role {
         Role::Content => quote! { content: Option<Box<Element>> },
         Role::Children => quote! { children: std::rc::Rc<Vec<KeyedElement>> },
-        Role::Virtual => quote! { items: std::rc::Rc<Vec<KeyedView>> },
+        Role::Virtual => quote! { items: VirtualItems },
         Role::Leaf | Role::Slots => TokenStream::new(),
     };
     let lifecycle_field =
@@ -1873,7 +1874,13 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
         Role::Virtual => (
             quote! {
                 pub fn item(mut self, key: impl Into<Key>, item: impl Into<View>) -> Self {
-                    std::rc::Rc::make_mut(&mut self.items).push(KeyedView::new(key, item));
+                    if let VirtualItems::Eager(items) = &mut self.items {
+                        std::rc::Rc::make_mut(items).push(KeyedView::new(key, item));
+                    } else {
+                        self.items = VirtualItems::Eager(std::rc::Rc::new(vec![
+                            KeyedView::new(key, item)
+                        ]));
+                    }
                     self
                 }
 
@@ -1884,8 +1891,15 @@ fn generate_element(control: &ResolvedControl) -> TokenStream {
                 where
                     T: Into<KeyedView>,
                 {
-                    self.items =
-                        std::rc::Rc::new(items.into_iter().map(Into::into).collect());
+                    self.items = VirtualItems::Eager(std::rc::Rc::new(
+                        items.into_iter().map(Into::into).collect()
+                    ));
+                    self
+                }
+
+                /// Uses an indexed source that constructs views only for realized items.
+                pub fn virtual_source(mut self, source: VirtualSource) -> Self {
+                    self.items = VirtualItems::Lazy(source);
                     self
                 }
             },

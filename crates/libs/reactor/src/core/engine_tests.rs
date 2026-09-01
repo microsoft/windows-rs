@@ -48,9 +48,21 @@ impl Rng {
 #[test]
 #[cfg(target_pointer_width = "64")]
 fn generated_control_growth_preserves_core_layouts() {
-    assert_eq!(size_of::<Node>(), 336);
+    assert_eq!(size_of::<Node>(), 304);
+    assert_eq!(size_of::<NativeState>(), 72);
     assert_eq!(size_of::<MountedProps>(), 16);
     assert_eq!(size_of::<Element>(), 16);
+}
+
+#[test]
+fn cloned_elements_share_generated_control_payloads() {
+    let first = Element::from(TextBlock::new());
+    let second = first.clone();
+    let (Element::TextBlock(first), Element::TextBlock(second)) = (&first, &second) else {
+        unreachable!()
+    };
+
+    assert!(Rc::ptr_eq(first, second));
 }
 
 #[test]
@@ -299,11 +311,11 @@ fn realized_container_mapping_cannot_be_overwritten() {
         .unwrap();
     let container = RealizedContainer(1);
 
-    tree.set_realized(collection, container, first, Some(first))
+    tree.set_realized(collection, container, 0, first, Some(first))
         .unwrap();
 
     assert_eq!(
-        tree.set_realized(collection, container, second, Some(second)),
+        tree.set_realized(collection, container, 0, second, Some(second)),
         Err(TreeError::RealizedConflict(container))
     );
 }
@@ -321,7 +333,7 @@ fn detached_realized_row_remains_addressable_by_logical_root() {
         .unwrap();
     let container = RealizedContainer(1);
 
-    tree.set_realized(collection, container, logical, None)
+    tree.set_realized(collection, container, 0, logical, None)
         .unwrap();
     assert_eq!(
         tree.realized_container_for_logical(collection, logical),

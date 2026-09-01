@@ -342,7 +342,7 @@ impl<R: NativeRuntime> Pump<R> {
                         let child = Self::reconcile_planned_view(
                             tree, *child, view, components, changes, plan,
                         )?;
-                        if Self::native_roots(tree, child)?.len() > 1 {
+                        if Self::native_root_count(tree, child)? > 1 {
                             return Err(PumpError::StructureUnsupported);
                         }
                     }
@@ -687,7 +687,7 @@ impl<R: NativeRuntime> Pump<R> {
         let current = tree.children(target.logical_parent)?.to_vec();
         let mut requires_sync = current
             .iter()
-            .any(|child| Self::native_roots(tree, *child).map_or(true, |roots| roots.len() != 1));
+            .any(|child| Self::native_root_count(tree, *child) != Ok(1));
         if target.slot.is_some() && requires_sync {
             return Err(PumpError::StructureUnsupported);
         }
@@ -696,7 +696,7 @@ impl<R: NativeRuntime> Pump<R> {
         )?;
         for child in desired {
             if let Some(child_node) = reconciliation.nodes.get(child.key()).copied() {
-                let old_roots = Self::native_roots(tree, child_node)?;
+                let old_root_count = Self::native_root_count(tree, child_node)?;
                 let reconciled = Self::reconcile_planned_view(
                     tree,
                     child_node,
@@ -706,7 +706,7 @@ impl<R: NativeRuntime> Pump<R> {
                     plan,
                 )?;
                 let invalid_roots =
-                    old_roots.len() != 1 || Self::native_roots(tree, reconciled)?.len() != 1;
+                    old_root_count != 1 || Self::native_root_count(tree, reconciled)? != 1;
                 if target.slot.is_some() && invalid_roots {
                     return Err(PumpError::StructureUnsupported);
                 }
@@ -1081,22 +1081,16 @@ impl<R: NativeRuntime> Pump<R> {
             window_title_bar,
             plan,
         )?;
-        let old_keys = tree.virtual_model(node)?.keys();
-        let keys_changed = old_keys.len() != items.len()
-            || old_keys
-                .iter()
-                .zip(items.iter())
-                .any(|(old, new)| old != new.key());
-        if keys_changed {
+        let changed_keys =
+            items.changed_keys(tree.virtual_items(node)?, tree.virtual_model(node)?.keys());
+        if let Some(keys) = changed_keys {
             for row in tree.children(node)?.to_vec() {
                 Self::collect_retired_components(tree, row, components, changes)?;
                 Self::retire_planned_subtree(tree, row, plan)?;
             }
             let source_revision = {
                 let model = tree.virtual_model_mut(node)?;
-                model
-                    .update(items.iter().map(|item| item.key().clone()))
-                    .map_err(TreeError::from)?;
+                model.update(keys).map_err(TreeError::from)?;
                 model.source_revision()
             };
             tree.update_virtual_items(node, items)?;
@@ -1110,33 +1104,14 @@ impl<R: NativeRuntime> Pump<R> {
         }
 
         tree.update_virtual_items(node, items)?;
-        let views = tree
-            .virtual_items(node)?
-            .iter()
-            .map(|item| (item.key().clone(), item.view().clone()))
-            .collect::<HashMap<_, _>>();
-        let containers = tree
-            .realized_rows(node)?
-            .map(|(container, row)| (row.logical_root, container))
-            .collect::<HashMap<_, _>>();
         let realized = tree
-            .children(node)?
-            .iter()
-            .copied()
-            .map(|logical_root| {
-                let key = tree
-                    .key(logical_root)?
-                    .cloned()
-                    .ok_or(PumpError::StructureUnsupported)?;
-                let container = containers
-                    .get(&logical_root)
-                    .copied()
-                    .ok_or(PumpError::StructureUnsupported)?;
-                let view = views
-                    .get(&key)
-                    .cloned()
-                    .ok_or(PumpError::StructureUnsupported)?;
-                Ok((container, logical_root, view))
+            .realized_rows(node)?
+            .map(|(container, row)| {
+                Ok((
+                    container,
+                    row.logical_root,
+                    tree.virtual_view_at(node, row.index)?,
+                ))
             })
             .collect::<Result<Vec<_>, PumpError>>()?;
         for (_, logical_root, view) in realized {
@@ -1597,10 +1572,7 @@ impl<R: NativeRuntime> Pump<R> {
             let attachment = tree
                 .tooltip_attachment(owner)?
                 .ok_or(PumpError::StructureUnsupported)?;
-            Self::native_roots(tree, node)?
-                .iter()
-                .any(|root| *root == attachment.0 || *root == attachment.1)
-                .then_some(owner)
+            Self::native_roots_intersect(tree, node, attachment.0, attachment.1)?.then_some(owner)
         } else {
             None
         };
@@ -1608,10 +1580,7 @@ impl<R: NativeRuntime> Pump<R> {
             let attachment = tree
                 .flyout_attachment(owner)?
                 .ok_or(PumpError::StructureUnsupported)?;
-            Self::native_roots(tree, node)?
-                .iter()
-                .any(|root| *root == attachment.0 || *root == attachment.1)
-                .then_some(owner)
+            Self::native_roots_intersect(tree, node, attachment.0, attachment.1)?.then_some(owner)
         } else {
             None
         };
@@ -1649,7 +1618,7 @@ impl<R: NativeRuntime> Pump<R> {
                     row.logical_root
                 };
                 if row.logical_root == node {
-                    tree.set_realized(collection, container, logical_root, None)?;
+                    tree.set_realized(collection, container, row.index, logical_root, None)?;
                 } else {
                     tree.update_realized(collection, container, logical_root, None)?;
                 }
