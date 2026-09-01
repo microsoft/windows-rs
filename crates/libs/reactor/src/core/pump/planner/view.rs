@@ -76,27 +76,27 @@ impl<R: NativeRuntime> Pump<R> {
         plan: &mut UpdatePlan,
     ) -> Result<NodeId, PumpError> {
         if Self::view_uses_native_control(view.as_kind(), MountedKind::ToolTip)
-            && !Self::is_tooltip_implementation(tree, node)?
+            && !Self::is_tooltip_implementation(tree, node)
         {
             return Err(PumpError::StructureUnsupported);
         }
         if Self::view_uses_native_control(view.as_kind(), MountedKind::ContentDialog)
-            && !Self::is_content_dialog_implementation(tree, node)?
+            && !Self::is_content_dialog_implementation(tree, node)
         {
             return Err(PumpError::StructureUnsupported);
         }
-        if matches!(tree.kind(node)?, NodeKind::Tooltip(_))
+        if matches!(tree.kind(node), NodeKind::Tooltip(_))
             && !matches!(view.as_kind(), ViewKind::Tooltip { .. })
         {
             return Self::unwrap_tooltip(tree, node, view, components, changes, plan);
         }
-        if matches!(tree.kind(node)?, NodeKind::Flyout(_))
+        if matches!(tree.kind(node), NodeKind::Flyout(_))
             && !matches!(view.as_kind(), ViewKind::Flyout { .. })
         {
             return Self::unwrap_flyout(tree, node, view, components, changes, plan);
         }
         if matches!(
-            tree.kind(node)?,
+            tree.kind(node),
             NodeKind::Menu(_) | NodeKind::CommandBarFlyout | NodeKind::TreeNodes
         ) && !matches!(
             view.as_kind(),
@@ -117,8 +117,8 @@ impl<R: NativeRuntime> Pump<R> {
                         tree, node, element, components, changes, plan,
                     );
                 }
-                if tree.kind(node)? != NodeKind::Native(element.kind())
-                    || !tree.children(node)?.is_empty()
+                if tree.kind(node) != NodeKind::Native(element.kind())
+                    || !tree.children(node).is_empty()
                     || !Self::element_structure_is_empty(&element)
                 {
                     return Self::replace_planned_view(
@@ -133,8 +133,8 @@ impl<R: NativeRuntime> Pump<R> {
                 Self::reconcile_node(tree, node, element, plan)
             }
             ViewKind::Component(component) => {
-                if tree.kind(node)? != NodeKind::Component
-                    || tree.component_type(node)? != component.component_type()
+                if tree.kind(node) != NodeKind::Component
+                    || tree.component_type(node) != component.component_type()
                 {
                     return Self::replace_planned_view(
                         tree,
@@ -145,8 +145,8 @@ impl<R: NativeRuntime> Pump<R> {
                         plan,
                     );
                 }
-                let token = components.token(tree.component_scope(node)?)?;
-                let changed = component.apply_input(components, token)?;
+                let token = components.token(tree.component_scope(node));
+                let changed = component.apply_input(components, token);
                 changes
                     .host_requests
                     .extend(components.take_host_requests());
@@ -165,7 +165,7 @@ impl<R: NativeRuntime> Pump<R> {
                 }
             }
             ViewKind::Fragment(children) => {
-                if tree.kind(node)? != NodeKind::Fragment {
+                if tree.kind(node) != NodeKind::Fragment {
                     return Self::replace_planned_view(
                         tree,
                         node,
@@ -179,7 +179,7 @@ impl<R: NativeRuntime> Pump<R> {
                 Ok(node)
             }
             ViewKind::Provider { provision, child } => {
-                if tree.kind(node)? != NodeKind::Provider {
+                if tree.kind(node) != NodeKind::Provider {
                     return Self::replace_planned_view(
                         tree,
                         node,
@@ -189,7 +189,7 @@ impl<R: NativeRuntime> Pump<R> {
                         plan,
                     );
                 }
-                let previous = tree.provision(node)?.clone();
+                let previous = tree.provision(node).clone();
                 let affected = if previous != provision {
                     let mut affected = components
                         .context_consumers(ContextDependency {
@@ -200,14 +200,14 @@ impl<R: NativeRuntime> Pump<R> {
                     if previous.id != provision.id {
                         for scope in components.context_consumers_for_id(provision.id) {
                             let consumer = tree
-                                .component_node(scope)?
+                                .component_node(scope)
                                 .ok_or(PumpError::StructureUnsupported)?;
-                            if !tree.is_descendant_of(consumer, node)? {
+                            if !tree.is_descendant_of(consumer, node) {
                                 continue;
                             }
-                            let token = components.token(scope)?;
+                            let token = components.token(scope);
                             let resolved = components
-                                .context_dependencies(token)?
+                                .context_dependencies(token)
                                 .and_then(|dependencies| {
                                     dependencies
                                         .iter()
@@ -215,7 +215,7 @@ impl<R: NativeRuntime> Pump<R> {
                                 })
                                 .and_then(|dependency| dependency.provider);
                             let shadowed = match resolved {
-                                Some(provider) => tree.is_descendant_of(provider, node)?,
+                                Some(provider) => tree.is_descendant_of(provider, node),
                                 None => false,
                             };
                             if !shadowed {
@@ -223,12 +223,12 @@ impl<R: NativeRuntime> Pump<R> {
                             }
                         }
                     }
-                    tree.set_provision(node, provision)?;
+                    tree.set_provision(node, provision);
                     Some(affected)
                 } else {
                     None
                 };
-                let [current] = tree.children(node)? else {
+                let [current] = tree.children(node) else {
                     return Err(PumpError::StructureUnsupported);
                 };
                 Self::reconcile_planned_view(
@@ -242,21 +242,21 @@ impl<R: NativeRuntime> Pump<R> {
                 if let Some(affected) = affected {
                     let mut ordered = Vec::with_capacity(affected.len());
                     for scope in affected {
-                        if let Some(consumer) = tree.component_node(scope)?
-                            && tree.is_descendant_of(consumer, node)?
+                        if let Some(consumer) = tree.component_node(scope)
+                            && tree.is_descendant_of(consumer, node)
                         {
-                            ordered.push((tree.depth(consumer)?, consumer, scope));
+                            ordered.push((tree.depth(consumer), consumer, scope));
                         }
                     }
                     ordered.sort_unstable_by_key(|(depth, consumer, _)| (*depth, *consumer));
                     for (_, _, scope) in ordered {
-                        if let Some(consumer) = tree.component_node(scope)?
-                            && tree.is_descendant_of(consumer, node)?
+                        if let Some(consumer) = tree.component_node(scope)
+                            && tree.is_descendant_of(consumer, node)
                         {
                             Self::recompose_component(
                                 tree,
                                 consumer,
-                                components.token(scope)?,
+                                components.token(scope),
                                 components,
                                 changes,
                                 plan,
@@ -274,13 +274,13 @@ impl<R: NativeRuntime> Pump<R> {
                     return Err(PumpError::StructureUnsupported);
                 }
                 let slot_ids = slots(control.kind());
-                let structure_matches = tree.kind(node)? == NodeKind::Native(control.kind())
-                    && tree.children(node)?.len() == slot_ids.len()
+                let structure_matches = tree.kind(node) == NodeKind::Native(control.kind())
+                    && tree.children(node).len() == slot_ids.len()
                     && tree
-                        .children(node)?
+                        .children(node)
                         .iter()
                         .zip(slot_ids)
-                        .all(|(node, slot)| tree.kind(*node) == Ok(NodeKind::NamedSlot(*slot)));
+                        .all(|(node, slot)| tree.kind(*node) == NodeKind::NamedSlot(*slot));
                 if !structure_matches {
                     return Self::replace_planned_view(
                         tree,
@@ -300,12 +300,12 @@ impl<R: NativeRuntime> Pump<R> {
                 if desired.keys().any(|slot| !slot_ids.contains(slot)) {
                     return Err(PumpError::StructureUnsupported);
                 }
-                let children = tree.children(node)?.to_vec();
+                let children = tree.children(node).to_vec();
                 if children.len() != slot_ids.len() {
                     return Err(PumpError::StructureUnsupported);
                 }
                 for (slot_node, slot) in children.into_iter().zip(slot_ids.iter().copied()) {
-                    if tree.kind(slot_node)? != NodeKind::NamedSlot(slot) {
+                    if tree.kind(slot_node) != NodeKind::NamedSlot(slot) {
                         return Err(PumpError::StructureUnsupported);
                     }
                     if slot_is_collection(slot) {
@@ -329,7 +329,7 @@ impl<R: NativeRuntime> Pump<R> {
                             plan,
                         )?;
                     } else {
-                        let [child] = tree.children(slot_node)? else {
+                        let [child] = tree.children(slot_node) else {
                             return Err(PumpError::StructureUnsupported);
                         };
                         let view = match desired.remove(&slot) {
@@ -350,7 +350,7 @@ impl<R: NativeRuntime> Pump<R> {
                 Ok(node)
             }
             ViewKind::Tooltip { target, tooltip } => {
-                let NodeKind::Tooltip(_) = tree.kind(node)? else {
+                let NodeKind::Tooltip(_) = tree.kind(node) else {
                     return Self::wrap_tooltip(
                         tree,
                         node,
@@ -361,7 +361,7 @@ impl<R: NativeRuntime> Pump<R> {
                         plan,
                     );
                 };
-                let [current_target, current_tooltip] = tree.children(node)? else {
+                let [current_target, current_tooltip] = tree.children(node) else {
                     return Err(PumpError::StructureUnsupported);
                 };
                 let current_target = *current_target;
@@ -387,7 +387,7 @@ impl<R: NativeRuntime> Pump<R> {
                 Ok(node)
             }
             ViewKind::Flyout { target, flyout } => {
-                let NodeKind::Flyout(_) = tree.kind(node)? else {
+                let NodeKind::Flyout(_) = tree.kind(node) else {
                     return Self::wrap_flyout(
                         tree,
                         node,
@@ -398,7 +398,7 @@ impl<R: NativeRuntime> Pump<R> {
                         plan,
                     );
                 };
-                let [current_target, current_content] = tree.children(node)? else {
+                let [current_target, current_content] = tree.children(node) else {
                     return Err(PumpError::StructureUnsupported);
                 };
                 let current_target = *current_target;
@@ -423,7 +423,7 @@ impl<R: NativeRuntime> Pump<R> {
                 Ok(node)
             }
             ViewKind::Menu { target, menu } => {
-                let NodeKind::Menu(_) = tree.kind(node)? else {
+                let NodeKind::Menu(_) = tree.kind(node) else {
                     return Self::replace_planned_view(
                         tree,
                         node,
@@ -433,7 +433,7 @@ impl<R: NativeRuntime> Pump<R> {
                         plan,
                     );
                 };
-                let [current_target] = tree.children(node)? else {
+                let [current_target] = tree.children(node) else {
                     return Err(PumpError::StructureUnsupported);
                 };
                 let current_target = *current_target;
@@ -446,7 +446,7 @@ impl<R: NativeRuntime> Pump<R> {
                     plan,
                 )?;
                 let target = Self::native_root(tree, current_target)?;
-                let kind = match tree.kind(target)? {
+                let kind = match tree.kind(target) {
                     NodeKind::Native(MountedKind::Button) => OwnedMenuKind::ButtonFlyout,
                     NodeKind::Native(MountedKind::DropDownButton) => {
                         OwnedMenuKind::DropDownButtonFlyout
@@ -454,9 +454,9 @@ impl<R: NativeRuntime> Pump<R> {
                     NodeKind::Native(MountedKind::MenuBarItem) => OwnedMenuKind::MenuBarItem,
                     _ => return Err(PumpError::StructureUnsupported),
                 };
-                tree.set_kind(node, NodeKind::Menu(kind))?;
+                tree.set_kind(node, NodeKind::Menu(kind));
                 validate_menu_items(&menu.items)?;
-                let revision = tree.update_menu(node, menu.clone())?;
+                let revision = tree.update_menu(node, menu.clone());
                 plan.push(Command::SetOwnedMenu {
                     owner: node,
                     target,
@@ -467,7 +467,7 @@ impl<R: NativeRuntime> Pump<R> {
                 Ok(node)
             }
             ViewKind::CommandBarFlyout { target, flyout } => {
-                if tree.kind(node)? != NodeKind::CommandBarFlyout {
+                if tree.kind(node) != NodeKind::CommandBarFlyout {
                     return Self::replace_planned_view(
                         tree,
                         node,
@@ -477,7 +477,7 @@ impl<R: NativeRuntime> Pump<R> {
                         plan,
                     );
                 }
-                let [current_target] = tree.children(node)? else {
+                let [current_target] = tree.children(node) else {
                     return Err(PumpError::StructureUnsupported);
                 };
                 let current_target = *current_target;
@@ -490,12 +490,12 @@ impl<R: NativeRuntime> Pump<R> {
                     plan,
                 )?;
                 let target = Self::native_root(tree, current_target)?;
-                if tree.kind(target)? != NodeKind::Native(MountedKind::Button) {
+                if tree.kind(target) != NodeKind::Native(MountedKind::Button) {
                     return Err(PumpError::StructureUnsupported);
                 }
                 validate_commands(&flyout.primary)?;
                 validate_commands(&flyout.secondary)?;
-                let revision = tree.update_command_bar_flyout(node, flyout.clone())?;
+                let revision = tree.update_command_bar_flyout(node, flyout.clone());
                 plan.push(Command::SetCommandBarFlyout {
                     owner: node,
                     target,
@@ -509,7 +509,7 @@ impl<R: NativeRuntime> Pump<R> {
                 tree: desired,
                 nodes,
             } => {
-                if tree.kind(node)? != NodeKind::TreeNodes {
+                if tree.kind(node) != NodeKind::TreeNodes {
                     return Self::replace_planned_view(
                         tree,
                         node,
@@ -523,7 +523,7 @@ impl<R: NativeRuntime> Pump<R> {
                     );
                 }
                 validate_tree_nodes(&nodes)?;
-                let [current] = tree.children(node)? else {
+                let [current] = tree.children(node) else {
                     return Err(PumpError::StructureUnsupported);
                 };
                 let current = Self::reconcile_planned_view(
@@ -535,11 +535,11 @@ impl<R: NativeRuntime> Pump<R> {
                     plan,
                 )?;
                 let target = Self::native_root(tree, current)?;
-                if tree.kind(target)? != NodeKind::Native(MountedKind::TreeView) {
+                if tree.kind(target) != NodeKind::Native(MountedKind::TreeView) {
                     return Err(PumpError::StructureUnsupported);
                 }
-                if tree.tree_nodes(node)? != &nodes {
-                    tree.update_tree_nodes(node, Rc::clone(&nodes))?;
+                if tree.tree_nodes(node) != &nodes {
+                    tree.update_tree_nodes(node, Rc::clone(&nodes));
                     plan.push(Command::SetTreeViewNodes {
                         target,
                         nodes: nodes.as_ref().clone(),
@@ -548,7 +548,7 @@ impl<R: NativeRuntime> Pump<R> {
                 Ok(node)
             }
             ViewKind::ContentDialog { dialog, open } => {
-                let NodeKind::ContentDialog(previous_open) = tree.kind(node)? else {
+                let NodeKind::ContentDialog(previous_open) = tree.kind(node) else {
                     return Self::replace_planned_view(
                         tree,
                         node,
@@ -558,7 +558,7 @@ impl<R: NativeRuntime> Pump<R> {
                         plan,
                     );
                 };
-                let [current] = tree.children(node)? else {
+                let [current] = tree.children(node) else {
                     return Err(PumpError::StructureUnsupported);
                 };
                 let current = *current;
@@ -583,7 +583,7 @@ impl<R: NativeRuntime> Pump<R> {
                 )?;
                 let dialog = Self::native_root(tree, current)?;
                 if replacing {
-                    tree.set_content_dialog_open(node, open)?;
+                    tree.set_content_dialog_open(node, open);
                     if open {
                         plan.post_publish_commands
                             .push(Command::SetContentDialogOpen {
@@ -603,9 +603,9 @@ impl<R: NativeRuntime> Pump<R> {
                     } else {
                         plan.push(command);
                     }
-                    tree.set_content_dialog_open(node, open)?;
+                    tree.set_content_dialog_open(node, open);
                 }
-                let [mounted_dialog] = tree.children(node)? else {
+                let [mounted_dialog] = tree.children(node) else {
                     return Err(PumpError::StructureUnsupported);
                 };
                 if Self::native_root(tree, *mounted_dialog)? != dialog {
@@ -617,8 +617,8 @@ impl<R: NativeRuntime> Pump<R> {
                 if !Self::control_has_role(control.kind(), ControlRole::Content) {
                     return Err(PumpError::StructureUnsupported);
                 }
-                if tree.kind(node)? != NodeKind::Native(control.kind())
-                    || tree.children(node)?.len() != 1
+                if tree.kind(node) != NodeKind::Native(control.kind())
+                    || tree.children(node).len() != 1
                 {
                     return Self::replace_planned_view(
                         tree,
@@ -630,7 +630,7 @@ impl<R: NativeRuntime> Pump<R> {
                     );
                 }
                 Self::reconcile_shallow_control(tree, node, control, plan)?;
-                let [child] = tree.children(node)? else {
+                let [child] = tree.children(node) else {
                     return Err(PumpError::StructureUnsupported);
                 };
                 Self::reconcile_planned_view(
@@ -647,7 +647,7 @@ impl<R: NativeRuntime> Pump<R> {
                 if !Self::control_has_role(control.kind(), ControlRole::Children) {
                     return Err(PumpError::StructureUnsupported);
                 }
-                if tree.kind(node)? != NodeKind::Native(control.kind()) {
+                if tree.kind(node) != NodeKind::Native(control.kind()) {
                     return Self::replace_planned_view(
                         tree,
                         node,
@@ -684,7 +684,7 @@ impl<R: NativeRuntime> Pump<R> {
         plan: &mut UpdatePlan,
     ) -> Result<(), PumpError> {
         let old_native = Self::native_children(tree, target.logical_parent)?;
-        let current = tree.children(target.logical_parent)?.to_vec();
+        let current = tree.children(target.logical_parent).to_vec();
         let mut requires_sync = current
             .iter()
             .any(|child| Self::native_root_count(tree, *child) != Ok(1));
@@ -735,7 +735,7 @@ impl<R: NativeRuntime> Pump<R> {
             }
         }
 
-        tree.set_children(target.logical_parent, reconciliation.order()?)?;
+        tree.set_children(target.logical_parent, reconciliation.order()?);
         let new_native = Self::native_children(tree, target.logical_parent)?;
         let dense = super::is_dense_keyed_update(&reconciliation.operations);
         if (requires_sync || dense) && old_native != new_native {
@@ -819,7 +819,7 @@ impl<R: NativeRuntime> Pump<R> {
     ) -> Result<bool, PumpError> {
         match view {
             ViewKind::Native(element) => {
-                if tree.kind(node)? == NodeKind::VirtualCollection {
+                if tree.kind(node) == NodeKind::VirtualCollection {
                     Ok(false)
                 } else {
                     Self::node_matches_element(tree, node, element)
@@ -827,42 +827,42 @@ impl<R: NativeRuntime> Pump<R> {
             }
             ViewKind::Component(_) => Ok(false),
             ViewKind::Fragment(children) => {
-                if tree.kind(node)? != NodeKind::Fragment {
+                if tree.kind(node) != NodeKind::Fragment {
                     return Ok(false);
                 }
-                Self::keyed_views_match(tree, tree.children(node)?, children)
+                Self::keyed_views_match(tree, tree.children(node), children)
             }
             ViewKind::Provider { provision, child } => {
-                if tree.kind(node)? != NodeKind::Provider || tree.provision(node)? != provision {
+                if tree.kind(node) != NodeKind::Provider || tree.provision(node) != provision {
                     return Ok(false);
                 }
-                let [current] = tree.children(node)? else {
+                let [current] = tree.children(node) else {
                     return Ok(false);
                 };
                 Self::node_matches_view_kind(tree, *current, child)
             }
             ViewKind::Tooltip { target, tooltip } => {
-                if tree.kind(node)? != NodeKind::Tooltip(tooltip.placement) {
+                if tree.kind(node) != NodeKind::Tooltip(tooltip.placement) {
                     return Ok(false);
                 }
-                let [current_target, current_tooltip] = tree.children(node)? else {
+                let [current_target, current_tooltip] = tree.children(node) else {
                     return Ok(false);
                 };
                 if !Self::node_matches_view_kind(tree, *current_target, target)?
-                    || tree.kind(*current_tooltip)? != NodeKind::Native(MountedKind::ToolTip)
+                    || tree.kind(*current_tooltip) != NodeKind::Native(MountedKind::ToolTip)
                 {
                     return Ok(false);
                 }
-                let [content] = tree.children(*current_tooltip)? else {
+                let [content] = tree.children(*current_tooltip) else {
                     return Ok(false);
                 };
                 Self::node_matches_view_kind(tree, *content, tooltip.content.as_kind())
             }
             ViewKind::Flyout { target, flyout } => {
-                if tree.kind(node)? != NodeKind::Flyout(flyout.placement) {
+                if tree.kind(node) != NodeKind::Flyout(flyout.placement) {
                     return Ok(false);
                 }
-                let [current_target, current_content] = tree.children(node)? else {
+                let [current_target, current_content] = tree.children(node) else {
                     return Ok(false);
                 };
                 Ok(Self::node_matches_view_kind(tree, *current_target, target)?
@@ -873,26 +873,26 @@ impl<R: NativeRuntime> Pump<R> {
                     )?)
             }
             ViewKind::Menu { target, menu } => {
-                if !matches!(tree.kind(node)?, NodeKind::Menu(_))
-                    || tree.owned_menu(node)? != menu.items
-                    || tree.owned_callback(node)? != &menu.on_click
+                if !matches!(tree.kind(node), NodeKind::Menu(_))
+                    || tree.owned_menu(node) != menu.items
+                    || tree.owned_callback(node) != &menu.on_click
                 {
                     return Ok(false);
                 }
-                let [current] = tree.children(node)? else {
+                let [current] = tree.children(node) else {
                     return Ok(false);
                 };
                 Self::node_matches_view_kind(tree, *current, target)
             }
             ViewKind::CommandBarFlyout { target, flyout } => {
-                if tree.kind(node)? != NodeKind::CommandBarFlyout
-                    || tree.owned_commands(node)?
+                if tree.kind(node) != NodeKind::CommandBarFlyout
+                    || tree.owned_commands(node)
                         != &(flyout.primary.clone(), flyout.secondary.clone())
-                    || tree.owned_callback(node)? != &flyout.on_click
+                    || tree.owned_callback(node) != &flyout.on_click
                 {
                     return Ok(false);
                 }
-                let [current] = tree.children(node)? else {
+                let [current] = tree.children(node) else {
                     return Ok(false);
                 };
                 Self::node_matches_view_kind(tree, *current, target)
@@ -901,19 +901,19 @@ impl<R: NativeRuntime> Pump<R> {
                 tree: desired,
                 nodes,
             } => {
-                if tree.kind(node)? != NodeKind::TreeNodes || tree.tree_nodes(node)? != nodes {
+                if tree.kind(node) != NodeKind::TreeNodes || tree.tree_nodes(node) != nodes {
                     return Ok(false);
                 }
-                let [current] = tree.children(node)? else {
+                let [current] = tree.children(node) else {
                     return Ok(false);
                 };
                 Self::node_matches_view_kind(tree, *current, desired)
             }
             ViewKind::ContentDialog { dialog, open } => {
-                if tree.kind(node)? != NodeKind::ContentDialog(*open) {
+                if tree.kind(node) != NodeKind::ContentDialog(*open) {
                     return Ok(false);
                 }
-                let [current] = tree.children(node)? else {
+                let [current] = tree.children(node) else {
                     return Ok(false);
                 };
                 Self::node_matches_view_kind(tree, *current, dialog.as_ref())
@@ -924,7 +924,7 @@ impl<R: NativeRuntime> Pump<R> {
                 {
                     return Ok(false);
                 }
-                let [current] = tree.children(node)? else {
+                let [current] = tree.children(node) else {
                     return Ok(false);
                 };
                 Self::node_matches_view_kind(tree, *current, content)
@@ -935,7 +935,7 @@ impl<R: NativeRuntime> Pump<R> {
                 {
                     return Ok(false);
                 }
-                Self::keyed_views_match(tree, tree.children(node)?, children)
+                Self::keyed_views_match(tree, tree.children(node), children)
             }
             ViewKind::Slots {
                 control,
@@ -947,7 +947,7 @@ impl<R: NativeRuntime> Pump<R> {
                     return Ok(false);
                 }
                 let slot_ids = slots(control.kind());
-                let children = tree.children(node)?;
+                let children = tree.children(node);
                 if children.len() != slot_ids.len()
                     || desired.iter().any(|candidate| {
                         !slot_ids.contains(&candidate.slot)
@@ -961,7 +961,7 @@ impl<R: NativeRuntime> Pump<R> {
                     return Ok(false);
                 }
                 for (slot_node, slot) in children.iter().zip(slot_ids) {
-                    if tree.kind(*slot_node)? != NodeKind::NamedSlot(*slot) {
+                    if tree.kind(*slot_node) != NodeKind::NamedSlot(*slot) {
                         return Ok(false);
                     }
                     let desired = desired.iter().find(|candidate| candidate.slot == *slot);
@@ -974,11 +974,11 @@ impl<R: NativeRuntime> Pump<R> {
                             Some(_) => return Ok(false),
                             None => &[],
                         };
-                        if !Self::keyed_views_match(tree, tree.children(*slot_node)?, desired)? {
+                        if !Self::keyed_views_match(tree, tree.children(*slot_node), desired)? {
                             return Ok(false);
                         }
                     } else {
-                        let [current] = tree.children(*slot_node)? else {
+                        let [current] = tree.children(*slot_node) else {
                             return Ok(false);
                         };
                         match desired {
@@ -992,8 +992,8 @@ impl<R: NativeRuntime> Pump<R> {
                             }
                             Some(_) => return Ok(false),
                             None => {
-                                if tree.kind(*current)? != NodeKind::Fragment
-                                    || !tree.children(*current)?.is_empty()
+                                if tree.kind(*current) != NodeKind::Fragment
+                                    || !tree.children(*current).is_empty()
                                 {
                                     return Ok(false);
                                 }
@@ -1011,12 +1011,12 @@ impl<R: NativeRuntime> Pump<R> {
         node: NodeId,
         control: &Element,
     ) -> Result<bool, PumpError> {
-        if tree.kind(node)? != NodeKind::Native(control.kind())
+        if tree.kind(node) != NodeKind::Native(control.kind())
             || !Self::element_structure_is_empty(control)
         {
             return Ok(false);
         }
-        let native = tree.native(node)?;
+        let native = tree.native(node);
         Ok(control.props_match(&native.desired)
             && native.reference.as_ref() == control.reference()
             && tree.node_window_title_bar(node) == control.window_title_bar()
@@ -1032,7 +1032,7 @@ impl<R: NativeRuntime> Pump<R> {
             return Ok(false);
         }
         for (mounted, desired) in mounted.iter().zip(desired) {
-            if tree.key(*mounted)? != Some(desired.key())
+            if tree.key(*mounted) != Some(desired.key())
                 || !Self::node_matches_view_kind(tree, *mounted, desired.view().as_kind())?
             {
                 return Ok(false);
@@ -1049,7 +1049,7 @@ impl<R: NativeRuntime> Pump<R> {
         changes: &mut ComponentChanges,
         plan: &mut UpdatePlan,
     ) -> Result<NodeId, PumpError> {
-        if tree.kind(node)? != NodeKind::VirtualCollection
+        if tree.kind(node) != NodeKind::VirtualCollection
             || element.kind() != MountedKind::ItemsRepeater
         {
             return Self::replace_planned_view(
@@ -1082,35 +1082,37 @@ impl<R: NativeRuntime> Pump<R> {
             plan,
         )?;
         let changed_keys =
-            items.changed_keys(tree.virtual_items(node)?, tree.virtual_model(node)?.keys());
+            items.changed_keys(tree.virtual_items(node), tree.virtual_model(node).keys());
         if let Some(keys) = changed_keys {
-            for row in tree.children(node)?.to_vec() {
-                Self::collect_retired_components(tree, row, components, changes)?;
+            for row in tree.children(node).to_vec() {
+                Self::collect_retired_components(tree, row, components, changes);
                 Self::retire_planned_subtree(tree, row, plan)?;
             }
             let source_revision = {
-                let model = tree.virtual_model_mut(node)?;
-                model.update(keys).map_err(TreeError::from)?;
+                let model = tree.virtual_model_mut(node);
+                model
+                    .update(keys)
+                    .map_err(|DuplicateKeyError(key)| PumpError::DuplicateKey(key))?;
                 model.source_revision()
             };
-            tree.update_virtual_items(node, items)?;
-            tree.virtual_model_mut(node)?.clear();
+            tree.update_virtual_items(node, items);
+            tree.virtual_model_mut(node).clear();
             plan.push(Command::ResetVirtualCollection {
                 node,
-                item_count: tree.virtual_items(node)?.len(),
+                item_count: tree.virtual_items(node).len(),
                 source_revision,
             });
             return Ok(node);
         }
 
-        tree.update_virtual_items(node, items)?;
+        tree.update_virtual_items(node, items);
         let realized = tree
-            .realized_rows(node)?
+            .realized_rows(node)
             .map(|(container, row)| {
                 Ok((
                     container,
                     row.logical_root,
-                    tree.virtual_view_at(node, row.index)?,
+                    tree.virtual_view_at(node, row.index),
                 ))
             })
             .collect::<Result<Vec<_>, PumpError>>()?;
@@ -1131,7 +1133,7 @@ impl<R: NativeRuntime> Pump<R> {
         let old_keys = current
             .iter()
             .map(|child| {
-                tree.key(*child)?
+                tree.key(*child)
                     .cloned()
                     .ok_or(PumpError::StructureUnsupported)
             })
@@ -1141,7 +1143,7 @@ impl<R: NativeRuntime> Pump<R> {
             .map(|child| child.key().clone())
             .collect::<Vec<_>>();
         let operations = diff(&old_keys, &new_keys)
-            .map_err(|KeyedError::DuplicateKey(key)| PumpError::DuplicateKey(key))?;
+            .map_err(|DuplicateKeyError(key)| PumpError::DuplicateKey(key))?;
         let new_key_set = new_keys.iter().cloned().collect::<HashSet<_>>();
         let nodes = old_keys
             .iter()
@@ -1151,7 +1153,7 @@ impl<R: NativeRuntime> Pump<R> {
 
         for (key, child) in old_keys.iter().zip(current) {
             if !new_key_set.contains(key) {
-                Self::collect_retired_components(tree, child, components, changes)?;
+                Self::collect_retired_components(tree, child, components, changes);
                 Self::retire_planned_subtree(tree, child, plan)?;
             }
         }
@@ -1172,7 +1174,7 @@ impl<R: NativeRuntime> Pump<R> {
         plan: &mut UpdatePlan,
     ) -> Result<(), PumpError> {
         let old_native = Self::native_roots(tree, node)?;
-        let current = tree.children(node)?.to_vec();
+        let current = tree.children(node).to_vec();
         let mut reconciliation = Self::begin_keyed_child_reconciliation(
             tree, current, children, components, changes, plan,
         )?;
@@ -1201,14 +1203,14 @@ impl<R: NativeRuntime> Pump<R> {
                 reconciliation.nodes.insert(child.key().clone(), mounted);
             }
         }
-        tree.set_children(node, reconciliation.order()?)?;
+        tree.set_children(node, reconciliation.order()?);
 
         let new_native = Self::native_roots(tree, node)?;
         if old_native != new_native {
             match Self::native_attachment(tree, node)? {
                 NativeAttachment::ChildList {
                     parent, slot: None, ..
-                } if tree.kind(parent)? == NodeKind::VirtualCollection => {
+                } if tree.kind(parent) == NodeKind::VirtualCollection => {
                     let Some((collection, container, _)) = Self::virtual_row_owner(tree, node)?
                     else {
                         return Err(PumpError::StructureUnsupported);
@@ -1277,39 +1279,31 @@ impl<R: NativeRuntime> Pump<R> {
             _ => return Ok(false),
         };
         Ok(control.kind() == MountedKind::ContentDialog
-            && tree.kind(node)? == NodeKind::Native(MountedKind::ContentDialog)
-            && tree.children(node)?.len() == expected_children)
+            && tree.kind(node) == NodeKind::Native(MountedKind::ContentDialog)
+            && tree.children(node).len() == expected_children)
     }
 
-    fn is_content_dialog_implementation(tree: &Tree, node: NodeId) -> Result<bool, PumpError> {
-        Ok(tree
-            .parent(node)?
-            .is_some_and(|parent| matches!(tree.kind(parent), Ok(NodeKind::ContentDialog(_)))))
+    fn is_content_dialog_implementation(tree: &Tree, node: NodeId) -> bool {
+        tree.parent(node)
+            .is_some_and(|parent| matches!(tree.kind(parent), NodeKind::ContentDialog(_)))
     }
 
-    fn content_dialog_implementation_mount_allowed(
-        tree: &Tree,
-        parent: Option<NodeId>,
-    ) -> Result<bool, PumpError> {
+    fn content_dialog_implementation_mount_allowed(tree: &Tree, parent: Option<NodeId>) -> bool {
         let Some(parent) = parent else {
-            return Ok(false);
+            return false;
         };
-        Ok(matches!(tree.kind(parent)?, NodeKind::ContentDialog(_))
-            && tree.children(parent)?.is_empty())
+        matches!(tree.kind(parent), NodeKind::ContentDialog(_)) && tree.children(parent).is_empty()
     }
 
-    fn content_dialog_owner_allowed(
-        tree: &Tree,
-        mut parent: Option<NodeId>,
-    ) -> Result<bool, PumpError> {
+    fn content_dialog_owner_allowed(tree: &Tree, mut parent: Option<NodeId>) -> bool {
         while let Some(node) = parent {
-            match tree.kind(node)? {
+            match tree.kind(node) {
                 NodeKind::Native(kind) => {
-                    return Ok(Self::control_has_role(kind, ControlRole::Children));
+                    return Self::control_has_role(kind, ControlRole::Children);
                 }
-                NodeKind::Window => return Ok(true),
+                NodeKind::Window => return true,
                 NodeKind::Component | NodeKind::Fragment | NodeKind::Provider => {
-                    parent = tree.parent(node)?;
+                    parent = tree.parent(node);
                 }
                 NodeKind::Application
                 | NodeKind::VirtualCollection
@@ -1320,33 +1314,30 @@ impl<R: NativeRuntime> Pump<R> {
                 | NodeKind::Menu(_)
                 | NodeKind::CommandBarFlyout
                 | NodeKind::TreeNodes
-                | NodeKind::ContentDialog(_) => return Ok(false),
+                | NodeKind::ContentDialog(_) => return false,
             }
         }
-        Ok(false)
+        false
     }
 
-    fn is_tooltip_implementation(tree: &Tree, node: NodeId) -> Result<bool, PumpError> {
-        let Some(parent) = tree.parent(node)? else {
-            return Ok(false);
+    fn is_tooltip_implementation(tree: &Tree, node: NodeId) -> bool {
+        let Some(parent) = tree.parent(node) else {
+            return false;
         };
-        if !matches!(tree.kind(parent)?, NodeKind::Tooltip(_)) {
-            return Ok(false);
+        if !matches!(tree.kind(parent), NodeKind::Tooltip(_)) {
+            return false;
         }
-        let [_, tooltip] = tree.children(parent)? else {
-            return Ok(false);
+        let [_, tooltip] = tree.children(parent) else {
+            return false;
         };
-        Ok(*tooltip == node)
+        *tooltip == node
     }
 
-    fn tooltip_implementation_mount_allowed(
-        tree: &Tree,
-        parent: Option<NodeId>,
-    ) -> Result<bool, PumpError> {
+    fn tooltip_implementation_mount_allowed(tree: &Tree, parent: Option<NodeId>) -> bool {
         let Some(parent) = parent else {
-            return Ok(false);
+            return false;
         };
-        Ok(matches!(tree.kind(parent)?, NodeKind::Tooltip(_)) && tree.children(parent)?.len() == 1)
+        matches!(tree.kind(parent), NodeKind::Tooltip(_)) && tree.children(parent).len() == 1
     }
 
     fn wrap_tooltip(
@@ -1361,26 +1352,26 @@ impl<R: NativeRuntime> Pump<R> {
         if Self::tooltip_owner(tree, node)?.is_some() || Self::flyout_owner(tree, node)?.is_some() {
             return Err(PumpError::StructureUnsupported);
         }
-        let parent = tree.parent(node)?.ok_or(PumpError::StructureUnsupported)?;
+        let parent = tree.parent(node).ok_or(PumpError::StructureUnsupported)?;
         let index = tree
-            .children(parent)?
+            .children(parent)
             .iter()
             .position(|child| *child == node)
             .ok_or(PumpError::StructureUnsupported)?;
-        let key = tree.key(node)?.cloned();
+        let key = tree.key(node).cloned();
         let target = Self::reconcile_planned_view(tree, node, target, components, changes, plan)?;
-        if tree.subtree_postorder(target)?.into_iter().any(|child| {
+        if tree.subtree_postorder(target).into_iter().any(|child| {
             matches!(
                 tree.kind(child),
-                Ok(NodeKind::Tooltip(_) | NodeKind::Flyout(_) | NodeKind::ContentDialog(_))
+                NodeKind::Tooltip(_) | NodeKind::Flyout(_) | NodeKind::ContentDialog(_)
             )
         }) {
             return Err(PumpError::StructureUnsupported);
         }
 
         let placement = tooltip.placement;
-        let owner = tree.insert_tooltip(Some(parent), key, placement)?;
-        tree.reparent(target, owner, None)?;
+        let owner = tree.insert_tooltip(Some(parent), key, placement);
+        tree.reparent(target, owner, None);
         let content = *tooltip.content;
         let (_, tooltip_native) = Self::mount_planned_view(
             tree,
@@ -1394,17 +1385,17 @@ impl<R: NativeRuntime> Pump<R> {
         let [tooltip_native] = tooltip_native.as_slice() else {
             return Err(PumpError::StructureUnsupported);
         };
-        let mut children = tree.children(parent)?.to_vec();
+        let mut children = tree.children(parent).to_vec();
         let appended = children
             .iter()
             .position(|child| *child == owner)
             .ok_or(PumpError::StructureUnsupported)?;
         children.remove(appended);
         children.insert(index, owner);
-        tree.set_children(parent, children)?;
+        tree.set_children(parent, children);
         Self::refresh_tooltip_attachment(tree, owner, placement, plan)?;
         debug_assert_eq!(
-            tree.tooltip_attachment(owner)?,
+            tree.tooltip_attachment(owner),
             Some((Self::native_root(tree, target)?, *tooltip_native))
         );
         Ok(owner)
@@ -1418,32 +1409,32 @@ impl<R: NativeRuntime> Pump<R> {
         changes: &mut ComponentChanges,
         plan: &mut UpdatePlan,
     ) -> Result<NodeId, PumpError> {
-        let parent = tree.parent(node)?.ok_or(PumpError::StructureUnsupported)?;
+        let parent = tree.parent(node).ok_or(PumpError::StructureUnsupported)?;
         let index = tree
-            .children(parent)?
+            .children(parent)
             .iter()
             .position(|child| *child == node)
             .ok_or(PumpError::StructureUnsupported)?;
-        let key = tree.key(node)?.cloned();
-        let [target, tooltip] = tree.children(node)? else {
+        let key = tree.key(node).cloned();
+        let [target, tooltip] = tree.children(node) else {
             return Err(PumpError::StructureUnsupported);
         };
         let target = *target;
         let tooltip = *tooltip;
 
         Self::clear_tooltip_attachment(tree, node, plan)?;
-        Self::collect_retired_components(tree, tooltip, components, changes)?;
+        Self::collect_retired_components(tree, tooltip, components, changes);
         Self::retire_planned_subtree(tree, tooltip, plan)?;
-        tree.reparent(target, parent, key)?;
-        tree.retire_subtree(node)?;
-        let mut children = tree.children(parent)?.to_vec();
+        tree.reparent(target, parent, key);
+        tree.retire_subtree(node);
+        let mut children = tree.children(parent).to_vec();
         let appended = children
             .iter()
             .position(|child| *child == target)
             .ok_or(PumpError::StructureUnsupported)?;
         children.remove(appended);
         children.insert(index, target);
-        tree.set_children(parent, children)?;
+        tree.set_children(parent, children);
         Self::reconcile_planned_view(tree, target, view, components, changes, plan)
     }
 
@@ -1459,26 +1450,26 @@ impl<R: NativeRuntime> Pump<R> {
         if Self::flyout_owner(tree, node)?.is_some() || Self::tooltip_owner(tree, node)?.is_some() {
             return Err(PumpError::StructureUnsupported);
         }
-        let parent = tree.parent(node)?.ok_or(PumpError::StructureUnsupported)?;
+        let parent = tree.parent(node).ok_or(PumpError::StructureUnsupported)?;
         let index = tree
-            .children(parent)?
+            .children(parent)
             .iter()
             .position(|child| *child == node)
             .ok_or(PumpError::StructureUnsupported)?;
-        let key = tree.key(node)?.cloned();
+        let key = tree.key(node).cloned();
         let target = Self::reconcile_planned_view(tree, node, target, components, changes, plan)?;
-        if tree.subtree_postorder(target)?.into_iter().any(|child| {
+        if tree.subtree_postorder(target).into_iter().any(|child| {
             matches!(
                 tree.kind(child),
-                Ok(NodeKind::Tooltip(_) | NodeKind::Flyout(_) | NodeKind::ContentDialog(_))
+                NodeKind::Tooltip(_) | NodeKind::Flyout(_) | NodeKind::ContentDialog(_)
             )
         }) {
             return Err(PumpError::StructureUnsupported);
         }
 
         let placement = flyout.placement;
-        let owner = tree.insert_flyout(Some(parent), key, placement)?;
-        tree.reparent(target, owner, None)?;
+        let owner = tree.insert_flyout(Some(parent), key, placement);
+        tree.reparent(target, owner, None);
         let (_, content_native) = Self::mount_planned_view(
             tree,
             Some(owner),
@@ -1491,17 +1482,17 @@ impl<R: NativeRuntime> Pump<R> {
         let [content_native] = content_native.as_slice() else {
             return Err(PumpError::StructureUnsupported);
         };
-        let mut children = tree.children(parent)?.to_vec();
+        let mut children = tree.children(parent).to_vec();
         let appended = children
             .iter()
             .position(|child| *child == owner)
             .ok_or(PumpError::StructureUnsupported)?;
         children.remove(appended);
         children.insert(index, owner);
-        tree.set_children(parent, children)?;
+        tree.set_children(parent, children);
         Self::refresh_flyout_attachment(tree, owner, placement, plan)?;
         debug_assert_eq!(
-            tree.flyout_attachment(owner)?,
+            tree.flyout_attachment(owner),
             Some((Self::native_root(tree, target)?, *content_native))
         );
         Ok(owner)
@@ -1515,32 +1506,32 @@ impl<R: NativeRuntime> Pump<R> {
         changes: &mut ComponentChanges,
         plan: &mut UpdatePlan,
     ) -> Result<NodeId, PumpError> {
-        let parent = tree.parent(node)?.ok_or(PumpError::StructureUnsupported)?;
+        let parent = tree.parent(node).ok_or(PumpError::StructureUnsupported)?;
         let index = tree
-            .children(parent)?
+            .children(parent)
             .iter()
             .position(|child| *child == node)
             .ok_or(PumpError::StructureUnsupported)?;
-        let key = tree.key(node)?.cloned();
-        let [target, content] = tree.children(node)? else {
+        let key = tree.key(node).cloned();
+        let [target, content] = tree.children(node) else {
             return Err(PumpError::StructureUnsupported);
         };
         let target = *target;
         let content = *content;
 
         Self::clear_flyout_attachment(tree, node, plan)?;
-        Self::collect_retired_components(tree, content, components, changes)?;
+        Self::collect_retired_components(tree, content, components, changes);
         Self::retire_planned_subtree(tree, content, plan)?;
-        tree.reparent(target, parent, key)?;
-        tree.retire_subtree(node)?;
-        let mut children = tree.children(parent)?.to_vec();
+        tree.reparent(target, parent, key);
+        tree.retire_subtree(node);
+        let mut children = tree.children(parent).to_vec();
         let appended = children
             .iter()
             .position(|child| *child == target)
             .ok_or(PumpError::StructureUnsupported)?;
         children.remove(appended);
         children.insert(index, target);
-        tree.set_children(parent, children)?;
+        tree.set_children(parent, children);
         Self::reconcile_planned_view(tree, target, view, components, changes, plan)
     }
 
@@ -1552,10 +1543,10 @@ impl<R: NativeRuntime> Pump<R> {
         changes: &mut ComponentChanges,
         plan: &mut UpdatePlan,
     ) -> Result<NodeId, PumpError> {
-        let parent = tree.parent(node)?.ok_or(PumpError::StructureUnsupported)?;
-        let key = tree.key(node)?.cloned();
+        let parent = tree.parent(node).ok_or(PumpError::StructureUnsupported)?;
+        let key = tree.key(node).cloned();
         let index = tree
-            .children(parent)?
+            .children(parent)
             .iter()
             .position(|child| *child == node)
             .ok_or(PumpError::StructureUnsupported)?;
@@ -1563,14 +1554,14 @@ impl<R: NativeRuntime> Pump<R> {
         let realized = match attachment {
             NativeAttachment::ChildList {
                 parent, slot: None, ..
-            } if tree.kind(parent)? == NodeKind::VirtualCollection => {
+            } if tree.kind(parent) == NodeKind::VirtualCollection => {
                 Self::virtual_row_owner(tree, node)?
             }
             _ => None,
         };
         let tooltip_owner = if let Some(owner) = Self::tooltip_owner(tree, node)? {
             let attachment = tree
-                .tooltip_attachment(owner)?
+                .tooltip_attachment(owner)
                 .ok_or(PumpError::StructureUnsupported)?;
             Self::native_roots_intersect(tree, node, attachment.0, attachment.1)?.then_some(owner)
         } else {
@@ -1578,7 +1569,7 @@ impl<R: NativeRuntime> Pump<R> {
         };
         let flyout_owner = if let Some(owner) = Self::flyout_owner(tree, node)? {
             let attachment = tree
-                .flyout_attachment(owner)?
+                .flyout_attachment(owner)
                 .ok_or(PumpError::StructureUnsupported)?;
             Self::native_roots_intersect(tree, node, attachment.0, attachment.1)?.then_some(owner)
         } else {
@@ -1595,18 +1586,18 @@ impl<R: NativeRuntime> Pump<R> {
             Self::clear_owned_attachment(tree, owner, plan)?;
         }
 
-        Self::collect_retired_components(tree, node, components, changes)?;
+        Self::collect_retired_components(tree, node, components, changes);
         Self::retire_planned_subtree(tree, node, plan)?;
         let (replacement, native) =
             Self::mount_planned_view(tree, Some(parent), key, view, components, changes, plan)?;
-        let mut children = tree.children(parent)?.to_vec();
+        let mut children = tree.children(parent).to_vec();
         let appended = children
             .iter()
             .position(|child| *child == replacement)
             .ok_or(PumpError::StructureUnsupported)?;
         children.remove(appended);
         children.insert(index, replacement);
-        tree.set_children(parent, children)?;
+        tree.set_children(parent, children);
         match (attachment, realized) {
             (
                 NativeAttachment::ChildList { slot: None, .. },
@@ -1618,9 +1609,9 @@ impl<R: NativeRuntime> Pump<R> {
                     row.logical_root
                 };
                 if row.logical_root == node {
-                    tree.set_realized(collection, container, row.index, logical_root, None)?;
+                    tree.set_realized(collection, container, row.index, logical_root, None);
                 } else {
-                    tree.update_realized(collection, container, logical_root, None)?;
+                    tree.update_realized(collection, container, logical_root, None);
                 }
                 Self::refresh_virtual_row_attachment(tree, collection, container, plan)?;
             }
@@ -1704,7 +1695,7 @@ impl<R: NativeRuntime> Pump<R> {
         if let Some(owner) = tooltip_owner
             && !matches!(attachment, NativeAttachment::Tooltip { .. })
         {
-            let NodeKind::Tooltip(placement) = tree.kind(owner)? else {
+            let NodeKind::Tooltip(placement) = tree.kind(owner) else {
                 return Err(PumpError::StructureUnsupported);
             };
             Self::refresh_tooltip_attachment(tree, owner, placement, plan)?;
@@ -1712,7 +1703,7 @@ impl<R: NativeRuntime> Pump<R> {
         if let Some(owner) = flyout_owner
             && !matches!(attachment, NativeAttachment::Flyout { .. })
         {
-            let NodeKind::Flyout(placement) = tree.kind(owner)? else {
+            let NodeKind::Flyout(placement) = tree.kind(owner) else {
                 return Err(PumpError::StructureUnsupported);
             };
             Self::refresh_flyout_attachment(tree, owner, placement, plan)?;
@@ -1728,11 +1719,11 @@ impl<R: NativeRuntime> Pump<R> {
         root: NodeId,
         components: &ComponentStore,
         changes: &mut ComponentChanges,
-    ) -> Result<(), PumpError> {
-        for node in tree.subtree_postorder(root)? {
-            if tree.kind(node)? == NodeKind::Component {
-                let scope = tree.component_scope(node)?;
-                let token = components.token(scope)?;
+    ) {
+        for node in tree.subtree_postorder(root) {
+            if tree.kind(node) == NodeKind::Component {
+                let scope = tree.component_scope(node);
+                let token = components.token(scope);
                 if !changes.retired.contains(&token) {
                     changes.retired.push(token);
                 }
@@ -1743,7 +1734,6 @@ impl<R: NativeRuntime> Pump<R> {
                 tree.remove_window_declarations(scope);
             }
         }
-        Ok(())
     }
 
     pub(in super::super) fn recompose_component(
@@ -1764,7 +1754,7 @@ impl<R: NativeRuntime> Pump<R> {
             window_size_observation,
             window_title,
             window_visuals,
-        } = components.view(token, tree.context_snapshot(node)?)?;
+        } = components.view(token, tree.context_snapshot(node))?;
         Self::reconcile_component_window_title(tree, token, window_title);
         Self::reconcile_component_window_visuals(tree, token, window_visuals);
         tree.set_window_size_observation(token.scope(), window_size_observation);
@@ -1798,13 +1788,13 @@ impl<R: NativeRuntime> Pump<R> {
         changes: &mut ComponentChanges,
         plan: &mut UpdatePlan,
     ) -> Result<(), PumpError> {
-        let [slot] = tree.children(node)? else {
+        let [slot] = tree.children(node) else {
             return Err(PumpError::StructureUnsupported);
         };
-        if tree.kind(*slot)? != NodeKind::Slot {
+        if tree.kind(*slot) != NodeKind::Slot {
             return Err(PumpError::StructureUnsupported);
         }
-        let [child] = tree.children(*slot)? else {
+        let [child] = tree.children(*slot) else {
             return Err(PumpError::StructureUnsupported);
         };
         Self::reconcile_planned_view(tree, *child, view, components, changes, plan).map(|_| ())
@@ -1820,12 +1810,12 @@ impl<R: NativeRuntime> Pump<R> {
         plan: &mut UpdatePlan,
     ) -> Result<(NodeId, Vec<NodeId>), PumpError> {
         if Self::view_uses_native_control(view.as_kind(), MountedKind::ToolTip)
-            && !Self::tooltip_implementation_mount_allowed(tree, logical_parent)?
+            && !Self::tooltip_implementation_mount_allowed(tree, logical_parent)
         {
             return Err(PumpError::StructureUnsupported);
         }
         if Self::view_uses_native_control(view.as_kind(), MountedKind::ContentDialog)
-            && !Self::content_dialog_implementation_mount_allowed(tree, logical_parent)?
+            && !Self::content_dialog_implementation_mount_allowed(tree, logical_parent)
         {
             return Err(PumpError::StructureUnsupported);
         }
@@ -1835,7 +1825,7 @@ impl<R: NativeRuntime> Pump<R> {
                 Ok((node, vec![node]))
             }
             ViewKind::Component(component) => {
-                let token = component.reserve(components)?;
+                let token = component.reserve(components);
                 changes
                     .host_requests
                     .extend(components.take_host_requests());
@@ -1845,8 +1835,8 @@ impl<R: NativeRuntime> Pump<R> {
                     key,
                     token.scope(),
                     component.component_type(),
-                )?;
-                let slot = tree.insert(Some(node), NodeKind::Slot)?;
+                );
+                let slot = tree.insert(Some(node), NodeKind::Slot);
                 let ComponentRender {
                     color_scheme_observation,
                     dependencies,
@@ -1854,7 +1844,7 @@ impl<R: NativeRuntime> Pump<R> {
                     window_size_observation,
                     window_title,
                     window_visuals,
-                } = components.view(token, tree.context_snapshot(node)?)?;
+                } = components.view(token, tree.context_snapshot(node))?;
                 Self::reconcile_component_window_title(tree, token, window_title);
                 Self::reconcile_component_window_visuals(tree, token, window_visuals);
                 tree.set_window_size_observation(token.scope(), window_size_observation);
@@ -1872,14 +1862,13 @@ impl<R: NativeRuntime> Pump<R> {
                 Ok((node, native))
             }
             ViewKind::Fragment(children) => {
-                let node = tree.insert_fragment(logical_parent, key)?;
+                let node = tree.insert_fragment(logical_parent, key);
                 let children = Rc::unwrap_or_clone(children);
                 let keys = children
                     .iter()
                     .map(|child| child.key().clone())
                     .collect::<Vec<_>>();
-                diff(&[], &keys)
-                    .map_err(|KeyedError::DuplicateKey(key)| PumpError::DuplicateKey(key))?;
+                diff(&[], &keys).map_err(|DuplicateKeyError(key)| PumpError::DuplicateKey(key))?;
                 let mut native = Vec::new();
                 for child in children {
                     let (key, view) = child.into_parts();
@@ -1897,7 +1886,7 @@ impl<R: NativeRuntime> Pump<R> {
                 Ok((node, native))
             }
             ViewKind::Provider { provision, child } => {
-                let node = tree.insert_provider(logical_parent, key, provision)?;
+                let node = tree.insert_provider(logical_parent, key, provision);
                 let (_, native) = Self::mount_planned_view(
                     tree,
                     Some(node),
@@ -1913,15 +1902,15 @@ impl<R: NativeRuntime> Pump<R> {
                 let mut current = logical_parent;
                 while let Some(parent) = current {
                     if matches!(
-                        tree.kind(parent)?,
+                        tree.kind(parent),
                         NodeKind::Tooltip(_) | NodeKind::Flyout(_) | NodeKind::ContentDialog(_)
                     ) {
                         return Err(PumpError::StructureUnsupported);
                     }
-                    current = tree.parent(parent)?;
+                    current = tree.parent(parent);
                 }
                 let placement = tooltip.placement;
-                let node = tree.insert_tooltip(logical_parent, key, placement)?;
+                let node = tree.insert_tooltip(logical_parent, key, placement);
                 let (_, target_native) = Self::mount_planned_view(
                     tree,
                     Some(node),
@@ -1946,7 +1935,7 @@ impl<R: NativeRuntime> Pump<R> {
                 let [tooltip] = tooltip_native.as_slice() else {
                     return Err(PumpError::StructureUnsupported);
                 };
-                tree.set_tooltip_attachment(node, Some((*target, *tooltip)))?;
+                tree.set_tooltip_attachment(node, Some((*target, *tooltip)));
                 plan.push(Command::SetTooltip {
                     target: *target,
                     tooltip: Some(*tooltip),
@@ -1958,15 +1947,15 @@ impl<R: NativeRuntime> Pump<R> {
                 let mut current = logical_parent;
                 while let Some(parent) = current {
                     if matches!(
-                        tree.kind(parent)?,
+                        tree.kind(parent),
                         NodeKind::Tooltip(_) | NodeKind::Flyout(_) | NodeKind::ContentDialog(_)
                     ) {
                         return Err(PumpError::StructureUnsupported);
                     }
-                    current = tree.parent(parent)?;
+                    current = tree.parent(parent);
                 }
                 let placement = flyout.placement;
-                let node = tree.insert_flyout(logical_parent, key, placement)?;
+                let node = tree.insert_flyout(logical_parent, key, placement);
                 let (_, target_native) = Self::mount_planned_view(
                     tree,
                     Some(node),
@@ -1992,12 +1981,12 @@ impl<R: NativeRuntime> Pump<R> {
                     return Err(PumpError::StructureUnsupported);
                 };
                 if !matches!(
-                    tree.kind(*target)?,
+                    tree.kind(*target),
                     NodeKind::Native(MountedKind::Button | MountedKind::SplitButton)
                 ) {
                     return Err(PumpError::StructureUnsupported);
                 }
-                tree.set_flyout_attachment(node, Some((*target, *content)))?;
+                tree.set_flyout_attachment(node, Some((*target, *content)));
                 plan.push(Command::SetFlyout {
                     target: *target,
                     content: Some(*content),
@@ -2009,7 +1998,7 @@ impl<R: NativeRuntime> Pump<R> {
                 let mut current = logical_parent;
                 while let Some(parent) = current {
                     if matches!(
-                        tree.kind(parent)?,
+                        tree.kind(parent),
                         NodeKind::Tooltip(_)
                             | NodeKind::Flyout(_)
                             | NodeKind::Menu(_)
@@ -2018,11 +2007,10 @@ impl<R: NativeRuntime> Pump<R> {
                     ) {
                         return Err(PumpError::StructureUnsupported);
                     }
-                    current = tree.parent(parent)?;
+                    current = tree.parent(parent);
                 }
                 validate_menu_items(&menu.items)?;
-                let node =
-                    tree.insert_menu(logical_parent, key, OwnedMenuKind::ButtonFlyout, menu)?;
+                let node = tree.insert_menu(logical_parent, key, OwnedMenuKind::ButtonFlyout, menu);
                 let (_, target_native) = Self::mount_planned_view(
                     tree,
                     Some(node),
@@ -2035,7 +2023,7 @@ impl<R: NativeRuntime> Pump<R> {
                 let [target] = target_native.as_slice() else {
                     return Err(PumpError::StructureUnsupported);
                 };
-                let kind = match tree.kind(*target)? {
+                let kind = match tree.kind(*target) {
                     NodeKind::Native(MountedKind::Button) => OwnedMenuKind::ButtonFlyout,
                     NodeKind::Native(MountedKind::DropDownButton) => {
                         OwnedMenuKind::DropDownButtonFlyout
@@ -2043,8 +2031,8 @@ impl<R: NativeRuntime> Pump<R> {
                     NodeKind::Native(MountedKind::MenuBarItem) => OwnedMenuKind::MenuBarItem,
                     _ => return Err(PumpError::StructureUnsupported),
                 };
-                tree.set_kind(node, NodeKind::Menu(kind))?;
-                let menu = tree.owned_menu(node)?.to_vec();
+                tree.set_kind(node, NodeKind::Menu(kind));
+                let menu = tree.owned_menu(node).to_vec();
                 plan.push(Command::SetOwnedMenu {
                     owner: node,
                     target: *target,
@@ -2059,7 +2047,7 @@ impl<R: NativeRuntime> Pump<R> {
                 validate_commands(&flyout.secondary)?;
                 let primary = flyout.primary.clone();
                 let secondary = flyout.secondary.clone();
-                let node = tree.insert_command_bar_flyout(logical_parent, key, flyout)?;
+                let node = tree.insert_command_bar_flyout(logical_parent, key, flyout);
                 let (_, target_native) = Self::mount_planned_view(
                     tree,
                     Some(node),
@@ -2072,7 +2060,7 @@ impl<R: NativeRuntime> Pump<R> {
                 let [target] = target_native.as_slice() else {
                     return Err(PumpError::StructureUnsupported);
                 };
-                if tree.kind(*target)? != NodeKind::Native(MountedKind::Button) {
+                if tree.kind(*target) != NodeKind::Native(MountedKind::Button) {
                     return Err(PumpError::StructureUnsupported);
                 }
                 plan.push(Command::SetCommandBarFlyout {
@@ -2089,7 +2077,7 @@ impl<R: NativeRuntime> Pump<R> {
                 nodes,
             } => {
                 validate_tree_nodes(&nodes)?;
-                let node = tree.insert_tree_nodes(logical_parent, key, Rc::clone(&nodes))?;
+                let node = tree.insert_tree_nodes(logical_parent, key, Rc::clone(&nodes));
                 let (_, native) = Self::mount_planned_view(
                     tree,
                     Some(node),
@@ -2102,7 +2090,7 @@ impl<R: NativeRuntime> Pump<R> {
                 let [target] = native.as_slice() else {
                     return Err(PumpError::StructureUnsupported);
                 };
-                if tree.kind(*target)? != NodeKind::Native(MountedKind::TreeView) {
+                if tree.kind(*target) != NodeKind::Native(MountedKind::TreeView) {
                     return Err(PumpError::StructureUnsupported);
                 }
                 plan.push(Command::SetTreeViewNodes {
@@ -2112,20 +2100,20 @@ impl<R: NativeRuntime> Pump<R> {
                 Ok((node, vec![*target]))
             }
             ViewKind::ContentDialog { dialog, open } => {
-                if !Self::content_dialog_owner_allowed(tree, logical_parent)? {
+                if !Self::content_dialog_owner_allowed(tree, logical_parent) {
                     return Err(PumpError::StructureUnsupported);
                 }
                 let mut current = logical_parent;
                 while let Some(parent) = current {
                     if matches!(
-                        tree.kind(parent)?,
+                        tree.kind(parent),
                         NodeKind::Tooltip(_) | NodeKind::Flyout(_) | NodeKind::ContentDialog(_)
                     ) {
                         return Err(PumpError::StructureUnsupported);
                     }
-                    current = tree.parent(parent)?;
+                    current = tree.parent(parent);
                 }
-                let node = tree.insert_content_dialog(logical_parent, key, open)?;
+                let node = tree.insert_content_dialog(logical_parent, key, open);
                 let (_, dialog_native) = Self::mount_planned_view(
                     tree,
                     Some(node),
@@ -2138,7 +2126,7 @@ impl<R: NativeRuntime> Pump<R> {
                 let [dialog] = dialog_native.as_slice() else {
                     return Err(PumpError::StructureUnsupported);
                 };
-                if tree.kind(*dialog)? != NodeKind::Native(MountedKind::ContentDialog) {
+                if tree.kind(*dialog) != NodeKind::Native(MountedKind::ContentDialog) {
                     return Err(PumpError::StructureUnsupported);
                 }
                 if open {
@@ -2170,7 +2158,7 @@ impl<R: NativeRuntime> Pump<R> {
                 }
                 let node = Self::mount_planned_element(tree, logical_parent, key, control, plan)?;
                 for slot in slot_ids {
-                    let slot_node = tree.insert(Some(node), NodeKind::NamedSlot(*slot))?;
+                    let slot_node = tree.insert(Some(node), NodeKind::NamedSlot(*slot));
                     if slot_is_collection(*slot) {
                         let children = match desired.remove(slot) {
                             Some(SlotContent::Collection(children)) => {
@@ -2185,9 +2173,8 @@ impl<R: NativeRuntime> Pump<R> {
                             .iter()
                             .map(|child| child.key().clone())
                             .collect::<Vec<_>>();
-                        diff(&[], &keys).map_err(|KeyedError::DuplicateKey(key)| {
-                            PumpError::DuplicateKey(key)
-                        })?;
+                        diff(&[], &keys)
+                            .map_err(|DuplicateKeyError(key)| PumpError::DuplicateKey(key))?;
                         for (index, child) in children.into_iter().enumerate() {
                             let (key, view) = child.into_parts();
                             let (_, native) = Self::mount_planned_view(
@@ -2284,8 +2271,7 @@ impl<R: NativeRuntime> Pump<R> {
                     .iter()
                     .map(|child| child.key().clone())
                     .collect::<Vec<_>>();
-                diff(&[], &keys)
-                    .map_err(|KeyedError::DuplicateKey(key)| PumpError::DuplicateKey(key))?;
+                diff(&[], &keys).map_err(|DuplicateKeyError(key)| PumpError::DuplicateKey(key))?;
                 let mut native_index = 0;
                 for child in children {
                     let (key, view) = child.into_parts();
@@ -2316,7 +2302,7 @@ impl<R: NativeRuntime> Pump<R> {
 }
 
 fn node_kind(tree: &Tree, node: NodeId) -> Result<MountedKind, PumpError> {
-    match tree.kind(node)? {
+    match tree.kind(node) {
         NodeKind::Native(kind) => Ok(kind),
         _ => Err(PumpError::StructureUnsupported),
     }

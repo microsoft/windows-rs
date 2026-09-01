@@ -155,13 +155,13 @@ fn keyed_tooltip_wrappers_reconcile_in_child_lists_across_updates() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(view("First", "Second")).unwrap();
     let panel = pump.root().unwrap();
-    let logical = pump.tree.children(panel).unwrap().to_vec();
+    let logical = pump.tree.children(panel).to_vec();
     let owner = pump.runtime().node(panel).unwrap().children()[0];
 
     pump.update_view(view("Updated", "Second")).unwrap();
     pump.update_view(view("Updated again", "Changed")).unwrap();
 
-    assert_eq!(pump.tree.children(panel).unwrap(), logical);
+    assert_eq!(pump.tree.children(panel), logical);
     assert_eq!(pump.runtime().node(panel).unwrap().children()[0], owner);
     assert!(pump.runtime().tooltip(owner).is_some());
 }

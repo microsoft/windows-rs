@@ -134,16 +134,14 @@ impl<T> Default for ShellPool<T> {
 }
 
 impl<T: Clone> ShellPool<T> {
-    fn next_container(&mut self) -> Result<RealizedContainer> {
+    fn next_container(&mut self) -> RealizedContainer {
         let value = self.next;
-        self.next = value
-            .checked_add(1)
-            .ok_or_else(|| Error::new(E_FAIL, "realized container id exhausted"))?;
-        Ok(RealizedContainer(value))
+        self.next = value.checked_add(1).unwrap();
+        RealizedContainer(value)
     }
 
     fn take(&mut self, create: impl FnOnce() -> Result<T>) -> Result<(RealizedContainer, T)> {
-        let container = self.next_container()?;
+        let container = self.next_container();
         let shell = if let Some(shell) = self.available.pop() {
             shell
         } else {
@@ -312,18 +310,21 @@ mod tests {
     fn every_shell_lifetime_gets_a_fresh_token() {
         let mut shells = ShellPool::<usize>::default();
 
-        assert_eq!(shells.next_container().unwrap(), RealizedContainer(0));
-        assert_eq!(shells.next_container().unwrap(), RealizedContainer(1));
+        assert_eq!(shells.next_container(), RealizedContainer(0));
+        assert_eq!(shells.next_container(), RealizedContainer(1));
     }
 
     #[test]
-    fn shell_lifetime_token_exhaustion_is_reported() {
+    fn shell_lifetime_token_exhaustion_panics_before_mutation() {
         let mut shells = ShellPool::<usize> {
             next: u64::MAX,
             ..Default::default()
         };
 
-        assert!(shells.next_container().is_err());
+        assert!(
+            std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| shells.next_container()))
+                .is_err()
+        );
         assert_eq!(shells.next, u64::MAX);
     }
 

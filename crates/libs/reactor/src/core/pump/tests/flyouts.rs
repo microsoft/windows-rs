@@ -224,13 +224,13 @@ fn keyed_parent_reconciliation_preserves_attachment() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(view("First")).unwrap();
     let panel = pump.root().unwrap();
-    let logical = pump.tree.children(panel).unwrap().to_vec();
+    let logical = pump.tree.children(panel).to_vec();
     let owner = pump.runtime().node(panel).unwrap().children()[0];
     let content = pump.runtime().flyout(owner).unwrap().0;
 
     pump.update_view(view("Second")).unwrap();
 
-    assert_eq!(pump.tree.children(panel).unwrap(), logical);
+    assert_eq!(pump.tree.children(panel), logical);
     assert_eq!(pump.runtime().node(panel).unwrap().children()[0], owner);
     assert_eq!(
         pump.runtime().flyout(owner),

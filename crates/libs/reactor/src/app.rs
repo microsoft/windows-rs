@@ -511,7 +511,7 @@ impl LivePump for ComponentLoop {
         let Some(node) = self.pump.root_native() else {
             return false;
         };
-        if !matches!(self.pump.live_native_children(node), Ok([_]))
+        if !matches!(self.pump.live_native_children(node), [_])
             || self.pump.runtime().live_set_checked(node, true).is_err()
             || self.pump.dispatch_events() != Ok(1)
             || first.get() != 1
@@ -990,18 +990,7 @@ fn rollback_pending_windows(tokens: &[WindowToken]) {
 
 fn reject_pending_window(mut pump: Box<dyn LivePump>, error: PumpError) {
     let token = pump.window_token();
-    let rejected = matches!(
-        error,
-        PumpError::DuplicateEffectKey(_)
-            | PumpError::DuplicateElementRef
-            | PumpError::DuplicateKey(_)
-            | PumpError::DuplicateColorSchemeObservation
-            | PumpError::DuplicateWindowSizeObservation
-            | PumpError::DuplicateWindowTitle
-            | PumpError::DuplicateWindowTitleBar
-            | PumpError::DuplicateWindowVisuals
-            | PumpError::StructureUnsupported
-    );
+    let rejected = error.is_declaration_rejection();
     pump.shutdown();
     let empty = HOST.with(|host| {
         let mut host = host.borrow_mut();

@@ -140,7 +140,7 @@ fn async_ingress_rejects_stale_and_failed_wakes() {
     );
     assert_eq!(wakes.load(Ordering::Relaxed), 1);
 
-    ingress.lock().unwrap().identity = identity.next();
+    ingress.lock().unwrap().identity = Some(identity.next());
     let stale = AsyncIngressSender {
         identity,
         ticket: 8,

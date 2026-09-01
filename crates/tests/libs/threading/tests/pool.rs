@@ -39,18 +39,6 @@ fn for_each() {
 }
 
 #[test]
-fn try_submit() {
-    let (sender, receiver) = std::sync::mpsc::channel();
-
-    assert!(windows_threading::try_submit(move || sender.send(42).unwrap()).is_ok());
-
-    assert_eq!(
-        receiver.recv_timeout(std::time::Duration::from_secs(2)),
-        Ok(42)
-    );
-}
-
-#[test]
 fn multi() {
     let set = std::sync::RwLock::<std::collections::HashSet<u32>>::default();
 

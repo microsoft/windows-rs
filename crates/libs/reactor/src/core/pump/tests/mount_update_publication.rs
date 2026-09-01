@@ -33,7 +33,7 @@ fn empty_root_mounts_without_native_window_content_and_can_toggle() {
     let root = pump.root().unwrap();
     let window = pump.window().unwrap();
 
-    assert_eq!(pump.tree.kind(root), Ok(NodeKind::Fragment));
+    assert_eq!(pump.tree.kind(root), NodeKind::Fragment);
     assert!(pump.runtime().node(window).unwrap().children().is_empty());
 
     pump.update_view(View::native(TextBlock::new().text("visible")))
@@ -111,9 +111,9 @@ fn application_window_and_root_share_one_arena_lifetime() {
     let window = pump.window().unwrap();
     let root = pump.root().unwrap();
 
-    assert_eq!(pump.tree.parent(application), Ok(None));
-    assert_eq!(pump.tree.parent(window), Ok(Some(application)));
-    assert_eq!(pump.tree.parent(root), Ok(Some(window)));
+    assert_eq!(pump.tree.parent(application), None);
+    assert_eq!(pump.tree.parent(window), Some(application));
+    assert_eq!(pump.tree.parent(root), Some(window));
     assert!(pump.runtime().node(application).is_some());
     assert!(pump.runtime().node(window).is_some());
     assert!(pump.runtime().node(root).is_some());
@@ -157,10 +157,7 @@ fn root_kind_replacement_updates_arena_and_native_parent() {
 
     let root = pump.root().unwrap();
     assert_ne!(root, old);
-    assert_eq!(
-        pump.tree.kind(root),
-        Ok(NodeKind::Native(MountedKind::Button))
-    );
+    assert_eq!(pump.tree.kind(root), NodeKind::Native(MountedKind::Button));
     assert_eq!(pump.runtime().node(window).unwrap().children(), &[root]);
 }
 
@@ -176,23 +173,23 @@ fn content_transitions_support_insert_replace_and_remove() {
             .into(),
     )
     .unwrap();
-    let text = pump.tree.children(root).unwrap()[0];
+    let text = pump.tree.children(root)[0];
     assert_eq!(
         pump.tree.kind(text),
-        Ok(NodeKind::Native(MountedKind::TextBlock))
+        NodeKind::Native(MountedKind::TextBlock)
     );
 
     pump.update(Button::new().native_content(Button::new()).into())
         .unwrap();
-    let button = pump.tree.children(root).unwrap()[0];
+    let button = pump.tree.children(root)[0];
     assert_ne!(button, text);
     assert_eq!(
         pump.tree.kind(button),
-        Ok(NodeKind::Native(MountedKind::Button))
+        NodeKind::Native(MountedKind::Button)
     );
 
     pump.update(Button::new().into()).unwrap();
-    assert!(pump.tree.children(root).unwrap().is_empty());
+    assert!(pump.tree.children(root).is_empty());
     assert!(pump.runtime().node(root).unwrap().children().is_empty());
 }
 
@@ -203,7 +200,7 @@ fn public_content_transitions_support_insert_update_and_remove() {
 
     pump.update_view(Button::new().content("first")).unwrap();
     let root = pump.root().unwrap();
-    let first = pump.tree.children(root).unwrap()[0];
+    let first = pump.tree.children(root)[0];
     assert_eq!(
         pump.runtime()
             .node(first)
@@ -213,7 +210,7 @@ fn public_content_transitions_support_insert_update_and_remove() {
     );
 
     pump.update_view(Button::new().content("second")).unwrap();
-    assert_eq!(pump.tree.children(root).unwrap(), &[first]);
+    assert_eq!(pump.tree.children(root), &[first]);
     assert_eq!(
         pump.runtime()
             .node(first)
@@ -224,7 +221,7 @@ fn public_content_transitions_support_insert_update_and_remove() {
 
     pump.update_view(Button::new().into()).unwrap();
     let root = pump.root().unwrap();
-    assert!(pump.tree.children(root).unwrap().is_empty());
+    assert!(pump.tree.children(root).is_empty());
     assert!(pump.runtime().node(root).unwrap().children().is_empty());
 }
 
@@ -233,7 +230,7 @@ fn string_views_mount_update_and_replace_like_explicit_text() {
     let mut pump = Pump::new(RecordingRuntime::default());
     pump.mount_view(Button::new().content("first")).unwrap();
     let root = pump.root().unwrap();
-    let text = pump.tree.children(root).unwrap()[0];
+    let text = pump.tree.children(root)[0];
 
     assert_eq!(
         pump.runtime()
@@ -245,7 +242,7 @@ fn string_views_mount_update_and_replace_like_explicit_text() {
 
     pump.update_view(Button::new().content(String::from("second")))
         .unwrap();
-    assert_eq!(pump.tree.children(root).unwrap(), &[text]);
+    assert_eq!(pump.tree.children(root), &[text]);
     assert_eq!(
         pump.runtime()
             .node(text)
@@ -256,10 +253,7 @@ fn string_views_mount_update_and_replace_like_explicit_text() {
 
     pump.update_view(Button::new().content(Border::new()))
         .unwrap();
-    let rich = pump.tree.children(root).unwrap()[0];
+    let rich = pump.tree.children(root)[0];
     assert_ne!(rich, text);
-    assert_eq!(
-        pump.tree.kind(rich),
-        Ok(NodeKind::Native(MountedKind::Border))
-    );
+    assert_eq!(pump.tree.kind(rich), NodeKind::Native(MountedKind::Border));
 }

@@ -33,7 +33,7 @@ impl PartialEq for Input {
 enum Message {
     Complete(String),
     Rejected,
-    StartPanicking,
+    StartRejected,
     StartWithRejection(Arc<Barrier>, String),
     StartUntilCancelled(Arc<AtomicBool>),
 }
@@ -74,9 +74,9 @@ impl Component for BackgroundComponent {
         match message {
             Message::Complete(value) => self.text = value,
             Message::Rejected => self.text = "rejected".to_string(),
-            Message::StartPanicking => {
+            Message::StartRejected => {
                 let handle = context.spawn_background_with_rejection(
-                    move |_| panic!("injected task panic"),
+                    move |_| Message::Complete("unexpected".to_string()),
                     Message::Rejected,
                 );
                 *self.input.handle.borrow_mut() = Some(handle.clone());
@@ -234,7 +234,7 @@ fn synchronous_rejection_dispatches_the_typed_fallback() {
             .borrow()
             .as_ref()
             .unwrap()
-            .send(Message::StartPanicking)
+            .send(Message::StartRejected)
     );
 
     assert_eq!(pump.dispatch_components(1), Ok(1));
@@ -255,7 +255,7 @@ fn retirement_discards_a_queued_rejection() {
             .borrow()
             .as_ref()
             .unwrap()
-            .send(Message::StartPanicking)
+            .send(Message::StartRejected)
     );
     assert_eq!(pump.dispatch_components(1), Ok(1));
     assert_eq!(
@@ -268,27 +268,6 @@ fn retirement_discards_a_queued_rejection() {
         .unwrap();
     assert_eq!(pump.components.pending(), 0);
     assert_eq!(text(&pump), "replacement");
-}
-
-#[test]
-fn panicking_work_dispatches_the_typed_fallback() {
-    let (mut pump, handle, sender) = fixture();
-    assert!(
-        sender
-            .borrow()
-            .as_ref()
-            .unwrap()
-            .send(Message::StartPanicking)
-    );
-    assert_eq!(pump.dispatch_components(1), Ok(1));
-    wait_until(|| pump.native_work_pending());
-
-    assert_eq!(pump.dispatch_components(1), Ok(1));
-    assert_eq!(text(&pump), "rejected");
-    assert_eq!(
-        handle.borrow().as_ref().unwrap().status(),
-        ComponentTaskStatus::Rejected
-    );
 }
 
 #[test]

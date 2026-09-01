@@ -59,23 +59,23 @@ enum NodeData {
 }
 
 impl NodeData {
-    fn structural(kind: NodeKind) -> Result<Self, TreeError> {
+    fn structural(kind: NodeKind) -> Self {
         match kind {
-            NodeKind::Application => Ok(Self::Application),
-            NodeKind::Window => Ok(Self::Window),
-            NodeKind::Fragment => Ok(Self::Fragment),
-            NodeKind::Slot => Ok(Self::Slot),
-            NodeKind::NamedSlot(slot) => Ok(Self::NamedSlot(slot)),
-            NodeKind::Tooltip(placement) => Ok(Self::Tooltip(placement)),
-            NodeKind::Flyout(placement) => Ok(Self::Flyout(placement)),
-            NodeKind::ContentDialog(open) => Ok(Self::ContentDialog(open)),
+            NodeKind::Application => Self::Application,
+            NodeKind::Window => Self::Window,
+            NodeKind::Fragment => Self::Fragment,
+            NodeKind::Slot => Self::Slot,
+            NodeKind::NamedSlot(slot) => Self::NamedSlot(slot),
+            NodeKind::Tooltip(placement) => Self::Tooltip(placement),
+            NodeKind::Flyout(placement) => Self::Flyout(placement),
+            NodeKind::ContentDialog(open) => Self::ContentDialog(open),
             NodeKind::Component
             | NodeKind::Provider
             | NodeKind::Menu(_)
             | NodeKind::CommandBarFlyout
             | NodeKind::TreeNodes
             | NodeKind::Native(_)
-            | NodeKind::VirtualCollection => Err(TreeError::IncompleteNode(kind)),
+            | NodeKind::VirtualCollection => panic!("node kind requires associated data: {kind:?}"),
         }
     }
 
@@ -169,14 +169,11 @@ struct OwnedState<T> {
 }
 
 impl<T> OwnedState<T> {
-    fn replace(&mut self, callback: Callback<String>, content: T) -> Result<u32, TreeError> {
-        self.revision = self
-            .revision
-            .checked_add(1)
-            .ok_or(TreeError::NotComponent)?;
+    fn replace(&mut self, callback: Callback<String>, content: T) -> u32 {
+        self.revision = self.revision.checked_add(1).unwrap();
         self.callback = callback;
         self.content = content;
-        Ok(self.revision)
+        self.revision
     }
 }
 
@@ -222,34 +219,6 @@ impl NativeState {
 pub struct EventState {
     pub revision: u32,
     pub active: bool,
-}
-
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub enum TreeError {
-    Arena(ArenaError),
-    IncompleteNode(NodeKind),
-    KindMismatch {
-        current: NodeKind,
-        requested: NodeKind,
-    },
-    NotComponent,
-    NotNative,
-    NotVirtual,
-    RealizedConflict(RealizedContainer),
-    RootAlreadyExists,
-    Virtual(VirtualModelError),
-}
-
-impl From<ArenaError> for TreeError {
-    fn from(value: ArenaError) -> Self {
-        Self::Arena(value)
-    }
-}
-
-impl From<VirtualModelError> for TreeError {
-    fn from(value: VirtualModelError) -> Self {
-        Self::Virtual(value)
-    }
 }
 
 #[derive(Clone)]
@@ -365,20 +334,32 @@ impl Tree {
         }
     }
 
-    pub fn insert(&mut self, parent: Option<NodeId>, kind: NodeKind) -> Result<NodeId, TreeError> {
-        self.insert_data(parent, None, NodeData::structural(kind)?)
+    // Avoid `unwrap` here: its caller tracking measurably slows these hot-path invariant lookups.
+    #[inline(always)]
+    fn node(&self, id: NodeId) -> &Node {
+        match self.arena.get(id) {
+            Some(node) => node,
+            None => panic!("stale node"),
+        }
     }
 
-    fn insert_data(
-        &mut self,
-        parent: Option<NodeId>,
-        key: Option<Key>,
-        data: NodeData,
-    ) -> Result<NodeId, TreeError> {
+    #[inline(always)]
+    fn node_mut(&mut self, id: NodeId) -> &mut Node {
+        match self.arena.get_mut(id) {
+            Some(node) => node,
+            None => panic!("stale node"),
+        }
+    }
+
+    pub fn insert(&mut self, parent: Option<NodeId>, kind: NodeKind) -> NodeId {
+        self.insert_data(parent, None, NodeData::structural(kind))
+    }
+
+    fn insert_data(&mut self, parent: Option<NodeId>, key: Option<Key>, data: NodeData) -> NodeId {
         if let Some(parent) = parent {
-            self.arena.get(parent)?;
+            self.node(parent);
         } else if self.root.is_some() {
-            return Err(TreeError::RootAlreadyExists);
+            panic!("tree already has a root");
         }
 
         let id = self.arena.insert(Node {
@@ -386,14 +367,14 @@ impl Tree {
             children: Vec::new(),
             key,
             data,
-        })?;
+        });
 
         if let Some(parent) = parent {
-            self.arena.get_mut(parent)?.children.push(id);
+            self.node_mut(parent).children.push(id);
         } else {
             self.root = Some(id);
         }
-        Ok(id)
+        id
     }
 
     pub fn insert_native(
@@ -403,7 +384,7 @@ impl Tree {
         key: Option<Key>,
         desired: MountedProps,
         window_title_bar: Option<WindowTitleBarHeight>,
-    ) -> Result<NodeId, TreeError> {
+    ) -> NodeId {
         let id = self.insert_data(
             parent,
             key,
@@ -411,11 +392,11 @@ impl Tree {
                 kind,
                 state: NativeState::new(desired),
             }),
-        )?;
+        );
         if let Some(height) = window_title_bar {
             Rc::make_mut(&mut self.window_title_bars).insert(id, height);
         }
-        Ok(id)
+        id
     }
 
     pub fn insert_component(
@@ -424,7 +405,7 @@ impl Tree {
         key: Option<Key>,
         scope: ScopeId,
         component_type: TypeId,
-    ) -> Result<NodeId, TreeError> {
+    ) -> NodeId {
         let id = self.insert_data(
             parent,
             key,
@@ -432,16 +413,12 @@ impl Tree {
                 component_type,
                 scope,
             }),
-        )?;
+        );
         Rc::make_mut(&mut self.components).insert(scope, id);
-        Ok(id)
+        id
     }
 
-    pub fn insert_fragment(
-        &mut self,
-        parent: Option<NodeId>,
-        key: Option<Key>,
-    ) -> Result<NodeId, TreeError> {
+    pub fn insert_fragment(&mut self, parent: Option<NodeId>, key: Option<Key>) -> NodeId {
         self.insert_data(parent, key, NodeData::Fragment)
     }
 
@@ -450,10 +427,10 @@ impl Tree {
         parent: Option<NodeId>,
         key: Option<Key>,
         provision: ContextProvision,
-    ) -> Result<NodeId, TreeError> {
-        let id = self.insert_data(parent, key, NodeData::Provider)?;
+    ) -> NodeId {
+        let id = self.insert_data(parent, key, NodeData::Provider);
         self.providers.insert(id, provision);
-        Ok(id)
+        id
     }
 
     pub fn insert_tooltip(
@@ -461,7 +438,7 @@ impl Tree {
         parent: Option<NodeId>,
         key: Option<Key>,
         placement: TooltipPlacement,
-    ) -> Result<NodeId, TreeError> {
+    ) -> NodeId {
         self.insert_data(parent, key, NodeData::Tooltip(placement))
     }
 
@@ -470,7 +447,7 @@ impl Tree {
         parent: Option<NodeId>,
         key: Option<Key>,
         placement: FlyoutPlacement,
-    ) -> Result<NodeId, TreeError> {
+    ) -> NodeId {
         self.insert_data(parent, key, NodeData::Flyout(placement))
     }
 
@@ -479,7 +456,7 @@ impl Tree {
         parent: Option<NodeId>,
         key: Option<Key>,
         open: bool,
-    ) -> Result<NodeId, TreeError> {
+    ) -> NodeId {
         self.insert_data(parent, key, NodeData::ContentDialog(open))
     }
 
@@ -489,7 +466,7 @@ impl Tree {
         key: Option<Key>,
         kind: OwnedMenuKind,
         menu: Menu,
-    ) -> Result<NodeId, TreeError> {
+    ) -> NodeId {
         self.insert_data(
             parent,
             key,
@@ -509,7 +486,7 @@ impl Tree {
         parent: Option<NodeId>,
         key: Option<Key>,
         flyout: CommandBarFlyout,
-    ) -> Result<NodeId, TreeError> {
+    ) -> NodeId {
         self.insert_data(
             parent,
             key,
@@ -526,264 +503,248 @@ impl Tree {
         parent: Option<NodeId>,
         key: Option<Key>,
         nodes: Rc<Vec<TreeNode>>,
-    ) -> Result<NodeId, TreeError> {
+    ) -> NodeId {
         self.insert_data(parent, key, NodeData::TreeNodes(nodes))
     }
 
-    pub fn tree_nodes(&self, id: NodeId) -> Result<&Rc<Vec<TreeNode>>, TreeError> {
-        match &self.arena.get(id)?.data {
-            NodeData::TreeNodes(nodes) => Ok(nodes),
-            _ => Err(TreeError::NotComponent),
+    pub fn tree_nodes(&self, id: NodeId) -> &Rc<Vec<TreeNode>> {
+        match &self.node(id).data {
+            NodeData::TreeNodes(nodes) => nodes,
+            _ => panic!("node is not a tree view"),
         }
     }
 
-    pub fn update_tree_nodes(
-        &mut self,
-        id: NodeId,
-        nodes: Rc<Vec<TreeNode>>,
-    ) -> Result<(), TreeError> {
-        match &mut self.arena.get_mut(id)?.data {
+    pub fn update_tree_nodes(&mut self, id: NodeId, nodes: Rc<Vec<TreeNode>>) {
+        match &mut self.node_mut(id).data {
             NodeData::TreeNodes(current) => {
                 *current = nodes;
-                Ok(())
             }
-            _ => Err(TreeError::NotComponent),
+            _ => panic!("node is not a tree view"),
         }
     }
 
-    pub fn owned_revision(&self, id: NodeId) -> Result<u32, TreeError> {
-        match &self.arena.get(id)?.data {
-            NodeData::Menu { state, .. } => Ok(state.revision),
-            NodeData::CommandBarFlyout(state) => Ok(state.revision),
-            _ => Err(TreeError::NotComponent),
+    pub fn owned_revision(&self, id: NodeId) -> u32 {
+        match &self.node(id).data {
+            NodeData::Menu { state, .. } => state.revision,
+            NodeData::CommandBarFlyout(state) => state.revision,
+            _ => panic!("node does not own commands"),
         }
     }
 
-    pub fn owned_callback(&self, id: NodeId) -> Result<&Callback<String>, TreeError> {
-        match &self.arena.get(id)?.data {
-            NodeData::Menu { state, .. } => Ok(&state.callback),
-            NodeData::CommandBarFlyout(state) => Ok(&state.callback),
-            _ => Err(TreeError::NotComponent),
+    pub fn owned_callback(&self, id: NodeId) -> &Callback<String> {
+        match &self.node(id).data {
+            NodeData::Menu { state, .. } => &state.callback,
+            NodeData::CommandBarFlyout(state) => &state.callback,
+            _ => panic!("node does not own commands"),
         }
     }
 
-    pub fn update_menu(&mut self, id: NodeId, menu: Menu) -> Result<u32, TreeError> {
-        match &mut self.arena.get_mut(id)?.data {
+    pub fn update_menu(&mut self, id: NodeId, menu: Menu) -> u32 {
+        match &mut self.node_mut(id).data {
             NodeData::Menu { state, .. } => state.replace(menu.on_click, menu.items),
-            _ => Err(TreeError::NotComponent),
+            _ => panic!("node is not a menu"),
         }
     }
 
-    pub fn update_command_bar_flyout(
-        &mut self,
-        id: NodeId,
-        flyout: CommandBarFlyout,
-    ) -> Result<u32, TreeError> {
-        match &mut self.arena.get_mut(id)?.data {
+    pub fn update_command_bar_flyout(&mut self, id: NodeId, flyout: CommandBarFlyout) -> u32 {
+        match &mut self.node_mut(id).data {
             NodeData::CommandBarFlyout(state) => {
                 state.replace(flyout.on_click, (flyout.primary, flyout.secondary))
             }
-            _ => Err(TreeError::NotComponent),
+            _ => panic!("node is not a command bar flyout"),
         }
     }
 
-    pub fn set_kind(&mut self, id: NodeId, kind: NodeKind) -> Result<(), TreeError> {
-        let data = &mut self.arena.get_mut(id)?.data;
+    pub fn set_kind(&mut self, id: NodeId, kind: NodeKind) {
+        let data = &mut self.node_mut(id).data;
         match (data, kind) {
             (NodeData::Tooltip(current), NodeKind::Tooltip(placement)) => {
                 *current = placement;
-                Ok(())
             }
             (NodeData::Flyout(current), NodeKind::Flyout(placement)) => {
                 *current = placement;
-                Ok(())
             }
             (NodeData::Menu { kind: current, .. }, NodeKind::Menu(kind)) => {
                 *current = kind;
-                Ok(())
             }
             (NodeData::ContentDialog(current), NodeKind::ContentDialog(open)) => {
                 *current = open;
-                Ok(())
             }
-            (data, requested) if data.kind() == requested => Ok(()),
+            (data, requested) if data.kind() == requested => {}
             (data, requested) => {
                 let current = data.kind();
-                Err(TreeError::KindMismatch { current, requested })
+                panic!("cannot change node kind from {current:?} to {requested:?}")
             }
         }
     }
 
-    pub fn owned_menu(&self, id: NodeId) -> Result<&[MenuItem], TreeError> {
-        match &self.arena.get(id)?.data {
-            NodeData::Menu { state, .. } => Ok(&state.content),
-            _ => Err(TreeError::NotComponent),
+    pub fn owned_menu(&self, id: NodeId) -> &[MenuItem] {
+        match &self.node(id).data {
+            NodeData::Menu { state, .. } => &state.content,
+            _ => panic!("node is not a menu"),
         }
     }
 
-    pub fn owned_commands(
-        &self,
-        id: NodeId,
-    ) -> Result<&(Vec<CommandBarCommand>, Vec<CommandBarCommand>), TreeError> {
-        match &self.arena.get(id)?.data {
-            NodeData::CommandBarFlyout(state) => Ok(&state.content),
-            _ => Err(TreeError::NotComponent),
+    pub fn owned_commands(&self, id: NodeId) -> &(Vec<CommandBarCommand>, Vec<CommandBarCommand>) {
+        match &self.node(id).data {
+            NodeData::CommandBarFlyout(state) => &state.content,
+            _ => panic!("node is not a command bar flyout"),
         }
     }
 
-    pub fn set_content_dialog_open(&mut self, id: NodeId, open: bool) -> Result<(), TreeError> {
-        let node = self.arena.get_mut(id)?;
+    pub fn set_content_dialog_open(&mut self, id: NodeId, open: bool) {
+        let node = self.node_mut(id);
         match &mut node.data {
             NodeData::ContentDialog(current) => {
                 *current = open;
-                Ok(())
             }
-            _ => Err(TreeError::NotComponent),
+            _ => panic!("node is not a content dialog"),
         }
     }
 
-    pub fn provision(&self, id: NodeId) -> Result<&ContextProvision, TreeError> {
-        if !matches!(&self.arena.get(id)?.data, NodeData::Provider) {
-            return Err(TreeError::NotComponent);
-        }
-        self.providers.get(id).ok_or(TreeError::NotComponent)
+    pub fn provision(&self, id: NodeId) -> &ContextProvision {
+        assert!(
+            matches!(&self.node(id).data, NodeData::Provider),
+            "node is not a context provider"
+        );
+        self.providers.get(id).unwrap()
     }
 
-    pub fn set_provision(
-        &mut self,
-        id: NodeId,
-        provision: ContextProvision,
-    ) -> Result<(), TreeError> {
-        if !matches!(&self.arena.get(id)?.data, NodeData::Provider) {
-            return Err(TreeError::NotComponent);
-        }
+    pub fn set_provision(&mut self, id: NodeId, provision: ContextProvision) {
+        assert!(
+            matches!(&self.node(id).data, NodeData::Provider),
+            "node is not a context provider"
+        );
         self.providers.insert(id, provision);
-        Ok(())
     }
 
-    pub fn set_tooltip_placement(
-        &mut self,
-        id: NodeId,
-        placement: TooltipPlacement,
-    ) -> Result<(), TreeError> {
-        let node = self.arena.get_mut(id)?;
+    pub fn set_tooltip_placement(&mut self, id: NodeId, placement: TooltipPlacement) {
+        let node = self.node_mut(id);
         match &mut node.data {
             NodeData::Tooltip(current) => {
                 *current = placement;
-                Ok(())
             }
-            _ => Err(TreeError::NotComponent),
+            _ => panic!("node is not a tooltip"),
         }
     }
 
-    pub fn tooltip_attachment(&self, id: NodeId) -> Result<Option<(NodeId, NodeId)>, TreeError> {
-        let node = self.arena.get(id)?;
-        if !matches!(&node.data, NodeData::Tooltip(_)) {
-            return Err(TreeError::NotComponent);
-        }
-        Ok(self.owned_attachments.get(&id).copied())
+    pub fn tooltip_attachment(&self, id: NodeId) -> Option<(NodeId, NodeId)> {
+        let node = self.node(id);
+        assert!(
+            matches!(&node.data, NodeData::Tooltip(_)),
+            "node is not a tooltip"
+        );
+        self.owned_attachments.get(&id).copied()
     }
 
-    pub fn set_tooltip_attachment(
-        &mut self,
-        id: NodeId,
-        attachment: Option<(NodeId, NodeId)>,
-    ) -> Result<(), TreeError> {
-        let node = self.arena.get(id)?;
-        if !matches!(&node.data, NodeData::Tooltip(_)) {
-            return Err(TreeError::NotComponent);
-        }
+    pub fn set_tooltip_attachment(&mut self, id: NodeId, attachment: Option<(NodeId, NodeId)>) {
+        let node = self.node(id);
+        assert!(
+            matches!(&node.data, NodeData::Tooltip(_)),
+            "node is not a tooltip"
+        );
         if let Some(attachment) = attachment {
             Rc::make_mut(&mut self.owned_attachments).insert(id, attachment);
         } else {
             Rc::make_mut(&mut self.owned_attachments).remove(&id);
         }
-        Ok(())
     }
 
-    pub fn set_flyout_placement(
-        &mut self,
-        id: NodeId,
-        placement: FlyoutPlacement,
-    ) -> Result<(), TreeError> {
-        let node = self.arena.get_mut(id)?;
+    pub fn set_flyout_placement(&mut self, id: NodeId, placement: FlyoutPlacement) {
+        let node = self.node_mut(id);
         match &mut node.data {
             NodeData::Flyout(current) => {
                 *current = placement;
-                Ok(())
             }
-            _ => Err(TreeError::NotComponent),
+            _ => panic!("node is not a flyout"),
         }
     }
 
-    pub fn flyout_attachment(&self, id: NodeId) -> Result<Option<(NodeId, NodeId)>, TreeError> {
-        let node = self.arena.get(id)?;
-        if !matches!(&node.data, NodeData::Flyout(_)) {
-            return Err(TreeError::NotComponent);
-        }
-        Ok(self.owned_attachments.get(&id).copied())
+    pub fn flyout_attachment(&self, id: NodeId) -> Option<(NodeId, NodeId)> {
+        let node = self.node(id);
+        assert!(
+            matches!(&node.data, NodeData::Flyout(_)),
+            "node is not a flyout"
+        );
+        self.owned_attachments.get(&id).copied()
     }
 
-    pub fn set_flyout_attachment(
-        &mut self,
-        id: NodeId,
-        attachment: Option<(NodeId, NodeId)>,
-    ) -> Result<(), TreeError> {
-        let node = self.arena.get(id)?;
-        if !matches!(&node.data, NodeData::Flyout(_)) {
-            return Err(TreeError::NotComponent);
-        }
+    pub fn set_flyout_attachment(&mut self, id: NodeId, attachment: Option<(NodeId, NodeId)>) {
+        let node = self.node(id);
+        assert!(
+            matches!(&node.data, NodeData::Flyout(_)),
+            "node is not a flyout"
+        );
         if let Some(attachment) = attachment {
             Rc::make_mut(&mut self.owned_attachments).insert(id, attachment);
         } else {
             Rc::make_mut(&mut self.owned_attachments).remove(&id);
         }
-        Ok(())
     }
 
-    pub(crate) fn context_snapshot(&self, id: NodeId) -> Result<ContextSnapshot, TreeError> {
+    pub(crate) fn context_snapshot(&self, id: NodeId) -> ContextSnapshot {
         let mut snapshot = ContextSnapshot::default();
-        let mut current = self.parent(id)?;
+        let mut current = self.parent(id);
         while let Some(node) = current {
-            if self.kind(node)? == NodeKind::Provider {
-                snapshot.insert(node, self.provision(node)?);
+            if self.kind(node) == NodeKind::Provider {
+                snapshot.insert(node, self.provision(node));
             }
-            current = self.parent(node)?;
+            current = self.parent(node);
         }
-        Ok(snapshot)
+        snapshot
     }
 
-    pub fn component_scope(&self, id: NodeId) -> Result<ScopeId, TreeError> {
+    pub fn component_scope(&self, id: NodeId) -> ScopeId {
+        match &self.node(id).data {
+            NodeData::Component(component) => component.scope,
+            _ => panic!("node is not a component"),
+        }
+    }
+
+    pub fn component_type(&self, id: NodeId) -> TypeId {
+        match &self.node(id).data {
+            NodeData::Component(component) => component.component_type,
+            _ => panic!("node is not a component"),
+        }
+    }
+
+    pub fn component_node(&self, scope: ScopeId) -> Option<NodeId> {
+        self.components.get(&scope).copied()
+    }
+
+    pub(crate) fn try_kind(&self, id: NodeId) -> Option<NodeKind> {
+        Some(self.arena.get(id)?.data.kind())
+    }
+
+    pub(crate) fn try_native(&self, id: NodeId) -> Option<&NativeState> {
         match &self.arena.get(id)?.data {
-            NodeData::Component(component) => Ok(component.scope),
-            _ => Err(TreeError::NotComponent),
+            NodeData::Native(native) => Some(&native.state),
+            NodeData::Virtual(VirtualData::Items { native, .. }) => Some(native),
+            _ => None,
         }
     }
 
-    pub fn component_type(&self, id: NodeId) -> Result<TypeId, TreeError> {
-        match &self.arena.get(id)?.data {
-            NodeData::Component(component) => Ok(component.component_type),
-            _ => Err(TreeError::NotComponent),
-        }
-    }
-
-    pub fn component_node(&self, scope: ScopeId) -> Result<Option<NodeId>, TreeError> {
-        Ok(self.components.get(&scope).copied())
-    }
-
-    pub fn native(&self, id: NodeId) -> Result<&NativeState, TreeError> {
-        match &self.arena.get(id)?.data {
-            NodeData::Native(native) => Ok(&native.state),
-            NodeData::Virtual(VirtualData::Items { native, .. }) => Ok(native),
-            _ => Err(TreeError::NotNative),
-        }
-    }
-
-    pub fn native_mut(&mut self, id: NodeId) -> Result<&mut NativeState, TreeError> {
+    pub(crate) fn try_native_mut(&mut self, id: NodeId) -> Option<&mut NativeState> {
         match &mut self.arena.get_mut(id)?.data {
-            NodeData::Native(native) => Ok(&mut native.state),
-            NodeData::Virtual(VirtualData::Items { native, .. }) => Ok(native),
-            _ => Err(TreeError::NotNative),
+            NodeData::Native(native) => Some(&mut native.state),
+            NodeData::Virtual(VirtualData::Items { native, .. }) => Some(native),
+            _ => None,
+        }
+    }
+
+    pub fn native(&self, id: NodeId) -> &NativeState {
+        match &self.node(id).data {
+            NodeData::Native(native) => &native.state,
+            NodeData::Virtual(VirtualData::Items { native, .. }) => native,
+            _ => panic!("node is not native"),
+        }
+    }
+
+    pub fn native_mut(&mut self, id: NodeId) -> &mut NativeState {
+        match &mut self.node_mut(id).data {
+            NodeData::Native(native) => &mut native.state,
+            NodeData::Virtual(VirtualData::Items { native, .. }) => native,
+            _ => panic!("node is not native"),
         }
     }
 
@@ -791,12 +752,8 @@ impl Tree {
         self.exit_transitions.get(&id).copied()
     }
 
-    pub(crate) fn set_exit_transition(
-        &mut self,
-        id: NodeId,
-        transition: Option<ExitTransition>,
-    ) -> Result<(), TreeError> {
-        self.native(id)?;
+    pub(crate) fn set_exit_transition(&mut self, id: NodeId, transition: Option<ExitTransition>) {
+        self.native(id);
         let transitions = Rc::make_mut(&mut self.exit_transitions);
         match transition {
             Some(transition) => {
@@ -806,7 +763,6 @@ impl Tree {
                 transitions.remove(&id);
             }
         }
-        Ok(())
     }
 
     #[cfg(test)]
@@ -815,8 +771,8 @@ impl Tree {
         identity: WindowToken,
         parent: Option<NodeId>,
         keys: impl IntoIterator<Item = Key>,
-    ) -> Result<NodeId, TreeError> {
-        let id = self.arena.next_id()?;
+    ) -> Result<NodeId, DuplicateKeyError<Key>> {
+        let id = self.arena.next_id();
         let model = VirtualModel::new(identity, id, keys)?;
         let inserted = self.insert_data(
             parent,
@@ -825,7 +781,7 @@ impl Tree {
                 model,
                 realized: HashMap::default(),
             }),
-        )?;
+        );
         debug_assert_eq!(inserted, id);
         Ok(inserted)
     }
@@ -837,9 +793,9 @@ impl Tree {
         key: Option<Key>,
         desired: MountedProps,
         items: VirtualItems,
-    ) -> Result<NodeId, TreeError> {
+    ) -> Result<NodeId, DuplicateKeyError<Key>> {
         let keys = (0..items.len()).map(|index| items.key(index).unwrap());
-        let id = self.arena.next_id()?;
+        let id = self.arena.next_id();
         let model = VirtualModel::new(identity, id, keys)?;
         let inserted = self.insert_data(
             parent,
@@ -850,73 +806,63 @@ impl Tree {
                 native: NativeState::new(desired),
                 items: Rc::new(items),
             }),
-        )?;
+        );
         debug_assert_eq!(inserted, id);
         Ok(inserted)
     }
 
-    pub fn virtual_items(&self, id: NodeId) -> Result<&VirtualItems, TreeError> {
-        match &self.arena.get(id)?.data {
-            NodeData::Virtual(VirtualData::Items { items, .. }) => Ok(items.as_ref()),
-            _ => Err(TreeError::NotVirtual),
+    pub fn virtual_items(&self, id: NodeId) -> &VirtualItems {
+        match &self.node(id).data {
+            NodeData::Virtual(VirtualData::Items { items, .. }) => items.as_ref(),
+            _ => panic!("node is not a virtual collection"),
         }
     }
 
-    pub fn virtual_view_at(&self, id: NodeId, index: usize) -> Result<View, TreeError> {
-        self.virtual_items(id)?
-            .view(index)
-            .ok_or_else(|| VirtualModelError::MissingIndex(index).into())
+    pub fn virtual_view_at(&self, id: NodeId, index: usize) -> View {
+        self.virtual_items(id).view(index).unwrap()
     }
 
-    pub fn realized(
-        &self,
-        id: NodeId,
-        container: RealizedContainer,
-    ) -> Result<Option<RealizedRow>, TreeError> {
-        let NodeData::Virtual(virtual_data) = &self.arena.get(id)?.data else {
-            return Err(TreeError::NotVirtual);
+    pub fn realized(&self, id: NodeId, container: RealizedContainer) -> Option<RealizedRow> {
+        let NodeData::Virtual(virtual_data) = &self.node(id).data else {
+            panic!("node is not a virtual collection");
         };
-        Ok(virtual_data.realized().get(&container).copied())
+        virtual_data.realized().get(&container).copied()
     }
 
     pub fn realized_rows(
         &self,
         id: NodeId,
-    ) -> Result<impl Iterator<Item = (RealizedContainer, RealizedRow)> + '_, TreeError> {
-        let NodeData::Virtual(virtual_data) = &self.arena.get(id)?.data else {
-            return Err(TreeError::NotVirtual);
+    ) -> impl Iterator<Item = (RealizedContainer, RealizedRow)> + '_ {
+        let NodeData::Virtual(virtual_data) = &self.node(id).data else {
+            panic!("node is not a virtual collection");
         };
-        Ok(virtual_data
+        virtual_data
             .realized()
             .iter()
-            .map(|(container, row)| (*container, *row)))
+            .map(|(container, row)| (*container, *row))
     }
 
-    pub fn realized_container(
-        &self,
-        id: NodeId,
-        native_root: NodeId,
-    ) -> Result<Option<RealizedContainer>, TreeError> {
-        let NodeData::Virtual(virtual_data) = &self.arena.get(id)?.data else {
-            return Err(TreeError::NotVirtual);
+    pub fn realized_container(&self, id: NodeId, native_root: NodeId) -> Option<RealizedContainer> {
+        let NodeData::Virtual(virtual_data) = &self.node(id).data else {
+            panic!("node is not a virtual collection");
         };
-        Ok(virtual_data.realized().iter().find_map(|(container, row)| {
+        virtual_data.realized().iter().find_map(|(container, row)| {
             (row.native_root == Some(native_root)).then_some(*container)
-        }))
+        })
     }
 
     pub fn realized_container_for_logical(
         &self,
         id: NodeId,
         logical_root: NodeId,
-    ) -> Result<Option<RealizedContainer>, TreeError> {
-        let NodeData::Virtual(virtual_data) = &self.arena.get(id)?.data else {
-            return Err(TreeError::NotVirtual);
+    ) -> Option<RealizedContainer> {
+        let NodeData::Virtual(virtual_data) = &self.node(id).data else {
+            panic!("node is not a virtual collection");
         };
-        Ok(virtual_data
+        virtual_data
             .realized()
             .iter()
-            .find_map(|(container, row)| (row.logical_root == logical_root).then_some(*container)))
+            .find_map(|(container, row)| (row.logical_root == logical_root).then_some(*container))
     }
 
     pub fn set_realized(
@@ -926,13 +872,13 @@ impl Tree {
         index: usize,
         logical_root: NodeId,
         native_root: Option<NodeId>,
-    ) -> Result<(), TreeError> {
-        self.arena.get(logical_root)?;
+    ) {
+        self.node(logical_root);
         if let Some(native_root) = native_root {
-            self.arena.get(native_root)?;
+            self.node(native_root);
         }
-        let NodeData::Virtual(virtual_data) = &mut self.arena.get_mut(id)?.data else {
-            return Err(TreeError::NotVirtual);
+        let NodeData::Virtual(virtual_data) = &mut self.node_mut(id).data else {
+            panic!("node is not a virtual collection");
         };
         let realized = virtual_data.realized_mut();
         if realized.contains_key(&container)
@@ -941,7 +887,7 @@ impl Tree {
                     || native_root.is_some() && row.native_root == native_root
             })
         {
-            return Err(TreeError::RealizedConflict(container));
+            panic!("realized container already mapped: {container:?}");
         }
         realized.insert(
             container,
@@ -951,7 +897,6 @@ impl Tree {
                 native_root,
             },
         );
-        Ok(())
     }
 
     pub fn update_realized(
@@ -960,71 +905,76 @@ impl Tree {
         container: RealizedContainer,
         logical_root: NodeId,
         native_root: Option<NodeId>,
-    ) -> Result<(), TreeError> {
-        self.arena.get(logical_root)?;
+    ) {
+        self.node(logical_root);
         if let Some(native_root) = native_root {
-            self.arena.get(native_root)?;
+            self.node(native_root);
         }
-        let NodeData::Virtual(virtual_data) = &mut self.arena.get_mut(id)?.data else {
-            return Err(TreeError::NotVirtual);
+        let NodeData::Virtual(virtual_data) = &mut self.node_mut(id).data else {
+            panic!("node is not a virtual collection");
         };
-        let row = virtual_data
-            .realized_mut()
-            .get_mut(&container)
-            .ok_or(TreeError::NotVirtual)?;
+        let row = virtual_data.realized_mut().get_mut(&container).unwrap();
         *row = RealizedRow {
             index: row.index,
             logical_root,
             native_root,
         };
-        Ok(())
     }
 
-    pub fn update_virtual_items(
-        &mut self,
-        id: NodeId,
-        items: VirtualItems,
-    ) -> Result<(), TreeError> {
-        match &mut self.arena.get_mut(id)?.data {
+    pub fn update_virtual_items(&mut self, id: NodeId, items: VirtualItems) {
+        match &mut self.node_mut(id).data {
             NodeData::Virtual(VirtualData::Items { items: current, .. }) => {
                 *current = Rc::new(items);
-                Ok(())
             }
-            _ => Err(TreeError::NotVirtual),
+            _ => panic!("node is not an item-backed virtual collection"),
         }
     }
 
-    pub fn virtual_model(&self, id: NodeId) -> Result<&VirtualModel, TreeError> {
+    pub fn virtual_model(&self, id: NodeId) -> &VirtualModel {
+        match &self.node(id).data {
+            NodeData::Virtual(virtual_data) => virtual_data.model(),
+            _ => panic!("node is not a virtual collection"),
+        }
+    }
+
+    pub fn virtual_model_mut(&mut self, id: NodeId) -> &mut VirtualModel {
+        match &mut self.node_mut(id).data {
+            NodeData::Virtual(virtual_data) => virtual_data.model_mut(),
+            _ => panic!("node is not a virtual collection"),
+        }
+    }
+
+    pub(crate) fn try_virtual_model(&self, id: NodeId) -> Option<&VirtualModel> {
         match &self.arena.get(id)?.data {
-            NodeData::Virtual(virtual_data) => Ok(virtual_data.model()),
-            _ => Err(TreeError::NotVirtual),
+            NodeData::Virtual(virtual_data) => Some(virtual_data.model()),
+            _ => None,
         }
     }
 
-    pub fn virtual_model_mut(&mut self, id: NodeId) -> Result<&mut VirtualModel, TreeError> {
+    pub(crate) fn try_virtual_model_mut(&mut self, id: NodeId) -> Option<&mut VirtualModel> {
         match &mut self.arena.get_mut(id)?.data {
-            NodeData::Virtual(virtual_data) => Ok(virtual_data.model_mut()),
-            _ => Err(TreeError::NotVirtual),
+            NodeData::Virtual(virtual_data) => Some(virtual_data.model_mut()),
+            _ => None,
         }
     }
 
-    pub fn parent(&self, id: NodeId) -> Result<Option<NodeId>, TreeError> {
-        Ok(self.arena.get(id)?.parent)
+    pub fn parent(&self, id: NodeId) -> Option<NodeId> {
+        self.node(id).parent
     }
 
-    pub fn is_descendant_of(&self, id: NodeId, ancestor: NodeId) -> Result<bool, TreeError> {
+    pub fn is_descendant_of(&self, id: NodeId, ancestor: NodeId) -> bool {
         let mut current = Some(id);
         while let Some(node) = current {
             if node == ancestor {
-                return Ok(true);
+                return true;
             }
-            current = self.parent(node)?;
+            current = self.parent(node);
         }
-        Ok(false)
+        false
     }
 
-    pub fn kind(&self, id: NodeId) -> Result<NodeKind, TreeError> {
-        Ok(self.arena.get(id)?.data.kind())
+    pub fn kind(&self, id: NodeId) -> NodeKind {
+        self.node(id).data.kind()
     }
 
     pub(crate) fn window_title(&self) -> Option<WindowTitleState> {
@@ -1073,15 +1023,14 @@ impl Tree {
         &mut self,
         title_bar: NodeId,
         height: Option<WindowTitleBarHeight>,
-    ) -> Result<(), TreeError> {
-        self.native(title_bar)?;
+    ) {
+        self.native(title_bar);
         let title_bars = Rc::make_mut(&mut self.window_title_bars);
         if let Some(height) = height {
             title_bars.insert(title_bar, height);
         } else {
             title_bars.remove(&title_bar);
         }
-        Ok(())
     }
 
     pub(crate) fn node_window_title_bar(&self, title_bar: NodeId) -> Option<WindowTitleBarHeight> {
@@ -1205,42 +1154,34 @@ impl Tree {
         Rc::make_mut(&mut self.window_declarations).remove(&owner);
     }
 
-    pub fn children(&self, id: NodeId) -> Result<&[NodeId], TreeError> {
-        Ok(&self.arena.get(id)?.children)
+    pub fn children(&self, id: NodeId) -> &[NodeId] {
+        &self.node(id).children
     }
 
-    pub fn key(&self, id: NodeId) -> Result<Option<&Key>, TreeError> {
-        Ok(self.arena.get(id)?.key.as_ref())
+    pub fn key(&self, id: NodeId) -> Option<&Key> {
+        self.node(id).key.as_ref()
     }
 
-    pub fn set_children(&mut self, id: NodeId, children: Vec<NodeId>) -> Result<(), TreeError> {
-        if self.arena.get(id)?.children != children {
-            self.arena.get_mut(id)?.children = children;
+    pub fn set_children(&mut self, id: NodeId, children: Vec<NodeId>) {
+        if self.node(id).children != children {
+            self.node_mut(id).children = children;
         }
-        Ok(())
     }
 
-    pub fn reparent(
-        &mut self,
-        id: NodeId,
-        parent: NodeId,
-        key: Option<Key>,
-    ) -> Result<(), TreeError> {
-        self.arena.get(parent)?;
-        let previous = self.arena.get(id)?.parent;
+    pub fn reparent(&mut self, id: NodeId, parent: NodeId, key: Option<Key>) {
+        self.node(parent);
+        let previous = self.node(id).parent;
         if let Some(previous) = previous {
-            self.arena
-                .get_mut(previous)?
+            self.node_mut(previous)
                 .children
                 .retain(|child| *child != id);
         } else {
             self.root = None;
         }
-        let node = self.arena.get_mut(id)?;
+        let node = self.node_mut(id);
         node.parent = Some(parent);
         node.key = key;
-        self.arena.get_mut(parent)?.children.push(id);
-        Ok(())
+        self.node_mut(parent).children.push(id);
     }
 
     #[cfg(test)]
@@ -1248,23 +1189,23 @@ impl Tree {
         self.arena.len()
     }
 
-    pub fn depth(&self, id: NodeId) -> Result<usize, TreeError> {
+    pub fn depth(&self, id: NodeId) -> usize {
         let mut depth = 0;
         let mut current = id;
-        while let Some(parent) = self.arena.get(current)?.parent {
+        while let Some(parent) = self.node(current).parent {
             depth += 1;
             current = parent;
         }
-        Ok(depth)
+        depth
     }
 
-    pub fn retire_subtree(&mut self, id: NodeId) -> Result<Vec<(NodeId, NodeKind)>, TreeError> {
+    pub fn retire_subtree(&mut self, id: NodeId) -> Vec<(NodeId, NodeKind)> {
         let mut order = Vec::new();
-        self.collect_postorder(id, &mut order)?;
+        self.collect_postorder(id, &mut order);
 
-        let parent = self.arena.get(id)?.parent;
+        let parent = self.node(id).parent;
         if let Some(parent) = parent {
-            let parent = self.arena.get_mut(parent)?;
+            let parent = self.node_mut(parent);
             parent.children.retain(|child| *child != id);
             if let NodeData::Virtual(virtual_data) = &mut parent.data {
                 virtual_data
@@ -1277,7 +1218,9 @@ impl Tree {
 
         let mut retired = Vec::with_capacity(order.len());
         for id in order {
-            let node = self.arena.remove(id)?;
+            let Some(node) = self.arena.remove(id) else {
+                panic!("stale node");
+            };
             let kind = node.data.kind();
             Rc::make_mut(&mut self.exit_transitions).remove(&id);
             Rc::make_mut(&mut self.window_title_bars).remove(&id);
@@ -1292,21 +1235,20 @@ impl Tree {
             }
             retired.push((id, kind));
         }
-        Ok(retired)
+        retired
     }
 
-    pub fn subtree_postorder(&self, id: NodeId) -> Result<Vec<NodeId>, TreeError> {
+    pub fn subtree_postorder(&self, id: NodeId) -> Vec<NodeId> {
         let mut order = Vec::new();
-        self.collect_postorder(id, &mut order)?;
-        Ok(order)
+        self.collect_postorder(id, &mut order);
+        order
     }
 
-    fn collect_postorder(&self, id: NodeId, order: &mut Vec<NodeId>) -> Result<(), TreeError> {
-        for child in self.arena.get(id)?.children.iter().copied() {
-            self.collect_postorder(child, order)?;
+    fn collect_postorder(&self, id: NodeId, order: &mut Vec<NodeId>) {
+        for child in self.node(id).children.iter().copied() {
+            self.collect_postorder(child, order);
         }
         order.push(id);
-        Ok(())
     }
 }
 

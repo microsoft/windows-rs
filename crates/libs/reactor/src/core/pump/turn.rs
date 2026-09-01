@@ -11,7 +11,7 @@ impl<R: NativeRuntime> Pump<R> {
         }
         let mut names = components
             .into_iter()
-            .filter_map(|token| self.components.type_name(token).ok())
+            .map(|token| self.components.type_name(token))
             .collect::<Vec<_>>();
         names.sort_unstable();
         names.dedup();
@@ -55,21 +55,17 @@ impl<R: NativeRuntime> Pump<R> {
         let mut dispatched = 0;
         for _ in 0..budget {
             if let Some(token) = self.components.next_pending_token()
-                && self.has_dirty_component_ancestor(token)?.is_some()
+                && self.has_dirty_component_ancestor(token)
             {
                 let deferred = self
                     .components
                     .pending_tokens()
                     .into_iter()
-                    .filter_map(|token| {
-                        self.has_dirty_component_ancestor(token)
-                            .transpose()
-                            .map(|result| result.map(|()| token))
-                    })
-                    .collect::<Result<IdSet<_>, PumpError>>()?;
+                    .filter(|token| self.has_dirty_component_ancestor(*token))
+                    .collect::<IdSet<_>>();
                 self.compose_dirty_components(deferred)?;
             }
-            let report = self.components.drain(1)?;
+            let report = self.components.drain(1);
             let processed = report.dispatched + report.dropped;
             dispatched += report.dispatched;
             for token in report.dirty {
@@ -90,7 +86,7 @@ impl<R: NativeRuntime> Pump<R> {
         &mut self,
         deferred: IdSet<ComponentToken>,
     ) -> Result<(), PumpError> {
-        let next_version = self.next_version()?;
+        let next_version = self.next_version();
         let mut staged_host_requests = self.components.take_host_requests();
         let mut composed_view = None;
         if self.dirty_components.len() == 1 {
@@ -142,25 +138,24 @@ impl<R: NativeRuntime> Pump<R> {
             .iter()
             .copied()
             .map(|token| {
-                let depth = if let Some(node) = candidate.component_node(token.scope())? {
-                    candidate.depth(node)?
+                let depth = if let Some(node) = candidate.component_node(token.scope()) {
+                    candidate.depth(node)
                 } else {
                     usize::MAX
                 };
-                Ok((depth, token))
+                (depth, token)
             })
-            .collect::<Result<Vec<_>, PumpError>>()?;
+            .collect::<Vec<_>>();
         dirty.sort_unstable_by_key(|(depth, _)| *depth);
         for (_, token) in dirty {
             if changes.composed.contains(&token) {
                 continue;
             }
-            let Some(node) = candidate.component_node(token.scope())? else {
+            let Some(node) = candidate.component_node(token.scope()) else {
                 if changes.retired.contains(&token) {
                     continue;
                 }
-                self.fail_component_candidate(&changes, PlanningFailure::Rearm);
-                return Err(PumpError::StructureUnsupported);
+                panic!("dirty component is missing from the candidate tree");
             };
             let result = if composed_view
                 .as_ref()
@@ -209,44 +204,44 @@ impl<R: NativeRuntime> Pump<R> {
         Ok(())
     }
 
-    fn has_dirty_component_ancestor(&self, token: ComponentToken) -> Result<Option<()>, PumpError> {
-        let Some(mut node) = self.tree.component_node(token.scope())? else {
-            return Ok(None);
+    fn has_dirty_component_ancestor(&self, token: ComponentToken) -> bool {
+        let Some(mut node) = self.tree.component_node(token.scope()) else {
+            return false;
         };
-        while let Some(parent) = self.tree.parent(node)? {
+        while let Some(parent) = self.tree.parent(node) {
             node = parent;
-            if self.tree.kind(node)? == NodeKind::Component {
-                let ancestor = self.components.token(self.tree.component_scope(node)?)?;
+            if self.tree.kind(node) == NodeKind::Component {
+                let ancestor = self.components.token(self.tree.component_scope(node));
                 if self.dirty_components.contains(&ancestor) {
-                    return Ok(Some(()));
+                    return true;
                 }
             }
         }
-        Ok(None)
+        false
     }
 
     fn try_local_component_update(
         &mut self,
         token: ComponentToken,
     ) -> Result<LocalComponentUpdate, PumpError> {
-        let Some(node) = self.tree.component_node(token.scope())? else {
+        let Some(node) = self.tree.component_node(token.scope()) else {
             return Ok(LocalComponentUpdate::Unavailable);
         };
-        let [slot] = self.tree.children(node)? else {
+        let [slot] = self.tree.children(node) else {
             return Ok(LocalComponentUpdate::Unavailable);
         };
-        let native = match self.tree.children(*slot)? {
+        let native = match self.tree.children(*slot) {
             [native] => *native,
             _ => return Ok(LocalComponentUpdate::Unavailable),
         };
-        if !matches!(self.tree.kind(native)?, NodeKind::Native(_))
-            || !self.tree.children(native)?.is_empty()
+        if !matches!(self.tree.kind(native), NodeKind::Native(_))
+            || !self.tree.children(native).is_empty()
         {
             return Ok(LocalComponentUpdate::Unavailable);
         }
         let render = self
             .components
-            .view(token, self.tree.context_snapshot(node)?)?;
+            .view(token, self.tree.context_snapshot(node))?;
         let title_matches = match self.tree.window_title() {
             Some(current) if current.owner != token.scope() => {
                 if render.window_title.is_some() {
@@ -307,8 +302,8 @@ impl<R: NativeRuntime> Pump<R> {
         let ViewKind::Native(element) = render.view.as_kind() else {
             return Ok(LocalComponentUpdate::Fallback(render));
         };
-        if self.tree.kind(native)? != NodeKind::Native(element.kind())
-            || !self.tree.children(native)?.is_empty()
+        if self.tree.kind(native) != NodeKind::Native(element.kind())
+            || !self.tree.children(native).is_empty()
             || !matches!(element.structure(), ElementStructureRef::None)
             || self.tree.node_window_title_bar(native).is_some()
             || element.window_title_bar().is_some()
@@ -319,8 +314,7 @@ impl<R: NativeRuntime> Pump<R> {
         element.visit_events(&mut |event, active| {
             event_activity_matches &= self
                 .tree
-                .native(native)
-                .ok()
+                .try_native(native)
                 .and_then(|state| state.events.get(&event))
                 .is_some_and(|state| state.active == active);
         });
@@ -338,7 +332,7 @@ impl<R: NativeRuntime> Pump<R> {
             ..UpdatePlan::new(self.identity)
         };
         let (desired, exit_transition, reference) = Self::plan_local_native_state(
-            self.tree.native(native)?,
+            self.tree.native(native),
             native,
             element.into_parts(),
             &mut plan,

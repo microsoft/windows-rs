@@ -153,7 +153,7 @@ fn failed_post_publication_close_keeps_local_native_state_committed() {
     assert!(input.window.borrow().as_ref().unwrap().close_committed());
     let native = Pump::<RecordingRuntime>::native_root(&pump.tree, pump.root().unwrap()).unwrap();
     assert_eq!(
-        pump.tree.native(native).unwrap().desired,
+        pump.tree.native(native).desired,
         Element::from(TextBlock::new().text("closing"))
             .into_parts()
             .props

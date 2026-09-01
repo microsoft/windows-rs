@@ -16,13 +16,6 @@ pub struct RealizationLease {
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct RealizedContainer(pub u64);
 
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub enum VirtualModelError {
-    DuplicateKey(Key),
-    MissingIndex(usize),
-    RevisionExhausted,
-}
-
 #[derive(Clone)]
 pub struct VirtualModel {
     active: HashMap<Key, (u64, RealizedContainer)>,
@@ -39,10 +32,9 @@ impl VirtualModel {
         identity: WindowToken,
         collection: NodeId,
         keys: impl IntoIterator<Item = Key>,
-    ) -> Result<Self, VirtualModelError> {
+    ) -> Result<Self, DuplicateKeyError<Key>> {
         let keys = keys.into_iter().collect::<Vec<_>>();
-        diff(&[], &keys)
-            .map_err(|KeyedError::DuplicateKey(key)| VirtualModelError::DuplicateKey(key))?;
+        diff(&[], &keys)?;
         Ok(Self {
             active: HashMap::new(),
             collection,
@@ -57,14 +49,10 @@ impl VirtualModel {
     pub fn update(
         &mut self,
         keys: impl IntoIterator<Item = Key>,
-    ) -> Result<Vec<KeyedOperation<Key>>, VirtualModelError> {
+    ) -> Result<Vec<KeyedOperation<Key>>, DuplicateKeyError<Key>> {
         let keys = keys.into_iter().collect::<Vec<_>>();
-        let operations = diff(&self.keys, &keys)
-            .map_err(|KeyedError::DuplicateKey(key)| VirtualModelError::DuplicateKey(key))?;
-        let source_revision = self
-            .source_revision
-            .checked_add(1)
-            .ok_or(VirtualModelError::RevisionExhausted)?;
+        let operations = diff(&self.keys, &keys)?;
+        let source_revision = self.source_revision.checked_add(1).unwrap();
         let retained = keys.iter().cloned().collect::<HashSet<_>>();
         self.active.retain(|key, _| retained.contains(key));
         self.containers.retain(|_, (key, _)| retained.contains(key));
@@ -77,16 +65,9 @@ impl VirtualModel {
         &mut self,
         index: usize,
         container: RealizedContainer,
-    ) -> Result<RealizationLease, VirtualModelError> {
-        let key = self
-            .keys
-            .get(index)
-            .cloned()
-            .ok_or(VirtualModelError::MissingIndex(index))?;
-        self.revision = self
-            .revision
-            .checked_add(1)
-            .ok_or(VirtualModelError::RevisionExhausted)?;
+    ) -> Option<RealizationLease> {
+        let key = self.keys.get(index).cloned()?;
+        self.revision = self.revision.checked_add(1).unwrap();
         if let Some((old_key, old_revision)) = self.containers.remove(&container)
             && self.active.get(&old_key) == Some(&(old_revision, container))
         {
@@ -98,7 +79,7 @@ impl VirtualModel {
         self.active.insert(key.clone(), (self.revision, container));
         self.containers
             .insert(container, (key.clone(), self.revision));
-        Ok(RealizationLease {
+        Some(RealizationLease {
             identity: self.identity,
             collection: self.collection,
             container,
@@ -260,31 +241,29 @@ mod tests {
     }
 
     #[test]
-    fn rejects_duplicate_keys_and_missing_indices() {
+    fn rejects_duplicate_keys_and_out_of_range_realizations() {
         assert_eq!(
             VirtualModel::new(identity(), COLLECTION, keys(&["a", "a"])).err(),
-            Some(VirtualModelError::DuplicateKey(Key::from("a")))
+            Some(DuplicateKeyError(Key::from("a")))
         );
         let mut model = VirtualModel::new(identity(), COLLECTION, keys(&["a"])).unwrap();
-        assert_eq!(
-            model.realize(1, FIRST),
-            Err(VirtualModelError::MissingIndex(1))
-        );
+        assert_eq!(model.realize(1, FIRST), None);
         assert_eq!(
             model.update(keys(&["a", "a"])),
-            Err(VirtualModelError::DuplicateKey(Key::from("a")))
+            Err(DuplicateKeyError(Key::from("a")))
         );
     }
 
     #[test]
-    fn source_revision_update_is_transactional_at_exhaustion() {
+    fn source_revision_exhaustion_panics_before_update() {
         let mut model = VirtualModel::new(identity(), COLLECTION, keys(&["a"])).unwrap();
         model.source_revision = u64::MAX;
 
-        assert_eq!(
-            model.update(keys(&["b"])),
-            Err(VirtualModelError::RevisionExhausted)
-        );
+        let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            _ = model.update(keys(&["b"]));
+        }));
+
+        assert!(result.is_err());
         assert_eq!(model.keys(), keys(&["a"]));
         assert_eq!(model.source_revision(), u64::MAX);
     }

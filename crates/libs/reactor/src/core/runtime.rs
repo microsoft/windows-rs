@@ -48,11 +48,11 @@ impl WindowToken {
         Self { id, epoch: 1 }
     }
 
-    pub fn next(self) -> Option<Self> {
-        Some(Self {
+    pub fn next(self) -> Self {
+        Self {
             id: self.id,
-            epoch: self.epoch.checked_add(1)?,
-        })
+            epoch: self.epoch.checked_add(1).unwrap(),
+        }
     }
 }
 

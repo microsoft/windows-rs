@@ -70,24 +70,20 @@ fn retires_children_before_parent() {
     struct Component;
 
     let mut scopes = ScopeArena::new();
-    let scope = scopes.reserve(Component).unwrap();
+    let scope = scopes.reserve(Component);
     let mut tree = Tree::new();
-    let root = tree.insert(None, NodeKind::Application).unwrap();
-    let window = tree.insert(Some(root), NodeKind::Window).unwrap();
-    let component = tree
-        .insert_component(Some(window), None, scope, TypeId::of::<Component>())
-        .unwrap();
-    let slot = tree.insert(Some(component), NodeKind::Slot).unwrap();
+    let root = tree.insert(None, NodeKind::Application);
+    let window = tree.insert(Some(root), NodeKind::Window);
+    let component = tree.insert_component(Some(window), None, scope, TypeId::of::<Component>());
+    let slot = tree.insert(Some(component), NodeKind::Slot);
     let parts = Element::from(TextBlock::new()).into_parts();
-    let native = tree
-        .insert_native(Some(slot), parts.kind, None, parts.props, None)
-        .unwrap();
+    let native = tree.insert_native(Some(slot), parts.kind, None, parts.props, None);
     let collection = tree.insert_virtual(identity(), Some(window), []).unwrap();
 
-    assert_eq!(tree.parent(native), Ok(Some(slot)));
-    assert_eq!(tree.children(root), Ok(&[window][..]));
+    assert_eq!(tree.parent(native), Some(slot));
+    assert_eq!(tree.children(root), &[window]);
 
-    let retired = tree.retire_subtree(window).unwrap();
+    let retired = tree.retire_subtree(window);
 
     assert_eq!(
         retired,
@@ -100,10 +96,9 @@ fn retires_children_before_parent() {
         ]
     );
     assert_eq!(tree.len(), 1);
-    assert_eq!(tree.children(root), Ok(&[][..]));
-    assert_eq!(
-        tree.parent(window),
-        Err(TreeError::Arena(ArenaError::Stale(window)))
+    assert!(tree.children(root).is_empty());
+    assert!(
+        std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| tree.parent(window))).is_err()
     );
 }
 
@@ -114,101 +109,78 @@ fn candidate_tree_clones_component_identity_without_component_state() {
     }
 
     let mut scopes = ScopeArena::new();
-    let scope = scopes.reserve(State { value: 1 }).unwrap();
+    let scope = scopes.reserve(State { value: 1 });
     scopes.publish(scope).unwrap();
     let mut tree = Tree::new();
-    let root = tree.insert(None, NodeKind::Application).unwrap();
-    let component = tree
-        .insert_component(
-            Some(root),
-            Some(Key::from("child")),
-            scope,
-            TypeId::of::<State>(),
-        )
-        .unwrap();
+    let root = tree.insert(None, NodeKind::Application);
+    let component = tree.insert_component(
+        Some(root),
+        Some(Key::from("child")),
+        scope,
+        TypeId::of::<State>(),
+    );
 
     let candidate = tree.clone();
     scopes.get_mut(scope).unwrap().value = 2;
 
-    assert_eq!(tree.component_scope(component), Ok(scope));
-    assert_eq!(candidate.component_scope(component), Ok(scope));
-    assert_eq!(
-        candidate.component_type(component),
-        Ok(TypeId::of::<State>())
-    );
+    assert_eq!(tree.component_scope(component), scope);
+    assert_eq!(candidate.component_scope(component), scope);
+    assert_eq!(candidate.component_type(component), TypeId::of::<State>());
     assert_eq!(scopes.get(scope).unwrap().value, 2);
 }
 
 #[test]
 fn candidate_tree_clones_owned_node_payloads_on_write() {
     let mut tree = Tree::new();
-    let root = tree.insert(None, NodeKind::Application).unwrap();
+    let root = tree.insert(None, NodeKind::Application);
     let menu = Menu::new([MenuItem::item("old", "Old")], |_| {});
     let menu_callback = menu.on_click.clone();
-    let menu_node = tree
-        .insert_menu(Some(root), None, OwnedMenuKind::ButtonFlyout, menu)
-        .unwrap();
+    let menu_node = tree.insert_menu(Some(root), None, OwnedMenuKind::ButtonFlyout, menu);
     let flyout = CommandBarFlyout::new([CommandBarCommand::button("old", "Old")], [], |_| {});
     let flyout_callback = flyout.on_click.clone();
-    let flyout_node = tree
-        .insert_command_bar_flyout(Some(root), None, flyout)
-        .unwrap();
-    let tree_node = tree
-        .insert_tree_nodes(Some(root), None, Rc::new(vec![TreeNode::new("old", "Old")]))
-        .unwrap();
+    let flyout_node = tree.insert_command_bar_flyout(Some(root), None, flyout);
+    let tree_node =
+        tree.insert_tree_nodes(Some(root), None, Rc::new(vec![TreeNode::new("old", "Old")]));
 
     let mut candidate = tree.clone();
-    candidate
-        .update_menu(menu_node, Menu::new([MenuItem::item("new", "New")], |_| {}))
-        .unwrap();
-    candidate
-        .update_command_bar_flyout(
-            flyout_node,
-            CommandBarFlyout::new([CommandBarCommand::button("new", "New")], [], |_| {}),
-        )
-        .unwrap();
-    candidate
-        .update_tree_nodes(tree_node, Rc::new(vec![TreeNode::new("new", "New")]))
-        .unwrap();
+    candidate.update_menu(menu_node, Menu::new([MenuItem::item("new", "New")], |_| {}));
+    candidate.update_command_bar_flyout(
+        flyout_node,
+        CommandBarFlyout::new([CommandBarCommand::button("new", "New")], [], |_| {}),
+    );
+    candidate.update_tree_nodes(tree_node, Rc::new(vec![TreeNode::new("new", "New")]));
 
-    assert_eq!(tree.owned_revision(menu_node), Ok(1));
-    assert_eq!(tree.owned_revision(flyout_node), Ok(1));
-    assert_eq!(tree.owned_callback(menu_node), Ok(&menu_callback));
-    assert_eq!(tree.owned_callback(flyout_node), Ok(&flyout_callback));
+    assert_eq!(tree.owned_revision(menu_node), 1);
+    assert_eq!(tree.owned_revision(flyout_node), 1);
+    assert_eq!(tree.owned_callback(menu_node), &menu_callback);
+    assert_eq!(tree.owned_callback(flyout_node), &flyout_callback);
+    assert_eq!(tree.owned_menu(menu_node)[0].key(), &Key::from("old"));
     assert_eq!(
-        tree.owned_menu(menu_node).unwrap()[0].key(),
+        tree.owned_commands(flyout_node).0[0].key(),
         &Key::from("old")
     );
-    assert_eq!(
-        tree.owned_commands(flyout_node).unwrap().0[0].key(),
-        &Key::from("old")
-    );
-    assert_eq!(tree.tree_nodes(tree_node).unwrap()[0].key, Key::from("old"));
+    assert_eq!(tree.tree_nodes(tree_node)[0].key, Key::from("old"));
 
-    assert_eq!(candidate.owned_revision(menu_node), Ok(2));
-    assert_eq!(candidate.owned_revision(flyout_node), Ok(2));
+    assert_eq!(candidate.owned_revision(menu_node), 2);
+    assert_eq!(candidate.owned_revision(flyout_node), 2);
+    assert_eq!(candidate.owned_menu(menu_node)[0].key(), &Key::from("new"));
     assert_eq!(
-        candidate.owned_menu(menu_node).unwrap()[0].key(),
+        candidate.owned_commands(flyout_node).0[0].key(),
         &Key::from("new")
     );
-    assert_eq!(
-        candidate.owned_commands(flyout_node).unwrap().0[0].key(),
-        &Key::from("new")
-    );
-    assert_eq!(
-        candidate.tree_nodes(tree_node).unwrap()[0].key,
-        Key::from("new")
-    );
+    assert_eq!(candidate.tree_nodes(tree_node)[0].key, Key::from("new"));
 }
 
 #[test]
 fn rejects_second_root() {
     let mut tree = Tree::new();
-    tree.insert(None, NodeKind::Application).unwrap();
+    tree.insert(None, NodeKind::Application);
 
-    assert_eq!(
-        tree.insert(None, NodeKind::Application),
-        Err(TreeError::RootAlreadyExists)
+    assert!(
+        std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            _ = tree.insert(None, NodeKind::Application);
+        }))
+        .is_err()
     );
 }
 
@@ -216,24 +188,19 @@ fn rejects_second_root() {
 fn generic_insert_rejects_payload_bearing_kinds() {
     let mut tree = Tree::new();
 
-    assert_eq!(
-        tree.insert(None, NodeKind::Component),
-        Err(TreeError::IncompleteNode(NodeKind::Component))
-    );
-    assert_eq!(
-        tree.insert(None, NodeKind::Native(MountedKind::Button)),
-        Err(TreeError::IncompleteNode(NodeKind::Native(
-            MountedKind::Button
-        )))
-    );
-    assert_eq!(
-        tree.insert(None, NodeKind::VirtualCollection),
-        Err(TreeError::IncompleteNode(NodeKind::VirtualCollection))
-    );
-    assert_eq!(
-        tree.insert(None, NodeKind::Provider),
-        Err(TreeError::IncompleteNode(NodeKind::Provider))
-    );
+    for kind in [
+        NodeKind::Component,
+        NodeKind::Native(MountedKind::Button),
+        NodeKind::VirtualCollection,
+        NodeKind::Provider,
+    ] {
+        assert!(
+            std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                _ = tree.insert(None, kind);
+            }))
+            .is_err()
+        );
+    }
 }
 
 #[test]
@@ -241,82 +208,77 @@ fn set_kind_preserves_kind_specific_state() {
     struct Component;
 
     let mut scopes = ScopeArena::new();
-    let scope = scopes.reserve(Component).unwrap();
+    let scope = scopes.reserve(Component);
     let mut tree = Tree::new();
-    let root = tree.insert(None, NodeKind::Application).unwrap();
-    let component = tree
-        .insert_component(Some(root), None, scope, TypeId::of::<Component>())
-        .unwrap();
+    let root = tree.insert(None, NodeKind::Application);
+    let component = tree.insert_component(Some(root), None, scope, TypeId::of::<Component>());
 
-    assert_eq!(tree.set_kind(component, NodeKind::Component), Ok(()));
-    assert_eq!(
-        tree.set_kind(component, NodeKind::Fragment),
-        Err(TreeError::KindMismatch {
-            current: NodeKind::Component,
-            requested: NodeKind::Fragment,
-        })
+    tree.set_kind(component, NodeKind::Component);
+    assert!(
+        std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            tree.set_kind(component, NodeKind::Fragment);
+        }))
+        .is_err()
     );
-    assert_eq!(tree.component_node(scope), Ok(Some(component)));
-    assert_eq!(tree.component_scope(component), Ok(scope));
+    assert_eq!(tree.component_node(scope), Some(component));
+    assert_eq!(tree.component_scope(component), scope);
 }
 
 #[test]
 fn virtual_model_uses_its_arena_identity_for_leases() {
     let mut tree = Tree::new();
-    let application = tree.insert(None, NodeKind::Application).unwrap();
+    let application = tree.insert(None, NodeKind::Application);
     let collection = tree
         .insert_virtual(identity(), Some(application), [Key::from("a")])
         .unwrap();
 
     let lease = tree
         .virtual_model_mut(collection)
-        .unwrap()
         .realize(0, RealizedContainer(1))
         .unwrap();
 
     assert_eq!(lease.collection, collection);
-    tree.retire_subtree(collection).unwrap();
-    assert!(matches!(
-        tree.virtual_model(collection),
-        Err(TreeError::Arena(ArenaError::Stale(id))) if id == collection
-    ));
+    tree.retire_subtree(collection);
+    assert!(
+        std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            tree.virtual_model(collection)
+        }))
+        .is_err()
+    );
 }
 
 #[test]
 fn realized_container_mapping_cannot_be_overwritten() {
     let mut tree = Tree::new();
-    let application = tree.insert(None, NodeKind::Application).unwrap();
+    let application = tree.insert(None, NodeKind::Application);
     let collection = tree
         .insert_virtual(identity(), Some(application), [Key::from("a")])
         .unwrap();
     let first_parts = Element::from(TextBlock::new()).into_parts();
-    let first = tree
-        .insert_native(
-            Some(collection),
-            first_parts.kind,
-            None,
-            first_parts.props,
-            None,
-        )
-        .unwrap();
+    let first = tree.insert_native(
+        Some(collection),
+        first_parts.kind,
+        None,
+        first_parts.props,
+        None,
+    );
     let second_parts = Element::from(Button::new()).into_parts();
-    let second = tree
-        .insert_native(
-            Some(collection),
-            second_parts.kind,
-            None,
-            second_parts.props,
-            None,
-        )
-        .unwrap();
+    let second = tree.insert_native(
+        Some(collection),
+        second_parts.kind,
+        None,
+        second_parts.props,
+        None,
+    );
     let container = RealizedContainer(1);
 
-    tree.set_realized(collection, container, 0, first, Some(first))
-        .unwrap();
+    tree.set_realized(collection, container, 0, first, Some(first));
 
-    assert_eq!(
-        tree.set_realized(collection, container, 0, second, Some(second)),
-        Err(TreeError::RealizedConflict(container))
+    assert!(
+        std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            tree.set_realized(collection, container, 0, second, Some(second));
+        }))
+        .is_err()
     );
 }
 
@@ -326,46 +288,39 @@ fn detached_realized_row_remains_addressable_by_logical_root() {
     let collection = tree
         .insert_virtual(identity(), None, [Key::from("row")])
         .unwrap();
-    let logical = tree.insert(Some(collection), NodeKind::Fragment).unwrap();
+    let logical = tree.insert(Some(collection), NodeKind::Fragment);
     let parts = Element::from(TextBlock::new()).into_parts();
-    let native = tree
-        .insert_native(Some(logical), parts.kind, None, parts.props, None)
-        .unwrap();
+    let native = tree.insert_native(Some(logical), parts.kind, None, parts.props, None);
     let container = RealizedContainer(1);
 
-    tree.set_realized(collection, container, 0, logical, None)
-        .unwrap();
+    tree.set_realized(collection, container, 0, logical, None);
     assert_eq!(
         tree.realized_container_for_logical(collection, logical),
-        Ok(Some(container))
+        Some(container)
     );
-    assert_eq!(tree.realized_container(collection, native), Ok(None));
+    assert_eq!(tree.realized_container(collection, native), None);
 
-    tree.update_realized(collection, container, logical, Some(native))
-        .unwrap();
-    assert_eq!(
-        tree.realized_container(collection, native),
-        Ok(Some(container))
-    );
+    tree.update_realized(collection, container, logical, Some(native));
+    assert_eq!(tree.realized_container(collection, native), Some(container));
 }
 
 #[test]
 fn randomized_insert_and_retire_matches_tree_model() {
     let mut rng = Rng(0x5eed);
     let mut tree = Tree::new();
-    let root = tree.insert(None, NodeKind::Application).unwrap();
+    let root = tree.insert(None, NodeKind::Application);
     let mut live = vec![root];
     let mut parents = HashMap::from([(root, None)]);
 
     for _ in 0..5_000 {
         if live.len() == 1 || !rng.next().is_multiple_of(3) {
             let parent = live[rng.next() % live.len()];
-            let id = tree.insert(Some(parent), NodeKind::Slot).unwrap();
+            let id = tree.insert(Some(parent), NodeKind::Slot);
             live.push(id);
             assert_eq!(parents.insert(id, Some(parent)), None);
         } else {
             let victim = live[1 + rng.next() % (live.len() - 1)];
-            let retired = tree.retire_subtree(victim).unwrap();
+            let retired = tree.retire_subtree(victim);
             let retired_ids: HashSet<_> = retired.iter().map(|(id, _)| *id).collect();
             assert_eq!(retired.len(), retired_ids.len());
 
@@ -380,9 +335,9 @@ fn randomized_insert_and_retire_matches_tree_model() {
                 {
                     assert!(positions[&id] < *parent_position);
                 }
-                assert_eq!(
-                    tree.parent(id),
-                    Err(TreeError::Arena(ArenaError::Stale(id)))
+                assert!(
+                    std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| tree.parent(id)))
+                        .is_err()
                 );
             }
 
@@ -391,7 +346,7 @@ fn randomized_insert_and_retire_matches_tree_model() {
         }
 
         assert_eq!(tree.len(), live.len());
-        assert_eq!(tree.parent(root), Ok(None));
+        assert_eq!(tree.parent(root), None);
     }
 }
 

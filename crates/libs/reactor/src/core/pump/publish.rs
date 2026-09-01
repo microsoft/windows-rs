@@ -25,13 +25,6 @@ impl<R: NativeRuntime> Pump<R> {
         }
     }
 
-    pub(super) fn abort_frontend_candidate(&mut self, changes: &FrontendChanges) {
-        if let FrontendChanges::Component(changes) = changes {
-            Self::remove_reservations(&mut self.components, &changes.reserved);
-        }
-        self.fail_stop();
-    }
-
     pub(super) fn apply_native_commands(&mut self, commands: &[Command]) -> Result<(), PumpError> {
         if commands.is_empty() {
             return Ok(());
@@ -43,15 +36,14 @@ impl<R: NativeRuntime> Pump<R> {
         Ok(())
     }
 
-    fn apply_window_opens(&mut self, roots: Vec<View>) -> Result<(), PumpError> {
+    fn apply_window_opens(&mut self, roots: Vec<View>) {
         if roots.is_empty() {
-            return Ok(());
+            return;
         }
         if let Err(error) = self.runtime.open_windows(roots) {
             self.diagnostics
                 .push_back(PumpDiagnostic::WindowOpenRejected { error });
         }
-        Ok(())
     }
 
     pub(super) fn publish_candidate(
@@ -71,43 +63,28 @@ impl<R: NativeRuntime> Pump<R> {
             self.fail_frontend_planning(&changes, planning_failure);
             return Err(error);
         }
-        let prepared = match &mut changes {
+        match &mut changes {
             FrontendChanges::Component(changes) => self.prepare_component_effects(changes),
             FrontendChanges::Local { token, .. } => {
-                self.components.prepare_effects(*token).map_err(Into::into)
+                self.components.prepare_effects(*token);
             }
             #[cfg(test)]
-            FrontendChanges::Element(_) => Ok(()),
-        };
-        if let Err(error) = prepared {
-            self.abort_frontend_candidate(&changes);
-            return Err(error);
+            FrontendChanges::Element(_) => {}
         }
 
         if let Err(error) = self.apply_native_commands(&plan.commands) {
-            self.abort_frontend_candidate(&changes);
+            self.fail_frontend_planning(&changes, PlanningFailure::Discard);
             return Err(error);
         }
 
-        if let Err(error) = self.commit_candidate_properties(&mut candidate, &plan.commits) {
-            self.abort_frontend_candidate(&changes);
-            return Err(error);
-        }
-        if let Err(error) =
-            self.commit_candidate_references(&mut candidate, &plan.reference_commits)
-        {
-            self.abort_frontend_candidate(&changes);
-            return Err(error);
-        }
-        if let Err(error) = self.publish_frontend(candidate, &changes, &plan.reference_commits) {
-            self.abort_frontend_candidate(&changes);
-            return Err(error);
-        }
+        self.commit_candidate_properties(&mut candidate, &plan.commits);
+        self.commit_candidate_references(&mut candidate, &plan.reference_commits);
+        self.publish_frontend(candidate, &changes, &plan.reference_commits);
         self.diagnostics.extend(plan.diagnostics);
         self.native_observation_pending = false;
         self.last_native_observation = None;
         self.version = next_version;
-        self.apply_window_opens(plan.post_publish_windows)?;
+        self.apply_window_opens(plan.post_publish_windows);
         if commits_window_close {
             self.components.commit_window_close();
         }
@@ -119,9 +96,9 @@ impl<R: NativeRuntime> Pump<R> {
         candidate: CandidateState,
         changes: &FrontendChanges,
         reference_commits: &[ReferenceCommit],
-    ) -> Result<(), PumpError> {
+    ) {
         if let FrontendChanges::Component(changes) = changes {
-            self.finalize_component_changes(changes)?;
+            self.finalize_component_changes(changes);
         }
         match candidate {
             CandidateState::Tree { tree, root } => {
@@ -134,26 +111,25 @@ impl<R: NativeRuntime> Pump<R> {
                 exit_transition,
                 reference,
             } => {
-                let native = self.tree.native_mut(node)?;
+                let native = self.tree.native_mut(node);
                 native.desired = desired;
                 native.reference = reference;
-                self.tree.set_exit_transition(node, exit_transition)?;
+                self.tree.set_exit_transition(node, exit_transition);
             }
         }
         self.apply_reference_bindings(reference_commits);
         match changes {
             #[cfg(test)]
             FrontendChanges::Element(element) => self.element = Some(element.clone()),
-            FrontendChanges::Component(changes) => self.commit_component_effects(changes)?,
+            FrontendChanges::Component(changes) => self.commit_component_effects(changes),
             FrontendChanges::Local {
                 context_reads,
                 token,
             } => {
                 self.components
-                    .set_context_dependencies(*token, context_reads.clone())?;
-                self.components.commit_effects(*token)?;
+                    .set_context_dependencies(*token, context_reads.clone());
+                self.components.commit_effects(*token);
             }
         }
-        Ok(())
     }
 }
